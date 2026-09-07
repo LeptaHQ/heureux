@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "id": "c1-dense-time-reference",
+  "slug": "c1-dense-time-reference",
+  "cefr_level": "C1-preparation",
+  "topic": "verbs-tenses-moods",
+  "title": "Suivre le temps et les références dans un texte dense",
+  "summary": "Reconstruct event order, distinguish a reported plan from an accomplished fact, and identify exactly what a pronoun refers to.",
+  "order": 1,
+  "duration_minutes": 15,
+  "prerequisites": [],
+  "objectives": [
+    "Place events before, at or after a past reporting point.",
+    "Resolve a reference using grammar and meaning rather than proximity alone.",
+    "Summarise a dense notice without turning a condition or intention into a fact."
+  ],
+  "keywords": ["chronologie", "plus-que-parfait", "conditionnel", "référence", "antécédent", "reading", "reported future"],
+  "sources": [
+    {"label": "FEI TCF Canada: reading and production task demands, consulted 2026-09-07; not a grammar syllabus", "url": "https://www.france-education-international.fr/test/tcf-canada?langue=fr"}
+  ],
+  "related_legacy_ids": ["verbs-past-contrast", "verbs-conditional-si", "grammar-relative-pronouns", "prepositions-time-duration"],
+  "sections": [
+    {
+      "id": "time",
+      "title": "Build a timeline before interpreting the outcome",
+      "paragraphs": [
+        "This original bridge supports a user-selected NCLC 9+ goal across four TCF Canada skills. It is preparation, not an official complete C1 curriculum or a score guarantee. Its controlled questions measure the distinctions they actually ask about, not your overall reading or listening level.",
+        "The reporting point is the moment someone spoke or wrote. The pluperfect, a past form such as avait envoyé, places an event before another past point. The imperfect can describe the situation at that point. A conditional such as ouvrirait can report a future viewed from the past; it does not by itself mean that the opening was doubtful, nor prove that it happened.",
+        "First find dated anchors, then ask what was already done, what was ongoing, and what was still planned. A sentence introduced by si can make the plan conditional. The notice below is fictional: it gives no evidence about what actually happened in September."
+      ],
+      "points": [
+        "An earlier completed event and a later announced event must not collapse into one past event.",
+        "In a past report, le lendemain means the day after that reporting point, not necessarily tomorrow today."
+      ],
+      "examples": [
+        {"french": "Le 4 juin, la bibliothèque a annoncé qu'elle **ouvrirait** une salle d'étude en septembre. L'équipe **avait consulté** les usagers en mai, mais elle attendait encore la livraison du mobilier. Si celle-ci arrivait à temps, la salle accueillerait aussi des ateliers. La consultation avait révélé un besoin d'espaces calmes ; ce besoin ne justifiait toutefois pas, selon l'équipe, de supprimer les activités collectives.", "english": "On June 4, the library announced that it would open a study room in September. The team had consulted users in May, but it was still waiting for the furniture delivery. If that delivery arrived in time, the room would also host workshops. The consultation had revealed a need for quiet spaces; according to the team, however, that need did not justify ending group activities.", "note": "Consultation precedes the announcement; opening and workshops remain projected. Celle-ci refers to the delivery."},
+        {"french": "Quand le courriel est arrivé, nous **avions déjà réservé** la salle.", "english": "When the email arrived, we had already booked the room.", "note": "The booking predates the email; the order of clauses is not the event order."},
+        {"french": "Lundi, elle a expliqué qu'elle rappellerait **le lendemain**.", "english": "On Monday, she explained that she would call back the next day.", "note": "The promised callback is on Tuesday. The report does not confirm that she called."}
+      ],
+      "mistakes": [
+        {"avoid": "Si le mobilier arriverait à temps, la salle accueillerait des ateliers.", "prefer": "Si le mobilier arrivait à temps, la salle accueillerait des ateliers.", "why": "In this hypothetical condition, use si + imperfect, then conditional in the result. This does not ban every conditional after si: an indirect question is a different construction."}
+      ]
+    },
+    {
+      "id": "reference",
+      "title": "Find the antecedent, not merely the nearest noun",
+      "paragraphs": [
+        "An antecedent is the word or idea a later expression refers back to. Gender and number help: celui-ci is masculine singular, celle-ci feminine singular, ceux-ci masculine plural, celles-ci feminine plural. But agreement alone may leave several candidates; use the action and the surrounding argument.",
+        "Cela can refer to a whole event or claim. En may replace a de phrase; y may replace a place or an à phrase referring to a thing. Reconstruct the underlying expression before deciding what has been replaced. If two people could both be elle, repeat a name rather than pretending the pronoun is unambiguous."
+      ],
+      "points": [
+        "Keep a source's attribution: selon l'équipe marks the team's judgement, not an independently established conclusion.",
+        "Do not substitute dont for every relative pronoun. Dont represents a de relationship; que can be the direct object."
+      ],
+      "examples": [
+        {"french": "Le comité a étudié la proposition. Il **en** a retenu deux éléments.", "english": "The committee examined the proposal. It retained two elements from it.", "note": "En reconstructs de la proposition, not du comité."},
+        {"french": "La salle fermera plus tôt. **Cela** obligera le club à changer d'horaire.", "english": "The room will close earlier. That will force the club to change its schedule.", "note": "Cela refers to the earlier closing, not just to the room."},
+        {"french": "Nora a appelé Salomé après sa réunion. **Salomé** a proposé un autre horaire.", "english": "Nora called Salomé after her meeting. Salomé suggested another time.", "note": "The repeated name fixes who made the suggestion. Sa réunion remains ambiguous without more context; good reading can identify what is not specified."}
+      ],
+      "mistakes": [
+        {"avoid": "La décision dont le comité a annoncée concerne les ateliers.", "prefer": "La décision que le comité a annoncée concerne les ateliers.", "why": "The verb is annoncer une décision, with a direct object, not annoncer de. Que is that object; annoncée agrees with the preceding feminine object."}
+      ]
+    },
+    {
+      "id": "limits",
+      "title": "Carry certainty and conditions into a summary",
+      "paragraphs": [
+        "A reliable summary preserves what is asserted, what is attributed and what remains contingent. Report a proposal as a proposal. A future seen from a past viewpoint is not evidence of later completion.",
+        "Reading permits looking back at a reference chain. Listening requires holding it in memory while the next phrase arrives, recognising boundaries and hearing tense endings or a late correction. Read-aloud or a transcript can support study, but neither establishes comprehension of unfamiliar spoken audio."
+      ],
+      "points": [
+        "When a text does not settle an outcome, say that it does not settle it.",
+        "A shorter sentence can preserve nuance better than a long sentence with an unclear pronoun."
+      ],
+      "examples": [
+        {"french": "L'ouverture **était prévue** pour septembre ; le texte ne précise pas si elle a eu lieu.", "english": "The opening was planned for September; the text does not specify whether it took place.", "note": "The summary preserves the difference between a plan and its realisation."},
+        {"french": "Les ateliers dépendaient de la livraison, **et non** d'une nouvelle consultation.", "english": "The workshops depended on the delivery, not on a new consultation.", "note": "This excludes a tempting but unsupported condition."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "choice", "pool": "practice", "section_id": "time", "prompt": "In the library passage, which event happened first?", "choices": ["La consultation des usagers", "L'annonce du 4 juin", "L'ouverture de septembre"], "answers": ["La consultation des usagers"], "explanation": "The consultation occurred in May, before the June announcement. September's opening is only announced."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "time", "prompt": "Supply only consulter in the pluperfect: L'équipe ___ les usagers avant l'annonce.", "choices": [], "answers": ["avait consulté"], "explanation": "The consultation is complete before the past announcement."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "reference", "prompt": "In the library passage, copy the two-word noun phrase replaced by celle-ci.", "choices": [], "answers": ["la livraison"], "explanation": "A delivery can arrive on time. The condition is not about the team arriving."},
+    {"id": "item-04", "kind": "choice", "pool": "practice", "section_id": "limits", "prompt": "Which summary preserves the status of the workshops in the passage?", "choices": ["Les ateliers ont commencé en mai.", "Les ateliers étaient prévus sous condition.", "Les ateliers ont été annulés."], "answers": ["Les ateliers étaient prévus sous condition."], "explanation": "The furniture must arrive in time; neither opening nor cancellation is reported as a completed fact."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "time", "prompt": "Supply only partir in the pluperfect: Lorsque j'ai téléphoné, les bénévoles ___ depuis une heure.", "choices": [], "answers": ["étaient partis"], "explanation": "Their departure precedes the call. Partir uses être; the masculine plural subject gives partis."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "time", "prompt": "Supply only envoyer in the conditional present to report a later promise from a past viewpoint: Mardi, le responsable a promis qu'il ___ le plan vendredi.", "choices": [], "answers": ["enverrait"], "explanation": "Enverrait reports the promised future; it does not certify that the plan was sent."},
+    {"id": "item-07", "kind": "choice", "pool": "check", "section_id": "time", "prompt": "Read: Le 8 mars, l'atelier a annoncé qu'il reprendrait les réparations en avril. Une machine avait été commandée en février. Elle n'avait pas encore été livrée. Which statement is supported?", "choices": ["La commande précède l'annonce.", "Les réparations ont repris en février.", "La livraison est confirmée pour avril."], "answers": ["La commande précède l'annonce."], "explanation": "February precedes March. The passage announces a resumption but does not confirm its occurrence or a delivery date."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "reference", "prompt": "Read: Le service a reçu les factures après le devis. Celles-ci comportaient une erreur. Copy the two-word antecedent of celles-ci.", "choices": [], "answers": ["les factures"], "explanation": "The feminine plural demonstrative points to les factures, not the masculine singular devis."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "reference", "prompt": "Supply the relative pronoun: Le dossier ___ vous avez besoin se trouve à l'accueil.", "choices": [], "answers": ["dont"], "explanation": "Avoir besoin de supplies the de relationship represented by dont."},
+    {"id": "item-10", "kind": "text", "pool": "check", "section_id": "time", "prompt": "Read: Jeudi, on lui a dit de revenir le lendemain. Supply only the French weekday of the requested return.", "choices": [], "answers": ["vendredi"], "explanation": "Le lendemain is anchored to Thursday, so the requested return is Friday."},
+    {"id": "item-11", "kind": "choice", "pool": "check", "section_id": "reference", "prompt": "Read: Inès a croisé Farah devant son bureau. Without more context, whose office is it?", "choices": ["Celui d'Inès, nécessairement", "Celui de Farah, nécessairement", "Le texte ne permet pas de trancher."], "answers": ["Le texte ne permet pas de trancher."], "explanation": "Son agrees with bureau, not with the owner. Either woman could be the owner."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "limits", "prompt": "Copy only the condition, starting with si and without the final full stop: Le service serait prolongé si des conducteurs étaient disponibles.", "choices": [], "answers": ["si des conducteurs étaient disponibles"], "explanation": "The condition is driver availability; prolongation is not reported as a fact."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "reference", "prompt": "Read: Les résidents ont discuté du jardin. Ils en ont approuvé l'aménagement. Restore only the de phrase represented by en.", "choices": [], "answers": ["du jardin"], "explanation": "They approved l'aménagement du jardin. The source of en is the de complement."},
+    {"id": "item-14", "kind": "text", "pool": "review", "section_id": "time", "prompt": "Supply only rester in the imperfect: Si la demande ___ stable, le centre conserverait cet horaire.", "choices": [], "answers": ["restait"], "explanation": "This hypothetical condition uses the imperfect after si; conserverait belongs in the result."},
+    {"id": "item-15", "kind": "choice", "pool": "review", "section_id": "limits", "prompt": "Read: À la réunion de janvier, l'association prévoyait un marché en mai. Le compte rendu ne mentionne aucune décision ultérieure. What can you conclude?", "choices": ["Le marché a certainement eu lieu.", "Le marché a été interdit.", "Un marché était envisagé, sans résultat confirmé ici."], "answers": ["Un marché était envisagé, sans résultat confirmé ici."], "explanation": "The reported intention is clear; its later outcome remains unknown."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "reference", "prompt": "Read: Le sentier est fermé. Cela oblige les marcheurs à faire un détour. Copy the complete first sentence that cela refers back to.", "choices": [], "answers": ["Le sentier est fermé.", "Le sentier est fermé"], "explanation": "The need for a detour follows from the closure, not merely from the existence of a path."}
+  ],
+  "production_task": {
+    "prompt": "Original situation: On Monday, a community centre announced a Saturday repair workshop, provided that a volunteer confirmed availability by Thursday. Tools had been delivered the previous Friday. No later update is available. Write a 90–120-word message to a neighbour: reconstruct the sequence, distinguish confirmed information from the condition, and suggest how to check before travelling. Self-review only; do not copy the model.",
+    "model_answer": "Bonjour Malik,\nLe centre a annoncé lundi qu'il organiserait un atelier de réparation samedi, à condition qu'une bénévole confirme sa disponibilité avant jeudi. Les outils avaient déjà été livrés le vendredi précédent : leur livraison ne semble donc pas être l'obstacle. En revanche, je n'ai trouvé aucun message confirmant la présence de la bénévole. Il serait prématuré de dire que l'atelier est maintenu, mais rien n'indique non plus qu'il est annulé. Avant de nous déplacer, nous pourrions appeler l'accueil vendredi pour connaître la décision. Si l'atelier a bien lieu, je te propose de nous retrouver devant le centre.",
+    "translation": "Hello Malik,\nThe centre announced on Monday that it would hold a repair workshop on Saturday, provided that a volunteer confirmed her availability before Thursday. The tools had already been delivered the previous Friday, so their delivery does not seem to be the obstacle. However, I have not found any message confirming the volunteer's presence. It would be premature to say that the workshop is going ahead, but nothing indicates that it has been cancelled either. Before travelling, we could call reception on Friday to find out the decision. If the workshop does take place, I suggest meeting outside the centre.",
+    "rubric": [
+      "I distinguish the previous Friday's delivery, Monday's announcement, Thursday's condition and Saturday's proposed event.",
+      "I do not invent a confirmation, cancellation or explanation for the volunteer's situation.",
+      "Each pronoun has an identifiable reference; my tenses preserve event order.",
+      "My neighbour knows what to check and when. I assess this message with the rubric, not a keyword score or an NCLC conversion."
+    ]
+  }
+}

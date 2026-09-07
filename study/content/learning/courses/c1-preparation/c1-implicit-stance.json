@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "id": "c1-implicit-stance",
+  "slug": "c1-implicit-stance",
+  "cefr_level": "C1-preparation",
+  "topic": "communication-expressions",
+  "title": "Comprendre les réserves derrière un accord apparent",
+  "summary": "Separate concession, restriction, attributed judgement and defensible inference in everyday public debate.",
+  "order": 2,
+  "duration_minutes": 15,
+  "prerequisites": ["c1-dense-time-reference"],
+  "objectives": [
+    "Identify which part of a concession carries the writer's main reservation.",
+    "Preserve the scope of negation and qualifying expressions.",
+    "Distinguish an inference supported by wording from an invented motive."
+  ],
+  "keywords": ["implicite", "concession", "certes", "pour autant", "ne que", "stance", "inference", "hedging"],
+  "sources": [
+    {"label": "FEI TCF Canada: understanding positions and arguing a viewpoint, consulted 2026-09-07", "url": "https://www.france-education-international.fr/test/tcf-canada?langue=fr"}
+  ],
+  "related_legacy_ids": ["connectors-concession", "expressions-hedging-possibility", "negation-core", "verbs-subjunctive"],
+  "sections": [
+    {
+      "id": "concession",
+      "title": "Acknowledging a benefit is not unconditional approval",
+      "paragraphs": [
+        "A concession accepts a point that might support the other side, then limits what follows from it. In certes... mais..., the first part is acknowledged; the second often carries the writer's deciding reservation. Ne... pas pour autant means that one fact does not, on that basis alone, justify the next conclusion.",
+        "Bien que introduces a conceded fact with the subjunctive, a verb mood selected by this construction; that does not make the fact imaginary. Même si normally takes the indicative and can mean even if or even though depending on context. Read the whole argument rather than assigning a fixed attitude to one connector."
+      ],
+      "points": [
+        "In the original passage, the writer favours wider access but challenges an online-only method.",
+        "L'accès (m.) means access; une démarche (f.) here is a practical procedure, not necessarily a legal process."
+      ],
+      "examples": [
+        {"french": "**Certes**, réserver une activité en ligne évite parfois un déplacement. Il serait pourtant regrettable que cette possibilité devienne le seul moyen de s'inscrire. Une permanence téléphonique ne résoudrait pas toutes les difficultés, mais elle offrirait un recours aux personnes mal à l'aise avec le formulaire. Le problème n'est donc pas l'outil lui-même : c'est l'absence d'autre choix.", "english": "Admittedly, booking an activity online sometimes avoids a trip. Yet it would be regrettable if that option became the only way to register. A telephone help service would not solve every difficulty, but it would offer an alternative to people uncomfortable with the form. So the problem is not the tool itself: it is the absence of another choice.", "note": "The final contrast locates the objection precisely; this is not a rejection of all digital tools."},
+        {"french": "Le formulaire est plus court ; il n'est **pas pour autant** facile à comprendre.", "english": "The form is shorter; that does not make it easy to understand.", "note": "Shortness is accepted; the inference from short to easy is rejected."},
+        {"french": "**Bien que** le service soit utile, son horaire exclut certains usagers.", "english": "Although the service is useful, its schedule excludes some users.", "note": "Soit follows bien que. The usefulness is conceded, not denied."}
+      ],
+      "mistakes": [
+        {"avoid": "Bien que le service est utile, son horaire pose problème.", "prefer": "Bien que le service soit utile, son horaire pose problème.", "why": "Use the subjunctive after bien que in this careful standard sentence; the concession can concern a real fact."}
+      ]
+    },
+    {
+      "id": "scope",
+      "title": "Preserve how much the claim actually says",
+      "paragraphs": [
+        "Scope is the part of a statement affected by a word such as not, only or some. Tous ne... pas means not all, not none. Ne... que restricts to only; it is not the same as ne... pas. Pas nécessairement rejects inevitability, without asserting that the opposite is always true.",
+        "Peut, semble and selon mark possibility, appearance or attribution. Removing them can turn a cautious or attributed claim into a stronger assertion. A qualifier is useful when it identifies the real limit: who, under which conditions, or with what degree of certainty."
+      ],
+      "points": [
+        "Aucun usager n'a répondu means no user replied; tous les usagers n'ont pas répondu leaves open that some did.",
+        "Do not treat a cautious statement as worthless merely because it is not absolute."
+      ],
+      "examples": [
+        {"french": "**Tous** les habitants **ne** peuvent **pas** venir le soir.", "english": "Not all residents can come in the evening.", "note": "Some may be able to attend; the sentence does not say nobody can."},
+        {"french": "Le guichet **ne** reçoit **que** sur rendez-vous.", "english": "The service desk sees people only by appointment.", "note": "The restriction concerns the conditions of reception, not whether the desk operates."},
+        {"french": "**Selon** l'équipe, cet horaire **pourrait** faciliter l'accueil.", "english": "According to the team, this schedule could make it easier to serve users.", "note": "Both the source and the tentative modal must survive a faithful summary."}
+      ],
+      "mistakes": [
+        {"avoid": "Aucun des bénévoles ont refusé de participer.", "prefer": "Aucun des bénévoles n'a refusé de participer.", "why": "Aucun is the singular subject despite the plural de complement. In careful writing, include ne with aucun in this negative construction."}
+      ]
+    },
+    {
+      "id": "inference",
+      "title": "Infer a position without inventing a motive",
+      "paragraphs": [
+        "An inference is a conclusion supported by clues rather than stated in exactly those words. In the passage, support for keeping an alternative registration channel is well supported. A claim that the author dislikes technology is not.",
+        "In listening, stress, pauses and intonation can change how apparent praise is understood. A written phrase alone is not enough to establish irony. With unfamiliar audio, identify the words and the speaker's delivery before deciding; rereading this transcript or using synthetic speech is not independent listening evidence."
+      ],
+      "points": [
+        "Test an inference against every part of the passage, including the opening concession.",
+        "When tone is underdetermined, preserve the uncertainty instead of guessing a hidden emotion."
+      ],
+      "examples": [
+        {"french": "« C'est pratique, **à condition de** disposer d'une connexion. »", "english": "\"It is convenient, provided you have an internet connection.\"", "note": "The condition limits the praise; no sarcastic tone has to be invented."},
+        {"french": "L'auteur demande une solution complémentaire ; il **ne réclame pas** la suppression du site.", "english": "The author asks for an additional solution; they are not calling for the website to be removed.", "note": "This interpretation preserves both the concession and the objection."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "choice", "pool": "practice", "section_id": "concession", "prompt": "What is the main objection in the online-registration passage?", "choices": ["L'existence d'un site", "L'absence de solution de remplacement", "La gratuité des activités"], "answers": ["L'absence de solution de remplacement"], "explanation": "The passage explicitly locates the problem in having no other choice."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "concession", "prompt": "Supply only être in the required mood: Bien que le formulaire ___ court, il reste difficile.", "choices": [], "answers": ["soit"], "explanation": "Bien que selects the subjunctive; the form's shortness is still conceded."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "scope", "prompt": "Copy the single word marking attribution: Selon l'équipe, cet horaire pourrait faciliter l'accueil.", "choices": [], "answers": ["Selon"], "explanation": "Selon identifies whose judgement is being reported."},
+    {"id": "item-04", "kind": "choice", "pool": "practice", "section_id": "inference", "prompt": "Which inference is supported by the registration passage?", "choices": ["L'auteur refuse toute réservation en ligne.", "L'auteur veut préserver plusieurs façons de s'inscrire.", "L'auteur connaît le nombre exact de personnes exclues."], "answers": ["L'auteur veut préserver plusieurs façons de s'inscrire."], "explanation": "The telephone alternative fits the argument. Neither universal opposition nor an exact count appears."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "concession", "prompt": "Use only the two-word expression taught for 'not on that basis alone': Le trajet est plus rapide ; il n'est pas ___ moins fatigant.", "choices": [], "answers": ["pour autant"], "explanation": "Pas pour autant denies that greater speed by itself establishes reduced fatigue."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "scope", "prompt": "Replace ne... que with seulement; write the complete sentence: La salle n'ouvre que le samedi.", "choices": [], "answers": ["La salle ouvre seulement le samedi.", "La salle ouvre seulement le samedi"], "explanation": "Ne... que restricts opening to Saturday; it does not negate opening."},
+    {"id": "item-07", "kind": "choice", "pool": "check", "section_id": "scope", "prompt": "What follows from Tous les participants n'ont pas reçu le message?", "choices": ["Aucun participant ne l'a reçu.", "Au moins un participant ne l'a pas reçu.", "Tous les participants l'ont reçu."], "answers": ["Au moins un participant ne l'a pas reçu."], "explanation": "Not all received it. The sentence alone does not tell us exactly how many did."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "scope", "prompt": "Supply only the auxiliary and negation for careful writing: Aucun des ateliers ___ été annulé.", "choices": [], "answers": ["n'a"], "explanation": "Aucun is singular and pairs with ne; the vowel gives n'a."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "concession", "prompt": "Supply only rester in the present indicative: Même si le prix ___ modeste, certaines familles hésitent.", "choices": [], "answers": ["reste"], "explanation": "This même si clause uses the indicative, unlike bien que."},
+    {"id": "item-10", "kind": "choice", "pool": "check", "section_id": "inference", "prompt": "Read: Le prêt d'outils évite des achats inutiles. Encore faut-il que les horaires permettent aux salariés de venir. What is the writer doing?", "choices": ["Refuser le principe du prêt", "Soutenir le principe tout en posant une condition pratique", "Affirmer que tous les salariés sont disponibles"], "answers": ["Soutenir le principe tout en posant une condition pratique"], "explanation": "Encore faut-il adds a condition needed for the acknowledged benefit to be accessible."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "scope", "prompt": "Copy the two-word qualifier that prevents an absolute conclusion: Un service plus rapide n'est pas nécessairement plus accessible.", "choices": [], "answers": ["pas nécessairement"], "explanation": "The writer rejects an automatic relationship, not every possibility of improved access."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "inference", "prompt": "Read: L'idée me plaît, mais je souhaite un essai avant toute décision définitive. Copy the exact noun phrase, including its article, naming what the speaker wants first.", "choices": [], "answers": ["un essai"], "explanation": "The reservation concerns implementation without a trial; it is not outright rejection."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "concession", "prompt": "Supply only avoir in the required mood: Bien que les résidents ___ été consultés, certaines questions restent ouvertes.", "choices": [], "answers": ["aient"], "explanation": "Aient été consultés is a past subjunctive passive following bien que."},
+    {"id": "item-14", "kind": "choice", "pool": "review", "section_id": "scope", "prompt": "Read: Le covoiturage peut réduire les frais de certains trajets. Which reformulation is faithful?", "choices": ["Le covoiturage réduit toujours tous les frais.", "Une économie est possible pour une partie des trajets.", "Aucun trajet ne coûte moins cher."], "answers": ["Une économie est possible pour une partie des trajets."], "explanation": "Both possibility and limited scope are retained."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "inference", "prompt": "Copy the restriction starting with à and without a final full stop: Je soutiens cette ouverture, à condition de préserver un espace calme.", "choices": [], "answers": ["à condition de préserver un espace calme"], "explanation": "Support is conditional on protecting quiet space, not unconditional."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "scope", "prompt": "Keep the uncertainty: replace the conditional verb with the present of pouvoir + infinitive. Supply only the replacement for améliorerait in Cet essai améliorerait l'accueil.", "choices": [], "answers": ["peut améliorer"], "explanation": "Peut améliorer retains a possible improvement instead of asserting améliore."}
+  ],
+  "production_task": {
+    "prompt": "Original situation: A local sports centre proposes booking all classes through an app. Write 90–120 words for its feedback form. Acknowledge one practical benefit, explain a specific reservation without inventing statistics, and propose a workable alternative. Self-review only: multiple defensible positions are possible.",
+    "model_answer": "La réservation par application pourrait être utile aux personnes qui souhaitent choisir un cours en dehors des heures d'ouverture. Je suis donc favorable à cette possibilité. Elle ne devrait toutefois pas devenir obligatoire. Une personne peut disposer d'un téléphone sans être à l'aise avec chaque étape de l'inscription. Il me semblerait raisonnable de conserver un accueil téléphonique à des heures clairement annoncées. Certes, cette solution demanderait une organisation supplémentaire, mais elle éviterait de confondre rapidité du service et accessibilité pour tous. Avant de généraliser le dispositif, le centre pourrait recueillir les difficultés rencontrées pendant une période d'essai.",
+    "translation": "Booking through an app could be useful for people who want to choose a class outside opening hours. I therefore support having that option. However, it should not become compulsory. Someone may have a phone without being comfortable with every registration step. It would seem reasonable to me to retain telephone assistance at clearly announced times. Admittedly, that solution would require extra organisation, but it would avoid confusing speed of service with accessibility for everyone. Before rolling out the system, the centre could collect reports of difficulties encountered during a trial period.",
+    "rubric": [
+      "My concession is sincere and relevant; my reservation does not contradict it.",
+      "Words such as some, may or only have the intended scope.",
+      "I propose a concrete alternative and avoid invented motives or statistics.",
+      "I review clarity, accuracy and task fulfilment myself; a constrained quiz cannot independently assess this open response."
+    ]
+  }
+}

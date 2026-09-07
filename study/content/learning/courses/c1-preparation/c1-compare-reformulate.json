@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "id": "c1-compare-reformulate",
+  "slug": "c1-compare-reformulate",
+  "cefr_level": "C1-preparation",
+  "topic": "exam-writing",
+  "title": "Comparer deux sources sans les déformer",
+  "summary": "Reformulate two short viewpoints, identify shared aims and genuine disagreements, then distinguish your own position.",
+  "order": 3,
+  "duration_minutes": 15,
+  "prerequisites": ["c1-dense-time-reference", "c1-implicit-stance"],
+  "objectives": [
+    "Attribute each idea to the right source and preserve its limits.",
+    "Compare viewpoints around a shared criterion rather than writing two disconnected summaries.",
+    "Add a justified personal position without presenting it as source evidence."
+  ],
+  "keywords": ["reformulation", "synthèse", "comparaison", "sources", "attribution", "writing", "point de vue"],
+  "sources": [
+    {"label": "FEI TCF Canada: writing task 3 comparison and personal position, consulted 2026-09-07", "url": "https://www.france-education-international.fr/test/tcf-canada?langue=fr"},
+    {"label": "FEI evaluation: linguistic, pragmatic and sociolinguistic criteria, consulted 2026-09-07", "url": "https://www.france-education-international.fr/article/evaluation-epreuves-tcf"}
+  ],
+  "related_legacy_ids": ["writing-structured-argumentation", "connectors-simultaneity-contrast", "expressions-opinion-preference", "grammar-relative-pronouns"],
+  "sections": [
+    {
+      "id": "sources",
+      "title": "Read for position, reason and limit",
+      "paragraphs": [
+        "The two texts below are original fictional contributions to a neighbourhood discussion, not official exam questions or reports of real results. For each source, identify the proposal, its reason and any qualification. A reformulation changes the wording or sentence structure while preserving that meaning.",
+        "Source A favours late opening on two evenings, with quiet protected. Source B does not reject evening access: it proposes testing one evening first because staffing must be considered. Their common aim and their difference both matter."
+      ],
+      "points": [
+        "Une permanence (f.) here is a staffed service period; un créneau (m.) is a time slot.",
+        "Do not add measured savings, demand levels or outcomes that neither source supplies."
+      ],
+      "examples": [
+        {"french": "Source A — « La bibliothèque devrait ouvrir plus tard deux soirs par semaine. Quand on travaille jusqu'à dix-sept heures, on peut difficilement y passer avant la fermeture. Il ne s'agit pas d'y organiser davantage d'animations, mais de permettre d'emprunter un livre ou de travailler au calme. Un espace silencieux devrait donc rester disponible pendant ces soirées. »", "english": "Source A — \"The library should stay open later two evenings a week. When you work until five, it is hard to get there before closing. The point is not to organise more events there, but to allow people to borrow a book or work quietly. A silent area should therefore remain available on those evenings.\"", "note": "The proposal concerns access and quiet, not an expanded events programme."},
+        {"french": "Source B — « Un horaire élargi peut rendre service, mais il suppose du personnel disponible. Avant de prévoir deux soirées, essayons un seul créneau tardif pendant quelques semaines. Demandons aussi aux usagers quels services ils recherchent à cette heure-là. Si ce créneau répond à un besoin réel sans fragiliser l'accueil en journée, nous pourrons envisager de l'étendre. »", "english": "Source B — \"Longer hours can be helpful, but they require available staff. Before planning two evenings, let us try one late slot for a few weeks. Let us also ask users which services they want at that time. If this slot meets a real need without weakening daytime service, we can consider extending it.\"", "note": "An initial trial and conditions are proposed; a permanent refusal is not."},
+        {"french": "La première contribution **préconise** deux ouvertures tardives afin de faciliter l'accès après le travail.", "english": "The first contribution advocates two late openings to make access easier after work.", "note": "Préconiser means to advocate a course of action; it does not mean that the action has already happened."}
+      ],
+      "mistakes": [
+        {"avoid": "La première contribution propose de la bibliothèque ouvre plus tard.", "prefer": "La première contribution propose que la bibliothèque ouvre plus tard.", "why": "Use proposer que + subject + subjunctive for this finite clause, or proposer d'ouvrir when using an infinitive. Do not combine de with a finite subject and verb."}
+      ]
+    },
+    {
+      "id": "compare",
+      "title": "Organise the comparison around a question",
+      "paragraphs": [
+        "Instead of repeating A then B without a link, ask one shared question: how should evening access be expanded? Both see potential value; they differ on the scale and the timing of implementation. Comparison can reveal partial agreement, not just opposition.",
+        "Tandis que and alors que can express contrast here; in other contexts they express simultaneous time. Tous deux or toutes deux refers to two entities with the appropriate gender. Dont replaces a de relationship, including parler de or avoir besoin de. Preserve the relation, not just the noun."
+      ],
+      "points": [
+        "A reporting verb is a meaning choice: propose is not proves, fears is not demonstrates.",
+        "Use source labels or explicit noun phrases when le premier or celui-ci could be unclear."
+      ],
+      "examples": [
+        {"french": "Les deux contributions reconnaissent l'intérêt d'un accès en soirée, **mais elles diffèrent sur** le rythme de mise en place.", "english": "Both contributions recognise the value of evening access, but they differ on the pace of implementation.", "note": "One sentence captures both common ground and the real difference."},
+        {"french": "A souhaite deux soirées, **tandis que** B recommande d'en tester une seule au départ.", "english": "A wants two evenings, whereas B recommends testing just one initially.", "note": "Au départ prevents a temporary limit from becoming a permanent rejection."},
+        {"french": "Le personnel **dont** B souligne la nécessité n'est pas évoqué dans A.", "english": "The staff whose necessity B highlights are not mentioned in A.", "note": "Dont represents la nécessité du personnel. Silence in A is not proof that A opposes staffing."}
+      ],
+      "mistakes": [
+        {"avoid": "Les deux contributions reconnaît l'intérêt d'un horaire élargi.", "prefer": "Les deux contributions reconnaissent l'intérêt d'un horaire élargi.", "why": "The plural subject les deux contributions requires the plural verb reconnaissent."}
+      ]
+    },
+    {
+      "id": "position",
+      "title": "Make the boundary between summary and opinion visible",
+      "paragraphs": [
+        "After a faithful comparison, signal your own judgement with pour ma part or à mon avis. Support it with a reason and a concrete implementation detail. You can combine parts of both proposals without claiming that either author made your combined proposal.",
+        "FEI writing task 3 asks for a comparison of two supplied viewpoints and a personal position in 120–180 words. The original task here practises that combination, not an official response template. All three official writing tasks share 60 minutes. Follow the specific instructions on the real task, including any requested organisation; this lesson does not replace them."
+      ],
+      "points": [
+        "A concise comparison still needs each source's distinctive idea.",
+        "The open task is self-review. Neither copied connectors nor matching content words can earn an automatic NCLC score."
+      ],
+      "examples": [
+        {"french": "**Pour ma part**, je commencerais par une soirée, tout en garantissant un espace silencieux.", "english": "For my part, I would begin with one evening while guaranteeing a silent area.", "note": "The writer explicitly owns the combined recommendation."},
+        {"french": "Cette formule permettrait d'observer les besoins **sans présenter l'essai comme une solution définitive**.", "english": "This arrangement would allow needs to be observed without presenting the trial as a final solution.", "note": "The benefit is conditional, not a fabricated result."}
+      ],
+      "mistakes": []
+    }
+  ],
+  "practice": [
+    {"id": "item-01", "kind": "choice", "pool": "practice", "section_id": "sources", "prompt": "Which statement faithfully represents source B?", "choices": ["B refuse toute ouverture en soirée.", "B propose un essai limité avant une éventuelle extension.", "B affirme que deux soirées ont déjà été testées."], "answers": ["B propose un essai limité avant une éventuelle extension."], "explanation": "B recommends testing one late slot and expanding only if conditions are met."},
+    {"id": "item-02", "kind": "text", "pool": "practice", "section_id": "sources", "prompt": "From source A, copy the three-word noun phrase naming the kind of space to preserve.", "choices": [], "answers": ["un espace silencieux"], "explanation": "Quiet is part of A's proposal; omitting it loses a meaningful condition."},
+    {"id": "item-03", "kind": "text", "pool": "practice", "section_id": "compare", "prompt": "Supply only reconnaître in the present: Les deux textes ___ l'utilité d'un accès en soirée.", "choices": [], "answers": ["reconnaissent"], "explanation": "The plural verb agrees with les deux textes."},
+    {"id": "item-04", "kind": "choice", "pool": "practice", "section_id": "position", "prompt": "Which opening clearly marks the learner's own position rather than attributing it to the sources?", "choices": ["Les deux auteurs prouvent que", "Pour ma part, je proposerais", "Le texte A affirme que"], "answers": ["Pour ma part, je proposerais"], "explanation": "Pour ma part separates the writer's recommendation from the source summary."},
+    {"id": "item-05", "kind": "text", "pool": "check", "section_id": "compare", "prompt": "Complete with the two-word contrast connector beginning with tandis: L'un propose un accueil libre, ___ l'autre préfère des rendez-vous.", "choices": [], "answers": ["tandis que"], "explanation": "Tandis que introduces a contrast between proposals here, not simultaneous actions."},
+    {"id": "item-06", "kind": "text", "pool": "check", "section_id": "sources", "prompt": "Read: La note conseille une inscription facultative. Copy the single word that must not become obligatoire in a summary.", "choices": [], "answers": ["facultative"], "explanation": "Optional registration is not mandatory registration; the qualifier is central."},
+    {"id": "item-07", "kind": "choice", "pool": "check", "section_id": "compare", "prompt": "Read these new sources: A: Un jardin partagé créerait des rencontres ; chaque membre choisirait ses horaires. B: Je soutiens le jardin, mais quelques permanences communes faciliteraient l'entretien. What is the real disagreement?", "choices": ["L'existence du jardin", "L'organisation de la participation", "Le prix des légumes"], "answers": ["L'organisation de la participation"], "explanation": "Both support the garden; they differ on individual flexibility versus some common staffed periods."},
+    {"id": "item-08", "kind": "text", "pool": "check", "section_id": "compare", "prompt": "Supply the relative pronoun: Voici les moyens ___ les deux associations ont besoin.", "choices": [], "answers": ["dont"], "explanation": "Avoir besoin de requires dont when that de complement becomes relative."},
+    {"id": "item-09", "kind": "text", "pool": "check", "section_id": "sources", "prompt": "Change only the linking word: L'auteur propose de les usagers soient consultés. Supply the word that replaces de.", "choices": [], "answers": ["que"], "explanation": "Proposer que introduces the finite clause les usagers soient consultés."},
+    {"id": "item-10", "kind": "choice", "pool": "check", "section_id": "sources", "prompt": "A source says: Le prêt pourrait éviter certains achats. Which summary preserves certainty and scope?", "choices": ["Le prêt évite tous les achats.", "Le prêt permettrait de limiter une partie des achats.", "Le prêt a supprimé les achats."], "answers": ["Le prêt permettrait de limiter une partie des achats."], "explanation": "The conditional and limited quantity preserve the original possibility and scope."},
+    {"id": "item-11", "kind": "text", "pool": "check", "section_id": "compare", "prompt": "Use the feminine two-entity expression taught: Les deux propositions sont prudentes ; ___ prévoient un essai. Supply only the two words.", "choices": [], "answers": ["toutes deux"], "explanation": "Toutes deux refers to the two feminine plural propositions."},
+    {"id": "item-12", "kind": "text", "pool": "check", "section_id": "position", "prompt": "Read: Le premier texte demande un accueil régulier. À mon avis, un essai mensuel serait préférable. Copy only the three-word expression introducing the writer's own judgement.", "choices": [], "answers": ["À mon avis"], "explanation": "The trial recommendation belongs to the writer, not automatically to the first source."},
+    {"id": "item-13", "kind": "text", "pool": "review", "section_id": "compare", "prompt": "Use the verb differ in the present: Les deux avis ___ sur la durée du projet. Supply only différer.", "choices": [], "answers": ["diffèrent"], "explanation": "Diffèrent reports a specific disagreement without inventing complete opposition."},
+    {"id": "item-14", "kind": "choice", "pool": "review", "section_id": "sources", "prompt": "Read: A proposes a free bicycle workshop. B discusses only opening hours. Which statement about B is justified?", "choices": ["B refuse la gratuité.", "B approuve explicitement la gratuité.", "B ne se prononce pas ici sur le prix."], "answers": ["B ne se prononce pas ici sur le prix."], "explanation": "Silence on cost establishes neither approval nor rejection."},
+    {"id": "item-15", "kind": "text", "pool": "review", "section_id": "sources", "prompt": "Keep the condition in this summary. Copy from si to the end, without a final full stop: La formule sera élargie si les bénévoles restent disponibles.", "choices": [], "answers": ["si les bénévoles restent disponibles"], "explanation": "Removing the condition would turn a contingent expansion into an unconditional promise."},
+    {"id": "item-16", "kind": "text", "pool": "review", "section_id": "position", "prompt": "Supply only commencer in the conditional present for a personal recommendation: Pour ma part, je ___ par consulter les usagers.", "choices": [], "answers": ["commencerais"], "explanation": "The conditional presents a recommendation rather than a report about either source."}
+  ],
+  "production_task": {
+    "prompt": "Use the two original library sources in this lesson. For a neighbourhood newsletter, write 120–180 words comparing their viewpoints and giving your own reasoned position. Preserve the agreement, difference and conditions; do not invent survey findings. Try without the model, then self-review. This is original format-oriented preparation, not an official exam question or independently scored writing.",
+    "model_answer": "Les deux contributions voient un intérêt à ouvrir la bibliothèque plus tard. La première souhaite deux soirées pour les personnes qui travaillent, avec un espace silencieux. La seconde insiste sur les moyens humains et propose de commencer par un seul créneau. Leur désaccord porte donc surtout sur le rythme de mise en place, et non sur le principe d'un accès en soirée.\nPour ma part, je privilégierais un essai limité, à condition que son horaire soit annoncé assez tôt. Les usagers pourraient ainsi organiser leur venue, tandis que l'équipe observerait les services réellement demandés. Il faudrait aussi préserver le calme souhaité dans le premier texte. Après quelques semaines, un bilan associant le personnel et les usagers permettrait de discuter d'une extension. Cette démarche ne garantit pas le succès, mais elle évite de choisir un horaire définitif sans examiner ses effets sur l'accueil en journée.",
+    "translation": "Both contributions see value in keeping the library open later. The first wants two evenings for people who work, with a silent area. The second stresses staffing resources and proposes starting with just one slot. Their disagreement therefore mainly concerns the pace of implementation, not the principle of evening access.\nFor my part, I would favour a limited trial, provided its schedule is announced early enough. Users could then organise their visits, while the team would observe which services are actually requested. The quiet space requested in the first text would also need to be preserved. After a few weeks, a review involving staff and users would allow an extension to be discussed. This approach does not guarantee success, but it avoids choosing a permanent schedule without examining its effects on daytime service.",
+    "rubric": [
+      "I preserve A's two evenings and quiet area, and B's initial single slot, staffing concern and conditional extension.",
+      "I state common ground and a genuine difference rather than manufacturing opposite positions.",
+      "My own recommendation is marked and justified; additions are not falsely attributed to a source.",
+      "I check the 120–180-word range and the actual instruction, then review cohesion and grammar. This is self-review, not an automatic TCF or NCLC score."
+    ]
+  }
+}

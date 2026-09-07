@@ -7,7 +7,14 @@ import re
 from collections import Counter
 from pathlib import Path
 
-from django.test import SimpleTestCase
+from django.test import SimpleTestCase, TestCase
+from django.urls import reverse
+from django.utils.html import escape
+
+from study.course_content import load_course_catalog
+from study.models import CourseAttempt, CourseProduction, LearningLessonProgress
+
+from . import factories
 
 
 ROOT = Path(__file__).resolve().parents[1] / "content" / "learning"
@@ -218,3 +225,67 @@ class CourseBundleTests(SimpleTestCase):
                     serialized,
                     re.compile(r"\b(?:TODO|TBD|FIXME)\b|https?://example\.(?:com|org)"),
                 )
+
+
+class CourseBundleViewTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        cls.user = factories.make_user("course-bundle-reader")
+
+    def setUp(self):
+        self.client.force_login(self.user)
+
+    def test_every_authored_lesson_renders_its_actual_sections_and_practice_link(self):
+        catalog = load_course_catalog()
+        self.assertTrue(catalog.lessons)
+        for lesson in catalog.lessons:
+            with self.subTest(lesson=lesson.id):
+                response = self.client.get(
+                    reverse("study:course_lesson", args=[lesson.slug]),
+                    {"level": lesson.cefr_level},
+                )
+                self.assertContains(response, f"<h1>{escape(lesson.title)}</h1>")
+                self.assertEqual(response.context["lesson"].id, lesson.id)
+                self.assertContains(
+                    response,
+                    reverse("study:course_practice", args=[lesson.slug]),
+                )
+                for section in lesson.sections:
+                    self.assertContains(
+                        response,
+                        f'data-annotation-source-key="learn:{lesson.id}:{section.id}"',
+                    )
+        self.assertFalse(
+            LearningLessonProgress.objects.filter(
+                user=self.user, completed_at__isnull=False
+            ).exists()
+        )
+        self.assertFalse(CourseAttempt.objects.filter(user=self.user).exists())
+
+    def test_every_practice_overview_opens_without_consuming_an_item_bank(self):
+        for lesson in load_course_catalog().lessons:
+            with self.subTest(lesson=lesson.id):
+                response = self.client.get(
+                    reverse("study:course_practice", args=[lesson.slug])
+                )
+                self.assertContains(response, "Controlled grammar practice")
+                self.assertEqual(response.context["lesson"].id, lesson.id)
+                self.assertContains(
+                    response,
+                    reverse("study:course_production_create", args=[lesson.slug]),
+                )
+        self.assertFalse(CourseAttempt.objects.filter(user=self.user).exists())
+        self.assertFalse(CourseProduction.objects.filter(user=self.user).exists())
+
+    def test_every_published_reference_route_keeps_its_annotation_roots(self):
+        for published in read_json(ROOT / "legacy_manifest.json")["lessons"]:
+            with self.subTest(lesson=published["id"]):
+                response = self.client.get(
+                    reverse("study:learn_lesson", args=[published["slug"]])
+                )
+                self.assertEqual(response.status_code, 200)
+                self.assertEqual(response.context["lesson"].id, published["id"])
+                for key in published["annotation_keys"]:
+                    self.assertContains(
+                        response, f'data-annotation-source-key="{key}"'
+                    )

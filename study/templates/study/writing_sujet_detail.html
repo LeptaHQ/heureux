@@ -58,7 +58,10 @@
 
       {% if has_personal %}
         <section class="card section-card section-card--personal" aria-labelledby="t1-personal-label">
-          <div class="spine-label" id="t1-personal-label">Ma version <span class="chip chip--accent">Personnelle</span></div>
+          <div class="response-batches__head">
+            <div class="spine-label" id="t1-personal-label">Ma version <span class="chip chip--accent">Personnelle</span></div>
+            {% include "study/partials/response_copy_button.html" with source_id="ee-writing-response-content" response_key="personal" label="Copier ma réponse" label_hidden=True only %}
+          </div>
           <div
             class="t1-response__body"
             data-annotation-root
@@ -71,7 +74,12 @@
             <div class="t1-versions__list">
               {% for version in model_versions %}
                 <section class="card section-card section-card--model">
-                  {% if model_versions|length > 1 %}<div class="spine-label">Version {{ forloop.counter }}</div>{% else %}<div class="spine-label">Réponse modèle</div>{% endif %}
+                  <div class="response-batches__head">
+                    {% if model_versions|length > 1 %}<div class="spine-label">Version {{ forloop.counter }}</div>{% else %}<div class="spine-label">Réponse modèle</div>{% endif %}
+                    {% with number=forloop.counter|stringformat:"s" %}
+                      {% include "study/partials/response_copy_button.html" with source_id="ee-writing-response-content" response_key="model-"|add:number label="Copier la réponse modèle, version "|add:number label_hidden=True only %}
+                    {% endwith %}
+                  </div>
                   <div
                     class="t1-response__body"
                     data-annotation-root
@@ -84,7 +92,10 @@
         {% endif %}
       {% elif primary_version %}
         <section class="card section-card section-card--model" aria-labelledby="t1-model-label">
-          <div class="spine-label" id="t1-model-label">Réponse modèle</div>
+          <div class="response-batches__head">
+            <div class="spine-label" id="t1-model-label">Réponse modèle</div>
+            {% include "study/partials/response_copy_button.html" with source_id="ee-writing-response-content" response_key="model-1" label="Copier la réponse modèle" label_hidden=True only %}
+          </div>
           <div
             class="t1-response__body"
             data-annotation-root
@@ -97,7 +108,12 @@
             <div class="t1-versions__list">
               {% for version in other_versions %}
                 <section class="card section-card section-card--model">
-                  <div class="spine-label">Version {{ forloop.counter|add:1 }}</div>
+                  <div class="response-batches__head">
+                    <div class="spine-label">Version {{ forloop.counter|add:1 }}</div>
+                    {% with number=forloop.counter|add:1|stringformat:"s" %}
+                      {% include "study/partials/response_copy_button.html" with source_id="ee-writing-response-content" response_key="model-"|add:number label="Copier la réponse modèle, version "|add:number label_hidden=True only %}
+                    {% endwith %}
+                  </div>
                   <div
                     class="t1-response__body"
                     data-annotation-root
@@ -170,6 +186,7 @@
   </div>
 </div>
 {{ prompt|json_script:"ee-writing-subject-content" }}
+{{ response_copy_texts|json_script:"ee-writing-response-content" }}
 {% endblock %}
 
 {% block scripts %}

@@ -3740,8 +3740,18 @@ def response_detail(request, part_slug, task_slug, prompt_id):
     ee_response_origin = "original"
     ee_subject_instruction = ""
     ee_subject_copy_text = ""
+    ee_response_copy_text = ""
     source_documents_html = response.body_html
     if ee_response:
+        if response_content.position or response_content.position_claire:
+            ee_response_copy_text = "\n\n".join(
+                part for part in (
+                    response_content.reformulation,
+                    response_content.position,
+                    response_content.position_claire,
+                )
+                if part
+            )
         if response.content_key in (
             content_module.load_ee_tache_three_author_responses()
         ):
@@ -3832,6 +3842,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             "ee_response_origin": ee_response_origin,
             "ee_subject_instruction": ee_subject_instruction,
             "ee_subject_copy_text": ee_subject_copy_text,
+            "ee_response_copy_text": ee_response_copy_text,
             "source_documents_html": source_documents_html,
             "prompts": prompts,
             "card": card,
@@ -4059,6 +4070,12 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
     )[canonical.pk]
     explicitly_completed = writing_progress.explicitly_completed
     model_versions = canonical.model_versions
+    response_copy_texts = {
+        f"model-{number}": version["body"]
+        for number, version in enumerate(model_versions, 1)
+    }
+    if personal is not None:
+        response_copy_texts["personal"] = personal.body
     siblings = list(
         WritingSujet.objects.filter(
             task=task,
@@ -4119,6 +4136,7 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
             "writing_progress": writing_progress,
             "explicitly_completed": explicitly_completed,
             "model_versions": model_versions,
+            "response_copy_texts": response_copy_texts,
             "primary_version": model_versions[0] if model_versions else None,
             "other_versions": model_versions[1:],
             "other_version_count": max(len(model_versions) - 1, 0),

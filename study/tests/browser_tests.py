@@ -34,6 +34,7 @@ from study.models import (
     PhraseTier,
     PersonalQuestionResponse,
     PersonalResponse,
+    PersonalWritingResponse,
     Rating,
     ReviewLog,
     ReviewSession,
@@ -350,6 +351,82 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         command._sync_cards(response_by_key, user=self.user)
         return task_by_slug["eo/tache-2"]
+
+    def test_writing_response_copy_buttons_copy_each_model_and_personal_text(self):
+        self.context.add_init_script(
+            """
+            Object.defineProperty(navigator, "clipboard", {
+              configurable: true,
+              value: { writeText: text => {
+                window.__copiedResponse = text;
+                return Promise.resolve();
+              }}
+            });
+            """
+        )
+        part = factories.make_part("ee")
+        for tache in (1, 2):
+            task = factories.make_task(part, f"tache-{tache}")
+            versions = (
+                "Bonjour,\n\nVoici ma première version.\nMerci !",
+                "Une autre version.\n\nAvec ses propres paragraphes.",
+            )
+            sujet = factories.make_writing_sujet(task, versions=versions)
+            detail_url = self.live_server_url + reverse(
+                "study:writing_sujet_detail", args=["ee", task.slug, sujet.pk]
+            )
+            for personal in (False, True):
+                expected = {
+                    f"model-{number}": body
+                    for number, body in enumerate(versions, 1)
+                }
+                if personal:
+                    body = "Ma version privée.\n\nLes caractères < > & sont conservés."
+                    PersonalWritingResponse.objects.create(
+                        user=self.user, sujet=sujet, body=body
+                    )
+                    expected["personal"] = body
+                self.page.goto(detail_url)
+                self.page.locator(".t1-versions > summary").click()
+                for key, text in expected.items():
+                    button = self.page.locator(
+                        '[data-prompt-copy-source="ee-writing-response-content"]'
+                        f'[data-prompt-copy-key="{key}"]'
+                    )
+                    button.click()
+                    self.page.wait_for_function(
+                        "expected => window.__copiedResponse === expected",
+                        arg=text,
+                    )
+                    self.assertEqual(self.page.url, detail_url)
+                self.assert_no_horizontal_overflow()
+
+    def test_task_three_copies_the_complete_answer_without_source_documents(self):
+        self.context.add_init_script(
+            """
+            Object.defineProperty(navigator, "clipboard", {
+              configurable: true,
+              value: { writeText: text => {
+                window.__copiedResponse = text;
+                return Promise.resolve();
+              }}
+            });
+            """
+        )
+        _, task = self._import_ee_tache_three_content()
+        card = self.user.study_cards.filter(response__theme__task=task).first()
+        response = card.response
+        self.page.goto(self.live_server_url + response_detail_url(response))
+        self.page.locator(
+            '[data-prompt-copy-source="ee-tache-three-response-content"]'
+        ).click()
+        self.page.wait_for_function(
+            "expected => window.__copiedResponse === expected",
+            arg="\n\n".join(
+                (response.reformulation, response.position, response.position_claire)
+            ),
+        )
+        self.assert_no_horizontal_overflow()
 
     def test_tache_one_question_response_editor_saves_and_reopens(self):
         task = Command()._import_sections(load_sections())["eo/tache-1"]

@@ -1080,6 +1080,40 @@ class EeTacheThreePageTests(TestCase):
             "family",
         ).get(content_key=self.months[0].combinaisons[0].content_key)
 
+    def test_copy_packet_contains_only_the_effective_written_response(self):
+        prompt = self._first_prompt()
+        for personal in (False, True):
+            with self.subTest(personal=personal):
+                if personal:
+                    PersonalResponse.objects.create(
+                        user=self.user,
+                        response=prompt.response,
+                        reformulation="Mon titre",
+                        position="Ma synthèse.\nDeuxième ligne.",
+                        position_claire="Mon avis <personnel>.",
+                    )
+                page = self.client.get(prompt_detail_url(prompt))
+                self.assertEqual(page.status_code, 200)
+                effective = page.context["response_content"]
+                expected = "\n\n".join(
+                    (effective.reformulation, effective.position, effective.position_claire)
+                )
+                self.assertEqual(page.context["ee_response_copy_text"], expected)
+                payload = re.search(
+                    r'<script id="ee-tache-three-response-content" type="application/json">(.*?)</script>',
+                    page.content.decode(),
+                    re.DOTALL,
+                )
+                self.assertIsNotNone(payload)
+                self.assertEqual(json.loads(payload.group(1)), expected)
+                self.assertContains(
+                    page,
+                    'data-prompt-copy-source="ee-tache-three-response-content"',
+                    count=1,
+                )
+                self.assertNotIn("Document 1", expected)
+                self.assertNotIn("Copier la réponse", expected)
+
     def test_audited_paraphrases_share_links_response_and_progress(self):
         payload = json.loads(
             (

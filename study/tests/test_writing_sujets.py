@@ -213,6 +213,14 @@ class WritingSujetViewTests(TestCase):
             self.assertContains(page, "Invitez Cédric au château.")
             self.assertContains(page, "À rédiger")
 
+    def test_subject_without_a_response_has_no_response_copy_button(self):
+        page = self.client.get(self._detail_url(self.empty))
+        self.assertEqual(page.status_code, 200)
+        self.assertEqual(page.context["response_copy_texts"], {})
+        self.assertNotContains(
+            page, 'data-prompt-copy-source="ee-writing-response-content"'
+        )
+
     def test_subject_directory_search_finds_writing_prompts(self):
         directory = self.client.get(
             reverse("study:task_browse", args=["ee", "tache-1"])

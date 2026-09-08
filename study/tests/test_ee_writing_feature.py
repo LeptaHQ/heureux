@@ -1115,6 +1115,54 @@ class EeWritingPageTests(TestCase):
                     ).exists()
                 )
 
+    def test_each_writing_response_version_has_its_own_plain_text_copy(self):
+        other_user = factories.make_user("other-response-copy-user")
+        for tache in (1, 2):
+            task = self.tasks[tache]
+            sujet = next(
+                sujet
+                for sujet in WritingSujet.objects.filter(task=task, is_active=True)
+                if len(sujet.model_versions) > 1
+            )
+            PersonalWritingResponse.objects.create(
+                user=other_user, sujet=sujet, body="Réponse privée d'un autre compte."
+            )
+            expected = {
+                f"model-{number}": version["body"]
+                for number, version in enumerate(sujet.model_versions, 1)
+            }
+            for has_personal in (False, True):
+                with self.subTest(tache=tache, personal=has_personal):
+                    if has_personal:
+                        body = "Bonjour !\n\nTexte <personnel> & fidèle.\n</script>"
+                        PersonalWritingResponse.objects.create(
+                            user=self.user, sujet=sujet, body=body
+                        )
+                        expected["personal"] = body
+                    page = self.client.get(
+                        reverse(
+                            "study:writing_sujet_detail",
+                            args=["ee", task.slug, sujet.pk],
+                        )
+                    )
+                    self.assertEqual(page.status_code, 200)
+                    self.assertEqual(page.context["response_copy_texts"], expected)
+                    payload = re.search(
+                        r'<script id="ee-writing-response-content" type="application/json">(.*?)</script>',
+                        page.content.decode(),
+                        re.DOTALL,
+                    )
+                    self.assertIsNotNone(payload)
+                    self.assertEqual(json.loads(payload.group(1)), expected)
+                    self.assertContains(
+                        page,
+                        'data-prompt-copy-source="ee-writing-response-content"',
+                        count=len(expected),
+                    )
+                    for key in expected:
+                        self.assertContains(page, f'data-prompt-copy-key="{key}"')
+                    self.assertNotContains(page, "Réponse privée d'un autre compte.")
+
     def test_barbara_subjects_display_shared_versions_links_and_progress(self):
         task = self.tasks[1]
         canonical, alias = [

@@ -28,6 +28,11 @@
     {% if ee_response %}
       {% include "study/partials/ee_subject_consigne.html" with title_id="ee-tache-three-subject-title" subject_text=ee_subject_instruction subject_source_id="ee-tache-three-subject-content" only %}
 
+      {% if ee_response_copy_text %}
+        <div>
+          {% include "study/partials/response_copy_button.html" with source_id="ee-tache-three-response-content" button_class="btn btn--sm prompt-copy-button" only %}
+        </div>
+      {% endif %}
       <div class="answer-columns" data-annotation-root data-annotation-source-key="response:{{ response.content_key }}">
       {% for warning in ee_source_warnings %}
         <div class="notice">{{ warning }}</div>
@@ -224,6 +229,7 @@
 {% include "study/partials/prompt_navigation.html" with bottom=True %}
 {% if ee_response %}
   {{ ee_subject_copy_text|json_script:"ee-tache-three-subject-content" }}
+  {{ ee_response_copy_text|json_script:"ee-tache-three-response-content" }}
 {% endif %}
 {% endblock %}
 

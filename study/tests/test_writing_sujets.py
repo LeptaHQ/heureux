@@ -450,9 +450,10 @@ class WritingSujetViewTests(TestCase):
             reverse("study:task_detail", args=["ee", "tache-1"])
         )
 
-        self.assertContains(page, "subject-row-hit-area")
-        self.assertContains(page, "subject-table-row-link")
-        self.assertContains(page, "data-writing-sujet-completion-form")
+        self.assertContains(page, "data-subject-collection-row", count=3)
+        self.assertContains(page, "subject-table-row-link", count=3)
+        self.assertContains(page, "data-writing-sujet-completion-form", count=3)
+        self.assertNotContains(page, "data-collection-view-panel")
 
     def test_account_export_and_reset_include_owned_writing_progress(self):
         personal = PersonalWritingResponse.objects.create(

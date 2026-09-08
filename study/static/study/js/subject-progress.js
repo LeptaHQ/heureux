@@ -1,26 +1,13 @@
 (function () {
   "use strict";
 
-  var forms = document.querySelectorAll("[data-subject-completion-form]");
-  if (!forms.length) return;
-
   var toast = document.querySelector("[data-subject-progress-toast]");
-  var statusClasses = [
-    "progress-status--new",
-    "progress-status--active",
-    "progress-status--done"
-  ];
+  var statuses = ["new", "active", "done"];
 
   function showError(message) {
     if (!toast) return;
     toast.textContent = message;
-    toast.classList.remove("hidden");
-  }
-
-  function clearError() {
-    if (!toast) return;
-    toast.textContent = "";
-    toast.classList.add("hidden");
+    toast.classList.toggle("hidden", !message);
   }
 
   function readJson(response) {
@@ -36,117 +23,144 @@
     });
   }
 
-  function matchingForms(responseId) {
-    return document.querySelectorAll(
-      '[data-subject-completion-form][data-subject-response-id="' +
-        responseId +
-        '"]'
-    );
-  }
+  function setupCompletion(config) {
+    var prefix = "data-" + config.prefix;
+    var formSelector = "[" + prefix + "-completion-form]";
+    if (!document.querySelector(formSelector)) return;
 
-  function setPending(responseId, pending) {
-    matchingForms(responseId).forEach(function (form) {
-      var button = form.querySelector("button");
-      form.dataset.pending = pending ? "true" : "false";
-      if (!button) return;
-      button.disabled = pending;
-      if (pending) {
-        button.setAttribute("aria-busy", "true");
-      } else {
-        button.removeAttribute("aria-busy");
-      }
-    });
-  }
-
-  function setStatus(element, status, label) {
-    element.classList.remove.apply(element.classList, statusClasses);
-    element.classList.add("progress-status--" + status);
-    element.textContent = label;
-  }
-
-  function updatePage(data) {
-    var responseId = String(data.response_id);
-    var completed = data.completed;
-    matchingForms(responseId).forEach(function (form) {
-      var input = form.querySelector("[data-subject-completed-input]");
-      var button = form.querySelector("button");
-      form.classList.toggle("is-complete", completed);
-      if (input) input.value = completed ? "0" : "1";
-      if (!button) return;
-      var subjectLabel = button.dataset.subjectLabel || "ce sujet";
-      button.setAttribute("aria-checked", completed ? "true" : "false");
-      button.setAttribute(
-        "aria-label",
-        (completed
-          ? "Marquer ce sujet comme non terminé : "
-          : "Marquer ce sujet comme terminé : ") + subjectLabel
+    function matchingForms(id) {
+      return document.querySelectorAll(
+        formSelector + "[" + config.idAttribute + '="' + id + '"]'
       );
-      button.title = completed
-        ? "Sujet terminé"
-        : "Marquer comme terminé";
-    });
+    }
 
-    document.querySelectorAll(
-      '[data-subject-progress-status="' + responseId + '"]'
-    ).forEach(function (status) {
-      setStatus(status, data.subject.status, data.subject.label);
-    });
-    document.querySelectorAll(
-      '[data-subject-progress-control="' + responseId + '"]'
-    ).forEach(function (control) {
-      control.classList.toggle("is-complete", completed);
-    });
-    document.querySelectorAll(
-      '[data-subject-progress-row="' + responseId + '"]'
-    ).forEach(function (row) {
-      ["new", "active", "done"].forEach(function (status) {
-        row.classList.remove("subject-progress-row--" + status);
-        row.classList.remove("tache-two-subject-card--" + status);
+    function matchingProgress(kind, id) {
+      return document.querySelectorAll(
+        "[" + prefix + "-progress-" + kind + '="' + id + '"]'
+      );
+    }
+
+    function setPending(id, pending) {
+      matchingForms(id).forEach(function (form) {
+        var button = form.querySelector("button");
+        form.dataset.pending = pending ? "true" : "false";
+        if (!button) return;
+        button.disabled = pending;
+        if (pending) {
+          button.setAttribute("aria-busy", "true");
+        } else {
+          button.removeAttribute("aria-busy");
+        }
       });
-      row.classList.add("subject-progress-row--" + data.subject.status);
-      if (row.classList.contains("tache-two-subject-card")) {
-        row.classList.add(
-          "tache-two-subject-card--" + data.subject.status
+    }
+
+    function updatePage(data) {
+      var id = String(data[config.idField]);
+      var completed = data.completed;
+      var progress = data[config.progressField];
+      matchingForms(id).forEach(function (form) {
+        var input = form.querySelector("[" + prefix + "-completed-input]");
+        var button = form.querySelector("button");
+        form.classList.toggle("is-complete", completed);
+        if (input) input.value = completed ? "0" : "1";
+        if (!button) return;
+        var label = button.getAttribute(prefix + "-label") || "ce sujet";
+        button.setAttribute("aria-checked", completed ? "true" : "false");
+        button.setAttribute(
+          "aria-label",
+          (completed
+            ? "Marquer ce sujet comme non terminé : "
+            : "Marquer ce sujet comme terminé : ") + label
         );
-      }
-    });
-  }
+        button.title = completed
+          ? "Sujet terminé"
+          : "Marquer comme terminé";
+      });
 
-  document.addEventListener("submit", function (event) {
-    var form = event.target.closest("[data-subject-completion-form]");
-    if (!form) return;
-    event.preventDefault();
-    if (form.dataset.pending === "true") return;
+      matchingProgress("status", id).forEach(function (element) {
+        statuses.forEach(function (status) {
+          element.classList.remove("progress-status--" + status);
+        });
+        element.classList.add("progress-status--" + progress.status);
+        element.textContent = progress.label;
+      });
+      matchingProgress("control", id).forEach(function (control) {
+        control.classList.toggle("is-complete", completed);
+      });
+      matchingProgress("row", id).forEach(function (row) {
+        var rowClass = config.prefix + "-progress-row";
+        statuses.forEach(function (status) {
+          row.classList.remove(rowClass + "--" + status);
+          row.classList.remove("is-status-" + status);
+          if (config.extraRowClass) {
+            row.classList.remove(config.extraRowClass + "--" + status);
+          }
+        });
+        row.classList.add(rowClass + "--" + progress.status);
+        row.classList.add("is-status-" + progress.status);
+        if (config.extraRowClass && row.classList.contains(config.extraRowClass)) {
+          row.classList.add(config.extraRowClass + "--" + progress.status);
+        }
+      });
+    }
 
-    var responseId = form.dataset.subjectResponseId;
-    var csrf = form.querySelector("input[name='csrfmiddlewaretoken']");
-    clearError();
-    setPending(responseId, true);
+    if (config.eventName) {
+      document.addEventListener(config.eventName, function (event) {
+        if (event.detail) updatePage(event.detail);
+      });
+    }
 
-    fetch(form.action, {
-      method: "POST",
-      body: new FormData(form),
-      credentials: "same-origin",
-      headers: {
-        "Accept": "application/json",
-        "X-CSRFToken": csrf.value,
-        "X-Requested-With": "fetch"
-      }
-    })
-      .then(readJson)
-      .then(function (data) {
-        updatePage(data);
-        if (form.dataset.subjectCompletionRefresh === "true") {
-          window.location.reload();
+    document.addEventListener("submit", function (event) {
+      var form = event.target.closest(formSelector);
+      if (!form) return;
+      event.preventDefault();
+      if (form.dataset.pending === "true") return;
+
+      var id = form.getAttribute(config.idAttribute);
+      var csrf = form.querySelector("input[name='csrfmiddlewaretoken']");
+      showError("");
+      setPending(id, true);
+
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        credentials: "same-origin",
+        headers: {
+          "Accept": "application/json",
+          "X-CSRFToken": csrf.value,
+          "X-Requested-With": "fetch"
         }
       })
-      .catch(function (error) {
-        showError(
-          error.message || "Impossible d’enregistrer cette progression."
-        );
-      })
-      .finally(function () {
-        setPending(responseId, false);
-      });
+        .then(readJson)
+        .then(function (data) {
+          updatePage(data);
+          if (form.getAttribute(prefix + "-completion-refresh") === "true") {
+            window.location.reload();
+          }
+        })
+        .catch(function (error) {
+          showError(
+            error.message || "Impossible d’enregistrer cette progression."
+          );
+        })
+        .finally(function () {
+          setPending(id, false);
+        });
+    });
+  }
+
+  setupCompletion({
+    prefix: "subject",
+    idAttribute: "data-subject-response-id",
+    idField: "response_id",
+    progressField: "subject",
+    extraRowClass: "tache-two-subject-card"
+  });
+  setupCompletion({
+    prefix: "writing-sujet",
+    idAttribute: "data-writing-sujet-id",
+    idField: "sujet_id",
+    progressField: "sujet",
+    eventName: "heureux:writing-sujet-progress"
   });
 })();

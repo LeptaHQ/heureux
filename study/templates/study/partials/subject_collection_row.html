@@ -1,0 +1,44 @@
+<tr
+  class="t1-table__row subject-collection-row subject-progress-row subject-table-row is-status-{{ subject.progress.status }}{% if kind == 'writing' %} writing-sujet-progress-row writing-sujet-progress-row--{{ subject.progress.status }}{% else %} subject-progress-row--{{ subject.progress.status }}{% endif %}{% if subject.is_personalized %} is-personalized{% endif %}"
+  role="row"
+  data-subject-collection-row
+  data-nested-sort-row
+  {% if kind == "ee3" %}data-ee-tache-three-subject-row{% else %}data-t1-table-subject{% endif %}
+  {% if kind == "writing" %}data-writing-sujet-progress-row="{{ progress_sujet.pk }}"{% else %}data-subject-progress-row="{{ response_id }}"{% endif %}>
+  <td class="t1-table__subject" role="cell">
+    <div class="t1-table__subject-copy">
+      <a class="subject-table-row-link" href="{{ href }}" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir le sujet : {{ title|truncatechars:120 }}">{{ title }}</a>
+      {% if prompt_source %}
+        {% include "study/partials/prompt_copy_button.html" with button_class="icon-button prompt-copy-button" source_id=prompt_source prompt_key=prompt_key label="Copier la consigne" subject_label=title label_hidden=True only %}
+      {% endif %}
+    </div>
+    <span class="t1-table__subject-date">
+      {% if legacy %}
+        {% if not subject.is_personalized %}{% if subject.has_model_response %}Réponse modèle{% else %}<span class="badge-soon">À rédiger</span>{% endif %}{% endif %}
+      {% elif kind == "eo2" %}
+        {{ subject.month_name }} · Batch {{ subject.batch_number|stringformat:"02d" }} · Sujet {{ subject.number_label }}
+      {% elif kind == "writing" %}
+        {{ subject.source.month_name }} {{ subject.source.year }}
+      {% else %}
+        {{ subject.month_name }} {{ subject.year }}
+      {% endif %}
+      {% if subject.equivalent_count %} · <span class="chip">{{ subject.equivalent_count|add:1 }} publications liées</span>{% endif %}
+      {% if subject.has_source_issue %} · <span class="chip">Source signalée</span>{% endif %}
+      {% if subject.is_personalized %}{% if not legacy %} · {% endif %}<span class="chip chip--accent">Personnalisé</span>{% endif %}
+    </span>
+  </td>
+  <td class="t1-table__versions t1-table__questions" role="cell">
+    {% if legacy and not subject.has_model_response %}—{% elif kind == "eo2" %}{{ subject.question_count }}<span class="subject-collection__count-label"> question{{ subject.question_count|pluralize }}</span>{% elif kind == "writing" %}{{ subject.version_count }}<span class="subject-collection__count-label"> version{{ subject.version_count|pluralize }}</span>{% else %}{{ subject.document_count }} docs · {{ subject.vocabulary_count }} vocabs{% endif %}
+  </td>
+  <td class="t1-table__progress-cell" role="cell">
+    <div class="t1-table__progress">
+      <span class="progress-status progress-status--{{ subject.progress.status }}" {% if kind == "writing" %}data-writing-sujet-progress-status="{{ progress_sujet.pk }}"{% else %}data-subject-progress-status="{{ response_id }}"{% endif %}>{{ subject.progress.label }}</span>
+      {% if kind == "writing" %}
+        {% include "study/partials/writing_sujet_completion_form.html" with sujet=progress_sujet completed=subject.explicitly_completed subject_label=subject.prompt part=part task=task refresh=True %}
+      {% else %}
+        {% include "study/partials/subject_completion_form.html" with response_id=response_id progress=subject.progress subject_label=title part=part task=task refresh=True %}
+      {% endif %}
+      <span class="subject-collection__arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+    </div>
+  </td>
+</tr>

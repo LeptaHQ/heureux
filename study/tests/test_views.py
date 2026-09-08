@@ -169,7 +169,6 @@ class PWATests(TestCase):
             "study/js/selection-toolbar.js",
             "study/js/annotations.js",
             "study/js/subject-progress.js",
-            "study/js/writing-sujet-progress.js",
             "study/js/comprehension-progress.js",
             "study/icons/ui-icons.svg",
         ):
@@ -1258,7 +1257,7 @@ class EeTacheThreePageTests(TestCase):
         self.assertContains(
             response,
             "data-ee-tache-three-subject-row",
-            count=276,
+            count=138,
         )
         self.assertContains(response, "data-nested-sort-table", count=11)
         self.assertContains(
@@ -1272,8 +1271,10 @@ class EeTacheThreePageTests(TestCase):
             count=11,
         )
         self.assertContains(response, "data-nested-sort-row", count=138)
-        self.assertContains(response, 'data-collection-view-panel="table"')
-        self.assertContains(response, 'data-collection-view-panel="cards"')
+        self.assertContains(response, "data-subject-collection-row", count=138)
+        self.assertContains(response, "data-subject-progress-row=", count=138)
+        self.assertContains(response, "data-subject-completion-form", count=138)
+        self.assertNotContains(response, "data-collection-view-panel")
         self.assertContains(response, "data-collection-view-toggle")
         self.assertContains(response, "thèmes restent repliables")
         self.assertContains(response, "publications liées")

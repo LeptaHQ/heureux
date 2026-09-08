@@ -3,11 +3,13 @@ from __future__ import annotations
 import json
 import os
 from dataclasses import replace
+from io import StringIO
 from unittest import mock
 from urllib.parse import parse_qs, urlsplit
 
 from django.contrib.sessions.models import Session
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from django.core.management import call_command
 from django.test import override_settings
 from django.urls import reverse
 from playwright.sync_api import expect, sync_playwright
@@ -585,6 +587,240 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assert_no_horizontal_overflow()
 
+    def test_subject_collections_reuse_rows_and_controls_in_both_views(self):
+        self.theme.delete()
+        call_command("import_content", stdout=StringIO())
+        provision_user_study_data(self.user)
+        self.context.add_init_script(
+            """
+            Object.defineProperty(navigator, "clipboard", {
+              configurable: true,
+              value: { writeText: text => {
+                window.__subjectCopy = text;
+                return Promise.resolve();
+              }},
+            });
+            """
+        )
+        for part, tache, count, source in (
+            ("eo", 2, 348, "tache-two-theme-prompts"),
+            ("ee", 1, 138, "ee-writing-prompts"),
+            ("ee", 2, 138, "ee-writing-prompts"),
+            ("ee", 3, 138, None),
+        ):
+            with self.subTest(part=part, tache=tache):
+                url = self.live_server_url + reverse(
+                    "study:task_browse", args=[part, f"tache-{tache}"]
+                )
+                self.page.goto(url)
+                rows = self.page.locator("[data-subject-collection-row]")
+                self.assertEqual(rows.count(), count)
+                self.assertEqual(rows.locator("a").count(), count)
+                self.assertEqual(rows.locator("form").count(), count)
+                self.assertEqual(rows.get_by_role("checkbox").count(), count)
+                self.assertEqual(
+                    rows.locator("[data-prompt-copy]").count(),
+                    count if source else 0,
+                )
+                self.assertEqual(
+                    len(set(rows.locator("a").evaluate_all(
+                        "links => links.map(link => link.href)"
+                    ))),
+                    count,
+                )
+                self.assertTrue(self.page.evaluate(
+                    """
+                    () => {
+                      const ids = Array.from(document.querySelectorAll("[id]"),
+                        element => element.id);
+                      window.__subjectRows = Array.from(document.querySelectorAll(
+                        "[data-subject-collection-row]"));
+                      return ids.length === new Set(ids).size;
+                    }
+                    """
+                ))
+                payload = json.loads(
+                    self.page.locator(f"#{source}").text_content()
+                ) if source else None
+                for width in (390, 1183):
+                    self.page.set_viewport_size({"width": width, "height": 844})
+                    for mode, label in (("cards", "Cartes"), ("table", "Tableau")):
+                        with self.subTest(width=width, mode=mode):
+                            self.page.get_by_role("button", name=label, exact=True).click()
+                            group = self.page.locator("[data-t1-table-theme]").first
+                            if not group.evaluate("element => element.open"):
+                                group.locator("summary").click()
+                            self.assertTrue(self.page.evaluate(
+                                """
+                                () => window.__subjectRows.every((row, index) =>
+                                  row === document.querySelectorAll(
+                                    "[data-subject-collection-row]")[index])
+                                """
+                            ))
+                            self.assertEqual(
+                                self.page.evaluate("localStorage.getItem('collectionViewMode')"),
+                                mode,
+                            )
+                            first_row = rows.first
+                            self.assertEqual(
+                                first_row.evaluate("row => getComputedStyle(row).display"),
+                                "grid" if mode == "cards" else "table-row",
+                            )
+                            self.assertEqual(first_row.get_attribute("role"), "row")
+                            self.assertTrue(first_row.get_by_role("checkbox").is_visible())
+                            self.assertEqual(
+                                first_row.locator(".t1-table__questions").is_visible(),
+                                mode == "cards" or width > 640,
+                            )
+                            self.assertTrue(rows.evaluate_all(
+                                """
+                                rows => rows.every(row => {
+                                  const bounds = row.getBoundingClientRect();
+                                  if (!bounds.width) return true;
+                                  return Array.from(row.querySelectorAll("button, .progress-status"))
+                                    .every(element => {
+                                      const box = element.getBoundingClientRect();
+                                      return box.left >= bounds.left && box.right <= bounds.right;
+                                    });
+                                })
+                                """
+                            ))
+                            if mode == "table" and width > 640:
+                                self.assertEqual(self.page.locator(
+                                    ".collection-table-header--subject-directory > span"
+                                ).evaluate_all(
+                                    """labels => new Set(labels.map(element =>
+                                      Math.round(element.getBoundingClientRect().top))).size"""
+                                ), 1)
+                            self.assertTrue(first_row.locator(
+                                "input[name='csrfmiddlewaretoken']"
+                            ).input_value())
+                            if source:
+                                copy = first_row.locator("[data-prompt-copy]")
+                                key = copy.get_attribute("data-prompt-copy-key")
+                                self.page.evaluate("window.__subjectCopy = null")
+                                copy.click()
+                                self.page.wait_for_function(
+                                    "text => window.__subjectCopy === text",
+                                    arg=payload[key],
+                                )
+                                self.assertEqual(self.page.url, url)
+                                self.assertEqual(len(self.context.pages), 1)
+                            link = first_row.locator("a")
+                            self.assertEqual(link.get_attribute("target"), "_blank")
+                            link.focus()
+                            self.assert_opens_new_tab(
+                                lambda: self.page.keyboard.press("Enter"),
+                                link.get_attribute("href"),
+                            )
+                            self.assert_no_horizontal_overflow()
+
+                self.page.reload()
+                self.assertEqual(
+                    self.page.locator("html").get_attribute("data-collection-view-mode"),
+                    "table",
+                )
+                self.assertEqual(self.page.locator("[data-t1-table-theme][open]").count(), 0)
+                self.page.get_by_role("button", name="Cartes", exact=True).click()
+                self.assertEqual(self.page.locator("[data-t1-table-theme][open]").count(), 11)
+                row = rows.first
+                id_attribute = (
+                    "data-writing-sujet-progress-row" if part == "ee" and tache < 3
+                    else "data-subject-progress-row"
+                )
+                subject_id = row.get_attribute(id_attribute)
+                equivalents = self.page.locator(f'[{id_attribute}="{subject_id}"]')
+                with self.page.expect_navigation(wait_until="domcontentloaded"):
+                    row.get_by_role("checkbox").click()
+                self.assertEqual(self.page.url, url)
+                self.assertEqual(
+                    equivalents.locator('button[aria-checked="true"]').count(),
+                    equivalents.count(),
+                )
+
+    def test_subject_completion_shares_pending_errors_and_writing_events(self):
+        self.theme.delete()
+        call_command("import_content", stdout=StringIO())
+        provision_user_study_data(self.user)
+        for part, tache, prefix, id_attribute, id_field, progress_field in (
+            ("eo", 2, "subject", "data-subject-response-id", "response_id", "subject"),
+            ("ee", 1, "writing-sujet", "data-writing-sujet-id", "sujet_id", "sujet"),
+        ):
+            with self.subTest(part=part):
+                url = self.live_server_url + reverse(
+                    "study:task_browse", args=[part, f"tache-{tache}"]
+                )
+                self.page.goto(url)
+                form_selector = f"[data-{prefix}-completion-form]"
+                subject_id = self.page.locator(form_selector).evaluate_all(
+                    """
+                    (forms, attribute) => forms.map(form => form.getAttribute(attribute))
+                      .find((id, index, ids) => ids.indexOf(id) !== index)
+                    """,
+                    id_attribute,
+                )
+                self.assertIsNotNone(subject_id)
+                forms = self.page.locator(
+                    f'{form_selector}[{id_attribute}="{subject_id}"]'
+                )
+                forms.evaluate_all(
+                    "(forms, attribute) => forms.forEach(form => form.removeAttribute(attribute))",
+                    f"data-{prefix}-completion-refresh",
+                )
+                requests = []
+                route_pattern = "**" + forms.first.get_attribute("action")
+                self.page.route(route_pattern, lambda route: requests.append(route))
+                forms.first.locator("button").click()
+                self.page.wait_for_function(
+                    """
+                    selector => Array.from(document.querySelectorAll(selector))
+                      .every(form => form.dataset.pending === "true"
+                        && form.querySelector("button").disabled
+                        && form.querySelector("button").getAttribute("aria-busy") === "true")
+                    """,
+                    arg=f'{form_selector}[{id_attribute}="{subject_id}"]',
+                )
+                forms.last.evaluate("form => form.requestSubmit()")
+                self.assertEqual(len(requests), 1)
+                requests.pop().fulfill(status=403, json={"error": "Progression refusée."})
+                toast = self.page.locator("[data-subject-progress-toast]")
+                expect(toast).to_have_text("Progression refusée.")
+                self.assertEqual(forms.locator("button:disabled").count(), 0)
+                self.assertEqual(forms.locator('[aria-checked="true"]').count(), 0)
+
+                forms.first.locator("button").click()
+                requests.pop().fulfill(status=200, body="not-json", content_type="text/html")
+                expect(toast).to_have_text("La réponse du serveur est inattendue.")
+                self.assertEqual(forms.locator("[aria-busy]").count(), 0)
+
+                forms.first.locator("button").click()
+                payload = {
+                    id_field: int(subject_id),
+                    "completed": True,
+                    progress_field: {"status": "done", "label": "Terminé"},
+                }
+                requests.pop().fulfill(status=200, json=payload)
+                expect(forms.first.locator("button")).to_have_attribute("aria-checked", "true")
+                self.assertEqual(forms.locator('[aria-checked="true"]').count(), forms.count())
+                self.assertEqual(forms.locator('input[name="completed"][value="0"]').count(), forms.count())
+                self.assertFalse(toast.is_visible())
+                self.assertEqual(self.page.url, url)
+                self.assertEqual(len(self.context.pages), 1)
+                if part == "ee":
+                    payload["completed"] = False
+                    payload[progress_field] = {"status": "active", "label": "En cours"}
+                    self.page.evaluate(
+                        """detail => document.dispatchEvent(new CustomEvent(
+                          "heureux:writing-sujet-progress", { detail }))""",
+                        payload,
+                    )
+                    self.assertEqual(forms.locator('[aria-checked="false"]').count(), forms.count())
+                    progress_rows = self.page.locator(
+                        f'[data-{prefix}-progress-row="{subject_id}"].is-status-active'
+                    )
+                    self.assertEqual(progress_rows.count(), forms.count())
+                self.page.unroute(route_pattern)
+
     def test_ee_tache_three_theme_directory_is_collapsible_and_responsive(self):
         _months, task = self._import_ee_tache_three_content()
         themes = content.load_ee_subject_themes(3)[0]
@@ -642,8 +878,7 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertEqual(
             self.page.locator(
-                "[data-collection-view-panel='table'] "
-                "[data-ee-tache-three-subject-row]:visible"
+                "[data-subject-collection] [data-ee-tache-three-subject-row]:visible"
             ).count(),
             0,
         )
@@ -979,7 +1214,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.set_viewport_size({"width": 1183, "height": 844})
         self.page.goto(self.live_server_url + subjects_path)
         card_row = self.page.locator(
-            f'.t1-row:has(a[href="{detail_path}"])'
+            f'[data-subject-collection-row]:has(a[href="{detail_path}"])'
         ).first
         completion = card_row.locator(
             "[data-writing-sujet-completion-form] button"
@@ -994,7 +1229,7 @@ class BrowserTests(StaticLiveServerTestCase):
             () => document.querySelectorAll(
               '[data-writing-sujet-completion-form] '
               + 'button[aria-checked="true"]'
-            ).length === 2
+            ).length === 1
             """
         )
         self.assertEqual(self.page.url, self.live_server_url + subjects_path)
@@ -1003,11 +1238,11 @@ class BrowserTests(StaticLiveServerTestCase):
                 '[data-writing-sujet-completion-form] '
                 'button[aria-checked="true"]'
             ).count(),
-            2,
+            1,
         )
 
         card_row = self.page.locator(
-            f'.t1-row:has(a[href="{detail_path}"])'
+            f'[data-subject-collection-row]:has(a[href="{detail_path}"])'
         ).first
         status = card_row.locator(".progress-status").bounding_box()
         self.assert_opens_new_tab(
@@ -1896,7 +2131,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(theme_count, 11)
         self.assertEqual(subject_count, 348)
         self.assertEqual(
-            self.page.locator(".t1-themes .t1-row__link").count(),
+            self.page.locator("[data-subject-collection-row]").count(),
             subject_count,
         )
         self.assertEqual(self.page.get_by_role("note").count(), 0)
@@ -1904,7 +2139,7 @@ class BrowserTests(StaticLiveServerTestCase):
             self.page.locator("#tache-two-theme-prompts").text_content()
         )
         card_copy = self.page.locator(
-            '[data-collection-view-panel="cards"] [data-prompt-copy]'
+            '[data-subject-collection] [data-prompt-copy]'
         ).first
         card_prompt_key = card_copy.get_attribute("data-prompt-copy-key")
         card_copy.click()
@@ -1965,7 +2200,7 @@ class BrowserTests(StaticLiveServerTestCase):
             () => document.querySelectorAll(
               '[data-subject-completion-form] '
               + 'button[aria-checked="true"]'
-            ).length === 2
+            ).length === 1
             """
         )
         self.assertEqual(self.page.url, self.live_server_url + index_path)
@@ -1974,7 +2209,7 @@ class BrowserTests(StaticLiveServerTestCase):
                 '[data-subject-completion-form] '
                 'button[aria-checked="true"]'
             ).count(),
-            2,
+            1,
         )
 
         table_group = self.page.locator(
@@ -2182,7 +2417,7 @@ class BrowserTests(StaticLiveServerTestCase):
                 ),
                 rowGap: second.top - first.bottom,
                 headerDisplay: getComputedStyle(
-                  table.querySelector('.t1-table-groups__head')
+                  table.querySelector('.collection-table-header--subject-directory')
                 ).display,
               };
             }
@@ -2460,7 +2695,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(mobile_cells["statusRadius"], "50%")
         self.assertIn("○", mobile_cells["statusGlyph"])
         self.assertFalse(
-            self.page.locator(".t1-table-groups__head").is_visible()
+            self.page.locator(".collection-table-header--subject-directory").is_visible()
         )
         self.assertTrue(subject_sort.is_visible())
         self.assertTrue(progress_sort.is_visible())

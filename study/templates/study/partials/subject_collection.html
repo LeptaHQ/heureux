@@ -1,0 +1,14 @@
+<div class="t1-collection subject-collection" data-subject-collection data-collection-view>
+  <div class="t1-themes t1-table-groups">
+    {% include "study/partials/collection_table_header.html" with variant="subject-directory" column_1="Thème" column_2="Sujets" column_3="Progression" only %}
+    {% for group in groups %}
+      {% if kind == "writing" %}
+        {% include "study/partials/subject_collection_group.html" with title=group.label subjects=group.sujets count=group.count status=group.progress.status completed=group.progress.completed total=group.progress.total %}
+      {% elif kind == "eo2" %}
+        {% include "study/partials/subject_collection_group.html" with title=group.name subjects=group.subjects count=group.subject_count status=group.status completed=group.completed total=group.total %}
+      {% else %}
+        {% include "study/partials/subject_collection_group.html" with title=group.name subjects=group.subjects count=group.subject_count status=group.progress.status completed=group.completed total=group.total %}
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>

@@ -23,6 +23,13 @@
     var collections = document.querySelectorAll("[data-collection-view]");
     if (!toggles.length || !collections.length) return;
 
+    var subjectGroups = Array.from(
+      document.querySelectorAll("[data-subject-collection] [data-t1-table-theme]")
+    ).map(function (element) {
+      return { element: element, cards: element.open, table: false };
+    });
+    var currentMode = null;
+
     function scrollActiveAnnotationAnchor() {
       var anchorId = window.location.hash.slice(1);
       if (!anchorId) return;
@@ -45,6 +52,14 @@
 
     function setCollectionView(mode, persist) {
       if (mode !== "cards" && mode !== "table") mode = "cards";
+      if (mode !== currentMode) {
+        // Remember each view's disclosures without rendering a second collection.
+        subjectGroups.forEach(function (group) {
+          if (currentMode) group[currentMode] = group.element.open;
+          group.element.open = group[mode];
+        });
+        currentMode = mode;
+      }
       root.setAttribute("data-collection-view-mode", mode);
       toggles.forEach(function (toggle) {
         toggle.querySelectorAll("[data-collection-view-option]").forEach(

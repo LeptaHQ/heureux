@@ -885,6 +885,11 @@ class EeWritingPageTests(TestCase):
                     count=11,
                 )
                 self.assertContains(subjects, "data-nested-sort-row", count=138)
+                self.assertContains(subjects, "data-subject-collection-row", count=138)
+                self.assertContains(subjects, "data-writing-sujet-progress-row=", count=138)
+                self.assertContains(subjects, "data-writing-sujet-completion-form", count=138)
+                self.assertContains(subjects, 'data-prompt-copy-source="ee-writing-prompts"', count=138)
+                self.assertNotContains(subjects, "data-collection-view-panel")
                 self.assertContains(subjects, "data-subject-directory-search")
                 self.assertContains(subjects, 'target="_blank"')
                 self.assertContains(subjects, "publications liées")

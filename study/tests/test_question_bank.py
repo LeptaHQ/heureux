@@ -2599,12 +2599,12 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(
             index,
             'data-prompt-copy-source="tache-two-theme-prompts"',
-            count=696,
+            count=348,
         )
         self.assertContains(
             index,
             f'data-prompt-copy-key="{first_subject_key}"',
-            count=2,
+            count=1,
         )
         self.assertNotContains(index, "Réflexe Mémoire")
         self.assertContains(index, "Sujets par thème")
@@ -2620,8 +2620,10 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(index, "Fêtes &amp; célébrations")
         self.assertContains(index, "Arrivée &amp; installation")
         self.assertNotContains(index, "data-tache-two-subject-batch")
-        self.assertContains(index, "Janvier · Batch 01 · Sujet 01", count=2)
-        self.assertContains(index, "t1-row__link", count=348)
+        self.assertContains(index, "Janvier · Batch 01 · Sujet 01", count=1)
+        self.assertContains(index, "data-subject-collection-row", count=348)
+        self.assertContains(index, "data-subject-progress-row=", count=348)
+        self.assertContains(index, "data-subject-completion-form", count=348)
         self.assertContains(index, "data-t1-table-theme", count=11)
         self.assertContains(index, "data-t1-table-subject", count=348)
         self.assertContains(index, "data-nested-sort-table", count=11)
@@ -2635,7 +2637,6 @@ class QuestionBankViewTests(TestCase):
             'data-nested-table-sort="progress"',
             count=11,
         )
-        self.assertContains(index, "t1-row__date", count=348)
         self.assertContains(index, "t1-table__subject-date", count=348)
         self.assertNotContains(index, "data-related-subject-group")
         self.assertNotContains(index, "t1-table__related-group")

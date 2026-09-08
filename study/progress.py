@@ -3,11 +3,35 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from functools import lru_cache
+from itertools import batched
 import re
+import sys
 from typing import Iterable
 from urllib.parse import urlsplit
 
-from django.db.models import Count, Q
+from django.db.models import (
+    Case,
+    CharField,
+    Count,
+    Exists,
+    F,
+    OuterRef,
+    Q,
+    Subquery,
+    Value,
+    When,
+)
+from django.db.models.functions import (
+    Cast,
+    Concat,
+    Greatest,
+    Length,
+    Replace,
+    Right,
+    StrIndex,
+    Substr,
+)
 from django.utils import timezone
 
 from .models import (
@@ -291,6 +315,181 @@ def _response_content_key(source_key: str) -> str:
     return content_key
 
 
+@lru_cache(maxsize=1)
+def _decimal_regex_classes() -> tuple[str, ...]:
+    """The immutable decimal alphabet accepted by Python's int and \\d."""
+    digits = [[] for _ in range(10)]
+    for codepoint in range(sys.maxunicode + 1):
+        character = chr(codepoint)
+        if character.isdecimal():
+            digits[int(character)].append(character)
+    return tuple("[" + "".join(group) + "]" for group in digits)
+
+
+def _decimal_regex(expression):
+    for digit, characters in enumerate(_decimal_regex_classes()):
+        expression = Replace(expression, Value(str(digit)), Value(characters))
+    return expression
+
+
+def _subject_highlight_rows(user, response_ids):
+    """Fetch target-related candidates and their resolved response-key IDs."""
+    highlights = Annotation.objects.filter(
+        Q(source_key__startswith=RESPONSE_SOURCE_PREFIX)
+        | Q(source_key__startswith=PHRASE_SOURCE_PREFIX)
+        | Q(source_key__startswith="tache-two:")
+        | Q(source_key="", source_path__contains="/sujets/"),
+        user=user,
+        kind=AnnotationKind.HIGHLIGHT,
+    )
+    shapes = highlights.aggregate(
+        response=Count("pk", filter=Q(source_key__startswith=RESPONSE_SOURCE_PREFIX)),
+        phrase=Count("pk", filter=Q(source_key__startswith=PHRASE_SOURCE_PREFIX)),
+        alias=Count("pk", filter=Q(source_key__startswith="tache-two:")),
+        legacy=Count("pk", filter=Q(source_key="")),
+    )
+    if not any(shapes.values()):
+        return [], {}
+
+    # Each predicate repeats its response IDs in up to five subqueries. Batches
+    # bound SQL parameters, not note count; only matching rows leave the database.
+    rows = []
+    response_by_content_key = {}
+    for ids in batched(sorted(response_ids), 150):
+        prompts = Prompt.objects.filter(
+            response_id__in=ids, is_active=True, response__is_active=True,
+        )
+        candidates = highlights
+        scope = Q()
+        if shapes["response"]:
+            responses = Response.objects.filter(pk__in=ids, is_active=True)
+            candidates = candidates.alias(
+                _front_surface=Right("source_key", 6),
+                _back_surface=Right("source_key", 5),
+            ).alias(
+                _response_key=Case(
+                    When(
+                        _front_surface=":front",
+                        then=Substr(
+                            "source_key", len(RESPONSE_SOURCE_PREFIX) + 1,
+                            Greatest(
+                                Length("source_key")
+                                - len(RESPONSE_SOURCE_PREFIX) - len(":front"),
+                                Value(0),
+                            ),
+                        ),
+                    ),
+                    When(
+                        _back_surface=":back",
+                        then=Substr(
+                            "source_key", len(RESPONSE_SOURCE_PREFIX) + 1,
+                            Greatest(
+                                Length("source_key")
+                                - len(RESPONSE_SOURCE_PREFIX) - len(":back"),
+                                Value(0),
+                            ),
+                        ),
+                    ),
+                    default=Substr("source_key", len(RESPONSE_SOURCE_PREFIX) + 1),
+                ),
+            )
+            scope |= Q(
+                source_key__startswith=RESPONSE_SOURCE_PREFIX,
+                _response_key__in=responses.values("content_key"),
+            )
+            candidates = candidates.annotate(
+                _matched_response_id=Subquery(
+                    responses.filter(content_key=OuterRef("_response_key"))
+                    .order_by().values("pk")[:1]
+                ),
+            )
+        if shapes["phrase"]:
+            phrases = Phrase.objects.filter(
+                tier=PhraseTier.SUBJECT,
+                is_active=True,
+                source_prompts__is_active=True,
+                source_prompts__response_id__in=ids,
+            )
+            candidates = candidates.alias(
+                _phrase_tail=Substr("source_key", len(PHRASE_SOURCE_PREFIX) + 1),
+            ).alias(
+                _phrase_separator=StrIndex("_phrase_tail", Value(":")),
+            ).alias(
+                _phrase_key=Substr(
+                    "_phrase_tail", 1,
+                    Greatest(F("_phrase_separator") - 1, Value(0)),
+                ),
+            )
+            scope |= Q(
+                source_key__startswith=PHRASE_SOURCE_PREFIX,
+                _phrase_separator__gt=1,
+                _phrase_key__in=phrases.values("phrase_id"),
+            )
+        if shapes["alias"]:
+            alias_pattern = Replace(
+                F("content_key"), Value("tache2:"), Value("tache-two:")
+            )
+            for component in ("batch", "subject"):
+                alias_pattern = Replace(
+                    alias_pattern, Value(f":{component}-0"),
+                    Value(f":{component}-"),
+                )
+                alias_pattern = Replace(
+                    alias_pattern, Value(f":{component}-"),
+                    Value(f":{component}-0*"),
+                )
+            aliases = prompts.filter(content_key__startswith="tache2:").alias(
+                _annotation_key=Cast(OuterRef("source_key"), CharField()),
+            ).filter(
+                _annotation_key__regex=Concat(
+                    Value("^"), _decimal_regex(alias_pattern), Value("$")
+                ),
+            )
+            scope |= Q(source_key__startswith="tache-two:") & Q(Exists(aliases))
+        if shapes["legacy"]:
+            normalized_path = F("source_path")
+            for character in ("\t", "\r", "\n"):
+                normalized_path = Replace(
+                    normalized_path, Value(character), Value("")
+                )
+            candidates = candidates.alias(_highlight_path=normalized_path)
+            legacy_paths = prompts.filter(
+                theme__task__part__slug__in=("eo", "ee"),
+            ).alias(
+                _annotation_path=Cast(OuterRef("_highlight_path"), CharField()),
+            ).filter(
+                _annotation_path__regex=Concat(
+                    Value(r"^[^?#]*/expression/"),
+                    Case(
+                        When(theme__task__part__slug="eo", then=Value("orale")),
+                        default=Value("ecrite"),
+                    ),
+                    Value("/"), F("theme__task__slug"), Value("/sujets/"),
+                    _decimal_regex(Concat(Value("0*"), Cast("pk", CharField()))),
+                    Value(r"/(?:[?#].*)?$"),
+                ),
+            )
+            scope |= Q(source_key="") & Q(Exists(legacy_paths))
+        # URL matching is deliberately a candidate filter: urlsplit and the
+        # existing source-key parsers below remain the final authority.
+        fields = ["source_path", "source_key"]
+        if shapes["response"]:
+            fields.append("_matched_response_id")
+        batch_rows = list(candidates.filter(scope).order_by().values(*fields))
+        if shapes["response"]:
+            for row in batch_rows:
+                if (
+                    row["_matched_response_id"] is not None
+                    and row["source_key"].startswith(RESPONSE_SOURCE_PREFIX)
+                ):
+                    content_key = _response_content_key(row["source_key"])
+                    response_by_content_key[content_key] = (
+                        row["_matched_response_id"]
+                    )
+        rows.extend(batch_rows)
+    return rows, response_by_content_key
+
+
 def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgress]:
     """Calculate sujet progress from direct, material-specific activity."""
     response_ids = {
@@ -300,6 +499,13 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
     }
     if not response_ids:
         return {}
+    # Bound the card and resolver IN lists as well as the highlight predicates.
+    if len(response_ids) > 500:
+        return {
+            response_id: state
+            for batch in batched(sorted(response_ids), 500)
+            for response_id, state in subject_progress_by_response(user, batch).items()
+        }
 
     progress = {
         response_id: {
@@ -403,18 +609,8 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
         values["vocabulary_mastered"] = row["mastered"]
         values["vocabulary_due"] = row["due"]
 
-    highlight_rows = list(
-        Annotation.objects.filter(
-            user=user,
-            kind=AnnotationKind.HIGHLIGHT,
-        )
-        .filter(
-            Q(source_key__startswith=RESPONSE_SOURCE_PREFIX)
-            | Q(source_key__startswith=PHRASE_SOURCE_PREFIX)
-            | Q(source_key__startswith="tache-two:")
-            | Q(source_path__contains="/sujets/")
-        )
-        .values("source_path", "source_key")
+    highlight_rows, response_by_content_key = _subject_highlight_rows(
+        user, response_ids
     )
     if not highlight_rows:
         # Nothing can match, so the three lookups that resolve highlights onto
@@ -434,19 +630,6 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
     ]
     # Each lookup below resolves one shape of source key, so it is only worth
     # running when a highlight of that shape exists.
-    response_by_content_key = (
-        dict(
-            Response.objects.filter(
-                pk__in=response_ids,
-                is_active=True,
-            ).values_list("content_key", "pk")
-        )
-        if any(
-            row["source_key"].startswith(RESPONSE_SOURCE_PREFIX)
-            for row in highlight_rows
-        )
-        else {}
-    )
     response_by_prompt_content_key = (
         dict(
             Prompt.objects.filter(
@@ -464,11 +647,10 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
     )
     prompt_ids = {
         int(match.group("prompt_id"))
-        for _row, match in path_matches
-        if match
+        for row, match in path_matches
+        if match and not row["source_key"]
     }
     prompt_rows = Prompt.objects.filter(
-        pk__in=prompt_ids,
         is_active=True,
         response_id__in=response_ids,
         response__is_active=True,
@@ -480,7 +662,8 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
     )
     prompt_references = {
         row["pk"]: row
-        for row in prompt_rows
+        for ids in batched(sorted(prompt_ids), 300)
+        for row in prompt_rows.filter(pk__in=ids)
     }
     phrase_ids = {
         match.group("phrase_id")
@@ -488,16 +671,17 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
         if match
     }
     response_ids_by_subject_phrase = {}
-    for phrase_id, response_id in Phrase.objects.filter(
-        phrase_id__in=phrase_ids,
-        tier=PhraseTier.SUBJECT,
-        is_active=True,
-        source_prompts__is_active=True,
-        source_prompts__response_id__in=response_ids,
-    ).values_list("phrase_id", "source_prompts__response_id"):
-        response_ids_by_subject_phrase.setdefault(phrase_id, set()).add(
-            response_id
-        )
+    for ids in batched(sorted(phrase_ids), 300):
+        for phrase_id, response_id in Phrase.objects.filter(
+            phrase_id__in=ids,
+            tier=PhraseTier.SUBJECT,
+            is_active=True,
+            source_prompts__is_active=True,
+            source_prompts__response_id__in=response_ids,
+        ).values_list("phrase_id", "source_prompts__response_id"):
+            response_ids_by_subject_phrase.setdefault(phrase_id, set()).add(
+                response_id
+            )
     for row, path_match in path_matches:
         matched_response_ids = set()
         if path_match and not row["source_key"]:

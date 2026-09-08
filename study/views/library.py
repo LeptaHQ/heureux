@@ -2,9 +2,6 @@
 
 from __future__ import annotations
 
-from functools import lru_cache
-
-
 from django.db.models import Count, Prefetch, Q
 from django.db.models.functions import TruncDate
 from django.http import Http404, HttpResponseBadRequest, JsonResponse
@@ -13,9 +10,18 @@ from django.urls import reverse
 from django.utils import timezone
 from django.views.decorators.http import require_POST
 
+from .. import catalogue
 from .. import content_loader as content_module
 from .. import queue as queue_module
 from ..card_presentation import scope_label
+from ..catalogue import (
+    ee_subject_themes as _ee_subject_theme_data,
+    ee_tache_three_months as _ee_tache_three_source_months,
+    ee_tache_three_sources_by_key as _ee_tache_three_sources_by_key,
+    ee_writing_categories as _ee_writing_source_categories,
+    ee_writing_sources_by_slug as _ee_writing_sources_by_slug,
+    task_memoires as _load_task_memoires_by_key,
+)
 from ..forms import (
     PersonalResponseForm,
     TacheTwoQuestionFormSet,
@@ -453,7 +459,7 @@ def _tache_two_theme_vocabulary_overview_context(user, task):
         None,
     )
     return {
-        "theme_count": len(content_module.load_tache_two_subject_themes()[0]),
+        "theme_count": len(catalogue.tache_two_subject_themes()[0]),
         "phrase_count": phrase_count,
         "batch_count": len(batches),
         "progress_unit": "lots terminés",
@@ -530,25 +536,6 @@ def _has_ee_tache_three_content(task):
         is_active=True,
         response__is_active=True,
     ).exists()
-
-
-@lru_cache(maxsize=1)
-def _ee_tache_three_source_months():
-    return content_module.load_ee_tache_three_months()
-
-
-@lru_cache(maxsize=3)
-def _ee_subject_theme_data(tache):
-    return content_module.load_ee_subject_themes(tache)
-
-
-@lru_cache(maxsize=1)
-def _ee_tache_three_sources_by_key():
-    return {
-        combinaison.content_key: (month, combinaison)
-        for month in _ee_tache_three_source_months()
-        for combinaison in month.combinaisons
-    }
 
 
 def _ee_tache_three_subject_context(user, task):
@@ -841,11 +828,6 @@ def _ee_writing_sujet_ids_by_slug(task, tache):
         ).values_list("slug", "pk")
     )
     return actual if set(actual) == expected else None
-
-
-@lru_cache(maxsize=2)
-def _ee_writing_source_categories(tache):
-    return content_module.load_ee_writing_categories(tache)
 
 
 def _ee_writing_subject_context(
@@ -1750,17 +1732,6 @@ def _load_task_memoires(task):
     return _load_task_memoires_by_key(task.part.slug, task.slug)
 
 
-@lru_cache(maxsize=8)
-def _load_task_memoires_by_key(part_slug, task_slug):
-    directory, namespace = content_module.MEMOIRE_TASKS[
-        (part_slug, task_slug)
-    ]
-    return content_module.load_question_banks(
-        directory,
-        key_namespace=namespace,
-    )
-
-
 def _memory_by_number(memories, memory_number):
     memory = next(
         (
@@ -1997,7 +1968,7 @@ def _theme_vocabulary_phrases(task, theme=None):
 def tache_two_theme_vocabulary(request):
     task = _route_task("eo", "tache-2", request=request)
     taxonomy, _subject_mapping = (
-        content_module.load_tache_two_subject_themes()
+        catalogue.tache_two_subject_themes()
     )
     theme_slugs = [f"tache-2-{item.slug}" for item in taxonomy]
     theme_models = Theme.objects.filter(
@@ -2193,7 +2164,7 @@ def _theme_vocabulary_detail_context(
 def tache_two_theme_vocabulary_detail(request, theme_slug):
     task = _route_task("eo", "tache-2", request=request)
     taxonomy, _subject_mapping = (
-        content_module.load_tache_two_subject_themes()
+        catalogue.tache_two_subject_themes()
     )
     theme_data = next(
         (item for item in taxonomy if item.slug == theme_slug),
@@ -2861,7 +2832,7 @@ def _tache_two_subject_month(month_slug):
     month = next(
         (
             month
-            for month in content_module.load_tache_two_subject_months()
+            for month in catalogue.tache_two_subject_months()
             if month.slug == month_slug
         ),
         None,
@@ -2892,7 +2863,7 @@ def _tache_two_theme_neighbors(month_slug, batch_number, subject_number):
     neighbours are dicts carrying the routing fields needed to build a
     subject-detail URL.
     """
-    themes, mapping = content_module.load_tache_two_subject_themes()
+    themes, mapping = catalogue.tache_two_subject_themes()
     theme_by_slug = {theme.slug: theme for theme in themes}
     target_key = content_module.tache_two_subject_content_key(
         month_slug,
@@ -2908,7 +2879,7 @@ def _tache_two_theme_neighbors(month_slug, batch_number, subject_number):
             "number": subject.number,
             "title": subject.title,
         }
-        for month in content_module.load_tache_two_subject_months()
+        for month in catalogue.tache_two_subject_months()
         for batch in month.batches
         for subject in batch.subjects
         if mapping.get(
@@ -2990,7 +2961,7 @@ def _tache_two_equivalent_subjects(response, selected_prompt):
         return []
 
     subject_rows = {}
-    for month in content_module.load_tache_two_subject_months():
+    for month in catalogue.tache_two_subject_months():
         for batch in month.batches:
             for subject in batch.subjects:
                 subject_rows[
@@ -4040,15 +4011,6 @@ def _canonical_writing_sujet(task, sujet, tache):
         slug=canonical_slug,
         is_active=True,
     )
-
-
-@lru_cache(maxsize=2)
-def _ee_writing_sources_by_slug(tache):
-    return {
-        source.slug: source
-        for category in _ee_writing_source_categories(tache)
-        for source in category.sujets
-    }
 
 
 def writing_sujet_detail(request, part_slug, task_slug, sujet_id):

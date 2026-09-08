@@ -8,6 +8,7 @@ from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
 
+from .. import catalogue
 from .. import content_loader as content_module
 from .. import queue as queue_module
 from ..models import (
@@ -244,9 +245,9 @@ def _tache_two_progress_by_content_key(user, months):
 def _tache_two_theme_progress(user, months=None):
     """Group Tâche 2 subjects by theme with per-subject progress."""
     if months is None:
-        months = content_module.load_tache_two_subject_months()
+        months = catalogue.tache_two_subject_months()
     months = tuple(months)
-    themes, mapping = content_module.load_tache_two_subject_themes()
+    themes, mapping = catalogue.tache_two_subject_themes()
     progress_by_content_key, response_id_by_content_key = (
         _tache_two_progress_by_content_key(user, months)
     )
@@ -1125,11 +1126,7 @@ def _task_card(
         and with_stats
         and task_key == content_module.EO_TACHE_ONE_TASK
     ):
-        directory, namespace = content_module.MEMOIRE_TASKS[task_key]
-        memories = content_module.load_question_banks(
-            directory,
-            key_namespace=namespace,
-        )
+        memories = catalogue.task_memoires(*task_key)
         if batched_stats is not None:
             task_progress = batched_stats["progress"]
         else:
@@ -1160,7 +1157,7 @@ def _task_card(
         if batched_stats is None:
             subject_state = _tache_two_progress(
                 user,
-                content_module.load_tache_two_subject_months(),
+                catalogue.tache_two_subject_months(),
             )
             subject_summary = subject_state["summary"]
         else:
@@ -1178,7 +1175,7 @@ def _task_card(
         )
         vocabulary_count = content_totals["theme_vocabulary_count"]
         vocabulary_theme_count = len(
-            content_module.load_tache_two_subject_themes()[0]
+            catalogue.tache_two_subject_themes()[0]
         )
         question_bank = {
             "title": "Vocabulaire par thème",
@@ -1510,14 +1507,14 @@ def expression_task_summaries(now, user, tasks, content_counts=None):
                 batch.number,
                 subject.number,
             )
-            for month in content_module.load_tache_two_subject_months()
+            for month in catalogue.tache_two_subject_months()
             for batch in month.batches
             for subject in batch.subjects
         )
     if ee_tache_three_task_id is not None:
         ee_tache_three_keys = tuple(
             key
-            for key in content_module.load_ee_subject_keys(3)
+            for key in catalogue.ee_subject_keys(3)
             if key in response_id_by_content_key
         )
         if ee_tache_three_keys:
@@ -1570,11 +1567,7 @@ def expression_task_summaries(now, user, tasks, content_counts=None):
     )
     for task in direct_question_bank_tasks:
         task_key = (task.part.slug, task.slug)
-        directory, namespace = content_module.MEMOIRE_TASKS[task_key]
-        memories = content_module.load_question_banks(
-            directory,
-            key_namespace=namespace,
-        )
+        memories = catalogue.task_memoires(*task_key)
         memory_states = _memory_progress(user, memories)
         progress = combine_progress(
             memory_states[memory.number]["progress"]

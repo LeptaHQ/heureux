@@ -3,6 +3,7 @@ from __future__ import annotations
 import importlib
 from datetime import timedelta
 from io import StringIO
+from pathlib import Path
 from unittest.mock import patch
 
 from django.apps import apps
@@ -741,6 +742,29 @@ class NonDestructiveImportTests(TestCase):
 
 
 class ImportFingerprintTests(TestCase):
+    @staticmethod
+    def _fingerprint_with_changed_bytes(target):
+        original = Path.read_bytes
+
+        def read_bytes(path):
+            data = original(path)
+            return data + b"\nchanged" if path.is_relative_to(target) else data
+
+        with patch.object(Path, "read_bytes", read_bytes):
+            return Command._source_fingerprint()
+
+    def test_file_backed_lessons_do_not_invalidate_database_content(self):
+        self.assertEqual(
+            Command._source_fingerprint(),
+            self._fingerprint_with_changed_bytes(content.CONTENT_DIR / "learning"),
+        )
+
+    def test_imported_content_still_invalidates_the_fingerprint(self):
+        self.assertNotEqual(
+            Command._source_fingerprint(),
+            self._fingerprint_with_changed_bytes(content.CONTENT_DIR / "sections.json"),
+        )
+
     def test_if_changed_skips_an_already_loaded_bundle(self):
         call_command("import_content", stdout=StringIO())
         marker = ContentImportState.objects.get(pk="bundled")

@@ -58,6 +58,8 @@ The preserved reference library is loaded from
 `study/content/learning/curriculum.json`. Original course lessons are complete
 JSON objects under `study/content/learning/courses/<level>/`. Both catalogs are
 validated and cached per process; restart the app after changing content.
+Lesson-only edits do not invalidate the database-content import fingerprint;
+the importer still checks all imported content, its code, and schema inputs.
 Keep lesson IDs, section IDs and slugs stable to preserve saved progress,
 annotation anchors and links. `/apprendre/` defaults to the original course
 when installed; `?scope=reference` and all old detail URLs retain the library.

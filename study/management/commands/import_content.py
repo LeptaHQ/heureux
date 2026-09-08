@@ -277,6 +277,8 @@ class Command(BaseCommand):
             )
             for path in content.CONTENT_DIR.rglob("*")
             if path.is_file()
+            # Lessons are file-backed; none are consumed by this DB importer.
+            and not path.is_relative_to(content.CONTENT_DIR / "learning")
         )
         digest = hashlib.sha256()
         for label, path in sorted(files):

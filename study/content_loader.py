@@ -2744,7 +2744,7 @@ def load_ee_equivalent_groups(
     *,
     subject_themes_path: Optional[Path] = None,
 ) -> Tuple[EeEquivalentGroupData, ...]:
-    """Load audited EE groups whose sujets the source republished verbatim."""
+    """Load explicit EE equivalences, pinning audited paraphrases to their text."""
     path = path or EE_TACHE_DIRS[tache] / "equivalent_groups.json"
     data = json.loads(path.read_text(encoding="utf-8"))
     if (
@@ -2768,12 +2768,11 @@ def load_ee_equivalent_groups(
     groups: List[EeEquivalentGroupData] = []
     for index, row in enumerate(data["groups"], start=1):
         location = f"EE Tâche {tache} equivalent group {index}"
-        if not isinstance(row, dict) or set(row) != {
-            "id",
-            "theme",
-            "canonical",
-            "members",
-        }:
+        required_fields = {"id", "theme", "canonical", "members"}
+        if not isinstance(row, dict) or set(row) not in (
+            required_fields,
+            required_fields | {"audit"},
+        ):
             raise ValueError(f"{location} has invalid fields")
         if not isinstance(row["members"], list):
             raise ValueError(f"{location} members must be a list")
@@ -2813,9 +2812,32 @@ def load_ee_equivalent_groups(
         expected_canonical = min(members, key=subject_order.__getitem__)
         if canonical != expected_canonical:
             raise ValueError(f"{location} canonical must be {expected_canonical!r}")
+        audited_paraphrase = "audit" in row
+        if audited_paraphrase:
+            audit = row["audit"]
+            if (
+                not isinstance(audit, dict)
+                or set(audit) != {"rationale", "signature_sha256"}
+                or not isinstance(audit["rationale"], str)
+                or not audit["rationale"].strip()
+                or not isinstance(audit["signature_sha256"], dict)
+                or set(audit["signature_sha256"]) != set(members)
+            ):
+                raise ValueError(
+                    f"{location} needs a rationale and every reviewed signature"
+                )
+            for member in members:
+                expected_signature = hashlib.sha256(
+                    signatures[member].encode("utf-8")
+                ).hexdigest()
+                if audit["signature_sha256"][member] != expected_signature:
+                    raise ValueError(
+                        f"{location} reviewed wording changed for {member!r}; "
+                        "re-audit equivalence before updating its signature"
+                    )
         drifted = []
         for member in members:
-            if signatures[member] == signatures[canonical]:
+            if audited_paraphrase or signatures[member] == signatures[canonical]:
                 continue
             if tache == 3:
                 # Tâche 3 republishes the same document pair with occasional

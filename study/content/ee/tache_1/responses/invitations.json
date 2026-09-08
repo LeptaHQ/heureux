@@ -39,12 +39,7 @@
         {
           "body": "Coucou les amis,\n\nJ’espère que vous allez bien ! Je vous invite à la fête d’anniversaire surprise d’Umbo, le samedi 3 avril à 18 h 30, au restaurant Yale (123 rue Principale, près de la station de métro). Nan et moi avons tout organisé !\n\nAu programme : de bons plats, de la musique et des jeux. Votre présence compterait énormément pour Umbo, vous savez à quel point vous êtes importants pour lui. Confirmez-moi votre venue d’ici le week-end, pour que je sache combien de places réserver.\n\nImportant : c’est une surprise, alors motus et bouche cousue ! 🤫\n\nHâte de faire la fête ensemble,\nCornelius",
           "origin": "author"
-        }
-      ]
-    },
-    {
-      "content_key": "ee-tache1:mars:combinaison-8",
-      "versions": [
+        },
         {
           "body": "Coucou Jo et Umbo,\n\nJ’espère que vous allez bien ! Je vous invite à une fête surprise pour l’anniversaire d’Adak. Elle se déroulera à Medina, au 123 rue Ag, de 15 h à 20 h, le samedi 15 mars.\n\nTout est déjà organisé. De plus, j’ai invité DJ Jeff pour animer la soirée ! Nous partagerons aussi de bons plats et des boissons dans une ambiance festive.\n\nComme vous savez à quel point Adak aime votre glace au chocolat, j’aimerais que vous m’aidiez à la préparer.\n\nMerci de me confirmer votre venue d’ici le week-end.\n\nHâte de vous voir !\n\nC",
           "origin": "author"
@@ -69,6 +64,10 @@
         },
         {
           "body": "Salut tout le monde,\n\nJe souhaite fêter mon anniversaire au Bistrot du Lac, 6 quai des Fleurs, le vendredi 14 août à partir de 20 h. Le chef nous propose une salade de saison, du saumon grillé ou des pâtes aux légumes, puis une tarte aux fruits. Le menu coûte 28 euros, boissons comprises.\n\nL’endroit est accessible par le bus 5 et nous pourrons ensuite profiter de la terrasse.\n\nPourriez-vous me confirmer votre présence avant le 5 août et m’indiquer votre plat principal ? Je dois transmettre le nombre exact de convives.\n\nÀ très vite,\nCorn",
+          "origin": "original"
+        },
+        {
+          "body": "Coucou les amis,\n\nJ’ai le plaisir de vous inviter à mon dîner d’anniversaire au restaurant La Terrasse, 42 place du Marché, le samedi 19 décembre. Rendez-vous à 19 h 30 ; le repas commencera à 20 h.\n\nLe menu à 30 euros comprend une soupe, un couscous au poulet ou aux légumes, un gâteau d’anniversaire et une boisson. Le restaurant est juste en face de la mairie et dispose d’un parking.\n\nMerci de répondre avant le 10 décembre en précisant votre choix de plat et vos éventuelles allergies. Cela m’aidera à finaliser la réservation.\n\nHâte de célébrer avec vous !\nCorn",
           "origin": "original"
         }
       ]
@@ -96,15 +95,6 @@
       "versions": [
         {
           "body": "Chers collègues,\n\nAprès deux années à Montréal, mon séjour professionnel touche à sa fin. Avant mon départ, j’aimerais vous remercier et partager un moment convivial avec vous. Je vous invite donc au restaurant L’Érable, situé au 75 rue Saint-Paul, le vendredi 11 décembre à 19 h.\n\nNous dégusterons des spécialités québécoises dans une salle réservée. Le dîner sera à ma charge : votre présence sera mon plus beau cadeau ! Merci de me confirmer votre venue avant le 4 décembre et de me signaler toute restriction alimentaire.\n\nJ’espère vous voir nombreux pour célébrer cette belle aventure.\n\nBien cordialement,\nCornelius",
-          "origin": "original"
-        }
-      ]
-    },
-    {
-      "content_key": "ee-tache1:decembre:combinaison-11",
-      "versions": [
-        {
-          "body": "Coucou les amis,\n\nJ’ai le plaisir de vous inviter à mon dîner d’anniversaire au restaurant La Terrasse, 42 place du Marché, le samedi 19 décembre. Rendez-vous à 19 h 30 ; le repas commencera à 20 h.\n\nLe menu à 30 euros comprend une soupe, un couscous au poulet ou aux légumes, un gâteau d’anniversaire et une boisson. Le restaurant est juste en face de la mairie et dispose d’un parking.\n\nMerci de répondre avant le 10 décembre en précisant votre choix de plat et vos éventuelles allergies. Cela m’aidera à finaliser la réservation.\n\nHâte de célébrer avec vous !\nCorn",
           "origin": "original"
         }
       ]

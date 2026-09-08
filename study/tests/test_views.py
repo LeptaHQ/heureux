@@ -1080,6 +1080,42 @@ class EeTacheThreePageTests(TestCase):
             "family",
         ).get(content_key=self.months[0].combinaisons[0].content_key)
 
+    def test_audited_paraphrases_share_links_response_and_progress(self):
+        payload = json.loads(
+            (
+                content_module.EE_TACHE_THREE_DIR / "equivalent_groups.json"
+            ).read_text(encoding="utf-8")
+        )
+        for group in payload["groups"]:
+            if "audit" not in group:
+                continue
+            prompts = {
+                prompt.content_key: prompt
+                for prompt in Prompt.objects.filter(
+                    content_key__in=group["members"]
+                ).select_related("response", "theme__task__part")
+            }
+            canonical = prompts[group["canonical"]].response
+            card = Card.objects.get(user=self.user, response=canonical)
+            card.subject_completed_at = timezone.now()
+            card.save(update_fields=["subject_completed_at"])
+            for member in group["members"]:
+                with self.subTest(member=member):
+                    prompt = prompts[member]
+                    page = self.client.get(prompt_detail_url(prompt))
+                    self.assertEqual(page.status_code, 200)
+                    self.assertEqual(page.context["response"], canonical)
+                    self.assertEqual(page.context["card"].pk, card.pk)
+                    self.assertEqual(page.context["subject_progress"].status, "done")
+                    self.assertEqual(
+                        {
+                            row["prompt"].content_key
+                            for row in page.context["ee_equivalent_subjects"]
+                        },
+                        set(group["members"]) - {member},
+                    )
+                    self.assertContains(page, "Sujets équivalents")
+
     def test_overview_presents_subject_vocabulary_and_memory_collections(self):
         response = self.client.get(self._task_url("study:task_detail"))
 
@@ -1088,11 +1124,11 @@ class EeTacheThreePageTests(TestCase):
         self.assertEqual(response.context["theme_count"], 11)
         self.assertEqual(response.context["month_count"], 11)
         self.assertEqual(response.context["subject_count"], 138)
-        self.assertEqual(response.context["distinct_count"], 84)
-        self.assertEqual(response.context["vocabulary_count"], 2520)
-        self.assertEqual(response.context["vocabulary_entry_count"], 2520)
+        self.assertEqual(response.context["distinct_count"], 78)
+        self.assertEqual(response.context["vocabulary_count"], 2340)
+        self.assertEqual(response.context["vocabulary_entry_count"], 2340)
         self.assertEqual(response.context["vocabulary_theme_count"], 11)
-        self.assertEqual(response.context["vocabulary_deck_count"], 84)
+        self.assertEqual(response.context["vocabulary_deck_count"], 78)
         self.assertEqual(response.context["memory_count"], 4)
         self.assertContains(
             response,
@@ -1134,7 +1170,7 @@ class EeTacheThreePageTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "study/task_vocabulary.html")
         self.assertEqual(response.context["theme_count"], 11)
-        self.assertEqual(response.context["phrase_count"], 2520)
+        self.assertEqual(response.context["phrase_count"], 2340)
         self.assertEqual(len(response.context["themes"]), 11)
         self.assertContains(
             response,

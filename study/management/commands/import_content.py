@@ -349,6 +349,9 @@ class Command(BaseCommand):
         existing = list(
             WritingSujet.objects.filter(task=task).order_by("pk")
         )
+        previous_model_versions = {
+            sujet.pk: sujet.model_versions for sujet in existing
+        }
         existing_by_slug = {sujet.slug: sujet for sujet in existing}
         legacy_by_prompt = defaultdict(list)
         for sujet in existing:
@@ -418,10 +421,13 @@ class Command(BaseCommand):
                 for category in categories
                 for sujet in category.sujets
             },
+            previous_model_versions,
         )
 
     @staticmethod
-    def _reconcile_writing_sujet_state(task, canonical_slug_by_slug):
+    def _reconcile_writing_sujet_state(
+        task, canonical_slug_by_slug, previous_model_versions
+    ):
         """Move private writing work from equivalent aliases to the canonical sujet."""
         sujets = {
             sujet.slug: sujet
@@ -430,6 +436,39 @@ class Command(BaseCommand):
                 slug__in=canonical_slug_by_slug,
             )
         }
+        model_key_moves = []
+        for source_slug, canonical_slug in canonical_slug_by_slug.items():
+            source = sujets.get(source_slug)
+            canonical = sujets.get(canonical_slug)
+            if source is None or canonical is None:
+                continue
+            canonical_version_numbers = {
+                version["body"]: number
+                for number, version in enumerate(canonical.model_versions, 1)
+            }
+            for number, version in enumerate(
+                previous_model_versions.get(source.pk, ()), 1
+            ):
+                target_number = canonical_version_numbers.get(version["body"])
+                if target_number is None:
+                    continue
+                source_key = f"writing-sujet:{source.pk}:model-{number}"
+                target_key = f"writing-sujet:{canonical.pk}:model-{target_number}"
+                if source_key != target_key:
+                    model_key_moves.append(
+                        (
+                            source_key,
+                            f"writing-import:{task.pk}:{source.pk}:model-{number}",
+                            target_key,
+                        )
+                    )
+        # Stage all version moves before resolving their final keys: ordering
+        # author versions first can otherwise overwrite another version's marks.
+        for source_key, temporary_key, _ in model_key_moves:
+            Command._move_annotation_source_key(source_key, temporary_key)
+        for _, temporary_key, target_key in model_key_moves:
+            Command._move_annotation_source_key(temporary_key, target_key)
+
         for alias_slug, canonical_slug in canonical_slug_by_slug.items():
             if alias_slug == canonical_slug:
                 continue

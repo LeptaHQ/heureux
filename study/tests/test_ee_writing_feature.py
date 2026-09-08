@@ -185,9 +185,9 @@ class EeWritingContentTests(SimpleTestCase):
 
     def test_final_equivalence_counts_match_the_audited_corpora(self):
         expected = {
-            1: (34, 86, 86),
-            2: (33, 83, 88),
-            3: (32, 86, 84),
+            1: (41, 116, 63),
+            2: (36, 105, 69),
+            3: (35, 95, 78),
         }
         for tache, counts in expected.items():
             group_count, grouped_count, distinct_count = counts
@@ -204,7 +204,7 @@ class EeWritingContentTests(SimpleTestCase):
                 )
 
     def test_every_distinct_tache_one_and_two_subject_has_a_valid_response(self):
-        expected = {1: (86, 60, 120), 2: (88, 120, 150)}
+        expected = {1: (63, 60, 120), 2: (69, 120, 150)}
         for tache, (canonical_count, minimum, maximum) in expected.items():
             with self.subTest(tache=tache):
                 categories = content.load_ee_writing_categories(tache)
@@ -308,7 +308,7 @@ class EeTacheThreeUnifiedResponseTests(SimpleTestCase):
             for prompt in response.prompts
         }
 
-        self.assertEqual(len(responses), 84)
+        self.assertEqual(len(responses), 78)
         self.assertEqual(len(prompt_to_response), 138)
         self.assertEqual(
             set(prompt_to_response),
@@ -421,7 +421,7 @@ class EeTacheThreeUnifiedResponseTests(SimpleTestCase):
             for row in payload["responses"]:
                 entries_by_key[row["response_key"]] = row["entries"]
 
-        self.assertEqual(len(merges), 1620)
+        self.assertEqual(len(merges), 1800)
         self.assertTrue(all(source != target for source, target in merges.items()))
         for group in content.load_ee_equivalent_groups(3):
             canonical_ids = {
@@ -490,6 +490,130 @@ class EeWritingImportPreservationTests(TestCase):
         self.task_by_slug = {"ee/tache-1": self.task}
         self.categories = content.load_ee_writing_categories(1)
         self.user = factories.make_user("ee-writing-import")
+
+    def test_linking_barbara_subjects_preserves_versions_and_learner_work(self):
+        sources = {
+            sujet.source_key: sujet
+            for category in self.categories
+            for sujet in category.sujets
+        }
+        source = sources["ee-tache1:janvier:combinaison-6"]
+        alias_source = sources["ee-tache1:janvier:combinaison-10"]
+        self.assertEqual(len(source.versions), 3)
+        self.assertFalse(alias_source.versions)
+        self.assertEqual(alias_source.canonical_slug, source.slug)
+        canonical = factories.make_writing_sujet(
+            self.task,
+            slug=source.slug,
+            prompt=source.prompt,
+            versions=tuple(version.body for version in source.versions[:2]),
+        )
+        alias = factories.make_writing_sujet(
+            self.task,
+            slug=alias_source.slug,
+            prompt=alias_source.prompt,
+            versions=(source.versions[2].body,),
+        )
+        personal = PersonalWritingResponse.objects.create(
+            user=self.user,
+            sujet=alias,
+            body="Ma réponse à Barbara.",
+        )
+        completion = WritingSujetCompletion.objects.create(
+            user=self.user, sujet=alias
+        )
+        highlights = []
+        for sujet, quote, body in (
+            (canonical, "la terrasse", source.versions[0].body),
+            (alias, "Gas Works Park", source.versions[2].body),
+        ):
+            start = body.index(quote)
+            highlights.append(
+                Annotation.objects.create(
+                    user=self.user,
+                    task=self.task,
+                    kind=AnnotationKind.HIGHLIGHT,
+                    quote=quote,
+                    source_path=reverse(
+                        "study:writing_sujet_detail",
+                        args=["ee", "tache-1", sujet.pk],
+                    ),
+                    source_key=f"writing-sujet:{sujet.pk}:model-1",
+                    start_offset=start,
+                    end_offset=start + len(quote),
+                    study_later=True,
+                )
+            )
+
+        for _ in range(2):
+            self.command._import_writing_sujets(
+                self.categories, self.task_by_slug
+            )
+            canonical.refresh_from_db()
+            alias.refresh_from_db()
+            personal.refresh_from_db()
+            completion.refresh_from_db()
+            self.assertTrue(canonical.is_active)
+            self.assertTrue(alias.is_active)
+            self.assertEqual(canonical.prompt, source.prompt)
+            self.assertEqual(alias.prompt, alias_source.prompt)
+            self.assertEqual(
+                [version["body"] for version in canonical.model_versions],
+                [version.body for version in source.versions],
+            )
+            self.assertFalse(alias.model_versions)
+            self.assertEqual(personal.sujet_id, canonical.pk)
+            self.assertEqual(personal.body, "Ma réponse à Barbara.")
+            self.assertEqual(completion.sujet_id, canonical.pk)
+            for highlight, version_number in zip(highlights, (1, 3)):
+                highlight.refresh_from_db()
+                self.assertEqual(
+                    highlight.source_key,
+                    f"writing-sujet:{canonical.pk}:model-{version_number}",
+                )
+                body = canonical.model_versions[version_number - 1]["body"]
+                self.assertEqual(
+                    body[highlight.start_offset:highlight.end_offset],
+                    highlight.quote,
+                )
+                self.assertTrue(highlight.study_later)
+
+    def test_new_author_version_keeps_existing_canonical_highlights_on_their_text(self):
+        source = next(
+            sujet
+            for category in self.categories
+            for sujet in category.sujets
+            if sujet.source_key == "ee-tache1:aout:combinaison-14"
+        )
+        self.assertEqual(source.versions[0].origin, "author")
+        original_body = source.versions[1].body
+        canonical = factories.make_writing_sujet(
+            self.task,
+            slug=source.slug,
+            prompt=source.prompt,
+            versions=(original_body,),
+        )
+        start = original_body.index("Chambre")
+        highlight = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="Chambre",
+            source_key=f"writing-sujet:{canonical.pk}:model-1",
+            start_offset=start,
+            end_offset=start + len("Chambre"),
+        )
+
+        self.command._import_writing_sujets(self.categories, self.task_by_slug)
+        highlight.refresh_from_db()
+        canonical.refresh_from_db()
+        self.assertEqual(
+            highlight.source_key, f"writing-sujet:{canonical.pk}:model-2"
+        )
+        self.assertEqual(canonical.model_versions[1]["body"], original_body)
+        self.assertFalse(
+            Annotation.objects.filter(source_key__startswith="writing-import:").exists()
+        )
 
     def test_matching_legacy_sujet_keeps_its_identity_and_private_draft(self):
         source = next(
@@ -707,7 +831,7 @@ class EeWritingPageTests(TestCase):
         self.client.force_login(self.user)
 
     def test_both_tasks_have_overviews_and_group_all_subjects_by_theme(self):
-        for tache, distinct in ((1, 86), (2, 88)):
+        for tache, distinct in ((1, 63), (2, 69)):
             task = self.tasks[tache]
             with self.subTest(tache=tache):
                 self.assertTrue(task.available)
@@ -990,6 +1114,135 @@ class EeWritingPageTests(TestCase):
                         sujet=alias,
                     ).exists()
                 )
+
+    def test_barbara_subjects_display_shared_versions_links_and_progress(self):
+        task = self.tasks[1]
+        canonical, alias = [
+            WritingSujet.objects.get(
+                task=task,
+                slug=content.ee_writing_sujet_slug(
+                    f"ee-tache1:janvier:combinaison-{number}"
+                ),
+            )
+            for number in (6, 10)
+        ]
+        Annotation.objects.create(
+            user=self.user,
+            task=task,
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="Coucou Barbara",
+            source_key=f"writing-sujet:{canonical.pk}:model-1",
+            source_path=reverse(
+                "study:writing_sujet_detail",
+                args=["ee", "tache-1", canonical.pk],
+            ),
+            start_offset=0,
+            end_offset=14,
+        )
+        directory = self.client.get(
+            reverse("study:task_browse", args=["ee", "tache-1"])
+        )
+        rows = [
+            row
+            for category in directory.context["categories"]
+            for row in category["sujets"]
+            if row["sujet"].pk in {canonical.pk, alias.pk}
+        ]
+        self.assertEqual(len(rows), 2)
+        for row in rows:
+            self.assertEqual(row["progress_sujet"], canonical)
+            self.assertEqual(row["progress"].status, "active")
+            self.assertEqual(row["version_count"], 3)
+            self.assertEqual(row["equivalent_count"], 1)
+        self.assertContains(directory, "2 publications liées")
+
+        saved = self.client.post(
+            reverse(
+                "study:writing_sujet_edit",
+                args=["ee", "tache-1", alias.pk],
+            ),
+            {"action": "save", "body": "Voici ma suggestion pour Barbara."},
+        )
+        self.assertEqual(saved.status_code, 302)
+        completed = self.client.post(
+            reverse(
+                "study:writing_sujet_completion",
+                args=["ee", "tache-1", alias.pk],
+            ),
+            {"completed": "1"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        self.assertEqual(completed.status_code, 200)
+        for current, linked in ((canonical, alias), (alias, canonical)):
+            with self.subTest(sujet=current.slug):
+                page = self.client.get(
+                    reverse(
+                        "study:writing_sujet_detail",
+                        args=["ee", "tache-1", current.pk],
+                    )
+                )
+                self.assertEqual(page.status_code, 200)
+                self.assertEqual(page.context["progress_sujet"], canonical)
+                self.assertEqual(len(page.context["model_versions"]), 3)
+                self.assertEqual(
+                    page.context["equivalent_sujets"][0]["sujet"], linked
+                )
+                self.assertEqual(page.context["writing_progress"].status, "done")
+                self.assertEqual(
+                    page.context["personal"].body,
+                    "Voici ma suggestion pour Barbara.",
+                )
+                self.assertContains(page, "Sujets équivalents")
+                self.assertContains(
+                    page,
+                    reverse(
+                        "study:writing_sujet_detail",
+                        args=["ee", "tache-1", linked.pk],
+                    ),
+                )
+
+    def test_all_equivalent_directory_rows_share_versions_and_progress(self):
+        for tache in (1, 2):
+            task = self.tasks[tache]
+            groups = content.load_ee_equivalent_groups(tache)
+            sujets = {
+                sujet.slug: sujet
+                for sujet in WritingSujet.objects.filter(task=task)
+            }
+            for index, group in enumerate(groups):
+                canonical = sujets[content.ee_writing_sujet_slug(group.canonical)]
+                if index % 3 == 1:
+                    PersonalWritingResponse.objects.create(
+                        user=self.user, sujet=canonical, body="Ma réponse."
+                    )
+                elif index % 3 == 2:
+                    WritingSujetCompletion.objects.create(
+                        user=self.user, sujet=canonical
+                    )
+            page = self.client.get(
+                reverse("study:task_browse", args=["ee", task.slug])
+            )
+            self.assertEqual(page.status_code, 200)
+            rows = {
+                row["source"].source_key: row
+                for category in page.context["categories"]
+                for row in category["sujets"]
+            }
+            self.assertEqual(len(rows), 138)
+            for index, group in enumerate(groups):
+                canonical = sujets[content.ee_writing_sujet_slug(group.canonical)]
+                for member in group.members:
+                    with self.subTest(tache=tache, member=member):
+                        row = rows[member]
+                        self.assertEqual(row["progress_sujet"], canonical)
+                        self.assertEqual(
+                            row["version_count"], len(canonical.model_versions)
+                        )
+                        self.assertEqual(row["equivalent_count"], len(group.members) - 1)
+                        self.assertEqual(
+                            row["progress"].status,
+                            ("new", "active", "done")[index % 3],
+                        )
 
     def test_equivalent_writing_paths_share_and_canonicalize_highlights(self):
         task = self.tasks[1]

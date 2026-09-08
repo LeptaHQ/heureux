@@ -17,9 +17,22 @@
       "members": [
         "ee-tache2:janvier:combinaison-2",
         "ee-tache2:mars:combinaison-12",
+        "ee-tache2:avril:combinaison-16",
+        "ee-tache2:juillet:combinaison-5",
         "ee-tache2:juillet:combinaison-41",
         "ee-tache2:septembre:combinaison-3"
-      ]
+      ],
+      "audit": {
+        "rationale": "Public first-person account of learning a foreign language. April 16 only reorders the same instruction. July 5 names challenges, progress and effective methods, which are compatible elaborations of this same learning journey, not an institution review or advice request. April says Racontez dans un blog instead of Dans votre blog, racontez. July 5 says nouvelle langue (français ou autre), and explicitly requests challenges, progress and effective methods; other members leave those narrative details open. The generic wording mentions blog/forum alternatives; all are public, personal accounts.",
+        "signature_sha256": {
+          "ee-tache2:janvier:combinaison-2": "1372520c285ba075d807e4157674260a81720d78121f10e700cbceed3623df13",
+          "ee-tache2:mars:combinaison-12": "1372520c285ba075d807e4157674260a81720d78121f10e700cbceed3623df13",
+          "ee-tache2:avril:combinaison-16": "037707d40892c80f2f95504d08bdbf57a21a786dd1e24cbf17826b280861f784",
+          "ee-tache2:juillet:combinaison-5": "5a0d9a821033b6a87139765868ba009c1c5fc6089b5c37ccbc09f99bfb042a9f",
+          "ee-tache2:juillet:combinaison-41": "1372520c285ba075d807e4157674260a81720d78121f10e700cbceed3623df13",
+          "ee-tache2:septembre:combinaison-3": "1372520c285ba075d807e4157674260a81720d78121f10e700cbceed3623df13"
+        }
+      }
     },
     {
       "id": "loi-exprimez-admiration-personnalite-celebre",
@@ -33,6 +46,42 @@
       ]
     },
     {
+      "id": "etu-chers-internautes-ans-vais",
+      "theme": "etudes-langues",
+      "canonical": "ee-tache2:janvier:combinaison-4",
+      "members": [
+        "ee-tache2:janvier:combinaison-4",
+        "ee-tache2:janvier:combinaison-16",
+        "ee-tache2:mars:combinaison-14",
+        "ee-tache2:juin:combinaison-3"
+      ],
+      "audit": {
+        "rationale": "Forum reply to a 19-year-old preparing foreign studies, based on the respondent's one year abroad. January 4 is the paraphrased version of Julie's request. January 4 paraphrases the student's message without the name Julie. January 4 illustrates the account with stay/activities; the quoted versions explicitly ask whether the respondent liked the experience and why. Both existing responses contain activities and an explained positive evaluation. Quotation marks and greetings vary incidentally.",
+        "signature_sha256": {
+          "ee-tache2:janvier:combinaison-4": "93a7ca86c0d9373a86a2d3d16e9744d021f223c03d25e929b6ed83e384ffee0a",
+          "ee-tache2:janvier:combinaison-16": "6dfd227fe8266a9850353284508f94bfdf0739af3a1f8d7acbb470f6f1c4cf07",
+          "ee-tache2:mars:combinaison-14": "6dfd227fe8266a9850353284508f94bfdf0739af3a1f8d7acbb470f6f1c4cf07",
+          "ee-tache2:juin:combinaison-3": "6dfd227fe8266a9850353284508f94bfdf0739af3a1f8d7acbb470f6f1c4cf07"
+        }
+      }
+    },
+    {
+      "id": "voy-visite-nouveau-pays-vacances",
+      "theme": "voyages",
+      "canonical": "ee-tache2:janvier:combinaison-6",
+      "members": [
+        "ee-tache2:janvier:combinaison-6",
+        "ee-tache2:janvier:combinaison-10"
+      ],
+      "audit": {
+        "rationale": "Same newly visited country during holidays, same public travel account and opinion. January 6 uses imperatives racontez/donnez; January 10 uses vous racontez/vous donnez. Nothing substantive differs.",
+        "signature_sha256": {
+          "ee-tache2:janvier:combinaison-6": "c276c08000777366cf46cd036d7f28cb0f94d5cb60bd1dfd271910ae69c7cabe",
+          "ee-tache2:janvier:combinaison-10": "e2d02583e94c277f80612644871b465cf8a015d69d98ae2ad933f79631b720f1"
+        }
+      }
+    },
+    {
       "id": "voy-raconter-arrivee-pays-etranger",
       "theme": "voyages",
       "canonical": "ee-tache2:janvier:combinaison-7",
@@ -42,6 +91,24 @@
       ]
     },
     {
+      "id": "spo-avez-participe-cours-sport",
+      "theme": "sport-sante",
+      "canonical": "ee-tache2:janvier:combinaison-8",
+      "members": [
+        "ee-tache2:janvier:combinaison-8",
+        "ee-tache2:avril:combinaison-2",
+        "ee-tache2:juillet:combinaison-3"
+      ],
+      "audit": {
+        "rationale": "Public customer account of taking an indoor sports class, plus an opinion of the sports facility. January frames the task as an invitation from the gym and posts the review on its website; April/July publish it on the participant's blog. The readership remains public readers of a first-person customer review, not a private friend or formal complaint. January uses plural cours; April/July describe un cours. Describing an attended session and the facility satisfies both; neither requires comparing several classes. The gym URL and greeting are incidental.",
+        "signature_sha256": {
+          "ee-tache2:janvier:combinaison-8": "c0f0020cdb21040fbb41c3fb5ec6e8429bc029a40a5914280fa45c9ce871cb73",
+          "ee-tache2:avril:combinaison-2": "60e42b4a45cfbb70e2f89dc200f876611f5931a5980821a50f77277a10a3ce0b",
+          "ee-tache2:juillet:combinaison-3": "60e42b4a45cfbb70e2f89dc200f876611f5931a5980821a50f77277a10a3ce0b"
+        }
+      }
+    },
+    {
       "id": "ren-infos-familles-vivre-personne",
       "theme": "rencontres",
       "canonical": "ee-tache2:janvier:combinaison-9",
@@ -49,16 +116,6 @@
         "ee-tache2:janvier:combinaison-9",
         "ee-tache2:octobre:combinaison-3",
         "ee-tache2:decembre:combinaison-2"
-      ]
-    },
-    {
-      "id": "etu-chers-internautes-ans-vais",
-      "theme": "etudes-langues",
-      "canonical": "ee-tache2:janvier:combinaison-16",
-      "members": [
-        "ee-tache2:janvier:combinaison-16",
-        "ee-tache2:mars:combinaison-14",
-        "ee-tache2:juin:combinaison-3"
       ]
     },
     {
@@ -99,8 +156,20 @@
         "ee-tache2:avril:combinaison-9",
         "ee-tache2:juillet:combinaison-14",
         "ee-tache2:aout:combinaison-9",
+        "ee-tache2:novembre:combinaison-3",
         "ee-tache2:decembre:combinaison-9"
-      ]
+      ],
+      "audit": {
+        "rationale": "Same municipal car-free-week participation, account of what happened and opinion of the initiative. November's event is Une semaine sans ma voiture rather than Une semaine sans voiture. November explicitly names municipal organisation and an Internet publication; the other prompts request dates, place and offered activities without specifying outlet. Participé versus assisté is compatible: both models actively try alternative transport during the city's event.",
+        "signature_sha256": {
+          "ee-tache2:mars:combinaison-1": "dab57058af8ec9d4fbe426fe01db272b7e98c47e26f174cc64e70b3d356b8562",
+          "ee-tache2:avril:combinaison-9": "dab57058af8ec9d4fbe426fe01db272b7e98c47e26f174cc64e70b3d356b8562",
+          "ee-tache2:juillet:combinaison-14": "dab57058af8ec9d4fbe426fe01db272b7e98c47e26f174cc64e70b3d356b8562",
+          "ee-tache2:aout:combinaison-9": "dab57058af8ec9d4fbe426fe01db272b7e98c47e26f174cc64e70b3d356b8562",
+          "ee-tache2:novembre:combinaison-3": "544796483bc5b0902a49b1df6b6c49b0cb63f3ff6032d87ca4a2739950f2fd12",
+          "ee-tache2:decembre:combinaison-9": "dab57058af8ec9d4fbe426fe01db272b7e98c47e26f174cc64e70b3d356b8562"
+        }
+      }
     },
     {
       "id": "vie-travaillez-association-aide-personnes",
@@ -126,8 +195,19 @@
       "canonical": "ee-tache2:mars:combinaison-4",
       "members": [
         "ee-tache2:mars:combinaison-4",
-        "ee-tache2:avril:combinaison-3"
-      ]
+        "ee-tache2:avril:combinaison-3",
+        "ee-tache2:juillet:combinaison-2",
+        "ee-tache2:juillet:combinaison-11"
+      ],
+      "audit": {
+        "rationale": "Same forum debate on online training, personal course account and both liked/disliked aspects. March has an extraction prefix Analysez le sujet d'examen suivant. July 11 omits en from ce que vous n'en avez pas aimé. July 2 truncates the final phrase to ce que vous n'avez pas; context and authored response unambiguously retain the negative half of liked/disliked, not a different task.",
+        "signature_sha256": {
+          "ee-tache2:mars:combinaison-4": "97c3b7dba39ddc31ff9296abea1e5ed980c59b4dfdef28665d1ea188395a7090",
+          "ee-tache2:avril:combinaison-3": "97c3b7dba39ddc31ff9296abea1e5ed980c59b4dfdef28665d1ea188395a7090",
+          "ee-tache2:juillet:combinaison-2": "10d4460bc6057e2e3cbeff043bc643221a3f74a6bc430a7351b8f325e3ea058b",
+          "ee-tache2:juillet:combinaison-11": "ac0d05867da58ab6deac704e8759c08b70b7542d92ee90005a191c7e9a773521"
+        }
+      }
     },
     {
       "id": "voy-avez-passe-vacances-belle",
@@ -167,23 +247,26 @@
       ]
     },
     {
-      "id": "spo-avez-participe-cours-sport",
-      "theme": "sport-sante",
-      "canonical": "ee-tache2:avril:combinaison-2",
-      "members": [
-        "ee-tache2:avril:combinaison-2",
-        "ee-tache2:juillet:combinaison-3"
-      ]
-    },
-    {
       "id": "loi-avez-participe-concours-gagner",
       "theme": "loisirs-culture",
       "canonical": "ee-tache2:avril:combinaison-4",
       "members": [
         "ee-tache2:avril:combinaison-4",
         "ee-tache2:juillet:combinaison-1",
+        "ee-tache2:aout:combinaison-4",
+        "ee-tache2:aout:combinaison-13",
         "ee-tache2:novembre:combinaison-5"
-      ]
+      ],
+      "audit": {
+        "rationale": "Same Mon artiste préféré blog contest, same two-week stay in preferred city, same article about the chosen artist. August 4 says selected for rather than participated in the contest; selection stage does not alter the requested article. August 13 turns the contextual clauses into a single instruction. Favorite city/artiste préféré use synonymous formulations; the prize remains a two-week stay.",
+        "signature_sha256": {
+          "ee-tache2:avril:combinaison-4": "cf91347fd06130652836cccf1b1518557824db66eb42572d911e12d03954e498",
+          "ee-tache2:juillet:combinaison-1": "cf91347fd06130652836cccf1b1518557824db66eb42572d911e12d03954e498",
+          "ee-tache2:aout:combinaison-4": "f874b9ba70ff59e1e450c6bd2904e60f67f5120ac75a5498cbd53ae3122a8b8b",
+          "ee-tache2:aout:combinaison-13": "d75e12d8b3cd257b8043909f2e3e4ab365c05339a0d2ff7a855b0b212cb9f4a6",
+          "ee-tache2:novembre:combinaison-5": "cf91347fd06130652836cccf1b1518557824db66eb42572d911e12d03954e498"
+        }
+      }
     },
     {
       "id": "fet-avez-participe-concours-cuisine",
@@ -209,8 +292,17 @@
       "canonical": "ee-tache2:avril:combinaison-8",
       "members": [
         "ee-tache2:avril:combinaison-8",
-        "ee-tache2:aout:combinaison-11"
-      ]
+        "ee-tache2:aout:combinaison-11",
+        "ee-tache2:decembre:combinaison-11"
+      ],
+      "audit": {
+        "rationale": "Same move from city to countryside, reasons for choosing it and advantages of the new life. Afin de versus pour. Blog versus Internet forum: same public personal testimony, with no specific addressee or different register.",
+        "signature_sha256": {
+          "ee-tache2:avril:combinaison-8": "d41910a8cceacf68f93085b7756a09f9108c3b6e9326ae4449b6b0a0346e1e5c",
+          "ee-tache2:aout:combinaison-11": "d41910a8cceacf68f93085b7756a09f9108c3b6e9326ae4449b6b0a0346e1e5c",
+          "ee-tache2:decembre:combinaison-11": "6a25dfb485e1c17fcf77cf192b68ba8d81ef039624787a2ff49400312cd7d8b5"
+        }
+      }
     },
     {
       "id": "etu-internaute-publie-suivant-vais",
@@ -219,8 +311,18 @@
       "members": [
         "ee-tache2:avril:combinaison-10",
         "ee-tache2:juillet:combinaison-15",
+        "ee-tache2:aout:combinaison-10",
         "ee-tache2:decembre:combinaison-19"
-      ]
+      ],
+      "audit": {
+        "rationale": "Same reply to a worried prospective foreign student, recounting personal challenges, solutions and benefits. August paraphrases the quoted Je vais partir étudier un an à l'étranger et j'ai peur. August omits the prospective student's one-year duration; no conflicting duration is imposed. The three required elements défis/solutions/bénéfices remain identical.",
+        "signature_sha256": {
+          "ee-tache2:avril:combinaison-10": "eb44006089a59ca5e17c6f5d3313548dc06f74ed4847f68dad2640e6d199198b",
+          "ee-tache2:juillet:combinaison-15": "eb44006089a59ca5e17c6f5d3313548dc06f74ed4847f68dad2640e6d199198b",
+          "ee-tache2:aout:combinaison-10": "e6d81b995e460388e8649ee0b75bd71817780c7ed69b72feaaa933dc538fe7aa",
+          "ee-tache2:decembre:combinaison-19": "eb44006089a59ca5e17c6f5d3313548dc06f74ed4847f68dad2640e6d199198b"
+        }
+      }
     },
     {
       "id": "tra-etes-parti-travailler-etranger",
@@ -238,8 +340,57 @@
       "canonical": "ee-tache2:avril:combinaison-13",
       "members": [
         "ee-tache2:avril:combinaison-13",
+        "ee-tache2:aout:combinaison-2",
+        "ee-tache2:aout:combinaison-8",
+        "ee-tache2:aout:combinaison-15",
+        "ee-tache2:novembre:combinaison-9",
         "ee-tache2:decembre:combinaison-17"
-      ]
+      ],
+      "audit": {
+        "rationale": "Formal written complaint directly to the travel agency after a badly organised/disappointing trip, describing poor services and dissatisfaction. Courriel versus lettre versus unspecified written complaint; same professional addressee/register. April/December explicitly request problems and a solution. The other complaints leave remedy implicit, but every existing version already requests reimbursement/compensation. November explicitly says the stay was abroad and asks for experience/opinion rather than using the word réclamation. It still addresses the responsible agency after disappointment; all four versions concern foreign destinations. August 8 is a shorter paraphrase of agency service/organisation failures.",
+        "signature_sha256": {
+          "ee-tache2:avril:combinaison-13": "628206e149591d4332d9c28ba7dec6d868994a06b2a9d64c31df11c1de12e32c",
+          "ee-tache2:aout:combinaison-2": "01f8c3bdeb87e88ee39d8c12dbd18a1b8f03af2a14138629d334234d4afefe84",
+          "ee-tache2:aout:combinaison-8": "18fa262553b16f401ea205e7257c0ddec3d8143b9bed8f1ec482070ee6d2f9b3",
+          "ee-tache2:aout:combinaison-15": "01f8c3bdeb87e88ee39d8c12dbd18a1b8f03af2a14138629d334234d4afefe84",
+          "ee-tache2:novembre:combinaison-9": "1eb99f528b1d08144dd2ec1419cdfbbe99a9cc4de2fe2ea71be510017356da6d",
+          "ee-tache2:decembre:combinaison-17": "628206e149591d4332d9c28ba7dec6d868994a06b2a9d64c31df11c1de12e32c"
+        }
+      }
+    },
+    {
+      "id": "tra-journee-formation-collegues",
+      "theme": "travail",
+      "canonical": "ee-tache2:avril:combinaison-14",
+      "members": [
+        "ee-tache2:avril:combinaison-14",
+        "ee-tache2:mai:combinaison-7",
+        "ee-tache2:juin:combinaison-2"
+      ],
+      "audit": {
+        "rationale": "Same one-day workplace training report for colleagues, recounting the day and what was appreciated/thought of it. April publishes an article on a forum for colleagues; May is an employer-requested article for colleagues; June is an email to colleagues. Addressee and professional peer register do not change. May asks general opinion; April/June ask what pleased the writer. A positive account with a minor caveat satisfies all, and none requires a negative experience. May calls it formation professionnelle; the others situate it in the company. No different subject or delivery mode is specified.",
+        "signature_sha256": {
+          "ee-tache2:avril:combinaison-14": "fc02fdb300d05166dbf2ec2c284fc048c33d1df1849074eef1bc2d5494339bb6",
+          "ee-tache2:mai:combinaison-7": "95ec63ddc52a90209627a9950a79ea02f1161947b79246f9e6dd9b65334d4dcf",
+          "ee-tache2:juin:combinaison-2": "3cad8c168663e4853bbabd9b3f9da9b823b0d39e151109b4a7ce255b3a6348b8"
+        }
+      }
+    },
+    {
+      "id": "tra-pique-nique-collegues",
+      "theme": "travail",
+      "canonical": "ee-tache2:avril:combinaison-15",
+      "members": [
+        "ee-tache2:avril:combinaison-15",
+        "ee-tache2:mai:combinaison-6"
+      ],
+      "audit": {
+        "rationale": "Same company-newspaper account of a picnic with colleagues. April lists atmosphere, food, shared activities and best moments. May lists place, food and weather as illustrative details. Neither fixes incompatible facts, and both existing responses already cover the union.",
+        "signature_sha256": {
+          "ee-tache2:avril:combinaison-15": "159536247a8f1284f6a3e85cd1681e16b6d5475d612e60f9265cb2069db935d1",
+          "ee-tache2:mai:combinaison-6": "106623212399c2bdef7678c54d64e9b7bc760b8b110e5e959793bfa4c6770254"
+        }
+      }
     },
     {
       "id": "num-pensez-installation-television-chambre",
@@ -280,13 +431,20 @@
       ]
     },
     {
-      "id": "voy-lettre-reclamation-exprimer-insatisfaction",
-      "theme": "voyages",
-      "canonical": "ee-tache2:aout:combinaison-2",
+      "id": "loi-festival-cinema-film-amis",
+      "theme": "loisirs-culture",
+      "canonical": "ee-tache2:aout:combinaison-1",
       "members": [
-        "ee-tache2:aout:combinaison-2",
-        "ee-tache2:aout:combinaison-15"
-      ]
+        "ee-tache2:aout:combinaison-1",
+        "ee-tache2:novembre:combinaison-8"
+      ],
+      "audit": {
+        "rationale": "Same message to friends about attending a film festival and the film that made a strong impression. August asks for an opinion on that film; November calls it the preferred film. An appreciative account of the preferred memorable film satisfies both. November repeats its whole prompt accidentally; repetition adds no requirement. August says forte impression, November particulièrement marqué: synonyms; neither imposes an opposite negative experience.",
+        "signature_sha256": {
+          "ee-tache2:aout:combinaison-1": "e918f540e280c004b2812bcbc8a3bb936440a7cea2ed3018de8b1d2553ae8b41",
+          "ee-tache2:novembre:combinaison-8": "90dc0f061bbcb3b5f8a8108e7b5b74aa127fffc1a2b326415a065a8a876add92"
+        }
+      }
     },
     {
       "id": "spo-decide-changer-votre-alimentation",

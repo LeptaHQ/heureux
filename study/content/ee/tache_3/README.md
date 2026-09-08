@@ -29,7 +29,7 @@ Ce dossier regroupe les **sujets sources** et l'ensemble des **réponses modèle
   de réponse, les exemples fondés sur une phrase retirée sont régénérés. Clé :
   `ee-tache3:<mois>:combinaison-<n>`.
   Les 138 blocs sont conservés, mais le parseur n'importe que les blocs `canonical`
-  (voir « Thèmes et sujets équivalents ») : **84 × 30 = 2 520 entrées importées**.
+  (voir « Thèmes et sujets équivalents ») : **78 × 30 = 2 340 entrées importées**.
 
 **Mémoires** — `memoires/memoire_<Q>.json`
 - **4 mémoires trimestrielles** de formulations réutilisables, calquées sur la structure
@@ -41,7 +41,7 @@ Ce dossier regroupe les **sujets sources** et l'ensemble des **réponses modèle
 *Février 2025 : aucune page publiée sur la source.*
 
 Après regroupement des republications (`equivalent_groups.json`), l'application expose
-**84 réponses distinctes** pour **138 sujets datés** et **2 520 entrées de vocabulaire**.
+**78 réponses distinctes** pour **138 sujets datés** et **2 340 entrées de vocabulaire**.
 
 | Mois | Sujets/Réponses | Vocab (30×) |
 |---|---|---|
@@ -106,22 +106,39 @@ la position ressort du texte.
 
 - `subject_themes.json` — taxonomie de 11 thèmes (`slug`, `name`, `icon`, `order`) et
   table `content_key → thème` couvrant **les 138 sujets**.
-- `equivalent_groups.json` — **32 groupes** couvrant **86 sujets** que la source a
-  republiés à l'identique ; les 138 sujets datés se ramènent donc à **84 réponses
+- `equivalent_groups.json` — **35 groupes** couvrant **95 sujets** que la source a
+  republiés à l'identique ou paraphrasés ; les 138 sujets datés se ramènent donc à **78 réponses
   distinctes**. Pour la Tâche 3, l'identité d'un sujet est celle de ses **deux
   documents** : le titre est éditorial et varie d'un mois à l'autre (« Vivre en
   colocation » / « Vivre En Colocation : Pour Ou Contre ? »). La comparaison des
   documents est **insensible à leur ordre** (la source les intervertit parfois) et
-  tolère une dérive typographique auditée (similarité ≥ 0,93). Le membre `canonical`
+  tolère une dérive typographique auditée (similarité ≥ 0,93). Les paraphrases plus
+  importantes exigent un champ `audit` avec justification et empreintes SHA-256
+  des signatures normalisées de chaque paire. Une modification de fond invalide
+  ces empreintes et exige une nouvelle revue. Le membre `canonical`
   est toujours le plus ancien du groupe. Mêmes règles de validation que l'Expression
   orale Tâche 2.
-- `ee_tache_three_phrase_id_merges()` associe les **1 620 identifiants** de vocabulaire
+- `ee_tache_three_phrase_id_merges()` associe les **1 800 identifiants** de vocabulaire
   des publications devenues alias aux 30 fiches de leur réponse canonique. L'import
   conserve ainsi les calendriers de révision et les annotations déjà créés.
 - `author_responses.json` — **10 réponses rédigées par l'auteur** qui remplacent le
   modèle fourni. Chaque `content_key` doit être un sujet `canonical` ; les entrées
   sont classées par ordre de publication. Elles proviennent de sa
   [banque personnelle EE](https://dot-ear-743.notion.site/2d82e3acbb10809eb5d2c44ed17bccbf?v=3d02e3acbb1080e5878b000c3c0edec0).
+
+L'audit d'équivalence de septembre 2026 porte sur les 138 sujets et leurs 276
+champs documentaires, dont deux vides. Il ajoute trois groupes (restauration rapide
+et obésité, bureaux réglables, objets connectés) et étend trois groupes (caméras
+à l'école, réduction du temps de travail, restauration rapide et déchets plastiques).
+Les fichiers sources, les 138 modèles archivés et les dix réponses de l'auteur
+restent inchangés. Les 180 fiches supplémentaires devenues alias utilisent le
+mécanisme existant de rapprochement des calendriers de révision.
+
+Seules les paires complètes sont comparées : les sujets de livraison de repas
+qui partagent un seul document restent indépendants. Les variantes dont les
+statistiques, les arguments ou les réserves changent ne sont pas liées sur la
+seule base d'un titre commun (jeux vidéo, sieste au travail, musées gratuits,
+produits faits maison, etc.).
 
 Chargement et validation : `load_ee_subject_themes(3)` et
 `load_ee_equivalent_groups(3)` dans `study/content_loader.py`.
@@ -204,4 +221,4 @@ proviennent désormais toutes de leur synthèse ou de leur point de vue effectif
   les limites, les groupes et le vocabulaire avant tout import.
 - `study/tests/test_ee_subject_themes.py` et
   `study/tests/test_ee_writing_feature.py` verrouillent les 138 occurrences,
-  84 réponses canoniques, 32 groupes et 2 520 entrées importées.
+  78 réponses canoniques, 35 groupes et 2 340 entrées importées.

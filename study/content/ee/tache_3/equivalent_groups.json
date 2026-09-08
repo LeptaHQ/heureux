@@ -204,8 +204,17 @@
       "canonical": "ee-tache3:avril:combinaison-8",
       "members": [
         "ee-tache3:avril:combinaison-8",
-        "ee-tache3:aout:combinaison-11"
-      ]
+        "ee-tache3:aout:combinaison-11",
+        "ee-tache3:decembre:combinaison-11"
+      ],
+      "audit": {
+        "rationale": "Same Montreal teacher, cameras throughout the school, deterrence of violence, acceptance by parents/teachers/most pupils, reassurance and better teaching conditions, with a minority of pupils objecting on privacy grounds. Same opposition in Montreal schools: disappointing results elsewhere, visible cameras can be bypassed, and dialogue between pupils, administration and teachers plus explanation/enforcement of school rules is preferable. December's generic camera title conceals that both its documents concern exactly the same Montreal school setting. December spells out deterrence as making young people understand violent acts will be punished; April summarizes it as dissuading violence. December explains bypassing cameras as outsiders entering through unmonitored places; April condenses this to malicious people easily circumventing visible cameras. December uses règlement intérieur and April règles de l'école. The proposed alternative and all stakeholder positions are unchanged. The existing April-8 and August-11 documents are identical.",
+        "signature_sha256": {
+          "ee-tache3:avril:combinaison-8": "577c20f2b06f138593439269fe6863f6cdef0cba853609dd79bd9c39a5ae2680",
+          "ee-tache3:aout:combinaison-11": "577c20f2b06f138593439269fe6863f6cdef0cba853609dd79bd9c39a5ae2680",
+          "ee-tache3:decembre:combinaison-11": "ece90f58a92443512d73576837fb778f8f8e402422efd307794f088b4bf0b3e3"
+        }
+      }
     },
     {
       "id": "tra-reduction-temps-travail",
@@ -214,8 +223,18 @@
       "members": [
         "ee-tache3:avril:combinaison-10",
         "ee-tache3:juillet:combinaison-15",
+        "ee-tache3:aout:combinaison-10",
         "ee-tache3:decembre:combinaison-19"
-      ]
+      ],
+      "audit": {
+        "rationale": "Identical across all four members: reduced hours improve work/life balance, family/leisure/health time, job satisfaction, stress and overall productivity. All four give the same employer-side benefits and condition: less absenteeism, better retention, more motivated staff through flexible schedules, but organization and process adaptation are required to maintain effectiveness and meet business needs. August document 2 faithfully paraphrases réduction du temps de travail as réduire les heures de travail. It substitutes fidélisation for rétention, impliqués for engagés, organisation efficace for bonne organisation, and productivité for efficacité in the unchanged organizational condition. The other three members' document pairs are identical aside from titles/capitalization.",
+        "signature_sha256": {
+          "ee-tache3:avril:combinaison-10": "d10e16b2db6ae247f256f02f61b955860e1dab7a0119cb7a802fb595974b0a09",
+          "ee-tache3:juillet:combinaison-15": "d10e16b2db6ae247f256f02f61b955860e1dab7a0119cb7a802fb595974b0a09",
+          "ee-tache3:aout:combinaison-10": "fbfc80e8c6778016e70d067c235f4c1488d7681873d8d65c8abea5dbbfb054c9",
+          "ee-tache3:decembre:combinaison-19": "d10e16b2db6ae247f256f02f61b955860e1dab7a0119cb7a802fb595974b0a09"
+        }
+      }
     },
     {
       "id": "num-etudes-montre-certaines-zones",
@@ -226,6 +245,22 @@
         "ee-tache3:novembre:combinaison-1",
         "ee-tache3:decembre:combinaison-18"
       ]
+    },
+    {
+      "id": "san-restauration-rapide-obesite",
+      "theme": "sante-alimentation",
+      "canonical": "ee-tache3:avril:combinaison-13",
+      "members": [
+        "ee-tache3:avril:combinaison-13",
+        "ee-tache3:aout:combinaison-2"
+      ],
+      "audit": {
+        "rationale": "Both defend the same three claims: varied balanced meals, compliance with hygiene standards, and the customer's responsibility because the customer composes the menu. August is a faithful rewriting of April's short, awkwardly phrased account. Both oppose fast food because it causes serious, irreversible health problems, explicitly including obesity. Neither text contains the plastic-packaging argument in the separate August-8 family or the unknown-ingredients/Supersize Me argument in the August-15 family. April has no title; its flags explicitly identify fast food and health. August supplies the title La restauration rapide. Document 1 replaces restaurants rapides/proposent with restaurants de restauration rapide/offrent and rewrites the menu-responsibility clause without changing it. Document 2 expands the short obesity warning with frequent consumption, associated illnesses and effects on health. This elaborates the same causal warning rather than introducing a different argument.",
+        "signature_sha256": {
+          "ee-tache3:avril:combinaison-13": "85b80b25d9b71bbd8945f62635d6115d7ef65d1a6f64a828be2cc67ded0b52c6",
+          "ee-tache3:aout:combinaison-2": "2abafb61954f9e2b4f8b155d064662f85df86104cb1edfdd72f24ffcc8158b21"
+        }
+      }
     },
     {
       "id": "cul-organisation-evenements-sportifs",
@@ -257,6 +292,22 @@
       ]
     },
     {
+      "id": "tra-bureaux-reglables",
+      "theme": "travail",
+      "canonical": "ee-tache3:juillet:combinaison-6",
+      "members": [
+        "ee-tache3:juillet:combinaison-6",
+        "ee-tache3:novembre:combinaison-2"
+      ],
+      "audit": {
+        "rationale": "Both describe installing desks that go up and down, allowing employees to choose their posture; workers report greater productivity and specifically better telephone negotiations, while social atmosphere and direct communication improve. Both have the same sceptical employee argument: businesses seek ever more productivity and time at work and present workplace-health improvements as a pretext; the real priority is finishing work within contracted hours rather than doing overtime. Titles differ substantially: Le bien-être au travail versus Les bureaux électriques. The complete document pairs establish equivalence. July says bureaux réglables, November bureaux électriques; both explicitly go up and down and serve the same posture-selection function. November makes standing/sitting explicit and illustrates direct colleague communication as walking over rather than sending email. July condenses those details. November adds the rhetorical statement that seating posture is secondary; July already makes actual working hours the priority. July credits Lorie, responsable and Florian, ingénieur; November drops the credits. July's votre entreprise versus November's notre entreprise is editorial drift.",
+        "signature_sha256": {
+          "ee-tache3:juillet:combinaison-6": "c4a9c718081663681064ebe1add401710a3df53ea41793095e051af6b24b179d",
+          "ee-tache3:novembre:combinaison-2": "223a6f04c288195cfe2611fdea7319b2096987fc5d92027be69cc0d5a8886f64"
+        }
+      }
+    },
+    {
       "id": "tra-relations-amicales-travail",
       "theme": "travail",
       "canonical": "ee-tache3:juillet:combinaison-44",
@@ -280,8 +331,33 @@
       "canonical": "ee-tache3:aout:combinaison-8",
       "members": [
         "ee-tache3:aout:combinaison-8",
-        "ee-tache3:novembre:combinaison-6"
-      ]
+        "ee-tache3:novembre:combinaison-6",
+        "ee-tache3:decembre:combinaison-17"
+      ],
+      "audit": {
+        "rationale": "Same defence in all three: fast-food restaurants offer varied balanced dishes, follow hygiene norms, and leave the choice of menu and consequent responsibility to the customer. The entire December document 2 matches August-8: experts warn of excessive calories from fries, hamburgers and sugary drinks, then criticize the environmental harm from plastic food packaging. November differs only in the final full stop. December document 1 is the shorter formulation also found in April-13; August/November expand it stylistically with engagement, strictement and preferences gustatives. December retains all substantive document-1 claims; no competing evidence or qualification is introduced. The environmental document-2 argument distinguishes this group from April-13/August-2 even though December shares document 1 with April-13.",
+        "signature_sha256": {
+          "ee-tache3:aout:combinaison-8": "4640b32c12bcd54525ab6e7e7be85d7e4dc364d2cdc7d33d040ecdbb720588f1",
+          "ee-tache3:novembre:combinaison-6": "4640b32c12bcd54525ab6e7e7be85d7e4dc364d2cdc7d33d040ecdbb720588f1",
+          "ee-tache3:decembre:combinaison-17": "6179e5b1f4d28c7669ab19d02a77bb9930052c488dadb9acbfae1d867c4b79db"
+        }
+      }
+    },
+    {
+      "id": "num-objets-connectes",
+      "theme": "numerique",
+      "canonical": "ee-tache3:aout:combinaison-13",
+      "members": [
+        "ee-tache3:aout:combinaison-13",
+        "ee-tache3:novembre:combinaison-12"
+      ],
+      "audit": {
+        "rationale": "Same chain of benefits: phone/Internet remote control of household equipment; connected watches/bracelets measuring steps to encourage exercise; health assistance reminding users of appointments and medication. Same 50-billion-device estimate, same example list (alarms, televisions, cameras, shutters, smoke detectors), same rapid hacker takeover, same burglar checking occupants' absence through cameras, and same remote takeover of a connected car. August says objets intelligents and hacker; November says objets connectés and pirate informatique. August groups household examples under heating/home security; November gives heating/door closure. Door closure is the concrete security example, not a different benefit. Assistant santé becomes carnet de santé, with exactly the same appointment and medication examples. Sentence ordering and connective wording change, but all substantive benefits, risks and concrete evidence are preserved.",
+        "signature_sha256": {
+          "ee-tache3:aout:combinaison-13": "bdfc5a82d45dee08db41a95c5ad64ec566adf5f94a8ac88dca7d739db77e6e83",
+          "ee-tache3:novembre:combinaison-12": "25005732cfbea03e0b33b2f8620749778fd68de7d67d77f08bac26f516d98ca1"
+        }
+      }
     },
     {
       "id": "san-restauration-rapide-chaines",

@@ -12,6 +12,10 @@
         {
           "body": "Coucou Jo,\n\nJ’espère que tu vas bien ! J’ai une excellente nouvelle : j’ai décroché un poste d’ingénieur logiciel chez Microsoft.\n\nTout d’abord, je conçois des systèmes de bases de données à grande échelle, exactement ce que j’ai étudié à Cornell. Mes collègues sont professionnels et toujours prêts à aider. Nos locaux, rue Ag, se trouvent dans un quartier dynamique : chacun a son bureau et les déjeuners sont offerts.\n\nLe seul bémol est le trajet depuis mon appartement, mais je suis heureux que ce poste me plaise autant !\n\nÉcris-moi vite,\nC",
           "origin": "author"
+        },
+        {
+          "body": "Coucou Sarah,\n\nJ’espère que tu vas bien ! J’ai une excellente nouvelle : je viens de décrocher un poste d’ingénieur logiciel dans une entreprise de transports.\n\nJe vais concevoir des applications qui facilitent les déplacements en ville. Mes collègues sont chaleureux et toujours prêts à aider ; plusieurs parlent français, donc je pratiquerai au quotidien. Nos bureaux occupent un bâtiment moderne près du centre-ville. Le seul bémol est le trajet, assez long le matin.\n\nMalgré cela, cette occasion est du pain bénit ! Quand viens-tu visiter les locaux ?\n\nÀ bientôt,\nCorn",
+          "origin": "original"
         }
       ]
     },
@@ -34,15 +38,6 @@
         {
           "body": "Salut Lucas !\n\nSuper de te lire ! Oui, nous avons déménagé. Nos nouveaux locaux se trouvent à Garden City, au 123, rue Ag, dans un cadre agréable entouré d’arbres.\n\nEnsuite, nous occupons trois bâtiments bien organisés. Chaque employé a son propre bureau et un ordinateur récent ; les salles de réunion disposent d’écrans. Nous déjeunons souvent ensemble dans les espaces communs ou les restaurants voisins.\n\nLe seul bémol est le quartier, un peu animé aux heures de pointe. Viens déjeuner avec moi pour que tu voies tout par toi-même !\n\nÀ bientôt,\nC",
           "origin": "author"
-        }
-      ]
-    },
-    {
-      "content_key": "ee-tache1:juin:combinaison-3",
-      "versions": [
-        {
-          "body": "Coucou Sarah,\n\nJ’espère que tu vas bien ! J’ai une excellente nouvelle : je viens de décrocher un poste d’ingénieur logiciel dans une entreprise de transports.\n\nJe vais concevoir des applications qui facilitent les déplacements en ville. Mes collègues sont chaleureux et toujours prêts à aider ; plusieurs parlent français, donc je pratiquerai au quotidien. Nos bureaux occupent un bâtiment moderne près du centre-ville. Le seul bémol est le trajet, assez long le matin.\n\nMalgré cela, cette occasion est du pain bénit ! Quand viens-tu visiter les locaux ?\n\nÀ bientôt,\nCorn",
-          "origin": "original"
         }
       ]
     }

@@ -12,6 +12,14 @@
         {
           "body": "Coucou Cédric,\n\nMerci infiniment d’avoir accepté de garder ma maison et mon jardin pendant mon absence. Voici quelques consignes importantes.\n\nTout d’abord, je laisserai les clés dans le boîtier sécurisé à l’entrée. Pour que la maison soit économe en énergie, éteins toutes les lumières après 21 h. Ensuite, j’attends plusieurs colis la semaine prochaine ; pourrais-tu les déposer dans la cuisine ?\n\nConcernant le jardin, il est assez petit et un arrosage une fois tous les deux jours suffit largement. Au moindre souci, n’hésite pas à me joindre sur mon portable, je resterai disponible.\n\nMerci encore pour ce précieux coup de main !\n\nAmicalement,\nC",
           "origin": "author"
+        },
+        {
+          "body": "Salut Cédric,\n\nMerci pour ce précieux coup de main pendant mon absence. Chaque matin, ouvre les volets du salon et donne une tasse de croquettes au chat ; sa nourriture se trouve dans le placard bleu. J’attends aussi un colis jeudi : dépose-le simplement dans l’entrée.\n\nConcernant le jardin, pourrais-tu arroser les tomates un jour sur deux et les fleurs deux fois par semaine ? La tondeuse restera dans le garage, mais il n’est pas nécessaire de tondre. Les clés seront chez la voisine, Mme Diallo. Au moindre souci, n’hésite pas à me joindre.\n\nÀ bientôt,\nCorn",
+          "origin": "original"
+        },
+        {
+          "body": "Coucou Cédric,\n\nMerci infiniment d’avoir accepté ! Dans la maison, pourrais-tu relever le courrier, ouvrir les fenêtres dix minutes le matin et nourrir Perp deux fois par jour ? Ses croquettes sont dans le tiroir marron de la cuisine. Pense aussi à éteindre toutes les lumières en partant.\n\nPour le jardin, un arrosage le mercredi et le samedi suffit largement. Les plantes du balcon, en revanche, ont besoin d’un peu d’eau tous les deux jours. Je laisserai les clés dans le boîtier sécurisé à l’entrée. Si tu as la moindre question, appelle-moi sur mon portable.\n\nMerci encore pour ton aide !\n\nCorn",
+          "origin": "original"
         }
       ]
     },
@@ -21,12 +29,7 @@
         {
           "body": "Coucou Jo,\n\nÇa fait longtemps ! Je t’invite à passer tes vacances chez moi, à Kumasi. J’y vis depuis quelques mois et j’adore cette ville. Voici ce que j’ai imaginé.\n\nNous visiterons le palais Manhyia afin de découvrir l’histoire ashanti, puis nous assisterons aux ateliers du musée du centre-ville, organisés chaque samedi.\n\nJ’ai aussi prévu les déjeuners au restaurant d’Adebi, connu pour ses spécialités locales. Enfin, Kumasi offre de beaux parcs ombragés, parfaits pour se promener et se détendre.\n\nConfirme-moi ta venue d’ici ce week-end afin que je puisse tout organiser. Hâte de te voir !\n\nC",
           "origin": "author"
-        }
-      ]
-    },
-    {
-      "content_key": "ee-tache1:mai:combinaison-4",
-      "versions": [
+        },
         {
           "body": "Coucou Nan,\n\nÇa fait longtemps ! Depuis mon déménagement à Montréal, je découvre chaque jour un endroit formidable. Je t’invite donc à passer tes prochaines vacances chez moi. Mon appartement se trouve près du métro Laurier, dans un quartier animé, et la chambre d’amis est prête.\n\nNous pourrons nous promener dans le Vieux-Montréal, visiter le musée des Beaux-Arts et pique-niquer au parc du Mont-Royal. Cerise sur le gâteau : un festival de musique gratuit aura lieu chaque soir. Dis-moi quelles dates te conviennent afin que j’organise tout.\n\nHâte de te voir !\n\nCorn",
           "origin": "original"
@@ -48,24 +51,6 @@
         {
           "body": "Salut Mat,\n\nJ’espère que tu vas bien. J’ai trouvé l’Hôtel Ad pour ta première semaine. Il est situé au 123, rue Deb, à Montréal, près du fleuve Saint-Laurent, avec une belle vue sur la ville.\n\nDepuis l’aéroport, des navettes le desservent toutes les trois heures. Il est aussi tout près du cinéma Africain et propose de très bonnes spécialités culinaires.\n\nLa chambre coûte 50 $ par nuit, avec une réduction à partir de trois nuits. La réception ferme à 20 h ; il faut donc que tu préviennes à l’avance si tu arrives plus tard.\n\nTu peux réserver sur www.adhotel.com ou m’appeler.\n\nHâte de te voir !\n\nCorn",
           "origin": "author"
-        }
-      ]
-    },
-    {
-      "content_key": "ee-tache1:aout:combinaison-2",
-      "versions": [
-        {
-          "body": "Salut Cédric,\n\nMerci pour ce précieux coup de main pendant mon absence. Chaque matin, ouvre les volets du salon et donne une tasse de croquettes au chat ; sa nourriture se trouve dans le placard bleu. J’attends aussi un colis jeudi : dépose-le simplement dans l’entrée.\n\nConcernant le jardin, pourrais-tu arroser les tomates un jour sur deux et les fleurs deux fois par semaine ? La tondeuse restera dans le garage, mais il n’est pas nécessaire de tondre. Les clés seront chez la voisine, Mme Diallo. Au moindre souci, n’hésite pas à me joindre.\n\nÀ bientôt,\nCorn",
-          "origin": "original"
-        }
-      ]
-    },
-    {
-      "content_key": "ee-tache1:novembre:combinaison-9",
-      "versions": [
-        {
-          "body": "Coucou Cédric,\n\nMerci infiniment d’avoir accepté ! Dans la maison, pourrais-tu relever le courrier, ouvrir les fenêtres dix minutes le matin et nourrir Perp deux fois par jour ? Ses croquettes sont dans le tiroir marron de la cuisine. Pense aussi à éteindre toutes les lumières en partant.\n\nPour le jardin, un arrosage le mercredi et le samedi suffit largement. Les plantes du balcon, en revanche, ont besoin d’un peu d’eau tous les deux jours. Je laisserai les clés dans le boîtier sécurisé à l’entrée. Si tu as la moindre question, appelle-moi sur mon portable.\n\nMerci encore pour ton aide !\n\nCorn",
-          "origin": "original"
         }
       ]
     },

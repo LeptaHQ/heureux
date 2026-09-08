@@ -5,7 +5,7 @@ Corpus **verbatim** des consignes d'**Expression écrite, Tâche 2** publiées e
 la décrire et l'expliquer).
 
 La tâche est active dans `sections.json`. Son parcours conserve les 138 publications,
-les classe par thème et relie les republications à 88 exercices canoniques :
+les classe par thème et relie les republications à 69 exercices canoniques :
 
 - `responses/<theme>.json` contient **92 versions modèles** de **120 à 150 mots**.
   Les versions `origin: author` viennent de la
@@ -66,12 +66,29 @@ et les Tâches 1, 2 et 3 d'une même combinaison portent donc la même clé au p
 
 - `subject_themes.json` — 11 thèmes (`slug`, `name`, `icon`, `order`) et la table
   `content_key → thème` couvrant **les 138 sujets**.
-- `equivalent_groups.json` — **33 groupes** (83 sujets) republiés sous la même
-  consigne. Les seuls écarts admis sont des artefacts source audités : préfixe
-  « Analysez le sujet… », ponctuation ou bloc accidentellement dupliqué. Le membre
+- `equivalent_groups.json` — **36 groupes** (105 sujets) publiés sous des
+  consignes équivalentes. Outre les artefacts source (préfixe « Analysez le sujet… »,
+  ponctuation ou bloc accidentellement dupliqué), des paraphrases sont
+  explicitement auditées. Le membre
   `canonical` est toujours le plus ancien du groupe ; un sujet n'appartient qu'à un
   seul groupe et tous les membres partagent son thème.
-  **88 sujets distincts** subsistent une fois les doublons regroupés.
+  **69 sujets distincts** subsistent une fois les doublons regroupés.
+
+L'audit de septembre 2026 couvre les 138 publications, les 11 thèmes et les
+92 versions de réponse. Treize groupes sont ajoutés ou étendus, notamment pour
+les séjours à l'étranger, les cours de sport, l'apprentissage en ligne, les
+réclamations aux agences de voyages et les journées de formation entre collègues.
+Les 92 modèles, dont les 16 versions de l'auteur, sont conservés mot pour mot.
+
+Le champ `audit` conserve une justification et les empreintes SHA-256 des
+signatures normalisées de tous les membres d'un groupe de paraphrases. Une
+modification de fond exige une nouvelle revue ; aucune similarité lexicale
+ni appartenance au même thème ne suffit à créer une liaison automatiquement.
+
+Les consignes proches mais distinctes restent séparées : un témoignage public
+n'est pas systématiquement un message privé à des amis ; une fête familiale
+n'est pas tout événement mémorable ; une journée de photographie ne satisfait
+pas une consigne imposant une école de musique.
 
 | Thème | Slug | Sujets |
 |---|---|---|
@@ -91,7 +108,8 @@ Chargement et validation : `load_ee_subject_themes(2)` et
 `load_ee_equivalent_groups(2)` dans `study/content_loader.py`. Les règles sont celles
 de l'Expression orale Tâche 2 : version 1, identifiants en `kebab-case` uniques, au
 moins deux membres, `canonical` le plus ancien, aucun chevauchement entre groupes,
-aucun franchissement de thème, et consigne normalisée réellement partagée.
+aucun franchissement de thème, et consigne normalisée identique ou paraphrase
+explicitement auditée et protégée par ses empreintes.
 
 ## Reproduction
 

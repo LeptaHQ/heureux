@@ -7,8 +7,17 @@
       "canonical": "ee-tache1:janvier:combinaison-1",
       "members": [
         "ee-tache1:janvier:combinaison-1",
-        "ee-tache1:mars:combinaison-11"
-      ]
+        "ee-tache1:mars:combinaison-11",
+        "ee-tache1:novembre:combinaison-3"
+      ],
+      "audit": {
+        "rationale": "Répondre à Anna qui vient passer un week-end dans sa ville pour lui expliquer les transports permettant de la visiter. Le message reçu est développé, mais le séjour et les renseignements demandés sont identiques.",
+        "signature_sha256": {
+          "ee-tache1:janvier:combinaison-1": "781bdea44736376a374103d259e19634fc58f0526a954f547206ce00989f3d9c",
+          "ee-tache1:mars:combinaison-11": "781bdea44736376a374103d259e19634fc58f0526a954f547206ce00989f3d9c",
+          "ee-tache1:novembre:combinaison-3": "0a37870dbb0b92e156cdb754ef010600eb575d7f57eadfdf33ca3221202abafd"
+        }
+      }
     },
     {
       "id": "inv-avez-invite-cedric-mariage",
@@ -39,8 +48,34 @@
       "members": [
         "ee-tache1:janvier:combinaison-4",
         "ee-tache1:janvier:combinaison-16",
-        "ee-tache1:mars:combinaison-14"
-      ]
+        "ee-tache1:mars:combinaison-14",
+        "ee-tache1:juin:combinaison-3"
+      ],
+      "audit": {
+        "rationale": "Annoncer à un ami francophone son nouveau travail et décrire poste, collègues et lieu de travail. La duplication accidentelle de juin, bonne nouvelle/nouvelle et la notation du genre sont éditoriales.",
+        "signature_sha256": {
+          "ee-tache1:janvier:combinaison-4": "5f200881a821ccefca647ed052f5fc8bdbeaca60016ff5496c97afe81f6b5323",
+          "ee-tache1:janvier:combinaison-16": "5f200881a821ccefca647ed052f5fc8bdbeaca60016ff5496c97afe81f6b5323",
+          "ee-tache1:mars:combinaison-14": "5f200881a821ccefca647ed052f5fc8bdbeaca60016ff5496c97afe81f6b5323",
+          "ee-tache1:juin:combinaison-3": "0d46a1fe92f03b4cf1aa1e3d37b8dee61afa4d2ebd268f17c45bc7132f1c24e3"
+        }
+      }
+    },
+    {
+      "id": "sor-barbara-dejeuner-plein-air",
+      "theme": "sorties",
+      "canonical": "ee-tache1:janvier:combinaison-6",
+      "members": [
+        "ee-tache1:janvier:combinaison-6",
+        "ee-tache1:janvier:combinaison-10"
+      ],
+      "audit": {
+        "rationale": "Répondre à Barbara en proposant et décrivant un lieu pour déjeuner en plein air le week-end. Seuls la salutation et le découpage de la consigne changent.",
+        "signature_sha256": {
+          "ee-tache1:janvier:combinaison-6": "0b74453172f4cbbba255e448b23d318b49eb56d09bf1adb59b9103f15a393789",
+          "ee-tache1:janvier:combinaison-10": "2584df956e6fccc346ee3c5f2c135545b0057c943dfed90383aff88f5096cf4e"
+        }
+      }
     },
     {
       "id": "spo-journal-universite-rechercher-partenaire",
@@ -48,8 +83,17 @@
       "canonical": "ee-tache1:janvier:combinaison-7",
       "members": [
         "ee-tache1:janvier:combinaison-7",
-        "ee-tache1:decembre:combinaison-5"
-      ]
+        "ee-tache1:decembre:combinaison-5",
+        "ee-tache1:decembre:combinaison-14"
+      ],
+      "audit": {
+        "rationale": "Publier auprès des étudiants une annonce pour trouver un partenaire de sport avec ses disponibilités. Journal universitaire et site des étudiants ne changent ni le public ni le contenu de l'annonce.",
+        "signature_sha256": {
+          "ee-tache1:janvier:combinaison-7": "2ad7fe30a7cdf6b4b0d07afa256de028ac58167ea3aabe634cfc6ea7dfa959b6",
+          "ee-tache1:decembre:combinaison-5": "2ad7fe30a7cdf6b4b0d07afa256de028ac58167ea3aabe634cfc6ea7dfa959b6",
+          "ee-tache1:decembre:combinaison-14": "74a91a06c871c737c90216aecaf9adfb39108ee7f4257f12841d66fea73c3c07"
+        }
+      }
     },
     {
       "id": "tra-salut-commence-nouveau-travail",
@@ -85,8 +129,19 @@
       "canonical": "ee-tache1:janvier:combinaison-19",
       "members": [
         "ee-tache1:janvier:combinaison-19",
-        "ee-tache1:avril:combinaison-20"
-      ]
+        "ee-tache1:mars:combinaison-8",
+        "ee-tache1:avril:combinaison-20",
+        "ee-tache1:octobre:combinaison-2"
+      ],
+      "audit": {
+        "rationale": "Inviter des amis à l'anniversaire surprise du meilleur ami, avec lieu, date et heure. Les formes ami/ami(e) et heure/horaire sont éditoriales.",
+        "signature_sha256": {
+          "ee-tache1:janvier:combinaison-19": "b0d3ff89b8309126ce4e11591c6de285c69804a8fd95aa03126875f1ea166f59",
+          "ee-tache1:mars:combinaison-8": "f402145856c188f5403bf7865871fdf21d17ccde5a6898266654d66cfda968d5",
+          "ee-tache1:avril:combinaison-20": "b0d3ff89b8309126ce4e11591c6de285c69804a8fd95aa03126875f1ea166f59",
+          "ee-tache1:octobre:combinaison-2": "f402145856c188f5403bf7865871fdf21d17ccde5a6898266654d66cfda968d5"
+        }
+      }
     },
     {
       "id": "tra-repondez-courriel-lucas-donner",
@@ -124,9 +179,21 @@
       "canonical": "ee-tache1:mars:combinaison-4",
       "members": [
         "ee-tache1:mars:combinaison-4",
+        "ee-tache1:avril:combinaison-3",
         "ee-tache1:juillet:combinaison-2",
-        "ee-tache1:juillet:combinaison-11"
-      ]
+        "ee-tache1:juillet:combinaison-11",
+        "ee-tache1:decembre:combinaison-13"
+      ],
+      "audit": {
+        "rationale": "Répondre à un ami qui demande des renseignements et un avis sur la salle de sport que l'on fréquente. À/dans, le prénom Joanna et les exemples activités/horaires/prix ne changent pas la description attendue.",
+        "signature_sha256": {
+          "ee-tache1:mars:combinaison-4": "4f806b61357c624b58fb8ce8deb81793994b25bf513f121a3c99c1be669016b8",
+          "ee-tache1:avril:combinaison-3": "afbe5ae8429d2e64b86821ccd8d56f249446357d9ae46489b5f78563b5aff99e",
+          "ee-tache1:juillet:combinaison-2": "4f806b61357c624b58fb8ce8deb81793994b25bf513f121a3c99c1be669016b8",
+          "ee-tache1:juillet:combinaison-11": "4f806b61357c624b58fb8ce8deb81793994b25bf513f121a3c99c1be669016b8",
+          "ee-tache1:decembre:combinaison-13": "5364bca17eaf75660bb7d0f5abbadb1c062516cfe626c11285934592152183ae"
+        }
+      }
     },
     {
       "id": "spo-france-televisions-reportage-amateur",
@@ -154,15 +221,6 @@
         "ee-tache1:mars:combinaison-7",
         "ee-tache1:juillet:combinaison-12",
         "ee-tache1:decembre:combinaison-12"
-      ]
-    },
-    {
-      "id": "inv-courriel-amis-inviter-anniversaire-2",
-      "theme": "invitations",
-      "canonical": "ee-tache1:mars:combinaison-8",
-      "members": [
-        "ee-tache1:mars:combinaison-8",
-        "ee-tache1:octobre:combinaison-2"
       ]
     },
     {
@@ -208,8 +266,18 @@
       "members": [
         "ee-tache1:avril:combinaison-4",
         "ee-tache1:juillet:combinaison-1",
+        "ee-tache1:aout:combinaison-4",
         "ee-tache1:novembre:combinaison-5"
-      ]
+      ],
+      "audit": {
+        "rationale": "Inviter un ami à passer ses vacances dans sa ville et présenter les sites et lieux à visiter. La reformulation chez vous conserve la même invitation et le même programme touristique local.",
+        "signature_sha256": {
+          "ee-tache1:avril:combinaison-4": "eb617bdcf2b88f36623965bb7d7abc970530e7881ecb5a8b98e61571a55639f3",
+          "ee-tache1:juillet:combinaison-1": "eb617bdcf2b88f36623965bb7d7abc970530e7881ecb5a8b98e61571a55639f3",
+          "ee-tache1:aout:combinaison-4": "88795680bc0f8996a6debfe093d0308679c50b606e60e3f71db9947326099c88",
+          "ee-tache1:novembre:combinaison-5": "eb617bdcf2b88f36623965bb7d7abc970530e7881ecb5a8b98e61571a55639f3"
+        }
+      }
     },
     {
       "id": "inv-invitez-amis-celebrer-anniversaire",
@@ -235,8 +303,17 @@
       "canonical": "ee-tache1:avril:combinaison-8",
       "members": [
         "ee-tache1:avril:combinaison-8",
-        "ee-tache1:aout:combinaison-11"
-      ]
+        "ee-tache1:aout:combinaison-11",
+        "ee-tache1:decembre:combinaison-11"
+      ],
+      "audit": {
+        "rationale": "Inviter les amis à son anniversaire au restaurant, donner lieu, date, menu, prix et demander confirmation. Horaires explicites et pluriel menus précisent les mêmes informations pratiques.",
+        "signature_sha256": {
+          "ee-tache1:avril:combinaison-8": "e33cd37f0cf9ad067841f94f86f60f51aeb4dd8cdcfaf81a533e8beb8749da7c",
+          "ee-tache1:aout:combinaison-11": "e33cd37f0cf9ad067841f94f86f60f51aeb4dd8cdcfaf81a533e8beb8749da7c",
+          "ee-tache1:decembre:combinaison-11": "d03bd0f6124dda43ef5eeb95d9d490e41e361d8ef704d4311c0ec3d8974d8215"
+        }
+      }
     },
     {
       "id": "voy-anniversaire-approche-grands-avez",
@@ -245,8 +322,18 @@
       "members": [
         "ee-tache1:avril:combinaison-10",
         "ee-tache1:juillet:combinaison-15",
+        "ee-tache1:aout:combinaison-10",
         "ee-tache1:decembre:combinaison-19"
-      ]
+      ],
+      "audit": {
+        "rationale": "Annoncer à un ami le voyage offert pour son anniversaire et expliquer destination, dates et préparatifs. Les mêmes éléments du cadeau sont demandés.",
+        "signature_sha256": {
+          "ee-tache1:avril:combinaison-10": "57caa7255d7eb7f5e1fc428884523c3b0c1aaa8464687c7ff85d463c99c37954",
+          "ee-tache1:juillet:combinaison-15": "57caa7255d7eb7f5e1fc428884523c3b0c1aaa8464687c7ff85d463c99c37954",
+          "ee-tache1:aout:combinaison-10": "7858e5a8c29539766eadf22d2224a897b6cee5e22c97c3454d5720425613b3ed",
+          "ee-tache1:decembre:combinaison-19": "57caa7255d7eb7f5e1fc428884523c3b0c1aaa8464687c7ff85d463c99c37954"
+        }
+      }
     },
     {
       "id": "voy-partez-vacances-amis-avez",
@@ -259,15 +346,112 @@
       ]
     },
     {
+      "id": "spo-proposer-sport-ensemble",
+      "theme": "sport",
+      "canonical": "ee-tache1:avril:combinaison-12",
+      "members": [
+        "ee-tache1:avril:combinaison-12",
+        "ee-tache1:decembre:combinaison-10"
+      ],
+      "audit": {
+        "rationale": "Inviter un ami à pratiquer du sport ensemble en décrivant le projet et ses informations pratiques. La seconde consigne explicite activités, lieu et équipement sans imposer de sport différent.",
+        "signature_sha256": {
+          "ee-tache1:avril:combinaison-12": "896f0d171d44641bf7f48b79bbdaa575b4e3d177602910b62058b8cdaca37378",
+          "ee-tache1:decembre:combinaison-10": "0780b2dc40d1dacadc36f650c036b385524d5f03007b72403181d6c9333b3048"
+        }
+      }
+    },
+    {
       "id": "acc-cedric-accepte-garder-maison",
       "theme": "accueil",
       "canonical": "ee-tache1:avril:combinaison-13",
       "members": [
         "ee-tache1:avril:combinaison-13",
+        "ee-tache1:aout:combinaison-2",
         "ee-tache1:aout:combinaison-8",
         "ee-tache1:aout:combinaison-15",
+        "ee-tache1:novembre:combinaison-9",
         "ee-tache1:decembre:combinaison-17"
-      ]
+      ],
+      "audit": {
+        "rationale": "Donner à Cédric les instructions d'entretien de sa maison et de son jardin pendant son absence. Le message reçu ou sa reformulation ne changent pas les responsabilités demandées.",
+        "signature_sha256": {
+          "ee-tache1:avril:combinaison-13": "d791ac0b925a58da55bc2e81edfaf1a8651f0775aea8ba7f476a0ccbc02eecd7",
+          "ee-tache1:aout:combinaison-2": "286920bb43edadf90c5c3fc2d64d811e9bdf0cf4014c6ad7db7fea0353a1cf63",
+          "ee-tache1:aout:combinaison-8": "d791ac0b925a58da55bc2e81edfaf1a8651f0775aea8ba7f476a0ccbc02eecd7",
+          "ee-tache1:aout:combinaison-15": "d791ac0b925a58da55bc2e81edfaf1a8651f0775aea8ba7f476a0ccbc02eecd7",
+          "ee-tache1:novembre:combinaison-9": "1416360fd3bdf37bfa9a612d8340b97627d992296eda918d15579f1684f1fc57",
+          "ee-tache1:decembre:combinaison-17": "d791ac0b925a58da55bc2e81edfaf1a8651f0775aea8ba7f476a0ccbc02eecd7"
+        }
+      }
+    },
+    {
+      "id": "sor-inviter-journee-ensemble",
+      "theme": "sorties",
+      "canonical": "ee-tache1:avril:combinaison-14",
+      "members": [
+        "ee-tache1:avril:combinaison-14",
+        "ee-tache1:mai:combinaison-7",
+        "ee-tache1:juin:combinaison-2"
+      ],
+      "audit": {
+        "rationale": "Inviter un ami à passer une journée ensemble et décrire le programme, le lieu, la date et les horaires. Aucune activité ni destination différente n'est imposée.",
+        "signature_sha256": {
+          "ee-tache1:avril:combinaison-14": "95252fffcdb16a865b5033f9b0b16ae624338ad9331b899e5da72561ea341962",
+          "ee-tache1:mai:combinaison-7": "42f958171e4581957bb0ffff0ae5bb77baddf988ab44834f8a0affd07d7721b5",
+          "ee-tache1:juin:combinaison-2": "58bf12f6d43add973198dde326e8f233b33d471af4aecfc141063def4cd8b04b"
+        }
+      }
+    },
+    {
+      "id": "sor-decrire-nouveau-restaurant",
+      "theme": "sorties",
+      "canonical": "ee-tache1:avril:combinaison-16",
+      "members": [
+        "ee-tache1:avril:combinaison-16",
+        "ee-tache1:mai:combinaison-5"
+      ],
+      "audit": {
+        "rationale": "Décrire à un ami un nouveau restaurant après une visite : impressions, décoration, cuisine et service. Le second ajoute les tarifs aux exemples d'informations pratiques, sans changer le destinataire ni le but.",
+        "signature_sha256": {
+          "ee-tache1:avril:combinaison-16": "8bdae160ea0718bb4c20ef933268c0c5117c14bdcbe4c1daec7cfd20bb50dc84",
+          "ee-tache1:mai:combinaison-5": "6e785d45237a81c77b8953ca1642c29ae276952ab5dbfc9374dc6ac52065caad"
+        }
+      }
+    },
+    {
+      "id": "acc-invitation-vacances-apres-demenagement",
+      "theme": "accueil",
+      "canonical": "ee-tache1:avril:combinaison-17",
+      "members": [
+        "ee-tache1:avril:combinaison-17",
+        "ee-tache1:mai:combinaison-4"
+      ],
+      "audit": {
+        "rationale": "Après son installation dans une nouvelle ville, inviter un ami à passer les vacances chez soi. Seule la notation du genre amie/ami(e) diffère.",
+        "signature_sha256": {
+          "ee-tache1:avril:combinaison-17": "c614f52e65e7a867abb03f78d149987d1146602aef46dddf305403e52c92eff3",
+          "ee-tache1:mai:combinaison-4": "7ce25cc786bfc9c5dd86e439e2a6336cddeb10d9d5b9b55c6935c79a813f63c0"
+        }
+      }
+    },
+    {
+      "id": "vil-venez-installer-nouvelle-ville",
+      "theme": "ville",
+      "canonical": "ee-tache1:mai:combinaison-2",
+      "members": [
+        "ee-tache1:mai:combinaison-2",
+        "ee-tache1:octobre:combinaison-1",
+        "ee-tache1:decembre:combinaison-4"
+      ],
+      "audit": {
+        "rationale": "Donner de ses nouvelles à un ami après une installation récente dans une ville et décrire son nouvel environnement. Appartement, quartier, voisins, commerces et activités sont des aspects compatibles du même récit d'installation.",
+        "signature_sha256": {
+          "ee-tache1:mai:combinaison-2": "120cfc05a29f8ccc71294f9c50c2ae7ae9b35522c14cca258b7967b8b14a4a57",
+          "ee-tache1:octobre:combinaison-1": "8718123f4488df53724b91fa94b13aee6a17e5d91effde39b9c7e5fe04decd9a",
+          "ee-tache1:decembre:combinaison-4": "8718123f4488df53724b91fa94b13aee6a17e5d91effde39b9c7e5fe04decd9a"
+        }
+      }
     },
     {
       "id": "voy-voulez-partir-week-end",
@@ -299,13 +483,72 @@
       ]
     },
     {
-      "id": "vil-venez-installer-nouvelle-ville",
-      "theme": "ville",
-      "canonical": "ee-tache1:octobre:combinaison-1",
+      "id": "sor-souhaitez-assister-festival-cinema",
+      "theme": "sorties",
+      "canonical": "ee-tache1:aout:combinaison-1",
       "members": [
-        "ee-tache1:octobre:combinaison-1",
-        "ee-tache1:decembre:combinaison-4"
-      ]
+        "ee-tache1:aout:combinaison-1",
+        "ee-tache1:novembre:combinaison-6",
+        "ee-tache1:novembre:combinaison-8"
+      ],
+      "audit": {
+        "rationale": "Proposer à un ami de venir au festival de cinéma de sa ville et préciser films, dates, horaires et tarifs. Les consignes sont des paraphrases complètes.",
+        "signature_sha256": {
+          "ee-tache1:aout:combinaison-1": "6cf8eb959dbfc1fc37e94fc00c2381c7c8b64a1bc10ecf0047be25e03958cc8e",
+          "ee-tache1:novembre:combinaison-6": "10856e816a4ff59cf1d1b108ddee4ddf0ef059dea9b59ebd2dfee5915b609a33",
+          "ee-tache1:novembre:combinaison-8": "10856e816a4ff59cf1d1b108ddee4ddf0ef059dea9b59ebd2dfee5915b609a33"
+        }
+      }
+    },
+    {
+      "id": "sor-programme-parc-loisirs",
+      "theme": "sorties",
+      "canonical": "ee-tache1:aout:combinaison-3",
+      "members": [
+        "ee-tache1:aout:combinaison-3",
+        "ee-tache1:novembre:combinaison-7"
+      ],
+      "audit": {
+        "rationale": "Répondre à un ami sur la sortie prévue ensemble demain au parc de loisirs, en décrivant le programme et les activités. La seconde formulation explicite horaires et transport.",
+        "signature_sha256": {
+          "ee-tache1:aout:combinaison-3": "3271344ab0c8646d89e6c2299b1faf21308e7a1a1dcaff42bb5142da5d3e0e72",
+          "ee-tache1:novembre:combinaison-7": "224071799bb7cc4a3917d87a5280e50e0638e83e6325d5752244cc1eacfc03b9"
+        }
+      }
+    },
+    {
+      "id": "sor-rencontre-auteur-bibliotheque",
+      "theme": "sorties",
+      "canonical": "ee-tache1:aout:combinaison-12",
+      "members": [
+        "ee-tache1:aout:combinaison-12",
+        "ee-tache1:novembre:combinaison-10"
+      ],
+      "audit": {
+        "rationale": "Décrire la rencontre avec un écrivain organisée par la bibliothèque locale et inviter un ami à y aller ensemble. Ville/quartier et auteur/écrivain ne changent pas l'événement.",
+        "signature_sha256": {
+          "ee-tache1:aout:combinaison-12": "3f6696379abb18c341a28170c00a0067e7b6838ca13933bf4bb018961f1a8729",
+          "ee-tache1:novembre:combinaison-10": "1fa70c33da5819fc35de29350548a7c3da1ed4674010ad946683f27965c955da"
+        }
+      }
+    },
+    {
+      "id": "log-annonce-recherche-colocataire",
+      "theme": "logement",
+      "canonical": "ee-tache1:aout:combinaison-14",
+      "members": [
+        "ee-tache1:aout:combinaison-14",
+        "ee-tache1:aout:combinaison-16",
+        "ee-tache1:novembre:combinaison-11"
+      ],
+      "audit": {
+        "rationale": "Publier une recherche de colocataire pour son grand appartement : caractéristiques et coût du logement, personne recherchée et mode de vie partagé. Les précisions de superficie et de profil complètent la même annonce.",
+        "signature_sha256": {
+          "ee-tache1:aout:combinaison-14": "aa1ba20c65b899e956f97ccd1a0cc84d4efc4073948e1ceb9b088f33d9b63dfa",
+          "ee-tache1:aout:combinaison-16": "8525fb7d2a1e163a05e97f4866eae3c0d563ad9f58eb4deab8d651336df74eff",
+          "ee-tache1:novembre:combinaison-11": "50136db82651007f21fc24ef137f84790151087cf410402f985426b2581532bd"
+        }
+      }
     },
     {
       "id": "inv-avez-recu-thomas-salut",
@@ -314,15 +557,6 @@
       "members": [
         "ee-tache1:octobre:combinaison-4",
         "ee-tache1:decembre:combinaison-1"
-      ]
-    },
-    {
-      "id": "sor-souhaitez-assister-festival-cinema",
-      "theme": "sorties",
-      "canonical": "ee-tache1:novembre:combinaison-6",
-      "members": [
-        "ee-tache1:novembre:combinaison-6",
-        "ee-tache1:novembre:combinaison-8"
       ]
     }
   ]

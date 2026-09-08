@@ -3,7 +3,10 @@ from __future__ import annotations
 import json
 import re
 import tempfile
+from collections import defaultdict
+from copy import deepcopy
 from pathlib import Path
+from unittest.mock import patch
 
 from django.test import SimpleTestCase
 
@@ -12,6 +15,7 @@ from study.content_loader import (
     EE_MONTH_ORDER,
     EE_TACHE_CONTENT_PREFIXES,
     EE_TACHE_DIRS,
+    _ee_subject_signatures,
     ee_canonical_by_content_key,
     ee_subject_content_key,
     ee_theme_by_content_key,
@@ -223,6 +227,98 @@ class EeSubjectThemeTests(SimpleTestCase):
 
 
 class EeEquivalentGroupTests(SimpleTestCase):
+    def test_no_exact_document_or_prompt_duplicates_are_left_unlinked(self):
+        for tache in EE_TACHES:
+            by_signature = defaultdict(list)
+            canonical_by_key = ee_canonical_by_content_key(tache)
+            for key, signature in _ee_subject_signatures(tache).items():
+                by_signature[signature].append(key)
+            for keys in by_signature.values():
+                with self.subTest(tache=tache, keys=keys):
+                    self.assertEqual(
+                        len({canonical_by_key.get(key, key) for key in keys}),
+                        1,
+                    )
+
+    def test_task_three_requires_equivalent_complete_document_pairs(self):
+        canonical_by_key = ee_canonical_by_content_key(3)
+        for distinct in (
+            ("janvier:8", "avril:2", "juillet:3"),
+            ("avril:13", "aout:8", "aout:15"),
+            ("avril:11", "juillet:5"),
+        ):
+            with self.subTest(distinct=distinct):
+                keys = [
+                    f"ee-tache3:{item.split(':')[0]}:combinaison-{item.split(':')[1]}"
+                    for item in distinct
+                ]
+                self.assertEqual(
+                    len({canonical_by_key.get(key, key) for key in keys}),
+                    len(keys),
+                )
+        self.assertEqual(
+            canonical_by_key["ee-tache3:decembre:combinaison-17"],
+            "ee-tache3:aout:combinaison-8",
+        )
+
+    def test_barbara_lunch_variants_share_one_canonical_subject(self):
+        canonical = "ee-tache1:janvier:combinaison-6"
+        alias = "ee-tache1:janvier:combinaison-10"
+        canonical_by_key = ee_canonical_by_content_key(1)
+        signatures = _ee_subject_signatures(1)
+
+        self.assertEqual(canonical_by_key[canonical], canonical)
+        self.assertEqual(canonical_by_key[alias], canonical)
+        self.assertNotEqual(signatures[canonical], signatures[alias])
+
+    def test_lunch_equivalence_does_not_ignore_changed_requirements(self):
+        alias = "ee-tache1:janvier:combinaison-10"
+        for original, replacement in (
+            ("dejeuner", "diner"),
+            ("barbara", "anna"),
+            ("plein air", "interieur"),
+            ("vous decrivez le lieu", "vous ne decrivez pas le lieu"),
+        ):
+            with self.subTest(replacement=replacement):
+                signatures = _ee_subject_signatures(1)
+                self.assertIn(original, signatures[alias])
+                signatures[alias] = signatures[alias].replace(
+                    original, replacement
+                )
+                with patch(
+                    "study.content_loader._ee_subject_signatures",
+                    return_value=signatures,
+                ):
+                    with self.assertRaisesRegex(
+                        ValueError, "reviewed wording changed"
+                    ):
+                        load_ee_equivalent_groups(1)
+
+    def test_paraphrase_groups_require_complete_audit_evidence(self):
+        payload = json.loads(
+            (EE_TACHE_DIRS[1] / "equivalent_groups.json").read_text()
+        )
+        audited = next(group for group in payload["groups"] if "audit" in group)
+        for mutation in ("no-audit", "no-rationale", "missing-member", "bad-hash"):
+            row = deepcopy(audited)
+            if mutation == "no-audit":
+                del row["audit"]
+            elif mutation == "no-rationale":
+                row["audit"]["rationale"] = " "
+            elif mutation == "missing-member":
+                del row["audit"]["signature_sha256"][row["members"][-1]]
+            else:
+                row["audit"]["signature_sha256"][row["canonical"]] = "0" * 64
+            with self.subTest(mutation=mutation):
+                with tempfile.TemporaryDirectory() as directory:
+                    path = Path(directory) / "groups.json"
+                    path.write_text(
+                        json.dumps({"version": 1, "groups": [row]}),
+                        encoding="utf-8",
+                    )
+                    with self.assertRaises(ValueError):
+                        load_ee_equivalent_groups(1, path)
+
     def test_groups_load_and_stay_within_their_theme(self):
         for tache in EE_TACHES:
             _themes, mapping = load_ee_subject_themes(tache)

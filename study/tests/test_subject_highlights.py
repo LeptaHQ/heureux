@@ -1,6 +1,8 @@
 """Subject highlight scoping preserves the legacy resolver without overfetch."""
 
 from contextlib import contextmanager
+import hashlib
+import re
 from unittest.mock import patch
 
 from django.db import connection
@@ -10,7 +12,13 @@ from django.test import SimpleTestCase, TestCase
 from django.test.utils import CaptureQueriesContext
 
 from study.models import Annotation, AnnotationKind, PhraseTier, Prompt, Response
-from study.progress import _batches, subject_progress_by_response
+from study.progress import (
+    _HIGHLIGHT_PATTERN_LIMIT,
+    _batches,
+    _numeric_patterns,
+    _pack_patterns,
+    subject_progress_by_response,
+)
 
 from . import factories
 
@@ -28,6 +36,31 @@ class BatchingTests(SimpleTestCase):
             with self.subTest(size=size):
                 with self.assertRaisesMessage(ValueError, "must be positive"):
                     list(_batches([], size))
+
+    def test_numeric_pattern_packing_is_bounded(self):
+        prefix, suffix = "^route:(?:", ")$"
+        numbers = {
+            int.from_bytes(hashlib.sha256(str(index).encode()).digest()[:16], "big")
+            for index in range(1000)
+        }
+        patterns = list(_pack_patterns(
+            _numeric_patterns("subject-", numbers, prefix, suffix),
+            prefix, suffix,
+        ))
+        self.assertGreater(len(patterns), 1)
+        self.assertTrue(all(
+            len(pattern) <= _HIGHLIGHT_PATTERN_LIMIT for pattern in patterns
+        ))
+        self.assertTrue(all(pattern.isascii() for pattern in patterns))
+        for number in (min(numbers), max(numbers)):
+            self.assertTrue(any(
+                re.fullmatch(pattern, f"route:subject-000{number}")
+                for pattern in patterns
+            ))
+        self.assertFalse(any(
+            re.fullmatch(pattern, "route:subject-999")
+            for pattern in patterns
+        ))
 
 
 class SubjectHighlightScopeTests(TestCase):
@@ -82,7 +115,16 @@ class SubjectHighlightScopeTests(TestCase):
             Response.objects.filter(pk__in=response_ids, is_active=True)
             .values_list("content_key", "pk")
         )
-        return rows, responses
+        prompts = list(
+            Prompt.objects.filter(
+                response_id__in=response_ids, is_active=True,
+                response__is_active=True,
+            ).values(
+                "pk", "content_key", "response_id",
+                "theme__task__part__slug", "theme__task__slug",
+            )
+        )
+        return rows, responses, prompts
 
     def _assert_legacy_equal(self, expected_highlight):
         ids = {self.response.pk}
@@ -211,6 +253,26 @@ class SubjectHighlightScopeTests(TestCase):
             for index in range(start, stop)
         ], batch_size=100)
 
+    def _populated_scope(self, count):
+        responses = Response.objects.bulk_create([
+            Response(
+                content_key=f"populated-scope:{index}", theme=self.theme,
+                family=self.response.family, body_hash=f"populated-{index}",
+            )
+            for index in range(1, count)
+        ])
+        Prompt.objects.bulk_create([
+            Prompt(
+                response=response, theme=self.theme, family=self.response.family,
+                content_key=f"tache2:{month}:batch-01:subject-{1000 + index:02d}",
+                number=10000 + index * 2 + month_index,
+                text="Active target subject",
+            )
+            for index, response in enumerate(responses, start=1)
+            for month_index, month in enumerate(("janvier", "mars"))
+        ])
+        return [self.response, *responses]
+
     def test_ten_thousand_same_task_highlights_transfer_no_unrelated_rows(self):
         previous = 0
         for count in (0, 100, 10001):
@@ -223,18 +285,16 @@ class SubjectHighlightScopeTests(TestCase):
                 ):
                     result = subject_progress_by_response(self.user, [self.response.pk])
                 self.assertEqual(rows, [])
-                self.assertEqual(len(queries), 3 if not count else 4)
+                self.assertEqual(len(queries), 3 if not count else 6)
                 self.assertFalse(result[self.response.pk].has_highlight)
 
     def test_large_response_sets_bound_parameters_and_queries_not_note_count(self):
-        responses = Response.objects.bulk_create([
-            Response(
-                content_key=f"large-scope:{index}", theme=self.theme,
-                family=self.response.family, body_hash=f"scope-{index}",
-            )
-            for index in range(700)
-        ])
-        ids = [self.response.pk, *(response.pk for response in responses)]
+        responses = self._populated_scope(701)
+        ids = [response.pk for response in responses]
+        self.assertEqual(
+            Prompt.objects.filter(response_id__in=ids, is_active=True).count(),
+            1402,
+        )
         previous = 0
         for count in (100, 10001):
             self._add_unrelated_highlights(previous, count)
@@ -254,7 +314,7 @@ class SubjectHighlightScopeTests(TestCase):
             self.assertEqual(rows, [])
             self.assertEqual(len(result), len(ids))
             self.assertFalse(any(state.has_highlight for state in result.values()))
-            self.assertEqual(len(queries), 12)
+            self.assertEqual(len(queries), 10)
             self.assertLessEqual(max(parameter_counts), 999)
 
         self._annotation(f"response:{self.response.content_key}:front", "")
@@ -270,5 +330,79 @@ class SubjectHighlightScopeTests(TestCase):
             {pk for pk, state in result.items() if state.has_highlight},
             {self.response.pk, responses[-1].pk},
         )
-        self.assertEqual(len(queries), 12)
+        self.assertEqual(len(queries), 10)
         self.assertLessEqual(max(parameter_counts), 999)
+
+    def test_populated_alias_and_legacy_scopes_use_static_candidate_patterns(self):
+        responses = self._populated_scope(175)
+        ids = [response.pk for response in responses]
+        self.assertEqual(
+            Prompt.objects.filter(response_id__in=ids, is_active=True).count(), 350
+        )
+        self.other_prompt.content_key = "tache2:janvier:batch-01:subject-999999"
+        self.other_prompt.save(update_fields=["content_key"])
+        last_prompt = responses[-1].prompts.order_by("pk").last()
+        for shape in ("alias", "legacy"):
+            with self.subTest(shape=shape):
+                for prompt in (self.prompt, last_prompt):
+                    key = (
+                        prompt.content_key.replace("tache2:", "tache-two:", 1)
+                        if shape == "alias" else ""
+                    )
+                    path = f"/expression/orale/tache-2/sujets/{prompt.pk}/"
+                    self._annotation(key, path)
+                    self._annotation(key, path, start_offset=8, end_offset=13)
+                with patch("study.progress._subject_highlight_rows", self._legacy_rows):
+                    legacy = subject_progress_by_response(self.user, ids)
+                actual = subject_progress_by_response(self.user, ids)
+                self.assertEqual(actual, legacy)
+                self.assertEqual(
+                    {pk for pk, state in actual.items() if state.has_highlight},
+                    {self.response.pk, responses[-1].pk},
+                )
+                Annotation.objects.filter(user=self.user).delete()
+
+                Annotation.objects.bulk_create([
+                    Annotation(
+                        user=self.user, task=self.task, kind=AnnotationKind.HIGHLIGHT,
+                        quote="Same-task, same-month, unrelated subject",
+                        source_key="tache-two:janvier:batch-1:subject-999999"
+                        if shape == "alias" else "",
+                        source_path=self.other_path,
+                        start_offset=index, end_offset=index + 1,
+                    )
+                    for index in range(1000)
+                ], batch_size=100)
+                statements = []
+
+                def record(execute, sql, params, many, context):
+                    statements.append((sql, params))
+                    return execute(sql, params, many, context)
+
+                with (
+                    self._capture_materialized_highlights() as rows,
+                    connection.execute_wrapper(record),
+                ):
+                    actual = subject_progress_by_response(self.user, ids)
+                self.assertEqual(rows, [])
+                self.assertFalse(any(state.has_highlight for state in actual.values()))
+                self.assertEqual(len(statements), 5)
+                self.assertLessEqual(
+                    max(len(params or ()) for _, params in statements), 999
+                )
+                patterns = []
+                for sql, params in statements:
+                    if 'FROM "study_annotation"' in sql:
+                        self.assertNotIn("study_prompt", sql)
+                        patterns.extend(
+                            value for value in params or ()
+                            if isinstance(value, str) and value.startswith("^")
+                        )
+                self.assertTrue(patterns)
+                self.assertTrue(all(
+                    len(pattern) <= _HIGHLIGHT_PATTERN_LIMIT for pattern in patterns
+                ))
+                with patch("study.progress._subject_highlight_rows", self._legacy_rows):
+                    legacy = subject_progress_by_response(self.user, ids)
+                self.assertEqual(actual, legacy)
+                Annotation.objects.filter(user=self.user).delete()

@@ -3,19 +3,16 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from functools import lru_cache
 from itertools import islice
 import re
-import sys
 from typing import Iterable
 from urllib.parse import urlsplit
 
 from django.db.models import (
     Case,
-    CharField,
     Count,
-    Exists,
     F,
+    Max,
     OuterRef,
     Q,
     Subquery,
@@ -23,8 +20,6 @@ from django.db.models import (
     When,
 )
 from django.db.models.functions import (
-    Cast,
-    Concat,
     Greatest,
     Length,
     Replace,
@@ -315,29 +310,127 @@ def _response_content_key(source_key: str) -> str:
     return content_key
 
 
-@lru_cache(maxsize=1)
-def _decimal_regex_classes() -> tuple[str, ...]:
-    """The immutable decimal alphabet accepted by Python's int and \\d."""
-    digits = [[] for _ in range(10)]
-    for codepoint in range(sys.maxunicode + 1):
-        character = chr(codepoint)
-        if character.isdecimal():
-            digits[int(character)].append(character)
-    return tuple("[" + "".join(group) + "]" for group in digits)
-
-
-def _decimal_regex(expression):
-    for digit, characters in enumerate(_decimal_regex_classes()):
-        expression = Replace(expression, Value(str(digit)), Value(characters))
-    return expression
-
-
 def _batches(values, size):
     if size < 1:
         raise ValueError("Batch size must be positive")
     iterator = iter(values)
     while batch := tuple(islice(iterator, size)):
         yield batch
+
+
+_HIGHLIGHT_PATTERN_LIMIT = 8192
+_HIGHLIGHT_PATTERNS_PER_QUERY = 8
+
+
+def _pack_patterns(parts, prefix, suffix):
+    batch = []
+    length = len(prefix) + len(suffix)
+    for part in parts:
+        if len(prefix) + len(part) + len(suffix) > _HIGHLIGHT_PATTERN_LIMIT:
+            raise ValueError("Highlight pattern component exceeds its size limit")
+        if batch and length + 1 + len(part) > _HIGHLIGHT_PATTERN_LIMIT:
+            yield prefix + "|".join(batch) + suffix
+            batch = []
+            length = len(prefix) + len(suffix)
+        length += len(part) + bool(batch)
+        batch.append(part)
+    if batch:
+        yield prefix + "|".join(batch) + suffix
+
+
+def _numeric_patterns(prefix, numbers, outer_prefix, outer_suffix):
+    """Factor shared digit prefixes before bounding each literal SQL pattern."""
+    trie = {}
+    numbers = sorted(numbers)
+    if not numbers:
+        raise ValueError("Highlight numeric patterns need at least one number")
+    for number in numbers:
+        node = trie
+        for digit in str(number):
+            node = node.setdefault(digit, {})
+        node[""] = {}
+
+    def render(node):
+        by_suffix = {}
+        for digit, child in sorted(node.items()):
+            if digit:
+                by_suffix.setdefault(render(child), []).append(digit)
+        parts = [
+            (digits[0] if len(digits) == 1 else "[" + "".join(digits) + "]")
+            + suffix
+            for suffix, digits in by_suffix.items()
+        ]
+        if not parts:
+            return ""
+        pattern = parts[0] if len(parts) == 1 else "(?:" + "|".join(parts) + ")"
+        return "(?:" + pattern + ")?" if "" in node else pattern
+
+    pattern = prefix + "0*" + render(trie)
+    if len(outer_prefix) + len(pattern) + len(outer_suffix) <= _HIGHLIGHT_PATTERN_LIMIT:
+        yield pattern
+    elif len(numbers) > 1:
+        middle = len(numbers) // 2
+        for half in (numbers[:middle], numbers[middle:]):
+            yield from _numeric_patterns(prefix, half, outer_prefix, outer_suffix)
+    else:
+        raise ValueError("Highlight pattern component exceeds its size limit")
+
+
+def _prompt_highlight_scopes(prompts, shapes):
+    aliases = {}
+    routes = {}
+    for prompt in prompts:
+        content_key = prompt.get("content_key", "")
+        if shapes["alias"] and content_key.startswith("tache2:"):
+            match = TACHE_TWO_SOURCE_RE.fullmatch(
+                content_key.replace("tache2:", "tache-two:", 1)
+            )
+            if match:
+                month = match["month"]
+                batch = int(match["batch"])
+                subject = int(match["subject"])
+                canonical = (
+                    f"tache2:{month}:batch-{batch:02d}:subject-{subject:02d}"
+                )
+                if content_key == canonical:
+                    aliases.setdefault((month, batch), set()).add(subject)
+        if shapes["legacy"]:
+            part = {"eo": "orale", "ee": "ecrite"}.get(
+                prompt["theme__task__part__slug"]
+            )
+            task = prompt["theme__task__slug"]
+            if part and re.fullmatch(r"[-a-zA-Z0-9_]+", task):
+                routes.setdefault((part, task), set()).add(prompt["pk"])
+
+    if aliases:
+        prefix, suffix = "^tache-two:(?:", ")$"
+        parts = (
+            pattern
+            for (month, batch), subjects in sorted(aliases.items())
+            for pattern in _numeric_patterns(
+                f"{month}:batch-0*{batch}:subject-", subjects, prefix, suffix
+            )
+        )
+        for pattern in _pack_patterns(parts, prefix, suffix):
+            yield Q(_highlight_key__regex=pattern)
+        # Unusual Unicode numeric spellings stay with the original Python int
+        # parser rather than expanding every decimal alphabet into SQL patterns.
+        yield Q(source_key__startswith="tache-two:", _highlight_key__regex=r"[^ -~]")
+    if routes:
+        prefix, suffix = r"^[^?#]*/expression/(?:", r")/(?:[?#].*)?$"
+        parts = (
+            pattern
+            for (part, task), prompt_ids in sorted(routes.items())
+            for pattern in _numeric_patterns(
+                f"{part}/{re.escape(task)}/sujets/", prompt_ids, prefix, suffix
+            )
+        )
+        for pattern in _pack_patterns(parts, prefix, suffix):
+            yield Q(source_key="", _highlight_path__regex=pattern)
+        yield Q(
+            source_key="",
+            _highlight_path__regex=r"/sujets/[^/?#]*[^ -~][^/?#]*/",
+        )
 
 
 def _subject_highlight_rows(user, response_ids):
@@ -357,16 +450,18 @@ def _subject_highlight_rows(user, response_ids):
         legacy=Count("pk", filter=Q(source_key="")),
     )
     if not any(shapes.values()):
-        return [], {}
+        return [], {}, []
 
-    # Each predicate repeats its response IDs in up to five subqueries. Batches
-    # bound SQL parameters, not note count; only matching rows leave the database.
+    # Response/phrase predicates repeat their IDs in up to three subqueries.
+    # Batches bound SQL parameters, not note count.
     rows = []
     response_by_content_key = {}
-    for ids in _batches(sorted(response_ids), 150):
-        prompts = Prompt.objects.filter(
-            response_id__in=ids, is_active=True, response__is_active=True,
-        )
+    id_batches = (
+        _batches(sorted(response_ids), 150)
+        if shapes["response"] or shapes["phrase"]
+        else ()
+    )
+    for ids in id_batches:
         candidates = highlights
         scope = Q()
         if shapes["response"]:
@@ -433,54 +528,6 @@ def _subject_highlight_rows(user, response_ids):
                 _phrase_separator__gt=1,
                 _phrase_key__in=phrases.values("phrase_id"),
             )
-        if shapes["alias"]:
-            alias_pattern = Replace(
-                F("content_key"), Value("tache2:"), Value("tache-two:")
-            )
-            for component in ("batch", "subject"):
-                alias_pattern = Replace(
-                    alias_pattern, Value(f":{component}-0"),
-                    Value(f":{component}-"),
-                )
-                alias_pattern = Replace(
-                    alias_pattern, Value(f":{component}-"),
-                    Value(f":{component}-0*"),
-                )
-            aliases = prompts.filter(content_key__startswith="tache2:").alias(
-                _annotation_key=Cast(OuterRef("source_key"), CharField()),
-            ).filter(
-                _annotation_key__regex=Concat(
-                    Value("^"), _decimal_regex(alias_pattern), Value("$")
-                ),
-            )
-            scope |= Q(source_key__startswith="tache-two:") & Q(Exists(aliases))
-        if shapes["legacy"]:
-            normalized_path = F("source_path")
-            for character in ("\t", "\r", "\n"):
-                normalized_path = Replace(
-                    normalized_path, Value(character), Value("")
-                )
-            candidates = candidates.alias(_highlight_path=normalized_path)
-            legacy_paths = prompts.filter(
-                theme__task__part__slug__in=("eo", "ee"),
-            ).alias(
-                _annotation_path=Cast(OuterRef("_highlight_path"), CharField()),
-            ).filter(
-                _annotation_path__regex=Concat(
-                    Value(r"^[^?#]*/expression/"),
-                    Case(
-                        When(theme__task__part__slug="eo", then=Value("orale")),
-                        default=Value("ecrite"),
-                    ),
-                    Value("/"), F("theme__task__slug"), Value("/sujets/"),
-                    _decimal_regex(Concat(Value("0*"), Cast("pk", CharField()))),
-                    Value(r"/(?:[?#].*)?$"),
-                    output_field=CharField(),
-                ),
-            )
-            scope |= Q(source_key="") & Q(Exists(legacy_paths))
-        # URL matching is deliberately a candidate filter: urlsplit and the
-        # existing source-key parsers below remain the final authority.
         fields = ["source_path", "source_key"]
         if shapes["response"]:
             fields.append("_matched_response_id")
@@ -496,7 +543,42 @@ def _subject_highlight_rows(user, response_ids):
                         row["_matched_response_id"]
                     )
         rows.extend(batch_rows)
-    return rows, response_by_content_key
+
+    prompts = []
+    if shapes["alias"] or shapes["legacy"]:
+        fields = ["pk", "response_id"]
+        if shapes["alias"]:
+            fields.append("content_key")
+        if shapes["legacy"]:
+            fields.extend(("theme__task__part__slug", "theme__task__slug"))
+        prompts = list(
+            Prompt.objects.filter(
+                response_id__in=response_ids,
+                is_active=True,
+                response__is_active=True,
+            ).order_by().values(*fields)
+        )
+        normalized_path = Max("source_path")
+        for character in ("\t", "\r", "\n"):
+            normalized_path = Replace(normalized_path, Value(character), Value(""))
+        # Progress needs presence per source, not every selected offset. HAVING
+        # evaluates the patterns once per source even when it has many marks.
+        candidates = highlights.order_by().values("source_path", "source_key").alias(
+            _highlight_key=Max("source_key"),
+            _highlight_path=normalized_path,
+        )
+        # Construct each route/month/batch pattern once, not once per
+        # (highlight, prompt) pair in a correlated database subquery.
+        for scopes in _batches(
+            _prompt_highlight_scopes(prompts, shapes), _HIGHLIGHT_PATTERNS_PER_QUERY
+        ):
+            scope = Q()
+            for item in scopes:
+                scope |= item
+            rows.extend(
+                candidates.filter(scope).order_by().values("source_path", "source_key")
+            )
+    return rows, response_by_content_key, prompts
 
 
 def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgress]:
@@ -509,10 +591,10 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
     if not response_ids:
         return {}
     # Bound the card and resolver IN lists as well as the highlight predicates.
-    if len(response_ids) > 500:
+    if len(response_ids) > 800:
         return {
             response_id: state
-            for batch in _batches(sorted(response_ids), 500)
+            for batch in _batches(sorted(response_ids), 800)
             for response_id, state in subject_progress_by_response(user, batch).items()
         }
 
@@ -618,7 +700,7 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
         values["vocabulary_mastered"] = row["mastered"]
         values["vocabulary_due"] = row["due"]
 
-    highlight_rows, response_by_content_key = _subject_highlight_rows(
+    highlight_rows, response_by_content_key, prompt_rows = _subject_highlight_rows(
         user, response_ids
     )
     if not highlight_rows:
@@ -637,42 +719,14 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
         (row, PHRASE_SOURCE_RE.match(row["source_key"]))
         for row in highlight_rows
     ]
-    # Each lookup below resolves one shape of source key, so it is only worth
-    # running when a highlight of that shape exists.
-    response_by_prompt_content_key = (
-        dict(
-            Prompt.objects.filter(
-                content_key__startswith="tache2:",
-                is_active=True,
-                response_id__in=response_ids,
-                response__is_active=True,
-            ).values_list("content_key", "response_id")
-        )
-        if any(
-            TACHE_TWO_SOURCE_RE.fullmatch(row["source_key"])
-            for row in highlight_rows
-        )
-        else {}
-    )
-    prompt_ids = {
-        int(match.group("prompt_id"))
-        for row, match in path_matches
-        if match and not row["source_key"]
+    response_by_prompt_content_key = {
+        row["content_key"]: row["response_id"]
+        for row in prompt_rows
+        if row.get("content_key", "").startswith("tache2:")
     }
-    prompt_rows = Prompt.objects.filter(
-        is_active=True,
-        response_id__in=response_ids,
-        response__is_active=True,
-    ).values(
-        "pk",
-        "response_id",
-        "theme__task__part__slug",
-        "theme__task__slug",
-    )
     prompt_references = {
         row["pk"]: row
-        for ids in _batches(sorted(prompt_ids), 300)
-        for row in prompt_rows.filter(pk__in=ids)
+        for row in prompt_rows
     }
     phrase_ids = {
         match.group("phrase_id")
@@ -680,7 +734,7 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
         if match
     }
     response_ids_by_subject_phrase = {}
-    for ids in _batches(sorted(phrase_ids), 300):
+    for ids in _batches(sorted(phrase_ids), 150):
         for phrase_id, response_id in Phrase.objects.filter(
             phrase_id__in=ids,
             tier=PhraseTier.SUBJECT,

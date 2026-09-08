@@ -1,0 +1,27 @@
+{% comment %}
+Shared server-rendered pager. Expects page_obj, previous_page_url,
+next_page_url, and page_links ({number, url}; an empty URL is an ellipsis).
+The caller builds URLs to preserve its filters. pagination_label is optional.
+{% endcomment %}
+{% if page_obj.has_other_pages %}
+<nav class="collection-pagination" aria-label="{{ pagination_label|default:'Pagination' }}">
+  {% if previous_page_url %}
+    <a class="btn" href="{{ previous_page_url }}" rel="prev">Précédent</a>
+  {% endif %}
+  <span class="collection-pagination__summary">Page {{ page_obj.number }} sur {{ page_obj.paginator.num_pages }}</span>
+  {% if next_page_url %}
+    <a class="btn" href="{{ next_page_url }}" rel="next">Suivant</a>
+  {% endif %}
+  <div class="collection-pagination__pages">
+    {% for link in page_links %}
+      {% if link.number == page_obj.number %}
+        <span class="btn btn--primary" aria-current="page" aria-label="Page {{ link.number }}">{{ link.number }}</span>
+      {% elif link.url %}
+        <a class="btn" href="{{ link.url }}" aria-label="Page {{ link.number }}">{{ link.number }}</a>
+      {% else %}
+        <span aria-hidden="true">{{ link.number }}</span>
+      {% endif %}
+    {% endfor %}
+  </div>
+</nav>
+{% endif %}

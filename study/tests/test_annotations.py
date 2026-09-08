@@ -2,8 +2,10 @@ from __future__ import annotations
 
 import json
 from unittest import mock
+from urllib.parse import parse_qs, urlencode, urlsplit
 
 from django.core.cache import cache
+from django.core.paginator import Paginator
 from django.db import connection
 from django.test import TestCase, override_settings
 from django.test.utils import CaptureQueriesContext
@@ -67,7 +69,8 @@ class AnnotationTests(TestCase):
         self.assertContains(overview, self.part.short_name)
         self.assertContains(overview, self.task.name)
         self.assertEqual(len(overview.context["notes"]), 1)
-        self.assertEqual(len(overview.context["highlights"]), 1)
+        self.assertEqual(overview.context["highlights"], [])
+        self.assertEqual(overview.context["highlights_count"], 1)
 
         notes_tab = self.client.get(self.task_notes_url)
         self.assertContains(notes_tab, 'role="tablist"')
@@ -1981,7 +1984,11 @@ class NotesScopeSemanticsTests(TestCase):
         self.assertEqual(page.context["ce_count"], 1)
         self.assertEqual(page.context["co_count"], 1)
         self.assertEqual(page.context["notes"], [general])
-        self.assertEqual(page.context["highlights"], [general_highlight])
+        self.assertEqual(page.context["highlights"], [])
+        highlights_page = self.client.get(
+            reverse("study:general_notes"), {"tab": "highlights"}
+        )
+        self.assertEqual(highlights_page.context["highlights"], [general_highlight])
         self.assertEqual(
             [item.scope_label for item in page.context["notes"]],
             ["Notes générales"],
@@ -2105,8 +2112,12 @@ class NotesScopeSemanticsTests(TestCase):
         )
 
         self.assertEqual(page.context["notes"], [newer_note, older_note])
+        highlights_page = self.client.get(
+            reverse("study:task_notes", args=[self.part.slug, self.task.slug]),
+            {"tab": "highlights"},
+        )
         self.assertEqual(
-            page.context["highlights"],
+            highlights_page.context["highlights"],
             [newer_highlight, older_highlight],
         )
         self.assertEqual(
@@ -2349,11 +2360,11 @@ class NotesQueryBudgetTests(TestCase):
         self.assertEqual(
             large,
             {
-                "notes_overview": 5,
-                "general_notes": 5,
-                "custom_notes": 5,
-                "comprehension_notes": 5,
-                "task_notes": 6,
+                "notes_overview": 6,
+                "general_notes": 6,
+                "custom_notes": 6,
+                "comprehension_notes": 6,
+                "task_notes": 7,
                 "annotation_search": 5,
                 "annotation_study": 3,
                 "task_annotation_study": 4,
@@ -2363,11 +2374,12 @@ class NotesQueryBudgetTests(TestCase):
         # result set is truncated past its 100-row limit.
         self.assertEqual(small | {"annotation_search": 5}, large)
 
-    def test_status_filtered_folder_costs_one_extra_count_at_most(self):
+    def test_status_filtered_folder_uses_one_aggregate_and_a_bounded_slice(self):
         self._seed(tasks=2, per_scope=6)
         url = reverse("study:general_notes")
 
-        for status, budget in (("", 5), ("study", 5), ("todo", 6), ("done", 6)):
+        # Empty tabs skip the row query entirely.
+        for status, budget in (("", 6), ("study", 5), ("todo", 6), ("done", 5)):
             with self.subTest(status=status):
                 self.client.get(url, {"status": status})
                 with CaptureQueriesContext(connection) as queries:
@@ -2469,3 +2481,327 @@ class NotesQueryBudgetTests(TestCase):
         ):
             with self.subTest(key=removed):
                 self.assertNotIn(removed, response.context)
+
+
+class NotesPaginationTests(TestCase):
+    def setUp(self):
+        self.user = factories.make_user("pagination-owner")
+        self.other = factories.make_user("pagination-other")
+        self.client.force_login(self.user)
+        self.part = factories.make_part(slug="eo")
+        self.task = factories.make_task(part=self.part, slug="tache-3")
+        self.url = reverse(
+            "study:task_notes", args=[self.part.slug, self.task.slug]
+        )
+
+    def _rows(self, count, **values):
+        defaults = {
+            "user": self.user,
+            "task": self.task,
+            "kind": AnnotationKind.NOTE,
+            "body": "Matching content",
+            "created_at": timezone.now() - timezone.timedelta(days=30),
+        }
+        return Annotation.objects.bulk_create(
+            Annotation(**{**defaults, "title": f"Entry {index}", **values})
+            for index in range(count)
+        )
+
+    def test_only_fifty_active_tab_rows_are_materialized_and_rendered(self):
+        self._rows(137)
+        self._rows(213, kind=AnnotationKind.HIGHLIGHT, quote="Inactive passage")
+        self._rows(71, user=self.other)
+        overview_url = reverse("study:notes_overview")
+        for url, budget, tab, total in (
+            (self.url, 7, "notes", 137),
+            (self.url, 7, "highlights", 213),
+            (overview_url, 6, "notes", 137),
+            (overview_url, 6, "highlights", 213),
+        ):
+            with self.subTest(url=url, tab=tab):
+                self.client.get(url, {"tab": tab, "page": 2})
+                loaded = []
+                from_db = Annotation.from_db
+
+                def record(*args):
+                    item = from_db(*args)
+                    loaded.append(item)
+                    return item
+
+                with (
+                    mock.patch.object(Annotation, "from_db", side_effect=record),
+                    CaptureQueriesContext(connection) as queries,
+                ):
+                    response = self.client.get(url, {"tab": tab, "page": 2})
+                expected_kind = "note" if tab == "notes" else "highlight"
+                self.assertEqual(len(loaded), 50)
+                self.assertTrue(all(item.kind == expected_kind for item in loaded))
+                self.assertEqual(response.context["page_obj"].paginator.count, total)
+                self.assertEqual(response.context["notes_count"], 137)
+                self.assertEqual(response.context["highlights_count"], 213)
+                self.assertContains(response, "data-annotation-item=", count=50)
+                self.assertContains(response, "Plus tôt")
+                self.assertEqual(len(queries), budget)
+                row_queries = [
+                    query["sql"]
+                    for query in queries
+                    if 'SELECT "study_annotation"."id"' in query["sql"]
+                ]
+                self.assertEqual(len(row_queries), 1)
+                self.assertIn("LIMIT 50 OFFSET 50", row_queries[0])
+                inactive = "highlights" if tab == "notes" else "notes"
+                self.assertEqual(response.context[inactive], [])
+                self.assertEqual(response.context[f"{inactive}_sections"], [])
+
+    def test_pages_keep_tie_order_and_have_no_missing_or_duplicate_records(self):
+        notes = self._rows(123)
+        self._rows(71, kind=AnnotationKind.HIGHLIGHT, quote="Not a note")
+        seen = []
+        for number, size in ((1, 50), (2, 50), (3, 23)):
+            page = self.client.get(self.url, {"page": number})
+            self.assertEqual(len(page.context["notes"]), size)
+            self.assertContains(page, "data-annotation-item=", count=size)
+            seen.extend(item.pk for item in page.context["notes"])
+        self.assertEqual(seen, [item.pk for item in reversed(notes)])
+
+    def test_large_collections_keep_the_pager_bounded_too(self):
+        self._rows(601)
+        page = self.client.get(self.url, {"page": 7})
+        self.assertEqual(page.context["page_obj"].paginator.num_pages, 13)
+        self.assertEqual(
+            [item["number"] for item in page.context["page_links"]],
+            [1, Paginator.ELLIPSIS, 6, 7, 8, Paginator.ELLIPSIS, 13],
+        )
+        self.assertContains(page, "data-annotation-item=", count=50)
+        self.assertContains(page, 'aria-current="page" aria-label="Page 7"')
+
+    def test_listing_indexes_cover_global_and_scoped_capture_order(self):
+        if connection.vendor != "sqlite":
+            self.skipTest("SQLite EXPLAIN QUERY PLAN regression")
+        self._rows(601)
+        self._rows(301, task=None)
+        self._rows(201, user=self.other)
+        with connection.cursor() as cursor:
+            cursor.execute("ANALYZE study_annotation")
+        base = Annotation.objects.filter(
+            user=self.user, kind=AnnotationKind.NOTE
+        ).order_by("-created_at", "-id")
+        for rows, index in (
+            (base, "annotation_user_kind_created"),
+            (base.filter(task=self.task), "annotation_scope_created"),
+            (base.filter(task=None), "annotation_scope_created"),
+        ):
+            with self.subTest(index=index):
+                plan = rows[50:100].explain()
+                self.assertIn(index, plan)
+                self.assertNotIn("TEMP B-TREE", plan)
+
+    def test_every_folder_paginates_with_private_global_counts(self):
+        other_task = factories.make_task(part=self.part, slug="tache-4")
+        scopes = [
+            (self.url, {"task": self.task}),
+            (
+                reverse("study:general_notes"),
+                {"task": None, "source_path": "/vocabulaire/"},
+            ),
+            (reverse("study:custom_notes"), {"task": None}),
+            (
+                reverse("study:comprehension_notes", args=["ecrite"]),
+                {"task": None, "source_path": "/comprehension/ecrite/tests/t1/"},
+            ),
+            (
+                reverse("study:comprehension_notes", args=["orale"]),
+                {"task": None, "source_path": "/comprehension/orale/tests/t1/"},
+            ),
+        ]
+        expected = {}
+        for url, values in scopes:
+            expected[url] = self._rows(53, **values)
+        self._rows(61, task=other_task)
+        self._rows(73, user=self.other)
+        for url, _values in scopes:
+            with self.subTest(url=url):
+                response = self.client.get(url, {"page": 2})
+                self.assertEqual(
+                    [item.pk for item in response.context["notes"]],
+                    [item.pk for item in reversed(expected[url][:3])],
+                )
+                self.assertEqual(response.context["notes_count"], 53)
+                self.assertEqual(
+                    urlsplit(response.context["previous_page_url"]).path, url
+                )
+                for key in ("general_count", "custom_count", "ce_count", "co_count"):
+                    self.assertEqual(response.context[key], 53)
+        overview = self.client.get(reverse("study:notes_overview"), {"page": 2})
+        self.assertEqual(len(overview.context["notes"]), 50)
+        self.assertEqual(overview.context["notes_count"], 326)
+
+    def test_search_status_and_study_totals_apply_before_pagination(self):
+        notes = self._rows(61)
+        self._rows(7, completed_at=timezone.now(), study_later=True)
+        self._rows(9, kind=AnnotationKind.HIGHLIGHT, study_later=True)
+        self._rows(67, body="Unrelated")
+        self._rows(11, user=self.other, study_later=True)
+        expected = {"": (68, 9), "todo": (61, 0), "done": (7, 0), "study": (7, 9)}
+        for status, (note_count, highlight_count) in expected.items():
+            with self.subTest(status=status):
+                response = self.client.get(
+                    self.url, {"q": "Matching", "status": status}
+                )
+                self.assertEqual(response.context["notes_count"], note_count)
+                self.assertEqual(response.context["highlights_count"], highlight_count)
+                self.assertEqual(response.context["study_count"], 16)
+        response = self.client.get(
+            self.url, {"q": "Matching", "status": "todo", "tab": "notes", "page": 2}
+        )
+        self.assertEqual(
+            [item.pk for item in response.context["notes"]],
+            [item.pk for item in reversed(notes[:11])],
+        )
+        self.assertEqual(
+            parse_qs(urlsplit(response.context["previous_page_url"]).query),
+            {
+                "q": ["Matching"], "status": ["todo"],
+                "tab": ["notes"], "page": ["1"],
+            },
+        )
+        for option in response.context["status_filters"]:
+            self.assertNotIn("page", parse_qs(urlsplit(option["url"]).query))
+        self.assertNotIn("page=", response.context["tab_url_prefix"])
+        self.assertNotIn("page=", response.context["filters_reset_url"])
+        self.assertNotContains(response, 'name="page"')
+
+    def test_invalid_pages_redirect_to_a_real_page_and_empty_tabs_stay_valid(self):
+        self._rows(51)
+        for value, expected in (
+            ("bad", 1), ("0", 2), ("-4", 2), ("999", 2), ("2.5", 1),
+        ):
+            with self.subTest(value=value):
+                response = self.client.get(
+                    self.url,
+                    {"page": value, "q": "Matching", "status": "todo", "tab": "notes"},
+                    follow=True,
+                )
+                self.assertEqual(response.context["page_obj"].number, expected)
+                self.assertEqual(len(response.redirect_chain), 1)
+                self.assertEqual(
+                    parse_qs(urlsplit(response.redirect_chain[-1][0]).query),
+                    {
+                        "page": [str(expected)], "q": ["Matching"],
+                        "status": ["todo"], "tab": ["notes"],
+                    },
+                )
+        empty = self.client.get(
+            self.url, {"tab": "highlights", "page": 99}, follow=True
+        )
+        self.assertEqual(empty.context["page_obj"].number, 1)
+        self.assertEqual(empty.context["highlights"], [])
+        self.assertNotContains(empty, 'class="collection-pagination"')
+
+    def test_decks_use_all_matches_and_return_to_the_filtered_page(self):
+        self._rows(61, study_later=True)
+        self._rows(17, kind=AnnotationKind.HIGHLIGHT, study_later=True)
+        self._rows(11, body="Unrelated", study_later=True)
+        self._rows(13, user=self.other, study_later=True)
+        return_url = self.url + "?" + urlencode(
+            {"q": "Matching", "status": "study", "tab": "notes", "page": 2}
+        )
+        page = self.client.get(return_url)
+        flashcards = self.client.get(page.context["flashcard_url"])
+        self.assertEqual(len(flashcards.context["items"]), 61)
+        self.assertEqual(flashcards.context["back_url"], return_url)
+        queue = self.client.get(page.context["study_queue_url"])
+        self.assertEqual(len(queue.context["items"]), 89)
+        self.assertEqual(queue.context["back_url"], return_url)
+        unsafe = self.client.get(
+            page.context["flashcard_url"].split("&next=")[0]
+            + "&next=https://elsewhere.example/notes/"
+        )
+        self.assertEqual(
+            unsafe.context["back_url"],
+            self.url + "?tab=notes&q=Matching&status=study",
+        )
+
+    def test_search_links_locate_older_items_in_their_private_folder(self):
+        scopes = [
+            {"task": self.task},
+            {"task": None, "source_path": "/vocabulaire/"},
+            {"task": None},
+            {"task": None, "source_path": "/comprehension/ecrite/tests/t1/"},
+            {"task": None, "source_path": "/comprehension/orale/tests/t1/"},
+        ]
+        for index, scope in enumerate(scopes):
+            with self.subTest(scope=scope):
+                old = self._rows(1, title=f"Search target {index}", **scope)[0]
+                self._rows(51, **scope)
+                result = self.client.get(
+                    reverse("study:annotation_search"),
+                    {"q": f"Search target {index}"},
+                )
+                link = result.context["results"][0].notes_url
+                located = self.client.get(link, follow=True)
+                self.assertEqual(located.context["page_obj"].number, 2)
+                self.assertContains(located, f'id="note-{old.pk}"', count=1)
+        private = self._rows(1, user=self.other)[0]
+        outside = self._rows(1, task=None)[0]
+        done = self._rows(1, completed_at=timezone.now())[0]
+        for item, params in (
+            (private.pk, {}), (outside.pk, {}), (done.pk, {"status": "todo"}),
+            (done.pk, {"q": "missing"}), (done.pk, {"tab": "highlights"}),
+            ("bad", {}), ("9" * 100, {}),
+        ):
+            with self.subTest(item=item, params=params):
+                self.assertEqual(
+                    self.client.get(self.url, {"locate": item, **params}).status_code,
+                    404,
+                )
+
+    def test_later_page_native_actions_preserve_place_and_clamp_after_removal(self):
+        notes = self._rows(51)
+        return_url = self.url + "?q=Matching&status=todo&tab=notes&page=2"
+        page = self.client.get(return_url)
+        self.assertContains(
+            page,
+            'name="next" value="' + return_url.replace("&", "&amp;") + '"',
+        )
+        edited = self.client.post(
+            reverse("study:annotation_update", args=[notes[0].pk]),
+            {"title": "Edited", "body": "Matching update", "next": return_url},
+            follow=True,
+        )
+        self.assertEqual(edited.context["page_obj"].number, 2)
+        self.assertContains(edited, "Matching update")
+        marked = self.client.post(
+            reverse("study:annotation_complete_toggle", args=[notes[0].pk]),
+            {"completed": "1", "next": return_url},
+            follow=True,
+        )
+        self.assertEqual(marked.context["page_obj"].number, 1)
+        self.assertEqual(marked.context["notes_count"], 50)
+        Annotation.objects.filter(pk=notes[0].pk).update(completed_at=None)
+        removed = self.client.post(
+            reverse("study:annotation_delete", args=[notes[0].pk]),
+            {"next": return_url}, follow=True,
+        )
+        self.assertEqual(removed.context["page_obj"].number, 1)
+        self.assertEqual(removed.context["notes_count"], 50)
+        self.assertContains(removed, "data-annotation-item=", count=50)
+
+    def test_creation_resets_page_and_only_retains_filters_that_show_the_note(self):
+        self._rows(51)
+        return_url = self.url + "?q=Matching&status=todo&tab=notes&page=2"
+        for title, body in (
+            ("Matching new", "Matching new"), ("Different", "Different"),
+        ):
+            with self.subTest(title=title):
+                created = self.client.post(
+                    return_url, {"title": title, "body": body, "next": return_url},
+                    follow=True,
+                )
+                new = Annotation.objects.get(title=title)
+                self.assertEqual(created.context["page_obj"].number, 1)
+                self.assertContains(created, f'id="note-{new.pk}"', count=1)
+                self.assertEqual(
+                    created.context["query"],
+                    "Matching" if title.startswith("Matching") else "",
+                )

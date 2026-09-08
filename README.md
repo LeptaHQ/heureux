@@ -25,6 +25,15 @@ python -m playwright install chromium
 python manage.py test study.tests.browser_tests
 ```
 
+## Notes and highlights
+
+Notes folders show 50 records per page and load only the active tab. Search and
+tab totals cover all matching records; the study total is calculated before the
+status filter. Flashcards use the full filtered selection, while the study queue
+keeps all marked records in the folder. Page navigation works without JavaScript.
+The shared `study/partials/pagination.html` pager accepts a Django `page_obj`,
+`page_links` (`number` and `url`), previous/next URLs, and an optional accessible label.
+
 ## Project structure
 
 | Path                                | Responsibility                                               |

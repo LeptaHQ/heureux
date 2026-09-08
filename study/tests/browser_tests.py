@@ -4,6 +4,7 @@ import json
 import os
 from dataclasses import replace
 from unittest import mock
+from urllib.parse import parse_qs, urlsplit
 
 from django.contrib.sessions.models import Session
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
@@ -5803,6 +5804,221 @@ class BrowserTests(StaticLiveServerTestCase):
             ).body,
             "Texte de la nouvelle session.",
         )
+
+    def _pagination_annotations(self, count, **values):
+        defaults = {
+            "user": self.user,
+            "task": self.task,
+            "kind": AnnotationKind.NOTE,
+            "body": "Matching note body",
+            "created_at": timezone.now() - timezone.timedelta(days=30),
+        }
+        return Annotation.objects.bulk_create(
+            Annotation(**{**defaults, "title": f"Matching entry {index}", **values})
+            for index in range(count)
+        )
+
+    def test_notes_later_page_navigation_edit_recall_and_filtered_actions(self):
+        notes = self._pagination_annotations(102)
+        self._pagination_annotations(
+            61, kind=AnnotationKind.HIGHLIGHT, quote="Matching passage"
+        )
+        url = reverse("study:task_notes", args=[self.part.slug, self.task.slug])
+        self.page.goto(
+            self.live_server_url + url + "?q=Matching&status=todo&tab=notes"
+        )
+        expect(self.page.locator("[data-annotation-item]")).to_have_count(50)
+        expect(self.page.locator('[data-tab-count="notes"]')).to_have_text("102")
+        expect(self.page.locator('[data-tab-count="highlights"]')).to_have_text("61")
+        self.page.get_by_role("link", name="Suivant", exact=True).click()
+        expect(self.page.locator(".collection-pagination__summary")).to_have_text(
+            "Page 2 sur 3"
+        )
+        page_two = self.page.url
+        expect(self.page.locator("[data-annotation-item]")).to_have_count(50)
+        self.assertEqual(
+            parse_qs(urlsplit(page_two).query),
+            {
+                "q": ["Matching"], "status": ["todo"],
+                "tab": ["notes"], "page": ["2"],
+            },
+        )
+        self.assert_no_horizontal_overflow()
+
+        self.page.get_by_role("link", name="Flashcards", exact=True).click()
+        expect(self.page.locator("[data-study-card]")).to_have_count(102)
+        self.page.get_by_role(
+            "link", name="Retour aux notes", exact=True
+        ).first.click()
+        self.page.wait_for_url(page_two)
+
+        row = self.page.locator(f'[data-annotation-item="{notes[51].pk}"]')
+        self.page.locator(
+            '[data-notes-recall] [data-recall-column="english"]'
+        ).click()
+        content = row.locator('[data-recall-cell="english"] [data-recall-content]')
+        self.assertNotEqual(
+            content.evaluate("element => getComputedStyle(element).filter"), "none"
+        )
+        self.page.get_by_role("button", name="Tableau", exact=True).click()
+        expect(row).to_have_count(1)
+        self.assertNotEqual(
+            content.evaluate("element => getComputedStyle(element).filter"), "none"
+        )
+        row.locator('[data-recall-cell="english"]').click()
+        self.assertEqual(
+            content.evaluate("element => getComputedStyle(element).filter"), "none"
+        )
+
+        row.get_by_role("button", name="Modifier la note").click()
+        dialog = self.page.locator("#note-edit-dialog")
+        dialog.get_by_label("Votre note").fill("Matching edited body")
+        dialog.get_by_role("button", name="Enregistrer", exact=True).click()
+        expect(row.locator(".annotation-card__body")).to_have_text(
+            "Matching edited body"
+        )
+        self.assertEqual(urlsplit(self.page.url).query, urlsplit(page_two).query)
+        self.assertEqual(urlsplit(self.page.url).fragment, f"note-{notes[51].pk}")
+        expect(
+            self.page.get_by_role("button", name="Tableau", exact=True)
+        ).to_have_attribute("aria-pressed", "true")
+        expect(self.page.locator('[data-hero-count="notes"]')).to_have_text("102")
+
+        for action, note, expected_count in (
+            ("study", notes[51], "101"),
+            ("complete", notes[50], "100"),
+            ("delete", notes[49], "99"),
+        ):
+            item = self.page.locator(f'[data-annotation-item="{note.pk}"]')
+            item.locator(f'form[data-annotation-action="{action}"] button').click()
+            if action == "delete":
+                self.page.locator("[data-confirm-accept]").click()
+            expect(self.page.locator('[data-tab-count="notes"]')).to_have_text(
+                expected_count
+            )
+            expect(item).to_have_count(0)
+            self.assertEqual(urlsplit(self.page.url).query, urlsplit(page_two).query)
+        expect(self.page.locator("[data-annotation-item]")).to_have_count(49)
+        expect(self.page.locator('[data-hero-count="study"]')).to_have_text("1")
+        expect(self.page.locator("[data-study-queue-count]")).to_have_text("1")
+        expect(self.page.locator('[data-hero-count="highlights"]')).to_have_text("61")
+        for count in self.page.locator(
+            f'[data-scope-count="task:{self.task.pk}"]'
+        ).all():
+            expect(count).to_have_text("162")
+        self.assert_no_horizontal_overflow()
+
+        self.page.get_by_role("tab", name="Surlignages").click()
+        self.assertNotIn("page", parse_qs(urlsplit(self.page.url).query))
+        expect(self.page.locator("[data-annotation-item]")).to_have_count(50)
+        expect(self.page.locator('[data-annotation-kind="note"]')).to_have_count(0)
+        self.page.get_by_role("link", name="Suivant", exact=True).click()
+        expect(self.page.locator("[data-annotation-item]")).to_have_count(11)
+        self.page.get_by_role("link", name="Précédent", exact=True).click()
+        expect(self.page.locator("[data-annotation-item]")).to_have_count(50)
+        self.page.get_by_role("link", name="Suivant", exact=True).click()
+        self.page.locator("#notes-search").fill("Matching entry 60")
+        self.page.get_by_role("button", name="Rechercher", exact=True).click()
+        self.assertNotIn("page", parse_qs(urlsplit(self.page.url).query))
+        expect(self.page.locator("[data-annotation-item]")).to_have_count(1)
+        flashcards = self.page.get_by_role("link", name="Flashcards", exact=True)
+        actions = self.page.locator(".notes-toolbar__actions")
+        self.assertAlmostEqual(
+            flashcards.bounding_box()["width"], actions.bounding_box()["width"],
+            delta=1,
+        )
+
+    def test_notes_final_page_removals_refill_and_clamp(self):
+        url = reverse("study:task_notes", args=[self.part.slug, self.task.slug])
+        for action, kind in (
+            ("complete", AnnotationKind.NOTE),
+            ("study", AnnotationKind.NOTE),
+            ("delete", AnnotationKind.HIGHLIGHT),
+        ):
+            with self.subTest(action=action):
+                Annotation.objects.filter(user=self.user).delete()
+                self._pagination_annotations(
+                    51, kind=kind, quote="Matching passage"
+                )
+                tab = "highlights" if kind == AnnotationKind.HIGHLIGHT else "notes"
+                self.page.goto(
+                    self.live_server_url + url
+                    + f"?q=Matching&status=todo&tab={tab}&page=2"
+                )
+                expect(self.page.locator("[data-annotation-item]")).to_have_count(1)
+                self.page.locator(
+                    f'form[data-annotation-action="{action}"] button'
+                ).click()
+                if action == "delete":
+                    self.page.locator("[data-confirm-accept]").click()
+                self.page.wait_for_url(
+                    self.live_server_url + url
+                    + f"?q=Matching&status=todo&tab={tab}&page=1"
+                )
+                expect(self.page.locator("[data-annotation-item]")).to_have_count(50)
+                expect(
+                    self.page.locator(f'[data-tab-count="{tab}"]')
+                ).to_have_text("50")
+                expect(self.page.locator(".collection-pagination")).to_have_count(0)
+
+    def test_new_note_from_later_page_returns_to_its_first_page_anchor(self):
+        self._pagination_annotations(51)
+        url = reverse("study:task_notes", args=[self.part.slug, self.task.slug])
+        self.page.goto(
+            self.live_server_url + url
+            + "?q=Matching&status=todo&tab=notes&page=2"
+        )
+        self.page.get_by_role("button", name="Nouvelle note").click()
+        dialog = self.page.locator("#note-create-dialog")
+        dialog.get_by_label("Titre (facultatif)").fill("Matching new note")
+        dialog.get_by_label("Votre note").fill("Matching freshly written body")
+        dialog.get_by_role("button", name="Enregistrer", exact=True).click()
+        new = self.page.locator(".annotation-card", has_text="Matching new note")
+        expect(new).to_have_count(1)
+        expect(self.page.locator("[data-annotation-item]")).to_have_count(50)
+        self.assertNotIn("page", parse_qs(urlsplit(self.page.url).query))
+        self.assertEqual(urlsplit(self.page.url).fragment, new.get_attribute("id"))
+        expect(self.page.locator(".collection-pagination__summary")).to_have_text(
+            "Page 1 sur 2"
+        )
+
+    def test_annotation_search_opens_an_older_note_on_its_actual_page(self):
+        old = self._pagination_annotations(1, title="Unique search target")[0]
+        self._pagination_annotations(101)
+        self.page.goto(
+            self.live_server_url + reverse("study:annotation_search")
+            + "?q=Unique+search+target"
+        )
+        expect(self.page.locator("[data-annotation-item]")).to_have_count(1)
+        self.page.get_by_role("link", name="Ouvrir dans mes notes").click()
+        expect(self.page.locator(".collection-pagination__summary")).to_have_text(
+            "Page 3 sur 3"
+        )
+        item = self.page.locator(f"#note-{old.pk}")
+        expect(item).to_be_visible()
+        self.assertEqual(urlsplit(self.page.url).fragment, f"note-{old.pk}")
+        expect(self.page.locator("[data-annotation-item]")).to_have_count(2)
+
+    def test_notes_pagination_links_work_without_javascript(self):
+        self._pagination_annotations(51)
+        url = reverse("study:task_notes", args=[self.part.slug, self.task.slug])
+        context = self.browser.new_context(
+            java_script_enabled=False, service_workers="block",
+            storage_state=self.context.storage_state(),
+        )
+        try:
+            page = context.new_page()
+            page.goto(self.live_server_url + url)
+            expect(page.locator("[data-annotation-item]")).to_have_count(50)
+            page.get_by_role("link", name="Suivant", exact=True).click()
+            expect(page.locator("[data-annotation-item]")).to_have_count(1)
+            expect(
+                page.locator('[aria-current="page"][aria-label="Page 2"]')
+            ).to_be_visible()
+            page.get_by_role("link", name="Précédent", exact=True).click()
+            expect(page.locator("[data-annotation-item]")).to_have_count(50)
+        finally:
+            context.close()
 
     def test_notes_actions_apply_in_place(self):
         note = Annotation.objects.create(

@@ -1005,6 +1005,14 @@ class Annotation(models.Model):
         indexes = [
             models.Index(fields=["user", "task", "kind", "updated_at"]),
             models.Index(fields=["user", "source_path", "kind"]),
+            models.Index(
+                fields=["user", "kind", "-created_at", "-id"],
+                name="annotation_user_kind_created",
+            ),
+            models.Index(
+                fields=["user", "task", "kind", "-created_at", "-id"],
+                name="annotation_scope_created",
+            ),
         ]
 
     def clean(self):

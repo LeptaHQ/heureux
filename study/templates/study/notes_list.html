@@ -7,8 +7,8 @@
     <h1>Notes &amp; surlignages</h1>
   </div>
   <div class="task-hero__numbers" aria-label="Résumé des notes">
-    <span><b data-hero-count="notes">{{ notes|length }}</b> note{{ notes|length|pluralize }}</span>
-    {% if not custom %}<span><b data-hero-count="highlights">{{ highlights|length }}</b> surlignage{{ highlights|length|pluralize }}</span>{% endif %}
+    <span><b data-hero-count="notes">{{ notes_count }}</b> note{{ notes_count|pluralize }}</span>
+    {% if not custom %}<span><b data-hero-count="highlights">{{ highlights_count }}</b> surlignage{{ highlights_count|pluralize }}</span>{% endif %}
     <span><b data-hero-count="study">{{ study_count }}</b> à étudier</span>
   </div>
 </header>
@@ -20,6 +20,7 @@
   data-recall-catalog
   data-status="{{ status }}"
   data-active-tab="{{ active_tab }}"
+  data-paginated="{{ page_obj.has_other_pages|yesno:'true,false' }}"
 >
 <div class="notes-view-controls">
   <nav class="notes-tabs" role="tablist" aria-label="Type de contenu">
@@ -31,7 +32,7 @@
       aria-controls="notes-panel"
       href="{{ tab_url_prefix }}tab=notes">
       <span>Notes</span>
-      <span class="notes-tab__count" data-tab-count="notes">{{ notes|length }}</span>
+      <span class="notes-tab__count" data-tab-count="notes">{{ notes_count }}</span>
     </a>
     {% if not custom %}
       <a
@@ -42,7 +43,7 @@
         aria-controls="highlights-panel"
         href="{{ tab_url_prefix }}tab=highlights">
         <span>Surlignages</span>
-        <span class="notes-tab__count" data-tab-count="highlights">{{ highlights|length }}</span>
+        <span class="notes-tab__count" data-tab-count="highlights">{{ highlights_count }}</span>
       </a>
     {% endif %}
   </nav>
@@ -129,12 +130,10 @@
       <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="2"></rect><path d="M8 9h8M8 13h5"></path></svg>
       <span>Flashcards</span>
     </a>
-    {% if study_count %}
-      <a class="btn notes-toolbar__action--study" href="{{ study_queue_url }}">
-        <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.5A1.5 1.5 0 0 1 7.5 3h9A1.5 1.5 0 0 1 18 4.5V21l-6-3.75L6 21Z"></path></svg>
-        <span>À étudier · {{ study_count }}</span>
-      </a>
-    {% endif %}
+    <a class="btn notes-toolbar__action--study" href="{{ study_queue_url }}" {% if not study_count %}hidden{% endif %}>
+      <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 4.5A1.5 1.5 0 0 1 7.5 3h9A1.5 1.5 0 0 1 18 4.5V21l-6-3.75L6 21Z"></path></svg>
+      <span>À étudier · <span data-study-queue-count>{{ study_count }}</span></span>
+    </a>
   </div>
 </div>
 
@@ -165,5 +164,6 @@
 </section>
 </div>
 {% endif %}
+{% include "study/partials/pagination.html" with pagination_label="Pagination des notes et surlignages" %}
 </div>
 {% endblock %}

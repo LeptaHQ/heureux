@@ -12,6 +12,7 @@ from urllib.parse import parse_qs, urlsplit
 from django.conf import settings
 from django.core.cache import cache
 from django.core.exceptions import ValidationError
+from django.core.paginator import Paginator
 from django.db import transaction
 from django.db.utils import IntegrityError
 from django.db.models import Count, Q
@@ -46,6 +47,7 @@ MAX_ANNOTATION_QUOTE_LENGTH = 5000
 
 
 MAX_ANNOTATION_BODY_LENGTH = 20000
+NOTES_PAGE_SIZE = 50
 
 
 ANNOTATION_SOURCE_KEY_RE = re.compile(r"^[A-Za-z0-9:._-]{0,200}$")
@@ -253,24 +255,29 @@ def notes_overview(request):
     return _notes_scope(request, aggregate=True)
 
 
-def _annotation_scope_url(task=None, *, custom=False):
+def _annotation_scope_url(task=None, *, custom=False, comprehension=None):
     if task:
         return reverse(
             "study:task_notes",
             args=[task.part.slug, task.slug],
         )
+    if comprehension:
+        return reverse("study:comprehension_notes", args=[comprehension])
     if custom:
         return reverse("study:custom_notes")
     return reverse("study:general_notes")
 
 
-def _annotation_tab_url(task, kind, *, custom=False):
+def _annotation_tab_url(task, kind, *, custom=False, comprehension=None):
     tab = (
         "highlights"
         if kind == AnnotationKind.HIGHLIGHT
         else "notes"
     )
-    return f"{_annotation_scope_url(task, custom=custom)}?tab={tab}"
+    url = _annotation_scope_url(
+        task, custom=custom, comprehension=comprehension
+    )
+    return f"{url}?tab={tab}"
 
 
 def _annotation_study_url(
@@ -376,17 +383,43 @@ def _filter_annotation_query(annotations, query):
     )
 
 
-def _filter_annotation_status(annotations, status):
+def _annotation_status_filter(status):
     if status == "todo":
-        return annotations.filter(
+        return Q(
             completed_at__isnull=True,
             study_later=False,
         )
     if status == "done":
-        return annotations.filter(completed_at__isnull=False)
+        return Q(completed_at__isnull=False)
     if status == "study":
-        return annotations.filter(study_later=True)
-    return annotations
+        return Q(study_later=True)
+    return Q()
+
+
+def _filter_annotation_status(annotations, status):
+    return annotations.filter(_annotation_status_filter(status))
+
+
+def _new_note_redirect(request, note):
+    target = urlsplit(_annotation_redirect(request, note))
+    params = parse_qs(target.query)
+    params.pop("page", None)
+    params.pop("locate", None)
+    query = params.get("q", [""])[0].strip()
+    status = params.get("status", [""])[0]
+    if query or status:
+        matching = _filter_annotation_query(
+            Annotation.objects.filter(pk=note.pk), query
+        )
+        if not _filter_annotation_status(matching, status).exists():
+            params.pop("q", None)
+            params.pop("status", None)
+    if "tab" in params:
+        params["tab"] = ["notes"]
+    # A new note belongs on the first page, not the page it was created from.
+    return target._replace(
+        query=urlencode(params, doseq=True), fragment=f"note-{note.pk}"
+    ).geturl()
 
 
 def _notes_scope(
@@ -437,26 +470,75 @@ def _notes_scope(
                     _annotation_scope_url(custom=True)
                     + f"?tab=notes#note-{note.id}"
                 )
-            return redirect(
-                _annotation_redirect(request, note)
-                + f"#note-{note.id}"
-            )
+            return redirect(_new_note_redirect(request, note))
     else:
         form = NoteForm()
-    # Both tabs render from the same rows, so fetch them once in final order
-    # and split by kind here rather than paying for a query per tab.
-    rows = list(
-        _filter_annotation_status(annotations, status).order_by(
-            "-created_at", "-id"
-        )
+    status_filter = _annotation_status_filter(status)
+    counts = annotations.aggregate(
+        notes_count=Count(
+            "id", filter=Q(kind=AnnotationKind.NOTE) & status_filter
+        ),
+        highlights_count=Count(
+            "id", filter=Q(kind=AnnotationKind.HIGHLIGHT) & status_filter
+        ),
+        study_count=Count("id", filter=Q(study_later=True)),
     )
-    notes = []
-    highlights = []
-    for annotation in rows:
-        if annotation.kind == AnnotationKind.HIGHLIGHT:
-            highlights.append(annotation)
-        else:
-            notes.append(annotation)
+    active_rows = annotations.filter(
+        status_filter,
+        kind=(
+            AnnotationKind.HIGHLIGHT
+            if active_tab == "highlights"
+            else AnnotationKind.NOTE
+        ),
+    ).order_by("-created_at", "-id")
+    preserved = {}
+    if query:
+        preserved["q"] = query
+    if status:
+        preserved["status"] = status
+    page_params = {**preserved, "tab": active_tab}
+
+    def page_url(number):
+        return request.path + "?" + urlencode({**page_params, "page": number})
+
+    # Search links locate an item within its whole folder without loading the
+    # preceding pages (or issuing a rank query for every search result).
+    if request.method == "GET" and "locate" in request.GET:
+        item_id = request.GET["locate"]
+        if (
+            not item_id.isascii()
+            or not item_id.isdigit()
+            or len(item_id) > 19
+            or int(item_id) > 2**63 - 1
+        ):
+            raise Http404
+        item = get_object_or_404(
+            active_rows.values("pk", "created_at"), pk=int(item_id)
+        )
+        preceding = active_rows.filter(
+            Q(created_at__gt=item["created_at"])
+            | Q(created_at=item["created_at"], pk__gt=item["pk"])
+        ).count()
+        prefix = "highlight" if active_tab == "highlights" else "note"
+        return redirect(
+            page_url(preceding // NOTES_PAGE_SIZE + 1)
+            + f"#{prefix}-{item['pk']}"
+        )
+
+    paginator = Paginator(active_rows, NOTES_PAGE_SIZE)
+    # Reuse the exact aggregate instead of running another COUNT for this tab.
+    paginator.count = counts[f"{active_tab}_count"]
+    page = paginator.get_page(request.GET.get("page"))
+    if (
+        request.method == "GET"
+        and "page" in request.GET
+        and request.GET["page"] != str(page.number)
+    ):
+        return redirect(page_url(page.number))
+    rows = list(page.object_list)
+    page.object_list = rows
+    notes = rows if active_tab == "notes" else []
+    highlights = rows if active_tab == "highlights" else []
     _apply_scope_labels(
         rows,
         task=task,
@@ -468,13 +550,6 @@ def _notes_scope(
         highlight.origin_label = _HIGHLIGHT_ORIGIN_LABELS[
             _highlight_origin(highlight)
         ]
-    # The hero count covers the whole folder, before the status filter. With no
-    # status filter — or with « À étudier », which selects exactly those rows —
-    # the loaded rows already answer it.
-    if status in {"", "study"}:
-        study_count = sum(1 for annotation in rows if annotation.study_later)
-    else:
-        study_count = annotations.filter(study_later=True).count()
     task_totals, general_counts = _annotation_counts(request.user)
     task_filters = [
         {
@@ -488,11 +563,6 @@ def _notes_scope(
         .filter(Q(is_active=True) | Q(pk__in=list(task_totals)))
         .order_by("part__order", "order")
     ]
-    preserved = {}
-    if query:
-        preserved["q"] = query
-    if status:
-        preserved["status"] = status
     tab_url_prefix = "?" + (urlencode(preserved) + "&" if preserved else "")
     status_base_params = {"tab": active_tab}
     if query:
@@ -523,6 +593,16 @@ def _notes_scope(
         flashcard_params["q"] = query
     if status:
         flashcard_params["status"] = status
+    if page.number > 1:
+        flashcard_params["next"] = request.get_full_path()
+    study_queue_url = _annotation_study_url(
+        task,
+        aggregate=aggregate,
+        comprehension=comprehension,
+        custom=custom,
+    )
+    if request.GET:
+        study_queue_url += "?" + urlencode({"next": request.get_full_path()})
     flashcard_url = (
         _annotation_study_url(
             task,
@@ -557,7 +637,23 @@ def _notes_scope(
             "notes_sections": _annotation_date_sections(notes),
             "highlights_sections": _annotation_date_sections(highlights),
             "active_tab": active_tab,
-            "study_count": study_count,
+            **counts,
+            "page_obj": page,
+            "page_links": [
+                {
+                    "number": number,
+                    "url": page_url(number) if number != paginator.ELLIPSIS else "",
+                }
+                for number in paginator.get_elided_page_range(
+                    page.number, on_each_side=1, on_ends=1
+                )
+            ],
+            "previous_page_url": (
+                page_url(page.previous_page_number()) if page.has_previous() else ""
+            ),
+            "next_page_url": (
+                page_url(page.next_page_number()) if page.has_next() else ""
+            ),
             "form": form,
             "aggregate": aggregate,
             "query": query,
@@ -573,12 +669,7 @@ def _notes_scope(
                 request.path + "?" + urlencode({"tab": active_tab})
             ),
             "flashcard_url": flashcard_url,
-            "study_queue_url": _annotation_study_url(
-                task,
-                aggregate=aggregate,
-                comprehension=comprehension,
-                custom=custom,
-            ),
+            "study_queue_url": study_queue_url,
         },
     )
 
@@ -658,13 +749,17 @@ def annotation_search(request):
         result_count = len(results)
     for annotation in results:
         annotation.scope_label = _annotation_scope_label(annotation)
+        scope_key = _annotation_scope_key(annotation)
         annotation.notes_url = (
             _annotation_tab_url(
                 annotation.task,
                 annotation.kind,
-                custom=_annotation_scope_key(annotation) == "custom",
+                custom=scope_key == "custom",
+                comprehension=(
+                    scope_key if scope_key in COMPREHENSION_NOTE_MODES else None
+                ),
             )
-            + "#"
+            + f"&locate={annotation.pk}#"
             + _annotation_anchor(annotation)
         )
     task_options = (
@@ -788,6 +883,7 @@ def annotation_study(
         if status:
             back_params["status"] = status
         back_url += "?" + urlencode(back_params)
+    back_url = _annotation_next_url(request) or back_url
     return render(
         request,
         "study/annotation_study.html",
@@ -1302,7 +1398,8 @@ def _is_fetch(request):
 
 def _annotation_next_url(request):
     """The caller-supplied return URL, when it is safe to follow."""
-    candidate = request.POST.get("next")
+    params = request.POST if request.method == "POST" else request.GET
+    candidate = params.get("next")
     if candidate and url_has_allowed_host_and_scheme(
         candidate,
         allowed_hosts={request.get_host()},

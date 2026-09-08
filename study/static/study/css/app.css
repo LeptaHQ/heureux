@@ -4958,6 +4958,28 @@ html[data-collection-view-mode="table"]
   display: grid;
   gap: 1.6rem;
 }
+
+.collection-pagination {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  margin-block: 1.5rem;
+}
+
+.collection-pagination__pages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.notes-toolbar__action--study[hidden] {
+  display: none;
+}
 .notes-date-section { min-width: 0; }
 .notes-date-section__head {
   display: flex;
@@ -12860,7 +12882,7 @@ button.ce-choice:focus-visible .ce-choice__radio {
   .notes-toolbar__actions--notes .notes-toolbar__action--study {
     grid-column: 1 / -1;
   }
-  .notes-toolbar__actions--highlights .btn:only-child {
+  .notes-toolbar__actions--highlights .notes-toolbar__action--flashcards:has(+ [hidden]) {
     grid-column: 1 / -1;
   }
 }

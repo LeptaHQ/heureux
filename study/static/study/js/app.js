@@ -1301,15 +1301,19 @@
     function tabCount(name) {
       return document.querySelector('[data-tab-count="' + name + '"]');
     }
-    function scopeCount(key) {
-      return document.querySelector('[data-scope-count="' + key + '"]');
-    }
 
     function bumpHero(name, delta) {
       var el = heroEl(name);
       if (!el) return;
       var next = Math.max(0, readNumber(el) + delta);
       el.textContent = next;
+      if (name === "study") {
+        var queueCount = list.querySelector("[data-study-queue-count]");
+        if (queueCount) {
+          queueCount.textContent = next;
+          queueCount.closest("a").hidden = next === 0;
+        }
+      }
       if (name === "notes" || name === "highlights") {
         var span = el.parentNode;
         if (!span) return;
@@ -1385,6 +1389,12 @@
     }
 
     function detachItem(id) {
+      // Refill a paginated slice after removal; the server also clamps a
+      // now-empty final page to the last remaining page.
+      if (list.dataset.paginated === "true") {
+        window.location.reload();
+        return;
+      }
       var node = itemNode(id);
       if (node) {
         var section = node.closest(".notes-date-section");
@@ -1478,7 +1488,11 @@
       detachItem(id);
       bumpHero(panelKind, -1);
       adjustCount(tabCount(panelKind), -1);
-      if (data && data.scope) adjustCount(scopeCount(data.scope), -1);
+      if (data && data.scope) {
+        document.querySelectorAll(
+          '[data-scope-count="' + data.scope + '"]'
+        ).forEach(function (count) { adjustCount(count, -1); });
+      }
       if (data && data.was_study) bumpHero("study", -1);
       flashToast(
         panelKind === "highlights" ? "Surlignage supprimé." : "Note supprimée."

@@ -6,13 +6,28 @@ from unittest.mock import patch
 from django.db import connection
 from django.db.models import Q
 from django.db.models.query import ValuesIterable
-from django.test import TestCase
+from django.test import SimpleTestCase, TestCase
 from django.test.utils import CaptureQueriesContext
 
 from study.models import Annotation, AnnotationKind, PhraseTier, Prompt, Response
-from study.progress import subject_progress_by_response
+from study.progress import _batches, subject_progress_by_response
 
 from . import factories
+
+
+class BatchingTests(SimpleTestCase):
+    def test_batches_support_iterators_and_partial_final_batches(self):
+        values = iter(range(7))
+        self.assertEqual(
+            list(_batches(values, 3)), [(0, 1, 2), (3, 4, 5), (6,)]
+        )
+        self.assertEqual(list(_batches(values, 3)), [])
+
+    def test_batches_reject_nonpositive_sizes(self):
+        for size in (0, -1):
+            with self.subTest(size=size):
+                with self.assertRaisesMessage(ValueError, "must be positive"):
+                    list(_batches([], size))
 
 
 class SubjectHighlightScopeTests(TestCase):

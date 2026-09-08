@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from functools import lru_cache
-from itertools import batched
+from itertools import islice
 import re
 import sys
 from typing import Iterable
@@ -332,6 +332,14 @@ def _decimal_regex(expression):
     return expression
 
 
+def _batches(values, size):
+    if size < 1:
+        raise ValueError("Batch size must be positive")
+    iterator = iter(values)
+    while batch := tuple(islice(iterator, size)):
+        yield batch
+
+
 def _subject_highlight_rows(user, response_ids):
     """Fetch target-related candidates and their resolved response-key IDs."""
     highlights = Annotation.objects.filter(
@@ -355,7 +363,7 @@ def _subject_highlight_rows(user, response_ids):
     # bound SQL parameters, not note count; only matching rows leave the database.
     rows = []
     response_by_content_key = {}
-    for ids in batched(sorted(response_ids), 150):
+    for ids in _batches(sorted(response_ids), 150):
         prompts = Prompt.objects.filter(
             response_id__in=ids, is_active=True, response__is_active=True,
         )
@@ -467,6 +475,7 @@ def _subject_highlight_rows(user, response_ids):
                     Value("/"), F("theme__task__slug"), Value("/sujets/"),
                     _decimal_regex(Concat(Value("0*"), Cast("pk", CharField()))),
                     Value(r"/(?:[?#].*)?$"),
+                    output_field=CharField(),
                 ),
             )
             scope |= Q(source_key="") & Q(Exists(legacy_paths))
@@ -503,7 +512,7 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
     if len(response_ids) > 500:
         return {
             response_id: state
-            for batch in batched(sorted(response_ids), 500)
+            for batch in _batches(sorted(response_ids), 500)
             for response_id, state in subject_progress_by_response(user, batch).items()
         }
 
@@ -662,7 +671,7 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
     )
     prompt_references = {
         row["pk"]: row
-        for ids in batched(sorted(prompt_ids), 300)
+        for ids in _batches(sorted(prompt_ids), 300)
         for row in prompt_rows.filter(pk__in=ids)
     }
     phrase_ids = {
@@ -671,7 +680,7 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
         if match
     }
     response_ids_by_subject_phrase = {}
-    for ids in batched(sorted(phrase_ids), 300):
+    for ids in _batches(sorted(phrase_ids), 300):
         for phrase_id, response_id in Phrase.objects.filter(
             phrase_id__in=ids,
             tier=PhraseTier.SUBJECT,

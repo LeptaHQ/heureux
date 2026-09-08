@@ -34,6 +34,27 @@ keeps all marked records in the folder. Page navigation works without JavaScript
 The shared `study/partials/pagination.html` pager accepts a Django `page_obj`,
 `page_links` (`number` and `url`), previous/next URLs, and an optional accessible label.
 
+## Runtime efficiency
+
+- `study/catalogue.py` shares immutable bundled expression content across requests.
+  Restart workers after content changes; learner progress and database querysets
+  are never cached there. Custom-path parsers and content imports still validate
+  their inputs directly.
+- Subject directories reuse one collection/group/row component and render each
+  publication once, with card and table presentations of the same elements.
+  Oral and written completion controls share one JavaScript controller.
+- Subject progress filters highlight candidates before transferring rows to Python.
+  Existing source-key and URL parsers remain the final matching authority; batching
+  keeps larger requests within database parameter limits.
+- Course exposure checks use an indexed, derived projection of allocated item
+  identities, not scored progress or answers. The first access indexes all missing
+  attempts in batches; subsequent access processes only newly unindexed attempts.
+  Original snapshots and events remain authoritative. Native deletion cascades on
+  the projection tables must be preserved by future migrations.
+
+Course attempt/production histories and same-lesson scored-guidance reconstruction
+remain history-dependent; the exposure optimization does not truncate or cap them.
+
 ## Project structure
 
 | Path                                | Responsibility                                               |
@@ -42,6 +63,7 @@ The shared `study/partials/pagination.html` pager accepts a Django `page_obj`,
 | `study/models.py`                   | Persistent study, progress, and account data                 |
 | `study/account_services.py`         | Account provisioning, recovery, and login throttling         |
 | `study/content_loader.py`           | Pure parsing and validation of bundled study content         |
+| `study/catalogue.py`                | Shared immutable expression catalogues and lookup indexes    |
 | `study/learning_content.py`         | Validation and cached loading for the Learn curriculum        |
 | `study/course_content.py`           | Typed original course and benchmark coverage contracts       |
 | `study/course_practice.py`          | Server-side selection, grading, exposure and delayed review  |

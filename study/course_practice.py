@@ -9,13 +9,15 @@ from datetime import timedelta
 
 from django.contrib.auth import get_user_model
 from django.db import transaction
+from django.db.models import Exists, OuterRef
 from django.utils import timezone
 
 from .course_content import POOL_MINIMUMS, normalize_answer
-from .models import CourseAttempt
+from .models import CourseAttempt, CourseExposureIndex, CourseItemExposure
 
 MAX_ANSWER_LENGTH = 4000
 REVIEW_DELAY = timedelta(days=7)
+EXPOSURE_BATCH_SIZE = 100
 
 
 class PracticeError(ValueError):
@@ -43,7 +45,7 @@ def evidence_state(user, lesson):
             status="completed", independent=False, criterion_met=True,
         ).order_by("-submitted_at").first()
         active_fresh_review = check.reviews.filter(status="active", independent=True).exists()
-    seen_prompts, seen_ids = _exposures(user)
+    seen_prompts, seen_ids = _exposures(user, lesson)
     fresh_review = [
         item for item in lesson.practice
         if item.pool == "review" and _is_fresh(lesson, item, seen_prompts, seen_ids)
@@ -76,14 +78,56 @@ def public_snapshot(attempt):
     }
 
 
-def _exposures(user):
-    seen_prompts, seen_ids = set(), set()
-    history = CourseAttempt.objects.filter(user=user).values_list("lesson_id", "snapshot")
-    for lesson_id, snapshot in history.iterator(chunk_size=100):
-        for item in snapshot["items"]:
-            seen_prompts.add(item["exposure_key"])
-            seen_ids.add((lesson_id, item["id"]))
+def lock_course_user(user):
+    """Acquire the course lifecycle lock inside the caller's transaction."""
+    # Serialize lifecycle operations without blocking unrelated user-FK checks.
+    return get_user_model().objects.select_for_update(no_key=True).only("pk").get(pk=user.pk)
+
+
+def _index_attempts(attempts):
+    rows = [
+        CourseItemExposure(
+            attempt_id=attempt.pk, user_id=attempt.user_id, lesson_id=attempt.lesson_id,
+            item_id=item["id"], exposure_key=item["exposure_key"],
+        )
+        for attempt in attempts for item in attempt.snapshot["items"]
+    ]
+    CourseItemExposure.objects.bulk_create(rows)
+    # Commit readiness only with the complete projection, including empty banks.
+    CourseExposureIndex.objects.bulk_create([
+        CourseExposureIndex(attempt_id=attempt.pk) for attempt in attempts
+    ])
+
+
+def _reconcile_exposures(user):
+    indexed = CourseExposureIndex.objects.filter(attempt_id=OuterRef("pk"))
+    missing = CourseAttempt.objects.filter(user=user).filter(~Exists(indexed)).order_by()
+    while attempt_ids := list(missing.values_list("pk", flat=True)[:EXPOSURE_BATCH_SIZE]):
+        attempts = list(
+            CourseAttempt.objects.filter(user=user, pk__in=attempt_ids)
+            .select_for_update().only("pk", "user_id", "lesson_id", "snapshot").order_by("pk")
+        )
+        _index_attempts(attempts)
+
+
+def _locked_exposures(user, lesson):
+    _reconcile_exposures(user)
+    history = CourseItemExposure.objects.filter(user=user)
+    seen_prompts = set(history.filter(
+        exposure_key__in=[item.exposure_key for item in lesson.practice],
+    ).order_by().values_list("exposure_key", flat=True).distinct())
+    seen_ids = {
+        (lesson.id, item_id) for item_id in history.filter(
+            lesson_id=lesson.id, item_id__in=[item.id for item in lesson.practice],
+        ).order_by().values_list("item_id", flat=True).distinct()
+    }
     return seen_prompts, seen_ids
+
+
+@transaction.atomic
+def _exposures(user, lesson):
+    lock_course_user(user)
+    return _locked_exposures(user, lesson)
 
 
 def _is_fresh(lesson, item, seen_prompts, seen_ids):
@@ -256,18 +300,19 @@ def start_attempt(user, lesson, mode):
     if mode not in POOL_MINIMUMS:
         raise PracticeError("Unknown practice mode.")
     # Serialize cross-mode starts too: a second tab cannot allocate the same fresh items.
-    get_user_model().objects.select_for_update().get(pk=user.pk)
+    lock_course_user(user)
     active = CourseAttempt.objects.filter(
         user=user, lesson_id=lesson.id, mode=mode, status="active"
     ).first()
     if active:
+        _reconcile_exposures(user)
         return active
     check = None
     if mode == "review":
         check = successful_check(user, lesson)
         if not check or timezone.now() < check.submitted_at + REVIEW_DELAY:
             raise PracticeError("Review opens seven days after a successful check.")
-    seen_prompts, seen_ids = _exposures(user)
+    seen_prompts, seen_ids = _locked_exposures(user, lesson)
     latest, guidance = {}, []
     if mode == "practice":
         latest, assessed = _item_history(user, lesson)
@@ -288,10 +333,12 @@ def start_attempt(user, lesson, mode):
             for item in selected
         ],
     }
-    return CourseAttempt.objects.create(
+    attempt = CourseAttempt.objects.create(
         user=user, lesson_id=lesson.id, content_version=lesson.content_version,
         mode=mode, snapshot=snapshot, independent=independent, review_of=check,
     )
+    _index_attempts([attempt])
+    return attempt
 
 
 def _answer(item, response):

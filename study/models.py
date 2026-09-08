@@ -650,6 +650,43 @@ class CourseAttempt(models.Model):
         super().save(*args, **kwargs)
 
 
+class CourseExposureIndex(models.Model):
+    """Presence certifies that every allocated item in an attempt was indexed."""
+
+    attempt = models.OneToOneField(
+        CourseAttempt, primary_key=True, on_delete=models.CASCADE,
+        related_name="exposure_index",
+    )
+
+
+class CourseItemExposure(models.Model):
+    """Derived allocation identities, never answers or scored progress."""
+
+    attempt = models.ForeignKey(
+        CourseAttempt, on_delete=models.CASCADE, related_name="item_exposures",
+    )
+    user = models.ForeignKey(
+        django_settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
+        related_name="course_item_exposures",
+    )
+    lesson_id = models.CharField(max_length=80)
+    item_id = models.CharField(max_length=80)
+    exposure_key = models.CharField(max_length=64)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["attempt", "item_id"], name="unique_course_item_exposure",
+            ),
+        ]
+        indexes = [
+            models.Index(fields=["user", "exposure_key"], name="course_exposure_user_key"),
+            models.Index(
+                fields=["user", "lesson_id", "item_id"], name="course_exposure_user_item",
+            ),
+        ]
+
+
 class CourseProduction(models.Model):
     """An unscored learner response and the original task used for self-review."""
 

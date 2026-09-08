@@ -65,7 +65,7 @@ from .review import (
     _locked_review_session,
     _save_review_session,
 )
-from ..course_practice import public_snapshot
+from ..course_practice import lock_course_user, public_snapshot
 
 def _auth_redirect(request):
     candidate = request.POST.get("next") or request.GET.get("next")
@@ -324,6 +324,7 @@ def reset_progress(request):
             reset_form=form,
         )
     with transaction.atomic():
+        lock_course_user(request.user)
         session = _locked_review_session(request.user)
         Card.objects.filter(user=request.user).update(
             state=CardState.NEW,
@@ -663,6 +664,7 @@ def delete_account(request):
         )
     user = request.user
     with transaction.atomic():
+        lock_course_user(user)
         user.delete()
     auth_logout(request)
     return redirect(reverse("study:login") + "?deleted=1")

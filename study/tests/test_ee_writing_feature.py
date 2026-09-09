@@ -1297,6 +1297,121 @@ class EeWritingPageTests(TestCase):
                             ("new", "active", "done")[index % 3],
                         )
 
+    def test_search_uses_canonical_progress_and_controls_across_writing_tasks(self):
+        other_user = factories.make_user("other-writing-search")
+        pairs = {}
+        for tache in (1, 2):
+            task = self.tasks[tache]
+            group = content.load_ee_equivalent_groups(tache)[0]
+            canonical, alias = [
+                WritingSujet.objects.get(
+                    task=task, slug=content.ee_writing_sujet_slug(key)
+                )
+                for key in (group.canonical, group.members[1])
+            ]
+            WritingSujet.objects.filter(pk__in=[canonical.pk, alias.pk]).update(
+                prompt="Repère de recherche partagé"
+            )
+            if tache == 1:
+                Annotation.objects.create(
+                    user=self.user,
+                    task=task,
+                    kind=AnnotationKind.HIGHLIGHT,
+                    source_key=f"writing-sujet:{canonical.pk}:model-1",
+                    source_path=reverse(
+                        "study:writing_sujet_detail",
+                        args=["ee", task.slug, canonical.pk],
+                    ),
+                    quote=canonical.model_versions[0]["body"][:7],
+                    start_offset=0,
+                    end_offset=7,
+                )
+            else:
+                PersonalWritingResponse.objects.create(
+                    user=self.user, sujet=canonical, body="Ma version personnelle."
+                )
+            pairs[tache] = (canonical, alias)
+        WritingSujetCompletion.objects.create(
+            user=other_user, sujet=pairs[2][0]
+        )
+
+        def assert_results(url, expected, count):
+            page = self.client.get(
+                url, {"q": "Repère de recherche", "scope": "subjects"}
+            )
+            self.assertEqual(page.status_code, 200)
+            self.assertEqual(len(page.context["writing_sujet_results"]), count)
+            for sujet in page.context["writing_sujet_results"]:
+                tache = int(sujet.task.slug[-1])
+                canonical, _ = pairs[tache]
+                self.assertEqual(sujet.progress_sujet.pk, canonical.pk)
+                self.assertEqual(sujet.subject_progress.status, expected[tache])
+                self.assertContains(
+                    page, f'data-writing-sujet-progress-row="{canonical.pk}"'
+                )
+                self.assertContains(
+                    page, f'data-writing-sujet-id="{canonical.pk}"'
+                )
+                completion_url = reverse(
+                    "study:writing_sujet_completion",
+                    args=["ee", sujet.task.slug, canonical.pk],
+                )
+                self.assertContains(page, f'action="{completion_url}"')
+                self.assertContains(
+                    page,
+                    reverse(
+                        "study:writing_sujet_detail",
+                        args=["ee", sujet.task.slug, sujet.pk],
+                    ),
+                )
+
+        for tache in (1, 2):
+            assert_results(
+                reverse("study:task_search", args=["ee", f"tache-{tache}"]),
+                {tache: "active"},
+                2,
+            )
+        assert_results(reverse("study:search"), {1: "active", 2: "active"}, 4)
+        for canonical, _ in pairs.values():
+            WritingSujet.objects.filter(pk=canonical.pk).update(
+                prompt="Le sujet canonique ne correspond pas au filtre."
+            )
+        assert_results(reverse("study:search"), {1: "active", 2: "active"}, 2)
+
+        canonical, alias = pairs[1]
+        completed = self.client.post(
+            reverse(
+                "study:writing_sujet_completion",
+                args=["ee", "tache-1", alias.pk],
+            ),
+            {"completed": "1"},
+        )
+        self.assertEqual(completed.status_code, 302)
+        assert_results(reverse("study:search"), {1: "done", 2: "active"}, 2)
+        self.client.force_login(other_user)
+        assert_results(reverse("study:search"), {1: "new", 2: "done"}, 2)
+
+    def test_search_batches_canonicals_missing_from_the_result_slice(self):
+        from study.views.library import _canonical_writing_sujets
+
+        groups = content.load_ee_equivalent_groups(1)[:10]
+        aliases = list(
+            WritingSujet.objects.filter(
+                task=self.tasks[1],
+                slug__in=[
+                    content.ee_writing_sujet_slug(group.members[1])
+                    for group in groups
+                ],
+            ).select_related("task__part")
+        )
+        for subset in (aliases[:1], aliases):
+            with self.subTest(size=len(subset)):
+                with self.assertNumQueries(1):
+                    canonicals = _canonical_writing_sujets(subset)
+                self.assertEqual(len(canonicals), len(subset))
+                for alias in subset:
+                    self.assertNotEqual(canonicals[alias.pk].pk, alias.pk)
+
     def test_equivalent_writing_paths_share_and_canonicalize_highlights(self):
         task = self.tasks[1]
         group = content.load_ee_equivalent_groups(1)[0]

@@ -5038,6 +5038,77 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assert_no_horizontal_overflow()
 
+    def test_subject_search_context_does_not_overlap_and_equivalents_share_progress(self):
+        tasks = self._import_ee_writing_content()
+        task = tasks[1]
+        canonical = task.writing_sujets.get(
+            slug=content.ee_writing_sujet_slug(
+                "ee-tache1:octobre:combinaison-4"
+            )
+        )
+        PersonalWritingResponse.objects.create(
+            user=self.user, sujet=canonical, body="Ma réponse à Thomas."
+        )
+        url = (
+            self.live_server_url
+            + reverse("study:task_search", args=["ee", "tache-1"])
+            + "?q=pays&scope=subjects"
+        )
+        self.page.goto(url)
+        equivalents = self.page.locator(
+            f'[data-writing-sujet-progress-row="{canonical.pk}"]'
+        )
+        expect(equivalents).to_have_count(2)
+        expect(equivalents.locator(".progress-status").first).to_have_text("En cours")
+        expect(equivalents.locator(".progress-status").last).to_have_text("En cours")
+
+        for width in (1280, 900, 620, 390, 320):
+            self.page.set_viewport_size({"width": width, "height": 900})
+            for mode in ("Tableau", "Cartes"):
+                self.page.get_by_role("button", name=mode, exact=True).click()
+                issues = self.page.locator(
+                    ".collection-table--search-results > .qrow"
+                ).evaluate_all(
+                    """
+                    rows => {
+                      const issues = [];
+                      const overlaps = (a, b) => a.left < b.right - 1
+                        && a.right > b.left + 1 && a.top < b.bottom - 1
+                        && a.bottom > b.top + 1;
+                      rows.forEach((row, index) => {
+                        const header = row.parentElement.querySelector("[data-collection-table-header]");
+                        if (header.getClientRects().length
+                            && getComputedStyle(row).gridTemplateColumns
+                              !== getComputedStyle(header).gridTemplateColumns) {
+                          issues.push(`row ${index}: columns differ from header`);
+                        }
+                        const text = row.querySelector(".qrow__text").getBoundingClientRect();
+                        const meta = row.querySelector(".qrow__meta");
+                        const bounds = meta.getBoundingClientRect();
+                        if (overlaps(text, bounds)) issues.push(`row ${index}: text/context overlap`);
+                        const cells = [...meta.children].map(el => el.getBoundingClientRect());
+                        cells.forEach((cell, i) => {
+                          if (cell.left < bounds.left - 1 || cell.right > bounds.right + 1) {
+                            issues.push(`row ${index}: context child ${i} escapes column`);
+                          }
+                          for (let j = i + 1; j < cells.length; j++) {
+                            if (overlaps(cell, cells[j])) issues.push(`row ${index}: controls overlap`);
+                          }
+                        });
+                      });
+                      return issues;
+                    }
+                    """
+                )
+                self.assertEqual(issues, [], f"{width}px {mode}: {issues}")
+                self.assert_no_horizontal_overflow()
+
+        with self.page.expect_navigation(wait_until="domcontentloaded"):
+            equivalents.locator("[data-writing-sujet-completion-form] button").last.click()
+        expect(equivalents.locator(".progress-status").first).to_have_text("Terminé")
+        expect(equivalents.locator(".progress-status").last).to_have_text("Terminé")
+        expect(equivalents.locator("[aria-checked='true']")).to_have_count(2)
+
     def test_annotation_search_rows_keep_identical_columns(self):
         Annotation.objects.create(
             user=self.user,

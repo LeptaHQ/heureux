@@ -3330,6 +3330,26 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
 .collection-table--subjects {
   --collection-table-columns: minmax(7rem, 9rem) minmax(0, 1fr) 11rem;
 }
+.collection-table--search-results {
+  --collection-table-columns: minmax(7rem, 9rem) minmax(0, 1fr) minmax(13rem, 15rem);
+}
+.collection-table--search-results .qrow__meta {
+  width: 13rem;
+  min-width: 0;
+  flex-wrap: wrap;
+}
+.collection-table--search-results .qrow__meta > .muted {
+  flex-basis: 100%;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+html[data-collection-view-mode="table"]
+  .collection-table--search-results[data-collection-view="adaptive"]
+  > .qrow > .qrow__meta {
+  width: 100%;
+  min-width: 0;
+  justify-self: stretch;
+}
 .collection-table--tests {
   --collection-table-columns:
     4.75rem

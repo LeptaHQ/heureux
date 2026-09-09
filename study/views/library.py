@@ -4917,6 +4917,37 @@ def phrases(
     )
 
 
+def _canonical_writing_sujets(sujets):
+    """Resolve a search slice without requiring its canonical rows to match it."""
+    canonical_keys = {}
+    by_key = {(sujet.task_id, sujet.slug): sujet for sujet in sujets}
+    missing_by_task = {}
+    for sujet in sujets:
+        tache = _ee_writing_tache(sujet.task)
+        mapping = (
+            content_module.ee_writing_canonical_slug_by_slug(tache)
+            if tache is not None
+            else {}
+        )
+        key = (sujet.task_id, mapping.get(sujet.slug, sujet.slug))
+        canonical_keys[sujet.pk] = key
+        if key not in by_key:
+            missing_by_task.setdefault(key[0], set()).add(key[1])
+    if missing_by_task:
+        scope = Q()
+        for task_id, slugs in missing_by_task.items():
+            scope |= Q(task_id=task_id, slug__in=slugs)
+        canonicals = WritingSujet.objects.filter(
+            scope, is_active=True
+        ).only("pk", "task_id", "slug")
+        by_key.update(
+            ((sujet.task_id, sujet.slug), sujet) for sujet in canonicals
+        )
+    if any(key not in by_key for key in canonical_keys.values()):
+        raise Http404("Canonical writing subject is not available.")
+    return {pk: by_key[key] for pk, key in canonical_keys.items()}
+
+
 def search(request, part_slug=None, task_slug=None):
     if "part" in request.GET or "task" in request.GET:
         raise Http404
@@ -4983,12 +5014,15 @@ def search(request, part_slug=None, task_slug=None):
                     "id",
                 )[:result_limit]
             )
+            canonical_sujets = _canonical_writing_sujets(writing_sujet_results)
             writing_progress = writing_sujet_progress_by_id(
                 request.user,
-                (sujet.pk for sujet in writing_sujet_results),
+                {sujet.pk for sujet in canonical_sujets.values()},
+                task_id=task.pk if task else None,
             )
             for sujet in writing_sujet_results:
-                sujet.subject_progress = writing_progress[sujet.pk]
+                sujet.progress_sujet = canonical_sujets[sujet.pk]
+                sujet.subject_progress = writing_progress[sujet.progress_sujet.pk]
         else:
             phrase_results = list(
                 phrase_qs

@@ -1178,7 +1178,7 @@ class BrowserTests(StaticLiveServerTestCase):
                 )
                 self.assert_no_horizontal_overflow()
 
-    def test_personalized_writing_rows_keep_badge_without_blue_accent(self):
+    def test_personalized_writing_rows_hide_redundant_tags_and_accent(self):
         tasks = self._import_ee_writing_content()
         for tache, task in tasks.items():
             canonical_slug = next(
@@ -1206,7 +1206,14 @@ class BrowserTests(StaticLiveServerTestCase):
                     if not group.evaluate("element => element.open"):
                         group.locator("summary").click()
                     expect(row).to_be_visible()
-                    expect(row.get_by_text("Personnalisé", exact=True)).to_be_visible()
+                    expect(row.get_by_text("Personnalisé", exact=True)).to_have_count(0)
+                    expect(
+                        self.page.locator("[data-subject-collection-row]")
+                        .get_by_text("publications liées")
+                    ).to_have_count(0)
+                    self.assertRegex(row.locator(".t1-table__subject-date").inner_text(), r"\b\d{4}\b")
+                    self.assertRegex(row.locator(".t1-table__versions").inner_text(), r"\d+")
+                    expect(row.locator(".progress-status")).to_have_text("En cours")
                     expect(row).to_have_css("border-left-width", "0px")
                     expect(row).to_have_css("box-shadow", "none")
                     self.assert_no_horizontal_overflow()

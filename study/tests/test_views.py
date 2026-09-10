@@ -1277,7 +1277,7 @@ class EeTacheThreePageTests(TestCase):
         self.assertNotContains(response, "data-collection-view-panel")
         self.assertContains(response, "data-collection-view-toggle")
         self.assertContains(response, "thèmes restent repliables")
-        self.assertContains(response, "publications liées")
+        self.assertNotContains(response, "publications liées")
         self.assertContains(response, "data-subject-directory-search")
 
     def test_theme_page_is_a_focused_subject_directory(self):
@@ -1302,6 +1302,7 @@ class EeTacheThreePageTests(TestCase):
             count=expected_count,
         )
         self.assertContains(response, "Pratiquer ce thème")
+        self.assertNotContains(response, "publications liées")
         self.assertContains(response, "data-collection-view-toggle")
         self.assertNotContains(response, "data-tache-two-month-toggle")
         self.assertContains(

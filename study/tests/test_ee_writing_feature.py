@@ -892,7 +892,8 @@ class EeWritingPageTests(TestCase):
                 self.assertNotContains(subjects, "data-collection-view-panel")
                 self.assertContains(subjects, "data-subject-directory-search")
                 self.assertContains(subjects, 'target="_blank"')
-                self.assertContains(subjects, "publications liées")
+                self.assertNotContains(subjects, "publications liées")
+                self.assertNotContains(subjects, "Personnalisé")
                 self.assertNotContains(subjects, "Combinaison")
                 self.assertContains(
                     subjects,
@@ -1207,7 +1208,7 @@ class EeWritingPageTests(TestCase):
             self.assertEqual(row["progress"].status, "active")
             self.assertEqual(row["version_count"], 3)
             self.assertEqual(row["equivalent_count"], 1)
-        self.assertContains(directory, "2 publications liées")
+        self.assertNotContains(directory, "publications liées")
 
         saved = self.client.post(
             reverse(

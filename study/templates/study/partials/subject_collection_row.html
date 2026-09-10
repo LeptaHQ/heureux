@@ -22,9 +22,7 @@
       {% else %}
         {{ subject.month_name }} {{ subject.year }}
       {% endif %}
-      {% if subject.equivalent_count %} · <span class="chip">{{ subject.equivalent_count|add:1 }} publications liées</span>{% endif %}
       {% if subject.has_source_issue %} · <span class="chip">Source signalée</span>{% endif %}
-      {% if subject.is_personalized %}{% if not legacy %} · {% endif %}<span class="chip chip--accent">Personnalisé</span>{% endif %}
     </span>
   </td>
   <td class="t1-table__versions t1-table__questions" role="cell">

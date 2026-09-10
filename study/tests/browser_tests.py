@@ -1178,6 +1178,39 @@ class BrowserTests(StaticLiveServerTestCase):
                 )
                 self.assert_no_horizontal_overflow()
 
+    def test_personalized_writing_rows_keep_badge_without_blue_accent(self):
+        tasks = self._import_ee_writing_content()
+        for tache, task in tasks.items():
+            canonical_slug = next(
+                iter(content.ee_writing_canonical_slug_by_slug(tache).values())
+            )
+            sujet = task.writing_sujets.get(slug=canonical_slug)
+            PersonalWritingResponse.objects.create(
+                user=self.user, sujet=sujet, body="Viens déjeuner avec moi samedi.",
+            )
+            self.page.goto(
+                self.live_server_url
+                + reverse("study:task_browse", args=["ee", task.slug])
+            )
+            row = self.page.locator(
+                f'[data-subject-collection-row][data-writing-sujet-progress-row="{sujet.pk}"].is-personalized'
+            ).first
+            group = row.locator(
+                "xpath=ancestor::details[@data-t1-table-theme][1]"
+            )
+            expect(row).to_have_count(1)
+            for width in (390, 1183):
+                self.page.set_viewport_size({"width": width, "height": 844})
+                for mode in ("Cartes", "Tableau"):
+                    self.page.get_by_role("button", name=mode, exact=True).click()
+                    if not group.evaluate("element => element.open"):
+                        group.locator("summary").click()
+                    expect(row).to_be_visible()
+                    expect(row.get_by_text("Personnalisé", exact=True)).to_be_visible()
+                    expect(row).to_have_css("border-left-width", "0px")
+                    expect(row).to_have_css("box-shadow", "none")
+                    self.assert_no_horizontal_overflow()
+
     def test_ee_tache_one_rows_navigate_without_completion_click_through(self):
         ee_part = factories.make_part("ee")
         writing_task = factories.make_task(ee_part, "tache-1")

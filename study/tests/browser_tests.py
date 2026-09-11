@@ -926,6 +926,28 @@ class BrowserTests(StaticLiveServerTestCase):
             expect(self.page.get_by_role("heading", name="Sujets & réponses")).to_be_visible()
         self.assert_no_horizontal_overflow()
 
+    def test_removed_oral_practice_page_redirects_with_three_navigation_tabs(self):
+        former_url = reverse("study:task_review_hub", args=["eo", "tache-3"])
+        directory = reverse("study:task_browse", args=["eo", "tache-3"])
+        self.page.goto(self.live_server_url + former_url)
+        self.assertEqual(self.page.url, self.live_server_url + directory)
+        expect(self.page.get_by_role("heading", name="Sujets & réponses")).to_be_visible()
+        nav = self.page.locator(".task-nav--eo-t3")
+        self.assertEqual(
+            [label.strip() for label in nav.locator("a").all_text_contents()],
+            ["Vue d'ensemble", "Vocabulaire", "Sujets"],
+        )
+        expect(self.page.locator(f'a[href="{former_url}"]')).to_have_count(0)
+        for width in (320, 390, 1183):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            self.assertEqual(
+                nav.locator("a").evaluate_all(
+                    "links => new Set(links.map(link => Math.round(link.getBoundingClientRect().top))).size"
+                ),
+                1,
+            )
+            self.assert_no_horizontal_overflow()
+
     def test_subject_completion_shares_pending_errors_and_writing_events(self):
         self.theme.delete()
         call_command("import_content", stdout=StringIO())
@@ -5827,13 +5849,11 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.goto(
             self.live_server_url
             + reverse(
-                "study:task_review_hub",
+                "study:task_review",
                 args=[self.part.slug, self.task.slug],
             )
+            + "?kind=weak&content=spine"
         )
-        self.page.get_by_text("Réponses fragiles").wait_for()
-        self.assert_no_horizontal_overflow()
-        self.page.get_by_role("link", name="Entraîner").click()
         self.page.locator("#card-front .prompt-text").wait_for()
         self.assert_no_horizontal_overflow()
 

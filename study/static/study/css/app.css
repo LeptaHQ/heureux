@@ -15477,7 +15477,7 @@ html[data-collection-view-mode="table"]
 
 @media (max-width: 620px) {
   .task-nav--eo-t3 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 0.35rem;
   }
   .task-nav--ee-t3 {

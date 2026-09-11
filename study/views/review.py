@@ -459,6 +459,8 @@ def _card_state_locked(
 def review_hub(request, part_slug, task_slug):
     task = _route_task(part_slug, task_slug)
     part = task.part
+    if (part.slug, task.slug) == ("eo", "tache-3"):
+        return redirect("study:task_browse", part.slug, task.slug)
     now = timezone.now()
     scope = {"part": part.slug, "task": task.slug}
     response_scope = {**scope, "kind": "spine"}

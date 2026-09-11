@@ -1,11 +1,12 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}Parcourir · Heureux{% endblock %}
 
 {% block content %}
 {% include "study/partials/task_nav.html" %}
 <div class="page-head">
   <h1>Sujets &amp; réponses</h1>
-  <p>{{ prompt_count }} sujets · {{ response_count }} réponses uniques · {{ theme_count }} thèmes.</p>
+  <p>{% if subject_deduplication_available %}{{ display_count }} sujets affichés · {{ prompt_count }} publications · {{ response_count }} groupes équivalents{% else %}{{ prompt_count }} sujets · {{ response_count }} réponses uniques{% endif %} · {{ theme_count }} thèmes.</p>
 </div>
 
 {% include "study/partials/subject_directory_search.html" %}
@@ -26,6 +27,10 @@
     <a href="{% url 'study:task_phrases' part.slug task.slug %}">{{ phrase_count }} expressions associées {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>
   {% endif %}
 </div>
+{% if subject_themes %}
+  {% include "study/partials/subject_collection.html" with groups=subject_themes kind="eo3" secondary_label="Vocabulaire" prompt_source="oral-subject-prompts" %}
+  {{ subject_prompt_map|json_script:"oral-subject-prompts" }}
+{% else %}
 <div class="grid grid--decks collection-table collection-table--decks" data-collection-view="adaptive">
   {% include "study/partials/collection_table_header.html" with variant="decks" column_1="Thème" column_2="Contenu" column_3="Progression" column_4="État" only %}
   {% for item in themes %}
@@ -35,6 +40,7 @@
     <p class="muted">Aucun contenu pour cette sélection pour l'instant.</p>
   {% endfor %}
 </div>
+{% endif %}
 
 <h2 style="margin-top:2rem;">Par famille de sujets</h2>
 <p class="muted mt-0">Regroupez les formulations proches pour réutiliser les mêmes structures et arguments.</p>
@@ -52,3 +58,4 @@
   {% endfor %}
 </div>
 {% endblock %}
+{% block scripts %}{{ block.super }}{% if subject_deduplication_available %}<script src="{% static 'study/js/prompt-copy.js' %}?v=1"></script>{% endif %}{% endblock %}

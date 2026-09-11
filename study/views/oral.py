@@ -8,7 +8,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.views.decorators.http import require_http_methods
 
-from ..models import Card, OralStateSnapshot, Prompt, Response, ReviewLog
+from ..models import Card, Response, ReviewLog
 from ..oral_history import (
     PERSONAL_FIELDS, group_annotations, group_snapshots, owner_response, personal_versions,
     preferred_personal, save_personal,
@@ -16,45 +16,7 @@ from ..oral_history import (
 )
 from ..response_personalization import effective_response
 from ..routing import TACHE_TWO_PROMPT_KEY, prompt_detail_url, review_url
-from ..progress import subject_progress_by_response, summarize_subject_progress
 from .helpers import _route_task
-
-
-def oral_subject_directory(request, task, *, deduplicate=False):
-    prompts = list(Prompt.objects.filter(
-        is_active=True, response__is_active=True, theme__task=task,
-    ).select_related("theme", "response").order_by("theme__order", "number", "pk"))
-    progress = subject_progress_by_response(request.user, {prompt.response_id for prompt in prompts})
-    counts = {}
-    for prompt in prompts:
-        counts[prompt.response_id] = counts.get(prompt.response_id, 0) + 1
-    groups = {}
-    seen = set()
-    for prompt in prompts:
-        if deduplicate and prompt.response_id in seen:
-            continue
-        seen.add(prompt.response_id)
-        theme = prompt.theme
-        group = groups.setdefault(theme.pk, {
-            "slug": theme.slug, "name": theme.display_name, "icon": theme.icon,
-            "subjects": [], "response_ids": set(),
-        })
-        group["subjects"].append({
-            "prompt": prompt, "progress": progress[prompt.response_id],
-            "publication_count": counts[prompt.response_id],
-        })
-        group["response_ids"].add(prompt.response_id)
-    for group in groups.values():
-        group["subject_count"] = len(group["subjects"])
-        group.update(summarize_subject_progress(progress[pk] for pk in group["response_ids"]))
-    return render(request, "study/oral_subjects.html", {
-        "part": task.part, "task": task, "groups": list(groups.values()),
-        "subject_deduplication_available": True, "deduplicate_subjects": deduplicate,
-        "publication_count": len(prompts),
-        "display_count": sum(group["subject_count"] for group in groups.values()),
-        "summary": summarize_subject_progress(progress.values()),
-        "prompt_copies": {str(prompt.pk): prompt.text for prompt in prompts},
-    })
 
 
 def oral_response_context(request, prompt):

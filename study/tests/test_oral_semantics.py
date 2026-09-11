@@ -295,7 +295,7 @@ class OralImportPreservationTests(TestCase):
         page = self.client.get(url, {"deduplicate": "1"})
         self.assertEqual(all_page.context["display_count"], 2)
         self.assertEqual(page.context["display_count"], 1)
-        self.assertEqual(page.context["groups"][0]["subjects"][0]["prompt"].pk, first_prompt.pk)
+        self.assertEqual(page.context["subject_themes"][0]["subjects"][0]["prompt"].pk, first_prompt.pk)
         detail = self.client.get(prompt_detail_url(first_prompt), {"model": "1"})
         self.assertContains(detail, "The first original model")
         self.assertNotContains(detail, "The second original model")

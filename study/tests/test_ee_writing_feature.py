@@ -21,6 +21,7 @@ from study.models import (
     Task,
     WritingSujet,
     WritingSujetCompletion,
+    WritingResponseOverride,
 )
 from study.templatetags.study_markdown import french_wordcount
 
@@ -1026,7 +1027,7 @@ class EeWritingPageTests(TestCase):
                     row for row in rows if row["progress_sujet"].pk == canonical.pk
                 )
                 self.assertEqual(representative["progress"].status, "active")
-                self.assertEqual(representative["version_count"], selected["version_count"])
+                self.assertEqual(representative["version_count"], selected["version_count"] + 1)
                 self.assertEqual(representative["source"], selected["source"])
                 self.assertNotContains(page, "publications liées")
                 self.assertNotContains(page, "Personnalisé")
@@ -1255,6 +1256,46 @@ class EeWritingPageTests(TestCase):
                     )
                     sujet.refresh_from_db()
                     self.assertEqual(sujet.model_versions, versions)
+
+    def test_response_controls_are_shared_by_aliases_and_survive_content_import(self):
+        task = self.tasks[1]
+        mapping = content.ee_writing_canonical_slug_by_slug(1)
+        sujets = {sujet.slug: sujet for sujet in task.writing_sujets.all()}
+        alias = next(
+            sujet for slug, sujet in sujets.items()
+            if mapping[slug] != slug and sujets[mapping[slug]].model_versions
+        )
+        canonical = sujets[mapping[alias.slug]]
+        original = canonical.versions
+        personal = PersonalWritingResponse.objects.create(
+            user=self.user, sujet=canonical, body="Ma réponse principale reste la même.",
+        )
+        alias_url = reverse("study:writing_sujet_detail", args=["ee", task.slug, alias.pk])
+        canonical_url = reverse("study:writing_sujet_detail", args=["ee", task.slug, canonical.pk])
+        card = self.client.get(alias_url).context["model_version_cards"][0]
+        self.assertEqual(self.client.post(card["edit_url"], {"body": "Mon autre réponse."}).status_code, 302)
+        self.assertEqual(
+            self.client.get(canonical_url).context["response_copy_texts"][card["copy_key"]],
+            "Mon autre réponse.",
+        )
+        delete_url = reverse(
+            "study:writing_response_delete", args=["ee", task.slug, alias.pk, card["key"]],
+        )
+        self.assertEqual(self.client.post(delete_url).status_code, 302)
+        Command()._import_writing_sujets(
+            content.load_ee_writing_categories(1),
+            {"ee/tache-1": task},
+            task_key="ee/tache-1",
+        )
+        for url in (alias_url, canonical_url):
+            page = self.client.get(url)
+            self.assertNotIn(card["copy_key"], page.context["response_copy_texts"])
+            self.assertEqual(page.context["personal"].body, personal.body)
+        canonical.refresh_from_db()
+        self.assertEqual(canonical.versions, original)
+        override = WritingResponseOverride.objects.get(user=self.user, sujet=canonical)
+        self.assertTrue(override.is_deleted)
+        self.assertEqual(override.body, "Mon autre réponse.")
 
     def test_untrimmed_themes_and_other_tasks_keep_existing_response_headings(self):
         for tache, theme in ((1, "voyages"), (2, "sorties")):
@@ -1629,7 +1670,7 @@ class EeWritingPageTests(TestCase):
                         row = rows[member]
                         self.assertEqual(row["progress_sujet"], canonical)
                         self.assertEqual(
-                            row["version_count"], len(canonical.model_versions)
+                            row["version_count"], len(canonical.model_versions) + int(index % 3 == 1)
                         )
                         self.assertEqual(row["equivalent_count"], len(group.members) - 1)
                         self.assertEqual(

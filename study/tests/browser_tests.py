@@ -420,6 +420,85 @@ class BrowserTests(StaticLiveServerTestCase):
                     self.assertEqual(self.page.url, detail_url)
                 self.assert_no_horizontal_overflow()
 
+    def test_writing_response_controls_edit_and_delete_only_selected_alternatives(self):
+        part = factories.make_part("ee")
+        task = factories.make_task(part, "tache-1")
+        sujet = factories.make_writing_sujet(
+            task, versions=("Premier modèle.", "Deuxième modèle.", "Troisième modèle."),
+        )
+        body = "Ma réponse principale.\n\nElle reste inchangée."
+        personal = PersonalWritingResponse.objects.create(user=self.user, sujet=sujet, body=body)
+        path = reverse("study:writing_sujet_detail", args=["ee", task.slug, sujet.pk])
+        self.context.add_init_script("""
+            Object.defineProperty(navigator, "clipboard", {
+              configurable: true,
+              value: {writeText: text => {
+                window.__copiedResponse = text;
+                return Promise.resolve();
+              }}
+            });
+        """)
+        self.page.goto(self.live_server_url + path + "?deduplicate=0")
+        for suffix, quote in (("personal", "Ma réponse principale."), ("model-3", "Troisième modèle.")):
+            root = self.page.locator(
+                f'[data-annotation-source-key="writing-sujet:{sujet.pk}:{suffix}"]'
+            )
+            offsets = root.evaluate("""(element, quote) => {
+                const text = element.textContent;
+                const start = text.indexOf(quote);
+                return {start, end: start + quote.length,
+                    prefix: text.slice(0, start), suffix: text.slice(start + quote.length)};
+            }""", quote)
+            Annotation.objects.create(
+                user=self.user, task=task, kind=AnnotationKind.HIGHLIGHT,
+                source_path=path, source_key=f"writing-sujet:{sujet.pk}:{suffix}",
+                quote=quote, start_offset=offsets["start"], end_offset=offsets["end"],
+                prefix=offsets["prefix"], suffix=offsets["suffix"],
+            )
+        self.page.reload()
+        main = self.page.locator(".section-card--personal")
+        expect(main.locator("[data-writing-response-edit]")).to_have_count(1)
+        expect(main.locator("[data-writing-response-delete]")).to_have_count(0)
+        expect(main.locator("mark.user-highlight")).to_have_text("Ma réponse principale.")
+        self.page.locator(".t1-versions > summary").click()
+        for width in (390, 1183):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            self.assert_no_horizontal_overflow()
+        second = self.page.locator(
+            f'[data-annotation-source-key="writing-sujet:{sujet.pk}:model-2"]'
+        ).locator("xpath=ancestor::section[1]")
+        second.locator("[data-writing-response-delete] button").click()
+        dialog = self.page.locator("[data-confirm-dialog]")
+        expect(dialog).to_be_visible()
+        dialog.get_by_role("button", name="Annuler", exact=True).click()
+        expect(second).to_be_visible()
+        second.locator("[data-writing-response-delete] button").click()
+        with self.page.expect_navigation():
+            dialog.locator("[data-confirm-accept]").click()
+        self.assertIn("deduplicate=0", self.page.url)
+        expect(second).to_have_count(0)
+        expect(main.locator("mark.user-highlight")).to_have_text("Ma réponse principale.")
+        self.page.locator(".t1-versions > summary").click()
+        third = self.page.locator(
+            f'[data-annotation-source-key="writing-sujet:{sujet.pk}:model-3"]'
+        ).locator("xpath=ancestor::section[1]")
+        expect(third.locator("mark.user-highlight")).to_have_text("Troisième modèle.")
+        third.locator("[data-writing-response-edit]").click()
+        expect(self.page.locator('textarea[name="body"]')).to_have_value("Troisième modèle.")
+        changed = "Troisième modèle. Voici mes précisions."
+        self.page.locator('textarea[name="body"]').fill(changed)
+        self.page.get_by_role("button", name="Enregistrer ma version", exact=True).click()
+        self.page.locator(".t1-versions > summary").click()
+        expect(third.locator(".t1-response__body")).to_have_text(changed)
+        third.locator('[data-prompt-copy-key="model-3"]').click()
+        self.page.wait_for_function("text => window.__copiedResponse === text", arg=changed)
+        expect(main.locator("mark.user-highlight")).to_have_text("Ma réponse principale.")
+        personal.refresh_from_db()
+        self.assertEqual(personal.body, body)
+        main.locator("[data-writing-response-edit]").click()
+        expect(self.page.locator('textarea[name="body"]')).to_have_value(body)
+        expect(self.page.get_by_role("button", name="Supprimer ma version", exact=True)).to_have_count(0)
+
     def test_task_three_copies_the_complete_answer_without_source_documents(self):
         self.context.add_init_script(
             """

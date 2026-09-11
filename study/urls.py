@@ -440,6 +440,12 @@ urlpatterns = [
     ),
     path(
         "expression/<expression_part:part_slug>/<slug:task_slug>/"
+        "sujets/messages/<int:sujet_id>/versions/<slug:version_key>/supprimer/",
+        views.writing_response_delete,
+        name="writing_response_delete",
+    ),
+    path(
+        "expression/<expression_part:part_slug>/<slug:task_slug>/"
         "sujets/messages/<int:sujet_id>/progression/",
         views.writing_sujet_completion,
         name="writing_sujet_completion",

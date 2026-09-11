@@ -1,8 +1,9 @@
 from __future__ import annotations
 
 import json
+import re
 
-from django.test import TestCase
+from django.test import Client, TestCase
 from django.urls import reverse
 
 from study.content_loader import (
@@ -12,10 +13,12 @@ from study.content_loader import (
 )
 from study.management.commands.import_content import Command
 from study.models import (
+    Annotation,
     AnnotationKind,
     PersonalWritingResponse,
     WritingSujet,
     WritingSujetCompletion,
+    WritingResponseOverride,
 )
 
 from . import factories
@@ -201,6 +204,153 @@ class WritingSujetViewTests(TestCase):
             "study:writing_sujet_completion",
             args=["ee", "tache-1", sujet.pk],
         )
+
+    def _version_delete_url(self, sujet, card):
+        return reverse(
+            "study:writing_response_delete",
+            args=["ee", sujet.task.slug, sujet.pk, card["key"]],
+        )
+
+    def test_main_response_has_edit_but_no_delete_and_rejects_direct_deletion(self):
+        page = self.client.get(self._detail_url(self.multi))
+        main = re.search(
+            r'<section[^>]+aria-labelledby="t1-model-label">(.*?)</section>',
+            page.content.decode(), re.DOTALL,
+        ).group(1)
+        self.assertIn("data-writing-response-edit", main)
+        self.assertNotIn("data-writing-response-delete", main)
+        self.assertContains(page, "data-writing-response-delete", count=2)
+        url = self._version_delete_url(self.multi, page.context["primary_version_card"])
+        self.assertEqual(self.client.get(url).status_code, 405)
+        rejected = self.client.post(url)
+        self.assertEqual(rejected.status_code, 400)
+        self.assertContains(rejected, "principale", status_code=400)
+        self.assertFalse(WritingResponseOverride.objects.exists())
+        edit = self.client.get(self._edit_url(self.multi))
+        self.assertEqual(edit.context["body_value"], self.multi.model_versions[0]["body"])
+        self.assertNotContains(edit, "Supprimer ma version")
+
+    def test_delete_alternative_keeps_main_and_original_copy_and_annotation_numbers(self):
+        original = list(self.multi.versions)
+        page = self.client.get(self._detail_url(self.multi))
+        cards = page.context["model_version_cards"]
+        annotation = Annotation.objects.create(
+            user=self.owner, task=self.task, kind=AnnotationKind.HIGHLIGHT,
+            source_path=self._detail_url(self.multi),
+            source_key=f"writing-sujet:{self.multi.pk}:model-3",
+            quote="Version C.", start_offset=0, end_offset=10,
+        )
+        response = self.client.post(self._version_delete_url(self.multi, cards[1]) + "?deduplicate=0")
+        self.assertRedirects(response, self._detail_url(self.multi) + "?deleted=1&deduplicate=0")
+        page = self.client.get(self._detail_url(self.multi))
+        self.assertEqual([card["number"] for card in page.context["model_version_cards"]], [1, 3])
+        self.assertEqual(page.context["primary_version"], original[0])
+        self.assertEqual(page.context["response_copy_texts"], {
+            "model-1": original[0]["body"], "model-3": original[2]["body"],
+        })
+        self.assertContains(page, f'data-annotation-source-key="writing-sujet:{self.multi.pk}:model-3"')
+        self.assertNotContains(page, "Version B.")
+        self.multi.refresh_from_db()
+        annotation.refresh_from_db()
+        self.assertEqual(self.multi.versions, original)
+        self.assertEqual(annotation.quote, "Version C.")
+        self.assertFalse(PersonalWritingResponse.objects.filter(user=self.owner).exists())
+
+    def test_personal_main_is_kept_when_every_model_is_deleted(self):
+        personal = PersonalWritingResponse.objects.create(
+            user=self.owner, sujet=self.multi, body="Ma réponse principale, intacte.",
+        )
+        WritingSujetCompletion.objects.create(user=self.owner, sujet=self.multi)
+        page = self.client.get(self._detail_url(self.multi))
+        self.assertContains(page, "data-writing-response-delete", count=3)
+        for card in page.context["model_version_cards"]:
+            self.assertEqual(self.client.post(self._version_delete_url(self.multi, card)).status_code, 302)
+        page = self.client.get(self._detail_url(self.multi))
+        self.assertContains(page, personal.body)
+        self.assertNotContains(page, "data-writing-response-delete")
+        self.assertNotContains(page, "Voir la réponse modèle")
+        self.assertEqual(page.context["response_copy_texts"], {"personal": personal.body})
+        self.assertEqual(page.context["writing_progress"].status, "done")
+        personal.refresh_from_db()
+        self.assertEqual(personal.body, "Ma réponse principale, intacte.")
+        directory = self.client.get(reverse("study:task_browse", args=["ee", "tache-1"]))
+        row = next(row for category in directory.context["categories"]
+                   for row in category["sujets"] if row["sujet"].pk == self.multi.pk)
+        self.assertEqual(row["version_count"], 1)
+        self.client.force_login(self.other)
+        other_page = self.client.get(self._detail_url(self.multi))
+        self.assertEqual(len(other_page.context["model_versions"]), 3)
+        self.assertNotContains(other_page, personal.body)
+
+    def test_editing_one_alternative_does_not_replace_the_main_response(self):
+        original = list(self.multi.versions)
+        page = self.client.get(self._detail_url(self.multi))
+        card = page.context["model_version_cards"][1]
+        url = card["edit_url"] + "&deduplicate=0"
+        editor = self.client.get(url)
+        self.assertEqual(editor.context["body_value"], original[1]["body"])
+        self.assertTrue(editor.context["editing_model_version"])
+        invalid = self.client.post(url, {"body": "  "})
+        self.assertContains(invalid, "ne peut pas être vide")
+        self.assertFalse(WritingResponseOverride.objects.exists())
+        changed = "Autre réponse modifiée.\n\nUn deuxième paragraphe."
+        saved = self.client.post(url, {"body": changed})
+        self.assertRedirects(saved, self._detail_url(self.multi) + "?saved=1&deduplicate=0")
+        page = self.client.get(self._detail_url(self.multi))
+        self.assertEqual(page.context["primary_version"], original[0])
+        self.assertEqual(page.context["response_copy_texts"]["model-2"], changed)
+        self.assertEqual(page.context["model_version_cards"][1]["key"], card["key"])
+        self.assertEqual(page.context["writing_progress"].status, "active")
+        self.assertFalse(PersonalWritingResponse.objects.filter(user=self.owner).exists())
+        self.multi.refresh_from_db()
+        self.assertEqual(self.multi.versions, original)
+        self.client.force_login(self.other)
+        self.assertEqual(
+            self.client.get(url).context["body_value"], original[1]["body"],
+        )
+
+    def test_edit_delete_validate_version_scope_csrf_and_stale_links(self):
+        page = self.client.get(self._detail_url(self.multi))
+        card = page.context["model_version_cards"][1]
+        url = self._version_delete_url(self.multi, card)
+        secured = Client(enforce_csrf_checks=True)
+        secured.force_login(self.owner)
+        self.assertEqual(secured.post(url).status_code, 403)
+        self.assertEqual(self.client.get(self._edit_url(self.multi) + "?version=invalid").status_code, 404)
+        wrong_task = reverse(
+            "study:writing_response_delete", args=["ee", "tache-2", self.multi.pk, card["key"]],
+        )
+        self.assertEqual(self.client.post(wrong_task).status_code, 404)
+        self.assertEqual(self.client.post(url).status_code, 302)
+        self.assertEqual(self.client.get(card["edit_url"]).status_code, 404)
+        self.assertEqual(self.client.post(card["edit_url"], {"body": "Stale edit"}).status_code, 404)
+        self.assertTrue(WritingResponseOverride.objects.get(user=self.owner).is_deleted)
+
+    def test_second_writing_task_has_the_same_response_controls(self):
+        task = factories.make_task(self.part, "tache-2")
+        sujet = factories.make_writing_sujet(task, versions=("Récit principal.", "Autre récit."))
+        url = reverse("study:writing_sujet_detail", args=["ee", task.slug, sujet.pk])
+        page = self.client.get(url)
+        self.assertContains(page, "data-writing-response-edit", count=2)
+        self.assertContains(page, "data-writing-response-delete", count=1)
+        card = page.context["model_version_cards"][1]
+        self.assertEqual(self.client.post(card["edit_url"], {"body": "Mon autre récit."}).status_code, 302)
+        self.assertContains(self.client.get(url), "Mon autre récit.")
+        self.assertEqual(self.client.post(self._version_delete_url(sujet, card)).status_code, 302)
+        final = self.client.get(url)
+        self.assertContains(final, "Récit principal.")
+        self.assertNotContains(final, "Mon autre récit.")
+        self.assertNotContains(final, "data-writing-response-delete")
+
+    def test_identical_models_have_distinct_controls(self):
+        self.multi.versions = [{"body": "Identique."}, {"body": "Identique."}]
+        self.multi.save(update_fields=["versions"])
+        cards = self.client.get(self._detail_url(self.multi)).context["model_version_cards"]
+        self.assertNotEqual(cards[0]["key"], cards[1]["key"])
+        self.assertEqual(self.client.post(self._version_delete_url(self.multi, cards[1])).status_code, 302)
+        page = self.client.get(self._detail_url(self.multi))
+        self.assertEqual(len(page.context["model_versions"]), 1)
+        self.assertEqual(page.context["primary_version_card"]["key"], cards[0]["key"])
 
     def test_task_detail_and_browse_list_categories(self):
         for name in ("task_detail", "task_browse"):

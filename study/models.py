@@ -306,6 +306,33 @@ class PersonalWritingResponse(models.Model):
         return f"{self.user_id} · {self.sujet_id}"
 
 
+class WritingResponseOverride(models.Model):
+    """A learner's edit or deletion of one shared writing model version."""
+
+    user = models.ForeignKey(
+        django_settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="writing_response_overrides",
+    )
+    sujet = models.ForeignKey(
+        WritingSujet,
+        on_delete=models.CASCADE,
+        related_name="response_overrides",
+    )
+    version_key = models.CharField(max_length=80)
+    body = models.TextField(blank=True)
+    is_deleted = models.BooleanField(default=False)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["user", "sujet", "version_key"],
+                name="unique_user_writing_version",
+            ),
+        ]
+
+
 class WritingSujetCompletion(models.Model):
     """A learner's explicit completion marker for an EE writing sujet."""
 

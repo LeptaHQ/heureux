@@ -172,6 +172,7 @@ from .library import (
     writing_sujet_completion,
     writing_sujet_detail,
     writing_sujet_edit,
+    writing_response_delete,
 )
 
 __all__ = [
@@ -326,4 +327,5 @@ __all__ = [
     'writing_sujet_completion',
     'writing_sujet_detail',
     'writing_sujet_edit',
+    'writing_response_delete',
 ]

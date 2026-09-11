@@ -16,6 +16,7 @@
 
   {% if personal_saved %}<div class="notice">Votre version personnelle a été enregistrée.</div>{% endif %}
   {% if personal_reset %}<div class="notice">La réponse modèle est de nouveau affichée.</div>{% endif %}
+  {% if response_deleted %}<div class="notice">Cette autre réponse a été supprimée de votre espace.</div>{% endif %}
 
   <header class="tache-two-subject-detail__hero">
     <div class="tache-two-subject-detail__meta">
@@ -60,7 +61,7 @@
         <section class="card section-card section-card--personal" aria-labelledby="t1-personal-label">
           <div class="response-batches__head">
             <div class="spine-label" id="t1-personal-label">{% if plain_response_heading %}Réponse{% else %}Ma version <span class="chip chip--accent">Personnelle</span>{% endif %}</div>
-            {% include "study/partials/response_copy_button.html" with source_id="ee-writing-response-content" response_key="personal" label="Copier ma réponse" label_hidden=True only %}
+            {% include "study/partials/writing_response_controls.html" with main=True copy_key="personal" copy_label="Copier ma réponse" %}
           </div>
           <div
             class="t1-response__body"
@@ -72,19 +73,17 @@
           <details class="t1-versions">
             <summary class="t1-versions__summary">Voir la réponse modèle{{ model_versions|length|pluralize }} ({{ model_versions|length }})</summary>
             <div class="t1-versions__list">
-              {% for version in model_versions %}
+              {% for card in model_version_cards %}
                 <section class="card section-card section-card--model">
                   <div class="response-batches__head">
-                    <div class="spine-label">{% if plain_response_heading %}Réponse{% elif model_versions|length > 1 %}Version {{ forloop.counter }}{% else %}Réponse modèle{% endif %}</div>
-                    {% with number=forloop.counter|stringformat:"s" %}
-                      {% include "study/partials/response_copy_button.html" with source_id="ee-writing-response-content" response_key="model-"|add:number label="Copier la réponse modèle, version "|add:number label_hidden=True only %}
-                    {% endwith %}
+                    <div class="spine-label">{% if plain_response_heading %}Réponse{% elif model_versions|length > 1 %}Version {{ card.number }}{% else %}Réponse modèle{% endif %}</div>
+                    {% include "study/partials/writing_response_controls.html" with main=False version_card=card copy_key=card.copy_key copy_label="Copier cette réponse" %}
                   </div>
                   <div
                     class="t1-response__body"
                     data-annotation-root
-                   data-annotation-source-key="writing-sujet:{{ progress_sujet.pk }}:model-{{ forloop.counter }}">{{ version.body|linebreaks }}</div>
-                  <p class="muted">{{ version.body|french_wordcount }} mots{% if version.origin == "author" %} · version de l’auteur{% endif %}</p>
+                   data-annotation-source-key="writing-sujet:{{ progress_sujet.pk }}:model-{{ card.number }}">{{ card.content.body|linebreaks }}</div>
+                  <p class="muted">{{ card.content.body|french_wordcount }} mots{% if card.content.origin == "author" %} · version de l’auteur{% endif %}</p>
                 </section>
               {% endfor %}
             </div>
@@ -94,31 +93,29 @@
         <section class="card section-card section-card--model" aria-labelledby="t1-model-label">
           <div class="response-batches__head">
             <div class="spine-label" id="t1-model-label">{% if plain_response_heading %}Réponse{% else %}Réponse modèle{% endif %}</div>
-            {% include "study/partials/response_copy_button.html" with source_id="ee-writing-response-content" response_key="model-1" label="Copier la réponse modèle" label_hidden=True only %}
+            {% include "study/partials/writing_response_controls.html" with main=True version_card=primary_version_card copy_key=primary_version_card.copy_key copy_label="Copier la réponse modèle" %}
           </div>
           <div
             class="t1-response__body"
             data-annotation-root
-            data-annotation-source-key="writing-sujet:{{ progress_sujet.pk }}:model-1">{{ primary_version.body|linebreaks }}</div>
+            data-annotation-source-key="writing-sujet:{{ progress_sujet.pk }}:model-{{ primary_version_card.number }}">{{ primary_version.body|linebreaks }}</div>
           <p class="muted">{{ primary_version.body|french_wordcount }} mots{% if primary_version.origin == "author" %} · version de l’auteur{% endif %}</p>
         </section>
         {% if other_version_count %}
           <details class="t1-versions">
             <summary class="t1-versions__summary">Voir les autres versions ({{ other_version_count }})</summary>
             <div class="t1-versions__list">
-              {% for version in other_versions %}
+              {% for card in other_version_cards %}
                 <section class="card section-card section-card--model">
                   <div class="response-batches__head">
-                    <div class="spine-label">Version {{ forloop.counter|add:1 }}</div>
-                    {% with number=forloop.counter|add:1|stringformat:"s" %}
-                      {% include "study/partials/response_copy_button.html" with source_id="ee-writing-response-content" response_key="model-"|add:number label="Copier la réponse modèle, version "|add:number label_hidden=True only %}
-                    {% endwith %}
+                    <div class="spine-label">Version {{ card.number }}</div>
+                    {% include "study/partials/writing_response_controls.html" with main=False version_card=card copy_key=card.copy_key copy_label="Copier cette réponse" %}
                   </div>
                   <div
                     class="t1-response__body"
                     data-annotation-root
-                    data-annotation-source-key="writing-sujet:{{ progress_sujet.pk }}:model-{{ forloop.counter|add:1 }}">{{ version.body|linebreaks }}</div>
-                  <p class="muted">{{ version.body|french_wordcount }} mots{% if version.origin == "author" %} · version de l’auteur{% endif %}</p>
+                    data-annotation-source-key="writing-sujet:{{ progress_sujet.pk }}:model-{{ card.number }}">{{ card.content.body|linebreaks }}</div>
+                  <p class="muted">{{ card.content.body|french_wordcount }} mots{% if card.content.origin == "author" %} · version de l’auteur{% endif %}</p>
                 </section>
               {% endfor %}
             </div>

@@ -97,6 +97,11 @@ so workers using the pre-upgrade ORM can finish inserts during replacement.
   practice-overview URLs have no routes and return 404, without redirects.
   Individual practice sessions, study content, and saved progress remain.
   Oral and written completion controls share one JavaScript controller.
+  EE1/EE2 response cards have per-account Edit controls and Delete controls on
+  alternatives only, with confirmation. The main response cannot be deleted
+  through these controls. Migration `0054` stores private model-version edits and
+  deletions without changing shared content; equivalent prompts share them.
+  Removing a version preserves the remaining copy and annotation identifiers.
 - Subject progress filters highlight candidates before transferring rows to Python.
   Existing source-key and URL parsers remain the final matching authority; batching
   keeps larger requests within database parameter limits.

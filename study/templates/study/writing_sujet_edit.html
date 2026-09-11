@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static study_markdown %}
-{% block title %}Personnaliser · {{ task.name }} · Heureux{% endblock %}
+{% block title %}Modifier une réponse · {{ task.name }} · Heureux{% endblock %}
 
 {% block content %}
 <div class="ee-t1-page ee-t1-edit">
@@ -11,14 +11,14 @@
     <span aria-hidden="true">›</span>
     <a href="{% url 'study:task_browse' part.slug task.slug %}">{{ task.name }}</a>
     <span aria-hidden="true">›</span>
-    <strong>Personnaliser</strong>
+    <strong>Modifier une réponse</strong>
   </div>
 
   <div class="page-head response-edit__head">
     <div>
       <p class="eyebrow">Version personnelle · {{ part.name }} · {{ task.name }}{% if source %} · {{ source.month_name }} {{ source.year }}{% endif %}</p>
-      <h1>{% if writing_tache == 1 %}Ma réponse au message{% else %}Mon récit argumenté{% endif %}</h1>
-      <p>Seule votre réponse change. La consigne du sujet reste toujours intacte.</p>
+      <h1>{% if editing_model_version %}Modifier cette réponse{% elif writing_tache == 1 %}Ma réponse au message{% else %}Mon récit argumenté{% endif %}</h1>
+      <p>Seule cette réponse change dans votre espace. La consigne et les autres réponses restent intactes.</p>
     </div>
     <a class="btn" href="{{ detail_url }}">Retour au sujet</a>
   </div>
@@ -33,14 +33,14 @@
     <details class="t1-versions">
       <summary class="t1-versions__summary">Voir la réponse modèle{{ model_versions|length|pluralize }} en référence ({{ model_versions|length }})</summary>
       <div class="t1-versions__list">
-        {% for version in model_versions %}
+        {% for card in model_version_cards %}
           <section class="card section-card section-card--model">
-            {% if model_versions|length > 1 %}<div class="spine-label">Version {{ forloop.counter }}</div>{% else %}<div class="spine-label">Réponse modèle</div>{% endif %}
+            {% if model_versions|length > 1 %}<div class="spine-label">Version {{ card.number }}</div>{% else %}<div class="spine-label">Réponse modèle</div>{% endif %}
             <div
               class="t1-response__body"
               data-annotation-root
-              data-annotation-source-key="writing-sujet:{{ progress_sujet.pk }}:model-{{ forloop.counter }}">{{ version.body|linebreaks }}</div>
-            <p class="muted">{{ version.body|french_wordcount }} mots{% if version.origin == "author" %} · version de l’auteur{% endif %}</p>
+              data-annotation-source-key="writing-sujet:{{ progress_sujet.pk }}:model-{{ card.number }}">{{ card.content.body|linebreaks }}</div>
+            <p class="muted">{{ card.content.body|french_wordcount }} mots{% if card.content.origin == "author" %} · version de l’auteur{% endif %}</p>
           </section>
         {% endfor %}
       </div>
@@ -52,7 +52,7 @@
     {% if error %}<div class="auth-error">{{ error }}</div>{% endif %}
     <section class="card card--pad response-edit__section">
       <div class="response-edit-field">
-        <label for="t1-body">Votre message</label>
+        <label for="t1-body">Votre réponse</label>
         <textarea
           id="t1-body"
           name="body"
@@ -71,16 +71,6 @@
     </div>
   </form>
 
-  {% if has_personal %}
-    <section class="card card--pad danger-zone response-edit__reset">
-      <h2 class="mt-0">Revenir à la réponse modèle</h2>
-      <p class="muted">Supprime uniquement votre version personnelle. La consigne du sujet est conservée.</p>
-      <form method="post">
-        {% csrf_token %}
-        <button class="btn btn--danger" type="submit" name="action" value="reset">Supprimer ma version</button>
-      </form>
-    </section>
-  {% endif %}
 </div>
 {% endblock %}
 

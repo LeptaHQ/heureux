@@ -37,6 +37,7 @@ from .models import (
     CardState,
     CardType,
     PersonalWritingResponse,
+    WritingResponseOverride,
     Phrase,
     PhraseTier,
     Prompt,
@@ -150,12 +151,20 @@ def writing_sujet_progress_by_id(
     if not ids:
         return {}
 
-    personalized_ids = set(
+    activity = list(
         PersonalWritingResponse.objects.filter(
             user=user,
             sujet_id__in=ids,
-        ).values_list("sujet_id", flat=True)
+        ).order_by().annotate(is_main=Value(True)).values_list("sujet_id", "is_main").union(
+            WritingResponseOverride.objects.filter(
+                user=user, sujet_id__in=ids,
+            ).exclude(body="").order_by().annotate(
+                is_main=Value(False),
+            ).values_list("sujet_id", "is_main"),
+        )
     )
+    personalized_ids = {sujet_id for sujet_id, is_main in activity if is_main}
+    edited_ids = {sujet_id for sujet_id, is_main in activity if not is_main}
     completed_ids = set(
         WritingSujetCompletion.objects.filter(
             user=user,
@@ -186,7 +195,7 @@ def writing_sujet_progress_by_id(
         if explicitly_completed:
             status = "done"
             label = "Terminé"
-        elif is_personalized or has_highlight:
+        elif is_personalized or has_highlight or sujet_id in edited_ids:
             status = "active"
             label = "En cours"
         else:

@@ -15,6 +15,7 @@ from django.db.backends.base.base import BaseDatabaseWrapper
 from django.test import (
     Client,
     RequestFactory,
+    SimpleTestCase,
     TestCase,
     TransactionTestCase,
     override_settings,
@@ -53,6 +54,7 @@ from study.routing import (
     prompt_detail_url,
     response_detail_url,
     subject_group_url,
+    subject_selection_url,
     theme_detail_url,
 )
 
@@ -1075,6 +1077,37 @@ class EeTacheThreePageTests(TestCase):
             "theme",
             "family",
         ).get(content_key=self.months[0].combinaisons[0].content_key)
+
+    def test_written_response_navigation_deduplicates_within_the_month(self):
+        first = self._first_prompt()
+        prompts = list(
+            Prompt.objects.filter(theme=first.theme, is_active=True).order_by("number", "pk")
+        )
+        alias = prompts[-1]
+        self.assertNotEqual(alias.pk, first.pk)
+        alias.response = first.response
+        alias.save(update_fields=["response"])
+        representatives = {}
+        for prompt in prompts:
+            representatives.setdefault(prompt.response_id, prompt)
+        selected = list(representatives.values())
+        index = list(representatives).index(first.response_id)
+        page = self.client.get(prompt_detail_url(alias))
+        self.assertEqual(page.context["selected_prompt"], alias)
+        self.assertEqual(page.context["prompt_position"], index + 1)
+        self.assertEqual(page.context["prompt_total"], len(selected))
+        self.assertEqual(
+            page.context["next_prompt"],
+            selected[index + 1] if index + 1 < len(selected) else None,
+        )
+        all_page = self.client.get(prompt_detail_url(alias), {"deduplicate": "0"})
+        self.assertEqual(all_page.context["prompt_position"], len(prompts))
+        self.assertEqual(all_page.context["prompt_total"], len(prompts))
+        self.assertEqual(all_page.context["previous_prompt"], prompts[-2])
+        self.assertIsNone(all_page.context["next_prompt"])
+        self.assertContains(
+            all_page, f'href="{prompt_detail_url(prompts[-2])}?deduplicate=0"', count=2,
+        )
 
     def test_copy_packet_contains_only_the_effective_written_response(self):
         prompt = self._first_prompt()
@@ -3017,6 +3050,16 @@ class CategoryBatchViewsTests(TestCase):
         )
 
 
+class SubjectSelectionRoutingTests(SimpleTestCase):
+    def test_selection_preserves_other_parameters_and_fragments(self):
+        url = "/sujets/1/?model=1&tag=a&tag=b#answer"
+        request = RequestFactory().get("/", {"deduplicate": "0"})
+        selected = subject_selection_url(url, request)
+        self.assertEqual(selected, "/sujets/1/?model=1&tag=a&tag=b&deduplicate=0#answer")
+        self.assertEqual(subject_selection_url(selected, request), selected)
+        self.assertEqual(subject_selection_url(selected, RequestFactory().get("/")), url)
+
+
 class ResponsePromptNavigationTests(TestCase):
     def setUp(self):
         self.user = factories.make_user("prompt-navigator")
@@ -3103,6 +3146,61 @@ class ResponsePromptNavigationTests(TestCase):
             self.middle_prompt,
         )
         self.assertIsNone(last_page.context["next_prompt"])
+
+    def test_alias_navigation_uses_group_position_and_keeps_publication_opt_out(self):
+        alias = Prompt.objects.create(
+            content_key="test-prompt:navigation-same-theme-alias",
+            response=self.middle_response,
+            theme=self.first_theme,
+            family=self.family,
+            number=4,
+            text="Autre consigne du sujet central ?",
+        )
+        url = self._detail_url(alias)
+        page = self.client.get(url)
+        self.assertEqual(page.context["selected_prompt"], alias)
+        self.assertEqual(page.context["prompt_position"], 2)
+        self.assertEqual(page.context["prompt_total"], 3)
+        self.assertEqual(page.context["previous_prompt"], self.first_prompt)
+        self.assertEqual(page.context["next_prompt"], self.last_prompt)
+        self.assertContains(page, f'<h1 class="detail-prompt">{alias.text}</h1>', html=True)
+
+        all_page = self.client.get(url, {"deduplicate": "0"})
+        self.assertEqual(all_page.context["prompt_position"], 4)
+        self.assertEqual(all_page.context["prompt_total"], 4)
+        self.assertEqual(all_page.context["previous_prompt"], self.last_prompt)
+        self.assertIsNone(all_page.context["next_prompt"])
+        self.assertContains(
+            all_page, f'href="{self._detail_url(self.last_prompt)}?deduplicate=0"', count=2,
+        )
+        self.assertContains(
+            all_page,
+            f'href="{reverse("study:task_browse", args=["eo", "tache-3"])}'
+            f'?deduplicate=0#theme-{self.first_theme.slug}"',
+        )
+
+    def test_deduplication_uses_first_nested_family_representative(self):
+        self.family.order = 2
+        self.family.save(update_fields=["order"])
+        earlier_family = factories.make_family("earlier-family")
+        earlier_family.order = 1
+        earlier_family.save(update_fields=["order"])
+        alias = Prompt.objects.create(
+            content_key="test-prompt:navigation-earlier-family",
+            response=self.middle_response,
+            theme=self.first_theme,
+            family=earlier_family,
+            number=4,
+            text="Première version dans l'ordre des sous-thèmes ?",
+        )
+        page = self.client.get(self._detail_url(self.middle_prompt))
+        self.assertEqual(page.context["selected_prompt"], self.middle_prompt)
+        self.assertEqual(page.context["prompt_position"], 1)
+        self.assertEqual(page.context["prompt_total"], 3)
+        self.assertIsNone(page.context["previous_prompt"])
+        self.assertEqual(page.context["next_prompt"], self.first_prompt)
+        next_page = self.client.get(self._detail_url(self.first_prompt))
+        self.assertEqual(next_page.context["previous_prompt"], alias)
 
     def test_alias_prompt_keeps_its_heading_theme_family_and_links(self):
         alias_family = factories.make_family("navigation-alias")

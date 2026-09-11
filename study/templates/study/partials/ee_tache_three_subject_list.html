@@ -1,3 +1,4 @@
+{% load study_links %}
 <div class="ee-t3-subject-list collection-table collection-table--ee-subjects" data-collection-view="adaptive">
   <div class="ee-t3-subject-list__columns collection-table-header collection-table-header--ee-subjects" data-collection-table-header aria-hidden="true">
     <span>Publication</span>
@@ -36,7 +37,7 @@
       </span>
       <a
         class="subject-row-hit-area"
-        href="{% url 'study:response_detail' part.slug task.slug subject.prompt.pk %}"
+        href="{% subject_url 'study:response_detail' part.slug task.slug subject.prompt.pk %}"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Ouvrir le sujet : {{ subject.prompt.text|truncatechars:120 }}">

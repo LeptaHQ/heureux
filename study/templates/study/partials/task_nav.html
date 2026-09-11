@@ -1,3 +1,4 @@
+{% load study_links %}
 {% if task and part %}
 <div class="task-context" style="--task-accent: {{ task.color }};">
   <a href="{% url 'study:expression' %}">Expression</a>
@@ -24,34 +25,34 @@
     <a class="{% if request.resolver_match.url_name == 'task_phrases' or request.resolver_match.url_name == 'task_vocabulary_theme' %}is-active{% endif %}"
        href="{% url 'study:task_phrases' part.slug task.slug %}">Vocabulaire</a>
     <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'writing_sujet_detail' or request.resolver_match.url_name == 'writing_sujet_edit' %}is-active{% endif %}"
-       href="{% url 'study:task_browse' part.slug task.slug %}">Sujets</a>
+       href="{% subject_url 'study:task_browse' part.slug task.slug %}">Sujets</a>
   {% elif part.slug == 'eo' and task.slug == 'tache-2' %}
     <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'task_subject_batch' or request.resolver_match.url_name == 'task_subject_detail' %}is-active{% endif %}"
-       href="{% url 'study:task_browse' part.slug task.slug %}">Sujets</a>
+       href="{% subject_url 'study:task_browse' part.slug task.slug %}">Sujets</a>
     <a class="{% if request.resolver_match.url_name == 'tache_two_theme_vocabulary' or request.resolver_match.url_name == 'tache_two_theme_vocabulary_detail' %}is-active{% endif %}"
        href="{% url 'study:tache_two_theme_vocabulary' %}">Vocabulaire par thème</a>
   {% elif part.slug == 'eo' and task.slug == 'tache-3' %}
     <a class="{% if request.resolver_match.url_name == 'task_phrases' or request.resolver_match.url_name == 'task_vocabulary_theme' or request.resolver_match.url_name == 'task_vocabulary_category' %}is-active{% endif %}"
        href="{% url 'study:task_phrases' part.slug task.slug %}">Vocabulaire</a>
     <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'response_detail' %}is-active{% endif %}"
-       href="{% url 'study:task_browse' part.slug task.slug %}">Sujets</a>
+       href="{% subject_url 'study:task_browse' part.slug task.slug %}">Sujets</a>
   {% elif part.slug == 'ee' and task.slug == 'tache-3' %}
     <a class="{% if request.resolver_match.url_name == 'task_phrases' or request.resolver_match.url_name == 'task_vocabulary_theme' %}is-active{% endif %}"
        href="{% url 'study:task_phrases' part.slug task.slug %}">Vocabulaire</a>
     <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'theme_detail' or request.resolver_match.url_name == 'response_detail' %}is-active{% endif %}"
-       href="{% url 'study:task_browse' part.slug task.slug %}">Sujets</a>
+       href="{% subject_url 'study:task_browse' part.slug task.slug %}">Sujets</a>
     <a class="{% if request.resolver_match.url_name == 'task_memories' or request.resolver_match.url_name == 'task_memory_detail' %}is-active{% endif %}"
        href="{% url 'study:task_memories' part.slug task.slug %}">Mémoires</a>
     <a class="{% if request.resolver_match.url_name == 'task_review_hub' %}is-active{% endif %}"
        href="{% url 'study:task_review_hub' part.slug task.slug %}">Pratiquer</a>
   {% elif memory_task %}
     <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'task_subject_batch' or request.resolver_match.url_name == 'task_subject_detail' %}is-active{% endif %}"
-       href="{% url 'study:task_browse' part.slug task.slug %}">Sujets</a>
+       href="{% subject_url 'study:task_browse' part.slug task.slug %}">Sujets</a>
     <a class="{% if request.resolver_match.url_name == 'task_memories' or request.resolver_match.url_name == 'task_memory_detail' %}is-active{% endif %}"
        href="{% url 'study:task_memories' part.slug task.slug %}">Mémoires</a>
   {% else %}
     <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'theme_detail' or request.resolver_match.url_name == 'task_family_detail' or request.resolver_match.url_name == 'response_detail' %}is-active{% endif %}"
-       href="{% url 'study:task_browse' part.slug task.slug %}">Sujets</a>
+       href="{% subject_url 'study:task_browse' part.slug task.slug %}">Sujets</a>
     <a class="{% if request.resolver_match.url_name == 'task_review_hub' %}is-active{% endif %}"
        href="{% url 'study:task_review_hub' part.slug task.slug %}">Pratiquer</a>
     {% if task.supports_memoires %}

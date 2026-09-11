@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static study_markdown %}
+{% load static study_markdown study_links %}
 {% block title %}{{ prompt|truncatechars:50 }} · Heureux{% endblock %}
 
 {% block content %}
@@ -9,7 +9,7 @@
     <span aria-hidden="true">›</span>
     <a href="{% url 'study:part_detail' part.slug %}">{{ part.short_name }}</a>
     <span aria-hidden="true">›</span>
-    <a href="{% url 'study:task_browse' part.slug task.slug %}">{{ task.name }}</a>
+    <a href="{% subject_url 'study:task_browse' part.slug task.slug %}">{{ task.name }}</a>
     <span aria-hidden="true">›</span>
     <strong>{{ category_label }}</strong>
   </div>
@@ -19,7 +19,7 @@
 
   <header class="tache-two-subject-detail__hero">
     <div class="tache-two-subject-detail__meta">
-      <a class="subject-page-back" href="{% url 'study:task_browse' part.slug task.slug %}#theme-{{ sujet.category }}">
+      <a class="subject-page-back" href="{% subject_url 'study:task_browse' part.slug task.slug %}#theme-{{ sujet.category }}">
         {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
         {{ category_label }}
       </a>
@@ -35,7 +35,7 @@
   <nav class="prompt-nav" aria-label="Navigation entre les sujets">
     <div class="prompt-nav__item">
       {% if previous_sujet %}
-        <a class="prompt-nav__link" href="{% url 'study:writing_sujet_detail' part.slug task.slug previous_sujet.pk %}" rel="prev">
+        <a class="prompt-nav__link" href="{% subject_url 'study:writing_sujet_detail' part.slug task.slug previous_sujet.pk %}" rel="prev">
           <span class="prompt-nav__direction">{% include "study/partials/ui_icon.html" with name="arrow-left" only %} Sujet précédent</span>
           <span class="prompt-nav__label">{{ previous_sujet.prompt|truncatechars:44 }}</span>
         </a>
@@ -44,7 +44,7 @@
     <span class="prompt-nav__position">Sujet {{ position }} sur {{ total }}</span>
     <div class="prompt-nav__item prompt-nav__item--next">
       {% if next_sujet %}
-        <a class="prompt-nav__link prompt-nav__link--next" href="{% url 'study:writing_sujet_detail' part.slug task.slug next_sujet.pk %}" rel="next">
+        <a class="prompt-nav__link prompt-nav__link--next" href="{% subject_url 'study:writing_sujet_detail' part.slug task.slug next_sujet.pk %}" rel="next">
           <span class="prompt-nav__direction">Sujet suivant {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
           <span class="prompt-nav__label">{{ next_sujet.prompt|truncatechars:44 }}</span>
         </a>
@@ -161,8 +161,8 @@
           <div><dt>Position</dt><dd>{{ position }} / {{ total }}</dd></div>
         </dl>
         <div class="response-sidebar-actions">
-          <a class="btn btn--primary btn--block" href="{% url 'study:writing_sujet_edit' part.slug task.slug sujet.pk %}">{% if has_personal %}Modifier ma version{% else %}Personnaliser la réponse{% endif %}</a>
-          <a class="btn btn--block" href="{% url 'study:task_browse' part.slug task.slug %}">Tous les sujets</a>
+          <a class="btn btn--primary btn--block" href="{% subject_url 'study:writing_sujet_edit' part.slug task.slug sujet.pk %}">{% if has_personal %}Modifier ma version{% else %}Personnaliser la réponse{% endif %}</a>
+          <a class="btn btn--block" href="{% subject_url 'study:task_browse' part.slug task.slug %}">Tous les sujets</a>
         </div>
       </div>
 
@@ -173,7 +173,7 @@
           <ul class="mini-list">
             {% for equivalent in equivalent_sujets %}
               <li>
-                <a href="{% url 'study:writing_sujet_detail' part.slug task.slug equivalent.sujet.pk %}" target="_blank" rel="noopener noreferrer">
+                <a href="{% subject_url 'study:writing_sujet_detail' part.slug task.slug equivalent.sujet.pk %}" target="_blank" rel="noopener noreferrer">
                   <span class="chip">{{ equivalent.source.month_name }} {{ equivalent.source.year }}</span>
                   {{ equivalent.source.prompt|truncatechars:100 }}
                 </a>

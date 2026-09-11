@@ -1061,6 +1061,81 @@ class EeWritingPageTests(TestCase):
                     "Ma réponse personnelle.",
                 )
 
+    def test_subject_navigation_uses_distinct_groups_and_preserves_opt_out(self):
+        for tache, task in self.tasks.items():
+            with self.subTest(tache=tache):
+                browse_url = reverse("study:task_browse", args=["ee", task.slug])
+                original = self.client.get(browse_url, {"deduplicate": "0"})
+                category = next(
+                    category for category in original.context["categories"]
+                    if category["slug"] == "invitations"
+                ) if tache == 1 else original.context["categories"][0]
+                rows = category["sujets"]
+                representatives = {}
+                for row in rows:
+                    representatives.setdefault(row["progress_sujet"].pk, row["sujet"])
+                selected = list(representatives.values())
+                if tache == 1:
+                    self.assertEqual(len(rows), 20)
+                    self.assertEqual(len(selected), 9)
+                self.assertLess(len(selected), len(rows))
+                for raw_index, row in enumerate(rows):
+                    sujet = row["sujet"]
+                    index = list(representatives).index(row["progress_sujet"].pk)
+                    detail_url = reverse(
+                        "study:writing_sujet_detail", args=["ee", task.slug, sujet.pk],
+                    )
+                    page = self.client.get(detail_url)
+                    self.assertEqual(page.context["sujet"], sujet)
+                    self.assertEqual(page.context["progress_sujet"], row["progress_sujet"])
+                    self.assertEqual(page.context["position"], index + 1)
+                    self.assertEqual(page.context["total"], len(selected))
+                    self.assertEqual(
+                        page.context["previous_sujet"],
+                        selected[index - 1] if index else None,
+                    )
+                    self.assertEqual(
+                        page.context["next_sujet"],
+                        selected[index + 1] if index + 1 < len(selected) else None,
+                    )
+                    self.assertContains(
+                        page, f"Sujet {index + 1} sur {len(selected)}", count=2,
+                    )
+                    self.assertContains(original, f'href="{detail_url}?deduplicate=0"')
+                    all_page = self.client.get(detail_url, {"deduplicate": "0"})
+                    self.assertEqual(all_page.context["position"], raw_index + 1)
+                    self.assertEqual(all_page.context["total"], len(rows))
+                    self.assertEqual(
+                        all_page.context["previous_sujet"],
+                        rows[raw_index - 1]["sujet"] if raw_index else None,
+                    )
+                    self.assertEqual(
+                        all_page.context["next_sujet"],
+                        rows[raw_index + 1]["sujet"] if raw_index + 1 < len(rows) else None,
+                    )
+                    self.assertContains(
+                        all_page,
+                        f'href="{browse_url}?deduplicate=0#theme-{category["slug"]}"',
+                    )
+                    if raw_index + 1 < len(rows):
+                        next_url = reverse(
+                            "study:writing_sujet_detail",
+                            args=["ee", task.slug, rows[raw_index + 1]["sujet"].pk],
+                        )
+                        self.assertContains(all_page, f'href="{next_url}?deduplicate=0"')
+
+    def test_publication_mode_survives_edit_save_and_reset(self):
+        sujet = self.tasks[1].writing_sujets.filter(category="invitations").first()
+        detail_url = reverse("study:writing_sujet_detail", args=["ee", "tache-1", sujet.pk])
+        edit_url = reverse("study:writing_sujet_edit", args=["ee", "tache-1", sujet.pk])
+        detail = self.client.get(detail_url, {"deduplicate": "0"})
+        self.assertContains(detail, f'href="{edit_url}?deduplicate=0"')
+        edit = self.client.get(edit_url, {"deduplicate": "0"})
+        self.assertEqual(edit.context["detail_url"], f"{detail_url}?deduplicate=0")
+        for body, flag in (({"body": "Ma réponse choisie."}, "saved"), ({"action": "reset"}, "reset")):
+            response = self.client.post(f"{edit_url}?deduplicate=0", body)
+            self.assertRedirects(response, f"{detail_url}?{flag}=1&deduplicate=0")
+
     def test_deduplicated_search_matches_aliases_before_grouping_and_limiting(self):
         for tache, task in self.tasks.items():
             with self.subTest(tache=tache):

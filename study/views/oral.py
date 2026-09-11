@@ -15,7 +15,7 @@ from ..oral_history import (
     variant_annotation_key,
 )
 from ..response_personalization import effective_response
-from ..routing import TACHE_TWO_PROMPT_KEY, prompt_detail_url, review_url
+from ..routing import TACHE_TWO_PROMPT_KEY, prompt_detail_url, review_url, subject_selection_url
 from .helpers import _route_task
 
 
@@ -116,10 +116,10 @@ def oral_response_history(request, part_slug, task_slug, response_id):
         else:
             return HttpResponseBadRequest("Version requise.")
         save_personal(response, request.user, defaults, source_prompt=prompt)
-        return redirect(prompt_detail_url(prompt) + "?saved=1")
+        return redirect(subject_selection_url(prompt_detail_url(prompt) + "?saved=1", request))
     return render(request, "study/oral_response_history.html", {
         "part": task.part, "task": task, "response": response,
-        "detail_url": prompt_detail_url(prompt),
+        "detail_url": subject_selection_url(prompt_detail_url(prompt), request),
         "versions": versions, "snapshots": snapshots,
         "annotations": group_annotations(response, request.user),
         "cards": Card.objects.filter(user=request.user, response__in=sources),

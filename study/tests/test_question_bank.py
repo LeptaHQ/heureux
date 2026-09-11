@@ -2364,6 +2364,56 @@ class QuestionBankViewTests(TestCase):
             self.assertEqual(theme["subject_count"], len(theme["subjects"]))
             self.assertEqual(theme["total"], len(theme["subjects"]))
 
+    def test_subject_navigation_follows_group_selection_and_preserves_opt_out(self):
+        browse_url = reverse("study:task_browse", args=["eo", self.task.slug])
+        original = self.client.get(browse_url, {"deduplicate": "0"})
+        for theme in original.context["subject_themes"]:
+            rows = theme["subjects"]
+            representatives = {}
+            for row in rows:
+                representatives.setdefault(row["response_id"], row)
+            aliases = [
+                row for row in rows
+                if row["content_key"] != representatives[row["response_id"]]["content_key"]
+                and row["response_id"] != rows[0]["response_id"]
+            ]
+            if aliases:
+                break
+        else:
+            self.fail("Expected an equivalent publication outside the first group.")
+        selected = list(representatives.values())
+        alias = aliases[-1]
+        index = list(representatives).index(alias["response_id"])
+        self.assertGreater(index, 0)
+        url = reverse(
+            "study:task_subject_detail",
+            args=["eo", self.task.slug, alias["month_slug"], alias["batch_number"], alias["number"]],
+        )
+        page = self.client.get(url)
+        self.assertEqual(page.context["selected_prompt"].content_key, alias["content_key"])
+        self.assertEqual(page.context["subject_position"], index + 1)
+        self.assertEqual(page.context["subject_total"], len(selected))
+        self.assertEqual(
+            page.context["previous_subject"]["content_key"], selected[index - 1]["content_key"],
+        )
+        if index + 1 < len(selected):
+            self.assertEqual(
+                page.context["next_subject"]["content_key"], selected[index + 1]["content_key"],
+            )
+        else:
+            self.assertIsNone(page.context["next_subject"])
+        self.assertContains(original, f'href="{url}?deduplicate=0"')
+        all_page = self.client.get(url, {"deduplicate": "0"})
+        self.assertEqual(all_page.context["subject_total"], len(rows))
+        self.assertEqual(all_page.context["subject_position"], rows.index(alias) + 1)
+        self.assertContains(all_page, f'href="{browse_url}?deduplicate=0#theme-{theme["slug"]}"')
+        self.assertContains(all_page, "?model=1&amp;deduplicate=0")
+        legacy_url = reverse(
+            "study:response_detail",
+            args=["eo", self.task.slug, page.context["selected_prompt"].pk],
+        )
+        self.assertRedirects(self.client.get(legacy_url, {"deduplicate": "0"}), f"{url}?deduplicate=0")
+
     def test_scoped_subject_directories_default_to_deduplicated(self):
         prompt = Prompt.objects.filter(
             theme__task=self.task, is_active=True,

@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import re
-from urllib.parse import urlencode
+from urllib.parse import parse_qsl, urlencode, urlsplit, urlunsplit
 
 from django.db.models.signals import post_delete, post_save
 from django.dispatch import receiver
@@ -40,6 +40,21 @@ def _test_mode(slug: str) -> str:
 
 def _expression_task_args(task) -> list[str]:
     return [task.part.slug, task.slug]
+
+
+def subject_selection_url(url: str, request) -> str:
+    """Carry the publication opt-out without losing queries or deep links."""
+    if request is None:
+        return url
+    parts = urlsplit(url)
+    query = [
+        (key, value)
+        for key, value in parse_qsl(parts.query, keep_blank_values=True)
+        if key != "deduplicate"
+    ]
+    if request.GET.get("deduplicate", "1") != "1":
+        query.append(("deduplicate", "0"))
+    return urlunsplit(parts._replace(query=urlencode(query)))
 
 
 def prompt_detail_url(prompt: Prompt) -> str:

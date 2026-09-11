@@ -1,3 +1,4 @@
+{% load study_links %}
 <tr
   class="t1-table__row subject-collection-row subject-progress-row subject-table-row is-status-{{ subject.progress.status }}{% if kind == 'writing' %} writing-sujet-progress-row writing-sujet-progress-row--{{ subject.progress.status }}{% else %} subject-progress-row--{{ subject.progress.status }}{% endif %}{% if subject.is_personalized %} is-personalized{% endif %}"
   role="row"
@@ -7,7 +8,7 @@
   {% if kind == "writing" %}data-writing-sujet-progress-row="{{ progress_sujet.pk }}"{% else %}data-subject-progress-row="{{ response_id }}"{% endif %}>
   <td class="t1-table__subject" role="cell">
     <div class="t1-table__subject-copy">
-      <a class="subject-table-row-link" href="{{ href }}" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir le sujet : {{ title|truncatechars:120 }}">{{ title }}</a>
+      <a class="subject-table-row-link" href="{% subject_link href %}" target="_blank" rel="noopener noreferrer" aria-label="Ouvrir le sujet : {{ title|truncatechars:120 }}">{{ title }}</a>
       {% if prompt_source %}
         {% include "study/partials/prompt_copy_button.html" with button_class="icon-button prompt-copy-button" source_id=prompt_source prompt_key=prompt_key label="Copier la consigne" subject_label=title label_hidden=True only %}
       {% endif %}

@@ -1489,6 +1489,8 @@ class BrowserTests(StaticLiveServerTestCase):
                 first_href = rows.first.locator(
                     ".subject-table-row-link"
                 ).get_attribute("href")
+                self.assertEqual(parse_qs(urlsplit(first_href).query), {"deduplicate": ["0"]})
+                first_href = urlsplit(first_href).path
                 copy_key = rows.first.locator(
                     "[data-prompt-copy]"
                 ).get_attribute("data-prompt-copy-key")
@@ -1586,6 +1588,38 @@ class BrowserTests(StaticLiveServerTestCase):
                     self.page.get_by_role("button", name="Chercher", exact=True).click()
                 self.assertIn("deduplicate=0", self.page.url)
                 expect(toggle).to_have_attribute("aria-pressed", "false")
+
+    def test_writing_detail_counter_and_links_follow_deduplicated_selection(self):
+        self._import_ee_writing_content()
+        directory = reverse("study:task_browse", args=["ee", "tache-1"])
+        for deduplicate, total in ((True, 9), (False, 20)):
+            with self.subTest(deduplicate=deduplicate):
+                self.page.goto(
+                    self.live_server_url + directory + ("" if deduplicate else "?deduplicate=0")
+                )
+                group = self.page.locator("#theme-invitations")
+                if not group.evaluate("element => element.open"):
+                    group.locator("summary").click()
+                links = group.locator(".subject-table-row-link")
+                expect(links).to_have_count(total)
+                expected_links = links.evaluate_all("links => links.map(link => link.getAttribute('href'))")
+                with self.page.expect_popup() as opened:
+                    links.nth(5).click()
+                detail = opened.value
+                detail.wait_for_load_state()
+                expect(detail.locator(".prompt-nav__position")).to_have_text(f"Sujet 6 sur {total}")
+                expect(detail.locator('a[rel="prev"]')).to_have_attribute("href", expected_links[4])
+                expect(detail.locator('a[rel="next"]')).to_have_attribute("href", expected_links[6])
+                detail.locator('a[rel="next"]').click()
+                expect(detail.locator(".prompt-nav__position")).to_have_text(f"Sujet 7 sur {total}")
+                detail.locator('a[rel="prev"]').click()
+                expect(detail.locator(".prompt-nav__position")).to_have_text(f"Sujet 6 sur {total}")
+                detail.locator(".subject-page-back").click()
+                expect(detail.get_by_role("button", name="Dédupliquer", exact=True)).to_have_attribute(
+                    "aria-pressed", "true" if deduplicate else "false",
+                )
+                expect(detail.locator("#theme-invitations .subject-table-row-link")).to_have_count(total)
+                detail.close()
 
     def test_response_subject_directories_deduplicate_in_both_views(self):
         def directories():

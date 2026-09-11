@@ -3015,7 +3015,25 @@ def _tache_two_subject_batch(month, batch_number):
     return batch
 
 
-def _tache_two_theme_neighbors(month_slug, batch_number, subject_number):
+def _subject_neighbors(items, selected, *, key, deduplicate):
+    if deduplicate:
+        representatives = {}
+        for item in items:
+            representatives.setdefault(key(item), item)
+        items = list(representatives.values())
+    selected_key = key(selected)
+    index = next(i for i, item in enumerate(items) if key(item) == selected_key)
+    return (
+        index + 1,
+        len(items),
+        items[index - 1] if index > 0 else None,
+        items[index + 1] if index + 1 < len(items) else None,
+    )
+
+
+def _tache_two_theme_neighbors(
+    month_slug, batch_number, subject_number, *, deduplicate=False,
+):
     """Locate a subject inside its theme.
 
     Returns ``(theme, position, total, previous, next)`` where the
@@ -3033,6 +3051,9 @@ def _tache_two_theme_neighbors(month_slug, batch_number, subject_number):
     theme = theme_by_slug.get(theme_slug)
     ordered = [
         {
+            "content_key": content_module.tache_two_subject_content_key(
+                month.slug, batch.number, subject.number,
+            ),
             "month_slug": month.slug,
             "batch_number": batch.number,
             "number": subject.number,
@@ -3050,21 +3071,24 @@ def _tache_two_theme_neighbors(month_slug, batch_number, subject_number):
         )
         == theme_slug
     ]
-    index = next(
-        (
-            position
-            for position, item in enumerate(ordered)
-            if item["month_slug"] == month_slug
-            and item["batch_number"] == batch_number
-            and item["number"] == subject_number
+    response_ids = {}
+    if deduplicate:
+        response_ids = dict(
+            Prompt.objects.filter(
+                content_key__in=[item["content_key"] for item in ordered],
+                is_active=True,
+                response__is_active=True,
+            ).values_list("content_key", "response_id")
+        )
+    return (
+        theme,
+        *_subject_neighbors(
+            ordered,
+            {"content_key": target_key},
+            key=lambda item: response_ids.get(item["content_key"], item["content_key"]),
+            deduplicate=deduplicate,
         ),
-        None,
     )
-    if index is None:
-        return theme, 0, len(ordered), None, None
-    previous_item = ordered[index - 1] if index > 0 else None
-    next_item = ordered[index + 1] if index + 1 < len(ordered) else None
-    return theme, index + 1, len(ordered), previous_item, next_item
 
 
 def task_subject_batch(request, part_slug, task_slug, month_slug, batch_number):
@@ -3252,6 +3276,7 @@ def task_subject_detail(
         month.slug,
         batch.number,
         subject.number,
+        deduplicate=request.GET.get("deduplicate", "1") == "1",
     )
     return render(
         request,
@@ -3797,7 +3822,9 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         theme__task=task,
     )
     if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
-        return redirect(prompt_detail_url(selected_prompt))
+        return redirect(routing.subject_selection_url(
+            prompt_detail_url(selected_prompt), request,
+        ))
     response = selected_prompt.response
     from .oral import oral_response_context
     oral_context = oral_response_context(request, selected_prompt)
@@ -3821,23 +3848,20 @@ def response_detail(request, part_slug, task_slug, prompt_id):
     navigation_prompts = Prompt.objects.filter(
         is_active=True,
         theme__is_active=True,
+        response__is_active=True,
         theme_id=selected_prompt.theme_id,
     ).select_related("theme__task__part")
-    navigation_prompts = list(
-        navigation_prompts.order_by("number", "pk")
+    order = (
+        ("family__order", "family__name", "number", "pk")
+        if (part_slug, task_slug) == ("eo", "tache-3")
+        else ("number", "pk")
     )
-    prompt_index = next(
-        index
-        for index, prompt in enumerate(navigation_prompts)
-        if prompt.pk == selected_prompt.pk
-    )
-    previous_prompt = (
-        navigation_prompts[prompt_index - 1] if prompt_index > 0 else None
-    )
-    next_prompt = (
-        navigation_prompts[prompt_index + 1]
-        if prompt_index + 1 < len(navigation_prompts)
-        else None
+    deduplicate = request.GET.get("deduplicate", "1") == "1"
+    prompt_position, prompt_total, previous_prompt, next_prompt = _subject_neighbors(
+        list(navigation_prompts.order_by(*order)),
+        selected_prompt,
+        key=lambda prompt: prompt.response_id if deduplicate else prompt.pk,
+        deduplicate=deduplicate,
     )
 
     card = Card.objects.filter(
@@ -3981,8 +4005,8 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             "selected_prompt": selected_prompt,
             "previous_prompt": previous_prompt,
             "next_prompt": next_prompt,
-            "prompt_position": prompt_index + 1,
-            "prompt_total": len(navigation_prompts),
+            "prompt_position": prompt_position,
+            "prompt_total": prompt_total,
             "task": task,
             "part": task.part,
             "response_content": response_content,
@@ -4072,7 +4096,7 @@ def edit_response(request, part_slug, task_slug, prompt_id):
                 user=request.user, response=response, is_active=False,
                 source_prompt=selected_prompt,
             )
-        return redirect(f"{detail_url}?reset=1")
+        return redirect(routing.subject_selection_url(f"{detail_url}?reset=1", request))
 
     if is_tache_two:
         response_content = effective_response(response, request.user, prompt=selected_prompt)
@@ -4119,7 +4143,7 @@ def edit_response(request, part_slug, task_slug, prompt_id):
                     "conclusion": "",
                 }, source_prompt=selected_prompt,
             )
-            return redirect(f"{detail_url}?saved=1")
+            return redirect(routing.subject_selection_url(f"{detail_url}?saved=1", request))
         return render(
             request,
             "study/response_edit.html",
@@ -4131,7 +4155,7 @@ def edit_response(request, part_slug, task_slug, prompt_id):
                 "is_tache_two": True,
                 "question_formset": question_formset,
                 "has_personal_response": has_personal_response,
-                "detail_url": detail_url,
+                "detail_url": routing.subject_selection_url(detail_url, request),
             },
         )
 
@@ -4145,7 +4169,7 @@ def edit_response(request, part_slug, task_slug, prompt_id):
         save_personal(
             response, request.user, form.personal_defaults(), source_prompt=selected_prompt,
         )
-        return redirect(f"{detail_url}?saved=1")
+        return redirect(routing.subject_selection_url(f"{detail_url}?saved=1", request))
 
     argument_fields = []
     for order in form.argument_orders:
@@ -4169,7 +4193,7 @@ def edit_response(request, part_slug, task_slug, prompt_id):
             "form": form,
             "argument_fields": argument_fields,
             "has_personal_response": has_personal_response,
-            "detail_url": detail_url,
+            "detail_url": routing.subject_selection_url(detail_url, request),
         },
     )
 
@@ -4234,14 +4258,20 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
             category=sujet.category,
         ).order_by("order", "id")
     )
-    index = next(
-        (i for i, item in enumerate(siblings) if item.pk == sujet.pk),
-        0,
-    )
     sources_by_slug = _ee_writing_sources_by_slug(tache)
     source = sources_by_slug.get(sujet.slug)
     canonical_slug_by_slug = (
         content_module.ee_writing_canonical_slug_by_slug(tache)
+    )
+    deduplicate = request.GET.get("deduplicate", "1") == "1"
+    position, total, previous_sujet, next_sujet = _subject_neighbors(
+        siblings,
+        sujet,
+        key=lambda item: (
+            canonical_slug_by_slug.get(item.slug, item.slug)
+            if deduplicate else item.pk
+        ),
+        deduplicate=deduplicate,
     )
     equivalent_sujets = [
         {
@@ -4295,14 +4325,10 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
             ),
             "other_versions": model_versions[1:],
             "other_version_count": max(len(model_versions) - 1, 0),
-            "previous_sujet": siblings[index - 1] if index > 0 else None,
-            "next_sujet": (
-                siblings[index + 1]
-                if index + 1 < len(siblings)
-                else None
-            ),
-            "position": index + 1,
-            "total": len(siblings),
+            "previous_sujet": previous_sujet,
+            "next_sujet": next_sujet,
+            "position": position,
+            "total": total,
             "personal_saved": request.GET.get("saved") == "1",
             "personal_reset": request.GET.get("reset") == "1",
         },
@@ -4385,7 +4411,7 @@ def writing_sujet_edit(request, part_slug, task_slug, sujet_id):
     if request.method == "POST" and request.POST.get("action") == "reset":
         if personal is not None:
             personal.delete()
-        return redirect(f"{detail_url}?reset=1")
+        return redirect(routing.subject_selection_url(f"{detail_url}?reset=1", request))
 
     body_value = personal.body if personal else ""
     error = ""
@@ -4400,7 +4426,7 @@ def writing_sujet_edit(request, part_slug, task_slug, sujet_id):
                 sujet=canonical,
                 defaults={"body": cleaned},
             )
-            return redirect(f"{detail_url}?saved=1")
+            return redirect(routing.subject_selection_url(f"{detail_url}?saved=1", request))
 
     source = _ee_writing_sources_by_slug(tache).get(sujet.slug)
     return render(
@@ -4428,7 +4454,7 @@ def writing_sujet_edit(request, part_slug, task_slug, sujet_id):
             "error": error,
             "has_personal": personal is not None,
             "model_versions": canonical.model_versions,
-            "detail_url": detail_url,
+            "detail_url": routing.subject_selection_url(detail_url, request),
         },
     )
 

@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load study_links %}
 {% block title %}Recherche · Heureux{% endblock %}
 
 {% block content %}
@@ -49,7 +50,7 @@
           </div>
           <a
             class="subject-row-hit-area"
-            href="{% url 'study:response_detail' prompt.theme.task.part.slug prompt.theme.task.slug prompt.pk %}"
+            href="{% subject_url 'study:response_detail' prompt.theme.task.part.slug prompt.theme.task.slug prompt.pk %}"
             aria-label="Ouvrir le sujet : {{ prompt.text }}">
             <span class="sr-only">Ouvrir le sujet</span>
           </a>
@@ -71,7 +72,7 @@
           </div>
           <a
             class="subject-row-hit-area"
-            href="{% url 'study:writing_sujet_detail' sujet.task.part.slug sujet.task.slug sujet.pk %}"
+            href="{% subject_url 'study:writing_sujet_detail' sujet.task.part.slug sujet.task.slug sujet.pk %}"
             aria-label="Ouvrir le sujet : {{ sujet.prompt }}">
             <span class="sr-only">Ouvrir le sujet</span>
           </a>

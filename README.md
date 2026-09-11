@@ -89,7 +89,10 @@ so workers using the pre-upgrade ORM can finish inserts during replacement.
   clarify the existing families without changing memberships or saved progress.
   EO/EE subject directories and subject-only searches default to **Dédupliquer**,
   keeping the first displayed occurrence of each equivalent group. The toggle or
-  `?deduplicate=0` shows every publication; search forms preserve the chosen mode.
+  `?deduplicate=0` shows every publication. Search and subject links preserve the
+  chosen mode, including previous/next navigation and its within-theme counter.
+  Opening an equivalent publication keeps its own text and selected response,
+  while its navigation position refers to the shared group when deduplicated.
   The removed EO Tâche 3 theme/family and
   practice-overview URLs have no routes and return 404, without redirects.
   Individual practice sessions, study content, and saved progress remain.

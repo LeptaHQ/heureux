@@ -1,10 +1,11 @@
 {% extends "base.html" %}
+{% load study_links %}
 {% block title %}{{ family.name }} · Heureux{% endblock %}
 
 {% block content %}
 {% include "study/partials/task_nav.html" %}
 <div class="page-head">
-  <p class="eyebrow"><a href="{% url 'study:task_browse' part.slug task.slug %}">Sujets &amp; réponses</a> · Famille de sujets</p>
+  <p class="eyebrow"><a href="{% subject_url 'study:task_browse' part.slug task.slug %}">Sujets &amp; réponses</a> · Famille de sujets</p>
   <div class="row between">
     <h1 style="margin-bottom:0;">{{ family.name }}</h1>
     <div class="row">
@@ -41,7 +42,7 @@
       </span>
       <a
         class="subject-row-hit-area"
-        href="{% url 'study:response_detail' part.slug task.slug row.prompt.pk %}"
+        href="{% subject_url 'study:response_detail' part.slug task.slug row.prompt.pk %}"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Ouvrir le sujet : {{ row.prompt.text }}">

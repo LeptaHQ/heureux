@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static study_links %}
 {% block title %}Sujet {{ subject.number }} · {{ subject.title }} · {{ task.name }}{% endblock %}
 
 {% block content %}
@@ -10,7 +10,7 @@
 <article class="tache-two-subject-detail" style="--subject-accent: {{ task.color }};">
   <header class="tache-two-subject-detail__hero">
     <div class="tache-two-subject-detail__meta">
-      <a class="subject-page-back" href="{% url 'study:task_browse' part.slug task.slug %}#theme-{{ subject_theme_slug }}">
+      <a class="subject-page-back" href="{% subject_url 'study:task_browse' part.slug task.slug %}#theme-{{ subject_theme_slug }}">
         {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
         {{ subject_theme_name }}
       </a>
@@ -90,7 +90,7 @@
           <p class="muted">Aucune pratique de ce sujet.</p>
         {% endif %}
         <div class="response-sidebar-actions">
-          <a class="btn btn--block" href="{% url 'study:edit_response' part.slug task.slug selected_prompt.pk %}">
+          <a class="btn btn--block" href="{% subject_url 'study:edit_response' part.slug task.slug selected_prompt.pk %}">
             {% if response_content.is_personal %}Modifier mes questions{% else %}Personnaliser les questions{% endif %}
           </a>
           <a class="btn btn--primary btn--block" href="{{ response_review_url }}">Pratiquer ce sujet</a>

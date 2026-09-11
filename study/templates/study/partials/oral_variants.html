@@ -1,16 +1,17 @@
+{% load study_links %}
 {% if oral_history_url %}
 <section class="card section-card">
   <h2>Versions du sujet</h2>
   <p>Les consignes sont équivalentes ; leurs modèles peuvent varier.</p>
   <ul class="mini-list">
     {% for variant in oral_model_variants %}
-      <li><a href="{{ variant.url }}">Modèle original · {{ variant.prompt.label }}</a></li>
+      <li><a href="{% subject_link variant.url %}">Modèle original · {{ variant.prompt.label }}</a></li>
     {% endfor %}
     {% for item in oral_personal_versions %}
-      <li><a href="{{ item.url }}">Ma version · {{ item.version.updated_at|date:"j M Y H:i" }} · {{ item.version.response.content_key }}</a></li>
+      <li><a href="{% subject_link item.url %}">Ma version · {{ item.version.updated_at|date:"j M Y H:i" }} · {{ item.version.response.content_key }}</a></li>
     {% endfor %}
   </ul>
-  <a class="btn" href="{{ oral_history_url }}">Historique et versions conservées</a>
+  <a class="btn" href="{% subject_link oral_history_url %}">Historique et versions conservées</a>
   {% include "study/partials/response_copy_button.html" with source_id="oral-response-copy" button_class="btn" only %}
 </section>
 {{ oral_copy_text|json_script:"oral-response-copy" }}

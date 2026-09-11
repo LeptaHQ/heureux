@@ -351,15 +351,15 @@ class WritingSujetViewTests(TestCase):
         self.assertContains(page, "Invitez Cédric au château.")
         self.assertContains(page, "Version A la meilleure.")
 
-    def test_save_creates_personal_and_detail_shows_ma_version(self):
+    def test_save_creates_personal_and_preserves_publication_selection(self):
         result = self.client.post(
-            self._edit_url(self.multi),
+            self._edit_url(self.multi) + "?deduplicate=0",
             {"action": "save", "body": "Coucou, voici ma version à moi."},
         )
 
         self.assertRedirects(
             result,
-            self._detail_url(self.multi) + "?saved=1",
+            self._detail_url(self.multi) + "?saved=1&deduplicate=0",
             fetch_redirect_response=False,
         )
         personal = PersonalWritingResponse.objects.get(
@@ -367,8 +367,8 @@ class WritingSujetViewTests(TestCase):
         )
         self.assertEqual(personal.body, "Coucou, voici ma version à moi.")
 
-        detail = self.client.get(self._detail_url(self.multi))
-        self.assertContains(detail, "Ma version")
+        detail = self.client.get(result.url)
+        self.assertContains(detail, 'id="t1-personal-label">Réponse</div>')
         self.assertContains(detail, "Coucou, voici ma version à moi.")
         self.assertContains(detail, "Voir la réponse modèle")
         self.assertContains(detail, "En cours")

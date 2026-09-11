@@ -518,6 +518,9 @@ class OralImportPreservationTests(TestCase):
         page = self.client.get(url, {"deduplicate": "1"})
         self.assertEqual(all_page.context["display_count"], 2)
         self.assertEqual(page.context["display_count"], 1)
+        self.assertEqual(page.context["publication_count"], 2)
+        self.assertContains(page, "2 publications")
+        self.assertContains(page, "data-subject-deduplication-toggle", count=1)
         self.assertEqual(page.context["subject_themes"][0]["subjects"][0]["prompt"].pk, first_prompt.pk)
         detail = self.client.get(prompt_detail_url(first_prompt), {"model": "1"})
         self.assertContains(detail, "The first original model")
@@ -743,6 +746,23 @@ class OralCorpusUpgradeTests(TestCase):
                     )
                     route = "study:theme_detail" if scope_name == "theme" else "study:task_family_detail"
                     page = self.client.get(reverse(route, args=["eo", task.slug, scope_value]), {"deduplicate": "1"})
+                    if task.slug == "tache-3":
+                        directory = reverse("study:task_browse", args=["eo", task.slug])
+                        destination = (
+                            f"{directory}#theme-{scope_value}" if scope_name == "theme" else directory
+                        )
+                        self.assertRedirects(page, destination, fetch_redirect_response=False)
+                        directory_page = self.client.get(destination)
+                        source_group = next(
+                            group for group in directory_page.context["subject_themes"]
+                            if group["slug"] == prompt.theme.slug
+                        )
+                        source_family = next(
+                            family for family in source_group["families"]
+                            if family["slug"] == prompt.family.slug
+                        )
+                        self.assertIn(prompt.pk, [row["prompt"].pk for row in source_family["subjects"]])
+                        continue
                     displayed = [row["prompt"] for row in page.context["rows"] if row["prompt"].response_id == prompt.response_id]
                     self.assertEqual(len(displayed), 1)
                     expected = Prompt.objects.filter(

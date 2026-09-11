@@ -871,6 +871,61 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(row.locator(".progress-status")).to_have_text("Terminé")
         self.assert_no_horizontal_overflow()
 
+    def test_oral_directory_deep_links_and_deduplication_keep_navigation_and_progress(self):
+        prompt = self.first.response.prompts.get(is_canonical=True)
+        alias = Prompt.objects.create(
+            content_key="test:oral-directory-alias",
+            response=prompt.response,
+            theme=self.theme,
+            family=prompt.family,
+            number=prompt.number + 100,
+            text="Formulation réservée à cette recherche",
+        )
+        directory = reverse("study:task_browse", args=["eo", "tache-3"])
+        family_path = f"{directory}#theme-{self.theme.slug}-family-{prompt.family.slug}"
+        self.page.evaluate("localStorage.setItem('collectionViewMode', 'table')")
+        self.page.goto(self.live_server_url + response_detail_url(self.first.response))
+        self.page.locator(f'.detail-head a[href="{family_path}"]').click()
+        self.page.wait_for_url(self.live_server_url + family_path)
+        theme = self.page.locator(f"#theme-{self.theme.slug}")
+        family = theme.locator("[data-subject-family-group]").first
+        self.assertTrue(theme.evaluate("element => element.open"))
+        self.assertTrue(family.evaluate("element => element.open"))
+        expect(self.page.get_by_text("Voir cette famille dans tous les thèmes")).to_have_count(0)
+        toggle = self.page.get_by_role("button", name="Dédupliquer", exact=True)
+        with self.page.expect_navigation():
+            toggle.click()
+        self.assertIn("deduplicate=1", self.page.url)
+        expect(self.page.locator("[data-subject-collection-row]")).to_have_count(2)
+        theme.locator(":scope > summary").click()
+        family.locator(":scope > summary").click()
+        row = family.locator(f'[data-subject-progress-row="{prompt.response_id}"]')
+        with self.page.expect_navigation(wait_until="domcontentloaded"):
+            row.get_by_role("checkbox").click()
+        self.assertIn("deduplicate=1", self.page.url)
+        expect(theme.locator(":scope > summary .progress-status")).to_have_text("1/2")
+        search = self.page.locator("[data-subject-directory-search]")
+        search.locator("input[name='q']").fill(alias.text)
+        with self.page.expect_navigation():
+            search.locator("button[type='submit']").click()
+        self.assertIn("deduplicate=1", self.page.url)
+        result = self.page.locator(f'[data-subject-progress-row="{prompt.response_id}"]')
+        expect(result).to_have_count(1)
+        expect(result.locator(".progress-status")).to_have_text("Terminé")
+        expect(result.locator("a.subject-row-hit-area")).to_have_attribute(
+            "href", reverse("study:response_detail", args=["eo", "tache-3", alias.pk])
+        )
+        for route, slug, destination in (
+            ("study:theme_detail", self.theme.slug, f"{directory}#theme-{self.theme.slug}"),
+            ("study:task_family_detail", prompt.family.slug, directory),
+        ):
+            self.page.goto(
+                self.live_server_url + reverse(route, args=["eo", "tache-3", slug])
+            )
+            self.assertEqual(self.page.url, self.live_server_url + destination)
+            expect(self.page.get_by_role("heading", name="Sujets & réponses")).to_be_visible()
+        self.assert_no_horizontal_overflow()
+
     def test_subject_completion_shares_pending_errors_and_writing_events(self):
         self.theme.delete()
         call_command("import_content", stdout=StringIO())
@@ -1495,12 +1550,11 @@ class BrowserTests(StaticLiveServerTestCase):
 
     def test_response_subject_directories_deduplicate_in_both_views(self):
         def directories():
+            self.theme.delete()
+            call_command("import_content", stdout=StringIO())
+            provision_user_study_data(self.user)
+            yield reverse("study:task_browse", args=["eo", "tache-3"])
             # Each importer replaces the active prompts; visit its task first.
-            eo3_task = self._import_eo_tache_three_content()
-            yield reverse("study:task_browse", args=["eo", eo3_task.slug])
-            yield theme_detail_url(Prompt.objects.filter(
-                theme__task=eo3_task, is_active=True,
-            ).first().theme)
             oral_task = self._import_eo_tache_two_content()
             yield reverse("study:task_browse", args=["eo", oral_task.slug])
             _months, written_task = self._import_ee_tache_three_content()
@@ -1519,6 +1573,9 @@ class BrowserTests(StaticLiveServerTestCase):
                 )
                 self.assertNotIn("None", identifiers)
                 expected = list(dict.fromkeys(identifiers))
+                if path == reverse("study:task_browse", args=["eo", "tache-3"]):
+                    self.assertEqual(len(identifiers), 167)
+                    self.assertEqual(len(expected), 131)
                 toggle = self.page.get_by_role("button", name="Dédupliquer", exact=True)
                 with self.page.expect_navigation():
                     toggle.click()
@@ -3488,6 +3545,9 @@ class BrowserTests(StaticLiveServerTestCase):
 
         theme_url = self.live_server_url + theme_detail_url(self.theme)
         self.page.goto(theme_url)
+        family = self.page.locator("[data-subject-family-group]").first
+        if not family.evaluate("element => element.open"):
+            family.locator(":scope > summary").click()
         row = self.page.locator(
             f'[data-subject-progress-row="{response_id}"]'
         )
@@ -3498,11 +3558,15 @@ class BrowserTests(StaticLiveServerTestCase):
             row_checkbox.click()
         self.assertEqual(self.page.url, theme_url)
         self.assertEqual(row_checkbox.get_attribute("aria-checked"), "true")
-        self.page.get_by_text("1 terminé.", exact=False).wait_for()
+        expect(
+            self.page.locator(f"#theme-{self.theme.slug} > summary .progress-status")
+        ).to_have_text("1/2")
+        if not family.evaluate("element => element.open"):
+            family.locator(":scope > summary").click()
         self.assert_no_horizontal_overflow()
 
         self.assert_opens_new_tab(
-            lambda: row.locator(".subject-row-hit-area").click(),
+            lambda: row.locator(".subject-table-row-link").click(),
             response_detail_url(self.first.response),
         )
 
@@ -5220,14 +5284,15 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.goto(task_url)
 
         collection = self.page.locator(
-            ".grid--decks[data-collection-view='adaptive']"
+            "[data-subject-collection]"
         )
-        collection.locator("[data-collection-item]").first.wait_for()
+        group = collection.locator("[data-t1-table-theme]").first
+        group.wait_for()
         self.assertEqual(
             collection.evaluate(
                 "element => getComputedStyle(element).display"
             ),
-            "grid",
+            "flex",
         )
         self.assertEqual(
             self.page.get_by_role("button", name="Cartes").get_attribute(
@@ -5241,7 +5306,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertTrue(header.is_visible())
         self.assertEqual(
             header.locator("span").all_text_contents(),
-            ["Thème", "Contenu", "Progression", "État"],
+            ["Thème", "Sujets", "Progression"],
         )
         self.assertEqual(
             collection.evaluate(
@@ -5250,20 +5315,26 @@ class BrowserTests(StaticLiveServerTestCase):
             "flex",
         )
         self.assertEqual(
-            collection.locator("[data-collection-item]").first.evaluate(
+            group.evaluate(
                 "item => getComputedStyle(item).borderRadius"
             ),
             "0px",
         )
-        self.assertEqual(
-            header.evaluate("element => getComputedStyle(element).gridTemplateColumns"),
-            collection.locator(".deck__body").first.evaluate(
-                "element => getComputedStyle(element).gridTemplateColumns"
-            ),
-        )
+        for index, selector in (
+            (1, ".t1-theme__count"),
+            (2, ".progress-status"),
+        ):
+            self.assertAlmostEqual(
+                header.locator("span").nth(index).evaluate(
+                    "element => element.getBoundingClientRect().right"
+                ),
+                group.locator(f":scope > summary {selector}").evaluate(
+                    "element => element.getBoundingClientRect().right"
+                ),
+                delta=1,
+            )
         self.assertLess(
-            collection.locator("[data-collection-item]")
-            .first.bounding_box()["height"],
+            group.bounding_box()["height"],
             80,
         )
         self.assertEqual(
@@ -5282,31 +5353,21 @@ class BrowserTests(StaticLiveServerTestCase):
             + theme_detail_url(self.theme)
         )
         response_list = self.page.locator(
-            ".qlist[data-collection-view='adaptive']"
+            f"#theme-{self.theme.slug}"
         )
-        response_list.locator("[data-collection-item]").first.wait_for()
+        family = response_list.locator("[data-subject-family-group]").first
+        family.locator(":scope > summary").click()
+        row = family.locator("[data-subject-collection-row]").first
+        row.wait_for()
         self.assertEqual(
-            response_list.evaluate(
-                "element => getComputedStyle(element).display"
-            ),
-            "flex",
-        )
-        self.assertEqual(
-            response_list.locator("[data-collection-item]").first.evaluate(
+            row.evaluate(
                 "item => getComputedStyle(item).borderRadius"
             ),
             "0px",
         )
-        response_header = response_list.locator(
-            "[data-collection-table-header]"
-        )
         self.assertEqual(
-            response_header.evaluate(
-                "element => getComputedStyle(element).gridTemplateColumns"
-            ),
-            response_list.locator("[data-collection-item]").first.evaluate(
-                "element => getComputedStyle(element).gridTemplateColumns"
-            ),
+            row.evaluate("element => getComputedStyle(element).display"),
+            "table-row",
         )
 
         self.page.goto(
@@ -5358,8 +5419,11 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.page.get_by_role("button", name="Cartes").click()
         self.page.goto(task_url)
+        expect(self.page.get_by_role("button", name="Cartes", exact=True)).to_have_attribute(
+            "aria-pressed", "true"
+        )
         self.assertEqual(
-            collection.evaluate(
+            collection.locator("[data-subject-collection-row]").first.evaluate(
                 "element => getComputedStyle(element).display"
             ),
             "grid",

@@ -3,11 +3,6 @@
     <details class="subject-collection__family" id="theme-{{ group.slug }}-family-{{ family.slug }}" data-subject-family-group="{{ family.slug }}" open>
       {% include "study/partials/theme_group_summary.html" with title=family.name icon="file-text" count=family.subject_count count_label="sujet" status=family.progress.status completed=family.completed total=family.total progress_label="Réponses uniques terminées" only %}
       {% include "study/partials/subject_collection_table.html" with subjects=family.subjects %}
-      {% if family.detail_url %}
-        <p class="card--pad mt-0">
-          <a href="{{ family.detail_url }}">Voir cette famille dans tous les thèmes {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>
-        </p>
-      {% endif %}
     </details>
   {% endfor %}
 </div>

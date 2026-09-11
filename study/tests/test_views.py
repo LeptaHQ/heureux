@@ -679,7 +679,9 @@ class SmokeTests(TestCase):
                 args=["eo", "tache-3", family.slug],
             )
         )
-        self.assertEqual(response.status_code, 200)
+        self.assertRedirects(
+            response, reverse("study:task_browse", args=["eo", "tache-3"])
+        )
 
     def test_expression_hub_groups_content_by_part_and_task(self):
         written = factories.make_part("ee", available=False)
@@ -1732,6 +1734,93 @@ class TaskOrganizationTests(TestCase):
         self.assertContains(own, 'data-recall-cell="french"', count=1)
         self.assertContains(own, 'data-recall-cell="meaning"', count=1)
 
+    def test_retired_oral_group_pages_redirect_without_rendering_old_lists(self):
+        prompt = self.response_card.response.prompts.get(is_canonical=True)
+        directory = self._task_url("study:task_browse")
+        for route, slug, target in (
+            ("study:theme_detail", self.theme.slug, f"{directory}#theme-{self.theme.slug}"),
+            ("study:task_family_detail", prompt.family.slug, directory),
+        ):
+            with self.subTest(route=route):
+                old_url = reverse(route, args=["eo", "tache-3", slug])
+                retired = self.client.get(old_url)
+                self.assertRedirects(retired, target)
+                self.assertTemplateNotUsed(retired, "study/theme_detail.html")
+                self.assertTemplateNotUsed(retired, "study/family_detail.html")
+                missing = self.client.get(
+                    reverse(route, args=["eo", "tache-3", "unknown-group"])
+                )
+                self.assertEqual(missing.status_code, 404)
+        detail = self.client.get(prompt_detail_url(prompt))
+        self.assertContains(
+            detail, f'{directory}#theme-{self.theme.slug}-family-{prompt.family.slug}'
+        )
+        self.assertNotContains(
+            detail,
+            reverse("study:task_family_detail", args=["eo", "tache-3", prompt.family.slug]),
+        )
+        overview = self.client.get(self._task_url("study:task_detail"))
+        self.assertContains(overview, directory)
+        self.assertNotContains(
+            overview, reverse("study:theme_detail", args=["eo", "tache-3", self.theme.slug])
+        )
+
+    def test_oral_deduplication_keeps_first_displayed_occurrences_and_scoped_progress(self):
+        canonical = self.response_card.response.prompts.get(is_canonical=True)
+        first_family = factories.make_family("first-displayed-family")
+        first_family.order = 0
+        first_family.save(update_fields=["order"])
+        representative = Prompt.objects.create(
+            content_key="test:oral-dedup-first",
+            response=canonical.response,
+            theme=self.theme,
+            family=first_family,
+            number=canonical.number + 100,
+            text="Une formulation identique ne suffit pas.",
+        )
+        separate = factories.make_response(theme=self.theme, family=canonical.family)
+        separate_prompt = separate.prompts.get()
+        separate_prompt.text = representative.text
+        separate_prompt.save(update_fields=["text"])
+        alias_theme = factories.make_theme("only-an-alias", task=self.task)
+        Prompt.objects.create(
+            content_key="test:oral-dedup-other-theme",
+            response=canonical.response,
+            theme=alias_theme,
+            family=canonical.family,
+            number=1,
+            text="Autre thème, même réponse.",
+        )
+        self.client.post(
+            reverse("study:subject_completion", args=["eo", "tache-3", canonical.response_id]),
+            {"completed": "1"},
+        )
+        url = self._task_url("study:task_browse")
+        original = self.client.get(url)
+        self.assertFalse(original.context["deduplicate_subjects"])
+        self.assertEqual(original.context["prompt_count"], 4)
+        self.assertContains(original, "data-subject-deduplication-toggle", count=1)
+        deduplicated = self.client.get(url, {"deduplicate": "1"})
+        self.assertEqual(deduplicated.context["prompt_count"], 2)
+        self.assertEqual(deduplicated.context["response_count"], 2)
+        self.assertEqual(deduplicated.context["theme_count"], 1)
+        self.assertContains(deduplicated, 'name="deduplicate" value="1"')
+        groups = deduplicated.context["subject_themes"]
+        self.assertEqual((groups[0]["completed"], groups[0]["total"]), (1, 2))
+        rows = [
+            row for group in groups for family in group["families"] for row in family["subjects"]
+        ]
+        self.assertEqual([row["prompt"].pk for row in rows], [representative.pk, separate_prompt.pk])
+        self.assertEqual([row["progress"].status for row in rows], ["done", "new"])
+        self.assertEqual(self.client.get(url, {"deduplicate": "0"}).context["prompt_count"], 4)
+        self.client.force_login(factories.make_user("other-oral-dedup"))
+        other = self.client.get(url, {"deduplicate": "1"})
+        self.assertTrue(all(
+            row["progress"].status == "new"
+            for group in other.context["subject_themes"]
+            for row in group["subjects"]
+        ))
+
     def test_oral_directory_expands_themes_with_shared_subject_progress(self):
         canonical = self.response_card.response.prompts.get(is_canonical=True)
         linked_theme = factories.make_theme("linked-culture", task=self.task)
@@ -1775,13 +1864,14 @@ class TaskOrganizationTests(TestCase):
         self.assertNotContains(page, inactive_prompt.text)
         self.assertNotContains(page, "Voir le thème et ses révisions")
         self.assertNotContains(page, theme_detail_url(self.theme))
-        self.assertContains(
+        self.assertNotContains(
             page,
             reverse(
                 "study:task_family_detail",
                 args=["eo", "tache-3", canonical.family.slug],
             ),
         )
+        self.assertNotContains(page, "Voir cette famille dans tous les thèmes")
         for group in groups.values():
             for row in group["subjects"]:
                 self.assertContains(page, prompt_detail_url(row["prompt"]))
@@ -2173,10 +2263,14 @@ class TaskOrganizationTests(TestCase):
             reverse(
                 "study:task_family_detail",
                 args=[self.part.slug, self.task.slug, prompt.family.slug],
-            )
+            ),
+            follow=True,
         )
-        self.assertEqual(theme_page.context["stats"]["completed"], 1)
-        self.assertEqual(family_page.context["family_progress"].status, "done")
+        self.assertEqual(theme_page.context["subject_themes"][0]["completed"], 1)
+        self.assertEqual(
+            family_page.context["subject_themes"][0]["families"][0]["progress"].status,
+            "done",
+        )
         self.assertContains(theme_page, 'aria-checked="true"')
 
         cleared = self.client.post(
@@ -2322,7 +2416,7 @@ class TaskOrganizationTests(TestCase):
             ],
         )
 
-    def test_task_family_page_keeps_the_originating_task_scope(self):
+    def test_retired_family_page_keeps_the_originating_task_scope(self):
         shared_family = factories.make_family("shared-family")
         own = factories.make_spine_card(
             theme=self.theme,
@@ -2343,10 +2437,13 @@ class TaskOrganizationTests(TestCase):
             reverse(
                 "study:task_family_detail",
                 args=[self.part.slug, self.task.slug, shared_family.slug],
-            )
+            ),
+            follow=True,
         )
         prompt_ids = {
-            row["prompt"].id for row in response.context["rows"]
+            row["prompt"].id
+            for group in response.context["subject_themes"]
+            for row in group["subjects"]
         }
         self.assertIn(own.response.prompts.get().id, prompt_ids)
         self.assertNotIn(other.response.prompts.get().id, prompt_ids)
@@ -2625,7 +2722,9 @@ class CategoryBatchViewsTests(TestCase):
         self.assertContains(response, "Voir tous les lots")
         self.assertContains(response, "batch=2")
 
-    def test_response_theme_displays_fifteen_card_lots(self):
+    def test_response_theme_review_keeps_fifteen_card_lots(self):
+        from study.views.helpers import _review_batches
+
         theme = factories.make_theme(
             "education",
             task=factories.make_task(),
@@ -2633,16 +2732,16 @@ class CategoryBatchViewsTests(TestCase):
         for _ in range(16):
             factories.make_spine_card(theme=theme, user=self.user)
 
-        response = self.client.get(
-            theme_detail_url(theme)
+        batches = _review_batches(
+            {"part": "eo", "task": "tache-3", "kind": "spine", "theme": theme.slug},
+            self.user,
         )
 
-        self.assertEqual(len(response.context["review_batches"]), 2)
+        self.assertEqual(len(batches), 2)
         self.assertEqual(
-            [batch["card_count"] for batch in response.context["review_batches"]],
+            [batch["card_count"] for batch in batches],
             [15, 1],
         )
-        self.assertContains(response, "Lots de 15 cartes")
 
     def test_response_sheet_splits_local_vocabulary_into_expression_lots(self):
         response = factories.make_response()
@@ -3021,7 +3120,8 @@ class ResponsePromptNavigationTests(TestCase):
             reverse(
                 "study:task_family_detail",
                 args=[self.part.slug, self.task.slug, alias_family.slug],
-            )
+            ),
+            follow=True,
         )
         search_page = self.client.get(
             reverse("study:search"),
@@ -3098,8 +3198,8 @@ class ReviewFlowTests(TestCase):
             theme_detail_url(self.card.response.theme),
         )
         self.assertEqual(
-            theme_page.context["review_batches"][0]["status"],
-            "in-progress",
+            theme_page.context["subject_themes"][0]["progress"].status,
+            "active",
         )
 
     def test_legacy_inferred_start_does_not_count_as_response_practice(self):
@@ -3118,8 +3218,8 @@ class ReviewFlowTests(TestCase):
             theme_detail_url(self.card.response.theme),
         )
         self.assertEqual(
-            theme_page.context["review_batches"][0]["status"],
-            "not-started",
+            theme_page.context["subject_themes"][0]["progress"].status,
+            "new",
         )
 
     def test_mature_response_practice_does_not_complete_subject_material(self):

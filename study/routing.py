@@ -82,12 +82,26 @@ def response_detail_url(response: Response) -> str:
     return prompt_detail_url(prompt)
 
 
+def subject_group_url(
+    part_slug: str, task_slug: str, theme_slug: str, family_slug: str | None = None,
+) -> str:
+    if (part_slug, task_slug) == ("eo", "tache-3"):
+        directory = reverse("study:task_browse", args=[part_slug, task_slug])
+        anchor = f"theme-{theme_slug}"
+        if family_slug:
+            anchor += f"-family-{family_slug}"
+        return f"{directory}#{anchor}"
+    return reverse(
+        "study:task_family_detail" if family_slug else "study:theme_detail",
+        args=[part_slug, task_slug, family_slug or theme_slug],
+    )
+
+
 def theme_detail_url(theme: Theme) -> str:
     if theme.task is None:
         raise ValueError("A public theme must belong to an expression task.")
-    return reverse(
-        "study:theme_detail",
-        args=[theme.task.part.slug, theme.task.slug, theme.slug],
+    return subject_group_url(
+        theme.task.part.slug, theme.task.slug, theme.slug,
     )
 
 

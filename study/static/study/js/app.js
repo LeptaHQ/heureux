@@ -33,7 +33,7 @@
     });
     var currentMode = null;
 
-    function scrollActiveAnnotationAnchor() {
+    function scrollActiveCollectionAnchor(revealGroups) {
       var anchorId = window.location.hash.slice(1);
       if (!anchorId) return;
       try { anchorId = decodeURIComponent(anchorId); } catch (e) {}
@@ -43,17 +43,29 @@
           element.classList.remove("is-annotation-anchor");
         }
       );
-      // One node per annotation, so the anchor resolves in either view mode.
+      // Collection targets use the same DOM nodes in either view mode.
       var target = document.getElementById(anchorId);
-      if (!target || target.offsetParent === null) return;
+      if (!target) return;
+      var isSubjectGroup = target.matches(
+        "[data-t1-table-theme], [data-subject-family-group]"
+      );
+      if (isSubjectGroup && revealGroups) {
+        var disclosure = target;
+        while (disclosure) {
+          disclosure.open = true;
+          disclosure = disclosure.parentElement.closest("details");
+        }
+      }
+      if (target.offsetParent === null) return;
 
-      target.classList.add("is-annotation-anchor");
+      if (!isSubjectGroup) target.classList.add("is-annotation-anchor");
       window.requestAnimationFrame(function () {
         target.scrollIntoView({ block: "center" });
       });
     }
 
     function setCollectionView(mode, persist) {
+      var initialView = currentMode === null;
       if (mode !== "cards" && mode !== "table") mode = "cards";
       if (mode !== currentMode) {
         // Remember each view's disclosures without rendering a second collection.
@@ -77,7 +89,7 @@
       if (persist) {
         try { localStorage.setItem("collectionViewMode", mode); } catch (e) {}
       }
-      scrollActiveAnnotationAnchor();
+      scrollActiveCollectionAnchor(initialView);
     }
 
     var initial =
@@ -93,7 +105,9 @@
         setCollectionView(button.dataset.collectionViewOption, true);
       });
     });
-    window.addEventListener("hashchange", scrollActiveAnnotationAnchor);
+    window.addEventListener("hashchange", function () {
+      scrollActiveCollectionAnchor(true);
+    });
   })();
 
   /* ---------- Vocabulary recall ---------- */

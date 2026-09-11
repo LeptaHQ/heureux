@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static study_links %}
 {% block title %}Parcourir · Heureux{% endblock %}
 
 {% block content %}
 {% include "study/partials/task_nav.html" %}
 <div class="page-head">
   <h1>Sujets &amp; réponses</h1>
-  <p>{% if subject_deduplication_available %}{{ display_count }} sujets affichés · {{ prompt_count }} publications · {{ response_count }} groupes équivalents{% else %}{{ prompt_count }} sujets · {{ response_count }} réponses uniques{% endif %} · {{ theme_count }} thèmes.</p>
+  <p>{% if oral_directory %}{{ display_count }} sujets affichés · {{ publication_count }} publications · {{ response_count }} groupes équivalents{% else %}{{ prompt_count }} sujets · {{ response_count }} réponses uniques{% endif %} · {{ theme_count }} thèmes.</p>
 </div>
 
 {% include "study/partials/subject_directory_search.html" %}
@@ -27,14 +27,18 @@
     <a href="{% url 'study:task_phrases' part.slug task.slug %}">{{ phrase_count }} expressions associées {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>
   {% endif %}
 </div>
-{% if subject_themes %}
-  {% include "study/partials/subject_collection.html" with groups=subject_themes kind="eo3" secondary_label="Vocabulaire" prompt_source="oral-subject-prompts" %}
-  {{ subject_prompt_map|json_script:"oral-subject-prompts" }}
+{% if oral_directory %}
+  {% if subject_themes %}
+    {% include "study/partials/subject_collection.html" with groups=subject_themes kind="eo3" secondary_label="Vocabulaire" prompt_source="oral-subject-prompts" %}
+    {{ subject_prompt_map|json_script:"oral-subject-prompts" }}
+  {% else %}
+    <p class="muted">Aucun contenu pour cette sélection pour l'instant.</p>
+  {% endif %}
 {% else %}
 <div class="grid grid--decks collection-table collection-table--decks" data-collection-view="adaptive">
   {% include "study/partials/collection_table_header.html" with variant="decks" column_1="Thème" column_2="Contenu" column_3="Progression" column_4="État" only %}
   {% for item in themes %}
-    {% url 'study:theme_detail' part.slug task.slug item.theme.slug as theme_url %}
+    {% subject_group_url part.slug task.slug item.theme.slug as theme_url %}
     {% include "study/partials/deck_card.html" with url=theme_url available=True color=item.theme.color icon=item.theme.icon name=item.theme.display_name due=item.stats.due stats=item.stats count_prompts=item.prompt_count count_responses=item.stats.total only %}
   {% empty %}
     <p class="muted">Aucun contenu pour cette sélection pour l'instant.</p>
@@ -42,7 +46,7 @@
 </div>
 {% endif %}
 
-{% if not subject_themes %}
+{% if not oral_directory %}
 <h2 style="margin-top:2rem;">Par famille de sujets</h2>
 <p class="muted mt-0">Regroupez les formulations proches pour réutiliser les mêmes structures et arguments.</p>
 <div class="qlist collection-table collection-table--qrows" data-collection-view="adaptive">

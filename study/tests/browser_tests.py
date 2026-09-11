@@ -915,21 +915,24 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(result.locator("a.subject-row-hit-area")).to_have_attribute(
             "href", reverse("study:response_detail", args=["eo", "tache-3", alias.pk])
         )
-        for route, slug, destination in (
-            ("study:theme_detail", self.theme.slug, f"{directory}#theme-{self.theme.slug}"),
-            ("study:task_family_detail", prompt.family.slug, directory),
+        for removed_path in (
+            f"/expression/orale/tache-3/themes/{self.theme.slug}/",
+            f"/expression/orale/tache-3/familles/{prompt.family.slug}/",
         ):
-            self.page.goto(
-                self.live_server_url + reverse(route, args=["eo", "tache-3", slug])
-            )
-            self.assertEqual(self.page.url, self.live_server_url + destination)
-            expect(self.page.get_by_role("heading", name="Sujets & réponses")).to_be_visible()
+            response = self.page.goto(self.live_server_url + removed_path)
+            self.assertEqual(response.status, 404)
+            self.assertIsNone(response.request.redirected_from)
+            self.assertEqual(self.page.url, self.live_server_url + removed_path)
         self.assert_no_horizontal_overflow()
 
-    def test_removed_oral_practice_page_redirects_with_three_navigation_tabs(self):
-        former_url = reverse("study:task_review_hub", args=["eo", "tache-3"])
+    def test_removed_oral_practice_url_is_missing_and_navigation_has_three_tabs(self):
+        former_url = "/expression/orale/tache-3/revision/"
         directory = reverse("study:task_browse", args=["eo", "tache-3"])
-        self.page.goto(self.live_server_url + former_url)
+        response = self.page.goto(self.live_server_url + former_url)
+        self.assertEqual(response.status, 404)
+        self.assertIsNone(response.request.redirected_from)
+        self.assertEqual(self.page.url, self.live_server_url + former_url)
+        self.page.goto(self.live_server_url + directory)
         self.assertEqual(self.page.url, self.live_server_url + directory)
         expect(self.page.get_by_role("heading", name="Sujets & réponses")).to_be_visible()
         nav = self.page.locator(".task-nav--eo-t3")

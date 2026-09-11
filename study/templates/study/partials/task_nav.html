@@ -33,7 +33,7 @@
   {% elif part.slug == 'eo' and task.slug == 'tache-3' %}
     <a class="{% if request.resolver_match.url_name == 'task_phrases' or request.resolver_match.url_name == 'task_vocabulary_theme' or request.resolver_match.url_name == 'task_vocabulary_category' %}is-active{% endif %}"
        href="{% url 'study:task_phrases' part.slug task.slug %}">Vocabulaire</a>
-    <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'theme_detail' or request.resolver_match.url_name == 'task_family_detail' or request.resolver_match.url_name == 'response_detail' %}is-active{% endif %}"
+    <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'response_detail' %}is-active{% endif %}"
        href="{% url 'study:task_browse' part.slug task.slug %}">Sujets</a>
   {% elif part.slug == 'ee' and task.slug == 'tache-3' %}
     <a class="{% if request.resolver_match.url_name == 'task_phrases' or request.resolver_match.url_name == 'task_vocabulary_theme' %}is-active{% endif %}"

@@ -25,7 +25,14 @@ class ExpressionPartConverter:
         return path_value
 
 
+class OverviewPartConverter(ExpressionPartConverter):
+    """Overview pages exist outside EO Tâche 3 only."""
+
+    regex = r"ecrite|orale(?!/tache-3/)"
+
+
 register_converter(ExpressionPartConverter, "expression_part")
+register_converter(OverviewPartConverter, "overview_part")
 
 app_name = "study"
 
@@ -469,13 +476,13 @@ urlpatterns = [
         name="edit_response",
     ),
     path(
-        "expression/<expression_part:part_slug>/<slug:task_slug>/"
+        "expression/<overview_part:part_slug>/<slug:task_slug>/"
         "themes/<slug:slug>/",
         views.theme_detail,
         name="theme_detail",
     ),
     path(
-        "expression/<expression_part:part_slug>/<slug:task_slug>/"
+        "expression/<overview_part:part_slug>/<slug:task_slug>/"
         "familles/<slug:slug>/",
         views.family_detail,
         name="task_family_detail",
@@ -525,7 +532,7 @@ urlpatterns = [
         name="task_stats",
     ),
     path(
-        "expression/<expression_part:part_slug>/<slug:task_slug>/revision/",
+        "expression/<overview_part:part_slug>/<slug:task_slug>/revision/",
         views.review_hub,
         name="task_review_hub",
     ),

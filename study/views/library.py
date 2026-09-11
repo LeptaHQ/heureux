@@ -4289,6 +4289,10 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
             "model_versions": model_versions,
             "response_copy_texts": response_copy_texts,
             "primary_version": model_versions[0] if model_versions else None,
+            "plain_response_heading": (
+                tache == 1
+                and canonical.category in {"invitations", "sorties", "accueil"}
+            ),
             "other_versions": model_versions[1:],
             "other_version_count": max(len(model_versions) - 1, 0),
             "previous_sujet": siblings[index - 1] if index > 0 else None,

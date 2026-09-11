@@ -1,5 +1,6 @@
 import json
 import re
+from dataclasses import replace
 from unittest.mock import patch
 
 from django.test import SimpleTestCase, TestCase
@@ -175,7 +176,7 @@ class EeWritingContentTests(SimpleTestCase):
                 tache: sum(item[0] == tache for item in responses)
                 for tache in (1, 2, 3)
             },
-            {1: 58, 2: 16, 3: 10},
+            {1: 55, 2: 16, 3: 10},
         )
         for tache, content_key, body in responses:
             with self.subTest(tache=tache, content_key=content_key):
@@ -246,19 +247,20 @@ class EeWritingContentTests(SimpleTestCase):
                             ),
                         )
 
-    def test_invitation_groups_keep_only_their_main_response(self):
-        invitations = next(
-            category for category in content.load_ee_writing_categories(1)
-            if category.slug == "invitations"
-        )
-        canonical = [
-            sujet for sujet in invitations.sujets
-            if sujet.slug == sujet.canonical_slug
-        ]
-        self.assertEqual(len(canonical), 9)
-        for sujet in canonical:
-            with self.subTest(sujet=sujet.source_key):
-                self.assertEqual(len(sujet.versions), 1)
+    def test_trimmed_themes_keep_only_their_main_response(self):
+        categories = {
+            category.slug: category
+            for category in content.load_ee_writing_categories(1)
+        }
+        for theme, expected_count in (("invitations", 9), ("sorties", 8), ("accueil", 5)):
+            with self.subTest(theme=theme):
+                canonical = [
+                    sujet for sujet in categories[theme].sujets
+                    if sujet.slug == sujet.canonical_slug
+                ]
+                self.assertEqual(len(canonical), expected_count)
+                for sujet in canonical:
+                    self.assertEqual(len(sujet.versions), 1, sujet.source_key)
 
     def test_theme_vocabulary_covers_every_writing_theme(self):
         all_ids = set()
@@ -550,7 +552,7 @@ class EeWritingImportPreservationTests(TestCase):
             )
             self.assertEqual(list(Annotation.objects.order_by("pk").values()), saved_annotations)
 
-    def test_linking_barbara_subjects_preserves_versions_and_learner_work(self):
+    def test_linking_subjects_preserves_supplied_versions_and_learner_work(self):
         sources = {
             sujet.source_key: sujet
             for category in self.categories
@@ -558,7 +560,18 @@ class EeWritingImportPreservationTests(TestCase):
         }
         source = sources["ee-tache1:janvier:combinaison-6"]
         alias_source = sources["ee-tache1:janvier:combinaison-10"]
-        self.assertEqual(len(source.versions), 3)
+        source = replace(source, versions=(
+            source.versions[0],
+            content.WritingVersionData(body="Une autre proposition de restaurant.", origin="author"),
+            content.WritingVersionData(body="Un déjeuner à Gas Works Park.", origin="author"),
+        ))
+        categories = tuple(
+            replace(category, sujets=tuple(
+                source if sujet.slug == source.slug else sujet
+                for sujet in category.sujets
+            ))
+            for category in self.categories
+        )
         self.assertFalse(alias_source.versions)
         self.assertEqual(alias_source.canonical_slug, source.slug)
         canonical = factories.make_writing_sujet(
@@ -606,7 +619,7 @@ class EeWritingImportPreservationTests(TestCase):
 
         for _ in range(2):
             self.command._import_writing_sujets(
-                self.categories, self.task_by_slug
+                categories, self.task_by_slug
             )
             canonical.refresh_from_db()
             alias.refresh_from_db()
@@ -1131,6 +1144,67 @@ class EeWritingPageTests(TestCase):
                 )
                 self.assertNotContains(edit, "Combinaison")
 
+    def test_trimmed_responses_use_plain_headings_for_models_and_personal_answers(self):
+        for theme, count in (("invitations", 9), ("sorties", 8), ("accueil", 5)):
+            sujets = [
+                sujet for sujet in WritingSujet.objects.filter(
+                    task=self.tasks[1], category=theme, is_active=True,
+                )
+                if sujet.model_versions
+            ]
+            self.assertEqual(len(sujets), count)
+            for sujet in sujets:
+                with self.subTest(theme=theme, sujet=sujet.slug):
+                    versions = sujet.model_versions
+                    url = reverse("study:writing_sujet_detail", args=["ee", "tache-1", sujet.pk])
+                    page = self.client.get(url)
+                    self.assertContains(
+                        page, '<div class="spine-label" id="t1-model-label">Réponse</div>',
+                        html=True,
+                    )
+                    self.assertEqual(page.context["primary_version"], versions[0])
+                    self.assertEqual(page.context["other_version_count"], 0)
+                    self.assertNotContains(page, "Voir les autres versions")
+                    personal = PersonalWritingResponse.objects.create(
+                        user=self.user, sujet=sujet, body="Ma réponse choisie reste intacte.",
+                    )
+                    page = self.client.get(url)
+                    self.assertContains(
+                        page, '<div class="spine-label" id="t1-personal-label">Réponse</div>',
+                        html=True,
+                    )
+                    self.assertContains(page, '<div class="spine-label">Réponse</div>', html=True)
+                    self.assertEqual(
+                        page.context["response_copy_texts"],
+                        {"model-1": versions[0]["body"], "personal": personal.body},
+                    )
+                    sujet.refresh_from_db()
+                    self.assertEqual(sujet.model_versions, versions)
+
+    def test_untrimmed_themes_and_other_tasks_keep_existing_response_headings(self):
+        for tache, theme in ((1, "voyages"), (2, "sorties")):
+            with self.subTest(tache=tache):
+                sujet = factories.make_writing_sujet(
+                    self.tasks[tache], slug=f"heading-control-{tache}", category=theme,
+                    versions=("Cette réponse conserve son intitulé.",),
+                )
+                url = reverse("study:writing_sujet_detail", args=["ee", f"tache-{tache}", sujet.pk])
+                page = self.client.get(url)
+                self.assertContains(
+                    page, '<div class="spine-label" id="t1-model-label">Réponse modèle</div>',
+                    html=True,
+                )
+                PersonalWritingResponse.objects.create(
+                    user=self.user, sujet=sujet, body="Une réponse personnelle inchangée.",
+                )
+                page = self.client.get(url)
+                self.assertContains(
+                    page,
+                    '<div class="spine-label" id="t1-personal-label">'
+                    'Ma version <span class="chip chip--accent">Personnelle</span></div>',
+                    html=True,
+                )
+
     def test_theme_vocabulary_reuses_shared_directory_and_progress(self):
         for tache in (1, 2):
             task = self.tasks[tache]
@@ -1395,7 +1469,7 @@ class EeWritingPageTests(TestCase):
         for row in rows:
             self.assertEqual(row["progress_sujet"], canonical)
             self.assertEqual(row["progress"].status, "active")
-            self.assertEqual(row["version_count"], 3)
+            self.assertEqual(row["version_count"], 1)
             self.assertEqual(row["equivalent_count"], 1)
         self.assertNotContains(directory, "publications liées")
 
@@ -1426,7 +1500,7 @@ class EeWritingPageTests(TestCase):
                 )
                 self.assertEqual(page.status_code, 200)
                 self.assertEqual(page.context["progress_sujet"], canonical)
-                self.assertEqual(len(page.context["model_versions"]), 3)
+                self.assertEqual(len(page.context["model_versions"]), 1)
                 self.assertEqual(
                     page.context["equivalent_sujets"][0]["sujet"], linked
                 )

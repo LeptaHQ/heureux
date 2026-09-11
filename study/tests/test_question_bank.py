@@ -7,6 +7,7 @@ from datetime import timedelta
 from importlib import import_module
 from io import StringIO
 from pathlib import Path
+from unittest.mock import patch
 
 from django.apps import apps
 from django.core.management import call_command
@@ -2322,6 +2323,52 @@ class QuestionBankViewTests(TestCase):
         )
         self.assertNotContains(response, "data-question-bank-question")
         self.assertNotContains(response, "data-tache-two-subject-month")
+
+    def test_subject_directory_deduplicates_existing_response_groups(self):
+        url = reverse(
+            "study:task_browse", args=[self.task.part.slug, self.task.slug],
+        )
+        original = self.client.get(url)
+        expected = {}
+        for theme in original.context["subject_themes"]:
+            for subject in theme["subjects"]:
+                expected.setdefault(subject["response_id"], subject["content_key"])
+        page = self.client.get(url, {"deduplicate": "1"})
+        rows = [
+            subject for theme in page.context["subject_themes"]
+            for subject in theme["subjects"]
+        ]
+        self.assertEqual(
+            [subject["content_key"] for subject in rows], list(expected.values()),
+        )
+        self.assertLess(len(rows), original.context["subject_count"])
+        self.assertEqual(page.context["subject_count"], len(rows))
+        self.assertEqual(page.context["subject_summary"]["total"], len(rows))
+        self.assertEqual(
+            page.context["question_count"],
+            sum(subject["question_count"] for subject in rows),
+        )
+        self.assertEqual(len(page.context["subject_prompt_map"]), len(rows))
+        self.assertContains(page, "data-subject-collection-row", count=len(rows))
+        for theme in page.context["subject_themes"]:
+            self.assertGreater(theme["subject_count"], 0)
+            self.assertEqual(theme["subject_count"], len(theme["subjects"]))
+            self.assertEqual(theme["total"], len(theme["subjects"]))
+
+    def test_deduplication_keeps_publications_without_linked_responses(self):
+        with patch(
+            "study.views.helpers._tache_two_progress_by_content_key",
+            return_value=({}, {}),
+        ):
+            page = self.client.get(
+                reverse(
+                    "study:task_browse",
+                    args=[self.task.part.slug, self.task.slug],
+                ),
+                {"deduplicate": "1"},
+            )
+        self.assertContains(page, "data-subject-collection-row", count=348)
+        self.assertEqual(page.context["subject_count"], 348)
 
     def test_subjects_are_grouped_by_month_and_batch(self):
         index_url = reverse(

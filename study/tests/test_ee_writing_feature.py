@@ -905,6 +905,127 @@ class EeWritingPageTests(TestCase):
                 )
                 self.assertContains(subjects, content.EE_ASTUCES_URL)
 
+    def test_deduplicated_directories_keep_first_subject_and_shared_progress(self):
+        for tache, distinct in ((1, 63), (2, 69)):
+            with self.subTest(tache=tache):
+                task = self.tasks[tache]
+                url = reverse("study:task_browse", args=["ee", task.slug])
+                original = self.client.get(url)
+                expected = {}
+                for category in original.context["categories"]:
+                    for row in category["sujets"]:
+                        expected.setdefault(row["progress_sujet"].pk, row)
+                selected = next(
+                    row for row in expected.values() if row["equivalent_count"]
+                )
+                canonical = selected["progress_sujet"]
+                PersonalWritingResponse.objects.create(
+                    user=self.user, sujet=canonical, body="Ma réponse personnelle.",
+                )
+
+                page = self.client.get(url, {"deduplicate": "1"})
+                self.assertEqual(page.status_code, 200)
+                self.assertTrue(page.context["deduplicate_subjects"])
+                rows = [
+                    row for category in page.context["categories"]
+                    for row in category["sujets"]
+                ]
+                self.assertEqual(
+                    [row["sujet"].pk for row in rows],
+                    [row["sujet"].pk for row in expected.values()],
+                )
+                self.assertEqual(len(rows), distinct)
+                self.assertContains(page, "data-subject-collection-row", count=distinct)
+                self.assertEqual(page.context["subject_progress"].total, distinct)
+                self.assertEqual(page.context["subject_progress"].started, 1)
+                for category in page.context["categories"]:
+                    self.assertGreater(category["count"], 0)
+                    self.assertEqual(category["count"], len(category["sujets"]))
+                    self.assertEqual(category["progress"].total, category["count"])
+                representative = next(
+                    row for row in rows if row["progress_sujet"].pk == canonical.pk
+                )
+                self.assertEqual(representative["progress"].status, "active")
+                self.assertEqual(representative["version_count"], selected["version_count"])
+                self.assertEqual(representative["source"], selected["source"])
+                self.assertNotContains(page, "publications liées")
+                self.assertNotContains(page, "Personnalisé")
+
+                completed = self.client.post(
+                    reverse(
+                        "study:writing_sujet_completion",
+                        args=["ee", task.slug, representative["sujet"].pk],
+                    ),
+                    {"completed": "1"},
+                    HTTP_X_REQUESTED_WITH="fetch",
+                )
+                self.assertEqual(completed.status_code, 200)
+                finished = self.client.get(url, {"deduplicate": "1"})
+                self.assertEqual(finished.context["subject_progress"].completed, 1)
+                restored = self.client.get(url, {"deduplicate": "0"})
+                restored_rows = [
+                    row for category in restored.context["categories"]
+                    for row in category["sujets"]
+                ]
+                self.assertEqual(len(restored_rows), 138)
+                linked = [
+                    row for row in restored_rows
+                    if row["progress_sujet"].pk == canonical.pk
+                ]
+                self.assertEqual(len(linked), selected["equivalent_count"] + 1)
+                self.assertTrue(all(row["progress"].status == "done" for row in linked))
+                self.assertEqual(
+                    PersonalWritingResponse.objects.get(
+                        user=self.user, sujet=canonical,
+                    ).body,
+                    "Ma réponse personnelle.",
+                )
+
+    def test_deduplicated_search_matches_aliases_before_grouping_and_limiting(self):
+        for tache, task in self.tasks.items():
+            with self.subTest(tache=tache):
+                url = reverse("study:task_search", args=["ee", task.slug])
+                canonical_slugs = content.ee_writing_canonical_slug_by_slug(tache)
+                sujets = {
+                    sujet.slug: sujet
+                    for sujet in WritingSujet.objects.filter(task=task)
+                }
+                alias = next(
+                    sujet for slug, sujet in sujets.items()
+                    if sujet.prompt != sujets[canonical_slugs[slug]].prompt
+                    and sujet.prompt not in sujets[canonical_slugs[slug]].prompt
+                )
+                canonical = sujets[canonical_slugs[alias.slug]]
+                PersonalWritingResponse.objects.create(
+                    user=self.user, sujet=canonical, body="Ma réponse à ce sujet.",
+                )
+                page = self.client.get(url, {
+                    "q": alias.prompt, "scope": "subjects", "deduplicate": "1",
+                })
+                matches = page.context["writing_sujet_results"]
+                self.assertEqual(len(matches), 1)
+                self.assertEqual(matches[0].prompt, alias.prompt)
+                self.assertEqual(matches[0].progress_sujet.pk, canonical.pk)
+                self.assertEqual(matches[0].subject_progress.status, "active")
+
+                expected = {}
+                for sujet in WritingSujet.objects.filter(
+                    task=task, prompt__icontains="vous",
+                ).order_by("order", "id"):
+                    expected.setdefault(canonical_slugs[sujet.slug], sujet.pk)
+                self.assertGreater(len(expected), 12)
+                broad = self.client.get(url, {
+                    "q": "vous", "scope": "subjects", "deduplicate": "1",
+                })
+                self.assertEqual(
+                    broad.context["writing_sujet_result_count"], len(expected),
+                )
+                self.assertEqual(
+                    [sujet.pk for sujet in broad.context["writing_sujet_results"]],
+                    list(expected.values())[:12],
+                )
+                self.assertTrue(broad.context["results_truncated"])
+
     def test_subject_detail_matches_oral_consigne_and_copies_subject(self):
         for tache in (1, 2):
             task = self.tasks[tache]

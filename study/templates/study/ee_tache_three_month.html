@@ -5,7 +5,7 @@
 <div class="ee-t3-page ee-t3-month-page">
   {% include "study/partials/task_nav.html" %}
 
-  <p class="back-link"><a href="{% url 'study:task_browse' part.slug task.slug %}">← Tous les thèmes</a></p>
+  <p class="back-link"><a href="{% url 'study:task_browse' part.slug task.slug %}{% if deduplicate_subjects %}?deduplicate=1{% endif %}">← Tous les thèmes</a></p>
   <header class="memory-overview-hero">
     <div class="memory-overview-hero__copy">
       <p class="eyebrow">{{ part.name }} · {{ task.name }}</p>
@@ -16,7 +16,7 @@
       <p>Choisissez une publication pour lire les deux documents, étudier la synthèse et travailler le point de vue personnel. Les équivalents partagent la même réponse.</p>
     </div>
     <dl class="memory-overview-hero__metrics" aria-label="Progression de {{ subject_theme.name }}">
-      <div><dt>Sujets publiés</dt><dd>{{ subject_theme.subject_count }}</dd></div>
+      <div><dt>{% if deduplicate_subjects %}Sujets distincts{% else %}Sujets publiés{% endif %}</dt><dd>{{ subject_theme.subject_count }}</dd></div>
       <div><dt>Réponses distinctes</dt><dd>{{ subject_theme.distinct_count }}</dd></div>
       <div><dt>Vocabs</dt><dd>{{ subject_theme.vocabulary_count }}</dd></div>
       <div><dt>Terminés</dt><dd>{{ subject_theme.completed }}/{{ subject_theme.total }}</dd></div>
@@ -28,7 +28,7 @@
       <div>
         <p class="eyebrow">{{ subject_theme.name }}</p>
         <h2 id="ee-t3-month-subjects">Sujets du thème</h2>
-        <p>{{ subject_theme.subject_count }} publications, reliées à {{ subject_theme.distinct_count }} réponses complètes et à leur vocabulaire ciblé.</p>
+        <p>{{ subject_theme.subject_count }} {% if deduplicate_subjects %}sujets distincts, reliés{% else %}publications, reliées{% endif %} à {{ subject_theme.distinct_count }} réponses complètes et à leur vocabulaire ciblé.</p>
       </div>
       <div class="ee-t3-section__actions">
         {% include "study/partials/tache_two_progress.html" with summary=subject_theme unit_label="sujets terminés" compact=True only %}

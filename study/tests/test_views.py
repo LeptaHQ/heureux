@@ -1280,6 +1280,60 @@ class EeTacheThreePageTests(TestCase):
         self.assertNotContains(response, "publications liées")
         self.assertContains(response, "data-subject-directory-search")
 
+    def test_deduplicated_subject_and_theme_directories_keep_first_publications(self):
+        url = self._task_url("study:task_browse")
+        original = self.client.get(url)
+        expected = {}
+        for theme in original.context["subject_themes"]:
+            for row in theme["subjects"]:
+                expected.setdefault(row["prompt"].response_id, row["prompt"].pk)
+        page = self.client.get(url, {"deduplicate": "1"})
+        rows = [
+            row for theme in page.context["subject_themes"]
+            for row in theme["subjects"]
+        ]
+        self.assertEqual([row["prompt"].pk for row in rows], list(expected.values()))
+        self.assertLess(len(rows), 138)
+        self.assertEqual(page.context["subject_count"], len(expected))
+        self.assertContains(page, "data-subject-collection-row", count=len(expected))
+        for theme in page.context["subject_themes"]:
+            self.assertGreater(theme["subject_count"], 0)
+            self.assertEqual(theme["subject_count"], len(theme["subjects"]))
+            self.assertEqual(theme["total"], len(theme["subjects"]))
+
+        theme_url = theme_detail_url(rows[0]["prompt"].theme)
+        all_theme = self.client.get(theme_url)
+        expected_theme = {}
+        for row in all_theme.context["subjects"]:
+            expected_theme.setdefault(row["prompt"].response_id, row["prompt"].pk)
+        focused = self.client.get(theme_url, {"deduplicate": "1"})
+        self.assertEqual(
+            [row["prompt"].pk for row in focused.context["subjects"]],
+            list(expected_theme.values()),
+        )
+        self.assertEqual(focused.context["subject_theme"]["total"], len(expected_theme))
+        self.assertContains(focused, "data-subject-deduplication-toggle")
+        self.assertContains(focused, f'href="{url}?deduplicate=1"')
+
+    def test_deduplicated_subject_search_counts_groups_before_limiting(self):
+        query = "de"
+        expected = {}
+        for prompt in Prompt.objects.filter(
+            theme__task=self.task, is_active=True, text__icontains=query,
+        ).order_by("theme__order", "number", "pk"):
+            expected.setdefault(prompt.response_id, prompt.pk)
+        self.assertGreater(len(expected), 12)
+        page = self.client.get(self._task_url("study:task_search"), {
+            "q": query, "scope": "subjects", "deduplicate": "1",
+        })
+        self.assertEqual(page.status_code, 200)
+        self.assertEqual(page.context["subject_result_count"], len(expected))
+        self.assertEqual(
+            [prompt.pk for prompt in page.context["prompt_results"]],
+            list(expected.values())[:12],
+        )
+        self.assertTrue(page.context["results_truncated"])
+
     def test_theme_page_is_a_focused_subject_directory(self):
         prompt = self._first_prompt()
         response = self.client.get(theme_detail_url(prompt.theme))
@@ -1703,6 +1757,36 @@ class TaskOrganizationTests(TestCase):
             phrase_only,
             'data-recall-controls="search-vocabulary-recall-catalog"',
         )
+
+    def test_deduplicated_search_matches_aliases_without_merging_unrelated_text(self):
+        canonical = self.response_card.response.prompts.get(is_canonical=True)
+        alias = Prompt.objects.create(
+            theme=canonical.theme,
+            family=canonical.family,
+            response=canonical.response,
+            number=canonical.number + 1,
+            text="dedup-alias-only",
+            is_canonical=False,
+            content_key="test:dedup-alias",
+        )
+        unrelated = factories.make_spine_card(theme=self.theme).response
+        separate = unrelated.prompts.get(is_canonical=True)
+        separate.text = alias.text
+        separate.save(update_fields=["text"])
+        page = self.client.get(self._task_url("study:task_search"), {
+            "q": alias.text, "scope": "subjects", "deduplicate": "1",
+        })
+        self.assertEqual(page.status_code, 200)
+        self.assertEqual(page.context["subject_result_count"], 2)
+        self.assertEqual(
+            {prompt.pk for prompt in page.context["prompt_results"]},
+            {alias.pk, separate.pk},
+        )
+        empty = self.client.get(self._task_url("study:task_search"), {
+            "q": "no-matching-sujet", "scope": "subjects", "deduplicate": "1",
+        })
+        self.assertEqual(empty.context["result_count"], 0)
+        self.assertContains(empty, "data-subject-deduplication-toggle")
 
     def test_search_summarizes_broad_matches_instead_of_rendering_a_wall(self):
         prompt = self.response_card.response.prompts.get(is_canonical=True)

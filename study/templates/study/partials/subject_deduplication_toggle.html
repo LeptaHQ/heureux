@@ -1,0 +1,15 @@
+<form class="subject-deduplication-toggle" method="get" action="{{ request.path }}">
+  {% for name, values in request.GET.lists %}
+    {% if name != "deduplicate" %}
+      {% for value in values %}<input type="hidden" name="{{ name }}" value="{{ value }}">{% endfor %}
+    {% endif %}
+  {% endfor %}
+  <button
+    class="btn{% if deduplicate_subjects %} btn--primary{% endif %}"
+    type="submit"
+    name="deduplicate"
+    value="{% if deduplicate_subjects %}0{% else %}1{% endif %}"
+    aria-pressed="{{ deduplicate_subjects|yesno:'true,false' }}"
+    title="{% if deduplicate_subjects %}Afficher toutes les publications{% else %}Afficher le premier sujet de chaque groupe équivalent{% endif %}"
+    data-subject-deduplication-toggle>Dédupliquer</button>
+</form>

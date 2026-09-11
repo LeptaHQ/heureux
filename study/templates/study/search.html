@@ -10,6 +10,7 @@
     <label class="sr-only" for="global-search">Rechercher dans le contenu</label>
     <input id="global-search" class="search-form__input" type="search" name="q" value="{{ query }}" placeholder="{% if subjects_only %}Rechercher des mots dans les sujets…{% else %}Chercher un sujet, une idée, une expression…{% endif %}" autofocus>
     {% if subjects_only %}<input type="hidden" name="scope" value="subjects">{% endif %}
+    {% if deduplicate_subjects %}<input type="hidden" name="deduplicate" value="1">{% endif %}
     <button class="btn btn--primary btn--icon" type="submit" aria-label="Chercher" title="Chercher">
       <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
     </button>
@@ -24,7 +25,7 @@
     {% endif %}
   </div>
 
-  {% if result_count %}
+  {% if result_count or subjects_only %}
     {% include "study/partials/collection_view_toggle.html" %}
   {% endif %}
 

@@ -1,5 +1,8 @@
 <div class="collection-view-toolbar">
   <span class="collection-view-toolbar__label">Affichage</span>
+  {% if subject_deduplication_available %}
+    {% include "study/partials/subject_deduplication_toggle.html" %}
+  {% endif %}
   <div class="collection-view-toggle" role="group" aria-label="Mode d’affichage" data-collection-view-toggle>
     <button type="button" data-collection-view-option="cards" aria-pressed="true" aria-label="Cartes" title="Vue cartes">
       <svg viewBox="0 0 20 20" aria-hidden="true">

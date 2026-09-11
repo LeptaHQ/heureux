@@ -13,6 +13,7 @@
     placeholder="Rechercher des mots dans les sujets…"
     autocomplete="off">
   <input type="hidden" name="scope" value="subjects">
+  {% if deduplicate_subjects %}<input type="hidden" name="deduplicate" value="1">{% endif %}
   <button class="btn btn--primary" type="submit">
     {% include "study/partials/ui_icon.html" with name="search" icon_class="btn__icon" only %}
     <span>Rechercher</span>

@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 
-from django.db.models import Count, Prefetch, Q
-from django.db.models.functions import TruncDate
+from django.db.models import Count, F, Prefetch, Q, Window
+from django.db.models.functions import RowNumber, TruncDate
 from django.http import Http404, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
@@ -538,7 +538,7 @@ def _has_ee_tache_three_content(task):
     ).exists()
 
 
-def _ee_tache_three_subject_context(user, task):
+def _ee_tache_three_subject_context(user, task, *, deduplicate=False):
     source_months = _ee_tache_three_source_months()
     source_rows = [
         (month, combinaison)
@@ -594,6 +594,7 @@ def _ee_tache_three_subject_context(user, task):
 
     all_progress = []
     subject_themes = []
+    seen_responses = set()
     for source_theme in theme_data:
         theme = themes_by_name[
             content_module.ee_subject_theme_name(3, source_theme)
@@ -602,6 +603,9 @@ def _ee_tache_three_subject_context(user, task):
         theme_progress = []
         for source_month, combinaison in sources_by_theme[source_theme.slug]:
             prompt = prompts_by_key[combinaison.content_key]
+            if deduplicate and prompt.response_id in seen_responses:
+                continue
+            seen_responses.add(prompt.response_id)
             progress = progress_by_response[prompt.response_id]
             theme_progress.append(progress)
             all_progress.append(progress)
@@ -638,6 +642,8 @@ def _ee_tache_three_subject_context(user, task):
                 }
             )
 
+        if deduplicate and not subjects:
+            continue
         summary = summarize_subject_progress(theme_progress)
         subject_themes.append(
             {
@@ -836,6 +842,7 @@ def _ee_writing_subject_context(
     tache,
     *,
     allow_unsynchronized=False,
+    deduplicate=False,
 ):
     """Build the themed 2025 writing directory with shared canonical progress."""
     source_categories = _ee_writing_source_categories(tache)
@@ -882,12 +889,16 @@ def _ee_writing_subject_context(
 
     categories = []
     all_progress = []
+    seen_sujets = set()
     for source_category in source_categories:
         rows = []
         category_progress = []
         for source in source_category.sujets:
             sujet = sujets_by_slug[source.slug]
             canonical = canonical_by_slug[source.slug]
+            if deduplicate and canonical.pk in seen_sujets:
+                continue
+            seen_sujets.add(canonical.pk)
             progress = progress_by_canonical[canonical.pk]
             category_progress.append(progress)
             all_progress.append(progress)
@@ -916,6 +927,8 @@ def _ee_writing_subject_context(
                     ),
                 }
             )
+        if deduplicate and not rows:
+            continue
         category_summary = progress_summary(
             total=len(category_progress),
             started=sum(item.started for item in category_progress),
@@ -1348,6 +1361,11 @@ def _scope_filters(request, forced_task=None, forced_part_slug=None):
 
 def browse(request, part_slug=None, task_slug=None):
     forced_task = _route_task(part_slug, task_slug, request=request)
+    deduplicate = request.GET.get("deduplicate") == "1"
+    deduplication_context = {
+        "subject_deduplication_available": True,
+        "deduplicate_subjects": deduplicate,
+    }
     if forced_task and not forced_task.available:
         return render(
             request,
@@ -1358,7 +1376,9 @@ def browse(request, part_slug=None, task_slug=None):
         forced_task.part.slug,
         forced_task.slug,
     ) == content_module.QUESTION_BANK_TASK:
-        subject_state = _tache_two_theme_progress(request.user)
+        subject_state = _tache_two_theme_progress(
+            request.user, deduplicate=deduplicate,
+        )
         themes = subject_state["themes"]
         subject_prompt_map = {
             subject["content_key"]: subject["prompt"]
@@ -1371,6 +1391,7 @@ def browse(request, part_slug=None, task_slug=None):
             {
                 "part": forced_task.part,
                 "task": forced_task,
+                **deduplication_context,
                 "subject_themes": themes,
                 "subject_prompt_map": subject_prompt_map,
                 "subject_summary": subject_state,
@@ -1388,6 +1409,7 @@ def browse(request, part_slug=None, task_slug=None):
             forced_task,
             writing_tache,
             allow_unsynchronized=True,
+            deduplicate=deduplicate,
         )
         if forced_task and writing_tache is not None
         else None
@@ -1399,6 +1421,7 @@ def browse(request, part_slug=None, task_slug=None):
             {
                 "part": forced_task.part,
                 "task": forced_task,
+                **deduplication_context,
                 **writing_context,
             },
         )
@@ -1417,9 +1440,11 @@ def browse(request, part_slug=None, task_slug=None):
             {
                 "part": forced_task.part,
                 "task": forced_task,
+                **deduplication_context,
                 **_ee_tache_three_subject_context(
                     request.user,
                     forced_task,
+                    deduplicate=deduplicate,
                 ),
             },
         )
@@ -1623,6 +1648,7 @@ def theme_detail(request, part_slug, task_slug, slug):
         "theme": theme.slug,
     }
     if (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK:
+        deduplicate = request.GET.get("deduplicate") == "1"
         source_by_key = _ee_tache_three_sources_by_key()
         occurrence_count_by_response = {}
         for row in rows:
@@ -1665,6 +1691,12 @@ def theme_detail(request, part_slug, task_slug, slug):
                     "has_source_issue": source.has_source_issue,
                 }
             )
+        if deduplicate:
+            representatives = {}
+            for row in rows:
+                representatives.setdefault(row["prompt"].response_id, row)
+            rows = list(representatives.values())
+            stats = summarize_subject_progress(row["progress"] for row in rows)
         return render(
             request,
             "study/ee_tache_three_month.html",
@@ -1672,6 +1704,8 @@ def theme_detail(request, part_slug, task_slug, slug):
                 "theme": theme,
                 "task": task,
                 "part": task.part,
+                "subject_deduplication_available": True,
+                "deduplicate_subjects": deduplicate,
                 "subjects": rows,
                 "subject_theme": {
                     "slug": theme.slug,
@@ -4960,6 +4994,7 @@ def search(request, part_slug=None, task_slug=None):
     )
     query = request.GET.get("q", "").strip()
     subjects_only = request.GET.get("scope") == "subjects"
+    deduplicate = subjects_only and request.GET.get("deduplicate") == "1"
     prompt_results = []
     writing_sujet_results = []
     phrase_results = []
@@ -4986,6 +5021,15 @@ def search(request, part_slug=None, task_slug=None):
             phrase_qs = phrase_qs.filter(
                 source_prompts__theme__task=task
             ).distinct()
+        if deduplicate:
+            # Match every publication before choosing the first matching equivalent.
+            prompt_qs = prompt_qs.annotate(
+                equivalent_position=Window(
+                    expression=RowNumber(),
+                    partition_by=[F("response_id")],
+                    order_by=["theme__order", "number", "pk"],
+                )
+            ).filter(equivalent_position=1)
         prompt_result_count = prompt_qs.count()
         if not subjects_only:
             phrase_result_count = _distinct_count(phrase_qs)
@@ -5012,12 +5056,18 @@ def search(request, part_slug=None, task_slug=None):
                 writing_sujet_qs.select_related("task__part").order_by(
                     "order",
                     "id",
-                )[:result_limit]
+                )[:None if deduplicate else result_limit]
             )
             canonical_sujets = _canonical_writing_sujets(writing_sujet_results)
+            if deduplicate:
+                representatives = {}
+                for sujet in writing_sujet_results:
+                    representatives.setdefault(canonical_sujets[sujet.pk].pk, sujet)
+                writing_sujet_result_count = len(representatives)
+                writing_sujet_results = list(representatives.values())[:result_limit]
             writing_progress = writing_sujet_progress_by_id(
                 request.user,
-                {sujet.pk for sujet in canonical_sujets.values()},
+                {canonical_sujets[sujet.pk].pk for sujet in writing_sujet_results},
                 task_id=task.pk if task else None,
             )
             for sujet in writing_sujet_results:
@@ -5082,6 +5132,8 @@ def search(request, part_slug=None, task_slug=None):
             "search_url": request.path,
             "query": query,
             "subjects_only": subjects_only,
+            "subject_deduplication_available": subjects_only,
+            "deduplicate_subjects": deduplicate,
             "prompt_results": prompt_results,
             "writing_sujet_results": writing_sujet_results,
             "phrase_results": phrase_results,

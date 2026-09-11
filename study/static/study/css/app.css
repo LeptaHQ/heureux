@@ -3254,6 +3254,15 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
 .collection-view-toolbar__label {
   display: none;
 }
+.subject-deduplication-toggle {
+  margin: 0;
+}
+.subject-deduplication-toggle .btn {
+  min-height: 34px;
+  padding: 0.25rem 0.65rem;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
 .collection-view-toggle {
   display: inline-flex;
   gap: 0.25rem;

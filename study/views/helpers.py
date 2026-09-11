@@ -242,7 +242,7 @@ def _tache_two_progress_by_content_key(user, months):
     return progress_by_content_key, response_id_by_content_key
 
 
-def _tache_two_theme_progress(user, months=None):
+def _tache_two_theme_progress(user, months=None, *, deduplicate=False):
     """Group Tâche 2 subjects by theme with per-subject progress."""
     if months is None:
         months = catalogue.tache_two_subject_months()
@@ -270,7 +270,6 @@ def _tache_two_theme_progress(user, months=None):
                     _EMPTY_SUBJECT_PROGRESS,
                 )
                 vocabulary_progress = progress.vocabulary_progress
-                all_progress.append(progress)
                 subjects_by_theme[theme_slug].append(
                     {
                         "month_slug": month.slug,
@@ -299,8 +298,22 @@ def _tache_two_theme_progress(user, months=None):
                 )
 
     theme_rows = []
+    seen_responses = set()
     for theme in sorted(themes, key=lambda item: item.order):
         subjects = subjects_by_theme[theme.slug]
+        if deduplicate:
+            representatives = []
+            for subject in subjects:
+                response_id = subject["response_id"]
+                # Unlinked publications have no known equivalence.
+                if response_id is not None and response_id in seen_responses:
+                    continue
+                representatives.append(subject)
+                seen_responses.add(response_id)
+            subjects = representatives
+            if not subjects:
+                continue
+        all_progress.extend(subject["progress"] for subject in subjects)
         for index, subject in enumerate(subjects, start=1):
             subject["index"] = index
         theme_summary = summarize_subject_progress(

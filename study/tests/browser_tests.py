@@ -38,6 +38,7 @@ from study.models import (
     PersonalQuestionResponse,
     PersonalResponse,
     PersonalWritingResponse,
+    Prompt,
     Rating,
     ReviewLog,
     ReviewSession,
@@ -1217,6 +1218,190 @@ class BrowserTests(StaticLiveServerTestCase):
                     expect(row).to_have_css("border-left-width", "0px")
                     expect(row).to_have_css("box-shadow", "none")
                     self.assert_no_horizontal_overflow()
+
+    def test_writing_deduplication_preserves_first_publication_and_shared_progress(self):
+        tasks = self._import_ee_writing_content()
+        self.context.add_init_script(
+            """
+            Object.defineProperty(navigator, "clipboard", {
+              configurable: true,
+              value: { writeText: text => {
+                window.__deduplicatedPromptCopy = text;
+                return Promise.resolve();
+              }},
+            });
+            """
+        )
+        for tache, task in tasks.items():
+            with self.subTest(tache=tache):
+                mapping = content.ee_writing_canonical_slug_by_slug(tache)
+                if tache == 1:
+                    source = next(
+                        sujet
+                        for category in content.load_ee_writing_categories(1)
+                        for sujet in category.sujets
+                        if "Cédric" in sujet.prompt and "jardin" in sujet.prompt
+                    )
+                    canonical_slug = mapping[source.slug]
+                else:
+                    group = next(
+                        group for group in content.load_ee_equivalent_groups(tache)
+                        if len(group.members) > 1
+                    )
+                    canonical_slug = content.ee_writing_sujet_slug(group.canonical)
+                sujet = task.writing_sujets.get(slug=canonical_slug)
+                PersonalWritingResponse.objects.create(
+                    user=self.user, sujet=sujet, body="Voici ma réponse.",
+                )
+                url = self.live_server_url + reverse(
+                    "study:task_browse", args=["ee", task.slug],
+                )
+                self.page.goto(url)
+                rows = self.page.locator(
+                    f'[data-subject-collection-row]'
+                    f'[data-writing-sujet-progress-row="{sujet.pk}"]'
+                )
+                publication_count = rows.count()
+                self.assertGreater(publication_count, 1)
+                first_href = rows.first.locator(
+                    ".subject-table-row-link"
+                ).get_attribute("href")
+                copy_key = rows.first.locator(
+                    "[data-prompt-copy]"
+                ).get_attribute("data-prompt-copy-key")
+                prompt_map = json.loads(
+                    self.page.locator("#ee-writing-prompts").text_content()
+                )
+                distinct = len(set(mapping.values()))
+                toggle = self.page.get_by_role("button", name="Dédupliquer", exact=True)
+                for width in (390, 1183):
+                    self.page.set_viewport_size({"width": width, "height": 844})
+                    for mode in ("Cartes", "Tableau"):
+                        self.page.get_by_role("button", name=mode, exact=True).click()
+                        with self.page.expect_navigation():
+                            toggle.click()
+                        expect(toggle).to_have_attribute("aria-pressed", "true")
+                        expect(rows).to_have_count(1)
+                        expect(
+                            self.page.locator("[data-subject-collection-row]")
+                        ).to_have_count(distinct)
+                        group = rows.locator(
+                            "xpath=ancestor::details[@data-t1-table-theme][1]"
+                        )
+                        if not group.evaluate("element => element.open"):
+                            group.locator("summary").click()
+                        expect(rows).to_be_visible()
+                        expect(rows.locator(".subject-table-row-link")).to_have_attribute(
+                            "href", first_href,
+                        )
+                        expect(rows.locator(".progress-status")).to_have_text("En cours")
+                        group_count = group.locator(
+                            "[data-subject-collection-row]"
+                        ).count()
+                        expect(group.locator(".t1-theme__count")).to_have_text(
+                            f"{group_count} sujet{'s' if group_count != 1 else ''}"
+                        )
+                        if tache == 1:
+                            expect(rows.locator(".t1-table__subject-date")).to_have_text(
+                                "Avril 2025",
+                            )
+                        if mode == "Tableau":
+                            group.locator('[data-nested-table-sort="subject"]').click()
+                            expect(rows).to_have_count(1)
+                            expect(rows.locator(".subject-table-row-link")).to_have_attribute(
+                                "href", first_href,
+                            )
+                        rows.locator("[data-prompt-copy]").click()
+                        self.page.wait_for_function(
+                            "text => window.__deduplicatedPromptCopy === text",
+                            arg=prompt_map[copy_key],
+                        )
+                        self.assert_no_horizontal_overflow()
+                        with self.page.expect_navigation():
+                            toggle.click()
+                        expect(toggle).to_have_attribute("aria-pressed", "false")
+                        expect(rows).to_have_count(publication_count)
+                        expect(
+                            self.page.locator("[data-subject-collection-row]")
+                        ).to_have_count(138)
+
+                with self.page.expect_navigation():
+                    toggle.click()
+                group = rows.locator(
+                    "xpath=ancestor::details[@data-t1-table-theme][1]"
+                )
+                if not group.evaluate("element => element.open"):
+                    group.locator("summary").click()
+                with self.page.expect_navigation():
+                    rows.locator("[data-writing-sujet-completion-form] button").click()
+                expect(toggle).to_have_attribute("aria-pressed", "true")
+                expect(rows).to_have_count(1)
+                expect(rows.locator(".progress-status")).to_have_text("Terminé")
+                with self.page.expect_navigation():
+                    toggle.click()
+                expect(rows.locator('button[aria-checked="true"]')).to_have_count(
+                    publication_count,
+                )
+                with self.page.expect_navigation():
+                    toggle.click()
+                search = self.page.locator("[data-subject-directory-search]")
+                search.get_by_role("searchbox").fill("vous")
+                with self.page.expect_navigation():
+                    search.get_by_role("button", name="Rechercher").click()
+                expect(toggle).to_have_attribute("aria-pressed", "true")
+                identifiers = self.page.locator(
+                    "[data-writing-sujet-progress-row]"
+                ).evaluate_all(
+                    "rows => rows.map(row => row.dataset.writingSujetProgressRow)"
+                )
+                self.assertEqual(len(identifiers), 12)
+                self.assertEqual(len(set(identifiers)), 12)
+                with self.page.expect_navigation():
+                    toggle.click()
+                expect(toggle).to_have_attribute("aria-pressed", "false")
+                expect(self.page.get_by_role("searchbox")).to_have_value("vous")
+
+    def test_response_subject_directories_deduplicate_in_both_views(self):
+        def directories():
+            # Each importer replaces the active prompts; visit its task first.
+            oral_task = self._import_eo_tache_two_content()
+            yield reverse("study:task_browse", args=["eo", oral_task.slug])
+            _months, written_task = self._import_ee_tache_three_content()
+            yield reverse("study:task_browse", args=["ee", written_task.slug])
+            theme = Prompt.objects.filter(
+                theme__task=written_task, is_active=True,
+            ).first().theme
+            yield theme_detail_url(theme)
+
+        for path in directories():
+            with self.subTest(path=path):
+                self.page.goto(self.live_server_url + path)
+                rows = self.page.locator("[data-subject-progress-row]")
+                identifiers = rows.evaluate_all(
+                    "rows => rows.map(row => row.dataset.subjectProgressRow)"
+                )
+                self.assertNotIn("None", identifiers)
+                expected = list(dict.fromkeys(identifiers))
+                toggle = self.page.get_by_role("button", name="Dédupliquer", exact=True)
+                with self.page.expect_navigation():
+                    toggle.click()
+                expect(toggle).to_have_attribute("aria-pressed", "true")
+                self.assertEqual(
+                    rows.evaluate_all(
+                        "rows => rows.map(row => row.dataset.subjectProgressRow)"
+                    ),
+                    expected,
+                )
+                for width in (390, 1183):
+                    self.page.set_viewport_size({"width": width, "height": 844})
+                    for mode in ("Cartes", "Tableau"):
+                        self.page.get_by_role("button", name=mode, exact=True).click()
+                        expect(rows).to_have_count(len(expected))
+                        self.assert_no_horizontal_overflow()
+                with self.page.expect_navigation():
+                    toggle.click()
+                expect(toggle).to_have_attribute("aria-pressed", "false")
+                expect(rows).to_have_count(len(identifiers))
 
     def test_ee_tache_one_rows_navigate_without_completion_click_through(self):
         ee_part = factories.make_part("ee")

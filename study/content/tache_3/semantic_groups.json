@@ -1,0 +1,1097 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "groups": [
+    {
+      "id": "culture-p1",
+      "canonical": "culture:p1",
+      "members": [
+        "culture:p1"
+      ],
+      "rationale": "Changing everyday lifestyle habits when settling abroad is a normative adaptation question, not whether to preserve origin culture or whether adaptation is difficult."
+    },
+    {
+      "id": "culture-p2",
+      "canonical": "culture:p2",
+      "members": [
+        "culture:p2"
+      ],
+      "rationale": "The pessimistic observers are adults generally; the separate elderly-observer prompt has a narrower population."
+    },
+    {
+      "id": "culture-p3",
+      "canonical": "culture:p3",
+      "members": [
+        "culture:p3",
+        "economie:p5"
+      ],
+      "rationale": "Both debate whether the State can control everything. Asking agreement with its inability or asking about its ability reverses polarity without changing the actor, total scope or capability question."
+    },
+    {
+      "id": "culture-p4",
+      "canonical": "culture:p4",
+      "members": [
+        "culture:p4"
+      ],
+      "rationale": "Requires selecting and justifying the world's highest-priority social, humanitarian or cultural cause, not choosing one's volunteer activity or assigning responsibility for aid."
+    },
+    {
+      "id": "culture-p5",
+      "canonical": "culture:p5",
+      "members": [
+        "culture:p5"
+      ],
+      "rationale": "Possibility of achieving one's objectives abroad is distinct from an always-positive experience, reasons to emigrate or ease of finding a particular job."
+    },
+    {
+      "id": "culture-p6",
+      "canonical": "culture:p6",
+      "members": [
+        "culture:p6",
+        "education:p8"
+      ],
+      "rationale": "Both challenge the claim that books have become useless today. Generic singular versus plural and the explicit request for reasons do not change present utility, scope or audience."
+    },
+    {
+      "id": "culture-p7",
+      "canonical": "culture:p7",
+      "members": [
+        "culture:p7"
+      ],
+      "rationale": "Evaluates whether artistic occupations are serious professions, not whether arts belong in school or celebrities belong in politics."
+    },
+    {
+      "id": "culture-p8",
+      "canonical": "culture:p8",
+      "members": [
+        "culture:p8"
+      ],
+      "rationale": "Concerns elderly people's pessimistic view of youth specifically, not the broader adult population or the reliability of elders' advice."
+    },
+    {
+      "id": "culture-p9",
+      "canonical": "culture:p9",
+      "members": [
+        "culture:p9"
+      ],
+      "rationale": "Concerns difficulty of adapting abroad. Practical adjustment, overall foreign-residence difficulties and social integration are overlapping but not interchangeable tasks."
+    },
+    {
+      "id": "culture-p10",
+      "canonical": "culture:p10",
+      "members": [
+        "culture:p10",
+        "culture:p32"
+      ],
+      "rationale": "Both ask whether one should preserve one's cultures and traditions in a host country; reversing the two nouns changes neither the obligation nor the migration setting."
+    },
+    {
+      "id": "culture-p11",
+      "canonical": "culture:p11",
+      "members": [
+        "culture:p11"
+      ],
+      "rationale": "Recommends contact with compatriots while abroad; it does not require exclusive compatriot contact or assert the necessity of relationships with host-country inhabitants."
+    },
+    {
+      "id": "culture-p12",
+      "canonical": "culture:p12",
+      "members": [
+        "culture:p12"
+      ],
+      "rationale": "Evaluates the general claim that television viewing wastes time, without restricting the audience to children, the genre to reality TV or the activity to news avoidance."
+    },
+    {
+      "id": "culture-p13",
+      "canonical": "culture:p13",
+      "members": [
+        "culture:p13",
+        "education:p11"
+      ],
+      "rationale": "Both ask whether cultural subjects should be excluded from school teaching. Music, drawing and theatre are illustrative examples of the same category, not additional mandatory subjects."
+    },
+    {
+      "id": "culture-p14",
+      "canonical": "culture:p14",
+      "members": [
+        "culture:p14"
+      ],
+      "rationale": "Asks whether other cultures can be known without travelling; neither a particular medium's usefulness nor speaking a country's language is the same prerequisite."
+    },
+    {
+      "id": "culture-p15",
+      "canonical": "culture:p15",
+      "members": [
+        "culture:p15"
+      ],
+      "rationale": "Evaluates cuisine specifically as a means of knowing countries' cultures, not books, travel or one's own country's diet."
+    },
+    {
+      "id": "culture-p16",
+      "canonical": "culture:p16",
+      "members": [
+        "culture:p16",
+        "famille:p8"
+      ],
+      "rationale": "Identical prompts question whether friendship is necessary for happiness. The broader phrase living one's life well is kept distinct rather than assumed to mean happiness alone."
+    },
+    {
+      "id": "culture-p17",
+      "canonical": "culture:p17",
+      "members": [
+        "culture:p17",
+        "culture:p22"
+      ],
+      "rationale": "Identical prompts ask whether living abroad is always positive; the universal qualifier and whole-experience evaluation are preserved."
+    },
+    {
+      "id": "culture-p18",
+      "canonical": "culture:p18",
+      "members": [
+        "culture:p18",
+        "culture:p23"
+      ],
+      "rationale": "Identical prompts ask whether the decline of personal postal correspondence is regrettable, including greeting cards and love letters; not whether handwriting is obsolete."
+    },
+    {
+      "id": "culture-p19",
+      "canonical": "culture:p19",
+      "members": [
+        "culture:p19"
+      ],
+      "rationale": "Asks whether a country can be known without speaking its language, not without visiting it or whether immigrants should know their host country."
+    },
+    {
+      "id": "culture-p20",
+      "canonical": "culture:p20",
+      "members": [
+        "culture:p20"
+      ],
+      "rationale": "Asks whether reading is necessary to be cultivated. Books may be useful without reading being a necessary condition of cultural attainment."
+    },
+    {
+      "id": "culture-p21",
+      "canonical": "culture:p21",
+      "members": [
+        "culture:p21"
+      ],
+      "rationale": "Evaluates a preference for travelling alone; this travel arrangement is not foreign residence, living alone at home or a universal travel obligation."
+    },
+    {
+      "id": "culture-p24",
+      "canonical": "culture:p24",
+      "members": [
+        "culture:p24",
+        "culture:p28"
+      ],
+      "rationale": "Identical prompts assert that relationships with host-country inhabitants are indispensable for living well abroad; both retain the same necessary condition and setting."
+    },
+    {
+      "id": "culture-p25",
+      "canonical": "culture:p25",
+      "members": [
+        "culture:p25"
+      ],
+      "rationale": "Requests motivations for choosing foreign residence, not a judgment that departures are often forced by lack of alternatives or that the experience is always positive."
+    },
+    {
+      "id": "culture-p26",
+      "canonical": "culture:p26",
+      "members": [
+        "culture:p26"
+      ],
+      "rationale": "Asks the personal importance of knowing the host country when immigrating; it does not request three pre-procedure questions specifically for Quebec."
+    },
+    {
+      "id": "culture-p27",
+      "canonical": "culture:p27",
+      "members": [
+        "culture:p27"
+      ],
+      "rationale": "Asks whether long foreign residence can cause forgetting origin culture; possible change over time is not a duty to preserve traditions."
+    },
+    {
+      "id": "culture-p29",
+      "canonical": "culture:p29",
+      "members": [
+        "culture:p29"
+      ],
+      "rationale": "Evaluates the difficulty of life abroad overall, including ongoing living conditions, rather than only adaptation or becoming socially integrated."
+    },
+    {
+      "id": "culture-p30",
+      "canonical": "culture:p30",
+      "members": [
+        "culture:p30"
+      ],
+      "rationale": "Asks whether integration into a foreign country is easy; social acceptance and belonging are not exhausted by practical adaptation or residence conditions."
+    },
+    {
+      "id": "culture-p31",
+      "canonical": "culture:p31",
+      "members": [
+        "culture:p31"
+      ],
+      "rationale": "Specifies harmful influence of reality television on young people, not all television, all screen time or video games."
+    },
+    {
+      "id": "culture-p33",
+      "canonical": "culture:p33",
+      "members": [
+        "culture:p33"
+      ],
+      "rationale": "Evaluates celebrities' place in politics, a particular participation and legitimacy question distinct from artistic professional seriousness or universal leadership capacity."
+    },
+    {
+      "id": "culture-p34",
+      "canonical": "culture:p34",
+      "members": [
+        "culture:p34"
+      ],
+      "rationale": "Asks about new consumption habits in developed countries broadly; online purchasing feasibility or organic-product availability is only one narrower aspect."
+    },
+    {
+      "id": "culture-p35",
+      "canonical": "culture:p35",
+      "members": [
+        "culture:p35"
+      ],
+      "rationale": "Evaluates immigrants' overall contribution to the receiving country, not immigrants' own reasons, adaptation, employment prospects or preservation of traditions."
+    },
+    {
+      "id": "famille-p1",
+      "canonical": "famille:p1",
+      "members": [
+        "famille:p1"
+      ],
+      "rationale": "Asks whether parents should permit children's social-network use; the source specifies neither unrestricted access nor a ban on every phone use."
+    },
+    {
+      "id": "famille-p2",
+      "canonical": "famille:p2",
+      "members": [
+        "famille:p2"
+      ],
+      "rationale": "Concerns young Canadian adults choosing to stay with parents because they feel comfortable there, unlike general practicality of cohabitation after age 25."
+    },
+    {
+      "id": "famille-p3",
+      "canonical": "famille:p3",
+      "members": [
+        "famille:p3"
+      ],
+      "rationale": "Tests the claim that elderly people always give good advice, not whether elders view youth pessimistically."
+    },
+    {
+      "id": "famille-p4",
+      "canonical": "famille:p4",
+      "members": [
+        "famille:p4",
+        "famille:p17"
+      ],
+      "rationale": "Both ask whether children should always be told the truth; punctuation and the optional opinion invitation leave the universal obligation and audience unchanged."
+    },
+    {
+      "id": "famille-p5",
+      "canonical": "famille:p5",
+      "members": [
+        "famille:p5"
+      ],
+      "rationale": "Asks whether living far from family is easy. Distance does not require living alone or in another country."
+    },
+    {
+      "id": "famille-p6",
+      "canonical": "famille:p6",
+      "members": [
+        "famille:p6",
+        "famille:p15"
+      ],
+      "rationale": "Both evaluate parents giving children money for good school marks. The grammatical variation des/de adds no different incentive, actor or outcome."
+    },
+    {
+      "id": "famille-p7",
+      "canonical": "famille:p7",
+      "members": [
+        "famille:p7"
+      ],
+      "rationale": "Asks whether working with a family member should be avoided, not whether living together is easy or whether family members are best friends."
+    },
+    {
+      "id": "famille-p9",
+      "canonical": "famille:p9",
+      "members": [
+        "famille:p9"
+      ],
+      "rationale": "Necessity of friends for living one's life well can include practical and social functioning beyond happiness. This genuinely close wording is kept separate from happiness-only prompts."
+    },
+    {
+      "id": "famille-p10",
+      "canonical": "famille:p10",
+      "members": [
+        "famille:p10"
+      ],
+      "rationale": "Asks whether family members are one's best friends; comparing relationship types is not deciding whether friendship is necessary for happiness."
+    },
+    {
+      "id": "famille-p11",
+      "canonical": "famille:p11",
+      "members": [
+        "famille:p11"
+      ],
+      "rationale": "Compares ease of living alone and living as a family, not geographic distance from relatives or staying with parents at a specified age."
+    },
+    {
+      "id": "famille-p12",
+      "canonical": "famille:p12",
+      "members": [
+        "famille:p12"
+      ],
+      "rationale": "Evaluates authoritarian parenting generally, not a specific permission, truth-telling duty or monetary reward."
+    },
+    {
+      "id": "famille-p13",
+      "canonical": "famille:p13",
+      "members": [
+        "famille:p13"
+      ],
+      "rationale": "Requires choosing mother tongue or host-country language for speaking with one's children abroad; this is narrower than preserving culture generally."
+    },
+    {
+      "id": "famille-p14",
+      "canonical": "famille:p14",
+      "members": [
+        "famille:p14"
+      ],
+      "rationale": "Asks whether every household member must do housework, a specific shared domestic obligation rather than an overall household arrangement."
+    },
+    {
+      "id": "famille-p16",
+      "canonical": "famille:p16",
+      "members": [
+        "famille:p16"
+      ],
+      "rationale": "Asks whether living with parents after age 25 can be practical; the age threshold and practicality framing differ from Canadian young adults staying for comfort."
+    },
+    {
+      "id": "education-p1",
+      "canonical": "education:p1",
+      "members": [
+        "education:p1"
+      ],
+      "rationale": "Asks whether every person can adapt in a foreign country. Universal capacity does not imply that adaptation, residence or integration is easy."
+    },
+    {
+      "id": "education-p2",
+      "canonical": "education:p2",
+      "members": [
+        "education:p2",
+        "education:p9",
+        "education:p25"
+      ],
+      "rationale": "Never too late to learn, no age limit for learning and possible to learn at every age express the same unrestricted lifelong-learning possibility. None narrows learning to formal studies."
+    },
+    {
+      "id": "education-p3",
+      "canonical": "education:p3",
+      "members": [
+        "education:p3"
+      ],
+      "rationale": "Asks about banning mobile-phone use specifically at school, not prohibiting phones for children everywhere or controlling only social networks."
+    },
+    {
+      "id": "education-p4",
+      "canonical": "education:p4",
+      "members": [
+        "education:p4"
+      ],
+      "rationale": "Evaluates parents withdrawing children from school to teach them at home, not learning everything alone through the Internet."
+    },
+    {
+      "id": "education-p5",
+      "canonical": "education:p5",
+      "members": [
+        "education:p5"
+      ],
+      "rationale": "Requires exactly three justified questions before Quebec immigration procedures; destination, timing and enumerated response distinguish it from generic migration preparation."
+    },
+    {
+      "id": "education-p6",
+      "canonical": "education:p6",
+      "members": [
+        "education:p6"
+      ],
+      "rationale": "Evaluates Internet's role in solidarity around disasters or current events, not social networks' overall utility or preferred volunteer activities."
+    },
+    {
+      "id": "education-p7",
+      "canonical": "education:p7",
+      "members": [
+        "education:p7"
+      ],
+      "rationale": "Concerns doing formal studies at any age, narrower than the possibility of learning anything throughout life."
+    },
+    {
+      "id": "education-p10",
+      "canonical": "education:p10",
+      "members": [
+        "education:p10",
+        "education:p24"
+      ],
+      "rationale": "Identical prompts ask which solidarity action the speaker would like to do; personal preference is preserved rather than replaced with admiration or global priority."
+    },
+    {
+      "id": "education-p12",
+      "canonical": "education:p12",
+      "members": [
+        "education:p12"
+      ],
+      "rationale": "Asks whether studies help professional success, not whether good marks contribute to success in life or whether university should admit everyone."
+    },
+    {
+      "id": "education-p13",
+      "canonical": "education:p13",
+      "members": [
+        "education:p13"
+      ],
+      "rationale": "Concerns difficulty of learning a foreign language, without a learner-age limit, migration destination or prescribed learning medium."
+    },
+    {
+      "id": "education-p14",
+      "canonical": "education:p14",
+      "members": [
+        "education:p14"
+      ],
+      "rationale": "Evaluates books as one means of knowing a country, narrower than knowing cultures without travel and different from language necessity."
+    },
+    {
+      "id": "education-p15",
+      "canonical": "education:p15",
+      "members": [
+        "education:p15"
+      ],
+      "rationale": "Asks whether mobile phones provide the right information, an information-quality question rather than facilitating communication or choosing a favourite medium."
+    },
+    {
+      "id": "education-p16",
+      "canonical": "education:p16",
+      "members": [
+        "education:p16",
+        "economie:p12"
+      ],
+      "rationale": "Identical prompts propose the same salary for everyone within a company, regardless of job; no different population, equality condition or setting."
+    },
+    {
+      "id": "education-p17",
+      "canonical": "education:p17",
+      "members": [
+        "education:p17"
+      ],
+      "rationale": "Asks about limits of freedom of expression, not the State's ability to control everything or honesty towards children."
+    },
+    {
+      "id": "education-p18",
+      "canonical": "education:p18",
+      "members": [
+        "education:p18"
+      ],
+      "rationale": "Asks whether teaching the curriculum is the school's priority; priority is not exclusivity, nor a decision about a particular subject or outing."
+    },
+    {
+      "id": "education-p19",
+      "canonical": "education:p19",
+      "members": [
+        "education:p19",
+        "technologie:p14"
+      ],
+      "rationale": "Both debate television's contribution to children's development; contribue/participe and generic singular/plural preserve medium, population and developmental outcome."
+    },
+    {
+      "id": "education-p20",
+      "canonical": "education:p20",
+      "members": [
+        "education:p20",
+        "economie:p19"
+      ],
+      "rationale": "Identical prompts ask whether university should be accessible to everyone; both concern universal access without prescribing a particular tuition or admission mechanism."
+    },
+    {
+      "id": "education-p21",
+      "canonical": "education:p21",
+      "members": [
+        "education:p21"
+      ],
+      "rationale": "Asks whether good marks can contribute to success in life. Marks are not studies generally, and life success is broader than professional success."
+    },
+    {
+      "id": "education-p22",
+      "canonical": "education:p22",
+      "members": [
+        "education:p22"
+      ],
+      "rationale": "Asks whether everything can be learned alone online today; both universal subject scope and solitary Internet method are material."
+    },
+    {
+      "id": "education-p23",
+      "canonical": "education:p23",
+      "members": [
+        "education:p23"
+      ],
+      "rationale": "Evaluates benefits to children of educational outings, including museums, zoos and galleries, not zoo utility generally or the place of arts in the curriculum."
+    },
+    {
+      "id": "sante-p1",
+      "canonical": "sante:p1",
+      "members": [
+        "sante:p1",
+        "sante:p5"
+      ],
+      "rationale": "Both ask whether children should be encouraged to participate in sports competitions. Statement-plus-opinion versus direct question changes neither encouragement nor competition."
+    },
+    {
+      "id": "sante-p2",
+      "canonical": "sante:p2",
+      "members": [
+        "sante:p2"
+      ],
+      "rationale": "Asks whether children's overall screen time is excessive across devices, not effects of one game or television genre or a particular ban."
+    },
+    {
+      "id": "sante-p3",
+      "canonical": "sante:p3",
+      "members": [
+        "sante:p3"
+      ],
+      "rationale": "Evaluates difficulty of combining employment and studies simultaneously, not age limits for studies or Internet's effects on work."
+    },
+    {
+      "id": "sante-p4",
+      "canonical": "sante:p4",
+      "members": [
+        "sante:p4"
+      ],
+      "rationale": "Allocates responsibility for helping people in difficulty between State and citizens; not a claim that NGOs alone can help the poorest."
+    },
+    {
+      "id": "sante-p6",
+      "canonical": "sante:p6",
+      "members": [
+        "sante:p6"
+      ],
+      "rationale": "Tests whether stopping meat entirely is necessary for good health, not whether voluntary vegetarianism is a reasonable dietary choice."
+    },
+    {
+      "id": "sante-p7",
+      "canonical": "sante:p7",
+      "members": [
+        "sante:p7"
+      ],
+      "rationale": "Asks whether organic-product consumption is reserved for the richest, not whether more supermarket organic goods or organic farming are desirable."
+    },
+    {
+      "id": "sante-p8",
+      "canonical": "sante:p8",
+      "members": [
+        "sante:p8"
+      ],
+      "rationale": "Asks whether children must be compelled to do sport, differing in modality and activity scope from encouraging sports competition."
+    },
+    {
+      "id": "sante-p9",
+      "canonical": "sante:p9",
+      "members": [
+        "sante:p9",
+        "sante:p24"
+      ],
+      "rationale": "Both evaluate increasing cosmetic surgery specifically to remain youthful; grammatical agreement jeune/jeunes changes no motive or population."
+    },
+    {
+      "id": "sante-p10",
+      "canonical": "sante:p10",
+      "members": [
+        "sante:p10",
+        "sante:p12"
+      ],
+      "rationale": "Identical prompts ask whether the State should prohibit tobacco and alcohol sales generally. They explicitly specify prohibition, unlike the State stopping its own selling."
+    },
+    {
+      "id": "sante-p11",
+      "canonical": "sante:p11",
+      "members": [
+        "sante:p11"
+      ],
+      "rationale": "The State is asked to stop selling alcohol and tobacco. This can mean withdrawal as a seller rather than prohibition of others' sales; the ambiguous source is not strengthened using its copied model answer."
+    },
+    {
+      "id": "sante-p13",
+      "canonical": "sante:p13",
+      "members": [
+        "sante:p13"
+      ],
+      "rationale": "Evaluates increasingly choosing a vegetarian diet generally, not a universal requirement to stop meat for health."
+    },
+    {
+      "id": "sante-p14",
+      "canonical": "sante:p14",
+      "members": [
+        "sante:p14"
+      ],
+      "rationale": "Compares city and countryside living specifically for elderly people; transport alternatives in a car-necessity debate do not preserve this population and outcome."
+    },
+    {
+      "id": "sante-p15",
+      "canonical": "sante:p15",
+      "members": [
+        "sante:p15",
+        "sante:p18"
+      ],
+      "rationale": "Identical prompts assess making people work until 70; the policy, age threshold and acceptability judgment all match."
+    },
+    {
+      "id": "sante-p16",
+      "canonical": "sante:p16",
+      "members": [
+        "sante:p16"
+      ],
+      "rationale": "Requests an appraisal of food and diet in the speaker's own country, not cuisine as cultural knowledge or developed-country consumption generally."
+    },
+    {
+      "id": "sante-p17",
+      "canonical": "sante:p17",
+      "members": [
+        "sante:p17",
+        "sante:p21"
+      ],
+      "rationale": "Both evaluate whether stress is stimulating, with no added workplace, duration or population constraint; only question punctuation differs."
+    },
+    {
+      "id": "sante-p19",
+      "canonical": "sante:p19",
+      "members": [
+        "sante:p19"
+      ],
+      "rationale": "Asks whether video games have negative effects on children. Harm can coexist with developmental benefits, so this is not the same claim as positive developmental contribution."
+    },
+    {
+      "id": "sante-p20",
+      "canonical": "sante:p20",
+      "members": [
+        "sante:p20"
+      ],
+      "rationale": "Asks whether earning much money is needed to be able to live, not to enjoy life or be happy."
+    },
+    {
+      "id": "sante-p22",
+      "canonical": "sante:p22",
+      "members": [
+        "sante:p22"
+      ],
+      "rationale": "Asks whether a good salary is necessary for happiness; a good wage, high earnings and enough money to live are different thresholds and outcomes."
+    },
+    {
+      "id": "sante-p23",
+      "canonical": "sante:p23",
+      "members": [
+        "sante:p23"
+      ],
+      "rationale": "Tests the universal impossibility of living without medicines, a distinct necessity claim not reducible to general diet, exercise or stress management."
+    },
+    {
+      "id": "technologie-p1",
+      "canonical": "technologie:p1",
+      "members": [
+        "technologie:p1",
+        "technologie:p9"
+      ],
+      "rationale": "Identical prompts assess social networks making new friendships easier; no expansion to all uses of networks or Internet-induced solitude."
+    },
+    {
+      "id": "technologie-p2",
+      "canonical": "technologie:p2",
+      "members": [
+        "technologie:p2",
+        "technologie:p8"
+      ],
+      "rationale": "Identical prompts ask whether doing without one's mobile phone is easy; ease is preserved rather than weakened to mere possibility."
+    },
+    {
+      "id": "technologie-p3",
+      "canonical": "technologie:p3",
+      "members": [
+        "technologie:p3"
+      ],
+      "rationale": "Evaluates choosing never to watch any television, broader than avoiding televised news and different from judging all viewing to be wasted time."
+    },
+    {
+      "id": "technologie-p4",
+      "canonical": "technologie:p4",
+      "members": [
+        "technologie:p4"
+      ],
+      "rationale": "Asserts Internet makes people solitary as a general causal characterization; the separate explicit possibility claim can be accepted while this generalization is rejected."
+    },
+    {
+      "id": "technologie-p5",
+      "canonical": "technologie:p5",
+      "members": [
+        "technologie:p5"
+      ],
+      "rationale": "Evaluates refusal to watch televised news specifically, not rejecting all television or assessing news bulletins without that refusal."
+    },
+    {
+      "id": "technologie-p6",
+      "canonical": "technologie:p6",
+      "members": [
+        "technologie:p6"
+      ],
+      "rationale": "Requests a general appraisal of television news bulletins, without stipulating avoidance or a comparative preferred-medium selection."
+    },
+    {
+      "id": "technologie-p7",
+      "canonical": "technologie:p7",
+      "members": [
+        "technologie:p7"
+      ],
+      "rationale": "Explicitly asks whether Internet can make people solitary; possibility is weaker than the general causal claim, despite the historically identical answer."
+    },
+    {
+      "id": "technologie-p10",
+      "canonical": "technologie:p10",
+      "members": [
+        "technologie:p10"
+      ],
+      "rationale": "Evaluates current usefulness of social networks overall, not just meeting new friends, reliable information or crisis solidarity."
+    },
+    {
+      "id": "technologie-p11",
+      "canonical": "technologie:p11",
+      "members": [
+        "technologie:p11"
+      ],
+      "rationale": "Asks whether living without a telephone is possible, not whether abandoning a mobile is easy or rejecting several technologies is preferable."
+    },
+    {
+      "id": "technologie-p12",
+      "canonical": "technologie:p12",
+      "members": [
+        "technologie:p12"
+      ],
+      "rationale": "Asks about present obsolescence of handwritten correspondence, not regret at the decline of personal postal communication."
+    },
+    {
+      "id": "technologie-p13",
+      "canonical": "technologie:p13",
+      "members": [
+        "technologie:p13",
+        "technologie:p25"
+      ],
+      "rationale": "Both present the same claim that mobile phones facilitate communication; omitting the explicit opinion invitation leaves the proposition unchanged."
+    },
+    {
+      "id": "technologie-p15",
+      "canonical": "technologie:p15",
+      "members": [
+        "technologie:p15"
+      ],
+      "rationale": "Evaluates a personal preference to live without Internet, computers and phones, not mere feasibility of living without one device."
+    },
+    {
+      "id": "technologie-p16",
+      "canonical": "technologie:p16",
+      "members": [
+        "technologie:p16"
+      ],
+      "rationale": "Asks whether mobile-phone use should be banned for children generally; a school-only ban and parental social-network permission have different scopes."
+    },
+    {
+      "id": "technologie-p17",
+      "canonical": "technologie:p17",
+      "members": [
+        "technologie:p17",
+        "economie:p11"
+      ],
+      "rationale": "Identical prompts jointly assert that space travel is excessively expensive and useless; both concern space travel generally, not only tourism or scientific research."
+    },
+    {
+      "id": "technologie-p18",
+      "canonical": "technologie:p18",
+      "members": [
+        "technologie:p18"
+      ],
+      "rationale": "Asks whether every purchase can be made online, not whether online shopping is preferable or new consumption habits are desirable."
+    },
+    {
+      "id": "technologie-p19",
+      "canonical": "technologie:p19",
+      "members": [
+        "technologie:p19"
+      ],
+      "rationale": "Evaluates video games' contribution to child development, not television's contribution or whether games have any negative effects, which can coexist with benefits."
+    },
+    {
+      "id": "technologie-p20",
+      "canonical": "technologie:p20",
+      "members": [
+        "technologie:p20",
+        "environnement:p5",
+        "environnement:p10",
+        "environnement:p15"
+      ],
+      "rationale": "All debate the present-day necessity of a car in ordinary life: being indispensable and being able to live without one are converse formulations. No member specifies a city, country, age group, personal itinerary, ease requirement or legal ban."
+    },
+    {
+      "id": "technologie-p21",
+      "canonical": "technologie:p21",
+      "members": [
+        "technologie:p21"
+      ],
+      "rationale": "Requires choosing among newspapers, radio, Internet and social networks; these explicit alternatives differ from the TV/Internet/radio choice."
+    },
+    {
+      "id": "technologie-p22",
+      "canonical": "technologie:p22",
+      "members": [
+        "technologie:p22",
+        "technologie:p23",
+        "technologie:p26"
+      ],
+      "rationale": "All present Internet changing behaviour at work. Article, singular/plural and presence of an explicit opinion invitation do not alter the workplace transformation claim."
+    },
+    {
+      "id": "technologie-p24",
+      "canonical": "technologie:p24",
+      "members": [
+        "technologie:p24"
+      ],
+      "rationale": "Requires choosing among TV, Internet and radio; it permits TV and excludes newspapers/social networks as separate options, unlike the other media-choice prompt."
+    },
+    {
+      "id": "environnement-p1",
+      "canonical": "environnement:p1",
+      "members": [
+        "environnement:p1"
+      ],
+      "rationale": "Asks which citizen actions deserve admiration and why, not which action the speaker would personally like to undertake or which cause is globally most urgent."
+    },
+    {
+      "id": "environnement-p2",
+      "canonical": "environnement:p2",
+      "members": [
+        "environnement:p2"
+      ],
+      "rationale": "Asks whether zoos have utility. Acknowledging benefits does not decide whether zoos should close on other grounds."
+    },
+    {
+      "id": "environnement-p3",
+      "canonical": "environnement:p3",
+      "members": [
+        "environnement:p3"
+      ],
+      "rationale": "Asks whether every person can reduce their waste; individual capacity for a specific action differs from assessing national pollution measures or economic development."
+    },
+    {
+      "id": "environnement-p4",
+      "canonical": "environnement:p4",
+      "members": [
+        "environnement:p4"
+      ],
+      "rationale": "Asks whether zoos should close, a normative institutional decision not identical to whether zoos have any utility."
+    },
+    {
+      "id": "environnement-p6",
+      "canonical": "environnement:p6",
+      "members": [
+        "environnement:p6"
+      ],
+      "rationale": "Proposes limiting car circulation in cities, not banning car use in city centres; both degree and geographic extent differ."
+    },
+    {
+      "id": "environnement-p7",
+      "canonical": "environnement:p7",
+      "members": [
+        "environnement:p7",
+        "economie:p8"
+      ],
+      "rationale": "Both explicitly evaluate whether increasing organic products in supermarkets is good; the same retail development and desirability judgment are retained."
+    },
+    {
+      "id": "environnement-p8",
+      "canonical": "environnement:p8",
+      "members": [
+        "environnement:p8"
+      ],
+      "rationale": "Asks about prohibiting car use in city centres, not merely limiting citywide circulation or making public transport free."
+    },
+    {
+      "id": "environnement-p9",
+      "canonical": "environnement:p9",
+      "members": [
+        "environnement:p9",
+        "environnement:p16"
+      ],
+      "rationale": "Identical prompts assert tourism destroys certain regions; both preserve territorial harm rather than asking reasons for national tourism development."
+    },
+    {
+      "id": "environnement-p11",
+      "canonical": "environnement:p11",
+      "members": [
+        "environnement:p11"
+      ],
+      "rationale": "Asks for evaluation of actual pollution measures in one's country, not an unrestricted judgment of economic/environmental compatibility or a single proposed traffic policy."
+    },
+    {
+      "id": "environnement-p12",
+      "canonical": "environnement:p12",
+      "members": [
+        "environnement:p12"
+      ],
+      "rationale": "States only that organic products are increasingly visible in supermarkets. The omitted desirability question leaves the response task under-specified; a copied model does not establish equivalence to asking whether the increase is good."
+    },
+    {
+      "id": "environnement-p13",
+      "canonical": "environnement:p13",
+      "members": [
+        "environnement:p13"
+      ],
+      "rationale": "Evaluates development of organic agriculture generally, a production-system question broader than organic goods in supermarkets or rich-only consumer access."
+    },
+    {
+      "id": "environnement-p14",
+      "canonical": "environnement:p14",
+      "members": [
+        "environnement:p14",
+        "economie:p7"
+      ],
+      "rationale": "Identical prompts ask whether economic development and environmental preservation can coexist; same feasibility, economic scope and environmental constraint."
+    },
+    {
+      "id": "economie-p1",
+      "canonical": "economie:p1",
+      "members": [
+        "economie:p1"
+      ],
+      "rationale": "Asks whether the speaker expects easily to find work if moving to Canada, unlike general ease of departing to work abroad or young people's job-search disadvantage."
+    },
+    {
+      "id": "economie-p2",
+      "canonical": "economie:p2",
+      "members": [
+        "economie:p2"
+      ],
+      "rationale": "Asks whether athletes earn too much, a particular occupational population and excessive-pay judgment rather than uniform company pay or job difficulty."
+    },
+    {
+      "id": "economie-p3",
+      "canonical": "economie:p3",
+      "members": [
+        "economie:p3"
+      ],
+      "rationale": "Asks whether everyone can hold a position of responsibility; universal capability differs from personal manager-gender preference or celebrities entering politics."
+    },
+    {
+      "id": "economie-p4",
+      "canonical": "economie:p4",
+      "members": [
+        "economie:p4"
+      ],
+      "rationale": "Asks whether employers should permit workplace naps, a specific action not equivalent to promoting workplace wellbeing generally."
+    },
+    {
+      "id": "economie-p6",
+      "canonical": "economie:p6",
+      "members": [
+        "economie:p6",
+        "economie:p21"
+      ],
+      "rationale": "Identical prompts ask whether promoting wellbeing at work is important, without narrowing to naps, salary or retirement age."
+    },
+    {
+      "id": "economie-p9",
+      "canonical": "economie:p9",
+      "members": [
+        "economie:p9",
+        "economie:p13"
+      ],
+      "rationale": "Identical prompts rank salary as the most important aspect of a job; neither asks how much income is needed for happiness or survival."
+    },
+    {
+      "id": "economie-p10",
+      "canonical": "economie:p10",
+      "members": [
+        "economie:p10"
+      ],
+      "rationale": "Asks whether finding work is harder when young, an age-based comparison not a Canadian migration or overseas-work question."
+    },
+    {
+      "id": "economie-p14",
+      "canonical": "economie:p14",
+      "members": [
+        "economie:p14"
+      ],
+      "rationale": "Asks whether foreign departures are often caused by having no other choice, not the full range of motivations for choosing to live abroad."
+    },
+    {
+      "id": "economie-p15",
+      "canonical": "economie:p15",
+      "members": [
+        "economie:p15"
+      ],
+      "rationale": "Asks whether departing to work abroad is easy generally; no named country, personal Canadian job expectation or non-work migration goal is specified."
+    },
+    {
+      "id": "economie-p16",
+      "canonical": "economie:p16",
+      "members": [
+        "economie:p16"
+      ],
+      "rationale": "Requests reasons to develop tourism in a country, not agreement that tourism destroys certain regions."
+    },
+    {
+      "id": "economie-p17",
+      "canonical": "economie:p17",
+      "members": [
+        "economie:p17"
+      ],
+      "rationale": "Asks personal preference for working under a male or female manager, not whether everyone can manage or a general hiring-policy obligation."
+    },
+    {
+      "id": "economie-p18",
+      "canonical": "economie:p18",
+      "members": [
+        "economie:p18"
+      ],
+      "rationale": "Asks whether earning much money is necessary to enjoy life; neither merely being able to live nor needing a good salary for happiness is assumed identical."
+    },
+    {
+      "id": "economie-p20",
+      "canonical": "economie:p20",
+      "members": [
+        "economie:p20"
+      ],
+      "rationale": "Asks whether difficult occupations are the best paid, a descriptive pay relationship rather than a salary-equality policy or ranking salary among job criteria."
+    },
+    {
+      "id": "economie-p22",
+      "canonical": "economie:p22",
+      "members": [
+        "economie:p22"
+      ],
+      "rationale": "Proposes free urban public transport, a specific pricing policy rather than car necessity, traffic limitation or downtown prohibition."
+    },
+    {
+      "id": "economie-p23",
+      "canonical": "economie:p23",
+      "members": [
+        "economie:p23"
+      ],
+      "rationale": "Claims associations and NGOs are the only actors capable of helping the poorest; exclusive capacity and severe poverty differ from normative State/citizen responsibility for hardship generally."
+    },
+    {
+      "id": "economie-p24",
+      "canonical": "economie:p24",
+      "members": [
+        "economie:p24"
+      ],
+      "rationale": "Requests an open opinion about car-free living, without restricting judgment to possibility or necessity. It remains separate rather than acquiring the copied answer's feasibility constraint."
+    }
+  ]
+}

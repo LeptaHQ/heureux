@@ -1724,8 +1724,6 @@ def theme_detail(request, part_slug, task_slug, slug):
         )
     if theme is None:
         raise Http404
-    if (task.part.slug, task.slug) == ("eo", "tache-3"):
-        return redirect(routing.theme_detail_url(theme))
     prompts = list(
         Prompt.objects.filter(theme=theme, is_active=True)
         .select_related("response", "response__theme", "family")
@@ -3628,8 +3626,6 @@ def family_detail(request, part_slug, task_slug, slug):
         slug=slug,
         is_active=True,
     )
-    if (task.part.slug, task.slug) == ("eo", "tache-3"):
-        return redirect("study:task_browse", task.part.slug, task.slug)
     prompts = list(
         Prompt.objects.filter(
             family=family,

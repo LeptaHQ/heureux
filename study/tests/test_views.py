@@ -21,7 +21,7 @@ from django.test import (
     skipUnlessDBFeature,
     tag,
 )
-from django.urls import reverse
+from django.urls import NoReverseMatch, Resolver404, resolve, reverse
 from django.utils import timezone
 
 from config import urls as config_urls
@@ -52,6 +52,7 @@ from study.models import (
 from study.routing import (
     prompt_detail_url,
     response_detail_url,
+    subject_group_url,
     theme_detail_url,
 )
 
@@ -673,14 +674,9 @@ class SmokeTests(TestCase):
             response__isnull=False
         ).first().response.family
         response = self.client.get(
-            reverse(
-                "study:task_family_detail",
-                args=["eo", "tache-3", family.slug],
-            )
+            f"/expression/orale/tache-3/familles/{family.slug}/"
         )
-        self.assertRedirects(
-            response, reverse("study:task_browse", args=["eo", "tache-3"])
-        )
+        self.assertEqual(response.status_code, 404)
 
     def test_expression_hub_groups_content_by_part_and_task(self):
         written = factories.make_part("ee", available=False)
@@ -1733,36 +1729,59 @@ class TaskOrganizationTests(TestCase):
         self.assertContains(own, 'data-recall-cell="french"', count=1)
         self.assertContains(own, 'data-recall-cell="meaning"', count=1)
 
-    def test_retired_oral_group_pages_redirect_without_rendering_old_lists(self):
+    def test_removed_oral_overview_urls_do_not_resolve_or_reverse(self):
         prompt = self.response_card.response.prompts.get(is_canonical=True)
         directory = self._task_url("study:task_browse")
-        for route, slug, target in (
-            ("study:theme_detail", self.theme.slug, f"{directory}#theme-{self.theme.slug}"),
-            ("study:task_family_detail", prompt.family.slug, directory),
+        for route, args, path in (
+            ("study:theme_detail", ["eo", "tache-3", self.theme.slug],
+             f"/expression/orale/tache-3/themes/{self.theme.slug}/"),
+            ("study:task_family_detail", ["eo", "tache-3", prompt.family.slug],
+             f"/expression/orale/tache-3/familles/{prompt.family.slug}/"),
+            ("study:task_review_hub", ["eo", "tache-3"],
+             "/expression/orale/tache-3/revision/"),
         ):
             with self.subTest(route=route):
-                old_url = reverse(route, args=["eo", "tache-3", slug])
-                retired = self.client.get(old_url)
-                self.assertRedirects(retired, target)
-                self.assertTemplateNotUsed(retired, "study/theme_detail.html")
-                self.assertTemplateNotUsed(retired, "study/family_detail.html")
-                missing = self.client.get(
-                    reverse(route, args=["eo", "tache-3", "unknown-group"])
-                )
-                self.assertEqual(missing.status_code, 404)
+                with self.assertRaises(Resolver404):
+                    resolve(path)
+                with self.assertRaises(NoReverseMatch):
+                    reverse(route, args=args)
+                for client in (self.client, Client()):
+                    for removed_path in (path, path.rstrip("/"), path + "?deduplicate=1"):
+                        removed = client.get(removed_path)
+                        self.assertEqual(removed.status_code, 404)
+                        self.assertNotIn("Location", removed.headers)
+                self.assertEqual(self.client.post(path).status_code, 404)
         detail = self.client.get(prompt_detail_url(prompt))
         self.assertContains(
             detail, f'{directory}#theme-{self.theme.slug}-family-{prompt.family.slug}'
         )
         self.assertNotContains(
             detail,
-            reverse("study:task_family_detail", args=["eo", "tache-3", prompt.family.slug]),
+            f"/expression/orale/tache-3/familles/{prompt.family.slug}/",
         )
         overview = self.client.get(self._task_url("study:task_detail"))
         self.assertContains(overview, directory)
         self.assertNotContains(
-            overview, reverse("study:theme_detail", args=["eo", "tache-3", self.theme.slug])
+            overview, f"/expression/orale/tache-3/themes/{self.theme.slug}/"
         )
+
+    def test_overview_route_constraints_leave_other_tasks_and_active_oral_routes(self):
+        for part, task in (("ee", "tache-3"), ("eo", "tache-2"), ("eo", "tache-30")):
+            for route, tail in (
+                ("study:theme_detail", ["culture"]),
+                ("study:task_family_detail", ["family"]),
+                ("study:task_review_hub", []),
+            ):
+                with self.subTest(part=part, task=task, route=route):
+                    url = reverse(route, args=[part, task, *tail])
+                    match = resolve(url)
+                    self.assertEqual(match.view_name, route)
+                    self.assertEqual(match.kwargs["part_slug"], part)
+                    self.assertEqual(match.kwargs["task_slug"], task)
+        for route in ("study:task_browse", "study:task_review", "study:task_revisit_list"):
+            self.assertEqual(
+                resolve(reverse(route, args=["eo", "tache-3"])).view_name, route
+            )
 
     def test_oral_deduplication_keeps_first_displayed_occurrences_and_scoped_progress(self):
         canonical = self.response_card.response.prompts.get(is_canonical=True)
@@ -1865,10 +1884,7 @@ class TaskOrganizationTests(TestCase):
         self.assertNotContains(page, theme_detail_url(self.theme))
         self.assertNotContains(
             page,
-            reverse(
-                "study:task_family_detail",
-                args=["eo", "tache-3", canonical.family.slug],
-            ),
+            f"/expression/orale/tache-3/familles/{canonical.family.slug}/",
         )
         self.assertNotContains(page, "Voir cette famille dans tous les thèmes")
         for group in groups.values():
@@ -2262,11 +2278,9 @@ class TaskOrganizationTests(TestCase):
 
         theme_page = self.client.get(theme_detail_url(self.theme))
         family_page = self.client.get(
-            reverse(
-                "study:task_family_detail",
-                args=[self.part.slug, self.task.slug, prompt.family.slug],
-            ),
-            follow=True,
+            subject_group_url(
+                self.part.slug, self.task.slug, self.theme.slug, prompt.family.slug
+            )
         )
         self.assertEqual(theme_page.context["subject_themes"][0]["completed"], 1)
         self.assertEqual(
@@ -2418,7 +2432,7 @@ class TaskOrganizationTests(TestCase):
             ],
         )
 
-    def test_retired_family_page_keeps_the_originating_task_scope(self):
+    def test_nested_family_group_keeps_the_originating_task_scope(self):
         shared_family = factories.make_family("shared-family")
         own = factories.make_spine_card(
             theme=self.theme,
@@ -2436,16 +2450,16 @@ class TaskOrganizationTests(TestCase):
         )
 
         response = self.client.get(
-            reverse(
-                "study:task_family_detail",
-                args=[self.part.slug, self.task.slug, shared_family.slug],
-            ),
-            follow=True,
+            subject_group_url(
+                self.part.slug, self.task.slug, self.theme.slug, shared_family.slug
+            )
         )
         prompt_ids = {
             row["prompt"].id
             for group in response.context["subject_themes"]
-            for row in group["subjects"]
+            for family in group["families"]
+            if family["slug"] == shared_family.slug
+            for row in family["subjects"]
         }
         self.assertIn(own.response.prompts.get().id, prompt_ids)
         self.assertNotIn(other.response.prompts.get().id, prompt_ids)
@@ -2464,7 +2478,7 @@ class TaskOrganizationTests(TestCase):
         )
         self.assertEqual(response.context["streak"], 1)
 
-    def test_retired_oral_review_hub_preserves_saved_session_and_direct_practice(self):
+    def test_removed_oral_review_hub_preserves_saved_session_and_direct_practice(self):
         session = ReviewSession.load(self.user)
         session.current_card = self.response_card
         session.scope = {
@@ -2475,9 +2489,9 @@ class TaskOrganizationTests(TestCase):
         session.save(update_fields=["current_card", "scope"])
 
         response = self.client.get(
-            self._task_url("study:task_review_hub")
+            "/expression/orale/tache-3/revision/"
         )
-        self.assertRedirects(response, self._task_url("study:task_browse"))
+        self.assertEqual(response.status_code, 404)
         session.refresh_from_db()
         self.assertEqual(session.current_card_id, self.response_card.pk)
         self.assertEqual(
@@ -2491,7 +2505,7 @@ class TaskOrganizationTests(TestCase):
         ):
             page = self.client.get(url)
             self.assertNotContains(
-                page, f'href="{self._task_url("study:task_review_hub")}"'
+                page, 'href="/expression/orale/tache-3/revision/"'
             )
             self.assertNotContains(page, ">Pratiquer</a>")
         practice = self.client.get(
@@ -3128,11 +3142,9 @@ class ResponsePromptNavigationTests(TestCase):
             theme_detail_url(self.second_theme)
         )
         family_page = self.client.get(
-            reverse(
-                "study:task_family_detail",
-                args=[self.part.slug, self.task.slug, alias_family.slug],
-            ),
-            follow=True,
+            subject_group_url(
+                self.part.slug, self.task.slug, self.second_theme.slug, alias_family.slug
+            )
         )
         search_page = self.client.get(
             reverse("study:search"),

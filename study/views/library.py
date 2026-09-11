@@ -1359,7 +1359,7 @@ def _scope_filters(request, forced_task=None, forced_part_slug=None):
     }
 
 
-def _oral_subject_themes(themes, response_progress):
+def _oral_subject_themes(themes, response_progress, *, deduplicate=False):
     family_labels = catalogue.eo_tache_three_family_labels()
     subjects_by_theme = {item["theme"].pk: [] for item in themes}
     prompts = (
@@ -1377,6 +1377,7 @@ def _oral_subject_themes(themes, response_progress):
             }
         )
     groups = []
+    seen_responses = set()
     for item in themes:
         theme = item["theme"]
         subjects = subjects_by_theme[theme.pk]
@@ -1394,6 +1395,16 @@ def _oral_subject_themes(themes, response_progress):
         ):
             family = family_group["family"]
             rows = family_group["subjects"]
+            if deduplicate:
+                representatives = []
+                for row in rows:
+                    response_id = row["prompt"].response_id
+                    if response_id not in seen_responses:
+                        representatives.append(row)
+                        seen_responses.add(response_id)
+                rows = representatives
+                if not rows:
+                    continue
             response_ids = {row["prompt"].response_id for row in rows}
             family_groups.append(
                 {
@@ -1403,18 +1414,19 @@ def _oral_subject_themes(themes, response_progress):
                     ),
                     "subjects": rows,
                     "subject_count": len(rows),
-                    "detail_url": (
-                        reverse(
-                            "study:task_family_detail",
-                            args=[theme.task.part.slug, theme.task.slug, family.slug],
-                        )
-                        if family.is_active
-                        else ""
-                    ),
                     **summarize_subject_progress(
                         response_progress[response_id] for response_id in response_ids
                     ),
                 }
+            )
+        stats = item["stats"]
+        if deduplicate:
+            subjects = [row for family in family_groups for row in family["subjects"]]
+            if not subjects:
+                continue
+            response_ids = {row["prompt"].response_id for row in subjects}
+            stats = summarize_subject_progress(
+                response_progress[response_id] for response_id in response_ids
             )
         groups.append(
             {
@@ -1424,7 +1436,7 @@ def _oral_subject_themes(themes, response_progress):
                 "subjects": subjects,
                 "families": family_groups,
                 "subject_count": len(subjects),
-                **item["stats"],
+                **stats,
             }
         )
     return groups
@@ -1637,21 +1649,39 @@ def browse(request, part_slug=None, task_slug=None):
         phrase_qs = phrase_qs.filter(
             source_prompts__theme__task__part__slug=scope["part"]
         ).distinct()
+    oral_directory = (
+        forced_task
+        and (forced_task.part.slug, forced_task.slug) == ("eo", "tache-3")
+    )
+    subject_themes = (
+        _oral_subject_themes(themes, response_progress, deduplicate=deduplicate)
+        if oral_directory
+        else []
+    )
+    deduplicated_count = (
+        sum(group["subject_count"] for group in subject_themes)
+        if oral_directory and deduplicate
+        else None
+    )
     context = {
         "themes": themes,
-        "subject_themes": (
-            _oral_subject_themes(themes, response_progress)
-            if forced_task
-            and (forced_task.part.slug, forced_task.slug) == ("eo", "tache-3")
-            else []
-        ),
+        "subject_themes": subject_themes,
+        "oral_directory": oral_directory,
         "families": families,
-        "theme_count": len(themes),
-        "prompt_count": prompt_qs.count(),
-        "response_count": response_qs.count(),
+        "theme_count": (
+            len(subject_themes) if deduplicated_count is not None else len(themes)
+        ),
+        "prompt_count": (
+            deduplicated_count if deduplicated_count is not None else prompt_qs.count()
+        ),
+        "response_count": (
+            deduplicated_count if deduplicated_count is not None else response_qs.count()
+        ),
         "phrase_count": _distinct_count(phrase_qs),
         **filters,
     }
+    if oral_directory:
+        context.update(deduplication_context)
     return render(request, "study/browse.html", context)
 
 
@@ -1694,6 +1724,8 @@ def theme_detail(request, part_slug, task_slug, slug):
         )
     if theme is None:
         raise Http404
+    if (task.part.slug, task.slug) == ("eo", "tache-3"):
+        return redirect(routing.theme_detail_url(theme))
     prompts = list(
         Prompt.objects.filter(theme=theme, is_active=True)
         .select_related("response", "response__theme", "family")
@@ -3596,6 +3628,8 @@ def family_detail(request, part_slug, task_slug, slug):
         slug=slug,
         is_active=True,
     )
+    if (task.part.slug, task.slug) == ("eo", "tache-3"):
+        return redirect("study:task_browse", task.part.slug, task.slug)
     prompts = list(
         Prompt.objects.filter(
             family=family,

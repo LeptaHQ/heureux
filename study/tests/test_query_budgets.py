@@ -192,6 +192,12 @@ class ExpressionPageBudgetTests(QueryBudgetTestCase):
             with self.subTest(page=key):
                 self.assertEqual(self._query_count(url), before[key])
 
+    def test_deduplicated_directory_query_count_does_not_grow_with_more_themes(self):
+        url = self._pages()["browse"] + "?deduplicate=1"
+        before = self._query_count(url)
+        self._add_theme("deduplicated-extra-theme")
+        self.assertEqual(self._query_count(url), before)
+
     def test_query_count_does_not_grow_with_more_tasks(self):
         pages = self._pages()
         before = {key: self._query_count(url) for key, url in pages.items()}

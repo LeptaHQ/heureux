@@ -46,6 +46,9 @@ The shared `study/partials/pagination.html` pager accepts a Django `page_obj`,
   responses for progress without duplicating subject rows.
   Theme-specific labels in `study/content/tache_3/subject_family_labels.json`
   clarify the existing families without changing memberships or saved progress.
+  Its optional **Dédupliquer** view keeps the first displayed occurrence of each
+  response across themes and families. Old EO Tâche 3 theme/family listing URLs
+  redirect to the nested subject directory; the study content and reviews remain.
   Oral and written completion controls share one JavaScript controller.
 - Subject progress filters highlight candidates before transferring rows to Python.
   Existing source-key and URL parsers remain the final matching authority; batching

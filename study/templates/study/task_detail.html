@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load study_links %}
 {% block title %}{{ task.name }} · {{ part.name }}{% endblock %}
 
 {% block content %}
@@ -46,7 +47,7 @@
   <div class="grid grid--decks collection-table collection-table--decks" data-collection-view="adaptive">
     {% include "study/partials/collection_table_header.html" with variant="decks" column_1="Thème" column_2="Contenu" column_3="Progression" column_4="État" only %}
     {% for item in themes %}
-      {% url 'study:theme_detail' part.slug task.slug item.theme.slug as theme_url %}
+      {% subject_group_url part.slug task.slug item.theme.slug as theme_url %}
       {% include "study/partials/deck_card.html" with url=theme_url available=True color=item.theme.color icon=item.theme.icon name=item.theme.display_name due=item.stats.due stats=item.stats count_prompts=item.prompt_count count_responses=item.stats.total show_complete=True count_complete=item.stats.completed only %}
     {% endfor %}
   </div>

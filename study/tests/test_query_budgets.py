@@ -157,7 +157,6 @@ class ExpressionPageBudgetTests(QueryBudgetTestCase):
             "part": reverse("study:part_detail", args=[self.part.slug]),
             "task": reverse("study:task_detail", args=args),
             "browse": reverse("study:task_browse", args=args),
-            "review_hub": reverse("study:task_review_hub", args=args),
             "task_stats": reverse("study:task_stats", args=args),
             "part_stats": reverse("study:part_stats", args=[self.part.slug]),
             "stats": reverse("study:stats"),
@@ -170,7 +169,6 @@ class ExpressionPageBudgetTests(QueryBudgetTestCase):
             "part": 22,
             "task": 20,
             "browse": 24,
-            "review_hub": 18,
             "task_stats": 22,
             "part_stats": 22,
             "stats": 22,
@@ -393,7 +391,7 @@ class ReviewHubEqualityTests(TestCase):
     def setUp(self):
         self.user = factories.make_user("review-hub")
         self.client.force_login(self.user)
-        self.part = factories.make_part("eo")
+        self.part = factories.make_part("ee")
         self.task = factories.make_task(self.part, "tache-3")
         self.now = timezone.now()
         self.themes = []

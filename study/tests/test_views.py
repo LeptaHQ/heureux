@@ -647,7 +647,6 @@ class SmokeTests(TestCase):
         )
         nested_names = [
             "study:task_browse",
-            "study:task_review_hub",
             "study:task_revisit_list",
         ]
         for name in nested_names:
@@ -2074,12 +2073,8 @@ class TaskOrganizationTests(TestCase):
         revisit_response = self.client.get(
             self._task_url("study:task_revisit_list")
         )
-        review_hub_response = self.client.get(
-            self._task_url("study:task_review_hub")
-        )
         self.assertEqual(stats_response.context["total_reviews"], 1)
         self.assertEqual(revisit_response.context["revisit_count"], 2)
-        self.assertEqual(review_hub_response.context["revisit_count"], 0)
         self.assertContains(revisit_response, "Ma liste à revoir")
         self.assertContains(revisit_response, self.phrase.expression)
         self.assertContains(revisit_response, local_phrase.expression)
@@ -2469,7 +2464,7 @@ class TaskOrganizationTests(TestCase):
         )
         self.assertEqual(response.context["streak"], 1)
 
-    def test_review_hub_groups_task_study_modes_and_resume(self):
+    def test_retired_oral_review_hub_preserves_saved_session_and_direct_practice(self):
         session = ReviewSession.load(self.user)
         session.current_card = self.response_card
         session.scope = {
@@ -2482,19 +2477,28 @@ class TaskOrganizationTests(TestCase):
         response = self.client.get(
             self._task_url("study:task_review_hub")
         )
-        self.assertContains(response, "Entraînement mélangé")
-        self.assertContains(response, "Rappel actif des réponses de cette tâche.")
-        self.assertContains(response, "Ma liste à revoir")
-        self.assertContains(
-            response,
-            "Reprendre l’entraînement en cours",
+        self.assertRedirects(response, self._task_url("study:task_browse"))
+        session.refresh_from_db()
+        self.assertEqual(session.current_card_id, self.response_card.pk)
+        self.assertEqual(
+            session.scope,
+            {"kind": "spine", "part": self.part.slug, "task": self.task.slug},
         )
-        self.assertContains(
-            response,
-            self._task_url("study:task_review") + "?kind=spine",
+        for url in (
+            self._task_url("study:task_detail"),
+            self._task_url("study:task_browse"),
+            response_detail_url(self.response_card.response),
+        ):
+            page = self.client.get(url)
+            self.assertNotContains(
+                page, f'href="{self._task_url("study:task_review_hub")}"'
+            )
+            self.assertNotContains(page, ">Pratiquer</a>")
+        practice = self.client.get(
+            self._task_url("study:task_review"), {"kind": "spine"}
         )
-        self.assertContains(response, "Choisir un thème")
-        self.assertContains(response, "Réponses fragiles")
+        self.assertEqual(practice.status_code, 200)
+        self.assertTemplateUsed(practice, "study/review.html")
 
     def test_primary_navigation_resolves_same_slug_task_by_part(self):
         written_task = factories.make_task(

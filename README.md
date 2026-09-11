@@ -48,7 +48,8 @@ The shared `study/partials/pagination.html` pager accepts a Django `page_obj`,
   clarify the existing families without changing memberships or saved progress.
   Its optional **Dédupliquer** view keeps the first displayed occurrence of each
   response across themes and families. Old EO Tâche 3 theme/family listing URLs
-  redirect to the nested subject directory; the study content and reviews remain.
+  and the practice landing page redirect to the nested subject directory;
+  individual practice sessions, study content, and saved progress remain.
   Oral and written completion controls share one JavaScript controller.
 - Subject progress filters highlight candidates before transferring rows to Python.
   Existing source-key and URL parsers remain the final matching authority; batching

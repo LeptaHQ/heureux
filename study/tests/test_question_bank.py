@@ -2330,12 +2330,19 @@ class QuestionBankViewTests(TestCase):
         url = reverse(
             "study:task_browse", args=[self.task.part.slug, self.task.slug],
         )
-        original = self.client.get(url)
+        original = self.client.get(url, {"deduplicate": "0"})
         expected = {}
         for theme in original.context["subject_themes"]:
             for subject in theme["subjects"]:
                 expected.setdefault(subject["response_id"], subject["content_key"])
-        page = self.client.get(url, {"deduplicate": "1"})
+        page = self.client.get(url)
+        self.assertTrue(page.context["deduplicate_subjects"])
+        self.assertContains(page, 'aria-pressed="true"')
+        self.assertContains(original, 'name="deduplicate" value="0"')
+        self.assertEqual(
+            self.client.get(url, {"deduplicate": "1"}).context["subject_count"],
+            page.context["subject_count"],
+        )
         rows = [
             subject for theme in page.context["subject_themes"]
             for subject in theme["subjects"]
@@ -2356,6 +2363,28 @@ class QuestionBankViewTests(TestCase):
             self.assertGreater(theme["subject_count"], 0)
             self.assertEqual(theme["subject_count"], len(theme["subjects"]))
             self.assertEqual(theme["total"], len(theme["subjects"]))
+
+    def test_scoped_subject_directories_default_to_deduplicated(self):
+        prompt = Prompt.objects.filter(
+            theme__task=self.task, is_active=True,
+        ).select_related("theme", "family").first()
+        for route, slug in (
+            ("study:theme_detail", prompt.theme.slug),
+            ("study:task_family_detail", prompt.family.slug),
+        ):
+            with self.subTest(route=route):
+                url = reverse(route, args=["eo", self.task.slug, slug])
+                original = self.client.get(url, {"deduplicate": "0"})
+                expected = {}
+                for row in original.context["rows"]:
+                    expected.setdefault(row["prompt"].response_id, row["prompt"].pk)
+                page = self.client.get(url)
+                self.assertTrue(page.context["deduplicate_subjects"])
+                self.assertFalse(original.context["deduplicate_subjects"])
+                self.assertEqual(
+                    [row["prompt"].pk for row in page.context["rows"]],
+                    list(expected.values()),
+                )
 
     def test_deduplication_keeps_publications_without_linked_responses(self):
         with patch(
@@ -2636,7 +2665,7 @@ class QuestionBankViewTests(TestCase):
             ) in final_route_data
         ]
 
-        index = self.client.get(index_url)
+        index = self.client.get(index_url, {"deduplicate": "0"})
         first_subject_key = tache_two_subject_content_key("janvier", 1, 1)
         self.assertEqual(index.status_code, 200)
         self.assertTemplateUsed(index, "study/tache_two_subjects.html")

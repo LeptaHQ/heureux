@@ -628,7 +628,7 @@ class BrowserTests(StaticLiveServerTestCase):
             with self.subTest(part=part, tache=tache):
                 url = self.live_server_url + reverse(
                     "study:task_browse", args=[part, f"tache-{tache}"]
-                )
+                ) + "?deduplicate=0"
                 self.page.goto(url)
                 rows = self.page.locator("[data-subject-collection-row]")
                 self.assertEqual(rows.count(), count)
@@ -818,7 +818,7 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         url = self.live_server_url + reverse(
             "study:task_browse", args=["eo", "tache-3"]
-        )
+        ) + "?deduplicate=0"
         self.page.goto(url)
         self.page.get_by_role("button", name="Tableau", exact=True).click()
         theme = self.page.locator(f"#theme-{self.theme.slug}")
@@ -893,6 +893,11 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertTrue(family.evaluate("element => element.open"))
         expect(self.page.get_by_text("Voir cette famille dans tous les thèmes")).to_have_count(0)
         toggle = self.page.get_by_role("button", name="Dédupliquer", exact=True)
+        expect(toggle).to_have_attribute("aria-pressed", "true")
+        with self.page.expect_navigation():
+            toggle.click()
+        expect(toggle).to_have_attribute("aria-pressed", "false")
+        expect(self.page.locator("[data-subject-collection-row]")).to_have_count(3)
         with self.page.expect_navigation():
             toggle.click()
         self.assertIn("deduplicate=1", self.page.url)
@@ -1473,6 +1478,12 @@ class BrowserTests(StaticLiveServerTestCase):
                     f'[data-subject-collection-row]'
                     f'[data-writing-sujet-progress-row="{sujet.pk}"]'
                 )
+                toggle = self.page.get_by_role("button", name="Dédupliquer", exact=True)
+                expect(toggle).to_have_attribute("aria-pressed", "true")
+                expect(rows).to_have_count(1)
+                with self.page.expect_navigation():
+                    toggle.click()
+                expect(toggle).to_have_attribute("aria-pressed", "false")
                 publication_count = rows.count()
                 self.assertGreater(publication_count, 1)
                 first_href = rows.first.locator(
@@ -1485,7 +1496,6 @@ class BrowserTests(StaticLiveServerTestCase):
                     self.page.locator("#ee-writing-prompts").text_content()
                 )
                 distinct = len(set(mapping.values()))
-                toggle = self.page.get_by_role("button", name="Dédupliquer", exact=True)
                 for width in (390, 1183):
                     self.page.set_viewport_size({"width": width, "height": 844})
                     for mode in ("Cartes", "Tableau"):
@@ -1572,6 +1582,10 @@ class BrowserTests(StaticLiveServerTestCase):
                     toggle.click()
                 expect(toggle).to_have_attribute("aria-pressed", "false")
                 expect(self.page.get_by_role("searchbox")).to_have_value("vous")
+                with self.page.expect_navigation():
+                    self.page.get_by_role("button", name="Chercher", exact=True).click()
+                self.assertIn("deduplicate=0", self.page.url)
+                expect(toggle).to_have_attribute("aria-pressed", "false")
 
     def test_response_subject_directories_deduplicate_in_both_views(self):
         def directories():
@@ -1593,15 +1607,24 @@ class BrowserTests(StaticLiveServerTestCase):
             with self.subTest(path=path):
                 self.page.goto(self.live_server_url + path)
                 rows = self.page.locator("[data-subject-progress-row]")
+                toggle = self.page.get_by_role("button", name="Dédupliquer", exact=True)
+                expect(toggle).to_have_attribute("aria-pressed", "true")
+                default_identifiers = rows.evaluate_all(
+                    "rows => rows.map(row => row.dataset.subjectProgressRow)"
+                )
+                self.assertEqual(len(default_identifiers), len(set(default_identifiers)))
+                with self.page.expect_navigation():
+                    toggle.click()
+                expect(toggle).to_have_attribute("aria-pressed", "false")
                 identifiers = rows.evaluate_all(
                     "rows => rows.map(row => row.dataset.subjectProgressRow)"
                 )
                 self.assertNotIn("None", identifiers)
                 expected = list(dict.fromkeys(identifiers))
+                self.assertEqual(default_identifiers, expected)
                 if path == reverse("study:task_browse", args=["eo", "tache-3"]):
                     self.assertEqual(len(identifiers), 167)
                     self.assertEqual(len(expected), 131)
-                toggle = self.page.get_by_role("button", name="Dédupliquer", exact=True)
                 with self.page.expect_navigation():
                     toggle.click()
                 expect(toggle).to_have_attribute("aria-pressed", "true")
@@ -1621,6 +1644,22 @@ class BrowserTests(StaticLiveServerTestCase):
                     toggle.click()
                 expect(toggle).to_have_attribute("aria-pressed", "false")
                 expect(rows).to_have_count(len(identifiers))
+                search = self.page.locator("[data-subject-directory-search]")
+                if search.count():
+                    search.get_by_role("searchbox").fill("vous")
+                    with self.page.expect_navigation():
+                        search.get_by_role("button", name="Rechercher").click()
+                    self.assertIn("deduplicate=0", self.page.url)
+                    expect(toggle).to_have_attribute("aria-pressed", "false")
+                    with self.page.expect_navigation():
+                        self.page.get_by_role("button", name="Chercher", exact=True).click()
+                    self.assertIn("deduplicate=0", self.page.url)
+                    expect(toggle).to_have_attribute("aria-pressed", "false")
+                else:
+                    with self.page.expect_navigation():
+                        self.page.locator(".back-link a").click()
+                    self.assertIn("deduplicate=0", self.page.url)
+                    expect(toggle).to_have_attribute("aria-pressed", "false")
 
     def test_oral_original_model_copy_and_changed_text_highlight_recovery(self):
         self._import_eo_tache_three_content()

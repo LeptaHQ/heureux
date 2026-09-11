@@ -1233,7 +1233,7 @@ class EeTacheThreePageTests(TestCase):
         self.assertIn("batch=2", continued.context["review_url"])
 
     def test_subject_page_groups_all_combinations_in_collapsible_themes(self):
-        response = self.client.get(self._task_url("study:task_browse"))
+        response = self.client.get(self._task_url("study:task_browse"), {"deduplicate": "0"})
         expected_themes = [
             theme.name
             for theme in content_module.load_ee_subject_themes(3)[0]
@@ -1279,12 +1279,19 @@ class EeTacheThreePageTests(TestCase):
 
     def test_deduplicated_subject_and_theme_directories_keep_first_publications(self):
         url = self._task_url("study:task_browse")
-        original = self.client.get(url)
+        original = self.client.get(url, {"deduplicate": "0"})
         expected = {}
         for theme in original.context["subject_themes"]:
             for row in theme["subjects"]:
                 expected.setdefault(row["prompt"].response_id, row["prompt"].pk)
-        page = self.client.get(url, {"deduplicate": "1"})
+        page = self.client.get(url)
+        self.assertTrue(page.context["deduplicate_subjects"])
+        self.assertContains(page, 'aria-pressed="true"')
+        self.assertContains(original, 'name="deduplicate" value="0"')
+        self.assertEqual(
+            self.client.get(url, {"deduplicate": "1"}).context["subject_count"],
+            page.context["subject_count"],
+        )
         rows = [
             row for theme in page.context["subject_themes"]
             for row in theme["subjects"]
@@ -1299,11 +1306,12 @@ class EeTacheThreePageTests(TestCase):
             self.assertEqual(theme["total"], len(theme["subjects"]))
 
         theme_url = theme_detail_url(rows[0]["prompt"].theme)
-        all_theme = self.client.get(theme_url)
+        all_theme = self.client.get(theme_url, {"deduplicate": "0"})
         expected_theme = {}
         for row in all_theme.context["subjects"]:
             expected_theme.setdefault(row["prompt"].response_id, row["prompt"].pk)
-        focused = self.client.get(theme_url, {"deduplicate": "1"})
+        focused = self.client.get(theme_url)
+        self.assertTrue(focused.context["deduplicate_subjects"])
         self.assertEqual(
             [row["prompt"].pk for row in focused.context["subjects"]],
             list(expected_theme.values()),
@@ -1311,6 +1319,7 @@ class EeTacheThreePageTests(TestCase):
         self.assertEqual(focused.context["subject_theme"]["total"], len(expected_theme))
         self.assertContains(focused, "data-subject-deduplication-toggle")
         self.assertContains(focused, f'href="{url}?deduplicate=1"')
+        self.assertContains(all_theme, f'href="{url}?deduplicate=0"')
 
     def test_deduplicated_subject_search_counts_groups_before_limiting(self):
         query = "de"
@@ -1321,7 +1330,7 @@ class EeTacheThreePageTests(TestCase):
             expected.setdefault(prompt.response_id, prompt.pk)
         self.assertGreater(len(expected), 12)
         page = self.client.get(self._task_url("study:task_search"), {
-            "q": query, "scope": "subjects", "deduplicate": "1",
+            "q": query, "scope": "subjects",
         })
         self.assertEqual(page.status_code, 200)
         self.assertEqual(page.context["subject_result_count"], len(expected))
@@ -1335,7 +1344,7 @@ class EeTacheThreePageTests(TestCase):
         prompt = self._first_prompt()
         response = self.client.get(theme_detail_url(prompt.theme))
         review = self.client.get(response.context["review_url"])
-        expected_count = Prompt.objects.filter(theme=prompt.theme).count()
+        expected_count = Prompt.objects.filter(theme=prompt.theme).values("response_id").distinct().count()
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "study/ee_tache_three_month.html")
@@ -1416,7 +1425,7 @@ class EeTacheThreePageTests(TestCase):
         prompt = Prompt.objects.select_related("theme").get(
             content_key=source.content_key
         )
-        month_page = self.client.get(theme_detail_url(prompt.theme))
+        month_page = self.client.get(theme_detail_url(prompt.theme), {"deduplicate": "0"})
         detail = self.client.get(prompt_detail_url(prompt))
         source_row = next(
             row
@@ -1814,11 +1823,14 @@ class TaskOrganizationTests(TestCase):
             {"completed": "1"},
         )
         url = self._task_url("study:task_browse")
-        original = self.client.get(url)
+        original = self.client.get(url, {"deduplicate": "0"})
         self.assertFalse(original.context["deduplicate_subjects"])
         self.assertEqual(original.context["prompt_count"], 4)
         self.assertContains(original, "data-subject-deduplication-toggle", count=1)
-        deduplicated = self.client.get(url, {"deduplicate": "1"})
+        deduplicated = self.client.get(url)
+        self.assertTrue(deduplicated.context["deduplicate_subjects"])
+        self.assertContains(deduplicated, 'aria-pressed="true"')
+        self.assertContains(original, 'name="deduplicate" value="0"')
         self.assertEqual(deduplicated.context["prompt_count"], 2)
         self.assertEqual(deduplicated.context["response_count"], 2)
         self.assertEqual(deduplicated.context["theme_count"], 1)
@@ -1831,6 +1843,7 @@ class TaskOrganizationTests(TestCase):
         self.assertEqual([row["prompt"].pk for row in rows], [representative.pk, separate_prompt.pk])
         self.assertEqual([row["progress"].status for row in rows], ["done", "new"])
         self.assertEqual(self.client.get(url, {"deduplicate": "0"}).context["prompt_count"], 4)
+        self.assertEqual(self.client.get(url, {"deduplicate": "1"}).context["prompt_count"], 2)
         self.client.force_login(factories.make_user("other-oral-dedup"))
         other = self.client.get(url, {"deduplicate": "1"})
         self.assertTrue(all(
@@ -1861,7 +1874,7 @@ class TaskOrganizationTests(TestCase):
         inactive_prompt.save(update_fields=["is_active"])
 
         url = self._task_url("study:task_browse")
-        page = self.client.get(url)
+        page = self.client.get(url, {"deduplicate": "0"})
         self.assertTemplateUsed(page, "study/partials/subject_collection.html")
         self.assertContains(page, "data-t1-table-theme", count=3)
         self.assertContains(page, "data-subject-family-group", count=2)
@@ -1899,7 +1912,7 @@ class TaskOrganizationTests(TestCase):
             ),
             {"completed": "1"},
         )
-        completed = self.client.get(url)
+        completed = self.client.get(url, {"deduplicate": "0"})
         for group in completed.context["subject_themes"]:
             if group["subjects"]:
                 self.assertEqual(group["completed"], 1)
@@ -1908,7 +1921,7 @@ class TaskOrganizationTests(TestCase):
             for family in group["families"]:
                 self.assertEqual(family["completed"], 1)
         self.client.force_login(factories.make_user("other-oral-directory"))
-        other_page = self.client.get(url)
+        other_page = self.client.get(url, {"deduplicate": "0"})
         for group in other_page.context["subject_themes"]:
             for row in group["subjects"]:
                 self.assertEqual(row["progress"].status, "new")
@@ -1935,7 +1948,7 @@ class TaskOrganizationTests(TestCase):
             ),
             {"completed": "1"},
         )
-        page = self.client.get(self._task_url("study:task_browse"))
+        page = self.client.get(self._task_url("study:task_browse"), {"deduplicate": "0"})
         group = page.context["subject_themes"][0]
         families = {family["slug"]: family for family in group["families"]}
         self.assertEqual(group["subject_count"], 3)
@@ -1975,7 +1988,7 @@ class TaskOrganizationTests(TestCase):
             "study.views.library.catalogue.eo_tache_three_family_labels",
             return_value={(self.theme.slug, canonical.family.content_key): "Culture locale"},
         ):
-            page = self.client.get(self._task_url("study:task_browse"))
+            page = self.client.get(self._task_url("study:task_browse"), {"deduplicate": "0"})
         groups = {group["slug"]: group for group in page.context["subject_themes"]}
         self.assertEqual(groups[self.theme.slug]["families"][0]["name"], "Culture locale")
         self.assertEqual(groups[other_theme.slug]["families"][0]["name"], original_name)
@@ -2024,7 +2037,7 @@ class TaskOrganizationTests(TestCase):
         separate.text = alias.text
         separate.save(update_fields=["text"])
         page = self.client.get(self._task_url("study:task_search"), {
-            "q": alias.text, "scope": "subjects", "deduplicate": "1",
+            "q": alias.text, "scope": "subjects",
         })
         self.assertEqual(page.status_code, 200)
         self.assertEqual(page.context["subject_result_count"], 2)
@@ -3132,12 +3145,13 @@ class ResponsePromptNavigationTests(TestCase):
         self.assertContains(page, alias_family.name)
 
         theme_page = self.client.get(
-            theme_detail_url(self.second_theme)
+            theme_detail_url(self.second_theme), {"deduplicate": "0"}
         )
         family_page = self.client.get(
             subject_group_url(
                 self.part.slug, self.task.slug, self.second_theme.slug, alias_family.slug
-            )
+            ),
+            {"deduplicate": "0"},
         )
         search_page = self.client.get(
             reverse("study:search"),

@@ -870,7 +870,8 @@ class EeWritingPageTests(TestCase):
                     reverse(
                         "study:task_browse",
                         args=[task.part.slug, task.slug],
-                    )
+                    ),
+                    {"deduplicate": "0"},
                 )
                 self.assertTemplateUsed(
                     subjects,
@@ -910,7 +911,7 @@ class EeWritingPageTests(TestCase):
             with self.subTest(tache=tache):
                 task = self.tasks[tache]
                 url = reverse("study:task_browse", args=["ee", task.slug])
-                original = self.client.get(url)
+                original = self.client.get(url, {"deduplicate": "0"})
                 expected = {}
                 for category in original.context["categories"]:
                     for row in category["sujets"]:
@@ -923,9 +924,16 @@ class EeWritingPageTests(TestCase):
                     user=self.user, sujet=canonical, body="Ma réponse personnelle.",
                 )
 
-                page = self.client.get(url, {"deduplicate": "1"})
+                page = self.client.get(url)
                 self.assertEqual(page.status_code, 200)
                 self.assertTrue(page.context["deduplicate_subjects"])
+                self.assertContains(page, 'aria-pressed="true"')
+                self.assertContains(original, 'name="deduplicate" value="0"')
+                enabled = self.client.get(url, {"deduplicate": "1"})
+                self.assertEqual(
+                    enabled.context["subject_progress"].total,
+                    page.context["subject_progress"].total,
+                )
                 rows = [
                     row for category in page.context["categories"]
                     for row in category["sujets"]
@@ -1000,7 +1008,7 @@ class EeWritingPageTests(TestCase):
                     user=self.user, sujet=canonical, body="Ma réponse à ce sujet.",
                 )
                 page = self.client.get(url, {
-                    "q": alias.prompt, "scope": "subjects", "deduplicate": "1",
+                    "q": alias.prompt, "scope": "subjects",
                 })
                 matches = page.context["writing_sujet_results"]
                 self.assertEqual(len(matches), 1)
@@ -1015,7 +1023,7 @@ class EeWritingPageTests(TestCase):
                     expected.setdefault(canonical_slugs[sujet.slug], sujet.pk)
                 self.assertGreater(len(expected), 12)
                 broad = self.client.get(url, {
-                    "q": "vous", "scope": "subjects", "deduplicate": "1",
+                    "q": "vous", "scope": "subjects",
                 })
                 self.assertEqual(
                     broad.context["writing_sujet_result_count"], len(expected),
@@ -1315,7 +1323,8 @@ class EeWritingPageTests(TestCase):
             end_offset=14,
         )
         directory = self.client.get(
-            reverse("study:task_browse", args=["ee", "tache-1"])
+            reverse("study:task_browse", args=["ee", "tache-1"]),
+            {"deduplicate": "0"},
         )
         rows = [
             row
@@ -1395,7 +1404,8 @@ class EeWritingPageTests(TestCase):
                         user=self.user, sujet=canonical
                     )
             page = self.client.get(
-                reverse("study:task_browse", args=["ee", task.slug])
+                reverse("study:task_browse", args=["ee", task.slug]),
+                {"deduplicate": "0"},
             )
             self.assertEqual(page.status_code, 200)
             rows = {
@@ -1459,7 +1469,7 @@ class EeWritingPageTests(TestCase):
 
         def assert_results(url, expected, count):
             page = self.client.get(
-                url, {"q": "Repère de recherche", "scope": "subjects"}
+                url, {"q": "Repère de recherche", "scope": "subjects", "deduplicate": "0"}
             )
             self.assertEqual(page.status_code, 200)
             self.assertEqual(len(page.context["writing_sujet_results"]), count)

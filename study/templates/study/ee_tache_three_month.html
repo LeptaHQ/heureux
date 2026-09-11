@@ -5,7 +5,7 @@
 <div class="ee-t3-page ee-t3-month-page">
   {% include "study/partials/task_nav.html" %}
 
-  <p class="back-link"><a href="{% url 'study:task_browse' part.slug task.slug %}{% if deduplicate_subjects %}?deduplicate=1{% endif %}">← Tous les thèmes</a></p>
+  <p class="back-link"><a href="{% url 'study:task_browse' part.slug task.slug %}?deduplicate={{ deduplicate_subjects|yesno:'1,0' }}">← Tous les thèmes</a></p>
   <header class="memory-overview-hero">
     <div class="memory-overview-hero__copy">
       <p class="eyebrow">{{ part.name }} · {{ task.name }}</p>

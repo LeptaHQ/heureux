@@ -514,8 +514,8 @@ class OralImportPreservationTests(TestCase):
         self.import_rows([data])
         self.client.force_login(self.users[0])
         url = reverse("study:task_browse", args=["eo", "tache-3"])
-        all_page = self.client.get(url)
-        page = self.client.get(url, {"deduplicate": "1"})
+        all_page = self.client.get(url, {"deduplicate": "0"})
+        page = self.client.get(url)
         self.assertEqual(all_page.context["display_count"], 2)
         self.assertEqual(page.context["display_count"], 1)
         self.assertEqual(page.context["publication_count"], 2)
@@ -756,7 +756,7 @@ class OralCorpusUpgradeTests(TestCase):
                             "eo", task.slug, prompt.theme.slug,
                             prompt.family.slug if scope_name == "family" else None,
                         )
-                        directory_page = self.client.get(destination)
+                        directory_page = self.client.get(destination, {"deduplicate": "0"})
                         source_group = next(
                             group for group in directory_page.context["subject_themes"]
                             if group["slug"] == prompt.theme.slug

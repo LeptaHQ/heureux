@@ -1444,7 +1444,7 @@ def _oral_subject_themes(themes, response_progress, *, deduplicate=False):
 
 def browse(request, part_slug=None, task_slug=None):
     forced_task = _route_task(part_slug, task_slug, request=request)
-    deduplicate = request.GET.get("deduplicate") == "1"
+    deduplicate = request.GET.get("deduplicate", "1") == "1"
     deduplication_context = {
         "subject_deduplication_available": True,
         "deduplicate_subjects": deduplicate,
@@ -1760,7 +1760,7 @@ def theme_detail(request, part_slug, task_slug, slug):
         "theme": theme.slug,
     }
     if (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK:
-        deduplicate = request.GET.get("deduplicate") == "1"
+        deduplicate = request.GET.get("deduplicate", "1") == "1"
         source_by_key = _ee_tache_three_sources_by_key()
         occurrence_count_by_response = {}
         for row in rows:
@@ -1836,7 +1836,7 @@ def theme_detail(request, part_slug, task_slug, slug):
         )
     oral_directory = task.part.slug == "eo" and task.slug in {"tache-2", "tache-3"}
     publication_count = len(rows)
-    deduplicate = oral_directory and request.GET.get("deduplicate") == "1"
+    deduplicate = oral_directory and request.GET.get("deduplicate", "1") == "1"
     if oral_directory:
         stats = summarize_subject_progress(subject_progress.values())
         if deduplicate:
@@ -3690,7 +3690,7 @@ def family_detail(request, part_slug, task_slug, slug):
         for prompt in prompts
     ]
     oral_directory = task.part.slug == "eo" and task.slug in {"tache-2", "tache-3"}
-    deduplicate = oral_directory and request.GET.get("deduplicate") == "1"
+    deduplicate = oral_directory and request.GET.get("deduplicate", "1") == "1"
     if deduplicate:
         representatives = {}
         for row in rows:
@@ -5149,7 +5149,7 @@ def search(request, part_slug=None, task_slug=None):
     )
     query = request.GET.get("q", "").strip()
     subjects_only = request.GET.get("scope") == "subjects"
-    deduplicate = subjects_only and request.GET.get("deduplicate") == "1"
+    deduplicate = subjects_only and request.GET.get("deduplicate", "1") == "1"
     prompt_results = []
     writing_sujet_results = []
     phrase_results = []

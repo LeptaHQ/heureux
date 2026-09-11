@@ -87,8 +87,10 @@ so workers using the pre-upgrade ORM can finish inserts during replacement.
   responses for progress without duplicating subject rows.
   Theme-specific labels in `study/content/tache_3/subject_family_labels.json`
   clarify the existing families without changing memberships or saved progress.
-  Its optional **Dédupliquer** view keeps the first displayed occurrence of each
-  response across themes and families. The removed EO Tâche 3 theme/family and
+  EO/EE subject directories and subject-only searches default to **Dédupliquer**,
+  keeping the first displayed occurrence of each equivalent group. The toggle or
+  `?deduplicate=0` shows every publication; search forms preserve the chosen mode.
+  The removed EO Tâche 3 theme/family and
   practice-overview URLs have no routes and return 404, without redirects.
   Individual practice sessions, study content, and saved progress remain.
   Oral and written completion controls share one JavaScript controller.

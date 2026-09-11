@@ -120,12 +120,7 @@ class Family(models.Model):
 
 
 class Response(models.Model):
-    """A single argued answer (the memorizable "spine").
-
-    167 Tâche 3 prompts collapse into 130 unique responses, and 348 Tâche 2
-    subjects collapse into 175 unique question sets; equivalent prompts share
-    one Response and appear as its aliases.
-    """
+    """A study identity; audited oral groups retain every original model on Prompt."""
 
     content_key = models.CharField(max_length=120, unique=True)
     body_hash = models.CharField(max_length=64, db_index=True)
@@ -143,6 +138,13 @@ class Response(models.Model):
     conclusion = models.TextField(blank=True)
     body = models.TextField()
     body_html = models.TextField()
+    semantic_group = models.CharField(max_length=160, blank=True, db_index=True)
+    semantic_rationale = models.TextField(blank=True)
+    semantic_state_revision = models.CharField(max_length=64, blank=True)
+    semantic_owner = models.ForeignKey(
+        "self", on_delete=models.PROTECT, null=True, blank=True,
+        related_name="historical_sources",
+    )
     is_active = models.BooleanField(default=True, db_index=True)
 
     class Meta:
@@ -204,6 +206,11 @@ class PersonalResponse(models.Model):
     conclusion = models.TextField(blank=True)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
+    is_active = models.BooleanField(default=True)
+    source_prompt = models.ForeignKey(
+        "Prompt", on_delete=models.SET_NULL, null=True, blank=True,
+        related_name="personal_response_sources",
+    )
 
     class Meta:
         ordering = ["-updated_at", "-id"]
@@ -344,6 +351,7 @@ class Prompt(models.Model):
     text = models.TextField()
     is_canonical = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True, db_index=True)
+    model_content = models.JSONField(default=dict, blank=True)
 
     class Meta:
         ordering = ["theme__order", "number"]
@@ -1023,6 +1031,10 @@ class Annotation(models.Model):
     completed_at = models.DateTimeField(null=True, blank=True, db_index=True)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
+    source_prompt = models.ForeignKey(
+        Prompt, on_delete=models.SET_NULL, null=True, blank=True,
+        related_name="source_annotations",
+    )
 
     class Meta:
         ordering = ["-updated_at", "-id"]
@@ -1245,6 +1257,32 @@ class Card(models.Model):
             "active": "En cours",
             "new": "À commencer",
         }[self.progress_status]
+
+
+class OralStateSnapshot(models.Model):
+    """Append-only recovery material; live source rows and review logs also survive."""
+
+    user = models.ForeignKey(
+        django_settings.AUTH_USER_MODEL, on_delete=models.CASCADE,
+        null=True, blank=True, related_name="oral_state_snapshots",
+    )
+    response = models.ForeignKey(
+        Response, on_delete=models.PROTECT, related_name="state_snapshots",
+    )
+    kind = models.CharField(max_length=24)
+    source_id = models.PositiveBigIntegerField()
+    digest = models.CharField(max_length=64)
+    payload = models.JSONField()
+    created_at = models.DateTimeField(default=timezone.now)
+
+    class Meta:
+        ordering = ["-created_at", "-pk"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["kind", "source_id", "digest"],
+                name="unique_oral_state_snapshot",
+            ),
+        ]
 
 
 class ReviewSession(models.Model):

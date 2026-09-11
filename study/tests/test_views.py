@@ -1930,12 +1930,12 @@ class TaskOrganizationTests(TestCase):
         self.assertEqual(task_vocabulary.context["phrase_count"], 0)
         self.assertNotContains(task_vocabulary, subject_phrase.expression)
         browse = self.client.get(self._task_url("study:task_browse"))
-        family = next(
+        group = next(
             item
-            for item in browse.context["families"]
-            if item.pk == prompt.family_id
+            for item in browse.context["groups"]
+            if item["slug"] == prompt.theme.slug
         )
-        self.assertEqual(family.progress.status, "active")
+        self.assertEqual(group["progress"].status, "active")
 
         subject_card.state = CardState.REVIEW
         subject_card.started_at = now
@@ -1956,19 +1956,13 @@ class TaskOrganizationTests(TestCase):
         completed_browse = self.client.get(
             self._task_url("study:task_browse"),
         )
-        completed_family = next(
-            item
-            for item in completed_browse.context["families"]
-            if item.pk == prompt.family_id
-        )
-        self.assertEqual(completed_family.progress.status, "active")
         incomplete_theme = next(
             item
-            for item in completed_browse.context["themes"]
-            if item["theme"].pk == self.theme.pk
+            for item in completed_browse.context["groups"]
+            if item["slug"] == self.theme.slug
         )
-        self.assertEqual(incomplete_theme["stats"]["mature"], 0)
-        self.assertEqual(incomplete_theme["stats"]["review_young"], 0)
+        self.assertEqual(incomplete_theme["progress"].status, "active")
+        self.assertEqual(incomplete_theme["completed"], 0)
         completed_task_vocabulary = self.client.get(
             self._task_url("study:task_phrases"),
         )
@@ -1995,11 +1989,10 @@ class TaskOrganizationTests(TestCase):
         )
         completed_theme = next(
             item
-            for item in explicitly_completed_browse.context["themes"]
-            if item["theme"].pk == self.theme.pk
+            for item in explicitly_completed_browse.context["groups"]
+            if item["slug"] == self.theme.slug
         )
-        self.assertEqual(completed_theme["stats"]["mature"], 1)
-        self.assertEqual(completed_theme["stats"]["review_young"], 0)
+        self.assertEqual(completed_theme["completed"], 1)
 
     def test_subject_completion_is_explicit_and_reversible(self):
         response = self.response_card.response
@@ -2171,10 +2164,10 @@ class TaskOrganizationTests(TestCase):
         )
         self.assertEqual(
             [
-                item["theme"]
-                for item in browse_response.context["themes"]
+                item["slug"]
+                for item in browse_response.context["groups"]
             ],
-            [self.theme],
+            [self.theme.slug],
         )
         self.assertNotIn(
             written_theme,

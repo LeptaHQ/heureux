@@ -11,6 +11,7 @@ from urllib.parse import urlsplit
 from django.db.models import (
     Case,
     Count,
+    Exists,
     F,
     Max,
     OuterRef,
@@ -448,9 +449,36 @@ def _subject_highlight_rows(user, response_ids):
         phrase=Count("pk", filter=Q(source_key__startswith=PHRASE_SOURCE_PREFIX)),
         alias=Count("pk", filter=Q(source_key__startswith="tache-two:")),
         legacy=Count("pk", filter=Q(source_key="")),
+        oral=Max(Case(
+            When(Exists(Response.objects.filter(
+                pk__in=response_ids, semantic_group__gt="",
+            )), then=Value(1)),
+            default=Value(0),
+        )),
     )
+    has_oral = shapes.pop("oral")
     if not any(shapes.values()):
         return [], {}, []
+    if has_oral:
+        from .oral_history import annotation_owners
+        oral_by_id = dict(Response.objects.filter(
+            pk__in=response_ids, semantic_group__gt="",
+        ).values_list("pk", "content_key"))
+        annotations = list(highlights.filter(
+            Q(task__part__slug="eo", task__slug__in=["tache-2", "tache-3"])
+            | Q(task__isnull=True)
+        ))
+        matched = set(annotation_owners(annotations).values()) & set(oral_by_id)
+        rows = [
+            {"source_path": "", "source_key": f"response:{oral_by_id[pk]}"}
+            for pk in matched
+        ]
+        keys = {oral_by_id[pk]: pk for pk in matched}
+        other_ids = set(response_ids) - set(oral_by_id)
+        if other_ids:
+            other_rows, other_keys, other_prompts = _subject_highlight_rows(user, other_ids)
+            return rows + other_rows, keys | other_keys, other_prompts
+        return rows, keys, []
 
     # Response/phrase predicates repeat their IDs in up to three subqueries.
     # Batches bound SQL parameters, not note count.
@@ -701,7 +729,7 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
         values["vocabulary_due"] = row["due"]
 
     highlight_rows, response_by_content_key, prompt_rows = _subject_highlight_rows(
-        user, response_ids
+        user, response_ids,
     )
     if not highlight_rows:
         # Nothing can match, so the three lookups that resolve highlights onto

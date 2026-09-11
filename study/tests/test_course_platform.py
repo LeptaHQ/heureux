@@ -619,7 +619,7 @@ class CoursePlatformTests(TestCase):
         production.refresh_from_db()
         self.assertEqual(production.self_reviewed_at, reviewed)
         exported = self.client.get(reverse("study:export_account")).json()
-        self.assertEqual(exported["version"], 9)
+        self.assertEqual(exported["version"], 10)
         self.assertEqual(exported["course_productions"][0]["body"], production.body)
         self.client.force_login(self.other)
         self.assertEqual(self.client.get(url).status_code, 404)

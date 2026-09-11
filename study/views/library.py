@@ -1068,7 +1068,7 @@ def task_detail(request, part_slug, task_slug):
                 "part": task.part,
                 "task": task,
                 "subject_summary": subject_state,
-                "subject_count": subject_state["total"],
+                "subject_count": sum(theme["subject_count"] for theme in subject_state["themes"]),
                 "subject_theme_count": subject_state["theme_count"],
                 "theme_vocabulary": theme_vocabulary,
                 "ai_practice_prompt": content_module.load_ai_examiner_prompt(),
@@ -1396,12 +1396,15 @@ def browse(request, part_slug=None, task_slug=None):
                 "subject_prompt_map": subject_prompt_map,
                 "subject_summary": subject_state,
                 "theme_count": subject_state["theme_count"],
-                "subject_count": subject_state["total"],
+                "subject_count": sum(theme["subject_count"] for theme in themes),
                 "question_count": sum(
                     theme["question_count"] for theme in themes
                 ),
             },
         )
+    if forced_task and (forced_task.part.slug, forced_task.slug) == content_module.EO_TACHE_THREE_TASK:
+        from .oral import oral_subject_directory
+        return oral_subject_directory(request, forced_task, deduplicate=deduplicate)
     writing_tache = _ee_writing_tache(forced_task) if forced_task else None
     writing_context = (
         _ee_writing_subject_context(
@@ -1722,6 +1725,16 @@ def theme_detail(request, part_slug, task_slug, slug):
                 "review_url": review_url(review_scope),
             },
         )
+    oral_directory = (task.part.slug, task.slug) == content_module.EO_TACHE_THREE_TASK
+    publication_count = len(rows)
+    deduplicate = oral_directory and request.GET.get("deduplicate") == "1"
+    if oral_directory:
+        stats = summarize_subject_progress(subject_progress.values())
+        if deduplicate:
+            representatives = {}
+            for row in rows:
+                representatives.setdefault(row["prompt"].response_id, row)
+            rows = list(representatives.values())
     return render(
         request,
         "study/theme_detail.html",
@@ -1733,6 +1746,9 @@ def theme_detail(request, part_slug, task_slug, slug):
             "stats": stats,
             "review_batches": _review_batches(review_scope, request.user),
             "review_url": review_url(review_scope),
+            "publication_count": publication_count,
+            "subject_deduplication_available": oral_directory,
+            "deduplicate_subjects": deduplicate,
         },
     )
 
@@ -3083,9 +3099,7 @@ def task_subject_detail(
         response,
         selected_prompt,
     )
-    subject_annotation_key = tache_two_annotation_source_key(
-        response.content_key
-    )
+    subject_annotation_key = tache_two_annotation_source_key(selected_prompt.content_key)
     subject_progress = subject_progress_by_response(
         request.user,
         {response.pk},
@@ -3100,8 +3114,14 @@ def task_subject_detail(
         response,
         task_scope,
         request.user,
+        prompt=selected_prompt,
     )
-    response_content = effective_response(response, request.user)
+    from .oral import oral_response_context
+    oral_context = oral_response_context(request, selected_prompt)
+    response_content = oral_context.get("response_content") or effective_response(
+        response, request.user, prompt=selected_prompt,
+    )
+    subject_annotation_key = oral_context.get("oral_annotation_key", subject_annotation_key)
     questions = [
         {
             "number": index,
@@ -3168,6 +3188,7 @@ def task_subject_detail(
             "personal_saved": request.GET.get("saved") == "1",
             "personal_reset": request.GET.get("reset") == "1",
             **vocabulary_context,
+            **oral_context,
         },
     )
 
@@ -3582,12 +3603,16 @@ def family_detail(request, part_slug, task_slug, slug):
     )
 
 
-def _subject_vocabulary_context(response, task_scope, user):
+def _subject_vocabulary_context(response, task_scope, user, *, prompt=None):
+    occurrence_scope = (
+        {"source_prompts": prompt} if prompt is not None and response.semantic_group else {}
+    )
     subject_vocabulary = list(
         Phrase.objects.filter(
             source_prompts__response=response,
             is_active=True,
             tier=PhraseTier.SUBJECT,
+            **occurrence_scope,
         )
         .distinct()
         .select_related("category")
@@ -3599,6 +3624,7 @@ def _subject_vocabulary_context(response, task_scope, user):
             **task_scope,
             "kind": "vocab",
             "response": str(response.pk),
+            **({"prompt": str(prompt.pk)} if occurrence_scope else {}),
         },
         user,
     )
@@ -3655,7 +3681,11 @@ def response_detail(request, part_slug, task_slug, prompt_id):
     if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
         return redirect(prompt_detail_url(selected_prompt))
     response = selected_prompt.response
-    response_content = effective_response(response, request.user)
+    from .oral import oral_response_context
+    oral_context = oral_response_context(request, selected_prompt)
+    response_content = oral_context.get("response_content") or effective_response(
+        response, request.user, prompt=selected_prompt,
+    )
     subject_progress = subject_progress_by_response(
         request.user,
         {response.pk},
@@ -3729,6 +3759,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         response,
         task_scope,
         request.user,
+        prompt=selected_prompt,
     )
     ee_response = (
         (task.part.slug, task.slug)
@@ -3877,11 +3908,13 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             ),
             "personal_saved": request.GET.get("saved") == "1",
             "personal_reset": request.GET.get("reset") == "1",
+            **oral_context,
         },
     )
 
 
 def edit_response(request, part_slug, task_slug, prompt_id):
+    from ..oral_history import save_personal, snapshot
     task = _route_task(part_slug, task_slug, request=request)
     task_key = (task.part.slug, task.slug)
     is_tache_two = task_key == content_module.QUESTION_BANK_TASK
@@ -3913,11 +3946,17 @@ def edit_response(request, part_slug, task_slug, prompt_id):
     detail_url = prompt_detail_url(selected_prompt)
     if request.method == "POST" and request.POST.get("action") == "reset":
         if personal is not None:
-            personal.delete()
+            snapshot(personal, "personal")
+            PersonalResponse.objects.filter(pk=personal.pk).update(is_active=False)
+        else:
+            PersonalResponse.objects.create(
+                user=request.user, response=response, is_active=False,
+                source_prompt=selected_prompt,
+            )
         return redirect(f"{detail_url}?reset=1")
 
     if is_tache_two:
-        response_content = effective_response(response, request.user)
+        response_content = effective_response(response, request.user, prompt=selected_prompt)
         initial_questions = [
             {
                 "question": argument.idea,
@@ -3951,17 +3990,15 @@ def edit_response(request, part_slug, task_slug, prompt_id):
                         "consequence": "",
                     }
                 )
-            PersonalResponse.objects.update_or_create(
-                user=request.user,
-                response=response,
-                defaults={
+            save_personal(
+                response, request.user, {
                     "reformulation": "",
                     "position": "",
                     "position_claire": "",
                     "arguments": arguments,
                     "nuance": "",
                     "conclusion": "",
-                },
+                }, source_prompt=selected_prompt,
             )
             return redirect(f"{detail_url}?saved=1")
         return render(
@@ -3983,12 +4020,11 @@ def edit_response(request, part_slug, task_slug, prompt_id):
         response,
         request.user,
         request.POST or None,
+        prompt=selected_prompt,
     )
     if request.method == "POST" and form.is_valid():
-        PersonalResponse.objects.update_or_create(
-            user=request.user,
-            response=response,
-            defaults=form.personal_defaults(),
+        save_personal(
+            response, request.user, form.personal_defaults(), source_prompt=selected_prompt,
         )
         return redirect(f"{detail_url}?saved=1")
 
@@ -5007,7 +5043,10 @@ def search(request, part_slug=None, task_slug=None):
     if query:
         prompt_query = Q(text__icontains=query)
         if not subjects_only:
-            prompt_query |= Q(response__body__icontains=query)
+            prompt_query |= (
+                Q(response__body__icontains=query, response__semantic_group="")
+                | Q(model_content__body__icontains=query)
+            )
         prompt_qs = Prompt.objects.filter(is_active=True).filter(prompt_query)
         phrase_qs = Phrase.objects.filter(
             Q(is_active=True),

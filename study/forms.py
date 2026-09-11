@@ -306,16 +306,16 @@ class PersonalResponseForm(forms.Form):
         ("consequence", "Conséquence", 3),
     )
 
-    def __init__(self, response, user, *args, **kwargs):
+    def __init__(self, response, user, *args, prompt=None, **kwargs):
         self.response = response
         self.user = user
         super().__init__(*args, **kwargs)
-        content = effective_response(response, user)
+        content = effective_response(response, user, prompt=prompt)
         self.argument_orders = []
         effective_arguments = {
             argument.order: argument for argument in content.arguments
         }
-        for shared_argument in response.arguments.all():
+        for shared_argument in content.arguments:
             order = shared_argument.order
             self.argument_orders.append(order)
             argument = effective_arguments.get(order)

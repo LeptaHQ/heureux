@@ -44,7 +44,7 @@ from study.models import (
     ReviewSession,
     Task,
 )
-from study.routing import response_detail_url, theme_detail_url
+from study.routing import prompt_detail_url, response_detail_url, theme_detail_url
 
 from . import factories
 from .course_fixtures import course_catalog, sectioned_course_lesson
@@ -325,6 +325,21 @@ class BrowserTests(StaticLiveServerTestCase):
             tache: task_by_slug[f"ee/tache-{tache}"]
             for tache in (1, 2)
         }
+
+    def _import_eo_tache_three_content(self):
+        for prompt in Prompt.objects.filter(content_key__startswith="test-prompt:"):
+            prompt.number = 10000 + prompt.pk
+            prompt.save(update_fields=["number"])
+        command = Command()
+        tasks = command._import_sections(load_sections())
+        themes = command._import_themes(content.load_themes(), tasks)
+        _family_map, families = content.parse_families()
+        families = command._import_families(families)
+        responses = content.parse_responses()
+        mapping = command._import_responses(responses, themes, families)
+        command._import_prompts(responses, mapping, themes, families)
+        command._sync_cards(mapping, user=self.user)
+        return tasks["eo/tache-3"]
 
     def _import_eo_tache_two_content(self):
         command = Command()
@@ -1364,6 +1379,11 @@ class BrowserTests(StaticLiveServerTestCase):
     def test_response_subject_directories_deduplicate_in_both_views(self):
         def directories():
             # Each importer replaces the active prompts; visit its task first.
+            eo3_task = self._import_eo_tache_three_content()
+            yield reverse("study:task_browse", args=["eo", eo3_task.slug])
+            yield theme_detail_url(Prompt.objects.filter(
+                theme__task=eo3_task, is_active=True,
+            ).first().theme)
             oral_task = self._import_eo_tache_two_content()
             yield reverse("study:task_browse", args=["eo", oral_task.slug])
             _months, written_task = self._import_ee_tache_three_content()
@@ -1402,6 +1422,57 @@ class BrowserTests(StaticLiveServerTestCase):
                     toggle.click()
                 expect(toggle).to_have_attribute("aria-pressed", "false")
                 expect(rows).to_have_count(len(identifiers))
+
+    def test_oral_original_model_copy_and_changed_text_highlight_recovery(self):
+        self._import_eo_tache_three_content()
+        source = next(
+            response for response in content.parse_responses()
+            if len({prompt.model_content["body_hash"] for prompt in response.prompts}) > 1
+        )
+        prompt = Prompt.objects.select_related("theme__task__part", "response").get(
+            content_key=source.prompts[-1].content_key,
+        )
+        self.context.add_init_script("""
+            Object.defineProperty(navigator, "clipboard", {
+              configurable: true,
+              value: {writeText: text => {window.__oralCopy = text; return Promise.resolve();}}
+            });
+        """)
+        url = prompt_detail_url(prompt)
+        self.page.goto(self.live_server_url + url + "?model=1")
+        self.page.locator('[data-prompt-copy-source="oral-response-copy"]').click()
+        self.page.wait_for_function("window.__oralCopy")
+        self.assertIn(prompt.model_content["position"], self.page.evaluate("window.__oralCopy"))
+        self.assertNotIn("is-personalized", self.page.locator("body").get_attribute("class") or "")
+        source_data = self.page.locator(".answer-columns[data-annotation-root]").first.evaluate("""
+            root => {
+              const quote = root.querySelector(".spine-text").textContent;
+              const text = root.textContent;
+              const start = text.indexOf(quote);
+              return {
+                quote, start, end: start + quote.length,
+                prefix: text.slice(Math.max(0, start - 160), start),
+                suffix: text.slice(start + quote.length, start + quote.length + 160),
+                key: JSON.parse(root.dataset.annotationLegacySourceKeys)[0]
+              };
+            }
+        """)
+        Annotation.objects.create(
+            user=self.user, task=prompt.theme.task, kind=AnnotationKind.HIGHLIGHT,
+            source_path=url, source_key=source_data["key"], quote=source_data["quote"],
+            start_offset=source_data["start"], end_offset=source_data["end"],
+            prefix=source_data["prefix"], suffix=source_data["suffix"],
+        )
+        self.page.reload()
+        expect(self.page.locator("mark.user-highlight")).to_have_count(1)
+        PersonalResponse.objects.create(
+            user=self.user, response=prompt.response,
+            position="Changed beginning. " + source_data["quote"],
+        )
+        self.page.goto(self.live_server_url + url)
+        expect(self.page.locator("mark.user-highlight")).to_have_count(0)
+        self.page.get_by_role("link", name="Historique et versions conservées", exact=True).click()
+        expect(self.page.get_by_text(source_data["quote"], exact=True)).to_be_visible()
 
     def test_ee_tache_one_rows_navigate_without_completion_click_through(self):
         ee_part = factories.make_part("ee")

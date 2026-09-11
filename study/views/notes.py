@@ -1002,6 +1002,9 @@ def _annotation_overlap_revisions(value):
 
 
 def _annotation_prompt_scope(prompt):
+    if prompt.response.semantic_group:
+        path = prompt_detail_url(prompt)
+        return path, Q(source_path=path) | Q(source_path__startswith=f"{path}?")
     canonical = prompt.response.canonical_prompt or prompt
     canonical_path = prompt_detail_url(canonical)
     sibling_paths = [

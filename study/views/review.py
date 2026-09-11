@@ -58,14 +58,33 @@ REVIEW_SCOPE_KEYS = (
     "response",
     "test",
     "batch",
+    "prompt",
+    "model",
+    "personal",
 )
 
 
 FOCUSED_REVIEW_KINDS = {"revisit", "weak"}
 
 
-def _review_card_payload(card, user):
-    payload = card_payload(card)
+def _review_card_payload(card, user, scope=None):
+    scope = scope or {}
+    prompt = None
+    personal = None
+    if card.response_id and card.response.semantic_group:
+        if scope.get("prompt"):
+            prompt = get_object_or_404(
+                Prompt.objects.select_related("theme__task__part"),
+                pk=scope["prompt"], response_id=card.response_id, is_active=True,
+            )
+        if scope.get("personal"):
+            from ..oral_history import personal_versions
+            personal = get_object_or_404(
+                personal_versions(card.response, user), pk=scope["personal"],
+            )
+    payload = card_payload(
+        card, prompt=prompt, model_only=scope.get("model") == "1", personal=personal,
+    )
     if card.response_id:
         payload["subject_progress"] = subject_progress_by_response(
             user,
@@ -331,7 +350,7 @@ def _active_card_payload(
     request,
 ) -> dict:
     """Serialize an active review card into the client review payload."""
-    payload = _review_card_payload(card, request.user)
+    payload = _review_card_payload(card, request.user, session.scope)
     return {
         "done": False,
         "card_id": card.id,
@@ -580,7 +599,7 @@ def review_previous(request):
             pk=session.previous_card_id,
             user=request.user,
         )
-        payload = _review_card_payload(card, request.user)
+        payload = _review_card_payload(card, request.user, session.scope)
         front = render_to_string(
             "study/partials/card_front.html",
             payload,
@@ -712,6 +731,13 @@ def review_undo(request):
             )
         card = None
         if session.previous_review_id and session.previous_card_id:
+            if Card.objects.filter(
+                pk=session.previous_card_id, response__semantic_owner__isnull=False,
+            ).exists():
+                return JsonResponse(
+                    {"error": "Cette révision précède le nouveau regroupement. Elle reste consultable dans l'historique du sujet."},
+                    status=409,
+                )
             card = undo_last(
                 request.user,
                 log_id=session.previous_review_id,

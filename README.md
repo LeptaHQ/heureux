@@ -34,6 +34,40 @@ keeps all marked records in the folder. Page navigation works without JavaScript
 The shared `study/partials/pagination.html` pager accepts a Django `page_obj`,
 `page_links` (`number` and `url`), previous/next URLs, and an optional accessible label.
 
+## Oral subject equivalence
+
+EO task 2 and task 3 use editorial `semantic_groups.json` partitions, including
+singletons. A shared answer or question-body hash is **not** proof of equivalence.
+The importer rejects missing, incomplete, duplicate or cross-task memberships.
+The manifest canonical retains identity; directories display the first publication
+in their own order and search all publications before grouping and limiting.
+
+Each original prompt keeps its model text, questions and vocabulary. Equivalent
+subjects may have different models. Detail pages offer the original models and
+every preserved personal alternative, with matching copy and practice controls.
+The history link exposes older learner versions, schedules, review logs and
+annotations; account exports include recovery snapshots. Saving/restoring a version
+keeps the previous one; resetting selects the original model without deleting work.
+Annotations on changed text remain in history rather than being replayed on a
+different model.
+
+An old response's ambiguous shared state belongs only to the corrected group
+containing its original canonical key. Occurrence-provenanced annotations and
+personal work follow their source prompt. Split vocabulary decks retain original
+source IDs where available, otherwise use stable derived IDs with fresh progress.
+Imports retain original response/card/log IDs and never fan out old completion to
+all previously grouped prompts. Schedule projection snapshots the target and donor
+states first and runs once per membership revision, excluding rationale changes.
+Historical previous reviews remain inspectable but cannot undo a schedule already
+projected into another group.
+
+**Deployment gate:** apply migrations and import both complete manifests before
+serving the new application. Render and Vercel builds call `deploy_database`
+(migrations first, then fingerprinted import); Procfile releases do the same.
+Do not use `[skip db]` for this rollout. For a manual deployment run
+`python manage.py deploy_database --force`, then restart workers. Do not regenerate
+manifests from body hashes or replace the immutable original source files.
+
 ## Runtime efficiency
 
 - `study/catalogue.py` shares immutable bundled expression content across requests.

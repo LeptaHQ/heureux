@@ -8,6 +8,7 @@ instead of cascading into private progress or review history.
 from __future__ import annotations
 
 import hashlib
+import json
 from collections import defaultdict
 from pathlib import Path
 
@@ -39,6 +40,7 @@ from study.models import (
     PersonalWritingResponse,
     Prompt,
     Response,
+    ReviewSession,
     Settings,
     Task,
     Theme,
@@ -213,6 +215,7 @@ class Command(BaseCommand):
             self._sync_cards(response_by_key)
             Settings.load()
         self._reconcile_response_cards(response_by_key)
+        self._reconcile_oral_review_sessions()
         self._reconcile_phrase_cards()
         self._reconcile_local_phrase_directions()
         ContentImportState.objects.update_or_create(
@@ -261,7 +264,7 @@ class Command(BaseCommand):
         study_dir = content.CONTENT_DIR.parent
         files.extend(
             (name, study_dir / name)
-            for name in ("account_services.py", "models.py")
+            for name in ("account_services.py", "models.py", "oral_history.py")
         )
         files.extend(
             (
@@ -803,6 +806,14 @@ class Command(BaseCommand):
         existing_by_pk = Response.objects.in_bulk(
             set(prompt_response_ids.values())
         )
+        oral_members = {
+            prompt.content_key
+            for data in responses if data.semantic_group
+            for prompt in data.prompts
+        }
+        oral_sources = Response.objects.in_bulk(oral_members, field_name="content_key")
+        self._oral_pending_keys = set()
+        self._oral_revisions = {}
         response_sources = {}
         new_responses = []
         changed_responses = []
@@ -820,6 +831,9 @@ class Command(BaseCommand):
             "body",
             "body_html",
             "is_active",
+            "semantic_group",
+            "semantic_rationale",
+            "semantic_owner",
         ]
         for data in responses:
             source_ids = {
@@ -827,8 +841,14 @@ class Command(BaseCommand):
                 for prompt in data.prompts
                 if prompt.content_key in prompt_response_ids
             }
+            if data.semantic_group:
+                source_ids = {
+                    oral_sources[prompt.content_key].pk
+                    for prompt in data.prompts
+                    if prompt.content_key in oral_sources
+                }
             obj = existing_by_key.get(data.content_key)
-            if obj is None:
+            if obj is None and not data.semantic_group:
                 candidates = (
                     existing_by_pk[response_id]
                     for response_id in source_ids
@@ -852,7 +872,17 @@ class Command(BaseCommand):
                 "body": data.body,
                 "body_html": data.body_html,
                 "is_active": True,
+                "semantic_group": data.semantic_group,
+                "semantic_rationale": data.semantic_rationale,
+                "semantic_owner_id": None,
             }
+            if data.semantic_group:
+                revision = hashlib.sha256(json.dumps(
+                    [data.content_key, sorted(prompt.content_key for prompt in data.prompts)]
+                ).encode("utf-8")).hexdigest()
+                self._oral_revisions[data.content_key] = revision
+                if obj is None or obj.semantic_state_revision != revision:
+                    self._oral_pending_keys.add(data.content_key)
             if obj is None:
                 obj = Response(**values)
                 new_responses.append(obj)
@@ -875,6 +905,13 @@ class Command(BaseCommand):
             new_responses,
             batch_size=IMPORT_BATCH_SIZE,
         )
+        for data in responses:
+            if data.semantic_group:
+                Response.objects.filter(
+                    pk__in=response_sources[data.content_key],
+                ).exclude(pk=mapping[data.content_key].pk).update(
+                    semantic_owner=mapping[data.content_key],
+                )
 
         seen = {obj.pk for obj in mapping.values()}
         existing_arguments = {
@@ -958,6 +995,7 @@ class Command(BaseCommand):
             "text",
             "is_canonical",
             "is_active",
+            "model_content",
         ]
         for response, prompt in prompt_rows:
             values = {
@@ -968,6 +1006,7 @@ class Command(BaseCommand):
                 "text": prompt.text,
                 "is_canonical": prompt.is_canonical,
                 "is_active": True,
+                "model_content": prompt.model_content,
             }
             obj = existing_prompts.get(prompt.content_key)
             if obj is None:
@@ -1257,6 +1296,8 @@ class Command(BaseCommand):
             "conclusion",
         )
         for content_key, target_response in response_by_key.items():
+            if target_response.semantic_group:
+                continue
             source_ids = source_plan.get(content_key, set())
             if len(source_ids) < 2:
                 continue
@@ -1317,6 +1358,8 @@ class Command(BaseCommand):
         }
         source_responses = Response.objects.in_bulk(source_ids)
         for content_key, target in response_by_key.items():
+            if target.semantic_group:
+                continue
             for source_id in source_plan.get(content_key, set()):
                 source = source_responses.get(source_id)
                 if source is None or source.content_key == target.content_key:
@@ -1328,7 +1371,14 @@ class Command(BaseCommand):
                     )
 
     def _reconcile_response_cards(self, response_by_key):
+        from study.oral_history import snapshot
+
         source_plan = getattr(self, "_response_sources", {})
+        source_plan = {
+            key: ids for key, ids in source_plan.items()
+            if not response_by_key[key].semantic_group
+            or key in getattr(self, "_oral_pending_keys", set())
+        }
         response_ids = {
             response_id
             for source_ids in source_plan.values()
@@ -1347,6 +1397,15 @@ class Command(BaseCommand):
         )
         for card in cards:
             cards_by_response[card.response_id][card.user_id] = card
+        oral_source_ids = {
+            response_id
+            for key, ids in source_plan.items()
+            if response_by_key[key].semantic_group
+            for response_id in ids | {response_by_key[key].pk}
+        }
+        for card in cards:
+            if card.response_id in oral_source_ids:
+                snapshot(card, "card")
 
         schedule_fields = (
             "state",
@@ -1442,11 +1501,36 @@ class Command(BaseCommand):
 
         if changed:
             Card.objects.bulk_update(changed, schedule_fields)
+        for key in getattr(self, "_oral_pending_keys", set()):
+            Response.objects.filter(pk=response_by_key[key].pk).update(
+                semantic_state_revision=self._oral_revisions[key],
+            )
+
+    def _reconcile_oral_review_sessions(self):
+        from study.oral_history import snapshot
+
+        sessions = ReviewSession.objects.filter(
+            current_card__response__semantic_owner__isnull=False,
+        ).select_related("current_card__response")
+        for session in sessions:
+            source = session.current_card.response
+            target = Card.objects.filter(
+                user_id=session.user_id, response_id=source.semantic_owner_id,
+                card_type=CardType.SPINE,
+            ).first()
+            if target is None:
+                raise CommandError(f"Missing semantic review card for session {session.pk}")
+            snapshot(session, "session", response=source)
+            session.current_card = target
+            if str(session.scope.get("response", "")) == str(source.pk):
+                session.scope = {**session.scope, "response": str(source.semantic_owner_id)}
+            # Previous card/review pointers remain intact for historical inspection.
+            session.save(update_fields=["current_card", "scope"])
 
     def _reconcile_phrase_cards(self):
         phrase_id_merges = {
             **PHRASE_ID_MERGES,
-            **content.tache_two_phrase_id_merges(),
+            **({} if getattr(self, "_oral_revisions", {}) else content.tache_two_phrase_id_merges()),
             **content.ee_tache_three_phrase_id_merges(),
         }
         phrase_ids = set(phrase_id_merges)

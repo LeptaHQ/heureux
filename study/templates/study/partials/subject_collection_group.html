@@ -23,7 +23,7 @@
             {% include "study/partials/subject_collection_row.html" with href=subject_url title=subject.title response_id=subject.response_id prompt_key=subject.content_key %}
           {% else %}
             {% url 'study:response_detail' part.slug task.slug subject.prompt.pk as subject_url %}
-            {% include "study/partials/subject_collection_row.html" with href=subject_url title=subject.prompt.text response_id=subject.prompt.response_id %}
+            {% include "study/partials/subject_collection_row.html" with href=subject_url title=subject.prompt.text response_id=subject.prompt.response_id prompt_key=subject.prompt.pk %}
           {% endif %}
         {% endfor %}
       </tbody>

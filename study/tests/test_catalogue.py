@@ -262,14 +262,16 @@ class CatalogueRequestTests(TestCase):
             memory_number=memory.number,
             question_key=memory.question_keys[0],
         )
-        occurrences = self.prompt.response.prompts.filter(is_active=True).count()
+        group_count = Prompt.objects.filter(
+            theme__task=self.prompt.theme.task, is_active=True,
+        ).values("response_id").distinct().count()
 
         with self._no_bundled_reads():
             for name in ("dashboard", "expression"):
                 response = self.client.get(pages[name])
                 summary = self._summary(response, "tache-2")
-                self.assertEqual(summary["total"], 348)
-                self.assertEqual(summary["completed"], occurrences)
+                self.assertEqual(summary["total"], group_count)
+                self.assertEqual(summary["completed"], 1)
                 self.assertEqual(
                     self._summary(response, "tache-1")["completed"], 1
                 )

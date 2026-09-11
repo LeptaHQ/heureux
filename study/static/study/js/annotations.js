@@ -661,6 +661,21 @@
         return roots[index];
       }
     }
+    for (var legacyIndex = 0; legacyIndex < roots.length; legacyIndex += 1) {
+      var root = roots[legacyIndex];
+      var legacyKeys = root.dataset.annotationLegacySourceKeys;
+      if (!legacyKeys || JSON.parse(legacyKeys).indexOf(item.source_key) === -1) continue;
+      var text = root.textContent || "";
+      // Legacy namespaces have no model revision. Never relocate their offsets
+      // onto a changed answer merely because it happens to reuse the same words.
+      if (
+        text.slice(item.start_offset, item.end_offset) === item.quote &&
+        (!item.prefix || text.slice(0, item.start_offset).endsWith(item.prefix)) &&
+        (!item.suffix || text.slice(item.end_offset).startsWith(item.suffix))
+      ) {
+        return root;
+      }
+    }
     return null;
   }
 

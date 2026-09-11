@@ -710,7 +710,7 @@ class LearningViewTests(TestCase):
 
         payload = self.client.get(reverse("study:export_account")).json()
 
-        self.assertEqual(payload["version"], 9)
+        self.assertEqual(payload["version"], 10)
         self.assertEqual(
             payload["learning_lesson_progress"][0]["lesson_id"],
             self.lesson.id,

@@ -17,6 +17,8 @@
         {% if not subject.is_personalized %}{% if subject.has_model_response %}Réponse modèle{% else %}<span class="badge-soon">À rédiger</span>{% endif %}{% endif %}
       {% elif kind == "eo2" %}
         {{ subject.month_name }} · Batch {{ subject.batch_number|stringformat:"02d" }} · Sujet {{ subject.number_label }}
+      {% elif kind == "eo3" %}
+        {{ subject.prompt.theme.display_name }} · P{{ subject.prompt.number }}
       {% elif kind == "writing" %}
         {{ subject.source.month_name }} {{ subject.source.year }}
       {% else %}
@@ -26,7 +28,7 @@
     </span>
   </td>
   <td class="t1-table__versions t1-table__questions" role="cell">
-    {% if legacy and not subject.has_model_response %}—{% elif kind == "eo2" %}{{ subject.question_count }}<span class="subject-collection__count-label"> question{{ subject.question_count|pluralize }}</span>{% elif kind == "writing" %}{{ subject.version_count }}<span class="subject-collection__count-label"> version{{ subject.version_count|pluralize }}</span>{% else %}{{ subject.document_count }} docs · {{ subject.vocabulary_count }} vocabs{% endif %}
+    {% if legacy and not subject.has_model_response %}—{% elif kind == "eo2" %}{{ subject.question_count }}<span class="subject-collection__count-label"> question{{ subject.question_count|pluralize }}</span>{% elif kind == "eo3" %}{{ subject.publication_count }} publication{{ subject.publication_count|pluralize }}{% elif kind == "writing" %}{{ subject.version_count }}<span class="subject-collection__count-label"> version{{ subject.version_count|pluralize }}</span>{% else %}{{ subject.document_count }} docs · {{ subject.vocabulary_count }} vocabs{% endif %}
   </td>
   <td class="t1-table__progress-cell" role="cell">
     <div class="t1-table__progress">

@@ -166,6 +166,7 @@ class PersonalResponseTests(TestCase):
             PersonalResponse.objects.filter(
                 user=self.owner,
                 response=self.response,
+                is_active=True,
             ).exists()
         )
         self.owner_card.refresh_from_db()
@@ -378,6 +379,7 @@ class TacheTwoPersonalResponseTests(TestCase):
             PersonalResponse.objects.filter(
                 user=self.owner,
                 response=self.response,
+                is_active=True,
             ).exists()
         )
         detail = self.client.get(self.detail_url)

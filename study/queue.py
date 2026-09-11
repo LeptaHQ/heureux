@@ -215,17 +215,26 @@ def scoped_cards(
         if direct_theme_lookups:
             phrase_scope_query |= Q(**direct_theme_lookups)
         qs = qs.filter(
-            Q(response_id__in=Response.objects.filter(**response_lookups))
+            Q(response_id__in=Response.objects.filter(
+                Q(**response_lookups) | Q(
+                    semantic_group__gt="",
+                    **{f"prompts__{key}": value for key, value in response_lookups.items()},
+                )
+            ))
             | Q(phrase_id__in=Phrase.objects.filter(phrase_scope_query))
         )
     if scope.get("category"):
         qs = qs.filter(phrase__category__slug=scope["category"])
     if scope.get("response"):
+        response_ids = Response.objects.filter(
+            Q(pk=scope["response"]) | Q(historical_sources__pk=scope["response"]),
+            is_active=True,
+        )
         qs = qs.filter(
-            Q(response_id=scope["response"])
+            Q(response_id__in=response_ids)
             | Q(
                 phrase_id__in=Phrase.objects.filter(
-                    source_prompts__response_id=scope["response"]
+                    source_prompts__response_id__in=response_ids
                 )
             )
         )
@@ -242,6 +251,11 @@ def scoped_cards(
                 source_questions__test__is_active=True,
             )
         )
+    if scope.get("prompt") and kind in {"vocab", "phrase"}:
+        qs = qs.filter(
+            phrase__source_prompts__pk=scope["prompt"],
+            phrase__source_prompts__is_active=True,
+        ).distinct()
     if content == "spine":
         qs = qs.filter(card_type=CardType.SPINE)
     elif content == "vocabulary":

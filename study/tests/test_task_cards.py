@@ -706,7 +706,7 @@ class ExpressionPathSummaryTests(TestCase):
                     sum(path[key] for path in legacy),
                 )
 
-    def test_tache_two_keeps_every_subject_occurrence(self):
+    def test_tache_two_keeps_publications_but_counts_equivalent_progress_once(self):
         summaries = expression_task_summaries(
             self.now,
             self.user,
@@ -715,13 +715,11 @@ class ExpressionPathSummaryTests(TestCase):
         stats = summaries[self.tache_two.pk]["stats"]
 
         self.assertEqual(len(self.subject_keys), 348)
-        self.assertEqual(stats["total"], 348)
-        # The two equivalent subjects share one completed response, and each
-        # occurrence counts on its own instead of collapsing into one.
-        self.assertEqual(stats["completed"], 2)
-        self.assertEqual(stats["seen"], 3)
-        self.assertEqual(stats["progress"].total, 348)
-        self.assertEqual(stats["progress"].completed, 2)
+        self.assertEqual(stats["total"], 347)
+        self.assertEqual(stats["completed"], 1)
+        self.assertEqual(stats["seen"], 2)
+        self.assertEqual(stats["progress"].total, 347)
+        self.assertEqual(stats["progress"].completed, 1)
 
     def test_ordinary_tasks_collapse_aliases_onto_their_response(self):
         summaries = expression_task_summaries(

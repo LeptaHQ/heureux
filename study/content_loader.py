@@ -14,7 +14,7 @@ import html
 import json
 import re
 import unicodedata
-from dataclasses import dataclass, field
+from dataclasses import asdict, dataclass, field, replace
 from functools import lru_cache
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
@@ -46,6 +46,10 @@ EO_TACHE_THREE_TASK = ("eo", "tache-3")
 EO_TACHE_THREE_THEME_VOCABULARY_DIR = (
     CONTENT_DIR / "tache_3" / "theme_vocabulary"
 )
+ORAL_SEMANTIC_GROUP_PATHS = {
+    "eo/tache-2": TACHE_TWO_SUBJECTS_DIR / "semantic_groups.json",
+    "eo/tache-3": CONTENT_DIR / "tache_3" / "semantic_groups.json",
+}
 
 EE_TACHE_THREE_TASK = ("ee", "tache-3")
 EE_TACHE_THREE_CONTENT_PREFIX = "ee-tache3:"
@@ -614,6 +618,7 @@ class PromptData:
     text: str
     family: str
     is_canonical: bool
+    model_content: dict = field(default_factory=dict)
 
 
 @dataclass
@@ -632,6 +637,121 @@ class ResponseData:
     body_html: str
     arguments: List[ArgumentData]
     prompts: List[PromptData] = field(default_factory=list)
+    semantic_group: str = ""
+    semantic_rationale: str = ""
+
+
+@dataclass(frozen=True)
+class OralSemanticGroupData:
+    id: str
+    canonical: str
+    members: Tuple[str, ...]
+    rationale: str
+
+
+def load_oral_semantic_groups(
+    task: str, source_keys, *, path: Optional[Path] = None,
+) -> Tuple[OralSemanticGroupData, ...]:
+    """Validate an editorial partition, never derive equivalence from bodies."""
+    if task not in ORAL_SEMANTIC_GROUP_PATHS:
+        raise ValueError(f"Unsupported oral semantic task: {task!r}")
+    keys = tuple(source_keys)
+    if not keys or len(set(keys)) != len(keys):
+        raise ValueError("Semantic source keys must be nonempty and unique")
+    key_pattern = (
+        r"tache2:[a-z0-9-]+:batch-\d{2}:subject-\d{2}"
+        if task == "eo/tache-2" else r"[a-z0-9-]+:p[1-9]\d*"
+    )
+    if any(not re.fullmatch(key_pattern, key) for key in keys):
+        raise ValueError(f"Source keys cross the {task} task boundary")
+    data = json.loads((path or ORAL_SEMANTIC_GROUP_PATHS[task]).read_text(encoding="utf-8"))
+    if (
+        not isinstance(data, dict)
+        or set(data) != {"version", "task", "groups"}
+        or type(data["version"]) is not int
+        or data["version"] != 1
+        or data["task"] != task
+        or not isinstance(data["groups"], list)
+    ):
+        raise ValueError(f"{task} semantic manifest must use version 1 and its exact task")
+    order = {key: index for index, key in enumerate(keys)}
+    seen_ids, seen_members = set(), set()
+    groups = []
+    for row in data["groups"]:
+        if not isinstance(row, dict) or set(row) != {"id", "canonical", "members", "rationale"}:
+            raise ValueError(f"{task} semantic group has invalid fields")
+        group_id, canonical, members, rationale = (
+            row["id"], row["canonical"], row["members"], row["rationale"]
+        )
+        if (
+            not isinstance(group_id, str)
+            or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", group_id)
+            or len(group_id) > 120
+            or group_id in seen_ids
+        ):
+            raise ValueError(f"{task} semantic group has an invalid or duplicate id")
+        if (
+            not isinstance(members, list) or not members
+            or any(not isinstance(key, str) for key in members)
+            or len(set(members)) != len(members)
+            or set(members) - set(order)
+            or set(members) & seen_members
+        ):
+            raise ValueError(f"{task} group {group_id!r} has unknown or duplicate members")
+        if not isinstance(canonical, str) or canonical not in members:
+            raise ValueError(f"{task} group {group_id!r} must contain its canonical")
+        if members != sorted(members, key=order.__getitem__):
+            raise ValueError(f"{task} group {group_id!r} members are not in publication order")
+        if not isinstance(rationale, str) or not rationale.strip():
+            raise ValueError(f"{task} group {group_id!r} needs a rationale")
+        seen_ids.add(group_id)
+        seen_members.update(members)
+        groups.append(OralSemanticGroupData(group_id, canonical, tuple(members), rationale))
+    if set(keys) != seen_members:
+        raise ValueError(f"{task} semantic partition is missing: {', '.join(sorted(set(keys) - seen_members))}")
+    return tuple(groups)
+
+
+def _oral_model_content(response: ResponseData) -> dict:
+    fields = (
+        "reformulation", "position", "position_claire", "nuance",
+        "conclusion", "body", "body_html", "body_hash",
+    )
+    return {
+        **{name: getattr(response, name) for name in fields},
+        "arguments": [asdict(argument) for argument in response.arguments],
+        "storage_key": response.content_key,
+    }
+
+
+def _assemble_oral_semantic_responses(storage, task, source_keys, path=None):
+    occurrences = {
+        prompt.content_key: (prompt, response)
+        for response in storage for prompt in response.prompts
+    }
+    groups = load_oral_semantic_groups(task, source_keys, path=path)
+    order = {key: index for index, key in enumerate(source_keys)}
+    responses = []
+    for group in sorted(groups, key=lambda group: order[group.members[0]]):
+        canonical, model = occurrences[group.canonical]
+        responses.append(replace(
+            model,
+            content_key=canonical.content_key,
+            theme=canonical.theme,
+            family=canonical.family,
+            prompt=canonical.text,
+            semantic_group=f"{task}/{group.id}",
+            semantic_rationale=group.rationale,
+            prompts=[
+                replace(
+                    occurrences[key][0],
+                    is_canonical=key == canonical.content_key,
+                    model_content=_oral_model_content(occurrences[key][1]),
+                )
+                for key in group.members
+            ],
+        ))
+    return responses
 
 
 @dataclass(frozen=True)
@@ -1237,7 +1357,7 @@ def load_tache_two_equivalent_groups(
     months: Optional[Tuple[TacheTwoSubjectMonthData, ...]] = None,
     subject_themes_path: Path = TACHE_TWO_SUBJECT_THEMES_PATH,
 ) -> Tuple[TacheTwoEquivalentGroupData, ...]:
-    """Load audited groups whose questions and progression are truly shared."""
+    """Load published exact-question storage metadata, not semantic equivalence."""
     data = json.loads(path.read_text(encoding="utf-8"))
     if (
         not isinstance(data, dict)
@@ -1414,9 +1534,10 @@ class _TacheTwoOccurrence:
     body_hash: str
 
 
-def parse_tache_two_responses(
+def parse_tache_two_storage_responses(
     months: Optional[Tuple[TacheTwoSubjectMonthData, ...]] = None,
 ) -> List[ResponseData]:
+    """Reconstruct the published body/deck identities for migration and validation."""
     months = months or load_tache_two_subject_months()
     category_by_key = tache_two_category_by_content_key()
     theme_prompt_numbers: Dict[str, int] = {}
@@ -1519,6 +1640,20 @@ def parse_tache_two_responses(
     return responses
 
 
+def parse_tache_two_responses(
+    months: Optional[Tuple[TacheTwoSubjectMonthData, ...]] = None,
+    *, semantic_path: Optional[Path] = None,
+) -> List[ResponseData]:
+    months = months if months is not None else load_tache_two_subject_months()
+    keys = [
+        tache_two_subject_content_key(month.slug, batch.number, subject.number)
+        for month in months for batch in month.batches for subject in batch.subjects
+    ]
+    return _assemble_oral_semantic_responses(
+        parse_tache_two_storage_responses(months), "eo/tache-2", keys, semantic_path,
+    )
+
+
 def tache_two_response_key_by_subject_key(
     responses: Optional[List[ResponseData]] = None,
 ) -> Dict[str, str]:
@@ -1617,12 +1752,12 @@ def tache_two_phrase_id_merges(
     return merges
 
 
-def parse_tache_two_subject_vocabulary(
+def _parse_tache_two_storage_vocabulary(
     responses: Optional[List[ResponseData]] = None,
     directory: Path = TACHE_TWO_VOCABULARY_DIR,
 ) -> List[PhraseData]:
     if responses is None:
-        responses = parse_tache_two_responses()
+        responses = parse_tache_two_storage_responses()
     response_by_key = {
         response.content_key: response
         for response in responses
@@ -1864,6 +1999,65 @@ def parse_tache_two_subject_vocabulary(
             + ", ".join(missing)
         )
     return phrases
+
+
+def _oral_vocabulary_by_semantic_owner(phrases, storage, responses, native_ids=None):
+    """Keep old deck IDs with their owner; split decks start with new state."""
+    storage_owner = {
+        (prompt.theme, prompt.number): response.prompts[0].content_key
+        for response in storage for prompt in response.prompts
+    }
+    key_by_source = {
+        (prompt.theme, prompt.number): prompt.content_key
+        for response in storage for prompt in response.prompts
+    }
+    group_by_key = {
+        prompt.content_key: response.content_key
+        for response in responses for prompt in response.prompts
+    }
+    result = []
+    for phrase in phrases:
+        groups = {}
+        for source in phrase.sources:
+            groups.setdefault(group_by_key[key_by_source[source]], []).append(source)
+        owner_key = storage_owner[phrase.sources[0]]
+        owner_group = group_by_key[owner_key]
+        for group_key, sources in groups.items():
+            source_key = key_by_source[sources[0]]
+            phrase_id = phrase.phrase_id
+            if group_key != owner_group:
+                native_id = (native_ids or {}).get((source_key, phrase.expression, phrase.example))
+                phrase_id = (
+                    native_id if native_id and native_id != phrase.phrase_id else
+                    "OV" + hashlib.sha256(
+                        f"{phrase.phrase_id}:{source_key}".encode("utf-8")
+                    ).hexdigest()[:14]
+                )
+            result.append(replace(
+                phrase,
+                phrase_id=phrase_id,
+                sources=tuple(sources),
+                sources_raw="; ".join(f"{theme} P{number}" for theme, number in sources),
+            ))
+    return result
+
+
+def parse_tache_two_subject_vocabulary(
+    responses: Optional[List[ResponseData]] = None,
+    directory: Path = TACHE_TWO_VOCABULARY_DIR,
+) -> List[PhraseData]:
+    responses = responses if responses is not None else parse_tache_two_responses()
+    if not any(response.content_key.startswith("tache2:") for response in responses):
+        return []
+    storage = parse_tache_two_storage_responses()
+    phrases = _parse_tache_two_storage_vocabulary(storage, directory)
+    native_ids = {
+        (row["subject_key"], entry["french"], entry["example"]): entry["id"]
+        for path in sorted(directory.glob("*.json"))
+        for row in json.loads(path.read_text(encoding="utf-8"))["subjects"]
+        for entry in row["entries"]
+    }
+    return _oral_vocabulary_by_semantic_owner(phrases, storage, responses, native_ids)
 
 
 def parse_tache_two_theme_vocabulary(
@@ -4350,7 +4544,8 @@ def _parse_theme_file(path: Path, theme: str, family_map) -> List[_RawPrompt]:
     return raws
 
 
-def parse_responses() -> List[ResponseData]:
+def parse_response_storage() -> List[ResponseData]:
+    """Reconstruct published exact-body identities; never use these as subjects."""
     family_map, _ = parse_families()
     theme_data = load_themes()
     order_map = {theme.name: theme.order for theme in theme_data}
@@ -4419,6 +4614,18 @@ def parse_responses() -> List[ResponseData]:
     return responses
 
 
+def parse_responses(*, semantic_path: Optional[Path] = None) -> List[ResponseData]:
+    storage = parse_response_storage()
+    theme_order = {theme.name: theme.order for theme in load_themes()}
+    prompts = sorted(
+        (prompt for response in storage for prompt in response.prompts),
+        key=lambda prompt: (theme_order[prompt.theme], prompt.number),
+    )
+    return _assemble_oral_semantic_responses(
+        storage, "eo/tache-3", [prompt.content_key for prompt in prompts], semantic_path,
+    )
+
+
 def parse_phrases(
     responses: Optional[List[ResponseData]] = None,
 ) -> List[PhraseData]:
@@ -4426,7 +4633,7 @@ def parse_phrases(
         responses = parse_responses()
 
     prompt_bodies = {
-        (prompt.theme, prompt.number): response.body
+        (prompt.theme, prompt.number): prompt.model_content.get("body", response.body)
         for response in responses
         for prompt in response.prompts
     }
@@ -4569,9 +4776,19 @@ def parse_phrases(
 def parse_subject_vocabulary(
     responses: Optional[List[ResponseData]] = None,
 ) -> List[PhraseData]:
+    responses = responses if responses is not None else parse_responses()
+    storage = parse_response_storage()
+    return _oral_vocabulary_by_semantic_owner(
+        _parse_storage_subject_vocabulary(storage), storage, responses,
+    )
+
+
+def _parse_storage_subject_vocabulary(
+    responses: Optional[List[ResponseData]] = None,
+) -> List[PhraseData]:
     """Load the dedicated 50-entry vocabulary deck for every response."""
     if responses is None:
-        responses = parse_responses()
+        responses = parse_response_storage()
 
     response_by_key = {response.content_key: response for response in responses}
     seen_response_keys: Dict[str, str] = {}

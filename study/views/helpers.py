@@ -136,13 +136,13 @@ def _tache_two_progress(user, months):
         for content_key, response_id in response_id_by_content_key.items()
     }
 
-    all_progress = []
+    all_progress = {}
     month_rows = []
     for month in months:
-        month_progress = []
+        month_progress = {}
         batch_rows = []
         for batch in month.batches:
-            batch_progress = []
+            batch_progress = {}
             subjects = []
             for subject in batch.subjects:
                 content_key = content_module.tache_two_subject_content_key(
@@ -155,9 +155,10 @@ def _tache_two_progress(user, months):
                     _EMPTY_SUBJECT_PROGRESS,
                 )
                 vocabulary_progress = progress.vocabulary_progress
-                batch_progress.append(progress)
-                month_progress.append(progress)
-                all_progress.append(progress)
+                progress_key = response_id_by_content_key.get(content_key, content_key)
+                batch_progress[progress_key] = progress
+                month_progress[progress_key] = progress
+                all_progress[progress_key] = progress
                 subjects.append(
                     {
                         "number": subject.number,
@@ -180,7 +181,7 @@ def _tache_two_progress(user, months):
                         ),
                     }
                 )
-            batch_summary = summarize_subject_progress(batch_progress)
+            batch_summary = summarize_subject_progress(batch_progress.values())
             batch_rows.append(
                 {
                     "number": batch.number,
@@ -193,7 +194,7 @@ def _tache_two_progress(user, months):
                     **batch_summary,
                 }
             )
-        month_summary = summarize_subject_progress(month_progress)
+        month_summary = summarize_subject_progress(month_progress.values())
         month_rows.append(
             {
                 "number": month.number,
@@ -207,7 +208,7 @@ def _tache_two_progress(user, months):
             }
         )
 
-    summary = summarize_subject_progress(all_progress)
+    summary = summarize_subject_progress(all_progress.values())
     return {
         "months": tuple(month_rows),
         "progress_by_content_key": progress_by_content_key,
@@ -253,7 +254,7 @@ def _tache_two_theme_progress(user, months=None, *, deduplicate=False):
     )
 
     subjects_by_theme = {theme.slug: [] for theme in themes}
-    all_progress = []
+    all_progress = {}
     for month in months:
         for batch in month.batches:
             for subject in batch.subjects:
@@ -313,11 +314,15 @@ def _tache_two_theme_progress(user, months=None, *, deduplicate=False):
             subjects = representatives
             if not subjects:
                 continue
-        all_progress.extend(subject["progress"] for subject in subjects)
+        unique_progress = {
+            subject["response_id"] or subject["content_key"]: subject["progress"]
+            for subject in subjects
+        }
+        all_progress.update(unique_progress)
         for index, subject in enumerate(subjects, start=1):
             subject["index"] = index
         theme_summary = summarize_subject_progress(
-            [subject["progress"] for subject in subjects]
+            unique_progress.values()
         )
         theme_rows.append(
             {
@@ -334,7 +339,7 @@ def _tache_two_theme_progress(user, months=None, *, deduplicate=False):
             }
         )
 
-    summary = summarize_subject_progress(all_progress)
+    summary = summarize_subject_progress(all_progress.values())
     return {
         "themes": tuple(theme_rows),
         "progress_by_content_key": progress_by_content_key,
@@ -1510,8 +1515,7 @@ def expression_task_summaries(now, user, tasks, content_counts=None):
         if theme_is_active:
             response_ids_by_task[task_id].add(response_id)
 
-    # Subject directories count published occurrences, not canonical responses:
-    # equivalents share one progress state, repeated once per visible sujet.
+    # Publication inventories remain separate from the oral semantic progress units.
     subject_keys_by_task = {}
     if question_bank_task_id is not None:
         subject_keys_by_task[question_bank_task_id] = tuple(
@@ -1559,13 +1563,17 @@ def expression_task_summaries(now, user, tasks, content_counts=None):
                 for response_id in response_ids_by_task[task_id]
             ]
         else:
-            items = [
-                progress_by_response.get(
-                    response_id_by_content_key.get(content_key),
-                    _EMPTY_SUBJECT_PROGRESS,
-                )
-                for content_key in content_keys
-            ]
+            if task_id == question_bank_task_id:
+                keys = {response_id_by_content_key.get(key, key) for key in content_keys}
+                items = [progress_by_response.get(key, _EMPTY_SUBJECT_PROGRESS) for key in keys]
+            else:
+                items = [
+                    progress_by_response.get(
+                        response_id_by_content_key.get(content_key),
+                        _EMPTY_SUBJECT_PROGRESS,
+                    )
+                    for content_key in content_keys
+                ]
         stats = summarize_subject_progress(items)
         # The card counts due responses, not the due subject vocabulary the
         # subject summary carries.

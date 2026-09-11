@@ -80,7 +80,8 @@ class SubjectHighlightScopeTests(TestCase):
         self.alias = Prompt.objects.create(
             response=self.response, theme=self.theme, family=self.response.family,
             content_key="tache2:mars:batch-01:subject-12",
-            number=100, text="Equivalent subject",
+            number=max(self.prompt.number, self.other_prompt.number) + 1,
+            text="Equivalent subject",
         )
         self.phrase = factories.make_phrase(tier=PhraseTier.SUBJECT)
         self.phrase.source_prompts.add(self.prompt)

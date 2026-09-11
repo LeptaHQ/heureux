@@ -50,7 +50,7 @@
       <span class="qrow__num">{{ row.prompt.number }}</span>
       <span class="qrow__text">
         {{ row.prompt.text }}
-        {% if row.is_alias %}<span class="alias-tag" title="Réponse identique à un autre sujet">= {{ row.prompt.response.theme.display_name }} P{{ row.canonical_number }}</span>{% endif %}
+        {% if row.is_alias %}<span class="alias-tag" title="Sujet équivalent ; le modèle peut varier">= {{ row.prompt.response.theme.display_name }} P{{ row.canonical_number }}</span>{% endif %}
       </span>
       <span class="qrow__meta qrow__meta--state">
         <span

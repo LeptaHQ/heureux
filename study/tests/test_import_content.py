@@ -736,7 +736,8 @@ class NonDestructiveImportTests(TestCase):
             for prompt in response.prompts
         ]
 
-        self.assertEqual(len({item.content_key for item in responses}), 130)
+        self.assertEqual(len({item.content_key for item in responses}), len(responses))
+        self.assertTrue(all(item.semantic_group for item in responses))
         self.assertEqual(len(set(prompt_keys)), 167)
         self.assertTrue(all(len(item.body_hash) == 64 for item in responses))
 

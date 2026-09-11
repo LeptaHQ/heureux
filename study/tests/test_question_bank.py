@@ -35,11 +35,13 @@ from study.content_loader import (
     load_question_banks,
     load_comprehension_tests,
     load_tache_two_equivalent_groups,
+    load_oral_semantic_groups,
     load_tache_two_subject_months,
     load_tache_two_subject_themes,
     parse_comprehension_vocabulary,
     parse_eo_tache_three_theme_vocabulary,
     parse_tache_two_responses,
+    parse_tache_two_storage_responses,
     parse_tache_two_subject_vocabulary,
     parse_tache_two_theme_vocabulary,
     tache_two_response_key_by_subject_key,
@@ -1066,7 +1068,7 @@ class QuestionBankContentTests(TestCase):
     def test_equivalent_subjects_must_share_their_vocabulary(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
-            responses = parse_tache_two_responses()
+            responses = parse_tache_two_storage_responses()
             shared = next(
                 response
                 for response in responses
@@ -1104,9 +1106,9 @@ class QuestionBankContentTests(TestCase):
 
         self.assertIn("not its vocabulary", str(error.exception))
 
-    def test_equivalent_groups_share_one_response_and_vocabulary_deck(self):
+    def test_legacy_exact_groups_describe_published_storage_and_vocabulary(self):
         groups = load_tache_two_equivalent_groups()
-        responses = parse_tache_two_responses()
+        responses = parse_tache_two_storage_responses()
         response_key_by_subject = tache_two_response_key_by_subject_key(
             responses
         )
@@ -1212,9 +1214,9 @@ class QuestionBankContentTests(TestCase):
 
         self.assertIn("crosses theme boundaries", str(error.exception))
 
-    def test_subjects_generate_srs_responses_and_vocabulary(self):
+    def test_published_question_storage_and_vocabulary_remain_reconstructible(self):
         months = load_tache_two_subject_months()
-        responses = parse_tache_two_responses()
+        responses = parse_tache_two_storage_responses()
         vocabulary = parse_tache_two_subject_vocabulary(responses)
 
         subject_keys = [
@@ -1637,7 +1639,7 @@ class EoTacheThreeThemeVocabularyViewTests(TestCase):
         ).distinct()
 
         self.assertEqual(theme_phrases.count(), 420)
-        self.assertEqual(subject_phrases.count(), 6_500)
+        self.assertEqual(subject_phrases.count(), 6_650)
         self.assertEqual(
             list(
                 theme_phrases.order_by()
@@ -2073,7 +2075,7 @@ class EoTacheOneQuestionBankViewTests(TestCase):
 
         exported = self.client.get(reverse("study:export_account")).json()
 
-        self.assertEqual(exported["version"], 8)
+        self.assertEqual(exported["version"], 10)
         self.assertEqual(
             exported["personal_question_responses"],
             [
@@ -2249,7 +2251,7 @@ class QuestionBankViewTests(TestCase):
         )
         self.assertContains(response, "0/33")
         self.assertContains(response, "lots terminés")
-        self.assertContains(response, "0/348")
+        self.assertContains(response, "0/165")
         self.assertContains(response, "sujets terminés")
         self.assertContains(
             response,
@@ -2691,18 +2693,26 @@ class QuestionBankViewTests(TestCase):
             theme["slug"]: theme
             for theme in index.context["subject_themes"]
         }
-        for group in load_tache_two_equivalent_groups():
+        groups = load_oral_semantic_groups("eo/tache-2", [
+            tache_two_subject_content_key(month.slug, batch.number, subject.number)
+            for month in load_tache_two_subject_months()
+            for batch in month.batches for subject in batch.subjects
+        ])
+        all_subjects = [
+            subject for theme in themes_by_slug.values() for subject in theme["subjects"]
+        ]
+        for group in groups:
             with self.subTest(equivalent_group=group.id):
                 self.assertEqual(
                     {
                         subject["response_id"]
-                        for subject in themes_by_slug[group.theme]["subjects"]
+                        for subject in all_subjects
                         if subject["content_key"] in group.members
                     },
                     {
                         next(
                             subject["response_id"]
-                            for subject in themes_by_slug[group.theme]["subjects"]
+                            for subject in all_subjects
                             if subject["content_key"] == group.canonical
                         )
                     },
@@ -2832,8 +2842,7 @@ class QuestionBankViewTests(TestCase):
         )
         self.assertContains(
             subject,
-            "data-annotation-source-key="
-            '"tache-two:janvier:batch-1:subject-1"',
+            f'data-annotation-source-key="{subject.context["subject_annotation_key"]}"',
         )
 
         second_batch = self.client.get(second_batch_url)
@@ -3211,7 +3220,7 @@ class QuestionBankViewTests(TestCase):
             is_active=True,
         ).distinct()
 
-        self.assertEqual(responses.count(), 175)
+        self.assertEqual(responses.count(), 165)
         self.assertEqual(
             Prompt.objects.filter(
                 content_key__startswith="tache2:",
@@ -3219,7 +3228,7 @@ class QuestionBankViewTests(TestCase):
             ).count(),
             348,
         )
-        self.assertEqual(vocabulary.count(), 5250)
+        self.assertEqual(vocabulary.count(), 5430)
         self.assertEqual(theme_vocabulary.count(), 495)
         self.assertEqual(
             Card.objects.filter(
@@ -3227,7 +3236,7 @@ class QuestionBankViewTests(TestCase):
                 card_type=CardType.SPINE,
                 response_id__in=response_ids,
             ).count(),
-            175,
+            165,
         )
         self.assertEqual(
             Card.objects.filter(
@@ -3235,7 +3244,7 @@ class QuestionBankViewTests(TestCase):
                 card_type=CardType.PHRASE_PRODUCTION,
                 phrase__in=vocabulary,
             ).count(),
-            5250,
+            5430,
         )
         self.assertEqual(
             Card.objects.filter(
@@ -3295,18 +3304,26 @@ class QuestionBankViewTests(TestCase):
         self.assertFalse(shared.context["selected_prompt"].is_canonical)
         self.assertTrue(canonical.context["selected_prompt"].is_canonical)
         self.assertEqual(
-            [
+            {
                 (item["month_slug"], item["number"])
                 for item in shared.context["equivalent_subjects"]
-            ],
-            [("fevrier", 20), ("juillet", 15), ("octobre", 50)],
+            },
+            {
+                (prompt.content_key.split(":")[1], int(prompt.content_key.rsplit("-", 1)[1]))
+                for prompt in shared.context["response"].prompts.all()
+                if prompt.pk != shared.context["selected_prompt"].pk
+            },
         )
         self.assertEqual(
-            [
+            {
                 (item["month_slug"], item["number"])
                 for item in canonical.context["equivalent_subjects"]
-            ],
-            [("mai", 5), ("juillet", 15), ("octobre", 50)],
+            },
+            {
+                (prompt.content_key.split(":")[1], int(prompt.content_key.rsplit("-", 1)[1]))
+                for prompt in canonical.context["response"].prompts.all()
+                if prompt.pk != canonical.context["selected_prompt"].pk
+            },
         )
         self.assertContains(shared, "Sujets équivalents")
         self.assertContains(shared, canonical_url)
@@ -3347,7 +3364,7 @@ class QuestionBankViewTests(TestCase):
             "done",
         )
 
-    def test_equivalent_subjects_share_highlights(self):
+    def test_equivalent_subjects_share_progress_not_text_offsets(self):
         shared_url = reverse(
             "study:task_subject_detail",
             args=[self.task.part.slug, self.task.slug, "mai", 1, 5],
@@ -3380,18 +3397,14 @@ class QuestionBankViewTests(TestCase):
         payload = listing.json()
 
         self.assertEqual(listing.status_code, 200)
-        self.assertEqual(
-            [item["source_key"] for item in payload["highlights"]],
-            ["tache-two:fevrier:batch-4:subject-20"],
+        self.assertEqual(payload["highlights"], [])
+        canonical = self.client.get(canonical_url)
+        shared = self.client.get(shared_url)
+        self.assertNotEqual(
+            canonical.context["subject_annotation_key"], shared.context["subject_annotation_key"],
         )
-        self.assertEqual(
-            self.client.get(canonical_url).context["subject_annotation_key"],
-            "tache-two:fevrier:batch-4:subject-20",
-        )
-        self.assertEqual(
-            self.client.get(shared_url).context["subject_annotation_key"],
-            "tache-two:fevrier:batch-4:subject-20",
-        )
+        self.assertEqual(canonical.context["subject_progress"].status, "active")
+        self.assertContains(self.client.get(canonical.context["oral_history_url"]), "Quels types")
 
     def test_audited_childcare_subjects_share_content_and_progress(self):
         learned_url = reverse(
@@ -3410,15 +3423,17 @@ class QuestionBankViewTests(TestCase):
             learned.context["subject_questions"],
             variant.context["subject_questions"],
         )
-        self.assertEqual(
-            learned.context["subject_annotation_key"],
-            "tache-two:fevrier:batch-6:subject-26",
-        )
-        self.assertEqual(
+        self.assertTrue(learned.context["subject_annotation_key"].startswith(
+            "response:tache2:fevrier:batch-06:subject-26:variant-",
+        ))
+        self.assertNotEqual(
             variant.context["subject_annotation_key"],
             learned.context["subject_annotation_key"],
         )
-        self.assertEqual(len(learned.context["equivalent_subjects"]), 4)
+        self.assertEqual(
+            len(learned.context["equivalent_subjects"]),
+            learned.context["response"].prompts.count() - 1,
+        )
 
         completed = self.client.post(
             reverse(
@@ -3751,7 +3766,7 @@ class QuestionBankViewTests(TestCase):
             task_card["question_bank"]["progress"].status,
             "active",
         )
-        self.assertContains(task_list, "0/348 sujets terminés")
+        self.assertContains(task_list, "0/165 sujets terminés")
 
     def test_explicit_subject_completion_rolls_up_through_tache_two(self):
         response = Response.objects.get(
@@ -4185,24 +4200,24 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(response, task_url)
         self.assertContains(
             response,
-            "348 sujets · 11 thèmes · 495 fiches de vocabulaire",
+            "165 sujets · 11 thèmes · 495 fiches de vocabulaire",
         )
         self.assertContains(response, "0/33 lots terminés")
-        self.assertContains(response, "0/348 sujets terminés")
+        self.assertContains(response, "0/165 sujets terminés")
         self.assertContains(response, "À commencer")
         task_card = next(
             row
             for row in response.context["tasks"]
             if row["task"].pk == self.task.pk
         )
-        self.assertEqual(task_card["question_bank"]["progress"].total, 381)
+        self.assertEqual(task_card["question_bank"]["progress"].total, 198)
         self.assertEqual(
             task_card["question_bank"]["vocabulary_progress"].total,
             33,
         )
         self.assertEqual(
             task_card["question_bank"]["subject_progress"].total,
-            348,
+            165,
         )
 
     def test_theme_vocabulary_progress_rolls_up_to_every_entry_point(self):
@@ -4323,7 +4338,7 @@ class QuestionBankViewTests(TestCase):
 
         exported = self.client.get(reverse("study:export_account")).json()
 
-        self.assertEqual(exported["version"], 8)
+        self.assertEqual(exported["version"], 10)
         self.assertEqual(
             exported["memory_question_progress"][0]["question_key"],
             own_progress.question_key,

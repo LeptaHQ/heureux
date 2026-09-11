@@ -38,6 +38,12 @@ def scope_from_request(request) -> dict:
     response_id = (data.get("response") or "").strip()
     if response_id.isdigit():
         scope["response"] = response_id
+    for key in ("prompt", "personal"):
+        value = (data.get(key) or "").strip()
+        if value.isdigit():
+            scope[key] = value
+    if data.get("model") == "1":
+        scope["model"] = "1"
     return scope
 
 
@@ -191,17 +197,29 @@ def scope_label(scope: dict) -> str:
     return with_batch("Sélection")
 
 
-def card_payload(card: Card) -> dict:
+def card_payload(card: Card, *, prompt=None, model_only=False, personal=None) -> dict:
     """Everything the front/back templates need for a single card."""
     if card.card_type == CardType.SPINE:
-        return _spine_payload(card)
+        return _spine_payload(card, prompt=prompt, model_only=model_only, personal=personal)
     return _phrase_payload(card)
 
 
-def _spine_payload(card: Card) -> dict:
+def _spine_payload(card: Card, *, prompt=None, model_only=False, personal=None) -> dict:
     response = card.response
-    content = effective_response(response, card.user)
-    canonical = response.canonical_prompt
+    if response.semantic_owner_id:
+        from .models import Prompt
+        prompt = prompt or Prompt.objects.select_related("theme__task__part").filter(
+            content_key=response.content_key, is_active=True,
+        ).first()
+        response = response.semantic_owner
+    canonical = prompt or response.canonical_prompt
+    content = effective_response(
+        response, card.user, prompt=canonical, model_only=model_only, personal=personal,
+    )
+    annotation_key = f"response:{response.content_key}"
+    if response.semantic_group and canonical is not None:
+        from .oral_history import variant_annotation_key
+        annotation_key = variant_annotation_key(canonical, content)
     task = response.theme.task
     tache_two_subject = (
         task is not None
@@ -235,8 +253,8 @@ def _spine_payload(card: Card) -> dict:
         "response": response,
         "response_content": content,
         "arguments": content.arguments,
-        "detail_url": response_detail_url(response),
-        "annotation_source_key": f"response:{response.content_key}",
+        "detail_url": prompt_detail_url(canonical) if canonical else response_detail_url(response),
+        "annotation_source_key": annotation_key,
     }
 
 

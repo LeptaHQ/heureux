@@ -25,15 +25,23 @@ class EffectiveResponse:
     is_personal: bool
 
 
-def effective_response(response, user) -> EffectiveResponse:
-    personal = None
-    if user is not None and getattr(user, "is_authenticated", False):
-        personal = PersonalResponse.objects.filter(
-            user=user,
-            response=response,
-        ).first()
+def effective_response(response, user, *, prompt=None, model_only=False, personal=None) -> EffectiveResponse:
+    if not model_only and personal is None and user is not None and getattr(user, "is_authenticated", False):
+        from .oral_history import preferred_personal
+        personal = preferred_personal(response, user)
+    if model_only:
+        personal = None
 
     if personal is None:
+        model = prompt.model_content if prompt is not None else {}
+        if model:
+            return EffectiveResponse(
+                **{name: model[name] for name in (
+                    "reformulation", "position", "position_claire", "nuance", "conclusion",
+                )},
+                arguments=tuple(EffectiveArgument(**argument) for argument in model["arguments"]),
+                is_personal=False,
+            )
         arguments = tuple(
             EffectiveArgument(
                 order=argument.order,

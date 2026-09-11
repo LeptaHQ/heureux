@@ -108,10 +108,8 @@ class SubjectNavigationTemplateTests(SimpleTestCase):
     def test_subject_directories_keep_opening_items_in_new_tabs(self):
         project_root = Path(__file__).resolve().parents[2]
         templates = (
-            project_root / "study/templates/study/tache_two_subjects.html",
-            project_root / "study/templates/study/ee_tache_one_subjects.html",
+            project_root / "study/templates/study/partials/subject_collection_row.html",
             project_root / "study/templates/study/ee_writing_subjects.html",
-            project_root / "study/templates/study/ee_tache_three_subjects.html",
         )
 
         for template in templates:
@@ -263,8 +261,17 @@ class PhraseParserTests(SimpleTestCase):
             Counter(phrase.tier for phrase in phrases),
             {"response": 1184, "shared": 226},
         )
-        self.assertEqual(len(coverage), 130)
-        self.assertGreaterEqual(min(coverage.values()), 12)
+        self.assertEqual(len(coverage), len(self.responses))
+        self.assertGreaterEqual(min(coverage.values()), 1)
+        storage_by_prompt = {
+            (prompt.theme, prompt.number): response.content_key
+            for response in content.parse_response_storage()
+            for prompt in response.prompts
+        }
+        storage_coverage = Counter()
+        for phrase in phrases:
+            storage_coverage.update({storage_by_prompt[source] for source in phrase.sources})
+        self.assertGreaterEqual(min(storage_coverage.values()), 12)
 
     def test_response_vocabulary_uses_its_semantic_topic_category(self):
         categories = {
@@ -315,18 +322,23 @@ class PhraseParserTests(SimpleTestCase):
             }
             self.assertEqual(len(response_keys), 1)
             response_key = response_keys.pop()
-            self.assertEqual(
-                set(phrase.sources),
-                prompts_by_response[response_key],
-            )
+            self.assertLessEqual(set(phrase.sources), prompts_by_response[response_key])
             coverage[response_key] += 1
 
-        self.assertEqual(len(vocabulary), 130 * 50)
+        semantic_by_key = {
+            prompt.content_key: response.content_key
+            for response in self.responses for prompt in response.prompts
+        }
+        deck_count = sum(
+            len({semantic_by_key[prompt.content_key] for prompt in response.prompts})
+            for response in content.parse_response_storage()
+        )
+        self.assertEqual(len(vocabulary), deck_count * 50)
         self.assertEqual(
             set(coverage),
             {response.content_key for response in self.responses},
         )
-        self.assertEqual(set(coverage.values()), {50})
+        self.assertTrue(all(count >= 50 and count % 50 == 0 for count in coverage.values()))
         self.assertTrue(
             {
                 phrase.phrase_id.casefold()
@@ -338,11 +350,11 @@ class PhraseParserTests(SimpleTestCase):
         self.assertEqual(
             Counter(phrase.category for phrase in vocabulary),
             {
-                "Mots clés du sujet": 1300,
-                "Collocations du sujet": 1300,
-                "Expressions du sujet": 1300,
-                "Tournures pour l'oral": 1300,
-                "Phrases modèles": 1300,
+                "Mots clés du sujet": deck_count * 10,
+                "Collocations du sujet": deck_count * 10,
+                "Expressions du sujet": deck_count * 10,
+                "Tournures pour l'oral": deck_count * 10,
+                "Phrases modèles": deck_count * 10,
             },
         )
 

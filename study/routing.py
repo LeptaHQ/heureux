@@ -69,6 +69,13 @@ def prompt_detail_url(prompt: Prompt) -> str:
 
 
 def response_detail_url(response: Response) -> str:
+    if response.semantic_owner_id:
+        source = Prompt.objects.select_related("theme__task__part").filter(
+            content_key=response.content_key, is_active=True,
+        ).first()
+        if source is not None:
+            return prompt_detail_url(source)
+        response = response.semantic_owner
     prompt = response.canonical_prompt
     if prompt is None:
         raise ValueError("A public response must have an active canonical prompt.")

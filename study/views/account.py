@@ -437,6 +437,8 @@ def export_account(request):
     personal_responses = [
         {
             "response_key": personal.response.content_key,
+            "source_prompt_id": personal.source_prompt_id,
+            "is_active": personal.is_active,
             "reformulation": personal.reformulation,
             "position": personal.position,
             "position_claire": personal.position_claire,
@@ -495,7 +497,7 @@ def export_account(request):
     settings = Settings.load(request.user)
     payload = {
         "format": "heureux-account-export",
-        "version": 9,
+        "version": 10,
         "exported_at": timezone.now(),
         "account": {
             "username": request.user.get_username(),
@@ -517,6 +519,9 @@ def export_account(request):
         "review_logs": review_logs,
         "annotations": annotations,
         "personal_responses": personal_responses,
+        "oral_state_snapshots": list(request.user.oral_state_snapshots.values(
+            "id", "response_id", "kind", "source_id", "digest", "payload", "created_at",
+        )),
         "personal_writing_responses": [
             {
                 "part": personal.sujet.task.part.slug,

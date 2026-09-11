@@ -604,6 +604,7 @@ class BrowserTests(StaticLiveServerTestCase):
             """
         )
         for part, tache, count, source in (
+            ("eo", 3, 167, None),
             ("eo", 2, 348, "tache-two-theme-prompts"),
             ("ee", 1, 138, "ee-writing-prompts"),
             ("ee", 2, 138, "ee-writing-prompts"),
@@ -643,7 +644,8 @@ class BrowserTests(StaticLiveServerTestCase):
                 payload = json.loads(
                     self.page.locator(f"#{source}").text_content()
                 ) if source else None
-                for width in (390, 1183):
+                widths = (320, 390, 1183) if part == "eo" and tache == 3 else (390, 1183)
+                for width in widths:
                     self.page.set_viewport_size({"width": width, "height": 844})
                     for mode, label in (("cards", "Cartes"), ("table", "Tableau")):
                         with self.subTest(width=width, mode=mode):
@@ -651,6 +653,11 @@ class BrowserTests(StaticLiveServerTestCase):
                             group = self.page.locator("[data-t1-table-theme]").first
                             if not group.evaluate("element => element.open"):
                                 group.locator("summary").click()
+                            if part == "eo" and tache == 3:
+                                group.locator("summary").click()
+                                self.assertFalse(group.evaluate("element => element.open"))
+                                group.locator("summary").press("Enter")
+                                self.assertTrue(group.evaluate("element => element.open"))
                             self.assertTrue(self.page.evaluate(
                                 """
                                 () => window.__subjectRows.every((row, index) =>
@@ -723,7 +730,10 @@ class BrowserTests(StaticLiveServerTestCase):
                 )
                 self.assertEqual(self.page.locator("[data-t1-table-theme][open]").count(), 0)
                 self.page.get_by_role("button", name="Cartes", exact=True).click()
-                self.assertEqual(self.page.locator("[data-t1-table-theme][open]").count(), 11)
+                self.assertEqual(
+                    self.page.locator("[data-t1-table-theme][open]").count(),
+                    7 if part == "eo" and tache == 3 else 11,
+                )
                 row = rows.first
                 id_attribute = (
                     "data-writing-sujet-progress-row" if part == "ee" and tache < 3

@@ -1359,6 +1359,43 @@ def _scope_filters(request, forced_task=None, forced_part_slug=None):
     }
 
 
+def _oral_subject_themes(themes, response_progress):
+    subjects_by_theme = {item["theme"].pk: [] for item in themes}
+    prompts = (
+        Prompt.objects.filter(
+            theme_id__in=subjects_by_theme,
+            is_active=True,
+            response__is_active=True,
+        ).select_related("family").order_by("number", "pk")
+    )
+    for prompt in prompts:
+        subjects_by_theme[prompt.theme_id].append(
+            {
+                "prompt": prompt,
+                "progress": response_progress[prompt.response_id],
+            }
+        )
+    return [
+        {
+            "slug": item["theme"].slug,
+            "name": item["theme"].display_name,
+            "icon": item["theme"].icon,
+            "subjects": subjects_by_theme[item["theme"].pk],
+            "subject_count": len(subjects_by_theme[item["theme"].pk]),
+            "detail_url": reverse(
+                "study:theme_detail",
+                args=[
+                    item["theme"].task.part.slug,
+                    item["theme"].task.slug,
+                    item["theme"].slug,
+                ],
+            ),
+            **item["stats"],
+        }
+        for item in themes
+    ]
+
+
 def browse(request, part_slug=None, task_slug=None):
     forced_task = _route_task(part_slug, task_slug, request=request)
     deduplicate = request.GET.get("deduplicate") == "1"
@@ -1568,6 +1605,12 @@ def browse(request, part_slug=None, task_slug=None):
         ).distinct()
     context = {
         "themes": themes,
+        "subject_themes": (
+            _oral_subject_themes(themes, response_progress)
+            if forced_task
+            and (forced_task.part.slug, forced_task.slug) == ("eo", "tache-3")
+            else []
+        ),
         "families": families,
         "theme_count": len(themes),
         "prompt_count": prompt_qs.count(),

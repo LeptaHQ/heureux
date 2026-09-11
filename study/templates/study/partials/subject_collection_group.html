@@ -29,4 +29,10 @@
       </tbody>
     </table>
   </div>
+  {% if group.detail_url %}
+    <p class="card--pad mt-0">
+      <a href="{{ group.detail_url }}">Voir le thème et ses révisions {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>
+      {% if group.due %}<span class="chip">{{ group.due }} à revoir</span>{% endif %}
+    </p>
+  {% endif %}
 </details>

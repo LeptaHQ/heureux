@@ -1732,6 +1732,74 @@ class TaskOrganizationTests(TestCase):
         self.assertContains(own, 'data-recall-cell="french"', count=1)
         self.assertContains(own, 'data-recall-cell="meaning"', count=1)
 
+    def test_oral_directory_expands_themes_with_shared_subject_progress(self):
+        canonical = self.response_card.response.prompts.get(is_canonical=True)
+        linked_theme = factories.make_theme("linked-culture", task=self.task)
+        empty_theme = factories.make_theme("empty-culture", task=self.task)
+        for index, theme in enumerate((self.theme, linked_theme), 1):
+            Prompt.objects.create(
+                content_key=f"test-prompt:directory-alias-{index}",
+                response=canonical.response,
+                theme=theme,
+                family=canonical.family,
+                number=canonical.number + index,
+                text=f"Formulation liée {index}",
+                is_canonical=False,
+            )
+        inactive = factories.make_response(theme=self.theme)
+        inactive.is_active = False
+        inactive.save(update_fields=["is_active"])
+        inactive_prompt = factories.make_response(theme=self.theme).prompts.get()
+        inactive_prompt.is_active = False
+        inactive_prompt.save(update_fields=["is_active"])
+
+        url = self._task_url("study:task_browse")
+        page = self.client.get(url)
+        self.assertTemplateUsed(page, "study/partials/subject_collection.html")
+        self.assertContains(page, "data-t1-table-theme", count=3)
+        self.assertContains(page, "data-subject-collection-row", count=3)
+        self.assertContains(
+            page, f'data-subject-progress-row="{canonical.response_id}"', count=3
+        )
+        groups = {group["slug"]: group for group in page.context["subject_themes"]}
+        self.assertEqual(groups[self.theme.slug]["subject_count"], 2)
+        self.assertEqual(groups[self.theme.slug]["total"], 1)
+        self.assertEqual(groups[linked_theme.slug]["subject_count"], 1)
+        self.assertEqual(groups[empty_theme.slug]["total"], 0)
+        self.assertNotContains(page, inactive.prompt)
+        self.assertNotContains(page, inactive_prompt.text)
+        self.assertContains(page, theme_detail_url(self.theme))
+        self.assertContains(
+            page,
+            reverse(
+                "study:task_family_detail",
+                args=["eo", "tache-3", canonical.family.slug],
+            ),
+        )
+        for group in groups.values():
+            for row in group["subjects"]:
+                self.assertContains(page, prompt_detail_url(row["prompt"]))
+                self.assertEqual(row["progress"].status, "new")
+
+        self.client.post(
+            reverse(
+                "study:subject_completion",
+                args=["eo", "tache-3", canonical.response_id],
+            ),
+            {"completed": "1"},
+        )
+        completed = self.client.get(url)
+        for group in completed.context["subject_themes"]:
+            if group["subjects"]:
+                self.assertEqual(group["completed"], 1)
+            for row in group["subjects"]:
+                self.assertEqual(row["progress"].status, "done")
+        self.client.force_login(factories.make_user("other-oral-directory"))
+        other_page = self.client.get(url)
+        for group in other_page.context["subject_themes"]:
+            for row in group["subjects"]:
+                self.assertEqual(row["progress"].status, "new")
+
     def test_subject_directory_searches_prompt_text_only(self):
         prompt = self.response_card.response.prompts.get(is_canonical=True)
         prompt.text = "Faut-il protéger le patrimoine local ?"

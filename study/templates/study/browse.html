@@ -26,6 +26,9 @@
     <a href="{% url 'study:task_phrases' part.slug task.slug %}">{{ phrase_count }} expressions associées {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>
   {% endif %}
 </div>
+{% if subject_themes %}
+  {% include "study/partials/subject_collection.html" with groups=subject_themes kind="eo3" secondary_label="Vocabulaire" %}
+{% else %}
 <div class="grid grid--decks collection-table collection-table--decks" data-collection-view="adaptive">
   {% include "study/partials/collection_table_header.html" with variant="decks" column_1="Thème" column_2="Contenu" column_3="Progression" column_4="État" only %}
   {% for item in themes %}
@@ -35,6 +38,7 @@
     <p class="muted">Aucun contenu pour cette sélection pour l'instant.</p>
   {% endfor %}
 </div>
+{% endif %}
 
 <h2 style="margin-top:2rem;">Par famille de sujets</h2>
 <p class="muted mt-0">Regroupez les formulations proches pour réutiliser les mêmes structures et arguments.</p>

@@ -34,6 +34,7 @@ class CatalogueTests(SimpleTestCase):
         cases = [
             (catalogue.tache_two_subject_months, "load_tache_two_subject_months", ()),
             (catalogue.tache_two_subject_themes, "load_tache_two_subject_themes", ()),
+            (catalogue.eo_tache_three_family_labels, "load_eo_tache_three_family_labels", ()),
             (catalogue.ee_tache_three_months, "load_ee_tache_three_months", ()),
             *[
                 (catalogue.ee_subject_keys, "load_ee_subject_keys", (tache,))
@@ -85,6 +86,7 @@ class CatalogueTests(SimpleTestCase):
 
     def test_catalogue_mappings_and_records_are_read_only(self):
         mappings = [
+            catalogue.eo_tache_three_family_labels(),
             catalogue.tache_two_subject_themes()[1],
             catalogue.ee_subject_themes(3)[1],
             catalogue.ee_tache_three_sources_by_key(),
@@ -102,6 +104,7 @@ class CatalogueTests(SimpleTestCase):
             (catalogue.tache_two_subject_months, ()),
             (catalogue.tache_two_subject_themes, ()),
             (catalogue.task_memoires, ("eo", "tache-1")),
+            (catalogue.eo_tache_three_family_labels, ()),
             (catalogue.ee_tache_three_months, ()),
             (catalogue.ee_subject_keys, (3,)),
             (catalogue.ee_subject_themes, (3,)),
@@ -124,6 +127,26 @@ class CatalogueTests(SimpleTestCase):
         )
         sujet = catalogue.ee_writing_categories(1)[0].sujets[0]
         self.assertIs(catalogue.ee_writing_sources_by_slug(1)[sujet.slug], sujet)
+
+    def test_oral_family_labels_match_existing_assignments_and_reject_invalid_data(self):
+        labels = content.load_eo_tache_three_family_labels()
+        self.assertEqual(len(labels), 18)
+        self.assertEqual(labels[("culture", "family:13")], "Métiers artistiques")
+        with TemporaryDirectory() as directory:
+            path = Path(directory) / "labels.json"
+            for invalid in (
+                [],
+                {"culture": []},
+                {"unknown-theme": {}},
+                {"culture": {"family:99": "Inconnue"}},
+                {"sante": {"family:16": "Voyages dans l'espace"}},
+                {"culture": {"family:13": " "}},
+                {"culture": {"family:13": None}},
+            ):
+                with self.subTest(payload=invalid):
+                    path.write_text(json.dumps(invalid), encoding="utf-8")
+                    with self.assertRaises(ValueError):
+                        content.load_eo_tache_three_family_labels(path)
 
     def test_patched_loaders_are_used_after_clear_and_failures_are_not_cached(self):
         months = catalogue.tache_two_subject_months()

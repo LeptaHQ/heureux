@@ -16534,7 +16534,39 @@ html:not([data-collection-view-mode="table"]) .subject-collection .t1-table__que
 html:not([data-collection-view-mode="table"]) .subject-collection .t1-table__progress {
   justify-content: flex-end;
 }
+.subject-collection__families {
+  padding-left: 1rem;
+}
+.subject-collection__family {
+  border-top: 1px solid var(--border);
+}
+.subject-collection__family > .t1-theme__head {
+  display: grid;
+  grid-template-columns: 1rem 1.85rem minmax(0, 1fr) 16rem;
+  padding: 0.65rem 0.9rem;
+}
+.subject-collection__family .t1-theme__title {
+  min-width: 0;
+  font-size: 0.94rem;
+  overflow-wrap: anywhere;
+}
+.subject-collection__family[open] > .t1-theme__head .t1-theme__chevron {
+  transform: rotate(90deg);
+}
+.subject-collection__family > .t1-table-shell {
+  border: 0;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+}
 @media (max-width: 640px) {
+  .subject-collection__families {
+    padding-left: 0.5rem;
+  }
+  .subject-collection__family > .t1-theme__head {
+    grid-template-columns: 1rem 1.85rem minmax(0, 1fr);
+    gap: 0.45rem 0.55rem;
+    padding: 0.75rem 0.5rem;
+  }
   html[data-collection-view-mode="table"] .subject-collection .collection-table-header {
     display: none;
   }

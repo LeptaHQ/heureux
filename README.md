@@ -42,6 +42,10 @@ The shared `study/partials/pagination.html` pager accepts a Django `page_obj`,
   their inputs directly.
 - Subject directories reuse one collection/group/row component and render each
   publication once, with card and table presentations of the same elements.
+  EO Tâche 3 nests subject families within themes; each level counts unique
+  responses for progress without duplicating subject rows.
+  Theme-specific labels in `study/content/tache_3/subject_family_labels.json`
+  clarify the existing families without changing memberships or saved progress.
   Oral and written completion controls share one JavaScript controller.
 - Subject progress filters highlight candidates before transferring rows to Python.
   Existing source-key and URL parsers remain the final matching authority; batching

@@ -40,6 +40,7 @@
 </div>
 {% endif %}
 
+{% if not subject_themes %}
 <h2 style="margin-top:2rem;">Par famille de sujets</h2>
 <p class="muted mt-0">Regroupez les formulations proches pour réutiliser les mêmes structures et arguments.</p>
 <div class="qlist collection-table collection-table--qrows" data-collection-view="adaptive">
@@ -55,4 +56,5 @@
     </a>
   {% endfor %}
 </div>
+{% endif %}
 {% endblock %}

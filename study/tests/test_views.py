@@ -1757,15 +1757,20 @@ class TaskOrganizationTests(TestCase):
         page = self.client.get(url)
         self.assertTemplateUsed(page, "study/partials/subject_collection.html")
         self.assertContains(page, "data-t1-table-theme", count=3)
+        self.assertContains(page, "data-subject-family-group", count=2)
         self.assertContains(page, "data-subject-collection-row", count=3)
+        self.assertNotContains(page, "Par famille de sujets")
         self.assertContains(
             page, f'data-subject-progress-row="{canonical.response_id}"', count=3
         )
         groups = {group["slug"]: group for group in page.context["subject_themes"]}
         self.assertEqual(groups[self.theme.slug]["subject_count"], 2)
         self.assertEqual(groups[self.theme.slug]["total"], 1)
+        self.assertEqual(groups[self.theme.slug]["families"][0]["subject_count"], 2)
+        self.assertEqual(groups[self.theme.slug]["families"][0]["total"], 1)
         self.assertEqual(groups[linked_theme.slug]["subject_count"], 1)
         self.assertEqual(groups[empty_theme.slug]["total"], 0)
+        self.assertEqual(groups[empty_theme.slug]["families"], [])
         self.assertNotContains(page, inactive.prompt)
         self.assertNotContains(page, inactive_prompt.text)
         self.assertContains(page, theme_detail_url(self.theme))
@@ -1794,11 +1799,82 @@ class TaskOrganizationTests(TestCase):
                 self.assertEqual(group["completed"], 1)
             for row in group["subjects"]:
                 self.assertEqual(row["progress"].status, "done")
+            for family in group["families"]:
+                self.assertEqual(family["completed"], 1)
         self.client.force_login(factories.make_user("other-oral-directory"))
         other_page = self.client.get(url)
         for group in other_page.context["subject_themes"]:
             for row in group["subjects"]:
                 self.assertEqual(row["progress"].status, "new")
+            for family in group["families"]:
+                self.assertEqual(family["completed"], 0)
+
+    def test_nested_families_use_prompt_membership_and_unique_response_progress(self):
+        canonical = self.response_card.response.prompts.get(is_canonical=True)
+        second_family = factories.make_family("another-subtheme")
+        Prompt.objects.create(
+            content_key="test-prompt:cross-family-alias",
+            theme=self.theme,
+            family=second_family,
+            response=canonical.response,
+            number=canonical.number + 1,
+            text="Autre formulation, autre sous-thème.",
+            is_canonical=False,
+        )
+        separate = factories.make_response(theme=self.theme, family=second_family)
+        self.client.post(
+            reverse(
+                "study:subject_completion",
+                args=["eo", "tache-3", canonical.response_id],
+            ),
+            {"completed": "1"},
+        )
+        page = self.client.get(self._task_url("study:task_browse"))
+        group = page.context["subject_themes"][0]
+        families = {family["slug"]: family for family in group["families"]}
+        self.assertEqual(group["subject_count"], 3)
+        self.assertEqual((group["completed"], group["total"]), (1, 2))
+        self.assertEqual(
+            (families[canonical.family.slug]["completed"], families[canonical.family.slug]["total"]),
+            (1, 1),
+        )
+        self.assertEqual(
+            (families[second_family.slug]["completed"], families[second_family.slug]["total"]),
+            (1, 2),
+        )
+        self.assertEqual(
+            {row["prompt"].response_id for row in families[second_family.slug]["subjects"]},
+            {canonical.response_id, separate.pk},
+        )
+        for family in families.values():
+            self.assertTrue(all(
+                row["prompt"].family.slug == family["slug"]
+                and row["prompt"].theme_id == self.theme.pk
+                for row in family["subjects"]
+            ))
+
+    def test_nested_family_labels_are_scoped_without_renaming_shared_families(self):
+        canonical = self.response_card.response.prompts.get(is_canonical=True)
+        other_theme = factories.make_theme("other-family-theme", task=self.task)
+        Prompt.objects.create(
+            content_key="test-prompt:scoped-family-label",
+            theme=other_theme,
+            family=canonical.family,
+            response=canonical.response,
+            number=1,
+            text="Sujet du second thème",
+        )
+        original_name = canonical.family.name
+        with patch(
+            "study.views.library.catalogue.eo_tache_three_family_labels",
+            return_value={(self.theme.slug, canonical.family.content_key): "Culture locale"},
+        ):
+            page = self.client.get(self._task_url("study:task_browse"))
+        groups = {group["slug"]: group for group in page.context["subject_themes"]}
+        self.assertEqual(groups[self.theme.slug]["families"][0]["name"], "Culture locale")
+        self.assertEqual(groups[other_theme.slug]["families"][0]["name"], original_name)
+        canonical.family.refresh_from_db()
+        self.assertEqual(canonical.family.name, original_name)
 
     def test_subject_directory_searches_prompt_text_only(self):
         prompt = self.response_card.response.prompts.get(is_canonical=True)

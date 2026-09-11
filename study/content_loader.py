@@ -4202,6 +4202,33 @@ def parse_families() -> Tuple[Dict[Tuple[str, int], str], List[Tuple[str, int]]]
     return family_map, families
 
 
+def load_eo_tache_three_family_labels(
+    path: Optional[Path] = None,
+) -> Dict[Tuple[str, str], str]:
+    path = path or CONTENT_DIR / "tache_3" / "subject_family_labels.json"
+    raw = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(raw, dict):
+        raise ValueError("EO Tâche 3 family labels must be grouped by theme")
+    assignments, families = parse_families()
+    family_keys = {name: family_content_key(order) for name, order in families}
+    theme_slugs = {theme.name: theme.slug for theme in load_themes()}
+    valid_pairs = {
+        (theme_slugs[theme], family_keys[family])
+        for (theme, _number), family in assignments.items()
+    }
+    labels = {}
+    for theme, overrides in raw.items():
+        if theme not in theme_slugs.values() or not isinstance(overrides, dict):
+            raise ValueError(f"Invalid EO Tâche 3 family labels for {theme}")
+        for family_key, label in overrides.items():
+            if (theme, family_key) not in valid_pairs:
+                raise ValueError(f"Unknown EO Tâche 3 theme/family: {theme}/{family_key}")
+            if not isinstance(label, str) or not label.strip():
+                raise ValueError(f"Empty EO Tâche 3 family label: {theme}/{family_key}")
+            labels[(theme, family_key)] = label.strip()
+    return labels
+
+
 def _section(block: str, start: str, end: str) -> str:
     match = re.search(
         rf"{re.escape(start)}\n+(.*?)(?=\n+{re.escape(end)})",

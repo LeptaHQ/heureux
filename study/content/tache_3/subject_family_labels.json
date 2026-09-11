@@ -1,0 +1,34 @@
+{
+  "culture": {
+    "family:04": "Enseignement des matières culturelles",
+    "family:05": "Télévision : usages et influence",
+    "family:07": "Lettres et correspondance",
+    "family:10": "Regard des adultes sur les jeunes",
+    "family:13": "Métiers artistiques",
+    "family:17": "Société, solidarité, consommation et politique"
+  },
+  "famille": {
+    "family:01": "Langues familiales à l’étranger",
+    "family:10": "Conseils des personnes âgées"
+  },
+  "education": {
+    "family:01": "Préparation et adaptation à l’immigration",
+    "family:06": "Information et solidarité numériques",
+    "family:13": "Égalité des salaires",
+    "family:17": "Solidarité et liberté d’expression"
+  },
+  "sante": {
+    "family:17": "Solidarité : rôle de l’État et des citoyens"
+  },
+  "technologie": {
+    "family:06": "Internet, médias et usages numériques"
+  },
+  "environnement": {
+    "family:17": "Engagement citoyen et solidarité"
+  },
+  "economie": {
+    "family:04": "Accès à l’université",
+    "family:15": "Environnement, produits bio et tourisme",
+    "family:17": "Rôle de l’État et lutte contre la pauvreté"
+  }
+}

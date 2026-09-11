@@ -1,11 +1,15 @@
 {% load study_links %}
-<div class="row">
+<div class="writing-response-controls">
   {% if main %}
     {% subject_url 'study:writing_sujet_edit' part.slug task.slug sujet.pk as edit_url %}
   {% else %}
     {% subject_link version_card.edit_url as edit_url %}
   {% endif %}
-  <a class="btn btn--sm" href="{{ edit_url }}" data-writing-response-edit>Modifier</a>
+  <a class="icon-button" href="{{ edit_url }}" data-writing-response-edit
+     aria-label="{% if main %}Modifier la réponse principale{% else %}Modifier la réponse {{ version_card.number }}{% endif %}"
+     title="Modifier">
+    {% include "study/partials/ui_icon.html" with name="pencil" only %}
+  </a>
   {% if not main %}
     <form method="post"
           action="{% subject_url 'study:writing_response_delete' part.slug task.slug sujet.pk version_card.key %}"
@@ -14,7 +18,9 @@
           data-confirm-label="Supprimer"
           data-confirm-tone="danger">
       {% csrf_token %}
-      <button class="btn btn--sm btn--danger" type="submit" aria-label="Supprimer la réponse {{ version_card.number }}">Supprimer</button>
+      <button class="icon-button btn--danger" type="submit" aria-label="Supprimer la réponse {{ version_card.number }}" title="Supprimer">
+        <svg class="ui-icon" data-icon="trash" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13M10 11v5M14 11v5"></path></svg>
+      </button>
     </form>
   {% endif %}
   {% include "study/partials/response_copy_button.html" with source_id="ee-writing-response-content" response_key=copy_key label=copy_label label_hidden=True only %}

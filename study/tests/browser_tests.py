@@ -459,14 +459,32 @@ class BrowserTests(StaticLiveServerTestCase):
         main = self.page.locator(".section-card--personal")
         expect(main.locator("[data-writing-response-edit]")).to_have_count(1)
         expect(main.locator("[data-writing-response-delete]")).to_have_count(0)
+        expect(main.locator('[data-writing-response-edit] [data-icon="pencil"]')).to_be_visible()
+        expect(main.locator(".writing-response-controls .icon-button")).to_have_count(2)
+        expect(main.locator('[data-writing-response-edit]')).to_have_attribute(
+            "aria-label", "Modifier la réponse principale",
+        )
         expect(main.locator("mark.user-highlight")).to_have_text("Ma réponse principale.")
         self.page.locator(".t1-versions > summary").click()
         for width in (390, 1183):
             self.page.set_viewport_size({"width": width, "height": 844})
             self.assert_no_horizontal_overflow()
+            for controls in self.page.locator(".writing-response-controls").all():
+                buttons = controls.locator(".icon-button")
+                boxes = buttons.evaluate_all(
+                    "buttons => buttons.map(button => {const r = button.getBoundingClientRect();"
+                    " return {x: r.x, y: r.y, width: r.width, height: r.height};})"
+                )
+                for box in boxes:
+                    self.assertEqual(box["width"], 32)
+                    self.assertEqual(box["height"], 32)
+                    self.assertAlmostEqual(box["y"], boxes[0]["y"], delta=1)
+                self.assertEqual([box["x"] for box in boxes], sorted(box["x"] for box in boxes))
         second = self.page.locator(
             f'[data-annotation-source-key="writing-sujet:{sujet.pk}:model-2"]'
         ).locator("xpath=ancestor::section[1]")
+        expect(second.locator('[data-writing-response-delete] [data-icon="trash"]')).to_be_visible()
+        expect(second.locator(".writing-response-controls .icon-button")).to_have_count(3)
         second.locator("[data-writing-response-delete] button").click()
         dialog = self.page.locator("[data-confirm-dialog]")
         expect(dialog).to_be_visible()

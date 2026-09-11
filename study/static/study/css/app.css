@@ -852,6 +852,21 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   color: var(--primary);
   transform: none;
 }
+.writing-response-controls {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex: 0 0 auto;
+}
+.writing-response-controls form {
+  display: inline-flex;
+  margin: 0;
+}
+.writing-response-controls .icon-button {
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+}
 .prompt-copy-button {
   position: relative;
   z-index: 3;

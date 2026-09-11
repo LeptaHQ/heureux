@@ -6794,6 +6794,63 @@ class BrowserTests(StaticLiveServerTestCase):
             for index in range(count)
         )
 
+    def test_notes_and_highlights_sort_independently_inside_each_period(self):
+        midnight = timezone.localtime().replace(hour=0, minute=0, second=0, microsecond=0)
+        expected = {}
+        for tab, kind in (("notes", AnnotationKind.NOTE), ("highlights", AnnotationKind.HIGHLIGHT)):
+            expected[tab] = {}
+            for period, days in (("today", 0), ("week", 3)):
+                newer = self._pagination_annotations(
+                    1, kind=kind, body="Period matching body", quote="Period passage",
+                    study_later=True, created_at=midnight - timezone.timedelta(days=days) + timezone.timedelta(hours=2),
+                )[0]
+                older = self._pagination_annotations(
+                    1, kind=kind, body="Period matching body", quote="Period passage",
+                    study_later=True, created_at=midnight - timezone.timedelta(days=days) + timezone.timedelta(hours=1),
+                )[0]
+                expected[tab][period] = [older.pk, newer.pk]
+        url = reverse("study:task_notes", args=[self.part.slug, self.task.slug])
+        self.page.goto(self.live_server_url + url + "?q=Period&status=study&tab=notes")
+
+        def identifiers(tab, period):
+            return self.page.locator(
+                f'[aria-labelledby="{tab}-{period}-heading"] [data-annotation-item]'
+            ).evaluate_all("rows => rows.map(row => Number(row.dataset.annotationItem))")
+
+        today = self.page.locator('[data-annotation-period-sort="today"]')
+        week = self.page.locator('[data-annotation-period-sort="week"]')
+        expect(today).to_have_attribute("data-sort-direction", "desc")
+        self.assertEqual(identifiers("notes", "today"), expected["notes"]["today"][::-1])
+        today.click()
+        expect(today).to_have_attribute("data-sort-direction", "asc")
+        self.assertEqual(identifiers("notes", "today"), expected["notes"]["today"])
+        self.assertEqual(identifiers("notes", "week"), expected["notes"]["week"][::-1])
+        week.click()
+        expect(week).to_have_attribute("data-sort-direction", "asc")
+        self.assertEqual(identifiers("notes", "week"), expected["notes"]["week"])
+        self.page.set_viewport_size({"width": 390, "height": 844})
+        self.assert_no_horizontal_overflow()
+        self.page.get_by_role("button", name="Tableau", exact=True).click()
+        self.page.locator(".notes-filter-form button[type=submit]").click()
+        expect(self.page.get_by_role("button", name="Tableau", exact=True)).to_have_attribute(
+            "aria-pressed", "true",
+        )
+        params = parse_qs(urlsplit(self.page.url).query)
+        self.assertEqual(params["sort_today"], ["asc"])
+        self.assertEqual(params["sort_week"], ["asc"])
+        self.assertEqual(params["q"], ["Period"])
+        self.assertEqual(params["status"], ["study"])
+        self.page.locator("#highlights-tab").click()
+        self.assertEqual(identifiers("highlights", "today"), expected["highlights"]["today"])
+        self.assertEqual(identifiers("highlights", "week"), expected["highlights"]["week"])
+        week.click()
+        expect(week).to_have_attribute("data-sort-direction", "desc")
+        self.assertEqual(identifiers("highlights", "week"), expected["highlights"]["week"][::-1])
+        self.assertEqual(identifiers("highlights", "today"), expected["highlights"]["today"])
+        self.assert_no_horizontal_overflow()
+        self.page.set_viewport_size({"width": 1183, "height": 844})
+        self.assert_no_horizontal_overflow()
+
     def test_notes_later_page_navigation_edit_recall_and_filtered_actions(self):
         notes = self._pagination_annotations(102)
         self._pagination_annotations(
@@ -6976,7 +7033,9 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(self.page.locator("[data-annotation-item]")).to_have_count(2)
 
     def test_notes_pagination_links_work_without_javascript(self):
-        self._pagination_annotations(51)
+        notes = self._pagination_annotations(
+            51, created_at=timezone.now() - timezone.timedelta(days=90),
+        )
         url = reverse("study:task_notes", args=[self.part.slug, self.task.slug])
         context = self.browser.new_context(
             java_script_enabled=False, service_workers="block",
@@ -6993,6 +7052,18 @@ class BrowserTests(StaticLiveServerTestCase):
             ).to_be_visible()
             page.get_by_role("link", name="Précédent", exact=True).click()
             expect(page.locator("[data-annotation-item]")).to_have_count(50)
+            page.locator('[data-annotation-period-sort="earlier"]').click()
+            expect(page.locator('[data-annotation-period-sort="earlier"]')).to_have_attribute(
+                "data-sort-direction", "asc",
+            )
+            expect(page.locator("[data-annotation-item]").first).to_have_attribute(
+                "data-annotation-item", str(notes[0].pk),
+            )
+            page.get_by_role("link", name="Suivant", exact=True).click()
+            expect(page.locator("[data-annotation-item]")).to_have_count(1)
+            expect(page.locator("[data-annotation-item]")).to_have_attribute(
+                "data-annotation-item", str(notes[-1].pk),
+            )
         finally:
             context.close()
 

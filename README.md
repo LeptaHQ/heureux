@@ -105,6 +105,9 @@ so workers using the pre-upgrade ORM can finish inserts during replacement.
 - Subject progress filters highlight candidates before transferring rows to Python.
   Existing source-key and URL parsers remain the final matching authority; batching
   keeps larger requests within database parameter limits.
+- Notes and highlights have independent ascending/descending date controls within
+  each relative-date period. Sorting uses capture time, preserves the period order
+  and filters, and runs before pagination; it never changes saved annotations.
 - Course exposure checks use an indexed, derived projection of allocated item
   identities, not scored progress or answers. The first access indexes all missing
   attempts in batches; subsequent access processes only newly unindexed attempts.

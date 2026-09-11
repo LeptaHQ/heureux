@@ -16,6 +16,20 @@ Parameters:
         <h2 id="{{ variant }}-{{ section.key }}-heading">{{ section.title }}</h2>
         <span class="notes-date-section__count">{{ section.items|length }}</span>
         <span class="notes-date-section__rule" aria-hidden="true"></span>
+        <form class="notes-date-sort" method="get" action="{{ request.path }}#{{ variant }}-{{ section.key }}-heading">
+          {% for name, value in section.sort_params.items %}
+            <input type="hidden" name="{{ name }}" value="{{ value }}">
+          {% endfor %}
+          <button class="btn btn--sm" type="submit" name="{{ section.sort_key }}"
+                  value="{% if section.ascending %}desc{% else %}asc{% endif %}"
+                  data-annotation-period-sort="{{ section.key }}"
+                  data-sort-direction="{% if section.ascending %}asc{% else %}desc{% endif %}"
+                  aria-label="Trier {{ section.title }} par date {% if section.ascending %}décroissante{% else %}croissante{% endif %}"
+                  title="{% if section.ascending %}Afficher les plus récents d’abord{% else %}Afficher les plus anciens d’abord{% endif %}">
+            <span>Date</span>
+            <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="{% if section.ascending %}M12 19V5m-5 5 5-5 5 5{% else %}M12 5v14m-5-5 5 5 5-5{% endif %}"></path></svg>
+          </button>
+        </form>
       </div>
       <div class="annotations-grid collection-table collection-table--annotations" data-collection-view="adaptive">
         {% if variant == "notes" %}

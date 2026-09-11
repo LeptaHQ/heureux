@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+from datetime import date, datetime
 from unittest import mock
 from urllib.parse import parse_qs, urlencode, urlsplit
 
@@ -2506,6 +2507,128 @@ class NotesPaginationTests(TestCase):
             Annotation(**{**defaults, "title": f"Entry {index}", **values})
             for index in range(count)
         )
+
+    def test_periods_sort_independently_for_notes_and_highlights(self):
+        today = date(2026, 9, 20)
+        base = timezone.make_aware(datetime(2026, 9, 20, 12))
+        groups = {}
+        for tab, kind in (("notes", AnnotationKind.NOTE), ("highlights", AnnotationKind.HIGHLIGHT)):
+            groups[tab] = {}
+            for key, days in (("today", 0), ("yesterday", 1), ("week", 3), ("month", 12), ("earlier", 35)):
+                groups[tab][key] = self._rows(
+                    2, kind=kind, quote="Passage", created_at=base - timezone.timedelta(days=days),
+                )
+        private = self._rows(1, user=self.other, created_at=base)[0]
+        with mock.patch("study.views.notes.timezone.localdate", return_value=today):
+            for tab in groups:
+                with self.subTest(tab=tab):
+                    page = self.client.get(self.url, {
+                        "tab": tab, "sort_today": "asc", "sort_week": "asc",
+                    })
+                    sections = page.context[f"{tab}_sections"]
+                    self.assertEqual([section["key"] for section in sections], list(groups[tab]))
+                    for section in sections:
+                        expected = groups[tab][section["key"]]
+                        ascending = section["key"] in {"today", "week"}
+                        self.assertEqual(section["items"], expected if ascending else list(reversed(expected)))
+                        self.assertEqual(section["ascending"], ascending)
+                    self.assertNotContains(page, f'data-annotation-item="{private.pk}"')
+                    self.assertContains(page, "data-annotation-period-sort=", count=5)
+                    restored = self.client.get(self.url, {"tab": tab, "sort_today": "desc"})
+                    self.assertEqual(
+                        restored.context[f"{tab}_sections"][0]["items"],
+                        list(reversed(groups[tab]["today"])),
+                    )
+
+    def test_whole_period_sorting_precedes_pagination_and_locate(self):
+        base = timezone.localtime().replace(hour=12, minute=0, second=0, microsecond=0)
+        today_rows = self._rows(55, created_at=base)
+        week_rows = self._rows(120, created_at=base - timezone.timedelta(days=3))
+        params = {"sort_week": "asc", "page": 2}
+        self.client.get(self.url, params)
+        loaded = []
+        from_db = Annotation.from_db
+
+        def record(*args):
+            item = from_db(*args)
+            loaded.append(item)
+            return item
+
+        with (
+            mock.patch.object(Annotation, "from_db", side_effect=record),
+            CaptureQueriesContext(connection) as queries,
+        ):
+            page = self.client.get(self.url, params)
+        self.assertEqual(len(loaded), 50)
+        self.assertEqual(len(queries), 7)
+        self.assertEqual(page.context["notes"][:5], list(reversed(today_rows[:5])))
+        self.assertEqual(page.context["notes"][5:], week_rows[:45])
+        seen = []
+        for number in range(1, 5):
+            page = self.client.get(self.url, {"sort_week": "asc", "page": number})
+            seen.extend(item.pk for item in page.context["notes"])
+        self.assertEqual(seen, [item.pk for item in [*reversed(today_rows), *week_rows]])
+        page_three = self.client.get(self.url, {"page": 3})
+        week = page_three.context["notes_sections"][0]
+        self.assertEqual(week["key"], "week")
+        self.assertEqual(week["sort_params"]["page"], 2)
+        located = self.client.get(self.url, {"sort_week": "asc", "locate": week_rows[-1].pk}, follow=True)
+        self.assertEqual(located.context["page_obj"].number, 4)
+        self.assertContains(located, f'id="note-{week_rows[-1].pk}"', count=1)
+
+    def test_sorting_survives_filters_tabs_actions_and_flashcard_return(self):
+        rows = self._rows(3, created_at=timezone.now(), study_later=True)
+        params = {"sort_today": "asc", "q": "Matching", "status": "study", "tab": "notes"}
+        url = self.url + "?" + urlencode(params)
+        page = self.client.get(url)
+        self.assertEqual(page.context["notes"], rows)
+        self.assertContains(page, 'name="sort_today" value="asc"')
+        self.assertIn("sort_today=asc", page.context["tab_url_prefix"])
+        for option in page.context["status_filters"]:
+            self.assertEqual(parse_qs(urlsplit(option["url"]).query)["sort_today"], ["asc"])
+        reset = parse_qs(urlsplit(page.context["filters_reset_url"]).query)
+        self.assertEqual(reset, {"tab": ["notes"], "sort_today": ["asc"]})
+        self.assertEqual(parse_qs(urlsplit(page.context["flashcard_url"]).query)["next"], [url])
+        edited = self.client.post(
+            reverse("study:annotation_update", args=[rows[0].pk]),
+            {"title": "Matching edited", "body": "Matching body", "next": url},
+            follow=True,
+        )
+        self.assertEqual([item.pk for item in edited.context["notes"]], [item.pk for item in rows])
+        self.assertEqual(edited.context["sort_params"], {"sort_today": "asc"})
+
+    def test_period_boundaries_match_local_dates_and_cross_month_weeks(self):
+        with (
+            timezone.override("America/New_York"),
+            mock.patch("study.views.notes.timezone.localdate", return_value=date(2026, 9, 20)),
+        ):
+            yesterday = self._rows(1, created_at=datetime.fromisoformat("2026-09-20T02:00:00+00:00"))[0]
+            today = self._rows(1, created_at=datetime.fromisoformat("2026-09-20T05:00:00+00:00"))[0]
+            page = self.client.get(self.url, {"sort_today": "asc", "sort_yesterday": "asc"})
+            self.assertEqual(
+                [(section["key"], section["items"]) for section in page.context["notes_sections"]],
+                [("today", [today]), ("yesterday", [yesterday])],
+            )
+        Annotation.objects.filter(user=self.user).delete()
+        with mock.patch("study.views.notes.timezone.localdate", return_value=date(2026, 9, 3)):
+            august = self._rows(1, created_at=timezone.make_aware(datetime(2026, 8, 31, 12)))[0]
+            september = self._rows(1, created_at=timezone.make_aware(datetime(2026, 9, 1, 12)))[0]
+            page = self.client.get(self.url, {"sort_week": "asc"})
+            self.assertEqual(len(page.context["notes_sections"]), 1)
+            self.assertEqual(page.context["notes_sections"][0]["key"], "week")
+            self.assertEqual(page.context["notes"], [august, september])
+
+    def test_new_note_in_ascending_today_opens_on_its_actual_page(self):
+        midnight = timezone.localtime().replace(hour=0, minute=0, second=0, microsecond=0)
+        self._rows(51, created_at=midnight)
+        url = self.url + "?sort_today=asc&tab=notes"
+        created = self.client.post(
+            url, {"title": "Newest sorted note", "body": "New body", "next": url}, follow=True,
+        )
+        note = Annotation.objects.get(title="Newest sorted note")
+        self.assertEqual(created.context["page_obj"].number, 2)
+        self.assertContains(created, f'id="note-{note.pk}"', count=1)
+        self.assertEqual(created.context["sort_params"], {"sort_today": "asc"})
 
     def test_only_fifty_active_tab_rows_are_materialized_and_rendered(self):
         self._rows(137)

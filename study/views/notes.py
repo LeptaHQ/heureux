@@ -6,7 +6,7 @@ import hashlib
 import json
 import re
 import urllib.request
-from datetime import timedelta
+from datetime import datetime, time, timedelta
 from urllib.parse import parse_qs, urlsplit
 
 from django.conf import settings
@@ -15,7 +15,7 @@ from django.core.exceptions import ValidationError
 from django.core.paginator import Paginator
 from django.db import transaction
 from django.db.utils import IntegrityError
-from django.db.models import Count, Q
+from django.db.models import Case, Count, F, Q, Value, When
 from django.http import Http404, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
@@ -348,14 +348,50 @@ def _annotation_date_bucket(local_date, today, yesterday, week_start):
     return "earlier"
 
 
-def _annotation_date_sections(annotations):
+def _annotation_period_filters(today):
+    starts = (
+        ("today", today),
+        ("yesterday", today - timedelta(days=1)),
+        ("week", today - timedelta(days=6)),
+        ("month", today.replace(day=1)),
+    )
+    remaining = Q()
+    filters = {}
+    for key, date in starts:
+        start = timezone.make_aware(datetime.combine(date, time.min))
+        filters[key] = remaining & Q(created_at__gte=start)
+        remaining &= Q(created_at__lt=start)
+    filters["earlier"] = remaining
+    return filters
+
+
+def _order_annotation_periods(annotations, ascending, period_filters):
+    if not ascending:
+        return annotations.order_by("-created_at", "-id")
+    ranks = {key: rank for rank, (key, _title) in enumerate(_ANNOTATION_DATE_BUCKETS)}
+    annotations = annotations.alias(
+        _period_rank=Case(
+            *(When(period_filters[key], then=Value(rank)) for key, rank in ranks.items()),
+        ),
+    )
+    ascending_ranks = [ranks[key] for key in ascending]
+    return annotations.order_by(
+        "_period_rank",
+        Case(When(_period_rank__in=ascending_ranks, then=F("created_at"))).asc(),
+        Case(When(_period_rank__in=ascending_ranks, then=F("pk"))).asc(),
+        "-created_at",
+        "-pk",
+    )
+
+
+def _annotation_date_sections(annotations, *, today=None):
     """Group annotations into ordered, non-empty relative-date sections.
 
     Sections are keyed on ``created_at`` (the stable capture date) so the
     learning timeline never reshuffles when a card's ``updated_at`` changes,
     e.g. when toggling "à étudier".
     """
-    today = timezone.localdate()
+    today = today or timezone.localdate()
     yesterday = today - timedelta(days=1)
     week_start = today - timedelta(days=6)
     items = {key: [] for key, _title in _ANNOTATION_DATE_BUCKETS}
@@ -416,7 +452,8 @@ def _new_note_redirect(request, note):
             params.pop("status", None)
     if "tab" in params:
         params["tab"] = ["notes"]
-    # A new note belongs on the first page, not the page it was created from.
+    if any(params.get(f"sort_{key}") == ["asc"] for key, _title in _ANNOTATION_DATE_BUCKETS):
+        params["locate"] = [str(note.pk)]
     return target._replace(
         query=urlencode(params, doseq=True), fragment=f"note-{note.pk}"
     ).geturl()
@@ -455,6 +492,16 @@ def _notes_scope(
         and request.GET.get("tab") in {"notes", "highlights"}
         else "notes"
     )
+    today = timezone.localdate()
+    period_filters = _annotation_period_filters(today)
+    ascending_periods = {
+        key for key, _title in _ANNOTATION_DATE_BUCKETS
+        if request.GET.get(f"sort_{key}") == "asc"
+    }
+    sort_params = {
+        f"sort_{key}": "asc" for key, _title in _ANNOTATION_DATE_BUCKETS
+        if key in ascending_periods
+    }
     if request.method == "POST":
         active_tab = "notes"
         instance = Annotation(
@@ -474,6 +521,8 @@ def _notes_scope(
     else:
         form = NoteForm()
     status_filter = _annotation_status_filter(status)
+    active_kind = AnnotationKind.HIGHLIGHT if active_tab == "highlights" else AnnotationKind.NOTE
+    active_filter = status_filter & Q(kind=active_kind)
     counts = annotations.aggregate(
         notes_count=Count(
             "id", filter=Q(kind=AnnotationKind.NOTE) & status_filter
@@ -482,16 +531,16 @@ def _notes_scope(
             "id", filter=Q(kind=AnnotationKind.HIGHLIGHT) & status_filter
         ),
         study_count=Count("id", filter=Q(study_later=True)),
+        **{
+            f"period_{key}": Count("id", filter=active_filter & period_filter)
+            for key, period_filter in period_filters.items()
+        },
     )
-    active_rows = annotations.filter(
-        status_filter,
-        kind=(
-            AnnotationKind.HIGHLIGHT
-            if active_tab == "highlights"
-            else AnnotationKind.NOTE
-        ),
-    ).order_by("-created_at", "-id")
-    preserved = {}
+    period_counts = {key: counts.pop(f"period_{key}") for key in period_filters}
+    active_rows = _order_annotation_periods(
+        annotations.filter(active_filter), ascending_periods, period_filters,
+    )
+    preserved = dict(sort_params)
     if query:
         preserved["q"] = query
     if status:
@@ -515,9 +564,19 @@ def _notes_scope(
         item = get_object_or_404(
             active_rows.values("pk", "created_at"), pk=int(item_id)
         )
-        preceding = active_rows.filter(
-            Q(created_at__gt=item["created_at"])
-            | Q(created_at=item["created_at"], pk__gt=item["pk"])
+        period = _annotation_date_bucket(
+            timezone.localtime(item["created_at"]).date(),
+            today, today - timedelta(days=1), today - timedelta(days=6),
+        )
+        preceding_periods = 0
+        for key, _title in _ANNOTATION_DATE_BUCKETS:
+            if key == period:
+                break
+            preceding_periods += period_counts[key]
+        comparison = "lt" if period in ascending_periods else "gt"
+        preceding = preceding_periods + active_rows.filter(period_filters[period]).filter(
+            Q(**{f"created_at__{comparison}": item["created_at"]})
+            | Q(created_at=item["created_at"], **{f"pk__{comparison}": item["pk"]})
         ).count()
         prefix = "highlight" if active_tab == "highlights" else "note"
         return redirect(
@@ -550,6 +609,25 @@ def _notes_scope(
         highlight.origin_label = _HIGHLIGHT_ORIGIN_LABELS[
             _highlight_origin(highlight)
         ]
+    sections = _annotation_date_sections(rows, today=today)
+    period_pages = {}
+    preceding = 0
+    for key, _title in _ANNOTATION_DATE_BUCKETS:
+        period_pages[key] = preceding // NOTES_PAGE_SIZE + 1
+        preceding += period_counts[key]
+    for section in sections:
+        sort_key = f"sort_{section['key']}"
+        section.update(
+            sort_key=sort_key,
+            ascending=section["key"] in ascending_periods,
+            sort_params={
+                **{key: value for key, value in page_params.items() if key != sort_key},
+                **(
+                    {"page": period_pages[section["key"]]}
+                    if period_pages[section["key"]] > 1 else {}
+                ),
+            },
+        )
     task_totals, general_counts = _annotation_counts(request.user)
     task_filters = [
         {
@@ -564,7 +642,7 @@ def _notes_scope(
         .order_by("part__order", "order")
     ]
     tab_url_prefix = "?" + (urlencode(preserved) + "&" if preserved else "")
-    status_base_params = {"tab": active_tab}
+    status_base_params = {**sort_params, "tab": active_tab}
     if query:
         status_base_params["q"] = query
     status_filters = []
@@ -593,7 +671,7 @@ def _notes_scope(
         flashcard_params["q"] = query
     if status:
         flashcard_params["status"] = status
-    if page.number > 1:
+    if page.number > 1 or sort_params:
         flashcard_params["next"] = request.get_full_path()
     study_queue_url = _annotation_study_url(
         task,
@@ -634,8 +712,8 @@ def _notes_scope(
             ),
             "notes": notes,
             "highlights": highlights,
-            "notes_sections": _annotation_date_sections(notes),
-            "highlights_sections": _annotation_date_sections(highlights),
+            "notes_sections": sections if active_tab == "notes" else [],
+            "highlights_sections": sections if active_tab == "highlights" else [],
             "active_tab": active_tab,
             **counts,
             "page_obj": page,
@@ -658,6 +736,7 @@ def _notes_scope(
             "aggregate": aggregate,
             "query": query,
             "status": status,
+            "sort_params": sort_params,
             "task_filters": task_filters,
             "general_count": general_counts["general"],
             "custom_count": general_counts["custom"],
@@ -666,7 +745,7 @@ def _notes_scope(
             "tab_url_prefix": tab_url_prefix,
             "status_filters": status_filters,
             "filters_reset_url": (
-                request.path + "?" + urlencode({"tab": active_tab})
+                request.path + "?" + urlencode({**sort_params, "tab": active_tab})
             ),
             "flashcard_url": flashcard_url,
             "study_queue_url": study_queue_url,

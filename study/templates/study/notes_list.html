@@ -101,6 +101,9 @@
         </select>
       </div>
       <input type="hidden" name="tab" value="{{ active_tab }}">
+      {% for name, value in sort_params.items %}
+        <input type="hidden" name="{{ name }}" value="{{ value }}">
+      {% endfor %}
     </form>
     <div class="notes-mobile-status">
       <div class="notes-mobile-status__head">

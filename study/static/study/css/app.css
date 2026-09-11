@@ -5056,6 +5056,13 @@ html[data-collection-view-mode="table"]
   height: 1px;
   background: var(--border);
 }
+.notes-date-sort {
+  margin: 0;
+  flex: 0 0 auto;
+}
+.notes-date-sort .btn {
+  gap: 0.25rem;
+}
 .notes-empty-hint {
   margin-top: -0.5rem;
   color: var(--text-faint);

@@ -1424,10 +1424,6 @@ def _oral_subject_themes(themes, response_progress):
                 "subjects": subjects,
                 "families": family_groups,
                 "subject_count": len(subjects),
-                "detail_url": reverse(
-                    "study:theme_detail",
-                    args=[theme.task.part.slug, theme.task.slug, theme.slug],
-                ),
                 **item["stats"],
             }
         )

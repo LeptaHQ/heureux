@@ -1773,7 +1773,8 @@ class TaskOrganizationTests(TestCase):
         self.assertEqual(groups[empty_theme.slug]["families"], [])
         self.assertNotContains(page, inactive.prompt)
         self.assertNotContains(page, inactive_prompt.text)
-        self.assertContains(page, theme_detail_url(self.theme))
+        self.assertNotContains(page, "Voir le thème et ses révisions")
+        self.assertNotContains(page, theme_detail_url(self.theme))
         self.assertContains(
             page,
             reverse(

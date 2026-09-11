@@ -229,8 +229,10 @@ def _spine_payload(card: Card, *, prompt=None, model_only=False, personal=None) 
     aliases = [
         prompt
         for prompt in response.prompts.filter(is_active=True)
-        if not prompt.is_canonical
+        if canonical is None or prompt.pk != canonical.pk
     ]
+    display_theme = canonical.theme if canonical is not None else response.theme
+    display_family = canonical.family if canonical is not None else response.family
     return {
         "card": card,
         "kind": "spine",
@@ -240,12 +242,12 @@ def _spine_payload(card: Card, *, prompt=None, model_only=False, personal=None) 
             else "Réponse argumentée"
         ),
         "tache_two_subject": tache_two_subject,
-        "theme": response.theme,
-        "family": response.family,
+        "theme": display_theme,
+        "family": display_family,
         "family_label": (
-            response.family.name.rsplit(" · ", 1)[-1]
+            display_family.name.rsplit(" · ", 1)[-1]
             if tache_two_subject
-            else response.family.name
+            else display_family.name
         ),
         "prompt": canonical.text if canonical else response.prompt,
         "canonical_prompt": canonical,

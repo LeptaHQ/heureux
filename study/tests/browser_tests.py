@@ -619,7 +619,7 @@ class BrowserTests(StaticLiveServerTestCase):
             """
         )
         for part, tache, count, source in (
-            ("eo", 3, 167, None),
+            ("eo", 3, 167, "oral-subject-prompts"),
             ("eo", 2, 348, "tache-two-theme-prompts"),
             ("ee", 1, 138, "ee-writing-prompts"),
             ("ee", 2, 138, "ee-writing-prompts"),
@@ -1831,7 +1831,7 @@ class BrowserTests(StaticLiveServerTestCase):
         task_card.wait_for()
         self.assertEqual(
             task_card.locator(".deck__progress-copy").inner_text(),
-            "0/33 lots terminés · 0/348 sujets terminés",
+            "0/33 lots terminés · 0/163 sujets terminés",
         )
 
         self.context.add_init_script(

@@ -2251,7 +2251,7 @@ class QuestionBankViewTests(TestCase):
         )
         self.assertContains(response, "0/33")
         self.assertContains(response, "lots terminés")
-        self.assertContains(response, "0/165")
+        self.assertContains(response, "0/163")
         self.assertContains(response, "sujets terminés")
         self.assertContains(
             response,
@@ -3220,7 +3220,7 @@ class QuestionBankViewTests(TestCase):
             is_active=True,
         ).distinct()
 
-        self.assertEqual(responses.count(), 165)
+        self.assertEqual(responses.count(), 163)
         self.assertEqual(
             Prompt.objects.filter(
                 content_key__startswith="tache2:",
@@ -3228,7 +3228,7 @@ class QuestionBankViewTests(TestCase):
             ).count(),
             348,
         )
-        self.assertEqual(vocabulary.count(), 5430)
+        self.assertEqual(vocabulary.count(), 5370)
         self.assertEqual(theme_vocabulary.count(), 495)
         self.assertEqual(
             Card.objects.filter(
@@ -3236,7 +3236,7 @@ class QuestionBankViewTests(TestCase):
                 card_type=CardType.SPINE,
                 response_id__in=response_ids,
             ).count(),
-            165,
+            163,
         )
         self.assertEqual(
             Card.objects.filter(
@@ -3244,7 +3244,7 @@ class QuestionBankViewTests(TestCase):
                 card_type=CardType.PHRASE_PRODUCTION,
                 phrase__in=vocabulary,
             ).count(),
-            5430,
+            5370,
         )
         self.assertEqual(
             Card.objects.filter(
@@ -3766,7 +3766,7 @@ class QuestionBankViewTests(TestCase):
             task_card["question_bank"]["progress"].status,
             "active",
         )
-        self.assertContains(task_list, "0/165 sujets terminés")
+        self.assertContains(task_list, "0/163 sujets terminés")
 
     def test_explicit_subject_completion_rolls_up_through_tache_two(self):
         response = Response.objects.get(
@@ -4200,24 +4200,24 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(response, task_url)
         self.assertContains(
             response,
-            "165 sujets · 11 thèmes · 495 fiches de vocabulaire",
+            "163 sujets · 11 thèmes · 495 fiches de vocabulaire",
         )
         self.assertContains(response, "0/33 lots terminés")
-        self.assertContains(response, "0/165 sujets terminés")
+        self.assertContains(response, "0/163 sujets terminés")
         self.assertContains(response, "À commencer")
         task_card = next(
             row
             for row in response.context["tasks"]
             if row["task"].pk == self.task.pk
         )
-        self.assertEqual(task_card["question_bank"]["progress"].total, 198)
+        self.assertEqual(task_card["question_bank"]["progress"].total, 196)
         self.assertEqual(
             task_card["question_bank"]["vocabulary_progress"].total,
             33,
         )
         self.assertEqual(
             task_card["question_bank"]["subject_progress"].total,
-            165,
+            163,
         )
 
     def test_theme_vocabulary_progress_rolls_up_to_every_entry_point(self):

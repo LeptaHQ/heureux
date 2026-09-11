@@ -10,12 +10,12 @@ from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
 from django.utils import timezone
 
-from study import content_loader as content
+from study import content_loader as content, queue
 from study.account_services import provision_user_study_data
-from study.management.commands.import_content import Command
+from study.management.commands.import_content import Command, PHRASE_ID_MERGES
 from study.models import (
     Annotation, AnnotationKind, Card, CardState, OralStateSnapshot, PersonalResponse,
-    Prompt, Rating, Response, ReviewLog, ReviewSession,
+    Phrase, PhraseTier, Prompt, Rating, Response, ReviewLog, ReviewSession,
 )
 from study.oral_history import annotation_owners, personal_versions, preferred_personal, save_personal
 from study.progress import subject_progress_by_response
@@ -416,9 +416,29 @@ class OralCorpusUpgradeTests(TestCase):
             state_before=CardState.NEW, state_after=CardState.REVIEW,
         )
         original_versions = list(PersonalResponse.objects.order_by("pk").values())
+        old_phrase_key, target_phrase_key = next(iter(PHRASE_ID_MERGES.items()))
+        for phrase_key in (old_phrase_key, target_phrase_key):
+            Annotation.objects.create(
+                user=users[0], task=source_response.theme.task,
+                kind=AnnotationKind.HIGHLIGHT, source_key=f"phrase:{phrase_key}:catalog",
+                source_path="/legacy-vocabulary/", quote="Preserved selection",
+                start_offset=0, end_offset=19,
+            )
+        original_annotations = list(Annotation.objects.order_by("pk").values())
+        local_phrase = Phrase.objects.filter(tier=PhraseTier.RESPONSE, is_active=True).first()
+        production = Card.objects.get(user=users[0], phrase=local_phrase, card_type="phrase_prod")
+        recognition, _ = Card.objects.get_or_create(
+            user=users[0], phrase=local_phrase, card_type="phrase_recog",
+        )
+        recognition.state, recognition.reps = CardState.REVIEW, 22
+        recognition.last_reviewed = timezone.now()
+        recognition.save()
         original_card_ids = set(Card.objects.values_list("pk", flat=True))
         call_command("import_content", stdout=StringIO())
         self.assertEqual(list(PersonalResponse.objects.order_by("pk").values()), original_versions)
+        self.assertEqual(list(Annotation.objects.order_by("pk").values()), original_annotations)
+        production.refresh_from_db()
+        self.assertEqual(production.reps, 0)
         self.assertTrue(original_card_ids <= set(Card.objects.values_list("pk", flat=True)))
         self.assertTrue(ReviewLog.objects.filter(pk=log.pk, card=card).exists())
         for key, pk in old_ids.items():
@@ -445,3 +465,42 @@ class OralCorpusUpgradeTests(TestCase):
         self.assertIsNone(target_card.subject_completed_at)
         self.assertEqual(OralStateSnapshot.objects.count(), count)
         self.assertEqual(list(PersonalResponse.objects.order_by("pk").values()), original_versions)
+        self.client.force_login(users[0])
+        from study.views.review import _review_card_payload
+        for group in semantic:
+            if len({prompt.theme for prompt in group.prompts}) < 2:
+                continue
+            for source in group.prompts:
+                prompt = Prompt.objects.select_related("theme__task__part", "family").get(
+                    content_key=source.content_key,
+                )
+                task = prompt.theme.task
+                for scope_name, scope_value in (
+                    ("theme", prompt.theme.slug), ("family", prompt.family.slug),
+                ):
+                    scope = {"part": "eo", "task": task.slug, scope_name: scope_value}
+                    spine = queue.scoped_cards({**scope, "kind": "spine"}, user=users[0]).get(
+                        response_id=prompt.response_id,
+                    )
+                    expected_vocab = set(Phrase.objects.filter(
+                        tier=PhraseTier.SUBJECT, source_prompts=prompt, is_active=True,
+                    ).values_list("pk", flat=True))
+                    scoped_vocab = set(queue.scoped_cards(
+                        {**scope, "kind": "vocab", "prompt": str(prompt.pk)}, user=users[0],
+                    ).values_list("phrase_id", flat=True))
+                    self.assertTrue(expected_vocab)
+                    self.assertEqual(scoped_vocab, expected_vocab)
+                    payload = _review_card_payload(spine, users[0], {**scope, "model": "1"})
+                    self.assertEqual(
+                        getattr(payload["canonical_prompt"], scope_name + "_id"),
+                        getattr(prompt, scope_name + "_id"),
+                    )
+                    route = "study:theme_detail" if scope_name == "theme" else "study:task_family_detail"
+                    page = self.client.get(reverse(route, args=["eo", task.slug, scope_value]), {"deduplicate": "1"})
+                    displayed = [row["prompt"] for row in page.context["rows"] if row["prompt"].response_id == prompt.response_id]
+                    self.assertEqual(len(displayed), 1)
+                    expected = Prompt.objects.filter(
+                        response_id=prompt.response_id, is_active=True,
+                        **{scope_name + "_id": getattr(prompt, scope_name + "_id")},
+                    ).order_by("theme__order", "number", "pk").first()
+                    self.assertEqual(displayed[0].pk, expected.pk)

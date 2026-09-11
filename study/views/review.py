@@ -77,6 +77,18 @@ def _review_card_payload(card, user, scope=None):
                 Prompt.objects.select_related("theme__task__part"),
                 pk=scope["prompt"], response_id=card.response_id, is_active=True,
             )
+        elif scope.get("theme") or scope.get("family"):
+            lookups = {
+                f"{name}__slug": scope[name]
+                for name in ("theme", "family") if scope.get(name)
+            }
+            prompt = Prompt.objects.filter(
+                response_id=card.response_id, is_active=True, **lookups,
+            ).select_related("theme__task__part").order_by(
+                "theme__order", "number", "pk",
+            ).first()
+            if prompt is None:
+                raise Http404
         if scope.get("personal"):
             from ..oral_history import personal_versions
             personal = get_object_or_404(

@@ -1789,7 +1789,7 @@ def theme_detail(request, part_slug, task_slug, slug):
                 "review_url": review_url(review_scope),
             },
         )
-    oral_directory = (task.part.slug, task.slug) == content_module.EO_TACHE_THREE_TASK
+    oral_directory = task.part.slug == "eo" and task.slug in {"tache-2", "tache-3"}
     publication_count = len(rows)
     deduplicate = oral_directory and request.GET.get("deduplicate") == "1"
     if oral_directory:
@@ -3644,11 +3644,20 @@ def family_detail(request, part_slug, task_slug, slug):
         }
         for prompt in prompts
     ]
+    oral_directory = task.part.slug == "eo" and task.slug in {"tache-2", "tache-3"}
+    deduplicate = oral_directory and request.GET.get("deduplicate") == "1"
+    if deduplicate:
+        representatives = {}
+        for row in rows:
+            representatives.setdefault(row["prompt"].response_id, row)
+        rows = list(representatives.values())
     return render(
         request,
         "study/family_detail.html",
         {
             "family": family,
+            "subject_deduplication_available": oral_directory,
+            "deduplicate_subjects": deduplicate,
             "task": task,
             "part": task.part,
             "rows": rows,

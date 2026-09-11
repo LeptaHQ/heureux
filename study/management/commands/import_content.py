@@ -1528,9 +1528,14 @@ class Command(BaseCommand):
             session.save(update_fields=["current_card", "scope"])
 
     def _reconcile_phrase_cards(self):
+        legacy_oral_merges = (
+            {} if getattr(self, "_oral_revisions", {}) else {
+                **PHRASE_ID_MERGES,
+                **content.tache_two_phrase_id_merges(),
+            }
+        )
         phrase_id_merges = {
-            **PHRASE_ID_MERGES,
-            **({} if getattr(self, "_oral_revisions", {}) else content.tache_two_phrase_id_merges()),
+            **legacy_oral_merges,
             **content.ee_tache_three_phrase_id_merges(),
         }
         phrase_ids = set(phrase_id_merges)
@@ -1620,6 +1625,10 @@ class Command(BaseCommand):
             )
 
     def _reconcile_local_phrase_directions(self):
+        # Historical direction upgrades must not overwrite later learner work
+        # when importing a new oral partition. Both original cards remain stored.
+        if getattr(self, "_oral_revisions", {}):
+            return
         cards = Card.objects.filter(
             phrase__tier="response",
             user_id__isnull=False,

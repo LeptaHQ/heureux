@@ -175,7 +175,7 @@ class EeWritingContentTests(SimpleTestCase):
                 tache: sum(item[0] == tache for item in responses)
                 for tache in (1, 2, 3)
             },
-            {1: 60, 2: 16, 3: 10},
+            {1: 58, 2: 16, 3: 10},
         )
         for tache, content_key, body in responses:
             with self.subTest(tache=tache, content_key=content_key):
@@ -245,6 +245,20 @@ class EeWritingContentTests(SimpleTestCase):
                                 key={"author": 0, "original": 1}.get,
                             ),
                         )
+
+    def test_invitation_groups_keep_only_their_main_response(self):
+        invitations = next(
+            category for category in content.load_ee_writing_categories(1)
+            if category.slug == "invitations"
+        )
+        canonical = [
+            sujet for sujet in invitations.sujets
+            if sujet.slug == sujet.canonical_slug
+        ]
+        self.assertEqual(len(canonical), 9)
+        for sujet in canonical:
+            with self.subTest(sujet=sujet.source_key):
+                self.assertEqual(len(sujet.versions), 1)
 
     def test_theme_vocabulary_covers_every_writing_theme(self):
         all_ids = set()
@@ -490,6 +504,51 @@ class EeWritingImportPreservationTests(TestCase):
         self.task_by_slug = {"ee/tache-1": self.task}
         self.categories = content.load_ee_writing_categories(1)
         self.user = factories.make_user("ee-writing-import")
+
+    def test_trimming_alternatives_preserves_main_response_and_private_work(self):
+        source = next(
+            sujet for category in self.categories for sujet in category.sujets
+            if sujet.source_key == "ee-tache1:janvier:combinaison-2"
+        )
+        main = source.versions[0].body
+        alternative = "Une ancienne alternative."
+        sujet = factories.make_writing_sujet(
+            self.task, slug=source.slug, prompt=source.prompt,
+            versions=(main, alternative),
+        )
+        personal = PersonalWritingResponse.objects.create(
+            user=self.user, sujet=sujet, body="Ma version choisie, à conserver.",
+        )
+        completion = WritingSujetCompletion.objects.create(user=self.user, sujet=sujet)
+        for number, body in enumerate((main, alternative), 1):
+            Annotation.objects.create(
+                user=self.user, task=self.task, kind=AnnotationKind.HIGHLIGHT,
+                quote=body[:7], start_offset=0, end_offset=7,
+                source_key=f"writing-sujet:{sujet.pk}:model-{number}",
+                source_path=reverse(
+                    "study:writing_sujet_detail", args=["ee", "tache-1", sujet.pk],
+                ),
+            )
+        saved_personal = PersonalWritingResponse.objects.values().get(pk=personal.pk)
+        saved_completion = WritingSujetCompletion.objects.values().get(pk=completion.pk)
+        saved_annotations = list(Annotation.objects.order_by("pk").values())
+        for _ in range(2):
+            self.command._import_writing_sujets(self.categories, self.task_by_slug)
+            sujet.refresh_from_db()
+            self.assertEqual(sujet.prompt, source.prompt)
+            self.assertEqual(
+                sujet.model_versions,
+                [{"body": main, "origin": source.versions[0].origin}],
+            )
+            self.assertEqual(
+                PersonalWritingResponse.objects.values().get(pk=personal.pk),
+                saved_personal,
+            )
+            self.assertEqual(
+                WritingSujetCompletion.objects.values().get(pk=completion.pk),
+                saved_completion,
+            )
+            self.assertEqual(list(Annotation.objects.order_by("pk").values()), saved_annotations)
 
     def test_linking_barbara_subjects_preserves_versions_and_learner_work(self):
         sources = {

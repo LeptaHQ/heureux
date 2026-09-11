@@ -37,6 +37,11 @@ def task_memoires(
 
 
 @lru_cache(maxsize=1)
+def eo_tache_three_family_labels() -> Mapping[tuple[str, str], str]:
+    return MappingProxyType(content.load_eo_tache_three_family_labels())
+
+
+@lru_cache(maxsize=1)
 def ee_tache_three_months() -> tuple[content.EeTacheThreeMonth, ...]:
     return content.load_ee_tache_three_months()
 
@@ -90,6 +95,7 @@ def clear_catalogue_cache() -> None:
     tache_two_subject_months.cache_clear()
     tache_two_subject_themes.cache_clear()
     task_memoires.cache_clear()
+    eo_tache_three_family_labels.cache_clear()
     ee_tache_three_months.cache_clear()
     ee_subject_keys.cache_clear()
     ee_subject_themes.cache_clear()

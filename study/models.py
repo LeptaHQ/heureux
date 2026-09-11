@@ -1176,7 +1176,7 @@ class Card(models.Model):
     learning_step = models.PositiveSmallIntegerField(default=0)
     last_reviewed = models.DateTimeField(null=True, blank=True)
     last_rating = models.PositiveSmallIntegerField(null=True, blank=True)
-    schedule_generation = models.PositiveBigIntegerField(default=0, db_default=0)
+    projection_review_boundary = models.PositiveBigIntegerField(default=0, db_default=0)
     needs_revisit = models.BooleanField(default=False, db_index=True)
     revisit_added_at = models.DateTimeField(null=True, blank=True)
     suspended = models.BooleanField(default=False)
@@ -1354,7 +1354,6 @@ class ReviewLog(models.Model):
     ease_after = models.FloatField(default=2.5)
     elapsed_ms = models.PositiveIntegerField(default=0)
     card_before = models.JSONField(default=dict, blank=True)
-    schedule_generation = models.PositiveBigIntegerField(default=0, db_default=0)
 
     class Meta:
         ordering = ["-reviewed_at"]

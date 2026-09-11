@@ -285,7 +285,6 @@ def review(
         ease_after=sched.ease,
         elapsed_ms=max(0, int(elapsed_ms)),
         card_before=snapshot,
-        schedule_generation=card.schedule_generation,
     )
     return (sched, log) if return_log else sched
 
@@ -314,7 +313,7 @@ def undo_last(user=None, *, log_id=None, card_id=None) -> Card | None:
     if card is None:
         return None
     if (
-        log.schedule_generation != card.schedule_generation
+        log.pk <= card.projection_review_boundary
         or (card.response_id and card.response.semantic_owner_id)
     ):
         raise ProjectionUndoError("The review predates the card's schedule projection.")

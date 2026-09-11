@@ -14,6 +14,7 @@ from pathlib import Path
 
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
+from django.db.models import Max, Q
 
 from study import content_loader as content
 from study.account_services import (
@@ -40,6 +41,7 @@ from study.models import (
     PersonalWritingResponse,
     Prompt,
     Response,
+    ReviewLog,
     ReviewSession,
     Settings,
     Task,
@@ -1374,9 +1376,10 @@ class Command(BaseCommand):
     def _reconcile_response_cards(self, response_by_key):
         from study.oral_history import snapshot
 
-        source_plan = getattr(self, "_response_sources", {})
+        all_source_plan = getattr(self, "_response_sources", {})
+        self._oral_review_sessions = []
         source_plan = {
-            key: ids for key, ids in source_plan.items()
+            key: ids for key, ids in all_source_plan.items()
             if not response_by_key[key].semantic_group
             or key in getattr(self, "_oral_pending_keys", set())
         }
@@ -1391,6 +1394,26 @@ class Command(BaseCommand):
         if not response_ids:
             return
 
+        oral_source_ids = {
+            response_id
+            for key, ids in source_plan.items()
+            if response_by_key[key].semantic_group
+            for response_id in ids | {response_by_key[key].pk}
+        }
+        all_oral_ids = {
+            response_id
+            for key, response in response_by_key.items() if response.semantic_group
+            for response_id in all_source_plan.get(key, set()) | {response.pk}
+        }
+        response_ids.update(all_oral_ids)
+        # Published review endpoints lock the session before the card. Keep that
+        # order so queued old workers cannot replay an Undo across this barrier.
+        sessions = list(ReviewSession.objects.select_for_update().filter(
+            Q(user_id__in=Card.objects.filter(
+                response_id__in=all_oral_ids,
+            ).values("user_id")) | Q(user__isnull=True),
+        ).order_by("pk")) if all_oral_ids else []
+        self._oral_review_sessions = sessions
         cards_by_response = defaultdict(dict)
         cards = Card.objects.select_for_update().filter(
             card_type=CardType.SPINE,
@@ -1398,12 +1421,6 @@ class Command(BaseCommand):
         ).order_by("pk")
         for card in cards:
             cards_by_response[card.response_id][card.user_id] = card
-        oral_source_ids = {
-            response_id
-            for key, ids in source_plan.items()
-            if response_by_key[key].semantic_group
-            for response_id in ids | {response_by_key[key].pk}
-        }
         for card in cards:
             if card.response_id in oral_source_ids:
                 snapshot(card, "card")
@@ -1498,12 +1515,33 @@ class Command(BaseCommand):
                     response_practice_started_at
                 )
                 target_card.subject_completed_at = subject_completed_at
-                if target_response.semantic_group:
-                    target_card.schedule_generation += 1
                 changed.append(target_card)
 
+        projected_ids = {
+            card.pk for card in changed if card.response_id in oral_source_ids
+        }
+        boundaries = {
+            row["card_id"]: row["last_review_id"]
+            for row in ReviewLog.objects.filter(card_id__in=projected_ids)
+            .order_by().values("card_id").annotate(last_review_id=Max("pk"))
+        }
+        for card in changed:
+            if card.pk in projected_ids:
+                card.projection_review_boundary = max(
+                    card.projection_review_boundary, boundaries.get(card.pk, 0),
+                )
         if changed:
-            Card.objects.bulk_update(changed, [*schedule_fields, "schedule_generation"])
+            Card.objects.bulk_update(changed, [*schedule_fields, "projection_review_boundary"])
+        cards_by_id = {card.pk: card for card in cards}
+        retired_ids = {
+            card.pk for card in cards
+            if card.response_id in all_oral_ids and card.response.semantic_owner_id
+        }
+        for session in sessions:
+            if session.previous_review_id and session.previous_card_id in projected_ids | retired_ids:
+                snapshot(session, "session", response=cards_by_id[session.previous_card_id].response)
+                session.previous_review = None
+                session.save(update_fields=["previous_review"])
         for key in getattr(self, "_oral_pending_keys", set()):
             Response.objects.filter(pk=response_by_key[key].pk).update(
                 semantic_state_revision=self._oral_revisions[key],
@@ -1512,11 +1550,12 @@ class Command(BaseCommand):
     def _reconcile_oral_review_sessions(self):
         from study.oral_history import snapshot
 
-        sessions = ReviewSession.objects.filter(
-            current_card__response__semantic_owner__isnull=False,
-        ).select_related("current_card__response")
-        for session in sessions:
+        for session in self._oral_review_sessions:
+            if session.current_card_id is None or session.current_card.response_id is None:
+                continue
             source = session.current_card.response
+            if source.semantic_owner_id is None:
+                continue
             target = Card.objects.filter(
                 user_id=session.user_id, response_id=source.semantic_owner_id,
                 card_type=CardType.SPINE,

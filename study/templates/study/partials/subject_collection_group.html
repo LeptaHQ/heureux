@@ -4,35 +4,9 @@
   {% else %}
     {% include "study/partials/theme_group_summary.html" with title=title icon=group.icon count=count count_label="sujet" status=status completed=completed total=total only %}
   {% endif %}
-  <div class="t1-table-shell">
-    <table class="t1-table t1-table--grouped subject-collection__table" data-nested-sort-table role="table">
-      <caption class="sr-only">Sujets du thème {{ title }}</caption>
-      <colgroup>
-        <col class="t1-table__subject-column">
-        <col class="t1-table__questions-column">
-        <col class="t1-table__status-column">
-      </colgroup>
-      {% include "study/partials/sortable_subject_table_head.html" with secondary_label=secondary_label only %}
-      <tbody role="rowgroup">
-        {% for subject in subjects %}
-          {% if kind == "writing" %}
-            {% url 'study:writing_sujet_detail' part.slug task.slug subject.sujet.pk as subject_url %}
-            {% include "study/partials/subject_collection_row.html" with href=subject_url title=subject.prompt|truncatechars:220 prompt_key=subject.source.source_key progress_sujet=subject.progress_sujet|default:subject.sujet %}
-          {% elif kind == "eo2" %}
-            {% url 'study:task_subject_detail' part.slug task.slug subject.month_slug subject.batch_number subject.number as subject_url %}
-            {% include "study/partials/subject_collection_row.html" with href=subject_url title=subject.title response_id=subject.response_id prompt_key=subject.content_key %}
-          {% else %}
-            {% url 'study:response_detail' part.slug task.slug subject.prompt.pk as subject_url %}
-            {% include "study/partials/subject_collection_row.html" with href=subject_url title=subject.prompt.text response_id=subject.prompt.response_id prompt_key=subject.prompt.pk %}
-          {% endif %}
-        {% endfor %}
-      </tbody>
-    </table>
-  </div>
-  {% if group.detail_url %}
-    <p class="card--pad mt-0">
-      <a href="{{ group.detail_url }}">Voir le thème et ses révisions {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>
-      {% if group.due %}<span class="chip">{{ group.due }} à revoir</span>{% endif %}
-    </p>
+  {% if group.families %}
+    {% include "study/partials/subject_collection_families.html" %}
+  {% else %}
+    {% include "study/partials/subject_collection_table.html" %}
   {% endif %}
 </details>

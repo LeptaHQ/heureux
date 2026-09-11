@@ -384,7 +384,7 @@ def export_account(request):
                 "learning_step": card.learning_step,
                 "last_reviewed": card.last_reviewed,
                 "last_rating": card.last_rating,
-                "schedule_generation": card.schedule_generation,
+                "projection_review_boundary": card.projection_review_boundary,
                 "needs_revisit": card.needs_revisit,
                 "revisit_added_at": card.revisit_added_at,
                 "suspended": card.suspended,
@@ -400,6 +400,7 @@ def export_account(request):
         ReviewLog.objects.filter(user=request.user)
         .order_by("reviewed_at", "pk")
         .values(
+            "id",
             "card_id",
             "reviewed_at",
             "rating",
@@ -411,7 +412,6 @@ def export_account(request):
             "ease_after",
             "elapsed_ms",
             "card_before",
-            "schedule_generation",
         )
     )
     annotations = list(

@@ -1360,6 +1360,7 @@ def _scope_filters(request, forced_task=None, forced_part_slug=None):
 
 
 def _oral_subject_themes(themes, response_progress, *, deduplicate=False):
+    family_labels = catalogue.eo_tache_three_family_labels()
     subjects_by_theme = {item["theme"].pk: [] for item in themes}
     prompts = (
         Prompt.objects.filter(
@@ -1378,36 +1379,71 @@ def _oral_subject_themes(themes, response_progress, *, deduplicate=False):
     seen = set()
     groups = []
     for item in themes:
-        subjects = subjects_by_theme[item["theme"].pk]
-        if deduplicate:
-            representatives = []
-            for subject in subjects:
-                response_id = subject["prompt"].response_id
-                if response_id not in seen:
-                    representatives.append(subject)
-                    seen.add(response_id)
-            subjects = representatives
-            if not subjects:
-                continue
-        groups.append({
-            "slug": item["theme"].slug,
-            "name": item["theme"].display_name,
-            "icon": item["theme"].icon,
-            "subjects": subjects,
-            "subject_count": len(subjects),
-            "detail_url": reverse(
-                "study:theme_detail",
-                args=[
-                    item["theme"].task.part.slug,
-                    item["theme"].task.slug,
-                    item["theme"].slug,
-                ],
-            ),
-            **summarize_subject_progress({
-                row["prompt"].response_id: row["progress"] for row in subjects
-            }.values()),
-            "due": item["stats"]["due"],
-        })
+        theme = item["theme"]
+        subjects = subjects_by_theme[theme.pk]
+        families_by_id = {}
+        for row in subjects:
+            family = row["prompt"].family
+            family_group = families_by_id.setdefault(
+                family.pk, {"family": family, "subjects": []}
+            )
+            family_group["subjects"].append(row)
+        family_groups = []
+        for family_group in sorted(
+            families_by_id.values(),
+            key=lambda group: (group["family"].order, group["family"].name),
+        ):
+            family = family_group["family"]
+            rows = family_group["subjects"]
+            if deduplicate:
+                representatives = []
+                for row in rows:
+                    response_id = row["prompt"].response_id
+                    if response_id not in seen:
+                        representatives.append(row)
+                        seen.add(response_id)
+                rows = representatives
+                if not rows:
+                    continue
+            response_ids = {row["prompt"].response_id for row in rows}
+            family_groups.append(
+                {
+                    "slug": family.slug,
+                    "name": family_labels.get(
+                        (theme.slug, family.content_key), family.name
+                    ),
+                    "subjects": rows,
+                    "subject_count": len(rows),
+                    "detail_url": (
+                        reverse(
+                            "study:task_family_detail",
+                            args=[theme.task.part.slug, theme.task.slug, family.slug],
+                        )
+                        if family.is_active
+                        else ""
+                    ),
+                    **summarize_subject_progress(
+                        response_progress[response_id] for response_id in response_ids
+                    ),
+                }
+            )
+        subjects = [row for family in family_groups for row in family["subjects"]]
+        if deduplicate and not subjects:
+            continue
+        groups.append(
+            {
+                "slug": theme.slug,
+                "name": theme.display_name,
+                "icon": theme.icon,
+                "subjects": subjects,
+                "families": family_groups,
+                "subject_count": len(subjects),
+                **summarize_subject_progress({
+                    row["prompt"].response_id: row["progress"] for row in subjects
+                }.values()),
+                "due": item["stats"]["due"],
+            }
+        )
     return groups
 
 

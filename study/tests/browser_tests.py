@@ -645,6 +645,31 @@ class BrowserTests(StaticLiveServerTestCase):
                     ))),
                     count,
                 )
+                if part == "eo" and tache == 3:
+                    expected_groups = {
+                        reverse("study:response_detail", args=[part, "tache-3", pk]):
+                        [family_slug, f"theme-{theme_slug}"]
+                        for pk, family_slug, theme_slug in Prompt.objects.filter(
+                            theme__task__part__slug=part,
+                            theme__task__slug="tache-3",
+                            is_active=True,
+                        ).values_list("pk", "family__slug", "theme__slug")
+                    }
+                    actual_groups = rows.evaluate_all(
+                        """rows => Object.fromEntries(rows.map(row => [
+                          new URL(row.querySelector("a").href).pathname,
+                          [row.closest("[data-subject-family-group]").dataset.subjectFamilyGroup,
+                           row.closest("[data-t1-table-theme]").id],
+                        ]))"""
+                    )
+                    self.assertEqual(actual_groups, expected_groups)
+                    self.assertEqual(
+                        self.page.locator("[data-subject-family-group]").count(), 41
+                    )
+                    self.assertEqual(
+                        self.page.get_by_role("heading", name="Par famille de sujets").count(),
+                        0,
+                    )
                 self.assertTrue(self.page.evaluate(
                     """
                     () => {
@@ -667,12 +692,15 @@ class BrowserTests(StaticLiveServerTestCase):
                             self.page.get_by_role("button", name=label, exact=True).click()
                             group = self.page.locator("[data-t1-table-theme]").first
                             if not group.evaluate("element => element.open"):
-                                group.locator("summary").click()
+                                group.locator(":scope > summary").click()
                             if part == "eo" and tache == 3:
-                                group.locator("summary").click()
+                                group.locator(":scope > summary").click()
                                 self.assertFalse(group.evaluate("element => element.open"))
-                                group.locator("summary").press("Enter")
+                                group.locator(":scope > summary").press("Enter")
                                 self.assertTrue(group.evaluate("element => element.open"))
+                                family = group.locator("[data-subject-family-group]").first
+                                if not family.evaluate("element => element.open"):
+                                    family.locator(":scope > summary").click()
                             self.assertTrue(self.page.evaluate(
                                 """
                                 () => window.__subjectRows.every((row, index) =>
@@ -763,6 +791,85 @@ class BrowserTests(StaticLiveServerTestCase):
                     equivalents.locator('button[aria-checked="true"]').count(),
                     equivalents.count(),
                 )
+
+    def test_nested_oral_families_keep_independent_disclosures_sorting_and_progress(self):
+        first = self.first.response.prompts.get(is_canonical=True)
+        second = self.second.response.prompts.get(is_canonical=True)
+        second_family = factories.make_family("nested-second")
+        second.family = second_family
+        second.text = "Zulu : deuxième sujet"
+        second.save(update_fields=["family", "text"])
+        Prompt.objects.create(
+            content_key="test:nested-family-alias",
+            theme=self.theme,
+            family=second_family,
+            response=first.response,
+            number=second.number + 100,
+            text="Alpha : formulation partagée",
+        )
+        other_theme = factories.make_theme("nested-other", task=self.task)
+        Prompt.objects.create(
+            content_key="test:nested-theme-alias",
+            theme=other_theme,
+            family=first.family,
+            response=first.response,
+            number=1,
+            text="Le sujet dans un autre thème",
+        )
+        url = self.live_server_url + reverse(
+            "study:task_browse", args=["eo", "tache-3"]
+        )
+        self.page.goto(url)
+        self.page.get_by_role("button", name="Tableau", exact=True).click()
+        theme = self.page.locator(f"#theme-{self.theme.slug}")
+        family = theme.locator(
+            f'[data-subject-family-group="{first.family.slug}"]'
+        )
+        other_family = theme.locator(
+            f'[data-subject-family-group="{second_family.slug}"]'
+        )
+        row = family.locator("[data-subject-collection-row]")
+        self.assertEqual(self.page.locator("[data-subject-family-group][open]").count(), 0)
+        theme.locator(":scope > summary").press("Enter")
+        self.assertFalse(row.is_visible())
+        family.locator(":scope > summary").press("Enter")
+        expect(row).to_be_visible()
+        theme.locator(":scope > summary").click()
+        self.assertFalse(row.is_visible())
+        self.assertTrue(family.evaluate("element => element.open"))
+        theme.locator(":scope > summary").click()
+        expect(row).to_be_visible()
+
+        self.page.get_by_role("button", name="Cartes", exact=True).click()
+        family.locator(":scope > summary").click()
+        self.page.get_by_role("button", name="Tableau", exact=True).click()
+        expect(row).to_be_visible()
+        self.page.get_by_role("button", name="Cartes", exact=True).click()
+        self.assertFalse(row.is_visible())
+        self.page.get_by_role("button", name="Tableau", exact=True).click()
+        expect(row).to_be_visible()
+
+        other_family.locator(":scope > summary").click()
+        titles = other_family.locator(".subject-table-row-link")
+        original = titles.all_text_contents()
+        other_family.locator('[data-nested-table-sort="subject"]').click()
+        self.assertEqual(titles.all_text_contents(), list(reversed(original)))
+        expect(row).to_have_count(1)
+        expect(self.page.locator("[data-subject-collection-row]")).to_have_count(4)
+
+        with self.page.expect_navigation(wait_until="domcontentloaded"):
+            row.get_by_role("checkbox").click()
+        expect(theme.locator(":scope > summary .progress-status")).to_have_text("1/2")
+        expect(family.locator(":scope > summary .progress-status")).to_have_text("1/1")
+        expect(other_family.locator(":scope > summary .progress-status")).to_have_text("1/2")
+        expect(
+            self.page.locator(f"#theme-{other_theme.slug} > summary .progress-status")
+        ).to_have_text("1/1")
+        theme.locator(":scope > summary").click()
+        family.locator(":scope > summary").click()
+        expect(row.get_by_role("checkbox")).to_be_checked()
+        expect(row.locator(".progress-status")).to_have_text("Terminé")
+        self.assert_no_horizontal_overflow()
 
     def test_subject_completion_shares_pending_errors_and_writing_events(self):
         self.theme.delete()

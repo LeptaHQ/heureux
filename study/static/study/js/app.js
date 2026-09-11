@@ -24,7 +24,10 @@
     if (!toggles.length || !collections.length) return;
 
     var subjectGroups = Array.from(
-      document.querySelectorAll("[data-subject-collection] [data-t1-table-theme]")
+      document.querySelectorAll(
+        "[data-subject-collection] [data-t1-table-theme], " +
+        "[data-subject-collection] [data-subject-family-group]"
+      )
     ).map(function (element) {
       return { element: element, cards: element.open, table: false };
     });

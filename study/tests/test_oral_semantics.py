@@ -6,7 +6,7 @@ from io import StringIO
 from unittest.mock import patch
 
 from django.core.management import call_command
-from django.db import connection
+from django.db import connection, transaction
 from django.db.migrations.executor import MigrationExecutor
 from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
@@ -174,12 +174,12 @@ class OralRollingSchemaTests(TestCase):
         old_card = old_apps.get_model("study", "Card").objects.create(
             user_id=user.pk, response_id=response.pk, card_type="spine",
         )
-        self.assertEqual(Card.objects.get(pk=old_card.pk).schedule_generation, 0)
+        self.assertEqual(Card.objects.get(pk=old_card.pk).projection_review_boundary, 0)
         old_log = old_apps.get_model("study", "ReviewLog").objects.create(
             user_id=user.pk, card_id=old_card.pk, rating=Rating.GOOD,
             state_before=CardState.NEW, state_after=CardState.LEARNING,
         )
-        self.assertEqual(ReviewLog.objects.get(pk=old_log.pk).schedule_generation, 0)
+        self.assertEqual(ReviewLog.objects.get(pk=old_log.pk).card_id, old_card.pk)
 
 
 class OralImportPreservationTests(TestCase):
@@ -252,8 +252,10 @@ class OralImportPreservationTests(TestCase):
         session.refresh_from_db()
         self.assertEqual(session.current_card_id, source.pk)
         self.assertEqual(session.previous_card_id, donor.pk)
-        self.assertEqual(session.previous_review_id, log.pk)
-        self.assertEqual(OralStateSnapshot.objects.filter(kind="session").count(), 1)
+        self.assertIsNone(session.previous_review_id)
+        self.assertTrue(OralStateSnapshot.objects.filter(
+            kind="session", payload__fields__previous_review_id=log.pk,
+        ).exists())
         for user in self.users:
             self.assertEqual(personal_versions(mapping[first.content_key], user).count(), 2)
             self.assertEqual(preferred_personal(mapping[first.content_key], user).response_id, original.pk)
@@ -306,14 +308,15 @@ class OralImportPreservationTests(TestCase):
         )
         self.import_rows([data])
         projected = Card.objects.values().get(pk=target.pk)
-        self.assertEqual(projected["schedule_generation"], 1)
-        self.assertEqual(old_log.schedule_generation, 0)
+        self.assertEqual(projected["projection_review_boundary"], old_log.pk)
         donor.refresh_from_db()
-        self.assertEqual(donor.schedule_generation, 0)
+        self.assertEqual(donor.projection_review_boundary, 0)
         snapshots = list(OralStateSnapshot.objects.order_by("pk").values())
         self.client.force_login(self.users[0])
         url = reverse("study:review_undo")
-        self.assertEqual(self.client.post(url).status_code, 409)
+        session.refresh_from_db()
+        self.assertIsNone(session.previous_review_id)
+        self.assertFalse(self.client.post(url).json()["undone"])
         self.assertEqual(Card.objects.values().get(pk=target.pk), projected)
         self.assertTrue(ReviewLog.objects.filter(pk=old_log.pk).exists())
         self.assertEqual(list(OralStateSnapshot.objects.order_by("pk").values()), snapshots)
@@ -321,13 +324,13 @@ class OralImportPreservationTests(TestCase):
         target.refresh_from_db()
         _, new_log = srs.review(target, Rating.GOOD, now=at, return_log=True)
         self.assertEqual(new_log.reviewed_at, old_log.reviewed_at)
-        self.assertEqual(new_log.schedule_generation, 1)
+        self.assertGreater(new_log.pk, target.projection_review_boundary)
         ReviewSession.objects.filter(pk=session.pk).update(
             previous_review=new_log, previous_card=target, current_card=None,
         )
         self.import_rows([replace(data, semantic_rationale="Clarified rationale only.")])
         target.refresh_from_db()
-        self.assertEqual(target.schedule_generation, 1)
+        self.assertEqual(target.projection_review_boundary, old_log.pk)
         self.assertEqual(self.client.post(url).status_code, 200)
         target.refresh_from_db()
         self.assertEqual((target.state, target.reps, target.interval_days), (CardState.REVIEW, 45, 90))
@@ -339,6 +342,9 @@ class OralImportPreservationTests(TestCase):
         self.assertEqual(self.client.post(url).status_code, 409)
 
         _, between_projections = srs.review(target, Rating.GOOD, now=at, return_log=True)
+        ReviewSession.objects.filter(pk=session.pk).update(
+            previous_review=between_projections, previous_card=target,
+        )
         next_donor = self.make_card()
         next_donor.state, next_donor.reps, next_donor.interval_days = CardState.REVIEW, 100, 180
         next_donor.last_reviewed = at
@@ -349,7 +355,9 @@ class OralImportPreservationTests(TestCase):
         ])
         self.import_rows([expanded])
         target.refresh_from_db()
-        self.assertEqual(target.schedule_generation, 2)
+        self.assertEqual(target.projection_review_boundary, between_projections.pk)
+        session.refresh_from_db()
+        self.assertIsNone(session.previous_review_id)
         ReviewSession.objects.filter(pk=session.pk).update(
             previous_review=between_projections, previous_card=target,
         )
@@ -357,6 +365,62 @@ class OralImportPreservationTests(TestCase):
         target.refresh_from_db()
         self.assertEqual((target.reps, target.interval_days), (100, 180))
         self.assertTrue(ReviewLog.objects.filter(pk=between_projections.pk).exists())
+
+    def test_old_worker_cannot_undo_across_cutover_but_its_later_grade_can_be_undone(self):
+        target, donor = self.make_card(), self.make_card()
+        at = timezone.now()
+        _, original_log = srs.review(target, Rating.GOOD, now=at, return_log=True)
+        donor.state, donor.reps, donor.interval_days = CardState.REVIEW, 45, 90
+        donor.last_reviewed = at
+        donor.save()
+        old_apps = MigrationExecutor(connection).loader.project_state([
+            ("study", "0050_course_exposure_projection"),
+        ]).apps
+        OldSession = old_apps.get_model("study", "ReviewSession")
+        OldCard = old_apps.get_model("study", "Card")
+        OldLog = old_apps.get_model("study", "ReviewLog")
+        OldSession.objects.create(
+            user_id=self.users[0].pk, previous_card_id=target.pk,
+            previous_review_id=original_log.pk,
+            scope={"kind": "spine", "response": str(target.response_id)},
+        )
+        data = response_data(
+            target.response, members=[target.response.canonical_prompt, donor.response.canonical_prompt],
+        )
+        self.import_rows([data])
+        with transaction.atomic():
+            queued_old_session = OldSession.objects.select_for_update().get(user_id=self.users[0].pk)
+            # The published Undo endpoint calls undo_last only when this pointer exists.
+            self.assertIsNone(queued_old_session.previous_review_id)
+        target.refresh_from_db()
+        self.assertEqual((target.reps, target.interval_days), (45, 90))
+        self.assertTrue(ReviewLog.objects.filter(pk=original_log.pk).exists())
+
+        with transaction.atomic():
+            old_session = OldSession.objects.select_for_update().get(user_id=self.users[0].pk)
+            old_card = OldCard.objects.select_for_update().get(pk=target.pk)
+            before = srs._snapshot(old_card)
+            old_card.reps += 1
+            old_card.interval_days = 225
+            old_card.last_reviewed = at
+            old_card.save(update_fields=["reps", "interval_days", "last_reviewed"])
+            new_log = OldLog.objects.create(
+                user_id=self.users[0].pk, card_id=target.pk, reviewed_at=at,
+                rating=Rating.GOOD, state_before=CardState.REVIEW, state_after=CardState.REVIEW,
+                interval_before=90, interval_after=225, card_before=before,
+            )
+            old_session.previous_review_id = new_log.pk
+            old_session.save(update_fields=["previous_review"])
+        self.import_rows([replace(data, semantic_rationale="Rationale-only rollout retry.")])
+        target.refresh_from_db()
+        self.assertEqual(target.projection_review_boundary, original_log.pk)
+        self.assertGreater(new_log.pk, target.projection_review_boundary)
+        self.client.force_login(self.users[0])
+        self.assertTrue(self.client.post(reverse("study:review_undo")).json()["undone"])
+        target.refresh_from_db()
+        self.assertEqual((target.reps, target.interval_days), (45, 90))
+        self.assertTrue(ReviewLog.objects.filter(pk=original_log.pk).exists())
+        self.assertFalse(ReviewLog.objects.filter(pk=new_log.pk).exists())
 
     def test_donor_only_version_can_reset_to_original_without_changing_donor(self):
         for task_slug in ("tache-2", "tache-3"):
@@ -461,6 +525,29 @@ class OralImportPreservationTests(TestCase):
         self.assertIn(f"prompt={first_prompt.pk}", detail.context["response_review_url"])
         self.assertIn("model=1", detail.context["response_review_url"])
         self.assertEqual(len(detail.context["oral_model_variants"]), 2)
+
+    def test_nested_directory_deduplicates_in_displayed_family_order(self):
+        canonical, earlier_family = self.make_card(), self.make_card()
+        family = factories.make_family("earlier-visible-family")
+        family.order = 0
+        family.save(update_fields=["order"])
+        earlier_prompt = earlier_family.response.canonical_prompt
+        earlier_prompt.family = family
+        earlier_prompt.save(update_fields=["family"])
+        data = response_data(
+            canonical.response,
+            members=[canonical.response.canonical_prompt, earlier_prompt],
+        )
+        self.import_rows([data])
+        self.client.force_login(self.users[0])
+        url = reverse("study:task_browse", args=["eo", "tache-3"])
+        all_page = self.client.get(url)
+        first_displayed = all_page.context["subject_themes"][0]["families"][0]["subjects"][0]["prompt"]
+        self.assertEqual(first_displayed.pk, earlier_prompt.pk)
+        page = self.client.get(url, {"deduplicate": "1"})
+        self.assertEqual(page.context["display_count"], 1)
+        self.assertEqual(page.context["subject_themes"][0]["subjects"][0]["prompt"].pk, first_displayed.pk)
+        self.assertNotContains(page, "Voir le thème et ses révisions")
 
     def test_preserved_personal_history_restores_copy_without_cross_user_access(self):
         first, donor = self.make_card(), self.make_card()

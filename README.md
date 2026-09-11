@@ -60,9 +60,11 @@ all previously grouped prompts. Schedule projection snapshots the target and don
 states first and runs once per membership revision, excluding rationale changes.
 Historical previous reviews remain inspectable but cannot undo a schedule already
 projected into another group, including a surviving canonical card's old reviews.
-Each changed schedule advances a card generation under lock; new review logs carry
-that generation, and Undo only accepts a matching generation. Timestamp ties and
-unchanged imports do not invalidate genuinely post-projection reviews.
+The importer locks affected review sessions before cards, archives and clears
+stale Undo pointers without deleting their logs, and records each projected
+card's existing review-log high-water ID. Undo cannot cross that boundary.
+Timestamp ties and unchanged imports do not invalidate genuinely later reviews,
+including reviews written by an old worker during application replacement.
 
 **Deployment gate:** apply migrations and import both complete manifests before
 serving the new application. Render and Vercel builds call `deploy_database`
@@ -81,6 +83,10 @@ so workers using the pre-upgrade ORM can finish inserts during replacement.
   their inputs directly.
 - Subject directories reuse one collection/group/row component and render each
   publication once, with card and table presentations of the same elements.
+  EO Tâche 3 nests subject families within themes; each level counts unique
+  responses for progress without duplicating subject rows.
+  Theme-specific labels in `study/content/tache_3/subject_family_labels.json`
+  clarify the existing families without changing memberships or saved progress.
   Oral and written completion controls share one JavaScript controller.
 - Subject progress filters highlight candidates before transferring rows to Python.
   Existing source-key and URL parsers remain the final matching authority; batching

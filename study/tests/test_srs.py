@@ -110,12 +110,11 @@ class ReviewAndUndoTests(TestCase):
             srs.undo_last(log_id=log.pk, card_id=donor.pk)
         self.assertTrue(ReviewLog.objects.filter(pk=log.pk).exists())
 
-    def test_projection_generation_guards_core_undo_without_deleting_history(self):
-        card = make_spine_card(schedule_generation=3)
+    def test_projection_boundary_guards_core_undo_without_deleting_history(self):
+        card = make_spine_card()
         _, log = srs.review(card, Rating.GOOD, return_log=True)
-        self.assertEqual(log.schedule_generation, 3)
-        card.schedule_generation = 4
-        card.save(update_fields=["schedule_generation"])
+        card.projection_review_boundary = log.pk
+        card.save(update_fields=["projection_review_boundary"])
         with self.assertRaises(srs.ProjectionUndoError):
             srs.undo_last(log_id=log.pk, card_id=card.pk)
         card.refresh_from_db()

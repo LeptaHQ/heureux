@@ -12,12 +12,7 @@ class Migration(migrations.Migration):
     operations = [
         migrations.AddField(
             model_name='card',
-            name='schedule_generation',
-            field=models.PositiveBigIntegerField(default=0, db_default=0),
-        ),
-        migrations.AddField(
-            model_name='reviewlog',
-            name='schedule_generation',
+            name='projection_review_boundary',
             field=models.PositiveBigIntegerField(default=0, db_default=0),
         ),
     ]

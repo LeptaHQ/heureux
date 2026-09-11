@@ -909,9 +909,10 @@
       "canonical": "environnement:p7",
       "members": [
         "environnement:p7",
+        "environnement:p12",
         "economie:p8"
       ],
-      "rationale": "Both explicitly evaluate whether increasing organic products in supermarkets is good; the same retail development and desirability judgment are retained."
+      "rationale": "In EO3's shared task of expressing a reasoned opinion, all three invite evaluation of increasing organic products in supermarkets. The bare trend and the explicit question about whether it is good preserve the same development, retail setting and evaluative task; no different action, population or constraint is added."
     },
     {
       "id": "environnement-p8",
@@ -937,14 +938,6 @@
         "environnement:p11"
       ],
       "rationale": "Asks for evaluation of actual pollution measures in one's country, not an unrestricted judgment of economic/environmental compatibility or a single proposed traffic policy."
-    },
-    {
-      "id": "environnement-p12",
-      "canonical": "environnement:p12",
-      "members": [
-        "environnement:p12"
-      ],
-      "rationale": "States only that organic products are increasingly visible in supermarkets. The omitted desirability question leaves the response task under-specified; a copied model does not establish equivalence to asking whether the increase is good."
     },
     {
       "id": "environnement-p13",

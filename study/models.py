@@ -138,9 +138,9 @@ class Response(models.Model):
     conclusion = models.TextField(blank=True)
     body = models.TextField()
     body_html = models.TextField()
-    semantic_group = models.CharField(max_length=160, blank=True, db_index=True)
-    semantic_rationale = models.TextField(blank=True)
-    semantic_state_revision = models.CharField(max_length=64, blank=True)
+    semantic_group = models.CharField(max_length=160, blank=True, default="", db_default="", db_index=True)
+    semantic_rationale = models.TextField(blank=True, default="", db_default="")
+    semantic_state_revision = models.CharField(max_length=64, blank=True, default="", db_default="")
     semantic_owner = models.ForeignKey(
         "self", on_delete=models.PROTECT, null=True, blank=True,
         related_name="historical_sources",
@@ -206,7 +206,7 @@ class PersonalResponse(models.Model):
     conclusion = models.TextField(blank=True)
     created_at = models.DateTimeField(default=timezone.now)
     updated_at = models.DateTimeField(auto_now=True)
-    is_active = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=True, db_default=True)
     source_prompt = models.ForeignKey(
         "Prompt", on_delete=models.SET_NULL, null=True, blank=True,
         related_name="personal_response_sources",
@@ -351,7 +351,7 @@ class Prompt(models.Model):
     text = models.TextField()
     is_canonical = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True, db_index=True)
-    model_content = models.JSONField(default=dict, blank=True)
+    model_content = models.JSONField(default=dict, db_default={}, blank=True)
 
     class Meta:
         ordering = ["theme__order", "number"]
@@ -1176,6 +1176,7 @@ class Card(models.Model):
     learning_step = models.PositiveSmallIntegerField(default=0)
     last_reviewed = models.DateTimeField(null=True, blank=True)
     last_rating = models.PositiveSmallIntegerField(null=True, blank=True)
+    schedule_generation = models.PositiveBigIntegerField(default=0, db_default=0)
     needs_revisit = models.BooleanField(default=False, db_index=True)
     revisit_added_at = models.DateTimeField(null=True, blank=True)
     suspended = models.BooleanField(default=False)
@@ -1353,6 +1354,7 @@ class ReviewLog(models.Model):
     ease_after = models.FloatField(default=2.5)
     elapsed_ms = models.PositiveIntegerField(default=0)
     card_before = models.JSONField(default=dict, blank=True)
+    schedule_generation = models.PositiveBigIntegerField(default=0, db_default=0)
 
     class Meta:
         ordering = ["-reviewed_at"]

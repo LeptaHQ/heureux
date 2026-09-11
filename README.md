@@ -59,7 +59,10 @@ Imports retain original response/card/log IDs and never fan out old completion t
 all previously grouped prompts. Schedule projection snapshots the target and donor
 states first and runs once per membership revision, excluding rationale changes.
 Historical previous reviews remain inspectable but cannot undo a schedule already
-projected into another group.
+projected into another group, including a surviving canonical card's old reviews.
+Each changed schedule advances a card generation under lock; new review logs carry
+that generation, and Undo only accepts a matching generation. Timestamp ties and
+unchanged imports do not invalidate genuinely post-projection reviews.
 
 **Deployment gate:** apply migrations and import both complete manifests before
 serving the new application. Render and Vercel builds call `deploy_database`
@@ -67,6 +70,8 @@ serving the new application. Render and Vercel builds call `deploy_database`
 Do not use `[skip db]` for this rollout. For a manual deployment run
 `python manage.py deploy_database --force`, then restart workers. Do not regenerate
 manifests from body hashes or replace the immutable original source files.
+The additive oral columns keep database defaults as well as Python defaults,
+so workers using the pre-upgrade ORM can finish inserts during replacement.
 
 ## Runtime efficiency
 

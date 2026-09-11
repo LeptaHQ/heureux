@@ -114,7 +114,7 @@
 {% if has_personal_response %}
   <section class="card card--pad danger-zone response-edit__reset">
     <h2 class="mt-0">{% if is_tache_two %}Revenir aux questions d'origine{% else %}Revenir à la réponse d'origine{% endif %}</h2>
-    <p class="muted">Supprime uniquement votre version personnelle. Le sujet, votre progression et vos annotations sont conservés.</p>
+    <p class="muted">Réactive le modèle d'origine. Vos versions personnelles restent accessibles dans l'historique ; votre progression et vos annotations sont conservées.</p>
     <form method="post">
       {% csrf_token %}
       <button class="btn btn--danger" type="submit" name="action" value="reset">

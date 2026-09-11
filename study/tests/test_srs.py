@@ -101,6 +101,28 @@ class ComputeTests(TestCase):
 
 
 class ReviewAndUndoTests(TestCase):
+    def test_historical_donor_undo_is_rejected_inside_the_locked_service(self):
+        donor, target = make_spine_card(), make_spine_card()
+        _, log = srs.review(donor, Rating.GOOD, return_log=True)
+        donor.response.semantic_owner = target.response
+        donor.response.save(update_fields=["semantic_owner"])
+        with self.assertRaises(srs.ProjectionUndoError):
+            srs.undo_last(log_id=log.pk, card_id=donor.pk)
+        self.assertTrue(ReviewLog.objects.filter(pk=log.pk).exists())
+
+    def test_projection_generation_guards_core_undo_without_deleting_history(self):
+        card = make_spine_card(schedule_generation=3)
+        _, log = srs.review(card, Rating.GOOD, return_log=True)
+        self.assertEqual(log.schedule_generation, 3)
+        card.schedule_generation = 4
+        card.save(update_fields=["schedule_generation"])
+        with self.assertRaises(srs.ProjectionUndoError):
+            srs.undo_last(log_id=log.pk, card_id=card.pk)
+        card.refresh_from_db()
+        self.assertEqual(card.state, CardState.LEARNING)
+        self.assertEqual(card.reps, 1)
+        self.assertTrue(ReviewLog.objects.filter(pk=log.pk).exists())
+
     def test_review_persists_and_logs_with_snapshot(self):
         card = make_spine_card()
         srs.review(card, Rating.GOOD)

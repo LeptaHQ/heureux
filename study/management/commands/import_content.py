@@ -1370,6 +1370,7 @@ class Command(BaseCommand):
                         f"{namespace}:{target.content_key}",
                     )
 
+    @transaction.atomic
     def _reconcile_response_cards(self, response_by_key):
         from study.oral_history import snapshot
 
@@ -1391,10 +1392,10 @@ class Command(BaseCommand):
             return
 
         cards_by_response = defaultdict(dict)
-        cards = Card.objects.filter(
+        cards = Card.objects.select_for_update().filter(
             card_type=CardType.SPINE,
             response_id__in=response_ids,
-        )
+        ).order_by("pk")
         for card in cards:
             cards_by_response[card.response_id][card.user_id] = card
         oral_source_ids = {
@@ -1497,10 +1498,12 @@ class Command(BaseCommand):
                     response_practice_started_at
                 )
                 target_card.subject_completed_at = subject_completed_at
+                if target_response.semantic_group:
+                    target_card.schedule_generation += 1
                 changed.append(target_card)
 
         if changed:
-            Card.objects.bulk_update(changed, schedule_fields)
+            Card.objects.bulk_update(changed, [*schedule_fields, "schedule_generation"])
         for key in getattr(self, "_oral_pending_keys", set()):
             Response.objects.filter(pk=response_by_key[key].pk).update(
                 semantic_state_revision=self._oral_revisions[key],

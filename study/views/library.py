@@ -3987,7 +3987,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
 
 
 def edit_response(request, part_slug, task_slug, prompt_id):
-    from ..oral_history import save_personal, snapshot
+    from ..oral_history import preferred_personal, save_personal, snapshot
     task = _route_task(part_slug, task_slug, request=request)
     task_key = (task.part.slug, task.slug)
     is_tache_two = task_key == content_module.QUESTION_BANK_TASK
@@ -4016,6 +4016,7 @@ def edit_response(request, part_slug, task_slug, prompt_id):
         user=request.user,
         response=response,
     ).first()
+    has_personal_response = preferred_personal(response, request.user) is not None
     detail_url = prompt_detail_url(selected_prompt)
     if request.method == "POST" and request.POST.get("action") == "reset":
         if personal is not None:
@@ -4084,7 +4085,7 @@ def edit_response(request, part_slug, task_slug, prompt_id):
                 "part": task.part,
                 "is_tache_two": True,
                 "question_formset": question_formset,
-                "has_personal_response": personal is not None,
+                "has_personal_response": has_personal_response,
                 "detail_url": detail_url,
             },
         )
@@ -4122,7 +4123,7 @@ def edit_response(request, part_slug, task_slug, prompt_id):
             "part": task.part,
             "form": form,
             "argument_fields": argument_fields,
-            "has_personal_response": personal is not None,
+            "has_personal_response": has_personal_response,
             "detail_url": detail_url,
         },
     )

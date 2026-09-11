@@ -27,12 +27,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='prompt',
             name='model_content',
-            field=models.JSONField(blank=True, default=dict),
+            field=models.JSONField(blank=True, default=dict, db_default={}),
         ),
         migrations.AddField(
             model_name='response',
             name='semantic_group',
-            field=models.CharField(blank=True, db_index=True, max_length=160),
+            field=models.CharField(blank=True, db_index=True, max_length=160, default='', db_default=''),
         ),
         migrations.AddField(
             model_name='response',
@@ -42,12 +42,12 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='response',
             name='semantic_rationale',
-            field=models.TextField(blank=True),
+            field=models.TextField(blank=True, default='', db_default=''),
         ),
         migrations.AddField(
             model_name='response',
             name='semantic_state_revision',
-            field=models.CharField(blank=True, max_length=64),
+            field=models.CharField(blank=True, max_length=64, default='', db_default=''),
         ),
         migrations.CreateModel(
             name='OralStateSnapshot',

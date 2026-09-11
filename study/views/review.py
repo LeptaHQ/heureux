@@ -36,7 +36,7 @@ from ..routing import (
     review_url,
     theme_detail_url,
 )
-from ..srs import review as apply_review, undo_last
+from ..srs import ProjectionUndoError, review as apply_review, undo_last
 
 from .helpers import (
     _review_batches,
@@ -743,18 +743,17 @@ def review_undo(request):
             )
         card = None
         if session.previous_review_id and session.previous_card_id:
-            if Card.objects.filter(
-                pk=session.previous_card_id, response__semantic_owner__isnull=False,
-            ).exists():
+            try:
+                card = undo_last(
+                    request.user,
+                    log_id=session.previous_review_id,
+                    card_id=session.previous_card_id,
+                )
+            except ProjectionUndoError:
                 return JsonResponse(
                     {"error": "Cette révision précède le nouveau regroupement. Elle reste consultable dans l'historique du sujet."},
                     status=409,
                 )
-            card = undo_last(
-                request.user,
-                log_id=session.previous_review_id,
-                card_id=session.previous_card_id,
-            )
         if card is None:
             state = _queue_state_locked(scope, request, session)
             state["can_undo"] = False

@@ -6,11 +6,13 @@ from io import StringIO
 from unittest.mock import patch
 
 from django.core.management import call_command
+from django.db import connection
+from django.db.migrations.executor import MigrationExecutor
 from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
 from django.utils import timezone
 
-from study import content_loader as content, queue
+from study import content_loader as content, queue, srs
 from study.account_services import provision_user_study_data
 from study.management.commands.import_content import Command, PHRASE_ID_MERGES
 from study.models import (
@@ -143,6 +145,43 @@ class OralManifestTests(SimpleTestCase):
             ))
 
 
+class OralRollingSchemaTests(TestCase):
+    def test_0050_workers_can_insert_after_additive_oral_migrations(self):
+        user = factories.make_user("old-oral-worker")
+        existing = factories.make_spine_card(user=user)
+        old_apps = MigrationExecutor(connection).loader.project_state([
+            ("study", "0050_course_exposure_projection"),
+        ]).apps
+        old_personal = old_apps.get_model("study", "PersonalResponse").objects.create(
+            user_id=user.pk, response_id=existing.response_id, position="Existing worker",
+        )
+        self.assertTrue(PersonalResponse.objects.get(pk=old_personal.pk).is_active)
+        old_response = old_apps.get_model("study", "Response").objects.create(
+            content_key="old-worker-response", body_hash="0" * 64,
+            theme_id=existing.response.theme_id, family_id=existing.response.family_id,
+            prompt="Old worker source", body="Original body", body_html="<p>Original body</p>",
+        )
+        response = Response.objects.get(pk=old_response.pk)
+        self.assertEqual(response.semantic_group, "")
+        self.assertEqual(response.semantic_rationale, "")
+        self.assertEqual(response.semantic_state_revision, "")
+        old_prompt = old_apps.get_model("study", "Prompt").objects.create(
+            content_key="old-worker-prompt", response_id=response.pk,
+            theme_id=response.theme_id, family_id=response.family_id,
+            number=900001, text="Old worker prompt", is_canonical=True,
+        )
+        self.assertEqual(Prompt.objects.get(pk=old_prompt.pk).model_content, {})
+        old_card = old_apps.get_model("study", "Card").objects.create(
+            user_id=user.pk, response_id=response.pk, card_type="spine",
+        )
+        self.assertEqual(Card.objects.get(pk=old_card.pk).schedule_generation, 0)
+        old_log = old_apps.get_model("study", "ReviewLog").objects.create(
+            user_id=user.pk, card_id=old_card.pk, rating=Rating.GOOD,
+            state_before=CardState.NEW, state_after=CardState.LEARNING,
+        )
+        self.assertEqual(ReviewLog.objects.get(pk=old_log.pk).schedule_generation, 0)
+
+
 class OralImportPreservationTests(TestCase):
     def make_card(self):
         card = factories.make_spine_card(user=self.users[0])
@@ -249,6 +288,126 @@ class OralImportPreservationTests(TestCase):
         self.assertEqual(mapping[original.content_key].pk, original.pk)
         self.assertNotEqual(mapping[alias.content_key].pk, original.pk)
         self.assertTrue(Response.objects.filter(pk=original.pk, content_key=original.content_key).exists())
+
+    def test_projection_blocks_old_canonical_undo_but_allows_new_review_at_same_time(self):
+        target, donor = self.make_card(), self.make_card()
+        at = timezone.now()
+        _, old_log = srs.review(target, Rating.GOOD, now=at, return_log=True)
+        donor.state, donor.reps, donor.interval_days = CardState.REVIEW, 45, 90
+        donor.last_reviewed = at
+        donor.save()
+        session = ReviewSession.objects.create(
+            user=self.users[0], previous_card=target, previous_review=old_log,
+            scope={"kind": "spine", "response": str(target.response_id)},
+        )
+        data = response_data(
+            target.response,
+            members=[target.response.canonical_prompt, donor.response.canonical_prompt],
+        )
+        self.import_rows([data])
+        projected = Card.objects.values().get(pk=target.pk)
+        self.assertEqual(projected["schedule_generation"], 1)
+        self.assertEqual(old_log.schedule_generation, 0)
+        donor.refresh_from_db()
+        self.assertEqual(donor.schedule_generation, 0)
+        snapshots = list(OralStateSnapshot.objects.order_by("pk").values())
+        self.client.force_login(self.users[0])
+        url = reverse("study:review_undo")
+        self.assertEqual(self.client.post(url).status_code, 409)
+        self.assertEqual(Card.objects.values().get(pk=target.pk), projected)
+        self.assertTrue(ReviewLog.objects.filter(pk=old_log.pk).exists())
+        self.assertEqual(list(OralStateSnapshot.objects.order_by("pk").values()), snapshots)
+
+        target.refresh_from_db()
+        _, new_log = srs.review(target, Rating.GOOD, now=at, return_log=True)
+        self.assertEqual(new_log.reviewed_at, old_log.reviewed_at)
+        self.assertEqual(new_log.schedule_generation, 1)
+        ReviewSession.objects.filter(pk=session.pk).update(
+            previous_review=new_log, previous_card=target, current_card=None,
+        )
+        self.import_rows([replace(data, semantic_rationale="Clarified rationale only.")])
+        target.refresh_from_db()
+        self.assertEqual(target.schedule_generation, 1)
+        self.assertEqual(self.client.post(url).status_code, 200)
+        target.refresh_from_db()
+        self.assertEqual((target.state, target.reps, target.interval_days), (CardState.REVIEW, 45, 90))
+        self.assertTrue(ReviewLog.objects.filter(pk=old_log.pk).exists())
+        self.assertFalse(ReviewLog.objects.filter(pk=new_log.pk).exists())
+        ReviewSession.objects.filter(pk=session.pk).update(
+            previous_review=old_log, previous_card=target,
+        )
+        self.assertEqual(self.client.post(url).status_code, 409)
+
+        _, between_projections = srs.review(target, Rating.GOOD, now=at, return_log=True)
+        next_donor = self.make_card()
+        next_donor.state, next_donor.reps, next_donor.interval_days = CardState.REVIEW, 100, 180
+        next_donor.last_reviewed = at
+        next_donor.save()
+        expanded = replace(data, prompts=[
+            *data.prompts,
+            replace(response_data(next_donor.response).prompts[0], is_canonical=False),
+        ])
+        self.import_rows([expanded])
+        target.refresh_from_db()
+        self.assertEqual(target.schedule_generation, 2)
+        ReviewSession.objects.filter(pk=session.pk).update(
+            previous_review=between_projections, previous_card=target,
+        )
+        self.assertEqual(self.client.post(url).status_code, 409)
+        target.refresh_from_db()
+        self.assertEqual((target.reps, target.interval_days), (100, 180))
+        self.assertTrue(ReviewLog.objects.filter(pk=between_projections.pk).exists())
+
+    def test_donor_only_version_can_reset_to_original_without_changing_donor(self):
+        for task_slug in ("tache-2", "tache-3"):
+            with self.subTest(task=task_slug):
+                task = factories.make_task(slug=task_slug)
+                theme = factories.make_theme(f"reset-{task_slug}", task=task)
+                target = factories.make_response(theme=theme)
+                donor = factories.make_response(theme=theme)
+                for index, response in enumerate((target, donor), 1):
+                    prompt = response.canonical_prompt
+                    key = (
+                        f"tache2:janvier:batch-01:subject-{index:02d}" if task_slug == "tache-2"
+                        else f"{theme.slug}:p{prompt.number}"
+                    )
+                    prompt.content_key = key
+                    prompt.save(update_fields=["content_key"])
+                    response.content_key = key
+                    response.save(update_fields=["content_key"])
+                selected = target.canonical_prompt
+                data = response_data(
+                    target, members=[selected, donor.canonical_prompt],
+                    group=f"eo/{task_slug}/donor-reset",
+                )
+                data.arguments = [content.ArgumentData(1, "Original model question", "", "", "")]
+                version = PersonalResponse.objects.create(
+                    user=self.users[0], response=donor, position="Donor-only personal version",
+                    arguments=[{
+                        "order": 1, "idea": "Private question", "developpement": "",
+                        "exemple": "", "consequence": "",
+                    }],
+                )
+                original_version = PersonalResponse.objects.values().get(pk=version.pk)
+                self.import_rows([data])
+                self.client.force_login(self.users[0])
+                detail_url = prompt_detail_url(selected)
+                edit_url = reverse("study:edit_response", args=["eo", task_slug, selected.pk])
+                self.assertTrue(self.client.get(detail_url).context["response_content"].is_personal)
+                edit = self.client.get(edit_url)
+                self.assertTrue(edit.context["has_personal_response"])
+                self.assertContains(edit, 'value="reset"')
+                self.assertEqual(self.client.post(edit_url, {"action": "reset"}).status_code, 302)
+                marker = PersonalResponse.objects.get(user=self.users[0], response=target)
+                self.assertFalse(marker.is_active)
+                self.assertEqual(PersonalResponse.objects.values().get(pk=version.pk), original_version)
+                detail = self.client.get(detail_url)
+                self.assertFalse(detail.context["response_content"].is_personal)
+                self.assertEqual(detail.context["response_content"].arguments[0].idea, "Original model question")
+                self.assertContains(
+                    self.client.get(detail.context["oral_history_url"]), "Donor-only personal version",
+                )
+                self.assertFalse(self.client.get(edit_url).context["has_personal_response"])
 
     def test_occurrence_path_overrides_old_shared_highlight_namespace(self):
         card = self.make_card()

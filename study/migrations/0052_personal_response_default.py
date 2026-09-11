@@ -13,6 +13,6 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='personalresponse',
             name='is_active',
-            field=models.BooleanField(default=True),
+            field=models.BooleanField(default=True, db_default=True),
         ),
     ]

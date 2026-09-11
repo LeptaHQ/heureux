@@ -36,6 +36,10 @@ HARD_EASE_DELTA = -0.15
 EASY_EASE_DELTA = 0.15
 
 
+class ProjectionUndoError(ValueError):
+    """A review cannot restore scheduling state from before a content projection."""
+
+
 @dataclass
 class Schedule:
     state: str
@@ -281,6 +285,7 @@ def review(
         ease_after=sched.ease,
         elapsed_ms=max(0, int(elapsed_ms)),
         card_before=snapshot,
+        schedule_generation=card.schedule_generation,
     )
     return (sched, log) if return_log else sched
 
@@ -308,6 +313,11 @@ def undo_last(user=None, *, log_id=None, card_id=None) -> Card | None:
     )
     if card is None:
         return None
+    if (
+        log.schedule_generation != card.schedule_generation
+        or (card.response_id and card.response.semantic_owner_id)
+    ):
+        raise ProjectionUndoError("The review predates the card's schedule projection.")
     latest_log_id = (
         ReviewLog.objects.filter(user=user, card=card)
         .order_by("-reviewed_at", "-id")

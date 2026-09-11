@@ -619,13 +619,15 @@
       "rationale": "All have a newly met stranger at a railway station discussing their passion for the mountains: places, activities and equipment. A delayed train is incidental; no shared holiday is being organized."
     },
     {
-      "id": "delivery-company-furniture-delivery",
+      "id": "furniture-delivery-service",
       "canonical": "tache2:mai:batch-02:subject-10",
       "members": [
         "tache2:mai:batch-02:subject-10",
-        "tache2:aout:batch-03:subject-15"
+        "tache2:aout:batch-02:subject-08",
+        "tache2:aout:batch-03:subject-15",
+        "tache2:octobre:batch-07:subject-33"
       ],
-      "rationale": "Both ask a delivery-company employee about delivery of a planned furniture order, including charges, timing and conditions. The furniture-store salesperson is a different service role."
+      "rationale": "All ask a commercial service representative about arranging furniture delivery: price, timing, conditions and transport. Working for the carrier or the furniture shop does not change the requested delivery service; no prompt requires purchase, warranty or seller-specific authority."
     },
     {
       "id": "colleague-recommended-city-weekend",
@@ -827,13 +829,14 @@
       "rationale": "A neighbor who regularly drives invites the candidate to carpool; the candidate asks about costs, schedules and organization of regular shared rides."
     },
     {
-      "id": "music-school-reception-enrollment",
+      "id": "music-school-course-information",
       "canonical": "tache2:juin:batch-04:subject-18",
       "members": [
         "tache2:juin:batch-04:subject-18",
-        "tache2:juillet:batch-06:subject-26"
+        "tache2:juillet:batch-06:subject-26",
+        "tache2:octobre:batch-05:subject-23"
       ],
-      "rationale": "Both ask music-school reception staff about enrolling, available courses/instruments, schedules and prices. A neighbor who teaches piano is not the same reception role."
+      "rationale": "All ask someone working at the music school about taking its courses: available courses or formulas, prices and schedules. Reception staff versus a neighbor teaching piano there does not alter the requested school information; the full teacher variant identifies the speaker's instrument but does not require the candidate to take piano or seek teacher-specific advice."
     },
     {
       "id": "hotel-reception-room-booking",
@@ -1033,15 +1036,6 @@
       "rationale": "Both have a new resident asking a friend about inexpensive outings, places, activities and transport. The low-spending constraint is essential."
     },
     {
-      "id": "furniture-shop-purchase-delivery",
-      "canonical": "tache2:aout:batch-02:subject-08",
-      "members": [
-        "tache2:aout:batch-02:subject-08",
-        "tache2:octobre:batch-07:subject-33"
-      ],
-      "rationale": "Both ask staff at the furniture shop selling an item about arranging its delivery, including price, delay and transport. Do not assume a third-party carrier can answer for the seller's purchase and delivery commitments."
-    },
-    {
       "id": "party-new-acquaintance-trip-report",
       "canonical": "tache2:aout:batch-02:subject-10",
       "members": [
@@ -1208,14 +1202,6 @@
         "tache2:octobre:batch-05:subject-22"
       ],
       "rationale": "The candidate considering living abroad asks a friend settled in Quebec for two years about adaptation, obstacles and lifestyle changes. Migration experience/advice, not a newcomer colleague's career biography."
-    },
-    {
-      "id": "neighbor-piano-teacher-music-school-advice",
-      "canonical": "tache2:octobre:batch-05:subject-23",
-      "members": [
-        "tache2:octobre:batch-05:subject-23"
-      ],
-      "rationale": "The candidate asks a neighbor who teaches piano at the local music school about enrolling in that school's courses, prices and schedules. The stated teaching/personal relationship is distinct from reception staff."
     },
     {
       "id": "quebec-region-accommodation-tourist-office",

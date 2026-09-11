@@ -1,0 +1,1509 @@
+{
+  "version": 1,
+  "task": "eo/tache-2",
+  "groups": [
+    {
+      "id": "friend-moving-abroad-sale",
+      "canonical": "tache2:janvier:batch-01:subject-01",
+      "members": [
+        "tache2:janvier:batch-01:subject-01"
+      ],
+      "rationale": "The candidate asks a friend who is emigrating about buying the possessions the friend cannot take: objects, condition, prices and collection."
+    },
+    {
+      "id": "host-foreign-friends-city-advice",
+      "canonical": "tache2:janvier:batch-01:subject-02",
+      "members": [
+        "tache2:janvier:batch-01:subject-02"
+      ],
+      "rationale": "The candidate will host foreign friends unfamiliar with the candidate's city and asks a friend for an itinerary, activities and restaurants for their visit."
+    },
+    {
+      "id": "colleague-wedding-report",
+      "canonical": "tache2:janvier:batch-01:subject-03",
+      "members": [
+        "tache2:janvier:batch-01:subject-03"
+      ],
+      "rationale": "The candidate asks a colleague who attended a wedding last weekend how the celebration went, including venue, food and entertainment; this is a retrospective account, not planning a wedding."
+    },
+    {
+      "id": "colleague-canada-tour-next-summer",
+      "canonical": "tache2:janvier:batch-01:subject-04",
+      "members": [
+        "tache2:janvier:batch-01:subject-04"
+      ],
+      "rationale": "The candidate wants to repeat a colleague's organised Canadian sightseeing circuit next summer and asks about its stages, duration and cost."
+    },
+    {
+      "id": "neighbor-dog-care-week-paid",
+      "canonical": "tache2:janvier:batch-01:subject-05",
+      "members": [
+        "tache2:janvier:batch-01:subject-05"
+      ],
+      "rationale": "The candidate considers a neighbor's request to care for a dog during a week's holiday, asking dates, care activities and remuneration."
+    },
+    {
+      "id": "employee-yoga-colleague-organizer",
+      "canonical": "tache2:janvier:batch-02:subject-06",
+      "members": [
+        "tache2:janvier:batch-02:subject-06",
+        "tache2:juin:batch-05:subject-21",
+        "tache2:decembre:batch-02:subject-06"
+      ],
+      "rationale": "All variants ask the colleague who organises company yoga sessions about joining them: location, schedule and equipment. Employee audience and organizer role are identical."
+    },
+    {
+      "id": "neighbor-photography-association-class",
+      "canonical": "tache2:janvier:batch-02:subject-07",
+      "members": [
+        "tache2:janvier:batch-02:subject-07",
+        "tache2:juin:batch-05:subject-22",
+        "tache2:decembre:batch-02:subject-07"
+      ],
+      "rationale": "All variants ask a neighbor already taking the neighborhood association's photography course about joining that course: price, schedule and equipment."
+    },
+    {
+      "id": "cultural-center-reception-activities",
+      "canonical": "tache2:janvier:batch-02:subject-08",
+      "members": [
+        "tache2:janvier:batch-02:subject-08",
+        "tache2:juin:batch-05:subject-23",
+        "tache2:novembre:batch-01:subject-04",
+        "tache2:decembre:batch-02:subject-08"
+      ],
+      "rationale": "All variants ask cultural-center reception staff about the center's activities, schedules, eligibility and prices. A newly opened center versus an unspecified center does not change the service or participation goal."
+    },
+    {
+      "id": "holiday-region-tourist-office",
+      "canonical": "tache2:janvier:batch-02:subject-09",
+      "members": [
+        "tache2:janvier:batch-02:subject-09",
+        "tache2:juin:batch-05:subject-24",
+        "tache2:decembre:batch-02:subject-09"
+      ],
+      "rationale": "Identical situations: a holiday visitor asks the destination's tourist office about regional activities, parks, museums and restaurants."
+    },
+    {
+      "id": "help-friend-moving-day",
+      "canonical": "tache2:janvier:batch-02:subject-10",
+      "members": [
+        "tache2:janvier:batch-02:subject-10",
+        "tache2:juin:batch-05:subject-25",
+        "tache2:decembre:batch-02:subject-10"
+      ],
+      "rationale": "Identical situations: the candidate will help a friend move and needs the day's locations, date, participants, transport and practical tasks."
+    },
+    {
+      "id": "new-employee-company-orientation",
+      "canonical": "tache2:janvier:batch-03:subject-11",
+      "members": [
+        "tache2:janvier:batch-03:subject-11",
+        "tache2:mai:batch-03:subject-11",
+        "tache2:aout:batch-04:subject-16",
+        "tache2:octobre:batch-01:subject-01",
+        "tache2:decembre:batch-09:subject-44"
+      ],
+      "rationale": "All variants have a newly arrived employee asking a colleague about this company's organization, team, atmosphere and meals. First day versus recent arrival and Canadian setting do not introduce a separate immigration or national-employment-law task."
+    },
+    {
+      "id": "new-quebec-resident-first-party",
+      "canonical": "tache2:janvier:batch-03:subject-12",
+      "members": [
+        "tache2:janvier:batch-03:subject-12",
+        "tache2:mai:batch-03:subject-12",
+        "tache2:aout:batch-04:subject-17",
+        "tache2:octobre:batch-01:subject-02"
+      ],
+      "rationale": "All variants invite the newly settled Quebec resident to a first local party; the candidate asks the inviting friend about timing, dress, gifts and local etiquette."
+    },
+    {
+      "id": "sport-club-reception-choose-activity",
+      "canonical": "tache2:janvier:batch-03:subject-13",
+      "members": [
+        "tache2:janvier:batch-03:subject-13",
+        "tache2:mars:batch-01:subject-01",
+        "tache2:mai:batch-03:subject-13",
+        "tache2:juin:batch-04:subject-19",
+        "tache2:aout:batch-04:subject-18",
+        "tache2:septembre:batch-05:subject-24",
+        "tache2:septembre:batch-06:subject-29",
+        "tache2:octobre:batch-01:subject-03",
+        "tache2:decembre:batch-06:subject-28"
+      ],
+      "rationale": "All variants ask sports-club reception staff about available activities or classes, schedules, prices and equipment in order to choose and enroll. Starting, restarting and municipal branding add no different sport, eligibility obligation or specific training goal."
+    },
+    {
+      "id": "museum-group-visit-reception",
+      "canonical": "tache2:janvier:batch-03:subject-14",
+      "members": [
+        "tache2:janvier:batch-03:subject-14",
+        "tache2:mai:batch-03:subject-14",
+        "tache2:aout:batch-04:subject-19",
+        "tache2:octobre:batch-01:subject-04",
+        "tache2:octobre:batch-06:subject-30"
+      ],
+      "rationale": "All ask museum reception to plan a visit with companions: opening hours, admission, exhibitions and guided visits. Friends versus family does not specify children's ages, an accessibility need or a different visitor service; no child-specific restriction is invented."
+    },
+    {
+      "id": "friend-weekend-getaway-advice",
+      "canonical": "tache2:janvier:batch-03:subject-15",
+      "members": [
+        "tache2:janvier:batch-03:subject-15",
+        "tache2:juillet:batch-06:subject-28"
+      ],
+      "rationale": "Both ask a friend for places to spend a weekend, activities there and how to get there. Recharging is a motivation, not a required destination, sport or service."
+    },
+    {
+      "id": "canada-cinema-employee-friend",
+      "canonical": "tache2:fevrier:batch-01:subject-01",
+      "members": [
+        "tache2:fevrier:batch-01:subject-01",
+        "tache2:mars:batch-02:subject-06",
+        "tache2:decembre:batch-07:subject-31"
+      ],
+      "rationale": "All variants are a visitor on holiday in Canada asking a friend who works at a cinema about films, screening times and prices to choose a screening."
+    },
+    {
+      "id": "friend-seaside-holiday-advice",
+      "canonical": "tache2:fevrier:batch-01:subject-02",
+      "members": [
+        "tache2:fevrier:batch-01:subject-02",
+        "tache2:mars:batch-02:subject-07",
+        "tache2:decembre:batch-07:subject-32",
+        "tache2:decembre:batch-10:subject-46"
+      ],
+      "rationale": "All ask a friend who has taken a seaside holiday about arranging a comparable stay: destination, accommodation, activities and budget. Recency of the friend's trip and the friend's nationality do not change the planning task."
+    },
+    {
+      "id": "friend-reading-for-literary-review",
+      "canonical": "tache2:fevrier:batch-01:subject-03",
+      "members": [
+        "tache2:fevrier:batch-01:subject-03",
+        "tache2:mars:batch-02:subject-08",
+        "tache2:decembre:batch-07:subject-33"
+      ],
+      "rationale": "All ask a francophone friend about recent books to choose and present a book in the candidate's literary association magazine; the article-writing obligation is essential."
+    },
+    {
+      "id": "friend-tv-game-participation",
+      "canonical": "tache2:fevrier:batch-01:subject-04",
+      "members": [
+        "tache2:fevrier:batch-01:subject-04",
+        "tache2:mars:batch-02:subject-09",
+        "tache2:juillet:batch-02:subject-06",
+        "tache2:decembre:batch-07:subject-34"
+      ],
+      "rationale": "All ask a friend who participated in a television game about entry conditions, how it works and its benefits. Curiosity versus an explicit intention to enter does not alter the requested account of participation and eligibility."
+    },
+    {
+      "id": "newcomer-city-transit-service",
+      "canonical": "tache2:fevrier:batch-01:subject-05",
+      "members": [
+        "tache2:fevrier:batch-01:subject-05",
+        "tache2:mars:batch-02:subject-10",
+        "tache2:juin:batch-02:subject-08",
+        "tache2:juillet:batch-04:subject-20",
+        "tache2:juillet:batch-05:subject-25",
+        "tache2:juillet:batch-08:subject-36",
+        "tache2:decembre:batch-07:subject-35"
+      ],
+      "rationale": "All ask city transit-service staff how to use an unfamiliar local network: available modes, operation, timetables and fares. First visit versus recent arrival changes no required route, duration-specific product or eligibility."
+    },
+    {
+      "id": "director-canada-fortnight-training",
+      "canonical": "tache2:fevrier:batch-02:subject-06",
+      "members": [
+        "tache2:fevrier:batch-02:subject-06"
+      ],
+      "rationale": "The candidate is being sent by the director to a 15-day Canadian training placement and asks that director about training, lodging, transport and activities; an employer-directed trip, not independent study."
+    },
+    {
+      "id": "new-neighbor-evening-entertainment",
+      "canonical": "tache2:fevrier:batch-02:subject-07",
+      "members": [
+        "tache2:fevrier:batch-02:subject-07"
+      ],
+      "rationale": "A newcomer asks a neighbor about going out in the evening: local venues, activities, prices, atmosphere and late transport. The evening/nightlife focus distinguishes general neighborhood orientation."
+    },
+    {
+      "id": "trusted-person-temporary-pet-care",
+      "canonical": "tache2:fevrier:batch-02:subject-08",
+      "members": [
+        "tache2:fevrier:batch-02:subject-08",
+        "tache2:juin:batch-03:subject-13",
+        "tache2:septembre:batch-05:subject-22",
+        "tache2:septembre:batch-06:subject-27",
+        "tache2:novembre:batch-01:subject-01"
+      ],
+      "rationale": "All have an owner asking the candidate to care for an unspecified pet temporarily and the candidate eliciting feeding, walks, routines and care instructions. Friend/neighbor labels and checking before agreement versus preparing after agreement do not change the informal carer/owner roles or required care information. No pay or species-specific duty is imposed."
+    },
+    {
+      "id": "canadian-friend-wedding-guest-preparation",
+      "canonical": "tache2:fevrier:batch-02:subject-09",
+      "members": [
+        "tache2:fevrier:batch-02:subject-09"
+      ],
+      "rationale": "The candidate is invited to a Canadian friend's wedding and asks a friend about ceremony, guests, gifts and dress; preparation and local wedding customs, not a past wedding report."
+    },
+    {
+      "id": "help-friend-find-rental-needs",
+      "canonical": "tache2:fevrier:batch-02:subject-10",
+      "members": [
+        "tache2:fevrier:batch-02:subject-10"
+      ],
+      "rationale": "The candidate helps a friend find a rental apartment and must elicit the friend's location, budget, size and other requirements; the candidate is neither the prospective tenant nor the estate agent."
+    },
+    {
+      "id": "estate-agent-housing-options",
+      "canonical": "tache2:fevrier:batch-03:subject-11",
+      "members": [
+        "tache2:fevrier:batch-03:subject-11",
+        "tache2:mai:batch-04:subject-16"
+      ],
+      "rationale": "Both ask an estate-agency employee about available housing, types, locations and prices. Neither limits the search to a specific transaction, property, household or tenancy duration; rent/purchase options make the general housing enquiry explicit."
+    },
+    {
+      "id": "friend-first-workday-report",
+      "canonical": "tache2:fevrier:batch-03:subject-12",
+      "members": [
+        "tache2:fevrier:batch-03:subject-12",
+        "tache2:septembre:batch-04:subject-16",
+        "tache2:novembre:batch-03:subject-11"
+      ],
+      "rationale": "All ask a friend who has just started a new job to recount the first day, atmosphere, colleagues' welcome and assigned tasks; retrospective rather than orientation for the candidate's own job."
+    },
+    {
+      "id": "neighbor-home-music-tutor-advice",
+      "canonical": "tache2:fevrier:batch-03:subject-13",
+      "members": [
+        "tache2:fevrier:batch-03:subject-13",
+        "tache2:septembre:batch-04:subject-17",
+        "tache2:novembre:batch-03:subject-12"
+      ],
+      "rationale": "All ask a neighbor about a home music tutor with interest in taking lessons: fees, timing, experience, teaching and suitable levels/instruments. The neighbor's firsthand lessons versus knowing the teacher changes evidential proximity, not the informal adviser role or prospective tuition service."
+    },
+    {
+      "id": "invite-friend-countryside-stay",
+      "canonical": "tache2:fevrier:batch-03:subject-14",
+      "members": [
+        "tache2:fevrier:batch-03:subject-14"
+      ],
+      "rationale": "The candidate is arranging a countryside stay and asks a friend to accompany them, discussing availability, activities, duration and lodging. Inviting a travel companion is a distinct goal from seeking destination advice."
+    },
+    {
+      "id": "newcomer-canada-friend-job-market",
+      "canonical": "tache2:fevrier:batch-03:subject-15",
+      "members": [
+        "tache2:fevrier:batch-03:subject-15"
+      ],
+      "rationale": "A newly arrived candidate asks a friend living in Canada about the employment market, opportunities, application procedures and pay; broad newcomer job-search advice."
+    },
+    {
+      "id": "volunteer-local-association-information-office",
+      "canonical": "tache2:fevrier:batch-04:subject-16",
+      "members": [
+        "tache2:fevrier:batch-04:subject-16",
+        "tache2:mai:batch-01:subject-01",
+        "tache2:juillet:batch-03:subject-11",
+        "tache2:octobre:batch-10:subject-46"
+      ],
+      "rationale": "All ask an association-information reception agent to choose a local volunteering opportunity: association types, missions, beneficiaries and schedule. Municipal versus unspecified information office leaves the advisory role and choice of associations unchanged."
+    },
+    {
+      "id": "newcomer-canada-private-french-teacher",
+      "canonical": "tache2:fevrier:batch-04:subject-17",
+      "members": [
+        "tache2:fevrier:batch-04:subject-17",
+        "tache2:mai:batch-01:subject-02",
+        "tache2:juillet:batch-03:subject-12",
+        "tache2:octobre:batch-10:subject-47"
+      ],
+      "rationale": "All have a newcomer to Canada interviewing a prospective private French tutor about qualifications, methods and fees; the interlocutor is the actual teacher."
+    },
+    {
+      "id": "friend-mountain-holiday-advice",
+      "canonical": "tache2:fevrier:batch-04:subject-18",
+      "members": [
+        "tache2:fevrier:batch-04:subject-18",
+        "tache2:mai:batch-01:subject-03",
+        "tache2:juillet:batch-03:subject-13",
+        "tache2:octobre:batch-10:subject-48"
+      ],
+      "rationale": "All ask a Canadian friend about repeating the friend's mountain holiday: destination, activities, lodging and duration. No variant mandates skiing or a particular season."
+    },
+    {
+      "id": "friend-weekly-theatre-class",
+      "canonical": "tache2:fevrier:batch-04:subject-19",
+      "members": [
+        "tache2:fevrier:batch-04:subject-19",
+        "tache2:mai:batch-01:subject-04",
+        "tache2:juillet:batch-03:subject-14",
+        "tache2:octobre:batch-10:subject-49"
+      ],
+      "rationale": "All ask a friend attending weekly theatre classes about joining those classes, including organization, content, schedule and fees."
+    },
+    {
+      "id": "new-resident-neighbor-neighborhood-orientation",
+      "canonical": "tache2:fevrier:batch-04:subject-20",
+      "members": [
+        "tache2:fevrier:batch-04:subject-20",
+        "tache2:avril:batch-01:subject-03",
+        "tache2:mai:batch-01:subject-05",
+        "tache2:juin:batch-09:subject-43",
+        "tache2:juillet:batch-01:subject-05",
+        "tache2:juillet:batch-03:subject-15",
+        "tache2:octobre:batch-10:subject-50",
+        "tache2:decembre:batch-03:subject-13"
+      ],
+      "rationale": "All have a new resident asking a neighbor about local life, neighbors, services, shops and leisure. A welcome aperitif, Quebec setting or just moving into the building is incidental; no immigration-administration task or special household requirement is imposed."
+    },
+    {
+      "id": "friend-films-for-association-review",
+      "canonical": "tache2:fevrier:batch-05:subject-21",
+      "members": [
+        "tache2:fevrier:batch-05:subject-21",
+        "tache2:mars:batch-03:subject-11",
+        "tache2:septembre:batch-03:subject-11",
+        "tache2:octobre:batch-02:subject-06"
+      ],
+      "rationale": "All ask a francophone friend about films they liked to source an article for a francophone cultural association magazine. Film genre, experience and viewing details serve that editorial obligation, not simply choosing tonight's entertainment."
+    },
+    {
+      "id": "travel-agency-choose-holiday-destination",
+      "canonical": "tache2:fevrier:batch-05:subject-22",
+      "members": [
+        "tache2:fevrier:batch-05:subject-22",
+        "tache2:mars:batch-03:subject-12",
+        "tache2:juin:batch-02:subject-07",
+        "tache2:juillet:batch-08:subject-35",
+        "tache2:septembre:batch-03:subject-12",
+        "tache2:octobre:batch-02:subject-07",
+        "tache2:decembre:batch-06:subject-29"
+      ],
+      "rationale": "All ask a travel-agency employee to choose a tourist holiday destination from available offers, discussing circuits or visits, activities and prices. No fixed destination, audience or special trip purpose is imposed."
+    },
+    {
+      "id": "neighbor-party-planning-advice",
+      "canonical": "tache2:fevrier:batch-05:subject-23",
+      "members": [
+        "tache2:fevrier:batch-05:subject-23",
+        "tache2:mars:batch-03:subject-13",
+        "tache2:septembre:batch-03:subject-13",
+        "tache2:octobre:batch-02:subject-08"
+      ],
+      "rationale": "All have the candidate organizing a convivial gathering of neighbors and asking a neighbor about guests, food, music or entertainment. Neighborhood versus building residents does not impose a different event format, public-permit obligation or venue; those constraints must not be invented."
+    },
+    {
+      "id": "newcomer-local-acquaintance-meet-people",
+      "canonical": "tache2:fevrier:batch-05:subject-24",
+      "members": [
+        "tache2:fevrier:batch-05:subject-24",
+        "tache2:mars:batch-03:subject-14",
+        "tache2:septembre:batch-03:subject-14",
+        "tache2:octobre:batch-02:subject-09",
+        "tache2:decembre:batch-01:subject-05"
+      ],
+      "rationale": "All have a newcomer seeking ways to meet people through local activities, associations and sociable places, asking a local acquaintance. Neighbor versus colleague and Canadian versus unspecified city do not alter the informal adviser role, social-integration goal or eligibility."
+    },
+    {
+      "id": "canadian-work-hours-home-country-comparison",
+      "canonical": "tache2:fevrier:batch-05:subject-25",
+      "members": [
+        "tache2:fevrier:batch-05:subject-25",
+        "tache2:mars:batch-03:subject-15",
+        "tache2:septembre:batch-03:subject-15",
+        "tache2:octobre:batch-02:subject-10"
+      ],
+      "rationale": "All ask about working hours and time off in Canada and explicitly compare with the candidate's home country. This required comparison distinguishes general employment advice."
+    },
+    {
+      "id": "friend-three-year-old-weekend-care",
+      "canonical": "tache2:fevrier:batch-06:subject-26",
+      "members": [
+        "tache2:fevrier:batch-06:subject-26",
+        "tache2:mai:batch-05:subject-25",
+        "tache2:juin:batch-07:subject-31",
+        "tache2:septembre:batch-02:subject-06",
+        "tache2:novembre:batch-02:subject-10"
+      ],
+      "rationale": "All entrust a friend's three-year-old daughter to the candidate for a weekend; ask about food, play and sleep routines. Already knowing the child or having received timings does not change the remaining care-information task."
+    },
+    {
+      "id": "colleague-invitation-unspecified-show",
+      "canonical": "tache2:fevrier:batch-06:subject-27",
+      "members": [
+        "tache2:fevrier:batch-06:subject-27",
+        "tache2:juin:batch-07:subject-32",
+        "tache2:septembre:batch-02:subject-07"
+      ],
+      "rationale": "All have a colleague inviting the candidate to accompany them to a show, with questions about the performance and outing logistics. No particular performance genre is fixed."
+    },
+    {
+      "id": "municipal-cultural-service-city-activities",
+      "canonical": "tache2:fevrier:batch-06:subject-28",
+      "members": [
+        "tache2:fevrier:batch-06:subject-28",
+        "tache2:juin:batch-07:subject-33",
+        "tache2:septembre:batch-02:subject-08"
+      ],
+      "rationale": "All ask the municipal cultural-service employee about cultural activities across the city, including exhibitions, museums, workshops, tariffs and access. Not a single cultural center's own program."
+    },
+    {
+      "id": "travel-agency-canada-stay",
+      "canonical": "tache2:fevrier:batch-06:subject-29",
+      "members": [
+        "tache2:fevrier:batch-06:subject-29",
+        "tache2:avril:batch-02:subject-06",
+        "tache2:juin:batch-07:subject-34",
+        "tache2:septembre:batch-02:subject-09"
+      ],
+      "rationale": "All ask a travel agent to plan a holiday in Canada: places, type of stay, activities, accommodation and prices. The destination is fixed to Canada, unlike the unrestricted destination-choice group."
+    },
+    {
+      "id": "canada-car-breakdown-insurer",
+      "canonical": "tache2:fevrier:batch-06:subject-30",
+      "members": [
+        "tache2:fevrier:batch-06:subject-30",
+        "tache2:juin:batch-07:subject-35",
+        "tache2:septembre:batch-02:subject-10"
+      ],
+      "rationale": "All have a car breakdown in Canada and a call to the insurer to arrange assistance and understand towing, repairs and onward/return travel coverage."
+    },
+    {
+      "id": "canada-newcomer-settlement-friend",
+      "canonical": "tache2:mars:batch-01:subject-02",
+      "members": [
+        "tache2:mars:batch-01:subject-02"
+      ],
+      "rationale": "A newcomer to a Canadian city asks an established friend about practical settlement, including housing, administrative formalities, transit, shopping and leisure; the administrative/new-country remit exceeds neighborhood orientation."
+    },
+    {
+      "id": "canadian-press-newsagent-selection",
+      "canonical": "tache2:mars:batch-01:subject-03",
+      "members": [
+        "tache2:mars:batch-01:subject-03"
+      ],
+      "rationale": "The candidate asks a newspaper seller to recommend Canadian press reading, considering themes, price and language difficulty; not a friend's book or film recommendation."
+    },
+    {
+      "id": "french-teacher-study-abroad-advice",
+      "canonical": "tache2:mars:batch-01:subject-04",
+      "members": [
+        "tache2:mars:batch-01:subject-04"
+      ],
+      "rationale": "The candidate asks their own French teacher about the possibility of studying abroad: destinations, programs, admissions and practical arrangements. The teacher is an adviser, not a foreign school's admissions officer."
+    },
+    {
+      "id": "private-owner-used-car-purchase",
+      "canonical": "tache2:mars:batch-01:subject-05",
+      "members": [
+        "tache2:mars:batch-01:subject-05",
+        "tache2:juin:batch-06:subject-28",
+        "tache2:decembre:batch-05:subject-23"
+      ],
+      "rationale": "All have the candidate considering purchase of the interlocutor's own car and asking price, condition, age and specifications. Meeting through an online advertisement versus knowing the seller as a colleague changes familiarity, not the private owner/buyer roles, vehicle transaction or due-diligence requirements."
+    },
+    {
+      "id": "friend-sports-center-club-membership",
+      "canonical": "tache2:avril:batch-01:subject-01",
+      "members": [
+        "tache2:avril:batch-01:subject-01",
+        "tache2:juin:batch-03:subject-12",
+        "tache2:juin:batch-09:subject-41",
+        "tache2:decembre:batch-03:subject-11"
+      ],
+      "rationale": "All ask a friend who is a sports-center/club member about joining, available activities, prices, schedule, equipment and atmosphere. A newly opened center or recent membership is incidental; no specific discipline, employee-only audience or training objective is imposed."
+    },
+    {
+      "id": "neighbor-municipal-cultural-outings",
+      "canonical": "tache2:avril:batch-01:subject-02",
+      "members": [
+        "tache2:avril:batch-01:subject-02",
+        "tache2:juin:batch-09:subject-42",
+        "tache2:decembre:batch-03:subject-12"
+      ],
+      "rationale": "All ask a neighbor who regularly attends city-hall-organized cultural outings about places, dates and activities, with interest in attending those outings."
+    },
+    {
+      "id": "holiday-car-rental-agency",
+      "canonical": "tache2:avril:batch-01:subject-04",
+      "members": [
+        "tache2:avril:batch-01:subject-04",
+        "tache2:juin:batch-09:subject-44",
+        "tache2:decembre:batch-03:subject-14"
+      ],
+      "rationale": "All ask a car-rental employee about renting a vehicle for holidays: available models, prices and insurance. No candidate household or specific itinerary is imposed by the prompts."
+    },
+    {
+      "id": "language-school-new-language",
+      "canonical": "tache2:avril:batch-01:subject-05",
+      "members": [
+        "tache2:avril:batch-01:subject-05",
+        "tache2:juin:batch-09:subject-45",
+        "tache2:decembre:batch-03:subject-15"
+      ],
+      "rationale": "All ask language-school staff about learning a foreign language: course organization, teachers and prices. No language, particular exam or private-tuition-only constraint is specified."
+    },
+    {
+      "id": "ottawa-newcomer-cycling-friend",
+      "canonical": "tache2:avril:batch-02:subject-07",
+      "members": [
+        "tache2:avril:batch-02:subject-07",
+        "tache2:juillet:batch-06:subject-27"
+      ],
+      "rationale": "Both have a newcomer to Ottawa asking a resident friend about using a bicycle in the city, including cycle paths, rentals and equipment."
+    },
+    {
+      "id": "colleague-babysitter-referral-needs",
+      "canonical": "tache2:avril:batch-02:subject-08",
+      "members": [
+        "tache2:avril:batch-02:subject-08"
+      ],
+      "rationale": "The candidate is asked to recommend someone else as a babysitter for a colleague's children and elicits requirements, wages, hours and duties. Neither accepting care personally nor hiring a sitter for the candidate's own children."
+    },
+    {
+      "id": "hotel-host-services",
+      "canonical": "tache2:avril:batch-02:subject-09",
+      "members": [
+        "tache2:avril:batch-02:subject-09"
+      ],
+      "rationale": "The candidate asks the hotel's host about available hotel services and their charges, rather than seeking a destination or renting a private property."
+    },
+    {
+      "id": "friend-carpooling-offer",
+      "canonical": "tache2:avril:batch-02:subject-10",
+      "members": [
+        "tache2:avril:batch-02:subject-10"
+      ],
+      "rationale": "The candidate asks a friend who carpools about routes, prices and availability, considering joining their rides; no specific commute or trip is imposed."
+    },
+    {
+      "id": "colleague-canada-trip-report",
+      "canonical": "tache2:mai:batch-02:subject-06",
+      "members": [
+        "tache2:mai:batch-02:subject-06",
+        "tache2:aout:batch-03:subject-11"
+      ],
+      "rationale": "Both ask a colleague returning from Canada about their experience, activities, transport and leisure. The friend-advice variant with an imminent personal trip is separate."
+    },
+    {
+      "id": "neighbor-seaside-house-rental",
+      "canonical": "tache2:mai:batch-02:subject-07",
+      "members": [
+        "tache2:mai:batch-02:subject-07",
+        "tache2:aout:batch-02:subject-07",
+        "tache2:aout:batch-03:subject-12",
+        "tache2:octobre:batch-07:subject-32"
+      ],
+      "rationale": "All evaluate a neighbor's offered seaside house rental: accommodation, surroundings, furnishings, price and availability. The shorter variants do not require a long-term lease or a different use; holiday wording is compatible with the same offered-property enquiry rather than an opposite tenancy constraint."
+    },
+    {
+      "id": "friend-holiday-apartment-watch",
+      "canonical": "tache2:mai:batch-02:subject-08",
+      "members": [
+        "tache2:mai:batch-02:subject-08",
+        "tache2:aout:batch-03:subject-13",
+        "tache2:octobre:batch-05:subject-21"
+      ],
+      "rationale": "All ask a friend leaving on holiday about watching the friend's apartment during the absence, including dates, tasks, access and instructions; not renting or moving into it."
+    },
+    {
+      "id": "station-stranger-mountain-passion",
+      "canonical": "tache2:mai:batch-02:subject-09",
+      "members": [
+        "tache2:mai:batch-02:subject-09",
+        "tache2:aout:batch-02:subject-09",
+        "tache2:aout:batch-03:subject-14",
+        "tache2:octobre:batch-07:subject-34"
+      ],
+      "rationale": "All have a newly met stranger at a railway station discussing their passion for the mountains: places, activities and equipment. A delayed train is incidental; no shared holiday is being organized."
+    },
+    {
+      "id": "delivery-company-furniture-delivery",
+      "canonical": "tache2:mai:batch-02:subject-10",
+      "members": [
+        "tache2:mai:batch-02:subject-10",
+        "tache2:aout:batch-03:subject-15"
+      ],
+      "rationale": "Both ask a delivery-company employee about delivery of a planned furniture order, including charges, timing and conditions. The furniture-store salesperson is a different service role."
+    },
+    {
+      "id": "colleague-recommended-city-weekend",
+      "canonical": "tache2:mai:batch-04:subject-15",
+      "members": [
+        "tache2:mai:batch-04:subject-15",
+        "tache2:aout:batch-04:subject-20",
+        "tache2:octobre:batch-01:subject-05"
+      ],
+      "rationale": "All ask a colleague about the particular city that colleague recommends for a weekend: accommodation, restaurants and places to visit. Not open-ended weekend destination ideas."
+    },
+    {
+      "id": "neighbor-vancouver-running-race",
+      "canonical": "tache2:mai:batch-04:subject-17",
+      "members": [
+        "tache2:mai:batch-04:subject-17"
+      ],
+      "rationale": "The candidate asks a neighbor planning to enter a Vancouver running race about registration, preparation and organization; an event-entry task rather than routine sport."
+    },
+    {
+      "id": "colleague-known-region-holiday",
+      "canonical": "tache2:mai:batch-04:subject-18",
+      "members": [
+        "tache2:mai:batch-04:subject-18"
+      ],
+      "rationale": "The candidate wants to holiday in a region known by a colleague and asks that colleague about activities, tourist places and climate; no particular country, circuit or weekend duration is fixed."
+    },
+    {
+      "id": "plan-friends-birthday-with-birthday-person",
+      "canonical": "tache2:mai:batch-04:subject-19",
+      "members": [
+        "tache2:mai:batch-04:subject-19",
+        "tache2:octobre:batch-09:subject-41"
+      ],
+      "rationale": "Both have the candidate preparing or helping prepare a friend's birthday party and asking the birthday person about preferences and arrangements: guests, atmosphere, food, decorations, venue and timing. Neither fixes completed arrangements, a surprise or exclusive organizer responsibilities; initiative versus offering help does not change the joint planning task."
+    },
+    {
+      "id": "friend-new-ottawa-restaurant",
+      "canonical": "tache2:mai:batch-05:subject-20",
+      "members": [
+        "tache2:mai:batch-05:subject-20"
+      ],
+      "rationale": "The candidate wants to try the new Ottawa restaurant where a friend dined and asks the friend about menu, prices and appraisal."
+    },
+    {
+      "id": "estate-agent-advertised-apartment-purchase",
+      "canonical": "tache2:mai:batch-05:subject-21",
+      "members": [
+        "tache2:mai:batch-05:subject-21"
+      ],
+      "rationale": "The candidate explicitly seeks to buy an advertised apartment and asks an estate agent about area, price and neighborhood. Purchase-specific obligations should not be inferred for a prompt omitting the transaction."
+    },
+    {
+      "id": "parent-after-school-activity-advice",
+      "canonical": "tache2:mai:batch-05:subject-22",
+      "members": [
+        "tache2:mai:batch-05:subject-22",
+        "tache2:novembre:batch-02:subject-07"
+      ],
+      "rationale": "Both have a parent asking another pupil's parent for advice on enrolling the candidate's children in local after-school activities: types, schedules, prices and supervision."
+    },
+    {
+      "id": "friend-homeless-meal-volunteering",
+      "canonical": "tache2:mai:batch-05:subject-23",
+      "members": [
+        "tache2:mai:batch-05:subject-23",
+        "tache2:novembre:batch-02:subject-08"
+      ],
+      "rationale": "Both ask a friend volunteering in an association distributing meals to homeless people about joining: organization, eligibility and time commitment. Beneficiaries and meal-distribution mission are fixed."
+    },
+    {
+      "id": "former-colleague-new-job-to-change-employment",
+      "canonical": "tache2:mai:batch-05:subject-24",
+      "members": [
+        "tache2:mai:batch-05:subject-24",
+        "tache2:novembre:batch-02:subject-09"
+      ],
+      "rationale": "Both have the candidate considering a job change and asking a former colleague about their new position and company: activities, salary and colleagues."
+    },
+    {
+      "id": "animal-protection-association-invitation",
+      "canonical": "tache2:juin:batch-01:subject-01",
+      "members": [
+        "tache2:juin:batch-01:subject-01",
+        "tache2:juin:batch-08:subject-36",
+        "tache2:aout:batch-01:subject-01"
+      ],
+      "rationale": "All ask an active animal-protection-association member who invites the candidate to join about actions, participants, services and commitment before engagement. Accepting an invitation to learn more does not establish a different committed volunteer role."
+    },
+    {
+      "id": "acquaintance-recent-cinema-film",
+      "canonical": "tache2:juin:batch-01:subject-02",
+      "members": [
+        "tache2:juin:batch-01:subject-02",
+        "tache2:juin:batch-08:subject-37",
+        "tache2:juillet:batch-01:subject-01",
+        "tache2:aout:batch-01:subject-02",
+        "tache2:octobre:batch-03:subject-11"
+      ],
+      "rationale": "All ask an acquaintance who recently saw a cinema film about its story, genre and actors to evaluate that film, with screening details where stated. Friend versus colleague changes social register only: neither speaks as cinema staff, and no article-writing or already-purchased-ticket obligation appears."
+    },
+    {
+      "id": "new-colleague-quebec-career-migration",
+      "canonical": "tache2:juin:batch-01:subject-03",
+      "members": [
+        "tache2:juin:batch-01:subject-03",
+        "tache2:juin:batch-08:subject-38",
+        "tache2:aout:batch-01:subject-03"
+      ],
+      "rationale": "All ask a new colleague formerly living in Quebec about studies, early employment, overseas experience and migration difficulties before settling in the candidate's country."
+    },
+    {
+      "id": "quebec-newcomer-estate-agency-housing-procedures",
+      "canonical": "tache2:juin:batch-01:subject-04",
+      "members": [
+        "tache2:juin:batch-01:subject-04",
+        "tache2:juin:batch-08:subject-39",
+        "tache2:aout:batch-01:subject-04"
+      ],
+      "rationale": "All have a newcomer to Quebec consulting a housing-agency professional about the steps to find suitable housing, neighborhoods and property types. Rental-agency wording specifies the offered service without conflicting with any purchase requirement in the other variants; no prompt asks to buy."
+    },
+    {
+      "id": "neighborhood-library-membership",
+      "canonical": "tache2:juin:batch-01:subject-05",
+      "members": [
+        "tache2:juin:batch-01:subject-05",
+        "tache2:juin:batch-08:subject-40",
+        "tache2:aout:batch-01:subject-05"
+      ],
+      "rationale": "All ask library staff about becoming a member and using the neighborhood library: registration, opening hours and cultural activities."
+    },
+    {
+      "id": "recruiter-scheduled-interview-preparation",
+      "canonical": "tache2:juin:batch-02:subject-06",
+      "members": [
+        "tache2:juin:batch-02:subject-06"
+      ],
+      "rationale": "The candidate has a scheduled job interview and asks that employer's recruiter about its time, duration, format and preparation; not a general job-market conversation."
+    },
+    {
+      "id": "friend-city-housing-search-advice",
+      "canonical": "tache2:juin:batch-02:subject-09",
+      "members": [
+        "tache2:juin:batch-02:subject-09",
+        "tache2:juillet:batch-02:subject-07",
+        "tache2:juillet:batch-08:subject-37",
+        "tache2:decembre:batch-06:subject-27",
+        "tache2:decembre:batch-08:subject-39"
+      ],
+      "rationale": "All ask a resident friend for advice on finding housing and a suitable neighborhood in that friend's city: rents/budget, local services and search methods or procedures. Toronto or an unnamed city and francophone status are contextual; differing example questions do not impose a purchase, particular property or different adviser authority."
+    },
+    {
+      "id": "friend-choose-film-ticket-already-held",
+      "canonical": "tache2:juin:batch-02:subject-10",
+      "members": [
+        "tache2:juin:batch-02:subject-10"
+      ],
+      "rationale": "The candidate already has a cinema ticket but has not chosen a film and asks a friend about genre, duration and cast. Ticket possession changes the practical constraints from choosing and purchasing a screening."
+    },
+    {
+      "id": "friend-sister-birthday-gift",
+      "canonical": "tache2:juin:batch-03:subject-11",
+      "members": [
+        "tache2:juin:batch-03:subject-11",
+        "tache2:decembre:batch-01:subject-03"
+      ],
+      "rationale": "Both ask a friend about the friend's sister's tastes, personality and activities to choose her birthday gift. An explicit party invitation is incidental to the same gift-selection task."
+    },
+    {
+      "id": "friend-canadian-weekend-customs",
+      "canonical": "tache2:juin:batch-03:subject-14",
+      "members": [
+        "tache2:juin:batch-03:subject-14"
+      ],
+      "rationale": "The candidate asks a friend living in Canada how Canadians generally spend weekends, covering leisure, sport and outings. Cultural habits are the subject, not arranging a particular weekend away."
+    },
+    {
+      "id": "colleague-internal-job-change",
+      "canonical": "tache2:juin:batch-03:subject-15",
+      "members": [
+        "tache2:juin:batch-03:subject-15"
+      ],
+      "rationale": "The candidate asks a current colleague about a recent change of position within their company, including new duties, schedule and pay; not a move to a different employer."
+    },
+    {
+      "id": "home-chef-family-meal",
+      "canonical": "tache2:juin:batch-04:subject-16",
+      "members": [
+        "tache2:juin:batch-04:subject-16"
+      ],
+      "rationale": "The candidate organizing a family meal asks a chef working in the client's home about menus, required equipment and prices. Not restaurant reservation or general cooking lessons."
+    },
+    {
+      "id": "neighbor-regular-carpool-invitation",
+      "canonical": "tache2:juin:batch-04:subject-17",
+      "members": [
+        "tache2:juin:batch-04:subject-17"
+      ],
+      "rationale": "A neighbor who regularly drives invites the candidate to carpool; the candidate asks about costs, schedules and organization of regular shared rides."
+    },
+    {
+      "id": "music-school-reception-enrollment",
+      "canonical": "tache2:juin:batch-04:subject-18",
+      "members": [
+        "tache2:juin:batch-04:subject-18",
+        "tache2:juillet:batch-06:subject-26"
+      ],
+      "rationale": "Both ask music-school reception staff about enrolling, available courses/instruments, schedules and prices. A neighbor who teaches piano is not the same reception role."
+    },
+    {
+      "id": "hotel-reception-room-booking",
+      "canonical": "tache2:juin:batch-04:subject-20",
+      "members": [
+        "tache2:juin:batch-04:subject-20"
+      ],
+      "rationale": "The candidate wishes to reserve a hotel room and asks reception about room types, prices and included services; booking conditions are part of the goal, not just amenities for a current guest."
+    },
+    {
+      "id": "acquaintance-hiking-walking-club",
+      "canonical": "tache2:juin:batch-06:subject-26",
+      "members": [
+        "tache2:juin:batch-06:subject-26",
+        "tache2:novembre:batch-01:subject-03",
+        "tache2:decembre:batch-05:subject-21"
+      ],
+      "rationale": "All ask a club-member acquaintance about joining recreational group walks/hikes: routes, participants, levels, schedule and equipment. Marche versus randonnee imposes no race, mountaineering or technical discipline; friend versus colleague does not alter the peer-member role."
+    },
+    {
+      "id": "friend-child-language-stay-abroad",
+      "canonical": "tache2:juin:batch-06:subject-27",
+      "members": [
+        "tache2:juin:batch-06:subject-27",
+        "tache2:decembre:batch-05:subject-22"
+      ],
+      "rationale": "Both ask a friend whose child did a language-learning stay abroad about arranging a similar stay for the candidate's child: country, activities and conditions."
+    },
+    {
+      "id": "colleague-unusable-music-festival-tickets",
+      "canonical": "tache2:juin:batch-06:subject-29",
+      "members": [
+        "tache2:juin:batch-06:subject-29",
+        "tache2:decembre:batch-05:subject-24"
+      ],
+      "rationale": "Both ask a colleague unable to use their music-festival tickets about the event and obtaining those tickets, including artists, venue and price. The explicit resale wording states the same implied ticket-transfer situation."
+    },
+    {
+      "id": "local-acquaintance-birthday-restaurant-choice",
+      "canonical": "tache2:juin:batch-06:subject-30",
+      "members": [
+        "tache2:juin:batch-06:subject-30",
+        "tache2:juillet:batch-04:subject-18",
+        "tache2:juillet:batch-05:subject-23",
+        "tache2:decembre:batch-05:subject-25"
+      ],
+      "rationale": "All ask a local acquaintance to recommend restaurants for the candidate's own birthday, considering cuisine, price and atmosphere. Neighbor versus colleague and Toronto versus the local neighborhood do not change the adviser role, occasion or requested restaurant service."
+    },
+    {
+      "id": "neighbor-municipal-pool-information",
+      "canonical": "tache2:juillet:batch-01:subject-02",
+      "members": [
+        "tache2:juillet:batch-01:subject-02"
+      ],
+      "rationale": "The candidate interested in swimming asks a neighbor who regularly swims at the municipal pool about its facilities, opening times and admission price."
+    },
+    {
+      "id": "visit-friend-canada-december-preparation",
+      "canonical": "tache2:juillet:batch-01:subject-03",
+      "members": [
+        "tache2:juillet:batch-01:subject-03"
+      ],
+      "rationale": "The candidate will visit a friend in Canada in December and asks about activities, clothing and equipment. The winter-month and packing requirements are substantive, not a generic Canadian holiday."
+    },
+    {
+      "id": "offered-room-in-existing-shared-apartment",
+      "canonical": "tache2:juillet:batch-01:subject-04",
+      "members": [
+        "tache2:juillet:batch-01:subject-04",
+        "tache2:septembre:batch-01:subject-01",
+        "tache2:septembre:batch-05:subject-25",
+        "tache2:septembre:batch-06:subject-30",
+        "tache2:septembre:batch-07:subject-35"
+      ],
+      "rationale": "All evaluate an offered place in the interlocutor's existing shared apartment: room/apartment, rent, neighborhood and cohabitants' lifestyle. Friendship, formal address and Canada/Toronto relocation context do not change the offering co-tenant/prospective co-tenant roles or add immigration procedures."
+    },
+    {
+      "id": "neighbor-community-sports-instructor",
+      "canonical": "tache2:juillet:batch-02:subject-08",
+      "members": [
+        "tache2:juillet:batch-02:subject-08",
+        "tache2:octobre:batch-05:subject-24"
+      ],
+      "rationale": "Both ask a neighbor who personally leads community sports sessions about joining: disciplines, timetable, participants and conditions. Community-center versus neighborhood-association venue does not change instructor role or participation requirements."
+    },
+    {
+      "id": "bicycle-rental-model-and-terms",
+      "canonical": "tache2:juillet:batch-02:subject-09",
+      "members": [
+        "tache2:juillet:batch-02:subject-09",
+        "tache2:decembre:batch-04:subject-16"
+      ],
+      "rationale": "Both ask bicycle-rental staff to select a suitable model and understand prices and rental conditions. City sightseeing supplies an example of intended use but neither prompt requires a specific bike, technical sport, route or rental duration; no incompatible use is invented for the unspecified variant."
+    },
+    {
+      "id": "travel-agency-canada-cruise",
+      "canonical": "tache2:juillet:batch-02:subject-10",
+      "members": [
+        "tache2:juillet:batch-02:subject-10"
+      ],
+      "rationale": "The candidate asks a travel agent about a Canadian cruise, its duration, price and onboard activities. The cruise format is material and not interchangeable with general Canadian holidays."
+    },
+    {
+      "id": "friend-concert-invitation",
+      "canonical": "tache2:juillet:batch-04:subject-16",
+      "members": [
+        "tache2:juillet:batch-04:subject-16",
+        "tache2:juillet:batch-05:subject-21"
+      ],
+      "rationale": "Identical situations: a friend invites the candidate to a concert and the candidate asks about music style, venue and date to arrange the outing."
+    },
+    {
+      "id": "friend-cooking-workshop-experience",
+      "canonical": "tache2:juillet:batch-04:subject-17",
+      "members": [
+        "tache2:juillet:batch-04:subject-17",
+        "tache2:juillet:batch-05:subject-22"
+      ],
+      "rationale": "Identical situations: a friend has attended a cooking workshop and the candidate wants to do likewise, asking cost, timetable and course content."
+    },
+    {
+      "id": "edmonton-newcomer-neighbor-schools",
+      "canonical": "tache2:juillet:batch-04:subject-19",
+      "members": [
+        "tache2:juillet:batch-04:subject-19",
+        "tache2:juillet:batch-05:subject-24"
+      ],
+      "rationale": "Identical situations: a newcomer to Edmonton asks a neighbor about local schools to enroll their children, including locations, teachers and activities."
+    },
+    {
+      "id": "canadian-city-resident-advice-transit",
+      "canonical": "tache2:juillet:batch-07:subject-29",
+      "members": [
+        "tache2:juillet:batch-07:subject-29",
+        "tache2:decembre:batch-04:subject-17"
+      ],
+      "rationale": "Both have a newcomer asking a local resident acquaintance how to use the city's public transport: modes, operation, fares/passes and schedules. Staying with a friend versus being a new neighbor does not impose a particular pass duration, route or work commute; neither interlocutor is transit staff."
+    },
+    {
+      "id": "friend-used-electric-bicycle-sale",
+      "canonical": "tache2:juillet:batch-07:subject-30",
+      "members": [
+        "tache2:juillet:batch-07:subject-30"
+      ],
+      "rationale": "The candidate asks a friend selling an electric bicycle about price, color, model and condition. Electric assistance and battery condition distinguish a generic bicycle purchase."
+    },
+    {
+      "id": "friend-canada-cross-country-skiing",
+      "canonical": "tache2:juillet:batch-07:subject-31",
+      "members": [
+        "tache2:juillet:batch-07:subject-31"
+      ],
+      "rationale": "The candidate asks a friend in Canada who practices cross-country skiing how to begin, covering cost, equipment, clothing and instruction. This specific discipline cannot be generalized to all skiing."
+    },
+    {
+      "id": "friend-entertain-visiting-nephews",
+      "canonical": "tache2:juillet:batch-07:subject-32",
+      "members": [
+        "tache2:juillet:batch-07:subject-32"
+      ],
+      "rationale": "The candidate will host nephews and asks a friend for activities, outings and games to occupy them. Advice for visiting children, not instructions from the child's parent about routine care."
+    },
+    {
+      "id": "canada-newcomer-municipal-settlement-service",
+      "canonical": "tache2:juillet:batch-07:subject-33",
+      "members": [
+        "tache2:juillet:batch-07:subject-33"
+      ],
+      "rationale": "A newcomer to Canada asks municipal reception about housing, administrative steps and municipal support services. Official service orientation, not a friend's personal advice."
+    },
+    {
+      "id": "friend-upcoming-job-interview-advice",
+      "canonical": "tache2:juillet:batch-08:subject-34",
+      "members": [
+        "tache2:juillet:batch-08:subject-34",
+        "tache2:septembre:batch-05:subject-21",
+        "tache2:septembre:batch-06:subject-26"
+      ],
+      "rationale": "All ask a friend for advice to succeed at an upcoming employment interview, focusing on dress, behavior and preparation. Canadian location versus unspecified location adds no separate legal or immigration requirement."
+    },
+    {
+      "id": "friend-choose-television-series",
+      "canonical": "tache2:juillet:batch-08:subject-38",
+      "members": [
+        "tache2:juillet:batch-08:subject-38",
+        "tache2:decembre:batch-01:subject-04"
+      ],
+      "rationale": "Both ask a friend to help choose a television series, covering genres, actors and where to watch. Channel versus streaming platform is a delivery detail, not a different media task."
+    },
+    {
+      "id": "new-city-friend-low-budget-outings",
+      "canonical": "tache2:aout:batch-02:subject-06",
+      "members": [
+        "tache2:aout:batch-02:subject-06",
+        "tache2:octobre:batch-07:subject-31"
+      ],
+      "rationale": "Both have a new resident asking a friend about inexpensive outings, places, activities and transport. The low-spending constraint is essential."
+    },
+    {
+      "id": "furniture-shop-purchase-delivery",
+      "canonical": "tache2:aout:batch-02:subject-08",
+      "members": [
+        "tache2:aout:batch-02:subject-08",
+        "tache2:octobre:batch-07:subject-33"
+      ],
+      "rationale": "Both ask staff at the furniture shop selling an item about arranging its delivery, including price, delay and transport. Do not assume a third-party carrier can answer for the seller's purchase and delivery commitments."
+    },
+    {
+      "id": "party-new-acquaintance-trip-report",
+      "canonical": "tache2:aout:batch-02:subject-10",
+      "members": [
+        "tache2:aout:batch-02:subject-10",
+        "tache2:octobre:batch-07:subject-35"
+      ],
+      "rationale": "Both ask someone first met at a party about a recently completed trip, including duration/period, places and impressions; no particular destination or shared future trip is imposed."
+    },
+    {
+      "id": "acquaintance-new-job-overall-experience",
+      "canonical": "tache2:septembre:batch-01:subject-02",
+      "members": [
+        "tache2:septembre:batch-01:subject-02",
+        "tache2:septembre:batch-07:subject-32"
+      ],
+      "rationale": "Both ask a newly hired acquaintance how their new employment is going: work, colleagues, premises, benefits and organization. Toronto location and an explicit friend label do not change the report's scope; neither is limited to the first day or asks on behalf of a job-changing candidate."
+    },
+    {
+      "id": "medical-secretary-temporary-replacement-doctor",
+      "canonical": "tache2:septembre:batch-01:subject-03",
+      "members": [
+        "tache2:septembre:batch-01:subject-03",
+        "tache2:septembre:batch-07:subject-31"
+      ],
+      "rationale": "Both involve calling the medical practice's secretary about a temporary replacement for an absent regular doctor, including identity, schedule and duration of replacement. The awkward possessive wording does not change the secretary/patient enquiry."
+    },
+    {
+      "id": "experienced-blogger-start-travel-blog",
+      "canonical": "tache2:septembre:batch-01:subject-04",
+      "members": [
+        "tache2:septembre:batch-01:subject-04",
+        "tache2:septembre:batch-07:subject-33"
+      ],
+      "rationale": "Both ask an experienced blogger how to start a travel blog, covering setup, content and publication rhythm. An upcoming Canadian trip supplies subject matter; neither variant requires a professional ongoing business or a one-trip-only lifespan, so no such difference is invented."
+    },
+    {
+      "id": "newcomer-neighbor-partner-surprise-birthday",
+      "canonical": "tache2:septembre:batch-01:subject-05",
+      "members": [
+        "tache2:septembre:batch-01:subject-05"
+      ],
+      "rationale": "A newcomer to Canada asks a neighbor for help arranging a surprise birthday for their partner. Recipient, surprise requirement and organization role distinguish choosing a restaurant for one's own birthday."
+    },
+    {
+      "id": "neighbor-friends-countryside-outing-advice",
+      "canonical": "tache2:septembre:batch-04:subject-18",
+      "members": [
+        "tache2:septembre:batch-04:subject-18",
+        "tache2:novembre:batch-03:subject-13"
+      ],
+      "rationale": "Both have the candidate arranging a countryside outing with friends and asking a neighbor about destination, activities and transport. The neighbor is an adviser, not an invited travel companion."
+    },
+    {
+      "id": "grocery-store-home-delivery",
+      "canonical": "tache2:septembre:batch-04:subject-19",
+      "members": [
+        "tache2:septembre:batch-04:subject-19",
+        "tache2:novembre:batch-03:subject-14"
+      ],
+      "rationale": "Both ask grocery-store staff about home delivery of groceries, including timing, charges and delivery arrangements. Food handling and cold-chain requirements distinguish furniture delivery."
+    },
+    {
+      "id": "owner-holiday-letting-estate-agency-advice",
+      "canonical": "tache2:septembre:batch-04:subject-20",
+      "members": [
+        "tache2:septembre:batch-04:subject-20",
+        "tache2:novembre:batch-03:subject-15"
+      ],
+      "rationale": "Both have the candidate wanting to earn extra income by letting their own home during holidays and asking an agency about prices, rental duration and tenant profiles. The candidate is the prospective lessor, not the tenant."
+    },
+    {
+      "id": "tourist-office-low-budget-weekend",
+      "canonical": "tache2:septembre:batch-05:subject-23",
+      "members": [
+        "tache2:septembre:batch-05:subject-23",
+        "tache2:septembre:batch-06:subject-28"
+      ],
+      "rationale": "Both ask tourist-office staff to plan an inexpensive weekend getaway, including destinations, activities and transport. Budget constraint and weekend duration distinguish unrestricted holiday-region advice."
+    },
+    {
+      "id": "friend-canada-partner-birthday-trip",
+      "canonical": "tache2:septembre:batch-07:subject-34",
+      "members": [
+        "tache2:septembre:batch-07:subject-34"
+      ],
+      "rationale": "The candidate asks a friend for ideas, budget and destinations for a Canadian trip celebrating their partner's birthday. Couple/celebration purpose distinguishes an ordinary Canadian holiday."
+    },
+    {
+      "id": "friend-upcoming-canada-trip-advice",
+      "canonical": "tache2:octobre:batch-03:subject-12",
+      "members": [
+        "tache2:octobre:batch-03:subject-12"
+      ],
+      "rationale": "The candidate will soon travel to Canada and asks a recently returned friend for practical preparation advice covering itinerary, activities, accommodation, food, climate, transport and budget. Not merely a colleague's retrospective travel account."
+    },
+    {
+      "id": "interlocutor-planned-mountain-trip",
+      "canonical": "tache2:octobre:batch-03:subject-13",
+      "members": [
+        "tache2:octobre:batch-03:subject-13"
+      ],
+      "rationale": "The candidate asks about the interlocutor's already organized but not yet taken mountain holiday: lodging, cost, activities and season. Planned trip rather than retrospective experience or asking to repeat a completed holiday."
+    },
+    {
+      "id": "visit-colleague-minor-accident",
+      "canonical": "tache2:octobre:batch-03:subject-14",
+      "members": [
+        "tache2:octobre:batch-03:subject-14"
+      ],
+      "rationale": "The candidate visits a colleague after a minor accident, asks about health and the event's time, place and circumstances, and offers help."
+    },
+    {
+      "id": "canada-newcomer-apartment-procedure-unspecified-adviser",
+      "canonical": "tache2:octobre:batch-03:subject-15",
+      "members": [
+        "tache2:octobre:batch-03:subject-15"
+      ],
+      "rationale": "The newcomer to Canada asks an unspecified adviser about apartment-search procedures and neighborhoods. Possible equivalence with the Quebec agency task remains uncertain: neither the professional interlocutor nor the province governing the procedures is established, and copied Quebec questions cannot establish them."
+    },
+    {
+      "id": "colleague-board-game-club",
+      "canonical": "tache2:octobre:batch-04:subject-16",
+      "members": [
+        "tache2:octobre:batch-04:subject-16"
+      ],
+      "rationale": "The candidate asks a colleague who belongs to a board-game club about its location, cost, hours and atmosphere to consider joining."
+    },
+    {
+      "id": "retirement-party-invitation",
+      "canonical": "tache2:octobre:batch-04:subject-17",
+      "members": [
+        "tache2:octobre:batch-04:subject-17"
+      ],
+      "rationale": "The candidate is invited to the interlocutor's retirement party and asks about date, venue, guests and program. Retirement is not interchangeable with a promotion celebration despite the generic shared party bank."
+    },
+    {
+      "id": "neighbor-gardening-activity-organizer",
+      "canonical": "tache2:octobre:batch-04:subject-18",
+      "members": [
+        "tache2:octobre:batch-04:subject-18"
+      ],
+      "rationale": "The candidate asks the neighbor who leads local gardening activities about cost, organization and content in order to participate."
+    },
+    {
+      "id": "municipal-library-document-borrowing",
+      "canonical": "tache2:octobre:batch-04:subject-19",
+      "members": [
+        "tache2:octobre:batch-04:subject-19"
+      ],
+      "rationale": "The candidate asks municipal library staff about borrowing documents: loan duration, quantity and conditions. A lending-focused task, not the broader enrollment and cultural-program enquiry."
+    },
+    {
+      "id": "municipal-pool-learn-swimming-reception",
+      "canonical": "tache2:octobre:batch-04:subject-20",
+      "members": [
+        "tache2:octobre:batch-04:subject-20"
+      ],
+      "rationale": "The candidate wants swimming lessons and asks municipal-pool reception about prices, class times and access; learning to swim, not recreational pool attendance."
+    },
+    {
+      "id": "friend-two-years-quebec-expatriation-experience",
+      "canonical": "tache2:octobre:batch-05:subject-22",
+      "members": [
+        "tache2:octobre:batch-05:subject-22"
+      ],
+      "rationale": "The candidate considering living abroad asks a friend settled in Quebec for two years about adaptation, obstacles and lifestyle changes. Migration experience/advice, not a newcomer colleague's career biography."
+    },
+    {
+      "id": "neighbor-piano-teacher-music-school-advice",
+      "canonical": "tache2:octobre:batch-05:subject-23",
+      "members": [
+        "tache2:octobre:batch-05:subject-23"
+      ],
+      "rationale": "The candidate asks a neighbor who teaches piano at the local music school about enrolling in that school's courses, prices and schedules. The stated teaching/personal relationship is distinct from reception staff."
+    },
+    {
+      "id": "quebec-region-accommodation-tourist-office",
+      "canonical": "tache2:octobre:batch-05:subject-25",
+      "members": [
+        "tache2:octobre:batch-05:subject-25"
+      ],
+      "rationale": "The candidate planning to explore a Quebec region asks the tourist office specifically about accommodation types, locations and prices. Lodging selection, not a general activities itinerary."
+    },
+    {
+      "id": "colleague-looking-for-sports-partner",
+      "canonical": "tache2:octobre:batch-06:subject-26",
+      "members": [
+        "tache2:octobre:batch-06:subject-26"
+      ],
+      "rationale": "A colleague seeks a sports partner and the candidate asks about sport, schedule and level before joining. The colleague is a co-participant, not a teacher or club employee."
+    },
+    {
+      "id": "child-friends-family-holiday-invitation",
+      "canonical": "tache2:octobre:batch-06:subject-27",
+      "members": [
+        "tache2:octobre:batch-06:subject-27"
+      ],
+      "rationale": "The other parent offers to take the candidate's child on holiday because their children are friends; the candidate asks dates, destination and activities before consenting. Parent authorizing care, not candidate providing it."
+    },
+    {
+      "id": "neighbor-environmental-association-volunteering",
+      "canonical": "tache2:octobre:batch-06:subject-28",
+      "members": [
+        "tache2:octobre:batch-06:subject-28"
+      ],
+      "rationale": "The candidate asks a neighbor volunteering with an environmental-protection association about participating, including activities, schedule and members. Environmental mission, not animal welfare or meal distribution."
+    },
+    {
+      "id": "specialist-agency-day-excursions",
+      "canonical": "tache2:octobre:batch-06:subject-29",
+      "members": [
+        "tache2:octobre:batch-06:subject-29"
+      ],
+      "rationale": "The candidate asks a day-trip specialist agency about prices, programs and destinations. Same-day return is a material duration constraint absent from general travel offers."
+    },
+    {
+      "id": "friend-shows-for-association-article",
+      "canonical": "tache2:octobre:batch-08:subject-36",
+      "members": [
+        "tache2:octobre:batch-08:subject-36"
+      ],
+      "rationale": "The candidate must write a show review for a cultural-association bulletin and asks a francophone friend about shows they enjoyed, including type, place and cost. A live-show article, not a film or book article."
+    },
+    {
+      "id": "colleague-montreal-work-week-transit",
+      "canonical": "tache2:octobre:batch-08:subject-37",
+      "members": [
+        "tache2:octobre:batch-08:subject-37"
+      ],
+      "rationale": "The candidate will spend one week working in Montreal and asks a knowledgeable colleague about public transport schedules, fares and operation. Work-trip duration and peer adviser distinguish generic newcomer transit enquiries."
+    },
+    {
+      "id": "french-teacher-language-school-student-game",
+      "canonical": "tache2:octobre:batch-08:subject-38",
+      "members": [
+        "tache2:octobre:batch-08:subject-38"
+      ],
+      "rationale": "The candidate asks their French teacher about a game organized by their language school for students, including rules, prices/prizes and participation. Not a television-game contestant's experience."
+    },
+    {
+      "id": "supervisor-overseas-job-offer",
+      "canonical": "tache2:octobre:batch-08:subject-39",
+      "members": [
+        "tache2:octobre:batch-08:subject-39"
+      ],
+      "rationale": "The candidate weighs an employer's offer to work abroad and asks their superior about duties, salary and benefits before deciding. Not a fixed fortnight of training already directed by the employer."
+    },
+    {
+      "id": "friend-choose-tonight-outing",
+      "canonical": "tache2:octobre:batch-08:subject-40",
+      "members": [
+        "tache2:octobre:batch-08:subject-40"
+      ],
+      "rationale": "The candidate wants to go out tonight without a chosen activity and asks a friend to decide venue, transport and price. Immediate evening outing, not weekend getaway or a specific show invitation."
+    },
+    {
+      "id": "friend-planned-canadian-studies",
+      "canonical": "tache2:octobre:batch-09:subject-42",
+      "members": [
+        "tache2:octobre:batch-09:subject-42"
+      ],
+      "rationale": "The candidate asks a friend about the friend's plan to continue studies in Canada, including city, specialization and goals. The friend, not the candidate, is the future student."
+    },
+    {
+      "id": "help-transport-heavy-objects-no-vehicle",
+      "canonical": "tache2:octobre:batch-09:subject-43",
+      "members": [
+        "tache2:octobre:batch-09:subject-43"
+      ],
+      "rationale": "The interlocutor lacks a vehicle for heavy objects and asks the candidate for help; the candidate elicits objects, distance, date and transport organization. Not necessarily a household move."
+    },
+    {
+      "id": "neighbor-home-childcare-provider-referral",
+      "canonical": "tache2:octobre:batch-09:subject-44",
+      "members": [
+        "tache2:octobre:batch-09:subject-44"
+      ],
+      "rationale": "The candidate asks a neighbor for details of a recommended home childcare provider, including fees, availability and skills. The candidate seeks care rather than offering it or recommending someone to a colleague."
+    },
+    {
+      "id": "canadian-tourist-office-restful-weekend",
+      "canonical": "tache2:octobre:batch-09:subject-45",
+      "members": [
+        "tache2:octobre:batch-09:subject-45"
+      ],
+      "rationale": "The candidate asks a Canadian tourist-office employee for a restful weekend itinerary, including outings, places and transport. Quiet/restful stay is the expressed goal, not minimum spending or unrestricted holiday activities."
+    },
+    {
+      "id": "friend-birthday-party-on-boat",
+      "canonical": "tache2:novembre:batch-01:subject-02",
+      "members": [
+        "tache2:novembre:batch-01:subject-02"
+      ],
+      "rationale": "The candidate asks a friend about the friend's birthday aboard a boat, including date, departure, price and guests. Boat logistics and conditions distinguish an ordinary party."
+    },
+    {
+      "id": "camping-reception-stay-preparation",
+      "canonical": "tache2:novembre:batch-01:subject-05",
+      "members": [
+        "tache2:novembre:batch-01:subject-05"
+      ],
+      "rationale": "The candidate asks campsite reception about preparing a stay, including pitches, services and prices; campsite-specific accommodation, not hotel rooms."
+    },
+    {
+      "id": "estate-agent-advertised-apartment-unspecified",
+      "canonical": "tache2:novembre:batch-02:subject-06",
+      "members": [
+        "tache2:novembre:batch-02:subject-06"
+      ],
+      "rationale": "The candidate asks an estate agent about an advertised apartment's size, price and neighborhood, without stating purchase versus rental. Kept distinct from the explicit purchase task; copied purchase questions cannot establish the missing commitment."
+    },
+    {
+      "id": "canadian-friend-long-time-catch-up",
+      "canonical": "tache2:decembre:batch-01:subject-01",
+      "members": [
+        "tache2:decembre:batch-01:subject-01"
+      ],
+      "rationale": "The candidate reconnects with a Canadian friend after a long absence and asks about everyday life, leisure, family and work. A personal catch-up, not preparation for migration."
+    },
+    {
+      "id": "help-friend-post-parcel",
+      "canonical": "tache2:decembre:batch-01:subject-02",
+      "members": [
+        "tache2:decembre:batch-01:subject-02"
+      ],
+      "rationale": "The candidate decides whether they can post a package for a friend unable to go, asking deadline, volume and time required. The candidate supplies a favor, not a commercial delivery service."
+    },
+    {
+      "id": "friend-city-for-cultural-magazine-article",
+      "canonical": "tache2:decembre:batch-04:subject-18",
+      "members": [
+        "tache2:decembre:batch-04:subject-18"
+      ],
+      "rationale": "The candidate must write an article about a city for a cultural magazine and asks a francophone friend about cities they like, activities, architecture and transport. Editorial city selection, not planning the candidate's holiday."
+    },
+    {
+      "id": "friend-music-festival-organizer",
+      "canonical": "tache2:decembre:batch-04:subject-19",
+      "members": [
+        "tache2:decembre:batch-04:subject-19"
+      ],
+      "rationale": "The candidate wants to attend a city music festival and asks the friend organizing it about dates, times, concerts and prices. Organizer role, not a concert companion or colleague reselling tickets."
+    },
+    {
+      "id": "french-teacher-canadian-new-year-customs",
+      "canonical": "tache2:decembre:batch-04:subject-20",
+      "members": [
+        "tache2:decembre:batch-04:subject-20"
+      ],
+      "rationale": "The candidate will spend next New Year in Canada and asks their French teacher about Canadian celebrations, places and activities. Specific cultural holiday and teacher-adviser role."
+    },
+    {
+      "id": "fellow-parent-first-school-fete",
+      "canonical": "tache2:decembre:batch-06:subject-26",
+      "members": [
+        "tache2:decembre:batch-06:subject-26"
+      ],
+      "rationale": "The candidate will attend their children's school fete for the first time and asks another parent at that school about schedules, program and entertainment."
+    },
+    {
+      "id": "toy-library-membership",
+      "canonical": "tache2:decembre:batch-06:subject-30",
+      "members": [
+        "tache2:decembre:batch-06:subject-30"
+      ],
+      "rationale": "The candidate asks toy-library staff about enrolling, opening hours, fees and available games. Game/toy borrowing is a distinct service from a book library or a social board-game club."
+    },
+    {
+      "id": "french-class-survey-francophone-student",
+      "canonical": "tache2:decembre:batch-08:subject-36",
+      "members": [
+        "tache2:decembre:batch-08:subject-36"
+      ],
+      "rationale": "The candidate is an interviewer conducting a French-class survey of a young student from a francophone country about their activities, places and timing. Formal survey role and student subject are essential."
+    },
+    {
+      "id": "bookshop-public-game-participation",
+      "canonical": "tache2:decembre:batch-08:subject-37",
+      "members": [
+        "tache2:decembre:batch-08:subject-37"
+      ],
+      "rationale": "The candidate asks bookstore staff about a public game, registration, content and benefits to decide whether to participate. Bookstore organizer, not school teacher or former television-game participant."
+    },
+    {
+      "id": "friend-unspecified-artistic-activity",
+      "canonical": "tache2:decembre:batch-08:subject-38",
+      "members": [
+        "tache2:decembre:batch-08:subject-38"
+      ],
+      "rationale": "The candidate asks a Canadian friend about taking up the friend's artistic activity, with examples of theatre, dance and music but none fixed; interest, venue and schedule. Not equivalent to a specifically mandated theatre or music class."
+    },
+    {
+      "id": "friend-visited-countries-destination-choice",
+      "canonical": "tache2:decembre:batch-08:subject-40",
+      "members": [
+        "tache2:decembre:batch-08:subject-40"
+      ],
+      "rationale": "The candidate seeks a travel destination and asks a francophone friend about the countries they have visited, activities, climate and prices. Comparison across countries, not one already selected region or holiday type."
+    },
+    {
+      "id": "guitar-teacher-lesson-enrollment",
+      "canonical": "tache2:decembre:batch-09:subject-41",
+      "members": [
+        "tache2:decembre:batch-09:subject-41"
+      ],
+      "rationale": "The candidate asks a guitar teacher directly about taking lessons, schedules, fees and musical styles. Guitar and actual teacher interlocutor distinguish a general music-school or neighbor-referral enquiry."
+    },
+    {
+      "id": "colleague-summer-house-rental",
+      "canonical": "tache2:decembre:batch-09:subject-42",
+      "members": [
+        "tache2:decembre:batch-09:subject-42"
+      ],
+      "rationale": "The candidate considers renting a colleague's house during the summer holidays and asks about rooms, surroundings and price. Summer availability is fixed; a seaside location is not."
+    },
+    {
+      "id": "friend-association-work-experience",
+      "canonical": "tache2:decembre:batch-09:subject-43",
+      "members": [
+        "tache2:decembre:batch-09:subject-43"
+      ],
+      "rationale": "The candidate asks a friend working in an association about the association, missions and working time. Neither a fixed charitable cause nor a wish to volunteer is specified."
+    },
+    {
+      "id": "calgary-university-adult-language-courses",
+      "canonical": "tache2:decembre:batch-09:subject-45",
+      "members": [
+        "tache2:decembre:batch-09:subject-45"
+      ],
+      "rationale": "The candidate asks the university secretariat in Calgary about language courses for adults, languages, fees and times. Adult university provision is a distinct audience/service from a general language school."
+    },
+    {
+      "id": "colleague-association-dance-classes",
+      "canonical": "tache2:decembre:batch-10:subject-47",
+      "members": [
+        "tache2:decembre:batch-10:subject-47"
+      ],
+      "rationale": "The candidate asks a colleague taking dance classes in an association about dance styles, location and schedule. Dance, not theatre or an unspecified artistic activity."
+    },
+    {
+      "id": "colleague-management-promotion-party",
+      "canonical": "tache2:decembre:batch-10:subject-48",
+      "members": [
+        "tache2:decembre:batch-10:subject-48"
+      ],
+      "rationale": "The candidate asks a colleague about a party celebrating appointment to a management position, including venue, times and guests. Promotion, not retirement or leaving employment."
+    },
+    {
+      "id": "neighbor-child-one-day-care",
+      "canonical": "tache2:decembre:batch-10:subject-49",
+      "members": [
+        "tache2:decembre:batch-10:subject-49"
+      ],
+      "rationale": "The candidate has agreed to care for a neighbor's child for one day and asks about habits, meals and favorite activities. Unspecified age and day-only care differ from a three-year-old's full weekend including overnight routines."
+    },
+    {
+      "id": "tourist-office-city-discovery-with-friends",
+      "canonical": "tache2:decembre:batch-10:subject-50",
+      "members": [
+        "tache2:decembre:batch-10:subject-50"
+      ],
+      "rationale": "The candidate asks tourist-office reception how to discover the city with friends, including activities, prices and times. Urban discovery scope rather than regional nature/holiday touring."
+    }
+  ]
+}

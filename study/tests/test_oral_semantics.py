@@ -21,7 +21,7 @@ from study.models import (
 )
 from study.oral_history import annotation_owners, personal_versions, preferred_personal, save_personal
 from study.progress import subject_progress_by_response
-from study.routing import prompt_detail_url
+from study.routing import prompt_detail_url, subject_group_url
 from . import factories
 
 
@@ -744,14 +744,18 @@ class OralCorpusUpgradeTests(TestCase):
                         getattr(payload["canonical_prompt"], scope_name + "_id"),
                         getattr(prompt, scope_name + "_id"),
                     )
-                    route = "study:theme_detail" if scope_name == "theme" else "study:task_family_detail"
-                    page = self.client.get(reverse(route, args=["eo", task.slug, scope_value]), {"deduplicate": "1"})
                     if task.slug == "tache-3":
-                        directory = reverse("study:task_browse", args=["eo", task.slug])
-                        destination = (
-                            f"{directory}#theme-{scope_value}" if scope_name == "theme" else directory
+                        segment = "themes" if scope_name == "theme" else "familles"
+                        removed = self.client.get(
+                            f"/expression/orale/tache-3/{segment}/{scope_value}/",
+                            {"deduplicate": "1"},
                         )
-                        self.assertRedirects(page, destination, fetch_redirect_response=False)
+                        self.assertEqual(removed.status_code, 404)
+                        self.assertNotIn("Location", removed.headers)
+                        destination = subject_group_url(
+                            "eo", task.slug, prompt.theme.slug,
+                            prompt.family.slug if scope_name == "family" else None,
+                        )
                         directory_page = self.client.get(destination)
                         source_group = next(
                             group for group in directory_page.context["subject_themes"]
@@ -763,6 +767,8 @@ class OralCorpusUpgradeTests(TestCase):
                         )
                         self.assertIn(prompt.pk, [row["prompt"].pk for row in source_family["subjects"]])
                         continue
+                    route = "study:theme_detail" if scope_name == "theme" else "study:task_family_detail"
+                    page = self.client.get(reverse(route, args=["eo", task.slug, scope_value]), {"deduplicate": "1"})
                     displayed = [row["prompt"] for row in page.context["rows"] if row["prompt"].response_id == prompt.response_id]
                     self.assertEqual(len(displayed), 1)
                     expected = Prompt.objects.filter(

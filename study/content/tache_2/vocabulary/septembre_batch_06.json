@@ -9,16 +9,16 @@
           "kind": "mot-cle",
           "french": "un entretien d'embauche",
           "english": "a job interview",
-          "example": "Salut ! J'ai bientôt un entretien d'embauche dans une entreprise canadienne et je stresse un peu — tu pourrais me donner quelques conseils ?",
+          "example": "Salut ! J'ai bientôt un entretien d'embauche — tu pourrais me donner quelques conseils pour bien me préparer ?",
           "usage": "Groupe nominal désignant l'entretien de recrutement."
         },
         {
           "id": "T2S9S26V02",
           "kind": "mot-cle",
-          "french": "une entreprise canadienne",
-          "english": "a Canadian company",
-          "example": "Salut ! J'ai bientôt un entretien d'embauche dans une entreprise canadienne et je stresse un peu — tu pourrais me donner quelques conseils ?",
-          "usage": "Groupe nominal pour l'employeur."
+          "french": "recruteur",
+          "english": "recruiter",
+          "example": "Quelles questions utiles je pourrais poser au recruteur ?",
+          "usage": "Nom désignant la personne qui évalue les candidats à un poste."
         },
         {
           "id": "T2S9S26V03",
@@ -57,7 +57,7 @@
           "kind": "mot-cle",
           "french": "mon CV",
           "english": "my resume",
-          "example": "En ce qui concerne le matériel, faut-il apporter des documents, comme mon CV ou des références ?",
+          "example": "Faut-il apporter des documents, comme mon CV ou des références ?",
           "usage": "Groupe nominal pour le curriculum vitae."
         },
         {
@@ -65,7 +65,7 @@
           "kind": "mot-cle",
           "french": "des références",
           "english": "references",
-          "example": "En ce qui concerne le matériel, faut-il apporter des documents, comme mon CV ou des références ?",
+          "example": "Faut-il apporter des documents, comme mon CV ou des références ?",
           "usage": "Nom pluriel pour les recommandations."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "le stress",
           "english": "the stress",
-          "example": "Une autre chose m'inquiète un peu : comment gérer le stress si je perds mes moyens sur le moment ?",
+          "example": "Comment gérer le stress si je perds mes moyens sur le moment ?",
           "usage": "Nom désignant la tension ressentie."
         },
         {
@@ -87,17 +87,17 @@
         {
           "id": "T2S9S26V11",
           "kind": "collocation",
-          "french": "je stresse un peu",
-          "english": "I am a bit stressed",
-          "example": "Salut ! J'ai bientôt un entretien d'embauche dans une entreprise canadienne et je stresse un peu — tu pourrais me donner quelques conseils ?",
-          "usage": "Locution verbale sur l'appréhension."
+          "french": "bien me préparer",
+          "english": "to prepare well",
+          "example": "Salut ! J'ai bientôt un entretien d'embauche — tu pourrais me donner quelques conseils pour bien me préparer ?",
+          "usage": "Expression pronominale pour anticiper un entretien ou une autre épreuve."
         },
         {
           "id": "T2S9S26V12",
           "kind": "collocation",
           "french": "me donner quelques conseils",
           "english": "give me some advice",
-          "example": "Salut ! J'ai bientôt un entretien d'embauche dans une entreprise canadienne et je stresse un peu — tu pourrais me donner quelques conseils ?",
+          "example": "Salut ! J'ai bientôt un entretien d'embauche — tu pourrais me donner quelques conseils pour bien me préparer ?",
           "usage": "Verbe + complément sur la demande d'aide."
         },
         {
@@ -119,17 +119,17 @@
         {
           "id": "T2S9S26V15",
           "kind": "collocation",
-          "french": "préparer des questions",
-          "english": "prepare questions",
-          "example": "Est-ce qu'il vaut mieux préparer des questions à poser au recruteur ?",
-          "usage": "Verbe + complément sur la préparation."
+          "french": "questions utiles",
+          "english": "useful questions",
+          "example": "Quelles questions utiles je pourrais poser au recruteur ?",
+          "usage": "Association d'un nom et d'un adjectif pour parler de questions pertinentes à préparer."
         },
         {
           "id": "T2S9S26V16",
           "kind": "collocation",
           "french": "apporter des documents",
           "english": "bring documents",
-          "example": "En ce qui concerne le matériel, faut-il apporter des documents, comme mon CV ou des références ?",
+          "example": "Faut-il apporter des documents, comme mon CV ou des références ?",
           "usage": "Verbe + complément sur les pièces à amener."
         },
         {
@@ -169,7 +169,7 @@
           "kind": "tournure",
           "french": "tu pourrais me donner quelques conseils",
           "english": "could you give me some advice",
-          "example": "Salut ! J'ai bientôt un entretien d'embauche dans une entreprise canadienne et je stresse un peu — tu pourrais me donner quelques conseils ?",
+          "example": "Salut ! J'ai bientôt un entretien d'embauche — tu pourrais me donner quelques conseils pour bien me préparer ?",
           "usage": "Tournure orale pour demander de l'aide."
         },
         {
@@ -215,17 +215,17 @@
         {
           "id": "T2S9S26V27",
           "kind": "tournure",
-          "french": "Est-ce qu'il vaut mieux préparer des questions à poser au recruteur",
-          "english": "is it better to prepare questions for the recruiter",
-          "example": "Est-ce qu'il vaut mieux préparer des questions à poser au recruteur ?",
-          "usage": "Question sur la préparation."
+          "french": "quelles questions utiles je pourrais poser",
+          "english": "what useful questions I could ask",
+          "example": "Quelles questions utiles je pourrais poser au recruteur ?",
+          "usage": "Question au conditionnel pour solliciter des idées avant un entretien."
         },
         {
           "id": "T2S9S26V28",
           "kind": "tournure",
           "french": "Comment gérer le stress si je perds mes moyens",
           "english": "how to manage stress if I freeze up",
-          "example": "Une autre chose m'inquiète un peu : comment gérer le stress si je perds mes moyens sur le moment ?",
+          "example": "Comment gérer le stress si je perds mes moyens sur le moment ?",
           "usage": "Question sur la gestion du stress."
         },
         {
@@ -284,9 +284,9 @@
         {
           "id": "T2S9S27V05",
           "kind": "mot-cle",
-          "french": "les promenades",
-          "english": "the walks",
-          "example": "Pour les promenades, à quelle fréquence et pendant combien de temps faut-il le sortir ?",
+          "french": "promenades",
+          "english": "walks",
+          "example": "S'il a besoin de promenades, à quelle fréquence et pendant combien de temps faut-il le sortir ?",
           "usage": "Nom pluriel désignant les sorties régulières d'un animal."
         },
         {
@@ -382,7 +382,7 @@
           "kind": "collocation",
           "french": "combien de jours",
           "english": "how many days",
-          "example": "D'abord, sur combien de jours exactement dois-je m'organiser ?",
+          "example": "Vous partez à quelles dates — sur combien de jours exactement dois-je m'organiser ?",
           "usage": "Collocation interrogative pour préciser une durée en jours."
         },
         {
@@ -414,7 +414,7 @@
           "kind": "tournure",
           "french": "pendant combien de temps faut-il le sortir",
           "english": "for how long does it need to be walked",
-          "example": "Pour les promenades, à quelle fréquence et pendant combien de temps faut-il le sortir ?",
+          "example": "S'il a besoin de promenades, à quelle fréquence et pendant combien de temps faut-il le sortir ?",
           "usage": "Tournure interrogative impersonnelle pour préciser une durée de sortie."
         },
         {
@@ -470,7 +470,7 @@
           "kind": "tournure",
           "french": "dois-je m'organiser",
           "english": "do I need to organize myself",
-          "example": "D'abord, sur combien de jours exactement dois-je m'organiser ?",
+          "example": "Vous partez à quelles dates — sur combien de jours exactement dois-je m'organiser ?",
           "usage": "Tournure interrogative impersonnelle pour clarifier une contrainte de planification."
         },
         {
@@ -513,10 +513,10 @@
         {
           "id": "T2S9S28V03",
           "kind": "mot-cle",
-          "french": "une autre saison",
-          "english": "another season",
-          "example": "Et côté saison, c'est une bonne période pour visiter la région ou il vaut mieux attendre une autre saison ?",
-          "usage": "Nom féminin désignant l'une des quatre périodes de l'année, ici au sens touristique."
+          "french": "la météo",
+          "english": "the weather",
+          "example": "Si la météo est mauvaise, quelles activités à petit prix conseillez-vous ?",
+          "usage": "Nom féminin désignant les conditions météorologiques à prendre en compte pour une sortie."
         },
         {
           "id": "T2S9S28V04",
@@ -531,7 +531,7 @@
           "kind": "mot-cle",
           "french": "des marchés locaux",
           "english": "local markets",
-          "example": "Pour ce qui est du programme, y a-t-il des événements, des festivals ou des marchés locaux gratuits ce week-end ?",
+          "example": "Y a-t-il des événements, des festivals ou des marchés locaux gratuits le week-end ?",
           "usage": "Groupe nominal désignant les marchés du coin."
         },
         {
@@ -651,7 +651,7 @@
           "kind": "collocation",
           "french": "activités de plein air gratuites",
           "english": "free outdoor activities",
-          "example": "Côté lieu, quelles activités de plein air gratuites peut-on pratiquer dans le coin ?",
+          "example": "Quelles activités de plein air gratuites peut-on pratiquer dans le coin ?",
           "usage": "Groupe nominal désignant des loisirs extérieurs gratuits."
         },
         {
@@ -715,7 +715,7 @@
           "kind": "tournure",
           "french": "Quelles activités de plein air gratuites peut-on pratiquer",
           "english": "what free outdoor activities can you do",
-          "example": "Côté lieu, quelles activités de plein air gratuites peut-on pratiquer dans le coin ?",
+          "example": "Quelles activités de plein air gratuites peut-on pratiquer dans le coin ?",
           "usage": "Question sur les loisirs gratuits."
         },
         {
@@ -840,7 +840,7 @@
           "kind": "collocation",
           "french": "se sentir perdu(e)",
           "english": "to feel lost",
-          "example": "Côté précautions, ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "example": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "usage": "Association verbe pronominal + adjectif pour exprimer un sentiment de confusion."
         },
         {
@@ -870,10 +870,10 @@
         {
           "id": "T2S9S29V17",
           "kind": "collocation",
-          "french": "de manière flexible",
-          "english": "in a flexible way",
-          "example": "Une fois inscrit(e), on s'engage pour toute la session ou on peut venir de manière flexible ?",
-          "usage": "Groupe adverbial fixe pour décrire une organisation souple."
+          "french": "si nécessaire",
+          "english": "if necessary",
+          "example": "Est-ce qu'il est possible de suspendre l'abonnement si nécessaire ?",
+          "usage": "Locution adverbiale pour conditionner une possibilité à un besoin."
         },
         {
           "id": "T2S9S29V18",
@@ -920,7 +920,7 @@
           "kind": "tournure",
           "french": "Ça s'adresse à quel public",
           "english": "Who is it aimed at",
-          "example": "Côté précautions, ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "example": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "usage": "Question orale avec le groupe interrogatif 'quel public' maintenu après le verbe, sans inversion."
         },
         {

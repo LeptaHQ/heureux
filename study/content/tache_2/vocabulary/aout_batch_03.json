@@ -497,10 +497,10 @@
         {
           "id": "T2A8S13V01",
           "kind": "mot-cle",
-          "french": "surveiller",
-          "english": "to keep an eye on / watch over",
-          "example": "Salut ! Bien sûr, je peux surveiller ton appartement — tu pars à quelles dates exactement ?",
-          "usage": "Verbe très utile pour évoquer une garde temporaire d'un logement."
+          "french": "surveille",
+          "english": "keep an eye on / watch over",
+          "example": "Salut ! Tu souhaites que je surveille ton appartement — tu pars à quelles dates exactement ?",
+          "usage": "Forme du verbe « surveiller » au subjonctif présent après « souhaiter que », pour évoquer une garde temporaire."
         },
         {
           "id": "T2A8S13V02",
@@ -579,7 +579,7 @@
           "kind": "collocation",
           "french": "quelles dates exactement",
           "english": "exactly which dates",
-          "example": "Salut ! Bien sûr, je peux surveiller ton appartement — tu pars à quelles dates exactement ?",
+          "example": "Salut ! Tu souhaites que je surveille ton appartement — tu pars à quelles dates exactement ?",
           "usage": "Structure interrogative avec « quel » pour préciser une période."
         },
         {
@@ -744,7 +744,7 @@
           "kind": "mot-cle",
           "french": "passionné(e)",
           "english": "passionate (about)",
-          "example": "Quelle coïncidence de se croiser ici, en gare ! Vous m'avez dit que vous étiez passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
+          "example": "Vous êtes passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
           "usage": "Adjectif dérivé de « passion » pour exprimer un fort intérêt pour une activité."
         },
         {
@@ -824,7 +824,7 @@
           "kind": "collocation",
           "french": "depuis longtemps",
           "english": "for a long time",
-          "example": "Quelle coïncidence de se croiser ici, en gare ! Vous m'avez dit que vous étiez passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
+          "example": "Vous êtes passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
           "usage": "Locution adverbiale avec « depuis » pour indiquer la durée d'une pratique."
         },
         {

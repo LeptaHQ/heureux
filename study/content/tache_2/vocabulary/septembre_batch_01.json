@@ -262,15 +262,15 @@
           "kind": "mot-cle",
           "french": "ce nouveau travail",
           "english": "this new job",
-          "example": "Salut ! Ça fait un moment qu'on ne s'est pas parlé ! Alors, ce nouveau travail — ça se passe bien depuis que tu as commencé ?",
+          "example": "Salut ! Alors, ce nouveau travail — ça se passe bien depuis que tu as commencé ?",
           "usage": "Groupe nominal désignant le poste récemment obtenu."
         },
         {
           "id": "T2S9S2V03",
           "kind": "mot-cle",
-          "french": "l'ambiance au bureau",
-          "english": "the office atmosphere",
-          "example": "Comment est l'ambiance au bureau — plutôt formelle ou décontractée ?",
+          "french": "l'ambiance au travail",
+          "english": "the atmosphere at work",
+          "example": "Comment est l'ambiance au travail — plutôt formelle ou décontractée ?",
           "usage": "Groupe nominal désignant l'atmosphère de travail."
         },
         {
@@ -308,18 +308,18 @@
         {
           "id": "T2S9S2V08",
           "kind": "mot-cle",
-          "french": "des avantages",
+          "french": "avantages",
           "english": "perks",
-          "example": "Côté réservation, il y a des avantages sympas — tickets resto, télétravail, primes ?",
+          "example": "Et côté avantages, il y a des choses sympas — aide pour les repas, télétravail, primes ?",
           "usage": "Nom pluriel désignant les à-côtés d'un emploi."
         },
         {
           "id": "T2S9S2V09",
           "kind": "mot-cle",
-          "french": "tickets resto",
-          "english": "meal vouchers",
-          "example": "Côté réservation, il y a des avantages sympas — tickets resto, télétravail, primes ?",
-          "usage": "Nom composé familier désignant les titres-restaurant."
+          "french": "aide pour les repas",
+          "english": "meal allowance or support",
+          "example": "Et côté avantages, il y a des choses sympas — aide pour les repas, télétravail, primes ?",
+          "usage": "Groupe nominal désignant une aide liée aux frais de repas, sans présumer sa forme."
         },
         {
           "id": "T2S9S2V10",
@@ -350,7 +350,7 @@
           "kind": "collocation",
           "french": "ça se passe bien",
           "english": "it's going well",
-          "example": "Salut ! Ça fait un moment qu'on ne s'est pas parlé ! Alors, ce nouveau travail — ça se passe bien depuis que tu as commencé ?",
+          "example": "Salut ! Alors, ce nouveau travail — ça se passe bien depuis que tu as commencé ?",
           "usage": "Locution verbale pour évoquer un bon déroulement."
         },
         {
@@ -366,7 +366,7 @@
           "kind": "collocation",
           "french": "formelle ou décontractée",
           "english": "formal or relaxed",
-          "example": "Comment est l'ambiance au bureau — plutôt formelle ou décontractée ?",
+          "example": "Comment est l'ambiance au travail — plutôt formelle ou décontractée ?",
           "usage": "Alternative adjectivale pour qualifier une ambiance."
         },
         {
@@ -436,9 +436,9 @@
         {
           "id": "T2S9S2V24",
           "kind": "tournure",
-          "french": "Comment est l'ambiance au bureau",
-          "english": "what is the office atmosphere like",
-          "example": "Comment est l'ambiance au bureau — plutôt formelle ou décontractée ?",
+          "french": "comment est l'ambiance au travail",
+          "english": "what is the atmosphere at work like",
+          "example": "Comment est l'ambiance au travail — plutôt formelle ou décontractée ?",
           "usage": "Question sur l'ambiance de travail."
         },
         {
@@ -587,7 +587,7 @@
           "kind": "collocation",
           "french": "prendre rendez-vous",
           "english": "to make an appointment",
-          "example": "Et est-ce que je peux prendre rendez-vous avec lui ou elle dès maintenant ?",
+          "example": "Et est-ce que je peux prendre rendez-vous avec le médecin remplaçant dès maintenant ?",
           "usage": "Verbe + complément sur la prise de rendez-vous."
         },
         {
@@ -625,9 +625,9 @@
         {
           "id": "T2S9S3V17",
           "kind": "collocation",
-          "french": "renouveler mes ordonnances",
-          "english": "renew my prescriptions",
-          "example": "J'en profite pour vous demander : il ou elle peut renouveler mes ordonnances habituelles ?",
+          "french": "renouveler une ordonnance",
+          "english": "renew a prescription",
+          "example": "Le médecin peut aussi renouveler une ordonnance habituelle si besoin ?",
           "usage": "Verbe + complément sur le renouvellement d'ordonnances."
         },
         {
@@ -651,7 +651,7 @@
           "kind": "collocation",
           "french": "si j'ai d'autres questions",
           "english": "if I have other questions",
-          "example": "Merci pour ces informations, je vais prendre rendez-vous avec le remplaçant alors — et si j'ai d'autres questions, je peux vous rappeler ?",
+          "example": "Merci pour ces informations — si j'ai d'autres questions, je peux vous rappeler ?",
           "usage": "Locution conditionnelle pour un suivi."
         },
         {
@@ -689,9 +689,9 @@
         {
           "id": "T2S9S3V25",
           "kind": "tournure",
-          "french": "Est-ce que je peux prendre rendez-vous avec lui ou elle dès maintenant",
-          "english": "can I make an appointment with them right away",
-          "example": "Et est-ce que je peux prendre rendez-vous avec lui ou elle dès maintenant ?",
+          "french": "est-ce que je peux prendre rendez-vous avec le médecin remplaçant dès maintenant",
+          "english": "can I make an appointment with the replacement doctor right away",
+          "example": "Et est-ce que je peux prendre rendez-vous avec le médecin remplaçant dès maintenant ?",
           "usage": "Question sur la disponibilité immédiate."
         },
         {
@@ -731,7 +731,7 @@
           "kind": "tournure",
           "french": "si j'ai d'autres questions, je peux vous rappeler",
           "english": "if I have other questions, can I call you back",
-          "example": "Merci pour ces informations, je vais prendre rendez-vous avec le remplaçant alors — et si j'ai d'autres questions, je peux vous rappeler ?",
+          "example": "Merci pour ces informations — si j'ai d'autres questions, je peux vous rappeler ?",
           "usage": "Tournure de clôture polie."
         }
       ]
@@ -744,7 +744,7 @@
           "kind": "mot-cle",
           "french": "un blog",
           "english": "a blog",
-          "example": "Salut ! Je vais bientôt voyager et j'aimerais créer un blog pour raconter tout ça — toi qui en tiens un, tu pourrais me conseiller ?",
+          "example": "Salut ! J'aimerais créer un blog de voyage — toi qui en tiens un, tu pourrais me conseiller ?",
           "usage": "Nom désignant le site personnel à créer."
         },
         {
@@ -816,7 +816,7 @@
           "kind": "mot-cle",
           "french": "des erreurs de débutant",
           "english": "beginner mistakes",
-          "example": "Question niveau, il y a des erreurs de débutant à éviter absolument ?",
+          "example": "Il y a des erreurs de débutant à éviter absolument ?",
           "usage": "Groupe nominal désignant les fautes à éviter au début."
         },
         {
@@ -824,7 +824,7 @@
           "kind": "collocation",
           "french": "créer un blog",
           "english": "to create a blog",
-          "example": "Salut ! Je vais bientôt voyager et j'aimerais créer un blog pour raconter tout ça — toi qui en tiens un, tu pourrais me conseiller ?",
+          "example": "Salut ! J'aimerais créer un blog de voyage — toi qui en tiens un, tu pourrais me conseiller ?",
           "usage": "Verbe + complément sur la création du blog."
         },
         {
@@ -896,7 +896,7 @@
           "kind": "collocation",
           "french": "à éviter absolument",
           "english": "to avoid at all costs",
-          "example": "Question niveau, il y a des erreurs de débutant à éviter absolument ?",
+          "example": "Il y a des erreurs de débutant à éviter absolument ?",
           "usage": "Locution sur les erreurs à ne pas commettre."
         },
         {
@@ -904,7 +904,7 @@
           "kind": "tournure",
           "french": "toi qui en tiens un, tu pourrais me conseiller",
           "english": "you who keep one, could you advise me",
-          "example": "Salut ! Je vais bientôt voyager et j'aimerais créer un blog pour raconter tout ça — toi qui en tiens un, tu pourrais me conseiller ?",
+          "example": "Salut ! J'aimerais créer un blog de voyage — toi qui en tiens un, tu pourrais me conseiller ?",
           "usage": "Tournure d'ouverture sollicitant un conseil."
         },
         {
@@ -1005,7 +1005,7 @@
           "kind": "mot-cle",
           "french": "un groupe",
           "english": "a group",
-          "example": "Question repas, ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
+          "example": "Ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
           "usage": "Nom masculin désignant un ensemble de plusieurs convives."
         },
         {
@@ -1085,7 +1085,7 @@
           "kind": "collocation",
           "french": "de petites tables",
           "english": "small tables",
-          "example": "Question repas, ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
+          "example": "Ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
           "usage": "Groupe nominal désignant un agencement pour peu de convives."
         },
         {
@@ -1099,9 +1099,9 @@
         {
           "id": "T2S9S5V15",
           "kind": "collocation",
-          "french": "organiser l'anniversaire",
-          "english": "organize the birthday",
-          "example": "Bonjour ! Je viens de m'installer dans le quartier et j'aimerais organiser l'anniversaire de mon conjoint ou ma conjointe — vous auriez des conseils pour bien m'y prendre ?",
+          "french": "organiser un anniversaire surprise",
+          "english": "organize a surprise birthday celebration",
+          "example": "Bonjour ! Je viens de m'installer dans le quartier et j'aimerais organiser un anniversaire surprise pour ma moitié — vous auriez des conseils pour bien m'y prendre ?",
           "usage": "Verbe + complément sur l'organisation de la fête."
         },
         {
@@ -1131,18 +1131,18 @@
         {
           "id": "T2S9S5V19",
           "kind": "collocation",
-          "french": "prévient longtemps à l'avance",
-          "english": "gives notice well in advance",
-          "example": "Question organisation, pour inviter les gens, comment ça se passe ici — on prévient longtemps à l'avance ?",
-          "usage": "Locution verbale sur le délai d'invitation."
+          "french": "prévenir les invités assez tôt",
+          "english": "give the guests enough advance notice",
+          "example": "Comment prévenir les invités assez tôt sans gâcher la surprise ?",
+          "usage": "Collocation verbale sur le délai d'invitation."
         },
         {
           "id": "T2S9S5V20",
           "kind": "collocation",
-          "french": "plus conviviale et réussie",
-          "english": "more convivial and successful",
-          "example": "Vous auriez d'autres idées pour rendre la fête plus conviviale et réussie ?",
-          "usage": "Adjectifs coordonnés pour qualifier une fête."
+          "french": "sans éveiller ses soupçons",
+          "english": "without arousing their suspicions",
+          "example": "Vous auriez une idée pour faire venir ma moitié sur place sans éveiller ses soupçons ?",
+          "usage": "Expression pour préserver une surprise sans attirer l'attention de la personne concernée."
         },
         {
           "id": "T2S9S5V21",
@@ -1179,9 +1179,9 @@
         {
           "id": "T2S9S5V25",
           "kind": "tournure",
-          "french": "j'aimerais organiser l'anniversaire de mon conjoint ou ma conjointe",
-          "english": "I would like to organize my partner’s birthday",
-          "example": "Bonjour ! Je viens de m'installer dans le quartier et j'aimerais organiser l'anniversaire de mon conjoint ou ma conjointe — vous auriez des conseils pour bien m'y prendre ?",
+          "french": "j'aimerais organiser un anniversaire surprise pour ma moitié",
+          "english": "I would like to organize a surprise birthday celebration for my partner",
+          "example": "Bonjour ! Je viens de m'installer dans le quartier et j'aimerais organiser un anniversaire surprise pour ma moitié — vous auriez des conseils pour bien m'y prendre ?",
           "usage": "Tournure d'ouverture exposant le projet."
         },
         {
@@ -1219,10 +1219,10 @@
         {
           "id": "T2S9S5V30",
           "kind": "tournure",
-          "french": "Pour inviter les gens, comment ça se passe ici",
-          "english": "how do invitations work here",
-          "example": "Question organisation, pour inviter les gens, comment ça se passe ici — on prévient longtemps à l'avance ?",
-          "usage": "Question sur les usages d'invitation."
+          "french": "comment prévenir les invités",
+          "english": "how to notify the guests",
+          "example": "Comment prévenir les invités assez tôt sans gâcher la surprise ?",
+          "usage": "Question pour organiser l'information des invités."
         }
       ]
     }

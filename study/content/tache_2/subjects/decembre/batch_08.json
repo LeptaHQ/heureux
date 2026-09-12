@@ -15,7 +15,7 @@
           "text": "Bonjour ! Je réalise une enquête pour mon cours de français et vous avez accepté d'y répondre — pour commencer, de quel pays francophone venez-vous ?"
         },
         {
-          "text": "Et depuis combien de temps êtes-vous au Canada ?"
+          "text": "Dans quelle ville vivez-vous actuellement ?"
         },
         {
           "text": "Qu'est-ce que vous étudiez en ce moment, et dans quel établissement ?"
@@ -47,7 +47,7 @@
           "memory_section": 10
         },
         {
-          "text": "Une dernière chose me vient à l'esprit : quelles habitudes ou quelles coutumes canadiennes vous ont le plus surpris(e) depuis votre arrivée ?",
+          "text": "Qu'est-ce que vous faites le week-end pour changer du rythme de la semaine ?",
           "memory_number": 5,
           "memory_section": 10
         },
@@ -58,7 +58,7 @@
           "text": "Et pour la suite, après vos études, quels sont vos projets ?"
         },
         {
-          "text": "Pour finir — si vous deviez décrire votre semaine idéale ici en tant qu'étudiant, à quoi ressemblerait-elle ?"
+          "text": "Pour finir — si vous deviez décrire votre semaine idéale en tant qu'étudiant, à quoi ressemblerait-elle ?"
         }
       ]
     },
@@ -80,7 +80,7 @@
           "text": "Qui peut participer — c'est ouvert à tous les âges ou y a-t-il un âge minimum ?"
         },
         {
-          "text": "En ce qui concerne l'encadrement, quel niveau de connaissances littéraires faut-il avoir pour se sentir à l'aise ?"
+          "text": "Quel niveau de connaissances littéraires faut-il avoir pour se sentir à l'aise ?"
         },
         {
           "text": "Peut-on participer en équipe, ou seulement individuellement ?"
@@ -107,7 +107,7 @@
           "text": "Comment déterminez-vous le gagnant à la fin ?"
         },
         {
-          "text": "Quel est l'intérêt pour la librairie d'organiser ce jeu ?"
+          "text": "Faut-il lire ou préparer quelque chose avant de participer ?"
         },
         {
           "text": "Pour finir — selon vous, quelle est la meilleure raison de s'inscrire ?"
@@ -120,7 +120,7 @@
       "prompt": "Je suis un(e) ami(e) canadien(ne) et je pratique une activité artistique (théâtre, danse, musique, etc.). Vous trouvez cette idée intéressante et aimeriez faire la même chose. Vous me posez des questions sur cette activité (intérêt, lieu, horaires, etc.).",
       "questions": [
         {
-          "text": "Salut ! J'ai entendu dire que tu pratiquais une activité artistique chaque semaine — tu pourrais m'en parler un peu ?"
+          "text": "Salut ! J'ai entendu dire que tu pratiquais une activité artistique — tu pourrais m'en parler un peu ?"
         },
         {
           "text": "C'est quel type d'activité exactement — tu fais du théâtre, de la danse, de la musique ou autre chose ?"
@@ -129,12 +129,12 @@
           "text": "Ça s'adresse à quel niveau — plutôt aux débutants ou aux personnes déjà expérimentées ?"
         },
         {
-          "text": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "text": "Si on débute complètement, comment peut-on apprendre les bases ?",
           "memory_number": 10,
           "memory_section": 6
         },
         {
-          "text": "Pour ce qui est des personnes présentes, il y a généralement combien de participants — c'est un petit groupe ou un grand groupe ?"
+          "text": "Tu pratiques seul(e) ou avec d'autres personnes — et dans ce cas, vous êtes combien ?"
         },
         {
           "text": "Avant que j'oublie, toi, qu'est-ce que tu aimes le plus dans cette activité — tu en es content(e) ?"
@@ -155,13 +155,13 @@
           "text": "Côté affaires à prévoir, qu'est-ce qu'il faut apporter — du matériel, une tenue particulière, ou est-ce que tout est fourni ?"
         },
         {
-          "text": "Est-ce qu'on peut essayer avant de s'engager — il y a une séance d'essai ?"
+          "text": "Est-ce que je pourrais essayer avec toi une première fois avant de m'engager ?"
         },
         {
-          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il payer à la séance ou s'inscrire pour toute la session ?"
+          "text": "Côté budget, il faut prévoir quels frais — des cours, du matériel, une location de salle ?"
         },
         {
-          "text": "Comment se passe l'inscription — en ligne, sur place, ou directement auprès du professeur ?"
+          "text": "Si je veux suivre un cours, comment se passe l'inscription — en ligne, sur place, ou directement auprès du professeur ?"
         },
         {
           "text": "Pour finir — tu me conseillerais de commencer par quoi, si je veux me lancer moi aussi ?"
@@ -294,7 +294,7 @@
           "text": "Côté budget, il faut prévoir combien à peu près pour le vol et l'hébergement ?"
         },
         {
-          "text": "Pour finir — si j'aime surtout la nature, la culture ou l'aventure, quelle destination me recommanderais-tu, et dans quel pays retournerais-tu tout de suite ?"
+          "text": "Pour finir — si je privilégie la nature, tu me conseillerais ce pays ou une autre destination ?"
         }
       ]
     }

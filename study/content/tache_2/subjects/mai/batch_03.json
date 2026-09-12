@@ -12,7 +12,7 @@
       "prompt": "Je suis un(e) de vos collègues. Vous êtes arrivé(e) récemment dans l'entreprise et vous souhaitez en savoir plus. Vous me posez des questions sur le fonctionnement de l'entreprise (organisation, ambiance, cantine, etc.).",
       "questions": [
         {
-          "text": "Bonjour ! Je suis ravi(e) de faire ta connaissance — c'est mon premier jour aujourd'hui. Tu travailles ici depuis combien de temps ? Tu connais bien l'entreprise ?",
+          "text": "Bonjour ! Je suis ravi(e) de faire ta connaissance — tu travailles ici depuis combien de temps ?",
           "memory_number": 4,
           "memory_section": 4
         },
@@ -22,7 +22,7 @@
           "memory_section": 10
         },
         {
-          "text": "Justement, combien de personnes travaillent dans notre département ? Et qui est notre responsable direct — comment est-il ou elle en tant que manager ?",
+          "text": "Combien de personnes travaillent dans notre département, et qui est notre responsable direct ?",
           "memory_number": 4,
           "memory_section": 7
         },
@@ -32,7 +32,7 @@
           "memory_section": 4
         },
         {
-          "text": "Puisqu'on en parle, est-ce qu'il y a des réunions régulières d'équipe ? Ça a lieu à quelle fréquence — et ça dure combien de temps généralement ?",
+          "text": "Est-ce qu'il y a des réunions régulières d'équipe — à quelle fréquence ?",
           "memory_number": 4,
           "memory_section": 4
         },
@@ -42,7 +42,7 @@
           "memory_section": 13
         },
         {
-          "text": "Question invités, est-ce que tu pourrais me présenter aux autres membres de l'équipe — surtout ceux avec qui je vais travailler étroitement ?",
+          "text": "Est-ce que tu pourrais me présenter aux autres membres de l'équipe — surtout ceux avec qui je vais travailler étroitement ?",
           "memory_number": 4,
           "memory_section": 13
         },
@@ -77,7 +77,7 @@
           "memory_section": 9
         },
         {
-          "text": "Toujours sur ce point, quels sont les avantages dont bénéficient les employés — tickets restaurant, mutuelle, ce genre de choses ?",
+          "text": "Et quels sont les autres avantages dont bénéficient les employés — assurances, congés, ce genre de choses ?",
           "memory_number": 4,
           "memory_section": 3
         },
@@ -129,17 +129,17 @@
           "memory_section": 7
         },
         {
-          "text": "Y aura-t-il de la musique et de la danse ? Les gens seront sympas — ce sera facile de s'intégrer ?",
+          "text": "Y aura-t-il de la musique, de la danse ou des jeux pour faire connaissance ?",
           "memory_number": 11,
           "memory_section": 10
         },
         {
-          "text": "En ce qui concerne les repas, comment se passe la nourriture — c'est un buffet, un repas assis ou un cocktail ? Il y aura de l'alcool ?",
+          "text": "Et pour les repas, c'est un buffet, un repas assis ou un cocktail ? Il y aura de l'alcool ?",
           "memory_number": 11,
           "memory_section": 9
         },
         {
-          "text": "Est-ce que je peux apporter quelque chose à manger ou à boire plutôt qu'un cadeau ?",
+          "text": "Est-ce que je peux apporter quelque chose à manger ou à boire ?",
           "memory_number": 11,
           "memory_section": 9
         },
@@ -149,7 +149,7 @@
           "memory_section": 10
         },
         {
-          "text": "Passons maintenant à un autre point : est-ce que je dois apporter un cadeau ? Est-ce la coutume ici au Québec — et si oui, tu aurais des suggestions ?",
+          "text": "Est-ce la coutume d'apporter un cadeau ici au Québec — et si oui, tu aurais des suggestions ?",
           "memory_number": 11,
           "memory_section": 8
         },
@@ -164,7 +164,7 @@
           "memory_section": 8
         },
         {
-          "text": "Merci pour toutes ces infos, je me sens beaucoup plus à l'aise à l'idée de cette première fête ici — et si j'ai d'autres questions avant le jour J, je peux te solliciter ?",
+          "text": "Merci pour toutes ces infos — si j'ai d'autres questions avant le jour J, je peux te recontacter ?",
           "memory_number": 11,
           "memory_section": 13
         }
@@ -186,7 +186,7 @@
           "memory_section": 2
         },
         {
-          "text": "Côté précautions, ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "memory_number": 8,
           "memory_section": 6
         },
@@ -226,7 +226,7 @@
           "memory_section": 3
         },
         {
-          "text": "Une fois inscrit(e), on s'engage pour toute la session ou on peut venir de manière flexible ?",
+          "text": "Une fois inscrit(e), on s'engage pour combien de temps ?",
           "memory_number": 8,
           "memory_section": 12
         },
@@ -263,7 +263,7 @@
           "memory_section": 2
         },
         {
-          "text": "Et dans la continuité, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "text": "Et y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "memory_number": 9,
           "memory_section": 2
         },
@@ -298,7 +298,7 @@
           "memory_section": 6
         },
         {
-          "text": "Question budget, y a-t-il un audioguide disponible — c'est gratuit ou payant ? Et on peut prendre des photos à l'intérieur ?",
+          "text": "Y a-t-il un audioguide disponible — c'est gratuit ou payant ? Et on peut prendre des photos à l'intérieur ?",
           "memory_number": 9,
           "memory_section": 9
         },
@@ -308,7 +308,7 @@
           "memory_section": 4
         },
         {
-          "text": "Où se trouve exactement le musée — est-il facilement accessible en transports en commun ? Y a-t-il un parking à proximité ?",
+          "text": "Le musée est-il facilement accessible en transports en commun, et y a-t-il un parking à proximité ?",
           "memory_number": 9,
           "memory_section": 5
         },

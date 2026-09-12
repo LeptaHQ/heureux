@@ -31,9 +31,9 @@
         {
           "id": "T2O10S26V04",
           "kind": "mot-cle",
-          "french": "du matériel particulier",
+          "french": "un équipement particulier",
           "english": "special equipment",
-          "example": "Côté tarifs, est-ce qu'il faut du matériel particulier, ou payer un accès quelque part ?",
+          "example": "Côté matériel et budget, est-ce qu'il faut un équipement particulier, ou payer un accès quelque part ?",
           "usage": "Groupe nominal sur l'équipement."
         },
         {
@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "un accès",
           "english": "an access fee/pass",
-          "example": "Côté tarifs, est-ce qu'il faut du matériel particulier, ou payer un accès quelque part ?",
+          "example": "Côté matériel et budget, est-ce qu'il faut un équipement particulier, ou payer un accès quelque part ?",
           "usage": "Nom désignant l'accès payant à un lieu."
         },
         {
@@ -71,18 +71,18 @@
         {
           "id": "T2O10S26V09",
           "kind": "mot-cle",
-          "french": "en forme",
-          "english": "in shape",
-          "example": "Autre point important : c'est un sport plutôt physique, ou accessible même quand on n'est pas très en forme ?",
-          "usage": "Locution sur la condition physique."
+          "french": "adapter",
+          "english": "to adapt",
+          "example": "Si on n'a pas le même niveau, comment on pourrait adapter les séances ?",
+          "usage": "Verbe pour modifier les séances selon les capacités des participants."
         },
         {
           "id": "T2O10S26V10",
           "kind": "mot-cle",
-          "french": "un sport plutôt physique",
-          "english": "a rather physical sport",
-          "example": "Autre point important : c'est un sport plutôt physique, ou accessible même quand on n'est pas très en forme ?",
-          "usage": "Groupe nominal sur l'intensité."
+          "french": "le même niveau",
+          "english": "the same level",
+          "example": "Si on n'a pas le même niveau, comment on pourrait adapter les séances ?",
+          "usage": "Groupe nominal pour comparer les capacités de deux partenaires de sport."
         },
         {
           "id": "T2O10S26V11",
@@ -137,7 +137,7 @@
           "kind": "collocation",
           "french": "te motiver",
           "english": "motivate you",
-          "example": "Pour ce qui est du niveau, tu cherches surtout quelqu'un pour te motiver, ou pour vraiment progresser ?",
+          "example": "Tu cherches surtout quelqu'un pour te motiver, ou pour vraiment progresser ?",
           "usage": "Locution verbale sur la motivation."
         },
         {
@@ -145,7 +145,7 @@
           "kind": "collocation",
           "french": "vraiment progresser",
           "english": "really improve",
-          "example": "Pour ce qui est du niveau, tu cherches surtout quelqu'un pour te motiver, ou pour vraiment progresser ?",
+          "example": "Tu cherches surtout quelqu'un pour te motiver, ou pour vraiment progresser ?",
           "usage": "Locution verbale sur les progrès."
         },
         {
@@ -270,7 +270,7 @@
           "kind": "mot-cle",
           "french": "son âge",
           "english": "their age",
-          "example": "Et dans la continuité, ce sont des activités adaptées à son âge, et sans danger ?",
+          "example": "Ces activités sont adaptées à son âge, et quelles précautions sont prévues ?",
           "usage": "Groupe nominal sur l'âge de l'enfant."
         },
         {
@@ -350,16 +350,16 @@
           "kind": "collocation",
           "french": "adaptées à son âge",
           "english": "suited to their age",
-          "example": "Et dans la continuité, ce sont des activités adaptées à son âge, et sans danger ?",
+          "example": "Ces activités sont adaptées à son âge, et quelles précautions sont prévues ?",
           "usage": "Participe + complément sur l'adaptation."
         },
         {
           "id": "T2O10S27V14",
           "kind": "collocation",
-          "french": "sans danger",
-          "english": "safe",
-          "example": "Et dans la continuité, ce sont des activités adaptées à son âge, et sans danger ?",
-          "usage": "Locution sur l'absence de risque."
+          "french": "sont prévues",
+          "english": "are planned",
+          "example": "Ces activités sont adaptées à son âge, et quelles précautions sont prévues ?",
+          "usage": "Groupe verbal passif pour évoquer des mesures de précaution."
         },
         {
           "id": "T2O10S27V15",
@@ -374,7 +374,7 @@
           "kind": "collocation",
           "french": "du même âge",
           "english": "the same age",
-          "example": "Il y a un autre point qui m'intéresse : est-ce qu'il y a d'autres enfants du même âge que le mien ?",
+          "example": "Est-ce qu'il y a d'autres enfants du même âge que le mien ?",
           "usage": "Locution sur la tranche d'âge."
         },
         {
@@ -404,9 +404,9 @@
         {
           "id": "T2O10S27V20",
           "kind": "collocation",
-          "french": "en discuter avec lui",
-          "english": "discuss it with him",
-          "example": "Merci pour tout ça — laissez-moi en discuter avec lui et je vous réponds très vite, d'accord ?",
+          "french": "en discuter avec mon enfant",
+          "english": "discuss it with my child",
+          "example": "Pour finir — pour quand avez-vous besoin d'une réponse, le temps d'en discuter avec mon enfant ?",
           "usage": "Locution verbale sur la concertation."
         },
         {
@@ -462,7 +462,7 @@
           "kind": "tournure",
           "french": "Est-ce qu'il y a d'autres enfants du même âge que le mien",
           "english": "are there other children the same age as mine",
-          "example": "Il y a un autre point qui m'intéresse : est-ce qu'il y a d'autres enfants du même âge que le mien ?",
+          "example": "Est-ce qu'il y a d'autres enfants du même âge que le mien ?",
           "usage": "Question sur les autres enfants."
         },
         {
@@ -505,9 +505,9 @@
         {
           "id": "T2O10S28V02",
           "kind": "mot-cle",
-          "french": "les disponibilités",
-          "english": "availability",
-          "example": "Côté engagement, à quelle fréquence les membres s'engagent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
+          "french": "ses disponibilités",
+          "english": "one's availability",
+          "example": "Côté engagement, peut-on participer selon ses disponibilités, ou faut-il être présent chaque semaine ?",
           "usage": "Nom pluriel désignant les moments où l'on est libre pour une activité."
         },
         {
@@ -529,18 +529,18 @@
         {
           "id": "T2O10S28V05",
           "kind": "mot-cle",
-          "french": "des plantations",
-          "english": "tree/plant plantings",
-          "example": "Ça consiste en quoi — des nettoyages de nature, des plantations, de la sensibilisation ?",
-          "usage": "Nom pluriel désignant les actions de plantation."
+          "french": "mission",
+          "english": "assignment / task",
+          "example": "Pour quelle mission avez-vous le plus besoin de bénévoles en ce moment ?",
+          "usage": "Nom désignant une activité confiée à des bénévoles dans l'association."
         },
         {
           "id": "T2O10S28V06",
           "kind": "mot-cle",
-          "french": "de la sensibilisation",
-          "english": "awareness-raising",
-          "example": "Ça consiste en quoi — des nettoyages de nature, des plantations, de la sensibilisation ?",
-          "usage": "Groupe nominal désignant l'action de sensibiliser."
+          "french": "bénévoles",
+          "english": "volunteers",
+          "example": "Pour quelle mission avez-vous le plus besoin de bénévoles en ce moment ?",
+          "usage": "Nom pluriel désignant les personnes qui donnent de leur temps sans rémunération."
         },
         {
           "id": "T2O10S28V07",
@@ -617,10 +617,10 @@
         {
           "id": "T2O10S28V16",
           "kind": "collocation",
-          "french": "des nettoyages de nature",
-          "english": "nature clean-ups",
-          "example": "Ça consiste en quoi — des nettoyages de nature, des plantations, de la sensibilisation ?",
-          "usage": "Groupe nominal désignant une action écologique."
+          "french": "besoin de bénévoles",
+          "english": "need for volunteers",
+          "example": "Pour quelle mission avez-vous le plus besoin de bénévoles en ce moment ?",
+          "usage": "Groupe nominal employé avec avoir pour exprimer les besoins de l'association."
         },
         {
           "id": "T2O10S28V17",
@@ -657,10 +657,10 @@
         {
           "id": "T2O10S28V21",
           "kind": "tournure",
-          "french": "à quelle fréquence",
-          "english": "how often",
-          "example": "Côté engagement, à quelle fréquence les membres s'engagent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
-          "usage": "Tournure interrogative standard pour demander la régularité d'une action."
+          "french": "peut-on participer selon ses disponibilités",
+          "english": "can one participate according to one's availability",
+          "example": "Côté engagement, peut-on participer selon ses disponibilités, ou faut-il être présent chaque semaine ?",
+          "usage": "Question pour vérifier la souplesse de l'engagement."
         },
         {
           "id": "T2O10S28V22",
@@ -705,10 +705,10 @@
         {
           "id": "T2O10S28V27",
           "kind": "tournure",
-          "french": "Ça consiste en quoi",
-          "english": "what does it involve",
-          "example": "Ça consiste en quoi — des nettoyages de nature, des plantations, de la sensibilisation ?",
-          "usage": "Question sur le contenu."
+          "french": "pour quelle mission avez-vous le plus besoin de bénévoles",
+          "english": "which task do you most need volunteers for",
+          "example": "Pour quelle mission avez-vous le plus besoin de bénévoles en ce moment ?",
+          "usage": "Question pour connaître la priorité de l'association."
         },
         {
           "id": "T2O10S28V28",
@@ -792,7 +792,7 @@
           "kind": "mot-cle",
           "french": "un guide",
           "english": "a guide",
-          "example": "Côté participants, il y a un guide qui nous accompagne pendant la journée ?",
+          "example": "Côté encadrement, il y a un guide qui nous accompagne pendant la journée ?",
           "usage": "Nom désignant l'accompagnateur."
         },
         {
@@ -822,18 +822,18 @@
         {
           "id": "T2O10S29V11",
           "kind": "collocation",
-          "french": "en une seule fois",
-          "english": "all at once/in one go",
-          "example": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
-          "usage": "Locution adverbiale indiquant qu'une action se fait en un seul versement ou geste."
+          "french": "les conditions de remboursement",
+          "english": "the refund conditions",
+          "example": "Si je dois annuler, quelles sont les conditions de remboursement ?",
+          "usage": "Groupe nominal désignant les règles applicables pour récupérer une somme payée."
         },
         {
           "id": "T2O10S29V12",
           "kind": "collocation",
-          "french": "en plusieurs fois",
-          "english": "in several installments",
-          "example": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
-          "usage": "Locution adverbiale exprimant un fractionnement, souvent utilisée pour un paiement."
+          "french": "je dois annuler",
+          "english": "I have to cancel",
+          "example": "Si je dois annuler, quelles sont les conditions de remboursement ?",
+          "usage": "Groupe verbal employé dans une hypothèse d'annulation."
         },
         {
           "id": "T2O10S29V13",
@@ -878,9 +878,9 @@
         {
           "id": "T2O10S29V18",
           "kind": "collocation",
-          "french": "réserver à l'avance",
-          "english": "book in advance",
-          "example": "Faut-il réserver à l'avance ou il reste encore des places ?",
+          "french": "réserver longtemps à l'avance",
+          "english": "book well in advance",
+          "example": "Faut-il réserver longtemps à l'avance, ou peut-on s'inscrire la veille ?",
           "usage": "Verbe + complément sur la réservation."
         },
         {
@@ -910,10 +910,10 @@
         {
           "id": "T2O10S29V22",
           "kind": "tournure",
-          "french": "Est-ce qu'il est possible de",
-          "english": "Is it possible to",
-          "example": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
-          "usage": "Structure interrogative standard avec \"est-ce que\" pour demander une possibilité."
+          "french": "quelles sont les conditions de remboursement",
+          "english": "what are the refund conditions",
+          "example": "Si je dois annuler, quelles sont les conditions de remboursement ?",
+          "usage": "Question pour connaître les modalités d'un éventuel remboursement."
         },
         {
           "id": "T2O10S29V23",
@@ -952,7 +952,7 @@
           "kind": "tournure",
           "french": "Il y a un guide qui nous accompagne pendant la journée",
           "english": "is there a guide with us during the day",
-          "example": "Côté participants, il y a un guide qui nous accompagne pendant la journée ?",
+          "example": "Côté encadrement, il y a un guide qui nous accompagne pendant la journée ?",
           "usage": "Question sur l'accompagnement."
         },
         {
@@ -974,10 +974,10 @@
         {
           "id": "T2O10S29V30",
           "kind": "tournure",
-          "french": "Faut-il réserver à l'avance ou il reste encore des places",
-          "english": "do you need to book ahead or are there still spots",
-          "example": "Faut-il réserver à l'avance ou il reste encore des places ?",
-          "usage": "Question sur la réservation."
+          "french": "peut-on s'inscrire la veille",
+          "english": "can one register the day before",
+          "example": "Faut-il réserver longtemps à l'avance, ou peut-on s'inscrire la veille ?",
+          "usage": "Question pour vérifier si une inscription tardive est possible."
         }
       ]
     },
@@ -997,7 +997,7 @@
           "kind": "mot-cle",
           "french": "un parking à proximité",
           "english": "nearby parking",
-          "example": "Où se trouve exactement le musée — est-il facilement accessible en transports en commun ? Y a-t-il un parking à proximité ?",
+          "example": "Le musée est-il facilement accessible en transports en commun, et y a-t-il un parking à proximité ?",
           "usage": "Groupe nominal désignant un stationnement situé à faible distance."
         },
         {
@@ -1029,7 +1029,7 @@
           "kind": "mot-cle",
           "french": "la collection permanente",
           "english": "the permanent collection",
-          "example": "Et dans la continuité, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "example": "Et y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "usage": "Groupe nominal opposé à 'les expositions temporaires'."
         },
         {
@@ -1053,7 +1053,7 @@
           "kind": "mot-cle",
           "french": "un audioguide",
           "english": "an audio guide",
-          "example": "Question budget, y a-t-il un audioguide disponible — c'est gratuit ou payant ? Et on peut prendre des photos à l'intérieur ?",
+          "example": "Y a-t-il un audioguide disponible — c'est gratuit ou payant ? Et on peut prendre des photos à l'intérieur ?",
           "usage": "Nom composé désignant un appareil de guidage sonore pour les visiteurs."
         },
         {
@@ -1077,7 +1077,7 @@
           "kind": "collocation",
           "french": "facilement accessible",
           "english": "easily accessible",
-          "example": "Où se trouve exactement le musée — est-il facilement accessible en transports en commun ? Y a-t-il un parking à proximité ?",
+          "example": "Le musée est-il facilement accessible en transports en commun, et y a-t-il un parking à proximité ?",
           "usage": "Association adverbe + adjectif pour décrire la facilité d'accès à un lieu."
         },
         {
@@ -1101,7 +1101,7 @@
           "kind": "collocation",
           "french": "en ce moment",
           "english": "at the moment/currently",
-          "example": "Et dans la continuité, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "example": "Et y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "usage": "Locution adverbiale fixe pour situer une action dans le présent."
         },
         {
@@ -1133,7 +1133,7 @@
           "kind": "collocation",
           "french": "prendre des photos",
           "english": "to take photos",
-          "example": "Question budget, y a-t-il un audioguide disponible — c'est gratuit ou payant ? Et on peut prendre des photos à l'intérieur ?",
+          "example": "Y a-t-il un audioguide disponible — c'est gratuit ou payant ? Et on peut prendre des photos à l'intérieur ?",
           "usage": "Association verbe + nom très courante pour évoquer la prise de clichés."
         },
         {
@@ -1155,10 +1155,10 @@
         {
           "id": "T2O10S30V22",
           "kind": "tournure",
-          "french": "Où se trouve exactement le musée",
-          "english": "Where exactly is the museum located",
-          "example": "Où se trouve exactement le musée — est-il facilement accessible en transports en commun ? Y a-t-il un parking à proximité ?",
-          "usage": "Question soutenue avec inversion du sujet 'le musée' après le verbe pronominal 'se trouve'."
+          "french": "Le musée est-il facilement accessible",
+          "english": "is the museum easy to reach",
+          "example": "Le musée est-il facilement accessible en transports en commun, et y a-t-il un parking à proximité ?",
+          "usage": "Question avec reprise pronominale du sujet pour vérifier l'accessibilité d'un lieu."
         },
         {
           "id": "T2O10S30V23",

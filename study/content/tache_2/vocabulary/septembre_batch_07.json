@@ -97,7 +97,7 @@
           "kind": "collocation",
           "french": "prendre rendez-vous",
           "english": "to make an appointment",
-          "example": "Et est-ce que je peux prendre rendez-vous avec lui ou elle dès maintenant ?",
+          "example": "Et est-ce que je peux prendre rendez-vous avec le médecin remplaçant dès maintenant ?",
           "usage": "Verbe + complément sur la prise de rendez-vous."
         },
         {
@@ -135,9 +135,9 @@
         {
           "id": "T2S9S31V17",
           "kind": "collocation",
-          "french": "renouveler mes ordonnances",
-          "english": "renew my prescriptions",
-          "example": "J'en profite pour vous demander : il ou elle peut renouveler mes ordonnances habituelles ?",
+          "french": "renouveler une ordonnance",
+          "english": "renew a prescription",
+          "example": "Le médecin peut aussi renouveler une ordonnance habituelle si besoin ?",
           "usage": "Verbe + complément sur le renouvellement d'ordonnances."
         },
         {
@@ -161,7 +161,7 @@
           "kind": "collocation",
           "french": "si j'ai d'autres questions",
           "english": "if I have other questions",
-          "example": "Merci pour ces informations, je vais prendre rendez-vous avec le remplaçant alors — et si j'ai d'autres questions, je peux vous rappeler ?",
+          "example": "Merci pour ces informations — si j'ai d'autres questions, je peux vous rappeler ?",
           "usage": "Locution conditionnelle pour un suivi."
         },
         {
@@ -199,9 +199,9 @@
         {
           "id": "T2S9S31V25",
           "kind": "tournure",
-          "french": "Est-ce que je peux prendre rendez-vous avec lui ou elle dès maintenant",
-          "english": "can I make an appointment with them right away",
-          "example": "Et est-ce que je peux prendre rendez-vous avec lui ou elle dès maintenant ?",
+          "french": "est-ce que je peux prendre rendez-vous avec le médecin remplaçant dès maintenant",
+          "english": "can I make an appointment with the replacement doctor right away",
+          "example": "Et est-ce que je peux prendre rendez-vous avec le médecin remplaçant dès maintenant ?",
           "usage": "Question sur la disponibilité immédiate."
         },
         {
@@ -241,7 +241,7 @@
           "kind": "tournure",
           "french": "si j'ai d'autres questions, je peux vous rappeler",
           "english": "if I have other questions, can I call you back",
-          "example": "Merci pour ces informations, je vais prendre rendez-vous avec le remplaçant alors — et si j'ai d'autres questions, je peux vous rappeler ?",
+          "example": "Merci pour ces informations — si j'ai d'autres questions, je peux vous rappeler ?",
           "usage": "Tournure de clôture polie."
         }
       ]
@@ -254,7 +254,7 @@
           "kind": "mot-cle",
           "french": "une entreprise",
           "english": "a company",
-          "example": "Salut ! J'ai appris que tu venais d'être embauché(e) dans une entreprise près de Toronto — félicitations ! Ça se passe comment ?",
+          "example": "Salut ! J'ai appris que tu venais d'être embauché(e) dans une entreprise près de Toronto — félicitations ! Tu peux m'en dire plus ?",
           "usage": "Nom désignant la société qui emploie."
         },
         {
@@ -262,7 +262,7 @@
           "kind": "mot-cle",
           "french": "du télétravail",
           "english": "remote work",
-          "example": "Tu as dû déménager à Toronto pour ce poste, ou tu peux faire du télétravail ?",
+          "example": "Le poste permet-il de faire du télétravail, ou faut-il être sur place tous les jours ?",
           "usage": "Groupe nominal désignant le travail à distance."
         },
         {
@@ -278,7 +278,7 @@
           "kind": "mot-cle",
           "french": "l'équipe",
           "english": "the team",
-          "example": "Il y a une bonne ambiance dans l'équipe ?",
+          "example": "D'après ce que tu en sais, comment est l'ambiance dans l'équipe ?",
           "usage": "Nom désignant le groupe de collègues."
         },
         {
@@ -294,15 +294,15 @@
           "kind": "mot-cle",
           "french": "le trajet",
           "english": "the commute",
-          "example": "Côté transport, le trajet jusqu'au bureau, c'est pratique depuis chez toi ?",
+          "example": "Côté transport, le trajet jusqu'au travail, c'est pratique depuis chez toi ?",
           "usage": "Nom désignant le déplacement jusqu'au bureau."
         },
         {
           "id": "T2S9S32V07",
           "kind": "mot-cle",
-          "french": "des avantages",
+          "french": "avantages",
           "english": "benefits",
-          "example": "En ce qui concerne la réservation, il y a des avantages intéressants — assurance, primes, jours de congé, tickets resto ?",
+          "example": "Et côté avantages, il y a des choses intéressantes — assurance, primes, jours de congé, aide aux transports ?",
           "usage": "Nom pluriel désignant les à-côtés de l'emploi."
         },
         {
@@ -310,7 +310,7 @@
           "kind": "mot-cle",
           "french": "ce nouveau poste",
           "english": "this new position",
-          "example": "Qu'est-ce qui te plaît le plus dans ce nouveau poste pour l'instant ?",
+          "example": "Qu'est-ce qui te plaît le plus dans ce nouveau poste ?",
           "usage": "Groupe nominal désignant le poste récemment pris."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "une formation",
           "english": "training",
-          "example": "Et à ton arrivée, tu as eu droit à une formation ou un accompagnement pour bien démarrer ?",
+          "example": "Il y a une formation ou un accompagnement pour bien démarrer ?",
           "usage": "Nom désignant l'accompagnement de départ."
         },
         {
@@ -332,17 +332,17 @@
         {
           "id": "T2S9S32V11",
           "kind": "collocation",
-          "french": "bien accueilli(e)",
-          "english": "warmly welcomed",
-          "example": "Et tes collègues, ils sont comment — ils t'ont bien accueilli(e) ?",
-          "usage": "Participe passé + adverbe pour évoquer un accueil chaleureux."
+          "french": "rencontré tes collègues",
+          "english": "met your colleagues",
+          "example": "Si tu as déjà rencontré tes collègues, comment s'est passé l'accueil ?",
+          "usage": "Groupe verbal au participe passé pour évoquer une première rencontre avec l'équipe."
         },
         {
           "id": "T2S9S32V12",
           "kind": "collocation",
           "french": "d'être embauché(e)",
           "english": "to be hired",
-          "example": "Salut ! J'ai appris que tu venais d'être embauché(e) dans une entreprise près de Toronto — félicitations ! Ça se passe comment ?",
+          "example": "Salut ! J'ai appris que tu venais d'être embauché(e) dans une entreprise près de Toronto — félicitations ! Tu peux m'en dire plus ?",
           "usage": "Locution verbale sur l'embauche."
         },
         {
@@ -350,7 +350,7 @@
           "kind": "collocation",
           "french": "quel type d'entreprise",
           "english": "what kind of company",
-          "example": "C'est quel type d'entreprise, et tu y fais quoi exactement ?",
+          "example": "C'est quel type d'entreprise, et en quoi consiste ton poste exactement ?",
           "usage": "Locution interrogative sur le secteur."
         },
         {
@@ -358,16 +358,16 @@
           "kind": "collocation",
           "french": "faire du télétravail",
           "english": "work remotely",
-          "example": "Tu as dû déménager à Toronto pour ce poste, ou tu peux faire du télétravail ?",
+          "example": "Le poste permet-il de faire du télétravail, ou faut-il être sur place tous les jours ?",
           "usage": "Verbe + complément sur le travail à distance."
         },
         {
           "id": "T2S9S32V15",
           "kind": "collocation",
-          "french": "une bonne ambiance",
-          "english": "a good atmosphere",
-          "example": "Il y a une bonne ambiance dans l'équipe ?",
-          "usage": "Groupe nominal sur une ambiance agréable."
+          "french": "l'ambiance dans l'équipe",
+          "english": "the atmosphere within the team",
+          "example": "D'après ce que tu en sais, comment est l'ambiance dans l'équipe ?",
+          "usage": "Groupe nominal désignant les relations et l'atmosphère au sein d'une équipe."
         },
         {
           "id": "T2S9S32V16",
@@ -390,7 +390,7 @@
           "kind": "collocation",
           "french": "pour bien démarrer",
           "english": "to get off to a good start",
-          "example": "Et à ton arrivée, tu as eu droit à une formation ou un accompagnement pour bien démarrer ?",
+          "example": "Il y a une formation ou un accompagnement pour bien démarrer ?",
           "usage": "Locution sur un bon début."
         },
         {
@@ -398,7 +398,7 @@
           "kind": "collocation",
           "french": "te plaît le plus",
           "english": "you like most",
-          "example": "Qu'est-ce qui te plaît le plus dans ce nouveau poste pour l'instant ?",
+          "example": "Qu'est-ce qui te plaît le plus dans ce nouveau poste ?",
           "usage": "Locution verbale sur les préférences."
         },
         {
@@ -412,17 +412,17 @@
         {
           "id": "T2S9S32V21",
           "kind": "tournure",
-          "french": "ils t'ont bien accueilli(e)",
-          "english": "did they make you feel welcome?",
-          "example": "Et tes collègues, ils sont comment — ils t'ont bien accueilli(e) ?",
-          "usage": "Passé composé à la troisième personne du pluriel pour interroger sur l'accueil reçu."
+          "french": "comment s'est passé l'accueil",
+          "english": "how did the welcome go",
+          "example": "Si tu as déjà rencontré tes collègues, comment s'est passé l'accueil ?",
+          "usage": "Question au passé composé pour interroger sur l'accueil reçu."
         },
         {
           "id": "T2S9S32V22",
           "kind": "tournure",
           "french": "tu venais d'être embauché(e) dans une entreprise près de Toronto",
           "english": "you had just been hired at a company near Toronto",
-          "example": "Salut ! J'ai appris que tu venais d'être embauché(e) dans une entreprise près de Toronto — félicitations ! Ça se passe comment ?",
+          "example": "Salut ! J'ai appris que tu venais d'être embauché(e) dans une entreprise près de Toronto — félicitations ! Tu peux m'en dire plus ?",
           "usage": "Tournure d'ouverture rappelant la nouvelle."
         },
         {
@@ -430,7 +430,7 @@
           "kind": "tournure",
           "french": "C'est quel type d'entreprise",
           "english": "what kind of company is it",
-          "example": "C'est quel type d'entreprise, et tu y fais quoi exactement ?",
+          "example": "C'est quel type d'entreprise, et en quoi consiste ton poste exactement ?",
           "usage": "Question sur le type d'entreprise."
         },
         {
@@ -444,10 +444,10 @@
         {
           "id": "T2S9S32V25",
           "kind": "tournure",
-          "french": "Tu as dû déménager à Toronto pour ce poste",
-          "english": "did you have to move to Toronto for this job",
-          "example": "Tu as dû déménager à Toronto pour ce poste, ou tu peux faire du télétravail ?",
-          "usage": "Question sur le déménagement."
+          "french": "le poste permet-il de faire du télétravail",
+          "english": "does the position allow remote work",
+          "example": "Le poste permet-il de faire du télétravail, ou faut-il être sur place tous les jours ?",
+          "usage": "Question pour vérifier les modalités de présence au travail."
         },
         {
           "id": "T2S9S32V26",
@@ -460,18 +460,18 @@
         {
           "id": "T2S9S32V27",
           "kind": "tournure",
-          "french": "Tu travailles combien d'heures par semaine",
-          "english": "how many hours a week do you work",
-          "example": "Côté rythme, tu travailles combien d'heures par semaine, et les horaires sont souples ?",
+          "french": "il y a combien d'heures de travail par semaine",
+          "english": "how many working hours are there per week",
+          "example": "Côté rythme, il y a combien d'heures de travail par semaine, et les horaires sont souples ?",
           "usage": "Question sur le temps de travail."
         },
         {
           "id": "T2S9S32V28",
           "kind": "tournure",
-          "french": "Il y a des avantages intéressants",
-          "english": "are there any interesting benefits",
-          "example": "En ce qui concerne la réservation, il y a des avantages intéressants — assurance, primes, jours de congé, tickets resto ?",
-          "usage": "Question sur les avantages."
+          "french": "il y a des choses intéressantes",
+          "english": "are there interesting things",
+          "example": "Et côté avantages, il y a des choses intéressantes — assurance, primes, jours de congé, aide aux transports ?",
+          "usage": "Question informelle sur les avantages du poste, précisés dans la suite de l'exemple."
         },
         {
           "id": "T2S9S32V29",
@@ -486,7 +486,7 @@
           "kind": "tournure",
           "french": "Qu'est-ce qui te plaît le plus dans ce nouveau poste",
           "english": "what do you like most about this new position",
-          "example": "Qu'est-ce qui te plaît le plus dans ce nouveau poste pour l'instant ?",
+          "example": "Qu'est-ce qui te plaît le plus dans ce nouveau poste ?",
           "usage": "Question sur les points positifs."
         }
       ]
@@ -499,7 +499,7 @@
           "kind": "mot-cle",
           "french": "un blog",
           "english": "a blog",
-          "example": "Salut ! Je vais bientôt voyager et j'aimerais créer un blog pour raconter tout ça — toi qui en tiens un, tu pourrais me conseiller ?",
+          "example": "Salut ! J'aimerais créer un blog de voyage — toi qui en tiens un, tu pourrais me conseiller ?",
           "usage": "Nom désignant le site personnel à créer."
         },
         {
@@ -571,7 +571,7 @@
           "kind": "mot-cle",
           "french": "des erreurs de débutant",
           "english": "beginner mistakes",
-          "example": "Question niveau, il y a des erreurs de débutant à éviter absolument ?",
+          "example": "Il y a des erreurs de débutant à éviter absolument ?",
           "usage": "Groupe nominal désignant les fautes à éviter au début."
         },
         {
@@ -579,7 +579,7 @@
           "kind": "collocation",
           "french": "créer un blog",
           "english": "to create a blog",
-          "example": "Salut ! Je vais bientôt voyager et j'aimerais créer un blog pour raconter tout ça — toi qui en tiens un, tu pourrais me conseiller ?",
+          "example": "Salut ! J'aimerais créer un blog de voyage — toi qui en tiens un, tu pourrais me conseiller ?",
           "usage": "Verbe + complément sur la création du blog."
         },
         {
@@ -651,7 +651,7 @@
           "kind": "collocation",
           "french": "à éviter absolument",
           "english": "to avoid at all costs",
-          "example": "Question niveau, il y a des erreurs de débutant à éviter absolument ?",
+          "example": "Il y a des erreurs de débutant à éviter absolument ?",
           "usage": "Locution sur les erreurs à ne pas commettre."
         },
         {
@@ -659,7 +659,7 @@
           "kind": "tournure",
           "french": "toi qui en tiens un, tu pourrais me conseiller",
           "english": "you who keep one, could you advise me",
-          "example": "Salut ! Je vais bientôt voyager et j'aimerais créer un blog pour raconter tout ça — toi qui en tiens un, tu pourrais me conseiller ?",
+          "example": "Salut ! J'aimerais créer un blog de voyage — toi qui en tiens un, tu pourrais me conseiller ?",
           "usage": "Tournure d'ouverture sollicitant un conseil."
         },
         {
@@ -752,7 +752,7 @@
           "kind": "mot-cle",
           "french": "un voyage au Canada",
           "english": "a trip to Canada",
-          "example": "Salut ! Je voudrais organiser un voyage au Canada pour fêter l'anniversaire de mon conjoint ou ma conjointe — toi qui connais, tu aurais des idées ?",
+          "example": "Salut ! Je voudrais organiser un voyage au Canada pour fêter l'anniversaire de ma moitié — tu aurais des idées ?",
           "usage": "Groupe nominal désignant le voyage projeté."
         },
         {
@@ -816,7 +816,7 @@
           "kind": "mot-cle",
           "french": "une occasion spéciale",
           "english": "a special occasion",
-          "example": "Quelles destinations tu me conseillerais pour une occasion spéciale comme ça ?",
+          "example": "Quelle destination tu me conseillerais pour une occasion spéciale comme ça ?",
           "usage": "Groupe nominal désignant un événement à marquer."
         },
         {
@@ -832,7 +832,7 @@
           "kind": "collocation",
           "french": "organiser un voyage au Canada",
           "english": "organize a trip to Canada",
-          "example": "Salut ! Je voudrais organiser un voyage au Canada pour fêter l'anniversaire de mon conjoint ou ma conjointe — toi qui connais, tu aurais des idées ?",
+          "example": "Salut ! Je voudrais organiser un voyage au Canada pour fêter l'anniversaire de ma moitié — tu aurais des idées ?",
           "usage": "Verbe + complément sur l'organisation du voyage."
         },
         {
@@ -840,7 +840,7 @@
           "kind": "collocation",
           "french": "pour une occasion spéciale",
           "english": "for a special occasion",
-          "example": "Quelles destinations tu me conseillerais pour une occasion spéciale comme ça ?",
+          "example": "Quelle destination tu me conseillerais pour une occasion spéciale comme ça ?",
           "usage": "Locution sur le caractère exceptionnel."
         },
         {
@@ -910,18 +910,18 @@
         {
           "id": "T2S9S34V22",
           "kind": "tournure",
-          "french": "toi qui connais, tu aurais des idées",
-          "english": "you who know the place, would you have ideas",
-          "example": "Salut ! Je voudrais organiser un voyage au Canada pour fêter l'anniversaire de mon conjoint ou ma conjointe — toi qui connais, tu aurais des idées ?",
+          "french": "tu aurais des idées",
+          "english": "would you have any ideas",
+          "example": "Salut ! Je voudrais organiser un voyage au Canada pour fêter l'anniversaire de ma moitié — tu aurais des idées ?",
           "usage": "Tournure d'ouverture sollicitant des idées."
         },
         {
           "id": "T2S9S34V23",
           "kind": "tournure",
-          "french": "Quelles destinations tu me conseillerais",
-          "english": "which destinations would you recommend",
-          "example": "Quelles destinations tu me conseillerais pour une occasion spéciale comme ça ?",
-          "usage": "Question sur les destinations."
+          "french": "quelle destination tu me conseillerais",
+          "english": "which destination would you recommend",
+          "example": "Quelle destination tu me conseillerais pour une occasion spéciale comme ça ?",
+          "usage": "Question sur la destination."
         },
         {
           "id": "T2S9S34V24",

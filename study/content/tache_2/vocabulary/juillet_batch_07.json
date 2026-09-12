@@ -31,18 +31,18 @@
         {
           "id": "T2J7S29V04",
           "kind": "mot-cle",
-          "french": "chaque trajet",
-          "english": "each trip",
-          "example": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
-          "usage": "Unité de paiement possible, opposée à un abonnement global."
+          "french": "un trajet",
+          "english": "a trip",
+          "example": "Côté budget, combien coûte un trajet, et quels abonnements existent ?",
+          "usage": "Unité de déplacement dont on demande le prix, par opposition à un abonnement global."
         },
         {
           "id": "T2J7S29V05",
           "kind": "mot-cle",
-          "french": "un abonnement",
-          "english": "a pass/subscription",
-          "example": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
-          "usage": "Nom central désignant la formule d'accès régulier aux transports."
+          "french": "abonnements",
+          "english": "passes/subscriptions",
+          "example": "Côté budget, combien coûte un trajet, et quels abonnements existent ?",
+          "usage": "Nom désignant les formules d'accès régulier aux transports."
         },
         {
           "id": "T2J7S29V06",
@@ -95,18 +95,18 @@
         {
           "id": "T2J7S29V12",
           "kind": "collocation",
-          "french": "souscrire à un abonnement",
-          "english": "subscribe to a pass",
-          "example": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
-          "usage": "Collocation formelle pour parler d'un engagement tarifaire régulier."
+          "french": "à une borne",
+          "english": "at a ticket machine",
+          "example": "Où peut-on acheter les tickets ou les abonnements — en ligne, à une borne ou auprès d'un agent ?",
+          "usage": "Groupe prépositionnel pour indiquer où acheter un titre de transport."
         },
         {
           "id": "T2J7S29V13",
           "kind": "collocation",
-          "french": "payer chaque trajet séparément",
-          "english": "pay for each trip separately",
-          "example": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
-          "usage": "S'oppose à la formule de l'abonnement."
+          "french": "auprès d'un agent",
+          "english": "from a staff member",
+          "example": "Où peut-on acheter les tickets ou les abonnements — en ligne, à une borne ou auprès d'un agent ?",
+          "usage": "Expression indiquant la personne à qui s'adresser pour un achat ou une démarche."
         },
         {
           "id": "T2J7S29V14",
@@ -183,10 +183,10 @@
         {
           "id": "T2J7S29V23",
           "kind": "tournure",
-          "french": "Comment fonctionnent les tarifs",
-          "english": "how do the rates work",
-          "example": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
-          "usage": "Tournure standard pour interroger sur un système de prix."
+          "french": "combien coûte un trajet",
+          "english": "how much does a trip cost",
+          "example": "Côté budget, combien coûte un trajet, et quels abonnements existent ?",
+          "usage": "Question pour connaître le prix d'un déplacement."
         },
         {
           "id": "T2J7S29V24",
@@ -294,16 +294,16 @@
           "kind": "mot-cle",
           "french": "la facture",
           "english": "the receipt",
-          "example": "J'ai encore une question : tu as gardé la facture et les accessoires d'origine ?",
+          "example": "Tu as gardé la facture et les justificatifs d'entretien ?",
           "usage": "Nom désignant le justificatif d'achat."
         },
         {
           "id": "T2J7S30V07",
           "kind": "mot-cle",
-          "french": "les accessoires d'origine",
-          "english": "the original accessories",
-          "example": "J'ai encore une question : tu as gardé la facture et les accessoires d'origine ?",
-          "usage": "Groupe nominal pour les accessoires fournis."
+          "french": "les justificatifs d'entretien",
+          "english": "the maintenance records",
+          "example": "Tu as gardé la facture et les justificatifs d'entretien ?",
+          "usage": "Groupe nominal désignant les documents qui attestent l'entretien d'un véhicule."
         },
         {
           "id": "T2J7S30V08",
@@ -342,7 +342,7 @@
           "kind": "collocation",
           "french": "avant de me décider",
           "english": "before I make up my mind",
-          "example": "Il me reste un point à éclaircir : est-ce que je pourrais l'essayer avant de me décider ?",
+          "example": "Est-ce que je pourrais l'essayer avant de me décider ?",
           "usage": "Locution prépositionnelle + verbe pronominal pour évoquer une période de réflexion."
         },
         {
@@ -406,7 +406,7 @@
           "kind": "collocation",
           "french": "gardé la facture",
           "english": "kept the receipt",
-          "example": "J'ai encore une question : tu as gardé la facture et les accessoires d'origine ?",
+          "example": "Tu as gardé la facture et les justificatifs d'entretien ?",
           "usage": "Verbe + complément sur les justificatifs."
         },
         {
@@ -430,7 +430,7 @@
           "kind": "tournure",
           "french": "est-ce que je pourrais l'essayer",
           "english": "could I try it out",
-          "example": "Il me reste un point à éclaircir : est-ce que je pourrais l'essayer avant de me décider ?",
+          "example": "Est-ce que je pourrais l'essayer avant de me décider ?",
           "usage": "Tournure au conditionnel avec « est-ce que » pour demander un essai avant achat."
         },
         {
@@ -950,10 +950,10 @@
         {
           "id": "T2J7S32V27",
           "kind": "tournure",
-          "french": "Qu'est-ce qui plaît généralement le plus aux enfants",
-          "english": "what children usually like most",
-          "example": "Justement, qu'est-ce qui plaît généralement le plus aux enfants, d'après toi ?",
-          "usage": "Question sur les préférences."
+          "french": "à quelles tranches d'âge",
+          "english": "for which age groups",
+          "example": "Ces sorties conviennent à quelles tranches d'âge ?",
+          "usage": "Groupe interrogatif pour préciser l'âge du public auquel une sortie convient."
         },
         {
           "id": "T2J7S32V28",

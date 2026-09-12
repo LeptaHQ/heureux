@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "des activités",
           "english": "activities",
-          "example": "Avant que j'oublie, y a-t-il des activités spécialement prévues pour les enfants ?",
+          "example": "Y a-t-il des activités pour différents âges, pour que tous les enfants en profitent ?",
           "usage": "Groupe nominal utile pour parler des animations proposées."
         },
         {
@@ -121,7 +121,7 @@
           "kind": "collocation",
           "french": "organise la fête",
           "english": "organizes the fair",
-          "example": "Côté niveau, qui organise la fête exactement — les parents, les enseignants, les élèves ?",
+          "example": "Qui organise la fête exactement — les parents, les enseignants, les élèves ?",
           "usage": "Collocation utile pour demander qui prépare l'événement."
         },
         {
@@ -135,17 +135,17 @@
         {
           "id": "T2D12S26V17",
           "kind": "collocation",
-          "french": "prévues pour les enfants",
-          "english": "planned for children",
-          "example": "Avant que j'oublie, y a-t-il des activités spécialement prévues pour les enfants ?",
-          "usage": "Collocation pour préciser un public visé."
+          "french": "pour différents âges",
+          "english": "for different ages",
+          "example": "Y a-t-il des activités pour différents âges, pour que tous les enfants en profitent ?",
+          "usage": "Groupe prépositionnel pour préciser les publics d'une activité."
         },
         {
           "id": "T2D12S26V18",
           "kind": "collocation",
-          "french": "acheter des billets à l'avance",
-          "english": "buy tickets in advance",
-          "example": "Faut-il acheter des billets à l'avance ou l'entrée est-elle gratuite ?",
+          "french": "réserver à l'avance",
+          "english": "book in advance",
+          "example": "L'entrée est-elle gratuite, et faut-il réserver à l'avance ?",
           "usage": "Collocation pour parler d'une réservation avant le jour J."
         },
         {
@@ -201,16 +201,16 @@
           "kind": "tournure",
           "french": "Qui organise la fête exactement",
           "english": "who exactly organizes the fair",
-          "example": "Côté niveau, qui organise la fête exactement — les parents, les enseignants, les élèves ?",
+          "example": "Qui organise la fête exactement — les parents, les enseignants, les élèves ?",
           "usage": "Question directe pour identifier les organisateurs."
         },
         {
           "id": "T2D12S26V26",
           "kind": "tournure",
-          "french": "Y a-t-il des activités spécialement prévues pour les enfants",
-          "english": "are there activities especially planned for children",
-          "example": "Avant que j'oublie, y a-t-il des activités spécialement prévues pour les enfants ?",
-          "usage": "Formulation complète pour demander des animations adaptées aux enfants."
+          "french": "y a-t-il des activités pour différents âges",
+          "english": "are there activities for different ages",
+          "example": "Y a-t-il des activités pour différents âges, pour que tous les enfants en profitent ?",
+          "usage": "Question pour vérifier l'adaptation des animations aux enfants."
         },
         {
           "id": "T2D12S26V27",
@@ -223,9 +223,9 @@
         {
           "id": "T2D12S26V28",
           "kind": "tournure",
-          "french": "Faut-il acheter des billets à l'avance",
-          "english": "do you need to buy tickets in advance",
-          "example": "Faut-il acheter des billets à l'avance ou l'entrée est-elle gratuite ?",
+          "french": "faut-il réserver à l'avance",
+          "english": "do you need to book in advance",
+          "example": "L'entrée est-elle gratuite, et faut-il réserver à l'avance ?",
           "usage": "Tournure impersonnelle utile pour vérifier une obligation."
         },
         {
@@ -595,7 +595,7 @@
           "kind": "collocation",
           "french": "se sentir perdu(e)",
           "english": "to feel lost",
-          "example": "Côté précautions, ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "example": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "usage": "Association verbe pronominal + adjectif pour exprimer un sentiment de confusion."
         },
         {
@@ -625,10 +625,10 @@
         {
           "id": "T2D12S28V17",
           "kind": "collocation",
-          "french": "de manière flexible",
-          "english": "in a flexible way",
-          "example": "Une fois inscrit(e), on s'engage pour toute la session ou on peut venir de manière flexible ?",
-          "usage": "Groupe adverbial fixe pour décrire une organisation souple."
+          "french": "si nécessaire",
+          "english": "if necessary",
+          "example": "Est-ce qu'il est possible de suspendre l'abonnement si nécessaire ?",
+          "usage": "Locution adverbiale pour conditionner une possibilité à un besoin."
         },
         {
           "id": "T2D12S28V18",
@@ -675,7 +675,7 @@
           "kind": "tournure",
           "french": "Ça s'adresse à quel public",
           "english": "Who is it aimed at",
-          "example": "Côté précautions, ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "example": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "usage": "Question orale avec le groupe interrogatif 'quel public' maintenu après le verbe, sans inversion."
         },
         {
@@ -758,10 +758,10 @@
         {
           "id": "T2D12S29V03",
           "kind": "mot-cle",
-          "french": "une autre saison",
-          "english": "another season",
-          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Groupe nominal pour évoquer une période de l'année différente."
+          "french": "période",
+          "english": "time/period",
+          "example": "Quelle est la meilleure période pour ces destinations ?",
+          "usage": "Nom féminin désignant un moment de l'année adapté à un voyage."
         },
         {
           "id": "T2D12S29V04",
@@ -806,10 +806,10 @@
         {
           "id": "T2D12S29V09",
           "kind": "mot-cle",
-          "french": "des places",
-          "english": "spots/seats",
-          "example": "Il reste encore des places ou c'est déjà complet ?",
-          "usage": "Nom courant désignant les emplacements disponibles pour une activité."
+          "french": "d'autres dates",
+          "english": "other dates",
+          "example": "Si le circuit qui m'intéresse est complet, proposez-vous d'autres dates ?",
+          "usage": "Groupe nominal désignant des possibilités différentes dans le calendrier."
         },
         {
           "id": "T2D12S29V10",
@@ -830,10 +830,10 @@
         {
           "id": "T2D12S29V12",
           "kind": "collocation",
-          "french": "beaucoup de monde",
-          "english": "a lot of people",
-          "example": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
-          "usage": "Association figée signifiant une forte affluence."
+          "french": "moins fréquentées",
+          "english": "less busy",
+          "example": "Y a-t-il des périodes moins fréquentées pour voyager plus tranquillement ?",
+          "usage": "Association comparative pour décrire des périodes de moindre affluence."
         },
         {
           "id": "T2D12S29V13",
@@ -856,16 +856,16 @@
           "kind": "collocation",
           "french": "s'y prendre au dernier moment",
           "english": "to leave it until the last minute",
-          "example": "Pour l'inscription, faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
+          "example": "Faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
           "usage": "Expression courante pour évoquer une réservation tardive."
         },
         {
           "id": "T2D12S29V16",
           "kind": "collocation",
-          "french": "déjà complet",
-          "english": "already fully booked",
-          "example": "Il reste encore des places ou c'est déjà complet ?",
-          "usage": "Association adverbe + adjectif pour signaler l'absence de place restante."
+          "french": "est complet",
+          "english": "is fully booked",
+          "example": "Si le circuit qui m'intéresse est complet, proposez-vous d'autres dates ?",
+          "usage": "Association du verbe « être » et de l'adjectif « complet » pour signaler l'absence de places."
         },
         {
           "id": "T2D12S29V17",
@@ -878,10 +878,10 @@
         {
           "id": "T2D12S29V18",
           "kind": "collocation",
-          "french": "le circuit le plus apprécié",
-          "english": "the most popular tour",
-          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
-          "usage": "Superlatif appliqué à un nom pour désigner l'option la plus prisée."
+          "french": "voyager plus tranquillement",
+          "english": "travel more peacefully",
+          "example": "Y a-t-il des périodes moins fréquentées pour voyager plus tranquillement ?",
+          "usage": "Association verbe-adverbe pour privilégier un voyage plus calme."
         },
         {
           "id": "T2D12S29V19",
@@ -926,10 +926,10 @@
         {
           "id": "T2D12S29V24",
           "kind": "tournure",
-          "french": "il vaut mieux attendre",
-          "english": "it is better to wait",
-          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Tournure impersonnelle avec 'il vaut mieux' pour exprimer une recommandation."
+          "french": "Quelle est la meilleure période",
+          "english": "what is the best time",
+          "example": "Quelle est la meilleure période pour ces destinations ?",
+          "usage": "Question pour choisir la période la plus favorable à un voyage."
         },
         {
           "id": "T2D12S29V25",
@@ -944,16 +944,16 @@
           "kind": "tournure",
           "french": "Faut-il réserver le circuit longtemps à l'avance",
           "english": "Should the tour be booked well in advance",
-          "example": "Pour l'inscription, faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
+          "example": "Faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
           "usage": "Inversion avec « faut-il » pour vérifier le délai de réservation."
         },
         {
           "id": "T2D12S29V27",
           "kind": "tournure",
-          "french": "Il reste encore",
-          "english": "There are still... / Is there still...",
-          "example": "Il reste encore des places ou c'est déjà complet ?",
-          "usage": "Tournure impersonnelle avec 'il reste' pour vérifier une disponibilité."
+          "french": "proposez-vous d'autres dates",
+          "english": "do you offer other dates",
+          "example": "Si le circuit qui m'intéresse est complet, proposez-vous d'autres dates ?",
+          "usage": "Question avec inversion pour demander une alternative quand un circuit est complet."
         },
         {
           "id": "T2D12S29V28",
@@ -966,10 +966,10 @@
         {
           "id": "T2D12S29V29",
           "kind": "tournure",
-          "french": "vous pourriez m'en dire un peu plus",
-          "english": "could you tell me a bit more",
-          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
-          "usage": "Conditionnel de politesse suivi du pronom 'en' pour relancer sur un sujet, registre vouvoiement."
+          "french": "lequel recommandez-vous le plus",
+          "english": "which one do you recommend most",
+          "example": "Parmi ces circuits, lequel recommandez-vous le plus, et qu'est-ce qu'il comprend ?",
+          "usage": "Pronom interrogatif et inversion pour hiérarchiser plusieurs options."
         },
         {
           "id": "T2D12S29V30",
@@ -1029,7 +1029,7 @@
           "kind": "mot-cle",
           "french": "la ludothèque",
           "english": "the toy library",
-          "example": "Bonjour ! J'ai deux jeunes enfants et je voudrais m'inscrire à la ludothèque — comment dois-je procéder ?",
+          "example": "Bonjour ! Je voudrais m'inscrire à la ludothèque — comment dois-je procéder ?",
           "usage": "Nom féminin désignant le lieu où l'on peut emprunter des jeux et des jouets."
         },
         {
@@ -1069,7 +1069,7 @@
           "kind": "collocation",
           "french": "m'inscrire à la ludothèque",
           "english": "to sign up for the toy library",
-          "example": "Bonjour ! J'ai deux jeunes enfants et je voudrais m'inscrire à la ludothèque — comment dois-je procéder ?",
+          "example": "Bonjour ! Je voudrais m'inscrire à la ludothèque — comment dois-je procéder ?",
           "usage": "Collocation verbale pour parler de l'adhésion au service."
         },
         {
@@ -1149,7 +1149,7 @@
           "kind": "tournure",
           "french": "comment dois-je procéder",
           "english": "how should I proceed",
-          "example": "Bonjour ! J'ai deux jeunes enfants et je voudrais m'inscrire à la ludothèque — comment dois-je procéder ?",
+          "example": "Bonjour ! Je voudrais m'inscrire à la ludothèque — comment dois-je procéder ?",
           "usage": "Question polie pour demander la marche à suivre."
         },
         {
@@ -1219,10 +1219,10 @@
         {
           "id": "T2D12S30V30",
           "kind": "tournure",
-          "french": "si vous ne deviez me recommander qu'une seule chose",
-          "english": "if you had to recommend just one thing to me",
-          "example": "Pour finir — si vous ne deviez me recommander qu'une seule chose, ce serait laquelle ?",
-          "usage": "Tournure hypothétique polie pour clore un échange en demandant une priorité absolue."
+          "french": "comment choisir un premier jeu adapté à l'âge et aux goûts des joueurs",
+          "english": "how can one choose a first game suited to the players' ages and tastes",
+          "example": "Pour finir — comment choisir un premier jeu adapté à l'âge et aux goûts des joueurs ?",
+          "usage": "Question de clôture pour demander un conseil adapté aux personnes qui joueront."
         }
       ]
     }

@@ -62,17 +62,17 @@
           "memory_section": 13
         },
         {
-          "text": "Tu as mentionné le réalisateur — tu pourrais m'en dire un peu plus sur ses autres films ?",
+          "text": "Si tu connais d'autres films de ce réalisateur, lesquels me conseillerais-tu ?",
           "memory_number": 9,
           "memory_section": 13
         },
         {
-          "text": "Pour ce qui est du programme, où as-tu vu le film — au cinéma, en festival, en ligne ?",
+          "text": "Où as-tu vu le film — au cinéma, en festival, en ligne ?",
           "memory_number": 9,
           "memory_section": 13
         },
         {
-          "text": "Parlons du budget — combien est-ce que ça coûte approximativement pour le voir en salle ?",
+          "text": "Côté budget, combien cela t'a coûté pour voir ce film ?",
           "memory_number": 9,
           "memory_section": 3
         },
@@ -104,7 +104,7 @@
           "memory_section": 2
         },
         {
-          "text": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
+          "text": "Parmi ces circuits, lequel recommandez-vous le plus, et qu'est-ce qu'il comprend ?",
           "memory_number": 7,
           "memory_section": 13
         },
@@ -119,7 +119,7 @@
           "memory_section": 6
         },
         {
-          "text": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "text": "Quelle est la meilleure période pour ces destinations ?",
           "memory_number": 7,
           "memory_section": 8
         },
@@ -129,17 +129,17 @@
           "memory_section": 8
         },
         {
-          "text": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
+          "text": "Y a-t-il des périodes moins fréquentées pour voyager plus tranquillement ?",
           "memory_number": 7,
           "memory_section": 8
         },
         {
-          "text": "Pour l'inscription, faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
+          "text": "Faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
           "memory_number": 7,
           "memory_section": 9
         },
         {
-          "text": "Il reste encore des places ou c'est déjà complet ?",
+          "text": "Si le circuit qui m'intéresse est complet, proposez-vous d'autres dates ?",
           "memory_number": 7,
           "memory_section": 6
         },
@@ -196,7 +196,7 @@
           "memory_section": 4
         },
         {
-          "text": "Il y a généralement combien de participants — c'est un petit groupe ou tout le quartier ?",
+          "text": "Combien de voisins pourrait-on inviter sans que l'organisation devienne trop compliquée ?",
           "memory_number": 11,
           "memory_section": 7
         },
@@ -206,7 +206,7 @@
           "memory_section": 13
         },
         {
-          "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "text": "Comment créer une ambiance conviviale pour que les voisins fassent connaissance ?",
           "memory_number": 11,
           "memory_section": 10
         },
@@ -226,12 +226,12 @@
           "memory_section": 10
         },
         {
-          "text": "Y a-t-il des activités ou jeux prévus — pour adultes et enfants ?",
+          "text": "Quels jeux ou activités conseilleriez-vous pour les adultes et les enfants ?",
           "memory_number": 11,
           "memory_section": 2
         },
         {
-          "text": "Question conditions, faut-il prévenir la mairie ou respecter des règles de bruit ?",
+          "text": "Faut-il prévenir la mairie ou respecter des règles de bruit ?",
           "memory_number": 11,
           "memory_section": 8
         },
@@ -283,7 +283,7 @@
           "memory_section": 13
         },
         {
-          "text": "Pour ce qui est du déroulement, est-ce que les voisins organisent parfois des activités ou des rencontres dans l'immeuble ?",
+          "text": "Est-ce que les voisins organisent parfois des activités ou des rencontres dans l'immeuble ?",
           "memory_number": 3,
           "memory_section": 2
         },
@@ -303,12 +303,12 @@
           "memory_section": 2
         },
         {
-          "text": "À quelle fréquence ces rencontres sont-elles organisées — chaque semaine ou seulement de temps en temps ?",
+          "text": "Y a-t-il aussi des rencontres régulières où l'on peut retrouver les mêmes personnes ?",
           "memory_number": 3,
           "memory_section": 4
         },
         {
-          "text": "La programmation des événements est publiée à l'avance ou on la découvre sur place ?",
+          "text": "Où peut-on consulter le programme de ces événements ?",
           "memory_number": 3,
           "memory_section": 2
         },
@@ -355,7 +355,7 @@
           "memory_section": 4
         },
         {
-          "text": "À ce propos, combien de jours travaillent-ils par semaine en général ?",
+          "text": "Et ces heures sont réparties sur combien de jours par semaine en général ?",
           "memory_number": 4,
           "memory_section": 4
         },
@@ -380,12 +380,12 @@
           "memory_section": 4
         },
         {
-          "text": "Côté repas, les pauses déjeuner sont-elles longues ou plutôt courtes par rapport à mon pays ?",
+          "text": "Côté repas, combien de temps dure généralement la pause déjeuner ?",
           "memory_number": 4,
           "memory_section": 4
         },
         {
-          "text": "Et côté repos, combien de jours de congé annuels ont-ils en moyenne — c'est plus ou moins que dans mon pays ?",
+          "text": "Et côté repos, combien de jours de congé payés les salariés ont-ils en général au Canada ?",
           "memory_number": 4,
           "memory_section": 11
         },
@@ -395,7 +395,7 @@
           "memory_section": 4
         },
         {
-          "text": "Le rythme de travail est-il plutôt stressant ou détendu par rapport à mon pays ?",
+          "text": "Qu'est-ce qui influence le plus le rythme de travail — le secteur, l'entreprise ou le poste ?",
           "memory_number": 4,
           "memory_section": 11
         },
@@ -405,7 +405,7 @@
           "memory_section": 4
         },
         {
-          "text": "Y a-t-il d'autres différences dans l'organisation du travail qui pourraient me surprendre ?",
+          "text": "Pour comparer avec mon pays, y a-t-il d'autres particularités de l'organisation du travail que je devrais connaître ?",
           "memory_number": 4,
           "memory_section": 11
         },

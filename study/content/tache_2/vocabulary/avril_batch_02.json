@@ -23,10 +23,10 @@
         {
           "id": "T2A4S6V03",
           "kind": "mot-cle",
-          "french": "une bonne période",
-          "english": "a good time (of year)",
-          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Groupe nominal pour évaluer si un moment convient à un projet de voyage."
+          "french": "la meilleure période",
+          "english": "the best time of year",
+          "example": "Quelle est la meilleure période pour un séjour au Canada ?",
+          "usage": "Groupe nominal superlatif pour désigner le moment le plus adapté à un projet de voyage."
         },
         {
           "id": "T2A4S6V04",
@@ -71,10 +71,10 @@
         {
           "id": "T2A4S6V09",
           "kind": "mot-cle",
-          "french": "le circuit le plus apprécié",
-          "english": "the most popular tour",
-          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
-          "usage": "Groupe nominal superlatif désignant l'itinéraire préféré des voyageurs."
+          "french": "ces circuits",
+          "english": "these tours",
+          "example": "Parmi ces circuits, lequel recommandez-vous le plus, et qu'est-ce qu'il comprend ?",
+          "usage": "Groupe nominal désignant des itinéraires de voyage organisés."
         },
         {
           "id": "T2A4S6V10",
@@ -95,18 +95,18 @@
         {
           "id": "T2A4S6V12",
           "kind": "collocation",
-          "french": "il vaut mieux attendre",
-          "english": "it's better to wait",
-          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Expression impersonnelle figée suivie d'un infinitif pour formuler une recommandation prudente."
+          "french": "recommandez-vous le plus",
+          "english": "do you recommend most",
+          "example": "Parmi ces circuits, lequel recommandez-vous le plus, et qu'est-ce qu'il comprend ?",
+          "usage": "Association verbe-adverbe à la forme interrogative pour exprimer une préférence parmi plusieurs options."
         },
         {
           "id": "T2A4S6V13",
           "kind": "collocation",
-          "french": "il y a beaucoup de monde",
-          "english": "there are a lot of people",
-          "example": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
-          "usage": "Expression idiomatique fixe pour indiquer une forte affluence."
+          "french": "moins fréquentées",
+          "english": "less busy",
+          "example": "Y a-t-il des périodes moins fréquentées pour voyager plus tranquillement ?",
+          "usage": "Association comparative pour décrire des périodes de moindre affluence."
         },
         {
           "id": "T2A4S6V14",
@@ -137,7 +137,7 @@
           "kind": "collocation",
           "french": "payer en plusieurs fois",
           "english": "to pay in instalments",
-          "example": "En ce qui concerne le prix, est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "example": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
           "usage": "Collocation verbe + locution pour exprimer un règlement fractionné."
         },
         {
@@ -145,7 +145,7 @@
           "kind": "collocation",
           "french": "régler en une seule fois",
           "english": "to settle in one go",
-          "example": "En ce qui concerne le prix, est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "example": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
           "usage": "Collocation verbe + locution restrictive pour exprimer un paiement unique."
         },
         {
@@ -225,16 +225,16 @@
           "kind": "tournure",
           "french": "Est-ce qu'il est possible de payer en plusieurs fois",
           "english": "Is it possible to pay in instalments",
-          "example": "En ce qui concerne le prix, est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "example": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
           "usage": "Tournure avec « est-ce que » suivie d'un adjectif attribut et d'un complément à l'infinitif."
         },
         {
           "id": "T2A4S6V29",
           "kind": "tournure",
-          "french": "Vous avez mentionné le circuit le plus apprécié",
-          "english": "You mentioned the most popular tour",
-          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
-          "usage": "Structure de relance au passé composé, registre vouvoiement, pour revenir sur un point déjà cité."
+          "french": "lequel recommandez-vous le plus",
+          "english": "which one do you recommend most",
+          "example": "Parmi ces circuits, lequel recommandez-vous le plus, et qu'est-ce qu'il comprend ?",
+          "usage": "Pronom interrogatif et inversion pour hiérarchiser plusieurs options."
         },
         {
           "id": "T2A4S6V30",
@@ -744,7 +744,7 @@
           "kind": "mot-cle",
           "french": "les services proposés",
           "english": "the services offered",
-          "example": "Bonjour ! Je séjourne dans votre hôtel et j'aimerais en savoir plus sur les services proposés — vous pourriez me renseigner ?",
+          "example": "Bonjour ! J'aimerais en savoir plus sur les services proposés dans votre hôtel — vous pourriez me renseigner ?",
           "usage": "Groupe nominal désignant les prestations de l'hôtel."
         },
         {
@@ -776,7 +776,7 @@
           "kind": "mot-cle",
           "french": "une piscine",
           "english": "a swimming pool",
-          "example": "En ce qui concerne l'hébergement, l'hôtel dispose-t-il d'une salle de sport, d'une piscine ou d'un spa ?",
+          "example": "L'hôtel dispose-t-il d'une salle de sport, d'une piscine ou d'un spa ?",
           "usage": "Nom féminin désignant l'équipement de baignade."
         },
         {
@@ -824,7 +824,7 @@
           "kind": "collocation",
           "french": "en savoir plus sur les services",
           "english": "to find out more about the services",
-          "example": "Bonjour ! Je séjourne dans votre hôtel et j'aimerais en savoir plus sur les services proposés — vous pourriez me renseigner ?",
+          "example": "Bonjour ! J'aimerais en savoir plus sur les services proposés dans votre hôtel — vous pourriez me renseigner ?",
           "usage": "Collocation « en savoir plus sur » pour demander des informations."
         },
         {
@@ -896,7 +896,7 @@
           "kind": "collocation",
           "french": "en cas de problème dans la chambre",
           "english": "in case of a problem in the room",
-          "example": "En cas de problème dans la chambre, à qui dois-je m'adresser et à quelle heure ?",
+          "example": "En cas de problème dans la chambre, peut-on joindre la réception à toute heure ?",
           "usage": "Locution « en cas de » introduisant une situation à gérer."
         },
         {
@@ -928,7 +928,7 @@
           "kind": "tournure",
           "french": "L'hôtel dispose-t-il d'une salle de sport, d'une piscine ou d'un spa",
           "english": "Does the hotel have a gym, a pool or a spa",
-          "example": "En ce qui concerne l'hébergement, l'hôtel dispose-t-il d'une salle de sport, d'une piscine ou d'un spa ?",
+          "example": "L'hôtel dispose-t-il d'une salle de sport, d'une piscine ou d'un spa ?",
           "usage": "Question avec inversion « dispose-t-il » sur les installations."
         },
         {
@@ -974,10 +974,10 @@
         {
           "id": "T2A4S9V30",
           "kind": "tournure",
-          "french": "si vous ne deviez me recommander qu'un seul service de l'hôtel",
-          "english": "if you had to recommend just one hotel service",
-          "example": "Pour finir — si vous ne deviez me recommander qu'un seul service de l'hôtel, ce serait lequel ?",
-          "usage": "Proposition hypothétique restrictive pour clore l'échange."
+          "french": "comment réserver les services qui m'intéressent",
+          "english": "how to book the services I'm interested in",
+          "example": "Pour finir — comment réserver les services qui m'intéressent ?",
+          "usage": "Question à l'infinitif pour demander la procédure de réservation."
         }
       ]
     },
@@ -995,9 +995,9 @@
         {
           "id": "T2A4S10V02",
           "kind": "mot-cle",
-          "french": "ton chemin",
-          "english": "your route",
-          "example": "Tu pars d'où exactement, et est-ce que tu peux passer me prendre quelque part sur ton chemin ?",
+          "french": "le trajet",
+          "english": "the route",
+          "example": "Tu pars d'où exactement, et est-ce qu'on pourrait me prendre quelque part sur le trajet ?",
           "usage": "Groupe nominal désignant l'itinéraire habituel du conducteur."
         },
         {
@@ -1061,7 +1061,7 @@
           "kind": "mot-cle",
           "french": "les passagers",
           "english": "the passengers",
-          "example": "Pour ce qui est des imprévus, est-ce que ton assurance couvre les passagers en cas de souci ?",
+          "example": "Pour ce qui est des imprévus, est-ce que l'assurance du conducteur couvre les passagers en cas de souci ?",
           "usage": "Nom masculin pluriel désignant les personnes transportées."
         },
         {
@@ -1083,17 +1083,17 @@
         {
           "id": "T2A4S10V13",
           "kind": "collocation",
-          "french": "passer me prendre",
-          "english": "to pick me up",
-          "example": "Tu pars d'où exactement, et est-ce que tu peux passer me prendre quelque part sur ton chemin ?",
-          "usage": "Collocation verbale sur le fait de récupérer un passager."
+          "french": "me prendre quelque part sur le trajet",
+          "english": "pick me up somewhere along the route",
+          "example": "Tu pars d'où exactement, et est-ce qu'on pourrait me prendre quelque part sur le trajet ?",
+          "usage": "Association verbale pour demander de récupérer un passager sur l'itinéraire."
         },
         {
           "id": "T2A4S10V14",
           "kind": "collocation",
           "french": "tous les jours",
           "english": "every day",
-          "example": "À quelle fréquence proposes-tu ces trajets — tous les jours ou seulement certains jours ?",
+          "example": "À quelle fréquence fais-tu ces trajets — tous les jours ou seulement certains jours ?",
           "usage": "Locution de fréquence exprimant la régularité quotidienne."
         },
         {
@@ -1133,7 +1133,7 @@
           "kind": "collocation",
           "french": "il reste de la place",
           "english": "there is room left",
-          "example": "Côté groupe, combien de personnes est-ce que tu prends en général — il reste de la place ?",
+          "example": "Il y a combien de personnes en général — il reste de la place ?",
           "usage": "Tournure impersonnelle figée sur la disponibilité de places."
         },
         {
@@ -1141,7 +1141,7 @@
           "kind": "collocation",
           "french": "couvre les passagers",
           "english": "covers the passengers",
-          "example": "Pour ce qui est des imprévus, est-ce que ton assurance couvre les passagers en cas de souci ?",
+          "example": "Pour ce qui est des imprévus, est-ce que l'assurance du conducteur couvre les passagers en cas de souci ?",
           "usage": "Collocation verbe + complément sur la couverture d'assurance."
         },
         {
@@ -1157,15 +1157,15 @@
           "kind": "tournure",
           "french": "Tu pars d'où exactement",
           "english": "Where exactly do you leave from",
-          "example": "Tu pars d'où exactement, et est-ce que tu peux passer me prendre quelque part sur ton chemin ?",
+          "example": "Tu pars d'où exactement, et est-ce qu'on pourrait me prendre quelque part sur le trajet ?",
           "usage": "Tournure orale avec « d'où » postposé sur le point de départ."
         },
         {
           "id": "T2A4S10V23",
           "kind": "tournure",
-          "french": "À quelle fréquence proposes-tu ces trajets",
-          "english": "How often do you offer these trips",
-          "example": "À quelle fréquence proposes-tu ces trajets — tous les jours ou seulement certains jours ?",
+          "french": "À quelle fréquence fais-tu ces trajets",
+          "english": "How often do you make these trips",
+          "example": "À quelle fréquence fais-tu ces trajets — tous les jours ou seulement certains jours ?",
           "usage": "Question avec « à quelle fréquence » sur le rythme."
         },
         {
@@ -1211,17 +1211,17 @@
         {
           "id": "T2A4S10V29",
           "kind": "tournure",
-          "french": "Combien de personnes est-ce que tu prends en général",
-          "english": "How many people do you usually take",
-          "example": "Côté groupe, combien de personnes est-ce que tu prends en général — il reste de la place ?",
-          "usage": "Question avec « combien de » sur le nombre de passagers."
+          "french": "Il y a combien de personnes en général",
+          "english": "How many people are there usually",
+          "example": "Il y a combien de personnes en général — il reste de la place ?",
+          "usage": "Question orale avec « combien » postposé pour demander le nombre habituel de passagers."
         },
         {
           "id": "T2A4S10V30",
           "kind": "tournure",
-          "french": "Est-ce que ton assurance couvre les passagers",
-          "english": "Does your insurance cover the passengers",
-          "example": "Pour ce qui est des imprévus, est-ce que ton assurance couvre les passagers en cas de souci ?",
+          "french": "est-ce que l'assurance du conducteur couvre les passagers",
+          "english": "Does the driver's insurance cover passengers",
+          "example": "Pour ce qui est des imprévus, est-ce que l'assurance du conducteur couvre les passagers en cas de souci ?",
           "usage": "Question avec « est-ce que » sur la couverture des passagers."
         }
       ]

@@ -81,7 +81,7 @@
           "kind": "mot-cle",
           "french": "un moment surprenant",
           "english": "a surprising moment",
-          "example": "Tu as mentionné un moment surprenant — tu pourrais m'en dire un peu plus : qu'est-ce qui s'est passé exactement ?",
+          "example": "S'il y a eu un moment surprenant pendant le jeu, tu pourrais me raconter ce qui s'est passé ?",
           "usage": "Groupe nominal qualifiant un souvenir marquant à approfondir."
         },
         {
@@ -617,10 +617,10 @@
         {
           "id": "T2J7S8V16",
           "kind": "collocation",
-          "french": "se sentir perdu(e)",
-          "english": "to feel lost",
-          "example": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
-          "usage": "Locution verbale pronominale sur la difficulté."
+          "french": "au niveau de chacun",
+          "english": "to each person's level",
+          "example": "Si on débute complètement, est-ce que vous adaptez les exercices au niveau de chacun ?",
+          "usage": "Groupe prépositionnel employé avec adapter pour individualiser les exercices."
         },
         {
           "id": "T2J7S8V17",
@@ -641,10 +641,10 @@
         {
           "id": "T2J7S8V19",
           "kind": "collocation",
-          "french": "à la séance",
-          "english": "per session",
-          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — on paie à la séance ou il faut s'inscrire pour la session ?",
-          "usage": "Locution sur le mode de paiement."
+          "french": "pour toute la session",
+          "english": "for the whole course session",
+          "example": "En ce qui concerne le budget, combien coûte une séance, et peut-on s'inscrire pour toute la session ?",
+          "usage": "Expression pour préciser que l'inscription couvre l'ensemble d'une période de cours."
         },
         {
           "id": "T2J7S8V20",
@@ -657,10 +657,10 @@
         {
           "id": "T2J7S8V21",
           "kind": "tournure",
-          "french": "si on débute complètement, est-ce qu'on risque de se sentir perdu(e)",
-          "english": "if one is a complete beginner, might one feel lost",
-          "example": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
-          "usage": "Tournure conditionnelle utile pour exprimer une inquiétude de débutant."
+          "french": "est-ce que vous adaptez les exercices au niveau de chacun",
+          "english": "do you adapt the exercises to each person's level",
+          "example": "Si on débute complètement, est-ce que vous adaptez les exercices au niveau de chacun ?",
+          "usage": "Question pour vérifier l'accompagnement de participants de niveaux différents."
         },
         {
           "id": "T2J7S8V22",
@@ -713,10 +713,10 @@
         {
           "id": "T2J7S8V28",
           "kind": "tournure",
-          "french": "Comment fonctionnent les tarifs",
-          "english": "how do the rates work",
-          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — on paie à la séance ou il faut s'inscrire pour la session ?",
-          "usage": "Question courante sur la tarification."
+          "french": "combien coûte une séance",
+          "english": "how much does a session cost",
+          "example": "En ce qui concerne le budget, combien coûte une séance, et peut-on s'inscrire pour toute la session ?",
+          "usage": "Question directe sur le prix d'une séance."
         },
         {
           "id": "T2J7S8V29",
@@ -822,9 +822,9 @@
         {
           "id": "T2J7S9V11",
           "kind": "collocation",
-          "french": "à l'heure, à la journée",
-          "english": "by the hour, by the day",
-          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
+          "french": "à l'heure ou à la journée",
+          "english": "by the hour or by the day",
+          "example": "En ce qui concerne le budget, combien coûte la location à l'heure ou à la journée ?",
           "usage": "Énumération de formules de location dans le temps."
         },
         {
@@ -896,15 +896,15 @@
           "kind": "collocation",
           "french": "des idées d'itinéraires",
           "english": "route ideas",
-          "example": "Puisqu'on en parle, vous fournissez un plan ou des idées d'itinéraires adaptés à cet usage ?",
+          "example": "Vous fournissez un plan ou des idées d'itinéraires pour découvrir la ville à vélo ?",
           "usage": "Locution nominale pour des parcours suggérés."
         },
         {
           "id": "T2J7S9V21",
           "kind": "tournure",
-          "french": "Comment fonctionnent les tarifs de location",
-          "english": "How do the rental rates work",
-          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
+          "french": "combien coûte la location à l'heure ou à la journée",
+          "english": "how much does hourly or daily rental cost",
+          "example": "En ce qui concerne le budget, combien coûte la location à l'heure ou à la journée ?",
           "usage": "Question ouverte sur la tarification de la location."
         },
         {
@@ -944,7 +944,7 @@
           "kind": "tournure",
           "french": "quel modèle me conseilleriez-vous",
           "english": "which model you would recommend",
-          "example": "Selon l'usage que je veux en faire, quel modèle me conseilleriez-vous ?",
+          "example": "Si je veux surtout circuler en ville, quel modèle me conseilleriez-vous ?",
           "usage": "Question pour un conseil de choix."
         },
         {
@@ -995,18 +995,18 @@
         {
           "id": "T2J7S10V02",
           "kind": "mot-cle",
-          "french": "une bonne période",
-          "english": "a good time (of year)",
-          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Groupe nominal pour évaluer si un moment convient à un projet de voyage."
+          "french": "quelle période",
+          "english": "which time of year",
+          "example": "Côté saison, quelle période me conseilleriez-vous pour y aller, et pourquoi ?",
+          "usage": "Groupe interrogatif pour demander une période adaptée au voyage."
         },
         {
           "id": "T2J7S10V03",
           "kind": "mot-cle",
-          "french": "une autre saison",
-          "english": "another season",
-          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Groupe nominal pour évoquer une période de l'année différente."
+          "french": "la réservation",
+          "english": "the booking",
+          "example": "Pour la réservation, faut-il s'y prendre longtemps à l'avance ou peut-on réserver au dernier moment ?",
+          "usage": "Nom désignant la démarche pour retenir une place à l'avance."
         },
         {
           "id": "T2J7S10V04",
@@ -1067,26 +1067,26 @@
         {
           "id": "T2J7S10V11",
           "kind": "collocation",
-          "french": "attendre une autre saison",
-          "english": "wait for another season",
-          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Suggère de reporter un voyage à une période plus favorable."
+          "french": "s'y prendre longtemps à l'avance",
+          "english": "to make arrangements well in advance",
+          "example": "Pour la réservation, faut-il s'y prendre longtemps à l'avance ou peut-on réserver au dernier moment ?",
+          "usage": "Expression pour prévoir suffisamment de temps avant une réservation."
         },
         {
           "id": "T2J7S10V12",
           "kind": "collocation",
-          "french": "il vaut mieux attendre",
-          "english": "it's better to wait",
-          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Expression impersonnelle figée suivie d'un infinitif pour formuler une recommandation prudente."
+          "french": "me conseilleriez-vous",
+          "english": "would you recommend to me",
+          "example": "Côté saison, quelle période me conseilleriez-vous pour y aller, et pourquoi ?",
+          "usage": "Forme interrogative au conditionnel pour demander un conseil poliment."
         },
         {
           "id": "T2J7S10V13",
           "kind": "collocation",
-          "french": "bonne période",
-          "english": "a good time (period)",
-          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Collocation adjectif + nom pour qualifier un moment opportun pour une activité."
+          "french": "réserver au dernier moment",
+          "english": "to book at the last minute",
+          "example": "Pour la réservation, faut-il s'y prendre longtemps à l'avance ou peut-on réserver au dernier moment ?",
+          "usage": "Collocation verbale pour évoquer une réservation peu avant le départ."
         },
         {
           "id": "T2J7S10V14",
@@ -1155,18 +1155,18 @@
         {
           "id": "T2J7S10V22",
           "kind": "tournure",
-          "french": "C'est une bonne période pour y aller",
-          "english": "is it a good time to go",
-          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Question évaluative très utile pour discuter du calendrier d'un voyage."
+          "french": "quelle période me conseilleriez-vous pour y aller",
+          "english": "what time of year would you recommend going",
+          "example": "Côté saison, quelle période me conseilleriez-vous pour y aller, et pourquoi ?",
+          "usage": "Question au conditionnel pour choisir une période de voyage."
         },
         {
           "id": "T2J7S10V23",
           "kind": "tournure",
-          "french": "il vaut mieux attendre une autre saison",
-          "english": "it's better to wait for another season",
-          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Tournure impersonnelle avec « il vaut mieux » pour suggérer une alternative temporelle."
+          "french": "peut-on réserver au dernier moment",
+          "english": "can one book at the last minute",
+          "example": "Pour la réservation, faut-il s'y prendre longtemps à l'avance ou peut-on réserver au dernier moment ?",
+          "usage": "Question pour vérifier la possibilité d'une réservation tardive."
         },
         {
           "id": "T2J7S10V24",
@@ -1221,7 +1221,7 @@
           "kind": "tournure",
           "french": "Quelles activités sont proposées à bord",
           "english": "what activities are offered on board",
-          "example": "Pour ce qui est des repas, quelles activités sont proposées à bord — spectacles, piscine, restaurants, excursions ?",
+          "example": "Quelles activités sont proposées à bord — spectacles, piscine, ateliers ?",
           "usage": "Question sur les animations."
         }
       ]

@@ -67,7 +67,7 @@
           "memory_section": 11
         },
         {
-          "text": "Pour l'inscription, il faut réserver une table à l'avance ou on peut y aller directement ?",
+          "text": "Il faut réserver une table à l'avance ou on peut y aller directement ?",
           "memory_number": 9,
           "memory_section": 9
         },
@@ -197,7 +197,7 @@
           "memory_section": 13
         },
         {
-          "text": "Côté niveau, qui encadre les enfants — ce sont des animateurs ou des professeurs qualifiés ?",
+          "text": "Qui encadre les enfants — ce sont des animateurs ou des professeurs qualifiés ?",
           "memory_number": 5,
           "memory_section": 7
         },
@@ -381,7 +381,7 @@
           "memory_section": 7
         },
         {
-          "text": "En ce qui concerne la couverture, quels sont les avantages dont bénéficient les employés — assurance, congés, primes, ce genre de choses ?",
+          "text": "Quels sont les avantages dont bénéficient les employés — assurance, congés, primes, ce genre de choses ?",
           "memory_number": 4,
           "memory_section": 3
         },
@@ -438,7 +438,7 @@
           "memory_section": 8
         },
         {
-          "text": "Avant que j'oublie, elle aime être seule un moment ou elle préfère rester avec quelqu'un ?"
+          "text": "Est-ce qu'elle joue facilement toute seule, ou elle préfère qu'on joue avec elle ?"
         },
         {
           "text": "Comment réagit-elle si elle est fatiguée ou contrariée ?"
@@ -459,7 +459,7 @@
           "memory_section": 4
         },
         {
-          "text": "Tu as mentionné ses habitudes du soir — tu pourrais m'en dire un peu plus sur sa routine avant de dormir ?",
+          "text": "Si elle se réveille pendant la nuit, qu'est-ce qui l'aide à se rendormir ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -469,7 +469,7 @@
           "memory_section": 8
         },
         {
-          "text": "Prend-elle des médicaments ou compléments — comment dois-je les lui donner ?",
+          "text": "Si elle prend des médicaments, peux-tu me préciser les doses et les horaires ?",
           "memory_number": 3,
           "memory_section": 8
         },
@@ -479,7 +479,7 @@
           "memory_section": 13
         },
         {
-          "text": "En ce qui concerne le matériel, qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
+          "text": "Pour le matériel, qu'est-ce que tu vas me laisser et que dois-je prévoir de mon côté ?",
           "memory_number": 3,
           "memory_section": 8
         },

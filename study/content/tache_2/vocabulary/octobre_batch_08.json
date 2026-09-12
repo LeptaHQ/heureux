@@ -9,7 +9,7 @@
           "kind": "mot-cle",
           "french": "des tarifs réduits",
           "english": "discounted rates",
-          "example": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "example": "Y avait-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
           "usage": "Groupe nominal désignant les prix diminués pour certains publics."
         },
         {
@@ -17,7 +17,7 @@
           "kind": "mot-cle",
           "french": "les étudiants, les seniors ou les familles",
           "english": "students, seniors, or families",
-          "example": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "example": "Y avait-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
           "usage": "Énumération figée des publics bénéficiant généralement de conditions tarifaires spécifiques."
         },
         {
@@ -25,7 +25,7 @@
           "kind": "mot-cle",
           "french": "un spectacle",
           "english": "a show",
-          "example": "Salut ! Je dois écrire un article sur un spectacle pour notre revue — tu pourrais m'aider à trouver des idées ?",
+          "example": "Salut ! Je dois écrire un article sur un spectacle pour le bulletin de mon association — tu pourrais m'aider à trouver des idées ?",
           "usage": "Nom désignant la représentation."
         },
         {
@@ -47,10 +47,10 @@
         {
           "id": "T2O10S36V06",
           "kind": "mot-cle",
-          "french": "l'histoire",
-          "english": "the story",
-          "example": "De quoi ça parlait — quel était le thème ou l'histoire ?",
-          "usage": "Nom désignant l'histoire du spectacle."
+          "french": "une histoire",
+          "english": "a story",
+          "example": "Qu'est-ce qu'il y avait au programme — une histoire, un thème ou des morceaux particuliers ?",
+          "usage": "Nom désignant une histoire racontée dans un spectacle."
         },
         {
           "id": "T2O10S36V07",
@@ -105,7 +105,7 @@
           "kind": "collocation",
           "french": "écrire un article sur un spectacle",
           "english": "write an article about a show",
-          "example": "Salut ! Je dois écrire un article sur un spectacle pour notre revue — tu pourrais m'aider à trouver des idées ?",
+          "example": "Salut ! Je dois écrire un article sur un spectacle pour le bulletin de mon association — tu pourrais m'aider à trouver des idées ?",
           "usage": "Verbe + complément sur la rédaction."
         },
         {
@@ -119,10 +119,10 @@
         {
           "id": "T2O10S36V15",
           "kind": "collocation",
-          "french": "le thème ou l'histoire",
-          "english": "the theme or the story",
-          "example": "De quoi ça parlait — quel était le thème ou l'histoire ?",
-          "usage": "Groupe nominal sur le contenu."
+          "french": "un thème ou des morceaux particuliers",
+          "english": "a theme or particular pieces of music",
+          "example": "Qu'est-ce qu'il y avait au programme — une histoire, un thème ou des morceaux particuliers ?",
+          "usage": "Groupes nominaux pour décrire le contenu d'un spectacle ou d'un concert."
         },
         {
           "id": "T2O10S36V16",
@@ -143,34 +143,34 @@
         {
           "id": "T2O10S36V18",
           "kind": "collocation",
-          "french": "du même genre",
-          "english": "of the same kind",
-          "example": "Tu aurais d'autres spectacles du même genre à me conseiller ?",
-          "usage": "Locution sur le genre du spectacle."
+          "french": "un moment marquant",
+          "english": "a memorable moment",
+          "example": "Tu aurais un moment marquant à me raconter pour illustrer l'article ?",
+          "usage": "Association nom-adjectif pour évoquer un passage qui a laissé une forte impression."
         },
         {
           "id": "T2O10S36V19",
           "kind": "collocation",
-          "french": "aux lecteurs de notre revue",
-          "english": "to our magazine's readers",
-          "example": "Pour finir — est-ce que tu recommanderais ce spectacle aux lecteurs de notre revue ?",
+          "french": "aux lecteurs du bulletin",
+          "english": "to the newsletter's readers",
+          "example": "Pour finir — est-ce que tu recommanderais ce spectacle aux lecteurs du bulletin ?",
           "usage": "Groupe nominal désignant le lectorat."
         },
         {
           "id": "T2O10S36V20",
           "kind": "collocation",
-          "french": "un article intéressant",
-          "english": "an interesting article",
-          "example": "Selon toi, ce spectacle peut-il donner lieu à un article intéressant pour notre association ?",
-          "usage": "Groupe nominal sur la qualité de l'article."
+          "french": "quel aspect du spectacle",
+          "english": "which aspect of the show",
+          "example": "Quel aspect du spectacle tu développerais dans l'article, et pourquoi ?",
+          "usage": "Groupe interrogatif pour choisir un élément à développer dans un article."
         },
         {
           "id": "T2O10S36V21",
           "kind": "tournure",
-          "french": "Y a-t-il des tarifs réduits pour les étudiants",
-          "english": "Are there discounts for students",
-          "example": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
-          "usage": "Tournure « y a-t-il » pour vérifier l'existence de réductions."
+          "french": "y avait-il des tarifs réduits pour les étudiants",
+          "english": "were there discounts for students",
+          "example": "Y avait-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "usage": "Tournure interrogative à l'imparfait pour vérifier l'existence de réductions lors du spectacle."
         },
         {
           "id": "T2O10S36V22",
@@ -191,10 +191,10 @@
         {
           "id": "T2O10S36V24",
           "kind": "tournure",
-          "french": "De quoi ça parlait",
-          "english": "what was it about",
-          "example": "De quoi ça parlait — quel était le thème ou l'histoire ?",
-          "usage": "Question sur le sujet."
+          "french": "qu'est-ce qu'il y avait au programme",
+          "english": "what was on the program",
+          "example": "Qu'est-ce qu'il y avait au programme — une histoire, un thème ou des morceaux particuliers ?",
+          "usage": "Question sur le contenu d'un événement passé."
         },
         {
           "id": "T2O10S36V25",
@@ -207,10 +207,10 @@
         {
           "id": "T2O10S36V26",
           "kind": "tournure",
-          "french": "Combien de temps dure le spectacle en général",
-          "english": "how long does the show usually last",
-          "example": "Combien de temps dure le spectacle en général ?",
-          "usage": "Question sur la durée."
+          "french": "combien de temps a duré",
+          "english": "how long did … last",
+          "example": "Combien de temps a duré le spectacle ?",
+          "usage": "Début de question au passé composé, à compléter avec l'événement dont on demande la durée."
         },
         {
           "id": "T2O10S36V27",
@@ -223,17 +223,17 @@
         {
           "id": "T2O10S36V28",
           "kind": "tournure",
-          "french": "Tu aurais d'autres spectacles du même genre à me conseiller",
-          "english": "would you have other similar shows to recommend",
-          "example": "Tu aurais d'autres spectacles du même genre à me conseiller ?",
-          "usage": "Question sur d'autres suggestions."
+          "french": "tu aurais un moment marquant à me raconter",
+          "english": "would you have a memorable moment to tell me about",
+          "example": "Tu aurais un moment marquant à me raconter pour illustrer l'article ?",
+          "usage": "Question au conditionnel pour recueillir un exemple vécu."
         },
         {
           "id": "T2O10S36V29",
           "kind": "tournure",
-          "french": "est-ce que tu recommanderais ce spectacle aux lecteurs de notre revue",
-          "english": "would you recommend this show to our readers",
-          "example": "Pour finir — est-ce que tu recommanderais ce spectacle aux lecteurs de notre revue ?",
+          "french": "est-ce que tu recommanderais ce spectacle aux lecteurs du bulletin",
+          "english": "would you recommend this show to the newsletter's readers",
+          "example": "Pour finir — est-ce que tu recommanderais ce spectacle aux lecteurs du bulletin ?",
           "usage": "Tournure de clôture."
         },
         {
@@ -310,7 +310,7 @@
           "kind": "mot-cle",
           "french": "le centre",
           "english": "the city centre",
-          "example": "Depuis le centre, c'est facile de rejoindre les endroits où je vais travailler ?",
+          "example": "Le réseau couvre bien toute la ville, ou seulement le centre ?",
           "usage": "Nom désignant le centre-ville."
         },
         {
@@ -388,10 +388,10 @@
         {
           "id": "T2O10S37V18",
           "kind": "collocation",
-          "french": "rejoindre les endroits",
-          "english": "reach the places",
-          "example": "Depuis le centre, c'est facile de rejoindre les endroits où je vais travailler ?",
-          "usage": "Verbe + complément sur les trajets."
+          "french": "vérifier le trajet",
+          "english": "check the route",
+          "example": "Comment vérifier le trajet jusqu'à mon lieu de travail et prévoir assez de temps ?",
+          "usage": "Verbe + complément pour préparer un déplacement."
         },
         {
           "id": "T2O10S37V19",
@@ -547,7 +547,7 @@
           "kind": "mot-cle",
           "french": "des prix",
           "english": "prizes",
-          "example": "Une dernière chose me vient à l'esprit : qu'est-ce qu'on peut gagner — y a-t-il des prix ou des récompenses ?",
+          "example": "Qu'est-ce qu'on peut gagner — y a-t-il des prix ou des récompenses ?",
           "usage": "Nom pluriel désignant les prix à gagner."
         },
         {
@@ -555,7 +555,7 @@
           "kind": "mot-cle",
           "french": "des récompenses",
           "english": "rewards",
-          "example": "Une dernière chose me vient à l'esprit : qu'est-ce qu'on peut gagner — y a-t-il des prix ou des récompenses ?",
+          "example": "Qu'est-ce qu'on peut gagner — y a-t-il des prix ou des récompenses ?",
           "usage": "Nom pluriel désignant les récompenses."
         },
         {
@@ -633,18 +633,18 @@
         {
           "id": "T2O10S38V18",
           "kind": "collocation",
-          "french": "juste pour essayer",
-          "english": "just to try",
-          "example": "Est-ce qu'on peut venir juste pour essayer, sans s'engager ?",
-          "usage": "Locution sur l'essai."
+          "french": "faire un essai",
+          "english": "give it a try",
+          "example": "Est-ce qu'on peut voir un exemple ou faire un essai pour bien comprendre les règles ?",
+          "usage": "Locution verbale sur l'essai."
         },
         {
           "id": "T2O10S38V19",
           "kind": "collocation",
-          "french": "sans s'engager",
-          "english": "without committing",
-          "example": "Est-ce qu'on peut venir juste pour essayer, sans s'engager ?",
-          "usage": "Locution sur l'absence d'engagement."
+          "french": "bien comprendre les règles",
+          "english": "understand the rules properly",
+          "example": "Est-ce qu'on peut voir un exemple ou faire un essai pour bien comprendre les règles ?",
+          "usage": "Collocation verbale pour préciser l'objectif d'une démonstration ou d'un essai."
         },
         {
           "id": "T2O10S38V20",
@@ -707,7 +707,7 @@
           "kind": "tournure",
           "french": "Qu'est-ce qu'on peut gagner",
           "english": "what can you win",
-          "example": "Une dernière chose me vient à l'esprit : qu'est-ce qu'on peut gagner — y a-t-il des prix ou des récompenses ?",
+          "example": "Qu'est-ce qu'on peut gagner — y a-t-il des prix ou des récompenses ?",
           "usage": "Question sur les gains."
         },
         {
@@ -721,10 +721,10 @@
         {
           "id": "T2O10S38V29",
           "kind": "tournure",
-          "french": "Combien d'étudiants participent en général",
-          "english": "how many students take part usually",
-          "example": "Passons maintenant à un autre point : combien d'étudiants participent en général ?",
-          "usage": "Question sur l'effectif."
+          "french": "combien d'étudiants",
+          "english": "how many students",
+          "example": "Combien d'étudiants peuvent participer ?",
+          "usage": "Groupe interrogatif pour demander un nombre de participants."
         },
         {
           "id": "T2O10S38V30",
@@ -880,7 +880,7 @@
           "kind": "collocation",
           "french": "m'accompagner",
           "english": "come with me",
-          "example": "Autre point important : ma famille pourrait-elle m'accompagner, avec un accompagnement prévu ?",
+          "example": "Ma famille pourrait-elle m'accompagner, et quelle aide serait prévue pour son installation ?",
           "usage": "Locution verbale sur l'accompagnement familial."
         },
         {
@@ -952,7 +952,7 @@
           "kind": "tournure",
           "french": "À qui serais-je rattaché(e)",
           "english": "who would I report to",
-          "example": "Question invités, à qui serais-je rattaché(e), et avec quelle équipe je travaillerais ?",
+          "example": "Et côté équipe, à qui serais-je rattaché(e), et avec qui je travaillerais ?",
           "usage": "Question sur le rattachement."
         },
         {
@@ -968,7 +968,7 @@
           "kind": "tournure",
           "french": "Ma famille pourrait-elle m'accompagner",
           "english": "could my family come with me",
-          "example": "Autre point important : ma famille pourrait-elle m'accompagner, avec un accompagnement prévu ?",
+          "example": "Ma famille pourrait-elle m'accompagner, et quelle aide serait prévue pour son installation ?",
           "usage": "Question sur la famille."
         },
         {
@@ -1045,7 +1045,7 @@
           "kind": "mot-cle",
           "french": "une tenue particulière",
           "english": "a specific dress code",
-          "example": "Question matériel, il faut prévoir une tenue particulière pour certains endroits ?",
+          "example": "Il faut prévoir une tenue particulière pour certains endroits ?",
           "usage": "Groupe nominal sur la tenue."
         },
         {
@@ -1075,17 +1075,17 @@
         {
           "id": "T2O10S40V12",
           "kind": "collocation",
-          "french": "un soir de semaine",
-          "english": "a weeknight",
-          "example": "C'est plutôt calme un soir de semaine, ou il y a de l'ambiance ?",
-          "usage": "Groupe nominal sur le soir de semaine."
+          "french": "le soir",
+          "english": "in the evening",
+          "example": "Dans les endroits que tu proposes, c'est plutôt calme le soir, ou il y a de l'ambiance ?",
+          "usage": "Expression temporelle sans précision du jour de la semaine."
         },
         {
           "id": "T2O10S40V13",
           "kind": "collocation",
           "french": "de l'ambiance",
           "english": "a lively vibe",
-          "example": "C'est plutôt calme un soir de semaine, ou il y a de l'ambiance ?",
+          "example": "Dans les endroits que tu proposes, c'est plutôt calme le soir, ou il y a de l'ambiance ?",
           "usage": "Locution sur l'animation."
         },
         {
@@ -1109,7 +1109,7 @@
           "kind": "collocation",
           "french": "restent ouverts",
           "english": "stay open",
-          "example": "Jusqu'à quelle heure les endroits restent ouverts un soir de semaine ?",
+          "example": "Jusqu'à quelle heure les endroits restent ouverts ce soir ?",
           "usage": "Locution verbale sur les horaires."
         },
         {
@@ -1147,10 +1147,10 @@
         {
           "id": "T2O10S40V21",
           "kind": "tournure",
-          "french": "Qu'est-ce qu'il y a de sympa à faire un soir dans le coin",
-          "english": "what nice things are there to do in the evening nearby",
-          "example": "Qu'est-ce qu'il y a de sympa à faire un soir dans le coin ?",
-          "usage": "Question sur les options."
+          "french": "tu as envie de rester dans le quartier",
+          "english": "do you feel like staying in the neighborhood",
+          "example": "Tu as envie de rester dans le quartier, ou tu préfères aller ailleurs ?",
+          "usage": "Question sur la préférence géographique pour une sortie."
         },
         {
           "id": "T2O10S40V22",
@@ -1187,9 +1187,9 @@
         {
           "id": "T2O10S40V26",
           "kind": "tournure",
-          "french": "Jusqu'à quelle heure les endroits restent ouverts un soir de semaine",
-          "english": "until what time do places stay open on a weeknight",
-          "example": "Jusqu'à quelle heure les endroits restent ouverts un soir de semaine ?",
+          "french": "jusqu'à quelle heure les endroits restent ouverts",
+          "english": "until what time do places stay open",
+          "example": "Jusqu'à quelle heure les endroits restent ouverts ce soir ?",
           "usage": "Question sur les horaires."
         },
         {

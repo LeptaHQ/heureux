@@ -12,7 +12,7 @@
       "prompt": "Je suis votre ami(e). Je suis allé(e) en vacances au bord de la mer l'année dernière. Vous êtes intéressé(e), et vous me demandez des conseils pour organiser votre séjour (hébergement, activités, budget, etc.).",
       "questions": [
         {
-          "text": "Salut ! Tu as passé des vacances formidables au bord de la mer — j'aimerais faire le même type de séjour, tu pourrais me donner quelques infos ?",
+          "text": "Salut ! Tu as passé des vacances au bord de la mer — j'aimerais faire le même type de séjour, tu pourrais me donner quelques infos ?",
           "memory_number": 7,
           "memory_section": 13
         },
@@ -27,12 +27,12 @@
           "memory_section": 10
         },
         {
-          "text": "Deuxième point : quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
+          "text": "Quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
           "memory_number": 7,
           "memory_section": 2
         },
         {
-          "text": "Tu as mentionné que c'était formidable — tu pourrais m'en dire un peu plus sur ce qui t'a le plus marqué(e) ?",
+          "text": "Qu'est-ce qui t'a le plus marqué(e) pendant ce séjour ?",
           "memory_number": 7,
           "memory_section": 10
         },
@@ -42,7 +42,7 @@
           "memory_section": 4
         },
         {
-          "text": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "text": "Quelle est la meilleure période pour y aller ?",
           "memory_number": 7,
           "memory_section": 8
         },
@@ -105,7 +105,7 @@
           "memory_section": 6
         },
         {
-          "text": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "text": "Si on débute complètement, comment le professeur nous aide à suivre ?",
           "memory_number": 10,
           "memory_section": 6
         },
@@ -115,15 +115,15 @@
           "memory_section": 7
         },
         {
-          "text": "Passons maintenant à un autre point : comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
           "memory_number": 10,
           "memory_section": 10
         },
         {
-          "text": "Les cours se passent dans quel type de salle — un studio de danse dédié, une salle polyvalente ?"
+          "text": "Les cours se passent où exactement — dans un studio de danse dédié, une salle polyvalente ?"
         },
         {
-          "text": "Côté horaires, ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
+          "text": "Côté horaires, ça a lieu quels jours et à quelle heure ?",
           "memory_number": 10,
           "memory_section": 4
         },
@@ -133,7 +133,7 @@
           "memory_section": 4
         },
         {
-          "text": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "text": "Faut-il venir avec un partenaire, ou peut-on s'inscrire seul(e) ?",
           "memory_number": 10,
           "memory_section": 6
         },
@@ -148,7 +148,7 @@
           "memory_section": 3
         },
         {
-          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque cours séparément ?",
+          "text": "En ce qui concerne le budget, combien coûte un cours, et y a-t-il un abonnement ?",
           "memory_number": 10,
           "memory_section": 3
         },
@@ -158,7 +158,7 @@
           "memory_section": 3
         },
         {
-          "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
+          "text": "Pour finir — quelle tenue et quelles chaussures me conseillerais-tu pour une première séance ?",
           "memory_number": 10,
           "memory_section": 13
         }
@@ -190,7 +190,7 @@
           "text": "On sera nombreux à peu près ?"
         },
         {
-          "text": "En ce qui concerne la nourriture, comment ça va se dérouler — il y a un programme, des discours, un repas ?"
+          "text": "Comment ça va se dérouler — il y a un programme, des discours, des animations ?"
         },
         {
           "text": "Il y a un thème ou une tenue particulière à prévoir ?"
@@ -204,7 +204,7 @@
           "memory_section": 13
         },
         {
-          "text": "Toujours sur ce point, pour le cadeau, on fait quelque chose en commun, ou chacun apporte le sien ?"
+          "text": "Si on souhaite t'offrir un cadeau, tu as une préférence ?"
         },
         {
           "text": "Côté déplacements, comment on s'y rend — c'est accessible en transports, il y a un parking ?"
@@ -216,7 +216,7 @@
           "text": "Tu veux un coup de main pour organiser quoi que ce soit ?"
         },
         {
-          "text": "En tout cas je serai là avec plaisir — tu veux que je m'occupe de quelque chose en particulier ?"
+          "text": "Pour finir — comment tu nous préviendras s'il y a un changement de programme ?"
         }
       ]
     },
@@ -229,7 +229,7 @@
           "text": "Bonjour ! D'accord pour garder votre enfant pendant la journée — c'est prévu pour quel jour exactement, et quels sont les horaires souhaités ?"
         },
         {
-          "text": "Pour que je m'organise, quel est le prénom et l'âge de votre enfant ?",
+          "text": "Comment s'appelle votre enfant, et quel âge a-t-il ?",
           "memory_number": 3,
           "memory_section": 7
         },
@@ -279,12 +279,12 @@
           "memory_section": 4
         },
         {
-          "text": "Question lieu, qu'est-ce qu'il faut prévoir de mon côté, ou est-ce que vous fournissez tout le nécessaire ?",
+          "text": "Côté matériel, qu'est-ce qu'il faut prévoir de mon côté, ou est-ce que vous fournissez tout le nécessaire ?",
           "memory_number": 3,
           "memory_section": 8
         },
         {
-          "text": "Y a-t-il d'autres habitudes ou règles importantes à respecter avec votre enfant ?",
+          "text": "Est-ce que votre enfant fait une sieste dans la journée, et si oui, à quelle heure ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -342,7 +342,7 @@
           "text": "Y a-t-il des circuits en bateau ou en bus touristique pour découvrir la ville plus facilement ?"
         },
         {
-          "text": "Est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux prendre un pass ou louer des vélos ?"
+          "text": "Est-ce qu'il est facile de se déplacer en transports en commun, ou vaut-il mieux louer des vélos ?"
         },
         {
           "text": "En ce qui concerne le budget, y a-t-il des pass touristiques ou des tarifs combinés pour plusieurs musées et attractions ?"

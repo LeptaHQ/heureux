@@ -52,7 +52,7 @@
           "memory_section": 10
         },
         {
-          "text": "Côté lieu, il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
+          "text": "Il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
           "memory_number": 9,
           "memory_section": 6
         },
@@ -77,7 +77,7 @@
           "memory_section": 6
         },
         {
-          "text": "Le cinéma où tu es allé(e) est facile d'accès, ou il y en a un plus proche pour moi ?",
+          "text": "Tu es allé(e) dans quel cinéma — c'est facile d'accès en transports en commun ?",
           "memory_number": 9,
           "memory_section": 5
         },
@@ -191,7 +191,7 @@
           "text": "Côté trajet, comment tu comptes t'y rendre — en voiture, en train ?"
         },
         {
-          "text": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "text": "Tu pars à quelle période, et pourquoi as-tu choisi ces dates ?",
           "memory_number": 7,
           "memory_section": 8
         },
@@ -201,17 +201,17 @@
           "memory_section": 8
         },
         {
-          "text": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
+          "text": "Il y a généralement beaucoup de monde à cette période, ou c'est plutôt calme ?",
           "memory_number": 7,
           "memory_section": 8
         },
         {
-          "text": "Combien de temps faut-il prévoir — quelques jours ou toute la semaine ?",
+          "text": "Tu pars combien de temps — quelques jours ou toute la semaine ?",
           "memory_number": 7,
           "memory_section": 4
         },
         {
-          "text": "Question hébergement, tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
+          "text": "Question hébergement, tu as choisi quoi — hôtel, chambre d'hôtes, camping ?",
           "memory_number": 7,
           "memory_section": 9
         },
@@ -221,20 +221,20 @@
           "memory_section": 3
         },
         {
-          "text": "Et dans la continuité, il faut réserver à l'avance ou on peut trouver facilement sur place ?"
+          "text": "Tu as dû réserver longtemps à l'avance, ou tu as trouvé facilement ?"
         },
         {
-          "text": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
+          "text": "Pour les repas, tu as repéré de bonnes adresses ou des spécialités locales à essayer ?",
           "memory_number": 7,
           "memory_section": 9
         },
         {
-          "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total ?",
+          "text": "Parlons du budget — combien est-ce que ça va te coûter approximativement au total ?",
           "memory_number": 7,
           "memory_section": 3
         },
         {
-          "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
+          "text": "Pour finir — qu'est-ce que tu attends le plus de ce séjour ?",
           "memory_number": 7,
           "memory_section": 13
         }

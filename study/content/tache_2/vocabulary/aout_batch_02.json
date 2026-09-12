@@ -111,10 +111,10 @@
         {
           "id": "T2A8S6V14",
           "kind": "collocation",
-          "french": "sans rien dépenser",
-          "english": "without spending anything",
-          "example": "Plus largement, qu'est-ce qu'on peut faire de sympa sans rien dépenser dans le coin ?",
-          "usage": "Locution adverbiale sur la gratuité."
+          "french": "sans trop se déplacer",
+          "english": "without travelling around too much",
+          "example": "Quelles activités on pourrait combiner dans une même sortie sans trop se déplacer ?",
+          "usage": "Expression pour limiter les déplacements entre plusieurs activités."
         },
         {
           "id": "T2A8S6V15",
@@ -145,24 +145,24 @@
           "kind": "collocation",
           "french": "éviter la foule",
           "english": "avoid the crowd",
-          "example": "Il vaut mieux y aller à quel moment pour éviter la foule ?",
+          "example": "Pour les endroits que tu me conseilles, à quel moment vaut-il mieux y aller pour éviter la foule ?",
           "usage": "Verbe + complément sur le choix du bon moment."
         },
         {
           "id": "T2A8S6V19",
           "kind": "collocation",
-          "french": "s'inscrire à l'avance",
-          "english": "to register in advance",
-          "example": "En ce qui concerne la réservation, il faut s'inscrire à l'avance ou on peut venir librement ?",
-          "usage": "Verbe pronominal + locution adverbiale pour exprimer une démarche anticipée."
+          "french": "demandent une réservation",
+          "english": "require a booking",
+          "example": "Parmi ces activités, lesquelles demandent une réservation ?",
+          "usage": "Association d'un verbe et d'un complément pour signaler une réservation nécessaire."
         },
         {
           "id": "T2A8S6V20",
           "kind": "collocation",
-          "french": "venir librement",
-          "english": "to come without booking",
-          "example": "En ce qui concerne la réservation, il faut s'inscrire à l'avance ou on peut venir librement ?",
-          "usage": "Verbe à l'infinitif + adverbe pour exprimer une participation sans contrainte d'inscription."
+          "french": "transport et repas compris",
+          "english": "including transport and meals",
+          "example": "Parlons du budget — combien faut-il prévoir au total pour une sortie, transport et repas compris ?",
+          "usage": "Expression pour préciser les dépenses incluses dans un budget total."
         },
         {
           "id": "T2A8S6V21",
@@ -199,10 +199,10 @@
         {
           "id": "T2A8S6V25",
           "kind": "tournure",
-          "french": "Qu'est-ce qu'on peut faire de sympa sans rien dépenser",
-          "english": "what nice things can you do without spending anything",
-          "example": "Plus largement, qu'est-ce qu'on peut faire de sympa sans rien dépenser dans le coin ?",
-          "usage": "Question sur les activités gratuites."
+          "french": "quelles activités on pourrait combiner",
+          "english": "what activities we could combine",
+          "example": "Quelles activités on pourrait combiner dans une même sortie sans trop se déplacer ?",
+          "usage": "Question au conditionnel pour organiser plusieurs activités dans une même sortie."
         },
         {
           "id": "T2A8S6V26",
@@ -215,26 +215,26 @@
         {
           "id": "T2A8S6V27",
           "kind": "tournure",
-          "french": "Il vaut mieux y aller à quel moment pour éviter la foule",
+          "french": "à quel moment vaut-il mieux y aller pour éviter la foule",
           "english": "when is it best to go to avoid the crowd",
-          "example": "Il vaut mieux y aller à quel moment pour éviter la foule ?",
+          "example": "Pour les endroits que tu me conseilles, à quel moment vaut-il mieux y aller pour éviter la foule ?",
           "usage": "Question sur le meilleur moment."
         },
         {
           "id": "T2A8S6V28",
           "kind": "tournure",
-          "french": "il faut s'inscrire à l'avance ou on peut venir librement",
-          "english": "do you need to register in advance or can you just show up",
-          "example": "En ce qui concerne la réservation, il faut s'inscrire à l'avance ou on peut venir librement ?",
-          "usage": "Tournure d'alternative typique à l'oral pour comparer deux options d'organisation."
+          "french": "lesquelles demandent une réservation",
+          "english": "which ones require a booking",
+          "example": "Parmi ces activités, lesquelles demandent une réservation ?",
+          "usage": "Question pour identifier les activités nécessitant une réservation."
         },
         {
           "id": "T2A8S6V29",
           "kind": "tournure",
-          "french": "combien est-ce que ça coûte approximativement",
-          "english": "roughly how much does it cost",
-          "example": "Parlons du budget — combien est-ce que ça coûte approximativement ?",
-          "usage": "Tournure interrogative avec 'est-ce que', qui évite l'inversion du sujet."
+          "french": "combien faut-il prévoir au total",
+          "english": "how much should one budget in total",
+          "example": "Parlons du budget — combien faut-il prévoir au total pour une sortie, transport et repas compris ?",
+          "usage": "Tournure interrogative avec inversion pour estimer une dépense totale."
         },
         {
           "id": "T2A8S6V30",
@@ -744,7 +744,7 @@
           "kind": "mot-cle",
           "french": "passionné(e)",
           "english": "passionate (about)",
-          "example": "Quelle coïncidence de se croiser ici, en gare ! Vous m'avez dit que vous étiez passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
+          "example": "Vous êtes passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
           "usage": "Adjectif dérivé de « passion » pour exprimer un fort intérêt pour une activité."
         },
         {
@@ -824,7 +824,7 @@
           "kind": "collocation",
           "french": "depuis longtemps",
           "english": "for a long time",
-          "example": "Quelle coïncidence de se croiser ici, en gare ! Vous m'avez dit que vous étiez passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
+          "example": "Vous êtes passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
           "usage": "Locution adverbiale avec « depuis » pour indiquer la durée d'une pratique."
         },
         {

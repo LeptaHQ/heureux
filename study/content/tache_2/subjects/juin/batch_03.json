@@ -12,7 +12,7 @@
       "prompt": "Je suis votre ami(e). Ma sœur fête bientôt son anniversaire. Vous cherchez un cadeau pour elle et vous me posez des questions pour mieux la connaître (goûts, caractère, budget, etc.).",
       "questions": [
         {
-          "text": "Salut ! Merci de m'inviter — ta sœur fête bientôt son anniversaire, et je cherche un cadeau, tu pourrais m'aider à trouver une idée ?",
+          "text": "Salut ! Ta sœur fête bientôt son anniversaire et je cherche un cadeau — tu pourrais m'aider à trouver une idée ?",
           "memory_number": 11,
           "memory_section": 13
         },
@@ -27,7 +27,7 @@
           "memory_section": 7
         },
         {
-          "text": "Comment est son caractère — plutôt discrète, ou elle aime qu'on lui fasse une surprise ?",
+          "text": "Comment est son caractère — est-ce qu'elle aime qu'on lui fasse une surprise ?",
           "memory_number": 11,
           "memory_section": 7
         },
@@ -37,7 +37,7 @@
           "memory_section": 7
         },
         {
-          "text": "Tu as mentionné qu'elle aimait quelque chose en particulier — tu pourrais m'en dire un peu plus : c'est un loisir qu'elle pratique souvent ?",
+          "text": "Parmi ses loisirs, lequel pratique-t-elle le plus souvent ?",
           "memory_number": 11,
           "memory_section": 13
         },
@@ -57,7 +57,7 @@
           "memory_section": 11
         },
         {
-          "text": "Il y a des choses qu'elle a déjà, pour éviter de lui offrir la même chose ?",
+          "text": "Pour éviter de lui offrir la même chose, y a-t-il des cadeaux qu'elle a déjà reçus récemment ?",
           "memory_number": 11,
           "memory_section": 8
         },
@@ -99,7 +99,7 @@
           "memory_section": 13
         },
         {
-          "text": "C'est quel genre d'activité exactement — plutôt individuelle ou en groupe ?",
+          "text": "Quels types d'activités propose ce club — plutôt individuelles ou en groupe ?",
           "memory_number": 8,
           "memory_section": 2
         },
@@ -109,7 +109,7 @@
           "memory_section": 10
         },
         {
-          "text": "Deuxième point : comment est l'ambiance — les gens sont plutôt sympas et accueillants ?",
+          "text": "Comment est l'ambiance — les gens sont plutôt sympas et accueillants ?",
           "memory_number": 8,
           "memory_section": 10
         },
@@ -119,7 +119,7 @@
           "memory_section": 7
         },
         {
-          "text": "Pour ce qui est du niveau, le coach ou l'entraîneur, il est comment — plutôt exigeant ou patient avec les débutants ?",
+          "text": "Le coach ou l'entraîneur, il est comment — plutôt exigeant ou patient avec les débutants ?",
           "memory_number": 8,
           "memory_section": 8
         },
@@ -149,7 +149,7 @@
           "memory_section": 6
         },
         {
-          "text": "Question réservation, si je m'inscris, est-ce qu'il y a un avantage pour toi, comme une réduction de parrainage ?",
+          "text": "Si je m'inscris, est-ce qu'il y a un avantage pour toi, comme une réduction de parrainage ?",
           "memory_number": 8,
           "memory_section": 13
         },
@@ -164,7 +164,7 @@
           "memory_section": 11
         },
         {
-          "text": "Pour finir — si je veux m'inscrire, tu pourrais m'accompagner la première fois ?",
+          "text": "Pour finir — qui dois-je contacter pour m'inscrire ?",
           "memory_number": 8,
           "memory_section": 13
         }
@@ -191,7 +191,7 @@
           "memory_section": 7
         },
         {
-          "text": "D'abord, sur combien de jours exactement dois-je m'organiser ?",
+          "text": "Sur combien de jours exactement dois-je m'organiser ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -216,7 +216,7 @@
           "memory_section": 8
         },
         {
-          "text": "Pour les promenades, à quelle fréquence et pendant combien de temps faut-il le sortir ?",
+          "text": "S'il faut le promener, à quelle fréquence et pendant combien de temps faut-il le sortir ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -226,7 +226,7 @@
           "memory_section": 4
         },
         {
-          "text": "Passons maintenant à un autre point : comment réagit-il en général quand il reste seul un moment ?",
+          "text": "Comment réagit-il en général quand il reste seul un moment ?",
           "memory_number": 3,
           "memory_section": 7
         },
@@ -258,7 +258,7 @@
       "prompt": "Je suis votre ami(e). Je vis au Canada. Vous êtes intéressé(e) par la façon dont les Canadiens passent leurs week-ends et vous me posez des questions (temps libre, sport, sorties, etc.).",
       "questions": [
         {
-          "text": "Salut ! Tu vis au Canada depuis un moment maintenant — ça m'intrigue, comment les gens passent-ils leurs week-ends là-bas en général ?",
+          "text": "Salut ! Tu vis au Canada — ça m'intrigue, comment les gens passent-ils leurs week-ends là-bas en général ?",
           "memory_number": 7,
           "memory_section": 13
         },
@@ -318,7 +318,7 @@
           "memory_section": 3
         },
         {
-          "text": "Il me reste un point à éclaircir : c'est très différent de ce qu'on fait généralement dans mon pays, tu trouves ?",
+          "text": "Ces habitudes changent-elles beaucoup d'une région du Canada à l'autre ?",
           "memory_number": 7,
           "memory_section": 11
         },
@@ -360,7 +360,7 @@
           "memory_section": 7
         },
         {
-          "text": "Pour ce qui est du niveau, tu encadres une équipe maintenant, ou tu travailles surtout seul(e) sur tes nouveaux dossiers ?",
+          "text": "Tu encadres une équipe maintenant, ou tu travailles surtout seul(e) sur tes nouveaux dossiers ?",
           "memory_number": 4,
           "memory_section": 7
         },
@@ -375,7 +375,7 @@
           "memory_section": 13
         },
         {
-          "text": "Sur un autre point, est-ce que quelqu'un t'a accompagné(e) pendant cette transition — par exemple ton ancien responsable, ton nouveau responsable ou quelqu'un d'autre ?",
+          "text": "Si tu as eu un accompagnement, qui t'a aidé(e) pendant cette transition ?",
           "memory_number": 4,
           "memory_section": 7
         },
@@ -390,7 +390,7 @@
           "memory_section": 10
         },
         {
-          "text": "Et à l'inverse, qu'est-ce qui a été le plus difficile à ce changement ?",
+          "text": "Et à l'inverse, qu'est-ce qui a été le plus difficile dans ce changement ?",
           "memory_number": 4,
           "memory_section": 10
         },

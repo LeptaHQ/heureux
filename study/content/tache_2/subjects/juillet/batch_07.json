@@ -49,7 +49,7 @@
           "memory_section": 8
         },
         {
-          "text": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "text": "Côté budget, combien coûte un trajet, et quels abonnements existent ?",
           "memory_number": 6,
           "memory_section": 3
         },
@@ -104,7 +104,7 @@
           "text": "Autre point important : la batterie tient encore bien la charge — elle a quelle autonomie ?"
         },
         {
-          "text": "J'ai encore une question : tu as gardé la facture et les accessoires d'origine ?"
+          "text": "Tu as gardé la facture et les justificatifs d'entretien ?"
         },
         {
           "text": "Il est vendu avec des accessoires — un chargeur, un antivol, un casque ?"
@@ -120,7 +120,7 @@
           "memory_section": 3
         },
         {
-          "text": "Il me reste un point à éclaircir : est-ce que je pourrais l'essayer avant de me décider ?",
+          "text": "Est-ce que je pourrais l'essayer avant de me décider ?",
           "memory_number": 6,
           "memory_section": 3
         },
@@ -213,7 +213,7 @@
           "text": "Tu connais des sorties sympas adaptées aux enfants — un zoo, un musée, un parc d'attractions ?"
         },
         {
-          "text": "Justement, qu'est-ce qui plaît généralement le plus aux enfants, d'après toi ?"
+          "text": "Ces sorties conviennent à quelles tranches d'âge ?"
         },
         {
           "text": "S'il fait beau, qu'est-ce que tu me conseilles comme activités en plein air ?",

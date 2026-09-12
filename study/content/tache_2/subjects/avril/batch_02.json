@@ -22,7 +22,7 @@
           "memory_section": 2
         },
         {
-          "text": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
+          "text": "Parmi ces circuits, lequel recommandez-vous le plus, et qu'est-ce qu'il comprend ?",
           "memory_number": 7,
           "memory_section": 11
         },
@@ -32,7 +32,7 @@
           "memory_section": 4
         },
         {
-          "text": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "text": "Quelle est la meilleure période pour un séjour au Canada ?",
           "memory_number": 7,
           "memory_section": 8
         },
@@ -42,7 +42,7 @@
           "memory_section": 8
         },
         {
-          "text": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
+          "text": "Y a-t-il des périodes moins fréquentées pour voyager plus tranquillement ?",
           "memory_number": 7,
           "memory_section": 8
         },
@@ -77,7 +77,7 @@
           "memory_section": 3
         },
         {
-          "text": "En ce qui concerne le prix, est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "text": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
           "memory_number": 7,
           "memory_section": 3
         },
@@ -246,7 +246,7 @@
           "memory_section": 4
         },
         {
-          "text": "D'accord — je vais demander autour de moi et je te dis si je connais quelqu'un de sérieux, ça te va ?",
+          "text": "Pour finir — tu veux que je demande autour de moi si quelqu'un est disponible ?",
           "memory_number": 3,
           "memory_section": 13
         }
@@ -258,7 +258,7 @@
       "prompt": "Je suis hôtesse d'hôtel. Vous voulez vous renseigner sur les services disponibles. Posez-moi des questions (tarifs, service, etc.).",
       "questions": [
         {
-          "text": "Bonjour ! Je séjourne dans votre hôtel et j'aimerais en savoir plus sur les services proposés — vous pourriez me renseigner ?",
+          "text": "Bonjour ! J'aimerais en savoir plus sur les services proposés dans votre hôtel — vous pourriez me renseigner ?",
           "memory_number": 7,
           "memory_section": 13
         },
@@ -278,7 +278,7 @@
           "memory_section": 9
         },
         {
-          "text": "En ce qui concerne l'hébergement, l'hôtel dispose-t-il d'une salle de sport, d'une piscine ou d'un spa ?",
+          "text": "L'hôtel dispose-t-il d'une salle de sport, d'une piscine ou d'un spa ?",
           "memory_number": 7,
           "memory_section": 9
         },
@@ -323,12 +323,12 @@
           "memory_section": 3
         },
         {
-          "text": "En cas de problème dans la chambre, à qui dois-je m'adresser et à quelle heure ?",
+          "text": "En cas de problème dans la chambre, peut-on joindre la réception à toute heure ?",
           "memory_number": 7,
           "memory_section": 13
         },
         {
-          "text": "Pour finir — si vous ne deviez me recommander qu'un seul service de l'hôtel, ce serait lequel ?",
+          "text": "Pour finir — comment réserver les services qui m'intéressent ?",
           "memory_number": 7,
           "memory_section": 13
         }
@@ -350,17 +350,17 @@
           "memory_section": 2
         },
         {
-          "text": "Tu pars d'où exactement, et est-ce que tu peux passer me prendre quelque part sur ton chemin ?",
+          "text": "Tu pars d'où exactement, et est-ce qu'on pourrait me prendre quelque part sur le trajet ?",
           "memory_number": 6,
           "memory_section": 13
         },
         {
-          "text": "Côté groupe, combien de personnes est-ce que tu prends en général — il reste de la place ?",
+          "text": "Il y a combien de personnes en général — il reste de la place ?",
           "memory_number": 6,
           "memory_section": 7
         },
         {
-          "text": "À quelle fréquence proposes-tu ces trajets — tous les jours ou seulement certains jours ?",
+          "text": "À quelle fréquence fais-tu ces trajets — tous les jours ou seulement certains jours ?",
           "memory_number": 6,
           "memory_section": 4
         },
@@ -400,12 +400,12 @@
           "memory_section": 2
         },
         {
-          "text": "Pour ce qui est des imprévus, est-ce que ton assurance couvre les passagers en cas de souci ?",
+          "text": "Pour ce qui est des imprévus, est-ce que l'assurance du conducteur couvre les passagers en cas de souci ?",
           "memory_number": 6,
           "memory_section": 8
         },
         {
-          "text": "Et si tu es absent ou en vacances, tu connais d'autres personnes qui font le même trajet ?",
+          "text": "Et si le conducteur est absent ou en vacances, quelles sont les autres possibilités pour faire le trajet ?",
           "memory_number": 6,
           "memory_section": 12
         },

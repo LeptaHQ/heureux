@@ -42,17 +42,17 @@
           "memory_section": 2
         },
         {
-          "text": "À quelle heure ça commence — il y a des séances l'après-midi ou seulement en soirée ?",
+          "text": "Quels sont les horaires des séances — l'après-midi ou seulement en soirée ?",
           "memory_number": 9,
           "memory_section": 4
         },
         {
-          "text": "Côté inscription, il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
+          "text": "Pour les billets, il faut réserver à l'avance ou on peut les acheter sur place le jour même ?",
           "memory_number": 9,
           "memory_section": 6
         },
         {
-          "text": "Il reste encore des places ou les séances sont souvent complètes pendant les vacances ?",
+          "text": "Certaines séances sont-elles souvent complètes pendant les vacances ?",
           "memory_number": 9,
           "memory_section": 6
         },
@@ -77,12 +77,12 @@
           "memory_section": 3
         },
         {
-          "text": "Question repas, est-ce qu'on peut acheter du popcorn et des boissons sur place avant la séance ?",
+          "text": "Et sur place, est-ce qu'on peut acheter du popcorn et des boissons avant la séance ?",
           "memory_number": 9,
           "memory_section": 9
         },
         {
-          "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
+          "text": "Pour finir — quel film me recommanderais-tu pour aujourd'hui ?",
           "memory_number": 9,
           "memory_section": 13
         }
@@ -94,7 +94,7 @@
       "prompt": "Votre ami(e) revient d’un séjour au bord de la mer. Vous voulez organiser des vacances similaires et vous lui posez des questions sur la destination, les activités et le budget à prévoir.",
       "questions": [
         {
-          "text": "Salut ! Tu as passé des vacances formidables au bord de la mer — j'aimerais faire le même type de séjour, tu pourrais me donner quelques infos ?",
+          "text": "Salut ! Tu as passé des vacances au bord de la mer — j'aimerais faire le même type de séjour, tu pourrais me donner quelques infos ?",
           "memory_number": 7,
           "memory_section": 13
         },
@@ -109,12 +109,12 @@
           "memory_section": 10
         },
         {
-          "text": "Deuxième point : quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
+          "text": "Quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
           "memory_number": 7,
           "memory_section": 2
         },
         {
-          "text": "Tu as mentionné que c'était formidable — tu pourrais m'en dire un peu plus sur ce qui t'a le plus marqué(e) ?",
+          "text": "Qu'est-ce qui t'a le plus marqué(e) pendant ce séjour ?",
           "memory_number": 7,
           "memory_section": 10
         },
@@ -124,7 +124,7 @@
           "memory_section": 4
         },
         {
-          "text": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "text": "Quelle est la meilleure période pour y aller ?",
           "memory_number": 7,
           "memory_section": 8
         },
@@ -176,7 +176,7 @@
       "prompt": "Vous devez écrire un article sur un livre pour la revue de votre association littéraire. Pour trouver des idées, vous discutez avec un(e) ami(e) francophone de ses lectures récentes.",
       "questions": [
         {
-          "text": "Salut ! Je dois écrire un article pour la revue de mon association littéraire — comme tu lis beaucoup, tu pourrais répondre à quelques questions sur tes lectures récentes ?",
+          "text": "Salut ! Je dois écrire un article pour la revue de mon association littéraire — tu pourrais répondre à quelques questions sur tes lectures récentes ?",
           "memory_number": 10,
           "memory_section": 13
         },
@@ -196,7 +196,7 @@
           "memory_section": 2
         },
         {
-          "text": "Dans quel genre littéraire ça s'inscrit — roman, biographie, science-fiction ?",
+          "text": "Qu'est-ce qui t'a donné envie de lire ce livre ?",
           "memory_number": 10,
           "memory_section": 2
         },
@@ -226,7 +226,7 @@
           "memory_section": 10
         },
         {
-          "text": "Tu as mentionné un point intéressant — tu pourrais m'en dire un peu plus : ça ferait peut-être un bon angle pour l'article ?",
+          "text": "Quel aspect du livre mériterait d'être développé dans l'article, selon toi ?",
           "memory_number": 10,
           "memory_section": 13
         },
@@ -318,7 +318,7 @@
           "memory_section": 3
         },
         {
-          "text": "Tu as mentionné un moment surprenant — tu pourrais m'en dire un peu plus : qu'est-ce qui s'est passé exactement ?",
+          "text": "S'il y a eu un moment surprenant pendant le jeu, tu pourrais me raconter ce qui s'est passé ?",
           "memory_number": 10,
           "memory_section": 13
         },

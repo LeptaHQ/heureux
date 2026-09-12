@@ -27,12 +27,12 @@
           "memory_section": 2
         },
         {
-          "text": "En ce qui concerne l'encadrement, le centre propose-t-il des activités adaptées à tous les niveaux, y compris aux débutants ?",
+          "text": "Le centre propose-t-il des activités adaptées à tous les niveaux, y compris aux débutants ?",
           "memory_number": 8,
           "memory_section": 6
         },
         {
-          "text": "Question niveau, les cours sont-ils encadrés par des professeurs qualifiés — et est-ce qu'on peut avoir un coach personnel si besoin ?",
+          "text": "Les cours sont-ils encadrés par des professeurs qualifiés — et est-ce qu'on peut avoir un coach personnel si besoin ?",
           "memory_number": 8,
           "memory_section": 8
         },
@@ -124,7 +124,7 @@
           "memory_section": 4
         },
         {
-          "text": "Dans un autre registre, la programmation est publiée à l'avance ou on la découvre au dernier moment ?",
+          "text": "Où peut-on consulter la programmation des prochaines sorties ?",
           "memory_number": 10,
           "memory_section": 2
         },
@@ -191,7 +191,7 @@
           "memory_section": 10
         },
         {
-          "text": "Côté conditions, y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
+          "text": "Y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
           "memory_number": 3,
           "memory_section": 8
         },
@@ -241,7 +241,7 @@
           "memory_section": 9
         },
         {
-          "text": "Pour ce qui est du lieu, selon vous, qu'est-ce qui est le plus pratique dans ce quartier au quotidien ?",
+          "text": "Selon vous, qu'est-ce qui est le plus pratique dans ce quartier au quotidien ?",
           "memory_number": 3,
           "memory_section": 11
         },
@@ -313,7 +313,7 @@
           "memory_section": 3
         },
         {
-          "text": "Côté transport, faut-il rendre la voiture avec le plein d'essence ?",
+          "text": "Pour le retour, faut-il rendre la voiture avec le plein ou la batterie chargée ?",
           "memory_number": 6,
           "memory_section": 8
         },
@@ -350,7 +350,7 @@
           "memory_section": 2
         },
         {
-          "text": "Comment sont organisés les cours — en petits groupes, en classe ou en cours particuliers ?",
+          "text": "Comment sont organisés les cours — en petits groupes, en grande classe ou en cours particuliers ?",
           "memory_number": 5,
           "memory_section": 2
         },
@@ -360,7 +360,7 @@
           "memory_section": 2
         },
         {
-          "text": "En ce qui concerne l'encadrement, à quel niveau ça s'adresse — plutôt aux débutants ou aussi aux personnes qui ont déjà des bases ?",
+          "text": "À quel niveau ça s'adresse — plutôt aux débutants ou aussi aux personnes qui ont déjà des bases ?",
           "memory_number": 5,
           "memory_section": 6
         },
@@ -370,7 +370,7 @@
           "memory_section": 6
         },
         {
-          "text": "Côté niveau, qui sont les enseignants — sont-ils diplômés et locuteurs natifs ?",
+          "text": "Qui sont les enseignants — sont-ils diplômés et locuteurs natifs ?",
           "memory_number": 5,
           "memory_section": 8
         },

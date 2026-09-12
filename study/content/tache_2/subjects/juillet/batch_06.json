@@ -32,7 +32,7 @@
           "memory_section": 6
         },
         {
-          "text": "En ce qui concerne l'encadrement, les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
+          "text": "Les professeurs sont-ils qualifiés dans les instruments qu'ils enseignent ?",
           "memory_number": 10,
           "memory_section": 7
         },
@@ -206,12 +206,12 @@
           "memory_section": 2
         },
         {
-          "text": "Autre point important : c'est adapté si on y va en couple ou c'est plutôt un plan entre amis ?",
+          "text": "Parmi ces sorties, lesquelles conviendraient à un couple ou à un groupe d'amis ?",
           "memory_number": 7,
           "memory_section": 7
         },
         {
-          "text": "Toi personnellement, tu fais quoi le week-end en général ?",
+          "text": "Toi personnellement, quelle sortie as-tu préférée, et pourquoi ?",
           "memory_number": 7,
           "memory_section": 4
         },
@@ -236,12 +236,12 @@
           "memory_section": 8
         },
         {
-          "text": "En ce qui concerne la réservation, il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "text": "Faut-il réserver pour certaines de ces activités ?",
           "memory_number": 7,
           "memory_section": 6
         },
         {
-          "text": "Parlons du budget — combien est-ce que ça coûte approximativement ?",
+          "text": "Quel budget faut-il prévoir pour un week-end dans le coin ?",
           "memory_number": 7,
           "memory_section": 3
         },

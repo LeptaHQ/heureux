@@ -64,7 +64,7 @@
       "prompt": "Fraîchement embauché(e), je vous raconte mes débuts : vous m'interrogez, en ami(e), sur la façon dont se passe ce nouveau travail.",
       "questions": [
         {
-          "text": "Salut ! Ça fait un moment qu'on ne s'est pas parlé ! Alors, ce nouveau travail — ça se passe bien depuis que tu as commencé ?"
+          "text": "Salut ! Alors, ce nouveau travail — ça se passe bien depuis que tu as commencé ?"
         },
         {
           "text": "Tu occupes quel poste exactement, et en quoi consiste ton travail au quotidien ?"
@@ -73,7 +73,7 @@
           "text": "Autre chose : tu as eu une période de formation au début, ou tu as tout de suite été autonome ?"
         },
         {
-          "text": "Comment est l'ambiance au bureau — plutôt formelle ou décontractée ?"
+          "text": "Comment est l'ambiance au travail — plutôt formelle ou décontractée ?"
         },
         {
           "text": "Et tes collègues, ils sont comment — ils t'ont bien accueilli(e) ?",
@@ -93,7 +93,7 @@
           "text": "Et puis, c'est un poste stable, ou plutôt un contrat pour une durée limitée ?"
         },
         {
-          "text": "Côté réservation, il y a des avantages sympas — tickets resto, télétravail, primes ?"
+          "text": "Et côté avantages, il y a des choses sympas — aide pour les repas, télétravail, primes ?"
         },
         {
           "text": "Qu'est-ce qui te plaît le plus dans ce poste pour l'instant ?"
@@ -135,13 +135,13 @@
           "text": "Quels sont les horaires de consultation du remplaçant ?"
         },
         {
-          "text": "Il ou elle consulte tous les jours, y compris en fin de journée ou le week-end ?"
+          "text": "Le médecin consulte tous les jours, y compris en fin de journée ou le week-end ?"
         },
         {
           "text": "Question lieu, le cabinet reste-t-il au même endroit, ou les consultations ont lieu ailleurs ?"
         },
         {
-          "text": "Et est-ce que je peux prendre rendez-vous avec lui ou elle dès maintenant ?"
+          "text": "Et est-ce que je peux prendre rendez-vous avec le médecin remplaçant dès maintenant ?"
         },
         {
           "text": "Comment prend-on rendez-vous — par téléphone ou en ligne ?"
@@ -150,7 +150,7 @@
           "text": "Quel est le délai pour obtenir un rendez-vous en ce moment ?"
         },
         {
-          "text": "J'en profite pour vous demander : il ou elle peut renouveler mes ordonnances habituelles ?"
+          "text": "Le médecin peut aussi renouveler une ordonnance habituelle si besoin ?"
         },
         {
           "text": "Faut-il apporter des documents particuliers pour la première consultation ?"
@@ -162,7 +162,7 @@
           "text": "En cas d'urgence pendant l'absence de mon médecin, qui dois-je contacter ?"
         },
         {
-          "text": "Merci pour ces informations, je vais prendre rendez-vous avec le remplaçant alors — et si j'ai d'autres questions, je peux vous rappeler ?"
+          "text": "Merci pour ces informations — si j'ai d'autres questions, je peux vous rappeler ?"
         }
       ]
     },
@@ -172,7 +172,7 @@
       "prompt": "Passionné(e) de voyages, vous rêvez de lancer votre propre blog ; comme j'en anime un, vous venez me demander comment m'y suis pris(e).",
       "questions": [
         {
-          "text": "Salut ! Je vais bientôt voyager et j'aimerais créer un blog pour raconter tout ça — toi qui en tiens un, tu pourrais me conseiller ?"
+          "text": "Salut ! J'aimerais créer un blog de voyage — toi qui en tiens un, tu pourrais me conseiller ?"
         },
         {
           "text": "Par où on commence quand on n'y connaît rien ?"
@@ -208,7 +208,7 @@
           "text": "Comment tu trouves le temps d'écrire quand tu es en plein voyage ?"
         },
         {
-          "text": "Question niveau, il y a des erreurs de débutant à éviter absolument ?"
+          "text": "Il y a des erreurs de débutant à éviter absolument ?"
         },
         {
           "text": "En ce qui concerne le budget, c'est gratuit, ou il faut payer pour un nom de domaine et l'hébergement ?"
@@ -224,7 +224,7 @@
       "prompt": "À peine installé(e) au Canada, vous préparez une surprise pour l'anniversaire de votre moitié ; votre voisin(e) que je suis vous aide à tout organiser.",
       "questions": [
         {
-          "text": "Bonjour ! Je viens de m'installer dans le quartier et j'aimerais organiser l'anniversaire de mon conjoint ou ma conjointe — vous auriez des conseils pour bien m'y prendre ?"
+          "text": "Bonjour ! Je viens de m'installer dans le quartier et j'aimerais organiser un anniversaire surprise pour ma moitié — vous auriez des conseils pour bien m'y prendre ?"
         },
         {
           "text": "Vous connaissez un bon endroit pour fêter ça — un restaurant, une salle à louer ?",
@@ -237,7 +237,7 @@
           "memory_section": 2
         },
         {
-          "text": "Question repas, ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
+          "text": "Ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
           "memory_number": 11,
           "memory_section": 7
         },
@@ -276,10 +276,10 @@
           "text": "Où est-ce que je peux trouver de la décoration ou des ballons pas trop loin ?"
         },
         {
-          "text": "Question organisation, pour inviter les gens, comment ça se passe ici — on prévient longtemps à l'avance ?"
+          "text": "Comment prévenir les invités assez tôt sans gâcher la surprise ?"
         },
         {
-          "text": "Vous auriez d'autres idées pour rendre la fête plus conviviale et réussie ?"
+          "text": "Vous auriez une idée pour faire venir ma moitié sur place sans éveiller ses soupçons ?"
         },
         {
           "text": "Pour finir — si vous ne deviez me recommander qu'une seule chose pour cette occasion, ce serait laquelle ?"

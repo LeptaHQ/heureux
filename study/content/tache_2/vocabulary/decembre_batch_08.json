@@ -15,10 +15,10 @@
         {
           "id": "T2D12S36V02",
           "kind": "mot-cle",
-          "french": "au Canada",
-          "english": "in Canada",
-          "example": "Et depuis combien de temps êtes-vous au Canada ?",
-          "usage": "Locution prépositionnelle pour situer le séjour d’études."
+          "french": "ville",
+          "english": "city",
+          "example": "Dans quelle ville vivez-vous actuellement ?",
+          "usage": "Nom féminin pour situer le lieu de résidence."
         },
         {
           "id": "T2D12S36V03",
@@ -159,10 +159,10 @@
         {
           "id": "T2D12S36V20",
           "kind": "collocation",
-          "french": "coutumes canadiennes",
-          "english": "Canadian customs",
-          "example": "Une dernière chose me vient à l'esprit : quelles habitudes ou quelles coutumes canadiennes vous ont le plus surpris(e) depuis votre arrivée ?",
-          "usage": "Collocation nominale pour évoquer des habitudes locales."
+          "french": "rythme de la semaine",
+          "english": "weekday routine",
+          "example": "Qu'est-ce que vous faites le week-end pour changer du rythme de la semaine ?",
+          "usage": "Groupe nominal pour évoquer les habitudes et le rythme des jours de semaine."
         },
         {
           "id": "T2D12S36V21",
@@ -175,10 +175,10 @@
         {
           "id": "T2D12S36V22",
           "kind": "tournure",
-          "french": "depuis combien de temps êtes-vous au Canada",
-          "english": "how long have you been in Canada",
-          "example": "Et depuis combien de temps êtes-vous au Canada ?",
-          "usage": "Tournure interrogative classique sur la durée d’un séjour."
+          "french": "dans quelle ville vivez-vous",
+          "english": "which city do you live in",
+          "example": "Dans quelle ville vivez-vous actuellement ?",
+          "usage": "Question pour demander le lieu de résidence."
         },
         {
           "id": "T2D12S36V23",
@@ -241,7 +241,7 @@
           "kind": "tournure",
           "french": "si vous deviez décrire votre semaine idéale",
           "english": "if you had to describe your ideal week",
-          "example": "Pour finir — si vous deviez décrire votre semaine idéale ici en tant qu'étudiant, à quoi ressemblerait-elle ?",
+          "example": "Pour finir — si vous deviez décrire votre semaine idéale en tant qu'étudiant, à quoi ressemblerait-elle ?",
           "usage": "Hypothèse utile pour amener une réponse personnelle plus développée."
         }
       ]
@@ -326,7 +326,7 @@
           "kind": "mot-cle",
           "french": "connaissances littéraires",
           "english": "literary knowledge",
-          "example": "En ce qui concerne l'encadrement, quel niveau de connaissances littéraires faut-il avoir pour se sentir à l'aise ?",
+          "example": "Quel niveau de connaissances littéraires faut-il avoir pour se sentir à l'aise ?",
           "usage": "Groupe nominal pour évoquer le niveau attendu."
         },
         {
@@ -374,7 +374,7 @@
           "kind": "collocation",
           "french": "se sentir à l'aise",
           "english": "feel comfortable",
-          "example": "En ce qui concerne l'encadrement, quel niveau de connaissances littéraires faut-il avoir pour se sentir à l'aise ?",
+          "example": "Quel niveau de connaissances littéraires faut-il avoir pour se sentir à l'aise ?",
           "usage": "Expression utile pour parler du niveau requis."
         },
         {
@@ -470,7 +470,7 @@
           "kind": "tournure",
           "french": "Quel niveau de connaissances littéraires faut-il avoir",
           "english": "what level of literary knowledge is needed",
-          "example": "En ce qui concerne l'encadrement, quel niveau de connaissances littéraires faut-il avoir pour se sentir à l'aise ?",
+          "example": "Quel niveau de connaissances littéraires faut-il avoir pour se sentir à l'aise ?",
           "usage": "Question détaillée pour évaluer la difficulté du jeu."
         },
         {
@@ -484,10 +484,10 @@
         {
           "id": "T2D12S37V30",
           "kind": "tournure",
-          "french": "Quel est l'intérêt pour la librairie d'organiser ce jeu",
-          "english": "what is the benefit for the bookshop of organizing this game",
-          "example": "Quel est l'intérêt pour la librairie d'organiser ce jeu ?",
-          "usage": "Question utile pour comprendre la motivation de l’organisateur."
+          "french": "faut-il lire ou préparer quelque chose",
+          "english": "do we need to read or prepare anything",
+          "example": "Faut-il lire ou préparer quelque chose avant de participer ?",
+          "usage": "Question pour connaître la préparation nécessaire avant le jeu."
         }
       ]
     },
@@ -499,7 +499,7 @@
           "kind": "mot-cle",
           "french": "une activité artistique",
           "english": "an artistic activity",
-          "example": "Salut ! J'ai entendu dire que tu pratiquais une activité artistique chaque semaine — tu pourrais m'en parler un peu ?",
+          "example": "Salut ! J'ai entendu dire que tu pratiquais une activité artistique — tu pourrais m'en parler un peu ?",
           "usage": "Groupe nominal général pour parler d’un loisir créatif."
         },
         {
@@ -545,10 +545,10 @@
         {
           "id": "T2D12S38V07",
           "kind": "mot-cle",
-          "french": "un petit groupe",
-          "english": "a small group",
-          "example": "Pour ce qui est des personnes présentes, il y a généralement combien de participants — c'est un petit groupe ou un grand groupe ?",
-          "usage": "Groupe nominal pour décrire un effectif réduit."
+          "french": "d'autres personnes",
+          "english": "other people",
+          "example": "Tu pratiques seul(e) ou avec d'autres personnes — et dans ce cas, vous êtes combien ?",
+          "usage": "Groupe nominal désignant les personnes avec qui l'ami pratique l'activité."
         },
         {
           "id": "T2D12S38V08",
@@ -569,17 +569,17 @@
         {
           "id": "T2D12S38V10",
           "kind": "mot-cle",
-          "french": "une séance d'essai",
-          "english": "a trial session",
-          "example": "Est-ce qu'on peut essayer avant de s'engager — il y a une séance d'essai ?",
-          "usage": "Expression utile pour demander un essai avant inscription."
+          "french": "une première fois",
+          "english": "a first time",
+          "example": "Est-ce que je pourrais essayer avec toi une première fois avant de m'engager ?",
+          "usage": "Expression pour évoquer un premier essai de l'activité."
         },
         {
           "id": "T2D12S38V11",
           "kind": "collocation",
           "french": "tu pourrais m'en parler",
           "english": "could you tell me about it",
-          "example": "Salut ! J'ai entendu dire que tu pratiquais une activité artistique chaque semaine — tu pourrais m'en parler un peu ?",
+          "example": "Salut ! J'ai entendu dire que tu pratiquais une activité artistique — tu pourrais m'en parler un peu ?",
           "usage": "Formule orale pour lancer une conversation sur l’activité."
         },
         {
@@ -601,33 +601,33 @@
         {
           "id": "T2D12S38V14",
           "kind": "collocation",
-          "french": "un grand groupe",
-          "english": "a large group",
-          "example": "Pour ce qui est des personnes présentes, il y a généralement combien de participants — c'est un petit groupe ou un grand groupe ?",
-          "usage": "Collocation pour opposer un effectif nombreux à un petit groupe."
+          "french": "dans ce cas",
+          "english": "in that case",
+          "example": "Tu pratiques seul(e) ou avec d'autres personnes — et dans ce cas, vous êtes combien ?",
+          "usage": "Locution pour rattacher une précision à une possibilité évoquée juste avant."
         },
         {
           "id": "T2D12S38V15",
           "kind": "collocation",
-          "french": "payer à la séance",
-          "english": "pay per session",
-          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il payer à la séance ou s'inscrire pour toute la session ?",
-          "usage": "Expression fréquente pour parler du mode de paiement."
+          "french": "une location de salle",
+          "english": "a room rental",
+          "example": "Côté budget, il faut prévoir quels frais — des cours, du matériel, une location de salle ?",
+          "usage": "Association nominale pour évoquer un éventuel coût lié au lieu de pratique."
         },
         {
           "id": "T2D12S38V16",
           "kind": "collocation",
-          "french": "s'inscrire pour toute la session",
-          "english": "sign up for the whole session",
-          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il payer à la séance ou s'inscrire pour toute la session ?",
-          "usage": "Collocation utile pour parler d’un engagement plus long."
+          "french": "avant de m'engager",
+          "english": "before committing",
+          "example": "Est-ce que je pourrais essayer avec toi une première fois avant de m'engager ?",
+          "usage": "Expression temporelle qui situe l'essai avant une décision d'engagement."
         },
         {
           "id": "T2D12S38V17",
           "kind": "collocation",
           "french": "auprès du professeur",
           "english": "with the teacher",
-          "example": "Comment se passe l'inscription — en ligne, sur place, ou directement auprès du professeur ?",
+          "example": "Si je veux suivre un cours, comment se passe l'inscription — en ligne, sur place, ou directement auprès du professeur ?",
           "usage": "Collocation prépositionnelle pour parler de l’inscription directe."
         },
         {
@@ -657,10 +657,10 @@
         {
           "id": "T2D12S38V21",
           "kind": "tournure",
-          "french": "si on débute complètement, est-ce qu'on risque de se sentir perdu(e)",
-          "english": "if one is a complete beginner, might one feel lost",
-          "example": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
-          "usage": "Tournure conditionnelle utile pour exprimer une inquiétude de débutant."
+          "french": "comment peut-on apprendre les bases",
+          "english": "how can one learn the basics",
+          "example": "Si on débute complètement, comment peut-on apprendre les bases ?",
+          "usage": "Question pour demander comment débuter une activité."
         },
         {
           "id": "T2D12S38V22",
@@ -689,10 +689,10 @@
         {
           "id": "T2D12S38V25",
           "kind": "tournure",
-          "french": "Il y a généralement combien de participants",
-          "english": "how many participants are there generally",
-          "example": "Pour ce qui est des personnes présentes, il y a généralement combien de participants — c'est un petit groupe ou un grand groupe ?",
-          "usage": "Question fréquente sur la taille du groupe."
+          "french": "vous êtes combien",
+          "english": "how many of you are there",
+          "example": "Tu pratiques seul(e) ou avec d'autres personnes — et dans ce cas, vous êtes combien ?",
+          "usage": "Question orale sur la taille du groupe ; vous désigne ici l'ami et les autres participants."
         },
         {
           "id": "T2D12S38V26",
@@ -705,10 +705,10 @@
         {
           "id": "T2D12S38V27",
           "kind": "tournure",
-          "french": "Comment fonctionnent les tarifs",
-          "english": "how the pricing works",
-          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il payer à la séance ou s'inscrire pour toute la session ?",
-          "usage": "Question pratique sur les modalités de paiement."
+          "french": "il faut prévoir quels frais",
+          "english": "what expenses should one budget for",
+          "example": "Côté budget, il faut prévoir quels frais — des cours, du matériel, une location de salle ?",
+          "usage": "Question pratique sur les dépenses nécessaires."
         },
         {
           "id": "T2D12S38V28",
@@ -723,7 +723,7 @@
           "kind": "tournure",
           "french": "Comment se passe l'inscription",
           "english": "how registration works",
-          "example": "Comment se passe l'inscription — en ligne, sur place, ou directement auprès du professeur ?",
+          "example": "Si je veux suivre un cours, comment se passe l'inscription — en ligne, sur place, ou directement auprès du professeur ?",
           "usage": "Question classique sur la démarche d’inscription."
         },
         {
@@ -1219,10 +1219,10 @@
         {
           "id": "T2D12S40V30",
           "kind": "tournure",
-          "french": "quelle destination me recommanderais-tu, et dans quel pays retournerais-tu tout de suite",
-          "english": "which destination would you recommend to me, and which country would you go back to right away",
-          "example": "Pour finir — si j'aime surtout la nature, la culture ou l'aventure, quelle destination me recommanderais-tu, et dans quel pays retournerais-tu tout de suite ?",
-          "usage": "Question finale qui combine recommandation et pays coup de cœur."
+          "french": "tu me conseillerais ce pays ou une autre destination",
+          "english": "would you recommend this country or another destination",
+          "example": "Pour finir — si je privilégie la nature, tu me conseillerais ce pays ou une autre destination ?",
+          "usage": "Question au conditionnel pour comparer des destinations selon une préférence."
         }
       ]
     }

@@ -12,7 +12,7 @@
       "prompt": "M'absentant un moment pour les vacances, je vous confie mon appartement ; en ami(e), vous me demandez toutes les précisions utiles (dates, tâches à faire, consignes, etc.).",
       "questions": [
         {
-          "text": "Salut ! Bien sûr, je peux surveiller ton appartement — tu pars à quelles dates exactement ?",
+          "text": "Salut ! Tu souhaites que je surveille ton appartement — tu pars à quelles dates exactement ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -174,7 +174,7 @@
           "memory_section": 6
         },
         {
-          "text": "En ce qui concerne l'encadrement, les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
+          "text": "Les professeurs sont-ils qualifiés dans les instruments qu'ils enseignent ?",
           "memory_number": 10,
           "memory_section": 7
         },
@@ -252,7 +252,7 @@
           "memory_section": 6
         },
         {
-          "text": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "text": "Si on débute complètement, est-ce que vous adaptez les exercices au niveau de chacun ?",
           "memory_number": 8,
           "memory_section": 6
         },
@@ -269,7 +269,7 @@
           "text": "Tant que j'y pense, l'ambiance est comment — les gens viennent surtout pour se dépenser ou aussi pour se rencontrer ?"
         },
         {
-          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — on paie à la séance ou il faut s'inscrire pour la session ?"
+          "text": "En ce qui concerne le budget, combien coûte une séance, et peut-on s'inscrire pour toute la session ?"
         },
         {
           "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
@@ -285,7 +285,7 @@
           "memory_section": 8
         },
         {
-          "text": "En ce qui concerne la réservation, comment se passe l'inscription — directement auprès de vous ou sur place ?"
+          "text": "Comment se passe l'inscription — directement auprès de vous ou sur place ?"
         },
         {
           "text": "Pour finir — quel cours me conseilleriez-vous pour bien commencer ?"
@@ -334,7 +334,7 @@
           "text": "Est-ce que le petit-déjeuner ou les repas sont souvent inclus ?"
         },
         {
-          "text": "Pour ce qui est de la météo, faut-il réserver longtemps à l'avance, surtout en haute saison ?"
+          "text": "Faut-il réserver longtemps à l'avance, surtout en haute saison ?"
         },
         {
           "text": "Et pour finir de m'organiser, vous auriez une brochure ou un site pour comparer et réserver ?"

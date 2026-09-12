@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "des compétences",
           "english": "skills",
-          "example": "Côté niveau, pour devenir membre, faut-il des compétences particulières ou une expérience avec les animaux ?",
+          "example": "Pour devenir membre, faut-il des compétences particulières ou une expérience avec les animaux ?",
           "usage": "Nom pluriel désignant les capacités requises pour une activité."
         },
         {
@@ -57,16 +57,16 @@
           "kind": "mot-cle",
           "french": "les disponibilités",
           "english": "availability",
-          "example": "Côté engagement, à quelle fréquence les membres s'engagent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
+          "example": "Côté engagement, à quelle fréquence les membres participent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
           "usage": "Nom pluriel désignant les moments où l'on est libre pour une activité."
         },
         {
           "id": "T2J6S1V08",
           "kind": "mot-cle",
-          "french": "une séance",
-          "english": "a session",
-          "example": "Et sur une séance, combien de temps faut-il prévoir en général ?",
-          "usage": "Nom féminin désignant une unité d'activité ou de cours."
+          "french": "une mission",
+          "english": "an assignment",
+          "example": "Et combien de temps dure une mission en général ?",
+          "usage": "Nom féminin désignant une activité de bénévolat confiée à un membre."
         },
         {
           "id": "T2J6S1V09",
@@ -121,7 +121,7 @@
           "kind": "collocation",
           "french": "devenir membre",
           "english": "to become a member",
-          "example": "Côté niveau, pour devenir membre, faut-il des compétences particulières ou une expérience avec les animaux ?",
+          "example": "Pour devenir membre, faut-il des compétences particulières ou une expérience avec les animaux ?",
           "usage": "Collocation verbe + nom pour l'adhésion à une organisation."
         },
         {
@@ -177,16 +177,16 @@
           "kind": "tournure",
           "french": "à quelle fréquence",
           "english": "how often",
-          "example": "Côté engagement, à quelle fréquence les membres s'engagent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
+          "example": "Côté engagement, à quelle fréquence les membres participent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
           "usage": "Tournure interrogative standard pour demander la régularité d'une action."
         },
         {
           "id": "T2J6S1V23",
           "kind": "tournure",
-          "french": "combien de temps faut-il prévoir",
-          "english": "how much time should be planned",
-          "example": "Et sur une séance, combien de temps faut-il prévoir en général ?",
-          "usage": "Tournure interrogative pour demander une estimation de durée nécessaire."
+          "french": "combien de temps dure une mission",
+          "english": "how long does an assignment last",
+          "example": "Et combien de temps dure une mission en général ?",
+          "usage": "Question avec « combien de temps » pour demander la durée d'une activité."
         },
         {
           "id": "T2J6S1V24",
@@ -390,7 +390,7 @@
           "kind": "collocation",
           "french": "facile d'accès",
           "english": "easy to get to",
-          "example": "Le cinéma où tu es allé(e) est facile d'accès, ou il y en a un plus proche pour moi ?",
+          "example": "Tu es allé(e) dans quel cinéma — c'est facile d'accès en transports en commun ?",
           "usage": "Collocation adjectivale pour qualifier un lieu bien desservi."
         },
         {
@@ -398,7 +398,7 @@
           "kind": "collocation",
           "french": "beaucoup de monde",
           "english": "a lot of people",
-          "example": "Côté lieu, il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
+          "example": "Il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
           "usage": "Collocation très fréquente pour évoquer une affluence importante."
         },
         {
@@ -468,17 +468,17 @@
         {
           "id": "T2J6S2V28",
           "kind": "tournure",
-          "french": "il y en a un plus proche pour moi",
-          "english": "is there a closer one for me",
-          "example": "Le cinéma où tu es allé(e) est facile d'accès, ou il y en a un plus proche pour moi ?",
-          "usage": "Tournure pour demander une alternative plus pratique géographiquement."
+          "french": "Tu es allé(e) dans quel cinéma",
+          "english": "which cinema did you go to",
+          "example": "Tu es allé(e) dans quel cinéma — c'est facile d'accès en transports en commun ?",
+          "usage": "Question au passé composé avec « quel » postposé pour identifier un lieu fréquenté."
         },
         {
           "id": "T2J6S2V29",
           "kind": "tournure",
           "french": "il y avait beaucoup de monde dans la salle",
           "english": "there were a lot of people in the room",
-          "example": "Côté lieu, il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
+          "example": "Il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
           "usage": "Tournure descriptive à l'imparfait pour évoquer l'affluence lors d'une sortie passée."
         },
         {
@@ -497,10 +497,10 @@
         {
           "id": "T2J6S3V01",
           "kind": "mot-cle",
-          "french": "depuis combien de temps",
-          "english": "since how long / how long ago",
-          "example": "Bienvenue dans l'équipe ! Avant tout, depuis combien de temps es-tu arrivé(e) dans le pays ?",
-          "usage": "Groupe interrogatif standard pour demander la durée écoulée depuis un événement."
+          "french": "il y a combien de temps",
+          "english": "how long ago",
+          "example": "Bienvenue dans l'équipe ! Avant tout, tu es arrivé(e) dans le pays il y a combien de temps ?",
+          "usage": "Groupe interrogatif qui situe un événement dans le passé, sans exprimer une durée encore en cours."
         },
         {
           "id": "T2J6S3V02",
@@ -553,10 +553,10 @@
         {
           "id": "T2J6S3V08",
           "kind": "mot-cle",
-          "french": "t'adapter",
-          "english": "to adapt (yourself)",
-          "example": "Comment as-tu réussi à t'adapter et à surmonter ces difficultés ?",
-          "usage": "Verbe pronominal au sens de s'ajuster à un nouvel environnement."
+          "french": "surmonter",
+          "english": "to overcome",
+          "example": "Si tu as rencontré des difficultés, qu'est-ce qui t'a aidé(e) à les surmonter ?",
+          "usage": "Verbe exprimant la capacité à dépasser une difficulté."
         },
         {
           "id": "T2J6S3V09",
@@ -579,7 +579,7 @@
           "kind": "collocation",
           "french": "bienvenue dans l'équipe",
           "english": "welcome to the team",
-          "example": "Bienvenue dans l'équipe ! Avant tout, depuis combien de temps es-tu arrivé(e) dans le pays ?",
+          "example": "Bienvenue dans l'équipe ! Avant tout, tu es arrivé(e) dans le pays il y a combien de temps ?",
           "usage": "Formule d'accueil courante pour un nouveau collègue."
         },
         {
@@ -617,10 +617,10 @@
         {
           "id": "T2J6S3V16",
           "kind": "collocation",
-          "french": "te manque le plus",
-          "english": "you miss the most",
-          "example": "Pour ce qui est de ton ressenti, qu'est-ce qui te manque le plus du Québec ?",
-          "usage": "Collocation verbe « manquer » + superlatif pour exprimer la nostalgie."
+          "french": "te manque",
+          "english": "you miss",
+          "example": "Est-ce qu'il y a quelque chose qui te manque du Québec ?",
+          "usage": "Association du verbe « manquer » et du complément indirect « te » pour exprimer une absence ressentie."
         },
         {
           "id": "T2J6S3V17",
@@ -673,10 +673,10 @@
         {
           "id": "T2J6S3V23",
           "kind": "tournure",
-          "french": "comment as-tu réussi à",
-          "english": "how did you manage to",
-          "example": "Comment as-tu réussi à t'adapter et à surmonter ces difficultés ?",
-          "usage": "Tournure interrogative standard pour demander la façon dont un défi a été surmonté."
+          "french": "qu'est-ce qui t'a aidé(e) à les surmonter",
+          "english": "what helped you overcome them",
+          "example": "Si tu as rencontré des difficultés, qu'est-ce qui t'a aidé(e) à les surmonter ?",
+          "usage": "Question pour préciser une aide reçue, le pronom « les » reprenant les difficultés éventuelles."
         },
         {
           "id": "T2J6S3V24",
@@ -697,10 +697,10 @@
         {
           "id": "T2J6S3V26",
           "kind": "tournure",
-          "french": "qu'est-ce qui te manque le plus",
-          "english": "what do you miss the most",
-          "example": "Pour ce qui est de ton ressenti, qu'est-ce qui te manque le plus du Québec ?",
-          "usage": "Tournure interrogative standard pour exprimer une nostalgie précise."
+          "french": "Est-ce qu'il y a quelque chose qui te manque",
+          "english": "is there anything you miss",
+          "example": "Est-ce qu'il y a quelque chose qui te manque du Québec ?",
+          "usage": "Question sur la nostalgie qui laisse la possibilité de ne rien regretter."
         },
         {
           "id": "T2J6S3V27",

@@ -31,10 +31,10 @@
         {
           "id": "T2O10S16V04",
           "kind": "mot-cle",
-          "french": "une seule chose",
-          "english": "just one thing",
-          "example": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
-          "usage": "Groupe nominal restrictif pour désigner un unique élément parmi d'autres."
+          "french": "la prochaine séance",
+          "english": "the next session",
+          "example": "Pour finir — est-ce que je pourrais venir avec toi à la prochaine séance ?",
+          "usage": "Groupe nominal désignant la prochaine rencontre du club."
         },
         {
           "id": "T2O10S16V05",
@@ -55,9 +55,9 @@
         {
           "id": "T2O10S16V07",
           "kind": "mot-cle",
-          "french": "une cotisation",
-          "english": "a membership fee",
-          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — il faut payer une cotisation, ou c'est gratuit ?",
+          "french": "la cotisation",
+          "english": "the membership fee",
+          "example": "En ce qui concerne le budget, quel est le montant de la cotisation, s'il y en a une ?",
           "usage": "Nom désignant la somme pour être membre."
         },
         {
@@ -79,10 +79,10 @@
         {
           "id": "T2O10S16V10",
           "kind": "mot-cle",
-          "french": "du monde",
-          "english": "people",
-          "example": "Est-ce que c'est convivial — on peut y rencontrer du monde facilement ?",
-          "usage": "Nom désignant des personnes à rencontrer."
+          "french": "une table de jeu",
+          "english": "a gaming table",
+          "example": "Si je viens seul(e), comment on rejoint une table de jeu ?",
+          "usage": "Groupe nominal désignant une table autour de laquelle des participants jouent ensemble."
         },
         {
           "id": "T2O10S16V11",
@@ -95,10 +95,10 @@
         {
           "id": "T2O10S16V12",
           "kind": "collocation",
-          "french": "se sentir perdu(e)",
-          "english": "to feel lost",
-          "example": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
-          "usage": "Locution verbale pronominale sur la difficulté."
+          "french": "explique les règles",
+          "english": "explains the rules",
+          "example": "Si on débute complètement, est-ce que quelqu'un explique les règles avant de jouer ?",
+          "usage": "Collocation verbale sur l'accompagnement de nouveaux joueurs."
         },
         {
           "id": "T2O10S16V13",
@@ -159,10 +159,10 @@
         {
           "id": "T2O10S16V20",
           "kind": "collocation",
-          "french": "rencontrer du monde",
-          "english": "meet people",
-          "example": "Est-ce que c'est convivial — on peut y rencontrer du monde facilement ?",
-          "usage": "Locution verbale sur la sociabilité."
+          "french": "rejoint une table de jeu",
+          "english": "joins a gaming table",
+          "example": "Si je viens seul(e), comment on rejoint une table de jeu ?",
+          "usage": "Collocation verbale pour parler de l'intégration à un groupe de joueurs."
         },
         {
           "id": "T2O10S16V21",
@@ -175,10 +175,10 @@
         {
           "id": "T2O10S16V22",
           "kind": "tournure",
-          "french": "si on débute complètement, est-ce qu'on risque de se sentir perdu(e)",
-          "english": "if one is a complete beginner, might one feel lost",
-          "example": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
-          "usage": "Tournure conditionnelle utile pour exprimer une inquiétude de débutant."
+          "french": "est-ce que quelqu'un explique les règles avant de jouer",
+          "english": "does someone explain the rules before playing",
+          "example": "Si on débute complètement, est-ce que quelqu'un explique les règles avant de jouer ?",
+          "usage": "Question pour vérifier l'accueil des débutants."
         },
         {
           "id": "T2O10S16V23",
@@ -223,10 +223,10 @@
         {
           "id": "T2O10S16V28",
           "kind": "tournure",
-          "french": "si tu ne devais me recommander qu'une seule chose, ce serait laquelle",
-          "english": "if you had to recommend just one thing to me, which would it be",
-          "example": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
-          "usage": "Structure restrictive avec 'ne...que' suivie du pronom interrogatif 'laquelle', registre tutoiement."
+          "french": "est-ce que je pourrais venir avec toi",
+          "english": "could I come with you",
+          "example": "Pour finir — est-ce que je pourrais venir avec toi à la prochaine séance ?",
+          "usage": "Question au conditionnel pour proposer une première participation accompagnée."
         },
         {
           "id": "T2O10S16V29",
@@ -239,10 +239,10 @@
         {
           "id": "T2O10S16V30",
           "kind": "tournure",
-          "french": "Comment fonctionnent les tarifs",
-          "english": "how do the fees work",
-          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — il faut payer une cotisation, ou c'est gratuit ?",
-          "usage": "Question sur les tarifs."
+          "french": "quel est le montant de la cotisation",
+          "english": "what is the membership fee",
+          "example": "En ce qui concerne le budget, quel est le montant de la cotisation, s'il y en a une ?",
+          "usage": "Question sur le montant à payer pour être membre."
         }
       ]
     },
@@ -278,7 +278,7 @@
           "kind": "mot-cle",
           "french": "un programme",
           "english": "a schedule/programme",
-          "example": "En ce qui concerne la nourriture, comment ça va se dérouler — il y a un programme, des discours, un repas ?",
+          "example": "Comment ça va se dérouler — il y a un programme, des discours, des animations ?",
           "usage": "Nom désignant le déroulé de la soirée."
         },
         {
@@ -286,7 +286,7 @@
           "kind": "mot-cle",
           "french": "des discours",
           "english": "speeches",
-          "example": "En ce qui concerne la nourriture, comment ça va se dérouler — il y a un programme, des discours, un repas ?",
+          "example": "Comment ça va se dérouler — il y a un programme, des discours, des animations ?",
           "usage": "Nom pluriel désignant les prises de parole."
         },
         {
@@ -324,10 +324,10 @@
         {
           "id": "T2O10S17V10",
           "kind": "mot-cle",
-          "french": "le cadeau",
-          "english": "the gift",
-          "example": "Toujours sur ce point, pour le cadeau, on fait quelque chose en commun, ou chacun apporte le sien ?",
-          "usage": "Nom désignant le présent collectif."
+          "french": "un cadeau",
+          "english": "a gift",
+          "example": "Si on souhaite t'offrir un cadeau, tu as une préférence ?",
+          "usage": "Nom désignant un présent offert pour une occasion."
         },
         {
           "id": "T2O10S17V11",
@@ -372,10 +372,10 @@
         {
           "id": "T2O10S17V16",
           "kind": "collocation",
-          "french": "quelque chose en commun",
-          "english": "something together",
-          "example": "Toujours sur ce point, pour le cadeau, on fait quelque chose en commun, ou chacun apporte le sien ?",
-          "usage": "Locution sur le cadeau collectif."
+          "french": "t'offrir un cadeau",
+          "english": "give you a gift",
+          "example": "Si on souhaite t'offrir un cadeau, tu as une préférence ?",
+          "usage": "Collocation verbale pour évoquer un cadeau destiné à l'interlocuteur."
         },
         {
           "id": "T2O10S17V17",
@@ -404,10 +404,10 @@
         {
           "id": "T2O10S17V20",
           "kind": "collocation",
-          "french": "avec plaisir",
-          "english": "gladly",
-          "example": "En tout cas je serai là avec plaisir — tu veux que je m'occupe de quelque chose en particulier ?",
-          "usage": "Locution exprimant l'enthousiasme."
+          "french": "un changement de programme",
+          "english": "a change of plans",
+          "example": "Pour finir — comment tu nous préviendras s'il y a un changement de programme ?",
+          "usage": "Association nominale pour parler d'une modification de l'organisation prévue."
         },
         {
           "id": "T2O10S17V21",
@@ -454,7 +454,7 @@
           "kind": "tournure",
           "french": "Comment ça va se dérouler",
           "english": "how will it unfold",
-          "example": "En ce qui concerne la nourriture, comment ça va se dérouler — il y a un programme, des discours, un repas ?",
+          "example": "Comment ça va se dérouler — il y a un programme, des discours, des animations ?",
           "usage": "Question sur le déroulement."
         },
         {
@@ -484,10 +484,10 @@
         {
           "id": "T2O10S17V30",
           "kind": "tournure",
-          "french": "tu veux que je m'occupe de quelque chose en particulier",
-          "english": "do you want me to take care of anything in particular",
-          "example": "En tout cas je serai là avec plaisir — tu veux que je m'occupe de quelque chose en particulier ?",
-          "usage": "Tournure de clôture proposant de l'aide."
+          "french": "comment tu nous préviendras",
+          "english": "how will you let us know",
+          "example": "Pour finir — comment tu nous préviendras s'il y a un changement de programme ?",
+          "usage": "Question au futur sur la manière de communiquer un éventuel changement."
         }
       ]
     },
@@ -585,10 +585,10 @@
         {
           "id": "T2O10S18V12",
           "kind": "collocation",
-          "french": "vous rejoindre",
-          "english": "to join you",
-          "example": "Pour finir — quelle serait la meilleure façon de commencer si je souhaite vous rejoindre dès cette semaine ?",
-          "usage": "Collocation infinitif + pronom pour exprimer l'intention de devenir membre."
+          "french": "pour une première séance",
+          "english": "for a first session",
+          "example": "Pour finir — quelle activité me conseilleriez-vous pour une première séance ?",
+          "usage": "Expression pour préciser qu'un conseil concerne une première participation."
         },
         {
           "id": "T2O10S18V13",
@@ -651,7 +651,7 @@
           "kind": "collocation",
           "french": "s'inscrire et participer",
           "english": "sign up and take part",
-          "example": "Comment fait-on pour s'inscrire et participer dès cette semaine ?",
+          "example": "Comment fait-on pour s'inscrire et participer à une prochaine séance ?",
           "usage": "Verbes coordonnés sur la participation."
         },
         {
@@ -665,10 +665,10 @@
         {
           "id": "T2O10S18V22",
           "kind": "tournure",
-          "french": "quelle serait la meilleure façon de commencer",
-          "english": "what would be the best way to start",
-          "example": "Pour finir — quelle serait la meilleure façon de commencer si je souhaite vous rejoindre dès cette semaine ?",
-          "usage": "Tournure interrogative de clôture pour demander un conseil final sur la marche à suivre."
+          "french": "quelle activité me conseilleriez-vous",
+          "english": "what activity would you recommend to me",
+          "example": "Pour finir — quelle activité me conseilleriez-vous pour une première séance ?",
+          "usage": "Question au conditionnel pour choisir une première activité."
         },
         {
           "id": "T2O10S18V23",
@@ -1021,7 +1021,7 @@
           "kind": "mot-cle",
           "french": "l'inscription",
           "english": "the registration",
-          "example": "Côté réservation, comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "example": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
           "usage": "Nom féminin désignant la démarche administrative pour s'inscrire à une activité."
         },
         {
@@ -1037,7 +1037,7 @@
           "kind": "mot-cle",
           "french": "des maîtres-nageurs",
           "english": "lifeguards/swim instructors",
-          "example": "Dans le même esprit, les cours sont-ils donnés par des maîtres-nageurs qualifiés ?",
+          "example": "Les cours sont-ils donnés par des maîtres-nageurs qualifiés ?",
           "usage": "Nom pluriel désignant les moniteurs de natation."
         },
         {
@@ -1077,16 +1077,16 @@
           "kind": "collocation",
           "french": "uniquement sur place",
           "english": "only on site",
-          "example": "Côté réservation, comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "example": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
           "usage": "Collocation adverbiale restrictive pour situer une démarche dans un lieu unique."
         },
         {
           "id": "T2O10S20V13",
           "kind": "collocation",
-          "french": "venir librement",
-          "english": "to come freely / without booking",
-          "example": "Il faut s'inscrire à l'avance pour les cours ou on peut venir librement ?",
-          "usage": "Association verbe + adverbe pour décrire une fréquentation sans contrainte d'horaire."
+          "french": "venir pour progresser",
+          "english": "attend in order to improve",
+          "example": "Combien de temps dure une leçon, et à quelle fréquence faut-il venir pour progresser ?",
+          "usage": "Association d'un verbe et d'un complément de but pour parler de la régularité des cours."
         },
         {
           "id": "T2O10S20V14",
@@ -1115,18 +1115,18 @@
         {
           "id": "T2O10S20V17",
           "kind": "collocation",
-          "french": "souscrire à un abonnement",
-          "english": "take out a subscription",
-          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque séance séparément ?",
-          "usage": "Verbe + complément sur l'abonnement."
+          "french": "un forfait de plusieurs cours",
+          "english": "a package of several lessons",
+          "example": "En ce qui concerne le budget, combien coûte une séance, et proposez-vous un forfait de plusieurs cours ?",
+          "usage": "Groupe nominal désignant une formule comprenant plusieurs cours."
         },
         {
           "id": "T2O10S20V18",
           "kind": "collocation",
-          "french": "payer chaque séance",
-          "english": "pay for each session",
-          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque séance séparément ?",
-          "usage": "Verbe + complément sur le paiement à la séance."
+          "french": "combien coûte une séance",
+          "english": "how much does a session cost",
+          "example": "En ce qui concerne le budget, combien coûte une séance, et proposez-vous un forfait de plusieurs cours ?",
+          "usage": "Formule interrogative courante pour demander le prix d'une séance."
         },
         {
           "id": "T2O10S20V19",
@@ -1173,7 +1173,7 @@
           "kind": "tournure",
           "french": "Comment se passe l'inscription",
           "english": "How does the registration process work",
-          "example": "Côté réservation, comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "example": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
           "usage": "Question avec « comment » et verbe pronominal « se passer » pour interroger sur une démarche."
         },
         {
@@ -1213,7 +1213,7 @@
           "kind": "tournure",
           "french": "Les cours sont-ils donnés par des maîtres-nageurs qualifiés",
           "english": "are classes taught by qualified instructors",
-          "example": "Dans le même esprit, les cours sont-ils donnés par des maîtres-nageurs qualifiés ?",
+          "example": "Les cours sont-ils donnés par des maîtres-nageurs qualifiés ?",
           "usage": "Question sur l'encadrement."
         },
         {

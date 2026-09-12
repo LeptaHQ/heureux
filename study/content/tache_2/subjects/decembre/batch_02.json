@@ -12,12 +12,12 @@
       "prompt": "Je suis votre collègue. J'organise des séances de yoga pour les employé(e)s de l'entreprise. Vous êtes intéressé(e). Vous me posez des questions pour obtenir des informations (lieux, horaires, équipements, etc.).",
       "questions": [
         {
-          "text": "Salut ! J'ai entendu parler des séances de yoga que tu organises pour l'entreprise. C'est une excellente initiative. Tu fais ça depuis longtemps ou c'est un projet assez récent ?",
+          "text": "Salut ! J'ai entendu parler des séances de yoga que tu organises pour l'entreprise — tu fais ça depuis longtemps ou c'est un projet assez récent ?",
           "memory_number": 8,
           "memory_section": 13
         },
         {
-          "text": "En général, il y a combien de participants ? Beaucoup de personnes se sont déjà inscrites ?",
+          "text": "En général, il y a combien de participants par séance ?",
           "memory_number": 8,
           "memory_section": 7
         },
@@ -56,7 +56,7 @@
           "memory_number": 8,
           "memory_section": 13
         },
-        "D'accord. Et la salle, elle est suffisamment grande et bien aérée ? Il y a de la lumière naturelle ?",
+        "Si les séances se passent en salle, est-elle suffisamment grande et bien aérée ?",
         {
           "text": "Concernant l'équipement, est-ce que l'entreprise fournit le matériel ou chacun doit apporter le sien ?",
           "memory_number": 8,
@@ -68,12 +68,12 @@
           "memory_section": 8
         },
         {
-          "text": "Côté tarifs, comment se passe l'inscription — il faut s'inscrire à l'avance ou on peut venir librement ? Et c'est gratuit ou il y a une participation financière ?",
+          "text": "Comment se passe l'inscription — faut-il s'inscrire à l'avance, et y a-t-il une participation financière ?",
           "memory_number": 8,
           "memory_section": 6
         },
         {
-          "text": "Et pour finir — le professeur propose des adaptations selon le niveau de chacun ? Et pour les personnes qui ont des problèmes de dos, la pratique reste possible ?",
+          "text": "Et pour finir — le professeur propose des adaptations pour les débutants ou les personnes qui ont des problèmes de dos ?",
           "memory_number": 8,
           "memory_section": 8
         }
@@ -84,7 +84,7 @@
       "title": "Cours de photographie dans l'association",
       "prompt": "Je suis votre voisin(e). Je prends des cours de photographie dans l'association du quartier. Vous êtes intéressé(e). Vous me posez des questions sur le cours (prix, horaires, matériel, etc.).",
       "questions": [
-        "Bonjour ! Je vous ai croisé(e) l'autre jour avec votre appareil photo — vous prenez des cours de photographie à l'association du quartier, c'est bien ça ?",
+        "Bonjour ! Vous prenez des cours de photographie à l'association du quartier, c'est bien ça ?",
         {
           "text": "Ça fait longtemps que vous suivez ces cours ? Vous êtes satisfait(e) de votre progression jusqu'à présent ?",
           "memory_number": 10,
@@ -116,7 +116,7 @@
           "memory_section": 7
         },
         {
-          "text": "Côté organisation, les cours ont lieu quel jour — plutôt en semaine ou le week-end ? Et c'est compatible avec un emploi du temps professionnel ?",
+          "text": "Côté organisation, quels sont les horaires — c'est compatible avec un emploi du temps professionnel ?",
           "memory_number": 10,
           "memory_section": 4
         },
@@ -141,7 +141,7 @@
           "memory_section": 8
         },
         {
-          "text": "Il me reste un point à éclaircir : pour le traitement des photos, quel logiciel est généralement recommandé ?",
+          "text": "Pour le traitement des photos, quel logiciel est généralement recommandé ?",
           "memory_number": 10,
           "memory_section": 8
         },
@@ -168,17 +168,17 @@
       "prompt": "Je travaille à l'accueil du nouveau centre culturel de votre ville. Vous êtes intéressé(e). Vous me posez des questions sur les activités proposées par le centre (horaires, prix, etc.).",
       "questions": [
         {
-          "text": "Bonjour ! J'ai appris récemment l'ouverture de ce nouveau centre culturel — depuis quand est-il ouvert exactement ?",
+          "text": "Bonjour ! Je m'intéresse aux activités de votre centre culturel — sont-elles ouvertes à tous les habitants ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Ça se passe où exactement — c'est facilement accessible en transports en commun ?",
+          "text": "Les activités ont lieu au centre ou aussi dans d'autres lieux de la ville ?",
           "memory_number": 10,
           "memory_section": 5
         },
         {
-          "text": "Quels types d'activités proposez-vous — c'est plutôt orienté vers l'art, la culture ou un mélange de plusieurs domaines ?",
+          "text": "Quels types d'activités proposez-vous — des ateliers artistiques, des spectacles ou d'autres activités culturelles ?",
           "memory_number": 10,
           "memory_section": 2
         },
@@ -193,7 +193,7 @@
           "memory_section": 2
         },
         {
-          "text": "En ce qui concerne la programmation, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "text": "Organisez-vous des expositions en ce moment, et jusqu'à quand peut-on les visiter ?",
           "memory_number": 10,
           "memory_section": 2
         },
@@ -218,7 +218,7 @@
           "memory_section": 4
         },
         {
-          "text": "En ce qui concerne la réservation, comment se passe l'inscription — en ligne ou uniquement sur place ? Il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "text": "Comment se passe l'inscription — en ligne ou sur place, et combien de temps à l'avance ?",
           "memory_number": 10,
           "memory_section": 6
         },
@@ -233,7 +233,7 @@
           "memory_section": 3
         },
         {
-          "text": "Y a-t-il une boutique de souvenirs ou une librairie sur place ?",
+          "text": "Les salles sont-elles accessibles aux personnes à mobilité réduite ?",
           "memory_number": 10,
           "memory_section": 9
         },
@@ -276,7 +276,7 @@
           "memory_section": 2
         },
         {
-          "text": "Proposez-vous des visites guidées — c'est inclus dans le tarif ou c'est un supplément ? Dans quelles langues sont-elles disponibles ?",
+          "text": "Proposez-vous des visites guidées — dans quelles langues et à quel tarif ?",
           "memory_number": 7,
           "memory_section": 2
         },
@@ -296,12 +296,12 @@
           "memory_section": 2
         },
         {
-          "text": "Pour les repas, vous auriez des adresses à recommander — des spécialités locales à goûter absolument ? Il faut réserver une table à l'avance ou on peut y aller directement ?",
+          "text": "Pour les repas, vous auriez des adresses à recommander pour goûter les spécialités locales ?",
           "memory_number": 7,
           "memory_section": 9
         },
         {
-          "text": "Et côté saison, c'est une bonne période pour visiter la région ou il vaut mieux attendre une autre saison ?",
+          "text": "Quelles activités restent possibles en cas de mauvais temps ?",
           "memory_number": 7,
           "memory_section": 8
         },

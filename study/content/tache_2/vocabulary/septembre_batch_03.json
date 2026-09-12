@@ -49,15 +49,15 @@
           "kind": "mot-cle",
           "french": "en ligne",
           "english": "online",
-          "example": "Pour ce qui est du programme, où as-tu vu le film — au cinéma, en festival, en ligne ?",
+          "example": "Où as-tu vu le film — au cinéma, en festival, en ligne ?",
           "usage": "Locution adverbiale pour désigner un accès via Internet."
         },
         {
           "id": "T2S9S11V07",
           "kind": "mot-cle",
-          "french": "en salle",
+          "french": "au cinéma",
           "english": "in theaters",
-          "example": "Parlons du budget — combien est-ce que ça coûte approximativement pour le voir en salle ?",
+          "example": "Où as-tu vu le film — au cinéma, en festival, en ligne ?",
           "usage": "Locution adverbiale désignant la projection d'un film en salle de cinéma."
         },
         {
@@ -119,10 +119,10 @@
         {
           "id": "T2S9S11V15",
           "kind": "collocation",
-          "french": "coûte approximativement",
-          "english": "costs approximately",
-          "example": "Parlons du budget — combien est-ce que ça coûte approximativement pour le voir en salle ?",
-          "usage": "Association verbe + adverbe pour donner une estimation de prix."
+          "french": "t'a coûté",
+          "english": "cost you",
+          "example": "Côté budget, combien cela t'a coûté pour voir ce film ?",
+          "usage": "Association du verbe « coûter » et de la personne concernée par la dépense, au passé composé."
         },
         {
           "id": "T2S9S11V16",
@@ -151,10 +151,10 @@
         {
           "id": "T2S9S11V19",
           "kind": "collocation",
-          "french": "ses autres films",
-          "english": "his/her other films",
-          "example": "Tu as mentionné le réalisateur — tu pourrais m'en dire un peu plus sur ses autres films ?",
-          "usage": "Association possessif + adjectif + nom pour évoquer le reste d'une filmographie."
+          "french": "d'autres films de ce réalisateur",
+          "english": "other films by this director",
+          "example": "Si tu connais d'autres films de ce réalisateur, lesquels me conseillerais-tu ?",
+          "usage": "Groupe nominal pour évoquer d'autres œuvres d'une même filmographie."
         },
         {
           "id": "T2S9S11V20",
@@ -209,16 +209,16 @@
           "kind": "tournure",
           "french": "Où as-tu vu le film",
           "english": "Where did you see the film",
-          "example": "Pour ce qui est du programme, où as-tu vu le film — au cinéma, en festival, en ligne ?",
+          "example": "Où as-tu vu le film — au cinéma, en festival, en ligne ?",
           "usage": "Question avec inversion sujet-verbe après l'adverbe interrogatif 'où', registre tutoiement."
         },
         {
           "id": "T2S9S11V27",
           "kind": "tournure",
-          "french": "Parlons du budget",
-          "english": "Let's talk about the budget",
-          "example": "Parlons du budget — combien est-ce que ça coûte approximativement pour le voir en salle ?",
-          "usage": "Impératif à la première personne du pluriel pour introduire une question financière."
+          "french": "Côté budget",
+          "english": "as for the budget",
+          "example": "Côté budget, combien cela t'a coûté pour voir ce film ?",
+          "usage": "Introduction thématique pour aborder le coût d'une activité."
         },
         {
           "id": "T2S9S11V28",
@@ -231,10 +231,10 @@
         {
           "id": "T2S9S11V29",
           "kind": "tournure",
-          "french": "tu pourrais m'en dire un peu plus",
-          "english": "could you tell me a bit more",
-          "example": "Tu as mentionné le réalisateur — tu pourrais m'en dire un peu plus sur ses autres films ?",
-          "usage": "Conditionnel de politesse suivi du pronom 'en' pour relancer sur un sujet déjà évoqué."
+          "french": "lesquels me conseillerais-tu",
+          "english": "which ones would you recommend to me",
+          "example": "Si tu connais d'autres films de ce réalisateur, lesquels me conseillerais-tu ?",
+          "usage": "Pronom interrogatif et conditionnel pour demander un choix parmi plusieurs possibilités."
         },
         {
           "id": "T2S9S11V30",
@@ -268,10 +268,10 @@
         {
           "id": "T2S9S12V03",
           "kind": "mot-cle",
-          "french": "une autre saison",
-          "english": "another season",
-          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Groupe nominal pour évoquer une période de l'année différente."
+          "french": "période",
+          "english": "time/period",
+          "example": "Quelle est la meilleure période pour ces destinations ?",
+          "usage": "Nom féminin désignant un moment de l'année adapté à un voyage."
         },
         {
           "id": "T2S9S12V04",
@@ -316,10 +316,10 @@
         {
           "id": "T2S9S12V09",
           "kind": "mot-cle",
-          "french": "des places",
-          "english": "spots/seats",
-          "example": "Il reste encore des places ou c'est déjà complet ?",
-          "usage": "Nom courant désignant les emplacements disponibles pour une activité."
+          "french": "d'autres dates",
+          "english": "other dates",
+          "example": "Si le circuit qui m'intéresse est complet, proposez-vous d'autres dates ?",
+          "usage": "Groupe nominal désignant des possibilités différentes dans le calendrier."
         },
         {
           "id": "T2S9S12V10",
@@ -340,10 +340,10 @@
         {
           "id": "T2S9S12V12",
           "kind": "collocation",
-          "french": "beaucoup de monde",
-          "english": "a lot of people",
-          "example": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
-          "usage": "Association figée signifiant une forte affluence."
+          "french": "moins fréquentées",
+          "english": "less busy",
+          "example": "Y a-t-il des périodes moins fréquentées pour voyager plus tranquillement ?",
+          "usage": "Association comparative pour décrire des périodes de moindre affluence."
         },
         {
           "id": "T2S9S12V13",
@@ -366,16 +366,16 @@
           "kind": "collocation",
           "french": "s'y prendre au dernier moment",
           "english": "to leave it until the last minute",
-          "example": "Pour l'inscription, faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
+          "example": "Faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
           "usage": "Expression courante pour évoquer une réservation tardive."
         },
         {
           "id": "T2S9S12V16",
           "kind": "collocation",
-          "french": "déjà complet",
-          "english": "already fully booked",
-          "example": "Il reste encore des places ou c'est déjà complet ?",
-          "usage": "Association adverbe + adjectif pour signaler l'absence de place restante."
+          "french": "est complet",
+          "english": "is fully booked",
+          "example": "Si le circuit qui m'intéresse est complet, proposez-vous d'autres dates ?",
+          "usage": "Association du verbe « être » et de l'adjectif « complet » pour signaler l'absence de places."
         },
         {
           "id": "T2S9S12V17",
@@ -388,10 +388,10 @@
         {
           "id": "T2S9S12V18",
           "kind": "collocation",
-          "french": "le circuit le plus apprécié",
-          "english": "the most popular tour",
-          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
-          "usage": "Superlatif appliqué à un nom pour désigner l'option la plus prisée."
+          "french": "voyager plus tranquillement",
+          "english": "travel more peacefully",
+          "example": "Y a-t-il des périodes moins fréquentées pour voyager plus tranquillement ?",
+          "usage": "Association verbe-adverbe pour privilégier un voyage plus calme."
         },
         {
           "id": "T2S9S12V19",
@@ -436,10 +436,10 @@
         {
           "id": "T2S9S12V24",
           "kind": "tournure",
-          "french": "il vaut mieux attendre",
-          "english": "it is better to wait",
-          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Tournure impersonnelle avec 'il vaut mieux' pour exprimer une recommandation."
+          "french": "Quelle est la meilleure période",
+          "english": "what is the best time",
+          "example": "Quelle est la meilleure période pour ces destinations ?",
+          "usage": "Question pour choisir la période la plus favorable à un voyage."
         },
         {
           "id": "T2S9S12V25",
@@ -454,16 +454,16 @@
           "kind": "tournure",
           "french": "Faut-il réserver le circuit longtemps à l'avance",
           "english": "Should the tour be booked well in advance",
-          "example": "Pour l'inscription, faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
+          "example": "Faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
           "usage": "Inversion avec « faut-il » pour vérifier le délai de réservation."
         },
         {
           "id": "T2S9S12V27",
           "kind": "tournure",
-          "french": "Il reste encore",
-          "english": "There are still... / Is there still...",
-          "example": "Il reste encore des places ou c'est déjà complet ?",
-          "usage": "Tournure impersonnelle avec 'il reste' pour vérifier une disponibilité."
+          "french": "proposez-vous d'autres dates",
+          "english": "do you offer other dates",
+          "example": "Si le circuit qui m'intéresse est complet, proposez-vous d'autres dates ?",
+          "usage": "Question avec inversion pour demander une alternative quand un circuit est complet."
         },
         {
           "id": "T2S9S12V28",
@@ -476,10 +476,10 @@
         {
           "id": "T2S9S12V29",
           "kind": "tournure",
-          "french": "vous pourriez m'en dire un peu plus",
-          "english": "could you tell me a bit more",
-          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
-          "usage": "Conditionnel de politesse suivi du pronom 'en' pour relancer sur un sujet, registre vouvoiement."
+          "french": "lequel recommandez-vous le plus",
+          "english": "which one do you recommend most",
+          "example": "Parmi ces circuits, lequel recommandez-vous le plus, et qu'est-ce qu'il comprend ?",
+          "usage": "Pronom interrogatif et inversion pour hiérarchiser plusieurs options."
         },
         {
           "id": "T2S9S12V30",
@@ -497,17 +497,17 @@
         {
           "id": "T2S9S13V01",
           "kind": "mot-cle",
-          "french": "tout le quartier",
-          "english": "the whole neighborhood",
-          "example": "Il y a généralement combien de participants — c'est un petit groupe ou tout le quartier ?",
-          "usage": "Groupe nominal désignant l'ensemble des habitants d'un même secteur."
+          "french": "voisins",
+          "english": "neighbours",
+          "example": "Combien de voisins pourrait-on inviter sans que l'organisation devienne trop compliquée ?",
+          "usage": "Nom masculin pluriel désignant les personnes qui habitent à proximité."
         },
         {
           "id": "T2S9S13V02",
           "kind": "mot-cle",
-          "french": "l'ambiance",
-          "english": "the atmosphere",
-          "example": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "french": "une ambiance",
+          "english": "an atmosphere",
+          "example": "Comment créer une ambiance conviviale pour que les voisins fassent connaissance ?",
           "usage": "Nom courant désignant le climat général qui règne dans un lieu ou un groupe."
         },
         {
@@ -523,7 +523,7 @@
           "kind": "mot-cle",
           "french": "des règles de bruit",
           "english": "noise regulations",
-          "example": "Question conditions, faut-il prévenir la mairie ou respecter des règles de bruit ?",
+          "example": "Faut-il prévenir la mairie ou respecter des règles de bruit ?",
           "usage": "Groupe nominal désignant les normes limitant les nuisances sonores."
         },
         {
@@ -595,7 +595,7 @@
           "kind": "collocation",
           "french": "prévenir la mairie",
           "english": "to notify the town hall",
-          "example": "Question conditions, faut-il prévenir la mairie ou respecter des règles de bruit ?",
+          "example": "Faut-il prévenir la mairie ou respecter des règles de bruit ?",
           "usage": "Association verbe + nom pour désigner une démarche administrative préalable."
         },
         {
@@ -603,7 +603,7 @@
           "kind": "collocation",
           "french": "respecter des règles",
           "english": "to follow rules",
-          "example": "Question conditions, faut-il prévenir la mairie ou respecter des règles de bruit ?",
+          "example": "Faut-il prévenir la mairie ou respecter des règles de bruit ?",
           "usage": "Association verbe + nom pour indiquer l'observation d'une norme."
         },
         {
@@ -665,10 +665,10 @@
         {
           "id": "T2S9S13V22",
           "kind": "tournure",
-          "french": "Il y a généralement combien de participants",
-          "english": "How many participants are there generally",
-          "example": "Il y a généralement combien de participants — c'est un petit groupe ou tout le quartier ?",
-          "usage": "Question orale avec l'adverbe 'combien' postposé après 'il y a'."
+          "french": "Combien de voisins pourrait-on inviter",
+          "english": "how many neighbours could we invite",
+          "example": "Combien de voisins pourrait-on inviter sans que l'organisation devienne trop compliquée ?",
+          "usage": "Question au conditionnel pour évaluer un nombre possible d'invités."
         },
         {
           "id": "T2S9S13V23",
@@ -697,10 +697,10 @@
         {
           "id": "T2S9S13V26",
           "kind": "tournure",
-          "french": "Y a-t-il des activités ou jeux prévus",
-          "english": "Are there any activities or games planned",
-          "example": "Y a-t-il des activités ou jeux prévus — pour adultes et enfants ?",
-          "usage": "Tournure interrogative soutenue avec inversion 'y a-t-il' et '-t-' euphonique."
+          "french": "Quels jeux ou activités conseilleriez-vous",
+          "english": "which games or activities would you recommend",
+          "example": "Quels jeux ou activités conseilleriez-vous pour les adultes et les enfants ?",
+          "usage": "Question au conditionnel avec inversion pour demander des conseils d'animation."
         },
         {
           "id": "T2S9S13V27",
@@ -721,10 +721,10 @@
         {
           "id": "T2S9S13V29",
           "kind": "tournure",
-          "french": "plutôt formelle ou décontractée",
-          "english": "rather formal or casual",
-          "example": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
-          "usage": "Structure figée avec 'plutôt... ou...' pour proposer une alternative de registre."
+          "french": "pour que les voisins fassent connaissance",
+          "english": "so the neighbours can get acquainted",
+          "example": "Comment créer une ambiance conviviale pour que les voisins fassent connaissance ?",
+          "usage": "Proposition de but avec « pour que » suivi du subjonctif."
         },
         {
           "id": "T2S9S13V30",
@@ -774,17 +774,17 @@
         {
           "id": "T2S9S14V05",
           "kind": "mot-cle",
-          "french": "des événements",
-          "english": "the events",
-          "example": "La programmation des événements est publiée à l'avance ou on la découvre sur place ?",
+          "french": "ces événements",
+          "english": "these events",
+          "example": "Où peut-on consulter le programme de ces événements ?",
           "usage": "Nom courant désignant des manifestations organisées à une date précise."
         },
         {
           "id": "T2S9S14V06",
           "kind": "mot-cle",
-          "french": "la programmation",
+          "french": "le programme",
           "english": "the schedule/program",
-          "example": "La programmation des événements est publiée à l'avance ou on la découvre sur place ?",
+          "example": "Où peut-on consulter le programme de ces événements ?",
           "usage": "Nom courant désignant l'ensemble des événements prévus."
         },
         {
@@ -848,7 +848,7 @@
           "kind": "collocation",
           "french": "dans l'immeuble",
           "english": "in the building",
-          "example": "Pour ce qui est du déroulement, est-ce que les voisins organisent parfois des activités ou des rencontres dans l'immeuble ?",
+          "example": "Est-ce que les voisins organisent parfois des activités ou des rencontres dans l'immeuble ?",
           "usage": "Groupe prépositionnel situant une activité dans le lieu de résidence."
         },
         {
@@ -936,7 +936,7 @@
           "kind": "tournure",
           "french": "Est-ce que les voisins organisent parfois",
           "english": "Do the neighbors sometimes organize",
-          "example": "Pour ce qui est du déroulement, est-ce que les voisins organisent parfois des activités ou des rencontres dans l'immeuble ?",
+          "example": "Est-ce que les voisins organisent parfois des activités ou des rencontres dans l'immeuble ?",
           "usage": "Question avec « est-ce que » portant sur une habitude du voisinage."
         },
         {
@@ -950,10 +950,10 @@
         {
           "id": "T2S9S14V27",
           "kind": "tournure",
-          "french": "on la découvre sur place",
-          "english": "you discover it on site",
-          "example": "La programmation des événements est publiée à l'avance ou on la découvre sur place ?",
-          "usage": "Structure avec pronom complément 'la' antéposé au verbe, registre courant."
+          "french": "Où peut-on consulter le programme",
+          "english": "where can we check the programme",
+          "example": "Où peut-on consulter le programme de ces événements ?",
+          "usage": "Question avec inversion pour trouver une source d'informations."
         },
         {
           "id": "T2S9S14V28",
@@ -1011,10 +1011,10 @@
         {
           "id": "T2S9S15V04",
           "kind": "mot-cle",
-          "french": "jours de congé annuels",
-          "english": "annual leave days",
-          "example": "Et côté repos, combien de jours de congé annuels ont-ils en moyenne — c'est plus ou moins que dans mon pays ?",
-          "usage": "Groupe nominal désignant le nombre de jours de vacances accordés chaque année."
+          "french": "jours de congé payés",
+          "english": "days of paid leave",
+          "example": "Et côté repos, combien de jours de congé payés les salariés ont-ils en général au Canada ?",
+          "usage": "Groupe nominal pour les jours de repos pendant lesquels le salarié reste rémunéré."
         },
         {
           "id": "T2S9S15V05",
@@ -1043,9 +1043,9 @@
         {
           "id": "T2S9S15V08",
           "kind": "mot-cle",
-          "french": "les pauses déjeuner",
-          "english": "lunch breaks",
-          "example": "Côté repas, les pauses déjeuner sont-elles longues ou plutôt courtes par rapport à mon pays ?",
+          "french": "la pause déjeuner",
+          "english": "the lunch break",
+          "example": "Côté repas, combien de temps dure généralement la pause déjeuner ?",
           "usage": "Temps de pause accordé aux employés au milieu de la journée."
         },
         {
@@ -1053,7 +1053,7 @@
           "kind": "mot-cle",
           "french": "mon pays",
           "english": "my country",
-          "example": "Le rythme de travail est-il plutôt stressant ou détendu par rapport à mon pays ?",
+          "example": "Pour comparer avec mon pays, y a-t-il d'autres particularités de l'organisation du travail que je devrais connaître ?",
           "usage": "Groupe nominal servant de point de comparaison."
         },
         {
@@ -1099,10 +1099,10 @@
         {
           "id": "T2S9S15V15",
           "kind": "collocation",
-          "french": "en moyenne",
-          "english": "on average",
-          "example": "Et côté repos, combien de jours de congé annuels ont-ils en moyenne — c'est plus ou moins que dans mon pays ?",
-          "usage": "Locution adverbiale figée pour donner une estimation générale."
+          "french": "en général",
+          "english": "in general",
+          "example": "Et côté repos, combien de jours de congé payés les salariés ont-ils en général au Canada ?",
+          "usage": "Locution adverbiale pour parler d'une situation habituelle."
         },
         {
           "id": "T2S9S15V16",
@@ -1115,10 +1115,10 @@
         {
           "id": "T2S9S15V17",
           "kind": "collocation",
-          "french": "stressant ou détendu",
-          "english": "stressful or relaxed",
-          "example": "Le rythme de travail est-il plutôt stressant ou détendu par rapport à mon pays ?",
-          "usage": "Association de deux adjectifs opposés pour qualifier un rythme de vie."
+          "french": "l'organisation du travail",
+          "english": "the organization of work",
+          "example": "Pour comparer avec mon pays, y a-t-il d'autres particularités de l'organisation du travail que je devrais connaître ?",
+          "usage": "Association nominale pour parler de la manière dont le travail est organisé."
         },
         {
           "id": "T2S9S15V18",
@@ -1131,10 +1131,10 @@
         {
           "id": "T2S9S15V19",
           "kind": "collocation",
-          "french": "plutôt courtes",
-          "english": "rather short",
-          "example": "Côté repas, les pauses déjeuner sont-elles longues ou plutôt courtes par rapport à mon pays ?",
-          "usage": "Association adverbe + adjectif pour qualifier une durée limitée."
+          "french": "dure généralement",
+          "english": "usually lasts",
+          "example": "Côté repas, combien de temps dure généralement la pause déjeuner ?",
+          "usage": "Association verbe-adverbe pour parler d'une durée habituelle."
         },
         {
           "id": "T2S9S15V20",
@@ -1171,17 +1171,17 @@
         {
           "id": "T2S9S15V24",
           "kind": "tournure",
-          "french": "Combien de jours travaillent-ils par semaine",
-          "english": "How many days a week do they work",
-          "example": "À ce propos, combien de jours travaillent-ils par semaine en général ?",
-          "usage": "Question soutenue avec inversion du pronom sujet 'ils' après le verbe."
+          "french": "ces heures sont réparties sur combien de jours",
+          "english": "over how many days are these hours spread",
+          "example": "Et ces heures sont réparties sur combien de jours par semaine en général ?",
+          "usage": "Question à la voix passive avec « combien » postposé pour préciser la répartition du temps de travail."
         },
         {
           "id": "T2S9S15V25",
           "kind": "tournure",
           "french": "Combien de jours de congé",
           "english": "How many days off",
-          "example": "Et côté repos, combien de jours de congé annuels ont-ils en moyenne — c'est plus ou moins que dans mon pays ?",
+          "example": "Et côté repos, combien de jours de congé payés les salariés ont-ils en général au Canada ?",
           "usage": "Question soutenue avec l'adverbe interrogatif 'combien' antéposé au groupe nominal."
         },
         {
@@ -1195,10 +1195,10 @@
         {
           "id": "T2S9S15V27",
           "kind": "tournure",
-          "french": "par rapport à mon pays",
-          "english": "compared with my country",
-          "example": "Le rythme de travail est-il plutôt stressant ou détendu par rapport à mon pays ?",
-          "usage": "Groupe prépositionnel pour introduire une comparaison avec son pays."
+          "french": "Pour comparer avec mon pays",
+          "english": "to compare with my country",
+          "example": "Pour comparer avec mon pays, y a-t-il d'autres particularités de l'organisation du travail que je devrais connaître ?",
+          "usage": "Groupe infinitif de but pour annoncer une comparaison avec son pays."
         },
         {
           "id": "T2S9S15V28",
@@ -1211,10 +1211,10 @@
         {
           "id": "T2S9S15V29",
           "kind": "tournure",
-          "french": "Y a-t-il d'autres différences",
-          "english": "Are there any other differences",
-          "example": "Y a-t-il d'autres différences dans l'organisation du travail qui pourraient me surprendre ?",
-          "usage": "Question ouverte pour compléter une comparaison déjà engagée."
+          "french": "y a-t-il d'autres particularités",
+          "english": "are there any other specific features",
+          "example": "Pour comparer avec mon pays, y a-t-il d'autres particularités de l'organisation du travail que je devrais connaître ?",
+          "usage": "Question pour compléter les informations nécessaires à une comparaison."
         },
         {
           "id": "T2S9S15V30",

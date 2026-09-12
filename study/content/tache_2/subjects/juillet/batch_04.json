@@ -31,10 +31,10 @@
           "text": "C'est prévu pour quand — quel jour et à quelle heure ça commence ?"
         },
         {
-          "text": "Ça dure combien de temps — juste le concert ou il y a une première partie ?"
+          "text": "Ça dure combien de temps, en comptant une éventuelle première partie ?"
         },
         {
-          "text": "Côté conseils, toi qui connais cet artiste, tu me conseilles vraiment d'y aller ?",
+          "text": "Qu'est-ce qui te donne envie d'aller à ce concert ?",
           "memory_number": 9,
           "memory_section": 11
         },
@@ -42,7 +42,7 @@
           "text": "Il reste encore des places ou c'est bientôt complet ?"
         },
         {
-          "text": "Pour l'inscription, il faut réserver les billets à l'avance ou on peut les prendre sur place ?"
+          "text": "Pour les billets, il faut réserver à l'avance ou on peut les prendre sur place ?"
         },
         {
           "text": "Côté budget, ça coûte combien, l'entrée ?"
@@ -66,7 +66,7 @@
           "memory_section": 8
         },
         {
-          "text": "Pour finir — je peux te confirmer aujourd'hui si je viens avec toi ?"
+          "text": "Pour finir — tu aurais besoin de ma réponse pour quand ?"
         }
       ]
     },
@@ -85,7 +85,7 @@
           "text": "Qu'est-ce qu'on apprend concrètement — un type de cuisine en particulier ?"
         },
         {
-          "text": "En ce qui concerne la nourriture, on cuisine vraiment nous-mêmes ou c'est surtout de la démonstration ?"
+          "text": "Concrètement, on cuisine vraiment nous-mêmes ou c'est surtout de la démonstration ?"
         },
         {
           "text": "Il faut déjà savoir cuisiner ou c'est ouvert aux débutants ?",
@@ -117,7 +117,7 @@
           "text": "Le prix comprend quoi — les ingrédients et le matériel sont fournis ?"
         },
         {
-          "text": "Comment on s'inscrit — il reste encore des places ?"
+          "text": "Comment on s'inscrit, et où peut-on vérifier les places disponibles ?"
         },
         {
           "text": "Pour finir — tu me le recommandes vraiment, cet atelier ?"
@@ -140,12 +140,12 @@
           "memory_section": 2
         },
         {
-          "text": "L'ambiance est plutôt calme et intime, ou plus animée et festive ?",
+          "text": "Dans les restaurants que vous conseillez, l'ambiance est plutôt calme et intime, ou plus animée et festive ?",
           "memory_number": 11,
           "memory_section": 10
         },
         {
-          "text": "Pour ce qui est des repas, ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
+          "text": "Ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
           "memory_number": 11,
           "memory_section": 7
         },
@@ -160,12 +160,12 @@
           "memory_section": 8
         },
         {
-          "text": "Vous avez mentionné un restaurant en particulier — vous pourriez m'en dire un peu plus : il conviendrait pour une dizaine de personnes ?",
+          "text": "Parmi ces restaurants, lequel conviendrait le mieux si on était une dizaine de personnes ?",
           "memory_number": 11,
           "memory_section": 13
         },
         {
-          "text": "Vous y êtes déjà allé(e) vous-même — qu'est-ce que vous en avez pensé ?",
+          "text": "Si vous y êtes déjà allé(e) vous-même, qu'est-ce que vous en avez pensé ?",
           "memory_number": 11,
           "memory_section": 10
         },
@@ -190,7 +190,7 @@
           "memory_section": 6
         },
         {
-          "text": "Et pour s'y rendre, ils sont facilement accessibles à pied, ou il vaut mieux prévoir une voiture ?",
+          "text": "Et pour s'y rendre, c'est facilement accessible à pied, ou il vaut mieux prévoir une voiture ?",
           "memory_number": 11,
           "memory_section": 5
         },
@@ -200,7 +200,7 @@
           "memory_section": 9
         },
         {
-          "text": "Pour finir — parmi tous ceux que vous connaissez, lequel me recommanderiez-vous vraiment pour l'occasion ?",
+          "text": "Pour finir — savez-vous comment joindre ce restaurant pour vérifier les disponibilités ?",
           "memory_number": 11,
           "memory_section": 11
         }
@@ -227,7 +227,7 @@
           "text": "Les classes sont-elles plutôt grandes ou à effectif réduit ?"
         },
         {
-          "text": "Il y a un autre point qui m'intéresse : quelles activités sont proposées aux enfants — sport, musique, arts, aide aux devoirs ?"
+          "text": "Quelles activités sont proposées aux enfants — sport, musique, arts, aide aux devoirs ?"
         },
         {
           "text": "Y a-t-il des activités après l'école ou une garderie pour s'adapter aux horaires de travail ?"
@@ -250,10 +250,10 @@
           "text": "Y a-t-il une période précise pour inscrire les enfants ou on peut le faire à tout moment ?"
         },
         {
-          "text": "Les écoles sont-elles publiques et gratuites, ou il y a des frais à prévoir ?"
+          "text": "Y a-t-il des frais à prévoir pour le matériel ou les activités, même dans les écoles publiques ?"
         },
         {
-          "text": "En ce qui concerne la réservation, à qui je peux m'adresser pour avoir plus d'informations sur les inscriptions ?"
+          "text": "À qui je peux m'adresser pour avoir plus d'informations sur les inscriptions ?"
         },
         {
           "text": "Pour finir — quelle école me recommanderiez-vous dans le quartier ?"
@@ -279,7 +279,7 @@
           "memory_section": 5
         },
         {
-          "text": "Dans un autre registre, quels sont les horaires de ces moyens de transport — les transports fonctionnent tôt le matin et tard le soir ?",
+          "text": "Quels sont les horaires de ces moyens de transport — les transports fonctionnent tôt le matin et tard le soir ?",
           "memory_number": 6,
           "memory_section": 4
         },
@@ -294,7 +294,7 @@
           "memory_section": 9
         },
         {
-          "text": "L'application permet-elle aussi de planifier un itinéraire ?",
+          "text": "S'il y a une application, permet-elle aussi de planifier un itinéraire ?",
           "memory_number": 6,
           "memory_section": 9
         },
@@ -312,7 +312,7 @@
           "text": "Côté imprévus, que faire en cas de problème ou si je me trompe de ligne — à qui puis-je m'adresser ?"
         },
         {
-          "text": "Côté budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque trajet séparément ?",
+          "text": "Côté budget, combien coûte un trajet, et quels abonnements proposez-vous ?",
           "memory_number": 6,
           "memory_section": 3
         },

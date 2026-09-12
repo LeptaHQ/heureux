@@ -26,7 +26,7 @@
           "memory_section": 6
         },
         {
-          "text": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "text": "Si on débute complètement, est-ce que quelqu'un explique les règles avant de jouer ?",
           "memory_number": 10,
           "memory_section": 6
         },
@@ -39,7 +39,7 @@
           "memory_section": 10
         },
         {
-          "text": "Est-ce que c'est convivial — on peut y rencontrer du monde facilement ?"
+          "text": "Si je viens seul(e), comment on rejoint une table de jeu ?"
         },
         {
           "text": "Côté horaires, ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
@@ -63,10 +63,10 @@
           "text": "Côté affaires à prévoir, est-ce qu'il faut apporter ses propres jeux, ou ils sont fournis sur place ?"
         },
         {
-          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — il faut payer une cotisation, ou c'est gratuit ?"
+          "text": "En ce qui concerne le budget, quel est le montant de la cotisation, s'il y en a une ?"
         },
         {
-          "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
+          "text": "Pour finir — est-ce que je pourrais venir avec toi à la prochaine séance ?",
           "memory_number": 10,
           "memory_section": 13
         }
@@ -98,7 +98,7 @@
           "text": "On sera nombreux à peu près ?"
         },
         {
-          "text": "En ce qui concerne la nourriture, comment ça va se dérouler — il y a un programme, des discours, un repas ?"
+          "text": "Comment ça va se dérouler — il y a un programme, des discours, des animations ?"
         },
         {
           "text": "Il y a un thème ou une tenue particulière à prévoir ?"
@@ -112,7 +112,7 @@
           "memory_section": 13
         },
         {
-          "text": "Toujours sur ce point, pour le cadeau, on fait quelque chose en commun, ou chacun apporte le sien ?"
+          "text": "Si on souhaite t'offrir un cadeau, tu as une préférence ?"
         },
         {
           "text": "Côté déplacements, comment on s'y rend — c'est accessible en transports, il y a un parking ?"
@@ -124,7 +124,7 @@
           "text": "Tu veux un coup de main pour organiser quoi que ce soit ?"
         },
         {
-          "text": "En tout cas je serai là avec plaisir — tu veux que je m'occupe de quelque chose en particulier ?"
+          "text": "Pour finir — comment tu nous préviendras s'il y a un changement de programme ?"
         }
       ]
     },
@@ -175,10 +175,10 @@
           "text": "En cas de question pendant une séance, à qui je peux m'adresser ?"
         },
         {
-          "text": "Comment fait-on pour s'inscrire et participer dès cette semaine ?"
+          "text": "Comment fait-on pour s'inscrire et participer à une prochaine séance ?"
         },
         {
-          "text": "Pour finir — quelle serait la meilleure façon de commencer si je souhaite vous rejoindre dès cette semaine ?",
+          "text": "Pour finir — quelle activité me conseilleriez-vous pour une première séance ?",
           "memory_number": 10,
           "memory_section": 13
         }
@@ -276,7 +276,7 @@
           "text": "Il y a généralement combien de personnes par cours ?"
         },
         {
-          "text": "Dans le même esprit, les cours sont-ils donnés par des maîtres-nageurs qualifiés ?"
+          "text": "Les cours sont-ils donnés par des maîtres-nageurs qualifiés ?"
         },
         {
           "text": "Côté horaires, à quelle heure ont lieu les cours — plutôt le matin, le midi ou en fin de journée ?"
@@ -293,7 +293,7 @@
           "text": "Il y a des vestiaires et des douches disponibles ?"
         },
         {
-          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque séance séparément ?"
+          "text": "En ce qui concerne le budget, combien coûte une séance, et proposez-vous un forfait de plusieurs cours ?"
         },
         {
           "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
@@ -306,12 +306,12 @@
           "memory_section": 3
         },
         {
-          "text": "Côté réservation, comment se passe l'inscription — en ligne ou uniquement sur place ?",
+          "text": "Comment se passe l'inscription — en ligne ou uniquement sur place ?",
           "memory_number": 8,
           "memory_section": 6
         },
         {
-          "text": "Il faut s'inscrire à l'avance pour les cours ou on peut venir librement ?",
+          "text": "Combien de temps dure une leçon, et à quelle fréquence faut-il venir pour progresser ?",
           "memory_number": 8,
           "memory_section": 6
         },

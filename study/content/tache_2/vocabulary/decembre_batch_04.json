@@ -87,9 +87,9 @@
         {
           "id": "T2D12S16V11",
           "kind": "collocation",
-          "french": "à l'heure, à la journée",
-          "english": "by the hour, by the day",
-          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
+          "french": "à l'heure ou à la journée",
+          "english": "by the hour or by the day",
+          "example": "En ce qui concerne le budget, combien coûte la location à l'heure ou à la journée ?",
           "usage": "Énumération de formules de location dans le temps."
         },
         {
@@ -161,15 +161,15 @@
           "kind": "collocation",
           "french": "des idées d'itinéraires",
           "english": "route ideas",
-          "example": "Puisqu'on en parle, vous fournissez un plan ou des idées d'itinéraires adaptés à cet usage ?",
+          "example": "Vous fournissez un plan ou des idées d'itinéraires pour découvrir la ville à vélo ?",
           "usage": "Locution nominale pour des parcours suggérés."
         },
         {
           "id": "T2D12S16V21",
           "kind": "tournure",
-          "french": "Comment fonctionnent les tarifs de location",
-          "english": "How do the rental rates work",
-          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
+          "french": "combien coûte la location à l'heure ou à la journée",
+          "english": "how much does hourly or daily rental cost",
+          "example": "En ce qui concerne le budget, combien coûte la location à l'heure ou à la journée ?",
           "usage": "Question ouverte sur la tarification de la location."
         },
         {
@@ -209,7 +209,7 @@
           "kind": "tournure",
           "french": "quel modèle me conseilleriez-vous",
           "english": "which model you would recommend",
-          "example": "Selon l'usage que je veux en faire, quel modèle me conseilleriez-vous ?",
+          "example": "Si je veux surtout circuler en ville, quel modèle me conseilleriez-vous ?",
           "usage": "Question pour un conseil de choix."
         },
         {
@@ -284,9 +284,9 @@
         {
           "id": "T2D12S17V05",
           "kind": "mot-cle",
-          "french": "l'application",
-          "english": "the app",
-          "example": "L'application permet-elle aussi de planifier un itinéraire ?",
+          "french": "une application",
+          "english": "an app",
+          "example": "S'il y a une application, permet-elle aussi de planifier un itinéraire ?",
           "usage": "Outil numérique servant à préparer ses déplacements."
         },
         {
@@ -350,7 +350,7 @@
           "kind": "collocation",
           "french": "planifier un itinéraire",
           "english": "plan a route",
-          "example": "L'application permet-elle aussi de planifier un itinéraire ?",
+          "example": "S'il y a une application, permet-elle aussi de planifier un itinéraire ?",
           "usage": "Expression fréquente pour préparer un trajet étape par étape."
         },
         {
@@ -444,9 +444,9 @@
         {
           "id": "T2D12S17V25",
           "kind": "tournure",
-          "french": "L'application permet-elle aussi de planifier un itinéraire",
-          "english": "Does the app also let you plan a route",
-          "example": "L'application permet-elle aussi de planifier un itinéraire ?",
+          "french": "permet-elle aussi de planifier un itinéraire",
+          "english": "does it also let you plan a route",
+          "example": "S'il y a une application, permet-elle aussi de planifier un itinéraire ?",
           "usage": "Question formelle utile pour demander une fonction précise d'une application."
         },
         {
@@ -790,10 +790,10 @@
         {
           "id": "T2D12S19V07",
           "kind": "mot-cle",
-          "french": "le camping",
-          "english": "camping",
-          "example": "Faut-il un billet spécial pour le camping, si on veut rester sur place plusieurs jours ?",
-          "usage": "Nom masculin désignant l'hébergement sur place en tente ou véhicule."
+          "french": "un camping",
+          "english": "a campsite",
+          "example": "S'il y a un camping sur place, faut-il un billet spécial pour y accéder ?",
+          "usage": "Nom masculin désignant un lieu d'hébergement en tente ou en véhicule aménagé."
         },
         {
           "id": "T2D12S19V08",
@@ -838,10 +838,10 @@
         {
           "id": "T2D12S19V13",
           "kind": "collocation",
-          "french": "d'un jour à l'autre",
-          "english": "from one day to the next",
-          "example": "Pour ce qui est du déroulement, comment le programme s'organise d'un jour à l'autre ?",
-          "usage": "Locution utile pour parler d'une organisation qui varie selon les jours."
+          "french": "pendant le festival",
+          "english": "during the festival",
+          "example": "Comment s'organise le programme pendant le festival ?",
+          "usage": "Expression temporelle sans présumer la durée de l'événement."
         },
         {
           "id": "T2D12S19V14",
@@ -888,7 +888,7 @@
           "kind": "collocation",
           "french": "un billet spécial",
           "english": "a special ticket",
-          "example": "Faut-il un billet spécial pour le camping, si on veut rester sur place plusieurs jours ?",
+          "example": "S'il y a un camping sur place, faut-il un billet spécial pour y accéder ?",
           "usage": "Groupe nominal désignant un titre d'accès complémentaire à une prestation."
         },
         {
@@ -942,10 +942,10 @@
         {
           "id": "T2D12S19V26",
           "kind": "tournure",
-          "french": "Comment le programme s'organise d'un jour à l'autre",
-          "english": "How the programme is organized from one day to the next",
-          "example": "Pour ce qui est du déroulement, comment le programme s'organise d'un jour à l'autre ?",
-          "usage": "Question utile pour demander la répartition des concerts selon les jours."
+          "french": "comment s'organise le programme",
+          "english": "how is the program organized",
+          "example": "Comment s'organise le programme pendant le festival ?",
+          "usage": "Question utile pour demander l'organisation des concerts."
         },
         {
           "id": "T2D12S19V27",
@@ -1019,9 +1019,9 @@
         {
           "id": "T2D12S20V05",
           "kind": "mot-cle",
-          "french": "l'ambiance",
-          "english": "the atmosphere",
-          "example": "À quel moment de la soirée l'ambiance est-elle la plus forte en général ?",
+          "french": "ambiance",
+          "english": "atmosphere",
+          "example": "À quel moment de la soirée y a-t-il le plus d'ambiance en général ?",
           "usage": "Nom féminin désignant l'atmosphère ressentie pendant la soirée."
         },
         {
@@ -1037,7 +1037,7 @@
           "kind": "mot-cle",
           "french": "un jour férié",
           "english": "a public holiday",
-          "example": "Dernier point pratique : le 1er janvier est-il un jour férié au Canada, et que font généralement les gens ce jour-là ?",
+          "example": "Le 1er janvier est-il un jour férié au Canada, et que font généralement les gens ce jour-là ?",
           "usage": "Groupe nominal désignant un jour officiellement chômé."
         },
         {
@@ -1099,10 +1099,10 @@
         {
           "id": "T2D12S20V15",
           "kind": "collocation",
-          "french": "l'ambiance est-elle la plus forte",
-          "english": "is the atmosphere at its strongest",
-          "example": "À quel moment de la soirée l'ambiance est-elle la plus forte en général ?",
-          "usage": "Expression utile pour demander le moment le plus animé de la soirée."
+          "french": "le plus d'ambiance",
+          "english": "the liveliest atmosphere",
+          "example": "À quel moment de la soirée y a-t-il le plus d'ambiance en général ?",
+          "usage": "Expression de quantité pour repérer le moment le plus animé de la soirée."
         },
         {
           "id": "T2D12S20V16",
@@ -1197,7 +1197,7 @@
           "kind": "tournure",
           "french": "que font généralement les gens ce jour-là",
           "english": "what people generally do that day",
-          "example": "Dernier point pratique : le 1er janvier est-il un jour férié au Canada, et que font généralement les gens ce jour-là ?",
+          "example": "Le 1er janvier est-il un jour férié au Canada, et que font généralement les gens ce jour-là ?",
           "usage": "Segment interrogatif utile pour demander les habitudes du 1er janvier."
         },
         {

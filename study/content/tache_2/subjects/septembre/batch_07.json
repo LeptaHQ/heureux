@@ -27,13 +27,13 @@
           "text": "Quels sont les horaires de consultation du remplaçant ?"
         },
         {
-          "text": "Il ou elle consulte tous les jours, y compris en fin de journée ou le week-end ?"
+          "text": "Le médecin consulte tous les jours, y compris en fin de journée ou le week-end ?"
         },
         {
           "text": "Question lieu, le cabinet reste-t-il au même endroit, ou les consultations ont lieu ailleurs ?"
         },
         {
-          "text": "Et est-ce que je peux prendre rendez-vous avec lui ou elle dès maintenant ?"
+          "text": "Et est-ce que je peux prendre rendez-vous avec le médecin remplaçant dès maintenant ?"
         },
         {
           "text": "Comment prend-on rendez-vous — par téléphone ou en ligne ?"
@@ -42,7 +42,7 @@
           "text": "Quel est le délai pour obtenir un rendez-vous en ce moment ?"
         },
         {
-          "text": "J'en profite pour vous demander : il ou elle peut renouveler mes ordonnances habituelles ?"
+          "text": "Le médecin peut aussi renouveler une ordonnance habituelle si besoin ?"
         },
         {
           "text": "Faut-il apporter des documents particuliers pour la première consultation ?"
@@ -54,7 +54,7 @@
           "text": "En cas d'urgence pendant l'absence de mon médecin, qui dois-je contacter ?"
         },
         {
-          "text": "Merci pour ces informations, je vais prendre rendez-vous avec le remplaçant alors — et si j'ai d'autres questions, je peux vous rappeler ?"
+          "text": "Merci pour ces informations — si j'ai d'autres questions, je peux vous rappeler ?"
         }
       ]
     },
@@ -64,45 +64,45 @@
       "prompt": "Je viens de décrocher un poste dans une société de la région de Toronto ; curieux/curieuse, vous me questionnez sur ce nouvel emploi — les collègues, les locaux, les avantages, les activités.",
       "questions": [
         {
-          "text": "Salut ! J'ai appris que tu venais d'être embauché(e) dans une entreprise près de Toronto — félicitations ! Ça se passe comment ?"
+          "text": "Salut ! J'ai appris que tu venais d'être embauché(e) dans une entreprise près de Toronto — félicitations ! Tu peux m'en dire plus ?"
         },
         {
-          "text": "C'est quel type d'entreprise, et tu y fais quoi exactement ?"
+          "text": "C'est quel type d'entreprise, et en quoi consiste ton poste exactement ?"
         },
         {
           "text": "Tu as déjà commencé, ou tu attaques bientôt ?"
         },
         {
-          "text": "Tu as dû déménager à Toronto pour ce poste, ou tu peux faire du télétravail ?"
+          "text": "Le poste permet-il de faire du télétravail, ou faut-il être sur place tous les jours ?"
         },
         {
-          "text": "Et tes collègues, ils sont comment — ils t'ont bien accueilli(e) ?",
+          "text": "Si tu as déjà rencontré tes collègues, comment s'est passé l'accueil ?",
           "memory_number": 4,
           "memory_section": 7
         },
         {
-          "text": "Il y a une bonne ambiance dans l'équipe ?"
+          "text": "D'après ce que tu en sais, comment est l'ambiance dans l'équipe ?"
         },
         {
           "text": "Tant que j'y pense, comment sont les locaux — c'est grand, moderne, bien situé ?"
         },
         {
-          "text": "Et à ton arrivée, tu as eu droit à une formation ou un accompagnement pour bien démarrer ?"
+          "text": "Il y a une formation ou un accompagnement pour bien démarrer ?"
         },
         {
-          "text": "Côté rythme, tu travailles combien d'heures par semaine, et les horaires sont souples ?"
+          "text": "Côté rythme, il y a combien d'heures de travail par semaine, et les horaires sont souples ?"
         },
         {
-          "text": "En ce qui concerne la réservation, il y a des avantages intéressants — assurance, primes, jours de congé, tickets resto ?"
+          "text": "Et côté avantages, il y a des choses intéressantes — assurance, primes, jours de congé, aide aux transports ?"
         },
         {
           "text": "L'entreprise organise des activités ou des sorties pour souder les équipes ?"
         },
         {
-          "text": "Côté transport, le trajet jusqu'au bureau, c'est pratique depuis chez toi ?"
+          "text": "Côté transport, le trajet jusqu'au travail, c'est pratique depuis chez toi ?"
         },
         {
-          "text": "Qu'est-ce qui te plaît le plus dans ce nouveau poste pour l'instant ?"
+          "text": "Qu'est-ce qui te plaît le plus dans ce nouveau poste ?"
         },
         {
           "text": "Tu penses pouvoir évoluer et apprendre beaucoup là-bas ?"
@@ -118,7 +118,7 @@
       "prompt": "Blogueur/blogueuse de longue date, je vous éclaire : vous préparez un blog pour votre futur voyage au Canada et vous m'interrogez sur les rubriques, la cadence de publication et le type de contenus.",
       "questions": [
         {
-          "text": "Salut ! Je vais bientôt voyager et j'aimerais créer un blog pour raconter tout ça — toi qui en tiens un, tu pourrais me conseiller ?"
+          "text": "Salut ! J'aimerais créer un blog de voyage — toi qui en tiens un, tu pourrais me conseiller ?"
         },
         {
           "text": "Par où on commence quand on n'y connaît rien ?"
@@ -154,7 +154,7 @@
           "text": "Comment tu trouves le temps d'écrire quand tu es en plein voyage ?"
         },
         {
-          "text": "Question niveau, il y a des erreurs de débutant à éviter absolument ?"
+          "text": "Il y a des erreurs de débutant à éviter absolument ?"
         },
         {
           "text": "En ce qui concerne le budget, c'est gratuit, ou il faut payer pour un nom de domaine et l'hébergement ?"
@@ -170,10 +170,10 @@
       "prompt": "Pour l'anniversaire de votre conjoint(e), vous imaginez un voyage au Canada ; en ami(e), je vous aiguille sur les idées, le budget et la destination.",
       "questions": [
         {
-          "text": "Salut ! Je voudrais organiser un voyage au Canada pour fêter l'anniversaire de mon conjoint ou ma conjointe — toi qui connais, tu aurais des idées ?"
+          "text": "Salut ! Je voudrais organiser un voyage au Canada pour fêter l'anniversaire de ma moitié — tu aurais des idées ?"
         },
         {
-          "text": "Quelles destinations tu me conseillerais pour une occasion spéciale comme ça ?"
+          "text": "Quelle destination tu me conseillerais pour une occasion spéciale comme ça ?"
         },
         {
           "text": "Deuxième point : tu aurais une idée romantique ou originale pour marquer le coup le jour de l'anniversaire ?"

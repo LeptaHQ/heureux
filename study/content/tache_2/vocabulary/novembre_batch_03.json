@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "la formation",
           "english": "the training",
-          "example": "Tu as mentionné la formation — tu pourrais m'en dire un peu plus : ça va durer plusieurs jours ?",
+          "example": "Concrètement, tu as fait quoi de ta journée — c'était plutôt de la formation ou tu as directement commencé à travailler ?",
           "usage": "Nom désignant l'apprentissage encadré proposé à un nouvel employé."
         },
         {
@@ -153,7 +153,7 @@
           "kind": "collocation",
           "french": "envie d'y retourner",
           "english": "keen to go back",
-          "example": "En tout cas, tu as envie d'y retourner demain ou tu appréhendes un peu ?",
+          "example": "En tout cas, tu as envie d'y retourner ou tu appréhendes un peu ?",
           "usage": "Collocation exprimant le désir de renouveler une expérience."
         },
         {
@@ -193,7 +193,7 @@
           "kind": "tournure",
           "french": "tu pourrais m'en dire un peu plus",
           "english": "could you tell me a bit more about it",
-          "example": "Tu as mentionné la formation — tu pourrais m'en dire un peu plus : ça va durer plusieurs jours ?",
+          "example": "Si tu as eu une formation, tu pourrais m'en dire un peu plus — ça va durer plusieurs jours ?",
           "usage": "Formule de relance au conditionnel pour approfondir un sujet mentionné."
         },
         {
@@ -233,7 +233,7 @@
           "kind": "tournure",
           "french": "tu appréhendes un peu",
           "english": "are you a little apprehensive",
-          "example": "En tout cas, tu as envie d'y retourner demain ou tu appréhendes un peu ?",
+          "example": "En tout cas, tu as envie d'y retourner ou tu appréhendes un peu ?",
           "usage": "Tournure pour exprimer une légère inquiétude face à l'avenir proche."
         },
         {
@@ -278,7 +278,7 @@
           "kind": "mot-cle",
           "french": "son expérience",
           "english": "their experience",
-          "example": "Quelle est son expérience — ça fait longtemps qu'il ou elle enseigne ?",
+          "example": "Quelle est son expérience — ça fait longtemps que cette personne enseigne ?",
           "usage": "Groupe nominal désignant le vécu professionnel du professeur."
         },
         {
@@ -294,7 +294,7 @@
           "kind": "mot-cle",
           "french": "un cours d'essai",
           "english": "a trial lesson",
-          "example": "Est-ce qu'il ou elle propose un cours d'essai avant de s'engager ?",
+          "example": "Peut-on prendre un cours d'essai avant de s'engager ?",
           "usage": "Groupe nominal désignant une séance d'essai."
         },
         {
@@ -302,7 +302,7 @@
           "kind": "mot-cle",
           "french": "ses coordonnées",
           "english": "their contact details",
-          "example": "Du coup, vous auriez ses coordonnées pour que je le ou la contacte ?",
+          "example": "Du coup, vous auriez ses coordonnées pour que je puisse prendre contact ?",
           "usage": "Nom pluriel désignant les coordonnées de contact."
         },
         {
@@ -326,7 +326,7 @@
           "kind": "mot-cle",
           "french": "à domicile",
           "english": "at home",
-          "example": "Est-ce qu'il ou elle se déplace à domicile, ou il faut aller chez lui ou chez elle ?",
+          "example": "Dans quels quartiers cette personne se déplace-t-elle pour les cours à domicile ?",
           "usage": "Locution désignant l'enseignement au domicile."
         },
         {
@@ -350,24 +350,24 @@
           "kind": "collocation",
           "french": "pour quels niveaux",
           "english": "for which levels",
-          "example": "Quel instrument enseigne-t-il ou elle, et pour quels niveaux ?",
+          "example": "Quels instruments sont proposés, et pour quels niveaux ?",
           "usage": "Locution interrogative sur les niveaux enseignés."
         },
         {
           "id": "T2N11S12V14",
           "kind": "collocation",
-          "french": "patient et pédagogue",
+          "french": "patiente et pédagogue",
           "english": "patient and good at teaching",
-          "example": "En ce qui concerne l'encadrement, il ou elle est comment comme professeur — plutôt patient et pédagogue ?",
-          "usage": "Adjectifs coordonnés pour qualifier un professeur."
+          "example": "Est-ce que cette personne est patiente et pédagogue ?",
+          "usage": "Adjectifs coordonnés pour qualifier une personne qui enseigne ; accord au féminin avec personne."
         },
         {
           "id": "T2N11S12V15",
           "kind": "collocation",
-          "french": "à la séance ou plutôt au mois",
-          "english": "per lesson or per month",
-          "example": "Côté tarifs, comment ça fonctionne — c'est à la séance ou plutôt au mois ?",
-          "usage": "Alternative sur le mode de facturation des cours."
+          "french": "un forfait au mois",
+          "english": "a monthly package",
+          "example": "Côté tarifs, combien coûte une séance, et y a-t-il un forfait au mois ?",
+          "usage": "Groupe nominal désignant une formule de paiement mensuelle pour les cours."
         },
         {
           "id": "T2N11S12V16",
@@ -380,17 +380,17 @@
         {
           "id": "T2N11S12V17",
           "kind": "collocation",
-          "french": "se déplace à domicile",
-          "english": "travels to your home",
-          "example": "Est-ce qu'il ou elle se déplace à domicile, ou il faut aller chez lui ou chez elle ?",
-          "usage": "Locution verbale sur le déplacement du professeur."
+          "french": "se déplace-t-elle",
+          "english": "does this person travel",
+          "example": "Dans quels quartiers cette personne se déplace-t-elle pour les cours à domicile ?",
+          "usage": "Forme interrogative du verbe se déplacer pour vérifier la zone desservie."
         },
         {
           "id": "T2N11S12V18",
           "kind": "collocation",
           "french": "acheter son propre instrument",
           "english": "buy your own instrument",
-          "example": "Dans un autre registre, faut-il acheter son propre instrument, ou il ou elle en prête un pour commencer ?",
+          "example": "Faut-il acheter son propre instrument, ou peut-on en emprunter un pour commencer ?",
           "usage": "Verbe + complément sur l'achat de l'instrument."
         },
         {
@@ -398,7 +398,7 @@
           "kind": "collocation",
           "french": "avant de s'engager",
           "english": "before committing",
-          "example": "Est-ce qu'il ou elle propose un cours d'essai avant de s'engager ?",
+          "example": "Peut-on prendre un cours d'essai avant de s'engager ?",
           "usage": "Locution sur l'essai avant engagement."
         },
         {
@@ -406,7 +406,7 @@
           "kind": "collocation",
           "french": "ça vaut le coup",
           "english": "it's worth it",
-          "example": "À votre avis, ça vaut le coup — vous me le ou la recommandez ?",
+          "example": "À votre avis, ça vaut le coup — vous me recommandez ces cours ?",
           "usage": "Locution familière pour évaluer l'intérêt."
         },
         {
@@ -436,17 +436,17 @@
         {
           "id": "T2N11S12V24",
           "kind": "tournure",
-          "french": "Quel instrument enseigne-t-il ou elle",
-          "english": "which instrument do they teach",
-          "example": "Quel instrument enseigne-t-il ou elle, et pour quels niveaux ?",
-          "usage": "Question sur l'instrument enseigné."
+          "french": "quels instruments sont proposés",
+          "english": "which instruments are offered",
+          "example": "Quels instruments sont proposés, et pour quels niveaux ?",
+          "usage": "Question sur les instruments enseignés."
         },
         {
           "id": "T2N11S12V25",
           "kind": "tournure",
           "french": "Quelle est son expérience",
           "english": "what is their experience",
-          "example": "Quelle est son expérience — ça fait longtemps qu'il ou elle enseigne ?",
+          "example": "Quelle est son expérience — ça fait longtemps que cette personne enseigne ?",
           "usage": "Question sur le parcours du professeur."
         },
         {
@@ -468,9 +468,9 @@
         {
           "id": "T2N11S12V28",
           "kind": "tournure",
-          "french": "Côté tarifs, comment ça fonctionne",
-          "english": "in terms of price, how does it work",
-          "example": "Côté tarifs, comment ça fonctionne — c'est à la séance ou plutôt au mois ?",
+          "french": "combien coûte une séance",
+          "english": "how much does a lesson cost",
+          "example": "Côté tarifs, combien coûte une séance, et y a-t-il un forfait au mois ?",
           "usage": "Question sur les tarifs."
         },
         {
@@ -478,15 +478,15 @@
           "kind": "tournure",
           "french": "Vous auriez ses coordonnées",
           "english": "would you have their contact details",
-          "example": "Du coup, vous auriez ses coordonnées pour que je le ou la contacte ?",
+          "example": "Du coup, vous auriez ses coordonnées pour que je puisse prendre contact ?",
           "usage": "Question pour obtenir un contact."
         },
         {
           "id": "T2N11S12V30",
           "kind": "tournure",
-          "french": "vous me le ou la recommandez",
-          "english": "would you recommend them to me",
-          "example": "À votre avis, ça vaut le coup — vous me le ou la recommandez ?",
+          "french": "vous me recommandez ces cours",
+          "english": "would you recommend these lessons to me",
+          "example": "À votre avis, ça vaut le coup — vous me recommandez ces cours ?",
           "usage": "Tournure de clôture demandant un avis."
         }
       ]
@@ -499,16 +499,16 @@
           "kind": "mot-cle",
           "french": "une sortie à la campagne",
           "english": "a countryside outing",
-          "example": "Bonjour ! J'aimerais organiser une sortie à la campagne avec des amis — vous connaissez bien la région, vous auriez des conseils ?",
+          "example": "Bonjour ! J'aimerais organiser une sortie à la campagne avec des amis — vous auriez des conseils ?",
           "usage": "Groupe nominal désignant l'excursion à la campagne."
         },
         {
           "id": "T2N11S13V02",
           "kind": "mot-cle",
-          "french": "la région",
-          "english": "the region",
-          "example": "Bonjour ! J'aimerais organiser une sortie à la campagne avec des amis — vous connaissez bien la région, vous auriez des conseils ?",
-          "usage": "Nom désignant la zone géographique."
+          "french": "les conditions d'accès",
+          "english": "the access conditions",
+          "example": "Pour finir — où peut-on vérifier les conditions d'accès avant de partir ?",
+          "usage": "Groupe nominal désignant les règles et modalités pour accéder à un lieu."
         },
         {
           "id": "T2N11S13V03",
@@ -579,7 +579,7 @@
           "kind": "collocation",
           "french": "passer une belle journée",
           "english": "spend a lovely day",
-          "example": "Quels endroits vous recommanderiez pour passer une belle journée à la campagne ?",
+          "example": "Quel endroit vous recommanderiez pour passer une belle journée à la campagne ?",
           "usage": "Verbe + complément sur une bonne journée."
         },
         {
@@ -657,18 +657,18 @@
         {
           "id": "T2N11S13V21",
           "kind": "tournure",
-          "french": "vous connaissez bien la région, vous auriez des conseils",
-          "english": "you know the region well, would you have advice",
-          "example": "Bonjour ! J'aimerais organiser une sortie à la campagne avec des amis — vous connaissez bien la région, vous auriez des conseils ?",
+          "french": "vous auriez des conseils",
+          "english": "would you have any advice",
+          "example": "Bonjour ! J'aimerais organiser une sortie à la campagne avec des amis — vous auriez des conseils ?",
           "usage": "Tournure d'ouverture sollicitant un conseil."
         },
         {
           "id": "T2N11S13V22",
           "kind": "tournure",
-          "french": "Quels endroits vous recommanderiez",
-          "english": "which places would you recommend",
-          "example": "Quels endroits vous recommanderiez pour passer une belle journée à la campagne ?",
-          "usage": "Question sur les lieux conseillés."
+          "french": "quel endroit vous recommanderiez",
+          "english": "which place would you recommend",
+          "example": "Quel endroit vous recommanderiez pour passer une belle journée à la campagne ?",
+          "usage": "Question sur le lieu conseillé."
         },
         {
           "id": "T2N11S13V23",
@@ -689,10 +689,10 @@
         {
           "id": "T2N11S13V25",
           "kind": "tournure",
-          "french": "C'est adapté pour un groupe",
-          "english": "is it suitable for a group",
-          "example": "En ce qui concerne les participants, c'est adapté pour un groupe, avec des personnes de niveaux différents ?",
-          "usage": "Question sur l'adaptation au groupe."
+          "french": "y a-t-il d'autres activités sur place",
+          "english": "are there other activities on site",
+          "example": "Si certaines personnes ne veulent pas marcher longtemps, y a-t-il d'autres activités sur place ?",
+          "usage": "Question pour trouver une alternative adaptée aux membres du groupe."
         },
         {
           "id": "T2N11S13V26",
@@ -729,10 +729,10 @@
         {
           "id": "T2N11S13V30",
           "kind": "tournure",
-          "french": "si vous ne deviez me conseiller qu'un seul endroit",
-          "english": "if you had to recommend just one place",
-          "example": "Pour finir — si vous ne deviez me conseiller qu'un seul endroit, ce serait lequel ?",
-          "usage": "Tournure de clôture pour un conseil."
+          "french": "où peut-on vérifier les conditions d'accès",
+          "english": "where can one check the access conditions",
+          "example": "Pour finir — où peut-on vérifier les conditions d'accès avant de partir ?",
+          "usage": "Question de clôture pour obtenir une source d'information pratique."
         }
       ]
     },
@@ -926,10 +926,10 @@
         {
           "id": "T2N11S14V24",
           "kind": "tournure",
-          "french": "en cas de retard ou d'imprévu",
-          "english": "in case of delay or an unexpected event",
-          "example": "En cas de retard ou d'imprévu, comment ça se passe ?",
-          "usage": "Locution prépositionnelle pour introduire une situation imprévue."
+          "french": "peut-on convenir d'un autre créneau",
+          "english": "can we agree on another time slot",
+          "example": "Si je ne suis pas chez moi au moment de la livraison, peut-on convenir d'un autre créneau ?",
+          "usage": "Question pour réorganiser une livraison en cas d'indisponibilité."
         },
         {
           "id": "T2N11S14V25",

@@ -57,7 +57,7 @@
           "kind": "mot-cle",
           "french": "une tenue vestimentaire",
           "english": "an outfit / dress code",
-          "example": "Pour ce qui est de l'équipement, y a-t-il une tenue vestimentaire particulière à respecter ?",
+          "example": "Y a-t-il une tenue vestimentaire particulière à respecter ?",
           "usage": "Groupe nominal désignant la façon de s'habiller pour une occasion."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "un parking",
           "english": "a parking lot",
-          "example": "Côté pratique, comment puis-je me rendre sur place, et y a-t-il un parking disponible ?",
+          "example": "Si l'entretien se passe dans vos locaux, comment puis-je m'y rendre — y a-t-il un parking ?",
           "usage": "Nom masculin désignant un espace réservé au stationnement."
         },
         {
@@ -151,10 +151,10 @@
         {
           "id": "T2J6S6V19",
           "kind": "collocation",
-          "french": "plusieurs étapes",
-          "english": "several steps/stages",
-          "example": "Vous avez mentionné plusieurs étapes — vous pourriez m'en dire un peu plus : combien y en a-t-il au total ?",
-          "usage": "Collocation adjectif numéral + nom pour évoquer un processus en plusieurs phases."
+          "french": "l'ensemble du processus",
+          "english": "the entire process",
+          "example": "S'il y a d'autres étapes, combien de temps faut-il prévoir pour l'ensemble du processus ?",
+          "usage": "Groupe nominal désignant la totalité des étapes du recrutement."
         },
         {
           "id": "T2J6S6V20",
@@ -177,7 +177,7 @@
           "kind": "tournure",
           "french": "y a-t-il une tenue vestimentaire particulière à respecter",
           "english": "is there a particular dress code to follow",
-          "example": "Pour ce qui est de l'équipement, y a-t-il une tenue vestimentaire particulière à respecter ?",
+          "example": "Y a-t-il une tenue vestimentaire particulière à respecter ?",
           "usage": "Tournure interrogative pour vérifier une règle vestimentaire."
         },
         {
@@ -191,9 +191,9 @@
         {
           "id": "T2J6S6V24",
           "kind": "tournure",
-          "french": "comment puis-je me rendre sur place",
+          "french": "comment puis-je m'y rendre",
           "english": "how can I get there",
-          "example": "Côté pratique, comment puis-je me rendre sur place, et y a-t-il un parking disponible ?",
+          "example": "Si l'entretien se passe dans vos locaux, comment puis-je m'y rendre — y a-t-il un parking ?",
           "usage": "Tournure interrogative polie avec « puis-je » pour demander un itinéraire."
         },
         {
@@ -231,10 +231,10 @@
         {
           "id": "T2J6S6V29",
           "kind": "tournure",
-          "french": "vous pourriez m'en dire un peu plus",
-          "english": "could you tell me a bit more about it",
-          "example": "Vous avez mentionné plusieurs étapes — vous pourriez m'en dire un peu plus : combien y en a-t-il au total ?",
-          "usage": "Tournure polie au conditionnel pour demander un développement."
+          "french": "S'il y a d'autres étapes",
+          "english": "if there are other stages",
+          "example": "S'il y a d'autres étapes, combien de temps faut-il prévoir pour l'ensemble du processus ?",
+          "usage": "Proposition conditionnelle pour poser une question de suivi seulement si d'autres étapes existent."
         },
         {
           "id": "T2J6S6V30",
@@ -268,10 +268,10 @@
         {
           "id": "T2J6S7V03",
           "kind": "mot-cle",
-          "french": "une autre saison",
-          "english": "another season",
-          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Groupe nominal pour évoquer une période de l'année différente."
+          "french": "période",
+          "english": "time/period",
+          "example": "Quelle est la meilleure période pour ces destinations ?",
+          "usage": "Nom féminin désignant un moment de l'année adapté à un voyage."
         },
         {
           "id": "T2J6S7V04",
@@ -316,10 +316,10 @@
         {
           "id": "T2J6S7V09",
           "kind": "mot-cle",
-          "french": "des places",
-          "english": "spots/seats",
-          "example": "Il reste encore des places ou c'est déjà complet ?",
-          "usage": "Nom courant désignant les emplacements disponibles pour une activité."
+          "french": "d'autres dates",
+          "english": "other dates",
+          "example": "Si le circuit qui m'intéresse est complet, proposez-vous d'autres dates ?",
+          "usage": "Groupe nominal désignant des possibilités différentes dans le calendrier."
         },
         {
           "id": "T2J6S7V10",
@@ -340,10 +340,10 @@
         {
           "id": "T2J6S7V12",
           "kind": "collocation",
-          "french": "beaucoup de monde",
-          "english": "a lot of people",
-          "example": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
-          "usage": "Association figée signifiant une forte affluence."
+          "french": "moins fréquentées",
+          "english": "less busy",
+          "example": "Y a-t-il des périodes moins fréquentées pour voyager plus tranquillement ?",
+          "usage": "Association comparative pour décrire des périodes de moindre affluence."
         },
         {
           "id": "T2J6S7V13",
@@ -366,16 +366,16 @@
           "kind": "collocation",
           "french": "s'y prendre au dernier moment",
           "english": "to leave it until the last minute",
-          "example": "Pour l'inscription, faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
+          "example": "Faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
           "usage": "Expression courante pour évoquer une réservation tardive."
         },
         {
           "id": "T2J6S7V16",
           "kind": "collocation",
-          "french": "déjà complet",
-          "english": "already fully booked",
-          "example": "Il reste encore des places ou c'est déjà complet ?",
-          "usage": "Association adverbe + adjectif pour signaler l'absence de place restante."
+          "french": "est complet",
+          "english": "is fully booked",
+          "example": "Si le circuit qui m'intéresse est complet, proposez-vous d'autres dates ?",
+          "usage": "Association du verbe « être » et de l'adjectif « complet » pour signaler l'absence de places."
         },
         {
           "id": "T2J6S7V17",
@@ -388,10 +388,10 @@
         {
           "id": "T2J6S7V18",
           "kind": "collocation",
-          "french": "le circuit le plus apprécié",
-          "english": "the most popular tour",
-          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
-          "usage": "Superlatif appliqué à un nom pour désigner l'option la plus prisée."
+          "french": "voyager plus tranquillement",
+          "english": "travel more peacefully",
+          "example": "Y a-t-il des périodes moins fréquentées pour voyager plus tranquillement ?",
+          "usage": "Association verbe-adverbe pour privilégier un voyage plus calme."
         },
         {
           "id": "T2J6S7V19",
@@ -436,10 +436,10 @@
         {
           "id": "T2J6S7V24",
           "kind": "tournure",
-          "french": "il vaut mieux attendre",
-          "english": "it is better to wait",
-          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Tournure impersonnelle avec 'il vaut mieux' pour exprimer une recommandation."
+          "french": "Quelle est la meilleure période",
+          "english": "what is the best time",
+          "example": "Quelle est la meilleure période pour ces destinations ?",
+          "usage": "Question pour choisir la période la plus favorable à un voyage."
         },
         {
           "id": "T2J6S7V25",
@@ -454,16 +454,16 @@
           "kind": "tournure",
           "french": "Faut-il réserver le circuit longtemps à l'avance",
           "english": "Should the tour be booked well in advance",
-          "example": "Pour l'inscription, faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
+          "example": "Faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
           "usage": "Inversion avec « faut-il » pour vérifier le délai de réservation."
         },
         {
           "id": "T2J6S7V27",
           "kind": "tournure",
-          "french": "Il reste encore",
-          "english": "There are still... / Is there still...",
-          "example": "Il reste encore des places ou c'est déjà complet ?",
-          "usage": "Tournure impersonnelle avec 'il reste' pour vérifier une disponibilité."
+          "french": "proposez-vous d'autres dates",
+          "english": "do you offer other dates",
+          "example": "Si le circuit qui m'intéresse est complet, proposez-vous d'autres dates ?",
+          "usage": "Question avec inversion pour demander une alternative quand un circuit est complet."
         },
         {
           "id": "T2J6S7V28",
@@ -476,10 +476,10 @@
         {
           "id": "T2J6S7V29",
           "kind": "tournure",
-          "french": "vous pourriez m'en dire un peu plus",
-          "english": "could you tell me a bit more",
-          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
-          "usage": "Conditionnel de politesse suivi du pronom 'en' pour relancer sur un sujet, registre vouvoiement."
+          "french": "lequel recommandez-vous le plus",
+          "english": "which one do you recommend most",
+          "example": "Parmi ces circuits, lequel recommandez-vous le plus, et qu'est-ce qu'il comprend ?",
+          "usage": "Pronom interrogatif et inversion pour hiérarchiser plusieurs options."
         },
         {
           "id": "T2J6S7V30",
@@ -1123,17 +1123,17 @@
         {
           "id": "T2J6S10V18",
           "kind": "collocation",
-          "french": "des collations",
-          "english": "snacks",
-          "example": "Pour ce qui est du lieu, les salles proposent-elles aussi des collations, ou je dois les acheter avant d'entrer ?",
-          "usage": "Nom pluriel désignant de petites nourritures vendues en salle de cinéma."
+          "french": "acheter sur place",
+          "english": "buy on site",
+          "example": "Pour les collations, est-ce qu'on peut en acheter sur place ou apporter les siennes ?",
+          "usage": "Association verbe-complément de lieu pour parler d'un achat dans le cinéma même."
         },
         {
           "id": "T2J6S10V19",
           "kind": "collocation",
           "french": "facilement accessible",
           "english": "easily accessible",
-          "example": "La salle est facilement accessible, ou je dois prévoir du temps pour m'y rendre ?",
+          "example": "Le cinéma est-il facilement accessible en transports en commun ?",
           "usage": "Collocation adverbe + adjectif pour qualifier un lieu bien desservi."
         },
         {
@@ -1203,18 +1203,18 @@
         {
           "id": "T2J6S10V28",
           "kind": "tournure",
-          "french": "les salles proposent-elles aussi des collations",
-          "english": "do the theaters also offer snacks",
-          "example": "Pour ce qui est du lieu, les salles proposent-elles aussi des collations, ou je dois les acheter avant d'entrer ?",
-          "usage": "Tournure interrogative pour vérifier une offre de service annexe."
+          "french": "est-ce qu'on peut en acheter sur place ou apporter les siennes",
+          "english": "can we buy some there or bring our own",
+          "example": "Pour les collations, est-ce qu'on peut en acheter sur place ou apporter les siennes ?",
+          "usage": "Question alternative avec les pronoms « en » et « les siennes » pour comparer deux possibilités."
         },
         {
           "id": "T2J6S10V29",
           "kind": "tournure",
-          "french": "je dois prévoir du temps pour m'y rendre",
-          "english": "I need to allow time to get there",
-          "example": "La salle est facilement accessible, ou je dois prévoir du temps pour m'y rendre ?",
-          "usage": "Tournure pour anticiper une contrainte logistique de déplacement."
+          "french": "Le cinéma est-il facilement accessible",
+          "english": "is the cinema easy to get to",
+          "example": "Le cinéma est-il facilement accessible en transports en commun ?",
+          "usage": "Question avec inversion pour vérifier l'accessibilité d'un lieu."
         },
         {
           "id": "T2J6S10V30",

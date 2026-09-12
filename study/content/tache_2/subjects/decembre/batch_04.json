@@ -18,10 +18,10 @@
           "text": "Quels modèles de vélos proposez-vous — vélo de ville, VTT, vélo électrique ?"
         },
         {
-          "text": "Selon l'usage que je veux en faire, quel modèle me conseilleriez-vous ?"
+          "text": "Si je veux surtout circuler en ville, quel modèle me conseilleriez-vous ?"
         },
         {
-          "text": "Puisqu'on en parle, vous fournissez un plan ou des idées d'itinéraires adaptés à cet usage ?"
+          "text": "Vous fournissez un plan ou des idées d'itinéraires pour découvrir la ville à vélo ?"
         },
         {
           "text": "Quelles sont les conditions pour louer — faut-il une pièce d'identité ou un âge minimum ?"
@@ -42,7 +42,7 @@
           "text": "Est-ce qu'on peut rendre le vélo à un autre point de la ville ou faut-il revenir ici ?"
         },
         {
-          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
+          "text": "En ce qui concerne le budget, combien coûte la location à l'heure ou à la journée ?",
           "memory_number": 6,
           "memory_section": 3
         },
@@ -110,7 +110,7 @@
           "memory_section": 9
         },
         {
-          "text": "L'application permet-elle aussi de planifier un itinéraire ?",
+          "text": "S'il y a une application, permet-elle aussi de planifier un itinéraire ?",
           "memory_number": 6,
           "memory_section": 9
         },
@@ -178,7 +178,7 @@
           "text": "Sur le plan financier, si on a un budget serré, on peut quand même bien profiter de la ville ?"
         },
         {
-          "text": "Pour finir — s'il y a une seule ville que tu me recommanderais pour cet article, ce serait laquelle ?"
+          "text": "Pour finir — quel angle me conseillerais-tu pour rendre l'article original ?"
         }
       ]
     },
@@ -205,7 +205,7 @@
           "text": "Tu as déjà prévu quels artistes ou quels groupes ?"
         },
         {
-          "text": "Pour ce qui est du déroulement, comment le programme s'organise d'un jour à l'autre ?"
+          "text": "Comment s'organise le programme pendant le festival ?"
         },
         {
           "text": "Il y aura plusieurs scènes ou des espaces différents selon les styles ?"
@@ -228,7 +228,7 @@
           "text": "On peut manger ou boire quelque chose sur place ?"
         },
         {
-          "text": "Faut-il un billet spécial pour le camping, si on veut rester sur place plusieurs jours ?",
+          "text": "S'il y a un camping sur place, faut-il un billet spécial pour y accéder ?",
           "memory_number": 9,
           "memory_section": 6
         },
@@ -260,7 +260,7 @@
           "text": "Y a-t-il habituellement de grands événements publics ou des feux d'artifice ?"
         },
         {
-          "text": "À quel moment de la soirée l'ambiance est-elle la plus forte en général ?"
+          "text": "À quel moment de la soirée y a-t-il le plus d'ambiance en général ?"
         },
         {
           "text": "Les familles et les jeunes célèbrent-ils cette fête de la même façon, ou pas vraiment ?"
@@ -281,7 +281,7 @@
           "text": "Y a-t-il aussi des activités ou des festivals d'hiver autour du Nouvel An ?"
         },
         {
-          "text": "Dernier point pratique : le 1er janvier est-il un jour férié au Canada, et que font généralement les gens ce jour-là ?"
+          "text": "Le 1er janvier est-il un jour férié au Canada, et que font généralement les gens ce jour-là ?"
         },
         {
           "text": "Et niveau météo, quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",

@@ -12,7 +12,7 @@
       "prompt": "Un entretien d'embauche vous attend la semaine prochaine ; vous me demandez, en ami(e), mes conseils pour le réussir, du comportement à la tenue en passant par la préparation.",
       "questions": [
         {
-          "text": "Salut ! J'ai bientôt un entretien d'embauche dans une entreprise canadienne et je stresse un peu — tu pourrais me donner quelques conseils ?"
+          "text": "Salut ! J'ai bientôt un entretien d'embauche — tu pourrais me donner quelques conseils pour bien me préparer ?"
         },
         {
           "text": "Comment ça se passe généralement, un entretien ici — c'est plutôt formel ou décontracté ?"
@@ -30,7 +30,7 @@
           "text": "Comment je peux bien présenter mon parcours et mes expériences ?"
         },
         {
-          "text": "Est-ce qu'il vaut mieux préparer des questions à poser au recruteur ?"
+          "text": "Quelles questions utiles je pourrais poser au recruteur ?"
         },
         {
           "text": "Côté attitude, quel comportement adopter pour faire bonne impression ?"
@@ -42,13 +42,13 @@
           "text": "C'est bien vu d'arriver un peu en avance ?"
         },
         {
-          "text": "En ce qui concerne le matériel, faut-il apporter des documents, comme mon CV ou des références ?"
+          "text": "Faut-il apporter des documents, comme mon CV ou des références ?"
         },
         {
           "text": "Il y a des choses à éviter absolument pendant l'entretien ?"
         },
         {
-          "text": "Une autre chose m'inquiète un peu : comment gérer le stress si je perds mes moyens sur le moment ?"
+          "text": "Comment gérer le stress si je perds mes moyens sur le moment ?"
         },
         {
           "text": "Pour ce qui est du contact, après l'entretien, c'est bien d'envoyer un message de remerciement ?"
@@ -79,7 +79,7 @@
           "memory_section": 7
         },
         {
-          "text": "D'abord, sur combien de jours exactement dois-je m'organiser ?",
+          "text": "Vous partez à quelles dates — sur combien de jours exactement dois-je m'organiser ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -104,7 +104,7 @@
           "memory_section": 8
         },
         {
-          "text": "Pour les promenades, à quelle fréquence et pendant combien de temps faut-il le sortir ?",
+          "text": "S'il a besoin de promenades, à quelle fréquence et pendant combien de temps faut-il le sortir ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -162,16 +162,16 @@
           "memory_section": 2
         },
         {
-          "text": "Côté lieu, quelles activités de plein air gratuites peut-on pratiquer dans le coin ?"
+          "text": "Quelles activités de plein air gratuites peut-on pratiquer dans le coin ?"
         },
         {
           "text": "Côté musées et sites culturels, y en a-t-il des gratuits, ou avec des jours d'entrée gratuite ?"
         },
         {
-          "text": "Pour ce qui est du programme, y a-t-il des événements, des festivals ou des marchés locaux gratuits ce week-end ?"
+          "text": "Y a-t-il des événements, des festivals ou des marchés locaux gratuits le week-end ?"
         },
         {
-          "text": "Et côté saison, c'est une bonne période pour visiter la région ou il vaut mieux attendre une autre saison ?",
+          "text": "Si la météo est mauvaise, quelles activités à petit prix conseillez-vous ?",
           "memory_number": 7,
           "memory_section": 8
         },
@@ -216,7 +216,7 @@
           "memory_section": 2
         },
         {
-          "text": "Côté précautions, ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "memory_number": 8,
           "memory_section": 6
         },
@@ -256,7 +256,7 @@
           "memory_section": 3
         },
         {
-          "text": "Une fois inscrit(e), on s'engage pour toute la session ou on peut venir de manière flexible ?",
+          "text": "Une fois inscrit(e), on s'engage pour combien de temps ?",
           "memory_number": 8,
           "memory_section": 12
         },

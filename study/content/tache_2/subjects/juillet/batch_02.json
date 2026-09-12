@@ -72,7 +72,7 @@
           "memory_section": 3
         },
         {
-          "text": "Tu as mentionné un moment surprenant — tu pourrais m'en dire un peu plus : qu'est-ce qui s'est passé exactement ?",
+          "text": "S'il y a eu un moment surprenant pendant le jeu, tu pourrais me raconter ce qui s'est passé ?",
           "memory_number": 10,
           "memory_section": 13
         },
@@ -181,7 +181,7 @@
           "memory_section": 6
         },
         {
-          "text": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "text": "Si on débute complètement, est-ce que vous adaptez les exercices au niveau de chacun ?",
           "memory_number": 8,
           "memory_section": 6
         },
@@ -198,7 +198,7 @@
           "text": "Tant que j'y pense, l'ambiance est comment — les gens viennent surtout pour se dépenser ou aussi pour se rencontrer ?"
         },
         {
-          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — on paie à la séance ou il faut s'inscrire pour la session ?"
+          "text": "En ce qui concerne le budget, combien coûte une séance, et peut-on s'inscrire pour toute la session ?"
         },
         {
           "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
@@ -214,7 +214,7 @@
           "memory_section": 8
         },
         {
-          "text": "En ce qui concerne la réservation, comment se passe l'inscription — directement auprès de vous ou sur place ?"
+          "text": "Comment se passe l'inscription — directement auprès de vous ou sur place ?"
         },
         {
           "text": "Pour finir — quel cours me conseilleriez-vous pour bien commencer ?"
@@ -233,10 +233,10 @@
           "text": "Quels modèles de vélos proposez-vous — vélo de ville, VTT, vélo électrique ?"
         },
         {
-          "text": "Selon l'usage que je veux en faire, quel modèle me conseilleriez-vous ?"
+          "text": "Si je veux surtout circuler en ville, quel modèle me conseilleriez-vous ?"
         },
         {
-          "text": "Puisqu'on en parle, vous fournissez un plan ou des idées d'itinéraires adaptés à cet usage ?"
+          "text": "Vous fournissez un plan ou des idées d'itinéraires pour découvrir la ville à vélo ?"
         },
         {
           "text": "Quelles sont les conditions pour louer — faut-il une pièce d'identité ou un âge minimum ?"
@@ -257,7 +257,7 @@
           "text": "Est-ce qu'on peut rendre le vélo à un autre point de la ville ou faut-il revenir ici ?"
         },
         {
-          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs de location — c'est à l'heure, à la journée ou sous forme d'abonnement ?",
+          "text": "En ce qui concerne le budget, combien coûte la location à l'heure ou à la journée ?",
           "memory_number": 6,
           "memory_section": 3
         },
@@ -298,7 +298,7 @@
           "memory_section": 4
         },
         {
-          "text": "Pour ce qui est des repas, quelles activités sont proposées à bord — spectacles, piscine, restaurants, excursions ?"
+          "text": "Quelles activités sont proposées à bord — spectacles, piscine, ateliers ?"
         },
         {
           "text": "Les repas sont-ils inclus, et quels types de restauration trouve-t-on à bord ?"
@@ -310,7 +310,7 @@
           "text": "Ces croisières conviennent-elles aux familles — y a-t-il des activités pour tous les âges ?"
         },
         {
-          "text": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "text": "Côté saison, quelle période me conseilleriez-vous pour y aller, et pourquoi ?",
           "memory_number": 7,
           "memory_section": 8
         },
@@ -320,7 +320,7 @@
           "memory_section": 8
         },
         {
-          "text": "Pour l'inscription, faut-il réserver longtemps à l'avance ou peut-on s'y prendre au dernier moment ?"
+          "text": "Pour la réservation, faut-il s'y prendre longtemps à l'avance ou peut-on réserver au dernier moment ?"
         },
         {
           "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total par personne ?",

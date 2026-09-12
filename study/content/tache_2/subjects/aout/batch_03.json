@@ -174,7 +174,7 @@
       "prompt": "Sur le point de partir en vacances, je vous confie la surveillance de mon appartement, car vous êtes un(e) ami(e). Vous me questionnez alors sur les dates concernées, les tâches à assurer et les consignes à suivre.",
       "questions": [
         {
-          "text": "Salut ! Bien sûr, je peux surveiller ton appartement — tu pars à quelles dates exactement ?",
+          "text": "Salut ! Tu souhaites que je surveille ton appartement — tu pars à quelles dates exactement ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -256,7 +256,7 @@
       "prompt": "Une conversation s'engage entre nous dans une gare où nous venons de nous croiser. Intrigué(e) par ma passion pour la montagne, vous m'interrogez pour en apprendre davantage.",
       "questions": [
         {
-          "text": "Quelle coïncidence de se croiser ici, en gare ! Vous m'avez dit que vous étiez passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
+          "text": "Vous êtes passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
           "memory_number": 8,
           "memory_section": 13
         },

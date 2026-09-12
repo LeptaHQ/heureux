@@ -105,7 +105,7 @@
           "kind": "collocation",
           "french": "se sentir perdu(e)",
           "english": "to feel lost",
-          "example": "Côté précautions, ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "example": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "usage": "Association verbe pronominal + adjectif pour exprimer un sentiment de confusion."
         },
         {
@@ -135,10 +135,10 @@
         {
           "id": "T2M3S1V17",
           "kind": "collocation",
-          "french": "de manière flexible",
-          "english": "in a flexible way",
-          "example": "Une fois inscrit(e), on s'engage pour toute la session ou on peut venir de manière flexible ?",
-          "usage": "Groupe adverbial fixe pour décrire une organisation souple."
+          "french": "si nécessaire",
+          "english": "if necessary",
+          "example": "Est-ce qu'il est possible de suspendre l'abonnement si nécessaire ?",
+          "usage": "Locution adverbiale pour conditionner une possibilité à un besoin."
         },
         {
           "id": "T2M3S1V18",
@@ -185,7 +185,7 @@
           "kind": "tournure",
           "french": "Ça s'adresse à quel public",
           "english": "Who is it aimed at",
-          "example": "Côté précautions, ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "example": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "usage": "Question orale avec le groupe interrogatif 'quel public' maintenu après le verbe, sans inversion."
         },
         {
@@ -529,10 +529,10 @@
         {
           "id": "T2M3S3V05",
           "kind": "mot-cle",
-          "french": "un journal local",
-          "english": "a local paper",
-          "example": "C'est une publication canadienne nationale ou plutôt un journal local ?",
-          "usage": "Groupe nominal désignant une publication centrée sur une région précise."
+          "french": "des publications locales",
+          "english": "local publications",
+          "example": "Y a-t-il des publications locales pour mieux connaître la ville ?",
+          "usage": "Groupe nominal désignant des publications centrées sur une région précise."
         },
         {
           "id": "T2M3S3V06",
@@ -569,10 +569,10 @@
         {
           "id": "T2M3S3V10",
           "kind": "mot-cle",
-          "french": "un quotidien",
-          "english": "a daily newspaper",
-          "example": "Vous avez mentionné un quotidien en particulier — vous pourriez m'en dire un peu plus : il paraît tous les jours ?",
-          "usage": "Nom désignant un journal publié chaque jour."
+          "french": "une édition",
+          "english": "an edition",
+          "example": "Pour les quotidiens que vous proposez, y a-t-il aussi une édition le dimanche ?",
+          "usage": "Nom féminin désignant la version d'un journal publiée à une date donnée."
         },
         {
           "id": "T2M3S3V11",
@@ -601,10 +601,10 @@
         {
           "id": "T2M3S3V14",
           "kind": "collocation",
-          "french": "publication canadienne nationale",
-          "english": "national Canadian publication",
-          "example": "C'est une publication canadienne nationale ou plutôt un journal local ?",
-          "usage": "Groupe nominal désignant une publication diffusée à l'échelle du pays."
+          "french": "mieux connaître la ville",
+          "english": "get to know the city better",
+          "example": "Y a-t-il des publications locales pour mieux connaître la ville ?",
+          "usage": "Association verbale pour exprimer l'approfondissement de ses connaissances sur une ville."
         },
         {
           "id": "T2M3S3V15",
@@ -625,10 +625,10 @@
         {
           "id": "T2M3S3V17",
           "kind": "collocation",
-          "french": "un mélange des deux",
-          "english": "a mix of both",
-          "example": "Qu'est-ce qu'on apprend concrètement — c'est plutôt informatif, pratique, ou un mélange des deux ?",
-          "usage": "Tournure nominale pour indiquer que deux options ne s'excluent pas."
+          "french": "la vie quotidienne",
+          "english": "daily life",
+          "example": "Est-ce qu'on y trouve aussi des informations pratiques pour la vie quotidienne ?",
+          "usage": "Association nom-adjectif désignant les activités et besoins de tous les jours."
         },
         {
           "id": "T2M3S3V18",
@@ -673,10 +673,10 @@
         {
           "id": "T2M3S3V23",
           "kind": "tournure",
-          "french": "C'est une publication canadienne nationale",
-          "english": "Is it a national Canadian publication",
-          "example": "C'est une publication canadienne nationale ou plutôt un journal local ?",
-          "usage": "Question fermée à l'ordre habituel sujet-verbe, sans inversion."
+          "french": "Y a-t-il des publications locales",
+          "english": "are there any local publications",
+          "example": "Y a-t-il des publications locales pour mieux connaître la ville ?",
+          "usage": "Question avec inversion pour vérifier l'existence d'une offre locale."
         },
         {
           "id": "T2M3S3V24",
@@ -705,18 +705,18 @@
         {
           "id": "T2M3S3V27",
           "kind": "tournure",
-          "french": "Qu'est-ce qu'on apprend concrètement",
-          "english": "what exactly do you learn from it",
-          "example": "Qu'est-ce qu'on apprend concrètement — c'est plutôt informatif, pratique, ou un mélange des deux ?",
-          "usage": "Tournure pour interroger sur le contenu réel d'une lecture."
+          "french": "Est-ce qu'on y trouve aussi",
+          "english": "can we also find ... in it",
+          "example": "Est-ce qu'on y trouve aussi des informations pratiques pour la vie quotidienne ?",
+          "usage": "Question avec le pronom « y », qui renvoie ici à la publication, pour vérifier un contenu supplémentaire."
         },
         {
           "id": "T2M3S3V28",
           "kind": "tournure",
-          "french": "vous pourriez m'en dire un peu plus",
-          "english": "could you tell me a bit more about it",
-          "example": "Vous avez mentionné un quotidien en particulier — vous pourriez m'en dire un peu plus : il paraît tous les jours ?",
-          "usage": "Formule de relance au conditionnel pour approfondir un point mentionné."
+          "french": "y a-t-il aussi une édition le dimanche",
+          "english": "is there also a Sunday edition",
+          "example": "Pour les quotidiens que vous proposez, y a-t-il aussi une édition le dimanche ?",
+          "usage": "Question avec inversion pour vérifier une parution le dimanche."
         },
         {
           "id": "T2M3S3V29",
@@ -729,10 +729,10 @@
         {
           "id": "T2M3S3V30",
           "kind": "tournure",
-          "french": "si vous ne deviez me recommander qu'une seule lecture",
-          "english": "if you had to recommend just one reading to me",
-          "example": "Pour finir — si vous ne deviez me recommander qu'une seule lecture, ce serait laquelle ?",
-          "usage": "Tournure hypothétique de clôture, registre vouvoiement."
+          "french": "peut-on acheter un numéro pour essayer",
+          "english": "can we buy one issue to try it out",
+          "example": "Pour finir — peut-on acheter un numéro pour essayer avant de prendre un abonnement ?",
+          "usage": "Question avec inversion pour envisager un premier achat avant un abonnement."
         }
       ]
     },
@@ -1221,7 +1221,7 @@
           "kind": "tournure",
           "french": "je peux vous recontacter",
           "english": "may I contact you again",
-          "example": "D'accord, je vais réfléchir à votre offre et vous donner une réponse rapidement — si j'ai encore une question, je peux vous recontacter ?",
+          "example": "D'accord — si j'ai encore une question, je peux vous recontacter ?",
           "usage": "Formule de clôture polie pour s'assurer de pouvoir revenir vers son interlocuteur."
         }
       ]

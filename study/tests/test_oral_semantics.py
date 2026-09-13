@@ -8,8 +8,8 @@ from unittest.mock import patch
 from django.core.management import call_command
 from django.db import connection, transaction
 from django.db.migrations.executor import MigrationExecutor
-from django.test import SimpleTestCase, TestCase
-from django.urls import reverse
+from django.test import RequestFactory, SimpleTestCase, TestCase
+from django.urls import NoReverseMatch, Resolver404, resolve, reverse
 from django.utils import timezone
 
 from study import content_loader as content, queue, srs
@@ -468,9 +468,8 @@ class OralImportPreservationTests(TestCase):
                 detail = self.client.get(detail_url)
                 self.assertFalse(detail.context["response_content"].is_personal)
                 self.assertEqual(detail.context["response_content"].arguments[0].idea, "Original model question")
-                self.assertContains(
-                    self.client.get(detail.context["oral_history_url"]), "Donor-only personal version",
-                )
+                self.assertNotContains(detail, "Donor-only personal version")
+                self.assertNotIn("oral_history_url", detail.context)
                 self.assertFalse(self.client.get(edit_url).context["has_personal_response"])
 
     def test_occurrence_path_overrides_old_shared_highlight_namespace(self):
@@ -497,7 +496,7 @@ class OralImportPreservationTests(TestCase):
         self.assertFalse(progress[original.pk].has_highlight)
         self.assertTrue(progress[mapping[alias.content_key].pk].has_highlight)
 
-    def test_directory_and_model_variants_keep_noncanonical_first_publication(self):
+    def test_directory_displays_one_current_response_for_the_selected_publication(self):
         first, second = self.make_card(), self.make_card()
         first_prompt, second_prompt = first.response.canonical_prompt, second.response.canonical_prompt
         data = response_data(
@@ -522,12 +521,17 @@ class OralImportPreservationTests(TestCase):
         self.assertContains(page, "2 publications")
         self.assertContains(page, "data-subject-deduplication-toggle", count=1)
         self.assertEqual(page.context["subject_themes"][0]["subjects"][0]["prompt"].pk, first_prompt.pk)
-        detail = self.client.get(prompt_detail_url(first_prompt), {"model": "1"})
+        detail = self.client.get(prompt_detail_url(first_prompt))
         self.assertContains(detail, "The first original model")
         self.assertNotContains(detail, "The second original model")
         self.assertIn(f"prompt={first_prompt.pk}", detail.context["response_review_url"])
-        self.assertIn("model=1", detail.context["response_review_url"])
-        self.assertEqual(len(detail.context["oral_model_variants"]), 2)
+        self.assertNotIn("model=", detail.context["response_review_url"])
+        self.assertNotIn("personal=", detail.context["response_review_url"])
+        self.assertNotIn("oral_model_variants", detail.context)
+        self.assertNotContains(detail, "Versions du sujet")
+        self.assertContains(
+            detail, f'data-annotation-source-key="subject-sidebar:{first_prompt.content_key}"'
+        )
 
     def test_nested_directory_deduplicates_in_displayed_family_order(self):
         canonical, earlier_family = self.make_card(), self.make_card()
@@ -552,7 +556,7 @@ class OralImportPreservationTests(TestCase):
         self.assertEqual(page.context["subject_themes"][0]["subjects"][0]["prompt"].pk, first_displayed.pk)
         self.assertNotContains(page, "Voir le thème et ses révisions")
 
-    def test_preserved_personal_history_restores_copy_without_cross_user_access(self):
+    def test_history_and_version_selectors_are_removed_without_deleting_personal_data(self):
         first, donor = self.make_card(), self.make_card()
         own = PersonalResponse.objects.create(user=self.users[0], response=first.response, position="Own")
         alternative = PersonalResponse.objects.create(user=self.users[0], response=donor.response, position="Alternative")
@@ -560,24 +564,46 @@ class OralImportPreservationTests(TestCase):
         self.import_rows([response_data(
             first.response, members=[first.response.canonical_prompt, donor.response.canonical_prompt],
         )])
+        before = list(PersonalResponse.objects.order_by("pk").values())
         self.client.force_login(self.users[0])
-        url = reverse("study:oral_response_history", args=["eo", "tache-3", first.response_id])
-        page = self.client.get(url)
+        prompt = first.response.canonical_prompt
+        detail_url = prompt_detail_url(prompt)
+        page = self.client.get(detail_url)
         self.assertContains(page, "Own")
-        self.assertContains(page, "Alternative")
+        self.assertNotContains(page, "Alternative")
         self.assertNotContains(page, "Foreign private")
-        self.assertEqual(self.client.post(url, {"personal_id": foreign.pk}).status_code, 404)
-        restored = self.client.post(url, {"personal_id": alternative.pk})
-        self.assertEqual(restored.status_code, 302)
-        own.refresh_from_db()
-        alternative.refresh_from_db()
-        self.assertEqual(own.position, "Alternative")
-        self.assertEqual(alternative.position, "Alternative")
-        archived = OralStateSnapshot.objects.get(kind="personal", source_id=own.pk)
-        self.assertEqual(archived.payload["fields"]["position"], "Own")
-        self.assertEqual(self.client.post(url, {"snapshot_id": archived.pk}).status_code, 302)
-        own.refresh_from_db()
-        self.assertEqual(own.position, "Own")
+        for task_slug in ("tache-2", "tache-3"):
+            url = f"/expression/orale/{task_slug}/historique/{first.response_id}/"
+            with self.assertRaises(Resolver404):
+                resolve(url)
+            with self.assertRaises(NoReverseMatch):
+                reverse("study:oral_response_history", args=["eo", task_slug, first.response_id])
+            removed = self.client.get(url)
+            self.assertEqual(removed.status_code, 404)
+            self.assertNotIn("Location", removed.headers)
+            self.assertEqual(self.client.post(url, {"personal_id": alternative.pk}).status_code, 404)
+        for parameters in (
+            {"model": "1"}, {"personal": alternative.pk},
+            {"personal": foreign.pk}, {"model": "1", "reset": "1"},
+        ):
+            self.assertEqual(self.client.get(detail_url, parameters).status_code, 404)
+            self.assertEqual(self.client.get(
+                reverse("study:task_review", args=["eo", "tache-3"]), parameters
+            ).status_code, 404)
+        self.assertEqual(list(PersonalResponse.objects.order_by("pk").values()), before)
+
+    def test_saved_review_scope_drops_obsolete_version_selection(self):
+        from study.views.review import _resolved_review_scope
+
+        card = self.make_card()
+        session = ReviewSession.objects.create(
+            user=self.users[0], current_card=card,
+            scope={"kind": "spine", "response": str(card.response_id), "model": "1", "personal": "12"},
+        )
+        request = RequestFactory().get(reverse("study:review_next"))
+        scope, changed = _resolved_review_scope(request, session)
+        self.assertTrue(changed)
+        self.assertEqual(scope, {"kind": "spine", "response": str(card.response_id)})
 
     def test_null_user_legacy_schedule_is_preserved_without_fanning_out(self):
         first = self.make_card()
@@ -739,7 +765,7 @@ class OralCorpusUpgradeTests(TestCase):
                     ).values_list("phrase_id", flat=True))
                     self.assertTrue(expected_vocab)
                     self.assertEqual(scoped_vocab, expected_vocab)
-                    payload = _review_card_payload(spine, users[0], {**scope, "model": "1"})
+                    payload = _review_card_payload(spine, users[0], scope)
                     self.assertEqual(
                         getattr(payload["canonical_prompt"], scope_name + "_id"),
                         getattr(prompt, scope_name + "_id"),

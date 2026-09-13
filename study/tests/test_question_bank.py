@@ -2407,12 +2407,15 @@ class QuestionBankViewTests(TestCase):
         self.assertEqual(all_page.context["subject_total"], len(rows))
         self.assertEqual(all_page.context["subject_position"], rows.index(alias) + 1)
         self.assertContains(all_page, f'href="{browse_url}?deduplicate=0#theme-{theme["slug"]}"')
-        self.assertContains(all_page, "?model=1&amp;deduplicate=0")
+        self.assertNotContains(all_page, "model=1")
+        self.assertNotContains(all_page, "Versions du sujet")
+        self.assertNotContains(all_page, "oral-response-copy")
         legacy_url = reverse(
             "study:response_detail",
             args=["eo", self.task.slug, page.context["selected_prompt"].pk],
         )
         self.assertRedirects(self.client.get(legacy_url, {"deduplicate": "0"}), f"{url}?deduplicate=0")
+        self.assertEqual(self.client.get(legacy_url, {"model": "1"}).status_code, 404)
 
     def test_scoped_subject_directories_default_to_deduplicated(self):
         prompt = Prompt.objects.filter(
@@ -3483,7 +3486,14 @@ class QuestionBankViewTests(TestCase):
             canonical.context["subject_annotation_key"], shared.context["subject_annotation_key"],
         )
         self.assertEqual(canonical.context["subject_progress"].status, "active")
-        self.assertContains(self.client.get(canonical.context["oral_history_url"]), "Quels types")
+        self.assertNotIn("oral_history_url", canonical.context)
+        self.assertContains(
+            self.client.get(
+                "/notes/",
+                {"tab": "highlights"},
+            ),
+            "Quels types",
+        )
 
     def test_audited_childcare_subjects_share_content_and_progress(self):
         learned_url = reverse(

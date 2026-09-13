@@ -1,7 +1,7 @@
 from django.urls import path, register_converter
 
 from . import views
-from .views import course, oral
+from .views import course
 
 
 class ExpressionPartConverter:
@@ -37,10 +37,6 @@ register_converter(OverviewPartConverter, "overview_part")
 app_name = "study"
 
 urlpatterns = [
-    path(
-        "expression/<expression_part:part_slug>/<slug:task_slug>/historique/<int:response_id>/",
-        oral.oral_response_history, name="oral_response_history",
-    ),
     # Account
     path("compte/connexion/", views.login_view, name="login"),
     path("compte/inscription/", views.register_view, name="register"),

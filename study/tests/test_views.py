@@ -3052,10 +3052,10 @@ class CategoryBatchViewsTests(TestCase):
 
 class SubjectSelectionRoutingTests(SimpleTestCase):
     def test_selection_preserves_other_parameters_and_fragments(self):
-        url = "/sujets/1/?model=1&tag=a&tag=b#answer"
+        url = "/sujets/1/?saved=1&tag=a&tag=b#answer"
         request = RequestFactory().get("/", {"deduplicate": "0"})
         selected = subject_selection_url(url, request)
-        self.assertEqual(selected, "/sujets/1/?model=1&tag=a&tag=b&deduplicate=0#answer")
+        self.assertEqual(selected, "/sujets/1/?saved=1&tag=a&tag=b&deduplicate=0#answer")
         self.assertEqual(subject_selection_url(selected, request), selected)
         self.assertEqual(subject_selection_url(selected, RequestFactory().get("/")), url)
 

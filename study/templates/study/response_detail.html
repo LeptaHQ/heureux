@@ -22,7 +22,6 @@
 </div>
 
 {% include "study/partials/prompt_navigation.html" %}
-{% include "study/partials/oral_variants.html" %}
 
 <div class="detail-grid"{% if ee_response %} style="--subject-accent: {{ task.color }};"{% endif %}>
   <div class="answer-columns"{% if not ee_response %} data-annotation-root data-annotation-source-key="{% if oral_annotation_key %}{{ oral_annotation_key }}{% else %}response:{{ response.content_key }}{% endif %}"{% if oral_legacy_annotation_keys %} data-annotation-legacy-source-keys="{{ oral_legacy_annotation_keys }}"{% endif %}{% endif %}>
@@ -123,7 +122,7 @@
 
   </div>
 
-  <aside class="detail-side" data-annotation-root data-annotation-source-key="subject-sidebar:{% if oral_history_url %}{{ selected_prompt.content_key }}{% else %}{{ response.content_key }}{% endif %}">
+  <aside class="detail-side" data-annotation-root data-annotation-source-key="subject-sidebar:{% if oral_annotation_key %}{{ selected_prompt.content_key }}{% else %}{{ response.content_key }}{% endif %}">
     <div class="card section-card response-sidebar-card response-sidebar-card--status">
       <div class="spine-label">Progression du sujet</div>
       {% include "study/partials/subject_progress_control.html" with subject_label=selected_prompt.text %}
@@ -236,5 +235,5 @@
 
 {% block scripts %}
   {{ block.super }}
-  {% if ee_response or oral_history_url %}<script src="{% static 'study/js/prompt-copy.js' %}?v=1"></script>{% endif %}
+  {% if ee_response %}<script src="{% static 'study/js/prompt-copy.js' %}?v=1"></script>{% endif %}
 {% endblock %}

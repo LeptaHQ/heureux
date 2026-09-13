@@ -6,6 +6,8 @@ card-detail pages.
 
 from __future__ import annotations
 
+from django.http import Http404
+
 from .models import Card, CardType, PhraseTier
 from .response_personalization import effective_response
 from .routing import prompt_detail_url, response_detail_url
@@ -14,6 +16,8 @@ from .routing import prompt_detail_url, response_detail_url
 def scope_from_request(request) -> dict:
     """Parse and whitelist deck-scope parameters from a request."""
     data = request.POST if request.method == "POST" else request.GET
+    if "model" in data or "personal" in data:
+        raise Http404
     scope = {}
     kind = data.get("kind")
     if kind in {
@@ -35,15 +39,10 @@ def scope_from_request(request) -> dict:
     batch = (data.get("batch") or "").strip()
     if batch.isdigit() and int(batch) > 0:
         scope["batch"] = batch
-    response_id = (data.get("response") or "").strip()
-    if response_id.isdigit():
-        scope["response"] = response_id
-    for key in ("prompt", "personal"):
+    for key in ("response", "prompt"):
         value = (data.get(key) or "").strip()
         if value.isdigit():
             scope[key] = value
-    if data.get("model") == "1":
-        scope["model"] = "1"
     return scope
 
 

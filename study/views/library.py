@@ -3831,6 +3831,8 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         theme__task=task,
     )
     if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
+        if "model" in request.GET or "personal" in request.GET:
+            raise Http404
         return redirect(routing.subject_selection_url(
             prompt_detail_url(selected_prompt), request,
         ))

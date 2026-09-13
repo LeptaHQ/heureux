@@ -1792,7 +1792,7 @@ class BrowserTests(StaticLiveServerTestCase):
                     self.assertIn("deduplicate=0", self.page.url)
                     expect(toggle).to_have_attribute("aria-pressed", "false")
 
-    def test_oral_original_model_copy_and_changed_text_highlight_recovery(self):
+    def test_oral_current_response_has_no_version_panel_and_keeps_annotations(self):
         self._import_eo_tache_three_content()
         source = next(
             response for response in content.parse_responses()
@@ -1801,17 +1801,12 @@ class BrowserTests(StaticLiveServerTestCase):
         prompt = Prompt.objects.select_related("theme__task__part", "response").get(
             content_key=source.prompts[-1].content_key,
         )
-        self.context.add_init_script("""
-            Object.defineProperty(navigator, "clipboard", {
-              configurable: true,
-              value: {writeText: text => {window.__oralCopy = text; return Promise.resolve();}}
-            });
-        """)
         url = prompt_detail_url(prompt)
-        self.page.goto(self.live_server_url + url + "?model=1")
-        self.page.locator('[data-prompt-copy-source="oral-response-copy"]').click()
-        self.page.wait_for_function("window.__oralCopy")
-        self.assertIn(prompt.model_content["position"], self.page.evaluate("window.__oralCopy"))
+        self.page.goto(self.live_server_url + url)
+        expect(self.page.get_by_role("heading", name="Versions du sujet")).to_have_count(0)
+        expect(self.page.get_by_role("link", name="Historique et versions conservées")).to_have_count(0)
+        expect(self.page.locator('[data-prompt-copy-source="oral-response-copy"]')).to_have_count(0)
+        expect(self.page.locator("#oral-response-copy")).to_have_count(0)
         self.assertNotIn("is-personalized", self.page.locator("body").get_attribute("class") or "")
         source_data = self.page.locator(".answer-columns[data-annotation-root]").first.evaluate("""
             root => {
@@ -1840,8 +1835,25 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.page.goto(self.live_server_url + url)
         expect(self.page.locator("mark.user-highlight")).to_have_count(0)
-        self.page.get_by_role("link", name="Historique et versions conservées", exact=True).click()
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:task_notes", args=["eo", "tache-3"])
+            + "?tab=highlights"
+        )
         expect(self.page.get_by_text(source_data["quote"], exact=True)).to_be_visible()
+
+        task = self._import_eo_tache_two_content()
+        single = next(group for group in content.parse_tache_two_responses() if len(group.prompts) == 1)
+        prompt = Prompt.objects.select_related("theme__task__part").get(
+            content_key=single.prompts[0].content_key, theme__task=task
+        )
+        self.page.goto(self.live_server_url + prompt_detail_url(prompt))
+        expect(self.page.locator(".tache-two-question-section")).to_be_visible()
+        expect(self.page.get_by_role("heading", name="Versions du sujet")).to_have_count(0)
+        expect(self.page.get_by_role("link", name="Historique et versions conservées")).to_have_count(0)
+        expect(self.page.locator('[data-prompt-copy-source="oral-response-copy"]')).to_have_count(0)
+        expect(self.page.locator("#oral-response-copy")).to_have_count(0)
+        expect(self.page.get_by_role("button", name="Copier la consigne")).to_be_visible()
 
     def test_ee_tache_one_rows_navigate_without_completion_click_through(self):
         ee_part = factories.make_part("ee")

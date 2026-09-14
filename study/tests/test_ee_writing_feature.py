@@ -1120,12 +1120,17 @@ class EeWritingPageTests(TestCase):
                 self.assertContains(
                     subjects,
                     (
-                        "Rédigez un message clair de 60 à 120 mots"
+                        "60–120 mots"
                         if tache == 1
-                        else "compte rendu d’expérience ou un récit de 120 à 150 mots"
+                        else "120–150 mots"
                     ),
                 )
                 self.assertContains(subjects, content.EE_ASTUCES_URL)
+                self.assertContains(subjects, "data-collection-toolbar", count=1)
+                self.assertContains(
+                    subjects, 'data-collection-progress-value>0/138</span>', count=1
+                )
+                self.assertNotContains(subjects, "tache-two-progress-summary")
 
     def test_deduplicated_directories_keep_first_subject_and_shared_progress(self):
         for tache, distinct in ((1, 63), (2, 70)):

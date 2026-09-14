@@ -10,17 +10,13 @@
   style="--memory-accent: {{ task.color }};"
   data-theme-vocabulary-directory
 >
-  <header class="memory-overview-hero">
+  <header class="memory-overview-hero directory-header">
     <div class="memory-overview-hero__copy">
       <h1 class="title-with-icon" style="--icon-accent: {{ task.color }};">
         <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name="sparkles" only %}</span>
         <span>Vocabulaire</span>
       </h1>
-      <p>{{ vocabulary_description|default:"Construisez un vocabulaire solide pour les grands thèmes de cette tâche." }}</p>
-      <div class="memory-overview-hero__actions">
-        {% if review_url %}<a class="btn btn--primary" href="{{ review_url }}">Continuer le prochain lot</a>{% endif %}
-        {% if phrase_count %}<a class="btn" href="{{ mixed_review_url }}">Révision mélangée</a>{% endif %}
-      </div>
+      <p>{{ vocabulary_description|default:"Mots et expressions par thème." }}</p>
     </div>
     <dl class="memory-overview-hero__metrics" aria-label="Contenu du vocabulaire">
       <div><dt>Thèmes</dt><dd>{{ theme_count }}</dd></div>
@@ -29,14 +25,7 @@
     </dl>
   </header>
 
-  <div class="tache-two-directory-toolbar task-vocabulary-directory__toolbar">
-    {% if vocabulary_progress_unit %}
-      {% include "study/partials/tache_two_progress.html" with summary=summary unit_label=vocabulary_progress_unit only %}
-    {% else %}
-      {% include "study/partials/tache_two_progress.html" with summary=summary unit_label="lots terminés" only %}
-    {% endif %}
-    {% if themes %}{% include "study/partials/collection_view_toggle.html" %}{% endif %}
-  </div>
+  {% include "study/partials/collection_toolbar.html" with progress_completed=summary.completed progress_total=summary.total progress_unit=vocabulary_progress_unit|default:"lots terminés" show_views=themes primary_action_url=review_url primary_action_label="Continuer le prochain lot" secondary_action_url=mixed_review_url secondary_action_label="Révision mélangée" secondary_action_visible=phrase_count %}
 
   <section class="memory-library memory-library--standalone task-vocabulary-themes" aria-labelledby="task-vocabulary-themes-title">
     <div class="section-heading">

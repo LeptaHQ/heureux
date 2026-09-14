@@ -11,11 +11,10 @@
     <strong>{{ task.name }}</strong>
   </div>
 
-  <header class="memory-overview-hero">
+  <header class="memory-overview-hero directory-header">
     <div class="memory-overview-hero__copy">
-      <p class="eyebrow">{{ part.name }} · {{ task.name }}</p>
       <h1>Messages &amp; courriels</h1>
-      <p>{{ sujet_count }} sujets classés par thème. Chaque sujet ouvre une réponse modèle que vous pouvez personnaliser à votre façon.</p>
+      <p>60–120 mots par message.</p>
     </div>
     <dl class="memory-overview-hero__metrics" aria-label="Contenu des sujets">
       <div><dt>Sujets</dt><dd>{{ sujet_count }}</dd></div>
@@ -25,13 +24,9 @@
     </dl>
   </header>
 
-  {% include "study/partials/subject_directory_search.html" %}
+  {% include "study/partials/collection_toolbar.html" with with_search=True progress_completed=completed_count progress_total=sujet_count progress_unit="sujets terminés" show_views=categories %}
 
   <div class="t1-collection">
-    <div class="t1-collection__toolbar">
-      {% include "study/partials/collection_view_toggle.html" %}
-    </div>
-
     {% include "study/partials/subject_collection.html" with groups=categories kind="writing" secondary_label="Versions" legacy=True %}
   </div>
 </div>

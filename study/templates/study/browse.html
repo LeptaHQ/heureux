@@ -4,21 +4,18 @@
 
 {% block content %}
 {% include "study/partials/task_nav.html" %}
-<div class="page-head">
+<div class="page-head directory-header">
   <h1>Sujets &amp; réponses</h1>
   <p>{% if oral_directory %}{{ display_count }} sujets affichés · {{ publication_count }} publications · {{ response_count }} groupes équivalents{% else %}{{ prompt_count }} sujets · {{ response_count }} réponses uniques{% endif %} · {{ theme_count }} thèmes.</p>
 </div>
-
-{% include "study/partials/subject_directory_search.html" %}
 
 {% if not task_locked %}
 {% include "study/partials/scope_filter.html" %}
 {% endif %}
 
-{% if themes or families %}
-  {% include "study/partials/collection_view_toggle.html" %}
-{% endif %}
+{% include "study/partials/collection_toolbar.html" with with_search=True progress_completed=subject_summary.completed progress_total=subject_summary.total progress_unit="sujets terminés" show_views=themes|default:families %}
 
+{% if not oral_directory %}
 <div class="section-heading">
   <div>
     <h2>Par thème</h2>
@@ -27,6 +24,7 @@
     <a href="{% url 'study:task_phrases' part.slug task.slug %}">{{ phrase_count }} expressions associées {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>
   {% endif %}
 </div>
+{% endif %}
 {% if oral_directory %}
   {% if subject_themes %}
     {% include "study/partials/subject_collection.html" with groups=subject_themes kind="eo3" secondary_label="Vocabulaire" prompt_source="oral-subject-prompts" %}

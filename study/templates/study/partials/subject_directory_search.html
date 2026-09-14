@@ -14,7 +14,7 @@
     autocomplete="off">
   <input type="hidden" name="scope" value="subjects">
   {% if subject_deduplication_available %}<input type="hidden" name="deduplicate" value="{{ deduplicate_subjects|yesno:'1,0' }}">{% endif %}
-  <button class="btn btn--primary" type="submit">
+  <button class="btn btn--primary" type="submit" aria-label="Rechercher" title="Rechercher">
     {% include "study/partials/ui_icon.html" with name="search" icon_class="btn__icon" only %}
     <span>Rechercher</span>
   </button>

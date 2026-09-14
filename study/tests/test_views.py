@@ -1859,6 +1859,7 @@ class TaskOrganizationTests(TestCase):
         original = self.client.get(url, {"deduplicate": "0"})
         self.assertFalse(original.context["deduplicate_subjects"])
         self.assertEqual(original.context["prompt_count"], 4)
+        self.assertContains(original, "data-collection-progress-value>3/4</span>")
         self.assertContains(original, "data-subject-deduplication-toggle", count=1)
         deduplicated = self.client.get(url)
         self.assertTrue(deduplicated.context["deduplicate_subjects"])
@@ -1867,6 +1868,7 @@ class TaskOrganizationTests(TestCase):
         self.assertEqual(deduplicated.context["prompt_count"], 2)
         self.assertEqual(deduplicated.context["response_count"], 2)
         self.assertEqual(deduplicated.context["theme_count"], 1)
+        self.assertContains(deduplicated, "data-collection-progress-value>1/2</span>")
         self.assertContains(deduplicated, 'name="deduplicate" value="1"')
         groups = deduplicated.context["subject_themes"]
         self.assertEqual((groups[0]["completed"], groups[0]["total"]), (1, 2))
@@ -1879,6 +1881,7 @@ class TaskOrganizationTests(TestCase):
         self.assertEqual(self.client.get(url, {"deduplicate": "1"}).context["prompt_count"], 2)
         self.client.force_login(factories.make_user("other-oral-dedup"))
         other = self.client.get(url, {"deduplicate": "1"})
+        self.assertContains(other, "data-collection-progress-value>0/2</span>")
         self.assertTrue(all(
             row["progress"].status == "new"
             for group in other.context["subject_themes"]

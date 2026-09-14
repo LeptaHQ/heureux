@@ -1,0 +1,20 @@
+<div class="collection-toolbar" data-collection-toolbar>
+  {% if with_search %}
+    {% include "study/partials/subject_directory_search.html" %}
+  {% endif %}
+  {% if primary_action_url %}
+    <a class="btn btn--primary" href="{{ primary_action_url }}">{{ primary_action_label }}</a>
+  {% endif %}
+  {% if secondary_action_url and secondary_action_visible %}
+    <a class="btn" href="{{ secondary_action_url }}">{{ secondary_action_label }}</a>
+  {% endif %}
+  {% if progress_total or progress_total == 0 %}
+    <span class="collection-toolbar__fraction" data-collection-progress title="{{ progress_completed }} sur {{ progress_total }} {{ progress_unit }}">
+      <span aria-hidden="true" data-collection-progress-value>{{ progress_completed }}/{{ progress_total }}</span>
+      <span class="sr-only">{{ progress_completed }} sur {{ progress_total }} {{ progress_unit }}</span>
+    </span>
+  {% endif %}
+  {% if show_views %}
+    {% include "study/partials/collection_view_toggle.html" %}
+  {% endif %}
+</div>

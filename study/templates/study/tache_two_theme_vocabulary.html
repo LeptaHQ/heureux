@@ -10,17 +10,13 @@
   style="--memory-accent: {{ task.color }};"
   data-theme-vocabulary-directory
 >
-  <header class="memory-overview-hero">
+  <header class="memory-overview-hero directory-header">
     <div class="memory-overview-hero__copy">
       <h1 class="title-with-icon" style="--icon-accent: {{ task.color }};">
         <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name="sparkles" only %}</span>
         <span>Vocabulaire par thème</span>
       </h1>
-      <p>Préparez les mots, expressions et fragments qui vous permettent de poser des questions précises et de relancer naturellement votre interlocuteur.</p>
-      <div class="memory-overview-hero__actions">
-        {% if review_url %}<a class="btn btn--primary" href="{{ review_url }}">Continuer le prochain lot</a>{% endif %}
-        {% if phrase_count %}<a class="btn" href="{{ mixed_review_url }}">Révision mélangée</a>{% endif %}
-      </div>
+      <p>Mots, expressions et fragments pour l’interaction.</p>
     </div>
     <dl class="memory-overview-hero__metrics" aria-label="Contenu du vocabulaire par thème">
       <div><dt>Thèmes</dt><dd>{{ theme_count }}</dd></div>
@@ -29,10 +25,7 @@
     </dl>
   </header>
 
-  <div class="tache-two-directory-toolbar">
-    {% include "study/partials/tache_two_progress.html" with summary=summary unit_label="lots terminés" only %}
-    {% include "study/partials/collection_view_toggle.html" %}
-  </div>
+  {% include "study/partials/collection_toolbar.html" with progress_completed=summary.completed progress_total=summary.total progress_unit="lots terminés" show_views=themes primary_action_url=review_url primary_action_label="Continuer le prochain lot" secondary_action_url=mixed_review_url secondary_action_label="Révision mélangée" secondary_action_visible=phrase_count %}
 
   <section class="memory-library memory-library--standalone" aria-label="Thèmes de la Tâche 2">
     {% if themes %}

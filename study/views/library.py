@@ -1681,6 +1681,12 @@ def browse(request, part_slug=None, task_slug=None):
         "display_count": sum(group["subject_count"] for group in subject_themes),
         "publication_count": publication_count,
         "oral_directory": oral_directory,
+        "subject_summary": (
+            summarize_subject_progress(
+                row["progress"] for group in subject_themes for row in group["subjects"]
+            )
+            if oral_directory else None
+        ),
         "families": families,
         "theme_count": (
             len(subject_themes) if deduplicated_count is not None else len(themes)
@@ -2567,9 +2573,7 @@ def _eo_tache_three_theme_vocabulary_context(user, task):
         "review_url": next_batch["review_url"] if next_batch else "",
         "mixed_review_url": review_url(scope),
         "vocabulary_description": (
-            "Construisez un vocabulaire argumentatif solide pour les grands "
-            "thèmes de la Tâche 3. Chaque collection réunit les notions, "
-            "verbes, locutions et constructions utiles."
+            "Notions, verbes et constructions pour argumenter."
         ),
         "vocabulary_pathways_description": (
             "Les quatre lots de chaque thème forment un parcours complet : "
@@ -2718,13 +2722,9 @@ def _ee_writing_theme_vocabulary_context(user, task, tache):
         "review_url": next_batch["review_url"] if next_batch else "",
         "mixed_review_url": review_url(_theme_vocabulary_scope(task)),
         "vocabulary_description": (
-            "Des formules, précisions et constructions réutilisables pour "
-            "rédiger des messages clairs et adaptés au destinataire."
+            "Formules et constructions pour rédiger un message."
             if tache == 1
-            else (
-                "Des repères, verbes et formulations pour raconter une "
-                "expérience avec précision et ajouter un commentaire pertinent."
-            )
+            else "Repères et formulations pour raconter une expérience."
         ),
         "vocabulary_pathways_description": (
             "Chaque thème rassemble des formules adaptées, des informations "
@@ -2957,8 +2957,7 @@ def _ee_tache_three_vocabulary_directory(request, task):
             ),
             "mixed_review_url": review_url(scope),
             "vocabulary_description": (
-                "Les mots, collocations, tournures et phrases modèles de "
-                "chaque sujet, regroupés par grand thème."
+                "Mots, tournures et phrases modèles liés aux sujets."
             ),
             "vocabulary_pathways_description": (
                 "Ouvrez un thème, choisissez un sujet, puis travaillez ses "

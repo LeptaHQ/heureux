@@ -188,6 +188,62 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertTrue(fits, f"{self.page.url}: {overflowing}")
 
+    def assert_compact_collection_toolbar(self):
+        toolbar = self.page.locator("[data-collection-toolbar]")
+        expect(toolbar).to_have_count(1)
+        expect(toolbar.locator(".progress, [role='progressbar']")).to_have_count(0)
+        geometry = toolbar.evaluate(
+            """
+            toolbar => {
+              const bounds = toolbar.getBoundingClientRect();
+              const controls = [...toolbar.querySelectorAll(
+                "button, a.btn, input[type='search'], [data-collection-progress]"
+              )].map(element => {
+                const rect = element.getBoundingClientRect();
+                return {
+                  width: rect.width, height: rect.height,
+                  top: rect.top, bottom: rect.bottom,
+                  left: rect.left, right: rect.right,
+                };
+              });
+              return {
+                bounds: {left: bounds.left, right: bounds.right, height: bounds.height},
+                controls,
+                hasSearch: !!toolbar.querySelector("input[type='search']"),
+                inputWidth: toolbar.querySelector("input[type='search']")
+                  ?.getBoundingClientRect().width,
+                nestedForms: toolbar.querySelectorAll("form form").length,
+              };
+            }
+            """
+        )
+        self.assertEqual(geometry["nestedForms"], 0)
+        controls = geometry["controls"]
+        for index, control in enumerate(controls):
+            self.assertGreaterEqual(control["height"], 44)
+            self.assertGreaterEqual(control["left"], geometry["bounds"]["left"] - 1)
+            self.assertLessEqual(control["right"], geometry["bounds"]["right"] + 1)
+            for other in controls[index + 1:]:
+                overlaps = (
+                    control["left"] < other["right"] - 1
+                    and control["right"] > other["left"] + 1
+                    and control["top"] < other["bottom"] - 1
+                    and control["bottom"] > other["top"] + 1
+                )
+                self.assertFalse(overlaps, f"{self.page.url}: {geometry}")
+        if self.page.viewport_size["width"] > 760:
+            self.assertLessEqual(geometry["bounds"]["height"], 48)
+            self.assertLessEqual(
+                max(control["top"] for control in controls)
+                - min(control["top"] for control in controls),
+                2,
+            )
+        elif geometry["hasSearch"]:
+            self.assertLessEqual(geometry["bounds"]["height"], 100)
+        if geometry["hasSearch"]:
+            self.assertGreaterEqual(geometry["inputWidth"], 180)
+        self.assert_no_horizontal_overflow()
+
     def assert_no_theme_vocabulary_action_overlap(self, card):
         overlapping_text = card.evaluate(
             """
@@ -764,6 +820,14 @@ class BrowserTests(StaticLiveServerTestCase):
                 self.page.goto(url)
                 rows = self.page.locator("[data-subject-collection-row]")
                 self.assertEqual(rows.count(), count)
+                progress_total = 163 if (part, tache) == ("eo", 2) else count
+                expect(self.page.locator(
+                    "[data-collection-progress-value]"
+                )).to_have_text(f"0/{progress_total}")
+                for width in (320, 390, 760, 900, 1183, 1292):
+                    with self.subTest(header_width=width):
+                        self.page.set_viewport_size({"width": width, "height": 844})
+                        self.assert_compact_collection_toolbar()
                 self.assertEqual(rows.locator("a").count(), count)
                 self.assertEqual(rows.locator("form").count(), count)
                 self.assertEqual(rows.get_by_role("checkbox").count(), count)
@@ -923,6 +987,33 @@ class BrowserTests(StaticLiveServerTestCase):
                     equivalents.locator('button[aria-checked="true"]').count(),
                     equivalents.count(),
                 )
+                completed = 1 if (part, tache) == ("eo", 2) else equivalents.count()
+                expect(self.page.locator(
+                    "[data-collection-progress-value]"
+                )).to_have_text(f"{completed}/{progress_total}")
+
+        first_ee3_prompt = Prompt.objects.filter(
+            theme__task__part__slug="ee", theme__task__slug="tache-3"
+        ).select_related("theme__task__part").first()
+        month = content.load_tache_two_subject_months()[0]
+        batch = month.batches[0]
+        other_directories = [
+            reverse("study:task_phrases", args=[part, f"tache-{tache}"])
+            for part, tache in (("eo", 2), ("eo", 3), ("ee", 1), ("ee", 3))
+        ] + [
+            reverse("study:task_memories", args=["ee", "tache-3"]),
+            reverse("study:task_subject_batch", args=[
+                "eo", "tache-2", month.slug, batch.number,
+            ]),
+            theme_detail_url(first_ee3_prompt.theme),
+        ]
+        for path in other_directories:
+            self.page.goto(self.live_server_url + path)
+            expect(self.page.locator("[data-collection-progress-value]")).to_have_count(1)
+            for width in (320, 390, 900, 1292):
+                with self.subTest(path=path, width=width):
+                    self.page.set_viewport_size({"width": width, "height": 844})
+                    self.assert_compact_collection_toolbar()
 
     def test_nested_oral_families_keep_independent_disclosures_sorting_and_progress(self):
         first = self.first.response.prompts.get(is_canonical=True)
@@ -3463,11 +3554,10 @@ class BrowserTests(StaticLiveServerTestCase):
                 '.memory-overview > .memory-overview-hero'
               ).getBoundingClientRect();
               const progress = document.querySelector(
-                '.task-vocabulary-directory__toolbar > '
-                + '.tache-two-progress-summary'
+                '[data-collection-progress]'
               ).getBoundingClientRect();
               const toolbar = document.querySelector(
-                '.task-vocabulary-directory__toolbar > '
+                '[data-collection-toolbar] > '
                 + '.collection-view-toolbar'
               ).getBoundingClientRect();
               return {
@@ -5771,7 +5861,7 @@ class BrowserTests(StaticLiveServerTestCase):
         url = (
             self.live_server_url
             + reverse("study:task_search", args=["ee", "tache-1"])
-            + "?q=pays&scope=subjects"
+            + "?q=pays&scope=subjects&deduplicate=0"
         )
         self.page.goto(url)
         equivalents = self.page.locator(
@@ -5783,6 +5873,7 @@ class BrowserTests(StaticLiveServerTestCase):
 
         for width in (1280, 900, 620, 390, 320):
             self.page.set_viewport_size({"width": width, "height": 900})
+            self.assert_compact_collection_toolbar()
             for mode in ("Tableau", "Cartes"):
                 self.page.get_by_role("button", name=mode, exact=True).click()
                 issues = self.page.locator(

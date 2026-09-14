@@ -6,26 +6,13 @@
 {% include "study/partials/task_nav.html" %}
 
 <div class="tache-two-subjects sortable-subject-directory ee-writing-subjects ee-writing-subjects--t{{ writing_tache }}" style="--subject-accent: {{ task.color }};">
-  <header class="memory-overview-hero">
+  <header class="memory-overview-hero directory-header">
     <div class="memory-overview-hero__copy">
-      <p class="eyebrow">{{ part.name }} · {{ task.name }}</p>
       <h1 class="title-with-icon" style="--icon-accent: {{ task.color }};">
         <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name=task.icon only %}</span>
         <span>{% if writing_tache == 1 %}Messages &amp; courriels{% else %}Récits &amp; expériences{% endif %}</span>
       </h1>
-      <p>
-        {% if writing_tache == 1 %}
-          Rédigez un message clair de 60 à 120 mots : choisissez une salutation
-          adaptée, annoncez l’objet et les détails demandés, puis terminez par
-          une formule appropriée.
-        {% else %}
-          Rédigez un compte rendu d’expérience ou un récit de 120 à 150 mots :
-          situez quand, où et pourquoi, racontez avec des actions, des détails
-          et des émotions, puis ajoutez les commentaires demandés.
-        {% endif %}
-        L’épreuve complète des trois tâches dure 60 minutes.
-        <a href="{{ methodology_url }}" target="_blank" rel="noopener noreferrer">Voir la méthodologie</a>.
-      </p>
+      <p>{% if writing_tache == 1 %}60–120{% else %}120–150{% endif %} mots · <a href="{{ methodology_url }}" target="_blank" rel="noopener noreferrer">Méthodologie</a></p>
     </div>
     <dl class="memory-overview-hero__metrics" aria-label="Corpus de sujets">
       <div><dt>Thèmes</dt><dd>{{ category_count }}</dd></div>
@@ -35,12 +22,7 @@
     </dl>
   </header>
 
-  {% include "study/partials/subject_directory_search.html" %}
-
-  <div class="tache-two-directory-toolbar">
-    {% include "study/partials/tache_two_progress.html" with summary=subject_progress unit_label="sujets terminés" only %}
-    {% include "study/partials/collection_view_toggle.html" %}
-  </div>
+  {% include "study/partials/collection_toolbar.html" with with_search=True progress_completed=subject_progress.completed progress_total=subject_progress.total progress_unit="sujets terminés" show_views=categories %}
 
   {% include "study/partials/subject_collection.html" with groups=categories kind="writing" secondary_label="Versions" prompt_source="ee-writing-prompts" %}
 </div>

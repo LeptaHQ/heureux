@@ -6,7 +6,7 @@
 {% include "study/partials/task_nav.html" %}
 
 <div class="tache-two-subjects sortable-subject-directory" style="--subject-accent: {{ task.color }};">
-  <header class="memory-overview-hero">
+  <header class="memory-overview-hero directory-header">
     <div class="memory-overview-hero__copy">
       <h1 class="title-with-icon" style="--icon-accent: {{ task.color }};">
         <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name="file-text" only %}</span>
@@ -20,14 +20,9 @@
     </dl>
   </header>
 
-  {% include "study/partials/subject_directory_search.html" %}
+  {% include "study/partials/collection_toolbar.html" with with_search=True progress_completed=subject_summary.completed progress_total=subject_summary.total progress_unit="sujets terminés" show_views=subject_themes %}
 
   {% if subject_themes %}
-    <div class="tache-two-directory-toolbar">
-      {% include "study/partials/tache_two_progress.html" with summary=subject_summary unit_label="sujets terminés" only %}
-      {% include "study/partials/collection_view_toggle.html" %}
-    </div>
-
     {% include "study/partials/subject_collection.html" with groups=subject_themes kind="eo2" secondary_label="Questions" prompt_source="tache-two-theme-prompts" %}
   {% endif %}
 </div>

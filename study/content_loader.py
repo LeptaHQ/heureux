@@ -3223,6 +3223,36 @@ def _ee_word_count(text: str) -> int:
     )
 
 
+def load_ee_tache_two_response_key_updates():
+    path = EE_TACHE_TWO_DIR / "response_key_updates.json"
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if (
+        not isinstance(payload, dict)
+        or set(payload) != {"version", "subjects"}
+        or type(payload["version"]) is not int
+        or payload["version"] != 1
+        or not isinstance(payload["subjects"], dict)
+    ):
+        raise ValueError("Invalid EE Tâche 2 response-key update manifest")
+    source_slugs = set(ee_writing_canonical_slug_by_slug(2))
+    for slug, aliases in payload["subjects"].items():
+        if slug not in source_slugs or not isinstance(aliases, dict):
+            raise ValueError(f"Invalid EE Tâche 2 response-key subject: {slug}")
+        for before, after in aliases.items():
+            if (
+                not isinstance(after, dict)
+                or set(after) != {"subject", "key"}
+                or not isinstance(after["subject"], str)
+                or after["subject"] not in source_slugs
+                or not isinstance(after["key"], str)
+                or (slug, before) == (after["subject"], after["key"])
+                or not re.fullmatch(r"[0-9a-f]{64}-[1-9]\d*", before)
+                or not re.fullmatch(r"[0-9a-f]{64}-[1-9]\d*", after["key"])
+            ):
+                raise ValueError(f"Invalid EE Tâche 2 response-key update: {slug}")
+    return payload["subjects"]
+
+
 def load_ee_writing_categories(
     tache: int,
     *,

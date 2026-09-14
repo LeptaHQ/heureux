@@ -517,6 +517,41 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(self.page.locator('textarea[name="body"]')).to_have_value(body)
         expect(self.page.get_by_role("button", name="Supprimer ma version", exact=True)).to_have_count(0)
 
+    def test_ee2_article_title_is_in_the_answer_and_copy_without_losing_highlights(self):
+        tasks = self._import_ee_writing_content()
+        sujet = tasks[2].writing_sujets.get(slug="janvier-combinaison-6")
+        body = sujet.model_versions[1]["body"]
+        title, _, old_body = body.partition("\n\n")
+        quote = "vallée du Douro"
+        start = old_body.index(quote)
+        path = reverse("study:writing_sujet_detail", args=["ee", "tache-2", sujet.pk])
+        Annotation.objects.create(
+            user=self.user, task=tasks[2], kind=AnnotationKind.HIGHLIGHT,
+            source_path=path, source_key=f"writing-sujet:{sujet.pk}:model-2",
+            quote=quote, start_offset=start, end_offset=start + len(quote),
+            prefix=old_body[max(0, start - 160):start],
+            suffix=old_body[start + len(quote):start + len(quote) + 160],
+        )
+        self.context.add_init_script("""
+            Object.defineProperty(navigator, "clipboard", {
+              configurable: true,
+              value: {writeText: text => {window.__answerCopy = text; return Promise.resolve();}}
+            });
+        """)
+        self.page.goto(self.live_server_url + path)
+        root = self.page.locator(
+            f'[data-annotation-root][data-annotation-source-key="writing-sujet:{sujet.pk}:model-2"]'
+        )
+        root.locator("xpath=ancestor::details[1]").locator(":scope > summary").click()
+        expect(root.locator("p").first).to_have_text(title)
+        expect(root.locator("mark.user-highlight")).to_have_text(quote)
+        self.page.locator(
+            '[data-prompt-copy-source="ee-writing-response-content"][data-prompt-copy-key="model-2"]'
+        ).click()
+        self.page.wait_for_function("window.__answerCopy !== undefined")
+        self.assertEqual(self.page.evaluate("window.__answerCopy"), body)
+        self.assert_no_horizontal_overflow()
+
     def test_task_three_copies_the_complete_answer_without_source_documents(self):
         self.context.add_init_script(
             """

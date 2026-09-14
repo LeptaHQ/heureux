@@ -1218,8 +1218,10 @@ class EeTacheThreePageTests(TestCase):
             content_module.load_ee_ai_examiner_prompt(3),
         )
         self.assertContains(response, "questions terminées")
-        self.assertContains(response, "trois tâches dure 60 minutes")
-        self.assertContains(response, content_module.EE_ASTUCES_URL)
+        self.assertContains(response, "Gérer les trois tâches")
+        self.assertContains(response, "<strong>60 minutes</strong>", html=True)
+        self.assertContains(response, 'data-writing-methodology="3"', count=1)
+        self.assertNotContains(response, "formation-tcfcanada")
         self.assertNotContains(response, "data-tache-two-month-toggle")
         self.assertNotContains(
             response,

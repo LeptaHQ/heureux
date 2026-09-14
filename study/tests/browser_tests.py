@@ -1094,6 +1094,82 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(row.locator(".progress-status")).to_have_text("Terminé")
         self.assert_no_horizontal_overflow()
 
+    def assert_writing_methodology_layout(self):
+        dialog = self.page.locator("#writing-methodology-dialog")
+        body = dialog.locator(".methodology-dialog__body")
+        box = dialog.bounding_box()
+        viewport = self.page.viewport_size
+        self.assertGreaterEqual(box["x"], 0)
+        self.assertGreaterEqual(box["y"], 0)
+        self.assertLessEqual(box["x"] + box["width"], viewport["width"])
+        self.assertLessEqual(box["y"] + box["height"], viewport["height"])
+        self.assertTrue(body.evaluate(
+            "element => element.scrollWidth <= element.clientWidth"
+        ))
+        self.assertTrue(body.evaluate(
+            "element => element.scrollHeight > element.clientHeight"
+        ))
+        self.assertEqual(dialog.locator("a").count(), 0)
+        self.assertIsNone(dialog.evaluate(
+            "element => element.closest('.memory-overview-hero')"
+        ))
+        close = dialog.get_by_role("button", name="Fermer la méthodologie")
+        self.assertGreaterEqual(close.bounding_box()["width"], 44)
+        self.assertGreaterEqual(close.bounding_box()["height"], 44)
+
+    def test_writing_methodology_opens_locally_and_restores_focus(self):
+        self._import_ee_writing_content()
+        self._import_ee_tache_three_content()
+        self.page.emulate_media(reduced_motion="reduce")
+        for tache, limits in ((1, "60–120"), (2, "120–150"), (3, "120–180")):
+            for route in ("study:task_detail", "study:task_browse"):
+                url = self.live_server_url + reverse(route, args=["ee", f"tache-{tache}"])
+                for width in (1292, 390, 320):
+                    with self.subTest(tache=tache, route=route, width=width):
+                        self.page.set_viewport_size({"width": width, "height": 844})
+                        self.page.goto(url)
+                        self.assertNotIn("formation-tcfcanada", self.page.content())
+                        self.assertNotIn("reussir-tcf", self.page.content())
+                        trigger = self.page.get_by_role("button", name="Méthodologie", exact=True)
+                        dialog = self.page.locator("#writing-methodology-dialog")
+                        expect(dialog).to_be_hidden()
+                        trigger.focus()
+                        trigger.press("Enter")
+                        expect(dialog).to_be_visible()
+                        self.assertTrue(dialog.evaluate("element => element.matches(':modal')"))
+                        expect(dialog).to_have_attribute("data-writing-methodology", str(tache))
+                        expect(dialog.locator(".methodology-dialog__lead")).to_contain_text(limits)
+                        self.assert_writing_methodology_layout()
+                        close = dialog.get_by_role("button", name="Fermer la méthodologie")
+                        body = dialog.locator(".methodology-dialog__body")
+                        expect(close).to_be_focused()
+                        self.page.keyboard.press("Tab")
+                        expect(body).to_be_focused()
+                        background_scroll = self.page.evaluate("window.scrollY")
+                        body.press("End")
+                        self.page.wait_for_function(
+                            "() => document.querySelector('.methodology-dialog__body').scrollTop > 0"
+                        )
+                        self.assertEqual(self.page.evaluate("window.scrollY"), background_scroll)
+                        self.page.keyboard.press("Tab")
+                        # Native dialogs allow browser chrome in the tab cycle, not background controls.
+                        if not self.page.evaluate("document.hasFocus()"):
+                            self.page.keyboard.press("Tab")
+                        expect(close).to_be_focused()
+                        close.press("Escape")
+                        expect(dialog).to_be_hidden()
+                        expect(trigger).to_be_focused()
+                        trigger.click()
+                        close.click()
+                        expect(dialog).to_be_hidden()
+                        expect(trigger).to_be_focused()
+                        trigger.click()
+                        self.page.mouse.click(2, 2)
+                        expect(dialog).to_be_hidden()
+                        expect(trigger).to_be_focused()
+                        self.assertEqual(self.page.url, url)
+                        self.assertEqual(len(self.context.pages), 1)
+
     def test_oral_directory_deep_links_and_deduplication_keep_navigation_and_progress(self):
         prompt = self.first.response.prompts.get(is_canonical=True)
         alias = Prompt.objects.create(

@@ -11,7 +11,7 @@
     <a href="{% subject_url 'study:task_browse' part.slug task.slug %}">{% if ee_response %}Sujets par thème{% else %}Sujets &amp; réponses{% endif %}</a> ·
     <a class="link-with-icon" style="--icon-accent: {{ selected_prompt.theme.color }};" href="{% subject_group_url part.slug task.slug selected_prompt.theme.slug %}">{% include "study/partials/ui_icon.html" with name=selected_prompt.theme.icon only %}<span>{{ selected_prompt.theme.display_name }}</span></a>
     {% if ee_response %}
-      · <a href="{{ ee_source_url }}" target="_blank" rel="noopener noreferrer">{{ ee_source_month.name }} 2025</a>
+      · {{ ee_source_month.name }} 2025
     {% else %}
       · <a href="{% subject_group_url part.slug task.slug selected_prompt.theme.slug selected_prompt.family.slug %}">{{ selected_prompt.family.name }}</a>
     {% endif %}

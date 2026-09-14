@@ -127,10 +127,10 @@
       </section>
 
       {% if course %}
+        {% if related_lessons or lesson.cefr_level == 'C1-preparation' %}
         <details class="course-reading-references">
-          <summary>References and further practice</summary>
-          <ul>{% for source in lesson.sources %}<li><a href="{{ source.url }}" rel="noopener noreferrer">{{ source.label }}</a></li>{% endfor %}</ul>
-          {% if related_lessons %}<p>From your preserved reference library:</p>
+          <summary>Further practice</summary>
+          {% if related_lessons %}<p>Related lessons:</p>
             <ul>{% for related in related_lessons %}<li><a href="{% url 'study:learn_lesson' related.slug %}">{{ related.title }}</a></li>{% endfor %}</ul>
           {% endif %}
           {% if lesson.cefr_level == 'C1-preparation' %}
@@ -138,6 +138,7 @@
             <p><a href="{% url 'study:comprehension_oral_overview' %}">Compréhension orale</a> · <a href="{% url 'study:comprehension_overview' %}">Compréhension écrite</a> · <a href="{% url 'study:part_detail' 'eo' %}">Expression orale</a> · <a href="{% url 'study:part_detail' 'ee' %}">Expression écrite</a></p>
           {% endif %}
         </details>
+        {% endif %}
       {% endif %}
   </article>
   {% if course %}</div>{% endif %}

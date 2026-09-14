@@ -12,7 +12,7 @@
         <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name=task.icon only %}</span>
         <span>{% if writing_tache == 1 %}Messages &amp; courriels{% else %}Récits &amp; expériences{% endif %}</span>
       </h1>
-      <p>{% if writing_tache == 1 %}60–120{% else %}120–150{% endif %} mots · <a href="{{ methodology_url }}" target="_blank" rel="noopener noreferrer">Méthodologie</a></p>
+      <p>{% if writing_tache == 1 %}60–120{% else %}120–150{% endif %} mots · {% include "study/partials/writing_methodology_trigger.html" %}</p>
     </div>
     <dl class="memory-overview-hero__metrics" aria-label="Corpus de sujets">
       <div><dt>Thèmes</dt><dd>{{ category_count }}</dd></div>
@@ -26,6 +26,7 @@
 
   {% include "study/partials/subject_collection.html" with groups=categories kind="writing" secondary_label="Versions" prompt_source="ee-writing-prompts" %}
 </div>
+{% include "study/partials/writing_methodology_dialog.html" with tache=writing_tache only %}
 {{ subject_prompt_map|json_script:"ee-writing-prompts" }}
 {% endblock %}
 

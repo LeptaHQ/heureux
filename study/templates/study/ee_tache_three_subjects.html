@@ -8,6 +8,7 @@
   <header class="memory-overview-hero directory-header">
     <div class="memory-overview-hero__copy">
       <h1 id="ee-t3-subject-directory-title">Sujets par thème</h1>
+      <p>120–180 mots · {% include "study/partials/writing_methodology_trigger.html" %}</p>
     </div>
     <dl class="memory-overview-hero__metrics" aria-label="Contenu des sujets">
       <div><dt>Thèmes</dt><dd>{{ theme_count }}</dd></div>
@@ -23,4 +24,5 @@
     {% include "study/partials/subject_collection.html" with groups=subject_themes kind="ee3" secondary_label="Contenu" %}
   </section>
 </div>
+{% include "study/partials/writing_methodology_dialog.html" with tache=3 only %}
 {% endblock %}

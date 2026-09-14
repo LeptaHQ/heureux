@@ -918,13 +918,6 @@ def _ee_writing_subject_context(
                     "progress_sujet": canonical,
                     "prompt": source.prompt,
                     "source": source,
-                    "source_url": (
-                        content_module.EE_2025_SOURCE_URL.format(
-                            month=source.month_slug
-                        )
-                        if source
-                        else ""
-                    ),
                     "version_count": len(model_versions) + int(progress.is_personalized),
                     "has_model_response": bool(model_versions),
                     "is_personalized": progress.is_personalized,
@@ -993,7 +986,6 @@ def _ee_writing_subject_context(
         "writing_tache": tache,
         "word_limit_min": minimum,
         "word_limit_max": maximum,
-        "methodology_url": content_module.EE_ASTUCES_URL,
         "subject_prompt_map": {
             source.source_key: source.prompt
             for source in source_by_slug.values()
@@ -1165,7 +1157,6 @@ def task_detail(request, part_slug, task_slug):
                 "ai_practice_prompt": (
                     content_module.load_ee_ai_examiner_prompt(3)
                 ),
-                "methodology_url": content_module.EE_ASTUCES_URL,
             },
         )
 
@@ -3922,7 +3913,6 @@ def response_detail(request, part_slug, task_slug, prompt_id):
     )
     ee_combination_label = ""
     ee_source_month = None
-    ee_source_url = ""
     ee_equivalent_subjects = []
     ee_source_warnings = []
     ee_response_origin = "original"
@@ -3951,9 +3941,6 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             raise RuntimeError("EE Tâche 3 content is not synchronized")
         ee_source_month, source = source_row
         ee_combination_label = source.combinaison
-        ee_source_url = content_module.EE_2025_SOURCE_URL.format(
-            month=ee_source_month.slug
-        )
         source_documents_html = content_module._ee_tache_three_documents_html(
             (source.document1, source.document2)
         )
@@ -4024,7 +4011,6 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             "ee_response": ee_response,
             "ee_combination_label": ee_combination_label,
             "ee_source_month": ee_source_month,
-            "ee_source_url": ee_source_url,
             "ee_equivalent_subjects": ee_equivalent_subjects,
             "ee_source_warnings": ee_source_warnings,
             "ee_response_origin": ee_response_origin,
@@ -4316,13 +4302,6 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
             "prompt": sujet.prompt,
             "category_label": sujet.category_label,
             "source": source,
-            "source_url": (
-                content_module.EE_2025_SOURCE_URL.format(
-                    month=source.month_slug
-                )
-                if source
-                else ""
-            ),
             "equivalent_sujets": equivalent_sujets,
             "writing_tache": tache,
             "word_limit_min": minimum,
@@ -4486,13 +4465,6 @@ def writing_sujet_edit(request, part_slug, task_slug, sujet_id):
             "prompt": sujet.prompt,
             "category_label": sujet.category_label,
             "source": source,
-            "source_url": (
-                content_module.EE_2025_SOURCE_URL.format(
-                    month=source.month_slug
-                )
-                if source
-                else ""
-            ),
             "writing_tache": tache,
             "word_limit_min": content_module.EE_WRITING_WORD_LIMITS[tache][0],
             "word_limit_max": content_module.EE_WRITING_WORD_LIMITS[tache][1],

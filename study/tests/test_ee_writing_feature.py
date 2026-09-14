@@ -232,6 +232,20 @@ class EeWritingContentTests(SimpleTestCase):
         self.assertEqual(mapping.get(email.source_key, email.source_key), email.source_key)
         self.assertEqual(mapping["ee-tache2:mai:combinaison-7"], article.source_key)
 
+    def test_published_answers_and_copy_prompts_do_not_promote_study_sites(self):
+        texts = [content.load_ai_examiner_prompt()]
+        texts.extend(content.load_ee_ai_examiner_prompt(tache) for tache in (1, 2, 3))
+        texts.extend(
+            version.body for tache in (1, 2)
+            for category in content.load_ee_writing_categories(tache)
+            for sujet in category.sujets for version in sujet.versions
+        )
+        for text in texts:
+            self.assertNotRegex(
+                text.lower(),
+                r"formation.tcf|r[ée]ussir.tcf|kwiziq|innerfrench|learn adebi",
+            )
+
     def test_every_distinct_tache_one_and_two_subject_has_a_valid_response(self):
         expected = {1: (63, 60, 120), 2: (70, 120, 150)}
         for tache, (canonical_count, minimum, maximum) in expected.items():
@@ -579,6 +593,42 @@ class EeWritingImportPreservationTests(TestCase):
                 "Mon texte privé.",
             )
             self.assertEqual(len(writing_model_versions(sujet, {new_key: hidden})), 1)
+
+    def test_study_site_cleanup_keeps_private_model_edits(self):
+        task = factories.make_task(self.part, "tache-2")
+        categories = content.load_ee_writing_categories(2)
+        old_keys = {
+            "janvier-combinaison-2": "6c9a89797e97927c069e90125e50979bc3b1bfce85ca753d0a2dc6444e68c761-1",
+            "mars-combinaison-4": "0e68589958392833218b86182e8cd4e5e3d9929f454067546cb211bb10ea6bd8-1",
+        }
+        sources = {
+            source.slug: source for category in categories for source in category.sujets
+        }
+        private_edits = []
+        for slug, old_key in old_keys.items():
+            source = sources[slug]
+            sujet = WritingSujet.objects.create(
+                task=task, slug=slug, prompt=source.prompt,
+                versions=[{"body": v.body, "origin": v.origin} for v in source.versions],
+            )
+            private_edits.append(WritingResponseOverride.objects.create(
+                user=self.user, sujet=sujet, version_key=old_key,
+                body=f"Mon texte privé pour {slug}.",
+            ))
+        for _ in range(2):
+            self.command._import_writing_sujets(
+                categories, {"ee/tache-2": task}, task_key="ee/tache-2",
+            )
+            for private in private_edits:
+                private.refresh_from_db()
+                private.sujet.refresh_from_db()
+                key = model_version_keys(private.sujet.model_versions)[0]
+                self.assertEqual(private.version_key, key)
+                self.assertEqual(private.body, f"Mon texte privé pour {private.sujet.slug}.")
+                self.assertEqual(
+                    writing_model_versions(private.sujet, {key: private})[0]["content"]["body"],
+                    private.body,
+                )
 
     def test_training_email_split_moves_specific_work_without_copying_completion(self):
         task = factories.make_task(self.part, "tache-2")
@@ -1125,12 +1175,37 @@ class EeWritingPageTests(TestCase):
                         else "120–150 mots"
                     ),
                 )
-                self.assertContains(subjects, content.EE_ASTUCES_URL)
+                self.assertContains(subjects, 'data-dialog-open="writing-methodology-dialog"', count=1)
+                self.assertContains(subjects, f'data-writing-methodology="{tache}"', count=1)
+                self.assertNotContains(subjects, "formation-tcfcanada")
                 self.assertContains(subjects, "data-collection-toolbar", count=1)
                 self.assertContains(
                     subjects, 'data-collection-progress-value>0/138</span>', count=1
                 )
                 self.assertNotContains(subjects, "tache-two-progress-summary")
+
+    def test_writing_pages_keep_publication_dates_without_study_site_links(self):
+        for tache, task in self.tasks.items():
+            sujet = task.writing_sujets.filter(is_active=True).first()
+            for route in (
+                "study:task_detail", "study:task_browse",
+                "study:writing_sujet_detail", "study:writing_sujet_edit",
+            ):
+                with self.subTest(tache=tache, route=route):
+                    args = [task.part.slug, task.slug]
+                    if route.startswith("study:writing_sujet_"):
+                        args.append(sujet.pk)
+                    response = self.client.get(reverse(route, args=args))
+                    self.assertEqual(response.status_code, 200)
+                    self.assertNotContains(response, "formation-tcfcanada")
+                    self.assertNotContains(response, "reussir-tcf")
+                    self.assertContains(response, "https://translate.google.com/")
+                    if route.startswith("study:writing_sujet_"):
+                        self.assertContains(response, "Publication")
+                    else:
+                        self.assertContains(
+                            response, f'data-writing-methodology="{tache}"', count=1
+                        )
 
     def test_deduplicated_directories_keep_first_subject_and_shared_progress(self):
         for tache, distinct in ((1, 63), (2, 70)):

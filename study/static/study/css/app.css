@@ -4864,6 +4864,79 @@ html[data-collection-view-mode="table"]
   stroke-width: 1.9;
 }
 .form-dialog__close { flex: none; }
+.methodology-trigger {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--primary);
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.methodology-trigger:hover {
+  text-decoration-thickness: 2px;
+}
+.methodology-trigger:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+.form-dialog.methodology-dialog {
+  width: min(calc(100dvw - 2rem), 48rem);
+  max-width: 48rem;
+  max-height: 90dvh;
+}
+.methodology-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+.methodology-dialog .form-dialog__header {
+  flex: none;
+}
+.methodology-dialog .form-dialog__close {
+  min-width: 44px;
+  min-height: 44px;
+}
+.methodology-dialog__body {
+  min-height: 0;
+  padding: 1rem 1.25rem 1.5rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  line-height: 1.6;
+}
+.methodology-dialog__lead {
+  margin: 0 0 1.25rem;
+}
+.methodology-dialog__body section + section {
+  margin-top: 1.5rem;
+}
+.methodology-dialog__body h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+.methodology-dialog__body p,
+.methodology-dialog__body ul,
+.methodology-dialog__body ol,
+.methodology-dialog__phrases {
+  margin: 0 0 0.75rem;
+}
+.methodology-dialog__body li + li,
+.methodology-dialog__phrases div + div {
+  margin-top: 0.5rem;
+}
+.methodology-dialog__phrases dt {
+  font-weight: 700;
+}
+.methodology-dialog__phrases dd {
+  margin: 0;
+}
+html:has(.methodology-dialog[open]) {
+  overflow: hidden;
+}
 .form-dialog__form {
   max-height: calc(min(88dvh, 720px) - 73px);
   display: grid;

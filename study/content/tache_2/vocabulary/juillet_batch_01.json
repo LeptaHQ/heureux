@@ -145,7 +145,7 @@
           "kind": "collocation",
           "french": "facile d'accès",
           "english": "easy to get to",
-          "example": "Le cinéma où tu es allé(e) est facile d'accès, ou il y en a un plus proche pour moi ?",
+          "example": "Tu es allé(e) dans quel cinéma — c'est facile d'accès en transports en commun ?",
           "usage": "Collocation adjectivale pour qualifier un lieu bien desservi."
         },
         {
@@ -153,7 +153,7 @@
           "kind": "collocation",
           "french": "beaucoup de monde",
           "english": "a lot of people",
-          "example": "Côté lieu, il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
+          "example": "Il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
           "usage": "Collocation très fréquente pour évoquer une affluence importante."
         },
         {
@@ -223,17 +223,17 @@
         {
           "id": "T2J7S1V28",
           "kind": "tournure",
-          "french": "il y en a un plus proche pour moi",
-          "english": "is there a closer one for me",
-          "example": "Le cinéma où tu es allé(e) est facile d'accès, ou il y en a un plus proche pour moi ?",
-          "usage": "Tournure pour demander une alternative plus pratique géographiquement."
+          "french": "Tu es allé(e) dans quel cinéma",
+          "english": "which cinema did you go to",
+          "example": "Tu es allé(e) dans quel cinéma — c'est facile d'accès en transports en commun ?",
+          "usage": "Question au passé composé avec « quel » postposé pour identifier un lieu fréquenté."
         },
         {
           "id": "T2J7S1V29",
           "kind": "tournure",
           "french": "il y avait beaucoup de monde dans la salle",
           "english": "there were a lot of people in the room",
-          "example": "Côté lieu, il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
+          "example": "Il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
           "usage": "Tournure descriptive à l'imparfait pour évoquer l'affluence lors d'une sortie passée."
         },
         {
@@ -316,10 +316,10 @@
         {
           "id": "T2J7S2V09",
           "kind": "mot-cle",
-          "french": "un abonnement",
-          "english": "a pass",
-          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — on paie chaque entrée ou il faut prendre un abonnement ?",
-          "usage": "Nom désignant une formule payée à l'avance pour un accès régulier."
+          "french": "abonnements",
+          "english": "passes",
+          "example": "En ce qui concerne le budget, combien coûte une entrée, et quels abonnements sont proposés ?",
+          "usage": "Nom désignant des formules payées à l'avance pour un accès régulier."
         },
         {
           "id": "T2J7S2V10",
@@ -460,17 +460,17 @@
         {
           "id": "T2J7S2V27",
           "kind": "tournure",
-          "french": "Comment fonctionnent les tarifs",
-          "english": "how do the rates work",
-          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — on paie chaque entrée ou il faut prendre un abonnement ?",
-          "usage": "Question courante sur la tarification."
+          "french": "combien coûte une entrée",
+          "english": "how much does one admission cost",
+          "example": "En ce qui concerne le budget, combien coûte une entrée, et quels abonnements sont proposés ?",
+          "usage": "Question directe pour connaître le prix d'une entrée."
         },
         {
           "id": "T2J7S2V28",
           "kind": "tournure",
           "french": "à quels moments vaut-il mieux venir",
           "english": "at what times is it best to come",
-          "example": "Il y a un autre point qui m'intéresse : c'est souvent bondé — à quels moments vaut-il mieux venir pour être tranquille ?",
+          "example": "À quels moments vaut-il mieux venir pour être tranquille ?",
           "usage": "Tournure pour demander le meilleur moment."
         },
         {
@@ -513,10 +513,10 @@
         {
           "id": "T2J7S3V03",
           "kind": "mot-cle",
-          "french": "vêtements chauds",
-          "english": "warm clothes",
-          "example": "Et s'il fait très froid, quels vêtements chauds tu me recommandes d'emporter ?",
-          "usage": "Groupe nominal pour les habits d'hiver."
+          "french": "activités à l'intérieur",
+          "english": "indoor activities",
+          "example": "Et s'il fait trop froid pour sortir, quelles activités à l'intérieur tu me recommandes ?",
+          "usage": "Groupe nominal pour des activités pratiquées à l'abri du froid ou des intempéries."
         },
         {
           "id": "T2J7S3V04",
@@ -673,10 +673,10 @@
         {
           "id": "T2J7S3V23",
           "kind": "tournure",
-          "french": "quels vêtements chauds tu me recommandes d'emporter",
-          "english": "what warm clothes you recommend I bring",
-          "example": "Et s'il fait très froid, quels vêtements chauds tu me recommandes d'emporter ?",
-          "usage": "Question sur les affaires à prévoir."
+          "french": "quelles activités à l'intérieur tu me recommandes",
+          "english": "what indoor activities you recommend to me",
+          "example": "Et s'il fait trop froid pour sortir, quelles activités à l'intérieur tu me recommandes ?",
+          "usage": "Question pour obtenir une solution de repli adaptée au froid."
         },
         {
           "id": "T2J7S3V24",
@@ -1141,7 +1141,7 @@
           "kind": "collocation",
           "french": "des règles à respecter entre voisins",
           "english": "rules to follow between neighbours",
-          "example": "Côté conditions, y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
+          "example": "Y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
           "usage": "Groupe nominal avec infinitif de but sur la vie collective."
         },
         {
@@ -1205,7 +1205,7 @@
           "kind": "tournure",
           "french": "qu'est-ce qui est le plus pratique",
           "english": "what is the most convenient",
-          "example": "Pour ce qui est du lieu, selon vous, qu'est-ce qui est le plus pratique dans ce quartier au quotidien ?",
+          "example": "Selon vous, qu'est-ce qui est le plus pratique dans ce quartier au quotidien ?",
           "usage": "Tournure superlative pour dégager l'avantage principal."
         },
         {
@@ -1213,7 +1213,7 @@
           "kind": "tournure",
           "french": "Y a-t-il des choses à savoir sur la vie de l'immeuble",
           "english": "Is there anything to know about life in the building",
-          "example": "Côté conditions, y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
+          "example": "Y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
           "usage": "Tournure « y a-t-il des choses à » + infinitif."
         },
         {

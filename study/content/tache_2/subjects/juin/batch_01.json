@@ -37,7 +37,7 @@
           "memory_section": 7
         },
         {
-          "text": "Côté niveau, pour devenir membre, faut-il des compétences particulières ou une expérience avec les animaux ?",
+          "text": "Pour devenir membre, faut-il des compétences particulières ou une expérience avec les animaux ?",
           "memory_number": 3,
           "memory_section": 6
         },
@@ -47,12 +47,12 @@
           "memory_section": 6
         },
         {
-          "text": "Côté engagement, à quelle fréquence les membres s'engagent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
+          "text": "Côté engagement, à quelle fréquence les membres participent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
           "memory_number": 3,
           "memory_section": 4
         },
         {
-          "text": "Et sur une séance, combien de temps faut-il prévoir en général ?",
+          "text": "Et combien de temps dure une mission en général ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -134,7 +134,7 @@
           "memory_section": 10
         },
         {
-          "text": "Côté lieu, il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
+          "text": "Il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
           "memory_number": 9,
           "memory_section": 6
         },
@@ -159,7 +159,7 @@
           "memory_section": 6
         },
         {
-          "text": "Le cinéma où tu es allé(e) est facile d'accès, ou il y en a un plus proche pour moi ?",
+          "text": "Tu es allé(e) dans quel cinéma — c'est facile d'accès en transports en commun ?",
           "memory_number": 9,
           "memory_section": 5
         },
@@ -176,7 +176,7 @@
       "prompt": "Je suis votre nouveau/nouvelle collègue. J'ai vécu au Québec avant de m'installer ici. Vous êtes intéressé(e) par mon parcours et vous me posez des questions (études, débuts professionnels, expériences à l'étranger, difficultés rencontrées, etc.).",
       "questions": [
         {
-          "text": "Bienvenue dans l'équipe ! Avant tout, depuis combien de temps es-tu arrivé(e) dans le pays ?",
+          "text": "Bienvenue dans l'équipe ! Avant tout, tu es arrivé(e) dans le pays il y a combien de temps ?",
           "memory_number": 4,
           "memory_section": 7
         },
@@ -221,7 +221,7 @@
           "memory_section": 10
         },
         {
-          "text": "Comment as-tu réussi à t'adapter et à surmonter ces difficultés ?",
+          "text": "Si tu as rencontré des difficultés, qu'est-ce qui t'a aidé(e) à les surmonter ?",
           "memory_number": 4,
           "memory_section": 13
         },
@@ -231,7 +231,7 @@
           "memory_section": 7
         },
         {
-          "text": "Pour ce qui est de ton ressenti, qu'est-ce qui te manque le plus du Québec ?",
+          "text": "Est-ce qu'il y a quelque chose qui te manque du Québec ?",
           "memory_number": 4,
           "memory_section": 10
         },

@@ -2219,7 +2219,7 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(response, 'class="subject-hints__french"', count=len(hints))
         self.assertContains(response, 'class="subject-hints__english"', count=len(hints))
 
-    def test_hints_stay_shared_across_models_personal_versions_and_selection_modes(self):
+    def test_hints_stay_shared_for_current_models_personal_responses_and_selection_modes(self):
         canonical = Prompt.objects.select_related("response", "theme__task__part").get(
             content_key="tache2:fevrier:batch-01:subject-05",
         )
@@ -2229,6 +2229,14 @@ class QuestionBankViewTests(TestCase):
         self.assertEqual(alias.response_id, canonical.response_id)
         self.assertNotEqual(alias.model_content["arguments"], canonical.model_content["arguments"])
         expected = catalogue.tache_two_subject_hints()[canonical.content_key]
+        for prompt in (canonical, alias):
+            page = self.client.get(prompt_detail_url(prompt))
+            self.assert_subject_hints(page)
+            self.assertIs(page.context["subject_hints"], expected)
+            self.assertEqual(
+                [question["text"] for question in page.context["subject_questions"]],
+                [argument["idea"] for argument in prompt.model_content["arguments"]],
+            )
         personal = PersonalResponse.objects.create(
             user=self.user, response=canonical.response, source_prompt=canonical,
             arguments=[{
@@ -2241,10 +2249,7 @@ class QuestionBankViewTests(TestCase):
         before = Card.objects.filter(pk=card.pk).values().get()
         personal_before = PersonalResponse.objects.filter(pk=personal.pk).values().get()
         for prompt in (canonical, alias):
-            for selection in (
-                {}, {"model": "1"}, {"personal": personal.pk},
-                {"deduplicate": "0"}, {"model": "1", "deduplicate": "0"},
-            ):
+            for selection in ({}, {"deduplicate": "0"}):
                 with self.subTest(prompt=prompt.content_key, selection=selection):
                     page = self.client.get(prompt_detail_url(prompt), selection)
                     self.assertEqual(page.status_code, 200)
@@ -2252,13 +2257,9 @@ class QuestionBankViewTests(TestCase):
                     self.assertIs(page.context["subject_hints"], expected)
                     self.assertTrue(page.context["subject_progress"].explicitly_completed)
                     self.assertNotContains(page, "<dt>Répétitions</dt>")
-                    if selection.get("model") == "1":
-                        self.assertEqual(
-                            [question["text"] for question in page.context["subject_questions"]],
-                            [argument["idea"] for argument in prompt.model_content["arguments"]],
-                        )
-                    else:
-                        self.assertContains(page, "Quelle ligne dessert la gare le samedi ?")
+                    self.assertContains(page, "Quelle ligne dessert la gare le samedi ?")
+            for retired in ({"model": "1"}, {"personal": personal.pk}):
+                self.assertEqual(self.client.get(prompt_detail_url(prompt), retired).status_code, 404)
         self.assertEqual(Card.objects.filter(pk=card.pk).values().get(), before)
         self.assertEqual(PersonalResponse.objects.filter(pk=personal.pk).values().get(), personal_before)
 
@@ -2481,12 +2482,15 @@ class QuestionBankViewTests(TestCase):
         self.assertEqual(all_page.context["subject_total"], len(rows))
         self.assertEqual(all_page.context["subject_position"], rows.index(alias) + 1)
         self.assertContains(all_page, f'href="{browse_url}?deduplicate=0#theme-{theme["slug"]}"')
-        self.assertContains(all_page, "?model=1&amp;deduplicate=0")
+        self.assertNotContains(all_page, "model=1")
+        self.assertNotContains(all_page, "Versions du sujet")
+        self.assertNotContains(all_page, "oral-response-copy")
         legacy_url = reverse(
             "study:response_detail",
             args=["eo", self.task.slug, page.context["selected_prompt"].pk],
         )
         self.assertRedirects(self.client.get(legacy_url, {"deduplicate": "0"}), f"{url}?deduplicate=0")
+        self.assertEqual(self.client.get(legacy_url, {"model": "1"}).status_code, 404)
 
     def test_scoped_subject_directories_default_to_deduplicated(self):
         prompt = Prompt.objects.filter(
@@ -3517,7 +3521,14 @@ class QuestionBankViewTests(TestCase):
             canonical.context["subject_annotation_key"], shared.context["subject_annotation_key"],
         )
         self.assertEqual(canonical.context["subject_progress"].status, "active")
-        self.assertContains(self.client.get(canonical.context["oral_history_url"]), "Quels types")
+        self.assertNotIn("oral_history_url", canonical.context)
+        self.assertContains(
+            self.client.get(
+                "/notes/",
+                {"tab": "highlights"},
+            ),
+            "Quels types",
+        )
 
     def test_audited_childcare_subjects_share_content_and_progress(self):
         learned_url = reverse(

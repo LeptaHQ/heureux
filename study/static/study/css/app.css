@@ -1502,21 +1502,6 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   .ui-icon {
   transform: translateX(2px);
 }
-.tache-two-directory-toolbar {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 1.25rem;
-  margin: 1rem 0 0.85rem;
-}
-.tache-two-directory-toolbar > .tache-two-progress-summary {
-  flex: 1;
-  margin: 0;
-}
-.tache-two-directory-toolbar > .collection-view-toolbar {
-  flex: none;
-  margin: 0;
-}
 .memory-library--standalone {
   margin-top: 0;
 }
@@ -2987,15 +2972,6 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   .tache-two-overview-panel__footer .btn,
   .task-choice-card__footer .btn {
     width: 100%;
-  }
-  .tache-two-directory-toolbar {
-    align-items: stretch;
-    flex-direction: column;
-    gap: 0.75rem;
-  }
-  .tache-two-directory-toolbar
-    > .collection-view-toolbar {
-    justify-content: flex-start;
   }
   .memory-entry {
     grid-template-columns: auto minmax(0, 1fr);
@@ -4888,6 +4864,79 @@ html[data-collection-view-mode="table"]
   stroke-width: 1.9;
 }
 .form-dialog__close { flex: none; }
+.methodology-trigger {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--primary);
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.methodology-trigger:hover {
+  text-decoration-thickness: 2px;
+}
+.methodology-trigger:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+}
+.form-dialog.methodology-dialog {
+  width: min(calc(100dvw - 2rem), 48rem);
+  max-width: 48rem;
+  max-height: 90dvh;
+}
+.methodology-dialog[open] {
+  display: flex;
+  flex-direction: column;
+}
+.methodology-dialog .form-dialog__header {
+  flex: none;
+}
+.methodology-dialog .form-dialog__close {
+  min-width: 44px;
+  min-height: 44px;
+}
+.methodology-dialog__body {
+  min-height: 0;
+  padding: 1rem 1.25rem 1.5rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  line-height: 1.6;
+}
+.methodology-dialog__lead {
+  margin: 0 0 1.25rem;
+}
+.methodology-dialog__body section + section {
+  margin-top: 1.5rem;
+}
+.methodology-dialog__body h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+  line-height: 1.35;
+}
+.methodology-dialog__body p,
+.methodology-dialog__body ul,
+.methodology-dialog__body ol,
+.methodology-dialog__phrases {
+  margin: 0 0 0.75rem;
+}
+.methodology-dialog__body li + li,
+.methodology-dialog__phrases div + div {
+  margin-top: 0.5rem;
+}
+.methodology-dialog__phrases dt {
+  font-weight: 700;
+}
+.methodology-dialog__phrases dd {
+  margin: 0;
+}
+html:has(.methodology-dialog[open]) {
+  overflow: hidden;
+}
 .form-dialog__form {
   max-height: calc(min(88dvh, 720px) - 73px);
   display: grid;
@@ -6509,12 +6558,13 @@ html[data-collection-view-mode="cards"]
 
 .task-vocabulary-directory {
   display: grid;
-  gap: 1.35rem;
+  gap: 0.75rem;
 }
 .eo-t3-overview .memory-overview-hero {
   display: grid;
 }
-.task-vocabulary-directory .task-vocabulary-directory__toolbar,
+.task-vocabulary-directory > .directory-header,
+.task-vocabulary-directory > .collection-toolbar,
 .task-vocabulary-directory .memory-library--standalone,
 .task-vocabulary-directory .area-section {
   margin: 0;
@@ -16500,6 +16550,127 @@ html[data-collection-view-mode="table"]
   }
   .t1-table-group .t1-theme__count,
   .t1-table-group .progress-status { justify-self: auto; }
+}
+
+/* Compact collection headers and controls. */
+.directory-header {
+  margin-bottom: 0.5rem;
+}
+.memory-overview-hero.directory-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem 1rem;
+  padding: 0 0 0.5rem;
+}
+.directory-header .memory-overview-hero__copy {
+  flex: 1 1 19rem;
+  min-width: 0;
+}
+.directory-header h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.2;
+}
+.directory-header p,
+.directory-header .memory-overview-hero__copy > p {
+  margin: 0.25rem 0 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+.directory-header .memory-overview-hero__metrics {
+  width: auto;
+  max-width: 100%;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.9rem;
+}
+.directory-header .memory-overview-hero__metrics div {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+  padding: 0;
+  border: 0;
+}
+.directory-header .memory-overview-hero__metrics dt {
+  font-size: 0.75rem;
+  color: var(--text-soft);
+}
+.directory-header .memory-overview-hero__metrics dd {
+  order: -1;
+  margin: 0;
+  font-size: 1.05rem;
+}
+.collection-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.6rem;
+  min-width: 0;
+  margin: 0.5rem 0 0.75rem;
+}
+.collection-toolbar > .search-form {
+  flex: 1 1 20rem;
+  flex-direction: row;
+  min-width: 0;
+  width: auto;
+  max-width: none;
+  margin: 0;
+}
+.collection-toolbar .search-form__input {
+  min-height: 44px;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.9rem;
+}
+.collection-toolbar .btn {
+  min-height: 44px;
+  padding: 0.45rem 0.75rem;
+  font-size: 0.85rem;
+}
+.collection-toolbar .search-form .btn {
+  flex: 0 0 auto;
+  width: auto;
+}
+.collection-toolbar > .collection-view-toolbar {
+  flex: 0 0 auto;
+  margin: 0 0 0 auto;
+  gap: 0.4rem;
+}
+.collection-toolbar .collection-view-toggle button {
+  min-width: 44px;
+  min-height: 44px;
+}
+.collection-toolbar__fraction {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  min-height: 44px;
+  margin-left: auto;
+  color: var(--text-soft);
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.collection-toolbar + .ee-t3-section {
+  margin-top: 0;
+}
+@media (max-width: 760px) {
+  .collection-toolbar {
+    gap: 0.5rem;
+  }
+  .collection-toolbar > .search-form {
+    flex-basis: 100%;
+  }
+  .collection-toolbar__fraction {
+    margin-left: 0;
+  }
+}
+@media (max-width: 480px) {
+  .collection-toolbar .subject-directory-search .btn > span {
+    display: none;
+  }
 }
 
 /* Subject directories: the same semantic rows serve cards and tables. */

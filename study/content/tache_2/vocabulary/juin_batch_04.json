@@ -39,10 +39,10 @@
         {
           "id": "T2J6S16V05",
           "kind": "mot-cle",
-          "french": "votre propre matériel",
-          "english": "your own equipment",
-          "example": "Côté pratique, avez-vous besoin d'apporter votre propre matériel, ou vous utilisez la cuisine sur place ?",
-          "usage": "Groupe nominal possessif désignant du matériel de cuisine apporté par le prestataire."
+          "french": "quel matériel",
+          "english": "what equipment",
+          "example": "Côté pratique, quel matériel apportez-vous, et qu'est-ce qui doit être disponible dans ma cuisine ?",
+          "usage": "Groupe nominal interrogatif pour préciser l'équipement apporté par le prestataire."
         },
         {
           "id": "T2J6S16V06",
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "du nettoyage",
           "english": "the cleaning up",
-          "example": "En ce qui concerne la nourriture, vous vous occupez aussi du service à table et du nettoyage après le repas ?",
+          "example": "Vous vous occupez aussi du service à table et du nettoyage après le repas ?",
           "usage": "Nom masculin désignant la remise en ordre après un repas."
         },
         {
@@ -119,17 +119,17 @@
         {
           "id": "T2J6S16V15",
           "kind": "collocation",
-          "french": "la cuisine sur place",
-          "english": "the kitchen on site",
-          "example": "Côté pratique, avez-vous besoin d'apporter votre propre matériel, ou vous utilisez la cuisine sur place ?",
-          "usage": "Collocation nom + locution pour désigner l'équipement disponible chez le client."
+          "french": "dans ma cuisine",
+          "english": "in my kitchen",
+          "example": "Côté pratique, quel matériel apportez-vous, et qu'est-ce qui doit être disponible dans ma cuisine ?",
+          "usage": "Groupe prépositionnel pour situer l'équipement disponible au domicile du client."
         },
         {
           "id": "T2J6S16V16",
           "kind": "collocation",
           "french": "à l'avance",
           "english": "in advance",
-          "example": "Côté cuisine, combien de temps à l'avance faut-il vous réserver pour un repas comme celui-là ?",
+          "example": "Combien de temps à l'avance faut-il vous réserver pour un repas comme celui-là ?",
           "usage": "Locution adverbiale de temps pour anticiper une réservation."
         },
         {
@@ -193,7 +193,7 @@
           "kind": "tournure",
           "french": "vous vous occupez aussi du service à table",
           "english": "do you also take care of table service",
-          "example": "En ce qui concerne la nourriture, vous vous occupez aussi du service à table et du nettoyage après le repas ?",
+          "example": "Vous vous occupez aussi du service à table et du nettoyage après le repas ?",
           "usage": "Tournure interrogative pour vérifier l'étendue d'une prestation."
         },
         {
@@ -209,7 +209,7 @@
           "kind": "tournure",
           "french": "combien de temps à l'avance faut-il vous réserver",
           "english": "how far in advance do I need to book you",
-          "example": "Côté cuisine, combien de temps à l'avance faut-il vous réserver pour un repas comme celui-là ?",
+          "example": "Combien de temps à l'avance faut-il vous réserver pour un repas comme celui-là ?",
           "usage": "Tournure interrogative impersonnelle pour connaître un délai de réservation."
         },
         {
@@ -316,10 +316,10 @@
         {
           "id": "T2J6S17V09",
           "kind": "mot-cle",
-          "french": "de la place",
-          "english": "room/space (availability)",
-          "example": "Dans un autre registre, vous prenez généralement combien de passagers, et il resterait de la place pour moi ?",
-          "usage": "Groupe nominal désignant une disponibilité de sièges dans un véhicule."
+          "french": "passagers",
+          "english": "passengers",
+          "example": "Vous prenez généralement combien de passagers ?",
+          "usage": "Nom masculin pluriel désignant les personnes transportées dans la voiture."
         },
         {
           "id": "T2J6S17V10",
@@ -374,16 +374,16 @@
           "kind": "collocation",
           "french": "prévenir à l'avance",
           "english": "to notify in advance",
-          "example": "En ce qui concerne le suivi, si l'un de nous ne peut pas venir un jour, comment on s'organise — il faut prévenir à l'avance ?",
+          "example": "Si l'un de nous ne peut pas venir un jour, comment on s'organise — il faut prévenir à l'avance ?",
           "usage": "Collocation verbe + locution pour évoquer une communication anticipée."
         },
         {
           "id": "T2J6S17V17",
           "kind": "collocation",
-          "french": "quelque temps",
-          "english": "for some time",
-          "example": "Et si vous partez en vacances ou êtes absent(e) quelque temps, comment cela se passerait pour moi ?",
-          "usage": "Locution adverbiale de durée indéfinie."
+          "french": "en vacances",
+          "english": "on holiday",
+          "example": "Et si vous partez en vacances ou êtes absent(e), connaissez-vous quelqu'un qui fait le même trajet ?",
+          "usage": "Locution pour désigner une période d'absence liée aux congés."
         },
         {
           "id": "T2J6S17V18",
@@ -396,10 +396,10 @@
         {
           "id": "T2J6S17V19",
           "kind": "collocation",
-          "french": "un moment calme",
-          "english": "a quiet moment",
-          "example": "Question transport, vous préférez qu'on discute pendant le trajet, ou plutôt un moment calme le matin ?",
-          "usage": "Groupe nominal désignant une période propice au silence ou à la réflexion."
+          "french": "au calme",
+          "english": "in peace and quiet",
+          "example": "Vous préférez qu'on discute pendant le trajet, ou qu'on reste au calme le matin ?",
+          "usage": "Locution qui décrit une ambiance tranquille."
         },
         {
           "id": "T2J6S17V20",
@@ -436,10 +436,10 @@
         {
           "id": "T2J6S17V24",
           "kind": "tournure",
-          "french": "il resterait de la place pour moi",
-          "english": "would there be room left for me",
-          "example": "Dans un autre registre, vous prenez généralement combien de passagers, et il resterait de la place pour moi ?",
-          "usage": "Tournure au conditionnel pour vérifier une disponibilité."
+          "french": "Vous prenez généralement combien de",
+          "english": "how many ... do you usually take",
+          "example": "Vous prenez généralement combien de passagers ?",
+          "usage": "Début de question par intonation avec « combien de » postposé pour demander un nombre habituel."
         },
         {
           "id": "T2J6S17V25",
@@ -454,16 +454,16 @@
           "kind": "tournure",
           "french": "comment on s'organise",
           "english": "how do we organize ourselves",
-          "example": "En ce qui concerne le suivi, si l'un de nous ne peut pas venir un jour, comment on s'organise — il faut prévenir à l'avance ?",
+          "example": "Si l'un de nous ne peut pas venir un jour, comment on s'organise — il faut prévenir à l'avance ?",
           "usage": "Tournure interrogative informelle pour anticiper une absence ponctuelle."
         },
         {
           "id": "T2J6S17V27",
           "kind": "tournure",
-          "french": "comment cela se passerait pour moi",
-          "english": "how would that work out for me",
-          "example": "Et si vous partez en vacances ou êtes absent(e) quelque temps, comment cela se passerait pour moi ?",
-          "usage": "Tournure au conditionnel pour anticiper une absence prolongée du conducteur."
+          "french": "connaissez-vous quelqu'un qui fait le même trajet",
+          "english": "do you know someone who makes the same journey",
+          "example": "Et si vous partez en vacances ou êtes absent(e), connaissez-vous quelqu'un qui fait le même trajet ?",
+          "usage": "Question avec inversion pour chercher un autre conducteur en cas d'absence."
         },
         {
           "id": "T2J6S17V28",
@@ -478,7 +478,7 @@
           "kind": "tournure",
           "french": "vous préférez qu'on discute pendant le trajet",
           "english": "would you prefer that we chat during the ride",
-          "example": "Question transport, vous préférez qu'on discute pendant le trajet, ou plutôt un moment calme le matin ?",
+          "example": "Vous préférez qu'on discute pendant le trajet, ou qu'on reste au calme le matin ?",
           "usage": "Tournure au subjonctif pour vérifier une préférence sociale."
         },
         {
@@ -539,7 +539,7 @@
           "kind": "mot-cle",
           "french": "qualifiés",
           "english": "qualified",
-          "example": "En ce qui concerne l'encadrement, les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
+          "example": "Les professeurs sont-ils qualifiés dans les instruments qu'ils enseignent ?",
           "usage": "Adjectif qualifiant la compétence reconnue d'un enseignant."
         },
         {
@@ -657,10 +657,10 @@
         {
           "id": "T2J6S18V21",
           "kind": "tournure",
-          "french": "les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre",
-          "english": "are the teachers qualified in the instrument I wish to learn",
-          "example": "En ce qui concerne l'encadrement, les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
-          "usage": "Tournure interrogative avec inversion pour vérifier une compétence pédagogique précise."
+          "french": "Les professeurs sont-ils qualifiés",
+          "english": "are the teachers qualified",
+          "example": "Les professeurs sont-ils qualifiés dans les instruments qu'ils enseignent ?",
+          "usage": "Tournure interrogative avec inversion pour vérifier les compétences pédagogiques des enseignants."
         },
         {
           "id": "T2J6S18V22",
@@ -840,7 +840,7 @@
           "kind": "collocation",
           "french": "se sentir perdu(e)",
           "english": "to feel lost",
-          "example": "Côté précautions, ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "example": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "usage": "Association verbe pronominal + adjectif pour exprimer un sentiment de confusion."
         },
         {
@@ -870,10 +870,10 @@
         {
           "id": "T2J6S19V17",
           "kind": "collocation",
-          "french": "de manière flexible",
-          "english": "in a flexible way",
-          "example": "Une fois inscrit(e), on s'engage pour toute la session ou on peut venir de manière flexible ?",
-          "usage": "Groupe adverbial fixe pour décrire une organisation souple."
+          "french": "si nécessaire",
+          "english": "if necessary",
+          "example": "Est-ce qu'il est possible de suspendre l'abonnement si nécessaire ?",
+          "usage": "Locution adverbiale pour conditionner une possibilité à un besoin."
         },
         {
           "id": "T2J6S19V18",
@@ -920,7 +920,7 @@
           "kind": "tournure",
           "french": "Ça s'adresse à quel public",
           "english": "Who is it aimed at",
-          "example": "Côté précautions, ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "example": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "usage": "Question orale avec le groupe interrogatif 'quel public' maintenu après le verbe, sans inversion."
         },
         {
@@ -1125,7 +1125,7 @@
           "kind": "collocation",
           "french": "une salle de sport ou une piscine",
           "english": "a gym or a pool",
-          "example": "J'ai encore une question : proposez-vous d'autres services inclus, comme une salle de sport ou une piscine ?",
+          "example": "Proposez-vous des services comme une salle de sport ou une piscine — sont-ils inclus dans le prix ?",
           "usage": "Collocation nominale coordonnée désignant des équipements de loisir hôteliers."
         },
         {
@@ -1139,10 +1139,10 @@
         {
           "id": "T2J6S20V20",
           "kind": "collocation",
-          "french": "un séjour confortable",
-          "english": "a comfortable stay",
-          "example": "Pour finir — quel type de chambre me recommanderiez-vous pour un séjour confortable ?",
-          "usage": "Groupe nominal qualifié pour décrire une expérience satisfaisante."
+          "french": "vérifier les disponibilités",
+          "english": "check availability",
+          "example": "Pour finir — comment puis-je vérifier les disponibilités pour les dates de mon séjour ?",
+          "usage": "Association verbe-complément pour vérifier si une réservation est possible."
         },
         {
           "id": "T2J6S20V21",
@@ -1203,9 +1203,9 @@
         {
           "id": "T2J6S20V28",
           "kind": "tournure",
-          "french": "proposez-vous d'autres services inclus",
-          "english": "do you offer other included services",
-          "example": "J'ai encore une question : proposez-vous d'autres services inclus, comme une salle de sport ou une piscine ?",
+          "french": "Proposez-vous des services comme",
+          "english": "do you offer services such as",
+          "example": "Proposez-vous des services comme une salle de sport ou une piscine — sont-ils inclus dans le prix ?",
           "usage": "Tournure interrogative avec inversion pour vérifier des prestations annexes."
         },
         {
@@ -1219,10 +1219,10 @@
         {
           "id": "T2J6S20V30",
           "kind": "tournure",
-          "french": "quel type de chambre me recommanderiez-vous",
-          "english": "what type of room would you recommend to me",
-          "example": "Pour finir — quel type de chambre me recommanderiez-vous pour un séjour confortable ?",
-          "usage": "Tournure de clôture au conditionnel pour solliciter un conseil final."
+          "french": "comment puis-je vérifier les disponibilités",
+          "english": "how can I check availability",
+          "example": "Pour finir — comment puis-je vérifier les disponibilités pour les dates de mon séjour ?",
+          "usage": "Question polie avec « puis-je » pour demander la démarche à suivre avant de réserver."
         }
       ]
     }

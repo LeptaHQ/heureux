@@ -9,7 +9,7 @@
           "kind": "mot-cle",
           "french": "un cadeau",
           "english": "a gift",
-          "example": "Salut ! Merci de m'inviter — ta sœur fête bientôt son anniversaire, et je cherche un cadeau, tu pourrais m'aider à trouver une idée ?",
+          "example": "Salut ! Ta sœur fête bientôt son anniversaire et je cherche un cadeau — tu pourrais m'aider à trouver une idée ?",
           "usage": "Nom masculin désignant un objet offert pour faire plaisir à quelqu'un."
         },
         {
@@ -31,10 +31,10 @@
         {
           "id": "T2J6S11V04",
           "kind": "mot-cle",
-          "french": "discrète",
-          "english": "discreet / reserved",
-          "example": "Comment est son caractère — plutôt discrète, ou elle aime qu'on lui fasse une surprise ?",
-          "usage": "Adjectif féminin qualifiant une personne peu encline à se faire remarquer."
+          "french": "son caractère",
+          "english": "her personality",
+          "example": "Comment est son caractère — est-ce qu'elle aime qu'on lui fasse une surprise ?",
+          "usage": "Groupe nominal désignant la manière d'être habituelle d'une personne."
         },
         {
           "id": "T2J6S11V05",
@@ -65,7 +65,7 @@
           "kind": "mot-cle",
           "french": "la même chose",
           "english": "the same thing",
-          "example": "Il y a des choses qu'elle a déjà, pour éviter de lui offrir la même chose ?",
+          "example": "Pour éviter de lui offrir la même chose, y a-t-il des cadeaux qu'elle a déjà reçus récemment ?",
           "usage": "Groupe nominal pour désigner un objet identique à un autre déjà possédé."
         },
         {
@@ -89,7 +89,7 @@
           "kind": "collocation",
           "french": "trouver une idée",
           "english": "to find an idea",
-          "example": "Salut ! Merci de m'inviter — ta sœur fête bientôt son anniversaire, et je cherche un cadeau, tu pourrais m'aider à trouver une idée ?",
+          "example": "Salut ! Ta sœur fête bientôt son anniversaire et je cherche un cadeau — tu pourrais m'aider à trouver une idée ?",
           "usage": "Collocation verbe + nom pour exprimer la recherche d'une inspiration."
         },
         {
@@ -113,7 +113,7 @@
           "kind": "collocation",
           "french": "lui fasse une surprise",
           "english": "surprises her",
-          "example": "Comment est son caractère — plutôt discrète, ou elle aime qu'on lui fasse une surprise ?",
+          "example": "Comment est son caractère — est-ce qu'elle aime qu'on lui fasse une surprise ?",
           "usage": "Collocation subjonctif + nom pour évoquer un effet de surprise recherché."
         },
         {
@@ -135,10 +135,10 @@
         {
           "id": "T2J6S11V17",
           "kind": "collocation",
-          "french": "en particulier",
-          "english": "in particular",
-          "example": "Tu as mentionné qu'elle aimait quelque chose en particulier — tu pourrais m'en dire un peu plus : c'est un loisir qu'elle pratique souvent ?",
-          "usage": "Locution adverbiale pour insister sur un élément précis parmi d'autres."
+          "french": "le plus souvent",
+          "english": "most often",
+          "example": "Parmi ses loisirs, lequel pratique-t-elle le plus souvent ?",
+          "usage": "Locution adverbiale au superlatif pour indiquer la fréquence la plus élevée."
         },
         {
           "id": "T2J6S11V18",
@@ -185,7 +185,7 @@
           "kind": "tournure",
           "french": "pour éviter de lui offrir la même chose",
           "english": "to avoid giving her the same thing",
-          "example": "Il y a des choses qu'elle a déjà, pour éviter de lui offrir la même chose ?",
+          "example": "Pour éviter de lui offrir la même chose, y a-t-il des cadeaux qu'elle a déjà reçus récemment ?",
           "usage": "Tournure avec « pour éviter de » pour justifier une question de vérification."
         },
         {
@@ -215,10 +215,10 @@
         {
           "id": "T2J6S11V27",
           "kind": "tournure",
-          "french": "tu pourrais m'en dire un peu plus",
-          "english": "could you tell me a bit more about it",
-          "example": "Tu as mentionné qu'elle aimait quelque chose en particulier — tu pourrais m'en dire un peu plus : c'est un loisir qu'elle pratique souvent ?",
-          "usage": "Tournure informelle au conditionnel pour demander un développement à un(e) ami(e)."
+          "french": "Parmi ses loisirs, lequel pratique-t-elle",
+          "english": "which of her hobbies does she do",
+          "example": "Parmi ses loisirs, lequel pratique-t-elle le plus souvent ?",
+          "usage": "Question avec « lequel » et inversion pour sélectionner une activité parmi plusieurs."
         },
         {
           "id": "T2J6S11V28",
@@ -260,9 +260,9 @@
         {
           "id": "T2J6S12V02",
           "kind": "mot-cle",
-          "french": "individuelle ou en groupe",
+          "french": "individuelles ou en groupe",
           "english": "individual or in a group",
-          "example": "C'est quel genre d'activité exactement — plutôt individuelle ou en groupe ?",
+          "example": "Quels types d'activités propose ce club — plutôt individuelles ou en groupe ?",
           "usage": "Alternative adjectivale pour qualifier le format d'une activité."
         },
         {
@@ -286,7 +286,7 @@
           "kind": "mot-cle",
           "french": "l'ambiance",
           "english": "the atmosphere",
-          "example": "Deuxième point : comment est l'ambiance — les gens sont plutôt sympas et accueillants ?",
+          "example": "Comment est l'ambiance — les gens sont plutôt sympas et accueillants ?",
           "usage": "Nom féminin désignant le climat social et émotionnel d'un lieu."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "l'entraîneur",
           "english": "the coach",
-          "example": "Pour ce qui est du niveau, le coach ou l'entraîneur, il est comment — plutôt exigeant ou patient avec les débutants ?",
+          "example": "Le coach ou l'entraîneur, il est comment — plutôt exigeant ou patient avec les débutants ?",
           "usage": "Nom masculin désignant la personne qui encadre une pratique sportive."
         },
         {
@@ -340,10 +340,10 @@
         {
           "id": "T2J6S12V12",
           "kind": "collocation",
-          "french": "quel genre d'activité",
-          "english": "what kind of activity",
-          "example": "C'est quel genre d'activité exactement — plutôt individuelle ou en groupe ?",
-          "usage": "Collocation interrogative pour catégoriser une pratique."
+          "french": "types d'activités",
+          "english": "types of activities",
+          "example": "Quels types d'activités propose ce club — plutôt individuelles ou en groupe ?",
+          "usage": "Association nominale pour classer différentes pratiques sportives."
         },
         {
           "id": "T2J6S12V13",
@@ -366,7 +366,7 @@
           "kind": "collocation",
           "french": "sympas et accueillants",
           "english": "nice and welcoming",
-          "example": "Deuxième point : comment est l'ambiance — les gens sont plutôt sympas et accueillants ?",
+          "example": "Comment est l'ambiance — les gens sont plutôt sympas et accueillants ?",
           "usage": "Collocation de deux adjectifs coordonnés pour qualifier des personnes."
         },
         {
@@ -382,7 +382,7 @@
           "kind": "collocation",
           "french": "réduction de parrainage",
           "english": "referral discount",
-          "example": "Question réservation, si je m'inscris, est-ce qu'il y a un avantage pour toi, comme une réduction de parrainage ?",
+          "example": "Si je m'inscris, est-ce qu'il y a un avantage pour toi, comme une réduction de parrainage ?",
           "usage": "Collocation nom + nom pour désigner un avantage commercial lié au parrainage."
         },
         {
@@ -404,10 +404,10 @@
         {
           "id": "T2J6S12V20",
           "kind": "collocation",
-          "french": "la première fois",
-          "english": "the first time",
-          "example": "Pour finir — si je veux m'inscrire, tu pourrais m'accompagner la première fois ?",
-          "usage": "Collocation ordinale + nom pour désigner une expérience inaugurale."
+          "french": "avant de m'engager",
+          "english": "before committing",
+          "example": "On pourrait venir ensemble un jour pour que je découvre avant de m'engager ?",
+          "usage": "Locution temporelle avec un infinitif pour situer un essai avant un engagement."
         },
         {
           "id": "T2J6S12V21",
@@ -438,7 +438,7 @@
           "kind": "tournure",
           "french": "plutôt exigeant ou patient avec les débutants",
           "english": "rather demanding or patient with beginners",
-          "example": "Pour ce qui est du niveau, le coach ou l'entraîneur, il est comment — plutôt exigeant ou patient avec les débutants ?",
+          "example": "Le coach ou l'entraîneur, il est comment — plutôt exigeant ou patient avec les débutants ?",
           "usage": "Tournure alternative pour cerner le style d'encadrement d'un formateur."
         },
         {
@@ -462,7 +462,7 @@
           "kind": "tournure",
           "french": "est-ce qu'il y a un avantage pour toi",
           "english": "is there a benefit for you",
-          "example": "Question réservation, si je m'inscris, est-ce qu'il y a un avantage pour toi, comme une réduction de parrainage ?",
+          "example": "Si je m'inscris, est-ce qu'il y a un avantage pour toi, comme une réduction de parrainage ?",
           "usage": "Tournure interrogative pour vérifier un intérêt personnel de l'interlocuteur."
         },
         {
@@ -484,10 +484,10 @@
         {
           "id": "T2J6S12V30",
           "kind": "tournure",
-          "french": "tu pourrais m'accompagner",
-          "english": "could you come with me / accompany me",
-          "example": "Pour finir — si je veux m'inscrire, tu pourrais m'accompagner la première fois ?",
-          "usage": "Tournure au conditionnel pour demander un soutien lors d'une première expérience."
+          "french": "qui dois-je contacter pour m'inscrire",
+          "english": "who should I contact to sign up",
+          "example": "Pour finir — qui dois-je contacter pour m'inscrire ?",
+          "usage": "Question avec inversion pour identifier la personne chargée des inscriptions."
         }
       ]
     },
@@ -537,10 +537,10 @@
         {
           "id": "T2J6S13V06",
           "kind": "mot-cle",
-          "french": "les promenades",
-          "english": "the walks",
-          "example": "Pour les promenades, à quelle fréquence et pendant combien de temps faut-il le sortir ?",
-          "usage": "Nom pluriel désignant les sorties régulières d'un animal."
+          "french": "le promener",
+          "english": "walk it",
+          "example": "S'il faut le promener, à quelle fréquence et pendant combien de temps faut-il le sortir ?",
+          "usage": "Verbe à l'infinitif avec le pronom complément « le » pour parler de la sortie d'un animal."
         },
         {
           "id": "T2J6S13V07",
@@ -619,7 +619,7 @@
           "kind": "collocation",
           "french": "reste seul un moment",
           "english": "stays alone for a while",
-          "example": "Passons maintenant à un autre point : comment réagit-il en général quand il reste seul un moment ?",
+          "example": "Comment réagit-il en général quand il reste seul un moment ?",
           "usage": "Collocation verbe + adjectif + nom pour évoquer une solitude temporaire."
         },
         {
@@ -635,7 +635,7 @@
           "kind": "collocation",
           "french": "combien de jours",
           "english": "how many days",
-          "example": "D'abord, sur combien de jours exactement dois-je m'organiser ?",
+          "example": "Sur combien de jours exactement dois-je m'organiser ?",
           "usage": "Collocation interrogative pour préciser une durée en jours."
         },
         {
@@ -659,7 +659,7 @@
           "kind": "tournure",
           "french": "pendant combien de temps faut-il le sortir",
           "english": "for how long does it need to be walked",
-          "example": "Pour les promenades, à quelle fréquence et pendant combien de temps faut-il le sortir ?",
+          "example": "S'il faut le promener, à quelle fréquence et pendant combien de temps faut-il le sortir ?",
           "usage": "Tournure interrogative impersonnelle pour préciser une durée de sortie."
         },
         {
@@ -699,7 +699,7 @@
           "kind": "tournure",
           "french": "comment réagit-il en général",
           "english": "how does it generally react",
-          "example": "Passons maintenant à un autre point : comment réagit-il en général quand il reste seul un moment ?",
+          "example": "Comment réagit-il en général quand il reste seul un moment ?",
           "usage": "Tournure interrogative pour anticiper un comportement habituel."
         },
         {
@@ -715,7 +715,7 @@
           "kind": "tournure",
           "french": "dois-je m'organiser",
           "english": "do I need to organize myself",
-          "example": "D'abord, sur combien de jours exactement dois-je m'organiser ?",
+          "example": "Sur combien de jours exactement dois-je m'organiser ?",
           "usage": "Tournure interrogative impersonnelle pour clarifier une contrainte de planification."
         },
         {
@@ -742,10 +742,10 @@
         {
           "id": "T2J6S14V01",
           "kind": "mot-cle",
-          "french": "depuis un moment",
-          "english": "for a while (now)",
-          "example": "Salut ! Tu vis au Canada depuis un moment maintenant — ça m'intrigue, comment les gens passent-ils leurs week-ends là-bas en général ?",
-          "usage": "Locution adverbiale de temps pour indiquer une durée déjà écoulée."
+          "french": "là-bas",
+          "english": "over there",
+          "example": "Salut ! Tu vis au Canada — ça m'intrigue, comment les gens passent-ils leurs week-ends là-bas en général ?",
+          "usage": "Adverbe de lieu renvoyant ici au Canada."
         },
         {
           "id": "T2J6S14V02",
@@ -774,10 +774,10 @@
         {
           "id": "T2J6S14V05",
           "kind": "mot-cle",
-          "french": "mon pays",
-          "english": "my country",
-          "example": "Il me reste un point à éclaircir : c'est très différent de ce qu'on fait généralement dans mon pays, tu trouves ?",
-          "usage": "Groupe nominal possessif désignant le pays d'origine du locuteur."
+          "french": "une région du Canada",
+          "english": "a region of Canada",
+          "example": "Ces habitudes changent-elles beaucoup d'une région du Canada à l'autre ?",
+          "usage": "Groupe nominal désignant une partie du territoire canadien."
         },
         {
           "id": "T2J6S14V06",
@@ -824,7 +824,7 @@
           "kind": "collocation",
           "french": "passent-ils leurs week-ends",
           "english": "do they spend their weekends",
-          "example": "Salut ! Tu vis au Canada depuis un moment maintenant — ça m'intrigue, comment les gens passent-ils leurs week-ends là-bas en général ?",
+          "example": "Salut ! Tu vis au Canada — ça m'intrigue, comment les gens passent-ils leurs week-ends là-bas en général ?",
           "usage": "Collocation verbe + nom possessif pour interroger sur une habitude collective."
         },
         {
@@ -854,10 +854,10 @@
         {
           "id": "T2J6S14V15",
           "kind": "collocation",
-          "french": "tu trouves",
-          "english": "do you find / think",
-          "example": "Il me reste un point à éclaircir : c'est très différent de ce qu'on fait généralement dans mon pays, tu trouves ?",
-          "usage": "Collocation verbe très courante pour solliciter l'avis de l'interlocuteur."
+          "french": "d'une région du Canada à l'autre",
+          "english": "from one region of Canada to another",
+          "example": "Ces habitudes changent-elles beaucoup d'une région du Canada à l'autre ?",
+          "usage": "Association prépositionnelle pour exprimer une variation géographique."
         },
         {
           "id": "T2J6S14V16",
@@ -1029,7 +1029,7 @@
           "kind": "mot-cle",
           "french": "une équipe",
           "english": "a team",
-          "example": "Pour ce qui est du niveau, tu encadres une équipe maintenant, ou tu travailles surtout seul(e) sur tes nouveaux dossiers ?",
+          "example": "Tu encadres une équipe maintenant, ou tu travailles surtout seul(e) sur tes nouveaux dossiers ?",
           "usage": "Nom féminin désignant un groupe de collaborateurs travaillant ensemble."
         },
         {
@@ -1061,7 +1061,7 @@
           "kind": "mot-cle",
           "french": "le plus difficile",
           "english": "the most difficult (part)",
-          "example": "Et à l'inverse, qu'est-ce qui a été le plus difficile à ce changement ?",
+          "example": "Et à l'inverse, qu'est-ce qui a été le plus difficile dans ce changement ?",
           "usage": "Groupe nominal superlatif pour désigner le principal obstacle rencontré."
         },
         {
@@ -1123,10 +1123,10 @@
         {
           "id": "T2J6S15V18",
           "kind": "collocation",
-          "french": "ton ancien responsable",
-          "english": "your former manager",
-          "example": "Sur un autre point, est-ce que quelqu'un t'a accompagné(e) pendant cette transition — par exemple ton ancien responsable, ton nouveau responsable ou quelqu'un d'autre ?",
-          "usage": "Groupe nominal possessif désignant un supérieur hiérarchique précédent."
+          "french": "pendant cette transition",
+          "english": "during this transition",
+          "example": "Si tu as eu un accompagnement, qui t'a aidé(e) pendant cette transition ?",
+          "usage": "Groupe prépositionnel pour situer une aide pendant un changement de fonction."
         },
         {
           "id": "T2J6S15V19",
@@ -1149,7 +1149,7 @@
           "kind": "tournure",
           "french": "tu encadres une équipe maintenant",
           "english": "do you now manage a team",
-          "example": "Pour ce qui est du niveau, tu encadres une équipe maintenant, ou tu travailles surtout seul(e) sur tes nouveaux dossiers ?",
+          "example": "Tu encadres une équipe maintenant, ou tu travailles surtout seul(e) sur tes nouveaux dossiers ?",
           "usage": "Tournure interrogative pour vérifier une nouvelle responsabilité managériale."
         },
         {
@@ -1181,7 +1181,7 @@
           "kind": "tournure",
           "french": "qu'est-ce qui a été le plus difficile",
           "english": "what has been the most difficult",
-          "example": "Et à l'inverse, qu'est-ce qui a été le plus difficile à ce changement ?",
+          "example": "Et à l'inverse, qu'est-ce qui a été le plus difficile dans ce changement ?",
           "usage": "Tournure interrogative au passé composé pour identifier un obstacle principal."
         },
         {
@@ -1203,10 +1203,10 @@
         {
           "id": "T2J6S15V28",
           "kind": "tournure",
-          "french": "est-ce que quelqu'un t'a accompagné(e)",
-          "english": "did someone support you",
-          "example": "Sur un autre point, est-ce que quelqu'un t'a accompagné(e) pendant cette transition — par exemple ton ancien responsable, ton nouveau responsable ou quelqu'un d'autre ?",
-          "usage": "Tournure interrogative polie pour identifier une aide reçue pendant une transition."
+          "french": "qui t'a aidé(e) pendant cette transition",
+          "english": "who helped you during this transition",
+          "example": "Si tu as eu un accompagnement, qui t'a aidé(e) pendant cette transition ?",
+          "usage": "Question avec « qui » sujet pour identifier une aide si un accompagnement a eu lieu."
         },
         {
           "id": "T2J6S15V29",

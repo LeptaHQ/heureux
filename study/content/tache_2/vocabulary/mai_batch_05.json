@@ -65,7 +65,7 @@
           "kind": "mot-cle",
           "french": "une table",
           "english": "a table",
-          "example": "Pour l'inscription, il faut réserver une table à l'avance ou on peut y aller directement ?",
+          "example": "Il faut réserver une table à l'avance ou on peut y aller directement ?",
           "usage": "Nom féminin courant utilisé dans le contexte d'une réservation au restaurant."
         },
         {
@@ -145,7 +145,7 @@
           "kind": "collocation",
           "french": "réserver une table à l'avance",
           "english": "book a table in advance",
-          "example": "Pour l'inscription, il faut réserver une table à l'avance ou on peut y aller directement ?",
+          "example": "Il faut réserver une table à l'avance ou on peut y aller directement ?",
           "usage": "Collocation complète adaptée à un restaurant fréquenté."
         },
         {
@@ -225,7 +225,7 @@
           "kind": "tournure",
           "french": "il faut réserver une table à l'avance ou on peut y aller directement",
           "english": "do you need to book a table in advance or can you just go there directly",
-          "example": "Pour l'inscription, il faut réserver une table à l'avance ou on peut y aller directement ?",
+          "example": "Il faut réserver une table à l'avance ou on peut y aller directement ?",
           "usage": "Tournure d'alternative très utile dans un contexte de restauration."
         },
         {
@@ -531,7 +531,7 @@
           "kind": "mot-cle",
           "french": "des animateurs",
           "english": "activity leaders / instructors",
-          "example": "Côté niveau, qui encadre les enfants — ce sont des animateurs ou des professeurs qualifiés ?",
+          "example": "Qui encadre les enfants — ce sont des animateurs ou des professeurs qualifiés ?",
           "usage": "Nom masculin pluriel désignant les personnes qui encadrent des enfants dans des activités."
         },
         {
@@ -707,7 +707,7 @@
           "kind": "tournure",
           "french": "qui encadre les enfants",
           "english": "who supervises the children",
-          "example": "Côté niveau, qui encadre les enfants — ce sont des animateurs ou des professeurs qualifiés ?",
+          "example": "Qui encadre les enfants — ce sont des animateurs ou des professeurs qualifiés ?",
           "usage": "Pronom interrogatif « qui » sujet pour interroger sur une responsabilité."
         },
         {
@@ -1053,7 +1053,7 @@
           "kind": "mot-cle",
           "french": "primes",
           "english": "bonuses",
-          "example": "En ce qui concerne la couverture, quels sont les avantages dont bénéficient les employés — assurance, congés, primes, ce genre de choses ?",
+          "example": "Quels sont les avantages dont bénéficient les employés — assurance, congés, primes, ce genre de choses ?",
           "usage": "Nom féminin pluriel désignant des sommes versées en plus du salaire de base."
         },
         {
@@ -1282,7 +1282,7 @@
           "kind": "mot-cle",
           "french": "des médicaments",
           "english": "medications",
-          "example": "Prend-elle des médicaments ou compléments — comment dois-je les lui donner ?",
+          "example": "Si elle prend des médicaments, peux-tu me préciser les doses et les horaires ?",
           "usage": "Nom masculin pluriel courant pour désigner les traitements prescrits."
         },
         {
@@ -1344,10 +1344,10 @@
         {
           "id": "T2M5S25V15",
           "kind": "collocation",
-          "french": "fourni sur place",
-          "english": "provided on-site",
-          "example": "En ce qui concerne le matériel, qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
-          "usage": "Participe passé suivi d'une locution adverbiale pour indiquer une disponibilité locale."
+          "french": "de mon côté",
+          "english": "on my side",
+          "example": "Pour le matériel, qu'est-ce que tu vas me laisser et que dois-je prévoir de mon côté ?",
+          "usage": "Locution qui distingue les responsabilités de la personne qui parle de celles de son interlocuteur."
         },
         {
           "id": "T2M5S25V16",
@@ -1432,10 +1432,10 @@
         {
           "id": "T2M5S25V26",
           "kind": "tournure",
-          "french": "Prend-elle des médicaments ou compléments",
-          "english": "Does she take any medication or supplements",
-          "example": "Prend-elle des médicaments ou compléments — comment dois-je les lui donner ?",
-          "usage": "Question fermée avec inversion du sujet « elle », registre soutenu adapté à un échange sur la santé."
+          "french": "Si elle prend des médicaments",
+          "english": "if she takes medication",
+          "example": "Si elle prend des médicaments, peux-tu me préciser les doses et les horaires ?",
+          "usage": "Condition avec « si » pour demander des précisions seulement si un traitement existe."
         },
         {
           "id": "T2M5S25V27",
@@ -1456,10 +1456,10 @@
         {
           "id": "T2M5S25V29",
           "kind": "tournure",
-          "french": "Tu as mentionné ses habitudes du soir",
-          "english": "You mentioned her evening habits",
-          "example": "Tu as mentionné ses habitudes du soir — tu pourrais m'en dire un peu plus sur sa routine avant de dormir ?",
-          "usage": "Structure de relance au passé composé, registre tutoiement, pour revenir sur un point déjà évoqué."
+          "french": "Si elle se réveille pendant la nuit",
+          "english": "if she wakes up during the night",
+          "example": "Si elle se réveille pendant la nuit, qu'est-ce qui l'aide à se rendormir ?",
+          "usage": "Proposition conditionnelle pour envisager une situation et demander comment réagir."
         },
         {
           "id": "T2M5S25V30",

@@ -7,9 +7,9 @@
         {
           "id": "T2O10S1V01",
           "kind": "mot-cle",
-          "french": "l'entreprise",
-          "english": "the company",
-          "example": "Bonjour ! Je suis ravi(e) de faire ta connaissance — c'est mon premier jour aujourd'hui. Tu travailles ici depuis combien de temps ? Tu connais bien l'entreprise ?",
+          "french": "entreprise",
+          "english": "company",
+          "example": "Où est-ce que les gens mangent généralement le midi ? Il y a une cantine d'entreprise — et si oui, comment ça marche ?",
           "usage": "Nom courant en contexte professionnel pour désigner l'organisation employeuse."
         },
         {
@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "des réunions régulières",
           "english": "regular meetings",
-          "example": "Puisqu'on en parle, est-ce qu'il y a des réunions régulières d'équipe ? Ça a lieu à quelle fréquence — et ça dure combien de temps généralement ?",
+          "example": "Est-ce qu'il y a des réunions régulières d'équipe — à quelle fréquence ?",
           "usage": "Groupe nominal indiquant la périodicité des rencontres d'équipe."
         },
         {
@@ -57,7 +57,7 @@
           "kind": "mot-cle",
           "french": "responsable direct",
           "english": "direct supervisor",
-          "example": "Justement, combien de personnes travaillent dans notre département ? Et qui est notre responsable direct — comment est-il ou elle en tant que manager ?",
+          "example": "Combien de personnes travaillent dans notre département, et qui est notre responsable direct ?",
           "usage": "Désigne la personne hiérarchiquement responsable au quotidien."
         },
         {
@@ -71,9 +71,9 @@
         {
           "id": "T2O10S1V09",
           "kind": "mot-cle",
-          "french": "les avantages",
-          "english": "the benefits/perks",
-          "example": "Toujours sur ce point, quels sont les avantages dont bénéficient les employés — tickets restaurant, mutuelle, ce genre de choses ?",
+          "french": "les autres avantages",
+          "english": "the other benefits/perks",
+          "example": "Et quels sont les autres avantages dont bénéficient les employés — assurances, congés, ce genre de choses ?",
           "usage": "Terme générique pour les compléments proposés par l'employeur."
         },
         {
@@ -87,10 +87,10 @@
         {
           "id": "T2O10S1V11",
           "kind": "collocation",
-          "french": "en tant que manager",
-          "english": "as a manager",
-          "example": "Justement, combien de personnes travaillent dans notre département ? Et qui est notre responsable direct — comment est-il ou elle en tant que manager ?",
-          "usage": "Locution prépositionnelle 'en tant que' + nom, pour préciser une fonction."
+          "french": "en équipe",
+          "english": "as a team",
+          "example": "Comment s'organise le travail au quotidien — plutôt en équipe ou de manière individuelle ?",
+          "usage": "Locution adverbiale pour décrire une manière collective de travailler."
         },
         {
           "id": "T2O10S1V12",
@@ -105,7 +105,7 @@
           "kind": "collocation",
           "french": "faire ta connaissance",
           "english": "to meet you for the first time",
-          "example": "Bonjour ! Je suis ravi(e) de faire ta connaissance — c'est mon premier jour aujourd'hui. Tu travailles ici depuis combien de temps ? Tu connais bien l'entreprise ?",
+          "example": "Bonjour ! Je suis ravi(e) de faire ta connaissance — tu travailles ici depuis combien de temps ?",
           "usage": "« Faire la connaissance de quelqu'un » signifie le rencontrer pour la première fois ; avec un possessif, on dit « faire ta connaissance »."
         },
         {
@@ -151,17 +151,17 @@
         {
           "id": "T2O10S1V19",
           "kind": "collocation",
-          "french": "tickets restaurant",
-          "english": "meal vouchers",
-          "example": "Toujours sur ce point, quels sont les avantages dont bénéficient les employés — tickets restaurant, mutuelle, ce genre de choses ?",
-          "usage": "Nom composé désignant les titres-repas fournis par l'employeur."
+          "french": "réchauffer son repas",
+          "english": "to heat up your meal",
+          "example": "Y a-t-il un espace pour réchauffer son repas si on apporte quelque chose ? Et des restaurants sympas dans les environs ?",
+          "usage": "Groupe verbal pour parler de la préparation du repas apporté au travail."
         },
         {
           "id": "T2O10S1V20",
           "kind": "collocation",
           "french": "travailler étroitement",
           "english": "to work closely",
-          "example": "Question invités, est-ce que tu pourrais me présenter aux autres membres de l'équipe — surtout ceux avec qui je vais travailler étroitement ?",
+          "example": "Est-ce que tu pourrais me présenter aux autres membres de l'équipe — surtout ceux avec qui je vais travailler étroitement ?",
           "usage": "Association verbe + adverbe pour décrire une collaboration rapprochée."
         },
         {
@@ -169,7 +169,7 @@
           "kind": "tournure",
           "french": "Tu travailles ici depuis combien de temps",
           "english": "How long have you been working here",
-          "example": "Bonjour ! Je suis ravi(e) de faire ta connaissance — c'est mon premier jour aujourd'hui. Tu travailles ici depuis combien de temps ? Tu connais bien l'entreprise ?",
+          "example": "Bonjour ! Je suis ravi(e) de faire ta connaissance — tu travailles ici depuis combien de temps ?",
           "usage": "Question directe sujet-verbe-complément, registre tutoiement, pour interroger sur une durée."
         },
         {
@@ -225,7 +225,7 @@
           "kind": "tournure",
           "french": "Est-ce qu'il y a des réunions régulières d'équipe",
           "english": "Are there regular team meetings",
-          "example": "Puisqu'on en parle, est-ce qu'il y a des réunions régulières d'équipe ? Ça a lieu à quelle fréquence — et ça dure combien de temps généralement ?",
+          "example": "Est-ce qu'il y a des réunions régulières d'équipe — à quelle fréquence ?",
           "usage": "Structure avec 'est-ce que' pour poser une question fermée sans inversion."
         },
         {
@@ -294,7 +294,7 @@
           "kind": "mot-cle",
           "french": "la coutume",
           "english": "the custom",
-          "example": "Passons maintenant à un autre point : est-ce que je dois apporter un cadeau ? Est-ce la coutume ici au Québec — et si oui, tu aurais des suggestions ?",
+          "example": "Est-ce la coutume d'apporter un cadeau ici au Québec — et si oui, tu aurais des suggestions ?",
           "usage": "Nom désignant une pratique sociale habituelle."
         },
         {
@@ -310,7 +310,7 @@
           "kind": "mot-cle",
           "french": "un repas assis",
           "english": "a sit-down meal",
-          "example": "En ce qui concerne les repas, comment se passe la nourriture — c'est un buffet, un repas assis ou un cocktail ? Il y aura de l'alcool ?",
+          "example": "Et pour les repas, c'est un buffet, un repas assis ou un cocktail ? Il y aura de l'alcool ?",
           "usage": "Groupe nominal opposé à 'un buffet', désignant un repas servi à table."
         },
         {
@@ -326,7 +326,7 @@
           "kind": "mot-cle",
           "french": "d'autres questions",
           "english": "other/further questions",
-          "example": "Merci pour toutes ces infos, je me sens beaucoup plus à l'aise à l'idée de cette première fête ici — et si j'ai d'autres questions avant le jour J, je peux te solliciter ?",
+          "example": "Merci pour toutes ces infos — si j'ai d'autres questions avant le jour J, je peux te recontacter ?",
           "usage": "Groupe nominal pour évoquer des interrogations supplémentaires."
         },
         {
@@ -380,10 +380,10 @@
         {
           "id": "T2O10S2V17",
           "kind": "collocation",
-          "french": "facile de s'intégrer",
-          "english": "easy to fit in",
-          "example": "Y aura-t-il de la musique et de la danse ? Les gens seront sympas — ce sera facile de s'intégrer ?",
-          "usage": "Association adjectif + infinitif pour évaluer la facilité d'une intégration sociale."
+          "french": "faire connaissance",
+          "english": "to get acquainted",
+          "example": "Y aura-t-il de la musique, de la danse ou des jeux pour faire connaissance ?",
+          "usage": "Expression verbale désignant un premier contact avec d'autres personnes."
         },
         {
           "id": "T2O10S2V18",
@@ -398,15 +398,15 @@
           "kind": "collocation",
           "french": "toutes ces infos",
           "english": "all this info",
-          "example": "Merci pour toutes ces infos, je me sens beaucoup plus à l'aise à l'idée de cette première fête ici — et si j'ai d'autres questions avant le jour J, je peux te solliciter ?",
+          "example": "Merci pour toutes ces infos — si j'ai d'autres questions avant le jour J, je peux te recontacter ?",
           "usage": "Groupe nominal familier pour désigner un ensemble de renseignements."
         },
         {
           "id": "T2O10S2V20",
           "kind": "collocation",
-          "french": "te solliciter",
+          "french": "te recontacter",
           "english": "to reach out to you",
-          "example": "Merci pour toutes ces infos, je me sens beaucoup plus à l'aise à l'idée de cette première fête ici — et si j'ai d'autres questions avant le jour J, je peux te solliciter ?",
+          "example": "Merci pour toutes ces infos — si j'ai d'autres questions avant le jour J, je peux te recontacter ?",
           "usage": "Association pronom complément + infinitif pour demander la permission de recontacter quelqu'un."
         },
         {
@@ -444,34 +444,34 @@
         {
           "id": "T2O10S2V25",
           "kind": "tournure",
-          "french": "Est-ce que je dois apporter un cadeau",
-          "english": "Do I need to bring a gift",
-          "example": "Passons maintenant à un autre point : est-ce que je dois apporter un cadeau ? Est-ce la coutume ici au Québec — et si oui, tu aurais des suggestions ?",
-          "usage": "Question fermée avec 'est-ce que' pour demander une obligation, sans inversion."
+          "french": "tu aurais des suggestions",
+          "english": "would you have any suggestions",
+          "example": "Est-ce la coutume d'apporter un cadeau ici au Québec — et si oui, tu aurais des suggestions ?",
+          "usage": "Conditionnel de politesse pour demander des idées à une personne que l'on tutoie."
         },
         {
           "id": "T2O10S2V26",
           "kind": "tournure",
-          "french": "Est-ce la coutume ici au Québec",
-          "english": "Is that the custom here in Quebec",
-          "example": "Passons maintenant à un autre point : est-ce que je dois apporter un cadeau ? Est-ce la coutume ici au Québec — et si oui, tu aurais des suggestions ?",
-          "usage": "Tournure avec inversion figée : « est-ce » résulte de l'inversion du sujet « ce » après le verbe « est » (« c'est » → « est-ce »), utilisée ici pour vérifier une pratique habituelle."
+          "french": "Est-ce la coutume d'apporter",
+          "english": "is it customary to bring",
+          "example": "Est-ce la coutume d'apporter un cadeau ici au Québec — et si oui, tu aurais des suggestions ?",
+          "usage": "Question avec inversion pour vérifier s'il est habituel d'apporter quelque chose."
         },
         {
           "id": "T2O10S2V27",
           "kind": "tournure",
-          "french": "Est-ce que je peux apporter quelque chose à manger ou à boire plutôt qu'un cadeau",
-          "english": "Can I bring something to eat or drink instead of a gift",
-          "example": "Est-ce que je peux apporter quelque chose à manger ou à boire plutôt qu'un cadeau ?",
-          "usage": "Question avec 'est-ce que' proposant une alternative à l'aide de 'plutôt que'."
+          "french": "Est-ce que je peux apporter",
+          "english": "can I bring",
+          "example": "Est-ce que je peux apporter quelque chose à manger ou à boire ?",
+          "usage": "Question avec « est-ce que » pour proposer une contribution."
         },
         {
           "id": "T2O10S2V28",
           "kind": "tournure",
-          "french": "Comment se passe la nourriture",
-          "english": "How does the food work out / What's the food situation",
-          "example": "En ce qui concerne les repas, comment se passe la nourriture — c'est un buffet, un repas assis ou un cocktail ? Il y aura de l'alcool ?",
-          "usage": "Question soutenue avec inversion du sujet 'la nourriture' après le verbe pronominal 'passe'."
+          "french": "Et pour les repas",
+          "english": "and as for the meals",
+          "example": "Et pour les repas, c'est un buffet, un repas assis ou un cocktail ? Il y aura de l'alcool ?",
+          "usage": "Introduction thématique pour passer à l'organisation des repas."
         },
         {
           "id": "T2O10S2V29",
@@ -595,7 +595,7 @@
           "kind": "collocation",
           "french": "se sentir perdu(e)",
           "english": "to feel lost",
-          "example": "Côté précautions, ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "example": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "usage": "Association verbe pronominal + adjectif pour exprimer un sentiment de confusion."
         },
         {
@@ -625,10 +625,10 @@
         {
           "id": "T2O10S3V17",
           "kind": "collocation",
-          "french": "de manière flexible",
-          "english": "in a flexible way",
-          "example": "Une fois inscrit(e), on s'engage pour toute la session ou on peut venir de manière flexible ?",
-          "usage": "Groupe adverbial fixe pour décrire une organisation souple."
+          "french": "si nécessaire",
+          "english": "if necessary",
+          "example": "Est-ce qu'il est possible de suspendre l'abonnement si nécessaire ?",
+          "usage": "Locution adverbiale pour conditionner une possibilité à un besoin."
         },
         {
           "id": "T2O10S3V18",
@@ -675,7 +675,7 @@
           "kind": "tournure",
           "french": "Ça s'adresse à quel public",
           "english": "Who is it aimed at",
-          "example": "Côté précautions, ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "example": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "usage": "Question orale avec le groupe interrogatif 'quel public' maintenu après le verbe, sans inversion."
         },
         {
@@ -752,7 +752,7 @@
           "kind": "mot-cle",
           "french": "un parking à proximité",
           "english": "nearby parking",
-          "example": "Où se trouve exactement le musée — est-il facilement accessible en transports en commun ? Y a-t-il un parking à proximité ?",
+          "example": "Le musée est-il facilement accessible en transports en commun, et y a-t-il un parking à proximité ?",
           "usage": "Groupe nominal désignant un stationnement situé à faible distance."
         },
         {
@@ -784,7 +784,7 @@
           "kind": "mot-cle",
           "french": "la collection permanente",
           "english": "the permanent collection",
-          "example": "Et dans la continuité, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "example": "Et y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "usage": "Groupe nominal opposé à 'les expositions temporaires'."
         },
         {
@@ -808,7 +808,7 @@
           "kind": "mot-cle",
           "french": "un audioguide",
           "english": "an audio guide",
-          "example": "Question budget, y a-t-il un audioguide disponible — c'est gratuit ou payant ? Et on peut prendre des photos à l'intérieur ?",
+          "example": "Y a-t-il un audioguide disponible — c'est gratuit ou payant ? Et on peut prendre des photos à l'intérieur ?",
           "usage": "Nom composé désignant un appareil de guidage sonore pour les visiteurs."
         },
         {
@@ -832,7 +832,7 @@
           "kind": "collocation",
           "french": "facilement accessible",
           "english": "easily accessible",
-          "example": "Où se trouve exactement le musée — est-il facilement accessible en transports en commun ? Y a-t-il un parking à proximité ?",
+          "example": "Le musée est-il facilement accessible en transports en commun, et y a-t-il un parking à proximité ?",
           "usage": "Association adverbe + adjectif pour décrire la facilité d'accès à un lieu."
         },
         {
@@ -856,7 +856,7 @@
           "kind": "collocation",
           "french": "en ce moment",
           "english": "at the moment/currently",
-          "example": "Et dans la continuité, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "example": "Et y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "usage": "Locution adverbiale fixe pour situer une action dans le présent."
         },
         {
@@ -888,7 +888,7 @@
           "kind": "collocation",
           "french": "prendre des photos",
           "english": "to take photos",
-          "example": "Question budget, y a-t-il un audioguide disponible — c'est gratuit ou payant ? Et on peut prendre des photos à l'intérieur ?",
+          "example": "Y a-t-il un audioguide disponible — c'est gratuit ou payant ? Et on peut prendre des photos à l'intérieur ?",
           "usage": "Association verbe + nom très courante pour évoquer la prise de clichés."
         },
         {
@@ -910,10 +910,10 @@
         {
           "id": "T2O10S4V22",
           "kind": "tournure",
-          "french": "Où se trouve exactement le musée",
-          "english": "Where exactly is the museum located",
-          "example": "Où se trouve exactement le musée — est-il facilement accessible en transports en commun ? Y a-t-il un parking à proximité ?",
-          "usage": "Question soutenue avec inversion du sujet 'le musée' après le verbe pronominal 'se trouve'."
+          "french": "Le musée est-il facilement accessible",
+          "english": "is the museum easy to reach",
+          "example": "Le musée est-il facilement accessible en transports en commun, et y a-t-il un parking à proximité ?",
+          "usage": "Question avec reprise pronominale du sujet pour vérifier l'accessibilité d'un lieu."
         },
         {
           "id": "T2O10S4V23",

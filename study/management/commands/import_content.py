@@ -15,6 +15,8 @@ from pathlib import Path
 from django.core.management.base import BaseCommand, CommandError
 from django.db import transaction
 from django.db.models import Max, Q
+from django.urls import reverse
+from django.utils import timezone
 
 from study import content_loader as content
 from study.account_services import (
@@ -370,6 +372,7 @@ class Command(BaseCommand):
 
         seen = set()
         claimed_legacy = set()
+        imported_sujets = {}
         order = 0
         for category in categories:
             for sujet in category.sujets:
@@ -419,9 +422,22 @@ class Command(BaseCommand):
                         setattr(obj, field, value)
                 obj.save()
                 seen.add(obj.pk)
+                imported_sujets[obj.slug] = obj
         WritingSujet.objects.filter(task=task).exclude(pk__in=seen).update(
             is_active=False
         )
+        model_targets = {}
+        if task_key == "ee/tache-2":
+            from study.writing_responses import model_update_targets, remap_model_overrides
+
+            model_targets = model_update_targets(
+                imported_sujets, content.load_ee_tache_two_response_key_updates()
+            )
+            conflicts = remap_model_overrides(model_targets)
+            if conflicts:
+                self.stdout.write(self.style.WARNING(
+                    f"Retained {conflicts} prior overrides without replacing a current main response."
+                ))
         self._reconcile_writing_sujet_state(
             task,
             {
@@ -430,11 +446,12 @@ class Command(BaseCommand):
                 for sujet in category.sujets
             },
             previous_model_versions,
+            model_targets,
         )
 
     @staticmethod
     def _reconcile_writing_sujet_state(
-        task, canonical_slug_by_slug, previous_model_versions
+        task, canonical_slug_by_slug, previous_model_versions, model_targets=None
     ):
         """Move private writing work from equivalent aliases to the canonical sujet."""
         sujets = {
@@ -445,6 +462,9 @@ class Command(BaseCommand):
             )
         }
         model_key_moves = []
+        from study.writing_responses import model_version_keys
+
+        model_targets = model_targets or {}
         for source_slug, canonical_slug in canonical_slug_by_slug.items():
             source = sujets.get(source_slug)
             canonical = sujets.get(canonical_slug)
@@ -454,28 +474,42 @@ class Command(BaseCommand):
                 version["body"]: number
                 for number, version in enumerate(canonical.model_versions, 1)
             }
-            for number, version in enumerate(
-                previous_model_versions.get(source.pk, ()), 1
+            previous = previous_model_versions.get(source.pk, ())
+            for number, (version, version_key) in enumerate(
+                zip(previous, model_version_keys(previous)), 1
             ):
                 target_number = canonical_version_numbers.get(version["body"])
+                destination = canonical
+                target_path = None
                 if target_number is None:
-                    continue
+                    target = model_targets.get((source.pk, version_key))
+                    if target is None:
+                        continue
+                    destination, _, target_number = target
+                    if destination.pk != source.pk:
+                        target_path = reverse(
+                            "study:writing_sujet_detail",
+                            args=[task.part.slug, task.slug, destination.pk],
+                        )
                 source_key = f"writing-sujet:{source.pk}:model-{number}"
-                target_key = f"writing-sujet:{canonical.pk}:model-{target_number}"
+                target_key = f"writing-sujet:{destination.pk}:model-{target_number}"
                 if source_key != target_key:
                     model_key_moves.append(
                         (
                             source_key,
                             f"writing-import:{task.pk}:{source.pk}:model-{number}",
                             target_key,
+                            target_path,
                         )
                     )
         # Stage all version moves before resolving their final keys: ordering
         # author versions first can otherwise overwrite another version's marks.
-        for source_key, temporary_key, _ in model_key_moves:
+        for source_key, temporary_key, _, _ in model_key_moves:
             Command._move_annotation_source_key(source_key, temporary_key)
-        for _, temporary_key, target_key in model_key_moves:
-            Command._move_annotation_source_key(temporary_key, target_key)
+        for _, temporary_key, target_key, target_path in model_key_moves:
+            Command._move_annotation_source_key(
+                temporary_key, target_key, target_path=target_path
+            )
 
         for alias_slug, canonical_slug in canonical_slug_by_slug.items():
             if alias_slug == canonical_slug:
@@ -1209,7 +1243,25 @@ class Command(BaseCommand):
         )
 
     @staticmethod
-    def _move_annotation_source_prefix(source_prefix, target_prefix):
+    def _merged_annotation_values(target, source):
+        body = target.body
+        addition = source.body if source.body != target.body else ""
+        if target.title and source.title and target.title != source.title:
+            addition = "\n".join(part for part in (source.title, addition) if part)
+        if addition:
+            body = "\n\n".join(part for part in (body, addition) if part)
+        values = {
+            "study_later": target.study_later or source.study_later,
+            "completed_at": target.completed_at or source.completed_at,
+            "title": target.title or source.title,
+            "body": body,
+        }
+        if body != target.body or values["title"] != target.title:
+            values["updated_at"] = timezone.now()
+        return values
+
+    @staticmethod
+    def _move_annotation_source_prefix(source_prefix, target_prefix, *, target_path=None):
         """Move private annotations while coalescing duplicate highlights."""
         annotations = list(
             Annotation.objects.filter(
@@ -1217,6 +1269,7 @@ class Command(BaseCommand):
             ).order_by("pk")
         )
         for annotation in annotations:
+            source_path = target_path if target_path is not None else annotation.source_path
             target_key = (
                 target_prefix
                 + annotation.source_key.removeprefix(source_prefix)
@@ -1227,7 +1280,7 @@ class Command(BaseCommand):
                     Annotation.objects.filter(
                         user_id=annotation.user_id,
                         kind=AnnotationKind.HIGHLIGHT,
-                        source_path=annotation.source_path,
+                        source_path=source_path,
                         source_key=target_key,
                         start_offset=annotation.start_offset,
                         end_offset=annotation.end_offset,
@@ -1237,35 +1290,33 @@ class Command(BaseCommand):
                 )
             if duplicate is None:
                 Annotation.objects.filter(pk=annotation.pk).update(
-                    source_key=target_key
+                    source_key=target_key, source_path=source_path
                 )
                 continue
             Annotation.objects.filter(pk=duplicate.pk).update(
-                study_later=duplicate.study_later or annotation.study_later,
-                completed_at=(
-                    duplicate.completed_at
-                    or annotation.completed_at
-                ),
+                **Command._merged_annotation_values(duplicate, annotation)
             )
             annotation.delete()
 
     @classmethod
-    def _move_annotation_source_key(cls, source_key, target_key):
+    def _move_annotation_source_key(cls, source_key, target_key, *, target_path=None):
         cls._move_annotation_source_prefix(
             f"{source_key}:",
             f"{target_key}:",
+            target_path=target_path,
         )
         annotations = list(
             Annotation.objects.filter(source_key=source_key).order_by("pk")
         )
         for annotation in annotations:
+            source_path = target_path if target_path is not None else annotation.source_path
             duplicate = None
             if annotation.kind == AnnotationKind.HIGHLIGHT:
                 duplicate = (
                     Annotation.objects.filter(
                         user_id=annotation.user_id,
                         kind=AnnotationKind.HIGHLIGHT,
-                        source_path=annotation.source_path,
+                        source_path=source_path,
                         source_key=target_key,
                         start_offset=annotation.start_offset,
                         end_offset=annotation.end_offset,
@@ -1275,15 +1326,11 @@ class Command(BaseCommand):
                 )
             if duplicate is None:
                 Annotation.objects.filter(pk=annotation.pk).update(
-                    source_key=target_key
+                    source_key=target_key, source_path=source_path
                 )
                 continue
             Annotation.objects.filter(pk=duplicate.pk).update(
-                study_later=duplicate.study_later or annotation.study_later,
-                completed_at=(
-                    duplicate.completed_at
-                    or annotation.completed_at
-                ),
+                **cls._merged_annotation_values(duplicate, annotation)
             )
             annotation.delete()
 

@@ -22,8 +22,10 @@ from study.models import (
     WritingSujet,
     WritingSujetCompletion,
     WritingResponseOverride,
+    WritingResponseOverride,
 )
 from study.templatetags.study_markdown import french_wordcount
+from study.writing_responses import model_version_keys, writing_model_versions
 
 from . import factories
 
@@ -188,7 +190,7 @@ class EeWritingContentTests(SimpleTestCase):
     def test_final_equivalence_counts_match_the_audited_corpora(self):
         expected = {
             1: (41, 116, 63),
-            2: (36, 105, 69),
+            2: (36, 104, 70),
             3: (35, 95, 78),
         }
         for tache, counts in expected.items():
@@ -205,8 +207,47 @@ class EeWritingContentTests(SimpleTestCase):
                     distinct_count,
                 )
 
+    def test_task_two_titles_follow_the_requested_format(self):
+        sources = {
+            sujet.source_key: sujet
+            for category in content.load_ee_writing_categories(2)
+            for sujet in category.sujets
+        }
+        self.assertTrue(sources["ee-tache2:janvier:combinaison-6"].versions[0].body.startswith(
+            "Mes vacances au Ghana\n\n"
+        ))
+        self.assertTrue(sources["ee-tache2:janvier:combinaison-12"].versions[0].body.startswith(
+            "Coucou Aaron et Perla,\n\n"
+        ))
+        self.assertTrue(sources["ee-tache2:janvier:combinaison-2"].versions[0].body.startswith(
+            "Mon parcours en français\n\n"
+        ))
+        article = sources["ee-tache2:avril:combinaison-14"]
+        email = sources["ee-tache2:juin:combinaison-2"]
+        self.assertEqual(len(article.versions), 2)
+        self.assertEqual(len(email.versions), 1)
+        self.assertTrue(all(not version.body.startswith("Objet :") for version in article.versions))
+        self.assertTrue(email.versions[0].body.startswith("Objet : Retour sur notre journée de formation\n\n"))
+        mapping = content.ee_canonical_by_content_key(2)
+        self.assertEqual(mapping.get(email.source_key, email.source_key), email.source_key)
+        self.assertEqual(mapping["ee-tache2:mai:combinaison-7"], article.source_key)
+
+    def test_published_answers_and_copy_prompts_do_not_promote_study_sites(self):
+        texts = [content.load_ai_examiner_prompt()]
+        texts.extend(content.load_ee_ai_examiner_prompt(tache) for tache in (1, 2, 3))
+        texts.extend(
+            version.body for tache in (1, 2)
+            for category in content.load_ee_writing_categories(tache)
+            for sujet in category.sujets for version in sujet.versions
+        )
+        for text in texts:
+            self.assertNotRegex(
+                text.lower(),
+                r"formation.tcf|r[ée]ussir.tcf|kwiziq|innerfrench|learn adebi",
+            )
+
     def test_every_distinct_tache_one_and_two_subject_has_a_valid_response(self):
-        expected = {1: (63, 60, 120), 2: (69, 120, 150)}
+        expected = {1: (63, 60, 120), 2: (70, 120, 150)}
         for tache, (canonical_count, minimum, maximum) in expected.items():
             with self.subTest(tache=tache):
                 categories = content.load_ee_writing_categories(tache)
@@ -232,6 +273,9 @@ class EeWritingContentTests(SimpleTestCase):
                         for version in versions
                     )
                 )
+                if tache == 2:
+                    self.assertEqual(len(versions), 92)
+                    self.assertTrue(all(120 <= len(version.body.split()) <= 150 for version in versions))
                 self.assertEqual(
                     {version.origin for version in versions},
                     {"author", "original"},
@@ -507,6 +551,160 @@ class EeWritingImportPreservationTests(TestCase):
         self.task_by_slug = {"ee/tache-1": self.task}
         self.categories = content.load_ee_writing_categories(1)
         self.user = factories.make_user("ee-writing-import")
+
+    def test_task_two_title_update_preserves_private_edits_and_hidden_models(self):
+        task = factories.make_task(self.part, "tache-2")
+        categories = content.load_ee_writing_categories(2)
+        source = next(
+            sujet for category in categories for sujet in category.sujets
+            if sujet.source_key == "ee-tache2:janvier:combinaison-6"
+        )
+        models = [{"body": v.body, "origin": v.origin} for v in source.versions]
+        old_models = [dict(model) for model in models]
+        old_models[1]["body"] = old_models[1]["body"].split("\n\n", 1)[1]
+        sujet = WritingSujet.objects.create(
+            task=task, slug=source.slug, prompt=source.prompt, versions=old_models,
+        )
+        old_key = model_version_keys(sujet.model_versions)[1]
+        private = WritingResponseOverride.objects.create(
+            user=self.user, sujet=sujet, version_key=old_key, body="Mon texte privé.",
+        )
+        other = factories.make_user("hidden-ee2-model")
+        hidden = WritingResponseOverride.objects.create(
+            user=other, sujet=sujet, version_key=old_key, is_deleted=True,
+        )
+        updated_at = private.updated_at
+        for _ in range(2):
+            self.command._import_writing_sujets(
+                categories, {"ee/tache-2": task}, task_key="ee/tache-2",
+            )
+            sujet.refresh_from_db()
+            private.refresh_from_db()
+            hidden.refresh_from_db()
+            new_key = model_version_keys(sujet.model_versions)[1]
+            self.assertNotEqual(new_key, old_key)
+            self.assertEqual(private.version_key, new_key)
+            self.assertEqual(private.body, "Mon texte privé.")
+            self.assertEqual(private.updated_at, updated_at)
+            self.assertEqual(hidden.version_key, new_key)
+            self.assertTrue(hidden.is_deleted)
+            self.assertEqual(
+                writing_model_versions(sujet, {new_key: private})[1]["content"]["body"],
+                "Mon texte privé.",
+            )
+            self.assertEqual(len(writing_model_versions(sujet, {new_key: hidden})), 1)
+
+    def test_study_site_cleanup_keeps_private_model_edits(self):
+        task = factories.make_task(self.part, "tache-2")
+        categories = content.load_ee_writing_categories(2)
+        old_keys = {
+            "janvier-combinaison-2": "6c9a89797e97927c069e90125e50979bc3b1bfce85ca753d0a2dc6444e68c761-1",
+            "mars-combinaison-4": "0e68589958392833218b86182e8cd4e5e3d9929f454067546cb211bb10ea6bd8-1",
+        }
+        sources = {
+            source.slug: source for category in categories for source in category.sujets
+        }
+        private_edits = []
+        for slug, old_key in old_keys.items():
+            source = sources[slug]
+            sujet = WritingSujet.objects.create(
+                task=task, slug=slug, prompt=source.prompt,
+                versions=[{"body": v.body, "origin": v.origin} for v in source.versions],
+            )
+            private_edits.append(WritingResponseOverride.objects.create(
+                user=self.user, sujet=sujet, version_key=old_key,
+                body=f"Mon texte privé pour {slug}.",
+            ))
+        for _ in range(2):
+            self.command._import_writing_sujets(
+                categories, {"ee/tache-2": task}, task_key="ee/tache-2",
+            )
+            for private in private_edits:
+                private.refresh_from_db()
+                private.sujet.refresh_from_db()
+                key = model_version_keys(private.sujet.model_versions)[0]
+                self.assertEqual(private.version_key, key)
+                self.assertEqual(private.body, f"Mon texte privé pour {private.sujet.slug}.")
+                self.assertEqual(
+                    writing_model_versions(private.sujet, {key: private})[0]["content"]["body"],
+                    private.body,
+                )
+
+    def test_training_email_split_moves_specific_work_without_copying_completion(self):
+        task = factories.make_task(self.part, "tache-2")
+        categories = content.load_ee_writing_categories(2)
+        sources = {
+            sujet.source_key: sujet for category in categories for sujet in category.sujets
+        }
+        article_source = sources["ee-tache2:avril:combinaison-14"]
+        email_source = sources["ee-tache2:juin:combinaison-2"]
+        email_body = email_source.versions[0].body
+        old_models = [
+            {"body": version.body.split("\n\n", 1)[1], "origin": version.origin}
+            for version in article_source.versions
+        ] + [{"body": email_body, "origin": email_source.versions[0].origin}]
+        article = WritingSujet.objects.create(
+            task=task, slug=article_source.slug, prompt=article_source.prompt, versions=old_models,
+        )
+        email = WritingSujet.objects.create(
+            task=task, slug=email_source.slug, prompt=email_source.prompt, versions=[],
+        )
+        old_key = model_version_keys(article.model_versions)[2]
+        private = WritingResponseOverride.objects.create(
+            user=self.user, sujet=article, version_key=old_key, body="Mon courriel personnel.",
+        )
+        other = factories.make_user("deleted-old-email")
+        deleted = WritingResponseOverride.objects.create(
+            user=other, sujet=article, version_key=old_key, is_deleted=True,
+        )
+        personal = PersonalWritingResponse.objects.create(
+            user=self.user, sujet=article, body="Ma réponse partagée, conservée.",
+        )
+        completed = WritingSujetCompletion.objects.create(user=self.user, sujet=article)
+        original_personal = PersonalWritingResponse.objects.values().get(pk=personal.pk)
+        old_path = reverse("study:writing_sujet_detail", args=["ee", "tache-2", article.pk])
+        new_path = reverse("study:writing_sujet_detail", args=["ee", "tache-2", email.pk])
+        quote = "mots de passe solides"
+        start = email_body.index(quote)
+        for source_key, source_path, body in (
+            (f"writing-sujet:{article.pk}:model-3", old_path, "Premier commentaire"),
+            (f"writing-sujet:{email.pk}:model-1", new_path, "Second commentaire"),
+        ):
+            Annotation.objects.create(
+                user=self.user, task=task, kind=AnnotationKind.HIGHLIGHT,
+                source_key=source_key, source_path=source_path, quote=quote, body=body,
+                start_offset=start, end_offset=start + len(quote), study_later=True,
+            )
+        for _ in range(2):
+            self.command._import_writing_sujets(
+                categories, {"ee/tache-2": task}, task_key="ee/tache-2",
+            )
+            private.refresh_from_db()
+            deleted.refresh_from_db()
+            article.refresh_from_db()
+            email.refresh_from_db()
+            self.assertEqual((len(article.model_versions), len(email.model_versions)), (2, 1))
+            self.assertEqual(private.sujet_id, email.pk)
+            self.assertEqual(private.body, "Mon courriel personnel.")
+            self.assertEqual(deleted.sujet_id, article.pk)
+            self.assertEqual(len(writing_model_versions(email, {})), 1)
+            self.assertTrue(WritingSujetCompletion.objects.filter(pk=completed.pk, sujet=article).exists())
+            self.assertFalse(WritingSujetCompletion.objects.filter(sujet=email).exists())
+            self.assertEqual(
+                PersonalWritingResponse.objects.values().get(pk=personal.pk), original_personal
+            )
+            mark = Annotation.objects.get(
+                source_key=f"writing-sujet:{email.pk}:model-1", source_path=new_path,
+            )
+            self.assertIn("Premier commentaire", mark.body)
+            self.assertIn("Second commentaire", mark.body)
+            self.assertEqual(email_body[mark.start_offset:mark.end_offset], quote)
+            self.assertFalse(Annotation.objects.filter(source_key__startswith="writing-import:").exists())
+        self.client.force_login(self.user)
+        marks = self.client.get(
+            reverse("study:annotations_for_source"), {"source_path": new_path}
+        ).json()["highlights"]
+        self.assertEqual([item["id"] for item in marks], [mark.pk])
 
     def test_trimming_alternatives_preserves_main_response_and_private_work(self):
         source = next(
@@ -904,7 +1102,7 @@ class EeWritingPageTests(TestCase):
         self.client.force_login(self.user)
 
     def test_both_tasks_have_overviews_and_group_all_subjects_by_theme(self):
-        for tache, distinct in ((1, 63), (2, 69)):
+        for tache, distinct in ((1, 63), (2, 70)):
             task = self.tasks[tache]
             with self.subTest(tache=tache):
                 self.assertTrue(task.available)
@@ -972,15 +1170,45 @@ class EeWritingPageTests(TestCase):
                 self.assertContains(
                     subjects,
                     (
-                        "Rédigez un message clair de 60 à 120 mots"
+                        "60–120 mots"
                         if tache == 1
-                        else "compte rendu d’expérience ou un récit de 120 à 150 mots"
+                        else "120–150 mots"
                     ),
                 )
-                self.assertContains(subjects, content.EE_ASTUCES_URL)
+                self.assertContains(subjects, 'data-dialog-open="writing-methodology-dialog"', count=1)
+                self.assertContains(subjects, f'data-writing-methodology="{tache}"', count=1)
+                self.assertNotContains(subjects, "formation-tcfcanada")
+                self.assertContains(subjects, "data-collection-toolbar", count=1)
+                self.assertContains(
+                    subjects, 'data-collection-progress-value>0/138</span>', count=1
+                )
+                self.assertNotContains(subjects, "tache-two-progress-summary")
+
+    def test_writing_pages_keep_publication_dates_without_study_site_links(self):
+        for tache, task in self.tasks.items():
+            sujet = task.writing_sujets.filter(is_active=True).first()
+            for route in (
+                "study:task_detail", "study:task_browse",
+                "study:writing_sujet_detail", "study:writing_sujet_edit",
+            ):
+                with self.subTest(tache=tache, route=route):
+                    args = [task.part.slug, task.slug]
+                    if route.startswith("study:writing_sujet_"):
+                        args.append(sujet.pk)
+                    response = self.client.get(reverse(route, args=args))
+                    self.assertEqual(response.status_code, 200)
+                    self.assertNotContains(response, "formation-tcfcanada")
+                    self.assertNotContains(response, "reussir-tcf")
+                    self.assertContains(response, "https://translate.google.com/")
+                    if route.startswith("study:writing_sujet_"):
+                        self.assertContains(response, "Publication")
+                    else:
+                        self.assertContains(
+                            response, f'data-writing-methodology="{tache}"', count=1
+                        )
 
     def test_deduplicated_directories_keep_first_subject_and_shared_progress(self):
-        for tache, distinct in ((1, 63), (2, 69)):
+        for tache, distinct in ((1, 63), (2, 70)):
             with self.subTest(tache=tache):
                 task = self.tasks[tache]
                 url = reverse("study:task_browse", args=["ee", task.slug])

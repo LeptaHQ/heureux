@@ -24,13 +24,13 @@
           "text": "À quelle heure l'événement commence-t-il et se termine-t-il en général ?"
         },
         {
-          "text": "Côté niveau, qui organise la fête exactement — les parents, les enseignants, les élèves ?"
+          "text": "Qui organise la fête exactement — les parents, les enseignants, les élèves ?"
         },
         {
           "text": "Il y a habituellement beaucoup de monde ?"
         },
         {
-          "text": "Avant que j'oublie, y a-t-il des activités spécialement prévues pour les enfants ?"
+          "text": "Y a-t-il des activités pour différents âges, pour que tous les enfants en profitent ?"
         },
         {
           "text": "Est-ce qu'il y a une tombola ou une collecte de fonds liée à la fête ?"
@@ -44,7 +44,7 @@
           "memory_section": 13
         },
         {
-          "text": "Faut-il acheter des billets à l'avance ou l'entrée est-elle gratuite ?"
+          "text": "L'entrée est-elle gratuite, et faut-il réserver à l'avance ?"
         },
         {
           "text": "Est-ce qu'il y a un parking pratique à proximité de l'école ?"
@@ -148,7 +148,7 @@
           "memory_section": 2
         },
         {
-          "text": "Côté précautions, ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "memory_number": 8,
           "memory_section": 6
         },
@@ -188,7 +188,7 @@
           "memory_section": 3
         },
         {
-          "text": "Une fois inscrit(e), on s'engage pour toute la session ou on peut venir de manière flexible ?",
+          "text": "Une fois inscrit(e), on s'engage pour combien de temps ?",
           "memory_number": 8,
           "memory_section": 12
         },
@@ -230,7 +230,7 @@
           "memory_section": 2
         },
         {
-          "text": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
+          "text": "Parmi ces circuits, lequel recommandez-vous le plus, et qu'est-ce qu'il comprend ?",
           "memory_number": 7,
           "memory_section": 13
         },
@@ -245,7 +245,7 @@
           "memory_section": 6
         },
         {
-          "text": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "text": "Quelle est la meilleure période pour ces destinations ?",
           "memory_number": 7,
           "memory_section": 8
         },
@@ -255,17 +255,17 @@
           "memory_section": 8
         },
         {
-          "text": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
+          "text": "Y a-t-il des périodes moins fréquentées pour voyager plus tranquillement ?",
           "memory_number": 7,
           "memory_section": 8
         },
         {
-          "text": "Pour l'inscription, faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
+          "text": "Faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
           "memory_number": 7,
           "memory_section": 9
         },
         {
-          "text": "Il reste encore des places ou c'est déjà complet ?",
+          "text": "Si le circuit qui m'intéresse est complet, proposez-vous d'autres dates ?",
           "memory_number": 7,
           "memory_section": 6
         },
@@ -302,7 +302,7 @@
       "prompt": "Je travaille à la ludothèque de votre ville. Vous souhaitez vous inscrire. Vous me posez des questions sur la ludothèque (horaires, tarifs, types de jeux, etc.).",
       "questions": [
         {
-          "text": "Bonjour ! J'ai deux jeunes enfants et je voudrais m'inscrire à la ludothèque — comment dois-je procéder ?"
+          "text": "Bonjour ! Je voudrais m'inscrire à la ludothèque — comment dois-je procéder ?"
         },
         {
           "text": "Quels documents faut-il apporter pour l'inscription — une pièce d'identité, un justificatif de domicile ?",
@@ -354,7 +354,7 @@
           "text": "Et côté vie du lieu, organisez-vous des animations, comme des ateliers ou des moments de découverte ?"
         },
         {
-          "text": "Pour finir — si vous ne deviez me recommander qu'une seule chose, ce serait laquelle ?",
+          "text": "Pour finir — comment choisir un premier jeu adapté à l'âge et aux goûts des joueurs ?",
           "memory_number": 10,
           "memory_section": 13
         }

@@ -5,7 +5,7 @@ Corpus **verbatim** des consignes d'**Expression écrite, Tâche 2** publiées e
 la décrire et l'expliquer).
 
 La tâche est active dans `sections.json`. Son parcours conserve les 138 publications,
-les classe par thème et relie les republications à 69 exercices canoniques :
+les classe par thème et relie les republications à 70 exercices canoniques :
 
 - `responses/<theme>.json` contient **92 versions modèles** de **120 à 150 mots**.
   Les versions `origin: author` viennent de la
@@ -28,6 +28,18 @@ d’expérience ou un récit**, accompagné des commentaires, opinions ou argume
 demandés par la consigne. Chaque réponse situe l’expérience, raconte des actions
 avec des détails et des émotions, puis répond à l’objectif précis. FEI fixe
 **60 minutes pour les trois tâches réunies**, sans temps officiel par tâche.
+
+Les articles, billets de blog et témoignages autonomes ont un titre dans le corps
+de la réponse. Les courriels, lettres et réponses directes conservent leur format
+propre. Le titre, la salutation et la signature sont compris dans notre contrôle
+prudent des 120–150 mots, selon le compteur de l’application et le découpage par
+espaces. Un titre n’est pas présenté comme une obligation universelle de la tâche.
+
+Le courriel de juin, combinaison 2, est distinct des articles de formation
+d’avril 14 et mai 7. `response_key_updates.json` décrit les changements exacts
+d’identifiants des modèles afin de conserver les modifications personnelles et
+de rattacher les annotations du courriel au bon sujet. La progression partagée
+reste sur l’ancien sujet canonique ; elle n’est pas dupliquée sur le courriel.
 
 ## Contenu
 
@@ -66,13 +78,13 @@ et les Tâches 1, 2 et 3 d'une même combinaison portent donc la même clé au p
 
 - `subject_themes.json` — 11 thèmes (`slug`, `name`, `icon`, `order`) et la table
   `content_key → thème` couvrant **les 138 sujets**.
-- `equivalent_groups.json` — **36 groupes** (105 sujets) publiés sous des
+- `equivalent_groups.json` — **36 groupes** (104 sujets) publiés sous des
   consignes équivalentes. Outre les artefacts source (préfixe « Analysez le sujet… »,
   ponctuation ou bloc accidentellement dupliqué), des paraphrases sont
   explicitement auditées. Le membre
   `canonical` est toujours le plus ancien du groupe ; un sujet n'appartient qu'à un
   seul groupe et tous les membres partagent son thème.
-  **69 sujets distincts** subsistent une fois les doublons regroupés.
+  **70 sujets distincts** subsistent une fois les doublons regroupés.
 
 L'audit de septembre 2026 couvre les 138 publications, les 11 thèmes et les
 92 versions de réponse. Treize groupes sont ajoutés ou étendus, notamment pour

@@ -59,8 +59,6 @@ REVIEW_SCOPE_KEYS = (
     "test",
     "batch",
     "prompt",
-    "model",
-    "personal",
 )
 
 
@@ -70,7 +68,6 @@ FOCUSED_REVIEW_KINDS = {"revisit", "weak"}
 def _review_card_payload(card, user, scope=None):
     scope = scope or {}
     prompt = None
-    personal = None
     if card.response_id and card.response.semantic_group:
         if scope.get("prompt"):
             prompt = get_object_or_404(
@@ -89,14 +86,7 @@ def _review_card_payload(card, user, scope=None):
             ).first()
             if prompt is None:
                 raise Http404
-        if scope.get("personal"):
-            from ..oral_history import personal_versions
-            personal = get_object_or_404(
-                personal_versions(card.response, user), pk=scope["personal"],
-            )
-    payload = card_payload(
-        card, prompt=prompt, model_only=scope.get("model") == "1", personal=personal,
-    )
+    payload = card_payload(card, prompt=prompt)
     if card.response_id:
         payload["subject_progress"] = subject_progress_by_response(
             user,
@@ -197,9 +187,9 @@ def _resolved_review_scope(
 ) -> tuple[dict, bool]:
     """Use an explicit request scope, otherwise resume the saved one."""
     data = request.POST if request.method == "POST" else request.GET
+    scope = scope_from_request(request)
     if request.method == "GET" and data.get("reset") == "1":
         return {"kind": "spine", **(route_scope or {})}, True
-    scope = scope_from_request(request)
     if route_scope:
         scope.update(route_scope)
     explicit = any(key in data for key in REVIEW_SCOPE_KEYS)
@@ -208,7 +198,8 @@ def _resolved_review_scope(
         return scope, True
     saved = session.scope
     if isinstance(saved, dict) and (saved or session.current_card_id):
-        return saved, False
+        current = {key: value for key, value in saved.items() if key not in {"model", "personal"}}
+        return current, current != saved
     return {"kind": "spine"}, True
 
 

@@ -9,7 +9,7 @@
           "kind": "mot-cle",
           "french": "bénévolat",
           "english": "volunteering",
-          "example": "Bonjour ! Je m'intéresse au bénévolat dans le quartier et j'aimerais donner un peu de mon temps — quels types d'associations proposez-vous ici ?",
+          "example": "Bonjour ! Je m'intéresse au bénévolat dans le quartier et j'aimerais donner un peu de mon temps — quels types d'associations y a-t-il ici ?",
           "usage": "Nom masculin désignant l'activité bénévole ; s'utilise le plus souvent avec « faire du »."
         },
         {
@@ -39,9 +39,9 @@
         {
           "id": "T2M5S1V05",
           "kind": "mot-cle",
-          "french": "l'accompagnement scolaire",
+          "french": "accompagnement scolaire",
           "english": "school support / tutoring",
-          "example": "Vous avez mentionné l'accompagnement scolaire — vous pourriez m'en dire un peu plus : ça se passe dans les écoles du quartier ?",
+          "example": "Y a-t-il des missions d'accompagnement scolaire — et si oui, où se déroulent-elles ?",
           "usage": "Nom composé désignant l'aide apportée aux élèves en dehors des cours."
         },
         {
@@ -81,7 +81,7 @@
           "kind": "mot-cle",
           "french": "des personnes âgées",
           "english": "elderly people",
-          "example": "Question niveau, ces associations s'adressent à quel public — des enfants, des personnes âgées, des familles ?",
+          "example": "Ces associations s'adressent à quel public — des enfants, des personnes âgées, des familles ?",
           "usage": "Groupe nominal courant désignant le public senior dans un contexte associatif ou social."
         },
         {
@@ -89,7 +89,7 @@
           "kind": "collocation",
           "french": "types d'associations",
           "english": "types of associations",
-          "example": "Bonjour ! Je m'intéresse au bénévolat dans le quartier et j'aimerais donner un peu de mon temps — quels types d'associations proposez-vous ici ?",
+          "example": "Bonjour ! Je m'intéresse au bénévolat dans le quartier et j'aimerais donner un peu de mon temps — quels types d'associations y a-t-il ici ?",
           "usage": "Collocation nom + de + nom pour catégoriser une offre associative."
         },
         {
@@ -111,10 +111,10 @@
         {
           "id": "T2M5S1V14",
           "kind": "collocation",
-          "french": "formelle ou décontractée",
-          "english": "formal or casual",
-          "example": "J'en profite pour vous demander : comment est l'ambiance en général — plutôt formelle ou décontractée ?",
-          "usage": "Collocation adjectivale par coordination pour qualifier une ambiance générale."
+          "french": "de manière individuelle",
+          "english": "individually",
+          "example": "Est-ce qu'on travaille plutôt en équipe ou de manière individuelle ?",
+          "usage": "Locution adverbiale pour parler d'un travail effectué sans équipe."
         },
         {
           "id": "T2M5S1V15",
@@ -151,26 +151,26 @@
         {
           "id": "T2M5S1V19",
           "kind": "collocation",
-          "french": "en fin de journée",
-          "english": "at the end of the day",
-          "example": "À quelle heure ça commence — plutôt le matin ou en fin de journée ?",
-          "usage": "Collocation temporelle fixe opposée à « le matin »."
+          "french": "en soirée",
+          "english": "in the evening",
+          "example": "Y a-t-il des missions en soirée pour les personnes qui travaillent ?",
+          "usage": "Locution temporelle pour situer une activité le soir."
         },
         {
           "id": "T2M5S1V20",
           "kind": "collocation",
           "french": "en semaine ou le week-end",
           "english": "on weekdays or at the weekend",
-          "example": "Côté planning, ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
+          "example": "Les missions ont lieu plutôt en semaine ou le week-end ?",
           "usage": "Collocation temporelle par contraste très productive pour situer un événement dans la semaine."
         },
         {
           "id": "T2M5S1V21",
           "kind": "tournure",
-          "french": "vous pourriez m'en dire un peu plus",
-          "english": "could you tell me a bit more about it",
-          "example": "Vous avez mentionné l'accompagnement scolaire — vous pourriez m'en dire un peu plus : ça se passe dans les écoles du quartier ?",
-          "usage": "Tournure de relance polie pour approfondir un point déjà évoqué par l'interlocuteur."
+          "french": "où se déroulent-elles",
+          "english": "where do they take place",
+          "example": "Y a-t-il des missions d'accompagnement scolaire — et si oui, où se déroulent-elles ?",
+          "usage": "Question avec inversion pour demander le lieu des missions."
         },
         {
           "id": "T2M5S1V22",
@@ -183,49 +183,49 @@
         {
           "id": "T2M5S1V23",
           "kind": "tournure",
-          "french": "il faut s'inscrire à l'avance ou on peut venir librement",
-          "english": "do you need to register in advance or can you just show up",
-          "example": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
-          "usage": "Tournure d'alternative typique à l'oral pour comparer deux options d'organisation."
+          "french": "Comment se passe l'inscription",
+          "english": "how does registration work",
+          "example": "Comment se passe l'inscription auprès d'une association ?",
+          "usage": "Question pour demander la procédure d'inscription."
         },
         {
           "id": "T2M5S1V24",
           "kind": "tournure",
-          "french": "si j'ai encore une question, je peux vous recontacter",
-          "english": "if I have another question, may I contact you again",
-          "example": "D'accord, tout est clair — je vais choisir l'association qui me correspond le mieux et me lancer. Si j'ai encore une question, je peux vous recontacter ?",
-          "usage": "Tournure de clôture polie pour s'assurer de pouvoir reprendre contact plus tard."
+          "french": "quelle serait la première étape pour",
+          "english": "what would be the first step to",
+          "example": "Pour finir — quelle serait la première étape pour rejoindre une association du quartier ?",
+          "usage": "Question au conditionnel pour demander la première démarche à effectuer."
         },
         {
           "id": "T2M5S1V25",
           "kind": "tournure",
-          "french": "ça a lieu quel jour exactement",
-          "english": "exactly which day does it take place",
-          "example": "Côté planning, ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
-          "usage": "Tournure interrogative directe pour préciser une date ou un jour."
+          "french": "Les missions ont lieu",
+          "english": "do the assignments take place",
+          "example": "Les missions ont lieu plutôt en semaine ou le week-end ?",
+          "usage": "Début de question par intonation pour préciser les jours des missions."
         },
         {
           "id": "T2M5S1V26",
           "kind": "tournure",
-          "french": "à quelle heure ça commence",
-          "english": "what time does it start",
-          "example": "À quelle heure ça commence — plutôt le matin ou en fin de journée ?",
-          "usage": "Tournure interrogative standard pour demander un horaire de début."
+          "french": "Y a-t-il des missions en soirée",
+          "english": "are there evening assignments",
+          "example": "Y a-t-il des missions en soirée pour les personnes qui travaillent ?",
+          "usage": "Question avec inversion pour chercher des possibilités adaptées à un emploi du temps."
         },
         {
           "id": "T2M5S1V27",
           "kind": "tournure",
-          "french": "comment est l'ambiance en général",
-          "english": "what's the atmosphere generally like",
-          "example": "J'en profite pour vous demander : comment est l'ambiance en général — plutôt formelle ou décontractée ?",
-          "usage": "Tournure descriptive pour faire caractériser un climat ou une ambiance."
+          "french": "Est-ce qu'on travaille plutôt en équipe ou",
+          "english": "do we work more as a team or",
+          "example": "Est-ce qu'on travaille plutôt en équipe ou de manière individuelle ?",
+          "usage": "Question d'alternative pour comparer deux façons d'organiser le travail."
         },
         {
           "id": "T2M5S1V28",
           "kind": "tournure",
           "french": "ces associations s'adressent à quel public",
           "english": "which audience do these associations target",
-          "example": "Question niveau, ces associations s'adressent à quel public — des enfants, des personnes âgées, des familles ?",
+          "example": "Ces associations s'adressent à quel public — des enfants, des personnes âgées, des familles ?",
           "usage": "Tournure très réutilisable avec « s'adresser à quel public » pour cibler un public visé."
         },
         {
@@ -286,7 +286,7 @@
           "kind": "mot-cle",
           "french": "le programme",
           "english": "the syllabus/programme",
-          "example": "Vous avez mentionné le programme — vous suivez un manuel précis ou vous l'adaptez aux besoins de chacun ?",
+          "example": "Suivez-vous un manuel précis ou adaptez-vous le programme aux besoins de chacun ?",
           "usage": "Nom masculin désignant le contenu structuré d'un enseignement."
         },
         {
@@ -318,16 +318,16 @@
           "kind": "mot-cle",
           "french": "une séance",
           "english": "a session/lesson",
-          "example": "Côté organisation, il y a combien de séances par semaine, et quelle est la durée d'une séance — environ une heure ou plutôt une heure et demie ?",
+          "example": "Quelle fréquence de cours conseillez-vous, et quelle est la durée d'une séance ?",
           "usage": "Nom féminin désignant une unité de cours, souvent utilisée pour calculer un tarif."
         },
         {
           "id": "T2M5S2V10",
           "kind": "mot-cle",
-          "french": "d'autres questions",
-          "english": "other questions",
-          "example": "Merci pour toutes ces infos, votre approche me convient et j'aimerais commencer dès que possible — si j'ai d'autres questions, je peux vous solliciter ?",
-          "usage": "Groupe nominal courant pour clore un échange en laissant la porte ouverte."
+          "french": "les prochaines étapes",
+          "english": "the next steps",
+          "example": "Merci pour toutes ces infos — quelles seraient les prochaines étapes si je souhaite commencer les cours ?",
+          "usage": "Groupe nominal désignant les démarches à effectuer ensuite."
         },
         {
           "id": "T2M5S2V11",
@@ -356,10 +356,10 @@
         {
           "id": "T2M5S2V14",
           "kind": "collocation",
-          "french": "séances par semaine",
-          "english": "sessions per week",
-          "example": "Côté organisation, il y a combien de séances par semaine, et quelle est la durée d'une séance — environ une heure ou plutôt une heure et demie ?",
-          "usage": "Collocation de fréquence pour organiser un emploi du temps de cours."
+          "french": "fréquence de cours",
+          "english": "lesson frequency",
+          "example": "Quelle fréquence de cours conseillez-vous, et quelle est la durée d'une séance ?",
+          "usage": "Collocation nominale pour parler du rythme des cours."
         },
         {
           "id": "T2M5S2V15",
@@ -372,17 +372,17 @@
         {
           "id": "T2M5S2V16",
           "kind": "collocation",
-          "french": "à domicile",
-          "english": "at home / in-home",
-          "example": "Ça se passe où exactement — chez vous, à domicile, ou c'est possible aussi en ligne ?",
-          "usage": "Locution figée très courante pour désigner un service rendu directement chez le client."
+          "french": "chez l'élève",
+          "english": "at the student's home",
+          "example": "Ça se passe où exactement — chez vous, chez l'élève, ou c'est possible aussi en ligne ?",
+          "usage": "Locution qui situe le cours au domicile de l'élève."
         },
         {
           "id": "T2M5S2V17",
           "kind": "collocation",
           "french": "possible aussi en ligne",
           "english": "also possible online",
-          "example": "Ça se passe où exactement — chez vous, à domicile, ou c'est possible aussi en ligne ?",
+          "example": "Ça se passe où exactement — chez vous, chez l'élève, ou c'est possible aussi en ligne ?",
           "usage": "Collocation adverbiale pour indiquer une alternative à distance."
         },
         {
@@ -406,7 +406,7 @@
           "kind": "collocation",
           "french": "toutes ces infos",
           "english": "all this information",
-          "example": "Merci pour toutes ces infos, votre approche me convient et j'aimerais commencer dès que possible — si j'ai d'autres questions, je peux vous solliciter ?",
+          "example": "Merci pour toutes ces infos — quelles seraient les prochaines étapes si je souhaite commencer les cours ?",
           "usage": "Collocation quantifiante très courante pour clore poliment un échange informatif."
         },
         {
@@ -454,7 +454,7 @@
           "kind": "tournure",
           "french": "ça se passe où exactement",
           "english": "where exactly does it take place",
-          "example": "Ça se passe où exactement — chez vous, à domicile, ou c'est possible aussi en ligne ?",
+          "example": "Ça se passe où exactement — chez vous, chez l'élève, ou c'est possible aussi en ligne ?",
           "usage": "Tournure très transférable pour demander un lieu précis de déroulement."
         },
         {
@@ -468,10 +468,10 @@
         {
           "id": "T2M5S2V28",
           "kind": "tournure",
-          "french": "vous avez mentionné le programme",
-          "english": "you mentioned the syllabus",
-          "example": "Vous avez mentionné le programme — vous suivez un manuel précis ou vous l'adaptez aux besoins de chacun ?",
-          "usage": "Tournure de reprise permettant de relancer sur un point déjà évoqué."
+          "french": "Suivez-vous un manuel précis ou",
+          "english": "do you follow a specific textbook or",
+          "example": "Suivez-vous un manuel précis ou adaptez-vous le programme aux besoins de chacun ?",
+          "usage": "Question avec inversion pour comparer deux approches pédagogiques."
         },
         {
           "id": "T2M5S2V29",
@@ -484,10 +484,10 @@
         {
           "id": "T2M5S2V30",
           "kind": "tournure",
-          "french": "si j'ai d'autres questions, je peux vous solliciter",
-          "english": "if I have other questions, may I contact you",
-          "example": "Merci pour toutes ces infos, votre approche me convient et j'aimerais commencer dès que possible — si j'ai d'autres questions, je peux vous solliciter ?",
-          "usage": "Tournure de clôture polie pour garder un contact ouvert après l'échange."
+          "french": "quelles seraient les prochaines étapes",
+          "english": "what would the next steps be",
+          "example": "Merci pour toutes ces infos — quelles seraient les prochaines étapes si je souhaite commencer les cours ?",
+          "usage": "Question de clôture au conditionnel pour savoir comment commencer les cours."
         }
       ]
     },
@@ -505,10 +505,10 @@
         {
           "id": "T2M5S3V02",
           "kind": "mot-cle",
-          "french": "une autre saison",
-          "english": "another season",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Groupe nominal utile pour évoquer une période alternative de l'année."
+          "french": "périodes",
+          "english": "periods of time",
+          "example": "Est-ce qu'il y a des périodes à éviter si on veut être tranquille ?",
+          "usage": "Nom féminin pluriel désignant différents moments possibles pour voyager."
         },
         {
           "id": "T2M5S3V03",
@@ -569,18 +569,18 @@
         {
           "id": "T2M5S3V10",
           "kind": "mot-cle",
-          "french": "ton moment préféré",
-          "english": "your favourite moment",
-          "example": "Tu as mentionné ton moment préféré — tu pourrais m'en dire un peu plus : qu'est-ce qui t'a marqué(e) ?",
-          "usage": "Groupe nominal permettant de relancer sur un souvenir déjà évoqué."
+          "french": "ce séjour",
+          "english": "this stay/trip",
+          "example": "Qu'est-ce qui t'a le plus marqué(e) pendant ce séjour ?",
+          "usage": "Groupe nominal pour reprendre le voyage dont on parle."
         },
         {
           "id": "T2M5S3V11",
           "kind": "collocation",
-          "french": "passé de super vacances",
-          "english": "had a great holiday",
-          "example": "Salut ! J'ai entendu dire que tu as passé de super vacances à la montagne — tu pourrais me raconter un peu ?",
-          "usage": "Collocation verbale informelle très courante à l'oral pour raconter un séjour réussi."
+          "french": "passé des vacances",
+          "english": "spent a holiday",
+          "example": "Salut ! J'ai entendu dire que tu as passé des vacances à la montagne — tu pourrais me raconter un peu ?",
+          "usage": "Association verbale courante pour raconter un séjour de vacances."
         },
         {
           "id": "T2M5S3V12",
@@ -593,10 +593,10 @@
         {
           "id": "T2M5S3V13",
           "kind": "collocation",
-          "french": "bonne période",
-          "english": "a good time (period)",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Collocation adjectif + nom pour qualifier un moment opportun pour une activité."
+          "french": "la meilleure période",
+          "english": "the best time",
+          "example": "Quelle est la meilleure période pour y aller ?",
+          "usage": "Association d'un nom et d'un adjectif au superlatif pour désigner un moment particulièrement favorable."
         },
         {
           "id": "T2M5S3V14",
@@ -659,7 +659,7 @@
           "kind": "tournure",
           "french": "tu pourrais me raconter un peu",
           "english": "could you tell me a bit about it",
-          "example": "Salut ! J'ai entendu dire que tu as passé de super vacances à la montagne — tu pourrais me raconter un peu ?",
+          "example": "Salut ! J'ai entendu dire que tu as passé des vacances à la montagne — tu pourrais me raconter un peu ?",
           "usage": "Tournure d'ouverture informelle pour inviter quelqu'un à relater une expérience."
         },
         {
@@ -673,18 +673,18 @@
         {
           "id": "T2M5S3V23",
           "kind": "tournure",
-          "french": "il vaut mieux attendre une autre saison",
-          "english": "it's better to wait for another season",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Tournure impersonnelle avec « il vaut mieux » pour suggérer une alternative temporelle."
+          "french": "Quelle est la meilleure période pour",
+          "english": "what is the best time to",
+          "example": "Quelle est la meilleure période pour y aller ?",
+          "usage": "Question pour choisir un moment favorable au voyage."
         },
         {
           "id": "T2M5S3V24",
           "kind": "tournure",
-          "french": "il y a beaucoup de monde en ce moment ou c'est plutôt calme",
-          "english": "are there a lot of people right now or is it rather quiet",
-          "example": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
-          "usage": "Tournure d'alternative très réutilisable pour interroger sur l'affluence d'un lieu."
+          "french": "si on veut être tranquille",
+          "english": "if you want some peace and quiet",
+          "example": "Est-ce qu'il y a des périodes à éviter si on veut être tranquille ?",
+          "usage": "Condition avec « si » pour préciser une préférence et choisir une période adaptée."
         },
         {
           "id": "T2M5S3V25",
@@ -721,10 +721,10 @@
         {
           "id": "T2M5S3V29",
           "kind": "tournure",
-          "french": "tu as mentionné ton moment préféré",
-          "english": "you mentioned your favourite moment",
-          "example": "Tu as mentionné ton moment préféré — tu pourrais m'en dire un peu plus : qu'est-ce qui t'a marqué(e) ?",
-          "usage": "Tournure de reprise permettant de relancer sur un point déjà évoqué par l'interlocuteur."
+          "french": "Qu'est-ce qui t'a le plus marqué(e)",
+          "english": "what made the biggest impression on you",
+          "example": "Qu'est-ce qui t'a le plus marqué(e) pendant ce séjour ?",
+          "usage": "Question sur l'élément le plus marquant d'une expérience."
         },
         {
           "id": "T2M5S3V30",
@@ -862,10 +862,10 @@
         {
           "id": "T2M5S4V16",
           "kind": "collocation",
-          "french": "des sorties pratiques",
-          "english": "practical outings / field trips",
-          "example": "Y a-t-il des sorties pratiques ou tout se fait en salle ?",
-          "usage": "Collocation nom + adjectif très employée pour décrire des activités concrètes hors salle."
+          "french": "présenter devant un public",
+          "english": "perform in front of an audience",
+          "example": "Est-ce qu'on prépare une pièce ou un spectacle à présenter devant un public ?",
+          "usage": "Association verbale pour parler de la présentation d'une œuvre devant des spectateurs."
         },
         {
           "id": "T2M5S4V17",
@@ -896,7 +896,7 @@
           "kind": "collocation",
           "french": "formelle ou décontractée",
           "english": "formal or casual",
-          "example": "Passons maintenant à un autre point : comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "example": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
           "usage": "Collocation adjectivale par coordination pour qualifier une ambiance générale."
         },
         {
@@ -918,10 +918,10 @@
         {
           "id": "T2M5S4V23",
           "kind": "tournure",
-          "french": "si on débute complètement, est-ce qu'on risque de se sentir perdu(e)",
-          "english": "if one is a complete beginner, might one feel lost",
-          "example": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
-          "usage": "Tournure conditionnelle utile pour exprimer une inquiétude de débutant."
+          "french": "Si on débute complètement",
+          "english": "if we are complete beginners",
+          "example": "Si on débute complètement, est-ce que le professeur adapte les exercices ?",
+          "usage": "Condition avec « si » pour préciser une situation de débutant."
         },
         {
           "id": "T2M5S4V24",
@@ -968,16 +968,16 @@
           "kind": "tournure",
           "french": "comment est l'ambiance en général",
           "english": "what's the atmosphere generally like",
-          "example": "Passons maintenant à un autre point : comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+          "example": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
           "usage": "Tournure descriptive pour faire caractériser un climat ou une ambiance."
         },
         {
           "id": "T2M5S4V30",
           "kind": "tournure",
-          "french": "si tu ne devais me recommander qu'une seule chose, ce serait laquelle",
-          "english": "if you had to recommend only one thing to me, which would it be",
-          "example": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
-          "usage": "Tournure de clôture élégante pour demander une recommandation ultime."
+          "french": "qu'est-ce que tu me conseillerais de préparer",
+          "english": "what would you recommend that I prepare",
+          "example": "Pour finir — qu'est-ce que tu me conseillerais de préparer avant mon premier cours ?",
+          "usage": "Question au conditionnel pour demander un conseil pratique."
         }
       ]
     },

@@ -52,10 +52,10 @@
           "text": "Tu voudrais des jeux ou des animations pendant la soirée ?"
         },
         {
-          "text": "Côté tarifs, tu as un budget en tête pour que je reste dans les clous ?"
+          "text": "Côté budget, tu as un montant en tête pour que je reste dans les clous ?"
         },
         {
-          "text": "Avant de lancer les invitations, est-ce que tu veux que ce soit une surprise pour certains invités ?"
+          "text": "Avant de lancer les invitations, pour quelle date veux-tu avoir les réponses ?"
         },
         {
           "text": "Pour finir — qu'est-ce qui te ferait vraiment plaisir pour ce jour-là ?"
@@ -80,19 +80,19 @@
           "text": "Tu as déjà choisi la ville et l'université ?"
         },
         {
-          "text": "Pourquoi cette ville en particulier ?"
+          "text": "Si tu as déjà choisi la ville, qu'est-ce qui t'attire là-bas ?"
         },
         {
-          "text": "Et les cours seront en français ou en anglais ?"
+          "text": "Tu souhaites suivre les cours en français ou en anglais ?"
         },
         {
-          "text": "Ça dure combien de temps, ce programme ?"
+          "text": "Tu envisages un programme de combien de temps ?"
         },
         {
-          "text": "Pour ce qui est des dates, c'est quand que ça commence — tu pars bientôt ?"
+          "text": "Pour ce qui est des dates, tu voudrais commencer quand ?"
         },
         {
-          "text": "Côté administratif, quelles sont les démarches pour s'inscrire et obtenir un visa étudiant ?"
+          "text": "Côté administratif, quelles sont les démarches pour s'inscrire et demander un permis d'études ?"
         },
         {
           "text": "C'est cher, les études là-bas — comment tu comptes financer ça ?"
@@ -101,7 +101,7 @@
           "text": "Et tu vas te loger comment sur place — résidence étudiante, colocation ?"
         },
         {
-          "text": "Il me reste un point à éclaircir : qu'est-ce que tu espères en retirer — quels sont tes objectifs après ce diplôme ?"
+          "text": "Qu'est-ce que tu espères en retirer — quels sont tes objectifs après ces études ?"
         },
         {
           "text": "Tu penses rester travailler au Canada ensuite, ou revenir ?"
@@ -192,7 +192,7 @@
           "text": "Pour ce qui est des imprévus, elle sait réagir en cas de problème — elle a des notions de premiers secours ?"
         },
         {
-          "text": "Est-ce qu'elle prépare les repas, aide aux devoirs, ou juste la surveillance ?"
+          "text": "Est-ce qu'elle prépare les repas et aide aux devoirs, ou est-ce qu'elle assure seulement la surveillance ?"
         },
         {
           "text": "Et quelles sont ses disponibilités — plutôt en journée, le soir, le week-end ?"
@@ -201,7 +201,7 @@
           "text": "Est-ce qu'elle peut venir de façon régulière, ou seulement de temps en temps ?"
         },
         {
-          "text": "Elle se déplace à domicile, ou il faut amener les enfants chez elle ?"
+          "text": "Dans quel secteur se déplace-t-elle, et y a-t-il des frais de déplacement ?"
         },
         {
           "text": "Elle a des références, ou des personnes qui peuvent la recommander ?",
@@ -209,12 +209,12 @@
           "memory_section": 11
         },
         {
-          "text": "Dernier point pratique : est-ce qu'on peut la rencontrer une première fois pour voir si le courant passe ?",
+          "text": "Est-ce qu'on peut la rencontrer une première fois pour voir si le courant passe ?",
           "memory_number": 3,
           "memory_section": 11
         },
         {
-          "text": "Côté tarifs, comment ça fonctionne — c'est à l'heure ou au mois ?"
+          "text": "Côté tarifs, quels sont ses prix pour une garde ponctuelle ou régulière ?"
         },
         {
           "text": "Du coup, vous auriez ses coordonnées pour que je la contacte ?"
@@ -257,10 +257,10 @@
           "text": "Côté visites, il y a des marchés ou des petits villages sympas à découvrir tranquillement ?"
         },
         {
-          "text": "Y a-t-il des événements ce week-end, ou plutôt du calme ?"
+          "text": "Quels endroits risquent d'être plus animés le week-end ?"
         },
         {
-          "text": "Pour les repas, vous auriez des adresses à recommander — des spécialités locales à goûter absolument ? Il faut réserver une table à l'avance ou on peut y aller directement ?",
+          "text": "Pour les repas, vous auriez des adresses à recommander — des spécialités locales à goûter absolument ?",
           "memory_number": 7,
           "memory_section": 9
         },
@@ -268,7 +268,7 @@
           "text": "Côté hébergement, où me conseillez-vous de loger pour un week-end paisible ?"
         },
         {
-          "text": "C'est une bonne période pour visiter la région ou il vaut mieux attendre une autre saison ?",
+          "text": "Quelle période me conseillez-vous pour visiter la région au calme ?",
           "memory_number": 7,
           "memory_section": 8
         },
@@ -278,7 +278,7 @@
           "memory_section": 5
         },
         {
-          "text": "Une fois sur place, tout est accessible à pied, ou il faut prévoir des trajets ?"
+          "text": "Sur place, quelles visites peut-on faire à pied sans prévoir de longs trajets ?"
         },
         {
           "text": "En ce qui concerne le prix, quel budget faut-il prévoir à peu près pour un week-end ici ?"

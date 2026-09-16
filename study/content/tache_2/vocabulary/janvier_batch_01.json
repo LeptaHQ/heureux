@@ -555,7 +555,7 @@
           "kind": "mot-cle",
           "french": "un repas assis",
           "english": "a sit-down meal",
-          "example": "Et côté repas, qu'est-ce qui était prévu au menu — un repas assis ou un buffet ?",
+          "example": "Et côté repas, c'était un repas assis ou un buffet ?",
           "usage": "Formule où les invités sont servis à table."
         },
         {
@@ -563,7 +563,7 @@
           "kind": "mot-cle",
           "french": "un buffet",
           "english": "a buffet",
-          "example": "Et côté repas, qu'est-ce qui était prévu au menu — un repas assis ou un buffet ?",
+          "example": "Et côté repas, c'était un repas assis ou un buffet ?",
           "usage": "Formule où les plats sont présentés pour que chacun se serve."
         },
         {
@@ -595,7 +595,7 @@
           "kind": "collocation",
           "french": "des animations ou des surprises",
           "english": "entertainment or surprises",
-          "example": "En ce qui concerne la programmation, il y a eu des animations ou des surprises pendant la fête ?",
+          "example": "Est-ce qu'il y a eu des animations ou des surprises pendant la fête ?",
           "usage": "Association naturelle pour évoquer les moments organisés afin de divertir ou d'étonner les invités."
         },
         {
@@ -633,10 +633,10 @@
         {
           "id": "T2J1S3V18",
           "kind": "collocation",
-          "french": "prévu au menu",
-          "english": "planned for the menu",
-          "example": "Et côté repas, qu'est-ce qui était prévu au menu — un repas assis ou un buffet ?",
-          "usage": "Collocation naturelle pour interroger sur le repas annoncé."
+          "french": "se sont déroulées",
+          "english": "took place",
+          "example": "La cérémonie et la réception se sont déroulées au même endroit ?",
+          "usage": "Forme du verbe « se dérouler » pour raconter le déroulement d'événements passés."
         },
         {
           "id": "T2J1S3V19",
@@ -651,7 +651,7 @@
           "kind": "collocation",
           "french": "pendant la fête",
           "english": "during the party",
-          "example": "En ce qui concerne la programmation, il y a eu des animations ou des surprises pendant la fête ?",
+          "example": "Est-ce qu'il y a eu des animations ou des surprises pendant la fête ?",
           "usage": "Complément temporel pour situer une activité au cours de la célébration."
         },
         {
@@ -713,10 +713,10 @@
         {
           "id": "T2J1S3V28",
           "kind": "tournure",
-          "french": "Qu'est-ce qui était prévu",
-          "english": "what was planned",
-          "example": "Et côté repas, qu'est-ce qui était prévu au menu — un repas assis ou un buffet ?",
-          "usage": "Question passive utile pour demander le contenu d'un programme."
+          "french": "Et côté repas",
+          "english": "and as for the meal",
+          "example": "Et côté repas, c'était un repas assis ou un buffet ?",
+          "usage": "Introduction thématique pour passer à l'organisation du repas."
         },
         {
           "id": "T2J1S3V29",

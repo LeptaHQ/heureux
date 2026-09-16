@@ -22,7 +22,7 @@
           "memory_section": 2
         },
         {
-          "text": "Côté précautions, ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ? Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
           "memory_number": 8,
           "memory_section": 6
         },
@@ -62,7 +62,7 @@
           "memory_section": 3
         },
         {
-          "text": "Une fois inscrit(e), on s'engage pour toute la session ou on peut venir de manière flexible ?",
+          "text": "Une fois inscrit(e), on s'engage pour combien de temps ?",
           "memory_number": 8,
           "memory_section": 12
         },
@@ -191,7 +191,7 @@
           "memory_section": 2
         },
         {
-          "text": "C'est une publication canadienne nationale ou plutôt un journal local ?",
+          "text": "Y a-t-il des publications locales pour mieux connaître la ville ?",
           "memory_number": 10,
           "memory_section": 2
         },
@@ -216,7 +216,7 @@
           "memory_section": 6
         },
         {
-          "text": "Qu'est-ce qu'on apprend concrètement — c'est plutôt informatif, pratique, ou un mélange des deux ?",
+          "text": "Est-ce qu'on y trouve aussi des informations pratiques pour la vie quotidienne ?",
           "memory_number": 10,
           "memory_section": 2
         },
@@ -226,7 +226,7 @@
           "memory_section": 4
         },
         {
-          "text": "Vous avez mentionné un quotidien en particulier — vous pourriez m'en dire un peu plus : il paraît tous les jours ?",
+          "text": "Pour les quotidiens que vous proposez, y a-t-il aussi une édition le dimanche ?",
           "memory_number": 10,
           "memory_section": 13
         },
@@ -246,7 +246,7 @@
           "memory_section": 3
         },
         {
-          "text": "Pour finir — si vous ne deviez me recommander qu'une seule lecture, ce serait laquelle ?",
+          "text": "Pour finir — peut-on acheter un numéro pour essayer avant de prendre un abonnement ?",
           "memory_number": 10,
           "memory_section": 13
         }
@@ -410,7 +410,7 @@
           "memory_section": 3
         },
         {
-          "text": "D'accord, je vais réfléchir à votre offre et vous donner une réponse rapidement — si j'ai encore une question, je peux vous recontacter ?",
+          "text": "D'accord — si j'ai encore une question, je peux vous recontacter ?",
           "memory_number": 6,
           "memory_section": 13
         }

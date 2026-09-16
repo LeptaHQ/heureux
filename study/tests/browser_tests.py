@@ -188,6 +188,62 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertTrue(fits, f"{self.page.url}: {overflowing}")
 
+    def assert_compact_collection_toolbar(self):
+        toolbar = self.page.locator("[data-collection-toolbar]")
+        expect(toolbar).to_have_count(1)
+        expect(toolbar.locator(".progress, [role='progressbar']")).to_have_count(0)
+        geometry = toolbar.evaluate(
+            """
+            toolbar => {
+              const bounds = toolbar.getBoundingClientRect();
+              const controls = [...toolbar.querySelectorAll(
+                "button, a.btn, input[type='search'], [data-collection-progress]"
+              )].map(element => {
+                const rect = element.getBoundingClientRect();
+                return {
+                  width: rect.width, height: rect.height,
+                  top: rect.top, bottom: rect.bottom,
+                  left: rect.left, right: rect.right,
+                };
+              });
+              return {
+                bounds: {left: bounds.left, right: bounds.right, height: bounds.height},
+                controls,
+                hasSearch: !!toolbar.querySelector("input[type='search']"),
+                inputWidth: toolbar.querySelector("input[type='search']")
+                  ?.getBoundingClientRect().width,
+                nestedForms: toolbar.querySelectorAll("form form").length,
+              };
+            }
+            """
+        )
+        self.assertEqual(geometry["nestedForms"], 0)
+        controls = geometry["controls"]
+        for index, control in enumerate(controls):
+            self.assertGreaterEqual(control["height"], 44)
+            self.assertGreaterEqual(control["left"], geometry["bounds"]["left"] - 1)
+            self.assertLessEqual(control["right"], geometry["bounds"]["right"] + 1)
+            for other in controls[index + 1:]:
+                overlaps = (
+                    control["left"] < other["right"] - 1
+                    and control["right"] > other["left"] + 1
+                    and control["top"] < other["bottom"] - 1
+                    and control["bottom"] > other["top"] + 1
+                )
+                self.assertFalse(overlaps, f"{self.page.url}: {geometry}")
+        if self.page.viewport_size["width"] > 760:
+            self.assertLessEqual(geometry["bounds"]["height"], 48)
+            self.assertLessEqual(
+                max(control["top"] for control in controls)
+                - min(control["top"] for control in controls),
+                2,
+            )
+        elif geometry["hasSearch"]:
+            self.assertLessEqual(geometry["bounds"]["height"], 100)
+        if geometry["hasSearch"]:
+            self.assertGreaterEqual(geometry["inputWidth"], 180)
+        self.assert_no_horizontal_overflow()
+
     def assert_no_theme_vocabulary_action_overlap(self, card):
         overlapping_text = card.evaluate(
             """
@@ -517,6 +573,41 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(self.page.locator('textarea[name="body"]')).to_have_value(body)
         expect(self.page.get_by_role("button", name="Supprimer ma version", exact=True)).to_have_count(0)
 
+    def test_ee2_article_title_is_in_the_answer_and_copy_without_losing_highlights(self):
+        tasks = self._import_ee_writing_content()
+        sujet = tasks[2].writing_sujets.get(slug="janvier-combinaison-6")
+        body = sujet.model_versions[1]["body"]
+        title, _, old_body = body.partition("\n\n")
+        quote = "vallée du Douro"
+        start = old_body.index(quote)
+        path = reverse("study:writing_sujet_detail", args=["ee", "tache-2", sujet.pk])
+        Annotation.objects.create(
+            user=self.user, task=tasks[2], kind=AnnotationKind.HIGHLIGHT,
+            source_path=path, source_key=f"writing-sujet:{sujet.pk}:model-2",
+            quote=quote, start_offset=start, end_offset=start + len(quote),
+            prefix=old_body[max(0, start - 160):start],
+            suffix=old_body[start + len(quote):start + len(quote) + 160],
+        )
+        self.context.add_init_script("""
+            Object.defineProperty(navigator, "clipboard", {
+              configurable: true,
+              value: {writeText: text => {window.__answerCopy = text; return Promise.resolve();}}
+            });
+        """)
+        self.page.goto(self.live_server_url + path)
+        root = self.page.locator(
+            f'[data-annotation-root][data-annotation-source-key="writing-sujet:{sujet.pk}:model-2"]'
+        )
+        root.locator("xpath=ancestor::details[1]").locator(":scope > summary").click()
+        expect(root.locator("p").first).to_have_text(title)
+        expect(root.locator("mark.user-highlight")).to_have_text(quote)
+        self.page.locator(
+            '[data-prompt-copy-source="ee-writing-response-content"][data-prompt-copy-key="model-2"]'
+        ).click()
+        self.page.wait_for_function("window.__answerCopy !== undefined")
+        self.assertEqual(self.page.evaluate("window.__answerCopy"), body)
+        self.assert_no_horizontal_overflow()
+
     def test_task_three_copies_the_complete_answer_without_source_documents(self):
         self.context.add_init_script(
             """
@@ -729,6 +820,14 @@ class BrowserTests(StaticLiveServerTestCase):
                 self.page.goto(url)
                 rows = self.page.locator("[data-subject-collection-row]")
                 self.assertEqual(rows.count(), count)
+                progress_total = 163 if (part, tache) == ("eo", 2) else count
+                expect(self.page.locator(
+                    "[data-collection-progress-value]"
+                )).to_have_text(f"0/{progress_total}")
+                for width in (320, 390, 760, 900, 1183, 1292):
+                    with self.subTest(header_width=width):
+                        self.page.set_viewport_size({"width": width, "height": 844})
+                        self.assert_compact_collection_toolbar()
                 self.assertEqual(rows.locator("a").count(), count)
                 self.assertEqual(rows.locator("form").count(), count)
                 self.assertEqual(rows.get_by_role("checkbox").count(), count)
@@ -888,6 +987,33 @@ class BrowserTests(StaticLiveServerTestCase):
                     equivalents.locator('button[aria-checked="true"]').count(),
                     equivalents.count(),
                 )
+                completed = 1 if (part, tache) == ("eo", 2) else equivalents.count()
+                expect(self.page.locator(
+                    "[data-collection-progress-value]"
+                )).to_have_text(f"{completed}/{progress_total}")
+
+        first_ee3_prompt = Prompt.objects.filter(
+            theme__task__part__slug="ee", theme__task__slug="tache-3"
+        ).select_related("theme__task__part").first()
+        month = content.load_tache_two_subject_months()[0]
+        batch = month.batches[0]
+        other_directories = [
+            reverse("study:task_phrases", args=[part, f"tache-{tache}"])
+            for part, tache in (("eo", 2), ("eo", 3), ("ee", 1), ("ee", 3))
+        ] + [
+            reverse("study:task_memories", args=["ee", "tache-3"]),
+            reverse("study:task_subject_batch", args=[
+                "eo", "tache-2", month.slug, batch.number,
+            ]),
+            theme_detail_url(first_ee3_prompt.theme),
+        ]
+        for path in other_directories:
+            self.page.goto(self.live_server_url + path)
+            expect(self.page.locator("[data-collection-progress-value]")).to_have_count(1)
+            for width in (320, 390, 900, 1292):
+                with self.subTest(path=path, width=width):
+                    self.page.set_viewport_size({"width": width, "height": 844})
+                    self.assert_compact_collection_toolbar()
 
     def test_nested_oral_families_keep_independent_disclosures_sorting_and_progress(self):
         first = self.first.response.prompts.get(is_canonical=True)
@@ -967,6 +1093,82 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(row.get_by_role("checkbox")).to_be_checked()
         expect(row.locator(".progress-status")).to_have_text("Terminé")
         self.assert_no_horizontal_overflow()
+
+    def assert_writing_methodology_layout(self):
+        dialog = self.page.locator("#writing-methodology-dialog")
+        body = dialog.locator(".methodology-dialog__body")
+        box = dialog.bounding_box()
+        viewport = self.page.viewport_size
+        self.assertGreaterEqual(box["x"], 0)
+        self.assertGreaterEqual(box["y"], 0)
+        self.assertLessEqual(box["x"] + box["width"], viewport["width"])
+        self.assertLessEqual(box["y"] + box["height"], viewport["height"])
+        self.assertTrue(body.evaluate(
+            "element => element.scrollWidth <= element.clientWidth"
+        ))
+        self.assertTrue(body.evaluate(
+            "element => element.scrollHeight > element.clientHeight"
+        ))
+        self.assertEqual(dialog.locator("a").count(), 0)
+        self.assertIsNone(dialog.evaluate(
+            "element => element.closest('.memory-overview-hero')"
+        ))
+        close = dialog.get_by_role("button", name="Fermer la méthodologie")
+        self.assertGreaterEqual(close.bounding_box()["width"], 44)
+        self.assertGreaterEqual(close.bounding_box()["height"], 44)
+
+    def test_writing_methodology_opens_locally_and_restores_focus(self):
+        self._import_ee_writing_content()
+        self._import_ee_tache_three_content()
+        self.page.emulate_media(reduced_motion="reduce")
+        for tache, limits in ((1, "60–120"), (2, "120–150"), (3, "120–180")):
+            for route in ("study:task_detail", "study:task_browse"):
+                url = self.live_server_url + reverse(route, args=["ee", f"tache-{tache}"])
+                for width in (1292, 390, 320):
+                    with self.subTest(tache=tache, route=route, width=width):
+                        self.page.set_viewport_size({"width": width, "height": 844})
+                        self.page.goto(url)
+                        self.assertNotIn("formation-tcfcanada", self.page.content())
+                        self.assertNotIn("reussir-tcf", self.page.content())
+                        trigger = self.page.get_by_role("button", name="Méthodologie", exact=True)
+                        dialog = self.page.locator("#writing-methodology-dialog")
+                        expect(dialog).to_be_hidden()
+                        trigger.focus()
+                        trigger.press("Enter")
+                        expect(dialog).to_be_visible()
+                        self.assertTrue(dialog.evaluate("element => element.matches(':modal')"))
+                        expect(dialog).to_have_attribute("data-writing-methodology", str(tache))
+                        expect(dialog.locator(".methodology-dialog__lead")).to_contain_text(limits)
+                        self.assert_writing_methodology_layout()
+                        close = dialog.get_by_role("button", name="Fermer la méthodologie")
+                        body = dialog.locator(".methodology-dialog__body")
+                        expect(close).to_be_focused()
+                        self.page.keyboard.press("Tab")
+                        expect(body).to_be_focused()
+                        background_scroll = self.page.evaluate("window.scrollY")
+                        body.press("End")
+                        self.page.wait_for_function(
+                            "() => document.querySelector('.methodology-dialog__body').scrollTop > 0"
+                        )
+                        self.assertEqual(self.page.evaluate("window.scrollY"), background_scroll)
+                        self.page.keyboard.press("Tab")
+                        # Native dialogs allow browser chrome in the tab cycle, not background controls.
+                        if not self.page.evaluate("document.hasFocus()"):
+                            self.page.keyboard.press("Tab")
+                        expect(close).to_be_focused()
+                        close.press("Escape")
+                        expect(dialog).to_be_hidden()
+                        expect(trigger).to_be_focused()
+                        trigger.click()
+                        close.click()
+                        expect(dialog).to_be_hidden()
+                        expect(trigger).to_be_focused()
+                        trigger.click()
+                        self.page.mouse.click(2, 2)
+                        expect(dialog).to_be_hidden()
+                        expect(trigger).to_be_focused()
+                        self.assertEqual(self.page.url, url)
+                        self.assertEqual(len(self.context.pages), 1)
 
     def test_oral_directory_deep_links_and_deduplication_keep_navigation_and_progress(self):
         prompt = self.first.response.prompts.get(is_canonical=True)
@@ -1792,7 +1994,7 @@ class BrowserTests(StaticLiveServerTestCase):
                     self.assertIn("deduplicate=0", self.page.url)
                     expect(toggle).to_have_attribute("aria-pressed", "false")
 
-    def test_oral_original_model_copy_and_changed_text_highlight_recovery(self):
+    def test_oral_current_response_has_no_version_panel_and_keeps_annotations(self):
         self._import_eo_tache_three_content()
         source = next(
             response for response in content.parse_responses()
@@ -1801,17 +2003,12 @@ class BrowserTests(StaticLiveServerTestCase):
         prompt = Prompt.objects.select_related("theme__task__part", "response").get(
             content_key=source.prompts[-1].content_key,
         )
-        self.context.add_init_script("""
-            Object.defineProperty(navigator, "clipboard", {
-              configurable: true,
-              value: {writeText: text => {window.__oralCopy = text; return Promise.resolve();}}
-            });
-        """)
         url = prompt_detail_url(prompt)
-        self.page.goto(self.live_server_url + url + "?model=1")
-        self.page.locator('[data-prompt-copy-source="oral-response-copy"]').click()
-        self.page.wait_for_function("window.__oralCopy")
-        self.assertIn(prompt.model_content["position"], self.page.evaluate("window.__oralCopy"))
+        self.page.goto(self.live_server_url + url)
+        expect(self.page.get_by_role("heading", name="Versions du sujet")).to_have_count(0)
+        expect(self.page.get_by_role("link", name="Historique et versions conservées")).to_have_count(0)
+        expect(self.page.locator('[data-prompt-copy-source="oral-response-copy"]')).to_have_count(0)
+        expect(self.page.locator("#oral-response-copy")).to_have_count(0)
         self.assertNotIn("is-personalized", self.page.locator("body").get_attribute("class") or "")
         source_data = self.page.locator(".answer-columns[data-annotation-root]").first.evaluate("""
             root => {
@@ -1840,8 +2037,25 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.page.goto(self.live_server_url + url)
         expect(self.page.locator("mark.user-highlight")).to_have_count(0)
-        self.page.get_by_role("link", name="Historique et versions conservées", exact=True).click()
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:task_notes", args=["eo", "tache-3"])
+            + "?tab=highlights"
+        )
         expect(self.page.get_by_text(source_data["quote"], exact=True)).to_be_visible()
+
+        task = self._import_eo_tache_two_content()
+        single = next(group for group in content.parse_tache_two_responses() if len(group.prompts) == 1)
+        prompt = Prompt.objects.select_related("theme__task__part").get(
+            content_key=single.prompts[0].content_key, theme__task=task
+        )
+        self.page.goto(self.live_server_url + prompt_detail_url(prompt))
+        expect(self.page.locator(".tache-two-question-section")).to_be_visible()
+        expect(self.page.get_by_role("heading", name="Versions du sujet")).to_have_count(0)
+        expect(self.page.get_by_role("link", name="Historique et versions conservées")).to_have_count(0)
+        expect(self.page.locator('[data-prompt-copy-source="oral-response-copy"]')).to_have_count(0)
+        expect(self.page.locator("#oral-response-copy")).to_have_count(0)
+        expect(self.page.get_by_role("button", name="Copier la consigne")).to_be_visible()
 
     def test_ee_tache_one_rows_navigate_without_completion_click_through(self):
         ee_part = factories.make_part("ee")
@@ -3103,7 +3317,7 @@ class BrowserTests(StaticLiveServerTestCase):
                     page.evaluate("window.innerWidth") + 1,
                 )
                 self.assertTrue(hints.is_visible())
-            page.goto(self.live_server_url + prompt_detail_url(alias) + "?deduplicate=0&model=1")
+            page.goto(self.live_server_url + prompt_detail_url(alias) + "?deduplicate=0")
             page.get_by_role("heading", name="Hints", exact=True).wait_for()
             self.assertEqual(hints.inner_text(), original)
             self.assertEqual(page.locator("#subject-vocabulary").count(), 0)
@@ -3477,11 +3691,10 @@ class BrowserTests(StaticLiveServerTestCase):
                 '.memory-overview > .memory-overview-hero'
               ).getBoundingClientRect();
               const progress = document.querySelector(
-                '.task-vocabulary-directory__toolbar > '
-                + '.tache-two-progress-summary'
+                '[data-collection-progress]'
               ).getBoundingClientRect();
               const toolbar = document.querySelector(
-                '.task-vocabulary-directory__toolbar > '
+                '[data-collection-toolbar] > '
                 + '.collection-view-toolbar'
               ).getBoundingClientRect();
               return {
@@ -3826,8 +4039,8 @@ class BrowserTests(StaticLiveServerTestCase):
             response_detail_url(self.first.response),
         )
 
-    def save_current_prompt_highlight(self):
-        prompt = self.page.locator("#card-front .prompt-text")
+    def save_current_prompt_highlight(self, target=None):
+        prompt = target if target is not None else self.page.locator("#card-front .prompt-text")
         prompt.evaluate(
             """
             element => {
@@ -3849,8 +4062,8 @@ class BrowserTests(StaticLiveServerTestCase):
             self.page.locator("[data-highlight-selection]").click()
         self.assertIn(response_info.value.status, (200, 201))
 
-    def select_prompt(self, *, start=None, end=None):
-        prompt = self.page.locator("#card-front .prompt-text")
+    def select_prompt(self, *, start=None, end=None, target=None):
+        prompt = target if target is not None else self.page.locator("#card-front .prompt-text")
         prompt.evaluate(
             """
             (element, offsets) => {
@@ -5230,6 +5443,90 @@ class BrowserTests(StaticLiveServerTestCase):
         saved.refresh_from_db()
         self.assertEqual(saved.quote, quote)
 
+    def test_eo2_personalization_only_resets_highlights_on_changed_text(self):
+        self._import_eo_tache_two_content()
+        prompt = Prompt.objects.select_related("response", "theme__task__part").get(
+            content_key="tache2:janvier:batch-01:subject-01",
+        )
+        self.assertTrue(prompt.response.semantic_group)
+        detail_url = self.live_server_url + prompt_detail_url(prompt)
+        edit_url = self.live_server_url + reverse(
+            "study:edit_response", args=["eo", "tache-2", prompt.pk],
+        )
+        review_url = (
+            self.live_server_url + reverse("study:review")
+            + f"?kind=spine&response={prompt.response_id}&prompt={prompt.pk}&reset=1"
+        )
+        self.page.set_viewport_size({"width": 1183, "height": 844})
+        self.page.goto(detail_url)
+        questions = self.page.locator("[data-question-highlight-text]")
+        for number in (0, 1, 2):
+            self.save_current_prompt_highlight(questions.nth(number))
+        self.assertEqual(Annotation.objects.filter(user=self.user).count(), 3)
+        legacy = Annotation.objects.filter(user=self.user).latest("pk")
+        legacy.source_key = "tache-two:janvier:batch-1:subject-1"
+        legacy.save(update_fields=["source_key"])
+
+        self.page.goto(edit_url)
+        with self.page.expect_navigation():
+            self.page.locator(".response-edit button[type='submit']").click()
+        for number in (0, 1, 2):
+            expect(questions.nth(number).locator("mark.user-highlight")).to_have_count(1)
+
+        self.page.goto(review_url)
+        self.page.locator("#card-front .prompt-text").wait_for()
+        self.save_current_prompt_highlight()
+        self.page.locator("#reveal").click()
+        self.save_current_prompt_highlight(
+            self.page.locator("#card-back [data-question-highlight-text='2']")
+        )
+        self.page.goto(edit_url)
+        self.page.locator("[name='questions-0-question']").fill(
+            "Quel budget faut-il prévoir pour toute une semaine avec les enfants ?"
+        )
+        self.page.locator("[name='questions-1-response']").fill("Le samedi matin me convient.")
+        with self.page.expect_navigation():
+            self.page.locator(".response-edit button[type='submit']").click()
+        expect(questions.nth(0).locator("mark.user-highlight")).to_have_count(0)
+        for number in (1, 2):
+            expect(questions.nth(number).locator("mark.user-highlight")).to_have_count(1)
+        self.assertEqual(Annotation.objects.filter(user=self.user).count(), 5)
+
+        self.page.goto(review_url)
+        expect(self.page.locator("#card-front .prompt-text mark.user-highlight")).to_have_count(1)
+        self.page.locator("#reveal").click()
+        expect(self.page.locator(
+            "#card-back [data-question-highlight-text='2'] mark.user-highlight"
+        )).to_have_count(1)
+        self.page.goto(detail_url)
+        prepared = self.page.locator("[data-question-highlight-response='2']")
+        self.save_current_prompt_highlight(prepared)
+        self.page.goto(edit_url)
+        self.page.locator("[name='questions-2-question']").fill("Où peut-on se retrouver demain ?")
+        with self.page.expect_navigation():
+            self.page.locator(".response-edit button[type='submit']").click()
+        expect(prepared.locator("mark.user-highlight")).to_have_count(1)
+        expect(questions.nth(1).locator("mark.user-highlight")).to_have_count(1)
+        expect(questions.nth(2).locator("mark.user-highlight")).to_have_count(0)
+        self.assertEqual(Annotation.objects.filter(user=self.user).count(), 6)
+
+        self.page.goto(edit_url)
+        self.page.locator("[name='questions-1-response']").fill("Le dimanche soir, finalement.")
+        with self.page.expect_navigation():
+            self.page.locator(".response-edit button[type='submit']").click()
+        expect(prepared.locator("mark.user-highlight")).to_have_count(0)
+        expect(questions.nth(1).locator("mark.user-highlight")).to_have_count(1)
+        self.assertEqual(Annotation.objects.filter(user=self.user).count(), 6)
+        self.select_prompt(target=questions.nth(1))
+        toggle = self.page.locator("[data-highlight-selection]")
+        expect(toggle).to_have_attribute("aria-label", "Unhighlight selected text")
+        with self.page.expect_response(
+            lambda result: "/notes/" in result.url and "/supprimer/" in result.url
+        ):
+            toggle.click()
+        expect(questions.nth(1).locator("mark.user-highlight")).to_have_count(0)
+        self.assertEqual(Annotation.objects.filter(user=self.user).count(), 5)
+
     def test_mobile_review_recovers_a_rotated_presentation_token(self):
         self.page.goto(
             self.live_server_url
@@ -5785,7 +6082,7 @@ class BrowserTests(StaticLiveServerTestCase):
         url = (
             self.live_server_url
             + reverse("study:task_search", args=["ee", "tache-1"])
-            + "?q=pays&scope=subjects"
+            + "?q=pays&scope=subjects&deduplicate=0"
         )
         self.page.goto(url)
         equivalents = self.page.locator(
@@ -5797,6 +6094,7 @@ class BrowserTests(StaticLiveServerTestCase):
 
         for width in (1280, 900, 620, 390, 320):
             self.page.set_viewport_size({"width": width, "height": 900})
+            self.assert_compact_collection_toolbar()
             for mode in ("Tableau", "Cartes"):
                 self.page.get_by_role("button", name=mode, exact=True).click()
                 issues = self.page.locator(

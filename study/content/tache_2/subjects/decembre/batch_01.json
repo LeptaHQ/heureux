@@ -81,7 +81,7 @@
           "text": "Avant que j'oublie, il y a quelque chose de fragile ou de réglementé à l'intérieur ?"
         },
         {
-          "text": "Il faut garder le colis au chaud ou à l'abri ? Il y a des conditions de transport particulières ?"
+          "text": "Il y a des conditions de transport particulières à respecter ?"
         },
         {
           "text": "D'ailleurs, le colis est déjà bien fermé et l'étiquette est déjà prête ?"
@@ -99,22 +99,22 @@
           "text": "C'est urgent au point de devoir partir aujourd'hui, ou ça peut attendre un peu plus tard dans la semaine ?"
         },
         {
-          "text": "Tu préfères que je passe par La Poste ou par un autre service de livraison ?"
+          "text": "Tu préfères que je passe par la poste ou par un autre service de livraison ?"
         },
         {
-          "text": "Tu veux un envoi standard, express, suivi ou assuré ?"
+          "text": "Tu veux un envoi standard ou express, avec suivi ou assurance ?"
         },
         {
           "text": "En ce qui concerne le budget, tu veux que je prévoie combien d'argent pour les frais d'envoi ?"
         },
         {
-          "text": "Il y a des consignes particulières à transmettre au destinataire ?"
+          "text": "Où est le point de dépôt, et combien de temps faut-il prévoir pour y aller ?"
         },
         {
           "text": "En cas de souci, s'il y a un problème au guichet, tu veux que je fasse quoi ?"
         },
         {
-          "text": "Après, je peux te laisser le reçu où ? Et tu me rembourseras les frais d'envoi comment ?"
+          "text": "Si je peux m'en occuper, tu me donnes l'argent à l'avance ou tu préfères me rembourser ?"
         }
       ]
     },
@@ -124,7 +124,7 @@
       "prompt": "Je suis votre ami(e). Je vous invite à l'anniversaire de ma sœur. Vous me posez des questions sur elle pour savoir quel cadeau lui offrir (goûts, activités, personnalité, etc.).",
       "questions": [
         {
-          "text": "Salut ! Merci de m'inviter — ta sœur fête bientôt son anniversaire, et je cherche un cadeau, tu pourrais m'aider à trouver une idée ?",
+          "text": "Salut ! Ta sœur fête bientôt son anniversaire et je cherche un cadeau — tu pourrais m'aider à trouver une idée ?",
           "memory_number": 11,
           "memory_section": 13
         },
@@ -139,7 +139,7 @@
           "memory_section": 7
         },
         {
-          "text": "Comment est son caractère — plutôt discrète, ou elle aime qu'on lui fasse une surprise ?",
+          "text": "Comment est son caractère — est-ce qu'elle aime qu'on lui fasse une surprise ?",
           "memory_number": 11,
           "memory_section": 7
         },
@@ -149,7 +149,7 @@
           "memory_section": 7
         },
         {
-          "text": "Tu as mentionné qu'elle aimait quelque chose en particulier — tu pourrais m'en dire un peu plus : c'est un loisir qu'elle pratique souvent ?",
+          "text": "Parmi ses loisirs, lequel pratique-t-elle le plus souvent ?",
           "memory_number": 11,
           "memory_section": 13
         },
@@ -169,7 +169,7 @@
           "memory_section": 11
         },
         {
-          "text": "Il y a des choses qu'elle a déjà, pour éviter de lui offrir la même chose ?",
+          "text": "Pour éviter de lui offrir la même chose, y a-t-il des cadeaux qu'elle a déjà reçus récemment ?",
           "memory_number": 11,
           "memory_section": 8
         },
@@ -209,7 +209,7 @@
           "text": "Salut ! Je voudrais commencer une nouvelle série mais je ne sais pas laquelle choisir — tu aurais des idées à me conseiller ?"
         },
         {
-          "text": "Qu'est-ce que tu as regardé récemment et que tu as vraiment aimé ?",
+          "text": "Quelle série as-tu regardée récemment et vraiment aimée ?",
           "memory_number": 9,
           "memory_section": 11
         },
@@ -251,10 +251,10 @@
           "text": "Pour ce qui est de la langue, elle est disponible en version française, ou seulement en version originale sous-titrée ?"
         },
         {
-          "text": "Dernier point pratique : toi, qu'est-ce que tu en as pensé — tu l'as regardée jusqu'au bout ?"
+          "text": "Et toi, qu'est-ce qui t'a le plus plu dans les épisodes que tu as vus ?"
         },
         {
-          "text": "Pour finir — parmi toutes celles-là, laquelle tu me recommandes vraiment de commencer ?"
+          "text": "Pour finir — tu aurais une autre série à me conseiller pour comparer ?"
         }
       ]
     },

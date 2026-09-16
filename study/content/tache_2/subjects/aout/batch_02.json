@@ -37,7 +37,7 @@
           "memory_section": 3
         },
         {
-          "text": "Plus largement, qu'est-ce qu'on peut faire de sympa sans rien dépenser dans le coin ?"
+          "text": "Quelles activités on pourrait combiner dans une même sortie sans trop se déplacer ?"
         },
         {
           "text": "Est-ce qu'il y a des événements ou des animations gratuits en ce moment ?",
@@ -50,12 +50,12 @@
           "memory_section": 2
         },
         {
-          "text": "Il vaut mieux y aller à quel moment pour éviter la foule ?",
+          "text": "Pour les endroits que tu me conseilles, à quel moment vaut-il mieux y aller pour éviter la foule ?",
           "memory_number": 9,
           "memory_section": 8
         },
         {
-          "text": "En ce qui concerne la réservation, il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "text": "Parmi ces activités, lesquelles demandent une réservation ?",
           "memory_number": 9,
           "memory_section": 6
         },
@@ -75,7 +75,7 @@
           "memory_section": 3
         },
         {
-          "text": "Parlons du budget — combien est-ce que ça coûte approximativement ?",
+          "text": "Parlons du budget — combien faut-il prévoir au total pour une sortie, transport et repas compris ?",
           "memory_number": 9,
           "memory_section": 3
         },
@@ -254,7 +254,7 @@
       "prompt": "Nous attendons dans une salle d'attente sans nous connaître ; le train a du retard et nous discutons. Je vous confie ma passion pour la montagne et vous m'interrogez à ce sujet : les endroits, les activités et le matériel.",
       "questions": [
         {
-          "text": "Quelle coïncidence de se croiser ici, en gare ! Vous m'avez dit que vous étiez passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
+          "text": "Vous êtes passionné(e) par la montagne — vous pratiquez depuis longtemps ?",
           "memory_number": 8,
           "memory_section": 13
         },

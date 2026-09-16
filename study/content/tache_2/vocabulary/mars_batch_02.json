@@ -41,16 +41,16 @@
           "kind": "mot-cle",
           "french": "les billets",
           "english": "the tickets",
-          "example": "Côté inscription, il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
+          "example": "Pour les billets, il faut réserver à l'avance ou on peut les acheter sur place le jour même ?",
           "usage": "Titres d'accès qu'on achète pour une séance."
         },
         {
           "id": "T2M3S6V06",
           "kind": "mot-cle",
-          "french": "des places",
-          "english": "seats/tickets",
-          "example": "Il reste encore des places ou les séances sont souvent complètes pendant les vacances ?",
-          "usage": "Désigne la disponibilité restante pour une séance."
+          "french": "complètes",
+          "english": "fully booked",
+          "example": "Certaines séances sont-elles souvent complètes pendant les vacances ?",
+          "usage": "Adjectif féminin pluriel indiquant qu'il ne reste plus de places pour les séances."
         },
         {
           "id": "T2M3S6V07",
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "des boissons",
           "english": "drinks",
-          "example": "Question repas, est-ce qu'on peut acheter du popcorn et des boissons sur place avant la séance ?",
+          "example": "Et sur place, est-ce qu'on peut acheter du popcorn et des boissons avant la séance ?",
           "usage": "Terme général pour les rafraîchissements vendus sur place."
         },
         {
@@ -81,7 +81,7 @@
           "kind": "mot-cle",
           "french": "des séances",
           "english": "showtimes",
-          "example": "À quelle heure ça commence — il y a des séances l'après-midi ou seulement en soirée ?",
+          "example": "Quels sont les horaires des séances — l'après-midi ou seulement en soirée ?",
           "usage": "Désigne les créneaux de projection proposés dans la journée."
         },
         {
@@ -103,10 +103,10 @@
         {
           "id": "T2M3S6V13",
           "kind": "collocation",
-          "french": "acheter les billets",
-          "english": "buy the tickets",
-          "example": "Côté inscription, il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
-          "usage": "Collocation verbe-objet pour l'achat concret d'un titre d'entrée."
+          "french": "les acheter sur place",
+          "english": "buy them on site",
+          "example": "Pour les billets, il faut réserver à l'avance ou on peut les acheter sur place le jour même ?",
+          "usage": "Groupe verbal qui précise où acheter les billets."
         },
         {
           "id": "T2M3S6V14",
@@ -137,7 +137,7 @@
           "kind": "collocation",
           "french": "sur place",
           "english": "on-site / in person",
-          "example": "Côté inscription, il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
+          "example": "Pour les billets, il faut réserver à l'avance ou on peut les acheter sur place le jour même ?",
           "usage": "Précise que l'action se fait directement au lieu concerné."
         },
         {
@@ -145,7 +145,7 @@
           "kind": "collocation",
           "french": "le jour même",
           "english": "on the same day",
-          "example": "Côté inscription, il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
+          "example": "Pour les billets, il faut réserver à l'avance ou on peut les acheter sur place le jour même ?",
           "usage": "Souligne l'absence de délai entre la décision et l'achat."
         },
         {
@@ -161,7 +161,7 @@
           "kind": "collocation",
           "french": "acheter du popcorn",
           "english": "buy popcorn",
-          "example": "Question repas, est-ce qu'on peut acheter du popcorn et des boissons sur place avant la séance ?",
+          "example": "Et sur place, est-ce qu'on peut acheter du popcorn et des boissons avant la séance ?",
           "usage": "Collocation courante pour parler des snacks vendus au cinéma."
         },
         {
@@ -183,10 +183,10 @@
         {
           "id": "T2M3S6V23",
           "kind": "tournure",
-          "french": "À quelle heure ça commence",
-          "english": "what time does it start",
-          "example": "À quelle heure ça commence — il y a des séances l'après-midi ou seulement en soirée ?",
-          "usage": "Question orale directe sur un horaire, sans inversion complexe."
+          "french": "Quels sont les horaires des séances",
+          "english": "what are the screening times",
+          "example": "Quels sont les horaires des séances — l'après-midi ou seulement en soirée ?",
+          "usage": "Question directe avec « quels » pour demander les heures des séances."
         },
         {
           "id": "T2M3S6V24",
@@ -201,16 +201,16 @@
           "kind": "tournure",
           "french": "Il faut réserver à l'avance ou on peut",
           "english": "do you need to book in advance or can you",
-          "example": "Côté inscription, il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
+          "example": "Pour les billets, il faut réserver à l'avance ou on peut les acheter sur place le jour même ?",
           "usage": "Structure impersonnelle de nécessité opposée à une alternative."
         },
         {
           "id": "T2M3S6V26",
           "kind": "tournure",
-          "french": "Il reste encore",
-          "english": "there are still... left",
-          "example": "Il reste encore des places ou les séances sont souvent complètes pendant les vacances ?",
-          "usage": "Tournure existentielle pour indiquer une quantité restante."
+          "french": "sont-elles souvent complètes",
+          "english": "are they often fully booked",
+          "example": "Certaines séances sont-elles souvent complètes pendant les vacances ?",
+          "usage": "Question avec inversion pour demander si les séances affichent souvent complet."
         },
         {
           "id": "T2M3S6V27",
@@ -239,10 +239,10 @@
         {
           "id": "T2M3S6V30",
           "kind": "tournure",
-          "french": "si tu ne devais me recommander qu'une seule chose",
-          "english": "if you had to recommend just one thing",
-          "example": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
-          "usage": "Hypothèse restrictive à l'imparfait pour clore la conversation."
+          "french": "quel film me recommanderais-tu",
+          "english": "which film would you recommend to me",
+          "example": "Pour finir — quel film me recommanderais-tu pour aujourd'hui ?",
+          "usage": "Question au conditionnel pour demander une recommandation personnelle."
         }
       ]
     },
@@ -310,7 +310,7 @@
           "kind": "mot-cle",
           "french": "des choses à faire",
           "english": "things to do",
-          "example": "Deuxième point : quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
+          "example": "Quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
           "usage": "Expression générale pour désigner les activités possibles."
         },
         {
@@ -334,7 +334,7 @@
           "kind": "collocation",
           "french": "au bord de la mer",
           "english": "at the seaside",
-          "example": "Salut ! Tu as passé des vacances formidables au bord de la mer — j'aimerais faire le même type de séjour, tu pourrais me donner quelques infos ?",
+          "example": "Salut ! Tu as passé des vacances au bord de la mer — j'aimerais faire le même type de séjour, tu pourrais me donner quelques infos ?",
           "usage": "Collocation géographique très fréquente pour situer des vacances."
         },
         {
@@ -342,16 +342,16 @@
           "kind": "collocation",
           "french": "faire le même type de séjour",
           "english": "do the same kind of trip",
-          "example": "Salut ! Tu as passé des vacances formidables au bord de la mer — j'aimerais faire le même type de séjour, tu pourrais me donner quelques infos ?",
+          "example": "Salut ! Tu as passé des vacances au bord de la mer — j'aimerais faire le même type de séjour, tu pourrais me donner quelques infos ?",
           "usage": "Exprime le souhait de reproduire une expérience de vacances."
         },
         {
           "id": "T2M3S7V13",
           "kind": "collocation",
-          "french": "attendre une autre saison",
-          "english": "wait for another season",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Suggère de reporter un voyage à une période plus favorable."
+          "french": "la meilleure période",
+          "english": "the best time",
+          "example": "Quelle est la meilleure période pour y aller ?",
+          "usage": "Association nom-adjectif pour choisir un moment favorable au voyage."
         },
         {
           "id": "T2M3S7V14",
@@ -398,7 +398,7 @@
           "kind": "collocation",
           "french": "en dehors de la plage",
           "english": "besides the beach",
-          "example": "Deuxième point : quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
+          "example": "Quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
           "usage": "Introduit des activités complémentaires à la détente balnéaire."
         },
         {
@@ -436,9 +436,9 @@
         {
           "id": "T2M3S7V24",
           "kind": "tournure",
-          "french": "C'est une bonne période pour y aller",
-          "english": "is it a good time to go",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "french": "Quelle est la meilleure période pour",
+          "english": "what is the best time to",
+          "example": "Quelle est la meilleure période pour y aller ?",
           "usage": "Question évaluative très utile pour discuter du calendrier d'un voyage."
         },
         {
@@ -470,16 +470,16 @@
           "kind": "tournure",
           "french": "Quelles activités as-tu faites",
           "english": "what activities did you do",
-          "example": "Deuxième point : quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
+          "example": "Quelles activités as-tu faites — il y avait des choses à faire en dehors de la plage aussi ?",
           "usage": "Inversion au passé composé pour interroger sur une expérience vécue."
         },
         {
           "id": "T2M3S7V29",
           "kind": "tournure",
-          "french": "tu pourrais m'en dire un peu plus sur ce qui",
-          "english": "could you tell me a bit more about what",
-          "example": "Tu as mentionné que c'était formidable — tu pourrais m'en dire un peu plus sur ce qui t'a le plus marqué(e) ?",
-          "usage": "Structure de relance introduisant une proposition relative."
+          "french": "Qu'est-ce qui t'a le plus marqué(e)",
+          "english": "what made the biggest impression on you",
+          "example": "Qu'est-ce qui t'a le plus marqué(e) pendant ce séjour ?",
+          "usage": "Question sur l'élément le plus marquant d'une expérience."
         },
         {
           "id": "T2M3S7V30",
@@ -499,7 +499,7 @@
           "kind": "mot-cle",
           "french": "un article",
           "english": "an article",
-          "example": "Salut ! Je dois écrire un article pour la revue de mon association littéraire — comme tu lis beaucoup, tu pourrais répondre à quelques questions sur tes lectures récentes ?",
+          "example": "Salut ! Je dois écrire un article pour la revue de mon association littéraire — tu pourrais répondre à quelques questions sur tes lectures récentes ?",
           "usage": "Texte à rédiger pour présenter un livre dans une revue."
         },
         {
@@ -531,7 +531,7 @@
           "kind": "mot-cle",
           "french": "mon association littéraire",
           "english": "my literary association",
-          "example": "Salut ! Je dois écrire un article pour la revue de mon association littéraire — comme tu lis beaucoup, tu pourrais répondre à quelques questions sur tes lectures récentes ?",
+          "example": "Salut ! Je dois écrire un article pour la revue de mon association littéraire — tu pourrais répondre à quelques questions sur tes lectures récentes ?",
           "usage": "Groupe nominal désignant l'organisation à l'origine de la revue."
         },
         {
@@ -545,10 +545,10 @@
         {
           "id": "T2M3S8V07",
           "kind": "mot-cle",
-          "french": "biographie",
-          "english": "a biography",
-          "example": "Dans quel genre littéraire ça s'inscrit — roman, biographie, science-fiction ?",
-          "usage": "Nom de genre littéraire cité parmi les exemples proposés (roman, biographie, science-fiction)."
+          "french": "poétique",
+          "english": "poetic",
+          "example": "Côté écriture, comment est le style de l'auteur — plutôt simple, poétique, ou très descriptif ?",
+          "usage": "Adjectif pour caractériser un style d'écriture riche en images ou en musicalité."
         },
         {
           "id": "T2M3S8V08",
@@ -579,7 +579,7 @@
           "kind": "collocation",
           "french": "écrire un article",
           "english": "write an article",
-          "example": "Salut ! Je dois écrire un article pour la revue de mon association littéraire — comme tu lis beaucoup, tu pourrais répondre à quelques questions sur tes lectures récentes ?",
+          "example": "Salut ! Je dois écrire un article pour la revue de mon association littéraire — tu pourrais répondre à quelques questions sur tes lectures récentes ?",
           "usage": "Collocation verbe-nom pour introduire le projet de publication."
         },
         {
@@ -587,7 +587,7 @@
           "kind": "collocation",
           "french": "lectures récentes",
           "english": "recent reading",
-          "example": "Salut ! Je dois écrire un article pour la revue de mon association littéraire — comme tu lis beaucoup, tu pourrais répondre à quelques questions sur tes lectures récentes ?",
+          "example": "Salut ! Je dois écrire un article pour la revue de mon association littéraire — tu pourrais répondre à quelques questions sur tes lectures récentes ?",
           "usage": "Collocation nom-adjectif désignant les ouvrages lus récemment, sujet des questions posées."
         },
         {
@@ -601,10 +601,10 @@
         {
           "id": "T2M3S8V14",
           "kind": "collocation",
-          "french": "genre littéraire",
-          "english": "literary genre",
-          "example": "Dans quel genre littéraire ça s'inscrit — roman, biographie, science-fiction ?",
-          "usage": "Collocation nom-adjectif désignant la catégorie à laquelle appartient une œuvre."
+          "french": "l'idée principale",
+          "english": "the main idea",
+          "example": "J'en profite pour te demander : de quoi parle le livre — tu pourrais résumer l'histoire ou l'idée principale sans tout dévoiler ?",
+          "usage": "Association nom-adjectif désignant l'idée centrale d'un texte."
         },
         {
           "id": "T2M3S8V15",
@@ -649,17 +649,17 @@
         {
           "id": "T2M3S8V20",
           "kind": "collocation",
-          "french": "tu pourrais m'en dire un peu plus",
-          "english": "could you tell me a bit more",
-          "example": "Tu as mentionné un point intéressant — tu pourrais m'en dire un peu plus : ça ferait peut-être un bon angle pour l'article ?",
-          "usage": "Formule de relance classique pour approfondir un point déjà mentionné."
+          "french": "être développé dans l'article",
+          "english": "to be developed in the article",
+          "example": "Quel aspect du livre mériterait d'être développé dans l'article, selon toi ?",
+          "usage": "Association verbale pour approfondir un aspect dans un texte."
         },
         {
           "id": "T2M3S8V21",
           "kind": "tournure",
           "french": "tu pourrais répondre à quelques questions",
           "english": "could you answer a few questions",
-          "example": "Salut ! Je dois écrire un article pour la revue de mon association littéraire — comme tu lis beaucoup, tu pourrais répondre à quelques questions sur tes lectures récentes ?",
+          "example": "Salut ! Je dois écrire un article pour la revue de mon association littéraire — tu pourrais répondre à quelques questions sur tes lectures récentes ?",
           "usage": "Formulation polie au conditionnel pour solliciter un entretien."
         },
         {
@@ -816,7 +816,7 @@
           "kind": "mot-cle",
           "french": "un moment surprenant",
           "english": "a surprising moment",
-          "example": "Tu as mentionné un moment surprenant — tu pourrais m'en dire un peu plus : qu'est-ce qui s'est passé exactement ?",
+          "example": "S'il y a eu un moment surprenant pendant le jeu, tu pourrais me raconter ce qui s'est passé ?",
           "usage": "Groupe nominal qualifiant un souvenir marquant à approfondir."
         },
         {

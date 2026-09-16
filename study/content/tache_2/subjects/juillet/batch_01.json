@@ -52,7 +52,7 @@
           "memory_section": 10
         },
         {
-          "text": "Côté lieu, il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
+          "text": "Il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
           "memory_number": 9,
           "memory_section": 6
         },
@@ -77,7 +77,7 @@
           "memory_section": 6
         },
         {
-          "text": "Le cinéma où tu es allé(e) est facile d'accès, ou il y en a un plus proche pour moi ?",
+          "text": "Tu es allé(e) dans quel cinéma — c'est facile d'accès en transports en commun ?",
           "memory_number": 9,
           "memory_section": 5
         },
@@ -121,10 +121,10 @@
           "text": "Y a-t-il des créneaux réservés, par exemple pour les cours ou pour les nageurs réguliers ?"
         },
         {
-          "text": "Il y a un autre point qui m'intéresse : c'est souvent bondé — à quels moments vaut-il mieux venir pour être tranquille ?"
+          "text": "À quels moments vaut-il mieux venir pour être tranquille ?"
         },
         {
-          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — on paie chaque entrée ou il faut prendre un abonnement ?"
+          "text": "En ce qui concerne le budget, combien coûte une entrée, et quels abonnements sont proposés ?"
         },
         {
           "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
@@ -158,7 +158,7 @@
           "memory_section": 8
         },
         {
-          "text": "Et s'il fait très froid, quels vêtements chauds tu me recommandes d'emporter ?"
+          "text": "Et s'il fait trop froid pour sortir, quelles activités à l'intérieur tu me recommandes ?"
         },
         {
           "text": "Côté équipement, qu'est-ce qu'il faut prévoir — de bonnes chaussures, un manteau d'hiver, des gants ?"
@@ -187,7 +187,7 @@
           "text": "Combien de temps tu me conseilles de rester pour bien en profiter ?"
         },
         {
-          "text": "Côté dossier, est-ce que j'ai des démarches particulières à prévoir avant de venir, côté papiers ?"
+          "text": "Côté démarches, est-ce que j'ai des documents particuliers à prévoir avant de venir ?"
         },
         {
           "text": "Est-ce que je dois prévoir un budget particulier pour les activités sur place ?"
@@ -273,7 +273,7 @@
           "memory_section": 10
         },
         {
-          "text": "Côté conditions, y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
+          "text": "Y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
           "memory_number": 3,
           "memory_section": 8
         },
@@ -323,7 +323,7 @@
           "memory_section": 9
         },
         {
-          "text": "Pour ce qui est du lieu, selon vous, qu'est-ce qui est le plus pratique dans ce quartier au quotidien ?",
+          "text": "Selon vous, qu'est-ce qui est le plus pratique dans ce quartier au quotidien ?",
           "memory_number": 3,
           "memory_section": 11
         },

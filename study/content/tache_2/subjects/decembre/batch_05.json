@@ -52,7 +52,7 @@
           "memory_section": 6
         },
         {
-          "text": "D'après toi, c'est accessible pour quelqu'un qui n'a jamais fait de randonnée ?",
+          "text": "Si on débute, est-ce qu'on peut choisir une sortie plus courte ?",
           "memory_number": 8,
           "memory_section": 6
         },
@@ -104,7 +104,7 @@
           "memory_section": 2
         },
         {
-          "text": "Quel âge avait-il ou elle pendant ce séjour ?",
+          "text": "Quel âge avait ton enfant pendant ce séjour ?",
           "memory_number": 5,
           "memory_section": 7
         },
@@ -114,7 +114,7 @@
           "memory_section": 4
         },
         {
-          "text": "Côté hébergement, il ou elle logeait dans une famille d'accueil, ou plutôt dans un internat avec le groupe ?",
+          "text": "Côté hébergement, ton enfant logeait dans une famille d'accueil, ou plutôt dans un internat avec le groupe ?",
           "memory_number": 5,
           "memory_section": 9
         },
@@ -124,12 +124,12 @@
           "memory_section": 2
         },
         {
-          "text": "Pour ce qui est du niveau, comment était encadré le séjour — il y avait des accompagnateurs sur place en permanence ?",
+          "text": "Comment était encadré le séjour — il y avait des accompagnateurs sur place en permanence ?",
           "memory_number": 5,
           "memory_section": 7
         },
         {
-          "text": "Comment s'est passée l'adaptation au début — il ou elle s'est vite senti(e) à l'aise ?",
+          "text": "Comment s'est passée l'adaptation au début — ton enfant s'est vite senti à l'aise ?",
           "memory_number": 5,
           "memory_section": 10
         },
@@ -139,7 +139,7 @@
           "memory_section": 10
         },
         {
-          "text": "Côté organisation, comment as-tu choisi ce programme en particulier — par une agence, une école ?",
+          "text": "Côté organisation, qu'est-ce qui t'a fait choisir ce programme en particulier ?",
           "memory_number": 5,
           "memory_section": 6
         },
@@ -176,7 +176,7 @@
       "prompt": "Je suis votre collègue. Je vends ma voiture. Vous êtes intéressé(e). Vous me posez des questions sur ma voiture (prix, état, caractéristiques, etc.).",
       "questions": [
         {
-          "text": "Salut ! Tu m'as dit que tu vendais ta voiture — justement, je cherche à en changer : tu pourrais m'en dire un peu plus ?",
+          "text": "Salut ! Tu m'as dit que tu vendais ta voiture — ça m'intéresse, tu pourrais m'en dire un peu plus ?",
           "memory_number": 6,
           "memory_section": 13
         },
@@ -211,12 +211,12 @@
           "memory_section": 7
         },
         {
-          "text": "Il y a un autre point qui m'intéresse : tu as gardé le carnet d'entretien et les factures ?",
+          "text": "Tu as gardé le carnet d'entretien et les factures ?",
           "memory_number": 6,
           "memory_section": 7
         },
         {
-          "text": "Le contrôle technique est encore valide, ou il faut le refaire bientôt ?",
+          "text": "Est-ce qu'une inspection ou un contrôle technique est nécessaire avant la vente ?",
           "memory_number": 6,
           "memory_section": 7
         },
@@ -258,7 +258,7 @@
       "prompt": "Je suis votre collègue. J'ai des billets pour un festival de musique mais je ne peux pas y aller. Je veux vendre mes billets. Vous êtes intéressé(e). Vous me posez des questions sur le festival (artistes présents, lieux, tarifs, etc.).",
       "questions": [
         {
-          "text": "Salut ! Tu m'as dit que tu avais des billets pour un festival de musique mais que tu ne peux pas y aller — ça pourrait bien m'intéresser, tu peux m'en dire plus ?",
+          "text": "Salut ! Tes billets pour le festival pourraient bien m'intéresser, tu peux m'en dire plus ?",
           "memory_number": 9,
           "memory_section": 13
         },
@@ -283,7 +283,7 @@
           "memory_section": 4
         },
         {
-          "text": "Et puis, pourquoi tu ne peux plus y aller finalement ?",
+          "text": "Les billets donnent accès à tout le festival, ou seulement à certains concerts ?",
           "memory_number": 9,
           "memory_section": 10
         },
@@ -298,7 +298,7 @@
           "memory_section": 3
         },
         {
-          "text": "Côté inscription, les billets sont-ils transférables à mon nom, ou c'est directement utilisable ?",
+          "text": "Et pour les billets, faut-il les transférer à mon nom, ou sont-ils directement utilisables ?",
           "memory_number": 9,
           "memory_section": 6
         },
@@ -313,7 +313,7 @@
           "memory_section": 5
         },
         {
-          "text": "Faut-il un billet spécial pour le camping, si on veut rester sur place plusieurs jours ?",
+          "text": "S'il y a un camping sur place, faut-il un billet spécial pour y accéder ?",
           "memory_number": 9,
           "memory_section": 6
         },
@@ -323,12 +323,12 @@
           "memory_section": 8
         },
         {
-          "text": "Toi qui connais l'événement, tu me conseilles d'y aller ?",
+          "text": "D'après ce que tu en sais, tu me conseilles d'y aller, et pourquoi ?",
           "memory_number": 9,
           "memory_section": 11
         },
         {
-          "text": "Pour finir — je peux te confirmer aujourd'hui si je prends les billets ?",
+          "text": "Pour finir — tu aurais besoin de ma réponse pour quand ?",
           "memory_number": 9,
           "memory_section": 13
         }
@@ -350,12 +350,12 @@
           "memory_section": 2
         },
         {
-          "text": "L'ambiance est plutôt calme et intime, ou plus animée et festive ?",
+          "text": "Dans les restaurants que vous conseillez, l'ambiance est plutôt calme et intime, ou plus animée et festive ?",
           "memory_number": 11,
           "memory_section": 10
         },
         {
-          "text": "Pour ce qui est des repas, ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
+          "text": "Ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
           "memory_number": 11,
           "memory_section": 7
         },
@@ -370,12 +370,12 @@
           "memory_section": 8
         },
         {
-          "text": "Vous avez mentionné un restaurant en particulier — vous pourriez m'en dire un peu plus : il conviendrait pour une dizaine de personnes ?",
+          "text": "Parmi ces restaurants, lequel conviendrait le mieux si on était une dizaine de personnes ?",
           "memory_number": 11,
           "memory_section": 13
         },
         {
-          "text": "Vous y êtes déjà allé(e) vous-même — qu'est-ce que vous en avez pensé ?",
+          "text": "Si vous y êtes déjà allé(e) vous-même, qu'est-ce que vous en avez pensé ?",
           "memory_number": 11,
           "memory_section": 10
         },
@@ -400,7 +400,7 @@
           "memory_section": 6
         },
         {
-          "text": "Et pour s'y rendre, ils sont facilement accessibles à pied, ou il vaut mieux prévoir une voiture ?",
+          "text": "Et pour s'y rendre, c'est facilement accessible à pied, ou il vaut mieux prévoir une voiture ?",
           "memory_number": 11,
           "memory_section": 5
         },
@@ -410,7 +410,7 @@
           "memory_section": 9
         },
         {
-          "text": "Pour finir — parmi tous ceux que vous connaissez, lequel me recommanderiez-vous vraiment pour l'occasion ?",
+          "text": "Pour finir — savez-vous comment joindre ce restaurant pour vérifier les disponibilités ?",
           "memory_number": 11,
           "memory_section": 11
         }

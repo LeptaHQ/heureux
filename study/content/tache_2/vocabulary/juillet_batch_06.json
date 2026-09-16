@@ -49,7 +49,7 @@
           "kind": "mot-cle",
           "french": "qualifiés",
           "english": "qualified",
-          "example": "En ce qui concerne l'encadrement, les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
+          "example": "Les professeurs sont-ils qualifiés dans les instruments qu'ils enseignent ?",
           "usage": "Adjectif qualifiant la compétence reconnue d'un enseignant."
         },
         {
@@ -167,10 +167,10 @@
         {
           "id": "T2J7S26V21",
           "kind": "tournure",
-          "french": "les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre",
-          "english": "are the teachers qualified in the instrument I wish to learn",
-          "example": "En ce qui concerne l'encadrement, les professeurs sont-ils qualifiés dans l'instrument que je souhaite apprendre ?",
-          "usage": "Tournure interrogative avec inversion pour vérifier une compétence pédagogique précise."
+          "french": "Les professeurs sont-ils qualifiés",
+          "english": "are the teachers qualified",
+          "example": "Les professeurs sont-ils qualifiés dans les instruments qu'ils enseignent ?",
+          "usage": "Tournure interrogative avec inversion pour vérifier les compétences pédagogiques des enseignants."
         },
         {
           "id": "T2J7S26V22",
@@ -561,10 +561,10 @@
         {
           "id": "T2J7S28V09",
           "kind": "mot-cle",
-          "french": "un plan entre amis",
-          "english": "a plan among friends",
-          "example": "Autre point important : c'est adapté si on y va en couple ou c'est plutôt un plan entre amis ?",
-          "usage": "Groupe nominal familier désignant une sortie organisée entre amis."
+          "french": "un groupe d'amis",
+          "english": "a group of friends",
+          "example": "Parmi ces sorties, lesquelles conviendraient à un couple ou à un groupe d'amis ?",
+          "usage": "Groupe nominal désignant des amis qui participent ensemble à une sortie."
         },
         {
           "id": "T2J7S28V10",
@@ -651,7 +651,7 @@
           "kind": "collocation",
           "french": "en général",
           "english": "in general/usually",
-          "example": "Toi personnellement, tu fais quoi le week-end en général ?",
+          "example": "Et en général, ces endroits sont faciles d'accès en transports en commun ou il faut une voiture ?",
           "usage": "Locution adverbiale fixe pour généraliser une habitude."
         },
         {
@@ -697,34 +697,34 @@
         {
           "id": "T2J7S28V26",
           "kind": "tournure",
-          "french": "combien est-ce que ça coûte approximativement",
-          "english": "roughly how much does it cost",
-          "example": "Parlons du budget — combien est-ce que ça coûte approximativement ?",
-          "usage": "Tournure interrogative avec 'est-ce que', qui évite l'inversion du sujet."
+          "french": "Quel budget faut-il prévoir",
+          "english": "what budget should you allow",
+          "example": "Quel budget faut-il prévoir pour un week-end dans le coin ?",
+          "usage": "Question avec inversion de « il faut » pour demander un ordre de grandeur budgétaire."
         },
         {
           "id": "T2J7S28V27",
           "kind": "tournure",
-          "french": "C'est adapté si on y va en couple ou c'est plutôt un plan entre amis",
-          "english": "Is it suitable as a couple or is it more of a plan among friends",
-          "example": "Autre point important : c'est adapté si on y va en couple ou c'est plutôt un plan entre amis ?",
-          "usage": "Question orale à l'ordre habituel sujet-verbe, avec 'ou' introduisant une alternative."
+          "french": "lesquelles conviendraient à",
+          "english": "which ones would suit",
+          "example": "Parmi ces sorties, lesquelles conviendraient à un couple ou à un groupe d'amis ?",
+          "usage": "Pronom interrogatif féminin pluriel et conditionnel pour comparer l'adéquation de plusieurs sorties."
         },
         {
           "id": "T2J7S28V28",
           "kind": "tournure",
-          "french": "Il faut s'inscrire à l'avance ou on peut venir librement",
-          "english": "Do you need to register in advance or can you just come freely",
-          "example": "En ce qui concerne la réservation, il faut s'inscrire à l'avance ou on peut venir librement ?",
-          "usage": "Tournure impersonnelle avec 'il faut' exprimant une nécessité, sans inversion."
+          "french": "Faut-il réserver",
+          "english": "do we need to book",
+          "example": "Faut-il réserver pour certaines de ces activités ?",
+          "usage": "Question impersonnelle avec inversion pour vérifier la nécessité d'une réservation."
         },
         {
           "id": "T2J7S28V29",
           "kind": "tournure",
-          "french": "Toi personnellement, tu fais quoi le week-end en général",
-          "english": "Personally, what do you usually do on the weekend",
-          "example": "Toi personnellement, tu fais quoi le week-end en général ?",
-          "usage": "Question orale avec le sujet 'toi' repris en tête, et 'quoi' maintenu après le verbe, registre tutoiement."
+          "french": "quelle sortie as-tu préférée",
+          "english": "which outing did you like best",
+          "example": "Toi personnellement, quelle sortie as-tu préférée, et pourquoi ?",
+          "usage": "Question au passé composé avec inversion pour demander une préférence fondée sur l'expérience."
         },
         {
           "id": "T2J7S28V30",

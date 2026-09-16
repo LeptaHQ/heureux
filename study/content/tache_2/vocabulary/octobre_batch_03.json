@@ -145,7 +145,7 @@
           "kind": "collocation",
           "french": "facile d'accès",
           "english": "easy to get to",
-          "example": "Le cinéma où tu es allé(e) est facile d'accès, ou il y en a un plus proche pour moi ?",
+          "example": "Tu es allé(e) dans quel cinéma — c'est facile d'accès en transports en commun ?",
           "usage": "Collocation adjectivale pour qualifier un lieu bien desservi."
         },
         {
@@ -153,7 +153,7 @@
           "kind": "collocation",
           "french": "beaucoup de monde",
           "english": "a lot of people",
-          "example": "Côté lieu, il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
+          "example": "Il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
           "usage": "Collocation très fréquente pour évoquer une affluence importante."
         },
         {
@@ -223,17 +223,17 @@
         {
           "id": "T2O10S11V28",
           "kind": "tournure",
-          "french": "il y en a un plus proche pour moi",
-          "english": "is there a closer one for me",
-          "example": "Le cinéma où tu es allé(e) est facile d'accès, ou il y en a un plus proche pour moi ?",
-          "usage": "Tournure pour demander une alternative plus pratique géographiquement."
+          "french": "Tu es allé(e) dans quel cinéma",
+          "english": "which cinema did you go to",
+          "example": "Tu es allé(e) dans quel cinéma — c'est facile d'accès en transports en commun ?",
+          "usage": "Question au passé composé avec « quel » postposé pour identifier un lieu fréquenté."
         },
         {
           "id": "T2O10S11V29",
           "kind": "tournure",
           "french": "il y avait beaucoup de monde dans la salle",
           "english": "there were a lot of people in the room",
-          "example": "Côté lieu, il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
+          "example": "Il y avait beaucoup de monde dans la salle, ou c'était plutôt calme ?",
           "usage": "Tournure descriptive à l'imparfait pour évoquer l'affluence lors d'une sortie passée."
         },
         {
@@ -529,26 +529,26 @@
         {
           "id": "T2O10S13V05",
           "kind": "mot-cle",
-          "french": "campings",
-          "english": "campsites",
-          "example": "Question hébergement, tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
-          "usage": "Nom pluriel désignant les campings."
+          "french": "camping",
+          "english": "campsite",
+          "example": "Question hébergement, tu as choisi quoi — hôtel, chambre d'hôtes, camping ?",
+          "usage": "Nom désignant un lieu d'hébergement en plein air."
         },
         {
           "id": "T2O10S13V06",
           "kind": "mot-cle",
-          "french": "une autre saison",
-          "english": "another season",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Groupe nominal pour évoquer une période de l'année différente."
+          "french": "ces dates",
+          "english": "these dates",
+          "example": "Tu pars à quelle période, et pourquoi as-tu choisi ces dates ?",
+          "usage": "Groupe nominal désignant les dates choisies pour le séjour."
         },
         {
           "id": "T2O10S13V07",
           "kind": "mot-cle",
-          "french": "une bonne période",
-          "english": "a good time (of year)",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Groupe nominal pour évaluer si un moment convient à un projet de voyage."
+          "french": "quelle période",
+          "english": "what time of year",
+          "example": "Tu pars à quelle période, et pourquoi as-tu choisi ces dates ?",
+          "usage": "Groupe interrogatif pour demander quand aura lieu le voyage."
         },
         {
           "id": "T2O10S13V08",
@@ -563,15 +563,15 @@
           "kind": "mot-cle",
           "french": "la semaine",
           "english": "the week",
-          "example": "Combien de temps faut-il prévoir — quelques jours ou toute la semaine ?",
+          "example": "Tu pars combien de temps — quelques jours ou toute la semaine ?",
           "usage": "Nom féminin courant pour exprimer une durée de séjour."
         },
         {
           "id": "T2O10S13V10",
           "kind": "mot-cle",
-          "french": "chambres d'hôtes",
-          "english": "guesthouses / bed and breakfasts",
-          "example": "Question hébergement, tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
+          "french": "chambre d'hôtes",
+          "english": "guest room / bed and breakfast",
+          "example": "Question hébergement, tu as choisi quoi — hôtel, chambre d'hôtes, camping ?",
           "usage": "Nom composé désignant un type d'hébergement chez l'habitant."
         },
         {
@@ -617,18 +617,18 @@
         {
           "id": "T2O10S13V16",
           "kind": "collocation",
-          "french": "attendre une autre saison",
-          "english": "wait for another season",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Suggère de reporter un voyage à une période plus favorable."
+          "french": "choisi ces dates",
+          "english": "chosen these dates",
+          "example": "Tu pars à quelle période, et pourquoi as-tu choisi ces dates ?",
+          "usage": "Groupe verbal pour évoquer la sélection des dates d'un séjour."
         },
         {
           "id": "T2O10S13V17",
           "kind": "collocation",
-          "french": "bonne période",
-          "english": "a good time (period)",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Collocation adjectif + nom pour qualifier un moment opportun pour une activité."
+          "french": "à cette période",
+          "english": "at that time of year",
+          "example": "Il y a généralement beaucoup de monde à cette période, ou c'est plutôt calme ?",
+          "usage": "Expression temporelle renvoyant à une période déjà précisée."
         },
         {
           "id": "T2O10S13V18",
@@ -651,7 +651,7 @@
           "kind": "collocation",
           "french": "beaucoup de monde",
           "english": "a lot of people",
-          "example": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
+          "example": "Il y a généralement beaucoup de monde à cette période, ou c'est plutôt calme ?",
           "usage": "Association figée signifiant une forte affluence."
         },
         {
@@ -681,10 +681,10 @@
         {
           "id": "T2O10S13V24",
           "kind": "tournure",
-          "french": "Tu connais de bons endroits où dormir",
-          "english": "do you know good places to stay",
-          "example": "Question hébergement, tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, campings ?",
-          "usage": "Question sur l'hébergement."
+          "french": "tu as choisi quoi",
+          "english": "what did you choose",
+          "example": "Question hébergement, tu as choisi quoi — hôtel, chambre d'hôtes, camping ?",
+          "usage": "Question orale sur le choix d'un hébergement."
         },
         {
           "id": "T2O10S13V25",
@@ -697,18 +697,18 @@
         {
           "id": "T2O10S13V26",
           "kind": "tournure",
-          "french": "C'est une bonne période pour y aller",
-          "english": "is it a good time to go",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Question évaluative très utile pour discuter du calendrier d'un voyage."
+          "french": "tu pars à quelle période",
+          "english": "what time of year are you going",
+          "example": "Tu pars à quelle période, et pourquoi as-tu choisi ces dates ?",
+          "usage": "Question sur le calendrier d'un voyage prévu."
         },
         {
           "id": "T2O10S13V27",
           "kind": "tournure",
-          "french": "il vaut mieux attendre",
-          "english": "it is better to wait",
-          "example": "C'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Tournure impersonnelle avec 'il vaut mieux' pour exprimer une recommandation."
+          "french": "pourquoi as-tu choisi ces dates",
+          "english": "why did you choose these dates",
+          "example": "Tu pars à quelle période, et pourquoi as-tu choisi ces dates ?",
+          "usage": "Question au passé composé pour comprendre les raisons d'un choix."
         },
         {
           "id": "T2O10S13V28",
@@ -721,18 +721,18 @@
         {
           "id": "T2O10S13V29",
           "kind": "tournure",
-          "french": "il y a beaucoup de monde en ce moment ou c'est plutôt calme",
-          "english": "are there a lot of people right now or is it rather quiet",
-          "example": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
-          "usage": "Tournure d'alternative très réutilisable pour interroger sur l'affluence d'un lieu."
+          "french": "il y a généralement beaucoup de monde à cette période",
+          "english": "are there usually many people at that time of year",
+          "example": "Il y a généralement beaucoup de monde à cette période, ou c'est plutôt calme ?",
+          "usage": "Question pour se renseigner sur l'affluence habituelle d'un lieu."
         },
         {
           "id": "T2O10S13V30",
           "kind": "tournure",
-          "french": "combien de temps faut-il prévoir",
-          "english": "how much time should one plan for",
-          "example": "Combien de temps faut-il prévoir — quelques jours ou toute la semaine ?",
-          "usage": "Tournure interrogative standard pour estimer une durée nécessaire."
+          "french": "tu pars combien de temps",
+          "english": "how long are you going for",
+          "example": "Tu pars combien de temps — quelques jours ou toute la semaine ?",
+          "usage": "Question orale sur la durée prévue d'un séjour."
         }
       ]
     },

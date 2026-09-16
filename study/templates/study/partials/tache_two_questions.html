@@ -1,0 +1,31 @@
+      <section
+        class="tache-two-question-section"
+        aria-labelledby="subject-questions-title"
+        data-annotation-root
+        data-annotation-source-key="{{ subject_annotation_key }}"
+        {% if oral_legacy_annotation_keys %}data-annotation-legacy-source-keys="{{ oral_legacy_annotation_keys }}"{% endif %}
+        data-annotation-task-id="{{ task.pk }}">
+        <header>
+          <div>
+            <p class="eyebrow">Préparation orale</p>
+            <h2 id="subject-questions-title">Questions à poser</h2>
+          </div>
+          <span>{{ subject_questions|length }} questions</span>
+        </header>
+        <ol class="tache-two-question-list">
+          {% for question in subject_questions %}
+            <li class="tache-two-question" data-tache-two-question>
+              <span class="tache-two-question__number">{{ question.number|stringformat:"02d" }}</span>
+              <div class="tache-two-question__content">
+                <p data-question-highlight-text="{{ question.number }}">{{ question.text|linebreaksbr }}</p>
+                {% if question.response %}
+                  <div class="tache-two-question__prepared-response">
+                    <span>Réponse préparée</span>
+                    <p data-question-highlight-response="{{ question.number }}">{{ question.response|linebreaksbr }}</p>
+                  </div>
+                {% endif %}
+              </div>
+            </li>
+          {% endfor %}
+        </ol>
+      </section>

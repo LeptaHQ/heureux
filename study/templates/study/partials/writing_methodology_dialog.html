@@ -1,0 +1,26 @@
+<dialog class="form-dialog methodology-dialog" id="writing-methodology-dialog" aria-labelledby="writing-methodology-title" data-writing-methodology="{{ tache }}">
+  <header class="form-dialog__header">
+    <div class="form-dialog__heading">
+      <h2 id="writing-methodology-title">Méthodologie · Tâche {{ tache }}</h2>
+    </div>
+    <button class="icon-button form-dialog__close" type="button" aria-label="Fermer la méthodologie" title="Fermer" data-dialog-close autofocus>
+      {% include "study/partials/ui_icon.html" with name="x" only %}
+    </button>
+  </header>
+  <div class="methodology-dialog__body" role="region" aria-label="Guide de la tâche {{ tache }}" tabindex="0">
+    {% if tache == 1 %}
+      {% include "study/partials/writing_methodology_task_one.html" %}
+    {% elif tache == 2 %}
+      {% include "study/partials/writing_methodology_task_two.html" %}
+    {% elif tache == 3 %}
+      {% include "study/partials/writing_methodology_task_three.html" %}
+    {% endif %}
+    <section aria-labelledby="writing-methodology-exam">
+      <h3 id="writing-methodology-exam">Gérer les trois tâches</h3>
+      <p>L’épreuve complète des trois tâches dure <strong>60 minutes</strong>. Prévoyez du temps pour chacune : une réponse très travaillée ne remplace pas une tâche laissée vide.</p>
+      <p><strong>Repère d’entraînement, pas un découpage imposé :</strong> 12 minutes pour la tâche 1, 18 pour la tâche 2, 25 pour la tâche 3 et 5 pour la relecture finale. Adaptez cette répartition à votre rythme.</p>
+      <p>Pour garder une marge, comptez aussi le titre éventuel, la salutation et la signature dans votre texte d’entraînement. Ne vous placez pas exactement à une limite et suivez les consignes de comptage de l’épreuve.</p>
+      <p>La priorité reste la même : répondre à la demande, organiser les idées, choisir un registre adapté et écrire un français précis. Mieux vaut une phrase maîtrisée qu’une tournure compliquée mal employée. Ce guide propose une méthode de travail, pas une garantie de niveau ou de note.</p>
+    </section>
+  </div>
+</dialog>

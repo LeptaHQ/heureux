@@ -65,7 +65,7 @@
           "kind": "mot-cle",
           "french": "forfait mensuel",
           "english": "monthly package",
-          "example": "En ce qui concerne le budget, comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
+          "example": "En ce qui concerne le budget, combien coûte une séance ou un forfait mensuel ?",
           "usage": "Groupe nominal désignant un tarif fixe couvrant un mois de cours."
         },
         {
@@ -153,15 +153,15 @@
           "kind": "collocation",
           "french": "avoir un retour",
           "english": "to get feedback",
-          "example": "En ce qui concerne le suivi, est-ce que vous auriez éventuellement d'autres élèves ou anciens élèves que je pourrais contacter pour avoir un retour ?",
+          "example": "Est-ce que vous auriez éventuellement d'autres élèves ou anciens élèves que je pourrais contacter pour avoir un retour ?",
           "usage": "Collocation verbale employée pour demander un avis ou un témoignage."
         },
         {
           "id": "T2D12S41V20",
           "kind": "collocation",
-          "french": "la première leçon",
-          "english": "the first lesson",
-          "example": "Pour finir — comment fixe-t-on le premier rendez-vous, et qu'est-ce que je dois apporter pour la première leçon ?",
+          "french": "un premier cours",
+          "english": "a first lesson",
+          "example": "Pour finir — quels créneaux avez-vous pour un premier cours, et qu'est-ce que je dois apporter ?",
           "usage": "Groupe nominal désignant le premier rendez-vous pédagogique."
         },
         {
@@ -239,10 +239,10 @@
         {
           "id": "T2D12S41V30",
           "kind": "tournure",
-          "french": "comment fixe-t-on le premier rendez-vous",
-          "english": "how does one arrange the first appointment",
-          "example": "Pour finir — comment fixe-t-on le premier rendez-vous, et qu'est-ce que je dois apporter pour la première leçon ?",
-          "usage": "Tournure pronominale formelle pour organiser un premier contact."
+          "french": "quels créneaux avez-vous pour un premier cours",
+          "english": "what time slots do you have for a first lesson",
+          "example": "Pour finir — quels créneaux avez-vous pour un premier cours, et qu'est-ce que je dois apporter ?",
+          "usage": "Question pour connaître les disponibilités avant un premier rendez-vous."
         }
       ]
     },
@@ -513,10 +513,10 @@
         {
           "id": "T2D12S43V03",
           "kind": "mot-cle",
-          "french": "les personnes qu'elle aide",
-          "english": "the people it helps",
-          "example": "Tu as l'impression que l'association a un impact concret sur les personnes qu'elle aide ?",
-          "usage": "Groupe nominal pour désigner les bénéficiaires d'une action associative."
+          "french": "ses actions",
+          "english": "its activities / initiatives",
+          "example": "À qui s'adressent ses actions en priorité ?",
+          "usage": "Groupe nominal désignant les actions menées par l'association."
         },
         {
           "id": "T2D12S43V04",
@@ -555,7 +555,7 @@
           "kind": "mot-cle",
           "french": "un impact concret",
           "english": "a concrete impact",
-          "example": "Tu as l'impression que l'association a un impact concret sur les personnes qu'elle aide ?",
+          "example": "Tu as l'impression que l'association a un impact concret — tu aurais un exemple ?",
           "usage": "Groupe nominal pour exprimer un effet réel et visible."
         },
         {
@@ -627,7 +627,7 @@
           "kind": "collocation",
           "french": "a un impact concret",
           "english": "has a concrete impact",
-          "example": "Tu as l'impression que l'association a un impact concret sur les personnes qu'elle aide ?",
+          "example": "Tu as l'impression que l'association a un impact concret — tu aurais un exemple ?",
           "usage": "Collocation verbale pour évaluer l'efficacité réelle d'une action."
         },
         {
@@ -673,10 +673,10 @@
         {
           "id": "T2D12S43V23",
           "kind": "tournure",
-          "french": "Elle aide qui en priorité",
-          "english": "who does it help first and foremost",
-          "example": "Elle aide qui en priorité ?",
-          "usage": "Tournure très orale pour demander le public prioritaire."
+          "french": "à qui s'adressent ses actions",
+          "english": "who are its activities aimed at",
+          "example": "À qui s'adressent ses actions en priorité ?",
+          "usage": "Question pour demander le public visé par une association."
         },
         {
           "id": "T2D12S43V24",
@@ -721,9 +721,9 @@
         {
           "id": "T2D12S43V29",
           "kind": "tournure",
-          "french": "Tu as l'impression que l'association a un impact concret sur les personnes qu'elle aide",
-          "english": "do you feel the association has a concrete impact on the people it helps",
-          "example": "Tu as l'impression que l'association a un impact concret sur les personnes qu'elle aide ?",
+          "french": "tu as l'impression que l'association a un impact concret",
+          "english": "do you feel the association has a tangible impact",
+          "example": "Tu as l'impression que l'association a un impact concret — tu aurais un exemple ?",
           "usage": "Tournure pour vérifier l'efficacité perçue d'un projet associatif."
         },
         {
@@ -742,9 +742,9 @@
         {
           "id": "T2D12S44V01",
           "kind": "mot-cle",
-          "french": "l'entreprise",
-          "english": "the company",
-          "example": "Bonjour ! Je suis ravi(e) de faire ta connaissance — c'est mon premier jour aujourd'hui. Tu travailles ici depuis combien de temps ? Tu connais bien l'entreprise ?",
+          "french": "entreprise",
+          "english": "company",
+          "example": "Où est-ce que les gens mangent généralement le midi ? Il y a une cantine d'entreprise — et si oui, comment ça marche ?",
           "usage": "Nom courant en contexte professionnel pour désigner l'organisation employeuse."
         },
         {
@@ -776,7 +776,7 @@
           "kind": "mot-cle",
           "french": "des réunions régulières",
           "english": "regular meetings",
-          "example": "Puisqu'on en parle, est-ce qu'il y a des réunions régulières d'équipe ? Ça a lieu à quelle fréquence — et ça dure combien de temps généralement ?",
+          "example": "Est-ce qu'il y a des réunions régulières d'équipe — à quelle fréquence ?",
           "usage": "Groupe nominal indiquant la périodicité des rencontres d'équipe."
         },
         {
@@ -792,7 +792,7 @@
           "kind": "mot-cle",
           "french": "responsable direct",
           "english": "direct supervisor",
-          "example": "Justement, combien de personnes travaillent dans notre département ? Et qui est notre responsable direct — comment est-il ou elle en tant que manager ?",
+          "example": "Combien de personnes travaillent dans notre département, et qui est notre responsable direct ?",
           "usage": "Désigne la personne hiérarchiquement responsable au quotidien."
         },
         {
@@ -806,9 +806,9 @@
         {
           "id": "T2D12S44V09",
           "kind": "mot-cle",
-          "french": "les avantages",
-          "english": "the benefits/perks",
-          "example": "Toujours sur ce point, quels sont les avantages dont bénéficient les employés — tickets restaurant, mutuelle, ce genre de choses ?",
+          "french": "les autres avantages",
+          "english": "the other benefits/perks",
+          "example": "Et quels sont les autres avantages dont bénéficient les employés — assurances, congés, ce genre de choses ?",
           "usage": "Terme générique pour les compléments proposés par l'employeur."
         },
         {
@@ -822,10 +822,10 @@
         {
           "id": "T2D12S44V11",
           "kind": "collocation",
-          "french": "en tant que manager",
-          "english": "as a manager",
-          "example": "Justement, combien de personnes travaillent dans notre département ? Et qui est notre responsable direct — comment est-il ou elle en tant que manager ?",
-          "usage": "Locution prépositionnelle 'en tant que' + nom, pour préciser une fonction."
+          "french": "en équipe",
+          "english": "as a team",
+          "example": "Comment s'organise le travail au quotidien — plutôt en équipe ou de manière individuelle ?",
+          "usage": "Locution adverbiale pour décrire une manière collective de travailler."
         },
         {
           "id": "T2D12S44V12",
@@ -840,7 +840,7 @@
           "kind": "collocation",
           "french": "faire ta connaissance",
           "english": "to meet you for the first time",
-          "example": "Bonjour ! Je suis ravi(e) de faire ta connaissance — c'est mon premier jour aujourd'hui. Tu travailles ici depuis combien de temps ? Tu connais bien l'entreprise ?",
+          "example": "Bonjour ! Je suis ravi(e) de faire ta connaissance — tu travailles ici depuis combien de temps ?",
           "usage": "« Faire la connaissance de quelqu'un » signifie le rencontrer pour la première fois ; avec un possessif, on dit « faire ta connaissance »."
         },
         {
@@ -886,17 +886,17 @@
         {
           "id": "T2D12S44V19",
           "kind": "collocation",
-          "french": "tickets restaurant",
-          "english": "meal vouchers",
-          "example": "Toujours sur ce point, quels sont les avantages dont bénéficient les employés — tickets restaurant, mutuelle, ce genre de choses ?",
-          "usage": "Nom composé désignant les titres-repas fournis par l'employeur."
+          "french": "réchauffer son repas",
+          "english": "to heat up your meal",
+          "example": "Y a-t-il un espace pour réchauffer son repas si on apporte quelque chose ? Et des restaurants sympas dans les environs ?",
+          "usage": "Groupe verbal pour parler de la préparation du repas apporté au travail."
         },
         {
           "id": "T2D12S44V20",
           "kind": "collocation",
           "french": "travailler étroitement",
           "english": "to work closely",
-          "example": "Question invités, est-ce que tu pourrais me présenter aux autres membres de l'équipe — surtout ceux avec qui je vais travailler étroitement ?",
+          "example": "Est-ce que tu pourrais me présenter aux autres membres de l'équipe — surtout ceux avec qui je vais travailler étroitement ?",
           "usage": "Association verbe + adverbe pour décrire une collaboration rapprochée."
         },
         {
@@ -904,7 +904,7 @@
           "kind": "tournure",
           "french": "Tu travailles ici depuis combien de temps",
           "english": "How long have you been working here",
-          "example": "Bonjour ! Je suis ravi(e) de faire ta connaissance — c'est mon premier jour aujourd'hui. Tu travailles ici depuis combien de temps ? Tu connais bien l'entreprise ?",
+          "example": "Bonjour ! Je suis ravi(e) de faire ta connaissance — tu travailles ici depuis combien de temps ?",
           "usage": "Question directe sujet-verbe-complément, registre tutoiement, pour interroger sur une durée."
         },
         {
@@ -960,7 +960,7 @@
           "kind": "tournure",
           "french": "Est-ce qu'il y a des réunions régulières d'équipe",
           "english": "Are there regular team meetings",
-          "example": "Puisqu'on en parle, est-ce qu'il y a des réunions régulières d'équipe ? Ça a lieu à quelle fréquence — et ça dure combien de temps généralement ?",
+          "example": "Est-ce qu'il y a des réunions régulières d'équipe — à quelle fréquence ?",
           "usage": "Structure avec 'est-ce que' pour poser une question fermée sans inversion."
         },
         {
@@ -1003,10 +1003,10 @@
         {
           "id": "T2D12S45V03",
           "kind": "mot-cle",
-          "french": "des conditions d'âge particulières",
-          "english": "specific age requirements",
-          "example": "Ces formations s'adressent-elles uniquement aux adultes, ou y a-t-il des conditions d'âge particulières ?",
-          "usage": "Groupe nominal servant à évoquer d'éventuelles limites d'âge."
+          "french": "étudiant",
+          "english": "student",
+          "example": "Peut-on s'inscrire même si on n'est pas étudiant à l'université ?",
+          "usage": "Nom désignant une personne inscrite dans un établissement d'enseignement."
         },
         {
           "id": "T2D12S45V04",
@@ -1045,7 +1045,7 @@
           "kind": "mot-cle",
           "french": "en formule hybride",
           "english": "in a hybrid format",
-          "example": "Comment sont organisés les cours — en groupes, en présentiel, en ligne ou en formule hybride ?",
+          "example": "Les cours se font en présentiel, en ligne ou en formule hybride ?",
           "usage": "Groupe prépositionnel pour un dispositif mêlant présentiel et distance."
         },
         {
@@ -1083,10 +1083,10 @@
         {
           "id": "T2D12S45V13",
           "kind": "collocation",
-          "french": "conditions d'âge",
-          "english": "age requirements",
-          "example": "Ces formations s'adressent-elles uniquement aux adultes, ou y a-t-il des conditions d'âge particulières ?",
-          "usage": "Groupe nominal courant dans les règlements d'inscription."
+          "french": "étudiant à l'université",
+          "english": "university student",
+          "example": "Peut-on s'inscrire même si on n'est pas étudiant à l'université ?",
+          "usage": "Groupe nominal désignant le statut d'une personne inscrite à l'université."
         },
         {
           "id": "T2D12S45V14",
@@ -1109,7 +1109,7 @@
           "kind": "collocation",
           "french": "formule hybride",
           "english": "hybrid format",
-          "example": "Comment sont organisés les cours — en groupes, en présentiel, en ligne ou en formule hybride ?",
+          "example": "Les cours se font en présentiel, en ligne ou en formule hybride ?",
           "usage": "Groupe nominal désignant un enseignement mixte, en présence et à distance."
         },
         {
@@ -1131,10 +1131,10 @@
         {
           "id": "T2D12S45V19",
           "kind": "collocation",
-          "french": "sous forme de forfait",
-          "english": "as a package",
-          "example": "Comment fonctionnent les tarifs — c'est par cours, par semestre ou sous forme de forfait ?",
-          "usage": "Locution pour décrire un mode de tarification global."
+          "french": "par cours ou par semestre",
+          "english": "per course or per semester",
+          "example": "Quels sont les tarifs par cours ou par semestre, et que comprennent-ils ?",
+          "usage": "Expressions coordonnées pour distinguer deux modes de tarification."
         },
         {
           "id": "T2D12S45V20",
@@ -1163,10 +1163,10 @@
         {
           "id": "T2D12S45V23",
           "kind": "tournure",
-          "french": "Ces formations s'adressent-elles uniquement aux adultes",
-          "english": "are these courses only for adults",
-          "example": "Ces formations s'adressent-elles uniquement aux adultes, ou y a-t-il des conditions d'âge particulières ?",
-          "usage": "Tournure avec inversion pour vérifier le public visé."
+          "french": "même si on n'est pas étudiant à l'université",
+          "english": "even if one is not a university student",
+          "example": "Peut-on s'inscrire même si on n'est pas étudiant à l'université ?",
+          "usage": "Proposition introduite par même si pour vérifier l'accès malgré l'absence d'un statut."
         },
         {
           "id": "T2D12S45V24",
@@ -1203,10 +1203,10 @@
         {
           "id": "T2D12S45V28",
           "kind": "tournure",
-          "french": "Comment sont organisés les cours",
-          "english": "how are the classes organized",
-          "example": "Comment sont organisés les cours — en groupes, en présentiel, en ligne ou en formule hybride ?",
-          "usage": "Question au passif pour demander une structure pédagogique."
+          "french": "les cours se font en présentiel",
+          "english": "are the classes held in person",
+          "example": "Les cours se font en présentiel, en ligne ou en formule hybride ?",
+          "usage": "Tournure pronominale pour demander la modalité des cours."
         },
         {
           "id": "T2D12S45V29",

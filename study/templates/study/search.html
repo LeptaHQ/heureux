@@ -3,11 +3,12 @@
 {% block title %}Recherche · Heureux{% endblock %}
 
 {% block content %}
-<div class="page-head search-page-head">
-  <p class="eyebrow">{% if task %}Recherche filtrée · {{ task.name }}{% else %}Tout le contenu{% endif %}</p>
+<div class="page-head search-page-head directory-header">
   <h1>{% if subjects_only %}Rechercher un sujet{% else %}Recherche{% endif %}</h1>
-  <p>{% if subjects_only %}Retrouve un sujet à partir des mots de sa consigne.{% else %}Retrouve un sujet, une expression, un mot ou une question de compréhension.{% endif %}</p>
-  <form class="search-form" method="get" action="{{ search_url }}">
+  <p>{% if task %}{{ part.name }} · {{ task.name }}{% else %}Tout le contenu{% endif %}</p>
+</div>
+<div class="collection-toolbar" data-collection-toolbar>
+  <form class="search-form" method="get" action="{{ search_url }}" role="search">
     <label class="sr-only" for="global-search">Rechercher dans le contenu</label>
     <input id="global-search" class="search-form__input" type="search" name="q" value="{{ query }}" placeholder="{% if subjects_only %}Rechercher des mots dans les sujets…{% else %}Chercher un sujet, une idée, une expression…{% endif %}" autofocus>
     {% if subjects_only %}<input type="hidden" name="scope" value="subjects">{% endif %}
@@ -16,6 +17,11 @@
       <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
     </button>
   </form>
+  {% if query %}
+    {% if result_count or subjects_only %}
+      {% include "study/partials/collection_view_toggle.html" %}
+    {% endif %}
+  {% endif %}
 </div>
 
 {% if query %}
@@ -25,10 +31,6 @@
       <p class="muted">Les {{ visible_result_count }} premiers sont affichés. Précise ta recherche pour cibler un mot, un sujet ou une expression.</p>
     {% endif %}
   </div>
-
-  {% if result_count or subjects_only %}
-    {% include "study/partials/collection_view_toggle.html" %}
-  {% endif %}
 
   {% if prompt_results or writing_sujet_results %}
     <h2 class="search-section-heading">{% if subjects_only %}Sujets{% else %}Sujets &amp; réponses{% endif %} <span>{{ subject_result_count }}</span></h2>

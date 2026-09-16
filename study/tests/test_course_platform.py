@@ -288,6 +288,11 @@ class CoursePlatformTests(TestCase):
         self.assertContains(first, reverse("study:learn_lesson", args=["grammar-articles-gender"]))
         self.assertNotContains(first, "Private practice feedback")
         self.assertNotContains(first, self.lesson.production_task.model_answer)
+        for source in self.lesson.sources:
+            self.assertNotContains(first, source.url)
+            self.assertNotContains(first, source.label)
+        self.assertContains(first, "Further practice")
+        self.assertContains(first, "https://translate.google.com/")
         filtered = self.client.get(reverse("study:course_lesson", args=[self.lesson.slug]), {"level": "A1"})
         self.assertIsNone(filtered.context["next_lesson"])
         bridge = self.client.get(reverse("study:course_lesson", args=["c1-foundations"]))

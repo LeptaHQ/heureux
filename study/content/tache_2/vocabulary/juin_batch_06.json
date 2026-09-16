@@ -135,10 +135,10 @@
         {
           "id": "T2J6S26V17",
           "kind": "collocation",
-          "french": "n'a jamais fait de randonnée",
-          "english": "has never gone hiking",
-          "example": "D'après toi, c'est accessible pour quelqu'un qui n'a jamais fait de randonnée ?",
-          "usage": "Collocation négative + verbe pour désigner l'absence totale d'expérience."
+          "french": "une sortie plus courte",
+          "english": "a shorter outing",
+          "example": "Si on débute, est-ce qu'on peut choisir une sortie plus courte ?",
+          "usage": "Groupe nominal comparatif pour évoquer une sortie de durée réduite, adaptée à un débutant."
         },
         {
           "id": "T2J6S26V18",
@@ -215,10 +215,10 @@
         {
           "id": "T2J6S26V27",
           "kind": "tournure",
-          "french": "c'est accessible pour quelqu'un qui n'a jamais fait de randonnée",
-          "english": "is it accessible for someone who has never gone hiking",
-          "example": "D'après toi, c'est accessible pour quelqu'un qui n'a jamais fait de randonnée ?",
-          "usage": "Tournure pour évaluer le niveau requis pour un total débutant."
+          "french": "Si on débute, est-ce qu'on peut choisir",
+          "english": "if we're beginners, can we choose",
+          "example": "Si on débute, est-ce qu'on peut choisir une sortie plus courte ?",
+          "usage": "Condition au présent suivie d'une question sur une possibilité adaptée aux débutants."
         },
         {
           "id": "T2J6S26V28",
@@ -270,7 +270,7 @@
           "kind": "mot-cle",
           "french": "quel âge",
           "english": "what age",
-          "example": "Quel âge avait-il ou elle pendant ce séjour ?",
+          "example": "Quel âge avait ton enfant pendant ce séjour ?",
           "usage": "Groupe interrogatif standard pour demander l'âge d'une personne."
         },
         {
@@ -286,7 +286,7 @@
           "kind": "mot-cle",
           "french": "une famille d'accueil",
           "english": "a host family",
-          "example": "Côté hébergement, il ou elle logeait dans une famille d'accueil, ou plutôt dans un internat avec le groupe ?",
+          "example": "Côté hébergement, ton enfant logeait dans une famille d'accueil, ou plutôt dans un internat avec le groupe ?",
           "usage": "Groupe nominal désignant la famille qui héberge un élève à l'étranger."
         },
         {
@@ -310,7 +310,7 @@
           "kind": "mot-cle",
           "french": "l'adaptation",
           "english": "the adjustment",
-          "example": "Comment s'est passée l'adaptation au début — il ou elle s'est vite senti(e) à l'aise ?",
+          "example": "Comment s'est passée l'adaptation au début — ton enfant s'est vite senti à l'aise ?",
           "usage": "Nom féminin désignant le processus d'accoutumance à un nouvel environnement."
         },
         {
@@ -318,7 +318,7 @@
           "kind": "mot-cle",
           "french": "des accompagnateurs",
           "english": "chaperones/group leaders",
-          "example": "Pour ce qui est du niveau, comment était encadré le séjour — il y avait des accompagnateurs sur place en permanence ?",
+          "example": "Comment était encadré le séjour — il y avait des accompagnateurs sur place en permanence ?",
           "usage": "Nom pluriel désignant les adultes responsables encadrant un groupe de jeunes."
         },
         {
@@ -348,10 +348,10 @@
         {
           "id": "T2J6S27V13",
           "kind": "collocation",
-          "french": "avait-il ou elle",
-          "english": "did he or she have",
-          "example": "Quel âge avait-il ou elle pendant ce séjour ?",
-          "usage": "Collocation avec double pronom pour poser une question neutre sur le genre de l'enfant."
+          "french": "quel âge avait ton enfant",
+          "english": "how old was your child",
+          "example": "Quel âge avait ton enfant pendant ce séjour ?",
+          "usage": "Construction avec avoir à l'imparfait pour demander l'âge de l'enfant au moment du séjour."
         },
         {
           "id": "T2J6S27V14",
@@ -366,7 +366,7 @@
           "kind": "collocation",
           "french": "dans un internat",
           "english": "in a boarding school",
-          "example": "Côté hébergement, il ou elle logeait dans une famille d'accueil, ou plutôt dans un internat avec le groupe ?",
+          "example": "Côté hébergement, ton enfant logeait dans une famille d'accueil, ou plutôt dans un internat avec le groupe ?",
           "usage": "Collocation prépositionnelle pour désigner un hébergement collectif encadré."
         },
         {
@@ -374,7 +374,7 @@
           "kind": "collocation",
           "french": "ce programme en particulier",
           "english": "this particular program",
-          "example": "Côté organisation, comment as-tu choisi ce programme en particulier — par une agence, une école ?",
+          "example": "Côté organisation, qu'est-ce qui t'a fait choisir ce programme en particulier ?",
           "usage": "Collocation démonstrative pour insister sur un choix précis parmi d'autres options."
         },
         {
@@ -430,7 +430,7 @@
           "kind": "tournure",
           "french": "comment s'est passée l'adaptation au début",
           "english": "how did the initial adjustment go",
-          "example": "Comment s'est passée l'adaptation au début — il ou elle s'est vite senti(e) à l'aise ?",
+          "example": "Comment s'est passée l'adaptation au début — ton enfant s'est vite senti à l'aise ?",
           "usage": "Tournure interrogative au passé composé pour évaluer un vécu émotionnel."
         },
         {
@@ -438,7 +438,7 @@
           "kind": "tournure",
           "french": "comment était encadré le séjour",
           "english": "how was the trip supervised",
-          "example": "Pour ce qui est du niveau, comment était encadré le séjour — il y avait des accompagnateurs sur place en permanence ?",
+          "example": "Comment était encadré le séjour — il y avait des accompagnateurs sur place en permanence ?",
           "usage": "Tournure interrogative au passif imparfait pour vérifier un encadrement."
         },
         {
@@ -452,10 +452,10 @@
         {
           "id": "T2J6S27V26",
           "kind": "tournure",
-          "french": "comment as-tu choisi ce programme en particulier",
-          "english": "how did you choose this particular program",
-          "example": "Côté organisation, comment as-tu choisi ce programme en particulier — par une agence, une école ?",
-          "usage": "Tournure interrogative au passé composé pour comprendre une démarche de sélection."
+          "french": "qu'est-ce qui t'a fait choisir ce programme en particulier",
+          "english": "what made you choose this particular program",
+          "example": "Côté organisation, qu'est-ce qui t'a fait choisir ce programme en particulier ?",
+          "usage": "Tournure interrogative au passé composé pour comprendre les raisons d'un choix."
         },
         {
           "id": "T2J6S27V27",
@@ -499,7 +499,7 @@
           "kind": "mot-cle",
           "french": "ta voiture",
           "english": "your car",
-          "example": "Salut ! Tu m'as dit que tu vendais ta voiture — justement, je cherche à en changer : tu pourrais m'en dire un peu plus ?",
+          "example": "Salut ! Tu m'as dit que tu vendais ta voiture — ça m'intéresse, tu pourrais m'en dire un peu plus ?",
           "usage": "Groupe nominal possessif désignant le véhicule mis en vente, registre tutoiement."
         },
         {
@@ -547,16 +547,16 @@
           "kind": "mot-cle",
           "french": "le carnet d'entretien",
           "english": "the maintenance logbook",
-          "example": "Il y a un autre point qui m'intéresse : tu as gardé le carnet d'entretien et les factures ?",
+          "example": "Tu as gardé le carnet d'entretien et les factures ?",
           "usage": "Groupe nominal désignant le document répertoriant les interventions effectuées sur un véhicule."
         },
         {
           "id": "T2J6S28V08",
           "kind": "mot-cle",
-          "french": "le contrôle technique",
-          "english": "the roadworthiness/safety inspection",
-          "example": "Le contrôle technique est encore valide, ou il faut le refaire bientôt ?",
-          "usage": "Groupe nominal désignant l'inspection technique périodique obligatoire d'un véhicule."
+          "french": "un contrôle technique",
+          "english": "a roadworthiness/safety inspection",
+          "example": "Est-ce qu'une inspection ou un contrôle technique est nécessaire avant la vente ?",
+          "usage": "Groupe nominal désignant une inspection technique d'un véhicule ; son caractère obligatoire dépend du lieu et de la situation."
         },
         {
           "id": "T2J6S28V09",
@@ -579,7 +579,7 @@
           "kind": "collocation",
           "french": "m'en dire un peu plus",
           "english": "to tell me a bit more about it",
-          "example": "Salut ! Tu m'as dit que tu vendais ta voiture — justement, je cherche à en changer : tu pourrais m'en dire un peu plus ?",
+          "example": "Salut ! Tu m'as dit que tu vendais ta voiture — ça m'intéresse, tu pourrais m'en dire un peu plus ?",
           "usage": "Collocation verbale informelle pour demander un développement, registre tutoiement."
         },
         {
@@ -667,16 +667,16 @@
           "kind": "tournure",
           "french": "tu as gardé le carnet d'entretien et les factures",
           "english": "did you keep the maintenance logbook and the invoices",
-          "example": "Il y a un autre point qui m'intéresse : tu as gardé le carnet d'entretien et les factures ?",
+          "example": "Tu as gardé le carnet d'entretien et les factures ?",
           "usage": "Tournure interrogative au passé composé, registre tutoiement."
         },
         {
           "id": "T2J6S28V23",
           "kind": "tournure",
-          "french": "il faut le refaire bientôt",
-          "english": "does it need to be redone soon",
-          "example": "Le contrôle technique est encore valide, ou il faut le refaire bientôt ?",
-          "usage": "Tournure impersonnelle pour vérifier une échéance administrative proche."
+          "french": "est nécessaire avant la vente",
+          "english": "is necessary before the sale",
+          "example": "Est-ce qu'une inspection ou un contrôle technique est nécessaire avant la vente ?",
+          "usage": "Tournure pour vérifier si une démarche doit être effectuée avant une vente."
         },
         {
           "id": "T2J6S28V24",
@@ -742,9 +742,9 @@
         {
           "id": "T2J6S29V01",
           "kind": "mot-cle",
-          "french": "des billets",
-          "english": "tickets",
-          "example": "Salut ! Tu m'as dit que tu avais des billets pour un festival de musique mais que tu ne peux pas y aller — ça pourrait bien m'intéresser, tu peux m'en dire plus ?",
+          "french": "tes billets",
+          "english": "your tickets",
+          "example": "Salut ! Tes billets pour le festival pourraient bien m'intéresser, tu peux m'en dire plus ?",
           "usage": "Nom pluriel désignant des titres d'accès à un événement."
         },
         {
@@ -782,10 +782,10 @@
         {
           "id": "T2J6S29V06",
           "kind": "mot-cle",
-          "french": "y aller finalement",
-          "english": "go there after all",
-          "example": "Et puis, pourquoi tu ne peux plus y aller finalement ?",
-          "usage": "Locution verbale pour évoquer un changement de décision."
+          "french": "certains concerts",
+          "english": "certain concerts",
+          "example": "Les billets donnent accès à tout le festival, ou seulement à certains concerts ?",
+          "usage": "Groupe nominal pour désigner une partie des concerts, par opposition à l'ensemble du festival."
         },
         {
           "id": "T2J6S29V07",
@@ -806,10 +806,10 @@
         {
           "id": "T2J6S29V09",
           "kind": "mot-cle",
-          "french": "transférables",
-          "english": "transferable",
-          "example": "Côté inscription, les billets sont-ils transférables à mon nom, ou c'est directement utilisable ?",
-          "usage": "Adjectif qualifiant un billet pouvant être mis au nom d'une autre personne."
+          "french": "transférer",
+          "english": "to transfer",
+          "example": "Et pour les billets, faut-il les transférer à mon nom, ou sont-ils directement utilisables ?",
+          "usage": "Verbe pour mettre des billets au nom d'une autre personne."
         },
         {
           "id": "T2J6S29V10",
@@ -824,7 +824,7 @@
           "kind": "collocation",
           "french": "m'en dire plus",
           "english": "to tell me more about it",
-          "example": "Salut ! Tu m'as dit que tu avais des billets pour un festival de musique mais que tu ne peux pas y aller — ça pourrait bien m'intéresser, tu peux m'en dire plus ?",
+          "example": "Salut ! Tes billets pour le festival pourraient bien m'intéresser, tu peux m'en dire plus ?",
           "usage": "Collocation verbale informelle pour demander un développement, registre tutoiement."
         },
         {
@@ -872,16 +872,16 @@
           "kind": "collocation",
           "french": "un billet spécial",
           "english": "a special ticket",
-          "example": "Faut-il un billet spécial pour le camping, si on veut rester sur place plusieurs jours ?",
+          "example": "S'il y a un camping sur place, faut-il un billet spécial pour y accéder ?",
           "usage": "Groupe nominal désignant un titre d'accès complémentaire à une prestation."
         },
         {
           "id": "T2J6S29V18",
           "kind": "collocation",
-          "french": "qui connais l'événement",
-          "english": "who knows the event",
-          "example": "Toi qui connais l'événement, tu me conseilles d'y aller ?",
-          "usage": "Collocation relative pour valoriser l'expertise de l'interlocuteur, registre tutoiement."
+          "french": "d'après ce que tu en sais",
+          "english": "based on what you know about it",
+          "example": "D'après ce que tu en sais, tu me conseilles d'y aller, et pourquoi ?",
+          "usage": "Expression pour solliciter un avis en tenant compte des connaissances de l'interlocuteur."
         },
         {
           "id": "T2J6S29V19",
@@ -894,18 +894,18 @@
         {
           "id": "T2J6S29V20",
           "kind": "collocation",
-          "french": "confirmer aujourd'hui",
-          "english": "confirm today",
-          "example": "Pour finir — je peux te confirmer aujourd'hui si je prends les billets ?",
-          "usage": "Collocation verbale pour évoquer une décision prise rapidement."
+          "french": "besoin de ma réponse",
+          "english": "need for my answer",
+          "example": "Pour finir — tu aurais besoin de ma réponse pour quand ?",
+          "usage": "Groupe employé avec avoir pour parler de l'attente d'une réponse."
         },
         {
           "id": "T2J6S29V21",
           "kind": "tournure",
-          "french": "pourquoi tu ne peux plus y aller finalement",
-          "english": "why can't you go anymore after all",
-          "example": "Et puis, pourquoi tu ne peux plus y aller finalement ?",
-          "usage": "Tournure interrogative pour comprendre un changement de situation, registre tutoiement."
+          "french": "les billets donnent accès à tout le festival",
+          "english": "the tickets give access to the whole festival",
+          "example": "Les billets donnent accès à tout le festival, ou seulement à certains concerts ?",
+          "usage": "Tournure pour vérifier l'étendue de l'accès compris dans les billets."
         },
         {
           "id": "T2J6S29V22",
@@ -926,10 +926,10 @@
         {
           "id": "T2J6S29V24",
           "kind": "tournure",
-          "french": "c'est directement utilisable",
-          "english": "it's directly usable",
-          "example": "Côté inscription, les billets sont-ils transférables à mon nom, ou c'est directement utilisable ?",
-          "usage": "Tournure affirmative pour vérifier l'absence de démarche administrative supplémentaire."
+          "french": "sont-ils directement utilisables",
+          "english": "can they be used directly",
+          "example": "Et pour les billets, faut-il les transférer à mon nom, ou sont-ils directement utilisables ?",
+          "usage": "Tournure interrogative pour vérifier l'absence de démarche préalable à l'utilisation des billets."
         },
         {
           "id": "T2J6S29V25",
@@ -950,17 +950,17 @@
         {
           "id": "T2J6S29V27",
           "kind": "tournure",
-          "french": "si on veut rester sur place plusieurs jours",
-          "english": "if we want to stay on site for several days",
-          "example": "Faut-il un billet spécial pour le camping, si on veut rester sur place plusieurs jours ?",
-          "usage": "Tournure hypothétique pour anticiper une contrainte pratique de séjour prolongé."
+          "french": "s'il y a un camping sur place",
+          "english": "if there is a campsite on site",
+          "example": "S'il y a un camping sur place, faut-il un billet spécial pour y accéder ?",
+          "usage": "Tournure hypothétique qui ne présume pas l'existence d'un camping."
         },
         {
           "id": "T2J6S29V28",
           "kind": "tournure",
           "french": "tu me conseilles d'y aller",
           "english": "do you advise me to go",
-          "example": "Toi qui connais l'événement, tu me conseilles d'y aller ?",
+          "example": "D'après ce que tu en sais, tu me conseilles d'y aller, et pourquoi ?",
           "usage": "Tournure interrogative directe pour solliciter un avis, registre tutoiement."
         },
         {
@@ -974,10 +974,10 @@
         {
           "id": "T2J6S29V30",
           "kind": "tournure",
-          "french": "je peux te confirmer aujourd'hui",
-          "english": "can I confirm to you today",
-          "example": "Pour finir — je peux te confirmer aujourd'hui si je prends les billets ?",
-          "usage": "Tournure de clôture pour proposer une réponse rapide, registre tutoiement."
+          "french": "tu aurais besoin de ma réponse pour quand",
+          "english": "when would you need my answer by",
+          "example": "Pour finir — tu aurais besoin de ma réponse pour quand ?",
+          "usage": "Question au conditionnel pour demander une échéance sans promettre une réponse immédiate."
         }
       ]
     },
@@ -1013,7 +1013,7 @@
           "kind": "mot-cle",
           "french": "calme et intime",
           "english": "calm and intimate",
-          "example": "L'ambiance est plutôt calme et intime, ou plus animée et festive ?",
+          "example": "Dans les restaurants que vous conseillez, l'ambiance est plutôt calme et intime, ou plus animée et festive ?",
           "usage": "Groupe adjectival coordonné pour qualifier une ambiance feutrée."
         },
         {
@@ -1021,7 +1021,7 @@
           "kind": "mot-cle",
           "french": "un groupe",
           "english": "a group",
-          "example": "Pour ce qui est des repas, ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
+          "example": "Ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
           "usage": "Nom masculin désignant un ensemble de plusieurs convives."
         },
         {
@@ -1045,7 +1045,7 @@
           "kind": "mot-cle",
           "french": "une voiture",
           "english": "a car",
-          "example": "Et pour s'y rendre, ils sont facilement accessibles à pied, ou il vaut mieux prévoir une voiture ?",
+          "example": "Et pour s'y rendre, c'est facilement accessible à pied, ou il vaut mieux prévoir une voiture ?",
           "usage": "Nom féminin désignant un moyen de transport individuel motorisé."
         },
         {
@@ -1093,7 +1093,7 @@
           "kind": "collocation",
           "french": "animée et festive",
           "english": "lively and festive",
-          "example": "L'ambiance est plutôt calme et intime, ou plus animée et festive ?",
+          "example": "Dans les restaurants que vous conseillez, l'ambiance est plutôt calme et intime, ou plus animée et festive ?",
           "usage": "Collocation adjectivale coordonnée pour qualifier une ambiance dynamique."
         },
         {
@@ -1101,23 +1101,23 @@
           "kind": "collocation",
           "french": "de petites tables",
           "english": "small tables",
-          "example": "Pour ce qui est des repas, ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
+          "example": "Ces restaurants conviennent-ils pour un groupe, ou plutôt pour de petites tables ?",
           "usage": "Groupe nominal désignant un agencement pour peu de convives."
         },
         {
           "id": "T2J6S30V16",
           "kind": "collocation",
-          "french": "m'en dire un peu plus",
-          "english": "to tell me a bit more about it",
-          "example": "Vous avez mentionné un restaurant en particulier — vous pourriez m'en dire un peu plus : il conviendrait pour une dizaine de personnes ?",
-          "usage": "Collocation verbale polie pour demander un développement, registre vouvoiement."
+          "french": "conviendrait le mieux",
+          "english": "would be the most suitable",
+          "example": "Parmi ces restaurants, lequel conviendrait le mieux si on était une dizaine de personnes ?",
+          "usage": "Expression au conditionnel pour comparer des possibilités et choisir la plus adaptée."
         },
         {
           "id": "T2J6S30V17",
           "kind": "collocation",
           "french": "qu'est-ce que vous en avez pensé",
           "english": "what did you think of it",
-          "example": "Vous y êtes déjà allé(e) vous-même — qu'est-ce que vous en avez pensé ?",
+          "example": "Si vous y êtes déjà allé(e) vous-même, qu'est-ce que vous en avez pensé ?",
           "usage": "Collocation interrogative au passé composé pour solliciter un avis, registre vouvoiement."
         },
         {
@@ -1139,10 +1139,10 @@
         {
           "id": "T2J6S30V20",
           "kind": "collocation",
-          "french": "pour l'occasion",
-          "english": "for the occasion",
-          "example": "Pour finir — parmi tous ceux que vous connaissez, lequel me recommanderiez-vous vraiment pour l'occasion ?",
-          "usage": "Locution prépositionnelle pour désigner un événement particulier célébré."
+          "french": "vérifier les disponibilités",
+          "english": "to check availability",
+          "example": "Pour finir — savez-vous comment joindre ce restaurant pour vérifier les disponibilités ?",
+          "usage": "Collocation verbale pour s'assurer qu'une réservation est possible."
         },
         {
           "id": "T2J6S30V21",
@@ -1165,7 +1165,7 @@
           "kind": "tournure",
           "french": "il vaut mieux prévoir une voiture",
           "english": "it's better to plan for a car",
-          "example": "Et pour s'y rendre, ils sont facilement accessibles à pied, ou il vaut mieux prévoir une voiture ?",
+          "example": "Et pour s'y rendre, c'est facilement accessible à pied, ou il vaut mieux prévoir une voiture ?",
           "usage": "Tournure impersonnelle pour recommander un moyen de transport."
         },
         {
@@ -1187,17 +1187,17 @@
         {
           "id": "T2J6S30V26",
           "kind": "tournure",
-          "french": "vous avez mentionné un restaurant en particulier",
-          "english": "you mentioned a particular restaurant",
-          "example": "Vous avez mentionné un restaurant en particulier — vous pourriez m'en dire un peu plus : il conviendrait pour une dizaine de personnes ?",
-          "usage": "Tournure affirmative pour relancer sur un élément déjà évoqué, registre vouvoiement."
+          "french": "lequel conviendrait le mieux si on était une dizaine de personnes",
+          "english": "which would be most suitable if there were about ten of us",
+          "example": "Parmi ces restaurants, lequel conviendrait le mieux si on était une dizaine de personnes ?",
+          "usage": "Question au conditionnel avec une hypothèse pour choisir un restaurant adapté au groupe."
         },
         {
           "id": "T2J6S30V27",
           "kind": "tournure",
           "french": "vous y êtes déjà allé(e) vous-même",
           "english": "have you been there yourself",
-          "example": "Vous y êtes déjà allé(e) vous-même — qu'est-ce que vous en avez pensé ?",
+          "example": "Si vous y êtes déjà allé(e) vous-même, qu'est-ce que vous en avez pensé ?",
           "usage": "Tournure interrogative au passé composé pour vérifier une expérience personnelle, registre vouvoiement."
         },
         {
@@ -1219,10 +1219,10 @@
         {
           "id": "T2J6S30V30",
           "kind": "tournure",
-          "french": "lequel me recommanderiez-vous vraiment",
-          "english": "which one would you really recommend to me",
-          "example": "Pour finir — parmi tous ceux que vous connaissez, lequel me recommanderiez-vous vraiment pour l'occasion ?",
-          "usage": "Tournure de clôture au conditionnel pour solliciter un conseil final, registre vouvoiement."
+          "french": "savez-vous comment joindre ce restaurant",
+          "english": "do you know how to contact this restaurant",
+          "example": "Pour finir — savez-vous comment joindre ce restaurant pour vérifier les disponibilités ?",
+          "usage": "Question polie pour obtenir un moyen de contact, registre vouvoiement."
         }
       ]
     }

@@ -32,7 +32,7 @@
           "text": "Est-ce qu'il a des allergies alimentaires ou des aliments interdits ?"
         },
         {
-          "text": "Pour les promenades, c'est combien de temps et à quelle fréquence ? Et il y a un parcours habituel ou je peux le promener où je veux ?",
+          "text": "S'il faut le promener, c'est combien de temps et à quelle fréquence — il y a un parcours habituel ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -58,7 +58,7 @@
           "memory_section": 13
         },
         {
-          "text": "Voilà, je crois que j'ai tout ce qu'il faut pour bien m'occuper de lui pendant ton absence — et au moindre doute, je peux te solliciter ?",
+          "text": "Merci pour ces informations — au moindre doute, je peux te contacter pendant ton absence ?",
           "memory_number": 3,
           "memory_section": 13
         }
@@ -99,10 +99,10 @@
           "text": "Il faut prévoir une tenue particulière — quelque chose de chaud pour le bateau ?"
         },
         {
-          "text": "Côté repas, tu préfères qu'on apporte quelque chose — un cadeau, à boire, à manger ?"
+          "text": "Côté repas, tu préfères qu'on apporte quelque chose à boire ou à manger ?"
         },
         {
-          "text": "Il y a une participation aux frais, ou tu t'occupes de tout ?",
+          "text": "Quelle participation aux frais faut-il prévoir, s'il y en a une ?",
           "memory_number": 11,
           "memory_section": 12
         },
@@ -110,13 +110,13 @@
           "text": "En ce qui concerne la programmation, il y aura de la musique ou une animation particulière à bord ?"
         },
         {
-          "text": "Côté sécurité, il y a ce qu'il faut à bord — des gilets de sauvetage, tout ça ?"
+          "text": "Côté sécurité, quelles consignes faudra-t-il suivre à bord, notamment pour les gilets de sauvetage ?"
         },
         {
           "text": "Et s'il fait mauvais ce jour-là, c'est maintenu ou tu as une solution de repli ?"
         },
         {
-          "text": "Pour finir — je te confirme ma présence quand, et il te faut une réponse pour quelle date ?"
+          "text": "Pour finir — il te faut une réponse pour quelle date ?"
         }
       ]
     },
@@ -135,15 +135,15 @@
           "text": "Les parcours font quelle distance — c'est plutôt accessible ou vraiment sportif ?"
         },
         {
-          "text": "Deuxième point : on avance à quel rythme — on peut suivre tranquillement ou il faut être bien entraîné ?"
+          "text": "On avance à quel rythme — on peut suivre tranquillement ou il faut être bien entraîné ?"
         },
         {
-          "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ?",
+          "text": "Est-ce qu'il y a plusieurs groupes selon le niveau ?",
           "memory_number": 8,
           "memory_section": 6
         },
         {
-          "text": "Si on débute complètement, est-ce qu'on risque de se sentir perdu(e) ?",
+          "text": "Si quelqu'un a du mal à suivre, comment le groupe s'organise ?",
           "memory_number": 8,
           "memory_section": 6
         },
@@ -170,12 +170,12 @@
           "text": "Pour ce qui est de la sécurité, il y a des précautions à prendre pour éviter de se blesser ou de se perdre ?"
         },
         {
-          "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ?",
+          "text": "En ce qui concerne le budget, combien coûte la cotisation ou la participation à une sortie ?",
           "memory_number": 8,
           "memory_section": 3
         },
         {
-          "text": "Y a-t-il une cotisation au club, ou on paie à la sortie ?"
+          "text": "En cas de mauvais temps, les sorties sont maintenues ou annulées ?"
         },
         {
           "text": "Pour finir — est-ce que je peux venir essayer une sortie avant de m'inscrire, et comment je te recontacte ?"
@@ -188,17 +188,17 @@
       "prompt": "À l'accueil d'un centre culturel, vous vous renseignez sur les activités proposées (public concerné, horaires, types d'activités, etc.).",
       "questions": [
         {
-          "text": "Bonjour ! J'ai appris récemment l'ouverture de ce nouveau centre culturel — depuis quand est-il ouvert exactement ?",
+          "text": "Bonjour ! Je m'intéresse aux activités de votre centre culturel — sont-elles ouvertes à tous les habitants ?",
           "memory_number": 10,
           "memory_section": 4
         },
         {
-          "text": "Ça se passe où exactement — c'est facilement accessible en transports en commun ?",
+          "text": "Les activités ont lieu au centre ou aussi dans d'autres lieux de la ville ?",
           "memory_number": 10,
           "memory_section": 5
         },
         {
-          "text": "Quels types d'activités proposez-vous — c'est plutôt orienté vers l'art, la culture ou un mélange de plusieurs domaines ?",
+          "text": "Quels types d'activités proposez-vous — des ateliers artistiques, des spectacles ou d'autres activités culturelles ?",
           "memory_number": 10,
           "memory_section": 2
         },
@@ -213,7 +213,7 @@
           "memory_section": 2
         },
         {
-          "text": "En ce qui concerne la programmation, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "text": "Organisez-vous des expositions en ce moment, et jusqu'à quand peut-on les visiter ?",
           "memory_number": 10,
           "memory_section": 2
         },
@@ -238,7 +238,7 @@
           "memory_section": 4
         },
         {
-          "text": "En ce qui concerne la réservation, comment se passe l'inscription — en ligne ou uniquement sur place ? Il faut s'inscrire à l'avance ou on peut venir librement ?",
+          "text": "Comment se passe l'inscription — en ligne ou sur place, et combien de temps à l'avance ?",
           "memory_number": 10,
           "memory_section": 6
         },
@@ -253,7 +253,7 @@
           "memory_section": 3
         },
         {
-          "text": "Y a-t-il une boutique de souvenirs ou une librairie sur place ?",
+          "text": "Les salles sont-elles accessibles aux personnes à mobilité réduite ?",
           "memory_number": 10,
           "memory_section": 9
         },
@@ -299,7 +299,7 @@
           "memory_section": 12
         },
         {
-          "text": "Vous avez encore de la disponibilité pour cet été, ou il vaut mieux réserver longtemps à l'avance ?"
+          "text": "Quelles sont vos périodes les plus demandées — faut-il réserver longtemps à l'avance ?"
         },
         {
           "text": "Et concrètement, comment se passe la réservation — un acompte est-il demandé à l'avance ?"
@@ -310,7 +310,7 @@
           "memory_section": 12
         },
         {
-          "text": "Côté tarifs, comment ça fonctionne — c'est un prix par nuit, par personne, ou par emplacement ?"
+          "text": "Côté tarifs, combien coûte une nuit, et le prix est-il calculé par personne ou par emplacement ?"
         },
         {
           "text": "Le tarif comprend quoi exactement ?",

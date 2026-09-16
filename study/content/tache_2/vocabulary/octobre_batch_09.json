@@ -79,9 +79,9 @@
         {
           "id": "T2O10S41V10",
           "kind": "mot-cle",
-          "french": "une surprise",
-          "english": "a surprise",
-          "example": "Avant de lancer les invitations, est-ce que tu veux que ce soit une surprise pour certains invités ?",
+          "french": "la surprise",
+          "english": "the surprise",
+          "example": "Tu as un gâteau préféré, ou je te fais la surprise ?",
           "usage": "Nom désignant l'effet de surprise."
         },
         {
@@ -153,7 +153,7 @@
           "kind": "collocation",
           "french": "dans les clous",
           "english": "within budget",
-          "example": "Côté tarifs, tu as un budget en tête pour que je reste dans les clous ?",
+          "example": "Côté budget, tu as un montant en tête pour que je reste dans les clous ?",
           "usage": "Locution familière sur le respect du budget."
         },
         {
@@ -231,10 +231,10 @@
         {
           "id": "T2O10S41V29",
           "kind": "tournure",
-          "french": "Est-ce que tu veux que ce soit une surprise pour certains invités",
-          "english": "do you want it to be a surprise for some guests",
-          "example": "Avant de lancer les invitations, est-ce que tu veux que ce soit une surprise pour certains invités ?",
-          "usage": "Question sur la surprise."
+          "french": "pour quelle date veux-tu avoir les réponses",
+          "english": "by what date do you want the replies",
+          "example": "Avant de lancer les invitations, pour quelle date veux-tu avoir les réponses ?",
+          "usage": "Question pour fixer l'échéance des réponses aux invitations."
         },
         {
           "id": "T2O10S41V30",
@@ -270,15 +270,15 @@
           "kind": "mot-cle",
           "french": "les cours",
           "english": "the classes",
-          "example": "Et les cours seront en français ou en anglais ?",
+          "example": "Tu souhaites suivre les cours en français ou en anglais ?",
           "usage": "Nom pluriel désignant les cours."
         },
         {
           "id": "T2O10S42V04",
           "kind": "mot-cle",
-          "french": "ce programme",
-          "english": "this programme",
-          "example": "Ça dure combien de temps, ce programme ?",
+          "french": "un programme",
+          "english": "a program",
+          "example": "Tu envisages un programme de combien de temps ?",
           "usage": "Groupe nominal désignant le cursus."
         },
         {
@@ -286,16 +286,16 @@
           "kind": "mot-cle",
           "french": "les démarches",
           "english": "the procedures",
-          "example": "Côté administratif, quelles sont les démarches pour s'inscrire et obtenir un visa étudiant ?",
+          "example": "Côté administratif, quelles sont les démarches pour s'inscrire et demander un permis d'études ?",
           "usage": "Nom pluriel désignant les formalités."
         },
         {
           "id": "T2O10S42V06",
           "kind": "mot-cle",
-          "french": "un visa étudiant",
-          "english": "a student visa",
-          "example": "Côté administratif, quelles sont les démarches pour s'inscrire et obtenir un visa étudiant ?",
-          "usage": "Groupe nominal désignant le titre de séjour étudiant."
+          "french": "un permis d'études",
+          "english": "a study permit",
+          "example": "Côté administratif, quelles sont les démarches pour s'inscrire et demander un permis d'études ?",
+          "usage": "Groupe nominal désignant l'autorisation d'étudier au Canada, distincte d'un visa d'entrée."
         },
         {
           "id": "T2O10S42V07",
@@ -316,10 +316,10 @@
         {
           "id": "T2O10S42V09",
           "kind": "mot-cle",
-          "french": "ce diplôme",
-          "english": "this degree",
-          "example": "Il me reste un point à éclaircir : qu'est-ce que tu espères en retirer — quels sont tes objectifs après ce diplôme ?",
-          "usage": "Groupe nominal désignant le diplôme visé."
+          "french": "ces études",
+          "english": "these studies",
+          "example": "Qu'est-ce que tu espères en retirer — quels sont tes objectifs après ces études ?",
+          "usage": "Groupe nominal désignant la formation envisagée."
         },
         {
           "id": "T2O10S42V10",
@@ -350,16 +350,16 @@
           "kind": "collocation",
           "french": "en français ou en anglais",
           "english": "in French or in English",
-          "example": "Et les cours seront en français ou en anglais ?",
+          "example": "Tu souhaites suivre les cours en français ou en anglais ?",
           "usage": "Alternative sur la langue."
         },
         {
           "id": "T2O10S42V14",
           "kind": "collocation",
-          "french": "obtenir un visa étudiant",
-          "english": "get a student visa",
-          "example": "Côté administratif, quelles sont les démarches pour s'inscrire et obtenir un visa étudiant ?",
-          "usage": "Verbe + complément sur le visa."
+          "french": "demander un permis d'études",
+          "english": "apply for a study permit",
+          "example": "Côté administratif, quelles sont les démarches pour s'inscrire et demander un permis d'études ?",
+          "usage": "Verbe + complément pour évoquer une démarche administrative liée aux études."
         },
         {
           "id": "T2O10S42V15",
@@ -382,7 +382,7 @@
           "kind": "collocation",
           "french": "en retirer",
           "english": "get out of it",
-          "example": "Il me reste un point à éclaircir : qu'est-ce que tu espères en retirer — quels sont tes objectifs après ce diplôme ?",
+          "example": "Qu'est-ce que tu espères en retirer — quels sont tes objectifs après ces études ?",
           "usage": "Locution verbale sur le bénéfice."
         },
         {
@@ -436,25 +436,25 @@
         {
           "id": "T2O10S42V24",
           "kind": "tournure",
-          "french": "Pourquoi cette ville en particulier",
-          "english": "why this city in particular",
-          "example": "Pourquoi cette ville en particulier ?",
-          "usage": "Question sur la ville."
+          "french": "qu'est-ce qui t'attire là-bas",
+          "english": "what attracts you there",
+          "example": "Si tu as déjà choisi la ville, qu'est-ce qui t'attire là-bas ?",
+          "usage": "Question sur l'attrait de la ville choisie."
         },
         {
           "id": "T2O10S42V25",
           "kind": "tournure",
-          "french": "Les cours seront en français ou en anglais",
-          "english": "will classes be in French or English",
-          "example": "Et les cours seront en français ou en anglais ?",
-          "usage": "Question sur la langue."
+          "french": "suivre les cours en français",
+          "english": "take the classes in French",
+          "example": "Tu souhaites suivre les cours en français ou en anglais ?",
+          "usage": "Construction suivre des cours en suivie du nom d'une langue pour préciser la langue d'enseignement."
         },
         {
           "id": "T2O10S42V26",
           "kind": "tournure",
-          "french": "Quelles sont les démarches pour s'inscrire et obtenir un visa étudiant",
-          "english": "what are the steps to enrol and get a student visa",
-          "example": "Côté administratif, quelles sont les démarches pour s'inscrire et obtenir un visa étudiant ?",
+          "french": "quelles sont les démarches pour s'inscrire et demander un permis d'études",
+          "english": "what are the steps to enroll and apply for a study permit",
+          "example": "Côté administratif, quelles sont les démarches pour s'inscrire et demander un permis d'études ?",
           "usage": "Question sur les démarches."
         },
         {
@@ -470,7 +470,7 @@
           "kind": "tournure",
           "french": "Qu'est-ce que tu espères en retirer",
           "english": "what do you hope to get out of it",
-          "example": "Il me reste un point à éclaircir : qu'est-ce que tu espères en retirer — quels sont tes objectifs après ce diplôme ?",
+          "example": "Qu'est-ce que tu espères en retirer — quels sont tes objectifs après ces études ?",
           "usage": "Question sur les objectifs."
         },
         {
@@ -768,7 +768,7 @@
           "kind": "mot-cle",
           "french": "la surveillance",
           "english": "the supervision",
-          "example": "Est-ce qu'elle prépare les repas, aide aux devoirs, ou juste la surveillance ?",
+          "example": "Est-ce qu'elle prépare les repas et aide aux devoirs, ou est-ce qu'elle assure seulement la surveillance ?",
           "usage": "Nom désignant la simple garde."
         },
         {
@@ -776,7 +776,7 @@
           "kind": "mot-cle",
           "french": "les repas",
           "english": "the meals",
-          "example": "Est-ce qu'elle prépare les repas, aide aux devoirs, ou juste la surveillance ?",
+          "example": "Est-ce qu'elle prépare les repas et aide aux devoirs, ou est-ce qu'elle assure seulement la surveillance ?",
           "usage": "Nom pluriel désignant les repas."
         },
         {
@@ -808,7 +808,7 @@
           "kind": "mot-cle",
           "french": "une première fois",
           "english": "a first time",
-          "example": "Dernier point pratique : est-ce qu'on peut la rencontrer une première fois pour voir si le courant passe ?",
+          "example": "Est-ce qu'on peut la rencontrer une première fois pour voir si le courant passe ?",
           "usage": "Groupe nominal sur la première rencontre."
         },
         {
@@ -846,25 +846,25 @@
         {
           "id": "T2O10S44V14",
           "kind": "collocation",
-          "french": "se déplace à domicile",
-          "english": "travels to your home",
-          "example": "Elle se déplace à domicile, ou il faut amener les enfants chez elle ?",
-          "usage": "Locution verbale sur le déplacement."
+          "french": "se déplace-t-elle",
+          "english": "does this person travel",
+          "example": "Dans quel secteur se déplace-t-elle, et y a-t-il des frais de déplacement ?",
+          "usage": "Forme interrogative du verbe se déplacer pour demander le secteur desservi."
         },
         {
           "id": "T2O10S44V15",
           "kind": "collocation",
-          "french": "à l'heure ou au mois",
-          "english": "by the hour or the month",
-          "example": "Côté tarifs, comment ça fonctionne — c'est à l'heure ou au mois ?",
-          "usage": "Alternative sur la facturation."
+          "french": "une garde ponctuelle ou régulière",
+          "english": "occasional or regular childcare",
+          "example": "Côté tarifs, quels sont ses prix pour une garde ponctuelle ou régulière ?",
+          "usage": "Groupes nominaux coordonnés pour comparer deux fréquences de garde."
         },
         {
           "id": "T2O10S44V16",
           "kind": "collocation",
           "french": "aide aux devoirs",
           "english": "homework help",
-          "example": "Est-ce qu'elle prépare les repas, aide aux devoirs, ou juste la surveillance ?",
+          "example": "Est-ce qu'elle prépare les repas et aide aux devoirs, ou est-ce qu'elle assure seulement la surveillance ?",
           "usage": "Groupe nominal sur le soutien scolaire."
         },
         {
@@ -888,7 +888,7 @@
           "kind": "collocation",
           "french": "si le courant passe",
           "english": "if you hit it off",
-          "example": "Dernier point pratique : est-ce qu'on peut la rencontrer une première fois pour voir si le courant passe ?",
+          "example": "Est-ce qu'on peut la rencontrer une première fois pour voir si le courant passe ?",
           "usage": "Locution familière sur l'entente."
         },
         {
@@ -950,9 +950,9 @@
         {
           "id": "T2O10S44V27",
           "kind": "tournure",
-          "french": "Côté tarifs, comment ça fonctionne",
-          "english": "in terms of price, how does it work",
-          "example": "Côté tarifs, comment ça fonctionne — c'est à l'heure ou au mois ?",
+          "french": "quels sont ses prix",
+          "english": "what are this person's rates",
+          "example": "Côté tarifs, quels sont ses prix pour une garde ponctuelle ou régulière ?",
           "usage": "Question sur les tarifs."
         },
         {
@@ -968,7 +968,7 @@
           "kind": "tournure",
           "french": "Est-ce qu'on peut la rencontrer une première fois",
           "english": "can we meet her a first time",
-          "example": "Dernier point pratique : est-ce qu'on peut la rencontrer une première fois pour voir si le courant passe ?",
+          "example": "Est-ce qu'on peut la rencontrer une première fois pour voir si le courant passe ?",
           "usage": "Question sur la rencontre."
         },
         {
@@ -1005,7 +1005,7 @@
           "kind": "mot-cle",
           "french": "des spécialités locales",
           "english": "local specialties",
-          "example": "Pour les repas, vous auriez des adresses à recommander — des spécialités locales à goûter absolument ? Il faut réserver une table à l'avance ou on peut y aller directement ?",
+          "example": "Pour les repas, vous auriez des adresses à recommander — des spécialités locales à goûter absolument ?",
           "usage": "Groupe nominal désignant des plats ou produits typiques d'une région."
         },
         {
@@ -1019,10 +1019,10 @@
         {
           "id": "T2O10S45V05",
           "kind": "mot-cle",
-          "french": "une autre saison",
-          "english": "another season",
-          "example": "C'est une bonne période pour visiter la région ou il vaut mieux attendre une autre saison ?",
-          "usage": "Nom féminin désignant l'une des quatre périodes de l'année, ici au sens touristique."
+          "french": "quelle période",
+          "english": "what time of year",
+          "example": "Quelle période me conseillez-vous pour visiter la région au calme ?",
+          "usage": "Groupe interrogatif pour choisir une période adaptée à un séjour calme."
         },
         {
           "id": "T2O10S45V06",
@@ -1139,10 +1139,10 @@
         {
           "id": "T2O10S45V20",
           "kind": "collocation",
-          "french": "accessible à pied",
-          "english": "reachable on foot",
-          "example": "Une fois sur place, tout est accessible à pied, ou il faut prévoir des trajets ?",
-          "usage": "Adjectif + complément sur l'accès."
+          "french": "à pied",
+          "english": "on foot",
+          "example": "Sur place, quelles visites peut-on faire à pied sans prévoir de longs trajets ?",
+          "usage": "Locution indiquant un mode de déplacement sans véhicule."
         },
         {
           "id": "T2O10S45V21",
@@ -1165,7 +1165,7 @@
           "kind": "tournure",
           "french": "vous auriez des adresses à recommander",
           "english": "would you have some addresses to recommend",
-          "example": "Pour les repas, vous auriez des adresses à recommander — des spécialités locales à goûter absolument ? Il faut réserver une table à l'avance ou on peut y aller directement ?",
+          "example": "Pour les repas, vous auriez des adresses à recommander — des spécialités locales à goûter absolument ?",
           "usage": "Tournure polie au conditionnel pour demander une suggestion sans imposer."
         },
         {

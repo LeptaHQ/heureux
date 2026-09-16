@@ -15,6 +15,7 @@
       </h1>
       {% if task.subtitle %}<p>{{ task.subtitle }}</p>{% endif %}
       <div class="memory-overview-hero__actions">
+        {% include "study/partials/writing_methodology_trigger.html" %}
         {% include "study/partials/prompt_copy_button.html" with button_class="btn tache-two-ai-prompt-button" source_id="ee-ai-practice-prompt-content" label="AI Practice Prompt" success_label="Copied!" error_label="Copy failed" toast_message="AI Practice Prompt copied to your clipboard." error_message="Could not copy the AI Practice Prompt." status_id="ee-ai-practice-prompt-status" aria_label="Copy AI Practice Prompt" only %}
         <span class="sr-only" id="ee-ai-practice-prompt-status" role="status" aria-live="polite"></span>
       </div>
@@ -79,6 +80,7 @@
     </a>
   </div>
 </div>
+{% include "study/partials/writing_methodology_dialog.html" with tache=writing_tache only %}
 {{ ai_practice_prompt|json_script:"ee-ai-practice-prompt-content" }}
 {% endblock %}
 

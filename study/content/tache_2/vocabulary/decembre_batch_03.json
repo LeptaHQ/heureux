@@ -121,7 +121,7 @@
           "kind": "collocation",
           "french": "adaptées à tous les niveaux",
           "english": "suitable for all levels",
-          "example": "En ce qui concerne l'encadrement, le centre propose-t-il des activités adaptées à tous les niveaux, y compris aux débutants ?",
+          "example": "Le centre propose-t-il des activités adaptées à tous les niveaux, y compris aux débutants ?",
           "usage": "Collocation utile pour vérifier qu'une offre convient aussi aux débutants."
         },
         {
@@ -129,7 +129,7 @@
           "kind": "collocation",
           "french": "encadrés par des professeurs qualifiés",
           "english": "led by qualified instructors",
-          "example": "Question niveau, les cours sont-ils encadrés par des professeurs qualifiés — et est-ce qu'on peut avoir un coach personnel si besoin ?",
+          "example": "Les cours sont-ils encadrés par des professeurs qualifiés — et est-ce qu'on peut avoir un coach personnel si besoin ?",
           "usage": "Collocation au passif pour préciser l'encadrement des cours."
         },
         {
@@ -137,7 +137,7 @@
           "kind": "collocation",
           "french": "un coach personnel",
           "english": "a personal trainer",
-          "example": "Question niveau, les cours sont-ils encadrés par des professeurs qualifiés — et est-ce qu'on peut avoir un coach personnel si besoin ?",
+          "example": "Les cours sont-ils encadrés par des professeurs qualifiés — et est-ce qu'on peut avoir un coach personnel si besoin ?",
           "usage": "Groupe nominal désignant un entraîneur individuel."
         },
         {
@@ -294,7 +294,7 @@
           "kind": "mot-cle",
           "french": "la programmation",
           "english": "the schedule of events",
-          "example": "Dans un autre registre, la programmation est publiée à l'avance ou on la découvre au dernier moment ?",
+          "example": "Où peut-on consulter la programmation des prochaines sorties ?",
           "usage": "Nom féminin désignant l'ensemble des événements prévus."
         },
         {
@@ -372,10 +372,10 @@
         {
           "id": "T2D12S12V16",
           "kind": "collocation",
-          "french": "publiée à l'avance",
-          "english": "published in advance",
-          "example": "Dans un autre registre, la programmation est publiée à l'avance ou on la découvre au dernier moment ?",
-          "usage": "Collocation participe + locution pour indiquer une diffusion anticipée."
+          "french": "consulter la programmation",
+          "english": "check the programme",
+          "example": "Où peut-on consulter la programmation des prochaines sorties ?",
+          "usage": "Association verbe-complément pour se renseigner sur les sorties prévues."
         },
         {
           "id": "T2D12S12V17",
@@ -651,7 +651,7 @@
           "kind": "collocation",
           "french": "des règles à respecter entre voisins",
           "english": "rules to follow between neighbours",
-          "example": "Côté conditions, y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
+          "example": "Y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
           "usage": "Groupe nominal avec infinitif de but sur la vie collective."
         },
         {
@@ -715,7 +715,7 @@
           "kind": "tournure",
           "french": "qu'est-ce qui est le plus pratique",
           "english": "what is the most convenient",
-          "example": "Pour ce qui est du lieu, selon vous, qu'est-ce qui est le plus pratique dans ce quartier au quotidien ?",
+          "example": "Selon vous, qu'est-ce qui est le plus pratique dans ce quartier au quotidien ?",
           "usage": "Tournure superlative pour dégager l'avantage principal."
         },
         {
@@ -723,7 +723,7 @@
           "kind": "tournure",
           "french": "Y a-t-il des choses à savoir sur la vie de l'immeuble",
           "english": "Is there anything to know about life in the building",
-          "example": "Côté conditions, y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
+          "example": "Y a-t-il des choses à savoir sur la vie de l'immeuble — des règles à respecter entre voisins ?",
           "usage": "Tournure « y a-t-il des choses à » + infinitif."
         },
         {
@@ -798,9 +798,9 @@
         {
           "id": "T2D12S14V08",
           "kind": "mot-cle",
-          "french": "le plein d'essence",
+          "french": "le plein",
           "english": "a full tank of fuel",
-          "example": "Côté transport, faut-il rendre la voiture avec le plein d'essence ?",
+          "example": "Pour le retour, faut-il rendre la voiture avec le plein ou la batterie chargée ?",
           "usage": "Groupe nominal désignant le réservoir rempli au retour."
         },
         {
@@ -880,7 +880,7 @@
           "kind": "collocation",
           "french": "rendre la voiture",
           "english": "to return the car",
-          "example": "Côté transport, faut-il rendre la voiture avec le plein d'essence ?",
+          "example": "Pour le retour, faut-il rendre la voiture avec le plein ou la batterie chargée ?",
           "usage": "Collocation verbe + nom pour la restitution du véhicule."
         },
         {
@@ -997,7 +997,7 @@
           "kind": "mot-cle",
           "french": "cours particuliers",
           "english": "private lessons",
-          "example": "Comment sont organisés les cours — en petits groupes, en classe ou en cours particuliers ?",
+          "example": "Comment sont organisés les cours — en petits groupes, en grande classe ou en cours particuliers ?",
           "usage": "Groupe nominal désignant les cours individuels."
         },
         {
@@ -1021,7 +1021,7 @@
           "kind": "mot-cle",
           "french": "les enseignants",
           "english": "the teachers",
-          "example": "Côté niveau, qui sont les enseignants — sont-ils diplômés et locuteurs natifs ?",
+          "example": "Qui sont les enseignants — sont-ils diplômés et locuteurs natifs ?",
           "usage": "Nom masculin pluriel désignant les professeurs de l'école."
         },
         {
@@ -1029,7 +1029,7 @@
           "kind": "mot-cle",
           "french": "locuteurs natifs",
           "english": "native speakers",
-          "example": "Côté niveau, qui sont les enseignants — sont-ils diplômés et locuteurs natifs ?",
+          "example": "Qui sont les enseignants — sont-ils diplômés et locuteurs natifs ?",
           "usage": "Groupe nominal désignant des personnes qui enseignent leur langue première."
         },
         {
@@ -1085,7 +1085,7 @@
           "kind": "collocation",
           "french": "en petits groupes",
           "english": "in small groups",
-          "example": "Comment sont organisés les cours — en petits groupes, en classe ou en cours particuliers ?",
+          "example": "Comment sont organisés les cours — en petits groupes, en grande classe ou en cours particuliers ?",
           "usage": "Locution décrivant un format de cours à effectif réduit."
         },
         {
@@ -1157,7 +1157,7 @@
           "kind": "tournure",
           "french": "Comment sont organisés les cours",
           "english": "How are the classes organised",
-          "example": "Comment sont organisés les cours — en petits groupes, en classe ou en cours particuliers ?",
+          "example": "Comment sont organisés les cours — en petits groupes, en grande classe ou en cours particuliers ?",
           "usage": "Question au passif pour comprendre l'organisation des cours."
         },
         {
@@ -1173,7 +1173,7 @@
           "kind": "tournure",
           "french": "À quel niveau ça s'adresse",
           "english": "What level is it aimed at",
-          "example": "En ce qui concerne l'encadrement, à quel niveau ça s'adresse — plutôt aux débutants ou aussi aux personnes qui ont déjà des bases ?",
+          "example": "À quel niveau ça s'adresse — plutôt aux débutants ou aussi aux personnes qui ont déjà des bases ?",
           "usage": "Tournure orale avec « ça » pour cibler le niveau."
         },
         {
@@ -1189,7 +1189,7 @@
           "kind": "tournure",
           "french": "Qui sont les enseignants",
           "english": "Who are the teachers",
-          "example": "Côté niveau, qui sont les enseignants — sont-ils diplômés et locuteurs natifs ?",
+          "example": "Qui sont les enseignants — sont-ils diplômés et locuteurs natifs ?",
           "usage": "Question avec « qui » attribut sur l'identité des professeurs."
         },
         {

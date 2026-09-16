@@ -364,15 +364,13 @@
       "canonical": "ee-tache2:avril:combinaison-14",
       "members": [
         "ee-tache2:avril:combinaison-14",
-        "ee-tache2:mai:combinaison-7",
-        "ee-tache2:juin:combinaison-2"
+        "ee-tache2:mai:combinaison-7"
       ],
       "audit": {
-        "rationale": "Same one-day workplace training report for colleagues, recounting the day and what was appreciated/thought of it. April publishes an article on a forum for colleagues; May is an employer-requested article for colleagues; June is an email to colleagues. Addressee and professional peer register do not change. May asks general opinion; April/June ask what pleased the writer. A positive account with a minor caveat satisfies all, and none requires a negative experience. May calls it formation professionnelle; the others situate it in the company. No different subject or delivery mode is specified.",
+        "rationale": "Both prompts request an article for colleagues recounting a one-day workplace training course and giving impressions. April specifies an internal forum; May requests an article through the employer. A titled account with concrete details and a balanced personal assessment fits both. The June email prompt is a separate subject because it explicitly requires correspondence rather than an article.",
         "signature_sha256": {
           "ee-tache2:avril:combinaison-14": "fc02fdb300d05166dbf2ec2c284fc048c33d1df1849074eef1bc2d5494339bb6",
-          "ee-tache2:mai:combinaison-7": "95ec63ddc52a90209627a9950a79ea02f1161947b79246f9e6dd9b65334d4dcf",
-          "ee-tache2:juin:combinaison-2": "3cad8c168663e4853bbabd9b3f9da9b823b0d39e151109b4a7ce255b3a6348b8"
+          "ee-tache2:mai:combinaison-7": "95ec63ddc52a90209627a9950a79ea02f1161947b79246f9e6dd9b65334d4dcf"
         }
       }
     },

@@ -9,16 +9,16 @@
           "kind": "mot-cle",
           "french": "un entretien d'embauche",
           "english": "a job interview",
-          "example": "Salut ! J'ai bientôt un entretien d'embauche dans une entreprise canadienne et je stresse un peu — tu pourrais me donner quelques conseils ?",
+          "example": "Salut ! J'ai bientôt un entretien d'embauche — tu pourrais me donner quelques conseils pour bien me préparer ?",
           "usage": "Groupe nominal désignant l'entretien de recrutement."
         },
         {
           "id": "T2J7S34V02",
           "kind": "mot-cle",
-          "french": "une entreprise canadienne",
-          "english": "a Canadian company",
-          "example": "Salut ! J'ai bientôt un entretien d'embauche dans une entreprise canadienne et je stresse un peu — tu pourrais me donner quelques conseils ?",
-          "usage": "Groupe nominal pour l'employeur."
+          "french": "recruteur",
+          "english": "recruiter",
+          "example": "Quelles questions utiles je pourrais poser au recruteur ?",
+          "usage": "Nom désignant la personne qui évalue les candidats à un poste."
         },
         {
           "id": "T2J7S34V03",
@@ -57,7 +57,7 @@
           "kind": "mot-cle",
           "french": "mon CV",
           "english": "my resume",
-          "example": "En ce qui concerne le matériel, faut-il apporter des documents, comme mon CV ou des références ?",
+          "example": "Faut-il apporter des documents, comme mon CV ou des références ?",
           "usage": "Groupe nominal pour le curriculum vitae."
         },
         {
@@ -65,7 +65,7 @@
           "kind": "mot-cle",
           "french": "des références",
           "english": "references",
-          "example": "En ce qui concerne le matériel, faut-il apporter des documents, comme mon CV ou des références ?",
+          "example": "Faut-il apporter des documents, comme mon CV ou des références ?",
           "usage": "Nom pluriel pour les recommandations."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "mot-cle",
           "french": "le stress",
           "english": "the stress",
-          "example": "Une autre chose m'inquiète un peu : comment gérer le stress si je perds mes moyens sur le moment ?",
+          "example": "Comment gérer le stress si je perds mes moyens sur le moment ?",
           "usage": "Nom désignant la tension ressentie."
         },
         {
@@ -87,17 +87,17 @@
         {
           "id": "T2J7S34V11",
           "kind": "collocation",
-          "french": "je stresse un peu",
-          "english": "I am a bit stressed",
-          "example": "Salut ! J'ai bientôt un entretien d'embauche dans une entreprise canadienne et je stresse un peu — tu pourrais me donner quelques conseils ?",
-          "usage": "Locution verbale sur l'appréhension."
+          "french": "bien me préparer",
+          "english": "to prepare well",
+          "example": "Salut ! J'ai bientôt un entretien d'embauche — tu pourrais me donner quelques conseils pour bien me préparer ?",
+          "usage": "Expression pronominale pour anticiper un entretien ou une autre épreuve."
         },
         {
           "id": "T2J7S34V12",
           "kind": "collocation",
           "french": "me donner quelques conseils",
           "english": "give me some advice",
-          "example": "Salut ! J'ai bientôt un entretien d'embauche dans une entreprise canadienne et je stresse un peu — tu pourrais me donner quelques conseils ?",
+          "example": "Salut ! J'ai bientôt un entretien d'embauche — tu pourrais me donner quelques conseils pour bien me préparer ?",
           "usage": "Verbe + complément sur la demande d'aide."
         },
         {
@@ -119,17 +119,17 @@
         {
           "id": "T2J7S34V15",
           "kind": "collocation",
-          "french": "préparer des questions",
-          "english": "prepare questions",
-          "example": "Est-ce qu'il vaut mieux préparer des questions à poser au recruteur ?",
-          "usage": "Verbe + complément sur la préparation."
+          "french": "questions utiles",
+          "english": "useful questions",
+          "example": "Quelles questions utiles je pourrais poser au recruteur ?",
+          "usage": "Association d'un nom et d'un adjectif pour parler de questions pertinentes à préparer."
         },
         {
           "id": "T2J7S34V16",
           "kind": "collocation",
           "french": "apporter des documents",
           "english": "bring documents",
-          "example": "En ce qui concerne le matériel, faut-il apporter des documents, comme mon CV ou des références ?",
+          "example": "Faut-il apporter des documents, comme mon CV ou des références ?",
           "usage": "Verbe + complément sur les pièces à amener."
         },
         {
@@ -169,7 +169,7 @@
           "kind": "tournure",
           "french": "tu pourrais me donner quelques conseils",
           "english": "could you give me some advice",
-          "example": "Salut ! J'ai bientôt un entretien d'embauche dans une entreprise canadienne et je stresse un peu — tu pourrais me donner quelques conseils ?",
+          "example": "Salut ! J'ai bientôt un entretien d'embauche — tu pourrais me donner quelques conseils pour bien me préparer ?",
           "usage": "Tournure orale pour demander de l'aide."
         },
         {
@@ -215,17 +215,17 @@
         {
           "id": "T2J7S34V27",
           "kind": "tournure",
-          "french": "Est-ce qu'il vaut mieux préparer des questions à poser au recruteur",
-          "english": "is it better to prepare questions for the recruiter",
-          "example": "Est-ce qu'il vaut mieux préparer des questions à poser au recruteur ?",
-          "usage": "Question sur la préparation."
+          "french": "quelles questions utiles je pourrais poser",
+          "english": "what useful questions I could ask",
+          "example": "Quelles questions utiles je pourrais poser au recruteur ?",
+          "usage": "Question au conditionnel pour solliciter des idées avant un entretien."
         },
         {
           "id": "T2J7S34V28",
           "kind": "tournure",
           "french": "Comment gérer le stress si je perds mes moyens",
           "english": "how to manage stress if I freeze up",
-          "example": "Une autre chose m'inquiète un peu : comment gérer le stress si je perds mes moyens sur le moment ?",
+          "example": "Comment gérer le stress si je perds mes moyens sur le moment ?",
           "usage": "Question sur la gestion du stress."
         },
         {
@@ -268,10 +268,10 @@
         {
           "id": "T2J7S35V03",
           "kind": "mot-cle",
-          "french": "une autre saison",
-          "english": "another season",
-          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Groupe nominal pour évoquer une période de l'année différente."
+          "french": "période",
+          "english": "time/period",
+          "example": "Quelle est la meilleure période pour ces destinations ?",
+          "usage": "Nom féminin désignant un moment de l'année adapté à un voyage."
         },
         {
           "id": "T2J7S35V04",
@@ -316,10 +316,10 @@
         {
           "id": "T2J7S35V09",
           "kind": "mot-cle",
-          "french": "des places",
-          "english": "spots/seats",
-          "example": "Il reste encore des places ou c'est déjà complet ?",
-          "usage": "Nom courant désignant les emplacements disponibles pour une activité."
+          "french": "d'autres dates",
+          "english": "other dates",
+          "example": "Si le circuit qui m'intéresse est complet, proposez-vous d'autres dates ?",
+          "usage": "Groupe nominal désignant des possibilités différentes dans le calendrier."
         },
         {
           "id": "T2J7S35V10",
@@ -340,10 +340,10 @@
         {
           "id": "T2J7S35V12",
           "kind": "collocation",
-          "french": "beaucoup de monde",
-          "english": "a lot of people",
-          "example": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
-          "usage": "Association figée signifiant une forte affluence."
+          "french": "moins fréquentées",
+          "english": "less busy",
+          "example": "Y a-t-il des périodes moins fréquentées pour voyager plus tranquillement ?",
+          "usage": "Association comparative pour décrire des périodes de moindre affluence."
         },
         {
           "id": "T2J7S35V13",
@@ -366,16 +366,16 @@
           "kind": "collocation",
           "french": "s'y prendre au dernier moment",
           "english": "to leave it until the last minute",
-          "example": "Pour l'inscription, faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
+          "example": "Faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
           "usage": "Expression courante pour évoquer une réservation tardive."
         },
         {
           "id": "T2J7S35V16",
           "kind": "collocation",
-          "french": "déjà complet",
-          "english": "already fully booked",
-          "example": "Il reste encore des places ou c'est déjà complet ?",
-          "usage": "Association adverbe + adjectif pour signaler l'absence de place restante."
+          "french": "est complet",
+          "english": "is fully booked",
+          "example": "Si le circuit qui m'intéresse est complet, proposez-vous d'autres dates ?",
+          "usage": "Association du verbe « être » et de l'adjectif « complet » pour signaler l'absence de places."
         },
         {
           "id": "T2J7S35V17",
@@ -388,10 +388,10 @@
         {
           "id": "T2J7S35V18",
           "kind": "collocation",
-          "french": "le circuit le plus apprécié",
-          "english": "the most popular tour",
-          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
-          "usage": "Superlatif appliqué à un nom pour désigner l'option la plus prisée."
+          "french": "voyager plus tranquillement",
+          "english": "travel more peacefully",
+          "example": "Y a-t-il des périodes moins fréquentées pour voyager plus tranquillement ?",
+          "usage": "Association verbe-adverbe pour privilégier un voyage plus calme."
         },
         {
           "id": "T2J7S35V19",
@@ -436,10 +436,10 @@
         {
           "id": "T2J7S35V24",
           "kind": "tournure",
-          "french": "il vaut mieux attendre",
-          "english": "it is better to wait",
-          "example": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
-          "usage": "Tournure impersonnelle avec 'il vaut mieux' pour exprimer une recommandation."
+          "french": "Quelle est la meilleure période",
+          "english": "what is the best time",
+          "example": "Quelle est la meilleure période pour ces destinations ?",
+          "usage": "Question pour choisir la période la plus favorable à un voyage."
         },
         {
           "id": "T2J7S35V25",
@@ -454,16 +454,16 @@
           "kind": "tournure",
           "french": "Faut-il réserver le circuit longtemps à l'avance",
           "english": "Should the tour be booked well in advance",
-          "example": "Pour l'inscription, faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
+          "example": "Faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
           "usage": "Inversion avec « faut-il » pour vérifier le délai de réservation."
         },
         {
           "id": "T2J7S35V27",
           "kind": "tournure",
-          "french": "Il reste encore",
-          "english": "There are still... / Is there still...",
-          "example": "Il reste encore des places ou c'est déjà complet ?",
-          "usage": "Tournure impersonnelle avec 'il reste' pour vérifier une disponibilité."
+          "french": "proposez-vous d'autres dates",
+          "english": "do you offer other dates",
+          "example": "Si le circuit qui m'intéresse est complet, proposez-vous d'autres dates ?",
+          "usage": "Question avec inversion pour demander une alternative quand un circuit est complet."
         },
         {
           "id": "T2J7S35V28",
@@ -476,10 +476,10 @@
         {
           "id": "T2J7S35V29",
           "kind": "tournure",
-          "french": "vous pourriez m'en dire un peu plus",
-          "english": "could you tell me a bit more",
-          "example": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
-          "usage": "Conditionnel de politesse suivi du pronom 'en' pour relancer sur un sujet, registre vouvoiement."
+          "french": "lequel recommandez-vous le plus",
+          "english": "which one do you recommend most",
+          "example": "Parmi ces circuits, lequel recommandez-vous le plus, et qu'est-ce qu'il comprend ?",
+          "usage": "Pronom interrogatif et inversion pour hiérarchiser plusieurs options."
         },
         {
           "id": "T2J7S35V30",
@@ -1083,10 +1083,10 @@
         {
           "id": "T2J7S38V13",
           "kind": "collocation",
-          "french": "tu as vraiment aimé",
-          "english": "you really liked",
-          "example": "Qu'est-ce que tu as regardé récemment et que tu as vraiment aimé ?",
-          "usage": "Locution verbale sur l'appréciation."
+          "french": "vraiment aimée",
+          "english": "really liked",
+          "example": "Quelle série as-tu regardée récemment et vraiment aimée ?",
+          "usage": "Groupe verbal exprimant une appréciation ; le participe passé s'accorde ici avec série."
         },
         {
           "id": "T2J7S38V14",
@@ -1171,9 +1171,9 @@
         {
           "id": "T2J7S38V24",
           "kind": "tournure",
-          "french": "Qu'est-ce que tu as regardé récemment",
-          "english": "what you have watched recently",
-          "example": "Qu'est-ce que tu as regardé récemment et que tu as vraiment aimé ?",
+          "french": "quelle série as-tu regardée récemment",
+          "english": "what series have you watched recently",
+          "example": "Quelle série as-tu regardée récemment et vraiment aimée ?",
           "usage": "Question sur les visionnages récents."
         },
         {
@@ -1211,18 +1211,18 @@
         {
           "id": "T2J7S38V29",
           "kind": "tournure",
-          "french": "qu'est-ce que tu en as pensé",
-          "english": "what you thought of it",
-          "example": "Dernier point pratique : toi, qu'est-ce que tu en as pensé — tu l'as regardée jusqu'au bout ?",
-          "usage": "Question pour recueillir un avis."
+          "french": "qu'est-ce qui t'a le plus plu",
+          "english": "what did you like most",
+          "example": "Et toi, qu'est-ce qui t'a le plus plu dans les épisodes que tu as vus ?",
+          "usage": "Question pour recueillir un avis sur l'aspect le plus apprécié."
         },
         {
           "id": "T2J7S38V30",
           "kind": "tournure",
-          "french": "laquelle tu me recommandes vraiment de commencer",
-          "english": "which one you really recommend I start",
-          "example": "Pour finir — parmi toutes celles-là, laquelle tu me recommandes vraiment de commencer ?",
-          "usage": "Tournure de clôture pour un choix."
+          "french": "tu aurais une autre série à me conseiller",
+          "english": "would you have another series to recommend to me",
+          "example": "Pour finir — tu aurais une autre série à me conseiller pour comparer ?",
+          "usage": "Question au conditionnel pour obtenir une autre option à comparer."
         }
       ]
     }

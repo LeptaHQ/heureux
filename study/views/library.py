@@ -59,6 +59,7 @@ from ..models import (
     WritingResponseOverride,
 )
 from .. import routing
+from ..oral_highlights import preserve_tache_two_highlights
 from ..response_personalization import effective_response
 from ..progress import (
     card_unit_progress_from_rows,
@@ -918,13 +919,6 @@ def _ee_writing_subject_context(
                     "progress_sujet": canonical,
                     "prompt": source.prompt,
                     "source": source,
-                    "source_url": (
-                        content_module.EE_2025_SOURCE_URL.format(
-                            month=source.month_slug
-                        )
-                        if source
-                        else ""
-                    ),
                     "version_count": len(model_versions) + int(progress.is_personalized),
                     "has_model_response": bool(model_versions),
                     "is_personalized": progress.is_personalized,
@@ -993,7 +987,6 @@ def _ee_writing_subject_context(
         "writing_tache": tache,
         "word_limit_min": minimum,
         "word_limit_max": maximum,
-        "methodology_url": content_module.EE_ASTUCES_URL,
         "subject_prompt_map": {
             source.source_key: source.prompt
             for source in source_by_slug.values()
@@ -1165,7 +1158,6 @@ def task_detail(request, part_slug, task_slug):
                 "ai_practice_prompt": (
                     content_module.load_ee_ai_examiner_prompt(3)
                 ),
-                "methodology_url": content_module.EE_ASTUCES_URL,
             },
         )
 
@@ -1681,6 +1673,12 @@ def browse(request, part_slug=None, task_slug=None):
         "display_count": sum(group["subject_count"] for group in subject_themes),
         "publication_count": publication_count,
         "oral_directory": oral_directory,
+        "subject_summary": (
+            summarize_subject_progress(
+                row["progress"] for group in subject_themes for row in group["subjects"]
+            )
+            if oral_directory else None
+        ),
         "families": families,
         "theme_count": (
             len(subject_themes) if deduplicated_count is not None else len(themes)
@@ -2567,9 +2565,7 @@ def _eo_tache_three_theme_vocabulary_context(user, task):
         "review_url": next_batch["review_url"] if next_batch else "",
         "mixed_review_url": review_url(scope),
         "vocabulary_description": (
-            "Construisez un vocabulaire argumentatif solide pour les grands "
-            "thèmes de la Tâche 3. Chaque collection réunit les notions, "
-            "verbes, locutions et constructions utiles."
+            "Notions, verbes et constructions pour argumenter."
         ),
         "vocabulary_pathways_description": (
             "Les quatre lots de chaque thème forment un parcours complet : "
@@ -2718,13 +2714,9 @@ def _ee_writing_theme_vocabulary_context(user, task, tache):
         "review_url": next_batch["review_url"] if next_batch else "",
         "mixed_review_url": review_url(_theme_vocabulary_scope(task)),
         "vocabulary_description": (
-            "Des formules, précisions et constructions réutilisables pour "
-            "rédiger des messages clairs et adaptés au destinataire."
+            "Formules et constructions pour rédiger un message."
             if tache == 1
-            else (
-                "Des repères, verbes et formulations pour raconter une "
-                "expérience avec précision et ajouter un commentaire pertinent."
-            )
+            else "Repères et formulations pour raconter une expérience."
         ),
         "vocabulary_pathways_description": (
             "Chaque thème rassemble des formules adaptées, des informations "
@@ -2957,8 +2949,7 @@ def _ee_tache_three_vocabulary_directory(request, task):
             ),
             "mixed_review_url": review_url(scope),
             "vocabulary_description": (
-                "Les mots, collocations, tournures et phrases modèles de "
-                "chaque sujet, regroupés par grand thème."
+                "Mots, tournures et phrases modèles liés aux sujets."
             ),
             "vocabulary_pathways_description": (
                 "Ouvrez un thème, choisissez un sujet, puis travaillez ses "
@@ -3812,6 +3803,8 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         theme__task=task,
     )
     if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
+        if "model" in request.GET or "personal" in request.GET:
+            raise Http404
         return redirect(routing.subject_selection_url(
             prompt_detail_url(selected_prompt), request,
         ))
@@ -3902,7 +3895,6 @@ def response_detail(request, part_slug, task_slug, prompt_id):
     )
     ee_combination_label = ""
     ee_source_month = None
-    ee_source_url = ""
     ee_equivalent_subjects = []
     ee_source_warnings = []
     ee_response_origin = "original"
@@ -3931,9 +3923,6 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             raise RuntimeError("EE Tâche 3 content is not synchronized")
         ee_source_month, source = source_row
         ee_combination_label = source.combinaison
-        ee_source_url = content_module.EE_2025_SOURCE_URL.format(
-            month=ee_source_month.slug
-        )
         source_documents_html = content_module._ee_tache_three_documents_html(
             (source.document1, source.document2)
         )
@@ -4004,7 +3993,6 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             "ee_response": ee_response,
             "ee_combination_label": ee_combination_label,
             "ee_source_month": ee_source_month,
-            "ee_source_url": ee_source_url,
             "ee_equivalent_subjects": ee_equivalent_subjects,
             "ee_source_warnings": ee_source_warnings,
             "ee_response_origin": ee_response_origin,
@@ -4078,14 +4066,15 @@ def edit_response(request, part_slug, task_slug, prompt_id):
     has_personal_response = preferred_personal(response, request.user) is not None
     detail_url = prompt_detail_url(selected_prompt)
     if request.method == "POST" and request.POST.get("action") == "reset":
-        if personal is not None:
-            snapshot(personal, "personal")
-            PersonalResponse.objects.filter(pk=personal.pk).update(is_active=False)
-        else:
-            PersonalResponse.objects.create(
-                user=request.user, response=response, is_active=False,
-                source_prompt=selected_prompt,
-            )
+        with preserve_tache_two_highlights(response, request.user) if is_tache_two else transaction.atomic():
+            if personal is not None:
+                snapshot(personal, "personal")
+                PersonalResponse.objects.filter(pk=personal.pk).update(is_active=False)
+            else:
+                PersonalResponse.objects.create(
+                    user=request.user, response=response, is_active=False,
+                    source_prompt=selected_prompt,
+                )
         return redirect(routing.subject_selection_url(f"{detail_url}?reset=1", request))
 
     if is_tache_two:
@@ -4106,7 +4095,8 @@ def edit_response(request, part_slug, task_slug, prompt_id):
         )
         if request.method == "POST" and question_formset.is_valid():
             arguments = []
-            for question_form in question_formset:
+            question_mapping = {}
+            for old_index, question_form in enumerate(question_formset, 1):
                 if (
                     not question_form.cleaned_data
                     or question_form.cleaned_data.get("DELETE")
@@ -4123,16 +4113,21 @@ def edit_response(request, part_slug, task_slug, prompt_id):
                         "consequence": "",
                     }
                 )
-            save_personal(
-                response, request.user, {
-                    "reformulation": "",
-                    "position": "",
-                    "position_claire": "",
-                    "arguments": arguments,
-                    "nuance": "",
-                    "conclusion": "",
-                }, source_prompt=selected_prompt,
-            )
+                if old_index <= len(initial_questions):
+                    question_mapping[old_index] = len(arguments)
+            with preserve_tache_two_highlights(
+                response, request.user, question_mapping=question_mapping,
+            ):
+                save_personal(
+                    response, request.user, {
+                        "reformulation": "",
+                        "position": "",
+                        "position_claire": "",
+                        "arguments": arguments,
+                        "nuance": "",
+                        "conclusion": "",
+                    }, source_prompt=selected_prompt,
+                )
             return redirect(routing.subject_selection_url(f"{detail_url}?saved=1", request))
         return render(
             request,
@@ -4296,13 +4291,6 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
             "prompt": sujet.prompt,
             "category_label": sujet.category_label,
             "source": source,
-            "source_url": (
-                content_module.EE_2025_SOURCE_URL.format(
-                    month=source.month_slug
-                )
-                if source
-                else ""
-            ),
             "equivalent_sujets": equivalent_sujets,
             "writing_tache": tache,
             "word_limit_min": minimum,
@@ -4466,13 +4454,6 @@ def writing_sujet_edit(request, part_slug, task_slug, sujet_id):
             "prompt": sujet.prompt,
             "category_label": sujet.category_label,
             "source": source,
-            "source_url": (
-                content_module.EE_2025_SOURCE_URL.format(
-                    month=source.month_slug
-                )
-                if source
-                else ""
-            ),
             "writing_tache": tache,
             "word_limit_min": content_module.EE_WRITING_WORD_LIMITS[tache][0],
             "word_limit_max": content_module.EE_WRITING_WORD_LIMITS[tache][1],

@@ -15,11 +15,6 @@ from django.db.models import Q
 
 from .models import Annotation, OralStateSnapshot, PersonalResponse, Phrase, PhraseTier, Prompt, Response
 
-PERSONAL_FIELDS = (
-    "reformulation", "position", "position_claire", "arguments", "nuance", "conclusion",
-)
-
-
 def variant_annotation_key(prompt, content):
     digest = hashlib.sha256(
         json.dumps(asdict(content), sort_keys=True).encode("utf-8")
@@ -163,24 +158,3 @@ def annotation_owners(annotations):
                 if prompt:
                     result[annotation.pk] = prompt.response_id
     return result
-
-
-def group_annotations(response, user):
-    task = response.theme.task
-    annotations = list(Annotation.objects.filter(
-        user=user,
-    ).filter(Q(task=task) | Q(task__isnull=True)).order_by("-updated_at", "-pk"))
-    owners = annotation_owners(annotations)
-    return [annotation for annotation in annotations if owners.get(annotation.pk) == response.pk]
-
-
-def group_snapshots(response, user):
-    prompt_ids = Prompt.objects.filter(response=response).values("pk")
-    return OralStateSnapshot.objects.filter(user=user).filter(
-        Q(kind="personal", payload__fields__source_prompt_id__in=prompt_ids)
-        | (
-            Q(response=response) | Q(response__semantic_owner=response)
-        ) & (
-            ~Q(kind="personal") | Q(payload__fields__source_prompt_id=None)
-        )
-    )

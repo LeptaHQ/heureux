@@ -12,7 +12,7 @@
       "prompt": "Je suis votre ami(e) francophone. Vous devez préparer un article sur un spectacle pour le bulletin de votre association culturelle et vous cherchez des idées : vous m'interrogez sur les spectacles que j'ai aimés (coût, type, lieu, etc.).",
       "questions": [
         {
-          "text": "Salut ! Je dois écrire un article sur un spectacle pour notre revue — tu pourrais m'aider à trouver des idées ?"
+          "text": "Salut ! Je dois écrire un article sur un spectacle pour le bulletin de mon association — tu pourrais m'aider à trouver des idées ?"
         },
         {
           "text": "Quel spectacle as-tu vu récemment et particulièrement aimé — du théâtre, de la danse, un concert, du cirque ?"
@@ -21,7 +21,7 @@
           "text": "C'était quoi exactement, et qui se produisait sur scène ?"
         },
         {
-          "text": "De quoi ça parlait — quel était le thème ou l'histoire ?"
+          "text": "Qu'est-ce qu'il y avait au programme — une histoire, un thème ou des morceaux particuliers ?"
         },
         {
           "text": "À ce propos, c'était plutôt classique, moderne, ou original dans sa mise en scène ?"
@@ -35,10 +35,10 @@
           "memory_section": 10
         },
         {
-          "text": "Selon toi, ce spectacle peut-il donner lieu à un article intéressant pour notre association ?"
+          "text": "Quel aspect du spectacle tu développerais dans l'article, et pourquoi ?"
         },
         {
-          "text": "Tu aurais d'autres spectacles du même genre à me conseiller ?"
+          "text": "Tu aurais un moment marquant à me raconter pour illustrer l'article ?"
         },
         {
           "text": "Côté programmation, est-ce que c'est encore à l'affiche, ou c'était une représentation unique ?"
@@ -47,18 +47,18 @@
           "text": "Côté pratique, ça se passait où — dans quelle salle ou quel théâtre ?"
         },
         {
-          "text": "Combien de temps dure le spectacle en général ?"
+          "text": "Combien de temps a duré le spectacle ?"
         },
         {
-          "text": "Parlons du budget — combien coûte une place à peu près ?"
+          "text": "Parlons du budget — combien coûtait une place à peu près ?"
         },
         {
-          "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
+          "text": "Y avait-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
           "memory_number": 9,
           "memory_section": 3
         },
         {
-          "text": "Pour finir — est-ce que tu recommanderais ce spectacle aux lecteurs de notre revue ?"
+          "text": "Pour finir — est-ce que tu recommanderais ce spectacle aux lecteurs du bulletin ?"
         }
       ]
     },
@@ -89,7 +89,7 @@
           "text": "Et pour quelqu'un qui débarque, le métro, c'est simple à comprendre quand on ne connaît pas ?"
         },
         {
-          "text": "Depuis le centre, c'est facile de rejoindre les endroits où je vais travailler ?"
+          "text": "Comment vérifier le trajet jusqu'à mon lieu de travail et prévoir assez de temps ?"
         },
         {
           "text": "Il y a des heures de pointe à éviter parce que c'est bondé ?"
@@ -135,7 +135,7 @@
           "text": "C'est ouvert à tous les niveaux, ou il faut un certain niveau de français ?"
         },
         {
-          "text": "Passons maintenant à un autre point : combien d'étudiants participent en général ?"
+          "text": "Combien d'étudiants peuvent participer ?"
         },
         {
           "text": "Côté calendrier, quand est-ce que ça se déroule — sur une journée, ou sur plusieurs semaines ?"
@@ -153,10 +153,10 @@
           "text": "Faut-il préparer quelque chose à l'avance ?"
         },
         {
-          "text": "Est-ce qu'on peut venir juste pour essayer, sans s'engager ?"
+          "text": "Est-ce qu'on peut voir un exemple ou faire un essai pour bien comprendre les règles ?"
         },
         {
-          "text": "Une dernière chose me vient à l'esprit : qu'est-ce qu'on peut gagner — y a-t-il des prix ou des récompenses ?"
+          "text": "Qu'est-ce qu'on peut gagner — y a-t-il des prix ou des récompenses ?"
         },
         {
           "text": "Est-ce que ça aide à progresser en français ?"
@@ -184,7 +184,7 @@
           "text": "Ce serait pour combien de temps — une mission temporaire ou une affectation longue ?"
         },
         {
-          "text": "Question invités, à qui serais-je rattaché(e), et avec quelle équipe je travaillerais ?"
+          "text": "Et côté équipe, à qui serais-je rattaché(e), et avec qui je travaillerais ?"
         },
         {
           "text": "Est-ce que la langue de travail sera le français, ou faut-il maîtriser une autre langue ?"
@@ -202,7 +202,7 @@
           "text": "Côté assurance, comment ça se passe pour la couverture santé et la protection sociale sur place ?"
         },
         {
-          "text": "Autre point important : ma famille pourrait-elle m'accompagner, avec un accompagnement prévu ?"
+          "text": "Ma famille pourrait-elle m'accompagner, et quelle aide serait prévue pour son installation ?"
         },
         {
           "text": "Et sur le plus long terme, quelles seraient les perspectives d'évolution après cette expérience ?"
@@ -234,7 +234,7 @@
           "text": "D'abord, tu préfères quelque chose de tranquille ou plutôt animé ce soir ?"
         },
         {
-          "text": "Qu'est-ce qu'il y a de sympa à faire un soir dans le coin ?"
+          "text": "Tu as envie de rester dans le quartier, ou tu préfères aller ailleurs ?"
         },
         {
           "text": "On pourrait aller où — un ciné, un bar, un concert, un resto ?"
@@ -243,7 +243,7 @@
           "text": "Tu sais s'il y a des événements ou des animations prévus ce soir ?"
         },
         {
-          "text": "C'est plutôt calme un soir de semaine, ou il y a de l'ambiance ?"
+          "text": "Dans les endroits que tu proposes, c'est plutôt calme le soir, ou il y a de l'ambiance ?"
         },
         {
           "text": "Côté participants, on serait juste nous deux, ou tu veux qu'on invite d'autres personnes ?"
@@ -261,10 +261,10 @@
           "text": "C'est accessible à pied ou en transports, ou il faut une voiture ?"
         },
         {
-          "text": "Jusqu'à quelle heure les endroits restent ouverts un soir de semaine ?"
+          "text": "Jusqu'à quelle heure les endroits restent ouverts ce soir ?"
         },
         {
-          "text": "Question matériel, il faut prévoir une tenue particulière pour certains endroits ?"
+          "text": "Il faut prévoir une tenue particulière pour certains endroits ?"
         },
         {
           "text": "Et s'il fait mauvais, tu aurais une idée d'activité en intérieur ?"

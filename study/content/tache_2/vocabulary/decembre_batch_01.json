@@ -294,7 +294,7 @@
           "kind": "mot-cle",
           "french": "La Poste",
           "english": "the postal service",
-          "example": "Tu préfères que je passe par La Poste ou par un autre service de livraison ?",
+          "example": "Tu préfères que je passe par la poste ou par un autre service de livraison ?",
           "usage": "Nom propre désignant le service postal public."
         },
         {
@@ -302,7 +302,7 @@
           "kind": "mot-cle",
           "french": "suivi",
           "english": "tracked",
-          "example": "Tu veux un envoi standard, express, suivi ou assuré ?",
+          "example": "Tu veux un envoi standard ou express, avec suivi ou assurance ?",
           "usage": "Adjectif ou nom utilisé pour parler d’un envoi avec traçabilité."
         },
         {
@@ -310,7 +310,7 @@
           "kind": "mot-cle",
           "french": "des conditions de transport",
           "english": "transport conditions",
-          "example": "Il faut garder le colis au chaud ou à l'abri ? Il y a des conditions de transport particulières ?",
+          "example": "Il y a des conditions de transport particulières à respecter ?",
           "usage": "Groupe nominal pluriel pour préciser des contraintes d’acheminement."
         },
         {
@@ -324,10 +324,10 @@
         {
           "id": "T2D12S2V10",
           "kind": "mot-cle",
-          "french": "le reçu",
-          "english": "the receipt",
-          "example": "Après, je peux te laisser le reçu où ? Et tu me rembourseras les frais d'envoi comment ?",
-          "usage": "Nom masculin désignant le justificatif remis après paiement ou dépôt."
+          "french": "l'argent",
+          "english": "the money",
+          "example": "Si je peux m'en occuper, tu me donnes l'argent à l'avance ou tu préfères me rembourser ?",
+          "usage": "Nom masculin désignant ici la somme nécessaire pour les frais d'envoi."
         },
         {
           "id": "T2D12S2V11",
@@ -358,16 +358,16 @@
           "kind": "collocation",
           "french": "un autre service de livraison",
           "english": "another delivery service",
-          "example": "Tu préfères que je passe par La Poste ou par un autre service de livraison ?",
+          "example": "Tu préfères que je passe par la poste ou par un autre service de livraison ?",
           "usage": "Groupe nominal pour opposer plusieurs options d’envoi."
         },
         {
           "id": "T2D12S2V15",
           "kind": "collocation",
-          "french": "garder le colis au chaud",
-          "english": "keep the parcel warm",
-          "example": "Il faut garder le colis au chaud ou à l'abri ? Il y a des conditions de transport particulières ?",
-          "usage": "Suite verbale utilisée pour décrire une consigne de conservation."
+          "french": "à respecter",
+          "english": "to comply with",
+          "example": "Il y a des conditions de transport particulières à respecter ?",
+          "usage": "Complément en à suivi d'un infinitif pour signaler que des conditions doivent être respectées."
         },
         {
           "id": "T2D12S2V16",
@@ -446,32 +446,32 @@
           "kind": "tournure",
           "french": "tu préfères que je passe par La Poste",
           "english": "do you prefer that I use La Poste",
-          "example": "Tu préfères que je passe par La Poste ou par un autre service de livraison ?",
+          "example": "Tu préfères que je passe par la poste ou par un autre service de livraison ?",
           "usage": "Question avec préférence et subjonctif pour proposer une solution."
         },
         {
           "id": "T2D12S2V26",
           "kind": "tournure",
-          "french": "tu veux un envoi standard, express, suivi ou assuré",
-          "english": "do you want standard, express, tracked or insured shipping",
-          "example": "Tu veux un envoi standard, express, suivi ou assuré ?",
-          "usage": "Question alternative pour faire choisir un type d’expédition."
+          "french": "tu veux un envoi standard ou express",
+          "english": "do you want standard or express shipping",
+          "example": "Tu veux un envoi standard ou express, avec suivi ou assurance ?",
+          "usage": "Question alternative pour choisir la rapidité de l'expédition."
         },
         {
           "id": "T2D12S2V27",
           "kind": "tournure",
           "french": "il y a des conditions de transport particulières",
           "english": "are there any special transport conditions",
-          "example": "Il faut garder le colis au chaud ou à l'abri ? Il y a des conditions de transport particulières ?",
+          "example": "Il y a des conditions de transport particulières à respecter ?",
           "usage": "Question avec « il y a » pour vérifier des contraintes logistiques."
         },
         {
           "id": "T2D12S2V28",
           "kind": "tournure",
-          "french": "il y a des consignes particulières à transmettre au destinataire",
-          "english": "are there any special instructions to pass on to the recipient",
-          "example": "Il y a des consignes particulières à transmettre au destinataire ?",
-          "usage": "Question pour demander un message précis à communiquer."
+          "french": "où est le point de dépôt",
+          "english": "where is the drop-off point",
+          "example": "Où est le point de dépôt, et combien de temps faut-il prévoir pour y aller ?",
+          "usage": "Question sur le lieu où déposer le colis."
         },
         {
           "id": "T2D12S2V29",
@@ -484,10 +484,10 @@
         {
           "id": "T2D12S2V30",
           "kind": "tournure",
-          "french": "je peux te laisser le reçu où",
-          "english": "where can I leave you the receipt",
-          "example": "Après, je peux te laisser le reçu où ? Et tu me rembourseras les frais d'envoi comment ?",
-          "usage": "Question orale avec l’interrogatif en fin d’énoncé, typique du registre familier."
+          "french": "tu me donnes l'argent à l'avance ou tu préfères me rembourser",
+          "english": "will you give me the money in advance or would you rather reimburse me",
+          "example": "Si je peux m'en occuper, tu me donnes l'argent à l'avance ou tu préfères me rembourser ?",
+          "usage": "Question alternative pour convenir de la prise en charge des frais."
         }
       ]
     },
@@ -499,7 +499,7 @@
           "kind": "mot-cle",
           "french": "un cadeau",
           "english": "a gift",
-          "example": "Salut ! Merci de m'inviter — ta sœur fête bientôt son anniversaire, et je cherche un cadeau, tu pourrais m'aider à trouver une idée ?",
+          "example": "Salut ! Ta sœur fête bientôt son anniversaire et je cherche un cadeau — tu pourrais m'aider à trouver une idée ?",
           "usage": "Nom masculin désignant un objet offert pour faire plaisir à quelqu'un."
         },
         {
@@ -521,10 +521,10 @@
         {
           "id": "T2D12S3V04",
           "kind": "mot-cle",
-          "french": "discrète",
-          "english": "discreet / reserved",
-          "example": "Comment est son caractère — plutôt discrète, ou elle aime qu'on lui fasse une surprise ?",
-          "usage": "Adjectif féminin qualifiant une personne peu encline à se faire remarquer."
+          "french": "son caractère",
+          "english": "her personality",
+          "example": "Comment est son caractère — est-ce qu'elle aime qu'on lui fasse une surprise ?",
+          "usage": "Groupe nominal désignant la manière d'être habituelle d'une personne."
         },
         {
           "id": "T2D12S3V05",
@@ -555,7 +555,7 @@
           "kind": "mot-cle",
           "french": "la même chose",
           "english": "the same thing",
-          "example": "Il y a des choses qu'elle a déjà, pour éviter de lui offrir la même chose ?",
+          "example": "Pour éviter de lui offrir la même chose, y a-t-il des cadeaux qu'elle a déjà reçus récemment ?",
           "usage": "Groupe nominal pour désigner un objet identique à un autre déjà possédé."
         },
         {
@@ -579,7 +579,7 @@
           "kind": "collocation",
           "french": "trouver une idée",
           "english": "to find an idea",
-          "example": "Salut ! Merci de m'inviter — ta sœur fête bientôt son anniversaire, et je cherche un cadeau, tu pourrais m'aider à trouver une idée ?",
+          "example": "Salut ! Ta sœur fête bientôt son anniversaire et je cherche un cadeau — tu pourrais m'aider à trouver une idée ?",
           "usage": "Collocation verbe + nom pour exprimer la recherche d'une inspiration."
         },
         {
@@ -603,7 +603,7 @@
           "kind": "collocation",
           "french": "lui fasse une surprise",
           "english": "surprises her",
-          "example": "Comment est son caractère — plutôt discrète, ou elle aime qu'on lui fasse une surprise ?",
+          "example": "Comment est son caractère — est-ce qu'elle aime qu'on lui fasse une surprise ?",
           "usage": "Collocation subjonctif + nom pour évoquer un effet de surprise recherché."
         },
         {
@@ -625,10 +625,10 @@
         {
           "id": "T2D12S3V17",
           "kind": "collocation",
-          "french": "en particulier",
-          "english": "in particular",
-          "example": "Tu as mentionné qu'elle aimait quelque chose en particulier — tu pourrais m'en dire un peu plus : c'est un loisir qu'elle pratique souvent ?",
-          "usage": "Locution adverbiale pour insister sur un élément précis parmi d'autres."
+          "french": "le plus souvent",
+          "english": "most often",
+          "example": "Parmi ses loisirs, lequel pratique-t-elle le plus souvent ?",
+          "usage": "Locution adverbiale au superlatif pour indiquer la fréquence la plus élevée."
         },
         {
           "id": "T2D12S3V18",
@@ -675,7 +675,7 @@
           "kind": "tournure",
           "french": "pour éviter de lui offrir la même chose",
           "english": "to avoid giving her the same thing",
-          "example": "Il y a des choses qu'elle a déjà, pour éviter de lui offrir la même chose ?",
+          "example": "Pour éviter de lui offrir la même chose, y a-t-il des cadeaux qu'elle a déjà reçus récemment ?",
           "usage": "Tournure avec « pour éviter de » pour justifier une question de vérification."
         },
         {
@@ -705,10 +705,10 @@
         {
           "id": "T2D12S3V27",
           "kind": "tournure",
-          "french": "tu pourrais m'en dire un peu plus",
-          "english": "could you tell me a bit more about it",
-          "example": "Tu as mentionné qu'elle aimait quelque chose en particulier — tu pourrais m'en dire un peu plus : c'est un loisir qu'elle pratique souvent ?",
-          "usage": "Tournure informelle au conditionnel pour demander un développement à un(e) ami(e)."
+          "french": "Parmi ses loisirs, lequel pratique-t-elle",
+          "english": "which of her hobbies does she do",
+          "example": "Parmi ses loisirs, lequel pratique-t-elle le plus souvent ?",
+          "usage": "Question avec « lequel » et inversion pour sélectionner une activité parmi plusieurs."
         },
         {
           "id": "T2D12S3V28",
@@ -838,10 +838,10 @@
         {
           "id": "T2D12S4V13",
           "kind": "collocation",
-          "french": "tu as vraiment aimé",
-          "english": "you really liked",
-          "example": "Qu'est-ce que tu as regardé récemment et que tu as vraiment aimé ?",
-          "usage": "Locution verbale sur l'appréciation."
+          "french": "vraiment aimée",
+          "english": "really liked",
+          "example": "Quelle série as-tu regardée récemment et vraiment aimée ?",
+          "usage": "Groupe verbal exprimant une appréciation ; le participe passé s'accorde ici avec série."
         },
         {
           "id": "T2D12S4V14",
@@ -926,9 +926,9 @@
         {
           "id": "T2D12S4V24",
           "kind": "tournure",
-          "french": "Qu'est-ce que tu as regardé récemment",
-          "english": "what you have watched recently",
-          "example": "Qu'est-ce que tu as regardé récemment et que tu as vraiment aimé ?",
+          "french": "quelle série as-tu regardée récemment",
+          "english": "what series have you watched recently",
+          "example": "Quelle série as-tu regardée récemment et vraiment aimée ?",
           "usage": "Question sur les visionnages récents."
         },
         {
@@ -966,18 +966,18 @@
         {
           "id": "T2D12S4V29",
           "kind": "tournure",
-          "french": "qu'est-ce que tu en as pensé",
-          "english": "what you thought of it",
-          "example": "Dernier point pratique : toi, qu'est-ce que tu en as pensé — tu l'as regardée jusqu'au bout ?",
-          "usage": "Question pour recueillir un avis."
+          "french": "qu'est-ce qui t'a le plus plu",
+          "english": "what did you like most",
+          "example": "Et toi, qu'est-ce qui t'a le plus plu dans les épisodes que tu as vus ?",
+          "usage": "Question pour recueillir un avis sur l'aspect le plus apprécié."
         },
         {
           "id": "T2D12S4V30",
           "kind": "tournure",
-          "french": "laquelle tu me recommandes vraiment de commencer",
-          "english": "which one you really recommend I start",
-          "example": "Pour finir — parmi toutes celles-là, laquelle tu me recommandes vraiment de commencer ?",
-          "usage": "Tournure de clôture pour un choix."
+          "french": "tu aurais une autre série à me conseiller",
+          "english": "would you have another series to recommend to me",
+          "example": "Pour finir — tu aurais une autre série à me conseiller pour comparer ?",
+          "usage": "Question au conditionnel pour obtenir une autre option à comparer."
         }
       ]
     },

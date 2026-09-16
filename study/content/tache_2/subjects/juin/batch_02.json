@@ -42,7 +42,7 @@
           "memory_section": 6
         },
         {
-          "text": "Pour ce qui est de l'équipement, y a-t-il une tenue vestimentaire particulière à respecter ?",
+          "text": "Y a-t-il une tenue vestimentaire particulière à respecter ?",
           "memory_number": 4,
           "memory_section": 8
         },
@@ -52,7 +52,7 @@
           "memory_section": 2
         },
         {
-          "text": "Côté pratique, comment puis-je me rendre sur place, et y a-t-il un parking disponible ?",
+          "text": "Si l'entretien se passe dans vos locaux, comment puis-je m'y rendre — y a-t-il un parking ?",
           "memory_number": 4,
           "memory_section": 5
         },
@@ -67,7 +67,7 @@
           "memory_section": 6
         },
         {
-          "text": "Vous avez mentionné plusieurs étapes — vous pourriez m'en dire un peu plus : combien y en a-t-il au total ?",
+          "text": "S'il y a d'autres étapes, combien de temps faut-il prévoir pour l'ensemble du processus ?",
           "memory_number": 4,
           "memory_section": 13
         },
@@ -104,7 +104,7 @@
           "memory_section": 2
         },
         {
-          "text": "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus : qu'est-ce qu'il comprend ?",
+          "text": "Parmi ces circuits, lequel recommandez-vous le plus, et qu'est-ce qu'il comprend ?",
           "memory_number": 7,
           "memory_section": 13
         },
@@ -119,7 +119,7 @@
           "memory_section": 6
         },
         {
-          "text": "Côté saison, c'est une bonne période pour y aller ou il vaut mieux attendre une autre saison ?",
+          "text": "Quelle est la meilleure période pour ces destinations ?",
           "memory_number": 7,
           "memory_section": 8
         },
@@ -129,17 +129,17 @@
           "memory_section": 8
         },
         {
-          "text": "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ?",
+          "text": "Y a-t-il des périodes moins fréquentées pour voyager plus tranquillement ?",
           "memory_number": 7,
           "memory_section": 8
         },
         {
-          "text": "Pour l'inscription, faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
+          "text": "Faut-il réserver le circuit longtemps à l'avance ou peut-on s'y prendre au dernier moment ?",
           "memory_number": 7,
           "memory_section": 9
         },
         {
-          "text": "Il reste encore des places ou c'est déjà complet ?",
+          "text": "Si le circuit qui m'intéresse est complet, proposez-vous d'autres dates ?",
           "memory_number": 7,
           "memory_section": 6
         },
@@ -395,12 +395,12 @@
           "memory_section": 6
         },
         {
-          "text": "Pour ce qui est du lieu, les salles proposent-elles aussi des collations, ou je dois les acheter avant d'entrer ?",
+          "text": "Pour les collations, est-ce qu'on peut en acheter sur place ou apporter les siennes ?",
           "memory_number": 9,
           "memory_section": 9
         },
         {
-          "text": "La salle est facilement accessible, ou je dois prévoir du temps pour m'y rendre ?",
+          "text": "Le cinéma est-il facilement accessible en transports en commun ?",
           "memory_number": 9,
           "memory_section": 5
         },

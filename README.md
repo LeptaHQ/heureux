@@ -39,8 +39,8 @@ The shared `study/partials/pagination.html` pager accepts a Django `page_obj`,
 EO task 2 subject pages show bilingual **Hints**: short French information targets
 with English meanings, not ready-made questions. The editorial lists in
 `study/content/tache_2/subjects/hints.json` cover every semantic group, including
-singletons; every equivalent publication shares the same immutable list, regardless
-of the selected model or personal response. Each group needs 5–10 unique cues,
+singletons; every equivalent publication shares the same immutable list, whether
+the current response is a model or personal. Each group needs 5–10 unique cues,
 with both languages and at most 100 characters per language. The loader rejects
 missing/unknown groups and malformed entries instead of substituting generic hints.
 Hints are file-backed, require no migration, and never rewrite responses or progress.
@@ -54,14 +54,14 @@ The importer rejects missing, incomplete, duplicate or cross-task memberships.
 The manifest canonical retains identity; directories display the first publication
 in their own order and search all publications before grouping and limiting.
 
-Each original prompt keeps its model text, questions and vocabulary. Equivalent
-subjects may have different models. Detail pages offer the original models and
-every preserved personal alternative, with matching copy and practice controls.
-The history link exposes older learner versions, schedules, review logs and
-annotations; account exports include recovery snapshots. Saving/restoring a version
-keeps the previous one; resetting selects the original model without deleting work.
-Annotations on changed text remain in history rather than being replayed on a
-different model.
+Each prompt keeps its matching model text, questions and vocabulary. Detail pages
+and practice show one current response: the learner's active personal response,
+or the published model when there is no personal override. There is no version
+chooser or oral history page; former history URLs and version-selection parameters
+return 404. Saved personal data, schedules, review logs and recovery snapshots remain
+stored and available in account exports. Resetting selects the published model
+without deleting work. Annotations remain available in Notes rather than being
+replayed on a different response text.
 
 An old response's ambiguous shared state belongs only to the corrected group
 containing its original canonical key. Occurrence-provenanced annotations and

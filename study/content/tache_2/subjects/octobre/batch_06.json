@@ -24,7 +24,7 @@
           "text": "Il faut un certain niveau pour te suivre, ou on peut y aller tranquillement ?"
         },
         {
-          "text": "Autre point important : c'est un sport plutôt physique, ou accessible même quand on n'est pas très en forme ?"
+          "text": "Si on n'a pas le même niveau, comment on pourrait adapter les séances ?"
         },
         {
           "text": "Côté lieu, ça se pratique où — en salle, en extérieur, dans un club ?"
@@ -42,10 +42,10 @@
           "text": "À quelle fréquence tu voudrais qu'on se retrouve — une fois par semaine, plus ?"
         },
         {
-          "text": "Côté tarifs, est-ce qu'il faut du matériel particulier, ou payer un accès quelque part ?"
+          "text": "Côté matériel et budget, est-ce qu'il faut un équipement particulier, ou payer un accès quelque part ?"
         },
         {
-          "text": "Pour ce qui est du niveau, tu cherches surtout quelqu'un pour te motiver, ou pour vraiment progresser ?"
+          "text": "Tu cherches surtout quelqu'un pour te motiver, ou pour vraiment progresser ?"
         },
         {
           "text": "Est-ce qu'on peut essayer une fois pour voir si ça me convient ?"
@@ -79,10 +79,10 @@
           "text": "Qu'est-ce qui est prévu comme activités pour les enfants ?"
         },
         {
-          "text": "Et dans la continuité, ce sont des activités adaptées à son âge, et sans danger ?"
+          "text": "Ces activités sont adaptées à son âge, et quelles précautions sont prévues ?"
         },
         {
-          "text": "Il y a un autre point qui m'intéresse : est-ce qu'il y a d'autres enfants du même âge que le mien ?"
+          "text": "Est-ce qu'il y a d'autres enfants du même âge que le mien ?"
         },
         {
           "text": "Vous serez combien d'adultes pour surveiller les enfants ?"
@@ -110,7 +110,7 @@
           "memory_section": 11
         },
         {
-          "text": "Merci pour tout ça — laissez-moi en discuter avec lui et je vous réponds très vite, d'accord ?"
+          "text": "Pour finir — pour quand avez-vous besoin d'une réponse, le temps d'en discuter avec mon enfant ?"
         }
       ]
     },
@@ -126,7 +126,7 @@
           "text": "Concrètement, quelles sont les principales activités que vous menez ?"
         },
         {
-          "text": "Ça consiste en quoi — des nettoyages de nature, des plantations, de la sensibilisation ?"
+          "text": "Pour quelle mission avez-vous le plus besoin de bénévoles en ce moment ?"
         },
         {
           "text": "Pour ce qui est du programme, est-ce que l'association organise aussi des événements — des campagnes, des collectes ?"
@@ -143,7 +143,7 @@
           "text": "Pour participer, faut-il des compétences particulières ou de l'expérience ?"
         },
         {
-          "text": "Côté engagement, à quelle fréquence les membres s'engagent-ils — plutôt une fois par semaine, ou selon les disponibilités ?",
+          "text": "Côté engagement, peut-on participer selon ses disponibilités, ou faut-il être présent chaque semaine ?",
           "memory_number": 3,
           "memory_section": 4
         },
@@ -199,7 +199,7 @@
           "text": "En ce qui concerne les déplacements, le transport est-il compris — on part d'où exactement ?"
         },
         {
-          "text": "Côté participants, il y a un guide qui nous accompagne pendant la journée ?"
+          "text": "Côté encadrement, il y a un guide qui nous accompagne pendant la journée ?"
         },
         {
           "text": "Ces excursions conviennent-elles aux familles avec enfants ?"
@@ -211,7 +211,7 @@
           "text": "Côté organisation, que se passe-t-il en cas de mauvais temps — l'excursion est maintenue ou reportée ?"
         },
         {
-          "text": "Faut-il réserver à l'avance ou il reste encore des places ?"
+          "text": "Faut-il réserver longtemps à l'avance, ou peut-on s'inscrire la veille ?"
         },
         {
           "text": "Parlons du budget — combien coûte une excursion à peu près ?"
@@ -225,7 +225,7 @@
           "memory_section": 3
         },
         {
-          "text": "Est-ce qu'il est possible de payer en plusieurs fois ou faut-il régler en une seule fois ?",
+          "text": "Si je dois annuler, quelles sont les conditions de remboursement ?",
           "memory_number": 7,
           "memory_section": 3
         },
@@ -245,7 +245,7 @@
           "memory_section": 2
         },
         {
-          "text": "Et dans la continuité, y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
+          "text": "Et y a-t-il des expositions temporaires en ce moment en plus de la collection permanente ?",
           "memory_number": 9,
           "memory_section": 2
         },
@@ -280,7 +280,7 @@
           "memory_section": 6
         },
         {
-          "text": "Question budget, y a-t-il un audioguide disponible — c'est gratuit ou payant ? Et on peut prendre des photos à l'intérieur ?",
+          "text": "Y a-t-il un audioguide disponible — c'est gratuit ou payant ? Et on peut prendre des photos à l'intérieur ?",
           "memory_number": 9,
           "memory_section": 9
         },
@@ -290,7 +290,7 @@
           "memory_section": 4
         },
         {
-          "text": "Où se trouve exactement le musée — est-il facilement accessible en transports en commun ? Y a-t-il un parking à proximité ?",
+          "text": "Le musée est-il facilement accessible en transports en commun, et y a-t-il un parking à proximité ?",
           "memory_number": 9,
           "memory_section": 5
         },

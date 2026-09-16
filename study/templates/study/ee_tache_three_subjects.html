@@ -5,11 +5,10 @@
 <div class="ee-t3-page ee-t3-subjects-page sortable-subject-directory">
   {% include "study/partials/task_nav.html" %}
 
-  <header class="memory-overview-hero">
+  <header class="memory-overview-hero directory-header">
     <div class="memory-overview-hero__copy">
-      <p class="eyebrow">{{ part.name }} · {{ task.name }}</p>
-      <h1>Sujets par thème</h1>
-      <p>Chaque publication conserve son mois. Les sujets équivalents partagent une seule réponse, une seule progression et 30 vocabs ciblés.</p>
+      <h1 id="ee-t3-subject-directory-title">Sujets par thème</h1>
+      <p>120–180 mots · {% include "study/partials/writing_methodology_trigger.html" %}</p>
     </div>
     <dl class="memory-overview-hero__metrics" aria-label="Contenu des sujets">
       <div><dt>Thèmes</dt><dd>{{ theme_count }}</dd></div>
@@ -19,20 +18,11 @@
     </dl>
   </header>
 
-  {% include "study/partials/subject_directory_search.html" %}
+  {% include "study/partials/collection_toolbar.html" with with_search=True progress_completed=subject_summary.completed progress_total=subject_summary.total progress_unit="sujets terminés" show_views=subject_themes %}
 
   <section class="ee-t3-section" aria-labelledby="ee-t3-subject-directory-title">
-    <div class="ee-t3-section__head">
-      <div>
-        <p class="eyebrow">{{ theme_count }} collections thématiques</p>
-        <h2 id="ee-t3-subject-directory-title">Choisir un sujet</h2>
-        <p>Les thèmes restent repliables pour garder une vue lisible. Ouvrez celui que vous souhaitez travailler.</p>
-      </div>
-      <div class="ee-t3-section__actions">
-        {% include "study/partials/collection_view_toggle.html" %}
-      </div>
-    </div>
     {% include "study/partials/subject_collection.html" with groups=subject_themes kind="ee3" secondary_label="Contenu" %}
   </section>
 </div>
+{% include "study/partials/writing_methodology_dialog.html" with tache=3 only %}
 {% endblock %}

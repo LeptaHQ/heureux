@@ -59,6 +59,7 @@ from ..models import (
     WritingResponseOverride,
 )
 from .. import routing
+from ..oral_highlights import preserve_tache_two_highlights
 from ..response_personalization import effective_response
 from ..progress import (
     card_unit_progress_from_rows,
@@ -4084,14 +4085,15 @@ def edit_response(request, part_slug, task_slug, prompt_id):
     has_personal_response = preferred_personal(response, request.user) is not None
     detail_url = prompt_detail_url(selected_prompt)
     if request.method == "POST" and request.POST.get("action") == "reset":
-        if personal is not None:
-            snapshot(personal, "personal")
-            PersonalResponse.objects.filter(pk=personal.pk).update(is_active=False)
-        else:
-            PersonalResponse.objects.create(
-                user=request.user, response=response, is_active=False,
-                source_prompt=selected_prompt,
-            )
+        with preserve_tache_two_highlights(response, request.user) if is_tache_two else transaction.atomic():
+            if personal is not None:
+                snapshot(personal, "personal")
+                PersonalResponse.objects.filter(pk=personal.pk).update(is_active=False)
+            else:
+                PersonalResponse.objects.create(
+                    user=request.user, response=response, is_active=False,
+                    source_prompt=selected_prompt,
+                )
         return redirect(routing.subject_selection_url(f"{detail_url}?reset=1", request))
 
     if is_tache_two:
@@ -4112,7 +4114,8 @@ def edit_response(request, part_slug, task_slug, prompt_id):
         )
         if request.method == "POST" and question_formset.is_valid():
             arguments = []
-            for question_form in question_formset:
+            question_mapping = {}
+            for old_index, question_form in enumerate(question_formset, 1):
                 if (
                     not question_form.cleaned_data
                     or question_form.cleaned_data.get("DELETE")
@@ -4129,16 +4132,21 @@ def edit_response(request, part_slug, task_slug, prompt_id):
                         "consequence": "",
                     }
                 )
-            save_personal(
-                response, request.user, {
-                    "reformulation": "",
-                    "position": "",
-                    "position_claire": "",
-                    "arguments": arguments,
-                    "nuance": "",
-                    "conclusion": "",
-                }, source_prompt=selected_prompt,
-            )
+                if old_index <= len(initial_questions):
+                    question_mapping[old_index] = len(arguments)
+            with preserve_tache_two_highlights(
+                response, request.user, question_mapping=question_mapping,
+            ):
+                save_personal(
+                    response, request.user, {
+                        "reformulation": "",
+                        "position": "",
+                        "position_claire": "",
+                        "arguments": arguments,
+                        "nuance": "",
+                        "conclusion": "",
+                    }, source_prompt=selected_prompt,
+                )
             return redirect(routing.subject_selection_url(f"{detail_url}?saved=1", request))
         return render(
             request,

@@ -3978,8 +3978,8 @@ class BrowserTests(StaticLiveServerTestCase):
             response_detail_url(self.first.response),
         )
 
-    def save_current_prompt_highlight(self):
-        prompt = self.page.locator("#card-front .prompt-text")
+    def save_current_prompt_highlight(self, target=None):
+        prompt = target if target is not None else self.page.locator("#card-front .prompt-text")
         prompt.evaluate(
             """
             element => {
@@ -4001,8 +4001,8 @@ class BrowserTests(StaticLiveServerTestCase):
             self.page.locator("[data-highlight-selection]").click()
         self.assertIn(response_info.value.status, (200, 201))
 
-    def select_prompt(self, *, start=None, end=None):
-        prompt = self.page.locator("#card-front .prompt-text")
+    def select_prompt(self, *, start=None, end=None, target=None):
+        prompt = target if target is not None else self.page.locator("#card-front .prompt-text")
         prompt.evaluate(
             """
             (element, offsets) => {
@@ -5381,6 +5381,90 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(restored.text_content(), quote)
         saved.refresh_from_db()
         self.assertEqual(saved.quote, quote)
+
+    def test_eo2_personalization_only_resets_highlights_on_changed_text(self):
+        self._import_eo_tache_two_content()
+        prompt = Prompt.objects.select_related("response", "theme__task__part").get(
+            content_key="tache2:janvier:batch-01:subject-01",
+        )
+        self.assertTrue(prompt.response.semantic_group)
+        detail_url = self.live_server_url + prompt_detail_url(prompt)
+        edit_url = self.live_server_url + reverse(
+            "study:edit_response", args=["eo", "tache-2", prompt.pk],
+        )
+        review_url = (
+            self.live_server_url + reverse("study:review")
+            + f"?kind=spine&response={prompt.response_id}&prompt={prompt.pk}&reset=1"
+        )
+        self.page.set_viewport_size({"width": 1183, "height": 844})
+        self.page.goto(detail_url)
+        questions = self.page.locator("[data-question-highlight-text]")
+        for number in (0, 1, 2):
+            self.save_current_prompt_highlight(questions.nth(number))
+        self.assertEqual(Annotation.objects.filter(user=self.user).count(), 3)
+        legacy = Annotation.objects.filter(user=self.user).latest("pk")
+        legacy.source_key = "tache-two:janvier:batch-1:subject-1"
+        legacy.save(update_fields=["source_key"])
+
+        self.page.goto(edit_url)
+        with self.page.expect_navigation():
+            self.page.locator(".response-edit button[type='submit']").click()
+        for number in (0, 1, 2):
+            expect(questions.nth(number).locator("mark.user-highlight")).to_have_count(1)
+
+        self.page.goto(review_url)
+        self.page.locator("#card-front .prompt-text").wait_for()
+        self.save_current_prompt_highlight()
+        self.page.locator("#reveal").click()
+        self.save_current_prompt_highlight(
+            self.page.locator("#card-back [data-question-highlight-text='2']")
+        )
+        self.page.goto(edit_url)
+        self.page.locator("[name='questions-0-question']").fill(
+            "Quel budget faut-il prévoir pour toute une semaine avec les enfants ?"
+        )
+        self.page.locator("[name='questions-1-response']").fill("Le samedi matin me convient.")
+        with self.page.expect_navigation():
+            self.page.locator(".response-edit button[type='submit']").click()
+        expect(questions.nth(0).locator("mark.user-highlight")).to_have_count(0)
+        for number in (1, 2):
+            expect(questions.nth(number).locator("mark.user-highlight")).to_have_count(1)
+        self.assertEqual(Annotation.objects.filter(user=self.user).count(), 5)
+
+        self.page.goto(review_url)
+        expect(self.page.locator("#card-front .prompt-text mark.user-highlight")).to_have_count(1)
+        self.page.locator("#reveal").click()
+        expect(self.page.locator(
+            "#card-back [data-question-highlight-text='2'] mark.user-highlight"
+        )).to_have_count(1)
+        self.page.goto(detail_url)
+        prepared = self.page.locator("[data-question-highlight-response='2']")
+        self.save_current_prompt_highlight(prepared)
+        self.page.goto(edit_url)
+        self.page.locator("[name='questions-2-question']").fill("Où peut-on se retrouver demain ?")
+        with self.page.expect_navigation():
+            self.page.locator(".response-edit button[type='submit']").click()
+        expect(prepared.locator("mark.user-highlight")).to_have_count(1)
+        expect(questions.nth(1).locator("mark.user-highlight")).to_have_count(1)
+        expect(questions.nth(2).locator("mark.user-highlight")).to_have_count(0)
+        self.assertEqual(Annotation.objects.filter(user=self.user).count(), 6)
+
+        self.page.goto(edit_url)
+        self.page.locator("[name='questions-1-response']").fill("Le dimanche soir, finalement.")
+        with self.page.expect_navigation():
+            self.page.locator(".response-edit button[type='submit']").click()
+        expect(prepared.locator("mark.user-highlight")).to_have_count(0)
+        expect(questions.nth(1).locator("mark.user-highlight")).to_have_count(1)
+        self.assertEqual(Annotation.objects.filter(user=self.user).count(), 6)
+        self.select_prompt(target=questions.nth(1))
+        toggle = self.page.locator("[data-highlight-selection]")
+        expect(toggle).to_have_attribute("aria-label", "Unhighlight selected text")
+        with self.page.expect_response(
+            lambda result: "/notes/" in result.url and "/supprimer/" in result.url
+        ):
+            toggle.click()
+        expect(questions.nth(1).locator("mark.user-highlight")).to_have_count(0)
+        self.assertEqual(Annotation.objects.filter(user=self.user).count(), 5)
 
     def test_mobile_review_recovers_a_rotated_presentation_token(self):
         self.page.goto(

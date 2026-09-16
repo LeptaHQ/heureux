@@ -6,9 +6,9 @@
         <ol class="flashcard-question-list">
           {% for arg in arguments %}
             <li>
-              <span>{{ arg.idea|linebreaksbr }}</span>
+              <span data-question-highlight-text="{{ forloop.counter }}">{{ arg.idea|linebreaksbr }}</span>
               {% if arg.developpement %}
-                <span class="flashcard-question-list__response">
+                <span class="flashcard-question-list__response" data-question-highlight-response="{{ forloop.counter }}">
                   <strong>Réponse préparée</strong>
                   {{ arg.developpement|linebreaksbr }}
                 </span>

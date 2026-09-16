@@ -1,0 +1,30 @@
+<section class="card section-card response-sidebar-card subject-hints subject-hints--speaking" aria-labelledby="subject-hints-title">
+  <h2 class="spine-label" id="subject-hints-title" tabindex="-1" lang="en">Hints</h2>
+  <p class="muted subject-hints__intro">Un plan possible, à reformuler avec vos mots.</p>
+  <div class="subject-hints__section">
+    <h3 class="subject-hints__label">Introduction &amp; position</h3>
+    {% include "study/partials/subject_hint_text.html" with hint=hints.introduction only %}
+  </div>
+  <div class="subject-hints__section">
+    <h3 class="subject-hints__label">Arguments &amp; exemples</h3>
+    <ol class="subject-hints__list subject-hints__arguments">
+      {% for argument in hints.arguments %}
+        <li>
+          {% include "study/partials/subject_hint_text.html" with hint=argument.point only %}
+          <div class="subject-hints__example">
+            <span class="subject-hints__example-label">Exemple possible</span>
+            {% include "study/partials/subject_hint_text.html" with hint=argument.example only %}
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+  <div class="subject-hints__section">
+    <h3 class="subject-hints__label">Nuance</h3>
+    {% include "study/partials/subject_hint_text.html" with hint=hints.nuance only %}
+  </div>
+  <div class="subject-hints__section">
+    <h3 class="subject-hints__label">Conclusion</h3>
+    {% include "study/partials/subject_hint_text.html" with hint=hints.conclusion only %}
+  </div>
+</section>

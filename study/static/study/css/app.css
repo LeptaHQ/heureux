@@ -7687,6 +7687,39 @@ a.qrow:focus-visible {
   color: var(--text-soft);
   font-size: 0.79rem;
 }
+.subject-hints__section {
+  margin-top: 1rem;
+}
+.subject-hints__label {
+  margin: 0 0 0.4rem;
+  color: var(--primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.subject-hints__arguments {
+  margin-top: 0.6rem;
+  gap: 1rem;
+}
+.subject-hints__example {
+  margin-top: 0.45rem;
+  padding-left: 0.6rem;
+  border-left: 2px solid var(--border);
+}
+.subject-hints__example-label {
+  display: block;
+  margin-bottom: 0.15rem;
+  color: var(--text-soft);
+  font-size: 0.73rem;
+}
+.subject-hints__example .subject-hints__french {
+  font-weight: 400;
+}
+.subject-hints-jump {
+  margin-top: 0.5rem;
+}
+#subject-hints-title {
+  scroll-margin-top: 5rem;
+}
 .response-sidebar-actions {
   display: grid;
   gap: 0.5rem;

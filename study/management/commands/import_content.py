@@ -286,7 +286,10 @@ class Command(BaseCommand):
             if path.is_file()
             # Lessons and hints are file-backed, not consumed by this DB importer.
             and not path.is_relative_to(content.CONTENT_DIR / "learning")
-            and path != content.TACHE_TWO_SUBJECT_HINTS_PATH
+            and path not in {
+                content.TACHE_TWO_SUBJECT_HINTS_PATH,
+                content.TACHE_THREE_SUBJECT_HINTS_PATH,
+            }
         )
         digest = hashlib.sha256()
         for label, path in sorted(files):

@@ -17,7 +17,7 @@ import unicodedata
 from dataclasses import asdict, dataclass, field, replace
 from functools import lru_cache
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, Iterable, List, Optional, Tuple
 
 CONTENT_DIR = Path(__file__).resolve().parent / "content"
 RESPONSES_DIR = CONTENT_DIR / "responses"
@@ -44,6 +44,7 @@ TACHE_TWO_EQUIVALENT_GROUPS_PATH = (
 )
 QUESTION_BANK_TASK = ("eo", "tache-2")
 EO_TACHE_THREE_TASK = ("eo", "tache-3")
+TACHE_THREE_SUBJECT_HINTS_PATH = CONTENT_DIR / "tache_3" / "hints.json"
 EO_TACHE_THREE_THEME_VOCABULARY_DIR = (
     CONTENT_DIR / "tache_3" / "theme_vocabulary"
 )
@@ -649,21 +650,31 @@ class SubjectHintData:
     english: str
 
 
-def load_tache_two_subject_hints(
-    path: Optional[Path] = None, *,
-    months: Optional[Tuple[TacheTwoSubjectMonthData, ...]] = None,
-) -> Dict[str, Tuple[SubjectHintData, ...]]:
-    """Resolve one editorial hint list per semantic group to every publication."""
+@dataclass(frozen=True)
+class ArgumentHintData:
+    point: SubjectHintData
+    example: SubjectHintData
+
+
+@dataclass(frozen=True)
+class SpeakingHintsData:
+    introduction: SubjectHintData
+    arguments: Tuple[ArgumentHintData, ...]
+    nuance: SubjectHintData
+    conclusion: SubjectHintData
+
+
+def _load_subject_hint_groups(path: Path, task: str, group_ids: Iterable[str]) -> dict:
     def unique_fields(pairs):
         result = {}
         for key, value in pairs:
             if key in result:
-                raise ValueError(f"Duplicate field in EO2 hints: {key!r}")
+                raise ValueError(f"Duplicate field in {task} hints: {key!r}")
             result[key] = value
         return result
 
     data = json.loads(
-        (path or TACHE_TWO_SUBJECT_HINTS_PATH).read_text(encoding="utf-8"),
+        path.read_text(encoding="utf-8"),
         object_pairs_hook=unique_fields,
     )
     if (
@@ -671,10 +682,36 @@ def load_tache_two_subject_hints(
         or set(data) != {"version", "task", "groups"}
         or type(data["version"]) is not int
         or data["version"] != 1
-        or data["task"] != "eo/tache-2"
+        or data["task"] != task
         or not isinstance(data["groups"], dict)
     ):
-        raise ValueError("EO2 hints must use version 1 and task eo/tache-2")
+        raise ValueError(f"{task} hints must use version 1 and its exact task")
+    expected = set(group_ids)
+    if set(data["groups"]) != expected:
+        missing = sorted(expected - set(data["groups"]))
+        unknown = sorted(set(data["groups"]) - expected)
+        raise ValueError(f"{task} hints group coverage differs: missing={missing}, unknown={unknown}")
+    return data["groups"]
+
+
+def _parse_subject_hint(row: object, *, label: str, max_length: int) -> SubjectHintData:
+    if not isinstance(row, dict) or set(row) != {"french", "english"}:
+        raise ValueError(f"{label} needs French and English")
+    for language, text in row.items():
+        if (
+            not isinstance(text, str) or not text.strip()
+            or text != text.strip() or len(text) > max_length
+            or any(character in text for character in "\n\r\t?")
+        ):
+            raise ValueError(f"Invalid {language} cue in {label}")
+    return SubjectHintData(**row)
+
+
+def load_tache_two_subject_hints(
+    path: Optional[Path] = None, *,
+    months: Optional[Tuple[TacheTwoSubjectMonthData, ...]] = None,
+) -> Dict[str, Tuple[SubjectHintData, ...]]:
+    """Resolve one editorial hint list per semantic group to every publication."""
     source_months = load_tache_two_subject_months() if months is None else months
     groups = load_oral_semantic_groups("eo/tache-2", [
         tache_two_subject_content_key(month.slug, batch.number, subject.number)
@@ -682,37 +719,80 @@ def load_tache_two_subject_hints(
         for batch in month.batches
         for subject in batch.subjects
     ])
-    expected = {group.id for group in groups}
-    if set(data["groups"]) != expected:
-        missing = sorted(expected - set(data["groups"]))
-        unknown = sorted(set(data["groups"]) - expected)
-        raise ValueError(f"EO2 hints group coverage differs: missing={missing}, unknown={unknown}")
-
+    data = _load_subject_hint_groups(
+        path or TACHE_TWO_SUBJECT_HINTS_PATH, "eo/tache-2", (group.id for group in groups),
+    )
     hints_by_subject = {}
     for group in groups:
-        rows = data["groups"][group.id]
+        rows = data[group.id]
         if not isinstance(rows, list) or not 5 <= len(rows) <= 10:
             raise ValueError(f"EO2 hints for {group.id!r} need 5 to 10 concise cues")
         hints = []
         seen = {"french": set(), "english": set()}
         for row in rows:
-            if not isinstance(row, dict) or set(row) != {"french", "english"}:
-                raise ValueError(f"EO2 hints for {group.id!r} need French and English")
+            hint = _parse_subject_hint(row, label=f"EO2 hints for {group.id!r}", max_length=100)
             for language, text in row.items():
-                if (
-                    not isinstance(text, str) or not text.strip()
-                    or text != text.strip() or len(text) > 100
-                    or any(character in text for character in "\n\r\t?")
-                ):
-                    raise ValueError(f"Invalid {language} cue in EO2 hints for {group.id!r}")
                 if text.casefold() in seen[language]:
                     raise ValueError(f"Duplicate {language} cue in EO2 hints for {group.id!r}")
                 seen[language].add(text.casefold())
-            hints.append(SubjectHintData(**row))
+            hints.append(hint)
         shared_hints = tuple(hints)
         for key in group.members:
             hints_by_subject[key] = shared_hints
     return hints_by_subject
+
+
+def load_tache_three_subject_hints(
+    path: Optional[Path] = None, *,
+    responses: Optional[List[ResponseData]] = None,
+) -> Dict[str, SpeakingHintsData]:
+    """Load one coherent speaking plan per bundled EO3 semantic identity."""
+    sources = parse_responses() if responses is None else responses
+    groups = {
+        response.semantic_group.removeprefix("eo/tache-3/"): response.semantic_group
+        for response in sources
+    }
+    if (
+        not sources or len(groups) != len(sources)
+        or any(not response.semantic_group.startswith("eo/tache-3/") for response in sources)
+    ):
+        raise ValueError("EO3 hints require unique EO3 semantic source groups")
+    data = _load_subject_hint_groups(path or TACHE_THREE_SUBJECT_HINTS_PATH, "eo/tache-3", groups)
+    plans = {}
+    for group_id, identity in groups.items():
+        row = data[group_id]
+        label = f"EO3 hints for {group_id!r}"
+        if not isinstance(row, dict) or set(row) != {"introduction", "arguments", "nuance", "conclusion"}:
+            raise ValueError(f"{label} needs an introduction, arguments, nuance and conclusion")
+        if not isinstance(row["arguments"], list) or len(row["arguments"]) != 3:
+            raise ValueError(f"{label} needs three arguments with examples")
+        arguments = []
+        for argument in row["arguments"]:
+            if not isinstance(argument, dict) or set(argument) != {"point", "example"}:
+                raise ValueError(f"{label} needs a point and example for every argument")
+            arguments.append(ArgumentHintData(
+                point=_parse_subject_hint(argument["point"], label=label, max_length=120),
+                example=_parse_subject_hint(argument["example"], label=label, max_length=140),
+            ))
+        for field_name in ("point", "example"):
+            for language in ("french", "english"):
+                values = [getattr(getattr(argument, field_name), language).casefold() for argument in arguments]
+                if len(set(values)) != len(values):
+                    raise ValueError(f"Duplicate {language} {field_name} in {label}")
+        plan = SpeakingHintsData(
+            introduction=_parse_subject_hint(row["introduction"], label=label, max_length=170),
+            arguments=tuple(arguments),
+            nuance=_parse_subject_hint(row["nuance"], label=label, max_length=150),
+            conclusion=_parse_subject_hint(row["conclusion"], label=label, max_length=130),
+        )
+        cues = [
+            plan.introduction, plan.nuance, plan.conclusion,
+            *(cue for argument in plan.arguments for cue in (argument.point, argument.example)),
+        ]
+        if sum(len(cue.french.split()) for cue in cues) > 140:
+            raise ValueError(f"{label} exceeds 140 French words")
+        plans[identity] = plan
+    return plans
 
 
 def load_oral_semantic_groups(

@@ -2057,6 +2057,87 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(self.page.locator("#oral-response-copy")).to_have_count(0)
         expect(self.page.get_by_role("button", name="Copier la consigne")).to_be_visible()
 
+    def test_eo3_hints_preserve_existing_answer_and_sidebar_highlights(self):
+        self._import_eo_tache_three_content()
+        prompt = Prompt.objects.select_related("theme__task__part").get(content_key="culture:p1")
+        url = prompt_detail_url(prompt)
+        with mock.patch("study.views.library.catalogue.tache_three_subject_hints", return_value={}):
+            self.page.goto(self.live_server_url + url)
+            expect(self.page.locator(".subject-hints")).to_have_count(0)
+            roots = self.page.locator(".answer-columns[data-annotation-root], aside[data-annotation-root]")
+            saved_roots = roots.evaluate_all("""
+                roots => roots.map(root => {
+                    const quote = (root.querySelector(".spine-text") || root.querySelector(".spine-label")).textContent;
+                    const text = root.textContent;
+                    const start = text.indexOf(quote);
+                    return {
+                        text, quote, start, end: start + quote.length,
+                        key: root.dataset.annotationSourceKey,
+                        prefix: text.slice(Math.max(0, start - 160), start),
+                        suffix: text.slice(start + quote.length, start + quote.length + 160),
+                    };
+                })
+            """)
+        self.assertEqual(len(saved_roots), 2)
+        for root in saved_roots:
+            Annotation.objects.create(
+                user=self.user, task=prompt.theme.task, kind=AnnotationKind.HIGHLIGHT,
+                source_path=url, source_key=root["key"], quote=root["quote"],
+                start_offset=root["start"], end_offset=root["end"],
+                prefix=root["prefix"], suffix=root["suffix"],
+            )
+        with mock.patch("study.views.library.catalogue.tache_three_subject_hints", return_value={}):
+            self.page.reload()
+            expect(self.page.locator("mark.user-highlight")).to_have_count(2)
+            original_text = roots.evaluate_all("roots => roots.map(root => root.textContent)")
+        self.page.reload()
+        expect(self.page.get_by_role("heading", name="Hints", exact=True)).to_be_visible()
+        expect(self.page.locator("mark.user-highlight")).to_have_count(2)
+        self.assertEqual(roots.evaluate_all("roots => roots.map(root => root.textContent)"), original_text)
+        self.assertTrue(self.page.locator(".subject-hints").evaluate(
+            "hints => hints.closest('[data-annotation-root]') === null"
+        ))
+        expect(self.page.locator(".subject-hints__arguments > li")).to_have_count(3)
+        expect(self.page.locator(".subject-hints__example")).to_have_count(3)
+        expect(self.page.locator(".subject-hints__french")).to_have_count(9)
+        expect(self.page.locator(".subject-hints__english")).to_have_count(9)
+        expect(self.page.get_by_role("link", name="Pratiquer cette réponse", exact=True)).to_be_visible()
+        self.assert_no_horizontal_overflow()
+
+    def test_equivalent_eo3_hints_work_without_javascript_on_mobile(self):
+        self._import_eo_tache_three_content()
+        context = self.browser.new_context(
+            java_script_enabled=False,
+            storage_state=self.context.storage_state(),
+            viewport={"width": 1280, "height": 850},
+        )
+        try:
+            page = context.new_page()
+            original = None
+            for key in ("culture:p3", "economie:p5"):
+                prompt = Prompt.objects.select_related("theme__task__part").get(content_key=key)
+                page.goto(self.live_server_url + prompt_detail_url(prompt) + "?deduplicate=0")
+                hints = page.locator(".subject-hints")
+                expect(hints).to_be_visible()
+                if original is None:
+                    original = hints.inner_text()
+                else:
+                    self.assertEqual(hints.inner_text(), original)
+                for width in (320, 390, 1280):
+                    page.set_viewport_size({"width": width, "height": 850})
+                    if width <= 760:
+                        expect(page.locator("[data-nav-links]")).to_be_hidden()
+                    page.get_by_role("link", name="Voir les Hints", exact=True).click()
+                    expect(page.get_by_role("heading", name="Hints", exact=True)).to_be_in_viewport()
+                    self.assertLessEqual(
+                        page.evaluate("document.documentElement.scrollWidth"),
+                        page.evaluate("window.innerWidth") + 1,
+                    )
+                    expect(hints.locator(".subject-hints__example")).to_have_count(3)
+                expect(page.get_by_role("heading", name="Versions du sujet")).to_have_count(0)
+        finally:
+            context.close()
+
     def test_ee_tache_one_rows_navigate_without_completion_click_through(self):
         ee_part = factories.make_part("ee")
         writing_task = factories.make_task(ee_part, "tache-1")

@@ -49,8 +49,7 @@
         <ul class="subject-hints__list">
           {% for hint in subject_hints %}
             <li>
-              <span class="subject-hints__french" lang="fr">{{ hint.french }}</span>
-              <span class="subject-hints__english" lang="en">{{ hint.english }}</span>
+              {% include "study/partials/subject_hint_text.html" with hint=hint only %}
             </li>
           {% endfor %}
         </ul>

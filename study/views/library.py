@@ -3902,6 +3902,10 @@ def response_detail(request, part_slug, task_slug, prompt_id):
     ee_subject_copy_text = ""
     ee_response_copy_text = ""
     source_documents_html = response.body_html
+    subject_hints = None
+    if (task.part.slug, task.slug) == content_module.EO_TACHE_THREE_TASK and response.semantic_group:
+        # Ad-hoc responses outside the bundled semantic catalogue have no curated plan.
+        subject_hints = catalogue.tache_three_subject_hints().get(response.semantic_group)
     if ee_response:
         if response_content.position or response_content.position_claire:
             ee_response_copy_text = "\n\n".join(
@@ -3990,6 +3994,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             "part": task.part,
             "response_content": response_content,
             "arguments": response_content.arguments,
+            "subject_hints": subject_hints,
             "ee_response": ee_response,
             "ee_combination_label": ee_combination_label,
             "ee_source_month": ee_source_month,

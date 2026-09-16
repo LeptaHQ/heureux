@@ -19,6 +19,7 @@
   </p>
   <h1 class="detail-prompt">{% if ee_response %}{{ selected_prompt.theme.display_name }}{% else %}{{ selected_prompt.text }}{% endif %}</h1>
   {% if response_content.reformulation %}<p class="reform">« {{ response_content.reformulation }} »</p>{% endif %}
+  {% if subject_hints %}<a class="btn btn--sm subject-hints-jump" href="#subject-hints-title">Voir les Hints</a>{% endif %}
 </div>
 
 {% include "study/partials/prompt_navigation.html" %}
@@ -122,6 +123,11 @@
 
   </div>
 
+  {# Keep hints outside both annotation roots so saved text offsets stay unchanged. #}
+  {% if subject_hints %}
+  <div class="detail-side subject-hints-column">
+    {% include "study/partials/speaking_hints.html" with hints=subject_hints only %}
+  {% endif %}
   <aside class="detail-side" data-annotation-root data-annotation-source-key="subject-sidebar:{% if oral_annotation_key %}{{ selected_prompt.content_key }}{% else %}{{ response.content_key }}{% endif %}">
     <div class="card section-card response-sidebar-card response-sidebar-card--status">
       <div class="spine-label">Progression du sujet</div>
@@ -224,6 +230,7 @@
       </div>
     {% endif %}
   </aside>
+  {% if subject_hints %}</div>{% endif %}
 </div>
 
 {% include "study/partials/prompt_navigation.html" with bottom=True %}

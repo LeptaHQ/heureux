@@ -19,7 +19,7 @@
   </p>
   <h1 class="detail-prompt">{% if ee_response %}{{ selected_prompt.theme.display_name }}{% else %}{{ selected_prompt.text }}{% endif %}</h1>
   {% if response_content.reformulation %}<p class="reform">« {{ response_content.reformulation }} »</p>{% endif %}
-  {% if subject_hints %}<a class="btn btn--sm subject-hints-jump" href="#subject-hints-title">Voir les Hints</a>{% endif %}
+  {% if subject_hints %}<a class="btn btn--sm subject-hints-jump" href="#subject-hints-title">Voir les pistes</a>{% endif %}
 </div>
 
 {% include "study/partials/prompt_navigation.html" %}

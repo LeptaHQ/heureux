@@ -1,0 +1,11 @@
+<section class="card section-card response-sidebar-card subject-hints{% if writing %} subject-hints--writing{% endif %}" aria-labelledby="subject-hints-title">
+  <h2 class="spine-label" id="subject-hints-title" tabindex="-1" lang="fr">Pistes</h2>
+  <p class="muted subject-hints__intro">{{ intro }}</p>
+  <ul class="subject-hints__list">
+    {% for hint in hints %}
+      <li>
+        {% include "study/partials/subject_hint_text.html" with hint=hint only %}
+      </li>
+    {% endfor %}
+  </ul>
+</section>

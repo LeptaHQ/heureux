@@ -4285,6 +4285,9 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
         if candidate.pk != sujet.pk
     ]
     minimum, maximum = content_module.EE_WRITING_WORD_LIMITS[tache]
+    subject_hints = ()
+    if tache == 1 and source is not None and source.category in content_module.EE_TACHE_ONE_HINT_THEMES:
+        subject_hints = catalogue.ee_tache_one_subject_hints()[canonical.slug]
     return render(
         request,
         "study/writing_sujet_detail.html",
@@ -4296,6 +4299,7 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
             "prompt": sujet.prompt,
             "category_label": sujet.category_label,
             "source": source,
+            "subject_hints": subject_hints,
             "equivalent_sujets": equivalent_sujets,
             "writing_tache": tache,
             "word_limit_min": minimum,

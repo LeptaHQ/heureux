@@ -69,6 +69,8 @@ EE_TACHE_ONE_TASK = ("ee", "tache-1")
 EE_TACHE_ONE_DIR = CONTENT_DIR / "ee" / "tache_1"
 EE_TACHE_ONE_SUJETS_PATH = EE_TACHE_ONE_DIR / "sujets.json"
 EE_TACHE_ONE_THEME_VOCABULARY_DIR = EE_TACHE_ONE_DIR / "theme_vocabulary"
+EE_TACHE_ONE_SUBJECT_HINTS_PATH = EE_TACHE_ONE_DIR / "hints.json"
+EE_TACHE_ONE_HINT_THEMES = frozenset({"invitations", "sorties", "accueil", "voyages", "ville"})
 
 EE_TACHE_TWO_TASK = ("ee", "tache-2")
 EE_TACHE_TWO_CONTENT_PREFIX = "ee-tache2:"
@@ -707,6 +709,24 @@ def _parse_subject_hint(row: object, *, label: str, max_length: int) -> SubjectH
     return SubjectHintData(**row)
 
 
+def _parse_subject_hint_list(
+    rows: object, *, label: str, max_items: int, max_length: int,
+) -> Tuple[SubjectHintData, ...]:
+    if not isinstance(rows, list) or not 5 <= len(rows) <= max_items:
+        raise ValueError(f"{label} needs 5 to {max_items} concise cues")
+    hints = []
+    seen = {"french": set(), "english": set()}
+    for row in rows:
+        hint = _parse_subject_hint(row, label=label, max_length=max_length)
+        for language in seen:
+            text = getattr(hint, language).casefold()
+            if text in seen[language]:
+                raise ValueError(f"Duplicate {language} cue in {label}")
+            seen[language].add(text)
+        hints.append(hint)
+    return tuple(hints)
+
+
 def load_tache_two_subject_hints(
     path: Optional[Path] = None, *,
     months: Optional[Tuple[TacheTwoSubjectMonthData, ...]] = None,
@@ -724,22 +744,54 @@ def load_tache_two_subject_hints(
     )
     hints_by_subject = {}
     for group in groups:
-        rows = data[group.id]
-        if not isinstance(rows, list) or not 5 <= len(rows) <= 10:
-            raise ValueError(f"EO2 hints for {group.id!r} need 5 to 10 concise cues")
-        hints = []
-        seen = {"french": set(), "english": set()}
-        for row in rows:
-            hint = _parse_subject_hint(row, label=f"EO2 hints for {group.id!r}", max_length=100)
-            for language, text in row.items():
-                if text.casefold() in seen[language]:
-                    raise ValueError(f"Duplicate {language} cue in EO2 hints for {group.id!r}")
-                seen[language].add(text.casefold())
-            hints.append(hint)
-        shared_hints = tuple(hints)
+        shared_hints = _parse_subject_hint_list(
+            data[group.id], label=f"EO2 hints for {group.id!r}", max_items=10, max_length=100,
+        )
         for key in group.members:
             hints_by_subject[key] = shared_hints
     return hints_by_subject
+
+
+def load_ee_tache_one_subject_hints(
+    path: Optional[Path] = None, *,
+    categories: Optional[Tuple[WritingCategoryData, ...]] = None,
+) -> Dict[str, Tuple[SubjectHintData, ...]]:
+    """Share editorial writing cues across the publications of selected themes."""
+    source_categories = load_ee_writing_categories(1) if categories is None else categories
+    selected = [category for category in source_categories if category.slug in EE_TACHE_ONE_HINT_THEMES]
+    if {category.slug for category in selected} != EE_TACHE_ONE_HINT_THEMES:
+        raise ValueError("EE1 hints require all five selected source themes")
+    subjects = [subject for category in selected for subject in category.sujets]
+    by_slug = {subject.slug: subject for subject in subjects}
+    if (
+        not subjects or len(by_slug) != len(subjects)
+        or any(
+            subject.canonical_slug not in by_slug
+            or by_slug[subject.canonical_slug].canonical_slug != subject.canonical_slug
+            or not subject.source_key.startswith(EE_TACHE_ONE_CONTENT_PREFIX)
+            for subject in subjects
+        )
+    ):
+        raise ValueError("EE1 hints require complete, unique EE1 source publications")
+    canonical_keys = {
+        subject.source_key for subject in subjects
+        if subject.slug == subject.canonical_slug
+    }
+    data = _load_subject_hint_groups(
+        path or EE_TACHE_ONE_SUBJECT_HINTS_PATH, "ee/tache-1", canonical_keys,
+    )
+    hints_by_key = {}
+    for key, rows in data.items():
+        hints = _parse_subject_hint_list(
+            rows, label=f"EE1 hints for {key!r}", max_items=8, max_length=110,
+        )
+        if sum(len(hint.french.split()) for hint in hints) > 75:
+            raise ValueError(f"EE1 hints for {key!r} exceed 75 French words")
+        hints_by_key[key] = hints
+    return {
+        subject.slug: hints_by_key[by_slug[subject.canonical_slug].source_key]
+        for subject in subjects
+    }
 
 
 def load_tache_three_subject_hints(

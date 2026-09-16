@@ -761,7 +761,11 @@ class ImportFingerprintTests(TestCase):
         )
 
     def test_file_backed_hints_do_not_invalidate_database_content(self):
-        for path in (content.TACHE_TWO_SUBJECT_HINTS_PATH, content.TACHE_THREE_SUBJECT_HINTS_PATH):
+        for path in (
+            content.TACHE_TWO_SUBJECT_HINTS_PATH,
+            content.TACHE_THREE_SUBJECT_HINTS_PATH,
+            content.EE_TACHE_ONE_SUBJECT_HINTS_PATH,
+        ):
             with self.subTest(path=path):
                 self.assertEqual(
                     Command._source_fingerprint(),

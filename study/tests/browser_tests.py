@@ -43,6 +43,7 @@ from study.models import (
     ReviewLog,
     ReviewSession,
     Task,
+    WritingSujet,
 )
 from study.routing import prompt_detail_url, response_detail_url, review_url, theme_detail_url
 
@@ -475,6 +476,91 @@ class BrowserTests(StaticLiveServerTestCase):
                     )
                     self.assertEqual(self.page.url, detail_url)
                 self.assert_no_horizontal_overflow()
+
+    def test_ee1_pistes_preserve_personal_response_highlights_and_copy_controls(self):
+        task = self._import_ee_writing_content()[1]
+        sujet = WritingSujet.objects.get(task=task, slug="janvier-combinaison-2")
+        body = "Bonjour, voici ma réponse personnelle.\n\nSes précisions restent inchangées."
+        PersonalWritingResponse.objects.create(user=self.user, sujet=sujet, body=body)
+        path = reverse("study:writing_sujet_detail", args=["ee", task.slug, sujet.pk])
+        self.context.add_init_script("""
+            Object.defineProperty(navigator, "clipboard", {
+                configurable: true,
+                value: {writeText: text => {
+                    window.__copiedResponse = text;
+                    return Promise.resolve();
+                }}
+            });
+        """)
+        with mock.patch("study.views.library.catalogue.ee_tache_one_subject_hints", return_value={sujet.slug: ()}):
+            self.page.goto(self.live_server_url + path)
+            root = self.page.locator(".section-card--personal .t1-response__body")
+            saved = root.evaluate("""root => {
+                const quote = root.querySelector("p").textContent;
+                const text = root.textContent;
+                const start = text.indexOf(quote);
+                return {text, quote, start, end: start + quote.length,
+                    prefix: text.slice(0, start), suffix: text.slice(start + quote.length)};
+            }""")
+        Annotation.objects.create(
+            user=self.user, task=task, kind=AnnotationKind.HIGHLIGHT,
+            source_path=path, source_key=f"writing-sujet:{sujet.pk}:personal",
+            quote=saved["quote"], start_offset=saved["start"], end_offset=saved["end"],
+            prefix=saved["prefix"], suffix=saved["suffix"],
+        )
+        self.page.reload()
+        hints = self.page.locator(".subject-hints--writing")
+        expect(hints.get_by_role("heading", name="Pistes", exact=True)).to_be_visible()
+        self.assertTrue(hints.evaluate("element => element.closest('[data-annotation-root]') === null"))
+        expect(root.locator("mark.user-highlight")).to_have_text(saved["quote"])
+        self.assertEqual(root.text_content(), saved["text"])
+        main = self.page.locator(".section-card--personal")
+        expect(main.locator("[data-writing-response-edit]")).to_have_count(1)
+        expect(main.locator("[data-writing-response-delete]")).to_have_count(0)
+        main.get_by_role("button", name="Copier ma réponse", exact=True).click()
+        self.page.wait_for_function("window.__copiedResponse !== undefined")
+        self.assertEqual(self.page.evaluate("window.__copiedResponse"), body)
+        original = hints.inner_text()
+        self.page.locator(".t1-versions > summary").click()
+        expect(self.page.locator(".t1-versions [data-writing-response-delete]")).to_have_count(1)
+        self.assertEqual(hints.inner_text(), original)
+        self.assert_no_horizontal_overflow()
+
+    def test_ee1_pistes_share_equivalent_subjects_without_javascript(self):
+        task = self._import_ee_writing_content()[1]
+        context = self.browser.new_context(
+            java_script_enabled=False, storage_state=self.context.storage_state(),
+            viewport={"width": 1280, "height": 850},
+        )
+        try:
+            page = context.new_page()
+            original = None
+            for slug in ("janvier-combinaison-2", "mars-combinaison-12"):
+                sujet = WritingSujet.objects.get(task=task, slug=slug)
+                path = reverse("study:writing_sujet_detail", args=["ee", task.slug, sujet.pk])
+                page.goto(self.live_server_url + path + "?deduplicate=0")
+                hints = page.locator(".subject-hints--writing")
+                expect(hints).to_be_visible()
+                if original is None:
+                    original = hints.inner_text()
+                else:
+                    self.assertEqual(hints.inner_text(), original)
+                french = hints.locator(".subject-hints__french[lang=fr]")
+                english = hints.locator(".subject-hints__english[lang=en]")
+                self.assertTrue(5 <= french.count() <= 8)
+                self.assertEqual(french.count(), english.count())
+                for width in (320, 390, 1280):
+                    page.set_viewport_size({"width": width, "height": 850})
+                    if width <= 760:
+                        expect(page.locator("[data-nav-links]")).to_be_hidden()
+                    page.get_by_role("link", name="Voir les pistes", exact=True).click()
+                    expect(hints.get_by_role("heading", name="Pistes", exact=True)).to_be_in_viewport()
+                    self.assertLessEqual(
+                        page.evaluate("document.documentElement.scrollWidth"),
+                        page.evaluate("window.innerWidth") + 1,
+                    )
+        finally:
+            context.close()
 
     def test_writing_response_controls_edit_and_delete_only_selected_alternatives(self):
         part = factories.make_part("ee")
@@ -2091,7 +2177,7 @@ class BrowserTests(StaticLiveServerTestCase):
             expect(self.page.locator("mark.user-highlight")).to_have_count(2)
             original_text = roots.evaluate_all("roots => roots.map(root => root.textContent)")
         self.page.reload()
-        expect(self.page.get_by_role("heading", name="Hints", exact=True)).to_be_visible()
+        expect(self.page.get_by_role("heading", name="Pistes", exact=True)).to_be_visible()
         expect(self.page.locator("mark.user-highlight")).to_have_count(2)
         self.assertEqual(roots.evaluate_all("roots => roots.map(root => root.textContent)"), original_text)
         self.assertTrue(self.page.locator(".subject-hints").evaluate(
@@ -2127,8 +2213,8 @@ class BrowserTests(StaticLiveServerTestCase):
                     page.set_viewport_size({"width": width, "height": 850})
                     if width <= 760:
                         expect(page.locator("[data-nav-links]")).to_be_hidden()
-                    page.get_by_role("link", name="Voir les Hints", exact=True).click()
-                    expect(page.get_by_role("heading", name="Hints", exact=True)).to_be_in_viewport()
+                    page.get_by_role("link", name="Voir les pistes", exact=True).click()
+                    expect(page.get_by_role("heading", name="Pistes", exact=True)).to_be_in_viewport()
                     self.assertLessEqual(
                         page.evaluate("document.documentElement.scrollWidth"),
                         page.evaluate("window.innerWidth") + 1,
@@ -3210,7 +3296,7 @@ class BrowserTests(StaticLiveServerTestCase):
             name="Pratiquer ce sujet",
             exact=True,
         ).wait_for()
-        self.page.get_by_role("heading", name="Hints", exact=True).wait_for()
+        self.page.get_by_role("heading", name="Pistes", exact=True).wait_for()
         hints = self.page.locator(".subject-hints__list")
         hint_text = hints.inner_text()
         self.assertGreaterEqual(hints.locator("[lang=fr]").count(), 5)
@@ -3358,7 +3444,7 @@ class BrowserTests(StaticLiveServerTestCase):
             "study:task_subject_detail", args=["eo", "tache-2", "mai", 2, 8],
         )
         self.page.goto(self.live_server_url + apartment_path)
-        self.page.get_by_role("heading", name="Hints", exact=True).wait_for()
+        self.page.get_by_role("heading", name="Pistes", exact=True).wait_for()
         for width in (320, 390, 1280):
             self.page.set_viewport_size({"width": width, "height": 850})
             if width <= 760:
@@ -3384,11 +3470,11 @@ class BrowserTests(StaticLiveServerTestCase):
         try:
             page = context.new_page()
             page.goto(self.live_server_url + prompt_detail_url(canonical))
-            page.get_by_role("heading", name="Hints", exact=True).wait_for()
+            page.get_by_role("heading", name="Pistes", exact=True).wait_for()
             hints = page.locator(".subject-hints")
             original = hints.inner_text()
-            self.assertGreaterEqual(hints.locator("[lang=fr]").count(), 5)
-            self.assertEqual(hints.locator("[lang=fr]").count(), hints.locator(".subject-hints__english").count())
+            self.assertGreaterEqual(hints.locator(".subject-hints__french[lang=fr]").count(), 5)
+            self.assertEqual(hints.locator(".subject-hints__french[lang=fr]").count(), hints.locator(".subject-hints__english").count())
             for width in (320, 390, 1280):
                 page.set_viewport_size({"width": width, "height": 850})
                 if width <= 760:
@@ -3399,7 +3485,7 @@ class BrowserTests(StaticLiveServerTestCase):
                 )
                 self.assertTrue(hints.is_visible())
             page.goto(self.live_server_url + prompt_detail_url(alias) + "?deduplicate=0")
-            page.get_by_role("heading", name="Hints", exact=True).wait_for()
+            page.get_by_role("heading", name="Pistes", exact=True).wait_for()
             self.assertEqual(hints.inner_text(), original)
             self.assertEqual(page.locator("#subject-vocabulary").count(), 0)
             self.assertEqual(page.locator(".subject-progress-control__help").count(), 0)

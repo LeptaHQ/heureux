@@ -34,16 +34,16 @@ keeps all marked records in the folder. Page navigation works without JavaScript
 The shared `study/partials/pagination.html` pager accepts a Django `page_obj`,
 `page_links` (`number` and `url`), previous/next URLs, and an optional accessible label.
 
-## Oral subject equivalence
+## Subject pistes and oral equivalence
 
-EO task 2 subject pages show bilingual **Hints**: short French information targets
+EO task 2 subject pages show bilingual **Pistes** (hints): short French information targets
 with English meanings, not ready-made questions. The editorial lists in
 `study/content/tache_2/subjects/hints.json` cover every semantic group, including
 singletons; every equivalent publication shares the same immutable list, whether
 the current response is a model or personal. Each group needs 5–10 unique cues,
 with both languages and at most 100 characters per language. The loader rejects
 missing/unknown groups and malformed entries instead of substituting generic hints.
-Hints are file-backed, require no migration, and never rewrite responses or progress.
+Pistes are file-backed, require no migration, and never rewrite responses or progress.
 The EO2 sidebar retains completion, personalisation and individual practice controls;
 practice statistics and vocabulary are no longer displayed there. Vocabulary and
 its saved practice data remain available in their existing dedicated views.
@@ -56,6 +56,16 @@ live summary of a learner's personal answer. Plans are limited to 140 French wor
 missing groups, incomplete translations and duplicate argument cues are rejected.
 The new card sits outside the existing annotation roots so it cannot shift saved
 response or sidebar highlights. Existing study controls and vocabulary remain.
+
+EE task 1 also provides **Pistes** for Invitations & fêtes, Sorties & visites,
+Accueillir un invité, Voyages & vacances, and Ville & quartier. The 34 canonical
+lists in `study/content/ee/tache_1/hints.json` cover all 77 equivalent publications.
+They summarize reviewed current responses, including authorized customizations,
+without publishing account identifiers or private contact details. Each list has
+5–8 bilingual cues, at most 110 characters per language per cue and 75 French
+words in total. These are shared editorial snapshots, not live summaries of an
+account's latest answer. The cache contains no learner state, the card stays
+outside response annotation roots, and other writing themes/tasks remain unchanged.
 
 EO task 2 and task 3 use editorial `semantic_groups.json` partitions, including
 singletons. A shared answer or question-body hash is **not** proof of equivalence.

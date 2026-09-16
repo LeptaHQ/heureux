@@ -1,0 +1,1038 @@
+{
+  "version": 1,
+  "task": "ee/tache-1",
+  "groups": {
+    "ee-tache1:janvier:combinaison-2": [
+      {
+        "french": "Répondre à Cédric sur le lieu du mariage.",
+        "english": "Reply to Cédric about the wedding venue."
+      },
+      {
+        "french": "Situer le Château de Chombony, par exemple à Kumasi.",
+        "english": "Locate the Château de Chombony, for example in Kumasi."
+      },
+      {
+        "french": "Décrire le sommet de montagne et la vue sur la ville.",
+        "english": "Describe the mountaintop setting and the view over the city."
+      },
+      {
+        "french": "Donner un repère : grand bâtiment blanc, visible de loin.",
+        "english": "Give a visual landmark: a large white building visible from afar."
+      },
+      {
+        "french": "Expliquer l’accès en navette depuis l’aéroport.",
+        "english": "Explain how to get there by airport shuttle."
+      },
+      {
+        "french": "Préciser jours, horaires et importance de la ponctualité.",
+        "english": "Specify the days, times and importance of being punctual."
+      },
+      {
+        "french": "Proposer une aide téléphonique et conclure chaleureusement.",
+        "english": "Offer help by phone and close warmly."
+      }
+    ],
+    "ee-tache1:janvier:combinaison-12": [
+      {
+        "french": "Accepter avec plaisir l’invitation de Léa pour samedi.",
+        "english": "Gladly accept Léa’s invitation for Saturday."
+      },
+      {
+        "french": "Proposer un lieu, par exemple le parc de Labadi.",
+        "english": "Suggest a place, for example Labadi Park."
+      },
+      {
+        "french": "Le situer sur une colline et décrire ombre et panorama.",
+        "english": "Describe its hilltop location, shade and panoramic views."
+      },
+      {
+        "french": "Activités possibles pour les enfants : balançoires, toboggans, ballon.",
+        "english": "Possible children’s activities: swings, slides and ball games."
+      },
+      {
+        "french": "Pour les adultes, suggérer beach-volley, pétanque, vélo ou repos.",
+        "english": "For adults, suggest beach volleyball, pétanque, cycling or relaxing."
+      },
+      {
+        "french": "Proposer d’arriver avant midi pour installer le pique-nique.",
+        "english": "Suggest arriving before noon to set up the picnic."
+      },
+      {
+        "french": "Demander son avis et conclure chaleureusement.",
+        "english": "Ask what she thinks and close warmly."
+      }
+    ],
+    "ee-tache1:janvier:combinaison-18": [
+      {
+        "french": "Inviter les amis à une fête à préparer ensemble.",
+        "english": "Invite friends to a party to prepare together."
+      },
+      {
+        "french": "Exemple d’occasion : une surprise pour sa petite sœur.",
+        "english": "Example occasion: a surprise for your younger sister."
+      },
+      {
+        "french": "Situer le restaurant près d’un repère, comme l’ancienne bibliothèque.",
+        "english": "Locate the restaurant near a landmark, such as the old library."
+      },
+      {
+        "french": "Préciser date et heure de début.",
+        "english": "Specify the date and start time."
+      },
+      {
+        "french": "Thème possible : les années 80.",
+        "english": "Possible theme: the 1980s."
+      },
+      {
+        "french": "Demander de l’aide pour la glace au chocolat et le gâteau.",
+        "english": "Ask for help with the chocolate ice cream and cake."
+      },
+      {
+        "french": "Demander aussi d’inviter les collègues du lycée.",
+        "english": "Also ask them to invite colleagues from the high school."
+      },
+      {
+        "french": "Demander confirmation avant une échéance précise.",
+        "english": "Request confirmation by a clear deadline."
+      }
+    ],
+    "ee-tache1:janvier:combinaison-19": [
+      {
+        "french": "Inviter les amis à l’anniversaire surprise de son meilleur ami.",
+        "english": "Invite friends to your best friend’s surprise birthday party."
+      },
+      {
+        "french": "Donner la date, l’heure et le restaurant choisis.",
+        "english": "Give the chosen date, time and restaurant."
+      },
+      {
+        "french": "Ajouter un repère d’accès, par exemple la station de métro.",
+        "english": "Add a landmark to help them get there, such as the metro station."
+      },
+      {
+        "french": "Annoncer un programme, comme repas, musique et jeux.",
+        "english": "Outline a programme, such as food, music and games."
+      },
+      {
+        "french": "Souligner l’importance de leur présence pour la personne fêtée.",
+        "english": "Emphasize how much their presence means to the guest of honour."
+      },
+      {
+        "french": "Demander confirmation avant une échéance pour réserver les places.",
+        "english": "Request confirmation by a deadline so you can reserve enough places."
+      },
+      {
+        "french": "Insister sur le secret et terminer avec enthousiasme.",
+        "english": "Stress keeping it secret and end enthusiastically."
+      }
+    ],
+    "ee-tache1:avril:combinaison-6": [
+      {
+        "french": "Inviter les amis à célébrer son propre anniversaire.",
+        "english": "Invite friends to celebrate your own birthday."
+      },
+      {
+        "french": "Préciser date, heure et adresse du rendez-vous chez soi.",
+        "english": "Specify the date, time and address for meeting at your home."
+      },
+      {
+        "french": "Proposer un thème tropical et une tenue colorée.",
+        "english": "Suggest a tropical theme and colourful clothing."
+      },
+      {
+        "french": "Annoncer le buffet puis la danse.",
+        "english": "Announce a buffet followed by dancing."
+      },
+      {
+        "french": "Demander une aide concrète : gâteau au chocolat et musique.",
+        "english": "Ask for practical help: chocolate cake and music."
+      },
+      {
+        "french": "Prévoir des volontaires plus tôt pour installer les décorations.",
+        "english": "Arrange for volunteers to come earlier to put up decorations."
+      },
+      {
+        "french": "Fixer une échéance pour confirmer présence et participation.",
+        "english": "Set a deadline for confirming attendance and help with preparations."
+      }
+    ],
+    "ee-tache1:avril:combinaison-8": [
+      {
+        "french": "Inviter les amis à son dîner d’anniversaire au restaurant.",
+        "english": "Invite friends to your birthday dinner at a restaurant."
+      },
+      {
+        "french": "Préciser date, horaires, lieu et repère d’accès.",
+        "english": "Specify the date, times, venue and a landmark to help them find it."
+      },
+      {
+        "french": "Présenter le menu, par exemple soupe et couscous poulet ou légumes.",
+        "english": "Present the menu, for example soup and chicken or vegetable couscous."
+      },
+      {
+        "french": "Ajouter boissons et gâteau d’anniversaire.",
+        "english": "Include drinks and birthday cake."
+      },
+      {
+        "french": "Indiquer le prix : exemple d’un repas offert aux invités.",
+        "english": "State the price: an example where guests receive a free meal."
+      },
+      {
+        "french": "Demander confirmation avant une échéance pour compter les convives.",
+        "english": "Request confirmation by a deadline to count the guests."
+      },
+      {
+        "french": "Inviter à signaler les restrictions alimentaires, puis conclure chaleureusement.",
+        "english": "Ask guests to mention dietary restrictions, then close warmly."
+      }
+    ],
+    "ee-tache1:mai:combinaison-3-bis": [
+      {
+        "french": "Remercier les amis pour leur proposition de cadeau.",
+        "english": "Thank your friends for offering a gift."
+      },
+      {
+        "french": "Expliquer l’envie de vêtements liée à la reprise du sport.",
+        "english": "Explain wanting clothes because you have started exercising again."
+      },
+      {
+        "french": "Exemples choisis : pull Canada Goose et chaussures de running Nike.",
+        "english": "Chosen examples: a Canada Goose sweater and Nike running shoes."
+      },
+      {
+        "french": "Chaussures : noir, bleu ou mélange des deux.",
+        "english": "Shoes: black, blue or a combination of both."
+      },
+      {
+        "french": "Pull : blanc ou gris, avec d’autres couleurs possibles.",
+        "english": "Sweater: white or grey, with other colours also possible."
+      },
+      {
+        "french": "Donner une taille repère, identique à celle d’un ami.",
+        "english": "Give a size reference, matching a friend’s size."
+      },
+      {
+        "french": "Rester disponible pour des précisions, puis remercier.",
+        "english": "Offer to clarify anything if needed, then thank them."
+      }
+    ],
+    "ee-tache1:octobre:combinaison-4": [
+      {
+        "french": "Répondre à Thomas sur une fête importante du pays.",
+        "english": "Reply to Thomas about an important celebration in your country."
+      },
+      {
+        "french": "Exemple choisi : Noël au Ghana, célébré largement.",
+        "english": "Chosen example: Christmas in Ghana, a widely celebrated holiday."
+      },
+      {
+        "french": "Indiquer la date et l’origine : 25 décembre, naissance de Jésus.",
+        "english": "Give the date and origin: December 25, the birth of Jesus."
+      },
+      {
+        "french": "Mentionner l’église, puis le repas et la musique en famille.",
+        "english": "Mention church, then food and music with family."
+      },
+      {
+        "french": "Évoquer les cadeaux et les visites aux amis le lendemain.",
+        "english": "Mention gifts and visits to friends the following day."
+      },
+      {
+        "french": "Expliquer les liens familiaux renforcés et la gratitude envers Dieu.",
+        "english": "Explain how it strengthens family bonds and expresses gratitude to God."
+      },
+      {
+        "french": "Proposer d’en dire davantage.",
+        "english": "Offer to explain more."
+      }
+    ],
+    "ee-tache1:decembre:combinaison-3": [
+      {
+        "french": "S’adresser aux collègues et annoncer la fin du séjour professionnel à l’étranger.",
+        "english": "Address colleagues and announce the end of your professional stay abroad."
+      },
+      {
+        "french": "Les remercier et les inviter au restaurant avant le départ.",
+        "english": "Thank them and invite them to a restaurant before leaving."
+      },
+      {
+        "french": "Préciser l’adresse du restaurant, la date et l’heure.",
+        "english": "Specify the restaurant’s address, date and time."
+      },
+      {
+        "french": "Présenter un moment convivial autour d’un repas et de musique.",
+        "english": "Describe a friendly gathering with a meal and music."
+      },
+      {
+        "french": "Menu possible : pâtes aux légumes, poulet rôti et boissons.",
+        "english": "Possible menu: vegetable pasta, roast chicken and drinks."
+      },
+      {
+        "french": "Demander confirmation pour compter les convives.",
+        "english": "Request confirmation to count the guests."
+      },
+      {
+        "french": "Proposer des précisions et conclure chaleureusement.",
+        "english": "Offer further details and close warmly."
+      }
+    ],
+    "ee-tache1:janvier:combinaison-6": [
+      {
+        "french": "Répondre à Barbara pour un déjeuner dehors ce week-end.",
+        "english": "Reply to Barbara about an outdoor lunch this weekend."
+      },
+      {
+        "french": "Proposer un parc près d’un repère, comme l’ancien musée.",
+        "english": "Suggest a park near a landmark, such as the old museum."
+      },
+      {
+        "french": "Décrire les arbres, l’ombre, la terrasse et le calme.",
+        "english": "Describe the trees, shade, terrace and peaceful atmosphere."
+      },
+      {
+        "french": "Indiquer les horaires d’ouverture, par exemple de 7 h à 20 h.",
+        "english": "Give opening hours, for example 7 a.m. to 8 p.m."
+      },
+      {
+        "french": "Expliquer l’accès en bus depuis le centre-ville le week-end.",
+        "english": "Explain weekend bus access from the city centre."
+      },
+      {
+        "french": "Préciser les horaires des bus et les embouteillages de début d’après-midi.",
+        "english": "Specify bus times and mention early-afternoon traffic jams."
+      },
+      {
+        "french": "Proposer d’y aller ensemble.",
+        "english": "Suggest going there together."
+      }
+    ],
+    "ee-tache1:avril:combinaison-5": [
+      {
+        "french": "Inviter un ami chez soi pour le week-end prochain.",
+        "english": "Invite a friend to stay at your home next weekend."
+      },
+      {
+        "french": "Situer la visite, par exemple à Kumasi.",
+        "english": "Give the location of the visit, for example Kumasi."
+      },
+      {
+        "french": "Valoriser sa connaissance des lieux pour guider la découverte.",
+        "english": "Highlight your local knowledge to guide the visit."
+      },
+      {
+        "french": "Suggérer d’abord le centre-ville et ses cafés.",
+        "english": "Suggest starting with the city centre and its cafés."
+      },
+      {
+        "french": "Poursuivre par une promenade au parc, puis un restaurant local.",
+        "english": "Follow with a walk in the park, then a local restaurant."
+      },
+      {
+        "french": "Conseiller un départ matinal pour éviter la circulation.",
+        "english": "Recommend an early departure to avoid traffic."
+      },
+      {
+        "french": "Exprimer l’envie de se retrouver et conclure.",
+        "english": "Express how much you want to meet up and close."
+      }
+    ],
+    "ee-tache1:avril:combinaison-14": [
+      {
+        "french": "Inviter un ami pour une journée, par exemple dimanche prochain.",
+        "english": "Invite a friend for a day together, for example next Sunday."
+      },
+      {
+        "french": "Préciser l’heure du rendez-vous chez soi et le trajet en bus.",
+        "english": "Specify the time to meet at your home and the bus journey."
+      },
+      {
+        "french": "Proposer une location de vélos autour du lac du parc.",
+        "english": "Suggest renting bikes to ride around the park’s lake."
+      },
+      {
+        "french": "Prévoir un pique-nique ombragé avec du gâteau au chocolat.",
+        "english": "Plan a picnic in the shade with chocolate cake."
+      },
+      {
+        "french": "Poursuivre avec le musée voisin, puis un concert gratuit.",
+        "english": "Continue with the nearby museum, then a free concert."
+      },
+      {
+        "french": "Donner l’heure du concert et du retour.",
+        "english": "Give the concert time and return time."
+      },
+      {
+        "french": "Demander si le programme convient et conclure.",
+        "english": "Ask whether the programme suits them and close."
+      }
+    ],
+    "ee-tache1:avril:combinaison-16": [
+      {
+        "french": "Raconter à un ami son dîner dans un nouveau restaurant.",
+        "english": "Tell a friend about your dinner at a new restaurant."
+      },
+      {
+        "french": "Le situer près de chez soi, selon la consigne.",
+        "english": "Locate it near your home, as specified in the prompt."
+      },
+      {
+        "french": "Décrire l’ambiance calme, les lanternes colorées et les plantes tropicales.",
+        "english": "Describe the peaceful atmosphere, colourful lanterns and tropical plants."
+      },
+      {
+        "french": "Présenter les cuisines africaine et asiatique.",
+        "english": "Introduce the African and Asian cuisine."
+      },
+      {
+        "french": "Plat conseillé en exemple : le jollof ghanéen.",
+        "english": "Example dish to recommend: Ghanaian jollof rice."
+      },
+      {
+        "french": "Évoquer le personnel chaleureux et le service rapide.",
+        "english": "Mention the friendly staff and quick service."
+      },
+      {
+        "french": "Ajouter les tarifs si la consigne les demande.",
+        "english": "Add prices if the prompt requests them."
+      },
+      {
+        "french": "Proposer d’y retourner ensemble.",
+        "english": "Suggest going back there together."
+      }
+    ],
+    "ee-tache1:aout:combinaison-1": [
+      {
+        "french": "Inviter un ami au festival de cinéma.",
+        "english": "Invite a friend to the film festival."
+      },
+      {
+        "french": "Situer le cinéma, ex. près de Westlake.",
+        "english": "Locate the cinema, e.g. near Westlake."
+      },
+      {
+        "french": "Préciser les dates du festival et le jour choisi.",
+        "english": "Specify the festival dates and your chosen day."
+      },
+      {
+        "french": "Films possibles : aventure, comédie française, documentaire sur le Ghana.",
+        "english": "Possible films: an adventure film, a French comedy and a documentary about Ghana."
+      },
+      {
+        "french": "Donner l’horaire de chaque séance.",
+        "english": "Give the time of each screening."
+      },
+      {
+        "french": "Tarifs de l’exemple : 18 $ la journée, 8 $ par séance.",
+        "english": "Example prices: $18 for the day, $8 per screening."
+      },
+      {
+        "french": "Prévoir une réservation en ligne avant l’échéance.",
+        "english": "Plan to book online before the deadline."
+      },
+      {
+        "french": "Demander sa disponibilité et conclure.",
+        "english": "Ask whether your friend is available and close."
+      }
+    ],
+    "ee-tache1:aout:combinaison-3": [
+      {
+        "french": "Répondre à l’ami pour la journée de demain.",
+        "english": "Reply to your friend about tomorrow’s day out."
+      },
+      {
+        "french": "Garder le cadre du parc de loisirs demandé.",
+        "english": "Keep the outing within the leisure-park setting requested."
+      },
+      {
+        "french": "Préciser le départ, ex. centre-ville à 8 h, puis bus.",
+        "english": "Specify the departure, e.g. the city centre at 8 a.m., then a bus."
+      },
+      {
+        "french": "Activités proposées : vélos autour du lac et détente ombragée.",
+        "english": "Suggested activities: cycling around the lake and relaxing in the shade."
+      },
+      {
+        "french": "Autres étapes proposées : musée, festival de cinéma et dîner de spécialités locales.",
+        "english": "Other suggested stops: a museum, film festival and dinner featuring local food."
+      },
+      {
+        "french": "Vérifier leur lien avec le parc et préciser leurs horaires.",
+        "english": "Check how these fit the park outing and specify their times."
+      },
+      {
+        "french": "Exprimer le plaisir de se retrouver.",
+        "english": "Express how much you look forward to meeting up."
+      }
+    ],
+    "ee-tache1:aout:combinaison-12": [
+      {
+        "french": "Inviter un ami à une rencontre avec son écrivain préféré.",
+        "english": "Invite a friend to an event with their favourite writer."
+      },
+      {
+        "french": "Situer la rencontre à la bibliothèque, avec date et horaires.",
+        "english": "Place the event at the library and give the date and times."
+      },
+      {
+        "french": "Thème proposé : la littérature contemporaine.",
+        "english": "Suggested theme: contemporary literature."
+      },
+      {
+        "french": "Décrire la présentation de jeunes écrivains en ouverture.",
+        "english": "Describe the opening presentation of young writers."
+      },
+      {
+        "french": "Annoncer ensuite une discussion sur le livre phare de l’auteur.",
+        "english": "Then announce a discussion of the author’s best-known book."
+      },
+      {
+        "french": "Mentionner la séance de questions-réponses avec l’auteur.",
+        "english": "Mention the question-and-answer session with the author."
+      },
+      {
+        "french": "Conseiller de réserver vite, vu l’affluence, et espérer sa venue.",
+        "english": "Recommend booking quickly given the expected crowds, and express hope they can come."
+      }
+    ],
+    "ee-tache1:decembre:combinaison-6": [
+      {
+        "french": "Inviter un ami à dîner au nouveau restaurant du quartier.",
+        "english": "Invite a friend to dinner at the neighbourhood’s new restaurant."
+      },
+      {
+        "french": "Indiquer son emplacement et ses horaires d’ouverture.",
+        "english": "Give its location and opening hours."
+      },
+      {
+        "french": "Proposer un jour et une heure adaptés.",
+        "english": "Suggest a suitable day and time."
+      },
+      {
+        "french": "Décor de l’exemple : lanternes colorées et plantes tropicales.",
+        "english": "Example décor: colourful lanterns and tropical plants."
+      },
+      {
+        "french": "Exemple culinaire : spécialités italiennes, notamment pâtes aux légumes.",
+        "english": "Example cuisine: Italian specialities, particularly vegetable pasta."
+      },
+      {
+        "french": "Prix de l’exemple : 15 à 20 $ par personne.",
+        "english": "Example price: $15 to $20 per person."
+      },
+      {
+        "french": "Décrire l’accueil chaleureux et le service rapide.",
+        "english": "Describe the warm welcome and quick service."
+      },
+      {
+        "french": "Demander une réponse pour réserver.",
+        "english": "Ask for a reply so you can make a reservation."
+      }
+    ],
+    "ee-tache1:avril:combinaison-13": [
+      {
+        "french": "Remercier Cédric de garder maison et jardin pendant les vacances.",
+        "english": "Thank Cédric for looking after the house and garden during your holiday."
+      },
+      {
+        "french": "Maison : préciser quand éteindre les lumières, ici avant 21 h.",
+        "english": "House: say when to turn off the lights, before 9 p.m. in this example."
+      },
+      {
+        "french": "Chienne : indiquer où trouver sa nourriture dans la cuisine.",
+        "english": "Dog: explain where to find her food in the kitchen."
+      },
+      {
+        "french": "Jardin : rappeler l’arrosage des fleurs, ici deux fois par semaine.",
+        "english": "Garden: mention watering the flowers, twice a week in this example."
+      },
+      {
+        "french": "Indiquer comment récupérer les clés de la maison.",
+        "english": "Explain how to collect the house keys."
+      },
+      {
+        "french": "Rappeler qu’on reste joignable en cas de problème, puis remercier.",
+        "english": "Remind him that you can be contacted if anything goes wrong, then thank him."
+      }
+    ],
+    "ee-tache1:avril:combinaison-17": [
+      {
+        "french": "Inviter une amie en vacances chez soi après un déménagement récent.",
+        "english": "Invite a friend to spend her holiday at your home after your recent move."
+      },
+      {
+        "french": "Présenter la ville choisie, ici Kumasi, entre culture et nature.",
+        "english": "Introduce the chosen city, Kumasi here, combining culture and nature."
+      },
+      {
+        "french": "Proposer le palais Manhyia pour découvrir l’histoire ashanti.",
+        "english": "Suggest Manhyia Palace to discover Ashanti history."
+      },
+      {
+        "french": "Ajouter des ateliers au musée et un restaurant de spécialités locales.",
+        "english": "Add museum workshops and a restaurant serving local specialities."
+      },
+      {
+        "french": "Prévoir des promenades dans les parcs ombragés.",
+        "english": "Plan walks in shady parks."
+      },
+      {
+        "french": "Exprimer l’envie de partager les vacances et demander confirmation.",
+        "english": "Express your wish to spend the holiday together and ask for confirmation."
+      }
+    ],
+    "ee-tache1:juillet:combinaison-5": [
+      {
+        "french": "Répondre à Carole pour son séjour en famille.",
+        "english": "Reply to Carole about her family’s stay."
+      },
+      {
+        "french": "Proposer Bellevue, exemple d’hôtel proche du métro.",
+        "english": "Suggest Bellevue as an example of a hotel near the metro."
+      },
+      {
+        "french": "Chambre familiale : ici, 110 $ la nuit, petit déjeuner compris.",
+        "english": "Family room: $110 per night including breakfast in this example."
+      },
+      {
+        "french": "Signaler la réduction pour les moins de douze ans.",
+        "english": "Mention the discount for children under twelve."
+      },
+      {
+        "french": "Citer piscine, salle de jeux et jardin ombragé.",
+        "english": "Mention the pool, games room and shady garden."
+      },
+      {
+        "french": "Indiquer les navettes vers le centre-ville et le parc Aloha.",
+        "english": "Describe the shuttles to the city centre and Aloha Park."
+      },
+      {
+        "french": "Conseiller une réservation rapide et proposer de s’en occuper.",
+        "english": "Recommend booking soon and offer to take care of it."
+      }
+    ],
+    "ee-tache1:juillet:combinaison-44": [
+      {
+        "french": "Aider Matthias pour sa première semaine, dès le 3 mars.",
+        "english": "Help Matthias with his first week, starting on 3 March."
+      },
+      {
+        "french": "Situer l’hôtel, ici Montréal près du Saint-Laurent.",
+        "english": "Locate the hotel, in Montreal near the St Lawrence River in this example."
+      },
+      {
+        "french": "Citer piscine, spécialités culinaires, cinéma voisin et vue.",
+        "english": "Mention the pool, culinary specialities, nearby cinema and view."
+      },
+      {
+        "french": "Tarif d’exemple : 50 $ la nuit, réduction dès trois nuits.",
+        "english": "Example rate: $50 per night, with a discount for three nights or more."
+      },
+      {
+        "french": "Préciser les navettes d’aéroport, ici toutes les trois heures.",
+        "english": "Describe the airport shuttles, every three hours in this example."
+      },
+      {
+        "french": "Prévenir la réception si l’arrivée dépasse 20 h, dans l’exemple.",
+        "english": "Notify reception if arriving after 8 p.m. in this example."
+      },
+      {
+        "french": "Indiquer la réservation en ligne et conclure chaleureusement.",
+        "english": "Explain how to book online and close warmly."
+      }
+    ],
+    "ee-tache1:decembre:combinaison-15": [
+      {
+        "french": "Accueillir l’ami qui séjournera chez soi pendant les vacances.",
+        "english": "Welcome the friend who will stay at your home during your holiday."
+      },
+      {
+        "french": "Décrire l’immeuble et donner des repères pour trouver l’appartement.",
+        "english": "Describe the building and give directions for finding the flat."
+      },
+      {
+        "french": "Décrire chambre, salon lumineux et cuisine équipée.",
+        "english": "Describe the bedroom, bright living room and equipped kitchen."
+      },
+      {
+        "french": "Évoquer le balcon et la vue sur la ville.",
+        "english": "Mention the balcony and the city view."
+      },
+      {
+        "french": "Expliquer l’entrée de l’immeuble et l’accès par ascenseur.",
+        "english": "Explain how to enter the building and reach the flat by lift."
+      },
+      {
+        "french": "Indiquer où récupérer les clés et les informations Wi-Fi.",
+        "english": "Say where to find the keys and Wi-Fi details."
+      },
+      {
+        "french": "Inviter à appeler au besoin et souhaiter un bon séjour.",
+        "english": "Invite your friend to call if needed and wish them a pleasant stay."
+      }
+    ],
+    "ee-tache1:janvier:combinaison-8": [
+      {
+        "french": "Répondre à Mathieu et conseiller une visite dans la région.",
+        "english": "Reply to Mathieu and recommend a place to visit in the region."
+      },
+      {
+        "french": "Choisir un lieu précis, ici Pike Place à Seattle.",
+        "english": "Choose a specific place, Pike Place in Seattle in this example."
+      },
+      {
+        "french": "Situer ce marché animé au centre-ville.",
+        "english": "Locate this lively market in the city centre."
+      },
+      {
+        "french": "Évoquer produits frais, spécialités locales et musiciens.",
+        "english": "Mention fresh produce, local specialities and musicians."
+      },
+      {
+        "french": "Proposer de flâner, goûter des plats et admirer la baie.",
+        "english": "Suggest browsing, tasting food and admiring the bay."
+      },
+      {
+        "french": "Indiquer les transports et recommander le matin pour éviter l’affluence.",
+        "english": "Explain transport options and recommend a morning visit to avoid the crowds."
+      },
+      {
+        "french": "Offrir de l’accompagner et terminer amicalement.",
+        "english": "Offer to go with him and end on a friendly note."
+      }
+    ],
+    "ee-tache1:mars:combinaison-7": [
+      {
+        "french": "Raconter à un ami un week-end passé à la campagne.",
+        "english": "Tell a friend about a weekend you spent in the countryside."
+      },
+      {
+        "french": "Situer l’exemple dans un village près du parc de Kakum.",
+        "english": "Set the example in a village near Kakum National Park."
+      },
+      {
+        "french": "Préciser le séjour en famille pour l’anniversaire de sa sœur.",
+        "english": "Mention the family trip to celebrate your sister’s birthday."
+      },
+      {
+        "french": "Décrire les arbres, les panoramas et le calme.",
+        "english": "Describe the trees, panoramic views and peaceful atmosphere."
+      },
+      {
+        "french": "Raconter les randonnées en forêt tropicale et les singes aperçus.",
+        "english": "Describe the rainforest hikes and the monkeys you spotted."
+      },
+      {
+        "french": "Évoquer l’accueil des habitants et un bilan ressourçant.",
+        "english": "Mention the welcoming locals and how refreshing the weekend was."
+      },
+      {
+        "french": "Proposer d’y retourner ensemble.",
+        "english": "Suggest returning together."
+      }
+    ],
+    "ee-tache1:avril:combinaison-2": [
+      {
+        "french": "Répondre à l’ami qui souhaite découvrir la région.",
+        "english": "Reply to the friend who wants to explore the region."
+      },
+      {
+        "french": "Prendre Seattle comme exemple et proposer plusieurs étapes.",
+        "english": "Use Seattle as the example and suggest several stops."
+      },
+      {
+        "french": "Musée MOHAI, au lac Union : découvrir l’histoire de la ville.",
+        "english": "MOHAI museum on Lake Union: discover the city’s history."
+      },
+      {
+        "french": "Arboretum de Washington Park : se détendre parmi les arbres.",
+        "english": "Washington Park Arboretum: relax among the trees."
+      },
+      {
+        "french": "Marché de Pike Place : découvrir les spécialités locales.",
+        "english": "Pike Place Market: discover local specialities."
+      },
+      {
+        "french": "Mont Si : randonnée panoramique à environ une heure de route.",
+        "english": "Mount Si: a scenic hike about an hour’s drive away."
+      },
+      {
+        "french": "Demander d’être prévenu de son arrivée.",
+        "english": "Ask your friend to let you know when they arrive."
+      }
+    ],
+    "ee-tache1:avril:combinaison-4": [
+      {
+        "french": "Inviter un ami à passer les vacances ensemble, ici à Seattle.",
+        "english": "Invite a friend to spend the holiday together, in Seattle in this example."
+      },
+      {
+        "french": "Préciser l’accueil chez soi lorsque la consigne le demande.",
+        "english": "Offer accommodation at your home when the prompt asks for it."
+      },
+      {
+        "french": "Proposer Pike Place pour la cuisine locale et les rencontres.",
+        "english": "Suggest Pike Place for local food and meeting people."
+      },
+      {
+        "french": "Ajouter le musée MOHAI pour l’histoire régionale.",
+        "english": "Add the MOHAI museum for regional history."
+      },
+      {
+        "french": "Prévoir une promenade à l’arboretum de Washington Park.",
+        "english": "Plan a walk through Washington Park Arboretum."
+      },
+      {
+        "french": "Suggérer Bainbridge en bateau pour admirer baie et montagnes.",
+        "english": "Suggest a boat trip to Bainbridge to admire the bay and mountains."
+      },
+      {
+        "french": "Demander confirmation des dates et exprimer son impatience.",
+        "english": "Ask for confirmation of the dates and say how much you look forward to the visit."
+      }
+    ],
+    "ee-tache1:avril:combinaison-7": [
+      {
+        "french": "Répondre à Jeanne avec un itinéraire, ici aux États-Unis.",
+        "english": "Reply to Jeanne with an itinerary, in the United States in this example."
+      },
+      {
+        "french": "Commencer par Seattle et ses paysages naturels.",
+        "english": "Start with Seattle and its natural scenery."
+      },
+      {
+        "french": "Proposer le mont Si pour la randonnée et les panoramas.",
+        "english": "Suggest Mount Si for hiking and panoramic views."
+      },
+      {
+        "french": "Ajouter le musée MOHAI pour comprendre l’histoire régionale.",
+        "english": "Add the MOHAI museum to understand the region’s history."
+      },
+      {
+        "french": "New York : Statue de la Liberté, intérêt à préciser.",
+        "english": "New York: Statue of Liberty; add why it is worth visiting."
+      },
+      {
+        "french": "Finir à Washington : Maison-Blanche et histoire politique.",
+        "english": "Finish in Washington: the White House and political history."
+      },
+      {
+        "french": "Offrir des renseignements complémentaires et conclure amicalement.",
+        "english": "Offer further information and close on a friendly note."
+      }
+    ],
+    "ee-tache1:avril:combinaison-10": [
+      {
+        "french": "Annoncer le voyage offert pour l’anniversaire de l’ami.",
+        "english": "Announce a trip you are giving your friend as a birthday present."
+      },
+      {
+        "french": "Destination et dates d’exemple : Seattle, du 12 au 18 mai.",
+        "english": "Example destination and dates: Seattle, from 12 to 18 May."
+      },
+      {
+        "french": "Confirmer avion et hôtel central déjà réservés.",
+        "english": "Confirm that flights and a central hotel are already booked."
+      },
+      {
+        "french": "Programme d’exemple : MOHAI, mont Si, ville et bord de l’eau.",
+        "english": "Example programme: MOHAI, Mount Si, a city tour and the waterfront."
+      },
+      {
+        "french": "Conseiller chaussures confortables et veste légère.",
+        "english": "Recommend comfortable shoes and a light jacket."
+      },
+      {
+        "french": "Demander de garder les dates libres.",
+        "english": "Ask your friend to keep the dates free."
+      },
+      {
+        "french": "Demander une copie du passeport avant l’échéance fixée.",
+        "english": "Ask for a passport copy before the set deadline."
+      },
+      {
+        "french": "Souhaiter un bon anniversaire et partager son enthousiasme.",
+        "english": "Wish your friend a happy birthday and share your excitement."
+      }
+    ],
+    "ee-tache1:avril:combinaison-11": [
+      {
+        "french": "S’adresser aux amis pour préparer les vacances ensemble.",
+        "english": "Address your friends to prepare for your holiday together."
+      },
+      {
+        "french": "Hôtel sur une colline : cinq étoiles, bons avis, belle vue.",
+        "english": "Hotel on a hill: five stars, good reviews and a fine view."
+      },
+      {
+        "french": "Indiquer la navette d’aéroport, ici toutes les trente minutes.",
+        "english": "Mention the airport shuttle, every thirty minutes in this example."
+      },
+      {
+        "french": "Citer piscine, jardin ombragé et salle de sport.",
+        "english": "List the pool, shady garden and gym."
+      },
+      {
+        "french": "Tarifs d’exemple : 90 à 150 $ par nuit et par personne, repas inclus.",
+        "english": "Example rates: $90 to $150 per person per night, meals included."
+      },
+      {
+        "french": "Signaler la réduction au-delà de trois nuits.",
+        "english": "Mention the discount for stays longer than three nights."
+      },
+      {
+        "french": "Proposer de réserver vite, avant qu’il soit complet.",
+        "english": "Suggest booking soon before the hotel fills up."
+      }
+    ],
+    "ee-tache1:mai:combinaison-3": [
+      {
+        "french": "Proposer aux amis un week-end le mois prochain.",
+        "english": "Suggest a weekend away with your friends next month."
+      },
+      {
+        "french": "Choisir une destination, ici Seattle, animée et proche de la nature.",
+        "english": "Choose a destination, Seattle here, lively and close to nature."
+      },
+      {
+        "french": "Suggérer le train depuis le centre-ville.",
+        "english": "Suggest taking the train from the city centre."
+      },
+      {
+        "french": "Prévoir le musée MOHAI et une randonnée au mont Si.",
+        "english": "Plan a visit to the MOHAI museum and a hike on Mount Si."
+      },
+      {
+        "french": "Ajouter, au choix, festival de films et spécialités de Pike Place.",
+        "english": "Optional additions: a film festival and local specialities at Pike Place."
+      },
+      {
+        "french": "Proposer une chambre familiale dans un hôtel central.",
+        "english": "Suggest a family room in a central hotel."
+      },
+      {
+        "french": "Inviter chacun à dire si le projet lui plaît.",
+        "english": "Ask everyone to say whether they like the plan."
+      }
+    ],
+    "ee-tache1:septembre:combinaison-7": [
+      {
+        "french": "Présenter son pays à Marc, ici le Ghana, et sa culture.",
+        "english": "Introduce your country and its culture to Marc, using Ghana as the example."
+      },
+      {
+        "french": "Accra : monument de l’Indépendance, marchés animés et riz jollof.",
+        "english": "Accra: the Independence Monument, lively markets and jollof rice."
+      },
+      {
+        "french": "Cape Coast : château pour comprendre l’histoire du pays.",
+        "english": "Cape Coast: the castle for understanding the country’s history."
+      },
+      {
+        "french": "Kumasi : palais Manhyia, culture ashanti et tissus kente.",
+        "english": "Kumasi: Manhyia Palace, Ashanti culture and kente cloth."
+      },
+      {
+        "french": "Évoquer l’importance de l’accueil, de la famille et de la musique.",
+        "english": "Mention the importance of hospitality, family and music."
+      },
+      {
+        "french": "Citer les fêtes traditionnelles en août dans cet exemple.",
+        "english": "Mention the traditional festivals in August in this example."
+      },
+      {
+        "french": "Demander d’être prévenu de son arrivée.",
+        "english": "Ask Marc to let you know when he arrives."
+      }
+    ],
+    "ee-tache1:janvier:combinaison-5": [
+      {
+        "french": "Répondre à Bernard qui va emménager dans le quartier.",
+        "english": "Reply to Bernard, who is moving to the neighbourhood."
+      },
+      {
+        "french": "Recommander un marché, ici Pike Place, au centre-ville.",
+        "english": "Recommend a market, Pike Place in the city centre in this example."
+      },
+      {
+        "french": "Ouverture quotidienne dans l’exemple : 9 h–18 h, sauf dimanche jusqu’à 17 h.",
+        "english": "Example opening hours: daily from 9 a.m. to 6 p.m., but only until 5 p.m. on Sundays."
+      },
+      {
+        "french": "Décrire l’ambiance animée, les commerçants sympathiques et les musiciens.",
+        "english": "Describe the lively atmosphere, friendly traders and musicians."
+      },
+      {
+        "french": "Citer fruits, légumes, poisson des pêcheurs locaux, fromage et pain à prix raisonnables.",
+        "english": "List fruit, vegetables, fish from local fishermen, cheese and bread at reasonable prices."
+      },
+      {
+        "french": "Indiquer l’accès en bus, ici la ligne 5.",
+        "english": "Explain how to get there by bus, route 5 in this example."
+      },
+      {
+        "french": "Proposer d’y aller ensemble.",
+        "english": "Suggest going there together."
+      }
+    ],
+    "ee-tache1:mai:combinaison-1": [
+      {
+        "french": "Écrire poliment au journal Bienvenue.",
+        "english": "Write politely to the newspaper Bienvenue."
+      },
+      {
+        "french": "Se présenter et évoquer son installation récente, ici à Seattle.",
+        "english": "Introduce yourself and mention your recent move, to Seattle in this example."
+      },
+      {
+        "french": "Parc Denny : détente et promenades parmi les arbres.",
+        "english": "Denny Park: relaxing and walking among the trees."
+      },
+      {
+        "french": "Pike Place : ambiance animée, produits frais et musiciens.",
+        "english": "Pike Place: a lively atmosphere, fresh produce and musicians."
+      },
+      {
+        "french": "Musée MOHAI : comprendre l’histoire régionale.",
+        "english": "MOHAI museum: understand the region’s history."
+      },
+      {
+        "french": "Le mont Si est hors ville : privilégier les lieux urbains demandés.",
+        "english": "Mount Si is outside the city: prioritise places within the city, as requested."
+      },
+      {
+        "french": "Conclure par une appréciation enthousiaste et une formule polie.",
+        "english": "End with an enthusiastic opinion and a polite closing."
+      }
+    ],
+    "ee-tache1:mai:combinaison-2": [
+      {
+        "french": "Donner à Léo des nouvelles positives après un mois d’installation.",
+        "english": "Give Léo positive news one month after moving in."
+      },
+      {
+        "french": "Appartement : confort, lumière et balcon donnant sur un parc.",
+        "english": "Flat: comfort, brightness and a balcony overlooking a park."
+      },
+      {
+        "french": "Quartier : calme, transports, commerces et restaurants proches.",
+        "english": "Neighbourhood: peace and quiet, transport, nearby shops and restaurants."
+      },
+      {
+        "french": "Décrire aussi les voisins lorsque la consigne le demande.",
+        "english": "Also describe the neighbours when the prompt asks for them."
+      },
+      {
+        "french": "Ville d’exemple : Seattle, espaces verts et paysages naturels.",
+        "english": "Example city: Seattle, green spaces and natural scenery."
+      },
+      {
+        "french": "Activités : promenades au lac, Pike Place et musées.",
+        "english": "Activities: lakeside walks, Pike Place and museums."
+      },
+      {
+        "french": "Inviter l’ami à venir et conclure chaleureusement.",
+        "english": "Invite your friend to visit and close warmly."
+      }
+    ]
+  }
+}

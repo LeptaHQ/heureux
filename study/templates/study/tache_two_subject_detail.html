@@ -43,17 +43,7 @@
     </div>
 
     <aside class="detail-side">
-      <section class="card section-card response-sidebar-card subject-hints" aria-labelledby="subject-hints-title">
-        <h2 class="spine-label" id="subject-hints-title" lang="en">Hints</h2>
-        <p class="muted subject-hints__intro">Les points à explorer dans vos questions.</p>
-        <ul class="subject-hints__list">
-          {% for hint in subject_hints %}
-            <li>
-              {% include "study/partials/subject_hint_text.html" with hint=hint only %}
-            </li>
-          {% endfor %}
-        </ul>
-      </section>
+      {% include "study/partials/subject_hints_list.html" with hints=subject_hints intro="Les points à explorer dans vos questions." only %}
       <div class="card section-card response-sidebar-card response-sidebar-card--status">
         <div class="spine-label">Progression du sujet</div>
         {% include "study/partials/subject_progress_control.html" with subject_label=subject.title hide_help=True %}

@@ -289,6 +289,7 @@ class Command(BaseCommand):
             and path not in {
                 content.TACHE_TWO_SUBJECT_HINTS_PATH,
                 content.TACHE_THREE_SUBJECT_HINTS_PATH,
+                content.EE_TACHE_ONE_SUBJECT_HINTS_PATH,
             }
         )
         digest = hashlib.sha256()

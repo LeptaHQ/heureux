@@ -40,6 +40,13 @@ def tache_three_subject_hints() -> Mapping[str, content.SpeakingHintsData]:
     return MappingProxyType(content.load_tache_three_subject_hints())
 
 
+@lru_cache(maxsize=1)
+def ee_tache_one_subject_hints() -> Mapping[str, tuple[content.SubjectHintData, ...]]:
+    return MappingProxyType(
+        content.load_ee_tache_one_subject_hints(categories=ee_writing_categories(1))
+    )
+
+
 @lru_cache(maxsize=3)
 def task_memoires(
     part_slug: str, task_slug: str
@@ -108,6 +115,7 @@ def clear_catalogue_cache() -> None:
     tache_two_subject_themes.cache_clear()
     tache_two_subject_hints.cache_clear()
     tache_three_subject_hints.cache_clear()
+    ee_tache_one_subject_hints.cache_clear()
     task_memoires.cache_clear()
     eo_tache_three_family_labels.cache_clear()
     ee_tache_three_months.cache_clear()

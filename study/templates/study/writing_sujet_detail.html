@@ -31,6 +31,7 @@
       </span>
     </div>
     <h1>{{ category_label }}</h1>
+    {% if subject_hints %}<a class="btn btn--sm subject-hints-jump" href="#subject-hints-title">Voir les pistes</a>{% endif %}
   </header>
 
   <nav class="prompt-nav" aria-label="Navigation entre les sujets">
@@ -130,6 +131,9 @@
     </div>
 
     <aside class="detail-side">
+      {% if subject_hints %}
+        {% include "study/partials/subject_hints_list.html" with hints=subject_hints intro="Une trame possible, à adapter à la consigne." writing=True only %}
+      {% endif %}
       <div class="card section-card response-sidebar-card response-sidebar-card--status">
         <div class="spine-label">Progression du sujet</div>
         <div

@@ -74,30 +74,26 @@
     </div>
 
     <aside class="detail-side">
+      <section class="card section-card response-sidebar-card subject-hints" aria-labelledby="subject-hints-title">
+        <h2 class="spine-label" id="subject-hints-title" lang="en">Hints</h2>
+        <p class="muted subject-hints__intro">Les points à explorer dans vos questions.</p>
+        <ul class="subject-hints__list">
+          {% for hint in subject_hints %}
+            <li>
+              <span class="subject-hints__french" lang="fr">{{ hint.french }}</span>
+              <span class="subject-hints__english" lang="en">{{ hint.english }}</span>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
       <div class="card section-card response-sidebar-card response-sidebar-card--status">
         <div class="spine-label">Progression du sujet</div>
-        {% include "study/partials/subject_progress_control.html" with subject_label=subject.title %}
-        {% if card %}
-          <div class="spine-label">Pratique des questions</div>
-          <dl class="kv">
-            {% if card.response_practice_started_at %}<div><dt>Commencée</dt><dd>{{ card.response_practice_started_at|date:"j M Y" }}</dd></div>{% endif %}
-            <div><dt>Répétitions</dt><dd>{{ card.reps }}</dd></div>
-            <div><dt>Oublis</dt><dd>{{ card.lapses }}</dd></div>
-            <div><dt>Intervalle</dt><dd>{{ card.interval_days|floatformat:0 }} j</dd></div>
-            {% if card.due %}<div><dt>Prochaine</dt><dd>{{ card.due|date:"j M Y" }}</dd></div>{% endif %}
-          </dl>
-        {% else %}
-          <p class="muted">Aucune pratique de ce sujet.</p>
-        {% endif %}
+        {% include "study/partials/subject_progress_control.html" with subject_label=subject.title hide_help=True %}
         <div class="response-sidebar-actions">
           <a class="btn btn--block" href="{% subject_url 'study:edit_response' part.slug task.slug selected_prompt.pk %}">
             {% if response_content.is_personal %}Modifier mes questions{% else %}Personnaliser les questions{% endif %}
           </a>
           <a class="btn btn--primary btn--block" href="{{ response_review_url }}">Pratiquer ce sujet</a>
-          <a class="btn btn--block" href="{{ theme_review_url }}">Pratiquer {{ subject_theme_name }}</a>
-          {% if vocabulary_review_url %}
-            <a class="btn btn--block" href="{{ vocabulary_review_url }}">Pratiquer les vocabs</a>
-          {% endif %}
         </div>
       </div>
 
@@ -115,27 +111,6 @@
               </li>
             {% endfor %}
           </ul>
-        </div>
-      {% endif %}
-
-      {% if subject_vocabulary %}
-        <div class="card section-card response-sidebar-card" id="subject-vocabulary">
-          <div class="response-batches__head">
-            <div class="spine-label">Vocabulaire de ce sujet</div>
-            <span class="progress-status progress-status--{{ vocabulary_batch_progress.status }}">{{ vocabulary_batch_progress.label }}</span>
-          </div>
-          <p class="muted">{{ vocabulary_count }} vocabs · {{ vocabulary_batch_progress.completed }}/{{ vocabulary_batch_progress.total }} lots terminés</p>
-          {% include "study/partials/vocabulary_recall_controls.html" with catalog_id="tache-two-subject-vocabulary-recall-catalog" only %}
-          <ul
-            class="mini-list response-sidebar-list"
-            id="tache-two-subject-vocabulary-recall-catalog"
-            data-recall-catalog
-          >
-            {% for phrase in subject_vocabulary %}
-              {% include "study/partials/vocabulary_recall_list_item.html" with phrase=phrase recall_prefix="tache-two-subject-vocabulary" only %}
-            {% endfor %}
-          </ul>
-          {% include "study/partials/response_batch_list.html" with batches=vocabulary_batches batch_kind="vocabulary" only %}
         </div>
       {% endif %}
     </aside>

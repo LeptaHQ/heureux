@@ -28,6 +28,13 @@ def tache_two_subject_themes() -> tuple[
     return themes, MappingProxyType(mapping)
 
 
+@lru_cache(maxsize=1)
+def tache_two_subject_hints() -> Mapping[str, tuple[content.SubjectHintData, ...]]:
+    return MappingProxyType(
+        content.load_tache_two_subject_hints(months=tache_two_subject_months())
+    )
+
+
 @lru_cache(maxsize=3)
 def task_memoires(
     part_slug: str, task_slug: str
@@ -94,6 +101,7 @@ def clear_catalogue_cache() -> None:
     """Discard all shared catalogue entries, including their derived indexes."""
     tache_two_subject_months.cache_clear()
     tache_two_subject_themes.cache_clear()
+    tache_two_subject_hints.cache_clear()
     task_memoires.cache_clear()
     eo_tache_three_family_labels.cache_clear()
     ee_tache_three_months.cache_clear()

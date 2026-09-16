@@ -7607,6 +7607,36 @@ a.qrow:focus-visible {
   min-width: 0;
   padding: 1rem;
 }
+.subject-hints__intro {
+  margin: 0.4rem 0 0;
+  font-size: 0.8rem;
+}
+.subject-hints__list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0.9rem 0 0;
+  padding-left: 1.1rem;
+}
+.subject-hints__list li {
+  padding-left: 0.15rem;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+.subject-hints__list li::marker {
+  color: var(--primary);
+}
+.subject-hints__french {
+  display: block;
+  color: var(--text);
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+.subject-hints__english {
+  display: block;
+  margin-top: 0.15rem;
+  color: var(--text-soft);
+  font-size: 0.79rem;
+}
 .response-sidebar-actions {
   display: grid;
   gap: 0.5rem;

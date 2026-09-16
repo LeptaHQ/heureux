@@ -44,7 +44,7 @@ from study.models import (
     ReviewSession,
     Task,
 )
-from study.routing import prompt_detail_url, response_detail_url, theme_detail_url
+from study.routing import prompt_detail_url, response_detail_url, review_url, theme_detail_url
 
 from . import factories
 from .course_fixtures import course_catalog, sectioned_course_lesson
@@ -2693,7 +2693,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(cards_toggle.get_attribute("aria-pressed"), "true")
         self.assert_no_horizontal_overflow()
 
-    def test_tache_two_subjects_have_practice_and_vocabulary_flow(self):
+    def test_tache_two_subjects_have_hints_and_preserve_practice_flow(self):
         command = Command()
         task_map = command._import_sections(load_sections())
         months = content.load_tache_two_subject_months()
@@ -2794,7 +2794,7 @@ class BrowserTests(StaticLiveServerTestCase):
         ]
         theme_count, subject_count, _ = directory_metrics
         self.assertEqual(theme_count, 11)
-        self.assertEqual(subject_count, 348)
+        self.assertEqual(subject_count, len(responses))
         self.assertEqual(
             self.page.locator("[data-subject-collection-row]").count(),
             subject_count,
@@ -2915,18 +2915,26 @@ class BrowserTests(StaticLiveServerTestCase):
             name="Pratiquer ce sujet",
             exact=True,
         ).wait_for()
-        vocabulary_link = self.page.get_by_role(
-            "link",
-            name="Pratiquer les vocabs",
-            exact=True,
-        )
-        vocabulary_link.wait_for()
-        vocabulary_review_path = vocabulary_link.get_attribute("href")
-        self.assertTrue(vocabulary_review_path)
+        self.page.get_by_role("heading", name="Hints", exact=True).wait_for()
+        hints = self.page.locator(".subject-hints__list")
+        hint_text = hints.inner_text()
+        self.assertGreaterEqual(hints.locator("[lang=fr]").count(), 5)
+        self.assertEqual(hints.locator("[lang=fr]").count(), hints.locator("[lang=en]").count())
         self.assertEqual(
-            self.page.locator("#subject-vocabulary .response-batch").count(),
-            3,
+            self.page.get_by_role("link", name="Pratiquer les vocabs", exact=True).count(),
+            0,
         )
+        self.assertEqual(self.page.locator("#subject-vocabulary").count(), 0)
+        self.assertEqual(self.page.locator(".subject-progress-control__help").count(), 0)
+        self.assertNotIn("Pratique des questions", self.page.locator(".detail-side").inner_text())
+        bounds = self.page.locator(".subject-hints").bounding_box()
+        questions_bounds = self.page.locator(".answer-columns").bounding_box()
+        self.assertGreaterEqual(bounds["x"], questions_bounds["x"] + questions_bounds["width"])
+        vocabulary_prompt = Prompt.objects.get(content_key=responses[0].content_key)
+        vocabulary_review_path = review_url({
+            "part": "eo", "task": "tache-2", "kind": "vocab", "batch": "1",
+            "response": vocabulary_prompt.response_id, "prompt": vocabulary_prompt.pk,
+        })
         detail_prompt = json.loads(
             self.page.locator("#tache-two-subject-prompt").text_content()
         )
@@ -3020,6 +3028,7 @@ class BrowserTests(StaticLiveServerTestCase):
             has_text="Samedi après-midi serait idéal.",
         ).wait_for()
         self.page.get_by_text("Version personnelle", exact=True).wait_for()
+        self.assertEqual(hints.inner_text(), hint_text)
         self.assert_no_horizontal_overflow()
         self.page.set_viewport_size({"width": 1280, "height": 850})
 
@@ -3049,6 +3058,58 @@ class BrowserTests(StaticLiveServerTestCase):
             exact=True,
         ).wait_for()
         self.assert_no_horizontal_overflow()
+
+        apartment_path = reverse(
+            "study:task_subject_detail", args=["eo", "tache-2", "mai", 2, 8],
+        )
+        self.page.goto(self.live_server_url + apartment_path)
+        self.page.get_by_role("heading", name="Hints", exact=True).wait_for()
+        for width in (320, 390, 1280):
+            self.page.set_viewport_size({"width": width, "height": 850})
+            if width <= 760:
+                expect(self.page.locator("[data-nav-links]")).to_be_hidden()
+            self.page.locator(".subject-hints").scroll_into_view_if_needed()
+            self.assert_no_horizontal_overflow()
+            self.assertTrue(self.page.get_by_text("Dates de départ et de retour", exact=True).is_visible())
+            self.assertTrue(self.page.get_by_text("Departure and return dates", exact=True).is_visible())
+
+    def test_equivalent_eo2_subjects_share_bilingual_hints_without_javascript(self):
+        self._import_eo_tache_two_content()
+        canonical = Prompt.objects.select_related("theme__task__part").get(
+            content_key="tache2:mai:batch-02:subject-08",
+        )
+        alias = Prompt.objects.select_related("theme__task__part").get(
+            content_key="tache2:octobre:batch-05:subject-21",
+        )
+        context = self.browser.new_context(
+            java_script_enabled=False,
+            storage_state=self.context.storage_state(),
+            viewport={"width": 1280, "height": 850},
+        )
+        try:
+            page = context.new_page()
+            page.goto(self.live_server_url + prompt_detail_url(canonical))
+            page.get_by_role("heading", name="Hints", exact=True).wait_for()
+            hints = page.locator(".subject-hints")
+            original = hints.inner_text()
+            self.assertGreaterEqual(hints.locator("[lang=fr]").count(), 5)
+            self.assertEqual(hints.locator("[lang=fr]").count(), hints.locator(".subject-hints__english").count())
+            for width in (320, 390, 1280):
+                page.set_viewport_size({"width": width, "height": 850})
+                if width <= 760:
+                    expect(page.locator("[data-nav-links]")).to_be_hidden()
+                self.assertLessEqual(
+                    page.evaluate("document.documentElement.scrollWidth"),
+                    page.evaluate("window.innerWidth") + 1,
+                )
+                self.assertTrue(hints.is_visible())
+            page.goto(self.live_server_url + prompt_detail_url(alias) + "?deduplicate=0&model=1")
+            page.get_by_role("heading", name="Hints", exact=True).wait_for()
+            self.assertEqual(hints.inner_text(), original)
+            self.assertEqual(page.locator("#subject-vocabulary").count(), 0)
+            self.assertEqual(page.locator(".subject-progress-control__help").count(), 0)
+        finally:
+            context.close()
 
     def test_tache_two_table_groups_subjects_by_theme(self):
         self._import_eo_tache_two_content()

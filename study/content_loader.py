@@ -38,6 +38,7 @@ TACHE_TWO_SUBJECTS_DIR = QUESTION_BANK_DIR / "subjects"
 TACHE_TWO_VOCABULARY_DIR = QUESTION_BANK_DIR / "vocabulary"
 TACHE_TWO_THEME_VOCABULARY_DIR = QUESTION_BANK_DIR / "theme_vocabulary"
 TACHE_TWO_SUBJECT_THEMES_PATH = TACHE_TWO_SUBJECTS_DIR / "subject_themes.json"
+TACHE_TWO_SUBJECT_HINTS_PATH = TACHE_TWO_SUBJECTS_DIR / "hints.json"
 TACHE_TWO_EQUIVALENT_GROUPS_PATH = (
     TACHE_TWO_SUBJECTS_DIR / "equivalent_groups.json"
 )
@@ -647,6 +648,78 @@ class OralSemanticGroupData:
     canonical: str
     members: Tuple[str, ...]
     rationale: str
+
+
+@dataclass(frozen=True)
+class SubjectHintData:
+    french: str
+    english: str
+
+
+def load_tache_two_subject_hints(
+    path: Optional[Path] = None, *,
+    months: Optional[Tuple[TacheTwoSubjectMonthData, ...]] = None,
+) -> Dict[str, Tuple[SubjectHintData, ...]]:
+    """Resolve one editorial hint list per semantic group to every publication."""
+    def unique_fields(pairs):
+        result = {}
+        for key, value in pairs:
+            if key in result:
+                raise ValueError(f"Duplicate field in EO2 hints: {key!r}")
+            result[key] = value
+        return result
+
+    data = json.loads(
+        (path or TACHE_TWO_SUBJECT_HINTS_PATH).read_text(encoding="utf-8"),
+        object_pairs_hook=unique_fields,
+    )
+    if (
+        not isinstance(data, dict)
+        or set(data) != {"version", "task", "groups"}
+        or type(data["version"]) is not int
+        or data["version"] != 1
+        or data["task"] != "eo/tache-2"
+        or not isinstance(data["groups"], dict)
+    ):
+        raise ValueError("EO2 hints must use version 1 and task eo/tache-2")
+    source_months = load_tache_two_subject_months() if months is None else months
+    groups = load_oral_semantic_groups("eo/tache-2", [
+        tache_two_subject_content_key(month.slug, batch.number, subject.number)
+        for month in source_months
+        for batch in month.batches
+        for subject in batch.subjects
+    ])
+    expected = {group.id for group in groups}
+    if set(data["groups"]) != expected:
+        missing = sorted(expected - set(data["groups"]))
+        unknown = sorted(set(data["groups"]) - expected)
+        raise ValueError(f"EO2 hints group coverage differs: missing={missing}, unknown={unknown}")
+
+    hints_by_subject = {}
+    for group in groups:
+        rows = data["groups"][group.id]
+        if not isinstance(rows, list) or not 5 <= len(rows) <= 10:
+            raise ValueError(f"EO2 hints for {group.id!r} need 5 to 10 concise cues")
+        hints = []
+        seen = {"french": set(), "english": set()}
+        for row in rows:
+            if not isinstance(row, dict) or set(row) != {"french", "english"}:
+                raise ValueError(f"EO2 hints for {group.id!r} need French and English")
+            for language, text in row.items():
+                if (
+                    not isinstance(text, str) or not text.strip()
+                    or text != text.strip() or len(text) > 100
+                    or any(character in text for character in "\n\r\t?")
+                ):
+                    raise ValueError(f"Invalid {language} cue in EO2 hints for {group.id!r}")
+                if text.casefold() in seen[language]:
+                    raise ValueError(f"Duplicate {language} cue in EO2 hints for {group.id!r}")
+                seen[language].add(text.casefold())
+            hints.append(SubjectHintData(**row))
+        shared_hints = tuple(hints)
+        for key in group.members:
+            hints_by_subject[key] = shared_hints
+    return hints_by_subject
 
 
 def load_oral_semantic_groups(

@@ -36,6 +36,18 @@ The shared `study/partials/pagination.html` pager accepts a Django `page_obj`,
 
 ## Oral subject equivalence
 
+EO task 2 subject pages show bilingual **Hints**: short French information targets
+with English meanings, not ready-made questions. The editorial lists in
+`study/content/tache_2/subjects/hints.json` cover every semantic group, including
+singletons; every equivalent publication shares the same immutable list, regardless
+of the selected model or personal response. Each group needs 5–10 unique cues,
+with both languages and at most 100 characters per language. The loader rejects
+missing/unknown groups and malformed entries instead of substituting generic hints.
+Hints are file-backed, require no migration, and never rewrite responses or progress.
+The EO2 sidebar retains completion, personalisation and individual practice controls;
+practice statistics and vocabulary are no longer displayed there. Vocabulary and
+its saved practice data remain available in their existing dedicated views.
+
 EO task 2 and task 3 use editorial `semantic_groups.json` partitions, including
 singletons. A shared answer or question-body hash is **not** proof of equivalence.
 The importer rejects missing, incomplete, duplicate or cross-task memberships.

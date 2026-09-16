@@ -17,6 +17,7 @@ from django.urls import reverse
 from django.utils import timezone
 
 from study.account_services import provision_user_study_data
+from study import catalogue
 from study.content_loader import (
     AI_EXAMINER_PROMPT_PATH,
     EO_TACHE_ONE_QUESTION_BANK_DIR,
@@ -65,7 +66,7 @@ from study.models import (
     Task,
     ThemeVocabularyProgress,
 )
-from study.routing import response_detail_url
+from study.routing import prompt_detail_url, response_detail_url
 from study.views.helpers import expression_task_summaries
 
 annotation_migration = import_module(
@@ -2208,6 +2209,79 @@ class QuestionBankViewTests(TestCase):
     def setUp(self):
         self.client.force_login(self.user)
 
+    def assert_subject_hints(self, response):
+        hints = response.context["subject_hints"]
+        self.assertEqual(
+            hints,
+            catalogue.tache_two_subject_hints()[response.context["selected_prompt"].content_key],
+        )
+        self.assertContains(response, 'id="subject-hints-title"', count=1)
+        self.assertContains(response, 'class="subject-hints__french"', count=len(hints))
+        self.assertContains(response, 'class="subject-hints__english"', count=len(hints))
+
+    def test_hints_stay_shared_across_models_personal_versions_and_selection_modes(self):
+        canonical = Prompt.objects.select_related("response", "theme__task__part").get(
+            content_key="tache2:fevrier:batch-01:subject-05",
+        )
+        alias = Prompt.objects.select_related("response", "theme__task__part").get(
+            content_key="tache2:juillet:batch-04:subject-20",
+        )
+        self.assertEqual(alias.response_id, canonical.response_id)
+        self.assertNotEqual(alias.model_content["arguments"], canonical.model_content["arguments"])
+        expected = catalogue.tache_two_subject_hints()[canonical.content_key]
+        personal = PersonalResponse.objects.create(
+            user=self.user, response=canonical.response, source_prompt=canonical,
+            arguments=[{
+                "order": 1, "idea": "Quelle ligne dessert la gare le samedi ?",
+                "developpement": "", "exemple": "", "consequence": "",
+            }],
+        )
+        card = Card.objects.get(user=self.user, response=canonical.response, card_type=CardType.SPINE)
+        Card.objects.filter(pk=card.pk).update(reps=12, lapses=2, subject_completed_at=timezone.now())
+        before = Card.objects.filter(pk=card.pk).values().get()
+        personal_before = PersonalResponse.objects.filter(pk=personal.pk).values().get()
+        for prompt in (canonical, alias):
+            for selection in (
+                {}, {"model": "1"}, {"personal": personal.pk},
+                {"deduplicate": "0"}, {"model": "1", "deduplicate": "0"},
+            ):
+                with self.subTest(prompt=prompt.content_key, selection=selection):
+                    page = self.client.get(prompt_detail_url(prompt), selection)
+                    self.assertEqual(page.status_code, 200)
+                    self.assert_subject_hints(page)
+                    self.assertIs(page.context["subject_hints"], expected)
+                    self.assertTrue(page.context["subject_progress"].explicitly_completed)
+                    self.assertNotContains(page, "<dt>Répétitions</dt>")
+                    if selection.get("model") == "1":
+                        self.assertEqual(
+                            [question["text"] for question in page.context["subject_questions"]],
+                            [argument["idea"] for argument in prompt.model_content["arguments"]],
+                        )
+                    else:
+                        self.assertContains(page, "Quelle ligne dessert la gare le samedi ?")
+        self.assertEqual(Card.objects.filter(pk=card.pk).values().get(), before)
+        self.assertEqual(PersonalResponse.objects.filter(pk=personal.pk).values().get(), personal_before)
+
+        other = factories.make_user("hints-other-account")
+        self.client.force_login(other)
+        page = self.client.get(prompt_detail_url(alias))
+        self.assertIs(page.context["subject_hints"], expected)
+        self.assertFalse(page.context["response_content"].is_personal)
+        self.assertFalse(page.context["subject_progress"].explicitly_completed)
+
+    def test_hints_sidebar_no_longer_loads_unused_vocabulary_or_practice_statistics(self):
+        url = reverse("study:task_subject_detail", args=["eo", "tache-2", "mai", 2, 8])
+        with patch("study.views.library._subject_vocabulary_context", side_effect=AssertionError("Unused vocabulary query")):
+            page = self.client.get(url)
+        self.assertEqual(page.status_code, 200)
+        self.assert_subject_hints(page)
+        self.assertNotIn("vocabulary_batches", page.context)
+        self.assertNotIn("card", page.context)
+        self.assertContains(page, "Personnaliser les questions")
+        self.assertContains(page, "Pratiquer ce sujet")
+        self.assertContains(page, "data-subject-completion-form")
+        self.assertContains(page, "Sujets équivalents")
+
     def test_tache_two_overview_features_theme_vocabulary(self):
         response = self.client.get(
             reverse(
@@ -2876,28 +2950,18 @@ class QuestionBankViewTests(TestCase):
         self.assertNotContains(subject, "Réflexe Mémoire")
         self.assertContains(subject, "Progression du sujet")
         self.assertContains(subject, "Pratiquer ce sujet")
-        self.assertContains(subject, "Pratiquer les vocabs")
-        self.assertContains(subject, "30 vocabs")
+        self.assert_subject_hints(subject)
+        self.assertNotContains(subject, "Pratique des questions")
+        self.assertNotContains(subject, "Pratiquer les vocabs")
+        self.assertNotContains(subject, 'id="subject-vocabulary"')
+        self.assertNotContains(subject, "subject-progress-control__help")
+        self.assertNotContains(subject, f'Pratiquer {subject.context["subject_theme_name"]}')
         self.assertContains(
             subject,
             'data-prompt-copy-source="tache-two-subject-prompt"',
             count=1,
         )
-        self.assertEqual(len(subject.context["vocabulary_batches"]), 3)
-        self.assertTrue(
-            all(
-                batch["phrase_count"] == 10
-                for batch in subject.context["vocabulary_batches"]
-            )
-        )
-        self.assertEqual(len(subject.context["subject_vocabulary"]), 10)
-        self.assertContains(
-            subject,
-            'data-recall-controls="tache-two-subject-vocabulary-recall-catalog"',
-            count=1,
-        )
-        self.assertContains(subject, 'data-recall-cell="french"', count=10)
-        self.assertContains(subject, 'data-recall-cell="meaning"', count=10)
+        self.assertNotContains(subject, 'data-recall-controls="tache-two-subject-vocabulary-recall-catalog"')
         self.assertEqual(
             response_detail_url(subject.context["response"]),
             subject_url,
@@ -2945,11 +3009,7 @@ class QuestionBankViewTests(TestCase):
             "data-tache-two-question",
             count=14,
         )
-        self.assertContains(second_batch_subject, "30 vocabs")
-        self.assertEqual(
-            len(second_batch_subject.context["vocabulary_batches"]),
-            3,
-        )
+        self.assert_subject_hints(second_batch_subject)
 
         third_batch = self.client.get(third_batch_url)
         self.assertEqual(third_batch.status_code, 200)
@@ -2972,11 +3032,7 @@ class QuestionBankViewTests(TestCase):
             "data-tache-two-question",
             count=15,
         )
-        self.assertContains(third_batch_subject, "30 vocabs")
-        self.assertEqual(
-            len(third_batch_subject.context["vocabulary_batches"]),
-            3,
-        )
+        self.assert_subject_hints(third_batch_subject)
 
         february_batch = self.client.get(february_batch_url)
         self.assertEqual(february_batch.status_code, 200)
@@ -2999,11 +3055,7 @@ class QuestionBankViewTests(TestCase):
             "data-tache-two-question",
             count=15,
         )
-        self.assertContains(february_subject, "30 vocabs")
-        self.assertEqual(
-            len(february_subject.context["vocabulary_batches"]),
-            3,
-        )
+        self.assert_subject_hints(february_subject)
 
         march_batch = self.client.get(march_batch_url)
         self.assertEqual(march_batch.status_code, 200)
@@ -3026,11 +3078,7 @@ class QuestionBankViewTests(TestCase):
             "data-tache-two-question",
             count=15,
         )
-        self.assertContains(march_subject, "30 vocabs")
-        self.assertEqual(
-            len(march_subject.context["vocabulary_batches"]),
-            3,
-        )
+        self.assert_subject_hints(march_subject)
 
         march_second_batch = self.client.get(march_second_batch_url)
         self.assertEqual(march_second_batch.status_code, 200)
@@ -3056,11 +3104,7 @@ class QuestionBankViewTests(TestCase):
             "data-tache-two-question",
             count=14,
         )
-        self.assertContains(march_second_subject, "30 vocabs")
-        self.assertEqual(
-            len(march_second_subject.context["vocabulary_batches"]),
-            3,
-        )
+        self.assert_subject_hints(march_second_subject)
 
         march_third_batch = self.client.get(march_third_batch_url)
         self.assertEqual(march_third_batch.status_code, 200)
@@ -3083,7 +3127,7 @@ class QuestionBankViewTests(TestCase):
             "data-tache-two-question",
             count=15,
         )
-        self.assertContains(march_third_subject, "30 vocabs")
+        self.assert_subject_hints(march_third_subject)
 
         april_batch = self.client.get(april_batch_url)
         self.assertEqual(april_batch.status_code, 200)
@@ -3106,11 +3150,7 @@ class QuestionBankViewTests(TestCase):
             "data-tache-two-question",
             count=15,
         )
-        self.assertContains(april_subject, "30 vocabs")
-        self.assertEqual(
-            len(april_subject.context["vocabulary_batches"]),
-            3,
-        )
+        self.assert_subject_hints(april_subject)
 
         april_second_batch = self.client.get(april_second_batch_url)
         self.assertEqual(april_second_batch.status_code, 200)
@@ -3133,7 +3173,7 @@ class QuestionBankViewTests(TestCase):
             "data-tache-two-question",
             count=15,
         )
-        self.assertContains(april_second_subject, "30 vocabs")
+        self.assert_subject_hints(april_second_subject)
 
         may_batch = self.client.get(may_batch_url)
         self.assertEqual(may_batch.status_code, 200)
@@ -3156,7 +3196,7 @@ class QuestionBankViewTests(TestCase):
             "data-tache-two-question",
             count=15,
         )
-        self.assertContains(may_subject, "30 vocabs")
+        self.assert_subject_hints(may_subject)
 
         june_batch = self.client.get(june_batch_url)
         self.assertEqual(june_batch.status_code, 200)
@@ -3179,7 +3219,7 @@ class QuestionBankViewTests(TestCase):
             "data-tache-two-question",
             count=15,
         )
-        self.assertContains(june_subject, "30 vocabs")
+        self.assert_subject_hints(june_subject)
 
         july_batch = self.client.get(july_batch_url)
         self.assertEqual(july_batch.status_code, 200)
@@ -3199,7 +3239,7 @@ class QuestionBankViewTests(TestCase):
             "data-tache-two-question",
             count=15,
         )
-        self.assertContains(july_subject, "30 vocabs")
+        self.assert_subject_hints(july_subject)
 
         august_batch = self.client.get(august_batch_url)
         self.assertEqual(august_batch.status_code, 200)
@@ -3222,7 +3262,7 @@ class QuestionBankViewTests(TestCase):
             "data-tache-two-question",
             count=15,
         )
-        self.assertContains(august_subject, "30 vocabs")
+        self.assert_subject_hints(august_subject)
 
         september_batch = self.client.get(september_batch_url)
         self.assertEqual(september_batch.status_code, 200)
@@ -3242,7 +3282,7 @@ class QuestionBankViewTests(TestCase):
             "data-tache-two-question",
             count=15,
         )
-        self.assertContains(september_subject, "30 vocabs")
+        self.assert_subject_hints(september_subject)
         for (
             month_name,
             batch_number,
@@ -3273,14 +3313,7 @@ class QuestionBankViewTests(TestCase):
                 "data-tache-two-question",
                 count=question_count,
             )
-            self.assertContains(final_subject, "30 vocabs")
-            self.assertEqual(
-                sum(
-                    batch["phrase_count"]
-                    for batch in final_subject.context["vocabulary_batches"]
-                ),
-                30,
-            )
+            self.assert_subject_hints(final_subject)
 
     def test_import_provisions_real_subject_and_vocabulary_cards(self):
         responses = Response.objects.filter(
@@ -3382,6 +3415,7 @@ class QuestionBankViewTests(TestCase):
         )
         self.assertFalse(shared.context["selected_prompt"].is_canonical)
         self.assertTrue(canonical.context["selected_prompt"].is_canonical)
+        self.assertIs(shared.context["subject_hints"], canonical.context["subject_hints"])
         self.assertEqual(
             {
                 (item["month_slug"], item["number"])

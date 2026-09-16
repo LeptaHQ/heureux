@@ -3246,18 +3246,7 @@ def task_subject_detail(
         request.user,
         {response.pk},
     )[response.pk]
-    card = Card.objects.filter(
-        user=request.user,
-        card_type=CardType.SPINE,
-        response=response,
-    ).first()
     task_scope = {"part": task.part.slug, "task": task.slug}
-    vocabulary_context = _subject_vocabulary_context(
-        response,
-        task_scope,
-        request.user,
-        prompt=selected_prompt,
-    )
     from .oral import oral_response_context
     oral_context = oral_response_context(request, selected_prompt)
     response_content = oral_context.get("response_content") or effective_response(
@@ -3297,6 +3286,7 @@ def task_subject_detail(
             "subject_batch": batch,
             "subject": subject,
             "subject_questions": questions,
+            "subject_hints": catalogue.tache_two_subject_hints()[selected_prompt.content_key],
             "response_content": response_content,
             "subject_theme_name": (
                 subject_theme.name if subject_theme else ""
@@ -3312,7 +3302,6 @@ def task_subject_detail(
             "equivalent_subjects": equivalent_subjects,
             "subject_annotation_key": subject_annotation_key,
             "response": response,
-            "card": card,
             "subject_progress": subject_progress,
             "response_review_url": review_url(
                 {
@@ -3321,16 +3310,8 @@ def task_subject_detail(
                     "response": str(response.pk),
                 }
             ),
-            "theme_review_url": review_url(
-                {
-                    **task_scope,
-                    "kind": "spine",
-                    "theme": response.theme.slug,
-                }
-            ),
             "personal_saved": request.GET.get("saved") == "1",
             "personal_reset": request.GET.get("reset") == "1",
-            **vocabulary_context,
             **oral_context,
         },
     )

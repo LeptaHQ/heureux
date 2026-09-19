@@ -79,6 +79,31 @@ class WritingHintsContentTests(SimpleTestCase):
             self.assertNotIn("absents de la réponse", text)
             self.assertNotIn("non précisé ici", text)
 
+    def test_travel_pistes_use_the_refreshed_countryside_and_culture_examples(self):
+        hints = catalogue.ee_tache_one_subject_hints()
+        for language, expected, outdated in (
+            ("french", ("mont Rainier", "famille", "nature", "animaux sauvages"),
+             ("Kakum", "anniversaire", "sœur", "tropicale", "singes")),
+            ("english", ("Mount Rainier", "family", "nature", "wild animals"),
+             ("Kakum", "birthday", "sister", "rainforest", "monkeys")),
+        ):
+            text = " ".join(getattr(cue, language) for cue in hints["mars-combinaison-7"])
+            for phrase in expected:
+                self.assertIn(phrase, text)
+            for phrase in outdated:
+                self.assertNotIn(phrase, text)
+        for language, expected, outdated in (
+            ("french", ("Makola", "Manhyia", "kente", "jollof", "waakye", "hospitalité", "danse"),
+             ("Indépendance", "août", "arrivée")),
+            ("english", ("Makola", "Manhyia", "kente", "jollof", "waakye", "hospitality", "dance"),
+             ("Independence", "August", "arrives")),
+        ):
+            text = " ".join(getattr(cue, language) for cue in hints["septembre-combinaison-7"])
+            for phrase in expected:
+                self.assertIn(phrase, text)
+            for phrase in outdated:
+                self.assertNotIn(phrase, text)
+
     def test_missing_extra_and_alias_keys_cannot_hide_coverage_errors(self):
         for change in ("missing", "unrequested", "alias"):
             invalid = copy.deepcopy(self.payload)

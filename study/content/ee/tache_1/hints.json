@@ -706,20 +706,20 @@
         "english": "Tell a friend about a weekend you spent in the countryside."
       },
       {
-        "french": "Situer l’exemple dans un village près du parc de Kakum.",
-        "english": "Set the example in a village near Kakum National Park."
+        "french": "Situer l’exemple dans une petite ville près du parc national du mont Rainier.",
+        "english": "Set the example in a small town near Mount Rainier National Park."
       },
       {
-        "french": "Préciser le séjour en famille pour l’anniversaire de sa sœur.",
-        "english": "Mention the family trip to celebrate your sister’s birthday."
+        "french": "Préciser le séjour en famille pour profiter de la nature.",
+        "english": "Mention the family trip to enjoy nature."
       },
       {
-        "french": "Décrire les arbres, les panoramas et le calme.",
-        "english": "Describe the trees, panoramic views and peaceful atmosphere."
+        "french": "Décrire montagnes, forêts verdoyantes et atmosphère apaisante.",
+        "english": "Describe the mountains, green forests and peaceful atmosphere."
       },
       {
-        "french": "Raconter les randonnées en forêt tropicale et les singes aperçus.",
-        "english": "Describe the rainforest hikes and the monkeys you spotted."
+        "french": "Raconter les randonnées et les animaux sauvages aperçus.",
+        "english": "Describe the hikes and the wild animals you spotted."
       },
       {
         "french": "Évoquer l’accueil des habitants et un bilan ressourçant.",
@@ -920,28 +920,32 @@
         "english": "Introduce your country and its culture to Marc, using Ghana as the example."
       },
       {
-        "french": "Accra : monument de l’Indépendance, marchés animés et riz jollof.",
-        "english": "Accra: the Independence Monument, lively markets and jollof rice."
+        "french": "Évoquer famille et hospitalité, puis musique et danse lors des fêtes traditionnelles.",
+        "english": "Mention family and hospitality, then music and dance at traditional celebrations."
+      },
+      {
+        "french": "Accra : marché de Makola, ambiance locale et produits traditionnels.",
+        "english": "Accra: Makola Market, the local atmosphere and traditional products."
       },
       {
         "french": "Cape Coast : château pour comprendre l’histoire du pays.",
         "english": "Cape Coast: the castle for understanding the country’s history."
       },
       {
-        "french": "Kumasi : palais Manhyia, culture ashanti et tissus kente.",
-        "english": "Kumasi: Manhyia Palace, Ashanti culture and kente cloth."
+        "french": "Kumasi : palais Manhyia et culture ashanti.",
+        "english": "Kumasi: Manhyia Palace and Ashanti culture."
       },
       {
-        "french": "Évoquer l’importance de l’accueil, de la famille et de la musique.",
-        "english": "Mention the importance of hospitality, family and music."
+        "french": "Présenter le kente comme un tissu traditionnel.",
+        "english": "Introduce kente as a traditional cloth."
       },
       {
-        "french": "Citer les fêtes traditionnelles en août dans cet exemple.",
-        "english": "Mention the traditional festivals in August in this example."
+        "french": "Citer des plats populaires : riz jollof et waakye.",
+        "english": "Mention popular dishes: jollof rice and waakye."
       },
       {
-        "french": "Demander d’être prévenu de son arrivée.",
-        "english": "Ask Marc to let you know when he arrives."
+        "french": "Conclure par une formule amicale.",
+        "english": "End with a friendly closing."
       }
     ],
     "ee-tache1:janvier:combinaison-5": [

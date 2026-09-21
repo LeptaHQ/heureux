@@ -354,6 +354,7 @@ def _comprehension_summary(user):
         if (
             (test.is_active and test.is_published)
             or test.user_attempts
+            or test.explicitly_completed
         )
     ]
     written_tests = [
@@ -497,8 +498,7 @@ def _build_comprehension_test_snapshot(test):
     }
 
 
-def _comprehension_attempt_questions(attempt):
-    snapshot = attempt.content_snapshot
+def _comprehension_snapshot_questions(snapshot):
     if isinstance(snapshot, dict):
         questions = snapshot.get("questions")
         if (
@@ -512,15 +512,42 @@ def _comprehension_attempt_questions(attempt):
             )
         ):
             return questions
+    return None
 
+
+def _comprehension_attempt_questions(attempt):
+    questions = _comprehension_snapshot_questions(attempt.content_snapshot)
+    if questions is not None:
+        return questions
+
+    # Another request may have pinned the snapshot since this attempt was loaded.
+    with transaction.atomic():
+        locked_attempt = get_object_or_404(
+            ComprehensionAttempt.objects.select_for_update(),
+            pk=attempt.pk,
+            user_id=attempt.user_id,
+        )
+        questions = _comprehension_snapshot_questions(
+            locked_attempt.content_snapshot
+        )
+        if questions is None:
+            questions = _restore_comprehension_attempt_snapshot(locked_attempt)
+        attempt.content_snapshot = locked_attempt.content_snapshot
+        attempt.total_questions = locked_attempt.total_questions
+        return questions
+
+
+def _restore_comprehension_attempt_snapshot(attempt):
     answers = {
         answer.question_id: answer
         for answer in attempt.answers.select_related("selected_choice")
     }
+    # Historical attempts must not gain newly imported questions.
+    question_filter = Q(pk__in=answers)
+    if attempt.status == ComprehensionAttemptStatus.IN_PROGRESS:
+        question_filter |= Q(is_active=True)
     questions = (
-        attempt.test.questions.filter(
-            Q(is_active=True) | Q(pk__in=answers)
-        )
+        attempt.test.questions.filter(question_filter)
         .prefetch_related("choices")
         .order_by("number")
     )
@@ -550,8 +577,11 @@ def _comprehension_attempt_questions(attempt):
         serialized.append(question_data)
 
     attempt.content_snapshot = {"questions": serialized}
-    attempt.total_questions = len(serialized)
-    attempt.save(update_fields=["content_snapshot", "total_questions"])
+    update_fields = ["content_snapshot"]
+    if attempt.status == ComprehensionAttemptStatus.IN_PROGRESS:
+        attempt.total_questions = len(serialized)
+        update_fields.append("total_questions")
+    attempt.save(update_fields=update_fields)
     return serialized
 
 
@@ -1189,6 +1219,12 @@ def comprehension_start(
                 return HttpResponseBadRequest(
                     "Tentative source invalide."
                 )
+            try:
+                source_attempt_id = int(source_attempt_id)
+            except ValueError:
+                return HttpResponseBadRequest(
+                    "Tentative source invalide."
+                )
             source_attempt = get_object_or_404(
                 ComprehensionAttempt.objects.select_for_update(),
                 pk=source_attempt_id,
@@ -1215,13 +1251,7 @@ def comprehension_start(
                 "source_attempt_id": source_attempt.pk,
                 "questions": focused_questions,
             }
-        if active_attempt and action == "restart":
-            active_attempt.status = ComprehensionAttemptStatus.ABANDONED
-            active_attempt.completed_at = timezone.now()
-            active_attempt.save(update_fields=["status", "completed_at", "updated_at"])
-            active_attempt = None
-
-        if active_attempt is None:
+        if active_attempt is None or action == "restart":
             content_snapshot = (
                 focused_snapshot
                 if focused_snapshot is not None
@@ -1230,6 +1260,12 @@ def comprehension_start(
             questions = content_snapshot["questions"]
             if not questions:
                 return HttpResponseBadRequest("Ce test ne contient aucune question.")
+            if active_attempt:
+                active_attempt.status = ComprehensionAttemptStatus.ABANDONED
+                active_attempt.completed_at = timezone.now()
+                active_attempt.save(
+                    update_fields=["status", "completed_at", "updated_at"]
+                )
             active_attempt = ComprehensionAttempt.objects.create(
                 user=request.user,
                 test=test,

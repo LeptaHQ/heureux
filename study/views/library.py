@@ -4045,8 +4045,9 @@ def response_detail(request, part_slug, task_slug, prompt_id):
     )
 
 
+@transaction.atomic
 def edit_response(request, part_slug, task_slug, prompt_id):
-    from ..oral_history import preferred_personal, save_personal, snapshot
+    from ..oral_history import lock_study_user, preferred_personal, save_personal, snapshot
     if "model" in request.GET or "personal" in request.GET:
         raise Http404
     task = _route_task(part_slug, task_slug, request=request)
@@ -4073,6 +4074,8 @@ def edit_response(request, part_slug, task_slug, prompt_id):
         )
     )
     response = selected_prompt.response
+    if request.method == "POST":
+        lock_study_user(request.user)
     personal = PersonalResponse.objects.filter(
         user=request.user,
         response=response,

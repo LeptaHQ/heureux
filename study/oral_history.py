@@ -13,6 +13,7 @@ from django.core.serializers.json import DjangoJSONEncoder
 from django.db import transaction
 from django.db.models import Q
 
+from .course_practice import lock_course_user as lock_study_user
 from .models import Annotation, OralStateSnapshot, PersonalResponse, Phrase, PhraseTier, Prompt, Response
 
 def variant_annotation_key(prompt, content):
@@ -75,6 +76,8 @@ def snapshot(instance, kind, *, response=None):
 
 @transaction.atomic
 def save_personal(response, user, defaults, *, source_prompt=None):
+    # A first save has no personal row to lock; keep the account lifecycle order.
+    lock_study_user(user)
     current = PersonalResponse.objects.select_for_update().filter(
         response=response, user=user,
     ).first()

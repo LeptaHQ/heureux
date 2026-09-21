@@ -58,6 +58,7 @@ from ..models import (
     ReviewSession,
     Settings,
     ThemeVocabularyProgress,
+    WritingResponseOverride,
     WritingSujetCompletion,
 )
 
@@ -66,6 +67,9 @@ from .review import (
     _save_review_session,
 )
 from ..course_practice import lock_course_user, public_snapshot
+
+ACCOUNT_EXPORT_VERSION = 11
+
 
 def _auth_redirect(request):
     candidate = request.POST.get("next") or request.GET.get("next")
@@ -135,6 +139,10 @@ def register_view(request):
                     provision_user_study_data(user)
                     recovery_codes = generate_recovery_codes(user)
             except IntegrityError:
+                if not get_user_model().objects.filter(
+                    username__iexact=form.cleaned_data["username"]
+                ).exists():
+                    raise
                 form.add_error(
                     "username",
                     "Ce nom d'utilisateur est déjà utilisé.",
@@ -427,11 +435,13 @@ def export_account(request):
             "source_path",
             "source_key",
             "source_title",
+            "source_prompt_id",
             "start_offset",
             "end_offset",
             "prefix",
             "suffix",
             "study_later",
+            "completed_at",
             "created_at",
             "updated_at",
         )
@@ -499,7 +509,7 @@ def export_account(request):
     settings = Settings.load(request.user)
     payload = {
         "format": "heureux-account-export",
-        "version": 10,
+        "version": ACCOUNT_EXPORT_VERSION,
         "exported_at": timezone.now(),
         "account": {
             "username": request.user.get_username(),
@@ -538,6 +548,20 @@ def export_account(request):
             )
             .select_related("sujet__task__part")
             .order_by("created_at", "pk")
+        ],
+        "writing_response_overrides": [
+            {
+                "part": override.sujet.task.part.slug,
+                "task": override.sujet.task.slug,
+                "sujet": override.sujet.slug,
+                "version_key": override.version_key,
+                "body": override.body,
+                "is_deleted": override.is_deleted,
+                "updated_at": override.updated_at,
+            }
+            for override in WritingResponseOverride.objects.filter(user=request.user)
+            .select_related("sujet__task__part")
+            .order_by("updated_at", "pk")
         ],
         "personal_question_responses": [
             {

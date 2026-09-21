@@ -410,6 +410,8 @@ def generate_recovery_codes(user) -> list[str]:
         if code not in codes:
             codes.append(code)
     with transaction.atomic():
+        # Lock the owner even when there are no existing code rows to lock.
+        get_user_model().objects.select_for_update().get(pk=user.pk)
         AccountRecoveryCode.objects.filter(user=user).delete()
         AccountRecoveryCode.objects.bulk_create(
             [
@@ -447,7 +449,7 @@ def reset_pin_with_recovery(
         user = (
             get_user_model()
             .objects.select_for_update()
-            .filter(username__iexact=username)
+            .filter(username__iexact=username, is_active=True)
             .order_by("pk")
             .first()
         )

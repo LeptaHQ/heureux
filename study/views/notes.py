@@ -7,6 +7,7 @@ import json
 import re
 import urllib.request
 from datetime import datetime, time, timedelta
+from http.client import HTTPException
 from urllib.parse import parse_qs, urlsplit
 
 from django.conf import settings
@@ -278,6 +279,16 @@ def _annotation_tab_url(task, kind, *, custom=False, comprehension=None):
         task, custom=custom, comprehension=comprehension
     )
     return f"{url}?tab={tab}"
+
+
+def _annotation_folder_url(annotation):
+    scope = _annotation_scope_key(annotation)
+    return _annotation_tab_url(
+        annotation.task,
+        annotation.kind,
+        custom=scope == "custom",
+        comprehension=scope if scope in COMPREHENSION_NOTE_MODES else None,
+    )
 
 
 def _annotation_study_url(
@@ -805,11 +816,16 @@ def annotation_search(request):
         )
     if kind in AnnotationKind.values:
         annotations = annotations.filter(kind=kind)
-    else:
-        active_tab = ""
     if study_only:
         annotations = annotations.filter(study_later=True)
-    if task_id.isdigit():
+    if task_id:
+        if (
+            not task_id.isascii()
+            or not task_id.isdigit()
+            or len(task_id) > 19
+            or not 0 < int(task_id) <= 2**63 - 1
+        ):
+            return HttpResponseBadRequest("Invalid task.")
         task_id = int(task_id)
         annotations = annotations.filter(task_id=task_id)
     else:
@@ -828,16 +844,8 @@ def annotation_search(request):
         result_count = len(results)
     for annotation in results:
         annotation.scope_label = _annotation_scope_label(annotation)
-        scope_key = _annotation_scope_key(annotation)
         annotation.notes_url = (
-            _annotation_tab_url(
-                annotation.task,
-                annotation.kind,
-                custom=scope_key == "custom",
-                comprehension=(
-                    scope_key if scope_key in COMPREHENSION_NOTE_MODES else None
-                ),
-            )
+            _annotation_folder_url(annotation)
             + f"&locate={annotation.pk}#"
             + _annotation_anchor(annotation)
         )
@@ -1093,7 +1101,9 @@ def _annotation_prompt_scope(prompt):
             theme__task__isnull=False,
         ).select_related("theme__task__part")
     ]
-    source_filter = Q()
+    source_filter = Q(source_path=canonical_path) | Q(
+        source_path__startswith=f"{canonical_path}?"
+    )
     for sibling_path in sibling_paths:
         source_filter |= Q(source_path=sibling_path)
         source_filter |= Q(
@@ -1105,11 +1115,11 @@ def _annotation_prompt_scope(prompt):
 def _annotation_writing_sujet_scope(sujet, tache, *, prefer_edit=False):
     canonical_by_slug = content_module.ee_writing_canonical_slug_by_slug(tache)
     canonical_slug = canonical_by_slug.get(sujet.slug, sujet.slug)
-    sibling_slugs = [
+    sibling_slugs = {sujet.slug} | {
         slug
         for slug, target_slug in canonical_by_slug.items()
         if target_slug == canonical_slug
-    ]
+    }
     siblings = list(
         WritingSujet.objects.filter(
             task=sujet.task,
@@ -1129,7 +1139,9 @@ def _annotation_writing_sujet_scope(sujet, tache, *, prefer_edit=False):
         ),
         args=[sujet.task.part.slug, sujet.task.slug, canonical.pk],
     )
-    source_filter = Q()
+    source_filter = Q(source_path=canonical_path) | Q(
+        source_path__startswith=f"{canonical_path}?"
+    )
     for sibling in siblings:
         for route_name in (
             "study:writing_sujet_detail",
@@ -1455,11 +1467,7 @@ def annotation_create(request):
             args=[annotation.id],
         ),
         "notes_url": (
-            _annotation_tab_url(
-                task,
-                annotation.kind,
-                custom=_annotation_scope_key(annotation) == "custom",
-            )
+            _annotation_folder_url(annotation)
             + "#"
             + _annotation_anchor(annotation)
         ),
@@ -1492,11 +1500,7 @@ def _annotation_next_url(request):
 
 
 def _annotation_redirect(request, annotation):
-    return _annotation_next_url(request) or _annotation_tab_url(
-        annotation.task,
-        annotation.kind,
-        custom=_annotation_scope_key(annotation) == "custom",
-    )
+    return _annotation_next_url(request) or _annotation_folder_url(annotation)
 
 
 def _annotation_action_queryset(request):
@@ -1526,7 +1530,8 @@ def annotation_update(request, pk):
             {"error": "Corrigez la note avant de l'enregistrer."},
             status=400,
         )
-    form.save()
+    annotation = form.save(commit=False)
+    annotation.save(update_fields=["title", "body", "updated_at"])
     redirect_url = _annotation_redirect(request, annotation) + f"#note-{pk}"
     if _is_fetch(request):
         # The rendered body lets callers such as the study deck refresh a
@@ -1669,13 +1674,19 @@ def translate_selection(request):
             timeout=getattr(settings, "TRANSLATION_TIMEOUT", 8),
         ) as api_response:
             body = json.loads(api_response.read().decode("utf-8"))
-    except Exception:  # pragma: no cover - network failure paths
+    except (OSError, HTTPException, UnicodeDecodeError, json.JSONDecodeError):
         return JsonResponse({"error": "upstream"}, status=502)
 
-    translation = (body or {}).get("translatedText") or ""
+    if not isinstance(body, dict):
+        return JsonResponse({"error": "upstream"}, status=502)
+    translation = body.get("translatedText", "")
     if isinstance(translation, list):
-        translation = translation[0] if translation else ""
-    translation = str(translation).strip()
+        if len(translation) != 1:
+            return JsonResponse({"error": "upstream"}, status=502)
+        translation = translation[0]
+    if not isinstance(translation, str):
+        return JsonResponse({"error": "upstream"}, status=502)
+    translation = translation.strip()
     if not translation:
         return JsonResponse({"error": "empty"}, status=502)
 

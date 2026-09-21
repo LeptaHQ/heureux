@@ -451,6 +451,7 @@ def queue_counts(
         ReviewLog.objects.filter(
             user=user,
             reviewed_at__gte=start,
+            reviewed_at__lt=start + timezone.timedelta(days=1),
         ).values_list("card_id", "state_before")
     )
     new_done_today = 0
@@ -486,6 +487,13 @@ def queue_counts(
     revisit_scope = {**(scope or {}), "kind": "revisit"}
     if (scope or {}).get("kind") == "theme_vocab":
         revisit_scope["content"] = THEME_VOCABULARY_CONTENT
+    # A lot's badge uses its original membership, not a new partition of just
+    # the marked cards. Unbatched scopes retain their broader revisit list.
+    revisit_cards = (
+        cards.filter(needs_revisit=True)
+        if (scope or {}).get("batch")
+        else scoped_cards(revisit_scope, user=user)
+    )
 
     return {
         "due_reviews": due_reviews,
@@ -498,12 +506,7 @@ def queue_counts(
         "reviews_done_today": reviews_done_today,
         "total_due": due_reviews + new_available,
         "scoped_total": scoped_total,
-        "revisit_total": scoped_count(
-            scoped_cards(
-                revisit_scope,
-                user=user,
-            )
-        ),
+        "revisit_total": scoped_count(revisit_cards),
     }
 
 

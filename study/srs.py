@@ -69,6 +69,8 @@ def compute(
     now: datetime,
 ) -> Schedule:
     """Return the next scheduling state for a card. Pure function."""
+    if rating not in Rating.values:
+        raise ValueError("Invalid rating.")
     if state in (CardState.NEW, CardState.LEARNING):
         return _compute_learning(
             steps=LEARNING_STEPS_MIN,
@@ -222,6 +224,7 @@ def _snapshot(card: Card) -> dict:
     }
 
 
+@transaction.atomic
 def review(
     card: Card,
     rating: int,
@@ -231,8 +234,12 @@ def review(
     return_log: bool = False,
 ) -> Schedule | tuple[Schedule, ReviewLog]:
     """Apply a rating to a card, persist it, and log the review."""
-    now = now or timezone.now()
     rating = int(rating)
+    elapsed_ms = max(0, int(elapsed_ms))
+    card.refresh_from_db(
+        from_queryset=Card.objects.select_for_update().filter(user_id=card.user_id)
+    )
+    now = now or timezone.now()
 
     before_state = card.state
     before_interval = card.interval_days
@@ -283,7 +290,7 @@ def review(
         interval_after=sched.interval_days,
         ease_before=before_ease,
         ease_after=sched.ease,
-        elapsed_ms=max(0, int(elapsed_ms)),
+        elapsed_ms=elapsed_ms,
         card_before=snapshot,
     )
     return (sched, log) if return_log else sched

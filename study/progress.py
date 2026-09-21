@@ -120,11 +120,7 @@ class WritingSujetProgress:
 
     @property
     def started(self) -> int:
-        return int(
-            self.explicitly_completed
-            or self.is_personalized
-            or self.has_highlight
-        )
+        return int(self.status != "new")
 
     @property
     def completed(self) -> int:

@@ -129,9 +129,7 @@ def _fr_plural(count):
 def _reviews_today(day_counts, now):
     """Reviews recorded since local midnight, from the per-day mapping."""
     today = timezone.localtime(now).date()
-    return sum(
-        count for day, count in day_counts.items() if day >= today
-    )
+    return day_counts.get(today, 0)
 
 
 def _skill_rings(expression_paths, comprehension, learning):

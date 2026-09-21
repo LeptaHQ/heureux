@@ -698,17 +698,30 @@ def current_streak(now=None, logs=None, user=None, day_counts=None) -> int:
     return streak
 
 
+def _recent_review_logs(logs):
+    """Page history even when pooled connections disable server-side cursors."""
+    ordered = logs.select_related(
+        "card__response__theme",
+        "card__phrase",
+    ).order_by("-reviewed_at", "-pk")
+    page = ordered
+    while True:
+        rows = list(page[:400])
+        yield from rows
+        if len(rows) < 400:
+            return
+        last = rows[-1]
+        page = ordered.filter(
+            Q(reviewed_at__lt=last.reviewed_at)
+            | Q(reviewed_at=last.reviewed_at, pk__lt=last.pk)
+        )
+
+
 def recent_review_sessions(logs, *, limit=8) -> list[dict]:
     """Group recent review logs into focused sessions separated by 30 minutes."""
-    recent_logs = list(
-        logs.select_related(
-            "card__response__theme",
-            "card__phrase",
-        ).order_by("-reviewed_at")[:400]
-    )
     sessions = []
     current = None
-    for log in recent_logs:
+    for log in _recent_review_logs(logs):
         if (
             current is None
             or current["started_at"] - log.reviewed_at > RECENT_SESSION_GAP

@@ -656,8 +656,8 @@ def review_answer(request):
             or session.current_card_id != card_id
             or session.scope != scope
             or not secrets.compare_digest(
-                session.presentation_token,
-                presentation_token,
+                session.presentation_token.encode(),
+                presentation_token.encode(),
             )
         ):
             conflict = {

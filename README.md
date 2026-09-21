@@ -240,7 +240,8 @@ Answer normalization preserves accents and internal punctuation, while allowing
 case, typographic apostrophes, whitespace and optional terminal `. ! ? …`.
 Items testing capitalization or terminal punctuation can explicitly set
 `case_sensitive` or `terminal_punctuation_sensitive` to `true`.
-Export format 9 includes reading, session history and course productions;
+Account export format 11 includes reading, session history, course productions,
+private writing-response overrides, and annotation completion/source metadata;
 unfinished and abandoned session answer keys remain hidden. Confirmed progress
 reset removes course history and productions, preserving notes and highlights.
 Account deletion cascades all owned course data. No practice percentage converts

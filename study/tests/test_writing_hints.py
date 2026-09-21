@@ -48,13 +48,13 @@ class WritingHintsContentTests(SimpleTestCase):
 
     def test_exactly_the_requested_themes_share_complete_bilingual_pistes(self):
         hints = content.load_ee_tache_one_subject_hints(categories=self.categories)
-        self.assertEqual(len(hints), 77)
+        self.assertEqual(len(hints), 89)
         self.assertEqual(set(hints), {subject.slug for subject in self.subjects})
         canonical = [subject for subject in self.subjects if subject.slug == subject.canonical_slug]
         self.assertEqual(Counter(subject.category for subject in canonical), {
-            "invitations": 9, "sorties": 8, "accueil": 5, "voyages": 9, "ville": 3,
+            "invitations": 9, "sorties": 8, "accueil": 5, "voyages": 9, "ville": 3, "logement": 8,
         })
-        self.assertEqual(len(set(hints.values())), 34)
+        self.assertEqual(len(set(hints.values())), 42)
         for subject in self.subjects:
             with self.subTest(subject=subject.slug):
                 cues = hints[subject.slug]
@@ -126,6 +126,27 @@ class WritingHintsContentTests(SimpleTestCase):
             with self.assertRaisesMessage(ValueError, "Duplicate field"):
                 content.load_ee_tache_one_subject_hints(path, categories=self.categories)
 
+    def test_housing_pistes_cover_distinct_plans_without_private_contact_details(self):
+        hints = catalogue.ee_tache_one_subject_hints()
+        expected_topics = {
+            "mars-combinaison-9": ("redécorer", "peindre", "camion"),
+            "avril-combinaison-1": ("propriétaire", "charges", "visite"),
+            "juillet-combinaison-4": ("agence", "Nice", "étudiant", "salle de bain privée"),
+            "aout-combinaison-13": ("travail", "camion", "disponibilité"),
+            "aout-combinaison-14": ("colocataire", "intimité", "non-fumeuse", "contact"),
+            "aout-combinaison-17": ("Montréal", "annonces", "remercier"),
+            "aout-combinaison-18": ("trouvé", "studio", "dîner"),
+            "novembre-combinaison-12": ("déjà accepté", "Répartir", "Trajet", "déchargement"),
+        }
+        for slug, topics in expected_topics.items():
+            with self.subTest(slug=slug):
+                french = " ".join(cue.french for cue in hints[slug])
+                bilingual = " ".join(f"{cue.french} {cue.english}" for cue in hints[slug])
+                for topic in topics:
+                    self.assertIn(topic, french)
+                self.assertNotRegex(bilingual, r"@|https?://|\b(?:\d[- .]?){8,}\d\b")
+                self.assertNotRegex(bilingual, r"\b\d+\s*,?\s+(?:rue|avenue)\b")
+
     def test_metadata_shape_count_and_bilingual_text_are_strict(self):
         for key, value in (("task", "ee/tache-2"), ("version", True), ("version", 2), ("groups", [])):
             with self.subTest(key=key), self.assertRaises(ValueError):
@@ -159,7 +180,10 @@ class WritingHintsContentTests(SimpleTestCase):
             row["french"] = " ".join(["un"] * 20 + [str(index)])
         with self.assertRaisesMessage(ValueError, "75 French words"):
             self.load(invalid)
-        for categories in ((), self.categories[1:]):
+        for categories in (
+            (), self.categories[1:],
+            tuple(category for category in self.categories if category.slug != "logement"),
+        ):
             with self.assertRaisesMessage(ValueError, "source themes"):
                 content.load_ee_tache_one_subject_hints(categories=categories)
         invalid_categories = list(self.categories)
@@ -207,7 +231,7 @@ class WritingHintsViewTests(TestCase):
     def test_every_selected_publication_renders_shared_pistes(self):
         hints = catalogue.ee_tache_one_subject_hints()
         sujets = WritingSujet.objects.filter(task=self.task, slug__in=hints).select_related("task")
-        self.assertEqual(sujets.count(), 77)
+        self.assertEqual(sujets.count(), 89)
         for sujet in sujets:
             with self.subTest(sujet=sujet.slug):
                 page = self.client.get(self.url(sujet))
@@ -271,8 +295,31 @@ class WritingHintsViewTests(TestCase):
         for control in ("data-writing-response-edit", "data-writing-response-delete", "data-response-copy"):
             self.assertEqual(page.content.count(control.encode()), baseline.content.count(control.encode()))
 
+    def test_housing_equivalents_preserve_personal_answers_and_overrides(self):
+        canonical = WritingSujet.objects.get(task=self.task, slug="aout-combinaison-14")
+        personal = PersonalWritingResponse.objects.create(
+            user=self.user, sujet=canonical, body="Ma recherche personnelle de colocataire.",
+        )
+        WritingResponseOverride.objects.create(
+            user=self.user, sujet=canonical,
+            version_key=model_version_keys(canonical.model_versions)[0],
+            body="Mon modèle modifié reste inchangé.",
+        )
+        tracked = (WritingSujet, PersonalWritingResponse, WritingResponseOverride)
+        before = {model: list(model.objects.order_by("pk").values()) for model in tracked}
+        expected = catalogue.ee_tache_one_subject_hints()[canonical.slug]
+        for slug in ("aout-combinaison-14", "aout-combinaison-16", "novembre-combinaison-11"):
+            sujet = WritingSujet.objects.get(task=self.task, slug=slug)
+            with self.subTest(slug=slug):
+                page = self.client.get(self.url(sujet))
+                self.assertEqual(page.status_code, 200)
+                self.assertIs(page.context["subject_hints"], expected)
+                self.assertEqual(page.context["response_copy_texts"]["personal"], personal.body)
+                self.assertIn("Mon modèle modifié reste inchangé.", page.context["response_copy_texts"].values())
+        self.assertEqual(before, {model: list(model.objects.order_by("pk").values()) for model in tracked})
+
     def test_unrequested_themes_custom_sujets_and_ee2_keep_their_existing_page(self):
-        logement = WritingSujet.objects.filter(task=self.task, category="logement").first()
+        transport = WritingSujet.objects.filter(task=self.task, category="transport").first()
         custom = factories.make_writing_sujet(self.task, slug="adhoc-pistes")
         ee2 = factories.make_task(self.task.part, "tache-2")
         source = content.load_ee_writing_categories(2)[0].sujets[0]
@@ -280,7 +327,7 @@ class WritingHintsViewTests(TestCase):
             ee2, slug=source.slug, category=source.category, prompt=source.prompt,
         )
         with patch("study.views.library.catalogue.ee_tache_one_subject_hints", side_effect=AssertionError("Unrequested pistes")):
-            for sujet in (logement, custom, writing):
+            for sujet in (transport, custom, writing):
                 page = self.client.get(self.url(sujet))
                 self.assertEqual(page.status_code, 200)
                 self.assertNotContains(page, "subject-hints--writing")

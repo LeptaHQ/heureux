@@ -70,7 +70,7 @@ EE_TACHE_ONE_DIR = CONTENT_DIR / "ee" / "tache_1"
 EE_TACHE_ONE_SUJETS_PATH = EE_TACHE_ONE_DIR / "sujets.json"
 EE_TACHE_ONE_THEME_VOCABULARY_DIR = EE_TACHE_ONE_DIR / "theme_vocabulary"
 EE_TACHE_ONE_SUBJECT_HINTS_PATH = EE_TACHE_ONE_DIR / "hints.json"
-EE_TACHE_ONE_HINT_THEMES = frozenset({"invitations", "sorties", "accueil", "voyages", "ville"})
+EE_TACHE_ONE_HINT_THEMES = frozenset({"invitations", "sorties", "accueil", "voyages", "ville", "logement"})
 
 EE_TACHE_TWO_TASK = ("ee", "tache-2")
 EE_TACHE_TWO_CONTENT_PREFIX = "ee-tache2:"
@@ -760,7 +760,7 @@ def load_ee_tache_one_subject_hints(
     source_categories = load_ee_writing_categories(1) if categories is None else categories
     selected = [category for category in source_categories if category.slug in EE_TACHE_ONE_HINT_THEMES]
     if {category.slug for category in selected} != EE_TACHE_ONE_HINT_THEMES:
-        raise ValueError("EE1 hints require all five selected source themes")
+        raise ValueError("EE1 hints require all selected source themes")
     subjects = [subject for category in selected for subject in category.sujets]
     by_slug = {subject.slug: subject for subject in subjects}
     if (

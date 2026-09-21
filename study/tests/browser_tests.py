@@ -534,31 +534,35 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         try:
             page = context.new_page()
-            original = None
-            for slug in ("janvier-combinaison-2", "mars-combinaison-12"):
-                sujet = WritingSujet.objects.get(task=task, slug=slug)
-                path = reverse("study:writing_sujet_detail", args=["ee", task.slug, sujet.pk])
-                page.goto(self.live_server_url + path + "?deduplicate=0")
-                hints = page.locator(".subject-hints--writing")
-                expect(hints).to_be_visible()
-                if original is None:
-                    original = hints.inner_text()
-                else:
-                    self.assertEqual(hints.inner_text(), original)
-                french = hints.locator(".subject-hints__french[lang=fr]")
-                english = hints.locator(".subject-hints__english[lang=en]")
-                self.assertTrue(5 <= french.count() <= 8)
-                self.assertEqual(french.count(), english.count())
-                for width in (320, 390, 1280):
-                    page.set_viewport_size({"width": width, "height": 850})
-                    if width <= 760:
-                        expect(page.locator("[data-nav-links]")).to_be_hidden()
-                    page.get_by_role("link", name="Voir les pistes", exact=True).click()
-                    expect(hints.get_by_role("heading", name="Pistes", exact=True)).to_be_in_viewport()
-                    self.assertLessEqual(
-                        page.evaluate("document.documentElement.scrollWidth"),
-                        page.evaluate("window.innerWidth") + 1,
-                    )
+            for group in (
+                ("janvier-combinaison-2", "mars-combinaison-12"),
+                ("aout-combinaison-14", "aout-combinaison-16", "novembre-combinaison-11"),
+            ):
+                original = None
+                for slug in group:
+                    sujet = WritingSujet.objects.get(task=task, slug=slug)
+                    path = reverse("study:writing_sujet_detail", args=["ee", task.slug, sujet.pk])
+                    page.goto(self.live_server_url + path + "?deduplicate=0")
+                    hints = page.locator(".subject-hints--writing")
+                    expect(hints).to_be_visible()
+                    if original is None:
+                        original = hints.inner_text()
+                    else:
+                        self.assertEqual(hints.inner_text(), original)
+                    french = hints.locator(".subject-hints__french[lang=fr]")
+                    english = hints.locator(".subject-hints__english[lang=en]")
+                    self.assertTrue(5 <= french.count() <= 8)
+                    self.assertEqual(french.count(), english.count())
+                    for width in (320, 390, 1280):
+                        page.set_viewport_size({"width": width, "height": 850})
+                        if width <= 760:
+                            expect(page.locator("[data-nav-links]")).to_be_hidden()
+                        page.get_by_role("link", name="Voir les pistes", exact=True).click()
+                        expect(hints.get_by_role("heading", name="Pistes", exact=True)).to_be_in_viewport()
+                        self.assertLessEqual(
+                            page.evaluate("document.documentElement.scrollWidth"),
+                            page.evaluate("window.innerWidth") + 1,
+                        )
         finally:
             context.close()
 

@@ -29,6 +29,7 @@ from study.models import (
     Phrase,
     PhraseTier,
 )
+from study.views.account import ACCOUNT_EXPORT_VERSION
 
 from . import factories
 
@@ -1380,7 +1381,7 @@ class ComprehensionFlowTests(TestCase):
         response = self.client.get(reverse("study:export_account"))
         payload = json.loads(response.content)
 
-        self.assertEqual(payload["version"], 8)
+        self.assertEqual(payload["version"], ACCOUNT_EXPORT_VERSION)
         self.assertEqual(len(payload["comprehension_attempts"]), 1)
         exported = payload["comprehension_attempts"][0]
         self.assertEqual(exported["test"], self.test.slug)
@@ -2408,7 +2409,7 @@ class ComprehensionQuestionStudyAccountTests(TestCase):
             self.client.get(reverse("study:export_account")).content
         )
 
-        self.assertEqual(payload["version"], 8)
+        self.assertEqual(payload["version"], ACCOUNT_EXPORT_VERSION)
         self.assertEqual(
             payload["comprehension_question_studies"],
             [

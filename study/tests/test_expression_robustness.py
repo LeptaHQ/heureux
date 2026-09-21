@@ -1,14 +1,19 @@
+from datetime import datetime, timezone as datetime_timezone
+
 from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
 
 from study.models import (
+    Card,
     PersonalResponse,
     PersonalWritingResponse,
     PhraseTier,
+    ReviewLog,
     WritingResponseOverride,
     WritingSujetCompletion,
 )
+from study.views.library import _learning_activity, _stats_scope_cards
 from study.writing_responses import model_version_keys
 
 from . import factories
@@ -251,3 +256,58 @@ class WritingLearningActivityTests(TestCase):
         self.assertEqual(page.context["activity_30_days"], 2)
         day_counts = {row["date"]: row["count"] for row in page.context["daily"]}
         self.assertEqual(day_counts[timezone.localtime(previous_day).date()], 2)
+
+    def test_activity_sources_are_batched_for_every_scope_in_one_query(self):
+        now = timezone.now()
+        PersonalWritingResponse.objects.update(updated_at=now)
+        WritingResponseOverride.objects.update(updated_at=now)
+        WritingSujetCompletion.objects.update(completed_at=now)
+        for scope, total in (
+            ({}, 6),
+            ({"part": "ee"}, 6),
+            ({"part": "ee", "task": "tache-1"}, 3),
+            ({"part": "ee", "task": "tache-2"}, 3),
+            ({"part": "eo", "task": "tache-3"}, 0),
+        ):
+            with self.subTest(scope=scope):
+                cards = _stats_scope_cards(scope, self.user)
+                logs = ReviewLog.objects.filter(user=self.user)
+                with self.assertNumQueries(1):
+                    activity = _learning_activity(scope, self.user, cards, logs, now)
+                self.assertEqual(activity["total_activity"], total)
+                self.assertEqual(
+                    activity["per_day"],
+                    {timezone.localtime(now).date(): total} if total else {},
+                )
+                self.assertEqual(
+                    [item["key"] for item in activity["breakdown"]],
+                    ["reviews", "subjects", "responses", "notes"]
+                    + ([] if scope else ["comprehension", "memories", "lessons"]),
+                )
+
+    def test_batched_activity_keeps_local_days_and_exact_history_cutoff(self):
+        now = datetime(2026, 3, 12, 0, 30, tzinfo=datetime_timezone.utc)
+        cutoff = now - timezone.timedelta(days=365)
+        PersonalWritingResponse.objects.filter(
+            user=self.user, sujet__task=self.first_task,
+        ).update(updated_at=cutoff - timezone.timedelta(hours=1))
+        PersonalWritingResponse.objects.filter(
+            user=self.user, sujet__task=self.second_task,
+        ).update(updated_at=cutoff)
+        WritingResponseOverride.objects.filter(user=self.user).update(updated_at=now)
+        WritingSujetCompletion.objects.filter(user=self.user).update(completed_at=now)
+        with timezone.override("America/Los_Angeles"):
+            with self.assertNumQueries(1):
+                activity = _learning_activity(
+                    {}, self.user,
+                    Card.objects.filter(user=self.user),
+                    ReviewLog.objects.filter(user=self.user),
+                    now,
+                )
+            expected_days = {
+                timezone.localtime(now).date(): 4,
+                timezone.localtime(cutoff).date(): 1,
+            }
+        self.assertEqual(activity["total_activity"], 6)
+        self.assertEqual(activity["per_day"], expected_days)
+        self.assertEqual(activity["active_days"], set(expected_days))

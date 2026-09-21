@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from django.db import transaction
-from django.db.models import Count, F, Prefetch, Q, Window
+from django.db.models import Count, F, Prefetch, Q, Value, Window
 from django.db.models.functions import RowNumber, TruncDate
 from django.http import Http404, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
@@ -5530,15 +5530,13 @@ def _learning_activity(scope, user, scoped_cards, logs_base, now):
     per_day: dict = {}
     active_days: set = set()
     breakdown = {}
+    grouped_sources = []
     for key, label, qs, field in sources:
-        # One grouped pass per source: the database folds the year's activity
-        # into a row per local day and reports the all-time total alongside it,
-        # instead of a COUNT plus every single timestamp of the last year.
-        total = 0
-        for row in (
-            qs.annotate(activity_day=TruncDate(field))
+        breakdown.setdefault(key, {"key": key, "label": label, "count": 0})
+        grouped_sources.append(
+            qs.annotate(activity_key=Value(key), activity_day=TruncDate(field))
             .order_by()
-            .values("activity_day")
+            .values("activity_key", "activity_day")
             .annotate(
                 all_time=Count("id", distinct=True),
                 recent=Count(
@@ -5547,15 +5545,16 @@ def _learning_activity(scope, user, scoped_cards, logs_base, now):
                     filter=Q(**{f"{field}__gte": since_year}),
                 ),
             )
-        ):
-            total += row["all_time"]
-            day = row["activity_day"]
-            if day is None or not row["recent"]:
-                continue
-            per_day[day] = per_day.get(day, 0) + row["recent"]
-            active_days.add(day)
-        item = breakdown.setdefault(key, {"key": key, "label": label, "count": 0})
-        item["count"] += total
+        )
+    # Batch the per-source day aggregates; ALL keeps equal counts from separate
+    # sources in the same category instead of deduplicating legitimate activity.
+    for row in grouped_sources[0].union(*grouped_sources[1:], all=True):
+        breakdown[row["activity_key"]]["count"] += row["all_time"]
+        day = row["activity_day"]
+        if day is None or not row["recent"]:
+            continue
+        per_day[day] = per_day.get(day, 0) + row["recent"]
+        active_days.add(day)
 
     return {
         "per_day": per_day,

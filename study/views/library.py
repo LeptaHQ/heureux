@@ -159,11 +159,12 @@ def _distinct_count(qs) -> int:
 def _prompt_counts_by_theme(themes=None, *, task=None) -> dict:
     """Active prompt count per theme, grouped once instead of once per theme.
 
-    Passing ``task`` covers every theme of that task, archived ones included,
-    so the caller can read both each theme's count and the task total from the
-    same query.
+    Passing ``task`` covers every active theme of that task, so the caller can
+    read both each theme's count and the task total from the same query.
     """
-    prompts = Prompt.objects.filter(is_active=True)
+    prompts = Prompt.objects.filter(
+        is_active=True, response__is_active=True, theme__is_active=True,
+    )
     if task is not None:
         prompts = prompts.filter(theme__task=task)
     else:
@@ -1626,7 +1627,9 @@ def browse(request, part_slug=None, task_slug=None):
             response_progress[response_id]
             for response_id in response_ids_by_family[family.pk]
         )["progress"]
-    prompt_qs = Prompt.objects.filter(is_active=True)
+    prompt_qs = Prompt.objects.filter(
+        is_active=True, response__is_active=True, theme__is_active=True,
+    )
     response_qs = Response.objects.filter(is_active=True)
     phrase_qs = Phrase.objects.filter(is_active=True)
     if scope.get("task"):
@@ -1737,7 +1740,7 @@ def theme_detail(request, part_slug, task_slug, slug):
     if theme is None:
         raise Http404
     prompts = list(
-        Prompt.objects.filter(theme=theme, is_active=True)
+        Prompt.objects.filter(theme=theme, is_active=True, response__is_active=True)
         .select_related("response", "response__theme", "family")
         .order_by("number")
     )
@@ -3650,6 +3653,8 @@ def family_detail(request, part_slug, task_slug, slug):
     family = get_object_or_404(
         Family.objects.filter(
             prompts__is_active=True,
+            prompts__response__is_active=True,
+            prompts__theme__is_active=True,
             prompts__theme__task=task,
         ).distinct(),
         slug=slug,
@@ -3659,6 +3664,8 @@ def family_detail(request, part_slug, task_slug, slug):
         Prompt.objects.filter(
             family=family,
             theme__task=task,
+            theme__is_active=True,
+            response__is_active=True,
             is_active=True,
         )
         .select_related("response__theme", "theme", "family")
@@ -4040,6 +4047,8 @@ def response_detail(request, part_slug, task_slug, prompt_id):
 
 def edit_response(request, part_slug, task_slug, prompt_id):
     from ..oral_history import preferred_personal, save_personal, snapshot
+    if "model" in request.GET or "personal" in request.GET:
+        raise Http404
     task = _route_task(part_slug, task_slug, request=request)
     task_key = (task.part.slug, task.slug)
     is_tache_two = task_key == content_module.QUESTION_BANK_TASK
@@ -4070,6 +4079,8 @@ def edit_response(request, part_slug, task_slug, prompt_id):
     ).first()
     has_personal_response = preferred_personal(response, request.user) is not None
     detail_url = prompt_detail_url(selected_prompt)
+    if request.method == "POST" and request.POST.get("action", "save") not in {"save", "reset"}:
+        return HttpResponseBadRequest("Action invalide.")
     if request.method == "POST" and request.POST.get("action") == "reset":
         with preserve_tache_two_highlights(response, request.user) if is_tache_two else transaction.atomic():
             if personal is not None:
@@ -4416,10 +4427,14 @@ def writing_sujet_edit(request, part_slug, task_slug, sujet_id):
         editing_version = next((item for item in version_cards if item["key"] == version_key), None)
         if editing_version is None:
             raise Http404
+    if request.method == "POST" and request.POST.get("action", "save") not in {"save", "reset"}:
+        return HttpResponseBadRequest("Action invalide.")
     if request.method == "POST" and request.POST.get("action") == "reset":
         if editing_version is not None:
             return HttpResponseBadRequest("Action indisponible pour cette réponse.")
         if personal is not None:
+            if not version_cards:
+                return HttpResponseBadRequest("La réponse principale ne peut pas être supprimée.")
             personal.delete()
         return redirect(routing.subject_selection_url(f"{detail_url}?reset=1", request))
 
@@ -5232,6 +5247,24 @@ def search(request, part_slug=None, task_slug=None):
     phrase_result_count = 0
     comprehension_result_count = 0
     result_limit = 12
+    prompt_scope = Prompt.objects.filter(
+        is_active=True,
+        response__is_active=True,
+        theme__is_active=True,
+        theme__task__is_active=True,
+        theme__task__part__is_active=True,
+    )
+    writing_sujet_scope = WritingSujet.objects.filter(
+        is_active=True, task__is_active=True, task__part__is_active=True,
+    )
+    phrase_scope = Phrase.objects.filter(is_active=True, category__is_active=True)
+    if task:
+        prompt_scope = prompt_scope.filter(theme__task=task)
+        writing_sujet_scope = writing_sujet_scope.filter(task=task)
+        phrase_scope = phrase_scope.filter(
+            Q(source_prompts__in=prompt_scope)
+            | Q(vocabulary_theme__task=task, vocabulary_theme__is_active=True)
+        ).distinct()
     if query:
         prompt_query = Q(text__icontains=query)
         if not subjects_only:
@@ -5239,19 +5272,13 @@ def search(request, part_slug=None, task_slug=None):
                 Q(response__body__icontains=query, response__semantic_group="")
                 | Q(model_content__body__icontains=query)
             )
-        prompt_qs = Prompt.objects.filter(is_active=True).filter(prompt_query)
-        phrase_qs = Phrase.objects.filter(
-            Q(is_active=True),
+        prompt_qs = prompt_scope.filter(prompt_query)
+        phrase_qs = phrase_scope.filter(
             Q(expression__icontains=query)
             | Q(english_cue__icontains=query)
             | Q(example__icontains=query)
             | Q(note__icontains=query)
         )
-        if task:
-            prompt_qs = prompt_qs.filter(theme__task=task)
-            phrase_qs = phrase_qs.filter(
-                source_prompts__theme__task=task
-            ).distinct()
         if deduplicate:
             # Match every publication before choosing the first matching equivalent.
             prompt_qs = prompt_qs.annotate(
@@ -5267,7 +5294,7 @@ def search(request, part_slug=None, task_slug=None):
         prompt_results = list(
             prompt_qs
             .select_related("response", "theme__task__part", "family")
-            .order_by("theme__order", "number")[:result_limit]
+            .order_by("theme__order", "number", "pk")[:result_limit]
         )
         prompt_progress = subject_progress_by_response(
             request.user,
@@ -5276,12 +5303,7 @@ def search(request, part_slug=None, task_slug=None):
         for prompt in prompt_results:
             prompt.subject_progress = prompt_progress[prompt.response_id]
         if subjects_only:
-            writing_sujet_qs = WritingSujet.objects.filter(
-                is_active=True,
-                prompt__icontains=query,
-            )
-            if task:
-                writing_sujet_qs = writing_sujet_qs.filter(task=task)
+            writing_sujet_qs = writing_sujet_scope.filter(prompt__icontains=query)
             writing_sujet_result_count = writing_sujet_qs.count()
             writing_sujet_results = list(
                 writing_sujet_qs.select_related("task__part").order_by(
@@ -5308,7 +5330,7 @@ def search(request, part_slug=None, task_slug=None):
             phrase_results = list(
                 phrase_qs
                 .select_related("category")
-                .order_by("order")[:result_limit]
+                .order_by("order", "pk")[:result_limit]
             )
         if not task and not subjects_only:
             comprehension_qs = (
@@ -5345,15 +5367,9 @@ def search(request, part_slug=None, task_slug=None):
         + len(phrase_results)
         + len(comprehension_results)
     )
-    prompt_total_qs = Prompt.objects.filter(is_active=True)
-    if task:
-        prompt_total_qs = prompt_total_qs.filter(theme__task=task)
-    prompt_total = prompt_total_qs.count()
+    prompt_total = prompt_scope.count()
     if subjects_only:
-        writing_sujet_total_qs = WritingSujet.objects.filter(is_active=True)
-        if task:
-            writing_sujet_total_qs = writing_sujet_total_qs.filter(task=task)
-        prompt_total += writing_sujet_total_qs.count()
+        prompt_total += writing_sujet_scope.count()
     return render(
         request,
         "study/search.html",
@@ -5378,11 +5394,7 @@ def search(request, part_slug=None, task_slug=None):
             "visible_result_count": visible_result_count,
             "results_truncated": result_count > visible_result_count,
             "prompt_total": prompt_total,
-            "phrase_total": (
-                _task_phrases(task).count()
-                if task
-                else Phrase.objects.filter(is_active=True).count()
-            ),
+            "phrase_total": _distinct_count(phrase_scope),
         },
     )
 
@@ -5458,6 +5470,29 @@ def _learning_activity(scope, user, scoped_cards, logs_base, now):
         ("responses", "Réponses rédigées", responses, "updated_at"),
         ("notes", "Notes & surlignages", notes, "created_at"),
     ]
+    if not part or part == "ee":
+        writing_scope = {"user": user}
+        if part:
+            writing_scope["sujet__task__part__slug"] = part
+        if task:
+            writing_scope["sujet__task__slug"] = task
+        sources.extend([
+            (
+                "subjects", "Sujets terminés",
+                WritingSujetCompletion.objects.filter(**writing_scope),
+                "completed_at",
+            ),
+            (
+                "responses", "Réponses rédigées",
+                PersonalWritingResponse.objects.filter(**writing_scope),
+                "updated_at",
+            ),
+            (
+                "responses", "Réponses rédigées",
+                WritingResponseOverride.objects.filter(**writing_scope).exclude(body=""),
+                "updated_at",
+            ),
+        ])
     if not scope:
         sources.append(
             (
@@ -5491,7 +5526,7 @@ def _learning_activity(scope, user, scoped_cards, logs_base, now):
 
     per_day: dict = {}
     active_days: set = set()
-    breakdown = []
+    breakdown = {}
     for key, label, qs, field in sources:
         # One grouped pass per source: the database folds the year's activity
         # into a row per local day and reports the all-time total alongside it,
@@ -5516,13 +5551,14 @@ def _learning_activity(scope, user, scoped_cards, logs_base, now):
                 continue
             per_day[day] = per_day.get(day, 0) + row["recent"]
             active_days.add(day)
-        breakdown.append({"key": key, "label": label, "count": total})
+        item = breakdown.setdefault(key, {"key": key, "label": label, "count": 0})
+        item["count"] += total
 
     return {
         "per_day": per_day,
         "active_days": active_days,
-        "breakdown": breakdown,
-        "total_activity": sum(item["count"] for item in breakdown),
+        "breakdown": list(breakdown.values()),
+        "total_activity": sum(item["count"] for item in breakdown.values()),
     }
 
 

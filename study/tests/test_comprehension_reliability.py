@@ -5,7 +5,7 @@ from concurrent.futures import ThreadPoolExecutor
 from threading import Event
 
 from django.db import close_old_connections, connection, transaction
-from django.test import TestCase, TransactionTestCase, skipUnlessDBFeature
+from django.test import TestCase, TransactionTestCase, skipUnlessDBFeature, tag
 from django.urls import reverse
 
 from study.models import (
@@ -282,6 +282,7 @@ class ComprehensionReliabilityTests(TestCase):
 
 
 @skipUnlessDBFeature("has_select_for_update")
+@tag("database-locking")
 class ComprehensionSnapshotConcurrencyTests(TransactionTestCase):
     def test_concurrent_legacy_readers_preserve_the_first_pinned_snapshot(self):
         user = factories.make_user("concurrent-comprehension")

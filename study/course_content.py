@@ -422,18 +422,36 @@ def _teaching_evidence(value, lessons, level: str, location: str) -> TeachingEvi
     return TeachingEvidence(lesson_id, sections, items)
 
 
+def _benchmark_sources(value, level: str) -> dict[str, str]:
+    value = _object(value, "benchmark")
+    if _text(value.get("level"), "benchmark.level") != level:
+        raise ValueError("benchmark.level does not match the report")
+    _url(value.get("url"), "benchmark.url")
+    entries = _array(value.get("entries"), "benchmark.entries")
+    sources = {}
+    for index, raw in enumerate(entries):
+        location = f"benchmark.entries[{index}]"
+        raw = _object(raw, location)
+        url = _url(raw.get("url"), f"{location}.url")
+        title = _text(raw.get("title"), f"{location}.title")
+        if url != raw["url"] or title != raw["title"]:
+            raise ValueError(f"{location} URL/title must not have surrounding whitespace")
+        sources[url] = title
+    if len(sources) != BENCHMARK_COUNTS[level] or len(sources) != len(entries):
+        raise ValueError("Benchmark count or uniqueness is invalid")
+    return sources
+
+
 def validate_coverage_ledger(value, benchmark, catalog: CourseCatalog) -> tuple[CoverageEntry, ...]:
     value = _object(value, "coverage")
     _exact_fields(value, {"version", "level", "source_index_url", "entries"}, "coverage")
     _version(value["version"], "coverage.version")
     level = _text(value["level"], "coverage.level")
-    if level not in BENCHMARK_COUNTS or benchmark["level"] != level:
+    if level not in BENCHMARK_COUNTS:
         raise ValueError("coverage.level does not match the benchmark")
+    sources = _benchmark_sources(benchmark, level)
     if value["source_index_url"] != benchmark["url"]:
         raise ValueError("coverage.source_index_url does not match the benchmark")
-    sources = {entry["url"]: entry["title"] for entry in benchmark["entries"]}
-    if len(sources) != BENCHMARK_COUNTS[level] or len(sources) != len(benchmark["entries"]):
-        raise ValueError("Benchmark count or uniqueness is invalid")
     lessons = {lesson.id: lesson for lesson in catalog.lessons}
     entries = []
     for raw in _array(value["entries"], "coverage.entries"):
@@ -489,15 +507,13 @@ def validate_depth_report(
     _exact_fields(value, {"version", "level", "baseline_commit", "scope", "entries"}, "depth")
     _version(value["version"], "depth.version")
     level = _text(value["level"], "depth.level")
-    if level not in BENCHMARK_COUNTS or benchmark["level"] != level:
+    if level not in BENCHMARK_COUNTS:
         raise ValueError("depth.level does not match the benchmark")
+    sources = _benchmark_sources(benchmark, level)
     if value["baseline_commit"] != DEPTH_BASELINE_COMMIT:
         raise ValueError("depth.baseline_commit must identify the published follow-up baseline")
     if value["scope"] != "public-lesson-text":
         raise ValueError("depth.scope must be public-lesson-text, not the private question bank")
-    sources = {entry["url"]: entry["title"] for entry in benchmark["entries"]}
-    if len(sources) != BENCHMARK_COUNTS[level] or len(sources) != len(benchmark["entries"]):
-        raise ValueError("Benchmark count or uniqueness is invalid")
     lessons = {lesson.id: lesson for lesson in catalog.lessons}
     today = today or date.today()
     entries = []

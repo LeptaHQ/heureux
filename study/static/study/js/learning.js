@@ -38,10 +38,28 @@
     return response.json().catch(function () {
       throw new Error("La réponse du serveur est inattendue.");
     }).then(function (data) {
+      if (!data || typeof data !== "object" || Array.isArray(data)) {
+        throw new Error("La réponse du serveur est inattendue.");
+      }
       if (!response.ok) {
         throw new Error(
           data.error || "Impossible d’enregistrer la progression."
         );
+      }
+      return data;
+    });
+  }
+
+  function readProgress(response) {
+    return readJson(response).then(function (data) {
+      if (
+        typeof data.completed !== "boolean"
+        || !Number.isInteger(data.completed_count) || data.completed_count < 0
+        || !Number.isInteger(data.total) || data.total < 1
+        || data.completed_count > data.total
+        || !Number.isInteger(data.percent) || data.percent < 0 || data.percent > 100
+      ) {
+        throw new Error("La réponse du serveur est inattendue.");
       }
       return data;
     });
@@ -306,6 +324,7 @@
         if (form.dataset.pending === "true") return;
         var card = form.closest("[data-learning-lesson]");
         var button = form.querySelector("[data-learning-card-check]");
+        var restoreFocus = document.activeElement === button;
         var csrf = form.querySelector("input[name='csrfmiddlewaretoken']");
         form.dataset.pending = "true";
         if (button) button.disabled = true;
@@ -321,7 +340,7 @@
           }
         })
           .then(preserveAuthentication)
-          .then(readJson)
+          .then(readProgress)
           .then(function (data) {
             renderCardProgress(card, form, data);
           })
@@ -331,6 +350,19 @@
           .finally(function () {
             delete form.dataset.pending;
             if (button) button.disabled = false;
+            if (
+              restoreFocus
+              && (document.activeElement === document.body || document.activeElement === button)
+            ) {
+              if (button && button.getClientRects().length) {
+                button.focus();
+              } else {
+                var activeFilter = statusButtons.find(function (filter) {
+                  return filter.dataset.learningStatusFilter === statusFilter;
+                });
+                (activeFilter || search).focus();
+              }
+            }
           });
       });
     });
@@ -406,6 +438,11 @@
       })
         .then(preserveAuthentication)
         .then(readJson)
+        .then(function (data) {
+          if (data.started !== true) {
+            throw new Error("La réponse du serveur est inattendue.");
+          }
+        })
         .catch(function (error) {
           if (status) status.textContent = error.message;
         });
@@ -467,7 +504,7 @@
         }
       })
         .then(preserveAuthentication)
-        .then(readJson)
+        .then(readProgress)
         .then(render)
         .catch(function (error) {
           if (status) status.textContent = error.message;

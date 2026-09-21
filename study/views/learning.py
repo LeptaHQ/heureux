@@ -160,6 +160,8 @@ def learn_lesson(request, lesson_slug, course=False):
     level = request.GET.get("level", "all") if course else "all"
     if level != "all" and level not in CEFR_LEVELS:
         return HttpResponseBadRequest("Unknown CEFR filter.")
+    if course and level != lesson.cefr_level:
+        level = "all"
     lessons = tuple(
         item for item in catalog.lessons
         if level == "all" or item.cefr_level == level
@@ -233,7 +235,7 @@ def learn_lesson_progress(request, lesson_slug, course=False):
         raise Http404
     _module, lesson = result
     completed = request.POST.get("completed")
-    if completed not in {"0", "1"}:
+    if len(request.POST.getlist("completed")) != 1 or completed not in {"0", "1"}:
         message = "État de leçon invalide."
         if request.headers.get("X-Requested-With") == "fetch":
             return JsonResponse({"error": message}, status=400)

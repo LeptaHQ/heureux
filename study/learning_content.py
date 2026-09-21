@@ -471,7 +471,7 @@ def _load_learning_catalog(path: Path) -> LearningCatalog:
         {"version", "title", "description", "modules"},
         path.name,
     )
-    if payload["version"] != 1:
+    if type(payload["version"]) is not int or payload["version"] != 1:
         raise ValueError(f"{path.name} must use learning-content version 1")
     modules = payload["modules"]
     if not isinstance(modules, list) or not modules:

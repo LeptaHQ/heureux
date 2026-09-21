@@ -53,7 +53,7 @@
         <h2>{{ forloop.counter }}. {{ item.prompt|markdown_inline }}</h2>
         {% include "study/partials/course_item_feedback.html" %}
         {% if attempt.mode == 'practice' and attempt.status == 'active' and not item.answer %}
-          <form method="post">
+          <form method="post" action="{% url 'study:course_attempt' attempt.pk %}#item-{{ item.id }}">
             {% csrf_token %}
             <input type="hidden" name="item_id" value="{{ item.id }}">
             {% include "study/partials/course_item_input.html" with field_name="response" %}

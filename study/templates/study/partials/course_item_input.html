@@ -4,10 +4,10 @@
   <fieldset class="course-choices">
     <legend class="sr-only">{{ item.prompt }}</legend>
     {% for choice in item.choices %}
-      <label><input type="radio" name="{{ field_name }}" value="{{ choice }}" required> <span lang="fr">{{ choice }}</span></label>
+      <label><input type="radio" name="{{ field_name }}" value="{{ choice }}" required{% if item.response == choice %} checked{% endif %}> <span lang="fr">{{ choice }}</span></label>
     {% endfor %}
   </fieldset>
 {% else %}
   <label class="sr-only" for="answer-{{ item.id }}">French answer: {{ item.prompt }}</label>
-  <input id="answer-{{ item.id }}" name="{{ field_name }}" type="text" maxlength="4000" lang="fr" autocomplete="off" autocapitalize="off" spellcheck="false">
+  <input id="answer-{{ item.id }}" name="{{ field_name }}" value="{{ item.response }}" type="text" maxlength="4000" lang="fr" autocomplete="off" autocapitalize="off" spellcheck="false">
 {% endif %}

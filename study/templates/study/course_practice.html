@@ -15,11 +15,11 @@
     <p>Practice offers feedback and optional hints. Checks hold all feedback until submission. The pilot criterion is at least 80% overall and 75% on text answers, on the first submission with fresh items.</p>
     <p>Items seen in an earlier session, including abandoned sessions, are rehearsed. A retry remains useful but cannot become independent evidence. A finite bank may run out of fresh items.</p>
     <div class="course-actions">
-      <form method="post">{% csrf_token %}<button class="btn btn--primary" name="mode" value="practice">Learning practice</button></form>
-      <form method="post">{% csrf_token %}<button class="btn" name="mode" value="check">Start / resume check</button></form>
+      <form method="post" action="{% url 'study:course_practice' lesson.slug %}">{% csrf_token %}<button class="btn btn--primary" name="mode" value="practice">Learning practice</button></form>
+      <form method="post" action="{% url 'study:course_practice' lesson.slug %}">{% csrf_token %}<button class="btn" name="mode" value="check">Start / resume check</button></form>
       {% if evidence.due_at %}
         {% if evidence.review_due or evidence.review %}
-          <form method="post">{% csrf_token %}<button class="btn" name="mode" value="review">{% if not evidence.fresh_review_available %}Rehearse review{% else %}Start / resume review{% endif %}</button></form>
+          <form method="post" action="{% url 'study:course_practice' lesson.slug %}">{% csrf_token %}<button class="btn" name="mode" value="review">{% if not evidence.fresh_review_available %}Rehearse review{% else %}Start / resume review{% endif %}</button></form>
         {% endif %}
       {% endif %}
     </div>
@@ -65,7 +65,8 @@
     <form method="post" action="{% url 'study:course_production_create' lesson.slug %}">
       {% csrf_token %}
       <label for="production-body">Your French response</label>
-      <textarea id="production-body" name="body" lang="fr" rows="7" maxlength="20000" required></textarea>
+      {% if production_error %}<p id="production-error" class="memory-progress-error" role="alert">{{ production_error }}</p>{% endif %}
+      <textarea id="production-body" name="body" lang="fr" rows="7" maxlength="20000" required{% if production_error %} aria-invalid="true" aria-describedby="production-error"{% endif %}>{{ production_body }}</textarea>
       <button class="btn" type="submit">Save and self-review</button>
     </form>
   </section>

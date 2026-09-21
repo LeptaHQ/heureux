@@ -28,7 +28,7 @@ def successful_check(user, lesson):
     return CourseAttempt.objects.filter(
         user=user, lesson_id=lesson.id, content_version__in=lesson.assessment_versions,
         mode="check", status="completed", criterion_met=True,
-    ).order_by("submitted_at").first()
+    ).defer("snapshot", "events").order_by("submitted_at").first()
 
 
 def evidence_state(user, lesson):
@@ -40,10 +40,10 @@ def evidence_state(user, lesson):
     if check:
         review = check.reviews.filter(
             status="completed", independent=True, criterion_met=True,
-        ).order_by("-submitted_at").first()
+        ).defer("snapshot", "events").order_by("-submitted_at").first()
         rehearsed_review = check.reviews.filter(
             status="completed", independent=False, criterion_met=True,
-        ).order_by("-submitted_at").first()
+        ).defer("snapshot", "events").order_by("-submitted_at").first()
         active_fresh_review = check.reviews.filter(status="active", independent=True).exists()
     seen_prompts, seen_ids = _exposures(user, lesson)
     fresh_review = [

@@ -505,7 +505,7 @@ class Command(BaseCommand):
                 if target_number is None:
                     target = model_targets.get((source.pk, version_key))
                     if target is None:
-                        if number <= len(source.model_versions):
+                        if source.pk == canonical.pk or number <= len(source.model_versions):
                             archived_model_keys.append((
                                 f"writing-sujet:{source.pk}:model-{number}",
                                 f"writing-sujet:{source.pk}:archived-model-{version_key}",

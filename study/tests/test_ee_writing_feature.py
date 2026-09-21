@@ -733,6 +733,10 @@ class EeWritingImportPreservationTests(TestCase):
         saved_personal = PersonalWritingResponse.objects.values().get(pk=personal.pk)
         saved_completion = WritingSujetCompletion.objects.values().get(pk=completion.pk)
         saved_annotations = list(Annotation.objects.order_by("pk").values())
+        saved_annotations[1]["source_key"] = (
+            f"writing-sujet:{sujet.pk}:archived-model-"
+            f"{model_version_keys(sujet.model_versions)[1]}"
+        )
         for _ in range(2):
             self.command._import_writing_sujets(self.categories, self.task_by_slug)
             sujet.refresh_from_db()

@@ -190,6 +190,28 @@ class WritingImportIdentityTests(TestCase):
             {row["id"] for row in response.json()["highlights"]}, {original.pk, retired.pk}
         )
 
+    def test_removed_canonical_model_is_archived_before_its_ordinal_is_reused(self):
+        retired = self.highlight(self.canonical, "model-2", "Original")
+        retired_key = model_version_keys(self.canonical.model_versions)[1]
+        expected = Annotation.objects.values().get(pk=retired.pk)
+        expected["source_key"] = (
+            f"writing-sujet:{self.canonical.pk}:archived-model-{retired_key}"
+        )
+        source = self.categories[0].sujets[0]
+        retained = source.versions[0]
+        replacement = content.WritingVersionData("Original phrase in an unrelated new model.")
+        for versions in ((retained,), (retained, replacement), (retained, replacement)):
+            with self.subTest(model_count=len(versions)):
+                categories = (replace(
+                    self.categories[0],
+                    sujets=(replace(source, versions=versions), self.categories[0].sujets[1]),
+                ),)
+                self.command._import_writing_sujets(categories, {"ee/tache-1": self.task})
+                self.assertEqual(Annotation.objects.values().get(pk=retired.pk), expected)
+                self.assertFalse(Annotation.objects.filter(
+                    source_key=f"writing-sujet:{self.canonical.pk}:model-2",
+                ).exists())
+
     def test_moving_one_users_draft_does_not_move_another_users_conflicting_marks(self):
         other = factories.make_user()
         for user, sujet in (

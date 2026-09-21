@@ -21,6 +21,8 @@ from study.models import (
     WritingResponseOverride,
 )
 
+from study.views.account import ACCOUNT_EXPORT_VERSION
+
 from . import factories
 
 
@@ -628,7 +630,7 @@ class WritingSujetViewTests(TestCase):
         payload = json.loads(
             self.client.get(reverse("study:export_account")).content
         )
-        self.assertEqual(payload["version"], 10)
+        self.assertEqual(payload["version"], ACCOUNT_EXPORT_VERSION)
         self.assertEqual(
             payload["personal_writing_responses"],
             [

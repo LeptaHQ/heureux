@@ -29,6 +29,7 @@ from study.course_practice import (
 from study.learning_content import load_learning_catalog
 from study.models import Annotation, CourseAttempt, CourseProduction, LearningLessonProgress
 from study.templatetags.study_markdown import render_markdown_inline
+from study.views.account import ACCOUNT_EXPORT_VERSION
 
 from . import factories
 from .course_fixtures import (
@@ -624,7 +625,7 @@ class CoursePlatformTests(TestCase):
         production.refresh_from_db()
         self.assertEqual(production.self_reviewed_at, reviewed)
         exported = self.client.get(reverse("study:export_account")).json()
-        self.assertEqual(exported["version"], 10)
+        self.assertEqual(exported["version"], ACCOUNT_EXPORT_VERSION)
         self.assertEqual(exported["course_productions"][0]["body"], production.body)
         self.client.force_login(self.other)
         self.assertEqual(self.client.get(url).status_code, 404)

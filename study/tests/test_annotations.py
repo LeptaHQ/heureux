@@ -180,7 +180,7 @@ class AnnotationTests(TestCase):
             body="Note de la semaine dernière.",
         )
         Annotation.objects.filter(pk=older.pk).update(
-            created_at=timezone.now() - timezone.timedelta(days=20)
+            created_at=timezone.now() - timezone.timedelta(days=60)
         )
 
         response = self.client.get(self.task_notes_url)

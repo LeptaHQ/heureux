@@ -24,6 +24,7 @@ from study.learning_content import (
 )
 from study.models import LearningLessonProgress
 from study.templatetags.study_markdown import render_markdown_inline
+from study.views.account import ACCOUNT_EXPORT_VERSION
 
 from . import factories
 
@@ -710,7 +711,7 @@ class LearningViewTests(TestCase):
 
         payload = self.client.get(reverse("study:export_account")).json()
 
-        self.assertEqual(payload["version"], 10)
+        self.assertEqual(payload["version"], ACCOUNT_EXPORT_VERSION)
         self.assertEqual(
             payload["learning_lesson_progress"][0]["lesson_id"],
             self.lesson.id,

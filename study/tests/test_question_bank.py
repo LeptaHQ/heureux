@@ -68,6 +68,7 @@ from study.models import (
 )
 from study.routing import prompt_detail_url, response_detail_url
 from study.views.helpers import expression_task_summaries
+from study.views.account import ACCOUNT_EXPORT_VERSION
 
 annotation_migration = import_module(
     "study.migrations.0040_shared_tache_two_annotation_keys"
@@ -2076,7 +2077,7 @@ class EoTacheOneQuestionBankViewTests(TestCase):
 
         exported = self.client.get(reverse("study:export_account")).json()
 
-        self.assertEqual(exported["version"], 10)
+        self.assertEqual(exported["version"], ACCOUNT_EXPORT_VERSION)
         self.assertEqual(
             exported["personal_question_responses"],
             [
@@ -4462,7 +4463,7 @@ class QuestionBankViewTests(TestCase):
 
         exported = self.client.get(reverse("study:export_account")).json()
 
-        self.assertEqual(exported["version"], 10)
+        self.assertEqual(exported["version"], ACCOUNT_EXPORT_VERSION)
         self.assertEqual(
             exported["memory_question_progress"][0]["question_key"],
             own_progress.question_key,

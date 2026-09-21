@@ -190,6 +190,59 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertTrue(fits, f"{self.page.url}: {overflowing}")
 
+    def test_service_worker_retries_failed_assets_and_preserves_other_caches(self):
+        worker = self.client.get("/sw.js").content.decode()
+        result = self.page.evaluate(
+            """async () => {
+                const listeners = {};
+                const stored = new Map();
+                const deleted = [];
+                let fetches = 0;
+                const self = {
+                    location: window.location,
+                    addEventListener: (name, handler) => { listeners[name] = handler; },
+                    clients: {claim: () => Promise.resolve()},
+                };
+                const caches = {
+                    keys: async () => ["another-app", "heureux-v0", CACHE],
+                    delete: async key => { deleted.push(key); return true; },
+                    match: async request => stored.get(request.url)?.clone(),
+                    open: async () => ({
+                        put: async (request, response) => {
+                            stored.set(request.url, response);
+                        },
+                    }),
+                };
+                const fetch = async () => {
+                    fetches += 1;
+                    return new Response("asset", {status: fetches === 1 ? 503 : 200});
+                };
+            """ + worker + """
+                const request = new Request(
+                    window.location.origin + "/static/study/transient-asset.js"
+                );
+                const statuses = [];
+                for (let index = 0; index < 3; index += 1) {
+                    let response;
+                    const background = [];
+                    listeners.fetch({
+                        request,
+                        respondWith: promise => { response = promise; },
+                        waitUntil: promise => { background.push(promise); },
+                    });
+                    statuses.push((await response).status);
+                    await Promise.all(background);
+                }
+                let activation;
+                listeners.activate({waitUntil: promise => { activation = promise; }});
+                await activation;
+                return {statuses, fetches, deleted};
+            }"""
+        )
+        self.assertEqual(result["statuses"], [503, 200, 200])
+        self.assertEqual(result["fetches"], 2)
+        self.assertEqual(result["deleted"], ["heureux-v0"])
+
     def assert_progress_before_pistes(self, page):
         status = page.locator(".response-sidebar-card--status")
         hints = page.locator(".subject-hints")
@@ -1373,7 +1426,7 @@ class BrowserTests(StaticLiveServerTestCase):
             with self.subTest(part=part):
                 url = self.live_server_url + reverse(
                     "study:task_browse", args=[part, f"tache-{tache}"]
-                )
+                ) + "?deduplicate=0"
                 self.page.goto(url)
                 form_selector = f"[data-{prefix}-completion-form]"
                 subject_id = self.page.locator(form_selector).evaluate_all(
@@ -2468,9 +2521,11 @@ class BrowserTests(StaticLiveServerTestCase):
         navigation = self.page.locator("#primary-navigation")
         navigation.get_by_text("Apprendre", exact=True).wait_for()
         navigation.get_by_text("Mes outils", exact=True).wait_for()
-        self.assertEqual(
-            navigation.locator(".nav__primary-link").count(),
-            5,
+        expect(navigation.locator(".nav__primary-link .nav__item-label")).to_have_text(
+            ["Accueil", "Apprendre", "Compréhension", "Expression", "Notes", "Stats"]
+        )
+        expect(navigation.get_by_role("link", name="Apprendre", exact=True)).to_have_attribute(
+            "href", reverse("study:learn")
         )
         self.assertEqual(
             navigation.get_by_role(
@@ -3556,6 +3611,25 @@ class BrowserTests(StaticLiveServerTestCase):
         finally:
             context.close()
 
+    def test_question_editor_keeps_focus_when_only_one_question_remains(self):
+        self._import_eo_tache_two_content()
+        self.page.goto(self.live_server_url + reverse(
+            "study:task_subject_detail",
+            args=["eo", "tache-2", "janvier", 1, 1],
+        ))
+        self.page.get_by_role(
+            "link", name="Personnaliser les questions", exact=True
+        ).click()
+        rows = self.page.locator("[data-question-list] [data-question-form]:visible")
+        self.assertGreater(rows.count(), 1)
+        while rows.count() > 1:
+            rows.first.locator("[data-question-remove]").click()
+        expect(rows.locator("[data-question-remove]")).to_be_disabled()
+        expect(rows.locator("textarea[name$='-question']")).to_be_focused()
+        self.page.locator("[data-question-add]").click()
+        expect(rows).to_have_count(2)
+        expect(rows.last.locator("textarea[name$='-question']")).to_be_focused()
+
     def test_tache_two_table_groups_subjects_by_theme(self):
         self._import_eo_tache_two_content()
         index_url = self.live_server_url + reverse(
@@ -3566,6 +3640,18 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.set_viewport_size({"width": 1183, "height": 844})
         self.page.goto(index_url)
         self.page.get_by_role("heading", name="Sujets par thème").wait_for()
+        prompts = Prompt.objects.filter(
+            theme__task__part__slug="eo", theme__task__slug="tache-2",
+            is_active=True,
+        )
+        expect(self.page.locator("[data-t1-table-subject]")).to_have_count(
+            prompts.values("response_id").distinct().count()
+        )
+        deduplication = self.page.locator("[data-subject-deduplication-toggle]")
+        expect(deduplication).to_have_attribute("aria-pressed", "true")
+        deduplication.click()
+        self.page.wait_for_url(index_url + "?deduplicate=0")
+        expect(deduplication).to_have_attribute("aria-pressed", "false")
         self.page.get_by_role("button", name="Tableau").click()
 
         groups = self.page.locator("[data-t1-table-theme]")
@@ -4543,6 +4629,82 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertTrue(self.page.locator("#card-front").is_visible())
         self.assertTrue(self.page.locator("#grades").is_hidden())
         self.assertFalse(ReviewLog.objects.filter(user=self.user).exists())
+
+    def test_review_rejects_non_json_success_without_replacing_the_card(self):
+        self.page.goto(
+            self.live_server_url + reverse("study:review")
+            + "?kind=spine&reset=1"
+        )
+        self.page.locator("#card-front .prompt-text").wait_for()
+        self.page.locator("#reveal").click()
+        back = self.page.locator("#card-back")
+        original = back.text_content()
+        endpoint = self.live_server_url + reverse("study:review_answer")
+        self.page.route(endpoint, lambda route: route.fulfill(
+            status=200, content_type="text/html", body="<p>Session expirée.</p>"
+        ))
+        self.page.locator('[data-action="correct"]').click()
+        expect(self.page.locator("#kbd-hint")).to_contain_text(
+            "La réponse du serveur est inattendue."
+        )
+        expect(back).to_be_visible()
+        expect(back).to_have_text(original)
+        self.assertFalse(ReviewLog.objects.filter(user=self.user).exists())
+        self.page.unroute(endpoint)
+        self.page.locator('[data-action="correct"]').click()
+        expect(self.page.locator("#card-front")).to_be_visible()
+        self.assertEqual(ReviewLog.objects.filter(user=self.user).count(), 1)
+
+    def test_review_shortcuts_respect_modifiers_selection_and_other_controls(self):
+        self.page.goto(
+            self.live_server_url + reverse("study:review")
+            + "?kind=spine&reset=1"
+        )
+        self.page.locator("#card-front .prompt-text").wait_for()
+        card = self.page.locator("[data-review-card]")
+
+        def dispatch(key, **options):
+            return card.evaluate(
+                """(card, options) => {
+                    const event = new KeyboardEvent("keydown", {
+                        bubbles: true, cancelable: true, ...options,
+                    });
+                    card.dispatchEvent(event);
+                    return event.defaultPrevented;
+                }""",
+                {"key": key, **options},
+            )
+
+        for options in (
+            {"ctrlKey": True}, {"metaKey": True}, {"altKey": True},
+            {"shiftKey": True}, {"repeat": True}, {"isComposing": True},
+        ):
+            with self.subTest(options=options):
+                self.assertFalse(dispatch("ArrowDown", **options))
+                expect(self.page.locator("#card-front")).to_be_visible()
+
+        self.select_prompt(start=0, end=12)
+        self.assertFalse(dispatch("ArrowDown"))
+        expect(self.page.locator("#card-front")).to_be_visible()
+        self.page.evaluate("window.getSelection().removeAllRanges()")
+        self.page.locator("#reveal").click()
+        expect(self.page.locator("#card-back")).to_be_visible()
+        for key in ("c", "r", "1", "2"):
+            self.assertFalse(dispatch(key, ctrlKey=True))
+            self.assertFalse(dispatch(key, metaKey=True))
+            self.assertFalse(dispatch(key, repeat=True))
+        self.assertFalse(ReviewLog.objects.filter(user=self.user).exists())
+
+        self.page.set_viewport_size({"width": 1183, "height": 844})
+        account = self.page.locator("[data-nav-more] summary")
+        account.focus()
+        self.page.keyboard.press("Enter")
+        expect(self.page.locator("[data-nav-more]")).to_have_attribute("open", "")
+        expect(self.page.locator("#card-back")).to_be_visible()
+        card.focus()
+        self.page.keyboard.press("2")
+        expect(self.page.locator("#card-front")).to_be_visible()
+        self.assertEqual(ReviewLog.objects.filter(user=self.user).count(), 1)
 
     def test_mobile_highlight_expands_then_toggles_off(self):
         self.page.goto(
@@ -7097,8 +7259,19 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         trigger = self.page.locator(".custom-select__button")
         trigger.wait_for(state="visible")
+        expect(trigger).to_have_accessible_name(
+            "Filtrer par statut Tous les statuts"
+        )
         trigger.click()
-        self.page.locator(".custom-select__list:not([hidden])").wait_for()
+        expect(self.page.get_by_role(
+            "listbox", name="Filtrer par statut"
+        )).to_be_visible()
+        self.page.keyboard.press("Shift+Tab")
+        expect(self.page.locator(
+            ".notes-filter-form button[type='submit']"
+        )).to_be_focused()
+        expect(trigger).to_have_attribute("aria-expanded", "false")
+        trigger.click()
         self.page.locator(
             '.custom-select__option[data-value="done"]'
         ).click()
@@ -7116,6 +7289,13 @@ class BrowserTests(StaticLiveServerTestCase):
         dialog = self.page.locator("[data-confirm-dialog]")
         dialog.wait_for(state="visible")
         self.page.get_by_text("Supprimer cette note ?").wait_for()
+        dialog.get_by_role("button", name="Annuler", exact=True).click()
+        delete_button = self.page.locator(
+            'form[action$="/supprimer/"] button[type="submit"]'
+        ).first
+        expect(delete_button).to_be_focused()
+        expect(delete_button).to_be_enabled()
+        delete_button.click()
         self.page.locator("[data-confirm-accept]").click()
         self.page.locator(
             f'[data-annotation-item="{note.pk}"]'
@@ -7656,6 +7836,114 @@ class BrowserTests(StaticLiveServerTestCase):
             )
         finally:
             context.close()
+
+    def test_note_edit_keeps_its_dialog_and_draft_until_save_settles(self):
+        note = Annotation.objects.create(
+            user=self.user, task=self.task, kind=AnnotationKind.NOTE,
+            title="Note à modifier", body="Ancien contenu.",
+        )
+        self.page.goto(self.live_server_url + reverse(
+            "study:task_notes", args=[self.part.slug, self.task.slug]
+        ))
+        self.page.locator(f'[data-annotation-edit="{note.pk}"]').click()
+        dialog = self.page.locator("#note-edit-dialog")
+        body = dialog.get_by_label("Votre note")
+        body.fill("Brouillon à conserver.")
+        form = dialog.locator("form")
+        endpoint = self.live_server_url + form.get_attribute("action")
+        pending = []
+        self.page.route(endpoint, lambda route: pending.append(route))
+        dialog.get_by_role("button", name="Enregistrer").click()
+        expect(dialog.get_by_role("button", name="Enregistrer")).to_be_disabled()
+        self.page.keyboard.press("Escape")
+        expect(dialog).to_be_visible()
+        expect(dialog.get_by_role("button", name="Annuler")).to_be_disabled()
+        expect(body).to_have_attribute("readonly", "")
+        form.evaluate("form => form.requestSubmit()")
+        self.assertEqual(len(pending), 1)
+        pending[0].fulfill(
+            status=503, content_type="application/json",
+            body=json.dumps({"error": "Enregistrement indisponible."}),
+        )
+        expect(dialog.locator("[data-annotation-edit-error]")).to_have_text(
+            "Enregistrement indisponible."
+        )
+        expect(body).to_have_value("Brouillon à conserver.")
+        expect(body).to_be_editable()
+        expect(dialog.get_by_role("button", name="Annuler")).to_be_enabled()
+        self.page.unroute(endpoint)
+        dialog.get_by_role("button", name="Enregistrer").click()
+        expect(dialog).to_be_hidden()
+        expect(self.page.locator(f"#note-{note.pk}")).to_contain_text(
+            "Brouillon à conserver."
+        )
+        note.refresh_from_db()
+        self.assertEqual(note.body, "Brouillon à conserver.")
+
+    def test_notes_action_failures_stay_in_place_and_allow_explicit_retry(self):
+        note = Annotation.objects.create(
+            user=self.user, task=self.task, kind=AnnotationKind.NOTE,
+            title="Note conservée", body="Ne pas perdre cette note.",
+        )
+        notes_url = self.live_server_url + reverse(
+            "study:task_notes", args=[self.part.slug, self.task.slug]
+        )
+        for action in ("study", "complete", "delete"):
+            with self.subTest(action=action):
+                self.page.goto(notes_url)
+                form = self.page.locator(
+                    f'[data-annotation-item="{note.pk}"] '
+                    f'form[data-annotation-action="{action}"]'
+                )
+                endpoint = self.live_server_url + form.get_attribute("action")
+                requests = []
+
+                def unavailable(route):
+                    requests.append(route.request)
+                    route.fulfill(
+                        status=503, content_type="application/json",
+                        body=json.dumps({"error": "Service indisponible."}),
+                    )
+
+                self.page.route(endpoint, unavailable)
+                form.locator("button").click()
+                if action == "delete":
+                    self.page.locator("[data-confirm-accept]").click()
+                expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+                    "Service indisponible."
+                )
+                expect(form.locator("button")).to_be_enabled()
+                self.assertEqual(self.page.url, notes_url)
+                self.assertEqual(len(requests), 1)
+                self.assertTrue(Annotation.objects.filter(pk=note.pk).exists())
+                self.page.unroute(endpoint, unavailable)
+
+                self.page.route(endpoint, lambda route: route.fulfill(
+                    status=200, json={"id": note.pk}
+                ))
+                form.locator("button").click()
+                if action == "delete":
+                    self.page.locator("[data-confirm-accept]").click()
+                expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+                    "La réponse du serveur est incomplète."
+                )
+                expect(form.locator("button")).to_be_enabled()
+                if action != "delete":
+                    expect(form.locator("button")).to_have_attribute(
+                        "aria-pressed", "false"
+                    )
+                self.assertTrue(Annotation.objects.filter(pk=note.pk).exists())
+                self.page.unroute(endpoint)
+
+                form.locator("button").click()
+                if action == "delete":
+                    self.page.locator("[data-confirm-accept]").click()
+                    expect(form).to_have_count(0)
+                else:
+                    expect(form.locator("button")).to_have_attribute(
+                        "aria-pressed", "true"
+                    )
+                self.assertEqual(self.page.url, notes_url)
 
     def test_notes_actions_apply_in_place(self):
         note = Annotation.objects.create(
@@ -8342,6 +8630,74 @@ class BrowserTests(StaticLiveServerTestCase):
             loader.start()
             self.addCleanup(loader.stop)
         return catalog
+
+    def test_learning_progress_rejects_malformed_payloads_and_restores_filter_focus(self):
+        lesson = self.install_course_fixture().lessons[0]
+        self.page.goto(self.live_server_url + reverse("study:learn"))
+        self.page.locator("[data-learning-search]").fill(lesson.title)
+        active_filter = self.page.locator(
+            "[data-learning-status-filter='unfinished']"
+        )
+        active_filter.click()
+        row = self.page.locator(f'[data-learning-lesson-id="{lesson.id}"]')
+        check = row.locator("[data-learning-card-check]")
+        total = self.page.locator("[data-learning-completed-total]")
+        original_total = total.inner_text()
+        original_status = row.get_attribute("data-learning-status")
+        form = row.locator("[data-learning-card-progress]")
+        endpoint = self.live_server_url + form.get_attribute("action")
+        for payload in ({}, {"completed": "false"}):
+            with self.subTest(payload=payload):
+                def malformed(route):
+                    route.fulfill(
+                        status=200, content_type="application/json",
+                        body=json.dumps(payload),
+                    )
+                self.page.route(endpoint, malformed)
+                check.click()
+                expect(self.page.locator(
+                    "[data-learning-progress-error]"
+                )).to_be_visible()
+                expect(check).to_be_enabled()
+                expect(check).to_have_attribute("aria-checked", "false")
+                expect(row).to_have_attribute(
+                    "data-learning-status", original_status
+                )
+                expect(total).to_have_text(original_total)
+                self.page.unroute(endpoint, malformed)
+        check.focus()
+        self.page.keyboard.press("Space")
+        expect(row).to_be_hidden()
+        expect(active_filter).to_be_focused()
+        self.assertIsNotNone(LearningLessonProgress.objects.get(
+            user=self.user, lesson_id=lesson.id
+        ).completed_at)
+
+    def test_learning_progress_does_not_steal_focus_after_filtering(self):
+        lesson = self.install_course_fixture().lessons[0]
+        self.page.goto(self.live_server_url + reverse("study:learn"))
+        search = self.page.locator("[data-learning-search]")
+        search.fill(lesson.title)
+        self.page.locator("[data-learning-status-filter='unfinished']").click()
+        row = self.page.locator(f'[data-learning-lesson-id="{lesson.id}"]')
+        form = row.locator("[data-learning-card-progress]")
+        endpoint = self.live_server_url + form.get_attribute("action")
+        pending = []
+
+        def delayed(route):
+            pending.append(route)
+
+        self.page.route(endpoint, delayed)
+        check = row.locator("[data-learning-card-check]")
+        check.click()
+        expect(check).to_be_disabled()
+        search.focus()
+        self.assertEqual(len(pending), 1)
+        route = pending[0]
+        route.fulfill(response=route.fetch())
+        expect(row).to_be_hidden()
+        expect(search).to_be_focused()
+        self.page.unroute(endpoint, delayed)
 
     def test_course_filters_navigation_completion_and_responsive_examples(self):
         self.install_course_fixture()
@@ -9041,6 +9397,10 @@ class BrowserTests(StaticLiveServerTestCase):
               },
               addEventListener() {},
               speak(utterance) {
+                if (this.failNext) {
+                  this.failNext = false;
+                  throw new Error("Speech unavailable");
+                }
                 this.lastUtterance = utterance;
                 this.speaking = true;
               },
@@ -9124,6 +9484,13 @@ class BrowserTests(StaticLiveServerTestCase):
 
         self.assertTrue(dialogue.is_enabled())
         self.assertFalse(stop.is_enabled())
+        self.page.evaluate("speechSynthesis.failNext = true")
+        dialogue.click()
+        expect(dialogue).to_have_attribute("aria-pressed", "false")
+        expect(stop).to_be_disabled()
+        expect(self.page.locator("[data-co-audio-status]")).to_have_text(
+            "Lecture indisponible. Vérifiez la voix de l’appareil."
+        )
         dialogue.click()
         self.assertEqual(dialogue.get_attribute("aria-pressed"), "true")
         self.assertTrue(stop.is_enabled())
@@ -9258,7 +9625,7 @@ class BrowserTests(StaticLiveServerTestCase):
         )
 
         action_boxes = self.page.locator(
-            ".notes-toolbar__actions .btn"
+            ".notes-toolbar__actions .btn:visible"
         ).evaluate_all(
             """elements => elements.map(element => {
               const rect = element.getBoundingClientRect();
@@ -9333,7 +9700,7 @@ class BrowserTests(StaticLiveServerTestCase):
             "true",
         )
         highlight_action = self.page.locator(
-            ".notes-toolbar__actions--highlights .btn"
+            ".notes-toolbar__actions--highlights .btn:visible"
         )
         self.assertEqual(highlight_action.count(), 1)
         self.assertGreaterEqual(highlight_action.bounding_box()["width"], 280)
@@ -10664,6 +11031,14 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertEqual(read.get_attribute("aria-pressed"), "true")
 
+        delete = card.locator("[data-study-delete]")
+        delete.click()
+        confirm = self.page.locator("[data-confirm-dialog]")
+        confirm.get_by_role("button", name="Annuler", exact=True).click()
+        expect(confirm).not_to_be_visible()
+        expect(delete).to_be_focused()
+        expect(delete).to_be_enabled()
+
         with self.page.expect_response(
             lambda response: "/supprimer/" in response.url
         ):
@@ -10909,3 +11284,391 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.page.get_by_text("Aucune question à étudier").wait_for()
         self.assert_no_horizontal_overflow()
+
+    def test_selection_note_pending_paste_blocks_save_and_restores_focus(self):
+        self.context.add_init_script(
+            """
+            Object.defineProperty(navigator, "clipboard", {
+              configurable: true,
+              value: {
+                readText: () => new Promise(resolve => {
+                  window.__releaseNotePaste = resolve;
+                }),
+              },
+            });
+            """
+        )
+        self.page.goto(
+            self.live_server_url + reverse("study:review") + "?kind=spine&reset=1"
+        )
+        self.page.wait_for_load_state("networkidle")
+        self.select_prompt(start=0, end=12)
+        self.page.locator("[data-note-selection]").click()
+        panel = self.page.locator("[data-note-panel]")
+        body = panel.locator("[data-note-body]")
+        body.fill("Avant ")
+        panel.locator("[data-note-paste]").click()
+        self.page.wait_for_function(
+            "() => typeof window.__releaseNotePaste === 'function'"
+        )
+
+        expect(panel.locator("[data-note-save-close]")).to_be_disabled()
+        expect(panel.locator("[data-note-paste-close]")).to_be_disabled()
+        expect(body).to_have_js_property("readOnly", True)
+        self.assertFalse(Annotation.objects.filter(user=self.user).exists())
+
+        self.page.evaluate("window.__releaseNotePaste('texte collé')")
+        expect(body).to_have_value("Avant texte collé")
+        expect(body).to_have_js_property("readOnly", False)
+        expect(panel.locator("[data-note-save-close]")).to_be_enabled()
+        expect(panel.locator("[data-note-paste-close]")).to_be_enabled()
+        panel.locator("[data-note-cancel]").click()
+        expect(panel).to_be_hidden()
+        expect(self.page.locator("[data-note-selection]")).to_be_focused()
+
+    def test_translation_queued_positioning_does_not_reopen_closed_panel(self):
+        self.context.add_init_script(
+            """
+            window.Translator = {
+              create: () => Promise.resolve({
+                translate: text => Promise.resolve("EN: " + text),
+              }),
+            };
+            """
+        )
+        self.page.goto(
+            self.live_server_url + reverse("study:review") + "?kind=spine&reset=1"
+        )
+        self.page.wait_for_load_state("networkidle")
+        self.select_prompt(start=0, end=12)
+        self.page.evaluate(
+            """
+            () => {
+              window.__translationFrames = [];
+              window.__originalAnimationFrame = window.requestAnimationFrame;
+              window.requestAnimationFrame = callback => {
+                window.__translationFrames.push(callback);
+                return window.__translationFrames.length;
+              };
+            }
+            """
+        )
+        self.page.locator("[data-translate-selection]").click()
+        panel = self.page.locator("[data-translation-panel]")
+        expect(panel.locator("[data-translation-result]")).not_to_have_text("")
+        self.page.wait_for_function("() => window.__translationFrames.length > 0")
+        panel.locator("[data-translation-close]").first.click()
+        self.page.evaluate(
+            """
+            () => {
+              window.requestAnimationFrame = window.__originalAnimationFrame;
+              window.__translationFrames.splice(0).forEach(callback => callback());
+            }
+            """
+        )
+        expect(panel).to_be_hidden()
+        expect(self.page.locator("[data-translate-selection]")).to_be_focused()
+
+    def test_stale_translation_note_save_preserves_new_translation_panel(self):
+        self.context.add_init_script(
+            """
+            window.Translator = {
+              create: () => Promise.resolve({
+                translate: text => Promise.resolve("EN: " + text),
+              }),
+            };
+            (() => {
+              const originalFetch = window.fetch.bind(window);
+              let held = false;
+              window.fetch = (url, options) => {
+                if (!held && String(options && options.body).includes("kind=note")) {
+                  held = true;
+                  return new Promise((resolve, reject) => {
+                    window.__releaseTranslationNote = () => {
+                      originalFetch(url, options).then(resolve, reject);
+                    };
+                  });
+                }
+                return originalFetch(url, options);
+              };
+            })();
+            """
+        )
+        self.page.goto(
+            self.live_server_url + reverse("study:review") + "?kind=spine&reset=1"
+        )
+        self.page.wait_for_load_state("networkidle")
+        self.select_prompt(start=0, end=12)
+        self.page.locator("[data-translate-selection]").click()
+        panel = self.page.locator("[data-translation-panel]")
+        panel.locator("[data-translation-note]").click()
+        self.page.wait_for_function(
+            "() => typeof window.__releaseTranslationNote === 'function'"
+        )
+        panel.locator("[data-translation-close]").first.click()
+        self.select_prompt(start=1, end=10)
+        self.page.locator("[data-translate-selection]").click()
+        new_source = panel.locator("[data-translation-source]").text_content()
+        expect(panel.locator("[data-translation-result]")).to_have_text(
+            "EN: " + new_source
+        )
+
+        self.page.evaluate("window.__releaseTranslationNote()")
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Note enregistrée et passage surligné."
+        )
+        expect(panel).to_be_visible()
+        expect(panel.locator("[data-translation-source]")).to_have_text(new_source)
+        expect(panel.locator("[data-translation-result]")).to_have_text(
+            "EN: " + new_source
+        )
+        expect(panel.locator("[data-translation-note]")).to_be_enabled()
+        self.assertEqual(
+            Annotation.objects.filter(user=self.user, kind=AnnotationKind.NOTE).count(),
+            1,
+        )
+
+    def test_stale_highlight_list_does_not_erase_a_new_highlight(self):
+        self.context.add_init_script(
+            """
+            (() => {
+              const originalFetch = window.fetch.bind(window);
+              let held = false;
+              window.fetch = (url, options = {}) => {
+                const sourceUrl = document.body.dataset.annotationSourceUrl;
+                if (!held && !options.method && sourceUrl && String(url).includes(sourceUrl)) {
+                  held = true;
+                  return originalFetch(url, options).then(async response => {
+                    await response.clone().text();
+                    return new Promise(resolve => {
+                      window.__releaseHighlightList = () => resolve(response);
+                    });
+                  });
+                }
+                return originalFetch(url, options);
+              };
+            })();
+            """
+        )
+        self.page.goto(
+            self.live_server_url + reverse("study:review") + "?kind=spine&reset=1"
+        )
+        self.page.wait_for_function(
+            "() => typeof window.__releaseHighlightList === 'function'"
+        )
+        self.select_prompt(start=0, end=12)
+        self.page.locator("[data-highlight-selection]").click()
+        mark = self.page.locator("#card-front .prompt-text mark.user-highlight")
+        expect(mark).to_have_count(1)
+        highlight_id = mark.get_attribute("data-highlight-id")
+        source_url = self.page.evaluate("document.body.dataset.annotationSourceUrl")
+        with self.page.expect_response(lambda response: source_url in response.url):
+            self.page.evaluate("window.__releaseHighlightList()")
+        expect(mark).to_have_count(1)
+        expect(mark).to_have_attribute("data-highlight-id", highlight_id)
+        self.assertTrue(
+            Annotation.objects.filter(
+                user=self.user, pk=highlight_id, kind=AnnotationKind.HIGHLIGHT
+            ).exists()
+        )
+
+    def test_translation_recreates_translator_after_persisted_pagehide(self):
+        self.context.add_init_script(
+            """
+            window.__translatorCreates = 0;
+            window.__translatorDestroys = 0;
+            window.Translator = {
+              create: () => {
+                window.__translatorCreates += 1;
+                let destroyed = false;
+                return Promise.resolve({
+                  translate: text => destroyed
+                    ? Promise.reject(new Error("Translator destroyed"))
+                    : Promise.resolve("EN: " + text),
+                  destroy: () => {
+                    destroyed = true;
+                    window.__translatorDestroys += 1;
+                  },
+                });
+              },
+            };
+            """
+        )
+        part = factories.make_part("ee")
+        task = factories.make_task(part, "tache-1")
+        sujet = factories.make_writing_sujet(
+            task, versions=("Bonjour tout le monde. Voici ma réponse.",)
+        )
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:writing_sujet_detail", args=["ee", task.slug, sujet.pk])
+        )
+        self.page.wait_for_load_state("networkidle")
+        self.select_prompt(
+            start=0, end=12, target=self.page.locator(".t1-response__body").first
+        )
+        self.page.locator("[data-translate-selection]").click()
+        panel = self.page.locator("[data-translation-panel]")
+        expect(panel.locator("[data-translation-status-text]")).to_have_text(
+            "Translated locally on this device."
+        )
+        self.page.evaluate(
+            """
+            () => {
+              window.dispatchEvent(new PageTransitionEvent("pagehide", {persisted: true}));
+              window.dispatchEvent(new PageTransitionEvent("pageshow", {persisted: true}));
+            }
+            """
+        )
+        self.assertEqual(self.page.evaluate("window.__translatorDestroys"), 1)
+        self.page.locator("[data-translate-selection]").evaluate(
+            "button => button.click()"
+        )
+        self.page.wait_for_function("() => window.__translatorCreates === 2")
+        expect(panel.locator("[data-translation-status-text]")).to_have_text(
+            "Translated locally on this device."
+        )
+
+    def test_translation_note_keeps_original_source_when_identical_quote_is_selected(self):
+        self.context.add_init_script(
+            """
+            window.Translator = {
+              create: () => Promise.resolve({
+                translate: text => Promise.resolve("EN: " + text),
+              }),
+            };
+            """
+        )
+        self.page.goto(
+            self.live_server_url + reverse("study:review") + "?kind=spine&reset=1"
+        )
+        self.page.wait_for_load_state("networkidle")
+        self.page.evaluate(
+            """
+            () => {
+              ["canonical", "original"].forEach(version => {
+                const root = document.createElement("p");
+                root.id = "translation-source-" + version;
+                root.dataset.annotationRoot = "";
+                root.dataset.annotationSourceKey = "regression:" + version;
+                root.textContent = "Bonjour tout le monde.";
+                document.getElementById("main").appendChild(root);
+              });
+            }
+            """
+        )
+        self.select_prompt(
+            start=0, end=12, target=self.page.locator("#translation-source-canonical")
+        )
+        self.page.locator("[data-translate-selection]").click()
+        panel = self.page.locator("[data-translation-panel]")
+        expect(panel.locator("[data-translation-result]")).to_have_text(
+            "EN: Bonjour tout"
+        )
+        self.select_prompt(
+            start=0, end=12, target=self.page.locator("#translation-source-original")
+        )
+        panel.locator("[data-translation-note]").click()
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Note enregistrée et passage surligné."
+        )
+        note = Annotation.objects.get(user=self.user, kind=AnnotationKind.NOTE)
+        self.assertEqual(note.quote, "Bonjour tout")
+        self.assertEqual(note.source_key, "regression:canonical")
+        highlight = Annotation.objects.get(
+            user=self.user, kind=AnnotationKind.HIGHLIGHT
+        )
+        self.assertEqual(highlight.source_key, note.source_key)
+        expect(
+            self.page.locator("#translation-source-canonical mark.user-highlight")
+        ).to_have_count(1)
+        expect(
+            self.page.locator("#translation-source-original mark.user-highlight")
+        ).to_have_count(0)
+
+    def test_prompt_legacy_copy_preserves_keyboard_focus_and_text_selection(self):
+        self.context.add_init_script(
+            """
+            Object.defineProperty(navigator, "clipboard", {
+              configurable: true,
+              value: undefined,
+            });
+            document.execCommand = command => {
+              if (command !== "copy") return false;
+              window.__legacyCopiedText = document.activeElement.value;
+              return true;
+            };
+            """
+        )
+        part = factories.make_part("ee")
+        task = factories.make_task(part, "tache-1")
+        text = "Bonjour tout le monde. Voici ma réponse."
+        sujet = factories.make_writing_sujet(task, versions=(text,))
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:writing_sujet_detail", args=["ee", task.slug, sujet.pk])
+        )
+        self.page.wait_for_load_state("networkidle")
+        button = self.page.locator(
+            '[data-prompt-copy-source="ee-writing-response-content"]'
+            '[data-prompt-copy-key="model-1"]'
+        )
+        button.focus()
+        self.select_prompt(
+            start=0, end=12, target=self.page.locator(".t1-response__body").first
+        )
+        button.press("Enter")
+        expect(button.locator("[data-prompt-copy-label]")).to_have_text("Copié !")
+        expect(button).to_be_focused()
+        self.assertEqual(self.page.evaluate("window.__legacyCopiedText"), text)
+        self.assertEqual(
+            self.page.evaluate("window.getSelection().toString()"), "Bonjour tout"
+        )
+        expect(button).to_be_enabled()
+        self.assertIsNone(button.get_attribute("aria-busy"))
+
+    def test_read_aloud_synchronous_failure_reports_error_and_allows_retry(self):
+        self.context.add_init_script(
+            """
+            window.__failSpeech = true;
+            window.__spokenText = "";
+            Object.defineProperty(window, "speechSynthesis", {
+              configurable: true,
+              value: {
+                getVoices: () => [],
+                addEventListener: () => {},
+                cancel: () => {},
+                resume: () => {},
+                speak: utterance => {
+                  if (window.__failSpeech) throw new Error("Speech unavailable");
+                  window.__spokenText = utterance.text;
+                },
+              },
+            });
+            Object.defineProperty(window, "SpeechSynthesisUtterance", {
+              configurable: true,
+              value: class {
+                constructor(text) { this.text = text; }
+              },
+            });
+            """
+        )
+        self.page.goto(
+            self.live_server_url + reverse("study:review") + "?kind=spine&reset=1"
+        )
+        self.page.wait_for_load_state("networkidle")
+        button = self.page.locator("[data-read-aloud]:visible").first
+        button.click()
+        expect(button).to_have_attribute("aria-pressed", "false")
+        expect(button).to_have_attribute(
+            "aria-label", "Lecture indisponible. Réessayez."
+        )
+        expect(self.page.locator("[data-speech-status]")).to_have_text(
+            "Lecture indisponible. Réessayez."
+        )
+        self.page.evaluate("window.__failSpeech = false")
+        button.click()
+        self.page.wait_for_function("() => window.__spokenText.length > 0")
+        expect(button).to_have_attribute("aria-pressed", "true")
+        button.click()
+        expect(button).to_have_attribute("aria-pressed", "false")

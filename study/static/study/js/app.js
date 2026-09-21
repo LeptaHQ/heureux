@@ -570,7 +570,7 @@
     }
 
     function closeDialog(dialog) {
-      if (!dialog || !dialog.open) return;
+      if (!dialog || !dialog.open || dialog.dataset.pending === "true") return;
       if (typeof dialog.close === "function") {
         dialog.close();
       } else {
@@ -588,6 +588,9 @@
     });
 
     dialogs.forEach(function (dialog) {
+      dialog.addEventListener("cancel", function (event) {
+        if (dialog.dataset.pending === "true") event.preventDefault();
+      });
       dialog.querySelectorAll("[data-dialog-close]").forEach(function (button) {
         button.addEventListener("click", function () {
           closeDialog(dialog);
@@ -746,10 +749,21 @@
       editError.textContent = message || "";
       editError.hidden = !message;
     }
+    function setEditPending(pending) {
+      editDialog.dataset.pending = pending ? "true" : "false";
+      editForm.setAttribute("aria-busy", pending ? "true" : "false");
+      editDialog.querySelectorAll("button").forEach(function (button) {
+        button.disabled = pending;
+      });
+      editForm.querySelectorAll("input:not([type='hidden']), textarea").forEach(
+        function (field) { field.readOnly = pending; }
+      );
+    }
     document.querySelectorAll("[data-annotation-edit]").forEach(
       function (button) {
         button.addEventListener("click", function () {
           if (!editDialog || !editForm) return;
+          if (editDialog.dataset.pending === "true") return;
           var annotationId = button.dataset.annotationEdit;
           var source = Array.from(
             document.querySelectorAll("[data-annotation-edit-source]")
@@ -772,6 +786,7 @@
     if (editForm && window.fetch) {
       editForm.addEventListener("submit", function (event) {
         event.preventDefault();
+        if (editDialog.dataset.pending === "true") return;
         var bodyInput = editForm.querySelector("[data-annotation-edit-body]");
         if (
           !bodyInput.value.trim()
@@ -781,9 +796,7 @@
           bodyInput.focus({ preventScroll: true });
           return;
         }
-        var submitButton =
-          event.submitter || editForm.querySelector("[type='submit']");
-        submitButton.disabled = true;
+        setEditPending(true);
         setEditError("");
         fetch(editForm.action, {
           method: "POST",
@@ -825,8 +838,8 @@
               })
             ) === false;
             if (handled) {
+              setEditPending(false);
               closeDialog(editDialog);
-              submitButton.disabled = false;
               return;
             }
             var target = new URL(
@@ -844,8 +857,10 @@
             }
           })
           .catch(function (error) {
-            submitButton.disabled = false;
             setEditError(error.message);
+          })
+          .finally(function () {
+            setEditPending(false);
           });
       });
     }
@@ -1122,13 +1137,21 @@
       button.setAttribute("aria-haspopup", "listbox");
       button.setAttribute("aria-expanded", "false");
       button.id = base + "-button";
-      if (select.getAttribute("aria-label")) {
-        button.setAttribute("aria-label", select.getAttribute("aria-label"));
-      } else if (select.labels && select.labels[0]) {
-        button.setAttribute("aria-labelledby", base + "-button");
+      var labelIds = select.getAttribute("aria-labelledby") || "";
+      if (!labelIds && select.labels) {
+        labelIds = Array.from(select.labels).map(function (label, index) {
+          if (!label.id) label.id = base + "-label-" + index;
+          return label.id;
+        }).join(" ");
       }
       var valueEl = document.createElement("span");
       valueEl.className = "custom-select__value";
+      valueEl.id = base + "-value";
+      if (labelIds) {
+        button.setAttribute("aria-labelledby", labelIds + " " + valueEl.id);
+      } else if (select.getAttribute("aria-label")) {
+        button.setAttribute("aria-label", select.getAttribute("aria-label"));
+      }
       var chevron = document.createElement("span");
       chevron.className = "custom-select__chevron";
       chevron.setAttribute("aria-hidden", "true");
@@ -1140,6 +1163,11 @@
       var list = document.createElement("ul");
       list.className = "custom-select__list";
       list.setAttribute("role", "listbox");
+      if (labelIds) {
+        list.setAttribute("aria-labelledby", labelIds);
+      } else if (select.getAttribute("aria-label")) {
+        list.setAttribute("aria-label", select.getAttribute("aria-label"));
+      }
       list.id = base + "-list";
       list.tabIndex = -1;
       list.hidden = true;
@@ -1265,7 +1293,8 @@
           event.preventDefault();
           closeList(true);
         } else if (event.key === "Tab") {
-          closeList(false);
+          // Continue native tab order from the trigger, not a hidden listbox.
+          closeList(true);
         }
       });
 
@@ -1360,26 +1389,41 @@
     function postForm(form) {
       return fetch(form.action, {
         method: "POST",
-        headers: { "X-Requested-With": "fetch" },
+        headers: {
+          "Accept": "application/json",
+          "X-Requested-With": "fetch"
+        },
         body: new FormData(form),
         credentials: "same-origin",
       }).then(function (response) {
-        if (!response.ok) throw new Error("bad status");
-        return response.json();
+        return response.json().catch(function () {
+          throw new Error("La réponse du serveur est inattendue.");
+        }).then(function (data) {
+          if (!response.ok) {
+            throw new Error(
+              (data && data.error) || "Impossible d’enregistrer cette action."
+            );
+          }
+          var action = form.dataset.annotationAction;
+          var field = action === "study" ? "study_later" : "completed";
+          if (
+            !data || String(data.id) !== form.dataset.annotationId ||
+            (action === "delete" ? data.deleted !== true : typeof data[field] !== "boolean")
+          ) {
+            throw new Error("La réponse du serveur est incomplète.");
+          }
+          return data;
+        });
       });
     }
 
     function setButtonBusy(form, busy) {
+      form.dataset.pending = busy ? "true" : "false";
       var button = form.querySelector("button");
-      if (button) button.disabled = busy;
-    }
-
-    function nativeSubmit(form) {
-      form.dataset.fallback = "1";
-      if (typeof form.requestSubmit === "function") {
-        form.requestSubmit();
-      } else {
-        form.submit();
+      if (button) {
+        button.disabled = busy;
+        if (busy) button.setAttribute("aria-busy", "true");
+        else button.removeAttribute("aria-busy");
       }
     }
 
@@ -1541,10 +1585,12 @@
           } else {
             handleComplete(id, !!data.completed);
           }
-          setButtonBusy(form, false);
         })
-        .catch(function () {
-          nativeSubmit(form);
+        .catch(function (error) {
+          flashToast(error.message || "Impossible d’enregistrer cette action.");
+        })
+        .finally(function () {
+          setButtonBusy(form, false);
         });
     }
 
@@ -1554,23 +1600,28 @@
         .then(function (data) {
           handleDelete(form.dataset.annotationId, data);
         })
-        .catch(function () {
-          nativeSubmit(form);
+        .catch(function (error) {
+          flashToast(error.message || "Impossible de supprimer cette note.");
+        })
+        .finally(function () {
+          setButtonBusy(form, false);
         });
     }
 
     list.addEventListener("submit", function (event) {
       var form = event.target.closest("form[data-annotation-action]");
       if (!form || !list.contains(form)) return;
-      if (form.dataset.fallback === "1") return; // let the browser submit
       event.preventDefault();
+      if (form.dataset.pending === "true") return;
       if (form.dataset.annotationAction === "delete") {
+        form.dataset.pending = "true";
         openConfirm({
           message: form.dataset.confirm,
           label: form.dataset.confirmLabel,
           tone: form.dataset.confirmTone,
         }).then(function (ok) {
           if (ok) runDelete(form);
+          else setButtonBusy(form, false);
         });
       } else {
         runToggle(form, form.dataset.annotationAction);
@@ -1798,7 +1849,11 @@
         finishPlayback("Lecture indisponible. Vérifiez la voix de l’appareil.");
       };
       active.utterance = utterance;
-      synthesis.speak(utterance);
+      try {
+        synthesis.speak(utterance);
+      } catch (error) {
+        finishPlayback("Lecture indisponible. Vérifiez la voix de l’appareil.");
+      }
     }
 
     function startPlayback(reader, button) {
@@ -2026,7 +2081,7 @@
       var remaining = activeRows();
       var focusRow = remaining[Math.min(removedIndex, remaining.length - 1)];
       var focusTarget = focusRow
-        ? focusRow.querySelector("[data-question-remove]")
+        ? focusRow.querySelector("[data-question-remove]:not(:disabled), textarea")
         : addButton;
       if (focusTarget) focusTarget.focus();
       if (status) {
@@ -2186,7 +2241,9 @@
   }
 
   function readJson(r) {
-    return r.json().catch(function () { return {}; }).then(function (data) {
+    return r.json().catch(function () {
+      throw new Error("La réponse du serveur est inattendue.");
+    }).then(function (data) {
       if (r.status === 401 && data.login_url) {
         window.location.assign(data.login_url);
       }
@@ -2499,11 +2556,14 @@
   if (currentButton) currentButton.addEventListener("click", returnToCurrent);
 
   document.addEventListener("keydown", function (e) {
+    if (!window.HeureuxFlashcards.canHandleKeydown(e, app)) return;
     if (
       e.target &&
       e.target.closest &&
       e.target.closest(
-        "input, textarea, select, button, a, [contenteditable='true'], [data-translation-panel], [data-note-panel]"
+        "input, textarea, select, button, a, summary, " +
+        "[contenteditable]:not([contenteditable='false']), " +
+        "[data-translation-panel], [data-note-panel]"
       )
     ) {
       return;

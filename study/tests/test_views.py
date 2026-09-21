@@ -1308,7 +1308,16 @@ class EeTacheThreePageTests(TestCase):
         self.assertContains(response, "data-subject-completion-form", count=138)
         self.assertNotContains(response, "data-collection-view-panel")
         self.assertContains(response, "data-collection-view-toggle")
-        self.assertContains(response, "thèmes restent repliables")
+        theme_groups = re.findall(
+            r"<details\b[^>]*\bdata-t1-table-theme\b[^>]*>(.*?)</details>",
+            response.content.decode(),
+            flags=re.S,
+        )
+        self.assertEqual(len(theme_groups), 11)
+        for group in theme_groups:
+            self.assertIn("<summary", group)
+            self.assertIn("data-nested-sort-table", group)
+            self.assertIn("data-subject-collection-row", group)
         self.assertNotContains(response, "publications liées")
         self.assertContains(response, "data-subject-directory-search")
 

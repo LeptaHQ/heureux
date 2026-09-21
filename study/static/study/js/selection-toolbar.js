@@ -56,14 +56,21 @@
   var selectedRect = null;
   var selectionTimer = null;
   var selectionCopyTimer = null;
+  var selectionCopyNumber = 0;
+  var translationCopyTimer = null;
+  var translationCopyNumber = 0;
   var requestNumber = 0;
   var translatorPromise = null;
   var translatorInstance = null;
+  var translatorGeneration = 0;
+  var localTranslationRequest = null;
+  var translationSelection = null;
   var frenchSpeech = window.HeureuxFrenchSpeech;
   var reading = false;
   var readingNumber = 0;
   var readingChunks = [];
   var readingIndex = 0;
+  var readingUtterance = null;
   var readResetTimer = null;
   var selectionPointerId = null;
   var selectionPointerTimer = null;
@@ -302,14 +309,21 @@
   }
 
   function applySelectionDetails(details) {
-    var selectionChanged = details.text !== selectedText;
+    var selectionChanged = details.text !== selectedText || !selectedRange ||
+      details.range.compareBoundaryPoints(Range.START_TO_START, selectedRange) !== 0 ||
+      details.range.compareBoundaryPoints(Range.END_TO_END, selectedRange) !== 0;
     if (selectionChanged && reading) stopReading();
     selectedText = details.text;
     selectedRect = details.rect;
     selectedRange = details.range;
-    selectionCopyButton.classList.remove("is-copied");
-    selectionCopyLabel.textContent = "Copy";
-    if (selectionChanged) resetReadButton();
+    if (selectionChanged) {
+      selectionCopyNumber += 1;
+      window.clearTimeout(selectionCopyTimer);
+      selectionCopyButton.classList.remove("is-copied");
+      selectionCopyLabel.textContent = "Copy";
+      setSpriteIcon(selectionCopyIcon, "copy");
+      resetReadButton();
+    }
     positionAction(details.rect);
   }
 
@@ -410,6 +424,7 @@
     readingNumber += 1;
     readingChunks = [];
     readingIndex = 0;
+    readingUtterance = null;
     if (
       wasReading &&
       cancelSpeech !== false &&
@@ -426,6 +441,7 @@
     reading = false;
     readingChunks = [];
     readingIndex = 0;
+    readingUtterance = null;
     setReadButton("Read again", false);
   }
 
@@ -433,6 +449,7 @@
     reading = false;
     readingChunks = [];
     readingIndex = 0;
+    readingUtterance = null;
     setReadButton("Unavailable", false);
     readResetTimer = window.setTimeout(resetReadButton, 1800);
   }
@@ -459,7 +476,12 @@
       if (!reading || number !== readingNumber) return;
       showReadError();
     };
-    frenchSpeech.synthesis.speak(utterance);
+    readingUtterance = utterance;
+    try {
+      frenchSpeech.synthesis.speak(utterance);
+    } catch (error) {
+      showReadError();
+    }
   }
 
   function startReading() {
@@ -538,6 +560,7 @@
   function repositionPanel() {
     if (!selectedRect || panel.classList.contains("hidden")) return;
     window.requestAnimationFrame(function () {
+      if (panel.classList.contains("hidden")) return;
       positionPanel(currentSelectionRect());
     });
   }
@@ -599,13 +622,28 @@
     }
   }
 
-  function closePanel() {
+  function resetTranslationCopy() {
+    translationCopyNumber += 1;
+    window.clearTimeout(translationCopyTimer);
+    copyLabel.textContent = "Copy";
+    copyButton.classList.remove("is-done");
+    copyButton.setAttribute("title", "Copy translation");
+    copyButton.setAttribute("aria-label", "Copy translation");
+    setSpriteIcon(copyIcon, "copy");
+  }
+
+  function closePanel(restoreFocus) {
+    var hadFocus = panel.contains(document.activeElement);
     requestNumber += 1;
+    localTranslationRequest = null;
+    translationSelection = null;
     panel.classList.add("hidden");
     copyButton.classList.add("hidden");
-    copyLabel.textContent = "Copy";
-    setSpriteIcon(copyIcon, "copy");
+    resetTranslationCopy();
     resetNoteButton();
+    if (restoreFocus !== false && hadFocus && !action.classList.contains("hidden")) {
+      translateButton.focus({ preventScroll: true });
+    }
   }
 
   function showFallback(message) {
@@ -619,7 +657,10 @@
   }
 
   function updateDownloadProgress(event) {
-    if (panel.classList.contains("hidden")) return;
+    if (
+      panel.classList.contains("hidden") ||
+      localTranslationRequest !== requestNumber
+    ) return;
     var loaded = Number(event.loaded) || 0;
     var total = Number(event.total) || 0;
     var fraction = total > 0 ? loaded / total : loaded;
@@ -636,22 +677,29 @@
     }
     if (translatorPromise) return translatorPromise;
 
+    var generation = translatorGeneration;
     try {
       translatorPromise = Promise.resolve(
         window.Translator.create({
           sourceLanguage: translatorOptions.sourceLanguage,
           targetLanguage: translatorOptions.targetLanguage,
           monitor: function (monitor) {
-            monitor.addEventListener("downloadprogress", updateDownloadProgress);
+            monitor.addEventListener("downloadprogress", function (event) {
+              if (generation === translatorGeneration) updateDownloadProgress(event);
+            });
           }
         })
       )
         .then(function (translator) {
+          if (generation !== translatorGeneration) {
+            if (typeof translator.destroy === "function") translator.destroy();
+            throw new Error("Translation cancelled");
+          }
           translatorInstance = translator;
           return translator;
         })
         .catch(function (error) {
-          translatorPromise = null;
+          if (generation === translatorGeneration) translatorPromise = null;
           throw error;
         });
     } catch (error) {
@@ -681,12 +729,14 @@
       credentials: "same-origin"
     })
       .then(function (response) {
-        if (!response.ok) throw new Error("translation unavailable");
+        if (!response.ok || response.redirected) throw new Error("translation unavailable");
         return response.json();
       })
       .then(function (payload) {
         var translation = (payload && payload.translation) || "";
-        if (!translation) throw new Error("translation unavailable");
+        if (typeof translation !== "string" || !translation.trim()) {
+          throw new Error("translation unavailable");
+        }
         return translation;
       });
   }
@@ -695,6 +745,8 @@
     "On-device translation isn't available in this browser.";
 
   function translateOnServer(text, requestId, fallbackMessage) {
+    if (requestId !== requestNumber) return;
+    localTranslationRequest = null;
     setStatus("Translating…", true);
     remoteTranslate(text)
       .then(function (translation) {
@@ -724,14 +776,17 @@
     var quote = sourceElement.textContent;
     var body = resultElement.textContent;
     if (!quote || !body || !window.HeureuxNotes) return;
+    var currentRequest = requestNumber;
     translationNoteButton.disabled = true;
     translationNoteButton.classList.add("is-busy");
     if (translationNoteLabel) translationNoteLabel.textContent = "Saving…";
-    window.HeureuxNotes.saveSelectionNote(quote, body, true)
+    window.HeureuxNotes.saveSelectionNote(quote, body, true, translationSelection)
       .then(function () {
+        if (currentRequest !== requestNumber) return;
         closePanel();
       })
       .catch(function (error) {
+        if (currentRequest !== requestNumber) return;
         setStatus(error.message, false);
         translationNoteButton.disabled = false;
         translationNoteButton.classList.remove("is-busy");
@@ -741,23 +796,48 @@
       });
   }
 
-  function writeClipboard(text) {
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      return navigator.clipboard.writeText(text);
-    }
+  function legacyCopy(text) {
+    return new Promise(function (resolve, reject) {
+      var focused = document.activeElement;
+      var selection = window.getSelection();
+      var ranges = [];
+      for (var index = 0; selection && index < selection.rangeCount; index += 1) {
+        ranges.push(selection.getRangeAt(index).cloneRange());
+      }
+      var textarea = document.createElement("textarea");
+      textarea.value = text;
+      textarea.setAttribute("readonly", "");
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      try {
+        textarea.select();
+        if (!document.execCommand("copy")) throw new Error("Copy failed");
+        resolve();
+      } catch (error) {
+        reject(error);
+      } finally {
+        textarea.remove();
+        if (focused && focused.isConnected) focused.focus({ preventScroll: true });
+        if (selection) {
+          selection.removeAllRanges();
+          ranges.forEach(function (range) { selection.addRange(range); });
+        }
+      }
+    });
+  }
 
-    var textarea = document.createElement("textarea");
-    textarea.value = text;
-    textarea.setAttribute("readonly", "");
-    textarea.style.position = "fixed";
-    textarea.style.opacity = "0";
-    document.body.appendChild(textarea);
-    textarea.select();
-    var copied = document.execCommand("copy");
-    textarea.remove();
-    return copied
-      ? Promise.resolve()
-      : Promise.reject(new Error("Copy failed"));
+  function writeClipboard(text) {
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+      try {
+        return Promise.resolve(navigator.clipboard.writeText(text)).catch(function () {
+          return legacyCopy(text);
+        });
+      } catch (error) {
+        return legacyCopy(text);
+      }
+    }
+    return legacyCopy(text);
   }
 
   if (readButton) {
@@ -799,6 +879,14 @@
     }
     setPenHoveredButton(null);
   });
+  action.addEventListener("focusin", function () {
+    toolbarSelectionPinned = true;
+  });
+  if (noteButton) {
+    noteButton.addEventListener("click", function () {
+      if (!panel.classList.contains("hidden")) closePanel(false);
+    });
+  }
   action.querySelectorAll("button").forEach(function (button) {
     button.addEventListener("pointerdown", function (event) {
       toolbarSelectionPinned = true;
@@ -811,9 +899,11 @@
 
   selectionCopyButton.addEventListener("click", function () {
     if (!selectedText) return;
+    var copyNumber = ++selectionCopyNumber;
     window.clearTimeout(selectionCopyTimer);
     writeClipboard(selectedText)
       .then(function () {
+        if (copyNumber !== selectionCopyNumber) return;
         selectionCopyButton.classList.add("is-copied");
         selectionCopyLabel.textContent = "Copied";
         setSpriteIcon(selectionCopyIcon, "check");
@@ -824,6 +914,7 @@
         }, 1600);
       })
       .catch(function () {
+        if (copyNumber !== selectionCopyNumber) return;
         selectionCopyButton.classList.remove("is-copied");
         selectionCopyLabel.textContent = "Copy failed";
         setSpriteIcon(selectionCopyIcon, "copy");
@@ -839,17 +930,17 @@
     var text = selectedText;
     var rect = selectedRect;
     var currentRequest = ++requestNumber;
-    var localTranslation = text.length <= maxLocalLength
-      ? getTranslator()
+    translationSelection = window.HeureuxNotes
+      ? window.HeureuxNotes.captureSelection()
       : null;
+    localTranslationRequest = currentRequest;
 
     sourceElement.textContent = text;
     resultElement.textContent = "";
     output.classList.add("hidden");
     copyButton.classList.add("hidden");
     resetNoteButton();
-    copyLabel.textContent = "Copy";
-    setSpriteIcon(copyIcon, "copy");
+    resetTranslationCopy();
     fallbackLink.href = googleTranslateUrl(text);
     fallbackLabel.textContent = "Google Translate";
     fallbackLabel.classList.add("sr-only");
@@ -860,21 +951,28 @@
     panel.focus({ preventScroll: true });
 
     if (text.length > maxLocalLength) {
+      localTranslationRequest = null;
       showFallback("Select a shorter passage for local translation (maximum 2,000 characters).");
       return;
     }
+    setStatus("Preparing local translation…", true);
+    var localTranslation = getTranslator();
     if (!localTranslation) {
       translateOnServer(text, currentRequest, MOBILE_FALLBACK_MESSAGE);
       return;
     }
 
-    setStatus("Preparing local translation…", true);
     localTranslation
       .then(function (translator) {
+        if (currentRequest !== requestNumber) return;
         return translator.translate(text);
       })
       .then(function (translation) {
         if (currentRequest !== requestNumber) return;
+        if (typeof translation !== "string" || !translation.trim()) {
+          throw new Error("translation unavailable");
+        }
+        localTranslationRequest = null;
         showTranslation(translation, "Translated locally on this device.");
       })
       .catch(function () {
@@ -886,21 +984,22 @@
   copyButton.addEventListener("click", function () {
     var text = resultElement.textContent;
     if (!text) return;
+    var currentRequest = requestNumber;
+    var copyNumber = ++translationCopyNumber;
+    window.clearTimeout(translationCopyTimer);
 
     writeClipboard(text)
       .then(function () {
+        if (currentRequest !== requestNumber || copyNumber !== translationCopyNumber) return;
         copyLabel.textContent = "Copied";
         copyButton.classList.add("is-done");
         copyButton.setAttribute("title", "Copied");
+        copyButton.setAttribute("aria-label", "Copied");
         setSpriteIcon(copyIcon, "check");
-        window.setTimeout(function () {
-          copyLabel.textContent = "Copy";
-          copyButton.classList.remove("is-done");
-          copyButton.setAttribute("title", "Copy translation");
-          setSpriteIcon(copyIcon, "copy");
-        }, 1600);
+        translationCopyTimer = window.setTimeout(resetTranslationCopy, 1600);
       })
       .catch(function () {
+        if (currentRequest !== requestNumber || copyNumber !== translationCopyNumber) return;
         setStatus("Copy failed. Select the translation and copy it manually.", false);
       });
   });
@@ -951,7 +1050,7 @@
       outsideTranslation &&
       outsideAction
     ) {
-      closePanel();
+      closePanel(false);
     }
     if (
       !action.classList.contains("hidden") &&
@@ -1010,10 +1109,14 @@
     }
   });
   window.addEventListener("pagehide", function () {
+    closePanel(false);
     stopReading();
     hidePenCursorNow();
+    translatorGeneration += 1;
     if (translatorInstance && typeof translatorInstance.destroy === "function") {
       translatorInstance.destroy();
     }
+    translatorInstance = null;
+    translatorPromise = null;
   });
 })();

@@ -4,11 +4,23 @@
 
   var SWIPE_MIN = 55;
   var INTERACTIVE_SELECTOR =
-    "a, button, input, select, textarea, [contenteditable='true']";
+    "a, button, input, select, textarea, summary, " +
+    "[contenteditable]:not([contenteditable='false'])";
 
   function hasTextSelection() {
     var selection = window.getSelection();
     return Boolean(selection && !selection.isCollapsed);
+  }
+
+  function canHandleKeydown(event, root) {
+    if (
+      event.defaultPrevented || event.ctrlKey || event.metaKey ||
+      event.altKey || event.shiftKey || event.repeat || event.isComposing ||
+      hasTextSelection()
+    ) return false;
+    var target = event.target;
+    return !target || target === document.body ||
+      target === document.documentElement || root.contains(target);
   }
 
   function create(options) {
@@ -246,6 +258,7 @@
     });
 
     function keydown(event) {
+      if (!canHandleKeydown(event, root)) return;
       var target = event.target;
       if (
         target
@@ -297,6 +310,7 @@
   }
 
   window.HeureuxFlashcards = {
-    create: create
+    create: create,
+    canHandleKeydown: canHandleKeydown
   };
 })();

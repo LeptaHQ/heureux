@@ -11,6 +11,7 @@
 
   var payloadCache = Object.create(null);
   var resetTimers = new WeakMap();
+  var copying = new WeakSet();
   var toast = document.querySelector("[data-prompt-copy-toast]");
   var toastTimer = null;
 
@@ -53,6 +54,12 @@
 
   function legacyCopy(text) {
     return new Promise(function (resolve, reject) {
+      var focused = document.activeElement;
+      var selection = window.getSelection();
+      var ranges = [];
+      for (var index = 0; selection && index < selection.rangeCount; index += 1) {
+        ranges.push(selection.getRangeAt(index).cloneRange());
+      }
       var input = document.createElement("textarea");
       input.value = text;
       input.setAttribute("readonly", "");
@@ -60,23 +67,22 @@
       input.style.opacity = "0";
       input.style.pointerEvents = "none";
       document.body.appendChild(input);
-      input.select();
-      input.setSelectionRange(0, input.value.length);
-
-      var copied = false;
       try {
-        copied = document.execCommand("copy");
-      } catch (error) {
-        document.body.removeChild(input);
-        reject(error);
-        return;
-      }
-
-      document.body.removeChild(input);
-      if (copied) {
+        input.select();
+        input.setSelectionRange(0, input.value.length);
+        if (!document.execCommand("copy")) {
+          throw new Error("The browser rejected the copy command.");
+        }
         resolve();
-      } else {
-        reject(new Error("The browser rejected the copy command."));
+      } catch (error) {
+        reject(error);
+      } finally {
+        input.remove();
+        if (focused && focused.isConnected) focused.focus({ preventScroll: true });
+        if (selection) {
+          selection.removeAllRanges();
+          ranges.forEach(function (range) { selection.addRange(range); });
+        }
       }
     });
   }
@@ -175,6 +181,7 @@
     button.dataset.promptCopyDefaultTitle = button.getAttribute("title") || "";
 
     button.addEventListener("click", function () {
+      if (button.disabled || copying.has(button)) return;
       var existingTimer = resetTimers.get(button);
       if (existingTimer) {
         window.clearTimeout(existingTimer);
@@ -191,7 +198,9 @@
         return;
       }
 
-      button.disabled = true;
+      copying.add(button);
+      button.setAttribute("aria-disabled", "true");
+      button.setAttribute("aria-busy", "true");
       writeClipboard(text)
         .then(function () {
           setButtonState(button, "copied");
@@ -204,7 +213,9 @@
           showToast(button.dataset.promptCopyErrorMessage, true);
         })
         .finally(function () {
-          button.disabled = false;
+          copying.delete(button);
+          button.removeAttribute("aria-disabled");
+          button.removeAttribute("aria-busy");
           resetButtonLater(button);
         });
     });

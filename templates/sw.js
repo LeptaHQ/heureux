@@ -1,19 +1,19 @@
 {% load static %}/* Heureux service worker — offline app shell. */
-var CACHE = "heureux-v214";
+var CACHE = "heureux-v215";
 var SHELL = [
   "{% url 'offline' %}",
   "{% static 'study/css/app.css' %}?v=212",
   "{% static 'study/js/theme-init.js' %}?v=2",
-  "{% static 'study/js/speech.js' %}?v=3",
-  "{% static 'study/js/flashcards.js' %}?v=4",
-  "{% static 'study/js/app.js' %}?v=63",
-  "{% static 'study/js/selection-toolbar.js' %}?v=10",
-  "{% static 'study/js/annotations.js' %}?v=31",
+  "{% static 'study/js/speech.js' %}?v=4",
+  "{% static 'study/js/flashcards.js' %}?v=5",
+  "{% static 'study/js/app.js' %}?v=64",
+  "{% static 'study/js/selection-toolbar.js' %}?v=11",
+  "{% static 'study/js/annotations.js' %}?v=32",
   "{% static 'study/js/subject-progress.js' %}?v=2",
   "{% static 'study/js/writing-word-count.js' %}?v=1",
   "{% static 'study/js/comprehension-progress.js' %}?v=3",
   "{% static 'study/js/memory-progress.js' %}?v=3",
-  "{% static 'study/js/learning.js' %}?v=9",
+  "{% static 'study/js/learning.js' %}?v=12",
   "/manifest.webmanifest",
   "{% static 'study/icons/icon-192.png' %}?v=2",
   "{% static 'study/icons/icon-512.png' %}?v=2",
@@ -39,7 +39,9 @@ self.addEventListener("activate", function (event) {
   event.waitUntil(
     caches.keys().then(function (keys) {
       return Promise.all(keys.map(function (k) {
-        if (k !== CACHE) { return caches.delete(k); }
+        if (k !== CACHE && k.indexOf("heureux-") === 0) {
+          return caches.delete(k);
+        }
       }));
     }).then(function () { return self.clients.claim(); })
   );
@@ -61,8 +63,12 @@ self.addEventListener("fetch", function (event) {
     event.respondWith(
       caches.match(req).then(function (hit) {
         return hit || fetch(req).then(function (res) {
-          var copy = res.clone();
-          caches.open(CACHE).then(function (c) { c.put(req, copy); });
+          if (res.ok) {
+            var copy = res.clone();
+            event.waitUntil(caches.open(CACHE).then(function (cache) {
+              return cache.put(req, copy);
+            }));
+          }
           return res;
         });
       })

@@ -51,6 +51,8 @@
   var highlights = [];
   var toastTimer = null;
   var mutationTimer = null;
+  var highlightsRevision = 0;
+  var highlightsRequest = 0;
 
   function csrfToken() {
     var match = document.cookie.match(/(?:^|;\s*)csrftoken=([^;]+)/);
@@ -118,6 +120,7 @@
     var highlightStart = Math.min(start, coverage.start);
     var highlightEnd = Math.max(end, coverage.end);
     return {
+      root: root,
       quote: quote,
       start: start,
       end: end,
@@ -179,6 +182,9 @@
     return response.json().catch(function () {
       throw new Error("La réponse du serveur est invalide.");
     }).then(function (data) {
+      if (!data || typeof data !== "object" || Array.isArray(data)) {
+        throw new Error("La réponse du serveur est invalide.");
+      }
       if (!response.ok) {
         var error = new Error(data.error || "L'enregistrement a échoué.");
         error.status = response.status;
@@ -246,18 +252,22 @@
     );
   }
 
-  function closeNotePanel(expectedRevision) {
+  function closeNotePanel(expectedRevision, restoreFocus) {
     if (
       expectedRevision !== undefined
       && expectedRevision !== notePanelRevision
     ) {
       return false;
     }
+    var hadFocus = notePanel.contains(document.activeElement);
     notePanelRevision += 1;
     notePanel.classList.add("hidden");
     noteStatus.textContent = "";
     resetNoteFormState();
     noteSelection = null;
+    if (restoreFocus !== false && hadFocus && !action.classList.contains("hidden")) {
+      noteButton.focus({ preventScroll: true });
+    }
     return true;
   }
 
@@ -284,7 +294,9 @@
     var start = noteBody.selectionStart;
     var end = noteBody.selectionEnd;
     var retainedLength = noteBody.value.length - (end - start);
-    var available = Math.max(noteBody.maxLength - retainedLength, 0);
+    var available = noteBody.maxLength < 0
+      ? text.length
+      : Math.max(noteBody.maxLength - retainedLength, 0);
     var insertion = text.slice(0, available);
     if (!insertion) return 0;
     noteBody.value =
@@ -307,7 +319,13 @@
       return Promise.resolve(false);
     }
     noteStatus.textContent = "Lecture du presse-papiers…";
-    return navigator.clipboard.readText()
+    var clipboardRead;
+    try {
+      clipboardRead = navigator.clipboard.readText();
+    } catch (error) {
+      clipboardRead = Promise.reject(error);
+    }
+    return Promise.resolve(clipboardRead)
       .then(function (text) {
         if (!notePanelIsCurrent(revision)) return false;
         if (!text) {
@@ -337,9 +355,12 @@
     if (!notePaste || notePaste.disabled) return;
     var revision = notePanelRevision;
     notePaste.disabled = true;
+    notePasteClose.disabled = true;
+    noteSaveClose.disabled = true;
+    noteBody.readOnly = true;
     readClipboardIntoNote(revision).then(function () {
       if (!notePanelIsCurrent(revision)) return;
-      notePaste.disabled = false;
+      resetNoteFormState();
       noteBody.focus({ preventScroll: true });
     });
   }
@@ -349,6 +370,7 @@
     var revision = notePanelRevision;
     notePasteClose.disabled = true;
     noteSaveClose.disabled = true;
+    noteBody.readOnly = true;
     if (notePaste) notePaste.disabled = true;
     readClipboardIntoNote(revision).then(function (pasted) {
       if (!notePanelIsCurrent(revision)) return;
@@ -366,6 +388,7 @@
       if (!alsoHighlight) {
         return { highlighted: false, highlightFailed: false };
       }
+      refreshSelectionCoverage(details);
       if (details.fullyHighlighted) {
         return { highlighted: true, highlightFailed: false };
       }
@@ -593,6 +616,27 @@
     };
   }
 
+  function refreshSelectionCoverage(details) {
+    if (!details || !details.root || !details.root.isConnected) return;
+    var text = details.root.textContent || "";
+    if (
+      (details.root.dataset.annotationSourceKey || "") !== details.sourceKey ||
+      text.slice(details.start, details.end) !== details.quote
+    ) return;
+    var coverage = highlightCoverage(details.root, details.start, details.end);
+    details.fullyHighlighted = coverage.fullyHighlighted;
+    details.highlightIds = coverage.ids;
+    details.highlightRevisions = coverage.revisions;
+    details.highlight = {
+      quote: text.slice(coverage.start, coverage.end),
+      start: coverage.start,
+      end: coverage.end,
+      prefix: text.slice(Math.max(0, coverage.start - 160), coverage.start),
+      suffix: text.slice(coverage.end, coverage.end + 160)
+    };
+    if (currentSelection === details) updateHighlightButton(details);
+  }
+
   function textSegments(root, start, end, includeNestedRoots) {
     var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
     var segments = [];
@@ -730,20 +774,33 @@
     );
     highlights = items;
     applySavedHighlights();
+    refreshSelectionCoverage(currentSelection);
+    refreshSelectionCoverage(noteSelection);
     rememberSelection();
   }
 
   function fetchHighlights() {
+    var request = ++highlightsRequest;
+    var revision = highlightsRevision;
     var url = new URL(sourceUrl, window.location.origin);
     url.searchParams.set("source_path", sourcePath);
-    fetch(url.toString(), {
+    return fetch(url.toString(), {
       headers: { "X-Requested-With": "fetch" }
     })
       .then(readJson)
       .then(function (data) {
-        replaceSavedHighlights(data.highlights || []);
+        if (request !== highlightsRequest) return;
+        if (revision !== highlightsRevision) return fetchHighlights();
+        if (!Array.isArray(data.highlights)) {
+          throw new Error("La réponse du serveur est invalide.");
+        }
+        replaceSavedHighlights(data.highlights);
       })
-      .catch(function () {});
+      .catch(function () {
+        if (request === highlightsRequest) {
+          showToast("Impossible de charger les surlignages. Actualisez la page pour réessayer.");
+        }
+      });
   }
 
   function deleteHighlight(item) {
@@ -757,6 +814,9 @@
         "X-Requested-With": "fetch"
       }
     }).then(readJson).then(function (data) {
+      if (data.deleted !== true) {
+        throw new Error("Ce surlignage n’a pas pu être supprimé.");
+      }
       announceWritingSujetProgress(data);
       return data;
     });
@@ -770,30 +830,40 @@
     if (!selectedHighlights.length) return;
 
     highlightButton.disabled = true;
-    Promise.all(selectedHighlights.map(deleteHighlight))
-      .then(function () {
+    Promise.allSettled(selectedHighlights.map(deleteHighlight))
+      .then(function (results) {
+        var removedIds = selectedHighlights.filter(function (item, index) {
+          return results[index].status === "fulfilled";
+        }).map(function (item) { return String(item.id); });
+        highlightsRevision += 1;
         highlights = highlights.filter(function (item) {
-          return selectedIds.indexOf(String(item.id)) === -1;
+          return removedIds.indexOf(String(item.id)) === -1;
         });
-        removeHighlightMarks(selectedIds);
+        removeHighlightMarks(removedIds);
+        refreshSelectionCoverage(details);
+        var failed = results.find(function (result) {
+          return result.status === "rejected";
+        });
+        if (failed) {
+          showToast(failed.reason.message);
+          return fetchHighlights();
+        }
         details.fullyHighlighted = false;
         details.highlightIds = [];
-        details.highlightRevisions = [];
+        details.highlightRevisions = {};
         if (currentSelection === details) {
           updateHighlightButton(details);
         }
         showToast("Surlignage supprimé.");
-        highlightButton.disabled = false;
       })
-      .catch(function (error) {
-        showToast(error.message);
+      .finally(function () {
         highlightButton.disabled = false;
-        fetchHighlights();
       });
   }
 
   function highlightSelection(details) {
     return createAnnotation("highlight", details, "").then(function (data) {
+      highlightsRevision += 1;
       announceWritingSujetProgress(data);
       var selected = details.highlight;
       var item = {
@@ -820,7 +890,8 @@
       applyHighlight(item);
       details.fullyHighlighted = true;
       details.highlightIds = [item.id];
-      details.highlightRevisions = [item.revision];
+      details.highlightRevisions = {};
+      details.highlightRevisions[String(item.id)] = item.revision;
       if (currentSelection === details) {
         updateHighlightButton(details);
       }
@@ -829,6 +900,7 @@
   }
 
   function toggleHighlight() {
+    if (highlightButton.disabled) return;
     rememberSelection();
     var details = currentSelection;
     if (!details) return;
@@ -867,6 +939,7 @@
     var knownCountEl = deck.querySelector("[data-study-known-count]");
     var index = 0;
     var interaction = null;
+    var clearingStudy = false;
     // Nothing leaves the « À étudier » pack mid-session: the end-of-run
     // button removes the cards the learner ticked off with the card's own
     // « Marquer comme terminé » control.
@@ -897,15 +970,14 @@
         body: formData,
         credentials: "same-origin"
       })
-        .then(function (response) {
-          if (!response.ok) {
+        .then(readJson)
+        .then(function (payload) {
+          if (typeof payload[field] !== "boolean") {
             throw new Error("Impossible de mettre à jour cet élément.");
           }
-          return response.json();
-        })
-        .then(function (payload) {
           var pressed = Boolean(payload[field]);
           setFlagState(button, pressed);
+          if (!done.classList.contains("hidden")) showDone();
           showToast(
             pressed
               ? button.dataset.studyFlagToastOn
@@ -930,7 +1002,9 @@
     );
 
     function removeCard(card) {
-      var wasLast = index >= cards.length - 1;
+      var currentCard = cards[index];
+      var hadFocus = card.contains(document.activeElement);
+      var wasDone = !done.classList.contains("hidden");
       cards = cards.filter(function (other) {
         return other !== card;
       });
@@ -938,16 +1012,27 @@
       if (!cards.length) {
         showDone();
         if (restart) restart.disabled = true;
+        if (hadFocus) {
+          done.tabIndex = -1;
+          done.focus({ preventScroll: true });
+        }
         return;
       }
-      if (index >= cards.length) index = cards.length - 1;
-      else if (wasLast) index = cards.length - 1;
+      index = currentCard === card
+        ? Math.min(index, cards.length - 1)
+        : cards.indexOf(currentCard);
+      if (wasDone) {
+        showDone();
+        return;
+      }
       render();
+      if (hadFocus) cards[index].focus({ preventScroll: true });
     }
 
     function deleteCard(button) {
       var card = button.closest("[data-study-card]");
-      if (!card || button.disabled) return;
+      if (!card || button.disabled || button.dataset.pending === "true") return;
+      button.dataset.pending = "true";
       var ask = window.HeureuxConfirm
         ? window.HeureuxConfirm({
             message: button.dataset.studyDeleteConfirm,
@@ -960,7 +1045,7 @@
       ask.then(function (ok) {
         if (!ok) return;
         button.disabled = true;
-        fetch(button.dataset.studyDeleteUrl, {
+        return fetch(button.dataset.studyDeleteUrl, {
           method: "POST",
           headers: {
             "X-CSRFToken": csrfToken(),
@@ -968,17 +1053,19 @@
           },
           credentials: "same-origin"
         })
-          .then(function (response) {
-            if (!response.ok) {
+          .then(readJson)
+          .then(function (payload) {
+            if (payload.deleted !== true) {
               throw new Error("Impossible de supprimer cet élément.");
             }
             removeCard(card);
             showToast("Élément supprimé.");
-          })
-          .catch(function (error) {
-            button.disabled = false;
-            showToast(error.message);
           });
+      }).catch(function (error) {
+        showToast(error.message);
+      }).finally(function () {
+        delete button.dataset.pending;
+        button.disabled = false;
       });
     }
 
@@ -1047,6 +1134,7 @@
     }
 
     function render() {
+      var focusedCard = document.activeElement.closest("[data-study-card]");
       cards.forEach(function (card, cardIndex) {
         card.classList.toggle("hidden", cardIndex !== index);
       });
@@ -1057,6 +1145,9 @@
       controls.classList.remove("hidden");
       if (keyboardHint) keyboardHint.classList.remove("hidden");
       done.classList.add("hidden");
+      if (focusedCard && focusedCard !== card) {
+        card.focus({ preventScroll: true });
+      }
       progress.textContent = String(index + 1) + " / " + String(cards.length);
       if (progressBar) {
         progressBar.style.width =
@@ -1074,6 +1165,9 @@
     }
 
     function showDone() {
+      var hadFocus = cards.some(function (card) {
+        return card.contains(document.activeElement);
+      }) || controls.contains(document.activeElement);
       cards.forEach(function (card) {
         card.classList.add("hidden");
       });
@@ -1087,7 +1181,7 @@
       var known = knownCards().length;
       if (knownCountEl) knownCountEl.textContent = String(known);
       if (clearLabel) {
-        clearLabel.textContent =
+        clearLabel.textContent = clearingStudy ? "Retrait…" :
           "Retirer " +
           String(known) +
           " élément" +
@@ -1096,9 +1190,10 @@
           pluralize(known);
       }
       if (clearButton) {
-        clearButton.disabled = false;
+        clearButton.disabled = clearingStudy;
         clearButton.classList.toggle("hidden", known === 0);
       }
+      if (restart) restart.disabled = clearingStudy || cards.length === 0;
       if (summary) {
         summary.textContent =
           known > 0
@@ -1110,6 +1205,9 @@
               pluralize(known) +
               "."
             : "Aucun élément marqué « Je le connais » — votre sélection reste inchangée.";
+      }
+      if (hadFocus && restart && !restart.disabled) {
+        restart.focus({ preventScroll: true });
       }
     }
 
@@ -1150,11 +1248,14 @@
     if (next) next.addEventListener("click", goNext);
     if (clearButton) {
       clearButton.addEventListener("click", function () {
+        if (clearButton.disabled) return;
         var toRemove = knownCards();
         if (!toRemove.length) return;
+        clearingStudy = true;
         clearButton.disabled = true;
+        if (restart) restart.disabled = true;
         if (clearLabel) clearLabel.textContent = "Retrait…";
-        Promise.all(
+        Promise.allSettled(
           toRemove.map(function (card) {
             var formData = new FormData();
             formData.set("study_later", "0");
@@ -1166,21 +1267,34 @@
               },
               body: formData,
               credentials: "same-origin"
-            }).then(function (response) {
-              if (!response.ok) {
+            }).then(readJson).then(function (payload) {
+              if (payload.study_later !== false) {
                 throw new Error("Impossible de mettre à jour la sélection.");
               }
             });
           })
         )
-          .then(function () {
-            var removedCount = toRemove.length;
-            toRemove.forEach(function (card) {
+          .then(function (results) {
+            clearingStudy = false;
+            var removed = toRemove.filter(function (card, index) {
+              return results[index].status === "fulfilled";
+            });
+            var removedCount = removed.length;
+            removed.forEach(function (card) {
               cards = cards.filter(function (other) {
                 return other !== card;
               });
               if (card.parentNode) card.parentNode.removeChild(card);
             });
+            if (restart) restart.disabled = cards.length === 0;
+            var failed = results.find(function (result) {
+              return result.status === "rejected";
+            });
+            if (failed) {
+              showDone();
+              showToast(failed.reason.message);
+              return;
+            }
             clearButton.classList.add("hidden");
             showToast(
               String(removedCount) +
@@ -1200,12 +1314,6 @@
                     " dans votre sélection."
                   : "Votre sélection « À étudier » est maintenant vide.";
             }
-            if (restart) restart.disabled = cards.length === 0;
-          })
-          .catch(function (error) {
-            clearButton.disabled = false;
-            showDone();
-            showToast(error.message);
           });
       });
     }
@@ -1227,6 +1335,14 @@
   });
   document.addEventListener("pointerup", rememberSelection);
   noteButton.addEventListener("click", openNotePanel);
+  var translateButton = action.querySelector("[data-translate-selection]");
+  if (translateButton) {
+    translateButton.addEventListener("click", function () {
+      if (!notePanel.classList.contains("hidden")) {
+        closeNotePanel(undefined, false);
+      }
+    });
+  }
   if (notePaste) notePaste.addEventListener("click", pasteNote);
   highlightButton.addEventListener("click", toggleHighlight);
   noteSaveClose.addEventListener("click", function () {
@@ -1244,7 +1360,7 @@
       !notePanel.contains(event.target) &&
       !action.contains(event.target)
     ) {
-      closeNotePanel();
+      closeNotePanel(undefined, false);
     }
   });
   document.addEventListener("keydown", function (event) {
@@ -1260,6 +1376,12 @@
   observer.observe(main, { childList: true, subtree: true });
   window.addEventListener("pagehide", function () {
     observer.disconnect();
+    window.clearTimeout(mutationTimer);
+  });
+  window.addEventListener("pageshow", function (event) {
+    if (!event.persisted) return;
+    observer.observe(main, { childList: true, subtree: true });
+    fetchHighlights();
   });
   setupStudyDeck();
   fetchHighlights();
@@ -1267,8 +1389,12 @@
   // Lets the translation panel turn a translated passage into a note without
   // duplicating the selection capture logic that lives in this module.
   window.HeureuxNotes = {
-    saveSelectionNote: function (quote, body, alsoHighlight) {
-      var details = currentSelection;
+    captureSelection: function () {
+      rememberSelection();
+      return currentSelection;
+    },
+    saveSelectionNote: function (quote, body, alsoHighlight, selection) {
+      var details = selection || currentSelection;
       if (
         !details
         || normalizedContext(details.quote) !== normalizedContext(quote)

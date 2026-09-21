@@ -179,7 +179,7 @@
         scope.querySelectorAll("[data-read-aloud-text]")
       ).filter(sourceIsVisible);
     }
-    var seen = {};
+    var seen = Object.create(null);
     return sources.map(function (source) {
       return (source.textContent || "").replace(/\s+/g, " ").trim();
     }).filter(function (text) {
@@ -209,13 +209,31 @@
     }
   }
 
-  function finish() {
+  function finish(failed) {
     if (!active) return;
     var button = active.button;
     active = null;
     relatedButtons(button).forEach(function (candidate) {
       setButtonState(candidate, false);
+      if (failed) {
+        var message = "Lecture indisponible. Réessayez.";
+        candidate.setAttribute("aria-label", message);
+        candidate.setAttribute("title", message);
+        var label = candidate.querySelector("[data-read-aloud-button-label]");
+        if (label) label.textContent = message;
+      }
     });
+    if (failed) {
+      var status = document.querySelector("[data-speech-status]");
+      if (!status) {
+        status = document.createElement("span");
+        status.className = "sr-only";
+        status.dataset.speechStatus = "";
+        status.setAttribute("role", "status");
+        document.body.appendChild(status);
+      }
+      status.textContent = "Lecture indisponible. Réessayez.";
+    }
   }
 
   function stop(cancelSpeech) {
@@ -255,9 +273,14 @@
       speakNext(number);
     };
     utterance.onerror = function () {
-      if (active && active.number === number) finish();
+      if (active && active.number === number) finish(true);
     };
-    synthesis.speak(utterance);
+    active.utterance = utterance;
+    try {
+      synthesis.speak(utterance);
+    } catch (error) {
+      if (active && active.number === number) finish(true);
+    }
   }
 
   function start(button) {

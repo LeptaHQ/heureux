@@ -779,7 +779,7 @@
     rememberSelection();
   }
 
-  function fetchHighlights() {
+  function fetchHighlights(mutationErrorMessage) {
     var request = ++highlightsRequest;
     var revision = highlightsRevision;
     var url = new URL(sourceUrl, window.location.origin);
@@ -790,7 +790,7 @@
       .then(readJson)
       .then(function (data) {
         if (request !== highlightsRequest) return;
-        if (revision !== highlightsRevision) return fetchHighlights();
+        if (revision !== highlightsRevision) return fetchHighlights(mutationErrorMessage);
         if (!Array.isArray(data.highlights)) {
           throw new Error("La réponse du serveur est invalide.");
         }
@@ -798,7 +798,8 @@
       })
       .catch(function () {
         if (request === highlightsRequest) {
-          showToast("Impossible de charger les surlignages. Actualisez la page pour réessayer.");
+          showToast(mutationErrorMessage ||
+            "Impossible de charger les surlignages. Actualisez la page pour réessayer.");
         }
       });
   }
@@ -846,7 +847,7 @@
         });
         if (failed) {
           showToast(failed.reason.message);
-          return fetchHighlights();
+          return fetchHighlights(failed.reason.message);
         }
         details.fullyHighlighted = false;
         details.highlightIds = [];
@@ -917,7 +918,7 @@
       .catch(function (error) {
         showToast(error.message);
         highlightButton.disabled = false;
-        if (error.status === 409) fetchHighlights();
+        if (error.status === 409) fetchHighlights(error.message);
       });
   }
 

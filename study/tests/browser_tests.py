@@ -5733,6 +5733,7 @@ class BrowserTests(StaticLiveServerTestCase):
             )
         ):
             highlight_button.click()
+        expect(highlight_button).to_be_enabled()
         self.page.locator(
             "[data-annotation-toast]",
             has_text="Votre session a expiré",
@@ -5743,6 +5744,76 @@ class BrowserTests(StaticLiveServerTestCase):
                 user=self.user,
                 kind=AnnotationKind.HIGHLIGHT,
             ).exists()
+        )
+
+    def test_partial_unhighlight_preserves_mutation_error_and_allows_retry(self):
+        path = reverse("study:dashboard")
+        highlights = [
+            Annotation.objects.create(
+                user=self.user,
+                kind=AnnotationKind.HIGHLIGHT,
+                source_path=path,
+                source_key="regression:partial-unhighlight",
+                quote=quote,
+                start_offset=start,
+                end_offset=end,
+            )
+            for quote, start, end in (("Bon", 0, 3), ("jour", 3, 7))
+        ]
+        self.page.goto(self.live_server_url + path)
+        self.page.evaluate(
+            """
+            () => {
+              const root = document.createElement("p");
+              root.id = "partial-unhighlight";
+              root.dataset.annotationRoot = "";
+              root.dataset.annotationSourceKey = "regression:partial-unhighlight";
+              root.textContent = "Bonjour";
+              document.getElementById("main").appendChild(root);
+            }
+            """
+        )
+        target = self.page.locator("#partial-unhighlight")
+        expect(target.locator("mark.user-highlight")).to_have_count(2)
+        self.select_prompt(target=target)
+        button = self.page.locator("[data-highlight-selection]")
+        expect(button).to_have_attribute("aria-label", "Unhighlight selected text")
+
+        delete_url = self.live_server_url + reverse(
+            "study:annotation_delete", args=[highlights[1].pk]
+        )
+        source_url = self.live_server_url + reverse("study:annotations_for_source")
+        self.page.route(delete_url, lambda route: route.fulfill(
+            status=503, json={"error": "Suppression indisponible. Réessayez."}
+        ))
+        self.page.route(source_url + "?*", lambda route: route.fulfill(
+            status=503, json={"error": "Chargement indisponible."}
+        ))
+        with self.page.expect_request(lambda request: source_url in request.url):
+            button.click()
+        expect(button).to_be_enabled()
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Suppression indisponible. Réessayez."
+        )
+        expect(target.locator("mark.user-highlight")).to_have_count(1)
+        expect(target.locator("mark.user-highlight")).to_have_attribute(
+            "data-highlight-id", str(highlights[1].pk)
+        )
+        self.assertFalse(Annotation.objects.filter(pk=highlights[0].pk).exists())
+        self.assertTrue(Annotation.objects.filter(pk=highlights[1].pk).exists())
+
+        self.page.unroute(delete_url)
+        self.page.unroute(source_url + "?*")
+        self.select_prompt(target=target.locator("mark.user-highlight"))
+        expect(button).to_have_attribute("aria-label", "Unhighlight selected text")
+        button.click()
+        expect(button).to_be_enabled()
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Surlignage supprimé."
+        )
+        expect(target.locator("mark.user-highlight")).to_have_count(0)
+        self.assertFalse(
+            Annotation.objects.filter(pk__in=[item.pk for item in highlights]).exists()
         )
 
     def test_legacy_response_highlight_renders_inside_new_annotation_root(self):

@@ -3,13 +3,14 @@
 from copy import deepcopy
 from dataclasses import asdict, replace
 from threading import Event, Thread, current_thread
-from unittest.mock import patch
+from unittest import TestCase as UnitTestCase
+from unittest.mock import call, patch
 
 from django.contrib.auth import get_user_model
 from django.db import connection, connections, transaction
 from django.db.migrations.executor import MigrationExecutor
 from django.db.models import JSONField
-from django.test import TestCase, TransactionTestCase, skipUnlessDBFeature, tag
+from django.test import SimpleTestCase, TestCase, TransactionTestCase, skipUnlessDBFeature, tag
 from django.test.utils import CaptureQueriesContext
 from django.urls import reverse
 from django.utils import timezone
@@ -253,12 +254,16 @@ class ExposureMigrationCases:
     def setUp(self):
         super().setUp()
         executor = MigrationExecutor(connection)
+        self.latest_migrations = executor.loader.graph.leaf_nodes()
+        self.addCleanup(self.restore_migrations)
         executor.migrate([self.migrate_from])
         self.old_apps = executor.loader.project_state([self.migrate_from]).apps
-        self.addCleanup(self.migrate_forward)
         self.user = factories.make_user("migration-exposure-owner")
         self.lesson = course_lesson()
         self.old_attempt = self.old_apps.get_model("study", "CourseAttempt")
+
+    def restore_migrations(self):
+        MigrationExecutor(connection).migrate(self.latest_migrations)
 
     def migrate_forward(self):
         MigrationExecutor(connection).migrate([self.migrate_to])
@@ -343,6 +348,33 @@ class ExposureMigrationCases:
         self.assertFalse(CourseAttempt.objects.exists())
         self.assertFalse(CourseExposureIndex.objects.exists())
         self.assertFalse(CourseItemExposure.objects.exists())
+
+
+class CourseExposureMigrationCleanupTests(SimpleTestCase):
+    def test_latest_schema_is_restored_after_setup_or_test_failure(self):
+        class FailingMigrationCase(ExposureMigrationCases, UnitTestCase):
+            def runTest(self):
+                self.migrate_forward()
+                self.fail("simulated assertion failure")
+
+        leaves = [("study", "future_migration"), ("auth", "latest_auth_migration")]
+        for fail_during_setup in (True, False):
+            with (
+                self.subTest(fail_during_setup=fail_during_setup),
+                patch(__name__ + ".MigrationExecutor") as executor_type,
+                patch.object(factories, "make_user"),
+            ):
+                executor = executor_type.return_value
+                executor.loader.graph.leaf_nodes.return_value = leaves
+                if fail_during_setup:
+                    executor.migrate.side_effect = [RuntimeError("simulated migration failure"), None]
+                result = FailingMigrationCase().run()
+                self.assertEqual(len(result.errors), int(fail_during_setup))
+                self.assertEqual(len(result.failures), int(not fail_during_setup))
+                expected = [call([ExposureMigrationCases.migrate_from])]
+                if not fail_during_setup:
+                    expected.append(call([ExposureMigrationCases.migrate_to]))
+                self.assertEqual(executor.migrate.call_args_list, [*expected, call(leaves)])
 
 
 class CourseExposureMigrationTests(ExposureMigrationCases, TransactionTestCase):

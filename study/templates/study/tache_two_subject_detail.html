@@ -43,7 +43,6 @@
     </div>
 
     <aside class="detail-side">
-      {% include "study/partials/subject_hints_list.html" with hints=subject_hints intro="Les points à explorer dans vos questions." only %}
       <div class="card section-card response-sidebar-card response-sidebar-card--status">
         <div class="spine-label">Progression du sujet</div>
         {% include "study/partials/subject_progress_control.html" with subject_label=subject.title hide_help=True %}
@@ -54,6 +53,8 @@
           <a class="btn btn--primary btn--block" href="{{ response_review_url }}">Pratiquer ce sujet</a>
         </div>
       </div>
+
+      {% include "study/partials/subject_hints_list.html" with hints=subject_hints intro="Les points à explorer dans vos questions." only %}
 
       {% if equivalent_subjects %}
         <div class="card section-card response-sidebar-card response-sidebar-card--aliases" id="equivalent-subjects">

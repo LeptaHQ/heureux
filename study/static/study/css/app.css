@@ -7624,6 +7624,11 @@ a.qrow:focus-visible {
 .section-card { padding: 1.2rem 1.4rem; }
 .detail-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 1.4rem; align-items: start; }
 .detail-side { display: grid; gap: 1rem; }
+/* Keep the legacy annotation root intact while placing pistes after progression. */
+.subject-hints-column > .detail-side { display: contents; }
+.subject-hints-column > .detail-side > .response-sidebar-card:not(.response-sidebar-card--status) {
+  order: 1;
+}
 .flashcard-question-list {
   display: grid;
   gap: 0.65rem;

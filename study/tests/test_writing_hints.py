@@ -242,6 +242,13 @@ class WritingHintsViewTests(TestCase):
                 self.assertContains(page, 'class="subject-hints__french"', count=len(hints[sujet.slug]))
                 self.assertContains(page, 'class="subject-hints__english"', count=len(hints[sujet.slug]))
                 self.assertNotContains(page, ">Hints<")
+                self.assertLess(
+                    page.content.index(b"response-sidebar-card--status"),
+                    page.content.index(b'id="subject-hints-title"'),
+                )
+                self.assertNotContains(page, "<dt>Position</dt>")
+                self.assertNotContains(page, "<dt>Réponses modèles</dt>")
+                self.assertNotContains(page, "subject-progress-control__help")
 
     def test_personal_answers_edits_deletions_and_annotations_remain_private_and_unchanged(self):
         canonical = WritingSujet.objects.get(task=self.task, slug="janvier-combinaison-2")
@@ -331,6 +338,9 @@ class WritingHintsViewTests(TestCase):
                 page = self.client.get(self.url(sujet))
                 self.assertEqual(page.status_code, 200)
                 self.assertNotContains(page, "subject-hints--writing")
+                self.assertNotContains(page, "<dt>Position</dt>")
+                self.assertNotContains(page, "<dt>Réponses modèles</dt>")
+                self.assertNotContains(page, "subject-progress-control__help")
 
     def test_warm_requests_do_not_reread_sources_or_add_database_queries(self):
         sujet = WritingSujet.objects.get(task=self.task, slug="janvier-combinaison-2")

@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 from dataclasses import replace
 from io import StringIO
 from unittest import mock
@@ -188,6 +189,21 @@ class BrowserTests(StaticLiveServerTestCase):
             """
         )
         self.assertTrue(fits, f"{self.page.url}: {overflowing}")
+
+    def assert_progress_before_pistes(self, page):
+        status = page.locator(".response-sidebar-card--status")
+        hints = page.locator(".subject-hints")
+        expect(status).to_be_visible()
+        expect(hints).to_be_visible()
+        expect(status.locator(".subject-progress-control__help")).to_have_count(0)
+        expect(status.locator("dt").filter(has_text=re.compile(r"^(Position|Réponses modèles)$"))).to_have_count(0)
+        self.assertTrue(status.evaluate("""status => Boolean(
+            status.compareDocumentPosition(document.querySelector(".subject-hints"))
+                & Node.DOCUMENT_POSITION_FOLLOWING
+        )"""))
+        progress_box, hints_box = status.bounding_box(), hints.bounding_box()
+        self.assertLessEqual(progress_box["y"] + progress_box["height"], hints_box["y"] + 1)
+        self.assertLessEqual(hints_box["y"] - progress_box["y"] - progress_box["height"], 24)
 
     def assert_compact_collection_toolbar(self):
         toolbar = self.page.locator("[data-collection-toolbar]")
@@ -559,6 +575,7 @@ class BrowserTests(StaticLiveServerTestCase):
                             expect(page.locator("[data-nav-links]")).to_be_hidden()
                         page.get_by_role("link", name="Voir les pistes", exact=True).click()
                         expect(hints.get_by_role("heading", name="Pistes", exact=True)).to_be_in_viewport()
+                        self.assert_progress_before_pistes(page)
                         self.assertLessEqual(
                             page.evaluate("document.documentElement.scrollWidth"),
                             page.evaluate("window.innerWidth") + 1,
@@ -2219,6 +2236,7 @@ class BrowserTests(StaticLiveServerTestCase):
                         expect(page.locator("[data-nav-links]")).to_be_hidden()
                     page.get_by_role("link", name="Voir les pistes", exact=True).click()
                     expect(page.get_by_role("heading", name="Pistes", exact=True)).to_be_in_viewport()
+                    self.assert_progress_before_pistes(page)
                     self.assertLessEqual(
                         page.evaluate("document.documentElement.scrollWidth"),
                         page.evaluate("window.innerWidth") + 1,
@@ -2227,6 +2245,47 @@ class BrowserTests(StaticLiveServerTestCase):
                 expect(page.get_by_role("heading", name="Versions du sujet")).to_have_count(0)
         finally:
             context.close()
+
+    def test_eo3_sidebar_highlight_survives_removed_progress_help(self):
+        self._import_eo_tache_three_content()
+        prompt = Prompt.objects.select_related("theme__task__part").get(content_key="culture:p1")
+        phrase = factories.make_phrase(tier=PhraseTier.SUBJECT)
+        phrase.source_prompts.add(prompt)
+        url = prompt_detail_url(prompt)
+        self.page.goto(self.live_server_url + url)
+        sidebar = self.page.locator("aside[data-annotation-root]")
+        saved = sidebar.evaluate("""root => {
+            const help = document.createElement("p");
+            help.className = "subject-progress-control__help";
+            help.textContent = "La pratique et le vocabulaire gardent le statut « En cours » jusqu’à votre validation.";
+            root.querySelector(".subject-progress-control").after(help);
+            const quote = root.querySelector(".response-sidebar-card--vocabulary .spine-label").textContent.trim();
+            const text = root.textContent;
+            const start = text.indexOf(quote);
+            return {
+                quote, start, end: start + quote.length,
+                key: root.dataset.annotationSourceKey,
+                prefix: text.slice(Math.max(0, start - 160), start),
+                suffix: text.slice(start + quote.length, start + quote.length + 160),
+            };
+        }""")
+        mark = Annotation.objects.create(
+            user=self.user, task=prompt.theme.task, kind=AnnotationKind.HIGHLIGHT,
+            source_path=url, source_key=saved["key"], quote=saved["quote"],
+            start_offset=saved["start"], end_offset=saved["end"],
+            prefix=saved["prefix"], suffix=saved["suffix"],
+        )
+        self.page.reload()
+        expect(sidebar.locator(".subject-progress-control__help")).to_have_count(0)
+        expect(sidebar.locator("mark.user-highlight")).to_have_text(saved["quote"])
+        self.assertLess(sidebar.evaluate("(root, quote) => root.textContent.indexOf(quote)", saved["quote"]), saved["start"])
+        mark.refresh_from_db()
+        self.assertEqual(mark.start_offset, saved["start"])
+        self.assertEqual(mark.source_key, saved["key"])
+        self.assert_progress_before_pistes(self.page)
+        hints_box = self.page.locator(".subject-hints").bounding_box()
+        vocabulary_box = sidebar.locator(".response-sidebar-card--vocabulary").bounding_box()
+        self.assertGreaterEqual(vocabulary_box["y"], hints_box["y"] + hints_box["height"])
 
     def test_ee_tache_one_rows_navigate_without_completion_click_through(self):
         ee_part = factories.make_part("ee")
@@ -3488,6 +3547,7 @@ class BrowserTests(StaticLiveServerTestCase):
                     page.evaluate("window.innerWidth") + 1,
                 )
                 self.assertTrue(hints.is_visible())
+                self.assert_progress_before_pistes(page)
             page.goto(self.live_server_url + prompt_detail_url(alias) + "?deduplicate=0")
             page.get_by_role("heading", name="Pistes", exact=True).wait_for()
             self.assertEqual(hints.inner_text(), original)

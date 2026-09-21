@@ -131,9 +131,6 @@
     </div>
 
     <aside class="detail-side">
-      {% if subject_hints %}
-        {% include "study/partials/subject_hints_list.html" with hints=subject_hints intro="Une trame possible, à adapter à la consigne." writing=True only %}
-      {% endif %}
       <div class="card section-card response-sidebar-card response-sidebar-card--status">
         <div class="spine-label">Progression du sujet</div>
         <div
@@ -147,7 +144,6 @@
             {% include "study/partials/writing_sujet_completion_form.html" with sujet=progress_sujet completed=explicitly_completed subject_label=prompt part=part task=task %}
           </div>
         </div>
-        <p class="subject-progress-control__help">Surligner ou personnaliser une réponse garde le sujet « En cours » jusqu’à votre validation.</p>
         <dl class="kv">
           <div><dt>Thème</dt><dd>{{ category_label }}</dd></div>
           {% if source %}
@@ -157,15 +153,17 @@
             </div>
           {% endif %}
           <div><dt>Limite</dt><dd>{{ word_limit_min }}–{{ word_limit_max }} mots</dd></div>
-          <div><dt>Réponses modèles</dt><dd>{{ model_versions|length }}</dd></div>
           <div><dt>Personnalisation</dt><dd>{% if has_personal %}Prête{% else %}À faire{% endif %}</dd></div>
-          <div><dt>Position</dt><dd>{{ position }} / {{ total }}</dd></div>
         </dl>
         <div class="response-sidebar-actions">
           <a class="btn btn--primary btn--block" href="{% subject_url 'study:writing_sujet_edit' part.slug task.slug sujet.pk %}">{% if has_personal %}Modifier ma version{% else %}Personnaliser la réponse{% endif %}</a>
           <a class="btn btn--block" href="{% subject_url 'study:task_browse' part.slug task.slug %}">Tous les sujets</a>
         </div>
       </div>
+
+      {% if subject_hints %}
+        {% include "study/partials/subject_hints_list.html" with hints=subject_hints intro="Une trame possible, à adapter à la consigne." writing=True only %}
+      {% endif %}
 
       {% if equivalent_sujets %}
         <div class="card section-card response-sidebar-card response-sidebar-card--aliases">

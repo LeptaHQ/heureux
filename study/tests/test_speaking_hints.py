@@ -264,6 +264,11 @@ class SpeakingHintsViewTests(TestCase):
 
         self.assertEqual(sidebar(page), sidebar(baseline))
         self.assertNotIn("subject-hints", sidebar(page))
+        self.assertLess(
+            page.content.index(b"response-sidebar-card--status"),
+            page.content.index(b'id="subject-hints-title"'),
+        )
+        self.assertNotContains(page, "subject-progress-control__help")
         self.assertContains(page, "Pratiquer cette réponse")
         self.assertContains(page, "Vocabulaire de ce sujet")
         self.assertContains(page, "data-subject-completion-form")
@@ -300,3 +305,4 @@ class SpeakingHintsViewTests(TestCase):
         self.assertEqual(page.status_code, 200)
         self.assertNotContains(page, "subject-hints--speaking")
         self.assertContains(page, "Documents sources")
+        self.assertNotContains(page, "subject-progress-control__help")

@@ -1,3 +1,4 @@
 -r requirements.txt
 pip-audit==2.10.1
 playwright==1.61.0
+tblib==3.2.2

@@ -7,10 +7,13 @@ import json
 import re
 import tempfile
 from collections import Counter
+from html.parser import HTMLParser
 from pathlib import Path
 from unittest.mock import patch
 
+from django.template.loader import render_to_string
 from django.test import SimpleTestCase
+from django.urls import reverse
 
 from study import content_loader as content
 
@@ -60,6 +63,22 @@ class AppCopyTests(SimpleTestCase):
             project_root / "study/content/ee/tache_2/ai_examiner_prompt.md",
             project_root / "study/content/ee/tache_3/ai_examiner_prompt.md",
         }
+        # Curriculum citations/lessons and internal audit records are not app
+        # branding. Keep production templates, static assets and expression banks
+        # covered; only these exact course disclaimers may name the exam.
+        excluded_roots = (
+            project_root / "study/tests",
+            project_root / "study/content/learning",
+        )
+        approved_disclaimers = {
+            project_root / "study/templates/study/course_attempt.html": (
+                "Not CEFR/TCF certification."
+            ),
+            project_root / "study/templates/study/course_practice.html": (
+                "These bounded exercises are not CEFR/TCF certification "
+                "or a prediction of NCLC scores."
+            ),
+        }
         pattern = re.compile(
             r"\b(?:" + "|".join(re.escape(item) for item in forbidden) + r")\b",
             re.IGNORECASE,
@@ -71,9 +90,13 @@ class AppCopyTests(SimpleTestCase):
                 if (
                     path.suffix.lower() not in suffixes
                     or path in exam_specific_sources
+                    or any(path.is_relative_to(excluded) for excluded in excluded_roots)
                 ):
                     continue
                 text = path.read_text(encoding="utf-8")
+                if disclaimer := approved_disclaimers.get(path):
+                    self.assertEqual(text.count(disclaimer), 1, path)
+                    text = text.replace(disclaimer, "", 1)
                 if match := pattern.search(text):
                     violations.append(
                         f"{path.relative_to(project_root)}: {match.group(0)}"
@@ -82,7 +105,27 @@ class AppCopyTests(SimpleTestCase):
         self.assertEqual(violations, [])
 
 
+class _SubjectLinkParser(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.links = []
+
+    def handle_starttag(self, tag, attributes):
+        attributes = dict(attributes)
+        if tag == "a" and "subject-table-row-link" in attributes.get("class", "").split():
+            self.links.append(attributes)
+
+
 class SubjectNavigationTemplateTests(SimpleTestCase):
+    def assert_subject_links(self, rendered, expected_urls):
+        parser = _SubjectLinkParser()
+        parser.feed(rendered)
+        self.assertEqual(len(parser.links), len(expected_urls))
+        self.assertEqual({link["href"] for link in parser.links}, set(expected_urls))
+        for link in parser.links:
+            self.assertEqual(link.get("target"), "_blank")
+            self.assertEqual(set(link.get("rel", "").split()), {"noopener", "noreferrer"})
+
     def test_detail_navigation_stays_in_the_current_tab(self):
         project_root = Path(__file__).resolve().parents[2]
         templates = (
@@ -106,16 +149,72 @@ class SubjectNavigationTemplateTests(SimpleTestCase):
                 )
 
     def test_subject_directories_keep_opening_items_in_new_tabs(self):
-        project_root = Path(__file__).resolve().parents[2]
-        templates = (
-            project_root / "study/templates/study/partials/subject_collection_row.html",
-            project_root / "study/templates/study/ee_writing_subjects.html",
-        )
+        progress = {"status": "new", "label": "À commencer", "completed": 0, "total": 2}
+        for tache in (1, 2):
+            with self.subTest(tache=tache):
+                subjects = [
+                    {
+                        "sujet": {"pk": number},
+                        "prompt": f"Sujet de rédaction {number}",
+                        "progress": progress,
+                        "source": {
+                            "source_key": f"ee-tache{tache}:janvier:combinaison-{number}",
+                            "month_name": "Janvier",
+                            "year": 2025,
+                        },
+                        "version_count": 1,
+                    }
+                    for number in (1, 2)
+                ]
+                rendered = render_to_string("study/ee_writing_subjects.html", {
+                    "part": {"slug": "ee", "short_name": "Expression écrite"},
+                    "task": {"slug": f"tache-{tache}", "name": f"Tâche {tache}", "icon": "pen"},
+                    "writing_tache": tache,
+                    "categories": [{
+                        "slug": "invitations", "label": "Invitations",
+                        "sujets": subjects, "count": len(subjects), "progress": progress,
+                    }],
+                    "subject_progress": progress,
+                    "subject_prompt_map": {},
+                    "csrf_token": "test-token",
+                })
+                self.assert_subject_links(
+                    rendered,
+                    {
+                        reverse("study:writing_sujet_detail", args=["ee", f"tache-{tache}", number])
+                        for number in (1, 2)
+                    },
+                )
 
-        for template in templates:
-            with self.subTest(template=template.name):
-                source = template.read_text(encoding="utf-8")
-                self.assertIn('target="_blank"', source)
+    def test_shared_subject_directories_render_new_tab_links_for_every_kind(self):
+        progress = {"status": "new", "label": "À commencer", "completed": 0, "total": 1}
+        subject = {
+            "title": "Sujet oral", "month_slug": "janvier", "batch_number": 1,
+            "number": 1, "response_id": 7, "progress": progress,
+            "prompt": {"pk": 3, "text": "Sujet publié", "response_id": 7},
+        }
+        for kind, part_slug, task_slug in (
+            ("eo2", "eo", "tache-2"),
+            ("eo3", "eo", "tache-3"),
+            ("ee3", "ee", "tache-3"),
+        ):
+            with self.subTest(kind=kind):
+                rendered = render_to_string("study/partials/subject_collection.html", {
+                    "kind": kind,
+                    "part": {"slug": part_slug},
+                    "task": {"slug": task_slug},
+                    "groups": [{
+                        "slug": "theme", "name": "Thème", "subjects": [subject],
+                        "subject_count": 1, "progress": progress,
+                    }],
+                    "csrf_token": "test-token",
+                })
+                expected_url = (
+                    reverse("study:task_subject_detail", args=[part_slug, task_slug, "janvier", 1, 1])
+                    if kind == "eo2"
+                    else reverse("study:response_detail", args=[part_slug, task_slug, 3])
+                )
+                self.assert_subject_links(rendered, {expected_url})
 
 
 class PhraseParserTests(SimpleTestCase):

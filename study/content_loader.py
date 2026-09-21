@@ -14,9 +14,11 @@ import html
 import json
 import re
 import unicodedata
+from collections.abc import Mapping
 from dataclasses import asdict, dataclass, field, replace
 from functools import lru_cache
 from pathlib import Path
+from types import MappingProxyType
 from typing import Dict, Iterable, List, Optional, Tuple
 
 CONTENT_DIR = Path(__file__).resolve().parent / "content"
@@ -666,18 +668,19 @@ class SpeakingHintsData:
     conclusion: SubjectHintData
 
 
-def _load_subject_hint_groups(path: Path, task: str, group_ids: Iterable[str]) -> dict:
-    def unique_fields(pairs):
-        result = {}
-        for key, value in pairs:
-            if key in result:
-                raise ValueError(f"Duplicate field in {task} hints: {key!r}")
-            result[key] = value
-        return result
+def _unique_json_fields(pairs):
+    result = {}
+    for key, value in pairs:
+        if key in result:
+            raise ValueError(f"Duplicate field in content JSON: {key!r}")
+        result[key] = value
+    return result
 
+
+def _load_subject_hint_groups(path: Path, task: str, group_ids: Iterable[str]) -> dict:
     data = json.loads(
         path.read_text(encoding="utf-8"),
-        object_pairs_hook=unique_fields,
+        object_pairs_hook=_unique_json_fields,
     )
     if (
         not isinstance(data, dict)
@@ -862,7 +865,10 @@ def load_oral_semantic_groups(
     )
     if any(not re.fullmatch(key_pattern, key) for key in keys):
         raise ValueError(f"Source keys cross the {task} task boundary")
-    data = json.loads((path or ORAL_SEMANTIC_GROUP_PATHS[task]).read_text(encoding="utf-8"))
+    data = json.loads(
+        (path or ORAL_SEMANTIC_GROUP_PATHS[task]).read_text(encoding="utf-8"),
+        object_pairs_hook=_unique_json_fields,
+    )
     if (
         not isinstance(data, dict)
         or set(data) != {"version", "task", "groups"}
@@ -1556,10 +1562,13 @@ def load_tache_two_equivalent_groups(
     subject_themes_path: Path = TACHE_TWO_SUBJECT_THEMES_PATH,
 ) -> Tuple[TacheTwoEquivalentGroupData, ...]:
     """Load published exact-question storage metadata, not semantic equivalence."""
-    data = json.loads(path.read_text(encoding="utf-8"))
+    data = json.loads(
+        path.read_text(encoding="utf-8"), object_pairs_hook=_unique_json_fields
+    )
     if (
         not isinstance(data, dict)
         or set(data) != {"version", "groups"}
+        or type(data["version"]) is not int
         or data["version"] != 1
     ):
         raise ValueError("Tâche 2 equivalent groups must use version 1")
@@ -3138,10 +3147,13 @@ def load_ee_equivalent_groups(
 ) -> Tuple[EeEquivalentGroupData, ...]:
     """Load explicit EE equivalences, pinning audited paraphrases to their text."""
     path = path or EE_TACHE_DIRS[tache] / "equivalent_groups.json"
-    data = json.loads(path.read_text(encoding="utf-8"))
+    data = json.loads(
+        path.read_text(encoding="utf-8"), object_pairs_hook=_unique_json_fields
+    )
     if (
         not isinstance(data, dict)
         or set(data) != {"version", "groups"}
+        or type(data["version"]) is not int
         or data["version"] != 1
     ):
         raise ValueError(f"EE Tâche {tache} equivalent groups must use version 1")
@@ -3297,17 +3309,17 @@ def ee_writing_sujet_slug(content_key: str) -> str:
 
 
 @lru_cache(maxsize=2)
-def ee_writing_canonical_slug_by_slug(tache: int) -> Dict[str, str]:
+def ee_writing_canonical_slug_by_slug(tache: int) -> Mapping[str, str]:
     """Map all writing occurrence slugs onto their shared canonical slug."""
     if tache not in EE_WRITING_TASKS:
         raise ValueError("EE writing subjects only exist for Tâches 1 and 2")
     canonical_by_key = ee_canonical_by_content_key(tache)
-    return {
+    return MappingProxyType({
         ee_writing_sujet_slug(key): ee_writing_sujet_slug(
             canonical_by_key.get(key, key)
         )
         for key in load_ee_subject_keys(tache)
-    }
+    })
 
 
 def load_ee_writing_months(tache: int) -> Tuple[EeWritingMonthData, ...]:
@@ -3432,7 +3444,7 @@ def load_ee_tache_two_response_key_updates():
         or not isinstance(payload["subjects"], dict)
     ):
         raise ValueError("Invalid EE Tâche 2 response-key update manifest")
-    source_slugs = set(ee_writing_canonical_slug_by_slug(2))
+    source_slugs = {ee_writing_sujet_slug(key) for key in load_ee_subject_keys(2)}
     for slug, aliases in payload["subjects"].items():
         if slug not in source_slugs or not isinstance(aliases, dict):
             raise ValueError(f"Invalid EE Tâche 2 response-key subject: {slug}")
@@ -3903,15 +3915,33 @@ def _ee_tache_three_documents_html(documents: Tuple[str, ...]) -> str:
     return "".join(blocks)
 
 
-@lru_cache(maxsize=2)
+@lru_cache(maxsize=1)
+def _load_default_ee_tache_three_author_responses() -> Mapping[str, Mapping[str, str]]:
+    return MappingProxyType({
+        key: MappingProxyType(values)
+        for key, values in _parse_ee_tache_three_author_responses(
+            EE_TACHE_THREE_AUTHOR_RESPONSES_PATH
+        ).items()
+    })
+
+
 def load_ee_tache_three_author_responses(
-    path: Path = EE_TACHE_THREE_AUTHOR_RESPONSES_PATH,
-) -> Dict[str, Dict[str, str]]:
-    """Load the author's Notion responses that override bundled Tâche 3 models."""
-    payload = json.loads(path.read_text(encoding="utf-8"))
+    path: Optional[Path] = None,
+) -> Mapping[str, Mapping[str, str]]:
+    """Share immutable bundled responses; reparse explicit paths for imports."""
+    if path is None:
+        return _load_default_ee_tache_three_author_responses()
+    return _parse_ee_tache_three_author_responses(path)
+
+
+def _parse_ee_tache_three_author_responses(path: Path) -> Dict[str, Dict[str, str]]:
+    payload = json.loads(
+        path.read_text(encoding="utf-8"), object_pairs_hook=_unique_json_fields
+    )
     if (
         not isinstance(payload, dict)
         or set(payload) != {"version", "responses"}
+        or type(payload["version"]) is not int
         or payload["version"] != 1
         or not isinstance(payload["responses"], list)
     ):
@@ -3977,7 +4007,9 @@ def parse_ee_tache_three_responses(
     themes, theme_slug_by_key = load_ee_subject_themes(3)
     theme_by_slug = {theme.slug: theme for theme in themes}
     canonical_by_key = ee_canonical_by_content_key(3)
-    author_responses = load_ee_tache_three_author_responses()
+    author_responses = load_ee_tache_three_author_responses(
+        EE_TACHE_THREE_AUTHOR_RESPONSES_PATH
+    )
     occurrences = [
         combinaison
         for month in months

@@ -778,6 +778,14 @@ class ImportFingerprintTests(TestCase):
             self._fingerprint_with_changed_bytes(content.CONTENT_DIR / "sections.json"),
         )
 
+    def test_writing_identity_helpers_invalidate_the_fingerprint(self):
+        self.assertNotEqual(
+            Command._source_fingerprint(),
+            self._fingerprint_with_changed_bytes(
+                content.CONTENT_DIR.parent / "writing_responses.py"
+            ),
+        )
+
     def test_if_changed_skips_an_already_loaded_bundle(self):
         call_command("import_content", stdout=StringIO())
         marker = ContentImportState.objects.get(pk="bundled")

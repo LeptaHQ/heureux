@@ -124,3 +124,5 @@ def clear_catalogue_cache() -> None:
     ee_writing_categories.cache_clear()
     ee_tache_three_sources_by_key.cache_clear()
     ee_writing_sources_by_slug.cache_clear()
+    content.ee_writing_canonical_slug_by_slug.cache_clear()
+    content._load_default_ee_tache_three_author_responses.cache_clear()

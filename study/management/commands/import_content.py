@@ -268,7 +268,10 @@ class Command(BaseCommand):
         study_dir = content.CONTENT_DIR.parent
         files.extend(
             (name, study_dir / name)
-            for name in ("account_services.py", "models.py", "oral_history.py")
+            for name in (
+                "account_services.py", "models.py", "oral_history.py",
+                "writing_responses.py",
+            )
         )
         files.extend(
             (
@@ -339,6 +342,7 @@ class Command(BaseCommand):
         ExamPart.objects.exclude(pk__in=seen_parts).update(is_active=False)
         return task_by_slug
 
+    @transaction.atomic
     def _import_writing_sujets(
         self,
         categories,
@@ -432,17 +436,12 @@ class Command(BaseCommand):
         )
         model_targets = {}
         if task_key == "ee/tache-2":
-            from study.writing_responses import model_update_targets, remap_model_overrides
+            from study.writing_responses import model_update_targets
 
             model_targets = model_update_targets(
                 imported_sujets, content.load_ee_tache_two_response_key_updates()
             )
-            conflicts = remap_model_overrides(model_targets)
-            if conflicts:
-                self.stdout.write(self.style.WARNING(
-                    f"Retained {conflicts} prior overrides without replacing a current main response."
-                ))
-        self._reconcile_writing_sujet_state(
+        conflicts = self._reconcile_writing_sujet_state(
             task,
             {
                 sujet.slug: (sujet.canonical_slug or sujet.slug)
@@ -452,6 +451,10 @@ class Command(BaseCommand):
             previous_model_versions,
             model_targets,
         )
+        if conflicts:
+            self.stdout.write(self.style.WARNING(
+                f"Retained {conflicts} prior private responses without replacing current canonical content."
+            ))
 
     @staticmethod
     def _reconcile_writing_sujet_state(
@@ -466,35 +469,65 @@ class Command(BaseCommand):
             )
         }
         model_key_moves = []
-        from study.writing_responses import model_version_keys
+        archived_model_keys = []
+        from study.writing_responses import model_version_keys, remap_model_overrides
 
         model_targets = model_targets or {}
+        override_targets = dict(model_targets)
         for source_slug, canonical_slug in canonical_slug_by_slug.items():
             source = sujets.get(source_slug)
             canonical = sujets.get(canonical_slug)
             if source is None or canonical is None:
                 continue
-            canonical_version_numbers = {
-                version["body"]: number
-                for number, version in enumerate(canonical.model_versions, 1)
+            canonical_version_keys = model_version_keys(canonical.model_versions)
+            canonical_numbers_by_key = {
+                key: number for number, key in enumerate(canonical_version_keys, 1)
             }
             previous = previous_model_versions.get(source.pk, ())
+            previous_keys = model_version_keys(previous)
+            reserved_numbers = {
+                canonical_numbers_by_key[key]
+                for key in previous_keys if key in canonical_numbers_by_key
+            }
+            available_numbers_by_body = defaultdict(list)
+            for number, version in enumerate(canonical.model_versions, 1):
+                if number not in reserved_numbers:
+                    available_numbers_by_body[version["body"]].append(number)
             for number, (version, version_key) in enumerate(
-                zip(previous, model_version_keys(previous)), 1
+                zip(previous, previous_keys), 1
             ):
-                target_number = canonical_version_numbers.get(version["body"])
+                target_number = canonical_numbers_by_key.get(version_key)
+                if target_number is None:
+                    candidates = available_numbers_by_body[version["body"]]
+                    target_number = candidates.pop(0) if candidates else None
                 destination = canonical
                 target_path = None
                 if target_number is None:
                     target = model_targets.get((source.pk, version_key))
                     if target is None:
+                        if number <= len(source.model_versions):
+                            archived_model_keys.append((
+                                f"writing-sujet:{source.pk}:model-{number}",
+                                f"writing-sujet:{source.pk}:archived-model-{version_key}",
+                            ))
                         continue
                     destination, _, target_number = target
-                    if destination.pk != source.pk:
-                        target_path = reverse(
-                            "study:writing_sujet_detail",
-                            args=[task.part.slug, task.slug, destination.pk],
-                        )
+                else:
+                    # Adding origin metadata or sharing an unchanged alias model
+                    # must not strand the private edit under its former digest.
+                    override_targets.setdefault(
+                        (source.pk, version_key),
+                        (
+                            canonical,
+                            canonical_version_keys[target_number - 1],
+                            target_number,
+                        ),
+                    )
+                if destination.pk != source.pk:
+                    target_path = reverse(
+                        "study:writing_sujet_detail",
+                        args=[task.part.slug, task.slug, destination.pk],
+                    )
                 source_key = f"writing-sujet:{source.pk}:model-{number}"
                 target_key = f"writing-sujet:{destination.pk}:model-{target_number}"
                 if source_key != target_key:
@@ -506,6 +539,11 @@ class Command(BaseCommand):
                             target_path,
                         )
                     )
+        conflicts = remap_model_overrides(override_targets)
+        # A removed model's ordinal can be reused by a different model. Retain
+        # its marks under its stable digest instead of merging unrelated quotes.
+        for source_key, archived_key in archived_model_keys:
+            Command._move_annotation_source_key(source_key, archived_key)
         # Stage all version moves before resolving their final keys: ordering
         # author versions first can otherwise overwrite another version's marks.
         for source_key, temporary_key, _, _ in model_key_moves:
@@ -533,17 +571,15 @@ class Command(BaseCommand):
                     PersonalWritingResponse.objects.filter(
                         pk=personal.pk
                     ).update(sujet=canonical)
-                    continue
-                if personal.updated_at > target.updated_at:
-                    PersonalWritingResponse.objects.filter(pk=target.pk).update(
-                        body=personal.body,
-                        created_at=min(
-                            personal.created_at,
-                            target.created_at,
-                        ),
-                        updated_at=personal.updated_at,
+                    Command._move_annotation_source_key(
+                        f"writing-sujet:{alias.pk}:personal",
+                        f"writing-sujet:{canonical.pk}:personal",
+                        user_id=personal.user_id,
                     )
-                personal.delete()
+                    continue
+                # Both drafts are learner-owned; a shared canonical destination
+                # is not permission to discard either version or its highlights.
+                conflicts += 1
             for completion in WritingSujetCompletion.objects.filter(
                 sujet=alias
             ).order_by("pk"):
@@ -564,7 +600,13 @@ class Command(BaseCommand):
             Command._move_annotation_source_prefix(
                 f"writing-sujet:{alias.pk}:",
                 f"writing-sujet:{canonical.pk}:",
+                exclude_prefixes=(
+                    f"writing-sujet:{alias.pk}:model-",
+                    f"writing-sujet:{alias.pk}:archived-model-",
+                    f"writing-sujet:{alias.pk}:personal",
+                ),
             )
+        return conflicts
 
     def _import_themes(self, themes, task_by_slug):
         seen = set()
@@ -1265,13 +1307,19 @@ class Command(BaseCommand):
         return values
 
     @staticmethod
-    def _move_annotation_source_prefix(source_prefix, target_prefix, *, target_path=None):
+    def _move_annotation_source_prefix(
+        source_prefix, target_prefix, *, target_path=None, user_id=None,
+        exclude_prefixes=(),
+    ):
         """Move private annotations while coalescing duplicate highlights."""
-        annotations = list(
-            Annotation.objects.filter(
-                source_key__startswith=source_prefix
-            ).order_by("pk")
+        annotations = Annotation.objects.filter(
+            source_key__startswith=source_prefix
         )
+        if user_id is not None:
+            annotations = annotations.filter(user_id=user_id)
+        for prefix in exclude_prefixes:
+            annotations = annotations.exclude(source_key__startswith=prefix)
+        annotations = list(annotations.order_by("pk"))
         for annotation in annotations:
             source_path = target_path if target_path is not None else annotation.source_path
             target_key = (
@@ -1303,15 +1351,19 @@ class Command(BaseCommand):
             annotation.delete()
 
     @classmethod
-    def _move_annotation_source_key(cls, source_key, target_key, *, target_path=None):
+    def _move_annotation_source_key(
+        cls, source_key, target_key, *, target_path=None, user_id=None,
+    ):
         cls._move_annotation_source_prefix(
             f"{source_key}:",
             f"{target_key}:",
             target_path=target_path,
+            user_id=user_id,
         )
-        annotations = list(
-            Annotation.objects.filter(source_key=source_key).order_by("pk")
-        )
+        annotations = Annotation.objects.filter(source_key=source_key)
+        if user_id is not None:
+            annotations = annotations.filter(user_id=user_id)
+        annotations = list(annotations.order_by("pk"))
         for annotation in annotations:
             source_path = target_path if target_path is not None else annotation.source_path
             duplicate = None

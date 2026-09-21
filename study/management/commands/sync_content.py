@@ -44,19 +44,44 @@ class Command(BaseCommand):
         study_sheets = source / "study_sheets.md"
         phrases = source / "anki" / "data" / "phrases.tsv"
 
-        for path in (theme_data, study_sheets, phrases):
-            if not path.exists():
-                raise CommandError(f"Source not found: {path}")
+        if not theme_data.is_dir():
+            raise CommandError(f"Source directory not found: {theme_data}")
+        for path in (study_sheets, phrases):
+            if not path.is_file():
+                raise CommandError(f"Source file not found: {path}")
 
         responses_root = content_module.RESPONSES_DIR
-        copied = 0
+        batches_by_destination = {}
+        source_paths = [study_sheets.resolve(), phrases.resolve()]
         for theme in THEMES:
             src_dir = theme_data / theme / "responses"
             dst_dir = responses_root / theme
+            batches = sorted(src_dir.glob("batch_*.md"))
+            if not src_dir.is_dir() or not batches:
+                raise CommandError(f"Source response directory has no batches: {src_dir}")
+            for batch in batches:
+                if not batch.is_file():
+                    raise CommandError(f"Source batch is not a file: {batch}")
+                source_paths.append(batch.resolve())
+            if dst_dir.is_symlink() or (dst_dir.exists() and not dst_dir.is_dir()):
+                raise CommandError(f"Response destination must be a directory: {dst_dir}")
+            batches_by_destination[dst_dir] = batches
+        for dst_dir in batches_by_destination:
+            if any(path.is_relative_to(dst_dir.resolve()) for path in source_paths):
+                raise CommandError(f"Response destination contains source files: {dst_dir}")
+        for src, dst in (
+            (study_sheets, content_module.STUDY_SHEETS_PATH),
+            (phrases, content_module.PHRASES_PATH),
+        ):
+            if dst.exists() and (not dst.is_file() or src.samefile(dst)):
+                raise CommandError(f"Invalid shared content destination: {dst}")
+
+        copied = 0
+        for dst_dir, batches in batches_by_destination.items():
             if dst_dir.exists():
                 shutil.rmtree(dst_dir)
             dst_dir.mkdir(parents=True, exist_ok=True)
-            for batch in sorted(src_dir.glob("batch_*.md")):
+            for batch in batches:
                 shutil.copy2(batch, dst_dir / batch.name)
                 copied += 1
 

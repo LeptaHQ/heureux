@@ -3757,10 +3757,8 @@ def _subject_vocabulary_context(response, task_scope, user, *, prompt=None):
 
 _EE_TACHE_THREE_POSITION_PATTERN = re.compile(
     r"(?P<stance>Pour ma part,.*?)(?=\s+Tout d’abord,)"
-    r"\s+(?P<argument_1>Tout d’abord,.*?Par exemple,.*?)"
-    r"(?=\s+De plus,)"
-    r"\s+(?P<argument_2>De plus,.*?Par exemple,.*?)"
-    r"(?=\s+En conclusion,)"
+    r"\s+(?P<argument_1>Tout d’abord,.*?)(?=\s+De plus,)"
+    r"\s+(?P<argument_2>De plus,.*?)(?=\s+En conclusion,)"
     r"\s+(?P<conclusion>En conclusion,.*)"
 )
 
@@ -3776,8 +3774,8 @@ def _ee_tache_three_position_blocks(text):
         }
         for label, group in (
             ("Prise de position", "stance"),
-            ("Argument 1", "argument_1"),
-            ("Argument 2", "argument_2"),
+            ("Argument 1 + support", "argument_1"),
+            ("Argument 2 + support", "argument_2"),
             ("Conclusion", "conclusion"),
         )
     )

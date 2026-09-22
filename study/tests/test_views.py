@@ -1049,7 +1049,12 @@ class EeTacheThreePageTests(TestCase):
 
         self.assertEqual(
             [block["label"] for block in blocks],
-            ["Prise de position", "Argument 1", "Argument 2", "Conclusion"],
+            [
+                "Prise de position",
+                "Argument 1 + support",
+                "Argument 2 + support",
+                "Conclusion",
+            ],
         )
         self.assertEqual(" ".join(block["text"] for block in blocks), text)
         self.assertEqual(
@@ -1061,16 +1066,20 @@ class EeTacheThreePageTests(TestCase):
             2,
         )
 
-    def test_position_outline_rejects_a_missing_second_example(self):
+    def test_position_outline_accepts_one_example_for_two_developed_arguments(self):
+        text = (
+            "Pour ma part, voici mon avis. "
+            "Tout d’abord, voici un argument. "
+            "Par exemple, voici un cas concret. "
+            "De plus, voici un second argument développé par sa conséquence. "
+            "En conclusion, voici mon bilan."
+        )
+        blocks = _ee_tache_three_position_blocks(text)
+        self.assertEqual(len(blocks), 4)
+        self.assertEqual(" ".join(block["text"] for block in blocks), text)
         self.assertEqual(
-            _ee_tache_three_position_blocks(
-                "Pour ma part, voici mon avis. "
-                "Tout d’abord, voici un argument. "
-                "Par exemple, voici un cas concret. "
-                "De plus, voici un second argument. "
-                "En conclusion, voici mon bilan."
-            ),
-            (),
+            sum(block["text"].count("Par exemple,") for block in blocks),
+            1,
         )
 
     @classmethod

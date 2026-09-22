@@ -62,6 +62,7 @@ from study.routing import (
 from study.views.library import _ee_tache_three_position_blocks
 
 from . import factories
+from .vocabulary_assertions import assert_vocabulary_lot_tables
 
 review_views = import_module("study.views.review")
 
@@ -425,12 +426,12 @@ class SmokeTests(TestCase):
                 )
                 questions = list(test.questions.order_by("number"))
                 phrases = []
-                for index, question in enumerate(questions):
+                for index in range(12):
                     phrase = factories.make_phrase(
                         tier="comprehension",
                         lot_order=index + 1,
                     )
-                    phrase.source_questions.add(question)
+                    phrase.source_questions.add(questions[index % len(questions)])
                     factories.make_phrase_card(
                         phrase=phrase,
                         user=self.user,
@@ -438,9 +439,13 @@ class SmokeTests(TestCase):
                     phrases.append(phrase)
 
                 detail = self.client.get(reverse(detail_name, args=[test.slug]))
+                assert_vocabulary_lot_tables(
+                    self, reverse(detail_name, args=[test.slug]),
+                    {"kind": "vocab", "test": test.slug}, "grouped",
+                )
 
                 self.assertTemplateUsed(detail, "study/partials/review_batches.html")
-                self.assertContains(detail, "batch-card--compact", count=1)
+                self.assertContains(detail, "batch-card--compact", count=2)
                 for hook in FLASHCARD_DECK_HOOKS:
                     with self.subTest(hook=hook):
                         self.assertContains(detail, hook)
@@ -2801,6 +2806,18 @@ class CategoryBatchViewsTests(TestCase):
         self.assertEqual(state["card_id"], self.phrase_pairs[10][0].id)
         self.assertEqual(state["counts"]["new_available"], 12)
 
+    def test_category_lots_open_tables_with_both_card_types_deduplicated(self):
+        assert_vocabulary_lot_tables(
+            self, self._category_url(),
+            {
+                "part": self.part.slug, "task": self.task.slug,
+                "kind": "phrase", "category": self.category.slug,
+            },
+            "grouped",
+        )
+        for batch in ("0", "3", "", ["1", "2"]):
+            self.assertEqual(self.client.get(self._category_url(), {"batch": batch}).status_code, 404)
+
     def test_batch_cards_show_in_progress_and_completed_states(self):
         future = timezone.now() + timedelta(days=5)
         first_batch = [
@@ -2872,7 +2889,7 @@ class CategoryBatchViewsTests(TestCase):
             2,
         )
 
-    def test_suspended_lot_is_visible_but_not_clickable(self):
+    def test_suspended_lot_is_browsable_without_practice(self):
         Card.objects.filter(
             pk__in=[
                 card.pk for pair in self.phrase_pairs[:10] for card in pair
@@ -2884,7 +2901,9 @@ class CategoryBatchViewsTests(TestCase):
         first_batch = response.context["review_batches"][0]
         self.assertEqual(first_batch["status"], "unavailable")
         self.assertFalse(first_batch["can_review"])
-        self.assertContains(response, 'aria-disabled="true"')
+        page = self.client.get(response.context["vocabulary_lots"][0]["table_url"])
+        self.assertEqual(page.context["catalog_phrase_count"], 10)
+        self.assertContains(page, 'disabled title=')
         self.assertContains(response, "Suspendu")
 
     def test_finished_batch_offers_the_next_available_lot(self):

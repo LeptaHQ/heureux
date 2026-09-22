@@ -2267,6 +2267,64 @@ def tache_two_theme_vocabulary(request):
     )
 
 
+def _selected_vocabulary_batch(values, batches):
+    if not values:
+        return None
+    if len(values) == 1:
+        for batch in batches:
+            if str(batch["number"]) == values[0]:
+                return batch
+    raise Http404("Lot de vocabulaire introuvable.")
+
+
+def _vocabulary_lot_context(request, batches, catalog_id):
+    selected = _selected_vocabulary_batch(request.GET.getlist("batch"), batches)
+    params = request.GET.copy()
+    params.pop("batch", None)
+
+    def table_url():
+        query = params.urlencode()
+        return request.path + (f"?{query}" if query else "") + f"#{catalog_id}"
+
+    all_lots_url = table_url()
+    lots = []
+    for batch in batches:
+        params["batch"] = batch["number"]
+        lots.append(
+            {
+                **batch,
+                "table_url": table_url(),
+                "is_selected": batch is selected,
+            }
+        )
+    return {
+        "vocabulary_lots": lots,
+        "selected_batch": selected,
+        "all_lots_url": all_lots_url,
+        "initial_collection_view": "table" if selected else "",
+    }
+
+
+def _vocabulary_lot_groups(groups, selected_batch):
+    if selected_batch is None:
+        return groups
+    phrases = {
+        phrase.pk: phrase
+        for group in groups
+        for phrase in group["phrases"]
+    }
+    return [
+        {
+            "title": f"Lot {selected_batch['number']:02d}",
+            "phrases": [
+                phrases[pk]
+                for pk in selected_batch["phrase_ids"]
+                if pk in phrases
+            ],
+        }
+    ]
+
+
 def _theme_vocabulary_detail_context(
     request,
     *,
@@ -2332,7 +2390,20 @@ def _theme_vocabulary_detail_context(
         (batch for batch in batches if batch["is_next"]),
         None,
     )
+    lot_context = _vocabulary_lot_context(
+        request, batches, "theme-vocabulary-recall-catalog",
+    )
+    phrase_sections = _vocabulary_lot_groups(
+        phrase_sections, lot_context["selected_batch"],
+    )
+    catalog_phrases = [
+        phrase for group in phrase_sections for phrase in group["phrases"]
+    ]
+    catalog_learned_count = sum(
+        phrase.is_explicitly_learned for phrase in catalog_phrases
+    )
     return {
+        **lot_context,
         "part": task.part,
         "task": task,
         "section": section,
@@ -2358,6 +2429,9 @@ def _theme_vocabulary_detail_context(
             completed=len(learned_phrase_ids),
         ),
         "unlearned_count": len(phrases) - len(learned_phrase_ids),
+        "catalog_phrase_count": len(catalog_phrases),
+        "catalog_learned_count": catalog_learned_count,
+        "catalog_unlearned_count": len(catalog_phrases) - catalog_learned_count,
         "phrase_sections": phrase_sections,
         "review_batches": batches,
         "summary": _theme_vocabulary_batch_summary(batches),
@@ -2423,6 +2497,15 @@ def _update_theme_vocabulary_progress(
         if request.headers.get("X-Requested-With") == "fetch":
             return JsonResponse({"error": message}, status=400)
         return HttpResponseBadRequest(message)
+
+    if "batch" in request.POST:
+        batch = _selected_vocabulary_batch(
+            request.POST.getlist("batch"),
+            _review_batches(_theme_vocabulary_scope(task, theme), request.user),
+        )
+        if phrase.pk not in batch["phrase_ids"]:
+            raise Http404("Cette fiche ne fait pas partie du lot.")
+        return_url += f"?batch={batch['number']}"
 
     if completed == "1":
         ThemeVocabularyProgress.objects.get_or_create(
@@ -4994,6 +5077,10 @@ def phrases(
         if review_batches
         else None
     )
+    lot_context = _vocabulary_lot_context(
+        request, review_batches, "vocabulary-recall-catalog",
+    )
+    grouped = _vocabulary_lot_groups(grouped, lot_context["selected_batch"])
     comprehension_directory = comprehension_mode is not None
     subject_context = {
         "subject_theme_groups": [],
@@ -5159,6 +5246,10 @@ def phrases(
             "vocabulary_revisit_url": vocabulary_revisit_url,
             "vocabulary_weak_url": vocabulary_weak_url,
             "grouped": grouped,
+            **lot_context,
+            "catalog_phrase_count": sum(
+                len(group["phrases"]) for group in grouped
+            ),
             "review_batches": review_batches,
             "collection_progress": collection_progress,
             "first_review_batch": first_review_batch,

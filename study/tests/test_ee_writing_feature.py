@@ -30,6 +30,7 @@ from study.templatetags.study_markdown import french_wordcount
 from study.writing_responses import model_version_keys, writing_model_versions
 
 from . import factories
+from .vocabulary_assertions import assert_vocabulary_lot_tables
 
 
 _QUE = r"qu(?:e\b|['’])"
@@ -1738,6 +1739,14 @@ class EeWritingPageTests(TestCase):
                 )
 
                 first = directory.context["themes"][0]
+                assert_vocabulary_lot_tables(
+                    self, first["url"],
+                    {
+                        "part": task.part.slug, "task": task.slug,
+                        "kind": "theme_vocab", "theme": first["theme"].slug,
+                    },
+                    "phrase_sections",
+                )
                 detail = self.client.get(first["url"])
                 self.assertTemplateUsed(
                     detail,

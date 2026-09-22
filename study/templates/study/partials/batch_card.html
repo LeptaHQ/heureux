@@ -11,7 +11,8 @@ Params:
 <a
   class="batch-card batch-card--{{ batch.status }}{% if compact %} batch-card--compact{% endif %}"
   data-collection-item
-  {% if batch.can_review %}href="{{ batch.review_url }}"{% else %}aria-disabled="true"{% endif %}
+  {% if batch.table_url %}href="{{ batch.table_url }}"{% elif batch.can_review %}href="{{ batch.review_url }}"{% else %}aria-disabled="true"{% endif %}
+  {% if batch.is_selected %}aria-current="page"{% endif %}
   {% if compact %}
     title="{{ batch.status_label }}{% if batch.title %} · {{ batch.title }}{% endif %}"
     aria-label="Lot {{ batch.number|stringformat:'02d' }}{% if batch.title %} · {{ batch.title }}{% endif %} : {{ batch.completed_count }} sur {{ batch.active_count }} fiches terminées. {{ batch.status_label }}"

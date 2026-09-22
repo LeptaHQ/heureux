@@ -1,3 +1,5 @@
+from datetime import timedelta
+
 from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
@@ -12,9 +14,12 @@ from study.models import (
     PhraseCategory,
     PhraseTier,
     Prompt,
+    ReviewLog,
+    ReviewSession,
     ThemeVocabularyProgress,
 )
 from . import factories
+from .vocabulary_assertions import assert_vocabulary_lot_tables
 
 
 class VocabularyEntryTests(TestCase):
@@ -103,7 +108,7 @@ class VocabularyEntryTests(TestCase):
         self.assertEqual(entry["summary"], detail.context["summary"])
         self.assertRedirects(self.client.get(self.url, {"theme": self.theme.slug}), self.theme_url)
 
-    def test_compact_counts_and_disabled_lots_use_existing_study_progress(self):
+    def test_completed_and_suspended_lots_remain_browsable(self):
         from django.template.loader import render_to_string
 
         Card.objects.filter(
@@ -116,7 +121,7 @@ class VocabularyEntryTests(TestCase):
             user=self.user, phrase=self.phrases[20],
         ).update(state=CardState.LEARNING)
         detail = self.client.get(self.theme_url)
-        batches = detail.context["review_batches"]
+        batches = detail.context["vocabulary_lots"]
         self.assertEqual(
             [(batch["completed_count"], batch["active_count"]) for batch in batches],
             [(10, 10), (0, 0), (1, 10), (0, 10), (0, 10), (0, 5)],
@@ -129,14 +134,76 @@ class VocabularyEntryTests(TestCase):
                 f'{batch["completed_count"]}/{batch["active_count"]}', markup,
             )
             self.assertIn(batch["status_label"], markup)
-            if batch["can_review"]:
-                self.assertIn("href=", markup)
-                self.assertNotIn('aria-disabled="true"', markup)
-            else:
-                self.assertNotIn("href=", markup)
-                self.assertIn('aria-disabled="true"', markup)
+            self.assertIn(f'href="{batch["table_url"]}"', markup)
+            self.assertNotIn('aria-disabled="true"', markup)
             self.assertNotIn("batch-card__status", markup)
             self.assertNotIn("<strong>", markup)
+        for number in (1, 2):
+            page = self.client.get(self.theme_url, {"batch": number})
+            self.assertEqual(page.context["catalog_phrase_count"], 10)
+            self.assertFalse(page.context["selected_batch"]["can_review"])
+            self.assertContains(page, 'disabled title=')
+
+    def test_lot_tables_follow_queue_order_not_catalogue_order(self):
+        alternate = PhraseCategory.objects.create(
+            slug="ee3-alternate", content_key="test:ee3-alternate",
+            name=content.EE_TACHE_THREE_VOCABULARY_CATEGORIES["expression"],
+        )
+        Phrase.objects.filter(pk=self.phrases[0].pk).update(order=99999)
+        Phrase.objects.filter(pk__in=[phrase.pk for phrase in self.phrases[1:4]]).update(
+            category=alternate,
+        )
+        Card.objects.filter(user=self.user, phrase=self.phrases[5]).update(suspended=True)
+        scope = {"part": "ee", "task": "tache-3", "kind": "vocab", "theme": self.theme.slug}
+        assert_vocabulary_lot_tables(self, self.theme_url, scope, "phrase_sections")
+        first = self.client.get(self.theme_url, {"batch": 1})
+        self.assertEqual(
+            [phrase.pk for phrase in first.context["phrase_sections"][0]["phrases"]],
+            [phrase.pk for phrase in self.phrases[:10]],
+        )
+        last = self.client.get(self.theme_url, {"batch": 6})
+        self.assertEqual(last.context["catalog_phrase_count"], 5)
+        self.assertEqual(len(last.context["phrase_sections"]), 1)
+        self.assertNotContains(last, self.phrases[0].english_cue)
+
+    def test_lot_counts_and_progress_redirect_stay_scoped(self):
+        ThemeVocabularyProgress.objects.create(user=self.user, phrase=self.phrases[0])
+        ThemeVocabularyProgress.objects.create(user=self.user, phrase=self.last)
+        page = self.client.get(self.theme_url, {"batch": 6})
+        self.assertEqual(page.context["learned_summary"].completed, 2)
+        self.assertEqual(page.context["learned_summary"].total, 55)
+        self.assertEqual(page.context["catalog_learned_count"], 1)
+        self.assertEqual(page.context["catalog_unlearned_count"], 4)
+        self.assertContains(page, 'name="batch" value="6"', count=5)
+        phrase = page.context["phrase_sections"][0]["phrases"][0]
+        result = self.client.post(phrase.progress_url, {"completed": "1", "batch": "6"})
+        self.assertRedirects(
+            result, self.theme_url + "?batch=6#phrase-" + phrase.phrase_id,
+        )
+        result = self.client.post(
+            phrase.progress_url, {"completed": "0", "batch": "6"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        self.assertEqual(result.json()["total"], 55)
+        self.assertEqual(result.json()["learned"], 2)
+        all_fiches = self.client.get(page.context["all_lots_url"])
+        self.assertEqual(all_fiches.context["catalog_phrase_count"], 55)
+        self.assertIsNone(all_fiches.context["selected_batch"])
+
+    def test_invalid_lot_selection_is_rejected_without_mutation(self):
+        url = reverse(
+            "study:theme_vocabulary_progress",
+            args=["ee", "tache-3", self.theme.slug, self.last.pk],
+        )
+        for value in ("", "0", "-1", "7", "01", "1.0", "abc", "9" * 5000, ["1", "2"]):
+            with self.subTest(value=str(value)[:30]):
+                self.assertEqual(self.client.get(self.theme_url, {"batch": value}).status_code, 404)
+                self.assertEqual(
+                    self.client.post(url, {"completed": "1", "batch": value}).status_code,
+                    404,
+                )
+        self.assertEqual(self.client.post(url, {"completed": "1", "batch": "1"}).status_code, 404)
+        self.assertFalse(ThemeVocabularyProgress.objects.filter(user=self.user).exists())
 
     def test_status_is_private_and_reading_does_not_change_saved_state(self):
         first, second, third = self.phrases[:3]
@@ -152,10 +219,12 @@ class VocabularyEntryTests(TestCase):
         ThemeVocabularyProgress.objects.create(user=self.other_user, phrase=self.last)
         before = {
             model: list(model.objects.order_by("pk").values())
-            for model in (Card, Annotation, Phrase, ThemeVocabularyProgress)
+            for model in (Card, Annotation, Phrase, ThemeVocabularyProgress, ReviewLog, ReviewSession)
         }
         self.client.get(self.url)
         detail = self.client.get(self.theme_url)
+        self.client.get(self.theme_url, {"batch": 1})
+        self.client.get(self.theme_url, {"batch": 6})
         self.assertEqual(detail.context["learned_summary"].completed, 0)
         self.assertTrue(all(
             not phrase.is_explicitly_learned
@@ -217,4 +286,3 @@ class VocabularyEntryTests(TestCase):
         self.assertEqual(page.status_code, 200)
         self.assertEqual(page.context["phrase_count"], 0)
         self.assertEqual(self.client.get(self.theme_url).context["phrase_count"], 0)
-from datetime import timedelta

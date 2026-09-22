@@ -312,6 +312,8 @@ class EePageBudgetTests(QueryBudgetTestCase):
         for name, url in self._pages().items():
             with self.subTest(page=name):
                 self.assertLessEqual(self._query_count(url), budgets[name])
+                if name.endswith("-vocabulary-theme"):
+                    self.assertLessEqual(self._query_count(url + "?batch=1"), budgets[name])
 
     def test_large_subject_directory_is_compressed_for_transfer(self):
         url = reverse(

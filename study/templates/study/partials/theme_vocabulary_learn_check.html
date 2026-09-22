@@ -5,6 +5,7 @@
   data-theme-vocabulary-progress-form
 >
   {% csrf_token %}
+  {% if selected_batch %}<input type="hidden" name="batch" value="{{ selected_batch.number }}">{% endif %}
   <input
     type="hidden"
     name="completed"

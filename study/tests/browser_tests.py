@@ -2242,9 +2242,37 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertLessEqual(lot_list.bounding_box()["height"], 256)
         self.assert_no_horizontal_overflow()
         lot_url = lots.first.get_attribute("href")
-        self.assertIn("kind=vocab", lot_url)
+        self.assertNotIn("kind=vocab", lot_url)
         self.assertIn("batch=1", lot_url)
+        sessions_before = ReviewSession.objects.filter(user=self.user).count()
         lots.first.click()
+        expect(self.page.locator("html")).to_have_attribute("data-collection-view-mode", "table")
+        expect(self.page.get_by_role("heading", name="Lot 01", exact=True)).to_be_visible()
+        rows = self.page.locator("[data-theme-vocabulary-phrase]")
+        expect(rows).to_have_count(10)
+        expect(rows.filter(visible=True)).to_have_count(10)
+        expect(rows.first.locator(".phrase__cue")).to_be_visible()
+        expect(self.page.locator('[data-theme-vocabulary-filter-count="all"]')).to_have_text("10")
+        self.assertEqual(
+            self.page.evaluate("localStorage.getItem('vocabularyCollectionViewMode')"), "cards",
+        )
+        self.assertEqual(ReviewSession.objects.filter(user=self.user).count(), sessions_before)
+        expect(self.page.locator("#card-front")).to_have_count(0)
+        rows.first.get_by_role("checkbox").click()
+        expect(self.page.locator('[data-theme-vocabulary-filter-count="learned"]')).to_have_text("1")
+        expect(self.page.locator("[data-theme-vocabulary-learned-count]")).to_have_text("1")
+        for width in (1292, 390, 320):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            self.assert_no_horizontal_overflow()
+        self.page.get_by_role("link", name="Toutes les fiches", exact=True).click()
+        self.assertGreater(rows.count(), 30)
+        expect(self.page.locator("html")).to_have_attribute("data-collection-view-mode", "cards")
+        self.page.goto(self.live_server_url + lot_url)
+        expect(self.page.locator("html")).to_have_attribute("data-collection-view-mode", "table")
+        practice = self.page.get_by_role("link", name="Pratiquer ce lot", exact=True)
+        self.assertIn("kind=vocab", practice.get_attribute("href"))
+        self.assertIn("batch=1", practice.get_attribute("href"))
+        practice.click()
         self.page.locator("#card-front .cue-text").wait_for()
 
     def test_ee3_shared_vocabulary_and_learned_controls_work_without_javascript(self):
@@ -2263,6 +2291,9 @@ class BrowserTests(StaticLiveServerTestCase):
             expect(disclosure.locator(".batch-card__count").first).to_have_text("0/10")
             rows = page.locator("[data-theme-vocabulary-phrase]")
             self.assertGreater(rows.count(), 30)
+            disclosure.locator(".batch-card").first.click()
+            expect(rows).to_have_count(10)
+            expect(page.get_by_role("link", name="Pratiquer ce lot", exact=True)).to_be_visible()
             expect(rows.first.locator(".phrase__expr")).to_be_visible()
             expect(rows.first.locator(".phrase__cue")).to_be_visible()
             expect(rows.first.locator(".phrase__ex")).to_be_visible()
@@ -2271,9 +2302,36 @@ class BrowserTests(StaticLiveServerTestCase):
             expect(learned).to_have_attribute("aria-checked", "true")
             expect(page.locator("[data-theme-vocabulary-learned-count]")).to_have_text("1")
             self.assertIn("#phrase-", page.url)
+            self.assertIn("?batch=1", page.url)
+            expect(rows).to_have_count(10)
             self.assertLessEqual(page.evaluate("document.documentElement.scrollWidth"), 390)
         finally:
             context.close()
+
+    def test_writing_vocabulary_lots_use_shared_tables(self):
+        self._import_ee_writing_content()
+        for tache in (1, 2):
+            with self.subTest(tache=tache):
+                self.page.goto(self.live_server_url + reverse(
+                    "study:task_phrases", args=["ee", f"tache-{tache}"],
+                ))
+                self.page.locator("[data-theme-vocabulary-directory-item]").first.click()
+                self.page.get_by_role("button", name="Cartes", exact=True).click()
+                self.open_vocabulary_lots(4).last.click()
+                expect(self.page.locator("html")).to_have_attribute("data-collection-view-mode", "table")
+                expect(self.page.get_by_role("heading", name="Lot 04", exact=True)).to_be_visible()
+                rows = self.page.locator("[data-theme-vocabulary-phrase]")
+                expect(rows).to_have_count(5)
+                expect(rows.filter(visible=True)).to_have_count(5)
+                expect(self.page.locator('[data-theme-vocabulary-filter-count="all"]')).to_have_text("5")
+                for width in (1292, 390, 320):
+                    self.page.set_viewport_size({"width": width, "height": 844})
+                    self.assert_no_horizontal_overflow()
+                practice = self.page.get_by_role("link", name="Pratiquer ce lot", exact=True)
+                self.assertIn("kind=theme_vocab", practice.get_attribute("href"))
+                self.assertIn("batch=4", practice.get_attribute("href"))
+                practice.click()
+                self.page.locator("#card-front .cue-text").wait_for()
 
     def assert_ee3_subject_directory(self, subjects_url, themes):
         self.page.goto(self.live_server_url + subjects_url)
@@ -9154,6 +9212,9 @@ class BrowserTests(StaticLiveServerTestCase):
         batch_url = self.page.locator(".batch-card").first.get_attribute("href")
         self.assertTrue(batch_url)
         self.page.goto(self.live_server_url + batch_url)
+        expect(self.page.locator("html")).to_have_attribute("data-collection-view-mode", "table")
+        expect(self.page.locator("#vocabulary-recall-catalog .phrase")).to_have_count(10)
+        self.page.get_by_role("link", name="Pratiquer ce lot", exact=True).click()
         self.page.locator("#card-front > *").first.wait_for()
         self.assert_no_horizontal_overflow()
         self.page.locator("#reveal").click()
@@ -11121,6 +11182,7 @@ class BrowserTests(StaticLiveServerTestCase):
                 test, phrases = self._make_comprehension_vocabulary(
                     mode,
                     number=number,
+                    per_group=6,
                 )
                 total = len(phrases)
                 self.page.set_viewport_size({"width": 1280, "height": 900})
@@ -11128,7 +11190,17 @@ class BrowserTests(StaticLiveServerTestCase):
                     self.live_server_url + reverse(url_name, args=[test.slug])
                 )
                 self.page.wait_for_load_state("networkidle")
-                self.open_vocabulary_lots((total + 9) // 10)
+                lots = self.open_vocabulary_lots((total + 9) // 10)
+                self.page.get_by_role("button", name="Cartes").first.click()
+                lots.last.click()
+                expect(self.page.locator("html")).to_have_attribute("data-collection-view-mode", "table")
+                expect(self.page.locator("[data-comprehension-vocabulary-phrase]")).to_have_count(total - 10)
+                expect(self.page.locator("[data-comprehension-vocabulary-phrase]").filter(visible=True)).to_have_count(total - 10)
+                self.assertIn(
+                    "batch=2", self.page.get_by_role("link", name="Pratiquer ce lot").get_attribute("href"),
+                )
+                self.assert_no_horizontal_overflow()
+                self.page.get_by_role("link", name="Toutes les fiches", exact=True).click()
                 self.page.get_by_role("button", name="Cartes").first.click()
                 self.page.wait_for_timeout(200)
 

@@ -30,7 +30,7 @@
   </div>
 </header>
 
-{% include "study/partials/review_batches.html" with batches=review_batches progress=summary.progress description=pathways_description only %}
+{% include "study/partials/review_batches.html" with batches=vocabulary_lots progress=summary.progress description=pathways_description only %}
 
 <section
   class="phrase-catalog theme-vocabulary-catalog"
@@ -43,8 +43,9 @@
 >
   <div class="section-heading">
     <div>
-      <h2 id="theme-vocabulary-catalog-title">Voir les fiches en contexte</h2>
+      <h2 id="theme-vocabulary-catalog-title">{% if selected_batch %}Lot {{ selected_batch.number|stringformat:"02d" }}{% else %}Voir les fiches en contexte{% endif %}</h2>
     </div>
+    {% include "study/partials/vocabulary_lot_actions.html" %}
     <div class="theme-vocabulary-catalog__tools">
       <div
         class="recall-controls theme-vocabulary-recall"
@@ -96,7 +97,7 @@
         aria-pressed="true"
       >
         Toutes
-        <span data-theme-vocabulary-filter-count="all">{{ phrase_count }}</span>
+        <span data-theme-vocabulary-filter-count="all">{{ catalog_phrase_count }}</span>
       </button>
       <button
         type="button"
@@ -104,7 +105,7 @@
         aria-pressed="false"
       >
         À apprendre
-        <span data-theme-vocabulary-filter-count="learning">{{ unlearned_count }}</span>
+        <span data-theme-vocabulary-filter-count="learning">{{ catalog_unlearned_count }}</span>
       </button>
       <button
         type="button"
@@ -112,7 +113,7 @@
         aria-pressed="false"
       >
         Apprises
-        <span data-theme-vocabulary-filter-count="learned">{{ learned_summary.completed }}</span>
+        <span data-theme-vocabulary-filter-count="learned">{{ catalog_learned_count }}</span>
       </button>
     </div>
     <p
@@ -120,12 +121,12 @@
       role="status"
       aria-live="polite"
       data-theme-vocabulary-filter-result
-    >{{ phrase_count }} fiches affichées</p>
+    >{{ catalog_phrase_count }} fiches affichées</p>
   </div>
 
   <div class="theme-vocabulary-deck flashcard-deck" data-flashcard-deck data-theme-vocabulary-deck>
     <div class="flashcard-deck__toolbar theme-vocabulary-flashcard-toolbar theme-vocabulary-flashcard-only">
-      {% include "study/partials/flashcard_progress.html" with deck="theme-vocabulary" label="Carte" total=phrase_count only %}
+      {% include "study/partials/flashcard_progress.html" with deck="theme-vocabulary" label="Carte" total=catalog_phrase_count only %}
       <div class="flashcard-deck__toolbar-actions">
         {% include "study/partials/flashcard_face_switch.html" %}
       </div>
@@ -135,10 +136,10 @@
     {% for phrase_section in phrase_sections %}
       <section
         class="phrase-group theme-vocabulary-group"
-        aria-labelledby="theme-vocabulary-group-{{ forloop.counter }}"
+        aria-labelledby="{% if selected_batch %}theme-vocabulary-catalog-title{% else %}theme-vocabulary-group-{{ forloop.counter }}{% endif %}"
         data-theme-vocabulary-group
       >
-      <header class="theme-vocabulary-group__head">
+      {% if not selected_batch %}<header class="theme-vocabulary-group__head">
         <span class="theme-vocabulary-group__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=phrase_section.icon only %}</span>
         <div>
           <h3 id="theme-vocabulary-group-{{ forloop.counter }}">{{ phrase_section.title }}</h3>
@@ -149,7 +150,7 @@
           data-theme-vocabulary-group-count
           data-total="{{ phrase_section.phrases|length }}"
         >{{ phrase_section.phrases|length }} fiches</span>
-      </header>
+      </header>{% endif %}
       <div class="grid grid--phrases collection-table collection-table--phrases" data-collection-view="adaptive">
         {% include "study/partials/collection_table_header.html" with variant="phrases" column_1="Français" column_2="Sens" column_3="Exemple en contexte" only %}
         {% for phrase in phrase_section.phrases %}

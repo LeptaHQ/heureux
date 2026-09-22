@@ -78,6 +78,7 @@ equivalent_annotation_migration = import_module(
 )
 
 from . import factories
+from .vocabulary_assertions import assert_vocabulary_lot_tables
 from .test_views import FLASHCARD_DECK_HOOKS
 
 
@@ -3988,6 +3989,23 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(response, "data-theme-vocabulary-recall")
         self.assertContains(response, "data-theme-vocabulary-status-filter")
         self.assertContains(response, "flashcard-deck__actions", count=45)
+
+    def test_oral_vocabulary_lots_open_tables(self):
+        for task_slug, theme_slug, url in (
+            (
+                "tache-2", "tache-2-logement",
+                reverse("study:tache_two_theme_vocabulary_detail", args=["logement"]),
+            ),
+            (
+                "tache-3", "culture",
+                reverse("study:task_vocabulary_theme", args=["eo", "tache-3", "culture"]),
+            ),
+        ):
+            assert_vocabulary_lot_tables(
+                self, url,
+                {"part": "eo", "task": task_slug, "kind": "theme_vocab", "theme": theme_slug},
+                "phrase_sections",
+            )
 
     def test_theme_vocabulary_detail_groups_contextual_entries(self):
         response = self.client.get(

@@ -1,0 +1,11 @@
+{% if selected_batch %}
+<nav class="vocabulary-lot-actions" aria-label="Actions du lot">
+  <span>{{ catalog_phrase_count }} fiche{{ catalog_phrase_count|pluralize }} · {{ selected_batch.completed_count }}/{{ selected_batch.active_count }} terminées</span>
+  <a class="btn" href="{{ all_lots_url }}">Toutes les fiches</a>
+  {% if selected_batch.can_review %}
+    <a class="btn btn--primary" href="{{ selected_batch.review_url }}">Pratiquer ce lot</a>
+  {% else %}
+    <button class="btn btn--primary" type="button" disabled title="{{ selected_batch.status_label }} · aucune carte disponible">Pratiquer ce lot</button>
+  {% endif %}
+</nav>
+{% endif %}

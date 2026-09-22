@@ -603,6 +603,10 @@ def review_batches_from_rows(rows, scope: dict, now=None) -> list[dict]:
                 "phrase_count": (
                     len(units_in_batch) if phrase_batches else None
                 ),
+                "phrase_ids": (
+                    tuple(unit[0]["phrase_id"] for unit in units_in_batch)
+                    if phrase_batches else ()
+                ),
                 "active_count": len(active_units),
                 "completed_count": completed_count,
                 "seen_count": completed_count,

@@ -41,7 +41,7 @@
   {% include "study/partials/collection_view_toggle.html" %}
 {% endif %}
 
-{% include "study/partials/review_batches.html" with batches=review_batches progress=collection_progress only %}
+{% include "study/partials/review_batches.html" with batches=vocabulary_lots progress=collection_progress only %}
 
 <section
   class="phrase-catalog"
@@ -51,8 +51,9 @@
 >
   <div class="section-heading">
     <div>
-      <h2 id="phrase-catalog-title">Voir les entrées en contexte</h2>
+      <h2 id="phrase-catalog-title">{% if selected_batch %}Lot {{ selected_batch.number|stringformat:"02d" }}{% else %}Voir les entrées en contexte{% endif %}</h2>
     </div>
+    {% include "study/partials/vocabulary_lot_actions.html" %}
     {% include "study/partials/vocabulary_recall_controls.html" with catalog_id="vocabulary-recall-catalog" only %}
   </div>
   {% if selected_test and grouped %}
@@ -62,7 +63,7 @@
     data-comprehension-vocabulary-deck
   >
     <div class="flashcard-deck__toolbar comprehension-vocabulary-flashcard-toolbar comprehension-vocabulary-flashcard-only">
-      {% include "study/partials/flashcard_progress.html" with label="Carte" total=phrase_count only %}
+      {% include "study/partials/flashcard_progress.html" with label="Carte" total=catalog_phrase_count only %}
       <div class="flashcard-deck__toolbar-actions">
         {% include "study/partials/flashcard_face_switch.html" %}
       </div>
@@ -71,12 +72,12 @@
   {% endif %}
   {% for group in grouped %}
     <div class="phrase-group{% if selected_test %} comprehension-vocabulary-group{% endif %}">
-      {% if selected_test %}<h3 class="comprehension-vocabulary-group__title">{{ group.category.name|cut:"Compréhension · " }}</h3>{% endif %}
+      {% if selected_test and not selected_batch %}<h3 class="comprehension-vocabulary-group__title">{{ group.category.name|cut:"Compréhension · " }}</h3>{% endif %}
       <div class="grid grid--phrases collection-table collection-table--phrases" data-collection-view="adaptive">
         {% include "study/partials/collection_table_header.html" with variant="phrases" column_1="Expression" column_2="Sens" column_3="Exemple en contexte" only %}
         {% for phrase in group.phrases %}
           {% if selected_test %}
-            {% include "study/partials/vocabulary_phrase_card.html" with phrase=phrase flashcard=True category_label=group.category.name|cut:"Compréhension · " only %}
+            {% include "study/partials/vocabulary_phrase_card.html" with phrase=phrase flashcard=True category_label=phrase.category.name|cut:"Compréhension · " only %}
           {% else %}
             {% include "study/partials/vocabulary_phrase_card.html" with phrase=phrase only %}
           {% endif %}

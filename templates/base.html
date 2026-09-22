@@ -1,13 +1,13 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="fr" data-theme="light"{% if default_collection_view %} data-collection-view-mode="{{ default_collection_view }}"{% endif %}{% if collection_view_preference %} data-collection-view-preference="{{ collection_view_preference }}"{% endif %}>
+<html lang="fr" data-theme="light"{% if initial_collection_view or default_collection_view %} data-collection-view-mode="{{ initial_collection_view|default:default_collection_view }}"{% endif %}{% if collection_view_preference %} data-collection-view-preference="{{ collection_view_preference }}"{% endif %}{% if initial_collection_view %} data-initial-collection-view="{{ initial_collection_view }}"{% endif %}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}Heureux{% endblock %}</title>
   <meta name="description" content="Révisions pour l'expression et la compréhension du français.">
-  <script src="{% static 'study/js/theme-init.js' %}?v=3"></script>
-  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=220">
+  <script src="{% static 'study/js/theme-init.js' %}?v=4"></script>
+  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=221">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#173f90">
   <meta name="apple-mobile-web-app-capable" content="yes">

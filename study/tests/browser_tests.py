@@ -860,6 +860,18 @@ class BrowserTests(StaticLiveServerTestCase):
             with self.subTest(width=width):
                 self.page.set_viewport_size({"width": width, "height": 844})
                 self.page.goto(self.live_server_url + path)
+                detail_head = self.page.locator(".detail-head--compact")
+                expect(detail_head).to_be_visible()
+                self.assertLessEqual(
+                    detail_head.bounding_box()["height"],
+                    120 if width <= 390 else 90,
+                )
+                expect(
+                    self.page.locator(".ee-subject-consigne__summary")
+                ).to_have_text(
+                    "120–180 mots · Partie 1 : synthèse neutre (40–60) · "
+                    "Partie 2 : point de vue justifié (80–120)"
+                )
                 ordered_components = self.page.locator(
                     ".tache-two-consigne, "
                     ".section-card--ee-documents, "

@@ -9,6 +9,11 @@
         {% include "study/partials/prompt_copy_button.html" with button_class="btn btn--sm prompt-copy-button tache-two-consigne__copy" source_id=subject_source_id label="Copier le sujet" success_label="Copié !" aria_label="Copier le sujet" only %}
       </div>
     </div>
-    <p>{{ subject_text|linebreaksbr }}</p>
+    {% if summary_text %}
+      <p class="ee-subject-consigne__summary">{{ summary_text }}</p>
+      <p class="ee-subject-consigne__subject"><strong>Sujet :</strong> {{ subject_text }}</p>
+    {% else %}
+      <p>{{ subject_text|linebreaksbr }}</p>
+    {% endif %}
   </div>
 </section>

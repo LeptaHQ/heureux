@@ -227,6 +227,20 @@ class EeTacheThreeTitlePageTests(TestCase):
                 )
                 self.assertContains(page, 'aria-label="Réponse complète"', count=1)
                 self.assertContains(page, '<div class="spine-label">Réponse</div>', html=True)
+                self.assertContains(page, 'class="detail-head detail-head--compact"')
+                self.assertContains(
+                    page,
+                    '<p class="ee-subject-consigne__summary">'
+                    '120–180 mots · Partie 1 : synthèse neutre (40–60) · '
+                    'Partie 2 : point de vue justifié (80–120)</p>',
+                    html=True,
+                )
+                self.assertContains(
+                    page,
+                    f'<p class="ee-subject-consigne__subject"><strong>Sujet :</strong> '
+                    f'{prompt.text}</p>',
+                    html=True,
+                )
                 rendered = page.content.decode()
                 self.assertLess(
                     rendered.index("tache-two-consigne"),

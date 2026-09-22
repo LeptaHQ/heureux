@@ -6,7 +6,7 @@
 {% include "study/partials/task_nav.html" %}
 {% if personal_saved %}<div class="notice">Votre version personnelle a été enregistrée et sera utilisée pendant les révisions.</div>{% endif %}
 {% if personal_reset %}<div class="notice">La réponse d'origine est de nouveau utilisée.</div>{% endif %}
-<div class="detail-head">
+<div class="detail-head{% if ee_response %} detail-head--compact{% endif %}">
   <p class="eyebrow">
     <a href="{% subject_url 'study:task_browse' part.slug task.slug %}">{% if ee_response %}Sujets par thème{% else %}Sujets &amp; réponses{% endif %}</a> ·
     <a class="link-with-icon" style="--icon-accent: {{ selected_prompt.theme.color }};" href="{% subject_group_url part.slug task.slug selected_prompt.theme.slug %}">{% include "study/partials/ui_icon.html" with name=selected_prompt.theme.icon only %}<span>{{ selected_prompt.theme.display_name }}</span></a>
@@ -27,7 +27,7 @@
 <div class="detail-grid"{% if ee_response %} style="--subject-accent: {{ task.color }};"{% endif %}>
   <div class="answer-columns"{% if not ee_response %} data-annotation-root data-annotation-source-key="{% if oral_annotation_key %}{{ oral_annotation_key }}{% else %}response:{{ response.content_key }}{% endif %}"{% if oral_legacy_annotation_keys %} data-annotation-legacy-source-keys="{{ oral_legacy_annotation_keys }}"{% endif %}{% endif %}>
     {% if ee_response %}
-      {% include "study/partials/ee_subject_consigne.html" with title_id="ee-tache-three-subject-title" subject_text=ee_subject_instruction subject_source_id="ee-tache-three-subject-content" only %}
+      {% include "study/partials/ee_subject_consigne.html" with title_id="ee-tache-three-subject-title" summary_text="120–180 mots · Partie 1 : synthèse neutre (40–60) · Partie 2 : point de vue justifié (80–120)" subject_text=selected_prompt.text subject_source_id="ee-tache-three-subject-content" only %}
 
       {# Keep the nested response-card tags adjacent so historical annotation whitespace offsets remain unchanged. #}
       <div class="answer-columns" data-annotation-root data-annotation-source-key="response:{{ response.content_key }}">

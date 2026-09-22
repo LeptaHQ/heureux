@@ -2241,6 +2241,28 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   font-size: 1rem;
   line-height: 1.58;
 }
+.ee-subject-consigne {
+  gap: 0.65rem;
+  padding: 0.75rem 0.85rem;
+}
+.ee-subject-consigne .tache-two-consigne__icon {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 8px;
+}
+.ee-subject-consigne .tache-two-consigne__heading {
+  margin-bottom: 0.15rem;
+}
+.ee-subject-consigne .tache-two-consigne__summary {
+  font-size: 0.82rem;
+  line-height: 1.35;
+}
+.ee-subject-consigne .ee-subject-consigne__subject {
+  margin-top: 0.22rem;
+  color: var(--text);
+  font-size: 0.92rem;
+  line-height: 1.4;
+}
 .tache-two-question-section {
   margin-top: 0.4rem;
 }
@@ -2929,6 +2951,14 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   .tache-two-consigne__actions {
     width: 100%;
     justify-content: flex-start;
+  }
+  .ee-subject-consigne .tache-two-consigne__heading {
+    align-items: center;
+    flex-direction: row;
+  }
+  .ee-subject-consigne .tache-two-consigne__actions {
+    width: auto;
+    justify-content: flex-end;
   }
   .memory-overview-hero__metrics {
     width: 100%;
@@ -14778,6 +14808,18 @@ html[data-collection-view-mode="table"]
   border: 1px solid var(--border);
   border-radius: 13px;
   background: var(--surface);
+}
+.detail-head--compact {
+  margin-bottom: 0.8rem;
+  padding: 0.7rem 0.9rem;
+}
+.detail-head--compact .eyebrow {
+  margin: 0 0 0.18rem;
+}
+.detail-head--compact .detail-prompt {
+  margin: 0;
+  font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+  line-height: 1.2;
 }
 .answer-columns > .section-card {
   border-color: var(--border);

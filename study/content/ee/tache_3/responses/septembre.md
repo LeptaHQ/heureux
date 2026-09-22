@@ -100,7 +100,7 @@ Pour ma part, un emploi de vacances peut être formateur à condition que sa dur
 
 **Partie 1 — Synthèse (54 mots)**
 
-Les deux documents abordent l’égalité entre les femmes et les hommes au travail. Le premier constate qu’au Québec, les femmes peuvent exercer des métiers longtemps réservés aux hommes, notamment à des postes de direction. En revanche, le second relève que certains secteurs restent féminisés et défend une répartition traditionnelle des rôles familiaux et professionnels.
+Les deux documents abordent l’égalité entre les femmes et les hommes au travail. Le premier constate qu’au Québec, les femmes peuvent exercer des métiers longtemps réservés aux hommes et occuper des postes de direction. En revanche, le second relève que certains secteurs restent féminisés et défend une répartition traditionnelle des rôles familiaux et professionnels.
 
 **Partie 2 — Point de vue personnel (118 mots)**
 

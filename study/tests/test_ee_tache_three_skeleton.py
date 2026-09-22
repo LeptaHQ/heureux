@@ -139,11 +139,11 @@ class EeTacheThreeSkeletonTests(SimpleTestCase):
             effective["ee-tache3:janvier:combinaison-17"].position_claire,
         )
         self.assertIn(
-            "Un aller-retour à bas prix vers l’Espagne",
+            "un aller-retour à bas prix vers l’Espagne",
             effective["ee-tache3:janvier:combinaison-19"].position_claire,
         )
         self.assertIn(
-            "l’accès rapide à une boisson aide les élèves pressés",
+            "un accès rapide à une boisson aide les élèves à rester concentrés",
             effective["ee-tache3:janvier:combinaison-1"].position_claire,
         )
         self.assertNotIn(
@@ -151,7 +151,7 @@ class EeTacheThreeSkeletonTests(SimpleTestCase):
             source["ee-tache3:avril:combinaison-4"].point_de_vue,
         )
         self.assertIn(
-            "la semaine de quatre jours",
+            "répartit les tâches sur quatre jours",
             source["ee-tache3:mai:combinaison-3"].point_de_vue,
         )
         self.assertIn(

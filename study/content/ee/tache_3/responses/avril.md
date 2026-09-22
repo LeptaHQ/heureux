@@ -350,14 +350,14 @@ Pour ma part, proposer deux menus sans viande par semaine est raisonnable à con
 
 ### Les vols à bas prix : économiser sous conditions
 
-**Partie 1 — Synthèse (48 mots)**
+**Partie 1 — Synthèse (56 mots)**
 
-Les deux documents abordent les vols à bas prix. Le premier apprécie leurs tarifs parfois inférieurs au train ou à la voiture, malgré l’absence de services et le faible confort. En revanche, le second dénonce les conditions de travail, la vétusté des appareils et d’éventuels risques de sécurité.
+Les deux documents abordent les vols à bas prix. Le premier apprécie leurs tarifs parfois inférieurs au train ou à la voiture, malgré l’absence de services à bord, et les déconseille pour les longs trajets. En revanche, le second dénonce l’inconfort des sièges, les conditions de travail, la vétusté des appareils et d’éventuels risques de sécurité.
 
 **Partie 2 — Point de vue personnel (101 mots)**
 
 Pour ma part, un vol à bas prix peut convenir à un trajet court, à condition que le tarif soit transparent et la sécurité irréprochable. Tout d’abord, les frais supplémentaires peuvent annuler l’économie annoncée. Bagage, siège et repas transforment vite un billet bon marché en dépense ordinaire. De plus, le train offre souvent davantage de confort et une empreinte carbone réduite. Par exemple, entre Montréal et Toronto, un voyageur peut travailler dans le train plutôt que payer un bagage en avion. En conclusion, le plus important est de comparer le coût total, la durée, le confort, la sécurité et l’impact environnemental.
 
-**Total : 157 mots (titre compris)**
+**Total : 165 mots (titre compris)**
 
 ---

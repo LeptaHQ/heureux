@@ -21,9 +21,12 @@ Ce dossier regroupe les **sujets sources** et l'ensemble des **réponses modèle
   sans être ajouté au sous-total de la synthèse. Les 138 textes sont des
   contributions autonomes, pas des courriers ; une version personnelle sans
   titre ne reçoit jamais automatiquement celui du modèle.
-- Les champs existants `heading` / `reformulation` portent ce titre. Les dix
-  titres des réponses de l’auteur sont raccourcis, sans modifier leurs deux
-  parties ; les autres titres pertinents sont conservés. Le chargeur valide
+- Les modèles suivent un squelette stable : « Les deux documents abordent…
+  Le premier… De son côté / En revanche, le second… » selon la relation réelle,
+  puis « Pour ma part… Tout d’abord… De plus… En conclusion… ». Les formulations
+  ne remplacent pas l’analyse : un document absent, dupliqué ou hors sujet est
+  signalé honnêtement, sans argument inventé.
+- Les champs existants `heading` / `reformulation` portent le titre. Le chargeur valide
   40–60 / 80–120 mots séparément, puis 120–180 mots pour le texte complet.
   Les totaux des fichiers mensuels incluent eux aussi leur titre.
 - L’affichage du titre et du total reste hors du bloc d’annotation existant :
@@ -90,9 +93,10 @@ Après regroupement des republications (`equivalent_groups.json`), l'application
 }
 ```
 
-Chaque sujet de Tâche 3 comprend un **titre-débat** et **deux documents** de points de
-vue opposés. Le champ `opinion` (pour/contre) de la source, peu fiable, n'est pas repris :
-la position ressort du texte.
+Chaque sujet de Tâche 3 comprend normalement un **titre-débat** et **deux documents**.
+Leurs positions peuvent être opposées, complémentaires ou nuancées. Le champ
+`opinion` (pour/contre) de la source, peu fiable, n'est pas repris : la relation
+entre les textes ressort de leur contenu.
 
 ## Notes sur la source (voir `flags`)
 
@@ -217,7 +221,9 @@ Novembre C8) et ont été corrigées **sans toucher à la prose**.
 `author_responses.json` : la réponse « vols à bas prix » était rattachée à Mars C8,
 devenu alias ; elle est déplacée sur le sujet canonique Janvier C19. Janvier C3 perd
 une concession auto-contradictoire et Janvier C17 ne prétend plus citer
-« plusieurs experts » absents des documents.
+« plusieurs experts » absents des documents. Les dix réponses effectives utilisent
+désormais le même squelette souple que le reste du corpus, tout en conservant leurs
+arguments et exemples propres.
 
 Vocabulaire : chaque entrée dont l'`example` reprenait une phrase supprimée a été
 régénérée à partir du texte corrigé. Les **300 entrées** des dix réponses de l'auteur

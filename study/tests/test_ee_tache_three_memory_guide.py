@@ -47,13 +47,13 @@ class EeTacheThreeMemoryGuideTests(SimpleTestCase):
             "Les deux documents abordent",
             "De son côté, le second souligne",
             "En revanche",
-            "À mon avis",
+            "Pour ma part",
             "Tout d’abord",
-            "En effet",
+            "De plus",
             "Cela permet de",
             "Par exemple",
             "Même si",
-            "En conclusion, la priorité est de",
+            "En conclusion",
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, self.text)
@@ -71,6 +71,10 @@ class EeTacheThreeMemoryGuideTests(SimpleTestCase):
             "Le titre dépend du support",
             "il n’est pas obligatoire dans tous les cas",
             "Ces conseils ne garantissent pas une note",
+            "B2 / NCLC 7–8",
+            "5 minutes",
+            "12 minutes",
+            "3 minutes",
         ):
             with self.subTest(phrase=phrase):
                 self.assertIn(phrase, self.text)
@@ -147,6 +151,27 @@ class EeTacheThreeMemoryGuideTests(SimpleTestCase):
         self.assertEqual(len(dialog), 1)
         self.assertEqual(dialog[0]["id"], button["aria-controls"])
         self.assertEqual(dialog[0]["data-writing-methodology"], "3")
+
+    def test_methodology_dialog_teaches_the_same_timed_skeleton(self):
+        text = " ".join(strip_tags(render_to_string(
+            "study/partials/writing_methodology_task_three.html"
+        )).split())
+        for phrase in (
+            "5 minutes pour lire et cartographier",
+            "5 minutes pour planifier",
+            "12 minutes pour écrire",
+            "3 minutes pour relire",
+            "Les deux documents abordent",
+            "De son côté, le second",
+            "En revanche, le second",
+            "Pour ma part",
+            "Tout d’abord",
+            "De plus",
+            "En conclusion",
+            "document manque ou est inutilisable",
+        ):
+            with self.subTest(phrase=phrase):
+                self.assertIn(phrase, text)
 
     def test_each_section_has_a_unique_accessible_heading(self):
         heading_ids = {

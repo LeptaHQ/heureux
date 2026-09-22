@@ -48,11 +48,11 @@ Pour ma part, l’apprentissage en ligne est efficace à condition qu’il assoc
 
 Les deux documents abordent la présence d’animaux de compagnie au travail. Le premier estime qu’elle réduit le stress, améliore l’ambiance entre collègues et renforce la motivation. En revanche, le second redoute les allergies, les comportements imprévisibles et les distractions, qui peuvent nuire au confort des salariés et à leur productivité.
 
-**Partie 2 — Point de vue personnel (112 mots)**
+**Partie 2 — Point de vue personnel (113 mots)**
 
-Pour ma part, je suis favorable aux animaux au bureau à condition que des règles précises protègent toute l’équipe. Tout d’abord, leur présence peut apaiser les tensions et rendre les échanges plus chaleureux. Une courte pause auprès d’un chien détend et facilite la reprise du travail. De plus, l’employeur doit protéger les personnes allergiques ou craintives grâce à des espaces séparés et à des règles d’hygiène. Par exemple, une petite entreprise pourrait autoriser un chien calme chaque vendredi dans une salle déterminée, après avoir obtenu l’accord de toute l’équipe. En conclusion, je les accepterais dans des espaces définis, avec l’accord des collègues et des zones séparées pour les personnes allergiques ou craintives.
+Pour ma part, je suis favorable aux animaux au bureau à condition que des règles précises protègent toute l’équipe. Tout d’abord, leur présence peut apaiser les tensions et rendre les échanges plus chaleureux. Une courte pause auprès d’un chien détend et facilite la reprise du travail. De plus, l’employeur doit protéger les personnes allergiques ou craintives grâce à des espaces séparés et à des règles d’hygiène. Par exemple, une petite entreprise pourrait autoriser un chien calme chaque vendredi dans une salle déterminée, après avoir obtenu l’accord de toute l’équipe. En conclusion, j’accepterais les animaux au bureau seulement dans un cadre volontaire, avec des espaces séparés pour les personnes allergiques ou mal à l’aise.
 
-**Total : 170 mots (titre compris)**
+**Total : 171 mots (titre compris)**
 
 ---
 
@@ -156,11 +156,11 @@ Pour ma part, il faut que les adultes encouragent la lecture sans la transformer
 
 Les deux documents abordent les vêtements de marque pour les enfants. Le premier y voit un moyen d’exprimer sa personnalité et d’appartenir à un groupe, notamment pendant l’adolescence. En revanche, le second rappelle que les enfants grandissent vite, portent leurs habits très peu de temps et les abîment en jouant dehors.
 
-**Partie 2 — Point de vue personnel (93 mots)**
+**Partie 2 — Point de vue personnel (95 mots)**
 
-Pour ma part, bien que certaines marques plaisent aux enfants, elles ne devraient pas guider la majorité des achats. Tout d’abord, des vêtements confortables et résistants protègent mieux le budget familial lorsque les tailles changent rapidement. De plus, limiter la course aux logos réduit la pression sociale et la consommation inutile. Par exemple, une famille peut acheter des habits courants d’occasion et réserver une paire de chaussures durable à l’activité sportive de l’enfant. En conclusion, je privilégie des vêtements utiles, durables et choisis selon le goût de l’enfant plutôt que selon leur logo.
+Pour ma part, bien que certaines marques plaisent aux enfants, elles ne devraient pas guider la majorité des achats. Tout d’abord, des vêtements confortables et résistants protègent mieux le budget familial lorsque les tailles changent rapidement. De plus, limiter la course aux logos réduit la pression sociale et la consommation inutile. Par exemple, une famille peut acheter des habits d’occasion pour le quotidien et choisir une paire de chaussures solides pour l’activité sportive de l’enfant. En conclusion, je privilégie des vêtements utiles, durables et choisis selon le goût de l’enfant plutôt que selon leur logo.
 
-**Total : 153 mots (titre compris)**
+**Total : 155 mots (titre compris)**
 
 ---
 
@@ -228,11 +228,11 @@ Pour ma part, les technologies sont utiles à condition qu’elles servent un ob
 
 Les deux documents abordent les produits faits maison. Le premier apprécie le contrôle des ingrédients, l’emploi de composants naturels et la réduction des emballages. De son côté, le second reconnaît les économies réalisées, mais alerte sur les risques sanitaires liés aux mauvaises recettes, au manque d’hygiène ou de conservation, ainsi que sur le temps nécessaire à la fabrication.
 
-**Partie 2 — Point de vue personnel (106 mots)**
+**Partie 2 — Point de vue personnel (107 mots)**
 
-Pour ma part, fabriquer certains produits simples est intéressant à condition que l’on suive des consignes fiables. Tout d’abord, cette pratique permet de choisir la composition et de réduire les emballages plastiques. Du vinaigre et du savon noir peuvent remplacer plusieurs flacons industriels. De plus, il faut distinguer un produit ménager courant d’une crème ou d’un savon dont la préparation exige de vraies précautions. Par exemple, une personne peut préparer un nettoyant selon une recette validée, l’étiqueter clairement et le conserver hors de portée des enfants. En conclusion, je recommande seulement les recettes simples et validées ; les préparations que l’on ne maîtrise pas doivent être abandonnées.
+Pour ma part, fabriquer certains produits simples est intéressant à condition que l’on suive des consignes fiables. Tout d’abord, cette pratique permet de choisir la composition et de réduire les emballages plastiques. Du vinaigre et du savon noir peuvent remplacer plusieurs flacons industriels. De plus, il faut distinguer un produit ménager courant d’une crème ou d’un savon dont la préparation exige de vraies précautions. Par exemple, une personne peut préparer un nettoyant selon une recette validée, l’étiqueter clairement et le conserver hors de portée des enfants. En conclusion, je recommande seulement les recettes simples et validées. Il vaut mieux renoncer aux préparations que l’on ne maîtrise pas.
 
-**Total : 173 mots (titre compris)**
+**Total : 174 mots (titre compris)**
 
 ---
 
@@ -282,11 +282,11 @@ Pour ma part, vivre chez ses parents est raisonnable à condition que cette éta
 
 Les deux documents abordent l’impact environnemental du grossissement des villes. Le premier dénonce la déforestation et la disparition d’espaces verts capables de retenir le carbone au profit des bâtiments et des routes. En revanche, le second rappelle qu’un citadin peut consommer moins d’énergie qu’un habitant rural, ce qui nuance l’image systématiquement antiécologique des villes.
 
-**Partie 2 — Point de vue personnel (110 mots)**
+**Partie 2 — Point de vue personnel (111 mots)**
 
-Pour ma part, la croissance urbaine peut être durable à condition qu’elle privilégie la densité, les transports en commun et les espaces verts. Tout d’abord, une ville compacte limite les longs déplacements et partage plus efficacement ses infrastructures. Chauffer des logements mitoyens et desservir un quartier dense consomment moins d’énergie par habitant. De plus, elle doit construire sur des terrains déjà urbanisés plutôt que détruire les forêts voisines. Par exemple, une municipalité peut transformer un ancien stationnement près du métro en logements, en commerces et en parc public. En conclusion, je soutiens une ville compacte qui construit sur des terrains déjà urbanisés, protège la nature et offre des transports efficaces.
+Pour ma part, la croissance urbaine peut être durable à condition qu’elle privilégie la densité, les transports en commun et les espaces verts. Tout d’abord, une ville compacte limite les longs déplacements et partage plus efficacement ses infrastructures. Chauffer des logements mitoyens et desservir un quartier dense consomment moins d’énergie par habitant. De plus, les municipalités doivent construire sur des terrains déjà urbanisés plutôt que détruire les forêts voisines. Par exemple, une municipalité peut transformer un ancien stationnement près du métro en logements, en commerces et en parc public. En conclusion, je soutiens une ville compacte qui construit sur des terrains déjà urbanisés, protège la nature et offre des transports efficaces.
 
-**Total : 170 mots (titre compris)**
+**Total : 171 mots (titre compris)**
 
 ---
 

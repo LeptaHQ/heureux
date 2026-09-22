@@ -10,7 +10,7 @@
 
 **Partie 1 — Synthèse (56 mots)**
 
-Les deux documents abordent les effets des jeux vidéo. Le premier estime que certains jeux améliorent chez les adultes l’analyse, la prise de décision et la rapidité de réaction, mais pas tous. De son côté, le second associe une utilisation intensive chez les enfants au stress, à la violence et à de moins bons résultats scolaires.
+Les deux documents abordent les effets des jeux vidéo. Le premier estime que certains jeux renforcent chez les adultes l’analyse, la prise de décision et la rapidité de réaction, mais pas tous. De son côté, le second associe une pratique intensive chez les enfants au stress, à la violence et à de moins bons résultats scolaires.
 
 **Partie 2 — Point de vue personnel (106 mots)**
 
@@ -44,15 +44,15 @@ Pour ma part, il faut que les bonnes conditions matérielles s’accompagnent du
 
 ### Distributeurs au lycée : la santé en priorité
 
-**Partie 1 — Synthèse (55 mots)**
+**Partie 1 — Synthèse (54 mots)**
 
-Les deux documents abordent l’interdiction des distributeurs automatiques au lycée. Le premier la juge urgente face à l’obésité des adolescents et au rôle éducatif de l’école. En revanche, le second affirme que ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident les élèves qui arrivent sans avoir pris de petit déjeuner.
+Les deux documents abordent l’interdiction des distributeurs automatiques au lycée. Le premier la juge urgente face à l’obésité des adolescents et au rôle éducatif de l’école. En revanche, le second estime que ces machines permettent aux élèves de se réchauffer, de rester dans l’établissement et de manger lorsqu’ils n’ont pas pris de petit déjeuner.
 
-**Partie 2 — Point de vue personnel (118 mots)**
+**Partie 2 — Point de vue personnel (112 mots)**
 
-Pour ma part, je suis favorable à ces appareils à condition que leur contenu soit strictement encadré. Tout d’abord, l’accès rapide à l’eau aide les élèves à rester attentifs tout au long de la journée. Par exemple, entre deux cours, un élève pressé peut se servir en quelques secondes plutôt que de faire la queue à la fontaine. De plus, les bénéfices peuvent financer des outils pédagogiques qui profitent à l’ensemble des élèves. Par exemple, un lycée pourrait vendre uniquement de l’eau, du lait et des boissons sans sucre ajouté, puis consacrer les revenus à sa bibliothèque. En conclusion, le plus important est de privilégier la santé grâce à une sélection transparente, contrôlée par l’établissement et régulièrement évaluée.
+Pour ma part, je suis favorable aux distributeurs à condition que leur contenu soit strictement encadré. Tout d’abord, un accès rapide à une boisson aide les élèves à rester concentrés pendant une longue journée. Par exemple, ils peuvent acheter de l’eau pendant une courte pause sans faire la queue à la cafétéria. De plus, les recettes peuvent financer des outils pédagogiques utiles à tous. Par exemple, un lycée pourrait ne proposer que de l’eau, du lait et des boissons sans sucre ajouté, puis consacrer une partie des recettes à sa bibliothèque. En conclusion, le plus important est de privilégier la santé grâce à une sélection transparente, contrôlée par l’établissement et régulièrement réévaluée.
 
-**Total : 180 mots (titre compris)**
+**Total : 173 mots (titre compris)**
 
 ---
 
@@ -80,15 +80,15 @@ Pour ma part, une courte sieste peut améliorer le bien-être et la productivit�
 
 ### La chasse : protéger plutôt que divertir
 
-**Partie 1 — Synthèse (56 mots)**
+**Partie 1 — Synthèse (57 mots)**
 
-Les deux documents abordent la chasse aux animaux. Le premier refuse de considérer la mise à mort comme un plaisir et y voit une destruction du vivant. En revanche, le second rappelle que cette pratique peut répondre à la subsistance, au commerce, à la gestion de la faune, à la protection des propriétés ou au loisir.
+Les deux documents abordent deux visions opposées de la chasse. Le premier refuse de considérer la mise à mort comme un loisir et estime qu’elle détruit la nature. En revanche, le second rappelle qu’elle peut répondre à la subsistance, au commerce, à la gestion de la faune, à la protection des propriétés, au loisir ou au prestige.
 
-**Partie 2 — Point de vue personnel (105 mots)**
+**Partie 2 — Point de vue personnel (107 mots)**
 
-Pour ma part, la chasse de loisir est difficilement justifiable, mais une intervention encadrée peut parfois être nécessaire. Tout d’abord, tuer pour le prestige ne respecte ni les animaux ni les écosystèmes. Un trophée n’apporte aucun bénéfice collectif et prive la nature d’individus parfois essentiels à leur espèce. De plus, certaines populations trop nombreuses menacent les cultures et l’équilibre naturel lorsqu’aucune autre solution n’est efficace. Par exemple, des agents formés pourraient réguler temporairement une espèce envahissante après une évaluation scientifique indépendante. En conclusion, il faut que toute chasse réponde à un objectif de protection précis et repose sur des données fiables, jamais sur le prestige.
+Pour ma part, la chasse de loisir est difficilement justifiable, mais une intervention encadrée peut parfois être nécessaire. Tout d’abord, tuer pour le prestige ne respecte ni les animaux ni les écosystèmes. Un trophée n’apporte aucun bénéfice collectif et prive l’écosystème d’un animal qui y joue parfois un rôle important. De plus, certaines populations trop nombreuses menacent les cultures et l’équilibre naturel lorsqu’aucune autre solution n’est efficace. Par exemple, des agents formés pourraient réguler temporairement une espèce envahissante après une évaluation scientifique indépendante. En conclusion, il faut que toute chasse réponde à un objectif de protection précis et repose sur des données fiables, jamais sur le prestige.
 
-**Total : 167 mots (titre compris)**
+**Total : 170 mots (titre compris)**
 
 ---
 
@@ -102,11 +102,11 @@ Pour ma part, la chasse de loisir est difficilement justifiable, mais une interv
 
 Les deux documents abordent la restauration rapide. Le premier valorise la variété des menus, le respect des normes d’hygiène et la liberté laissée aux clients dans leurs choix alimentaires. En revanche, le second dénonce des repas trop caloriques, riches en boissons sucrées, ainsi que les nombreux emballages plastiques nuisibles à l’environnement.
 
-**Partie 2 — Point de vue personnel (97 mots)**
+**Partie 2 — Point de vue personnel (101 mots)**
 
-Pour ma part, la restauration rapide peut dépanner à condition qu’elle reste occasionnelle. Tout d’abord, cuisiner des produits frais permet de mieux contrôler le sel, le sucre et les portions, alors qu’un menu standardisé impose les mêmes quantités à tous. De plus, les emballages recyclables ou réutilisables réduisent les déchets. Par exemple, une famille pressée pourrait choisir occasionnellement une salade complète servie dans un emballage recyclable plutôt que plusieurs hamburgers avec des sodas. En conclusion, le plus important est de privilégier une alimentation équilibrée et d’exiger des enseignes des informations nutritionnelles claires ainsi que des emballages durables.
+Pour ma part, la restauration rapide peut dépanner à condition qu’elle reste occasionnelle. Tout d’abord, préparer un repas avec des produits frais permet de contrôler le sel, le sucre et les portions, alors qu’un menu de fast-food est souvent plus riche qu’on ne le croit. De plus, des emballages recyclables ou réutilisables réduisent les déchets. Par exemple, une famille pressée peut choisir occasionnellement une salade complète dans un emballage recyclable plutôt que plusieurs hamburgers avec des sodas. En conclusion, le plus important est de privilégier une alimentation équilibrée et d’exiger des enseignes des informations nutritionnelles claires ainsi que des emballages durables.
 
-**Total : 153 mots (titre compris)**
+**Total : 157 mots (titre compris)**
 
 ---
 
@@ -116,15 +116,15 @@ Pour ma part, la restauration rapide peut dépanner à condition qu’elle reste
 
 ### Courses alimentaires : proximité et accessibilité
 
-**Partie 1 — Synthèse (55 mots)**
+**Partie 1 — Synthèse (53 mots)**
 
-Les deux documents abordent le choix du lieu où faire ses courses alimentaires. Le premier valorise l’achat à la ferme pour la qualité des aliments, même s’ils coûtent davantage. En revanche, le second préfère en ville la diversité et les prix abordables du supermarché, mieux adaptés à son lieu de vie et à son budget.
+Les deux documents abordent le choix du lieu où faire ses courses alimentaires. Le premier valorise l’achat à la ferme pour la qualité des aliments, même s’ils coûtent davantage. En revanche, le second préfère la diversité et les prix abordables du supermarché, mieux adaptés à sa vie en ville et à son budget.
 
 **Partie 2 — Point de vue personnel (99 mots)**
 
-Pour ma part, il faut favoriser les producteurs locaux sans pour autant exclure les supermarchés. Tout d’abord, les circuits courts soutiennent l’économie régionale et permettent de connaître l’origine des aliments. Acheter directement au producteur rémunère mieux les fermes voisines et rend la traçabilité immédiate. De plus, les grandes surfaces restent pratiques pour les petits budgets et les produits indisponibles localement. Par exemple, une famille pourrait acheter ses légumes de saison au marché, puis compléter ses courses avec du riz et des conserves au supermarché. En conclusion, il faut que chacun combine qualité, proximité et prix raisonnables selon ses besoins.
+Pour ma part, il faut favoriser les producteurs locaux sans pour autant exclure les supermarchés. Tout d’abord, les circuits courts soutiennent l’économie régionale et permettent de connaître l’origine des aliments. Acheter directement au producteur réduit les intermédiaires et rémunère plus justement les fermes voisines. De plus, les grandes surfaces restent pratiques pour les petits budgets et les produits indisponibles localement. Par exemple, une famille pourrait acheter ses légumes de saison au marché, puis compléter ses courses avec du riz et des conserves au supermarché. En conclusion, il faut que chacun combine qualité, proximité et prix raisonnables selon ses besoins.
 
-**Total : 159 mots (titre compris)**
+**Total : 157 mots (titre compris)**
 
 ---
 
@@ -192,11 +192,11 @@ Pour ma part, l’art urbain enrichit la ville à condition qu’il respecte les
 
 Les deux documents abordent la gratuité des musées. Le premier la présente comme un moyen de démocratiser la culture, d’attirer de nouveaux visiteurs et de renforcer la mission éducative des établissements. En revanche, le second rappelle que les collections doivent être financées et préfère des tarifs ciblés, accompagnés d’activités adaptées aux différents publics.
 
-**Partie 2 — Point de vue personnel (106 mots)**
+**Partie 2 — Point de vue personnel (111 mots)**
 
-Pour ma part, les musées devraient être gratuits à certains moments et proposer des réductions ciblées le reste du temps. Tout d’abord, cette formule ouvre la culture aux personnes modestes tout en maintenant des recettes pour entretenir les collections. Les familles qui renoncent au musée par manque de moyens y entrent enfin sans se justifier. De plus, un accompagnement adapté rend la visite plus enrichissante. Par exemple, un musée pourrait offrir l’entrée le premier dimanche du mois et organiser ce jour-là une visite destinée aux adolescents. En conclusion, il faut que la gratuité réduise les obstacles sans fragiliser les musées et qu’elle s’accompagne d’une médiation adaptée.
+Pour ma part, les musées devraient être gratuits à certains moments et proposer des réductions ciblées le reste du temps. Tout d’abord, cette formule ouvre la culture aux personnes modestes tout en maintenant des recettes pour entretenir les collections. Les familles qui renoncent au musée par manque de moyens peuvent enfin le visiter sans que le prix les en empêche. De plus, un accompagnement adapté rend la visite plus enrichissante. Par exemple, un musée pourrait offrir l’entrée le premier dimanche du mois et organiser ce jour-là une visite destinée aux adolescents. En conclusion, il faut que la gratuité réduise les obstacles sans fragiliser les musées et qu’elle s’accompagne d’une médiation adaptée.
 
-**Total : 164 mots (titre compris)**
+**Total : 169 mots (titre compris)**
 
 ---
 

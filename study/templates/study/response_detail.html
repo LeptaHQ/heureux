@@ -49,7 +49,14 @@
                 {% if response_content.reformulation %}<h2 class="spine-text">{{ response_content.reformulation }}</h2>{% endif %}
                 <p class="muted">Total : {{ ee_response_copy_text|french_wordcount }} mots{% if response_content.reformulation %}, titre compris{% endif %} · 120–180 mots</p>
               </div>
-              {% include "study/partials/response_copy_button.html" with source_id="ee-tache-three-response-content" button_class="btn btn--sm prompt-copy-button" only %}
+              <div class="writing-response-controls">
+                {% if can_edit_response %}
+                  <a class="icon-button" href="{% subject_url 'study:edit_response' part.slug task.slug selected_prompt.pk %}" data-response-edit aria-label="{% if response_content.is_personal %}Modifier ma réponse{% else %}Personnaliser la réponse{% endif %}" title="Modifier">
+                    {% include "study/partials/ui_icon.html" with name="pencil" only %}
+                  </a>
+                {% endif %}
+                {% include "study/partials/response_copy_button.html" with source_id="ee-tache-three-response-content" button_class="btn btn--sm prompt-copy-button" only %}
+              </div>
             </div>
           </header><div class="ee-response-card__parts">{% if response_content.position %}<section class="ee-response-part section-card--ee-synthese">
           <div class="spine-label">Partie 1 — Synthèse <span class="spine-count">· {{ response_content.position|french_wordcount }} mots</span>{% if ee_response_origin == "author" %} <span class="chip chip--accent">Version de l’auteur</span>{% endif %}</div>

@@ -5,7 +5,7 @@
 {% include "study/partials/task_nav.html" %}
 <div class="page-head response-edit__head">
   <div>
-    <p class="eyebrow">Version personnelle · Expression orale · {% if is_tache_two %}Tâche 2{% else %}Tâche 3{% endif %}</p>
+    <p class="eyebrow">Version personnelle · {% if is_writing_tache_three %}Expression écrite{% else %}Expression orale{% endif %} · {% if is_tache_two %}Tâche 2{% else %}Tâche 3{% endif %}</p>
     <h1>{% if is_tache_two %}Modifier mes questions{% else %}Modifier ma réponse{% endif %}</h1>
     <p>
       {% if is_tache_two %}
@@ -20,7 +20,7 @@
 
 <section class="card card--pad response-edit__prompt" aria-labelledby="immutable-prompt">
   <div class="spine-label" id="immutable-prompt">{% if is_tache_two %}Consigne officielle{% else %}Sujet non modifiable{% endif %}</div>
-  <p class="detail-prompt">{{ response.prompt }}</p>
+  <p class="detail-prompt">{{ selected_prompt.text }}</p>
 </section>
 
 <form method="post" class="response-edit" novalidate>
@@ -58,7 +58,7 @@
     {% if form.non_field_errors %}<div class="auth-error">{{ form.non_field_errors|striptags }}</div>{% endif %}
 
     <section class="card card--pad response-edit__section">
-      <h2 class="mt-0">Introduction et position</h2>
+      <h2 class="mt-0">{% if is_writing_tache_three %}Titre et réponse{% else %}Introduction et position{% endif %}</h2>
       {% for field in form %}
         {% if field.name == "reformulation" or field.name == "position" or field.name == "position_claire" %}
           <div class="response-edit-field">
@@ -70,6 +70,7 @@
       {% endfor %}
     </section>
 
+    {% if not is_writing_tache_three %}
     <section class="card card--pad response-edit__section">
       <h2 class="mt-0">Arguments développés</h2>
       <p class="muted">Gardez trois idées distinctes, chacune soutenue par un développement, un exemple concret et une conséquence.</p>
@@ -101,12 +102,13 @@
         {% endif %}
       {% endfor %}
     </section>
+    {% endif %}
   {% endif %}
 
   <div class="response-edit__actions">
     <a class="btn" href="{{ detail_url }}">Annuler</a>
     <button class="btn btn--primary" type="submit" name="action" value="save">
-      {% if is_tache_two %}Enregistrer mes questions{% else %}Enregistrer ma version{% endif %}
+      {% if is_tache_two %}Enregistrer mes questions{% elif is_writing_tache_three %}Enregistrer ma réponse{% else %}Enregistrer ma version{% endif %}
     </button>
   </div>
 </form>

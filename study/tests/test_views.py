@@ -1200,6 +1200,66 @@ class EeTacheThreePageTests(TestCase):
                 self.assertNotIn("Document 1", expected)
                 self.assertNotIn("Copier la réponse", expected)
 
+    def test_written_response_can_be_personalized_from_its_edit_button(self):
+        prompt = self._first_prompt()
+        detail_url = prompt_detail_url(prompt)
+        edit_url = reverse(
+            "study:edit_response",
+            args=[self.task.part.slug, self.task.slug, prompt.pk],
+        )
+        detail = self.client.get(detail_url)
+
+        self.assertContains(detail, f'href="{edit_url}"', count=2)
+        self.assertContains(detail, "data-response-edit", count=1)
+
+        editor = self.client.get(edit_url)
+        self.assertEqual(editor.status_code, 200)
+        self.assertTrue(editor.context["is_writing_tache_three"])
+        self.assertEqual(
+            editor.context["form"].fields["reformulation"].label,
+            "Titre",
+        )
+        self.assertEqual(
+            editor.context["form"].fields["position"].label,
+            "Partie 1 — Synthèse",
+        )
+        self.assertEqual(
+            editor.context["form"].fields["position_claire"].label,
+            "Partie 2 — Point de vue personnel",
+        )
+        self.assertContains(editor, prompt.text)
+        self.assertNotContains(editor, "Arguments développés")
+        self.assertNotContains(editor, "Nuance et conclusion")
+
+        payload = {
+            "reformulation": "Mon titre personnel",
+            "position": "Ma synthèse personnelle.",
+            "position_claire": "Mon point de vue personnel.",
+            "action": "save",
+        }
+        saved = self.client.post(edit_url, payload)
+        self.assertRedirects(
+            saved,
+            f"{detail_url}?saved=1",
+            fetch_redirect_response=False,
+        )
+        personal = PersonalResponse.objects.get(
+            user=self.user,
+            response=prompt.response,
+        )
+        self.assertEqual(personal.reformulation, payload["reformulation"])
+        self.assertEqual(personal.position, payload["position"])
+        self.assertEqual(personal.position_claire, payload["position_claire"])
+        self.assertEqual(personal.arguments, [])
+        self.assertEqual(personal.nuance, "")
+        self.assertEqual(personal.conclusion, "")
+
+        personalized = self.client.get(detail_url)
+        self.assertContains(personalized, "Version personnelle")
+        self.assertContains(personalized, payload["reformulation"])
+        self.assertContains(personalized, payload["position"])
+        self.assertContains(personalized, payload["position_claire"])
+
     def test_audited_paraphrases_share_links_response_and_progress(self):
         payload = json.loads(
             (

@@ -791,6 +791,19 @@ class BrowserTests(StaticLiveServerTestCase):
         root = self.page.locator(
             f'[data-annotation-root][data-annotation-source-key="response:{response.content_key}"]'
         )
+        edit = self.page.locator("[data-response-edit]")
+        expect(edit).to_be_visible()
+        self.assertIn(
+            reverse(
+                "study:edit_response",
+                args=[
+                    task.part.slug,
+                    task.slug,
+                    response.prompts.get(is_canonical=True).pk,
+                ],
+            ),
+            edit.get_attribute("href"),
+        )
         historical = root.evaluate(
             """
             root => {

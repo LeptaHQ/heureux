@@ -173,9 +173,9 @@ class PersonalResponseTests(TestCase):
         self.assertEqual(self.owner_card.reps, 6)
         self.assertIsNone(self.owner_card.started_at)
 
-    def test_editor_is_limited_to_expression_orale_tache_3(self):
+    def test_editor_rejects_other_writing_tasks(self):
         written_part = factories.make_part("ee")
-        written_task = factories.make_task(written_part, "tache-3")
+        written_task = factories.make_task(written_part, "tache-2")
         written_theme = factories.make_theme(
             "written-theme",
             task=written_task,

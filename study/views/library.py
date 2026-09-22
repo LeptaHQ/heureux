@@ -4088,11 +4088,13 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             "phrase_batches": phrase_batches,
             "phrase_batch_progress": phrase_batch_progress,
             **vocabulary_context,
-            "can_edit_response": response.prompts.filter(
-                is_active=True,
-                theme__task__slug="tache-3",
-                theme__task__part__slug="eo",
-            ).exists(),
+            "can_edit_response": (
+                (task.part.slug, task.slug)
+                in {
+                    content_module.EE_TACHE_THREE_TASK,
+                    content_module.EO_TACHE_THREE_TASK,
+                }
+            ),
             "response_review_url": review_url(
                 {
                     **task_scope,
@@ -4122,9 +4124,11 @@ def edit_response(request, part_slug, task_slug, prompt_id):
     task = _route_task(part_slug, task_slug, request=request)
     task_key = (task.part.slug, task.slug)
     is_tache_two = task_key == content_module.QUESTION_BANK_TASK
+    is_writing_tache_three = task_key == content_module.EE_TACHE_THREE_TASK
     if not (
         is_tache_two
         or task_key == ("eo", "tache-3")
+        or is_writing_tache_three
     ):
         raise Http404
     selected_prompt = get_object_or_404(
@@ -4238,9 +4242,21 @@ def edit_response(request, part_slug, task_slug, prompt_id):
         request.POST or None,
         prompt=selected_prompt,
     )
+    if is_writing_tache_three:
+        form.fields["reformulation"].label = "Titre"
+        form.fields["position"].label = "Partie 1 — Synthèse"
+        form.fields["position_claire"].label = (
+            "Partie 2 — Point de vue personnel"
+        )
     if request.method == "POST" and form.is_valid():
+        defaults = form.personal_defaults()
+        if is_writing_tache_three:
+            defaults.update(arguments=[], nuance="", conclusion="")
         save_personal(
-            response, request.user, form.personal_defaults(), source_prompt=selected_prompt,
+            response,
+            request.user,
+            defaults,
+            source_prompt=selected_prompt,
         )
         return redirect(routing.subject_selection_url(f"{detail_url}?saved=1", request))
 
@@ -4265,6 +4281,7 @@ def edit_response(request, part_slug, task_slug, prompt_id):
             "part": task.part,
             "form": form,
             "argument_fields": argument_fields,
+            "is_writing_tache_three": is_writing_tache_three,
             "has_personal_response": has_personal_response,
             "detail_url": routing.subject_selection_url(detail_url, request),
         },

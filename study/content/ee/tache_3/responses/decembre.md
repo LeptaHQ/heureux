@@ -80,15 +80,15 @@ Pour ma part, il faut que la publicité soit encadrée sans être supprimée tot
 
 ### La télévision éducative : un outil à encadrer
 
-**Partie 1 — Synthèse (55 mots)**
+**Partie 1 — Synthèse (54 mots)**
 
-Les deux documents abordent le rôle éducatif de la télévision. Le premier valorise son large accès à l’information, à la culture et aux grands enjeux sociaux. En revanche, le second dénonce les stéréotypes de certains programmes et un temps d’écran susceptible de remplacer la lecture, le sport ou les interactions nécessaires au développement des enfants.
+Les deux documents abordent le rôle éducatif de la télévision. Le premier valorise son large accès à l’information, à la culture et aux grands enjeux sociaux. En revanche, le second dénonce les stéréotypes de certains programmes et un temps d’écran qui peut réduire la place de la lecture, du sport et des interactions sociales.
 
 **Partie 2 — Point de vue personnel (115 mots)**
 
 Pour ma part, la télévision peut enrichir les apprentissages à condition qu’elle complète la lecture, le jeu et les échanges sans les remplacer. Tout d’abord, des documentaires adaptés éveillent la curiosité et rendent des sujets complexes plus concrets. Des images réelles aident ainsi l’enfant à comprendre un volcan ou une migration. De plus, la présence d’un adulte aide l’enfant à questionner les images et à développer son esprit critique. Par exemple, une famille peut regarder une courte émission sur les océans, puis chercher les pays mentionnés sur une carte et discuter de la pollution. En conclusion, je recommande des programmes courts choisis avec un adulte, en complément de la lecture, du jeu et des échanges.
 
-**Total : 177 mots (titre compris)**
+**Total : 176 mots (titre compris)**
 
 ---
 
@@ -224,15 +224,15 @@ Pour ma part, les technologies sont utiles à condition qu’elles servent un ob
 
 ### Les produits faits maison : naturels, mais pas sans précautions
 
-**Partie 1 — Synthèse (58 mots)**
+**Partie 1 — Synthèse (60 mots)**
 
-Les deux documents abordent les produits faits maison. Le premier apprécie le contrôle des ingrédients, l’emploi de composants naturels et la réduction des emballages. De son côté, le second reconnaît les économies réalisées, mais alerte sur les risques sanitaires liés aux mauvaises recettes, au manque d’hygiène ou de conservation, ainsi que sur le temps nécessaire à la fabrication.
+Les deux documents abordent les produits faits maison. Le premier apprécie le contrôle des ingrédients, l’emploi de composants naturels et la réduction des emballages. De son côté, le second reconnaît les économies, mais alerte sur les risques sanitaires liés à de mauvais ingrédients, au manque d’hygiène ou à une mauvaise conservation, ainsi que sur le temps nécessaire à la fabrication.
 
 **Partie 2 — Point de vue personnel (107 mots)**
 
 Pour ma part, fabriquer certains produits simples est intéressant à condition que l’on suive des consignes fiables. Tout d’abord, cette pratique permet de choisir la composition et de réduire les emballages plastiques. Du vinaigre et du savon noir peuvent remplacer plusieurs flacons industriels. De plus, il faut distinguer un produit ménager courant d’une crème ou d’un savon dont la préparation exige de vraies précautions. Par exemple, une personne peut préparer un nettoyant selon une recette validée, l’étiqueter clairement et le conserver hors de portée des enfants. En conclusion, je recommande seulement les recettes simples et validées. Il vaut mieux renoncer aux préparations que l’on ne maîtrise pas.
 
-**Total : 174 mots (titre compris)**
+**Total : 176 mots (titre compris)**
 
 ---
 
@@ -260,15 +260,15 @@ Pour ma part, la télévision a sa place dans la vie familiale à condition qu�
 
 ### Vivre chez ses parents : un soutien vers l’autonomie
 
-**Partie 1 — Synthèse (56 mots)**
+**Partie 1 — Synthèse (55 mots)**
 
-Les deux documents abordent la vie chez ses parents à l’âge adulte. Le premier présente la stabilité, les repas, l’aide quotidienne et les économies de logement, notamment pendant les études. En revanche, le second, revenu chez ses parents après la perte d’un emploi, souligne le manque de liberté et d’intimité ainsi que les obstacles à l’indépendance.
+Les deux documents abordent la vie des jeunes chez leurs parents. Le premier présente la stabilité, les repas, l’aide quotidienne et les économies de logement, notamment pendant les études. En revanche, le second, revenu chez ses parents après la perte d’un emploi, souligne le manque de liberté et d’intimité ainsi que les obstacles à l’indépendance.
 
 **Partie 2 — Point de vue personnel (110 mots)**
 
 Pour ma part, vivre chez ses parents est raisonnable à condition que cette étape prépare un retour à l’autonomie. Tout d’abord, l’économie de loyer permet de reprendre des études, de chercher un emploi ou de constituer une réserve financière. Sans cette charge mensuelle, on peut financer une formation ou épargner pour le dépôt d’un futur logement. De plus, l’adulte doit contribuer aux tâches et respecter les besoins de chacun. Par exemple, un jeune salarié peut payer une partie des courses, cuisiner deux soirs par semaine et épargner chaque mois pour son futur logement. En conclusion, je soutiens ce choix temporaire lorsque les responsabilités, l’objectif d’épargne et l’échéance sont fixés ensemble.
 
-**Total : 174 mots (titre compris)**
+**Total : 173 mots (titre compris)**
 
 ---
 
@@ -298,7 +298,7 @@ Pour ma part, la croissance urbaine peut être durable à condition qu’elle pr
 
 **Partie 1 — Synthèse (50 mots)**
 
-Les deux documents abordent la restauration rapide. Le premier affirme que l’offre peut être variée, équilibrée et conforme aux règles d’hygiène, le client restant responsable de son menu. En revanche, le second dénonce des repas trop caloriques, répétitifs et riches en boissons sucrées, ainsi qu’une importante production de déchets plastiques.
+Les deux documents abordent la restauration rapide. Le premier affirme que l’offre peut être variée, équilibrée et conforme aux règles d’hygiène, le client restant responsable de son menu. En revanche, le second dénonce des repas trop caloriques et répétitifs, accompagnés de boissons sucrées, ainsi qu’une importante production de déchets plastiques.
 
 **Partie 2 — Point de vue personnel (103 mots)**
 
@@ -314,15 +314,15 @@ Pour ma part, je considère la restauration rapide comme une solution occasionne
 
 ### Les jeux vidéo : des bénéfices dans un cadre clair
 
-**Partie 1 — Synthèse (55 mots)**
+**Partie 1 — Synthèse (57 mots)**
 
-Les deux documents abordent les effets des jeux vidéo. Le premier leur attribue une amélioration de l’analyse, de la prise de décision et des réflexes chez les adultes. De son côté, le second associe une pratique intensive chez les enfants au stress, à la nervosité, à la violence et à de moins bons résultats scolaires.
+Les deux documents abordent les effets des jeux vidéo. Le premier attribue à certains jeux une amélioration de l’analyse, de la prise de décision et des réflexes chez les adultes. De son côté, le second associe une pratique intensive chez les enfants au stress, à la nervosité, à la violence et à de moins bons résultats scolaires.
 
 **Partie 2 — Point de vue personnel (105 mots)**
 
 Pour ma part, les jeux vidéo peuvent être un loisir stimulant à condition qu’ils soient adaptés à l’âge et limités dans le temps. Tout d’abord, certains jeux développent la stratégie, la coordination et la persévérance. Recommencer un niveau difficile oblige le joueur à analyser ses erreurs au lieu d’abandonner. De plus, des règles familiales protègent le sommeil, les études et l’activité physique. Par exemple, un adolescent peut jouer quarante-cinq minutes à un jeu de réflexion après ses devoirs, puis rejoindre son équipe de sport. En conclusion, je les accepte comme loisir lorsque le contenu, la durée et l’équilibre avec les autres activités sont clairement encadrés.
 
-**Total : 169 mots (titre compris)**
+**Total : 171 mots (titre compris)**
 
 ---
 

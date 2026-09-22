@@ -14,7 +14,7 @@ Les deux documents abordent la vidéosurveillance urbaine. Le premier souligne l
 
 **Partie 2 — Point de vue personnel (103 mots)**
 
-Pour ma part, les caméras peuvent compléter la prévention à condition qu’elles ciblent les lieux les plus exposés et que leur usage soit strictement encadré. Tout d’abord, elles peuvent aider les enquêteurs après les faits, car les images permettent d’identifier un suspect ou de reconstituer son trajet. De plus, il faut que la durée de conservation des images soit limitée et que seuls des enquêteurs habilités y accèdent. Par exemple, une station de métro pourrait conserver quelques jours les images filmées après un incident, puis les supprimer. En conclusion, les caméras doivent compléter des patrouilles et des actions de prévention, sans les remplacer.
+Pour ma part, les caméras peuvent compléter la prévention à condition qu’elles ciblent les lieux les plus exposés et que leur usage soit strictement encadré. Tout d’abord, elles peuvent aider les enquêteurs après les faits, car les images permettent d’identifier un suspect ou de reconstituer son trajet. De plus, il faut que la durée de conservation des images soit limitée et que seuls des enquêteurs habilités y accèdent. Par exemple, une station de métro pourrait conserver quelques jours les images enregistrées lors d’un incident, puis les supprimer. En conclusion, les caméras doivent compléter des patrouilles et des actions de prévention, sans les remplacer.
 
 **Total : 156 mots (titre compris)**
 
@@ -192,11 +192,11 @@ Pour ma part, je suis favorable à une réduction du temps de travail à conditi
 
 Les deux documents abordent les effets des jeux vidéo. Le premier souligne que certains jeux développent chez l’adulte l’analyse, la décision et la rapidité de réaction. En revanche, le second associe une pratique excessive chez les enfants à davantage de nervosité, de violence, de stress et de difficultés scolaires.
 
-**Partie 2 — Point de vue personnel (117 mots)**
+**Partie 2 — Point de vue personnel (116 mots)**
 
-Pour ma part, les jeux vidéo peuvent être utiles si leur durée est limitée et leur contenu adapté à l’âge. Tout d’abord, certains jeux développent la réflexion, la coordination et la capacité à résoudre des problèmes. Par exemple, un jeu de réflexion peut demander à un enfant de déplacer des pièces dans le bon ordre pour ouvrir la porte suivante. De plus, un usage excessif nuit au sommeil, à l’activité physique et à la concentration à l’école. Par exemple, des parents peuvent autoriser une heure de jeu après les devoirs, puis proposer une activité sportive en famille. En conclusion, il faut que les parents choisissent des contenus adaptés, fixent des horaires clairs et préservent un équilibre quotidien.
+Pour ma part, les jeux vidéo peuvent être utiles si leur durée est limitée et leur contenu adapté à l’âge. Tout d’abord, certains jeux développent la réflexion, la coordination et la capacité à résoudre des problèmes. Par exemple, un jeu de réflexion peut demander à un enfant de déplacer des pièces dans le bon ordre pour ouvrir la porte suivante. De plus, un usage excessif nuit au sommeil, à l’activité physique et à la concentration à l’école. Ainsi, des parents peuvent autoriser une heure de jeu après les devoirs, puis proposer une activité sportive en famille. En conclusion, il faut que les parents choisissent des contenus adaptés, fixent des horaires clairs et préservent un équilibre quotidien.
 
-**Total : 172 mots (titre compris)**
+**Total : 171 mots (titre compris)**
 
 ---
 
@@ -224,15 +224,15 @@ Pour ma part, je suis favorable à un uniforme simple et abordable, à condition
 
 ### La restauration rapide : un choix occasionnel à équilibrer
 
-**Partie 1 — Synthèse (47 mots)**
+**Partie 1 — Synthèse (51 mots)**
 
-Les deux documents abordent la restauration rapide et la santé. Le premier affirme que les enseignes respectent les normes d’hygiène et proposent assez de variété pour composer un repas équilibré. En revanche, le second juge cette alimentation néfaste et l’associe à des problèmes irréversibles, notamment à l’obésité.
+Les deux documents abordent la restauration rapide et la santé. Le premier affirme que les enseignes proposent des repas variés, respectent les normes d’hygiène et laissent au client la responsabilité de composer son menu. En revanche, le second juge cette alimentation néfaste et l’associe à des problèmes irréversibles, notamment à l’obésité.
 
 **Partie 2 — Point de vue personnel (102 mots)**
 
 Pour ma part, bien qu’elle puisse dépanner, la restauration rapide ne devrait pas devenir une habitude quotidienne. Tout d’abord, de nombreux menus contiennent trop de sel, de gras ou de sucre. Consommés souvent, ils augmentent le risque de prise de poids et de mauvaises habitudes alimentaires. De plus, le client peut limiter ces risques grâce à des choix plus équilibrés et à des portions raisonnables. Par exemple, une personne pourrait choisir une salade, de l’eau et un fruit plutôt qu’un grand menu accompagné d’une boisson sucrée. En conclusion, il faut que les consommateurs soient bien informés et privilégient régulièrement des produits frais.
 
-**Total : 157 mots (titre compris)**
+**Total : 161 mots (titre compris)**
 
 ---
 
@@ -356,7 +356,7 @@ Les deux documents abordent les vols à bas prix. Le premier apprécie leurs tar
 
 **Partie 2 — Point de vue personnel (102 mots)**
 
-Pour ma part, un vol à bas prix peut convenir à un trajet court, à condition que le tarif soit transparent et la sécurité irréprochable. Tout d’abord, les frais supplémentaires peuvent annuler l’économie annoncée. Bagage, siège et repas transforment vite un billet bon marché en dépense ordinaire. De plus, le train offre souvent davantage de confort et une empreinte carbone réduite. Par exemple, entre Montréal et Toronto, un voyageur peut travailler dans le train plutôt que payer un bagage en avion. En conclusion, un voyageur doit comparer le coût total, la durée, le confort, la sécurité et l’impact environnemental avant de réserver.
+Pour ma part, un vol à bas prix peut convenir à un trajet court, à condition que le tarif soit transparent et la sécurité irréprochable. Tout d’abord, les frais supplémentaires peuvent annuler l’économie annoncée. Bagage, siège et repas transforment vite un billet bon marché en dépense ordinaire. De plus, le train offre souvent davantage de confort et une empreinte carbone réduite. Par exemple, entre Montréal et Toronto, un voyageur peut travailler confortablement dans le train et éviter les frais de bagage. En conclusion, un voyageur doit comparer le coût total, la durée, le confort, la sécurité et l’impact environnemental avant de réserver.
 
 **Total : 166 mots (titre compris)**
 

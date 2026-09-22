@@ -48,11 +48,11 @@ Pour ma part, les zoos ne sont acceptables qu’à condition qu’ils donnent la
 
 Les deux documents abordent la place du travail dans la vie. Le premier dénonce la fatigue et le manque de temps pour les proches, puis propose de travailler moins. En revanche, le second souligne que l’emploi construit l’identité, crée des relations et nourrit le sentiment d’être utile.
 
-**Partie 2 — Point de vue personnel (112 mots)**
+**Partie 2 — Point de vue personnel (111 mots)**
 
-Pour ma part, je pense que le travail reste essentiel, mais qu’il ne doit pas envahir la vie personnelle. Tout d’abord, un emploi stable procure un revenu, des relations et un sentiment d’utilité. Par exemple, un salarié responsable d’un projet peut prendre des décisions, collaborer avec son équipe et voir le résultat de son travail. De plus, des horaires raisonnables préviennent le stress et la fatigue chronique. Par exemple, une entreprise qui répartit les tâches sur quatre jours peut maintenir sa productivité tout en laissant aux salariés davantage de temps pour leur famille. En conclusion, il faut que le travail garde une place utile sans qu’il envahisse le temps réservé aux proches.
+Pour ma part, je pense que le travail reste essentiel, mais qu’il ne doit pas envahir la vie personnelle. Tout d’abord, un emploi stable procure un revenu, des relations et un sentiment d’utilité. Par exemple, un salarié responsable d’un projet peut prendre des décisions, collaborer avec son équipe et voir le résultat de son travail. De plus, des horaires raisonnables préviennent le stress et la fatigue chronique. Ainsi, une entreprise qui répartit les tâches sur quatre jours peut maintenir sa productivité tout en laissant aux salariés davantage de temps pour leur famille. En conclusion, il faut que le travail garde une place utile sans qu’il envahisse le temps réservé aux proches.
 
-**Total : 166 mots (titre compris)**
+**Total : 165 mots (titre compris)**
 
 ---
 
@@ -66,11 +66,11 @@ Pour ma part, je pense que le travail reste essentiel, mais qu’il ne doit pas 
 
 Les deux documents publiés sont identiques et abordent la dépendance aux jeux vidéo. Ils expliquent tous deux que le jeu devient une addiction lorsqu’il remplace les relations, les études, le travail, les loisirs ou le sport. La source ayant dupliqué le même texte, elle ne fournit aucun point de vue opposé.
 
-**Partie 2 — Point de vue personnel (115 mots)**
+**Partie 2 — Point de vue personnel (114 mots)**
 
-Pour ma part, il ne faut pas interdire les jeux vidéo, mais les intégrer dans un emploi du temps équilibré. Tout d’abord, leur usage modéré peut développer la stratégie, la persévérance et la coopération. Par exemple, un jeu de gestion pousse un adolescent à élaborer une stratégie, à coordonner son équipe et à persévérer après plusieurs échecs. De plus, des règles précises empêchent le jeu de remplacer le sommeil, les études ou le sport. Par exemple, des parents peuvent autoriser une heure de jeu après les devoirs et conserver les consoles hors de la chambre la nuit. En conclusion, il faut que le jeu reste un loisir parmi d’autres : mieux vaut donc l’encadrer que l’interdire.
+Pour ma part, il ne faut pas interdire les jeux vidéo, mais les intégrer dans un emploi du temps équilibré. Tout d’abord, leur usage modéré peut développer la stratégie, la persévérance et la coopération. Par exemple, un jeu de gestion pousse un adolescent à élaborer une stratégie, à coordonner son équipe et à persévérer après plusieurs échecs. De plus, des règles précises empêchent le jeu de remplacer le sommeil, les études ou le sport. Ainsi, des parents peuvent autoriser une heure de jeu après les devoirs et conserver les consoles hors de la chambre la nuit. En conclusion, il faut que le jeu reste un loisir parmi d’autres : mieux vaut donc l’encadrer que l’interdire.
 
-**Total : 174 mots (titre compris)**
+**Total : 173 mots (titre compris)**
 
 ---
 
@@ -138,10 +138,10 @@ Pour ma part, il est préférable de consommer moins de viande sans nécessairem
 
 Les deux documents abordent la vie en colocation. Le premier valorise les échanges, le partage des tâches, l’entraide et l’ouverture à d’autres habitudes. En revanche, le second souligne le manque de calme, les invités imposés et les conflits ménagers, qui nécessitent de la diplomatie.
 
-**Partie 2 — Point de vue personnel (109 mots)**
+**Partie 2 — Point de vue personnel (108 mots)**
 
-Pour ma part, la colocation est enrichissante à condition que les responsabilités et les limites soient définies dès le départ. Tout d’abord, elle réduit les dépenses et rompt l’isolement dans une nouvelle ville. Par exemple, un étudiant fraîchement arrivé peut partager son loyer et se faire des amis dès sa première semaine en colocation. De plus, vivre à plusieurs apprend à communiquer et à respecter les besoins de chacun. Par exemple, trois étudiants peuvent établir un calendrier du ménage, fixer des heures calmes et prévenir avant de recevoir des amis. En conclusion, une colocation réussie repose sur le choix de colocataires fiables et une communication ouverte, honnête et respectueuse.
+Pour ma part, la colocation est enrichissante à condition que les responsabilités et les limites soient définies dès le départ. Tout d’abord, elle réduit les dépenses et rompt l’isolement dans une nouvelle ville. Par exemple, un étudiant fraîchement arrivé peut partager son loyer et se faire des amis dès sa première semaine en colocation. De plus, vivre à plusieurs apprend à communiquer et à respecter les besoins de chacun. Ainsi, trois étudiants peuvent établir un calendrier du ménage, fixer des heures calmes et prévenir avant de recevoir des amis. En conclusion, une colocation réussie repose sur le choix de colocataires fiables et une communication ouverte, honnête et respectueuse.
 
-**Total : 160 mots (titre compris)**
+**Total : 159 mots (titre compris)**
 
 ---

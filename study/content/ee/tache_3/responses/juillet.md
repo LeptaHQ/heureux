@@ -300,11 +300,11 @@ Pour ma part, il faut que le professionnalisme repose sur les compétences démo
 
 Les deux documents abordent la vie en colocation. Le premier met en avant le partage des dépenses, la convivialité et les échanges entre personnes de différents horizons. En revanche, le second souligne le manque d’intimité, les conflits de personnalité et les désaccords concernant les tâches ménagères ou les responsabilités communes.
 
-**Partie 2 — Point de vue personnel (116 mots)**
+**Partie 2 — Point de vue personnel (117 mots)**
 
-Pour ma part, la colocation est enrichissante à condition que les règles soient claires dès l’arrivée. Tout d’abord, partager le loyer et les factures rend un logement plus accessible et évite l’isolement. Un appartement à 1 800 dollars ne coûte plus que 600 dollars par personne lorsqu’il est partagé à trois. De plus, il faut que les colocataires parlent tôt de leurs habitudes, du bruit et du ménage. Les petits malentendus deviennent vite des conflits lorsqu’ils s’accumulent. Par exemple, trois colocataires peuvent établir un planning de ménage et verser chaque mois la même somme dans une caisse commune. En conclusion, la colocation fonctionne quand chacun respecte les règles, l’intimité et la part de responsabilité des autres.
+Pour ma part, la colocation est enrichissante à condition que les règles soient claires dès l’arrivée. Tout d’abord, partager le loyer et les factures rend un logement plus accessible et évite l’isolement. Un appartement à 1 800 dollars ne coûte plus que 600 dollars par personne lorsqu’il est partagé à trois. De plus, il faut que les colocataires parlent tôt de leurs habitudes, du bruit et du ménage. Les petits malentendus deviennent vite des conflits lorsqu’ils s’accumulent. Par exemple, trois colocataires peuvent établir un planning de ménage et verser chaque mois la même somme dans une caisse commune. En conclusion, la colocation fonctionne quand chacun respecte les règles, l’intimité des autres et assume sa part de responsabilité.
 
-**Total : 173 mots (titre compris)**
+**Total : 174 mots (titre compris)**
 
 ---
 

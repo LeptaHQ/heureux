@@ -100,7 +100,7 @@ Pour ma part, la chasse de loisir est difficilement justifiable, mais une interv
 
 **Partie 1 — Synthèse (51 mots)**
 
-Les deux documents abordent la restauration rapide. Le premier valorise la variété des menus, le respect des normes d’hygiène et la liberté laissée aux clients dans leurs choix alimentaires. En revanche, le second dénonce des repas trop caloriques, riches en boissons sucrées, ainsi que les nombreux emballages plastiques nuisibles à l’environnement.
+Les deux documents abordent la restauration rapide. Le premier valorise la variété des menus, le respect des normes d’hygiène et la liberté laissée aux clients dans leurs choix alimentaires. En revanche, le second dénonce des repas trop caloriques accompagnés de boissons sucrées, ainsi que les nombreux emballages plastiques nuisibles à l’environnement.
 
 **Partie 2 — Point de vue personnel (101 mots)**
 
@@ -122,7 +122,7 @@ Les deux documents abordent le choix du lieu où faire ses courses alimentaires.
 
 **Partie 2 — Point de vue personnel (99 mots)**
 
-Pour ma part, il faut favoriser les producteurs locaux sans pour autant exclure les supermarchés. Tout d’abord, les circuits courts soutiennent l’économie régionale et permettent de connaître l’origine des aliments. Acheter directement au producteur réduit les intermédiaires et rémunère plus justement les fermes voisines. De plus, les grandes surfaces restent pratiques pour les petits budgets et les produits indisponibles localement. Par exemple, une famille pourrait acheter ses légumes de saison au marché, puis compléter ses courses avec du riz et des conserves au supermarché. En conclusion, il faut que chacun combine qualité, proximité et prix raisonnables selon ses besoins.
+Pour ma part, il faut favoriser les producteurs locaux sans pour autant exclure les supermarchés. Tout d’abord, les circuits courts soutiennent l’économie régionale et permettent de connaître l’origine des aliments. Acheter directement au producteur réduit les intermédiaires et rémunère plus justement les producteurs voisins. De plus, les grandes surfaces restent pratiques pour les petits budgets et les produits indisponibles localement. Par exemple, une famille pourrait acheter ses légumes de saison au marché, puis compléter ses courses avec du riz et des conserves au supermarché. En conclusion, il faut que chacun combine qualité, proximité et prix raisonnables selon ses besoins.
 
 **Total : 157 mots (titre compris)**
 
@@ -210,10 +210,10 @@ Pour ma part, les musées devraient être gratuits à certains moments et propos
 
 Les deux documents abordent les objets connectés. Le premier souligne qu’ils simplifient le quotidien, encouragent l’activité physique et facilitent le suivi des rendez-vous ou des traitements médicaux. De son côté, le second alerte sur le piratage, qui peut exposer une habitation, compromettre la vie privée ou permettre la prise de contrôle d’un véhicule.
 
-**Partie 2 — Point de vue personnel (109 mots)**
+**Partie 2 — Point de vue personnel (112 mots)**
 
-Pour ma part, les objets connectés sont utiles à condition que leur sécurité soit garantie et que les données restent maîtrisées. Tout d’abord, ils peuvent renforcer l’autonomie des personnes qui suivent un traitement. Sans cette aide, un oubli de médicament peut avoir des conséquences graves. De plus, des mises à jour régulières limitent les intrusions informatiques. Par exemple, une montre pourrait rappeler à une personne âgée de prendre ses médicaments tout en transmettant uniquement les informations qu’elle a choisi de partager avec son médecin. En conclusion, le plus important est de protéger la vie privée grâce à des mots de passe solides, des réglages transparents et un consentement éclairé.
+Pour ma part, les objets connectés sont utiles à condition que leur sécurité soit garantie et que les données restent maîtrisées. Tout d’abord, ils peuvent renforcer l’autonomie des personnes qui suivent un traitement. Sans cette aide, un oubli de médicament peut avoir des conséquences graves. De plus, des mises à jour régulières limitent les intrusions informatiques. Par exemple, une montre pourrait rappeler à une personne âgée de prendre ses médicaments tout en ne transmettant à son médecin que les informations que cette personne a choisi de partager. En conclusion, le plus important est de protéger la vie privée grâce à des mots de passe solides, des réglages transparents et un consentement éclairé.
 
-**Total : 168 mots (titre compris)**
+**Total : 171 mots (titre compris)**
 
 ---

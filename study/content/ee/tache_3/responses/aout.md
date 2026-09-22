@@ -80,15 +80,15 @@ Pour ma part, la chasse n’est acceptable qu’à condition qu’elle réponde 
 
 ### La restauration rapide : pratique, mais coûteuse pour la santé
 
-**Partie 1 — Synthèse (52 mots)**
+**Partie 1 — Synthèse (53 mots)**
 
-Les deux documents abordent la restauration rapide. Le premier met en avant des menus variés, des plats équilibrés, une hygiène rigoureuse et la liberté de choix du client. En revanche, le second dénonce des repas trop caloriques, des boissons sucrées et de nombreux emballages plastiques nuisibles à la santé et à l’environnement.
+Les deux documents abordent la restauration rapide. Le premier met en avant des menus variés, des plats équilibrés, une hygiène rigoureuse et la liberté de choix du client. En revanche, le second dénonce des repas trop caloriques et des boissons sucrées, nocifs pour la santé, ainsi que des emballages plastiques nuisibles à l’environnement.
 
 **Partie 2 — Point de vue personnel (118 mots)**
 
-Pour ma part, la restauration rapide peut rester pratique à condition que les enseignes protègent mieux la santé et l’environnement. Tout d’abord, elles devraient indiquer clairement les calories, le sel et le sucre et proposer de vrais choix frais. Un client peut ainsi composer un repas équilibré au lieu de choisir par défaut un menu trop riche. De plus, il faut que les restaurants réduisent les emballages à usage unique, car des milliers de repas génèrent vite beaucoup de déchets. Par exemple, un restaurant peut proposer de l’eau, un fruit et une salade, puis servir sur place dans de la vaisselle réutilisable. En conclusion, je l’accepte si les menus sont transparents, équilibrés et servis avec moins de plastique.
+Pour ma part, la restauration rapide peut rester pratique à condition que les enseignes protègent mieux la santé et l’environnement. Tout d’abord, elles devraient indiquer clairement les calories, le sel et le sucre et proposer des options plus saines. Un client peut ainsi composer un repas équilibré au lieu de choisir par défaut un menu trop riche. De plus, il faut que les restaurants réduisent les emballages à usage unique, car des milliers de repas génèrent vite beaucoup de déchets. Par exemple, un restaurant peut proposer de l’eau, un fruit et une salade, puis servir sur place dans de la vaisselle réutilisable. En conclusion, je l’accepte si les menus sont transparents, équilibrés et servis avec moins de plastique.
 
-**Total : 179 mots (titre compris)**
+**Total : 180 mots (titre compris)**
 
 ---
 

@@ -50,7 +50,7 @@ Les deux documents abordent la vie en colocation. Le premier valorise les écono
 
 **Partie 2 — Point de vue personnel (99 mots)**
 
-Pour ma part, je trouve la colocation enrichissante à condition que les responsabilités soient définies dès le départ. Tout d’abord, partager le loyer permet d’habiter près de son université sans dépasser son budget. Par exemple, deux étudiants peuvent louer un appartement à proximité du campus et réduire leurs frais de transport. De plus, vivre avec d’autres personnes favorise les échanges et évite l’isolement dans une nouvelle ville, si chacun respecte l’intimité de l’autre. Un calendrier hebdomadaire répartit alors le ménage et prévient les tensions. En conclusion, la colocation est une bonne solution lorsqu’elle concilie économies, dialogue et respect mutuel.
+Pour ma part, je trouve la colocation enrichissante à condition que les responsabilités soient définies dès le départ. Tout d’abord, partager le loyer permet d’habiter près de son université sans dépasser son budget. Par exemple, deux étudiants peuvent louer un appartement à proximité du campus et réduire leurs frais de transport. De plus, vivre avec d’autres personnes favorise les échanges et évite l’isolement dans une nouvelle ville, si chacun respecte l’intimité de l’autre. Un calendrier hebdomadaire répartit les tâches ménagères et prévient les tensions. En conclusion, la colocation est une bonne solution lorsqu’elle concilie économies, dialogue et respect mutuel.
 
 **Total : 152 mots (titre compris)**
 
@@ -86,7 +86,7 @@ Les deux documents abordent le choix entre livres papier et numériques. Le prem
 
 **Partie 2 — Point de vue personnel (102 mots)**
 
-Pour ma part, il me semble que les deux formats peuvent coexister sans que l’un remplace l’autre. Tout d’abord, le numérique facilite la lecture des personnes malvoyantes et des voyageurs, car les caractères se règlent et une liseuse peut contenir plusieurs ouvrages. Par exemple, un étudiant peut emporter tous ses manuels sans alourdir son sac. De plus, le papier donne une valeur personnelle à la lecture : offrir un roman avec un mot à l’intérieur ou le prêter à un proche crée un souvenir concret. En conclusion, le plus important est de choisir selon ses besoins, son accessibilité et le plaisir de lire.
+Pour ma part, il me semble que les deux formats peuvent coexister sans que l’un remplace l’autre. Tout d’abord, le numérique facilite la lecture des personnes malvoyantes et des voyageurs, car les caractères se règlent et une liseuse peut contenir plusieurs ouvrages. Par exemple, un étudiant peut emporter tous ses manuels sans alourdir son sac. De plus, le papier donne une valeur personnelle à la lecture : offrir un roman avec un mot à l’intérieur ou le prêter à un proche crée un souvenir concret. En conclusion, chacun doit choisir le support adapté à ses besoins d’accessibilité et à son plaisir de lire.
 
 **Total : 158 mots (titre compris)**
 

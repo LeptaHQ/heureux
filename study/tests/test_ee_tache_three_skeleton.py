@@ -119,7 +119,7 @@ class EeTacheThreeSkeletonTests(SimpleTestCase):
             source["ee-tache3:avril:combinaison-8"].synthese,
         )
         self.assertIn(
-            "le second reconnaît les économies réalisées",
+            "le second reconnaît les économies",
             source["ee-tache3:decembre:combinaison-13"].synthese,
         )
         self.assertIn(

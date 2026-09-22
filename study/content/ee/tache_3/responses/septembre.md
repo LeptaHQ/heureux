@@ -48,11 +48,11 @@ Pour ma part, la colocation est une solution enrichissante à condition que les 
 
 Les deux documents abordent deux parcours pour devenir cuisinier. Le premier estime que la formation et l’expérience sont indispensables pour maîtriser les techniques culinaires. En revanche, le second montre que des autodidactes formés en ligne peuvent se faire connaître, devenir professionnels et publier des livres de recettes.
 
-**Partie 2 — Point de vue personnel (112 mots)**
+**Partie 2 — Point de vue personnel (114 mots)**
 
-Pour ma part, je pense que la compétence compte davantage que le statut initial du cuisinier. Tout d’abord, une formation structurée enseigne l’hygiène, les techniques et l’organisation nécessaires dans une cuisine professionnelle. Ces règles s’apprennent difficilement seul, car une erreur de conservation ou de cuisson peut rendre des clients malades. De plus, un amateur passionné peut acquérir ces savoir-faire grâce à une pratique exigeante et à l’accompagnement d’experts en restaurant. Par exemple, une créatrice de recettes connue sur les réseaux sociaux peut faire un stage en restaurant avant d’ouvrir son établissement. En conclusion, il faut que chaque cuisinier prouve ses compétences et continue à se former, quel que soit son statut initial.
+Pour ma part, je pense que la compétence compte davantage que le statut initial du cuisinier. Tout d’abord, une formation structurée enseigne l’hygiène, les techniques et l’organisation nécessaires dans une cuisine professionnelle. Ces compétences s’acquièrent difficilement seul, car une erreur de conservation ou de cuisson peut rendre des clients malades. De plus, un amateur passionné peut acquérir ces savoir-faire grâce à une pratique exigeante et à l’accompagnement de professionnels de la restauration. Par exemple, une créatrice de recettes connue sur les réseaux sociaux peut faire un stage en restaurant avant d’ouvrir son établissement. En conclusion, il faut que chaque cuisinier prouve ses compétences et continue à se former, quel que soit son statut initial.
 
-**Total : 168 mots (titre compris)**
+**Total : 170 mots (titre compris)**
 
 ---
 

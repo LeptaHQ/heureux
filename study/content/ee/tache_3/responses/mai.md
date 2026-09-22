@@ -12,11 +12,11 @@
 
 Les deux documents abordent les effets des jeux vidéo chez les enfants. Le premier associe les jeux violents à des comportements agressifs, malgré la vigilance des parents. En revanche, le second affirme qu’une pratique adaptée peut améliorer la concentration, la créativité et la capacité d’analyse, tout en contribuant au fonctionnement du cerveau.
 
-**Partie 2 — Point de vue personnel (92 mots)**
+**Partie 2 — Point de vue personnel (108 mots)**
 
-Pour ma part, les jeux vidéo peuvent être utiles, mais seulement si leur durée et leur contenu sont encadrés. Tout d’abord, certains jeux développent la réflexion et la coordination. De plus, une limite quotidienne protège le sommeil, les résultats scolaires et le lien social. Par exemple, un adolescent peut jouer trente minutes à un jeu de stratégie après ses devoirs, puis pratiquer un sport avec ses amis. Cela favorise ses capacités sans remplacer ses autres activités. En conclusion, le plus important est de choisir des jeux adaptés et d’établir des règles claires.
+Pour ma part, les jeux vidéo peuvent être utiles, mais seulement si leur durée et leur contenu sont encadrés. Tout d’abord, certains jeux développent la réflexion et la coordination. Ces jeux obligent en effet à anticiper, à comparer plusieurs solutions et à corriger ses erreurs. De plus, une limite quotidienne protège le sommeil, les résultats scolaires et le lien social. Par exemple, un adolescent peut jouer trente minutes à un jeu de stratégie après ses devoirs, puis pratiquer un sport avec ses amis. Cela favorise ses capacités sans remplacer ses autres activités. En conclusion, le plus important est de choisir des jeux adaptés et d’établir des règles claires.
 
-**Total : 154 mots (titre compris)**
+**Total : 170 mots (titre compris)**
 
 ---
 
@@ -84,11 +84,11 @@ Pour ma part, il ne faut pas interdire les jeux vidéo, mais les intégrer dans 
 
 Les deux documents abordent l’organisation de grands événements sportifs. Le premier dénonce leur coût, le risque d’endettement et le détournement de fonds destinés à la santé ou à l’éducation. En revanche, le second valorise les emplois, les infrastructures modernes, les retombées économiques et la visibilité culturelle qu’ils peuvent apporter.
 
-**Partie 2 — Point de vue personnel (85 mots)**
+**Partie 2 — Point de vue personnel (104 mots)**
 
-Pour ma part, un État peut accueillir une grande compétition, mais seulement si les bénéfices durables sont démontrés. Tout d’abord, le budget doit rester transparent et préserver les services essentiels. De plus, les nouvelles infrastructures doivent servir quotidiennement à la population. Par exemple, une ville pourrait rénover un réseau de transport prévu dans son plan urbain, l’utiliser pendant les Jeux, puis le conserver pour ses habitants. En conclusion, le plus important est de soumettre chaque projet à un contrôle indépendant et à une consultation publique.
+Pour ma part, un État peut accueillir une grande compétition, mais seulement si les bénéfices durables sont démontrés. Tout d’abord, le budget doit rester transparent et préserver les services essentiels. Sans cette rigueur, une compétition de quelques semaines peut laisser une dette que les habitants rembourseront pendant des années. De plus, les nouvelles infrastructures doivent servir quotidiennement à la population. Par exemple, une ville pourrait rénover un réseau de transport prévu dans son plan urbain, l’utiliser pendant les Jeux, puis le conserver pour ses habitants. En conclusion, le plus important est de soumettre chaque projet à un contrôle indépendant et à une consultation publique.
 
-**Total : 141 mots (titre compris)**
+**Total : 160 mots (titre compris)**
 
 ---
 
@@ -102,11 +102,11 @@ Pour ma part, un État peut accueillir une grande compétition, mais seulement s
 
 Les deux documents abordent l’impact écologique du végétarisme. Le premier défend la condition animale et affirme que l’élevage produit une part importante des émissions de carbone. En revanche, le second rapporte qu’une étude attribue à la culture et au transport de certains végétaux une pollution parfois supérieure à celle de la viande.
 
-**Partie 2 — Point de vue personnel (89 mots)**
+**Partie 2 — Point de vue personnel (106 mots)**
 
-Pour ma part, je considère qu’une alimentation davantage végétale est souhaitable, sans supposer que tous les légumes sont écologiques. Tout d’abord, réduire l’élevage intensif limite la souffrance animale et certaines émissions. De plus, choisir des produits locaux et saisonniers diminue les transports inutiles. Par exemple, une famille peut remplacer deux repas de viande par des lentilles cultivées dans sa région plutôt que par des légumes importés par avion. En conclusion, le plus important est de manger de façon équilibrée en considérant l’origine, la saison et le mode de production.
+Pour ma part, je considère qu’une alimentation davantage végétale est souhaitable, sans supposer que tous les légumes sont écologiques. Tout d’abord, réduire l’élevage intensif limite la souffrance animale et certaines émissions. Un kilo de viande mobilise beaucoup plus d’eau et de terres qu’une culture destinée directement à l’assiette. De plus, choisir des produits locaux et saisonniers diminue les transports inutiles. Par exemple, une famille peut remplacer deux repas de viande par des lentilles cultivées dans sa région plutôt que par des légumes importés par avion. En conclusion, le plus important est de manger de façon équilibrée en considérant l’origine, la saison et le mode de production.
 
-**Total : 148 mots (titre compris)**
+**Total : 165 mots (titre compris)**
 
 ---
 
@@ -120,11 +120,11 @@ Pour ma part, je considère qu’une alimentation davantage végétale est souha
 
 Les deux documents abordent la consommation de viande. Le premier valorise une consommation réduite, jugée bénéfique pour l’équilibre alimentaire, la santé et la planète. En revanche, le second défend une alimentation variée, souligne la difficulté des menus végétariens et craint qu’une diminution entraîne fatigue ou carences.
 
-**Partie 2 — Point de vue personnel (85 mots)**
+**Partie 2 — Point de vue personnel (100 mots)**
 
-Pour ma part, il est préférable de consommer moins de viande sans nécessairement la supprimer. Tout d’abord, varier les sources de protéines peut réduire les graisses et l’empreinte écologique. De plus, une diminution progressive facilite l’adaptation des habitudes alimentaires. Par exemple, une personne peut cuisiner des pois chiches deux soirs par semaine, conserver un repas de viande de qualité et demander conseil à un nutritionniste. En conclusion, le plus important est de construire des repas équilibrés, abordables et adaptés, plutôt que d’imposer un régime unique.
+Pour ma part, il est préférable de consommer moins de viande sans nécessairement la supprimer. Tout d’abord, varier les sources de protéines peut réduire les graisses et l’empreinte écologique. À condition d’associer céréales et légumineuses, ces repas restent complets et évitent les carences redoutées. De plus, une diminution progressive facilite l’adaptation des habitudes alimentaires. Par exemple, une personne peut cuisiner des pois chiches deux soirs par semaine, conserver un repas de viande de qualité et demander conseil à un nutritionniste. En conclusion, le plus important est de construire des repas équilibrés, abordables et adaptés, plutôt que d’imposer un régime unique.
 
-**Total : 137 mots (titre compris)**
+**Total : 152 mots (titre compris)**
 
 ---
 

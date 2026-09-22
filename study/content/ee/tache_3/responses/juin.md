@@ -12,11 +12,11 @@
 
 Les deux documents abordent la photo sur le CV. Le premier la juge inutile et susceptible de favoriser les discriminations, puisque les recruteurs privilégient surtout l’expérience et les diplômes. En revanche, le second estime qu’elle aide à identifier et à mémoriser un candidat, notamment pour certains métiers d’accueil.
 
-**Partie 2 — Point de vue personnel (86 mots)**
+**Partie 2 — Point de vue personnel (102 mots)**
 
-Pour ma part, la photo devrait rester facultative, afin que les compétences déterminent d’abord le recrutement. Tout d’abord, l’apparence peut provoquer des préjugés conscients ou inconscients et réduire l’égalité des chances. De plus, une candidature anonyme permet au recruteur d’évaluer plus objectivement l’expérience et les diplômes. Par exemple, une entreprise pourrait masquer les photos et les noms lors de la première sélection, puis rencontrer les candidats retenus selon les mêmes critères. En conclusion, le plus important est de garantir une procédure équitable centrée sur le savoir-faire.
+Pour ma part, la photo devrait rester facultative, afin que les compétences déterminent d’abord le recrutement. Tout d’abord, l’apparence peut provoquer des préjugés conscients ou inconscients et réduire l’égalité des chances. Un visage suffit parfois à déclencher une supposition sur l’âge, l’origine ou la santé du candidat. De plus, une candidature anonyme permet au recruteur d’évaluer plus objectivement l’expérience et les diplômes. Par exemple, une entreprise pourrait masquer les photos et les noms lors de la première sélection, puis rencontrer les candidats retenus selon les mêmes critères. En conclusion, le plus important est de garantir une procédure équitable centrée sur le savoir-faire.
 
-**Total : 142 mots (titre compris)**
+**Total : 158 mots (titre compris)**
 
 ---
 
@@ -48,11 +48,11 @@ Pour ma part, la colocation est une solution enrichissante à condition que les 
 
 Un seul document est disponible sur l’aide aux personnes pauvres, car le second manque dans la source. Le témoignage publié raconte que son auteur donne chaque hiver un peu de temps et d’argent aux personnes sans abri ou aux associations. Il présente ce geste ponctuel et saisonnier comme une solidarité accessible à tous.
 
-**Partie 2 — Point de vue personnel (85 mots)**
+**Partie 2 — Point de vue personnel (100 mots)**
 
-Pour ma part, je pense que l’aide immédiate et l’accompagnement à long terme doivent se compléter. Tout d’abord, une personne qui a faim ou froid a besoin d’un secours sans délai. De plus, un suivi régulier permet d’agir sur les causes de l’exclusion. Par exemple, à Montréal, une association peut offrir un repas chaud, puis aider le bénéficiaire à obtenir une adresse, une formation et un emploi stable. En conclusion, le plus important est de conjuguer une solidarité concrète et des solutions qui restaurent l’autonomie.
+Pour ma part, je pense que l’aide immédiate et l’accompagnement à long terme doivent se compléter. Tout d’abord, une personne qui a faim ou froid a besoin d’un secours sans délai. Aucun projet d’insertion ne peut commencer tant que ces besoins vitaux ne sont pas couverts. De plus, un suivi régulier permet d’agir sur les causes de l’exclusion. Par exemple, à Montréal, une association peut offrir un repas chaud, puis aider le bénéficiaire à obtenir une adresse, une formation et un emploi stable. En conclusion, le plus important est de conjuguer une solidarité concrète et des solutions qui restaurent l’autonomie.
 
-**Total : 146 mots (titre compris)**
+**Total : 161 mots (titre compris)**
 
 ---
 
@@ -66,11 +66,11 @@ Pour ma part, je pense que l’aide immédiate et l’accompagnement à long ter
 
 Les deux documents abordent la place du travail dans la vie. Le premier dénonce la fatigue et le manque de temps pour les proches, puis propose de travailler moins. En revanche, le second présente l’emploi comme une source d’identité, de relations, d’apprentissage et de sentiment d’être utile.
 
-**Partie 2 — Point de vue personnel (89 mots)**
+**Partie 2 — Point de vue personnel (100 mots)**
 
-Pour ma part, le travail contribue à l’épanouissement, mais il ne doit pas envahir toute l’existence. Tout d’abord, un emploi stable procure des revenus, des relations et un sentiment d’utilité. De plus, des conditions de travail équilibrées protègent la santé et la vie familiale. Par exemple, une entreprise qui adopte une semaine de quatre jours peut maintenir ses objectifs tout en laissant aux salariés davantage de temps pour leurs proches. En conclusion, le plus important est de garantir un travail digne sans sacrifier l’équilibre entre vie professionnelle et personnelle.
+Pour ma part, le travail contribue à l’épanouissement, mais il ne doit pas envahir toute l’existence. Tout d’abord, un emploi stable procure des revenus, des relations et un sentiment d’utilité. Ces repères quotidiens structurent la vie et protègent souvent de l’isolement. De plus, des conditions de travail équilibrées protègent la santé et la vie familiale. Par exemple, une entreprise qui adopte une semaine de quatre jours peut maintenir ses objectifs tout en laissant aux salariés davantage de temps pour leurs proches. En conclusion, le plus important est de garantir un travail digne sans sacrifier l’équilibre entre vie professionnelle et personnelle.
 
-**Total : 143 mots (titre compris)**
+**Total : 154 mots (titre compris)**
 
 ---
 
@@ -84,10 +84,10 @@ Pour ma part, le travail contribue à l’épanouissement, mais il ne doit pas e
 
 Les deux documents abordent les lieux où faire ses courses. Le premier valorise la variété, le stationnement et les promotions des supermarchés. En revanche, le second défend les commerces de quartier pour soutenir leur survie, obtenir des produits frais de qualité et renforcer la convivialité entre voisins.
 
-**Partie 2 — Point de vue personnel (93 mots)**
+**Partie 2 — Point de vue personnel (109 mots)**
 
-Pour ma part, les deux modèles peuvent coexister, mais les petits commerces méritent un soutien régulier. Tout d’abord, ils maintiennent des emplois et du lien social dans le quartier. De plus, les supermarchés restent utiles pour regrouper les achats et maîtriser le budget grâce aux prix bas. Par exemple, une famille peut acheter ses produits frais chez un marchand local, puis se rendre une fois par mois en grande surface pour les articles ménagers. En conclusion, le plus important est de consommer de manière réfléchie en conciliant proximité, qualité, praticité et moyens financiers.
+Pour ma part, les deux modèles peuvent coexister, mais les petits commerces méritent un soutien régulier. Tout d’abord, ils maintiennent des emplois et du lien social dans le quartier. Quand la dernière boulangerie ferme, c’est aussi un lieu de rencontre qui disparaît pour les voisins. De plus, les supermarchés restent utiles pour regrouper les achats et maîtriser le budget grâce aux prix bas. Par exemple, une famille peut acheter ses produits frais chez un marchand local, puis se rendre une fois par mois en grande surface pour les articles ménagers. En conclusion, le plus important est de consommer de manière réfléchie en conciliant proximité, qualité, praticité et moyens financiers.
 
-**Total : 148 mots (titre compris)**
+**Total : 164 mots (titre compris)**
 
 ---

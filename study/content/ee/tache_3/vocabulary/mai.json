@@ -470,33 +470,33 @@
         {
           "id": "E3-MAI-C02-27",
           "kind": "phrase-modele",
-          "french": "En définitive, le plus important est de contrôler strictement les établissements et de fermer ceux qui privilégient le spectacle",
-          "english": "Ultimately, the most important thing is to regulate facilities strictly and close those that prioritize entertainment",
-          "example": "En définitive, le plus important est de contrôler strictement les établissements et de fermer ceux qui privilégient le spectacle.",
+          "french": "En conclusion, le plus important est d’exiger de chaque parc qu’il garantisse le bien-être animal et contribue réellement à la conservation des espèces",
+          "english": "In conclusion, the most important thing is to require every park to guarantee animal welfare and genuinely contribute to species conservation",
+          "example": "En conclusion, le plus important est d’exiger de chaque parc qu’il garantisse le bien-être animal et contribue réellement à la conservation des espèces.",
           "usage": "Formule argumentative de registre neutre ; réutilisable en Animaux/Environnement."
         },
         {
           "id": "E3-MAI-C02-28",
           "kind": "mot-cle",
-          "french": "les établissements",
-          "english": "the facilities",
-          "example": "En définitive, le plus important est de contrôler strictement les établissements et de fermer ceux qui privilégient le spectacle.",
+          "french": "le bien-être animal",
+          "english": "animal welfare",
+          "example": "En conclusion, le plus important est d’exiger de chaque parc qu’il garantisse le bien-être animal et contribue réellement à la conservation des espèces.",
           "usage": "Groupe nominal ; accord à adapter au contexte ; réutilisable en Animaux/Environnement."
         },
         {
           "id": "E3-MAI-C02-29",
           "kind": "tournure",
-          "french": "le plus important est de contrôler strictement",
-          "english": "the most important thing is to regulate strictly",
-          "example": "En définitive, le plus important est de contrôler strictement les établissements et de fermer ceux qui privilégient le spectacle.",
+          "french": "le plus important est d’exiger de chaque parc",
+          "english": "the most important thing is to require every park",
+          "example": "En conclusion, le plus important est d’exiger de chaque parc qu’il garantisse le bien-être animal et contribue réellement à la conservation des espèces.",
           "usage": "Structure neutre à adapter grammaticalement ; réutilisable en Animaux/Environnement."
         },
         {
           "id": "E3-MAI-C02-30",
           "kind": "collocation",
-          "french": "privilégient le spectacle",
-          "english": "prioritize entertainment",
-          "example": "En définitive, le plus important est de contrôler strictement les établissements et de fermer ceux qui privilégient le spectacle.",
+          "french": "la conservation des espèces",
+          "english": "species conservation",
+          "example": "En conclusion, le plus important est d’exiger de chaque parc qu’il garantisse le bien-être animal et contribue réellement à la conservation des espèces.",
           "usage": "Association lexicale figée ou semi-figée ; réutilisable en Animaux/Environnement."
         }
       ]
@@ -647,15 +647,15 @@
           "kind": "expression",
           "french": "Par exemple",
           "english": "For example",
-          "example": "Par exemple, une entreprise qui adopte quatre journées bien organisées peut maintenir sa productivité tout en laissant aux salariés davantage de temps pour leur famille.",
+          "example": "Par exemple, une entreprise qui adopte la semaine de quatre jours bien organisée peut maintenir sa productivité tout en laissant aux salariés davantage de temps pour leur famille.",
           "usage": "Connecteur discursif de registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-MAI-C03-19",
           "kind": "collocation",
-          "french": "quatre journées bien organisées",
-          "english": "four well-organized days",
-          "example": "Par exemple, une entreprise qui adopte quatre journées bien organisées peut maintenir sa productivité tout en laissant aux salariés davantage de temps pour leur famille.",
+          "french": "la semaine de quatre jours bien organisée",
+          "english": "a well-organized four-day week",
+          "example": "Par exemple, une entreprise qui adopte la semaine de quatre jours bien organisée peut maintenir sa productivité tout en laissant aux salariés davantage de temps pour leur famille.",
           "usage": "Association lexicale figée ou semi-figée ; réutilisable en Travail/Bien-être."
         },
         {
@@ -663,7 +663,7 @@
           "kind": "verbe-action",
           "french": "maintenir sa productivité",
           "english": "to maintain productivity",
-          "example": "Par exemple, une entreprise qui adopte quatre journées bien organisées peut maintenir sa productivité tout en laissant aux salariés davantage de temps pour leur famille.",
+          "example": "Par exemple, une entreprise qui adopte la semaine de quatre jours bien organisée peut maintenir sa productivité tout en laissant aux salariés davantage de temps pour leur famille.",
           "usage": "Groupe verbal ; verbe à conjuguer selon le sujet ; réutilisable en Travail/Bien-être."
         },
         {
@@ -671,7 +671,7 @@
           "kind": "mot-cle",
           "french": "salariés",
           "english": "employees",
-          "example": "Par exemple, une entreprise qui adopte quatre journées bien organisées peut maintenir sa productivité tout en laissant aux salariés davantage de temps pour leur famille.",
+          "example": "Par exemple, une entreprise qui adopte la semaine de quatre jours bien organisée peut maintenir sa productivité tout en laissant aux salariés davantage de temps pour leur famille.",
           "usage": "Groupe nominal ; accord à adapter au contexte ; réutilisable en Travail/Bien-être."
         },
         {
@@ -679,7 +679,7 @@
           "kind": "tournure",
           "french": "tout en laissant aux salariés davantage de temps",
           "english": "while giving employees more time",
-          "example": "Par exemple, une entreprise qui adopte quatre journées bien organisées peut maintenir sa productivité tout en laissant aux salariés davantage de temps pour leur famille.",
+          "example": "Par exemple, une entreprise qui adopte la semaine de quatre jours bien organisée peut maintenir sa productivité tout en laissant aux salariés davantage de temps pour leur famille.",
           "usage": "Structure neutre à adapter grammaticalement ; réutilisable en Travail/Bien-être."
         },
         {

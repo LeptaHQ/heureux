@@ -58,6 +58,7 @@ from study.routing import (
     subject_selection_url,
     theme_detail_url,
 )
+from study.views.library import _ee_tache_three_position_blocks
 
 from . import factories
 
@@ -1034,6 +1035,44 @@ class SmokeTests(TestCase):
 
 
 class EeTacheThreePageTests(TestCase):
+    def test_position_outline_preserves_connectors_and_full_answer_text(self):
+        text = (
+            "Pour ma part, je suis favorable à cette mesure. "
+            "Tout d’abord, elle répond à un besoin concret. "
+            "Par exemple, un élève pressé peut gagner du temps. "
+            "De plus, elle peut soutenir les projets scolaires. "
+            "Par exemple, les recettes peuvent financer des livres. "
+            "En conclusion, cette mesure est utile si elle reste encadrée."
+        )
+
+        blocks = _ee_tache_three_position_blocks(text)
+
+        self.assertEqual(
+            [block["label"] for block in blocks],
+            ["Prise de position", "Argument 1", "Argument 2", "Conclusion"],
+        )
+        self.assertEqual(" ".join(block["text"] for block in blocks), text)
+        self.assertEqual(
+            [block["text"].split(",", 1)[0] for block in blocks],
+            ["Pour ma part", "Tout d’abord", "De plus", "En conclusion"],
+        )
+        self.assertEqual(
+            sum(block["text"].count("Par exemple,") for block in blocks),
+            2,
+        )
+
+    def test_position_outline_rejects_a_missing_second_example(self):
+        self.assertEqual(
+            _ee_tache_three_position_blocks(
+                "Pour ma part, voici mon avis. "
+                "Tout d’abord, voici un argument. "
+                "Par exemple, voici un cas concret. "
+                "De plus, voici un second argument. "
+                "En conclusion, voici mon bilan."
+            ),
+            (),
+        )
+
     @classmethod
     def setUpTestData(cls):
         command = Command()

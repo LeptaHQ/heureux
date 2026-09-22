@@ -28,6 +28,7 @@ from study.oral_history import snapshot
 from study.routing import prompt_detail_url
 
 from . import factories
+from .test_ee_tache_three_memory_translations import AnnotationRootText
 
 
 class EeTacheThreeTitleContentTests(SimpleTestCase):
@@ -159,14 +160,12 @@ class EeTacheThreeTitlePageTests(TestCase):
         self.assertIsNotNone(payload)
         return json.loads(payload.group(1))
 
-    def annotation_html(self, page):
-        text = page.content.decode()
-        start = text.index(
-            f'<div class="answer-columns" data-annotation-root '
-            f'data-annotation-source-key="response:{self.prompt.response.content_key}">'
-        )
-        end = text.index('<aside class="detail-side"', start)
-        return text[start:end]
+    def annotation_text(self, page):
+        parser = AnnotationRootText()
+        parser.feed(page.content.decode())
+        return parser.roots[
+            f"response:{self.prompt.response.content_key}"
+        ]
 
     def test_title_is_in_the_answer_and_copy_including_for_an_equivalent_subject(self):
         for key in (
@@ -185,6 +184,16 @@ class EeTacheThreeTitlePageTests(TestCase):
                     page, f'<h2 class="spine-text">{row.reformulation}</h2>', html=True,
                 )
                 self.assertContains(page, 'aria-label="Réponse complète"', count=1)
+                self.assertContains(page, '<div class="spine-label">Réponse</div>', html=True)
+                rendered = page.content.decode()
+                self.assertLess(
+                    rendered.index("tache-two-consigne"),
+                    rendered.index("section-card--ee-documents"),
+                )
+                self.assertLess(
+                    rendered.index("section-card--ee-documents"),
+                    rendered.index("section-card--ee-response"),
+                )
                 self.assertNotContains(page, '<p class="reform">')
                 self.assertContains(
                     page, f"Total : {content._ee_word_count(answer)} mots, titre compris",
@@ -199,9 +208,9 @@ class EeTacheThreeTitlePageTests(TestCase):
             reformulation="Un autre titre pour la réponse",
         )
         after = self.client.get(prompt_detail_url(self.prompt))
-        self.assertEqual(self.annotation_html(before), self.annotation_html(after))
-        self.assertNotIn(self.prompt.response.reformulation, self.annotation_html(before))
-        self.assertNotIn("Total :", self.annotation_html(before))
+        self.assertEqual(self.annotation_text(before), self.annotation_text(after))
+        self.assertNotIn(self.prompt.response.reformulation, self.annotation_text(before))
+        self.assertNotIn("Total :", self.annotation_text(before))
 
     def test_personal_title_and_titleless_correspondence_are_not_replaced(self):
         personal = PersonalResponse.objects.create(

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import re
 from urllib.parse import urlencode
 
 from django.core.paginator import Paginator
@@ -3754,6 +3755,34 @@ def _subject_vocabulary_context(response, task_scope, user, *, prompt=None):
     }
 
 
+_EE_TACHE_THREE_POSITION_PATTERN = re.compile(
+    r"(?P<stance>Pour ma part,.*?)(?=\s+Tout d’abord,)"
+    r"\s+(?P<argument_1>Tout d’abord,.*?Par exemple,.*?)"
+    r"(?=\s+De plus,)"
+    r"\s+(?P<argument_2>De plus,.*?Par exemple,.*?)"
+    r"(?=\s+En conclusion,)"
+    r"\s+(?P<conclusion>En conclusion,.*)"
+)
+
+
+def _ee_tache_three_position_blocks(text):
+    match = _EE_TACHE_THREE_POSITION_PATTERN.fullmatch(text)
+    if not match:
+        return ()
+    return tuple(
+        {
+            "label": label,
+            "text": match.group(group),
+        }
+        for label, group in (
+            ("Prise de position", "stance"),
+            ("Argument 1", "argument_1"),
+            ("Argument 2", "argument_2"),
+            ("Conclusion", "conclusion"),
+        )
+    )
+
+
 def response_detail(request, part_slug, task_slug, prompt_id):
     task = _route_task(part_slug, task_slug, request=request)
     selected_prompt = get_object_or_404(
@@ -3868,6 +3897,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
     ee_subject_instruction = ""
     ee_subject_copy_text = ""
     ee_response_copy_text = ""
+    ee_position_blocks = ()
     source_documents_html = response.body_html
     subject_hints = None
     if (task.part.slug, task.slug) == content_module.EO_TACHE_THREE_TASK and response.semantic_group:
@@ -3880,6 +3910,9 @@ def response_detail(request, part_slug, task_slug, prompt_id):
                 response_content.position,
                 response_content.position_claire,
             )
+        ee_position_blocks = _ee_tache_three_position_blocks(
+            response_content.position_claire
+        )
         if response.content_key in (
             content_module.load_ee_tache_three_author_responses()
         ):
@@ -3968,6 +4001,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             "ee_subject_instruction": ee_subject_instruction,
             "ee_subject_copy_text": ee_subject_copy_text,
             "ee_response_copy_text": ee_response_copy_text,
+            "ee_position_blocks": ee_position_blocks,
             "source_documents_html": source_documents_html,
             "prompts": prompts,
             "card": card,

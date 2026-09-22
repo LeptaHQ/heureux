@@ -1218,7 +1218,7 @@ class EeTacheThreePageTests(TestCase):
             response.context["ai_practice_prompt"],
             content_module.load_ee_ai_examiner_prompt(3),
         )
-        self.assertContains(response, "questions terminées")
+        self.assertContains(response, "formulations apprises")
         self.assertContains(response, "Gérer les trois tâches")
         self.assertContains(response, "<strong>60 minutes</strong>", html=True)
         self.assertContains(response, 'data-writing-methodology="3"', count=1)
@@ -1631,6 +1631,9 @@ class EeTacheThreePageTests(TestCase):
         self.assertContains(response, "premier document publié est hors sujet")
 
     def test_practice_and_memory_pages_use_ee_task_language(self):
+        overview = self.client.get(
+            self._task_url("study:task_detail")
+        )
         practice = self.client.get(
             self._task_url("study:task_review_hub")
         )
@@ -1638,12 +1641,27 @@ class EeTacheThreePageTests(TestCase):
             self._task_url("study:task_memories")
         )
 
+        self.assertEqual(overview.status_code, 200)
+        self.assertContains(overview, "Formulations")
+        self.assertContains(overview, "4</b> collections")
+        self.assertNotContains(overview, ">Mémoires<", html=False)
         self.assertEqual(practice.status_code, 200)
         self.assertContains(practice, "Choisir un thème")
         self.assertNotContains(practice, "Choisir un mois")
         self.assertEqual(memories.status_code, 200)
         self.assertEqual(memories.context["memory_count"], 4)
-        self.assertContains(memories, "Mémoires")
+        self.assertContains(memories, "Collections de formulations")
+        for label, title in (
+            ("Fondations", "Cadrer, comparer et prendre position"),
+            ("Argumentation", "Justifier, protéger et concilier"),
+            ("Nuance", "Concéder, illustrer et équilibrer"),
+            ("Maîtrise", "Prioriser, conclure et mettre en œuvre"),
+        ):
+            with self.subTest(collection=label):
+                self.assertContains(memories, label)
+                self.assertContains(memories, title)
+        for number in range(1, 5):
+            self.assertNotContains(memories, f"Mémoire {number}")
         self.assertNotContains(memories, "Tâche 2")
 
 

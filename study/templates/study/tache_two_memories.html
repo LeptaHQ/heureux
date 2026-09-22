@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Mémoires · {{ task.name }} · Heureux{% endblock %}
+{% block title %}{% if part.slug == "ee" and task.slug == "tache-3" %}Collections de formulations{% else %}Mémoires{% endif %} · {{ task.name }} · Heureux{% endblock %}
 
 {% block content %}
 {% include "study/partials/task_nav.html" %}
@@ -9,12 +9,16 @@
     <div class="memory-overview-hero__copy">
       <h1 class="title-with-icon" style="--icon-accent: {{ task.color }};">
         <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name="book-open" only %}</span>
-        <span>Mémoires</span>
+        <span>{% if part.slug == "ee" and task.slug == "tache-3" %}Collections de formulations{% else %}Mémoires{% endif %}</span>
       </h1>
-      <p>Formulations à mémoriser et à adapter.</p>
+      {% if part.slug == "ee" and task.slug == "tache-3" %}
+        <p>Quatre collections classées par objectif pour mémoriser, adapter et réutiliser les structures de la Tâche 3.</p>
+      {% else %}
+        <p>Formulations à mémoriser et à adapter.</p>
+      {% endif %}
     </div>
-    <dl class="memory-overview-hero__metrics" aria-label="Contenu des mémoires">
-      <div><dt>Mémoires</dt><dd>{{ memory_count }}</dd></div>
+    <dl class="memory-overview-hero__metrics" aria-label="{% if part.slug == "ee" and task.slug == "tache-3" %}Contenu des collections{% else %}Contenu des mémoires{% endif %}">
+      <div><dt>{% if part.slug == "ee" and task.slug == "tache-3" %}Collections{% else %}Mémoires{% endif %}</dt><dd>{{ memory_count }}</dd></div>
       <div><dt>Catégories</dt><dd>{{ category_count }}</dd></div>
       <div><dt>{% if part.slug == "ee" and task.slug == "tache-3" %}Formulations{% else %}Questions{% endif %}</dt><dd>{{ question_count }}</dd></div>
     </dl>
@@ -27,7 +31,7 @@
     {% include "study/partials/collection_toolbar.html" with progress_completed=memory_summary.completed progress_total=memory_summary.total progress_unit="questions apprises" show_views=memories %}
   {% endif %}
 
-  <section class="memory-library memory-library--standalone" aria-label="Liste des mémoires">
+  <section class="memory-library memory-library--standalone" aria-label="{% if part.slug == "ee" and task.slug == "tache-3" %}Collections de formulations{% else %}Liste des mémoires{% endif %}">
     {% include "study/partials/tache_two_memory_list.html" with memories=memories part=part task=task only %}
   </section>
 </div>

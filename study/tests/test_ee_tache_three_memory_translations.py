@@ -24,24 +24,30 @@ from . import factories
 BASELINE = {
     1: (
         323,
-        "91aea4c42d962fbe473586b40d1a8d12ee96294f981df8ebed1f26803fbc2fd9",
+        "85a06a79721c78664e5de5ac128067c2c0f68395e953fd9599e829c6d9d32d56",
         "2511bacdda3540005f20a1762b040d6180d0930b1b4caaffaadf828b8900ddfd",
     ),
     2: (
         315,
-        "cb4a0792e93aa8267d0ae3d7fde2cd9ea961f24578d66c4ef84f564abde47bb5",
+        "beda4d811d487de1343d2714aba1226c19450cea5011402a19f2f1c09fa2ae5e",
         "d0502756da6e7f7b9e8af3ca369e4d2d0dd2b9ac4a4f1ac941371bf20429a2a1",
     ),
     3: (
         338,
-        "f778f1efd96cd56f8d9940bd555941572d2dca12315cf9082bb0d75524ad9b95",
+        "f898c450d11b4c495e5861eb7dab9d6cfcc9259a55472b34ac626f334aaded84",
         "0e5b9dee1533ffd5351f1347ff314721c65220f5af3043d2d5d74747fdbebe24",
     ),
     4: (
         310,
-        "26295f845d093c24a9b3e708af44b236dacc401cae06df245a21adaaa4094d8d",
+        "eb239b494e7a915527c71db7694b6dcb51f857b3fd3625ef9678889dffe4730c",
         "6c904362af0395a80268931b40d808e354f436ec970d29b704da526184b793cf",
     ),
+}
+EXPECTED_COLLECTIONS = {
+    1: ("Fondations", "Cadrer, comparer et prendre position"),
+    2: ("Argumentation", "Justifier, protéger et concilier"),
+    3: ("Nuance", "Concéder, illustrer et équilibrer"),
+    4: ("Maîtrise", "Prioriser, conclure et mettre en œuvre"),
 }
 BASELINE_ROOT_TEXT = {
     1: "eb81439f71133137b1b89d24960fadf87dc9c41e928f88eb197da1988d8809da",
@@ -126,6 +132,18 @@ class AnnotationRootText(HTMLParser):
 
 
 class EeTacheThreeMemoryTranslationContentTests(SimpleTestCase):
+    def test_banks_use_pedagogical_collection_names_without_numbered_titles(self):
+        banks = _banks()
+        self.assertEqual(len(banks), 4)
+        for bank in banks:
+            with self.subTest(collection=bank.number):
+                self.assertEqual(
+                    (bank.label, bank.title),
+                    EXPECTED_COLLECTIONS[bank.number],
+                )
+                self.assertNotRegex(bank.title, r"(?i)\bmémoire\s+\d+\b")
+                self.assertTrue(bank.subtitle)
+
     def test_every_formulation_has_consistent_authored_english(self):
         translations = {}
         total = 0

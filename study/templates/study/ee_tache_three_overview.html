@@ -22,7 +22,7 @@
       <div><dt>Sujets</dt><dd>{{ subject_count }}</dd></div>
       <div><dt>Réponses distinctes</dt><dd>{{ distinct_count }}</dd></div>
       <div><dt>Vocabulaire</dt><dd>{{ vocabulary_entry_count }}</dd></div>
-      <div><dt>Mémoires</dt><dd>{{ memory_count }}</dd></div>
+      <div><dt>Collections</dt><dd>{{ memory_count }}</dd></div>
     </dl>
   </header>
 
@@ -81,17 +81,17 @@
       <header class="task-choice-card__head">
         <span class="task-choice-card__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="book-open" only %}</span>
         <div>
-          <h2>Mémoires</h2>
-          <p>Les formulations transversales à retenir et à réutiliser.</p>
+          <h2>Formulations</h2>
+          <p>Quatre collections pédagogiques pour structurer, nuancer et enrichir vos réponses.</p>
         </div>
       </header>
       <div class="task-choice-card__facts">
-        <span><b>{{ memory_count }}</b> mémoires</span>
+        <span><b>{{ memory_count }}</b> collections</span>
         <span><b>{{ category_count }}</b> catégories</span>
-        <span><b>{{ question_count }}</b> questions</span>
+        <span><b>{{ question_count }}</b> formulations</span>
       </div>
       <footer class="task-choice-card__footer">
-        {% include "study/partials/tache_two_progress.html" with summary=memory_summary unit_label="questions terminées" compact=True only %}
+        {% include "study/partials/tache_two_progress.html" with summary=memory_summary unit_label="formulations apprises" compact=True only %}
         <span class="task-choice-card__action">Ouvrir {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
       </footer>
     </a>

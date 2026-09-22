@@ -811,11 +811,35 @@ class BrowserTests(StaticLiveServerTestCase):
             for question in group.questions
             if question.legacy_text
         )
+        overview_path = reverse("study:task_memories", args=["ee", "tache-3"])
         path = reverse("study:task_memory_detail", args=["ee", "tache-3", 1])
 
         for width in (320, 390, 1280):
             with self.subTest(width=width):
                 self.page.set_viewport_size({"width": width, "height": 844})
+                self.page.goto(self.live_server_url + overview_path)
+                expect(
+                    self.page.get_by_role(
+                        "heading", name="Collections de formulations"
+                    )
+                ).to_be_visible()
+                entries = self.page.locator(".memory-entry")
+                expect(entries).to_have_count(4)
+                for label, title in (
+                    ("Fondations", "Cadrer, comparer et prendre position"),
+                    ("Argumentation", "Justifier, protéger et concilier"),
+                    ("Nuance", "Concéder, illustrer et équilibrer"),
+                    ("Maîtrise", "Prioriser, conclure et mettre en œuvre"),
+                ):
+                    entry = entries.filter(has_text=title)
+                    expect(entry).to_have_count(1)
+                    expect(entry).to_contain_text(label)
+                for number in range(1, 5):
+                    expect(
+                        self.page.get_by_text(f"Mémoire {number}", exact=True)
+                    ).to_have_count(0)
+                self.assert_no_horizontal_overflow()
+
                 self.page.goto(self.live_server_url + path)
                 guide = self.page.locator(".ee3-memory-guide")
                 expect(guide).not_to_have_attribute("open", "")

@@ -1,5 +1,5 @@
 <div class="memory-library__grid collection-table collection-table--memories" data-collection-view="adaptive">
-  {% include "study/partials/collection_table_header.html" with variant="memories" column_1="Mémoire" column_2="Progression" column_3="Action" only %}
+  {% include "study/partials/collection_table_header.html" with variant="memories" column_1="Collection" column_2="Progression" column_3="Action" only %}
   {% for item in memories %}
     {% with memory=item.memory progress=item.progress %}
     <a
@@ -9,7 +9,9 @@
       aria-label="Ouvrir {{ memory.title }}">
       <span class="memory-entry__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=memory.icon only %}</span>
       <div class="memory-entry__body">
+        <span class="memory-entry__label">{{ memory.label }}</span>
         <h2>{{ memory.title }}</h2>
+        <p>{{ memory.subtitle }}</p>
         <div class="memory-entry__facts">
           <span><b>{{ memory.category_count }}</b> catégories</span>
           <span><b>{{ memory.question_count }}</b> {% if part.slug == "ee" and task.slug == "tache-3" %}formulations{% else %}questions{% endif %}</span>

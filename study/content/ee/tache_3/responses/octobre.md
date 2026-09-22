@@ -16,7 +16,7 @@ La question des publicités suscite des avis partagés. D’un côté, leurs dé
 
 À mon avis, la publicité reste utile, mais elle doit être mieux encadrée. Tout d’abord, elle informe les consommateurs et aide les petites entreprises à faire connaître leurs produits. Ensuite, une diffusion moins envahissante protège l’attention et réduit les déchets. Par exemple, une municipalité pourrait interdire les prospectus non sollicités tout en autorisant une plateforme locale présentant les promotions des commerces. Cela permettrait aux habitants de comparer les prix sans remplir leurs boîtes aux lettres. Cependant, il faut aussi reconnaître que ces annonces financent des contenus gratuits. En conclusion, le plus important est de limiter leur quantité, d’exiger leur transparence et de privilégier des supports respectueux de l’environnement.
 
-**Total : 158 mots**
+**Total : 163 mots (titre compris)**
 
 ---
 
@@ -34,7 +34,7 @@ Les vols à bas prix font l’objet d’un débat nuancé. Le premier témoignag
 
 Personnellement, j’accepterais un vol à bas prix pour un trajet court, mais seulement si le tarif est transparent et si les normes sont respectées. Tout d’abord, ces compagnies rendent les déplacements accessibles aux petits budgets. Ensuite, il faut comparer les frais de bagage, le confort et l’empreinte carbone avec les autres moyens de transport. Par exemple, entre Montréal et Toronto, je privilégierais le train, qui permet de travailler confortablement pendant le voyage. Cependant, il faut aussi reconnaître qu’un vol abordable reste utile vers une région mal desservie. En définitive, le plus important est de choisir selon le coût total, la sécurité, la durée et l’impact environnemental.
 
-**Total : 160 mots**
+**Total : 168 mots (titre compris)**
 
 ---
 
@@ -52,7 +52,7 @@ Les cours de langues en ligne font l’objet de points de vue opposés. Leurs pa
 
 Selon moi, l’apprentissage en ligne est efficace à condition d’associer flexibilité et encadrement. Tout d’abord, les ressources numériques permettent de réviser régulièrement sans perdre du temps dans les déplacements. Ensuite, les échanges avec un professeur corrigent la prononciation et entretiennent la motivation. Par exemple, une personne nouvellement installée au Québec peut suivre trois courtes leçons chez elle chaque semaine et participer le samedi à une conversation de groupe. Cette régularité favorise des progrès concrets. Cependant, il faut aussi reconnaître que les inégalités d’équipement excluent certains apprenants. En conclusion, le plus important est de proposer une connexion accessible, des objectifs clairs et un véritable lien humain.
 
-**Total : 156 mots**
+**Total : 163 mots (titre compris)**
 
 ---
 
@@ -70,6 +70,6 @@ La prise en charge des personnes âgées oppose deux visions. D’un côté, viv
 
 Personnellement, je pense que les maisons de retraite constituent une bonne solution lorsqu’elles répondent réellement aux besoins de chacun. Tout d’abord, un personnel qualifié peut assurer des soins continus et prévenir les accidents. Ensuite, les activités collectives favorisent le lien social sans remplacer les visites familiales. Par exemple, une résidente peu autonome peut recevoir son traitement sur place, participer à un atelier de musique et dîner chaque dimanche avec ses enfants. Cependant, il faut aussi reconnaître que certains établissements sont coûteux et peuvent éloigner les aînés de leurs repères. En définitive, le plus important est d’offrir un choix accessible entre accompagnement à domicile, accueil spécialisé et solidarité familiale.
 
-**Total : 160 mots**
+**Total : 169 mots (titre compris)**
 
 ---

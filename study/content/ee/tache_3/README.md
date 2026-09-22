@@ -17,6 +17,19 @@ Ce dossier regroupe les **sujets sources** et l'ensemble des **réponses modèle
   Ces plages figurent dans l’exemple d’épreuve officiel FEI ; le total officiel
   est de 120–180 mots. Les modèles ajoutent un titre pertinent comme choix
   éditorial ; FEI ne le présente pas comme une exigence générale.
+- Le titre fait partie de la réponse, de sa copie et du total **titre compris**,
+  sans être ajouté au sous-total de la synthèse. Les 138 textes sont des
+  contributions autonomes, pas des courriers ; une version personnelle sans
+  titre ne reçoit jamais automatiquement celui du modèle.
+- Les champs existants `heading` / `reformulation` portent ce titre. Les dix
+  titres des réponses de l’auteur sont raccourcis, sans modifier leurs deux
+  parties ; les autres titres pertinents sont conservés. Le chargeur valide
+  40–60 / 80–120 mots séparément, puis 120–180 mots pour le texte complet.
+  Les totaux des fichiers mensuels incluent eux aussi leur titre.
+- L’affichage du titre et du total reste hors du bloc d’annotation existant :
+  les offsets des documents, de la synthèse et du point de vue ne changent pas.
+  Aucun identifiant, regroupement, texte personnel, calendrier de révision,
+  achèvement, note, surlignage ou instantané historique n’est réécrit.
 - `ai_examiner_prompt.md` — prompt d’évaluation propre à la Tâche 3, disponible
   depuis la vue d’ensemble avant de fournir le sujet et ses deux documents.
 - La vue d’ensemble donne accès au vocabulaire des sujets regroupé par thème ;
@@ -222,3 +235,5 @@ proviennent désormais toutes de leur synthèse ou de leur point de vue effectif
 - `study/tests/test_ee_subject_themes.py` et
   `study/tests/test_ee_writing_feature.py` verrouillent les 138 occurrences,
   78 réponses canoniques, 35 groupes et 2 340 entrées importées.
+- `study/tests/test_ee_tache_three_titles.py` vérifie le titre dans la réponse
+  et sa copie, les totaux complets et la conservation des données à la réimportation.

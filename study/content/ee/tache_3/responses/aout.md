@@ -16,7 +16,7 @@ La question des maisons de retraite suscite des avis partagés. Le premier témo
 
 À mon avis, ces établissements sont utiles à condition de respecter le choix et la dignité de chaque personne. Tout d’abord, un encadrement permanent sécurise celles qui perdent leur autonomie. Ensuite, les activités collectives permettent de maintenir le lien social. Par exemple, une dame vivant seule après une chute pourrait intégrer une résidence proche de ses enfants, recevoir des soins quotidiens et partager régulièrement des repas avec eux. Cependant, il faut aussi reconnaître que la qualité et le coût varient fortement. En conclusion, le plus important est de proposer plusieurs solutions contrôlées, tout en préservant les relations familiales et les besoins de chacun.
 
-**Total : 155 mots**
+**Total : 163 mots (titre compris)**
 
 ---
 
@@ -34,7 +34,7 @@ La restauration rapide présente des avantages et des inconvénients. D’un cô
 
 Selon moi, la restauration rapide peut dépanner, mais elle doit rester occasionnelle. Tout d’abord, elle offre une solution pratique aux personnes pressées. Ensuite, le consommateur doit disposer d’informations nutritionnelles claires pour éviter la consommation excessive de sel, de sucre et de matières grasses. Par exemple, un salarié pourrait choisir une salade, un fruit et de l’eau plutôt qu’un hamburger accompagné de frites et d’une boisson sucrée. Cependant, il faut aussi reconnaître que les menus équilibrés sont parfois plus chers. En conclusion, le plus important est de rendre les choix sains accessibles sans présenter ces repas comme une habitude quotidienne.
 
-**Total : 144 mots**
+**Total : 151 mots (titre compris)**
 
 ---
 
@@ -52,7 +52,7 @@ Le choix du lieu où faire ses courses alimentaires oppose deux priorités. D’
 
 Personnellement, je pense que ces deux circuits peuvent coexister sans que l’un remplace l’autre. Tout d’abord, acheter des produits frais et saisonniers auprès des producteurs soutient l’économie régionale et facilite la traçabilité. Ensuite, le supermarché reste pratique pour les petits budgets et les produits introuvables localement. Par exemple, une famille peut commander chaque semaine un panier de légumes à une ferme voisine, puis acheter le riz et les produits ménagers en grande surface. Cependant, il faut aussi reconnaître que les marchés locaux sont moins accessibles en ville. En définitive, le plus important est de concilier qualité, proximité, prix et besoins quotidiens.
 
-**Total : 149 mots**
+**Total : 156 mots (titre compris)**
 
 ---
 
@@ -70,7 +70,7 @@ La chasse aux animaux divise les opinions. Le premier document la condamne comme
 
 À mon avis, la chasse n’est acceptable que si elle répond à un besoin réel et respecte des règles strictes. Tout d’abord, tuer pour le prestige ou le simple plaisir banalise la souffrance animale. Ensuite, une intervention limitée peut parfois protéger un écosystème déséquilibré. Par exemple, des agents formés pourraient réduire une population de cerfs devenue excessive, selon des quotas établis par des biologistes et pendant une période précise. Cependant, il faut aussi reconnaître que certaines communautés dépendent de la chasse pour se nourrir. En conclusion, le plus important est de préserver la biodiversité et le bien-être animal avant tout intérêt commercial ou récréatif.
 
-**Total : 157 mots**
+**Total : 163 mots (titre compris)**
 
 ---
 
@@ -88,7 +88,7 @@ La restauration rapide fait l’objet de points de vue opposés. Ses défenseurs
 
 Je pense que la restauration rapide peut rester pratique, mais dans des limites bien précises. Tout d’abord, les enseignes devraient afficher clairement la composition des repas et proposer davantage de produits frais. De plus, elles doivent réduire les objets à usage unique. Par exemple, un restaurant pourrait servir par défaut de l’eau, des légumes et un fruit, tout en utilisant de la vaisselle réutilisable sur place. Cependant, il faut aussi reconnaître que ces établissements offrent des repas abordables aux personnes pressées. En définitive, le plus important est de responsabiliser les entreprises et les clients afin de protéger la santé sans multiplier les déchets.
 
-**Total : 158 mots**
+**Total : 167 mots (titre compris)**
 
 ---
 
@@ -106,7 +106,7 @@ Les vêtements de grande marque suscitent des avis partagés. Le premier documen
 
 Selon moi, les marques peuvent plaire aux jeunes, mais elles ne devraient jamais déterminer leur valeur ni peser sur le budget familial. Tout d’abord, la confiance en soi se construit autrement que par un logo. Ensuite, acheter moins et choisir des vêtements résistants réduit les dépenses et l’empreinte écologique. Par exemple, un adolescent pourrait trouver une veste de qualité d’occasion, puis compléter sa tenue avec des habits simples et durables. Cependant, il faut aussi reconnaître que certaines marques facilitent le sentiment d’appartenance. En conclusion, le plus important est de laisser les enfants s’exprimer sans céder à la pression sociale ou commerciale.
 
-**Total : 153 mots**
+**Total : 160 mots (titre compris)**
 
 ---
 
@@ -124,7 +124,7 @@ La réduction du temps de travail fait l’objet d’un débat nuancé. Le premi
 
 Personnellement, je soutiens cette réduction à condition qu’elle ne diminue ni les salaires ni la qualité des services. Tout d’abord, des employés reposés sont souvent plus concentrés et moins exposés à la fatigue chronique. Ensuite, des horaires flexibles favorisent la fidélisation du personnel. Par exemple, une entreprise pourrait tester pendant trois mois une semaine de quatre jours avec des équipes décalées, puis mesurer la productivité, les absences et la satisfaction des clients. Cependant, il faut aussi reconnaître que les hôpitaux ou les commerces exigent une présence continue. En définitive, le plus important est de négocier progressivement une organisation adaptée à chaque secteur.
 
-**Total : 154 mots**
+**Total : 163 mots (titre compris)**
 
 ---
 
@@ -142,7 +142,7 @@ Les caméras de surveillance à l’école opposent deux visions de la sécurit�
 
 À mon avis, quelques caméras peuvent être utiles, mais seulement dans des lieux communs et selon des règles claires. Tout d’abord, elles peuvent aider à établir les faits après une agression. Ensuite, leur usage doit rester proportionné et protéger la vie privée. Par exemple, une école pourrait surveiller son entrée, effacer les images après sept jours et réserver leur consultation à la direction en cas d’incident. Cependant, il faut aussi reconnaître que la technologie ne remplace ni le dialogue ni la présence des adultes. En conclusion, le plus important est de privilégier la prévention et le lien humain, tout en utilisant les caméras comme dernier recours contrôlé.
 
-**Total : 159 mots**
+**Total : 167 mots (titre compris)**
 
 ---
 
@@ -160,7 +160,7 @@ L’art urbain fait l’objet de points de vue opposés. Ses partisans valorisen
 
 Personnellement, je considère que l’art urbain améliore la ville à condition d’être réalisé dans des espaces autorisés. Tout d’abord, il rend la culture accessible à un public qui fréquente peu les musées. De plus, un projet collectif peut renforcer la cohésion sociale et l’expression personnelle. Par exemple, une municipalité pourrait confier un mur inutilisé à des artistes locaux qui créeraient une fresque avec les habitants du quartier. Cependant, il faut aussi reconnaître que peindre sans consentement entraîne des frais de nettoyage et peut abîmer le patrimoine. En définitive, le plus important est de distinguer clairement la création partagée du vandalisme.
 
-**Total : 151 mots**
+**Total : 156 mots (titre compris)**
 
 ---
 
@@ -178,7 +178,7 @@ Les objets connectés présentent des avantages et des inconvénients. Le premie
 
 Selon moi, ces appareils sont utiles à condition que la sécurité et la vie privée soient protégées dès leur conception. Tout d’abord, ils peuvent favoriser l’autonomie des personnes âgées ou malades. Ensuite, des mises à jour régulières et des mots de passe solides limitent les intrusions. Par exemple, une montre pourrait rappeler un médicament à son propriétaire et transmettre uniquement les données nécessaires à son médecin, avec son accord. Cependant, il faut aussi reconnaître que tous les utilisateurs ne maîtrisent pas les réglages techniques. En conclusion, le plus important est de garantir des normes strictes et de choisir consciemment les informations que chaque objet collecte.
 
-**Total : 162 mots**
+**Total : 168 mots (titre compris)**
 
 ---
 
@@ -196,7 +196,7 @@ L’accès gratuit aux musées suscite un débat. Le premier document redoute un
 
 À mon avis, les musées devraient offrir une gratuité régulière tout en conservant des sources de financement stables. Tout d’abord, supprimer le prix certains jours réduit les inégalités d’accès à la culture. Ensuite, une réservation horaire permet de limiter la foule. Par exemple, un musée pourrait accueillir gratuitement les familles chaque premier dimanche, distribuer des billets à heure fixe et recevoir une subvention publique pour la conservation. Cependant, il faut aussi reconnaître que les expositions, les bâtiments et le personnel coûtent cher. En définitive, le plus important est de favoriser l’accès aux œuvres sans compromettre leur protection ni la qualité de la visite.
 
-**Total : 157 mots**
+**Total : 164 mots (titre compris)**
 
 ---
 
@@ -214,7 +214,7 @@ Les deux documents s’opposent sur la restauration rapide. Marie la rejette : o
 
 Je pense que la restauration rapide reste acceptable si le client peut réellement composer un repas équilibré. Tout d’abord, sa rapidité répond aux contraintes de nombreuses personnes. Ensuite, les restaurants doivent rendre les produits sains aussi visibles et abordables que les plats gras. Par exemple, une étudiante pressée pourrait choisir un sandwich aux légumes, un yaourt et de l’eau si cette formule coûtait moins cher qu’un menu avec frites. Cependant, il faut aussi reconnaître que la publicité encourage souvent les portions excessives. En conclusion, le plus important est de garantir une information transparente et des choix variés, sans confondre liberté alimentaire et absence de responsabilité.
 
-**Total : 162 mots**
+**Total : 168 mots (titre compris)**
 
 ---
 
@@ -232,7 +232,7 @@ L’influence de la publicité sur les enfants suscite des avis partagés. Le pr
 
 Selon moi, la publicité destinée aux enfants doit être strictement encadrée, tout en développant leur esprit critique. Tout d’abord, les plus jeunes distinguent mal une information d’un message conçu pour les persuader. Ensuite, les parents et l’école peuvent expliquer les techniques commerciales. Par exemple, une plateforme pourrait interdire les annonces ciblées sur les profils infantiles, tandis qu’un parent comparerait avec son enfant la publicité d’une céréale et sa composition réelle. Cependant, il faut aussi reconnaître que la famille influence fortement les habitudes de consommation. En conclusion, le plus important est de réduire l’exposition commerciale et d’apprendre aux enfants à choisir de façon autonome.
 
-**Total : 155 mots**
+**Total : 163 mots (titre compris)**
 
 ---
 
@@ -250,7 +250,7 @@ Le débat entre ville et campagne oppose deux modes de vie. Le premier témoigna
 
 Personnellement, je choisirais la campagne si elle restait reliée à la ville par des transports en commun fiables. Tout d’abord, le calme et l’espace favorisent le bien-être et la vie familiale. Ensuite, des logements moins coûteux permettent de mieux maîtriser son budget. Par exemple, une famille pourrait habiter à trente kilomètres de Montréal, cultiver un petit jardin et prendre le train pour travailler ou visiter un musée. Cependant, il faut aussi reconnaître que l’éloignement complique l’accès aux soins, aux études et aux activités culturelles. En définitive, le plus important est de choisir selon ses besoins tout en développant des services publics dans les territoires ruraux.
 
-**Total : 158 mots**
+**Total : 166 mots (titre compris)**
 
 ---
 
@@ -268,7 +268,7 @@ Le débat entre diplôme et expérience oppose deux visions de l’insertion pro
 
 À mon avis, le diplôme et l’expérience doivent se compléter plutôt que s’exclure. Tout d’abord, une formation structurée apporte des connaissances solides et une qualification reconnue. Ensuite, la pratique développe l’autonomie, le professionnalisme et la capacité de résoudre des problèmes concrets. Par exemple, un étudiant en informatique pourrait suivre ses cours, effectuer un stage en alternance et présenter aux recruteurs une application qu’il a créée. Cependant, il faut aussi reconnaître que certains entrepreneurs réussissent grâce à l’autoformation sans diplôme universitaire. En conclusion, le plus important est de rapprocher les établissements du marché du travail et d’offrir aux jeunes de véritables expériences pendant leurs études.
 
-**Total : 156 mots**
+**Total : 162 mots (titre compris)**
 
 ---
 
@@ -286,6 +286,6 @@ La sieste au travail présente des avantages et des inconvénients. Le premier d
 
 Selon moi, une courte sieste devrait être permise, mais jamais imposée. Tout d’abord, quelques minutes de repos peuvent réduire la fatigue et améliorer la concentration de l’après-midi. Ensuite, cette mesure favorise le bien-être sans nécessiter forcément des lits coûteux. Par exemple, une entreprise pourrait aménager une petite salle calme et proposer des créneaux volontaires de quinze minutes après le déjeuner. Cependant, il faut aussi reconnaître que certaines structures manquent d’espace et que des salariés préfèrent marcher. En définitive, le plus important est de proposer des formes de repos flexibles, sans remplacer un sommeil nocturne suffisant ni perturber l’organisation du travail.
 
-**Total : 154 mots**
+**Total : 162 mots (titre compris)**
 
 ---

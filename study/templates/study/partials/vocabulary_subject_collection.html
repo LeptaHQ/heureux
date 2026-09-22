@@ -1,0 +1,15 @@
+<div class="t1-collection subject-collection vocabulary-collection sortable-subject-directory" data-subject-collection data-collection-view data-theme-vocabulary-directory-grid>
+  <div class="t1-themes t1-table-groups">
+    {% include "study/partials/collection_table_header.html" with variant="subject-directory" column_1="Thème" column_2="Sujets" column_3="Decks terminés" only %}
+    {% for item in themes %}
+      {% with progress=item.summary.progress %}
+        <details class="t1-theme t1-table-group" id="theme-{{ item.theme.slug }}" data-t1-table-theme data-collection-cards-open data-theme-vocabulary-directory-item data-theme-vocabulary-status="{{ progress.status }}">
+          {% include "study/partials/theme_group_summary.html" with title=item.theme.display_name icon=item.theme.icon count=item.subject_count count_label="sujet" status=progress.status completed=progress.completed total=progress.total progress_label="Decks terminés" only %}
+          {% include "study/partials/vocabulary_subject_table.html" with prompts=item.prompts title=item.theme.display_name %}
+        </details>
+      {% endwith %}
+    {% empty %}
+      <p class="empty">Les collections thématiques apparaîtront ici dès que leur contenu sera disponible.</p>
+    {% endfor %}
+  </div>
+</div>

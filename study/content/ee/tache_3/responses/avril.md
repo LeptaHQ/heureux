@@ -16,7 +16,7 @@ La vidéosurveillance urbaine suscite des avis partagés. D’un côté, ses par
 
 À mon avis, les caméras peuvent compléter la prévention, mais seulement dans des lieux précis et selon des règles claires. Tout d’abord, elles facilitent l’identification après une infraction, sans empêcher seules la violence. De plus, protéger la vie privée exige de limiter la conservation des images. Par exemple, une station de métro pourrait filmer ses quais pendant quelques jours et réserver l’accès aux enquêteurs autorisés. Cependant, il faut aussi reconnaître que ce dispositif coûte cher et peut déplacer les délits ailleurs. En conclusion, le plus important est de combiner un usage contrôlé des caméras avec une présence humaine et des actions sociales.
 
-**Total : 150 mots**
+**Total : 157 mots (titre compris)**
 
 ---
 
@@ -34,7 +34,7 @@ La livraison des repas au bureau présente des avantages et des inconvénients. 
 
 Selon moi, la livraison est pratique, mais elle ne doit pas supprimer la pause du midi. En effet, elle évite un déplacement et permet de choisir son repas à l’avance. De plus, quitter momentanément son écran réduit la fatigue et favorise les échanges entre collègues. Par exemple, une équipe peut faire livrer des repas équilibrés, puis les partager pendant trente minutes dans une salle commune. Cependant, il faut aussi reconnaître que les retards risquent d’augmenter le stress lors des journées chargées. En définitive, le plus important est de gagner du temps sans sacrifier le repos, la convivialité ni l’équilibre entre vie professionnelle et personnelle.
 
-**Total : 155 mots**
+**Total : 164 mots (titre compris)**
 
 ---
 
@@ -52,7 +52,7 @@ Les produits biologiques faits maison présentent des avantages et des inconvén
 
 Personnellement, je pense que les produits faits maison sont intéressants à condition de choisir des recettes simples et fiables. En effet, ils permettent de connaître les ingrédients et de réutiliser les contenants. Ensuite, certaines préparations délicates exigent des dosages précis et une conservation rigoureuse. Par exemple, une famille peut fabriquer un nettoyant ménager éprouvé dans un flacon réutilisable, plutôt qu’une crème destinée à une peau sensible. Cependant, il faut aussi reconnaître que l’achat initial de matières premières peut être coûteux. En conclusion, le plus important est de privilégier la sécurité, l’hygiène et des instructions vérifiées avant de rechercher les économies.
 
-**Total : 155 mots**
+**Total : 162 mots (titre compris)**
 
 ---
 
@@ -70,7 +70,7 @@ La chasse aux animaux oppose deux visions du rapport à la nature. D’un côté
 
 À mon avis, la chasse de loisir devrait être fortement limitée, sans interdire les interventions nécessaires à l’équilibre des écosystèmes. Tout d’abord, tuer uniquement pour le plaisir banalise la souffrance animale. Ensuite, certaines populations trop nombreuses peuvent toutefois menacer des habitats ou des cultures. Par exemple, des agents formés pourraient réguler une espèce envahissante selon des quotas établis par des biologistes. Cependant, il faut aussi reconnaître que certaines communautés dépendent encore de la chasse pour se nourrir. En définitive, le plus important est de protéger la biodiversité grâce à des règles strictes, des contrôles transparents et une justification écologique ou alimentaire.
 
-**Total : 156 mots**
+**Total : 163 mots (titre compris)**
 
 ---
 
@@ -88,7 +88,7 @@ Le travail fait l’objet d’un débat nuancé. Ses défenseurs estiment qu’i
 
 Selon moi, le travail est favorable lorsqu’il offre un revenu digne, du sens et des conditions équilibrées. En effet, une activité utile renforce l’autonomie et crée des liens sociaux. De plus, des horaires raisonnables protègent la santé et la vie familiale, ce qui soutient aussi la productivité. Par exemple, une entreprise peut proposer des objectifs réalistes, des horaires flexibles et un entretien régulier sur la charge de chaque salarié. Cependant, il faut aussi reconnaître que tous les métiers ne permettent pas la même souplesse. En conclusion, le plus important est de garantir respect, reconnaissance et équilibre entre vie professionnelle et personnelle.
 
-**Total : 153 mots**
+**Total : 160 mots (titre compris)**
 
 ---
 
@@ -106,7 +106,7 @@ Le travail des étudiants pendant les vacances divise les opinions. D’un côt�
 
 Personnellement, je considère qu’un emploi saisonnier peut être formateur, à condition de préserver une véritable période de repos. Tout d’abord, il apprend la ponctualité, le travail en équipe et la gestion d’un budget. Ensuite, une charge excessive risque d’épuiser un jeune avant la rentrée. Par exemple, une étudiante pourrait travailler vingt heures par semaine durant un mois, puis garder plusieurs semaines pour sa famille et ses loisirs. Cependant, il faut aussi reconnaître que certains étudiants doivent travailler davantage pour financer leurs études. En définitive, le plus important est de fixer des horaires adaptés à l’âge, aux besoins financiers et au bien-être de chacun.
 
-**Total : 157 mots**
+**Total : 164 mots (titre compris)**
 
 ---
 
@@ -124,7 +124,7 @@ L’égalité entre les femmes et les hommes au travail oppose deux visions. Le 
 
 À mon avis, les compétences doivent déterminer l’accès à un métier, jamais le sexe. Tout d’abord, écarter une femme d’un poste de direction prive l’entreprise de talents et entretient les stéréotypes. De plus, les responsabilités familiales concernent les deux parents et exigent des mesures équitables. Par exemple, une entreprise peut publier des grilles salariales transparentes et offrir le même congé parental aux mères comme aux pères. Cependant, il faut aussi reconnaître que les habitudes professionnelles évoluent lentement. En conclusion, le plus important est de garantir une rémunération égale, des recrutements impartiaux et un partage réel des responsabilités familiales.
 
-**Total : 153 mots**
+**Total : 160 mots (titre compris)**
 
 ---
 
@@ -142,7 +142,7 @@ Les caméras de surveillance à l’école suscitent des avis partagés. Leurs d
 
 Selon moi, les caméras ne devraient servir qu’à sécuriser les accès ou des zones particulièrement exposées. En effet, elles peuvent fournir des preuves après un incident, mais elles ne remplacent ni l’encadrement ni la confiance. De plus, les élèves doivent savoir qui consulte les images et combien de temps elles sont conservées. Par exemple, une école pourrait filmer uniquement son entrée, tout en renforçant la médiation dans la cour. Cependant, il faut aussi reconnaître que certaines familles se sentent rassurées par ce dispositif. En définitive, le plus important est de prévenir la violence par le dialogue et des règles claires, sans instaurer une surveillance permanente.
 
-**Total : 157 mots**
+**Total : 165 mots (titre compris)**
 
 ---
 
@@ -160,7 +160,7 @@ Les vêtements de marque chez les jeunes suscitent des avis partagés. D’un c�
 
 À mon avis, les jeunes peuvent porter quelques vêtements de marque, mais sans subir la pression des logos. Tout d’abord, l’habillement favorise l’expression personnelle et peut renforcer le sentiment d’appartenance. De plus, le budget familial doit rester prioritaire puisque les enfants grandissent vite. Par exemple, des parents peuvent acheter un manteau résistant choisi par leur adolescent, puis compléter sa garde-robe avec des vêtements d’occasion sans marque. Cependant, il faut aussi reconnaître que refuser systématiquement certains styles peut isoler un jeune de son groupe. En conclusion, le plus important est de guider les choix selon la qualité, le besoin et le prix plutôt que selon le prestige.
 
-**Total : 156 mots**
+**Total : 166 mots (titre compris)**
 
 ---
 
@@ -178,7 +178,7 @@ La réduction du temps de travail fait l’objet d’un débat nuancé. Le premi
 
 Personnellement, je suis favorable à une réduction du temps de travail lorsque les objectifs et les effectifs sont adaptés. En effet, des salariés reposés sont souvent plus concentrés et moins absents. De plus, réduire les heures sans revoir la charge risque simplement d’intensifier chaque journée. Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, les retards et le bien-être des équipes. Cependant, il faut aussi reconnaître que certains services doivent rester accessibles en permanence. En définitive, le plus important est de réorganiser collectivement le travail sans diminuer la qualité du service ni transférer la pression aux salariés.
 
-**Total : 160 mots**
+**Total : 169 mots (titre compris)**
 
 ---
 
@@ -196,7 +196,7 @@ Les effets des jeux vidéo font l’objet de points de vue opposés. Le premier 
 
 Selon moi, les jeux vidéo peuvent être utiles, mais seulement dans des limites bien précises. Tout d’abord, certains défis stimulent la réflexion, la coordination et la capacité à résoudre des problèmes. Ensuite, un usage excessif réduit le sommeil, l’activité physique et la concentration scolaire. Par exemple, des parents peuvent autoriser une heure de jeu après les devoirs, puis proposer une activité sportive en famille. Cependant, il faut aussi reconnaître que tous les jeux et tous les joueurs ne produisent pas les mêmes effets. En conclusion, le plus important est de choisir des contenus adaptés, de fixer des horaires clairs et de préserver un équilibre quotidien.
 
-**Total : 159 mots**
+**Total : 165 mots (titre compris)**
 
 ---
 
@@ -214,7 +214,7 @@ Le port de l’uniforme scolaire divise les opinions. Ses opposants estiment qu�
 
 Personnellement, je suis favorable à un uniforme simple et abordable, à condition de laisser quelques possibilités de personnalisation. En effet, une tenue commune réduit la comparaison des marques et simplifie les choix du matin. De plus, elle peut renforcer l’identité collective sans effacer totalement les goûts individuels. Par exemple, une école pourrait imposer un pantalon et un haut neutres, tout en autorisant les coiffures et accessoires discrets. Cependant, il faut aussi reconnaître que l’uniforme représente une dépense initiale et ne supprime pas toutes les inégalités. En définitive, le plus important est de créer une règle inclusive, peu coûteuse et élaborée avec les élèves et les familles.
 
-**Total : 155 mots**
+**Total : 162 mots (titre compris)**
 
 ---
 
@@ -232,7 +232,7 @@ La restauration rapide et la santé opposent deux visions de l’alimentation. D
 
 À mon avis, la restauration rapide peut rester occasionnelle, mais elle ne devrait pas devenir une habitude quotidienne. Tout d’abord, de nombreux menus contiennent trop de sel, de gras ou de sucre. Ensuite, le client peut limiter ces excès grâce à des choix plus équilibrés et à des portions raisonnables. Par exemple, une personne pourrait choisir une salade, de l’eau et un fruit plutôt qu’un grand menu accompagné d’une boisson sucrée. Cependant, il faut aussi reconnaître que les options saines ne sont pas toujours les moins chères. En conclusion, le plus important est de sensibiliser les consommateurs et de privilégier régulièrement des produits frais.
 
-**Total : 154 mots**
+**Total : 162 mots (titre compris)**
 
 ---
 
@@ -250,7 +250,7 @@ La colocation présente des avantages et des inconvénients. Ses partisans valor
 
 Selon moi, la colocation est enrichissante à condition que les responsabilités soient définies dès le départ. En effet, elle réduit les charges financières et favorise la convivialité. De plus, des règles communes protègent le repos, les espaces privés et une répartition juste du ménage. Par exemple, trois colocataires peuvent établir un calendrier hebdomadaire, fixer des heures calmes et partager équitablement les dépenses courantes. Cependant, il faut aussi reconnaître que des personnalités ou des rythmes incompatibles rendent parfois la cohabitation difficile. En définitive, le plus important est de choisir ses colocataires avec soin et de maintenir une communication ouverte fondée sur le respect mutuel.
 
-**Total : 153 mots**
+**Total : 160 mots (titre compris)**
 
 ---
 
@@ -268,7 +268,7 @@ La consommation de viande suscite un débat. Ses opposants dénoncent la souffra
 
 Personnellement, je pense qu’il faut réduire la viande sans nécessairement la supprimer pour tous. Tout d’abord, diminuer sa consommation réduit l’empreinte écologique et encourage une alimentation plus variée. Ensuite, une viande produite localement selon des normes exigeantes peut conserver une place limitée. Par exemple, une famille pourrait préparer des légumineuses plusieurs jours par semaine et acheter occasionnellement une petite portion auprès d’un éleveur responsable. Cependant, il faut aussi reconnaître que certains régimes nécessitent un suivi nutritionnel et que les traditions comptent. En conclusion, le plus important est de consommer moins, de choisir mieux et de garantir des repas équilibrés adaptés aux besoins de chacun.
 
-**Total : 156 mots**
+**Total : 162 mots (titre compris)**
 
 ---
 
@@ -286,7 +286,7 @@ Le végétarisme en Europe fait l’objet d’un débat nuancé. Ses partisans m
 
 À mon avis, le végétarisme constitue un choix bénéfique lorsqu’il repose sur une alimentation bien planifiée. En effet, les fruits, les légumes et les légumineuses favorisent la santé tout en réduisant l’impact environnemental. De plus, une transition progressive facilite le changement des habitudes. Par exemple, une personne peut remplacer deux repas carnés par des lentilles et demander conseil à un professionnel pour assurer ses apports en fer. Cependant, il faut aussi reconnaître que les besoins nutritionnels et les traditions varient d’un individu à l’autre. En définitive, le plus important est de respecter chaque choix tout en garantissant des repas équilibrés, accessibles et adaptés.
 
-**Total : 156 mots**
+**Total : 164 mots (titre compris)**
 
 ---
 
@@ -304,7 +304,7 @@ L’organisation de grands événements sportifs divise les opinions. D’un cô
 
 Selon moi, un État ne devrait accueillir une grande compétition que si ses investissements répondent à des besoins durables. Tout d’abord, des transports ou des équipements bien conçus peuvent servir longtemps à la population. Ensuite, un budget mal contrôlé risque d’affaiblir des services essentiels. Par exemple, une ville pourrait rénover un stade existant plutôt qu’en construire un nouveau, puis l’ouvrir aux associations locales après le tournoi. Cependant, il faut aussi reconnaître que les retombées touristiques demeurent incertaines. En conclusion, le plus important est de publier les coûts, de consulter les citoyens et de garantir un héritage social utile.
 
-**Total : 150 mots**
+**Total : 158 mots (titre compris)**
 
 ---
 
@@ -322,7 +322,7 @@ L’interdiction des voitures dans les centres-villes oppose deux visions de la 
 
 Personnellement, je suis favorable à une limitation progressive des voitures, mais seulement si des alternatives viables existent. En effet, moins de circulation améliore la qualité de l’air et rend les rues plus sûres. De plus, les restrictions doivent tenir compte des travailleurs, des personnes handicapées et des habitants éloignés. Par exemple, une ville pourrait créer des parcs de stationnement reliés au centre par des autobus fréquents avant d’instaurer une zone sans voitures. Cependant, il faut aussi reconnaître que cette transition exige des investissements importants. En définitive, le plus important est de préparer une mobilité accessible, fiable et équitable avant toute interdiction générale.
 
-**Total : 151 mots**
+**Total : 160 mots (titre compris)**
 
 ---
 
@@ -340,7 +340,7 @@ Les menus sans viande à la cantine scolaire suscitent des avis partagés. Leurs
 
 À mon avis, proposer deux menus sans viande par semaine est raisonnable si les plats restent équilibrés et savoureux. Tout d’abord, cette fréquence diversifie les habitudes alimentaires sans supprimer totalement les protéines animales. De plus, elle peut réduire les coûts et l’impact environnemental. Par exemple, une cantine pourrait servir un plat de lentilles conçu par une diététicienne, puis acheter du bœuf local un autre jour. Cependant, il faut aussi reconnaître que les besoins nutritionnels, les cultures et les goûts diffèrent. En conclusion, le plus important est de procéder progressivement, d’informer les familles et d’associer santé des enfants, plaisir et soutien aux producteurs.
 
-**Total : 158 mots**
+**Total : 165 mots (titre compris)**
 
 ---
 
@@ -358,6 +358,6 @@ Les vols à bas prix font l’objet d’un débat nuancé. Le premier témoignag
 
 Selon moi, un vol à bas prix peut convenir à un trajet court, à condition que le tarif soit transparent et la sécurité irréprochable. En effet, les frais supplémentaires peuvent annuler l’économie annoncée. De plus, le train offre souvent davantage de confort et une empreinte carbone réduite. Par exemple, entre Montréal et Toronto, un voyageur peut travailler dans le train plutôt que payer un bagage en avion. Cependant, il faut aussi reconnaître que ces compagnies rendent certaines destinations accessibles aux petits budgets. En définitive, le plus important est de comparer le coût total, la durée, le confort, la sécurité et l’impact environnemental.
 
-**Total : 155 mots**
+**Total : 163 mots (titre compris)**
 
 ---

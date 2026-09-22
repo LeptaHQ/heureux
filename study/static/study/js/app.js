@@ -29,7 +29,11 @@
         "[data-subject-collection] [data-subject-family-group]"
       )
     ).map(function (element) {
-      return { element: element, cards: element.open, table: false };
+      return {
+        element: element,
+        cards: element.open || element.hasAttribute("data-collection-cards-open"),
+        table: false
+      };
     });
     var currentMode = null;
 
@@ -87,7 +91,9 @@
         );
       });
       if (persist) {
-        try { localStorage.setItem("collectionViewMode", mode); } catch (e) {}
+        var preference = root.getAttribute("data-collection-view-preference")
+          || "collectionViewMode";
+        try { localStorage.setItem(preference, mode); } catch (e) {}
       }
       scrollActiveCollectionAnchor(initialView);
     }
@@ -379,7 +385,8 @@
 
     function progressRank(row) {
       var status = row.querySelector(
-        "[data-subject-progress-status], [data-writing-sujet-progress-status]"
+        "[data-subject-progress-status], [data-writing-sujet-progress-status], " +
+        "[data-vocabulary-progress-status]"
       );
       if (!status) return 0;
       if (status.classList.contains("progress-status--done")) return 2;

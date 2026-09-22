@@ -25,5 +25,6 @@
         <span class="t1-table__sort-indicator" aria-hidden="true">↕</span>
       </button>
     </th>
+    {% if action_label %}<th scope="col" class="t1-table__actions-col">{{ action_label }}</th>{% endif %}
   </tr>
 </thead>

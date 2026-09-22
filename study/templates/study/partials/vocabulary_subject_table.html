@@ -1,0 +1,42 @@
+{% load study_links %}
+<div class="t1-table-shell">
+  <table class="t1-table t1-table--grouped subject-collection__table vocabulary-collection__table" data-nested-sort-table>
+    <caption class="sr-only">Vocabulaire des sujets · {{ title }}</caption>
+    <colgroup>
+      <col>
+      <col class="vocabulary-collection__count-column">
+      <col class="vocabulary-collection__progress-column">
+      <col class="vocabulary-collection__action-column">
+    </colgroup>
+    {% include "study/partials/sortable_subject_table_head.html" with secondary_label="Vocabulaire" action_label="Accès" only %}
+    <tbody>
+      {% for prompt in prompts %}
+        <tr class="t1-table__row subject-collection-row vocabulary-subject-row" data-nested-sort-row data-subject-vocabulary-row data-vocabulary-response-id="{{ prompt.response_id }}">
+          <td class="t1-table__subject">
+            <div class="t1-table__subject-copy">
+              <a class="subject-table-row-link" href="{% subject_link prompt.detail_url %}#subject-vocabulary">{{ prompt.text }}</a>
+            </div>
+            {% if prompt.vocabulary_month %}<span class="t1-table__subject-date">{{ prompt.vocabulary_month }} 2025</span>{% endif %}
+            <span class="vocabulary-subject__mobile-count">{{ prompt.vocabulary_count }} fiches · {{ prompt.vocabulary_batch_count }} lots</span>
+          </td>
+          <td class="vocabulary-subject__counts">
+            <span>{{ prompt.vocabulary_count }} fiches</span>
+            <small>{{ prompt.vocabulary_batch_count }} lots</small>
+          </td>
+          <td class="vocabulary-subject__progress">
+            <span class="progress-status progress-status--{{ prompt.vocabulary_progress.status }}" data-vocabulary-progress-status>{{ prompt.vocabulary_progress.label }}</span>
+            <small>{{ prompt.vocabulary_progress.completed }}/{{ prompt.vocabulary_progress.total }} terminées</small>
+          </td>
+          <td class="vocabulary-subject__actions">
+            <a class="btn btn--sm" href="{{ prompt.review_url }}" aria-label="Pratiquer le vocabulaire : {{ prompt.text }}" title="Pratiquer le vocabulaire">
+              {% include "study/partials/ui_icon.html" with name="arrow-right" icon_class="btn__icon" only %}
+              <span class="vocabulary-subject__action-label">Pratiquer</span>
+            </a>
+          </td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="4" class="muted">Aucun vocabulaire disponible pour ce thème.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>

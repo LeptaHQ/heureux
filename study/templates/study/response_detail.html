@@ -18,7 +18,7 @@
     {% if response_content.is_personal %} · <span class="chip">Version personnelle</span>{% endif %}
   </p>
   <h1 class="detail-prompt">{% if ee_response %}{{ selected_prompt.theme.display_name }}{% else %}{{ selected_prompt.text }}{% endif %}</h1>
-  {% if response_content.reformulation %}<p class="reform">« {{ response_content.reformulation }} »</p>{% endif %}
+  {% if response_content.reformulation and not ee_response %}<p class="reform">« {{ response_content.reformulation }} »</p>{% endif %}
   {% if subject_hints %}<a class="btn btn--sm subject-hints-jump" href="#subject-hints-title">Voir les pistes</a>{% endif %}
 </div>
 
@@ -30,9 +30,14 @@
       {% include "study/partials/ee_subject_consigne.html" with title_id="ee-tache-three-subject-title" subject_text=ee_subject_instruction subject_source_id="ee-tache-three-subject-content" only %}
 
       {% if ee_response_copy_text %}
-        <div>
-          {% include "study/partials/response_copy_button.html" with source_id="ee-tache-three-response-content" button_class="btn btn--sm prompt-copy-button" only %}
-        </div>
+        {# Keep the title and total outside the existing annotation root: its text offsets must not change. #}
+        <section class="card section-card" aria-label="Réponse complète">
+          {% if response_content.reformulation %}<h2 class="spine-text">{{ response_content.reformulation }}</h2>{% endif %}
+          <div class="response-batches__head">
+            <p class="muted">Total : {{ ee_response_copy_text|french_wordcount }} mots{% if response_content.reformulation %}, titre compris{% endif %} · 120–180 mots</p>
+            {% include "study/partials/response_copy_button.html" with source_id="ee-tache-three-response-content" button_class="btn btn--sm prompt-copy-button" only %}
+          </div>
+        </section>
       {% endif %}
       <div class="answer-columns" data-annotation-root data-annotation-source-key="response:{{ response.content_key }}">
       {% for warning in ee_source_warnings %}

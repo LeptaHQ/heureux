@@ -31,7 +31,7 @@
       "[data-theme-vocabulary-directory-reset]"
     );
     var grid = directory.querySelector(
-      ".theme-vocabulary-directory .memory-library__grid, "
+      "[data-theme-vocabulary-directory-grid], "
       + ".memory-library__grid"
     );
     if (!items.length || !buttons.length) return;

@@ -1,13 +1,13 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="fr" data-theme="light"{% if default_collection_view %} data-collection-view-mode="{{ default_collection_view }}"{% endif %}>
+<html lang="fr" data-theme="light"{% if default_collection_view %} data-collection-view-mode="{{ default_collection_view }}"{% endif %}{% if collection_view_preference %} data-collection-view-preference="{{ collection_view_preference }}"{% endif %}>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}Heureux{% endblock %}</title>
   <meta name="description" content="Révisions pour l'expression et la compréhension du français.">
-  <script src="{% static 'study/js/theme-init.js' %}?v=2"></script>
-  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=212">
+  <script src="{% static 'study/js/theme-init.js' %}?v=3"></script>
+  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=213">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#173f90">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -339,9 +339,9 @@
 
   <script src="{% static 'study/js/speech.js' %}?v=4"></script>
   <script src="{% static 'study/js/flashcards.js' %}?v=5"></script>
-  <script src="{% static 'study/js/app.js' %}?v=64"></script>
+  <script src="{% static 'study/js/app.js' %}?v=65"></script>
   <script src="{% static 'study/js/selection-toolbar.js' %}?v=11"></script>
-  <script src="{% static 'study/js/annotations.js' %}?v=32"></script>
+  <script src="{% static 'study/js/annotations.js' %}?v=33"></script>
   <script src="{% static 'study/js/subject-progress.js' %}?v=2"></script>
   <script src="{% static 'study/js/comprehension-progress.js' %}?v=3"></script>
   {% block scripts %}{% endblock %}

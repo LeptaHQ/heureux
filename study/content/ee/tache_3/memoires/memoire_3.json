@@ -12,31 +12,91 @@
         {
           "title": "Encadrement et prudence",
           "questions": [
-            "… : protéger … sous conditions",
-            "… : la prudence avant tout",
-            "… : une sécurité à encadrer",
-            "… : des bénéfices sous contrôle",
-            "… : une pratique strictement encadrée",
-            "… : utiles, mais vulnérables",
-            "… : créer sans dégrader",
-            "… : protéger et éduquer",
-            "… : écologique, mais pas sans vigilance",
-            "… : une solution enrichissante sous conditions"
+            {
+              "text": "… : protéger … sous conditions",
+              "english": "…: protecting … under certain conditions"
+            },
+            {
+              "text": "… : la prudence avant tout",
+              "english": "…: caution above all"
+            },
+            {
+              "text": "… : une sécurité à encadrer",
+              "english": "…: security that needs clear rules"
+            },
+            {
+              "text": "… : des bénéfices sous contrôle",
+              "english": "…: benefits under controlled conditions"
+            },
+            {
+              "text": "… : une pratique strictement encadrée",
+              "english": "…: a strictly regulated practice"
+            },
+            {
+              "text": "… : utiles, mais vulnérables",
+              "english": "…: useful, but vulnerable"
+            },
+            {
+              "text": "… : créer sans dégrader",
+              "english": "…: creating without causing damage"
+            },
+            {
+              "text": "… : protéger et éduquer",
+              "english": "…: protecting and educating"
+            },
+            {
+              "text": "… : écologique, mais pas sans vigilance",
+              "english": "…: environmentally friendly, but still requiring vigilance"
+            },
+            {
+              "text": "… : une solution enrichissante sous conditions",
+              "english": "…: an enriching solution, under certain conditions"
+            }
           ]
         },
         {
           "title": "Équilibre, choix et complémentarité",
           "questions": [
-            "… : préserver la vraie pause",
-            "… : au-delà de …",
-            "… : les compétences avant les stéréotypes",
-            "… : un réseau fiable d’abord",
-            "… ou … : garantir les mêmes chances",
-            "… : un outil, non un substitut",
-            "… : mieux organiser pour mieux vivre",
-            "… et … : deux forces complémentaires",
-            "… : partager avec des règles claires",
-            "… : s’accomplir sans s’épuiser"
+            {
+              "text": "… : préserver la vraie pause",
+              "english": "…: preserving a genuine break"
+            },
+            {
+              "text": "… : au-delà de …",
+              "english": "…: beyond …"
+            },
+            {
+              "text": "… : les compétences avant les stéréotypes",
+              "english": "…: skills before stereotypes"
+            },
+            {
+              "text": "… : un réseau fiable d’abord",
+              "english": "…: a reliable network first"
+            },
+            {
+              "text": "… ou … : garantir les mêmes chances",
+              "english": "… or …: ensuring equal opportunities"
+            },
+            {
+              "text": "… : un outil, non un substitut",
+              "english": "…: a tool, not a substitute"
+            },
+            {
+              "text": "… : mieux organiser pour mieux vivre",
+              "english": "…: better organization for a better life"
+            },
+            {
+              "text": "… et … : deux forces complémentaires",
+              "english": "… and …: two complementary strengths"
+            },
+            {
+              "text": "… : partager avec des règles claires",
+              "english": "…: sharing with clear rules"
+            },
+            {
+              "text": "… : s’accomplir sans s’épuiser",
+              "english": "…: finding fulfillment without burning out"
+            }
           ]
         }
       ]
@@ -48,27 +108,75 @@
         {
           "title": "Constater un débat",
           "questions": [
-            "La question de … suscite des avis partagés.",
-            "… présente des avantages et des inconvénients.",
-            "… fait l’objet de points de vue opposés.",
-            "… fait l’objet d’un débat nuancé.",
-            "… divise les opinions.",
-            "La place de … dans … suscite des avis partagés.",
-            "L’influence de … sur … suscite des avis partagés.",
-            "La présence de … dans … divise les opinions."
+            {
+              "text": "La question de … suscite des avis partagés.",
+              "english": "The issue of … draws mixed opinions."
+            },
+            {
+              "text": "… présente des avantages et des inconvénients.",
+              "english": "… has advantages and disadvantages."
+            },
+            {
+              "text": "… fait l’objet de points de vue opposés.",
+              "english": "… is the subject of opposing views."
+            },
+            {
+              "text": "… fait l’objet d’un débat nuancé.",
+              "english": "… is the subject of a nuanced debate."
+            },
+            {
+              "text": "… divise les opinions.",
+              "english": "… divides opinion."
+            },
+            {
+              "text": "La place de … dans … suscite des avis partagés.",
+              "english": "The place of … in … draws mixed opinions."
+            },
+            {
+              "text": "L’influence de … sur … suscite des avis partagés.",
+              "english": "The influence of … on … draws mixed opinions."
+            },
+            {
+              "text": "La présence de … dans … divise les opinions.",
+              "english": "Opinions are divided on the presence of … in …"
+            }
           ]
         },
         {
           "title": "Opposer deux visions",
           "questions": [
-            "… oppose deux conceptions de …",
-            "… oppose deux visions de …",
-            "Le débat entre … et … oppose deux visions de …",
-            "Le choix entre … et … oppose deux priorités.",
-            "Le débat entre … et … oppose deux modes de vie.",
-            "Le débat entre … et … oppose deux parcours vers …",
-            "L’usage de … oppose deux visions de …",
-            "L’égalité entre … et … au travail divise les opinions."
+            {
+              "text": "… oppose deux conceptions de …",
+              "english": "… pits two approaches to … against each other."
+            },
+            {
+              "text": "… oppose deux visions de …",
+              "english": "… pits two views of … against each other."
+            },
+            {
+              "text": "Le débat entre … et … oppose deux visions de …",
+              "english": "The debate between … and … pits two views of … against each other."
+            },
+            {
+              "text": "Le choix entre … et … oppose deux priorités.",
+              "english": "The choice between … and … pits two priorities against each other."
+            },
+            {
+              "text": "Le débat entre … et … oppose deux modes de vie.",
+              "english": "The debate between … and … pits two ways of life against each other."
+            },
+            {
+              "text": "Le débat entre … et … oppose deux parcours vers …",
+              "english": "The debate between … and … pits two paths toward … against each other."
+            },
+            {
+              "text": "L’usage de … oppose deux visions de …",
+              "english": "The use of … pits two views of … against each other."
+            },
+            {
+              "text": "L’égalité entre … et … au travail divise les opinions.",
+              "english": "Equality between … and … at work divides opinion."
+            }
           ]
         }
       ]
@@ -80,31 +188,91 @@
         {
           "title": "Partisans et opposants",
           "questions": [
-            "D’un côté, ses détracteurs refusent que … En revanche, ses défenseurs rappellent que …",
-            "Ses partisans apprécient … Toutefois, ses détracteurs jugent …",
-            "Certaines recherches attribuent à … des bénéfices … En revanche, d’autres observations associent … à …",
-            "Ses défenseurs y voient … Toutefois, ses opposants redoutent …",
-            "Leurs partisans estiment que … En revanche, leurs détracteurs contestent …",
-            "Ses défenseurs mettent en avant … En revanche, ses critiques dénoncent …",
-            "D’un côté, certains dénoncent … En revanche, d’autres considèrent que …",
-            "Leurs partisans valorisent … En revanche, leurs opposants soulignent …",
-            "D’un côté, certains acceptent … À l’inverse, d’autres jugent …",
-            "Ses partisans invoquent … Cependant, ses détracteurs insistent sur …"
+            {
+              "text": "D’un côté, ses détracteurs refusent que … En revanche, ses défenseurs rappellent que …",
+              "english": "On the one hand, its critics reject the idea that … On the other hand, its supporters point out that …"
+            },
+            {
+              "text": "Ses partisans apprécient … Toutefois, ses détracteurs jugent …",
+              "english": "Its supporters appreciate … However, its critics consider …"
+            },
+            {
+              "text": "Certaines recherches attribuent à … des bénéfices … En revanche, d’autres observations associent … à …",
+              "english": "Some research credits … with … benefits. By contrast, other observations link … to …"
+            },
+            {
+              "text": "Ses défenseurs y voient … Toutefois, ses opposants redoutent …",
+              "english": "Its supporters see it as … However, its opponents fear …"
+            },
+            {
+              "text": "Leurs partisans estiment que … En revanche, leurs détracteurs contestent …",
+              "english": "Their supporters believe that … By contrast, their critics challenge …"
+            },
+            {
+              "text": "Ses défenseurs mettent en avant … En revanche, ses critiques dénoncent …",
+              "english": "Its supporters highlight … By contrast, its critics condemn …"
+            },
+            {
+              "text": "D’un côté, certains dénoncent … En revanche, d’autres considèrent que …",
+              "english": "On the one hand, some condemn … On the other hand, others believe that …"
+            },
+            {
+              "text": "Leurs partisans valorisent … En revanche, leurs opposants soulignent …",
+              "english": "Their supporters value … By contrast, their opponents emphasize …"
+            },
+            {
+              "text": "D’un côté, certains acceptent … À l’inverse, d’autres jugent …",
+              "english": "On the one hand, some accept … In contrast, others consider …"
+            },
+            {
+              "text": "Ses partisans invoquent … Cependant, ses détracteurs insistent sur …",
+              "english": "Its supporters cite … However, its critics stress …"
+            }
           ]
         },
         {
           "title": "Documents et témoignages",
           "questions": [
-            "Le premier document valorise … En revanche, le second souligne …",
-            "Le premier témoignage attribue à … davantage de … En revanche, le second réclame surtout …",
-            "D’un côté, le premier document affirme que … À l’inverse, le second constate que …",
-            "Le premier document explique … En revanche, le second dénonce …",
-            "Le premier document insiste sur … En revanche, le second montre que …",
-            "Le premier témoignage valorise … En revanche, le second redoute …",
-            "Le premier document souligne … Toutefois, le second ajoute que …",
-            "Le premier témoignage estime que … En revanche, le second juge …",
-            "Le premier document alerte sur … En revanche, le second défend …",
-            "Le premier document constate … En revanche, le second valorise …"
+            {
+              "text": "Le premier document valorise … En revanche, le second souligne …",
+              "english": "The first document values … By contrast, the second emphasizes …"
+            },
+            {
+              "text": "Le premier témoignage attribue à … davantage de … En revanche, le second réclame surtout …",
+              "english": "The first account credits … with more … By contrast, the second primarily calls for …"
+            },
+            {
+              "text": "D’un côté, le premier document affirme que … À l’inverse, le second constate que …",
+              "english": "On the one hand, the first document states that … In contrast, the second observes that …"
+            },
+            {
+              "text": "Le premier document explique … En revanche, le second dénonce …",
+              "english": "The first document explains … By contrast, the second condemns …"
+            },
+            {
+              "text": "Le premier document insiste sur … En revanche, le second montre que …",
+              "english": "The first document stresses … By contrast, the second shows that …"
+            },
+            {
+              "text": "Le premier témoignage valorise … En revanche, le second redoute …",
+              "english": "The first account values … By contrast, the second expresses concern about …"
+            },
+            {
+              "text": "Le premier document souligne … Toutefois, le second ajoute que …",
+              "english": "The first document emphasizes … However, the second adds that …"
+            },
+            {
+              "text": "Le premier témoignage estime que … En revanche, le second juge …",
+              "english": "The first account suggests that … By contrast, the second considers …"
+            },
+            {
+              "text": "Le premier document alerte sur … En revanche, le second défend …",
+              "english": "The first document warns about … By contrast, the second defends …"
+            },
+            {
+              "text": "Le premier document constate … En revanche, le second valorise …",
+              "english": "The first document observes … By contrast, the second values …"
+            }
           ]
         }
       ]
@@ -115,17 +283,50 @@
       "groups": [
         {
           "questions": [
-            "En revanche, …",
-            "Toutefois, …",
-            "Cependant, …",
-            "À l’inverse, …",
-            "D’un côté, … ; de l’autre, …",
-            "… tandis que …",
-            "… alors que …",
-            "… mais …",
-            "… plutôt que …",
-            "… et non selon …",
-            "Malgré …, …"
+            {
+              "text": "En revanche, …",
+              "english": "By contrast, …"
+            },
+            {
+              "text": "Toutefois, …",
+              "english": "However, …"
+            },
+            {
+              "text": "Cependant, …",
+              "english": "However, …"
+            },
+            {
+              "text": "À l’inverse, …",
+              "english": "Conversely, …"
+            },
+            {
+              "text": "D’un côté, … ; de l’autre, …",
+              "english": "On the one hand, …; on the other, …"
+            },
+            {
+              "text": "… tandis que …",
+              "english": "… whereas …"
+            },
+            {
+              "text": "… alors que …",
+              "english": "… whereas …"
+            },
+            {
+              "text": "… mais …",
+              "english": "… but …"
+            },
+            {
+              "text": "… plutôt que …",
+              "english": "… rather than …"
+            },
+            {
+              "text": "… et non selon …",
+              "english": "… and not according to …"
+            },
+            {
+              "text": "Malgré …, …",
+              "english": "Despite …, …"
+            }
           ]
         }
       ]
@@ -137,31 +338,91 @@
         {
           "title": "Exprimer son avis",
           "questions": [
-            "À mon avis, …",
-            "Selon moi, …",
-            "Personnellement, je pense que …",
-            "Personnellement, je considère que …",
-            "Personnellement, je suis convaincu que …",
-            "Personnellement, je soutiens …",
-            "Je pense que …"
+            {
+              "text": "À mon avis, …",
+              "english": "In my opinion, …"
+            },
+            {
+              "text": "Selon moi, …",
+              "english": "In my view, …"
+            },
+            {
+              "text": "Personnellement, je pense que …",
+              "english": "Personally, I think that …"
+            },
+            {
+              "text": "Personnellement, je considère que …",
+              "english": "Personally, I believe that …"
+            },
+            {
+              "text": "Personnellement, je suis convaincu que …",
+              "english": "Personally, I am convinced that …"
+            },
+            {
+              "text": "Personnellement, je soutiens …",
+              "english": "Personally, I support …"
+            },
+            {
+              "text": "Je pense que …",
+              "english": "I think that …"
+            }
           ]
         },
         {
           "title": "Formuler une position nuancée",
           "questions": [
-            "Personnellement, je choisirais … si …",
-            "… ne devrait être autorisé que lorsque …",
-            "… est utile, mais seulement si …",
-            "… est pratique, à condition de …",
-            "… peut compléter …, mais dans des limites bien précises.",
-            "… exige à la fois … et …",
-            "… peut être enrichissant, mais seulement si …",
-            "… doit être accessible à tous, quel que soit …",
-            "… peut rester acceptable si …",
-            "… peuvent coexister sans que l’un remplace l’autre.",
-            "… n’est acceptable que si …",
-            "… doivent se compléter plutôt que s’exclure.",
-            "… peut être permis, mais jamais imposé."
+            {
+              "text": "Personnellement, je choisirais … si …",
+              "english": "Personally, I would choose … if …"
+            },
+            {
+              "text": "… ne devrait être autorisé que lorsque …",
+              "english": "… should only be allowed when …"
+            },
+            {
+              "text": "… est utile, mais seulement si …",
+              "english": "… is useful, but only if …"
+            },
+            {
+              "text": "… est pratique, à condition de …",
+              "english": "… is convenient, provided that one …"
+            },
+            {
+              "text": "… peut compléter …, mais dans des limites bien précises.",
+              "english": "… can complement …, but within clearly defined limits."
+            },
+            {
+              "text": "… exige à la fois … et …",
+              "english": "… requires both … and …"
+            },
+            {
+              "text": "… peut être enrichissant, mais seulement si …",
+              "english": "… can be enriching, but only if …"
+            },
+            {
+              "text": "… doit être accessible à tous, quel que soit …",
+              "english": "… must be accessible to everyone, regardless of …"
+            },
+            {
+              "text": "… peut rester acceptable si …",
+              "english": "… can remain acceptable if …"
+            },
+            {
+              "text": "… peuvent coexister sans que l’un remplace l’autre.",
+              "english": "… can coexist without one replacing the other."
+            },
+            {
+              "text": "… n’est acceptable que si …",
+              "english": "… is only acceptable if …"
+            },
+            {
+              "text": "… doivent se compléter plutôt que s’exclure.",
+              "english": "… should complement rather than exclude each other."
+            },
+            {
+              "text": "… peut être permis, mais jamais imposé.",
+              "english": "… may be allowed, but never imposed."
+            }
           ]
         }
       ]
@@ -173,31 +434,91 @@
         {
           "title": "Justification et progression",
           "questions": [
-            "Tout d’abord, …",
-            "Ensuite, …",
-            "De plus, …",
-            "En effet, …",
-            "Par ailleurs, …",
-            "… car …",
-            "… ce qui …",
-            "À long terme, …"
+            {
+              "text": "Tout d’abord, …",
+              "english": "First of all, …"
+            },
+            {
+              "text": "Ensuite, …",
+              "english": "Next, …"
+            },
+            {
+              "text": "De plus, …",
+              "english": "Moreover, …"
+            },
+            {
+              "text": "En effet, …",
+              "english": "Indeed, …"
+            },
+            {
+              "text": "Par ailleurs, …",
+              "english": "Furthermore, …"
+            },
+            {
+              "text": "… car …",
+              "english": "… because …"
+            },
+            {
+              "text": "… ce qui …",
+              "english": "… which …"
+            },
+            {
+              "text": "À long terme, …",
+              "english": "In the long term, …"
+            }
           ]
         },
         {
           "title": "Effet, conséquence et portée",
           "questions": [
-            "… permet de …",
-            "Cela permet de …",
-            "Cela favorise …",
-            "Cela réduit …",
-            "Cela facilite …",
-            "Cela renforce …",
-            "Cela préserve …",
-            "Cela limite …",
-            "Cela contribue à …",
-            "Cela aide particulièrement …",
-            "Cela améliore …",
-            "Le fait de … permet de …"
+            {
+              "text": "… permet de …",
+              "english": "… makes it possible to …"
+            },
+            {
+              "text": "Cela permet de …",
+              "english": "This makes it possible to …"
+            },
+            {
+              "text": "Cela favorise …",
+              "english": "This promotes …"
+            },
+            {
+              "text": "Cela réduit …",
+              "english": "This reduces …"
+            },
+            {
+              "text": "Cela facilite …",
+              "english": "This makes … easier."
+            },
+            {
+              "text": "Cela renforce …",
+              "english": "This strengthens …"
+            },
+            {
+              "text": "Cela préserve …",
+              "english": "This preserves …"
+            },
+            {
+              "text": "Cela limite …",
+              "english": "This limits …"
+            },
+            {
+              "text": "Cela contribue à …",
+              "english": "This contributes to …"
+            },
+            {
+              "text": "Cela aide particulièrement …",
+              "english": "This particularly helps …"
+            },
+            {
+              "text": "Cela améliore …",
+              "english": "This improves …"
+            },
+            {
+              "text": "Le fait de … permet de …",
+              "english": "… makes it possible to …"
+            }
           ]
         }
       ]
@@ -209,29 +530,83 @@
         {
           "title": "Amorces générales",
           "questions": [
-            "Par exemple, …",
-            "Prenons l’exemple de …",
-            "Pensons, par exemple, à …",
-            "Un exemple concret est …"
+            {
+              "text": "Par exemple, …",
+              "english": "For example, …"
+            },
+            {
+              "text": "Prenons l’exemple de …",
+              "english": "Let us take the example of …"
+            },
+            {
+              "text": "Pensons, par exemple, à …",
+              "english": "Consider, for example, …"
+            },
+            {
+              "text": "Un exemple concret est …",
+              "english": "A concrete example is …"
+            }
           ]
         },
         {
           "title": "Exemples concrets",
           "questions": [
-            "Par exemple, une famille peut …",
-            "Par exemple, une entreprise peut …",
-            "Par exemple, une équipe peut …",
-            "Par exemple, une ville peut …",
-            "Par exemple, une école pourrait …",
-            "Par exemple, une personne peut …",
-            "Par exemple, un adolescent peut …",
-            "Par exemple, un étudiant peut …",
-            "Par exemple, des parents peuvent …",
-            "Par exemple, une municipalité pourrait …",
-            "Par exemple, une communauté peut …",
-            "Par exemple, un réseau de transport peut …",
-            "Par exemple, un établissement peut …",
-            "Par exemple, des collègues peuvent …"
+            {
+              "text": "Par exemple, une famille peut …",
+              "english": "For example, a family can …"
+            },
+            {
+              "text": "Par exemple, une entreprise peut …",
+              "english": "For example, a company can …"
+            },
+            {
+              "text": "Par exemple, une équipe peut …",
+              "english": "For example, a team can …"
+            },
+            {
+              "text": "Par exemple, une ville peut …",
+              "english": "For example, a city can …"
+            },
+            {
+              "text": "Par exemple, une école pourrait …",
+              "english": "For example, a school could …"
+            },
+            {
+              "text": "Par exemple, une personne peut …",
+              "english": "For example, a person can …"
+            },
+            {
+              "text": "Par exemple, un adolescent peut …",
+              "english": "For example, a teenager can …"
+            },
+            {
+              "text": "Par exemple, un étudiant peut …",
+              "english": "For example, a student can …"
+            },
+            {
+              "text": "Par exemple, des parents peuvent …",
+              "english": "For example, parents can …"
+            },
+            {
+              "text": "Par exemple, une municipalité pourrait …",
+              "english": "For example, a local authority could …"
+            },
+            {
+              "text": "Par exemple, une communauté peut …",
+              "english": "For example, a community can …"
+            },
+            {
+              "text": "Par exemple, un réseau de transport peut …",
+              "english": "For example, a transport network can …"
+            },
+            {
+              "text": "Par exemple, un établissement peut …",
+              "english": "For example, an institution can …"
+            },
+            {
+              "text": "Par exemple, des collègues peuvent …",
+              "english": "For example, colleagues can …"
+            }
           ]
         }
       ]
@@ -243,27 +618,75 @@
         {
           "title": "Reconnaître une limite",
           "questions": [
-            "Cependant, il faut aussi reconnaître que …",
-            "Certes, …, mais …",
-            "Même si …, …",
-            "Bien que …, …",
-            "Sans nier que …, …",
-            "Il faut néanmoins reconnaître que …",
-            "… ne veut pas dire que …",
-            "Bien sûr, …"
+            {
+              "text": "Cependant, il faut aussi reconnaître que …",
+              "english": "However, it must also be acknowledged that …"
+            },
+            {
+              "text": "Certes, …, mais …",
+              "english": "Admittedly, …, but …"
+            },
+            {
+              "text": "Même si …, …",
+              "english": "Even if …, …"
+            },
+            {
+              "text": "Bien que …, …",
+              "english": "Although …, …"
+            },
+            {
+              "text": "Sans nier que …, …",
+              "english": "Without denying that …, …"
+            },
+            {
+              "text": "Il faut néanmoins reconnaître que …",
+              "english": "Nevertheless, it must be acknowledged that …"
+            },
+            {
+              "text": "… ne veut pas dire que …",
+              "english": "… does not mean that …"
+            },
+            {
+              "text": "Bien sûr, …",
+              "english": "Of course, …"
+            }
           ]
         },
         {
           "title": "Poser une condition ou un équilibre",
           "questions": [
-            "… à condition que …",
-            "… mais seulement si …",
-            "… tout en …",
-            "… sans pour autant …",
-            "… tant que …",
-            "… quel que soit …",
-            "… à condition d’être …",
-            "… sans que l’un remplace l’autre."
+            {
+              "text": "… à condition que …",
+              "english": "… provided that …"
+            },
+            {
+              "text": "… mais seulement si …",
+              "english": "… but only if …"
+            },
+            {
+              "text": "… tout en …",
+              "english": "… while …"
+            },
+            {
+              "text": "… sans pour autant …",
+              "english": "… without necessarily …"
+            },
+            {
+              "text": "… tant que …",
+              "english": "… as long as …"
+            },
+            {
+              "text": "… quel que soit …",
+              "english": "… regardless of …"
+            },
+            {
+              "text": "… à condition d’être …",
+              "english": "… provided it is …"
+            },
+            {
+              "text": "… sans que l’un remplace l’autre.",
+              "english": "… without one replacing the other."
+            }
           ]
         }
       ]
@@ -275,29 +698,83 @@
         {
           "title": "Priorité et enjeu",
           "questions": [
-            "En conclusion, le plus important est de …",
-            "En définitive, le plus important est de …",
-            "Pour conclure, la priorité est de …",
-            "Au final, l’enjeu principal est de …",
-            "Pour toutes ces raisons, la priorité est de …"
+            {
+              "text": "En conclusion, le plus important est de …",
+              "english": "In conclusion, what matters most is to …"
+            },
+            {
+              "text": "En définitive, le plus important est de …",
+              "english": "Ultimately, what matters most is to …"
+            },
+            {
+              "text": "Pour conclure, la priorité est de …",
+              "english": "To conclude, the priority is to …"
+            },
+            {
+              "text": "Au final, l’enjeu principal est de …",
+              "english": "In the end, the main challenge is to …"
+            },
+            {
+              "text": "Pour toutes ces raisons, la priorité est de …",
+              "english": "For all these reasons, the priority is to …"
+            }
           ]
         },
         {
           "title": "Bilans nuancés",
           "questions": [
-            "En conclusion, le plus important est de protéger … tout en …",
-            "En définitive, le plus important est de trouver un équilibre raisonnable entre … et …",
-            "En conclusion, le plus important est de concilier …, … et …",
-            "En définitive, le plus important est de préserver … sans sacrifier …",
-            "En conclusion, le plus important est de combiner … et …",
-            "En définitive, le plus important est de choisir selon … tout en …",
-            "En conclusion, le plus important est de garantir … grâce à …",
-            "En définitive, le plus important est de proposer … sans imposer …",
-            "En conclusion, le plus important est de rendre … accessible sans compromettre …",
-            "En définitive, le plus important est de distinguer clairement … de …",
-            "En conclusion, le plus important est de rapprocher … et d’offrir …",
-            "En définitive, le plus important est de moduler … selon … sans …",
-            "En conclusion, le plus important est de donner à … une place … sans …"
+            {
+              "text": "En conclusion, le plus important est de protéger … tout en …",
+              "english": "In conclusion, what matters most is to protect … while …"
+            },
+            {
+              "text": "En définitive, le plus important est de trouver un équilibre raisonnable entre … et …",
+              "english": "Ultimately, what matters most is to strike a reasonable balance between … and …"
+            },
+            {
+              "text": "En conclusion, le plus important est de concilier …, … et …",
+              "english": "In conclusion, what matters most is to reconcile …, … and …"
+            },
+            {
+              "text": "En définitive, le plus important est de préserver … sans sacrifier …",
+              "english": "Ultimately, what matters most is to preserve … without sacrificing …"
+            },
+            {
+              "text": "En conclusion, le plus important est de combiner … et …",
+              "english": "In conclusion, what matters most is to combine … and …"
+            },
+            {
+              "text": "En définitive, le plus important est de choisir selon … tout en …",
+              "english": "Ultimately, what matters most is to choose based on … while …"
+            },
+            {
+              "text": "En conclusion, le plus important est de garantir … grâce à …",
+              "english": "In conclusion, what matters most is to ensure … through …"
+            },
+            {
+              "text": "En définitive, le plus important est de proposer … sans imposer …",
+              "english": "Ultimately, what matters most is to offer … without imposing …"
+            },
+            {
+              "text": "En conclusion, le plus important est de rendre … accessible sans compromettre …",
+              "english": "In conclusion, what matters most is to make … accessible without compromising …"
+            },
+            {
+              "text": "En définitive, le plus important est de distinguer clairement … de …",
+              "english": "Ultimately, what matters most is to clearly distinguish … from …"
+            },
+            {
+              "text": "En conclusion, le plus important est de rapprocher … et d’offrir …",
+              "english": "In conclusion, what matters most is to bring … closer together and offer …"
+            },
+            {
+              "text": "En définitive, le plus important est de moduler … selon … sans …",
+              "english": "Ultimately, what matters most is to adjust … according to … without …"
+            },
+            {
+              "text": "En conclusion, le plus important est de donner à … une place … sans …",
+              "english": "In conclusion, what matters most is to give … a … role without …"
+            }
           ]
         }
       ]
@@ -309,235 +786,775 @@
         {
           "title": "Santé / alimentation",
           "questions": [
-            "des habitudes alimentaires équilibrées",
-            "les normes d’hygiène",
-            "des informations nutritionnelles claires",
-            "la consommation excessive de sel, de sucre et de matières grasses",
-            "des produits frais et saisonniers",
-            "des menus équilibrés",
-            "des choix sains accessibles",
-            "la sécurité alimentaire",
-            "des soins professionnels",
-            "des soins quotidiens",
-            "la fatigue chronique",
-            "le bien-être",
-            "un sommeil nocturne suffisant",
-            "les maladies respiratoires",
-            "l’obésité et les maladies graves",
-            "les risques d’irritation ou de contamination"
+            {
+              "text": "des habitudes alimentaires équilibrées",
+              "english": "balanced eating habits"
+            },
+            {
+              "text": "les normes d’hygiène",
+              "english": "hygiene standards"
+            },
+            {
+              "text": "des informations nutritionnelles claires",
+              "english": "clear nutritional information"
+            },
+            {
+              "text": "la consommation excessive de sel, de sucre et de matières grasses",
+              "english": "excessive consumption of salt, sugar and fats"
+            },
+            {
+              "text": "des produits frais et saisonniers",
+              "english": "fresh, seasonal foods"
+            },
+            {
+              "text": "des menus équilibrés",
+              "english": "balanced menus"
+            },
+            {
+              "text": "des choix sains accessibles",
+              "english": "accessible healthy options"
+            },
+            {
+              "text": "la sécurité alimentaire",
+              "english": "food safety"
+            },
+            {
+              "text": "des soins professionnels",
+              "english": "professional care"
+            },
+            {
+              "text": "des soins quotidiens",
+              "english": "daily care"
+            },
+            {
+              "text": "la fatigue chronique",
+              "english": "chronic fatigue"
+            },
+            {
+              "text": "le bien-être",
+              "english": "well-being"
+            },
+            {
+              "text": "un sommeil nocturne suffisant",
+              "english": "enough sleep at night"
+            },
+            {
+              "text": "les maladies respiratoires",
+              "english": "respiratory diseases"
+            },
+            {
+              "text": "l’obésité et les maladies graves",
+              "english": "obesity and serious illnesses"
+            },
+            {
+              "text": "les risques d’irritation ou de contamination",
+              "english": "the risks of irritation or contamination"
+            }
           ]
         },
         {
           "title": "Éducation / école",
           "questions": [
-            "les apprentissages fondamentaux",
-            "une révision régulière",
-            "des devoirs courts",
-            "l’autonomie scolaire",
-            "les inégalités entre les élèves",
-            "l’aide familiale",
-            "une étude gratuite",
-            "une éducation de qualité accessible à tous",
-            "la mixité sociale",
-            "un encadrement solide",
-            "des groupes de soutien gratuits",
-            "les mêmes chances de réussite",
-            "des outils pédagogiques numériques",
-            "la discussion en classe",
-            "l’esprit critique",
-            "le contact direct avec les enseignants"
+            {
+              "text": "les apprentissages fondamentaux",
+              "english": "foundational learning"
+            },
+            {
+              "text": "une révision régulière",
+              "english": "regular review of course material"
+            },
+            {
+              "text": "des devoirs courts",
+              "english": "short homework assignments"
+            },
+            {
+              "text": "l’autonomie scolaire",
+              "english": "independence in schoolwork"
+            },
+            {
+              "text": "les inégalités entre les élèves",
+              "english": "inequalities among students"
+            },
+            {
+              "text": "l’aide familiale",
+              "english": "support from the family"
+            },
+            {
+              "text": "une séance gratuite d’étude surveillée",
+              "english": "a free supervised study session",
+              "legacy_text": "une étude gratuite"
+            },
+            {
+              "text": "une éducation de qualité accessible à tous",
+              "english": "quality education accessible to everyone"
+            },
+            {
+              "text": "la mixité sociale",
+              "english": "socioeconomic diversity"
+            },
+            {
+              "text": "un encadrement solide",
+              "english": "strong guidance and supervision"
+            },
+            {
+              "text": "des groupes de soutien gratuits",
+              "english": "free study support groups"
+            },
+            {
+              "text": "les mêmes chances de réussite",
+              "english": "equal chances of success"
+            },
+            {
+              "text": "des outils pédagogiques numériques",
+              "english": "digital teaching tools"
+            },
+            {
+              "text": "la discussion en classe",
+              "english": "classroom discussion"
+            },
+            {
+              "text": "l’esprit critique",
+              "english": "critical thinking"
+            },
+            {
+              "text": "le contact direct avec les enseignants",
+              "english": "direct contact with teachers"
+            }
           ]
         },
         {
           "title": "Technologie / numérique / vie privée",
           "questions": [
-            "la vidéosurveillance urbaine",
-            "la protection de la vie privée",
-            "une surveillance ciblée et transparente",
-            "une autorité indépendante",
-            "une collecte massive de données",
-            "des agents autorisés",
-            "les caméras de surveillance à l’école",
-            "la présence des adultes",
-            "des appareils connectés",
-            "les failles de sécurité",
-            "des mises à jour régulières",
-            "des mots de passe solides",
-            "les réglages techniques",
-            "les données nécessaires",
-            "les réseaux sociaux",
-            "la dépendance aux écrans"
+            {
+              "text": "la vidéosurveillance urbaine",
+              "english": "video surveillance in urban areas"
+            },
+            {
+              "text": "la protection de la vie privée",
+              "english": "privacy protection"
+            },
+            {
+              "text": "une surveillance ciblée et transparente",
+              "english": "targeted and transparent surveillance"
+            },
+            {
+              "text": "une autorité indépendante",
+              "english": "an independent authority"
+            },
+            {
+              "text": "une collecte massive de données",
+              "english": "large-scale data collection"
+            },
+            {
+              "text": "des agents autorisés",
+              "english": "authorized personnel"
+            },
+            {
+              "text": "les caméras de surveillance à l’école",
+              "english": "surveillance cameras at school"
+            },
+            {
+              "text": "la présence des adultes",
+              "english": "the presence of adults"
+            },
+            {
+              "text": "des appareils connectés",
+              "english": "connected devices"
+            },
+            {
+              "text": "les failles de sécurité",
+              "english": "security vulnerabilities"
+            },
+            {
+              "text": "des mises à jour régulières",
+              "english": "regular updates"
+            },
+            {
+              "text": "des mots de passe solides",
+              "english": "strong passwords"
+            },
+            {
+              "text": "les réglages techniques",
+              "english": "technical settings"
+            },
+            {
+              "text": "les données nécessaires",
+              "english": "the necessary data"
+            },
+            {
+              "text": "les réseaux sociaux",
+              "english": "social media"
+            },
+            {
+              "text": "la dépendance aux écrans",
+              "english": "screen addiction"
+            }
           ]
         },
         {
           "title": "Environnement / nature / animaux",
           "questions": [
-            "la protection du vivant",
-            "la gestion de la faune",
-            "une régulation scientifique",
-            "un écosystème déséquilibré",
-            "la souffrance animale",
-            "la biodiversité",
-            "le bien-être animal",
-            "des quotas établis par des biologistes",
-            "la réduction des emballages plastiques",
-            "des contenants réutilisables",
-            "l’empreinte écologique",
-            "les objets à usage unique",
-            "de la vaisselle réutilisable",
-            "la multiplication des déchets",
-            "la qualité de l’air",
-            "la pollution"
+            {
+              "text": "la protection du vivant",
+              "english": "the protection of living things"
+            },
+            {
+              "text": "la gestion de la faune",
+              "english": "wildlife management"
+            },
+            {
+              "text": "une régulation scientifique",
+              "english": "science-based population control"
+            },
+            {
+              "text": "un écosystème déséquilibré",
+              "english": "an ecosystem out of balance"
+            },
+            {
+              "text": "la souffrance animale",
+              "english": "animal suffering"
+            },
+            {
+              "text": "la biodiversité",
+              "english": "biodiversity"
+            },
+            {
+              "text": "le bien-être animal",
+              "english": "animal welfare"
+            },
+            {
+              "text": "des quotas établis par des biologistes",
+              "english": "quotas set by biologists"
+            },
+            {
+              "text": "la réduction des emballages plastiques",
+              "english": "reducing plastic packaging"
+            },
+            {
+              "text": "des contenants réutilisables",
+              "english": "reusable containers"
+            },
+            {
+              "text": "l’empreinte écologique",
+              "english": "the ecological footprint"
+            },
+            {
+              "text": "les objets à usage unique",
+              "english": "single-use items"
+            },
+            {
+              "text": "de la vaisselle réutilisable",
+              "english": "reusable tableware"
+            },
+            {
+              "text": "la multiplication des déchets",
+              "english": "the growing volume of waste"
+            },
+            {
+              "text": "la qualité de l’air",
+              "english": "air quality"
+            },
+            {
+              "text": "la pollution",
+              "english": "pollution"
+            }
           ]
         },
         {
           "title": "Famille / enfants",
           "questions": [
-            "le budget familial",
-            "la pression sociale ou commerciale",
-            "la confiance en soi",
-            "le sentiment d’appartenance à un groupe",
-            "des règles claires adaptées à l’âge",
-            "le repas familial",
-            "des loisirs variés",
-            "l’éducation familiale",
-            "les habitudes de consommation",
-            "des profils infantiles",
-            "le sens des responsabilités",
-            "le repos après une année scolaire",
-            "les relations familiales",
-            "les besoins de chacun",
-            "du temps pour ses proches",
-            "les enfants grandissent vite"
+            {
+              "text": "le budget familial",
+              "english": "the family budget"
+            },
+            {
+              "text": "la pression sociale ou commerciale",
+              "english": "social or commercial pressure"
+            },
+            {
+              "text": "la confiance en soi",
+              "english": "self-confidence"
+            },
+            {
+              "text": "le sentiment d’appartenance à un groupe",
+              "english": "a sense of belonging to a group"
+            },
+            {
+              "text": "des règles claires adaptées à l’âge",
+              "english": "clear, age-appropriate rules"
+            },
+            {
+              "text": "le repas familial",
+              "english": "the family meal"
+            },
+            {
+              "text": "des loisirs variés",
+              "english": "a variety of leisure activities"
+            },
+            {
+              "text": "l’éducation familiale",
+              "english": "upbringing within the family"
+            },
+            {
+              "text": "les habitudes de consommation",
+              "english": "consumer habits"
+            },
+            {
+              "text": "des profils d’enfants",
+              "english": "children’s profiles",
+              "legacy_text": "des profils infantiles"
+            },
+            {
+              "text": "le sens des responsabilités",
+              "english": "a sense of responsibility"
+            },
+            {
+              "text": "le repos après une année scolaire",
+              "english": "rest after a school year"
+            },
+            {
+              "text": "les relations familiales",
+              "english": "family relationships"
+            },
+            {
+              "text": "les besoins de chacun",
+              "english": "everyone’s needs"
+            },
+            {
+              "text": "du temps pour ses proches",
+              "english": "time for one’s loved ones"
+            },
+            {
+              "text": "les enfants grandissent vite",
+              "english": "children grow up quickly"
+            }
           ]
         },
         {
           "title": "Société / solidarité / logement",
           "questions": [
-            "le lien social",
-            "la convivialité",
-            "une communication ouverte",
-            "le respect mutuel",
-            "le manque d’intimité",
-            "le partage des tâches ménagères",
-            "les charges financières",
-            "l’espace personnel",
-            "des règles définies dès le départ",
-            "une caisse commune",
-            "des personnes d’horizons variés",
-            "la cohésion sociale",
-            "les espaces publics",
-            "la solitude des personnes âgées",
-            "la dignité de chaque personne",
-            "l’aide à domicile"
+            {
+              "text": "le lien social",
+              "english": "social connection"
+            },
+            {
+              "text": "la convivialité",
+              "english": "a friendly, welcoming atmosphere"
+            },
+            {
+              "text": "une communication ouverte",
+              "english": "open communication"
+            },
+            {
+              "text": "le respect mutuel",
+              "english": "mutual respect"
+            },
+            {
+              "text": "le manque d’intimité",
+              "english": "a lack of privacy"
+            },
+            {
+              "text": "le partage des tâches ménagères",
+              "english": "sharing household chores"
+            },
+            {
+              "text": "les charges financières",
+              "english": "financial burdens"
+            },
+            {
+              "text": "l’espace personnel",
+              "english": "personal space"
+            },
+            {
+              "text": "des règles définies dès le départ",
+              "english": "rules established from the outset"
+            },
+            {
+              "text": "une caisse commune",
+              "english": "a shared fund"
+            },
+            {
+              "text": "des personnes d’horizons variés",
+              "english": "people from different backgrounds"
+            },
+            {
+              "text": "la cohésion sociale",
+              "english": "social cohesion"
+            },
+            {
+              "text": "les espaces publics",
+              "english": "public spaces"
+            },
+            {
+              "text": "la solitude des personnes âgées",
+              "english": "loneliness among older people"
+            },
+            {
+              "text": "la dignité de chaque personne",
+              "english": "every person’s dignity"
+            },
+            {
+              "text": "l’aide à domicile",
+              "english": "in-home assistance"
+            }
           ]
         },
         {
           "title": "Culture / art / loisirs",
           "questions": [
-            "l’art urbain",
-            "des espaces autorisés",
-            "une pollution visuelle",
-            "la dégradation du patrimoine",
-            "des artistes locaux",
-            "l’expression personnelle",
-            "l’accès à la culture",
-            "les lieux culturels",
-            "la gratuité des musées",
-            "une réservation horaire",
-            "une subvention publique",
-            "la conservation des œuvres",
-            "la qualité de la visite",
-            "la curiosité",
-            "l’ouverture d’esprit",
-            "la créativité",
-            "les jeux vidéo",
-            "un jeu de stratégie"
+            {
+              "text": "l’art urbain",
+              "english": "street art"
+            },
+            {
+              "text": "des espaces autorisés",
+              "english": "spaces where art is permitted"
+            },
+            {
+              "text": "une pollution visuelle",
+              "english": "visual pollution"
+            },
+            {
+              "text": "la dégradation du patrimoine",
+              "english": "damage to cultural heritage"
+            },
+            {
+              "text": "des artistes locaux",
+              "english": "local artists"
+            },
+            {
+              "text": "l’expression personnelle",
+              "english": "self-expression"
+            },
+            {
+              "text": "l’accès à la culture",
+              "english": "access to culture"
+            },
+            {
+              "text": "les lieux culturels",
+              "english": "cultural venues"
+            },
+            {
+              "text": "la gratuité des musées",
+              "english": "free admission to museums"
+            },
+            {
+              "text": "une réservation sur un créneau horaire",
+              "english": "a reservation for a time slot",
+              "legacy_text": "une réservation horaire"
+            },
+            {
+              "text": "une subvention publique",
+              "english": "a public subsidy"
+            },
+            {
+              "text": "la conservation des œuvres",
+              "english": "the conservation of artworks"
+            },
+            {
+              "text": "la qualité de la visite",
+              "english": "the quality of the visitor experience"
+            },
+            {
+              "text": "la curiosité",
+              "english": "curiosity"
+            },
+            {
+              "text": "l’ouverture d’esprit",
+              "english": "open-mindedness"
+            },
+            {
+              "text": "la créativité",
+              "english": "creativity"
+            },
+            {
+              "text": "les jeux vidéo",
+              "english": "video games"
+            },
+            {
+              "text": "un jeu de stratégie",
+              "english": "a strategy game"
+            }
           ]
         },
         {
           "title": "Travail / formation / emploi",
           "questions": [
-            "l’équilibre entre vie professionnelle et personnelle",
-            "un emploi stable",
-            "l’autonomie financière",
-            "le sentiment d’utilité",
-            "des horaires raisonnables",
-            "une semaine de quatre jours",
-            "la productivité",
-            "l’absentéisme",
-            "la fidélisation du personnel",
-            "le professionnalisme",
-            "la collaboration entre collègues",
-            "le favoritisme",
-            "les compétences démontrées",
-            "une formation structurée",
-            "l’autoformation",
-            "une première expérience du marché du travail",
-            "une courte sieste volontaire",
-            "une véritable coupure"
+            {
+              "text": "l’équilibre entre vie professionnelle et personnelle",
+              "english": "work-life balance"
+            },
+            {
+              "text": "un emploi stable",
+              "english": "a stable job"
+            },
+            {
+              "text": "l’autonomie financière",
+              "english": "financial independence"
+            },
+            {
+              "text": "le sentiment d’utilité",
+              "english": "a sense of being useful"
+            },
+            {
+              "text": "des horaires raisonnables",
+              "english": "reasonable working hours"
+            },
+            {
+              "text": "une semaine de quatre jours",
+              "english": "a four-day workweek"
+            },
+            {
+              "text": "la productivité",
+              "english": "productivity"
+            },
+            {
+              "text": "l’absentéisme",
+              "english": "absenteeism"
+            },
+            {
+              "text": "la fidélisation du personnel",
+              "english": "staff retention"
+            },
+            {
+              "text": "le professionnalisme",
+              "english": "professionalism"
+            },
+            {
+              "text": "la collaboration entre collègues",
+              "english": "collaboration between colleagues"
+            },
+            {
+              "text": "le favoritisme",
+              "english": "favoritism"
+            },
+            {
+              "text": "les compétences démontrées",
+              "english": "demonstrated skills"
+            },
+            {
+              "text": "une formation structurée",
+              "english": "structured training"
+            },
+            {
+              "text": "l’autoformation",
+              "english": "self-directed learning"
+            },
+            {
+              "text": "une première expérience du marché du travail",
+              "english": "a first experience of the job market"
+            },
+            {
+              "text": "une courte sieste volontaire",
+              "english": "a short, optional nap"
+            },
+            {
+              "text": "une véritable coupure",
+              "english": "a complete break from work"
+            }
           ]
         },
         {
           "title": "Égalité professionnelle",
           "questions": [
-            "l’égalité entre les femmes et les hommes",
-            "les métiers traditionnellement masculins",
-            "les postes de direction",
-            "une répartition traditionnelle des rôles",
-            "les compétences plutôt que le sexe",
-            "les talents disponibles",
-            "les stéréotypes de genre",
-            "un partage équitable des responsabilités familiales",
-            "l’égalité des carrières",
-            "le même congé parental pour les deux parents",
-            "des critères transparents",
-            "l’égalité des chances",
-            "des salaires équitables",
-            "des recrutements objectifs",
-            "concilier travail et famille"
+            {
+              "text": "l’égalité entre les femmes et les hommes",
+              "english": "equality between women and men"
+            },
+            {
+              "text": "les métiers traditionnellement masculins",
+              "english": "traditionally male-dominated occupations"
+            },
+            {
+              "text": "les postes de direction",
+              "english": "management positions"
+            },
+            {
+              "text": "une répartition traditionnelle des rôles",
+              "english": "a traditional division of roles"
+            },
+            {
+              "text": "les compétences plutôt que le sexe",
+              "english": "skills rather than sex"
+            },
+            {
+              "text": "les talents disponibles",
+              "english": "the available talent"
+            },
+            {
+              "text": "les stéréotypes de genre",
+              "english": "gender stereotypes"
+            },
+            {
+              "text": "un partage équitable des responsabilités familiales",
+              "english": "a fair sharing of family responsibilities"
+            },
+            {
+              "text": "l’égalité des carrières",
+              "english": "equal career opportunities"
+            },
+            {
+              "text": "le même congé parental pour les deux parents",
+              "english": "the same parental leave for both parents"
+            },
+            {
+              "text": "des critères transparents",
+              "english": "transparent criteria"
+            },
+            {
+              "text": "l’égalité des chances",
+              "english": "equal opportunities"
+            },
+            {
+              "text": "des salaires équitables",
+              "english": "fair pay"
+            },
+            {
+              "text": "des recrutements objectifs",
+              "english": "objective hiring practices"
+            },
+            {
+              "text": "concilier travail et famille",
+              "english": "to balance work and family life"
+            }
           ]
         },
         {
           "title": "Économie / consommation",
           "questions": [
-            "des économies réalisées",
-            "les petits budgets",
-            "des prix abordables",
-            "l’économie régionale",
-            "la traçabilité des produits",
-            "l’achat direct à la ferme",
-            "les achats en grande surface",
-            "des dépenses partagées",
-            "le coût initial",
-            "des matières premières de qualité",
-            "des achats coûteux et peu durables",
-            "des vêtements de seconde main",
-            "un logo de marque",
-            "la publicité destinée aux enfants",
-            "les techniques commerciales",
-            "des sources de financement stables"
+            {
+              "text": "des économies réalisées",
+              "english": "money saved"
+            },
+            {
+              "text": "les petits budgets",
+              "english": "tight budgets"
+            },
+            {
+              "text": "des prix abordables",
+              "english": "affordable prices"
+            },
+            {
+              "text": "l’économie régionale",
+              "english": "the regional economy"
+            },
+            {
+              "text": "la traçabilité des produits",
+              "english": "product traceability"
+            },
+            {
+              "text": "l’achat direct à la ferme",
+              "english": "buying directly from the farm"
+            },
+            {
+              "text": "les achats en grande surface",
+              "english": "shopping at large retail stores"
+            },
+            {
+              "text": "des dépenses partagées",
+              "english": "shared expenses"
+            },
+            {
+              "text": "le coût initial",
+              "english": "the initial cost"
+            },
+            {
+              "text": "des matières premières de qualité",
+              "english": "high-quality raw materials"
+            },
+            {
+              "text": "des achats coûteux et peu durables",
+              "english": "expensive purchases that do not last"
+            },
+            {
+              "text": "des vêtements de seconde main",
+              "english": "secondhand clothing"
+            },
+            {
+              "text": "un logo de marque",
+              "english": "a brand logo"
+            },
+            {
+              "text": "la publicité destinée aux enfants",
+              "english": "advertising aimed at children"
+            },
+            {
+              "text": "les techniques commerciales",
+              "english": "sales techniques"
+            },
+            {
+              "text": "des sources de financement stables",
+              "english": "stable sources of funding"
+            }
           ]
         },
         {
           "title": "Transports / ville / campagne",
           "questions": [
-            "les transports en commun",
-            "un réseau fiable",
-            "la desserte des quartiers éloignés",
-            "la gratuité des trajets",
-            "une fréquence élevée",
-            "l’entretien durable du réseau",
-            "l’accessibilité financière",
-            "la circulation automobile",
-            "le centre-ville",
-            "des autobus supplémentaires",
-            "le bus ou le métro",
-            "la proximité des commerces",
-            "le milieu urbain",
-            "une zone rurale",
-            "l’accès aux soins et aux études",
-            "des services publics dans les territoires ruraux"
+            {
+              "text": "les transports en commun",
+              "english": "public transit"
+            },
+            {
+              "text": "un réseau fiable",
+              "english": "a reliable network"
+            },
+            {
+              "text": "la desserte des quartiers éloignés",
+              "english": "transit service to outlying neighborhoods"
+            },
+            {
+              "text": "la gratuité des trajets",
+              "english": "fare-free travel"
+            },
+            {
+              "text": "une fréquence élevée",
+              "english": "frequent service"
+            },
+            {
+              "text": "l’entretien durable du réseau",
+              "english": "long-term maintenance of the network"
+            },
+            {
+              "text": "l’accessibilité financière",
+              "english": "affordability"
+            },
+            {
+              "text": "la circulation automobile",
+              "english": "car traffic"
+            },
+            {
+              "text": "le centre-ville",
+              "english": "the city center"
+            },
+            {
+              "text": "des autobus supplémentaires",
+              "english": "additional buses"
+            },
+            {
+              "text": "le bus ou le métro",
+              "english": "the bus or the subway"
+            },
+            {
+              "text": "la proximité des commerces",
+              "english": "proximity to shops"
+            },
+            {
+              "text": "le milieu urbain",
+              "english": "the urban environment"
+            },
+            {
+              "text": "une zone rurale",
+              "english": "a rural area"
+            },
+            {
+              "text": "l’accès aux soins et aux études",
+              "english": "access to health care and education"
+            },
+            {
+              "text": "des services publics dans les territoires ruraux",
+              "english": "public services in rural areas"
+            }
           ]
         }
       ]

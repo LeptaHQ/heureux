@@ -16843,6 +16843,156 @@ html:not([data-collection-view-mode="table"]) .subject-collection .t1-table__pro
   }
 }
 
+.ee3-memory-guide {
+  margin: 0.75rem 0;
+}
+.ee3-memory-guide > summary {
+  min-height: 44px;
+  padding: 0.7rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.ee3-memory-guide > summary:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: -3px;
+}
+.ee3-memory-guide__body {
+  max-width: 75ch;
+  padding: 0.25rem 1rem 1rem;
+  line-height: 1.6;
+}
+.ee3-memory-guide__body section + section {
+  margin-top: 1.5rem;
+}
+.ee3-memory-guide__body h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+.ee3-memory-guide__body [lang="en"] {
+  color: var(--text-soft);
+}
+.ee3-memory-guide__essentials {
+  margin: 0;
+}
+.ee3-memory-guide__essentials > div + div {
+  margin-top: 0.75rem;
+}
+.ee3-memory-guide__essentials dd {
+  margin: 0;
+}
+.question-bank-questions p.question-bank-question__translation {
+  margin-top: 0.2rem;
+  color: var(--text-soft);
+  font-size: 0.88rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.vocabulary-collection .vocabulary-collection__table {
+  min-width: 0;
+}
+.vocabulary-collection__count-column { width: 7rem; }
+.vocabulary-collection__progress-column { width: 10rem; }
+.vocabulary-collection__action-column { width: 8rem; }
+.task-vocabulary-directory--nested .theme-vocabulary-status-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0;
+  border: 0;
+  background: transparent;
+}
+.task-vocabulary-directory--nested .theme-vocabulary-status-bar__heading {
+  display: none;
+}
+.task-vocabulary-directory--nested .theme-vocabulary-status-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.task-vocabulary-directory--nested .theme-vocabulary-status-options button {
+  flex: 0 0 auto;
+  width: auto;
+  min-height: 44px;
+  padding: 0.4rem 0.65rem;
+}
+.task-vocabulary-directory--nested .theme-vocabulary-status-bar__result {
+  margin: 0 0 0 auto;
+}
+.vocabulary-subject-row {
+  position: relative;
+}
+.vocabulary-subject__counts > *,
+.vocabulary-subject__progress > * {
+  display: block;
+}
+.vocabulary-subject__counts small,
+.vocabulary-subject__progress small,
+.vocabulary-subject__mobile-count {
+  margin-top: 0.3rem;
+  color: var(--text-soft);
+  font-size: 0.78rem;
+}
+.vocabulary-subject__progress .progress-status {
+  display: inline-flex;
+}
+.vocabulary-subject__actions {
+  position: relative;
+  z-index: 2;
+  text-align: right;
+}
+.vocabulary-subject__actions .btn {
+  min-width: 44px;
+  min-height: 44px;
+  white-space: nowrap;
+}
+.vocabulary-subject__actions .btn__icon {
+  display: none;
+}
+.vocabulary-subject__mobile-count {
+  display: none;
+}
+html:not([data-collection-view-mode="table"]) .vocabulary-collection .subject-collection-row {
+  grid-template-columns: minmax(0, 1fr) auto auto;
+}
+html:not([data-collection-view-mode="table"]) .vocabulary-collection .t1-table__subject {
+  grid-column: 1 / -1;
+}
+@media (max-width: 640px) {
+  .vocabulary-collection .vocabulary-collection__count-column,
+  .vocabulary-collection .vocabulary-subject__counts,
+  .vocabulary-collection .t1-table__versions-col,
+  .vocabulary-subject__action-label {
+    display: none;
+  }
+  .vocabulary-collection .vocabulary-collection__progress-column {
+    width: 5.5rem;
+  }
+  .vocabulary-collection .vocabulary-collection__action-column {
+    width: 3.75rem;
+  }
+  .vocabulary-subject__actions .btn__icon {
+    display: block;
+  }
+  .vocabulary-collection .vocabulary-collection__table th,
+  .vocabulary-collection .vocabulary-collection__table td {
+    padding: 0.6rem 0.4rem;
+  }
+  .vocabulary-subject__mobile-count {
+    display: block;
+  }
+  .vocabulary-subject__progress .progress-status {
+    font-size: 0.7rem;
+    white-space: normal;
+  }
+  html:not([data-collection-view-mode="table"]) .vocabulary-collection .subject-collection-row {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+  html:not([data-collection-view-mode="table"]) .vocabulary-collection .subject-collection-row > .vocabulary-subject__counts {
+    display: none;
+  }
+}
+
 /* ==========================================================================
    Learn curriculum
    ========================================================================== */

@@ -6,7 +6,7 @@
 {% include "study/partials/task_nav.html" %}
 
 <div
-  class="memory-overview theme-vocabulary-directory task-vocabulary-directory"
+  class="memory-overview theme-vocabulary-directory task-vocabulary-directory{% if nested_vocabulary_subjects %} task-vocabulary-directory--nested{% endif %}"
   style="--memory-accent: {{ task.color }};"
   data-theme-vocabulary-directory
 >
@@ -20,23 +20,31 @@
     </div>
     <dl class="memory-overview-hero__metrics" aria-label="Contenu du vocabulaire">
       <div><dt>Thèmes</dt><dd>{{ theme_count }}</dd></div>
+      {% if nested_vocabulary_subjects %}<div><dt>{% if deduplicate_subjects %}Sujets distincts{% else %}Publications{% endif %}</dt><dd>{{ subject_count }}</dd></div>{% endif %}
       <div><dt>Fiches</dt><dd>{{ phrase_count }}</dd></div>
       <div><dt>Lots guidés</dt><dd>{{ batch_count }}</dd></div>
     </dl>
   </header>
 
-  {% include "study/partials/collection_toolbar.html" with progress_completed=summary.completed progress_total=summary.total progress_unit=vocabulary_progress_unit|default:"lots terminés" show_views=themes primary_action_url=review_url primary_action_label="Continuer le prochain lot" secondary_action_url=mixed_review_url secondary_action_label="Révision mélangée" secondary_action_visible=phrase_count %}
+  {% include "study/partials/collection_toolbar.html" with progress_completed=summary.completed progress_total=summary.total progress_unit=vocabulary_progress_unit|default:"lots terminés" show_views=themes primary_action_url=review_url primary_action_label=vocabulary_continue_label|default:"Continuer le prochain lot" secondary_action_url=mixed_review_url secondary_action_label="Révision mélangée" secondary_action_visible=phrase_count %}
 
   <section class="memory-library memory-library--standalone task-vocabulary-themes" aria-labelledby="task-vocabulary-themes-title">
+    {% if nested_vocabulary_subjects %}
+      <h2 id="task-vocabulary-themes-title" class="sr-only">Vocabulaire par thème</h2>
+    {% else %}
     <div class="section-heading">
       <div>
         <h2 id="task-vocabulary-themes-title">Explorer les thèmes</h2>
         <p>{{ vocabulary_pathways_description|default:"Ouvrez un thème pour travailler ses fiches et ses lots guidés." }}</p>
       </div>
     </div>
+    {% endif %}
     {% if themes %}
       {% include "study/partials/theme_vocabulary_directory_filters.html" %}
     {% endif %}
+    {% if nested_vocabulary_subjects %}
+      {% include "study/partials/vocabulary_subject_collection.html" %}
+    {% else %}
     <div class="memory-library__grid collection-table collection-table--memories collection-table--task-vocabulary" data-collection-view="adaptive">
       {% include "study/partials/collection_table_header.html" with variant="memories" column_1="Thème" column_2="Progression" column_3="Action" only %}
       {% for item in themes %}
@@ -79,6 +87,7 @@
         </div>
       {% endfor %}
     </div>
+    {% endif %}
     <div class="empty theme-vocabulary-filter-empty hidden" data-theme-vocabulary-directory-empty>
       <p>Aucun thème ne correspond à ce statut.</p>
       <button class="linkbtn" type="button" data-theme-vocabulary-directory-reset>Afficher tous les thèmes</button>
@@ -89,5 +98,5 @@
 
 {% block scripts %}
   {{ block.super }}
-  <script src="{% static 'study/js/theme-vocabulary-progress.js' %}?v=4"></script>
+  <script src="{% static 'study/js/theme-vocabulary-progress.js' %}?v=5"></script>
 {% endblock %}

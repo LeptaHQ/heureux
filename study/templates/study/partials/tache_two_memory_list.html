@@ -12,7 +12,7 @@
         <h2>{{ memory.title }}</h2>
         <div class="memory-entry__facts">
           <span><b>{{ memory.category_count }}</b> catégories</span>
-          <span><b>{{ memory.question_count }}</b> questions</span>
+          <span><b>{{ memory.question_count }}</b> {% if part.slug == "ee" and task.slug == "tache-3" %}formulations{% else %}questions{% endif %}</span>
         </div>
       </div>
       <div class="memory-entry__progress">

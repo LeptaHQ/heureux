@@ -69,12 +69,50 @@
     return element ? element.closest("[data-annotation-root]") : null;
   }
 
+  function annotationExcluded(node) {
+    var element = node.nodeType === Node.ELEMENT_NODE ? node : node.parentElement;
+    return Boolean(element && element.closest("[data-annotation-exclude]"));
+  }
+
+  function annotationTextWalker(root) {
+    return document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (node) {
+        return annotationExcluded(node)
+          ? NodeFilter.FILTER_REJECT
+          : NodeFilter.FILTER_ACCEPT;
+      }
+    });
+  }
+
+  function annotationText(root) {
+    var walker = annotationTextWalker(root);
+    var text = "";
+    var node;
+    while ((node = walker.nextNode())) text += node.data;
+    return text;
+  }
+
+  function rangeTouchesExcluded(range) {
+    if (
+      annotationExcluded(range.startContainer) ||
+      annotationExcluded(range.endContainer)
+    ) return true;
+    var container = range.commonAncestorContainer;
+    if (!container.querySelectorAll) return false;
+    return Array.from(
+      container.querySelectorAll("[data-annotation-exclude]")
+    ).some(function (element) {
+      return range.intersectsNode(element);
+    });
+  }
+
   function captureSelection() {
     var selection = window.getSelection();
     if (!selection || selection.isCollapsed || selection.rangeCount === 0) {
       return null;
     }
     var range = selection.getRangeAt(0);
+    if (rangeTouchesExcluded(range)) return null;
     var startRoot = rootForNode(range.startContainer);
     var endRoot = rootForNode(range.endContainer);
     if (startRoot !== endRoot) {
@@ -103,19 +141,19 @@
     ) {
       return null;
     }
-    var rawQuote = range.cloneContents().textContent || "";
+    var rawQuote = annotationText(range.cloneContents());
     if (!rawQuote.trim()) return null;
 
     var before = range.cloneRange();
     before.selectNodeContents(root);
     before.setEnd(range.startContainer, range.startOffset);
-    var rawStart = (before.cloneContents().textContent || "").length;
+    var rawStart = annotationText(before.cloneContents()).length;
     // Trailing block boundaries drag in whitespace; keep the quote tight so
     // the stored offsets match what the reader actually selected.
     var quote = rawQuote.trim();
     var start = rawStart + (rawQuote.length - rawQuote.replace(/^\s+/, "").length);
     var end = start + quote.length;
-    var pageText = root.textContent || "";
+    var pageText = annotationText(root);
     var coverage = highlightCoverage(root, start, end);
     var highlightStart = Math.min(start, coverage.start);
     var highlightEnd = Math.max(end, coverage.end);
@@ -153,7 +191,25 @@
     var details = captureSelection();
     if (details) {
       currentSelection = details;
+      noteButton.hidden = false;
+      highlightButton.hidden = false;
+      noteButton.classList.remove("hidden");
+      highlightButton.classList.remove("hidden");
       updateHighlightButton(details);
+    } else {
+      var selection = window.getSelection();
+      if (
+        selection && !selection.isCollapsed && selection.rangeCount &&
+        rangeTouchesExcluded(selection.getRangeAt(0))
+      ) {
+        // Keep ordinary copying available, but never reuse a prior French anchor.
+        currentSelection = null;
+        noteButton.hidden = true;
+        highlightButton.hidden = true;
+        noteButton.classList.add("hidden");
+        highlightButton.classList.add("hidden");
+        updateHighlightButton(null);
+      }
     }
   }
 
@@ -497,8 +553,89 @@
     };
   }
 
+  function matchesSavedAnchor(item, text) {
+    return (
+      text.slice(item.start_offset, item.end_offset) === item.quote &&
+      (!item.prefix || text.slice(0, item.start_offset).endsWith(item.prefix)) &&
+      (!item.suffix || text.slice(item.end_offset).startsWith(item.suffix))
+    );
+  }
+
+  function legacyCorrectionOffsets(item, root, text) {
+    if (
+      !root.querySelector("[data-annotation-legacy-text]") ||
+      !Number.isInteger(item.start_offset) ||
+      !Number.isInteger(item.end_offset) ||
+      matchesSavedAnchor(item, text)
+    ) return null;
+
+    var walker = annotationTextWalker(root);
+    var corrections = [];
+    var seen = [];
+    var offset = 0;
+    var node;
+    while ((node = walker.nextNode())) {
+      var element = node.parentElement &&
+        node.parentElement.closest("[data-annotation-legacy-text]");
+      if (element && root.contains(element) && seen.indexOf(element) === -1) {
+        seen.push(element);
+        corrections.push({
+          start: offset,
+          before: element.dataset.annotationLegacyText,
+          after: annotationText(element)
+        });
+      }
+      offset += node.data.length;
+    }
+    if (!corrections.length) return null;
+
+    var legacyText = "";
+    var currentOffset = 0;
+    corrections.forEach(function (correction) {
+      legacyText += text.slice(currentOffset, correction.start);
+      correction.legacyStart = legacyText.length;
+      legacyText += correction.before;
+      currentOffset = correction.start + correction.after.length;
+    });
+    legacyText += text.slice(currentOffset);
+    // Project only anchors whose saved quote AND context match the old wording.
+    if (!matchesSavedAnchor(item, legacyText)) return null;
+
+    function project(position) {
+      var shift = 0;
+      for (var index = 0; index < corrections.length; index += 1) {
+        var correction = corrections[index];
+        var relative = position - correction.legacyStart;
+        if (relative <= 0) return position + shift;
+        if (relative < correction.before.length) {
+          var prefix = commonPrefixLength(correction.before, correction.after);
+          var suffix = commonSuffixLength(
+            correction.before.slice(prefix), correction.after.slice(prefix)
+          );
+          if (relative <= prefix) return correction.start + relative;
+          if (relative >= correction.before.length - suffix) {
+            return correction.start + correction.after.length -
+              (correction.before.length - relative);
+          }
+          return null;
+        }
+        shift += correction.after.length - correction.before.length;
+      }
+      return position + shift;
+    }
+
+    var start = project(item.start_offset);
+    var end = project(item.end_offset);
+    if (start === null || end === null || text.slice(start, end) !== item.quote) {
+      return null;
+    }
+    return { start: start, end: end, score: Infinity };
+  }
+
   function bestOffsets(item, root) {
-    var text = root.textContent || "";
+    var text = annotationText(root);
+    var corrected = legacyCorrectionOffsets(item, root, text);
+    if (corrected) return corrected;
     var savedPrefix = normalizedContext(item.prefix);
     var savedSuffix = normalizedContext(item.suffix);
     var candidates = [];
@@ -618,7 +755,7 @@
 
   function refreshSelectionCoverage(details) {
     if (!details || !details.root || !details.root.isConnected) return;
-    var text = details.root.textContent || "";
+    var text = annotationText(details.root);
     if (
       (details.root.dataset.annotationSourceKey || "") !== details.sourceKey ||
       text.slice(details.start, details.end) !== details.quote
@@ -638,7 +775,7 @@
   }
 
   function textSegments(root, start, end, includeNestedRoots) {
-    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+    var walker = annotationTextWalker(root);
     var segments = [];
     var offset = 0;
     var node;
@@ -697,9 +834,11 @@
         ? legacyMark.closest("[data-annotation-root]") || main
         : main;
     }
-    var roots = main.querySelectorAll(
+    var roots = Array.from(main.querySelectorAll(
       "[data-annotation-root][data-annotation-source-key]"
-    );
+    )).filter(function (root) {
+      return !annotationExcluded(root);
+    });
     for (var index = 0; index < roots.length; index += 1) {
       if (roots[index].dataset.annotationSourceKey === item.source_key) {
         return roots[index];
@@ -709,7 +848,7 @@
       var root = roots[legacyIndex];
       var legacyKeys = root.dataset.annotationLegacySourceKeys;
       if (!legacyKeys || JSON.parse(legacyKeys).indexOf(item.source_key) === -1) continue;
-      var text = root.textContent || "";
+      var text = annotationText(root);
       // Legacy namespaces have no model revision. Never relocate their offsets
       // onto a changed answer merely because it happens to reuse the same words.
       if (
@@ -1395,7 +1534,7 @@
       return currentSelection;
     },
     saveSelectionNote: function (quote, body, alsoHighlight, selection) {
-      var details = selection || currentSelection;
+      var details = selection === undefined ? currentSelection : selection;
       if (
         !details
         || normalizedContext(details.quote) !== normalizedContext(quote)

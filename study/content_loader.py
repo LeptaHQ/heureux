@@ -396,6 +396,8 @@ class QuestionBankQuestionData:
     content_key: str
     text: str
     note: str = ""
+    english: str = ""
+    legacy_text: str = ""
 
 
 @dataclass(frozen=True)
@@ -1246,6 +1248,7 @@ def load_question_bank(
         )
     sections: List[QuestionBankSectionData] = []
     seen_questions = set()
+    seen_question_keys = set()
     for raw_section in raw.get("sections", []):
         number = int(raw_section["number"])
         section_title = str(raw_section.get("title", "")).strip()
@@ -1259,9 +1262,26 @@ def load_question_bank(
                 if isinstance(raw_question, str):
                     text = raw_question.strip()
                     note = ""
+                    english = ""
+                    legacy_text = ""
                 else:
                     text = str(raw_question.get("text", "")).strip()
                     note = str(raw_question.get("note", "")).strip()
+                    english = raw_question.get("english", "")
+                    if not isinstance(english, str):
+                        raise ValueError(
+                            f"Question-bank section {number} has invalid English text"
+                        )
+                    english = english.strip()
+                    legacy_text = raw_question.get("legacy_text", "")
+                    if (
+                        not isinstance(legacy_text, str)
+                        or ("legacy_text" in raw_question and not legacy_text.strip())
+                    ):
+                        raise ValueError(
+                            f"Question-bank section {number} has invalid legacy text"
+                        )
+                    legacy_text = legacy_text.strip()
                 if not text:
                     raise ValueError(
                         f"Question-bank section {number} contains an empty question"
@@ -1270,8 +1290,13 @@ def load_question_bank(
                 if normalized in seen_questions:
                     raise ValueError(f"Duplicate question-bank phrase: {text}")
                 seen_questions.add(normalized)
+                # Corrections retain the French seed used by saved learning state.
+                key_text = (legacy_text or text).casefold()
+                if key_text in seen_question_keys:
+                    raise ValueError(f"Duplicate question-bank identity: {text}")
+                seen_question_keys.add(key_text)
                 digest = hashlib.sha256(
-                    normalized.encode("utf-8")
+                    key_text.encode("utf-8")
                 ).hexdigest()
                 key_prefix = f"{key_namespace}:" if key_namespace else ""
                 questions.append(
@@ -1282,6 +1307,8 @@ def load_question_bank(
                         ),
                         text=text,
                         note=note,
+                        english=english,
+                        legacy_text=legacy_text,
                     )
                 )
             if not questions:
@@ -2832,6 +2859,33 @@ def _ee_tache_three_normalize(text: str) -> str:
     return text.lower().replace("\u2019", "'").replace("\u0153", "oe")
 
 
+def ee_tache_three_answer_text(
+    heading: str, synthese: str, point_de_vue: str,
+) -> str:
+    """The complete submission, without source documents or teaching labels."""
+    return "\n\n".join(part for part in (heading, synthese, point_de_vue) if part)
+
+
+def _validate_ee_tache_three_answer(
+    heading: str, synthese: str, point_de_vue: str, *, location: str,
+) -> None:
+    for label, text, minimum, maximum in (
+        ("synthèse", synthese, 40, 60),
+        ("point de vue", point_de_vue, 80, 120),
+        (
+            "complete answer (including title)",
+            ee_tache_three_answer_text(heading, synthese, point_de_vue),
+            *EE_TACHE_THREE_WORD_LIMIT,
+        ),
+    ):
+        count = _ee_word_count(text)
+        if not minimum <= count <= maximum:
+            raise ValueError(
+                f"{location} {label} has {count} words; "
+                f"expected {minimum}-{maximum}"
+            )
+
+
 def _ee_tache_three_parse_essays(md_text: str) -> List[Dict[str, str]]:
     """Return ordered per-combinaison essay blocks from a responses/*.md file."""
     text = md_text.replace("\r\n", "\n")
@@ -2861,6 +2915,9 @@ def _ee_tache_three_parse_essays(md_text: str) -> List[Dict[str, str]]:
             raise ValueError(f"{label} is missing its Partie 1 (Synthèse)")
         if not point_de_vue:
             raise ValueError(f"{label} is missing its Partie 2 (Point de vue)")
+        _validate_ee_tache_three_answer(
+            heading, synthese, point_de_vue, location=label,
+        )
         essays.append(
             {
                 "label": label,
@@ -3983,16 +4040,10 @@ def _parse_ee_tache_three_author_responses(path: Path) -> Dict[str, Dict[str, st
             raise ValueError(f"Duplicate author response for {content_key!r}")
         if values["origin"] != "author" or not all(values.values()):
             raise ValueError(f"{location} has invalid content")
-        synthese_words = _ee_word_count(values["synthese"])
-        point_words = _ee_word_count(values["point_de_vue"])
-        if not 40 <= synthese_words <= 60:
-            raise ValueError(
-                f"{location} synthèse has {synthese_words} words; expected 40-60"
-            )
-        if not 80 <= point_words <= 120:
-            raise ValueError(
-                f"{location} point de vue has {point_words} words; expected 80-120"
-            )
+        _validate_ee_tache_three_answer(
+            values["heading"], values["synthese"], values["point_de_vue"],
+            location=location,
+        )
         responses[content_key] = values
         actual_order.append(order[content_key])
     if actual_order != sorted(actual_order):
@@ -4051,12 +4102,14 @@ def parse_ee_tache_three_responses(
         point_de_vue = (
             authored["point_de_vue"] if authored else canonical.point_de_vue
         )
+        _validate_ee_tache_three_answer(
+            heading, synthese, point_de_vue, location=canonical_key,
+        )
         body_parts = [
             canonical.sujet,
             canonical.document1,
             canonical.document2,
-            synthese,
-            point_de_vue,
+            ee_tache_three_answer_text(heading, synthese, point_de_vue),
         ]
         body = "\n\n".join(part for part in body_parts if part)
         responses.append(

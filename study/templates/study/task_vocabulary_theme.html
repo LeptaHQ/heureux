@@ -8,7 +8,7 @@
   <a href="{% url 'study:task_phrases' part.slug task.slug %}">{% include "study/partials/ui_icon.html" with name="arrow-left" only %} Tous les thèmes</a>
 </nav>
 
-<div class="task-vocabulary-theme-page" style="--theme-vocabulary-accent: {{ vocabulary_theme.color }};">
+<div class="task-vocabulary-theme-page{% if nested_vocabulary_subjects %} vocabulary-collection{% endif %}" style="--theme-vocabulary-accent: {{ vocabulary_theme.color }};">
   <header class="phrase-category-hero theme-vocabulary-hero card">
     <div>
       <h1 class="title-with-icon" style="--icon-accent: {{ vocabulary_theme.color }};">
@@ -50,9 +50,14 @@
       </div>
 
       <div
-        class="subject-vocabulary-theme-directory collection-table collection-table--subject-vocabulary-decks"
-        data-collection-view="adaptive"
+        class="subject-vocabulary-theme-directory{% if nested_vocabulary_subjects %} subject-collection{% else %} collection-table collection-table--subject-vocabulary-decks{% endif %}"
+        data-collection-view="{% if not nested_vocabulary_subjects %}adaptive{% endif %}"
         data-subject-vocabulary-directory>
+        {% if nested_vocabulary_subjects %}
+          <div data-subject-theme>
+            {% include "study/partials/vocabulary_subject_table.html" with prompts=vocabulary_theme_group.prompts title=vocabulary_theme.display_name %}
+          </div>
+        {% else %}
         {% include "study/partials/collection_table_header.html" with variant="subject-vocabulary-decks" column_1="Sujet" column_2="Progression" column_3="Actions" only %}
         <div class="task-vocabulary-deck-list" data-subject-theme>
           {% for prompt in vocabulary_theme_group.prompts %}
@@ -75,6 +80,7 @@
             </article>
           {% endfor %}
         </div>
+        {% endif %}
       </div>
       <div class="empty subject-vocabulary-empty" hidden data-subject-vocabulary-empty>
         <p>Aucun sujet ne correspond à cette recherche.</p>

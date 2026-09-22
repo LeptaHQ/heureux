@@ -73,6 +73,13 @@ NOTES_ROUTES = {
     "task_annotation_study",
 }
 STATS_ROUTES = {"stats", "part_stats", "task_stats"}
+VOCABULARY_COLLECTION_ROUTES = {
+    "vocabulary", "vocabulary_category", "part_vocabulary",
+    "task_phrases", "task_vocabulary_theme", "task_vocabulary_category",
+    "tache_two_theme_vocabulary", "tache_two_theme_vocabulary_detail",
+    "comprehension_vocabulary", "comprehension_test_vocabulary",
+    "comprehension_oral_vocabulary", "comprehension_oral_test_vocabulary",
+}
 # Routes where ``?task=`` selects rows to list rather than naming a content
 # scope: the notes search filters on a task id, so reading it as a slug would
 # only ever cost a lookup that misses.
@@ -206,4 +213,8 @@ def study_globals(request):
         "annotation_task": task,
         "content_task": task,
         "active_nav_area": _active_nav_area(request),
+        **({
+            "default_collection_view": "table",
+            "collection_view_preference": "vocabularyCollectionViewMode",
+        } if match.url_name in VOCABULARY_COLLECTION_ROUTES else {}),
     }

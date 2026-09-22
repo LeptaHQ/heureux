@@ -94,7 +94,7 @@
                   <li class="{% if question.completed %}is-complete{% endif %}{% if question.response %} has-response{% endif %}" data-question-bank-question data-question-key="{{ question.content_key }}">
                     <span class="question-bank-question__number" aria-hidden="true">{{ forloop.counter|stringformat:"02d" }}</span>
                     <div class="question-bank-question__content">
-                      <p>{{ question.text }}</p>
+                      <p lang="fr"{% if question.legacy_text %} data-annotation-legacy-text="{{ question.legacy_text }}"{% endif %}>{{ question.text }}</p>{% if question.english %}<p class="question-bank-question__translation" lang="en" data-annotation-exclude>{{ question.english }}</p>{% endif %}
                       {% if question.note %}<small>{{ question.note }}</small>{% endif %}
                       {% if question_responses_enabled %}
                         <div class="question-bank-response{% if not question.response %} hidden{% endif %}" data-question-response-preview>

@@ -2815,37 +2815,51 @@ def _ee_writing_theme_vocabulary_detail(request, task, theme, tache):
     )
 
 
+def _ee_tache_three_vocabulary_prompts(prompts, *, deduplicate, seen_responses=None):
+    sources = _ee_tache_three_sources_by_key()
+    seen_responses = set() if seen_responses is None else seen_responses
+    ordered = []
+    for prompt in prompts:
+        source = sources.get(prompt.content_key)
+        prompt.vocabulary_month = source[0].name if source else ""
+        order = (source[0].number, source[1].position) if source else (13, prompt.number)
+        ordered.append((order, prompt))
+    result = []
+    for _order, prompt in sorted(ordered, key=lambda item: (*item[0], item[1].pk)):
+        if deduplicate and prompt.response_id in seen_responses:
+            continue
+        seen_responses.add(prompt.response_id)
+        result.append(prompt)
+    return result
+
+
 def _ee_tache_three_vocabulary_directory(request, task):
     taxonomy = _ee_subject_theme_data(3)[0]
     theme_names = {
         content_module.ee_subject_theme_name(3, theme) for theme in taxonomy
     }
+    subject_context = _task_subject_vocabulary_context(task, request.user)
     themes_by_name = {
-        theme.name: theme
-        for theme in Theme.objects.filter(
+        group["theme"].name: group["theme"]
+        for group in subject_context["subject_theme_groups"]
+    }
+    missing_names = theme_names - themes_by_name.keys()
+    if missing_names:
+        themes_by_name.update((theme.name, theme) for theme in Theme.objects.filter(
             task=task,
             is_active=True,
-            name__in=theme_names,
-        )
+            name__in=missing_names,
+        ))
+    groups_by_theme = {
+        group["theme"].pk: group for group in subject_context["subject_theme_groups"]
     }
-    prompt_rows = list(
-        Prompt.objects.filter(
-            content_key__startswith=(
-                content_module.EE_TACHE_THREE_CONTENT_PREFIX
-            ),
-            theme__task=task,
-            theme__is_active=True,
-            response__is_active=True,
-            is_active=True,
-        )
-        .order_by()
-        .values_list("theme_id", "response_id")
-    )
+    prompts = [
+        prompt for group in subject_context["subject_theme_groups"]
+        for prompt in group["prompts"]
+    ]
+    prompt_rows = [(prompt.theme_id, prompt.response_id) for prompt in prompts]
     response_ids = {response_id for _theme_id, response_id in prompt_rows}
-    progress_by_response = subject_progress_by_response(
-        request.user,
-        response_ids,
-    )
+    progress_by_response = {prompt.response_id: prompt.subject_progress for prompt in prompts}
     directory_progress = _vocabulary_deck_progress(
         progress_by_response.values()
     )
@@ -2916,6 +2930,16 @@ def _ee_tache_three_vocabulary_directory(request, task):
             )
         )
     ]
+    deduplicate = request.GET.get("deduplicate", "1") == "1"
+    seen_responses = set()
+    for item in themes:
+        group = groups_by_theme.get(item["theme"].pk)
+        item["prompts"] = _ee_tache_three_vocabulary_prompts(
+            group["prompts"] if group else [],
+            deduplicate=deduplicate,
+            seen_responses=seen_responses,
+        )
+        item["subject_count"] = len(item["prompts"])
     scope = {**_task_scope(task), "kind": "vocab"}
     review_batches = _review_batches(scope, request.user)
     next_batch = next(
@@ -2930,6 +2954,10 @@ def _ee_tache_three_vocabulary_directory(request, task):
             "task": task,
             "section": "vocabulary",
             "themes": themes,
+            "nested_vocabulary_subjects": True,
+            "subject_count": sum(item["subject_count"] for item in themes),
+            "subject_deduplication_available": True,
+            "deduplicate_subjects": deduplicate,
             "theme_count": len(themes),
             "phrase_count": (
                 len(response_ids)
@@ -2955,10 +2983,10 @@ def _ee_tache_three_vocabulary_directory(request, task):
                 "Mots, tournures et phrases modèles liés aux sujets."
             ),
             "vocabulary_pathways_description": (
-                "Ouvrez un thème, choisissez un sujet, puis travaillez ses "
-                "lots de vocabulaire directement liés aux documents."
+                "Dépliez un thème pour choisir un sujet et travailler son vocabulaire."
             ),
             "vocabulary_progress_unit": "decks terminés",
+            "vocabulary_continue_label": "Continuer",
         },
     )
 
@@ -2974,6 +3002,12 @@ def _ee_tache_three_vocabulary_theme_detail(request, task, theme):
         if subject_context["subject_theme_groups"]
         else None
     )
+    deduplicate = request.GET.get("deduplicate", "1") == "1"
+    if theme_group:
+        theme_group["prompts"] = _ee_tache_three_vocabulary_prompts(
+            theme_group["prompts"], deduplicate=deduplicate,
+        )
+        subject_context["subject_prompt_count"] = len(theme_group["prompts"])
     return render(
         request,
         "study/task_vocabulary_theme.html",
@@ -2983,6 +3017,9 @@ def _ee_tache_three_vocabulary_theme_detail(request, task, theme):
             **subject_context,
             "vocabulary_theme": theme,
             "vocabulary_theme_group": theme_group,
+            "nested_vocabulary_subjects": True,
+            "subject_deduplication_available": True,
+            "deduplicate_subjects": deduplicate,
             "vocabulary_review_url": (
                 theme_group["review_url"] if theme_group else ""
             ),
@@ -3337,6 +3374,8 @@ def _memory_sections(memory, completed_keys, personal_responses=None):
                                 "content_key": question.content_key,
                                 "text": question.text,
                                 "note": question.note,
+                                "english": question.english,
+                                "legacy_text": question.legacy_text,
                                 "completed": (
                                     question.content_key in completed_keys
                                 ),
@@ -3915,13 +3954,10 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         subject_hints = catalogue.tache_three_subject_hints().get(response.semantic_group)
     if ee_response:
         if response_content.position or response_content.position_claire:
-            ee_response_copy_text = "\n\n".join(
-                part for part in (
-                    response_content.reformulation,
-                    response_content.position,
-                    response_content.position_claire,
-                )
-                if part
+            ee_response_copy_text = content_module.ee_tache_three_answer_text(
+                response_content.reformulation,
+                response_content.position,
+                response_content.position_claire,
             )
         if response.content_key in (
             content_module.load_ee_tache_three_author_responses()

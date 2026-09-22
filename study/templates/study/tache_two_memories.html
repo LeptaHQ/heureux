@@ -16,14 +16,22 @@
     <dl class="memory-overview-hero__metrics" aria-label="Contenu des mémoires">
       <div><dt>Mémoires</dt><dd>{{ memory_count }}</dd></div>
       <div><dt>Catégories</dt><dd>{{ category_count }}</dd></div>
-      <div><dt>Questions</dt><dd>{{ question_count }}</dd></div>
+      <div><dt>{% if part.slug == "ee" and task.slug == "tache-3" %}Formulations{% else %}Questions{% endif %}</dt><dd>{{ question_count }}</dd></div>
     </dl>
   </header>
 
-  {% include "study/partials/collection_toolbar.html" with progress_completed=memory_summary.completed progress_total=memory_summary.total progress_unit="questions apprises" show_views=memories %}
+  {% if part.slug == "ee" and task.slug == "tache-3" %}
+    {% include "study/partials/collection_toolbar.html" with progress_completed=memory_summary.completed progress_total=memory_summary.total progress_unit="formulations apprises" show_views=memories %}
+    {% include "study/partials/ee_tache_three_memory_guide.html" only %}
+  {% else %}
+    {% include "study/partials/collection_toolbar.html" with progress_completed=memory_summary.completed progress_total=memory_summary.total progress_unit="questions apprises" show_views=memories %}
+  {% endif %}
 
   <section class="memory-library memory-library--standalone" aria-label="Liste des mémoires">
     {% include "study/partials/tache_two_memory_list.html" with memories=memories part=part task=task only %}
   </section>
 </div>
+{% if part.slug == "ee" and task.slug == "tache-3" %}
+  {% include "study/partials/writing_methodology_dialog.html" with tache=3 only %}
+{% endif %}
 {% endblock %}

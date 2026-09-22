@@ -16,7 +16,7 @@ La présence d’une photo sur le CV divise les opinions. D’un côté, ses opp
 
 À mon avis, la photo devrait rester facultative, afin que les compétences déterminent d’abord le recrutement. Tout d’abord, l’apparence peut provoquer des préjugés conscients ou inconscients et réduire l’égalité des chances. Ensuite, une candidature anonyme permet au recruteur d’évaluer plus objectivement l’expérience et les diplômes. Par exemple, une entreprise pourrait masquer les photos et les noms lors de la première sélection, puis rencontrer les candidats retenus selon les mêmes critères. Cependant, il faut aussi reconnaître que certains portraits professionnels facilitent la mémorisation après un entretien. En conclusion, le plus important est de garantir une procédure équitable centrée sur le savoir-faire.
 
-**Total : 151 mots**
+**Total : 159 mots (titre compris)**
 
 ---
 
@@ -34,7 +34,7 @@ Un seul document a été publié pour ce sujet : la source ne fournit aucun poin
 
 Selon moi, la colocation est une solution enrichissante à condition que les responsabilités soient définies dès le départ. Tout d’abord, elle réduit les charges financières et rompt l’isolement. Ensuite, une communication ouverte apprend à respecter les besoins de chacun. Par exemple, trois adultes peuvent fixer un calendrier de ménage, des heures calmes et des règles concernant les invités, puis faire un bilan chaque mois. Cependant, il faut aussi reconnaître que certaines habitudes incompatibles créent des tensions malgré les efforts. En définitive, le plus important est de choisir soigneusement ses colocataires et de préserver un équilibre raisonnable entre convivialité, respect mutuel et intimité.
 
-**Total : 158 mots**
+**Total : 166 mots (titre compris)**
 
 ---
 
@@ -52,7 +52,7 @@ Un seul document a été publié pour ce sujet : la source n’a fourni aucun po
 
 Personnellement, je pense que l’aide immédiate et l’accompagnement à long terme doivent se compléter. Tout d’abord, une personne qui a faim ou froid a besoin d’un secours sans délai. Ensuite, un suivi régulier permet d’agir sur les causes de l’exclusion. Par exemple, à Montréal, une association peut offrir un repas chaud, puis aider le bénéficiaire à obtenir une adresse, une formation et un emploi stable. Cependant, il faut aussi reconnaître que ces actions exigent des professionnels et des ressources durables. En conclusion, le plus important est de conjuguer une solidarité concrète et des solutions qui restaurent l’autonomie.
 
-**Total : 157 mots**
+**Total : 165 mots (titre compris)**
 
 ---
 
@@ -70,7 +70,7 @@ La place du travail dans la vie oppose deux visions de l’épanouissement. Le p
 
 À mon avis, le travail contribue à l’épanouissement, mais il ne doit pas envahir toute l’existence. Tout d’abord, un emploi stable procure des revenus, des relations et un sentiment d’utilité. De plus, des conditions de travail équilibrées protègent la santé et la vie familiale. Par exemple, une entreprise qui adopte une semaine de quatre jours peut maintenir ses objectifs tout en laissant aux salariés davantage de temps pour leurs proches. Cependant, il faut aussi reconnaître que cette organisation n’est pas possible dans tous les secteurs. En définitive, le plus important est de garantir un travail digne sans sacrifier l’équilibre entre vie professionnelle et personnelle.
 
-**Total : 156 mots**
+**Total : 163 mots (titre compris)**
 
 ---
 
@@ -88,6 +88,6 @@ Le choix entre petits magasins et supermarchés divise les consommateurs. Le pre
 
 Selon moi, les deux modèles peuvent coexister, mais les petits commerces méritent un soutien régulier. Tout d’abord, ils maintiennent des emplois et du lien social dans le quartier. Ensuite, les supermarchés restent utiles pour regrouper les achats et maîtriser le budget grâce aux prix bas. Par exemple, une famille peut acheter ses produits frais chez un marchand local, puis se rendre une fois par mois en grande surface pour les articles ménagers. Cependant, il faut aussi reconnaître que les commerces indépendants proposent parfois moins de choix et des tarifs plus élevés. En conclusion, le plus important est de consommer de manière réfléchie en conciliant proximité, qualité, praticité et moyens financiers.
 
-**Total : 165 mots**
+**Total : 173 mots (titre compris)**
 
 ---

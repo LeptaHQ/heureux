@@ -9,6 +9,7 @@ from typing import Iterable
 from urllib.parse import urlsplit
 
 from django.db.models import (
+    BigIntegerField,
     Case,
     Count,
     Exists,
@@ -21,6 +22,7 @@ from django.db.models import (
     When,
 )
 from django.db.models.functions import (
+    Coalesce,
     Greatest,
     Length,
     Replace,
@@ -312,7 +314,11 @@ def _response_content_key(source_key: str) -> str:
     content_key = source_key[len(RESPONSE_SOURCE_PREFIX) :]
     for suffix in ANNOTATION_SURFACE_SUFFIXES:
         if content_key.endswith(suffix):
-            return content_key[: -len(suffix)]
+            content_key = content_key[: -len(suffix)]
+            break
+    variant = re.fullmatch(r"(?P<content_key>.+):variant-[0-9a-f]{64}", content_key)
+    if variant:
+        return variant["content_key"]
     return content_key
 
 
@@ -499,11 +505,30 @@ def _subject_highlight_rows(user, response_ids):
         scope = Q()
         if shapes["response"]:
             responses = Response.objects.filter(pk__in=ids, is_active=True)
+            response_prompts = Prompt.objects.filter(
+                response_id__in=ids,
+                is_active=True,
+                response__is_active=True,
+            )
             candidates = candidates.alias(
+                _response_tail=Substr(
+                    "source_key", len(RESPONSE_SOURCE_PREFIX) + 1,
+                ),
                 _front_surface=Right("source_key", 6),
                 _back_surface=Right("source_key", 5),
             ).alias(
+                _variant_separator=StrIndex(
+                    "_response_tail", Value(":variant-"),
+                ),
                 _response_key=Case(
+                    When(
+                        _variant_separator__gt=1,
+                        then=Substr(
+                            "_response_tail",
+                            1,
+                            F("_variant_separator") - 1,
+                        ),
+                    ),
                     When(
                         _front_surface=":front",
                         then=Substr(
@@ -529,14 +554,22 @@ def _subject_highlight_rows(user, response_ids):
                     default=Substr("source_key", len(RESPONSE_SOURCE_PREFIX) + 1),
                 ),
             )
-            scope |= Q(
-                source_key__startswith=RESPONSE_SOURCE_PREFIX,
-                _response_key__in=responses.values("content_key"),
+            scope |= Q(source_key__startswith=RESPONSE_SOURCE_PREFIX) & (
+                Q(_response_key__in=responses.values("content_key"))
+                | Q(_response_key__in=response_prompts.values("content_key"))
             )
             candidates = candidates.annotate(
-                _matched_response_id=Subquery(
-                    responses.filter(content_key=OuterRef("_response_key"))
-                    .order_by().values("pk")[:1]
+                _matched_response_id=Coalesce(
+                    Subquery(
+                        responses.filter(content_key=OuterRef("_response_key"))
+                        .order_by().values("pk")[:1]
+                    ),
+                    Subquery(
+                        response_prompts.filter(
+                            content_key=OuterRef("_response_key")
+                        ).order_by().values("response_id")[:1]
+                    ),
+                    output_field=BigIntegerField(),
                 ),
             )
         if shapes["phrase"]:

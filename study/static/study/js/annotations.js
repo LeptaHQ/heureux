@@ -251,10 +251,17 @@
   }
 
   function announceWritingSujetProgress(data) {
-    if (!data || !data.writing_sujet_progress) return;
-    document.dispatchEvent(new CustomEvent("heureux:writing-sujet-progress", {
-      detail: data.writing_sujet_progress
-    }));
+    if (!data) return;
+    if (data.writing_sujet_progress) {
+      document.dispatchEvent(new CustomEvent("heureux:writing-sujet-progress", {
+        detail: data.writing_sujet_progress
+      }));
+    }
+    if (data.subject_progress) {
+      document.dispatchEvent(new CustomEvent("heureux:subject-progress", {
+        detail: data.subject_progress
+      }));
+    }
   }
 
   function annotationBody(kind, details, body) {
@@ -970,7 +977,22 @@
     if (!selectedHighlights.length) return;
 
     highlightButton.disabled = true;
-    Promise.allSettled(selectedHighlights.map(deleteHighlight))
+    // Keep progress snapshots in deletion order so an earlier "active" response
+    // cannot arrive after the final "new" state.
+    selectedHighlights.reduce(function (pending, item) {
+      return pending.then(function (results) {
+        return deleteHighlight(item).then(
+          function (value) {
+            results.push({ status: "fulfilled", value: value });
+            return results;
+          },
+          function (reason) {
+            results.push({ status: "rejected", reason: reason });
+            return results;
+          }
+        );
+      });
+    }, Promise.resolve([]))
       .then(function (results) {
         var removedIds = selectedHighlights.filter(function (item, index) {
           return results[index].status === "fulfilled";

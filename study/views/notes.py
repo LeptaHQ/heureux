@@ -36,6 +36,7 @@ from ..models import (
     WritingSujet,
 )
 from ..progress import (
+    subject_progress_by_response,
     writing_sujet_id_from_source_key,
     writing_sujet_progress_by_id,
 )
@@ -1059,6 +1060,37 @@ def _writing_sujet_progress_payload(user, source_key):
     }
 
 
+def _subject_progress_payload(user, source_path):
+    match = SUBJECT_SOURCE_PATH_RE.fullmatch(source_path.split("?", 1)[0])
+    if match is None:
+        return {}
+    prompt = (
+        Prompt.objects.filter(
+            pk=match.group("prompt_id"),
+            is_active=True,
+            response__is_active=True,
+            theme__task__part__slug=EXPRESSION_PART_BY_PATH[match.group("part")],
+            theme__task__slug=match.group("task"),
+        )
+        .values("response_id")
+        .first()
+    )
+    if prompt is None:
+        return {}
+    response_id = prompt["response_id"]
+    progress = subject_progress_by_response(user, {response_id})[response_id]
+    return {
+        "subject_progress": {
+            "response_id": response_id,
+            "completed": progress.explicitly_completed,
+            "subject": {
+                "status": progress.status,
+                "label": progress.label,
+            },
+        }
+    }
+
+
 def _annotation_overlap_ids(value):
     if value is None:
         return None
@@ -1501,6 +1533,12 @@ def annotation_create(request):
                 annotation.source_key,
             )
         )
+        payload.update(
+            _subject_progress_payload(
+                request.user,
+                annotation.source_path,
+            )
+        )
     return JsonResponse(payload, status=201 if created else 200)
 
 
@@ -1632,11 +1670,15 @@ def annotation_delete(request, pk):
         "scope": _annotation_scope_key(annotation),
     }
     source_key = annotation.source_key
+    source_path = annotation.source_path
     kind = annotation.kind
     annotation.delete()
     if kind == AnnotationKind.HIGHLIGHT:
         payload.update(
             _writing_sujet_progress_payload(request.user, source_key)
+        )
+        payload.update(
+            _subject_progress_payload(request.user, source_path)
         )
     if is_fetch:
         return JsonResponse(payload)

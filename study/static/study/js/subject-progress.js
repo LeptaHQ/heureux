@@ -154,7 +154,8 @@
     idAttribute: "data-subject-response-id",
     idField: "response_id",
     progressField: "subject",
-    extraRowClass: "tache-two-subject-card"
+    extraRowClass: "tache-two-subject-card",
+    eventName: "heureux:subject-progress"
   });
   setupCompletion({
     prefix: "writing-sujet",

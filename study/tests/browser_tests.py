@@ -1003,6 +1003,10 @@ class BrowserTests(StaticLiveServerTestCase):
 
         self.page.reload()
         expect(root.locator("mark.user-highlight")).to_have_text(anchor["quote"])
+        progress_status = self.page.locator(
+            f'[data-subject-progress-status="{response.pk}"]'
+        )
+        expect(progress_status).to_have_text("En cours")
         expanded_quote = response.position[:36]
         self.select_prompt(
             start=0,
@@ -1017,6 +1021,7 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(self.page.locator("[data-annotation-toast]")).to_have_text(
             "Note enregistrée et passage surligné."
         )
+        expect(progress_status).to_have_text("En cours")
         legacy.refresh_from_db()
         self.assertEqual(
             legacy.source_key,
@@ -1035,6 +1040,35 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         expect(root.locator("mark.user-highlight")).to_have_count(1)
         expect(root.locator("mark.user-highlight")).to_have_text(legacy.quote)
+
+    def test_ee3_highlight_updates_subject_progress_without_reload(self):
+        _, task = self._import_ee_tache_three_content()
+        response = self.user.study_cards.filter(
+            response__theme__task=task
+        ).first().response
+        path = response_detail_url(response)
+        self.page.goto(self.live_server_url + path)
+        root = self.page.locator(
+            ".section-card--ee-response [data-outline-label='Position']"
+        )
+        progress_status = self.page.locator(
+            f'[data-subject-progress-status="{response.pk}"]'
+        )
+        expect(progress_status).to_have_text("À commencer")
+        self.select_prompt(start=0, end=24, target=root)
+        self.page.locator("[data-highlight-selection]").click()
+
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Passage surligné."
+        )
+        expect(progress_status).to_have_text("En cours")
+        mark = root.locator("mark.user-highlight")
+        self.select_prompt(target=mark)
+        self.page.locator("[data-highlight-selection]").click()
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Surlignage supprimé."
+        )
+        expect(progress_status).to_have_text("À commencer")
 
     def test_ee3_memory_guide_labels_completion_and_methodology_are_responsive(self):
         _, task = self._import_ee_tache_three_content()

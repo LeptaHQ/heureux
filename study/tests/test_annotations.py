@@ -642,6 +642,53 @@ class AnnotationTests(TestCase):
         subject_page = self.client.get(source_path)
         self.assertEqual(subject_page.context["subject_progress"].status, "new")
 
+    def test_versioned_response_highlight_returns_live_subject_progress(self):
+        theme = factories.make_theme("versioned-highlight-progress", task=self.task)
+        response = factories.make_response(theme=theme)
+        prompt = response.prompts.get(is_canonical=True)
+        Card.objects.create(
+            user=self.user,
+            card_type=CardType.SPINE,
+            response=response,
+        )
+        source_path = prompt_detail_url(prompt)
+        source_key = f"response:{prompt.content_key}:variant-{'a' * 64}"
+
+        created = self.client.post(
+            reverse("study:annotation_create"),
+            {
+                **self.selection,
+                "kind": AnnotationKind.HIGHLIGHT,
+                "source_path": source_path,
+                "source_key": source_key,
+                "overlap_ids": "",
+            },
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(created.status_code, 201)
+        self.assertEqual(
+            created.json()["subject_progress"],
+            {
+                "response_id": response.pk,
+                "completed": False,
+                "subject": {"status": "active", "label": "En cours"},
+            },
+        )
+        deleted = self.client.post(
+            reverse("study:annotation_delete", args=[created.json()["id"]]),
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        self.assertEqual(deleted.status_code, 200)
+        self.assertEqual(
+            deleted.json()["subject_progress"],
+            {
+                "response_id": response.pk,
+                "completed": False,
+                "subject": {"status": "new", "label": "À commencer"},
+            },
+        )
+
     def test_notes_and_linked_expression_highlights_do_not_start_subject(self):
         theme = factories.make_theme("annotation-progress-exclusions", task=self.task)
         response = factories.make_response(theme=theme)

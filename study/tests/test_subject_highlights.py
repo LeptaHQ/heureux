@@ -221,6 +221,21 @@ class SubjectHighlightScopeTests(TestCase):
         annotation.delete()
         self._assert_legacy_equal(False)
 
+    def test_versioned_prompt_response_key_starts_subject_progress(self):
+        annotation = self._annotation(
+            f"response:{self.prompt.content_key}:variant-{'a' * 64}"
+        )
+
+        progress = subject_progress_by_response(
+            self.user,
+            {self.response.pk, self.other_response.pk},
+        )
+
+        self.assertTrue(progress[self.response.pk].has_highlight)
+        self.assertEqual(progress[self.response.pk].status, "active")
+        self.assertFalse(progress[self.other_response.pk].has_highlight)
+        annotation.delete()
+
     @contextmanager
     def _capture_materialized_highlights(self):
         rows = []

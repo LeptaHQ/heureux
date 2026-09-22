@@ -10,11 +10,11 @@
 
 **Partie 1 — Synthèse (49 mots)**
 
-Les deux documents abordent les maisons de retraite. Le premier valorise les soins professionnels, les activités et la vie sociale qui protègent les personnes âgées de la solitude. En revanche, le second redoute l’éloignement familial, le manque de personnel et des conditions parfois médiocres, et préfère l’aide à domicile.
+Les deux documents abordent les maisons de retraite. Le premier met en avant les soins professionnels, les activités et la vie sociale qui évitent l’isolement des aînés. En revanche, le second craint l’éloignement de la famille, le manque de personnel et des conditions insuffisantes, et préfère l’aide à domicile.
 
 **Partie 2 — Point de vue personnel (120 mots)**
 
-Pour ma part, ces établissements sont utiles à condition que chacun puisse les choisir librement, préserver sa dignité et maintenir ses liens familiaux. Tout d’abord, un encadrement permanent sécurise celles qui perdent leur autonomie. Une équipe présente jour et nuit peut réagir immédiatement en cas de malaise, alors qu’une famille occupée ne dispose pas toujours de cette disponibilité. De plus, les activités collectives permettent de maintenir le lien social. Par exemple, une femme âgée vivant seule après une chute pourrait intégrer une résidence proche de ses enfants, recevoir des soins quotidiens et partager régulièrement des repas avec eux. En conclusion, je soutiens les maisons de retraite lorsqu’elles sont choisies et qu’elles garantissent des soins fiables sans rompre les liens familiaux.
+Pour ma part, les maisons de retraite sont utiles si la personne âgée les choisit librement. Tout d’abord, une équipe présente jour et nuit peut intervenir après une chute ou un malaise, ce qu’une famille occupée ne peut pas toujours faire. Cela permet de vivre en sécurité. De plus, il faut que l’établissement préserve les liens avec les proches et propose des activités. La vie collective peut ainsi rompre l’isolement sans donner l’impression d’être abandonné. Par exemple, après une chute, une femme vivant seule peut choisir une résidence près de ses enfants, recevoir des soins et déjeuner avec eux chaque dimanche. En conclusion, je soutiens ces établissements lorsqu’ils garantissent des soins fiables, du personnel compétent et des liens familiaux préservés.
 
 **Total : 177 mots (titre compris)**
 
@@ -26,15 +26,15 @@ Pour ma part, ces établissements sont utiles à condition que chacun puisse les
 
 ### La restauration rapide : un choix à limiter
 
-**Partie 1 — Synthèse (49 mots)**
+**Partie 1 — Synthèse (50 mots)**
 
-Les deux documents abordent la restauration rapide. Le premier affirme que certains établissements proposent des plats variés et équilibrés, respectent les normes d’hygiène et laissent le client composer son menu. En revanche, le second alerte sur les maladies graves et durables que peut favoriser une consommation fréquente, notamment l’obésité.
+Les deux documents abordent la restauration rapide. Le premier affirme que certains établissements proposent des plats variés et équilibrés, respectent les normes d’hygiène et laissent le client composer son menu. En revanche, le second alerte sur les problèmes de santé graves, parfois irréversibles, qu’une consommation fréquente peut favoriser, notamment l’obésité.
 
 **Partie 2 — Point de vue personnel (111 mots)**
 
 Pour ma part, la restauration rapide peut dépanner à condition qu’elle reste occasionnelle. Tout d’abord, elle offre une solution pratique aux personnes pressées. Un repas servi en quelques minutes rend service à ceux qui n’ont ni le temps ni la possibilité de cuisiner pendant une journée de travail chargée. De plus, le consommateur doit disposer d’informations nutritionnelles claires pour éviter une consommation excessive de sel, de sucre et de matières grasses. Par exemple, un salarié pourrait choisir une salade, un fruit et de l’eau plutôt qu’un hamburger accompagné de frites et d’une boisson sucrée. En conclusion, je l’accepte comme solution ponctuelle si les choix sains sont visibles, abordables et clairement décrits.
 
-**Total : 167 mots (titre compris)**
+**Total : 168 mots (titre compris)**
 
 ---
 
@@ -48,11 +48,11 @@ Pour ma part, la restauration rapide peut dépanner à condition qu’elle reste
 
 Les deux documents abordent le choix du lieu où faire ses courses alimentaires. Le premier valorise l’achat direct à la ferme pour la qualité des produits, même plus coûteux. En revanche, le second privilégie le supermarché en ville, car il réunit une grande variété d’aliments à des prix abordables.
 
-**Partie 2 — Point de vue personnel (119 mots)**
+**Partie 2 — Point de vue personnel (115 mots)**
 
-Pour ma part, les producteurs locaux et les supermarchés sont complémentaires, à condition que le consommateur puisse choisir selon son budget et ses besoins. Tout d’abord, acheter des produits frais et saisonniers auprès des producteurs soutient l’économie régionale et facilite la traçabilité. Le client connaît alors l’origine exacte de ce qu’il mange et accepte plus volontiers un prix légèrement supérieur. De plus, le supermarché reste pratique pour les petits budgets et les produits introuvables localement. Par exemple, une famille peut commander chaque semaine un panier de légumes à une ferme voisine, puis acheter le riz et les produits ménagers en grande surface. En conclusion, je répartirais mes achats entre des produits locaux et des produits courants à prix raisonnable.
+Pour ma part, j’achèterais chez les producteurs locaux et au supermarché à condition que mon budget le permette. Tout d’abord, la ferme offre des produits frais dont je peux connaître l’origine, même s’ils coûtent un peu plus cher. Cela permet de privilégier la qualité pour les fruits et les légumes de saison. De plus, le supermarché reste indispensable pour les produits variés ou bon marché qu’une petite ferme ne propose pas. Par exemple, une famille peut acheter ses tomates et ses pommes de terre chez un producteur voisin, puis prendre du riz, de l’huile et du savon au supermarché. En conclusion, je combinerais les deux options pour manger des produits locaux sans dépasser mon budget.
 
-**Total : 175 mots (titre compris)**
+**Total : 171 mots (titre compris)**
 
 ---
 
@@ -84,11 +84,11 @@ Pour ma part, la chasse n’est acceptable qu’à condition qu’elle réponde 
 
 Les deux documents abordent la restauration rapide. Le premier met en avant des menus variés, des plats équilibrés, une hygiène rigoureuse et la liberté de choix du client. En revanche, le second dénonce des repas trop caloriques, des boissons sucrées et de nombreux emballages plastiques nuisibles à la santé et à l’environnement.
 
-**Partie 2 — Point de vue personnel (109 mots)**
+**Partie 2 — Point de vue personnel (118 mots)**
 
-Pour ma part, la restauration rapide peut rester pratique à condition que les enseignes limitent ses effets sur la santé et l’environnement. Tout d’abord, les enseignes devraient afficher clairement la composition des repas et proposer davantage de produits frais. Sans cette information, un client ignore qu’un seul menu peut déjà dépasser l’apport calorique attendu pour un repas entier. De plus, elles doivent réduire les objets à usage unique. Par exemple, un restaurant pourrait servir par défaut de l’eau, des légumes et un fruit, tout en utilisant de la vaisselle réutilisable sur place. En conclusion, je l’accepte seulement si les menus sont transparents, équilibrés et servis avec moins de déchets.
+Pour ma part, la restauration rapide peut rester pratique à condition que les enseignes protègent mieux la santé et l’environnement. Tout d’abord, elles devraient indiquer clairement les calories, le sel et le sucre et proposer de vrais choix frais. Un client peut ainsi composer un repas équilibré au lieu de choisir par défaut un menu trop riche. De plus, il faut que les restaurants réduisent les emballages à usage unique, car des milliers de repas génèrent vite beaucoup de déchets. Par exemple, un restaurant peut proposer de l’eau, un fruit et une salade, puis servir sur place dans de la vaisselle réutilisable. En conclusion, je l’accepte si les menus sont transparents, équilibrés et servis avec moins de plastique.
 
-**Total : 170 mots (titre compris)**
+**Total : 179 mots (titre compris)**
 
 ---
 
@@ -102,11 +102,11 @@ Pour ma part, la restauration rapide peut rester pratique à condition que les e
 
 Les deux documents abordent les vêtements de grande marque. Le premier les présente comme un moyen pour les jeunes d’exprimer leur personnalité et d’appartenir à un groupe. En revanche, le second rappelle que les enfants grandissent vite et abîment facilement leurs habits, qui deviennent rapidement trop petits, sales ou troués.
 
-**Partie 2 — Point de vue personnel (111 mots)**
+**Partie 2 — Point de vue personnel (119 mots)**
 
-Pour ma part, bien qu’un vêtement de marque puisse plaire aux jeunes, il ne devrait jamais déterminer leur valeur ni peser sur le budget familial. Tout d’abord, la confiance en soi se construit autrement que par un logo. Un jeune respecté pour ses qualités et ses amitiés n’a pas besoin d’une étiquette pour trouver sa place dans un groupe. De plus, acheter moins et choisir des vêtements résistants réduit les dépenses et l’empreinte écologique. Par exemple, un adolescent pourrait trouver une veste de qualité d’occasion, puis compléter sa tenue avec des habits simples et durables. En conclusion, je préfère des vêtements durables choisis librement aux achats dictés par la pression sociale.
+Pour ma part, un vêtement de marque peut plaire, mais il ne devrait ni définir la valeur d’un jeune ni peser sur le budget familial. Tout d’abord, l’adolescent doit pouvoir s’intégrer grâce à sa personnalité, sans croire qu’un logo lui donnera sa place dans un groupe. Cela réduit la pression du groupe. De plus, il faut que les parents tiennent compte de la croissance rapide et des vêtements vite salis ou troués. Dépenser beaucoup pour une veste portée quelques mois est rarement raisonnable. Par exemple, un adolescent peut acheter une veste solide d’occasion et choisir un seul tee-shirt de marque pour son anniversaire. En conclusion, je préfère des vêtements confortables et durables aux achats dictés par la pression sociale.
 
-**Total : 168 mots (titre compris)**
+**Total : 176 mots (titre compris)**
 
 ---
 
@@ -120,11 +120,11 @@ Pour ma part, bien qu’un vêtement de marque puisse plaire aux jeunes, il ne d
 
 Les deux documents abordent la réduction du temps de travail. Le premier souligne ses effets positifs sur la vie familiale, la santé, la satisfaction et la productivité des salariés. De son côté, le second ajoute que les entreprises peuvent réduire l’absentéisme, mais doivent adapter efficacement leur organisation pour maintenir leurs activités.
 
-**Partie 2 — Point de vue personnel (112 mots)**
+**Partie 2 — Point de vue personnel (117 mots)**
 
-Pour ma part, je soutiens cette réduction à condition qu’elle ne diminue ni les salaires ni la qualité des services. Tout d’abord, des employés reposés sont souvent plus concentrés et moins exposés à la fatigue chronique. Travailler moins d’heures, mais plus efficacement, limite les erreurs et les arrêts maladie liés à l’épuisement. De plus, des horaires flexibles favorisent la fidélisation du personnel. Par exemple, une entreprise pourrait tester pendant trois mois une semaine de quatre jours avec des équipes décalées, puis mesurer la productivité, les absences et la satisfaction des clients. En conclusion, je soutiens une réduction progressive, négociée selon les contraintes de chaque secteur et évaluée à partir de résultats concrets.
+Pour ma part, je soutiens une réduction du temps de travail si les salaires et la qualité du service sont préservés. Tout d’abord, des employés reposés sont plus concentrés et commettent moins d’erreurs. Leur santé et leur satisfaction au travail peuvent aussi s’améliorer. De plus, il faut que l’entreprise réorganise les équipes au lieu de demander la même charge en moins d’heures. Une répartition souple du travail peut réduire les absences et fidéliser le personnel. Par exemple, une entreprise peut tester quatre jours pendant trois mois, faire tourner les équipes et suivre les absences ainsi que les avis des clients. En conclusion, je soutiens une réduction progressive qui améliore la vie des salariés sans désorganiser le service.
 
-**Total : 172 mots (titre compris)**
+**Total : 177 mots (titre compris)**
 
 ---
 
@@ -230,7 +230,7 @@ Les deux documents abordent l’influence de la publicité sur les enfants. Le p
 
 **Partie 2 — Point de vue personnel (111 mots)**
 
-Pour ma part, il faut que la publicité destinée aux enfants soit strictement encadrée et que les adultes développent l’esprit critique des plus jeunes. Tout d’abord, les plus jeunes distinguent mal une information d’un message conçu pour les persuader. Ils réclament donc un jouet ou un goûter sans percevoir l’intention commerciale qui se cache derrière l’image. De plus, les parents et l’école peuvent expliquer les techniques commerciales. Par exemple, une plateforme pourrait interdire les annonces ciblées sur les profils infantiles, tandis qu’un parent comparerait avec son enfant la publicité d’une céréale et sa composition réelle. En conclusion, je soutiens l’interdiction du ciblage des mineurs et une éducation régulière aux techniques commerciales.
+Pour ma part, il faut que la publicité destinée aux enfants soit strictement encadrée et que les adultes développent l’esprit critique des plus jeunes. Tout d’abord, les plus jeunes distinguent mal une information d’un message conçu pour les persuader. Ils réclament donc un jouet ou un goûter sans percevoir l’intention commerciale qui se cache derrière l’image. De plus, les parents et l’école peuvent expliquer les techniques commerciales. Par exemple, une plateforme pourrait interdire les annonces ciblées sur les profils d’enfants, tandis qu’un parent comparerait avec son enfant la publicité d’une céréale et sa composition réelle. En conclusion, je soutiens l’interdiction du ciblage des mineurs et une éducation régulière aux techniques commerciales.
 
 **Total : 174 mots (titre compris)**
 
@@ -246,11 +246,11 @@ Pour ma part, il faut que la publicité destinée aux enfants soit strictement e
 
 Les deux documents abordent la vie en ville et à la campagne. Le premier apprécie la proximité des commerces, des loisirs et des lieux culturels en milieu urbain. En revanche, le second privilégie la nature, la tranquillité, les rencontres à domicile et des logements plus spacieux à un prix abordable en zone rurale.
 
-**Partie 2 — Point de vue personnel (112 mots)**
+**Partie 2 — Point de vue personnel (116 mots)**
 
-Pour ma part, je choisirais la campagne à condition qu’elle reste reliée à la ville par des transports en commun fiables. Tout d’abord, le calme et l’espace favorisent le bien-être et la vie familiale. Recevoir ses amis sur une terrasse ou dans un jardin remplace avantageusement les sorties bruyantes du centre-ville. De plus, des logements moins coûteux permettent de mieux maîtriser son budget. Par exemple, une famille pourrait habiter à trente kilomètres de Montréal, cultiver un petit jardin et prendre le train pour travailler ou visiter un musée. En conclusion, je choisirais la campagne pour son calme et ses logements moins coûteux, à condition de conserver un accès fiable aux services urbains.
+Pour ma part, je choisirais la campagne à condition que des transports fiables permettent de rejoindre la ville. Tout d’abord, le calme, l’espace et un jardin donnent aux familles un cadre plus agréable au quotidien. Recevoir des amis sur sa terrasse ou organiser un barbecue peut remplacer certaines sorties au restaurant. De plus, un logement moins cher permet de consacrer davantage d’argent aux besoins des enfants ou aux loisirs. Par exemple, une famille peut habiter à trente kilomètres de Montréal, cultiver un petit jardin et prendre le train pour aller travailler ou visiter un musée. En conclusion, je préfère la campagne pour le calme et l’espace, sans renoncer à l’accès aux emplois et à la culture.
 
-**Total : 173 mots (titre compris)**
+**Total : 177 mots (titre compris)**
 
 ---
 
@@ -264,11 +264,11 @@ Pour ma part, je choisirais la campagne à condition qu’elle reste reliée à 
 
 Les deux documents abordent le diplôme et l’expérience dans l’insertion professionnelle. Le premier constate le chômage élevé des jeunes diplômés et demande une meilleure reconnaissance de leurs études. En revanche, le second valorise l’expérience pratique et l’autoformation, estimant que l’université peut standardiser les parcours et limiter la créativité entrepreneuriale.
 
-**Partie 2 — Point de vue personnel (106 mots)**
+**Partie 2 — Point de vue personnel (109 mots)**
 
-Pour ma part, le diplôme et l’expérience doivent se compléter plutôt que s’exclure. Tout d’abord, une formation structurée apporte des connaissances solides et une qualification reconnue. Ce socle théorique permet ensuite de comprendre des situations nouvelles, ce que la seule habitude du terrain n’enseigne pas toujours. De plus, la pratique développe l’autonomie, le professionnalisme et la capacité de résoudre des problèmes concrets. Par exemple, un étudiant en informatique pourrait suivre ses cours, effectuer un stage et présenter aux recruteurs une application qu’il a créée. En conclusion, il faut que les établissements associent des cours solides à de vraies expériences professionnelles pour préparer les jeunes à l’emploi.
+Pour ma part, le diplôme et l’expérience doivent se compléter plutôt que s’opposer. Tout d’abord, une formation structurée donne des connaissances solides et une qualification reconnue par les recruteurs. Elle aide à comprendre une situation nouvelle quand l’expérience manque encore. De plus, il faut que les jeunes mettent ces connaissances à l’épreuve sur le terrain. Un stage leur apprend à travailler en équipe, à respecter un délai et à résoudre un problème concret. Par exemple, un étudiant en informatique peut suivre ses cours, effectuer un stage et présenter aux recruteurs une application qu’il a créée. En conclusion, je privilégie des études qui associent cours exigeants et expériences professionnelles réelles.
 
-**Total : 161 mots (titre compris)**
+**Total : 164 mots (titre compris)**
 
 ---
 

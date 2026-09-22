@@ -62,6 +62,9 @@ EE_TACHE_THREE_RESPONSES_DIR = EE_TACHE_THREE_DIR / "responses"
 EE_TACHE_THREE_SUBJECTS_DIR = EE_TACHE_THREE_DIR / "subjects"
 EE_TACHE_THREE_VOCABULARY_DIR = EE_TACHE_THREE_DIR / "vocabulary"
 EE_TACHE_THREE_MEMOIRES_DIR = EE_TACHE_THREE_DIR / "memoires"
+EE_TACHE_THREE_PHRASE_ID_MERGES_PATH = (
+    EE_TACHE_THREE_DIR / "phrase_id_merge_indices.json"
+)
 EE_TACHE_THREE_AUTHOR_RESPONSES_PATH = (
     EE_TACHE_THREE_DIR / "author_responses.json"
 )
@@ -4324,15 +4327,15 @@ def ee_tache_three_phrase_id_merges(
     groups: Optional[Tuple[EeEquivalentGroupData, ...]] = None,
     directory: Path = EE_TACHE_THREE_VOCABULARY_DIR,
 ) -> Dict[str, str]:
-    """Map every retired alias-vocabulary ID onto one canonical vocabulary ID.
+    """Map every retired alias-vocabulary ID onto its historical canonical ID.
 
-    The original monthly decks were generated independently, so exact targets
-    overlap only partially. Migration first preserves exact target+kind pairs,
-    then exact targets, then stable positions within the same kind, and finally
-    the remaining positions. Each 30-card alias deck maps bijectively onto its
-    canonical 30-card deck; this carries learner schedules forward without
-    changing the active canonical content.
+    Bundled content uses a stable index manifest so editorial vocabulary changes
+    cannot redirect existing learner schedules. Custom directories retain the
+    deterministic matching fallback used by import and content-contract tests.
     """
+    use_stable_manifest = (
+        groups is None and directory == EE_TACHE_THREE_VOCABULARY_DIR
+    )
     groups = groups or load_ee_equivalent_groups(3)
     entries_by_response: Dict[str, List[dict]] = {}
     for path in sorted(directory.glob("*.json")):
@@ -4342,6 +4345,71 @@ def ee_tache_three_phrase_id_merges(
                 entries_by_response[str(row.get("response_key"))] = row.get(
                     "entries"
                 )
+
+    if use_stable_manifest:
+        payload = json.loads(
+            EE_TACHE_THREE_PHRASE_ID_MERGES_PATH.read_text(encoding="utf-8"),
+            object_pairs_hook=_unique_json_fields,
+        )
+        if (
+            not isinstance(payload, dict)
+            or set(payload) != {"version", "aliases"}
+            or payload["version"] != 1
+            or not isinstance(payload["aliases"], dict)
+        ):
+            raise ValueError("Invalid EE Tâche 3 phrase-ID merge manifest")
+
+        canonical_by_alias = {
+            member: group.canonical
+            for group in groups
+            for member in group.members
+            if member != group.canonical
+        }
+        aliases = payload["aliases"]
+        if set(aliases) != set(canonical_by_alias):
+            raise ValueError("EE Tâche 3 phrase-ID merge coverage mismatch")
+
+        merges: Dict[str, str] = {}
+        expected_indices = set(range(EE_TACHE_THREE_VOCABULARY_PER_RESPONSE))
+        for alias, canonical in canonical_by_alias.items():
+            target_indices = aliases[alias]
+            if (
+                not isinstance(target_indices, list)
+                or len(target_indices)
+                != EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
+                or any(type(index) is not int for index in target_indices)
+                or set(target_indices) != expected_indices
+            ):
+                raise ValueError(
+                    f"Invalid EE Tâche 3 phrase-ID merge indices for {alias!r}"
+                )
+            source_entries = entries_by_response.get(alias)
+            canonical_entries = entries_by_response.get(canonical)
+            if (
+                not isinstance(source_entries, list)
+                or not isinstance(canonical_entries, list)
+                or len(source_entries)
+                != EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
+                or len(canonical_entries)
+                != EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
+            ):
+                raise ValueError(
+                    f"Missing EE Tâche 3 vocabulary for {alias!r}"
+                )
+            for source, target_index in zip(source_entries, target_indices):
+                source_id = source.get("id")
+                target_id = canonical_entries[target_index].get("id")
+                if (
+                    not isinstance(source_id, str)
+                    or not source_id
+                    or not isinstance(target_id, str)
+                    or not target_id
+                ):
+                    raise ValueError(
+                        f"Invalid EE Tâche 3 vocabulary ID for {alias!r}"
+                    )
+                merges[source_id] = target_id
+        return merges
 
     merges: Dict[str, str] = {}
     for group in groups:

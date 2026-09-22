@@ -24,6 +24,7 @@ from django.test import (
 )
 from django.urls import NoReverseMatch, Resolver404, resolve, reverse
 from django.utils import timezone
+from django.utils.html import escape
 
 from config import urls as config_urls
 from study import content_loader as content_module
@@ -1304,7 +1305,7 @@ class EeTacheThreePageTests(TestCase):
                 for phrase in section["phrases"]:
                     ids.add(phrase.pk)
                     self.assertContains(detail, phrase.expression)
-                    self.assertContains(detail, phrase.english_cue)
+                    self.assertContains(detail, escape(phrase.english_cue))
                     self.assertContains(detail, phrase.example_html)
         self.assertEqual(len(ids), 2340)
         all_publications = self.client.get(self._task_url("study:task_phrases"), {"deduplicate": "0"})

@@ -1,3 +1,4 @@
+import hashlib
 import json
 import re
 from dataclasses import replace
@@ -474,6 +475,50 @@ class EeTacheThreeUnifiedResponseTests(SimpleTestCase):
                     self.assertIn(entry["example"], effective)
         self.assertEqual(author_entry_count, 300)
 
+    def test_all_raw_vocabulary_is_grounded_without_changing_identity(self):
+        sources = {
+            row.content_key: row
+            for month in content.load_ee_tache_three_months()
+            for row in month.combinaisons
+        }
+        authors = content.load_ee_tache_three_author_responses()
+        identities = []
+        response_count = 0
+        entry_count = 0
+
+        for path in sorted(content.EE_TACHE_THREE_VOCABULARY_DIR.glob("*.json")):
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            for row in payload["responses"]:
+                response_count += 1
+                content_key = row["response_key"]
+                source = sources[content_key]
+                author = authors.get(content_key)
+                answer = (
+                    author["synthese"] + " " + author["point_de_vue"]
+                    if author
+                    else source.synthese + " " + source.point_de_vue
+                )
+                self.assertEqual(len(row["entries"]), 30)
+                for index, entry in enumerate(row["entries"]):
+                    entry_count += 1
+                    identities.append(
+                        f"{path.stem}|{content_key}|{index}|"
+                        f"{entry['id']}|{entry['kind']}"
+                    )
+                    with self.subTest(entry=entry["id"]):
+                        self.assertIn(entry["example"], answer)
+                        self.assertIn(
+                            content._ee_tache_three_normalize(entry["french"]),
+                            content._ee_tache_three_normalize(entry["example"]),
+                        )
+
+        self.assertEqual(response_count, 138)
+        self.assertEqual(entry_count, 4140)
+        self.assertEqual(
+            hashlib.sha256("\n".join(identities).encode()).hexdigest(),
+            "397a8d160618ba1acb738889cd92884d5c9407f41c9d43ac5296af54d0c7aa3d",
+        )
+
     def test_corrected_source_vocabulary_stays_anchored_to_its_model(self):
         corrected_ids = {
             "E3-AVR-C04-04",
@@ -517,6 +562,12 @@ class EeTacheThreeUnifiedResponseTests(SimpleTestCase):
 
         self.assertEqual(len(merges), 1800)
         self.assertTrue(all(source != target for source, target in merges.items()))
+        self.assertEqual(
+            hashlib.sha256("\n".join(
+                f"{source}|{merges[source]}" for source in sorted(merges)
+            ).encode()).hexdigest(),
+            "eea1d31be30ebb559cf7704d5594c65d80afa9703984490f07742206067f40c6",
+        )
         for group in content.load_ee_equivalent_groups(3):
             canonical_ids = {
                 entry["id"] for entry in entries_by_key[group.canonical]

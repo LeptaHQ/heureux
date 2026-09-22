@@ -139,8 +139,10 @@ entre les textes ressort de leur contenu.
   est toujours le plus ancien du groupe. Mêmes règles de validation que l'Expression
   orale Tâche 2.
 - `ee_tache_three_phrase_id_merges()` associe les **1 800 identifiants** de vocabulaire
-  des publications devenues alias aux 30 fiches de leur réponse canonique. L'import
-  conserve ainsi les calendriers de révision et les annotations déjà créés.
+  des publications devenues alias aux 30 fiches de leur réponse canonique.
+  `phrase_id_merge_indices.json` fige cette bijection historique afin qu’une
+  régénération éditoriale ne réattribue jamais un ancien identifiant à une autre
+  fiche. L’import conserve ainsi les calendriers de révision et les annotations.
 - `author_responses.json` — **10 réponses rédigées par l'auteur** qui remplacent le
   modèle fourni. Chaque `content_key` doit être un sujet `canonical` ; les entrées
   sont classées par ordre de publication. Elles proviennent de sa

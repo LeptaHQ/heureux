@@ -15,25 +15,25 @@
         {
           "id": "E3-NOV-C01-01",
           "kind": "phrase-modele",
-          "french": "La question des jeux vidéo suscite des avis partagés",
-          "english": "The question of video games divides opinion",
-          "example": "La question des jeux vidéo suscite des avis partagés.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Numérique/Éducation."
+          "french": "Les deux documents abordent les effets des jeux vidéo",
+          "english": "Both documents address the effects of video games",
+          "example": "Les deux documents abordent les effets des jeux vidéo.",
+          "usage": "Formule d’introduction de synthèse, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-NOV-C01-02",
           "kind": "mot-cle",
           "french": "les jeux vidéo",
           "english": "video games",
-          "example": "À mon avis, les jeux vidéo peuvent être bénéfiques à condition que leur usage soit adapté à l’âge et limité.",
+          "example": "Pour ma part, les jeux vidéo peuvent être bénéfiques à condition que leur usage soit adapté à l’âge et limité.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-NOV-C01-03",
           "kind": "expression",
-          "french": "D’un côté",
-          "english": "On the one hand",
-          "example": "D’un côté, certaines pratiques stimuleraient chez les adultes l’analyse, la prise de décision et la rapidité de réaction.",
+          "french": "De son côté",
+          "english": "For its part",
+          "example": "De son côté, le second associe une utilisation intensive chez les enfants au stress, à la violence et à de moins bons résultats scolaires.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
@@ -41,7 +41,7 @@
           "kind": "mot-cle",
           "french": "la prise de décision",
           "english": "decision-making",
-          "example": "D’un côté, certaines pratiques stimuleraient chez les adultes l’analyse, la prise de décision et la rapidité de réaction.",
+          "example": "Le premier estime que certains jeux améliorent chez les adultes l’analyse, la prise de décision et la rapidité de réaction, mais pas tous.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
@@ -49,15 +49,15 @@
           "kind": "collocation",
           "french": "la rapidité de réaction",
           "english": "speed of reaction",
-          "example": "D’un côté, certaines pratiques stimuleraient chez les adultes l’analyse, la prise de décision et la rapidité de réaction.",
+          "example": "Le premier estime que certains jeux améliorent chez les adultes l’analyse, la prise de décision et la rapidité de réaction, mais pas tous.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-NOV-C01-06",
           "kind": "expression",
-          "french": "En revanche",
-          "english": "On the other hand",
-          "example": "En revanche, une utilisation intensive chez les enfants serait associée au stress, à l’agressivité et à de moins bons résultats scolaires, ce qui appelle une vigilance parentale.",
+          "french": "Tout d’abord",
+          "english": "First of all",
+          "example": "Tout d’abord, certains jeux développent la stratégie, la coordination et la capacité d’analyse, car ils obligent le joueur à anticiper, à corriger ses erreurs et à décider vite.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
@@ -65,7 +65,7 @@
           "kind": "collocation",
           "french": "une utilisation intensive",
           "english": "intensive use",
-          "example": "En revanche, une utilisation intensive chez les enfants serait associée au stress, à l’agressivité et à de moins bons résultats scolaires, ce qui appelle une vigilance parentale.",
+          "example": "De son côté, le second associe une utilisation intensive chez les enfants au stress, à la violence et à de moins bons résultats scolaires.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
@@ -73,23 +73,23 @@
           "kind": "mot-cle",
           "french": "résultats scolaires",
           "english": "academic results",
-          "example": "En revanche, une utilisation intensive chez les enfants serait associée au stress, à l’agressivité et à de moins bons résultats scolaires, ce qui appelle une vigilance parentale.",
+          "example": "De son côté, le second associe une utilisation intensive chez les enfants au stress, à la violence et à de moins bons résultats scolaires.",
           "usage": "Groupe nominal, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-NOV-C01-09",
           "kind": "mot-cle",
-          "french": "une vigilance parentale",
-          "english": "parental vigilance",
-          "example": "En revanche, une utilisation intensive chez les enfants serait associée au stress, à l’agressivité et à de moins bons résultats scolaires, ce qui appelle une vigilance parentale.",
+          "french": "la violence",
+          "english": "violence",
+          "example": "De son côté, le second associe une utilisation intensive chez les enfants au stress, à la violence et à de moins bons résultats scolaires.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-NOV-C01-10",
           "kind": "phrase-modele",
-          "french": "À mon avis, les jeux vidéo peuvent être bénéfiques à condition que leur usage soit adapté à l’âge et limité",
-          "english": "In my opinion, video games can be beneficial provided that their use is age-appropriate and limited",
-          "example": "À mon avis, les jeux vidéo peuvent être bénéfiques à condition que leur usage soit adapté à l’âge et limité.",
+          "french": "Pour ma part, les jeux vidéo peuvent être bénéfiques à condition que leur usage soit adapté à l’âge et limité",
+          "english": "For my part, video games can be beneficial provided that their use is age-appropriate and limited",
+          "example": "Pour ma part, les jeux vidéo peuvent être bénéfiques à condition que leur usage soit adapté à l’âge et limité.",
           "usage": "Formule argumentative avec le subjonctif ; réutilisable en Numérique/Éducation."
         },
         {
@@ -97,7 +97,7 @@
           "kind": "tournure",
           "french": "à condition que leur usage soit adapté à l’âge et limité",
           "english": "provided that their use is age-appropriate and limited",
-          "example": "Les jeux vidéo peuvent être bénéfiques à condition que leur usage soit adapté à l’âge et limité.",
+          "example": "Pour ma part, les jeux vidéo peuvent être bénéfiques à condition que leur usage soit adapté à l’âge et limité.",
           "usage": "Structure avec « à condition que » et le subjonctif ; réutilisable en Numérique/Éducation."
         },
         {
@@ -105,7 +105,7 @@
           "kind": "collocation",
           "french": "adapté à l’âge",
           "english": "age-appropriate",
-          "example": "Leur usage doit rester adapté à l’âge des joueurs.",
+          "example": "Pour ma part, les jeux vidéo peuvent être bénéfiques à condition que leur usage soit adapté à l’âge et limité.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
@@ -137,7 +137,7 @@
           "kind": "collocation",
           "french": "des horaires précis",
           "english": "set time limits",
-          "example": "Ensuite, des horaires précis préservent le sommeil, les devoirs et les relations familiales.",
+          "example": "De plus, des horaires précis préservent le sommeil, les devoirs et les relations familiales.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
@@ -145,7 +145,7 @@
           "kind": "verbe-action",
           "french": "préservent le sommeil, les devoirs et les relations familiales",
           "english": "protect sleep, homework and family relationships",
-          "example": "Ensuite, des horaires précis préservent le sommeil, les devoirs et les relations familiales.",
+          "example": "De plus, des horaires précis préservent le sommeil, les devoirs et les relations familiales.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
@@ -153,7 +153,7 @@
           "kind": "mot-cle",
           "french": "les relations familiales",
           "english": "family relationships",
-          "example": "Ensuite, des horaires précis préservent le sommeil, les devoirs et les relations familiales.",
+          "example": "De plus, des horaires précis préservent le sommeil, les devoirs et les relations familiales.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
@@ -191,25 +191,25 @@
         {
           "id": "E3-NOV-C01-23",
           "kind": "phrase-modele",
-          "french": "Cependant, il faut aussi reconnaître que les mécanismes de récompense favorisent parfois la dépendance",
-          "english": "However, it must also be acknowledged that reward mechanisms sometimes foster addiction",
-          "example": "Cependant, il faut aussi reconnaître que les mécanismes de récompense favorisent parfois la dépendance.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Numérique/Éducation."
+          "french": "Par exemple, un adolescent pourrait jouer quarante-cinq minutes après avoir terminé son travail scolaire, puis éteindre sa console avant le repas",
+          "english": "For example, a teenager could play forty-five minutes after finishing his schoolwork, then turn off his console before the meal",
+          "example": "Par exemple, un adolescent pourrait jouer quarante-cinq minutes après avoir terminé son travail scolaire, puis éteindre sa console avant le repas.",
+          "usage": "Phrase d’illustration au conditionnel ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-NOV-C01-24",
           "kind": "mot-cle",
-          "french": "les mécanismes de récompense",
-          "english": "reward mechanisms",
-          "example": "Cependant, il faut aussi reconnaître que les mécanismes de récompense favorisent parfois la dépendance.",
-          "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Numérique/Éducation."
+          "french": "un adolescent",
+          "english": "a teenager",
+          "example": "Par exemple, un adolescent pourrait jouer quarante-cinq minutes après avoir terminé son travail scolaire, puis éteindre sa console avant le repas.",
+          "usage": "Groupe nominal singulier, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-NOV-C01-25",
           "kind": "mot-cle",
-          "french": "la dépendance",
-          "english": "addiction",
-          "example": "Cependant, il faut aussi reconnaître que les mécanismes de récompense favorisent parfois la dépendance.",
+          "french": "sa console",
+          "english": "his games console",
+          "example": "Par exemple, un adolescent pourrait jouer quarante-cinq minutes après avoir terminé son travail scolaire, puis éteindre sa console avant le repas.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
@@ -262,33 +262,33 @@
         {
           "id": "E3-NOV-C02-01",
           "kind": "phrase-modele",
-          "french": "Le bien-être au travail oppose deux visions de l’organisation professionnelle",
-          "english": "Workplace well-being contrasts two views of professional organization",
-          "example": "Le bien-être au travail oppose deux visions de l’organisation professionnelle.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Travail/Bien-être."
+          "french": "Les deux documents abordent le bien-être au travail",
+          "english": "Both documents address well-being at work",
+          "example": "Les deux documents abordent le bien-être au travail.",
+          "usage": "Formule d’introduction de synthèse, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-NOV-C02-02",
           "kind": "mot-cle",
           "french": "Le bien-être au travail",
           "english": "workplace well-being",
-          "example": "Le bien-être au travail oppose deux visions de l’organisation professionnelle.",
+          "example": "Les deux documents abordent le bien-être au travail.",
           "usage": "Nom masculin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-NOV-C02-03",
           "kind": "mot-cle",
-          "french": "l’organisation professionnelle",
-          "english": "professional organization",
-          "example": "Le bien-être au travail oppose deux visions de l’organisation professionnelle.",
-          "usage": "Nom singulier, registre neutre ; réutilisable en Travail/Bien-être."
+          "french": "le confort",
+          "english": "comfort",
+          "example": "Le premier valorise les bureaux électriques, qui amélioreraient le confort, la productivité et les échanges entre collègues.",
+          "usage": "Nom masculin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-NOV-C02-04",
           "kind": "collocation",
           "french": "des bureaux électriques",
           "english": "height-adjustable electric desks",
-          "example": "Le premier témoignage valorise des bureaux électriques, qui amélioreraient le confort, la productivité et les échanges entre collègues.",
+          "example": "Par exemple, une entreprise peut fournir des bureaux électriques tout en bloquant les courriels professionnels après dix-huit heures.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -296,7 +296,7 @@
           "kind": "mot-cle",
           "french": "la productivité",
           "english": "productivity",
-          "example": "Le premier témoignage valorise des bureaux électriques, qui amélioreraient le confort, la productivité et les échanges entre collègues.",
+          "example": "Le premier valorise les bureaux électriques, qui amélioreraient le confort, la productivité et les échanges entre collègues.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -304,7 +304,7 @@
           "kind": "collocation",
           "french": "les échanges entre collègues",
           "english": "exchanges among colleagues",
-          "example": "Le premier témoignage valorise des bureaux électriques, qui amélioreraient le confort, la productivité et les échanges entre collègues.",
+          "example": "Le premier valorise les bureaux électriques, qui amélioreraient le confort, la productivité et les échanges entre collègues.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -312,7 +312,7 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, le second redoute que ces aménagements ne servent surtout à prolonger les journées et réclame le respect strict du temps de travail.",
+          "example": "En revanche, le second redoute que ces aménagements servent surtout à prolonger les journées et réclame le respect strict du temps de travail.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -320,7 +320,7 @@
           "kind": "tournure",
           "french": "prolonger les journées",
           "english": "to extend the workday",
-          "example": "En revanche, le second redoute que ces aménagements ne servent surtout à prolonger les journées et réclame le respect strict du temps de travail.",
+          "example": "En revanche, le second redoute que ces aménagements servent surtout à prolonger les journées et réclame le respect strict du temps de travail.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -328,7 +328,7 @@
           "kind": "collocation",
           "french": "le respect strict du temps de travail",
           "english": "strict respect for working hours",
-          "example": "En revanche, le second redoute que ces aménagements ne servent surtout à prolonger les journées et réclame le respect strict du temps de travail.",
+          "example": "En revanche, le second redoute que ces aménagements servent surtout à prolonger les journées et réclame le respect strict du temps de travail.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -336,15 +336,15 @@
           "kind": "mot-cle",
           "french": "temps de travail",
           "english": "working time",
-          "example": "En revanche, le second redoute que ces aménagements ne servent surtout à prolonger les journées et réclame le respect strict du temps de travail.",
+          "example": "En revanche, le second redoute que ces aménagements servent surtout à prolonger les journées et réclame le respect strict du temps de travail.",
           "usage": "Groupe nominal, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-NOV-C02-11",
           "kind": "phrase-modele",
-          "french": "Selon moi, il faut que les bonnes conditions matérielles s’accompagnent du respect des horaires pour assurer le bien-être des salariés",
-          "english": "In my view, good material conditions must be accompanied by respect for working hours to ensure employee well-being",
-          "example": "Selon moi, il faut que les bonnes conditions matérielles s’accompagnent du respect des horaires pour assurer le bien-être des salariés.",
+          "french": "Pour ma part, il faut que les bonnes conditions matérielles s’accompagnent du respect des horaires pour assurer le bien-être des salariés",
+          "english": "For my part, good material conditions must be accompanied by respect for working hours to ensure employee well-being",
+          "example": "Pour ma part, il faut que les bonnes conditions matérielles s’accompagnent du respect des horaires pour assurer le bien-être des salariés.",
           "usage": "Formule argumentative avec le subjonctif ; réutilisable en Travail/Bien-être."
         },
         {
@@ -352,15 +352,15 @@
           "kind": "mot-cle",
           "french": "le bien-être des salariés",
           "english": "employee well-being",
-          "example": "Le bien-être des salariés dépend aussi du respect des horaires.",
+          "example": "Pour ma part, il faut que les bonnes conditions matérielles s’accompagnent du respect des horaires pour assurer le bien-être des salariés.",
           "usage": "Nom masculin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-NOV-C02-13",
           "kind": "collocation",
-          "french": "de bonnes conditions matérielles",
+          "french": "les bonnes conditions matérielles",
           "english": "good material conditions",
-          "example": "Le bien-être au travail exige de bonnes conditions matérielles.",
+          "example": "Pour ma part, il faut que les bonnes conditions matérielles s’accompagnent du respect des horaires pour assurer le bien-être des salariés.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -368,7 +368,7 @@
           "kind": "tournure",
           "french": "s’accompagnent du respect des horaires",
           "english": "are accompanied by respect for working hours",
-          "example": "Il faut que les bonnes conditions matérielles s’accompagnent du respect des horaires.",
+          "example": "Pour ma part, il faut que les bonnes conditions matérielles s’accompagnent du respect des horaires pour assurer le bien-être des salariés.",
           "usage": "Structure au subjonctif, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -400,7 +400,7 @@
           "kind": "mot-cle",
           "french": "le droit à la déconnexion",
           "english": "the right to disconnect",
-          "example": "Ensuite, le droit à la déconnexion protège l’équilibre entre vie professionnelle et personnelle.",
+          "example": "De plus, le droit à la déconnexion protège l’équilibre entre vie professionnelle et personnelle.",
           "usage": "Nom masculin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -408,7 +408,7 @@
           "kind": "mot-cle",
           "french": "l’équilibre entre vie professionnelle et personnelle",
           "english": "work-life balance",
-          "example": "Ensuite, le droit à la déconnexion protège l’équilibre entre vie professionnelle et personnelle.",
+          "example": "De plus, le droit à la déconnexion protège l’équilibre entre vie professionnelle et personnelle.",
           "usage": "Nom singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -446,25 +446,25 @@
         {
           "id": "E3-NOV-C02-24",
           "kind": "phrase-modele",
-          "french": "Cependant, il faut aussi reconnaître que certains métiers nécessitent une souplesse ponctuelle",
-          "english": "However, it must also be acknowledged that some occupations require occasional flexibility",
-          "example": "Cependant, il faut aussi reconnaître que certains métiers nécessitent une souplesse ponctuelle.",
+          "french": "Cette politique améliore le confort sans pousser les employés aux heures supplémentaires",
+          "english": "This policy improves comfort without pushing employees into overtime",
+          "example": "Cette politique améliore le confort sans pousser les employés aux heures supplémentaires.",
           "usage": "Formule argumentative, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-NOV-C02-25",
           "kind": "collocation",
-          "french": "une souplesse ponctuelle",
-          "english": "occasional flexibility",
-          "example": "Cependant, il faut aussi reconnaître que certains métiers nécessitent une souplesse ponctuelle.",
+          "french": "améliore le confort",
+          "english": "improves comfort",
+          "example": "Cette politique améliore le confort sans pousser les employés aux heures supplémentaires.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-NOV-C02-26",
           "kind": "phrase-modele",
-          "french": "En définitive, le plus important est de créer un environnement sain qui soutienne l’efficacité sans augmenter la pression",
-          "english": "Ultimately, the most important thing is to create a healthy environment that supports efficiency without increasing pressure",
-          "example": "En définitive, le plus important est de créer un environnement sain qui soutienne l’efficacité sans augmenter la pression.",
+          "french": "En conclusion, le plus important est de créer un environnement sain qui soutienne l’efficacité sans augmenter la pression",
+          "english": "In conclusion, the most important thing is to create a healthy environment that supports efficiency without increasing pressure",
+          "example": "En conclusion, le plus important est de créer un environnement sain qui soutienne l’efficacité sans augmenter la pression.",
           "usage": "Formule argumentative, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -472,7 +472,7 @@
           "kind": "mot-cle",
           "french": "un environnement sain",
           "english": "a healthy environment",
-          "example": "En définitive, le plus important est de créer un environnement sain qui soutienne l’efficacité sans augmenter la pression.",
+          "example": "En conclusion, le plus important est de créer un environnement sain qui soutienne l’efficacité sans augmenter la pression.",
           "usage": "Nom masculin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -480,7 +480,7 @@
           "kind": "tournure",
           "french": "sans augmenter la pression",
           "english": "without increasing pressure",
-          "example": "En définitive, le plus important est de créer un environnement sain qui soutienne l’efficacité sans augmenter la pression.",
+          "example": "En conclusion, le plus important est de créer un environnement sain qui soutienne l’efficacité sans augmenter la pression.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -488,7 +488,7 @@
           "kind": "verbe-action",
           "french": "soutienne l’efficacité",
           "english": "supports efficiency",
-          "example": "En définitive, le plus important est de créer un environnement sain qui soutienne l’efficacité sans augmenter la pression.",
+          "example": "En conclusion, le plus important est de créer un environnement sain qui soutienne l’efficacité sans augmenter la pression.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -509,17 +509,17 @@
         {
           "id": "E3-NOV-C03-01",
           "kind": "phrase-modele",
-          "french": "Les deux documents s’opposent sur l’interdiction des distributeurs automatiques au lycée",
-          "english": "The two documents disagree about banning vending machines in high schools",
-          "example": "Les deux documents s’opposent sur l’interdiction des distributeurs automatiques au lycée.",
-          "usage": "Formule argumentative ; réutilisable en Éducation/Santé."
+          "french": "Les deux documents abordent l’interdiction des distributeurs automatiques au lycée",
+          "english": "Both documents address the ban on vending machines in high schools",
+          "example": "Les deux documents abordent l’interdiction des distributeurs automatiques au lycée.",
+          "usage": "Formule d’introduction de synthèse ; réutilisable en Éducation/Santé."
         },
         {
           "id": "E3-NOV-C03-02",
           "kind": "mot-cle",
           "french": "distributeurs automatiques",
           "english": "vending machines",
-          "example": "Les deux documents s’opposent sur l’interdiction des distributeurs automatiques au lycée.",
+          "example": "Les deux documents abordent l’interdiction des distributeurs automatiques au lycée.",
           "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Santé."
         },
         {
@@ -527,23 +527,23 @@
           "kind": "mot-cle",
           "french": "l’obésité des adolescents",
           "english": "teenage obesity",
-          "example": "Le premier la juge urgente : l’obésité des adolescents progresse et l’école doit jouer son rôle éducatif face aux produits sucrés.",
+          "example": "Le premier la juge urgente face à l’obésité des adolescents et au rôle éducatif de l’école.",
           "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Santé."
         },
         {
           "id": "E3-NOV-C03-04",
           "kind": "collocation",
-          "french": "jouer son rôle éducatif",
-          "english": "to play its educational role",
-          "example": "Le premier la juge urgente : l’obésité des adolescents progresse et l’école doit jouer son rôle éducatif face aux produits sucrés.",
+          "french": "rôle éducatif de l’école",
+          "english": "the educational role of the school",
+          "example": "Le premier la juge urgente face à l’obésité des adolescents et au rôle éducatif de l’école.",
           "usage": "Collocation ; réutilisable en Éducation/Santé."
         },
         {
           "id": "E3-NOV-C03-05",
           "kind": "mot-cle",
-          "french": "produits sucrés",
-          "english": "sugary products",
-          "example": "Le premier la juge urgente : l’obésité des adolescents progresse et l’école doit jouer son rôle éducatif face aux produits sucrés.",
+          "french": "l’école",
+          "english": "the school",
+          "example": "Le premier la juge urgente face à l’obésité des adolescents et au rôle éducatif de l’école.",
           "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Santé."
         },
         {
@@ -551,7 +551,7 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident les élèves qui arrivent sans avoir pris de petit déjeuner.",
+          "example": "En revanche, le second affirme que ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident les élèves qui arrivent sans avoir pris de petit déjeuner.",
           "usage": "Connecteur adverbial ; réutilisable en Éducation/Santé."
         },
         {
@@ -559,15 +559,15 @@
           "kind": "reformulation",
           "french": "le second",
           "english": "the second one",
-          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident les élèves qui arrivent sans avoir pris de petit déjeuner.",
+          "example": "En revanche, le second affirme que ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident les élèves qui arrivent sans avoir pris de petit déjeuner.",
           "usage": "Reprise anaphorique ; réutilisable en Éducation/Santé."
         },
         {
           "id": "E3-NOV-C03-08",
           "kind": "mot-cle",
-          "french": "les industriels",
-          "english": "the manufacturers",
-          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident les élèves qui arrivent sans avoir pris de petit déjeuner.",
+          "french": "petit déjeuner",
+          "english": "breakfast",
+          "example": "En revanche, le second affirme que ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident les élèves qui arrivent sans avoir pris de petit déjeuner.",
           "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Santé."
         },
         {
@@ -575,7 +575,7 @@
           "kind": "collocation",
           "french": "des boissons chaudes",
           "english": "hot drinks",
-          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident les élèves qui arrivent sans avoir pris de petit déjeuner.",
+          "example": "En revanche, le second affirme que ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident les élèves qui arrivent sans avoir pris de petit déjeuner.",
           "usage": "Collocation ; réutilisable en Éducation/Santé."
         },
         {
@@ -583,7 +583,7 @@
           "kind": "mot-cle",
           "french": "l’établissement",
           "english": "the school premises",
-          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident les élèves qui arrivent sans avoir pris de petit déjeuner.",
+          "example": "En revanche, le second affirme que ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident les élèves qui arrivent sans avoir pris de petit déjeuner.",
           "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Santé."
         },
         {
@@ -591,15 +591,15 @@
           "kind": "mot-cle",
           "french": "ces machines",
           "english": "these machines",
-          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident les élèves qui arrivent sans avoir pris de petit déjeuner.",
+          "example": "En revanche, le second affirme que ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident les élèves qui arrivent sans avoir pris de petit déjeuner.",
           "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Santé."
         },
         {
           "id": "E3-NOV-C03-12",
           "kind": "phrase-modele",
-          "french": "Personnellement, je suis favorable à ces appareils à condition que leur contenu soit strictement encadré",
-          "english": "Personally, I support these machines provided their contents are strictly regulated",
-          "example": "Personnellement, je suis favorable à ces appareils à condition que leur contenu soit strictement encadré.",
+          "french": "Pour ma part, je suis favorable à ces appareils à condition que leur contenu soit strictement encadré",
+          "english": "For my part, I am in favour of these machines provided that their contents are strictly regulated",
+          "example": "Pour ma part, je suis favorable à ces appareils à condition que leur contenu soit strictement encadré.",
           "usage": "Formule argumentative, registre neutre ; réutilisable en Santé/Éducation."
         },
         {
@@ -607,7 +607,7 @@
           "kind": "tournure",
           "french": "à condition que leur contenu soit strictement encadré",
           "english": "provided their contents are strictly regulated",
-          "example": "Personnellement, je suis favorable à ces appareils à condition que leur contenu soit strictement encadré.",
+          "example": "Pour ma part, je suis favorable à ces appareils à condition que leur contenu soit strictement encadré.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Santé/Éducation."
         },
         {
@@ -615,7 +615,7 @@
           "kind": "mot-cle",
           "french": "l’accès rapide à l’eau",
           "english": "quick access to water",
-          "example": "Tout d’abord, l’accès rapide à l’eau aide les élèves à rester attentifs.",
+          "example": "Tout d’abord, l’accès rapide à l’eau aide les élèves à rester attentifs tout au long de la journée.",
           "usage": "Nom singulier, registre neutre ; réutilisable en Santé/Éducation."
         },
         {
@@ -623,7 +623,7 @@
           "kind": "verbe-action",
           "french": "rester attentifs",
           "english": "to stay attentive",
-          "example": "Tout d’abord, l’accès rapide à l’eau aide les élèves à rester attentifs.",
+          "example": "Tout d’abord, l’accès rapide à l’eau aide les élèves à rester attentifs tout au long de la journée.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Santé/Éducation."
         },
         {
@@ -631,7 +631,7 @@
           "kind": "expression",
           "french": "De plus",
           "english": "Moreover",
-          "example": "De plus, les bénéfices peuvent financer des outils pédagogiques.",
+          "example": "De plus, les bénéfices peuvent financer des outils pédagogiques qui profitent à l’ensemble des élèves.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Santé/Éducation."
         },
         {
@@ -639,7 +639,7 @@
           "kind": "mot-cle",
           "french": "les bénéfices",
           "english": "the proceeds",
-          "example": "De plus, les bénéfices peuvent financer des outils pédagogiques.",
+          "example": "De plus, les bénéfices peuvent financer des outils pédagogiques qui profitent à l’ensemble des élèves.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Santé/Éducation."
         },
         {
@@ -647,7 +647,7 @@
           "kind": "verbe-action",
           "french": "financer des outils pédagogiques",
           "english": "to fund educational tools",
-          "example": "De plus, les bénéfices peuvent financer des outils pédagogiques.",
+          "example": "De plus, les bénéfices peuvent financer des outils pédagogiques qui profitent à l’ensemble des élèves.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Santé/Éducation."
         },
         {
@@ -655,7 +655,7 @@
           "kind": "mot-cle",
           "french": "des outils pédagogiques",
           "english": "educational tools",
-          "example": "De plus, les bénéfices peuvent financer des outils pédagogiques.",
+          "example": "De plus, les bénéfices peuvent financer des outils pédagogiques qui profitent à l’ensemble des élèves.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Santé/Éducation."
         },
         {
@@ -685,17 +685,17 @@
         {
           "id": "E3-NOV-C03-23",
           "kind": "phrase-modele",
-          "french": "Cependant, il faut aussi reconnaître que la publicité encourage les adolescents à choisir les produits les plus sucrés",
-          "english": "However, it must also be acknowledged that advertising encourages teenagers to choose the sweetest products",
-          "example": "Cependant, il faut aussi reconnaître que la publicité encourage les adolescents à choisir les produits les plus sucrés.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Santé/Éducation."
+          "french": "Par exemple, entre deux cours, un élève pressé peut se servir en quelques secondes plutôt que de faire la queue à la fontaine",
+          "english": "For example, between two classes, a student in a hurry can help himself in a few seconds rather than queueing at the fountain",
+          "example": "Par exemple, entre deux cours, un élève pressé peut se servir en quelques secondes plutôt que de faire la queue à la fontaine.",
+          "usage": "Phrase d’illustration, registre neutre ; réutilisable en Santé/Éducation."
         },
         {
           "id": "E3-NOV-C03-24",
           "kind": "collocation",
-          "french": "les produits les plus sucrés",
-          "english": "the sweetest products",
-          "example": "Cependant, il faut aussi reconnaître que la publicité encourage les adolescents à choisir les produits les plus sucrés.",
+          "french": "faire la queue à la fontaine",
+          "english": "to queue at the water fountain",
+          "example": "Par exemple, entre deux cours, un élève pressé peut se servir en quelques secondes plutôt que de faire la queue à la fontaine.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Santé/Éducation."
         },
         {
@@ -756,25 +756,25 @@
         {
           "id": "E3-NOV-C04-01",
           "kind": "phrase-modele",
-          "french": "La sieste au travail fait l’objet d’un débat nuancé",
-          "english": "Workplace napping is the subject of a nuanced debate",
-          "example": "La sieste au travail fait l’objet d’un débat nuancé.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Travail/Bien-être."
+          "french": "Les deux documents abordent la sieste au travail",
+          "english": "Both documents address napping at work",
+          "example": "Les deux documents abordent la sieste au travail.",
+          "usage": "Formule d’introduction de synthèse, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-NOV-C04-02",
           "kind": "mot-cle",
           "french": "La sieste au travail",
           "english": "workplace napping",
-          "example": "La sieste au travail fait l’objet d’un débat nuancé.",
+          "example": "Les deux documents abordent la sieste au travail.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-NOV-C04-03",
           "kind": "reformulation",
-          "french": "Ses défenseurs",
-          "english": "its supporters",
-          "example": "Ses défenseurs mettent en avant une meilleure concentration, davantage de créativité et une diminution du stress chez les salariés reposés.",
+          "french": "Le premier",
+          "english": "the first document",
+          "example": "Le premier met en avant une meilleure concentration, davantage de créativité et une diminution du stress chez les salariés reposés.",
           "usage": "Reformulation, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -782,7 +782,7 @@
           "kind": "collocation",
           "french": "une meilleure concentration",
           "english": "better concentration",
-          "example": "Ses défenseurs mettent en avant une meilleure concentration, davantage de créativité et une diminution du stress chez les salariés reposés.",
+          "example": "Le premier met en avant une meilleure concentration, davantage de créativité et une diminution du stress chez les salariés reposés.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -790,15 +790,15 @@
           "kind": "mot-cle",
           "french": "une diminution du stress",
           "english": "a reduction in stress",
-          "example": "Ses défenseurs mettent en avant une meilleure concentration, davantage de créativité et une diminution du stress chez les salariés reposés.",
+          "example": "Le premier met en avant une meilleure concentration, davantage de créativité et une diminution du stress chez les salariés reposés.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-NOV-C04-06",
           "kind": "expression",
-          "french": "Toutefois",
-          "english": "However",
-          "example": "Toutefois, ses opposants insistent sur les coûts, le manque d’espace et les obligations à respecter : un local dédié, du matériel adapté, l’égalité de traitement et la prévention du harcèlement.",
+          "french": "De son côté",
+          "english": "For its part",
+          "example": "De son côté, le second insiste sur les coûts, le manque d’espace et les règles à respecter concernant le local, le matériel, l’égalité de traitement et la prévention du harcèlement.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -806,7 +806,7 @@
           "kind": "mot-cle",
           "french": "le manque d’espace",
           "english": "lack of space",
-          "example": "Toutefois, ses opposants insistent sur les coûts, le manque d’espace et les obligations à respecter : un local dédié, du matériel adapté, l’égalité de traitement et la prévention du harcèlement.",
+          "example": "De son côté, le second insiste sur les coûts, le manque d’espace et les règles à respecter concernant le local, le matériel, l’égalité de traitement et la prévention du harcèlement.",
           "usage": "Nom masculin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -814,7 +814,7 @@
           "kind": "collocation",
           "french": "l’égalité de traitement",
           "english": "equal treatment",
-          "example": "Toutefois, ses opposants insistent sur les coûts, le manque d’espace et les obligations à respecter : un local dédié, du matériel adapté, l’égalité de traitement et la prévention du harcèlement.",
+          "example": "De son côté, le second insiste sur les coûts, le manque d’espace et les règles à respecter concernant le local, le matériel, l’égalité de traitement et la prévention du harcèlement.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -822,15 +822,15 @@
           "kind": "mot-cle",
           "french": "la prévention du harcèlement",
           "english": "harassment prevention",
-          "example": "Toutefois, ses opposants insistent sur les coûts, le manque d’espace et les obligations à respecter : un local dédié, du matériel adapté, l’égalité de traitement et la prévention du harcèlement.",
+          "example": "De son côté, le second insiste sur les coûts, le manque d’espace et les règles à respecter concernant le local, le matériel, l’égalité de traitement et la prévention du harcèlement.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-NOV-C04-10",
           "kind": "phrase-modele",
-          "french": "À mon avis, une courte sieste peut améliorer le bien-être et la productivité à condition qu’elle reste facultative",
-          "english": "In my opinion, a short nap can improve well-being and productivity provided that it remains optional",
-          "example": "À mon avis, une courte sieste peut améliorer le bien-être et la productivité à condition qu’elle reste facultative.",
+          "french": "Pour ma part, une courte sieste peut améliorer le bien-être et la productivité à condition qu’elle reste facultative",
+          "english": "For my part, a short nap can improve well-being and productivity provided that it remains optional",
+          "example": "Pour ma part, une courte sieste peut améliorer le bien-être et la productivité à condition qu’elle reste facultative.",
           "usage": "Formule argumentative avec le subjonctif ; réutilisable en Travail/Bien-être."
         },
         {
@@ -838,7 +838,7 @@
           "kind": "collocation",
           "french": "une courte sieste",
           "english": "a short nap",
-          "example": "Une courte sieste peut améliorer l’attention à condition qu’elle reste facultative.",
+          "example": "Pour ma part, une courte sieste peut améliorer le bien-être et la productivité à condition qu’elle reste facultative.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -846,7 +846,7 @@
           "kind": "tournure",
           "french": "à condition qu’elle reste facultative",
           "english": "provided that it remains optional",
-          "example": "Une courte sieste est acceptable à condition qu’elle reste facultative.",
+          "example": "Pour ma part, une courte sieste peut améliorer le bien-être et la productivité à condition qu’elle reste facultative.",
           "usage": "Structure avec « à condition que » et le subjonctif ; réutilisable en Travail/Bien-être."
         },
         {
@@ -854,7 +854,7 @@
           "kind": "mot-cle",
           "french": "le bien-être",
           "english": "well-being",
-          "example": "Une courte sieste peut améliorer le bien-être à condition qu’elle reste facultative.",
+          "example": "Pour ma part, une courte sieste peut améliorer le bien-être et la productivité à condition qu’elle reste facultative.",
           "usage": "Nom masculin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -862,15 +862,15 @@
           "kind": "mot-cle",
           "french": "la productivité",
           "english": "productivity",
-          "example": "Une courte sieste peut soutenir la productivité à condition qu’elle reste facultative.",
+          "example": "Pour ma part, une courte sieste peut améliorer le bien-être et la productivité à condition qu’elle reste facultative.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-NOV-C04-15",
           "kind": "expression",
-          "french": "En effet",
-          "english": "Indeed",
-          "example": "En effet, vingt minutes de repos suffisent souvent à réduire la fatigue sans perturber la journée.",
+          "french": "Tout d’abord",
+          "english": "First of all",
+          "example": "Tout d’abord, vingt minutes de repos suffisent souvent à réduire la fatigue et à retrouver de l’attention sans perturber la journée.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -878,7 +878,7 @@
           "kind": "collocation",
           "french": "vingt minutes de repos",
           "english": "twenty minutes of rest",
-          "example": "En effet, vingt minutes de repos suffisent souvent à réduire la fatigue sans perturber la journée.",
+          "example": "Tout d’abord, vingt minutes de repos suffisent souvent à réduire la fatigue et à retrouver de l’attention sans perturber la journée.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -886,7 +886,7 @@
           "kind": "verbe-action",
           "french": "réduire la fatigue",
           "english": "to reduce fatigue",
-          "example": "En effet, vingt minutes de repos suffisent souvent à réduire la fatigue sans perturber la journée.",
+          "example": "Tout d’abord, vingt minutes de repos suffisent souvent à réduire la fatigue et à retrouver de l’attention sans perturber la journée.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -894,7 +894,7 @@
           "kind": "tournure",
           "french": "sans perturber la journée",
           "english": "without disrupting the day",
-          "example": "En effet, vingt minutes de repos suffisent souvent à réduire la fatigue sans perturber la journée.",
+          "example": "Tout d’abord, vingt minutes de repos suffisent souvent à réduire la fatigue et à retrouver de l’attention sans perturber la journée.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -902,7 +902,7 @@
           "kind": "mot-cle",
           "french": "un cadre commun",
           "english": "a common framework",
-          "example": "Ensuite, un cadre commun évite les abus et les inégalités.",
+          "example": "De plus, un cadre commun évite les abus et les inégalités.",
           "usage": "Nom masculin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -910,7 +910,7 @@
           "kind": "mot-cle",
           "french": "les abus et les inégalités",
           "english": "abuses and inequalities",
-          "example": "Ensuite, un cadre commun évite les abus et les inégalités.",
+          "example": "De plus, un cadre commun évite les abus et les inégalités.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -956,17 +956,17 @@
         {
           "id": "E3-NOV-C04-26",
           "kind": "phrase-modele",
-          "french": "Cependant, il faut aussi reconnaître que toutes les structures ne disposent ni de l’espace ni du budget nécessaires",
-          "english": "However, it must also be acknowledged that not all organizations have the necessary space or budget",
-          "example": "Cependant, il faut aussi reconnaître que toutes les structures ne disposent ni de l’espace ni du budget nécessaires.",
+          "french": "Une pause aussi brève évite l’endormissement profond et permet de reprendre sa tâche immédiatement",
+          "english": "Such a short break avoids deep sleep and makes it possible to resume one’s task immediately",
+          "example": "Une pause aussi brève évite l’endormissement profond et permet de reprendre sa tâche immédiatement.",
           "usage": "Formule argumentative, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-NOV-C04-27",
           "kind": "tournure",
-          "french": "ne disposent ni de l’espace ni du budget nécessaires",
-          "english": "have neither the necessary space nor budget",
-          "example": "Cependant, il faut aussi reconnaître que toutes les structures ne disposent ni de l’espace ni du budget nécessaires.",
+          "french": "permet de reprendre sa tâche immédiatement",
+          "english": "makes it possible to resume one’s task immediately",
+          "example": "Une pause aussi brève évite l’endormissement profond et permet de reprendre sa tâche immédiatement.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -974,15 +974,15 @@
           "kind": "collocation",
           "french": "conditions de travail",
           "english": "working conditions",
-          "example": "En définitive, le plus important est de proposer une solution simple, équitable et adaptée aux conditions de travail, sans imposer cette pratique aux salariés.",
+          "example": "En conclusion, le plus important est de proposer une solution simple, équitable et adaptée aux conditions de travail, sans imposer cette pratique aux salariés.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-NOV-C04-29",
           "kind": "phrase-modele",
-          "french": "En définitive, le plus important est de proposer une solution simple, équitable et adaptée aux conditions de travail, sans imposer cette pratique aux salariés",
-          "english": "Ultimately, the most important thing is to offer a simple, fair solution suited to working conditions without imposing it on employees",
-          "example": "En définitive, le plus important est de proposer une solution simple, équitable et adaptée aux conditions de travail, sans imposer cette pratique aux salariés.",
+          "french": "En conclusion, le plus important est de proposer une solution simple, équitable et adaptée aux conditions de travail, sans imposer cette pratique aux salariés",
+          "english": "In conclusion, the most important thing is to offer a simple, fair solution suited to working conditions, without imposing this practice on employees",
+          "example": "En conclusion, le plus important est de proposer une solution simple, équitable et adaptée aux conditions de travail, sans imposer cette pratique aux salariés.",
           "usage": "Formule argumentative, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -990,7 +990,7 @@
           "kind": "mot-cle",
           "french": "une solution simple, équitable et adaptée",
           "english": "a simple, fair and suitable solution",
-          "example": "En définitive, le plus important est de proposer une solution simple, équitable et adaptée aux conditions de travail, sans imposer cette pratique aux salariés.",
+          "example": "En conclusion, le plus important est de proposer une solution simple, équitable et adaptée aux conditions de travail, sans imposer cette pratique aux salariés.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         }
       ]
@@ -1003,33 +1003,33 @@
         {
           "id": "E3-NOV-C05-01",
           "kind": "phrase-modele",
-          "french": "La chasse aux animaux oppose deux conceptions de la relation à la nature",
-          "english": "Hunting animals contrasts two conceptions of our relationship with nature",
-          "example": "La chasse aux animaux oppose deux conceptions de la relation à la nature.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Environnement/Société."
+          "french": "Les deux documents abordent la chasse aux animaux",
+          "english": "Both documents address the hunting of animals",
+          "example": "Les deux documents abordent la chasse aux animaux.",
+          "usage": "Formule d’introduction de synthèse, registre neutre ; réutilisable en Environnement/Société."
         },
         {
           "id": "E3-NOV-C05-02",
           "kind": "mot-cle",
           "french": "La chasse aux animaux",
           "english": "animal hunting",
-          "example": "La chasse aux animaux oppose deux conceptions de la relation à la nature.",
+          "example": "Les deux documents abordent la chasse aux animaux.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Environnement/Société."
         },
         {
           "id": "E3-NOV-C05-03",
           "kind": "mot-cle",
-          "french": "la relation à la nature",
-          "english": "the relationship with nature",
-          "example": "La chasse aux animaux oppose deux conceptions de la relation à la nature.",
-          "usage": "Nom féminin singulier, registre neutre ; réutilisable en Environnement/Société."
+          "french": "un plaisir",
+          "english": "a pleasure",
+          "example": "Le premier refuse de considérer la mise à mort comme un plaisir et y voit une destruction du vivant.",
+          "usage": "Nom masculin singulier, registre neutre ; réutilisable en Environnement/Société."
         },
         {
           "id": "E3-NOV-C05-04",
           "kind": "expression",
-          "french": "D’un côté",
-          "english": "On the one hand",
-          "example": "D’un côté, ses détracteurs refusent de considérer la mise à mort comme un plaisir et y voient une destruction du vivant.",
+          "french": "Tout d’abord",
+          "english": "First of all",
+          "example": "Tout d’abord, tuer pour le prestige ne respecte ni les animaux ni les écosystèmes.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Environnement/Société."
         },
         {
@@ -1037,7 +1037,7 @@
           "kind": "mot-cle",
           "french": "la mise à mort",
           "english": "killing",
-          "example": "D’un côté, ses détracteurs refusent de considérer la mise à mort comme un plaisir et y voient une destruction du vivant.",
+          "example": "Le premier refuse de considérer la mise à mort comme un plaisir et y voit une destruction du vivant.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Environnement/Société."
         },
         {
@@ -1045,7 +1045,7 @@
           "kind": "collocation",
           "french": "une destruction du vivant",
           "english": "destruction of living things",
-          "example": "D’un côté, ses détracteurs refusent de considérer la mise à mort comme un plaisir et y voient une destruction du vivant.",
+          "example": "Le premier refuse de considérer la mise à mort comme un plaisir et y voit une destruction du vivant.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Environnement/Société."
         },
         {
@@ -1053,31 +1053,31 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, ses défenseurs rappellent que cette pratique peut répondre à des besoins de subsistance, de gestion de la faune ou de protection des propriétés.",
+          "example": "En revanche, le second rappelle que cette pratique peut répondre à la subsistance, au commerce, à la gestion de la faune, à la protection des propriétés ou au loisir.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Environnement/Société."
         },
         {
           "id": "E3-NOV-C05-08",
           "kind": "reformulation",
-          "french": "ses défenseurs",
-          "english": "its supporters",
-          "example": "En revanche, ses défenseurs rappellent que cette pratique peut répondre à des besoins de subsistance, de gestion de la faune ou de protection des propriétés.",
+          "french": "cette pratique",
+          "english": "this practice",
+          "example": "En revanche, le second rappelle que cette pratique peut répondre à la subsistance, au commerce, à la gestion de la faune, à la protection des propriétés ou au loisir.",
           "usage": "Reformulation, registre neutre ; réutilisable en Environnement/Société."
         },
         {
           "id": "E3-NOV-C05-09",
           "kind": "mot-cle",
-          "french": "des besoins de subsistance",
-          "english": "subsistence needs",
-          "example": "En revanche, ses défenseurs rappellent que cette pratique peut répondre à des besoins de subsistance, de gestion de la faune ou de protection des propriétés.",
-          "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Environnement/Société."
+          "french": "la subsistance",
+          "english": "subsistence",
+          "example": "En revanche, le second rappelle que cette pratique peut répondre à la subsistance, au commerce, à la gestion de la faune, à la protection des propriétés ou au loisir.",
+          "usage": "Nom féminin singulier, registre neutre ; réutilisable en Environnement/Société."
         },
         {
           "id": "E3-NOV-C05-10",
           "kind": "collocation",
           "french": "gestion de la faune",
           "english": "wildlife management",
-          "example": "En revanche, ses défenseurs rappellent que cette pratique peut répondre à des besoins de subsistance, de gestion de la faune ou de protection des propriétés.",
+          "example": "En revanche, le second rappelle que cette pratique peut répondre à la subsistance, au commerce, à la gestion de la faune, à la protection des propriétés ou au loisir.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Environnement/Société."
         },
         {
@@ -1085,15 +1085,15 @@
           "kind": "mot-cle",
           "french": "protection des propriétés",
           "english": "property protection",
-          "example": "En revanche, ses défenseurs rappellent que cette pratique peut répondre à des besoins de subsistance, de gestion de la faune ou de protection des propriétés.",
+          "example": "En revanche, le second rappelle que cette pratique peut répondre à la subsistance, au commerce, à la gestion de la faune, à la protection des propriétés ou au loisir.",
           "usage": "Groupe nominal, registre neutre ; réutilisable en Environnement/Société."
         },
         {
           "id": "E3-NOV-C05-12",
           "kind": "phrase-modele",
-          "french": "Selon moi, la chasse de loisir est difficilement justifiable, mais une intervention encadrée peut parfois être nécessaire",
-          "english": "In my view, recreational hunting is hard to justify, but regulated intervention may sometimes be necessary",
-          "example": "Selon moi, la chasse de loisir est difficilement justifiable, mais une intervention encadrée peut parfois être nécessaire.",
+          "french": "Pour ma part, la chasse de loisir est difficilement justifiable, mais une intervention encadrée peut parfois être nécessaire",
+          "english": "For my part, recreational hunting is hard to justify, but regulated intervention may sometimes be necessary",
+          "example": "Pour ma part, la chasse de loisir est difficilement justifiable, mais une intervention encadrée peut parfois être nécessaire.",
           "usage": "Formule argumentative, registre neutre ; réutilisable en Environnement/Société."
         },
         {
@@ -1101,7 +1101,7 @@
           "kind": "mot-cle",
           "french": "la chasse de loisir",
           "english": "recreational hunting",
-          "example": "Selon moi, la chasse de loisir est difficilement justifiable, mais une intervention encadrée peut parfois être nécessaire.",
+          "example": "Pour ma part, la chasse de loisir est difficilement justifiable, mais une intervention encadrée peut parfois être nécessaire.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Environnement/Société."
         },
         {
@@ -1109,7 +1109,7 @@
           "kind": "collocation",
           "french": "une intervention encadrée",
           "english": "a regulated intervention",
-          "example": "Selon moi, la chasse de loisir est difficilement justifiable, mais une intervention encadrée peut parfois être nécessaire.",
+          "example": "Pour ma part, la chasse de loisir est difficilement justifiable, mais une intervention encadrée peut parfois être nécessaire.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Environnement/Société."
         },
         {
@@ -1117,7 +1117,7 @@
           "kind": "tournure",
           "french": "peut parfois être nécessaire",
           "english": "may sometimes be necessary",
-          "example": "Selon moi, la chasse de loisir est difficilement justifiable, mais une intervention encadrée peut parfois être nécessaire.",
+          "example": "Pour ma part, la chasse de loisir est difficilement justifiable, mais une intervention encadrée peut parfois être nécessaire.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Environnement/Société."
         },
         {
@@ -1141,7 +1141,7 @@
           "kind": "collocation",
           "french": "l’équilibre naturel",
           "english": "natural balance",
-          "example": "Ensuite, certaines populations trop nombreuses menacent pourtant les cultures et l’équilibre naturel.",
+          "example": "De plus, certaines populations trop nombreuses menacent les cultures et l’équilibre naturel lorsqu’aucune autre solution n’est efficace.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Environnement/Société."
         },
         {
@@ -1187,18 +1187,18 @@
         {
           "id": "E3-NOV-C05-24",
           "kind": "phrase-modele",
-          "french": "Cependant, il faut aussi reconnaître que la chasse constitue une tradition et une source de nourriture pour certaines communautés",
-          "english": "However, it must also be acknowledged that hunting is a tradition and a source of food for some communities",
-          "example": "Cependant, il faut aussi reconnaître que la chasse constitue une tradition et une source de nourriture pour certaines communautés.",
+          "french": "Un trophée n’apporte aucun bénéfice collectif et prive la nature d’individus parfois essentiels à leur espèce",
+          "english": "A trophy brings no collective benefit and deprives nature of individuals sometimes essential to their species",
+          "example": "Un trophée n’apporte aucun bénéfice collectif et prive la nature d’individus parfois essentiels à leur espèce.",
           "usage": "Formule argumentative, registre neutre ; réutilisable en Environnement/Société."
         },
         {
           "id": "E3-NOV-C05-25",
           "kind": "mot-cle",
-          "french": "une source de nourriture",
-          "english": "a source of food",
-          "example": "Cependant, il faut aussi reconnaître que la chasse constitue une tradition et une source de nourriture pour certaines communautés.",
-          "usage": "Nom féminin singulier, registre neutre ; réutilisable en Environnement/Société."
+          "french": "aucun bénéfice collectif",
+          "english": "no collective benefit",
+          "example": "Un trophée n’apporte aucun bénéfice collectif et prive la nature d’individus parfois essentiels à leur espèce.",
+          "usage": "Groupe nominal, registre neutre ; réutilisable en Environnement/Société."
         },
         {
           "id": "E3-NOV-C05-26",
@@ -1213,7 +1213,7 @@
           "kind": "mot-cle",
           "french": "un objectif de protection précis",
           "english": "a precise protection objective",
-          "example": "Toute chasse autorisée doit répondre à un objectif de protection précis.",
+          "example": "En conclusion, il faut que toute chasse réponde à un objectif de protection précis et repose sur des données fiables, jamais sur le prestige.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Environnement/Société."
         },
         {
@@ -1221,7 +1221,7 @@
           "kind": "tournure",
           "french": "jamais sur le prestige",
           "english": "never on prestige",
-          "example": "Une intervention doit reposer sur la protection, jamais sur le prestige.",
+          "example": "En conclusion, il faut que toute chasse réponde à un objectif de protection précis et repose sur des données fiables, jamais sur le prestige.",
           "usage": "Structure de contraste, registre neutre ; réutilisable en Environnement/Société."
         },
         {
@@ -1229,15 +1229,15 @@
           "kind": "collocation",
           "french": "des données fiables",
           "english": "reliable data",
-          "example": "Toute décision de régulation doit reposer sur des données fiables.",
+          "example": "En conclusion, il faut que toute chasse réponde à un objectif de protection précis et repose sur des données fiables, jamais sur le prestige.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Environnement/Société."
         },
         {
           "id": "E3-NOV-C05-30",
           "kind": "verbe-action",
-          "french": "répondre à un objectif de protection",
-          "english": "to serve a protection objective",
-          "example": "Une chasse encadrée doit répondre à un objectif de protection.",
+          "french": "tuer pour le prestige",
+          "english": "to kill for prestige",
+          "example": "Tout d’abord, tuer pour le prestige ne respecte ni les animaux ni les écosystèmes.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Environnement/Société."
         }
       ]
@@ -1250,33 +1250,33 @@
         {
           "id": "E3-NOV-C06-01",
           "kind": "phrase-modele",
-          "french": "La restauration rapide suscite des avis partagés",
-          "english": "Fast food divides opinion",
-          "example": "La restauration rapide suscite des avis partagés.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Santé/Environnement."
+          "french": "Les deux documents abordent la restauration rapide",
+          "english": "Both documents address fast food",
+          "example": "Les deux documents abordent la restauration rapide.",
+          "usage": "Formule d’introduction de synthèse, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
           "id": "E3-NOV-C06-02",
           "kind": "mot-cle",
           "french": "La restauration rapide",
           "english": "fast food",
-          "example": "La restauration rapide suscite des avis partagés.",
+          "example": "Les deux documents abordent la restauration rapide.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
           "id": "E3-NOV-C06-03",
           "kind": "reformulation",
-          "french": "Ses partisans",
-          "english": "its supporters",
-          "example": "Ses partisans valorisent la variété croissante des menus, le respect des normes d’hygiène et la liberté laissée aux clients dans leurs choix alimentaires.",
+          "french": "Le premier",
+          "english": "the first document",
+          "example": "Le premier valorise la variété des menus, le respect des normes d’hygiène et la liberté laissée aux clients dans leurs choix alimentaires.",
           "usage": "Reformulation, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
           "id": "E3-NOV-C06-04",
           "kind": "collocation",
-          "french": "la variété croissante des menus",
-          "english": "the growing variety of menus",
-          "example": "Ses partisans valorisent la variété croissante des menus, le respect des normes d’hygiène et la liberté laissée aux clients dans leurs choix alimentaires.",
+          "french": "la variété des menus",
+          "english": "the variety of menus",
+          "example": "Le premier valorise la variété des menus, le respect des normes d’hygiène et la liberté laissée aux clients dans leurs choix alimentaires.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
@@ -1284,7 +1284,7 @@
           "kind": "mot-cle",
           "french": "normes d’hygiène",
           "english": "hygiene standards",
-          "example": "Ses partisans valorisent la variété croissante des menus, le respect des normes d’hygiène et la liberté laissée aux clients dans leurs choix alimentaires.",
+          "example": "Le premier valorise la variété des menus, le respect des normes d’hygiène et la liberté laissée aux clients dans leurs choix alimentaires.",
           "usage": "Groupe nominal, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
@@ -1292,7 +1292,7 @@
           "kind": "collocation",
           "french": "choix alimentaires",
           "english": "food choices",
-          "example": "Ses partisans valorisent la variété croissante des menus, le respect des normes d’hygiène et la liberté laissée aux clients dans leurs choix alimentaires.",
+          "example": "Le premier valorise la variété des menus, le respect des normes d’hygiène et la liberté laissée aux clients dans leurs choix alimentaires.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
@@ -1300,7 +1300,7 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, ses critiques dénoncent des repas trop caloriques, riches en boissons sucrées, ainsi que les nombreux emballages plastiques nuisibles à l’environnement.",
+          "example": "En revanche, le second dénonce des repas trop caloriques, riches en boissons sucrées, ainsi que les nombreux emballages plastiques nuisibles à l’environnement.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
@@ -1308,7 +1308,7 @@
           "kind": "collocation",
           "french": "des repas trop caloriques",
           "english": "overly high-calorie meals",
-          "example": "En revanche, ses critiques dénoncent des repas trop caloriques, riches en boissons sucrées, ainsi que les nombreux emballages plastiques nuisibles à l’environnement.",
+          "example": "En revanche, le second dénonce des repas trop caloriques, riches en boissons sucrées, ainsi que les nombreux emballages plastiques nuisibles à l’environnement.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
@@ -1316,7 +1316,7 @@
           "kind": "mot-cle",
           "french": "boissons sucrées",
           "english": "sugary drinks",
-          "example": "En revanche, ses critiques dénoncent des repas trop caloriques, riches en boissons sucrées, ainsi que les nombreux emballages plastiques nuisibles à l’environnement.",
+          "example": "En revanche, le second dénonce des repas trop caloriques, riches en boissons sucrées, ainsi que les nombreux emballages plastiques nuisibles à l’environnement.",
           "usage": "Groupe nominal, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
@@ -1324,15 +1324,15 @@
           "kind": "mot-cle",
           "french": "emballages plastiques",
           "english": "plastic packaging",
-          "example": "En revanche, ses critiques dénoncent des repas trop caloriques, riches en boissons sucrées, ainsi que les nombreux emballages plastiques nuisibles à l’environnement.",
+          "example": "En revanche, le second dénonce des repas trop caloriques, riches en boissons sucrées, ainsi que les nombreux emballages plastiques nuisibles à l’environnement.",
           "usage": "Groupe nominal, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
           "id": "E3-NOV-C06-11",
           "kind": "phrase-modele",
-          "french": "Personnellement, la restauration rapide peut dépanner à condition qu’elle reste occasionnelle",
-          "english": "Personally, fast food can help in a pinch provided that it remains occasional",
-          "example": "Personnellement, la restauration rapide peut dépanner à condition qu’elle reste occasionnelle.",
+          "french": "Pour ma part, la restauration rapide peut dépanner à condition qu’elle reste occasionnelle",
+          "english": "For my part, fast food can help out provided that it remains occasional",
+          "example": "Pour ma part, la restauration rapide peut dépanner à condition qu’elle reste occasionnelle.",
           "usage": "Formule argumentative avec le subjonctif ; réutilisable en Santé/Environnement."
         },
         {
@@ -1340,7 +1340,7 @@
           "kind": "tournure",
           "french": "peut dépanner",
           "english": "can help in a pinch",
-          "example": "La restauration rapide peut dépanner lorsque le temps manque.",
+          "example": "Pour ma part, la restauration rapide peut dépanner à condition qu’elle reste occasionnelle.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
@@ -1348,7 +1348,7 @@
           "kind": "tournure",
           "french": "à condition qu’elle reste occasionnelle",
           "english": "provided that it remains occasional",
-          "example": "La restauration rapide peut dépanner à condition qu’elle reste occasionnelle.",
+          "example": "Pour ma part, la restauration rapide peut dépanner à condition qu’elle reste occasionnelle.",
           "usage": "Structure avec « à condition que » et le subjonctif ; réutilisable en Santé/Environnement."
         },
         {
@@ -1388,7 +1388,7 @@
           "kind": "verbe-action",
           "french": "réduisent les déchets",
           "english": "reduce waste",
-          "example": "Les emballages recyclables ou réutilisables réduisent les déchets.",
+          "example": "De plus, les emballages recyclables ou réutilisables réduisent les déchets.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
@@ -1396,7 +1396,7 @@
           "kind": "mot-cle",
           "french": "les déchets",
           "english": "waste",
-          "example": "Les emballages recyclables ou réutilisables limitent les déchets.",
+          "example": "De plus, les emballages recyclables ou réutilisables réduisent les déchets.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
@@ -1434,33 +1434,33 @@
         {
           "id": "E3-NOV-C06-24",
           "kind": "phrase-modele",
-          "french": "Cependant, il faut aussi reconnaître que ces restaurants offrent des repas accessibles aux personnes disposant de peu de temps ou d’argent",
-          "english": "However, it must also be acknowledged that these restaurants offer affordable meals to people with little time or money",
-          "example": "Cependant, il faut aussi reconnaître que ces restaurants offrent des repas accessibles aux personnes disposant de peu de temps ou d’argent.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Santé/Environnement."
+          "french": "Tout d’abord, cuisiner des produits frais permet de mieux contrôler le sel, le sucre et les portions, alors qu’un menu standardisé impose les mêmes quantités à tous",
+          "english": "First of all, cooking fresh products makes it possible to better control salt, sugar and portions, whereas a standardized menu imposes the same quantities on everyone",
+          "example": "Tout d’abord, cuisiner des produits frais permet de mieux contrôler le sel, le sucre et les portions, alors qu’un menu standardisé impose les mêmes quantités à tous.",
+          "usage": "Phrase argumentative avec opposition ; réutilisable en Santé/Environnement."
         },
         {
           "id": "E3-NOV-C06-25",
           "kind": "collocation",
-          "french": "des repas accessibles",
-          "english": "affordable meals",
-          "example": "Cependant, il faut aussi reconnaître que ces restaurants offrent des repas accessibles aux personnes disposant de peu de temps ou d’argent.",
+          "french": "un menu standardisé",
+          "english": "a standardized menu",
+          "example": "Tout d’abord, cuisiner des produits frais permet de mieux contrôler le sel, le sucre et les portions, alors qu’un menu standardisé impose les mêmes quantités à tous.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
           "id": "E3-NOV-C06-26",
           "kind": "tournure",
-          "french": "disposant de peu de temps ou d’argent",
-          "english": "having little time or money",
-          "example": "Cependant, il faut aussi reconnaître que ces restaurants offrent des repas accessibles aux personnes disposant de peu de temps ou d’argent.",
+          "french": "alors qu’un menu standardisé impose les mêmes quantités à tous",
+          "english": "whereas a standardized menu imposes the same quantities on everyone",
+          "example": "Tout d’abord, cuisiner des produits frais permet de mieux contrôler le sel, le sucre et les portions, alors qu’un menu standardisé impose les mêmes quantités à tous.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
           "id": "E3-NOV-C06-27",
           "kind": "phrase-modele",
-          "french": "En définitive, le plus important est de privilégier une alimentation équilibrée et d’exiger des enseignes des informations nutritionnelles claires ainsi que des emballages durables",
-          "english": "Ultimately, the most important thing is to prioritize a balanced diet and require clear nutritional information and sustainable packaging from chains",
-          "example": "En définitive, le plus important est de privilégier une alimentation équilibrée et d’exiger des enseignes des informations nutritionnelles claires ainsi que des emballages durables.",
+          "french": "En conclusion, le plus important est de privilégier une alimentation équilibrée et d’exiger des enseignes des informations nutritionnelles claires ainsi que des emballages durables",
+          "english": "In conclusion, the most important thing is to prioritize a balanced diet and to require clear nutritional information and sustainable packaging from chains",
+          "example": "En conclusion, le plus important est de privilégier une alimentation équilibrée et d’exiger des enseignes des informations nutritionnelles claires ainsi que des emballages durables.",
           "usage": "Formule argumentative, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
@@ -1468,7 +1468,7 @@
           "kind": "mot-cle",
           "french": "une alimentation équilibrée",
           "english": "a balanced diet",
-          "example": "En définitive, le plus important est de privilégier une alimentation équilibrée et d’exiger des enseignes des informations nutritionnelles claires ainsi que des emballages durables.",
+          "example": "En conclusion, le plus important est de privilégier une alimentation équilibrée et d’exiger des enseignes des informations nutritionnelles claires ainsi que des emballages durables.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
@@ -1476,7 +1476,7 @@
           "kind": "collocation",
           "french": "des informations nutritionnelles claires",
           "english": "clear nutritional information",
-          "example": "En définitive, le plus important est de privilégier une alimentation équilibrée et d’exiger des enseignes des informations nutritionnelles claires ainsi que des emballages durables.",
+          "example": "En conclusion, le plus important est de privilégier une alimentation équilibrée et d’exiger des enseignes des informations nutritionnelles claires ainsi que des emballages durables.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
@@ -1484,7 +1484,7 @@
           "kind": "mot-cle",
           "french": "des emballages durables",
           "english": "sustainable packaging",
-          "example": "En définitive, le plus important est de privilégier une alimentation équilibrée et d’exiger des enseignes des informations nutritionnelles claires ainsi que des emballages durables.",
+          "example": "En conclusion, le plus important est de privilégier une alimentation équilibrée et d’exiger des enseignes des informations nutritionnelles claires ainsi que des emballages durables.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Santé/Environnement."
         }
       ]
@@ -1497,25 +1497,25 @@
         {
           "id": "E3-NOV-C07-01",
           "kind": "phrase-modele",
-          "french": "Faire ses courses chez les producteurs locaux ou au supermarché oppose deux priorités",
-          "english": "Shopping from local producers or at a supermarket contrasts two priorities",
-          "example": "Faire ses courses chez les producteurs locaux ou au supermarché oppose deux priorités.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Alimentation/Économie."
+          "french": "Les deux documents abordent le choix du lieu où faire ses courses alimentaires",
+          "english": "Both documents address the choice of where to do one’s food shopping",
+          "example": "Les deux documents abordent le choix du lieu où faire ses courses alimentaires.",
+          "usage": "Formule d’introduction de synthèse, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
           "id": "E3-NOV-C07-02",
           "kind": "mot-cle",
           "french": "les producteurs locaux",
           "english": "local producers",
-          "example": "Faire ses courses chez les producteurs locaux ou au supermarché oppose deux priorités.",
+          "example": "Pour ma part, il faut favoriser les producteurs locaux sans pour autant exclure les supermarchés.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
           "id": "E3-NOV-C07-03",
           "kind": "expression",
-          "french": "D’un côté",
-          "english": "On the one hand",
-          "example": "D’un côté, l’achat à la ferme garantit à Jean des aliments de qualité, même s’ils coûtent davantage.",
+          "french": "Tout d’abord",
+          "english": "First of all",
+          "example": "Tout d’abord, les circuits courts soutiennent l’économie régionale et permettent de connaître l’origine des aliments.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
@@ -1523,15 +1523,15 @@
           "kind": "mot-cle",
           "french": "l’achat à la ferme",
           "english": "buying from the farm",
-          "example": "D’un côté, l’achat à la ferme garantit à Jean des aliments de qualité, même s’ils coûtent davantage.",
+          "example": "Le premier valorise l’achat à la ferme pour la qualité des aliments, même s’ils coûtent davantage.",
           "usage": "Nom singulier, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
           "id": "E3-NOV-C07-05",
           "kind": "collocation",
-          "french": "des aliments de qualité",
-          "english": "quality food",
-          "example": "D’un côté, l’achat à la ferme garantit à Jean des aliments de qualité, même s’ils coûtent davantage.",
+          "french": "la qualité des aliments",
+          "english": "the quality of the food",
+          "example": "Le premier valorise l’achat à la ferme pour la qualité des aliments, même s’ils coûtent davantage.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
@@ -1539,7 +1539,7 @@
           "kind": "tournure",
           "french": "même s’ils coûtent davantage",
           "english": "even if they cost more",
-          "example": "D’un côté, l’achat à la ferme garantit à Jean des aliments de qualité, même s’ils coûtent davantage.",
+          "example": "Le premier valorise l’achat à la ferme pour la qualité des aliments, même s’ils coûtent davantage.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
@@ -1547,7 +1547,7 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, Camille préfère en ville la diversité et les prix abordables du supermarché, mieux adaptés à son lieu de vie et à son budget.",
+          "example": "En revanche, le second préfère en ville la diversité et les prix abordables du supermarché, mieux adaptés à son lieu de vie et à son budget.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
@@ -1555,7 +1555,7 @@
           "kind": "mot-cle",
           "french": "les prix abordables",
           "english": "affordable prices",
-          "example": "En revanche, Camille préfère en ville la diversité et les prix abordables du supermarché, mieux adaptés à son lieu de vie et à son budget.",
+          "example": "En revanche, le second préfère en ville la diversité et les prix abordables du supermarché, mieux adaptés à son lieu de vie et à son budget.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
@@ -1563,7 +1563,7 @@
           "kind": "collocation",
           "french": "son lieu de vie",
           "english": "one’s place of residence",
-          "example": "En revanche, Camille préfère en ville la diversité et les prix abordables du supermarché, mieux adaptés à son lieu de vie et à son budget.",
+          "example": "En revanche, le second préfère en ville la diversité et les prix abordables du supermarché, mieux adaptés à son lieu de vie et à son budget.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
@@ -1571,15 +1571,15 @@
           "kind": "mot-cle",
           "french": "son budget",
           "english": "one’s budget",
-          "example": "En revanche, Camille préfère en ville la diversité et les prix abordables du supermarché, mieux adaptés à son lieu de vie et à son budget.",
+          "example": "En revanche, le second préfère en ville la diversité et les prix abordables du supermarché, mieux adaptés à son lieu de vie et à son budget.",
           "usage": "Groupe nominal, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
           "id": "E3-NOV-C07-11",
           "kind": "phrase-modele",
-          "french": "À mon avis, il faut favoriser les producteurs locaux sans pour autant exclure les supermarchés",
-          "english": "In my opinion, local producers should be supported without excluding supermarkets",
-          "example": "À mon avis, il faut favoriser les producteurs locaux sans pour autant exclure les supermarchés.",
+          "french": "Pour ma part, il faut favoriser les producteurs locaux sans pour autant exclure les supermarchés",
+          "english": "For my part, local producers should be favoured without excluding supermarkets",
+          "example": "Pour ma part, il faut favoriser les producteurs locaux sans pour autant exclure les supermarchés.",
           "usage": "Formule argumentative, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
@@ -1587,7 +1587,7 @@
           "kind": "verbe-action",
           "french": "favoriser les producteurs locaux",
           "english": "to support local producers",
-          "example": "À mon avis, il faut favoriser les producteurs locaux sans pour autant exclure les supermarchés.",
+          "example": "Pour ma part, il faut favoriser les producteurs locaux sans pour autant exclure les supermarchés.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
@@ -1595,7 +1595,7 @@
           "kind": "tournure",
           "french": "sans pour autant exclure les supermarchés",
           "english": "without excluding supermarkets",
-          "example": "À mon avis, il faut favoriser les producteurs locaux sans pour autant exclure les supermarchés.",
+          "example": "Pour ma part, il faut favoriser les producteurs locaux sans pour autant exclure les supermarchés.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
@@ -1635,7 +1635,7 @@
           "kind": "mot-cle",
           "french": "les grandes surfaces",
           "english": "large supermarkets",
-          "example": "Ensuite, les grandes surfaces restent pratiques pour les petits budgets et les produits indisponibles localement.",
+          "example": "De plus, les grandes surfaces restent pratiques pour les petits budgets et les produits indisponibles localement.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
@@ -1643,7 +1643,7 @@
           "kind": "mot-cle",
           "french": "les petits budgets",
           "english": "people on small budgets",
-          "example": "Ensuite, les grandes surfaces restent pratiques pour les petits budgets et les produits indisponibles localement.",
+          "example": "De plus, les grandes surfaces restent pratiques pour les petits budgets et les produits indisponibles localement.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
@@ -1651,7 +1651,7 @@
           "kind": "collocation",
           "french": "les produits indisponibles localement",
           "english": "products unavailable locally",
-          "example": "Ensuite, les grandes surfaces restent pratiques pour les petits budgets et les produits indisponibles localement.",
+          "example": "De plus, les grandes surfaces restent pratiques pour les petits budgets et les produits indisponibles localement.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
@@ -1681,25 +1681,25 @@
         {
           "id": "E3-NOV-C07-24",
           "kind": "mot-cle",
-          "french": "les produits fermiers",
-          "english": "farm products",
-          "example": "Cependant, il faut aussi reconnaître que les produits fermiers sont parfois plus chers ou difficiles d’accès en ville.",
+          "french": "les fermes voisines",
+          "english": "neighbouring farms",
+          "example": "Acheter directement au producteur rémunère mieux les fermes voisines et rend la traçabilité immédiate.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
           "id": "E3-NOV-C07-25",
           "kind": "phrase-modele",
-          "french": "Cependant, il faut aussi reconnaître que les produits fermiers sont parfois plus chers ou difficiles d’accès en ville",
-          "english": "However, it must also be acknowledged that farm products are sometimes more expensive or hard to access in the city",
-          "example": "Cependant, il faut aussi reconnaître que les produits fermiers sont parfois plus chers ou difficiles d’accès en ville.",
+          "french": "Acheter directement au producteur rémunère mieux les fermes voisines et rend la traçabilité immédiate",
+          "english": "Buying directly from the producer pays neighbouring farms better and makes traceability immediate",
+          "example": "Acheter directement au producteur rémunère mieux les fermes voisines et rend la traçabilité immédiate.",
           "usage": "Formule argumentative, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
           "id": "E3-NOV-C07-26",
           "kind": "tournure",
-          "french": "difficiles d’accès en ville",
-          "english": "hard to access in the city",
-          "example": "Cependant, il faut aussi reconnaître que les produits fermiers sont parfois plus chers ou difficiles d’accès en ville.",
+          "french": "rend la traçabilité immédiate",
+          "english": "makes traceability immediate",
+          "example": "Acheter directement au producteur rémunère mieux les fermes voisines et rend la traçabilité immédiate.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
@@ -1715,7 +1715,7 @@
           "kind": "collocation",
           "french": "qualité, proximité et prix raisonnables",
           "english": "quality, proximity and reasonable prices",
-          "example": "Chacun peut combiner qualité, proximité et prix raisonnables selon ses besoins.",
+          "example": "En conclusion, il faut que chacun combine qualité, proximité et prix raisonnables selon ses besoins.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
@@ -1723,7 +1723,7 @@
           "kind": "mot-cle",
           "french": "selon ses besoins",
           "english": "according to one’s needs",
-          "example": "Il faut que chacun combine les deux options selon ses besoins.",
+          "example": "En conclusion, il faut que chacun combine qualité, proximité et prix raisonnables selon ses besoins.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
@@ -1731,7 +1731,7 @@
           "kind": "reformulation",
           "french": "les supermarchés",
           "english": "supermarkets",
-          "example": "À mon avis, il faut favoriser les producteurs locaux sans pour autant exclure les supermarchés.",
+          "example": "Pour ma part, il faut favoriser les producteurs locaux sans pour autant exclure les supermarchés.",
           "usage": "Reformulation, registre neutre ; réutilisable en Alimentation/Économie."
         }
       ]
@@ -1744,49 +1744,49 @@
         {
           "id": "E3-NOV-C08-01",
           "kind": "phrase-modele",
-          "french": "Les maisons de retraite font l’objet de points de vue opposés",
-          "english": "Retirement homes are the subject of opposing views",
-          "example": "Les maisons de retraite font l’objet de points de vue opposés.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Famille/Santé."
+          "french": "Les deux documents abordent l’accueil des personnes âgées",
+          "english": "Both documents address care arrangements for older people",
+          "example": "Les deux documents abordent l’accueil des personnes âgées.",
+          "usage": "Formule d’introduction de synthèse, registre neutre ; réutilisable en Famille/Santé."
         },
         {
           "id": "E3-NOV-C08-02",
           "kind": "mot-cle",
           "french": "Les maisons de retraite",
           "english": "retirement homes",
-          "example": "Les maisons de retraite font l’objet de points de vue opposés.",
+          "example": "En revanche, le second affirme que les maisons de retraite réduisent l’isolement, offrent des soins et rassurent les familles, malgré leur coût.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Famille/Santé."
         },
         {
           "id": "E3-NOV-C08-03",
           "kind": "reformulation",
-          "french": "Leurs partisans",
-          "english": "their supporters",
-          "example": "Leurs partisans soulignent les soins professionnels, les activités et la vie sociale qu’elles offrent aux personnes âgées isolées.",
+          "french": "Le premier",
+          "english": "the first document",
+          "example": "Le premier préfère la vie avec les jeunes générations, qui préserve les liens familiaux et évite de confier ses proches à des inconnus.",
           "usage": "Reformulation, registre neutre ; réutilisable en Famille/Santé."
         },
         {
           "id": "E3-NOV-C08-04",
           "kind": "collocation",
-          "french": "les soins professionnels",
-          "english": "professional care",
-          "example": "Leurs partisans soulignent les soins professionnels, les activités et la vie sociale qu’elles offrent aux personnes âgées isolées.",
+          "french": "les jeunes générations",
+          "english": "the younger generations",
+          "example": "Le premier préfère la vie avec les jeunes générations, qui préserve les liens familiaux et évite de confier ses proches à des inconnus.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Famille/Santé."
         },
         {
           "id": "E3-NOV-C08-05",
           "kind": "mot-cle",
-          "french": "la vie sociale",
-          "english": "social life",
-          "example": "Leurs partisans soulignent les soins professionnels, les activités et la vie sociale qu’elles offrent aux personnes âgées isolées.",
-          "usage": "Nom féminin singulier, registre neutre ; réutilisable en Famille/Santé."
+          "french": "ses proches",
+          "english": "one’s close relatives",
+          "example": "Le premier préfère la vie avec les jeunes générations, qui préserve les liens familiaux et évite de confier ses proches à des inconnus.",
+          "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Famille/Santé."
         },
         {
           "id": "E3-NOV-C08-06",
           "kind": "mot-cle",
-          "french": "personnes âgées isolées",
-          "english": "isolated older people",
-          "example": "Leurs partisans soulignent les soins professionnels, les activités et la vie sociale qu’elles offrent aux personnes âgées isolées.",
+          "french": "des inconnus",
+          "english": "strangers",
+          "example": "Le premier préfère la vie avec les jeunes générations, qui préserve les liens familiaux et évite de confier ses proches à des inconnus.",
           "usage": "Groupe nominal, registre neutre ; réutilisable en Famille/Santé."
         },
         {
@@ -1794,47 +1794,47 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, leurs détracteurs redoutent l’éloignement familial, un sentiment d’abandon et le manque de personnel qualifié, préférant un accompagnement à domicile.",
+          "example": "En revanche, le second affirme que les maisons de retraite réduisent l’isolement, offrent des soins et rassurent les familles, malgré leur coût.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Famille/Santé."
         },
         {
           "id": "E3-NOV-C08-08",
           "kind": "mot-cle",
-          "french": "l’éloignement familial",
-          "english": "distance from family",
-          "example": "En revanche, leurs détracteurs redoutent l’éloignement familial, un sentiment d’abandon et le manque de personnel qualifié, préférant un accompagnement à domicile.",
+          "french": "l’isolement",
+          "english": "isolation",
+          "example": "En revanche, le second affirme que les maisons de retraite réduisent l’isolement, offrent des soins et rassurent les familles, malgré leur coût.",
           "usage": "Nom singulier, registre neutre ; réutilisable en Famille/Santé."
         },
         {
           "id": "E3-NOV-C08-09",
           "kind": "collocation",
-          "french": "un sentiment d’abandon",
-          "english": "a sense of abandonment",
-          "example": "En revanche, leurs détracteurs redoutent l’éloignement familial, un sentiment d’abandon et le manque de personnel qualifié, préférant un accompagnement à domicile.",
+          "french": "offrent des soins",
+          "english": "provide care",
+          "example": "En revanche, le second affirme que les maisons de retraite réduisent l’isolement, offrent des soins et rassurent les familles, malgré leur coût.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Famille/Santé."
         },
         {
           "id": "E3-NOV-C08-10",
           "kind": "mot-cle",
-          "french": "le manque de personnel qualifié",
-          "english": "shortage of qualified staff",
-          "example": "En revanche, leurs détracteurs redoutent l’éloignement familial, un sentiment d’abandon et le manque de personnel qualifié, préférant un accompagnement à domicile.",
+          "french": "leur coût",
+          "english": "their cost",
+          "example": "En revanche, le second affirme que les maisons de retraite réduisent l’isolement, offrent des soins et rassurent les familles, malgré leur coût.",
           "usage": "Nom masculin singulier, registre neutre ; réutilisable en Famille/Santé."
         },
         {
           "id": "E3-NOV-C08-11",
           "kind": "collocation",
-          "french": "un accompagnement à domicile",
-          "english": "in-home support",
-          "example": "En revanche, leurs détracteurs redoutent l’éloignement familial, un sentiment d’abandon et le manque de personnel qualifié, préférant un accompagnement à domicile.",
+          "french": "rassurent les familles",
+          "english": "reassure families",
+          "example": "En revanche, le second affirme que les maisons de retraite réduisent l’isolement, offrent des soins et rassurent les familles, malgré leur coût.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Famille/Santé."
         },
         {
           "id": "E3-NOV-C08-12",
           "kind": "phrase-modele",
-          "french": "Selon moi, aucune solution ne convient à toutes les personnes âgées : il faut que le choix dépende de leur santé et de leurs souhaits",
-          "english": "In my view, no solution suits all older people: the choice must depend on their health and wishes",
-          "example": "Selon moi, aucune solution ne convient à toutes les personnes âgées : il faut que le choix dépende de leur santé et de leurs souhaits.",
+          "french": "Pour ma part, aucune solution ne convient à toutes les personnes âgées : il faut que le choix dépende de leur santé et de leurs souhaits",
+          "english": "For my part, no solution suits all older people: the choice must depend on their health and their wishes",
+          "example": "Pour ma part, aucune solution ne convient à toutes les personnes âgées : il faut que le choix dépende de leur santé et de leurs souhaits.",
           "usage": "Formule argumentative avec le subjonctif ; réutilisable en Famille/Santé."
         },
         {
@@ -1842,7 +1842,7 @@
           "kind": "tournure",
           "french": "aucune solution ne convient à toutes les personnes âgées",
           "english": "no solution suits all older people",
-          "example": "Aucune solution ne convient à toutes les personnes âgées.",
+          "example": "Pour ma part, aucune solution ne convient à toutes les personnes âgées : il faut que le choix dépende de leur santé et de leurs souhaits.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Famille/Santé."
         },
         {
@@ -1850,7 +1850,7 @@
           "kind": "tournure",
           "french": "il faut que le choix dépende de leur santé et de leurs souhaits",
           "english": "the choice must depend on their health and wishes",
-          "example": "Il faut que le choix dépende de leur santé et de leurs souhaits.",
+          "example": "Pour ma part, aucune solution ne convient à toutes les personnes âgées : il faut que le choix dépende de leur santé et de leurs souhaits.",
           "usage": "Structure avec « il faut que » et le subjonctif ; réutilisable en Famille/Santé."
         },
         {
@@ -1882,7 +1882,7 @@
           "kind": "mot-cle",
           "french": "le maintien à domicile",
           "english": "aging at home",
-          "example": "Ensuite, le maintien à domicile préserve les repères et les liens familiaux.",
+          "example": "De plus, le maintien à domicile préserve les repères et les liens familiaux.",
           "usage": "Nom masculin singulier, registre neutre ; réutilisable en Famille/Santé."
         },
         {
@@ -1890,7 +1890,7 @@
           "kind": "verbe-action",
           "french": "préserve les repères et les liens familiaux",
           "english": "preserves familiar points of reference and family ties",
-          "example": "Ensuite, le maintien à domicile préserve les repères et les liens familiaux.",
+          "example": "De plus, le maintien à domicile préserve les repères et les liens familiaux.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Famille/Santé."
         },
         {
@@ -1898,7 +1898,7 @@
           "kind": "mot-cle",
           "french": "les liens familiaux",
           "english": "family ties",
-          "example": "Ensuite, le maintien à domicile préserve les repères et les liens familiaux.",
+          "example": "De plus, le maintien à domicile préserve les repères et les liens familiaux.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Famille/Santé."
         },
         {
@@ -1936,25 +1936,25 @@
         {
           "id": "E3-NOV-C08-25",
           "kind": "phrase-modele",
-          "french": "Cependant, il faut aussi reconnaître que l’aide à domicile coûte cher et repose parfois lourdement sur les proches",
-          "english": "However, it must also be acknowledged that home care is expensive and sometimes weighs heavily on relatives",
-          "example": "Cependant, il faut aussi reconnaître que l’aide à domicile coûte cher et repose parfois lourdement sur les proches.",
+          "french": "Un personnel formé peut alors donner les médicaments et prévenir les chutes",
+          "english": "Trained staff can then give the medication and prevent falls",
+          "example": "Un personnel formé peut alors donner les médicaments et prévenir les chutes.",
           "usage": "Formule argumentative, registre neutre ; réutilisable en Famille/Santé."
         },
         {
           "id": "E3-NOV-C08-26",
           "kind": "verbe-action",
-          "french": "repose parfois lourdement sur les proches",
-          "english": "sometimes weighs heavily on relatives",
-          "example": "Cependant, il faut aussi reconnaître que l’aide à domicile coûte cher et repose parfois lourdement sur les proches.",
+          "french": "prévenir les chutes",
+          "english": "to prevent falls",
+          "example": "Un personnel formé peut alors donner les médicaments et prévenir les chutes.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Famille/Santé."
         },
         {
           "id": "E3-NOV-C08-27",
           "kind": "phrase-modele",
-          "french": "En définitive, le plus important est de garantir des soins dignes, une présence humaine et le consentement de la personne concernée",
-          "english": "Ultimately, the most important thing is to ensure dignified care, human presence and the consent of the person concerned",
-          "example": "En définitive, le plus important est de garantir des soins dignes, une présence humaine et le consentement de la personne concernée.",
+          "french": "En conclusion, le plus important est de garantir des soins dignes, une présence humaine et le consentement de la personne concernée",
+          "english": "In conclusion, the most important thing is to ensure dignified care, a human presence and the consent of the person concerned",
+          "example": "En conclusion, le plus important est de garantir des soins dignes, une présence humaine et le consentement de la personne concernée.",
           "usage": "Formule argumentative, registre neutre ; réutilisable en Famille/Santé."
         },
         {
@@ -1962,7 +1962,7 @@
           "kind": "collocation",
           "french": "des soins dignes",
           "english": "dignified care",
-          "example": "En définitive, le plus important est de garantir des soins dignes, une présence humaine et le consentement de la personne concernée.",
+          "example": "En conclusion, le plus important est de garantir des soins dignes, une présence humaine et le consentement de la personne concernée.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Famille/Santé."
         },
         {
@@ -1970,15 +1970,15 @@
           "kind": "mot-cle",
           "french": "une présence humaine",
           "english": "human presence",
-          "example": "En définitive, le plus important est de garantir des soins dignes, une présence humaine et le consentement de la personne concernée.",
+          "example": "En conclusion, le plus important est de garantir des soins dignes, une présence humaine et le consentement de la personne concernée.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Famille/Santé."
         },
         {
           "id": "E3-NOV-C08-30",
           "kind": "expression",
-          "french": "En définitive",
-          "english": "Ultimately",
-          "example": "En définitive, le plus important est de garantir des soins dignes, une présence humaine et le consentement de la personne concernée.",
+          "french": "En conclusion",
+          "english": "In conclusion",
+          "example": "En conclusion, le plus important est de garantir des soins dignes, une présence humaine et le consentement de la personne concernée.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Famille/Santé."
         }
       ]
@@ -1991,17 +1991,17 @@
         {
           "id": "E3-NOV-C09-01",
           "kind": "phrase-modele",
-          "french": "La restauration rapide divise les opinions",
-          "english": "Fast food divides opinion",
-          "example": "La restauration rapide divise les opinions.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Santé/Alimentation."
+          "french": "Les deux documents abordent la restauration rapide",
+          "english": "Both documents address fast food",
+          "example": "Les deux documents abordent la restauration rapide.",
+          "usage": "Formule d’introduction de synthèse, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
           "id": "E3-NOV-C09-02",
           "kind": "mot-cle",
           "french": "La restauration rapide",
           "english": "fast food",
-          "example": "La restauration rapide divise les opinions.",
+          "example": "Les deux documents abordent la restauration rapide.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
@@ -2009,7 +2009,7 @@
           "kind": "collocation",
           "french": "la qualité incertaine des ingrédients",
           "english": "the uncertain quality of ingredients",
-          "example": "Une première cliente critique la qualité incertaine des ingrédients et les risques sanitaires, malgré des prix bas et un service rapide.",
+          "example": "Le premier critique la qualité incertaine des ingrédients et les risques sanitaires, malgré des prix bas et un service rapide.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
@@ -2017,7 +2017,7 @@
           "kind": "mot-cle",
           "french": "les risques sanitaires",
           "english": "health risks",
-          "example": "Une première cliente critique la qualité incertaine des ingrédients et les risques sanitaires, malgré des prix bas et un service rapide.",
+          "example": "Le premier critique la qualité incertaine des ingrédients et les risques sanitaires, malgré des prix bas et un service rapide.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
@@ -2025,7 +2025,7 @@
           "kind": "tournure",
           "french": "malgré des prix bas et un service rapide",
           "english": "despite low prices and quick service",
-          "example": "Une première cliente critique la qualité incertaine des ingrédients et les risques sanitaires, malgré des prix bas et un service rapide.",
+          "example": "Le premier critique la qualité incertaine des ingrédients et les risques sanitaires, malgré des prix bas et un service rapide.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
@@ -2033,15 +2033,15 @@
           "kind": "mot-cle",
           "french": "des prix bas",
           "english": "low prices",
-          "example": "Une première cliente critique la qualité incertaine des ingrédients et les risques sanitaires, malgré des prix bas et un service rapide.",
+          "example": "Le premier critique la qualité incertaine des ingrédients et les risques sanitaires, malgré des prix bas et un service rapide.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
           "id": "E3-NOV-C09-07",
           "kind": "expression",
-          "french": "À l’inverse",
-          "english": "Conversely",
-          "example": "À l’inverse, une employée affirme que les menus peuvent être équilibrés, que les normes d’hygiène sont strictes et que chaque consommateur demeure responsable de ses choix.",
+          "french": "En revanche",
+          "english": "On the other hand",
+          "example": "En revanche, le second affirme que les menus peuvent être équilibrés, que les normes d’hygiène sont strictes et que chaque consommateur reste responsable de ses choix.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
@@ -2049,7 +2049,7 @@
           "kind": "collocation",
           "french": "les normes d’hygiène",
           "english": "hygiene standards",
-          "example": "À l’inverse, une employée affirme que les menus peuvent être équilibrés, que les normes d’hygiène sont strictes et que chaque consommateur demeure responsable de ses choix.",
+          "example": "En revanche, le second affirme que les menus peuvent être équilibrés, que les normes d’hygiène sont strictes et que chaque consommateur reste responsable de ses choix.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
@@ -2057,23 +2057,23 @@
           "kind": "mot-cle",
           "french": "chaque consommateur",
           "english": "each consumer",
-          "example": "À l’inverse, une employée affirme que les menus peuvent être équilibrés, que les normes d’hygiène sont strictes et que chaque consommateur demeure responsable de ses choix.",
+          "example": "En revanche, le second affirme que les menus peuvent être équilibrés, que les normes d’hygiène sont strictes et que chaque consommateur reste responsable de ses choix.",
           "usage": "Groupe nominal, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
           "id": "E3-NOV-C09-10",
           "kind": "verbe-action",
-          "french": "demeure responsable de ses choix",
+          "french": "reste responsable de ses choix",
           "english": "remains responsible for their choices",
-          "example": "À l’inverse, une employée affirme que les menus peuvent être équilibrés, que les normes d’hygiène sont strictes et que chaque consommateur demeure responsable de ses choix.",
+          "example": "En revanche, le second affirme que les menus peuvent être équilibrés, que les normes d’hygiène sont strictes et que chaque consommateur reste responsable de ses choix.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
           "id": "E3-NOV-C09-11",
           "kind": "phrase-modele",
-          "french": "Il me semble que l’on peut manger sainement dans une chaîne de restauration rapide à condition que les choix restent raisonnables",
-          "english": "It seems to me that one can eat healthily at a fast-food chain provided that the choices remain reasonable",
-          "example": "Il me semble que l’on peut manger sainement dans une chaîne de restauration rapide à condition que les choix restent raisonnables.",
+          "french": "Pour ma part, on peut manger sainement dans une chaîne de restauration rapide à condition que les choix restent raisonnables",
+          "english": "For my part, one can eat healthily at a fast-food chain provided that the choices remain reasonable",
+          "example": "Pour ma part, on peut manger sainement dans une chaîne de restauration rapide à condition que les choix restent raisonnables.",
           "usage": "Formule argumentative avec le subjonctif ; réutilisable en Santé/Alimentation."
         },
         {
@@ -2081,7 +2081,7 @@
           "kind": "tournure",
           "french": "à condition que les choix restent raisonnables",
           "english": "provided that the choices remain reasonable",
-          "example": "On peut manger sainement à condition que les choix restent raisonnables.",
+          "example": "Pour ma part, on peut manger sainement dans une chaîne de restauration rapide à condition que les choix restent raisonnables.",
           "usage": "Structure avec « à condition que » et le subjonctif ; réutilisable en Santé/Alimentation."
         },
         {
@@ -2089,7 +2089,7 @@
           "kind": "collocation",
           "french": "une portion raisonnable",
           "english": "a reasonable portion",
-          "example": "En effet, une salade, une portion raisonnable et de l’eau composent un repas plus équilibré qu’un menu surchargé.",
+          "example": "Tout d’abord, une salade, une portion raisonnable et de l’eau composent un repas plus équilibré qu’un menu surchargé et limitent les excès.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
@@ -2097,7 +2097,7 @@
           "kind": "mot-cle",
           "french": "un repas plus équilibré",
           "english": "a more balanced meal",
-          "example": "En effet, une salade, une portion raisonnable et de l’eau composent un repas plus équilibré qu’un menu surchargé.",
+          "example": "Tout d’abord, une salade, une portion raisonnable et de l’eau composent un repas plus équilibré qu’un menu surchargé et limitent les excès.",
           "usage": "Nom masculin singulier, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
@@ -2105,7 +2105,7 @@
           "kind": "tournure",
           "french": "plus équilibré qu’un menu surchargé",
           "english": "more balanced than an overloaded menu",
-          "example": "En effet, une salade, une portion raisonnable et de l’eau composent un repas plus équilibré qu’un menu surchargé.",
+          "example": "Tout d’abord, une salade, une portion raisonnable et de l’eau composent un repas plus équilibré qu’un menu surchargé et limitent les excès.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
@@ -2113,7 +2113,7 @@
           "kind": "expression",
           "french": "De plus",
           "english": "Moreover",
-          "example": "De plus, l’affichage nutritionnel aide les clients à décider.",
+          "example": "De plus, l’affichage nutritionnel aide les clients à décider avant de commander.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
@@ -2121,7 +2121,7 @@
           "kind": "mot-cle",
           "french": "l’affichage nutritionnel",
           "english": "nutritional labelling",
-          "example": "De plus, l’affichage nutritionnel aide les clients à décider.",
+          "example": "De plus, l’affichage nutritionnel aide les clients à décider avant de commander.",
           "usage": "Nom singulier, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
@@ -2129,7 +2129,7 @@
           "kind": "verbe-action",
           "french": "aide les clients à décider",
           "english": "helps customers decide",
-          "example": "De plus, l’affichage nutritionnel aide les clients à décider.",
+          "example": "De plus, l’affichage nutritionnel aide les clients à décider avant de commander.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
@@ -2159,33 +2159,33 @@
         {
           "id": "E3-NOV-C09-22",
           "kind": "phrase-modele",
-          "french": "Cependant, il faut aussi reconnaître que les promotions encouragent souvent la surconsommation d’aliments gras et salés",
-          "english": "However, it must also be acknowledged that promotions often encourage overconsumption of fatty and salty foods",
-          "example": "Cependant, il faut aussi reconnaître que les promotions encouragent souvent la surconsommation d’aliments gras et salés.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Santé/Alimentation."
+          "french": "La taille des portions pèse souvent plus sur l’équilibre d’un repas que le lieu où on l’achète",
+          "english": "Portion size often matters more to the balance of a meal than where it is bought",
+          "example": "La taille des portions pèse souvent plus sur l’équilibre d’un repas que le lieu où on l’achète.",
+          "usage": "Phrase argumentative avec comparaison ; réutilisable en Santé/Alimentation."
         },
         {
           "id": "E3-NOV-C09-23",
           "kind": "mot-cle",
-          "french": "les promotions",
-          "english": "promotions",
-          "example": "Cependant, il faut aussi reconnaître que les promotions encouragent souvent la surconsommation d’aliments gras et salés.",
-          "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Santé/Alimentation."
+          "french": "La taille des portions",
+          "english": "portion size",
+          "example": "La taille des portions pèse souvent plus sur l’équilibre d’un repas que le lieu où on l’achète.",
+          "usage": "Groupe nominal singulier, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
           "id": "E3-NOV-C09-24",
           "kind": "collocation",
-          "french": "la surconsommation d’aliments gras et salés",
-          "english": "overconsumption of fatty and salty foods",
-          "example": "Cependant, il faut aussi reconnaître que les promotions encouragent souvent la surconsommation d’aliments gras et salés.",
+          "french": "l’équilibre d’un repas",
+          "english": "the balance of a meal",
+          "example": "La taille des portions pèse souvent plus sur l’équilibre d’un repas que le lieu où on l’achète.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
           "id": "E3-NOV-C09-25",
           "kind": "tournure",
-          "french": "encouragent souvent la surconsommation",
-          "english": "often encourage overconsumption",
-          "example": "Cependant, il faut aussi reconnaître que les promotions encouragent souvent la surconsommation d’aliments gras et salés.",
+          "french": "pèse souvent plus sur l’équilibre d’un repas que le lieu où on l’achète",
+          "english": "matters more to the balance of a meal than where it is bought",
+          "example": "La taille des portions pèse souvent plus sur l’équilibre d’un repas que le lieu où on l’achète.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
@@ -2217,7 +2217,7 @@
           "kind": "mot-cle",
           "french": "un menu surchargé",
           "english": "an overloaded menu",
-          "example": "En effet, une salade, une portion raisonnable et de l’eau composent un repas plus équilibré qu’un menu surchargé.",
+          "example": "Tout d’abord, une salade, une portion raisonnable et de l’eau composent un repas plus équilibré qu’un menu surchargé et limitent les excès.",
           "usage": "Nom masculin singulier, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
@@ -2225,7 +2225,7 @@
           "kind": "reformulation",
           "french": "une chaîne de restauration rapide",
           "english": "a fast-food chain",
-          "example": "On peut manger sainement dans une chaîne de restauration rapide à condition que les choix restent raisonnables.",
+          "example": "Pour ma part, on peut manger sainement dans une chaîne de restauration rapide à condition que les choix restent raisonnables.",
           "usage": "Reformulation, registre neutre ; réutilisable en Santé/Alimentation."
         }
       ]
@@ -2238,17 +2238,17 @@
         {
           "id": "E3-NOV-C10-01",
           "kind": "phrase-modele",
-          "french": "L’art urbain oppose deux visions de l’espace public",
-          "english": "Urban art contrasts two views of public space",
-          "example": "L’art urbain oppose deux visions de l’espace public.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Culture/Ville."
+          "french": "Les deux documents abordent l’art urbain",
+          "english": "Both documents address urban art",
+          "example": "Les deux documents abordent l’art urbain.",
+          "usage": "Formule d’introduction de synthèse, registre neutre ; réutilisable en Culture/Ville."
         },
         {
           "id": "E3-NOV-C10-02",
           "kind": "mot-cle",
           "french": "L’art urbain",
           "english": "urban art",
-          "example": "L’art urbain oppose deux visions de l’espace public.",
+          "example": "Pour ma part, l’art urbain enrichit la ville à condition qu’il respecte les habitants et les bâtiments.",
           "usage": "Nom singulier, registre neutre ; réutilisable en Culture/Ville."
         },
         {
@@ -2256,15 +2256,15 @@
           "kind": "mot-cle",
           "french": "l’espace public",
           "english": "public space",
-          "example": "L’art urbain oppose deux visions de l’espace public.",
+          "example": "Le premier y voit une expression culturelle dans l’espace public qui soutient les artistes et attire les touristes vers des quartiers méconnus.",
           "usage": "Nom singulier, registre neutre ; réutilisable en Culture/Ville."
         },
         {
           "id": "E3-NOV-C10-04",
           "kind": "reformulation",
-          "french": "Ses défenseurs",
-          "english": "its supporters",
-          "example": "Ses défenseurs y voient une expression culturelle dans l’espace public qui soutient les artistes et attire les touristes vers des quartiers méconnus.",
+          "french": "Le premier",
+          "english": "the first document",
+          "example": "Le premier y voit une expression culturelle dans l’espace public qui soutient les artistes et attire les touristes vers des quartiers méconnus.",
           "usage": "Reformulation, registre neutre ; réutilisable en Culture/Ville."
         },
         {
@@ -2272,7 +2272,7 @@
           "kind": "collocation",
           "french": "une expression culturelle",
           "english": "a cultural expression",
-          "example": "Ses défenseurs y voient une expression culturelle dans l’espace public qui soutient les artistes et attire les touristes vers des quartiers méconnus.",
+          "example": "Le premier y voit une expression culturelle dans l’espace public qui soutient les artistes et attire les touristes vers des quartiers méconnus.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Culture/Ville."
         },
         {
@@ -2280,7 +2280,7 @@
           "kind": "verbe-action",
           "french": "soutient les artistes et attire les touristes",
           "english": "supports artists and attracts tourists",
-          "example": "Cette expression culturelle soutient les artistes et attire les touristes vers des quartiers méconnus.",
+          "example": "Le premier y voit une expression culturelle dans l’espace public qui soutient les artistes et attire les touristes vers des quartiers méconnus.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Culture/Ville."
         },
         {
@@ -2288,7 +2288,7 @@
           "kind": "mot-cle",
           "french": "des quartiers méconnus",
           "english": "little-known neighbourhoods",
-          "example": "Des parcours guidés attirent les touristes vers des quartiers méconnus.",
+          "example": "Le premier y voit une expression culturelle dans l’espace public qui soutient les artistes et attire les touristes vers des quartiers méconnus.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Culture/Ville."
         },
         {
@@ -2296,7 +2296,7 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, ses opposants dénoncent les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner à leurs quartiers.",
+          "example": "En revanche, le second dénonce les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner aux quartiers.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Culture/Ville."
         },
         {
@@ -2304,7 +2304,7 @@
           "kind": "collocation",
           "french": "les œuvres réalisées sans autorisation",
           "english": "works created without permission",
-          "example": "En revanche, ses opposants dénoncent les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner à leurs quartiers.",
+          "example": "En revanche, le second dénonce les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner aux quartiers.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Culture/Ville."
         },
         {
@@ -2312,7 +2312,7 @@
           "kind": "mot-cle",
           "french": "leur coût de nettoyage",
           "english": "their cleaning cost",
-          "example": "En revanche, ses opposants dénoncent les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner à leurs quartiers.",
+          "example": "En revanche, le second dénonce les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner aux quartiers.",
           "usage": "Groupe nominal, registre neutre ; réutilisable en Culture/Ville."
         },
         {
@@ -2320,15 +2320,15 @@
           "kind": "collocation",
           "french": "la mauvaise image",
           "english": "the negative image",
-          "example": "En revanche, ses opposants dénoncent les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner à leurs quartiers.",
+          "example": "En revanche, le second dénonce les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner aux quartiers.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Culture/Ville."
         },
         {
           "id": "E3-NOV-C10-12",
           "kind": "phrase-modele",
-          "french": "Personnellement, l’art urbain enrichit la ville à condition qu’il respecte les habitants et les bâtiments",
-          "english": "Personally, urban art enriches the city provided that it respects residents and buildings",
-          "example": "Personnellement, l’art urbain enrichit la ville à condition qu’il respecte les habitants et les bâtiments.",
+          "french": "Pour ma part, l’art urbain enrichit la ville à condition qu’il respecte les habitants et les bâtiments",
+          "english": "For my part, urban art enriches the city provided that it respects residents and buildings",
+          "example": "Pour ma part, l’art urbain enrichit la ville à condition qu’il respecte les habitants et les bâtiments.",
           "usage": "Formule argumentative avec le subjonctif ; réutilisable en Culture/Ville."
         },
         {
@@ -2336,7 +2336,7 @@
           "kind": "tournure",
           "french": "à condition qu’il respecte les habitants et les bâtiments",
           "english": "provided that it respects residents and buildings",
-          "example": "L’art urbain enrichit la ville à condition qu’il respecte les habitants et les bâtiments.",
+          "example": "Pour ma part, l’art urbain enrichit la ville à condition qu’il respecte les habitants et les bâtiments.",
           "usage": "Structure avec « à condition que » et le subjonctif ; réutilisable en Culture/Ville."
         },
         {
@@ -2344,7 +2344,7 @@
           "kind": "mot-cle",
           "french": "des murs autorisés",
           "english": "authorized walls",
-          "example": "Tout d’abord, des murs autorisés offrent aux artistes un espace d’expression accessible à tous.",
+          "example": "Tout d’abord, des murs autorisés offrent aux artistes un espace d’expression accessible à tous sans dégrader les bâtiments.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Culture/Ville."
         },
         {
@@ -2352,7 +2352,7 @@
           "kind": "collocation",
           "french": "un espace d’expression accessible à tous",
           "english": "a space for expression accessible to everyone",
-          "example": "Tout d’abord, des murs autorisés offrent aux artistes un espace d’expression accessible à tous.",
+          "example": "Tout d’abord, des murs autorisés offrent aux artistes un espace d’expression accessible à tous sans dégrader les bâtiments.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Culture/Ville."
         },
         {
@@ -2360,7 +2360,7 @@
           "kind": "mot-cle",
           "french": "des parcours guidés",
           "english": "guided tours",
-          "example": "Ensuite, des parcours guidés peuvent dynamiser les quartiers.",
+          "example": "De plus, des parcours guidés peuvent dynamiser les quartiers et soutenir les commerces locaux.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Culture/Ville."
         },
         {
@@ -2368,7 +2368,7 @@
           "kind": "verbe-action",
           "french": "dynamiser les quartiers",
           "english": "to revitalize neighbourhoods",
-          "example": "Ensuite, des parcours guidés peuvent dynamiser les quartiers.",
+          "example": "De plus, des parcours guidés peuvent dynamiser les quartiers et soutenir les commerces locaux.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Culture/Ville."
         },
         {
@@ -2406,41 +2406,41 @@
         {
           "id": "E3-NOV-C10-22",
           "kind": "phrase-modele",
-          "french": "Cependant, il faut aussi reconnaître que peindre une propriété sans consentement entraîne des dépenses et porte atteinte aux droits de son propriétaire",
-          "english": "However, it must also be acknowledged that painting property without consent creates expenses and infringes the owner’s rights",
-          "example": "Cependant, il faut aussi reconnaître que peindre une propriété sans consentement entraîne des dépenses et porte atteinte aux droits de son propriétaire.",
+          "french": "Un cadre négocié avec la ville transforme une contrainte en projet commun",
+          "english": "A framework negotiated with the city turns a constraint into a shared project",
+          "example": "Un cadre négocié avec la ville transforme une contrainte en projet commun.",
           "usage": "Formule argumentative, registre neutre ; réutilisable en Culture/Ville."
         },
         {
           "id": "E3-NOV-C10-23",
           "kind": "collocation",
-          "french": "sans consentement",
-          "english": "without consent",
-          "example": "Cependant, il faut aussi reconnaître que peindre une propriété sans consentement entraîne des dépenses et porte atteinte aux droits de son propriétaire.",
+          "french": "Un cadre négocié avec la ville",
+          "english": "a framework negotiated with the city",
+          "example": "Un cadre négocié avec la ville transforme une contrainte en projet commun.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Culture/Ville."
         },
         {
           "id": "E3-NOV-C10-24",
           "kind": "tournure",
-          "french": "porte atteinte aux droits de son propriétaire",
-          "english": "infringes the owner’s rights",
-          "example": "Cependant, il faut aussi reconnaître que peindre une propriété sans consentement entraîne des dépenses et porte atteinte aux droits de son propriétaire.",
+          "french": "transforme une contrainte en projet commun",
+          "english": "turns a constraint into a shared project",
+          "example": "Un cadre négocié avec la ville transforme une contrainte en projet commun.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Culture/Ville."
         },
         {
           "id": "E3-NOV-C10-25",
           "kind": "mot-cle",
-          "french": "droits de son propriétaire",
-          "english": "the owner’s rights",
-          "example": "Cependant, il faut aussi reconnaître que peindre une propriété sans consentement entraîne des dépenses et porte atteinte aux droits de son propriétaire.",
-          "usage": "Groupe nominal, registre neutre ; réutilisable en Culture/Ville."
+          "french": "les commerces locaux",
+          "english": "local businesses",
+          "example": "De plus, des parcours guidés peuvent dynamiser les quartiers et soutenir les commerces locaux.",
+          "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Culture/Ville."
         },
         {
           "id": "E3-NOV-C10-26",
           "kind": "phrase-modele",
-          "french": "En définitive, le plus important est de soutenir la créativité dans des espaces clairement définis, tout en sanctionnant les dégradations imposées",
-          "english": "Ultimately, the most important thing is to support creativity in clearly defined spaces while penalizing imposed damage",
-          "example": "En définitive, le plus important est de soutenir la créativité dans des espaces clairement définis, tout en sanctionnant les dégradations imposées.",
+          "french": "En conclusion, le plus important est de soutenir la créativité dans des espaces clairement définis, tout en sanctionnant les dégradations non autorisées",
+          "english": "In conclusion, the most important thing is to support creativity in clearly defined spaces, while penalizing unauthorized damage",
+          "example": "En conclusion, le plus important est de soutenir la créativité dans des espaces clairement définis, tout en sanctionnant les dégradations non autorisées.",
           "usage": "Formule argumentative, registre neutre ; réutilisable en Culture/Ville."
         },
         {
@@ -2448,7 +2448,7 @@
           "kind": "mot-cle",
           "french": "la créativité",
           "english": "creativity",
-          "example": "En définitive, le plus important est de soutenir la créativité dans des espaces clairement définis, tout en sanctionnant les dégradations imposées.",
+          "example": "En conclusion, le plus important est de soutenir la créativité dans des espaces clairement définis, tout en sanctionnant les dégradations non autorisées.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Culture/Ville."
         },
         {
@@ -2456,23 +2456,23 @@
           "kind": "collocation",
           "french": "des espaces clairement définis",
           "english": "clearly defined spaces",
-          "example": "En définitive, le plus important est de soutenir la créativité dans des espaces clairement définis, tout en sanctionnant les dégradations imposées.",
+          "example": "En conclusion, le plus important est de soutenir la créativité dans des espaces clairement définis, tout en sanctionnant les dégradations non autorisées.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Culture/Ville."
         },
         {
           "id": "E3-NOV-C10-29",
           "kind": "tournure",
-          "french": "tout en sanctionnant les dégradations imposées",
-          "english": "while penalizing imposed damage",
-          "example": "En définitive, le plus important est de soutenir la créativité dans des espaces clairement définis, tout en sanctionnant les dégradations imposées.",
+          "french": "tout en sanctionnant les dégradations non autorisées",
+          "english": "while penalizing unauthorized damage",
+          "example": "En conclusion, le plus important est de soutenir la créativité dans des espaces clairement définis, tout en sanctionnant les dégradations non autorisées.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Culture/Ville."
         },
         {
           "id": "E3-NOV-C10-30",
           "kind": "expression",
-          "french": "En définitive",
-          "english": "Ultimately",
-          "example": "En définitive, le plus important est de soutenir la créativité dans des espaces clairement définis, tout en sanctionnant les dégradations imposées.",
+          "french": "En conclusion",
+          "english": "In conclusion",
+          "example": "En conclusion, le plus important est de soutenir la créativité dans des espaces clairement définis, tout en sanctionnant les dégradations non autorisées.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Culture/Ville."
         }
       ]
@@ -2485,25 +2485,25 @@
         {
           "id": "E3-NOV-C11-01",
           "kind": "phrase-modele",
-          "french": "La gratuité des musées suscite un débat",
-          "english": "Free museum admission sparks debate",
-          "example": "La gratuité des musées suscite un débat.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Culture/Société."
+          "french": "Les deux documents abordent la gratuité des musées",
+          "english": "Both documents address free admission to museums",
+          "example": "Les deux documents abordent la gratuité des musées.",
+          "usage": "Formule d’introduction de synthèse, registre neutre ; réutilisable en Culture/Société."
         },
         {
           "id": "E3-NOV-C11-02",
           "kind": "mot-cle",
           "french": "La gratuité des musées",
           "english": "free museum admission",
-          "example": "La gratuité des musées suscite un débat.",
+          "example": "Les deux documents abordent la gratuité des musées.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Culture/Société."
         },
         {
           "id": "E3-NOV-C11-03",
           "kind": "reformulation",
-          "french": "Ses partisans",
-          "english": "its supporters",
-          "example": "Ses partisans la présentent comme un moyen de démocratiser la culture, d’attirer de nouveaux visiteurs et de renforcer la mission éducative des établissements.",
+          "french": "Le premier",
+          "english": "the first document",
+          "example": "Le premier la présente comme un moyen de démocratiser la culture, d’attirer de nouveaux visiteurs et de renforcer la mission éducative des établissements.",
           "usage": "Reformulation, registre neutre ; réutilisable en Culture/Société."
         },
         {
@@ -2511,7 +2511,7 @@
           "kind": "verbe-action",
           "french": "démocratiser la culture",
           "english": "to democratize culture",
-          "example": "Ses partisans la présentent comme un moyen de démocratiser la culture, d’attirer de nouveaux visiteurs et de renforcer la mission éducative des établissements.",
+          "example": "Le premier la présente comme un moyen de démocratiser la culture, d’attirer de nouveaux visiteurs et de renforcer la mission éducative des établissements.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Culture/Société."
         },
         {
@@ -2519,7 +2519,7 @@
           "kind": "collocation",
           "french": "de nouveaux visiteurs",
           "english": "new visitors",
-          "example": "Ses partisans la présentent comme un moyen de démocratiser la culture, d’attirer de nouveaux visiteurs et de renforcer la mission éducative des établissements.",
+          "example": "Le premier la présente comme un moyen de démocratiser la culture, d’attirer de nouveaux visiteurs et de renforcer la mission éducative des établissements.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Culture/Société."
         },
         {
@@ -2527,15 +2527,15 @@
           "kind": "mot-cle",
           "french": "la mission éducative des établissements",
           "english": "the institutions’ educational mission",
-          "example": "Ses partisans la présentent comme un moyen de démocratiser la culture, d’attirer de nouveaux visiteurs et de renforcer la mission éducative des établissements.",
+          "example": "Le premier la présente comme un moyen de démocratiser la culture, d’attirer de nouveaux visiteurs et de renforcer la mission éducative des établissements.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Culture/Société."
         },
         {
           "id": "E3-NOV-C11-07",
           "kind": "expression",
-          "french": "Toutefois",
-          "english": "However",
-          "example": "Toutefois, ses opposants rappellent que les collections doivent être financées et préfèrent des tarifs ciblés, accompagnés d’activités adaptées aux différents publics.",
+          "french": "En revanche",
+          "english": "On the other hand",
+          "example": "En revanche, le second rappelle que les collections doivent être financées et préfère des tarifs ciblés, accompagnés d’activités adaptées aux différents publics.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Culture/Société."
         },
         {
@@ -2543,7 +2543,7 @@
           "kind": "mot-cle",
           "french": "les collections",
           "english": "collections",
-          "example": "Toutefois, ses opposants rappellent que les collections doivent être financées et préfèrent des tarifs ciblés, accompagnés d’activités adaptées aux différents publics.",
+          "example": "En revanche, le second rappelle que les collections doivent être financées et préfère des tarifs ciblés, accompagnés d’activités adaptées aux différents publics.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Culture/Société."
         },
         {
@@ -2551,7 +2551,7 @@
           "kind": "collocation",
           "french": "des tarifs ciblés",
           "english": "targeted rates",
-          "example": "Toutefois, ses opposants rappellent que les collections doivent être financées et préfèrent des tarifs ciblés, accompagnés d’activités adaptées aux différents publics.",
+          "example": "En revanche, le second rappelle que les collections doivent être financées et préfère des tarifs ciblés, accompagnés d’activités adaptées aux différents publics.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Culture/Société."
         },
         {
@@ -2559,15 +2559,15 @@
           "kind": "collocation",
           "french": "activités adaptées aux différents publics",
           "english": "activities suited to different audiences",
-          "example": "Toutefois, ses opposants rappellent que les collections doivent être financées et préfèrent des tarifs ciblés, accompagnés d’activités adaptées aux différents publics.",
+          "example": "En revanche, le second rappelle que les collections doivent être financées et préfère des tarifs ciblés, accompagnés d’activités adaptées aux différents publics.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Culture/Société."
         },
         {
           "id": "E3-NOV-C11-11",
           "kind": "phrase-modele",
-          "french": "À mon avis, les musées devraient être gratuits à certains moments et proposer des réductions ciblées le reste du temps",
-          "english": "In my opinion, museums should be free at certain times and offer targeted discounts the rest of the time",
-          "example": "À mon avis, les musées devraient être gratuits à certains moments et proposer des réductions ciblées le reste du temps.",
+          "french": "Pour ma part, les musées devraient être gratuits à certains moments et proposer des réductions ciblées le reste du temps",
+          "english": "For my part, museums should be free at certain times and offer targeted discounts the rest of the time",
+          "example": "Pour ma part, les musées devraient être gratuits à certains moments et proposer des réductions ciblées le reste du temps.",
           "usage": "Formule argumentative, registre neutre ; réutilisable en Culture/Société."
         },
         {
@@ -2575,7 +2575,7 @@
           "kind": "mot-cle",
           "french": "des réductions ciblées",
           "english": "targeted discounts",
-          "example": "À mon avis, les musées devraient être gratuits à certains moments et proposer des réductions ciblées le reste du temps.",
+          "example": "Pour ma part, les musées devraient être gratuits à certains moments et proposer des réductions ciblées le reste du temps.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Culture/Société."
         },
         {
@@ -2583,7 +2583,7 @@
           "kind": "tournure",
           "french": "le reste du temps",
           "english": "the rest of the time",
-          "example": "À mon avis, les musées devraient être gratuits à certains moments et proposer des réductions ciblées le reste du temps.",
+          "example": "Pour ma part, les musées devraient être gratuits à certains moments et proposer des réductions ciblées le reste du temps.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Culture/Société."
         },
         {
@@ -2669,25 +2669,25 @@
         {
           "id": "E3-NOV-C11-24",
           "kind": "phrase-modele",
-          "french": "Cependant, il faut aussi reconnaître que la gratuité attire parfois des visiteurs déjà habitués plutôt que de nouveaux publics",
-          "english": "However, it must also be acknowledged that free admission sometimes attracts existing visitors rather than new audiences",
-          "example": "Cependant, il faut aussi reconnaître que la gratuité attire parfois des visiteurs déjà habitués plutôt que de nouveaux publics.",
+          "french": "Les familles qui renoncent au musée par manque de moyens y entrent enfin sans se justifier",
+          "english": "Families who give up on museums for lack of means can finally go in without having to justify themselves",
+          "example": "Les familles qui renoncent au musée par manque de moyens y entrent enfin sans se justifier.",
           "usage": "Formule argumentative, registre neutre ; réutilisable en Culture/Société."
         },
         {
           "id": "E3-NOV-C11-25",
           "kind": "tournure",
-          "french": "plutôt que de nouveaux publics",
-          "english": "rather than new audiences",
-          "example": "Cependant, il faut aussi reconnaître que la gratuité attire parfois des visiteurs déjà habitués plutôt que de nouveaux publics.",
+          "french": "sans se justifier",
+          "english": "without having to justify themselves",
+          "example": "Les familles qui renoncent au musée par manque de moyens y entrent enfin sans se justifier.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Culture/Société."
         },
         {
           "id": "E3-NOV-C11-26",
           "kind": "mot-cle",
-          "french": "de nouveaux publics",
-          "english": "new audiences",
-          "example": "Cependant, il faut aussi reconnaître que la gratuité attire parfois des visiteurs déjà habitués plutôt que de nouveaux publics.",
+          "french": "manque de moyens",
+          "english": "lack of means",
+          "example": "Les familles qui renoncent au musée par manque de moyens y entrent enfin sans se justifier.",
           "usage": "Groupe nominal, registre neutre ; réutilisable en Culture/Société."
         },
         {
@@ -2701,9 +2701,9 @@
         {
           "id": "E3-NOV-C11-28",
           "kind": "mot-cle",
-          "french": "les obstacles financiers",
-          "english": "financial barriers",
-          "example": "La gratuité doit réduire les obstacles financiers à la visite.",
+          "french": "les obstacles",
+          "english": "the barriers",
+          "example": "En conclusion, il faut que la gratuité réduise les obstacles sans fragiliser les musées et qu’elle s’accompagne d’une médiation adaptée.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Culture/Société."
         },
         {
@@ -2711,7 +2711,7 @@
           "kind": "tournure",
           "french": "sans fragiliser les musées",
           "english": "without weakening museums",
-          "example": "Il faut réduire les obstacles sans fragiliser les musées.",
+          "example": "En conclusion, il faut que la gratuité réduise les obstacles sans fragiliser les musées et qu’elle s’accompagne d’une médiation adaptée.",
           "usage": "Structure avec « sans » et l’infinitif ; réutilisable en Culture/Société."
         },
         {
@@ -2719,7 +2719,7 @@
           "kind": "collocation",
           "french": "une médiation adaptée",
           "english": "suitable mediation",
-          "example": "La gratuité doit s’accompagner d’une médiation adaptée.",
+          "example": "En conclusion, il faut que la gratuité réduise les obstacles sans fragiliser les musées et qu’elle s’accompagne d’une médiation adaptée.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Culture/Société."
         }
       ]
@@ -2732,25 +2732,25 @@
         {
           "id": "E3-NOV-C12-01",
           "kind": "phrase-modele",
-          "french": "Les objets connectés présentent des avantages et des inconvénients",
-          "english": "Connected devices have advantages and disadvantages",
-          "example": "Les objets connectés présentent des avantages et des inconvénients.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Numérique/Santé."
+          "french": "Les deux documents abordent les objets connectés",
+          "english": "Both documents address connected devices",
+          "example": "Les deux documents abordent les objets connectés.",
+          "usage": "Formule d’introduction de synthèse, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
           "id": "E3-NOV-C12-02",
           "kind": "mot-cle",
           "french": "Les objets connectés",
           "english": "connected devices",
-          "example": "Les objets connectés présentent des avantages et des inconvénients.",
+          "example": "Pour ma part, les objets connectés sont utiles à condition que leur sécurité soit garantie et que les données restent maîtrisées.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
           "id": "E3-NOV-C12-03",
           "kind": "reformulation",
-          "french": "Leurs défenseurs",
-          "english": "their supporters",
-          "example": "Leurs défenseurs soulignent qu’ils simplifient le quotidien, encouragent l’activité physique et facilitent le suivi des rendez-vous ou des traitements médicaux.",
+          "french": "Le premier",
+          "english": "the first document",
+          "example": "Le premier souligne qu’ils simplifient le quotidien, encouragent l’activité physique et facilitent le suivi des rendez-vous ou des traitements médicaux.",
           "usage": "Reformulation, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
@@ -2758,7 +2758,7 @@
           "kind": "verbe-action",
           "french": "simplifient le quotidien",
           "english": "simplify daily life",
-          "example": "Leurs défenseurs soulignent qu’ils simplifient le quotidien, encouragent l’activité physique et facilitent le suivi des rendez-vous ou des traitements médicaux.",
+          "example": "Le premier souligne qu’ils simplifient le quotidien, encouragent l’activité physique et facilitent le suivi des rendez-vous ou des traitements médicaux.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
@@ -2766,7 +2766,7 @@
           "kind": "mot-cle",
           "french": "l’activité physique",
           "english": "physical activity",
-          "example": "Leurs défenseurs soulignent qu’ils simplifient le quotidien, encouragent l’activité physique et facilitent le suivi des rendez-vous ou des traitements médicaux.",
+          "example": "Le premier souligne qu’ils simplifient le quotidien, encouragent l’activité physique et facilitent le suivi des rendez-vous ou des traitements médicaux.",
           "usage": "Nom singulier, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
@@ -2774,7 +2774,7 @@
           "kind": "collocation",
           "french": "le suivi des rendez-vous",
           "english": "appointment tracking",
-          "example": "Leurs défenseurs soulignent qu’ils simplifient le quotidien, encouragent l’activité physique et facilitent le suivi des rendez-vous ou des traitements médicaux.",
+          "example": "Le premier souligne qu’ils simplifient le quotidien, encouragent l’activité physique et facilitent le suivi des rendez-vous ou des traitements médicaux.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
@@ -2782,15 +2782,15 @@
           "kind": "mot-cle",
           "french": "des traitements médicaux",
           "english": "medical treatments",
-          "example": "Leurs défenseurs soulignent qu’ils simplifient le quotidien, encouragent l’activité physique et facilitent le suivi des rendez-vous ou des traitements médicaux.",
+          "example": "Le premier souligne qu’ils simplifient le quotidien, encouragent l’activité physique et facilitent le suivi des rendez-vous ou des traitements médicaux.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
           "id": "E3-NOV-C12-08",
           "kind": "expression",
-          "french": "En revanche",
-          "english": "On the other hand",
-          "example": "En revanche, leurs critiques alertent sur le piratage, qui peut exposer une habitation, compromettre la vie privée ou permettre la prise de contrôle d’un véhicule.",
+          "french": "De son côté",
+          "english": "For its part",
+          "example": "De son côté, le second alerte sur le piratage, qui peut exposer une habitation, compromettre la vie privée ou permettre la prise de contrôle d’un véhicule.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
@@ -2798,7 +2798,7 @@
           "kind": "mot-cle",
           "french": "le piratage",
           "english": "hacking",
-          "example": "En revanche, leurs critiques alertent sur le piratage, qui peut exposer une habitation, compromettre la vie privée ou permettre la prise de contrôle d’un véhicule.",
+          "example": "De son côté, le second alerte sur le piratage, qui peut exposer une habitation, compromettre la vie privée ou permettre la prise de contrôle d’un véhicule.",
           "usage": "Nom masculin singulier, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
@@ -2806,7 +2806,7 @@
           "kind": "verbe-action",
           "french": "compromettre la vie privée",
           "english": "to compromise privacy",
-          "example": "En revanche, leurs critiques alertent sur le piratage, qui peut exposer une habitation, compromettre la vie privée ou permettre la prise de contrôle d’un véhicule.",
+          "example": "De son côté, le second alerte sur le piratage, qui peut exposer une habitation, compromettre la vie privée ou permettre la prise de contrôle d’un véhicule.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
@@ -2814,15 +2814,15 @@
           "kind": "collocation",
           "french": "la prise de contrôle d’un véhicule",
           "english": "taking control of a vehicle",
-          "example": "En revanche, leurs critiques alertent sur le piratage, qui peut exposer une habitation, compromettre la vie privée ou permettre la prise de contrôle d’un véhicule.",
+          "example": "De son côté, le second alerte sur le piratage, qui peut exposer une habitation, compromettre la vie privée ou permettre la prise de contrôle d’un véhicule.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
           "id": "E3-NOV-C12-12",
           "kind": "phrase-modele",
-          "french": "Selon moi, les objets connectés sont utiles à condition que leur sécurité soit garantie et que les données restent maîtrisées",
-          "english": "In my view, connected devices are useful provided their security is guaranteed and data remains under control",
-          "example": "Selon moi, les objets connectés sont utiles à condition que leur sécurité soit garantie et que les données restent maîtrisées.",
+          "french": "Pour ma part, les objets connectés sont utiles à condition que leur sécurité soit garantie et que les données restent maîtrisées",
+          "english": "For my part, connected devices are useful provided that their security is guaranteed and that data remains under control",
+          "example": "Pour ma part, les objets connectés sont utiles à condition que leur sécurité soit garantie et que les données restent maîtrisées.",
           "usage": "Formule argumentative, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
@@ -2830,7 +2830,7 @@
           "kind": "tournure",
           "french": "à condition que leur sécurité soit garantie",
           "english": "provided their security is guaranteed",
-          "example": "Selon moi, les objets connectés sont utiles à condition que leur sécurité soit garantie et que les données restent maîtrisées.",
+          "example": "Pour ma part, les objets connectés sont utiles à condition que leur sécurité soit garantie et que les données restent maîtrisées.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
@@ -2838,7 +2838,7 @@
           "kind": "tournure",
           "french": "que les données restent maîtrisées",
           "english": "that data remains under control",
-          "example": "Selon moi, les objets connectés sont utiles à condition que leur sécurité soit garantie et que les données restent maîtrisées.",
+          "example": "Pour ma part, les objets connectés sont utiles à condition que leur sécurité soit garantie et que les données restent maîtrisées.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
@@ -2846,7 +2846,7 @@
           "kind": "mot-cle",
           "french": "les données",
           "english": "data",
-          "example": "Selon moi, les objets connectés sont utiles à condition que leur sécurité soit garantie et que les données restent maîtrisées.",
+          "example": "Pour ma part, les objets connectés sont utiles à condition que leur sécurité soit garantie et que les données restent maîtrisées.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
@@ -2868,9 +2868,9 @@
         {
           "id": "E3-NOV-C12-18",
           "kind": "expression",
-          "french": "Ensuite",
-          "english": "Next",
-          "example": "Ensuite, des mises à jour régulières limitent les intrusions informatiques.",
+          "french": "De plus",
+          "english": "Moreover",
+          "example": "De plus, des mises à jour régulières limitent les intrusions informatiques.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
@@ -2878,7 +2878,7 @@
           "kind": "collocation",
           "french": "des mises à jour régulières",
           "english": "regular updates",
-          "example": "Ensuite, des mises à jour régulières limitent les intrusions informatiques.",
+          "example": "De plus, des mises à jour régulières limitent les intrusions informatiques.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
@@ -2886,7 +2886,7 @@
           "kind": "mot-cle",
           "french": "les intrusions informatiques",
           "english": "cyber intrusions",
-          "example": "Ensuite, des mises à jour régulières limitent les intrusions informatiques.",
+          "example": "De plus, des mises à jour régulières limitent les intrusions informatiques.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
@@ -2924,25 +2924,25 @@
         {
           "id": "E3-NOV-C12-25",
           "kind": "collocation",
-          "french": "tout système numérique",
-          "english": "any digital system",
-          "example": "Cependant, il faut aussi reconnaître que tout système numérique reste vulnérable.",
+          "french": "des conséquences graves",
+          "english": "serious consequences",
+          "example": "Sans cette aide, un oubli de médicament peut avoir des conséquences graves.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
           "id": "E3-NOV-C12-26",
           "kind": "phrase-modele",
-          "french": "Cependant, il faut aussi reconnaître que tout système numérique reste vulnérable",
-          "english": "However, it must also be acknowledged that every digital system remains vulnerable",
-          "example": "Cependant, il faut aussi reconnaître que tout système numérique reste vulnérable.",
+          "french": "Sans cette aide, un oubli de médicament peut avoir des conséquences graves",
+          "english": "Without this help, forgetting a medication can have serious consequences",
+          "example": "Sans cette aide, un oubli de médicament peut avoir des conséquences graves.",
           "usage": "Formule argumentative, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
           "id": "E3-NOV-C12-27",
           "kind": "phrase-modele",
-          "french": "En définitive, le plus important est de protéger la vie privée grâce à des mots de passe solides, des réglages transparents et un consentement éclairé",
-          "english": "Ultimately, the most important thing is to protect privacy through strong passwords, transparent settings and informed consent",
-          "example": "En définitive, le plus important est de protéger la vie privée grâce à des mots de passe solides, des réglages transparents et un consentement éclairé.",
+          "french": "En conclusion, le plus important est de protéger la vie privée grâce à des mots de passe solides, des réglages transparents et un consentement éclairé",
+          "english": "In conclusion, the most important thing is to protect privacy through strong passwords, transparent settings and informed consent",
+          "example": "En conclusion, le plus important est de protéger la vie privée grâce à des mots de passe solides, des réglages transparents et un consentement éclairé.",
           "usage": "Formule argumentative, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
@@ -2950,7 +2950,7 @@
           "kind": "mot-cle",
           "french": "la vie privée",
           "english": "privacy",
-          "example": "En revanche, leurs critiques alertent sur le piratage, qui peut exposer une habitation, compromettre la vie privée ou permettre la prise de contrôle d’un véhicule.",
+          "example": "En conclusion, le plus important est de protéger la vie privée grâce à des mots de passe solides, des réglages transparents et un consentement éclairé.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
@@ -2958,7 +2958,7 @@
           "kind": "collocation",
           "french": "des mots de passe solides",
           "english": "strong passwords",
-          "example": "En définitive, le plus important est de protéger la vie privée grâce à des mots de passe solides, des réglages transparents et un consentement éclairé.",
+          "example": "En conclusion, le plus important est de protéger la vie privée grâce à des mots de passe solides, des réglages transparents et un consentement éclairé.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
@@ -2966,7 +2966,7 @@
           "kind": "mot-cle",
           "french": "un consentement éclairé",
           "english": "informed consent",
-          "example": "En définitive, le plus important est de protéger la vie privée grâce à des mots de passe solides, des réglages transparents et un consentement éclairé.",
+          "example": "En conclusion, le plus important est de protéger la vie privée grâce à des mots de passe solides, des réglages transparents et un consentement éclairé.",
           "usage": "Nom masculin singulier, registre neutre ; réutilisable en Numérique/Santé."
         }
       ]

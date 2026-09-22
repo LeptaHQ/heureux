@@ -10,13 +10,13 @@
 
 **Partie 1 — Synthèse (54 mots)**
 
-La question des jeux vidéo suscite des avis partagés. D’un côté, certaines pratiques stimuleraient chez les adultes l’analyse, la prise de décision et la rapidité de réaction. En revanche, une utilisation intensive chez les enfants serait associée au stress, à l’agressivité et à de moins bons résultats scolaires, ce qui appelle une vigilance parentale.
+Les deux documents abordent les effets des jeux vidéo. Le premier évoque chez les adultes une amélioration de l’analyse, de la prise de décision et de la rapidité de réaction. De son côté, le second associe une utilisation intensive chez les enfants au stress, à la violence et à de moins bons résultats scolaires.
 
-**Partie 2 — Point de vue personnel (104 mots)**
+**Partie 2 — Point de vue personnel (91 mots)**
 
-À mon avis, les jeux vidéo peuvent être bénéfiques, mais seulement si leur usage est adapté à l’âge et limité. Tout d’abord, certains jeux développent la stratégie, la coordination et la capacité d’analyse. Ensuite, des horaires précis préservent le sommeil, les devoirs et les relations familiales. Par exemple, un adolescent pourrait jouer quarante-cinq minutes après avoir terminé son travail scolaire, puis éteindre sa console avant le repas. Cependant, il faut aussi reconnaître que les mécanismes de récompense favorisent parfois la dépendance. En conclusion, le plus important est de choisir des contenus appropriés et de maintenir un équilibre entre écrans, activité physique et lien humain.
+Pour ma part, les jeux vidéo peuvent être bénéfiques, mais seulement si leur usage est adapté à l’âge et limité. Tout d’abord, certains jeux développent la stratégie, la coordination et la capacité d’analyse. De plus, des horaires précis préservent le sommeil, les devoirs et les relations familiales. Par exemple, un adolescent pourrait jouer quarante-cinq minutes après avoir terminé son travail scolaire, puis éteindre sa console avant le repas. En conclusion, le plus important est de choisir des contenus appropriés et de maintenir un équilibre entre écrans, activité physique et lien humain.
 
-**Total : 164 mots (titre compris)**
+**Total : 151 mots (titre compris)**
 
 ---
 
@@ -26,15 +26,15 @@ La question des jeux vidéo suscite des avis partagés. D’un côté, certaines
 
 ### Bien-être au travail : le confort sans pression
 
-**Partie 1 — Synthèse (52 mots)**
+**Partie 1 — Synthèse (48 mots)**
 
-Le bien-être au travail oppose deux visions de l’organisation professionnelle. Le premier témoignage valorise des bureaux électriques, qui amélioreraient le confort, la productivité et les échanges entre collègues. En revanche, le second redoute que ces aménagements ne servent surtout à prolonger les journées et réclame le respect strict du temps de travail.
+Les deux documents abordent le bien-être au travail. Le premier valorise les bureaux électriques, qui amélioreraient le confort, la productivité et les échanges entre collègues. En revanche, le second redoute que ces aménagements servent surtout à prolonger les journées et réclame le respect strict du temps de travail.
 
-**Partie 2 — Point de vue personnel (103 mots)**
+**Partie 2 — Point de vue personnel (93 mots)**
 
-Selon moi, le bien-être des salariés exige de bonnes conditions matérielles, mais aussi le respect de leurs horaires. Tout d’abord, un mobilier ergonomique réduit les douleurs et favorise la concentration. Ensuite, le droit à la déconnexion protège l’équilibre entre vie professionnelle et personnelle. Par exemple, une entreprise peut fournir des bureaux électriques tout en bloquant les courriels professionnels après dix-huit heures. Cette politique améliore le confort sans pousser les employés aux heures supplémentaires. Cependant, il faut aussi reconnaître que certains métiers nécessitent une souplesse ponctuelle. En définitive, le plus important est de créer un environnement sain qui soutienne l’efficacité sans augmenter la pression.
+Pour ma part, le bien-être des salariés exige de bonnes conditions matérielles, mais aussi le respect de leurs horaires. Tout d’abord, un mobilier ergonomique réduit les douleurs et favorise la concentration. De plus, le droit à la déconnexion protège l’équilibre entre vie professionnelle et personnelle. Par exemple, une entreprise peut fournir des bureaux électriques tout en bloquant les courriels professionnels après dix-huit heures. Cette politique améliore le confort sans pousser les employés aux heures supplémentaires. En conclusion, le plus important est de créer un environnement sain qui soutienne l’efficacité sans augmenter la pression.
 
-**Total : 162 mots (titre compris)**
+**Total : 148 mots (titre compris)**
 
 ---
 
@@ -44,15 +44,15 @@ Selon moi, le bien-être des salariés exige de bonnes conditions matérielles, 
 
 ### Distributeurs au lycée : la santé en priorité
 
-**Partie 1 — Synthèse (59 mots)**
+**Partie 1 — Synthèse (53 mots)**
 
-Les deux documents s’opposent sur l’interdiction des distributeurs automatiques au lycée. Le premier la juge urgente : l’obésité des adolescents progresse et l’école doit jouer son rôle éducatif face aux produits sucrés. En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident ceux qui ne peuvent pas déjeuner le matin.
+Les deux documents abordent l’interdiction des distributeurs automatiques au lycée. Le premier la juge urgente face à l’obésité des adolescents et au rôle éducatif de l’école. En revanche, le second affirme que ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident ceux qui ne peuvent pas déjeuner le matin.
 
-**Partie 2 — Point de vue personnel (99 mots)**
+**Partie 2 — Point de vue personnel (95 mots)**
 
-Personnellement, je suis favorable à ces appareils à condition que leur contenu soit strictement encadré. Tout d’abord, l’accès rapide à l’eau aide les élèves à rester attentifs. De plus, les bénéfices peuvent financer des outils pédagogiques. Par exemple, un lycée pourrait vendre uniquement de l’eau, du lait et des boissons sans sucre ajouté, puis consacrer les revenus à sa bibliothèque. Cependant, il faut aussi reconnaître que la publicité encourage les adolescents à choisir les produits les plus sucrés. En conclusion, le plus important est de privilégier la santé grâce à une sélection transparente, contrôlée par l’établissement et régulièrement évaluée.
+Pour ma part, je suis favorable à ces appareils à condition que leur contenu soit strictement encadré. Tout d’abord, l’accès rapide à l’eau aide les élèves à rester attentifs tout au long de la journée. De plus, les bénéfices peuvent financer des outils pédagogiques qui profitent à l’ensemble des élèves. Par exemple, un lycée pourrait vendre uniquement de l’eau, du lait et des boissons sans sucre ajouté, puis consacrer les revenus à sa bibliothèque. En conclusion, le plus important est de privilégier la santé grâce à une sélection transparente, contrôlée par l’établissement et régulièrement évaluée.
 
-**Total : 165 mots (titre compris)**
+**Total : 155 mots (titre compris)**
 
 ---
 
@@ -64,13 +64,13 @@ Personnellement, je suis favorable à ces appareils à condition que leur conten
 
 **Partie 1 — Synthèse (58 mots)**
 
-La sieste au travail fait l’objet d’un débat nuancé. Ses défenseurs mettent en avant une meilleure concentration, davantage de créativité et une diminution du stress chez les salariés reposés. Toutefois, ses opposants insistent sur les coûts, le manque d’espace et les obligations à respecter : un local dédié, du matériel adapté, l’égalité de traitement et la prévention du harcèlement.
+Les deux documents abordent la sieste au travail. Le premier met en avant une meilleure concentration, davantage de créativité et une diminution du stress chez les salariés reposés. De son côté, le second insiste sur les coûts, le manque d’espace et les règles à respecter concernant le local, le matériel, l’égalité de traitement et la prévention du harcèlement.
 
-**Partie 2 — Point de vue personnel (104 mots)**
+**Partie 2 — Point de vue personnel (92 mots)**
 
-À mon avis, une courte sieste peut améliorer le bien-être et la productivité, mais elle doit rester facultative. En effet, vingt minutes de repos suffisent souvent à réduire la fatigue sans perturber la journée. Ensuite, un cadre commun évite les abus et les inégalités. Par exemple, une entreprise pourrait aménager une petite salle calme, accessible sur réservation pendant la pause de midi. Cependant, il faut aussi reconnaître que toutes les structures ne disposent ni de l’espace ni du budget nécessaires. En définitive, le plus important est de proposer une solution simple, équitable et adaptée aux conditions de travail, sans imposer cette pratique aux salariés.
+Pour ma part, une courte sieste peut améliorer le bien-être et la productivité, mais elle doit rester facultative. Tout d’abord, vingt minutes de repos suffisent souvent à réduire la fatigue et à retrouver de l’attention sans perturber la journée. De plus, un cadre commun évite les abus et les inégalités. Par exemple, une entreprise pourrait aménager une petite salle calme, accessible sur réservation pendant la pause de midi. En conclusion, le plus important est de proposer une solution simple, équitable et adaptée aux conditions de travail, sans imposer cette pratique aux salariés.
 
-**Total : 170 mots (titre compris)**
+**Total : 158 mots (titre compris)**
 
 ---
 
@@ -80,15 +80,15 @@ La sieste au travail fait l’objet d’un débat nuancé. Ses défenseurs mette
 
 ### La chasse : protéger plutôt que divertir
 
-**Partie 1 — Synthèse (59 mots)**
+**Partie 1 — Synthèse (56 mots)**
 
-La chasse aux animaux oppose deux conceptions de la relation à la nature. D’un côté, ses détracteurs refusent de considérer la mise à mort comme un plaisir et y voient une destruction du vivant. En revanche, ses défenseurs rappellent que cette pratique peut répondre à des besoins de subsistance, de gestion de la faune ou de protection des propriétés.
+Les deux documents abordent la chasse aux animaux. Le premier refuse de considérer la mise à mort comme un plaisir et y voit une destruction du vivant. En revanche, le second rappelle que cette pratique peut répondre à la subsistance, au commerce, à la gestion de la faune, à la protection des propriétés ou au loisir.
 
-**Partie 2 — Point de vue personnel (103 mots)**
+**Partie 2 — Point de vue personnel (90 mots)**
 
-Selon moi, la chasse de loisir est difficilement justifiable, mais une intervention encadrée peut parfois être nécessaire. Tout d’abord, tuer pour le prestige ne respecte ni les animaux ni les écosystèmes. Ensuite, certaines populations trop nombreuses menacent pourtant les cultures et l’équilibre naturel. Par exemple, des agents formés pourraient réguler temporairement une espèce envahissante après une évaluation scientifique indépendante. Cependant, il faut aussi reconnaître que la chasse constitue une tradition et une source de nourriture pour certaines communautés. En conclusion, le plus important est de protéger la biodiversité en réservant toute intervention à des objectifs précis, contrôlés et fondés sur des données fiables.
+Pour ma part, la chasse de loisir est difficilement justifiable, mais une intervention encadrée peut parfois être nécessaire. Tout d’abord, tuer pour le prestige ne respecte ni les animaux ni les écosystèmes. De plus, certaines populations trop nombreuses menacent les cultures et l’équilibre naturel lorsqu’aucune autre solution n’est efficace. Par exemple, des agents formés pourraient réguler temporairement une espèce envahissante après une évaluation scientifique indépendante. En conclusion, le plus important est de protéger la biodiversité en réservant toute intervention à des objectifs précis, contrôlés et fondés sur des données fiables.
 
-**Total : 168 mots (titre compris)**
+**Total : 152 mots (titre compris)**
 
 ---
 
@@ -98,15 +98,15 @@ Selon moi, la chasse de loisir est difficilement justifiable, mais une intervent
 
 ### Restauration rapide : pratique, mais occasionnelle
 
-**Partie 1 — Synthèse (52 mots)**
+**Partie 1 — Synthèse (51 mots)**
 
-La restauration rapide suscite des avis partagés. Ses partisans valorisent la variété croissante des menus, le respect des normes d’hygiène et la liberté laissée aux clients dans leurs choix alimentaires. En revanche, ses critiques dénoncent des repas trop caloriques, riches en boissons sucrées, ainsi que les nombreux emballages plastiques nuisibles à l’environnement.
+Les deux documents abordent la restauration rapide. Le premier valorise la variété des menus, le respect des normes d’hygiène et la liberté laissée aux clients dans leurs choix alimentaires. En revanche, le second dénonce des repas trop caloriques, riches en boissons sucrées, ainsi que les nombreux emballages plastiques nuisibles à l’environnement.
 
-**Partie 2 — Point de vue personnel (109 mots)**
+**Partie 2 — Point de vue personnel (90 mots)**
 
-Personnellement, je pense que la restauration rapide peut dépanner, mais ne devrait pas devenir une habitude. Tout d’abord, cuisiner des produits frais permet de mieux contrôler le sel, le sucre et les portions. De plus, les contenants réutilisables réduisent les déchets. Par exemple, une famille pressée pourrait choisir occasionnellement une salade complète servie dans un emballage recyclable plutôt que plusieurs hamburgers avec des sodas. Cependant, il faut aussi reconnaître que ces restaurants offrent des repas accessibles aux personnes disposant de peu de temps ou d’argent. En définitive, le plus important est de privilégier une alimentation équilibrée et d’exiger des enseignes des informations nutritionnelles claires ainsi que des emballages durables.
+Pour ma part, je pense que la restauration rapide peut dépanner, mais ne devrait pas devenir une habitude. Tout d’abord, cuisiner des produits frais permet de mieux contrôler le sel, le sucre et les portions. De plus, les contenants réutilisables réduisent les déchets. Par exemple, une famille pressée pourrait choisir occasionnellement une salade complète servie dans un emballage recyclable plutôt que plusieurs hamburgers avec des sodas. En conclusion, le plus important est de privilégier une alimentation équilibrée et d’exiger des enseignes des informations nutritionnelles claires ainsi que des emballages durables.
 
-**Total : 166 mots (titre compris)**
+**Total : 146 mots (titre compris)**
 
 ---
 
@@ -118,13 +118,13 @@ Personnellement, je pense que la restauration rapide peut dépanner, mais ne dev
 
 **Partie 1 — Synthèse (55 mots)**
 
-Faire ses courses chez les producteurs locaux ou au supermarché oppose deux priorités. D’un côté, l’achat à la ferme garantit à Jean des aliments de qualité, même s’ils coûtent davantage. En revanche, Camille préfère en ville la diversité et les prix abordables du supermarché, mieux adaptés à son lieu de vie et à son budget.
+Les deux documents abordent le choix du lieu où faire ses courses alimentaires. Le premier valorise l’achat à la ferme pour la qualité des aliments, même s’ils coûtent davantage. En revanche, le second préfère en ville la diversité et les prix abordables du supermarché, mieux adaptés à son lieu de vie et à son budget.
 
-**Partie 2 — Point de vue personnel (105 mots)**
+**Partie 2 — Point de vue personnel (88 mots)**
 
-À mon avis, il faut favoriser les producteurs locaux sans pour autant exclure les supermarchés. Tout d’abord, les circuits courts soutiennent l’économie régionale et permettent de connaître l’origine des aliments. Ensuite, les grandes surfaces restent pratiques pour les petits budgets et les produits indisponibles localement. Par exemple, une famille pourrait acheter ses légumes de saison au marché, puis compléter ses courses avec du riz et des conserves au supermarché. Cependant, il faut aussi reconnaître que les produits fermiers sont parfois plus chers ou difficiles d’accès en ville. En conclusion, le plus important est de combiner qualité, proximité et prix raisonnables selon les besoins de chacun.
+Pour ma part, il faut favoriser les producteurs locaux sans pour autant exclure les supermarchés. Tout d’abord, les circuits courts soutiennent l’économie régionale et permettent de connaître l’origine des aliments. De plus, les grandes surfaces restent pratiques pour les petits budgets et les produits indisponibles localement. Par exemple, une famille pourrait acheter ses légumes de saison au marché, puis compléter ses courses avec du riz et des conserves au supermarché. En conclusion, le plus important est de combiner qualité, proximité et prix raisonnables selon les besoins de chacun.
 
-**Total : 165 mots (titre compris)**
+**Total : 148 mots (titre compris)**
 
 ---
 
@@ -134,15 +134,15 @@ Faire ses courses chez les producteurs locaux ou au supermarché oppose deux pri
 
 ### Vieillir : des soins adaptés à chacun
 
-**Partie 1 — Synthèse (50 mots)**
+**Partie 1 — Synthèse (53 mots)**
 
-Les maisons de retraite font l’objet de points de vue opposés. Leurs partisans soulignent les soins professionnels, les activités et la vie sociale qu’elles offrent aux personnes âgées isolées. En revanche, leurs détracteurs redoutent l’éloignement familial, un sentiment d’abandon et le manque de personnel qualifié, préférant un accompagnement à domicile.
+Les deux documents abordent l’accueil des personnes âgées. Le premier préfère la vie avec les jeunes générations, qui préserve les liens familiaux et évite de confier ses proches à des inconnus. En revanche, le second affirme que les maisons de retraite réduisent l’isolement, offrent des soins et rassurent les familles, malgré leur coût.
 
-**Partie 2 — Point de vue personnel (110 mots)**
+**Partie 2 — Point de vue personnel (94 mots)**
 
-Selon moi, aucune solution ne convient à toutes les personnes âgées : le choix doit dépendre de leur santé et de leurs souhaits. Tout d’abord, un établissement spécialisé assure une surveillance continue lorsque l’autonomie diminue. Ensuite, le maintien à domicile préserve les repères et les liens familiaux. Par exemple, une personne encore autonome pourrait rester chez elle avec des visites quotidiennes, puis rejoindre une résidence si ses besoins médicaux deviennent trop importants. Cependant, il faut aussi reconnaître que l’aide à domicile coûte cher et repose parfois lourdement sur les proches. En définitive, le plus important est de garantir des soins dignes, une présence humaine et le consentement de la personne concernée.
+Pour ma part, aucune solution ne convient à toutes les personnes âgées : le choix doit dépendre de leur santé et de leurs souhaits. Tout d’abord, un établissement spécialisé assure une surveillance continue lorsque l’autonomie diminue. De plus, le maintien à domicile préserve les repères et les liens familiaux. Par exemple, une personne encore autonome pourrait rester chez elle avec des visites quotidiennes, puis rejoindre une résidence si ses besoins médicaux deviennent trop importants. En conclusion, le plus important est de garantir des soins dignes, une présence humaine et le consentement de la personne concernée.
 
-**Total : 166 mots (titre compris)**
+**Total : 153 mots (titre compris)**
 
 ---
 
@@ -154,13 +154,13 @@ Selon moi, aucune solution ne convient à toutes les personnes âgées : le choi
 
 **Partie 1 — Synthèse (53 mots)**
 
-La restauration rapide divise les opinions. Une première cliente critique la qualité incertaine des ingrédients et les risques sanitaires, malgré des prix bas et un service rapide. À l’inverse, une employée affirme que les menus peuvent être équilibrés, que les normes d’hygiène sont strictes et que chaque consommateur demeure responsable de ses choix.
+Les deux documents abordent la restauration rapide. Le premier critique la qualité incertaine des ingrédients et les risques sanitaires, malgré des prix bas et un service rapide. En revanche, le second affirme que les menus peuvent être équilibrés, que les normes d’hygiène sont strictes et que chaque consommateur reste responsable de ses choix.
 
-**Partie 2 — Point de vue personnel (104 mots)**
+**Partie 2 — Point de vue personnel (94 mots)**
 
-Il me semble que l’on peut manger sainement dans une chaîne de restauration rapide, à condition de choisir avec modération. En effet, une salade, une portion raisonnable et de l’eau composent un repas plus équilibré qu’un menu surchargé. De plus, l’affichage nutritionnel aide les clients à décider. Par exemple, un parent accompagné de deux enfants peut partager des portions de frites, commander des légumes et éviter les boissons sucrées. Cependant, il faut aussi reconnaître que les promotions encouragent souvent la surconsommation d’aliments gras et salés. En conclusion, le plus important est de rendre les choix sains accessibles, visibles et aussi abordables que les autres.
+Pour ma part, on peut manger sainement dans une chaîne de restauration rapide, à condition de choisir avec modération. Tout d’abord, une salade, une portion raisonnable et de l’eau composent un repas plus équilibré qu’un menu surchargé et limitent les excès. De plus, l’affichage nutritionnel aide les clients à décider avant de commander. Par exemple, un parent accompagné de deux enfants peut partager des portions de frites, commander des légumes et éviter les boissons sucrées. En conclusion, le plus important est de rendre les choix sains accessibles, visibles et aussi abordables que les autres.
 
-**Total : 162 mots (titre compris)**
+**Total : 152 mots (titre compris)**
 
 ---
 
@@ -170,15 +170,15 @@ Il me semble que l’on peut manger sainement dans une chaîne de restauration r
 
 ### Art urbain : créer dans le respect
 
-**Partie 1 — Synthèse (54 mots)**
+**Partie 1 — Synthèse (51 mots)**
 
-L’art urbain oppose deux visions de l’espace public. Ses défenseurs y voient une expression culturelle qui embellit certains lieux, soutient les artistes et attire les touristes vers des quartiers méconnus. En revanche, ses opposants dénoncent les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner à leurs quartiers.
+Les deux documents abordent l’art urbain. Le premier y voit une expression culturelle qui embellit certains lieux, soutient les artistes et attire les touristes vers des quartiers méconnus. En revanche, le second dénonce les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner aux quartiers.
 
-**Partie 2 — Point de vue personnel (100 mots)**
+**Partie 2 — Point de vue personnel (90 mots)**
 
-Personnellement, je considère que l’art urbain enrichit la ville lorsqu’il respecte les habitants et les bâtiments. Tout d’abord, des murs autorisés offrent aux artistes un espace d’expression accessible à tous. Ensuite, des parcours guidés peuvent dynamiser les quartiers. Par exemple, une mairie pourrait confier la façade aveugle d’un centre communautaire à un artiste choisi avec les résidents. Cependant, il faut aussi reconnaître que peindre une propriété sans consentement entraîne des dépenses et porte atteinte aux droits de son propriétaire. En définitive, le plus important est de soutenir la créativité dans des espaces clairement définis, tout en sanctionnant les dégradations imposées.
+Pour ma part, je considère que l’art urbain enrichit la ville lorsqu’il respecte les habitants et les bâtiments. Tout d’abord, des murs autorisés offrent aux artistes un espace d’expression accessible à tous sans dégrader les bâtiments. De plus, des parcours guidés peuvent dynamiser les quartiers et soutenir les commerces locaux. Par exemple, une mairie pourrait confier la façade aveugle d’un centre communautaire à un artiste choisi avec les résidents. En conclusion, le plus important est de soutenir la créativité dans des espaces clairement définis, tout en sanctionnant les dégradations imposées.
 
-**Total : 160 mots (titre compris)**
+**Total : 147 mots (titre compris)**
 
 ---
 
@@ -188,15 +188,15 @@ Personnellement, je considère que l’art urbain enrichit la ville lorsqu’il 
 
 ### Musées gratuits : ouvrir sans fragiliser
 
-**Partie 1 — Synthèse (51 mots)**
+**Partie 1 — Synthèse (53 mots)**
 
-La gratuité des musées suscite un débat. Ses partisans la présentent comme un moyen de démocratiser la culture, d’attirer de nouveaux visiteurs et de renforcer la mission éducative des établissements. Toutefois, ses opposants rappellent que les collections doivent être financées et préfèrent des tarifs ciblés, accompagnés d’activités adaptées aux différents publics.
+Les deux documents abordent la gratuité des musées. Le premier la présente comme un moyen de démocratiser la culture, d’attirer de nouveaux visiteurs et de renforcer la mission éducative des établissements. En revanche, le second rappelle que les collections doivent être financées et préfère des tarifs ciblés, accompagnés d’activités adaptées aux différents publics.
 
-**Partie 2 — Point de vue personnel (109 mots)**
+**Partie 2 — Point de vue personnel (90 mots)**
 
-À mon avis, les musées devraient être gratuits à certains moments et proposer des réductions ciblées le reste du temps. Tout d’abord, cette formule ouvre la culture aux personnes modestes tout en maintenant des recettes pour entretenir les collections. De plus, un accompagnement adapté rend la visite plus enrichissante. Par exemple, un musée pourrait offrir l’entrée le premier dimanche du mois et organiser ce jour-là une visite destinée aux adolescents. Cependant, il faut aussi reconnaître que la gratuité attire parfois des visiteurs déjà habitués plutôt que de nouveaux publics. En conclusion, le plus important est de supprimer les obstacles financiers sans fragiliser les institutions culturelles ni négliger la médiation.
+Pour ma part, les musées devraient être gratuits à certains moments et proposer des réductions ciblées le reste du temps. Tout d’abord, cette formule ouvre la culture aux personnes modestes tout en maintenant des recettes pour entretenir les collections. De plus, un accompagnement adapté rend la visite plus enrichissante. Par exemple, un musée pourrait offrir l’entrée le premier dimanche du mois et organiser ce jour-là une visite destinée aux adolescents. En conclusion, le plus important est de supprimer les obstacles financiers sans fragiliser les institutions culturelles ni négliger la médiation.
 
-**Total : 165 mots (titre compris)**
+**Total : 148 mots (titre compris)**
 
 ---
 
@@ -206,14 +206,14 @@ La gratuité des musées suscite un débat. Ses partisans la présentent comme u
 
 ### Objets connectés : utiles, mais à sécuriser
 
-**Partie 1 — Synthèse (54 mots)**
+**Partie 1 — Synthèse (53 mots)**
 
-Les objets connectés présentent des avantages et des inconvénients. Leurs défenseurs soulignent qu’ils simplifient le quotidien, encouragent l’activité physique et facilitent le suivi des rendez-vous ou des traitements médicaux. En revanche, leurs critiques alertent sur le piratage, qui peut exposer une habitation, compromettre la vie privée ou permettre la prise de contrôle d’un véhicule.
+Les deux documents abordent les objets connectés. Le premier souligne qu’ils simplifient le quotidien, encouragent l’activité physique et facilitent le suivi des rendez-vous ou des traitements médicaux. De son côté, le second alerte sur le piratage, qui peut exposer une habitation, compromettre la vie privée ou permettre la prise de contrôle d’un véhicule.
 
-**Partie 2 — Point de vue personnel (106 mots)**
+**Partie 2 — Point de vue personnel (97 mots)**
 
-Selon moi, les objets connectés sont utiles à condition que leur sécurité soit garantie et que les données restent maîtrisées. Tout d’abord, ils peuvent renforcer l’autonomie des personnes qui suivent un traitement. Ensuite, des mises à jour régulières limitent les intrusions informatiques. Par exemple, une montre pourrait rappeler à une personne âgée de prendre ses médicaments tout en transmettant uniquement les informations qu’elle a choisi de partager avec son médecin. Cependant, il faut aussi reconnaître que tout système numérique reste vulnérable. En définitive, le plus important est de protéger la vie privée grâce à des mots de passe solides, des réglages transparents et un consentement éclairé.
+Pour ma part, les objets connectés sont utiles à condition que leur sécurité soit garantie et que les données restent maîtrisées. Tout d’abord, ils peuvent renforcer l’autonomie des personnes qui suivent un traitement. De plus, des mises à jour régulières limitent les intrusions informatiques. Par exemple, une montre pourrait rappeler à une personne âgée de prendre ses médicaments tout en transmettant uniquement les informations qu’elle a choisi de partager avec son médecin. En conclusion, le plus important est de protéger la vie privée grâce à des mots de passe solides, des réglages transparents et un consentement éclairé.
 
-**Total : 166 mots (titre compris)**
+**Total : 156 mots (titre compris)**
 
 ---

@@ -120,9 +120,15 @@ class EeTacheThreeTitleContentTests(SimpleTestCase):
     def test_merged_parser_validates_the_effective_answer_with_its_title(self):
         months = content.load_ee_tache_three_months()
         response = months[0].combinaisons[3]
-        invalid = replace(response, heading=" ".join(["titre"] * 30))
+        body_count = content._ee_word_count(
+            response.synthese + " " + response.point_de_vue
+        )
+        invalid = replace(
+            response,
+            heading=" ".join(["titre"] * (181 - body_count)),
+        )
         months = (replace(months[0], combinaisons=(invalid,)),)
-        with self.assertRaisesMessage(ValueError, "including title) has 183 words"):
+        with self.assertRaisesMessage(ValueError, "including title) has 181 words"):
             content.parse_ee_tache_three_responses(months)
 
 

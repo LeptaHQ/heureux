@@ -8,15 +8,15 @@
 
 ### La photo sur le CV : l’équité avant l’apparence
 
-**Partie 1 — Synthèse (51 mots)**
+**Partie 1 — Synthèse (48 mots)**
 
-La présence d’une photo sur le CV divise les opinions. D’un côté, ses opposants la jugent inutile et susceptible de favoriser les discriminations, puisque les recruteurs privilégient surtout l’expérience et les diplômes. En revanche, ses défenseurs estiment qu’elle aide à identifier puis à mémoriser un candidat, notamment pour certains métiers d’accueil.
+Les deux documents abordent la photo sur le CV. Le premier la juge inutile et susceptible de favoriser les discriminations, puisque les recruteurs privilégient surtout l’expérience et les diplômes. En revanche, le second estime qu’elle aide à identifier et à mémoriser un candidat, notamment pour certains métiers d’accueil.
 
-**Partie 2 — Point de vue personnel (100 mots)**
+**Partie 2 — Point de vue personnel (86 mots)**
 
-À mon avis, la photo devrait rester facultative, afin que les compétences déterminent d’abord le recrutement. Tout d’abord, l’apparence peut provoquer des préjugés conscients ou inconscients et réduire l’égalité des chances. Ensuite, une candidature anonyme permet au recruteur d’évaluer plus objectivement l’expérience et les diplômes. Par exemple, une entreprise pourrait masquer les photos et les noms lors de la première sélection, puis rencontrer les candidats retenus selon les mêmes critères. Cependant, il faut aussi reconnaître que certains portraits professionnels facilitent la mémorisation après un entretien. En conclusion, le plus important est de garantir une procédure équitable centrée sur le savoir-faire.
+Pour ma part, la photo devrait rester facultative, afin que les compétences déterminent d’abord le recrutement. Tout d’abord, l’apparence peut provoquer des préjugés conscients ou inconscients et réduire l’égalité des chances. De plus, une candidature anonyme permet au recruteur d’évaluer plus objectivement l’expérience et les diplômes. Par exemple, une entreprise pourrait masquer les photos et les noms lors de la première sélection, puis rencontrer les candidats retenus selon les mêmes critères. En conclusion, le plus important est de garantir une procédure équitable centrée sur le savoir-faire.
 
-**Total : 159 mots (titre compris)**
+**Total : 142 mots (titre compris)**
 
 ---
 
@@ -26,15 +26,15 @@ La présence d’une photo sur le CV divise les opinions. D’un côté, ses opp
 
 ### La colocation entre adultes : un équilibre à construire
 
-**Partie 1 — Synthèse (56 mots)**
+**Partie 1 — Synthèse (51 mots)**
 
-Un seul document a été publié pour ce sujet : la source ne fournit aucun point de vue opposé. Ce texte explique que la colocation exige des règles communes, notamment concernant le bruit, les invités et la vaisselle. Il insiste surtout sur le respect mutuel, l’organisation et le dialogue pour résoudre les difficultés de la vie quotidienne.
+Un seul document est disponible sur la colocation entre adultes, car le second manque dans la source. Le texte publié explique que la vie commune exige des règles sur le bruit, les invités et la vaisselle. Il insiste sur le respect mutuel, l’organisation et le dialogue pour résoudre les difficultés quotidiennes.
 
-**Partie 2 — Point de vue personnel (102 mots)**
+**Partie 2 — Point de vue personnel (89 mots)**
 
-Selon moi, la colocation est une solution enrichissante à condition que les responsabilités soient définies dès le départ. Tout d’abord, elle réduit les charges financières et rompt l’isolement. Ensuite, une communication ouverte apprend à respecter les besoins de chacun. Par exemple, trois adultes peuvent fixer un calendrier de ménage, des heures calmes et des règles concernant les invités, puis faire un bilan chaque mois. Cependant, il faut aussi reconnaître que certaines habitudes incompatibles créent des tensions malgré les efforts. En définitive, le plus important est de choisir soigneusement ses colocataires et de préserver un équilibre raisonnable entre convivialité, respect mutuel et intimité.
+Pour ma part, la colocation est une solution enrichissante à condition que les responsabilités soient définies dès le départ. Tout d’abord, elle réduit les charges financières et rompt l’isolement. De plus, une communication ouverte apprend à respecter les besoins de chacun. Par exemple, trois adultes peuvent fixer un calendrier de ménage, des heures calmes et des règles concernant les invités, puis faire un bilan chaque mois. En conclusion, le plus important est de choisir soigneusement ses colocataires et de préserver un équilibre raisonnable entre convivialité, respect mutuel et intimité.
 
-**Total : 166 mots (titre compris)**
+**Total : 148 mots (titre compris)**
 
 ---
 
@@ -44,15 +44,15 @@ Selon moi, la colocation est une solution enrichissante à condition que les res
 
 ### Aider les plus pauvres : de l’urgence à l’autonomie
 
-**Partie 1 — Synthèse (60 mots)**
+**Partie 1 — Synthèse (53 mots)**
 
-Un seul document a été publié pour ce sujet : la source n’a fourni aucun point de vue opposé. Ce témoignage raconte que, chaque hiver, son auteur donne un peu de son temps et de son argent aux personnes qui vivent dans la rue ou aux associations. Ce geste de solidarité, à la portée de tous, reste toutefois ponctuel et saisonnier.
+Un seul document est disponible sur l’aide aux personnes pauvres, car le second manque dans la source. Le témoignage publié raconte que son auteur donne chaque hiver un peu de temps et d’argent aux personnes sans abri ou aux associations. Il présente ce geste ponctuel et saisonnier comme une solidarité accessible à tous.
 
-**Partie 2 — Point de vue personnel (97 mots)**
+**Partie 2 — Point de vue personnel (85 mots)**
 
-Personnellement, je pense que l’aide immédiate et l’accompagnement à long terme doivent se compléter. Tout d’abord, une personne qui a faim ou froid a besoin d’un secours sans délai. Ensuite, un suivi régulier permet d’agir sur les causes de l’exclusion. Par exemple, à Montréal, une association peut offrir un repas chaud, puis aider le bénéficiaire à obtenir une adresse, une formation et un emploi stable. Cependant, il faut aussi reconnaître que ces actions exigent des professionnels et des ressources durables. En conclusion, le plus important est de conjuguer une solidarité concrète et des solutions qui restaurent l’autonomie.
+Pour ma part, je pense que l’aide immédiate et l’accompagnement à long terme doivent se compléter. Tout d’abord, une personne qui a faim ou froid a besoin d’un secours sans délai. De plus, un suivi régulier permet d’agir sur les causes de l’exclusion. Par exemple, à Montréal, une association peut offrir un repas chaud, puis aider le bénéficiaire à obtenir une adresse, une formation et un emploi stable. En conclusion, le plus important est de conjuguer une solidarité concrète et des solutions qui restaurent l’autonomie.
 
-**Total : 165 mots (titre compris)**
+**Total : 146 mots (titre compris)**
 
 ---
 
@@ -62,15 +62,15 @@ Personnellement, je pense que l’aide immédiate et l’accompagnement à long 
 
 ### Le travail : s’accomplir sans sacrifier sa vie
 
-**Partie 1 — Synthèse (52 mots)**
+**Partie 1 — Synthèse (47 mots)**
 
-La place du travail dans la vie oppose deux visions de l’épanouissement. Le premier document dénonce la fatigue et le manque de temps consacré aux proches, puis propose de travailler moins pour mieux vivre. En revanche, le second présente l’emploi comme une source d’identité, de lien social, d’apprentissage et de sentiment d’utilité.
+Les deux documents abordent la place du travail dans la vie. Le premier dénonce la fatigue et le manque de temps pour les proches, puis propose de travailler moins. En revanche, le second présente l’emploi comme une source d’identité, de relations, d’apprentissage et de sentiment d’être utile.
 
-**Partie 2 — Point de vue personnel (104 mots)**
+**Partie 2 — Point de vue personnel (89 mots)**
 
-À mon avis, le travail contribue à l’épanouissement, mais il ne doit pas envahir toute l’existence. Tout d’abord, un emploi stable procure des revenus, des relations et un sentiment d’utilité. De plus, des conditions de travail équilibrées protègent la santé et la vie familiale. Par exemple, une entreprise qui adopte une semaine de quatre jours peut maintenir ses objectifs tout en laissant aux salariés davantage de temps pour leurs proches. Cependant, il faut aussi reconnaître que cette organisation n’est pas possible dans tous les secteurs. En définitive, le plus important est de garantir un travail digne sans sacrifier l’équilibre entre vie professionnelle et personnelle.
+Pour ma part, le travail contribue à l’épanouissement, mais il ne doit pas envahir toute l’existence. Tout d’abord, un emploi stable procure des revenus, des relations et un sentiment d’utilité. De plus, des conditions de travail équilibrées protègent la santé et la vie familiale. Par exemple, une entreprise qui adopte une semaine de quatre jours peut maintenir ses objectifs tout en laissant aux salariés davantage de temps pour leurs proches. En conclusion, le plus important est de garantir un travail digne sans sacrifier l’équilibre entre vie professionnelle et personnelle.
 
-**Total : 163 mots (titre compris)**
+**Total : 143 mots (titre compris)**
 
 ---
 
@@ -80,14 +80,14 @@ La place du travail dans la vie oppose deux visions de l’épanouissement. Le p
 
 ### Petits commerces ou supermarchés : concilier proximité et praticité
 
-**Partie 1 — Synthèse (55 mots)**
+**Partie 1 — Synthèse (47 mots)**
 
-Le choix entre petits magasins et supermarchés divise les consommateurs. Le premier document valorise la praticité des grandes surfaces, leur vaste choix, leurs stationnements et leurs promotions. En revanche, le second encourage les achats dans les commerces de quartier afin de soutenir leur survie, de profiter de produits frais et de renforcer la convivialité locale.
+Les deux documents abordent les lieux où faire ses courses. Le premier valorise la variété, le stationnement et les promotions des supermarchés. En revanche, le second défend les commerces de quartier pour soutenir leur survie, obtenir des produits frais de qualité et renforcer la convivialité entre voisins.
 
-**Partie 2 — Point de vue personnel (110 mots)**
+**Partie 2 — Point de vue personnel (93 mots)**
 
-Selon moi, les deux modèles peuvent coexister, mais les petits commerces méritent un soutien régulier. Tout d’abord, ils maintiennent des emplois et du lien social dans le quartier. Ensuite, les supermarchés restent utiles pour regrouper les achats et maîtriser le budget grâce aux prix bas. Par exemple, une famille peut acheter ses produits frais chez un marchand local, puis se rendre une fois par mois en grande surface pour les articles ménagers. Cependant, il faut aussi reconnaître que les commerces indépendants proposent parfois moins de choix et des tarifs plus élevés. En conclusion, le plus important est de consommer de manière réfléchie en conciliant proximité, qualité, praticité et moyens financiers.
+Pour ma part, les deux modèles peuvent coexister, mais les petits commerces méritent un soutien régulier. Tout d’abord, ils maintiennent des emplois et du lien social dans le quartier. De plus, les supermarchés restent utiles pour regrouper les achats et maîtriser le budget grâce aux prix bas. Par exemple, une famille peut acheter ses produits frais chez un marchand local, puis se rendre une fois par mois en grande surface pour les articles ménagers. En conclusion, le plus important est de consommer de manière réfléchie en conciliant proximité, qualité, praticité et moyens financiers.
 
-**Total : 173 mots (titre compris)**
+**Total : 148 mots (titre compris)**
 
 ---

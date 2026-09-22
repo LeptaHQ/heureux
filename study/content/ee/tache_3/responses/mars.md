@@ -8,15 +8,15 @@
 
 ### Les vêtements de marque : s’exprimer sans surconsommer
 
-**Partie 1 — Synthèse (51 mots)**
+**Partie 1 — Synthèse (50 mots)**
 
-La question des vêtements de grandes marques pour les jeunes suscite des avis partagés. D’un côté, ces habits favorisent l’expression personnelle et l’appartenance à un groupe, notamment durant l’adolescence. En revanche, les enfants grandissent vite et abîment facilement leurs tenues en jouant, ce qui rend ces achats coûteux et peu durables.
+Les deux documents abordent les vêtements de marque chez les jeunes. Le premier les présente comme un moyen d’exprimer sa personnalité et son appartenance à un groupe. En revanche, le second rappelle que les enfants grandissent vite et abîment facilement leurs habits en jouant, ce qui limite leur durée d’usage.
 
-**Partie 2 — Point de vue personnel (105 mots)**
+**Partie 2 — Point de vue personnel (87 mots)**
 
-À mon avis, les vêtements de marque peuvent être achetés occasionnellement, mais ils ne devraient pas définir l’identité d’un enfant. Tout d’abord, privilégier des habits solides et abordables protège le budget familial. Ensuite, apprendre à choisir selon la qualité plutôt que selon un logo développe l’esprit critique. Par exemple, des parents peuvent offrir une veste griffée pour un anniversaire, puis acheter le reste des tenues d’occasion. Cependant, il faut aussi reconnaître que porter la même marque que ses camarades peut renforcer la confiance en soi. En conclusion, le plus important est de respecter les goûts des jeunes sans encourager la surconsommation ni la pression sociale.
+Pour ma part, les vêtements de marque peuvent être achetés occasionnellement, mais ils ne devraient pas définir l’identité d’un enfant. Tout d’abord, privilégier des habits solides et abordables protège le budget familial. De plus, apprendre à choisir selon la qualité plutôt que selon un logo développe l’esprit critique. Par exemple, des parents peuvent offrir une veste griffée pour un anniversaire, puis acheter le reste des tenues d’occasion. En conclusion, le plus important est de respecter les goûts des jeunes sans encourager la surconsommation ni la pression sociale.
 
-**Total : 163 mots (titre compris)**
+**Total : 144 mots (titre compris)**
 
 ---
 
@@ -26,15 +26,15 @@ La question des vêtements de grandes marques pour les jeunes suscite des avis p
 
 ### Un animal pour un enfant : un engagement familial
 
-**Partie 1 — Synthèse (50 mots)**
+**Partie 1 — Synthèse (45 mots)**
 
-Les animaux de compagnie pour les enfants font l’objet d’un débat nuancé. Le premier document souligne qu’ils réduisent la solitude, renforcent la confiance et enseignent l’autonomie ainsi que le respect du vivant. En revanche, le second rappelle qu’un animal représente une responsabilité coûteuse et durable, même lorsque l’enfant s’en désintéresse.
+Les deux documents abordent les animaux de compagnie pour les enfants. Le premier souligne qu’ils réduisent la solitude, renforcent la confiance et enseignent le respect du vivant. En revanche, le second rappelle qu’un animal représente une responsabilité coûteuse et durable, même lorsque l’enfant s’en désintéresse.
 
-**Partie 2 — Point de vue personnel (99 mots)**
+**Partie 2 — Point de vue personnel (87 mots)**
 
-Selon moi, accueillir un animal est bénéfique à condition que toute la famille assume cet engagement. Tout d’abord, s’occuper d’un être vivant développe l’empathie et le sens des responsabilités. Ensuite, sa présence peut apporter une véritable sécurité affective à l’enfant. Par exemple, un garçon peut remplir chaque matin la gamelle de son chat, tandis que ses parents organisent les soins vétérinaires. Cependant, il faut aussi reconnaître que l’enfant peut se lasser et que les dépenses deviennent parfois lourdes. En définitive, le plus important est de vérifier le temps, le budget et les conditions de vie disponibles avant toute adoption.
+Pour ma part, accueillir un animal est bénéfique à condition que toute la famille assume cet engagement durable. Tout d’abord, s’occuper d’un être vivant développe l’empathie et le sens des responsabilités au quotidien. De plus, sa présence peut apporter une véritable sécurité affective à l’enfant. Par exemple, un garçon peut remplir chaque matin la gamelle de son chat, tandis que ses parents organisent les soins vétérinaires. En conclusion, le plus important est de vérifier le temps, le budget et les conditions de vie disponibles avant toute adoption.
 
-**Total : 157 mots (titre compris)**
+**Total : 140 mots (titre compris)**
 
 ---
 
@@ -44,15 +44,15 @@ Selon moi, accueillir un animal est bénéfique à condition que toute la famill
 
 ### La lecture des enfants : encourager sans imposer
 
-**Partie 1 — Synthèse (51 mots)**
+**Partie 1 — Synthèse (46 mots)**
 
-La lecture des enfants oppose deux visions éducatives. D’un côté, certains refusent de l’imposer et préfèrent laisser chaque jeune choisir ses activités et ses livres, surtout face à l’attrait des écrans et du sport. En revanche, d’autres valorisent une pratique régulière qui enrichit le langage, la concentration et la complicité familiale.
+Les deux documents abordent la lecture chez les enfants. Le premier préfère ne pas l’imposer et laisser chaque jeune choisir ses activités et ses livres. En revanche, le second valorise une pratique régulière qui développe le langage, l’écoute, la concentration et la complicité avec les parents.
 
-**Partie 2 — Point de vue personnel (104 mots)**
+**Partie 2 — Point de vue personnel (88 mots)**
 
-Personnellement, je pense qu’il faut encourager la lecture sans la transformer en punition. Tout d’abord, des textes adaptés aux intérêts de l’enfant nourrissent son vocabulaire et sa capacité d’analyse. De plus, un moment partagé avec un parent associe les livres au plaisir. Par exemple, une famille peut lire dix minutes chaque soir une bande dessinée choisie par l’enfant, puis échanger sur son personnage préféré. Cependant, il faut aussi reconnaître que certains jeunes se détendent davantage grâce au sport ou à la musique. En conclusion, le plus important est de proposer régulièrement des lectures variées tout en respectant les goûts et le rythme de chacun.
+Pour ma part, je pense qu’il faut encourager la lecture sans la transformer en punition. Tout d’abord, des textes adaptés aux intérêts de l’enfant nourrissent son vocabulaire et sa capacité d’analyse. De plus, un moment partagé avec un parent associe les livres au plaisir. Par exemple, une famille peut lire dix minutes chaque soir une bande dessinée choisie par l’enfant, puis échanger sur son personnage préféré. En conclusion, le plus important est de proposer régulièrement des lectures variées tout en respectant les goûts et le rythme de chacun.
 
-**Total : 162 mots (titre compris)**
+**Total : 141 mots (titre compris)**
 
 ---
 
@@ -62,15 +62,15 @@ Personnellement, je pense qu’il faut encourager la lecture sans la transformer
 
 ### Les produits faits maison : naturels, mais pas sans risques
 
-**Partie 1 — Synthèse (57 mots)**
+**Partie 1 — Synthèse (52 mots)**
 
-Les produits biologiques faits maison présentent des avantages et des inconvénients. Leurs partisans mettent en avant la maîtrise des ingrédients, les économies, la créativité et la réduction des emballages plastiques. Toutefois, leurs détracteurs soulignent le temps de préparation, le coût initial et les risques d’irritation ou de contamination liés à une formulation et à une conservation inadéquates.
+Les deux documents abordent les produits biologiques faits maison. Le premier valorise le contrôle des ingrédients, les économies, la créativité et la réduction des emballages. En revanche, le second souligne le temps de préparation, le coût initial et les risques d’irritation ou de contamination liés aux erreurs de formulation et de conservation.
 
-**Partie 2 — Point de vue personnel (106 mots)**
+**Partie 2 — Point de vue personnel (91 mots)**
 
-À mon avis, fabriquer certains produits chez soi est une bonne démarche, mais seulement si les recettes sont simples et fiables. Tout d’abord, les contenants réutilisables permettent de réduire les déchets et les dépenses. Ensuite, connaître précisément les ingrédients limite les substances inutiles. Par exemple, une famille peut préparer un nettoyant ménager au vinaigre dans une bouteille étiquetée, plutôt qu’une crème destinée à la peau. Cependant, il faut aussi reconnaître qu’une mauvaise formulation peut nuire à la santé ou devenir inefficace. En définitive, le plus important est de choisir des recettes vérifiées, de respecter les règles de conservation et d’acheter les produits sensibles auprès de professionnels.
+Pour ma part, fabriquer certains produits chez soi est une bonne démarche, mais seulement si les recettes sont simples et fiables. Tout d’abord, les contenants réutilisables permettent de réduire les déchets et les dépenses. De plus, connaître précisément les ingrédients limite les substances inutiles. Par exemple, une famille peut préparer un nettoyant ménager au vinaigre dans une bouteille étiquetée, plutôt qu’une crème destinée à la peau. En conclusion, le plus important est de choisir des recettes vérifiées, de respecter les règles de conservation et d’acheter les produits sensibles auprès de professionnels.
 
-**Total : 172 mots (titre compris)**
+**Total : 152 mots (titre compris)**
 
 ---
 
@@ -80,15 +80,15 @@ Les produits biologiques faits maison présentent des avantages et des inconvén
 
 ### Écoles privées ou publiques : égalité et liberté de choix
 
-**Partie 1 — Synthèse (52 mots)**
+**Partie 1 — Synthèse (46 mots)**
 
-Le choix entre écoles privées et publiques oppose deux visions de l’éducation. Le premier document explique le succès du privé par sa réputation, son encadrement et ses classes socialement homogènes. En revanche, le second dénonce des frais qui excluent les familles défavorisées, limitent la mixité sociale et contribuent à reproduire les inégalités.
+Les deux documents abordent les écoles privées et publiques. Le premier explique le succès du privé par sa réputation, son encadrement et ses classes socialement homogènes. En revanche, le second dénonce des frais qui excluent les familles défavorisées, limitent la mixité sociale et reproduisent les inégalités.
 
-**Partie 2 — Point de vue personnel (106 mots)**
+**Partie 2 — Point de vue personnel (85 mots)**
 
-Selon moi, la qualité de l’éducation ne devrait jamais dépendre des revenus familiaux. Tout d’abord, une école publique bien financée garantit à chaque élève les mêmes apprentissages fondamentaux. De plus, la mixité sociale développe l’ouverture d’esprit et prépare à vivre avec des personnes différentes. Par exemple, un collège peut limiter les effectifs, renforcer le tutorat et organiser des projets réunissant des jeunes de plusieurs quartiers. Cependant, il faut aussi reconnaître que certains parents choisissent le privé pour obtenir un encadrement mieux adapté aux besoins de leur enfant. En conclusion, le plus important est d’améliorer toutes les écoles publiques sans supprimer la liberté de choix des familles.
+Pour ma part, la qualité de l’éducation ne devrait jamais dépendre des revenus familiaux. Tout d’abord, une école publique bien financée garantit à chaque élève les mêmes apprentissages fondamentaux. De plus, la mixité sociale développe l’ouverture d’esprit et prépare à vivre avec des personnes différentes. Par exemple, un collège peut limiter les effectifs, renforcer le tutorat et organiser des projets réunissant des jeunes de plusieurs quartiers. En conclusion, le plus important est d’améliorer toutes les écoles publiques sans supprimer la liberté de choix des familles.
 
-**Total : 167 mots (titre compris)**
+**Total : 140 mots (titre compris)**
 
 ---
 
@@ -98,15 +98,15 @@ Selon moi, la qualité de l’éducation ne devrait jamais dépendre des revenus
 
 ### Les devoirs à la maison : utiles sans créer d’inégalités
 
-**Partie 1 — Synthèse (52 mots)**
+**Partie 1 — Synthèse (47 mots)**
 
-Les devoirs à la maison suscitent des avis partagés. Leurs défenseurs estiment que des exercices limités à quinze minutes développent l’autonomie et créent un lien familial. En revanche, leurs opposants dénoncent le stress, la fatigue et les inégalités entre enfants, jugeant que l’autonomie doit s’acquérir à l’école avec des outils pédagogiques adaptés.
+Les deux documents abordent les devoirs à la maison. Le premier estime que quinze minutes d’exercices développent l’autonomie et le lien familial. En revanche, le second dénonce le stress, la fatigue et les inégalités entre enfants, jugeant que l’autonomie doit s’acquérir à l’école avec des outils adaptés.
 
-**Partie 2 — Point de vue personnel (104 mots)**
+**Partie 2 — Point de vue personnel (86 mots)**
 
-Personnellement, je pense que des devoirs courts sont utiles, mais qu’ils doivent rester réalisables sans aide parentale. Tout d’abord, une révision régulière consolide les apprentissages et apprend à organiser son temps. Ensuite, limiter la quantité préserve le repos et les activités familiales. Par exemple, un enseignant peut demander dix minutes de lecture puis corriger les difficultés en classe le lendemain. Cependant, il faut aussi reconnaître que le matériel numérique et le soutien disponibles à la maison varient fortement selon les familles. En définitive, le plus important est de proposer des exercices brefs, adaptés et accompagnés à l’école afin de ne pas renforcer les inégalités.
+Pour ma part, je pense que des devoirs courts sont utiles, mais qu’ils doivent rester réalisables sans aide parentale. Tout d’abord, une révision régulière consolide les apprentissages et apprend à organiser son temps. De plus, limiter la quantité préserve le repos et les activités familiales. Par exemple, un enseignant peut demander dix minutes de lecture puis corriger les difficultés en classe le lendemain. En conclusion, le plus important est de proposer des exercices brefs, adaptés et accompagnés à l’école afin de ne pas renforcer les inégalités.
 
-**Total : 165 mots (titre compris)**
+**Total : 142 mots (titre compris)**
 
 ---
 
@@ -116,15 +116,15 @@ Personnellement, je pense que des devoirs courts sont utiles, mais qu’ils doiv
 
 ### Les technologies à l’école : des outils à encadrer
 
-**Partie 1 — Synthèse (53 mots)**
+**Partie 1 — Synthèse (49 mots)**
 
-L’utilisation des nouvelles technologies à l’école oppose deux conceptions de l’apprentissage. Jean affirme que les tablettes et les ordinateurs stimulent l’engagement, la créativité et l’autonomie tout en donnant accès à de nombreuses ressources. En revanche, Sara redoute la dépendance aux écrans et la diminution des interactions humaines, qu’elle juge essentielles au développement équilibré.
+Les deux documents abordent les technologies à l’école. Le premier affirme que les tablettes et ordinateurs stimulent l’engagement, la créativité et l’autonomie tout en donnant accès à de nombreuses ressources. En revanche, le second redoute la dépendance aux écrans et la diminution des interactions humaines nécessaires au développement équilibré.
 
-**Partie 2 — Point de vue personnel (103 mots)**
+**Partie 2 — Point de vue personnel (86 mots)**
 
-À mon avis, le numérique enrichit l’enseignement à condition de rester un outil plutôt qu’une fin. Tout d’abord, il donne accès à des ressources actualisées et permet d’adapter certains exercices au niveau de l’élève. Ensuite, le travail collectif avec un professeur préserve le lien humain et l’esprit critique. Par exemple, une classe peut utiliser une tablette pour comparer deux sources, puis débattre oralement de leur fiabilité. Cependant, il faut aussi reconnaître qu’un temps d’écran excessif nuit à la concentration et accentue les inégalités d’équipement. En conclusion, le plus important est d’alterner outils numériques, livres, écriture manuelle et échanges directs selon des règles claires.
+Pour ma part, le numérique enrichit l’enseignement à condition de rester un outil plutôt qu’une fin. Tout d’abord, il donne accès à des ressources actualisées et permet d’adapter certains exercices au niveau de l’élève. De plus, le travail collectif avec un professeur préserve le lien humain et l’esprit critique. Par exemple, une classe peut utiliser une tablette pour comparer deux sources, puis débattre oralement de leur fiabilité. En conclusion, le plus important est d’alterner outils numériques, livres, écriture manuelle et échanges directs selon des règles claires.
 
-**Total : 164 mots (titre compris)**
+**Total : 143 mots (titre compris)**
 
 ---
 
@@ -134,15 +134,15 @@ L’utilisation des nouvelles technologies à l’école oppose deux conceptions
 
 ### Les vols à bas prix : économiser sous conditions
 
-**Partie 1 — Synthèse (54 mots)**
+**Partie 1 — Synthèse (48 mots)**
 
-Les vols à bas prix font l’objet d’un débat nuancé. Le premier témoignage apprécie des tarifs parfois inférieurs au train ou à la voiture, malgré l’absence de services et le faible confort sur les longues distances. En revanche, le second redoute les conditions de travail, la vétusté des appareils et d’éventuels risques de sécurité.
+Les deux documents abordent les vols à bas prix. Le premier apprécie leurs tarifs parfois inférieurs au train ou à la voiture, malgré l’absence de services et le faible confort. En revanche, le second dénonce les conditions de travail, la vétusté des appareils et d’éventuels risques de sécurité.
 
-**Partie 2 — Point de vue personnel (105 mots)**
+**Partie 2 — Point de vue personnel (93 mots)**
 
-Personnellement, j’accepterais un vol à bas prix pour un trajet court, mais seulement si le tarif est transparent et les normes respectées. Tout d’abord, ces billets rendent les déplacements accessibles aux petits budgets. Ensuite, il faut comparer les frais supplémentaires, le confort et l’empreinte carbone. Par exemple, entre Montréal et Toronto, je privilégierais le train, qui permet de travailler confortablement pendant le voyage, plutôt qu’un vol peu avantageux. Cependant, il faut aussi reconnaître qu’un vol abordable reste utile vers une région mal desservie. En définitive, le plus important est de choisir après avoir évalué le coût total, la sécurité, la durée et les solutions disponibles.
+Pour ma part, j’accepterais un vol à bas prix pour un trajet court, mais seulement si le tarif est transparent et les normes respectées. Tout d’abord, ces billets rendent les déplacements accessibles aux petits budgets. De plus, il faut comparer les frais supplémentaires, le confort et l’empreinte carbone. Par exemple, entre Montréal et Toronto, je privilégierais le train, qui permet de travailler confortablement pendant le voyage, plutôt qu’un vol peu avantageux. En conclusion, le plus important est de choisir après avoir évalué le coût total, la sécurité, la durée et les solutions disponibles.
 
-**Total : 167 mots (titre compris)**
+**Total : 149 mots (titre compris)**
 
 ---
 
@@ -152,15 +152,15 @@ Personnellement, j’accepterais un vol à bas prix pour un trajet court, mais s
 
 ### Petits commerces ou supermarchés : consommer avec équilibre
 
-**Partie 1 — Synthèse (55 mots)**
+**Partie 1 — Synthèse (47 mots)**
 
-Faire ses courses dans un supermarché ou un petit commerce oppose deux habitudes de consommation. Le premier document valorise la variété, le stationnement, les promotions et la possibilité de tout acheter au même endroit. En revanche, le second défend les épiceries de quartier pour soutenir l’économie locale, obtenir des produits frais et renforcer la convivialité.
+Les deux documents abordent les lieux où faire ses courses. Le premier valorise la variété, le stationnement et les promotions des supermarchés. En revanche, le second défend les commerces de quartier pour soutenir l’économie locale, obtenir des produits frais de qualité et renforcer la convivialité entre voisins.
 
-**Partie 2 — Point de vue personnel (108 mots)**
+**Partie 2 — Point de vue personnel (89 mots)**
 
-Selon moi, il faut privilégier les petits commerces sans renoncer totalement aux supermarchés. Tout d’abord, acheter dans son quartier soutient des emplois locaux et entretient le lien social. De plus, les commerçants proposent souvent des produits frais et des conseils personnalisés. Par exemple, une famille peut acheter chaque semaine ses légumes chez un maraîcher voisin, puis se rendre mensuellement au supermarché pour les produits moins chers. Cependant, il faut aussi reconnaître que les grandes surfaces restent pratiques pour les petits budgets et les zones peu desservies. En conclusion, le plus important est de répartir ses achats selon le prix, la qualité et l’impact sur la vie du quartier.
+Pour ma part, il faut privilégier les petits commerces sans renoncer totalement aux supermarchés. Tout d’abord, acheter dans son quartier soutient des emplois locaux et entretient le lien social. De plus, les commerçants proposent souvent des produits frais et des conseils personnalisés. Par exemple, une famille peut acheter chaque semaine ses légumes chez un maraîcher voisin, puis se rendre mensuellement au supermarché pour les produits moins chers. En conclusion, le plus important est de répartir ses achats selon le prix, la qualité et l’impact sur la vie du quartier.
 
-**Total : 170 mots (titre compris)**
+**Total : 143 mots (titre compris)**
 
 ---
 
@@ -170,15 +170,15 @@ Selon moi, il faut privilégier les petits commerces sans renoncer totalement au
 
 ### L’autorité parentale : protéger sans étouffer
 
-**Partie 1 — Synthèse (53 mots)**
+**Partie 1 — Synthèse (47 mots)**
 
-La sévérité des parents envers leurs enfants suscite un débat. Le premier témoignage décrit une autorité persistante qui limite fortement les sorties, même à l’âge adulte. En revanche, le second avertit qu’une éducation trop permissive peut aussi être nuisible, car les jeunes ont besoin de règles pour devenir autonomes et vivre en société.
+Les deux documents abordent l’autorité des parents. Le premier décrit des règles strictes qui limitent les sorties, même à l’âge adulte. En revanche, le second avertit qu’une éducation trop permissive peut également nuire aux jeunes, qui ont besoin de limites pour devenir autonomes et vivre en société.
 
-**Partie 2 — Point de vue personnel (97 mots)**
+**Partie 2 — Point de vue personnel (87 mots)**
 
-Personnellement, je pense que l’autorité parentale est nécessaire, mais qu’elle doit évoluer avec l’âge. Tout d’abord, des règles claires protègent l’enfant et lui donnent des repères. Ensuite, expliquer ces limites favorise la confiance plutôt que la peur. Par exemple, les parents d’une adolescente peuvent fixer ensemble une heure de retour, puis l’assouplir lorsqu’elle respecte régulièrement ses engagements. Cependant, il faut aussi reconnaître que certaines situations dangereuses exigent une vigilance accrue. En définitive, le plus important est de trouver un équilibre raisonnable entre sécurité, dialogue et liberté afin de préparer progressivement les jeunes à prendre leurs propres décisions.
+Pour ma part, je pense que l’autorité parentale est nécessaire, mais qu’elle doit évoluer avec l’âge. Tout d’abord, des règles claires protègent l’enfant et lui donnent des repères. De plus, expliquer ces limites favorise la confiance plutôt que la peur. Par exemple, les parents d’une adolescente peuvent fixer ensemble une heure de retour, puis l’assouplir lorsqu’elle respecte régulièrement ses engagements. En conclusion, le plus important est de trouver un équilibre raisonnable entre sécurité, dialogue et liberté afin de préparer progressivement les jeunes à prendre leurs propres décisions.
 
-**Total : 155 mots (titre compris)**
+**Total : 139 mots (titre compris)**
 
 ---
 
@@ -188,15 +188,15 @@ Personnellement, je pense que l’autorité parentale est nécessaire, mais qu�
 
 ### Les distributeurs scolaires : un service à encadrer
 
-**Partie 1 — Synthèse (50 mots)**
+**Partie 1 — Synthèse (47 mots)**
 
-La question des distributeurs de boissons à l’école suscite des avis partagés. D’un côté, leurs défenseurs y voient un service pratique, capable de proposer des choix sains et de financer des projets scolaires. En revanche, leurs détracteurs craignent qu’une offre trop sucrée favorise l’obésité et le diabète chez les élèves.
+Les deux documents abordent les distributeurs de boissons à l’école. Le premier les présente comme un service pratique qui peut offrir des choix sains et financer des projets scolaires. En revanche, le second craint que les boissons trop sucrées favorisent l’obésité et le diabète chez les élèves.
 
-**Partie 2 — Point de vue personnel (96 mots)**
+**Partie 2 — Point de vue personnel (85 mots)**
 
-À mon avis, ces appareils sont utiles, mais seulement si leur contenu respecte des règles claires. Tout d’abord, l’accès rapide à l’eau aide les élèves à rester concentrés. Ensuite, les bénéfices peuvent soutenir les outils pédagogiques plutôt qu’une entreprise privée. Par exemple, un lycée pourrait vendre uniquement de l’eau, du lait et des boissons sans sucre ajouté, puis financer sa bibliothèque avec les revenus supplémentaires. Cependant, il faut aussi reconnaître que la publicité influence facilement les jeunes. En conclusion, le plus important est de favoriser des habitudes alimentaires saines grâce à une sélection contrôlée et transparente.
+Pour ma part, ces appareils sont utiles, mais seulement si leur contenu respecte des règles claires. Tout d’abord, l’accès rapide à l’eau aide les élèves à rester concentrés. De plus, les bénéfices peuvent soutenir les outils pédagogiques plutôt qu’une entreprise privée. Par exemple, un lycée pourrait vendre uniquement de l’eau, du lait et des boissons sans sucre ajouté, puis financer sa bibliothèque avec les revenus supplémentaires. En conclusion, le plus important est de favoriser des habitudes alimentaires saines grâce à une sélection contrôlée et transparente.
 
-**Total : 153 mots (titre compris)**
+**Total : 139 mots (titre compris)**
 
 ---
 
@@ -206,15 +206,15 @@ La question des distributeurs de boissons à l’école suscite des avis partag�
 
 ### Cuisinier amateur ou professionnel : la compétence avant le statut
 
-**Partie 1 — Synthèse (48 mots)**
+**Partie 1 — Synthèse (46 mots)**
 
-Le débat entre cuisiniers amateurs et professionnels oppose deux visions du métier. Le premier document estime que la maîtrise technique s’acquiert par la formation et l’expérience. En revanche, le second montre qu’Internet peut révéler des autodidactes, dont certains transforment leur succès en carrière et publient des ouvrages culinaires.
+Les deux documents abordent les compétences nécessaires en cuisine. Le premier affirme que la formation et l’expérience distinguent les professionnels des amateurs. En revanche, le second montre qu’Internet peut former et révéler des autodidactes, dont certains transforment leur succès en carrière et publient des livres culinaires.
 
-**Partie 2 — Point de vue personnel (106 mots)**
+**Partie 2 — Point de vue personnel (88 mots)**
 
-Selon moi, la passion ne suffit pas toujours, mais un diplôme ne constitue pas l’unique chemin vers le professionnalisme. En effet, un cuisinier doit maîtriser l’hygiène, les cuissons, l’organisation et la gestion des coûts. Ces compétences peuvent s’apprendre dans une école ou grâce à une pratique exigeante accompagnée par des experts. Par exemple, une amatrice ayant suivi des cours en ligne peut effectuer ensuite un stage dans un restaurant avant d’ouvrir son activité. Cependant, il faut aussi reconnaître que la popularité sur les réseaux sociaux ne garantit pas la qualité. En définitive, le plus important est de prouver son savoir-faire et de continuer à se former.
+Pour ma part, la passion ne suffit pas toujours, mais un diplôme ne constitue pas l’unique chemin vers le professionnalisme. Tout d’abord, un cuisinier doit maîtriser l’hygiène, les cuissons, l’organisation et la gestion des coûts. De plus, ces compétences peuvent s’apprendre dans une école ou grâce à une pratique exigeante accompagnée par des experts. Par exemple, une amatrice formée en ligne peut effectuer un stage dans un restaurant avant d’ouvrir son activité. En conclusion, le plus important est de prouver son savoir-faire et de continuer à se former.
 
-**Total : 163 mots (titre compris)**
+**Total : 143 mots (titre compris)**
 
 ---
 
@@ -224,15 +224,15 @@ Selon moi, la passion ne suffit pas toujours, mais un diplôme ne constitue pas 
 
 ### La colocation : une solution enrichissante sous conditions
 
-**Partie 1 — Synthèse (50 mots)**
+**Partie 1 — Synthèse (46 mots)**
 
-La colocation est un mode de vie qui présente des avantages et des inconvénients. Ses partisans valorisent les économies, le lien social et les échanges entre personnes d’horizons variés. Toutefois, ses détracteurs soulignent les conflits liés aux habitudes, aux tâches ménagères et au manque d’intimité, qui exigent une communication ouverte.
+Les deux documents abordent la vie en colocation. Le premier valorise les économies, le lien social et les échanges entre personnes d’horizons variés. En revanche, le second souligne les conflits liés aux habitudes, aux tâches ménagères et au manque d’intimité, tout en recommandant des règles communes.
 
-**Partie 2 — Point de vue personnel (107 mots)**
+**Partie 2 — Point de vue personnel (91 mots)**
 
-Personnellement, je trouve la colocation enrichissante à condition que les responsabilités soient définies dès le départ. Tout d’abord, elle réduit les charges financières, notamment lorsqu’on arrive dans une nouvelle ville. Ensuite, elle favorise le lien social et les échanges culturels. Par exemple, une personne qui s’installe au Québec peut partager un appartement, économiser sur le loyer et découvrir la vie locale grâce à ses colocataires. Cependant, il faut aussi reconnaître que chacun a besoin d’espace personnel et que le ménage peut créer des tensions. En conclusion, le plus important est de fixer des règles équitables et de préserver un équilibre raisonnable entre convivialité, respect mutuel et intimité.
+Pour ma part, je trouve la colocation enrichissante à condition que les responsabilités soient définies dès le départ. Tout d’abord, elle réduit les charges financières, notamment lorsqu’on arrive dans une nouvelle ville. De plus, elle favorise le lien social et les échanges culturels. Par exemple, une personne qui s’installe au Québec peut partager un appartement, économiser sur le loyer et découvrir la vie locale grâce à ses colocataires. En conclusion, le plus important est de fixer des règles équitables et de préserver un équilibre raisonnable entre convivialité, respect mutuel et intimité.
 
-**Total : 164 mots (titre compris)**
+**Total : 144 mots (titre compris)**
 
 ---
 
@@ -242,14 +242,14 @@ Personnellement, je trouve la colocation enrichissante à condition que les resp
 
 ### Aider les plus pauvres : urgence et autonomie
 
-**Partie 1 — Synthèse (49 mots)**
+**Partie 1 — Synthèse (46 mots)**
 
-L’aide aux personnes en situation de précarité fait l’objet d’un débat nuancé. D’un côté, une contribution directe en temps ou en argent est présentée comme un devoir solidaire, particulièrement en hiver. Cependant, l’engagement associatif est jugé plus durable lorsqu’il conduit les bénéficiaires vers un logement, un emploi et l’autonomie.
+Les deux documents abordent l’aide aux personnes pauvres. Le premier valorise les dons accessibles à tous, particulièrement utiles aux sans-abris en hiver. En revanche, le second juge ces gestes trop ponctuels et privilégie le bénévolat associatif, capable de favoriser durablement le logement, le travail et l’autonomie.
 
-**Partie 2 — Point de vue personnel (105 mots)**
+**Partie 2 — Point de vue personnel (93 mots)**
 
-Je pense que l’aide immédiate et l’accompagnement à long terme doivent se compléter. En effet, une personne qui a froid ou faim ne peut pas attendre les résultats d’un programme d’insertion. De plus, une aide ponctuelle reste insuffisante pour combattre durablement l’exclusion. Par exemple, à Montréal, une association peut offrir un repas chaud et un manteau, puis proposer une adresse administrative, une formation et un suivi vers l’emploi. Cependant, il faut aussi reconnaître que ces actions nécessitent des professionnels et des ressources stables. En conclusion, le plus important est d’unir la solidarité concrète aux solutions durables qui conduisent vers le logement, le travail et l’autonomie.
+Pour ma part, je pense que l’aide immédiate et l’accompagnement à long terme doivent se compléter. Tout d’abord, une personne qui a froid ou faim ne peut pas attendre les résultats d’un programme d’insertion. De plus, une aide ponctuelle reste insuffisante pour combattre durablement l’exclusion. Par exemple, à Montréal, une association peut offrir un repas chaud et un manteau, puis proposer une adresse administrative, une formation et un suivi vers l’emploi. En conclusion, le plus important est d’unir la solidarité concrète aux solutions durables qui conduisent vers le logement, le travail et l’autonomie.
 
-**Total : 161 mots (titre compris)**
+**Total : 146 mots (titre compris)**
 
 ---

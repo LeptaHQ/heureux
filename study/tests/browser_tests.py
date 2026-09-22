@@ -811,7 +811,7 @@ class BrowserTests(StaticLiveServerTestCase):
               const selectors = [
                 ".ee-source-docs p",
                 ".section-card--ee-synthese .spine-text",
-                '[data-outline-label="Argument 1 + support"]',
+                '[data-outline-label="Argument 1"]',
               ];
               const anchors = selectors.map(selector => {
                 const value = root.querySelector(selector).textContent.trim();
@@ -886,9 +886,9 @@ class BrowserTests(StaticLiveServerTestCase):
                         "nodes => nodes.map(node => node.dataset.outlineLabel)"
                     ),
                     [
-                        "Prise de position",
-                        "Argument 1 + support",
-                        "Argument 2 + support",
+                        "Position",
+                        "Argument 1",
+                        "Argument 2",
                         "Conclusion",
                     ],
                 )

@@ -3773,9 +3773,9 @@ def _ee_tache_three_position_blocks(text):
             "text": match.group(group),
         }
         for label, group in (
-            ("Prise de position", "stance"),
-            ("Argument 1 + support", "argument_1"),
-            ("Argument 2 + support", "argument_2"),
+            ("Position", "stance"),
+            ("Argument 1", "argument_1"),
+            ("Argument 2", "argument_2"),
             ("Conclusion", "conclusion"),
         )
     )

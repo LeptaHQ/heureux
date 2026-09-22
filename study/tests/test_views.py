@@ -1050,9 +1050,9 @@ class EeTacheThreePageTests(TestCase):
         self.assertEqual(
             [block["label"] for block in blocks],
             [
-                "Prise de position",
-                "Argument 1 + support",
-                "Argument 2 + support",
+                "Position",
+                "Argument 1",
+                "Argument 2",
                 "Conclusion",
             ],
         )

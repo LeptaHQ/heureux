@@ -12,11 +12,11 @@
 
 Les deux documents abordent la publicité. Le premier la juge indispensable pour faire connaître les produits, signaler les promotions, comparer les prix et financer certains services gratuits. En revanche, le second dénonce son omniprésence agaçante, les interruptions des programmes et les déchets de papier qu’elle produit, et souhaite une réglementation plus stricte.
 
-**Partie 2 — Point de vue personnel (97 mots)**
+**Partie 2 — Point de vue personnel (99 mots)**
 
-Pour ma part, la publicité reste utile, mais elle doit être mieux encadrée. Tout d’abord, elle informe les consommateurs et aide les petites entreprises à faire connaître leurs produits. De plus, une diffusion moins envahissante protège l’attention et réduit les déchets. Par exemple, une municipalité pourrait interdire les prospectus non sollicités tout en autorisant une plateforme locale présentant les promotions des commerces. Cela permettrait aux habitants de comparer les prix sans remplir leurs boîtes aux lettres. En conclusion, le plus important est de limiter leur quantité, d’exiger leur transparence et de privilégier des supports respectueux de l’environnement.
+Pour ma part, la publicité reste utile, mais elle doit être mieux encadrée. Tout d’abord, elle informe les consommateurs et aide les petites entreprises à faire connaître leurs produits. De plus, une diffusion moins envahissante protège l’attention et réduit les déchets. Par exemple, une municipalité pourrait interdire les prospectus non sollicités tout en autorisant une plateforme locale présentant les promotions des commerces. Cela permettrait aux habitants de comparer les prix sans remplir leurs boîtes aux lettres. En conclusion, le plus important est de limiter la quantité de publicités, d’exiger leur transparence et de privilégier des supports respectueux de l’environnement.
 
-**Total : 154 mots (titre compris)**
+**Total : 156 mots (titre compris)**
 
 ---
 

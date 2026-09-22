@@ -48,11 +48,11 @@ Pour ma part, le bien-être des salariés exige de bonnes conditions matérielle
 
 Les deux documents abordent l’interdiction des distributeurs automatiques au lycée. Le premier la juge urgente face à l’obésité des adolescents et au rôle éducatif de l’école. En revanche, le second affirme que ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident ceux qui ne peuvent pas déjeuner le matin.
 
-**Partie 2 — Point de vue personnel (95 mots)**
+**Partie 2 — Point de vue personnel (118 mots)**
 
-Pour ma part, je suis favorable à ces appareils à condition que leur contenu soit strictement encadré. Tout d’abord, l’accès rapide à l’eau aide les élèves à rester attentifs tout au long de la journée. De plus, les bénéfices peuvent financer des outils pédagogiques qui profitent à l’ensemble des élèves. Par exemple, un lycée pourrait vendre uniquement de l’eau, du lait et des boissons sans sucre ajouté, puis consacrer les revenus à sa bibliothèque. En conclusion, le plus important est de privilégier la santé grâce à une sélection transparente, contrôlée par l’établissement et régulièrement évaluée.
+Pour ma part, je suis favorable à ces appareils à condition que leur contenu soit strictement encadré. Tout d’abord, l’accès rapide à l’eau aide les élèves à rester attentifs tout au long de la journée. Par exemple, entre deux cours, un élève pressé peut se servir en quelques secondes plutôt que de faire la queue à la fontaine. De plus, les bénéfices peuvent financer des outils pédagogiques qui profitent à l’ensemble des élèves. Par exemple, un lycée pourrait vendre uniquement de l’eau, du lait et des boissons sans sucre ajouté, puis consacrer les revenus à sa bibliothèque. En conclusion, le plus important est de privilégier la santé grâce à une sélection transparente, contrôlée par l’établissement et régulièrement évaluée.
 
-**Total : 155 mots (titre compris)**
+**Total : 178 mots (titre compris)**
 
 ---
 
@@ -174,11 +174,11 @@ Pour ma part, on peut manger sainement dans une chaîne de restauration rapide, 
 
 Les deux documents abordent l’art urbain. Le premier y voit une expression culturelle qui embellit certains lieux, soutient les artistes et attire les touristes vers des quartiers méconnus. En revanche, le second dénonce les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner aux quartiers.
 
-**Partie 2 — Point de vue personnel (90 mots)**
+**Partie 2 — Point de vue personnel (91 mots)**
 
-Pour ma part, je considère que l’art urbain enrichit la ville lorsqu’il respecte les habitants et les bâtiments. Tout d’abord, des murs autorisés offrent aux artistes un espace d’expression accessible à tous sans dégrader les bâtiments. De plus, des parcours guidés peuvent dynamiser les quartiers et soutenir les commerces locaux. Par exemple, une mairie pourrait confier la façade aveugle d’un centre communautaire à un artiste choisi avec les résidents. En conclusion, le plus important est de soutenir la créativité dans des espaces clairement définis, tout en sanctionnant les dégradations imposées.
+Pour ma part, je considère que l’art urbain enrichit la ville lorsqu’il respecte les habitants et les bâtiments. Tout d’abord, des murs autorisés offrent aux artistes un espace d’expression accessible à tous sans dégrader les bâtiments. De plus, des parcours guidés peuvent dynamiser les quartiers et soutenir les commerces locaux. Par exemple, une mairie pourrait confier la façade aveugle d’un centre communautaire à un artiste choisi avec les résidents. En conclusion, le plus important est de soutenir la créativité dans des espaces clairement définis, tout en sanctionnant les dégradations non autorisées.
 
-**Total : 147 mots (titre compris)**
+**Total : 148 mots (titre compris)**
 
 ---
 

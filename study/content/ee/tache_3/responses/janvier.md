@@ -12,11 +12,11 @@
 
 Les deux documents abordent les distributeurs de boissons à l’école. Le premier les présente comme un service pratique qui peut offrir des choix sains et financer des projets scolaires. En revanche, le second craint que les boissons trop sucrées favorisent l’obésité et le diabète chez les élèves.
 
-**Partie 2 — Point de vue personnel (84 mots)**
+**Partie 2 — Point de vue personnel (108 mots)**
 
-Pour ma part, ces appareils sont utiles, mais seulement si leur contenu respecte des règles claires. Tout d’abord, l’accès rapide à l’eau aide les élèves à rester concentrés. De plus, les bénéfices peuvent soutenir les outils pédagogiques plutôt qu’une entreprise privée. Par exemple, un lycée pourrait vendre uniquement de l’eau, du lait et des boissons sans sucre ajouté, puis financer sa bibliothèque avec les revenus supplémentaires. En conclusion, la priorité est de favoriser des habitudes alimentaires saines grâce à une sélection contrôlée et transparente.
+Pour ma part, ces appareils sont utiles, mais seulement si leur contenu respecte des règles claires. Tout d’abord, l’accès rapide à l’eau aide les élèves à rester concentrés. Par exemple, un élève qui boit de l’eau entre deux cours évite les baisses d’attention et reste concentré jusqu’à la fin de la journée. De plus, les bénéfices peuvent soutenir les outils pédagogiques plutôt qu’une entreprise privée. Par exemple, un lycée pourrait vendre uniquement de l’eau, du lait et des boissons sans sucre ajouté, puis financer sa bibliothèque avec les revenus supplémentaires. En conclusion, la priorité est de favoriser des habitudes alimentaires saines grâce à une sélection contrôlée et transparente.
 
-**Total : 138 mots (titre compris)**
+**Total : 162 mots (titre compris)**
 
 ---
 

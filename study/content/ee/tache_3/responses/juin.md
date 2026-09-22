@@ -30,11 +30,11 @@ Pour ma part, la photo devrait rester facultative, afin que les compétences dé
 
 Un seul document est disponible sur la colocation entre adultes, car le second manque dans la source. Le texte publié explique que la vie commune exige des règles sur le bruit, les invités et la vaisselle. Il insiste sur le respect mutuel, l’organisation et le dialogue pour résoudre les difficultés quotidiennes.
 
-**Partie 2 — Point de vue personnel (89 mots)**
+**Partie 2 — Point de vue personnel (112 mots)**
 
-Pour ma part, la colocation est une solution enrichissante à condition que les responsabilités soient définies dès le départ. Tout d’abord, elle réduit les charges financières et rompt l’isolement. De plus, une communication ouverte apprend à respecter les besoins de chacun. Par exemple, trois adultes peuvent fixer un calendrier de ménage, des heures calmes et des règles concernant les invités, puis faire un bilan chaque mois. En conclusion, le plus important est de choisir soigneusement ses colocataires et de préserver un équilibre raisonnable entre convivialité, respect mutuel et intimité.
+Pour ma part, la colocation est une solution enrichissante à condition que les responsabilités soient définies dès le départ. Tout d’abord, elle réduit les charges financières et rompt l’isolement. En effet, partager un logement permet de diviser le loyer tout en offrant chaque soir une présence à quelqu’un qui vivrait sinon seul. De plus, une communication ouverte apprend à respecter les besoins de chacun. Par exemple, trois adultes peuvent fixer un calendrier de ménage, des heures calmes et des règles concernant les invités, puis faire un bilan chaque mois. En conclusion, le plus important est de choisir soigneusement ses colocataires et de préserver un équilibre raisonnable entre convivialité, respect mutuel et intimité.
 
-**Total : 148 mots (titre compris)**
+**Total : 171 mots (titre compris)**
 
 ---
 

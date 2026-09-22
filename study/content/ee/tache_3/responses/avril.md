@@ -66,11 +66,11 @@ Pour ma part, je pense que les produits faits maison sont intéressants à condi
 
 Les deux documents abordent la chasse aux animaux. Le premier la considère comme une pratique cruelle, incompatible avec la protection de la nature. En revanche, le second explique qu’elle peut répondre à plusieurs objectifs : la subsistance, le commerce, la gestion de la faune, la protection des propriétés, l’exercice ou le loisir.
 
-**Partie 2 — Point de vue personnel (86 mots)**
+**Partie 2 — Point de vue personnel (98 mots)**
 
-Pour ma part, la chasse de loisir devrait être fortement limitée, sans interdire les interventions nécessaires à l’équilibre des écosystèmes. Tout d’abord, tuer uniquement pour le plaisir banalise la souffrance animale. De plus, certaines populations trop nombreuses peuvent toutefois menacer des habitats ou des cultures. Par exemple, des agents formés pourraient réguler une espèce envahissante selon des quotas établis par des biologistes. En conclusion, le plus important est de protéger la biodiversité grâce à des règles strictes, des contrôles transparents et une justification écologique ou alimentaire.
+Pour ma part, la chasse de loisir devrait être fortement limitée, sans interdire les interventions nécessaires à l’équilibre des écosystèmes. Tout d’abord, tuer uniquement pour le plaisir banalise la souffrance animale, car cela réduit un être vivant à un simple trophée sans aucune utilité. De plus, certaines populations trop nombreuses peuvent menacer des habitats ou des cultures. Par exemple, des agents formés pourraient réguler une espèce envahissante selon des quotas établis par des biologistes. En conclusion, le plus important est de protéger la biodiversité grâce à des règles strictes, des contrôles transparents et une justification écologique ou alimentaire.
 
-**Total : 144 mots (titre compris)**
+**Total : 156 mots (titre compris)**
 
 ---
 
@@ -84,11 +84,11 @@ Pour ma part, la chasse de loisir devrait être fortement limitée, sans interdi
 
 Les deux documents abordent les effets du travail. Le premier estime qu’il procure un revenu, développe l’autonomie et la confiance, et contribue à l’économie. En revanche, le second dénonce le stress, les horaires rigides, l’épuisement et le manque de reconnaissance, qui peuvent nuire à la vie privée.
 
-**Partie 2 — Point de vue personnel (87 mots)**
+**Partie 2 — Point de vue personnel (112 mots)**
 
-Pour ma part, le travail est favorable lorsqu’il offre un revenu digne, du sens et des conditions équilibrées. Tout d’abord, une activité utile renforce l’autonomie et crée des liens sociaux. De plus, des horaires raisonnables protègent la santé et la vie familiale, ce qui soutient aussi la productivité. Par exemple, une entreprise peut proposer des objectifs réalistes, des horaires flexibles et un entretien régulier sur la charge de chaque salarié. En conclusion, le plus important est de garantir respect, reconnaissance et équilibre entre vie professionnelle et personnelle.
+Pour ma part, le travail est favorable lorsqu’il offre un revenu digne, du sens et des conditions équilibrées. Tout d’abord, une activité utile renforce l’autonomie et crée des liens sociaux. Par exemple, un employé qui organise seul son emploi du temps pour finaliser un projet gagne en autonomie et tisse des liens avec son équipe. De plus, des horaires raisonnables protègent la santé et la vie familiale, ce qui soutient aussi la productivité. Par exemple, une entreprise peut proposer des objectifs réalistes, des horaires flexibles et un entretien régulier sur la charge de chaque salarié. En conclusion, le plus important est de garantir respect, reconnaissance et équilibre entre vie professionnelle et personnelle.
 
-**Total : 141 mots (titre compris)**
+**Total : 166 mots (titre compris)**
 
 ---
 
@@ -102,11 +102,11 @@ Pour ma part, le travail est favorable lorsqu’il offre un revenu digne, du sen
 
 Les deux documents abordent le travail des étudiants pendant les vacances. Le premier valorise l’acquisition de compétences, l’expérience professionnelle et le revenu gagné. En revanche, le second rappelle que les jeunes ont besoin de repos, de temps familial et d’activités personnelles après une année scolaire exigeante afin d’éviter l’épuisement.
 
-**Partie 2 — Point de vue personnel (91 mots)**
+**Partie 2 — Point de vue personnel (116 mots)**
 
-Pour ma part, je considère qu’un emploi saisonnier peut être formateur, à condition de préserver une véritable période de repos. Tout d’abord, il apprend la ponctualité, le travail en équipe et la gestion d’un budget. De plus, une charge excessive risque d’épuiser un jeune avant la rentrée. Par exemple, une étudiante pourrait travailler vingt heures par semaine durant un mois, puis garder plusieurs semaines pour sa famille et ses loisirs. En conclusion, le plus important est de fixer des horaires adaptés à l’âge, aux besoins financiers et au bien-être de chacun.
+Pour ma part, je considère qu’un emploi saisonnier peut être formateur, à condition de préserver une véritable période de repos. Tout d’abord, il apprend la ponctualité, le travail en équipe et la gestion d’un budget. Par exemple, un étudiant caissier l’été apprend à arriver à l’heure, à coopérer avec ses collègues et à gérer un budget avec sa première paie. De plus, une charge excessive risque d’épuiser un jeune avant la rentrée. Par exemple, une étudiante pourrait travailler vingt heures par semaine durant un mois, puis garder plusieurs semaines pour sa famille et ses loisirs. En conclusion, le plus important est de fixer des horaires adaptés à l’âge, aux besoins financiers et au bien-être de chacun.
 
-**Total : 147 mots (titre compris)**
+**Total : 172 mots (titre compris)**
 
 ---
 
@@ -134,15 +134,15 @@ Pour ma part, les compétences doivent déterminer l’accès à un métier, jam
 
 ### Les caméras à l’école : protéger sans surveiller partout
 
-**Partie 1 — Synthèse (51 mots)**
+**Partie 1 — Synthèse (56 mots)**
 
-Les deux documents abordent les caméras de surveillance à l’école. Le premier estime qu’elles dissuadent la violence et rassurent la communauté scolaire. En revanche, le second juge leurs résultats peu convaincants, craint une atteinte à la vie privée et préfère prévenir les conflits grâce au dialogue et à des règles expliquées.
+Les deux documents abordent les caméras de surveillance à l’école. Le premier estime qu’elles dissuadent la violence et rassurent la communauté scolaire, même si certains élèves y voient une atteinte à leur vie privée. En revanche, le second juge leurs résultats peu convaincants et préfère prévenir les conflits grâce au dialogue et à des règles expliquées.
 
 **Partie 2 — Point de vue personnel (92 mots)**
 
 Pour ma part, les caméras ne devraient servir qu’à sécuriser les accès ou des zones particulièrement exposées. Tout d’abord, elles peuvent fournir des preuves après un incident, mais elles ne remplacent ni l’encadrement ni la confiance. De plus, les élèves doivent savoir qui consulte les images et combien de temps elles sont conservées. Par exemple, une école pourrait filmer uniquement son entrée, tout en renforçant la médiation dans la cour. En conclusion, le plus important est de prévenir la violence par le dialogue et des règles claires, sans instaurer une surveillance permanente.
 
-**Total : 151 mots (titre compris)**
+**Total : 156 mots (titre compris)**
 
 ---
 
@@ -192,11 +192,11 @@ Pour ma part, je suis favorable à une réduction du temps de travail lorsque le
 
 Les deux documents abordent les effets des jeux vidéo. Le premier souligne que certains jeux développent chez l’adulte l’analyse, la décision et la rapidité de réaction. En revanche, le second associe une pratique excessive chez les enfants à davantage de nervosité, de violence, de stress et de difficultés scolaires.
 
-**Partie 2 — Point de vue personnel (88 mots)**
+**Partie 2 — Point de vue personnel (111 mots)**
 
-Pour ma part, les jeux vidéo peuvent être utiles, mais seulement dans des limites bien précises. Tout d’abord, certains défis stimulent la réflexion, la coordination et la capacité à résoudre des problèmes. De plus, un usage excessif réduit le sommeil, l’activité physique et la concentration scolaire. Par exemple, des parents peuvent autoriser une heure de jeu après les devoirs, puis proposer une activité sportive en famille. En conclusion, le plus important est de choisir des contenus adaptés, de fixer des horaires clairs et de préserver un équilibre quotidien.
+Pour ma part, les jeux vidéo peuvent être utiles, mais seulement dans des limites bien précises. Tout d’abord, certains défis stimulent la réflexion, la coordination et la capacité à résoudre des problèmes. Par exemple, un jeu d’action-puzzle demande à un enfant de réfléchir vite, de coordonner ses mouvements et de résoudre une énigme pour avancer. De plus, un usage excessif réduit le sommeil, l’activité physique et la concentration scolaire. Par exemple, des parents peuvent autoriser une heure de jeu après les devoirs, puis proposer une activité sportive en famille. En conclusion, le plus important est de choisir des contenus adaptés, de fixer des horaires clairs et de préserver un équilibre quotidien.
 
-**Total : 143 mots (titre compris)**
+**Total : 166 mots (titre compris)**
 
 ---
 

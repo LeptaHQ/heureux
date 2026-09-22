@@ -23,7 +23,10 @@ Ce dossier regroupe les **sujets sources** et l'ensemble des **réponses modèle
   titre ne reçoit jamais automatiquement celui du modèle.
 - Les modèles suivent un squelette stable : « Les deux documents abordent…
   Le premier… De son côté / En revanche, le second… » selon la relation réelle,
-  puis « Pour ma part… Tout d’abord… De plus… En conclusion… ». Les formulations
+  puis « Pour ma part… Tout d’abord… De plus… En conclusion… ». Chacun des deux
+  arguments reçoit un appui immédiat : exemple, explication, conséquence,
+  condition, comparaison ou preuve brève. Au moins un « Par exemple… » concret
+  figure dans chaque Partie 2, sans imposer un second exemple artificiel. Les formulations
   ne remplacent pas l’analyse : un document absent, dupliqué ou hors sujet est
   signalé honnêtement, sans argument inventé.
 - Les champs existants `heading` / `reformulation` portent le titre. Le chargeur valide
@@ -222,8 +225,8 @@ Novembre C8) et ont été corrigées **sans toucher à la prose**.
 devenu alias ; elle est déplacée sur le sujet canonique Janvier C19. Janvier C3 perd
 une concession auto-contradictoire et Janvier C17 ne prétend plus citer
 « plusieurs experts » absents des documents. Les dix réponses effectives utilisent
-désormais le même squelette souple que le reste du corpus, tout en conservant leurs
-arguments et exemples propres.
+désormais le même squelette à deux arguments soutenus que le reste du corpus,
+tout en conservant leurs idées propres.
 
 Vocabulaire : chaque entrée dont l'`example` reprenait une phrase supprimée a été
 régénérée à partir du texte corrigé. Les **300 entrées** des dix réponses de l'auteur

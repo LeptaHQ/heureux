@@ -1,6 +1,7 @@
 """EE3 titles are answer content, not synthesis text or a new study identity."""
 
 import json
+import hashlib
 import re
 from dataclasses import replace
 from pathlib import Path
@@ -31,7 +32,48 @@ from . import factories
 from .test_ee_tache_three_memory_translations import AnnotationRootText
 
 
+SOURCE_TITLE_DIGEST = (
+    "92aba32efb8383e66a459dedf8cf9f2cbbc6bcc8772e8356ff2e9cad86f468a8"
+)
+AUTHOR_TITLE_DIGEST = (
+    "279153a67d657634510081cb94dc2151d712abe96965e9cb179c564aec8b812c"
+)
+
+
 class EeTacheThreeTitleContentTests(SimpleTestCase):
+    def test_source_and_author_titles_are_unchanged(self):
+        source_titles = []
+        for path in sorted(content.EE_TACHE_THREE_RESPONSES_DIR.glob("*.md")):
+            text = path.read_text(encoding="utf-8")
+            source_titles.extend(
+                f"{path.stem}|{label}|{heading}"
+                for label, heading in re.findall(
+                    r"^## (Combinaison[^\n]*)\n.*?^### ([^\n]+)$",
+                    text,
+                    re.MULTILINE | re.DOTALL,
+                )
+            )
+        self.assertEqual(len(source_titles), 138)
+        self.assertEqual(
+            hashlib.sha256("\n".join(source_titles).encode()).hexdigest(),
+            SOURCE_TITLE_DIGEST,
+        )
+
+        payload = json.loads(
+            content.EE_TACHE_THREE_AUTHOR_RESPONSES_PATH.read_text(
+                encoding="utf-8"
+            )
+        )
+        author_titles = [
+            f"{row['content_key']}|{row['heading']}"
+            for row in payload["responses"]
+        ]
+        self.assertEqual(len(author_titles), 10)
+        self.assertEqual(
+            hashlib.sha256("\n".join(author_titles).encode()).hexdigest(),
+            AUTHOR_TITLE_DIGEST,
+        )
+
     def test_all_source_totals_include_the_title_without_changing_part_counts(self):
         count = 0
         for path in content.EE_TACHE_THREE_RESPONSES_DIR.glob("*.md"):

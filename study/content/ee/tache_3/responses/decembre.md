@@ -170,15 +170,15 @@ Pour ma part, les marques ne devraient pas guider la majorité des achats destin
 
 ### L’uniforme au Québec : confort et expression personnelle
 
-**Partie 1 — Synthèse (52 mots)**
+**Partie 1 — Synthèse (53 mots)**
 
-Un seul document traite réellement de l’uniforme scolaire, car le premier texte est une consigne d’écriture sans rapport avec le sujet. Ce document valide constate que certaines écoles publiques québécoises imposent l’uniforme, mais que des adolescents le jugent inconfortable, trop chaud et peu esthétique, et regrettent qu’il limite l’expression de leur personnalité.
+Un seul document traite réellement de l’uniforme scolaire, car le premier texte est une consigne d’écriture sans rapport avec le sujet. Le seul document exploitable constate que certaines écoles publiques québécoises imposent l’uniforme, mais que des adolescents le jugent inconfortable, trop chaud et peu esthétique, et regrettent qu’il limite l’expression de leur personnalité.
 
 **Partie 2 — Point de vue personnel (90 mots)**
 
 Pour ma part, je suis favorable à un uniforme souple, abordable et adapté aux saisons. Tout d’abord, une tenue commune peut réduire la comparaison des marques et faciliter la préparation du matin. De plus, plusieurs coupes et couleurs permettent de conserver une certaine liberté sans perdre la cohérence collective. Par exemple, une école québécoise pourrait proposer des pantalons, des jupes et des polos respirants parmi lesquels chaque élève compose sa tenue. En conclusion, le plus important est de consulter les élèves et d’offrir un uniforme confortable, inclusif et financièrement accessible.
 
-**Total : 149 mots (titre compris)**
+**Total : 150 mots (titre compris)**
 
 ---
 
@@ -224,15 +224,15 @@ Pour ma part, les technologies sont utiles à condition de servir un objectif p�
 
 ### Les produits faits maison : naturels, mais pas sans précautions
 
-**Partie 1 — Synthèse (55 mots)**
+**Partie 1 — Synthèse (58 mots)**
 
-Les deux documents abordent les produits faits maison. Le premier apprécie le contrôle des ingrédients, l’emploi de composants naturels, les économies et la réduction des emballages. De son côté, le second alerte sur les risques sanitaires liés aux mauvaises recettes, au manque d’hygiène ou de conservation, ainsi que sur le temps nécessaire à la fabrication.
+Les deux documents abordent les produits faits maison. Le premier apprécie le contrôle des ingrédients, l’emploi de composants naturels et la réduction des emballages. De son côté, le second reconnaît les économies réalisées, mais alerte sur les risques sanitaires liés aux mauvaises recettes, au manque d’hygiène ou de conservation, ainsi que sur le temps nécessaire à la fabrication.
 
 **Partie 2 — Point de vue personnel (95 mots)**
 
 Pour ma part, fabriquer certains produits simples est intéressant à condition de suivre des consignes fiables. Tout d’abord, cette pratique permet de choisir la composition et de réduire les emballages plastiques. De plus, il faut distinguer un produit ménager courant d’une crème ou d’un savon dont la préparation exige de vraies précautions. Par exemple, une personne peut préparer un nettoyant selon une recette validée, l’étiqueter clairement et le conserver hors de portée des enfants. En conclusion, le plus important est de s’informer, de respecter l’hygiène et de renoncer aux fabrications que l’on ne maîtrise pas.
 
-**Total : 159 mots (titre compris)**
+**Total : 162 mots (titre compris)**
 
 ---
 
@@ -260,15 +260,15 @@ Pour ma part, je pense que la télévision a sa place dans la vie familiale si e
 
 ### Vivre chez ses parents : un soutien vers l’autonomie
 
-**Partie 1 — Synthèse (53 mots)**
+**Partie 1 — Synthèse (56 mots)**
 
-Les deux documents abordent la vie chez ses parents à l’âge adulte. Le premier présente la stabilité, les repas, l’aide quotidienne et les économies de logement, notamment pendant les études ou après la perte d’un emploi. En revanche, le second souligne le manque de liberté et d’intimité ainsi que les obstacles à l’indépendance.
+Les deux documents abordent la vie chez ses parents à l’âge adulte. Le premier présente la stabilité, les repas, l’aide quotidienne et les économies de logement, notamment pendant les études. En revanche, le second, revenu chez ses parents après la perte d’un emploi, souligne le manque de liberté et d’intimité ainsi que les obstacles à l’indépendance.
 
 **Partie 2 — Point de vue personnel (92 mots)**
 
 Pour ma part, revenir chez ses parents est raisonnable si cette étape reste organisée autour d’un projet d’autonomie. Tout d’abord, l’économie de loyer permet de reprendre des études, de chercher un emploi ou de constituer une réserve financière. De plus, l’adulte doit contribuer aux tâches et respecter les besoins de chacun. Par exemple, un jeune salarié peut payer une partie des courses, cuisiner deux soirs par semaine et épargner chaque mois pour son futur logement. En conclusion, le plus important est de convenir des responsabilités, d’un objectif financier et d’une échéance réaliste.
 
-**Total : 153 mots (titre compris)**
+**Total : 156 mots (titre compris)**
 
 ---
 

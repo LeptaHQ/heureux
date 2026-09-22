@@ -65,7 +65,7 @@
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
-          "example": "Tout d’abord, l’accès rapide à une boisson aide les jeunes pendant une longue journée.",
+          "example": "Tout d’abord, l’accès rapide à une boisson aide les élèves pressés à tenir une longue journée.",
           "usage": "Connecteur discursif ; réutilisable en Éducation/Santé."
         },
         {
@@ -137,7 +137,7 @@
           "kind": "mot-cle",
           "french": "l’accès rapide à une boisson",
           "english": "quick access to a drink",
-          "example": "Tout d’abord, l’accès rapide à une boisson aide les jeunes pendant une longue journée.",
+          "example": "Tout d’abord, l’accès rapide à une boisson aide les élèves pressés à tenir une longue journée.",
           "usage": "Mot-clé thématique ; réutilisable en Éducation/Santé."
         },
         {
@@ -336,7 +336,7 @@
           "kind": "mot-cle",
           "french": "des autodidactes formés en ligne",
           "english": "self-taught cooks trained online",
-          "example": "De son côté, le second présente des autodidactes formés en ligne qui ont connu un succès viral, dont l’un est devenu auteur de livres de cuisine pour amateurs.",
+          "example": "De son côté, le second présente des autodidactes formés en ligne qui ont connu un succès viral, dont l’une est devenue auteure de livres de cuisine pour amateurs.",
           "usage": "Mot-clé thématique ; réutilisable en Travail/Formation."
         },
         {
@@ -360,7 +360,7 @@
           "kind": "mot-cle",
           "french": "un succès viral",
           "english": "viral success",
-          "example": "De son côté, le second présente des autodidactes formés en ligne qui ont connu un succès viral, dont l’un est devenu auteur de livres de cuisine pour amateurs.",
+          "example": "De son côté, le second présente des autodidactes formés en ligne qui ont connu un succès viral, dont l’une est devenue auteure de livres de cuisine pour amateurs.",
           "usage": "Mot-clé thématique ; réutilisable en Travail/Formation."
         },
         {
@@ -376,7 +376,7 @@
           "kind": "collocation",
           "french": "connu un succès viral",
           "english": "achieved viral success",
-          "example": "De son côté, le second présente des autodidactes formés en ligne qui ont connu un succès viral, dont l’un est devenu auteur de livres de cuisine pour amateurs.",
+          "example": "De son côté, le second présente des autodidactes formés en ligne qui ont connu un succès viral, dont l’une est devenue auteure de livres de cuisine pour amateurs.",
           "usage": "Collocation thématique ; réutilisable en Travail/Formation."
         },
         {
@@ -392,7 +392,7 @@
           "kind": "expression",
           "french": "De plus",
           "english": "Furthermore",
-          "example": "De plus, cette expérience encadrée complète le talent naturel et prépare aux exigences du métier.",
+          "example": "De plus, cette expérience encadrée complète le talent naturel et prépare aux exigences du métier, car un stage impose des rythmes et des responsabilités qu’aucune vidéo ne peut enseigner.",
           "usage": "Connecteur discursif ; réutilisable en Travail/Formation."
         },
         {
@@ -440,7 +440,7 @@
           "kind": "collocation",
           "french": "complète le talent naturel",
           "english": "complements natural talent",
-          "example": "De plus, cette expérience encadrée complète le talent naturel et prépare aux exigences du métier.",
+          "example": "De plus, cette expérience encadrée complète le talent naturel et prépare aux exigences du métier, car un stage impose des rythmes et des responsabilités qu’aucune vidéo ne peut enseigner.",
           "usage": "Collocation thématique ; réutilisable en Travail/Formation."
         },
         {
@@ -488,7 +488,7 @@
           "kind": "reformulation",
           "french": "cette expérience encadrée",
           "english": "this supervised experience",
-          "example": "De plus, cette expérience encadrée complète le talent naturel et prépare aux exigences du métier.",
+          "example": "De plus, cette expérience encadrée complète le talent naturel et prépare aux exigences du métier, car un stage impose des rythmes et des responsabilités qu’aucune vidéo ne peut enseigner.",
           "usage": "Reformulation utile ; réutilisable en Travail/Formation."
         },
         {
@@ -496,7 +496,7 @@
           "kind": "mot-cle",
           "french": "aux exigences du métier",
           "english": "the demands of the profession",
-          "example": "De plus, cette expérience encadrée complète le talent naturel et prépare aux exigences du métier.",
+          "example": "De plus, cette expérience encadrée complète le talent naturel et prépare aux exigences du métier, car un stage impose des rythmes et des responsabilités qu’aucune vidéo ne peut enseigner.",
           "usage": "Mot-clé thématique ; réutilisable en Travail/Formation."
         }
       ]
@@ -3157,7 +3157,7 @@
           "kind": "collocation",
           "french": "la transition plus juste",
           "english": "a fairer transition",
-          "example": "Renforcer les lignes de bus pendant deux ans rendrait la transition plus juste.",
+          "example": "Par exemple, la ville pourrait renforcer les lignes de bus et délivrer des autorisations de circulation aux livreurs, aux policiers et aux services d’urgence, ce qui rendrait la transition plus juste.",
           "usage": "Collocation thématique ; réutilisable en Transport/Environnement."
         },
         {
@@ -3189,7 +3189,7 @@
           "kind": "collocation",
           "french": "des alternatives accessibles et fiables",
           "english": "accessible and reliable alternatives",
-          "example": "En conclusion, il faut limiter la voiture après avoir construit des alternatives accessibles et fiables.",
+          "example": "En conclusion, je souhaite que la ville limite la voiture après avoir construit des alternatives accessibles et fiables.",
           "usage": "Collocation thématique ; réutilisable en Transport/Environnement."
         },
         {
@@ -3197,7 +3197,7 @@
           "kind": "tournure",
           "french": "après avoir construit des alternatives accessibles et fiables",
           "english": "after building accessible and reliable alternatives",
-          "example": "En conclusion, il faut limiter la voiture après avoir construit des alternatives accessibles et fiables.",
+          "example": "En conclusion, je souhaite que la ville limite la voiture après avoir construit des alternatives accessibles et fiables.",
           "usage": "Tournure grammaticale ; réutilisable en Transport/Environnement."
         },
         {
@@ -3213,7 +3213,7 @@
           "kind": "verbe-action",
           "french": "Renforcer les lignes de bus",
           "english": "Strengthen bus routes",
-          "example": "Renforcer les lignes de bus pendant deux ans rendrait la transition plus juste.",
+          "example": "Par exemple, la ville pourrait renforcer les lignes de bus et délivrer des autorisations de circulation aux livreurs, aux policiers et aux services d’urgence, ce qui rendrait la transition plus juste.",
           "usage": "Verbe d’action ; réutilisable en Transport/Environnement."
         }
       ]

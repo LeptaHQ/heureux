@@ -30,11 +30,11 @@ Pour ma part, les jeux vidéo peuvent être utiles, mais seulement si leur duré
 
 Les deux documents abordent les parcs zoologiques. Le premier considère la captivité comme une prison inadaptée aux besoins naturels des animaux sauvages. En revanche, le second met en avant les soins et l’augmentation des reproductions dans les zoos, qui peuvent contribuer à sauver des espèces menacées.
 
-**Partie 2 — Point de vue personnel (88 mots)**
+**Partie 2 — Point de vue personnel (107 mots)**
 
-Pour ma part, les zoos ne sont acceptables que s’ils donnent la priorité au bien-être et à la conservation. Tout d’abord, des espaces vastes et adaptés permettent aux animaux d’exprimer leurs comportements naturels et de réduire leur stress. De plus, des programmes scientifiques sérieux peuvent préserver des espèces menacées. Par exemple, un parc pourrait reproduire une espèce rare, sensibiliser les visiteurs, puis réintroduire les jeunes dans une réserve protégée. En conclusion, le plus important est de contrôler strictement les établissements et de fermer ceux qui privilégient le spectacle.
+Pour ma part, les zoos ne sont acceptables que s’ils donnent la priorité au bien-être et à la conservation. Tout d’abord, des espaces vastes et adaptés permettent aux animaux d’exprimer leurs comportements naturels et de réduire leur stress, car ils peuvent alors se déplacer, se cacher et interagir comme dans leur milieu d’origine. De plus, des programmes scientifiques sérieux peuvent préserver des espèces menacées. Par exemple, un parc pourrait reproduire une espèce rare, sensibiliser les visiteurs, puis réintroduire les jeunes dans une réserve protégée. En conclusion, le plus important est d’exiger de chaque parc qu’il garantisse le bien-être animal et contribue réellement à la conservation des espèces.
 
-**Total : 140 mots (titre compris)**
+**Total : 159 mots (titre compris)**
 
 ---
 
@@ -48,11 +48,11 @@ Pour ma part, les zoos ne sont acceptables que s’ils donnent la priorité au b
 
 Les deux documents abordent la place du travail dans la vie. Le premier dénonce la fatigue et le manque de temps pour les proches, puis propose de travailler moins. En revanche, le second souligne que l’emploi construit l’identité, crée des relations et nourrit le sentiment d’être utile.
 
-**Partie 2 — Point de vue personnel (90 mots)**
+**Partie 2 — Point de vue personnel (119 mots)**
 
-Pour ma part, je pense que le travail reste essentiel, mais qu’il ne doit pas envahir la vie personnelle. Tout d’abord, un emploi stable procure un revenu, des relations et un sentiment d’utilité. De plus, des horaires raisonnables préviennent le stress et la fatigue chronique. Par exemple, une entreprise qui adopte quatre journées bien organisées peut maintenir sa productivité tout en laissant aux salariés davantage de temps pour leur famille. En conclusion, le plus important est de garantir des conditions de travail équilibrées sans nier la valeur sociale de l’emploi.
+Pour ma part, je pense que le travail reste essentiel, mais qu’il ne doit pas envahir la vie personnelle. Tout d’abord, un emploi stable procure un revenu, des relations et un sentiment d’utilité. Par exemple, un employé qui occupe le même poste depuis longtemps perçoit un salaire régulier, noue des amitiés durables et se sent utile à son équipe. De plus, des horaires raisonnables préviennent le stress et la fatigue chronique. Par exemple, une entreprise qui adopte la semaine de quatre jours bien organisée peut maintenir sa productivité tout en laissant aux salariés davantage de temps pour leur famille. En conclusion, le plus important est de garantir des conditions de travail équilibrées sans nier la valeur sociale de l’emploi.
 
-**Total : 144 mots (titre compris)**
+**Total : 173 mots (titre compris)**
 
 ---
 
@@ -66,11 +66,11 @@ Pour ma part, je pense que le travail reste essentiel, mais qu’il ne doit pas 
 
 Les deux documents publiés sont identiques et abordent la dépendance aux jeux vidéo. Ils expliquent tous deux que le jeu devient une addiction lorsqu’il remplace les relations, les études, le travail, les loisirs ou le sport. La source ayant dupliqué le même texte, elle ne fournit aucun point de vue opposé.
 
-**Partie 2 — Point de vue personnel (96 mots)**
+**Partie 2 — Point de vue personnel (119 mots)**
 
-Pour ma part, il ne faut pas interdire les jeux vidéo, mais les intégrer dans un emploi du temps équilibré. Tout d’abord, leur usage modéré peut développer la stratégie, la persévérance et la coopération. De plus, des règles précises empêchent le jeu de remplacer le sommeil, les études ou le sport. Par exemple, des parents peuvent autoriser une heure de jeu après les devoirs et conserver les consoles hors de la chambre la nuit. En conclusion, le plus important est de prévenir la dépendance grâce au dialogue, à des limites claires et à des activités variées.
+Pour ma part, il ne faut pas interdire les jeux vidéo, mais les intégrer dans un emploi du temps équilibré. Tout d’abord, leur usage modéré peut développer la stratégie, la persévérance et la coopération. Par exemple, un jeu de gestion pousse un adolescent à élaborer une stratégie, à coordonner son équipe et à persévérer après plusieurs échecs. De plus, des règles précises empêchent le jeu de remplacer le sommeil, les études ou le sport. Par exemple, des parents peuvent autoriser une heure de jeu après les devoirs et conserver les consoles hors de la chambre la nuit. En conclusion, le plus important est de prévenir la dépendance grâce au dialogue, à des limites claires et à des activités variées.
 
-**Total : 155 mots (titre compris)**
+**Total : 178 mots (titre compris)**
 
 ---
 
@@ -138,10 +138,10 @@ Pour ma part, il est préférable de consommer moins de viande sans nécessairem
 
 Les deux documents abordent la vie en colocation. Le premier valorise les échanges, le partage des tâches, l’entraide et l’ouverture à d’autres habitudes. En revanche, le second souligne le manque de calme, les invités imposés et les conflits ménagers, qui nécessitent de la diplomatie.
 
-**Partie 2 — Point de vue personnel (88 mots)**
+**Partie 2 — Point de vue personnel (109 mots)**
 
-Pour ma part, la colocation est enrichissante à condition que les responsabilités et les limites soient définies dès le départ. Tout d’abord, elle réduit les charges financières et rompt l’isolement dans une nouvelle ville. De plus, elle apprend à communiquer et à respecter les besoins de chacun. Par exemple, trois étudiants peuvent établir un calendrier du ménage, fixer des heures calmes et prévenir avant de recevoir des amis. En conclusion, le plus important est de choisir soigneusement ses colocataires et de maintenir une communication ouverte, honnête et respectueuse.
+Pour ma part, la colocation est enrichissante à condition que les responsabilités et les limites soient définies dès le départ. Tout d’abord, elle réduit les charges financières et rompt l’isolement dans une nouvelle ville. Par exemple, un étudiant fraîchement arrivé peut partager son loyer et se faire des amis dès sa première semaine en colocation. De plus, elle apprend à communiquer et à respecter les besoins de chacun. Par exemple, trois étudiants peuvent établir un calendrier du ménage, fixer des heures calmes et prévenir avant de recevoir des amis. En conclusion, le plus important est de choisir soigneusement ses colocataires et de maintenir une communication ouverte, honnête et respectueuse.
 
-**Total : 139 mots (titre compris)**
+**Total : 160 mots (titre compris)**
 
 ---

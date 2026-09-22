@@ -460,19 +460,19 @@ class EeTacheThreeUnifiedResponseTests(SimpleTestCase):
             for row in payload["responses"]:
                 entries_by_key[row["response_key"]] = row["entries"]
 
+        author_entry_count = 0
         for content_key in author_keys:
-            effective = content._ee_tache_three_normalize(
+            effective = (
                 responses[content_key].position
                 + " "
                 + responses[content_key].position_claire
             )
             with self.subTest(content_key=content_key):
                 self.assertEqual(len(entries_by_key[content_key]), 30)
+                author_entry_count += len(entries_by_key[content_key])
                 for entry in entries_by_key[content_key]:
-                    self.assertIn(
-                        content._ee_tache_three_normalize(entry["example"]),
-                        effective,
-                    )
+                    self.assertIn(entry["example"], effective)
+        self.assertEqual(author_entry_count, 300)
 
     def test_every_retired_tache_three_vocabulary_id_has_a_canonical_target(self):
         merges = content.ee_tache_three_phrase_id_merges()

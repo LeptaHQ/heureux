@@ -310,6 +310,23 @@ class EeTacheThreeMemoryTranslationViewTests(TestCase):
                                     count=bank.question_count)
                 self.assertContains(response, '<p lang="fr"',
                                     count=bank.question_count)
+                self.assertContains(
+                    response,
+                    'class="ee3-memory-guide card"',
+                    count=1,
+                )
+                self.assertContains(
+                    response,
+                    'id="writing-methodology-dialog"',
+                    count=1,
+                )
+                self.assertContains(
+                    response,
+                    'aria-label="Catégories de formulations"',
+                    count=1,
+                )
+                self.assertContains(response, "formulations apprises", count=1)
+                self.assertNotContains(response, "questions apprises")
                 parser = AnnotationRootText(legacy=True)
                 parser.feed(response.content.decode())
                 self.assertEqual(len(parser.roots), 10)

@@ -14,9 +14,9 @@
     </h1>
     {% if question_bank.subtitle %}<p>{{ question_bank.subtitle }}</p>{% endif %}
   </div>
-  <dl class="question-bank-hero__metrics" aria-label="Contenu de la banque de questions">
+  <dl class="question-bank-hero__metrics" aria-label="Contenu de la banque de {% if part.slug == "ee" and task.slug == "tache-3" %}formulations{% else %}questions{% endif %}">
     <div><dt>Catégories</dt><dd>{{ question_bank.category_count }}</dd></div>
-    <div><dt>Questions</dt><dd>{{ question_bank.question_count }}</dd></div>
+    <div><dt>{% if part.slug == "ee" and task.slug == "tache-3" %}Formulations{% else %}Questions{% endif %}</dt><dd>{{ question_bank.question_count }}</dd></div>
   </dl>
 </header>
 
@@ -25,7 +25,7 @@
   <div class="memory-learning-summary__body">
     <div class="memory-learning-summary__copy">
       <div>
-        <h2 id="memory-learning-title"><span data-memory-completed>{{ memory_progress.completed }}</span> sur {{ memory_progress.total }} questions apprises</h2>
+        <h2 id="memory-learning-title"><span data-memory-completed>{{ memory_progress.completed }}</span> sur {{ memory_progress.total }} {% if part.slug == "ee" and task.slug == "tache-3" %}formulations apprises{% else %}questions apprises{% endif %}</h2>
       </div>
       <span class="progress-status progress-status--{{ memory_progress.status }}" data-memory-status>{{ memory_progress.label }}</span>
     </div>
@@ -36,6 +36,10 @@
   </div>
 </section>
 
+{% if part.slug == "ee" and task.slug == "tache-3" %}
+  {% include "study/partials/ee_tache_three_memory_guide.html" only %}
+{% endif %}
+
 <div class="question-bank-layout" data-question-bank>
   <aside class="question-bank-index card" aria-labelledby="question-bank-index-title">
     <div class="question-bank-index__head">
@@ -44,7 +48,7 @@
       </div>
       <span>{{ question_bank.category_count }}</span>
     </div>
-    <nav aria-label="Catégories de questions">
+    <nav aria-label="Catégories de {% if part.slug == "ee" and task.slug == "tache-3" %}formulations{% else %}questions{% endif %}">
       {% for section in memory_sections %}
         <a href="#{{ section.anchor }}" data-index-section="{{ section.number }}">
           <span>{{ section.number_label }}</span>
@@ -55,7 +59,7 @@
     </nav>
   </aside>
 
-  <div class="question-bank-sections" aria-label="Questions à mémoriser">
+  <div class="question-bank-sections" aria-label="{% if part.slug == "ee" and task.slug == "tache-3" %}Formulations{% else %}Questions{% endif %} à mémoriser">
     {% for section in memory_sections %}
       <article
         class="question-bank-section card"
@@ -130,7 +134,7 @@
                           data-question-text="{{ question.text }}"
                           aria-checked="{{ question.completed|yesno:'true,false' }}"
                           aria-label="{% if question.completed %}Marquer comme non apprise : {% else %}Marquer comme apprise : {% endif %}{{ question.text }}"
-                          title="{% if question.completed %}Question apprise{% else %}Marquer comme apprise{% endif %}">
+                          title="{% if question.completed %}{% if part.slug == "ee" and task.slug == "tache-3" %}Formulation{% else %}Question{% endif %} apprise{% else %}Marquer comme apprise{% endif %}">
                           {% include "study/partials/ui_icon.html" with name="check" only %}
                         </button>
                       </form>
@@ -149,6 +153,9 @@
 </div>
 {% if question_responses_enabled %}
   {% include "study/partials/question_response_dialog.html" %}
+{% endif %}
+{% if part.slug == "ee" and task.slug == "tache-3" %}
+  {% include "study/partials/writing_methodology_dialog.html" with tache=3 only %}
 {% endif %}
 </div>
 {% endblock %}

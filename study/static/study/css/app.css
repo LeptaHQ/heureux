@@ -16870,6 +16870,7 @@ html:not([data-collection-view-mode="table"]) .subject-collection .t1-table__pro
 }
 .ee3-memory-guide__body [lang="en"] {
   color: var(--text-soft);
+  font-size: 0.9em;
 }
 .ee3-memory-guide__essentials {
   margin: 0;

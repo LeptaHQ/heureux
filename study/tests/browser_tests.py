@@ -34,6 +34,7 @@ from study.models import (
     LearningLessonProgress,
     CourseAttempt,
     CourseProduction,
+    MemoryQuestionProgress,
     PhraseCategory,
     PhraseTier,
     PersonalQuestionResponse,
@@ -796,6 +797,316 @@ class BrowserTests(StaticLiveServerTestCase):
             ),
         )
         self.assert_no_horizontal_overflow()
+
+    def test_ee3_memory_guide_labels_completion_and_methodology_are_responsive(self):
+        _, task = self._import_ee_tache_three_content()
+        bank = content.load_question_banks(
+            content.EE_TACHE_THREE_MEMOIRES_DIR,
+            key_namespace="ee-tache3",
+        )[0]
+        corrected = next(
+            question
+            for section in bank.sections
+            for group in section.groups
+            for question in group.questions
+            if question.legacy_text
+        )
+        path = reverse("study:task_memory_detail", args=["ee", "tache-3", 1])
+
+        for width in (320, 390, 1280):
+            with self.subTest(width=width):
+                self.page.set_viewport_size({"width": width, "height": 844})
+                self.page.goto(self.live_server_url + path)
+                guide = self.page.locator(".ee3-memory-guide")
+                expect(guide).not_to_have_attribute("open", "")
+                expect(
+                    self.page.locator(".question-bank-hero__metrics")
+                ).to_contain_text("Formulations")
+                expect(
+                    self.page.locator("#memory-learning-title")
+                ).to_contain_text("formulations apprises")
+                expect(
+                    self.page.locator(".question-bank-index nav")
+                ).to_have_attribute(
+                    "aria-label",
+                    "Catégories de formulations",
+                )
+                guide.locator(":scope > summary").click()
+                expect(guide).to_have_attribute("open", "")
+                english = guide.locator(":scope > .ee3-memory-guide__body > p[lang=en]").first
+                french = guide.locator(":scope > .ee3-memory-guide__body > p").first
+                styles = self.page.evaluate(
+                    """
+                    ([french, english]) => ({
+                      frenchSize: parseFloat(getComputedStyle(french).fontSize),
+                      englishSize: parseFloat(getComputedStyle(english).fontSize),
+                      frenchColor: getComputedStyle(french).color,
+                      englishColor: getComputedStyle(english).color,
+                    })
+                    """,
+                    [french.element_handle(), english.element_handle()],
+                )
+                self.assertLess(styles["englishSize"], styles["frenchSize"])
+                self.assertNotEqual(styles["englishColor"], styles["frenchColor"])
+                self.assert_no_horizontal_overflow()
+
+                if width == 390:
+                    guide.get_by_role(
+                        "button", name="Méthodologie", exact=True
+                    ).click()
+                    dialog = self.page.locator("#writing-methodology-dialog")
+                    expect(dialog).to_be_visible()
+                    expect(dialog).to_have_attribute(
+                        "data-writing-methodology", "3"
+                    )
+                    dialog.get_by_role(
+                        "button", name="Fermer la méthodologie"
+                    ).click()
+                    expect(dialog).to_be_hidden()
+
+        row = self.page.locator(
+            f'[data-question-key="{corrected.content_key}"]'
+        )
+        checkbox = row.locator("[data-memory-progress-form] button")
+        expect(checkbox).to_have_attribute("aria-checked", "false")
+        with self.page.expect_response(
+            lambda response: "/progression/" in response.url
+        ) as completed:
+            checkbox.click()
+        self.assertTrue(completed.value.ok)
+        expect(checkbox).to_have_attribute("aria-checked", "true")
+        self.page.reload()
+        row = self.page.locator(
+            f'[data-question-key="{corrected.content_key}"]'
+        )
+        expect(
+            row.locator("[data-memory-progress-form] button")
+        ).to_have_attribute("aria-checked", "true")
+        self.assertTrue(MemoryQuestionProgress.objects.filter(
+            user=self.user,
+            memory_number=1,
+            question_key=corrected.content_key,
+        ).exists())
+        self.assertEqual(task.part.slug, "ee")
+
+    def test_ee3_memory_highlights_ignore_english_and_survive_crud(self):
+        self._import_ee_tache_three_content()
+        path = reverse("study:task_memory_detail", args=["ee", "tache-3", 1])
+        self.page.goto(self.live_server_url + path)
+        row = self.page.locator("[data-question-bank-question]").nth(24)
+        key = row.get_attribute("data-question-key")
+        french = row.locator("p[lang=fr]")
+        english = row.locator("p[lang=en]")
+        button = self.page.locator("[data-highlight-selection]")
+
+        self.select_prompt(target=french)
+        expect(button).to_be_visible()
+        english.evaluate(
+            """
+            element => {
+              const range = document.createRange();
+              range.selectNodeContents(element);
+              const selection = window.getSelection();
+              selection.removeAllRanges();
+              selection.addRange(range);
+              document.dispatchEvent(new Event("selectionchange"));
+            }
+            """
+        )
+        expect(button).to_be_hidden()
+        button.evaluate("element => element.click()")
+        self.assertFalse(Annotation.objects.filter(
+            user=self.user, kind=AnnotationKind.HIGHLIGHT
+        ).exists())
+
+        row.evaluate(
+            """
+            element => {
+              const french = element.querySelector("p[lang=fr]");
+              const english = element.querySelector("p[lang=en]");
+              const range = document.createRange();
+              range.setStart(french.firstChild, 0);
+              range.setEnd(english.firstChild, english.firstChild.data.length);
+              const selection = window.getSelection();
+              selection.removeAllRanges();
+              selection.addRange(range);
+              document.dispatchEvent(new Event("selectionchange"));
+            }
+            """
+        )
+        expect(button).to_be_hidden()
+        button.evaluate("element => element.click()")
+        self.assertFalse(Annotation.objects.filter(
+            user=self.user, kind=AnnotationKind.HIGHLIGHT
+        ).exists())
+
+        self.save_current_prompt_highlight(target=french)
+        expect(row.locator("mark.user-highlight")).to_have_count(1)
+        highlight = Annotation.objects.get(
+            user=self.user, kind=AnnotationKind.HIGHLIGHT
+        )
+        self.assertNotIn(english.inner_text(), highlight.quote)
+        self.page.reload()
+        row = self.page.locator(f'[data-question-key="{key}"]')
+        mark = row.locator("mark.user-highlight")
+        expect(mark).to_have_text(highlight.quote)
+        self.select_prompt(target=mark)
+        expect(button).to_have_attribute(
+            "aria-label", "Unhighlight selected text"
+        )
+        with self.page.expect_response(
+            lambda response: str(highlight.pk) in response.url
+        ) as deleted:
+            button.click()
+        self.assertTrue(deleted.value.ok)
+        expect(row.locator("mark.user-highlight")).to_have_count(0)
+        self.page.reload()
+        expect(
+            self.page.locator(f'[data-question-key="{key}"] mark.user-highlight')
+        ).to_have_count(0)
+        self.assertFalse(Annotation.objects.filter(pk=highlight.pk).exists())
+
+    def test_ee3_historical_repeated_highlight_ignores_preceding_english(self):
+        _, task = self._import_ee_tache_three_content()
+        path = reverse("study:task_memory_detail", args=["ee", "tache-3", 4])
+        source_key = "question-bank:ee-tache3:memory-04:part-10"
+        self.page.goto(self.live_server_url + path)
+        root = self.page.locator(
+            f'[data-annotation-source-key="{source_key}"]'
+        )
+        quote = "la qualité"
+        snapshot = root.evaluate(
+            """
+            (element, target) => {
+              const walker = document.createTreeWalker(
+                element,
+                NodeFilter.SHOW_TEXT,
+                {acceptNode: node => node.parentElement.closest(
+                  "[data-annotation-exclude]"
+                ) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT}
+              );
+              let text = "";
+              let node;
+              while ((node = walker.nextNode())) text += node.data;
+              const first = text.indexOf(target);
+              const start = text.indexOf(target, first + target.length);
+              return {
+                start,
+                end: start + target.length,
+                prefix: text.slice(Math.max(0, start - 160), start),
+                suffix: text.slice(start + target.length, start + target.length + 160),
+              };
+            }
+            """,
+            quote,
+        )
+        self.assertGreater(snapshot["start"], 0)
+        Annotation.objects.create(
+            user=self.user,
+            task=task,
+            kind=AnnotationKind.HIGHLIGHT,
+            source_path=path,
+            source_key=source_key,
+            quote=quote,
+            start_offset=snapshot["start"],
+            end_offset=snapshot["end"],
+            prefix=snapshot["prefix"],
+            suffix=snapshot["suffix"],
+        )
+
+        self.page.reload()
+        matching = root.locator("p[lang=fr]", has_text=quote)
+        expect(matching).to_have_count(2)
+        expect(matching.nth(0).locator("mark.user-highlight")).to_have_count(0)
+        expect(matching.nth(1).locator("mark.user-highlight")).to_have_text(
+            quote
+        )
+
+    def test_ee3_all_corrected_roots_project_legacy_offsets_in_chromium(self):
+        _, task = self._import_ee_tache_three_content()
+        total = 0
+        for memory_number in (1, 2, 3, 4):
+            path = reverse(
+                "study:task_memory_detail",
+                args=["ee", "tache-3", memory_number],
+            )
+            self.page.goto(self.live_server_url + path)
+            corrections = self.page.locator("[data-annotation-legacy-text]")
+            expected = []
+            for correction in corrections.all():
+                saved = correction.evaluate(
+                    """
+                    element => {
+                      const root = element.closest("[data-annotation-root]");
+                      const rows = [...root.querySelectorAll("p[lang=fr]")];
+                      const index = rows.indexOf(element);
+                      const target = rows[index + 1] || rows[index - 1];
+                      if (!target) throw new Error("Correction has no adjacent row.");
+                      function excluded(node) {
+                        return node.nodeType === Node.ELEMENT_NODE
+                          && node.closest("[data-annotation-exclude]");
+                      }
+                      function collect(node, stopAt) {
+                        if (node === stopAt) return {text: "", found: true};
+                        if (node.nodeType === Node.TEXT_NODE) {
+                          return {text: node.data, found: false};
+                        }
+                        if (excluded(node)) return {text: "", found: false};
+                        if (node.nodeType === Node.ELEMENT_NODE
+                            && node.hasAttribute("data-annotation-legacy-text")) {
+                          return {
+                            text: node.dataset.annotationLegacyText,
+                            found: false,
+                          };
+                        }
+                        let text = "";
+                        for (const child of node.childNodes) {
+                          const result = collect(child, stopAt);
+                          text += result.text;
+                          if (result.found) return {text, found: true};
+                        }
+                        return {text, found: false};
+                      }
+                      const before = collect(root, target).text;
+                      const complete = collect(root, null).text;
+                      const quote = target.textContent;
+                      return {
+                        questionKey: target.closest(
+                          "[data-question-key]"
+                        ).dataset.questionKey,
+                        sourceKey: root.dataset.annotationSourceKey,
+                        quote,
+                        start: before.length,
+                        end: before.length + quote.length,
+                        prefix: before.slice(-160),
+                        suffix: complete.slice(before.length + quote.length,
+                                               before.length + quote.length + 160),
+                      };
+                    }
+                    """
+                )
+                Annotation.objects.create(
+                    user=self.user,
+                    task=task,
+                    kind=AnnotationKind.HIGHLIGHT,
+                    source_path=path,
+                    source_key=saved["sourceKey"],
+                    quote=saved["quote"],
+                    start_offset=saved["start"],
+                    end_offset=saved["end"],
+                    prefix=saved["prefix"],
+                    suffix=saved["suffix"],
+                )
+                expected.append(saved)
+            total += len(expected)
+            if expected:
+                self.page.reload()
+                for saved in expected:
+                    expect(self.page.locator(
+                        f'[data-question-key="{saved["questionKey"]}"] '
+                        "mark.user-highlight"
+                    )).to_have_text(saved["quote"])
+        self.assertEqual(total, 6)
 
     def test_tache_one_question_response_editor_saves_and_reopens(self):
         task = Command()._import_sections(load_sections())["eo/tache-1"]

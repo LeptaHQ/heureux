@@ -12,11 +12,11 @@
 
 Les deux documents abordent les effets des jeux vidéo. Le premier évoque chez les adultes une amélioration de l’analyse, de la prise de décision et de la rapidité de réaction. De son côté, le second associe une utilisation intensive chez les enfants au stress, à la violence et à de moins bons résultats scolaires.
 
-**Partie 2 — Point de vue personnel (91 mots)**
+**Partie 2 — Point de vue personnel (106 mots)**
 
-Pour ma part, les jeux vidéo peuvent être bénéfiques, mais seulement si leur usage est adapté à l’âge et limité. Tout d’abord, certains jeux développent la stratégie, la coordination et la capacité d’analyse. De plus, des horaires précis préservent le sommeil, les devoirs et les relations familiales. Par exemple, un adolescent pourrait jouer quarante-cinq minutes après avoir terminé son travail scolaire, puis éteindre sa console avant le repas. En conclusion, le plus important est de choisir des contenus appropriés et de maintenir un équilibre entre écrans, activité physique et lien humain.
+Pour ma part, les jeux vidéo peuvent être bénéfiques, mais seulement si leur usage est adapté à l’âge et limité. Tout d’abord, certains jeux développent la stratégie, la coordination et la capacité d’analyse, car ils obligent le joueur à anticiper, à corriger ses erreurs et à décider vite. De plus, des horaires précis préservent le sommeil, les devoirs et les relations familiales. Par exemple, un adolescent pourrait jouer quarante-cinq minutes après avoir terminé son travail scolaire, puis éteindre sa console avant le repas. En conclusion, le plus important est de choisir des contenus appropriés et de maintenir un équilibre entre écrans, activité physique et lien humain.
 
-**Total : 151 mots (titre compris)**
+**Total : 166 mots (titre compris)**
 
 ---
 
@@ -30,11 +30,11 @@ Pour ma part, les jeux vidéo peuvent être bénéfiques, mais seulement si leur
 
 Les deux documents abordent le bien-être au travail. Le premier valorise les bureaux électriques, qui amélioreraient le confort, la productivité et les échanges entre collègues. En revanche, le second redoute que ces aménagements servent surtout à prolonger les journées et réclame le respect strict du temps de travail.
 
-**Partie 2 — Point de vue personnel (93 mots)**
+**Partie 2 — Point de vue personnel (110 mots)**
 
-Pour ma part, le bien-être des salariés exige de bonnes conditions matérielles, mais aussi le respect de leurs horaires. Tout d’abord, un mobilier ergonomique réduit les douleurs et favorise la concentration. De plus, le droit à la déconnexion protège l’équilibre entre vie professionnelle et personnelle. Par exemple, une entreprise peut fournir des bureaux électriques tout en bloquant les courriels professionnels après dix-huit heures. Cette politique améliore le confort sans pousser les employés aux heures supplémentaires. En conclusion, le plus important est de créer un environnement sain qui soutienne l’efficacité sans augmenter la pression.
+Pour ma part, le bien-être des salariés exige de bonnes conditions matérielles, mais aussi le respect de leurs horaires. Tout d’abord, un mobilier ergonomique réduit les douleurs et favorise la concentration : en alternant la position assise et debout, un salarié soulage son dos et reste attentif plus longtemps. De plus, le droit à la déconnexion protège l’équilibre entre vie professionnelle et personnelle. Par exemple, une entreprise peut fournir des bureaux électriques tout en bloquant les courriels professionnels après dix-huit heures. Cette politique améliore le confort sans pousser les employés aux heures supplémentaires. En conclusion, le plus important est de créer un environnement sain qui soutienne l’efficacité sans augmenter la pression.
 
-**Total : 148 mots (titre compris)**
+**Total : 165 mots (titre compris)**
 
 ---
 
@@ -66,11 +66,11 @@ Pour ma part, je suis favorable à ces appareils à condition que leur contenu s
 
 Les deux documents abordent la sieste au travail. Le premier met en avant une meilleure concentration, davantage de créativité et une diminution du stress chez les salariés reposés. De son côté, le second insiste sur les coûts, le manque d’espace et les règles à respecter concernant le local, le matériel, l’égalité de traitement et la prévention du harcèlement.
 
-**Partie 2 — Point de vue personnel (92 mots)**
+**Partie 2 — Point de vue personnel (106 mots)**
 
-Pour ma part, une courte sieste peut améliorer le bien-être et la productivité, mais elle doit rester facultative. Tout d’abord, vingt minutes de repos suffisent souvent à réduire la fatigue et à retrouver de l’attention sans perturber la journée. De plus, un cadre commun évite les abus et les inégalités. Par exemple, une entreprise pourrait aménager une petite salle calme, accessible sur réservation pendant la pause de midi. En conclusion, le plus important est de proposer une solution simple, équitable et adaptée aux conditions de travail, sans imposer cette pratique aux salariés.
+Pour ma part, une courte sieste peut améliorer le bien-être et la productivité, mais elle doit rester facultative. Tout d’abord, vingt minutes de repos suffisent souvent à réduire la fatigue et à retrouver de l’attention sans perturber la journée. Une pause aussi brève évite l’endormissement profond et permet de reprendre sa tâche immédiatement. De plus, un cadre commun évite les abus et les inégalités. Par exemple, une entreprise pourrait aménager une petite salle calme, accessible sur réservation pendant la pause de midi. En conclusion, le plus important est de proposer une solution simple, équitable et adaptée aux conditions de travail, sans imposer cette pratique aux salariés.
 
-**Total : 158 mots (titre compris)**
+**Total : 172 mots (titre compris)**
 
 ---
 
@@ -84,11 +84,11 @@ Pour ma part, une courte sieste peut améliorer le bien-être et la productivit�
 
 Les deux documents abordent la chasse aux animaux. Le premier refuse de considérer la mise à mort comme un plaisir et y voit une destruction du vivant. En revanche, le second rappelle que cette pratique peut répondre à la subsistance, au commerce, à la gestion de la faune, à la protection des propriétés ou au loisir.
 
-**Partie 2 — Point de vue personnel (90 mots)**
+**Partie 2 — Point de vue personnel (106 mots)**
 
-Pour ma part, la chasse de loisir est difficilement justifiable, mais une intervention encadrée peut parfois être nécessaire. Tout d’abord, tuer pour le prestige ne respecte ni les animaux ni les écosystèmes. De plus, certaines populations trop nombreuses menacent les cultures et l’équilibre naturel lorsqu’aucune autre solution n’est efficace. Par exemple, des agents formés pourraient réguler temporairement une espèce envahissante après une évaluation scientifique indépendante. En conclusion, le plus important est de protéger la biodiversité en réservant toute intervention à des objectifs précis, contrôlés et fondés sur des données fiables.
+Pour ma part, la chasse de loisir est difficilement justifiable, mais une intervention encadrée peut parfois être nécessaire. Tout d’abord, tuer pour le prestige ne respecte ni les animaux ni les écosystèmes. Un trophée n’apporte aucun bénéfice collectif et prive la nature d’individus parfois essentiels à leur espèce. De plus, certaines populations trop nombreuses menacent les cultures et l’équilibre naturel lorsqu’aucune autre solution n’est efficace. Par exemple, des agents formés pourraient réguler temporairement une espèce envahissante après une évaluation scientifique indépendante. En conclusion, le plus important est de protéger la biodiversité en réservant toute intervention à des objectifs précis, contrôlés et fondés sur des données fiables.
 
-**Total : 152 mots (titre compris)**
+**Total : 168 mots (titre compris)**
 
 ---
 
@@ -102,11 +102,11 @@ Pour ma part, la chasse de loisir est difficilement justifiable, mais une interv
 
 Les deux documents abordent la restauration rapide. Le premier valorise la variété des menus, le respect des normes d’hygiène et la liberté laissée aux clients dans leurs choix alimentaires. En revanche, le second dénonce des repas trop caloriques, riches en boissons sucrées, ainsi que les nombreux emballages plastiques nuisibles à l’environnement.
 
-**Partie 2 — Point de vue personnel (90 mots)**
+**Partie 2 — Point de vue personnel (100 mots)**
 
-Pour ma part, je pense que la restauration rapide peut dépanner, mais ne devrait pas devenir une habitude. Tout d’abord, cuisiner des produits frais permet de mieux contrôler le sel, le sucre et les portions. De plus, les contenants réutilisables réduisent les déchets. Par exemple, une famille pressée pourrait choisir occasionnellement une salade complète servie dans un emballage recyclable plutôt que plusieurs hamburgers avec des sodas. En conclusion, le plus important est de privilégier une alimentation équilibrée et d’exiger des enseignes des informations nutritionnelles claires ainsi que des emballages durables.
+Pour ma part, je pense que la restauration rapide peut dépanner, mais ne devrait pas devenir une habitude. Tout d’abord, cuisiner des produits frais permet de mieux contrôler le sel, le sucre et les portions, alors qu’un menu standardisé impose les mêmes quantités à tous. De plus, les contenants réutilisables réduisent les déchets. Par exemple, une famille pressée pourrait choisir occasionnellement une salade complète servie dans un emballage recyclable plutôt que plusieurs hamburgers avec des sodas. En conclusion, le plus important est de privilégier une alimentation équilibrée et d’exiger des enseignes des informations nutritionnelles claires ainsi que des emballages durables.
 
-**Total : 146 mots (titre compris)**
+**Total : 156 mots (titre compris)**
 
 ---
 
@@ -120,11 +120,11 @@ Pour ma part, je pense que la restauration rapide peut dépanner, mais ne devrai
 
 Les deux documents abordent le choix du lieu où faire ses courses alimentaires. Le premier valorise l’achat à la ferme pour la qualité des aliments, même s’ils coûtent davantage. En revanche, le second préfère en ville la diversité et les prix abordables du supermarché, mieux adaptés à son lieu de vie et à son budget.
 
-**Partie 2 — Point de vue personnel (88 mots)**
+**Partie 2 — Point de vue personnel (102 mots)**
 
-Pour ma part, il faut favoriser les producteurs locaux sans pour autant exclure les supermarchés. Tout d’abord, les circuits courts soutiennent l’économie régionale et permettent de connaître l’origine des aliments. De plus, les grandes surfaces restent pratiques pour les petits budgets et les produits indisponibles localement. Par exemple, une famille pourrait acheter ses légumes de saison au marché, puis compléter ses courses avec du riz et des conserves au supermarché. En conclusion, le plus important est de combiner qualité, proximité et prix raisonnables selon les besoins de chacun.
+Pour ma part, il faut favoriser les producteurs locaux sans pour autant exclure les supermarchés. Tout d’abord, les circuits courts soutiennent l’économie régionale et permettent de connaître l’origine des aliments. Acheter directement au producteur rémunère mieux les fermes voisines et rend la traçabilité immédiate. De plus, les grandes surfaces restent pratiques pour les petits budgets et les produits indisponibles localement. Par exemple, une famille pourrait acheter ses légumes de saison au marché, puis compléter ses courses avec du riz et des conserves au supermarché. En conclusion, le plus important est de combiner qualité, proximité et prix raisonnables selon les besoins de chacun.
 
-**Total : 148 mots (titre compris)**
+**Total : 162 mots (titre compris)**
 
 ---
 
@@ -156,11 +156,11 @@ Pour ma part, aucune solution ne convient à toutes les personnes âgées : le c
 
 Les deux documents abordent la restauration rapide. Le premier critique la qualité incertaine des ingrédients et les risques sanitaires, malgré des prix bas et un service rapide. En revanche, le second affirme que les menus peuvent être équilibrés, que les normes d’hygiène sont strictes et que chaque consommateur reste responsable de ses choix.
 
-**Partie 2 — Point de vue personnel (94 mots)**
+**Partie 2 — Point de vue personnel (111 mots)**
 
-Pour ma part, on peut manger sainement dans une chaîne de restauration rapide, à condition de choisir avec modération. Tout d’abord, une salade, une portion raisonnable et de l’eau composent un repas plus équilibré qu’un menu surchargé et limitent les excès. De plus, l’affichage nutritionnel aide les clients à décider avant de commander. Par exemple, un parent accompagné de deux enfants peut partager des portions de frites, commander des légumes et éviter les boissons sucrées. En conclusion, le plus important est de rendre les choix sains accessibles, visibles et aussi abordables que les autres.
+Pour ma part, on peut manger sainement dans une chaîne de restauration rapide, à condition de choisir avec modération. Tout d’abord, une salade, une portion raisonnable et de l’eau composent un repas plus équilibré qu’un menu surchargé et limitent les excès. La taille des portions pèse souvent plus sur l’équilibre d’un repas que le lieu où on l’achète. De plus, l’affichage nutritionnel aide les clients à décider avant de commander. Par exemple, un parent accompagné de deux enfants peut partager des portions de frites, commander des légumes et éviter les boissons sucrées. En conclusion, le plus important est de rendre les choix sains accessibles, visibles et aussi abordables que les autres.
 
-**Total : 152 mots (titre compris)**
+**Total : 169 mots (titre compris)**
 
 ---
 
@@ -174,11 +174,11 @@ Pour ma part, on peut manger sainement dans une chaîne de restauration rapide, 
 
 Les deux documents abordent l’art urbain. Le premier y voit une expression culturelle qui embellit certains lieux, soutient les artistes et attire les touristes vers des quartiers méconnus. En revanche, le second dénonce les œuvres réalisées sans autorisation, leur coût de nettoyage et la mauvaise image qu’elles peuvent donner aux quartiers.
 
-**Partie 2 — Point de vue personnel (91 mots)**
+**Partie 2 — Point de vue personnel (103 mots)**
 
-Pour ma part, je considère que l’art urbain enrichit la ville lorsqu’il respecte les habitants et les bâtiments. Tout d’abord, des murs autorisés offrent aux artistes un espace d’expression accessible à tous sans dégrader les bâtiments. De plus, des parcours guidés peuvent dynamiser les quartiers et soutenir les commerces locaux. Par exemple, une mairie pourrait confier la façade aveugle d’un centre communautaire à un artiste choisi avec les résidents. En conclusion, le plus important est de soutenir la créativité dans des espaces clairement définis, tout en sanctionnant les dégradations non autorisées.
+Pour ma part, je considère que l’art urbain enrichit la ville lorsqu’il respecte les habitants et les bâtiments. Tout d’abord, des murs autorisés offrent aux artistes un espace d’expression accessible à tous sans dégrader les bâtiments. Un cadre négocié avec la ville transforme une contrainte en projet commun. De plus, des parcours guidés peuvent dynamiser les quartiers et soutenir les commerces locaux. Par exemple, une mairie pourrait confier la façade aveugle d’un centre communautaire à un artiste choisi avec les résidents. En conclusion, le plus important est de soutenir la créativité dans des espaces clairement définis, tout en sanctionnant les dégradations non autorisées.
 
-**Total : 148 mots (titre compris)**
+**Total : 160 mots (titre compris)**
 
 ---
 
@@ -192,11 +192,11 @@ Pour ma part, je considère que l’art urbain enrichit la ville lorsqu’il res
 
 Les deux documents abordent la gratuité des musées. Le premier la présente comme un moyen de démocratiser la culture, d’attirer de nouveaux visiteurs et de renforcer la mission éducative des établissements. En revanche, le second rappelle que les collections doivent être financées et préfère des tarifs ciblés, accompagnés d’activités adaptées aux différents publics.
 
-**Partie 2 — Point de vue personnel (90 mots)**
+**Partie 2 — Point de vue personnel (106 mots)**
 
-Pour ma part, les musées devraient être gratuits à certains moments et proposer des réductions ciblées le reste du temps. Tout d’abord, cette formule ouvre la culture aux personnes modestes tout en maintenant des recettes pour entretenir les collections. De plus, un accompagnement adapté rend la visite plus enrichissante. Par exemple, un musée pourrait offrir l’entrée le premier dimanche du mois et organiser ce jour-là une visite destinée aux adolescents. En conclusion, le plus important est de supprimer les obstacles financiers sans fragiliser les institutions culturelles ni négliger la médiation.
+Pour ma part, les musées devraient être gratuits à certains moments et proposer des réductions ciblées le reste du temps. Tout d’abord, cette formule ouvre la culture aux personnes modestes tout en maintenant des recettes pour entretenir les collections. Les familles qui renoncent au musée par manque de moyens y entrent enfin sans se justifier. De plus, un accompagnement adapté rend la visite plus enrichissante. Par exemple, un musée pourrait offrir l’entrée le premier dimanche du mois et organiser ce jour-là une visite destinée aux adolescents. En conclusion, le plus important est de supprimer les obstacles financiers sans fragiliser les institutions culturelles ni négliger la médiation.
 
-**Total : 148 mots (titre compris)**
+**Total : 164 mots (titre compris)**
 
 ---
 
@@ -210,10 +210,10 @@ Pour ma part, les musées devraient être gratuits à certains moments et propos
 
 Les deux documents abordent les objets connectés. Le premier souligne qu’ils simplifient le quotidien, encouragent l’activité physique et facilitent le suivi des rendez-vous ou des traitements médicaux. De son côté, le second alerte sur le piratage, qui peut exposer une habitation, compromettre la vie privée ou permettre la prise de contrôle d’un véhicule.
 
-**Partie 2 — Point de vue personnel (97 mots)**
+**Partie 2 — Point de vue personnel (109 mots)**
 
-Pour ma part, les objets connectés sont utiles à condition que leur sécurité soit garantie et que les données restent maîtrisées. Tout d’abord, ils peuvent renforcer l’autonomie des personnes qui suivent un traitement. De plus, des mises à jour régulières limitent les intrusions informatiques. Par exemple, une montre pourrait rappeler à une personne âgée de prendre ses médicaments tout en transmettant uniquement les informations qu’elle a choisi de partager avec son médecin. En conclusion, le plus important est de protéger la vie privée grâce à des mots de passe solides, des réglages transparents et un consentement éclairé.
+Pour ma part, les objets connectés sont utiles à condition que leur sécurité soit garantie et que les données restent maîtrisées. Tout d’abord, ils peuvent renforcer l’autonomie des personnes qui suivent un traitement. Sans cette aide, un oubli de médicament peut avoir des conséquences graves. De plus, des mises à jour régulières limitent les intrusions informatiques. Par exemple, une montre pourrait rappeler à une personne âgée de prendre ses médicaments tout en transmettant uniquement les informations qu’elle a choisi de partager avec son médecin. En conclusion, le plus important est de protéger la vie privée grâce à des mots de passe solides, des réglages transparents et un consentement éclairé.
 
-**Total : 156 mots (titre compris)**
+**Total : 168 mots (titre compris)**
 
 ---

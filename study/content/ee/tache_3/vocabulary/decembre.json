@@ -39,9 +39,9 @@
         {
           "id": "E3-DEC-C01-04",
           "kind": "phrase-modele",
-          "french": "le plus important est de respecter le souhait de la personne âgée",
-          "english": "the most important thing is to respect the older person’s wishes",
-          "example": "En conclusion, le plus important est de respecter le souhait de la personne âgée tout en garantissant des soins accessibles et des liens familiaux réguliers.",
+          "french": "je soutiens cette solution lorsqu’elle associe soins accessibles, consentement du résident et visites familiales régulières",
+          "english": "I support this solution when it combines accessible care, resident consent, and regular family visits",
+          "example": "En conclusion, je soutiens cette solution lorsqu’elle associe soins accessibles, consentement du résident et visites familiales régulières.",
           "usage": "Formule argumentative ; réutilisable en Société/Santé."
         },
         {
@@ -73,7 +73,7 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de respecter le souhait de la personne âgée tout en garantissant des soins accessibles et des liens familiaux réguliers.",
+          "example": "En conclusion, je soutiens cette solution lorsqu’elle associe soins accessibles, consentement du résident et visites familiales régulières.",
           "usage": "Connecteur ou expression ; réutilisable en Société/Santé."
         },
         {
@@ -191,9 +191,9 @@
         {
           "id": "E3-DEC-C01-23",
           "kind": "collocation",
-          "french": "des soins accessibles",
+          "french": "soins accessibles",
           "english": "accessible care",
-          "example": "En conclusion, le plus important est de respecter le souhait de la personne âgée tout en garantissant des soins accessibles et des liens familiaux réguliers.",
+          "example": "En conclusion, je soutiens cette solution lorsqu’elle associe soins accessibles, consentement du résident et visites familiales régulières.",
           "usage": "Association lexicale ; réutilisable en Société/Santé."
         },
         {
@@ -215,9 +215,9 @@
         {
           "id": "E3-DEC-C01-26",
           "kind": "tournure",
-          "french": "tout en garantissant des soins accessibles",
-          "english": "while ensuring accessible care",
-          "example": "En conclusion, le plus important est de respecter le souhait de la personne âgée tout en garantissant des soins accessibles et des liens familiaux réguliers.",
+          "french": "lorsqu’elle associe soins accessibles, consentement du résident et visites familiales régulières",
+          "english": "when it combines accessible care, resident consent, and regular family visits",
+          "example": "En conclusion, je soutiens cette solution lorsqu’elle associe soins accessibles, consentement du résident et visites familiales régulières.",
           "usage": "Tournure réutilisable ; réutilisable en Société/Santé."
         },
         {
@@ -533,9 +533,9 @@
         {
           "id": "E3-DEC-C03-04",
           "kind": "phrase-modele",
-          "french": "le plus important est de rechercher le bien-être collectif sans imposer un animal aux collègues",
-          "english": "the most important thing is to seek collective well-being without imposing an animal on colleagues",
-          "example": "En conclusion, le plus important est de rechercher le bien-être collectif sans imposer un animal aux collègues.",
+          "french": "je les accepterais dans des espaces définis, avec l’accord des collègues et des zones séparées pour les personnes allergiques ou craintives",
+          "english": "I would accept them in designated areas, with colleagues’ agreement and separate zones for people with allergies or fears",
+          "example": "En conclusion, je les accepterais dans des espaces définis, avec l’accord des collègues et des zones séparées pour les personnes allergiques ou craintives.",
           "usage": "Formule argumentative ; réutilisable en Travail/Bien-être."
         },
         {
@@ -567,7 +567,7 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de rechercher le bien-être collectif sans imposer un animal aux collègues.",
+          "example": "En conclusion, je les accepterais dans des espaces définis, avec l’accord des collègues et des zones séparées pour les personnes allergiques ou craintives.",
           "usage": "Connecteur ou expression ; réutilisable en Travail/Bien-être."
         },
         {
@@ -637,9 +637,9 @@
         {
           "id": "E3-DEC-C03-17",
           "kind": "mot-cle",
-          "french": "le bien-être collectif",
-          "english": "collective well-being",
-          "example": "En conclusion, le plus important est de rechercher le bien-être collectif sans imposer un animal aux collègues.",
+          "french": "l’accord des collègues",
+          "english": "colleagues’ agreement",
+          "example": "En conclusion, je les accepterais dans des espaces définis, avec l’accord des collègues et des zones séparées pour les personnes allergiques ou craintives.",
           "usage": "Groupe nominal ; réutilisable en Travail/Bien-être."
         },
         {
@@ -717,9 +717,9 @@
         {
           "id": "E3-DEC-C03-27",
           "kind": "tournure",
-          "french": "sans imposer un animal aux collègues",
-          "english": "without imposing an animal on colleagues",
-          "example": "En conclusion, le plus important est de rechercher le bien-être collectif sans imposer un animal aux collègues.",
+          "french": "des zones séparées pour les personnes allergiques ou craintives",
+          "english": "separate zones for people with allergies or fears",
+          "example": "En conclusion, je les accepterais dans des espaces définis, avec l’accord des collègues et des zones séparées pour les personnes allergiques ou craintives.",
           "usage": "Tournure réutilisable ; réutilisable en Travail/Bien-être."
         },
         {
@@ -1027,9 +1027,9 @@
         {
           "id": "E3-DEC-C05-04",
           "kind": "phrase-modele",
-          "french": "le plus important est de choisir ensemble les programmes et de préserver la lecture, le jeu et le lien humain",
-          "english": "the most important thing is to choose programmes together and preserve reading, play and human contact",
-          "example": "En conclusion, le plus important est de choisir ensemble les programmes et de préserver la lecture, le jeu et le lien humain.",
+          "french": "je recommande des programmes courts choisis avec un adulte, en complément de la lecture, du jeu et des échanges",
+          "english": "I recommend short programmes chosen with an adult, as a complement to reading, play, and discussion",
+          "example": "En conclusion, je recommande des programmes courts choisis avec un adulte, en complément de la lecture, du jeu et des échanges.",
           "usage": "Formule argumentative ; réutilisable en Éducation/Médias."
         },
         {
@@ -1061,7 +1061,7 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de choisir ensemble les programmes et de préserver la lecture, le jeu et le lien humain.",
+          "example": "En conclusion, je recommande des programmes courts choisis avec un adulte, en complément de la lecture, du jeu et des échanges.",
           "usage": "Connecteur ou expression ; réutilisable en Éducation/Médias."
         },
         {
@@ -1179,9 +1179,9 @@
         {
           "id": "E3-DEC-C05-23",
           "kind": "collocation",
-          "french": "le lien humain",
-          "english": "human contact",
-          "example": "En conclusion, le plus important est de choisir ensemble les programmes et de préserver la lecture, le jeu et le lien humain.",
+          "french": "des programmes courts",
+          "english": "short programmes",
+          "example": "En conclusion, je recommande des programmes courts choisis avec un adulte, en complément de la lecture, du jeu et des échanges.",
           "usage": "Association lexicale ; réutilisable en Éducation/Médias."
         },
         {
@@ -1211,9 +1211,9 @@
         {
           "id": "E3-DEC-C05-27",
           "kind": "tournure",
-          "french": "de préserver la lecture, le jeu et le lien humain",
-          "english": "to preserve reading, play and human contact",
-          "example": "En conclusion, le plus important est de choisir ensemble les programmes et de préserver la lecture, le jeu et le lien humain.",
+          "french": "en complément de la lecture, du jeu et des échanges",
+          "english": "as a complement to reading, play, and discussion",
+          "example": "En conclusion, je recommande des programmes courts choisis avec un adulte, en complément de la lecture, du jeu et des échanges.",
           "usage": "Tournure réutilisable ; réutilisable en Éducation/Médias."
         },
         {
@@ -1521,9 +1521,9 @@
         {
           "id": "E3-DEC-C07-04",
           "kind": "phrase-modele",
-          "french": "le plus important est de placer les besoins de l’animal avant un désir passager",
-          "english": "the most important thing is to put the animal’s needs before a passing desire",
-          "example": "En conclusion, le plus important est de placer les besoins de l’animal avant un désir passager.",
+          "french": "je soutiens l’adoption si les adultes garantissent les soins et placent les besoins de l’animal avant un désir passager",
+          "english": "I support adoption if adults guarantee care and put the animal’s needs before a passing desire",
+          "example": "En conclusion, je soutiens l’adoption si les adultes garantissent les soins et placent les besoins de l’animal avant un désir passager.",
           "usage": "Formule argumentative ; réutilisable en Famille/Animaux."
         },
         {
@@ -1555,7 +1555,7 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de placer les besoins de l’animal avant un désir passager.",
+          "example": "En conclusion, je soutiens l’adoption si les adultes garantissent les soins et placent les besoins de l’animal avant un désir passager.",
           "usage": "Connecteur ou expression ; réutilisable en Famille/Animaux."
         },
         {
@@ -1627,7 +1627,7 @@
           "kind": "mot-cle",
           "french": "les besoins de l’animal",
           "english": "the animal’s needs",
-          "example": "En conclusion, le plus important est de placer les besoins de l’animal avant un désir passager.",
+          "example": "En conclusion, je soutiens l’adoption si les adultes garantissent les soins et placent les besoins de l’animal avant un désir passager.",
           "usage": "Groupe nominal ; réutilisable en Famille/Animaux."
         },
         {
@@ -1675,7 +1675,7 @@
           "kind": "collocation",
           "french": "un désir passager",
           "english": "a passing desire",
-          "example": "En conclusion, le plus important est de placer les besoins de l’animal avant un désir passager.",
+          "example": "En conclusion, je soutiens l’adoption si les adultes garantissent les soins et placent les besoins de l’animal avant un désir passager.",
           "usage": "Association lexicale ; réutilisable en Famille/Animaux."
         },
         {
@@ -1707,7 +1707,7 @@
           "kind": "tournure",
           "french": "avant un désir passager",
           "english": "before a passing desire",
-          "example": "En conclusion, le plus important est de placer les besoins de l’animal avant un désir passager.",
+          "example": "En conclusion, je soutiens l’adoption si les adultes garantissent les soins et placent les besoins de l’animal avant un désir passager.",
           "usage": "Tournure réutilisable ; réutilisable en Famille/Animaux."
         },
         {
@@ -2015,9 +2015,9 @@
         {
           "id": "E3-DEC-C09-04",
           "kind": "phrase-modele",
-          "french": "le plus important est de montrer aux jeunes comment privilégier la qualité, l’utilité et leur propre goût",
-          "english": "the most important thing is to show young people how to favour quality, usefulness and their own taste",
-          "example": "En conclusion, le plus important est de montrer aux jeunes comment privilégier la qualité, l’utilité et leur propre goût.",
+          "french": "je privilégie des vêtements utiles, durables et choisis selon le goût de l’enfant plutôt que selon leur logo",
+          "english": "I favour useful, durable clothing chosen according to the child’s taste rather than its logo",
+          "example": "En conclusion, je privilégie des vêtements utiles, durables et choisis selon le goût de l’enfant plutôt que selon leur logo.",
           "usage": "Formule argumentative ; réutilisable en Famille/Consommation."
         },
         {
@@ -2049,7 +2049,7 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de montrer aux jeunes comment privilégier la qualité, l’utilité et leur propre goût.",
+          "example": "En conclusion, je privilégie des vêtements utiles, durables et choisis selon le goût de l’enfant plutôt que selon leur logo.",
           "usage": "Connecteur ou expression ; réutilisable en Famille/Consommation."
         },
         {
@@ -2167,9 +2167,9 @@
         {
           "id": "E3-DEC-C09-23",
           "kind": "collocation",
-          "french": "leur propre goût",
-          "english": "their own taste",
-          "example": "En conclusion, le plus important est de montrer aux jeunes comment privilégier la qualité, l’utilité et leur propre goût.",
+          "french": "le goût de l’enfant",
+          "english": "the child’s taste",
+          "example": "En conclusion, je privilégie des vêtements utiles, durables et choisis selon le goût de l’enfant plutôt que selon leur logo.",
           "usage": "Association lexicale ; réutilisable en Famille/Consommation."
         },
         {
@@ -2215,9 +2215,9 @@
         {
           "id": "E3-DEC-C09-29",
           "kind": "verbe-action",
-          "french": "privilégier la qualité",
-          "english": "favour quality",
-          "example": "En conclusion, le plus important est de montrer aux jeunes comment privilégier la qualité, l’utilité et leur propre goût.",
+          "french": "privilégie des vêtements utiles",
+          "english": "favours useful clothing",
+          "example": "En conclusion, je privilégie des vêtements utiles, durables et choisis selon le goût de l’enfant plutôt que selon leur logo.",
           "usage": "Construction verbale ; réutilisable en Famille/Consommation."
         },
         {
@@ -2509,9 +2509,9 @@
         {
           "id": "E3-DEC-C11-04",
           "kind": "phrase-modele",
-          "french": "le plus important est de privilégier le dialogue et de réserver les caméras à des besoins précis, transparents et contrôlés",
-          "english": "the most important thing is to prioritize dialogue and reserve cameras for specific, transparent and controlled needs",
-          "example": "En conclusion, le plus important est de privilégier le dialogue et de réserver les caméras à des besoins précis, transparents et contrôlés.",
+          "french": "je les accepte uniquement pour des besoins précis, transparents et contrôlés, tandis que le dialogue doit rester prioritaire",
+          "english": "I accept them only for specific, transparent, controlled needs, while dialogue must remain the priority",
+          "example": "En conclusion, je les accepte uniquement pour des besoins précis, transparents et contrôlés, tandis que le dialogue doit rester prioritaire.",
           "usage": "Formule argumentative ; réutilisable en Éducation/Sécurité."
         },
         {
@@ -2543,7 +2543,7 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de privilégier le dialogue et de réserver les caméras à des besoins précis, transparents et contrôlés.",
+          "example": "En conclusion, je les accepte uniquement pour des besoins précis, transparents et contrôlés, tandis que le dialogue doit rester prioritaire.",
           "usage": "Connecteur ou expression ; réutilisable en Éducation/Sécurité."
         },
         {
@@ -2663,7 +2663,7 @@
           "kind": "collocation",
           "french": "des besoins précis",
           "english": "specific needs",
-          "example": "En conclusion, le plus important est de privilégier le dialogue et de réserver les caméras à des besoins précis, transparents et contrôlés.",
+          "example": "En conclusion, je les accepte uniquement pour des besoins précis, transparents et contrôlés, tandis que le dialogue doit rester prioritaire.",
           "usage": "Association lexicale ; réutilisable en Éducation/Sécurité."
         },
         {
@@ -2709,9 +2709,9 @@
         {
           "id": "E3-DEC-C11-29",
           "kind": "verbe-action",
-          "french": "privilégier le dialogue",
-          "english": "prioritize dialogue",
-          "example": "En conclusion, le plus important est de privilégier le dialogue et de réserver les caméras à des besoins précis, transparents et contrôlés.",
+          "french": "le dialogue doit rester prioritaire",
+          "english": "dialogue must remain the priority",
+          "example": "En conclusion, je les accepte uniquement pour des besoins précis, transparents et contrôlés, tandis que le dialogue doit rester prioritaire.",
           "usage": "Construction verbale ; réutilisable en Éducation/Sécurité."
         },
         {
@@ -3003,9 +3003,9 @@
         {
           "id": "E3-DEC-C13-04",
           "kind": "phrase-modele",
-          "french": "le plus important est de s’informer, de respecter l’hygiène et de renoncer aux fabrications que l’on ne maîtrise pas",
-          "english": "the most important thing is to learn, observe hygiene and avoid making products one cannot master",
-          "example": "En conclusion, le plus important est de s’informer, de respecter l’hygiène et de renoncer aux fabrications que l’on ne maîtrise pas.",
+          "french": "je recommande seulement les recettes simples et validées ; les préparations que l’on ne maîtrise pas doivent être abandonnées",
+          "english": "I recommend only simple, validated recipes; preparations one cannot master must be abandoned",
+          "example": "En conclusion, je recommande seulement les recettes simples et validées ; les préparations que l’on ne maîtrise pas doivent être abandonnées.",
           "usage": "Formule argumentative ; réutilisable en Santé/Environnement."
         },
         {
@@ -3037,7 +3037,7 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de s’informer, de respecter l’hygiène et de renoncer aux fabrications que l’on ne maîtrise pas.",
+          "example": "En conclusion, je recommande seulement les recettes simples et validées ; les préparations que l’on ne maîtrise pas doivent être abandonnées.",
           "usage": "Connecteur ou expression ; réutilisable en Santé/Environnement."
         },
         {
@@ -3083,9 +3083,9 @@
         {
           "id": "E3-DEC-C13-14",
           "kind": "mot-cle",
-          "french": "l’hygiène",
-          "english": "hygiene",
-          "example": "En conclusion, le plus important est de s’informer, de respecter l’hygiène et de renoncer aux fabrications que l’on ne maîtrise pas.",
+          "french": "les recettes simples et validées",
+          "english": "simple, validated recipes",
+          "example": "En conclusion, je recommande seulement les recettes simples et validées ; les préparations que l’on ne maîtrise pas doivent être abandonnées.",
           "usage": "Groupe nominal ; réutilisable en Santé/Environnement."
         },
         {
@@ -3181,7 +3181,7 @@
           "kind": "tournure",
           "french": "que l’on ne maîtrise pas",
           "english": "that one cannot master",
-          "example": "En conclusion, le plus important est de s’informer, de respecter l’hygiène et de renoncer aux fabrications que l’on ne maîtrise pas.",
+          "example": "En conclusion, je recommande seulement les recettes simples et validées ; les préparations que l’on ne maîtrise pas doivent être abandonnées.",
           "usage": "Tournure réutilisable ; réutilisable en Santé/Environnement."
         },
         {
@@ -3203,9 +3203,9 @@
         {
           "id": "E3-DEC-C13-29",
           "kind": "verbe-action",
-          "french": "respecter l’hygiène",
-          "english": "observe hygiene",
-          "example": "En conclusion, le plus important est de s’informer, de respecter l’hygiène et de renoncer aux fabrications que l’on ne maîtrise pas.",
+          "french": "doivent être abandonnées",
+          "english": "must be abandoned",
+          "example": "En conclusion, je recommande seulement les recettes simples et validées ; les préparations que l’on ne maîtrise pas doivent être abandonnées.",
           "usage": "Construction verbale ; réutilisable en Santé/Environnement."
         },
         {
@@ -3497,9 +3497,9 @@
         {
           "id": "E3-DEC-C15-04",
           "kind": "phrase-modele",
-          "french": "le plus important est de convenir des responsabilités, d’un objectif financier et d’une échéance réaliste",
-          "english": "the most important thing is to agree on responsibilities, a financial goal and a realistic deadline",
-          "example": "En conclusion, le plus important est de convenir des responsabilités, d’un objectif financier et d’une échéance réaliste.",
+          "french": "je soutiens ce choix temporaire lorsque les responsabilités, l’objectif d’épargne et l’échéance sont fixés ensemble",
+          "english": "I support this temporary choice when responsibilities, the savings goal, and the deadline are set together",
+          "example": "En conclusion, je soutiens ce choix temporaire lorsque les responsabilités, l’objectif d’épargne et l’échéance sont fixés ensemble.",
           "usage": "Formule argumentative ; réutilisable en Famille/Logement."
         },
         {
@@ -3531,7 +3531,7 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de convenir des responsabilités, d’un objectif financier et d’une échéance réaliste.",
+          "example": "En conclusion, je soutiens ce choix temporaire lorsque les responsabilités, l’objectif d’épargne et l’échéance sont fixés ensemble.",
           "usage": "Connecteur ou expression ; réutilisable en Famille/Logement."
         },
         {
@@ -3633,9 +3633,9 @@
         {
           "id": "E3-DEC-C15-21",
           "kind": "collocation",
-          "french": "une échéance réaliste",
-          "english": "a realistic deadline",
-          "example": "En conclusion, le plus important est de convenir des responsabilités, d’un objectif financier et d’une échéance réaliste.",
+          "french": "ce choix temporaire",
+          "english": "this temporary choice",
+          "example": "En conclusion, je soutiens ce choix temporaire lorsque les responsabilités, l’objectif d’épargne et l’échéance sont fixés ensemble.",
           "usage": "Association lexicale ; réutilisable en Famille/Logement."
         },
         {
@@ -3649,9 +3649,9 @@
         {
           "id": "E3-DEC-C15-23",
           "kind": "collocation",
-          "french": "un objectif financier",
-          "english": "a financial goal",
-          "example": "En conclusion, le plus important est de convenir des responsabilités, d’un objectif financier et d’une échéance réaliste.",
+          "french": "l’objectif d’épargne",
+          "english": "the savings goal",
+          "example": "En conclusion, je soutiens ce choix temporaire lorsque les responsabilités, l’objectif d’épargne et l’échéance sont fixés ensemble.",
           "usage": "Association lexicale ; réutilisable en Famille/Logement."
         },
         {
@@ -3991,9 +3991,9 @@
         {
           "id": "E3-DEC-C17-04",
           "kind": "phrase-modele",
-          "french": "le plus important est de manger avec mesure et d’inciter les enseignes à protéger la santé comme l’environnement",
-          "english": "the most important thing is to eat in moderation and encourage chains to protect health and the environment",
-          "example": "En conclusion, le plus important est de manger avec mesure et d’inciter les enseignes à protéger la santé comme l’environnement.",
+          "french": "je l’accepte comme dépannage si les enseignes rendent les choix sains abordables et réduisent réellement les déchets",
+          "english": "I accept it as a fallback if chains make healthy choices affordable and genuinely reduce waste",
+          "example": "En conclusion, je l’accepte comme dépannage si les enseignes rendent les choix sains abordables et réduisent réellement les déchets.",
           "usage": "Formule argumentative ; réutilisable en Santé/Consommation."
         },
         {
@@ -4025,7 +4025,7 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de manger avec mesure et d’inciter les enseignes à protéger la santé comme l’environnement.",
+          "example": "En conclusion, je l’accepte comme dépannage si les enseignes rendent les choix sains abordables et réduisent réellement les déchets.",
           "usage": "Connecteur ou expression ; réutilisable en Santé/Consommation."
         },
         {
@@ -4175,9 +4175,9 @@
         {
           "id": "E3-DEC-C17-27",
           "kind": "tournure",
-          "french": "avec mesure",
-          "english": "in moderation",
-          "example": "En conclusion, le plus important est de manger avec mesure et d’inciter les enseignes à protéger la santé comme l’environnement.",
+          "french": "si les enseignes rendent les choix sains abordables",
+          "english": "if chains make healthy choices affordable",
+          "example": "En conclusion, je l’accepte comme dépannage si les enseignes rendent les choix sains abordables et réduisent réellement les déchets.",
           "usage": "Tournure réutilisable ; réutilisable en Santé/Consommation."
         },
         {
@@ -4191,9 +4191,9 @@
         {
           "id": "E3-DEC-C17-29",
           "kind": "verbe-action",
-          "french": "protéger la santé",
-          "english": "protect health",
-          "example": "En conclusion, le plus important est de manger avec mesure et d’inciter les enseignes à protéger la santé comme l’environnement.",
+          "french": "réduisent réellement les déchets",
+          "english": "genuinely reduce waste",
+          "example": "En conclusion, je l’accepte comme dépannage si les enseignes rendent les choix sains abordables et réduisent réellement les déchets.",
           "usage": "Construction verbale ; réutilisable en Santé/Consommation."
         },
         {
@@ -4485,9 +4485,9 @@
         {
           "id": "E3-DEC-C19-04",
           "kind": "phrase-modele",
-          "french": "le plus important est de concevoir une mesure adaptée à chaque activité et d’évaluer ensemble la qualité du travail, la santé et le service rendu",
-          "english": "the most important thing is to design a measure suited to each activity and jointly assess work quality, health and service delivered",
-          "example": "En conclusion, le plus important est de concevoir une mesure adaptée à chaque activité et d’évaluer ensemble la qualité du travail, la santé et le service rendu.",
+          "french": "je soutiens une réduction adaptée à chaque activité, négociée avec les salariés et évaluée selon ses effets sur la santé, la qualité du travail et le service rendu",
+          "english": "I support a reduction suited to each activity, negotiated with employees and assessed by its effects on health, work quality, and service delivered",
+          "example": "En conclusion, je soutiens une réduction adaptée à chaque activité, négociée avec les salariés et évaluée selon ses effets sur la santé, la qualité du travail et le service rendu.",
           "usage": "Formule argumentative ; réutilisable en Travail/Santé."
         },
         {
@@ -4519,7 +4519,7 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de concevoir une mesure adaptée à chaque activité et d’évaluer ensemble la qualité du travail, la santé et le service rendu.",
+          "example": "En conclusion, je soutiens une réduction adaptée à chaque activité, négociée avec les salariés et évaluée selon ses effets sur la santé, la qualité du travail et le service rendu.",
           "usage": "Connecteur ou expression ; réutilisable en Travail/Santé."
         },
         {
@@ -4551,7 +4551,7 @@
           "kind": "mot-cle",
           "french": "la santé",
           "english": "health",
-          "example": "En conclusion, le plus important est de concevoir une mesure adaptée à chaque activité et d’évaluer ensemble la qualité du travail, la santé et le service rendu.",
+          "example": "En conclusion, je soutiens une réduction adaptée à chaque activité, négociée avec les salariés et évaluée selon ses effets sur la santé, la qualité du travail et le service rendu.",
           "usage": "Groupe nominal ; réutilisable en Travail/Santé."
         },
         {
@@ -4629,9 +4629,9 @@
         {
           "id": "E3-DEC-C19-22",
           "kind": "collocation",
-          "french": "une mesure adaptée",
-          "english": "a suitable measure",
-          "example": "En conclusion, le plus important est de concevoir une mesure adaptée à chaque activité et d’évaluer ensemble la qualité du travail, la santé et le service rendu.",
+          "french": "une réduction adaptée",
+          "english": "a suitable reduction",
+          "example": "En conclusion, je soutiens une réduction adaptée à chaque activité, négociée avec les salariés et évaluée selon ses effets sur la santé, la qualité du travail et le service rendu.",
           "usage": "Association lexicale ; réutilisable en Travail/Santé."
         },
         {
@@ -4639,7 +4639,7 @@
           "kind": "collocation",
           "french": "le service rendu",
           "english": "service delivered",
-          "example": "En conclusion, le plus important est de concevoir une mesure adaptée à chaque activité et d’évaluer ensemble la qualité du travail, la santé et le service rendu.",
+          "example": "En conclusion, je soutiens une réduction adaptée à chaque activité, négociée avec les salariés et évaluée selon ses effets sur la santé, la qualité du travail et le service rendu.",
           "usage": "Association lexicale ; réutilisable en Travail/Santé."
         },
         {

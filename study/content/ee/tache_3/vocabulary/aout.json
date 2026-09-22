@@ -153,7 +153,7 @@
           "kind": "collocation",
           "french": "une résidence proche de ses enfants",
           "english": "a residence close to her children",
-          "example": "Par exemple, une dame vivant seule après une chute pourrait intégrer une résidence proche de ses enfants, recevoir des soins quotidiens et partager régulièrement des repas avec eux.",
+          "example": "Par exemple, une femme âgée vivant seule après une chute pourrait intégrer une résidence proche de ses enfants, recevoir des soins quotidiens et partager régulièrement des repas avec eux.",
           "usage": "Collocation ; réutilisable en Société/Santé."
         },
         {
@@ -161,7 +161,7 @@
           "kind": "collocation",
           "french": "des soins quotidiens",
           "english": "daily care",
-          "example": "Par exemple, une dame vivant seule après une chute pourrait intégrer une résidence proche de ses enfants, recevoir des soins quotidiens et partager régulièrement des repas avec eux.",
+          "example": "Par exemple, une femme âgée vivant seule après une chute pourrait intégrer une résidence proche de ses enfants, recevoir des soins quotidiens et partager régulièrement des repas avec eux.",
           "usage": "Collocation ; réutilisable en Société/Santé."
         },
         {
@@ -169,7 +169,7 @@
           "kind": "verbe-action",
           "french": "partager régulièrement des repas",
           "english": "regularly share meals",
-          "example": "Par exemple, une dame vivant seule après une chute pourrait intégrer une résidence proche de ses enfants, recevoir des soins quotidiens et partager régulièrement des repas avec eux.",
+          "example": "Par exemple, une femme âgée vivant seule après une chute pourrait intégrer une résidence proche de ses enfants, recevoir des soins quotidiens et partager régulièrement des repas avec eux.",
           "usage": "Construction verbale ; réutilisable en Société/Santé."
         },
         {
@@ -201,47 +201,47 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de proposer plusieurs solutions contrôlées, tout en préservant les relations familiales et les besoins de chacun.",
+          "example": "En conclusion, je soutiens les maisons de retraite lorsqu’elles sont choisies et qu’elles garantissent des soins fiables sans rompre les liens familiaux.",
           "usage": "Connecteur adverbial ; réutilisable en Société/Santé."
         },
         {
           "id": "E3-AOU-C01-25",
           "kind": "phrase-modele",
-          "french": "le plus important est de proposer plusieurs solutions contrôlées, tout en préservant les relations familiales et les besoins de chacun",
-          "english": "the most important thing is to offer several supervised solutions while preserving family relationships and everyone’s needs",
-          "example": "En conclusion, le plus important est de proposer plusieurs solutions contrôlées, tout en préservant les relations familiales et les besoins de chacun.",
+          "french": "je soutiens les maisons de retraite lorsqu’elles sont choisies et qu’elles garantissent des soins fiables sans rompre les liens familiaux",
+          "english": "I support retirement homes when they are chosen and guarantee reliable care without breaking family ties",
+          "example": "En conclusion, je soutiens les maisons de retraite lorsqu’elles sont choisies et qu’elles garantissent des soins fiables sans rompre les liens familiaux.",
           "usage": "Formule argumentative ; réutilisable en Société/Santé."
         },
         {
           "id": "E3-AOU-C01-26",
           "kind": "collocation",
-          "french": "plusieurs solutions contrôlées",
-          "english": "several supervised solutions",
-          "example": "En conclusion, le plus important est de proposer plusieurs solutions contrôlées, tout en préservant les relations familiales et les besoins de chacun.",
+          "french": "des soins fiables",
+          "english": "reliable care",
+          "example": "En conclusion, je soutiens les maisons de retraite lorsqu’elles sont choisies et qu’elles garantissent des soins fiables sans rompre les liens familiaux.",
           "usage": "Collocation ; réutilisable en Société/Santé."
         },
         {
           "id": "E3-AOU-C01-27",
           "kind": "tournure",
-          "french": "tout en préservant les relations familiales",
-          "english": "while preserving family relationships",
-          "example": "En conclusion, le plus important est de proposer plusieurs solutions contrôlées, tout en préservant les relations familiales et les besoins de chacun.",
+          "french": "sans rompre les liens familiaux",
+          "english": "without breaking family ties",
+          "example": "En conclusion, je soutiens les maisons de retraite lorsqu’elles sont choisies et qu’elles garantissent des soins fiables sans rompre les liens familiaux.",
           "usage": "Tournure grammaticale ; réutilisable en Société/Santé."
         },
         {
           "id": "E3-AOU-C01-28",
           "kind": "mot-cle",
-          "french": "les relations familiales",
-          "english": "family relationships",
-          "example": "En conclusion, le plus important est de proposer plusieurs solutions contrôlées, tout en préservant les relations familiales et les besoins de chacun.",
+          "french": "les liens familiaux",
+          "english": "family ties",
+          "example": "En conclusion, je soutiens les maisons de retraite lorsqu’elles sont choisies et qu’elles garantissent des soins fiables sans rompre les liens familiaux.",
           "usage": "Nom ou groupe nominal ; réutilisable en Société/Santé."
         },
         {
           "id": "E3-AOU-C01-29",
           "kind": "mot-cle",
-          "french": "les besoins de chacun",
-          "english": "everyone’s needs",
-          "example": "En conclusion, le plus important est de proposer plusieurs solutions contrôlées, tout en préservant les relations familiales et les besoins de chacun.",
+          "french": "les maisons de retraite",
+          "english": "retirement homes",
+          "example": "En conclusion, je soutiens les maisons de retraite lorsqu’elles sont choisies et qu’elles garantissent des soins fiables sans rompre les liens familiaux.",
           "usage": "Nom ou groupe nominal ; réutilisable en Société/Santé."
         },
         {
@@ -438,41 +438,41 @@
         {
           "id": "E3-AOU-C02-23",
           "kind": "phrase-modele",
-          "french": "le plus important est de rendre les choix sains accessibles sans présenter ces repas comme une habitude quotidienne",
-          "english": "the most important thing is to make healthy choices accessible without presenting these meals as a daily habit",
-          "example": "En conclusion, le plus important est de rendre les choix sains accessibles sans présenter ces repas comme une habitude quotidienne.",
+          "french": "je l’accepte comme solution ponctuelle si les choix sains sont visibles, abordables et clairement décrits",
+          "english": "I accept it as an occasional solution if healthy choices are visible, affordable, and clearly described",
+          "example": "En conclusion, je l’accepte comme solution ponctuelle si les choix sains sont visibles, abordables et clairement décrits.",
           "usage": "Formule argumentative ; réutilisable en Alimentation/Santé."
         },
         {
           "id": "E3-AOU-C02-24",
           "kind": "collocation",
-          "french": "les choix sains",
-          "english": "healthy choices",
-          "example": "En conclusion, le plus important est de rendre les choix sains accessibles sans présenter ces repas comme une habitude quotidienne.",
+          "french": "solution ponctuelle",
+          "english": "an occasional solution",
+          "example": "En conclusion, je l’accepte comme solution ponctuelle si les choix sains sont visibles, abordables et clairement décrits.",
           "usage": "Collocation ; réutilisable en Alimentation/Santé."
         },
         {
           "id": "E3-AOU-C02-25",
           "kind": "verbe-action",
-          "french": "rendre les choix sains accessibles",
-          "english": "make healthy choices accessible",
-          "example": "En conclusion, le plus important est de rendre les choix sains accessibles sans présenter ces repas comme une habitude quotidienne.",
+          "french": "sont visibles, abordables et clairement décrits",
+          "english": "are visible, affordable, and clearly described",
+          "example": "En conclusion, je l’accepte comme solution ponctuelle si les choix sains sont visibles, abordables et clairement décrits.",
           "usage": "Construction verbale ; réutilisable en Alimentation/Santé."
         },
         {
           "id": "E3-AOU-C02-26",
           "kind": "tournure",
-          "french": "sans présenter ces repas comme une habitude quotidienne",
-          "english": "without presenting these meals as a daily habit",
-          "example": "En conclusion, le plus important est de rendre les choix sains accessibles sans présenter ces repas comme une habitude quotidienne.",
+          "french": "si les choix sains sont visibles",
+          "english": "if healthy choices are visible",
+          "example": "En conclusion, je l’accepte comme solution ponctuelle si les choix sains sont visibles, abordables et clairement décrits.",
           "usage": "Tournure grammaticale ; réutilisable en Alimentation/Santé."
         },
         {
           "id": "E3-AOU-C02-27",
           "kind": "mot-cle",
-          "french": "une habitude quotidienne",
-          "english": "a daily habit",
-          "example": "En conclusion, le plus important est de rendre les choix sains accessibles sans présenter ces repas comme une habitude quotidienne.",
+          "french": "les choix sains",
+          "english": "healthy choices",
+          "example": "En conclusion, je l’accepte comme solution ponctuelle si les choix sains sont visibles, abordables et clairement décrits.",
           "usage": "Nom ou groupe nominal ; réutilisable en Alimentation/Santé."
         },
         {
@@ -494,9 +494,9 @@
         {
           "id": "E3-AOU-C02-30",
           "kind": "reformulation",
-          "french": "ces repas",
-          "english": "these meals",
-          "example": "En conclusion, le plus important est de rendre les choix sains accessibles sans présenter ces repas comme une habitude quotidienne.",
+          "french": "l’accepte comme solution ponctuelle",
+          "english": "accept it as an occasional solution",
+          "example": "En conclusion, je l’accepte comme solution ponctuelle si les choix sains sont visibles, abordables et clairement décrits.",
           "usage": "Reprise anaphorique ; réutilisable en Alimentation/Santé."
         }
       ]
@@ -940,33 +940,33 @@
         {
           "id": "E3-AOU-C04-24",
           "kind": "phrase-modele",
-          "french": "le plus important est de préserver la biodiversité et le bien-être animal avant tout intérêt commercial ou récréatif",
-          "english": "the most important thing is to preserve biodiversity and animal welfare before any commercial or recreational interest",
-          "example": "En conclusion, le plus important est de préserver la biodiversité et le bien-être animal avant tout intérêt commercial ou récréatif.",
+          "french": "je refuse la chasse de loisir et n’accepte qu’une intervention scientifiquement justifiée pour protéger un écosystème",
+          "english": "I reject recreational hunting and accept only scientifically justified intervention to protect an ecosystem",
+          "example": "En conclusion, je refuse la chasse de loisir et n’accepte qu’une intervention scientifiquement justifiée pour protéger un écosystème.",
           "usage": "Formule argumentative ; réutilisable en Environnement/Éthique."
         },
         {
           "id": "E3-AOU-C04-25",
           "kind": "mot-cle",
-          "french": "la biodiversité",
-          "english": "biodiversity",
-          "example": "En conclusion, le plus important est de préserver la biodiversité et le bien-être animal avant tout intérêt commercial ou récréatif.",
+          "french": "la chasse de loisir",
+          "english": "recreational hunting",
+          "example": "En conclusion, je refuse la chasse de loisir et n’accepte qu’une intervention scientifiquement justifiée pour protéger un écosystème.",
           "usage": "Nom ou groupe nominal ; réutilisable en Environnement/Éthique."
         },
         {
           "id": "E3-AOU-C04-26",
           "kind": "collocation",
-          "french": "le bien-être animal",
-          "english": "animal welfare",
-          "example": "En conclusion, le plus important est de préserver la biodiversité et le bien-être animal avant tout intérêt commercial ou récréatif.",
+          "french": "une intervention scientifiquement justifiée",
+          "english": "a scientifically justified intervention",
+          "example": "En conclusion, je refuse la chasse de loisir et n’accepte qu’une intervention scientifiquement justifiée pour protéger un écosystème.",
           "usage": "Collocation ; réutilisable en Environnement/Éthique."
         },
         {
           "id": "E3-AOU-C04-27",
           "kind": "tournure",
-          "french": "avant tout intérêt commercial ou récréatif",
-          "english": "before any commercial or recreational interest",
-          "example": "En conclusion, le plus important est de préserver la biodiversité et le bien-être animal avant tout intérêt commercial ou récréatif.",
+          "french": "pour protéger un écosystème",
+          "english": "to protect an ecosystem",
+          "example": "En conclusion, je refuse la chasse de loisir et n’accepte qu’une intervention scientifiquement justifiée pour protéger un écosystème.",
           "usage": "Tournure grammaticale ; réutilisable en Environnement/Éthique."
         },
         {
@@ -1442,25 +1442,25 @@
         {
           "id": "E3-AOU-C09-25",
           "kind": "phrase-modele",
-          "french": "le plus important est de laisser les enfants s’exprimer sans céder à la pression sociale ou commerciale",
-          "english": "the most important thing is to let children express themselves without giving in to social or commercial pressure",
-          "example": "En conclusion, le plus important est de laisser les enfants s’exprimer sans céder à la pression sociale ou commerciale.",
+          "french": "je préfère des vêtements durables choisis librement aux achats dictés par la pression sociale",
+          "english": "I prefer freely chosen durable clothing to purchases dictated by social pressure",
+          "example": "En conclusion, je préfère des vêtements durables choisis librement aux achats dictés par la pression sociale.",
           "usage": "Formule argumentative ; réutilisable en Consommation/Famille."
         },
         {
           "id": "E3-AOU-C09-26",
           "kind": "tournure",
-          "french": "sans céder à la pression sociale ou commerciale",
-          "english": "without giving in to social or commercial pressure",
-          "example": "En conclusion, le plus important est de laisser les enfants s’exprimer sans céder à la pression sociale ou commerciale.",
+          "french": "aux achats dictés par la pression sociale",
+          "english": "to purchases dictated by social pressure",
+          "example": "En conclusion, je préfère des vêtements durables choisis librement aux achats dictés par la pression sociale.",
           "usage": "Tournure grammaticale ; réutilisable en Consommation/Famille."
         },
         {
           "id": "E3-AOU-C09-27",
           "kind": "mot-cle",
-          "french": "la pression sociale ou commerciale",
-          "english": "social or commercial pressure",
-          "example": "En conclusion, le plus important est de laisser les enfants s’exprimer sans céder à la pression sociale ou commerciale.",
+          "french": "la pression sociale",
+          "english": "social pressure",
+          "example": "En conclusion, je préfère des vêtements durables choisis librement aux achats dictés par la pression sociale.",
           "usage": "Nom ou groupe nominal ; réutilisable en Consommation/Famille."
         },
         {
@@ -1920,25 +1920,25 @@
         {
           "id": "E3-AOU-C11-23",
           "kind": "phrase-modele",
-          "french": "le plus important est de privilégier la prévention et le lien humain, tout en utilisant les caméras comme dernier recours contrôlé",
-          "english": "the most important thing is to prioritize prevention and human connection while using cameras as a controlled last resort",
-          "example": "En conclusion, le plus important est de privilégier la prévention et le lien humain, tout en utilisant les caméras comme dernier recours contrôlé.",
+          "french": "je les accepte comme dernier recours contrôlé, tandis que la prévention et le dialogue doivent rester prioritaires",
+          "english": "I accept them as a controlled last resort, while prevention and dialogue must remain the priority",
+          "example": "En conclusion, je les accepte comme dernier recours contrôlé, tandis que la prévention et le dialogue doivent rester prioritaires.",
           "usage": "Formule argumentative ; réutilisable en Éducation/Sécurité."
         },
         {
           "id": "E3-AOU-C11-24",
           "kind": "collocation",
-          "french": "la prévention et le lien humain",
-          "english": "prevention and human connection",
-          "example": "En conclusion, le plus important est de privilégier la prévention et le lien humain, tout en utilisant les caméras comme dernier recours contrôlé.",
+          "french": "la prévention et le dialogue",
+          "english": "prevention and dialogue",
+          "example": "En conclusion, je les accepte comme dernier recours contrôlé, tandis que la prévention et le dialogue doivent rester prioritaires.",
           "usage": "Collocation ; réutilisable en Éducation/Sécurité."
         },
         {
           "id": "E3-AOU-C11-25",
           "kind": "tournure",
-          "french": "tout en utilisant les caméras comme dernier recours contrôlé",
-          "english": "while using cameras as a controlled last resort",
-          "example": "En conclusion, le plus important est de privilégier la prévention et le lien humain, tout en utilisant les caméras comme dernier recours contrôlé.",
+          "french": "tandis que la prévention et le dialogue doivent rester prioritaires",
+          "english": "while prevention and dialogue must remain the priority",
+          "example": "En conclusion, je les accepte comme dernier recours contrôlé, tandis que la prévention et le dialogue doivent rester prioritaires.",
           "usage": "Tournure grammaticale ; réutilisable en Éducation/Sécurité."
         },
         {
@@ -1946,7 +1946,7 @@
           "kind": "mot-cle",
           "french": "dernier recours contrôlé",
           "english": "a controlled last resort",
-          "example": "En conclusion, le plus important est de privilégier la prévention et le lien humain, tout en utilisant les caméras comme dernier recours contrôlé.",
+          "example": "En conclusion, je les accepte comme dernier recours contrôlé, tandis que la prévention et le dialogue doivent rester prioritaires.",
           "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Sécurité."
         },
         {
@@ -2430,9 +2430,9 @@
         {
           "id": "E3-AOU-C13-25",
           "kind": "phrase-modele",
-          "french": "le plus important est de garantir des normes strictes et de choisir consciemment les informations que chaque objet collecte",
-          "english": "the most important thing is to ensure strict standards and consciously choose the information each object collects",
-          "example": "En conclusion, le plus important est de garantir des normes strictes et de choisir consciemment les informations que chaque objet collecte.",
+          "french": "j’utiliserais ces objets seulement si des normes strictes limitaient la collecte des données et garantissaient des mises à jour régulières",
+          "english": "I would use these devices only if strict standards limited data collection and ensured regular updates",
+          "example": "En conclusion, j’utiliserais ces objets seulement si des normes strictes limitaient la collecte des données et garantissaient des mises à jour régulières.",
           "usage": "Formule argumentative ; réutilisable en Numérique/Santé."
         },
         {
@@ -2440,23 +2440,23 @@
           "kind": "collocation",
           "french": "des normes strictes",
           "english": "strict standards",
-          "example": "En conclusion, le plus important est de garantir des normes strictes et de choisir consciemment les informations que chaque objet collecte.",
+          "example": "En conclusion, j’utiliserais ces objets seulement si des normes strictes limitaient la collecte des données et garantissaient des mises à jour régulières.",
           "usage": "Collocation ; réutilisable en Numérique/Santé."
         },
         {
           "id": "E3-AOU-C13-27",
           "kind": "tournure",
-          "french": "choisir consciemment les informations que chaque objet collecte",
-          "english": "consciously choose the information each object collects",
-          "example": "En conclusion, le plus important est de garantir des normes strictes et de choisir consciemment les informations que chaque objet collecte.",
+          "french": "seulement si des normes strictes limitaient la collecte des données",
+          "english": "only if strict standards limited data collection",
+          "example": "En conclusion, j’utiliserais ces objets seulement si des normes strictes limitaient la collecte des données et garantissaient des mises à jour régulières.",
           "usage": "Tournure grammaticale ; réutilisable en Numérique/Santé."
         },
         {
           "id": "E3-AOU-C13-28",
           "kind": "mot-cle",
-          "french": "les informations",
-          "english": "information",
-          "example": "En conclusion, le plus important est de garantir des normes strictes et de choisir consciemment les informations que chaque objet collecte.",
+          "french": "la collecte des données",
+          "english": "data collection",
+          "example": "En conclusion, j’utiliserais ces objets seulement si des normes strictes limitaient la collecte des données et garantissaient des mises à jour régulières.",
           "usage": "Nom ou groupe nominal ; réutilisable en Numérique/Santé."
         },
         {
@@ -2470,9 +2470,9 @@
         {
           "id": "E3-AOU-C13-30",
           "kind": "mot-cle",
-          "french": "chaque objet",
-          "english": "each device",
-          "example": "En conclusion, le plus important est de garantir des normes strictes et de choisir consciemment les informations que chaque objet collecte.",
+          "french": "ces objets",
+          "english": "these devices",
+          "example": "En conclusion, j’utiliserais ces objets seulement si des normes strictes limitaient la collecte des données et garantissaient des mises à jour régulières.",
           "usage": "Nom ou groupe nominal ; réutilisable en Numérique/Santé."
         }
       ]
@@ -2591,7 +2591,7 @@
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
-          "example": "Tout d’abord, supprimer le prix certains jours réduit les inégalités d’accès à la culture.",
+          "example": "Tout d’abord, rendre l’entrée gratuite certains jours réduit les inégalités d’accès à la culture.",
           "usage": "Connecteur adverbial ; réutilisable en Culture/Égalité."
         },
         {
@@ -2599,7 +2599,7 @@
           "kind": "verbe-action",
           "french": "réduit les inégalités d’accès à la culture",
           "english": "reduces inequalities in access to culture",
-          "example": "Tout d’abord, supprimer le prix certains jours réduit les inégalités d’accès à la culture.",
+          "example": "Tout d’abord, rendre l’entrée gratuite certains jours réduit les inégalités d’accès à la culture.",
           "usage": "Construction verbale ; réutilisable en Culture/Égalité."
         },
         {
@@ -2607,7 +2607,7 @@
           "kind": "mot-cle",
           "french": "les inégalités d’accès à la culture",
           "english": "inequalities in access to culture",
-          "example": "Tout d’abord, supprimer le prix certains jours réduit les inégalités d’accès à la culture.",
+          "example": "Tout d’abord, rendre l’entrée gratuite certains jours réduit les inégalités d’accès à la culture.",
           "usage": "Nom ou groupe nominal ; réutilisable en Culture/Égalité."
         },
         {
@@ -2916,41 +2916,41 @@
         {
           "id": "E3-AOU-C15-24",
           "kind": "phrase-modele",
-          "french": "le plus important est de garantir une information transparente et des choix variés, sans confondre liberté alimentaire et absence de responsabilité",
-          "english": "the most important thing is to guarantee transparent information and varied choices without confusing food freedom with lack of responsibility",
-          "example": "En conclusion, le plus important est de garantir une information transparente et des choix variés, sans confondre liberté alimentaire et absence de responsabilité.",
+          "french": "je l’accepte comme dépannage si l’information est transparente et si les choix équilibrés sont variés et abordables",
+          "english": "I accept it as a fallback if information is transparent and balanced choices are varied and affordable",
+          "example": "En conclusion, je l’accepte comme dépannage si l’information est transparente et si les choix équilibrés sont variés et abordables.",
           "usage": "Formule argumentative ; réutilisable en Alimentation/Responsabilité."
         },
         {
           "id": "E3-AOU-C15-25",
           "kind": "collocation",
-          "french": "une information transparente",
-          "english": "transparent information",
-          "example": "En conclusion, le plus important est de garantir une information transparente et des choix variés, sans confondre liberté alimentaire et absence de responsabilité.",
+          "french": "les choix équilibrés",
+          "english": "balanced choices",
+          "example": "En conclusion, je l’accepte comme dépannage si l’information est transparente et si les choix équilibrés sont variés et abordables.",
           "usage": "Collocation ; réutilisable en Alimentation/Responsabilité."
         },
         {
           "id": "E3-AOU-C15-26",
           "kind": "verbe-action",
-          "french": "garantir une information transparente et des choix variés",
-          "english": "guarantee transparent information and varied choices",
-          "example": "En conclusion, le plus important est de garantir une information transparente et des choix variés, sans confondre liberté alimentaire et absence de responsabilité.",
+          "french": "je l’accepte comme dépannage",
+          "english": "I accept it as a fallback",
+          "example": "En conclusion, je l’accepte comme dépannage si l’information est transparente et si les choix équilibrés sont variés et abordables.",
           "usage": "Construction verbale ; réutilisable en Alimentation/Responsabilité."
         },
         {
           "id": "E3-AOU-C15-27",
           "kind": "tournure",
-          "french": "sans confondre liberté alimentaire et absence de responsabilité",
-          "english": "without confusing food freedom with lack of responsibility",
-          "example": "En conclusion, le plus important est de garantir une information transparente et des choix variés, sans confondre liberté alimentaire et absence de responsabilité.",
+          "french": "si l’information est transparente",
+          "english": "if information is transparent",
+          "example": "En conclusion, je l’accepte comme dépannage si l’information est transparente et si les choix équilibrés sont variés et abordables.",
           "usage": "Tournure grammaticale ; réutilisable en Alimentation/Responsabilité."
         },
         {
           "id": "E3-AOU-C15-28",
           "kind": "mot-cle",
-          "french": "liberté alimentaire",
-          "english": "food freedom",
-          "example": "En conclusion, le plus important est de garantir une information transparente et des choix variés, sans confondre liberté alimentaire et absence de responsabilité.",
+          "french": "l’information",
+          "english": "information",
+          "example": "En conclusion, je l’accepte comme dépannage si l’information est transparente et si les choix équilibrés sont variés et abordables.",
           "usage": "Nom ou groupe nominal ; réutilisable en Alimentation/Responsabilité."
         },
         {
@@ -3163,25 +3163,25 @@
         {
           "id": "E3-AOU-C16-24",
           "kind": "phrase-modele",
-          "french": "le plus important est de réduire l’exposition commerciale et d’apprendre aux enfants à choisir de façon autonome",
-          "english": "the most important thing is to reduce commercial exposure and teach children to choose independently",
-          "example": "En conclusion, le plus important est de réduire l’exposition commerciale et d’apprendre aux enfants à choisir de façon autonome.",
+          "french": "je soutiens l’interdiction du ciblage des mineurs et une éducation régulière aux techniques commerciales",
+          "english": "I support banning the targeting of minors and providing regular education about commercial techniques",
+          "example": "En conclusion, je soutiens l’interdiction du ciblage des mineurs et une éducation régulière aux techniques commerciales.",
           "usage": "Formule argumentative ; réutilisable en Publicité/Éducation."
         },
         {
           "id": "E3-AOU-C16-25",
           "kind": "collocation",
-          "french": "l’exposition commerciale",
-          "english": "commercial exposure",
-          "example": "En conclusion, le plus important est de réduire l’exposition commerciale et d’apprendre aux enfants à choisir de façon autonome.",
+          "french": "ciblage des mineurs",
+          "english": "the targeting of minors",
+          "example": "En conclusion, je soutiens l’interdiction du ciblage des mineurs et une éducation régulière aux techniques commerciales.",
           "usage": "Collocation ; réutilisable en Publicité/Éducation."
         },
         {
           "id": "E3-AOU-C16-26",
           "kind": "tournure",
-          "french": "choisir de façon autonome",
-          "english": "choose independently",
-          "example": "En conclusion, le plus important est de réduire l’exposition commerciale et d’apprendre aux enfants à choisir de façon autonome.",
+          "french": "une éducation régulière aux techniques commerciales",
+          "english": "regular education about commercial techniques",
+          "example": "En conclusion, je soutiens l’interdiction du ciblage des mineurs et une éducation régulière aux techniques commerciales.",
           "usage": "Tournure grammaticale ; réutilisable en Publicité/Éducation."
         },
         {
@@ -3625,9 +3625,9 @@
         {
           "id": "E3-AOU-C18-20",
           "kind": "collocation",
-          "french": "un stage en alternance",
-          "english": "a work-study placement",
-          "example": "Par exemple, un étudiant en informatique pourrait suivre ses cours, effectuer un stage en alternance et présenter aux recruteurs une application qu’il a créée.",
+          "french": "un stage",
+          "english": "an internship",
+          "example": "Par exemple, un étudiant en informatique pourrait suivre ses cours, effectuer un stage et présenter aux recruteurs une application qu’il a créée.",
           "usage": "Collocation ; réutilisable en Emploi/Formation."
         },
         {
@@ -3657,33 +3657,33 @@
         {
           "id": "E3-AOU-C18-24",
           "kind": "mot-cle",
-          "french": "marché du travail",
-          "english": "the labor market",
-          "example": "En conclusion, le plus important est de rapprocher les établissements du marché du travail et d’offrir aux jeunes de véritables expériences pendant leurs études.",
+          "french": "l’emploi",
+          "english": "employment",
+          "example": "En conclusion, il faut que les établissements associent des cours solides à de vraies expériences professionnelles pour préparer les jeunes à l’emploi.",
           "usage": "Nom ou groupe nominal ; réutilisable en Emploi/Formation."
         },
         {
           "id": "E3-AOU-C18-25",
           "kind": "phrase-modele",
-          "french": "le plus important est de rapprocher les établissements du marché du travail et d’offrir aux jeunes de véritables expériences pendant leurs études",
-          "english": "the most important thing is to bring institutions closer to the labor market and offer young people genuine experience during their studies",
-          "example": "En conclusion, le plus important est de rapprocher les établissements du marché du travail et d’offrir aux jeunes de véritables expériences pendant leurs études.",
+          "french": "il faut que les établissements associent des cours solides à de vraies expériences professionnelles pour préparer les jeunes à l’emploi",
+          "english": "institutions must combine solid coursework with genuine professional experience to prepare young people for employment",
+          "example": "En conclusion, il faut que les établissements associent des cours solides à de vraies expériences professionnelles pour préparer les jeunes à l’emploi.",
           "usage": "Formule argumentative ; réutilisable en Emploi/Formation."
         },
         {
           "id": "E3-AOU-C18-26",
           "kind": "tournure",
-          "french": "rapprocher les établissements du marché du travail",
-          "english": "bring institutions closer to the labor market",
-          "example": "En conclusion, le plus important est de rapprocher les établissements du marché du travail et d’offrir aux jeunes de véritables expériences pendant leurs études.",
+          "french": "pour préparer les jeunes à l’emploi",
+          "english": "to prepare young people for employment",
+          "example": "En conclusion, il faut que les établissements associent des cours solides à de vraies expériences professionnelles pour préparer les jeunes à l’emploi.",
           "usage": "Tournure grammaticale ; réutilisable en Emploi/Formation."
         },
         {
           "id": "E3-AOU-C18-27",
           "kind": "collocation",
-          "french": "de véritables expériences",
-          "english": "genuine experience",
-          "example": "En conclusion, le plus important est de rapprocher les établissements du marché du travail et d’offrir aux jeunes de véritables expériences pendant leurs études.",
+          "french": "de vraies expériences professionnelles",
+          "english": "genuine professional experience",
+          "example": "En conclusion, il faut que les établissements associent des cours solides à de vraies expériences professionnelles pour préparer les jeunes à l’emploi.",
           "usage": "Collocation ; réutilisable en Emploi/Formation."
         },
         {
@@ -3691,7 +3691,7 @@
           "kind": "mot-cle",
           "french": "les établissements",
           "english": "institutions",
-          "example": "En conclusion, le plus important est de rapprocher les établissements du marché du travail et d’offrir aux jeunes de véritables expériences pendant leurs études.",
+          "example": "En conclusion, il faut que les établissements associent des cours solides à de vraies expériences professionnelles pour préparer les jeunes à l’emploi.",
           "usage": "Nom ou groupe nominal ; réutilisable en Emploi/Formation."
         },
         {

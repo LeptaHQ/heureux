@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 
 from django.db import transaction
@@ -3976,12 +3977,24 @@ def response_detail(request, part_slug, task_slug, prompt_id):
     ee_subject_copy_text = ""
     ee_response_copy_text = ""
     ee_position_blocks = ()
+    ee_annotation_key = ""
+    ee_annotation_legacy_keys = ""
     source_documents_html = response.body_html
     subject_hints = None
     if (task.part.slug, task.slug) == content_module.EO_TACHE_THREE_TASK and response.semantic_group:
         # Ad-hoc responses outside the bundled semantic catalogue have no curated plan.
         subject_hints = catalogue.tache_three_subject_hints().get(response.semantic_group)
     if ee_response:
+        from ..oral_history import variant_annotation_key
+
+        ee_annotation_key = variant_annotation_key(
+            selected_prompt,
+            response_content,
+        )
+        if not response_content.is_personal:
+            ee_annotation_legacy_keys = json.dumps(
+                [f"response:{response.content_key}"]
+            )
         if response_content.position or response_content.position_claire:
             ee_response_copy_text = content_module.ee_tache_three_answer_text(
                 response_content.reformulation,
@@ -4080,6 +4093,8 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             "ee_subject_copy_text": ee_subject_copy_text,
             "ee_response_copy_text": ee_response_copy_text,
             "ee_position_blocks": ee_position_blocks,
+            "ee_annotation_key": ee_annotation_key,
+            "ee_annotation_legacy_keys": ee_annotation_legacy_keys,
             "source_documents_html": source_documents_html,
             "prompts": prompts,
             "card": card,
@@ -4100,6 +4115,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
                     **task_scope,
                     "kind": "spine",
                     "response": str(response.pk),
+                    "prompt": str(selected_prompt.pk),
                 }
             ),
             "theme_review_url": review_url(

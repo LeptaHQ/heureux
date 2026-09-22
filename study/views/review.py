@@ -68,7 +68,17 @@ FOCUSED_REVIEW_KINDS = {"revisit", "weak"}
 def _review_card_payload(card, user, scope=None):
     scope = scope or {}
     prompt = None
-    if card.response_id and card.response.semantic_group:
+    response = card.response if card.response_id else None
+    task = response.theme.task if response is not None else None
+    uses_prompt_variant = response is not None and (
+        response.semantic_group
+        or (
+            task is not None
+            and task.part.slug == "ee"
+            and task.slug == "tache-3"
+        )
+    )
+    if uses_prompt_variant:
         if scope.get("prompt"):
             prompt = get_object_or_404(
                 Prompt.objects.select_related("theme__task__part"),

@@ -30,7 +30,7 @@
       {% include "study/partials/ee_subject_consigne.html" with title_id="ee-tache-three-subject-title" summary_text="120–180 mots · Partie 1 : synthèse neutre (40–60) · Partie 2 : point de vue justifié (80–120)" subject_text=selected_prompt.text subject_source_id="ee-tache-three-subject-content" only %}
 
       {# Keep the nested response-card tags adjacent so historical annotation whitespace offsets remain unchanged. #}
-      <div class="answer-columns" data-annotation-root data-annotation-source-key="response:{{ response.content_key }}">
+      <div class="answer-columns" data-annotation-root data-annotation-source-key="{{ ee_annotation_key }}"{% if ee_annotation_legacy_keys %} data-annotation-legacy-source-keys="{{ ee_annotation_legacy_keys }}"{% endif %}>
       {% for warning in ee_source_warnings %}
         <div class="notice">{{ warning }}</div>
       {% endfor %}

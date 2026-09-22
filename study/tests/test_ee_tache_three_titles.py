@@ -205,9 +205,10 @@ class EeTacheThreeTitlePageTests(TestCase):
     def annotation_text(self, page):
         parser = AnnotationRootText()
         parser.feed(page.content.decode())
-        return parser.roots[
-            f"response:{self.prompt.response.content_key}"
-        ]
+        prefix = f"response:{self.prompt.content_key}:variant-"
+        keys = [key for key in parser.roots if key.startswith(prefix)]
+        self.assertEqual(len(keys), 1)
+        return parser.roots[keys[0]]
 
     def test_title_is_in_the_answer_and_copy_including_for_an_equivalent_subject(self):
         for key in (

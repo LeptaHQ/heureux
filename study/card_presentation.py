@@ -215,11 +215,18 @@ def _spine_payload(card: Card, *, prompt=None, model_only=False, personal=None) 
     content = effective_response(
         response, card.user, prompt=canonical, model_only=model_only, personal=personal,
     )
+    task = response.theme.task
     annotation_key = f"response:{response.content_key}"
-    if response.semantic_group and canonical is not None:
+    if canonical is not None and (
+        response.semantic_group
+        or (
+            task is not None
+            and task.part.slug == "ee"
+            and task.slug == "tache-3"
+        )
+    ):
         from .oral_history import variant_annotation_key
         annotation_key = variant_annotation_key(canonical, content)
-    task = response.theme.task
     tache_two_subject = (
         task is not None
         and task.part.slug == "eo"

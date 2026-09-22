@@ -786,10 +786,12 @@ class BrowserTests(StaticLiveServerTestCase):
         _, task = self._import_ee_tache_three_content()
         card = self.user.study_cards.filter(response__theme__task=task).first()
         response = card.response
+        canonical = response.prompts.get(is_canonical=True)
         path = response_detail_url(response)
         self.page.goto(self.live_server_url + path)
         root = self.page.locator(
-            f'[data-annotation-root][data-annotation-source-key="response:{response.content_key}"]'
+            "[data-annotation-root]"
+            f'[data-annotation-source-key^="response:{canonical.content_key}:variant-"]'
         )
         edit = self.page.locator("[data-response-edit]")
         expect(edit).to_be_visible()
@@ -799,7 +801,7 @@ class BrowserTests(StaticLiveServerTestCase):
                 args=[
                     task.part.slug,
                     task.slug,
-                    response.prompts.get(is_canonical=True).pk,
+                    canonical.pk,
                 ],
             ),
             edit.get_attribute("href"),

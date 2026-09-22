@@ -34,6 +34,7 @@ from study.account_services import provision_user_study_data
 from study.content_loader import load_sections
 from study.management.commands.import_content import Command
 from study.middleware import HealthCheckMiddleware
+from study.oral_history import variant_annotation_key
 from study.models import (
     Annotation,
     AnnotationKind,
@@ -1208,9 +1209,23 @@ class EeTacheThreePageTests(TestCase):
             args=[self.task.part.slug, self.task.slug, prompt.pk],
         )
         detail = self.client.get(detail_url)
+        model_annotation_key = variant_annotation_key(
+            prompt,
+            detail.context["response_content"],
+        )
 
         self.assertContains(detail, f'href="{edit_url}"', count=2)
         self.assertContains(detail, "data-response-edit", count=1)
+        self.assertContains(
+            detail,
+            f'data-annotation-source-key="{model_annotation_key}"',
+            count=1,
+        )
+        self.assertContains(
+            detail,
+            f'data-annotation-legacy-source-keys="[&quot;response:{prompt.response.content_key}&quot;]"',
+            count=1,
+        )
 
         editor = self.client.get(edit_url)
         self.assertEqual(editor.status_code, 200)
@@ -1255,10 +1270,60 @@ class EeTacheThreePageTests(TestCase):
         self.assertEqual(personal.conclusion, "")
 
         personalized = self.client.get(detail_url)
+        personal_annotation_key = variant_annotation_key(
+            prompt,
+            personalized.context["response_content"],
+        )
+        self.assertNotEqual(personal_annotation_key, model_annotation_key)
         self.assertContains(personalized, "Version personnelle")
         self.assertContains(personalized, payload["reformulation"])
         self.assertContains(personalized, payload["position"])
         self.assertContains(personalized, payload["position_claire"])
+        self.assertContains(
+            personalized,
+            f'data-annotation-source-key="{personal_annotation_key}"',
+            count=1,
+        )
+        self.assertNotContains(
+            personalized,
+            "data-annotation-legacy-source-keys",
+        )
+        review = self.client.get(
+            reverse("study:review_next"),
+            {"kind": "spine", "response": prompt.response_id},
+        ).json()
+        self.assertEqual(
+            review["annotation_source_key"],
+            personal_annotation_key,
+        )
+        alias = prompt.response.prompts.filter(is_canonical=False).first()
+        self.assertIsNotNone(alias)
+        alias_detail = self.client.get(prompt_detail_url(alias))
+        alias_annotation_key = variant_annotation_key(
+            alias,
+            alias_detail.context["response_content"],
+        )
+        self.assertContains(
+            alias_detail,
+            f'data-annotation-source-key="{alias_annotation_key}"',
+            count=1,
+        )
+        self.assertIn(
+            f"prompt={alias.pk}",
+            alias_detail.context["response_review_url"],
+        )
+        alias_review = self.client.get(
+            reverse("study:review_next"),
+            {
+                "kind": "spine",
+                "response": prompt.response_id,
+                "prompt": alias.pk,
+            },
+        ).json()
+        self.assertEqual(
+            alias_review["annotation_source_key"],
+            alias_annotation_key,
+        )
 
     def test_audited_paraphrases_share_links_response_and_progress(self):
         payload = json.loads(

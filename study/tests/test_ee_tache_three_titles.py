@@ -265,6 +265,25 @@ class EeTacheThreeTitlePageTests(TestCase):
         self.assertNotIn(self.prompt.response.reformulation, self.annotation_text(before))
         self.assertNotIn("Total :", self.annotation_text(before))
 
+    def test_grouped_response_preserves_historical_annotation_whitespace(self):
+        text = self.annotation_text(self.client.get(prompt_detail_url(self.prompt)))
+        response = self.prompt.response
+        section_separator = "\n        \n      \n\n      \n        \n          "
+
+        documents_label = text.index("Documents sources")
+        part_one_label = text.index("Partie 1 — Synthèse")
+        part_two_label = text.index("Partie 2 — Point de vue personnel")
+        part_one_end = text.index(response.position, part_one_label) + len(response.position)
+        part_two_end = (
+            text.index(response.position_claire, part_two_label)
+            + len(response.position_claire)
+        )
+
+        self.assertEqual(text[:documents_label], "\n      \n      \n        \n          ")
+        self.assertTrue(text[:part_one_label].endswith(section_separator))
+        self.assertEqual(text[part_one_end:part_two_label], section_separator)
+        self.assertEqual(text[part_two_end:], "\n        \n      \n      ")
+
     def test_personal_title_and_titleless_correspondence_are_not_replaced(self):
         personal = PersonalResponse.objects.create(
             user=self.user, response=self.prompt.response,

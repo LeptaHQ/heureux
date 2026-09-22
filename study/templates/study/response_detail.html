@@ -29,6 +29,7 @@
     {% if ee_response %}
       {% include "study/partials/ee_subject_consigne.html" with title_id="ee-tache-three-subject-title" subject_text=ee_subject_instruction subject_source_id="ee-tache-three-subject-content" only %}
 
+      {# Keep the nested response-card tags adjacent so historical annotation whitespace offsets remain unchanged. #}
       <div class="answer-columns" data-annotation-root data-annotation-source-key="response:{{ response.content_key }}">
       {% for warning in ee_source_warnings %}
         <div class="notice">{{ warning }}</div>
@@ -41,9 +42,7 @@
       {% endif %}
 
       {% if ee_response_copy_text %}
-        <section class="card section-card section-card--ee-response" aria-label="Réponse complète">
-          {# Excluded so moving the answer heading into this card does not shift saved French offsets. #}
-          <header class="ee-response-card__head" data-annotation-exclude>
+        <section class="card section-card section-card--ee-response" aria-label="Réponse complète"><header class="ee-response-card__head" data-annotation-exclude>
             <div class="spine-label">Réponse</div>
             <div class="ee-response-card__title-row">
               <div>
@@ -52,29 +51,18 @@
               </div>
               {% include "study/partials/response_copy_button.html" with source_id="ee-tache-three-response-content" button_class="btn btn--sm prompt-copy-button" only %}
             </div>
-          </header>
-
-          <div class="ee-response-card__parts">
-          {% if response_content.position %}
-            <section class="ee-response-part section-card--ee-synthese">
-              <div class="spine-label">Partie 1 — Synthèse <span class="spine-count">· {{ response_content.position|french_wordcount }} mots</span>{% if ee_response_origin == "author" %} <span class="chip chip--accent">Version de l’auteur</span>{% endif %}</div>
-              <p class="spine-text">{{ response_content.position }}</p>
-            </section>
-          {% endif %}
-
-          {% if response_content.position_claire %}
-            <section class="ee-response-part section-card--ee-point-de-vue">
-              <div class="spine-label">Partie 2 — Point de vue personnel <span class="spine-count">· {{ response_content.position_claire|french_wordcount }} mots</span></div>
-              {% if ee_position_blocks %}
-                <p class="spine-text ee-position-outline">{% for block in ee_position_blocks %}<span class="ee-position-block" data-outline-label="{{ block.label }}">{{ block.text }}{% if not forloop.last %} {% endif %}</span>{% endfor %}</p>
-              {% else %}
-                <p class="spine-text">{{ response_content.position_claire }}</p>
-              {% endif %}
-            </section>
-          {% endif %}
-          </div>
+          </header><div class="ee-response-card__parts">{% if response_content.position %}<section class="ee-response-part section-card--ee-synthese">
+          <div class="spine-label">Partie 1 — Synthèse <span class="spine-count">· {{ response_content.position|french_wordcount }} mots</span>{% if ee_response_origin == "author" %} <span class="chip chip--accent">Version de l’auteur</span>{% endif %}</div>
+          <p class="spine-text">{{ response_content.position }}</p>
         </section>
       {% endif %}
+
+      {% if response_content.position_claire %}
+        <section class="ee-response-part section-card--ee-point-de-vue">
+          <div class="spine-label">Partie 2 — Point de vue personnel <span class="spine-count">· {{ response_content.position_claire|french_wordcount }} mots</span></div>
+          {% if ee_position_blocks %}<p class="spine-text ee-position-outline">{% for block in ee_position_blocks %}<span class="ee-position-block" data-outline-label="{{ block.label }}">{{ block.text }}{% if not forloop.last %} {% endif %}</span>{% endfor %}</p>{% else %}<p class="spine-text">{{ response_content.position_claire }}</p>{% endif %}
+        </section>
+      {% endif %}</div></section>{% endif %}
       </div>
     {% else %}
     {% if response_content.position %}

@@ -787,6 +787,75 @@ class BrowserTests(StaticLiveServerTestCase):
         card = self.user.study_cards.filter(response__theme__task=task).first()
         response = card.response
         path = response_detail_url(response)
+        self.page.goto(self.live_server_url + path)
+        root = self.page.locator(
+            f'[data-annotation-root][data-annotation-source-key="response:{response.content_key}"]'
+        )
+        historical = root.evaluate(
+            """
+            root => {
+              const walker = document.createTreeWalker(
+                root,
+                NodeFilter.SHOW_TEXT,
+                {
+                  acceptNode(node) {
+                    return node.parentElement?.closest("[data-annotation-exclude]")
+                      ? NodeFilter.FILTER_REJECT
+                      : NodeFilter.FILTER_ACCEPT;
+                  },
+                }
+              );
+              let text = "";
+              let node;
+              while ((node = walker.nextNode())) text += node.data;
+              const selectors = [
+                ".ee-source-docs p",
+                ".section-card--ee-synthese .spine-text",
+                '[data-outline-label="Argument 1 + support"]',
+              ];
+              const anchors = selectors.map(selector => {
+                const value = root.querySelector(selector).textContent.trim();
+                const quote = value.match(/^\\S+(?:\\s+\\S+){0,4}/)[0];
+                const start = text.indexOf(quote);
+                return {
+                  quote,
+                  start,
+                  end: start + quote.length,
+                  prefix: text.slice(Math.max(0, start - 160), start),
+                  suffix: text.slice(start + quote.length, start + quote.length + 160),
+                };
+              });
+              return {text, anchors};
+            }
+            """
+        )
+        section_separator = "\n        \n      \n\n      \n        \n          "
+        part_one_label = historical["text"].index("Partie 1 — Synthèse")
+        part_two_label = historical["text"].index("Partie 2 — Point de vue personnel")
+        part_one_end = (
+            historical["text"].index(response.position, part_one_label)
+            + len(response.position)
+        )
+        self.assertTrue(
+            historical["text"][:part_one_label].endswith(section_separator)
+        )
+        self.assertEqual(
+            historical["text"][part_one_end:part_two_label],
+            section_separator,
+        )
+        for anchor in historical["anchors"]:
+            Annotation.objects.create(
+                user=self.user,
+                task=task,
+                kind=AnnotationKind.HIGHLIGHT,
+                source_path=path,
+                source_key=f"response:{response.content_key}",
+                quote=anchor["quote"],
+                start_offset=anchor["start"],
+                end_offset=anchor["end"],
+                prefix=anchor["prefix"],
+                suffix=anchor["suffix"],
+            )
         for width in (320, 390, 1280):
             with self.subTest(width=width):
                 self.page.set_viewport_size({"width": width, "height": 844})
@@ -822,6 +891,11 @@ class BrowserTests(StaticLiveServerTestCase):
                         "Argument 2 + support",
                         "Conclusion",
                     ],
+                )
+                expect(root.locator("mark.user-highlight")).to_have_count(3)
+                self.assertEqual(
+                    root.locator("mark.user-highlight").all_text_contents(),
+                    [anchor["quote"] for anchor in historical["anchors"]],
                 )
                 expect(
                     self.page.locator(

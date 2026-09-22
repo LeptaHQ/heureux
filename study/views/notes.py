@@ -1314,12 +1314,12 @@ def annotation_create(request):
     try:
         if kind == AnnotationKind.HIGHLIGHT:
             with transaction.atomic():
-                candidates = Annotation.objects.select_for_update().filter(
+                source_candidates = Annotation.objects.select_for_update().filter(
                     source_filter,
                     user=request.user,
                     kind=kind,
-                    source_key=source_key,
                 )
+                candidates = source_candidates.filter(source_key=source_key)
                 if overlap_ids is None:
                     candidates = candidates.filter(
                         start_offset__lt=end_offset,
@@ -1330,7 +1330,7 @@ def annotation_create(request):
                     )
                 else:
                     overlapping = list(
-                        candidates.filter(id__in=overlap_ids).order_by(
+                        source_candidates.filter(id__in=overlap_ids).order_by(
                             "-updated_at",
                             "-id",
                         )
@@ -1377,11 +1377,31 @@ def annotation_create(request):
                     (
                         item
                         for item in overlapping
-                        if item.start_offset == start_offset
+                        if item.source_key == source_key
+                        and item.start_offset == start_offset
                         and item.end_offset == end_offset
                     ),
-                    overlapping[0] if overlapping else None,
+                    None,
                 )
+                if annotation is None:
+                    annotation = next(
+                        (
+                            item
+                            for item in overlapping
+                            if item.source_key == source_key
+                        ),
+                        None,
+                    )
+                if annotation is None:
+                    annotation = next(
+                        (
+                            item
+                            for item in overlapping
+                            if item.start_offset == start_offset
+                            and item.end_offset == end_offset
+                        ),
+                        overlapping[0] if overlapping else None,
+                    )
                 created = annotation is None
                 if created:
                     annotation = Annotation(
@@ -1395,6 +1415,8 @@ def annotation_create(request):
                     )
                 else:
                     annotation.task = task
+                    annotation.source_path = source_path
+                    annotation.source_key = source_key
                     annotation.quote = quote
                     annotation.source_title = values["source_title"]
                     annotation.prefix = values["prefix"]

@@ -835,6 +835,43 @@ class AnnotationTests(TestCase):
             reverse("study:annotation_delete", args=[annotation.id]),
         )
 
+    def test_partial_overlap_migrates_a_legacy_highlight_namespace(self):
+        legacy = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="nuancer cette",
+            source_path=self.source_path,
+            source_key="response:legacy-model",
+            start_offset=32,
+            end_offset=45,
+            study_later=True,
+        )
+        current_source_key = "response:prompt:variant-current"
+
+        expanded = self.client.post(
+            reverse("study:annotation_create"),
+            {
+                **self.selection,
+                "kind": AnnotationKind.HIGHLIGHT,
+                "source_key": current_source_key,
+                "overlap_ids": str(legacy.id),
+                "overlap_revisions": json.dumps(
+                    {str(legacy.id): legacy.updated_at.isoformat()}
+                ),
+            },
+        )
+
+        self.assertEqual(expanded.status_code, 200)
+        self.assertEqual(expanded.json()["id"], legacy.id)
+        self.assertEqual(expanded.json()["removed_ids"], [])
+        legacy.refresh_from_db()
+        self.assertEqual(legacy.source_key, current_source_key)
+        self.assertEqual(legacy.quote, self.selection["quote"])
+        self.assertEqual(legacy.start_offset, 24)
+        self.assertEqual(legacy.end_offset, 58)
+        self.assertTrue(legacy.study_later)
+
     def test_expanding_across_highlights_merges_them(self):
         first = Annotation.objects.create(
             user=self.user,

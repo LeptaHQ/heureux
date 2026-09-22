@@ -945,6 +945,97 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assert_no_horizontal_overflow()
 
+    def test_ee3_note_can_extend_a_legacy_model_highlight(self):
+        _, task = self._import_ee_tache_three_content()
+        response = self.user.study_cards.filter(
+            response__theme__task=task
+        ).first().response
+        canonical = response.prompts.get(is_canonical=True)
+        path = response_detail_url(response)
+        self.page.goto(self.live_server_url + path)
+        root = self.page.locator(
+            "[data-annotation-root]"
+            f'[data-annotation-source-key^="response:{canonical.content_key}:variant-"]'
+        )
+        anchor = root.evaluate(
+            """
+            (element, quote) => {
+              const walker = document.createTreeWalker(
+                element,
+                NodeFilter.SHOW_TEXT,
+                {
+                  acceptNode(node) {
+                    return node.parentElement?.closest("[data-annotation-exclude]")
+                      ? NodeFilter.FILTER_REJECT
+                      : NodeFilter.FILTER_ACCEPT;
+                  },
+                }
+              );
+              let text = "";
+              let node;
+              while ((node = walker.nextNode())) text += node.data;
+              const start = text.indexOf(quote);
+              const end = start + quote.length;
+              return {
+                text,
+                quote,
+                start,
+                end,
+                prefix: text.slice(Math.max(0, start - 160), start),
+                suffix: text.slice(end, end + 160),
+              };
+            }
+            """,
+            response.position[:28],
+        )
+        legacy = Annotation.objects.create(
+            user=self.user,
+            task=task,
+            kind=AnnotationKind.HIGHLIGHT,
+            source_path=path,
+            source_key=f"response:{response.content_key}",
+            quote=anchor["quote"],
+            start_offset=anchor["start"],
+            end_offset=anchor["end"],
+            prefix=anchor["prefix"],
+            suffix=anchor["suffix"],
+        )
+
+        self.page.reload()
+        expect(root.locator("mark.user-highlight")).to_have_text(anchor["quote"])
+        expanded_quote = response.position[:36]
+        self.select_prompt(
+            start=0,
+            end=len(expanded_quote),
+            target=root.locator(".section-card--ee-synthese .spine-text"),
+        )
+        self.page.locator("[data-note-selection]").click()
+        panel = self.page.locator("[data-note-panel]")
+        panel.locator("[data-note-body]").fill("À mémoriser.")
+        panel.locator("[data-note-save-close]").click()
+
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Note enregistrée et passage surligné."
+        )
+        legacy.refresh_from_db()
+        self.assertEqual(
+            legacy.source_key,
+            root.get_attribute("data-annotation-source-key"),
+        )
+        self.assertEqual(
+            legacy.quote,
+            expanded_quote,
+        )
+        self.assertEqual(
+            Annotation.objects.filter(
+                user=self.user,
+                kind=AnnotationKind.HIGHLIGHT,
+            ).count(),
+            1,
+        )
+        expect(root.locator("mark.user-highlight")).to_have_count(1)
+        expect(root.locator("mark.user-highlight")).to_have_text(legacy.quote)
+
     def test_ee3_memory_guide_labels_completion_and_methodology_are_responsive(self):
         _, task = self._import_ee_tache_three_content()
         bank = content.load_question_banks(

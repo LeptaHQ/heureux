@@ -58,9 +58,9 @@ The new card sits outside the existing annotation roots so it cannot shift saved
 response or sidebar highlights. Existing study controls and vocabulary remain.
 
 EE task 1 also provides **Pistes** for Invitations & fêtes, Sorties & visites,
-Accueillir un invité, Voyages & vacances, Ville & quartier, and Logement &
-déménagement. The 42 canonical lists in `study/content/ee/tache_1/hints.json`
-cover all 89 equivalent publications.
+Accueillir un invité, Voyages & vacances, Ville & quartier, Logement &
+déménagement, and Transports & orientation. The 44 canonical lists in
+`study/content/ee/tache_1/hints.json` cover all 96 equivalent publications.
 They summarize reviewed current responses, including authorized customizations,
 without publishing account identifiers or private contact details. Each list has
 5–8 bilingual cues, at most 110 characters per language per cue and 75 French

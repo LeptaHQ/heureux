@@ -72,7 +72,7 @@ EE_TACHE_ONE_DIR = CONTENT_DIR / "ee" / "tache_1"
 EE_TACHE_ONE_SUJETS_PATH = EE_TACHE_ONE_DIR / "sujets.json"
 EE_TACHE_ONE_THEME_VOCABULARY_DIR = EE_TACHE_ONE_DIR / "theme_vocabulary"
 EE_TACHE_ONE_SUBJECT_HINTS_PATH = EE_TACHE_ONE_DIR / "hints.json"
-EE_TACHE_ONE_HINT_THEMES = frozenset({"invitations", "sorties", "accueil", "voyages", "ville", "logement"})
+EE_TACHE_ONE_HINT_THEMES = frozenset({"invitations", "sorties", "accueil", "voyages", "ville", "logement", "transport"})
 
 EE_TACHE_TWO_TASK = ("ee", "tache-2")
 EE_TACHE_TWO_CONTENT_PREFIX = "ee-tache2:"

@@ -48,13 +48,14 @@ class WritingHintsContentTests(SimpleTestCase):
 
     def test_exactly_the_requested_themes_share_complete_bilingual_pistes(self):
         hints = content.load_ee_tache_one_subject_hints(categories=self.categories)
-        self.assertEqual(len(hints), 89)
+        self.assertEqual(len(hints), 96)
         self.assertEqual(set(hints), {subject.slug for subject in self.subjects})
         canonical = [subject for subject in self.subjects if subject.slug == subject.canonical_slug]
         self.assertEqual(Counter(subject.category for subject in canonical), {
             "invitations": 9, "sorties": 8, "accueil": 5, "voyages": 9, "ville": 3, "logement": 8,
+            "transport": 2,
         })
-        self.assertEqual(len(set(hints.values())), 42)
+        self.assertEqual(len(set(hints.values())), 44)
         for subject in self.subjects:
             with self.subTest(subject=subject.slug):
                 cues = hints[subject.slug]
@@ -112,7 +113,7 @@ class WritingHintsContentTests(SimpleTestCase):
                 invalid["groups"].pop(first)
             else:
                 extra = (
-                    "ee-tache1:janvier:combinaison-1" if change == "unrequested"
+                    "ee-tache1:janvier:combinaison-4" if change == "unrequested"
                     else "ee-tache1:mars:combinaison-12"
                 )
                 invalid["groups"][extra] = invalid["groups"][first]
@@ -174,6 +175,27 @@ class WritingHintsContentTests(SimpleTestCase):
             with self.assertRaisesMessage(ValueError, "Duplicate"):
                 self.load(invalid)
 
+    def test_transport_pistes_distinguish_visiting_from_settling_in(self):
+        hints = catalogue.ee_tache_one_subject_hints()
+        expected_topics = {
+            "janvier-combinaison-1": (
+                "Anna", "week-end", "TCAT", "marchés", "1,50 $", "ponctuelle",
+                "Taxis", "application", "Lime", "combiner bus et vélo",
+            ),
+            "janvier-combinaison-3": (
+                "Mehdi", "Ithaca", "TCAT", "1,50 $", "abonnement", "ponctuel",
+                "25 $", "150 $", "occasion", "pistes cyclables", "campus",
+            ),
+        }
+        for slug, topics in expected_topics.items():
+            with self.subTest(slug=slug):
+                french = " ".join(cue.french for cue in hints[slug])
+                bilingual = " ".join(f"{cue.french} {cue.english}" for cue in hints[slug])
+                for topic in topics:
+                    self.assertIn(topic, french)
+                self.assertNotRegex(bilingual, r"@|https?://|\b(?:\d[- .]?){8,}\d\b")
+        self.assertNotEqual(hints["janvier-combinaison-1"], hints["janvier-combinaison-3"])
+
     def test_overlong_lists_and_incomplete_sources_are_rejected(self):
         invalid = copy.deepcopy(self.payload)
         for index, row in enumerate(next(iter(invalid["groups"].values()))):
@@ -183,6 +205,7 @@ class WritingHintsContentTests(SimpleTestCase):
         for categories in (
             (), self.categories[1:],
             tuple(category for category in self.categories if category.slug != "logement"),
+            tuple(category for category in self.categories if category.slug != "transport"),
         ):
             with self.assertRaisesMessage(ValueError, "source themes"):
                 content.load_ee_tache_one_subject_hints(categories=categories)
@@ -231,7 +254,7 @@ class WritingHintsViewTests(TestCase):
     def test_every_selected_publication_renders_shared_pistes(self):
         hints = catalogue.ee_tache_one_subject_hints()
         sujets = WritingSujet.objects.filter(task=self.task, slug__in=hints).select_related("task")
-        self.assertEqual(sujets.count(), 89)
+        self.assertEqual(sujets.count(), 96)
         for sujet in sujets:
             with self.subTest(sujet=sujet.slug):
                 page = self.client.get(self.url(sujet))
@@ -325,8 +348,42 @@ class WritingHintsViewTests(TestCase):
                 self.assertIn("Mon modèle modifié reste inchangé.", page.context["response_copy_texts"].values())
         self.assertEqual(before, {model: list(model.objects.order_by("pk").values()) for model in tracked})
 
+    def test_transport_publications_preserve_answers_highlights_and_completion(self):
+        tracked = (WritingSujet, PersonalWritingResponse, WritingResponseOverride, WritingSujetCompletion, Annotation)
+        for slug, publications in (("janvier-combinaison-1", 3), ("janvier-combinaison-3", 4)):
+            canonical = WritingSujet.objects.get(task=self.task, slug=slug)
+            personal = PersonalWritingResponse.objects.create(
+                user=self.user, sujet=canonical, body="Ma réponse personnelle sur les transports.",
+            )
+            override = WritingResponseOverride.objects.create(
+                user=self.user, sujet=canonical,
+                version_key=model_version_keys(canonical.model_versions)[0],
+                body="Mon modèle de transport modifié reste inchangé.",
+            )
+            WritingSujetCompletion.objects.create(user=self.user, sujet=canonical)
+            start = personal.body.index("transports")
+            Annotation.objects.create(
+                user=self.user, task=self.task, kind=AnnotationKind.HIGHLIGHT,
+                source_path=self.url(canonical), source_key=f"writing-sujet:{canonical.pk}:personal",
+                quote="transports", start_offset=start, end_offset=start + len("transports"),
+            )
+            before = {model: list(model.objects.order_by("pk").values()) for model in tracked}
+            hints = catalogue.ee_tache_one_subject_hints()
+            expected = hints[slug]
+            aliases = [key for key, cues in hints.items() if cues is expected]
+            self.assertEqual(len(aliases), publications)
+            for alias in aliases:
+                sujet = WritingSujet.objects.get(task=self.task, slug=alias)
+                with self.subTest(slug=alias):
+                    page = self.client.get(self.url(sujet))
+                    self.assertIs(page.context["subject_hints"], expected)
+                    self.assertTrue(page.context["explicitly_completed"])
+                    self.assertEqual(page.context["response_copy_texts"]["personal"], personal.body)
+                    self.assertIn(override.body, page.context["response_copy_texts"].values())
+            self.assertEqual(before, {model: list(model.objects.order_by("pk").values()) for model in tracked})
+
     def test_unrequested_themes_custom_sujets_and_ee2_keep_their_existing_page(self):
-        transport = WritingSujet.objects.filter(task=self.task, category="transport").first()
+        work = WritingSujet.objects.filter(task=self.task, category="travail").first()
         custom = factories.make_writing_sujet(self.task, slug="adhoc-pistes")
         ee2 = factories.make_task(self.task.part, "tache-2")
         source = content.load_ee_writing_categories(2)[0].sujets[0]
@@ -334,7 +391,7 @@ class WritingHintsViewTests(TestCase):
             ee2, slug=source.slug, category=source.category, prompt=source.prompt,
         )
         with patch("study.views.library.catalogue.ee_tache_one_subject_hints", side_effect=AssertionError("Unrequested pistes")):
-            for sujet in (transport, custom, writing):
+            for sujet in (work, custom, writing):
                 page = self.client.get(self.url(sujet))
                 self.assertEqual(page.status_code, 200)
                 self.assertNotContains(page, "subject-hints--writing")

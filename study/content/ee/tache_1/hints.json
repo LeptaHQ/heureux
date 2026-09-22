@@ -2,6 +2,70 @@
   "version": 1,
   "task": "ee/tache-1",
   "groups": {
+    "ee-tache1:janvier:combinaison-1": [
+      {
+        "french": "Accueillir Anna pour son week-end en ville.",
+        "english": "Welcome Anna for her weekend in the city."
+      },
+      {
+        "french": "Bus TCAT : desserte des marchés, piscines et cinémas.",
+        "english": "TCAT buses: services to markets, swimming pools and cinemas."
+      },
+      {
+        "french": "Exemple de tarif : 1,50 $ par trajet adulte.",
+        "english": "Example fare: $1.50 per adult journey."
+      },
+      {
+        "french": "Conseiller d’être ponctuelle à l’arrêt de bus.",
+        "english": "Advise her to arrive at the bus stop on time."
+      },
+      {
+        "french": "Taxis chers et rares : réserver à l’avance par application.",
+        "english": "Taxis are expensive and scarce: book ahead using an app."
+      },
+      {
+        "french": "Vélos électriques : proposer un abonnement Lime.",
+        "english": "Electric bikes: suggest a Lime subscription."
+      },
+      {
+        "french": "Astuce : combiner bus et vélo ; terminer chaleureusement.",
+        "english": "Tip: combine buses and cycling; close warmly."
+      }
+    ],
+    "ee-tache1:janvier:combinaison-3": [
+      {
+        "french": "Accueillir Mehdi dans sa nouvelle ville, par exemple Ithaca.",
+        "english": "Welcome Mehdi to his new city, for example Ithaca."
+      },
+      {
+        "french": "Bus TCAT : desserte de toute la ville.",
+        "english": "TCAT buses: services throughout the city."
+      },
+      {
+        "french": "Tarif indicatif : 1,50 $ par trajet adulte ; proposer un abonnement.",
+        "english": "Illustrative fare: $1.50 per adult journey; suggest a travel pass."
+      },
+      {
+        "french": "Rappeler d’être ponctuel à l’arrêt.",
+        "english": "Remind him to be at the stop on time."
+      },
+      {
+        "french": "Taxis rares : environ 25 $ la course ; réservation par application.",
+        "english": "Scarce taxis: about $25 per ride; book using an app."
+      },
+      {
+        "french": "Vélo d’occasion : prévoir environ 150 $.",
+        "english": "Second-hand bike: budget around $150."
+      },
+      {
+        "french": "Décrire les pistes cyclables et l’intérêt du vélo au quotidien.",
+        "english": "Describe the cycle paths and the benefits of everyday cycling."
+      },
+      {
+        "french": "Près du campus, recommander le vélo ; terminer amicalement.",
+        "english": "Near campus, recommend cycling; end on a friendly note."
+      }
+    ],
     "ee-tache1:janvier:combinaison-2": [
       {
         "french": "Répondre à Cédric sur le lieu du mariage.",

@@ -606,6 +606,8 @@ class BrowserTests(StaticLiveServerTestCase):
             for group in (
                 ("janvier-combinaison-2", "mars-combinaison-12"),
                 ("aout-combinaison-14", "aout-combinaison-16", "novembre-combinaison-11"),
+                ("janvier-combinaison-1", "mars-combinaison-11", "novembre-combinaison-3"),
+                ("janvier-combinaison-3", "mars-combinaison-13", "juillet-combinaison-42", "septembre-combinaison-2"),
             ):
                 original = None
                 for slug in group:

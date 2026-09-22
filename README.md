@@ -34,12 +34,11 @@ keeps all marked records in the folder. Page navigation works without JavaScript
 The shared `study/partials/pagination.html` pager accepts a Django `page_obj`,
 `page_links` (`number` and `url`), previous/next URLs, and an optional accessible label.
 
-EE task 3 vocabulary uses the same paginated collection pattern: one vocabulary
-entry per row, with French, meaning, example, theme and first-pass study status.
-Search and theme/status filters cover the full collection, not only the current
-50-entry page. Theme links stay in vocabulary; expressions do not open subject
-pages. Equivalent publications share one entry without changing its identity or
-saved study state. Guided practice remains scoped to the selected theme.
+EE task 3 vocabulary reuses EO task 2's theme directory and vocabulary detail
+components: theme cards/tables, guided lots, contextual vocabulary, flashcards,
+recall controls and learned checkboxes. Theme links stay in vocabulary, not subject
+pages. Existing phrase identities and review schedules remain unchanged; explicit
+learned flags use the shared vocabulary progress model.
 
 ## Subject pistes and oral equivalence
 

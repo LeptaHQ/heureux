@@ -9,7 +9,6 @@ row, so every column keeps the exact same content either way.
 <article
   class="phrase card{% if flashcard %} comprehension-vocabulary-phrase flashcard-deck__card{% endif %}"
   data-collection-item
-  {% if vocabulary_entry %}data-vocabulary-entry="{{ phrase.pk }}" data-vocabulary-status="{{ phrase.vocabulary_status }}"{% endif %}
   {% if flashcard %}data-comprehension-vocabulary-phrase data-flashcard-card{% endif %}
   data-read-aloud-scope
   id="phrase-{{ phrase.phrase_id }}"
@@ -46,17 +45,9 @@ row, so every column keeps the exact same content either way.
         data-recall-cell="meaning"
         data-recall-entry="vocabulary-meaning-{{ phrase.phrase_id }}"
         {% if flashcard %}data-flashcard-ignore-toggle{% endif %}
-      ><span data-recall-content{% if vocabulary_entry %} lang="en"{% endif %}>{{ phrase.english_cue }}</span></div>
+      ><span data-recall-content>{{ phrase.english_cue }}</span></div>
       <p class="phrase__ex" data-read-aloud-text lang="fr">{{ phrase.example_html|safe }}</p>
       {% if phrase.note %}<p class="phrase__note">{{ phrase.note }}</p>{% endif %}
-      {% if vocabulary_entry %}
-        <div class="phrase__foot">
-          <span class="progress-status progress-status--{{ phrase.vocabulary_status }}">{{ phrase.vocabulary_status_label }}</span>
-          {% for theme in phrase.vocabulary_themes %}
-            <a class="chip" href="{{ theme.url }}">{{ theme.name }}</a>
-          {% endfor %}
-        </div>
-      {% else %}
       {% with prompts=phrase.source_prompts.all %}
         {% if prompts %}
           <div class="phrase__foot">
@@ -77,7 +68,6 @@ row, so every column keeps the exact same content either way.
           </div>
         {% endif %}
       {% endwith %}
-      {% endif %}
   {% if flashcard %}
     </div>
   {% endif %}

@@ -157,7 +157,7 @@
         <span class="theme-vocabulary-group__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=phrase_section.icon only %}</span>
         <div>
           <h3 id="theme-vocabulary-group-{{ forloop.counter }}">{{ phrase_section.title }}</h3>
-          <p>{{ phrase_section.description }}</p>
+          {% if phrase_section.description %}<p>{{ phrase_section.description }}</p>{% endif %}
         </div>
         <span
           class="theme-vocabulary-group__count"

@@ -1278,39 +1278,37 @@ class EeTacheThreePageTests(TestCase):
         )
         self.assertContains(response, "regroupées par grand thème")
 
-    def test_vocabulary_directory_lists_entries_and_preserves_guided_practice(self):
+    def test_vocabulary_directory_reuses_theme_components_and_guided_practice(self):
         response = self.client.get(self._task_url("study:task_phrases"))
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "study/vocabulary_entries.html")
+        self.assertTemplateUsed(response, "study/theme_vocabulary_directory.html")
         self.assertEqual(response.context["theme_count"], 11)
         self.assertEqual(response.context["phrase_count"], 2340)
         self.assertEqual(len(response.context["themes"]), 11)
-        self.assertContains(response, "data-vocabulary-entry=", count=50)
-        self.assertEqual(response.context["page_obj"].paginator.count, 2340)
-        self.assertContains(response, "fiches étudiées")
-        self.assertContains(response, 'data-collection-view-mode="table"', count=1)
-        self.assertContains(response, 'data-collection-view-preference="vocabularyCollectionViewMode"', count=1)
+        self.assertContains(response, "data-theme-vocabulary-directory-item", count=11)
+        self.assertContains(response, "lots terminés")
         self.assertNotContains(response, "data-subject-vocabulary-row")
         self.assertNotContains(response, "Dédupliquer")
         self.assertNotContains(response, "data-subject-completion-form")
-        for phrase in response.context["entries"]:
-            self.assertContains(response, phrase.expression)
-            self.assertContains(response, phrase.english_cue)
-            self.assertContains(response, phrase.example_html)
-
-        first = response.context["themes"][0]
-        detail = self.client.get(reverse(
-            "study:task_vocabulary_theme",
-            args=[self.task.part.slug, self.task.slug, first.slug],
-        ))
-        self.assertTemplateUsed(detail, "study/vocabulary_entries.html")
-        self.assertGreater(detail.context["phrase_count"], 0)
-        self.assertEqual(detail.context["selected_theme"], first)
-        for phrase in detail.context["entries"]:
-            self.assertTrue(all(source.theme_id == first.pk for source in phrase.vocabulary_sources))
+        ids = set()
+        for item in response.context["themes"]:
+            detail = self.client.get(item["url"])
+            self.assertTemplateUsed(detail, "study/theme_vocabulary_detail.html")
+            self.assertEqual(detail.context["phrase_count"], item["phrase_count"])
+            self.assertGreater(detail.context["phrase_count"], 0)
+            self.assertEqual(detail.context["theme"], item["theme"])
+            self.assertEqual(detail.context["summary"], item["summary"])
+            self.assertEqual(len(detail.context["phrase_sections"]), 7)
+            for section in detail.context["phrase_sections"]:
+                for phrase in section["phrases"]:
+                    ids.add(phrase.pk)
+                    self.assertContains(detail, phrase.expression)
+                    self.assertContains(detail, phrase.english_cue)
+                    self.assertContains(detail, phrase.example_html)
+        self.assertEqual(len(ids), 2340)
         all_publications = self.client.get(self._task_url("study:task_phrases"), {"deduplicate": "0"})
-        self.assertEqual(all_publications.context["page_obj"].paginator.count, 2340)
+        self.assertEqual(all_publications.context["phrase_count"], 2340)
         self.assertEqual(all_publications.context["summary"], response.context["summary"])
 
         first_batch = queue_module.scoped_cards(
@@ -1332,21 +1330,21 @@ class EeTacheThreePageTests(TestCase):
 
     def test_vocabulary_entries_use_vocabulary_not_subject_completion(self):
         page = self.client.get(self._task_url("study:task_phrases"))
-        phrase = page.context["entries"][0]
-        prompt = phrase.vocabulary_sources[0]
+        detail = self.client.get(page.context["themes"][0]["url"])
+        phrase = detail.context["phrase_sections"][0]["phrases"][0]
+        prompt = phrase.source_prompts.first()
         Card.objects.filter(
             user=self.user, response=prompt.response, card_type=CardType.SPINE,
         ).update(subject_completed_at=timezone.now())
         page = self.client.get(self._task_url("study:task_phrases"))
-        self.assertEqual(page.context["entries"][0].vocabulary_status, "new")
+        self.assertEqual(page.context["summary"]["progress"].status, "new")
         phrase_card = Card.objects.filter(
             user=self.user, phrase=phrase, card_type=CardType.PHRASE_PRODUCTION,
         ).get()
         phrase_card.started_at = timezone.now()
         phrase_card.save(update_fields=["started_at"])
         page = self.client.get(self._task_url("study:task_phrases"))
-        self.assertEqual(page.context["entries"][0].vocabulary_status, "active")
-        self.assertEqual(page.context["summary"].status, "active")
+        self.assertEqual(page.context["summary"]["progress"].status, "active")
 
     def test_subject_page_groups_all_combinations_in_collapsible_themes(self):
         response = self.client.get(self._task_url("study:task_browse"), {"deduplicate": "0"})

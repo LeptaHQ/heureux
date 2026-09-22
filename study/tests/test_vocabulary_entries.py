@@ -1,10 +1,19 @@
-from urllib.parse import parse_qs, urlsplit
-
 from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
 
-from study.models import Annotation, AnnotationKind, Card, CardState, Phrase, PhraseTier, Prompt
+from study import content_loader as content
+from study.models import (
+    Annotation,
+    AnnotationKind,
+    Card,
+    CardState,
+    Phrase,
+    PhraseCategory,
+    PhraseTier,
+    Prompt,
+    ThemeVocabularyProgress,
+)
 from . import factories
 
 
@@ -23,9 +32,15 @@ class VocabularyEntryTests(TestCase):
             family=cls.prompt.family, response=cls.response, number=999,
             text="Une autre publication du même sujet.",
         )
+        category = PhraseCategory.objects.create(
+            slug="ee3-words", content_key="test:ee3-words",
+            name=content.EE_TACHE_THREE_VOCABULARY_CATEGORIES["mot-cle"],
+        )
         cls.phrases = []
         for index in range(55):
-            phrase = factories.make_phrase(tier=PhraseTier.SUBJECT, lot_order=index)
+            phrase = factories.make_phrase(
+                category=category, tier=PhraseTier.SUBJECT, lot_order=index,
+            )
             phrase.source_prompts.add(cls.prompt, cls.alias)
             factories.make_phrase_card(user=cls.user, phrase=phrase)
             cls.phrases.append(phrase)
@@ -36,48 +51,53 @@ class VocabularyEntryTests(TestCase):
         )
         cls.last.refresh_from_db()
         other_response = factories.make_response(theme=cls.other_theme)
-        cls.other_phrase = factories.make_phrase(tier=PhraseTier.SUBJECT, lot_order=100)
+        cls.other_phrase = factories.make_phrase(
+            category=category, tier=PhraseTier.SUBJECT, lot_order=100,
+        )
         cls.other_phrase.source_prompts.add(other_response.prompts.get())
         cls.url = reverse("study:task_phrases", args=["ee", "tache-3"])
+        cls.theme_url = reverse(
+            "study:task_vocabulary_theme", args=["ee", "tache-3", cls.theme.slug],
+        )
 
     def setUp(self):
         self.client.force_login(self.user)
 
-    def test_pagination_lists_every_identity_once_including_aliases(self):
-        first = self.client.get(self.url)
-        self.assertEqual(first.context["phrase_count"], 56)
-        self.assertEqual(first.context["page_obj"].paginator.count, 56)
-        self.assertEqual(len(first.context["entries"]), 50)
-        second = self.client.get(first.context["next_page_url"])
-        ids = [phrase.pk for page in (first, second) for phrase in page.context["entries"]]
+    def test_shared_directory_and_details_list_vocabulary_not_subjects(self):
+        directory = self.client.get(self.url)
+        self.assertTemplateUsed(directory, "study/theme_vocabulary_directory.html")
+        self.assertEqual(directory.context["phrase_count"], 56)
+        self.assertEqual(directory.context["theme_count"], 2)
+        self.assertContains(directory, self.theme_url)
+        self.assertNotContains(directory, "data-subject-vocabulary-row")
+        detail = self.client.get(self.theme_url)
+        self.assertTemplateUsed(detail, "study/theme_vocabulary_detail.html")
+        self.assertContains(detail, "data-theme-vocabulary-progress-form", count=55)
+        ids = [
+            phrase.pk
+            for section in detail.context["phrase_sections"]
+            for phrase in section["phrases"]
+        ]
         self.assertEqual(len(ids), len(set(ids)))
-        self.assertEqual(set(ids), {phrase.pk for phrase in self.phrases} | {self.other_phrase.pk})
-        self.assertNotContains(first, "data-subject-vocabulary-row")
-        self.assertNotContains(first, "#subject-vocabulary")
+        self.assertEqual(set(ids), {phrase.pk for phrase in self.phrases})
+        self.assertContains(detail, self.last.expression)
+        self.assertContains(detail, self.last.english_cue)
+        self.assertNotContains(detail, "#subject-vocabulary")
 
-    def test_search_uses_vocabulary_fields_across_all_pages(self):
-        for query in ("accès", "fair", "réservé", "pédagogique", "fair équitable"):
-            with self.subTest(query=query):
-                page = self.client.get(self.url, {"q": query})
-                self.assertEqual([phrase.pk for phrase in page.context["entries"]], [self.last.pk])
-        empty = self.client.get(self.url, {"q": self.alias.text})
-        self.assertEqual(empty.context["page_obj"].paginator.count, 0)
-        self.assertContains(empty, "Aucune fiche")
+    def test_guided_lots_keep_their_original_scope_and_order(self):
+        from study.views.helpers import _review_batches
 
-    def test_filters_and_pagination_keep_the_selected_theme(self):
-        page = self.client.get(self.url, {"theme": self.theme.slug, "status": "new"})
-        self.assertEqual(page.context["phrase_count"], 55)
-        self.assertEqual(page.context["page_obj"].paginator.count, 55)
-        params = parse_qs(urlsplit(page.context["next_page_url"]).query)
-        self.assertEqual(params, {"theme": [self.theme.slug], "status": ["new"], "page": ["2"]})
-        second = self.client.get(page.context["next_page_url"])
-        self.assertEqual(len(second.context["entries"]), 5)
-        legacy = self.client.get(reverse(
-            "study:task_vocabulary_theme", args=["ee", "tache-3", self.theme.slug],
-        ))
-        self.assertTemplateUsed(legacy, "study/vocabulary_entries.html")
-        self.assertEqual(legacy.context["phrase_count"], 55)
-        self.assertIn("theme=" + self.theme.slug, legacy.context["mixed_review_url"])
+        detail = self.client.get(self.theme_url)
+        scope = {"part": "ee", "task": "tache-3", "kind": "vocab", "theme": self.theme.slug}
+        expected = _review_batches(scope, self.user)
+        self.assertEqual(detail.context["review_batches"], expected)
+        self.assertEqual(len(expected), 6)
+        self.assertTrue(all("title" not in batch for batch in expected))
+        self.assertIn("theme=" + self.theme.slug, detail.context["mixed_review_url"])
+        directory = self.client.get(self.url)
+        entry = next(item for item in directory.context["themes"] if item["theme"] == self.theme)
+        self.assertEqual(entry["summary"], detail.context["summary"])
+        self.assertRedirects(self.client.get(self.url, {"theme": self.theme.slug}), self.theme_url)
 
     def test_status_is_private_and_reading_does_not_change_saved_state(self):
         first, second, third = self.phrases[:3]
@@ -90,13 +110,49 @@ class VocabularyEntryTests(TestCase):
             quote=self.last.expression, source_key=f"phrase:{self.last.phrase_id}:front",
             start_offset=0, end_offset=len(self.last.expression), source_path=self.url,
         )
-        before = {model: list(model.objects.order_by("pk").values()) for model in (Card, Annotation, Phrase)}
-        for status, expected in (("active", first), ("done", second), ("suspended", third)):
-            page = self.client.get(self.url, {"status": status})
-            self.assertEqual([phrase.pk for phrase in page.context["entries"]], [expected.pk])
-        search = self.client.get(self.url, {"q": "fair", "status": "new"})
-        self.assertEqual([phrase.pk for phrase in search.context["entries"]], [self.last.pk])
+        ThemeVocabularyProgress.objects.create(user=self.other_user, phrase=self.last)
+        before = {
+            model: list(model.objects.order_by("pk").values())
+            for model in (Card, Annotation, Phrase, ThemeVocabularyProgress)
+        }
+        self.client.get(self.url)
+        detail = self.client.get(self.theme_url)
+        self.assertEqual(detail.context["learned_summary"].completed, 0)
+        self.assertTrue(all(
+            not phrase.is_explicitly_learned
+            for section in detail.context["phrase_sections"]
+            for phrase in section["phrases"]
+        ))
         self.assertEqual(before, {model: list(model.objects.order_by("pk").values()) for model in before})
+
+    def test_shared_learned_controls_do_not_change_srs_or_other_users(self):
+        url = reverse(
+            "study:theme_vocabulary_progress",
+            args=["ee", "tache-3", self.theme.slug, self.last.pk],
+        )
+        ThemeVocabularyProgress.objects.create(user=self.other_user, phrase=self.last)
+        before = list(Card.objects.order_by("pk").values())
+        for completed, count in (("1", 1), ("1", 1), ("0", 0)):
+            result = self.client.post(url, {"completed": completed}, HTTP_X_REQUESTED_WITH="fetch")
+            self.assertEqual(result.status_code, 200)
+            self.assertEqual(result.json(), {
+                "completed": completed == "1", "phrase_id": self.last.phrase_id,
+                "learned": count, "total": 55,
+            })
+            detail = self.client.get(self.theme_url)
+            self.assertEqual(detail.context["learned_summary"].completed, count)
+        self.assertEqual(before, list(Card.objects.order_by("pk").values()))
+        self.assertTrue(ThemeVocabularyProgress.objects.filter(
+            user=self.other_user, phrase=self.last,
+        ).exists())
+        self.assertEqual(self.client.post(url, {"completed": "invalid"}).status_code, 400)
+        wrong_theme = reverse(
+            "study:theme_vocabulary_progress",
+            args=["ee", "tache-3", self.other_theme.slug, self.last.pk],
+        )
+        self.assertEqual(self.client.post(wrong_theme, {"completed": "1"}).status_code, 404)
+        saved = self.client.post(url, {"completed": "1"})
+        self.assertRedirects(saved, self.theme_url + "#phrase-" + self.last.phrase_id)
 
     def test_retired_and_out_of_scope_content_is_not_listed(self):
         foreign = factories.make_response(theme=factories.make_theme(
@@ -105,20 +161,20 @@ class VocabularyEntryTests(TestCase):
         phrase = factories.make_phrase(tier=PhraseTier.SUBJECT)
         phrase.source_prompts.add(foreign.prompts.get())
         Phrase.objects.filter(pk=self.last.pk).update(is_active=False)
-        page = self.client.get(self.url, {"q": "fair"})
-        self.assertEqual(page.context["page_obj"].paginator.count, 0)
+        page = self.client.get(self.url)
         self.assertEqual(page.context["phrase_count"], 55)
         self.assertEqual(len(page.context["themes"]), 2)
+        self.assertNotContains(self.client.get(self.theme_url), self.last.expression)
         self.response.is_active = False
         self.response.save(update_fields=["is_active"])
         page = self.client.get(self.url)
-        self.assertEqual([entry.pk for entry in page.context["entries"]], [self.other_phrase.pk])
+        self.assertEqual(page.context["phrase_count"], 1)
+        self.assertEqual(self.client.get(self.theme_url).context["phrase_count"], 0)
 
-    def test_invalid_filters_are_rejected_and_empty_catalog_is_supported(self):
-        for params in ({"theme": "missing"}, {"status": "missing"}):
-            self.assertEqual(self.client.get(self.url, params).status_code, 404)
+    def test_invalid_themes_are_rejected_and_empty_catalog_is_supported(self):
+        self.assertEqual(self.client.get(self.url, {"theme": "missing"}).status_code, 404)
         Phrase.objects.update(is_active=False)
         page = self.client.get(self.url)
         self.assertEqual(page.status_code, 200)
         self.assertEqual(page.context["phrase_count"], 0)
-        self.assertContains(page, "Aucune fiche")
+        self.assertEqual(self.client.get(self.theme_url).context["phrase_count"], 0)

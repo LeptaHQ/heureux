@@ -3,9 +3,7 @@
 from __future__ import annotations
 
 import re
-from urllib.parse import urlencode
 
-from django.core.paginator import Paginator
 from django.db import transaction
 from django.db.models import Count, F, Prefetch, Q, Value, Window
 from django.db.models.functions import RowNumber, TruncDate
@@ -386,7 +384,11 @@ def _question_bank_memory_context(user, memories):
 
 def _theme_vocabulary_scope(task, theme=None):
     scope = {
-        "kind": "theme_vocab",
+        "kind": (
+            "vocab"
+            if (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK
+            else "theme_vocab"
+        ),
         "part": task.part.slug,
         "task": task.slug,
     }
@@ -430,6 +432,14 @@ def _theme_vocabulary_directory_batches(task, user, themes):
             phrase_themes = Phrase.objects.filter(
                 pk__in=phrase_ids,
             ).values_list("pk", "vocabulary_theme__slug")
+        elif (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK:
+            phrase_themes = Phrase.objects.filter(
+                pk__in=phrase_ids,
+                source_prompts__is_active=True,
+                source_prompts__response__is_active=True,
+                source_prompts__theme__is_active=True,
+                source_prompts__theme__task=task,
+            ).order_by().values_list("pk", "source_prompts__theme__slug").distinct()
         else:
             phrase_themes = (
                 Phrase.objects.filter(pk__in=phrase_ids)
@@ -2018,6 +2028,16 @@ EO_TACHE_THREE_THEME_VOCABULARY_SECTIONS = (
     },
 )
 
+EE_TACHE_THREE_VOCABULARY_SECTIONS = tuple(
+    {
+        "category": name,
+        "title": name.partition(" · ")[2],
+        "description": "",
+        "icon": "sparkles",
+    }
+    for name in content_module.EE_TACHE_THREE_VOCABULARY_CATEGORIES.values()
+)
+
 EE_WRITING_THEME_VOCABULARY_SECTIONS = {
     1: (
         {
@@ -2107,6 +2127,18 @@ EE_WRITING_THEME_VOCABULARY_SECTIONS = {
 
 
 def _theme_vocabulary_phrases(task, theme=None):
+    if (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK:
+        prompts = Prompt.objects.filter(
+            theme__task=task, theme__is_active=True,
+            is_active=True, response__is_active=True,
+        )
+        if theme is not None:
+            prompts = prompts.filter(theme=theme)
+        return Phrase.objects.filter(
+            tier=PhraseTier.SUBJECT, is_active=True,
+            source_prompts__in=prompts,
+        ).distinct()
+
     if _ee_writing_tache(task) is not None:
         phrases = Phrase.objects.filter(
             tier=PhraseTier.THEME,
@@ -2249,6 +2281,7 @@ def _theme_vocabulary_detail_context(
     hero_description,
     pathways_title,
     pathways_description,
+    label_batches_by_section=True,
 ):
     phrases = list(
         _theme_vocabulary_phrases(task, theme)
@@ -2293,8 +2326,9 @@ def _theme_vocabulary_detail_context(
 
     scope = _theme_vocabulary_scope(task, theme)
     batches = _review_batches(scope, request.user)
-    for batch, section_data in zip(batches, sections):
-        batch["title"] = section_data["title"]
+    if label_batches_by_section:
+        for batch, section_data in zip(batches, sections):
+            batch["title"] = section_data["title"]
     next_batch = next(
         (batch for batch in batches if batch["is_next"]),
         None,
@@ -2819,124 +2853,67 @@ def _ee_writing_theme_vocabulary_detail(request, task, theme, tache):
     )
 
 
-def _ee_tache_three_vocabulary_directory(request, task, theme=None):
-    prompts = Prompt.objects.filter(
-        theme__task=task, theme__is_active=True,
-        is_active=True, response__is_active=True,
-    )
-    themes = list(Theme.objects.filter(
-        pk__in=prompts.filter(
-            phrases__tier=PhraseTier.SUBJECT, phrases__is_active=True,
-        ).values("theme_id"),
-    ).order_by("order", "name", "pk"))
-    if theme is None and request.GET.get("theme"):
+def _ee_tache_three_vocabulary_directory(request, task):
+    if request.GET.get("theme"):
         theme = get_object_or_404(
             Theme, task=task, is_active=True, slug=request.GET["theme"],
         )
-    scope = {**_task_scope(task), "kind": "vocab"}
-    if theme is not None:
-        prompts = prompts.filter(theme=theme)
-        scope["theme"] = theme.slug
-    phrases = Phrase.objects.filter(
-        tier=PhraseTier.SUBJECT, is_active=True,
-        source_prompts__in=prompts,
-    ).distinct()
-    phrase_ids = set(phrases.values_list("pk", flat=True))
-    rows = batch_rows(scope, request.user)
-    cards_by_phrase = {}
-    for row in rows:
-        cards_by_phrase.setdefault(row["phrase_id"], []).append(row)
-    progress_by_phrase = {
-        pk: card_unit_progress_from_rows(cards_by_phrase.get(pk, ()))
-        for pk in phrase_ids
-    }
-    statuses = {
-        pk: (
-            "suspended" if pk in cards_by_phrase and not progress.total
-            else progress.status
+        return redirect(
+            "study:task_vocabulary_theme",
+            task.part.slug, task.slug, theme.slug,
         )
-        for pk, progress in progress_by_phrase.items()
+    phrases = _theme_vocabulary_phrases(task)
+    theme_models = list(Theme.objects.filter(
+        task=task, is_active=True,
+    ).order_by("order", "name", "pk"))
+    counts = {
+        (row["source_prompts__theme_id"], row["category__name"]): row["total"]
+        for row in phrases.order_by()
+        .values("source_prompts__theme_id", "category__name")
+        .annotate(total=Count("pk", distinct=True))
     }
-    status_labels = {
-        "new": "À étudier", "active": "En cours",
-        "done": "Étudiée", "suspended": "Suspendue",
-    }
-    query = request.GET.get("q", "").strip()[:200]
-    status = request.GET.get("status", "")
-    if status and status not in status_labels:
-        raise Http404
-    for word in query.split():
-        phrases = phrases.filter(
-            Q(expression__icontains=word) | Q(english_cue__icontains=word)
-            | Q(example__icontains=word) | Q(note__icontains=word)
-        )
-    if status:
-        phrases = phrases.filter(pk__in=[
-            pk for pk, value in statuses.items() if value == status
-        ])
-    paginator = Paginator(phrases.select_related("category").order_by("lot_order", "pk"), 50)
-    page = paginator.get_page(request.GET.get("page"))
-    entries = list(page.object_list.prefetch_related(Prefetch(
-        "source_prompts",
-        queryset=prompts.select_related("theme").order_by("theme__order", "number", "pk"),
-        to_attr="vocabulary_sources",
-    )))
-    for phrase in entries:
-        phrase.vocabulary_status = statuses[phrase.pk]
-        phrase.vocabulary_status_label = status_labels[phrase.vocabulary_status]
-        source_themes = {source.theme_id: source.theme for source in phrase.vocabulary_sources}
-        phrase.vocabulary_themes = [
+    review_batches, batches_by_theme = _theme_vocabulary_directory_batches(
+        task, request.user, theme_models,
+    )
+    themes = []
+    for theme in theme_models:
+        section_counts = [
             {
-                "name": source_theme.display_name,
-                "url": reverse(
-                    "study:task_vocabulary_theme",
-                    args=[task.part.slug, task.slug, source_theme.slug],
-                ),
+                "count": counts.get((theme.pk, section["category"]), 0),
+                "title": section["title"].lower(),
             }
-            for source_theme in source_themes.values()
+            for section in EE_TACHE_THREE_VOCABULARY_SECTIONS
         ]
-    page.object_list = entries
-    params = {
-        key: value for key, value in {
-            "q": query, "status": status, "theme": theme.slug if theme else "",
-        }.items() if value
-    }
-    directory_url = reverse("study:task_phrases", args=[task.part.slug, task.slug])
-
-    def page_url(number):
-        return directory_url + "?" + urlencode({**params, "page": number})
-
-    review_batches = review_batches_from_rows(rows, scope)
+        themes.append({
+            "data": {"name": theme.display_name, "icon": theme.icon},
+            "theme": theme,
+            "section_counts": [item for item in section_counts if item["count"]],
+            "phrase_count": sum(item["count"] for item in section_counts),
+            "summary": _theme_vocabulary_batch_summary(batches_by_theme[theme.slug]),
+            "url": reverse(
+                "study:task_vocabulary_theme",
+                args=[task.part.slug, task.slug, theme.slug],
+            ),
+        })
+    scope = _theme_vocabulary_scope(task)
     next_batch = next(
         (batch for batch in review_batches if batch["is_next"]),
         None,
     )
     return render(
         request,
-        "study/vocabulary_entries.html",
+        "study/theme_vocabulary_directory.html",
         {
             "part": task.part,
             "task": task,
             "section": "vocabulary",
             "themes": themes,
-            "selected_theme": theme,
-            "directory_url": directory_url,
             "theme_count": len(themes),
-            "phrase_count": len(phrase_ids),
+            "phrase_count": _distinct_count(phrases),
             "batch_count": len(review_batches),
-            "summary": card_unit_progress_from_rows(
-                row for row in rows if row["phrase_id"] in phrase_ids
-            ),
-            "query": query,
-            "status": status,
-            "entries": entries,
-            "page_obj": page,
-            "page_links": [
-                {"number": number, "url": page_url(number) if number != paginator.ELLIPSIS else ""}
-                for number in paginator.get_elided_page_range(page.number, on_each_side=1, on_ends=1)
-            ],
-            "previous_page_url": page_url(page.previous_page_number()) if page.has_previous() else "",
-            "next_page_url": page_url(page.next_page_number()) if page.has_next() else "",
+            "summary": _theme_vocabulary_batch_summary(review_batches),
+            "theme_status_counts": _theme_vocabulary_status_counts(themes),
+            "directory_description": "Mots, expressions et formulations pour l’écriture.",
             "review_url": (
                 next_batch["review_url"] if next_batch else ""
             ),
@@ -2946,7 +2923,33 @@ def _ee_tache_three_vocabulary_directory(request, task, theme=None):
 
 
 def _ee_tache_three_vocabulary_theme_detail(request, task, theme):
-    return _ee_tache_three_vocabulary_directory(request, task, theme)
+    return render(
+        request,
+        "study/theme_vocabulary_detail.html",
+        _theme_vocabulary_detail_context(
+            request,
+            task=task,
+            theme=theme,
+            theme_data=theme,
+            sections=EE_TACHE_THREE_VOCABULARY_SECTIONS,
+            section="vocabulary",
+            directory_url=reverse(
+                "study:task_phrases", args=[task.part.slug, task.slug],
+            ),
+            back_label="Tous les thèmes",
+            vocabulary_label="Vocabulaire par thème",
+            hero_description=(
+                "Retrouvez les mots et formulations du thème, "
+                "avec leur sens et leur exemple."
+            ),
+            pathways_title="Parcours guidés",
+            pathways_description=(
+                "Progressez par lots de dix fiches, "
+                "puis révisez les formulations en contexte."
+            ),
+            label_batches_by_section=False,
+        ),
+    )
 
 
 def _tache_two_subject_month(month_slug):

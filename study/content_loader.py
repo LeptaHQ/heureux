@@ -4170,14 +4170,19 @@ def parse_ee_tache_three_subject_vocabulary(
         if directory == EE_TACHE_THREE_VOCABULARY_DIR
         else None
     )
-    replacement_sources = (
-        {
-            replacement_id: retired_id
-            for retired_id, replacement_id in identity_manifest[1].items()
-        }
-        if identity_manifest
-        else {}
-    )
+    effective_answers = {}
+    if directory == EE_TACHE_THREE_VOCABULARY_DIR:
+        authors = load_ee_tache_three_author_responses(
+            EE_TACHE_THREE_AUTHOR_RESPONSES_PATH
+        )
+        for month in load_ee_tache_three_months():
+            for combinaison in month.combinaisons:
+                author = authors.get(combinaison.content_key)
+                effective_answers[combinaison.content_key] = (
+                    author["synthese"] + " " + author["point_de_vue"]
+                    if author
+                    else combinaison.synthese + " " + combinaison.point_de_vue
+                )
 
     paths = sorted(directory.glob("*.json"))
     if not paths:
@@ -4304,29 +4309,38 @@ def parse_ee_tache_three_subject_vocabulary(
                         f"{location} example must contain its french target "
                         f"{french!r}"
                     )
+                if effective_answers:
+                    try:
+                        effective_answer = effective_answers[response_key]
+                    except KeyError as error:
+                        raise ValueError(
+                            f"{location} has no final source response"
+                        ) from error
+                    if example not in effective_answer:
+                        raise ValueError(
+                            f"{location} example is not verbatim in its final "
+                            "source or effective author response"
+                        )
                 if identity_manifest:
-                    historical_identities, _, _ = identity_manifest
+                    historical_identities, revisions, _ = identity_manifest
                     identity_digest = _ee_tache_three_phrase_identity_digest(
                         values["kind"],
                         french,
                         english,
                     )
-                    if phrase_id in historical_identities:
-                        if identity_digest != historical_identities[phrase_id]:
-                            raise ValueError(
-                                f"{location} repurposes historical vocabulary ID "
-                                f"{phrase_id!r}"
-                            )
-                    elif phrase_id in replacement_sources:
-                        retired_id = replacement_sources[phrase_id]
-                        if identity_digest == historical_identities[retired_id]:
-                            raise ValueError(
-                                f"{location} needlessly replaces unchanged "
-                                f"vocabulary ID {retired_id!r}"
-                            )
-                    else:
+                    if phrase_id not in historical_identities:
                         raise ValueError(
                             f"{location} has an untracked vocabulary ID "
+                            f"{phrase_id!r}"
+                        )
+                    if phrase_id in revisions:
+                        raise ValueError(
+                            f"{location} reuses retired vocabulary ID "
+                            f"{phrase_id!r}"
+                        )
+                    if identity_digest != historical_identities[phrase_id]:
+                        raise ValueError(
+                            f"{location} repurposes historical vocabulary ID "
                             f"{phrase_id!r}"
                         )
 
@@ -4365,10 +4379,7 @@ def parse_ee_tache_three_subject_vocabulary(
         )
     if identity_manifest:
         historical_identities, revisions, _ = identity_manifest
-        expected_ids = (
-            set(historical_identities).difference(revisions)
-            | set(revisions.values())
-        )
+        expected_ids = set(historical_identities).difference(revisions)
         if seen_phrase_ids != expected_ids:
             raise ValueError("EE Tâche 3 phrase identity coverage mismatch")
     return phrases
@@ -4383,6 +4394,25 @@ def _ee_tache_three_phrase_identity_digest(
     return hashlib.sha256(identity.encode()).hexdigest()
 
 
+_EE_TACHE_THREE_REVISION_ID_RE = re.compile(
+    r"^(?P<base>.+?)R(?P<generation>[1-9][0-9]*)$"
+)
+
+
+def _ee_tache_three_phrase_id_generation(phrase_id: str) -> Tuple[str, int]:
+    """Return an immutable phrase-ID root and its revision generation."""
+    match = _EE_TACHE_THREE_REVISION_ID_RE.fullmatch(phrase_id)
+    if match is None:
+        return phrase_id, 0
+    return match["base"], int(match["generation"])
+
+
+def _ee_tache_three_next_phrase_id(phrase_id: str) -> str:
+    """Return the direct successor ID for one retired semantic identity."""
+    root, generation = _ee_tache_three_phrase_id_generation(phrase_id)
+    return f"{root}R{generation + 1}"
+
+
 def _load_ee_tache_three_phrase_identity_manifest(
     path: Path = EE_TACHE_THREE_PHRASE_ID_REVISIONS_PATH,
 ) -> Tuple[Dict[str, str], Dict[str, str], Dict[str, dict]]:
@@ -4394,14 +4424,15 @@ def _load_ee_tache_three_phrase_identity_manifest(
         not isinstance(payload, dict)
         or set(payload)
         != {"version", "historical_identities", "retired"}
-        or payload["version"] != 3
+        or type(payload["version"]) is not int
+        or payload["version"] != 4
         or not isinstance(payload["historical_identities"], dict)
         or not isinstance(payload["retired"], dict)
     ):
         raise ValueError("Invalid EE Tâche 3 phrase identity manifest")
     historical_identities = payload["historical_identities"]
     retired = payload["retired"]
-    if len(historical_identities) != 4140 or any(
+    if len(historical_identities) < 4140 or any(
         not isinstance(phrase_id, str)
         or not phrase_id
         or len(phrase_id) > PHRASE_MAX_LENGTHS["id"]
@@ -4410,6 +4441,15 @@ def _load_ee_tache_three_phrase_identity_manifest(
         for phrase_id, identity_digest in historical_identities.items()
     ):
         raise ValueError("Invalid historical EE Tâche 3 phrase identity")
+    original_ids = {
+        phrase_id
+        for phrase_id in historical_identities
+        if _ee_tache_three_phrase_id_generation(phrase_id)[1] == 0
+    }
+    if len(original_ids) != 4140:
+        raise ValueError(
+            "EE Tâche 3 phrase identity history must retain 4,140 original IDs"
+        )
     retired_fields = {
         "replacement_id",
         "kind",
@@ -4441,14 +4481,27 @@ def _load_ee_tache_three_phrase_identity_manifest(
         source_id: row["replacement_id"]
         for source_id, row in retired.items()
     }
-    if set(revisions) & set(revisions.values()):
-        raise ValueError("EE Tâche 3 phrase-ID revisions reuse retired IDs")
     if len(set(revisions.values())) != len(revisions):
         raise ValueError("Duplicate EE Tâche 3 replacement phrase ID")
     if not set(revisions).issubset(historical_identities):
         raise ValueError("Unknown retired EE Tâche 3 phrase ID")
-    if set(revisions.values()) & set(historical_identities):
-        raise ValueError("EE Tâche 3 replacement reuses a historical phrase ID")
+    if not set(revisions.values()).issubset(historical_identities):
+        raise ValueError("Unknown EE Tâche 3 replacement phrase ID")
+    if any(
+        _ee_tache_three_next_phrase_id(source_id) != replacement_id
+        for source_id, replacement_id in revisions.items()
+    ):
+        raise ValueError(
+            "EE Tâche 3 phrase-ID revisions must use direct successor IDs"
+        )
+    for source_id in revisions:
+        seen = set()
+        cursor = source_id
+        while cursor in revisions:
+            if cursor in seen:
+                raise ValueError("Cyclic EE Tâche 3 phrase-ID revision")
+            seen.add(cursor)
+            cursor = revisions[cursor]
     return dict(historical_identities), revisions, {
         source_id: dict(row)
         for source_id, row in retired.items()
@@ -4456,19 +4509,19 @@ def _load_ee_tache_three_phrase_identity_manifest(
 
 
 def ee_tache_three_historical_phrase_identities() -> Dict[str, str]:
-    """Return the immutable semantic target digest for every original ID."""
+    """Return immutable semantic target digests for every ID generation."""
     historical_identities, _, _ = _load_ee_tache_three_phrase_identity_manifest()
     return historical_identities
 
 
 def ee_tache_three_phrase_id_revisions() -> Dict[str, str]:
-    """Return retired-to-replacement IDs without migrating learner state."""
+    """Return direct retired-to-successor IDs without migrating learner state."""
     _, revisions, _ = _load_ee_tache_three_phrase_identity_manifest()
     return revisions
 
 
 def ee_tache_three_retired_phrase_data() -> Dict[str, dict]:
-    """Return recoverable content for retired identities already overwritten."""
+    """Return recoverable content for every retired identity generation."""
     _, _, retired = _load_ee_tache_three_phrase_identity_manifest()
     return retired
 
@@ -4517,6 +4570,21 @@ def ee_tache_three_phrase_id_merges(
             for source_id, target_id in merges.items()
         ):
             raise ValueError("Invalid EE Tâche 3 phrase-ID merge")
+        historical_identities = ee_tache_three_historical_phrase_identities()
+        if not (
+            set(merges).issubset(historical_identities)
+            and set(merges.values()).issubset(historical_identities)
+        ):
+            raise ValueError(
+                "EE Tâche 3 phrase-ID merge references unknown history"
+            )
+        if any(
+            _ee_tache_three_phrase_id_generation(phrase_id)[1] != 0
+            for phrase_id in (*merges, *merges.values())
+        ):
+            raise ValueError(
+                "EE Tâche 3 phrase-ID merge must preserve original alias IDs"
+            )
         return dict(merges)
 
     entries_by_response: Dict[str, List[dict]] = {}

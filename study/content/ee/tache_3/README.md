@@ -53,11 +53,13 @@ Ce dossier regroupe les **sujets sources** et l'ensemble des **réponses modèle
   dans un bloc. Une correction d'exemple ou d'usage conserve l'identifiant si la
   cible française, la consigne anglaise et la catégorie restent les mêmes. Une
   cible remplacée reçoit un nouvel identifiant répertorié dans
-  `phrase_id_revisions.json`. Ce manifeste fixe l'empreinte sémantique des
-  **4 140 identifiants historiques** et conserve le contenu des cibles retirées
-  pour réparer un éventuel import intermédiaire. L'ancien objet est désactivé,
-  sans transférer son calendrier, son statut appris ou ses annotations au
-  remplacement.
+  `phrase_id_revisions.json`. Le manifeste v4 fixe l'empreinte sémantique des
+  **4 140 identifiants d'origine** et de chaque génération `R<n>` ultérieure.
+  Chaque cible retirée conserve son contenu récupérable et son successeur direct :
+  `original → R1`, puis `R1 → R2` si la cible R1 change à son tour. Une correction
+  d'exemple ou d'usage seule ne crée pas de génération. L'import rétablit et
+  désactive chaque ancienne génération écrasée, sans transférer son calendrier,
+  son statut appris, ses journaux ou ses annotations vers le remplacement.
 
 **Mémoires** — `memoires/memoire_<Q>.json`
 - **4 mémoires trimestrielles** de formulations réutilisables, calquées sur la structure

@@ -657,105 +657,322 @@ class NonDestructiveImportTests(TestCase):
         self.assertFalse(imported_new.is_active)
         self.assertEqual(card.reps, 6)
 
-    def test_replacement_phrase_id_does_not_inherit_retired_learner_state(self):
+    def test_phrase_revision_chain_repairs_retired_generations_without_state_transfer(self):
         response = factories.make_response()
         prompt = response.prompts.get(is_canonical=True)
-        user = factories.make_user("phrase-identity-revision")
-        retired = factories.make_phrase(tier="subject")
-        retired.phrase_id = "E3-JAN-C04-07"
-        retired.expression = "trouver un logement, un emploi et leur autonomie"
-        retired.anchor = "trouver un logement, un emploi et leur autonomie"
-        retired.english_cue = "find housing, a job and their independence"
-        retired.example = (
-            "Cette aide permet de trouver un logement, un emploi et leur "
-            "autonomie."
-        )
-        retired.note = "Repurposed by an unsafe intermediate import."
-        retired.save(update_fields=[
+        user = factories.make_user("phrase-revision-chain")
+        original_id = "E3-CHN-C1-1"
+        revision_one_id = f"{original_id}R1"
+        revision_two_id = f"{original_id}R2"
+        original = factories.make_phrase(tier="subject")
+        original.phrase_id = original_id
+        original.expression = "unsafe original target"
+        original.anchor = original.expression
+        original.english_cue = "unsafe original cue"
+        original.example = "Unsafe original example."
+        original.note = "Unsafe original note."
+        original.save(update_fields=[
             "phrase_id", "expression", "anchor", "english_cue", "example", "note",
         ])
-        old_card = factories.make_phrase_card(
+        revision_one = factories.make_phrase(tier="subject")
+        revision_one.phrase_id = revision_one_id
+        revision_one.expression = "unsafe revision target"
+        revision_one.anchor = revision_one.expression
+        revision_one.english_cue = "unsafe revision cue"
+        revision_one.example = "Unsafe revision example."
+        revision_one.note = "Unsafe revision note."
+        revision_one.save(update_fields=[
+            "phrase_id", "expression", "anchor", "english_cue", "example", "note",
+        ])
+        original_card = factories.make_phrase_card(
             user=user,
-            phrase=retired,
+            phrase=original,
             state=CardState.REVIEW,
             reps=9,
             interval_days=21,
             last_reviewed=timezone.now(),
         )
-        learned = ThemeVocabularyProgress.objects.create(
+        revision_one_card = factories.make_phrase_card(
             user=user,
-            phrase=retired,
+            phrase=revision_one,
+            state=CardState.REVIEW,
+            reps=12,
+            interval_days=34,
+            last_reviewed=timezone.now(),
         )
-        annotation = Annotation.objects.create(
+        original_learned = ThemeVocabularyProgress.objects.create(
+            user=user,
+            phrase=original,
+        )
+        revision_one_learned = ThemeVocabularyProgress.objects.create(
+            user=user,
+            phrase=revision_one,
+        )
+        original_annotation = Annotation.objects.create(
             user=user,
             task=response.theme.task,
             kind=AnnotationKind.HIGHLIGHT,
-            quote="plus durable",
-            source_key="phrase:E3-JAN-C04-07:front",
+            quote="ancienne cible",
+            source_key=f"phrase:{original_id}:front",
             source_path="/expression-ecrite/tache-3/vocabulaire/",
             start_offset=0,
             end_offset=12,
         )
+        revision_one_annotation = Annotation.objects.create(
+            user=user,
+            task=response.theme.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="première révision",
+            source_key=f"phrase:{revision_one_id}:front",
+            source_path="/expression-ecrite/tache-3/vocabulaire/",
+            start_offset=0,
+            end_offset=18,
+        )
+        original_log = ReviewLog.objects.create(
+            user=user,
+            card=original_card,
+            rating=Rating.GOOD,
+            state_before=CardState.LEARNING,
+            state_after=CardState.REVIEW,
+        )
+        revision_one_log = ReviewLog.objects.create(
+            user=user,
+            card=revision_one_card,
+            rating=Rating.GOOD,
+            state_before=CardState.LEARNING,
+            state_after=CardState.REVIEW,
+        )
         replacement = content.PhraseData(
-            phrase_id="E3-JAN-C04-07R1",
+            phrase_id=revision_two_id,
             tier="subject",
             category=content.EE_TACHE_THREE_VOCABULARY_CATEGORIES["collocation"],
-            english_cue="find housing, a job and their independence",
-            expression="trouver un logement, un emploi et leur autonomie",
-            anchor="trouver un logement, un emploi et leur autonomie",
-            example=(
-                "Cette aide permet de trouver un logement, un emploi et leur "
-                "autonomie."
-            ),
-            note="Replacement target.",
+            english_cue="make a durable choice",
+            expression="faire un choix durable",
+            anchor="faire un choix durable",
+            example="Cette décision permet de faire un choix durable.",
+            note="Collocation ; réutilisable en Société.",
             sources_raw=f"{prompt.theme.name} P{prompt.number}",
             sources=((prompt.theme.name, prompt.number),),
             order=1500,
         )
+        retired = {
+            original_id: {
+                "replacement_id": revision_one_id,
+                "kind": "collocation",
+                "french": "un choix éclairé",
+                "english": "an informed choice",
+                "example": "Cette décision favorise un choix éclairé.",
+                "usage": "Nom ; réutilisable en Société.",
+            },
+            revision_one_id: {
+                "replacement_id": revision_two_id,
+                "kind": "collocation",
+                "french": "faire un choix raisonné",
+                "english": "make a considered choice",
+                "example": "Cette décision aide à faire un choix raisonné.",
+                "usage": "Collocation ; réutilisable en Société.",
+            },
+        }
 
         command = Command()
-        command._import_phrases(
-            [replacement],
-            {(prompt.theme.name, prompt.number): prompt},
-        )
-        command._sync_cards({response.content_key: response}, user=user)
+        with patch.object(
+            content,
+            "ee_tache_three_retired_phrase_data",
+            return_value=retired,
+        ):
+            for _ in range(2):
+                command._import_phrases(
+                    [replacement],
+                    {(prompt.theme.name, prompt.number): prompt},
+                )
+                command._sync_cards({response.content_key: response}, user=user)
 
-        retired.refresh_from_db()
-        old_card.refresh_from_db()
-        learned.refresh_from_db()
-        annotation.refresh_from_db()
-        current = Phrase.objects.get(phrase_id=replacement.phrase_id)
+        original.refresh_from_db()
+        revision_one.refresh_from_db()
+        original_card.refresh_from_db()
+        revision_one_card.refresh_from_db()
+        original_learned.refresh_from_db()
+        revision_one_learned.refresh_from_db()
+        original_annotation.refresh_from_db()
+        revision_one_annotation.refresh_from_db()
+        current = Phrase.objects.get(phrase_id=revision_two_id)
         current_card = Card.objects.get(
             user=user,
             phrase=current,
             card_type=CardType.PHRASE_PRODUCTION,
         )
-        self.assertFalse(retired.is_active)
-        self.assertEqual(retired.expression, "plus durable")
-        self.assertEqual(retired.english_cue, "more sustainable")
+
+        self.assertFalse(original.is_active)
+        self.assertEqual(original.expression, retired[original_id]["french"])
+        self.assertEqual(original.english_cue, retired[original_id]["english"])
+        self.assertEqual(original.example, retired[original_id]["example"])
+        self.assertEqual(original.note, retired[original_id]["usage"])
+        self.assertFalse(revision_one.is_active)
         self.assertEqual(
-            retired.example,
-            "Cependant, l’engagement associatif est jugé plus durable lorsqu’il "
-            "conduit les bénéficiaires vers un logement, un emploi et l’autonomie.",
+            revision_one.expression, retired[revision_one_id]["french"]
         )
         self.assertEqual(
-            retired.note,
-            "Locution ; réutilisable en Solidarité/Emploi.",
+            revision_one.english_cue, retired[revision_one_id]["english"]
         )
-        self.assertEqual(old_card.reps, 9)
-        self.assertEqual(old_card.interval_days, 21)
-        self.assertEqual(learned.phrase_id, retired.pk)
         self.assertEqual(
-            annotation.source_key,
-            "phrase:E3-JAN-C04-07:front",
+            revision_one.example, retired[revision_one_id]["example"]
+        )
+        self.assertEqual(
+            revision_one.note, retired[revision_one_id]["usage"]
+        )
+        self.assertEqual((original_card.reps, original_card.interval_days), (9, 21))
+        self.assertEqual(
+            (revision_one_card.reps, revision_one_card.interval_days), (12, 34)
+        )
+        self.assertEqual(original_learned.phrase_id, original.pk)
+        self.assertEqual(revision_one_learned.phrase_id, revision_one.pk)
+        self.assertEqual(
+            original_annotation.source_key, f"phrase:{original_id}:front"
+        )
+        self.assertEqual(
+            revision_one_annotation.source_key,
+            f"phrase:{revision_one_id}:front",
+        )
+        self.assertEqual(
+            ReviewLog.objects.get(pk=original_log.pk).card_id,
+            original_card.pk,
+        )
+        self.assertEqual(
+            ReviewLog.objects.get(pk=revision_one_log.pk).card_id,
+            revision_one_card.pk,
         )
         self.assertTrue(current.is_active)
+        self.assertEqual(
+            Card.objects.filter(
+                user=user,
+                phrase=current,
+                card_type=CardType.PHRASE_PRODUCTION,
+            ).count(),
+            1,
+        )
         self.assertEqual(current_card.state, CardState.NEW)
         self.assertEqual(current_card.reps, 0)
         self.assertFalse(
             ThemeVocabularyProgress.objects.filter(
                 user=user,
                 phrase=current,
+            ).exists()
+        )
+
+    def test_alias_progress_stays_with_the_historical_canonical_identity(self):
+        response = factories.make_response()
+        prompt = response.prompts.get(is_canonical=True)
+        user = factories.make_user("phrase-revision-alias")
+        canonical_id = "E3-CAN-C1-1"
+        replacement_id = f"{canonical_id}R1"
+        alias_id = "E3-ALS-C1-1"
+        canonical = factories.make_phrase(tier="subject")
+        canonical.phrase_id = canonical_id
+        canonical.expression = "unsafe canonical target"
+        canonical.anchor = canonical.expression
+        canonical.english_cue = "unsafe canonical cue"
+        canonical.example = "Unsafe canonical example."
+        canonical.note = "Unsafe canonical note."
+        canonical.save(update_fields=[
+            "phrase_id", "expression", "anchor", "english_cue", "example", "note",
+        ])
+        alias = factories.make_phrase(tier="subject")
+        alias.phrase_id = alias_id
+        alias.save(update_fields=["phrase_id"])
+        canonical_card = factories.make_phrase_card(
+            user=user,
+            phrase=canonical,
+            state=CardState.LEARNING,
+            reps=2,
+        )
+        alias_card = factories.make_phrase_card(
+            user=user,
+            phrase=alias,
+            state=CardState.REVIEW,
+            reps=13,
+            interval_days=45,
+            last_reviewed=timezone.now(),
+        )
+        ThemeVocabularyProgress.objects.create(user=user, phrase=alias)
+        annotation = Annotation.objects.create(
+            user=user,
+            task=response.theme.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="cible alias",
+            source_key=f"phrase:{alias_id}:front",
+            source_path="/expression-ecrite/tache-3/vocabulaire/",
+            start_offset=0,
+            end_offset=11,
+        )
+        replacement = content.PhraseData(
+            phrase_id=replacement_id,
+            tier="subject",
+            category=content.EE_TACHE_THREE_VOCABULARY_CATEGORIES["collocation"],
+            english_cue="support a long-term choice",
+            expression="soutenir un choix durable",
+            anchor="soutenir un choix durable",
+            example="Cette mesure aide à soutenir un choix durable.",
+            note="Collocation ; réutilisable en Société.",
+            sources_raw=f"{prompt.theme.name} P{prompt.number}",
+            sources=((prompt.theme.name, prompt.number),),
+            order=1500,
+        )
+        retired = {
+            canonical_id: {
+                "replacement_id": replacement_id,
+                "kind": "collocation",
+                "french": "un choix éclairé",
+                "english": "an informed choice",
+                "example": "Cette décision favorise un choix éclairé.",
+                "usage": "Nom ; réutilisable en Société.",
+            },
+        }
+
+        command = Command()
+        with patch.object(
+            content,
+            "ee_tache_three_retired_phrase_data",
+            return_value=retired,
+        ):
+            command._import_phrases(
+                [replacement],
+                {(prompt.theme.name, prompt.number): prompt},
+            )
+        command._sync_cards({response.content_key: response}, user=user)
+        with patch.object(
+            content,
+            "ee_tache_three_phrase_id_merges",
+            return_value={alias_id: canonical_id},
+        ):
+            command._reconcile_phrase_cards()
+
+        canonical.refresh_from_db()
+        canonical_card.refresh_from_db()
+        alias_card.refresh_from_db()
+        annotation.refresh_from_db()
+        replacement_phrase = Phrase.objects.get(phrase_id=replacement_id)
+        replacement_card = Card.objects.get(
+            user=user,
+            phrase=replacement_phrase,
+            card_type=CardType.PHRASE_PRODUCTION,
+        )
+        self.assertFalse(canonical.is_active)
+        self.assertEqual(canonical.expression, retired[canonical_id]["french"])
+        self.assertEqual(canonical_card.reps, alias_card.reps)
+        self.assertEqual(canonical_card.interval_days, alias_card.interval_days)
+        self.assertTrue(
+            ThemeVocabularyProgress.objects.filter(
+                user=user,
+                phrase=canonical,
+            ).exists()
+        )
+        self.assertEqual(annotation.source_key, f"phrase:{canonical_id}:front")
+        self.assertEqual(replacement_card.state, CardState.NEW)
+        self.assertEqual(replacement_card.reps, 0)
+        self.assertFalse(
+            ThemeVocabularyProgress.objects.filter(
+                user=user,
+                phrase=replacement_phrase,
             ).exists()
         )
 

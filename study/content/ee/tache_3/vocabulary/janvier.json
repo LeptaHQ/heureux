@@ -29,19 +29,19 @@
           "usage": "Connecteur discursif ; réutilisable en Éducation/Santé."
         },
         {
-          "id": "E3-JAN-C01-03",
+          "id": "E3-JAN-C01-03R1",
           "kind": "mot-cle",
-          "french": "de distributeurs automatiques",
+          "french": "distributeurs automatiques",
           "english": "vending machines",
           "example": "Les deux documents abordent l’installation de distributeurs automatiques dans les lycées.",
           "usage": "Mot-clé thématique ; réutilisable en Éducation/Santé."
         },
         {
-          "id": "E3-JAN-C01-04",
+          "id": "E3-JAN-C01-04R1",
           "kind": "collocation",
-          "french": "génère des revenus pour l’école",
-          "english": "generates revenue for the school",
-          "example": "Le premier soutient cette mesure, car elle offre une solution pratique aux élèves, peut proposer des boissons saines et génère des revenus pour l’école.",
+          "french": "génèrent des revenus pour l’école",
+          "english": "generate revenue for the school",
+          "example": "Le premier soutient cette mesure, car ils offrent une solution pratique aux élèves, peuvent proposer des boissons saines et génèrent des revenus pour l’école.",
           "usage": "Collocation thématique ; réutilisable en Éducation/Santé."
         },
         {
@@ -49,7 +49,7 @@
           "kind": "collocation",
           "french": "favorisent l’obésité",
           "english": "promote obesity",
-          "example": "En revanche, le second s’y oppose : ces machines vendent surtout des boissons sucrées qui favorisent l’obésité et d’autres problèmes de santé.",
+          "example": "En revanche, le second s’y oppose : trop de boissons sucrées favorisent l’obésité et d’autres problèmes de santé.",
           "usage": "Collocation thématique ; réutilisable en Éducation/Santé."
         },
         {
@@ -57,7 +57,7 @@
           "kind": "verbe-action",
           "french": "soutient cette mesure",
           "english": "supports this measure",
-          "example": "Le premier soutient cette mesure, car elle offre une solution pratique aux élèves, peut proposer des boissons saines et génère des revenus pour l’école.",
+          "example": "Le premier soutient cette mesure, car ils offrent une solution pratique aux élèves, peuvent proposer des boissons saines et génèrent des revenus pour l’école.",
           "usage": "Verbe d’action ; réutilisable en Éducation/Santé."
         },
         {
@@ -65,15 +65,15 @@
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
-          "example": "Tout d’abord, l’accès rapide à une boisson aide les élèves pressés à tenir une longue journée.",
+          "example": "Tout d’abord, un accès rapide à une boisson aide les élèves à rester concentrés pendant une longue journée.",
           "usage": "Connecteur discursif ; réutilisable en Éducation/Santé."
         },
         {
-          "id": "E3-JAN-C01-08",
+          "id": "E3-JAN-C01-08R1",
           "kind": "mot-cle",
-          "french": "une solution pratique aux élèves",
-          "english": "a practical solution for students",
-          "example": "Le premier soutient cette mesure, car elle offre une solution pratique aux élèves, peut proposer des boissons saines et génère des revenus pour l’école.",
+          "french": "une solution pratique",
+          "english": "a practical solution",
+          "example": "Le premier soutient cette mesure, car ils offrent une solution pratique aux élèves, peuvent proposer des boissons saines et génèrent des revenus pour l’école.",
           "usage": "Mot-clé thématique ; réutilisable en Éducation/Santé."
         },
         {
@@ -89,39 +89,39 @@
           "kind": "mot-cle",
           "french": "des boissons saines",
           "english": "healthy drinks",
-          "example": "Le premier soutient cette mesure, car elle offre une solution pratique aux élèves, peut proposer des boissons saines et génère des revenus pour l’école.",
+          "example": "Le premier soutient cette mesure, car ils offrent une solution pratique aux élèves, peuvent proposer des boissons saines et génèrent des revenus pour l’école.",
           "usage": "Mot-clé thématique ; réutilisable en Éducation/Santé."
         },
         {
-          "id": "E3-JAN-C01-11",
+          "id": "E3-JAN-C01-11R1",
           "kind": "mot-cle",
-          "french": "des boissons sucrées",
-          "english": "sugary drinks",
-          "example": "En revanche, le second s’y oppose : ces machines vendent surtout des boissons sucrées qui favorisent l’obésité et d’autres problèmes de santé.",
+          "french": "trop de boissons sucrées",
+          "english": "too many sugary drinks",
+          "example": "En revanche, le second s’y oppose : trop de boissons sucrées favorisent l’obésité et d’autres problèmes de santé.",
           "usage": "Mot-clé thématique ; réutilisable en Éducation/Santé."
         },
         {
-          "id": "E3-JAN-C01-12",
+          "id": "E3-JAN-C01-12R1",
           "kind": "phrase-modele",
-          "french": "Le premier soutient cette mesure, car elle offre une solution pratique aux élèves, peut proposer des boissons saines et génère des revenus pour l’école.",
-          "english": "The first supports this measure because it offers students a practical solution, can provide healthy drinks and generates revenue for the school.",
-          "example": "Le premier soutient cette mesure, car elle offre une solution pratique aux élèves, peut proposer des boissons saines et génère des revenus pour l’école.",
+          "french": "Le premier soutient cette mesure, car ils offrent une solution pratique aux élèves, peuvent proposer des boissons saines et génèrent des revenus pour l’école.",
+          "english": "The first supports this measure because they offer students a practical solution, can provide healthy drinks and generate revenue for the school.",
+          "example": "Le premier soutient cette mesure, car ils offrent une solution pratique aux élèves, peuvent proposer des boissons saines et génèrent des revenus pour l’école.",
           "usage": "Phrase modèle complète ; réutilisable en Éducation/Santé."
         },
         {
-          "id": "E3-JAN-C01-13",
+          "id": "E3-JAN-C01-13R1",
           "kind": "tournure",
-          "french": "à condition que l’établissement surveille les produits vendus",
-          "english": "provided that the school monitors the products sold",
-          "example": "De plus, les revenus peuvent financer du matériel scolaire sans exposer les élèves aux sodas, à condition que l’établissement surveille les produits vendus.",
+          "french": "à condition que l’établissement contrôle les produits vendus",
+          "english": "provided that the school controls the products sold",
+          "example": "De plus, les recettes peuvent financer du matériel scolaire, à condition que l’établissement contrôle les produits vendus.",
           "usage": "Tournure grammaticale ; réutilisable en Éducation/Santé."
         },
         {
-          "id": "E3-JAN-C01-14",
+          "id": "E3-JAN-C01-14R1",
           "kind": "mot-cle",
-          "french": "leur contenu",
-          "english": "their contents",
-          "example": "Pour ma part, ces distributeurs peuvent rendre service aux élèves pressés, mais leur contenu doit rester strictement contrôlé.",
+          "french": "d’autres problèmes de santé",
+          "english": "other health problems",
+          "example": "En revanche, le second s’y oppose : trop de boissons sucrées favorisent l’obésité et d’autres problèmes de santé.",
           "usage": "Mot-clé thématique ; réutilisable en Éducation/Santé."
         },
         {
@@ -129,23 +129,23 @@
           "kind": "verbe-action",
           "french": "s’y oppose",
           "english": "opposes it",
-          "example": "En revanche, le second s’y oppose : ces machines vendent surtout des boissons sucrées qui favorisent l’obésité et d’autres problèmes de santé.",
+          "example": "En revanche, le second s’y oppose : trop de boissons sucrées favorisent l’obésité et d’autres problèmes de santé.",
           "usage": "Verbe d’action ; réutilisable en Éducation/Santé."
         },
         {
-          "id": "E3-JAN-C01-16",
+          "id": "E3-JAN-C01-16R1",
           "kind": "mot-cle",
-          "french": "l’accès rapide à une boisson",
+          "french": "un accès rapide à une boisson",
           "english": "quick access to a drink",
-          "example": "Tout d’abord, l’accès rapide à une boisson aide les élèves pressés à tenir une longue journée.",
+          "example": "Tout d’abord, un accès rapide à une boisson aide les élèves à rester concentrés pendant une longue journée.",
           "usage": "Mot-clé thématique ; réutilisable en Éducation/Santé."
         },
         {
-          "id": "E3-JAN-C01-17",
+          "id": "E3-JAN-C01-17R1",
           "kind": "tournure",
-          "french": "sans exposer les élèves aux sodas",
-          "english": "without exposing students to soft drinks",
-          "example": "De plus, les revenus peuvent financer du matériel scolaire sans exposer les élèves aux sodas, à condition que l’établissement surveille les produits vendus.",
+          "french": "sans faire la queue à la cafétéria",
+          "english": "without queueing at the cafeteria",
+          "example": "Par exemple, ils peuvent acheter de l’eau pendant une courte pause sans faire la queue à la cafétéria.",
           "usage": "Tournure grammaticale ; réutilisable en Éducation/Santé."
         },
         {
@@ -153,7 +153,7 @@
           "kind": "expression",
           "french": "De plus",
           "english": "Furthermore",
-          "example": "De plus, les revenus peuvent financer du matériel scolaire sans exposer les élèves aux sodas, à condition que l’établissement surveille les produits vendus.",
+          "example": "De plus, les recettes peuvent financer du matériel scolaire, à condition que l’établissement contrôle les produits vendus.",
           "usage": "Connecteur discursif ; réutilisable en Éducation/Santé."
         },
         {
@@ -165,19 +165,19 @@
           "usage": "Collocation thématique ; réutilisable en Éducation/Santé."
         },
         {
-          "id": "E3-JAN-C01-20",
+          "id": "E3-JAN-C01-20R1",
           "kind": "mot-cle",
-          "french": "aux jus sans sucre ajouté",
-          "english": "juices with no added sugar",
-          "example": "Par exemple, un lycée pourrait limiter l’offre à l’eau, au lait et aux jus sans sucre ajouté.",
+          "french": "boissons sans sucre ajouté",
+          "english": "drinks with no added sugar",
+          "example": "Un lycée pourrait limiter l’offre à l’eau, au lait et aux boissons sans sucre ajouté.",
           "usage": "Mot-clé thématique ; réutilisable en Éducation/Santé."
         },
         {
-          "id": "E3-JAN-C01-21",
+          "id": "E3-JAN-C01-21R1",
           "kind": "collocation",
-          "french": "limiter l’offre à l’eau",
-          "english": "limit the selection to water",
-          "example": "Par exemple, un lycée pourrait limiter l’offre à l’eau, au lait et aux jus sans sucre ajouté.",
+          "french": "limiter l’offre",
+          "english": "limit the selection",
+          "example": "Un lycée pourrait limiter l’offre à l’eau, au lait et aux boissons sans sucre ajouté.",
           "usage": "Collocation thématique ; réutilisable en Éducation/Santé."
         },
         {
@@ -197,11 +197,11 @@
           "usage": "Connecteur discursif ; réutilisable en Éducation/Santé."
         },
         {
-          "id": "E3-JAN-C01-24",
+          "id": "E3-JAN-C01-24R1",
           "kind": "phrase-modele",
-          "french": "Par exemple, un lycée pourrait limiter l’offre à l’eau, au lait et aux jus sans sucre ajouté.",
-          "english": "For example, a high school could limit the selection to water, milk and juices with no added sugar.",
-          "example": "Par exemple, un lycée pourrait limiter l’offre à l’eau, au lait et aux jus sans sucre ajouté.",
+          "french": "Un lycée pourrait limiter l’offre à l’eau, au lait et aux boissons sans sucre ajouté.",
+          "english": "A high school could limit its selection to water, milk and drinks with no added sugar.",
+          "example": "Un lycée pourrait limiter l’offre à l’eau, au lait et aux boissons sans sucre ajouté.",
           "usage": "Phrase modèle complète ; réutilisable en Éducation/Santé."
         },
         {
@@ -209,7 +209,7 @@
           "kind": "mot-cle",
           "french": "du matériel scolaire",
           "english": "school supplies",
-          "example": "De plus, les revenus peuvent financer du matériel scolaire sans exposer les élèves aux sodas, à condition que l’établissement surveille les produits vendus.",
+          "example": "De plus, les recettes peuvent financer du matériel scolaire, à condition que l’établissement contrôle les produits vendus.",
           "usage": "Mot-clé thématique ; réutilisable en Éducation/Santé."
         },
         {
@@ -217,7 +217,7 @@
           "kind": "collocation",
           "french": "financer du matériel scolaire",
           "english": "fund school supplies",
-          "example": "De plus, les revenus peuvent financer du matériel scolaire sans exposer les élèves aux sodas, à condition que l’établissement surveille les produits vendus.",
+          "example": "De plus, les recettes peuvent financer du matériel scolaire, à condition que l’établissement contrôle les produits vendus.",
           "usage": "Collocation thématique ; réutilisable en Éducation/Santé."
         },
         {
@@ -229,20 +229,20 @@
           "usage": "Tournure grammaticale ; réutilisable en Éducation/Santé."
         },
         {
-          "id": "E3-JAN-C01-28",
+          "id": "E3-JAN-C01-28R1",
           "kind": "verbe-action",
-          "french": "surveille les produits vendus",
-          "english": "monitors the products sold",
-          "example": "De plus, les revenus peuvent financer du matériel scolaire sans exposer les élèves aux sodas, à condition que l’établissement surveille les produits vendus.",
+          "french": "contrôle les produits vendus",
+          "english": "controls the products sold",
+          "example": "De plus, les recettes peuvent financer du matériel scolaire, à condition que l’établissement contrôle les produits vendus.",
           "usage": "Verbe d’action ; réutilisable en Éducation/Santé."
         },
         {
-          "id": "E3-JAN-C01-29",
+          "id": "E3-JAN-C01-29R1",
           "kind": "reformulation",
-          "french": "ces machines vendent surtout",
-          "english": "these machines mainly sell",
-          "example": "En revanche, le second s’y oppose : ces machines vendent surtout des boissons sucrées qui favorisent l’obésité et d’autres problèmes de santé.",
-          "usage": "Reformulation utile ; réutilisable en Éducation/Santé."
+          "french": "ces machines",
+          "english": "these machines",
+          "example": "En conclusion, je suis favorable à ces machines seulement si des règles claires protègent la santé des jeunes.",
+          "usage": "Reprise anaphorique ; réutilisable en Éducation/Santé."
         },
         {
           "id": "E3-JAN-C01-30",
@@ -288,7 +288,7 @@
           "kind": "expression",
           "french": "Pour ma part",
           "english": "For my part",
-          "example": "Pour ma part, je pense que la passion et les réseaux sociaux ouvrent une vraie porte d’entrée dans la cuisine, sans remplacer une formation solide.",
+          "example": "Pour ma part, je pense que la passion et les réseaux sociaux peuvent aider un autodidacte à se faire connaître, sans remplacer une formation solide.",
           "usage": "Connecteur discursif ; réutilisable en Travail/Formation."
         },
         {
@@ -328,7 +328,7 @@
           "kind": "tournure",
           "french": "sans remplacer une formation solide",
           "english": "without replacing solid training",
-          "example": "Pour ma part, je pense que la passion et les réseaux sociaux ouvrent une vraie porte d’entrée dans la cuisine, sans remplacer une formation solide.",
+          "example": "Pour ma part, je pense que la passion et les réseaux sociaux peuvent aider un autodidacte à se faire connaître, sans remplacer une formation solide.",
           "usage": "Tournure grammaticale ; réutilisable en Travail/Formation."
         },
         {
@@ -348,11 +348,11 @@
           "usage": "Connecteur discursif ; réutilisable en Travail/Formation."
         },
         {
-          "id": "E3-JAN-C02-12",
+          "id": "E3-JAN-C02-12R1",
           "kind": "verbe-action",
-          "french": "ouvrent une vraie porte d’entrée",
-          "english": "open a real doorway",
-          "example": "Pour ma part, je pense que la passion et les réseaux sociaux ouvrent une vraie porte d’entrée dans la cuisine, sans remplacer une formation solide.",
+          "french": "peuvent aider un autodidacte à se faire connaître",
+          "english": "can help a self-taught person become known",
+          "example": "Pour ma part, je pense que la passion et les réseaux sociaux peuvent aider un autodidacte à se faire connaître, sans remplacer une formation solide.",
           "usage": "Verbe d’action ; réutilisable en Travail/Formation."
         },
         {
@@ -368,7 +368,7 @@
           "kind": "mot-cle",
           "french": "les réseaux sociaux",
           "english": "social media",
-          "example": "Pour ma part, je pense que la passion et les réseaux sociaux ouvrent une vraie porte d’entrée dans la cuisine, sans remplacer une formation solide.",
+          "example": "Pour ma part, je pense que la passion et les réseaux sociaux peuvent aider un autodidacte à se faire connaître, sans remplacer une formation solide.",
           "usage": "Mot-clé thématique ; réutilisable en Travail/Formation."
         },
         {
@@ -392,7 +392,7 @@
           "kind": "expression",
           "french": "De plus",
           "english": "Furthermore",
-          "example": "De plus, cette expérience encadrée complète le talent naturel et prépare aux exigences du métier, car un stage impose des rythmes et des responsabilités qu’aucune vidéo ne peut enseigner.",
+          "example": "De plus, cette expérience encadrée complète le talent naturel et prépare aux exigences du métier, car un stage impose des rythmes et des responsabilités qu’aucune vidéo ne peut enseigner, à condition que l’encadrement soit exigeant.",
           "usage": "Connecteur discursif ; réutilisable en Travail/Formation."
         },
         {
@@ -400,7 +400,7 @@
           "kind": "collocation",
           "french": "une formation solide",
           "english": "solid training",
-          "example": "Pour ma part, je pense que la passion et les réseaux sociaux ouvrent une vraie porte d’entrée dans la cuisine, sans remplacer une formation solide.",
+          "example": "Pour ma part, je pense que la passion et les réseaux sociaux peuvent aider un autodidacte à se faire connaître, sans remplacer une formation solide.",
           "usage": "Collocation thématique ; réutilisable en Travail/Formation."
         },
         {
@@ -420,11 +420,11 @@
           "usage": "Verbe d’action ; réutilisable en Travail/Formation."
         },
         {
-          "id": "E3-JAN-C02-21",
+          "id": "E3-JAN-C02-21R1",
           "kind": "phrase-modele",
-          "french": "Pour ma part, je pense que la passion et les réseaux sociaux ouvrent une vraie porte d’entrée dans la cuisine, sans remplacer une formation solide.",
-          "english": "For my part, I think that passion and social media open a real doorway into cooking without replacing solid training.",
-          "example": "Pour ma part, je pense que la passion et les réseaux sociaux ouvrent une vraie porte d’entrée dans la cuisine, sans remplacer une formation solide.",
+          "french": "Pour ma part, je pense que la passion et les réseaux sociaux peuvent aider un autodidacte à se faire connaître, sans remplacer une formation solide.",
+          "english": "For my part, I think that passion and social media can help a self-taught person become known without replacing solid training.",
+          "example": "Pour ma part, je pense que la passion et les réseaux sociaux peuvent aider un autodidacte à se faire connaître, sans remplacer une formation solide.",
           "usage": "Phrase modèle complète ; réutilisable en Travail/Formation."
         },
         {
@@ -440,7 +440,7 @@
           "kind": "collocation",
           "french": "complète le talent naturel",
           "english": "complements natural talent",
-          "example": "De plus, cette expérience encadrée complète le talent naturel et prépare aux exigences du métier, car un stage impose des rythmes et des responsabilités qu’aucune vidéo ne peut enseigner.",
+          "example": "De plus, cette expérience encadrée complète le talent naturel et prépare aux exigences du métier, car un stage impose des rythmes et des responsabilités qu’aucune vidéo ne peut enseigner, à condition que l’encadrement soit exigeant.",
           "usage": "Collocation thématique ; réutilisable en Travail/Formation."
         },
         {
@@ -488,15 +488,15 @@
           "kind": "reformulation",
           "french": "cette expérience encadrée",
           "english": "this supervised experience",
-          "example": "De plus, cette expérience encadrée complète le talent naturel et prépare aux exigences du métier, car un stage impose des rythmes et des responsabilités qu’aucune vidéo ne peut enseigner.",
+          "example": "De plus, cette expérience encadrée complète le talent naturel et prépare aux exigences du métier, car un stage impose des rythmes et des responsabilités qu’aucune vidéo ne peut enseigner, à condition que l’encadrement soit exigeant.",
           "usage": "Reformulation utile ; réutilisable en Travail/Formation."
         },
         {
-          "id": "E3-JAN-C02-30",
+          "id": "E3-JAN-C02-30R1",
           "kind": "mot-cle",
-          "french": "aux exigences du métier",
-          "english": "the demands of the profession",
-          "example": "De plus, cette expérience encadrée complète le talent naturel et prépare aux exigences du métier, car un stage impose des rythmes et des responsabilités qu’aucune vidéo ne peut enseigner.",
+          "french": "l’organisation et les techniques",
+          "english": "organization and techniques",
+          "example": "Tout d’abord, un professionnel doit maîtriser l’hygiène, l’organisation et les techniques, pas seulement réussir une recette.",
           "usage": "Mot-clé thématique ; réutilisable en Travail/Formation."
         }
       ]
@@ -563,11 +563,11 @@
           "usage": "Mot-clé thématique ; réutilisable en Logement/Vie collective."
         },
         {
-          "id": "E3-JAN-C03-08",
+          "id": "E3-JAN-C03-08R1",
           "kind": "mot-cle",
-          "french": "au partage des tâches",
-          "english": "sharing chores",
-          "example": "En revanche, le second met en garde contre les tensions liées aux personnalités, au partage des tâches et au manque d’intimité, et recommande des règles claires.",
+          "french": "les tâches ménagères",
+          "english": "household chores",
+          "example": "De plus, des règles simples évitent que les tâches ménagères ne deviennent une source de conflits.",
           "usage": "Mot-clé thématique ; réutilisable en Logement/Vie collective."
         },
         {
@@ -587,11 +587,11 @@
           "usage": "Phrase modèle complète ; réutilisable en Logement/Vie collective."
         },
         {
-          "id": "E3-JAN-C03-11",
+          "id": "E3-JAN-C03-11R1",
           "kind": "tournure",
-          "french": "à condition que chacun respecte des règles simples dès son arrivée",
-          "english": "provided that everyone respects simple rules from the moment they arrive",
-          "example": "De plus, la vie commune favorise les rencontres, à condition que chacun respecte des règles simples dès son arrivée.",
+          "french": "sans dépasser son budget",
+          "english": "without exceeding one’s budget",
+          "example": "Tout d’abord, partager le loyer permet de vivre près de son université sans dépasser son budget.",
           "usage": "Tournure grammaticale ; réutilisable en Logement/Vie collective."
         },
         {
@@ -599,7 +599,7 @@
           "kind": "collocation",
           "french": "partager le loyer",
           "english": "share the rent",
-          "example": "Tout d’abord, partager le loyer permet de vivre dans un logement plus confortable qu’en vivant seul.",
+          "example": "Tout d’abord, partager le loyer permet de vivre près de son université sans dépasser son budget.",
           "usage": "Collocation thématique ; réutilisable en Logement/Vie collective."
         },
         {
@@ -611,11 +611,11 @@
           "usage": "Verbe d’action ; réutilisable en Logement/Vie collective."
         },
         {
-          "id": "E3-JAN-C03-14",
+          "id": "E3-JAN-C03-14R1",
           "kind": "mot-cle",
-          "french": "au manque d’intimité",
-          "english": "lack of privacy",
-          "example": "En revanche, le second met en garde contre les tensions liées aux personnalités, au partage des tâches et au manque d’intimité, et recommande des règles claires.",
+          "french": "une source de conflits",
+          "english": "a source of conflict",
+          "example": "De plus, des règles simples évitent que les tâches ménagères ne deviennent une source de conflits.",
           "usage": "Mot-clé thématique ; réutilisable en Logement/Vie collective."
         },
         {
@@ -623,7 +623,7 @@
           "kind": "verbe-action",
           "french": "louer ensemble un appartement",
           "english": "rent an apartment together",
-          "example": "Par exemple, deux étudiants peuvent louer ensemble un appartement proche de leur université et réduire leurs frais de transport.",
+          "example": "Par exemple, deux étudiants peuvent louer ensemble un appartement proche du campus et réduire leurs frais de transport.",
           "usage": "Verbe d’action ; réutilisable en Logement/Vie collective."
         },
         {
@@ -631,7 +631,7 @@
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
-          "example": "Tout d’abord, partager le loyer permet de vivre dans un logement plus confortable qu’en vivant seul.",
+          "example": "Tout d’abord, partager le loyer permet de vivre près de son université sans dépasser son budget.",
           "usage": "Connecteur discursif ; réutilisable en Logement/Vie collective."
         },
         {
@@ -639,15 +639,15 @@
           "kind": "collocation",
           "french": "réduire leurs frais de transport",
           "english": "reduce their transport costs",
-          "example": "Par exemple, deux étudiants peuvent louer ensemble un appartement proche de leur université et réduire leurs frais de transport.",
+          "example": "Par exemple, deux étudiants peuvent louer ensemble un appartement proche du campus et réduire leurs frais de transport.",
           "usage": "Collocation thématique ; réutilisable en Logement/Vie collective."
         },
         {
-          "id": "E3-JAN-C03-18",
+          "id": "E3-JAN-C03-18R1",
           "kind": "verbe-action",
-          "french": "respecte des règles simples",
-          "english": "respects simple rules",
-          "example": "De plus, la vie commune favorise les rencontres, à condition que chacun respecte des règles simples dès son arrivée.",
+          "french": "évitent que les tâches ménagères ne deviennent une source de conflits",
+          "english": "prevent household chores from becoming a source of conflict",
+          "example": "De plus, des règles simples évitent que les tâches ménagères ne deviennent une source de conflits.",
           "usage": "Verbe d’action ; réutilisable en Logement/Vie collective."
         },
         {
@@ -659,11 +659,11 @@
           "usage": "Mot-clé thématique ; réutilisable en Logement/Vie collective."
         },
         {
-          "id": "E3-JAN-C03-20",
+          "id": "E3-JAN-C03-20R1",
           "kind": "collocation",
-          "french": "favorise les rencontres",
-          "english": "encourages social connections",
-          "example": "De plus, la vie commune favorise les rencontres, à condition que chacun respecte des règles simples dès son arrivée.",
+          "french": "rencontres et échanges culturels entre colocataires",
+          "english": "meetings and cultural exchanges among roommates",
+          "example": "Le premier souligne ses avantages : réduction des dépenses de logement, rencontres et échanges culturels entre colocataires.",
           "usage": "Collocation thématique ; réutilisable en Logement/Vie collective."
         },
         {
@@ -683,11 +683,11 @@
           "usage": "Phrase modèle complète ; réutilisable en Logement/Vie collective."
         },
         {
-          "id": "E3-JAN-C03-23",
+          "id": "E3-JAN-C03-23R1",
           "kind": "mot-cle",
-          "french": "un logement plus confortable",
-          "english": "more comfortable housing",
-          "example": "Tout d’abord, partager le loyer permet de vivre dans un logement plus confortable qu’en vivant seul.",
+          "french": "un appartement proche du campus",
+          "english": "an apartment near campus",
+          "example": "Par exemple, deux étudiants peuvent louer ensemble un appartement proche du campus et réduire leurs frais de transport.",
           "usage": "Mot-clé thématique ; réutilisable en Logement/Vie collective."
         },
         {
@@ -695,15 +695,15 @@
           "kind": "expression",
           "french": "De plus",
           "english": "Furthermore",
-          "example": "De plus, la vie commune favorise les rencontres, à condition que chacun respecte des règles simples dès son arrivée.",
+          "example": "De plus, des règles simples évitent que les tâches ménagères ne deviennent une source de conflits.",
           "usage": "Connecteur discursif ; réutilisable en Logement/Vie collective."
         },
         {
-          "id": "E3-JAN-C03-25",
+          "id": "E3-JAN-C03-25R1",
           "kind": "phrase-modele",
-          "french": "Par exemple, deux étudiants peuvent louer ensemble un appartement proche de leur université et réduire leurs frais de transport.",
-          "english": "For example, two students can rent an apartment together near their university and reduce their transport costs.",
-          "example": "Par exemple, deux étudiants peuvent louer ensemble un appartement proche de leur université et réduire leurs frais de transport.",
+          "french": "Par exemple, deux étudiants peuvent louer ensemble un appartement proche du campus et réduire leurs frais de transport.",
+          "english": "For example, two students can rent an apartment together near campus and reduce their transport costs.",
+          "example": "Par exemple, deux étudiants peuvent louer ensemble un appartement proche du campus et réduire leurs frais de transport.",
           "usage": "Phrase modèle complète ; réutilisable en Logement/Vie collective."
         },
         {
@@ -711,15 +711,15 @@
           "kind": "mot-cle",
           "french": "leurs frais de transport",
           "english": "their transport costs",
-          "example": "Par exemple, deux étudiants peuvent louer ensemble un appartement proche de leur université et réduire leurs frais de transport.",
+          "example": "Par exemple, deux étudiants peuvent louer ensemble un appartement proche du campus et réduire leurs frais de transport.",
           "usage": "Mot-clé thématique ; réutilisable en Logement/Vie collective."
         },
         {
-          "id": "E3-JAN-C03-27R1",
+          "id": "E3-JAN-C03-27R2",
           "kind": "mot-cle",
-          "french": "Un planning de ménage",
-          "english": "A cleaning schedule",
-          "example": "Un planning de ménage affiché dans la cuisine répartit ainsi les tâches équitablement.",
+          "french": "Un planning affiché dans la cuisine",
+          "english": "A schedule displayed in the kitchen",
+          "example": "Un planning affiché dans la cuisine répartit équitablement les tâches dès l’emménagement.",
           "usage": "Mot-clé thématique ; réutilisable en Logement/Vie collective."
         },
         {
@@ -731,19 +731,19 @@
           "usage": "Tournure grammaticale ; réutilisable en Logement/Vie collective."
         },
         {
-          "id": "E3-JAN-C03-29",
+          "id": "E3-JAN-C03-29R1",
           "kind": "reformulation",
-          "french": "la vie commune",
-          "english": "shared living",
-          "example": "De plus, la vie commune favorise les rencontres, à condition que chacun respecte des règles simples dès son arrivée.",
+          "french": "la colocation fonctionne",
+          "english": "shared accommodation works",
+          "example": "En conclusion, la colocation fonctionne lorsqu’elle associe économies, dialogue et respect de l’intimité.",
           "usage": "Reformulation utile ; réutilisable en Logement/Vie collective."
         },
         {
-          "id": "E3-JAN-C03-30",
+          "id": "E3-JAN-C03-30R1",
           "kind": "collocation",
-          "french": "répartit ainsi les tâches équitablement",
-          "english": "thereby divides chores fairly",
-          "example": "Un planning de ménage affiché dans la cuisine répartit ainsi les tâches équitablement.",
+          "french": "répartit équitablement les tâches",
+          "english": "distributes chores fairly",
+          "example": "Un planning affiché dans la cuisine répartit équitablement les tâches dès l’emménagement.",
           "usage": "Collocation thématique ; réutilisable en Logement/Vie collective."
         }
       ]
@@ -822,7 +822,7 @@
           "kind": "mot-cle",
           "french": "les bénéficiaires",
           "english": "beneficiaries",
-          "example": "De son côté, le second privilégie l’engagement associatif quotidien, qui aide les bénéficiaires à trouver un logement, un emploi et leur autonomie.",
+          "example": "En conclusion, la priorité est d’unir solidarité concrète et solutions durables afin que les bénéficiaires retrouvent leur autonomie.",
           "usage": "Nom masculin pluriel ; réutilisable en Solidarité/Emploi."
         },
         {
@@ -902,7 +902,7 @@
           "kind": "expression",
           "french": "Par exemple",
           "english": "For example",
-          "example": "Par exemple, une association peut offrir un repas chaud, puis proposer une adresse administrative, une formation et un suivi vers l’emploi.",
+          "example": "Par exemple, une association peut offrir un repas chaud, puis accompagner la personne dans ses démarches pour trouver un logement, suivre une formation et retrouver un emploi.",
           "usage": "Connecteur adverbial ; réutilisable en Solidarité/Emploi."
         },
         {
@@ -910,23 +910,23 @@
           "kind": "verbe-action",
           "french": "offrir un repas chaud",
           "english": "to offer a hot meal",
-          "example": "Par exemple, une association peut offrir un repas chaud, puis proposer une adresse administrative, une formation et un suivi vers l’emploi.",
+          "example": "Par exemple, une association peut offrir un repas chaud, puis accompagner la personne dans ses démarches pour trouver un logement, suivre une formation et retrouver un emploi.",
           "usage": "Construction infinitive ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-21R1",
+          "id": "E3-JAN-C04-21R2",
           "kind": "collocation",
-          "french": "une adresse administrative",
-          "english": "an administrative address",
-          "example": "Par exemple, une association peut offrir un repas chaud, puis proposer une adresse administrative, une formation et un suivi vers l’emploi.",
-          "usage": "Groupe nominal ; réutilisable en Solidarité/Emploi."
+          "french": "suivre une formation et retrouver un emploi",
+          "english": "undertake training and find work again",
+          "example": "Par exemple, une association peut offrir un repas chaud, puis accompagner la personne dans ses démarches pour trouver un logement, suivre une formation et retrouver un emploi.",
+          "usage": "Construction infinitive ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-22R1",
+          "id": "E3-JAN-C04-22R2",
           "kind": "mot-cle",
-          "french": "un suivi vers l’emploi",
-          "english": "follow-up support towards employment",
-          "example": "Par exemple, une association peut offrir un repas chaud, puis proposer une adresse administrative, une formation et un suivi vers l’emploi.",
+          "french": "un besoin vital",
+          "english": "a vital need",
+          "example": "Un besoin vital passe avant toute démarche administrative, nécessairement plus lente.",
           "usage": "Nom masculin ; réutilisable en Solidarité/Emploi."
         },
         {
@@ -1001,35 +1001,35 @@
       "sujet": "Le Livre Papier ou Le Livre Numérique ?",
       "entries": [
         {
-          "id": "E3-JAN-C05-01",
+          "id": "E3-JAN-C05-01R1",
           "kind": "phrase-modele",
-          "french": "Les deux documents abordent le choix entre livre numérique et livre papier.",
+          "french": "Les deux documents abordent le choix entre le livre numérique et le livre papier.",
           "english": "Both documents address the choice between digital and printed books.",
-          "example": "Les deux documents abordent le choix entre livre numérique et livre papier.",
+          "example": "Les deux documents abordent le choix entre le livre numérique et le livre papier.",
           "usage": "Phrase modèle complète ; réutilisable en Culture/Lecture."
         },
         {
-          "id": "E3-JAN-C05-02",
+          "id": "E3-JAN-C05-02R1",
           "kind": "mot-cle",
-          "french": "le choix entre livre numérique et livre papier",
-          "english": "the choice between digital and printed books",
-          "example": "Les deux documents abordent le choix entre livre numérique et livre papier.",
+          "french": "le livre numérique et le livre papier",
+          "english": "digital and printed books",
+          "example": "Les deux documents abordent le choix entre le livre numérique et le livre papier.",
           "usage": "Mot-clé thématique ; réutilisable en Culture/Lecture."
         },
         {
-          "id": "E3-JAN-C05-03",
+          "id": "E3-JAN-C05-03R1",
           "kind": "mot-cle",
-          "french": "son coût réduit",
-          "english": "its reduced cost",
-          "example": "Le premier valorise le numérique pour son coût réduit et son accessibilité aux personnes malvoyantes grâce à l’agrandissement des caractères.",
+          "french": "moins consommateur de papier",
+          "english": "less paper-consuming",
+          "example": "Le premier valorise le numérique, moins cher, moins consommateur de papier et plus accessible aux personnes malvoyantes grâce aux caractères agrandis.",
           "usage": "Mot-clé thématique ; réutilisable en Culture/Lecture."
         },
         {
-          "id": "E3-JAN-C05-04",
+          "id": "E3-JAN-C05-04R1",
           "kind": "collocation",
-          "french": "son accessibilité aux personnes malvoyantes",
-          "english": "its accessibility for visually impaired people",
-          "example": "Le premier valorise le numérique pour son coût réduit et son accessibilité aux personnes malvoyantes grâce à l’agrandissement des caractères.",
+          "french": "plus accessible aux personnes malvoyantes",
+          "english": "more accessible to visually impaired people",
+          "example": "Le premier valorise le numérique, moins cher, moins consommateur de papier et plus accessible aux personnes malvoyantes grâce aux caractères agrandis.",
           "usage": "Collocation thématique ; réutilisable en Culture/Lecture."
         },
         {
@@ -1037,7 +1037,7 @@
           "kind": "verbe-action",
           "french": "valorise le numérique",
           "english": "promotes the digital format",
-          "example": "Le premier valorise le numérique pour son coût réduit et son accessibilité aux personnes malvoyantes grâce à l’agrandissement des caractères.",
+          "example": "Le premier valorise le numérique, moins cher, moins consommateur de papier et plus accessible aux personnes malvoyantes grâce aux caractères agrandis.",
           "usage": "Verbe d’action ; réutilisable en Culture/Lecture."
         },
         {
@@ -1049,11 +1049,11 @@
           "usage": "Collocation thématique ; réutilisable en Culture/Lecture."
         },
         {
-          "id": "E3-JAN-C05-07",
+          "id": "E3-JAN-C05-07R1",
           "kind": "phrase-modele",
-          "french": "De son côté, le second défend la dimension affective du papier : on peut l’offrir, le prêter et apprécier son odeur.",
-          "english": "For its part, the second defends the emotional dimension of paper: it can be given, lent and appreciated for its smell.",
-          "example": "De son côté, le second défend la dimension affective du papier : on peut l’offrir, le prêter et apprécier son odeur.",
+          "french": "De son côté, le second défend l’émotion du papier, que l’on peut offrir ou prêter, et note que le numérique demande des compétences informatiques.",
+          "english": "For its part, the second defends the emotion of paper, which one can give or lend, and notes that digital reading requires computer skills.",
+          "example": "De son côté, le second défend l’émotion du papier, que l’on peut offrir ou prêter, et note que le numérique demande des compétences informatiques.",
           "usage": "Phrase modèle complète ; réutilisable en Culture/Lecture."
         },
         {
@@ -1065,27 +1065,27 @@
           "usage": "Tournure grammaticale ; réutilisable en Culture/Lecture."
         },
         {
-          "id": "E3-JAN-C05-09",
+          "id": "E3-JAN-C05-09R1",
           "kind": "mot-cle",
-          "french": "l’agrandissement des caractères",
-          "english": "enlarging the text",
-          "example": "Le premier valorise le numérique pour son coût réduit et son accessibilité aux personnes malvoyantes grâce à l’agrandissement des caractères.",
+          "french": "caractères agrandis",
+          "english": "enlarged characters",
+          "example": "Le premier valorise le numérique, moins cher, moins consommateur de papier et plus accessible aux personnes malvoyantes grâce aux caractères agrandis.",
           "usage": "Mot-clé thématique ; réutilisable en Culture/Lecture."
         },
         {
-          "id": "E3-JAN-C05-10",
+          "id": "E3-JAN-C05-10R1",
           "kind": "mot-cle",
-          "french": "la dimension affective du papier",
-          "english": "the emotional dimension of paper",
-          "example": "De son côté, le second défend la dimension affective du papier : on peut l’offrir, le prêter et apprécier son odeur.",
+          "french": "l’émotion du papier",
+          "english": "the emotion of paper",
+          "example": "De son côté, le second défend l’émotion du papier, que l’on peut offrir ou prêter, et note que le numérique demande des compétences informatiques.",
           "usage": "Mot-clé thématique ; réutilisable en Culture/Lecture."
         },
         {
-          "id": "E3-JAN-C05-11",
+          "id": "E3-JAN-C05-11R1",
           "kind": "verbe-action",
-          "french": "apprécier son odeur",
-          "english": "appreciate its smell",
-          "example": "De son côté, le second défend la dimension affective du papier : on peut l’offrir, le prêter et apprécier son odeur.",
+          "french": "peut offrir ou prêter",
+          "english": "can give or lend",
+          "example": "De son côté, le second défend l’émotion du papier, que l’on peut offrir ou prêter, et note que le numérique demande des compétences informatiques.",
           "usage": "Verbe d’action ; réutilisable en Culture/Lecture."
         },
         {
@@ -1097,11 +1097,11 @@
           "usage": "Mot-clé thématique ; réutilisable en Culture/Lecture."
         },
         {
-          "id": "E3-JAN-C05-13",
+          "id": "E3-JAN-C05-13R1",
           "kind": "collocation",
-          "french": "rendre les ouvrages plus accessibles",
-          "english": "make books more accessible",
-          "example": "Par exemple, une bibliothèque peut proposer ses nouveautés sur liseuse pour rendre les ouvrages plus accessibles.",
+          "french": "offrir un livre annoté ou le prêter",
+          "english": "give an annotated book or lend it",
+          "example": "De plus, le papier garde une valeur personnelle que l’écran ne remplace pas : offrir un livre annoté ou le prêter reste un geste concret.",
           "usage": "Collocation thématique ; réutilisable en Culture/Lecture."
         },
         {
@@ -1177,11 +1177,11 @@
           "usage": "Connecteur discursif ; réutilisable en Culture/Lecture."
         },
         {
-          "id": "E3-JAN-C05-23",
+          "id": "E3-JAN-C05-23R1",
           "kind": "phrase-modele",
-          "french": "Par exemple, une bibliothèque peut proposer ses nouveautés sur liseuse pour rendre les ouvrages plus accessibles.",
-          "english": "For example, a library can offer its new releases on an e-reader to make books more accessible.",
-          "example": "Par exemple, une bibliothèque peut proposer ses nouveautés sur liseuse pour rendre les ouvrages plus accessibles.",
+          "french": "Par exemple, une personne malvoyante peut agrandir les caractères d’un roman sur sa liseuse.",
+          "english": "For example, a visually impaired person can enlarge the characters of a novel on their e-reader.",
+          "example": "Par exemple, une personne malvoyante peut agrandir les caractères d’un roman sur sa liseuse.",
           "usage": "Phrase modèle complète ; réutilisable en Culture/Lecture."
         },
         {
@@ -1225,10 +1225,10 @@
           "usage": "Collocation thématique ; réutilisable en Culture/Lecture."
         },
         {
-          "id": "E3-JAN-C05-29",
+          "id": "E3-JAN-C05-29R1",
           "kind": "mot-cle",
-          "french": "des deux supports",
-          "english": "both formats",
+          "french": "la coexistence des deux supports",
+          "english": "the coexistence of both formats",
           "example": "En conclusion, les librairies et bibliothèques devraient défendre la coexistence des deux supports afin que chacun lise à sa façon.",
           "usage": "Mot-clé thématique ; réutilisable en Culture/Lecture."
         },
@@ -1280,12 +1280,12 @@
           "usage": "Groupe nominal ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-05R1",
+          "id": "E3-JAN-C06-05R2",
           "kind": "mot-cle",
-          "french": "du recyclage",
-          "english": "of recycling",
-          "example": "Le premier défend un usage limité dans l’alimentation et la médecine, accompagné du recyclage.",
-          "usage": "Nom masculin ; réutilisable en Environnement/Santé."
+          "french": "la santé publique",
+          "english": "public health",
+          "example": "En revanche, le second réclame son abandon en raison de la pollution durable des océans, des dégâts causés aux écosystèmes et des risques pour la santé publique.",
+          "usage": "Nom féminin ; réutilisable en Environnement/Santé."
         },
         {
           "id": "E3-JAN-C06-06R1",
@@ -1364,7 +1364,7 @@
           "kind": "expression",
           "french": "Par exemple",
           "english": "For example",
-          "example": "Par exemple, un supermarché peut vendre en vrac et accepter des contenants réutilisables, tandis qu’une clinique conserve des protections pour ses instruments.",
+          "example": "Par exemple, un supermarché peut vendre en vrac et accepter des contenants réutilisables, tandis qu’une clinique réserve le plastique aux emballages stériles de ses instruments.",
           "usage": "Connecteur adverbial ; réutilisable en Environnement/Santé."
         },
         {
@@ -1372,7 +1372,7 @@
           "kind": "verbe-action",
           "french": "vendre en vrac",
           "english": "to sell in bulk",
-          "example": "Par exemple, un supermarché peut vendre en vrac et accepter des contenants réutilisables, tandis qu’une clinique conserve des protections pour ses instruments.",
+          "example": "Par exemple, un supermarché peut vendre en vrac et accepter des contenants réutilisables, tandis qu’une clinique réserve le plastique aux emballages stériles de ses instruments.",
           "usage": "Construction infinitive ; réutilisable en Environnement/Santé."
         },
         {
@@ -1380,15 +1380,15 @@
           "kind": "mot-cle",
           "french": "des contenants réutilisables",
           "english": "reusable containers",
-          "example": "Par exemple, un supermarché peut vendre en vrac et accepter des contenants réutilisables, tandis qu’une clinique conserve des protections pour ses instruments.",
+          "example": "Par exemple, un supermarché peut vendre en vrac et accepter des contenants réutilisables, tandis qu’une clinique réserve le plastique aux emballages stériles de ses instruments.",
           "usage": "Nom masculin pluriel ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-18R1",
+          "id": "E3-JAN-C06-18R2",
           "kind": "mot-cle",
-          "french": "des protections pour ses instruments",
-          "english": "protective covers for its instruments",
-          "example": "Par exemple, un supermarché peut vendre en vrac et accepter des contenants réutilisables, tandis qu’une clinique conserve des protections pour ses instruments.",
+          "french": "emballages stériles",
+          "english": "sterile packaging",
+          "example": "Par exemple, un supermarché peut vendre en vrac et accepter des contenants réutilisables, tandis qu’une clinique réserve le plastique aux emballages stériles de ses instruments.",
           "usage": "Nom féminin pluriel ; réutilisable en Environnement/Santé."
         },
         {
@@ -1424,9 +1424,9 @@
           "usage": "Formule argumentative ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-23R1",
+          "id": "E3-JAN-C06-23R2",
           "kind": "collocation",
-          "french": "d’alternatives durables",
+          "french": "alternatives durables",
           "english": "sustainable alternatives",
           "example": "De plus, les commerces disposent déjà d’alternatives durables pour de nombreux emballages.",
           "usage": "Groupe nominal ; réutilisable en Environnement/Santé."
@@ -1671,19 +1671,19 @@
           "usage": "Nom masculin ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-23R1",
+          "id": "E3-JAN-C07-23R2",
           "kind": "phrase-modele",
-          "french": "Une émission bien choisie montre le monde que l’école n’a pas le temps d’explorer",
-          "english": "A well-chosen program shows the world that school does not have time to explore",
-          "example": "Une émission bien choisie montre le monde que l’école n’a pas le temps d’explorer.",
+          "french": "Un documentaire choisi avec soin peut faire découvrir un sujet que l’école n’a pas le temps d’aborder.",
+          "english": "A carefully chosen documentary can introduce a subject that school does not have time to cover.",
+          "example": "Un documentaire choisi avec soin peut faire découvrir un sujet que l’école n’a pas le temps d’aborder.",
           "usage": "Formule argumentative ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-24R1",
+          "id": "E3-JAN-C07-24R2",
           "kind": "collocation",
-          "french": "Une émission bien choisie",
-          "english": "A well-chosen program",
-          "example": "Une émission bien choisie montre le monde que l’école n’a pas le temps d’explorer.",
+          "french": "Un documentaire choisi avec soin",
+          "english": "A carefully chosen documentary",
+          "example": "Un documentaire choisi avec soin peut faire découvrir un sujet que l’école n’a pas le temps d’aborder.",
           "usage": "Groupe nominal ; réutilisable en Éducation/Médias."
         },
         {
@@ -1838,20 +1838,20 @@
           "usage": "Proposition réutilisable ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-13R1",
+          "id": "E3-JAN-C08-13R2",
           "kind": "collocation",
           "french": "une vraie coupure",
-          "english": "a real break",
-          "example": "Tout d’abord, une vraie coupure favorise le bien-être et la productivité de l’après-midi.",
+          "english": "a genuine break from work",
+          "example": "Tout d’abord, une vraie coupure permet de se détendre avant de reprendre le travail.",
           "usage": "Groupe nominal ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-14",
+          "id": "E3-JAN-C08-14R1",
           "kind": "mot-cle",
-          "french": "le bien-être",
-          "english": "well-being",
-          "example": "Tout d’abord, une vraie coupure favorise le bien-être et la productivité de l’après-midi.",
-          "usage": "Nom masculin ; réutilisable en Travail/Bien-être."
+          "french": "Quitter son poste quelques minutes",
+          "english": "leaving one’s workstation for a few minutes",
+          "example": "Quitter son poste quelques minutes aide à revenir plus concentré l’après-midi.",
+          "usage": "Construction infinitive ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-JAN-C08-15R1",
@@ -1862,12 +1862,12 @@
           "usage": "Nom féminin pluriel ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-16",
+          "id": "E3-JAN-C08-16R1",
           "kind": "mot-cle",
-          "french": "la productivité de l’après-midi",
-          "english": "afternoon productivity",
-          "example": "Tout d’abord, une vraie coupure favorise le bien-être et la productivité de l’après-midi.",
-          "usage": "Nom féminin ; réutilisable en Travail/Bien-être."
+          "french": "partager le déjeuner",
+          "english": "sharing lunch",
+          "example": "De plus, partager le déjeuner préserve les échanges entre collègues.",
+          "usage": "Construction infinitive ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-JAN-C08-17",
@@ -1894,19 +1894,19 @@
           "usage": "Groupe nominal ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-20R1",
+          "id": "E3-JAN-C08-20R2",
           "kind": "phrase-modele",
-          "french": "Un cerveau reposé commet moins d’erreurs et traite les dossiers plus vite",
-          "english": "A rested mind makes fewer mistakes and handles tasks faster",
-          "example": "Un cerveau reposé commet moins d’erreurs et traite les dossiers plus vite.",
+          "french": "Quitter son poste quelques minutes aide à revenir plus concentré l’après-midi.",
+          "english": "Leaving one’s workstation for a few minutes helps one return more focused in the afternoon.",
+          "example": "Quitter son poste quelques minutes aide à revenir plus concentré l’après-midi.",
           "usage": "Formule argumentative ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-21R1",
+          "id": "E3-JAN-C08-21R2",
           "kind": "tournure",
-          "french": "traite les dossiers plus vite",
-          "english": "handles tasks faster",
-          "example": "Un cerveau reposé commet moins d’erreurs et traite les dossiers plus vite.",
+          "french": "aide à revenir plus concentré l’après-midi",
+          "english": "helps one return more focused in the afternoon",
+          "example": "Quitter son poste quelques minutes aide à revenir plus concentré l’après-midi.",
           "usage": "Locution ; réutilisable en Travail/Bien-être."
         },
         {
@@ -2025,7 +2025,7 @@
           "kind": "expression",
           "french": "Pour ma part",
           "english": "For my part",
-          "example": "Pour ma part, je pense que les cours en ligne conviennent surtout aux personnes autonomes dans leur travail.",
+          "example": "Pour ma part, je pense que les cours en ligne conviennent aux personnes autonomes, à condition qu’elles bénéficient d’un suivi régulier.",
           "usage": "Connecteur discursif ; réutilisable en Langues/Numérique."
         },
         {
@@ -2097,7 +2097,7 @@
           "kind": "mot-cle",
           "french": "les cours en ligne",
           "english": "online courses",
-          "example": "Pour ma part, je pense que les cours en ligne conviennent surtout aux personnes autonomes dans leur travail.",
+          "example": "Pour ma part, je pense que les cours en ligne conviennent aux personnes autonomes, à condition qu’elles bénéficient d’un suivi régulier.",
           "usage": "Mot-clé thématique ; réutilisable en Langues/Numérique."
         },
         {
@@ -2121,7 +2121,7 @@
           "kind": "verbe-action",
           "french": "organiser chaque semaine une courte conversation",
           "english": "organize a short conversation every week",
-          "example": "Un professeur peut organiser chaque semaine une courte conversation et corriger la prononciation à distance.",
+          "example": "Un professeur peut organiser chaque semaine une courte conversation, corriger la prononciation et rester disponible en cas de difficulté.",
           "usage": "Verbe d’action ; réutilisable en Langues/Numérique."
         },
         {
@@ -2149,11 +2149,11 @@
           "usage": "Collocation thématique ; réutilisable en Langues/Numérique."
         },
         {
-          "id": "E3-JAN-C09-21",
+          "id": "E3-JAN-C09-21R1",
           "kind": "phrase-modele",
-          "french": "Pour ma part, je pense que les cours en ligne conviennent surtout aux personnes autonomes dans leur travail.",
-          "english": "For my part, I think online courses are best suited to people who work independently.",
-          "example": "Pour ma part, je pense que les cours en ligne conviennent surtout aux personnes autonomes dans leur travail.",
+          "french": "Pour ma part, je pense que les cours en ligne conviennent aux personnes autonomes, à condition qu’elles bénéficient d’un suivi régulier.",
+          "english": "For my part, I think online courses suit independent people, provided that they receive regular support.",
+          "example": "Pour ma part, je pense que les cours en ligne conviennent aux personnes autonomes, à condition qu’elles bénéficient d’un suivi régulier.",
           "usage": "Phrase modèle complète ; réutilisable en Langues/Numérique."
         },
         {
@@ -2173,11 +2173,11 @@
           "usage": "Phrase modèle complète ; réutilisable en Langues/Numérique."
         },
         {
-          "id": "E3-JAN-C09-24",
+          "id": "E3-JAN-C09-24R1",
           "kind": "mot-cle",
-          "french": "la prononciation à distance",
-          "english": "pronunciation remotely",
-          "example": "Un professeur peut organiser chaque semaine une courte conversation et corriger la prononciation à distance.",
+          "french": "une courte conversation",
+          "english": "a short conversation",
+          "example": "Un professeur peut organiser chaque semaine une courte conversation, corriger la prononciation et rester disponible en cas de difficulté.",
           "usage": "Mot-clé thématique ; réutilisable en Langues/Numérique."
         },
         {
@@ -2197,11 +2197,11 @@
           "usage": "Phrase modèle complète ; réutilisable en Langues/Numérique."
         },
         {
-          "id": "E3-JAN-C09-27",
+          "id": "E3-JAN-C09-27R1",
           "kind": "collocation",
-          "french": "corriger la prononciation à distance",
-          "english": "correct pronunciation remotely",
-          "example": "Un professeur peut organiser chaque semaine une courte conversation et corriger la prononciation à distance.",
+          "french": "corriger la prononciation",
+          "english": "correct pronunciation",
+          "example": "Un professeur peut organiser chaque semaine une courte conversation, corriger la prononciation et rester disponible en cas de difficulté.",
           "usage": "Collocation thématique ; réutilisable en Langues/Numérique."
         },
         {
@@ -2256,7 +2256,7 @@
           "kind": "mot-cle",
           "french": "la pollution des océans",
           "english": "ocean pollution",
-          "example": "Le premier dénonce la pollution des océans, où les déchets s’accumulent, menacent la faune marine et remontent dans la chaîne alimentaire humaine.",
+          "example": "Le premier dénonce la pollution des océans, où les déchets menacent la faune marine et remontent dans la chaîne alimentaire.",
           "usage": "Mot-clé thématique ; réutilisable en Environnement/Santé."
         },
         {
@@ -2264,7 +2264,7 @@
           "kind": "verbe-action",
           "french": "dénonce la pollution des océans",
           "english": "denounces ocean pollution",
-          "example": "Le premier dénonce la pollution des océans, où les déchets s’accumulent, menacent la faune marine et remontent dans la chaîne alimentaire humaine.",
+          "example": "Le premier dénonce la pollution des océans, où les déchets menacent la faune marine et remontent dans la chaîne alimentaire.",
           "usage": "Verbe d’action ; réutilisable en Environnement/Santé."
         },
         {
@@ -2272,7 +2272,7 @@
           "kind": "verbe-action",
           "french": "menacent la faune marine",
           "english": "threaten marine wildlife",
-          "example": "Le premier dénonce la pollution des océans, où les déchets s’accumulent, menacent la faune marine et remontent dans la chaîne alimentaire humaine.",
+          "example": "Le premier dénonce la pollution des océans, où les déchets menacent la faune marine et remontent dans la chaîne alimentaire.",
           "usage": "Verbe d’action ; réutilisable en Environnement/Santé."
         },
         {
@@ -2280,7 +2280,7 @@
           "kind": "mot-cle",
           "french": "la faune marine",
           "english": "marine wildlife",
-          "example": "Le premier dénonce la pollution des océans, où les déchets s’accumulent, menacent la faune marine et remontent dans la chaîne alimentaire humaine.",
+          "example": "Le premier dénonce la pollution des océans, où les déchets menacent la faune marine et remontent dans la chaîne alimentaire.",
           "usage": "Mot-clé thématique ; réutilisable en Environnement/Santé."
         },
         {
@@ -2288,15 +2288,15 @@
           "kind": "expression",
           "french": "Pour ma part",
           "english": "For my part",
-          "example": "Pour ma part, je pense qu’il faut réduire le plastique sans supprimer ses usages médicaux essentiels.",
+          "example": "Pour ma part, je pense qu’il faut réduire le plastique, à condition que ses usages médicaux essentiels soient préservés.",
           "usage": "Connecteur discursif ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C10-08",
+          "id": "E3-JAN-C10-08R1",
           "kind": "collocation",
-          "french": "remontent dans la chaîne alimentaire humaine",
-          "english": "enter the human food chain",
-          "example": "Le premier dénonce la pollution des océans, où les déchets s’accumulent, menacent la faune marine et remontent dans la chaîne alimentaire humaine.",
+          "french": "remontent dans la chaîne alimentaire",
+          "english": "enter the food chain",
+          "example": "Le premier dénonce la pollution des océans, où les déchets menacent la faune marine et remontent dans la chaîne alimentaire.",
           "usage": "Collocation thématique ; réutilisable en Environnement/Santé."
         },
         {
@@ -2304,15 +2304,15 @@
           "kind": "verbe-action",
           "french": "préviennent les infections",
           "english": "prevent infections",
-          "example": "En revanche, le second souligne son utilité médicale : les seringues, les prothèses et les pansements jetables préviennent les infections et sauvent des vies.",
+          "example": "En revanche, le second souligne son utilité médicale : des dispositifs comme les seringues, les cathéters et les pansements préviennent les infections et sauvent des vies.",
           "usage": "Verbe d’action ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C10-10",
+          "id": "E3-JAN-C10-10R1",
           "kind": "phrase-modele",
-          "french": "En revanche, le second souligne son utilité médicale : les seringues, les prothèses et les pansements jetables préviennent les infections et sauvent des vies.",
-          "english": "On the other hand, the second highlights its medical usefulness: syringes, prostheses and disposable dressings prevent infections and save lives.",
-          "example": "En revanche, le second souligne son utilité médicale : les seringues, les prothèses et les pansements jetables préviennent les infections et sauvent des vies.",
+          "french": "En revanche, le second souligne son utilité médicale : des dispositifs comme les seringues, les cathéters et les pansements préviennent les infections et sauvent des vies.",
+          "english": "On the other hand, the second highlights its medical usefulness: devices such as syringes, catheters and dressings prevent infections and save lives.",
+          "example": "En revanche, le second souligne son utilité médicale : des dispositifs comme les seringues, les cathéters et les pansements préviennent les infections et sauvent des vies.",
           "usage": "Phrase modèle complète ; réutilisable en Environnement/Santé."
         },
         {
@@ -2320,15 +2320,15 @@
           "kind": "collocation",
           "french": "sauvent des vies",
           "english": "save lives",
-          "example": "En revanche, le second souligne son utilité médicale : les seringues, les prothèses et les pansements jetables préviennent les infections et sauvent des vies.",
+          "example": "En revanche, le second souligne son utilité médicale : des dispositifs comme les seringues, les cathéters et les pansements préviennent les infections et sauvent des vies.",
           "usage": "Collocation thématique ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C10-12",
+          "id": "E3-JAN-C10-12R1",
           "kind": "tournure",
-          "french": "sans supprimer ses usages médicaux essentiels",
-          "english": "without eliminating its essential medical uses",
-          "example": "Pour ma part, je pense qu’il faut réduire le plastique sans supprimer ses usages médicaux essentiels.",
+          "french": "à condition que ses usages médicaux essentiels soient préservés",
+          "english": "provided that its essential medical uses are preserved",
+          "example": "Pour ma part, je pense qu’il faut réduire le plastique, à condition que ses usages médicaux essentiels soient préservés.",
           "usage": "Tournure grammaticale ; réutilisable en Environnement/Santé."
         },
         {
@@ -2336,7 +2336,7 @@
           "kind": "collocation",
           "french": "réduire le plastique",
           "english": "reduce plastic use",
-          "example": "Pour ma part, je pense qu’il faut réduire le plastique sans supprimer ses usages médicaux essentiels.",
+          "example": "Pour ma part, je pense qu’il faut réduire le plastique, à condition que ses usages médicaux essentiels soient préservés.",
           "usage": "Collocation thématique ; réutilisable en Environnement/Santé."
         },
         {
@@ -2364,11 +2364,11 @@
           "usage": "Connecteur discursif ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C10-17",
+          "id": "E3-JAN-C10-17R1",
           "kind": "mot-cle",
-          "french": "la chaîne alimentaire humaine",
-          "english": "the human food chain",
-          "example": "Le premier dénonce la pollution des océans, où les déchets s’accumulent, menacent la faune marine et remontent dans la chaîne alimentaire humaine.",
+          "french": "la chaîne alimentaire",
+          "english": "the food chain",
+          "example": "Le premier dénonce la pollution des océans, où les déchets menacent la faune marine et remontent dans la chaîne alimentaire.",
           "usage": "Mot-clé thématique ; réutilisable en Environnement/Santé."
         },
         {
@@ -2376,15 +2376,15 @@
           "kind": "mot-cle",
           "french": "son utilité médicale",
           "english": "its medical usefulness",
-          "example": "En revanche, le second souligne son utilité médicale : les seringues, les prothèses et les pansements jetables préviennent les infections et sauvent des vies.",
+          "example": "En revanche, le second souligne son utilité médicale : des dispositifs comme les seringues, les cathéters et les pansements préviennent les infections et sauvent des vies.",
           "usage": "Mot-clé thématique ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C10-19",
+          "id": "E3-JAN-C10-19R1",
           "kind": "phrase-modele",
-          "french": "Pour ma part, je pense qu’il faut réduire le plastique sans supprimer ses usages médicaux essentiels.",
-          "english": "For my part, I think plastic use should be reduced without eliminating its essential medical uses.",
-          "example": "Pour ma part, je pense qu’il faut réduire le plastique sans supprimer ses usages médicaux essentiels.",
+          "french": "Pour ma part, je pense qu’il faut réduire le plastique, à condition que ses usages médicaux essentiels soient préservés.",
+          "english": "For my part, I think plastic use must be reduced, provided that its essential medical uses are preserved.",
+          "example": "Pour ma part, je pense qu’il faut réduire le plastique, à condition que ses usages médicaux essentiels soient préservés.",
           "usage": "Phrase modèle complète ; réutilisable en Environnement/Santé."
         },
         {
@@ -2432,7 +2432,7 @@
           "kind": "mot-cle",
           "french": "ses usages médicaux essentiels",
           "english": "its essential medical uses",
-          "example": "Pour ma part, je pense qu’il faut réduire le plastique sans supprimer ses usages médicaux essentiels.",
+          "example": "Pour ma part, je pense qu’il faut réduire le plastique, à condition que ses usages médicaux essentiels soient préservés.",
           "usage": "Mot-clé thématique ; réutilisable en Environnement/Santé."
         },
         {
@@ -2440,7 +2440,7 @@
           "kind": "verbe-action",
           "french": "proposer des contenants réutilisables",
           "english": "offer reusable containers",
-          "example": "Les commerces peuvent proposer des contenants réutilisables et la vente en vrac.",
+          "example": "Les commerces peuvent proposer des contenants réutilisables et la vente en vrac pour éviter que ces déchets n’atteignent les océans.",
           "usage": "Verbe d’action ; réutilisable en Environnement/Santé."
         },
         {
@@ -2448,7 +2448,7 @@
           "kind": "collocation",
           "french": "la vente en vrac",
           "english": "bulk sales",
-          "example": "Les commerces peuvent proposer des contenants réutilisables et la vente en vrac.",
+          "example": "Les commerces peuvent proposer des contenants réutilisables et la vente en vrac pour éviter que ces déchets n’atteignent les océans.",
           "usage": "Collocation thématique ; réutilisable en Environnement/Santé."
         },
         {
@@ -2527,7 +2527,7 @@
           "kind": "mot-cle",
           "french": "les repas maison",
           "english": "home-cooked meals",
-          "example": "En revanche, le second souligne que les repas maison coûtent moins cher aux familles et permettent de mieux contrôler la qualité de l’assiette.",
+          "example": "En conclusion, il faut que les repas maison restent la règle au quotidien et que les sorties gardent leur rôle de plaisir partagé.",
           "usage": "Nom masculin pluriel ; réutilisable en Alimentation/Budget."
         },
         {
@@ -2627,19 +2627,19 @@
           "usage": "Nom féminin ; réutilisable en Alimentation/Budget."
         },
         {
-          "id": "E3-JAN-C12-19R1",
+          "id": "E3-JAN-C12-19R2",
           "kind": "phrase-modele",
-          "french": "On connaît alors la quantité exacte de sel, de gras et de sucre servie",
-          "english": "One then knows the exact amount of salt, fat and sugar being served",
-          "example": "On connaît alors la quantité exacte de sel, de gras et de sucre servie.",
+          "french": "On sait ainsi combien de sel, de matières grasses et de sucre contient chaque plat.",
+          "english": "This way, one knows how much salt, fat and sugar each dish contains.",
+          "example": "On sait ainsi combien de sel, de matières grasses et de sucre contient chaque plat.",
           "usage": "Formule argumentative ; réutilisable en Alimentation/Budget."
         },
         {
-          "id": "E3-JAN-C12-20R1",
+          "id": "E3-JAN-C12-20R2",
           "kind": "mot-cle",
-          "french": "la quantité exacte de sel, de gras et de sucre",
-          "english": "the exact amount of salt, fat and sugar",
-          "example": "On connaît alors la quantité exacte de sel, de gras et de sucre servie.",
+          "french": "une sortie occasionnelle",
+          "english": "an occasional outing",
+          "example": "De plus, une sortie occasionnelle conserve sa dimension conviviale sans devenir une charge financière.",
           "usage": "Nom féminin ; réutilisable en Alimentation/Budget."
         },
         {
@@ -2691,12 +2691,12 @@
           "usage": "Locution ; réutilisable en Alimentation/Budget."
         },
         {
-          "id": "E3-JAN-C12-27R1",
+          "id": "E3-JAN-C12-27R2",
           "kind": "reformulation",
-          "french": "restaurant",
-          "english": "restaurant",
-          "example": "Les deux documents abordent le choix entre manger au restaurant et chez soi.",
-          "usage": "Nom masculin ; réutilisable en Alimentation/Budget."
+          "french": "manger chez soi",
+          "english": "eating at home",
+          "example": "Pour ma part, il me semble que manger chez soi est la solution la plus raisonnable au quotidien, sans renoncer au restaurant.",
+          "usage": "Reformulation lexicale ; réutilisable en Alimentation/Budget."
         },
         {
           "id": "E3-JAN-C12-28R1",
@@ -2746,10 +2746,10 @@
           "usage": "Mot-clé thématique ; réutilisable en Solidarité/Inclusion."
         },
         {
-          "id": "E3-JAN-C16-03",
+          "id": "E3-JAN-C16-03R1",
           "kind": "collocation",
-          "french": "d’argent ou de temps",
-          "english": "of money or time",
+          "french": "le don ponctuel d’argent ou de temps",
+          "english": "one-time giving of money or time",
           "example": "Le premier défend le don ponctuel d’argent ou de temps, surtout en hiver, comme un geste accessible à tous.",
           "usage": "Collocation thématique ; réutilisable en Solidarité/Inclusion."
         },
@@ -2794,11 +2794,11 @@
           "usage": "Phrase modèle complète ; réutilisable en Solidarité/Inclusion."
         },
         {
-          "id": "E3-JAN-C16-09",
+          "id": "E3-JAN-C16-09R1",
           "kind": "tournure",
-          "french": "lorsque le froid ou la faim menace une personne",
-          "english": "when cold or hunger threatens a person",
-          "example": "Tout d’abord, un don répond à une urgence lorsque le froid ou la faim menace une personne.",
+          "french": "lorsqu’une personne souffre du froid ou de la faim",
+          "english": "when a person suffers from cold or hunger",
+          "example": "Tout d’abord, un don répond à une urgence lorsqu’une personne souffre du froid ou de la faim.",
           "usage": "Tournure grammaticale ; réutilisable en Solidarité/Inclusion."
         },
         {
@@ -2846,7 +2846,7 @@
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
-          "example": "Tout d’abord, un don répond à une urgence lorsque le froid ou la faim menace une personne.",
+          "example": "Tout d’abord, un don répond à une urgence lorsqu’une personne souffre du froid ou de la faim.",
           "usage": "Connecteur discursif ; réutilisable en Solidarité/Inclusion."
         },
         {
@@ -2874,11 +2874,11 @@
           "usage": "Verbe d’action ; réutilisable en Solidarité/Inclusion."
         },
         {
-          "id": "E3-JAN-C16-19",
+          "id": "E3-JAN-C16-19R1",
           "kind": "verbe-action",
-          "french": "préparer son curriculum vitæ",
-          "english": "prepare their résumé",
-          "example": "La même association peut ensuite aider un bénéficiaire à préparer son curriculum vitæ.",
+          "french": "aider le bénéficiaire à rédiger son CV",
+          "english": "help the beneficiary write their résumé",
+          "example": "Une même association peut ensuite aider le bénéficiaire à rédiger son CV, afin que l’aide d’urgence ouvre la voie à l’autonomie.",
           "usage": "Verbe d’action ; réutilisable en Solidarité/Inclusion."
         },
         {
@@ -2894,7 +2894,7 @@
           "kind": "mot-cle",
           "french": "un don",
           "english": "a donation",
-          "example": "Tout d’abord, un don répond à une urgence lorsque le froid ou la faim menace une personne.",
+          "example": "Tout d’abord, un don répond à une urgence lorsqu’une personne souffre du froid ou de la faim.",
           "usage": "Mot-clé thématique ; réutilisable en Solidarité/Inclusion."
         },
         {
@@ -2954,11 +2954,11 @@
           "usage": "Mot-clé thématique ; réutilisable en Solidarité/Inclusion."
         },
         {
-          "id": "E3-JAN-C16-29",
+          "id": "E3-JAN-C16-29R1",
           "kind": "reformulation",
-          "french": "La même association",
+          "french": "Une même association",
           "english": "The same organization",
-          "example": "La même association peut ensuite aider un bénéficiaire à préparer son curriculum vitæ.",
+          "example": "Une même association peut ensuite aider le bénéficiaire à rédiger son CV, afin que l’aide d’urgence ouvre la voie à l’autonomie.",
           "usage": "Reformulation utile ; réutilisable en Solidarité/Inclusion."
         },
         {
@@ -2993,11 +2993,11 @@
           "usage": "Mot-clé thématique ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-JAN-C17-03",
+          "id": "E3-JAN-C17-03R1",
           "kind": "mot-cle",
-          "french": "Oslo",
-          "english": "Oslo",
-          "example": "Le premier cite Oslo, où cette mesure doit réduire les accidents, la dépendance au pétrole et la pollution de l’air.",
+          "french": "la circulation automobile",
+          "english": "car traffic",
+          "example": "Pour ma part, je suis favorable à une réduction progressive de la circulation automobile en centre-ville.",
           "usage": "Mot-clé thématique ; réutilisable en Transport/Environnement."
         },
         {
@@ -3021,15 +3021,15 @@
           "kind": "expression",
           "french": "Pour ma part",
           "english": "For my part",
-          "example": "Pour ma part, je suis favorable à une réduction progressive de la voiture en centre-ville.",
+          "example": "Pour ma part, je suis favorable à une réduction progressive de la circulation automobile en centre-ville.",
           "usage": "Connecteur discursif ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-JAN-C17-07",
+          "id": "E3-JAN-C17-07R1",
           "kind": "tournure",
-          "french": "sans assez de stationnements",
-          "english": "without enough parking",
-          "example": "De son côté, le second avertit que le projet échoue sans assez de stationnements, de transports en commun et d’autorisations adaptées à certains métiers.",
+          "french": "sans bouleverser toute la ville",
+          "english": "without disrupting the whole city",
+          "example": "Une baisse mesurée permet donc de vérifier les effets sans bouleverser toute la ville.",
           "usage": "Tournure grammaticale ; réutilisable en Transport/Environnement."
         },
         {
@@ -3041,11 +3041,11 @@
           "usage": "Mot-clé thématique ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-JAN-C17-09",
+          "id": "E3-JAN-C17-09R1",
           "kind": "mot-cle",
-          "french": "de transports en commun",
-          "english": "public transit",
-          "example": "De son côté, le second avertit que le projet échoue sans assez de stationnements, de transports en commun et d’autorisations adaptées à certains métiers.",
+          "french": "des transports en commun",
+          "english": "public transportation",
+          "example": "De son côté, le second avertit que la transition nécessite des stationnements, des transports en commun et des autorisations adaptées à certains métiers.",
           "usage": "Mot-clé thématique ; réutilisable en Transport/Environnement."
         },
         {
@@ -3053,15 +3053,15 @@
           "kind": "collocation",
           "french": "autorisations adaptées à certains métiers",
           "english": "permits adapted to certain occupations",
-          "example": "De son côté, le second avertit que le projet échoue sans assez de stationnements, de transports en commun et d’autorisations adaptées à certains métiers.",
+          "example": "De son côté, le second avertit que la transition nécessite des stationnements, des transports en commun et des autorisations adaptées à certains métiers.",
           "usage": "Collocation thématique ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-JAN-C17-11",
+          "id": "E3-JAN-C17-11R1",
           "kind": "phrase-modele",
-          "french": "De son côté, le second avertit que le projet échoue sans assez de stationnements, de transports en commun et d’autorisations adaptées à certains métiers.",
-          "english": "For its part, the second warns that the project will fail without enough parking, public transit and permits adapted to certain occupations.",
-          "example": "De son côté, le second avertit que le projet échoue sans assez de stationnements, de transports en commun et d’autorisations adaptées à certains métiers.",
+          "french": "De son côté, le second avertit que la transition nécessite des stationnements, des transports en commun et des autorisations adaptées à certains métiers.",
+          "english": "For its part, the second warns that the transition requires parking, public transportation and permits suited to certain occupations.",
+          "example": "De son côté, le second avertit que la transition nécessite des stationnements, des transports en commun et des autorisations adaptées à certains métiers.",
           "usage": "Phrase modèle complète ; réutilisable en Transport/Environnement."
         },
         {
@@ -3069,15 +3069,15 @@
           "kind": "verbe-action",
           "french": "fermer une rue le week-end",
           "english": "close a street on weekends",
-          "example": "Par exemple, une ville peut fermer une rue le week-end et mesurer l’évolution de la qualité de l’air.",
+          "example": "Par exemple, une ville peut fermer une rue le week-end, renforcer les lignes de bus et délivrer des autorisations aux livreurs, aux policiers et aux services d’urgence.",
           "usage": "Verbe d’action ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-JAN-C17-13",
+          "id": "E3-JAN-C17-13R1",
           "kind": "mot-cle",
-          "french": "une réduction progressive de la voiture",
-          "english": "a gradual reduction in car use",
-          "example": "Pour ma part, je suis favorable à une réduction progressive de la voiture en centre-ville.",
+          "french": "une réduction progressive de la circulation automobile",
+          "english": "a gradual reduction in car traffic",
+          "example": "Pour ma part, je suis favorable à une réduction progressive de la circulation automobile en centre-ville.",
           "usage": "Mot-clé thématique ; réutilisable en Transport/Environnement."
         },
         {
@@ -3085,7 +3085,7 @@
           "kind": "tournure",
           "french": "pour les travailleurs qui dépendent de leur véhicule",
           "english": "for workers who depend on their vehicle",
-          "example": "De plus, les restrictions doivent être précédées par des solutions crédibles pour les travailleurs qui dépendent de leur véhicule.",
+          "example": "De plus, il faut que des alternatives crédibles soient prévues avant les restrictions pour les travailleurs qui dépendent de leur véhicule.",
           "usage": "Tournure grammaticale ; réutilisable en Transport/Environnement."
         },
         {
@@ -3093,23 +3093,23 @@
           "kind": "collocation",
           "french": "une réduction progressive",
           "english": "a gradual reduction",
-          "example": "Pour ma part, je suis favorable à une réduction progressive de la voiture en centre-ville.",
+          "example": "Pour ma part, je suis favorable à une réduction progressive de la circulation automobile en centre-ville.",
           "usage": "Collocation thématique ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-JAN-C17-16",
+          "id": "E3-JAN-C17-16R1",
           "kind": "collocation",
-          "french": "moins de pollution",
-          "english": "less pollution",
-          "example": "Tout d’abord, moins de trafic signifie moins de pollution, de stress et d’accidents pour les habitants.",
+          "french": "moins de trafic réduit la pollution",
+          "english": "less traffic reduces pollution",
+          "example": "Tout d’abord, moins de trafic réduit la pollution, le stress et le risque d’accident pour les habitants.",
           "usage": "Collocation thématique ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-JAN-C17-17",
+          "id": "E3-JAN-C17-17R1",
           "kind": "collocation",
-          "french": "solutions crédibles",
-          "english": "credible solutions",
-          "example": "De plus, les restrictions doivent être précédées par des solutions crédibles pour les travailleurs qui dépendent de leur véhicule.",
+          "french": "des alternatives crédibles",
+          "english": "credible alternatives",
+          "example": "De plus, il faut que des alternatives crédibles soient prévues avant les restrictions pour les travailleurs qui dépendent de leur véhicule.",
           "usage": "Collocation thématique ; réutilisable en Transport/Environnement."
         },
         {
@@ -3117,7 +3117,7 @@
           "kind": "mot-cle",
           "french": "moins de trafic",
           "english": "less traffic",
-          "example": "Tout d’abord, moins de trafic signifie moins de pollution, de stress et d’accidents pour les habitants.",
+          "example": "Tout d’abord, moins de trafic réduit la pollution, le stress et le risque d’accident pour les habitants.",
           "usage": "Mot-clé thématique ; réutilisable en Transport/Environnement."
         },
         {
@@ -3125,39 +3125,39 @@
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
-          "example": "Tout d’abord, moins de trafic signifie moins de pollution, de stress et d’accidents pour les habitants.",
+          "example": "Tout d’abord, moins de trafic réduit la pollution, le stress et le risque d’accident pour les habitants.",
           "usage": "Connecteur discursif ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-JAN-C17-20",
+          "id": "E3-JAN-C17-20R1",
           "kind": "verbe-action",
-          "french": "mesurer l’évolution de la qualité de l’air",
-          "english": "measure changes in air quality",
-          "example": "Par exemple, une ville peut fermer une rue le week-end et mesurer l’évolution de la qualité de l’air.",
+          "french": "vérifier les effets",
+          "english": "verify the effects",
+          "example": "Une baisse mesurée permet donc de vérifier les effets sans bouleverser toute la ville.",
           "usage": "Verbe d’action ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-JAN-C17-21",
+          "id": "E3-JAN-C17-21R1",
           "kind": "phrase-modele",
-          "french": "Pour ma part, je suis favorable à une réduction progressive de la voiture en centre-ville.",
-          "english": "For my part, I support a gradual reduction in car use in the city centre.",
-          "example": "Pour ma part, je suis favorable à une réduction progressive de la voiture en centre-ville.",
+          "french": "Pour ma part, je suis favorable à une réduction progressive de la circulation automobile en centre-ville.",
+          "english": "For my part, I support a gradual reduction in car traffic in the city centre.",
+          "example": "Pour ma part, je suis favorable à une réduction progressive de la circulation automobile en centre-ville.",
           "usage": "Phrase modèle complète ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-JAN-C17-22",
+          "id": "E3-JAN-C17-22R1",
           "kind": "mot-cle",
-          "french": "la qualité de l’air",
-          "english": "air quality",
-          "example": "Par exemple, une ville peut fermer une rue le week-end et mesurer l’évolution de la qualité de l’air.",
+          "french": "le risque d’accident",
+          "english": "the risk of accidents",
+          "example": "Tout d’abord, moins de trafic réduit la pollution, le stress et le risque d’accident pour les habitants.",
           "usage": "Mot-clé thématique ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-JAN-C17-23",
+          "id": "E3-JAN-C17-23R1",
           "kind": "collocation",
-          "french": "la transition plus juste",
-          "english": "a fairer transition",
-          "example": "Par exemple, la ville pourrait renforcer les lignes de bus et délivrer des autorisations de circulation aux livreurs, aux policiers et aux services d’urgence, ce qui rendrait la transition plus juste.",
+          "french": "construit des alternatives accessibles et fiables",
+          "english": "builds accessible and reliable alternatives",
+          "example": "En conclusion, je souhaite que la ville limite la voiture après avoir construit des alternatives accessibles et fiables.",
           "usage": "Collocation thématique ; réutilisable en Transport/Environnement."
         },
         {
@@ -3165,23 +3165,23 @@
           "kind": "expression",
           "french": "De plus",
           "english": "Furthermore",
-          "example": "De plus, les restrictions doivent être précédées par des solutions crédibles pour les travailleurs qui dépendent de leur véhicule.",
+          "example": "De plus, il faut que des alternatives crédibles soient prévues avant les restrictions pour les travailleurs qui dépendent de leur véhicule.",
           "usage": "Connecteur discursif ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-JAN-C17-25",
+          "id": "E3-JAN-C17-25R1",
           "kind": "phrase-modele",
-          "french": "Par exemple, une ville peut fermer une rue le week-end et mesurer l’évolution de la qualité de l’air.",
-          "english": "For example, a city can close a street on weekends and measure changes in air quality.",
-          "example": "Par exemple, une ville peut fermer une rue le week-end et mesurer l’évolution de la qualité de l’air.",
+          "french": "Par exemple, une ville peut fermer une rue le week-end, renforcer les lignes de bus et délivrer des autorisations aux livreurs, aux policiers et aux services d’urgence.",
+          "english": "For example, a city can close a street on weekends, strengthen bus routes and issue permits to delivery workers, police officers and emergency services.",
+          "example": "Par exemple, une ville peut fermer une rue le week-end, renforcer les lignes de bus et délivrer des autorisations aux livreurs, aux policiers et aux services d’urgence.",
           "usage": "Phrase modèle complète ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-JAN-C17-26",
+          "id": "E3-JAN-C17-26R1",
           "kind": "mot-cle",
-          "french": "leur véhicule",
-          "english": "their vehicle",
-          "example": "De plus, les restrictions doivent être précédées par des solutions crédibles pour les travailleurs qui dépendent de leur véhicule.",
+          "french": "des stationnements",
+          "english": "parking facilities",
+          "example": "De son côté, le second avertit que la transition nécessite des stationnements, des transports en commun et des autorisations adaptées à certains métiers.",
           "usage": "Mot-clé thématique ; réutilisable en Transport/Environnement."
         },
         {
@@ -3213,7 +3213,7 @@
           "kind": "verbe-action",
           "french": "renforcer les lignes de bus",
           "english": "strengthen bus routes",
-          "example": "Par exemple, la ville pourrait renforcer les lignes de bus et délivrer des autorisations de circulation aux livreurs, aux policiers et aux services d’urgence, ce qui rendrait la transition plus juste.",
+          "example": "Par exemple, une ville peut fermer une rue le week-end, renforcer les lignes de bus et délivrer des autorisations aux livreurs, aux policiers et aux services d’urgence.",
           "usage": "Verbe d’action ; réutilisable en Transport/Environnement."
         }
       ]
@@ -3268,7 +3268,7 @@
           "kind": "expression",
           "french": "Pour ma part",
           "english": "For my part",
-          "example": "Pour ma part, je suis favorable à plusieurs repas sans viande par semaine s’ils sont équilibrés et savoureux.",
+          "example": "Pour ma part, je suis favorable à plusieurs repas sans viande par semaine, à condition qu’ils soient équilibrés et savoureux.",
           "usage": "Connecteur discursif ; réutilisable en Alimentation/Éducation."
         },
         {
@@ -3304,11 +3304,11 @@
           "usage": "Phrase modèle complète ; réutilisable en Alimentation/Éducation."
         },
         {
-          "id": "E3-JAN-C18-11",
+          "id": "E3-JAN-C18-11R1",
           "kind": "tournure",
-          "french": "s’ils sont équilibrés et savoureux",
-          "english": "if they are balanced and tasty",
-          "example": "Pour ma part, je suis favorable à plusieurs repas sans viande par semaine s’ils sont équilibrés et savoureux.",
+          "french": "à condition qu’ils soient équilibrés et savoureux",
+          "english": "provided that they are balanced and tasty",
+          "example": "Pour ma part, je suis favorable à plusieurs repas sans viande par semaine, à condition qu’ils soient équilibrés et savoureux.",
           "usage": "Tournure grammaticale ; réutilisable en Alimentation/Éducation."
         },
         {
@@ -3316,7 +3316,7 @@
           "kind": "collocation",
           "french": "repas sans viande",
           "english": "meat-free meals",
-          "example": "Pour ma part, je suis favorable à plusieurs repas sans viande par semaine s’ils sont équilibrés et savoureux.",
+          "example": "Pour ma part, je suis favorable à plusieurs repas sans viande par semaine, à condition qu’ils soient équilibrés et savoureux.",
           "usage": "Collocation thématique ; réutilisable en Alimentation/Éducation."
         },
         {
@@ -3332,7 +3332,7 @@
           "kind": "collocation",
           "french": "équilibrés et savoureux",
           "english": "balanced and tasty",
-          "example": "Pour ma part, je suis favorable à plusieurs repas sans viande par semaine s’ils sont équilibrés et savoureux.",
+          "example": "Pour ma part, je suis favorable à plusieurs repas sans viande par semaine, à condition qu’ils soient équilibrés et savoureux.",
           "usage": "Collocation thématique ; réutilisable en Alimentation/Éducation."
         },
         {
@@ -3372,15 +3372,15 @@
           "kind": "collocation",
           "french": "un menu carné local",
           "english": "a local meat-based menu",
-          "example": "L’école peut acheter leurs légumes ou conserver un menu carné local chaque semaine.",
+          "example": "L’école peut conserver un menu carné local chaque semaine afin de préserver ce débouché.",
           "usage": "Collocation thématique ; réutilisable en Alimentation/Éducation."
         },
         {
-          "id": "E3-JAN-C18-20",
+          "id": "E3-JAN-C18-20R1",
           "kind": "phrase-modele",
-          "french": "Pour ma part, je suis favorable à plusieurs repas sans viande par semaine s’ils sont équilibrés et savoureux.",
-          "english": "For my part, I support several meat-free meals per week if they are balanced and tasty.",
-          "example": "Pour ma part, je suis favorable à plusieurs repas sans viande par semaine s’ils sont équilibrés et savoureux.",
+          "french": "Pour ma part, je suis favorable à plusieurs repas sans viande par semaine, à condition qu’ils soient équilibrés et savoureux.",
+          "english": "For my part, I support several meat-free meals per week, provided that they are balanced and tasty.",
+          "example": "Pour ma part, je suis favorable à plusieurs repas sans viande par semaine, à condition qu’ils soient équilibrés et savoureux.",
           "usage": "Phrase modèle complète ; réutilisable en Alimentation/Éducation."
         },
         {
@@ -3408,11 +3408,11 @@
           "usage": "Connecteur discursif ; réutilisable en Alimentation/Éducation."
         },
         {
-          "id": "E3-JAN-C18-24",
+          "id": "E3-JAN-C18-24R1",
           "kind": "phrase-modele",
-          "french": "Par exemple, une cantine peut servir un curry de lentilles apprécié plutôt qu’un steak de soja fade.",
-          "english": "For example, a cafeteria can serve a popular lentil curry rather than a bland soy steak.",
-          "example": "Par exemple, une cantine peut servir un curry de lentilles apprécié plutôt qu’un steak de soja fade.",
+          "french": "Par exemple, une cantine peut servir un curry de lentilles avec du riz et des légumes, élaboré avec une diététicienne pour assurer un apport suffisant en protéines.",
+          "english": "For example, a cafeteria can serve a lentil curry with rice and vegetables, developed with a dietitian to ensure a sufficient protein intake.",
+          "example": "Par exemple, une cantine peut servir un curry de lentilles avec du riz et des légumes, élaboré avec une diététicienne pour assurer un apport suffisant en protéines.",
           "usage": "Phrase modèle complète ; réutilisable en Alimentation/Éducation."
         },
         {
@@ -3436,15 +3436,15 @@
           "kind": "mot-cle",
           "french": "un curry de lentilles",
           "english": "a lentil curry",
-          "example": "Par exemple, une cantine peut servir un curry de lentilles apprécié plutôt qu’un steak de soja fade.",
+          "example": "Par exemple, une cantine peut servir un curry de lentilles avec du riz et des légumes, élaboré avec une diététicienne pour assurer un apport suffisant en protéines.",
           "usage": "Mot-clé thématique ; réutilisable en Alimentation/Éducation."
         },
         {
-          "id": "E3-JAN-C18-28",
+          "id": "E3-JAN-C18-28R1",
           "kind": "tournure",
-          "french": "plutôt qu’un steak de soja fade",
-          "english": "rather than a bland soy steak",
-          "example": "Par exemple, une cantine peut servir un curry de lentilles apprécié plutôt qu’un steak de soja fade.",
+          "french": "pour assurer un apport suffisant en protéines",
+          "english": "to ensure a sufficient protein intake",
+          "example": "Par exemple, une cantine peut servir un curry de lentilles avec du riz et des légumes, élaboré avec une diététicienne pour assurer un apport suffisant en protéines.",
           "usage": "Tournure grammaticale ; réutilisable en Alimentation/Éducation."
         },
         {
@@ -3503,11 +3503,11 @@
           "usage": "Mot-clé thématique ; réutilisable en Transport/Voyage."
         },
         {
-          "id": "E3-JAN-C19-05",
+          "id": "E3-JAN-C19-05R1",
           "kind": "mot-cle",
-          "french": "du train",
-          "english": "train travel",
-          "example": "Le premier apprécie leurs tarifs avantageux, parfois inférieurs à ceux du train ou de la voiture, malgré l’absence de services à bord.",
+          "french": "l’entretien des avions",
+          "english": "aircraft maintenance",
+          "example": "De plus, le prix ne doit jamais conduire à réduire l’entretien des avions ni à dégrader les conditions de travail.",
           "usage": "Mot-clé thématique ; réutilisable en Transport/Voyage."
         },
         {
@@ -3635,7 +3635,7 @@
           "kind": "collocation",
           "french": "de meilleures garanties",
           "english": "better guarantees",
-          "example": "Pour un vol transatlantique, je paierais davantage afin d’obtenir de meilleures garanties.",
+          "example": "Sur un vol transatlantique, je paierais davantage afin de bénéficier de meilleures garanties de sécurité et de confort.",
           "usage": "Collocation thématique ; réutilisable en Transport/Voyage."
         },
         {
@@ -3671,19 +3671,19 @@
           "usage": "Connecteur discursif ; réutilisable en Transport/Voyage."
         },
         {
-          "id": "E3-JAN-C19-26",
+          "id": "E3-JAN-C19-26R1",
           "kind": "phrase-modele",
-          "french": "Par exemple, cette option peut convenir pour un simple week-end.",
-          "english": "For example, this option may be suitable for a simple weekend trip.",
-          "example": "Par exemple, cette option peut convenir pour un simple week-end.",
+          "french": "Par exemple, un aller-retour à bas prix vers l’Espagne pour un week-end peut coûter deux fois moins cher qu’un billet classique.",
+          "english": "For example, a low-cost round trip to Spain for a weekend can cost half as much as a standard ticket.",
+          "example": "Par exemple, un aller-retour à bas prix vers l’Espagne pour un week-end peut coûter deux fois moins cher qu’un billet classique.",
           "usage": "Phrase modèle complète ; réutilisable en Transport/Voyage."
         },
         {
-          "id": "E3-JAN-C19-27",
+          "id": "E3-JAN-C19-27R1",
           "kind": "mot-cle",
-          "french": "un simple week-end",
-          "english": "a simple weekend trip",
-          "example": "Par exemple, cette option peut convenir pour un simple week-end.",
+          "french": "un aller-retour à bas prix",
+          "english": "a low-cost round trip",
+          "example": "Par exemple, un aller-retour à bas prix vers l’Espagne pour un week-end peut coûter deux fois moins cher qu’un billet classique.",
           "usage": "Mot-clé thématique ; réutilisable en Transport/Voyage."
         },
         {
@@ -3691,23 +3691,23 @@
           "kind": "mot-cle",
           "french": "un vol transatlantique",
           "english": "a transatlantic flight",
-          "example": "Pour un vol transatlantique, je paierais davantage afin d’obtenir de meilleures garanties.",
+          "example": "Sur un vol transatlantique, je paierais davantage afin de bénéficier de meilleures garanties de sécurité et de confort.",
           "usage": "Mot-clé thématique ; réutilisable en Transport/Voyage."
         },
         {
-          "id": "E3-JAN-C19-29",
+          "id": "E3-JAN-C19-29R1",
           "kind": "reformulation",
-          "french": "cette option",
-          "english": "this option",
-          "example": "Par exemple, cette option peut convenir pour un simple week-end.",
-          "usage": "Reformulation utile ; réutilisable en Transport/Voyage."
+          "french": "le transport à bas prix",
+          "english": "low-cost transport",
+          "example": "En conclusion, je recommande que le transport à bas prix demeure transparent, sûr et correctement encadré.",
+          "usage": "Reformulation nominale ; réutilisable en Transport/Voyage."
         },
         {
-          "id": "E3-JAN-C19-30",
+          "id": "E3-JAN-C19-30R1",
           "kind": "tournure",
-          "french": "afin d’obtenir de meilleures garanties",
-          "english": "in order to obtain better guarantees",
-          "example": "Pour un vol transatlantique, je paierais davantage afin d’obtenir de meilleures garanties.",
+          "french": "afin de bénéficier de meilleures garanties de sécurité et de confort",
+          "english": "in order to benefit from better guarantees of safety and comfort",
+          "example": "Sur un vol transatlantique, je paierais davantage afin de bénéficier de meilleures garanties de sécurité et de confort.",
           "usage": "Tournure grammaticale ; réutilisable en Transport/Voyage."
         }
       ]

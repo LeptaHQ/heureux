@@ -25,7 +25,7 @@
           "kind": "expression",
           "french": "Le premier",
           "english": "The first (text)",
-          "example": "Le premier dénonce la fatigue, le sentiment d’emprisonnement et le manque de temps pour les proches, puis relaie l’idée de travailler moins.",
+          "example": "Le premier déplore la fatigue, le sentiment d’être prisonnier et le peu de temps accordé aux proches, puis préconise de travailler moins.",
           "usage": "Connecteur d’opposition ; réutilisable dans toute synthèse argumentative."
         },
         {
@@ -33,31 +33,31 @@
           "kind": "mot-cle",
           "french": "la fatigue",
           "english": "fatigue",
-          "example": "Le premier dénonce la fatigue, le sentiment d’emprisonnement et le manque de temps pour les proches, puis relaie l’idée de travailler moins.",
+          "example": "Le premier déplore la fatigue, le sentiment d’être prisonnier et le peu de temps accordé aux proches, puis préconise de travailler moins.",
           "usage": "Nom féminin ; réutilisable en Travail/Santé."
         },
         {
-          "id": "E3-SEP-C01-04",
+          "id": "E3-SEP-C01-04R1",
           "kind": "mot-cle",
-          "french": "le sentiment d’emprisonnement",
+          "french": "le sentiment d’être prisonnier",
           "english": "the feeling of being trapped",
-          "example": "Le premier dénonce la fatigue, le sentiment d’emprisonnement et le manque de temps pour les proches, puis relaie l’idée de travailler moins.",
-          "usage": "Nom masculin ; réutilisable pour critiquer une situation contraignante."
+          "example": "Le premier déplore la fatigue, le sentiment d’être prisonnier et le peu de temps accordé aux proches, puis préconise de travailler moins.",
+          "usage": "Nom masculin suivi de « d’être » + attribut ; réutilisable pour critiquer une situation contraignante."
         },
         {
-          "id": "E3-SEP-C01-05",
+          "id": "E3-SEP-C01-05R1",
           "kind": "mot-cle",
-          "french": "le manque de temps",
-          "english": "lack of time",
-          "example": "Le premier dénonce la fatigue, le sentiment d’emprisonnement et le manque de temps pour les proches, puis relaie l’idée de travailler moins.",
-          "usage": "Nom masculin ; réutilisable en Travail/Famille."
+          "french": "le peu de temps",
+          "english": "the little time available",
+          "example": "Le premier déplore la fatigue, le sentiment d’être prisonnier et le peu de temps accordé aux proches, puis préconise de travailler moins.",
+          "usage": "Locution « le peu de + nom » ; réutilisable en Travail/Famille."
         },
         {
           "id": "E3-SEP-C01-06",
           "kind": "verbe-action",
           "french": "travailler moins",
           "english": "to work less",
-          "example": "Le premier dénonce la fatigue, le sentiment d’emprisonnement et le manque de temps pour les proches, puis relaie l’idée de travailler moins.",
+          "example": "Le premier déplore la fatigue, le sentiment d’être prisonnier et le peu de temps accordé aux proches, puis préconise de travailler moins.",
           "usage": "Construction infinitive ; réutilisable pour proposer une réduction du temps de travail."
         },
         {
@@ -65,15 +65,15 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, le second explique que l’emploi construit l’identité grâce aux relations professionnelles, au sentiment d’utilité et aux expériences vécues en entreprise.",
+          "example": "En revanche, le second explique que l’emploi façonne l’identité par les relations professionnelles, le sentiment d’utilité et les expériences en entreprise.",
           "usage": "Connecteur d’opposition ; réutilisable dans toute synthèse."
         },
         {
-          "id": "E3-SEP-C01-08",
+          "id": "E3-SEP-C01-08R1",
           "kind": "collocation",
-          "french": "l’emploi construit l’identité",
+          "french": "l’emploi façonne l’identité",
           "english": "employment shapes identity",
-          "example": "En revanche, le second explique que l’emploi construit l’identité grâce aux relations professionnelles, au sentiment d’utilité et aux expériences vécues en entreprise.",
+          "example": "En revanche, le second explique que l’emploi façonne l’identité par les relations professionnelles, le sentiment d’utilité et les expériences en entreprise.",
           "usage": "Association sujet-verbe ; réutilisable en Travail/Société."
         },
         {
@@ -81,7 +81,7 @@
           "kind": "mot-cle",
           "french": "relations professionnelles",
           "english": "professional relationships",
-          "example": "En revanche, le second explique que l’emploi construit l’identité grâce aux relations professionnelles, au sentiment d’utilité et aux expériences vécues en entreprise.",
+          "example": "En revanche, le second explique que l’emploi façonne l’identité par les relations professionnelles, le sentiment d’utilité et les expériences en entreprise.",
           "usage": "Nom féminin pluriel ; réutilisable en Travail."
         },
         {
@@ -89,7 +89,7 @@
           "kind": "mot-cle",
           "french": "sentiment d’utilité",
           "english": "a sense of usefulness",
-          "example": "En revanche, le second explique que l’emploi construit l’identité grâce aux relations professionnelles, au sentiment d’utilité et aux expériences vécues en entreprise.",
+          "example": "En revanche, le second explique que l’emploi façonne l’identité par les relations professionnelles, le sentiment d’utilité et les expériences en entreprise.",
           "usage": "Nom masculin ; réutilisable en Travail/Bien-être."
         },
         {
@@ -241,15 +241,15 @@
           "kind": "reformulation",
           "french": "l’emploi",
           "english": "employment; alternative to work",
-          "example": "En revanche, le second explique que l’emploi construit l’identité grâce aux relations professionnelles, au sentiment d’utilité et aux expériences vécues en entreprise.",
+          "example": "En revanche, le second explique que l’emploi façonne l’identité par les relations professionnelles, le sentiment d’utilité et les expériences en entreprise.",
           "usage": "Nom masculin ; reformule « le travail » pour éviter la répétition."
         },
         {
-          "id": "E3-SEP-C01-30",
+          "id": "E3-SEP-C01-30R1",
           "kind": "collocation",
-          "french": "expériences vécues en entreprise",
-          "english": "experiences gained in the workplace",
-          "example": "En revanche, le second explique que l’emploi construit l’identité grâce aux relations professionnelles, au sentiment d’utilité et aux expériences vécues en entreprise.",
+          "french": "expériences en entreprise",
+          "english": "workplace experience",
+          "example": "En revanche, le second explique que l’emploi façonne l’identité par les relations professionnelles, le sentiment d’utilité et les expériences en entreprise.",
           "usage": "Nom féminin pluriel ; réutilisable en Travail/Formation."
         }
       ]
@@ -280,31 +280,31 @@
           "kind": "mot-cle",
           "french": "les échanges",
           "english": "the exchanges",
-          "example": "Le premier valorise les économies réalisées, le lien social et les échanges entre personnes de différents horizons.",
+          "example": "Le premier met en avant les économies, les rencontres et les échanges entre personnes d’horizons différents.",
           "usage": "Nom masculin pluriel ; réutilisable dans tout débat équilibré."
         },
         {
-          "id": "E3-SEP-C02-04",
+          "id": "E3-SEP-C02-04R1",
           "kind": "collocation",
-          "french": "les économies réalisées",
-          "english": "savings achieved",
-          "example": "Le premier valorise les économies réalisées, le lien social et les échanges entre personnes de différents horizons.",
-          "usage": "Nom féminin pluriel ; réutilisable en Logement/Budget."
+          "french": "met en avant les économies",
+          "english": "highlights the savings",
+          "example": "Le premier met en avant les économies, les rencontres et les échanges entre personnes d’horizons différents.",
+          "usage": "Association verbe-complément (mettre en avant + nom) ; réutilisable en Logement/Budget."
         },
         {
-          "id": "E3-SEP-C02-05",
+          "id": "E3-SEP-C02-05R1",
           "kind": "mot-cle",
-          "french": "le lien social",
-          "english": "social connection",
-          "example": "Le premier valorise les économies réalisées, le lien social et les échanges entre personnes de différents horizons.",
-          "usage": "Nom masculin ; réutilisable en Logement/Société."
+          "french": "les rencontres",
+          "english": "meeting new people",
+          "example": "Le premier met en avant les économies, les rencontres et les échanges entre personnes d’horizons différents.",
+          "usage": "Nom féminin pluriel ; réutilisable en Logement/Société."
         },
         {
-          "id": "E3-SEP-C02-06R1",
+          "id": "E3-SEP-C02-06R2",
           "kind": "collocation",
-          "french": "personnes de différents horizons",
+          "french": "personnes d’horizons différents",
           "english": "people from different backgrounds",
-          "example": "Le premier valorise les économies réalisées, le lien social et les échanges entre personnes de différents horizons.",
+          "example": "Le premier met en avant les économies, les rencontres et les échanges entre personnes d’horizons différents.",
           "usage": "Nom féminin pluriel ; réutilisable en Société/Diversité."
         },
         {
@@ -312,31 +312,31 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, le second souligne les tensions liées aux habitudes, au partage des tâches ménagères et au manque d’intimité, qui nécessitent des règles claires.",
+          "example": "En revanche, le second prévient que les habitudes, le partage des tâches et le manque d’intimité peuvent créer des tensions.",
           "usage": "Connecteur d’opposition ; réutilisable dans toute argumentation."
         },
         {
-          "id": "E3-SEP-C02-08R1",
+          "id": "E3-SEP-C02-08R2",
           "kind": "reformulation",
-          "french": "les tensions",
-          "english": "tensions",
-          "example": "En revanche, le second souligne les tensions liées aux habitudes, au partage des tâches ménagères et au manque d’intimité, qui nécessitent des règles claires.",
-          "usage": "Nom masculin pluriel ; reformule « ses opposants »."
+          "french": "créer des tensions",
+          "english": "to create tension",
+          "example": "En revanche, le second prévient que les habitudes, le partage des tâches et le manque d’intimité peuvent créer des tensions.",
+          "usage": "Reformule « provoquer des conflits » ; réutilisable en Logement/Relations."
         },
         {
-          "id": "E3-SEP-C02-09",
+          "id": "E3-SEP-C02-09R1",
           "kind": "mot-cle",
-          "french": "tâches ménagères",
-          "english": "household chores",
-          "example": "En revanche, le second souligne les tensions liées aux habitudes, au partage des tâches ménagères et au manque d’intimité, qui nécessitent des règles claires.",
-          "usage": "Nom féminin pluriel ; réutilisable en Logement/Famille."
+          "french": "le partage des tâches",
+          "english": "the sharing of chores",
+          "example": "En revanche, le second prévient que les habitudes, le partage des tâches et le manque d’intimité peuvent créer des tensions.",
+          "usage": "Nom masculin ; réutilisable en Logement/Famille."
         },
         {
           "id": "E3-SEP-C02-10",
           "kind": "mot-cle",
           "french": "manque d’intimité",
           "english": "lack of privacy",
-          "example": "En revanche, le second souligne les tensions liées aux habitudes, au partage des tâches ménagères et au manque d’intimité, qui nécessitent des règles claires.",
+          "example": "En revanche, le second prévient que les habitudes, le partage des tâches et le manque d’intimité peuvent créer des tensions.",
           "usage": "Nom masculin ; réutilisable en Logement/Vie commune."
         },
         {
@@ -344,7 +344,7 @@
           "kind": "collocation",
           "french": "des règles claires",
           "english": "clear rules",
-          "example": "En revanche, le second souligne les tensions liées aux habitudes, au partage des tâches ménagères et au manque d’intimité, qui nécessitent des règles claires.",
+          "example": "Il recommande donc des règles claires.",
           "usage": "Nom féminin pluriel ; réutilisable en Logement/Éducation."
         },
         {
@@ -388,19 +388,19 @@
           "usage": "Locution adverbiale ; réutilisable pour insister sur l’anticipation."
         },
         {
-          "id": "E3-SEP-C02-17",
+          "id": "E3-SEP-C02-17R1",
           "kind": "verbe-action",
-          "french": "réduit les charges financières",
-          "english": "reduces financial costs",
-          "example": "Tout d’abord, elle réduit les charges financières, ce qui aide particulièrement les étudiants et les nouveaux arrivants.",
+          "french": "réduit les dépenses",
+          "english": "reduces spending",
+          "example": "Tout d’abord, elle réduit les dépenses, ce qui aide particulièrement les étudiants et les nouveaux arrivants.",
           "usage": "Verbe au présent ; réutilisable en Logement/Budget."
         },
         {
-          "id": "E3-SEP-C02-18",
+          "id": "E3-SEP-C02-18R1",
           "kind": "mot-cle",
-          "french": "les charges financières",
-          "english": "financial costs",
-          "example": "Tout d’abord, elle réduit les charges financières, ce qui aide particulièrement les étudiants et les nouveaux arrivants.",
+          "french": "les dépenses",
+          "english": "expenses",
+          "example": "Tout d’abord, elle réduit les dépenses, ce qui aide particulièrement les étudiants et les nouveaux arrivants.",
           "usage": "Nom féminin pluriel ; réutilisable en Logement/Économie."
         },
         {
@@ -408,7 +408,7 @@
           "kind": "mot-cle",
           "french": "les nouveaux arrivants",
           "english": "newcomers",
-          "example": "Tout d’abord, elle réduit les charges financières, ce qui aide particulièrement les étudiants et les nouveaux arrivants.",
+          "example": "Tout d’abord, elle réduit les dépenses, ce qui aide particulièrement les étudiants et les nouveaux arrivants.",
           "usage": "Nom masculin pluriel à valeur générique ; réutilisable en Immigration/Logement."
         },
         {
@@ -416,23 +416,23 @@
           "kind": "expression",
           "french": "De plus",
           "english": "Furthermore",
-          "example": "De plus, elle favorise le lien social et l’ouverture d’esprit.",
+          "example": "De plus, vivre avec des personnes aux habitudes différentes apprend à écouter et à négocier au lieu de s’isoler.",
           "usage": "Connecteur d’addition ; réutilisable dans toute argumentation."
         },
         {
-          "id": "E3-SEP-C02-21",
+          "id": "E3-SEP-C02-21R1",
           "kind": "verbe-action",
-          "french": "favorise le lien social",
-          "english": "fosters social connection",
-          "example": "De plus, elle favorise le lien social et l’ouverture d’esprit.",
-          "usage": "Verbe au présent ; réutilisable en Société/Logement."
+          "french": "apprend à écouter et à négocier",
+          "english": "teaches people to listen and to negotiate",
+          "example": "De plus, vivre avec des personnes aux habitudes différentes apprend à écouter et à négocier au lieu de s’isoler.",
+          "usage": "Apprendre à + infinitif ; réutilisable en Relations/Société."
         },
         {
           "id": "E3-SEP-C02-22",
           "kind": "expression",
           "french": "Par exemple",
           "english": "For example",
-          "example": "Par exemple, trois colocataires de pays différents peuvent cuisiner ensemble, découvrir leurs cultures et régler leurs désaccords lors d’une réunion hebdomadaire.",
+          "example": "Par exemple, trois colocataires de pays différents peuvent cuisiner ensemble, découvrir leurs cultures et fixer des règles lors d’une réunion hebdomadaire.",
           "usage": "Connecteur d’illustration ; réutilisable dans toute argumentation."
         },
         {
@@ -440,7 +440,7 @@
           "kind": "verbe-action",
           "french": "cuisiner ensemble",
           "english": "to cook together",
-          "example": "Par exemple, trois colocataires de pays différents peuvent cuisiner ensemble, découvrir leurs cultures et régler leurs désaccords lors d’une réunion hebdomadaire.",
+          "example": "Par exemple, trois colocataires de pays différents peuvent cuisiner ensemble, découvrir leurs cultures et fixer des règles lors d’une réunion hebdomadaire.",
           "usage": "Construction infinitive ; réutilisable en Logement/Organisation."
         },
         {
@@ -448,56 +448,56 @@
           "kind": "collocation",
           "french": "trois colocataires de pays différents",
           "english": "three roommates from different countries",
-          "example": "Par exemple, trois colocataires de pays différents peuvent cuisiner ensemble, découvrir leurs cultures et régler leurs désaccords lors d’une réunion hebdomadaire.",
+          "example": "Par exemple, trois colocataires de pays différents peuvent cuisiner ensemble, découvrir leurs cultures et fixer des règles lors d’une réunion hebdomadaire.",
           "usage": "Nom masculin ; réutilisable en Logement/Organisation."
         },
         {
-          "id": "E3-SEP-C02-25",
+          "id": "E3-SEP-C02-25R1",
           "kind": "verbe-action",
-          "french": "régler leurs désaccords",
-          "english": "to resolve their disagreements",
-          "example": "Par exemple, trois colocataires de pays différents peuvent cuisiner ensemble, découvrir leurs cultures et régler leurs désaccords lors d’une réunion hebdomadaire.",
-          "usage": "Construction infinitive ; réutilisable en Relations/Travail."
+          "french": "fixer des règles",
+          "english": "to set rules",
+          "example": "Par exemple, trois colocataires de pays différents peuvent cuisiner ensemble, découvrir leurs cultures et fixer des règles lors d’une réunion hebdomadaire.",
+          "usage": "Construction infinitive ; réutilisable en Logement/Organisation."
         },
         {
-          "id": "E3-SEP-C02-26R1",
+          "id": "E3-SEP-C02-26R2",
           "kind": "mot-cle",
-          "french": "aux habitudes",
-          "english": "habits",
-          "example": "En revanche, le second souligne les tensions liées aux habitudes, au partage des tâches ménagères et au manque d’intimité, qui nécessitent des règles claires.",
-          "usage": "Nom masculin ; réutilisable en Logement/Bien-être."
+          "french": "habitudes différentes",
+          "english": "different habits",
+          "example": "De plus, vivre avec des personnes aux habitudes différentes apprend à écouter et à négocier au lieu de s’isoler.",
+          "usage": "Nom féminin pluriel ; réutilisable en Logement/Bien-être."
         },
         {
-          "id": "E3-SEP-C02-27R1",
+          "id": "E3-SEP-C02-27R2",
           "kind": "phrase-modele",
-          "french": "En revanche, le second souligne les tensions liées aux habitudes, au partage des tâches ménagères et au manque d’intimité, qui nécessitent des règles claires",
-          "english": "On the other hand, the second text points out tensions linked to habits, the sharing of household chores, and a lack of privacy, which require clear rules",
-          "example": "En revanche, le second souligne les tensions liées aux habitudes, au partage des tâches ménagères et au manque d’intimité, qui nécessitent des règles claires.",
-          "usage": "Formule de concession ; réutilisable en Logement/Bien-être."
+          "french": "En revanche, le second prévient que les habitudes, le partage des tâches et le manque d’intimité peuvent créer des tensions",
+          "english": "On the other hand, the second text warns that habits, the sharing of chores and the lack of privacy can create tension",
+          "example": "En revanche, le second prévient que les habitudes, le partage des tâches et le manque d’intimité peuvent créer des tensions.",
+          "usage": "Formule de synthèse contrastive ; réutilisable en Logement/Relations."
         },
         {
-          "id": "E3-SEP-C02-28R1",
+          "id": "E3-SEP-C02-28R2",
           "kind": "phrase-modele",
-          "french": "En conclusion, le plus important est de trouver un équilibre raisonnable entre convivialité, communication ouverte et respect mutuel",
-          "english": "In conclusion, the most important thing is to find a reasonable balance between sociability, open communication and mutual respect",
-          "example": "En conclusion, le plus important est de trouver un équilibre raisonnable entre convivialité, communication ouverte et respect mutuel.",
-          "usage": "Formule de conclusion ; réutilisable en Relations/Société."
+          "french": "En conclusion, il faut trouver un équilibre entre convivialité, dialogue et respect de l’intimité de chacun",
+          "english": "In conclusion, we must find a balance between sociability, dialogue and respect for everyone’s privacy",
+          "example": "En conclusion, il faut trouver un équilibre entre convivialité, dialogue et respect de l’intimité de chacun.",
+          "usage": "Formule de conclusion ; réutilisable en Logement/Relations."
         },
         {
-          "id": "E3-SEP-C02-29",
+          "id": "E3-SEP-C02-29R1",
           "kind": "tournure",
-          "french": "entre convivialité, communication ouverte et respect mutuel",
-          "english": "between sociability, open communication and mutual respect",
-          "example": "En conclusion, le plus important est de trouver un équilibre raisonnable entre convivialité, communication ouverte et respect mutuel.",
-          "usage": "Construction avec entre ; réutilisable pour présenter un équilibre."
+          "french": "trouver un équilibre entre",
+          "english": "to find a balance between",
+          "example": "En conclusion, il faut trouver un équilibre entre convivialité, dialogue et respect de l’intimité de chacun.",
+          "usage": "Trouver un équilibre entre + groupes nominaux ; réutilisable pour concilier deux exigences."
         },
         {
-          "id": "E3-SEP-C02-30",
+          "id": "E3-SEP-C02-30R1",
           "kind": "collocation",
-          "french": "respect mutuel",
-          "english": "mutual respect",
-          "example": "En conclusion, le plus important est de trouver un équilibre raisonnable entre convivialité, communication ouverte et respect mutuel.",
-          "usage": "Nom masculin ; réutilisable en Relations/Travail."
+          "french": "respect de l’intimité de chacun",
+          "english": "respect for everyone’s privacy",
+          "example": "En conclusion, il faut trouver un équilibre entre convivialité, dialogue et respect de l’intimité de chacun.",
+          "usage": "Nom masculin ; réutilisable en Logement/Relations."
         }
       ]
     },
@@ -507,27 +507,27 @@
       "sujet": "Cuisinier Amateur Ou Cuisinier Professionnel ?",
       "entries": [
         {
-          "id": "E3-SEP-C03-01R1",
+          "id": "E3-SEP-C03-01R2",
           "kind": "phrase-modele",
-          "french": "Les deux documents abordent les parcours des cuisiniers amateurs et professionnels",
-          "english": "Both documents address the career paths of amateur and professional cooks",
-          "example": "Les deux documents abordent les parcours des cuisiniers amateurs et professionnels.",
+          "french": "Les deux documents abordent deux parcours pour devenir cuisinier",
+          "english": "Both documents address two paths to becoming a cook",
+          "example": "Les deux documents abordent deux parcours pour devenir cuisinier.",
           "usage": "Formule d’ouverture neutre ; réutilisable en Travail/Formation."
         },
         {
-          "id": "E3-SEP-C03-02R1",
+          "id": "E3-SEP-C03-02R2",
           "kind": "reformulation",
-          "french": "les parcours",
-          "english": "the career paths",
-          "example": "Les deux documents abordent les parcours des cuisiniers amateurs et professionnels.",
-          "usage": "Nom masculin ; reformule « la profession » ou « le travail »."
+          "french": "parcours",
+          "english": "a path, a career route",
+          "example": "Les deux documents abordent deux parcours pour devenir cuisinier.",
+          "usage": "Nom masculin invariable ; reformule « carrière » ou « formation »."
         },
         {
           "id": "E3-SEP-C03-03",
           "kind": "mot-cle",
           "french": "la formation",
           "english": "training",
-          "example": "Le premier affirme que la formation et l’expérience sont indispensables pour maîtriser les techniques culinaires.",
+          "example": "Le premier estime que la formation et l’expérience sont indispensables pour maîtriser les techniques culinaires.",
           "usage": "Nom féminin ; réutilisable en Éducation/Travail."
         },
         {
@@ -535,7 +535,7 @@
           "kind": "mot-cle",
           "french": "l’expérience",
           "english": "experience",
-          "example": "Le premier affirme que la formation et l’expérience sont indispensables pour maîtriser les techniques culinaires.",
+          "example": "Le premier estime que la formation et l’expérience sont indispensables pour maîtriser les techniques culinaires.",
           "usage": "Nom féminin ; réutilisable en Formation/Travail."
         },
         {
@@ -543,7 +543,7 @@
           "kind": "verbe-action",
           "french": "maîtriser les techniques culinaires",
           "english": "to master culinary techniques",
-          "example": "Le premier affirme que la formation et l’expérience sont indispensables pour maîtriser les techniques culinaires.",
+          "example": "Le premier estime que la formation et l’expérience sont indispensables pour maîtriser les techniques culinaires.",
           "usage": "Construction infinitive ; réutilisable en Cuisine/Formation."
         },
         {
@@ -551,7 +551,7 @@
           "kind": "mot-cle",
           "french": "les techniques culinaires",
           "english": "culinary techniques",
-          "example": "Le premier affirme que la formation et l’expérience sont indispensables pour maîtriser les techniques culinaires.",
+          "example": "Le premier estime que la formation et l’expérience sont indispensables pour maîtriser les techniques culinaires.",
           "usage": "Nom féminin pluriel ; réutilisable en Cuisine/Formation."
         },
         {
@@ -559,7 +559,7 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, le second montre que des autodidactes formés sur Internet peuvent gagner en notoriété, devenir professionnels et publier des livres de recettes.",
+          "example": "En revanche, le second montre que des autodidactes formés en ligne peuvent se faire connaître, devenir professionnels et publier des livres de recettes.",
           "usage": "Connecteur d’opposition ; réutilisable dans toute synthèse."
         },
         {
@@ -567,16 +567,16 @@
           "kind": "mot-cle",
           "french": "des autodidactes",
           "english": "self-taught people",
-          "example": "En revanche, le second montre que des autodidactes formés sur Internet peuvent gagner en notoriété, devenir professionnels et publier des livres de recettes.",
+          "example": "En revanche, le second montre que des autodidactes formés en ligne peuvent se faire connaître, devenir professionnels et publier des livres de recettes.",
           "usage": "Nom épicène pluriel ; réutilisable en Formation/Travail."
         },
         {
-          "id": "E3-SEP-C03-09",
+          "id": "E3-SEP-C03-09R1",
           "kind": "mot-cle",
-          "french": "notoriété",
-          "english": "recognition",
-          "example": "En revanche, le second montre que des autodidactes formés sur Internet peuvent gagner en notoriété, devenir professionnels et publier des livres de recettes.",
-          "usage": "Nom féminin ; réutilisable en Médias/Carrière."
+          "french": "des livres de recettes",
+          "english": "recipe books",
+          "example": "En revanche, le second montre que des autodidactes formés en ligne peuvent se faire connaître, devenir professionnels et publier des livres de recettes.",
+          "usage": "Nom masculin pluriel ; réutilisable en Cuisine/Édition."
         },
         {
           "id": "E3-SEP-C03-10R1",
@@ -647,7 +647,7 @@
           "kind": "collocation",
           "french": "un amateur passionné",
           "english": "a passionate amateur",
-          "example": "De plus, un amateur passionné peut acquérir ces savoir-faire grâce à une pratique exigeante et à l’accompagnement d’experts dans une vraie cuisine.",
+          "example": "De plus, un amateur passionné peut acquérir ces savoir-faire grâce à une pratique exigeante et à l’accompagnement de professionnels de la restauration.",
           "usage": "Nom masculin ; réutilisable en Loisirs/Formation."
         },
         {
@@ -655,7 +655,7 @@
           "kind": "verbe-action",
           "french": "acquérir ces savoir-faire",
           "english": "to acquire these skills",
-          "example": "De plus, un amateur passionné peut acquérir ces savoir-faire grâce à une pratique exigeante et à l’accompagnement d’experts dans une vraie cuisine.",
+          "example": "De plus, un amateur passionné peut acquérir ces savoir-faire grâce à une pratique exigeante et à l’accompagnement de professionnels de la restauration.",
           "usage": "Construction infinitive ; réutilisable en Formation/Travail."
         },
         {
@@ -663,7 +663,7 @@
           "kind": "tournure",
           "french": "grâce à une pratique exigeante",
           "english": "through demanding practice",
-          "example": "De plus, un amateur passionné peut acquérir ces savoir-faire grâce à une pratique exigeante et à l’accompagnement d’experts dans une vraie cuisine.",
+          "example": "De plus, un amateur passionné peut acquérir ces savoir-faire grâce à une pratique exigeante et à l’accompagnement de professionnels de la restauration.",
           "usage": "Grâce à + nom ; réutilisable pour exprimer un moyen positif."
         },
         {
@@ -671,15 +671,15 @@
           "kind": "collocation",
           "french": "une pratique exigeante",
           "english": "demanding practice",
-          "example": "De plus, un amateur passionné peut acquérir ces savoir-faire grâce à une pratique exigeante et à l’accompagnement d’experts dans une vraie cuisine.",
+          "example": "De plus, un amateur passionné peut acquérir ces savoir-faire grâce à une pratique exigeante et à l’accompagnement de professionnels de la restauration.",
           "usage": "Nom féminin ; réutilisable en Formation/Performance."
         },
         {
-          "id": "E3-SEP-C03-22",
+          "id": "E3-SEP-C03-22R1",
           "kind": "collocation",
-          "french": "l’accompagnement d’experts",
-          "english": "guidance from experts",
-          "example": "De plus, un amateur passionné peut acquérir ces savoir-faire grâce à une pratique exigeante et à l’accompagnement d’experts dans une vraie cuisine.",
+          "french": "l’accompagnement de professionnels",
+          "english": "guidance from professionals",
+          "example": "De plus, un amateur passionné peut acquérir ces savoir-faire grâce à une pratique exigeante et à l’accompagnement de professionnels de la restauration.",
           "usage": "Nom masculin ; réutilisable en Formation/Travail."
         },
         {
@@ -687,7 +687,7 @@
           "kind": "expression",
           "french": "Par exemple",
           "english": "For example",
-          "example": "Par exemple, une créatrice de recettes connue sur les réseaux sociaux peut effectuer un stage en restaurant avant d’ouvrir son établissement.",
+          "example": "Par exemple, une créatrice de recettes connue sur les réseaux sociaux peut faire un stage en restaurant avant d’ouvrir son établissement.",
           "usage": "Connecteur d’illustration ; réutilisable dans toute argumentation."
         },
         {
@@ -695,7 +695,7 @@
           "kind": "collocation",
           "french": "les réseaux sociaux",
           "english": "social media",
-          "example": "Par exemple, une créatrice de recettes connue sur les réseaux sociaux peut effectuer un stage en restaurant avant d’ouvrir son établissement.",
+          "example": "Par exemple, une créatrice de recettes connue sur les réseaux sociaux peut faire un stage en restaurant avant d’ouvrir son établissement.",
           "usage": "Nom masculin pluriel ; réutilisable en Numérique/Médias."
         },
         {
@@ -703,23 +703,23 @@
           "kind": "verbe-action",
           "french": "ouvrir son établissement",
           "english": "to open one’s establishment",
-          "example": "Par exemple, une créatrice de recettes connue sur les réseaux sociaux peut effectuer un stage en restaurant avant d’ouvrir son établissement.",
+          "example": "Par exemple, une créatrice de recettes connue sur les réseaux sociaux peut faire un stage en restaurant avant d’ouvrir son établissement.",
           "usage": "Construction infinitive ; réutilisable en Entrepreneuriat/Travail."
         },
         {
-          "id": "E3-SEP-C03-26R1",
+          "id": "E3-SEP-C03-26R2",
           "kind": "phrase-modele",
-          "french": "Ces règles s’apprennent difficilement seul, car une erreur de conservation ou de cuisson peut rendre des clients malades",
-          "english": "These rules are learned with difficulty alone, since a storage or cooking mistake can make customers sick",
-          "example": "Ces règles s’apprennent difficilement seul, car une erreur de conservation ou de cuisson peut rendre des clients malades.",
-          "usage": "Formule de concession ; réutilisable en Numérique/Consommation."
+          "french": "Ces compétences s’acquièrent difficilement seul, car une erreur de conservation ou de cuisson peut rendre des clients malades",
+          "english": "These skills are hard to acquire alone, since a storage or cooking mistake can make customers sick",
+          "example": "Ces compétences s’acquièrent difficilement seul, car une erreur de conservation ou de cuisson peut rendre des clients malades.",
+          "usage": "Formule d’appui causal ; réutilisable en Formation/Santé."
         },
         {
           "id": "E3-SEP-C03-27R1",
           "kind": "mot-cle",
           "french": "une erreur de conservation ou de cuisson",
           "english": "a storage or cooking mistake",
-          "example": "Ces règles s’apprennent difficilement seul, car une erreur de conservation ou de cuisson peut rendre des clients malades.",
+          "example": "Ces compétences s’acquièrent difficilement seul, car une erreur de conservation ou de cuisson peut rendre des clients malades.",
           "usage": "Nom féminin ; réutilisable en Alimentation/Santé."
         },
         {
@@ -727,7 +727,7 @@
           "kind": "tournure",
           "french": "peut rendre des clients malades",
           "english": "can make customers sick",
-          "example": "Ces règles s’apprennent difficilement seul, car une erreur de conservation ou de cuisson peut rendre des clients malades.",
+          "example": "Ces compétences s’acquièrent difficilement seul, car une erreur de conservation ou de cuisson peut rendre des clients malades.",
           "usage": "Négation corrélative ni… ni… ; réutilisable pour réfuter une garantie."
         },
         {
@@ -871,7 +871,7 @@
           "french": "la confiance",
           "english": "trust",
           "example": "Tout d’abord, la confiance facilite l’entraide et la résolution des problèmes au quotidien.",
-          "usage": "Nom féminin ; réutilisable en Relations/Travail."
+          "usage": "Collocation verbale ; réutilisable en Relations/Travail."
         },
         {
           "id": "E3-SEP-C04-16",
@@ -942,32 +942,32 @@
           "kind": "collocation",
           "french": "signaler une erreur",
           "english": "report a mistake",
-          "example": "On ose demander de l’aide ou signaler une erreur sans craindre d’être jugé, et la difficulté se règle plus vite.",
+          "example": "Les collègues osent demander de l’aide ou signaler une erreur sans craindre d’être jugés, ce qui permet de corriger le problème plus vite.",
           "usage": "Nom féminin ; réutilisable en Relations/Travail."
         },
         {
-          "id": "E3-SEP-C04-25R1",
+          "id": "E3-SEP-C04-25R2",
           "kind": "mot-cle",
-          "french": "la difficulté",
-          "english": "the difficulty",
-          "example": "On ose demander de l’aide ou signaler une erreur sans craindre d’être jugé, et la difficulté se règle plus vite.",
-          "usage": "Nom masculin ; réutilisable en Travail/Équité."
+          "french": "le problème",
+          "english": "the problem",
+          "example": "Les collègues osent demander de l’aide ou signaler une erreur sans craindre d’être jugés, ce qui permet de corriger le problème plus vite.",
+          "usage": "Nom masculin ; réutilisable en Travail/Relations."
         },
         {
-          "id": "E3-SEP-C04-26R1",
+          "id": "E3-SEP-C04-26R2",
           "kind": "reformulation",
-          "french": "se règle plus vite",
-          "english": "gets resolved more quickly",
-          "example": "On ose demander de l’aide ou signaler une erreur sans craindre d’être jugé, et la difficulté se règle plus vite.",
-          "usage": "Nom masculin pluriel à valeur générique ; reformule « employés » ou « travailleurs »."
+          "french": "corriger le problème",
+          "english": "to fix the problem",
+          "example": "Les collègues osent demander de l’aide ou signaler une erreur sans craindre d’être jugés, ce qui permet de corriger le problème plus vite.",
+          "usage": "Reformule « résoudre la difficulté » ; réutilisable en Travail/Organisation."
         },
         {
-          "id": "E3-SEP-C04-27R1",
+          "id": "E3-SEP-C04-27R2",
           "kind": "phrase-modele",
-          "french": "On ose demander de l’aide ou signaler une erreur sans craindre d’être jugé, et la difficulté se règle plus vite",
-          "english": "One dares to ask for help or report a mistake without fear of being judged, and the difficulty gets resolved more quickly",
-          "example": "On ose demander de l’aide ou signaler une erreur sans craindre d’être jugé, et la difficulté se règle plus vite.",
-          "usage": "Formule de concession ; réutilisable en Travail/Relations."
+          "french": "Les collègues osent demander de l’aide ou signaler une erreur sans craindre d’être jugés, ce qui permet de corriger le problème plus vite",
+          "english": "Colleagues dare to ask for help or report a mistake without fear of being judged, which makes it possible to fix the problem more quickly",
+          "example": "Les collègues osent demander de l’aide ou signaler une erreur sans craindre d’être jugés, ce qui permet de corriger le problème plus vite.",
+          "usage": "Formule d’appui ; réutilisable en Travail/Relations."
         },
         {
           "id": "E3-SEP-C04-28R1",
@@ -1025,59 +1025,59 @@
           "usage": "Nom féminin pluriel ; réutilisable en Loisirs/Travail."
         },
         {
-          "id": "E3-SEP-C05-04R1",
+          "id": "E3-SEP-C05-04R2",
           "kind": "collocation",
-          "french": "enrichir un curriculum vitæ",
-          "english": "enhance a résumé",
-          "example": "Le premier y voit une occasion d’acquérir des compétences, de gagner de l’argent et d’enrichir un curriculum vitæ.",
-          "usage": "Nom masculin pluriel ; réutilisable dans toute ouverture de débat."
+          "french": "enrichir son CV",
+          "english": "to enhance one’s résumé",
+          "example": "Le premier y voit un moyen d’acquérir des compétences, de gagner de l’argent et d’enrichir son CV.",
+          "usage": "Association verbe-complément ; réutilisable en Travail/Candidature."
         },
         {
           "id": "E3-SEP-C05-05R1",
           "kind": "expression",
           "french": "Le premier",
           "english": "The first (text)",
-          "example": "Le premier y voit une occasion d’acquérir des compétences, de gagner de l’argent et d’enrichir un curriculum vitæ.",
+          "example": "Le premier y voit un moyen d’acquérir des compétences, de gagner de l’argent et d’enrichir son CV.",
           "usage": "Connecteur d’opposition ; réutilisable dans toute synthèse."
         },
         {
-          "id": "E3-SEP-C05-06R1",
+          "id": "E3-SEP-C05-06R2",
           "kind": "reformulation",
-          "french": "cette période",
-          "english": "this period",
-          "example": "En revanche, le second estime que cette période doit permettre aux jeunes de se reposer, de créer et de profiter de leurs proches.",
-          "usage": "Nom masculin pluriel ; reformule « ses partisans »."
+          "french": "ce temps",
+          "english": "this time, this stretch of time",
+          "example": "En revanche, le second estime que ce temps doit permettre aux jeunes de se reposer, d’explorer leurs centres d’intérêt et de profiter de leurs proches.",
+          "usage": "Groupe nominal ; reformule « cette période » ou « ces vacances »."
         },
         {
-          "id": "E3-SEP-C05-07",
+          "id": "E3-SEP-C05-07R1",
           "kind": "collocation",
-          "french": "une occasion d’acquérir des compétences",
-          "english": "an opportunity to acquire skills",
-          "example": "Le premier y voit une occasion d’acquérir des compétences, de gagner de l’argent et d’enrichir un curriculum vitæ.",
-          "usage": "Nom féminin + de + infinitif ; réutilisable en Travail/Formation."
+          "french": "un moyen d’acquérir des compétences",
+          "english": "a way to acquire skills",
+          "example": "Le premier y voit un moyen d’acquérir des compétences, de gagner de l’argent et d’enrichir son CV.",
+          "usage": "Nom masculin + de + infinitif ; réutilisable en Travail/Formation."
         },
         {
           "id": "E3-SEP-C05-08",
           "kind": "verbe-action",
           "french": "gagner de l’argent",
           "english": "to earn money",
-          "example": "Le premier y voit une occasion d’acquérir des compétences, de gagner de l’argent et d’enrichir un curriculum vitæ.",
+          "example": "Le premier y voit un moyen d’acquérir des compétences, de gagner de l’argent et d’enrichir son CV.",
           "usage": "Construction infinitive ; réutilisable en Travail/Budget."
         },
         {
-          "id": "E3-SEP-C05-09",
+          "id": "E3-SEP-C05-09R1",
           "kind": "mot-cle",
-          "french": "un curriculum vitæ",
-          "english": "a résumé",
-          "example": "Le premier y voit une occasion d’acquérir des compétences, de gagner de l’argent et d’enrichir un curriculum vitæ.",
-          "usage": "Nom masculin ; réutilisable en Travail/Emploi."
+          "french": "centres d’intérêt",
+          "english": "areas of interest",
+          "example": "En revanche, le second estime que ce temps doit permettre aux jeunes de se reposer, d’explorer leurs centres d’intérêt et de profiter de leurs proches.",
+          "usage": "Nom masculin pluriel ; réutilisable en Loisirs/Jeunesse."
         },
         {
           "id": "E3-SEP-C05-10",
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, le second estime que cette période doit permettre aux jeunes de se reposer, de créer et de profiter de leurs proches.",
+          "example": "En revanche, le second estime que ce temps doit permettre aux jeunes de se reposer, d’explorer leurs centres d’intérêt et de profiter de leurs proches.",
           "usage": "Connecteur d’opposition ; réutilisable dans toute synthèse."
         },
         {
@@ -1085,7 +1085,7 @@
           "kind": "mot-cle",
           "french": "leurs proches",
           "english": "their loved ones",
-          "example": "En revanche, le second estime que cette période doit permettre aux jeunes de se reposer, de créer et de profiter de leurs proches.",
+          "example": "En revanche, le second estime que ce temps doit permettre aux jeunes de se reposer, d’explorer leurs centres d’intérêt et de profiter de leurs proches.",
           "usage": "Nom masculin pluriel ; réutilisable en Famille/Bien-être."
         },
         {
@@ -1276,23 +1276,23 @@
           "kind": "mot-cle",
           "french": "au Québec",
           "english": "in Quebec",
-          "example": "Le premier constate qu’au Québec les femmes peuvent accéder à tous les métiers, notamment aux postes de direction.",
+          "example": "Le premier constate qu’au Québec, les femmes peuvent exercer des métiers longtemps réservés aux hommes et occuper des postes de direction.",
           "usage": "Nom masculin ; réutilisable en Travail."
         },
         {
-          "id": "E3-SEP-C07-05",
+          "id": "E3-SEP-C07-05R1",
           "kind": "verbe-action",
-          "french": "accéder à tous les métiers",
-          "english": "to gain access to every profession",
-          "example": "Le premier constate qu’au Québec les femmes peuvent accéder à tous les métiers, notamment aux postes de direction.",
-          "usage": "Accéder à + nom ; réutilisable en Travail/Égalité."
+          "french": "exercer des métiers longtemps réservés aux hommes",
+          "english": "to work in occupations long reserved for men",
+          "example": "Le premier constate qu’au Québec, les femmes peuvent exercer des métiers longtemps réservés aux hommes et occuper des postes de direction.",
+          "usage": "Construction verbale ; réutilisable en Travail/Égalité."
         },
         {
           "id": "E3-SEP-C07-06",
           "kind": "collocation",
           "french": "postes de direction",
           "english": "management positions",
-          "example": "Le premier constate qu’au Québec les femmes peuvent accéder à tous les métiers, notamment aux postes de direction.",
+          "example": "Le premier constate qu’au Québec, les femmes peuvent exercer des métiers longtemps réservés aux hommes et occuper des postes de direction.",
           "usage": "Nom masculin pluriel ; réutilisable en Travail/Carrière."
         },
         {
@@ -1448,19 +1448,19 @@
           "usage": "Nom masculin pluriel ; réutilisable en Travail/Équité."
         },
         {
-          "id": "E3-SEP-C07-26R1",
+          "id": "E3-SEP-C07-26R2",
           "kind": "phrase-modele",
-          "french": "Un employeur qui se prive de la moitié des candidatures recrute forcément moins bien",
-          "english": "An employer who deprives itself of half the candidates inevitably recruits less effectively",
-          "example": "Un employeur qui se prive de la moitié des candidatures recrute forcément moins bien.",
-          "usage": "Formule de concession ; réutilisable en Société/Changement."
+          "french": "Un employeur qui se prive de la moitié des candidatures réduit ses chances de recruter le meilleur profil",
+          "english": "An employer who passes over half the applications reduces its chances of hiring the best candidate",
+          "example": "Un employeur qui se prive de la moitié des candidatures réduit ses chances de recruter le meilleur profil.",
+          "usage": "Formule d’appui argumentatif ; réutilisable en Travail/Recrutement."
         },
         {
           "id": "E3-SEP-C07-27R1",
           "kind": "mot-cle",
           "french": "la moitié des candidatures",
           "english": "half of the applications",
-          "example": "Un employeur qui se prive de la moitié des candidatures recrute forcément moins bien.",
+          "example": "Un employeur qui se prive de la moitié des candidatures réduit ses chances de recruter le meilleur profil.",
           "usage": "Nom féminin pluriel ; réutilisable en Société/Égalité."
         },
         {

@@ -73,7 +73,7 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, le second dénonce son omniprésence agaçante, les interruptions des programmes et les déchets de papier qu’elle produit, et souhaite une réglementation plus stricte.",
+          "example": "En revanche, le second dénonce son omniprésence, les interruptions de programmes et le gaspillage de papier qu’elle entraîne, et demande une réglementation plus stricte.",
           "usage": "Connecteur d’opposition ; introduit un avis contraire."
         },
         {
@@ -81,32 +81,32 @@
           "kind": "mot-cle",
           "french": "une réglementation plus stricte",
           "english": "stricter regulation",
-          "example": "En revanche, le second dénonce son omniprésence agaçante, les interruptions des programmes et les déchets de papier qu’elle produit, et souhaite une réglementation plus stricte.",
+          "example": "En revanche, le second dénonce son omniprésence, les interruptions de programmes et le gaspillage de papier qu’elle entraîne, et demande une réglementation plus stricte.",
           "usage": "Nom féminin singulier ; réutilisable en Réglementation/Politiques publiques."
         },
         {
-          "id": "E3-OCT-C01-10R1",
+          "id": "E3-OCT-C01-10R2",
           "kind": "collocation",
-          "french": "son omniprésence agaçante",
-          "english": "its irritating omnipresence",
-          "example": "En revanche, le second dénonce son omniprésence agaçante, les interruptions des programmes et les déchets de papier qu’elle produit, et souhaite une réglementation plus stricte.",
+          "french": "son omniprésence",
+          "english": "its omnipresence",
+          "example": "En revanche, le second dénonce son omniprésence, les interruptions de programmes et le gaspillage de papier qu’elle entraîne, et demande une réglementation plus stricte.",
           "usage": "Groupe nominal féminin ; réutilisable en Publicité/Médias."
         },
         {
-          "id": "E3-OCT-C01-11",
+          "id": "E3-OCT-C01-11R1",
           "kind": "mot-cle",
-          "french": "les interruptions des programmes",
+          "french": "les interruptions de programmes",
           "english": "programme interruptions",
-          "example": "En revanche, le second dénonce son omniprésence agaçante, les interruptions des programmes et les déchets de papier qu’elle produit, et souhaite une réglementation plus stricte.",
+          "example": "En revanche, le second dénonce son omniprésence, les interruptions de programmes et le gaspillage de papier qu’elle entraîne, et demande une réglementation plus stricte.",
           "usage": "Nom féminin pluriel ; réutilisable en Médias/Publicité."
         },
         {
-          "id": "E3-OCT-C01-12",
+          "id": "E3-OCT-C01-12R1",
           "kind": "mot-cle",
-          "french": "les déchets de papier",
+          "french": "le gaspillage de papier",
           "english": "paper waste",
-          "example": "En revanche, le second dénonce son omniprésence agaçante, les interruptions des programmes et les déchets de papier qu’elle produit, et souhaite une réglementation plus stricte.",
-          "usage": "Nom masculin pluriel ; réutilisable en Environnement/Consommation."
+          "example": "En revanche, le second dénonce son omniprésence, les interruptions de programmes et le gaspillage de papier qu’elle entraîne, et demande une réglementation plus stricte.",
+          "usage": "Nom masculin ; réutilisable en Environnement/Consommation."
         },
         {
           "id": "E3-OCT-C01-13R1",
@@ -205,12 +205,12 @@
           "usage": "Sans + infinitif ; réutilisable pour exprimer un avantage sans nuisance."
         },
         {
-          "id": "E3-OCT-C01-25R1",
+          "id": "E3-OCT-C01-25R2",
           "kind": "reformulation",
-          "french": "elle",
-          "english": "it (referring to advertising)",
-          "example": "Sans elle, un commerce de quartier n’aurait aucun moyen d’annoncer son ouverture ou ses promotions.",
-          "usage": "Pronom personnel reprenant « la publicité » ; évite de répéter le nom."
+          "french": "un commerce de quartier",
+          "english": "a neighbourhood business",
+          "example": "Sans elle, un commerce de quartier aurait plus de mal à annoncer son ouverture ou ses promotions.",
+          "usage": "Groupe nominal concret ; sert à illustrer l’effet d’une mesure sur une petite entreprise locale."
         },
         {
           "id": "E3-OCT-C01-26R1",
@@ -221,11 +221,11 @@
           "usage": "Phrase modèle avec « de plus » ; réutilisable pour introduire un deuxième argument favorable."
         },
         {
-          "id": "E3-OCT-C01-27R1",
+          "id": "E3-OCT-C01-27R2",
           "kind": "tournure",
-          "french": "n’aurait aucun moyen d’annoncer son ouverture ou ses promotions",
-          "english": "would have no way to announce its opening or its promotions",
-          "example": "Sans elle, un commerce de quartier n’aurait aucun moyen d’annoncer son ouverture ou ses promotions.",
+          "french": "aurait plus de mal à annoncer son ouverture ou ses promotions",
+          "english": "would have more difficulty announcing its opening or promotions",
+          "example": "Sans elle, un commerce de quartier aurait plus de mal à annoncer son ouverture ou ses promotions.",
           "usage": "Conditionnel négatif avec « aucun moyen de » + infinitif ; illustre une conséquence hypothétique."
         },
         {
@@ -276,11 +276,11 @@
           "usage": "Nom masculin pluriel ; réutilisable en Transport/Tourisme."
         },
         {
-          "id": "E3-OCT-C02-03",
+          "id": "E3-OCT-C02-03R1",
           "kind": "collocation",
-          "french": "des tarifs parfois inférieurs au train ou à la voiture",
-          "english": "fares sometimes lower than train or car travel",
-          "example": "Le premier apprécie des tarifs parfois inférieurs au train ou à la voiture, malgré l’absence de services, et les déconseille sur les longs trajets.",
+          "french": "des tarifs parfois inférieurs à ceux du train ou de la voiture",
+          "english": "fares sometimes lower than those of train or car travel",
+          "example": "Le premier apprécie des tarifs parfois inférieurs à ceux du train ou de la voiture, malgré l’absence de services, mais les déconseille pour les longs trajets.",
           "usage": "Groupe nominal masculin pluriel ; réutilisable en Transport/Budget."
         },
         {
@@ -288,7 +288,7 @@
           "kind": "tournure",
           "french": "malgré l’absence de services",
           "english": "despite the lack of services",
-          "example": "Le premier apprécie des tarifs parfois inférieurs au train ou à la voiture, malgré l’absence de services, et les déconseille sur les longs trajets.",
+          "example": "Le premier apprécie des tarifs parfois inférieurs à ceux du train ou de la voiture, malgré l’absence de services, mais les déconseille pour les longs trajets.",
           "usage": "Malgré + nom ; introduit une concession."
         },
         {
@@ -296,23 +296,23 @@
           "kind": "mot-cle",
           "french": "l’absence de services",
           "english": "the lack of services",
-          "example": "Le premier apprécie des tarifs parfois inférieurs au train ou à la voiture, malgré l’absence de services, et les déconseille sur les longs trajets.",
+          "example": "Le premier apprécie des tarifs parfois inférieurs à ceux du train ou de la voiture, malgré l’absence de services, mais les déconseille pour les longs trajets.",
           "usage": "Nom féminin singulier ; réutilisable en Transport/Consommation."
         },
         {
-          "id": "E3-OCT-C02-06R1",
+          "id": "E3-OCT-C02-06R2",
           "kind": "collocation",
-          "french": "les déconseille sur les longs trajets",
+          "french": "les déconseille pour les longs trajets",
           "english": "advises against them for long journeys",
-          "example": "Le premier apprécie des tarifs parfois inférieurs au train ou à la voiture, malgré l’absence de services, et les déconseille sur les longs trajets.",
+          "example": "Le premier apprécie des tarifs parfois inférieurs à ceux du train ou de la voiture, malgré l’absence de services, mais les déconseille pour les longs trajets.",
           "usage": "Groupe verbal ; réutilisable en Transport/Voyage."
         },
         {
-          "id": "E3-OCT-C02-07R1",
+          "id": "E3-OCT-C02-07R2",
           "kind": "tournure",
-          "french": "sur les longs trajets",
+          "french": "pour les longs trajets",
           "english": "over long journeys",
-          "example": "Le premier apprécie des tarifs parfois inférieurs au train ou à la voiture, malgré l’absence de services, et les déconseille sur les longs trajets.",
+          "example": "Le premier apprécie des tarifs parfois inférieurs à ceux du train ou de la voiture, malgré l’absence de services, mais les déconseille pour les longs trajets.",
           "usage": "Locution prépositionnelle ; réutilisable en Transport/Voyage."
         },
         {
@@ -320,7 +320,7 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, le second critique l’inconfort des sièges, les conditions de travail et la vétusté des appareils, jugée dangereuse.",
+          "example": "En revanche, le second critique l’inconfort, les conditions de travail et l’état vieillissant des appareils, qui peut compromettre la sécurité.",
           "usage": "Connecteur d’opposition ; introduit le second point de vue."
         },
         {
@@ -328,31 +328,31 @@
           "kind": "mot-cle",
           "french": "les conditions de travail",
           "english": "working conditions",
-          "example": "En revanche, le second critique l’inconfort des sièges, les conditions de travail et la vétusté des appareils, jugée dangereuse.",
+          "example": "En revanche, le second critique l’inconfort, les conditions de travail et l’état vieillissant des appareils, qui peut compromettre la sécurité.",
           "usage": "Nom féminin pluriel ; réutilisable en Travail/Transport."
         },
         {
-          "id": "E3-OCT-C02-10",
+          "id": "E3-OCT-C02-10R1",
           "kind": "mot-cle",
-          "french": "la vétusté des appareils",
-          "english": "the ageing condition of aircraft",
-          "example": "En revanche, le second critique l’inconfort des sièges, les conditions de travail et la vétusté des appareils, jugée dangereuse.",
+          "french": "l’état vieillissant des appareils",
+          "english": "the ageing condition of the aircraft",
+          "example": "En revanche, le second critique l’inconfort, les conditions de travail et l’état vieillissant des appareils, qui peut compromettre la sécurité.",
           "usage": "Nom féminin singulier ; réutilisable en Transport/Sécurité."
         },
         {
-          "id": "E3-OCT-C02-11R1",
+          "id": "E3-OCT-C02-11R2",
           "kind": "collocation",
-          "french": "l’inconfort des sièges",
-          "english": "the discomfort of the seats",
-          "example": "En revanche, le second critique l’inconfort des sièges, les conditions de travail et la vétusté des appareils, jugée dangereuse.",
+          "french": "l’inconfort",
+          "english": "discomfort",
+          "example": "En revanche, le second critique l’inconfort, les conditions de travail et l’état vieillissant des appareils, qui peut compromettre la sécurité.",
           "usage": "Groupe nominal masculin ; réutilisable en Transport/Confort."
         },
         {
-          "id": "E3-OCT-C02-12R1",
+          "id": "E3-OCT-C02-12R2",
           "kind": "phrase-modele",
-          "french": "Pour ma part, j’accepterais un vol à bas prix pour un trajet court, à condition que le tarif soit transparent et que les normes soient respectées",
-          "english": "For my part, I would accept a low-cost flight for a short trip, provided that the fare is transparent and standards are met",
-          "example": "Pour ma part, j’accepterais un vol à bas prix pour un trajet court, à condition que le tarif soit transparent et que les normes soient respectées.",
+          "french": "Pour ma part, j’accepterais un vol à bas prix pour un trajet court, à condition que le tarif soit transparent et que les normes de sécurité soient respectées",
+          "english": "For my part, I would accept a low-cost flight for a short trip, provided that the fare is transparent and safety standards are met",
+          "example": "Pour ma part, j’accepterais un vol à bas prix pour un trajet court, à condition que le tarif soit transparent et que les normes de sécurité soient respectées.",
           "usage": "Formule d’opinion personnelle avec le subjonctif ; réutilisable en Transport/Consommation."
         },
         {
@@ -360,7 +360,7 @@
           "kind": "mot-cle",
           "french": "un trajet court",
           "english": "a short trip",
-          "example": "Pour ma part, j’accepterais un vol à bas prix pour un trajet court, à condition que le tarif soit transparent et que les normes soient respectées.",
+          "example": "Pour ma part, j’accepterais un vol à bas prix pour un trajet court, à condition que le tarif soit transparent et que les normes de sécurité soient respectées.",
           "usage": "Nom masculin singulier ; réutilisable en Transport/Voyage."
         },
         {
@@ -368,15 +368,15 @@
           "kind": "collocation",
           "french": "le tarif soit transparent",
           "english": "the fare is transparent",
-          "example": "Pour ma part, j’accepterais un vol à bas prix pour un trajet court, à condition que le tarif soit transparent et que les normes soient respectées.",
+          "example": "Pour ma part, j’accepterais un vol à bas prix pour un trajet court, à condition que le tarif soit transparent et que les normes de sécurité soient respectées.",
           "usage": "Proposition au subjonctif ; utile pour poser une condition sur une offre commerciale."
         },
         {
-          "id": "E3-OCT-C02-15R1",
+          "id": "E3-OCT-C02-15R2",
           "kind": "collocation",
-          "french": "les normes soient respectées",
-          "english": "standards are met",
-          "example": "Pour ma part, j’accepterais un vol à bas prix pour un trajet court, à condition que le tarif soit transparent et que les normes soient respectées.",
+          "french": "les normes de sécurité soient respectées",
+          "english": "safety standards are met",
+          "example": "Pour ma part, j’accepterais un vol à bas prix pour un trajet court, à condition que le tarif soit transparent et que les normes de sécurité soient respectées.",
           "usage": "Proposition au subjonctif passif ; réutilisable en Sécurité/Réglementation."
         },
         {
@@ -384,7 +384,7 @@
           "kind": "tournure",
           "french": "à condition que le tarif soit transparent",
           "english": "provided that the fare is transparent",
-          "example": "Pour ma part, j’accepterais un vol à bas prix pour un trajet court, à condition que le tarif soit transparent et que les normes soient respectées.",
+          "example": "Pour ma part, j’accepterais un vol à bas prix pour un trajet court, à condition que le tarif soit transparent et que les normes de sécurité soient respectées.",
           "usage": "À condition que + subjonctif ; pose une condition stricte."
         },
         {
@@ -404,27 +404,27 @@
           "usage": "Groupe verbal ; réutilisable en Transport/Accessibilité."
         },
         {
-          "id": "E3-OCT-C02-19",
+          "id": "E3-OCT-C02-19R1",
           "kind": "mot-cle",
-          "french": "les frais de bagage",
-          "english": "baggage fees",
-          "example": "De plus, il faut comparer les frais de bagage, le confort et l’empreinte carbone avec les autres moyens de transport.",
-          "usage": "Nom masculin pluriel ; réutilisable en Transport/Budget."
+          "french": "le faible prix",
+          "english": "the low price",
+          "example": "De plus, le faible prix ne doit jamais faire oublier la sécurité ni les conditions de travail du personnel.",
+          "usage": "Nom masculin ; réutilisable en Transport/Budget."
         },
         {
-          "id": "E3-OCT-C02-20",
+          "id": "E3-OCT-C02-20R1",
           "kind": "mot-cle",
-          "french": "l’empreinte carbone",
-          "english": "the carbon footprint",
-          "example": "De plus, il faut comparer les frais de bagage, le confort et l’empreinte carbone avec les autres moyens de transport.",
+          "french": "la sécurité",
+          "english": "safety",
+          "example": "De plus, le faible prix ne doit jamais faire oublier la sécurité ni les conditions de travail du personnel.",
           "usage": "Nom féminin singulier ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-OCT-C02-21",
+          "id": "E3-OCT-C02-21R1",
           "kind": "verbe-action",
-          "french": "comparer les frais de bagage, le confort et l’empreinte carbone",
-          "english": "to compare baggage fees, comfort and carbon footprint",
-          "example": "De plus, il faut comparer les frais de bagage, le confort et l’empreinte carbone avec les autres moyens de transport.",
+          "french": "ne doit jamais faire oublier la sécurité ni les conditions de travail du personnel",
+          "english": "must never make people forget safety or staff working conditions",
+          "example": "De plus, le faible prix ne doit jamais faire oublier la sécurité ni les conditions de travail du personnel.",
           "usage": "Construction infinitive ; réutilisable pour évaluer plusieurs critères."
         },
         {
@@ -444,19 +444,19 @@
           "usage": "Locution temporelle ; réutilisable en Transport/Tourisme."
         },
         {
-          "id": "E3-OCT-C02-24R1",
+          "id": "E3-OCT-C02-24R2",
           "kind": "phrase-modele",
-          "french": "Leurs tarifs descendent parfois sous le prix d’un trajet en voiture ou en train, ce qui permet de partir plus souvent",
-          "english": "Their fares sometimes drop below the price of a car or train trip, which allows people to travel more often",
-          "example": "Leurs tarifs descendent parfois sous le prix d’un trajet en voiture ou en train, ce qui permet de partir plus souvent.",
+          "french": "Leurs tarifs peuvent coûter moins cher qu’un trajet en voiture ou en train, ce qui permet de voyager plus souvent",
+          "english": "Their fares can cost less than a car or train trip, which makes it possible to travel more often",
+          "example": "Leurs tarifs peuvent coûter moins cher qu’un trajet en voiture ou en train, ce qui permet de voyager plus souvent.",
           "usage": "Phrase modèle avec proposition relative ; réutilisable pour illustrer un avantage économique."
         },
         {
-          "id": "E3-OCT-C02-25R1",
+          "id": "E3-OCT-C02-25R2",
           "kind": "collocation",
-          "french": "partir plus souvent",
+          "french": "voyager plus souvent",
           "english": "to travel more often",
-          "example": "Leurs tarifs descendent parfois sous le prix d’un trajet en voiture ou en train, ce qui permet de partir plus souvent.",
+          "example": "Leurs tarifs peuvent coûter moins cher qu’un trajet en voiture ou en train, ce qui permet de voyager plus souvent.",
           "usage": "Groupe verbal ; réutilisable en Transport/Voyage."
         },
         {
@@ -631,7 +631,7 @@
           "kind": "mot-cle",
           "french": "les ressources numériques",
           "english": "digital resources",
-          "example": "Tout d’abord, les ressources numériques permettent de réviser régulièrement sans perdre du temps dans les déplacements.",
+          "example": "Tout d’abord, les ressources numériques permettent de réviser régulièrement sans perdre de temps dans les déplacements.",
           "usage": "Nom féminin pluriel ; réutilisable en Éducation/Numérique."
         },
         {
@@ -639,15 +639,15 @@
           "kind": "verbe-action",
           "french": "réviser régulièrement",
           "english": "to review regularly",
-          "example": "Tout d’abord, les ressources numériques permettent de réviser régulièrement sans perdre du temps dans les déplacements.",
+          "example": "Tout d’abord, les ressources numériques permettent de réviser régulièrement sans perdre de temps dans les déplacements.",
           "usage": "Construction infinitive ; réutilisable en Études/Formation."
         },
         {
-          "id": "E3-OCT-C03-18",
+          "id": "E3-OCT-C03-18R1",
           "kind": "tournure",
-          "french": "sans perdre du temps dans les déplacements",
+          "french": "sans perdre de temps dans les déplacements",
           "english": "without wasting time travelling",
-          "example": "Tout d’abord, les ressources numériques permettent de réviser régulièrement sans perdre du temps dans les déplacements.",
+          "example": "Tout d’abord, les ressources numériques permettent de réviser régulièrement sans perdre de temps dans les déplacements.",
           "usage": "Sans + infinitif ; exprime un avantage pratique."
         },
         {
@@ -655,15 +655,15 @@
           "kind": "mot-cle",
           "french": "la prononciation",
           "english": "pronunciation",
-          "example": "De plus, les échanges avec un professeur corrigent la prononciation et entretiennent la motivation.",
+          "example": "De plus, un professeur peut corriger la prononciation et entretenir la motivation.",
           "usage": "Nom féminin singulier ; réutilisable en Langues/Éducation."
         },
         {
-          "id": "E3-OCT-C03-20",
+          "id": "E3-OCT-C03-20R1",
           "kind": "verbe-action",
-          "french": "entretiennent la motivation",
-          "english": "sustain motivation",
-          "example": "De plus, les échanges avec un professeur corrigent la prononciation et entretiennent la motivation.",
+          "french": "entretenir la motivation",
+          "english": "to sustain motivation",
+          "example": "De plus, un professeur peut corriger la prononciation et entretenir la motivation.",
           "usage": "Groupe verbal ; réutilisable en Éducation/Travail."
         },
         {
@@ -703,15 +703,15 @@
           "kind": "mot-cle",
           "french": "Cette régularité",
           "english": "This regularity",
-          "example": "Cette régularité favorise des progrès concrets.",
+          "example": "Cette régularité permet de progresser sans s’isoler.",
           "usage": "Nom féminin singulier ; reprise démonstrative utile pour exprimer une conséquence."
         },
         {
-          "id": "E3-OCT-C03-26R1",
+          "id": "E3-OCT-C03-26R2",
           "kind": "phrase-modele",
-          "french": "Une leçon suivie depuis son salon ou un café proche s’intègre bien plus facilement dans une journée chargée",
-          "english": "A lesson taken from one’s living room or a nearby café fits much more easily into a busy day",
-          "example": "Une leçon suivie depuis son salon ou un café proche s’intègre bien plus facilement dans une journée chargée.",
+          "french": "Une leçon suivie depuis son salon ou un café proche s’intègre plus facilement dans une journée chargée",
+          "english": "A lesson taken from one’s living room or a nearby café fits more easily into a busy day",
+          "example": "Une leçon suivie depuis son salon ou un café proche s’intègre plus facilement dans une journée chargée.",
           "usage": "Phrase modèle illustrant un avantage pratique ; réutilisable en Éducation/Numérique."
         },
         {
@@ -719,7 +719,7 @@
           "kind": "mot-cle",
           "french": "une journée chargée",
           "english": "a busy day",
-          "example": "Une leçon suivie depuis son salon ou un café proche s’intègre bien plus facilement dans une journée chargée.",
+          "example": "Une leçon suivie depuis son salon ou un café proche s’intègre plus facilement dans une journée chargée.",
           "usage": "Nom féminin singulier ; réutilisable en Travail/Organisation."
         },
         {

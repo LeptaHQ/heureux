@@ -531,11 +531,11 @@
           "usage": "Formule argumentative ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-DEC-C03-04",
+          "id": "E3-DEC-C03-04R1",
           "kind": "phrase-modele",
-          "french": "je les accepterais dans des espaces définis, avec l’accord des collègues et des zones séparées pour les personnes allergiques ou craintives",
-          "english": "I would accept them in designated areas, with colleagues’ agreement and separate zones for people with allergies or fears",
-          "example": "En conclusion, je les accepterais dans des espaces définis, avec l’accord des collègues et des zones séparées pour les personnes allergiques ou craintives.",
+          "french": "En conclusion, j’accepterais les animaux au bureau seulement dans un cadre volontaire, avec des espaces séparés pour les personnes allergiques ou mal à l’aise",
+          "english": "In conclusion, I would accept animals in the office only on a voluntary basis, with separate spaces for people with allergies or who feel uncomfortable",
+          "example": "En conclusion, j’accepterais les animaux au bureau seulement dans un cadre volontaire, avec des espaces séparés pour les personnes allergiques ou mal à l’aise.",
           "usage": "Formule argumentative ; réutilisable en Travail/Bien-être."
         },
         {
@@ -567,7 +567,7 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, je les accepterais dans des espaces définis, avec l’accord des collègues et des zones séparées pour les personnes allergiques ou craintives.",
+          "example": "En conclusion, j’accepterais les animaux au bureau seulement dans un cadre volontaire, avec des espaces séparés pour les personnes allergiques ou mal à l’aise.",
           "usage": "Connecteur ou expression ; réutilisable en Travail/Bien-être."
         },
         {
@@ -635,11 +635,11 @@
           "usage": "Groupe nominal ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-DEC-C03-17",
+          "id": "E3-DEC-C03-17R1",
           "kind": "mot-cle",
-          "french": "l’accord des collègues",
-          "english": "colleagues’ agreement",
-          "example": "En conclusion, je les accepterais dans des espaces définis, avec l’accord des collègues et des zones séparées pour les personnes allergiques ou craintives.",
+          "french": "l’accord de toute l’équipe",
+          "english": "the agreement of the whole team",
+          "example": "Par exemple, une petite entreprise pourrait autoriser un chien calme chaque vendredi dans une salle déterminée, après avoir obtenu l’accord de toute l’équipe.",
           "usage": "Groupe nominal ; réutilisable en Travail/Bien-être."
         },
         {
@@ -715,11 +715,11 @@
           "usage": "Tournure réutilisable ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-DEC-C03-27",
+          "id": "E3-DEC-C03-27R1",
           "kind": "tournure",
-          "french": "des zones séparées pour les personnes allergiques ou craintives",
-          "english": "separate zones for people with allergies or fears",
-          "example": "En conclusion, je les accepterais dans des espaces définis, avec l’accord des collègues et des zones séparées pour les personnes allergiques ou craintives.",
+          "french": "des espaces séparés pour les personnes allergiques ou mal à l’aise",
+          "english": "separate spaces for people with allergies or who feel uncomfortable",
+          "example": "En conclusion, j’accepterais les animaux au bureau seulement dans un cadre volontaire, avec des espaces séparés pour les personnes allergiques ou mal à l’aise.",
           "usage": "Tournure réutilisable ; réutilisable en Travail/Bien-être."
         },
         {
@@ -1037,7 +1037,7 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, le second dénonce les stéréotypes de certains programmes et un temps d’écran susceptible de remplacer la lecture, le sport ou les interactions nécessaires au développement des enfants.",
+          "example": "En revanche, le second dénonce les stéréotypes de certains programmes et un temps d’écran qui peut réduire la place de la lecture, du sport et des interactions sociales.",
           "usage": "Connecteur ou expression ; réutilisable en Éducation/Médias."
         },
         {
@@ -1101,7 +1101,7 @@
           "kind": "mot-cle",
           "french": "les stéréotypes",
           "english": "stereotypes",
-          "example": "En revanche, le second dénonce les stéréotypes de certains programmes et un temps d’écran susceptible de remplacer la lecture, le sport ou les interactions nécessaires au développement des enfants.",
+          "example": "En revanche, le second dénonce les stéréotypes de certains programmes et un temps d’écran qui peut réduire la place de la lecture, du sport et des interactions sociales.",
           "usage": "Groupe nominal ; réutilisable en Éducation/Médias."
         },
         {
@@ -1109,7 +1109,7 @@
           "kind": "mot-cle",
           "french": "un temps d’écran",
           "english": "screen time",
-          "example": "En revanche, le second dénonce les stéréotypes de certains programmes et un temps d’écran susceptible de remplacer la lecture, le sport ou les interactions nécessaires au développement des enfants.",
+          "example": "En revanche, le second dénonce les stéréotypes de certains programmes et un temps d’écran qui peut réduire la place de la lecture, du sport et des interactions sociales.",
           "usage": "Groupe nominal ; réutilisable en Éducation/Médias."
         },
         {
@@ -1145,11 +1145,11 @@
           "usage": "Association lexicale ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-DEC-C05-19R1",
+          "id": "E3-DEC-C05-19R2",
           "kind": "collocation",
-          "french": "les interactions nécessaires au développement des enfants",
-          "english": "the interactions needed for children's development",
-          "example": "En revanche, le second dénonce les stéréotypes de certains programmes et un temps d’écran susceptible de remplacer la lecture, le sport ou les interactions nécessaires au développement des enfants.",
+          "french": "des interactions sociales",
+          "english": "social interactions",
+          "example": "En revanche, le second dénonce les stéréotypes de certains programmes et un temps d’écran qui peut réduire la place de la lecture, du sport et des interactions sociales.",
           "usage": "Association lexicale ; réutilisable en Éducation/Médias."
         },
         {
@@ -1185,11 +1185,11 @@
           "usage": "Association lexicale ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-DEC-C05-24",
+          "id": "E3-DEC-C05-24R1",
           "kind": "tournure",
-          "french": "susceptible de remplacer la lecture",
-          "english": "likely to replace reading",
-          "example": "En revanche, le second dénonce les stéréotypes de certains programmes et un temps d’écran susceptible de remplacer la lecture, le sport ou les interactions nécessaires au développement des enfants.",
+          "french": "qui peut réduire la place de la lecture, du sport et des interactions sociales",
+          "english": "which can leave less room for reading, sport and social interactions",
+          "example": "En revanche, le second dénonce les stéréotypes de certains programmes et un temps d’écran qui peut réduire la place de la lecture, du sport et des interactions sociales.",
           "usage": "Tournure réutilisable ; réutilisable en Éducation/Médias."
         },
         {
@@ -1237,7 +1237,7 @@
           "kind": "reformulation",
           "french": "le second",
           "english": "the second one (the second document)",
-          "example": "En revanche, le second dénonce les stéréotypes de certains programmes et un temps d’écran susceptible de remplacer la lecture, le sport ou les interactions nécessaires au développement des enfants.",
+          "example": "En revanche, le second dénonce les stéréotypes de certains programmes et un temps d’écran qui peut réduire la place de la lecture, du sport et des interactions sociales.",
           "usage": "Reprise lexicale ; réutilisable en Éducation/Médias."
         }
       ]
@@ -2041,7 +2041,7 @@
           "kind": "expression",
           "french": "Par exemple",
           "english": "For example",
-          "example": "Par exemple, une famille peut acheter des habits courants d’occasion et réserver une paire de chaussures durable à l’activité sportive de l’enfant.",
+          "example": "Par exemple, une famille peut acheter des habits d’occasion pour le quotidien et choisir une paire de chaussures solides pour l’activité sportive de l’enfant.",
           "usage": "Connecteur ou expression ; réutilisable en Famille/Consommation."
         },
         {
@@ -2113,7 +2113,7 @@
           "kind": "mot-cle",
           "french": "l’activité sportive de l’enfant",
           "english": "the child's sporting activity",
-          "example": "Par exemple, une famille peut acheter des habits courants d’occasion et réserver une paire de chaussures durable à l’activité sportive de l’enfant.",
+          "example": "Par exemple, une famille peut acheter des habits d’occasion pour le quotidien et choisir une paire de chaussures solides pour l’activité sportive de l’enfant.",
           "usage": "Groupe nominal ; réutilisable en Famille/Consommation."
         },
         {
@@ -2149,19 +2149,19 @@
           "usage": "Association lexicale ; réutilisable en Famille/Consommation."
         },
         {
-          "id": "E3-DEC-C09-21",
+          "id": "E3-DEC-C09-21R1",
           "kind": "collocation",
-          "french": "des habits courants d’occasion",
-          "english": "ordinary second-hand clothes",
-          "example": "Par exemple, une famille peut acheter des habits courants d’occasion et réserver une paire de chaussures durable à l’activité sportive de l’enfant.",
+          "french": "des habits d’occasion",
+          "english": "second-hand clothes",
+          "example": "Par exemple, une famille peut acheter des habits d’occasion pour le quotidien et choisir une paire de chaussures solides pour l’activité sportive de l’enfant.",
           "usage": "Association lexicale ; réutilisable en Famille/Consommation."
         },
         {
-          "id": "E3-DEC-C09-22",
+          "id": "E3-DEC-C09-22R1",
           "kind": "collocation",
-          "french": "une paire de chaussures durable",
-          "english": "a durable pair of shoes",
-          "example": "Par exemple, une famille peut acheter des habits courants d’occasion et réserver une paire de chaussures durable à l’activité sportive de l’enfant.",
+          "french": "une paire de chaussures solides",
+          "english": "a pair of sturdy shoes",
+          "example": "Par exemple, une famille peut acheter des habits d’occasion pour le quotidien et choisir une paire de chaussures solides pour l’activité sportive de l’enfant.",
           "usage": "Association lexicale ; réutilisable en Famille/Consommation."
         },
         {
@@ -3001,11 +3001,11 @@
           "usage": "Formule argumentative ; réutilisable en Santé/Environnement."
         },
         {
-          "id": "E3-DEC-C13-04",
+          "id": "E3-DEC-C13-04R1",
           "kind": "phrase-modele",
-          "french": "je recommande seulement les recettes simples et validées ; les préparations que l’on ne maîtrise pas doivent être abandonnées",
-          "english": "I recommend only simple, validated recipes; preparations one cannot master must be abandoned",
-          "example": "En conclusion, je recommande seulement les recettes simples et validées ; les préparations que l’on ne maîtrise pas doivent être abandonnées.",
+          "french": "En conclusion, je recommande seulement les recettes simples et validées",
+          "english": "In conclusion, I recommend only simple, validated recipes",
+          "example": "En conclusion, je recommande seulement les recettes simples et validées.",
           "usage": "Formule argumentative ; réutilisable en Santé/Environnement."
         },
         {
@@ -3013,7 +3013,7 @@
           "kind": "expression",
           "french": "De son côté",
           "english": "For its part",
-          "example": "De son côté, le second reconnaît les économies réalisées, mais alerte sur les risques sanitaires liés aux mauvaises recettes, au manque d’hygiène ou de conservation, ainsi que sur le temps nécessaire à la fabrication.",
+          "example": "De son côté, le second reconnaît les économies, mais alerte sur les risques sanitaires liés à de mauvais ingrédients, au manque d’hygiène ou à une mauvaise conservation, ainsi que sur le temps nécessaire à la fabrication.",
           "usage": "Connecteur ou expression ; réutilisable en Santé/Environnement."
         },
         {
@@ -3037,7 +3037,7 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, je recommande seulement les recettes simples et validées ; les préparations que l’on ne maîtrise pas doivent être abandonnées.",
+          "example": "En conclusion, je recommande seulement les recettes simples et validées.",
           "usage": "Connecteur ou expression ; réutilisable en Santé/Environnement."
         },
         {
@@ -3069,7 +3069,7 @@
           "kind": "mot-cle",
           "french": "les économies",
           "english": "savings",
-          "example": "De son côté, le second reconnaît les économies réalisées, mais alerte sur les risques sanitaires liés aux mauvaises recettes, au manque d’hygiène ou de conservation, ainsi que sur le temps nécessaire à la fabrication.",
+          "example": "De son côté, le second reconnaît les économies, mais alerte sur les risques sanitaires liés à de mauvais ingrédients, au manque d’hygiène ou à une mauvaise conservation, ainsi que sur le temps nécessaire à la fabrication.",
           "usage": "Groupe nominal ; réutilisable en Santé/Environnement."
         },
         {
@@ -3077,7 +3077,7 @@
           "kind": "mot-cle",
           "french": "les risques sanitaires",
           "english": "health risks",
-          "example": "De son côté, le second reconnaît les économies réalisées, mais alerte sur les risques sanitaires liés aux mauvaises recettes, au manque d’hygiène ou de conservation, ainsi que sur le temps nécessaire à la fabrication.",
+          "example": "De son côté, le second reconnaît les économies, mais alerte sur les risques sanitaires liés à de mauvais ingrédients, au manque d’hygiène ou à une mauvaise conservation, ainsi que sur le temps nécessaire à la fabrication.",
           "usage": "Groupe nominal ; réutilisable en Santé/Environnement."
         },
         {
@@ -3085,7 +3085,7 @@
           "kind": "mot-cle",
           "french": "les recettes simples et validées",
           "english": "simple, validated recipes",
-          "example": "En conclusion, je recommande seulement les recettes simples et validées ; les préparations que l’on ne maîtrise pas doivent être abandonnées.",
+          "example": "En conclusion, je recommande seulement les recettes simples et validées.",
           "usage": "Groupe nominal ; réutilisable en Santé/Environnement."
         },
         {
@@ -3093,7 +3093,7 @@
           "kind": "mot-cle",
           "french": "conservation",
           "english": "preservation",
-          "example": "De son côté, le second reconnaît les économies réalisées, mais alerte sur les risques sanitaires liés aux mauvaises recettes, au manque d’hygiène ou de conservation, ainsi que sur le temps nécessaire à la fabrication.",
+          "example": "De son côté, le second reconnaît les économies, mais alerte sur les risques sanitaires liés à de mauvais ingrédients, au manque d’hygiène ou à une mauvaise conservation, ainsi que sur le temps nécessaire à la fabrication.",
           "usage": "Groupe nominal ; réutilisable en Santé/Environnement."
         },
         {
@@ -3109,7 +3109,7 @@
           "kind": "mot-cle",
           "french": "le temps nécessaire à la fabrication",
           "english": "the time needed to make them",
-          "example": "De son côté, le second reconnaît les économies réalisées, mais alerte sur les risques sanitaires liés aux mauvaises recettes, au manque d’hygiène ou de conservation, ainsi que sur le temps nécessaire à la fabrication.",
+          "example": "De son côté, le second reconnaît les économies, mais alerte sur les risques sanitaires liés à de mauvais ingrédients, au manque d’hygiène ou à une mauvaise conservation, ainsi que sur le temps nécessaire à la fabrication.",
           "usage": "Groupe nominal ; réutilisable en Santé/Environnement."
         },
         {
@@ -3153,11 +3153,11 @@
           "usage": "Association lexicale ; réutilisable en Santé/Environnement."
         },
         {
-          "id": "E3-DEC-C13-23R1",
+          "id": "E3-DEC-C13-23R2",
           "kind": "collocation",
-          "french": "mauvaises recettes",
-          "english": "bad recipes",
-          "example": "De son côté, le second reconnaît les économies réalisées, mais alerte sur les risques sanitaires liés aux mauvaises recettes, au manque d’hygiène ou de conservation, ainsi que sur le temps nécessaire à la fabrication.",
+          "french": "de mauvais ingrédients",
+          "english": "poor-quality ingredients",
+          "example": "De son côté, le second reconnaît les économies, mais alerte sur les risques sanitaires liés à de mauvais ingrédients, au manque d’hygiène ou à une mauvaise conservation, ainsi que sur le temps nécessaire à la fabrication.",
           "usage": "Association lexicale ; réutilisable en Santé/Environnement."
         },
         {
@@ -3181,7 +3181,7 @@
           "kind": "tournure",
           "french": "que l’on ne maîtrise pas",
           "english": "that one cannot master",
-          "example": "En conclusion, je recommande seulement les recettes simples et validées ; les préparations que l’on ne maîtrise pas doivent être abandonnées.",
+          "example": "Il vaut mieux renoncer aux préparations que l’on ne maîtrise pas.",
           "usage": "Tournure réutilisable ; réutilisable en Santé/Environnement."
         },
         {
@@ -3201,11 +3201,11 @@
           "usage": "Construction verbale ; réutilisable en Santé/Environnement."
         },
         {
-          "id": "E3-DEC-C13-29",
+          "id": "E3-DEC-C13-29R1",
           "kind": "verbe-action",
-          "french": "doivent être abandonnées",
-          "english": "must be abandoned",
-          "example": "En conclusion, je recommande seulement les recettes simples et validées ; les préparations que l’on ne maîtrise pas doivent être abandonnées.",
+          "french": "renoncer aux préparations",
+          "english": "to give up on preparations",
+          "example": "Il vaut mieux renoncer aux préparations que l’on ne maîtrise pas.",
           "usage": "Construction verbale ; réutilisable en Santé/Environnement."
         },
         {
@@ -3471,11 +3471,11 @@
       "sujet": "Vivre chez ses parents, pour ou contre ?",
       "entries": [
         {
-          "id": "E3-DEC-C15-01R1",
+          "id": "E3-DEC-C15-01R2",
           "kind": "phrase-modele",
-          "french": "Les deux documents abordent la vie chez ses parents à l’âge adulte",
-          "english": "Both documents deal with living with one's parents as an adult",
-          "example": "Les deux documents abordent la vie chez ses parents à l’âge adulte.",
+          "french": "Les deux documents abordent la vie des jeunes chez leurs parents",
+          "english": "Both documents address young people living with their parents",
+          "example": "Les deux documents abordent la vie des jeunes chez leurs parents.",
           "usage": "Formule argumentative ; réutilisable en Famille/Logement."
         },
         {
@@ -3607,11 +3607,11 @@
           "usage": "Groupe nominal ; réutilisable en Famille/Logement."
         },
         {
-          "id": "E3-DEC-C15-18",
+          "id": "E3-DEC-C15-18R1",
           "kind": "collocation",
-          "french": "à l’âge adulte",
-          "english": "in adulthood",
-          "example": "Les deux documents abordent la vie chez ses parents à l’âge adulte.",
+          "french": "payer une partie des courses",
+          "english": "to pay part of the grocery bill",
+          "example": "Par exemple, un jeune salarié peut payer une partie des courses, cuisiner deux soirs par semaine et épargner chaque mois pour son futur logement.",
           "usage": "Association lexicale ; réutilisable en Famille/Logement."
         },
         {
@@ -3734,11 +3734,11 @@
           "usage": "Formule argumentative ; réutilisable en Ville/Environnement."
         },
         {
-          "id": "E3-DEC-C16-03R1",
+          "id": "E3-DEC-C16-03R2",
           "kind": "phrase-modele",
-          "french": "De plus, elle doit construire sur des terrains déjà urbanisés plutôt que détruire les forêts voisines",
-          "english": "Moreover, it must build on already developed land rather than destroy nearby forests",
-          "example": "De plus, elle doit construire sur des terrains déjà urbanisés plutôt que détruire les forêts voisines.",
+          "french": "De plus, les municipalités doivent construire sur des terrains déjà urbanisés plutôt que détruire les forêts voisines",
+          "english": "Moreover, municipalities must build on already developed land rather than destroy nearby forests",
+          "example": "De plus, les municipalités doivent construire sur des terrains déjà urbanisés plutôt que détruire les forêts voisines.",
           "usage": "Formule argumentative ; réutilisable en Ville/Environnement."
         },
         {
@@ -3882,7 +3882,7 @@
           "kind": "collocation",
           "french": "des terrains déjà urbanisés",
           "english": "previously developed land",
-          "example": "De plus, elle doit construire sur des terrains déjà urbanisés plutôt que détruire les forêts voisines.",
+          "example": "De plus, les municipalités doivent construire sur des terrains déjà urbanisés plutôt que détruire les forêts voisines.",
           "usage": "Association lexicale ; réutilisable en Ville/Environnement."
         },
         {
@@ -3914,7 +3914,7 @@
           "kind": "tournure",
           "french": "plutôt que détruire les forêts voisines",
           "english": "rather than destroy nearby forests",
-          "example": "De plus, elle doit construire sur des terrains déjà urbanisés plutôt que détruire les forêts voisines.",
+          "example": "De plus, les municipalités doivent construire sur des terrains déjà urbanisés plutôt que détruire les forêts voisines.",
           "usage": "Tournure réutilisable ; réutilisable en Ville/Environnement."
         },
         {
@@ -4001,7 +4001,7 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, le second dénonce des repas trop caloriques, répétitifs et riches en boissons sucrées, ainsi qu’une importante production de déchets plastiques.",
+          "example": "En revanche, le second dénonce des repas trop caloriques et répétitifs, accompagnés de boissons sucrées, ainsi qu’une importante production de déchets plastiques.",
           "usage": "Connecteur ou expression ; réutilisable en Santé/Consommation."
         },
         {
@@ -4057,7 +4057,7 @@
           "kind": "mot-cle",
           "french": "des repas trop caloriques",
           "english": "excessively high-calorie meals",
-          "example": "En revanche, le second dénonce des repas trop caloriques, répétitifs et riches en boissons sucrées, ainsi qu’une importante production de déchets plastiques.",
+          "example": "En revanche, le second dénonce des repas trop caloriques et répétitifs, accompagnés de boissons sucrées, ainsi qu’une importante production de déchets plastiques.",
           "usage": "Groupe nominal ; réutilisable en Santé/Consommation."
         },
         {
@@ -4065,7 +4065,7 @@
           "kind": "mot-cle",
           "french": "boissons sucrées",
           "english": "sugary drinks",
-          "example": "En revanche, le second dénonce des repas trop caloriques, répétitifs et riches en boissons sucrées, ainsi qu’une importante production de déchets plastiques.",
+          "example": "En revanche, le second dénonce des repas trop caloriques et répétitifs, accompagnés de boissons sucrées, ainsi qu’une importante production de déchets plastiques.",
           "usage": "Groupe nominal ; réutilisable en Santé/Consommation."
         },
         {
@@ -4073,7 +4073,7 @@
           "kind": "mot-cle",
           "french": "déchets plastiques",
           "english": "plastic waste",
-          "example": "En revanche, le second dénonce des repas trop caloriques, répétitifs et riches en boissons sucrées, ainsi qu’une importante production de déchets plastiques.",
+          "example": "En revanche, le second dénonce des repas trop caloriques et répétitifs, accompagnés de boissons sucrées, ainsi qu’une importante production de déchets plastiques.",
           "usage": "Groupe nominal ; réutilisable en Santé/Consommation."
         },
         {
@@ -4145,7 +4145,7 @@
           "kind": "collocation",
           "french": "une importante production de déchets plastiques",
           "english": "a large amount of plastic waste",
-          "example": "En revanche, le second dénonce des repas trop caloriques, répétitifs et riches en boissons sucrées, ainsi qu’une importante production de déchets plastiques.",
+          "example": "En revanche, le second dénonce des repas trop caloriques et répétitifs, accompagnés de boissons sucrées, ainsi qu’une importante production de déchets plastiques.",
           "usage": "Association lexicale ; réutilisable en Santé/Consommation."
         },
         {
@@ -4201,7 +4201,7 @@
           "kind": "reformulation",
           "french": "le second",
           "english": "the second one (the second document)",
-          "example": "En revanche, le second dénonce des repas trop caloriques, répétitifs et riches en boissons sucrées, ainsi qu’une importante production de déchets plastiques.",
+          "example": "En revanche, le second dénonce des repas trop caloriques et répétitifs, accompagnés de boissons sucrées, ainsi qu’une importante production de déchets plastiques.",
           "usage": "Reprise lexicale ; réutilisable en Santé/Consommation."
         }
       ]
@@ -4288,7 +4288,7 @@
           "kind": "mot-cle",
           "french": "la prise de décision",
           "english": "decision-making",
-          "example": "Le premier leur attribue une amélioration de l’analyse, de la prise de décision et des réflexes chez les adultes.",
+          "example": "Le premier attribue à certains jeux une amélioration de l’analyse, de la prise de décision et des réflexes chez les adultes.",
           "usage": "Groupe nominal ; réutilisable en Loisirs/Numérique."
         },
         {
@@ -4296,7 +4296,7 @@
           "kind": "mot-cle",
           "french": "des réflexes",
           "english": "reflexes",
-          "example": "Le premier leur attribue une amélioration de l’analyse, de la prise de décision et des réflexes chez les adultes.",
+          "example": "Le premier attribue à certains jeux une amélioration de l’analyse, de la prise de décision et des réflexes chez les adultes.",
           "usage": "Groupe nominal ; réutilisable en Loisirs/Numérique."
         },
         {
@@ -4392,7 +4392,7 @@
           "kind": "collocation",
           "french": "une amélioration de l’analyse",
           "english": "an improvement in analysis",
-          "example": "Le premier leur attribue une amélioration de l’analyse, de la prise de décision et des réflexes chez les adultes.",
+          "example": "Le premier attribue à certains jeux une amélioration de l’analyse, de la prise de décision et des réflexes chez les adultes.",
           "usage": "Association lexicale ; réutilisable en Loisirs/Numérique."
         },
         {

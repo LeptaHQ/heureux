@@ -25,15 +25,15 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, le second juge son efficacité limitée contre les infractions et insiste sur son coût élevé ainsi que sur le personnel nombreux nécessaire pour analyser les images.",
+          "example": "En revanche, le second juge son efficacité limitée contre les infractions et insiste sur son coût élevé ainsi que sur le personnel qu’exige l’analyse des images.",
           "usage": "Connecteur adverbial ; réutilisable en Sécurité/Ville."
         },
         {
-          "id": "E3-AVR-C01-03R1",
+          "id": "E3-AVR-C01-03R2",
           "kind": "phrase-modele",
-          "french": "Pour ma part, les caméras peuvent compléter la prévention à condition qu’elles soient installées dans des lieux précis et soumises à des règles claires",
-          "english": "For my part, cameras can supplement prevention provided that they are installed in specific places and subject to clear rules",
-          "example": "Pour ma part, les caméras peuvent compléter la prévention à condition qu’elles soient installées dans des lieux précis et soumises à des règles claires.",
+          "french": "Pour ma part, les caméras peuvent compléter la prévention à condition qu’elles ciblent les lieux les plus exposés et que leur usage soit strictement encadré",
+          "english": "For my part, cameras can complement prevention provided that they target the most exposed places and that their use is strictly regulated",
+          "example": "Pour ma part, les caméras peuvent compléter la prévention à condition qu’elles ciblent les lieux les plus exposés et que leur usage soit strictement encadré.",
           "usage": "Formule argumentative ; réutilisable en Sécurité/Ville."
         },
         {
@@ -41,7 +41,7 @@
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
-          "example": "Tout d’abord, elles facilitent l’identification après une infraction, sans empêcher seules la violence.",
+          "example": "Tout d’abord, elles peuvent aider les enquêteurs après les faits, car les images permettent d’identifier un suspect ou de reconstituer son trajet.",
           "usage": "Connecteur adverbial ; réutilisable en Sécurité/Ville."
         },
         {
@@ -49,15 +49,15 @@
           "kind": "expression",
           "french": "Par exemple",
           "english": "For example",
-          "example": "Par exemple, une station de métro pourrait filmer ses quais pendant quelques jours et réserver l’accès aux enquêteurs autorisés.",
+          "example": "Par exemple, une station de métro pourrait conserver quelques jours les images enregistrées lors d’un incident, puis les supprimer.",
           "usage": "Connecteur adverbial ; réutilisable en Sécurité/Ville."
         },
         {
-          "id": "E3-AVR-C01-06R1",
+          "id": "E3-AVR-C01-06R2",
           "kind": "phrase-modele",
-          "french": "En revanche, le second juge son efficacité limitée contre les infractions et insiste sur son coût élevé ainsi que sur le personnel nombreux nécessaire pour analyser les images",
-          "english": "By contrast, the second considers its effectiveness against offences limited and stresses its high cost as well as the large staff needed to analyse the images",
-          "example": "En revanche, le second juge son efficacité limitée contre les infractions et insiste sur son coût élevé ainsi que sur le personnel nombreux nécessaire pour analyser les images.",
+          "french": "En revanche, le second juge son efficacité limitée contre les infractions et insiste sur son coût élevé ainsi que sur le personnel qu’exige l’analyse des images",
+          "english": "By contrast, the second considers its effectiveness against offences limited and stresses its high cost as well as the staff that analysing the images requires",
+          "example": "En revanche, le second juge son efficacité limitée contre les infractions et insiste sur son coût élevé ainsi que sur le personnel qu’exige l’analyse des images.",
           "usage": "Formule argumentative ; réutilisable en Sécurité/Ville."
         },
         {
@@ -65,15 +65,15 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de combiner un usage contrôlé des caméras avec une présence humaine et des actions sociales.",
+          "example": "En conclusion, les caméras doivent compléter des patrouilles et des actions de prévention, sans les remplacer.",
           "usage": "Connecteur adverbial ; réutilisable en Sécurité/Ville."
         },
         {
-          "id": "E3-AVR-C01-08",
+          "id": "E3-AVR-C01-08R1",
           "kind": "phrase-modele",
-          "french": "En conclusion, le plus important est de combiner un usage contrôlé des caméras avec une présence humaine et des actions sociales",
-          "english": "In conclusion, the most important thing is to combine controlled camera use with a human presence and social initiatives",
-          "example": "En conclusion, le plus important est de combiner un usage contrôlé des caméras avec une présence humaine et des actions sociales.",
+          "french": "En conclusion, les caméras doivent compléter des patrouilles et des actions de prévention, sans les remplacer",
+          "english": "In conclusion, cameras must complement patrols and prevention initiatives, without replacing them",
+          "example": "En conclusion, les caméras doivent compléter des patrouilles et des actions de prévention, sans les remplacer.",
           "usage": "Formule argumentative ; réutilisable en Sécurité/Ville."
         },
         {
@@ -105,7 +105,7 @@
           "kind": "mot-cle",
           "french": "son efficacité limitée",
           "english": "its limited effectiveness",
-          "example": "En revanche, le second juge son efficacité limitée contre les infractions et insiste sur son coût élevé ainsi que sur le personnel nombreux nécessaire pour analyser les images.",
+          "example": "En revanche, le second juge son efficacité limitée contre les infractions et insiste sur son coût élevé ainsi que sur le personnel qu’exige l’analyse des images.",
           "usage": "Groupe nominal ; réutilisable en Sécurité/Ville."
         },
         {
@@ -113,7 +113,7 @@
           "kind": "mot-cle",
           "french": "les infractions",
           "english": "offences",
-          "example": "En revanche, le second juge son efficacité limitée contre les infractions et insiste sur son coût élevé ainsi que sur le personnel nombreux nécessaire pour analyser les images.",
+          "example": "En revanche, le second juge son efficacité limitée contre les infractions et insiste sur son coût élevé ainsi que sur le personnel qu’exige l’analyse des images.",
           "usage": "Groupe nominal pluriel ; réutilisable en Sécurité/Ville."
         },
         {
@@ -121,7 +121,7 @@
           "kind": "mot-cle",
           "french": "son coût élevé",
           "english": "its high cost",
-          "example": "En revanche, le second juge son efficacité limitée contre les infractions et insiste sur son coût élevé ainsi que sur le personnel nombreux nécessaire pour analyser les images.",
+          "example": "En revanche, le second juge son efficacité limitée contre les infractions et insiste sur son coût élevé ainsi que sur le personnel qu’exige l’analyse des images.",
           "usage": "Groupe nominal ; réutilisable en Sécurité/Ville."
         },
         {
@@ -129,119 +129,119 @@
           "kind": "mot-cle",
           "french": "la prévention",
           "english": "prevention",
-          "example": "Pour ma part, les caméras peuvent compléter la prévention à condition qu’elles soient installées dans des lieux précis et soumises à des règles claires.",
+          "example": "Pour ma part, les caméras peuvent compléter la prévention à condition qu’elles ciblent les lieux les plus exposés et que leur usage soit strictement encadré.",
           "usage": "Nom ou groupe nominal féminin ; réutilisable en Sécurité/Ville."
         },
         {
-          "id": "E3-AVR-C01-16",
+          "id": "E3-AVR-C01-16R1",
           "kind": "mot-cle",
-          "french": "la vie privée",
-          "english": "privacy",
-          "example": "De plus, pour que la vie privée soit protégée, il faut limiter la conservation des images.",
+          "french": "la durée de conservation des images",
+          "english": "the retention period for the images",
+          "example": "De plus, il faut que la durée de conservation des images soit limitée et que seuls des enquêteurs habilités y accèdent.",
           "usage": "Nom ou groupe nominal féminin ; réutilisable en Sécurité/Ville."
         },
         {
-          "id": "E3-AVR-C01-17",
+          "id": "E3-AVR-C01-17R1",
           "kind": "mot-cle",
-          "french": "la conservation des images",
-          "english": "retention of footage",
-          "example": "De plus, pour que la vie privée soit protégée, il faut limiter la conservation des images.",
+          "french": "l’analyse des images",
+          "english": "the analysis of the images",
+          "example": "En revanche, le second juge son efficacité limitée contre les infractions et insiste sur son coût élevé ainsi que sur le personnel qu’exige l’analyse des images.",
           "usage": "Nom ou groupe nominal féminin ; réutilisable en Sécurité/Ville."
         },
         {
-          "id": "E3-AVR-C01-18",
+          "id": "E3-AVR-C01-18R1",
           "kind": "mot-cle",
-          "french": "une présence humaine",
-          "english": "a human presence",
-          "example": "En conclusion, le plus important est de combiner un usage contrôlé des caméras avec une présence humaine et des actions sociales.",
+          "french": "une station de métro",
+          "english": "a metro station",
+          "example": "Par exemple, une station de métro pourrait conserver quelques jours les images enregistrées lors d’un incident, puis les supprimer.",
           "usage": "Nom ou groupe nominal féminin ; réutilisable en Sécurité/Ville."
         },
         {
-          "id": "E3-AVR-C01-19R1",
+          "id": "E3-AVR-C01-19R2",
           "kind": "collocation",
-          "french": "le personnel nombreux",
-          "english": "the large staff",
-          "example": "En revanche, le second juge son efficacité limitée contre les infractions et insiste sur son coût élevé ainsi que sur le personnel nombreux nécessaire pour analyser les images.",
+          "french": "les lieux les plus exposés",
+          "english": "the most exposed places",
+          "example": "Pour ma part, les caméras peuvent compléter la prévention à condition qu’elles ciblent les lieux les plus exposés et que leur usage soit strictement encadré.",
           "usage": "Association lexicale ; réutilisable en Sécurité/Ville."
         },
         {
-          "id": "E3-AVR-C01-20",
+          "id": "E3-AVR-C01-20R1",
           "kind": "collocation",
-          "french": "des règles claires",
-          "english": "clear rules",
-          "example": "Pour ma part, les caméras peuvent compléter la prévention à condition qu’elles soient installées dans des lieux précis et soumises à des règles claires.",
-          "usage": "Association lexicale ; réutilisable en Sécurité/Ville."
-        },
-        {
-          "id": "E3-AVR-C01-21",
-          "kind": "collocation",
-          "french": "l’identification après une infraction",
-          "english": "identification after an offence",
-          "example": "Tout d’abord, elles facilitent l’identification après une infraction, sans empêcher seules la violence.",
-          "usage": "Association lexicale ; réutilisable en Sécurité/Ville."
-        },
-        {
-          "id": "E3-AVR-C01-22",
-          "kind": "collocation",
-          "french": "enquêteurs autorisés",
+          "french": "des enquêteurs habilités",
           "english": "authorized investigators",
-          "example": "Par exemple, une station de métro pourrait filmer ses quais pendant quelques jours et réserver l’accès aux enquêteurs autorisés.",
+          "example": "De plus, il faut que la durée de conservation des images soit limitée et que seuls des enquêteurs habilités y accèdent.",
           "usage": "Association lexicale ; réutilisable en Sécurité/Ville."
         },
         {
-          "id": "E3-AVR-C01-23",
+          "id": "E3-AVR-C01-21R1",
           "kind": "collocation",
-          "french": "un usage contrôlé des caméras",
-          "english": "controlled use of cameras",
-          "example": "En conclusion, le plus important est de combiner un usage contrôlé des caméras avec une présence humaine et des actions sociales.",
+          "french": "les images enregistrées",
+          "english": "the recorded images",
+          "example": "Par exemple, une station de métro pourrait conserver quelques jours les images enregistrées lors d’un incident, puis les supprimer.",
           "usage": "Association lexicale ; réutilisable en Sécurité/Ville."
         },
         {
-          "id": "E3-AVR-C01-24",
+          "id": "E3-AVR-C01-22R1",
           "kind": "collocation",
-          "french": "des actions sociales",
-          "english": "social initiatives",
-          "example": "En conclusion, le plus important est de combiner un usage contrôlé des caméras avec une présence humaine et des actions sociales.",
+          "french": "des actions de prévention",
+          "english": "prevention initiatives",
+          "example": "En conclusion, les caméras doivent compléter des patrouilles et des actions de prévention, sans les remplacer.",
           "usage": "Association lexicale ; réutilisable en Sécurité/Ville."
         },
         {
-          "id": "E3-AVR-C01-25R1",
+          "id": "E3-AVR-C01-23R1",
+          "kind": "collocation",
+          "french": "strictement encadré",
+          "english": "strictly regulated",
+          "example": "Pour ma part, les caméras peuvent compléter la prévention à condition qu’elles ciblent les lieux les plus exposés et que leur usage soit strictement encadré.",
+          "usage": "Association lexicale ; réutilisable en Sécurité/Ville."
+        },
+        {
+          "id": "E3-AVR-C01-24R1",
+          "kind": "collocation",
+          "french": "après les faits",
+          "english": "after the event",
+          "example": "Tout d’abord, elles peuvent aider les enquêteurs après les faits, car les images permettent d’identifier un suspect ou de reconstituer son trajet.",
+          "usage": "Association lexicale ; réutilisable en Sécurité/Ville."
+        },
+        {
+          "id": "E3-AVR-C01-25R2",
           "kind": "tournure",
-          "french": "insiste sur son coût élevé ainsi que sur le personnel nombreux",
-          "english": "stresses its high cost as well as the large staff",
-          "example": "En revanche, le second juge son efficacité limitée contre les infractions et insiste sur son coût élevé ainsi que sur le personnel nombreux nécessaire pour analyser les images.",
+          "french": "insiste sur son coût élevé ainsi que sur le personnel qu’exige l’analyse des images",
+          "english": "stresses its high cost as well as the staff that analysing the images requires",
+          "example": "En revanche, le second juge son efficacité limitée contre les infractions et insiste sur son coût élevé ainsi que sur le personnel qu’exige l’analyse des images.",
           "usage": "Tournure syntaxique ; réutilisable en Sécurité/Ville."
         },
         {
-          "id": "E3-AVR-C01-26R1",
+          "id": "E3-AVR-C01-26R2",
           "kind": "tournure",
-          "french": "à condition qu’elles soient installées dans des lieux précis",
-          "english": "provided that they are installed in specific places",
-          "example": "Pour ma part, les caméras peuvent compléter la prévention à condition qu’elles soient installées dans des lieux précis et soumises à des règles claires.",
+          "french": "à condition qu’elles ciblent les lieux les plus exposés",
+          "english": "provided that they target the most exposed places",
+          "example": "Pour ma part, les caméras peuvent compléter la prévention à condition qu’elles ciblent les lieux les plus exposés et que leur usage soit strictement encadré.",
           "usage": "Tournure syntaxique ; réutilisable en Sécurité/Ville."
         },
         {
-          "id": "E3-AVR-C01-27",
+          "id": "E3-AVR-C01-27R1",
           "kind": "tournure",
-          "french": "sans empêcher seules la violence",
-          "english": "without preventing violence on their own",
-          "example": "Tout d’abord, elles facilitent l’identification après une infraction, sans empêcher seules la violence.",
+          "french": "sans les remplacer",
+          "english": "without replacing them",
+          "example": "En conclusion, les caméras doivent compléter des patrouilles et des actions de prévention, sans les remplacer.",
           "usage": "Tournure syntaxique ; réutilisable en Sécurité/Ville."
         },
         {
-          "id": "E3-AVR-C01-28R1",
+          "id": "E3-AVR-C01-28R2",
           "kind": "verbe-action",
-          "french": "limiter la conservation des images",
-          "english": "to limit the retention of images",
-          "example": "De plus, pour que la vie privée soit protégée, il faut limiter la conservation des images.",
+          "french": "identifier un suspect",
+          "english": "to identify a suspect",
+          "example": "Tout d’abord, elles peuvent aider les enquêteurs après les faits, car les images permettent d’identifier un suspect ou de reconstituer son trajet.",
           "usage": "Groupe verbal ; réutilisable en Sécurité/Ville."
         },
         {
-          "id": "E3-AVR-C01-29",
+          "id": "E3-AVR-C01-29R1",
           "kind": "verbe-action",
-          "french": "combiner un usage contrôlé des caméras avec une présence humaine",
-          "english": "to combine controlled camera use with a human presence",
-          "example": "En conclusion, le plus important est de combiner un usage contrôlé des caméras avec une présence humaine et des actions sociales.",
+          "french": "compléter des patrouilles et des actions de prévention",
+          "english": "to complement patrols and prevention initiatives",
+          "example": "En conclusion, les caméras doivent compléter des patrouilles et des actions de prévention, sans les remplacer.",
           "usage": "Groupe verbal ; réutilisable en Sécurité/Ville."
         },
         {
@@ -249,7 +249,7 @@
           "kind": "reformulation",
           "french": "les caméras",
           "english": "the cameras",
-          "example": "Pour ma part, les caméras peuvent compléter la prévention à condition qu’elles soient installées dans des lieux précis et soumises à des règles claires.",
+          "example": "Pour ma part, les caméras peuvent compléter la prévention à condition qu’elles ciblent les lieux les plus exposés et que leur usage soit strictement encadré.",
           "usage": "Reformulation nominale ; réutilisable en Sécurité/Ville."
         }
       ]
@@ -276,11 +276,11 @@
           "usage": "Connecteur adverbial ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AVR-C02-03R1",
+          "id": "E3-AVR-C02-03R2",
           "kind": "phrase-modele",
-          "french": "Pour ma part, la livraison est pratique, mais elle ne doit pas supprimer la pause du midi",
-          "english": "For my part, delivery is convenient, but it must not do away with the lunch break",
-          "example": "Pour ma part, la livraison est pratique, mais elle ne doit pas supprimer la pause du midi.",
+          "french": "Pour ma part, la livraison est pratique à condition qu’elle ne remplace pas la pause de midi",
+          "english": "For my part, delivery is convenient provided that it does not replace the lunch break",
+          "example": "Pour ma part, la livraison est pratique à condition qu’elle ne remplace pas la pause de midi.",
           "usage": "Formule argumentative ; réutilisable en Travail/Bien-être."
         },
         {
@@ -288,7 +288,7 @@
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
-          "example": "Tout d’abord, elle évite un déplacement et permet de choisir son repas à l’avance.",
+          "example": "Tout d’abord, elle évite aux salariés de chercher un restaurant loin du bureau et leur laisse le temps de choisir leur repas à l’avance.",
           "usage": "Connecteur adverbial ; réutilisable en Travail/Bien-être."
         },
         {
@@ -312,15 +312,15 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, il faut que la livraison fasse gagner du temps sans sacrifier le repos, la convivialité ni l’équilibre entre vie professionnelle et personnelle.",
+          "example": "En conclusion, la livraison doit faire gagner du temps sans sacrifier le repos ni la convivialité.",
           "usage": "Connecteur adverbial ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AVR-C02-08R1",
+          "id": "E3-AVR-C02-08R2",
           "kind": "phrase-modele",
-          "french": "En conclusion, il faut que la livraison fasse gagner du temps sans sacrifier le repos, la convivialité ni l’équilibre entre vie professionnelle et personnelle",
-          "english": "In conclusion, delivery must save time without sacrificing rest, conviviality or the balance between professional and personal life",
-          "example": "En conclusion, il faut que la livraison fasse gagner du temps sans sacrifier le repos, la convivialité ni l’équilibre entre vie professionnelle et personnelle.",
+          "french": "En conclusion, la livraison doit faire gagner du temps sans sacrifier le repos ni la convivialité",
+          "english": "In conclusion, delivery must save time without sacrificing rest or conviviality",
+          "example": "En conclusion, la livraison doit faire gagner du temps sans sacrifier le repos ni la convivialité.",
           "usage": "Formule argumentative ; réutilisable en Travail/Bien-être."
         },
         {
@@ -376,15 +376,15 @@
           "kind": "mot-cle",
           "french": "la fatigue",
           "english": "fatigue",
-          "example": "De plus, quitter momentanément son écran réduit la fatigue et favorise les échanges entre collègues.",
+          "example": "De plus, quitter son poste quelques minutes réduit la fatigue et favorise les échanges entre collègues.",
           "usage": "Nom ou groupe nominal féminin ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AVR-C02-16",
+          "id": "E3-AVR-C02-16R1",
           "kind": "mot-cle",
-          "french": "la pause du midi",
-          "english": "lunch break",
-          "example": "Pour ma part, la livraison est pratique, mais elle ne doit pas supprimer la pause du midi.",
+          "french": "la pause de midi",
+          "english": "the lunch break",
+          "example": "Pour ma part, la livraison est pratique à condition qu’elle ne remplace pas la pause de midi.",
           "usage": "Nom ou groupe nominal féminin ; réutilisable en Travail/Bien-être."
         },
         {
@@ -392,7 +392,7 @@
           "kind": "mot-cle",
           "french": "les échanges entre collègues",
           "english": "interactions among colleagues",
-          "example": "De plus, quitter momentanément son écran réduit la fatigue et favorise les échanges entre collègues.",
+          "example": "De plus, quitter son poste quelques minutes réduit la fatigue et favorise les échanges entre collègues.",
           "usage": "Groupe nominal pluriel ; réutilisable en Travail/Bien-être."
         },
         {
@@ -400,23 +400,23 @@
           "kind": "mot-cle",
           "french": "la convivialité",
           "english": "conviviality",
-          "example": "En conclusion, il faut que la livraison fasse gagner du temps sans sacrifier le repos, la convivialité ni l’équilibre entre vie professionnelle et personnelle.",
+          "example": "En conclusion, la livraison doit faire gagner du temps sans sacrifier le repos ni la convivialité.",
           "usage": "Nom ou groupe nominal féminin ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AVR-C02-19R1",
+          "id": "E3-AVR-C02-19R2",
           "kind": "collocation",
-          "french": "temps gagné",
-          "english": "time saved",
-          "example": "Ce temps gagné devient précieux lorsqu’une journée s’annonce particulièrement chargée.",
+          "french": "faire gagner du temps",
+          "english": "to save time",
+          "example": "En conclusion, la livraison doit faire gagner du temps sans sacrifier le repos ni la convivialité.",
           "usage": "Association lexicale ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AVR-C02-20",
+          "id": "E3-AVR-C02-20R1",
           "kind": "collocation",
-          "french": "un déplacement",
-          "english": "a trip",
-          "example": "Tout d’abord, elle évite un déplacement et permet de choisir son repas à l’avance.",
+          "french": "chercher un restaurant loin du bureau",
+          "english": "to look for a restaurant far from the office",
+          "example": "Tout d’abord, elle évite aux salariés de chercher un restaurant loin du bureau et leur laisse le temps de choisir leur repas à l’avance.",
           "usage": "Association lexicale ; réutilisable en Travail/Bien-être."
         },
         {
@@ -440,15 +440,15 @@
           "kind": "collocation",
           "french": "réduit la fatigue",
           "english": "reduces fatigue",
-          "example": "De plus, quitter momentanément son écran réduit la fatigue et favorise les échanges entre collègues.",
+          "example": "De plus, quitter son poste quelques minutes réduit la fatigue et favorise les échanges entre collègues.",
           "usage": "Association lexicale ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AVR-C02-24",
+          "id": "E3-AVR-C02-24R1",
           "kind": "collocation",
-          "french": "l’équilibre entre vie professionnelle et personnelle",
-          "english": "work-life balance",
-          "example": "En conclusion, il faut que la livraison fasse gagner du temps sans sacrifier le repos, la convivialité ni l’équilibre entre vie professionnelle et personnelle.",
+          "french": "favorise les échanges entre collègues",
+          "english": "fosters interactions among colleagues",
+          "example": "De plus, quitter son poste quelques minutes réduit la fatigue et favorise les échanges entre collègues.",
           "usage": "Association lexicale ; réutilisable en Travail/Bien-être."
         },
         {
@@ -460,11 +460,11 @@
           "usage": "Tournure syntaxique ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AVR-C02-26",
+          "id": "E3-AVR-C02-26R1",
           "kind": "tournure",
-          "french": "mais elle ne doit pas supprimer la pause du midi",
-          "english": "but it must not eliminate the lunch break",
-          "example": "Pour ma part, la livraison est pratique, mais elle ne doit pas supprimer la pause du midi.",
+          "french": "à condition qu’elle ne remplace pas la pause de midi",
+          "english": "provided that it does not replace the lunch break",
+          "example": "Pour ma part, la livraison est pratique à condition qu’elle ne remplace pas la pause de midi.",
           "usage": "Tournure syntaxique ; réutilisable en Travail/Bien-être."
         },
         {
@@ -472,7 +472,7 @@
           "kind": "tournure",
           "french": "sans sacrifier le repos",
           "english": "without sacrificing rest",
-          "example": "En conclusion, il faut que la livraison fasse gagner du temps sans sacrifier le repos, la convivialité ni l’équilibre entre vie professionnelle et personnelle.",
+          "example": "En conclusion, la livraison doit faire gagner du temps sans sacrifier le repos ni la convivialité.",
           "usage": "Tournure syntaxique ; réutilisable en Travail/Bien-être."
         },
         {
@@ -484,11 +484,11 @@
           "usage": "Groupe verbal ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AVR-C02-29",
+          "id": "E3-AVR-C02-29R1",
           "kind": "verbe-action",
-          "french": "quitter momentanément son écran",
-          "english": "to step away from one’s screen briefly",
-          "example": "De plus, quitter momentanément son écran réduit la fatigue et favorise les échanges entre collègues.",
+          "french": "quitter son poste quelques minutes",
+          "english": "to step away from one’s workstation for a few minutes",
+          "example": "De plus, quitter son poste quelques minutes réduit la fatigue et favorise les échanges entre collègues.",
           "usage": "Groupe verbal ; réutilisable en Travail/Bien-être."
         },
         {
@@ -507,11 +507,11 @@
       "sujet": "les produits faits maison : pour ou contre ?",
       "entries": [
         {
-          "id": "E3-AVR-C03-01R1",
+          "id": "E3-AVR-C03-01R2",
           "kind": "phrase-modele",
-          "french": "Les deux documents abordent les produits biologiques faits maison",
-          "english": "Both documents deal with homemade organic products",
-          "example": "Les deux documents abordent les produits biologiques faits maison.",
+          "french": "Les deux documents abordent les produits faits maison",
+          "english": "Both documents deal with homemade products",
+          "example": "Les deux documents abordent les produits faits maison.",
           "usage": "Formule argumentative ; réutilisable en Consommation/Environnement."
         },
         {
@@ -519,7 +519,7 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, le second souligne le temps de préparation, le coût initial et les risques d’irritation ou de contamination liés aux erreurs de formulation et de conservation.",
+          "example": "En revanche, le second souligne le temps de préparation, le coût initial et les risques d’irritation ou de contamination dus aux erreurs de formulation et de conservation.",
           "usage": "Connecteur adverbial ; réutilisable en Consommation/Environnement."
         },
         {
@@ -543,15 +543,15 @@
           "kind": "expression",
           "french": "Par exemple",
           "english": "For example",
-          "example": "Par exemple, une famille peut fabriquer un nettoyant ménager éprouvé dans un flacon réutilisable, plutôt qu’une crème destinée à une peau sensible.",
+          "example": "Par exemple, une famille peut préparer un nettoyant ménager éprouvé dans un flacon réutilisable plutôt que de fabriquer une crème à appliquer sur une peau sensible.",
           "usage": "Connecteur adverbial ; réutilisable en Consommation/Environnement."
         },
         {
-          "id": "E3-AVR-C03-06R1",
+          "id": "E3-AVR-C03-06R2",
           "kind": "phrase-modele",
-          "french": "En revanche, le second souligne le temps de préparation, le coût initial et les risques d’irritation ou de contamination liés aux erreurs de formulation et de conservation",
-          "english": "By contrast, the second highlights the preparation time, the initial cost and the risks of irritation or contamination linked to formulation and storage errors",
-          "example": "En revanche, le second souligne le temps de préparation, le coût initial et les risques d’irritation ou de contamination liés aux erreurs de formulation et de conservation.",
+          "french": "En revanche, le second souligne le temps de préparation, le coût initial et les risques d’irritation ou de contamination dus aux erreurs de formulation et de conservation",
+          "english": "By contrast, the second highlights the preparation time, the initial cost and the risks of irritation or contamination caused by formulation and storage errors",
+          "example": "En revanche, le second souligne le temps de préparation, le coût initial et les risques d’irritation ou de contamination dus aux erreurs de formulation et de conservation.",
           "usage": "Formule argumentative ; réutilisable en Consommation/Environnement."
         },
         {
@@ -571,11 +571,11 @@
           "usage": "Formule argumentative ; réutilisable en Consommation/Environnement."
         },
         {
-          "id": "E3-AVR-C03-09R1",
+          "id": "E3-AVR-C03-09R2",
           "kind": "mot-cle",
-          "french": "les produits biologiques faits maison",
-          "english": "homemade organic products",
-          "example": "Les deux documents abordent les produits biologiques faits maison.",
+          "french": "les produits faits maison",
+          "english": "homemade products",
+          "example": "Les deux documents abordent les produits faits maison.",
           "usage": "Groupe nominal pluriel ; réutilisable en Consommation/Environnement."
         },
         {
@@ -583,7 +583,7 @@
           "kind": "mot-cle",
           "french": "le contrôle des ingrédients",
           "english": "control over ingredients",
-          "example": "Le premier valorise le contrôle des ingrédients, les économies, la créativité et la réduction des emballages.",
+          "example": "Le premier met en avant le contrôle des ingrédients, les économies, la créativité et la réutilisation des emballages.",
           "usage": "Nom ou groupe nominal masculin ; réutilisable en Consommation/Environnement."
         },
         {
@@ -591,7 +591,7 @@
           "kind": "mot-cle",
           "french": "les économies",
           "english": "savings",
-          "example": "Le premier valorise le contrôle des ingrédients, les économies, la créativité et la réduction des emballages.",
+          "example": "Le premier met en avant le contrôle des ingrédients, les économies, la créativité et la réutilisation des emballages.",
           "usage": "Groupe nominal pluriel ; réutilisable en Consommation/Environnement."
         },
         {
@@ -599,7 +599,7 @@
           "kind": "mot-cle",
           "french": "la créativité",
           "english": "creativity",
-          "example": "Le premier valorise le contrôle des ingrédients, les économies, la créativité et la réduction des emballages.",
+          "example": "Le premier met en avant le contrôle des ingrédients, les économies, la créativité et la réutilisation des emballages.",
           "usage": "Nom ou groupe nominal féminin ; réutilisable en Consommation/Environnement."
         },
         {
@@ -615,7 +615,7 @@
           "kind": "mot-cle",
           "french": "les risques d’irritation ou de contamination",
           "english": "the risks of irritation or contamination",
-          "example": "En revanche, le second souligne le temps de préparation, le coût initial et les risques d’irritation ou de contamination liés aux erreurs de formulation et de conservation.",
+          "example": "En revanche, le second souligne le temps de préparation, le coût initial et les risques d’irritation ou de contamination dus aux erreurs de formulation et de conservation.",
           "usage": "Groupe nominal pluriel ; réutilisable en Consommation/Environnement."
         },
         {
@@ -623,7 +623,7 @@
           "kind": "mot-cle",
           "french": "le coût initial",
           "english": "initial cost",
-          "example": "En revanche, le second souligne le temps de préparation, le coût initial et les risques d’irritation ou de contamination liés aux erreurs de formulation et de conservation.",
+          "example": "En revanche, le second souligne le temps de préparation, le coût initial et les risques d’irritation ou de contamination dus aux erreurs de formulation et de conservation.",
           "usage": "Nom ou groupe nominal masculin ; réutilisable en Consommation/Environnement."
         },
         {
@@ -655,7 +655,7 @@
           "kind": "collocation",
           "french": "le temps de préparation",
           "english": "the preparation time",
-          "example": "En revanche, le second souligne le temps de préparation, le coût initial et les risques d’irritation ou de contamination liés aux erreurs de formulation et de conservation.",
+          "example": "En revanche, le second souligne le temps de préparation, le coût initial et les risques d’irritation ou de contamination dus aux erreurs de formulation et de conservation.",
           "usage": "Association lexicale ; réutilisable en Consommation/Environnement."
         },
         {
@@ -663,7 +663,7 @@
           "kind": "collocation",
           "french": "une peau sensible",
           "english": "sensitive skin",
-          "example": "Par exemple, une famille peut fabriquer un nettoyant ménager éprouvé dans un flacon réutilisable, plutôt qu’une crème destinée à une peau sensible.",
+          "example": "Par exemple, une famille peut préparer un nettoyant ménager éprouvé dans un flacon réutilisable plutôt que de fabriquer une crème à appliquer sur une peau sensible.",
           "usage": "Association lexicale ; réutilisable en Consommation/Environnement."
         },
         {
@@ -679,7 +679,7 @@
           "kind": "collocation",
           "french": "un nettoyant ménager éprouvé",
           "english": "a proven household cleaner",
-          "example": "Par exemple, une famille peut fabriquer un nettoyant ménager éprouvé dans un flacon réutilisable, plutôt qu’une crème destinée à une peau sensible.",
+          "example": "Par exemple, une famille peut préparer un nettoyant ménager éprouvé dans un flacon réutilisable plutôt que de fabriquer une crème à appliquer sur une peau sensible.",
           "usage": "Association lexicale ; réutilisable en Consommation/Environnement."
         },
         {
@@ -687,7 +687,7 @@
           "kind": "collocation",
           "french": "un flacon réutilisable",
           "english": "a reusable bottle",
-          "example": "Par exemple, une famille peut fabriquer un nettoyant ménager éprouvé dans un flacon réutilisable, plutôt qu’une crème destinée à une peau sensible.",
+          "example": "Par exemple, une famille peut préparer un nettoyant ménager éprouvé dans un flacon réutilisable plutôt que de fabriquer une crème à appliquer sur une peau sensible.",
           "usage": "Association lexicale ; réutilisable en Consommation/Environnement."
         },
         {
@@ -707,11 +707,11 @@
           "usage": "Tournure syntaxique ; réutilisable en Consommation/Environnement."
         },
         {
-          "id": "E3-AVR-C03-26",
+          "id": "E3-AVR-C03-26R1",
           "kind": "tournure",
-          "french": "plutôt qu’une crème destinée à une peau sensible",
-          "english": "rather than a cream intended for sensitive skin",
-          "example": "Par exemple, une famille peut fabriquer un nettoyant ménager éprouvé dans un flacon réutilisable, plutôt qu’une crème destinée à une peau sensible.",
+          "french": "plutôt que de fabriquer une crème à appliquer sur une peau sensible",
+          "english": "rather than making a cream to be applied to sensitive skin",
+          "example": "Par exemple, une famille peut préparer un nettoyant ménager éprouvé dans un flacon réutilisable plutôt que de fabriquer une crème à appliquer sur une peau sensible.",
           "usage": "Tournure syntaxique ; réutilisable en Consommation/Environnement."
         },
         {
@@ -782,7 +782,7 @@
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
-          "example": "Tout d’abord, tuer uniquement pour le plaisir banalise la souffrance animale, car cela réduit un être vivant à un simple trophée sans aucune utilité.",
+          "example": "Tout d’abord, tuer uniquement pour le plaisir banalise la souffrance animale, car cela ne répond à aucun besoin alimentaire ou écologique.",
           "usage": "Connecteur adverbial ; réutilisable en Environnement/Animaux."
         },
         {
@@ -878,7 +878,7 @@
           "kind": "mot-cle",
           "french": "la souffrance animale",
           "english": "animal suffering",
-          "example": "Tout d’abord, tuer uniquement pour le plaisir banalise la souffrance animale, car cela réduit un être vivant à un simple trophée sans aucune utilité.",
+          "example": "Tout d’abord, tuer uniquement pour le plaisir banalise la souffrance animale, car cela ne répond à aucun besoin alimentaire ou écologique.",
           "usage": "Nom ou groupe nominal féminin ; réutilisable en Environnement/Animaux."
         },
         {
@@ -890,12 +890,12 @@
           "usage": "Nom ou groupe nominal singulier ; réutilisable en Environnement/Animaux."
         },
         {
-          "id": "E3-AVR-C04-18R1",
+          "id": "E3-AVR-C04-18R2",
           "kind": "mot-cle",
-          "french": "un être vivant",
-          "english": "a living being",
-          "example": "Tout d’abord, tuer uniquement pour le plaisir banalise la souffrance animale, car cela réduit un être vivant à un simple trophée sans aucune utilité.",
-          "usage": "Nom ou groupe nominal masculin ; réutilisable en Environnement/Animaux."
+          "french": "la subsistance",
+          "english": "subsistence",
+          "example": "En revanche, le second explique qu’elle peut répondre à plusieurs objectifs : la subsistance, le commerce, la gestion de la faune, la protection des propriétés, l’exercice ou le loisir.",
+          "usage": "Nom ou groupe nominal féminin ; réutilisable en Environnement/Animaux."
         },
         {
           "id": "E3-AVR-C04-19",
@@ -962,11 +962,11 @@
           "usage": "Tournure syntaxique ; réutilisable en Environnement/Animaux."
         },
         {
-          "id": "E3-AVR-C04-27R1",
+          "id": "E3-AVR-C04-27R2",
           "kind": "tournure",
-          "french": "car cela réduit un être vivant à un simple trophée sans aucune utilité",
-          "english": "because it reduces a living being to a mere trophy with no usefulness",
-          "example": "Tout d’abord, tuer uniquement pour le plaisir banalise la souffrance animale, car cela réduit un être vivant à un simple trophée sans aucune utilité.",
+          "french": "car cela ne répond à aucun besoin alimentaire ou écologique",
+          "english": "because that meets no dietary or ecological need",
+          "example": "Tout d’abord, tuer uniquement pour le plaisir banalise la souffrance animale, car cela ne répond à aucun besoin alimentaire ou écologique.",
           "usage": "Tournure syntaxique ; réutilisable en Environnement/Animaux."
         },
         {
@@ -986,11 +986,11 @@
           "usage": "Groupe verbal ; réutilisable en Environnement/Animaux."
         },
         {
-          "id": "E3-AVR-C04-30R1",
+          "id": "E3-AVR-C04-30R2",
           "kind": "reformulation",
-          "french": "un simple trophée",
-          "english": "a mere trophy",
-          "example": "Tout d’abord, tuer uniquement pour le plaisir banalise la souffrance animale, car cela réduit un être vivant à un simple trophée sans aucune utilité.",
+          "french": "des agents formés",
+          "english": "trained officers",
+          "example": "Par exemple, des agents formés pourraient réguler une espèce envahissante selon des quotas établis par des biologistes.",
           "usage": "Reformulation nominale ; réutilisable en Environnement/Animaux."
         }
       ]
@@ -1017,11 +1017,11 @@
           "usage": "Connecteur adverbial ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AVR-C05-03R1",
+          "id": "E3-AVR-C05-03R2",
           "kind": "phrase-modele",
-          "french": "Pour ma part, le travail est favorable à condition qu’il offre un revenu digne, du sens et des conditions équilibrées",
-          "english": "For my part, work is beneficial provided that it offers a decent income, meaning and balanced conditions",
-          "example": "Pour ma part, le travail est favorable à condition qu’il offre un revenu digne, du sens et des conditions équilibrées.",
+          "french": "Pour ma part, le travail est favorable s’il offre un revenu décent, donne du sens et s’exerce dans des conditions équilibrées",
+          "english": "For my part, work is beneficial if it offers a decent income, provides meaning and is carried out in balanced conditions",
+          "example": "Pour ma part, le travail est favorable s’il offre un revenu décent, donne du sens et s’exerce dans des conditions équilibrées.",
           "usage": "Formule argumentative ; réutilisable en Travail/Bien-être."
         },
         {
@@ -1029,7 +1029,7 @@
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
-          "example": "Tout d’abord, une activité utile renforce l’autonomie et crée des liens sociaux.",
+          "example": "Tout d’abord, une activité utile développe l’autonomie et crée des relations.",
           "usage": "Connecteur adverbial ; réutilisable en Travail/Bien-être."
         },
         {
@@ -1037,7 +1037,7 @@
           "kind": "expression",
           "french": "Par exemple",
           "english": "For example",
-          "example": "Par exemple, une entreprise peut proposer des objectifs réalistes, des horaires flexibles et un entretien régulier sur la charge de chaque salarié.",
+          "example": "Par exemple, un salarié responsable d’un projet peut prendre des décisions, collaborer avec son équipe et voir le résultat de son travail.",
           "usage": "Connecteur adverbial ; réutilisable en Travail/Bien-être."
         },
         {
@@ -1069,16 +1069,16 @@
           "kind": "mot-cle",
           "french": "le travail",
           "english": "work",
-          "example": "Pour ma part, le travail est favorable à condition qu’il offre un revenu digne, du sens et des conditions équilibrées.",
+          "example": "Pour ma part, le travail est favorable s’il offre un revenu décent, donne du sens et s’exerce dans des conditions équilibrées.",
           "usage": "Nom ou groupe nominal masculin ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AVR-C05-10R1",
+          "id": "E3-AVR-C05-10R2",
           "kind": "mot-cle",
-          "french": "un entretien régulier",
-          "english": "a regular review meeting",
-          "example": "Par exemple, une entreprise peut proposer des objectifs réalistes, des horaires flexibles et un entretien régulier sur la charge de chaque salarié.",
-          "usage": "Nom ou groupe nominal masculin ; réutilisable en Travail/Bien-être."
+          "french": "la charge de travail",
+          "english": "the workload",
+          "example": "Une entreprise peut donc fixer des objectifs réalistes, offrir des horaires flexibles et discuter régulièrement de la charge de travail.",
+          "usage": "Nom ou groupe nominal féminin ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-AVR-C05-11",
@@ -1133,23 +1133,23 @@
           "kind": "mot-cle",
           "french": "la vie familiale",
           "english": "family life",
-          "example": "De plus, des horaires raisonnables protègent la santé et la vie familiale, ce qui soutient aussi la productivité.",
+          "example": "De plus, des horaires raisonnables protègent la santé et la vie familiale, ce qui aide aussi les salariés à rester concentrés.",
           "usage": "Nom ou groupe nominal féminin ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AVR-C05-18",
+          "id": "E3-AVR-C05-18R1",
           "kind": "mot-cle",
-          "french": "la productivité",
-          "english": "productivity",
-          "example": "De plus, des horaires raisonnables protègent la santé et la vie familiale, ce qui soutient aussi la productivité.",
+          "french": "la vie privée",
+          "english": "private life",
+          "example": "En revanche, le second dénonce le stress, les horaires rigides, l’épuisement et le manque de reconnaissance, qui peuvent nuire à la vie privée.",
           "usage": "Nom ou groupe nominal féminin ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AVR-C05-19",
+          "id": "E3-AVR-C05-19R1",
           "kind": "collocation",
-          "french": "un revenu digne",
+          "french": "un revenu décent",
           "english": "a decent income",
-          "example": "Pour ma part, le travail est favorable à condition qu’il offre un revenu digne, du sens et des conditions équilibrées.",
+          "example": "Pour ma part, le travail est favorable s’il offre un revenu décent, donne du sens et s’exerce dans des conditions équilibrées.",
           "usage": "Association lexicale ; réutilisable en Travail/Bien-être."
         },
         {
@@ -1157,15 +1157,15 @@
           "kind": "collocation",
           "french": "des conditions équilibrées",
           "english": "balanced conditions",
-          "example": "Pour ma part, le travail est favorable à condition qu’il offre un revenu digne, du sens et des conditions équilibrées.",
+          "example": "Pour ma part, le travail est favorable s’il offre un revenu décent, donne du sens et s’exerce dans des conditions équilibrées.",
           "usage": "Association lexicale ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AVR-C05-21",
+          "id": "E3-AVR-C05-21R1",
           "kind": "collocation",
-          "french": "des liens sociaux",
-          "english": "social connections",
-          "example": "Tout d’abord, une activité utile renforce l’autonomie et crée des liens sociaux.",
+          "french": "crée des relations",
+          "english": "creates relationships",
+          "example": "Tout d’abord, une activité utile développe l’autonomie et crée des relations.",
           "usage": "Association lexicale ; réutilisable en Travail/Bien-être."
         },
         {
@@ -1173,7 +1173,7 @@
           "kind": "collocation",
           "french": "des horaires raisonnables",
           "english": "reasonable hours",
-          "example": "De plus, des horaires raisonnables protègent la santé et la vie familiale, ce qui soutient aussi la productivité.",
+          "example": "De plus, des horaires raisonnables protègent la santé et la vie familiale, ce qui aide aussi les salariés à rester concentrés.",
           "usage": "Association lexicale ; réutilisable en Travail/Bien-être."
         },
         {
@@ -1181,7 +1181,7 @@
           "kind": "collocation",
           "french": "des objectifs réalistes",
           "english": "realistic objectives",
-          "example": "Par exemple, une entreprise peut proposer des objectifs réalistes, des horaires flexibles et un entretien régulier sur la charge de chaque salarié.",
+          "example": "Une entreprise peut donc fixer des objectifs réalistes, offrir des horaires flexibles et discuter régulièrement de la charge de travail.",
           "usage": "Association lexicale ; réutilisable en Travail/Bien-être."
         },
         {
@@ -1189,7 +1189,7 @@
           "kind": "collocation",
           "french": "des horaires flexibles",
           "english": "flexible hours",
-          "example": "Par exemple, une entreprise peut proposer des objectifs réalistes, des horaires flexibles et un entretien régulier sur la charge de chaque salarié.",
+          "example": "Une entreprise peut donc fixer des objectifs réalistes, offrir des horaires flexibles et discuter régulièrement de la charge de travail.",
           "usage": "Association lexicale ; réutilisable en Travail/Bien-être."
         },
         {
@@ -1201,27 +1201,27 @@
           "usage": "Tournure syntaxique ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AVR-C05-26R1",
+          "id": "E3-AVR-C05-26R2",
           "kind": "tournure",
-          "french": "à condition qu’il offre un revenu digne",
-          "english": "provided that it offers a decent income",
-          "example": "Pour ma part, le travail est favorable à condition qu’il offre un revenu digne, du sens et des conditions équilibrées.",
+          "french": "s’il offre un revenu décent",
+          "english": "if it offers a decent income",
+          "example": "Pour ma part, le travail est favorable s’il offre un revenu décent, donne du sens et s’exerce dans des conditions équilibrées.",
           "usage": "Tournure syntaxique ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AVR-C05-27",
+          "id": "E3-AVR-C05-27R1",
           "kind": "tournure",
-          "french": "sur la charge de chaque salarié",
-          "english": "about each employee’s workload",
-          "example": "Par exemple, une entreprise peut proposer des objectifs réalistes, des horaires flexibles et un entretien régulier sur la charge de chaque salarié.",
+          "french": "ce qui aide aussi les salariés à rester concentrés",
+          "english": "which also helps employees stay focused",
+          "example": "De plus, des horaires raisonnables protègent la santé et la vie familiale, ce qui aide aussi les salariés à rester concentrés.",
           "usage": "Tournure syntaxique ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AVR-C05-28",
+          "id": "E3-AVR-C05-28R1",
           "kind": "verbe-action",
-          "french": "renforce l’autonomie",
-          "english": "strengthens autonomy",
-          "example": "Tout d’abord, une activité utile renforce l’autonomie et crée des liens sociaux.",
+          "french": "développe l’autonomie",
+          "english": "develops autonomy",
+          "example": "Tout d’abord, une activité utile développe l’autonomie et crée des relations.",
           "usage": "Groupe verbal ; réutilisable en Travail/Bien-être."
         },
         {
@@ -1237,7 +1237,7 @@
           "kind": "reformulation",
           "french": "une activité utile",
           "english": "a useful activity",
-          "example": "Tout d’abord, une activité utile renforce l’autonomie et crée des liens sociaux.",
+          "example": "Tout d’abord, une activité utile développe l’autonomie et crée des relations.",
           "usage": "Reformulation nominale ; réutilisable en Travail/Bien-être."
         }
       ]
@@ -1794,15 +1794,15 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de prévenir la violence par le dialogue et des règles claires, sans instaurer une surveillance permanente.",
+          "example": "En conclusion, la priorité est de prévenir la violence par le dialogue et des règles claires, sans instaurer une surveillance permanente.",
           "usage": "Connecteur adverbial ; réutilisable en Éducation/Sécurité."
         },
         {
-          "id": "E3-AVR-C08-08R1",
+          "id": "E3-AVR-C08-08R2",
           "kind": "phrase-modele",
-          "french": "En conclusion, le plus important est de prévenir la violence par le dialogue et des règles claires, sans instaurer une surveillance permanente",
-          "english": "In conclusion, the most important thing is to prevent violence through dialogue and clear rules, without introducing permanent surveillance",
-          "example": "En conclusion, le plus important est de prévenir la violence par le dialogue et des règles claires, sans instaurer une surveillance permanente.",
+          "french": "En conclusion, la priorité est de prévenir la violence par le dialogue et des règles claires, sans instaurer une surveillance permanente",
+          "english": "In conclusion, the priority is to prevent violence through dialogue and clear rules, without introducing permanent surveillance",
+          "example": "En conclusion, la priorité est de prévenir la violence par le dialogue et des règles claires, sans instaurer une surveillance permanente.",
           "usage": "Formule argumentative ; réutilisable en Éducation/Sécurité."
         },
         {
@@ -1842,7 +1842,7 @@
           "kind": "mot-cle",
           "french": "le dialogue",
           "english": "dialogue",
-          "example": "En conclusion, le plus important est de prévenir la violence par le dialogue et des règles claires, sans instaurer une surveillance permanente.",
+          "example": "En conclusion, la priorité est de prévenir la violence par le dialogue et des règles claires, sans instaurer une surveillance permanente.",
           "usage": "Nom ou groupe nominal masculin ; réutilisable en Éducation/Sécurité."
         },
         {
@@ -1882,7 +1882,7 @@
           "kind": "mot-cle",
           "french": "une surveillance permanente",
           "english": "permanent surveillance",
-          "example": "En conclusion, le plus important est de prévenir la violence par le dialogue et des règles claires, sans instaurer une surveillance permanente.",
+          "example": "En conclusion, la priorité est de prévenir la violence par le dialogue et des règles claires, sans instaurer une surveillance permanente.",
           "usage": "Nom ou groupe nominal féminin ; réutilisable en Éducation/Sécurité."
         },
         {
@@ -1922,7 +1922,7 @@
           "kind": "collocation",
           "french": "des règles claires",
           "english": "clear rules",
-          "example": "En conclusion, le plus important est de prévenir la violence par le dialogue et des règles claires, sans instaurer une surveillance permanente.",
+          "example": "En conclusion, la priorité est de prévenir la violence par le dialogue et des règles claires, sans instaurer une surveillance permanente.",
           "usage": "Association lexicale ; réutilisable en Éducation/Sécurité."
         },
         {
@@ -1930,7 +1930,7 @@
           "kind": "collocation",
           "french": "un adulte présent",
           "english": "an adult who is present",
-          "example": "Un enregistrement explique un incident, alors qu’un adulte présent peut l’éviter.",
+          "example": "Un enregistrement peut éclairer un incident, tandis qu’un adulte présent peut parfois l’empêcher.",
           "usage": "Association lexicale ; réutilisable en Éducation/Sécurité."
         },
         {
@@ -1954,7 +1954,7 @@
           "kind": "tournure",
           "french": "sans instaurer une surveillance permanente",
           "english": "without introducing permanent surveillance",
-          "example": "En conclusion, le plus important est de prévenir la violence par le dialogue et des règles claires, sans instaurer une surveillance permanente.",
+          "example": "En conclusion, la priorité est de prévenir la violence par le dialogue et des règles claires, sans instaurer une surveillance permanente.",
           "usage": "Tournure syntaxique ; réutilisable en Éducation/Sécurité."
         },
         {
@@ -1970,7 +1970,7 @@
           "kind": "verbe-action",
           "french": "prévenir la violence",
           "english": "to prevent violence",
-          "example": "En conclusion, le plus important est de prévenir la violence par le dialogue et des règles claires, sans instaurer une surveillance permanente.",
+          "example": "En conclusion, la priorité est de prévenir la violence par le dialogue et des règles claires, sans instaurer une surveillance permanente.",
           "usage": "Groupe verbal ; réutilisable en Éducation/Sécurité."
         },
         {
@@ -1978,7 +1978,7 @@
           "kind": "reformulation",
           "french": "Un enregistrement",
           "english": "A recording",
-          "example": "Un enregistrement explique un incident, alors qu’un adulte présent peut l’éviter.",
+          "example": "Un enregistrement peut éclairer un incident, tandis qu’un adulte présent peut parfois l’empêcher.",
           "usage": "Reformulation nominale ; réutilisable en Éducation/Sécurité."
         }
       ]
@@ -2109,11 +2109,11 @@
           "usage": "Nom ou groupe nominal masculin ; réutilisable en Jeunesse/Consommation."
         },
         {
-          "id": "E3-AVR-C09-16",
+          "id": "E3-AVR-C09-16R1",
           "kind": "mot-cle",
-          "french": "le budget familial",
-          "english": "the family budget",
-          "example": "De plus, le budget familial doit rester prioritaire puisque les enfants grandissent vite.",
+          "french": "budget familial",
+          "english": "family budget",
+          "example": "De plus, les dépenses doivent rester adaptées au budget familial, puisque les enfants grandissent vite.",
           "usage": "Nom ou groupe nominal masculin ; réutilisable en Jeunesse/Consommation."
         },
         {
@@ -2193,7 +2193,7 @@
           "kind": "tournure",
           "french": "puisque les enfants grandissent vite",
           "english": "since children grow quickly",
-          "example": "De plus, le budget familial doit rester prioritaire puisque les enfants grandissent vite.",
+          "example": "De plus, les dépenses doivent rester adaptées au budget familial, puisque les enfants grandissent vite.",
           "usage": "Tournure syntaxique ; réutilisable en Jeunesse/Consommation."
         },
         {
@@ -2272,7 +2272,7 @@
           "kind": "expression",
           "french": "Par exemple",
           "english": "For example",
-          "example": "Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, les retards et le bien-être des équipes.",
+          "example": "Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, la qualité du service et le bien-être des équipes.",
           "usage": "Connecteur adverbial ; réutilisable en Travail/Organisation."
         },
         {
@@ -2376,7 +2376,7 @@
           "kind": "mot-cle",
           "french": "le bien-être des équipes",
           "english": "team well-being",
-          "example": "Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, les retards et le bien-être des équipes.",
+          "example": "Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, la qualité du service et le bien-être des équipes.",
           "usage": "Nom ou groupe nominal masculin ; réutilisable en Travail/Organisation."
         },
         {
@@ -2392,7 +2392,7 @@
           "kind": "collocation",
           "french": "la semaine de quatre jours",
           "english": "the four-day workweek",
-          "example": "Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, les retards et le bien-être des équipes.",
+          "example": "Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, la qualité du service et le bien-être des équipes.",
           "usage": "Association lexicale ; réutilisable en Travail/Organisation."
         },
         {
@@ -2400,15 +2400,15 @@
           "kind": "collocation",
           "french": "pendant trois mois",
           "english": "for three months",
-          "example": "Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, les retards et le bien-être des équipes.",
+          "example": "Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, la qualité du service et le bien-être des équipes.",
           "usage": "Association lexicale ; réutilisable en Travail/Organisation."
         },
         {
-          "id": "E3-AVR-C10-22R1",
+          "id": "E3-AVR-C10-22R2",
           "kind": "collocation",
-          "french": "La fatigue accumulée",
-          "english": "accumulated fatigue",
-          "example": "La fatigue accumulée coûte à l’entreprise en erreurs et en arrêts de travail.",
+          "french": "La fatigue entraîne davantage d’erreurs",
+          "english": "Fatigue leads to more mistakes",
+          "example": "La fatigue entraîne davantage d’erreurs et d’arrêts de travail, ce qui coûte cher à l’entreprise.",
           "usage": "Association lexicale ; réutilisable en Travail/Organisation."
         },
         {
@@ -2416,7 +2416,7 @@
           "kind": "collocation",
           "french": "la qualité du service",
           "english": "service quality",
-          "example": "En conclusion, il faut que l’entreprise réorganise le travail sans diminuer la qualité du service ni transférer la pression aux salariés.",
+          "example": "Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, la qualité du service et le bien-être des équipes.",
           "usage": "Association lexicale ; réutilisable en Travail/Organisation."
         },
         {
@@ -2452,11 +2452,11 @@
           "usage": "Tournure syntaxique ; réutilisable en Travail/Organisation."
         },
         {
-          "id": "E3-AVR-C10-28R1",
+          "id": "E3-AVR-C10-28R2",
           "kind": "verbe-action",
-          "french": "mesurer la productivité, les retards et le bien-être des équipes",
-          "english": "to measure productivity, delays and the well-being of the teams",
-          "example": "Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, les retards et le bien-être des équipes.",
+          "french": "mesurer la productivité, la qualité du service et le bien-être des équipes",
+          "english": "to measure productivity, service quality and the teams’ well-being",
+          "example": "Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, la qualité du service et le bien-être des équipes.",
           "usage": "Groupe verbal ; réutilisable en Travail/Organisation."
         },
         {
@@ -2472,7 +2472,7 @@
           "kind": "reformulation",
           "french": "équipes",
           "english": "the teams",
-          "example": "Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, les retards et le bien-être des équipes.",
+          "example": "Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, la qualité du service et le bien-être des équipes.",
           "usage": "Reformulation nominale ; réutilisable en Travail/Organisation."
         }
       ]
@@ -2499,11 +2499,11 @@
           "usage": "Connecteur adverbial ; réutilisable en Numérique/Éducation."
         },
         {
-          "id": "E3-AVR-C11-03R1",
+          "id": "E3-AVR-C11-03R2",
           "kind": "phrase-modele",
-          "french": "Pour ma part, les jeux vidéo peuvent être utiles, à condition que leur durée soit limitée et que leur contenu soit adapté à l’âge",
-          "english": "For my part, video games can be useful, provided that their duration is limited and their content is suited to the age",
-          "example": "Pour ma part, les jeux vidéo peuvent être utiles, à condition que leur durée soit limitée et que leur contenu soit adapté à l’âge.",
+          "french": "Pour ma part, les jeux vidéo peuvent être utiles si leur durée est limitée et leur contenu adapté à l’âge",
+          "english": "For my part, video games can be useful if their duration is limited and their content suited to the age group",
+          "example": "Pour ma part, les jeux vidéo peuvent être utiles si leur durée est limitée et leur contenu adapté à l’âge.",
           "usage": "Formule argumentative ; réutilisable en Numérique/Éducation."
         },
         {
@@ -2511,7 +2511,7 @@
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
-          "example": "Tout d’abord, certains défis stimulent la réflexion, la coordination et la capacité à résoudre des problèmes.",
+          "example": "Tout d’abord, certains jeux développent la réflexion, la coordination et la capacité à résoudre des problèmes.",
           "usage": "Connecteur adverbial ; réutilisable en Numérique/Éducation."
         },
         {
@@ -2519,7 +2519,7 @@
           "kind": "expression",
           "french": "Par exemple",
           "english": "For example",
-          "example": "Par exemple, des parents peuvent autoriser une heure de jeu après les devoirs, puis proposer une activité sportive en famille.",
+          "example": "Par exemple, un jeu de réflexion peut demander à un enfant de déplacer des pièces dans le bon ordre pour ouvrir la porte suivante.",
           "usage": "Connecteur adverbial ; réutilisable en Numérique/Éducation."
         },
         {
@@ -2595,11 +2595,11 @@
           "usage": "Groupe nominal ; réutilisable en Numérique/Éducation."
         },
         {
-          "id": "E3-AVR-C11-15",
+          "id": "E3-AVR-C11-15R1",
           "kind": "mot-cle",
-          "french": "la concentration scolaire",
+          "french": "la concentration à l’école",
           "english": "concentration at school",
-          "example": "De plus, un usage excessif réduit le sommeil, l’activité physique et la concentration scolaire.",
+          "example": "De plus, un usage excessif nuit au sommeil, à l’activité physique et à la concentration à l’école.",
           "usage": "Nom ou groupe nominal féminin ; réutilisable en Numérique/Éducation."
         },
         {
@@ -2607,7 +2607,7 @@
           "kind": "mot-cle",
           "french": "la réflexion",
           "english": "thinking",
-          "example": "Tout d’abord, certains défis stimulent la réflexion, la coordination et la capacité à résoudre des problèmes.",
+          "example": "Tout d’abord, certains jeux développent la réflexion, la coordination et la capacité à résoudre des problèmes.",
           "usage": "Nom ou groupe nominal féminin ; réutilisable en Numérique/Éducation."
         },
         {
@@ -2615,7 +2615,7 @@
           "kind": "mot-cle",
           "french": "la coordination",
           "english": "coordination",
-          "example": "Tout d’abord, certains défis stimulent la réflexion, la coordination et la capacité à résoudre des problèmes.",
+          "example": "Tout d’abord, certains jeux développent la réflexion, la coordination et la capacité à résoudre des problèmes.",
           "usage": "Nom ou groupe nominal féminin ; réutilisable en Numérique/Éducation."
         },
         {
@@ -2631,7 +2631,7 @@
           "kind": "collocation",
           "french": "un usage excessif",
           "english": "excessive use",
-          "example": "De plus, un usage excessif réduit le sommeil, l’activité physique et la concentration scolaire.",
+          "example": "De plus, un usage excessif nuit au sommeil, à l’activité physique et à la concentration à l’école.",
           "usage": "Association lexicale ; réutilisable en Numérique/Éducation."
         },
         {
@@ -2655,7 +2655,7 @@
           "kind": "collocation",
           "french": "la capacité à résoudre des problèmes",
           "english": "problem-solving ability",
-          "example": "Tout d’abord, certains défis stimulent la réflexion, la coordination et la capacité à résoudre des problèmes.",
+          "example": "Tout d’abord, certains jeux développent la réflexion, la coordination et la capacité à résoudre des problèmes.",
           "usage": "Association lexicale ; réutilisable en Numérique/Éducation."
         },
         {
@@ -2663,7 +2663,7 @@
           "kind": "collocation",
           "french": "une activité sportive en famille",
           "english": "a family sports activity",
-          "example": "Par exemple, des parents peuvent autoriser une heure de jeu après les devoirs, puis proposer une activité sportive en famille.",
+          "example": "Ainsi, des parents peuvent autoriser une heure de jeu après les devoirs, puis proposer une activité sportive en famille.",
           "usage": "Association lexicale ; réutilisable en Numérique/Éducation."
         },
         {
@@ -2683,11 +2683,11 @@
           "usage": "Tournure syntaxique ; réutilisable en Numérique/Éducation."
         },
         {
-          "id": "E3-AVR-C11-26R1",
+          "id": "E3-AVR-C11-26R2",
           "kind": "tournure",
-          "french": "à condition que leur durée soit limitée et que leur contenu soit adapté à l’âge",
-          "english": "provided that their duration is limited and their content is suited to the age",
-          "example": "Pour ma part, les jeux vidéo peuvent être utiles, à condition que leur durée soit limitée et que leur contenu soit adapté à l’âge.",
+          "french": "si leur durée est limitée et leur contenu adapté à l’âge",
+          "english": "if their duration is limited and their content suited to the age group",
+          "example": "Pour ma part, les jeux vidéo peuvent être utiles si leur durée est limitée et leur contenu adapté à l’âge.",
           "usage": "Tournure syntaxique ; réutilisable en Numérique/Éducation."
         },
         {
@@ -2695,7 +2695,7 @@
           "kind": "tournure",
           "french": "après les devoirs",
           "english": "after homework",
-          "example": "Par exemple, des parents peuvent autoriser une heure de jeu après les devoirs, puis proposer une activité sportive en famille.",
+          "example": "Ainsi, des parents peuvent autoriser une heure de jeu après les devoirs, puis proposer une activité sportive en famille.",
           "usage": "Tournure syntaxique ; réutilisable en Numérique/Éducation."
         },
         {
@@ -2715,11 +2715,11 @@
           "usage": "Groupe verbal ; réutilisable en Numérique/Éducation."
         },
         {
-          "id": "E3-AVR-C11-30R1",
+          "id": "E3-AVR-C11-30R2",
           "kind": "reformulation",
-          "french": "un jeu d’action-puzzle",
-          "english": "an action-puzzle game",
-          "example": "Par exemple, un jeu d’action-puzzle demande à un enfant de réfléchir vite, de coordonner ses mouvements et de résoudre une énigme pour avancer.",
+          "french": "un jeu de réflexion",
+          "english": "a puzzle game",
+          "example": "Par exemple, un jeu de réflexion peut demander à un enfant de déplacer des pièces dans le bon ordre pour ouvrir la porte suivante.",
           "usage": "Reformulation nominale ; réutilisable en Numérique/Éducation."
         }
       ]
@@ -3017,11 +3017,11 @@
           "usage": "Connecteur adverbial ; réutilisable en Santé/Alimentation."
         },
         {
-          "id": "E3-AVR-C13-06R1",
+          "id": "E3-AVR-C13-06R2",
           "kind": "phrase-modele",
-          "french": "Le premier affirme que les enseignes respectent les normes d’hygiène et proposent assez de variété pour composer un repas équilibré",
-          "english": "The first asserts that the chains comply with hygiene standards and offer enough variety to put together a balanced meal",
-          "example": "Le premier affirme que les enseignes respectent les normes d’hygiène et proposent assez de variété pour composer un repas équilibré.",
+          "french": "Le premier affirme que les enseignes proposent des repas variés, respectent les normes d’hygiène et laissent au client la responsabilité de composer son menu",
+          "english": "The first asserts that the chains offer varied meals, comply with hygiene standards and leave the customer responsible for putting together their own menu",
+          "example": "Le premier affirme que les enseignes proposent des repas variés, respectent les normes d’hygiène et laissent au client la responsabilité de composer son menu.",
           "usage": "Formule argumentative ; réutilisable en Santé/Alimentation."
         },
         {
@@ -3057,11 +3057,11 @@
           "usage": "Nom ou groupe nominal féminin ; réutilisable en Santé/Alimentation."
         },
         {
-          "id": "E3-AVR-C13-11R1",
+          "id": "E3-AVR-C13-11R2",
           "kind": "mot-cle",
-          "french": "ces excès",
-          "english": "these excesses",
-          "example": "Répétés chaque semaine, ces excès pèsent lourdement sur la santé.",
+          "french": "ces risques",
+          "english": "these risks",
+          "example": "De plus, le client peut limiter ces risques grâce à des choix plus équilibrés et à des portions raisonnables.",
           "usage": "Groupe nominal ; réutilisable en Santé/Alimentation."
         },
         {
@@ -3069,15 +3069,15 @@
           "kind": "mot-cle",
           "french": "les normes d’hygiène",
           "english": "hygiene standards",
-          "example": "Le premier affirme que les enseignes respectent les normes d’hygiène et proposent assez de variété pour composer un repas équilibré.",
+          "example": "Le premier affirme que les enseignes proposent des repas variés, respectent les normes d’hygiène et laissent au client la responsabilité de composer son menu.",
           "usage": "Groupe nominal pluriel ; réutilisable en Santé/Alimentation."
         },
         {
-          "id": "E3-AVR-C13-13",
+          "id": "E3-AVR-C13-13R1",
           "kind": "mot-cle",
-          "french": "un repas équilibré",
-          "english": "a balanced meal",
-          "example": "Le premier affirme que les enseignes respectent les normes d’hygiène et proposent assez de variété pour composer un repas équilibré.",
+          "french": "le risque de prise de poids",
+          "english": "the risk of weight gain",
+          "example": "Consommés souvent, ils augmentent le risque de prise de poids et de mauvaises habitudes alimentaires.",
           "usage": "Nom ou groupe nominal masculin ; réutilisable en Santé/Alimentation."
         },
         {
@@ -3141,7 +3141,7 @@
           "kind": "collocation",
           "french": "des choix plus équilibrés",
           "english": "more balanced choices",
-          "example": "De plus, le client peut limiter ces excès grâce à des choix plus équilibrés et à des portions raisonnables.",
+          "example": "De plus, le client peut limiter ces risques grâce à des choix plus équilibrés et à des portions raisonnables.",
           "usage": "Association lexicale ; réutilisable en Santé/Alimentation."
         },
         {
@@ -3149,15 +3149,15 @@
           "kind": "collocation",
           "french": "des portions raisonnables",
           "english": "reasonable portions",
-          "example": "De plus, le client peut limiter ces excès grâce à des choix plus équilibrés et à des portions raisonnables.",
+          "example": "De plus, le client peut limiter ces risques grâce à des choix plus équilibrés et à des portions raisonnables.",
           "usage": "Association lexicale ; réutilisable en Santé/Alimentation."
         },
         {
-          "id": "E3-AVR-C13-23R1",
+          "id": "E3-AVR-C13-23R2",
           "kind": "collocation",
-          "french": "pèsent lourdement sur la santé",
-          "english": "weigh heavily on health",
-          "example": "Répétés chaque semaine, ces excès pèsent lourdement sur la santé.",
+          "french": "de mauvaises habitudes alimentaires",
+          "english": "bad eating habits",
+          "example": "Consommés souvent, ils augmentent le risque de prise de poids et de mauvaises habitudes alimentaires.",
           "usage": "Association lexicale ; réutilisable en Santé/Alimentation."
         },
         {
@@ -3181,7 +3181,7 @@
           "kind": "tournure",
           "french": "grâce à des choix plus équilibrés",
           "english": "through more balanced choices",
-          "example": "De plus, le client peut limiter ces excès grâce à des choix plus équilibrés et à des portions raisonnables.",
+          "example": "De plus, le client peut limiter ces risques grâce à des choix plus équilibrés et à des portions raisonnables.",
           "usage": "Tournure syntaxique ; réutilisable en Santé/Alimentation."
         },
         {
@@ -3193,11 +3193,11 @@
           "usage": "Tournure syntaxique ; réutilisable en Santé/Alimentation."
         },
         {
-          "id": "E3-AVR-C13-28R1",
+          "id": "E3-AVR-C13-28R2",
           "kind": "verbe-action",
-          "french": "limiter ces excès",
-          "english": "to limit these excesses",
-          "example": "De plus, le client peut limiter ces excès grâce à des choix plus équilibrés et à des portions raisonnables.",
+          "french": "limiter ces risques",
+          "english": "to limit these risks",
+          "example": "De plus, le client peut limiter ces risques grâce à des choix plus équilibrés et à des portions raisonnables.",
           "usage": "Groupe verbal ; réutilisable en Santé/Alimentation."
         },
         {
@@ -3252,7 +3252,7 @@
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
-          "example": "Tout d’abord, elle réduit les charges financières et favorise la convivialité.",
+          "example": "Tout d’abord, elle réduit les dépenses et favorise la convivialité.",
           "usage": "Connecteur adverbial ; réutilisable en Logement/Société."
         },
         {
@@ -3276,15 +3276,15 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de choisir ses colocataires avec soin et de maintenir une communication ouverte fondée sur le respect mutuel.",
+          "example": "En conclusion, une colocation réussie repose sur des colocataires respectueux et une communication ouverte.",
           "usage": "Connecteur adverbial ; réutilisable en Logement/Société."
         },
         {
-          "id": "E3-AVR-C14-08R1",
+          "id": "E3-AVR-C14-08R2",
           "kind": "phrase-modele",
-          "french": "En conclusion, le plus important est de choisir ses colocataires avec soin et de maintenir une communication ouverte fondée sur le respect mutuel",
-          "english": "In conclusion, the most important thing is to choose one’s flatmates carefully and to maintain open communication based on mutual respect",
-          "example": "En conclusion, le plus important est de choisir ses colocataires avec soin et de maintenir une communication ouverte fondée sur le respect mutuel.",
+          "french": "En conclusion, une colocation réussie repose sur des colocataires respectueux et une communication ouverte",
+          "english": "In conclusion, a successful flat-share rests on respectful flatmates and open communication",
+          "example": "En conclusion, une colocation réussie repose sur des colocataires respectueux et une communication ouverte.",
           "usage": "Formule argumentative ; réutilisable en Logement/Société."
         },
         {
@@ -3344,11 +3344,11 @@
           "usage": "Groupe nominal pluriel ; réutilisable en Logement/Société."
         },
         {
-          "id": "E3-AVR-C14-16",
+          "id": "E3-AVR-C14-16R1",
           "kind": "mot-cle",
-          "french": "les charges financières",
-          "english": "financial costs",
-          "example": "Tout d’abord, elle réduit les charges financières et favorise la convivialité.",
+          "french": "les dépenses courantes",
+          "english": "everyday expenses",
+          "example": "Par exemple, trois colocataires peuvent établir un calendrier hebdomadaire, fixer des heures calmes et partager équitablement les dépenses courantes.",
           "usage": "Groupe nominal pluriel ; réutilisable en Logement/Société."
         },
         {
@@ -3356,15 +3356,15 @@
           "kind": "mot-cle",
           "french": "la convivialité",
           "english": "conviviality",
-          "example": "Tout d’abord, elle réduit les charges financières et favorise la convivialité.",
+          "example": "Tout d’abord, elle réduit les dépenses et favorise la convivialité.",
           "usage": "Nom ou groupe nominal féminin ; réutilisable en Logement/Société."
         },
         {
-          "id": "E3-AVR-C14-18",
+          "id": "E3-AVR-C14-18R1",
           "kind": "mot-cle",
-          "french": "le respect mutuel",
-          "english": "mutual respect",
-          "example": "En conclusion, le plus important est de choisir ses colocataires avec soin et de maintenir une communication ouverte fondée sur le respect mutuel.",
+          "french": "le loyer",
+          "english": "the rent",
+          "example": "Partager le loyer peut permettre d’habiter près du centre-ville plutôt que seul loin des transports.",
           "usage": "Nom ou groupe nominal masculin ; réutilisable en Logement/Société."
         },
         {
@@ -3412,7 +3412,7 @@
           "kind": "collocation",
           "french": "une communication ouverte",
           "english": "open communication",
-          "example": "En conclusion, le plus important est de choisir ses colocataires avec soin et de maintenir une communication ouverte fondée sur le respect mutuel.",
+          "example": "En conclusion, une colocation réussie repose sur des colocataires respectueux et une communication ouverte.",
           "usage": "Association lexicale ; réutilisable en Logement/Société."
         },
         {
@@ -3432,11 +3432,11 @@
           "usage": "Tournure syntaxique ; réutilisable en Logement/Société."
         },
         {
-          "id": "E3-AVR-C14-27",
+          "id": "E3-AVR-C14-27R1",
           "kind": "tournure",
-          "french": "avec soin",
-          "english": "carefully",
-          "example": "En conclusion, le plus important est de choisir ses colocataires avec soin et de maintenir une communication ouverte fondée sur le respect mutuel.",
+          "french": "selon les talents de chacun",
+          "english": "according to each person’s talents",
+          "example": "Le premier valorise les liens d’amitié, les repas partagés et la répartition des tâches selon les talents de chacun.",
           "usage": "Tournure syntaxique ; réutilisable en Logement/Société."
         },
         {
@@ -3448,11 +3448,11 @@
           "usage": "Groupe verbal ; réutilisable en Logement/Société."
         },
         {
-          "id": "E3-AVR-C14-29",
+          "id": "E3-AVR-C14-29R1",
           "kind": "verbe-action",
-          "french": "maintenir une communication ouverte",
-          "english": "to maintain open communication",
-          "example": "En conclusion, le plus important est de choisir ses colocataires avec soin et de maintenir une communication ouverte fondée sur le respect mutuel.",
+          "french": "établir un calendrier hebdomadaire",
+          "english": "to draw up a weekly schedule",
+          "example": "Par exemple, trois colocataires peuvent établir un calendrier hebdomadaire, fixer des heures calmes et partager équitablement les dépenses courantes.",
           "usage": "Groupe verbal ; réutilisable en Logement/Société."
         },
         {
@@ -3523,15 +3523,15 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de consommer moins, de choisir mieux et de garantir des repas équilibrés adaptés aux besoins de chacun.",
+          "example": "En conclusion, il faut consommer moins, choisir mieux et garantir des repas équilibrés adaptés aux besoins de chacun.",
           "usage": "Connecteur adverbial ; réutilisable en Alimentation/Environnement."
         },
         {
-          "id": "E3-AVR-C15-08",
+          "id": "E3-AVR-C15-08R1",
           "kind": "phrase-modele",
-          "french": "En conclusion, le plus important est de consommer moins, de choisir mieux et de garantir des repas équilibrés adaptés aux besoins de chacun",
-          "english": "In conclusion, the most important thing is to consume less, choose better and guarantee balanced meals suited to everyone’s needs",
-          "example": "En conclusion, le plus important est de consommer moins, de choisir mieux et de garantir des repas équilibrés adaptés aux besoins de chacun.",
+          "french": "En conclusion, il faut consommer moins, choisir mieux et garantir des repas équilibrés adaptés aux besoins de chacun",
+          "english": "In conclusion, we must consume less, choose better and guarantee balanced meals suited to everyone’s needs",
+          "example": "En conclusion, il faut consommer moins, choisir mieux et garantir des repas équilibrés adaptés aux besoins de chacun.",
           "usage": "Formule argumentative ; réutilisable en Alimentation/Environnement."
         },
         {
@@ -3627,7 +3627,7 @@
           "kind": "collocation",
           "french": "une place limitée",
           "english": "a limited place",
-          "example": "De plus, une viande produite localement selon des normes exigeantes peut conserver une place limitée.",
+          "example": "De plus, une viande issue d’un élevage respectant des normes exigeantes peut conserver une place limitée.",
           "usage": "Association lexicale ; réutilisable en Alimentation/Environnement."
         },
         {
@@ -3635,7 +3635,7 @@
           "kind": "collocation",
           "french": "des normes exigeantes",
           "english": "demanding standards",
-          "example": "De plus, une viande produite localement selon des normes exigeantes peut conserver une place limitée.",
+          "example": "De plus, une viande issue d’un élevage respectant des normes exigeantes peut conserver une place limitée.",
           "usage": "Association lexicale ; réutilisable en Alimentation/Environnement."
         },
         {
@@ -3659,7 +3659,7 @@
           "kind": "collocation",
           "french": "des repas équilibrés",
           "english": "balanced meals",
-          "example": "En conclusion, le plus important est de consommer moins, de choisir mieux et de garantir des repas équilibrés adaptés aux besoins de chacun.",
+          "example": "En conclusion, il faut consommer moins, choisir mieux et garantir des repas équilibrés adaptés aux besoins de chacun.",
           "usage": "Association lexicale ; réutilisable en Alimentation/Environnement."
         },
         {
@@ -3679,11 +3679,11 @@
           "usage": "Tournure syntaxique ; réutilisable en Alimentation/Environnement."
         },
         {
-          "id": "E3-AVR-C15-27",
+          "id": "E3-AVR-C15-27R1",
           "kind": "tournure",
-          "french": "selon des normes exigeantes",
-          "english": "according to demanding standards",
-          "example": "De plus, une viande produite localement selon des normes exigeantes peut conserver une place limitée.",
+          "french": "issue d’un élevage respectant des normes exigeantes",
+          "english": "from a farm that complies with demanding standards",
+          "example": "De plus, une viande issue d’un élevage respectant des normes exigeantes peut conserver une place limitée.",
           "usage": "Tournure syntaxique ; réutilisable en Alimentation/Environnement."
         },
         {
@@ -3699,7 +3699,7 @@
           "kind": "verbe-action",
           "french": "garantir des repas équilibrés",
           "english": "to guarantee balanced meals",
-          "example": "En conclusion, le plus important est de consommer moins, de choisir mieux et de garantir des repas équilibrés adaptés aux besoins de chacun.",
+          "example": "En conclusion, il faut consommer moins, choisir mieux et garantir des repas équilibrés adaptés aux besoins de chacun.",
           "usage": "Groupe verbal ; réutilisable en Alimentation/Environnement."
         },
         {
@@ -3906,7 +3906,7 @@
           "kind": "collocation",
           "french": "élevage intensif",
           "english": "intensive farming",
-          "example": "Ces aliments apportent des fibres et des protéines sans exiger d’élevage intensif.",
+          "example": "Ces aliments apportent des fibres et des protéines sans nécessiter d’élevage intensif.",
           "usage": "Association lexicale ; réutilisable en Santé/Alimentation."
         },
         {
@@ -3954,7 +3954,7 @@
           "kind": "reformulation",
           "french": "Ces aliments",
           "english": "These foods",
-          "example": "Ces aliments apportent des fibres et des protéines sans exiger d’élevage intensif.",
+          "example": "Ces aliments apportent des fibres et des protéines sans nécessiter d’élevage intensif.",
           "usage": "Reformulation nominale ; réutilisable en Santé/Alimentation."
         }
       ]
@@ -3981,11 +3981,11 @@
           "usage": "Connecteur adverbial ; réutilisable en Sport/Finances publiques."
         },
         {
-          "id": "E3-AVR-C17-03R1",
+          "id": "E3-AVR-C17-03R2",
           "kind": "phrase-modele",
-          "french": "Pour ma part, un État ne devrait accueillir une grande compétition qu’à condition que ses investissements répondent à des besoins durables",
-          "english": "For my part, a state should host a major competition only provided that its investments meet lasting needs",
-          "example": "Pour ma part, un État ne devrait accueillir une grande compétition qu’à condition que ses investissements répondent à des besoins durables.",
+          "french": "Pour ma part, un État ne devrait accueillir une grande compétition qu’à condition que les dépenses profitent durablement aux habitants",
+          "english": "For my part, a state should host a major competition only provided that the spending brings lasting benefits to residents",
+          "example": "Pour ma part, un État ne devrait accueillir une grande compétition qu’à condition que les dépenses profitent durablement aux habitants.",
           "usage": "Formule argumentative ; réutilisable en Sport/Finances publiques."
         },
         {
@@ -3993,7 +3993,7 @@
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
-          "example": "Tout d’abord, des transports ou des équipements bien conçus peuvent servir longtemps à la population.",
+          "example": "Tout d’abord, rénover les transports ou les équipements existants peut améliorer le quotidien, car les habitants les utiliseront encore après l’événement.",
           "usage": "Connecteur adverbial ; réutilisable en Sport/Finances publiques."
         },
         {
@@ -4017,15 +4017,15 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de publier les coûts, de consulter les citoyens et de garantir un héritage social utile.",
+          "example": "En conclusion, les autorités doivent publier les coûts, consulter les citoyens et prévoir l’usage des équipements après la compétition.",
           "usage": "Connecteur adverbial ; réutilisable en Sport/Finances publiques."
         },
         {
-          "id": "E3-AVR-C17-08",
+          "id": "E3-AVR-C17-08R1",
           "kind": "phrase-modele",
-          "french": "En conclusion, le plus important est de publier les coûts, de consulter les citoyens et de garantir un héritage social utile",
-          "english": "In conclusion, the most important thing is to publish costs, consult citizens and guarantee a useful social legacy",
-          "example": "En conclusion, le plus important est de publier les coûts, de consulter les citoyens et de garantir un héritage social utile.",
+          "french": "En conclusion, les autorités doivent publier les coûts, consulter les citoyens et prévoir l’usage des équipements après la compétition",
+          "english": "In conclusion, the authorities must publish the costs, consult citizens and plan the use of the facilities after the competition",
+          "example": "En conclusion, les autorités doivent publier les coûts, consulter les citoyens et prévoir l’usage des équipements après la compétition.",
           "usage": "Formule argumentative ; réutilisable en Sport/Finances publiques."
         },
         {
@@ -4077,11 +4077,11 @@
           "usage": "Nom ou groupe nominal singulier ; réutilisable en Sport/Finances publiques."
         },
         {
-          "id": "E3-AVR-C17-15",
+          "id": "E3-AVR-C17-15R1",
           "kind": "mot-cle",
-          "french": "des besoins durables",
-          "english": "lasting needs",
-          "example": "Pour ma part, un État ne devrait accueillir une grande compétition qu’à condition que ses investissements répondent à des besoins durables.",
+          "french": "les équipements existants",
+          "english": "the existing facilities",
+          "example": "Tout d’abord, rénover les transports ou les équipements existants peut améliorer le quotidien, car les habitants les utiliseront encore après l’événement.",
           "usage": "Groupe nominal pluriel ; réutilisable en Sport/Finances publiques."
         },
         {
@@ -4101,11 +4101,11 @@
           "usage": "Groupe nominal ; réutilisable en Sport/Finances publiques."
         },
         {
-          "id": "E3-AVR-C17-18",
+          "id": "E3-AVR-C17-18R1",
           "kind": "mot-cle",
-          "french": "un héritage social utile",
-          "english": "a useful social legacy",
-          "example": "En conclusion, le plus important est de publier les coûts, de consulter les citoyens et de garantir un héritage social utile.",
+          "french": "le quotidien",
+          "english": "everyday life",
+          "example": "Tout d’abord, rénover les transports ou les équipements existants peut améliorer le quotidien, car les habitants les utiliseront encore après l’événement.",
           "usage": "Nom ou groupe nominal masculin ; réutilisable en Sport/Finances publiques."
         },
         {
@@ -4113,15 +4113,15 @@
           "kind": "collocation",
           "french": "une grande compétition",
           "english": "a major competition",
-          "example": "Pour ma part, un État ne devrait accueillir une grande compétition qu’à condition que ses investissements répondent à des besoins durables.",
+          "example": "Pour ma part, un État ne devrait accueillir une grande compétition qu’à condition que les dépenses profitent durablement aux habitants.",
           "usage": "Association lexicale ; réutilisable en Sport/Finances publiques."
         },
         {
-          "id": "E3-AVR-C17-20",
+          "id": "E3-AVR-C17-20R1",
           "kind": "collocation",
-          "french": "des équipements bien conçus",
-          "english": "well-designed facilities",
-          "example": "Tout d’abord, des transports ou des équipements bien conçus peuvent servir longtemps à la population.",
+          "french": "l’usage des équipements",
+          "english": "the use of the facilities",
+          "example": "En conclusion, les autorités doivent publier les coûts, consulter les citoyens et prévoir l’usage des équipements après la compétition.",
           "usage": "Association lexicale ; réutilisable en Sport/Finances publiques."
         },
         {
@@ -4153,15 +4153,15 @@
           "kind": "collocation",
           "french": "les coûts",
           "english": "costs",
-          "example": "En conclusion, le plus important est de publier les coûts, de consulter les citoyens et de garantir un héritage social utile.",
+          "example": "En conclusion, les autorités doivent publier les coûts, consulter les citoyens et prévoir l’usage des équipements après la compétition.",
           "usage": "Association lexicale ; réutilisable en Sport/Finances publiques."
         },
         {
-          "id": "E3-AVR-C17-25R1",
+          "id": "E3-AVR-C17-25R2",
           "kind": "tournure",
-          "french": "qu’à condition que ses investissements répondent à des besoins durables",
-          "english": "only provided that its investments meet lasting needs",
-          "example": "Pour ma part, un État ne devrait accueillir une grande compétition qu’à condition que ses investissements répondent à des besoins durables.",
+          "french": "qu’à condition que les dépenses profitent durablement aux habitants",
+          "english": "only provided that the spending brings lasting benefits to residents",
+          "example": "Pour ma part, un État ne devrait accueillir une grande compétition qu’à condition que les dépenses profitent durablement aux habitants.",
           "usage": "Tournure syntaxique ; réutilisable en Sport/Finances publiques."
         },
         {
@@ -4193,15 +4193,15 @@
           "kind": "verbe-action",
           "french": "consulter les citoyens",
           "english": "to consult citizens",
-          "example": "En conclusion, le plus important est de publier les coûts, de consulter les citoyens et de garantir un héritage social utile.",
+          "example": "En conclusion, les autorités doivent publier les coûts, consulter les citoyens et prévoir l’usage des équipements après la compétition.",
           "usage": "Groupe verbal ; réutilisable en Sport/Finances publiques."
         },
         {
-          "id": "E3-AVR-C17-30R1",
+          "id": "E3-AVR-C17-30R2",
           "kind": "reformulation",
-          "french": "Un réseau modernisé",
-          "english": "A modernised network",
-          "example": "Un réseau modernisé pour l’occasion continue de servir les habitants pendant des décennies.",
+          "french": "les autorités",
+          "english": "the authorities",
+          "example": "En conclusion, les autorités doivent publier les coûts, consulter les citoyens et prévoir l’usage des équipements après la compétition.",
           "usage": "Reformulation nominale ; réutilisable en Sport/Finances publiques."
         }
       ]
@@ -4511,15 +4511,15 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de procéder progressivement, d’informer les familles et d’associer santé des enfants, plaisir et soutien aux producteurs.",
+          "example": "En conclusion, il faut procéder progressivement, informer les familles et associer santé des enfants, plaisir et soutien aux producteurs.",
           "usage": "Connecteur adverbial ; réutilisable en Santé/Éducation."
         },
         {
-          "id": "E3-AVR-C19-08",
+          "id": "E3-AVR-C19-08R1",
           "kind": "phrase-modele",
-          "french": "En conclusion, le plus important est de procéder progressivement, d’informer les familles et d’associer santé des enfants, plaisir et soutien aux producteurs",
-          "english": "In conclusion, the most important thing is to proceed gradually, inform families and combine children’s health, enjoyment and support for producers",
-          "example": "En conclusion, le plus important est de procéder progressivement, d’informer les familles et d’associer santé des enfants, plaisir et soutien aux producteurs.",
+          "french": "En conclusion, il faut procéder progressivement, informer les familles et associer santé des enfants, plaisir et soutien aux producteurs",
+          "english": "In conclusion, we must proceed gradually, inform families and combine children’s health, enjoyment and support for producers",
+          "example": "En conclusion, il faut procéder progressivement, informer les familles et associer santé des enfants, plaisir et soutien aux producteurs.",
           "usage": "Formule argumentative ; réutilisable en Santé/Éducation."
         },
         {
@@ -4543,7 +4543,7 @@
           "kind": "mot-cle",
           "french": "d’autres sources de protéines",
           "english": "other sources of protein",
-          "example": "Deux repas sur dix suffisent à faire découvrir d’autres sources de protéines.",
+          "example": "Deux repas par semaine laissent aux enfants le temps de découvrir d’autres sources de protéines sans bouleverser leurs habitudes.",
           "usage": "Groupe nominal ; réutilisable en Santé/Éducation."
         },
         {
@@ -4591,7 +4591,7 @@
           "kind": "mot-cle",
           "french": "les coûts et l’impact environnemental",
           "english": "the costs and the environmental impact",
-          "example": "De plus, elle peut réduire les coûts et l’impact environnemental.",
+          "example": "De plus, ces menus peuvent réduire les coûts et l’impact environnemental.",
           "usage": "Groupe nominal ; réutilisable en Santé/Éducation."
         },
         {
@@ -4599,7 +4599,7 @@
           "kind": "mot-cle",
           "french": "santé des enfants",
           "english": "children’s health",
-          "example": "En conclusion, le plus important est de procéder progressivement, d’informer les familles et d’associer santé des enfants, plaisir et soutien aux producteurs.",
+          "example": "En conclusion, il faut procéder progressivement, informer les familles et associer santé des enfants, plaisir et soutien aux producteurs.",
           "usage": "Groupe nominal ; réutilisable en Santé/Éducation."
         },
         {
@@ -4647,7 +4647,7 @@
           "kind": "collocation",
           "french": "soutien aux producteurs",
           "english": "support for producers",
-          "example": "En conclusion, le plus important est de procéder progressivement, d’informer les familles et d’associer santé des enfants, plaisir et soutien aux producteurs.",
+          "example": "En conclusion, il faut procéder progressivement, informer les familles et associer santé des enfants, plaisir et soutien aux producteurs.",
           "usage": "Association lexicale ; réutilisable en Santé/Éducation."
         },
         {
@@ -4687,7 +4687,7 @@
           "kind": "verbe-action",
           "french": "procéder progressivement",
           "english": "to proceed gradually",
-          "example": "En conclusion, le plus important est de procéder progressivement, d’informer les familles et d’associer santé des enfants, plaisir et soutien aux producteurs.",
+          "example": "En conclusion, il faut procéder progressivement, informer les familles et associer santé des enfants, plaisir et soutien aux producteurs.",
           "usage": "Groupe verbal ; réutilisable en Santé/Éducation."
         },
         {
@@ -4742,7 +4742,7 @@
           "kind": "expression",
           "french": "Par exemple",
           "english": "For example",
-          "example": "Par exemple, entre Montréal et Toronto, un voyageur peut travailler dans le train plutôt que payer un bagage en avion.",
+          "example": "Par exemple, entre Montréal et Toronto, un voyageur peut travailler confortablement dans le train et éviter les frais de bagage.",
           "usage": "Connecteur adverbial ; réutilisable en Transport/Environnement."
         },
         {
@@ -4758,15 +4758,15 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de comparer le coût total, la durée, le confort, la sécurité et l’impact environnemental.",
+          "example": "En conclusion, un voyageur doit comparer le coût total, la durée, le confort, la sécurité et l’impact environnemental avant de réserver.",
           "usage": "Connecteur adverbial ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-AVR-C20-08R1",
+          "id": "E3-AVR-C20-08R2",
           "kind": "phrase-modele",
-          "french": "En conclusion, le plus important est de comparer le coût total, la durée, le confort, la sécurité et l’impact environnemental",
-          "english": "In conclusion, the most important thing is to compare the total cost, the duration, the comfort, the safety and the environmental impact",
-          "example": "En conclusion, le plus important est de comparer le coût total, la durée, le confort, la sécurité et l’impact environnemental.",
+          "french": "En conclusion, un voyageur doit comparer le coût total, la durée, le confort, la sécurité et l’impact environnemental avant de réserver",
+          "english": "In conclusion, a traveller must compare the total cost, the duration, the comfort, the safety and the environmental impact before booking",
+          "example": "En conclusion, un voyageur doit comparer le coût total, la durée, le confort, la sécurité et l’impact environnemental avant de réserver.",
           "usage": "Formule argumentative ; réutilisable en Transport/Environnement."
         },
         {
@@ -4894,7 +4894,7 @@
           "kind": "collocation",
           "french": "le coût total",
           "english": "the total cost",
-          "example": "En conclusion, le plus important est de comparer le coût total, la durée, le confort, la sécurité et l’impact environnemental.",
+          "example": "En conclusion, un voyageur doit comparer le coût total, la durée, le confort, la sécurité et l’impact environnemental avant de réserver.",
           "usage": "Association lexicale ; réutilisable en Transport/Environnement."
         },
         {
@@ -4914,11 +4914,11 @@
           "usage": "Tournure syntaxique ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-AVR-C20-27",
+          "id": "E3-AVR-C20-27R1",
           "kind": "tournure",
-          "french": "plutôt que payer un bagage en avion",
-          "english": "rather than paying for baggage on a plane",
-          "example": "Par exemple, entre Montréal et Toronto, un voyageur peut travailler dans le train plutôt que payer un bagage en avion.",
+          "french": "avant de réserver",
+          "english": "before booking",
+          "example": "En conclusion, un voyageur doit comparer le coût total, la durée, le confort, la sécurité et l’impact environnemental avant de réserver.",
           "usage": "Tournure syntaxique ; réutilisable en Transport/Environnement."
         },
         {
@@ -4934,7 +4934,7 @@
           "kind": "verbe-action",
           "french": "comparer le coût total",
           "english": "to compare the total cost",
-          "example": "En conclusion, le plus important est de comparer le coût total, la durée, le confort, la sécurité et l’impact environnemental.",
+          "example": "En conclusion, un voyageur doit comparer le coût total, la durée, le confort, la sécurité et l’impact environnemental avant de réserver.",
           "usage": "Groupe verbal ; réutilisable en Transport/Environnement."
         },
         {

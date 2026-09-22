@@ -1277,7 +1277,7 @@ class Command(BaseCommand):
 
     @staticmethod
     def _restore_retired_ee_tache_three_phrases():
-        """Repair historical rows if an unsafe intermediate import overwrote them."""
+        """Restore and deactivate every retired EE3 identity generation."""
         retired = content.ee_tache_three_retired_phrase_data()
         phrases = Phrase.objects.in_bulk(retired, field_name="phrase_id")
         if not phrases:

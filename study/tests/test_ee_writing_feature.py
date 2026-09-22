@@ -38,6 +38,8 @@ _SUBJUNCTIVE_TRIGGER_RE = re.compile(
     "|".join(
         (
             rf"\b(?:pour|afin|bien|sans|quoique|à condition)\s+{_QUE}",
+            rf"\b(?:éviter|évite|évitent|éviterait|éviteraient)"
+            rf"(?:\s+[a-zà-ÿ]+){{0,3}}\s+{_QUE}",
             rf"\bavant(?:\s+même)?\s+{_QUE}",
             rf"\bil\s+(?:faut|faudrait|suffit|suffirait)"
             rf"(?:\s+[a-zà-ÿ]+){{0,3}}\s+{_QUE}",
@@ -478,14 +480,20 @@ class EeTacheThreeUnifiedResponseTests(SimpleTestCase):
         self.assertEqual(author_entry_count, 300)
 
     def test_all_raw_vocabulary_is_grounded_with_identity_safe_revisions(self):
+        manifest = json.loads(
+            content.EE_TACHE_THREE_PHRASE_ID_REVISIONS_PATH.read_text(
+                encoding="utf-8"
+            )
+        )
+        self.assertEqual(manifest["version"], 4)
         sources = {
             row.content_key: row
             for month in content.load_ee_tache_three_months()
             for row in month.combinaisons
         }
         authors = content.load_ee_tache_three_author_responses()
-        identities = []
         current_identity_digests = {}
+        structure = []
         revised_canonical = 0
         revised_alias = 0
         response_count = 0
@@ -507,9 +515,8 @@ class EeTacheThreeUnifiedResponseTests(SimpleTestCase):
                 self.assertEqual(len(row["entries"]), 30)
                 for index, entry in enumerate(row["entries"]):
                     entry_count += 1
-                    identities.append(
-                        f"{path.stem}|{content_key}|{index}|"
-                        f"{entry['id']}|{entry['kind']}"
+                    structure.append(
+                        f"{path.stem}|{content_key}|{index}|{entry['kind']}"
                     )
                     current_identity_digests[entry["id"]] = (
                         content._ee_tache_three_phrase_identity_digest(
@@ -527,25 +534,33 @@ class EeTacheThreeUnifiedResponseTests(SimpleTestCase):
 
         self.assertEqual(response_count, 138)
         self.assertEqual(entry_count, 4140)
+        self.assertEqual(len(current_identity_digests), entry_count)
         self.assertEqual(
-            hashlib.sha256("\n".join(identities).encode()).hexdigest(),
-            "21ddd90ab8fe857bb12c99c08b747500acfc93d20e3f22d09651f413cfd0d930",
+            hashlib.sha256("\n".join(structure).encode()).hexdigest(),
+            "5909f6c95fa0a3fef6a5546fe2ba9584637141ded3a0d3f93a169679feee8a4b",
         )
         revisions = content.ee_tache_three_phrase_id_revisions()
         historical = content.ee_tache_three_historical_phrase_identities()
+        retired = content.ee_tache_three_retired_phrase_data()
         current_ids = {
-            identity.rsplit("|", 2)[1]
-            for identity in identities
+            phrase_id
+            for phrase_id in current_identity_digests
         }
-        replacement_sources = {
-            replacement_id: retired_id
-            for retired_id, replacement_id in revisions.items()
+        original_historical = {
+            phrase_id: identity_digest
+            for phrase_id, identity_digest in historical.items()
+            if content._ee_tache_three_phrase_id_generation(phrase_id)[1] == 0
         }
         for path in sorted(content.EE_TACHE_THREE_VOCABULARY_DIR.glob("*.json")):
             payload = json.loads(path.read_text(encoding="utf-8"))
             for row in payload["responses"]:
                 for entry in row["entries"]:
                     phrase_id = entry["id"]
+                    self.assertNotIn(phrase_id, revisions)
+                    self.assertEqual(
+                        current_identity_digests[phrase_id],
+                        historical[phrase_id],
+                    )
                     if phrase_id in revisions.values():
                         if (
                             canonical_by_key.get(
@@ -557,70 +572,77 @@ class EeTacheThreeUnifiedResponseTests(SimpleTestCase):
                             revised_canonical += 1
                         else:
                             revised_alias += 1
-                        self.assertNotEqual(
-                            current_identity_digests[phrase_id],
-                            historical[replacement_sources[phrase_id]],
-                        )
-                    else:
-                        self.assertEqual(
-                            current_identity_digests[phrase_id],
-                            historical[phrase_id],
-                        )
-        self.assertEqual(len(historical), 4140)
-        self.assertEqual(len(revisions), 1708)
-        self.assertEqual((revised_canonical, revised_alias), (895, 813))
+        self.assertEqual(len(original_historical), 4140)
         self.assertFalse(set(revisions) & current_ids)
-        self.assertTrue(set(revisions.values()).issubset(current_ids))
+        self.assertEqual(current_ids, set(historical).difference(revisions))
+        self.assertEqual(set(retired), set(revisions))
         self.assertEqual(
-            current_ids,
-            set(historical).difference(revisions) | set(revisions.values()),
+            revised_canonical + revised_alias,
+            len(set(revisions.values()) & current_ids),
         )
+        self.assertTrue(
+            any(
+                content._ee_tache_three_phrase_id_generation(source_id)[1] >= 1
+                for source_id in revisions
+            )
+        )
+        for source_id, replacement_id in revisions.items():
+            with self.subTest(source_id=source_id):
+                self.assertEqual(
+                    content._ee_tache_three_next_phrase_id(source_id),
+                    replacement_id,
+                )
+                row = retired[source_id]
+                self.assertEqual(row["replacement_id"], replacement_id)
+                self.assertEqual(
+                    historical[source_id],
+                    content._ee_tache_three_phrase_identity_digest(
+                        row["kind"],
+                        row["french"],
+                        row["english"],
+                    ),
+                )
         self.assertEqual(
             hashlib.sha256("\n".join(
-                f"{phrase_id}|{historical[phrase_id]}"
-                for phrase_id in sorted(historical)
+                f"{phrase_id}|{original_historical[phrase_id]}"
+                for phrase_id in sorted(original_historical)
             ).encode()).hexdigest(),
             "1b17b361cf3fe6bdb1150f7310b3f52e716b1f21c4b96db77fa488f8c86cb25a",
         )
-        self.assertEqual(
-            hashlib.sha256("\n".join(
-                f"{source}|{revisions[source]}" for source in sorted(revisions)
-            ).encode()).hexdigest(),
-            "b2a4c044f36ad4d0e28b2c02144ffb09b6f235cc4c07f877b62e0986ec5ec512",
-        )
 
     def test_corrected_source_vocabulary_stays_anchored_to_its_model(self):
-        corrected_ids = {
-            "E3-AVR-C04-04",
-            "E3-AVR-C04-16",
-            "E3-MAI-C03-18",
-            "E3-MAI-C03-19",
-            "E3-MAI-C03-20",
-            "E3-MAI-C03-21",
-            "E3-MAI-C03-22",
-            "E3-OCT-C01-28",
-            "E3-OCT-C01-29",
-            "E3-OCT-C01-30",
+        corrected_locations = {
+            ("ee-tache3:avril:combinaison-4", 4),
+            ("ee-tache3:avril:combinaison-4", 16),
+            ("ee-tache3:mai:combinaison-3", 18),
+            ("ee-tache3:mai:combinaison-3", 19),
+            ("ee-tache3:mai:combinaison-3", 20),
+            ("ee-tache3:mai:combinaison-3", 21),
+            ("ee-tache3:mai:combinaison-3", 22),
+            ("ee-tache3:octobre:combinaison-1", 28),
+            ("ee-tache3:octobre:combinaison-1", 29),
+            ("ee-tache3:octobre:combinaison-1", 30),
         }
         sources = {
             row.content_key: row
             for month in content.load_ee_tache_three_months()
             for row in month.combinaisons
         }
-        checked_ids = set()
+        checked_locations = set()
         for path in content.EE_TACHE_THREE_VOCABULARY_DIR.glob("*.json"):
             payload = json.loads(path.read_text(encoding="utf-8"))
             for row in payload["responses"]:
                 source = sources[row["response_key"]]
                 answer = source.synthese + " " + source.point_de_vue
-                for entry in row["entries"]:
-                    if entry["id"] not in corrected_ids:
+                for index, entry in enumerate(row["entries"], start=1):
+                    location = (row["response_key"], index)
+                    if location not in corrected_locations:
                         continue
-                    checked_ids.add(entry["id"])
+                    checked_locations.add(location)
                     with self.subTest(entry=entry["id"]):
                         self.assertIn(entry["french"], entry["example"])
                         self.assertIn(entry["example"], answer)
-        self.assertEqual(checked_ids, corrected_ids)
+        self.assertEqual(checked_locations, corrected_locations)
 
     def test_every_retired_tache_three_vocabulary_id_has_a_canonical_target(self):
         merges = content.ee_tache_three_phrase_id_merges()

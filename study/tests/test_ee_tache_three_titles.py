@@ -236,6 +236,17 @@ class EeTacheThreeTitlePageTests(TestCase):
                     rendered.index("section-card--ee-documents"),
                     rendered.index("section-card--ee-response"),
                 )
+                for label in (
+                    "Prise de position",
+                    "Argument 1 + support",
+                    "Argument 2 + support",
+                    "Conclusion",
+                ):
+                    self.assertContains(
+                        page,
+                        f'data-outline-label="{label}"',
+                        count=1,
+                    )
                 self.assertNotContains(page, '<p class="reform">')
                 self.assertContains(
                     page, f"Total : {content._ee_word_count(answer)} mots, titre compris",

@@ -786,7 +786,53 @@ class BrowserTests(StaticLiveServerTestCase):
         _, task = self._import_ee_tache_three_content()
         card = self.user.study_cards.filter(response__theme__task=task).first()
         response = card.response
-        self.page.goto(self.live_server_url + response_detail_url(response))
+        path = response_detail_url(response)
+        for width in (320, 390, 1280):
+            with self.subTest(width=width):
+                self.page.set_viewport_size({"width": width, "height": 844})
+                self.page.goto(self.live_server_url + path)
+                ordered_components = self.page.locator(
+                    ".tache-two-consigne, "
+                    ".section-card--ee-documents, "
+                    ".section-card--ee-response"
+                )
+                expect(ordered_components).to_have_count(3)
+                self.assertEqual(
+                    ordered_components.evaluate_all(
+                        "nodes => nodes.map(node => node.className)"
+                    ),
+                    [
+                        "tache-two-consigne ee-subject-consigne",
+                        "card section-card section-card--ee-documents",
+                        "card section-card section-card--ee-response",
+                    ],
+                )
+                response_card = self.page.locator(".section-card--ee-response")
+                expect(response_card.locator(".ee-response-part")).to_have_count(2)
+                expect(
+                    response_card.locator("[data-outline-label]")
+                ).to_have_count(4)
+                self.assertEqual(
+                    response_card.locator("[data-outline-label]").evaluate_all(
+                        "nodes => nodes.map(node => node.dataset.outlineLabel)"
+                    ),
+                    [
+                        "Prise de position",
+                        "Argument 1 + support",
+                        "Argument 2 + support",
+                        "Conclusion",
+                    ],
+                )
+                expect(
+                    self.page.locator(
+                        ".card.section-card.section-card--ee-synthese, "
+                        ".card.section-card.section-card--ee-point-de-vue"
+                    )
+                ).to_have_count(0)
+                self.assert_no_horizontal_overflow()
+
+        self.page.set_viewport_size({"width": 1280, "height": 844})
+        self.page.goto(self.live_server_url + path)
         self.page.locator(
             '[data-prompt-copy-source="ee-tache-three-response-content"]'
         ).click()

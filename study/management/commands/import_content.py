@@ -48,6 +48,7 @@ from study.models import (
     Settings,
     Task,
     Theme,
+    ThemeVocabularyProgress,
     WritingSujet,
     WritingSujetCompletion,
 )
@@ -1272,6 +1273,69 @@ class Command(BaseCommand):
         PhraseCategory.objects.exclude(
             pk__in=[c.pk for c in seen_categories.values()]
         ).update(is_active=False)
+        self._restore_retired_ee_tache_three_phrases()
+
+    @staticmethod
+    def _restore_retired_ee_tache_three_phrases():
+        """Repair historical rows if an unsafe intermediate import overwrote them."""
+        retired = content.ee_tache_three_retired_phrase_data()
+        phrases = Phrase.objects.in_bulk(retired, field_name="phrase_id")
+        if not phrases:
+            return
+        category_names = {
+            content.EE_TACHE_THREE_VOCABULARY_CATEGORIES[row["kind"]]
+            for phrase_id, row in retired.items()
+            if phrase_id in phrases
+        }
+        categories = PhraseCategory.objects.in_bulk(
+            [
+                content.phrase_category_content_key(name)
+                for name in category_names
+            ],
+            field_name="content_key",
+        )
+        changed = []
+        for phrase_id, phrase in phrases.items():
+            row = retired[phrase_id]
+            category_name = content.EE_TACHE_THREE_VOCABULARY_CATEGORIES[
+                row["kind"]
+            ]
+            category = categories.get(
+                content.phrase_category_content_key(category_name)
+            )
+            if category is None:
+                raise CommandError(
+                    f"Missing category for retired phrase {phrase_id}"
+                )
+            values = {
+                "tier": "subject",
+                "category_id": category.pk,
+                "english_cue": row["english"],
+                "expression": row["french"],
+                "anchor": row["french"],
+                "example": row["example"],
+                "note": row["usage"],
+                "vocabulary_theme_id": None,
+                "is_active": False,
+            }
+            if _apply_values(phrase, values):
+                changed.append(phrase)
+        if changed:
+            Phrase.objects.bulk_update(
+                changed,
+                [
+                    "tier",
+                    "category",
+                    "english_cue",
+                    "expression",
+                    "anchor",
+                    "example",
+                    "note",
+                    "vocabulary_theme",
+                    "is_active",
+                ],
+                batch_size=IMPORT_BATCH_SIZE,
+            )
 
     @staticmethod
     def _card_progress_rank(card):
@@ -1753,7 +1817,44 @@ class Command(BaseCommand):
                 changed.append(target_card)
         if changed:
             Card.objects.bulk_update(changed, schedule_fields)
+        self._reconcile_phrase_learning_progress(phrase_id_merges, phrases)
         self._reconcile_phrase_annotations(phrase_id_merges)
+
+    @staticmethod
+    def _reconcile_phrase_learning_progress(phrase_id_merges, phrases):
+        """Copy explicit learned state only across audited equivalent identities."""
+        source_phrase_ids = {
+            phrases[source_id].pk: phrases[target_id].pk
+            for source_id, target_id in phrase_id_merges.items()
+            if source_id in phrases and target_id in phrases
+        }
+        if not source_phrase_ids:
+            return
+        source_rows = ThemeVocabularyProgress.objects.filter(
+            phrase_id__in=source_phrase_ids
+        )
+        existing = set(
+            ThemeVocabularyProgress.objects.filter(
+                phrase_id__in=source_phrase_ids.values(),
+            ).values_list("user_id", "phrase_id")
+        )
+        additions = []
+        for row in source_rows:
+            target_phrase_id = source_phrase_ids[row.phrase_id]
+            key = (row.user_id, target_phrase_id)
+            if key in existing:
+                continue
+            existing.add(key)
+            additions.append(ThemeVocabularyProgress(
+                user_id=row.user_id,
+                phrase_id=target_phrase_id,
+                completed_at=row.completed_at,
+            ))
+        ThemeVocabularyProgress.objects.bulk_create(
+            additions,
+            batch_size=IMPORT_BATCH_SIZE,
+            ignore_conflicts=True,
+        )
 
     def _reconcile_phrase_annotations(self, phrase_id_merges):
         """Retarget only phrase IDs that actually have private annotations."""

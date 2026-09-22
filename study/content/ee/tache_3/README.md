@@ -49,6 +49,15 @@ Ce dossier regroupe les **sujets sources** et l'ensemble des **réponses modèle
   `ee-tache3:<mois>:combinaison-<n>`.
   Les 138 blocs sont conservés, mais le parseur n'importe que les blocs `canonical`
   (voir « Thèmes et sujets équivalents ») : **78 × 30 = 2 340 entrées importées**.
+- L'identifiant d'une entrée désigne sa cible d'apprentissage, pas son emplacement
+  dans un bloc. Une correction d'exemple ou d'usage conserve l'identifiant si la
+  cible française, la consigne anglaise et la catégorie restent les mêmes. Une
+  cible remplacée reçoit un nouvel identifiant répertorié dans
+  `phrase_id_revisions.json`. Ce manifeste fixe l'empreinte sémantique des
+  **4 140 identifiants historiques** et conserve le contenu des cibles retirées
+  pour réparer un éventuel import intermédiaire. L'ancien objet est désactivé,
+  sans transférer son calendrier, son statut appris ou ses annotations au
+  remplacement.
 
 **Mémoires** — `memoires/memoire_<Q>.json`
 - **4 mémoires trimestrielles** de formulations réutilisables, calquées sur la structure
@@ -140,9 +149,10 @@ entre les textes ressort de leur contenu.
   orale Tâche 2.
 - `ee_tache_three_phrase_id_merges()` associe les **1 800 identifiants** de vocabulaire
   des publications devenues alias aux 30 fiches de leur réponse canonique.
-  `phrase_id_merge_indices.json` fige cette bijection historique afin qu’une
-  régénération éditoriale ne réattribue jamais un ancien identifiant à une autre
-  fiche. L’import conserve ainsi les calendriers de révision et les annotations.
+  `phrase_id_merges.json` conserve cette bijection historique sous forme
+  d'identifiants explicites afin qu'une régénération éditoriale ne réattribue jamais
+  un ancien alias à une autre fiche. L'import conserve ainsi les calendriers de
+  révision et les annotations de l'ancienne cible, y compris lorsqu'elle est retirée.
 - `author_responses.json` — **10 réponses rédigées par l'auteur** qui remplacent le
   modèle fourni. Chaque `content_key` doit être un sujet `canonical` ; les entrées
   sont classées par ordre de publication. Elles proviennent de sa

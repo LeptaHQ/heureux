@@ -13,7 +13,7 @@
       "sujet": "Les Vêtements de Grandes Marques",
       "entries": [
         {
-          "id": "E3-MAR-C01-01",
+          "id": "E3-MAR-C01-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent les vêtements de marque chez les jeunes",
           "english": "Both documents deal with designer clothes among young people",
@@ -29,7 +29,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Mode/Consommation."
         },
         {
-          "id": "E3-MAR-C01-03",
+          "id": "E3-MAR-C01-03R1",
           "kind": "mot-cle",
           "french": "sa personnalité",
           "english": "one’s personality",
@@ -37,7 +37,7 @@
           "usage": "Groupe nominal ; réutilisable en Mode/Consommation."
         },
         {
-          "id": "E3-MAR-C01-04",
+          "id": "E3-MAR-C01-04R1",
           "kind": "mot-cle",
           "french": "son appartenance à un groupe",
           "english": "one’s belonging to a group",
@@ -45,7 +45,7 @@
           "usage": "Groupe nominal ; réutilisable en Mode/Consommation."
         },
         {
-          "id": "E3-MAR-C01-05",
+          "id": "E3-MAR-C01-05R1",
           "kind": "mot-cle",
           "french": "leur durée d’usage",
           "english": "their lifespan of use",
@@ -85,7 +85,7 @@
           "usage": "Groupe nominal ; réutilisable en Mode/Consommation."
         },
         {
-          "id": "E3-MAR-C01-10",
+          "id": "E3-MAR-C01-10R1",
           "kind": "mot-cle",
           "french": "des achats répétés",
           "english": "repeated purchases",
@@ -141,7 +141,7 @@
           "usage": "Association lexicale ; réutilisable en Mode/Consommation."
         },
         {
-          "id": "E3-MAR-C01-17",
+          "id": "E3-MAR-C01-17R1",
           "kind": "collocation",
           "french": "abîment facilement leurs habits",
           "english": "easily damage their clothes",
@@ -157,7 +157,7 @@
           "usage": "Association lexicale ; réutilisable en Mode/Consommation."
         },
         {
-          "id": "E3-MAR-C01-19",
+          "id": "E3-MAR-C01-19R1",
           "kind": "tournure",
           "french": "comme un moyen d’exprimer sa personnalité",
           "english": "as a way of expressing one’s personality",
@@ -165,7 +165,7 @@
           "usage": "Construction réutilisable ; réutilisable en Mode/Consommation."
         },
         {
-          "id": "E3-MAR-C01-20",
+          "id": "E3-MAR-C01-20R1",
           "kind": "tournure",
           "french": "ce qui limite leur durée d’usage",
           "english": "which limits how long they can be worn",
@@ -189,7 +189,7 @@
           "usage": "Construction réutilisable ; réutilisable en Mode/Consommation."
         },
         {
-          "id": "E3-MAR-C01-23",
+          "id": "E3-MAR-C01-23R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, les vêtements de marque peuvent être achetés occasionnellement, mais il ne faut pas qu’ils définissent l’identité d’un enfant",
           "english": "For my part, designer clothes can be bought occasionally, but they must not define a child’s identity",
@@ -197,7 +197,7 @@
           "usage": "Formule argumentative ; réutilisable en Mode/Consommation."
         },
         {
-          "id": "E3-MAR-C01-24",
+          "id": "E3-MAR-C01-24R1",
           "kind": "phrase-modele",
           "french": "Un vêtement qui résiste à plusieurs lavages évite des achats répétés",
           "english": "A garment that withstands several washes avoids repeated purchases",
@@ -213,7 +213,7 @@
           "usage": "Formule argumentative ; réutilisable en Mode/Consommation."
         },
         {
-          "id": "E3-MAR-C01-26",
+          "id": "E3-MAR-C01-26R1",
           "kind": "expression",
           "french": "De plus",
           "english": "Moreover",
@@ -245,7 +245,7 @@
           "usage": "Groupe verbal ; réutilisable en Mode/Consommation."
         },
         {
-          "id": "E3-MAR-C01-30",
+          "id": "E3-MAR-C01-30R1",
           "kind": "reformulation",
           "french": "leurs habits",
           "english": "their clothes",
@@ -260,7 +260,7 @@
       "sujet": "Les animaux de compagnie pour les enfants, pour ou contre ?",
       "entries": [
         {
-          "id": "E3-MAR-C02-01",
+          "id": "E3-MAR-C02-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent les animaux de compagnie pour les enfants",
           "english": "Both documents address the question of pets for children",
@@ -316,7 +316,7 @@
           "usage": "Groupe nominal ; réutilisable en Famille/Animaux."
         },
         {
-          "id": "E3-MAR-C02-08",
+          "id": "E3-MAR-C02-08R1",
           "kind": "mot-cle",
           "french": "une routine",
           "english": "a routine",
@@ -324,7 +324,7 @@
           "usage": "Groupe nominal ; réutilisable en Famille/Animaux."
         },
         {
-          "id": "E3-MAR-C02-09",
+          "id": "E3-MAR-C02-09R1",
           "kind": "mot-cle",
           "french": "des gestes réguliers",
           "english": "regular daily tasks",
@@ -332,7 +332,7 @@
           "usage": "Groupe nominal ; réutilisable en Famille/Animaux."
         },
         {
-          "id": "E3-MAR-C02-10",
+          "id": "E3-MAR-C02-10R1",
           "kind": "mot-cle",
           "french": "un déménagement",
           "english": "a house move",
@@ -340,7 +340,7 @@
           "usage": "Groupe nominal ; réutilisable en Famille/Animaux."
         },
         {
-          "id": "E3-MAR-C02-11",
+          "id": "E3-MAR-C02-11R1",
           "kind": "mot-cle",
           "french": "le budget",
           "english": "the budget",
@@ -364,7 +364,7 @@
           "usage": "Association lexicale ; réutilisable en Famille/Animaux."
         },
         {
-          "id": "E3-MAR-C02-14",
+          "id": "E3-MAR-C02-14R1",
           "kind": "collocation",
           "french": "tenir cet engagement durable",
           "english": "to keep up this long-term commitment",
@@ -380,7 +380,7 @@
           "usage": "Association lexicale ; réutilisable en Famille/Animaux."
         },
         {
-          "id": "E3-MAR-C02-16",
+          "id": "E3-MAR-C02-16R1",
           "kind": "collocation",
           "french": "imposent des gestes réguliers",
           "english": "require regular daily tasks",
@@ -388,7 +388,7 @@
           "usage": "Association lexicale ; réutilisable en Famille/Animaux."
         },
         {
-          "id": "E3-MAR-C02-17",
+          "id": "E3-MAR-C02-17R1",
           "kind": "collocation",
           "french": "promenant son chien chaque soir",
           "english": "walking his dog every evening",
@@ -412,7 +412,7 @@
           "usage": "Construction réutilisable ; réutilisable en Famille/Animaux."
         },
         {
-          "id": "E3-MAR-C02-20",
+          "id": "E3-MAR-C02-20R1",
           "kind": "tournure",
           "french": "à condition que toute la famille soit prête à tenir cet engagement durable",
           "english": "provided the whole family is ready to keep up this long-term commitment",
@@ -420,7 +420,7 @@
           "usage": "Construction réutilisable ; réutilisable en Famille/Animaux."
         },
         {
-          "id": "E3-MAR-C02-21",
+          "id": "E3-MAR-C02-21R1",
           "kind": "tournure",
           "french": "même les jours sans envie",
           "english": "even on days when you do not feel like it",
@@ -436,7 +436,7 @@
           "usage": "Construction réutilisable ; réutilisable en Famille/Animaux."
         },
         {
-          "id": "E3-MAR-C02-23",
+          "id": "E3-MAR-C02-23R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, accueillir un animal est bénéfique à condition que toute la famille soit prête à tenir cet engagement durable",
           "english": "For my part, welcoming a pet is beneficial provided the whole family is ready to keep up this long-term commitment",
@@ -444,7 +444,7 @@
           "usage": "Formule argumentative ; réutilisable en Famille/Animaux."
         },
         {
-          "id": "E3-MAR-C02-24",
+          "id": "E3-MAR-C02-24R1",
           "kind": "phrase-modele",
           "french": "De plus, sa présence peut rassurer un enfant qui se sent seul",
           "english": "Moreover, its presence can reassure a child who feels lonely",
@@ -452,7 +452,7 @@
           "usage": "Formule argumentative ; réutilisable en Famille/Animaux."
         },
         {
-          "id": "E3-MAR-C02-25",
+          "id": "E3-MAR-C02-25R1",
           "kind": "phrase-modele",
           "french": "En conclusion, le plus important est de vérifier le temps, le budget et les conditions de vie disponibles avant toute adoption",
           "english": "In conclusion, the most important thing is to check the available time, budget and living conditions before any adoption",
@@ -484,7 +484,7 @@
           "usage": "Groupe verbal ; réutilisable en Famille/Animaux."
         },
         {
-          "id": "E3-MAR-C02-29",
+          "id": "E3-MAR-C02-29R1",
           "kind": "verbe-action",
           "french": "Nourrir l’animal et nettoyer son espace",
           "english": "Feeding the animal and cleaning its space",
@@ -507,7 +507,7 @@
       "sujet": "La lecture pour les enfants.",
       "entries": [
         {
-          "id": "E3-MAR-C03-01",
+          "id": "E3-MAR-C03-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent la lecture chez les enfants",
           "english": "Both documents address reading among children",
@@ -523,7 +523,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Culture/Éducation."
         },
         {
-          "id": "E3-MAR-C03-03",
+          "id": "E3-MAR-C03-03R1",
           "kind": "mot-cle",
           "french": "le moment de lire",
           "english": "the time to read",
@@ -547,7 +547,7 @@
           "usage": "Groupe nominal ; réutilisable en Culture/Éducation."
         },
         {
-          "id": "E3-MAR-C03-06",
+          "id": "E3-MAR-C03-06R1",
           "kind": "mot-cle",
           "french": "la complicité avec les parents",
           "english": "closeness with parents",
@@ -603,7 +603,7 @@
           "usage": "Groupe nominal ; réutilisable en Culture/Éducation."
         },
         {
-          "id": "E3-MAR-C03-13",
+          "id": "E3-MAR-C03-13R1",
           "kind": "collocation",
           "french": "jeune lecteur curieux",
           "english": "curious young reader",
@@ -651,7 +651,7 @@
           "usage": "Association lexicale ; réutilisable en Culture/Éducation."
         },
         {
-          "id": "E3-MAR-C03-19",
+          "id": "E3-MAR-C03-19R1",
           "kind": "tournure",
           "french": "qui développe le langage, l’écoute, la concentration et la complicité avec les parents",
           "english": "which develops language, listening, concentration and closeness with parents",
@@ -667,7 +667,7 @@
           "usage": "Construction réutilisable ; réutilisable en Culture/Éducation."
         },
         {
-          "id": "E3-MAR-C03-21",
+          "id": "E3-MAR-C03-21R1",
           "kind": "tournure",
           "french": "une histoire qui lui plaît",
           "english": "a story that he or she enjoys",
@@ -683,7 +683,7 @@
           "usage": "Construction réutilisable ; réutilisable en Culture/Éducation."
         },
         {
-          "id": "E3-MAR-C03-23",
+          "id": "E3-MAR-C03-23R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, je pense qu’il faut que les adultes encouragent la lecture sans la transformer en punition",
           "english": "For my part, I think adults should encourage reading without turning it into a punishment",
@@ -691,7 +691,7 @@
           "usage": "Formule argumentative ; réutilisable en Culture/Éducation."
         },
         {
-          "id": "E3-MAR-C03-24",
+          "id": "E3-MAR-C03-24R1",
           "kind": "phrase-modele",
           "french": "Un jeune lecteur curieux retient naturellement les mots d’une histoire qui lui plaît",
           "english": "A curious young reader naturally remembers the words of a story he or she enjoys",
@@ -707,7 +707,7 @@
           "usage": "Formule argumentative ; réutilisable en Culture/Éducation."
         },
         {
-          "id": "E3-MAR-C03-26",
+          "id": "E3-MAR-C03-26R1",
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
@@ -723,7 +723,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Culture/Éducation."
         },
         {
-          "id": "E3-MAR-C03-28",
+          "id": "E3-MAR-C03-28R1",
           "kind": "verbe-action",
           "french": "encouragent la lecture",
           "english": "encourage reading",
@@ -754,7 +754,7 @@
       "sujet": "Les Produits Faits Maison : Pour Ou Contre ?",
       "entries": [
         {
-          "id": "E3-MAR-C04-01",
+          "id": "E3-MAR-C04-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent les produits biologiques faits maison",
           "english": "Both documents address homemade organic products",
@@ -762,7 +762,7 @@
           "usage": "Formule argumentative ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-MAR-C04-02",
+          "id": "E3-MAR-C04-02R1",
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
@@ -770,7 +770,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-MAR-C04-03",
+          "id": "E3-MAR-C04-03R1",
           "kind": "mot-cle",
           "french": "le contrôle des ingrédients",
           "english": "control over the ingredients",
@@ -786,7 +786,7 @@
           "usage": "Groupe nominal ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-MAR-C04-05",
+          "id": "E3-MAR-C04-05R1",
           "kind": "mot-cle",
           "french": "la réduction des emballages",
           "english": "the reduction of packaging",
@@ -850,7 +850,7 @@
           "usage": "Groupe nominal ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-MAR-C04-13",
+          "id": "E3-MAR-C04-13R1",
           "kind": "collocation",
           "french": "aux erreurs de formulation et de conservation",
           "english": "to errors in formulation and storage",
@@ -866,7 +866,7 @@
           "usage": "Association lexicale ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-MAR-C04-15",
+          "id": "E3-MAR-C04-15R1",
           "kind": "collocation",
           "french": "les recettes restent simples et fiables",
           "english": "the recipes stay simple and reliable",
@@ -882,7 +882,7 @@
           "usage": "Association lexicale ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-MAR-C04-17",
+          "id": "E3-MAR-C04-17R1",
           "kind": "collocation",
           "french": "des dizaines d’emballages jetables",
           "english": "dozens of disposable packages",
@@ -898,7 +898,7 @@
           "usage": "Association lexicale ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-MAR-C04-19",
+          "id": "E3-MAR-C04-19R1",
           "kind": "tournure",
           "french": "liés aux erreurs de formulation et de conservation",
           "english": "linked to errors in formulation and storage",
@@ -906,7 +906,7 @@
           "usage": "Construction réutilisable ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-MAR-C04-20",
+          "id": "E3-MAR-C04-20R1",
           "kind": "tournure",
           "french": "mais il faut que les recettes restent simples et fiables",
           "english": "but the recipes must stay simple and reliable",
@@ -930,7 +930,7 @@
           "usage": "Construction réutilisable ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-MAR-C04-23",
+          "id": "E3-MAR-C04-23R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, fabriquer certains produits chez soi est une bonne démarche, mais il faut que les recettes restent simples et fiables",
           "english": "For my part, making certain products at home is a sound approach, but the recipes must stay simple and reliable",
@@ -938,7 +938,7 @@
           "usage": "Formule argumentative ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-MAR-C04-24",
+          "id": "E3-MAR-C04-24R1",
           "kind": "phrase-modele",
           "french": "Un même flacon rempli plusieurs fois remplace des dizaines d’emballages jetables",
           "english": "A single bottle refilled several times replaces dozens of disposable packages",
@@ -946,7 +946,7 @@
           "usage": "Formule argumentative ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-MAR-C04-25",
+          "id": "E3-MAR-C04-25R1",
           "kind": "phrase-modele",
           "french": "En conclusion, le plus important est de choisir des recettes vérifiées, de respecter les règles de conservation et d’acheter les produits sensibles auprès de professionnels",
           "english": "In conclusion, the most important thing is to choose verified recipes, follow storage rules and buy sensitive products from professionals",
@@ -962,7 +962,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-MAR-C04-27",
+          "id": "E3-MAR-C04-27R1",
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
@@ -978,7 +978,7 @@
           "usage": "Groupe verbal ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-MAR-C04-29",
+          "id": "E3-MAR-C04-29R1",
           "kind": "verbe-action",
           "french": "connaître précisément les ingrédients",
           "english": "to know exactly what the ingredients are",
@@ -986,7 +986,7 @@
           "usage": "Groupe verbal ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-MAR-C04-30",
+          "id": "E3-MAR-C04-30R1",
           "kind": "reformulation",
           "french": "le second",
           "english": "the second document",
@@ -1001,7 +1001,7 @@
       "sujet": "Les Écoles Privées Ou Publiques ?",
       "entries": [
         {
-          "id": "E3-MAR-C05-01",
+          "id": "E3-MAR-C05-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent les écoles privées et publiques",
           "english": "Both documents address private and public schools",
@@ -1105,7 +1105,7 @@
           "usage": "Association lexicale ; réutilisable en Éducation/Société."
         },
         {
-          "id": "E3-MAR-C05-14",
+          "id": "E3-MAR-C05-14R1",
           "kind": "collocation",
           "french": "reproduisent les inégalités",
           "english": "reproduce inequalities",
@@ -1137,7 +1137,7 @@
           "usage": "Association lexicale ; réutilisable en Éducation/Société."
         },
         {
-          "id": "E3-MAR-C05-18",
+          "id": "E3-MAR-C05-18R1",
           "kind": "collocation",
           "french": "travail fourni",
           "english": "work put in",
@@ -1145,7 +1145,7 @@
           "usage": "Association lexicale ; réutilisable en Éducation/Société."
         },
         {
-          "id": "E3-MAR-C05-19",
+          "id": "E3-MAR-C05-19R1",
           "kind": "tournure",
           "french": "ne dépende jamais des revenus familiaux",
           "english": "should never depend on family income",
@@ -1153,7 +1153,7 @@
           "usage": "Construction réutilisable ; réutilisable en Éducation/Société."
         },
         {
-          "id": "E3-MAR-C05-20",
+          "id": "E3-MAR-C05-20R1",
           "kind": "tournure",
           "french": "et non du quartier ou du salaire des parents",
           "english": "and not on the neighbourhood or on the parents’ salary",
@@ -1161,7 +1161,7 @@
           "usage": "Construction réutilisable ; réutilisable en Éducation/Société."
         },
         {
-          "id": "E3-MAR-C05-21",
+          "id": "E3-MAR-C05-21R1",
           "kind": "tournure",
           "french": "réunissant des jeunes de plusieurs quartiers",
           "english": "bringing together young people from several neighbourhoods",
@@ -1177,7 +1177,7 @@
           "usage": "Construction réutilisable ; réutilisable en Éducation/Société."
         },
         {
-          "id": "E3-MAR-C05-23",
+          "id": "E3-MAR-C05-23R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, il faut que la qualité de l’éducation ne dépende jamais des revenus familiaux",
           "english": "For my part, the quality of education must never depend on family income",
@@ -1185,7 +1185,7 @@
           "usage": "Formule argumentative ; réutilisable en Éducation/Société."
         },
         {
-          "id": "E3-MAR-C05-24",
+          "id": "E3-MAR-C05-24R1",
           "kind": "phrase-modele",
           "french": "Le niveau dépend alors du travail fourni, et non du quartier ou du salaire des parents",
           "english": "The level then depends on the work put in, and not on the neighbourhood or on the parents’ salary",
@@ -1233,7 +1233,7 @@
           "usage": "Groupe verbal ; réutilisable en Éducation/Société."
         },
         {
-          "id": "E3-MAR-C05-30",
+          "id": "E3-MAR-C05-30R1",
           "kind": "reformulation",
           "french": "les écoles publiques",
           "english": "public schools",
@@ -1248,7 +1248,7 @@
       "sujet": "Les Devoirs à la Maison.",
       "entries": [
         {
-          "id": "E3-MAR-C06-01",
+          "id": "E3-MAR-C06-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent les devoirs à la maison",
           "english": "Both documents address homework",
@@ -1272,7 +1272,7 @@
           "usage": "Groupe nominal ; réutilisable en Éducation/Famille."
         },
         {
-          "id": "E3-MAR-C06-04",
+          "id": "E3-MAR-C06-04R1",
           "kind": "mot-cle",
           "french": "le lien familial",
           "english": "the family bond",
@@ -1328,7 +1328,7 @@
           "usage": "Groupe nominal ; réutilisable en Éducation/Famille."
         },
         {
-          "id": "E3-MAR-C06-11",
+          "id": "E3-MAR-C06-11R1",
           "kind": "mot-cle",
           "french": "dix minutes de lecture",
           "english": "ten minutes of reading",
@@ -1336,7 +1336,7 @@
           "usage": "Groupe nominal ; réutilisable en Éducation/Famille."
         },
         {
-          "id": "E3-MAR-C06-12",
+          "id": "E3-MAR-C06-12R1",
           "kind": "mot-cle",
           "french": "la fatigue",
           "english": "tiredness",
@@ -1344,7 +1344,7 @@
           "usage": "Groupe nominal ; réutilisable en Éducation/Famille."
         },
         {
-          "id": "E3-MAR-C06-13",
+          "id": "E3-MAR-C06-13R1",
           "kind": "collocation",
           "french": "des outils adaptés",
           "english": "suitable tools",
@@ -1352,7 +1352,7 @@
           "usage": "Association lexicale ; réutilisable en Éducation/Famille."
         },
         {
-          "id": "E3-MAR-C06-14",
+          "id": "E3-MAR-C06-14R1",
           "kind": "collocation",
           "french": "quinze minutes d’exercices",
           "english": "fifteen minutes of exercises",
@@ -1400,7 +1400,7 @@
           "usage": "Construction réutilisable ; réutilisable en Éducation/Famille."
         },
         {
-          "id": "E3-MAR-C06-20",
+          "id": "E3-MAR-C06-20R1",
           "kind": "tournure",
           "french": "mais il faut qu’ils restent réalisables sans aide parentale",
           "english": "but they must remain achievable without parental help",
@@ -1424,7 +1424,7 @@
           "usage": "Construction réutilisable ; réutilisable en Éducation/Famille."
         },
         {
-          "id": "E3-MAR-C06-23",
+          "id": "E3-MAR-C06-23R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, je pense que des devoirs courts sont utiles, mais il faut qu’ils restent réalisables sans aide parentale",
           "english": "For my part, I think short homework assignments are useful, but they must remain achievable without parental help",
@@ -1432,7 +1432,7 @@
           "usage": "Formule argumentative ; réutilisable en Éducation/Famille."
         },
         {
-          "id": "E3-MAR-C06-24",
+          "id": "E3-MAR-C06-24R1",
           "kind": "phrase-modele",
           "french": "Quelques exercices le soir ancrent ce qui a été compris en classe",
           "english": "A few exercises in the evening anchor what has been understood in class",
@@ -1440,7 +1440,7 @@
           "usage": "Formule argumentative ; réutilisable en Éducation/Famille."
         },
         {
-          "id": "E3-MAR-C06-25",
+          "id": "E3-MAR-C06-25R1",
           "kind": "phrase-modele",
           "french": "En conclusion, le plus important est de proposer des exercices brefs, adaptés et accompagnés à l’école afin de ne pas renforcer les inégalités",
           "english": "In conclusion, the most important thing is to offer brief, suitable and supported exercises at school so as not to reinforce inequalities",
@@ -1480,7 +1480,7 @@
           "usage": "Groupe verbal ; réutilisable en Éducation/Famille."
         },
         {
-          "id": "E3-MAR-C06-30",
+          "id": "E3-MAR-C06-30R1",
           "kind": "reformulation",
           "french": "le second",
           "english": "the second document",
@@ -1495,7 +1495,7 @@
       "sujet": "Utilisation des nouvelles technologies dans les écoles : pour ou contre ?",
       "entries": [
         {
-          "id": "E3-MAR-C07-01",
+          "id": "E3-MAR-C07-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent les technologies à l’école",
           "english": "Both documents address technology at school",
@@ -1583,7 +1583,7 @@
           "usage": "Groupe nominal ; réutilisable en Éducation/Numérique."
         },
         {
-          "id": "E3-MAR-C07-12",
+          "id": "E3-MAR-C07-12R1",
           "kind": "mot-cle",
           "french": "le reste de la classe",
           "english": "the rest of the class",
@@ -1615,7 +1615,7 @@
           "usage": "Association lexicale ; réutilisable en Éducation/Numérique."
         },
         {
-          "id": "E3-MAR-C07-16",
+          "id": "E3-MAR-C07-16R1",
           "kind": "collocation",
           "french": "à son rythme",
           "english": "at one’s own pace",
@@ -1647,7 +1647,7 @@
           "usage": "Construction réutilisable ; réutilisable en Éducation/Numérique."
         },
         {
-          "id": "E3-MAR-C07-20",
+          "id": "E3-MAR-C07-20R1",
           "kind": "tournure",
           "french": "à condition que son usage soit limité et guidé",
           "english": "provided its use is limited and guided",
@@ -1671,7 +1671,7 @@
           "usage": "Construction réutilisable ; réutilisable en Éducation/Numérique."
         },
         {
-          "id": "E3-MAR-C07-23",
+          "id": "E3-MAR-C07-23R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, le numérique enrichit l’enseignement à condition que son usage soit limité et guidé",
           "english": "For my part, digital technology enriches teaching provided its use is limited and guided",
@@ -1679,7 +1679,7 @@
           "usage": "Formule argumentative ; réutilisable en Éducation/Numérique."
         },
         {
-          "id": "E3-MAR-C07-24",
+          "id": "E3-MAR-C07-24R1",
           "kind": "phrase-modele",
           "french": "Chacun avance ainsi à son rythme sans ralentir le reste de la classe",
           "english": "Each pupil thus moves forward at his or her own pace without slowing down the rest of the class",
@@ -1727,7 +1727,7 @@
           "usage": "Groupe verbal ; réutilisable en Éducation/Numérique."
         },
         {
-          "id": "E3-MAR-C07-30",
+          "id": "E3-MAR-C07-30R1",
           "kind": "reformulation",
           "french": "les tablettes et ordinateurs",
           "english": "tablets and computers",
@@ -1742,7 +1742,7 @@
       "sujet": "Les Vols à Bas Prix",
       "entries": [
         {
-          "id": "E3-MAR-C08-01",
+          "id": "E3-MAR-C08-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent les vols à bas prix",
           "english": "Both documents address low-cost flights",
@@ -1822,7 +1822,7 @@
           "usage": "Groupe nominal ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-MAR-C08-11",
+          "id": "E3-MAR-C08-11R1",
           "kind": "mot-cle",
           "french": "les sièges inconfortables",
           "english": "uncomfortable seats",
@@ -1838,7 +1838,7 @@
           "usage": "Groupe nominal ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-MAR-C08-13",
+          "id": "E3-MAR-C08-13R1",
           "kind": "collocation",
           "french": "leurs tarifs parfois inférieurs",
           "english": "their sometimes lower fares",
@@ -1846,7 +1846,7 @@
           "usage": "Association lexicale ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-MAR-C08-14",
+          "id": "E3-MAR-C08-14R1",
           "kind": "collocation",
           "french": "les risques pour la sécurité",
           "english": "safety risks",
@@ -1862,7 +1862,7 @@
           "usage": "Association lexicale ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-MAR-C08-16",
+          "id": "E3-MAR-C08-16R1",
           "kind": "collocation",
           "french": "les normes soient respectées",
           "english": "standards are respected",
@@ -1878,7 +1878,7 @@
           "usage": "Association lexicale ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-MAR-C08-18",
+          "id": "E3-MAR-C08-18R1",
           "kind": "collocation",
           "french": "d’autres dépenses essentielles",
           "english": "other essential expenses",
@@ -1902,7 +1902,7 @@
           "usage": "Construction réutilisable ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-MAR-C08-21",
+          "id": "E3-MAR-C08-21R1",
           "kind": "tournure",
           "french": "mais il faut que le tarif soit transparent",
           "english": "but the fare must be transparent",
@@ -1918,7 +1918,7 @@
           "usage": "Construction réutilisable ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-MAR-C08-23",
+          "id": "E3-MAR-C08-23R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, j’accepterais un vol à bas prix pour un trajet court, mais il faut que le tarif soit transparent et que les normes soient respectées",
           "english": "For my part, I would accept a low-cost flight for a short trip, but the fare must be transparent and standards must be respected",
@@ -1926,7 +1926,7 @@
           "usage": "Formule argumentative ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-MAR-C08-24",
+          "id": "E3-MAR-C08-24R1",
           "kind": "phrase-modele",
           "french": "Un étudiant peut ainsi rejoindre sa famille sans renoncer à d’autres dépenses essentielles",
           "english": "A student can thus visit his or her family without giving up other essential expenses",
@@ -1934,7 +1934,7 @@
           "usage": "Formule argumentative ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-MAR-C08-25",
+          "id": "E3-MAR-C08-25R1",
           "kind": "phrase-modele",
           "french": "En conclusion, le plus important est de choisir après avoir évalué le coût total, la sécurité, la durée et les solutions disponibles",
           "english": "In conclusion, the most important thing is to choose after assessing total cost, safety, duration and available options",
@@ -1989,7 +1989,7 @@
       "sujet": "Faut-il faire ses courses dans des petits magasins ou dans des supermarchés ?",
       "entries": [
         {
-          "id": "E3-MAR-C09-01",
+          "id": "E3-MAR-C09-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent les lieux où faire ses courses",
           "english": "Both documents address where to do one’s shopping",
@@ -2005,7 +2005,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Consommation/Société."
         },
         {
-          "id": "E3-MAR-C09-03",
+          "id": "E3-MAR-C09-03R1",
           "kind": "mot-cle",
           "french": "la variété",
           "english": "variety",
@@ -2029,7 +2029,7 @@
           "usage": "Groupe nominal ; réutilisable en Consommation/Société."
         },
         {
-          "id": "E3-MAR-C09-06",
+          "id": "E3-MAR-C09-06R1",
           "kind": "mot-cle",
           "french": "les commerces de quartier",
           "english": "neighbourhood shops",
@@ -2077,7 +2077,7 @@
           "usage": "Groupe nominal ; réutilisable en Consommation/Société."
         },
         {
-          "id": "E3-MAR-C09-12",
+          "id": "E3-MAR-C09-12R1",
           "kind": "mot-cle",
           "french": "des habitudes de voisinage",
           "english": "neighbourhood habits",
@@ -2085,7 +2085,7 @@
           "usage": "Groupe nominal ; réutilisable en Consommation/Société."
         },
         {
-          "id": "E3-MAR-C09-13",
+          "id": "E3-MAR-C09-13R1",
           "kind": "collocation",
           "french": "des produits frais de qualité",
           "english": "good-quality fresh produce",
@@ -2125,7 +2125,7 @@
           "usage": "Association lexicale ; réutilisable en Consommation/Société."
         },
         {
-          "id": "E3-MAR-C09-18",
+          "id": "E3-MAR-C09-18R1",
           "kind": "collocation",
           "french": "la vie du quartier",
           "english": "neighbourhood life",
@@ -2165,7 +2165,7 @@
           "usage": "Construction réutilisable ; réutilisable en Consommation/Société."
         },
         {
-          "id": "E3-MAR-C09-23",
+          "id": "E3-MAR-C09-23R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, il faut que les consommateurs privilégient les petits commerces sans renoncer totalement aux supermarchés",
           "english": "For my part, consumers should favour small shops without giving up supermarkets entirely",
@@ -2173,7 +2173,7 @@
           "usage": "Formule argumentative ; réutilisable en Consommation/Société."
         },
         {
-          "id": "E3-MAR-C09-24",
+          "id": "E3-MAR-C09-24R1",
           "kind": "phrase-modele",
           "french": "Chaque commerce qui ferme emporte avec lui un service et des habitudes de voisinage",
           "english": "Every shop that closes takes with it a service and neighbourhood habits",
@@ -2236,7 +2236,7 @@
       "sujet": "La sévérité des parents envers les enfants",
       "entries": [
         {
-          "id": "E3-MAR-C10-01",
+          "id": "E3-MAR-C10-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent l’autorité des parents",
           "english": "Both documents address parental authority",
@@ -2252,7 +2252,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Famille/Éducation."
         },
         {
-          "id": "E3-MAR-C10-03",
+          "id": "E3-MAR-C10-03R1",
           "kind": "mot-cle",
           "french": "des règles strictes",
           "english": "strict rules",
@@ -2316,7 +2316,7 @@
           "usage": "Groupe nominal ; réutilisable en Famille/Éducation."
         },
         {
-          "id": "E3-MAR-C10-11",
+          "id": "E3-MAR-C10-11R1",
           "kind": "mot-cle",
           "french": "une liberté totale et floue",
           "english": "total, vague freedom",
@@ -2340,7 +2340,7 @@
           "usage": "Association lexicale ; réutilisable en Famille/Éducation."
         },
         {
-          "id": "E3-MAR-C10-14",
+          "id": "E3-MAR-C10-14R1",
           "kind": "collocation",
           "french": "évolue avec l’âge",
           "english": "evolves with age",
@@ -2356,7 +2356,7 @@
           "usage": "Association lexicale ; réutilisable en Famille/Éducation."
         },
         {
-          "id": "E3-MAR-C10-16",
+          "id": "E3-MAR-C10-16R1",
           "kind": "collocation",
           "french": "besoin de limites",
           "english": "a need for boundaries",
@@ -2388,7 +2388,7 @@
           "usage": "Construction réutilisable ; réutilisable en Famille/Éducation."
         },
         {
-          "id": "E3-MAR-C10-20",
+          "id": "E3-MAR-C10-20R1",
           "kind": "tournure",
           "french": "mais il faut qu’elle évolue avec l’âge",
           "english": "but it must evolve with age",
@@ -2412,7 +2412,7 @@
           "usage": "Construction réutilisable ; réutilisable en Famille/Éducation."
         },
         {
-          "id": "E3-MAR-C10-23",
+          "id": "E3-MAR-C10-23R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, je pense que l’autorité parentale est nécessaire, mais il faut qu’elle évolue avec l’âge",
           "english": "For my part, I think parental authority is necessary, but it must evolve with age",
@@ -2420,7 +2420,7 @@
           "usage": "Formule argumentative ; réutilisable en Famille/Éducation."
         },
         {
-          "id": "E3-MAR-C10-24",
+          "id": "E3-MAR-C10-24R1",
           "kind": "phrase-modele",
           "french": "Savoir ce qui est permis rassure davantage qu’une liberté totale et floue",
           "english": "Knowing what is allowed is more reassuring than total, vague freedom",
@@ -2428,7 +2428,7 @@
           "usage": "Formule argumentative ; réutilisable en Famille/Éducation."
         },
         {
-          "id": "E3-MAR-C10-25",
+          "id": "E3-MAR-C10-25R1",
           "kind": "phrase-modele",
           "french": "En conclusion, le plus important est de trouver un équilibre raisonnable entre sécurité, dialogue et liberté afin de préparer progressivement les jeunes à prendre leurs propres décisions",
           "english": "In conclusion, the most important thing is to find a reasonable balance between safety, dialogue and freedom in order to prepare young people gradually to make their own decisions",
@@ -2483,7 +2483,7 @@
       "sujet": "L’utilisation des distributeurs automatiques au sein des établissements scolaires, pour ou contre ?",
       "entries": [
         {
-          "id": "E3-MAR-C11-01",
+          "id": "E3-MAR-C11-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent les distributeurs de boissons à l’école",
           "english": "Both documents address drink vending machines at school",
@@ -2499,7 +2499,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Santé/Éducation."
         },
         {
-          "id": "E3-MAR-C11-03",
+          "id": "E3-MAR-C11-03R1",
           "kind": "mot-cle",
           "french": "baisses d’attention",
           "english": "drops in attention",
@@ -2523,7 +2523,7 @@
           "usage": "Groupe nominal ; réutilisable en Santé/Éducation."
         },
         {
-          "id": "E3-MAR-C11-06",
+          "id": "E3-MAR-C11-06R1",
           "kind": "mot-cle",
           "french": "maux de tête",
           "english": "headaches",
@@ -2579,7 +2579,7 @@
           "usage": "Groupe nominal ; réutilisable en Santé/Éducation."
         },
         {
-          "id": "E3-MAR-C11-13",
+          "id": "E3-MAR-C11-13R1",
           "kind": "collocation",
           "french": "les boissons trop sucrées",
           "english": "overly sugary drinks",
@@ -2587,7 +2587,7 @@
           "usage": "Association lexicale ; réutilisable en Santé/Éducation."
         },
         {
-          "id": "E3-MAR-C11-14",
+          "id": "E3-MAR-C11-14R1",
           "kind": "collocation",
           "french": "déshydratation légère",
           "english": "mild dehydration",
@@ -2619,7 +2619,7 @@
           "usage": "Association lexicale ; réutilisable en Santé/Éducation."
         },
         {
-          "id": "E3-MAR-C11-18",
+          "id": "E3-MAR-C11-18R1",
           "kind": "collocation",
           "french": "contrôlé par l’école",
           "english": "monitored by the school",
@@ -2627,7 +2627,7 @@
           "usage": "Association lexicale ; réutilisable en Santé/Éducation."
         },
         {
-          "id": "E3-MAR-C11-19",
+          "id": "E3-MAR-C11-19R1",
           "kind": "tournure",
           "french": "qui peut offrir des choix sains",
           "english": "which can offer healthy choices",
@@ -2635,7 +2635,7 @@
           "usage": "Construction réutilisable ; réutilisable en Santé/Éducation."
         },
         {
-          "id": "E3-MAR-C11-20",
+          "id": "E3-MAR-C11-20R1",
           "kind": "tournure",
           "french": "à condition que leur contenu soit contrôlé par l’école",
           "english": "provided their contents are monitored by the school",
@@ -2659,7 +2659,7 @@
           "usage": "Construction réutilisable ; réutilisable en Santé/Éducation."
         },
         {
-          "id": "E3-MAR-C11-23",
+          "id": "E3-MAR-C11-23R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, ces appareils sont utiles à condition que leur contenu soit contrôlé par l’école",
           "english": "For my part, these machines are useful provided their contents are monitored by the school",
@@ -2667,7 +2667,7 @@
           "usage": "Formule argumentative ; réutilisable en Santé/Éducation."
         },
         {
-          "id": "E3-MAR-C11-24",
+          "id": "E3-MAR-C11-24R1",
           "kind": "phrase-modele",
           "french": "Une déshydratation légère suffit à provoquer maux de tête et baisses d’attention",
           "english": "Mild dehydration is enough to cause headaches and drops in attention",
@@ -2683,7 +2683,7 @@
           "usage": "Formule argumentative ; réutilisable en Santé/Éducation."
         },
         {
-          "id": "E3-MAR-C11-26",
+          "id": "E3-MAR-C11-26R1",
           "kind": "expression",
           "french": "De plus",
           "english": "Moreover",
@@ -2730,7 +2730,7 @@
       "sujet": "Cuisinier amateur ou cuisinier professionnel ?",
       "entries": [
         {
-          "id": "E3-MAR-C12-01",
+          "id": "E3-MAR-C12-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent les compétences nécessaires en cuisine",
           "english": "Both documents address the skills needed in cooking",
@@ -2746,7 +2746,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Travail/Formation."
         },
         {
-          "id": "E3-MAR-C12-03",
+          "id": "E3-MAR-C12-03R1",
           "kind": "mot-cle",
           "french": "les compétences nécessaires en cuisine",
           "english": "the skills needed in cooking",
@@ -2770,7 +2770,7 @@
           "usage": "Groupe nominal ; réutilisable en Travail/Formation."
         },
         {
-          "id": "E3-MAR-C12-06",
+          "id": "E3-MAR-C12-06R1",
           "kind": "mot-cle",
           "french": "des livres culinaires",
           "english": "cookery books",
@@ -2778,7 +2778,7 @@
           "usage": "Groupe nominal ; réutilisable en Travail/Formation."
         },
         {
-          "id": "E3-MAR-C12-07",
+          "id": "E3-MAR-C12-07R1",
           "kind": "mot-cle",
           "french": "la santé des clients",
           "english": "customers’ health",
@@ -2810,7 +2810,7 @@
           "usage": "Groupe nominal ; réutilisable en Travail/Formation."
         },
         {
-          "id": "E3-MAR-C12-11",
+          "id": "E3-MAR-C12-11R1",
           "kind": "mot-cle",
           "french": "erreur de conservation ou de cuisson",
           "english": "a storage or cooking error",
@@ -2834,7 +2834,7 @@
           "usage": "Association lexicale ; réutilisable en Travail/Formation."
         },
         {
-          "id": "E3-MAR-C12-14",
+          "id": "E3-MAR-C12-14R1",
           "kind": "collocation",
           "french": "formée en ligne",
           "english": "trained online",
@@ -2850,7 +2850,7 @@
           "usage": "Association lexicale ; réutilisable en Travail/Formation."
         },
         {
-          "id": "E3-MAR-C12-16",
+          "id": "E3-MAR-C12-16R1",
           "kind": "collocation",
           "french": "prouver ses compétences",
           "english": "to prove one’s skills",
@@ -2874,7 +2874,7 @@
           "usage": "Association lexicale ; réutilisable en Travail/Formation."
         },
         {
-          "id": "E3-MAR-C12-19",
+          "id": "E3-MAR-C12-19R1",
           "kind": "tournure",
           "french": "distinguent les professionnels des amateurs",
           "english": "distinguish professionals from amateurs",
@@ -2906,7 +2906,7 @@
           "usage": "Construction réutilisable ; réutilisable en Travail/Formation."
         },
         {
-          "id": "E3-MAR-C12-23",
+          "id": "E3-MAR-C12-23R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, la passion ne suffit pas toujours, mais il faut que chacun puisse prouver ses compétences, avec ou sans diplôme",
           "english": "For my part, passion is not always enough, but everyone must be able to prove their skills, with or without a diploma",
@@ -2914,7 +2914,7 @@
           "usage": "Formule argumentative ; réutilisable en Travail/Formation."
         },
         {
-          "id": "E3-MAR-C12-24",
+          "id": "E3-MAR-C12-24R1",
           "kind": "phrase-modele",
           "french": "Une erreur de conservation ou de cuisson met directement la santé des clients en danger",
           "english": "A storage or cooking error directly endangers customers’ health",
@@ -2922,7 +2922,7 @@
           "usage": "Formule argumentative ; réutilisable en Travail/Formation."
         },
         {
-          "id": "E3-MAR-C12-25",
+          "id": "E3-MAR-C12-25R1",
           "kind": "phrase-modele",
           "french": "En conclusion, le plus important est de prouver son savoir-faire et de continuer à se former",
           "english": "In conclusion, the most important thing is to prove one’s know-how and to keep training",
@@ -2930,7 +2930,7 @@
           "usage": "Formule argumentative ; réutilisable en Travail/Formation."
         },
         {
-          "id": "E3-MAR-C12-26",
+          "id": "E3-MAR-C12-26R1",
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
@@ -2962,7 +2962,7 @@
           "usage": "Groupe verbal ; réutilisable en Travail/Formation."
         },
         {
-          "id": "E3-MAR-C12-30",
+          "id": "E3-MAR-C12-30R1",
           "kind": "reformulation",
           "french": "ces compétences",
           "english": "these skills",
@@ -2977,7 +2977,7 @@
       "sujet": "Vivre En Colocation : Pour Ou Contre ?",
       "entries": [
         {
-          "id": "E3-MAR-C13-01",
+          "id": "E3-MAR-C13-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent la vie en colocation",
           "english": "Both documents address life in shared housing",
@@ -2985,7 +2985,7 @@
           "usage": "Formule argumentative ; réutilisable en Logement/Société."
         },
         {
-          "id": "E3-MAR-C13-02",
+          "id": "E3-MAR-C13-02R1",
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
@@ -3033,7 +3033,7 @@
           "usage": "Groupe nominal ; réutilisable en Logement/Société."
         },
         {
-          "id": "E3-MAR-C13-08",
+          "id": "E3-MAR-C13-08R1",
           "kind": "mot-cle",
           "french": "des règles communes",
           "english": "shared rules",
@@ -3105,7 +3105,7 @@
           "usage": "Association lexicale ; réutilisable en Logement/Société."
         },
         {
-          "id": "E3-MAR-C13-17",
+          "id": "E3-MAR-C13-17R1",
           "kind": "collocation",
           "french": "un loyer et les factures",
           "english": "rent and bills",
@@ -3153,7 +3153,7 @@
           "usage": "Construction réutilisable ; réutilisable en Logement/Société."
         },
         {
-          "id": "E3-MAR-C13-23",
+          "id": "E3-MAR-C13-23R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, je trouve la colocation enrichissante à condition que les responsabilités soient définies dès le départ",
           "english": "For my part, I find shared housing rewarding provided responsibilities are defined from the outset",
@@ -3161,7 +3161,7 @@
           "usage": "Formule argumentative ; réutilisable en Logement/Société."
         },
         {
-          "id": "E3-MAR-C13-24",
+          "id": "E3-MAR-C13-24R1",
           "kind": "phrase-modele",
           "french": "Partager un loyer et les factures permet de s’installer sans épuiser ses économies",
           "english": "Sharing rent and bills makes it possible to settle in without exhausting one’s savings",
@@ -3224,7 +3224,7 @@
       "sujet": "L’aide aux personnes pauvres",
       "entries": [
         {
-          "id": "E3-MAR-C14-01",
+          "id": "E3-MAR-C14-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent l’aide aux personnes pauvres",
           "english": "Both documents address aid for people living in poverty",
@@ -3232,7 +3232,7 @@
           "usage": "Formule argumentative ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-MAR-C14-02",
+          "id": "E3-MAR-C14-02R1",
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
@@ -3240,7 +3240,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-MAR-C14-03",
+          "id": "E3-MAR-C14-03R1",
           "kind": "mot-cle",
           "french": "personnes pauvres",
           "english": "people living in poverty",
@@ -3248,7 +3248,7 @@
           "usage": "Groupe nominal ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-MAR-C14-04",
+          "id": "E3-MAR-C14-04R1",
           "kind": "mot-cle",
           "french": "sans-abris",
           "english": "homeless people",
@@ -3256,7 +3256,7 @@
           "usage": "Groupe nominal ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-MAR-C14-05",
+          "id": "E3-MAR-C14-05R1",
           "kind": "mot-cle",
           "french": "le bénévolat associatif",
           "english": "volunteering with charities",
@@ -3264,7 +3264,7 @@
           "usage": "Groupe nominal ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-MAR-C14-06",
+          "id": "E3-MAR-C14-06R1",
           "kind": "mot-cle",
           "french": "l’urgence",
           "english": "the emergency",
@@ -3280,7 +3280,7 @@
           "usage": "Groupe nominal ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-MAR-C14-08",
+          "id": "E3-MAR-C14-08R1",
           "kind": "mot-cle",
           "french": "un accompagnement durable",
           "english": "long-term support",
@@ -3312,7 +3312,7 @@
           "usage": "Groupe nominal ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-MAR-C14-12",
+          "id": "E3-MAR-C14-12R1",
           "kind": "mot-cle",
           "french": "une formation",
           "english": "training",
@@ -3320,7 +3320,7 @@
           "usage": "Groupe nominal ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-MAR-C14-13",
+          "id": "E3-MAR-C14-13R1",
           "kind": "collocation",
           "french": "les dons accessibles à tous",
           "english": "donations accessible to everyone",
@@ -3328,7 +3328,7 @@
           "usage": "Association lexicale ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-MAR-C14-14",
+          "id": "E3-MAR-C14-14R1",
           "kind": "collocation",
           "french": "le logement, le travail et l’autonomie",
           "english": "housing, work and autonomy",
@@ -3336,7 +3336,7 @@
           "usage": "Association lexicale ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-MAR-C14-15",
+          "id": "E3-MAR-C14-15R1",
           "kind": "collocation",
           "french": "Un repas chaud et un manteau",
           "english": "A hot meal and a coat",
@@ -3368,7 +3368,7 @@
           "usage": "Association lexicale ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-MAR-C14-19",
+          "id": "E3-MAR-C14-19R1",
           "kind": "tournure",
           "french": "particulièrement utiles aux sans-abris en hiver",
           "english": "particularly useful for homeless people in winter",
@@ -3400,7 +3400,7 @@
           "usage": "Construction réutilisable ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-MAR-C14-23",
+          "id": "E3-MAR-C14-23R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, il faut que l’aide immédiate soit associée à un accompagnement durable",
           "english": "For my part, immediate aid must be combined with long-term support",
@@ -3408,7 +3408,7 @@
           "usage": "Formule argumentative ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-MAR-C14-24",
+          "id": "E3-MAR-C14-24R1",
           "kind": "phrase-modele",
           "french": "Un repas chaud et un manteau protègent immédiatement sa santé",
           "english": "A hot meal and a coat immediately protect a person’s health",
@@ -3424,7 +3424,7 @@
           "usage": "Formule argumentative ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-MAR-C14-26",
+          "id": "E3-MAR-C14-26R1",
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
@@ -3448,7 +3448,7 @@
           "usage": "Groupe verbal ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-MAR-C14-29",
+          "id": "E3-MAR-C14-29R1",
           "kind": "verbe-action",
           "french": "répondre à l’urgence",
           "english": "to respond to the emergency",
@@ -3456,7 +3456,7 @@
           "usage": "Groupe verbal ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-MAR-C14-30",
+          "id": "E3-MAR-C14-30R1",
           "kind": "reformulation",
           "french": "ces gestes",
           "english": "these gestures",

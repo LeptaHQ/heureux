@@ -715,7 +715,7 @@
           "usage": "Mot-clé thématique ; réutilisable en Logement/Vie collective."
         },
         {
-          "id": "E3-JAN-C03-27",
+          "id": "E3-JAN-C03-27R1",
           "kind": "mot-cle",
           "french": "Un planning de ménage",
           "english": "A cleaning schedule",
@@ -754,7 +754,7 @@
       "sujet": "L’aide aux personnes pauvres",
       "entries": [
         {
-          "id": "E3-JAN-C04-01",
+          "id": "E3-JAN-C04-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent l’aide aux personnes pauvres",
           "english": "Both documents address helping people in poverty",
@@ -762,7 +762,7 @@
           "usage": "Formule argumentative ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-02",
+          "id": "E3-JAN-C04-02R1",
           "kind": "mot-cle",
           "french": "l’aide aux personnes pauvres",
           "english": "helping people in poverty",
@@ -770,7 +770,7 @@
           "usage": "Nom féminin ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-03",
+          "id": "E3-JAN-C04-03R1",
           "kind": "expression",
           "french": "De son côté",
           "english": "For its part",
@@ -778,7 +778,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-04",
+          "id": "E3-JAN-C04-04R1",
           "kind": "collocation",
           "french": "le don de temps ou d’argent",
           "english": "the giving of time or money",
@@ -794,7 +794,7 @@
           "usage": "Nom masculin ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-06",
+          "id": "E3-JAN-C04-06R1",
           "kind": "mot-cle",
           "french": "l’engagement associatif quotidien",
           "english": "ongoing charity involvement",
@@ -802,7 +802,7 @@
           "usage": "Nom masculin ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-07",
+          "id": "E3-JAN-C04-07R1",
           "kind": "collocation",
           "french": "trouver un logement, un emploi et leur autonomie",
           "english": "find housing, a job and their independence",
@@ -810,7 +810,7 @@
           "usage": "Construction infinitive ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-08",
+          "id": "E3-JAN-C04-08R1",
           "kind": "verbe-action",
           "french": "aide les bénéficiaires",
           "english": "helps beneficiaries",
@@ -826,7 +826,7 @@
           "usage": "Nom masculin pluriel ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-10",
+          "id": "E3-JAN-C04-10R1",
           "kind": "phrase-modele",
           "french": "je pense que l’aide immédiate et l’accompagnement à long terme doivent se compléter",
           "english": "I believe immediate help and long-term support must complement each other",
@@ -834,7 +834,7 @@
           "usage": "Formule argumentative ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-11",
+          "id": "E3-JAN-C04-11R1",
           "kind": "mot-cle",
           "french": "l’aide immédiate",
           "english": "immediate help",
@@ -850,7 +850,7 @@
           "usage": "Nom masculin ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-13",
+          "id": "E3-JAN-C04-13R1",
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
@@ -858,7 +858,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-14",
+          "id": "E3-JAN-C04-14R1",
           "kind": "tournure",
           "french": "ne peut pas attendre les résultats d’un programme d’insertion",
           "english": "cannot wait for the results of an integration program",
@@ -874,7 +874,7 @@
           "usage": "Groupe nominal ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-16",
+          "id": "E3-JAN-C04-16R1",
           "kind": "expression",
           "french": "De plus",
           "english": "Moreover",
@@ -882,7 +882,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-17",
+          "id": "E3-JAN-C04-17R1",
           "kind": "collocation",
           "french": "une aide ponctuelle",
           "english": "a one-off form of help",
@@ -906,7 +906,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-20",
+          "id": "E3-JAN-C04-20R1",
           "kind": "verbe-action",
           "french": "offrir un repas chaud",
           "english": "to offer a hot meal",
@@ -914,7 +914,7 @@
           "usage": "Construction infinitive ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-21",
+          "id": "E3-JAN-C04-21R1",
           "kind": "collocation",
           "french": "une adresse administrative",
           "english": "an administrative address",
@@ -922,7 +922,7 @@
           "usage": "Groupe nominal ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-22",
+          "id": "E3-JAN-C04-22R1",
           "kind": "mot-cle",
           "french": "un suivi vers l’emploi",
           "english": "follow-up support towards employment",
@@ -930,7 +930,7 @@
           "usage": "Nom masculin ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-23",
+          "id": "E3-JAN-C04-23R1",
           "kind": "phrase-modele",
           "french": "Un besoin vital passe avant toute démarche administrative, nécessairement plus lente",
           "english": "A vital need comes before any administrative process, which is necessarily slower",
@@ -938,7 +938,7 @@
           "usage": "Formule argumentative ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-24",
+          "id": "E3-JAN-C04-24R1",
           "kind": "tournure",
           "french": "toute démarche administrative",
           "english": "any administrative process",
@@ -946,7 +946,7 @@
           "usage": "Locution ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-25",
+          "id": "E3-JAN-C04-25R1",
           "kind": "phrase-modele",
           "french": "une aide ponctuelle ne règle pas les causes de l’exclusion",
           "english": "a one-off form of help does not address the causes of exclusion",
@@ -954,7 +954,7 @@
           "usage": "Formule argumentative ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-26",
+          "id": "E3-JAN-C04-26R1",
           "kind": "mot-cle",
           "french": "une personne qui a froid ou faim",
           "english": "a person who is cold or hungry",
@@ -962,7 +962,7 @@
           "usage": "Nom féminin ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-27",
+          "id": "E3-JAN-C04-27R1",
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
@@ -970,7 +970,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-28",
+          "id": "E3-JAN-C04-28R1",
           "kind": "phrase-modele",
           "french": "la priorité est d’unir solidarité concrète et solutions durables",
           "english": "the priority is to combine concrete solidarity and durable solutions",
@@ -978,7 +978,7 @@
           "usage": "Formule argumentative ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-29",
+          "id": "E3-JAN-C04-29R1",
           "kind": "reformulation",
           "french": "solidarité concrète et solutions durables",
           "english": "concrete solidarity and durable solutions",
@@ -986,7 +986,7 @@
           "usage": "Groupe nominal ; réutilisable en Solidarité/Emploi."
         },
         {
-          "id": "E3-JAN-C04-30",
+          "id": "E3-JAN-C04-30R1",
           "kind": "verbe-action",
           "french": "se compléter",
           "english": "to complement each other",
@@ -1248,7 +1248,7 @@
       "sujet": "L’Utilisation du Plastique, Pour ou Contre",
       "entries": [
         {
-          "id": "E3-JAN-C06-01",
+          "id": "E3-JAN-C06-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent l’utilisation du plastique",
           "english": "Both documents address the use of plastic",
@@ -1256,7 +1256,7 @@
           "usage": "Formule argumentative ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-02",
+          "id": "E3-JAN-C06-02R1",
           "kind": "collocation",
           "french": "un usage limité",
           "english": "limited use",
@@ -1264,7 +1264,7 @@
           "usage": "Groupe nominal ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-03",
+          "id": "E3-JAN-C06-03R1",
           "kind": "verbe-action",
           "french": "accompagné du recyclage",
           "english": "accompanied by recycling",
@@ -1272,7 +1272,7 @@
           "usage": "Construction participiale ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-04",
+          "id": "E3-JAN-C06-04R1",
           "kind": "collocation",
           "french": "dans l’alimentation et la médecine",
           "english": "in food and medicine",
@@ -1280,7 +1280,7 @@
           "usage": "Groupe nominal ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-05",
+          "id": "E3-JAN-C06-05R1",
           "kind": "mot-cle",
           "french": "du recyclage",
           "english": "of recycling",
@@ -1288,7 +1288,7 @@
           "usage": "Nom masculin ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-06",
+          "id": "E3-JAN-C06-06R1",
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
@@ -1296,7 +1296,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-07",
+          "id": "E3-JAN-C06-07R1",
           "kind": "mot-cle",
           "french": "la pollution durable des océans",
           "english": "the lasting pollution of the oceans",
@@ -1304,7 +1304,7 @@
           "usage": "Nom féminin ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-08",
+          "id": "E3-JAN-C06-08R1",
           "kind": "mot-cle",
           "french": "des dégâts causés aux écosystèmes",
           "english": "damage caused to ecosystems",
@@ -1312,7 +1312,7 @@
           "usage": "Nom masculin pluriel ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-09",
+          "id": "E3-JAN-C06-09R1",
           "kind": "collocation",
           "french": "des risques pour la santé publique",
           "english": "risks to public health",
@@ -1320,7 +1320,7 @@
           "usage": "Groupe nominal ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-10",
+          "id": "E3-JAN-C06-10R1",
           "kind": "phrase-modele",
           "french": "il faut que nous éliminions les objets en plastique à usage unique lorsqu’ils sont évitables",
           "english": "we must eliminate single-use plastic objects when they are avoidable",
@@ -1328,7 +1328,7 @@
           "usage": "Formule argumentative ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-11",
+          "id": "E3-JAN-C06-11R1",
           "kind": "tournure",
           "french": "à usage unique",
           "english": "single-use",
@@ -1336,7 +1336,7 @@
           "usage": "Locution ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-12",
+          "id": "E3-JAN-C06-12R1",
           "kind": "tournure",
           "french": "lorsqu’ils sont évitables",
           "english": "when they are avoidable",
@@ -1344,7 +1344,7 @@
           "usage": "Proposition réutilisable ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-13",
+          "id": "E3-JAN-C06-13R1",
           "kind": "mot-cle",
           "french": "le matériel stérile",
           "english": "sterile equipment",
@@ -1352,7 +1352,7 @@
           "usage": "Nom masculin ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-14",
+          "id": "E3-JAN-C06-14R1",
           "kind": "collocation",
           "french": "reste indispensable dans certains soins",
           "english": "remains essential in certain treatments",
@@ -1384,7 +1384,7 @@
           "usage": "Nom masculin pluriel ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-18",
+          "id": "E3-JAN-C06-18R1",
           "kind": "mot-cle",
           "french": "des protections pour ses instruments",
           "english": "protective covers for its instruments",
@@ -1392,7 +1392,7 @@
           "usage": "Nom féminin pluriel ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-19",
+          "id": "E3-JAN-C06-19R1",
           "kind": "phrase-modele",
           "french": "Le remplacer sans garantie équivalente exposerait les malades à des infections évitables",
           "english": "Replacing it without an equivalent guarantee would expose patients to avoidable infections",
@@ -1400,7 +1400,7 @@
           "usage": "Formule argumentative ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-20",
+          "id": "E3-JAN-C06-20R1",
           "kind": "mot-cle",
           "french": "des infections évitables",
           "english": "avoidable infections",
@@ -1408,7 +1408,7 @@
           "usage": "Nom féminin pluriel ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-21",
+          "id": "E3-JAN-C06-21R1",
           "kind": "tournure",
           "french": "sans garantie équivalente",
           "english": "without an equivalent guarantee",
@@ -1416,7 +1416,7 @@
           "usage": "Locution ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-22",
+          "id": "E3-JAN-C06-22R1",
           "kind": "phrase-modele",
           "french": "les commerces disposent déjà d’alternatives durables pour de nombreux emballages",
           "english": "shops already have sustainable alternatives available for many types of packaging",
@@ -1424,7 +1424,7 @@
           "usage": "Formule argumentative ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-23",
+          "id": "E3-JAN-C06-23R1",
           "kind": "collocation",
           "french": "d’alternatives durables",
           "english": "sustainable alternatives",
@@ -1464,7 +1464,7 @@
           "usage": "Nom féminin ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-28",
+          "id": "E3-JAN-C06-28R1",
           "kind": "collocation",
           "french": "les usages médicaux essentiels",
           "english": "essential medical uses",
@@ -1472,7 +1472,7 @@
           "usage": "Groupe nominal ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-29",
+          "id": "E3-JAN-C06-29R1",
           "kind": "reformulation",
           "french": "les objets en plastique à usage unique",
           "english": "single-use plastic objects",
@@ -1480,7 +1480,7 @@
           "usage": "Nom masculin pluriel ; réutilisable en Environnement/Santé."
         },
         {
-          "id": "E3-JAN-C06-30",
+          "id": "E3-JAN-C06-30R1",
           "kind": "verbe-action",
           "french": "tout en préservant les usages médicaux essentiels",
           "english": "while preserving essential medical uses",
@@ -1495,7 +1495,7 @@
       "sujet": "Rôle de la télévision dans l’éducation des enfants.",
       "entries": [
         {
-          "id": "E3-JAN-C07-01",
+          "id": "E3-JAN-C07-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent le rôle éducatif de la télévision",
           "english": "Both documents address the educational role of television",
@@ -1503,7 +1503,7 @@
           "usage": "Formule argumentative ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-02",
+          "id": "E3-JAN-C07-02R1",
           "kind": "mot-cle",
           "french": "le rôle éducatif de la télévision",
           "english": "the educational role of television",
@@ -1511,7 +1511,7 @@
           "usage": "Nom masculin ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-03",
+          "id": "E3-JAN-C07-03R1",
           "kind": "verbe-action",
           "french": "souligne son accès large à l’information",
           "english": "highlights its broad access to information",
@@ -1559,7 +1559,7 @@
           "usage": "Groupe nominal ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-09",
+          "id": "E3-JAN-C07-09R1",
           "kind": "phrase-modele",
           "french": "la télévision peut devenir un outil pédagogique, mais dans des limites bien précises",
           "english": "television can become a teaching tool, but within very precise limits",
@@ -1567,7 +1567,7 @@
           "usage": "Formule argumentative ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-10",
+          "id": "E3-JAN-C07-10R1",
           "kind": "mot-cle",
           "french": "un outil pédagogique",
           "english": "a teaching tool",
@@ -1575,7 +1575,7 @@
           "usage": "Nom masculin ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-11",
+          "id": "E3-JAN-C07-11R1",
           "kind": "tournure",
           "french": "dans des limites bien précises",
           "english": "within very precise limits",
@@ -1583,7 +1583,7 @@
           "usage": "Locution ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-12",
+          "id": "E3-JAN-C07-12R1",
           "kind": "collocation",
           "french": "des documentaires adaptés",
           "english": "suitable documentaries",
@@ -1591,7 +1591,7 @@
           "usage": "Groupe nominal ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-13",
+          "id": "E3-JAN-C07-13R1",
           "kind": "verbe-action",
           "french": "enrichissent les connaissances",
           "english": "enrich knowledge",
@@ -1599,7 +1599,7 @@
           "usage": "Groupe verbal ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-14",
+          "id": "E3-JAN-C07-14R1",
           "kind": "mot-cle",
           "french": "les connaissances",
           "english": "knowledge",
@@ -1607,7 +1607,7 @@
           "usage": "Nom féminin pluriel ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-15",
+          "id": "E3-JAN-C07-15R1",
           "kind": "verbe-action",
           "french": "développent l’esprit critique",
           "english": "develop critical thinking",
@@ -1615,7 +1615,7 @@
           "usage": "Groupe verbal ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-16",
+          "id": "E3-JAN-C07-16R1",
           "kind": "mot-cle",
           "french": "l’esprit critique",
           "english": "critical thinking",
@@ -1631,7 +1631,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-18",
+          "id": "E3-JAN-C07-18R1",
           "kind": "collocation",
           "french": "un programme sur les animaux",
           "english": "a program about animals",
@@ -1647,7 +1647,7 @@
           "usage": "Construction infinitive ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-20",
+          "id": "E3-JAN-C07-20R1",
           "kind": "phrase-modele",
           "french": "regarder une émission avec un adulte transforme un usage passif en échange instructif",
           "english": "watching a program with an adult turns a passive activity into an instructive exchange",
@@ -1655,7 +1655,7 @@
           "usage": "Formule argumentative ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-21",
+          "id": "E3-JAN-C07-21R1",
           "kind": "mot-cle",
           "french": "un usage passif",
           "english": "a passive activity",
@@ -1663,7 +1663,7 @@
           "usage": "Nom masculin ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-22",
+          "id": "E3-JAN-C07-22R1",
           "kind": "mot-cle",
           "french": "échange instructif",
           "english": "instructive exchange",
@@ -1671,7 +1671,7 @@
           "usage": "Nom masculin ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-23",
+          "id": "E3-JAN-C07-23R1",
           "kind": "phrase-modele",
           "french": "Une émission bien choisie montre le monde que l’école n’a pas le temps d’explorer",
           "english": "A well-chosen program shows the world that school does not have time to explore",
@@ -1679,7 +1679,7 @@
           "usage": "Formule argumentative ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-24",
+          "id": "E3-JAN-C07-24R1",
           "kind": "collocation",
           "french": "Une émission bien choisie",
           "english": "A well-chosen program",
@@ -1687,7 +1687,7 @@
           "usage": "Groupe nominal ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-25",
+          "id": "E3-JAN-C07-25R1",
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
@@ -1695,7 +1695,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-26",
+          "id": "E3-JAN-C07-26R1",
           "kind": "phrase-modele",
           "french": "il faut que les familles fixent des règles claires pour que la télévision complète la lecture, le jeu et le lien humain sans les remplacer",
           "english": "families must set clear rules so that television complements reading, play and human connection without replacing them",
@@ -1719,7 +1719,7 @@
           "usage": "Nom masculin ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-29",
+          "id": "E3-JAN-C07-29R1",
           "kind": "tournure",
           "french": "sans les remplacer",
           "english": "without replacing them",
@@ -1727,7 +1727,7 @@
           "usage": "Locution ; réutilisable en Éducation/Médias."
         },
         {
-          "id": "E3-JAN-C07-30",
+          "id": "E3-JAN-C07-30R1",
           "kind": "reformulation",
           "french": "les familles",
           "english": "families",
@@ -1742,7 +1742,7 @@
       "sujet": "Livraison des repas au bureau : pour ou contre ?",
       "entries": [
         {
-          "id": "E3-JAN-C08-01",
+          "id": "E3-JAN-C08-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent la livraison de repas au bureau",
           "english": "Both documents address meal delivery at the office",
@@ -1750,7 +1750,7 @@
           "usage": "Formule argumentative ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-02",
+          "id": "E3-JAN-C08-02R1",
           "kind": "mot-cle",
           "french": "la livraison de repas au bureau",
           "english": "meal delivery at the office",
@@ -1766,7 +1766,7 @@
           "usage": "Groupe verbal ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-04",
+          "id": "E3-JAN-C08-04R1",
           "kind": "verbe-action",
           "french": "dénonce la pollution des véhicules de livraison",
           "english": "denounces the pollution from delivery vehicles",
@@ -1774,7 +1774,7 @@
           "usage": "Groupe verbal ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-05",
+          "id": "E3-JAN-C08-05R1",
           "kind": "collocation",
           "french": "le choix entre plusieurs restaurants",
           "english": "the choice between several restaurants",
@@ -1790,7 +1790,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-07",
+          "id": "E3-JAN-C08-07R1",
           "kind": "collocation",
           "french": "le service disponible à toute heure",
           "english": "service available at any time",
@@ -1806,7 +1806,7 @@
           "usage": "Nom masculin ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-09",
+          "id": "E3-JAN-C08-09R1",
           "kind": "verbe-action",
           "french": "normaliser les repas pris devant l’écran",
           "english": "to normalize meals eaten in front of the screen",
@@ -1814,7 +1814,7 @@
           "usage": "Construction infinitive ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-10",
+          "id": "E3-JAN-C08-10R1",
           "kind": "phrase-modele",
           "french": "la livraison constitue une solution pratique, mais elle ne doit pas normaliser les repas pris devant l’écran",
           "english": "delivery is a practical solution, but it must not normalize meals eaten in front of the screen",
@@ -1830,7 +1830,7 @@
           "usage": "Nom féminin ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-12",
+          "id": "E3-JAN-C08-12R1",
           "kind": "tournure",
           "french": "les repas pris devant l’écran",
           "english": "meals eaten in front of the screen",
@@ -1838,7 +1838,7 @@
           "usage": "Proposition réutilisable ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-13",
+          "id": "E3-JAN-C08-13R1",
           "kind": "collocation",
           "french": "une vraie coupure",
           "english": "a real break",
@@ -1854,7 +1854,7 @@
           "usage": "Nom masculin ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-15",
+          "id": "E3-JAN-C08-15R1",
           "kind": "mot-cle",
           "french": "les échanges entre collègues",
           "english": "exchanges between colleagues",
@@ -1894,7 +1894,7 @@
           "usage": "Groupe nominal ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-20",
+          "id": "E3-JAN-C08-20R1",
           "kind": "phrase-modele",
           "french": "Un cerveau reposé commet moins d’erreurs et traite les dossiers plus vite",
           "english": "A rested mind makes fewer mistakes and handles tasks faster",
@@ -1902,7 +1902,7 @@
           "usage": "Formule argumentative ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-21",
+          "id": "E3-JAN-C08-21R1",
           "kind": "tournure",
           "french": "traite les dossiers plus vite",
           "english": "handles tasks faster",
@@ -1910,7 +1910,7 @@
           "usage": "Locution ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-22",
+          "id": "E3-JAN-C08-22R1",
           "kind": "phrase-modele",
           "french": "De plus, partager le déjeuner préserve les échanges entre collègues",
           "english": "Moreover, sharing lunch preserves exchanges between colleagues",
@@ -1918,7 +1918,7 @@
           "usage": "Formule argumentative ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-23",
+          "id": "E3-JAN-C08-23R1",
           "kind": "mot-cle",
           "french": "le déjeuner",
           "english": "lunch",
@@ -1934,7 +1934,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-25",
+          "id": "E3-JAN-C08-25R1",
           "kind": "phrase-modele",
           "french": "il faut que chaque salarié bénéficie d’une vraie pause, que le repas soit livré ou acheté sur place",
           "english": "every employee must have a real break, whether the meal is delivered or bought on site",
@@ -1942,7 +1942,7 @@
           "usage": "Formule argumentative ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-26",
+          "id": "E3-JAN-C08-26R1",
           "kind": "mot-cle",
           "french": "chaque salarié",
           "english": "every employee",
@@ -1950,7 +1950,7 @@
           "usage": "Nom masculin ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-27",
+          "id": "E3-JAN-C08-27R1",
           "kind": "tournure",
           "french": "que le repas soit livré ou acheté sur place",
           "english": "whether the meal is delivered or bought on site",
@@ -1958,7 +1958,7 @@
           "usage": "Locution ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-28",
+          "id": "E3-JAN-C08-28R1",
           "kind": "reformulation",
           "french": "une vraie pause",
           "english": "a real break",
@@ -1966,7 +1966,7 @@
           "usage": "Nom féminin ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-29",
+          "id": "E3-JAN-C08-29R1",
           "kind": "verbe-action",
           "french": "bénéficie d’une vraie pause",
           "english": "benefits from a real break",
@@ -1974,7 +1974,7 @@
           "usage": "Groupe verbal ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-JAN-C08-30",
+          "id": "E3-JAN-C08-30R1",
           "kind": "mot-cle",
           "french": "le repas",
           "english": "the meal",
@@ -2483,7 +2483,7 @@
       "sujet": "Manger à l’Extérieur ou Chez Soi ?",
       "entries": [
         {
-          "id": "E3-JAN-C12-01",
+          "id": "E3-JAN-C12-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent le choix entre manger au restaurant et chez soi",
           "english": "Both documents address the choice between eating at a restaurant and eating at home",
@@ -2491,7 +2491,7 @@
           "usage": "Formule argumentative ; réutilisable en Alimentation/Budget."
         },
         {
-          "id": "E3-JAN-C12-02",
+          "id": "E3-JAN-C12-02R1",
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
@@ -2499,7 +2499,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Alimentation/Budget."
         },
         {
-          "id": "E3-JAN-C12-03",
+          "id": "E3-JAN-C12-03R1",
           "kind": "mot-cle",
           "french": "la convivialité des sorties entre amis",
           "english": "the sociability of outings with friends",
@@ -2507,7 +2507,7 @@
           "usage": "Nom féminin ; réutilisable en Alimentation/Budget."
         },
         {
-          "id": "E3-JAN-C12-04",
+          "id": "E3-JAN-C12-04R1",
           "kind": "verbe-action",
           "french": "valorise la souplesse et la convivialité",
           "english": "values the flexibility and the sociability",
@@ -2515,7 +2515,7 @@
           "usage": "Groupe verbal ; réutilisable en Alimentation/Budget."
         },
         {
-          "id": "E3-JAN-C12-05",
+          "id": "E3-JAN-C12-05R1",
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
@@ -2531,7 +2531,7 @@
           "usage": "Nom masculin pluriel ; réutilisable en Alimentation/Budget."
         },
         {
-          "id": "E3-JAN-C12-07",
+          "id": "E3-JAN-C12-07R1",
           "kind": "verbe-action",
           "french": "permettent de mieux contrôler la qualité de l’assiette",
           "english": "make it possible to better control the quality of what is on the plate",
@@ -2539,7 +2539,7 @@
           "usage": "Construction infinitive ; réutilisable en Alimentation/Budget."
         },
         {
-          "id": "E3-JAN-C12-08",
+          "id": "E3-JAN-C12-08R1",
           "kind": "phrase-modele",
           "french": "il me semble que manger chez soi est la solution la plus raisonnable au quotidien, sans renoncer au restaurant",
           "english": "it seems to me that eating at home is the most reasonable everyday solution, without giving up restaurants",
@@ -2555,7 +2555,7 @@
           "usage": "Nom féminin ; réutilisable en Alimentation/Budget."
         },
         {
-          "id": "E3-JAN-C12-10",
+          "id": "E3-JAN-C12-10R1",
           "kind": "tournure",
           "french": "sans renoncer au restaurant",
           "english": "without giving up restaurants",
@@ -2611,7 +2611,7 @@
           "usage": "Groupe verbal ; réutilisable en Alimentation/Budget."
         },
         {
-          "id": "E3-JAN-C12-17",
+          "id": "E3-JAN-C12-17R1",
           "kind": "collocation",
           "french": "sa dimension conviviale",
           "english": "its convivial side",
@@ -2627,7 +2627,7 @@
           "usage": "Nom féminin ; réutilisable en Alimentation/Budget."
         },
         {
-          "id": "E3-JAN-C12-19",
+          "id": "E3-JAN-C12-19R1",
           "kind": "phrase-modele",
           "french": "On connaît alors la quantité exacte de sel, de gras et de sucre servie",
           "english": "One then knows the exact amount of salt, fat and sugar being served",
@@ -2635,7 +2635,7 @@
           "usage": "Formule argumentative ; réutilisable en Alimentation/Budget."
         },
         {
-          "id": "E3-JAN-C12-20",
+          "id": "E3-JAN-C12-20R1",
           "kind": "mot-cle",
           "french": "la quantité exacte de sel, de gras et de sucre",
           "english": "the exact amount of salt, fat and sugar",
@@ -2643,7 +2643,7 @@
           "usage": "Nom féminin ; réutilisable en Alimentation/Budget."
         },
         {
-          "id": "E3-JAN-C12-21",
+          "id": "E3-JAN-C12-21R1",
           "kind": "collocation",
           "french": "des sorties entre amis",
           "english": "outings with friends",
@@ -2651,7 +2651,7 @@
           "usage": "Groupe nominal ; réutilisable en Alimentation/Budget."
         },
         {
-          "id": "E3-JAN-C12-22",
+          "id": "E3-JAN-C12-22R1",
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
@@ -2659,7 +2659,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Alimentation/Budget."
         },
         {
-          "id": "E3-JAN-C12-23",
+          "id": "E3-JAN-C12-23R1",
           "kind": "phrase-modele",
           "french": "il faut que les repas maison restent la règle au quotidien et que les sorties gardent leur rôle de plaisir partagé",
           "english": "home-cooked meals must remain the everyday rule and outings must keep their role of shared enjoyment",
@@ -2667,7 +2667,7 @@
           "usage": "Formule argumentative ; réutilisable en Alimentation/Budget."
         },
         {
-          "id": "E3-JAN-C12-24",
+          "id": "E3-JAN-C12-24R1",
           "kind": "mot-cle",
           "french": "la règle au quotidien",
           "english": "the everyday rule",
@@ -2675,7 +2675,7 @@
           "usage": "Nom féminin ; réutilisable en Alimentation/Budget."
         },
         {
-          "id": "E3-JAN-C12-25",
+          "id": "E3-JAN-C12-25R1",
           "kind": "mot-cle",
           "french": "leur rôle de plaisir partagé",
           "english": "their role of shared enjoyment",
@@ -2691,7 +2691,7 @@
           "usage": "Locution ; réutilisable en Alimentation/Budget."
         },
         {
-          "id": "E3-JAN-C12-27",
+          "id": "E3-JAN-C12-27R1",
           "kind": "reformulation",
           "french": "restaurant",
           "english": "restaurant",
@@ -2699,7 +2699,7 @@
           "usage": "Nom masculin ; réutilisable en Alimentation/Budget."
         },
         {
-          "id": "E3-JAN-C12-28",
+          "id": "E3-JAN-C12-28R1",
           "kind": "mot-cle",
           "french": "la qualité de l’assiette",
           "english": "the quality of what is on the plate",
@@ -3209,7 +3209,7 @@
           "usage": "Reformulation utile ; réutilisable en Transport/Environnement."
         },
         {
-          "id": "E3-JAN-C17-30",
+          "id": "E3-JAN-C17-30R1",
           "kind": "verbe-action",
           "french": "renforcer les lignes de bus",
           "english": "strengthen bus routes",

@@ -20,6 +20,7 @@ from study.models import (
     PersonalWritingResponse,
     Phrase,
     Task,
+    ThemeVocabularyProgress,
     WritingSujet,
     WritingSujetCompletion,
     WritingResponseOverride,
@@ -475,7 +476,7 @@ class EeTacheThreeUnifiedResponseTests(SimpleTestCase):
                     self.assertIn(entry["example"], effective)
         self.assertEqual(author_entry_count, 300)
 
-    def test_all_raw_vocabulary_is_grounded_without_changing_identity(self):
+    def test_all_raw_vocabulary_is_grounded_with_identity_safe_revisions(self):
         sources = {
             row.content_key: row
             for month in content.load_ee_tache_three_months()
@@ -483,8 +484,12 @@ class EeTacheThreeUnifiedResponseTests(SimpleTestCase):
         }
         authors = content.load_ee_tache_three_author_responses()
         identities = []
+        current_identity_digests = {}
+        revised_canonical = 0
+        revised_alias = 0
         response_count = 0
         entry_count = 0
+        canonical_by_key = content.ee_canonical_by_content_key(3)
 
         for path in sorted(content.EE_TACHE_THREE_VOCABULARY_DIR.glob("*.json")):
             payload = json.loads(path.read_text(encoding="utf-8"))
@@ -505,6 +510,13 @@ class EeTacheThreeUnifiedResponseTests(SimpleTestCase):
                         f"{path.stem}|{content_key}|{index}|"
                         f"{entry['id']}|{entry['kind']}"
                     )
+                    current_identity_digests[entry["id"]] = (
+                        content._ee_tache_three_phrase_identity_digest(
+                            entry["kind"],
+                            entry["french"],
+                            entry["english"],
+                        )
+                    )
                     with self.subTest(entry=entry["id"]):
                         self.assertIn(entry["example"], answer)
                         self.assertIn(
@@ -516,7 +528,64 @@ class EeTacheThreeUnifiedResponseTests(SimpleTestCase):
         self.assertEqual(entry_count, 4140)
         self.assertEqual(
             hashlib.sha256("\n".join(identities).encode()).hexdigest(),
-            "397a8d160618ba1acb738889cd92884d5c9407f41c9d43ac5296af54d0c7aa3d",
+            "21ddd90ab8fe857bb12c99c08b747500acfc93d20e3f22d09651f413cfd0d930",
+        )
+        revisions = content.ee_tache_three_phrase_id_revisions()
+        historical = content.ee_tache_three_historical_phrase_identities()
+        current_ids = {
+            identity.rsplit("|", 2)[1]
+            for identity in identities
+        }
+        replacement_sources = {
+            replacement_id: retired_id
+            for retired_id, replacement_id in revisions.items()
+        }
+        for path in sorted(content.EE_TACHE_THREE_VOCABULARY_DIR.glob("*.json")):
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            for row in payload["responses"]:
+                for entry in row["entries"]:
+                    phrase_id = entry["id"]
+                    if phrase_id in revisions.values():
+                        if (
+                            canonical_by_key.get(
+                                row["response_key"],
+                                row["response_key"],
+                            )
+                            == row["response_key"]
+                        ):
+                            revised_canonical += 1
+                        else:
+                            revised_alias += 1
+                        self.assertNotEqual(
+                            current_identity_digests[phrase_id],
+                            historical[replacement_sources[phrase_id]],
+                        )
+                    else:
+                        self.assertEqual(
+                            current_identity_digests[phrase_id],
+                            historical[phrase_id],
+                        )
+        self.assertEqual(len(historical), 4140)
+        self.assertEqual(len(revisions), 1708)
+        self.assertEqual((revised_canonical, revised_alias), (895, 813))
+        self.assertFalse(set(revisions) & current_ids)
+        self.assertTrue(set(revisions.values()).issubset(current_ids))
+        self.assertEqual(
+            current_ids,
+            set(historical).difference(revisions) | set(revisions.values()),
+        )
+        self.assertEqual(
+            hashlib.sha256("\n".join(
+                f"{phrase_id}|{historical[phrase_id]}"
+                for phrase_id in sorted(historical)
+            ).encode()).hexdigest(),
+            "1b17b361cf3fe6bdb1150f7310b3f52e716b1f21c4b96db77fa488f8c86cb25a",
+        )
+        self.assertEqual(
+            hashlib.sha256("\n".join(
+                f"{source}|{revisions[source]}" for source in sorted(revisions)
+            ).encode()).hexdigest(),
+            "b2a4c044f36ad4d0e28b2c02144ffb09b6f235cc4c07f877b62e0986ec5ec512",
         )
 
     def test_corrected_source_vocabulary_stays_anchored_to_its_model(self):
@@ -568,22 +637,17 @@ class EeTacheThreeUnifiedResponseTests(SimpleTestCase):
             ).encode()).hexdigest(),
             "eea1d31be30ebb559cf7704d5594c65d80afa9703984490f07742206067f40c6",
         )
-        for group in content.load_ee_equivalent_groups(3):
-            canonical_ids = {
-                entry["id"] for entry in entries_by_key[group.canonical]
-            }
-            for member in group.members:
-                if member == group.canonical:
-                    continue
-                source_ids = {
-                    entry["id"] for entry in entries_by_key[member]
-                }
-                with self.subTest(group=group.id, member=member):
-                    self.assertEqual(len(source_ids), 30)
-                    self.assertEqual(
-                        {merges[source_id] for source_id in source_ids},
-                        canonical_ids,
-                    )
+        revisions = content.ee_tache_three_phrase_id_revisions()
+        historical = content.ee_tache_three_historical_phrase_identities()
+        current_ids = {
+            entry["id"]
+            for entries in entries_by_key.values()
+            for entry in entries
+        }
+        self.assertFalse(set(revisions) & current_ids)
+        self.assertTrue(set(merges).isdisjoint(revisions.values()))
+        self.assertTrue(set(merges).issubset(historical))
+        self.assertTrue(set(merges.values()).issubset(historical))
 
 
 class EeAnonymousPhraseMigrationTests(TestCase):
@@ -1140,6 +1204,10 @@ class EeWritingImportPreservationTests(TestCase):
             start_offset=0,
             end_offset=10,
         )
+        ThemeVocabularyProgress.objects.create(
+            user=self.user,
+            phrase=source_phrase,
+        )
 
         self.command._reconcile_phrase_cards()
 
@@ -1150,6 +1218,18 @@ class EeWritingImportPreservationTests(TestCase):
         self.assertEqual(
             annotation.source_key,
             f"phrase:{target_id}:catalog",
+        )
+        self.assertTrue(
+            ThemeVocabularyProgress.objects.filter(
+                user=self.user,
+                phrase=source_phrase,
+            ).exists()
+        )
+        self.assertTrue(
+            ThemeVocabularyProgress.objects.filter(
+                user=self.user,
+                phrase=target_phrase,
+            ).exists()
         )
 
 

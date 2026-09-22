@@ -13,7 +13,7 @@
       "sujet": "Les maisons de retraite, pour ou contre ?",
       "entries": [
         {
-          "id": "E3-AOU-C01-01",
+          "id": "E3-AOU-C01-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent les maisons de retraite",
           "english": "Both documents address retirement homes",
@@ -69,7 +69,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Société/Santé."
         },
         {
-          "id": "E3-AOU-C01-08",
+          "id": "E3-AOU-C01-08R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, ces établissements sont utiles à condition que chacun puisse les choisir librement, préserver sa dignité et maintenir ses liens familiaux",
           "english": "For my part, these facilities are useful provided everyone can freely choose them, preserve their dignity, and maintain their family ties",
@@ -77,7 +77,7 @@
           "usage": "Formule argumentative ; réutilisable en Société/Santé."
         },
         {
-          "id": "E3-AOU-C01-09",
+          "id": "E3-AOU-C01-09R1",
           "kind": "tournure",
           "french": "à condition que chacun puisse les choisir librement, préserver sa dignité et maintenir ses liens familiaux",
           "english": "provided everyone can freely choose them, preserve their dignity, and maintain their family ties",
@@ -117,7 +117,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Société/Santé."
         },
         {
-          "id": "E3-AOU-C01-14",
+          "id": "E3-AOU-C01-14R1",
           "kind": "expression",
           "french": "De plus",
           "english": "Moreover",
@@ -173,7 +173,7 @@
           "usage": "Construction verbale ; réutilisable en Société/Santé."
         },
         {
-          "id": "E3-AOU-C01-21",
+          "id": "E3-AOU-C01-21R1",
           "kind": "phrase-modele",
           "french": "Une équipe présente jour et nuit peut réagir immédiatement en cas de malaise, alors qu’une famille occupée ne dispose pas toujours de cette disponibilité",
           "english": "A team present day and night can react immediately in the event of a health issue, whereas a busy family does not always have this availability",
@@ -181,7 +181,7 @@
           "usage": "Formule argumentative ; réutilisable en Société/Santé."
         },
         {
-          "id": "E3-AOU-C01-22",
+          "id": "E3-AOU-C01-22R1",
           "kind": "tournure",
           "french": "alors qu’une famille occupée ne dispose pas toujours de cette disponibilité",
           "english": "whereas a busy family does not always have this availability",
@@ -189,7 +189,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Société/Santé."
         },
         {
-          "id": "E3-AOU-C01-23",
+          "id": "E3-AOU-C01-23R1",
           "kind": "mot-cle",
           "french": "en cas de malaise",
           "english": "in the event of a health issue",
@@ -260,7 +260,7 @@
       "sujet": "La restauration rapide",
       "entries": [
         {
-          "id": "E3-AOU-C02-01",
+          "id": "E3-AOU-C02-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent la restauration rapide",
           "english": "Both documents address fast food",
@@ -268,7 +268,7 @@
           "usage": "Formule argumentative ; réutilisable en Alimentation/Santé."
         },
         {
-          "id": "E3-AOU-C02-02",
+          "id": "E3-AOU-C02-02R1",
           "kind": "expression",
           "french": "Le premier",
           "english": "The first (text)",
@@ -324,7 +324,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Alimentation/Santé."
         },
         {
-          "id": "E3-AOU-C02-09",
+          "id": "E3-AOU-C02-09R1",
           "kind": "collocation",
           "french": "les maladies graves et durables",
           "english": "serious and lasting illnesses",
@@ -332,7 +332,7 @@
           "usage": "Collocation ; réutilisable en Alimentation/Santé."
         },
         {
-          "id": "E3-AOU-C02-10",
+          "id": "E3-AOU-C02-10R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, la restauration rapide peut dépanner à condition qu’elle reste occasionnelle",
           "english": "For my part, fast food can help out provided it remains occasional",
@@ -340,7 +340,7 @@
           "usage": "Formule argumentative ; réutilisable en Alimentation/Santé."
         },
         {
-          "id": "E3-AOU-C02-11",
+          "id": "E3-AOU-C02-11R1",
           "kind": "tournure",
           "french": "à condition qu’elle reste occasionnelle",
           "english": "provided it remains occasional",
@@ -372,7 +372,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Alimentation/Santé."
         },
         {
-          "id": "E3-AOU-C02-15",
+          "id": "E3-AOU-C02-15R1",
           "kind": "expression",
           "french": "De plus",
           "english": "Moreover",
@@ -388,7 +388,7 @@
           "usage": "Collocation ; réutilisable en Alimentation/Santé."
         },
         {
-          "id": "E3-AOU-C02-17",
+          "id": "E3-AOU-C02-17R1",
           "kind": "verbe-action",
           "french": "éviter une consommation excessive",
           "english": "avoid excessive consumption",
@@ -396,7 +396,7 @@
           "usage": "Construction verbale ; réutilisable en Alimentation/Santé."
         },
         {
-          "id": "E3-AOU-C02-18",
+          "id": "E3-AOU-C02-18R1",
           "kind": "mot-cle",
           "french": "une consommation excessive de sel, de sucre et de matières grasses",
           "english": "excessive consumption of salt, sugar and fat",
@@ -412,7 +412,7 @@
           "usage": "Collocation ; réutilisable en Alimentation/Santé."
         },
         {
-          "id": "E3-AOU-C02-20",
+          "id": "E3-AOU-C02-20R1",
           "kind": "mot-cle",
           "french": "une journée de travail chargée",
           "english": "a busy working day",
@@ -420,7 +420,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Alimentation/Santé."
         },
         {
-          "id": "E3-AOU-C02-21",
+          "id": "E3-AOU-C02-21R1",
           "kind": "phrase-modele",
           "french": "Un repas servi en quelques minutes rend service à ceux qui n’ont ni le temps ni la possibilité de cuisiner pendant une journée de travail chargée",
           "english": "A meal served in a few minutes helps those who have neither the time nor the means to cook during a busy working day",
@@ -428,7 +428,7 @@
           "usage": "Formule argumentative ; réutilisable en Alimentation/Santé."
         },
         {
-          "id": "E3-AOU-C02-22",
+          "id": "E3-AOU-C02-22R1",
           "kind": "tournure",
           "french": "qui n’ont ni le temps ni la possibilité de cuisiner",
           "english": "who have neither the time nor the means to cook",
@@ -507,7 +507,7 @@
       "sujet": "Faire ses courses alimentaires chez les producteurs locaux ou au supermarché",
       "entries": [
         {
-          "id": "E3-AOU-C03-01",
+          "id": "E3-AOU-C03-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent le choix du lieu où faire ses courses alimentaires",
           "english": "Both documents address the choice of where to buy groceries",
@@ -515,7 +515,7 @@
           "usage": "Formule argumentative ; réutilisable en Alimentation/Économie."
         },
         {
-          "id": "E3-AOU-C03-02",
+          "id": "E3-AOU-C03-02R1",
           "kind": "expression",
           "french": "Le premier",
           "english": "The first (text)",
@@ -531,7 +531,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Alimentation/Économie."
         },
         {
-          "id": "E3-AOU-C03-04",
+          "id": "E3-AOU-C03-04R1",
           "kind": "collocation",
           "french": "la qualité des produits",
           "english": "the quality of the products",
@@ -571,7 +571,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Alimentation/Économie."
         },
         {
-          "id": "E3-AOU-C03-09",
+          "id": "E3-AOU-C03-09R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, les producteurs locaux et les supermarchés sont complémentaires, à condition que le consommateur puisse choisir selon son budget et ses besoins",
           "english": "For my part, local producers and supermarkets are complementary, provided the consumer can choose according to their budget and needs",
@@ -579,7 +579,7 @@
           "usage": "Formule argumentative ; réutilisable en Alimentation/Économie."
         },
         {
-          "id": "E3-AOU-C03-10",
+          "id": "E3-AOU-C03-10R1",
           "kind": "tournure",
           "french": "à condition que le consommateur puisse choisir selon son budget et ses besoins",
           "english": "provided the consumer can choose according to their budget and needs",
@@ -587,7 +587,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Alimentation/Économie."
         },
         {
-          "id": "E3-AOU-C03-11",
+          "id": "E3-AOU-C03-11R1",
           "kind": "mot-cle",
           "french": "les producteurs locaux et les supermarchés",
           "english": "local producers and supermarkets",
@@ -603,7 +603,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Alimentation/Économie."
         },
         {
-          "id": "E3-AOU-C03-13",
+          "id": "E3-AOU-C03-13R1",
           "kind": "expression",
           "french": "De plus",
           "english": "Moreover",
@@ -683,7 +683,7 @@
           "usage": "Construction verbale ; réutilisable en Alimentation/Économie."
         },
         {
-          "id": "E3-AOU-C03-23",
+          "id": "E3-AOU-C03-23R1",
           "kind": "phrase-modele",
           "french": "Le client connaît alors l’origine exacte de ce qu’il mange et accepte plus volontiers un prix légèrement supérieur",
           "english": "The customer then knows the exact origin of what they eat and more readily accepts a slightly higher price",
@@ -691,7 +691,7 @@
           "usage": "Formule argumentative ; réutilisable en Alimentation/Économie."
         },
         {
-          "id": "E3-AOU-C03-24",
+          "id": "E3-AOU-C03-24R1",
           "kind": "tournure",
           "french": "accepte plus volontiers un prix légèrement supérieur",
           "english": "more readily accepts a slightly higher price",
@@ -699,7 +699,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Alimentation/Économie."
         },
         {
-          "id": "E3-AOU-C03-25",
+          "id": "E3-AOU-C03-25R1",
           "kind": "mot-cle",
           "french": "l’origine exacte de ce qu’il mange",
           "english": "the exact origin of what they eat",
@@ -707,7 +707,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Alimentation/Économie."
         },
         {
-          "id": "E3-AOU-C03-26",
+          "id": "E3-AOU-C03-26R1",
           "kind": "phrase-modele",
           "french": "En conclusion, je répartirais mes achats entre des produits locaux et des produits courants à prix raisonnable",
           "english": "In conclusion, I would split my purchases between local products and everyday products at a reasonable price",
@@ -715,7 +715,7 @@
           "usage": "Formule argumentative ; réutilisable en Alimentation/Économie."
         },
         {
-          "id": "E3-AOU-C03-27",
+          "id": "E3-AOU-C03-27R1",
           "kind": "collocation",
           "french": "des produits courants à prix raisonnable",
           "english": "everyday products at a reasonable price",
@@ -723,7 +723,7 @@
           "usage": "Collocation ; réutilisable en Alimentation/Économie."
         },
         {
-          "id": "E3-AOU-C03-28",
+          "id": "E3-AOU-C03-28R1",
           "kind": "tournure",
           "french": "je répartirais mes achats entre des produits locaux",
           "english": "I would split my purchases to include local products",
@@ -739,7 +739,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Alimentation/Économie."
         },
         {
-          "id": "E3-AOU-C03-30",
+          "id": "E3-AOU-C03-30R1",
           "kind": "reformulation",
           "french": "le consommateur",
           "english": "the consumer",
@@ -754,7 +754,7 @@
       "sujet": "La chasse aux animaux : pour ou contre ?",
       "entries": [
         {
-          "id": "E3-AOU-C04-01",
+          "id": "E3-AOU-C04-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent la chasse aux animaux",
           "english": "Both documents address hunting animals",
@@ -810,7 +810,7 @@
           "usage": "Collocation ; réutilisable en Environnement/Éthique."
         },
         {
-          "id": "E3-AOU-C04-08",
+          "id": "E3-AOU-C04-08R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, la chasse n’est acceptable qu’à condition qu’elle réponde à un besoin réel et respecte des règles strictes",
           "english": "For my part, hunting is acceptable only provided it meets a real need and follows strict rules",
@@ -818,7 +818,7 @@
           "usage": "Formule argumentative ; réutilisable en Environnement/Éthique."
         },
         {
-          "id": "E3-AOU-C04-09",
+          "id": "E3-AOU-C04-09R1",
           "kind": "tournure",
           "french": "n’est acceptable qu’à condition qu’elle réponde à un besoin réel",
           "english": "is acceptable only provided it meets a real need",
@@ -858,7 +858,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Environnement/Éthique."
         },
         {
-          "id": "E3-AOU-C04-14",
+          "id": "E3-AOU-C04-14R1",
           "kind": "expression",
           "french": "De plus",
           "english": "Moreover",
@@ -914,7 +914,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Environnement/Éthique."
         },
         {
-          "id": "E3-AOU-C04-21",
+          "id": "E3-AOU-C04-21R1",
           "kind": "phrase-modele",
           "french": "Une mort infligée sans nécessité n’apporte rien à personne et contredit le respect de la nature dont se réclament souvent les chasseurs",
           "english": "A death inflicted without necessity brings nothing to anyone and contradicts the respect for nature that hunters often claim",
@@ -922,7 +922,7 @@
           "usage": "Formule argumentative ; réutilisable en Environnement/Éthique."
         },
         {
-          "id": "E3-AOU-C04-22",
+          "id": "E3-AOU-C04-22R1",
           "kind": "tournure",
           "french": "n’apporte rien à personne et contredit le respect de la nature",
           "english": "brings nothing to anyone and contradicts respect for nature",
@@ -930,7 +930,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Environnement/Éthique."
         },
         {
-          "id": "E3-AOU-C04-23",
+          "id": "E3-AOU-C04-23R1",
           "kind": "verbe-action",
           "french": "infligée sans nécessité",
           "english": "inflicted without necessity",
@@ -970,7 +970,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Environnement/Éthique."
         },
         {
-          "id": "E3-AOU-C04-28",
+          "id": "E3-AOU-C04-28R1",
           "kind": "mot-cle",
           "french": "le commerce",
           "english": "trade",
@@ -1001,7 +1001,7 @@
       "sujet": "La Restauration Rapide.",
       "entries": [
         {
-          "id": "E3-AOU-C08-01",
+          "id": "E3-AOU-C08-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent la restauration rapide",
           "english": "Both documents address fast food",
@@ -1009,7 +1009,7 @@
           "usage": "Formule argumentative ; réutilisable en Alimentation/Environnement."
         },
         {
-          "id": "E3-AOU-C08-02",
+          "id": "E3-AOU-C08-02R1",
           "kind": "mot-cle",
           "french": "des menus variés",
           "english": "varied menus",
@@ -1017,7 +1017,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Alimentation/Environnement."
         },
         {
-          "id": "E3-AOU-C08-03",
+          "id": "E3-AOU-C08-03R1",
           "kind": "verbe-action",
           "french": "met en avant des menus variés",
           "english": "highlights varied menus",
@@ -1049,7 +1049,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Alimentation/Environnement."
         },
         {
-          "id": "E3-AOU-C08-07",
+          "id": "E3-AOU-C08-07R1",
           "kind": "mot-cle",
           "french": "le second",
           "english": "the second (text)",
@@ -1081,7 +1081,7 @@
           "usage": "Collocation ; réutilisable en Alimentation/Environnement."
         },
         {
-          "id": "E3-AOU-C08-11",
+          "id": "E3-AOU-C08-11R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, la restauration rapide peut rester pratique à condition que les enseignes limitent ses effets sur la santé et l’environnement",
           "english": "For my part, fast food can remain practical provided that chains limit its effects on health and the environment",
@@ -1089,7 +1089,7 @@
           "usage": "Formule argumentative ; réutilisable en Alimentation/Environnement."
         },
         {
-          "id": "E3-AOU-C08-12",
+          "id": "E3-AOU-C08-12R1",
           "kind": "tournure",
           "french": "à condition que les enseignes limitent ses effets sur la santé et l’environnement",
           "english": "provided that chains limit its effects on health and the environment",
@@ -1161,7 +1161,7 @@
           "usage": "Collocation ; réutilisable en Alimentation/Environnement."
         },
         {
-          "id": "E3-AOU-C08-21",
+          "id": "E3-AOU-C08-21R1",
           "kind": "phrase-modele",
           "french": "Sans cette information, un client ignore qu’un seul menu peut déjà dépasser l’apport calorique attendu pour un repas entier",
           "english": "Without this information, a customer does not know that a single meal can already exceed the expected calorie intake for an entire meal",
@@ -1169,7 +1169,7 @@
           "usage": "Formule argumentative ; réutilisable en Alimentation/Environnement."
         },
         {
-          "id": "E3-AOU-C08-22",
+          "id": "E3-AOU-C08-22R1",
           "kind": "tournure",
           "french": "un client ignore qu’un seul menu peut déjà dépasser l’apport calorique attendu pour un repas entier",
           "english": "a customer does not know that a single meal can already exceed the expected calorie intake for an entire meal",
@@ -1177,7 +1177,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Alimentation/Environnement."
         },
         {
-          "id": "E3-AOU-C08-23",
+          "id": "E3-AOU-C08-23R1",
           "kind": "collocation",
           "french": "l’apport calorique attendu",
           "english": "the expected calorie intake",
@@ -1185,7 +1185,7 @@
           "usage": "Collocation ; réutilisable en Alimentation/Environnement."
         },
         {
-          "id": "E3-AOU-C08-24",
+          "id": "E3-AOU-C08-24R1",
           "kind": "phrase-modele",
           "french": "En conclusion, je l’accepte seulement si les menus sont transparents, équilibrés et servis avec moins de déchets",
           "english": "In conclusion, I accept it only if the menus are transparent, balanced, and served with less waste",
@@ -1193,7 +1193,7 @@
           "usage": "Formule argumentative ; réutilisable en Alimentation/Environnement."
         },
         {
-          "id": "E3-AOU-C08-25",
+          "id": "E3-AOU-C08-25R1",
           "kind": "mot-cle",
           "french": "les menus sont transparents",
           "english": "the menus are transparent",
@@ -1201,7 +1201,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Alimentation/Environnement."
         },
         {
-          "id": "E3-AOU-C08-26",
+          "id": "E3-AOU-C08-26R1",
           "kind": "tournure",
           "french": "si les menus sont transparents, équilibrés et servis avec moins de déchets",
           "english": "if the menus are transparent, balanced, and served with less waste",
@@ -1217,7 +1217,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Alimentation/Environnement."
         },
         {
-          "id": "E3-AOU-C08-28",
+          "id": "E3-AOU-C08-28R1",
           "kind": "mot-cle",
           "french": "moins de déchets",
           "english": "less waste",
@@ -1225,7 +1225,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Alimentation/Environnement."
         },
         {
-          "id": "E3-AOU-C08-29",
+          "id": "E3-AOU-C08-29R1",
           "kind": "reformulation",
           "french": "je l’accepte",
           "english": "I accept it",
@@ -1248,7 +1248,7 @@
       "sujet": "les vêtements de grande marque",
       "entries": [
         {
-          "id": "E3-AOU-C09-01",
+          "id": "E3-AOU-C09-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent les vêtements de grande marque",
           "english": "Both documents address designer clothes",
@@ -1312,7 +1312,7 @@
           "usage": "Collocation ; réutilisable en Consommation/Famille."
         },
         {
-          "id": "E3-AOU-C09-09",
+          "id": "E3-AOU-C09-09R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, bien qu’un vêtement de marque puisse plaire aux jeunes, il ne devrait jamais déterminer leur valeur ni peser sur le budget familial",
           "english": "For my part, although a branded garment may appeal to young people, it should never determine their worth or weigh on the family budget",
@@ -1320,7 +1320,7 @@
           "usage": "Formule argumentative ; réutilisable en Consommation/Famille."
         },
         {
-          "id": "E3-AOU-C09-10",
+          "id": "E3-AOU-C09-10R1",
           "kind": "tournure",
           "french": "il ne devrait jamais déterminer leur valeur",
           "english": "it should never determine their worth",
@@ -1360,7 +1360,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Consommation/Famille."
         },
         {
-          "id": "E3-AOU-C09-15",
+          "id": "E3-AOU-C09-15R1",
           "kind": "expression",
           "french": "De plus",
           "english": "Moreover",
@@ -1416,7 +1416,7 @@
           "usage": "Collocation ; réutilisable en Consommation/Famille."
         },
         {
-          "id": "E3-AOU-C09-22",
+          "id": "E3-AOU-C09-22R1",
           "kind": "phrase-modele",
           "french": "Un jeune respecté pour ses qualités et ses amitiés n’a pas besoin d’une étiquette pour trouver sa place dans un groupe",
           "english": "A young person respected for their qualities and friendships does not need a label to find their place in a group",
@@ -1424,7 +1424,7 @@
           "usage": "Formule argumentative ; réutilisable en Consommation/Famille."
         },
         {
-          "id": "E3-AOU-C09-23",
+          "id": "E3-AOU-C09-23R1",
           "kind": "tournure",
           "french": "n’a pas besoin d’une étiquette pour trouver sa place dans un groupe",
           "english": "does not need a label to find their place in a group",
@@ -1432,7 +1432,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Consommation/Famille."
         },
         {
-          "id": "E3-AOU-C09-24",
+          "id": "E3-AOU-C09-24R1",
           "kind": "mot-cle",
           "french": "une étiquette",
           "english": "a label",
@@ -1464,7 +1464,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Consommation/Famille."
         },
         {
-          "id": "E3-AOU-C09-28",
+          "id": "E3-AOU-C09-28R1",
           "kind": "mot-cle",
           "french": "un vêtement de marque",
           "english": "a branded garment",
@@ -1472,7 +1472,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Consommation/Famille."
         },
         {
-          "id": "E3-AOU-C09-29",
+          "id": "E3-AOU-C09-29R1",
           "kind": "reformulation",
           "french": "leur valeur",
           "english": "their worth",
@@ -1495,7 +1495,7 @@
       "sujet": "La réduction du temps de travail",
       "entries": [
         {
-          "id": "E3-AOU-C10-01",
+          "id": "E3-AOU-C10-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent la réduction du temps de travail",
           "english": "Both documents address the reduction of working hours",
@@ -1527,7 +1527,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AOU-C10-05",
+          "id": "E3-AOU-C10-05R1",
           "kind": "expression",
           "french": "De son côté",
           "english": "For its part",
@@ -1551,7 +1551,7 @@
           "usage": "Collocation ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AOU-C10-08",
+          "id": "E3-AOU-C10-08R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, je soutiens cette réduction à condition qu’elle ne diminue ni les salaires ni la qualité des services",
           "english": "For my part, I support this reduction provided it lowers neither wages nor service quality",
@@ -1607,7 +1607,7 @@
           "usage": "Collocation ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AOU-C10-15",
+          "id": "E3-AOU-C10-15R1",
           "kind": "expression",
           "french": "De plus",
           "english": "Moreover",
@@ -1663,7 +1663,7 @@
           "usage": "Construction verbale ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AOU-C10-22",
+          "id": "E3-AOU-C10-22R1",
           "kind": "phrase-modele",
           "french": "Travailler moins d’heures, mais plus efficacement, limite les erreurs et les arrêts maladie liés à l’épuisement",
           "english": "Working fewer hours, but more efficiently, limits errors and sick leave linked to burnout",
@@ -1671,7 +1671,7 @@
           "usage": "Formule argumentative ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AOU-C10-23",
+          "id": "E3-AOU-C10-23R1",
           "kind": "tournure",
           "french": "limite les erreurs et les arrêts maladie liés à l’épuisement",
           "english": "limits errors and sick leave linked to burnout",
@@ -1679,7 +1679,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AOU-C10-24",
+          "id": "E3-AOU-C10-24R1",
           "kind": "mot-cle",
           "french": "l’épuisement",
           "english": "burnout",
@@ -1687,7 +1687,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AOU-C10-25",
+          "id": "E3-AOU-C10-25R1",
           "kind": "phrase-modele",
           "french": "En conclusion, je soutiens une réduction progressive, négociée selon les contraintes de chaque secteur et évaluée à partir de résultats concrets",
           "english": "In conclusion, I support a gradual reduction, negotiated according to each sector's constraints and assessed from concrete results",
@@ -1695,7 +1695,7 @@
           "usage": "Formule argumentative ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AOU-C10-26",
+          "id": "E3-AOU-C10-26R1",
           "kind": "tournure",
           "french": "négociée selon les contraintes de chaque secteur",
           "english": "negotiated according to each sector's constraints",
@@ -1742,7 +1742,7 @@
       "sujet": "Les Caméras De Surveillance À L’école : Pour Ou Contre ?",
       "entries": [
         {
-          "id": "E3-AOU-C11-01",
+          "id": "E3-AOU-C11-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent les caméras de surveillance à l’école",
           "english": "Both documents address surveillance cameras at school",
@@ -1806,7 +1806,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Sécurité."
         },
         {
-          "id": "E3-AOU-C11-09",
+          "id": "E3-AOU-C11-09R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, quelques caméras peuvent être utiles à condition qu’elles soient réservées aux lieux communs et soumises à des règles claires",
           "english": "For my part, a few cameras can be useful provided they are restricted to common areas and subject to clear rules",
@@ -1814,7 +1814,7 @@
           "usage": "Formule argumentative ; réutilisable en Éducation/Sécurité."
         },
         {
-          "id": "E3-AOU-C11-10",
+          "id": "E3-AOU-C11-10R1",
           "kind": "tournure",
           "french": "à condition qu’elles soient réservées aux lieux communs et soumises à des règles claires",
           "english": "provided they are restricted to common areas and subject to clear rules",
@@ -1854,7 +1854,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Sécurité."
         },
         {
-          "id": "E3-AOU-C11-15",
+          "id": "E3-AOU-C11-15R1",
           "kind": "expression",
           "french": "De plus",
           "english": "Moreover",
@@ -1894,7 +1894,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Sécurité."
         },
         {
-          "id": "E3-AOU-C11-20",
+          "id": "E3-AOU-C11-20R1",
           "kind": "phrase-modele",
           "french": "Des images datées peuvent clarifier des versions contradictoires et aider la direction à identifier les personnes impliquées",
           "english": "Dated footage can clarify conflicting accounts and help management identify the people involved",
@@ -1902,7 +1902,7 @@
           "usage": "Formule argumentative ; réutilisable en Éducation/Sécurité."
         },
         {
-          "id": "E3-AOU-C11-21",
+          "id": "E3-AOU-C11-21R1",
           "kind": "tournure",
           "french": "peuvent clarifier des versions contradictoires",
           "english": "can clarify conflicting accounts",
@@ -1910,7 +1910,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Éducation/Sécurité."
         },
         {
-          "id": "E3-AOU-C11-22",
+          "id": "E3-AOU-C11-22R1",
           "kind": "mot-cle",
           "french": "les personnes impliquées",
           "english": "the people involved",
@@ -1958,7 +1958,7 @@
           "usage": "Collocation ; réutilisable en Éducation/Sécurité."
         },
         {
-          "id": "E3-AOU-C11-28",
+          "id": "E3-AOU-C11-28R1",
           "kind": "mot-cle",
           "french": "des inquiétudes",
           "english": "concerns",
@@ -1989,7 +1989,7 @@
       "sujet": "L’art Urbain : Pour Ou Contre ?",
       "entries": [
         {
-          "id": "E3-AOU-C12-01",
+          "id": "E3-AOU-C12-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent l’art urbain",
           "english": "Both documents address urban art",
@@ -1997,7 +1997,7 @@
           "usage": "Formule argumentative ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-AOU-C12-02",
+          "id": "E3-AOU-C12-02R1",
           "kind": "mot-cle",
           "french": "la ville",
           "english": "the city",
@@ -2005,7 +2005,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-AOU-C12-03",
+          "id": "E3-AOU-C12-03R1",
           "kind": "verbe-action",
           "french": "valorise la curiosité",
           "english": "values curiosity",
@@ -2045,7 +2045,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-AOU-C12-08",
+          "id": "E3-AOU-C12-08R1",
           "kind": "mot-cle",
           "french": "certains graffitis",
           "english": "some graffiti",
@@ -2053,7 +2053,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-AOU-C12-09",
+          "id": "E3-AOU-C12-09R1",
           "kind": "verbe-action",
           "french": "assimile certains graffitis à du vandalisme",
           "english": "equates some graffiti with vandalism",
@@ -2077,7 +2077,7 @@
           "usage": "Collocation ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-AOU-C12-12",
+          "id": "E3-AOU-C12-12R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, je considère que l’art urbain améliore la ville à condition qu’il soit réalisé dans des espaces autorisés",
           "english": "For my part, I believe urban art improves the city provided it is created in authorized spaces",
@@ -2085,7 +2085,7 @@
           "usage": "Formule argumentative ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-AOU-C12-13",
+          "id": "E3-AOU-C12-13R1",
           "kind": "tournure",
           "french": "à condition qu’il soit réalisé dans des espaces autorisés",
           "english": "provided it is created in authorized spaces",
@@ -2173,7 +2173,7 @@
           "usage": "Collocation ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-AOU-C12-24",
+          "id": "E3-AOU-C12-24R1",
           "kind": "phrase-modele",
           "french": "Une œuvre peinte sur un mur de rue s’offre gratuitement aux passants, sans billet à acheter ni horaire à respecter",
           "english": "A work painted on a street wall offers itself for free to passersby, with no ticket to buy or schedule to follow",
@@ -2181,7 +2181,7 @@
           "usage": "Formule argumentative ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-AOU-C12-25",
+          "id": "E3-AOU-C12-25R1",
           "kind": "tournure",
           "french": "sans billet à acheter ni horaire à respecter",
           "english": "with no ticket to buy or schedule to follow",
@@ -2189,7 +2189,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-AOU-C12-26",
+          "id": "E3-AOU-C12-26R1",
           "kind": "mot-cle",
           "french": "aux passants",
           "english": "to passersby",
@@ -2197,7 +2197,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-AOU-C12-27",
+          "id": "E3-AOU-C12-27R1",
           "kind": "phrase-modele",
           "french": "En conclusion, je soutiens les œuvres autorisées qui associent artistes et habitants, mais pas les dégradations non autorisées",
           "english": "In conclusion, I support authorized works that bring together artists and residents, but not unauthorized damage",
@@ -2205,7 +2205,7 @@
           "usage": "Formule argumentative ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-AOU-C12-28",
+          "id": "E3-AOU-C12-28R1",
           "kind": "tournure",
           "french": "qui associent artistes et habitants",
           "english": "that bring together artists and residents",
@@ -2213,7 +2213,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-AOU-C12-29",
+          "id": "E3-AOU-C12-29R1",
           "kind": "mot-cle",
           "french": "les dégradations non autorisées",
           "english": "unauthorized damage",
@@ -2221,7 +2221,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-AOU-C12-30",
+          "id": "E3-AOU-C12-30R1",
           "kind": "reformulation",
           "french": "les œuvres autorisées",
           "english": "authorized works",
@@ -2236,7 +2236,7 @@
       "sujet": "Les objets connectés",
       "entries": [
         {
-          "id": "E3-AOU-C13-01",
+          "id": "E3-AOU-C13-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent les objets connectés",
           "english": "Both documents address connected devices",
@@ -2276,7 +2276,7 @@
           "usage": "Construction verbale ; réutilisable en Numérique/Santé."
         },
         {
-          "id": "E3-AOU-C13-06",
+          "id": "E3-AOU-C13-06R1",
           "kind": "expression",
           "french": "De son côté",
           "english": "For its part",
@@ -2308,7 +2308,7 @@
           "usage": "Construction verbale ; réutilisable en Numérique/Santé."
         },
         {
-          "id": "E3-AOU-C13-10",
+          "id": "E3-AOU-C13-10R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, ces appareils sont utiles à condition que la sécurité et la vie privée soient protégées dès leur conception",
           "english": "For my part, these devices are useful provided security and privacy are protected from the design stage",
@@ -2356,7 +2356,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Numérique/Santé."
         },
         {
-          "id": "E3-AOU-C13-16",
+          "id": "E3-AOU-C13-16R1",
           "kind": "expression",
           "french": "De plus",
           "english": "Moreover",
@@ -2404,7 +2404,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Numérique/Santé."
         },
         {
-          "id": "E3-AOU-C13-22",
+          "id": "E3-AOU-C13-22R1",
           "kind": "phrase-modele",
           "french": "Grâce à un chauffage ou à une alarme pilotés à distance, elles peuvent rester chez elles plus longtemps sans inquiéter leur entourage",
           "english": "Thanks to remotely controlled heating or an alarm, they can stay in their homes longer without worrying their loved ones",
@@ -2412,7 +2412,7 @@
           "usage": "Formule argumentative ; réutilisable en Numérique/Santé."
         },
         {
-          "id": "E3-AOU-C13-23",
+          "id": "E3-AOU-C13-23R1",
           "kind": "tournure",
           "french": "sans inquiéter leur entourage",
           "english": "without worrying their loved ones",
@@ -2420,7 +2420,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Numérique/Santé."
         },
         {
-          "id": "E3-AOU-C13-24",
+          "id": "E3-AOU-C13-24R1",
           "kind": "mot-cle",
           "french": "leur entourage",
           "english": "their loved ones",
@@ -2483,7 +2483,7 @@
       "sujet": "L'accès gratuit aux musées : avantage ou inconvénient ?",
       "entries": [
         {
-          "id": "E3-AOU-C14-01",
+          "id": "E3-AOU-C14-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent l’accès gratuit aux musées",
           "english": "Both documents address free museum access",
@@ -2563,7 +2563,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Culture/Égalité."
         },
         {
-          "id": "E3-AOU-C14-11",
+          "id": "E3-AOU-C14-11R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, les musées devraient offrir une gratuité régulière, à condition que leurs ressources restent suffisantes pour protéger les œuvres",
           "english": "For my part, museums should offer regular free admission, provided their resources remain sufficient to protect the artworks",
@@ -2571,7 +2571,7 @@
           "usage": "Formule argumentative ; réutilisable en Culture/Égalité."
         },
         {
-          "id": "E3-AOU-C14-12",
+          "id": "E3-AOU-C14-12R1",
           "kind": "tournure",
           "french": "à condition que leurs ressources restent suffisantes pour protéger les œuvres",
           "english": "provided their resources remain sufficient to protect the artworks",
@@ -2579,7 +2579,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Culture/Égalité."
         },
         {
-          "id": "E3-AOU-C14-13",
+          "id": "E3-AOU-C14-13R1",
           "kind": "mot-cle",
           "french": "leurs ressources",
           "english": "their resources",
@@ -2611,7 +2611,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Culture/Égalité."
         },
         {
-          "id": "E3-AOU-C14-17",
+          "id": "E3-AOU-C14-17R1",
           "kind": "expression",
           "french": "De plus",
           "english": "Moreover",
@@ -2651,7 +2651,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Culture/Égalité."
         },
         {
-          "id": "E3-AOU-C14-22",
+          "id": "E3-AOU-C14-22R1",
           "kind": "phrase-modele",
           "french": "Le prix d’entrée reste en effet le premier obstacle pour les visiteurs aux revenus limités, qui renoncent souvent avant même de se déplacer",
           "english": "The entrance fee remains indeed the first obstacle for visitors with limited income, who often give up even before making the trip",
@@ -2659,7 +2659,7 @@
           "usage": "Formule argumentative ; réutilisable en Culture/Égalité."
         },
         {
-          "id": "E3-AOU-C14-23",
+          "id": "E3-AOU-C14-23R1",
           "kind": "tournure",
           "french": "qui renoncent souvent avant même de se déplacer",
           "english": "who often give up even before making the trip",
@@ -2667,7 +2667,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Culture/Égalité."
         },
         {
-          "id": "E3-AOU-C14-24",
+          "id": "E3-AOU-C14-24R1",
           "kind": "mot-cle",
           "french": "les visiteurs aux revenus limités",
           "english": "visitors with limited income",
@@ -2675,7 +2675,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Culture/Égalité."
         },
         {
-          "id": "E3-AOU-C14-25",
+          "id": "E3-AOU-C14-25R1",
           "kind": "phrase-modele",
           "french": "En conclusion, je défends des créneaux gratuits sur réservation, financés sans compromettre la conservation ni la qualité de la visite",
           "english": "In conclusion, I support free reservation-based time slots, funded without compromising conservation or visit quality",
@@ -2683,7 +2683,7 @@
           "usage": "Formule argumentative ; réutilisable en Culture/Égalité."
         },
         {
-          "id": "E3-AOU-C14-26",
+          "id": "E3-AOU-C14-26R1",
           "kind": "tournure",
           "french": "financés sans compromettre la conservation ni la qualité de la visite",
           "english": "funded without compromising conservation or visit quality",
@@ -2730,7 +2730,7 @@
       "sujet": "La Restauration Rapide.",
       "entries": [
         {
-          "id": "E3-AOU-C15-01",
+          "id": "E3-AOU-C15-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent la restauration rapide",
           "english": "Both documents address fast food",
@@ -2738,7 +2738,7 @@
           "usage": "Formule argumentative ; réutilisable en Alimentation/Responsabilité."
         },
         {
-          "id": "E3-AOU-C15-02",
+          "id": "E3-AOU-C15-02R1",
           "kind": "mot-cle",
           "french": "d’ingrédients inconnus",
           "english": "unknown ingredients",
@@ -2754,7 +2754,7 @@
           "usage": "Collocation ; réutilisable en Alimentation/Responsabilité."
         },
         {
-          "id": "E3-AOU-C15-04",
+          "id": "E3-AOU-C15-04R1",
           "kind": "verbe-action",
           "french": "la rejette",
           "english": "rejects it",
@@ -2762,7 +2762,7 @@
           "usage": "Construction verbale ; réutilisable en Alimentation/Responsabilité."
         },
         {
-          "id": "E3-AOU-C15-05",
+          "id": "E3-AOU-C15-05R1",
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
@@ -2770,7 +2770,7 @@
           "usage": "Connecteur adverbial ; réutilisable en Alimentation/Responsabilité."
         },
         {
-          "id": "E3-AOU-C15-06",
+          "id": "E3-AOU-C15-06R1",
           "kind": "mot-cle",
           "french": "les menus",
           "english": "the menus",
@@ -2778,7 +2778,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Alimentation/Responsabilité."
         },
         {
-          "id": "E3-AOU-C15-07",
+          "id": "E3-AOU-C15-07R1",
           "kind": "collocation",
           "french": "le client reste responsable",
           "english": "the customer remains responsible",
@@ -2794,7 +2794,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Alimentation/Responsabilité."
         },
         {
-          "id": "E3-AOU-C15-09",
+          "id": "E3-AOU-C15-09R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, la restauration rapide reste acceptable à condition que le client puisse réellement composer un repas équilibré",
           "english": "For my part, fast food remains acceptable provided the customer can genuinely put together a balanced meal",
@@ -2802,7 +2802,7 @@
           "usage": "Formule argumentative ; réutilisable en Alimentation/Responsabilité."
         },
         {
-          "id": "E3-AOU-C15-10",
+          "id": "E3-AOU-C15-10R1",
           "kind": "tournure",
           "french": "à condition que le client puisse réellement composer un repas équilibré",
           "english": "provided the customer can genuinely put together a balanced meal",
@@ -2834,7 +2834,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Alimentation/Responsabilité."
         },
         {
-          "id": "E3-AOU-C15-14",
+          "id": "E3-AOU-C15-14R1",
           "kind": "expression",
           "french": "De plus",
           "english": "Moreover",
@@ -2882,7 +2882,7 @@
           "usage": "Collocation ; réutilisable en Alimentation/Responsabilité."
         },
         {
-          "id": "E3-AOU-C15-20",
+          "id": "E3-AOU-C15-20R1",
           "kind": "mot-cle",
           "french": "un repas pris en vingt minutes",
           "english": "a meal eaten in twenty minutes",
@@ -2890,7 +2890,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Alimentation/Responsabilité."
         },
         {
-          "id": "E3-AOU-C15-21",
+          "id": "E3-AOU-C15-21R1",
           "kind": "phrase-modele",
           "french": "Entre deux réunions ou avant un train, un repas pris en vingt minutes reste parfois la seule solution réaliste",
           "english": "Between two meetings or before catching a train, a meal eaten in twenty minutes sometimes remains the only realistic option",
@@ -2898,7 +2898,7 @@
           "usage": "Formule argumentative ; réutilisable en Alimentation/Responsabilité."
         },
         {
-          "id": "E3-AOU-C15-22",
+          "id": "E3-AOU-C15-22R1",
           "kind": "tournure",
           "french": "reste parfois la seule solution réaliste",
           "english": "sometimes remains the only realistic option",
@@ -2906,7 +2906,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Alimentation/Responsabilité."
         },
         {
-          "id": "E3-AOU-C15-23",
+          "id": "E3-AOU-C15-23R1",
           "kind": "mot-cle",
           "french": "deux réunions",
           "english": "two meetings",
@@ -2954,7 +2954,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Alimentation/Responsabilité."
         },
         {
-          "id": "E3-AOU-C15-29",
+          "id": "E3-AOU-C15-29R1",
           "kind": "reformulation",
           "french": "la défend",
           "english": "defends it",
@@ -2977,7 +2977,7 @@
       "sujet": "Influence de la publicité sur les enfants : pour ou contre ?",
       "entries": [
         {
-          "id": "E3-AOU-C16-01",
+          "id": "E3-AOU-C16-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent l’influence de la publicité sur les enfants",
           "english": "Both documents address the influence of advertising on children",
@@ -3017,7 +3017,7 @@
           "usage": "Construction verbale ; réutilisable en Publicité/Éducation."
         },
         {
-          "id": "E3-AOU-C16-06",
+          "id": "E3-AOU-C16-06R1",
           "kind": "expression",
           "french": "De son côté",
           "english": "For its part",
@@ -3033,7 +3033,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Publicité/Éducation."
         },
         {
-          "id": "E3-AOU-C16-08",
+          "id": "E3-AOU-C16-08R1",
           "kind": "collocation",
           "french": "leurs choix de consommation",
           "english": "their consumption choices",
@@ -3041,7 +3041,7 @@
           "usage": "Collocation ; réutilisable en Publicité/Éducation."
         },
         {
-          "id": "E3-AOU-C16-09",
+          "id": "E3-AOU-C16-09R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, il faut que la publicité destinée aux enfants soit strictement encadrée et que les adultes développent l’esprit critique des plus jeunes",
           "english": "For my part, advertising aimed at children must be strictly regulated and adults must develop younger children's critical thinking",
@@ -3049,7 +3049,7 @@
           "usage": "Formule argumentative ; réutilisable en Publicité/Éducation."
         },
         {
-          "id": "E3-AOU-C16-10",
+          "id": "E3-AOU-C16-10R1",
           "kind": "tournure",
           "french": "que les adultes développent l’esprit critique des plus jeunes",
           "english": "that adults develop younger children's critical thinking",
@@ -3057,7 +3057,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Publicité/Éducation."
         },
         {
-          "id": "E3-AOU-C16-11",
+          "id": "E3-AOU-C16-11R1",
           "kind": "mot-cle",
           "french": "la publicité destinée aux enfants",
           "english": "advertising aimed at children",
@@ -3097,7 +3097,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Publicité/Éducation."
         },
         {
-          "id": "E3-AOU-C16-16",
+          "id": "E3-AOU-C16-16R1",
           "kind": "expression",
           "french": "De plus",
           "english": "Moreover",
@@ -3137,7 +3137,7 @@
           "usage": "Collocation ; réutilisable en Publicité/Éducation."
         },
         {
-          "id": "E3-AOU-C16-21",
+          "id": "E3-AOU-C16-21R1",
           "kind": "phrase-modele",
           "french": "Ils réclament donc un jouet ou un goûter sans percevoir l’intention commerciale qui se cache derrière l’image",
           "english": "They therefore ask for a toy or a snack without perceiving the commercial intent hidden behind the image",
@@ -3145,7 +3145,7 @@
           "usage": "Formule argumentative ; réutilisable en Publicité/Éducation."
         },
         {
-          "id": "E3-AOU-C16-22",
+          "id": "E3-AOU-C16-22R1",
           "kind": "tournure",
           "french": "sans percevoir l’intention commerciale qui se cache derrière l’image",
           "english": "without perceiving the commercial intent hidden behind the image",
@@ -3153,7 +3153,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Publicité/Éducation."
         },
         {
-          "id": "E3-AOU-C16-23",
+          "id": "E3-AOU-C16-23R1",
           "kind": "mot-cle",
           "french": "l’intention commerciale",
           "english": "the commercial intent",
@@ -3224,7 +3224,7 @@
       "sujet": "La vie à la campagne ou en ville",
       "entries": [
         {
-          "id": "E3-AOU-C17-01",
+          "id": "E3-AOU-C17-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent la vie en ville et à la campagne",
           "english": "Both documents address life in the city and in the countryside",
@@ -3272,7 +3272,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Ville/Campagne."
         },
         {
-          "id": "E3-AOU-C17-07",
+          "id": "E3-AOU-C17-07R1",
           "kind": "collocation",
           "french": "des logements plus spacieux à un prix abordable",
           "english": "larger housing at an affordable price",
@@ -3288,7 +3288,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Ville/Campagne."
         },
         {
-          "id": "E3-AOU-C17-09",
+          "id": "E3-AOU-C17-09R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, je choisirais la campagne à condition qu’elle reste reliée à la ville par des transports en commun fiables",
           "english": "For my part, I would choose the countryside provided it remains connected to the city by reliable public transit",
@@ -3296,7 +3296,7 @@
           "usage": "Formule argumentative ; réutilisable en Ville/Campagne."
         },
         {
-          "id": "E3-AOU-C17-10",
+          "id": "E3-AOU-C17-10R1",
           "kind": "tournure",
           "french": "à condition qu’elle reste reliée à la ville par des transports en commun fiables",
           "english": "provided it remains connected to the city by reliable public transit",
@@ -3344,7 +3344,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Ville/Campagne."
         },
         {
-          "id": "E3-AOU-C17-16",
+          "id": "E3-AOU-C17-16R1",
           "kind": "expression",
           "french": "De plus",
           "english": "Moreover",
@@ -3384,7 +3384,7 @@
           "usage": "Collocation ; réutilisable en Ville/Campagne."
         },
         {
-          "id": "E3-AOU-C17-21",
+          "id": "E3-AOU-C17-21R1",
           "kind": "phrase-modele",
           "french": "Recevoir ses amis sur une terrasse ou dans un jardin remplace avantageusement les sorties bruyantes du centre-ville",
           "english": "Hosting friends on a terrace or in a garden advantageously replaces noisy outings in the city center",
@@ -3392,7 +3392,7 @@
           "usage": "Formule argumentative ; réutilisable en Ville/Campagne."
         },
         {
-          "id": "E3-AOU-C17-22",
+          "id": "E3-AOU-C17-22R1",
           "kind": "tournure",
           "french": "remplace avantageusement les sorties bruyantes du centre-ville",
           "english": "advantageously replaces noisy outings in the city center",
@@ -3400,7 +3400,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Ville/Campagne."
         },
         {
-          "id": "E3-AOU-C17-23",
+          "id": "E3-AOU-C17-23R1",
           "kind": "mot-cle",
           "french": "une terrasse ou dans un jardin",
           "english": "a terrace or a garden",
@@ -3408,7 +3408,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Ville/Campagne."
         },
         {
-          "id": "E3-AOU-C17-24",
+          "id": "E3-AOU-C17-24R1",
           "kind": "collocation",
           "french": "les sorties bruyantes",
           "english": "noisy outings",
@@ -3416,7 +3416,7 @@
           "usage": "Collocation ; réutilisable en Ville/Campagne."
         },
         {
-          "id": "E3-AOU-C17-25",
+          "id": "E3-AOU-C17-25R1",
           "kind": "phrase-modele",
           "french": "En conclusion, je choisirais la campagne pour son calme et ses logements moins coûteux, à condition de conserver un accès fiable aux services urbains",
           "english": "In conclusion, I would choose the countryside for its calm and less expensive housing, provided reliable access to urban services is maintained",
@@ -3424,7 +3424,7 @@
           "usage": "Formule argumentative ; réutilisable en Ville/Campagne."
         },
         {
-          "id": "E3-AOU-C17-26",
+          "id": "E3-AOU-C17-26R1",
           "kind": "tournure",
           "french": "à condition de conserver un accès fiable aux services urbains",
           "english": "provided reliable access to urban services is maintained",
@@ -3432,7 +3432,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Ville/Campagne."
         },
         {
-          "id": "E3-AOU-C17-27",
+          "id": "E3-AOU-C17-27R1",
           "kind": "verbe-action",
           "french": "conserver un accès fiable",
           "english": "maintain reliable access",
@@ -3440,7 +3440,7 @@
           "usage": "Construction verbale ; réutilisable en Ville/Campagne."
         },
         {
-          "id": "E3-AOU-C17-28",
+          "id": "E3-AOU-C17-28R1",
           "kind": "mot-cle",
           "french": "aux services urbains",
           "english": "to urban services",
@@ -3448,7 +3448,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Ville/Campagne."
         },
         {
-          "id": "E3-AOU-C17-29",
+          "id": "E3-AOU-C17-29R1",
           "kind": "reformulation",
           "french": "elle reste reliée à la ville",
           "english": "it remains connected to the city",
@@ -3456,7 +3456,7 @@
           "usage": "Reprise anaphorique ; réutilisable en Ville/Campagne."
         },
         {
-          "id": "E3-AOU-C17-30",
+          "id": "E3-AOU-C17-30R1",
           "kind": "mot-cle",
           "french": "prendre le train",
           "english": "take the train",
@@ -3471,7 +3471,7 @@
       "sujet": "Diplôme ou expérience pour l’emploi des jeunes ?",
       "entries": [
         {
-          "id": "E3-AOU-C18-01",
+          "id": "E3-AOU-C18-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent le diplôme et l’expérience dans l’insertion professionnelle",
           "english": "Both documents address qualifications and experience in professional integration",
@@ -3535,7 +3535,7 @@
           "usage": "Construction verbale ; réutilisable en Emploi/Formation."
         },
         {
-          "id": "E3-AOU-C18-09",
+          "id": "E3-AOU-C18-09R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, le diplôme et l’expérience doivent se compléter plutôt que s’exclure",
           "english": "For my part, qualifications and experience should complement rather than exclude each other",
@@ -3631,7 +3631,7 @@
           "usage": "Collocation ; réutilisable en Emploi/Formation."
         },
         {
-          "id": "E3-AOU-C18-21",
+          "id": "E3-AOU-C18-21R1",
           "kind": "phrase-modele",
           "french": "En revanche, le second valorise l’expérience pratique et l’autoformation, estimant que l’université peut standardiser les parcours et limiter la créativité entrepreneuriale",
           "english": "On the other hand, the second text values practical experience and self-training, considering that university can standardize career paths and limit entrepreneurial creativity",
@@ -3639,7 +3639,7 @@
           "usage": "Formule argumentative ; réutilisable en Emploi/Formation."
         },
         {
-          "id": "E3-AOU-C18-22",
+          "id": "E3-AOU-C18-22R1",
           "kind": "tournure",
           "french": "estimant que l’université peut standardiser les parcours",
           "english": "considering that university can standardize career paths",
@@ -3647,7 +3647,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Emploi/Formation."
         },
         {
-          "id": "E3-AOU-C18-23",
+          "id": "E3-AOU-C18-23R1",
           "kind": "mot-cle",
           "french": "le second",
           "english": "the second (text)",
@@ -3718,7 +3718,7 @@
       "sujet": "La sieste au travail.",
       "entries": [
         {
-          "id": "E3-AOU-C19-01",
+          "id": "E3-AOU-C19-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent la sieste au travail",
           "english": "Both documents address napping at work",
@@ -3766,7 +3766,7 @@
           "usage": "Construction verbale ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AOU-C19-07",
+          "id": "E3-AOU-C19-07R1",
           "kind": "expression",
           "french": "De son côté",
           "english": "For its part",
@@ -3790,7 +3790,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AOU-C19-10",
+          "id": "E3-AOU-C19-10R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, une courte sieste devrait être permise à condition qu’elle reste volontaire",
           "english": "For my part, a short nap should be permitted provided it remains voluntary",
@@ -3798,7 +3798,7 @@
           "usage": "Formule argumentative ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AOU-C19-11",
+          "id": "E3-AOU-C19-11R1",
           "kind": "tournure",
           "french": "à condition qu’elle reste volontaire",
           "english": "provided it remains voluntary",
@@ -3830,7 +3830,7 @@
           "usage": "Construction verbale ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AOU-C19-15",
+          "id": "E3-AOU-C19-15R1",
           "kind": "expression",
           "french": "De plus",
           "english": "Moreover",
@@ -3878,7 +3878,7 @@
           "usage": "Collocation ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AOU-C19-21",
+          "id": "E3-AOU-C19-21R1",
           "kind": "phrase-modele",
           "french": "Un salarié moins fatigué commet moins d’erreurs, ce qui réduit aussi les accidents et leurs coûts",
           "english": "A less tired employee makes fewer mistakes, which also reduces accidents and their costs",
@@ -3886,7 +3886,7 @@
           "usage": "Formule argumentative ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AOU-C19-22",
+          "id": "E3-AOU-C19-22R1",
           "kind": "tournure",
           "french": "ce qui réduit aussi les accidents et leurs coûts",
           "english": "which also reduces accidents and their costs",
@@ -3894,7 +3894,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AOU-C19-23",
+          "id": "E3-AOU-C19-23R1",
           "kind": "mot-cle",
           "french": "Un salarié moins fatigué",
           "english": "A less tired employee",
@@ -3902,7 +3902,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AOU-C19-24",
+          "id": "E3-AOU-C19-24R1",
           "kind": "mot-cle",
           "french": "moins d’erreurs",
           "english": "fewer mistakes",
@@ -3910,7 +3910,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AOU-C19-25",
+          "id": "E3-AOU-C19-25R1",
           "kind": "phrase-modele",
           "french": "En conclusion, je soutiens une pause de quinze minutes, volontaire et compatible avec l’organisation de chaque entreprise",
           "english": "In conclusion, I support a fifteen-minute break, voluntary and compatible with each company's organization",
@@ -3918,7 +3918,7 @@
           "usage": "Formule argumentative ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AOU-C19-26",
+          "id": "E3-AOU-C19-26R1",
           "kind": "collocation",
           "french": "une pause de quinze minutes",
           "english": "a fifteen-minute break",
@@ -3926,7 +3926,7 @@
           "usage": "Collocation ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AOU-C19-27",
+          "id": "E3-AOU-C19-27R1",
           "kind": "tournure",
           "french": "compatible avec l’organisation de chaque entreprise",
           "english": "compatible with each company's organization",
@@ -3934,7 +3934,7 @@
           "usage": "Tournure grammaticale ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AOU-C19-28",
+          "id": "E3-AOU-C19-28R1",
           "kind": "mot-cle",
           "french": "volontaire",
           "english": "voluntary",
@@ -3950,7 +3950,7 @@
           "usage": "Reprise anaphorique ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-AOU-C19-30",
+          "id": "E3-AOU-C19-30R1",
           "kind": "mot-cle",
           "french": "chaque entreprise",
           "english": "each company",

@@ -30,6 +30,7 @@ from study.models import (
     ReviewLog,
     ReviewSession,
     Theme,
+    ThemeVocabularyProgress,
 )
 
 from . import factories
@@ -655,6 +656,108 @@ class NonDestructiveImportTests(TestCase):
         self.assertFalse(phrase.is_active)
         self.assertFalse(imported_new.is_active)
         self.assertEqual(card.reps, 6)
+
+    def test_replacement_phrase_id_does_not_inherit_retired_learner_state(self):
+        response = factories.make_response()
+        prompt = response.prompts.get(is_canonical=True)
+        user = factories.make_user("phrase-identity-revision")
+        retired = factories.make_phrase(tier="subject")
+        retired.phrase_id = "E3-JAN-C04-07"
+        retired.expression = "trouver un logement, un emploi et leur autonomie"
+        retired.anchor = "trouver un logement, un emploi et leur autonomie"
+        retired.english_cue = "find housing, a job and their independence"
+        retired.example = (
+            "Cette aide permet de trouver un logement, un emploi et leur "
+            "autonomie."
+        )
+        retired.note = "Repurposed by an unsafe intermediate import."
+        retired.save(update_fields=[
+            "phrase_id", "expression", "anchor", "english_cue", "example", "note",
+        ])
+        old_card = factories.make_phrase_card(
+            user=user,
+            phrase=retired,
+            state=CardState.REVIEW,
+            reps=9,
+            interval_days=21,
+            last_reviewed=timezone.now(),
+        )
+        learned = ThemeVocabularyProgress.objects.create(
+            user=user,
+            phrase=retired,
+        )
+        annotation = Annotation.objects.create(
+            user=user,
+            task=response.theme.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="plus durable",
+            source_key="phrase:E3-JAN-C04-07:front",
+            source_path="/expression-ecrite/tache-3/vocabulaire/",
+            start_offset=0,
+            end_offset=12,
+        )
+        replacement = content.PhraseData(
+            phrase_id="E3-JAN-C04-07R1",
+            tier="subject",
+            category=content.EE_TACHE_THREE_VOCABULARY_CATEGORIES["collocation"],
+            english_cue="find housing, a job and their independence",
+            expression="trouver un logement, un emploi et leur autonomie",
+            anchor="trouver un logement, un emploi et leur autonomie",
+            example=(
+                "Cette aide permet de trouver un logement, un emploi et leur "
+                "autonomie."
+            ),
+            note="Replacement target.",
+            sources_raw=f"{prompt.theme.name} P{prompt.number}",
+            sources=((prompt.theme.name, prompt.number),),
+            order=1500,
+        )
+
+        command = Command()
+        command._import_phrases(
+            [replacement],
+            {(prompt.theme.name, prompt.number): prompt},
+        )
+        command._sync_cards({response.content_key: response}, user=user)
+
+        retired.refresh_from_db()
+        old_card.refresh_from_db()
+        learned.refresh_from_db()
+        annotation.refresh_from_db()
+        current = Phrase.objects.get(phrase_id=replacement.phrase_id)
+        current_card = Card.objects.get(
+            user=user,
+            phrase=current,
+            card_type=CardType.PHRASE_PRODUCTION,
+        )
+        self.assertFalse(retired.is_active)
+        self.assertEqual(retired.expression, "plus durable")
+        self.assertEqual(retired.english_cue, "more sustainable")
+        self.assertEqual(
+            retired.example,
+            "Cependant, l’engagement associatif est jugé plus durable lorsqu’il "
+            "conduit les bénéficiaires vers un logement, un emploi et l’autonomie.",
+        )
+        self.assertEqual(
+            retired.note,
+            "Locution ; réutilisable en Solidarité/Emploi.",
+        )
+        self.assertEqual(old_card.reps, 9)
+        self.assertEqual(old_card.interval_days, 21)
+        self.assertEqual(learned.phrase_id, retired.pk)
+        self.assertEqual(
+            annotation.source_key,
+            "phrase:E3-JAN-C04-07:front",
+        )
+        self.assertTrue(current.is_active)
+        self.assertEqual(current_card.state, CardState.NEW)
+        self.assertEqual(current_card.reps, 0)
+        self.assertFalse(
+            ThemeVocabularyProgress.objects.filter(
+                user=user,
+                phrase=current,
+            ).exists()
+        )
 
     def test_card_sync_creates_only_production_for_local_vocabulary(self):
         user = factories.make_user("subject-card-sync")

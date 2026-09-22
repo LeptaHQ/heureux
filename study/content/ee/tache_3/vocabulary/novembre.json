@@ -13,7 +13,7 @@
       "sujet": "Les jeux vidéo : Pour ou contre ?",
       "entries": [
         {
-          "id": "E3-NOV-C01-01",
+          "id": "E3-NOV-C01-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent les effets des jeux vidéo",
           "english": "Both documents address the effects of video games",
@@ -29,7 +29,7 @@
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
-          "id": "E3-NOV-C01-03",
+          "id": "E3-NOV-C01-03R1",
           "kind": "expression",
           "french": "De son côté",
           "english": "For its part",
@@ -53,7 +53,7 @@
           "usage": "Association lexicale, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
-          "id": "E3-NOV-C01-06",
+          "id": "E3-NOV-C01-06R1",
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
@@ -77,7 +77,7 @@
           "usage": "Groupe nominal, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
-          "id": "E3-NOV-C01-09",
+          "id": "E3-NOV-C01-09R1",
           "kind": "mot-cle",
           "french": "la violence",
           "english": "violence",
@@ -85,7 +85,7 @@
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
-          "id": "E3-NOV-C01-10",
+          "id": "E3-NOV-C01-10R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, les jeux vidéo peuvent être bénéfiques à condition que leur usage soit adapté à l’âge et limité",
           "english": "For my part, video games can be beneficial provided that their use is age-appropriate and limited",
@@ -189,7 +189,7 @@
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
-          "id": "E3-NOV-C01-23",
+          "id": "E3-NOV-C01-23R1",
           "kind": "phrase-modele",
           "french": "Par exemple, un adolescent pourrait jouer quarante-cinq minutes après avoir terminé son travail scolaire, puis éteindre sa console avant le repas",
           "english": "For example, a teenager could play forty-five minutes after finishing his schoolwork, then turn off his console before the meal",
@@ -197,7 +197,7 @@
           "usage": "Phrase d’illustration au conditionnel ; réutilisable en Numérique/Éducation."
         },
         {
-          "id": "E3-NOV-C01-24",
+          "id": "E3-NOV-C01-24R1",
           "kind": "mot-cle",
           "french": "un adolescent",
           "english": "a teenager",
@@ -205,7 +205,7 @@
           "usage": "Groupe nominal singulier, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
-          "id": "E3-NOV-C01-25",
+          "id": "E3-NOV-C01-25R1",
           "kind": "mot-cle",
           "french": "sa console",
           "english": "his games console",
@@ -260,7 +260,7 @@
       "sujet": "Les bureaux électriques",
       "entries": [
         {
-          "id": "E3-NOV-C02-01",
+          "id": "E3-NOV-C02-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent le bien-être au travail",
           "english": "Both documents address well-being at work",
@@ -276,7 +276,7 @@
           "usage": "Nom masculin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-NOV-C02-03",
+          "id": "E3-NOV-C02-03R1",
           "kind": "mot-cle",
           "french": "le confort",
           "english": "comfort",
@@ -340,7 +340,7 @@
           "usage": "Groupe nominal, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-NOV-C02-11",
+          "id": "E3-NOV-C02-11R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, il faut que les bonnes conditions matérielles s’accompagnent du respect des horaires pour assurer le bien-être des salariés",
           "english": "For my part, good material conditions must be accompanied by respect for working hours to ensure employee well-being",
@@ -356,7 +356,7 @@
           "usage": "Nom masculin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-NOV-C02-13",
+          "id": "E3-NOV-C02-13R1",
           "kind": "collocation",
           "french": "les bonnes conditions matérielles",
           "english": "good material conditions",
@@ -444,7 +444,7 @@
           "usage": "Groupe nominal, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-NOV-C02-24",
+          "id": "E3-NOV-C02-24R1",
           "kind": "phrase-modele",
           "french": "Cette politique améliore le confort sans pousser les employés aux heures supplémentaires",
           "english": "This policy improves comfort without pushing employees into overtime",
@@ -452,7 +452,7 @@
           "usage": "Formule argumentative, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-NOV-C02-25",
+          "id": "E3-NOV-C02-25R1",
           "kind": "collocation",
           "french": "améliore le confort",
           "english": "improves comfort",
@@ -460,7 +460,7 @@
           "usage": "Association lexicale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-NOV-C02-26",
+          "id": "E3-NOV-C02-26R1",
           "kind": "phrase-modele",
           "french": "En conclusion, le plus important est de créer un environnement sain qui soutienne l’efficacité sans augmenter la pression",
           "english": "In conclusion, the most important thing is to create a healthy environment that supports efficiency without increasing pressure",
@@ -507,7 +507,7 @@
       "sujet": "Les distributeurs de boissons dans les lycées : Pour ou contre ?",
       "entries": [
         {
-          "id": "E3-NOV-C03-01",
+          "id": "E3-NOV-C03-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent l’interdiction des distributeurs automatiques au lycée",
           "english": "Both documents address the ban on vending machines in high schools",
@@ -531,7 +531,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Santé."
         },
         {
-          "id": "E3-NOV-C03-04",
+          "id": "E3-NOV-C03-04R1",
           "kind": "collocation",
           "french": "rôle éducatif de l’école",
           "english": "the educational role of the school",
@@ -539,7 +539,7 @@
           "usage": "Collocation ; réutilisable en Éducation/Santé."
         },
         {
-          "id": "E3-NOV-C03-05",
+          "id": "E3-NOV-C03-05R1",
           "kind": "mot-cle",
           "french": "l’école",
           "english": "the school",
@@ -563,7 +563,7 @@
           "usage": "Reprise anaphorique ; réutilisable en Éducation/Santé."
         },
         {
-          "id": "E3-NOV-C03-08",
+          "id": "E3-NOV-C03-08R1",
           "kind": "mot-cle",
           "french": "petit déjeuner",
           "english": "breakfast",
@@ -595,7 +595,7 @@
           "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Santé."
         },
         {
-          "id": "E3-NOV-C03-12",
+          "id": "E3-NOV-C03-12R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, je suis favorable à ces appareils à condition que leur contenu soit strictement encadré",
           "english": "For my part, I am in favour of these machines provided that their contents are strictly regulated",
@@ -683,7 +683,7 @@
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Santé/Éducation."
         },
         {
-          "id": "E3-NOV-C03-23",
+          "id": "E3-NOV-C03-23R1",
           "kind": "phrase-modele",
           "french": "Par exemple, entre deux cours, un élève pressé peut se servir en quelques secondes plutôt que de faire la queue à la fontaine",
           "english": "For example, between two classes, a student in a hurry can help himself in a few seconds rather than queueing at the fountain",
@@ -691,7 +691,7 @@
           "usage": "Phrase d’illustration, registre neutre ; réutilisable en Santé/Éducation."
         },
         {
-          "id": "E3-NOV-C03-24",
+          "id": "E3-NOV-C03-24R1",
           "kind": "collocation",
           "french": "faire la queue à la fontaine",
           "english": "to queue at the water fountain",
@@ -754,7 +754,7 @@
       "sujet": "La sieste au travail : Pour ou contre ?",
       "entries": [
         {
-          "id": "E3-NOV-C04-01",
+          "id": "E3-NOV-C04-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent la sieste au travail",
           "english": "Both documents address napping at work",
@@ -770,7 +770,7 @@
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-NOV-C04-03",
+          "id": "E3-NOV-C04-03R1",
           "kind": "reformulation",
           "french": "Le premier",
           "english": "the first document",
@@ -794,7 +794,7 @@
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-NOV-C04-06",
+          "id": "E3-NOV-C04-06R1",
           "kind": "expression",
           "french": "De son côté",
           "english": "For its part",
@@ -826,7 +826,7 @@
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-NOV-C04-10",
+          "id": "E3-NOV-C04-10R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, une courte sieste peut améliorer le bien-être et la productivité à condition qu’elle reste facultative",
           "english": "For my part, a short nap can improve well-being and productivity provided that it remains optional",
@@ -866,7 +866,7 @@
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-NOV-C04-15",
+          "id": "E3-NOV-C04-15R1",
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
@@ -954,7 +954,7 @@
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-NOV-C04-26",
+          "id": "E3-NOV-C04-26R1",
           "kind": "phrase-modele",
           "french": "Une pause aussi brève évite l’endormissement profond et permet de reprendre sa tâche immédiatement",
           "english": "Such a short break avoids deep sleep and makes it possible to resume one’s task immediately",
@@ -962,7 +962,7 @@
           "usage": "Formule argumentative, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-NOV-C04-27",
+          "id": "E3-NOV-C04-27R1",
           "kind": "tournure",
           "french": "permet de reprendre sa tâche immédiatement",
           "english": "makes it possible to resume one’s task immediately",
@@ -978,7 +978,7 @@
           "usage": "Association lexicale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
-          "id": "E3-NOV-C04-29",
+          "id": "E3-NOV-C04-29R1",
           "kind": "phrase-modele",
           "french": "En conclusion, le plus important est de proposer une solution simple, équitable et adaptée aux conditions de travail, sans imposer cette pratique aux salariés",
           "english": "In conclusion, the most important thing is to offer a simple, fair solution suited to working conditions, without imposing this practice on employees",
@@ -1001,7 +1001,7 @@
       "sujet": "La chasse aux animaux : pour ou contre ?",
       "entries": [
         {
-          "id": "E3-NOV-C05-01",
+          "id": "E3-NOV-C05-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent la chasse aux animaux",
           "english": "Both documents address the hunting of animals",
@@ -1017,7 +1017,7 @@
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Environnement/Société."
         },
         {
-          "id": "E3-NOV-C05-03",
+          "id": "E3-NOV-C05-03R1",
           "kind": "mot-cle",
           "french": "un plaisir",
           "english": "a pleasure",
@@ -1025,7 +1025,7 @@
           "usage": "Nom masculin singulier, registre neutre ; réutilisable en Environnement/Société."
         },
         {
-          "id": "E3-NOV-C05-04",
+          "id": "E3-NOV-C05-04R1",
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
@@ -1057,7 +1057,7 @@
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Environnement/Société."
         },
         {
-          "id": "E3-NOV-C05-08",
+          "id": "E3-NOV-C05-08R1",
           "kind": "reformulation",
           "french": "cette pratique",
           "english": "this practice",
@@ -1065,7 +1065,7 @@
           "usage": "Reformulation, registre neutre ; réutilisable en Environnement/Société."
         },
         {
-          "id": "E3-NOV-C05-09",
+          "id": "E3-NOV-C05-09R1",
           "kind": "mot-cle",
           "french": "la subsistance",
           "english": "subsistence",
@@ -1089,7 +1089,7 @@
           "usage": "Groupe nominal, registre neutre ; réutilisable en Environnement/Société."
         },
         {
-          "id": "E3-NOV-C05-12",
+          "id": "E3-NOV-C05-12R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, la chasse de loisir est difficilement justifiable, mais une intervention encadrée peut parfois être nécessaire",
           "english": "For my part, recreational hunting is hard to justify, but regulated intervention may sometimes be necessary",
@@ -1185,7 +1185,7 @@
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Environnement/Société."
         },
         {
-          "id": "E3-NOV-C05-24",
+          "id": "E3-NOV-C05-24R1",
           "kind": "phrase-modele",
           "french": "Un trophée n’apporte aucun bénéfice collectif et prive la nature d’individus parfois essentiels à leur espèce",
           "english": "A trophy brings no collective benefit and deprives nature of individuals sometimes essential to their species",
@@ -1193,7 +1193,7 @@
           "usage": "Formule argumentative, registre neutre ; réutilisable en Environnement/Société."
         },
         {
-          "id": "E3-NOV-C05-25",
+          "id": "E3-NOV-C05-25R1",
           "kind": "mot-cle",
           "french": "aucun bénéfice collectif",
           "english": "no collective benefit",
@@ -1233,7 +1233,7 @@
           "usage": "Association lexicale, registre neutre ; réutilisable en Environnement/Société."
         },
         {
-          "id": "E3-NOV-C05-30",
+          "id": "E3-NOV-C05-30R1",
           "kind": "verbe-action",
           "french": "tuer pour le prestige",
           "english": "to kill for prestige",
@@ -1248,7 +1248,7 @@
       "sujet": "La Restauration Rapide.",
       "entries": [
         {
-          "id": "E3-NOV-C06-01",
+          "id": "E3-NOV-C06-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent la restauration rapide",
           "english": "Both documents address fast food",
@@ -1264,7 +1264,7 @@
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
-          "id": "E3-NOV-C06-03",
+          "id": "E3-NOV-C06-03R1",
           "kind": "reformulation",
           "french": "Le premier",
           "english": "the first document",
@@ -1272,7 +1272,7 @@
           "usage": "Reformulation, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
-          "id": "E3-NOV-C06-04",
+          "id": "E3-NOV-C06-04R1",
           "kind": "collocation",
           "french": "la variété des menus",
           "english": "the variety of menus",
@@ -1328,7 +1328,7 @@
           "usage": "Groupe nominal, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
-          "id": "E3-NOV-C06-11",
+          "id": "E3-NOV-C06-11R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, la restauration rapide peut dépanner à condition qu’elle reste occasionnelle",
           "english": "For my part, fast food can help out provided that it remains occasional",
@@ -1432,7 +1432,7 @@
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
-          "id": "E3-NOV-C06-24",
+          "id": "E3-NOV-C06-24R1",
           "kind": "phrase-modele",
           "french": "Tout d’abord, cuisiner des produits frais permet de mieux contrôler le sel, le sucre et les portions, alors qu’un menu standardisé impose les mêmes quantités à tous",
           "english": "First of all, cooking fresh products makes it possible to better control salt, sugar and portions, whereas a standardized menu imposes the same quantities on everyone",
@@ -1440,7 +1440,7 @@
           "usage": "Phrase argumentative avec opposition ; réutilisable en Santé/Environnement."
         },
         {
-          "id": "E3-NOV-C06-25",
+          "id": "E3-NOV-C06-25R1",
           "kind": "collocation",
           "french": "un menu standardisé",
           "english": "a standardized menu",
@@ -1448,7 +1448,7 @@
           "usage": "Association lexicale, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
-          "id": "E3-NOV-C06-26",
+          "id": "E3-NOV-C06-26R1",
           "kind": "tournure",
           "french": "alors qu’un menu standardisé impose les mêmes quantités à tous",
           "english": "whereas a standardized menu imposes the same quantities on everyone",
@@ -1456,7 +1456,7 @@
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
-          "id": "E3-NOV-C06-27",
+          "id": "E3-NOV-C06-27R1",
           "kind": "phrase-modele",
           "french": "En conclusion, le plus important est de privilégier une alimentation équilibrée et d’exiger des enseignes des informations nutritionnelles claires ainsi que des emballages durables",
           "english": "In conclusion, the most important thing is to prioritize a balanced diet and to require clear nutritional information and sustainable packaging from chains",
@@ -1495,7 +1495,7 @@
       "sujet": "Faire ses courses alimentaires chez les producteurs locaux ou au supermarché",
       "entries": [
         {
-          "id": "E3-NOV-C07-01",
+          "id": "E3-NOV-C07-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent le choix du lieu où faire ses courses alimentaires",
           "english": "Both documents address the choice of where to do one’s food shopping",
@@ -1511,7 +1511,7 @@
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
-          "id": "E3-NOV-C07-03",
+          "id": "E3-NOV-C07-03R1",
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
@@ -1527,7 +1527,7 @@
           "usage": "Nom singulier, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
-          "id": "E3-NOV-C07-05",
+          "id": "E3-NOV-C07-05R1",
           "kind": "collocation",
           "french": "la qualité des aliments",
           "english": "the quality of the food",
@@ -1575,7 +1575,7 @@
           "usage": "Groupe nominal, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
-          "id": "E3-NOV-C07-11",
+          "id": "E3-NOV-C07-11R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, il faut favoriser les producteurs locaux sans pour autant exclure les supermarchés",
           "english": "For my part, local producers should be favoured without excluding supermarkets",
@@ -1679,7 +1679,7 @@
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
-          "id": "E3-NOV-C07-24",
+          "id": "E3-NOV-C07-24R1",
           "kind": "mot-cle",
           "french": "les fermes voisines",
           "english": "neighbouring farms",
@@ -1687,7 +1687,7 @@
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
-          "id": "E3-NOV-C07-25",
+          "id": "E3-NOV-C07-25R1",
           "kind": "phrase-modele",
           "french": "Acheter directement au producteur rémunère mieux les fermes voisines et rend la traçabilité immédiate",
           "english": "Buying directly from the producer pays neighbouring farms better and makes traceability immediate",
@@ -1695,7 +1695,7 @@
           "usage": "Formule argumentative, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
-          "id": "E3-NOV-C07-26",
+          "id": "E3-NOV-C07-26R1",
           "kind": "tournure",
           "french": "rend la traçabilité immédiate",
           "english": "makes traceability immediate",
@@ -1742,7 +1742,7 @@
       "sujet": "Les maisons de retraite, pour ou contre ?",
       "entries": [
         {
-          "id": "E3-NOV-C08-01",
+          "id": "E3-NOV-C08-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent l’accueil des personnes âgées",
           "english": "Both documents address care arrangements for older people",
@@ -1758,7 +1758,7 @@
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Famille/Santé."
         },
         {
-          "id": "E3-NOV-C08-03",
+          "id": "E3-NOV-C08-03R1",
           "kind": "reformulation",
           "french": "Le premier",
           "english": "the first document",
@@ -1766,7 +1766,7 @@
           "usage": "Reformulation, registre neutre ; réutilisable en Famille/Santé."
         },
         {
-          "id": "E3-NOV-C08-04",
+          "id": "E3-NOV-C08-04R1",
           "kind": "collocation",
           "french": "les jeunes générations",
           "english": "the younger generations",
@@ -1774,7 +1774,7 @@
           "usage": "Association lexicale, registre neutre ; réutilisable en Famille/Santé."
         },
         {
-          "id": "E3-NOV-C08-05",
+          "id": "E3-NOV-C08-05R1",
           "kind": "mot-cle",
           "french": "ses proches",
           "english": "one’s close relatives",
@@ -1782,7 +1782,7 @@
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Famille/Santé."
         },
         {
-          "id": "E3-NOV-C08-06",
+          "id": "E3-NOV-C08-06R1",
           "kind": "mot-cle",
           "french": "des inconnus",
           "english": "strangers",
@@ -1798,7 +1798,7 @@
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Famille/Santé."
         },
         {
-          "id": "E3-NOV-C08-08",
+          "id": "E3-NOV-C08-08R1",
           "kind": "mot-cle",
           "french": "l’isolement",
           "english": "isolation",
@@ -1806,7 +1806,7 @@
           "usage": "Nom singulier, registre neutre ; réutilisable en Famille/Santé."
         },
         {
-          "id": "E3-NOV-C08-09",
+          "id": "E3-NOV-C08-09R1",
           "kind": "collocation",
           "french": "offrent des soins",
           "english": "provide care",
@@ -1814,7 +1814,7 @@
           "usage": "Association lexicale, registre neutre ; réutilisable en Famille/Santé."
         },
         {
-          "id": "E3-NOV-C08-10",
+          "id": "E3-NOV-C08-10R1",
           "kind": "mot-cle",
           "french": "leur coût",
           "english": "their cost",
@@ -1822,7 +1822,7 @@
           "usage": "Nom masculin singulier, registre neutre ; réutilisable en Famille/Santé."
         },
         {
-          "id": "E3-NOV-C08-11",
+          "id": "E3-NOV-C08-11R1",
           "kind": "collocation",
           "french": "rassurent les familles",
           "english": "reassure families",
@@ -1830,7 +1830,7 @@
           "usage": "Association lexicale, registre neutre ; réutilisable en Famille/Santé."
         },
         {
-          "id": "E3-NOV-C08-12",
+          "id": "E3-NOV-C08-12R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, aucune solution ne convient à toutes les personnes âgées : il faut que le choix dépende de leur santé et de leurs souhaits",
           "english": "For my part, no solution suits all older people: the choice must depend on their health and their wishes",
@@ -1934,7 +1934,7 @@
           "usage": "Groupe nominal, registre neutre ; réutilisable en Famille/Santé."
         },
         {
-          "id": "E3-NOV-C08-25",
+          "id": "E3-NOV-C08-25R1",
           "kind": "phrase-modele",
           "french": "Un personnel formé peut alors donner les médicaments et prévenir les chutes",
           "english": "Trained staff can then give the medication and prevent falls",
@@ -1942,7 +1942,7 @@
           "usage": "Formule argumentative, registre neutre ; réutilisable en Famille/Santé."
         },
         {
-          "id": "E3-NOV-C08-26",
+          "id": "E3-NOV-C08-26R1",
           "kind": "verbe-action",
           "french": "prévenir les chutes",
           "english": "to prevent falls",
@@ -1950,7 +1950,7 @@
           "usage": "Groupe verbal, registre neutre ; réutilisable en Famille/Santé."
         },
         {
-          "id": "E3-NOV-C08-27",
+          "id": "E3-NOV-C08-27R1",
           "kind": "phrase-modele",
           "french": "En conclusion, le plus important est de garantir des soins dignes, une présence humaine et le consentement de la personne concernée",
           "english": "In conclusion, the most important thing is to ensure dignified care, a human presence and the consent of the person concerned",
@@ -1974,7 +1974,7 @@
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Famille/Santé."
         },
         {
-          "id": "E3-NOV-C08-30",
+          "id": "E3-NOV-C08-30R1",
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
@@ -1989,7 +1989,7 @@
       "sujet": "La restauration rapide",
       "entries": [
         {
-          "id": "E3-NOV-C09-01",
+          "id": "E3-NOV-C09-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent la restauration rapide",
           "english": "Both documents address fast food",
@@ -2037,7 +2037,7 @@
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
-          "id": "E3-NOV-C09-07",
+          "id": "E3-NOV-C09-07R1",
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
@@ -2061,7 +2061,7 @@
           "usage": "Groupe nominal, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
-          "id": "E3-NOV-C09-10",
+          "id": "E3-NOV-C09-10R1",
           "kind": "verbe-action",
           "french": "reste responsable de ses choix",
           "english": "remains responsible for their choices",
@@ -2069,7 +2069,7 @@
           "usage": "Groupe verbal, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
-          "id": "E3-NOV-C09-11",
+          "id": "E3-NOV-C09-11R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, on peut manger sainement dans une chaîne de restauration rapide à condition que les choix restent raisonnables",
           "english": "For my part, one can eat healthily at a fast-food chain provided that the choices remain reasonable",
@@ -2157,7 +2157,7 @@
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
-          "id": "E3-NOV-C09-22",
+          "id": "E3-NOV-C09-22R1",
           "kind": "phrase-modele",
           "french": "La taille des portions pèse souvent plus sur l’équilibre d’un repas que le lieu où on l’achète",
           "english": "Portion size often matters more to the balance of a meal than where it is bought",
@@ -2165,7 +2165,7 @@
           "usage": "Phrase argumentative avec comparaison ; réutilisable en Santé/Alimentation."
         },
         {
-          "id": "E3-NOV-C09-23",
+          "id": "E3-NOV-C09-23R1",
           "kind": "mot-cle",
           "french": "La taille des portions",
           "english": "portion size",
@@ -2173,7 +2173,7 @@
           "usage": "Groupe nominal singulier, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
-          "id": "E3-NOV-C09-24",
+          "id": "E3-NOV-C09-24R1",
           "kind": "collocation",
           "french": "l’équilibre d’un repas",
           "english": "the balance of a meal",
@@ -2181,7 +2181,7 @@
           "usage": "Association lexicale, registre neutre ; réutilisable en Santé/Alimentation."
         },
         {
-          "id": "E3-NOV-C09-25",
+          "id": "E3-NOV-C09-25R1",
           "kind": "tournure",
           "french": "pèse souvent plus sur l’équilibre d’un repas que le lieu où on l’achète",
           "english": "matters more to the balance of a meal than where it is bought",
@@ -2236,7 +2236,7 @@
       "sujet": "L'art urbain : Pour ou contre ?",
       "entries": [
         {
-          "id": "E3-NOV-C10-01",
+          "id": "E3-NOV-C10-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent l’art urbain",
           "english": "Both documents address urban art",
@@ -2260,7 +2260,7 @@
           "usage": "Nom singulier, registre neutre ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-NOV-C10-04",
+          "id": "E3-NOV-C10-04R1",
           "kind": "reformulation",
           "french": "Le premier",
           "english": "the first document",
@@ -2324,7 +2324,7 @@
           "usage": "Association lexicale, registre neutre ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-NOV-C10-12",
+          "id": "E3-NOV-C10-12R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, l’art urbain enrichit la ville à condition qu’il respecte les habitants et les bâtiments",
           "english": "For my part, urban art enriches the city provided that it respects residents and buildings",
@@ -2404,7 +2404,7 @@
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-NOV-C10-22",
+          "id": "E3-NOV-C10-22R1",
           "kind": "phrase-modele",
           "french": "Un cadre négocié avec la ville transforme une contrainte en projet commun",
           "english": "A framework negotiated with the city turns a constraint into a shared project",
@@ -2412,7 +2412,7 @@
           "usage": "Formule argumentative, registre neutre ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-NOV-C10-23",
+          "id": "E3-NOV-C10-23R1",
           "kind": "collocation",
           "french": "Un cadre négocié avec la ville",
           "english": "a framework negotiated with the city",
@@ -2420,7 +2420,7 @@
           "usage": "Association lexicale, registre neutre ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-NOV-C10-24",
+          "id": "E3-NOV-C10-24R1",
           "kind": "tournure",
           "french": "transforme une contrainte en projet commun",
           "english": "turns a constraint into a shared project",
@@ -2428,7 +2428,7 @@
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-NOV-C10-25",
+          "id": "E3-NOV-C10-25R1",
           "kind": "mot-cle",
           "french": "les commerces locaux",
           "english": "local businesses",
@@ -2436,7 +2436,7 @@
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-NOV-C10-26",
+          "id": "E3-NOV-C10-26R1",
           "kind": "phrase-modele",
           "french": "En conclusion, le plus important est de soutenir la créativité dans des espaces clairement définis, tout en sanctionnant les dégradations non autorisées",
           "english": "In conclusion, the most important thing is to support creativity in clearly defined spaces, while penalizing unauthorized damage",
@@ -2460,7 +2460,7 @@
           "usage": "Association lexicale, registre neutre ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-NOV-C10-29",
+          "id": "E3-NOV-C10-29R1",
           "kind": "tournure",
           "french": "tout en sanctionnant les dégradations non autorisées",
           "english": "while penalizing unauthorized damage",
@@ -2468,7 +2468,7 @@
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Culture/Ville."
         },
         {
-          "id": "E3-NOV-C10-30",
+          "id": "E3-NOV-C10-30R1",
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
@@ -2483,7 +2483,7 @@
       "sujet": "La gratuité des musées : Pour ou contre ?",
       "entries": [
         {
-          "id": "E3-NOV-C11-01",
+          "id": "E3-NOV-C11-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent la gratuité des musées",
           "english": "Both documents address free admission to museums",
@@ -2499,7 +2499,7 @@
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Culture/Société."
         },
         {
-          "id": "E3-NOV-C11-03",
+          "id": "E3-NOV-C11-03R1",
           "kind": "reformulation",
           "french": "Le premier",
           "english": "the first document",
@@ -2531,7 +2531,7 @@
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Culture/Société."
         },
         {
-          "id": "E3-NOV-C11-07",
+          "id": "E3-NOV-C11-07R1",
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
@@ -2563,7 +2563,7 @@
           "usage": "Association lexicale, registre neutre ; réutilisable en Culture/Société."
         },
         {
-          "id": "E3-NOV-C11-11",
+          "id": "E3-NOV-C11-11R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, les musées devraient être gratuits à certains moments et proposer des réductions ciblées le reste du temps",
           "english": "For my part, museums should be free at certain times and offer targeted discounts the rest of the time",
@@ -2667,7 +2667,7 @@
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Culture/Société."
         },
         {
-          "id": "E3-NOV-C11-24",
+          "id": "E3-NOV-C11-24R1",
           "kind": "phrase-modele",
           "french": "Les familles qui renoncent au musée par manque de moyens y entrent enfin sans se justifier",
           "english": "Families who give up on museums for lack of means can finally go in without having to justify themselves",
@@ -2675,7 +2675,7 @@
           "usage": "Formule argumentative, registre neutre ; réutilisable en Culture/Société."
         },
         {
-          "id": "E3-NOV-C11-25",
+          "id": "E3-NOV-C11-25R1",
           "kind": "tournure",
           "french": "sans se justifier",
           "english": "without having to justify themselves",
@@ -2683,7 +2683,7 @@
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Culture/Société."
         },
         {
-          "id": "E3-NOV-C11-26",
+          "id": "E3-NOV-C11-26R1",
           "kind": "mot-cle",
           "french": "manque de moyens",
           "english": "lack of means",
@@ -2699,7 +2699,7 @@
           "usage": "Formule argumentative avec le subjonctif ; réutilisable en Culture/Société."
         },
         {
-          "id": "E3-NOV-C11-28",
+          "id": "E3-NOV-C11-28R1",
           "kind": "mot-cle",
           "french": "les obstacles",
           "english": "the barriers",
@@ -2730,7 +2730,7 @@
       "sujet": "Les objets connectés",
       "entries": [
         {
-          "id": "E3-NOV-C12-01",
+          "id": "E3-NOV-C12-01R1",
           "kind": "phrase-modele",
           "french": "Les deux documents abordent les objets connectés",
           "english": "Both documents address connected devices",
@@ -2746,7 +2746,7 @@
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
-          "id": "E3-NOV-C12-03",
+          "id": "E3-NOV-C12-03R1",
           "kind": "reformulation",
           "french": "Le premier",
           "english": "the first document",
@@ -2786,7 +2786,7 @@
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
-          "id": "E3-NOV-C12-08",
+          "id": "E3-NOV-C12-08R1",
           "kind": "expression",
           "french": "De son côté",
           "english": "For its part",
@@ -2818,7 +2818,7 @@
           "usage": "Association lexicale, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
-          "id": "E3-NOV-C12-12",
+          "id": "E3-NOV-C12-12R1",
           "kind": "phrase-modele",
           "french": "Pour ma part, les objets connectés sont utiles à condition que leur sécurité soit garantie et que les données restent maîtrisées",
           "english": "For my part, connected devices are useful provided that their security is guaranteed and that data remains under control",
@@ -2866,7 +2866,7 @@
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
-          "id": "E3-NOV-C12-18",
+          "id": "E3-NOV-C12-18R1",
           "kind": "expression",
           "french": "De plus",
           "english": "Moreover",
@@ -2922,7 +2922,7 @@
           "usage": "Groupe nominal, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
-          "id": "E3-NOV-C12-25",
+          "id": "E3-NOV-C12-25R1",
           "kind": "collocation",
           "french": "des conséquences graves",
           "english": "serious consequences",
@@ -2930,7 +2930,7 @@
           "usage": "Association lexicale, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
-          "id": "E3-NOV-C12-26",
+          "id": "E3-NOV-C12-26R1",
           "kind": "phrase-modele",
           "french": "Sans cette aide, un oubli de médicament peut avoir des conséquences graves",
           "english": "Without this help, forgetting a medication can have serious consequences",
@@ -2938,7 +2938,7 @@
           "usage": "Formule argumentative, registre neutre ; réutilisable en Numérique/Santé."
         },
         {
-          "id": "E3-NOV-C12-27",
+          "id": "E3-NOV-C12-27R1",
           "kind": "phrase-modele",
           "french": "En conclusion, le plus important est de protéger la vie privée grâce à des mots de passe solides, des réglages transparents et un consentement éclairé",
           "english": "In conclusion, the most important thing is to protect privacy through strong passwords, transparent settings and informed consent",

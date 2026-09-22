@@ -12,11 +12,11 @@
 
 Les deux documents abordent les vêtements de marque chez les jeunes. Le premier les présente comme un moyen d’exprimer sa personnalité et son appartenance à un groupe. En revanche, le second rappelle que les enfants grandissent vite et abîment facilement leurs habits en jouant, ce qui limite leur durée d’usage.
 
-**Partie 2 — Point de vue personnel (99 mots)**
+**Partie 2 — Point de vue personnel (104 mots)**
 
-Pour ma part, les vêtements de marque peuvent être achetés occasionnellement, mais il ne faut pas qu’ils définissent l’identité d’un enfant. Tout d’abord, privilégier des habits solides et abordables protège le budget familial. Un vêtement qui résiste à plusieurs lavages évite des achats répétés. De plus, apprendre à choisir selon la qualité plutôt que selon un logo développe l’esprit critique. Par exemple, des parents peuvent offrir une veste griffée pour un anniversaire, puis acheter le reste des tenues d’occasion. En conclusion, le plus important est de respecter les goûts des jeunes sans encourager la surconsommation ni la pression sociale.
+Pour ma part, les vêtements de marque peuvent être achetés occasionnellement, mais il ne faut pas qu’ils définissent l’identité d’un enfant. Tout d’abord, privilégier des habits solides et abordables protège le budget familial. Un vêtement qui résiste à plusieurs lavages évite des achats répétés. De plus, choisir selon la qualité plutôt que selon un logo aide les jeunes à résister à la pression des marques. Par exemple, des parents peuvent offrir une veste griffée pour un anniversaire, puis acheter le reste des tenues d’occasion. En conclusion, le plus important est de respecter les goûts des jeunes sans encourager la surconsommation ni la pression sociale.
 
-**Total : 156 mots (titre compris)**
+**Total : 161 mots (titre compris)**
 
 ---
 
@@ -30,11 +30,11 @@ Pour ma part, les vêtements de marque peuvent être achetés occasionnellement,
 
 Les deux documents abordent les animaux de compagnie pour les enfants. Le premier souligne qu’ils réduisent la solitude, renforcent la confiance et enseignent le respect du vivant. En revanche, le second rappelle qu’un animal représente une responsabilité coûteuse et durable, même lorsque l’enfant s’en désintéresse.
 
-**Partie 2 — Point de vue personnel (106 mots)**
+**Partie 2 — Point de vue personnel (107 mots)**
 
-Pour ma part, accueillir un animal est bénéfique à condition que toute la famille soit prête à tenir cet engagement durable. Tout d’abord, s’occuper d’un être vivant développe l’empathie et le sens des responsabilités. Nourrir l’animal et nettoyer son espace imposent des gestes réguliers, même les jours sans envie. De plus, sa présence peut rassurer un enfant qui se sent seul. Par exemple, après un déménagement, un jeune peut retrouver une routine en promenant son chien chaque soir et en lui parlant de sa journée. En conclusion, le plus important est de vérifier le temps, le budget et les conditions de vie disponibles avant toute adoption.
+Pour ma part, accueillir un animal est bénéfique à condition que toute la famille soit prête à tenir cet engagement durable. Tout d’abord, s’occuper d’un être vivant développe l’empathie et le sens des responsabilités. Nourrir l’animal et nettoyer son espace imposent des gestes réguliers, même les jours sans envie. De plus, sa présence peut rassurer un enfant qui se sent seul. Par exemple, après un déménagement, un jeune peut retrouver une routine en promenant son chien chaque soir et en lui parlant de sa journée. En conclusion, il faut vérifier que la famille dispose du temps, du budget et de conditions de vie adaptées avant toute adoption.
 
-**Total : 159 mots (titre compris)**
+**Total : 160 mots (titre compris)**
 
 ---
 
@@ -84,11 +84,11 @@ Pour ma part, fabriquer certains produits chez soi est une bonne démarche, mais
 
 Les deux documents abordent les écoles privées et publiques. Le premier explique le succès du privé par sa réputation, son encadrement et ses classes socialement homogènes. En revanche, le second dénonce des frais qui excluent les familles défavorisées, limitent la mixité sociale et reproduisent les inégalités.
 
-**Partie 2 — Point de vue personnel (103 mots)**
+**Partie 2 — Point de vue personnel (110 mots)**
 
-Pour ma part, il faut que la qualité de l’éducation ne dépende jamais des revenus familiaux. Tout d’abord, une école publique bien financée garantit à chaque élève les mêmes apprentissages fondamentaux. Le niveau dépend alors du travail fourni, et non du quartier ou du salaire des parents. De plus, la mixité sociale développe l’ouverture d’esprit et prépare à vivre avec des personnes différentes. Par exemple, un collège peut limiter les effectifs, renforcer le tutorat et organiser des projets réunissant des jeunes de plusieurs quartiers. En conclusion, le plus important est d’améliorer toutes les écoles publiques sans supprimer la liberté de choix des familles.
+Pour ma part, il faut que la qualité de l’éducation ne dépende jamais des revenus familiaux. Tout d’abord, une école publique bien financée garantit à chaque élève les mêmes apprentissages fondamentaux. Chaque élève peut alors disposer de professeurs, de matériel et d’un accompagnement comparables, quel que soit le quartier ou le revenu des parents. De plus, la mixité sociale développe l’ouverture d’esprit et prépare à vivre avec des personnes différentes. Par exemple, un collège peut limiter les effectifs, renforcer le tutorat et organiser des projets réunissant des jeunes de plusieurs quartiers. En conclusion, le plus important est d’améliorer toutes les écoles publiques sans supprimer la liberté de choix des familles.
 
-**Total : 158 mots (titre compris)**
+**Total : 165 mots (titre compris)**
 
 ---
 
@@ -102,11 +102,11 @@ Pour ma part, il faut que la qualité de l’éducation ne dépende jamais des r
 
 Les deux documents abordent les devoirs à la maison. Le premier estime que quinze minutes d’exercices développent l’autonomie et le lien familial. En revanche, le second dénonce le stress, la fatigue et les inégalités entre enfants, jugeant que l’autonomie doit s’acquérir à l’école avec des outils adaptés.
 
-**Partie 2 — Point de vue personnel (99 mots)**
+**Partie 2 — Point de vue personnel (102 mots)**
 
-Pour ma part, je pense que des devoirs courts sont utiles, mais il faut qu’ils restent réalisables sans aide parentale. Tout d’abord, une révision régulière consolide les apprentissages et apprend à organiser son temps. Quelques exercices le soir ancrent ce qui a été compris en classe. De plus, limiter la quantité préserve le repos et les activités familiales. Par exemple, un enseignant peut demander dix minutes de lecture puis corriger les difficultés en classe le lendemain. En conclusion, le plus important est de proposer des exercices brefs, adaptés et accompagnés à l’école afin de ne pas renforcer les inégalités.
+Pour ma part, je pense que des devoirs courts sont utiles, mais il faut qu’ils restent réalisables sans aide parentale. Tout d’abord, une révision régulière consolide les apprentissages et apprend à organiser son temps. De courts exercices le soir aident à retenir ce qui a été appris en classe. De plus, limiter la quantité préserve le repos et les activités familiales. Par exemple, un enseignant peut demander dix minutes de lecture puis corriger les difficultés en classe le lendemain. En conclusion, le plus important est de proposer des exercices brefs, adaptés et accompagnés à l’école afin de ne pas renforcer les inégalités.
 
-**Total : 155 mots (titre compris)**
+**Total : 158 mots (titre compris)**
 
 ---
 
@@ -138,11 +138,11 @@ Pour ma part, le numérique enrichit l’enseignement à condition que son usage
 
 Les deux documents abordent les vols à bas prix. Le premier apprécie leurs tarifs parfois inférieurs au train ou à la voiture, mais note l’absence de services et déconseille les longs trajets. En revanche, le second dénonce les sièges inconfortables, les conditions de travail, la vétusté des appareils et les risques pour la sécurité.
 
-**Partie 2 — Point de vue personnel (109 mots)**
+**Partie 2 — Point de vue personnel (106 mots)**
 
-Pour ma part, j’accepterais un vol à bas prix pour un trajet court, mais il faut que le tarif soit transparent et que les normes soient respectées. Tout d’abord, ces billets rendent les déplacements accessibles aux petits budgets. Un étudiant peut ainsi rejoindre sa famille sans renoncer à d’autres dépenses essentielles. De plus, il faut comparer les frais supplémentaires, le confort et l’empreinte carbone. Par exemple, entre Montréal et Toronto, je privilégierais le train, qui permet de travailler confortablement pendant le voyage, plutôt qu’un vol peu avantageux. En conclusion, le plus important est de choisir après avoir évalué le coût total, la sécurité, la durée et les solutions disponibles.
+Pour ma part, j’accepterais un vol à bas prix pour un trajet court, mais il faut que le tarif soit transparent et que les normes soient respectées. Tout d’abord, ces billets rendent les déplacements accessibles aux petits budgets. Un étudiant peut ainsi rejoindre sa famille sans renoncer à d’autres dépenses essentielles. De plus, il faut comparer les frais supplémentaires, le confort et l’empreinte carbone. Par exemple, entre Montréal et Toronto, je privilégierais le train pour travailler pendant le voyage et réduire mon empreinte carbone. En conclusion, le plus important est de choisir après avoir évalué le coût total, la sécurité, la durée et les solutions disponibles.
 
-**Total : 171 mots (titre compris)**
+**Total : 168 mots (titre compris)**
 
 ---
 
@@ -158,7 +158,7 @@ Les deux documents abordent les lieux où faire ses courses. Le premier valorise
 
 **Partie 2 — Point de vue personnel (106 mots)**
 
-Pour ma part, il faut que les consommateurs privilégient les petits commerces sans renoncer totalement aux supermarchés. Tout d’abord, acheter dans son quartier soutient des emplois locaux et entretient le lien social. Chaque commerce qui ferme emporte avec lui un service et des habitudes de voisinage. De plus, les commerçants proposent souvent des produits frais et des conseils personnalisés. Par exemple, une famille peut acheter chaque semaine ses légumes chez un maraîcher voisin, puis se rendre mensuellement au supermarché pour les produits moins chers. En conclusion, le plus important est de répartir ses achats selon le prix, la qualité et l’impact sur la vie du quartier.
+Pour ma part, il faut que les consommateurs privilégient les petits commerces sans renoncer totalement aux supermarchés. Tout d’abord, acheter dans son quartier soutient des emplois locaux et entretient le lien social. Lorsqu’un commerce ferme, les habitants perdent un service de proximité et un lieu d’échange. De plus, les commerçants proposent souvent des produits frais et des conseils personnalisés. Par exemple, une famille peut acheter chaque semaine ses légumes chez un maraîcher voisin, puis se rendre mensuellement au supermarché pour les produits moins chers. En conclusion, le plus important est de répartir ses achats selon le prix, la qualité et l’impact sur la vie du quartier.
 
 **Total : 160 mots (titre compris)**
 
@@ -192,11 +192,11 @@ Pour ma part, je pense que l’autorité parentale est nécessaire, mais il faut
 
 Les deux documents abordent les distributeurs de boissons à l’école. Le premier les présente comme un service pratique qui peut offrir des choix sains et financer des projets scolaires. En revanche, le second craint que les boissons trop sucrées favorisent l’obésité et le diabète chez les élèves.
 
-**Partie 2 — Point de vue personnel (97 mots)**
+**Partie 2 — Point de vue personnel (111 mots)**
 
-Pour ma part, ces appareils sont utiles à condition que leur contenu soit contrôlé par l’école. Tout d’abord, l’accès rapide à l’eau aide les élèves à rester concentrés. Une déshydratation légère suffit à provoquer maux de tête et baisses d’attention. De plus, les bénéfices peuvent soutenir les outils pédagogiques plutôt qu’une entreprise privée. Par exemple, un lycée pourrait vendre uniquement de l’eau, du lait et des boissons sans sucre ajouté, puis financer sa bibliothèque avec les revenus supplémentaires. En conclusion, le plus important est de favoriser des habitudes alimentaires saines grâce à une sélection contrôlée et transparente.
+Pour ma part, ces appareils sont utiles à condition que leur contenu soit contrôlé par l’école. Tout d’abord, un accès rapide à une boisson aide les élèves à rester concentrés pendant une longue journée. Par exemple, ils peuvent acheter de l’eau pendant une courte pause sans faire la queue à la cafétéria. De plus, les recettes peuvent financer du matériel pédagogique, à condition que l’établissement contrôle les produits vendus. Un lycée pourrait vendre uniquement de l’eau, du lait et des boissons sans sucre ajouté, puis financer sa bibliothèque avec ces revenus. En conclusion, les distributeurs sont utiles seulement s’ils encouragent des habitudes alimentaires saines grâce à une sélection contrôlée et transparente.
 
-**Total : 151 mots (titre compris)**
+**Total : 165 mots (titre compris)**
 
 ---
 
@@ -206,15 +206,15 @@ Pour ma part, ces appareils sont utiles à condition que leur contenu soit contr
 
 ### Cuisinier amateur ou professionnel : la compétence avant le statut
 
-**Partie 1 — Synthèse (46 mots)**
+**Partie 1 — Synthèse (43 mots)**
 
-Les deux documents abordent les compétences nécessaires en cuisine. Le premier affirme que la formation et l’expérience distinguent les professionnels des amateurs. En revanche, le second montre qu’Internet peut former et révéler des autodidactes, dont certains transforment leur succès en carrière et publient des livres culinaires.
+Les deux documents abordent les compétences nécessaires en cuisine. Le premier affirme que la formation et l’expérience distinguent les professionnels des amateurs. En revanche, le second évoque des autodidactes formés en ligne et l’histoire d’une amatrice devenue professionnelle, auteure de livres de cuisine.
 
 **Partie 2 — Point de vue personnel (105 mots)**
 
-Pour ma part, la passion ne suffit pas toujours, mais il faut que chacun puisse prouver ses compétences, avec ou sans diplôme. Tout d’abord, un cuisinier doit maîtriser l’hygiène, les cuissons, l’organisation et la gestion des coûts. Une erreur de conservation ou de cuisson met directement la santé des clients en danger. De plus, ces compétences peuvent s’apprendre dans une école ou grâce à une pratique exigeante accompagnée par des experts. Par exemple, une amatrice formée en ligne peut effectuer un stage dans un restaurant avant d’ouvrir son activité. En conclusion, le plus important est de prouver son savoir-faire et de continuer à se former.
+Pour ma part, la passion ne suffit pas toujours, mais il faut que chacun puisse prouver ses compétences, avec ou sans diplôme. Tout d’abord, un cuisinier doit maîtriser l’hygiène, les cuissons, l’organisation et la gestion des coûts. Une erreur de conservation ou de cuisson peut mettre la santé des clients en danger. De plus, ces compétences peuvent s’apprendre dans une école ou grâce à une pratique exigeante accompagnée par des experts. Par exemple, une amatrice formée en ligne peut effectuer un stage dans un restaurant avant d’ouvrir son activité. En conclusion, le plus important est de prouver son savoir-faire et de continuer à se former.
 
-**Total : 160 mots (titre compris)**
+**Total : 157 mots (titre compris)**
 
 ---
 
@@ -246,10 +246,10 @@ Pour ma part, je trouve la colocation enrichissante à condition que les respons
 
 Les deux documents abordent l’aide aux personnes pauvres. Le premier valorise les dons accessibles à tous, particulièrement utiles aux sans-abris en hiver. En revanche, le second juge ces gestes trop ponctuels et privilégie le bénévolat associatif, capable de favoriser durablement le logement, le travail et l’autonomie.
 
-**Partie 2 — Point de vue personnel (97 mots)**
+**Partie 2 — Point de vue personnel (100 mots)**
 
-Pour ma part, il faut que l’aide immédiate soit associée à un accompagnement durable. Tout d’abord, une personne qui a froid ou faim ne peut pas attendre les résultats d’un programme d’insertion. Un repas chaud et un manteau protègent immédiatement sa santé. De plus, une aide ponctuelle reste insuffisante pour combattre durablement l’exclusion. Par exemple, à Montréal, une association peut répondre à l’urgence, puis proposer une adresse administrative, une formation et un suivi vers l’emploi. En conclusion, le plus important est d’unir la solidarité concrète aux solutions durables qui conduisent vers le logement, le travail et l’autonomie.
+Pour ma part, il faut que l’aide immédiate soit associée à un accompagnement durable. Tout d’abord, une personne qui a froid ou faim ne peut pas attendre les résultats d’un programme d’insertion. Un repas chaud et un manteau protègent immédiatement sa santé. De plus, une aide ponctuelle reste insuffisante pour combattre durablement l’exclusion. Par exemple, à Montréal, une association peut répondre à l’urgence, puis accompagner la personne dans ses démarches pour trouver un logement, suivre une formation et retrouver un emploi. En conclusion, il faut associer la solidarité d’urgence à un accompagnement durable vers le logement, le travail et l’autonomie.
 
-**Total : 150 mots (titre compris)**
+**Total : 153 mots (titre compris)**
 
 ---

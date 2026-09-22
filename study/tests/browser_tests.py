@@ -1937,22 +1937,22 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.goto(self.live_server_url + vocabulary_url)
         self.assertEqual(
             self.page.locator(
-                "[data-theme-vocabulary-directory-item]"
+                "#vocabulary-theme option[value]:not([value=''])"
             ).count(),
             len(themes),
         )
         self.assert_no_horizontal_overflow()
         self.assert_ee3_subject_directory(subjects_url, themes)
 
-    def assert_nested_vocabulary_layout(self):
-        collection = self.page.locator(".vocabulary-collection").first
-        visible_rows = collection.locator("[data-subject-vocabulary-row]:visible")
+    def assert_vocabulary_entry_layout(self):
+        collection = self.page.locator(".vocabulary-entry-catalog")
+        visible_rows = collection.locator("[data-vocabulary-entry]:visible")
         self.assertGreater(visible_rows.count(), 0)
         self.assertTrue(visible_rows.evaluate_all(
             """
             rows => rows.every(row => {
               const bounds = row.getBoundingClientRect();
-              return [...row.querySelectorAll("td")].filter(cell => cell.offsetWidth)
+              return [...row.querySelectorAll(".phrase__expr, .phrase__cue, .phrase__ex")]
                 .every(cell => {
                   const rect = cell.getBoundingClientRect();
                   return rect.left >= bounds.left - 1 && rect.right <= bounds.right + 1;
@@ -1960,12 +1960,12 @@ class BrowserTests(StaticLiveServerTestCase):
             })
             """
         ))
-        for button in visible_rows.first.locator(".vocabulary-subject__actions a").all():
-            self.assertGreaterEqual(button.bounding_box()["height"], 44)
-            self.assertGreaterEqual(button.bounding_box()["width"], 44)
+        self.assertTrue(self.page.locator(".vocabulary-entry-filters input, .vocabulary-entry-filters select").evaluate_all(
+            "fields => fields.every(field => field.getBoundingClientRect().height <= 64)"
+        ))
         self.assert_no_horizontal_overflow()
 
-    def test_ee3_vocabulary_nests_subjects_and_defaults_to_its_own_table_preference(self):
+    def test_ee3_vocabulary_lists_entries_and_keeps_its_own_table_preference(self):
         self._import_ee_tache_three_content()
         url = self.live_server_url + reverse("study:task_phrases", args=["ee", "tache-3"])
         self.page.evaluate(
@@ -1978,59 +1978,94 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(self.page.get_by_role("button", name="Tableau", exact=True)).to_have_attribute(
             "aria-pressed", "true"
         )
-        groups = self.page.locator("[data-theme-vocabulary-directory-item]")
-        rows = self.page.locator("[data-subject-vocabulary-row]")
-        expect(groups).to_have_count(11)
-        expect(rows).to_have_count(78)
-        expect(self.page.locator("[data-t1-table-theme][open]")).to_have_count(0)
-        self.assertEqual(len(set(rows.evaluate_all(
-            "rows => rows.map(row => row.dataset.vocabularyResponseId)"
-        ))), 78)
-        group = groups.first
-        group.locator(":scope > summary").press("Enter")
-        expect(group.locator("[data-subject-vocabulary-row]").first).to_be_visible()
-        original_titles = group.locator(".subject-table-row-link").all_text_contents()
-        group.locator('[data-nested-table-sort="subject"]').click()
-        self.assertEqual(
-            group.locator(".subject-table-row-link").all_text_contents(),
-            self.page.evaluate(
-                "items => items.slice().sort(new Intl.Collator('fr', {sensitivity:'base',numeric:true}).compare)",
-                original_titles,
-            ),
-        )
+        rows = self.page.locator("[data-vocabulary-entry]")
+        expect(rows).to_have_count(50)
+        expect(self.page.locator("[data-subject-vocabulary-row]")).to_have_count(0)
+        first_ids = rows.evaluate_all("rows => rows.map(row => row.dataset.vocabularyEntry)")
+        self.assertEqual(len(set(first_ids)), 50)
+        for name in ("Français", "Sens", "Exemple et contexte"):
+            expect(self.page.locator("[data-collection-table-header]")).to_contain_text(name)
+        first_expression = rows.first.locator("[data-recall-cell=french]")
+        first_expression.click()
+        self.assertEqual(self.page.url, url)
+        self.assertEqual(len(self.context.pages), 1)
+        self.assertTrue(rows.locator("a").evaluate_all(
+            "links => links.every(link => link.pathname.includes('/vocabulaire/'))"
+        ))
         for width in (1292, 900, 640, 390, 320):
             self.page.set_viewport_size({"width": width, "height": 844})
             for view in ("Tableau", "Cartes"):
                 with self.subTest(width=width, view=view):
                     self.page.get_by_role("button", name=view, exact=True).click()
-                    if not group.evaluate("element => element.open"):
-                        group.locator(":scope > summary").click()
-                    self.assert_nested_vocabulary_layout()
+                    expect(rows).to_have_count(50)
+                    self.assert_vocabulary_entry_layout()
         self.page.get_by_role("button", name="Tableau", exact=True).click()
-        self.page.locator('[data-theme-vocabulary-directory-filter="done"]').click()
-        expect(self.page.locator("[data-theme-vocabulary-directory-grid]")).to_be_hidden()
-        expect(self.page.locator("[data-theme-vocabulary-directory-empty]")).to_be_visible()
-        self.page.locator("[data-theme-vocabulary-directory-reset]").click()
-        expect(groups.first).to_be_visible()
         with self.page.expect_navigation():
-            self.page.get_by_role("button", name="Dédupliquer", exact=True).click()
-        expect(rows).to_have_count(138)
+            self.page.get_by_role("link", name="Suivant", exact=True).click()
+        expect(rows).to_have_count(50)
+        self.assertFalse(set(first_ids) & set(rows.evaluate_all(
+            "rows => rows.map(row => row.dataset.vocabularyEntry)"
+        )))
         with self.page.expect_navigation():
-            self.page.get_by_role("button", name="Dédupliquer", exact=True).click()
-        expect(rows).to_have_count(78)
+            self.page.get_by_role("link", name="Précédent", exact=True).click()
+        first_meaning = rows.first.locator("[data-recall-cell=meaning]")
+        self.page.get_by_role("button", name="Flouter tous les éléments Sens", exact=True).click()
+        expect(first_meaning).to_have_attribute("aria-pressed", "false")
+        expect(first_meaning.locator("[data-recall-content]")).to_have_attribute("aria-hidden", "true")
+        first_meaning.click()
+        expect(first_meaning).to_have_attribute("aria-pressed", "true")
+        expect(first_meaning.locator("[data-recall-content]")).not_to_have_attribute("aria-hidden", "true")
+        self.page.get_by_role("button", name="Afficher tous les éléments Sens", exact=True).click()
+        self.page.locator("#vocabulary-status").select_option("done")
+        with self.page.expect_navigation():
+            self.page.get_by_role("button", name="Rechercher", exact=True).click()
+        expect(rows).to_have_count(0)
+        expect(self.page.get_by_text("Aucune fiche ne correspond à ces filtres.")).to_be_visible()
+        self.page.get_by_role("link", name="Tout afficher", exact=True).click()
+        expect(rows).to_have_count(50)
         self.page.get_by_role("button", name="Cartes", exact=True).click()
         self.assertEqual(self.page.evaluate("localStorage.getItem('vocabularyCollectionViewMode')"), "cards")
         self.assertEqual(self.page.evaluate("localStorage.getItem('collectionViewMode')"), "cards")
         self.page.reload()
         expect(self.page.locator("html")).to_have_attribute("data-collection-view-mode", "cards")
-        expect(self.page.locator("[data-t1-table-theme][open]")).to_have_count(11)
-        first_link = rows.first.locator(".subject-table-row-link").get_attribute("href")
-        practice = rows.first.locator(".vocabulary-subject__actions a").get_attribute("href")
-        self.assertIn("#subject-vocabulary", first_link)
-        self.assertIn("kind=vocab", practice)
-        rows.first.locator(".vocabulary-subject__actions a").click()
+        expect(rows).to_have_count(50)
+        theme_link = rows.first.locator(".phrase__foot a").first
+        theme_url = theme_link.get_attribute("href")
+        with self.page.expect_navigation():
+            theme_link.click()
+        self.assertEqual(self.page.url, self.live_server_url + theme_url)
+        expect(self.page.locator("#vocabulary-theme")).not_to_have_value("")
+        expect(rows.first).to_be_visible()
+        practice = self.page.get_by_role("link", name="Continuer le prochain lot", exact=True)
+        self.assertIn("kind=vocab", practice.get_attribute("href"))
+        self.assertIn("theme=", practice.get_attribute("href"))
+        practice.click()
         self.page.locator("#card-front .cue-text").wait_for()
         self.page.wait_for_load_state("networkidle")
+
+    def test_ee3_vocabulary_search_and_pagination_work_without_javascript(self):
+        _, task = self._import_ee_tache_three_content()
+        phrase = self.user.study_cards.filter(
+            phrase__tier=PhraseTier.SUBJECT,
+            phrase__source_prompts__theme__task=task,
+        ).select_related("phrase").order_by("phrase__lot_order", "phrase_id").last().phrase
+        phrase.english_cue = "Unique browser vocabulary cue"
+        phrase.save(update_fields=["english_cue"])
+        context = self.browser.new_context(java_script_enabled=False, viewport={"width": 390, "height": 844})
+        try:
+            context.add_cookies(self.context.cookies())
+            page = context.new_page()
+            page.goto(self.live_server_url + reverse("study:task_phrases", args=["ee", "tache-3"]))
+            expect(page.locator("[data-vocabulary-entry]")).to_have_count(50)
+            page.get_by_role("link", name="Suivant", exact=True).click()
+            expect(page.locator("[data-vocabulary-entry]")).to_have_count(50)
+            page.get_by_role("searchbox").fill(phrase.english_cue)
+            page.get_by_role("button", name="Rechercher", exact=True).click()
+            expect(page.locator(f'[data-vocabulary-entry="{phrase.pk}"]')).to_be_visible()
+            self.assertNotIn("page=2", page.url)
+            self.assertLessEqual(page.evaluate("document.documentElement.scrollWidth"), 390)
+        finally:
+            context.close()
 
     def assert_ee3_subject_directory(self, subjects_url, themes):
         self.page.goto(self.live_server_url + subjects_url)

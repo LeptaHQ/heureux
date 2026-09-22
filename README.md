@@ -134,6 +134,15 @@ so workers using the pre-upgrade ORM can finish inserts during replacement.
   through these controls. Migration `0054` stores private model-version edits and
   deletions without changing shared content; equivalent prompts share them.
   Removing a version preserves the remaining copy and annotation identifiers.
+- Vocabulary listings start in table view and remember their card/table choice
+  separately from subject and note listings. Study/review sessions retain their
+  flashcard behavior. The EE Tâche 3 vocabulary directory expands themes into
+  subject rows, defaults to distinct decks, and supports `?deduplicate=0` to show
+  all publications. Its progress is vocabulary progress, not subject completion.
+- EE Tâche 3 mémoire translations are bundled alongside French formulations.
+  English display text is excluded from existing French highlight coordinates;
+  approved French corrections retain the original learned-item identities.
+  Do not regenerate completion keys from translated or corrected display text.
 - Subject progress filters highlight candidates before transferring rows to Python.
   Existing source-key and URL parsers remain the final matching authority; batching
   keeps larger requests within database parameter limits.

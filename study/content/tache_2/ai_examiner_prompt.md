@@ -1556,25 +1556,5 @@ and 12: the top conversion band is **"10 and above."**
 6. [Immigration, Refugees and Citizenship Canada — Language test results](https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html)  
    Official TCF Canada expression orale `/20` to NCLC conversion.
 
-### Specialist preparation sources consulted critically
-
-7. [Formation TCF Canada — Expression orale](https://www.formation-tcfcanada.com/epreuve/expression-orale)  
-   Useful scenario patterns and timing summary. Its claimed per-task point
-   split is not treated here as an official FEI weighting.
-
-8. [Formation TCF Canada — Expression orale tips](https://www.formation-tcfcanada.com/epreuve/expression-orale/astuces)  
-   Correctly emphasises interactive chaining and explicitly says there is no
-   fixed number of questions.
-
-9. [Réussir TCF — Expression orale methodology](https://reussir-tcf.com/page/methodologie-expression-orale)  
-   Useful discussion of formal/informal roles, openings, turn linking, and
-   closings. Its "10 questions minimum" and "2 minutes 30" claims conflict with
-   or go beyond FEI and are therefore not used as rules.
-
-10. [Réussir TCF Canada](https://reussir-tcfcanada.com/)  
-    Consulted as a specialist preparation platform. Its adapted/current-topic
-    materials are coaching resources, not FEI examiner instructions.
-
-Preparation sites can provide valuable drills, but **FEI and IRCC remain the
-authorities** for format, evaluation framework, score bands, and immigration
-equivalencies.
+Only FEI and IRCC are treated as authorities for format, evaluation framework,
+score bands, and immigration equivalencies.

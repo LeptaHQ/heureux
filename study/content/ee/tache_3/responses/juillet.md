@@ -8,15 +8,15 @@
 
 ### La chasse : protéger la nature sous conditions
 
-**Partie 1 — Synthèse (55 mots)**
+**Partie 1 — Synthèse (53 mots)**
 
-Les deux documents abordent la chasse aux animaux. Le premier condamne le plaisir de tuer et juge cette pratique incompatible avec la protection de la nature. En revanche, le second explique que la chasse répond à plusieurs objectifs, dont la subsistance, le commerce, la gestion de la faune, la protection des biens et le loisir.
+Les deux documents abordent la chasse aux animaux. Le premier condamne le plaisir de tuer et juge cette pratique incompatible avec la protection de la nature. En revanche, le second cite la subsistance, le commerce, la gestion de la faune, la protection des biens, l’exercice, le loisir et le prestige parmi ses objectifs.
 
-**Partie 2 — Point de vue personnel (109 mots)**
+**Partie 2 — Point de vue personnel (113 mots)**
 
-Pour ma part, la chasse ne devrait être autorisée que lorsqu’elle répond à un besoin clairement établi. Tout d’abord, une régulation scientifique peut limiter certaines populations qui menacent un écosystème ou des cultures. Sans prélèvement encadré, ces populations épuisent leur propre milieu et les agriculteurs perdent une partie de leurs récoltes. De plus, l’encadrement doit distinguer les besoins de subsistance du prestige, qui me paraît difficilement justifiable. Par exemple, dans une région où des cerfs détruisent de jeunes arbres, les autorités peuvent fixer des quotas, former les chasseurs et contrôler chaque prélèvement. En conclusion, le plus important est de protéger la biodiversité tout en encadrant strictement les pratiques nécessaires.
+Pour ma part, la chasse ne devrait être autorisée que lorsqu’elle répond à un besoin clairement établi. Tout d’abord, une régulation scientifique peut limiter certaines populations qui menacent un écosystème ou des cultures. Sans prélèvement encadré, ces animaux peuvent épuiser leur milieu et détruire des récoltes. De plus, il faut que des règles strictes distinguent la subsistance du simple prestige. Des permis et des contrôles évitent que la chasse devienne un loisir sans limite. Par exemple, dans une région où des cerfs détruisent de jeunes arbres, les autorités peuvent fixer des quotas et contrôler chaque prélèvement. En conclusion, le plus important est de protéger la biodiversité tout en encadrant strictement les pratiques nécessaires.
 
-**Total : 171 mots (titre compris)**
+**Total : 173 mots (titre compris)**
 
 ---
 
@@ -30,11 +30,11 @@ Pour ma part, la chasse ne devrait être autorisée que lorsqu’elle répond à
 
 Les deux documents abordent les produits biologiques faits maison. Le premier valorise le contrôle des ingrédients, la personnalisation, les économies et la réduction des emballages plastiques. En revanche, le second souligne le temps de préparation, le coût initial et les risques d’irritation ou de contamination causés par une mauvaise formulation ou conservation.
 
-**Partie 2 — Point de vue personnel (108 mots)**
+**Partie 2 — Point de vue personnel (109 mots)**
 
-Pour ma part, fabriquer soi-même des produits simples est utile, mais seulement si leur recette est fiable. Tout d’abord, cette démarche réduit les emballages et permet de connaître précisément les ingrédients employés. Une même bouteille peut resservir des dizaines de fois, et chaque composant reste choisi en connaissance de cause. De plus, les préparations complexes destinées à la peau exigent davantage de prudence et des règles d’hygiène strictes. Par exemple, une famille peut préparer un nettoyant pour vitres dans un flacon réutilisable, tout en achetant une crème testée pour un enfant allergique. En conclusion, le plus important est de privilégier les fabrications sûres, bien dosées et correctement conservées.
+Pour ma part, fabriquer soi-même des produits simples est utile, mais il faut que leur recette soit fiable. Tout d’abord, cette démarche réduit les emballages et permet de connaître précisément les ingrédients employés. Une même bouteille peut resservir des dizaines de fois, et chaque composant reste choisi en connaissance de cause. De plus, les préparations complexes destinées à la peau exigent davantage de prudence et des règles d’hygiène strictes. Par exemple, une famille peut préparer un nettoyant pour vitres dans un flacon réutilisable, tout en achetant une crème testée pour un enfant allergique. En conclusion, le plus important est de privilégier les fabrications sûres, bien dosées et correctement conservées.
 
-**Total : 168 mots (titre compris)**
+**Total : 169 mots (titre compris)**
 
 ---
 
@@ -48,11 +48,11 @@ Pour ma part, fabriquer soi-même des produits simples est utile, mais seulement
 
 Les deux documents abordent la livraison de repas au bureau. Le premier apprécie le temps gagné, le vaste choix et la disponibilité à toute heure. En revanche, le second souligne que les retards augmentent le stress et que déjeuner sans quitter son poste prive les salariés d’une pause nécessaire, ce qui accentue leur fatigue.
 
-**Partie 2 — Point de vue personnel (105 mots)**
+**Partie 2 — Point de vue personnel (107 mots)**
 
-Pour ma part, je considère la livraison comme un service pratique, à condition de préserver une véritable coupure. Tout d’abord, elle simplifie les journées chargées et permet à chacun de choisir son repas. Les salariés évitent ainsi la file d’attente de midi et respectent plus facilement leurs contraintes alimentaires. De plus, quitter l’écran reste essentiel pour la concentration et le lien social. Par exemple, une équipe peut commander des plats variés, puis déjeuner trente minutes dans un parc voisin avant de reprendre le travail. En conclusion, le plus important est de gagner du temps sans sacrifier le repos, la convivialité ni des habitudes alimentaires équilibrées.
+Pour ma part, je considère la livraison comme un service pratique, à condition que chacun puisse prendre une véritable pause. Tout d’abord, elle simplifie les journées chargées et permet à chacun de choisir son repas. Les salariés évitent ainsi la file d’attente de midi et respectent plus facilement leurs contraintes alimentaires. De plus, quitter l’écran reste essentiel pour la concentration et le lien social. Par exemple, une équipe peut commander des plats variés, puis déjeuner trente minutes dans un parc voisin avant de reprendre le travail. En conclusion, le plus important est de gagner du temps sans sacrifier le repos, la convivialité ni des habitudes alimentaires équilibrées.
 
-**Total : 167 mots (titre compris)**
+**Total : 169 mots (titre compris)**
 
 ---
 
@@ -66,11 +66,11 @@ Pour ma part, je considère la livraison comme un service pratique, à condition
 
 Les deux documents abordent la vidéosurveillance urbaine. Le premier souligne le sentiment de sécurité qu’elle procure dans l’espace public, tout en refusant son usage au travail. En revanche, le second juge ses résultats insuffisants face à son coût et au personnel nécessaire pour analyser les images.
 
-**Partie 2 — Point de vue personnel (102 mots)**
+**Partie 2 — Point de vue personnel (105 mots)**
 
-Pour ma part, les caméras peuvent compléter la prévention, mais dans des limites bien précises. Tout d’abord, elles facilitent parfois l’identification d’un auteur après une infraction. Une image nette peut orienter une enquête que les témoignages seuls laisseraient sans réponse. De plus, elles ne remplacent ni l’éclairage public ni la présence d’agents formés sur le terrain. Par exemple, une gare confrontée à plusieurs agressions peut surveiller uniquement ses accès, signaler clairement le dispositif au public et effacer rapidement les images inutiles. En conclusion, le plus important est de mettre en place une surveillance ciblée, transparente et régulièrement évaluée par une autorité indépendante.
+Pour ma part, les caméras peuvent compléter la prévention, mais il faut que leur usage soit strictement limité. Tout d’abord, elles facilitent parfois l’identification d’un auteur après une infraction. Une image nette peut orienter une enquête que les témoignages seuls laisseraient sans réponse. De plus, elles ne remplacent ni l’éclairage public ni la présence d’agents formés sur le terrain. Par exemple, une gare confrontée à plusieurs agressions peut surveiller uniquement ses accès, signaler clairement le dispositif au public et effacer rapidement les images inutiles. En conclusion, le plus important est de mettre en place une surveillance ciblée, transparente et régulièrement évaluée par une autorité indépendante.
 
-**Total : 154 mots (titre compris)**
+**Total : 157 mots (titre compris)**
 
 ---
 
@@ -80,15 +80,15 @@ Pour ma part, les caméras peuvent compléter la prévention, mais dans des limi
 
 ### Les jeux vidéo : des bénéfices sous contrôle
 
-**Partie 1 — Synthèse (56 mots)**
+**Partie 1 — Synthèse (54 mots)**
 
-Les deux documents abordent les effets des jeux vidéo. Le premier évoque des bénéfices cognitifs chez les adultes, notamment une meilleure rapidité de réaction, mais appelle aussi à la vigilance. De son côté, le second associe l’usage excessif chez les enfants à la nervosité, à la violence, au stress et à de moins bons résultats scolaires.
+Les deux documents abordent les effets des jeux vidéo. Le premier relève chez les adultes une réaction plus rapide, mais avertit aussi des risques de violence et d’addiction. De son côté, le second associe l’usage excessif chez les enfants à la nervosité, à la violence, au stress et à de moins bons résultats scolaires.
 
-**Partie 2 — Point de vue personnel (104 mots)**
+**Partie 2 — Point de vue personnel (105 mots)**
 
-Pour ma part, les jeux vidéo peuvent être enrichissants, mais seulement si le temps et le contenu sont contrôlés. Tout d’abord, certains titres développent la logique, la coordination et la coopération. Jouer en ligne oblige à observer vite, à décider et à s’accorder avec une équipe. De plus, un usage excessif réduit le sommeil, l’activité physique et la concentration scolaire. Par exemple, un adolescent peut jouer quarante-cinq minutes à un jeu de stratégie après ses devoirs, puis éteindre la console avant le repas familial. En conclusion, le plus important est de fixer des règles claires adaptées à l’âge et de préserver des loisirs variés.
+Pour ma part, les jeux vidéo peuvent être enrichissants, mais il faut que le temps et le contenu soient contrôlés. Tout d’abord, certains titres développent la logique, la coordination et la coopération. Jouer en ligne oblige à observer vite, à décider et à s’accorder avec une équipe. De plus, un usage excessif réduit le sommeil, l’activité physique et la concentration scolaire. Par exemple, un adolescent peut jouer quarante-cinq minutes à un jeu de stratégie après ses devoirs, puis éteindre la console avant le repas familial. En conclusion, le plus important est de fixer des règles claires adaptées à l’âge et de préserver des loisirs variés.
 
-**Total : 167 mots (titre compris)**
+**Total : 166 mots (titre compris)**
 
 ---
 
@@ -98,15 +98,15 @@ Pour ma part, les jeux vidéo peuvent être enrichissants, mais seulement si le 
 
 ### Le bien-être au travail : au-delà du mobilier
 
-**Partie 1 — Synthèse (48 mots)**
+**Partie 1 — Synthèse (51 mots)**
 
-Les deux documents abordent le bien-être au travail. Le premier attribue aux bureaux réglables davantage de confort, de productivité et de convivialité entre collègues. En revanche, le second soupçonne les employeurs d’utiliser ces aménagements pour obtenir plus d’heures et réclame surtout le respect strict du temps de travail.
+Les deux documents abordent le bien-être au travail. Le premier affirme que les bureaux réglables améliorent la productivité, les négociations téléphoniques, la convivialité et la communication entre collègues. En revanche, le second soupçonne les employeurs d’utiliser ces aménagements pour obtenir plus d’heures et réclame surtout le respect du temps de travail.
 
-**Partie 2 — Point de vue personnel (104 mots)**
+**Partie 2 — Point de vue personnel (100 mots)**
 
-Pour ma part, je pense que le bien-être exige à la fois un équipement adapté et des horaires respectés. Tout d’abord, un poste ergonomique prévient certaines douleurs et améliore la concentration. Travailler le dos droit, l’écran à la bonne hauteur, évite bien des arrêts de travail. De plus, aucune installation moderne ne compense une charge excessive ou des heures supplémentaires permanentes. Par exemple, une entreprise peut fournir des bureaux réglables, organiser de vraies pauses et interdire les courriels professionnels après dix-huit heures. En conclusion, le plus important est de protéger durablement la santé des salariés sans transformer leur confort en prétexte pour travailler davantage.
+Pour ma part, il faut que l’employeur fournisse un équipement adapté et respecte les horaires. Tout d’abord, un poste ergonomique prévient certaines douleurs et améliore la concentration. Travailler le dos droit, l’écran à la bonne hauteur, évite bien des arrêts de travail. De plus, aucune installation moderne ne compense une charge excessive ou des heures supplémentaires permanentes. Par exemple, une entreprise peut fournir des bureaux réglables, organiser de vraies pauses et interdire les courriels professionnels après dix-huit heures. En conclusion, le plus important est de protéger durablement la santé des salariés sans transformer leur confort en prétexte pour travailler davantage.
 
-**Total : 159 mots (titre compris)**
+**Total : 158 mots (titre compris)**
 
 ---
 
@@ -120,11 +120,11 @@ Pour ma part, je pense que le bien-être exige à la fois un équipement adapté
 
 Les deux documents abordent l’égalité professionnelle entre les femmes et les hommes. Le premier constate qu’au Québec les femmes accèdent aux métiers traditionnellement masculins, notamment aux postes de direction. En revanche, le second relève des professions très féminisées et défend une répartition traditionnelle des rôles liée à la garde des enfants.
 
-**Partie 2 — Point de vue personnel (104 mots)**
+**Partie 2 — Point de vue personnel (106 mots)**
 
-Pour ma part, chaque métier doit être accessible selon les compétences, et non selon le sexe. Tout d’abord, écarter des candidates prive les organisations de talents et entretient les inégalités salariales. Recruter toujours dans le même vivier appauvrit aussi les décisions d’une équipe. De plus, les responsabilités familiales doivent être partagées plutôt qu’attribuées automatiquement aux femmes. Par exemple, une entreprise peut sélectionner une ingénieure pour diriger un chantier et offrir le même congé parental aux mères comme aux pères. En conclusion, le plus important est de garantir un recrutement impartial, une rémunération égale et des conditions permettant à chacun de concilier travail et famille.
+Pour ma part, il faut que chaque métier soit accessible selon les compétences, et non selon le sexe. Tout d’abord, écarter des candidates prive les organisations de talents et entretient les inégalités salariales. Recruter toujours dans le même vivier appauvrit aussi les décisions d’une équipe. De plus, les responsabilités familiales doivent être partagées plutôt qu’attribuées automatiquement aux femmes. Par exemple, une entreprise peut sélectionner une ingénieure pour diriger un chantier et offrir le même congé parental aux mères comme aux pères. En conclusion, le plus important est de garantir un recrutement impartial, une rémunération égale et des conditions permettant à chacun de concilier travail et famille.
 
-**Total : 162 mots (titre compris)**
+**Total : 164 mots (titre compris)**
 
 ---
 
@@ -138,11 +138,11 @@ Pour ma part, chaque métier doit être accessible selon les compétences, et no
 
 Les deux documents abordent la gratuité des transports en commun. Le premier y voit un moyen de réduire la circulation, la pollution et les maladies respiratoires, tout en redynamisant le centre-ville. En revanche, le second redoute son coût, préfère améliorer la desserte des quartiers éloignés et estime que le paiement favorise le respect des équipements.
 
-**Partie 2 — Point de vue personnel (102 mots)**
+**Partie 2 — Point de vue personnel (103 mots)**
 
-Pour ma part, rendre les transports gratuits peut être utile, mais seulement après avoir construit un réseau fiable. Tout d’abord, un tarif nul encourage les automobilistes à essayer le bus ou le métro. Moins de voitures en centre-ville, c’est moins d’embouteillages et un air plus respirable. De plus, une desserte insuffisante reste inutilisable, même gratuite. Par exemple, une ville peut offrir les trajets chaque fin de semaine, ajouter des autobus dans les quartiers éloignés et mesurer ensuite la fréquentation ainsi que la qualité de l’air. En conclusion, le plus important est de combiner accessibilité financière, fréquence élevée et entretien durable du réseau.
+Pour ma part, rendre les transports gratuits peut être utile, mais il faut que le réseau soit d’abord fiable. Tout d’abord, un tarif nul encourage les automobilistes à essayer le bus ou le métro. Moins de voitures en centre-ville, c’est moins d’embouteillages et un air plus respirable. De plus, une desserte insuffisante reste inutilisable, même gratuite. Par exemple, une ville peut offrir les trajets chaque fin de semaine, ajouter des autobus dans les quartiers éloignés et mesurer ensuite la fréquentation ainsi que la qualité de l’air. En conclusion, le plus important est de combiner accessibilité financière, fréquence élevée et entretien durable du réseau.
 
-**Total : 164 mots (titre compris)**
+**Total : 165 mots (titre compris)**
 
 ---
 
@@ -174,11 +174,11 @@ Pour ma part, je pense que des devoirs courts peuvent être utiles, à condition
 
 Les deux documents abordent le choix entre écoles privées et publiques. Le premier explique le succès du privé par sa réputation, son encadrement et ses classes socialement homogènes. En revanche, le second dénonce des frais qui excluent les familles modestes, réduisent la mixité sociale et contribuent à reproduire les inégalités.
 
-**Partie 2 — Point de vue personnel (101 mots)**
+**Partie 2 — Point de vue personnel (102 mots)**
 
-Pour ma part, une éducation de qualité doit être accessible à tous, quel que soit le revenu familial. Tout d’abord, la mixité sociale apprend aux élèves à comprendre des réalités différentes et renforce la cohésion. Se côtoyer dès l’enfance prépare mieux à la société réelle. De plus, l’école publique doit recevoir les moyens nécessaires pour assurer un encadrement solide. Par exemple, une municipalité peut financer des groupes de soutien gratuits et réduire la taille des classes dans un quartier défavorisé. En conclusion, le plus important est de garantir partout des enseignants disponibles, des ressources suffisantes et les mêmes chances de réussite.
+Pour ma part, il faut qu’une éducation de qualité soit accessible à tous, quel que soit le revenu familial. Tout d’abord, la mixité sociale apprend aux élèves à comprendre des réalités différentes et renforce la cohésion. Se côtoyer dès l’enfance prépare mieux à la société réelle. De plus, l’école publique doit recevoir les moyens nécessaires pour assurer un encadrement solide. Par exemple, une municipalité peut financer des groupes de soutien gratuits et réduire la taille des classes dans un quartier défavorisé. En conclusion, le plus important est de garantir partout des enseignants disponibles, des ressources suffisantes et les mêmes chances de réussite.
 
-**Total : 159 mots (titre compris)**
+**Total : 160 mots (titre compris)**
 
 ---
 
@@ -194,7 +194,7 @@ Les deux documents abordent la fabrication domestique de produits biologiques. L
 
 **Partie 2 — Point de vue personnel (101 mots)**
 
-Pour ma part, le fait maison convient surtout aux produits dont la composition et la conservation sont simples. Tout d’abord, réutiliser les contenants réduit l’empreinte écologique et permet d’adapter les quantités aux besoins. Un foyer produit ainsi moins de déchets et évite d’acheter des formats inutiles. De plus, il serait imprudent d’improviser des soins sensibles sans connaissances. Par exemple, une personne peut fabriquer une lessive avec une recette vérifiée, étiqueter le flacon et noter la date de préparation. En conclusion, le plus important est de choisir une formule fiable, de respecter les dosages et de renoncer dès qu’un risque sanitaire existe.
+Pour ma part, le fait maison convient aux produits simples, à condition que leur conservation soit maîtrisée. Tout d’abord, réutiliser les contenants réduit l’empreinte écologique et permet d’adapter les quantités aux besoins. Un foyer produit ainsi moins de déchets et évite d’acheter des formats inutiles. De plus, il serait imprudent d’improviser des soins sensibles sans connaissances. Par exemple, une personne peut fabriquer une lessive avec une recette vérifiée et acheter plutôt une crème destinée à un enfant allergique. En conclusion, le plus important est de choisir une formule fiable, de respecter les dosages et de renoncer dès qu’un risque sanitaire existe.
 
 **Total : 160 mots (titre compris)**
 
@@ -210,11 +210,11 @@ Pour ma part, le fait maison convient surtout aux produits dont la composition e
 
 Les deux documents abordent les nouvelles technologies à l’école. Le premier valorise l’accès aux ressources, l’engagement, la créativité et l’autonomie que favorisent les tablettes et les ordinateurs. En revanche, le second craint une dépendance aux écrans et un recul des interactions humaines, puis défend le contact direct avec les enseignants.
 
-**Partie 2 — Point de vue personnel (106 mots)**
+**Partie 2 — Point de vue personnel (108 mots)**
 
-Pour ma part, je considère le numérique comme un outil pédagogique, mais pas comme un remplacement du professeur. Tout d’abord, des ressources variées facilitent la recherche et permettent d’adapter certains exercices au niveau de l’élève. Chacun peut refaire un exercice à son rythme sans retarder toute la classe. De plus, la discussion en classe développe l’expression, l’empathie et l’esprit critique que les écrans ne peuvent pas remplacer. Par exemple, des collégiens peuvent consulter une carte interactive pendant vingt minutes, puis débattre en groupe sous la conduite de leur enseignante. En conclusion, le plus important est de combiner outils numériques, écriture, échanges humains et activités sans écran.
+Pour ma part, le numérique est utile à condition qu’il soit guidé par un professeur et ne le remplace pas. Tout d’abord, des ressources variées facilitent la recherche et permettent d’adapter certains exercices au niveau de l’élève. Chacun peut refaire un exercice à son rythme sans retarder toute la classe. De plus, la discussion en classe développe l’expression, l’empathie et l’esprit critique que les écrans ne peuvent pas remplacer. Par exemple, des collégiens peuvent consulter une carte interactive pendant vingt minutes, puis débattre en groupe sous la conduite de leur enseignante. En conclusion, le plus important est de combiner outils numériques, écriture, échanges humains et activités sans écran.
 
-**Total : 165 mots (titre compris)**
+**Total : 167 mots (titre compris)**
 
 ---
 
@@ -246,11 +246,11 @@ Pour ma part, la vidéosurveillance n’est acceptable que si son utilité est d
 
 Les deux documents abordent les vêtements de grandes marques pour les enfants. Le premier estime qu’ils favorisent l’expression personnelle et l’appartenance à un groupe grâce aux logos ou aux personnages appréciés. En revanche, le second rappelle que les jeunes grandissent vite et abîment facilement leurs habits en jouant dehors, ce qui limite leur durée d’usage.
 
-**Partie 2 — Point de vue personnel (114 mots)**
+**Partie 2 — Point de vue personnel (115 mots)**
 
-Pour ma part, les marques peuvent rester un plaisir occasionnel, mais elles ne devraient pas dicter l’habillement des enfants. Tout d’abord, acheter souvent des vêtements chers pèse sur le budget alors qu’ils deviennent rapidement trop petits. Un manteau de marque porté une seule saison revient plus cher qu’un vêtement solide gardé plusieurs années. De plus, valoriser seulement un logo risque d’affaiblir la confiance en soi. Par exemple, des parents peuvent offrir un pull de marque pour un anniversaire et compléter la garde-robe avec des vêtements durables de seconde main. En conclusion, le plus important est de transmettre le sens de la qualité, de la modération et de la liberté de choisir au-delà du prestige.
+Pour ma part, les marques peuvent rester un plaisir occasionnel, mais il ne faut pas qu’elles dictent l’habillement des enfants. Tout d’abord, les vêtements chers pèsent sur le budget alors qu’ils deviennent vite trop petits. Un manteau de marque porté une saison revient plus cher qu’un habit solide gardé plusieurs années. De plus, choisir selon la qualité plutôt que selon un logo développe l’esprit critique. L’enfant comprend qu’un prix élevé ne garantit ni solidité ni confort. Par exemple, des parents peuvent offrir un pull de marque pour un anniversaire et compléter la garde-robe avec des vêtements durables d’occasion. En conclusion, le plus important est de transmettre le sens de la qualité et de la modération.
 
-**Total : 177 mots (titre compris)**
+**Total : 178 mots (titre compris)**
 
 ---
 
@@ -264,11 +264,11 @@ Pour ma part, les marques peuvent rester un plaisir occasionnel, mais elles ne d
 
 Les deux documents abordent la réduction du temps de travail. Le premier souligne un meilleur équilibre de vie, moins de stress et une productivité accrue chez les salariés. De son côté, le second ajoute que les entreprises peuvent réduire l’absentéisme et fidéliser leurs équipes, à condition d’adapter leur organisation pour maintenir leurs services.
 
-**Partie 2 — Point de vue personnel (102 mots)**
+**Partie 2 — Point de vue personnel (105 mots)**
 
-Pour ma part, je suis favorable à une semaine plus courte si la charge de travail diminue réellement. Tout d’abord, davantage de repos peut prévenir la fatigue chronique et améliorer la concentration. Reposé, un salarié commet moins d’erreurs et retrouve le goût de son métier. De plus, comprimer les mêmes tâches en moins d’heures créerait simplement plus de stress. Par exemple, une entreprise peut tester quatre jours pendant trois mois, faire tourner les équipes et comparer la productivité ainsi que l’absentéisme. En conclusion, le plus important est de moduler les horaires selon chaque secteur sans réduire les salaires ni intensifier le travail.
+Pour ma part, je suis favorable à une semaine plus courte à condition que les salariés aient réellement moins de tâches. Tout d’abord, davantage de repos peut prévenir la fatigue chronique et améliorer la concentration. Reposé, un salarié commet moins d’erreurs et retrouve le goût de son métier. De plus, comprimer les mêmes tâches en moins d’heures créerait simplement plus de stress. Par exemple, une entreprise peut tester quatre jours pendant trois mois, faire tourner les équipes et comparer la productivité ainsi que l’absentéisme. En conclusion, le plus important est de moduler les horaires selon chaque secteur sans réduire les salaires ni intensifier le travail.
 
-**Total : 165 mots (titre compris)**
+**Total : 168 mots (titre compris)**
 
 ---
 
@@ -282,11 +282,11 @@ Pour ma part, je suis favorable à une semaine plus courte si la charge de trava
 
 Les deux documents abordent les parcours des cuisiniers amateurs et professionnels. Le premier insiste sur la formation, l’expérience et la technique nécessaires pour exercer sérieusement. En revanche, le second montre que des autodidactes formés sur Internet peuvent gagner en notoriété, devenir professionnels et publier des livres destinés aux passionnés de cuisine.
 
-**Partie 2 — Point de vue personnel (107 mots)**
+**Partie 2 — Point de vue personnel (112 mots)**
 
-Pour ma part, le professionnalisme dépend davantage des compétences démontrées que du parcours suivi. Tout d’abord, une formation classique transmet rapidement l’hygiène, les techniques et l’organisation d’une cuisine. Ces bases s’acquièrent difficilement seul, car elles supposent des corrections immédiates et la pression d’un vrai service. De plus, un autodidacte rigoureux peut acquérir ces savoirs grâce à la pratique et à des stages. Par exemple, une cuisinière connue en ligne peut obtenir une certification sanitaire, travailler six mois auprès d’un chef et tester son projet avant d’ouvrir un restaurant. En conclusion, le plus important est de maîtriser le métier, d’accepter les évaluations et de continuer à se former.
+Pour ma part, il faut que le professionnalisme repose sur les compétences démontrées plutôt que sur le parcours suivi. Tout d’abord, une formation classique transmet rapidement l’hygiène, les techniques et l’organisation d’une cuisine. Ces bases s’acquièrent difficilement seul, car elles supposent des corrections immédiates et la pression d’un vrai service. De plus, un autodidacte rigoureux peut acquérir ces savoirs grâce à la pratique et à des stages. Par exemple, une cuisinière connue en ligne peut obtenir une certification sanitaire, travailler six mois auprès d’un chef et tester son projet avant d’ouvrir un restaurant. En conclusion, le plus important est de maîtriser le métier, d’accepter les évaluations et de continuer à se former.
 
-**Total : 165 mots (titre compris)**
+**Total : 170 mots (titre compris)**
 
 ---
 
@@ -300,11 +300,11 @@ Pour ma part, le professionnalisme dépend davantage des compétences démontré
 
 Les deux documents abordent la vie en colocation. Le premier met en avant le partage des dépenses, la convivialité et les échanges entre personnes de différents horizons. En revanche, le second souligne le manque d’intimité, les conflits de personnalité et les désaccords concernant les tâches ménagères ou les responsabilités communes.
 
-**Partie 2 — Point de vue personnel (105 mots)**
+**Partie 2 — Point de vue personnel (107 mots)**
 
-Pour ma part, la colocation est enrichissante à condition d’établir des règles claires dès le départ. Tout d’abord, partager les charges réduit le coût du logement et peut rompre l’isolement. Diviser un loyer en trois libère une marge financière que personne n’aurait seul en grande ville. De plus, une communication ouverte évite que les petites frustrations deviennent des conflits. Par exemple, trois colocataires peuvent signer une charte, tenir un calendrier de ménage et verser chaque mois la même somme dans une caisse commune. En conclusion, le plus important est de répartir équitablement les responsabilités tout en respectant les habitudes, les limites et l’intimité de tous.
+Pour ma part, la colocation est enrichissante à condition que des règles claires soient établies dès le départ. Tout d’abord, partager les charges réduit le coût du logement et peut rompre l’isolement. Diviser un loyer en trois libère une marge financière que personne n’aurait seul en grande ville. De plus, une communication ouverte évite que les petites frustrations deviennent des conflits. Par exemple, trois colocataires peuvent signer une charte, tenir un calendrier de ménage et verser chaque mois la même somme dans une caisse commune. En conclusion, le plus important est de répartir équitablement les responsabilités tout en respectant les habitudes, les limites et l’intimité de tous.
 
-**Total : 162 mots (titre compris)**
+**Total : 164 mots (titre compris)**
 
 ---
 
@@ -336,10 +336,10 @@ Pour ma part, je pense que le travail contribue à l’épanouissement, mais qu�
 
 Les deux documents abordent les relations amicales au travail. Le premier affirme qu’elles améliorent l’ambiance, la communication, la coopération et la résolution des problèmes. En revanche, le second avertit que des liens trop exclusifs peuvent provoquer des tensions, exclure certains collègues et compromettre la hiérarchie, le professionnalisme ou la productivité.
 
-**Partie 2 — Point de vue personnel (103 mots)**
+**Partie 2 — Point de vue personnel (106 mots)**
 
-Pour ma part, l’amitié entre collègues est positive tant que les décisions restent professionnelles. Tout d’abord, la confiance facilite l’entraide et rend les échanges quotidiens plus agréables. Se sentir en confiance, c’est oser demander de l’aide et signaler un problème à temps. De plus, des limites claires empêchent le favoritisme et protègent la cohésion de l’équipe. Par exemple, une responsable peut déjeuner avec une collègue proche, puis attribuer un projet au candidat le plus compétent selon des critères annoncés à tous. En conclusion, le plus important est de cultiver la convivialité sans sacrifier l’équité, le respect de la hiérarchie ni les objectifs communs.
+Pour ma part, l’amitié entre collègues est positive à condition que les décisions soient prises avec équité. Tout d’abord, la confiance facilite l’entraide et rend les échanges quotidiens plus agréables. Se sentir en confiance, c’est oser demander de l’aide et signaler un problème à temps. De plus, des limites claires empêchent le favoritisme et protègent la cohésion de l’équipe. Par exemple, une responsable peut déjeuner avec une collègue proche, puis attribuer un projet au candidat le plus compétent selon des critères annoncés à tous. En conclusion, le plus important est de cultiver la convivialité sans sacrifier l’équité, le respect de la hiérarchie ni les objectifs communs.
 
-**Total : 159 mots (titre compris)**
+**Total : 162 mots (titre compris)**
 
 ---

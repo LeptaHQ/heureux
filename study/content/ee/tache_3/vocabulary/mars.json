@@ -527,7 +527,7 @@
           "kind": "mot-cle",
           "french": "l’attrait des écrans",
           "english": "the appeal of screens",
-          "example": "D’un côté, certains refusent de l’imposer et préfèrent laisser chaque jeune choisir ses activités et ses livres, surtout face à l’attrait des écrans et du sport.",
+          "example": "D’un côté, certains refusent d’imposer la lecture et préfèrent laisser l’enfant choisir ses livres et le moment de lire, surtout face à l’attrait des écrans et du sport.",
           "usage": "Groupe nominal ; réutilisable en Culture/Éducation."
         },
         {
@@ -655,7 +655,7 @@
           "kind": "tournure",
           "french": "surtout face à l’attrait des écrans et du sport",
           "english": "especially given the appeal of screens and sport",
-          "example": "D’un côté, certains refusent de l’imposer et préfèrent laisser chaque jeune choisir ses activités et ses livres, surtout face à l’attrait des écrans et du sport.",
+          "example": "D’un côté, certains refusent d’imposer la lecture et préfèrent laisser l’enfant choisir ses livres et le moment de lire, surtout face à l’attrait des écrans et du sport.",
           "usage": "Construction réutilisable ; réutilisable en Culture/Éducation."
         },
         {
@@ -711,7 +711,7 @@
           "kind": "expression",
           "french": "D’un côté",
           "english": "On the one hand",
-          "example": "D’un côté, certains refusent de l’imposer et préfèrent laisser chaque jeune choisir ses activités et ses livres, surtout face à l’attrait des écrans et du sport.",
+          "example": "D’un côté, certains refusent d’imposer la lecture et préfèrent laisser l’enfant choisir ses livres et le moment de lire, surtout face à l’attrait des écrans et du sport.",
           "usage": "Connecteur adverbial ; réutilisable en Culture/Éducation."
         },
         {
@@ -1762,15 +1762,15 @@
           "kind": "mot-cle",
           "french": "l’absence de services",
           "english": "the lack of services",
-          "example": "Le premier témoignage apprécie des tarifs parfois inférieurs au train ou à la voiture, malgré l’absence de services et le faible confort sur les longues distances.",
+          "example": "Le premier témoignage apprécie des tarifs parfois inférieurs au train ou à la voiture, mais note l’absence de services et déconseille les longs trajets.",
           "usage": "Groupe nominal ; réutilisable en Transport/Environnement."
         },
         {
           "id": "E3-MAR-C08-04",
           "kind": "mot-cle",
-          "french": "le faible confort",
-          "english": "limited comfort",
-          "example": "Le premier témoignage apprécie des tarifs parfois inférieurs au train ou à la voiture, malgré l’absence de services et le faible confort sur les longues distances.",
+          "french": "les longs trajets",
+          "english": "long journeys",
+          "example": "Le premier témoignage apprécie des tarifs parfois inférieurs au train ou à la voiture, mais note l’absence de services et déconseille les longs trajets.",
           "usage": "Groupe nominal ; réutilisable en Transport/Environnement."
         },
         {
@@ -1842,7 +1842,7 @@
           "kind": "collocation",
           "french": "des tarifs parfois inférieurs",
           "english": "fares that are sometimes lower",
-          "example": "Le premier témoignage apprécie des tarifs parfois inférieurs au train ou à la voiture, malgré l’absence de services et le faible confort sur les longues distances.",
+          "example": "Le premier témoignage apprécie des tarifs parfois inférieurs au train ou à la voiture, mais note l’absence de services et déconseille les longs trajets.",
           "usage": "Association lexicale ; réutilisable en Transport/Environnement."
         },
         {
@@ -1888,17 +1888,17 @@
         {
           "id": "E3-MAR-C08-19",
           "kind": "tournure",
-          "french": "malgré l’absence de services",
-          "english": "despite the lack of services",
-          "example": "Le premier témoignage apprécie des tarifs parfois inférieurs au train ou à la voiture, malgré l’absence de services et le faible confort sur les longues distances.",
+          "french": "note l’absence de services",
+          "english": "notes the lack of services",
+          "example": "Le premier témoignage apprécie des tarifs parfois inférieurs au train ou à la voiture, mais note l’absence de services et déconseille les longs trajets.",
           "usage": "Construction réutilisable ; réutilisable en Transport/Environnement."
         },
         {
           "id": "E3-MAR-C08-20",
           "kind": "tournure",
-          "french": "sur les longues distances",
-          "english": "over long distances",
-          "example": "Le premier témoignage apprécie des tarifs parfois inférieurs au train ou à la voiture, malgré l’absence de services et le faible confort sur les longues distances.",
+          "french": "déconseille les longs trajets",
+          "english": "advises against long journeys",
+          "example": "Le premier témoignage apprécie des tarifs parfois inférieurs au train ou à la voiture, mais note l’absence de services et déconseille les longs trajets.",
           "usage": "Construction réutilisable ; réutilisable en Transport/Environnement."
         },
         {

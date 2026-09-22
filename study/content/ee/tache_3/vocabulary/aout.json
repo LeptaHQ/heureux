@@ -1284,7 +1284,7 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, le second rappelle que les enfants grandissent vite et abîment facilement leurs habits, ce qui rend ces achats coûteux et peu durables.",
+          "example": "En revanche, le second rappelle que les enfants grandissent vite et abîment facilement leurs habits, qui deviennent rapidement trop petits, sales ou troués.",
           "usage": "Connecteur adverbial ; réutilisable en Consommation/Famille."
         },
         {
@@ -1292,7 +1292,7 @@
           "kind": "collocation",
           "french": "les enfants grandissent vite",
           "english": "children grow quickly",
-          "example": "En revanche, le second rappelle que les enfants grandissent vite et abîment facilement leurs habits, ce qui rend ces achats coûteux et peu durables.",
+          "example": "En revanche, le second rappelle que les enfants grandissent vite et abîment facilement leurs habits, qui deviennent rapidement trop petits, sales ou troués.",
           "usage": "Collocation ; réutilisable en Consommation/Famille."
         },
         {
@@ -1300,15 +1300,15 @@
           "kind": "mot-cle",
           "french": "leurs habits",
           "english": "their clothes",
-          "example": "En revanche, le second rappelle que les enfants grandissent vite et abîment facilement leurs habits, ce qui rend ces achats coûteux et peu durables.",
+          "example": "En revanche, le second rappelle que les enfants grandissent vite et abîment facilement leurs habits, qui deviennent rapidement trop petits, sales ou troués.",
           "usage": "Nom ou groupe nominal ; réutilisable en Consommation/Famille."
         },
         {
           "id": "E3-AOU-C09-08",
           "kind": "collocation",
-          "french": "ces achats coûteux et peu durables",
-          "english": "these expensive and unsustainable purchases",
-          "example": "En revanche, le second rappelle que les enfants grandissent vite et abîment facilement leurs habits, ce qui rend ces achats coûteux et peu durables.",
+          "french": "trop petits, sales ou troués",
+          "english": "too small, dirty or torn",
+          "example": "En revanche, le second rappelle que les enfants grandissent vite et abîment facilement leurs habits, qui deviennent rapidement trop petits, sales ou troués.",
           "usage": "Collocation ; réutilisable en Consommation/Famille."
         },
         {

@@ -231,9 +231,9 @@
         {
           "id": "E3-OCT-C01-28",
           "kind": "verbe-action",
-          "french": "limiter leur quantité",
-          "english": "to limit their quantity",
-          "example": "En conclusion, le plus important est de limiter leur quantité, d’exiger leur transparence et de privilégier des supports respectueux de l’environnement.",
+          "french": "limiter la quantité de publicités",
+          "english": "to limit the amount of advertising",
+          "example": "En conclusion, le plus important est de limiter la quantité de publicités, d’exiger leur transparence et de privilégier des supports respectueux de l’environnement.",
           "usage": "Construction infinitive ; réutilisable en Réglementation/Environnement."
         },
         {
@@ -241,15 +241,15 @@
           "kind": "verbe-action",
           "french": "exiger leur transparence",
           "english": "to require their transparency",
-          "example": "En conclusion, le plus important est de limiter leur quantité, d’exiger leur transparence et de privilégier des supports respectueux de l’environnement.",
+          "example": "En conclusion, le plus important est de limiter la quantité de publicités, d’exiger leur transparence et de privilégier des supports respectueux de l’environnement.",
           "usage": "Construction infinitive ; réutilisable en Publicité/Politiques publiques."
         },
         {
           "id": "E3-OCT-C01-30",
           "kind": "phrase-modele",
-          "french": "En conclusion, le plus important est de limiter leur quantité, d’exiger leur transparence et de privilégier des supports respectueux de l’environnement",
-          "english": "In conclusion, the most important thing is to limit their quantity, require transparency and favour environmentally friendly media",
-          "example": "En conclusion, le plus important est de limiter leur quantité, d’exiger leur transparence et de privilégier des supports respectueux de l’environnement.",
+          "french": "En conclusion, le plus important est de limiter la quantité de publicités, d’exiger leur transparence et de privilégier des supports respectueux de l’environnement",
+          "english": "In conclusion, the most important thing is to limit the amount of advertising, require transparency and favour environmentally friendly media",
+          "example": "En conclusion, le plus important est de limiter la quantité de publicités, d’exiger leur transparence et de privilégier des supports respectueux de l’environnement.",
           "usage": "Formule de conclusion ; réutilisable pour hiérarchiser plusieurs mesures."
         }
       ]

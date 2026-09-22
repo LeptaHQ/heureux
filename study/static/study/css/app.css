@@ -16843,30 +16843,10 @@ html:not([data-collection-view-mode="table"]) .subject-collection .t1-table__pro
   }
 }
 
-.ee3-memory-guide {
-  margin: 0.75rem 0;
-}
-.ee3-memory-guide > summary {
+.ee3-memory-guide-trigger {
+  max-width: 100%;
   min-height: 44px;
-  padding: 0.7rem 1rem;
-  font-weight: 700;
-  cursor: pointer;
-}
-.ee3-memory-guide > summary:focus-visible {
-  outline: 2px solid var(--primary);
-  outline-offset: -3px;
-}
-.ee3-memory-guide__body {
-  max-width: 75ch;
-  padding: 0.25rem 1rem 1rem;
-  line-height: 1.6;
-}
-.ee3-memory-guide__body section + section {
-  margin-top: 1.5rem;
-}
-.ee3-memory-guide__body h3 {
-  margin: 0 0 0.5rem;
-  font-size: 1.05rem;
+  margin: 0.75rem 0;
 }
 .ee3-memory-guide__body [lang="en"] {
   color: var(--text-soft);

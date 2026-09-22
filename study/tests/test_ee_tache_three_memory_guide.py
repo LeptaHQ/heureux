@@ -28,15 +28,33 @@ class EeTacheThreeMemoryGuideTests(SimpleTestCase):
         cls.parsed = _GuideMarkup(cls.markup)
         cls.text = " ".join(strip_tags(cls.markup).split())
 
-    def test_guide_is_a_native_collapsed_disclosure(self):
-        details = self.parsed.attributes_for("details")
-        self.assertEqual(len(details), 1)
-        self.assertNotIn("open", details[0])
-        self.assertEqual(details[0]["lang"], "fr")
+    def test_guide_is_a_labelled_dialog_with_a_keyboard_scroll_region(self):
+        dialogs = self.parsed.attributes_for("dialog")
+        self.assertEqual(len(dialogs), 1)
+        dialog = dialogs[0]
+        self.assertNotIn("open", dialog)
+        self.assertEqual(dialog["lang"], "fr")
+        self.assertEqual(dialog["id"], "ee3-memory-guide-dialog")
+        self.assertEqual(dialog["aria-labelledby"], "ee3-memory-guide-title")
         self.assertInHTML(
-            "<summary>Comment apprendre ces formulations</summary>",
+            '<h2 id="ee3-memory-guide-title">Comment apprendre ces formulations</h2>',
             self.markup,
         )
+        buttons = self.parsed.attributes_for("button")
+        trigger = next(button for button in buttons if button.get("data-dialog-open") == dialog["id"])
+        self.assertEqual(trigger["type"], "button")
+        self.assertEqual(trigger["aria-haspopup"], "dialog")
+        self.assertEqual(trigger["aria-controls"], dialog["id"])
+        close = next(button for button in buttons if "data-dialog-close" in button)
+        self.assertEqual(close["type"], "button")
+        self.assertEqual(close["aria-label"], "Fermer le guide des formulations")
+        self.assertIn("autofocus", close)
+        regions = [attrs for attrs in self.parsed.attributes_for("div") if attrs.get("role") == "region"]
+        self.assertEqual(len(regions), 1)
+        self.assertEqual(regions[0]["tabindex"], "0")
+        self.assertEqual(regions[0]["aria-label"], "Guide des formulations")
+        self.assertIn("methodology-dialog__body", regions[0]["class"].split())
+        self.assertFalse(self.parsed.attributes_for("details"))
 
     def test_ten_essentials_have_english_meanings_and_usage(self):
         self.assertEqual(len(self.parsed.attributes_for("dt")), 10)
@@ -135,14 +153,17 @@ class EeTacheThreeMemoryGuideTests(SimpleTestCase):
         self.assertNotRegex(self.markup, r"https?://|www\.")
 
     def test_methodology_button_targets_existing_task_three_dialog(self):
-        buttons = self.parsed.attributes_for("button")
+        buttons = [
+            button for button in self.parsed.attributes_for("button")
+            if button.get("data-dialog-open") == "writing-methodology-dialog"
+        ]
         self.assertEqual(len(buttons), 1)
         button = buttons[0]
         self.assertEqual(button["type"], "button")
         self.assertEqual(button["aria-haspopup"], "dialog")
         self.assertEqual(button["aria-controls"], "writing-methodology-dialog")
         self.assertEqual(button["data-dialog-open"], button["aria-controls"])
-        self.assertFalse(self.parsed.attributes_for("dialog"))
+        self.assertNotEqual(self.parsed.attributes_for("dialog")[0]["id"], button["aria-controls"])
 
         dialog = _GuideMarkup(render_to_string(
             "study/partials/writing_methodology_dialog.html",

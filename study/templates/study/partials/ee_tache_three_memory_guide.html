@@ -1,6 +1,14 @@
-<details class="ee3-memory-guide card" lang="fr">
-  <summary>Comment apprendre ces formulations</summary>
-  <div class="ee3-memory-guide__body">
+<button class="btn ee3-memory-guide-trigger" type="button" aria-haspopup="dialog" aria-controls="ee3-memory-guide-dialog" data-dialog-open="ee3-memory-guide-dialog">Comment apprendre ces formulations</button>
+<dialog class="form-dialog methodology-dialog ee3-memory-guide" id="ee3-memory-guide-dialog" aria-labelledby="ee3-memory-guide-title" lang="fr">
+  <header class="form-dialog__header">
+    <div class="form-dialog__heading">
+      <h2 id="ee3-memory-guide-title">Comment apprendre ces formulations</h2>
+    </div>
+    <button class="icon-button form-dialog__close" type="button" aria-label="Fermer le guide des formulations" title="Fermer" data-dialog-close autofocus>
+      {% include "study/partials/ui_icon.html" with name="x" only %}
+    </button>
+  </header>
+  <div class="methodology-dialog__body ee3-memory-guide__body" role="region" aria-label="Guide des formulations" tabindex="0">
     <p>Un squelette fixe, pas des idées toutes faites. Gardez les mêmes repères pour organiser la réponse, puis choisissez dans les quatre mémoires uniquement les formulations qui expriment fidèlement votre sujet.</p>
     <p lang="en">A fixed structure, not ready-made ideas. Keep the same signposts to organize your answer, then use only the expressions from the four collections that accurately fit your topic.</p>
 
@@ -94,4 +102,4 @@
     <p lang="en">120–180 words overall; 60 minutes for all three tasks. Our models keep and count a short title; on test day, whether you need one depends on the requested genre. This structure supports clear B2 / NCLC 7–8 preparation; it does not guarantee a score.</p>
     <p>{% include "study/partials/writing_methodology_trigger.html" only %} · <span lang="en">Open the full Task 3 guide in French.</span></p>
   </div>
-</details>
+</dialog>

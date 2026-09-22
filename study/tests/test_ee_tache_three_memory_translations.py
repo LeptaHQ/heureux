@@ -312,7 +312,7 @@ class EeTacheThreeMemoryTranslationViewTests(TestCase):
                                     count=bank.question_count)
                 self.assertContains(
                     response,
-                    'class="ee3-memory-guide card"',
+                    'id="ee3-memory-guide-dialog"',
                     count=1,
                 )
                 self.assertContains(

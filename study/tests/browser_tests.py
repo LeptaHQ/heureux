@@ -831,7 +831,9 @@ class BrowserTests(StaticLiveServerTestCase):
                     "aria-label",
                     "Catégories de formulations",
                 )
-                guide.locator(":scope > summary").click()
+                self.page.get_by_role(
+                    "button", name="Comment apprendre ces formulations", exact=True
+                ).click()
                 expect(guide).to_have_attribute("open", "")
                 english = guide.locator(":scope > .ee3-memory-guide__body > p[lang=en]").first
                 french = guide.locator(":scope > .ee3-memory-guide__body > p").first
@@ -863,6 +865,11 @@ class BrowserTests(StaticLiveServerTestCase):
                         "button", name="Fermer la méthodologie"
                     ).click()
                     expect(dialog).to_be_hidden()
+
+                guide.get_by_role(
+                    "button", name="Fermer le guide des formulations"
+                ).click()
+                expect(guide).to_be_hidden()
 
         row = self.page.locator(
             f'[data-question-key="{corrected.content_key}"]'
@@ -1567,8 +1574,7 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(row.locator(".progress-status")).to_have_text("Terminé")
         self.assert_no_horizontal_overflow()
 
-    def assert_writing_methodology_layout(self):
-        dialog = self.page.locator("#writing-methodology-dialog")
+    def assert_scrollable_dialog_layout(self, dialog, close):
         body = dialog.locator(".methodology-dialog__body")
         box = dialog.bounding_box()
         viewport = self.page.viewport_size
@@ -1582,13 +1588,97 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertTrue(body.evaluate(
             "element => element.scrollHeight > element.clientHeight"
         ))
+        self.assertGreaterEqual(close.bounding_box()["width"], 44)
+        self.assertGreaterEqual(close.bounding_box()["height"], 44)
+
+    def assert_writing_methodology_layout(self):
+        dialog = self.page.locator("#writing-methodology-dialog")
+        self.assert_scrollable_dialog_layout(
+            dialog, dialog.get_by_role("button", name="Fermer la méthodologie")
+        )
         self.assertEqual(dialog.locator("a").count(), 0)
         self.assertIsNone(dialog.evaluate(
             "element => element.closest('.memory-overview-hero')"
         ))
-        close = dialog.get_by_role("button", name="Fermer la méthodologie")
-        self.assertGreaterEqual(close.bounding_box()["width"], 44)
-        self.assertGreaterEqual(close.bounding_box()["height"], 44)
+
+    def test_ee3_memory_guide_scrolls_inside_a_modal_on_overview_and_memory_pages(self):
+        factories.make_task(factories.make_part("ee"), "tache-3")
+        self.page.emulate_media(reduced_motion="reduce")
+        paths = (
+            reverse("study:task_memories", args=["ee", "tache-3"]),
+            reverse("study:task_memory_detail", args=["ee", "tache-3", 1]),
+        )
+        for path in paths:
+            for width, height in ((320, 568), (390, 844), (1280, 800), (844, 390)):
+                with self.subTest(path=path, width=width, height=height):
+                    self.page.set_viewport_size({"width": width, "height": height})
+                    self.page.goto(self.live_server_url + path)
+                    trigger = self.page.get_by_role(
+                        "button", name="Comment apprendre ces formulations", exact=True
+                    )
+                    dialog = self.page.get_by_role(
+                        "dialog", name="Comment apprendre ces formulations", exact=True,
+                        include_hidden=True,
+                    )
+                    body = dialog.get_by_role("region", name="Guide des formulations")
+                    close = dialog.get_by_role("button", name="Fermer le guide des formulations")
+                    expect(dialog).to_be_hidden()
+                    trigger.focus()
+                    page_scroll = self.page.evaluate("window.scrollY")
+                    trigger.press("Enter")
+                    expect(dialog).to_be_visible()
+                    self.assertTrue(dialog.evaluate("element => element.matches(':modal')"))
+                    self.assert_scrollable_dialog_layout(dialog, close)
+                    expect(close).to_be_focused()
+                    close_top = close.bounding_box()["y"]
+                    self.page.keyboard.press("Tab")
+                    expect(body).to_be_focused()
+                    body.press("End")
+                    self.page.wait_for_function("""() => {
+                        const body = document.querySelector(".ee3-memory-guide__body");
+                        return body.scrollTop > 0 &&
+                            body.scrollHeight - body.clientHeight - body.scrollTop < 2;
+                    }""")
+                    self.assertAlmostEqual(close.bounding_box()["y"], close_top, delta=1)
+                    self.assertEqual(self.page.evaluate("window.scrollY"), page_scroll)
+                    expect(self.page.locator("html")).to_have_css("overflow", "hidden")
+                    expect(body).to_have_css("overscroll-behavior", "contain")
+                    self.assertTrue(body.evaluate("""element => {
+                        const body = element.getBoundingClientRect();
+                        const last = element.lastElementChild.getBoundingClientRect();
+                        return last.bottom <= body.bottom;
+                    }"""))
+                    self.page.keyboard.press("Tab")
+                    methodology = dialog.get_by_role("button", name="Méthodologie", exact=True)
+                    expect(methodology).to_be_focused()
+                    methodology.press("Enter")
+                    full_guide = self.page.locator("#writing-methodology-dialog")
+                    expect(full_guide).to_be_visible()
+                    self.page.keyboard.press("Escape")
+                    expect(full_guide).to_be_hidden()
+                    expect(dialog).to_be_visible()
+                    expect(methodology).to_be_focused()
+                    expect(self.page.locator("html")).to_have_css("overflow", "hidden")
+                    self.page.keyboard.press("Tab")
+                    # The native tab cycle can include browser chrome, never background controls.
+                    if not self.page.evaluate("document.hasFocus()"):
+                        self.page.keyboard.press("Tab")
+                    expect(close).to_be_focused()
+                    self.page.keyboard.press("Escape")
+                    expect(dialog).to_be_hidden()
+                    expect(trigger).to_be_focused()
+                    expect(self.page.locator("html")).not_to_have_css("overflow", "hidden")
+                    self.assertEqual(self.page.evaluate("window.scrollY"), page_scroll)
+                    trigger.click()
+                    close.click()
+                    expect(dialog).to_be_hidden()
+                    expect(trigger).to_be_focused()
+                    trigger.click()
+                    self.page.mouse.click(2, 2)
+                    expect(dialog).to_be_hidden()
+                    expect(trigger).to_be_focused()
+                    self.assertEqual(self.page.url, self.live_server_url + path)
+                    self.assert_no_horizontal_overflow()
 
     def test_writing_methodology_opens_locally_and_restores_focus(self):
         self._import_ee_writing_content()

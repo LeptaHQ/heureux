@@ -30,11 +30,11 @@ Pour ma part, la photo devrait rester facultative, afin que les compétences dé
 
 Un seul document est disponible sur la colocation entre adultes, car le second manque dans la source. Le texte publié explique que la vie commune exige des règles sur le bruit, les invités et la vaisselle. Il insiste sur le respect mutuel, l’organisation et le dialogue pour résoudre les difficultés quotidiennes.
 
-**Partie 2 — Point de vue personnel (112 mots)**
+**Partie 2 — Point de vue personnel (109 mots)**
 
-Pour ma part, la colocation est une solution enrichissante à condition que les responsabilités soient définies dès le départ. Tout d’abord, elle réduit les charges financières et rompt l’isolement. En effet, partager un logement permet de diviser le loyer tout en offrant chaque soir une présence à quelqu’un qui vivrait sinon seul. De plus, une communication ouverte apprend à respecter les besoins de chacun. Par exemple, trois adultes peuvent fixer un calendrier de ménage, des heures calmes et des règles concernant les invités, puis faire un bilan chaque mois. En conclusion, le plus important est de choisir soigneusement ses colocataires et de préserver un équilibre raisonnable entre convivialité, respect mutuel et intimité.
+Pour ma part, la colocation est une solution enrichissante à condition que les responsabilités soient définies dès le départ. Tout d’abord, elle réduit les dépenses et rompt l’isolement. Partager un logement permet de diviser le loyer et évite à une personne qui vient d’arriver dans une ville de rentrer seule tous les soirs. De plus, discuter ouvertement des problèmes apprend à chacun à respecter les besoins des autres. Par exemple, trois adultes peuvent fixer un calendrier de ménage, des heures calmes et des règles concernant les invités, puis faire un bilan chaque mois. En conclusion, une colocation réussie repose sur des colocataires respectueux, des règles claires et le dialogue.
 
-**Total : 171 mots (titre compris)**
+**Total : 168 mots (titre compris)**
 
 ---
 
@@ -66,11 +66,11 @@ Pour ma part, je pense que l’aide immédiate et l’accompagnement à long ter
 
 Les deux documents abordent la place du travail dans la vie. Le premier dénonce la fatigue et le manque de temps pour les proches, puis propose de travailler moins. En revanche, le second présente l’emploi comme une source d’identité, de relations et de sentiment d’être utile.
 
-**Partie 2 — Point de vue personnel (100 mots)**
+**Partie 2 — Point de vue personnel (107 mots)**
 
-Pour ma part, le travail contribue à l’épanouissement, mais il ne doit pas envahir toute l’existence. Tout d’abord, un emploi stable procure des revenus, des relations et un sentiment d’utilité. Ces repères quotidiens structurent la vie et protègent souvent de l’isolement. De plus, des conditions de travail équilibrées protègent la santé et la vie familiale. Par exemple, une entreprise qui adopte une semaine de quatre jours peut maintenir ses objectifs tout en laissant aux salariés davantage de temps pour leurs proches. En conclusion, il faut que le travail garde une place utile sans qu’il envahisse le temps réservé aux proches.
+Pour ma part, le travail contribue à l’épanouissement, mais il ne doit pas envahir toute l’existence. Tout d’abord, un emploi stable procure des revenus, des relations et un sentiment d’utilité. Un salaire régulier, des collègues et des objectifs concrets donnent un rythme à la semaine et évitent l’isolement. De plus, des conditions de travail équilibrées protègent la santé et la vie familiale. Par exemple, une entreprise qui répartit les tâches sur quatre jours peut atteindre ses objectifs tout en laissant aux salariés davantage de temps pour leurs proches. En conclusion, il faut que le travail garde une place utile sans qu’il envahisse le temps réservé aux proches.
 
-**Total : 153 mots (titre compris)**
+**Total : 160 mots (titre compris)**
 
 ---
 
@@ -84,10 +84,10 @@ Pour ma part, le travail contribue à l’épanouissement, mais il ne doit pas e
 
 Les deux documents abordent les lieux où faire ses courses. Le premier valorise la variété, le stationnement et les promotions des supermarchés. En revanche, le second défend les commerces de quartier pour soutenir leur survie, obtenir des produits frais de qualité et renforcer la convivialité entre voisins.
 
-**Partie 2 — Point de vue personnel (111 mots)**
+**Partie 2 — Point de vue personnel (113 mots)**
 
-Pour ma part, les deux modèles peuvent coexister, mais les petits commerces méritent un soutien régulier. Tout d’abord, ils maintiennent des emplois et du lien social dans le quartier. Quand la dernière boulangerie ferme, c’est aussi un lieu de rencontre qui disparaît pour les voisins. De plus, les supermarchés restent utiles pour regrouper les achats et maîtriser le budget grâce aux prix bas. Par exemple, une famille peut acheter ses produits frais chez un marchand local, puis se rendre une fois par mois en grande surface pour les articles ménagers. En conclusion, il faut que chacun soutienne les petits commerces sans renoncer aux supermarchés quand ils sont plus pratiques ou économiques.
+Pour ma part, les deux types de commerce peuvent coexister, mais les petits commerces méritent un soutien régulier. Tout d’abord, ils maintiennent des emplois et du lien social dans le quartier. Quand la dernière boulangerie ferme, c’est aussi un lieu de rencontre qui disparaît pour les voisins. De plus, les supermarchés restent utiles pour regrouper les achats et maîtriser le budget grâce aux prix bas. Par exemple, une famille peut acheter ses produits frais chez un marchand local, puis se rendre une fois par mois en grande surface pour les articles ménagers. En conclusion, il faut que chacun soutienne les petits commerces sans renoncer aux supermarchés quand ils sont plus pratiques ou économiques.
 
-**Total : 166 mots (titre compris)**
+**Total : 168 mots (titre compris)**
 
 ---

@@ -8,15 +8,15 @@
 
 ### La vidéosurveillance urbaine : une sécurité à encadrer
 
-**Partie 1 — Synthèse (48 mots)**
+**Partie 1 — Synthèse (46 mots)**
 
-Les deux documents abordent la vidéosurveillance urbaine. Le premier souligne le sentiment de sécurité qu’elle procure dans les espaces publics. En revanche, le second juge son efficacité limitée contre les infractions et insiste sur son coût élevé ainsi que sur le personnel nombreux nécessaire pour analyser les images.
+Les deux documents abordent la vidéosurveillance urbaine. Le premier souligne le sentiment de sécurité qu’elle procure dans les espaces publics. En revanche, le second juge son efficacité limitée contre les infractions et insiste sur son coût élevé ainsi que sur le personnel qu’exige l’analyse des images.
 
-**Partie 2 — Point de vue personnel (105 mots)**
+**Partie 2 — Point de vue personnel (103 mots)**
 
-Pour ma part, les caméras peuvent compléter la prévention à condition qu’elles soient installées dans des lieux précis et soumises à des règles claires. Tout d’abord, elles facilitent l’identification après une infraction, sans empêcher seules la violence. Les images orientent l’enquête, mais elles n’interviennent jamais au moment des faits. De plus, pour que la vie privée soit protégée, il faut limiter la conservation des images. Par exemple, une station de métro pourrait filmer ses quais pendant quelques jours et réserver l’accès aux enquêteurs autorisés. En conclusion, le plus important est de combiner un usage contrôlé des caméras avec une présence humaine et des actions sociales.
+Pour ma part, les caméras peuvent compléter la prévention à condition qu’elles ciblent les lieux les plus exposés et que leur usage soit strictement encadré. Tout d’abord, elles peuvent aider les enquêteurs après les faits, car les images permettent d’identifier un suspect ou de reconstituer son trajet. De plus, il faut que la durée de conservation des images soit limitée et que seuls des enquêteurs habilités y accèdent. Par exemple, une station de métro pourrait conserver quelques jours les images filmées après un incident, puis les supprimer. En conclusion, les caméras doivent compléter des patrouilles et des actions de prévention, sans les remplacer.
 
-**Total : 160 mots (titre compris)**
+**Total : 156 mots (titre compris)**
 
 ---
 
@@ -30,11 +30,11 @@ Pour ma part, les caméras peuvent compléter la prévention à condition qu’e
 
 Les deux documents abordent la livraison des repas au bureau. Le premier valorise le temps et l’énergie économisés pendant les journées chargées. En revanche, le second prévient que les retards augmentent le stress et que manger sans quitter son poste prive les salariés d’une vraie pause, ce qui aggrave leur fatigue.
 
-**Partie 2 — Point de vue personnel (100 mots)**
+**Partie 2 — Point de vue personnel (108 mots)**
 
-Pour ma part, la livraison est pratique, mais elle ne doit pas supprimer la pause du midi. Tout d’abord, elle évite un déplacement et permet de choisir son repas à l’avance. Ce temps gagné devient précieux lorsqu’une journée s’annonce particulièrement chargée. De plus, quitter momentanément son écran réduit la fatigue et favorise les échanges entre collègues. Par exemple, une équipe peut faire livrer des repas équilibrés, puis les partager pendant trente minutes dans une salle commune. En conclusion, il faut que la livraison fasse gagner du temps sans sacrifier le repos, la convivialité ni l’équilibre entre vie professionnelle et personnelle.
+Pour ma part, la livraison est pratique à condition qu’elle ne remplace pas la pause de midi. Tout d’abord, elle évite aux salariés de chercher un restaurant loin du bureau et leur laisse le temps de choisir leur repas à l’avance. Ainsi, une personne sortie tard d’une réunion peut déjeuner sans renoncer à un rendez-vous important. De plus, quitter son poste quelques minutes réduit la fatigue et favorise les échanges entre collègues. Par exemple, une équipe peut faire livrer des repas équilibrés, puis les partager pendant trente minutes dans une salle commune. En conclusion, la livraison doit faire gagner du temps sans sacrifier le repos ni la convivialité.
 
-**Total : 160 mots (titre compris)**
+**Total : 168 mots (titre compris)**
 
 ---
 
@@ -44,15 +44,15 @@ Pour ma part, la livraison est pratique, mais elle ne doit pas supprimer la paus
 
 ### Les produits faits maison : écologiques sous conditions
 
-**Partie 1 — Synthèse (52 mots)**
+**Partie 1 — Synthèse (53 mots)**
 
-Les deux documents abordent les produits biologiques faits maison. Le premier valorise le contrôle des ingrédients, les économies, la créativité et la réduction des emballages. En revanche, le second souligne le temps de préparation, le coût initial et les risques d’irritation ou de contamination liés aux erreurs de formulation et de conservation.
+Les deux documents abordent les produits faits maison. Le premier met en avant le contrôle des ingrédients, les économies, la créativité et la réutilisation des emballages. En revanche, le second souligne le temps de préparation, le coût initial et les risques d’irritation ou de contamination dus aux erreurs de formulation et de conservation.
 
-**Partie 2 — Point de vue personnel (106 mots)**
+**Partie 2 — Point de vue personnel (110 mots)**
 
-Pour ma part, je pense que les produits faits maison sont intéressants à condition que les recettes soient simples, fiables et adaptées à l’usage prévu. Tout d’abord, ils permettent de connaître les ingrédients et de réutiliser les contenants. On évite ainsi les substances inutiles et une partie des emballages jetables. De plus, certaines préparations délicates exigent des dosages précis et une conservation rigoureuse. Par exemple, une famille peut fabriquer un nettoyant ménager éprouvé dans un flacon réutilisable, plutôt qu’une crème destinée à une peau sensible. En conclusion, il faut que la sécurité et l’hygiène passent avant les économies et que chaque recette suive des instructions vérifiées.
+Pour ma part, je pense que les produits faits maison sont intéressants à condition que les recettes soient simples, fiables et adaptées à l’usage prévu. Tout d’abord, ils permettent de connaître les ingrédients et de réutiliser les contenants. On évite ainsi les substances inutiles et une partie des emballages jetables. De plus, certaines préparations délicates exigent des dosages précis et une conservation rigoureuse. Par exemple, une famille peut préparer un nettoyant ménager éprouvé dans un flacon réutilisable plutôt que de fabriquer une crème à appliquer sur une peau sensible. En conclusion, il faut que la sécurité et l’hygiène passent avant les économies et que chaque recette suive des instructions vérifiées.
 
-**Total : 165 mots (titre compris)**
+**Total : 170 mots (titre compris)**
 
 ---
 
@@ -66,11 +66,11 @@ Pour ma part, je pense que les produits faits maison sont intéressants à condi
 
 Les deux documents abordent la chasse aux animaux. Le premier la considère comme une pratique cruelle, incompatible avec la protection de la nature. En revanche, le second explique qu’elle peut répondre à plusieurs objectifs : la subsistance, le commerce, la gestion de la faune, la protection des propriétés, l’exercice ou le loisir.
 
-**Partie 2 — Point de vue personnel (96 mots)**
+**Partie 2 — Point de vue personnel (93 mots)**
 
-Pour ma part, bien que la chasse puisse parfois protéger un écosystème, sa pratique comme loisir devrait être fortement limitée. Tout d’abord, tuer uniquement pour le plaisir banalise la souffrance animale, car cela réduit un être vivant à un simple trophée sans aucune utilité. De plus, certaines populations trop nombreuses peuvent menacer des habitats ou des cultures. Par exemple, des agents formés pourraient réguler une espèce envahissante selon des quotas établis par des biologistes. En conclusion, il faut que toute chasse réponde à un besoin écologique ou alimentaire, avec des règles strictes et des contrôles transparents.
+Pour ma part, bien que la chasse puisse parfois protéger un écosystème, sa pratique comme loisir devrait être fortement limitée. Tout d’abord, tuer uniquement pour le plaisir banalise la souffrance animale, car cela ne répond à aucun besoin alimentaire ou écologique. De plus, certaines populations trop nombreuses peuvent menacer des habitats ou des cultures. Par exemple, des agents formés pourraient réguler une espèce envahissante selon des quotas établis par des biologistes. En conclusion, il faut que toute chasse réponde à un besoin écologique ou alimentaire, avec des règles strictes et des contrôles transparents.
 
-**Total : 154 mots (titre compris)**
+**Total : 151 mots (titre compris)**
 
 ---
 
@@ -84,11 +84,11 @@ Pour ma part, bien que la chasse puisse parfois protéger un écosystème, sa pr
 
 Les deux documents abordent les effets du travail. Le premier estime qu’il procure un revenu, développe l’autonomie et la confiance, et contribue à l’économie. En revanche, le second dénonce le stress, les horaires rigides, l’épuisement et le manque de reconnaissance, qui peuvent nuire à la vie privée.
 
-**Partie 2 — Point de vue personnel (117 mots)**
+**Partie 2 — Point de vue personnel (115 mots)**
 
-Pour ma part, le travail est favorable à condition qu’il offre un revenu digne, du sens et des conditions équilibrées. Tout d’abord, une activité utile renforce l’autonomie et crée des liens sociaux. Par exemple, un employé qui organise seul son emploi du temps pour finaliser un projet gagne en autonomie et tisse des liens avec son équipe. De plus, des horaires raisonnables protègent la santé et la vie familiale, ce qui soutient aussi la productivité. Par exemple, une entreprise peut proposer des objectifs réalistes, des horaires flexibles et un entretien régulier sur la charge de chaque salarié. En conclusion, il faut que les employeurs garantissent le respect, la reconnaissance et l’équilibre entre vie professionnelle et vie personnelle.
+Pour ma part, le travail est favorable s’il offre un revenu décent, donne du sens et s’exerce dans des conditions équilibrées. Tout d’abord, une activité utile développe l’autonomie et crée des relations. Par exemple, un salarié responsable d’un projet peut prendre des décisions, collaborer avec son équipe et voir le résultat de son travail. De plus, des horaires raisonnables protègent la santé et la vie familiale, ce qui aide aussi les salariés à rester concentrés. Une entreprise peut donc fixer des objectifs réalistes, offrir des horaires flexibles et discuter régulièrement de la charge de travail. En conclusion, il faut que les employeurs garantissent le respect, la reconnaissance et l’équilibre entre vie professionnelle et vie personnelle.
 
-**Total : 171 mots (titre compris)**
+**Total : 169 mots (titre compris)**
 
 ---
 
@@ -138,11 +138,11 @@ Pour ma part, les compétences doivent déterminer l’accès à un métier, jam
 
 Les deux documents abordent les caméras de surveillance à l’école. Le premier estime qu’elles dissuadent la violence et rassurent la communauté scolaire, même si certains élèves y voient une atteinte à leur vie privée. En revanche, le second juge leurs résultats peu convaincants et préfère prévenir les conflits grâce au dialogue et à des règles expliquées.
 
-**Partie 2 — Point de vue personnel (113 mots)**
+**Partie 2 — Point de vue personnel (114 mots)**
 
-Pour ma part, les caméras ne devraient servir qu’à sécuriser les accès ou des zones particulièrement exposées, à condition que les images soient strictement protégées. Tout d’abord, elles peuvent fournir des preuves après un incident, mais elles ne remplacent ni l’encadrement ni la confiance. Un enregistrement explique un incident, alors qu’un adulte présent peut l’éviter. De plus, il faut que les élèves sachent qui consulte les images et combien de temps elles sont conservées. Par exemple, une école pourrait filmer uniquement son entrée, tout en renforçant la médiation dans la cour. En conclusion, le plus important est de prévenir la violence par le dialogue et des règles claires, sans instaurer une surveillance permanente.
+Pour ma part, les caméras ne devraient servir qu’à sécuriser les accès ou des zones particulièrement exposées, à condition que les images soient strictement protégées. Tout d’abord, elles peuvent fournir des preuves après un incident, mais elles ne remplacent ni l’encadrement ni la confiance. Un enregistrement peut éclairer un incident, tandis qu’un adulte présent peut parfois l’empêcher. De plus, il faut que les élèves sachent qui consulte les images et combien de temps elles sont conservées. Par exemple, une école pourrait filmer uniquement son entrée, tout en renforçant la médiation dans la cour. En conclusion, la priorité est de prévenir la violence par le dialogue et des règles claires, sans instaurer une surveillance permanente.
 
-**Total : 177 mots (titre compris)**
+**Total : 178 mots (titre compris)**
 
 ---
 
@@ -156,11 +156,11 @@ Pour ma part, les caméras ne devraient servir qu’à sécuriser les accès ou 
 
 Les deux documents abordent les vêtements de marque chez les jeunes. Le premier les présente comme un moyen d’exprimer sa personnalité et son appartenance à un groupe. En revanche, le second rappelle que les enfants grandissent vite et abîment facilement leurs habits en jouant, ce qui limite leur durée d’usage.
 
-**Partie 2 — Point de vue personnel (101 mots)**
+**Partie 2 — Point de vue personnel (103 mots)**
 
-Pour ma part, les jeunes peuvent porter quelques vêtements de marque, mais sans subir la pression des logos. Tout d’abord, l’habillement favorise l’expression personnelle et peut renforcer le sentiment d’appartenance. Choisir soi-même sa tenue aide un adolescent à se sentir reconnu par son groupe. De plus, le budget familial doit rester prioritaire puisque les enfants grandissent vite. Par exemple, des parents peuvent acheter un manteau résistant choisi par leur adolescent, puis compléter sa garde-robe avec des vêtements d’occasion sans marque. En conclusion, il faut que les familles privilégient la qualité, le besoin et le prix plutôt que le prestige d’un logo.
+Pour ma part, les jeunes peuvent porter quelques vêtements de marque, mais sans subir la pression des logos. Tout d’abord, l’habillement favorise l’expression personnelle et peut renforcer le sentiment d’appartenance. Choisir soi-même sa tenue aide un adolescent à se sentir reconnu par son groupe. De plus, les dépenses doivent rester adaptées au budget familial, puisque les enfants grandissent vite. Par exemple, des parents peuvent acheter un manteau résistant choisi par leur adolescent, puis compléter sa garde-robe avec des vêtements d’occasion sans marque. En conclusion, il faut que les familles privilégient la qualité, le besoin et le prix plutôt que le prestige d’un logo.
 
-**Total : 161 mots (titre compris)**
+**Total : 163 mots (titre compris)**
 
 ---
 
@@ -174,11 +174,11 @@ Pour ma part, les jeunes peuvent porter quelques vêtements de marque, mais sans
 
 Les deux documents abordent la réduction du temps de travail. Le premier valorise un meilleur équilibre personnel, moins de stress et une productivité accrue. De son côté, le second ajoute une baisse de l’absentéisme et une meilleure fidélisation des salariés, tout en exigeant une organisation efficace de l’entreprise.
 
-**Partie 2 — Point de vue personnel (108 mots)**
+**Partie 2 — Point de vue personnel (112 mots)**
 
-Pour ma part, je suis favorable à une réduction du temps de travail à condition que les objectifs et les effectifs soient adaptés. Tout d’abord, des salariés reposés sont souvent plus concentrés et moins absents. La fatigue accumulée coûte à l’entreprise en erreurs et en arrêts de travail. De plus, réduire les heures sans revoir la charge risque simplement d’intensifier chaque journée. Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, les retards et le bien-être des équipes. En conclusion, il faut que l’entreprise réorganise le travail sans diminuer la qualité du service ni transférer la pression aux salariés.
+Pour ma part, je suis favorable à une réduction du temps de travail à condition que les objectifs et les effectifs soient adaptés. Tout d’abord, des salariés reposés sont souvent plus concentrés et moins absents. La fatigue entraîne davantage d’erreurs et d’arrêts de travail, ce qui coûte cher à l’entreprise. De plus, réduire les heures sans revoir la charge risque simplement d’intensifier chaque journée. Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, la qualité du service et le bien-être des équipes. En conclusion, il faut que l’entreprise réorganise le travail sans diminuer la qualité du service ni transférer la pression aux salariés.
 
-**Total : 165 mots (titre compris)**
+**Total : 169 mots (titre compris)**
 
 ---
 
@@ -194,7 +194,7 @@ Les deux documents abordent les effets des jeux vidéo. Le premier souligne que 
 
 **Partie 2 — Point de vue personnel (117 mots)**
 
-Pour ma part, les jeux vidéo peuvent être utiles, à condition que leur durée soit limitée et que leur contenu soit adapté à l’âge. Tout d’abord, certains défis stimulent la réflexion, la coordination et la capacité à résoudre des problèmes. Par exemple, un jeu d’action-puzzle demande à un enfant de réfléchir vite, de coordonner ses mouvements et de résoudre une énigme pour avancer. De plus, un usage excessif réduit le sommeil, l’activité physique et la concentration scolaire. Par exemple, des parents peuvent autoriser une heure de jeu après les devoirs, puis proposer une activité sportive en famille. En conclusion, il faut que les parents choisissent des contenus adaptés, fixent des horaires clairs et préservent un équilibre quotidien.
+Pour ma part, les jeux vidéo peuvent être utiles si leur durée est limitée et leur contenu adapté à l’âge. Tout d’abord, certains jeux développent la réflexion, la coordination et la capacité à résoudre des problèmes. Par exemple, un jeu de réflexion peut demander à un enfant de déplacer des pièces dans le bon ordre pour ouvrir la porte suivante. De plus, un usage excessif nuit au sommeil, à l’activité physique et à la concentration à l’école. Par exemple, des parents peuvent autoriser une heure de jeu après les devoirs, puis proposer une activité sportive en famille. En conclusion, il faut que les parents choisissent des contenus adaptés, fixent des horaires clairs et préservent un équilibre quotidien.
 
 **Total : 172 mots (titre compris)**
 
@@ -228,11 +228,11 @@ Pour ma part, je suis favorable à un uniforme simple et abordable, à condition
 
 Les deux documents abordent la restauration rapide et la santé. Le premier affirme que les enseignes respectent les normes d’hygiène et proposent assez de variété pour composer un repas équilibré. En revanche, le second juge cette alimentation néfaste et l’associe à des problèmes irréversibles, notamment à l’obésité.
 
-**Partie 2 — Point de vue personnel (97 mots)**
+**Partie 2 — Point de vue personnel (102 mots)**
 
-Pour ma part, bien qu’elle puisse dépanner, la restauration rapide ne devrait pas devenir une habitude quotidienne. Tout d’abord, de nombreux menus contiennent trop de sel, de gras ou de sucre. Répétés chaque semaine, ces excès pèsent lourdement sur la santé. De plus, le client peut limiter ces excès grâce à des choix plus équilibrés et à des portions raisonnables. Par exemple, une personne pourrait choisir une salade, de l’eau et un fruit plutôt qu’un grand menu accompagné d’une boisson sucrée. En conclusion, il faut que les consommateurs soient bien informés et privilégient régulièrement des produits frais.
+Pour ma part, bien qu’elle puisse dépanner, la restauration rapide ne devrait pas devenir une habitude quotidienne. Tout d’abord, de nombreux menus contiennent trop de sel, de gras ou de sucre. Consommés souvent, ils augmentent le risque de prise de poids et de mauvaises habitudes alimentaires. De plus, le client peut limiter ces risques grâce à des choix plus équilibrés et à des portions raisonnables. Par exemple, une personne pourrait choisir une salade, de l’eau et un fruit plutôt qu’un grand menu accompagné d’une boisson sucrée. En conclusion, il faut que les consommateurs soient bien informés et privilégient régulièrement des produits frais.
 
-**Total : 152 mots (titre compris)**
+**Total : 157 mots (titre compris)**
 
 ---
 
@@ -246,11 +246,11 @@ Pour ma part, bien qu’elle puisse dépanner, la restauration rapide ne devrait
 
 Les deux documents abordent la vie en colocation. Le premier valorise les liens d’amitié, les repas partagés et la répartition des tâches selon les talents de chacun. En revanche, le second souligne que les différences de rythme, le bruit, le manque d’intimité et les corvées négligées peuvent provoquer des conflits.
 
-**Partie 2 — Point de vue personnel (99 mots)**
+**Partie 2 — Point de vue personnel (92 mots)**
 
-Pour ma part, la colocation est enrichissante à condition que les responsabilités soient définies dès le départ. Tout d’abord, elle réduit les charges financières et favorise la convivialité. Un loyer divisé libère de quoi se loger mieux qu’en habitant seul. De plus, des règles communes protègent le repos, les espaces privés et une répartition juste du ménage. Par exemple, trois colocataires peuvent établir un calendrier hebdomadaire, fixer des heures calmes et partager équitablement les dépenses courantes. En conclusion, le plus important est de choisir ses colocataires avec soin et de maintenir une communication ouverte fondée sur le respect mutuel.
+Pour ma part, la colocation est enrichissante à condition que les responsabilités soient définies dès le départ. Tout d’abord, elle réduit les dépenses et favorise la convivialité. Partager le loyer peut permettre d’habiter près du centre-ville plutôt que seul loin des transports. De plus, des règles communes protègent le repos, les espaces privés et une répartition juste du ménage. Par exemple, trois colocataires peuvent établir un calendrier hebdomadaire, fixer des heures calmes et partager équitablement les dépenses courantes. En conclusion, une colocation réussie repose sur des colocataires respectueux et une communication ouverte.
 
-**Total : 156 mots (titre compris)**
+**Total : 149 mots (titre compris)**
 
 ---
 
@@ -264,11 +264,11 @@ Pour ma part, la colocation est enrichissante à condition que les responsabilit
 
 Les deux documents abordent la consommation de viande. Le premier dénonce la souffrance animale ainsi que les effets de l’élevage industriel sur le climat, les terres et l’eau. En revanche, le second valorise des nutriments facilement assimilables et les traditions culinaires, tout en recommandant un élevage plus éthique et durable.
 
-**Partie 2 — Point de vue personnel (110 mots)**
+**Partie 2 — Point de vue personnel (106 mots)**
 
-Pour ma part, bien que la viande puisse apporter des nutriments utiles, je pense qu’il faut en réduire la consommation sans l’interdire à tous. Tout d’abord, diminuer sa consommation réduit l’empreinte écologique et encourage une alimentation plus variée. Moins de viande dans l’assiette signifie moins d’eau, de terres et d’émissions. De plus, une viande produite localement selon des normes exigeantes peut conserver une place limitée. Par exemple, une famille pourrait préparer des légumineuses plusieurs jours par semaine et acheter occasionnellement une petite portion auprès d’un éleveur responsable. En conclusion, le plus important est de consommer moins, de choisir mieux et de garantir des repas équilibrés adaptés aux besoins de chacun.
+Pour ma part, bien que la viande puisse apporter des nutriments utiles, je pense qu’il faut en réduire la consommation sans l’interdire à tous. Tout d’abord, diminuer sa consommation réduit l’empreinte écologique et encourage une alimentation plus variée. Moins de viande dans l’assiette signifie moins d’eau, de terres et d’émissions. De plus, une viande issue d’un élevage respectant des normes exigeantes peut conserver une place limitée. Par exemple, une famille pourrait préparer des légumineuses plusieurs jours par semaine et acheter occasionnellement une petite portion auprès d’un éleveur responsable. En conclusion, il faut consommer moins, choisir mieux et garantir des repas équilibrés adaptés aux besoins de chacun.
 
-**Total : 166 mots (titre compris)**
+**Total : 162 mots (titre compris)**
 
 ---
 
@@ -284,7 +284,7 @@ Les deux documents abordent le végétarisme en Europe. Le premier met en avant 
 
 **Partie 2 — Point de vue personnel (99 mots)**
 
-Pour ma part, le végétarisme constitue un choix bénéfique à condition qu’il repose sur une alimentation bien planifiée. Tout d’abord, les fruits, les légumes et les légumineuses favorisent la santé tout en réduisant l’impact environnemental. Ces aliments apportent des fibres et des protéines sans exiger d’élevage intensif. De plus, une transition progressive facilite le changement des habitudes. Par exemple, une personne peut remplacer deux repas carnés par des lentilles et demander conseil à un professionnel pour assurer ses apports en fer. En conclusion, il faut que chacun puisse choisir son régime et dispose d’informations fiables pour équilibrer ses repas.
+Pour ma part, le végétarisme constitue un choix bénéfique à condition qu’il repose sur une alimentation bien planifiée. Tout d’abord, les fruits, les légumes et les légumineuses favorisent la santé tout en réduisant l’impact environnemental. Ces aliments apportent des fibres et des protéines sans nécessiter d’élevage intensif. De plus, une transition progressive facilite le changement des habitudes. Par exemple, une personne peut remplacer deux repas carnés par des lentilles et demander conseil à un professionnel pour assurer ses apports en fer. En conclusion, il faut que chacun puisse choisir son régime et dispose d’informations fiables pour équilibrer ses repas.
 
 **Total : 157 mots (titre compris)**
 
@@ -300,11 +300,11 @@ Pour ma part, le végétarisme constitue un choix bénéfique à condition qu’
 
 Les deux documents abordent l’organisation de grands événements sportifs. Le premier valorise la culture, les emplois et la modernisation des infrastructures. En revanche, le second redoute les dépenses publiques considérables, l’endettement et le détournement de ressources qui pourraient financer en priorité la santé ou l’éducation.
 
-**Partie 2 — Point de vue personnel (103 mots)**
+**Partie 2 — Point de vue personnel (93 mots)**
 
-Pour ma part, un État ne devrait accueillir une grande compétition qu’à condition que ses investissements répondent à des besoins durables. Tout d’abord, des transports ou des équipements bien conçus peuvent servir longtemps à la population. Un réseau modernisé pour l’occasion continue de servir les habitants pendant des décennies. De plus, un budget mal contrôlé risque d’affaiblir des services essentiels. Par exemple, une ville pourrait rénover un stade existant plutôt qu’en construire un nouveau, puis l’ouvrir aux associations locales après le tournoi. En conclusion, le plus important est de publier les coûts, de consulter les citoyens et de garantir un héritage social utile.
+Pour ma part, un État ne devrait accueillir une grande compétition qu’à condition que les dépenses profitent durablement aux habitants. Tout d’abord, rénover les transports ou les équipements existants peut améliorer le quotidien, car les habitants les utiliseront encore après l’événement. De plus, un budget mal contrôlé risque d’affaiblir des services essentiels. Par exemple, une ville pourrait rénover un stade existant plutôt qu’en construire un nouveau, puis l’ouvrir aux associations locales après le tournoi. En conclusion, les autorités doivent publier les coûts, consulter les citoyens et prévoir l’usage des équipements après la compétition.
 
-**Total : 156 mots (titre compris)**
+**Total : 146 mots (titre compris)**
 
 ---
 
@@ -336,11 +336,11 @@ Pour ma part, je suis favorable à une limitation progressive des voitures, à c
 
 Les deux documents abordent les menus sans viande à la cantine. Le premier valorise des plats moins gras, moins coûteux et utiles à la croissance. En revanche, le second craint de pénaliser les familles modestes, les producteurs locaux et les enfants qui préfèrent le bœuf aux substituts végétaux.
 
-**Partie 2 — Point de vue personnel (101 mots)**
+**Partie 2 — Point de vue personnel (106 mots)**
 
-Pour ma part, proposer deux menus sans viande par semaine est raisonnable à condition que les plats restent équilibrés et savoureux. Tout d’abord, cette fréquence diversifie les habitudes alimentaires sans supprimer totalement les protéines animales. Deux repas sur dix suffisent à faire découvrir d’autres sources de protéines. De plus, elle peut réduire les coûts et l’impact environnemental. Par exemple, une cantine pourrait servir un plat de lentilles conçu par une diététicienne, puis acheter du bœuf local un autre jour. En conclusion, le plus important est de procéder progressivement, d’informer les familles et d’associer santé des enfants, plaisir et soutien aux producteurs.
+Pour ma part, proposer deux menus sans viande par semaine est raisonnable à condition que les plats restent équilibrés et savoureux. Tout d’abord, cette fréquence diversifie les habitudes alimentaires sans supprimer totalement les protéines animales. Deux repas par semaine laissent aux enfants le temps de découvrir d’autres sources de protéines sans bouleverser leurs habitudes. De plus, ces menus peuvent réduire les coûts et l’impact environnemental. Par exemple, une cantine pourrait servir un plat de lentilles conçu par une diététicienne, puis acheter du bœuf local un autre jour. En conclusion, il faut procéder progressivement, informer les familles et associer santé des enfants, plaisir et soutien aux producteurs.
 
-**Total : 156 mots (titre compris)**
+**Total : 161 mots (titre compris)**
 
 ---
 
@@ -354,10 +354,10 @@ Pour ma part, proposer deux menus sans viande par semaine est raisonnable à con
 
 Les deux documents abordent les vols à bas prix. Le premier apprécie leurs tarifs parfois inférieurs au train ou à la voiture, malgré l’absence de services à bord, et les déconseille pour les longs trajets. En revanche, le second dénonce l’inconfort des sièges, les conditions de travail, la vétusté des appareils et d’éventuels risques de sécurité.
 
-**Partie 2 — Point de vue personnel (101 mots)**
+**Partie 2 — Point de vue personnel (102 mots)**
 
-Pour ma part, un vol à bas prix peut convenir à un trajet court, à condition que le tarif soit transparent et la sécurité irréprochable. Tout d’abord, les frais supplémentaires peuvent annuler l’économie annoncée. Bagage, siège et repas transforment vite un billet bon marché en dépense ordinaire. De plus, le train offre souvent davantage de confort et une empreinte carbone réduite. Par exemple, entre Montréal et Toronto, un voyageur peut travailler dans le train plutôt que payer un bagage en avion. En conclusion, le plus important est de comparer le coût total, la durée, le confort, la sécurité et l’impact environnemental.
+Pour ma part, un vol à bas prix peut convenir à un trajet court, à condition que le tarif soit transparent et la sécurité irréprochable. Tout d’abord, les frais supplémentaires peuvent annuler l’économie annoncée. Bagage, siège et repas transforment vite un billet bon marché en dépense ordinaire. De plus, le train offre souvent davantage de confort et une empreinte carbone réduite. Par exemple, entre Montréal et Toronto, un voyageur peut travailler dans le train plutôt que payer un bagage en avion. En conclusion, un voyageur doit comparer le coût total, la durée, le confort, la sécurité et l’impact environnemental avant de réserver.
 
-**Total : 165 mots (titre compris)**
+**Total : 166 mots (titre compris)**
 
 ---

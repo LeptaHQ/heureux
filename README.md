@@ -39,6 +39,9 @@ components: theme cards/tables, guided lots, contextual vocabulary, flashcards,
 recall controls and learned checkboxes. Theme links stay in vocabulary, not subject
 pages. Existing phrase identities and review schedules remain unchanged; explicit
 learned flags use the shared vocabulary progress model.
+Vocabulary theme, category and comprehension-test pages share a compact,
+collapsible guided-lots component with completed/active counts. The vocabulary
+stays full-width, and the lot links work with keyboard controls or without JavaScript.
 
 ## Subject pistes and oral equivalence
 

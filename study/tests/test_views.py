@@ -439,6 +439,8 @@ class SmokeTests(TestCase):
 
                 detail = self.client.get(reverse(detail_name, args=[test.slug]))
 
+                self.assertTemplateUsed(detail, "study/partials/review_batches.html")
+                self.assertContains(detail, "batch-card--compact", count=1)
                 for hook in FLASHCARD_DECK_HOOKS:
                     with self.subTest(hook=hook):
                         self.assertContains(detail, hook)
@@ -1817,7 +1819,8 @@ class TaskOrganizationTests(TestCase):
             ],
             [15, 15, 15, 15],
         )
-        self.assertContains(theme_response, "Quatre parcours complémentaires")
+        self.assertTemplateUsed(theme_response, "study/partials/review_batches.html")
+        self.assertContains(theme_response, "Lots guidés")
         self.assertContains(
             theme_response,
             "data-theme-vocabulary-progress-form",
@@ -2749,7 +2752,8 @@ class CategoryBatchViewsTests(TestCase):
             [batch["card_count"] for batch in response.context["review_batches"]],
             [20, 12],
         )
-        self.assertContains(response, "Choisir un lot de 10")
+        self.assertTemplateUsed(response, "study/partials/review_batches.html")
+        self.assertContains(response, "Lots guidés")
         self.assertContains(response, "Lot 02")
         self.assertContains(response, "batch=2")
         self.assertContains(

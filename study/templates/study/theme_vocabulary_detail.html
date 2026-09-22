@@ -30,22 +30,7 @@
   </div>
 </header>
 
-{% if review_batches %}
-<section class="review-batches" aria-labelledby="theme-vocabulary-batches-title">
-  <div class="review-batches__head">
-    <div>
-      <h2 id="theme-vocabulary-batches-title">{{ pathways_title }}</h2>
-    </div>
-    <p>{{ pathways_description }}</p>
-  </div>
-  <div class="batch-grid collection-table collection-table--batches" data-collection-view="adaptive">
-    {% include "study/partials/collection_table_header.html" with variant="batches" column_1="Lot et statut" column_2="Fiches" column_3="Activité" only %}
-    {% for batch in review_batches %}
-      {% include "study/partials/batch_card.html" with batch=batch item_noun="Fiches" only %}
-    {% endfor %}
-  </div>
-</section>
-{% endif %}
+{% include "study/partials/review_batches.html" with batches=review_batches progress=summary.progress description=pathways_description only %}
 
 <section
   class="phrase-catalog theme-vocabulary-catalog"

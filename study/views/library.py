@@ -2279,7 +2279,6 @@ def _theme_vocabulary_detail_context(
     back_label,
     vocabulary_label,
     hero_description,
-    pathways_title,
     pathways_description,
     label_batches_by_section=True,
 ):
@@ -2351,7 +2350,6 @@ def _theme_vocabulary_detail_context(
         "back_label": back_label,
         "vocabulary_label": vocabulary_label,
         "hero_description": hero_description,
-        "pathways_title": pathways_title,
         "pathways_description": pathways_description,
         "phrase_count": len(phrases),
         "learned_summary": progress_summary(
@@ -2403,7 +2401,6 @@ def tache_two_theme_vocabulary_detail(request, theme_slug):
                 "une interaction souple plutôt que réciter une liste de "
                 "questions."
             ),
-            pathways_title="Trois parcours complémentaires",
             pathways_description=(
                 "Commencez par les mots, passez aux expressions, puis "
                 "entraînez-vous à produire des fragments de questions."
@@ -2664,7 +2661,6 @@ def _eo_tache_three_theme_vocabulary_detail(request, task, theme):
                 "des notions précises, des associations naturelles et des "
                 "constructions prêtes à porter votre argumentation."
             ),
-            pathways_title="Quatre parcours complémentaires",
             pathways_description=(
                 "Passez des notions aux verbes, enrichissez votre expression "
                 "avec des locutions, puis assemblez le tout dans des "
@@ -2839,7 +2835,6 @@ def _ee_writing_theme_vocabulary_detail(request, task, theme, tache):
                     "préciser vos impressions et commenter votre expérience."
                 )
             ),
-            pathways_title="Quatre parcours complémentaires",
             pathways_description=(
                 "Progressez des formules et détails précis vers les verbes "
                 "naturels et les phrases modèles."
@@ -2942,7 +2937,6 @@ def _ee_tache_three_vocabulary_theme_detail(request, task, theme):
                 "Retrouvez les mots et formulations du thème, "
                 "avec leur sens et leur exemple."
             ),
-            pathways_title="Parcours guidés",
             pathways_description=(
                 "Progressez par lots de dix fiches, "
                 "puis révisez les formulations en contexte."

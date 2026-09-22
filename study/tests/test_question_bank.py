@@ -1735,7 +1735,8 @@ class EoTacheThreeThemeVocabularyViewTests(TestCase):
         )
         self.assertContains(response, 'data-recall-column="french"')
         self.assertContains(response, 'data-recall-column="meaning"')
-        self.assertContains(response, "Quatre parcours complémentaires")
+        self.assertTemplateUsed(response, "study/partials/review_batches.html")
+        self.assertContains(response, "Lots guidés")
         self.assertNotContains(response, "Choisir un sujet")
 
     def test_theme_progress_is_local_and_persistent(self):

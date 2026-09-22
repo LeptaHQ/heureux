@@ -2172,6 +2172,81 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.locator("#card-front .cue-text").wait_for()
         self.page.wait_for_load_state("networkidle")
 
+    def open_vocabulary_lots(self, expected_count):
+        disclosure = self.page.locator("[data-review-batches]")
+        lots = disclosure.locator(".batch-card")
+        expect(disclosure).not_to_have_attribute("open", "")
+        expect(lots).to_have_count(expected_count)
+        expect(lots.first).not_to_be_visible()
+        disclosure.locator("summary").click()
+        expect(lots.first).to_be_visible()
+        expect(lots.locator(".batch-card__status, strong")).to_have_count(0)
+        return lots
+
+    def test_vocabulary_lots_are_collapsible_compact_and_responsive(self):
+        self._import_ee_tache_three_content()
+        self.page.set_viewport_size({"width": 1292, "height": 844})
+        self.page.goto(self.live_server_url + reverse(
+            "study:task_phrases", args=["ee", "tache-3"],
+        ))
+        self.page.locator("[data-theme-vocabulary-directory-item]").first.click()
+        disclosure = self.page.locator("[data-review-batches]")
+        lot_list = disclosure.locator(".review-lots__list")
+        lots = lot_list.locator(".batch-card")
+        catalog = self.page.locator("[data-theme-vocabulary-recall-catalog]")
+        expect(disclosure).not_to_have_attribute("open", "")
+        expect(lots.first).not_to_be_visible()
+        self.assertLessEqual(disclosure.bounding_box()["height"], 60)
+        self.assertAlmostEqual(
+            disclosure.bounding_box()["width"], catalog.bounding_box()["width"],
+        )
+        self.assertLess(
+            catalog.bounding_box()["y"] - disclosure.bounding_box()["y"], 100,
+        )
+        disclosure.locator("summary").focus()
+        self.page.keyboard.press("Enter")
+        expect(lots.first).to_be_visible()
+        self.assertGreater(lots.count(), 15)
+        expect(lots.first.locator(".batch-card__number")).to_have_text("Lot 01")
+        expect(lots.first.locator(".batch-card__count")).to_have_text("0/10")
+        expect(lots.locator(".batch-card__status, strong")).to_have_count(0)
+        expect(self.page.locator(".review-batches")).to_have_count(0)
+        self.assertAlmostEqual(lots.nth(0).bounding_box()["y"], lots.nth(1).bounding_box()["y"])
+        self.assertTrue(lots.evaluate_all(
+            "lots => lots.every(lot => lot.getBoundingClientRect().height <= 48)"
+        ))
+        disclosure.locator("summary").focus()
+        self.page.keyboard.press("Tab")
+        expect(lots.first).to_be_focused()
+        for width in (1292, 1100, 1099, 900, 640, 390, 320):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            for view in ("Tableau", "Cartes"):
+                with self.subTest(width=width, view=view):
+                    self.page.get_by_role("button", name=view, exact=True).click()
+                    self.assertLessEqual(lot_list.bounding_box()["height"], 256)
+                    self.assert_no_horizontal_overflow()
+        self.assertTrue(lot_list.evaluate("list => list.scrollHeight > list.clientHeight"))
+        scroll_y = self.page.evaluate("window.scrollY")
+        lot_list.evaluate("list => { list.scrollTop = list.scrollHeight; }")
+        self.assertGreater(lot_list.evaluate("list => list.scrollTop"), 0)
+        self.assertEqual(self.page.evaluate("window.scrollY"), scroll_y)
+        disclosure.locator("summary").click()
+        expect(lots.first).not_to_be_visible()
+        self.assertLessEqual(disclosure.bounding_box()["height"], 60)
+        self.page.reload()
+        expect(disclosure).not_to_have_attribute("open", "")
+        expect(lots.first).not_to_be_visible()
+        disclosure.locator("summary").focus()
+        self.page.keyboard.press("Space")
+        expect(lots.first).to_be_visible()
+        self.assertLessEqual(lot_list.bounding_box()["height"], 256)
+        self.assert_no_horizontal_overflow()
+        lot_url = lots.first.get_attribute("href")
+        self.assertIn("kind=vocab", lot_url)
+        self.assertIn("batch=1", lot_url)
+        lots.first.click()
+        self.page.locator("#card-front .cue-text").wait_for()
+
     def test_ee3_shared_vocabulary_and_learned_controls_work_without_javascript(self):
         self._import_ee_tache_three_content()
         context = self.browser.new_context(java_script_enabled=False, viewport={"width": 390, "height": 844})
@@ -2181,6 +2256,11 @@ class BrowserTests(StaticLiveServerTestCase):
             page.goto(self.live_server_url + reverse("study:task_phrases", args=["ee", "tache-3"]))
             expect(page.locator("[data-theme-vocabulary-directory-item]")).to_have_count(11)
             page.locator("[data-theme-vocabulary-directory-item]").first.click()
+            disclosure = page.locator("[data-review-batches]")
+            expect(disclosure.locator(".batch-card").first).not_to_be_visible()
+            disclosure.locator("summary").click()
+            expect(disclosure.locator(".batch-card").first).to_be_visible()
+            expect(disclosure.locator(".batch-card__count").first).to_have_text("0/10")
             rows = page.locator("[data-theme-vocabulary-phrase]")
             self.assertGreater(rows.count(), 30)
             expect(rows.first.locator(".phrase__expr")).to_be_visible()
@@ -3526,13 +3606,13 @@ class BrowserTests(StaticLiveServerTestCase):
             detail_nav.locator("a.is-active").inner_text(),
             "Vocabulaire par thème",
         )
-        self.assertEqual(self.page.locator(".batch-card").count(), 3)
+        self.open_vocabulary_lots(3)
         batch_layout = self.page.locator(".batch-card").evaluate_all(
             """
             cards => cards.map(card => {
               const cardBox = card.getBoundingClientRect();
               const statusBox = card.querySelector(
-                '.batch-card__status'
+                '.batch-card__count'
               ).getBoundingClientRect();
               return {
                 width: cardBox.width,
@@ -4730,11 +4810,7 @@ class BrowserTests(StaticLiveServerTestCase):
                 ],
             )
         )
-        self.page.get_by_role(
-            "heading",
-            name="Quatre parcours complémentaires",
-            exact=True,
-        ).wait_for()
+        self.open_vocabulary_lots(4)
         self.page.get_by_role("button", name="Cartes", exact=True).click()
         self.assertEqual(
             self.page.locator(".batch-card").count(),
@@ -9001,10 +9077,7 @@ class BrowserTests(StaticLiveServerTestCase):
             ],
         )
         self.page.goto(self.live_server_url + category_url)
-        self.page.get_by_role(
-            "heading",
-            name="Choisir un lot de 10",
-        ).wait_for()
+        self.open_vocabulary_lots(2)
         self.assertEqual(
             self.page.locator(".batch-card").count(),
             2,
@@ -11055,6 +11128,7 @@ class BrowserTests(StaticLiveServerTestCase):
                     self.live_server_url + reverse(url_name, args=[test.slug])
                 )
                 self.page.wait_for_load_state("networkidle")
+                self.open_vocabulary_lots((total + 9) // 10)
                 self.page.get_by_role("button", name="Cartes").first.click()
                 self.page.wait_for_timeout(200)
 

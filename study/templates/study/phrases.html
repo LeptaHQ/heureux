@@ -41,21 +41,7 @@
   {% include "study/partials/collection_view_toggle.html" %}
 {% endif %}
 
-{% if review_batches %}
-<section class="review-batches" aria-labelledby="vocabulary-batches-title">
-  <div class="review-batches__head">
-    <div>
-      <h2 id="vocabulary-batches-title">Choisir un lot de {{ batch_size }}</h2>
-    </div>
-  </div>
-  <div class="batch-grid collection-table collection-table--batches" data-collection-view="adaptive">
-    {% include "study/partials/collection_table_header.html" with variant="batches" column_1="Lot et statut" column_2="Entrées" column_3="Activité" only %}
-    {% for batch in review_batches %}
-      {% include "study/partials/batch_card.html" with batch=batch item_noun="Entrées" only %}
-    {% endfor %}
-  </div>
-</section>
-{% endif %}
+{% include "study/partials/review_batches.html" with batches=review_batches progress=collection_progress only %}
 
 <section
   class="phrase-catalog"

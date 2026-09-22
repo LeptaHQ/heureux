@@ -1,0 +1,15 @@
+{% if batches %}
+<details class="review-lots card" data-review-batches>
+  <summary class="review-lots__heading">
+    <span>Lots guidés</span>
+    <span class="review-lots__progress">{{ progress.completed }}/{{ progress.total }}<span class="sr-only"> lots terminés</span></span>
+    <span class="review-lots__chevron" aria-hidden="true"></span>
+  </summary>
+  {% if description %}<p class="review-lots__description">{{ description }}</p>{% endif %}
+  <nav class="review-lots__list" aria-label="Choisir un lot">
+    {% for batch in batches %}
+      {% include "study/partials/batch_card.html" with batch=batch compact=True only %}
+    {% endfor %}
+  </nav>
+</details>
+{% endif %}

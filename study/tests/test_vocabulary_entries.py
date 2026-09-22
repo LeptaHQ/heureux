@@ -92,12 +92,51 @@ class VocabularyEntryTests(TestCase):
         expected = _review_batches(scope, self.user)
         self.assertEqual(detail.context["review_batches"], expected)
         self.assertEqual(len(expected), 6)
+        self.assertTemplateUsed(detail, "study/partials/review_batches.html")
+        self.assertContains(detail, "batch-card--compact", count=6)
+        self.assertContains(detail, 'class="batch-card__count" aria-hidden="true">0/5')
+        self.assertNotContains(detail, 'class="review-batches"')
         self.assertTrue(all("title" not in batch for batch in expected))
         self.assertIn("theme=" + self.theme.slug, detail.context["mixed_review_url"])
         directory = self.client.get(self.url)
         entry = next(item for item in directory.context["themes"] if item["theme"] == self.theme)
         self.assertEqual(entry["summary"], detail.context["summary"])
         self.assertRedirects(self.client.get(self.url, {"theme": self.theme.slug}), self.theme_url)
+
+    def test_compact_counts_and_disabled_lots_use_existing_study_progress(self):
+        from django.template.loader import render_to_string
+
+        Card.objects.filter(
+            user=self.user, phrase__in=self.phrases[:10],
+        ).update(state=CardState.REVIEW, due=timezone.now() + timedelta(days=30))
+        Card.objects.filter(
+            user=self.user, phrase__in=self.phrases[10:20],
+        ).update(suspended=True)
+        Card.objects.filter(
+            user=self.user, phrase=self.phrases[20],
+        ).update(state=CardState.LEARNING)
+        detail = self.client.get(self.theme_url)
+        batches = detail.context["review_batches"]
+        self.assertEqual(
+            [(batch["completed_count"], batch["active_count"]) for batch in batches],
+            [(10, 10), (0, 0), (1, 10), (0, 10), (0, 10), (0, 5)],
+        )
+        for batch in batches:
+            markup = render_to_string(
+                "study/partials/batch_card.html", {"batch": batch, "compact": True},
+            )
+            self.assertIn(
+                f'{batch["completed_count"]}/{batch["active_count"]}', markup,
+            )
+            self.assertIn(batch["status_label"], markup)
+            if batch["can_review"]:
+                self.assertIn("href=", markup)
+                self.assertNotIn('aria-disabled="true"', markup)
+            else:
+                self.assertNotIn("href=", markup)
+                self.assertIn('aria-disabled="true"', markup)
+            self.assertNotIn("batch-card__status", markup)
+            self.assertNotIn("<strong>", markup)
 
     def test_status_is_private_and_reading_does_not_change_saved_state(self):
         first, second, third = self.phrases[:3]
@@ -178,3 +217,4 @@ class VocabularyEntryTests(TestCase):
         self.assertEqual(page.status_code, 200)
         self.assertEqual(page.context["phrase_count"], 0)
         self.assertEqual(self.client.get(self.theme_url).context["phrase_count"], 0)
+from datetime import timedelta

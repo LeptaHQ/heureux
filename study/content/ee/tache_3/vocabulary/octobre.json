@@ -111,10 +111,10 @@
         {
           "id": "E3-OCT-C01-13",
           "kind": "phrase-modele",
-          "french": "À mon avis, la publicité reste utile, mais elle doit être mieux encadrée",
-          "english": "In my opinion, advertising remains useful, but it should be better regulated",
-          "example": "À mon avis, la publicité reste utile, mais elle doit être mieux encadrée.",
-          "usage": "Formule d’opinion nuancée ; adapter le thème et la mesure d’encadrement."
+          "french": "À mon avis, la publicité reste utile à condition qu’elle soit mieux encadrée",
+          "english": "In my opinion, advertising remains useful provided that it is better regulated",
+          "example": "À mon avis, la publicité reste utile à condition qu’elle soit mieux encadrée.",
+          "usage": "Formule d’opinion avec le subjonctif ; adapter le thème et la mesure d’encadrement."
         },
         {
           "id": "E3-OCT-C01-14",
@@ -135,10 +135,10 @@
         {
           "id": "E3-OCT-C01-16",
           "kind": "tournure",
-          "french": "mais elle doit être mieux encadrée",
-          "english": "but it should be better regulated",
-          "example": "À mon avis, la publicité reste utile, mais elle doit être mieux encadrée.",
-          "usage": "Construction de nuance ; réutilisable pour proposer une réglementation."
+          "french": "à condition qu’elle soit mieux encadrée",
+          "english": "provided that it is better regulated",
+          "example": "La publicité reste utile à condition qu’elle soit mieux encadrée.",
+          "usage": "Construction avec « à condition que » et le subjonctif ; réutilisable pour proposer une réglementation."
         },
         {
           "id": "E3-OCT-C01-17",
@@ -280,7 +280,7 @@
           "kind": "collocation",
           "french": "des tarifs parfois inférieurs au train ou à la voiture",
           "english": "fares sometimes lower than train or car travel",
-          "example": "Le premier témoignage apprécie des tarifs parfois inférieurs au train ou à la voiture, malgré l’absence de services et le faible confort sur les longues distances.",
+          "example": "Le premier témoignage apprécie des tarifs parfois inférieurs au train ou à la voiture, malgré l’absence de services.",
           "usage": "Groupe nominal masculin pluriel ; réutilisable en Transport/Budget."
         },
         {
@@ -288,7 +288,7 @@
           "kind": "tournure",
           "french": "malgré l’absence de services",
           "english": "despite the lack of services",
-          "example": "Le premier témoignage apprécie des tarifs parfois inférieurs au train ou à la voiture, malgré l’absence de services et le faible confort sur les longues distances.",
+          "example": "Le premier témoignage apprécie ces tarifs malgré l’absence de services.",
           "usage": "Malgré + nom ; introduit une concession."
         },
         {
@@ -296,23 +296,23 @@
           "kind": "mot-cle",
           "french": "l’absence de services",
           "english": "the lack of services",
-          "example": "Le premier témoignage apprécie des tarifs parfois inférieurs au train ou à la voiture, malgré l’absence de services et le faible confort sur les longues distances.",
+          "example": "Malgré l’absence de services, ces vols peuvent convenir à un trajet court.",
           "usage": "Nom féminin singulier ; réutilisable en Transport/Consommation."
         },
         {
           "id": "E3-OCT-C02-06",
           "kind": "collocation",
-          "french": "le faible confort",
-          "english": "limited comfort",
-          "example": "Le premier témoignage apprécie des tarifs parfois inférieurs au train ou à la voiture, malgré l’absence de services et le faible confort sur les longues distances.",
-          "usage": "Groupe nominal masculin ; réutilisable en Transport/Voyage."
+          "french": "des vols inadaptés aux longs trajets",
+          "english": "flights unsuitable for long journeys",
+          "example": "Le premier témoignage présente les vols à bas prix comme des vols inadaptés aux longs trajets.",
+          "usage": "Groupe nominal masculin pluriel ; réutilisable en Transport/Voyage."
         },
         {
           "id": "E3-OCT-C02-07",
           "kind": "tournure",
           "french": "sur les longues distances",
           "english": "over long distances",
-          "example": "Le premier témoignage apprécie des tarifs parfois inférieurs au train ou à la voiture, malgré l’absence de services et le faible confort sur les longues distances.",
+          "example": "Pour voyager sur les longues distances, le premier témoin préfère une compagnie régulière.",
           "usage": "Locution prépositionnelle ; réutilisable en Transport/Voyage."
         },
         {
@@ -320,7 +320,7 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, le second redoute les conditions de travail, la vétusté des appareils et d’éventuels risques de sécurité.",
+          "example": "En revanche, le second critique l’inconfort des sièges, les conditions de travail et la vétusté des appareils.",
           "usage": "Connecteur d’opposition ; introduit le second point de vue."
         },
         {
@@ -328,7 +328,7 @@
           "kind": "mot-cle",
           "french": "les conditions de travail",
           "english": "working conditions",
-          "example": "En revanche, le second redoute les conditions de travail, la vétusté des appareils et d’éventuels risques de sécurité.",
+          "example": "Le second critique l’inconfort des sièges et les conditions de travail.",
           "usage": "Nom féminin pluriel ; réutilisable en Travail/Transport."
         },
         {
@@ -336,7 +336,7 @@
           "kind": "mot-cle",
           "french": "la vétusté des appareils",
           "english": "the ageing condition of aircraft",
-          "example": "En revanche, le second redoute les conditions de travail, la vétusté des appareils et d’éventuels risques de sécurité.",
+          "example": "Le second juge la vétusté des appareils dangereuse pour les voyageurs.",
           "usage": "Nom féminin singulier ; réutilisable en Transport/Sécurité."
         },
         {
@@ -344,23 +344,23 @@
           "kind": "collocation",
           "french": "d’éventuels risques de sécurité",
           "english": "potential safety risks",
-          "example": "En revanche, le second redoute les conditions de travail, la vétusté des appareils et d’éventuels risques de sécurité.",
+          "example": "Des appareils vétustes peuvent créer d’éventuels risques de sécurité.",
           "usage": "Groupe nominal masculin pluriel ; réutilisable en Sécurité/Transport."
         },
         {
           "id": "E3-OCT-C02-12",
           "kind": "phrase-modele",
-          "french": "Personnellement, j’accepterais un vol à bas prix pour un trajet court, mais seulement si le tarif est transparent et si les normes sont respectées",
-          "english": "Personally, I would accept a low-cost flight for a short trip, but only if the fare is transparent and standards are met",
-          "example": "Personnellement, j’accepterais un vol à bas prix pour un trajet court, mais seulement si le tarif est transparent et si les normes sont respectées.",
-          "usage": "Formule d’opinion conditionnelle ; réutilisable en Transport/Consommation."
+          "french": "Personnellement, j’accepterais un vol à bas prix pour un trajet court, à condition que le tarif soit transparent et que les normes soient respectées",
+          "english": "Personally, I would accept a low-cost flight for a short trip, provided that the fare is transparent and standards are met",
+          "example": "Personnellement, j’accepterais un vol à bas prix pour un trajet court, à condition que le tarif soit transparent et que les normes soient respectées.",
+          "usage": "Formule d’opinion avec le subjonctif ; réutilisable en Transport/Consommation."
         },
         {
           "id": "E3-OCT-C02-13",
           "kind": "mot-cle",
           "french": "un trajet court",
           "english": "a short trip",
-          "example": "Personnellement, j’accepterais un vol à bas prix pour un trajet court, mais seulement si le tarif est transparent et si les normes sont respectées.",
+          "example": "J’accepterais un vol à bas prix pour un trajet court sous certaines conditions.",
           "usage": "Nom masculin singulier ; réutilisable en Transport/Voyage."
         },
         {
@@ -368,7 +368,7 @@
           "kind": "collocation",
           "french": "le tarif est transparent",
           "english": "the fare is transparent",
-          "example": "Personnellement, j’accepterais un vol à bas prix pour un trajet court, mais seulement si le tarif est transparent et si les normes sont respectées.",
+          "example": "Avant de réserver, je vérifie que le tarif est transparent.",
           "usage": "Proposition réutilisable ; utile pour juger une offre commerciale."
         },
         {
@@ -376,16 +376,16 @@
           "kind": "collocation",
           "french": "les normes sont respectées",
           "english": "standards are met",
-          "example": "Personnellement, j’accepterais un vol à bas prix pour un trajet court, mais seulement si le tarif est transparent et si les normes sont respectées.",
+          "example": "Je voyage seulement lorsque les normes sont respectées.",
           "usage": "Proposition passive ; réutilisable en Sécurité/Réglementation."
         },
         {
           "id": "E3-OCT-C02-16",
           "kind": "tournure",
-          "french": "mais seulement si le tarif est transparent",
-          "english": "but only if the fare is transparent",
-          "example": "Personnellement, j’accepterais un vol à bas prix pour un trajet court, mais seulement si le tarif est transparent et si les normes sont respectées.",
-          "usage": "Mais seulement si + indicatif ; pose une condition stricte."
+          "french": "à condition que le tarif soit transparent",
+          "english": "provided that the fare is transparent",
+          "example": "J’accepterais ce vol à condition que le tarif soit transparent.",
+          "usage": "À condition que + subjonctif ; pose une condition stricte."
         },
         {
           "id": "E3-OCT-C02-17",
@@ -605,26 +605,26 @@
         {
           "id": "E3-OCT-C03-13",
           "kind": "phrase-modele",
-          "french": "Selon moi, l’apprentissage en ligne est efficace à condition d’associer flexibilité et encadrement",
-          "english": "In my view, online learning is effective provided flexibility and guidance are combined",
-          "example": "Selon moi, l’apprentissage en ligne est efficace à condition d’associer flexibilité et encadrement.",
-          "usage": "Formule d’opinion nuancée ; à condition de + infinitif."
+          "french": "Selon moi, l’apprentissage en ligne est efficace à condition que la flexibilité soit associée à un encadrement",
+          "english": "In my view, online learning is effective provided that flexibility is combined with guidance",
+          "example": "Selon moi, l’apprentissage en ligne est efficace à condition que la flexibilité soit associée à un encadrement.",
+          "usage": "Formule d’opinion nuancée avec le subjonctif."
         },
         {
           "id": "E3-OCT-C03-14",
           "kind": "mot-cle",
           "french": "l’apprentissage en ligne",
           "english": "online learning",
-          "example": "Selon moi, l’apprentissage en ligne est efficace à condition d’associer flexibilité et encadrement.",
+          "example": "L’apprentissage en ligne est efficace lorsqu’il associe souplesse et accompagnement.",
           "usage": "Nom masculin singulier ; réutilisable en Éducation/Numérique."
         },
         {
           "id": "E3-OCT-C03-15",
           "kind": "tournure",
-          "french": "à condition d’associer flexibilité et encadrement",
-          "english": "provided flexibility and guidance are combined",
-          "example": "Selon moi, l’apprentissage en ligne est efficace à condition d’associer flexibilité et encadrement.",
-          "usage": "À condition de + infinitif ; exprime une condition."
+          "french": "à condition que la flexibilité soit associée à un encadrement",
+          "english": "provided that flexibility is combined with guidance",
+          "example": "Les cours sont efficaces à condition que la flexibilité soit associée à un encadrement.",
+          "usage": "À condition que + subjonctif ; exprime une condition."
         },
         {
           "id": "E3-OCT-C03-16",
@@ -727,15 +727,15 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de proposer une connexion accessible, des objectifs clairs et un véritable lien humain.",
+          "example": "En conclusion, il faut que les cours en ligne restent flexibles tout en offrant des objectifs clairs et un véritable lien humain.",
           "usage": "Connecteur de conclusion ; annonce la position finale."
         },
         {
           "id": "E3-OCT-C03-29",
           "kind": "phrase-modele",
-          "french": "le plus important est de proposer une connexion accessible, des objectifs clairs et un véritable lien humain",
-          "english": "the most important thing is to provide an accessible connection, clear objectives and genuine human connection",
-          "example": "En conclusion, le plus important est de proposer une connexion accessible, des objectifs clairs et un véritable lien humain.",
+          "french": "il faut que les cours en ligne restent flexibles tout en offrant des objectifs clairs et un véritable lien humain",
+          "english": "online courses must remain flexible while offering clear objectives and genuine human connection",
+          "example": "En conclusion, il faut que les cours en ligne restent flexibles tout en offrant des objectifs clairs et un véritable lien humain.",
           "usage": "Formule de conclusion ; réutilisable en Éducation/Numérique."
         },
         {
@@ -743,7 +743,7 @@
           "kind": "collocation",
           "french": "des objectifs clairs",
           "english": "clear objectives",
-          "example": "En conclusion, le plus important est de proposer une connexion accessible, des objectifs clairs et un véritable lien humain.",
+          "example": "Les cours en ligne doivent proposer des objectifs clairs à chaque apprenant.",
           "usage": "Groupe nominal masculin pluriel ; réutilisable en Études/Travail."
         }
       ]
@@ -844,25 +844,25 @@
         {
           "id": "E3-OCT-C04-12",
           "kind": "phrase-modele",
-          "french": "Personnellement, je pense que les maisons de retraite constituent une bonne solution lorsqu’elles répondent réellement aux besoins de chacun",
-          "english": "Personally, I think retirement homes are a good solution when they genuinely meet everyone’s needs",
-          "example": "Personnellement, je pense que les maisons de retraite constituent une bonne solution lorsqu’elles répondent réellement aux besoins de chacun.",
-          "usage": "Formule d’opinion conditionnelle ; réutilisable en Logement/Santé."
+          "french": "Personnellement, les maisons de retraite sont une bonne solution à condition qu’elles répondent réellement aux besoins de chacun",
+          "english": "Personally, retirement homes are a good solution provided that they genuinely meet everyone’s needs",
+          "example": "Personnellement, les maisons de retraite sont une bonne solution à condition qu’elles répondent réellement aux besoins de chacun.",
+          "usage": "Formule d’opinion avec le subjonctif ; réutilisable en Logement/Santé."
         },
         {
           "id": "E3-OCT-C04-13",
           "kind": "tournure",
-          "french": "lorsqu’elles répondent réellement aux besoins de chacun",
-          "english": "when they genuinely meet everyone’s needs",
-          "example": "Personnellement, je pense que les maisons de retraite constituent une bonne solution lorsqu’elles répondent réellement aux besoins de chacun.",
-          "usage": "Lorsque + indicatif ; pose une condition concrète."
+          "french": "à condition qu’elles répondent réellement aux besoins de chacun",
+          "english": "provided that they genuinely meet everyone’s needs",
+          "example": "Les maisons de retraite sont une bonne solution à condition qu’elles répondent réellement aux besoins de chacun.",
+          "usage": "À condition que + subjonctif ; pose une condition concrète."
         },
         {
           "id": "E3-OCT-C04-14",
           "kind": "mot-cle",
           "french": "besoins de chacun",
           "english": "everyone’s needs",
-          "example": "Personnellement, je pense que les maisons de retraite constituent une bonne solution lorsqu’elles répondent réellement aux besoins de chacun.",
+          "example": "Une bonne solution doit répondre réellement aux besoins de chacun.",
           "usage": "Nom masculin pluriel ; réutilisable en Famille/Services publics."
         },
         {

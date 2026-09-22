@@ -231,25 +231,25 @@
         {
           "id": "E3-MAI-C01-28",
           "kind": "phrase-modele",
-          "french": "En conclusion, le plus important est de choisir des jeux adaptés et d’établir des règles claires",
-          "english": "In conclusion, the most important thing is to choose suitable games and set clear rules",
-          "example": "En conclusion, le plus important est de choisir des jeux adaptés et d’établir des règles claires.",
+          "french": "En conclusion, il faut que les parents choisissent des jeux adaptés et fixent des règles claires",
+          "english": "In conclusion, parents must choose suitable games and set clear rules",
+          "example": "En conclusion, il faut que les parents choisissent des jeux adaptés et fixent des règles claires.",
           "usage": "Formule argumentative de registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-MAI-C01-29",
           "kind": "tournure",
-          "french": "le plus important est de choisir",
-          "english": "the most important thing is to choose",
-          "example": "En conclusion, le plus important est de choisir des jeux adaptés et d’établir des règles claires.",
-          "usage": "Structure neutre à adapter grammaticalement ; réutilisable en Numérique/Éducation."
+          "french": "il faut que les parents choisissent",
+          "english": "parents must choose",
+          "example": "Il faut que les parents choisissent des jeux adaptés à l’âge de leurs enfants.",
+          "usage": "Structure avec « il faut que » et le subjonctif ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-MAI-C01-30",
           "kind": "verbe-action",
           "french": "établir des règles claires",
           "english": "to set clear rules",
-          "example": "En conclusion, le plus important est de choisir des jeux adaptés et d’établir des règles claires.",
+          "example": "Pour encadrer leur usage, les parents doivent établir des règles claires.",
           "usage": "Groupe verbal ; verbe à conjuguer selon le sujet ; réutilisable en Numérique/Éducation."
         }
       ]
@@ -334,25 +334,25 @@
         {
           "id": "E3-MAI-C02-10",
           "kind": "phrase-modele",
-          "french": "Selon moi, les zoos ne sont acceptables que s’ils donnent la priorité au bien-être et à la conservation",
+          "french": "Selon moi, les zoos ne sont acceptables qu’à condition qu’ils donnent la priorité au bien-être et à la conservation",
           "english": "In my view, zoos are acceptable only if they prioritize welfare and conservation",
-          "example": "Selon moi, les zoos ne sont acceptables que s’ils donnent la priorité au bien-être et à la conservation.",
+          "example": "Selon moi, les zoos ne sont acceptables qu’à condition qu’ils donnent la priorité au bien-être et à la conservation.",
           "usage": "Formule argumentative de registre neutre ; réutilisable en Animaux/Environnement."
         },
         {
           "id": "E3-MAI-C02-11",
           "kind": "tournure",
-          "french": "ne sont acceptables que s’ils donnent la priorité",
-          "english": "are acceptable only if they give priority",
-          "example": "Selon moi, les zoos ne sont acceptables que s’ils donnent la priorité au bien-être et à la conservation.",
-          "usage": "Structure neutre à adapter grammaticalement ; réutilisable en Animaux/Environnement."
+          "french": "à condition qu’ils donnent la priorité",
+          "english": "provided that they give priority",
+          "example": "Les zoos sont acceptables à condition qu’ils donnent la priorité au bien-être animal.",
+          "usage": "Structure avec « à condition que » et le subjonctif ; réutilisable en Animaux/Environnement."
         },
         {
           "id": "E3-MAI-C02-12",
           "kind": "mot-cle",
           "french": "bien-être",
           "english": "well-being",
-          "example": "Selon moi, les zoos ne sont acceptables que s’ils donnent la priorité au bien-être et à la conservation.",
+          "example": "Selon moi, les zoos ne sont acceptables qu’à condition qu’ils donnent la priorité au bien-être et à la conservation.",
           "usage": "Groupe nominal ; accord à adapter au contexte ; réutilisable en Animaux/Environnement."
         },
         {
@@ -360,7 +360,7 @@
           "kind": "mot-cle",
           "french": "la conservation",
           "english": "conservation",
-          "example": "Selon moi, les zoos ne sont acceptables que s’ils donnent la priorité au bien-être et à la conservation.",
+          "example": "Selon moi, les zoos ne sont acceptables qu’à condition qu’ils donnent la priorité au bien-être et à la conservation.",
           "usage": "Groupe nominal ; accord à adapter au contexte ; réutilisable en Animaux/Environnement."
         },
         {
@@ -719,31 +719,31 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de garantir des conditions de travail équilibrées sans nier la valeur sociale de l’emploi.",
+          "example": "En conclusion, il faut que le travail garde une place utile sans qu’il envahisse le temps réservé aux proches.",
           "usage": "Connecteur discursif de registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-MAI-C03-28",
           "kind": "phrase-modele",
-          "french": "le plus important est de garantir des conditions de travail équilibrées",
-          "english": "the most important thing is to ensure balanced working conditions",
-          "example": "En conclusion, le plus important est de garantir des conditions de travail équilibrées sans nier la valeur sociale de l’emploi.",
+          "french": "il faut que le travail garde une place utile",
+          "english": "work must retain a useful role",
+          "example": "En conclusion, il faut que le travail garde une place utile sans qu’il envahisse le temps réservé aux proches.",
           "usage": "Formule argumentative de registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-MAI-C03-29",
           "kind": "verbe-action",
-          "french": "garantir des conditions de travail équilibrées",
-          "english": "to ensure balanced working conditions",
-          "example": "En conclusion, le plus important est de garantir des conditions de travail équilibrées sans nier la valeur sociale de l’emploi.",
+          "french": "garder une place utile",
+          "english": "to retain a useful role",
+          "example": "Dans une vie équilibrée, le travail doit garder une place utile sans tout envahir.",
           "usage": "Groupe verbal ; verbe à conjuguer selon le sujet ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-MAI-C03-30",
           "kind": "mot-cle",
-          "french": "la valeur sociale de l’emploi",
-          "english": "the social value of employment",
-          "example": "En conclusion, le plus important est de garantir des conditions de travail équilibrées sans nier la valeur sociale de l’emploi.",
+          "french": "le temps réservé aux proches",
+          "english": "time reserved for loved ones",
+          "example": "En conclusion, il faut que le travail garde une place utile sans qu’il envahisse le temps réservé aux proches.",
           "usage": "Groupe nominal ; accord à adapter au contexte ; réutilisable en Travail/Bien-être."
         }
       ]
@@ -964,33 +964,33 @@
         {
           "id": "E3-MAI-C03B-27",
           "kind": "expression",
-          "french": "En définitive",
-          "english": "Ultimately",
-          "example": "En définitive, le plus important est de prévenir la dépendance grâce au dialogue, à des limites claires et à des activités variées.",
+          "french": "En conclusion",
+          "english": "In conclusion",
+          "example": "En conclusion, il faut que le jeu reste un loisir parmi d’autres : mieux vaut l’encadrer que l’interdire.",
           "usage": "Connecteur discursif de registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-MAI-C03B-28",
           "kind": "phrase-modele",
-          "french": "le plus important est de prévenir la dépendance",
-          "english": "the most important thing is to prevent addiction",
-          "example": "En définitive, le plus important est de prévenir la dépendance grâce au dialogue, à des limites claires et à des activités variées.",
+          "french": "il faut que le jeu reste un loisir parmi d’autres",
+          "english": "gaming must remain one leisure activity among others",
+          "example": "En conclusion, il faut que le jeu reste un loisir parmi d’autres.",
           "usage": "Formule argumentative de registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-MAI-C03B-29",
           "kind": "verbe-action",
-          "french": "prévenir la dépendance",
-          "english": "to prevent addiction",
-          "example": "En définitive, le plus important est de prévenir la dépendance grâce au dialogue, à des limites claires et à des activités variées.",
+          "french": "encadrer plutôt qu’interdire",
+          "english": "to regulate rather than ban",
+          "example": "Pour prévenir la dépendance, mieux vaut encadrer plutôt qu’interdire.",
           "usage": "Groupe verbal ; verbe à conjuguer selon le sujet ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-MAI-C03B-30",
           "kind": "mot-cle",
-          "french": "des activités variées",
-          "english": "varied activities",
-          "example": "En définitive, le plus important est de prévenir la dépendance grâce au dialogue, à des limites claires et à des activités variées.",
+          "french": "un loisir parmi d’autres",
+          "english": "one leisure activity among others",
+          "example": "En conclusion, il faut que le jeu reste un loisir parmi d’autres.",
           "usage": "Groupe nominal ; accord à adapter au contexte ; réutilisable en Numérique/Éducation."
         }
       ]
@@ -1213,15 +1213,15 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de soumettre chaque projet à un contrôle indépendant et à une consultation publique.",
+          "example": "En conclusion, ces événements peuvent être utiles, mais il faut que chaque projet soit soumis à un contrôle indépendant et à une consultation publique.",
           "usage": "Connecteur discursif de registre neutre ; réutilisable en Économie/Société."
         },
         {
           "id": "E3-MAI-C04-28",
           "kind": "phrase-modele",
-          "french": "le plus important est de soumettre chaque projet à un contrôle indépendant",
-          "english": "the most important thing is to subject each project to independent oversight",
-          "example": "En conclusion, le plus important est de soumettre chaque projet à un contrôle indépendant et à une consultation publique.",
+          "french": "il faut que chaque projet soit soumis à un contrôle indépendant",
+          "english": "every project must undergo independent oversight",
+          "example": "En conclusion, il faut que chaque projet soit soumis à un contrôle indépendant.",
           "usage": "Formule argumentative de registre neutre ; réutilisable en Économie/Société."
         },
         {
@@ -1229,7 +1229,7 @@
           "kind": "verbe-action",
           "french": "soumettre chaque projet à un contrôle indépendant",
           "english": "to subject each project to independent oversight",
-          "example": "En conclusion, le plus important est de soumettre chaque projet à un contrôle indépendant et à une consultation publique.",
+          "example": "Avant tout investissement, il faut soumettre chaque projet à un contrôle indépendant.",
           "usage": "Groupe verbal ; verbe à conjuguer selon le sujet ; réutilisable en Économie/Société."
         },
         {
@@ -1237,7 +1237,7 @@
           "kind": "mot-cle",
           "french": "une consultation publique",
           "english": "a public consultation",
-          "example": "En conclusion, le plus important est de soumettre chaque projet à un contrôle indépendant et à une consultation publique.",
+          "example": "En conclusion, il faut que chaque projet soit soumis à un contrôle indépendant et à une consultation publique.",
           "usage": "Groupe nominal ; accord à adapter au contexte ; réutilisable en Économie/Société."
         }
       ]
@@ -1458,33 +1458,33 @@
         {
           "id": "E3-MAI-C05-27",
           "kind": "expression",
-          "french": "En définitive",
-          "english": "Ultimately",
-          "example": "En définitive, le plus important est de manger de façon équilibrée en considérant l’origine, la saison et le mode de production.",
+          "french": "En conclusion",
+          "english": "In conclusion",
+          "example": "En conclusion, il faut que l’Europe augmente la part végétale de son alimentation tout en privilégiant des produits locaux et saisonniers.",
           "usage": "Connecteur discursif de registre neutre ; réutilisable en Alimentation/Environnement."
         },
         {
           "id": "E3-MAI-C05-28",
           "kind": "phrase-modele",
-          "french": "le plus important est de manger de façon équilibrée",
-          "english": "the most important thing is to eat a balanced diet",
-          "example": "En définitive, le plus important est de manger de façon équilibrée en considérant l’origine, la saison et le mode de production.",
+          "french": "il faut que l’Europe augmente la part végétale de son alimentation",
+          "english": "Europe must increase the plant-based share of its diet",
+          "example": "En conclusion, il faut que l’Europe augmente la part végétale de son alimentation.",
           "usage": "Formule argumentative de registre neutre ; réutilisable en Alimentation/Environnement."
         },
         {
           "id": "E3-MAI-C05-29",
           "kind": "verbe-action",
-          "french": "manger de façon équilibrée",
-          "english": "to eat a balanced diet",
-          "example": "En définitive, le plus important est de manger de façon équilibrée en considérant l’origine, la saison et le mode de production.",
+          "french": "augmenter la part végétale de son alimentation",
+          "english": "to increase the plant-based share of one’s diet",
+          "example": "L’Europe devrait augmenter la part végétale de son alimentation.",
           "usage": "Groupe verbal ; verbe à conjuguer selon le sujet ; réutilisable en Alimentation/Environnement."
         },
         {
           "id": "E3-MAI-C05-30",
           "kind": "mot-cle",
-          "french": "le mode de production",
-          "english": "the production method",
-          "example": "En définitive, le plus important est de manger de façon équilibrée en considérant l’origine, la saison et le mode de production.",
+          "french": "la part végétale de son alimentation",
+          "english": "the plant-based share of one’s diet",
+          "example": "L’Europe devrait augmenter la part végétale de son alimentation.",
           "usage": "Groupe nominal ; accord à adapter au contexte ; réutilisable en Alimentation/Environnement."
         }
       ]

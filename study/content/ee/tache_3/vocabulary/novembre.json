@@ -25,7 +25,7 @@
           "kind": "mot-cle",
           "french": "les jeux vidéo",
           "english": "video games",
-          "example": "À mon avis, les jeux vidéo peuvent être bénéfiques, mais seulement si leur usage est adapté à l’âge et limité.",
+          "example": "À mon avis, les jeux vidéo peuvent être bénéfiques à condition que leur usage soit adapté à l’âge et limité.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
@@ -87,25 +87,25 @@
         {
           "id": "E3-NOV-C01-10",
           "kind": "phrase-modele",
-          "french": "À mon avis, les jeux vidéo peuvent être bénéfiques, mais seulement si leur usage est adapté à l’âge et limité",
-          "english": "In my opinion, video games can be beneficial, but only if their use is age-appropriate and limited",
-          "example": "À mon avis, les jeux vidéo peuvent être bénéfiques, mais seulement si leur usage est adapté à l’âge et limité.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Numérique/Éducation."
+          "french": "À mon avis, les jeux vidéo peuvent être bénéfiques à condition que leur usage soit adapté à l’âge et limité",
+          "english": "In my opinion, video games can be beneficial provided that their use is age-appropriate and limited",
+          "example": "À mon avis, les jeux vidéo peuvent être bénéfiques à condition que leur usage soit adapté à l’âge et limité.",
+          "usage": "Formule argumentative avec le subjonctif ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-NOV-C01-11",
           "kind": "tournure",
-          "french": "mais seulement si leur usage est adapté à l’âge et limité",
-          "english": "but only if their use is age-appropriate and limited",
-          "example": "À mon avis, les jeux vidéo peuvent être bénéfiques, mais seulement si leur usage est adapté à l’âge et limité.",
-          "usage": "Structure grammaticale, registre neutre ; réutilisable en Numérique/Éducation."
+          "french": "à condition que leur usage soit adapté à l’âge et limité",
+          "english": "provided that their use is age-appropriate and limited",
+          "example": "Les jeux vidéo peuvent être bénéfiques à condition que leur usage soit adapté à l’âge et limité.",
+          "usage": "Structure avec « à condition que » et le subjonctif ; réutilisable en Numérique/Éducation."
         },
         {
           "id": "E3-NOV-C01-12",
           "kind": "collocation",
           "french": "adapté à l’âge",
           "english": "age-appropriate",
-          "example": "À mon avis, les jeux vidéo peuvent être bénéfiques, mais seulement si leur usage est adapté à l’âge et limité.",
+          "example": "Leur usage doit rester adapté à l’âge des joueurs.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
@@ -342,17 +342,17 @@
         {
           "id": "E3-NOV-C02-11",
           "kind": "phrase-modele",
-          "french": "Selon moi, le bien-être des salariés exige de bonnes conditions matérielles, mais aussi le respect de leurs horaires",
-          "english": "In my view, employee well-being requires good material conditions as well as respect for their schedules",
-          "example": "Selon moi, le bien-être des salariés exige de bonnes conditions matérielles, mais aussi le respect de leurs horaires.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Travail/Bien-être."
+          "french": "Selon moi, il faut que les bonnes conditions matérielles s’accompagnent du respect des horaires pour assurer le bien-être des salariés",
+          "english": "In my view, good material conditions must be accompanied by respect for working hours to ensure employee well-being",
+          "example": "Selon moi, il faut que les bonnes conditions matérielles s’accompagnent du respect des horaires pour assurer le bien-être des salariés.",
+          "usage": "Formule argumentative avec le subjonctif ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-NOV-C02-12",
           "kind": "mot-cle",
           "french": "le bien-être des salariés",
           "english": "employee well-being",
-          "example": "Selon moi, le bien-être des salariés exige de bonnes conditions matérielles, mais aussi le respect de leurs horaires.",
+          "example": "Le bien-être des salariés dépend aussi du respect des horaires.",
           "usage": "Nom masculin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -360,16 +360,16 @@
           "kind": "collocation",
           "french": "de bonnes conditions matérielles",
           "english": "good material conditions",
-          "example": "Selon moi, le bien-être des salariés exige de bonnes conditions matérielles, mais aussi le respect de leurs horaires.",
+          "example": "Le bien-être au travail exige de bonnes conditions matérielles.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-NOV-C02-14",
           "kind": "tournure",
-          "french": "mais aussi le respect de leurs horaires",
-          "english": "as well as respect for their schedules",
-          "example": "Selon moi, le bien-être des salariés exige de bonnes conditions matérielles, mais aussi le respect de leurs horaires.",
-          "usage": "Structure grammaticale, registre neutre ; réutilisable en Travail/Bien-être."
+          "french": "s’accompagnent du respect des horaires",
+          "english": "are accompanied by respect for working hours",
+          "example": "Il faut que les bonnes conditions matérielles s’accompagnent du respect des horaires.",
+          "usage": "Structure au subjonctif, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-NOV-C02-15",
@@ -551,7 +551,7 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident ceux qui ne peuvent pas déjeuner le matin.",
+          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident les élèves qui arrivent sans avoir pris de petit déjeuner.",
           "usage": "Connecteur adverbial ; réutilisable en Éducation/Santé."
         },
         {
@@ -559,7 +559,7 @@
           "kind": "reformulation",
           "french": "le second",
           "english": "the second one",
-          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident ceux qui ne peuvent pas déjeuner le matin.",
+          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident les élèves qui arrivent sans avoir pris de petit déjeuner.",
           "usage": "Reprise anaphorique ; réutilisable en Éducation/Santé."
         },
         {
@@ -567,7 +567,7 @@
           "kind": "mot-cle",
           "french": "les industriels",
           "english": "the manufacturers",
-          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident ceux qui ne peuvent pas déjeuner le matin.",
+          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident les élèves qui arrivent sans avoir pris de petit déjeuner.",
           "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Santé."
         },
         {
@@ -575,7 +575,7 @@
           "kind": "collocation",
           "french": "des boissons chaudes",
           "english": "hot drinks",
-          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident ceux qui ne peuvent pas déjeuner le matin.",
+          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident les élèves qui arrivent sans avoir pris de petit déjeuner.",
           "usage": "Collocation ; réutilisable en Éducation/Santé."
         },
         {
@@ -583,7 +583,7 @@
           "kind": "mot-cle",
           "french": "l’établissement",
           "english": "the school premises",
-          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident ceux qui ne peuvent pas déjeuner le matin.",
+          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident les élèves qui arrivent sans avoir pris de petit déjeuner.",
           "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Santé."
         },
         {
@@ -591,7 +591,7 @@
           "kind": "mot-cle",
           "french": "ces machines",
           "english": "these machines",
-          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident ceux qui ne peuvent pas déjeuner le matin.",
+          "example": "En revanche, le second relaie les industriels : ces machines offrent des boissons chaudes, retiennent les élèves dans l’établissement et aident les élèves qui arrivent sans avoir pris de petit déjeuner.",
           "usage": "Nom ou groupe nominal ; réutilisable en Éducation/Santé."
         },
         {
@@ -828,33 +828,33 @@
         {
           "id": "E3-NOV-C04-10",
           "kind": "phrase-modele",
-          "french": "À mon avis, une courte sieste peut améliorer le bien-être et la productivité, mais elle doit rester facultative",
-          "english": "In my opinion, a short nap can improve well-being and productivity, but it must remain optional",
-          "example": "À mon avis, une courte sieste peut améliorer le bien-être et la productivité, mais elle doit rester facultative.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Travail/Bien-être."
+          "french": "À mon avis, une courte sieste peut améliorer le bien-être et la productivité à condition qu’elle reste facultative",
+          "english": "In my opinion, a short nap can improve well-being and productivity provided that it remains optional",
+          "example": "À mon avis, une courte sieste peut améliorer le bien-être et la productivité à condition qu’elle reste facultative.",
+          "usage": "Formule argumentative avec le subjonctif ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-NOV-C04-11",
           "kind": "collocation",
           "french": "une courte sieste",
           "english": "a short nap",
-          "example": "À mon avis, une courte sieste peut améliorer le bien-être et la productivité, mais elle doit rester facultative.",
+          "example": "Une courte sieste peut améliorer l’attention à condition qu’elle reste facultative.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-NOV-C04-12",
           "kind": "tournure",
-          "french": "mais elle doit rester facultative",
-          "english": "but it must remain optional",
-          "example": "À mon avis, une courte sieste peut améliorer le bien-être et la productivité, mais elle doit rester facultative.",
-          "usage": "Structure grammaticale, registre neutre ; réutilisable en Travail/Bien-être."
+          "french": "à condition qu’elle reste facultative",
+          "english": "provided that it remains optional",
+          "example": "Une courte sieste est acceptable à condition qu’elle reste facultative.",
+          "usage": "Structure avec « à condition que » et le subjonctif ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-NOV-C04-13",
           "kind": "mot-cle",
           "french": "le bien-être",
           "english": "well-being",
-          "example": "À mon avis, une courte sieste peut améliorer le bien-être et la productivité, mais elle doit rester facultative.",
+          "example": "Une courte sieste peut améliorer le bien-être à condition qu’elle reste facultative.",
           "usage": "Nom masculin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -862,7 +862,7 @@
           "kind": "mot-cle",
           "french": "la productivité",
           "english": "productivity",
-          "example": "À mon avis, une courte sieste peut améliorer le bien-être et la productivité, mais elle doit rester facultative.",
+          "example": "Une courte sieste peut soutenir la productivité à condition qu’elle reste facultative.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -1203,41 +1203,41 @@
         {
           "id": "E3-NOV-C05-26",
           "kind": "phrase-modele",
-          "french": "En conclusion, le plus important est de protéger la biodiversité en réservant toute intervention à des objectifs précis, contrôlés et fondés sur des données fiables",
-          "english": "In conclusion, the most important thing is to protect biodiversity by reserving intervention for precise, monitored and evidence-based objectives",
-          "example": "En conclusion, le plus important est de protéger la biodiversité en réservant toute intervention à des objectifs précis, contrôlés et fondés sur des données fiables.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Environnement/Société."
+          "french": "En conclusion, il faut que toute chasse réponde à un objectif de protection précis et repose sur des données fiables, jamais sur le prestige",
+          "english": "In conclusion, all hunting must serve a precise protection objective and rely on reliable data, never prestige",
+          "example": "En conclusion, il faut que toute chasse réponde à un objectif de protection précis et repose sur des données fiables, jamais sur le prestige.",
+          "usage": "Formule argumentative avec le subjonctif ; réutilisable en Environnement/Société."
         },
         {
           "id": "E3-NOV-C05-27",
           "kind": "mot-cle",
-          "french": "la biodiversité",
-          "english": "biodiversity",
-          "example": "En conclusion, le plus important est de protéger la biodiversité en réservant toute intervention à des objectifs précis, contrôlés et fondés sur des données fiables.",
+          "french": "un objectif de protection précis",
+          "english": "a precise protection objective",
+          "example": "Toute chasse autorisée doit répondre à un objectif de protection précis.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Environnement/Société."
         },
         {
           "id": "E3-NOV-C05-28",
           "kind": "tournure",
-          "french": "fondés sur des données fiables",
-          "english": "based on reliable data",
-          "example": "En conclusion, le plus important est de protéger la biodiversité en réservant toute intervention à des objectifs précis, contrôlés et fondés sur des données fiables.",
-          "usage": "Structure grammaticale, registre neutre ; réutilisable en Environnement/Société."
+          "french": "jamais sur le prestige",
+          "english": "never on prestige",
+          "example": "Une intervention doit reposer sur la protection, jamais sur le prestige.",
+          "usage": "Structure de contraste, registre neutre ; réutilisable en Environnement/Société."
         },
         {
           "id": "E3-NOV-C05-29",
           "kind": "collocation",
           "french": "des données fiables",
           "english": "reliable data",
-          "example": "En conclusion, le plus important est de protéger la biodiversité en réservant toute intervention à des objectifs précis, contrôlés et fondés sur des données fiables.",
+          "example": "Toute décision de régulation doit reposer sur des données fiables.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Environnement/Société."
         },
         {
           "id": "E3-NOV-C05-30",
           "kind": "verbe-action",
-          "french": "protéger la biodiversité",
-          "english": "to protect biodiversity",
-          "example": "En conclusion, le plus important est de protéger la biodiversité en réservant toute intervention à des objectifs précis, contrôlés et fondés sur des données fiables.",
+          "french": "répondre à un objectif de protection",
+          "english": "to serve a protection objective",
+          "example": "Une chasse encadrée doit répondre à un objectif de protection.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Environnement/Société."
         }
       ]
@@ -1330,26 +1330,26 @@
         {
           "id": "E3-NOV-C06-11",
           "kind": "phrase-modele",
-          "french": "Personnellement, je pense que la restauration rapide peut dépanner, mais ne devrait pas devenir une habitude",
-          "english": "Personally, I think fast food can help in a pinch, but should not become a habit",
-          "example": "Personnellement, je pense que la restauration rapide peut dépanner, mais ne devrait pas devenir une habitude.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Santé/Environnement."
+          "french": "Personnellement, la restauration rapide peut dépanner à condition qu’elle reste occasionnelle",
+          "english": "Personally, fast food can help in a pinch provided that it remains occasional",
+          "example": "Personnellement, la restauration rapide peut dépanner à condition qu’elle reste occasionnelle.",
+          "usage": "Formule argumentative avec le subjonctif ; réutilisable en Santé/Environnement."
         },
         {
           "id": "E3-NOV-C06-12",
           "kind": "tournure",
           "french": "peut dépanner",
           "english": "can help in a pinch",
-          "example": "Personnellement, je pense que la restauration rapide peut dépanner, mais ne devrait pas devenir une habitude.",
+          "example": "La restauration rapide peut dépanner lorsque le temps manque.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
           "id": "E3-NOV-C06-13",
           "kind": "tournure",
-          "french": "ne devrait pas devenir une habitude",
-          "english": "should not become a habit",
-          "example": "Personnellement, je pense que la restauration rapide peut dépanner, mais ne devrait pas devenir une habitude.",
-          "usage": "Structure grammaticale, registre neutre ; réutilisable en Santé/Environnement."
+          "french": "à condition qu’elle reste occasionnelle",
+          "english": "provided that it remains occasional",
+          "example": "La restauration rapide peut dépanner à condition qu’elle reste occasionnelle.",
+          "usage": "Structure avec « à condition que » et le subjonctif ; réutilisable en Santé/Environnement."
         },
         {
           "id": "E3-NOV-C06-14",
@@ -1372,15 +1372,15 @@
           "kind": "expression",
           "french": "De plus",
           "english": "Moreover",
-          "example": "De plus, les contenants réutilisables réduisent les déchets.",
+          "example": "De plus, les emballages recyclables ou réutilisables réduisent les déchets.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
           "id": "E3-NOV-C06-17",
           "kind": "mot-cle",
-          "french": "les contenants réutilisables",
-          "english": "reusable containers",
-          "example": "De plus, les contenants réutilisables réduisent les déchets.",
+          "french": "les emballages recyclables ou réutilisables",
+          "english": "recyclable or reusable packaging",
+          "example": "De plus, les emballages recyclables ou réutilisables réduisent les déchets.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
@@ -1388,7 +1388,7 @@
           "kind": "verbe-action",
           "french": "réduisent les déchets",
           "english": "reduce waste",
-          "example": "De plus, les contenants réutilisables réduisent les déchets.",
+          "example": "Les emballages recyclables ou réutilisables réduisent les déchets.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
@@ -1396,7 +1396,7 @@
           "kind": "mot-cle",
           "french": "les déchets",
           "english": "waste",
-          "example": "De plus, les contenants réutilisables réduisent les déchets.",
+          "example": "Les emballages recyclables ou réutilisables limitent les déchets.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
@@ -1705,25 +1705,25 @@
         {
           "id": "E3-NOV-C07-27",
           "kind": "phrase-modele",
-          "french": "En conclusion, le plus important est de combiner qualité, proximité et prix raisonnables selon les besoins de chacun",
-          "english": "In conclusion, the most important thing is to combine quality, proximity and reasonable prices according to everyone’s needs",
-          "example": "En conclusion, le plus important est de combiner qualité, proximité et prix raisonnables selon les besoins de chacun.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Alimentation/Économie."
+          "french": "En conclusion, il faut que chacun combine qualité, proximité et prix raisonnables selon ses besoins",
+          "english": "In conclusion, everyone must combine quality, proximity and reasonable prices according to their needs",
+          "example": "En conclusion, il faut que chacun combine qualité, proximité et prix raisonnables selon ses besoins.",
+          "usage": "Formule argumentative avec le subjonctif ; réutilisable en Alimentation/Économie."
         },
         {
           "id": "E3-NOV-C07-28",
           "kind": "collocation",
           "french": "qualité, proximité et prix raisonnables",
           "english": "quality, proximity and reasonable prices",
-          "example": "En conclusion, le plus important est de combiner qualité, proximité et prix raisonnables selon les besoins de chacun.",
+          "example": "Chacun peut combiner qualité, proximité et prix raisonnables selon ses besoins.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
           "id": "E3-NOV-C07-29",
           "kind": "mot-cle",
-          "french": "les besoins de chacun",
-          "english": "everyone’s needs",
-          "example": "En conclusion, le plus important est de combiner qualité, proximité et prix raisonnables selon les besoins de chacun.",
+          "french": "selon ses besoins",
+          "english": "according to one’s needs",
+          "example": "Il faut que chacun combine les deux options selon ses besoins.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Alimentation/Économie."
         },
         {
@@ -1832,26 +1832,26 @@
         {
           "id": "E3-NOV-C08-12",
           "kind": "phrase-modele",
-          "french": "Selon moi, aucune solution ne convient à toutes les personnes âgées : le choix doit dépendre de leur santé et de leurs souhaits",
+          "french": "Selon moi, aucune solution ne convient à toutes les personnes âgées : il faut que le choix dépende de leur santé et de leurs souhaits",
           "english": "In my view, no solution suits all older people: the choice must depend on their health and wishes",
-          "example": "Selon moi, aucune solution ne convient à toutes les personnes âgées : le choix doit dépendre de leur santé et de leurs souhaits.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Famille/Santé."
+          "example": "Selon moi, aucune solution ne convient à toutes les personnes âgées : il faut que le choix dépende de leur santé et de leurs souhaits.",
+          "usage": "Formule argumentative avec le subjonctif ; réutilisable en Famille/Santé."
         },
         {
           "id": "E3-NOV-C08-13",
           "kind": "tournure",
           "french": "aucune solution ne convient à toutes les personnes âgées",
           "english": "no solution suits all older people",
-          "example": "Selon moi, aucune solution ne convient à toutes les personnes âgées : le choix doit dépendre de leur santé et de leurs souhaits.",
+          "example": "Aucune solution ne convient à toutes les personnes âgées.",
           "usage": "Structure grammaticale, registre neutre ; réutilisable en Famille/Santé."
         },
         {
           "id": "E3-NOV-C08-14",
           "kind": "tournure",
-          "french": "le choix doit dépendre de leur santé et de leurs souhaits",
+          "french": "il faut que le choix dépende de leur santé et de leurs souhaits",
           "english": "the choice must depend on their health and wishes",
-          "example": "Selon moi, aucune solution ne convient à toutes les personnes âgées : le choix doit dépendre de leur santé et de leurs souhaits.",
-          "usage": "Structure grammaticale, registre neutre ; réutilisable en Famille/Santé."
+          "example": "Il faut que le choix dépende de leur santé et de leurs souhaits.",
+          "usage": "Structure avec « il faut que » et le subjonctif ; réutilisable en Famille/Santé."
         },
         {
           "id": "E3-NOV-C08-15",
@@ -2071,18 +2071,18 @@
         {
           "id": "E3-NOV-C09-11",
           "kind": "phrase-modele",
-          "french": "Il me semble que l’on peut manger sainement dans une chaîne de restauration rapide, à condition de choisir avec modération",
-          "english": "It seems to me that one can eat healthily at a fast-food chain provided one chooses in moderation",
-          "example": "Il me semble que l’on peut manger sainement dans une chaîne de restauration rapide, à condition de choisir avec modération.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Santé/Alimentation."
+          "french": "Il me semble que l’on peut manger sainement dans une chaîne de restauration rapide à condition que les choix restent raisonnables",
+          "english": "It seems to me that one can eat healthily at a fast-food chain provided that the choices remain reasonable",
+          "example": "Il me semble que l’on peut manger sainement dans une chaîne de restauration rapide à condition que les choix restent raisonnables.",
+          "usage": "Formule argumentative avec le subjonctif ; réutilisable en Santé/Alimentation."
         },
         {
           "id": "E3-NOV-C09-12",
           "kind": "tournure",
-          "french": "à condition de choisir avec modération",
-          "english": "provided one chooses in moderation",
-          "example": "Il me semble que l’on peut manger sainement dans une chaîne de restauration rapide, à condition de choisir avec modération.",
-          "usage": "Structure grammaticale, registre neutre ; réutilisable en Santé/Alimentation."
+          "french": "à condition que les choix restent raisonnables",
+          "english": "provided that the choices remain reasonable",
+          "example": "On peut manger sainement à condition que les choix restent raisonnables.",
+          "usage": "Structure avec « à condition que » et le subjonctif ; réutilisable en Santé/Alimentation."
         },
         {
           "id": "E3-NOV-C09-13",
@@ -2225,7 +2225,7 @@
           "kind": "reformulation",
           "french": "une chaîne de restauration rapide",
           "english": "a fast-food chain",
-          "example": "Il me semble que l’on peut manger sainement dans une chaîne de restauration rapide, à condition de choisir avec modération.",
+          "example": "On peut manger sainement dans une chaîne de restauration rapide à condition que les choix restent raisonnables.",
           "usage": "Reformulation, registre neutre ; réutilisable en Santé/Alimentation."
         }
       ]
@@ -2264,7 +2264,7 @@
           "kind": "reformulation",
           "french": "Ses défenseurs",
           "english": "its supporters",
-          "example": "Ses défenseurs y voient une expression culturelle qui embellit certains lieux, soutient les artistes et attire les touristes vers des quartiers méconnus.",
+          "example": "Ses défenseurs y voient une expression culturelle dans l’espace public qui soutient les artistes et attire les touristes vers des quartiers méconnus.",
           "usage": "Reformulation, registre neutre ; réutilisable en Culture/Ville."
         },
         {
@@ -2272,7 +2272,7 @@
           "kind": "collocation",
           "french": "une expression culturelle",
           "english": "a cultural expression",
-          "example": "Ses défenseurs y voient une expression culturelle qui embellit certains lieux, soutient les artistes et attire les touristes vers des quartiers méconnus.",
+          "example": "Ses défenseurs y voient une expression culturelle dans l’espace public qui soutient les artistes et attire les touristes vers des quartiers méconnus.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Culture/Ville."
         },
         {
@@ -2280,7 +2280,7 @@
           "kind": "verbe-action",
           "french": "soutient les artistes et attire les touristes",
           "english": "supports artists and attracts tourists",
-          "example": "Ses défenseurs y voient une expression culturelle qui embellit certains lieux, soutient les artistes et attire les touristes vers des quartiers méconnus.",
+          "example": "Cette expression culturelle soutient les artistes et attire les touristes vers des quartiers méconnus.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Culture/Ville."
         },
         {
@@ -2288,7 +2288,7 @@
           "kind": "mot-cle",
           "french": "des quartiers méconnus",
           "english": "little-known neighbourhoods",
-          "example": "Ses défenseurs y voient une expression culturelle qui embellit certains lieux, soutient les artistes et attire les touristes vers des quartiers méconnus.",
+          "example": "Des parcours guidés attirent les touristes vers des quartiers méconnus.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Culture/Ville."
         },
         {
@@ -2326,18 +2326,18 @@
         {
           "id": "E3-NOV-C10-12",
           "kind": "phrase-modele",
-          "french": "Personnellement, je considère que l’art urbain enrichit la ville lorsqu’il respecte les habitants et les bâtiments",
-          "english": "Personally, I believe urban art enriches the city when it respects residents and buildings",
-          "example": "Personnellement, je considère que l’art urbain enrichit la ville lorsqu’il respecte les habitants et les bâtiments.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Culture/Ville."
+          "french": "Personnellement, l’art urbain enrichit la ville à condition qu’il respecte les habitants et les bâtiments",
+          "english": "Personally, urban art enriches the city provided that it respects residents and buildings",
+          "example": "Personnellement, l’art urbain enrichit la ville à condition qu’il respecte les habitants et les bâtiments.",
+          "usage": "Formule argumentative avec le subjonctif ; réutilisable en Culture/Ville."
         },
         {
           "id": "E3-NOV-C10-13",
           "kind": "tournure",
-          "french": "lorsqu’il respecte les habitants et les bâtiments",
-          "english": "when it respects residents and buildings",
-          "example": "Personnellement, je considère que l’art urbain enrichit la ville lorsqu’il respecte les habitants et les bâtiments.",
-          "usage": "Structure grammaticale, registre neutre ; réutilisable en Culture/Ville."
+          "french": "à condition qu’il respecte les habitants et les bâtiments",
+          "english": "provided that it respects residents and buildings",
+          "example": "L’art urbain enrichit la ville à condition qu’il respecte les habitants et les bâtiments.",
+          "usage": "Structure avec « à condition que » et le subjonctif ; réutilisable en Culture/Ville."
         },
         {
           "id": "E3-NOV-C10-14",
@@ -2693,33 +2693,33 @@
         {
           "id": "E3-NOV-C11-27",
           "kind": "phrase-modele",
-          "french": "En conclusion, le plus important est de supprimer les obstacles financiers sans fragiliser les institutions culturelles ni négliger la médiation",
-          "english": "In conclusion, the most important thing is to remove financial barriers without weakening cultural institutions or neglecting mediation",
-          "example": "En conclusion, le plus important est de supprimer les obstacles financiers sans fragiliser les institutions culturelles ni négliger la médiation.",
-          "usage": "Formule argumentative, registre neutre ; réutilisable en Culture/Société."
+          "french": "En conclusion, il faut que la gratuité réduise les obstacles sans fragiliser les musées et qu’elle s’accompagne d’une médiation adaptée",
+          "english": "In conclusion, free admission must reduce barriers without weakening museums and must include suitable mediation",
+          "example": "En conclusion, il faut que la gratuité réduise les obstacles sans fragiliser les musées et qu’elle s’accompagne d’une médiation adaptée.",
+          "usage": "Formule argumentative avec le subjonctif ; réutilisable en Culture/Société."
         },
         {
           "id": "E3-NOV-C11-28",
           "kind": "mot-cle",
           "french": "les obstacles financiers",
           "english": "financial barriers",
-          "example": "En conclusion, le plus important est de supprimer les obstacles financiers sans fragiliser les institutions culturelles ni négliger la médiation.",
+          "example": "La gratuité doit réduire les obstacles financiers à la visite.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Culture/Société."
         },
         {
           "id": "E3-NOV-C11-29",
           "kind": "tournure",
-          "french": "sans fragiliser les institutions culturelles ni négliger la médiation",
-          "english": "without weakening cultural institutions or neglecting mediation",
-          "example": "En conclusion, le plus important est de supprimer les obstacles financiers sans fragiliser les institutions culturelles ni négliger la médiation.",
-          "usage": "Structure grammaticale, registre neutre ; réutilisable en Culture/Société."
+          "french": "sans fragiliser les musées",
+          "english": "without weakening museums",
+          "example": "Il faut réduire les obstacles sans fragiliser les musées.",
+          "usage": "Structure avec « sans » et l’infinitif ; réutilisable en Culture/Société."
         },
         {
           "id": "E3-NOV-C11-30",
           "kind": "collocation",
-          "french": "les institutions culturelles",
-          "english": "cultural institutions",
-          "example": "En conclusion, le plus important est de supprimer les obstacles financiers sans fragiliser les institutions culturelles ni négliger la médiation.",
+          "french": "une médiation adaptée",
+          "english": "suitable mediation",
+          "example": "La gratuité doit s’accompagner d’une médiation adaptée.",
           "usage": "Association lexicale, registre neutre ; réutilisable en Culture/Société."
         }
       ]

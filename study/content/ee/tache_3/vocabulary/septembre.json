@@ -215,25 +215,25 @@
         {
           "id": "E3-SEP-C01-26",
           "kind": "phrase-modele",
-          "french": "En conclusion, le plus important est de donner au travail une place enrichissante sans lui permettre d’envahir toute l’existence",
-          "english": "In conclusion, the most important thing is to give work an enriching place without letting it take over one’s whole life",
-          "example": "En conclusion, le plus important est de donner au travail une place enrichissante sans lui permettre d’envahir toute l’existence.",
+          "french": "En conclusion, il faut que le travail garde une place utile sans qu’il envahisse le temps réservé aux proches",
+          "english": "In conclusion, work must retain a useful role without taking over time reserved for loved ones",
+          "example": "En conclusion, il faut que le travail garde une place utile sans qu’il envahisse le temps réservé aux proches.",
           "usage": "Formule de conclusion ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-SEP-C01-27",
           "kind": "tournure",
-          "french": "sans lui permettre d’envahir toute l’existence",
-          "english": "without allowing it to take over one’s whole life",
-          "example": "En conclusion, le plus important est de donner au travail une place enrichissante sans lui permettre d’envahir toute l’existence.",
-          "usage": "Construction avec sans + infinitif ; réutilisable pour poser une limite."
+          "french": "sans qu’il envahisse",
+          "english": "without it taking over",
+          "example": "Il faut que le travail garde une place utile sans qu’il envahisse le temps réservé aux proches.",
+          "usage": "Construction avec « sans que » et le subjonctif ; réutilisable pour poser une limite."
         },
         {
           "id": "E3-SEP-C01-28",
           "kind": "verbe-action",
-          "french": "donner au travail une place enrichissante",
-          "english": "to give work an enriching place",
-          "example": "En conclusion, le plus important est de donner au travail une place enrichissante sans lui permettre d’envahir toute l’existence.",
+          "french": "garder une place utile",
+          "english": "to retain a useful role",
+          "example": "Dans une vie équilibrée, le travail doit garder une place utile.",
           "usage": "Construction infinitive ; réutilisable en Travail/Épanouissement."
         },
         {
@@ -432,31 +432,31 @@
           "kind": "expression",
           "french": "Par exemple",
           "english": "For example",
-          "example": "Par exemple, trois colocataires peuvent établir un calendrier de ménage, partager certaines dépenses et organiser une réunion chaque semaine pour régler rapidement les désaccords.",
+          "example": "Par exemple, trois colocataires de pays différents peuvent cuisiner ensemble, découvrir leurs cultures et régler leurs désaccords lors d’une réunion hebdomadaire.",
           "usage": "Connecteur d’illustration ; réutilisable dans toute argumentation."
         },
         {
           "id": "E3-SEP-C02-23",
           "kind": "verbe-action",
-          "french": "établir un calendrier de ménage",
-          "english": "to set up a cleaning schedule",
-          "example": "Par exemple, trois colocataires peuvent établir un calendrier de ménage, partager certaines dépenses et organiser une réunion chaque semaine pour régler rapidement les désaccords.",
+          "french": "cuisiner ensemble",
+          "english": "to cook together",
+          "example": "Trois colocataires de pays différents peuvent cuisiner ensemble et découvrir leurs cultures.",
           "usage": "Construction infinitive ; réutilisable en Logement/Organisation."
         },
         {
           "id": "E3-SEP-C02-24",
           "kind": "collocation",
-          "french": "un calendrier de ménage",
-          "english": "a cleaning schedule",
-          "example": "Par exemple, trois colocataires peuvent établir un calendrier de ménage, partager certaines dépenses et organiser une réunion chaque semaine pour régler rapidement les désaccords.",
+          "french": "des colocataires de pays différents",
+          "english": "roommates from different countries",
+          "example": "Des colocataires de pays différents peuvent découvrir leurs cultures respectives.",
           "usage": "Nom masculin ; réutilisable en Logement/Organisation."
         },
         {
           "id": "E3-SEP-C02-25",
           "kind": "verbe-action",
-          "french": "régler rapidement les désaccords",
-          "english": "to resolve disagreements quickly",
-          "example": "Par exemple, trois colocataires peuvent établir un calendrier de ménage, partager certaines dépenses et organiser une réunion chaque semaine pour régler rapidement les désaccords.",
+          "french": "régler leurs désaccords",
+          "english": "to resolve their disagreements",
+          "example": "Ils peuvent régler leurs désaccords lors d’une réunion hebdomadaire.",
           "usage": "Construction infinitive ; réutilisable en Relations/Travail."
         },
         {
@@ -733,9 +733,9 @@
         {
           "id": "E3-SEP-C03-29",
           "kind": "phrase-modele",
-          "french": "En conclusion, le plus important est de prouver ses compétences et de continuer à se former",
-          "english": "In conclusion, the most important thing is to prove one’s skills and keep training",
-          "example": "En conclusion, le plus important est de prouver ses compétences et de continuer à se former.",
+          "french": "En conclusion, il faut que chaque cuisinier prouve ses compétences et continue à se former, quel que soit son statut initial",
+          "english": "In conclusion, every cook must prove their skills and keep training, whatever their initial status",
+          "example": "En conclusion, il faut que chaque cuisinier prouve ses compétences et continue à se former, quel que soit son statut initial.",
           "usage": "Formule de conclusion ; réutilisable en Travail/Formation."
         },
         {
@@ -743,7 +743,7 @@
           "kind": "verbe-action",
           "french": "continuer à se former",
           "english": "to continue training",
-          "example": "En conclusion, le plus important est de prouver ses compétences et de continuer à se former.",
+          "example": "Quel que soit son statut initial, chaque cuisinier doit continuer à se former.",
           "usage": "Continuer à + infinitif pronominal ; réutilisable en Formation/Carrière."
         }
       ]
@@ -844,18 +844,18 @@
         {
           "id": "E3-SEP-C04-12",
           "kind": "phrase-modele",
-          "french": "À mon avis, l’amitié entre collègues est bénéfique, mais dans des limites bien précises",
-          "english": "In my opinion, friendship between colleagues is beneficial, but within clearly defined limits",
-          "example": "À mon avis, l’amitié entre collègues est bénéfique, mais dans des limites bien précises.",
+          "french": "À mon avis, les amitiés entre collègues sont bénéfiques à condition qu’elles respectent des limites précises",
+          "english": "In my opinion, friendships between colleagues are beneficial provided that they respect clear limits",
+          "example": "À mon avis, les amitiés entre collègues sont bénéfiques à condition qu’elles respectent des limites précises.",
           "usage": "Prise de position nuancée ; réutilisable en Travail/Relations."
         },
         {
           "id": "E3-SEP-C04-13",
           "kind": "tournure",
-          "french": "dans des limites bien précises",
-          "english": "within clearly defined limits",
-          "example": "À mon avis, l’amitié entre collègues est bénéfique, mais dans des limites bien précises.",
-          "usage": "Locution prépositionnelle ; réutilisable pour encadrer un avantage."
+          "french": "à condition qu’elles respectent des limites précises",
+          "english": "provided that they respect clear limits",
+          "example": "Les amitiés sont bénéfiques à condition qu’elles respectent des limites précises.",
+          "usage": "Locution suivie du subjonctif ; réutilisable pour encadrer un avantage."
         },
         {
           "id": "E3-SEP-C04-14",
@@ -1322,17 +1322,17 @@
         {
           "id": "E3-SEP-C07-10",
           "kind": "phrase-modele",
-          "french": "Personnellement, je suis convaincu que chaque métier doit être accessible à tous selon les compétences, et non selon le sexe",
-          "english": "Personally, I am convinced that every profession should be open to all based on skills, not sex",
-          "example": "Personnellement, je suis convaincu que chaque métier doit être accessible à tous selon les compétences, et non selon le sexe.",
-          "usage": "Prise de position ferme ; réutilisable en Travail/Égalité."
+          "french": "Personnellement, il faut que chaque métier soit accessible à tous selon les compétences, et non selon le sexe",
+          "english": "Personally, every profession must be open to all based on skills, not sex",
+          "example": "Personnellement, il faut que chaque métier soit accessible à tous selon les compétences, et non selon le sexe.",
+          "usage": "Prise de position ferme avec le subjonctif ; réutilisable en Travail/Égalité."
         },
         {
           "id": "E3-SEP-C07-11",
           "kind": "mot-cle",
           "french": "les compétences",
           "english": "skills",
-          "example": "Personnellement, je suis convaincu que chaque métier doit être accessible à tous selon les compétences, et non selon le sexe.",
+          "example": "Il faut que chaque métier soit accessible à tous selon les compétences, et non selon le sexe.",
           "usage": "Nom féminin pluriel ; réutilisable en Travail/Formation."
         },
         {
@@ -1340,7 +1340,7 @@
           "kind": "mot-cle",
           "french": "le sexe",
           "english": "sex",
-          "example": "Personnellement, je suis convaincu que chaque métier doit être accessible à tous selon les compétences, et non selon le sexe.",
+          "example": "Il faut que chaque métier soit accessible à tous selon les compétences, et non selon le sexe.",
           "usage": "Nom masculin ; réutilisable en Égalité/Société."
         },
         {
@@ -1348,7 +1348,7 @@
           "kind": "reformulation",
           "french": "être accessible à tous",
           "english": "to be open to everyone",
-          "example": "Personnellement, je suis convaincu que chaque métier doit être accessible à tous selon les compétences, et non selon le sexe.",
+          "example": "Chaque métier doit être accessible à tous, sans discrimination.",
           "usage": "Construction infinitive ; reformule l’égalité d’accès."
         },
         {
@@ -1356,7 +1356,7 @@
           "kind": "tournure",
           "french": "selon les compétences, et non selon le sexe",
           "english": "based on skills, not sex",
-          "example": "Personnellement, je suis convaincu que chaque métier doit être accessible à tous selon les compétences, et non selon le sexe.",
+          "example": "Il faut que chaque métier soit accessible à tous selon les compétences, et non selon le sexe.",
           "usage": "Opposition selon… et non selon… ; réutilisable pour comparer des critères."
         },
         {

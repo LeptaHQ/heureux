@@ -217,31 +217,31 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de garantir une procédure équitable centrée sur le savoir-faire.",
+          "example": "En conclusion, la photo doit rester facultative pour que chaque candidat soit d’abord jugé sur son savoir-faire.",
           "usage": "Connecteur conclusif ; réutilisable en Emploi/Égalité."
         },
         {
           "id": "E3-JUN-C01-27",
           "kind": "phrase-modele",
-          "french": "le plus important est de garantir une procédure équitable centrée sur le savoir-faire",
-          "english": "the most important thing is to ensure a fair procedure focused on know-how",
-          "example": "En conclusion, le plus important est de garantir une procédure équitable centrée sur le savoir-faire.",
+          "french": "la photo doit rester facultative pour que chaque candidat soit d’abord jugé sur son savoir-faire",
+          "english": "the photo must remain optional so that each candidate is judged first on their know-how",
+          "example": "En conclusion, la photo doit rester facultative pour que chaque candidat soit d’abord jugé sur son savoir-faire.",
           "usage": "Formule de conclusion ; réutilisable en Emploi/Égalité."
         },
         {
           "id": "E3-JUN-C01-28",
           "kind": "mot-cle",
-          "french": "une procédure équitable",
-          "english": "a fair procedure",
-          "example": "En conclusion, le plus important est de garantir une procédure équitable centrée sur le savoir-faire.",
+          "french": "son savoir-faire",
+          "english": "one’s know-how",
+          "example": "En conclusion, la photo doit rester facultative pour que chaque candidat soit d’abord jugé sur son savoir-faire.",
           "usage": "Nom féminin ; réutilisable en Emploi/Égalité."
         },
         {
           "id": "E3-JUN-C01-29",
           "kind": "collocation",
-          "french": "centrée sur le savoir-faire",
-          "english": "focused on know-how",
-          "example": "En conclusion, le plus important est de garantir une procédure équitable centrée sur le savoir-faire.",
+          "french": "jugé sur son savoir-faire",
+          "english": "judged on one’s know-how",
+          "example": "Chaque candidat doit être jugé sur son savoir-faire plutôt que sur son apparence.",
           "usage": "Groupe adjectival ; réutilisable en Emploi/Égalité."
         },
         {
@@ -711,31 +711,31 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de conjuguer une solidarité concrète et des solutions qui restaurent l’autonomie.",
+          "example": "En conclusion, il faut que l’aide soulage l’urgence tout en donnant aux plus pauvres les moyens de retrouver leur autonomie.",
           "usage": "Connecteur conclusif ; réutilisable en Solidarité/Emploi."
         },
         {
           "id": "E3-JUN-C03-27",
           "kind": "phrase-modele",
-          "french": "le plus important est de conjuguer une solidarité concrète et des solutions qui restaurent l’autonomie",
-          "english": "the most important thing is to combine practical solidarity with solutions that restore autonomy",
-          "example": "En conclusion, le plus important est de conjuguer une solidarité concrète et des solutions qui restaurent l’autonomie.",
+          "french": "il faut que l’aide soulage l’urgence tout en donnant aux plus pauvres les moyens de retrouver leur autonomie",
+          "english": "aid must relieve the emergency while giving the poorest people the means to regain autonomy",
+          "example": "En conclusion, il faut que l’aide soulage l’urgence tout en donnant aux plus pauvres les moyens de retrouver leur autonomie.",
           "usage": "Formule de conclusion ; réutilisable en Solidarité/Emploi."
         },
         {
           "id": "E3-JUN-C03-28",
           "kind": "collocation",
-          "french": "une solidarité concrète",
-          "english": "practical solidarity",
-          "example": "En conclusion, le plus important est de conjuguer une solidarité concrète et des solutions qui restaurent l’autonomie.",
+          "french": "soulager l’urgence",
+          "english": "to relieve the emergency",
+          "example": "L’aide immédiate doit soulager l’urgence avant qu’un accompagnement durable commence.",
           "usage": "Groupe nominal ; réutilisable en Solidarité/Emploi."
         },
         {
           "id": "E3-JUN-C03-29",
           "kind": "mot-cle",
-          "french": "l’autonomie",
-          "english": "autonomy",
-          "example": "En conclusion, le plus important est de conjuguer une solidarité concrète et des solutions qui restaurent l’autonomie.",
+          "french": "leur autonomie",
+          "english": "their autonomy",
+          "example": "L’aide durable donne aux plus pauvres les moyens de retrouver leur autonomie.",
           "usage": "Nom féminin ; réutilisable en Solidarité/Emploi."
         },
         {
@@ -806,7 +806,7 @@
           "kind": "expression",
           "french": "En revanche",
           "english": "On the other hand",
-          "example": "En revanche, le second présente l’emploi comme une source d’identité, de lien social, d’apprentissage et de sentiment d’utilité.",
+          "example": "En revanche, le second présente l’emploi comme une source d’identité, de lien social et de sentiment d’utilité.",
           "usage": "Connecteur d’opposition ; réutilisable en Travail/Bien-être."
         },
         {
@@ -814,7 +814,7 @@
           "kind": "mot-cle",
           "french": "une source d’identité",
           "english": "a source of identity",
-          "example": "En revanche, le second présente l’emploi comme une source d’identité, de lien social, d’apprentissage et de sentiment d’utilité.",
+          "example": "En revanche, le second présente l’emploi comme une source d’identité, de lien social et de sentiment d’utilité.",
           "usage": "Nom féminin ; réutilisable en Travail/Bien-être."
         },
         {
@@ -822,7 +822,7 @@
           "kind": "mot-cle",
           "french": "lien social",
           "english": "social connection",
-          "example": "En revanche, le second présente l’emploi comme une source d’identité, de lien social, d’apprentissage et de sentiment d’utilité.",
+          "example": "En revanche, le second présente l’emploi comme une source d’identité, de lien social et de sentiment d’utilité.",
           "usage": "Nom masculin ; réutilisable en Travail/Bien-être."
         },
         {
@@ -830,7 +830,7 @@
           "kind": "collocation",
           "french": "sentiment d’utilité",
           "english": "a sense of usefulness",
-          "example": "En revanche, le second présente l’emploi comme une source d’identité, de lien social, d’apprentissage et de sentiment d’utilité.",
+          "example": "En revanche, le second présente l’emploi comme une source d’identité, de lien social et de sentiment d’utilité.",
           "usage": "Groupe nominal ; réutilisable en Travail/Bien-être."
         },
         {
@@ -948,49 +948,49 @@
         {
           "id": "E3-JUN-C13-25",
           "kind": "mot-cle",
-          "french": "un travail digne",
-          "english": "decent work",
-          "example": "En définitive, le plus important est de garantir un travail digne sans sacrifier l’équilibre entre vie professionnelle et personnelle.",
+          "french": "une place utile",
+          "english": "a useful role",
+          "example": "En conclusion, il faut que le travail garde une place utile sans envahir toute l’existence.",
           "usage": "Nom masculin ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-JUN-C13-26",
           "kind": "expression",
-          "french": "En définitive",
-          "english": "Ultimately",
-          "example": "En définitive, le plus important est de garantir un travail digne sans sacrifier l’équilibre entre vie professionnelle et personnelle.",
+          "french": "En conclusion",
+          "english": "In conclusion",
+          "example": "En conclusion, il faut que le travail garde une place utile sans qu’il envahisse le temps réservé aux proches.",
           "usage": "Connecteur conclusif ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-JUN-C13-27",
           "kind": "phrase-modele",
-          "french": "le plus important est de garantir un travail digne sans sacrifier l’équilibre entre vie professionnelle et personnelle",
-          "english": "the most important thing is to ensure decent work without sacrificing work-life balance",
-          "example": "En définitive, le plus important est de garantir un travail digne sans sacrifier l’équilibre entre vie professionnelle et personnelle.",
+          "french": "il faut que le travail garde une place utile sans qu’il envahisse le temps réservé aux proches",
+          "english": "work must retain a useful role without taking over time reserved for loved ones",
+          "example": "En conclusion, il faut que le travail garde une place utile sans qu’il envahisse le temps réservé aux proches.",
           "usage": "Formule de conclusion ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-JUN-C13-28",
           "kind": "collocation",
-          "french": "l’équilibre entre vie professionnelle et personnelle",
-          "english": "work-life balance",
-          "example": "En définitive, le plus important est de garantir un travail digne sans sacrifier l’équilibre entre vie professionnelle et personnelle.",
+          "french": "le temps réservé aux proches",
+          "english": "time reserved for loved ones",
+          "example": "Le travail ne doit pas envahir le temps réservé aux proches.",
           "usage": "Groupe nominal ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-JUN-C13-29",
           "kind": "tournure",
-          "french": "sans sacrifier l’équilibre",
-          "english": "without sacrificing balance",
-          "example": "En définitive, le plus important est de garantir un travail digne sans sacrifier l’équilibre entre vie professionnelle et personnelle.",
-          "usage": "Locution prépositive ; réutilisable en Travail/Bien-être."
+          "french": "sans qu’il envahisse",
+          "english": "without it taking over",
+          "example": "Il faut que le travail garde une place utile sans qu’il envahisse le temps réservé aux proches.",
+          "usage": "Locution suivie du subjonctif ; réutilisable en Travail/Bien-être."
         },
         {
           "id": "E3-JUN-C13-30",
           "kind": "reformulation",
           "french": "l’emploi",
           "english": "employment",
-          "example": "En revanche, le second présente l’emploi comme une source d’identité, de lien social, d’apprentissage et de sentiment d’utilité.",
+          "example": "En revanche, le second présente l’emploi comme une source d’identité, de lien social et de sentiment d’utilité.",
           "usage": "Nom masculin ; réutilisable en Travail/Bien-être."
         }
       ]
@@ -1213,31 +1213,31 @@
           "kind": "expression",
           "french": "En conclusion",
           "english": "In conclusion",
-          "example": "En conclusion, le plus important est de consommer de manière réfléchie en conciliant proximité, qualité, praticité et moyens financiers.",
+          "example": "En conclusion, il faut que chacun soutienne les petits commerces sans renoncer aux supermarchés quand ils sont plus pratiques ou économiques.",
           "usage": "Connecteur conclusif ; réutilisable en Consommation/Économie."
         },
         {
           "id": "E3-JUN-C14-28",
           "kind": "phrase-modele",
-          "french": "le plus important est de consommer de manière réfléchie en conciliant proximité, qualité, praticité et moyens financiers",
-          "english": "the most important thing is to consume thoughtfully by balancing proximity, quality, convenience and financial means",
-          "example": "En conclusion, le plus important est de consommer de manière réfléchie en conciliant proximité, qualité, praticité et moyens financiers.",
+          "french": "il faut que chacun soutienne les petits commerces sans renoncer aux supermarchés",
+          "english": "everyone must support small shops without giving up supermarkets",
+          "example": "En conclusion, il faut que chacun soutienne les petits commerces sans renoncer aux supermarchés.",
           "usage": "Formule de conclusion ; réutilisable en Consommation/Économie."
         },
         {
           "id": "E3-JUN-C14-29",
           "kind": "tournure",
-          "french": "consommer de manière réfléchie",
-          "english": "to consume thoughtfully",
-          "example": "En conclusion, le plus important est de consommer de manière réfléchie en conciliant proximité, qualité, praticité et moyens financiers.",
+          "french": "sans renoncer aux supermarchés",
+          "english": "without giving up supermarkets",
+          "example": "On peut soutenir les petits commerces sans renoncer aux supermarchés.",
           "usage": "Construction infinitive ; réutilisable en Consommation/Économie."
         },
         {
           "id": "E3-JUN-C14-30",
           "kind": "mot-cle",
-          "french": "moyens financiers",
-          "english": "financial means",
-          "example": "En conclusion, le plus important est de consommer de manière réfléchie en conciliant proximité, qualité, praticité et moyens financiers.",
+          "french": "un choix économique",
+          "english": "an economical choice",
+          "example": "Pour les achats mensuels, le supermarché peut rester un choix économique.",
           "usage": "Nom masculin pluriel ; réutilisable en Consommation/Économie."
         }
       ]

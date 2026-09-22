@@ -474,6 +474,39 @@ class EeTacheThreeUnifiedResponseTests(SimpleTestCase):
                     self.assertIn(entry["example"], effective)
         self.assertEqual(author_entry_count, 300)
 
+    def test_corrected_source_vocabulary_stays_anchored_to_its_model(self):
+        corrected_ids = {
+            "E3-AVR-C04-04",
+            "E3-AVR-C04-16",
+            "E3-MAI-C03-18",
+            "E3-MAI-C03-19",
+            "E3-MAI-C03-20",
+            "E3-MAI-C03-21",
+            "E3-MAI-C03-22",
+            "E3-OCT-C01-28",
+            "E3-OCT-C01-29",
+            "E3-OCT-C01-30",
+        }
+        sources = {
+            row.content_key: row
+            for month in content.load_ee_tache_three_months()
+            for row in month.combinaisons
+        }
+        checked_ids = set()
+        for path in content.EE_TACHE_THREE_VOCABULARY_DIR.glob("*.json"):
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            for row in payload["responses"]:
+                source = sources[row["response_key"]]
+                answer = source.synthese + " " + source.point_de_vue
+                for entry in row["entries"]:
+                    if entry["id"] not in corrected_ids:
+                        continue
+                    checked_ids.add(entry["id"])
+                    with self.subTest(entry=entry["id"]):
+                        self.assertIn(entry["french"], entry["example"])
+                        self.assertIn(entry["example"], answer)
+        self.assertEqual(checked_ids, corrected_ids)
+
     def test_every_retired_tache_three_vocabulary_id_has_a_canonical_target(self):
         merges = content.ee_tache_three_phrase_id_merges()
         entries_by_key = {}

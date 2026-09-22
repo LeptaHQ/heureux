@@ -113,7 +113,7 @@
           "kind": "mot-cle",
           "french": "la stratégie",
           "english": "strategy",
-          "example": "Tout d’abord, certains jeux développent la stratégie, la coordination et la capacité d’analyse.",
+          "example": "Tout d’abord, certains jeux développent la stratégie, la coordination et la capacité d’analyse, car ils obligent le joueur à anticiper, à corriger ses erreurs et à décider vite.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
@@ -121,7 +121,7 @@
           "kind": "mot-cle",
           "french": "la coordination",
           "english": "coordination",
-          "example": "Tout d’abord, certains jeux développent la stratégie, la coordination et la capacité d’analyse.",
+          "example": "Tout d’abord, certains jeux développent la stratégie, la coordination et la capacité d’analyse, car ils obligent le joueur à anticiper, à corriger ses erreurs et à décider vite.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
@@ -129,7 +129,7 @@
           "kind": "mot-cle",
           "french": "la capacité d’analyse",
           "english": "analytical ability",
-          "example": "Tout d’abord, certains jeux développent la stratégie, la coordination et la capacité d’analyse.",
+          "example": "Tout d’abord, certains jeux développent la stratégie, la coordination et la capacité d’analyse, car ils obligent le joueur à anticiper, à corriger ses erreurs et à décider vite.",
           "usage": "Nom féminin singulier, registre neutre ; réutilisable en Numérique/Éducation."
         },
         {
@@ -249,7 +249,7 @@
           "kind": "reformulation",
           "french": "certains jeux",
           "english": "certain games",
-          "example": "Tout d’abord, certains jeux développent la stratégie, la coordination et la capacité d’analyse.",
+          "example": "Tout d’abord, certains jeux développent la stratégie, la coordination et la capacité d’analyse, car ils obligent le joueur à anticiper, à corriger ses erreurs et à décider vite.",
           "usage": "Reformulation, registre neutre ; réutilisable en Numérique/Éducation."
         }
       ]
@@ -376,7 +376,7 @@
           "kind": "expression",
           "french": "Tout d’abord",
           "english": "First of all",
-          "example": "Tout d’abord, un mobilier ergonomique réduit les douleurs et favorise la concentration.",
+          "example": "Tout d’abord, un mobilier ergonomique réduit les douleurs et favorise la concentration : en alternant la position assise et debout, un salarié soulage son dos et reste attentif plus longtemps.",
           "usage": "Connecteur adverbial, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -384,7 +384,7 @@
           "kind": "mot-cle",
           "french": "un mobilier ergonomique",
           "english": "ergonomic furniture",
-          "example": "Tout d’abord, un mobilier ergonomique réduit les douleurs et favorise la concentration.",
+          "example": "Tout d’abord, un mobilier ergonomique réduit les douleurs et favorise la concentration : en alternant la position assise et debout, un salarié soulage son dos et reste attentif plus longtemps.",
           "usage": "Nom masculin singulier, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -392,7 +392,7 @@
           "kind": "verbe-action",
           "french": "réduit les douleurs et favorise la concentration",
           "english": "reduces pain and promotes concentration",
-          "example": "Tout d’abord, un mobilier ergonomique réduit les douleurs et favorise la concentration.",
+          "example": "Tout d’abord, un mobilier ergonomique réduit les douleurs et favorise la concentration : en alternant la position assise et debout, un salarié soulage son dos et reste attentif plus longtemps.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Travail/Bien-être."
         },
         {
@@ -1356,7 +1356,7 @@
           "kind": "mot-cle",
           "french": "des produits frais",
           "english": "fresh ingredients",
-          "example": "Tout d’abord, cuisiner des produits frais permet de mieux contrôler le sel, le sucre et les portions.",
+          "example": "Tout d’abord, cuisiner des produits frais permet de mieux contrôler le sel, le sucre et les portions, alors qu’un menu standardisé impose les mêmes quantités à tous.",
           "usage": "Groupe nominal pluriel, registre neutre ; réutilisable en Santé/Environnement."
         },
         {
@@ -1364,7 +1364,7 @@
           "kind": "verbe-action",
           "french": "contrôler le sel, le sucre et les portions",
           "english": "to control salt, sugar and portion sizes",
-          "example": "Tout d’abord, cuisiner des produits frais permet de mieux contrôler le sel, le sucre et les portions.",
+          "example": "Tout d’abord, cuisiner des produits frais permet de mieux contrôler le sel, le sucre et les portions, alors qu’un menu standardisé impose les mêmes quantités à tous.",
           "usage": "Groupe verbal, registre neutre ; réutilisable en Santé/Environnement."
         },
         {

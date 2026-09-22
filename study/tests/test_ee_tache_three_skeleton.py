@@ -1,5 +1,7 @@
 """Fixed structure for every EE Tâche 3 model answer."""
 
+import re
+
 from django.test import SimpleTestCase
 
 from study import content_loader as content
@@ -15,6 +17,12 @@ class EeTacheThreeSkeletonTests(SimpleTestCase):
     concrete_support_marker = "Par exemple,"
     second_argument_marker = "De plus,"
     conclusion_marker = "En conclusion,"
+    support_pattern = re.compile(
+        r"[.!?:]\s+\S"
+        r"|[,;]\s*(?:car|parce que|puisque|ce qui|afin de|de sorte que|si|à condition que|alors qu)\b"
+        r"|\blorsque\b",
+        re.IGNORECASE,
+    )
 
     @classmethod
     def setUpClass(cls):
@@ -44,6 +52,8 @@ class EeTacheThreeSkeletonTests(SimpleTestCase):
         second_argument = text[offsets[2]:offsets[3]]
         self.assertGreaterEqual(content._ee_word_count(first_argument), 8, text)
         self.assertGreaterEqual(content._ee_word_count(second_argument), 8, text)
+        self.assertRegex(first_argument, self.support_pattern, text)
+        self.assertRegex(second_argument, self.support_pattern, text)
         for marker in (
             self.stance_marker,
             self.first_argument_marker,

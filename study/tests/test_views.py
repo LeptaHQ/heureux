@@ -49,10 +49,12 @@ from study.models import (
     PhraseTier,
     Prompt,
     Rating,
+    Response,
     ReviewLog,
     ReviewSession,
     Settings,
 )
+from study.response_personalization import effective_response
 from study.routing import (
     prompt_detail_url,
     response_detail_url,
@@ -1323,6 +1325,324 @@ class EeTacheThreePageTests(TestCase):
         self.assertEqual(
             alias_review["annotation_source_key"],
             alias_annotation_key,
+        )
+        from .test_ee_tache_three_memory_translations import AnnotationRootText
+
+        parser = AnnotationRootText()
+        parser.feed(personalized.content.decode())
+        annotation_text = parser.roots[personal_annotation_key]
+        quote = "Documents sources"
+        start = annotation_text.index(quote)
+        hidden_legacy = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            source_path=detail_url,
+            source_key=f"response:{prompt.response.content_key}",
+            quote=quote,
+            start_offset=start,
+            end_offset=start + len(quote),
+            prefix=annotation_text[max(0, start - 160):start],
+            suffix=annotation_text[
+                start + len(quote):start + len(quote) + 160
+            ],
+        )
+        edited_payload = {
+            **payload,
+            "reformulation": "Une version personnelle révisée",
+        }
+        self.assertRedirects(
+            self.client.post(edit_url, edited_payload),
+            detail_url + "?saved=1",
+        )
+        hidden_legacy.refresh_from_db()
+        self.assertEqual(
+            hidden_legacy.source_key,
+            f"response:{prompt.response.content_key}",
+        )
+
+    def test_alias_edit_preserves_a_matching_legacy_document_highlight(self):
+        from study.oral_highlights import _render_ee_tache_three_root
+
+        prompt = Prompt.objects.filter(
+            theme__task=self.task,
+            is_canonical=False,
+            response__prompts__is_canonical=True,
+        ).select_related(
+            "response",
+            "theme__task__part",
+        ).first()
+        self.assertIsNotNone(prompt)
+        detail_url = prompt_detail_url(prompt)
+        detail = self.client.get(detail_url)
+        content = detail.context["response_content"]
+        rendered = _render_ee_tache_three_root(prompt, content)
+        quote = "Documents sources"
+        start = rendered.slice(0, len(rendered.units)).index(quote)
+        legacy = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            source_path=detail_url,
+            source_key=f"response:{prompt.response.content_key}",
+            quote=quote,
+            start_offset=start,
+            end_offset=start + len(quote),
+            prefix=rendered.slice(max(0, start - 160), start),
+            suffix=rendered.slice(
+                start + len(quote),
+                start + len(quote) + 160,
+            ),
+        )
+        edit_url = reverse(
+            "study:edit_response",
+            args=[self.task.part.slug, self.task.slug, prompt.pk],
+        )
+
+        self.client.post(
+            edit_url,
+            {
+                "reformulation": "Titre personnel pour le sujet équivalent",
+                "position": content.position,
+                "position_claire": content.position_claire,
+                "action": "save",
+            },
+        )
+
+        personalized = self.client.get(detail_url)
+        expected_key = variant_annotation_key(
+            prompt,
+            personalized.context["response_content"],
+        )
+        legacy.refresh_from_db()
+        self.assertEqual(legacy.source_key, expected_key)
+        self.assertContains(
+            personalized,
+            f'data-annotation-source-key="{expected_key}"',
+            count=1,
+        )
+
+    def test_edit_does_not_claim_another_alias_legacy_highlight(self):
+        from study.oral_highlights import _render_ee_tache_three_root
+
+        response = Response.objects.filter(
+            theme__task=self.task,
+            prompts__is_canonical=True,
+        ).filter(
+            prompts__is_canonical=False,
+        ).distinct().first()
+        selected = response.prompts.get(is_canonical=True)
+        alias = response.prompts.filter(is_canonical=False).first()
+        content = effective_response(response, self.user, prompt=alias)
+        rendered = _render_ee_tache_three_root(alias, content)
+        quote = "Documents sources"
+        start = rendered.slice(0, len(rendered.units)).index(quote)
+        legacy = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            source_path=prompt_detail_url(alias),
+            source_key=f"response:{response.content_key}",
+            quote=quote,
+            start_offset=start,
+            end_offset=start + len(quote),
+            prefix=rendered.slice(max(0, start - 160), start),
+            suffix=rendered.slice(
+                start + len(quote),
+                start + len(quote) + 160,
+            ),
+        )
+
+        self.client.post(
+            reverse(
+                "study:edit_response",
+                args=[self.task.part.slug, self.task.slug, selected.pk],
+            ),
+            {
+                "reformulation": "Titre personnel depuis le sujet canonique",
+                "position": content.position,
+                "position_claire": content.position_claire,
+                "action": "save",
+            },
+        )
+
+        current = effective_response(response, self.user, prompt=alias)
+        legacy.refresh_from_db()
+        self.assertEqual(
+            legacy.source_key,
+            variant_annotation_key(alias, current),
+        )
+        self.assertNotEqual(
+            legacy.source_key,
+            variant_annotation_key(selected, current),
+        )
+
+    def test_review_highlights_follow_an_ee3_response_edit(self):
+        from study.oral_highlights import _render_response_review_root
+        from study.progress import subject_progress_by_response
+
+        response = Response.objects.filter(
+            theme__task=self.task,
+            prompts__is_canonical=True,
+        ).first()
+        prompt = response.prompts.get(is_canonical=True)
+        content = effective_response(response, self.user, prompt=prompt)
+        progress = subject_progress_by_response(
+            self.user,
+            {response.pk},
+        )[response.pk]
+        prompts = list(response.prompts.filter(is_active=True).select_related(
+            "theme__task__part",
+            "family",
+            "response",
+        ))
+        review_path = reverse("study:part_review", args=["ee"]) + (
+            f"?part=ee&task=tache-3&kind=spine"
+            f"&response={response.pk}&prompt={prompt.pk}"
+        )
+        old_key = variant_annotation_key(prompt, content)
+        front = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            source_path=review_path,
+            source_key=f"{old_key}:front",
+            quote=prompt.text,
+            start_offset=0,
+            end_offset=len(prompt.text),
+        )
+        rendered = _render_response_review_root(
+            prompt,
+            content,
+            "back",
+            prompts,
+            progress,
+        )
+        quote = content.position[:20]
+        encoded_quote = quote.encode("utf-16-le")
+        start = rendered.text.index(encoded_quote) // 2
+        back = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            source_path=review_path,
+            source_key=f"{old_key}:back",
+            quote=quote,
+            start_offset=start,
+            end_offset=start + len(encoded_quote) // 2,
+            prefix=rendered.slice(max(0, start - 160), start),
+            suffix=rendered.slice(
+                start + len(encoded_quote) // 2,
+                start + len(encoded_quote) // 2 + 160,
+            ),
+        )
+        legacy_quote = content.position[21:41]
+        encoded_legacy_quote = legacy_quote.encode("utf-16-le")
+        legacy_start = rendered.text.index(encoded_legacy_quote) // 2
+        legacy_back = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            source_path=review_path,
+            source_key=f"response:{response.content_key}:back",
+            quote=legacy_quote,
+            start_offset=legacy_start,
+            end_offset=legacy_start + len(encoded_legacy_quote) // 2,
+            prefix=rendered.slice(max(0, legacy_start - 160), legacy_start),
+            suffix=rendered.slice(
+                legacy_start + len(encoded_legacy_quote) // 2,
+                legacy_start + len(encoded_legacy_quote) // 2 + 160,
+            ),
+        )
+
+        self.client.post(
+            reverse(
+                "study:edit_response",
+                args=[self.task.part.slug, self.task.slug, prompt.pk],
+            ),
+            {
+                "reformulation": "Titre personnel pour la révision",
+                "position": content.position,
+                "position_claire": content.position_claire,
+                "action": "save",
+            },
+        )
+
+        current = effective_response(response, self.user, prompt=prompt)
+        new_key = variant_annotation_key(prompt, current)
+        front.refresh_from_db()
+        back.refresh_from_db()
+        legacy_back.refresh_from_db()
+        self.assertEqual(front.source_key, f"{new_key}:front")
+        self.assertEqual(back.source_key, f"{new_key}:back")
+        self.assertEqual(legacy_back.source_key, f"{new_key}:back")
+
+    def test_queryless_legacy_review_highlight_keeps_its_alias(self):
+        from study.oral_highlights import _render_response_review_root
+        from study.progress import subject_progress_by_response
+
+        response = Response.objects.filter(
+            theme__task=self.task,
+            prompts__is_canonical=True,
+        ).filter(
+            prompts__is_canonical=False,
+        ).distinct().first()
+        canonical = response.prompts.get(is_canonical=True)
+        alias = response.prompts.filter(is_canonical=False).first()
+        content = effective_response(response, self.user, prompt=alias)
+        progress = subject_progress_by_response(
+            self.user,
+            {response.pk},
+        )[response.pk]
+        prompts = list(response.prompts.filter(is_active=True).select_related(
+            "theme__task__part",
+            "family",
+            "response",
+        ))
+        rendered = _render_response_review_root(
+            alias,
+            content,
+            "front",
+            prompts,
+            progress,
+        )
+        quote = alias.text
+        encoded_quote = quote.encode("utf-16-le")
+        start = rendered.text.index(encoded_quote) // 2
+        legacy = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            source_path=reverse("study:review"),
+            source_key=f"response:{response.content_key}:front",
+            quote=quote,
+            start_offset=start,
+            end_offset=start + len(encoded_quote) // 2,
+            prefix=rendered.slice(max(0, start - 160), start),
+            suffix=rendered.slice(
+                start + len(encoded_quote) // 2,
+                start + len(encoded_quote) // 2 + 160,
+            ),
+        )
+
+        self.client.post(
+            reverse(
+                "study:edit_response",
+                args=[self.task.part.slug, self.task.slug, canonical.pk],
+            ),
+            {
+                "reformulation": "Titre personnel depuis le sujet canonique",
+                "position": content.position,
+                "position_claire": content.position_claire,
+                "action": "save",
+            },
+        )
+
+        current = effective_response(response, self.user, prompt=alias)
+        legacy.refresh_from_db()
+        self.assertEqual(
+            legacy.source_key,
+            f"{variant_annotation_key(alias, current)}:front",
         )
 
     def test_audited_paraphrases_share_links_response_and_progress(self):

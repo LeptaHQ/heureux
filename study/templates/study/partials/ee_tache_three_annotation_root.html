@@ -1,0 +1,41 @@
+{% load study_markdown study_links %}<div class="answer-columns" data-annotation-root data-annotation-source-key="{{ ee_annotation_key }}"{% if ee_annotation_legacy_keys %} data-annotation-legacy-source-keys="{{ ee_annotation_legacy_keys }}"{% endif %}>
+      {% for warning in ee_source_warnings %}
+        <div class="notice">{{ warning }}</div>
+      {% endfor %}
+      {% if source_documents_html %}
+        <section class="card section-card section-card--ee-documents">
+          <div class="spine-label">Documents sources</div>
+          <div class="ee-source-docs">{{ source_documents_html|safe }}</div>
+        </section>
+      {% endif %}
+
+      {% if ee_response_copy_text %}
+        <section class="card section-card section-card--ee-response" aria-label="Réponse complète"><header class="ee-response-card__head" data-annotation-exclude>
+            <div class="spine-label">Réponse</div>
+            <div class="ee-response-card__title-row">
+              <div>
+                {% if response_content.reformulation %}<h2 class="spine-text">{{ response_content.reformulation }}</h2>{% endif %}
+                <p class="muted">Total : {{ ee_response_copy_text|french_wordcount }} mots{% if response_content.reformulation %}, titre compris{% endif %} · 120–180 mots</p>
+              </div>
+              <div class="writing-response-controls">
+                {% if can_edit_response %}
+                  <a class="icon-button" href="{% subject_url 'study:edit_response' part.slug task.slug selected_prompt.pk %}" data-response-edit aria-label="{% if response_content.is_personal %}Modifier ma réponse{% else %}Personnaliser la réponse{% endif %}" title="Modifier">
+                    {% include "study/partials/ui_icon.html" with name="pencil" only %}
+                  </a>
+                {% endif %}
+                {% include "study/partials/response_copy_button.html" with source_id="ee-tache-three-response-content" button_class="btn btn--sm prompt-copy-button" only %}
+              </div>
+            </div>
+          </header><div class="ee-response-card__parts">{% if response_content.position %}<section class="ee-response-part section-card--ee-synthese">
+          <div class="spine-label">Partie 1 — Synthèse <span class="spine-count">· {{ response_content.position|french_wordcount }} mots</span>{% if ee_response_origin == "author" %} <span class="chip chip--accent">Version de l’auteur</span>{% endif %}</div>
+          <p class="spine-text">{{ response_content.position }}</p>
+        </section>
+      {% endif %}
+
+      {% if response_content.position_claire %}
+        <section class="ee-response-part section-card--ee-point-de-vue">
+          <div class="spine-label">Partie 2 — Point de vue personnel <span class="spine-count">· {{ response_content.position_claire|french_wordcount }} mots</span></div>
+          {% if ee_position_blocks %}<p class="spine-text ee-position-outline">{% for block in ee_position_blocks %}<span class="ee-position-block" data-outline-label="{{ block.label }}">{{ block.text }}{% if not forloop.last %} {% endif %}</span>{% endfor %}</p>{% else %}<p class="spine-text">{{ response_content.position_claire }}</p>{% endif %}
+        </section>
+      {% endif %}</div></section>{% endif %}
+      </div>

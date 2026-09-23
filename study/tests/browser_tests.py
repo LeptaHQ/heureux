@@ -1070,6 +1070,85 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         expect(progress_status).to_have_text("À commencer")
 
+    def test_ee3_document_and_unchanged_response_highlights_survive_edit(self):
+        _, task = self._import_ee_tache_three_content()
+        response = self.user.study_cards.filter(
+            response__theme__task=task
+        ).first().response
+        canonical = response.prompts.get(is_canonical=True)
+        path = response_detail_url(response)
+        edit_url = reverse(
+            "study:edit_response",
+            args=[task.part.slug, task.slug, canonical.pk],
+        )
+        self.page.goto(self.live_server_url + path)
+        document = self.page.locator(".ee-source-docs p").first
+        synthesis = self.page.locator(
+            ".section-card--ee-response .section-card--ee-synthese .spine-text"
+        )
+        saved_quotes = []
+        for target in (document, synthesis):
+            quote = target.evaluate(
+                "element => element.textContent.trim().slice(0, 28).trim()"
+            )
+            saved_quotes.append(quote)
+            self.select_prompt(start=0, end=len(quote), target=target)
+            self.page.locator("[data-highlight-selection]").click()
+            expect(target.locator("mark.user-highlight")).to_have_text(quote)
+        old_keys = set(
+            Annotation.objects.filter(
+                user=self.user,
+                kind=AnnotationKind.HIGHLIGHT,
+            ).values_list("source_key", flat=True)
+        )
+        self.assertEqual(len(old_keys), 1)
+
+        self.page.goto(self.live_server_url + edit_url)
+        self.page.locator("[name='reformulation']").fill("Titre personnel")
+        with self.page.expect_navigation():
+            self.page.locator(".response-edit button[type='submit']").click()
+
+        root = self.page.locator(
+            "[data-annotation-root]"
+            f'[data-annotation-source-key^="response:{canonical.content_key}:variant-"]'
+        )
+        expect(root.locator("mark.user-highlight")).to_have_count(2)
+        self.assertEqual(
+            root.locator("mark.user-highlight").all_text_contents(),
+            saved_quotes,
+        )
+        current_key = root.get_attribute("data-annotation-source-key")
+        self.assertNotIn(current_key, old_keys)
+        self.assertEqual(
+            set(
+                Annotation.objects.filter(
+                    user=self.user,
+                    kind=AnnotationKind.HIGHLIGHT,
+                ).values_list("source_key", flat=True)
+            ),
+            {current_key},
+        )
+
+        self.page.goto(self.live_server_url + edit_url)
+        changed_synthesis = response.position.replace(
+            saved_quotes[1],
+            "Ces textes examinent ce thème",
+            1,
+        )
+        self.page.locator("[name='position']").fill(changed_synthesis)
+        with self.page.expect_navigation():
+            self.page.locator(".response-edit button[type='submit']").click()
+
+        expect(document.locator("mark.user-highlight")).to_have_text(saved_quotes[0])
+        expect(synthesis.locator("mark.user-highlight")).to_have_count(0)
+        self.assertEqual(
+            Annotation.objects.filter(
+                user=self.user,
+                kind=AnnotationKind.HIGHLIGHT,
+            ).count(),
+            2,
+        )
+
     def test_ee3_memory_guide_labels_completion_and_methodology_are_responsive(self):
         _, task = self._import_ee_tache_three_content()
         bank = content.load_question_banks(

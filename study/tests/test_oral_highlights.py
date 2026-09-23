@@ -1,13 +1,25 @@
-from django.test import TestCase
+from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
 
 from study.models import Annotation, AnnotationKind, PersonalResponse, Prompt
-from study.oral_highlights import _render_questions
+from study.oral_highlights import AnnotationRootText, _render_questions
 from study.oral_history import variant_annotation_key
 from study.response_personalization import effective_response
 from study.routing import prompt_detail_url
 
 from . import factories
+
+
+class AnnotationRootTextTests(SimpleTestCase):
+    def test_normalizes_html_newlines_like_the_browser(self):
+        rendered = AnnotationRootText(
+            "<div data-annotation-root>Avant\r\nAprès\rEncore</div>"
+        )
+
+        self.assertEqual(
+            rendered.slice(0, len(rendered.units)),
+            "Avant\nAprès\nEncore",
+        )
 
 
 class OralHighlightPersonalizationTests(TestCase):

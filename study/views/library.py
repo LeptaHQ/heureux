@@ -62,7 +62,11 @@ from ..models import (
     WritingResponseOverride,
 )
 from .. import routing
-from ..oral_highlights import preserve_tache_two_highlights
+from ..oral_highlights import (
+    ee_tache_three_position_blocks,
+    preserve_ee_tache_three_highlights,
+    preserve_tache_two_highlights,
+)
 from ..response_personalization import effective_response
 from ..progress import (
     card_unit_progress_from_rows,
@@ -3836,30 +3840,8 @@ def _subject_vocabulary_context(response, task_scope, user, *, prompt=None):
     }
 
 
-_EE_TACHE_THREE_POSITION_PATTERN = re.compile(
-    r"(?P<stance>Pour ma part,.*?)(?=\s+Tout d’abord,)"
-    r"\s+(?P<argument_1>Tout d’abord,.*?)(?=\s+De plus,)"
-    r"\s+(?P<argument_2>De plus,.*?)(?=\s+En conclusion,)"
-    r"\s+(?P<conclusion>En conclusion,.*)"
-)
-
-
 def _ee_tache_three_position_blocks(text):
-    match = _EE_TACHE_THREE_POSITION_PATTERN.fullmatch(text)
-    if not match:
-        return ()
-    return tuple(
-        {
-            "label": label,
-            "text": match.group(group),
-        }
-        for label, group in (
-            ("Position", "stance"),
-            ("Argument 1", "argument_1"),
-            ("Argument 2", "argument_2"),
-            ("Conclusion", "conclusion"),
-        )
-    )
+    return ee_tache_three_position_blocks(text)
 
 
 def response_detail(request, part_slug, task_slug, prompt_id):
@@ -4001,7 +3983,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
                 response_content.position,
                 response_content.position_claire,
             )
-        ee_position_blocks = _ee_tache_three_position_blocks(
+        ee_position_blocks = ee_tache_three_position_blocks(
             response_content.position_claire
         )
         if response.content_key in (
@@ -4163,6 +4145,12 @@ def edit_response(request, part_slug, task_slug, prompt_id):
         )
     )
     response = selected_prompt.response
+    is_curated_writing_tache_three = (
+        is_writing_tache_three
+        and response.content_key.startswith(
+            content_module.EE_TACHE_THREE_CONTENT_PREFIX
+        )
+    )
     if request.method == "POST":
         lock_study_user(request.user)
     personal = PersonalResponse.objects.filter(
@@ -4174,7 +4162,18 @@ def edit_response(request, part_slug, task_slug, prompt_id):
     if request.method == "POST" and request.POST.get("action", "save") not in {"save", "reset"}:
         return HttpResponseBadRequest("Action invalide.")
     if request.method == "POST" and request.POST.get("action") == "reset":
-        with preserve_tache_two_highlights(response, request.user) if is_tache_two else transaction.atomic():
+        highlight_context = (
+            preserve_tache_two_highlights(response, request.user)
+            if is_tache_two
+            else preserve_ee_tache_three_highlights(
+                response,
+                request.user,
+                selected_prompt=selected_prompt,
+            )
+            if is_curated_writing_tache_three
+            else transaction.atomic()
+        )
+        with highlight_context:
             if personal is not None:
                 snapshot(personal, "personal")
                 PersonalResponse.objects.filter(pk=personal.pk).update(is_active=False)
@@ -4268,12 +4267,22 @@ def edit_response(request, part_slug, task_slug, prompt_id):
         defaults = form.personal_defaults()
         if is_writing_tache_three:
             defaults.update(arguments=[], nuance="", conclusion="")
-        save_personal(
-            response,
-            request.user,
-            defaults,
-            source_prompt=selected_prompt,
+        highlight_context = (
+            preserve_ee_tache_three_highlights(
+                response,
+                request.user,
+                selected_prompt=selected_prompt,
+            )
+            if is_curated_writing_tache_three
+            else transaction.atomic()
         )
+        with highlight_context:
+            save_personal(
+                response,
+                request.user,
+                defaults,
+                source_prompt=selected_prompt,
+            )
         return redirect(routing.subject_selection_url(f"{detail_url}?saved=1", request))
 
     argument_fields = []

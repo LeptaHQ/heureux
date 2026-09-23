@@ -4145,12 +4145,6 @@ def edit_response(request, part_slug, task_slug, prompt_id):
         )
     )
     response = selected_prompt.response
-    is_curated_writing_tache_three = (
-        is_writing_tache_three
-        and response.content_key.startswith(
-            content_module.EE_TACHE_THREE_CONTENT_PREFIX
-        )
-    )
     if request.method == "POST":
         lock_study_user(request.user)
     personal = PersonalResponse.objects.filter(
@@ -4170,7 +4164,7 @@ def edit_response(request, part_slug, task_slug, prompt_id):
                 request.user,
                 selected_prompt=selected_prompt,
             )
-            if is_curated_writing_tache_three
+            if is_writing_tache_three
             else transaction.atomic()
         )
         with highlight_context:
@@ -4273,7 +4267,7 @@ def edit_response(request, part_slug, task_slug, prompt_id):
                 request.user,
                 selected_prompt=selected_prompt,
             )
-            if is_curated_writing_tache_three
+            if is_writing_tache_three
             else transaction.atomic()
         )
         with highlight_context:

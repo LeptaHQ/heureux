@@ -5,7 +5,7 @@
 {% include "study/partials/task_nav.html" %}
 <div class="page-head response-edit__head">
   <div>
-    <p class="eyebrow">Version personnelle · {% if is_writing_tache_three %}Expression écrite{% else %}Expression orale{% endif %} · {% if is_tache_two %}Tâche 2{% else %}Tâche 3{% endif %}</p>
+    <p class="eyebrow">{% if not is_writing_tache_three %}Version personnelle · {% endif %}{% if is_writing_tache_three %}Expression écrite{% else %}Expression orale{% endif %} · {% if is_tache_two %}Tâche 2{% else %}Tâche 3{% endif %}</p>
     <h1>{% if is_tache_two %}Modifier mes questions{% else %}Modifier ma réponse{% endif %}</h1>
     <p>
       {% if is_tache_two %}
@@ -113,7 +113,7 @@
   </div>
 </form>
 
-{% if has_personal_response %}
+{% if has_personal_response and not is_writing_tache_three %}
   <section class="card card--pad danger-zone response-edit__reset">
     <h2 class="mt-0">{% if is_tache_two %}Revenir aux questions d'origine{% else %}Revenir à la réponse d'origine{% endif %}</h2>
     <p class="muted">Réactive le modèle d'origine sans effacer votre progression ni vos annotations enregistrées.</p>

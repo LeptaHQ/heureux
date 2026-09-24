@@ -166,11 +166,6 @@ def _ee_tache_three_root_context(prompt, content):
         warnings.append(
             "La source publique a publié deux documents identiques."
         )
-    if source.title_missing:
-        warnings.append(
-            "Le titre affiché a été déduit des documents, car la source "
-            "n’en publie aucun."
-        )
     copy_text = ""
     if content.position or content.position_claire:
         copy_text = content_module.ee_tache_three_answer_text(

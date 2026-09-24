@@ -4013,11 +4013,6 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             ee_source_warnings.append(
                 "La source publique a publié deux documents identiques."
             )
-        if source.title_missing:
-            ee_source_warnings.append(
-                "Le titre affiché a été déduit des documents, car la source "
-                "n’en publie aucun."
-            )
         ee_subject_instruction = content_module.ee_tache_three_instruction(
             selected_prompt.text
         )
@@ -4153,18 +4148,20 @@ def edit_response(request, part_slug, task_slug, prompt_id):
     ).first()
     has_personal_response = preferred_personal(response, request.user) is not None
     detail_url = prompt_detail_url(selected_prompt)
-    if request.method == "POST" and request.POST.get("action", "save") not in {"save", "reset"}:
+    allowed_actions = (
+        {"save"}
+        if is_writing_tache_three
+        else {"save", "reset"}
+    )
+    if (
+        request.method == "POST"
+        and request.POST.get("action", "save") not in allowed_actions
+    ):
         return HttpResponseBadRequest("Action invalide.")
     if request.method == "POST" and request.POST.get("action") == "reset":
         highlight_context = (
             preserve_tache_two_highlights(response, request.user)
             if is_tache_two
-            else preserve_ee_tache_three_highlights(
-                response,
-                request.user,
-                selected_prompt=selected_prompt,
-            )
-            if is_writing_tache_three
             else transaction.atomic()
         )
         with highlight_context:

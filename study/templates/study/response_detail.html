@@ -4,8 +4,8 @@
 
 {% block content %}
 {% include "study/partials/task_nav.html" %}
-{% if personal_saved %}<div class="notice">Votre version personnelle a été enregistrée et sera utilisée pendant les révisions.</div>{% endif %}
-{% if personal_reset %}<div class="notice">La réponse d'origine est de nouveau utilisée.</div>{% endif %}
+{% if personal_saved %}<div class="notice">{% if ee_response %}Réponse enregistrée.{% else %}Votre version personnelle a été enregistrée et sera utilisée pendant les révisions.{% endif %}</div>{% endif %}
+{% if personal_reset and not ee_response %}<div class="notice">La réponse d'origine est de nouveau utilisée.</div>{% endif %}
 <div class="detail-head{% if ee_response %} detail-head--compact{% endif %}">
   <p class="eyebrow">
     <a href="{% subject_url 'study:task_browse' part.slug task.slug %}">{% if ee_response %}Sujets par thème{% else %}Sujets &amp; réponses{% endif %}</a> ·
@@ -15,7 +15,7 @@
     {% else %}
       · <a href="{% subject_group_url part.slug task.slug selected_prompt.theme.slug selected_prompt.family.slug %}">{{ selected_prompt.family.name }}</a>
     {% endif %}
-    {% if response_content.is_personal %} · <span class="chip">Version personnelle</span>{% endif %}
+    {% if response_content.is_personal and not ee_response %} · <span class="chip">Version personnelle</span>{% endif %}
   </p>
   <h1 class="detail-prompt">{% if ee_response %}{{ selected_prompt.theme.display_name }}{% else %}{{ selected_prompt.text }}{% endif %}</h1>
   {% if response_content.reformulation and not ee_response %}<p class="reform">« {{ response_content.reformulation }} »</p>{% endif %}
@@ -118,7 +118,7 @@
       {% endif %}
       <div class="response-sidebar-actions">
         {% if can_edit_response %}
-          <a class="btn btn--block" href="{% subject_url 'study:edit_response' part.slug task.slug selected_prompt.pk %}">{% if response_content.is_personal %}Modifier ma version{% else %}Personnaliser la réponse{% endif %}</a>
+          <a class="btn btn--block" href="{% subject_url 'study:edit_response' part.slug task.slug selected_prompt.pk %}">{% if ee_response %}Modifier la réponse{% elif response_content.is_personal %}Modifier ma version{% else %}Personnaliser la réponse{% endif %}</a>
         {% endif %}
         <a class="btn btn--primary btn--block" href="{{ response_review_url }}">Pratiquer cette réponse</a>
         <a class="btn btn--block" href="{{ theme_review_url }}">Pratiquer ce thème</a>

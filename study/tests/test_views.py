@@ -1247,6 +1247,9 @@ class EeTacheThreePageTests(TestCase):
         self.assertContains(editor, prompt.text)
         self.assertNotContains(editor, "Arguments développés")
         self.assertNotContains(editor, "Nuance et conclusion")
+        self.assertNotContains(editor, "Version personnelle")
+        self.assertNotContains(editor, "Revenir à la réponse d'origine")
+        self.assertNotContains(editor, 'value="reset"')
 
         payload = {
             "reformulation": "Mon titre personnel",
@@ -1277,7 +1280,8 @@ class EeTacheThreePageTests(TestCase):
             personalized.context["response_content"],
         )
         self.assertNotEqual(personal_annotation_key, model_annotation_key)
-        self.assertContains(personalized, "Version personnelle")
+        self.assertNotContains(personalized, "Version personnelle")
+        self.assertContains(personalized, "Modifier la réponse")
         self.assertContains(personalized, payload["reformulation"])
         self.assertContains(personalized, payload["position"])
         self.assertContains(personalized, payload["position_claire"])
@@ -1360,6 +1364,10 @@ class EeTacheThreePageTests(TestCase):
             hidden_legacy.source_key,
             f"response:{prompt.response.content_key}",
         )
+        rejected_reset = self.client.post(edit_url, {"action": "reset"})
+        self.assertEqual(rejected_reset.status_code, 400)
+        personal.refresh_from_db()
+        self.assertTrue(personal.is_active)
 
     def test_alias_edit_preserves_a_matching_legacy_document_highlight(self):
         from study.oral_highlights import _render_ee_tache_three_root
@@ -2061,7 +2069,7 @@ class EeTacheThreePageTests(TestCase):
         )
         prompt = Prompt.objects.get(content_key=title_only.content_key)
         response = self.client.get(prompt_detail_url(prompt))
-        self.assertIn(
+        self.assertNotIn(
             "Source note :",
             response.context["ee_subject_copy_text"],
         )

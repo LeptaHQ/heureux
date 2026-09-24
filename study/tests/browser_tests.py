@@ -1104,6 +1104,16 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(len(old_keys), 1)
 
         self.page.goto(self.live_server_url + edit_url)
+        expect(
+            self.page.get_by_text("Version personnelle", exact=True)
+        ).to_have_count(0)
+        expect(
+            self.page.get_by_role(
+                "button",
+                name="Utiliser de nouveau la version d'origine",
+                exact=True,
+            )
+        ).to_have_count(0)
         self.page.locator("[name='reformulation']").fill("Titre personnel")
         with self.page.expect_navigation():
             self.page.locator(".response-edit button[type='submit']").click()

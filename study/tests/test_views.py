@@ -770,72 +770,33 @@ class SmokeTests(TestCase):
         self.assertContains(response, 'class="review__top flashcard-deck__toolbar"')
         self.assertContains(response, ">Session<")
 
-    def test_dashboard_presents_four_explicit_daily_activities(self):
-        factories.make_comprehension_test()
-
+    def test_dashboard_presents_four_direct_area_cards(self):
         response = self.client.get(reverse("study:dashboard"))
 
-        self.assertEqual(response.context["daily_goal_remaining"], 30)
-        self.assertContains(response, 'class="home-queue__item ', count=4)
-        for label in (
-            "Apprendre",
-            "Restituer des réponses",
-            "Faire Test 1",
-            "Revoir ce que tu as retenu",
-        ):
-            self.assertContains(response, label)
-        self.assertContains(response, reverse("study:expression"))
-        self.assertContains(response, reverse("study:comprehension_hub"))
-        self.assertContains(response, reverse("study:notes_overview"))
-
-    def test_dashboard_hierarchy_leads_with_one_today_surface(self):
-        factories.make_comprehension_test()
-
-        response = self.client.get(reverse("study:dashboard"))
-
-        # Welcome hero, then a single "Aujourd’hui" surface that carries
-        # the next action and the daily goal together, then the activity
-        # queue, then one progress panel.
         self.assertContains(response, '<h1>Que veux-tu travailler', count=1)
-        self.assertContains(
-            response,
-            '<section class="home-today" aria-labelledby="home-today-title">',
-            count=1,
+        self.assertContains(response, 'class="home-destination ', count=4)
+        destinations = (
+            ("learn", "Apprendre", "study:learn"),
+            ("comprehension", "Compr\u00e9hension", "study:comprehension_hub"),
+            ("expression", "Expression", "study:expression"),
+            ("notes", "Notes", "study:notes_overview"),
         )
-        self.assertContains(
-            response,
-            '<h2 id="home-today-title">Aujourd\u2019hui</h2>',
-            count=1,
-            html=True,
-        )
-        self.assertContains(response, 'class="home-today__action ', count=1)
-        self.assertContains(response, 'class="home-today__goal"', count=1)
-        self.assertContains(
-            response,
-            "Encore 30 r\u00e9visions pour atteindre l\u2019objectif.",
-        )
-        self.assertContains(response, 'role="progressbar"', count=1)
-        self.assertContains(
-            response,
-            '<h2 id="home-queue-title">Choisir une activit\u00e9</h2>',
-            count=1,
-            html=True,
-        )
-        self.assertContains(
-            response,
-            '<h2 id="home-skills-title">Ta progression</h2>',
-            count=1,
-            html=True,
-        )
-        self.assertContains(response, 'class="home-skills__panel"', count=1)
-        skills = response.context["skills"]
-        self.assertContains(response, "data-home-skill=", count=len(skills))
-        for skill in skills:
-            self.assertContains(response, f'data-home-skill="{skill["key"]}"')
-        self.assertContains(response, reverse("study:stats"))
-        # The retired fragmented panels are gone.
-        self.assertNotContains(response, "daily-card")
-        self.assertNotContains(response, "home-featured")
+        for key, label, route in destinations:
+            with self.subTest(destination=key):
+                self.assertContains(
+                    response,
+                    f'data-home-destination="{key}" '
+                    f'href="{reverse(route)}"',
+                )
+                self.assertContains(response, f"<strong>{label}</strong>", html=True)
+        for removed_surface in (
+            "home-today",
+            "home-queue",
+            "home-skills",
+            "home-spotlight",
+            "data-home-skill",
+        ):
+            self.assertNotContains(response, removed_surface)
 
     def test_comprehension_hub_is_the_parent_of_written_and_oral_paths(self):
         factories.make_comprehension_test()
@@ -882,21 +843,6 @@ class SmokeTests(TestCase):
             "study:stats",
         ):
             self.assertContains(response, f'href="{reverse(name)}"')
-
-    def test_dashboard_preserves_resume_shortcut(self):
-        card = self.user.study_cards.first()
-        session = ReviewSession.load(self.user)
-        session.current_card = card
-        session.scope = {
-            "kind": "spine",
-            "part": "eo",
-            "task": "tache-3",
-        }
-        session.save(update_fields=["current_card", "scope"])
-
-        response = self.client.get(reverse("study:dashboard"))
-
-        self.assertContains(response, "Reprendre là où je me suis arrêté")
 
     def test_task_hub_uses_navigation_without_duplicate_modules(self):
         response = self.client.get(

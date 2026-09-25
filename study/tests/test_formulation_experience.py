@@ -918,8 +918,6 @@ class VocabularyRetirementTests(TestCase):
                 self.assertEqual(ReviewSession.objects.filter(pk=session.pk).values().get(), before_session)
                 self.assertEqual(ReviewLog.objects.filter(pk=log.pk).values().get(), before_log)
                 self.assertEqual(ReviewLog.objects.count(), 1)
-                response = self.client.get(reverse("study:dashboard"))
-                self.assertFalse(response.context["can_resume_review"])
 
     def test_completed_focused_review_still_allows_previous_and_undo(self):
         for kind in ("revisit", "weak"):
@@ -994,23 +992,6 @@ class VocabularyRetirementTests(TestCase):
         self.card.refresh_from_db()
         self.assertEqual(self.card.interval_days, 17)
         self.assertFalse(self.card.reviews.exists())
-
-    def test_dashboard_does_not_offer_retired_saved_review(self):
-        session = ReviewSession.objects.create(
-            user=self.user, scope={"kind": "phrase"},
-            current_card=self.card, presentation_token="old-token",
-        )
-        response = self.client.get(reverse("study:dashboard"))
-        self.assertFalse(response.context["can_resume_review"])
-        session.current_card = self.active_card
-        session.scope = {"part": "ee", "task": "tache-3", "kind": "vocab"}
-        session.save()
-        response = self.client.get(reverse("study:dashboard"))
-        self.assertFalse(response.context["can_resume_review"])
-        session.scope = {"kind": "phrase"}
-        session.save()
-        response = self.client.get(reverse("study:dashboard"))
-        self.assertTrue(response.context["can_resume_review"])
 
     def test_subject_no_longer_offers_vocabulary_and_search_omits_retired_phrase(self):
         response = self.client.get(reverse("study:response_detail", args=["ee", "tache-3", self.prompt.pk]))

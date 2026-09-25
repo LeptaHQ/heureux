@@ -717,7 +717,7 @@ class LearningViewTests(TestCase):
             self.lesson.id,
         )
 
-    def test_dashboard_and_stats_include_learning_progress(self):
+    def test_learning_page_and_stats_include_learning_progress(self):
         LearningLessonProgress.objects.create(
             user=self.user,
             lesson_id=self.lesson.id,
@@ -725,7 +725,10 @@ class LearningViewTests(TestCase):
         )
 
         with patch("study.views.learning._default_catalog", return_value=self.catalog):
-            dashboard = self.client.get(reverse("study:dashboard"))
+            learning = self.client.get(
+                reverse("study:learn"),
+                {"scope": "reference"},
+            )
         stats = self.client.get(reverse("study:stats"))
         breakdown = {
             item["key"]: item["count"]
@@ -733,8 +736,8 @@ class LearningViewTests(TestCase):
         }
 
         self.assertEqual(
-            dashboard.context["learning"]["progress"].completed,
+            learning.context["summary"].completed,
             1,
         )
-        self.assertContains(dashboard, "Apprendre")
+        self.assertContains(learning, self.lesson.title)
         self.assertEqual(breakdown["lessons"], 1)

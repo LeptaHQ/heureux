@@ -2122,7 +2122,7 @@ class EeWritingPageTests(TestCase):
             {annotation.pk, edit_annotation.pk},
         )
 
-    def test_dashboard_counts_canonical_once_and_includes_formulations(self):
+    def test_expression_hub_counts_canonical_once_and_includes_formulations(self):
         task = self.tasks[1]
         group = content.load_ee_equivalent_groups(1)[0]
         canonical = WritingSujet.objects.get(
@@ -2134,18 +2134,21 @@ class EeWritingPageTests(TestCase):
             sujet=canonical,
         )
 
-        response = self.client.get(reverse("study:dashboard"))
+        response = self.client.get(reverse("study:expression"))
         written = next(
-            skill
-            for skill in response.context["skills"]
-            if skill["key"] == "ee"
+            path
+            for path in response.context["paths"]
+            if path["part"].slug == "ee"
         )
 
         self.assertEqual(
-            written["detail"],
-            (
-                "1/"
-                f"{63 + 138 + len(get_ee_formulations(1).entries) + len(get_ee_formulations(3).entries)} "
-                "contenus"
-            ),
+            written["progress"].completed,
+            1,
+        )
+        self.assertEqual(
+            written["progress"].total,
+            63
+            + 138
+            + len(get_ee_formulations(1).entries)
+            + len(get_ee_formulations(3).entries),
         )

@@ -1296,17 +1296,6 @@ class BrowserTests(StaticLiveServerTestCase):
         )
 
         self.page.set_viewport_size({"width": 1183, "height": 844})
-        self.page.goto(
-            self.live_server_url + reverse("study:dashboard")
-        )
-        spotlight = self.page.locator(".home-spotlight")
-        spotlight.hover()
-        self.assertEqual(
-            spotlight.evaluate(
-                "entry => getComputedStyle(entry).textDecorationLine"
-            ),
-            "none",
-        )
         self.page.goto(self.live_server_url + overview_url)
         overview_entries = self.page.locator(
             "[data-ee-tache-three-overview-entry]"
@@ -8924,263 +8913,67 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assert_no_horizontal_overflow()
 
-    def test_home_command_center_is_compact_and_scannable(self):
-        factories.make_comprehension_test()
+    def test_home_navigation_cards_are_compact_and_responsive(self):
         dashboard_url = self.live_server_url + reverse("study:dashboard")
+        expected = [
+            ("learn", reverse("study:learn")),
+            ("comprehension", reverse("study:comprehension_hub")),
+            ("expression", reverse("study:expression")),
+            ("notes", reverse("study:notes_overview")),
+        ]
 
         self.page.set_viewport_size({"width": 1110, "height": 700})
         self.page.goto(dashboard_url)
-        views_metric = self.page.locator(".home-hero__metrics dd").nth(1)
-        views_metric.evaluate(
-            """
-            element => {
-              element.firstChild.textContent = "188";
-              element.querySelector(".hero-metric__total").textContent = "/ 9900";
-            }
-            """
+        cards = self.page.locator("[data-home-destination]")
+        expect(cards).to_have_count(4)
+        self.assertEqual(
+            cards.evaluate_all(
+                """
+                cards => cards.map(card => [
+                  card.dataset.homeDestination,
+                  new URL(card.href).pathname,
+                  card.tagName,
+                ])
+                """
+            ),
+            [[key, path, "A"] for key, path in expected],
+        )
+        self.assertEqual(
+            self.page.locator(".home-destinations").evaluate(
+                "grid => getComputedStyle(grid).gridTemplateColumns.split(' ').length"
+            ),
+            2,
         )
         self.assertLessEqual(
-            views_metric.evaluate("element => element.scrollWidth"),
-            views_metric.evaluate("element => element.clientWidth"),
-        )
-
-        # "Aujourd\u2019hui" is one surface: the action and the goal share it
-        # side by side instead of reading as two unrelated panels.
-        desktop_today = self.page.locator(".home-today__body").evaluate(
-            """
-            body => {
-              const action = body.querySelector('.home-today__action')
-                .getBoundingClientRect();
-              const goal = body.querySelector('.home-today__goal')
-                .getBoundingClientRect();
-              return {
-                actionTop: action.top,
-                goalTop: goal.top,
-                actionRight: action.right,
-                goalLeft: goal.left,
-              };
-            }
-            """
-        )
-        self.assertAlmostEqual(
-            desktop_today["actionTop"], desktop_today["goalTop"], delta=1
-        )
-        self.assertAlmostEqual(
-            desktop_today["actionRight"], desktop_today["goalLeft"], delta=1
-        )
-        neutral_home_surfaces = self.page.locator(
-            ".home-today, .home-today__action"
-        ).evaluate_all(
-            """
-            elements => elements.map(element => ({
-              backgroundImage: getComputedStyle(element).backgroundImage,
-              borderLeftWidth: getComputedStyle(element).borderLeftWidth,
-            }))
-            """
-        )
-        self.assertTrue(
-            all(
-                item["backgroundImage"] == "none"
-                for item in neutral_home_surfaces
+            max(
+                cards.evaluate_all(
+                    "cards => cards.map(card => card.getBoundingClientRect().height)"
+                )
             ),
-            neutral_home_surfaces,
+            170,
         )
-        self.assertEqual(
-            neutral_home_surfaces[-1]["borderLeftWidth"],
-            "0px",
-        )
-
-        # The activity queue is a single scannable list of compact rows.
-        queue_rows = self.page.locator(".home-queue__item").evaluate_all(
-            """
-            rows => rows.map(row => {
-              const box = row.getBoundingClientRect();
-              return {
-                x: box.x,
-                y: box.y,
-                width: box.width,
-                height: box.height,
-                eyebrow: getComputedStyle(
-                  row.querySelector('.eyebrow')
-                ).color,
-                primary: Boolean(row.querySelector('.btn')),
-                secondary: Boolean(
-                  row.querySelector('.home-queue__secondary')
-                ),
-              };
-            })
-            """
-        )
-        self.assertEqual(len(queue_rows), 4)
-        self.assertLessEqual(max(row["height"] for row in queue_rows), 120)
-        self.assertEqual(len({row["x"] for row in queue_rows}), 1)
-        self.assertEqual(
-            len({row["eyebrow"] for row in queue_rows}),
-            len(queue_rows),
-        )
-        self.assertTrue(all(row["primary"] for row in queue_rows))
-        self.assertTrue(all(row["secondary"] for row in queue_rows))
-        surface_color = self.page.evaluate(
-            """
-            () => {
-              const probe = document.createElement("div");
-              probe.style.background = "var(--surface)";
-              document.body.append(probe);
-              const color = getComputedStyle(probe).backgroundColor;
-              probe.remove();
-              return color;
-            }
-            """
-        )
-        self.assertEqual(
-            self.page.locator(".home-queue__list").evaluate(
-                "list => getComputedStyle(list).backgroundColor"
-            ),
-            surface_color,
-        )
-
-        # Progress is one panel of rows, not a repeated grid of cards.
-        skill_rows = self.page.locator("[data-home-skill]").evaluate_all(
-            """
-            skills => skills.map(skill => {
-              const box = skill.getBoundingClientRect();
-              return {x: box.x, y: box.y, width: box.width};
-            })
-            """
-        )
-        self.assertGreaterEqual(len(skill_rows), 2)
-        self.assertEqual(len({row["x"] for row in skill_rows}), 1)
-        self.assertEqual(len({round(row["y"]) for row in skill_rows}), len(skill_rows))
+        expect(
+            self.page.locator(
+                ".home-today, .home-queue, .home-skills, .home-spotlight"
+            )
+        ).to_have_count(0)
         self.assert_no_horizontal_overflow()
 
-        for width in (1024, 900, 861):
+        for width in (860, 390, 320):
             with self.subTest(width=width):
                 self.page.set_viewport_size({"width": width, "height": 700})
-                self.assertLessEqual(
-                    views_metric.evaluate("element => element.scrollWidth"),
-                    views_metric.evaluate("element => element.clientWidth"),
+                self.assertEqual(
+                    self.page.locator(".home-destinations").evaluate(
+                        "grid => getComputedStyle(grid).gridTemplateColumns.split(' ').length"
+                    ),
+                    1,
                 )
+                heights = cards.evaluate_all(
+                    "cards => cards.map(card => card.getBoundingClientRect().height)"
+                )
+                self.assertLessEqual(max(heights), 120)
+                self.assertTrue(all(height >= 96 for height in heights))
                 self.assert_no_horizontal_overflow()
-
-        for width in (390, 320):
-            with self.subTest(width=width):
-                self.page.set_viewport_size({"width": width, "height": 640})
-                self.assert_no_horizontal_overflow()
-
-        views_metric.evaluate(
-            """
-            element => {
-              element.firstChild.textContent = "159";
-              element.querySelector(".hero-metric__total").textContent = "/ 9700";
-            }
-            """
-        )
-        self.assertLessEqual(
-            views_metric.evaluate("element => element.scrollWidth"),
-            views_metric.evaluate("element => element.clientWidth"),
-        )
-        mobile_hero_layout = self.page.locator(".home-hero").evaluate(
-            """hero => {
-              const heroBox = hero.getBoundingClientRect();
-              const copyBox = hero.querySelector(
-                '.home-hero__copy'
-              ).getBoundingClientRect();
-              const metrics = hero.querySelector('.home-hero__metrics');
-              const metricsBox = metrics.getBoundingClientRect();
-              const metricsStyle = getComputedStyle(metrics);
-              const heroStyle = getComputedStyle(hero);
-              return {
-                height: heroBox.height,
-                metricsWidth: metricsBox.width,
-                heroWidth: heroBox.width,
-                heroContentWidth: hero.clientWidth -
-                  parseFloat(heroStyle.paddingLeft) -
-                  parseFloat(heroStyle.paddingRight),
-                verticalGap: metricsBox.top - copyBox.bottom,
-                columns: metricsStyle.gridTemplateColumns.split(' ').length,
-                backgroundImage: heroStyle.backgroundImage,
-                radius: parseFloat(heroStyle.borderTopLeftRadius),
-              };
-            }"""
-        )
-        self.assertLessEqual(
-            mobile_hero_layout["height"], 190, mobile_hero_layout
-        )
-        self.assertAlmostEqual(
-            mobile_hero_layout["metricsWidth"],
-            mobile_hero_layout["heroContentWidth"],
-            delta=1,
-        )
-        self.assertLessEqual(mobile_hero_layout["verticalGap"], 12)
-        self.assertEqual(mobile_hero_layout["columns"], 3)
-        self.assertNotEqual(
-            mobile_hero_layout["backgroundImage"],
-            "none",
-            mobile_hero_layout,
-        )
-        self.assertGreaterEqual(mobile_hero_layout["radius"], 12)
-
-        mobile_queue = self.page.locator(".home-queue__item").evaluate_all(
-            """
-            rows => rows.map(row => {
-              const box = row.getBoundingClientRect();
-              const secondary = row.querySelector('.home-queue__secondary')
-                .getBoundingClientRect();
-              return {
-                height: box.height,
-                width: box.width,
-                secondaryWidth: secondary.width,
-                secondaryHeight: secondary.height,
-              };
-            })
-            """
-        )
-        self.assertEqual(len(mobile_queue), 4)
-        self.assertLessEqual(max(row["height"] for row in mobile_queue), 180)
-        for row in mobile_queue:
-            self.assertAlmostEqual(
-                row["secondaryWidth"], row["secondaryHeight"], delta=1
-            )
-            self.assertGreaterEqual(row["secondaryHeight"], 34)
-
-        mobile_skill_rows = self.page.locator(
-            "[data-home-skill]"
-        ).evaluate_all(
-            """
-            skills => skills.map(skill => {
-              const box = skill.getBoundingClientRect();
-              return {x: box.x, y: box.y, width: box.width};
-            })
-            """
-        )
-        self.assertGreaterEqual(len(mobile_skill_rows), 2)
-        self.assertEqual(len({row["x"] for row in mobile_skill_rows}), 1)
-        self.assertNotAlmostEqual(
-            mobile_skill_rows[0]["y"],
-            mobile_skill_rows[1]["y"],
-            delta=1,
-        )
-
-        mobile_today = self.page.locator(".home-today__body").evaluate(
-            """
-            body => {
-              const action = body.querySelector('.home-today__action')
-                .getBoundingClientRect();
-              const goal = body.querySelector('.home-today__goal')
-                .getBoundingClientRect();
-              return {
-                actionBottom: action.bottom,
-                goalTop: goal.top,
-              };
-            }
-            """
-        )
-        self.assertAlmostEqual(
-            mobile_today["actionBottom"],
-            mobile_today["goalTop"],
-            delta=1,
-        )
-        self.assert_no_horizontal_overflow()
 
     def install_course_fixture(self):
         catalog = course_catalog()

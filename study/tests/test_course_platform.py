@@ -335,9 +335,12 @@ class CoursePlatformTests(TestCase):
         self.assertFalse(CourseAttempt.objects.exists())
         self.assertFalse(LearningLessonProgress.objects.filter(user=self.other).exists())
         self.assertIsNone(evidence_state(self.user, self.lesson)["check"])
-        dashboard = self.client.get(reverse("study:dashboard"))
-        self.assertEqual(dashboard.context["learning"]["progress"].completed, 1)
-        self.assertIn("/apprendre/cours/", dashboard.context["learning"]["next_url"])
+        learning = self.client.get(reverse("study:learn"))
+        self.assertEqual(learning.context["summary"].completed, 1)
+        self.assertContains(
+            learning,
+            reverse("study:course_lesson", args=[self.lesson.slug]),
+        )
 
     def test_annotations_are_shared_across_course_and_reference_navigation_queries(self):
         for route, slug, key in (

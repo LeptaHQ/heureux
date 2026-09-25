@@ -272,7 +272,7 @@ class CatalogueRequestTests(TestCase):
         for url in pages.values():
             self.assertEqual(self.client.get(url).status_code, 200)
         self.assertEqual(
-            self._summary(self.client.get(pages["dashboard"]), "tache-2")["completed"],
+            self._summary(self.client.get(pages["expression"]), "tache-2")["completed"],
             0,
         )
 
@@ -290,25 +290,23 @@ class CatalogueRequestTests(TestCase):
         ).values("response_id").distinct().count()
 
         with self._no_bundled_reads():
-            for name in ("dashboard", "expression"):
-                response = self.client.get(pages[name])
-                summary = self._summary(response, "tache-2")
-                self.assertEqual(summary["total"], group_count)
-                self.assertEqual(summary["completed"], 1)
-                self.assertEqual(
-                    self._summary(response, "tache-1")["completed"], 1
-                )
+            response = self.client.get(pages["expression"])
+            summary = self._summary(response, "tache-2")
+            self.assertEqual(summary["total"], group_count)
+            self.assertEqual(summary["completed"], 1)
+            self.assertEqual(
+                self._summary(response, "tache-1")["completed"], 1
+            )
             detail = self.client.get(pages["eo2-detail"])
             self.assertTrue(detail.context["subject_progress"].explicitly_completed)
             self.assertEqual(detail.context["selected_prompt"].pk, self.prompt.pk)
             bank_page = self.client.get(pages["eo1-overview"])
             self.assertEqual(bank_page.context["memory_progress"].completed, 1)
-
             self.client.force_login(self.other)
-            for name in ("dashboard", "expression"):
-                response = self.client.get(pages[name])
-                self.assertEqual(self._summary(response, "tache-2")["completed"], 0)
-                self.assertEqual(self._summary(response, "tache-1")["completed"], 0)
+            self.client.force_login(self.other)
+            response = self.client.get(pages["expression"])
+            self.assertEqual(self._summary(response, "tache-2")["completed"], 0)
+            self.assertEqual(self._summary(response, "tache-1")["completed"], 0)
             detail = self.client.get(pages["eo2-detail"])
             self.assertFalse(detail.context["subject_progress"].explicitly_completed)
 

@@ -19,7 +19,6 @@ from study.models import (
     WritingResponseOverride,
 )
 from study.progress import writing_sujet_progress_by_id
-from study.views.dashboard import _reviews_today
 from study.views.helpers import (
     _ee_writing_task_card,
     expression_task_summaries,
@@ -190,10 +189,6 @@ class ScopedQueueReliabilityTests(TestCase):
 
         counts = queue.queue_counts({"kind": "spine"}, now=now, user=self.user)
         self.assertEqual(counts["new_done_today"], 1)
-        self.assertEqual(
-            _reviews_today({timezone.localdate(now): 1, tomorrow.date(): 2}, now),
-            1,
-        )
 
 
 class RecentSessionReliabilityTests(TestCase):

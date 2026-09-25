@@ -48,8 +48,8 @@ from . import factories
 def legacy_expression_paths(now, user):
     """The pre-batch expression paths, kept as the reference for the new ones.
 
-    This is what the home page and the expression hub used to run: a full
-    :func:`_task_card` per active task, folded into paths by
+    This is what the expression hub used to run: a full :func:`_task_card` per
+    active task, folded into paths by
     :func:`_home_expression_paths`.
     """
     parts = list(
@@ -413,15 +413,14 @@ class TaskCardQueryBudgetTests(TestCase):
         ):
             return self._query_count(url)
 
-    def test_expression_pages_summarize_every_task_in_one_call(self):
+    def test_expression_hub_summarizes_every_task_in_one_call(self):
         with patch(
             "study.views.dashboard.expression_task_summaries",
             wraps=expression_task_summaries,
         ) as batched:
-            self.client.get(reverse("study:dashboard"))
             self.client.get(reverse("study:expression"))
 
-        self.assertEqual(batched.call_count, 2)
+        self.assertEqual(batched.call_count, 1)
         for call in batched.call_args_list:
             tasks = list(call.args[2])
             self.assertEqual(
@@ -461,7 +460,7 @@ class TaskCardQueryBudgetTests(TestCase):
         self.assertLessEqual(growth, unbatched_growth - 4 * added_tasks)
 
     def test_extra_tasks_do_not_add_expression_page_queries(self):
-        """The hub and the home page cost the same whatever the task count."""
+        """The hub stays flat and the static home remains content-independent."""
         pages = [
             reverse("study:dashboard"),
             reverse("study:expression"),
@@ -885,30 +884,6 @@ class ExpressionPathSummaryTests(TestCase):
             response.context["response_due"],
             sum(path["due"] for path in legacy),
         )
-
-    def test_dashboard_skills_match_the_task_card_progress(self):
-        self.client.force_login(self.user)
-        legacy = {
-            path["part"].slug: path
-            for path in legacy_expression_paths(self.now, self.user)
-        }
-
-        response = self.client.get(reverse("study:dashboard"))
-
-        self.assertEqual(response.status_code, 200)
-        skills = {skill["key"]: skill for skill in response.context["skills"]}
-        for slug in ("eo", "ee"):
-            with self.subTest(slug=slug):
-                progress = legacy[slug]["progress"]
-                self.assertEqual(skills[slug]["percent"], progress.percent)
-                self.assertEqual(skills[slug]["status"], progress.status)
-                self.assertEqual(
-                    skills[slug]["detail"],
-                    (
-                        f"{progress.completed}/{progress.total} "
-                        "contenus"
-                    ),
-                )
 
     def test_query_count_does_not_grow_with_the_number_of_tasks(self):
         tasks = list(

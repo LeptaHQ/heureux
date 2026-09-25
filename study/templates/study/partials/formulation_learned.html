@@ -1,5 +1,6 @@
 <form class="formulation-learned" method="post" action="{% url 'study:ee_formulation_progress' row.entry.slug %}">
   {% csrf_token %}
+  <input type="hidden" name="next" value="{{ return_url }}">
   {% for key, value in filter_fields %}<input type="hidden" name="{{ key }}" value="{{ value }}">{% endfor %}
   {% if row.learned %}
     <button class="btn" name="completed" value="0" type="submit" aria-label="Remettre à apprendre : {{ row.entry.label }}">Apprise · Remettre à apprendre</button>

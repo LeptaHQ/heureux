@@ -52,7 +52,8 @@ class VocabularyEntryTests(TestCase):
         for query in ({}, {"batch": "1"}, {"batch": "6"}, {"batch": ["1", "2"]}):
             self.assertRedirects(
                 self.client.get(self.theme_url, query),
-                self.replacement + "?theme=education", fetch_redirect_response=False,
+                reverse("study:ee_formulation_theme", args=["education"]),
+                fetch_redirect_response=False,
             )
 
     def test_legacy_progress_posts_do_not_repurpose_old_flags(self):
@@ -65,7 +66,8 @@ class VocabularyEntryTests(TestCase):
         for state in ("0", "1", "invalid"):
             self.assertRedirects(
                 self.client.post(url, {"completed": state, "batch": "6"}),
-                self.replacement + "?theme=education", fetch_redirect_response=False,
+                reverse("study:ee_formulation_theme", args=["education"]),
+                fetch_redirect_response=False,
             )
         self.assertEqual(original, list(ThemeVocabularyProgress.objects.order_by("pk").values()))
         self.assertFalse(MemoryQuestionProgress.objects.filter(user=self.user).exists())

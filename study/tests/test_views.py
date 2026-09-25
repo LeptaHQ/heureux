@@ -1770,7 +1770,7 @@ class EeTacheThreePageTests(TestCase):
     def test_formulation_examples_all_resolve_to_known_active_subjects(self):
         from study.ee_formulations import get_ee_formulations
 
-        page = self.client.get(reverse("study:ee_formulations"))
+        page = self.client.get(reverse("study:ee_formulation_search"))
         rows = page.context["rows"]
         self.assertEqual(len(rows), len(get_ee_formulations().entries))
         self.assertTrue(all(row["source_url"] for row in rows))

@@ -1169,8 +1169,8 @@ class BrowserTests(StaticLiveServerTestCase):
             self.page.goto(self.live_server_url + path)
             self.assertEqual(self.page.url, self.live_server_url + reverse("study:ee_formulations"))
             expect(self.page.get_by_role("heading", name="Formulations", exact=True)).to_be_visible()
-            expect(self.page.locator(".formulation-category")).to_have_count(21)
-            expect(self.page.locator(".formulation-archives")).to_have_count(0)
+            expect(self.page.locator(".formulation-directory-table")).to_have_count(2)
+            expect(self.page.locator("[data-formulation-subdivision]")).to_have_count(21)
             self.assert_no_horizontal_overflow()
 
     def test_tache_one_question_response_editor_saves_and_reopens(self):
@@ -1914,7 +1914,7 @@ class BrowserTests(StaticLiveServerTestCase):
 
         self.page.goto(self.live_server_url + vocabulary_url)
         self.assertIn("/formulations/", self.page.url)
-        expect(self.page.locator("#formulation-theme option")).to_have_count(len(themes) + 1)
+        expect(self.page.locator('[data-formulation-table="themes"] [data-formulation-subdivision]')).to_have_count(len(themes))
         self.assert_no_horizontal_overflow()
         self.assert_ee3_subject_directory(subjects_url, themes)
 
@@ -1924,7 +1924,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.set_viewport_size({"width": 1292, "height": 844})
         self.page.goto(url)
         self.assertIn("/formulations/", self.page.url)
-        entries = self.page.locator(".formulation-category")
+        entries = self.page.locator("[data-formulation-subdivision]")
         expect(entries).to_have_count(21)
         expect(self.page.locator("[data-subject-vocabulary-row]")).to_have_count(0)
         self.assertTrue(entries.evaluate_all(
@@ -1942,7 +1942,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(len(self.context.pages), 1)
         rows.first.locator("summary").click()
         expect(rows.first.locator(".formulation-teaching")).to_be_visible()
-        self.page.get_by_role("link", name="Pratiquer cette sélection", exact=True).click()
+        self.page.get_by_role("link", name="Pratiquer cette subdivision", exact=True).click()
         expect(self.page.locator("[data-flashcard-front]")).to_be_visible()
         expect(self.page.locator("[data-flashcard-back]")).to_be_hidden()
         self.page.locator("[data-flashcard-flip]").click()
@@ -1960,16 +1960,16 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(lots.locator(".batch-card__status, strong")).to_have_count(0)
         return lots
 
-    def test_ee3_formulation_categories_are_native_and_do_not_start_srs(self):
+    def test_ee3_formulation_tables_are_native_and_do_not_start_srs(self):
         self._import_ee_tache_three_content()
         self.page.set_viewport_size({"width": 1292, "height": 844})
         self.page.goto(self.live_server_url + reverse(
             "study:task_phrases", args=["ee", "tache-3"],
         ))
-        disclosure = self.page.locator(".formulation-directory")
-        categories = disclosure.locator(".formulation-category")
+        disclosure = self.page.locator('[data-formulation-table="essentials"]')
+        categories = disclosure.locator("[data-formulation-subdivision]")
         expect(disclosure).to_have_attribute("open", "")
-        expect(categories).to_have_count(21)
+        expect(categories).to_have_count(10)
         disclosure.locator("summary").focus()
         self.page.keyboard.press("Enter")
         expect(categories.first).to_be_hidden()
@@ -1983,8 +1983,7 @@ class BrowserTests(StaticLiveServerTestCase):
         reviews_before = ReviewLog.objects.filter(user=self.user).count()
         categories.first.click()
         expect(self.page.locator(".formulation-list")).to_be_visible()
-        expect(self.page.locator(".formulation-directory")).not_to_have_attribute("open", "")
-        self.page.get_by_role("link", name="Pratiquer cette sélection", exact=True).click()
+        self.page.get_by_role("link", name="Pratiquer cette subdivision", exact=True).click()
         self.page.locator("[data-flashcard-flip]").click()
         expect(self.page.locator("[data-flashcard-back]")).to_be_visible()
         self.assertEqual(ReviewSession.objects.filter(user=self.user).count(), sessions_before)
@@ -1997,8 +1996,8 @@ class BrowserTests(StaticLiveServerTestCase):
             context.add_cookies(self.context.cookies())
             page = context.new_page()
             page.goto(self.live_server_url + reverse("study:task_phrases", args=["ee", "tache-3"]))
-            expect(page.locator(".formulation-category")).to_have_count(21)
-            page.locator(".formulation-category").first.click()
+            expect(page.locator("[data-formulation-subdivision]")).to_have_count(21)
+            page.locator("[data-formulation-subdivision]").first.click()
             rows = page.locator(".formulation-list > li")
             count = rows.count()
             self.assertGreater(count, 0)
@@ -2009,7 +2008,6 @@ class BrowserTests(StaticLiveServerTestCase):
             learned.click()
             expect(learned).to_contain_text("Apprise")
             self.assertIn("#formulation-", page.url)
-            self.assertIn("?category=", page.url)
             expect(rows).to_have_count(count)
             self.assertLessEqual(page.evaluate("document.documentElement.scrollWidth"), 390)
         finally:

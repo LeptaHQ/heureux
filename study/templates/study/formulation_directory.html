@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}Formulations · Tâche 3 · Heureux{% endblock %}
+{% block content %}
+{% include "study/partials/task_nav.html" %}
+<div class="formulations-page">
+  <header class="section-heading">
+    <div>
+      <p class="eyebrow">Expression écrite · Tâche 3</p>
+      <h1>Formulations</h1>
+      <p>Choisissez une subdivision, puis apprenez les formulations sur une page claire et ciblée.</p>
+    </div>
+    <span class="progress-status progress-status--{{ progress.status }}">{{ progress.completed }}/{{ progress.total }} apprises</span>
+  </header>
+
+  <form class="card formulation-directory-search" method="get" action="{{ search_url }}" role="search" aria-label="Rechercher dans les formulations">
+    <label for="formulation-directory-query">Rechercher dans les {{ progress.total }} formulations</label>
+    <input id="formulation-directory-query" type="search" name="q" maxlength="200" placeholder="Ex. santé, opposition, à condition que…">
+    <button class="btn btn--primary" type="submit">Rechercher</button>
+  </form>
+
+  <div class="formulation-directory-tables">
+    {% for table in tables %}
+      <details class="card formulation-directory-table" data-formulation-table="{{ table.slug }}" open>
+        <summary>
+          <span>
+            <strong>{{ table.title }}</strong>
+            <small>{{ table.description }}</small>
+          </span>
+          <span class="progress-status progress-status--{{ table.progress.status }}">{{ table.progress.completed }}/{{ table.progress.total }}</span>
+        </summary>
+        <div class="t1-table-shell formulation-table-scroll">
+          <table class="t1-table formulation-subdivision-table">
+            <thead>
+              <tr>
+                <th scope="col">Subdivision</th>
+                <th scope="col">Contenu</th>
+                <th scope="col">Progression</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in table.items %}
+                <tr class="t1-table__row is-status-{{ item.progress.status }}">
+                  <td class="t1-table__subject">
+                    <div class="formulation-subdivision-title">
+                      <span class="formulation-subdivision-icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=item.category.icon only %}</span>
+                      <a href="{{ item.url }}" data-formulation-subdivision>{{ item.category.title }}</a>
+                    </div>
+                  </td>
+                  <td class="t1-table__versions">
+                    <span>{{ item.category.description }}</span>
+                    {% if item.expanded_count %}<small>{{ item.expanded_count }} formulations sur la page</small>{% endif %}
+                  </td>
+                  <td class="t1-table__progress-cell">
+                    <div class="t1-table__progress">
+                      <span class="progress-status progress-status--{{ item.progress.status }}">{{ item.progress.label }}</span>
+                      <span class="formulation-progress-count">{{ item.completed }}/{{ item.count }}</span>
+                      <span class="subject-collection__arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+                    </div>
+                  </td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+        <a class="btn" href="{{ table.all_url }}">{{ table.all_label }}</a>
+      </details>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

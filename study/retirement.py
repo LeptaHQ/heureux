@@ -1,7 +1,5 @@
 """Read-time retirement of EE3 vocabulary; historical records stay untouched."""
 
-from urllib.parse import urlencode
-
 from django.db.models import Exists, OuterRef, Q
 from django.urls import reverse
 
@@ -78,7 +76,7 @@ def formulations_replacement(theme=""):
         category.kind == "theme" and category.slug == slug
         for category in get_ee_formulations().categories
     ):
-        url += "?" + urlencode({"theme": slug})
+        url = reverse("study:ee_formulation_theme", args=[slug])
     return url
 
 

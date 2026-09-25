@@ -1,60 +1,27 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}Formulations · Tâche 3 · Heureux{% endblock %}
+{% block title %}{{ definition.title }} · Formulations · Heureux{% endblock %}
 {% block content %}
 {% include "study/partials/task_nav.html" %}
 <div class="formulations-page">
+  <nav class="breadcrumbs" aria-label="Fil d’Ariane">
+    <a href="{% url 'study:ee_formulations' %}">Formulations</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">{{ definition.title }}</span>
+  </nav>
   <header class="section-heading">
     <div>
-      <p class="eyebrow">Expression écrite · Tâche 3</p>
-      <h1>Formulations</h1>
-      <p>Choisir une tournure, comprendre sa construction, puis l’adapter à un autre sujet.</p>
+      <p class="eyebrow">{{ definition.eyebrow }}</p>
+      <h1>{{ definition.title }}</h1>
+      <p>{{ definition.description }}</p>
     </div>
     <span class="progress-status progress-status--{{ progress.status }}">{{ progress.completed }}/{{ progress.total }} apprises</span>
   </header>
-  <section class="card formulation-start" aria-labelledby="formulation-start-title">
-    <h2 id="formulation-start-title">Commencer par les essentiels</h2>
-    <p>{{ essential_count }} formulations pour une synthèse neutre, une prise de position, deux arguments et au moins un exemple concret. Les crochets indiquent les éléments à adapter, pas des mots à recopier.</p>
-    <a class="btn btn--primary" href="{% url 'study:ee_formulations' %}?essential=1#formulation-results">Voir les essentiels</a>
-    <a class="btn" href="{% url 'study:ee_formulations' %}?essential=1&amp;mode=practice#formulation-results">Pratiquer les essentiels</a>
-  </section>
 
-  <details class="formulation-directory"{% if not filters %} open{% endif %}>
-    <summary>Choisir une fonction ou un thème</summary>
-    {% for group in groups %}
-      <section aria-labelledby="formulation-group-{{ forloop.counter }}">
-        <h2 id="formulation-group-{{ forloop.counter }}">{{ group.title }}</h2>
-        <div class="formulation-category-grid">
-          {% for item in group.items %}
-            <a class="card formulation-category{% if filters.category == item.category.slug %} is-active{% endif %}" href="{{ item.url }}#formulation-results">
-              <strong>{{ item.category.title }}</strong>
-              <span>{{ item.category.description }}</span>
-              <small>{{ item.completed }}/{{ item.count }} apprises</small>
-            </a>
-          {% endfor %}
-        </div>
-      </section>
-    {% endfor %}
-  </details>
-
-  <form class="card formulation-filters" method="get" action="{% url 'study:ee_formulations' %}#formulation-results" role="search" aria-label="Filtrer les formulations">
+  <form class="card formulation-filters" method="get" action="{{ return_url }}#formulation-results" role="search" aria-label="Filtrer cette subdivision">
     <div class="formulation-filter-field">
-      <label for="formulation-query">Rechercher</label>
+      <label for="formulation-query">Rechercher sur cette page</label>
       <input id="formulation-query" type="search" name="q" value="{{ filters.q }}" maxlength="200" placeholder="Ex. prévention, opposition…">
-    </div>
-    <div class="formulation-filter-field">
-      <label for="formulation-category">Catégorie</label>
-      <select id="formulation-category" name="category">
-        <option value="">Toutes les catégories</option>
-        {% for category in categories %}<option value="{{ category.slug }}"{% if filters.category == category.slug %} selected{% endif %}>{{ category.title }}</option>{% endfor %}
-      </select>
-    </div>
-    <div class="formulation-filter-field">
-      <label for="formulation-theme">Thème d’application</label>
-      <select id="formulation-theme" name="theme">
-        <option value="">Tous les thèmes</option>
-        {% for theme in themes %}<option value="{{ theme.slug }}"{% if filters.theme == theme.slug %} selected{% endif %}>{{ theme.title }}</option>{% endfor %}
-      </select>
     </div>
     <div class="formulation-filter-field">
       <label for="formulation-status">Progression</label>
@@ -64,16 +31,15 @@
         <option value="learned"{% if filters.status == "learned" %} selected{% endif %}>Apprises</option>
       </select>
     </div>
-    <label class="formulation-essential"><input type="checkbox" name="essential" value="1"{% if filters.essential %} checked{% endif %}> Essentiels seulement</label>
     <button class="btn btn--primary" type="submit">Filtrer</button>
-    <a class="btn" href="{% url 'study:ee_formulations' %}#formulation-results">Réinitialiser</a>
+    <a class="btn" href="{{ return_url }}#formulation-results">Réinitialiser</a>
   </form>
 
   <section id="formulation-results" aria-labelledby="formulation-results-title">
     <div class="section-heading">
-      <h2 id="formulation-results-title">{{ result_count }} formulation{{ result_count|pluralize }} sélectionnée{{ result_count|pluralize }}</h2>
+      <h2 id="formulation-results-title">{{ result_count }} formulation{{ result_count|pluralize }}</h2>
       {% if rows %}
-        {% if practice %}<a class="btn" href="{{ browse_url }}#formulation-results">Retour à la liste</a>{% else %}<a class="btn" href="{{ practice_url }}#formulation-results">Pratiquer cette sélection</a>{% endif %}
+        {% if practice %}<a class="btn" href="{{ browse_url }}#formulation-results">Retour à la liste</a>{% else %}<a class="btn" href="{{ practice_url }}#formulation-results">Pratiquer cette subdivision</a>{% endif %}
       {% endif %}
     </div>
     <p class="muted">« Apprise » signifie : je peux reproduire cette construction et l’adapter. Ce n’est ni une note automatique ni une réponse complète à mémoriser.</p>
@@ -123,7 +89,7 @@
         {% endfor %}
       </ol>
     {% else %}
-      <div class="card formulation-empty"><h3>Aucune formulation dans cette sélection</h3><p>Modifiez les filtres ou retrouvez toutes les formulations.</p><a class="btn" href="{% url 'study:ee_formulations' %}">Réinitialiser les filtres</a></div>
+      <div class="card formulation-empty"><h3>Aucune formulation dans cette sélection</h3><p>Modifiez les filtres ou revenez à toutes les formulations de cette subdivision.</p><a class="btn" href="{{ return_url }}">Réinitialiser les filtres</a></div>
     {% endif %}
   </section>
 </div>

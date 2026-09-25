@@ -31,14 +31,26 @@ class FormulationExperienceTests(TestCase):
         self.addCleanup(self.mocks.close)
         self.client.force_login(self.user)
         self.url = reverse("study:ee_formulations")
+        self.essentials_url = reverse("study:ee_formulation_essentials")
+        self.function_url = reverse(
+            "study:ee_formulation_function", args=["affirmation"],
+        )
+        self.search_url = reverse("study:ee_formulation_search")
 
-    def test_list_first_complete_teaching_and_scoped_source(self):
+    def test_nested_tables_open_clear_subdivision_pages(self):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'class="formulation-directory-tables"')
+        self.assertContains(response, "<table", count=2)
+        self.assertContains(response, "Essentiels")
+        self.assertContains(response, "Thèmes")
+        self.assertContains(response, self.function_url)
+        self.assertNotContains(response, 'class="formulation-list"')
+
+        response = self.client.get(self.function_url)
         self.assertContains(response, 'class="formulation-list"')
         self.assertNotContains(response, "data-formulation-practice")
-        self.assertContains(response, "Fonctions d’écriture")
-        self.assertContains(response, "Arguments par thème")
+        self.assertContains(response, "Essentiels · Fonction d’écriture")
         self.assertContains(response, "Sens en anglais")
         self.assertContains(response, "Construction et grammaire")
         self.assertContains(response, "Exemple du modèle de référence")
@@ -50,17 +62,17 @@ class FormulationExperienceTests(TestCase):
         self.assertNotContains(response, 'name="transfer_response"')
 
     def test_all_themes_and_accent_insensitive_search(self):
-        for theme in THEMES:
-            response = self.client.get(self.url, {"theme": theme, "q": "PREVENTION"})
-            self.assertEqual(response.context["result_count"], 1)
-            self.assertEqual(response.context["rows"][0]["entry"].themes, (theme,))
-        response = self.client.get(self.url, {"essential": "1", "category": "affirmation"})
+        response = self.client.get(self.search_url, {"q": "PREVENTION"})
+        self.assertEqual(response.context["result_count"], len(self.catalog.entries))
+        response = self.client.get(self.essentials_url)
         self.assertEqual(response.context["result_count"], 2)
-        response = self.client.get(self.url, {"q": "not-a-real-search"})
+        response = self.client.get(self.function_url)
+        self.assertEqual(response.context["result_count"], 2)
+        response = self.client.get(self.search_url, {"q": "not-a-real-search"})
         self.assertContains(response, "Aucune formulation dans cette sélection")
         self.assertContains(response, "Réinitialiser les filtres")
         for query in ("improves health", "Adaptez cette construction"):
-            response = self.client.get(self.url, {"q": query})
+            response = self.client.get(self.search_url, {"q": query})
             self.assertEqual(response.context["result_count"], len(self.catalog.entries))
 
     def test_filter_ids_duplicates_and_open_redirects(self):
@@ -85,17 +97,20 @@ class FormulationExperienceTests(TestCase):
         )
         self.assertEqual(formulation_progress(self.user)[1].completed, 0)
         params = {
-            "completed": "1", "q": "prévention", "theme": "education",
-            "category": "affirmation", "status": "new", "essential": "1",
-            "mode": "practice", "entry": "cadre-0",
+            "completed": "1", "q": "prévention", "status": "new",
+            "mode": "practice", "entry": "cadre-0", "next": self.function_url,
         }
         url = reverse("study:ee_formulation_progress", args=["cadre-0"])
         self.assertEqual(self.client.get(url).status_code, 405)
         result = self.client.post(url, params)
-        expected = {key: [value] for key, value in params.items() if key != "completed"}
+        expected = {
+            key: [value] for key, value in params.items()
+            if key not in {"completed", "next"}
+        }
+        self.assertEqual(urlsplit(result.url).path, self.function_url)
         self.assertEqual(parse_qs(urlsplit(result.url).query), expected)
         self.assertEqual(formulation_progress(self.user)[1].completed, 1)
-        self.assertEqual(self.client.get(result.url).context["result_count"], 0)
+        self.assertEqual(self.client.get(result.url).context["result_count"], 1)
         self.client.post(url, {"completed": "0"})
         self.assertEqual(formulation_progress(self.user)[1].completed, 0)
         self.assertTrue(MemoryQuestionProgress.objects.filter(pk=legacy.pk).exists())
@@ -104,7 +119,7 @@ class FormulationExperienceTests(TestCase):
         self.assertEqual(self.client.post(url + "?next=bad", {"completed": ["0", "1"]}).status_code, 400)
 
     def test_explicit_practice_reveals_and_preserves_selection(self):
-        response = self.client.get(self.url, {"essential": "1", "mode": "practice"})
+        response = self.client.get(self.essentials_url, {"mode": "practice"})
         self.assertContains(response, "data-formulation-practice")
         self.assertContains(response, "Révéler la formulation et l’exemple")
         self.assertContains(response, "data-flashcard-controls")
@@ -118,7 +133,7 @@ class FormulationExperienceTests(TestCase):
 
     def test_sources_are_batched_and_never_link_to_other_task(self):
         with CaptureQueriesContext(connection) as queries:
-            self.client.get(self.url)
+            self.client.get(self.function_url)
         source_queries = [
             query["sql"] for query in queries
             if 'FROM "study_prompt"' in query["sql"]
@@ -127,7 +142,7 @@ class FormulationExperienceTests(TestCase):
         self.assertEqual(len(source_queries), 1)
         self.theme.task = factories.make_task(factories.make_part("eo"))
         self.theme.save()
-        response = self.client.get(self.url)
+        response = self.client.get(self.function_url)
         self.assertTrue(all(not row["source_url"] for row in response.context["rows"]))
 
     def test_rollups_use_new_namespace_not_archived_memory(self):
@@ -153,7 +168,9 @@ class FormulationExperienceTests(TestCase):
             response = self.client.get(reverse("study:task_vocabulary_theme", args=[
                 "ee", "tache-3", "ee-tache-3-" + theme,
             ]))
-            self.assertEqual(response.url, self.url + "?theme=" + theme)
+            self.assertEqual(response.url, reverse(
+                "study:ee_formulation_theme", args=[theme],
+            ))
         for number in range(1, 5):
             response = self.client.get(reverse("study:task_memory_detail", args=["ee", "tache-3", number]))
             self.assertRedirects(response, self.url, fetch_redirect_response=False)
@@ -164,6 +181,17 @@ class FormulationExperienceTests(TestCase):
                 self.assertRedirects(response, self.url, fetch_redirect_response=False)
         self.assertFalse(MemoryQuestionProgress.objects.filter(user=self.user).exists())
         self.assertNotContains(self.client.get(self.url), "archives")
+
+    def test_directory_progress_updates_after_learning(self):
+        response = self.client.get(self.url)
+        self.assertContains(response, "0/2")
+        self.client.post(
+            reverse("study:ee_formulation_progress", args=["cadre-0"]),
+            {"completed": "1", "next": self.function_url},
+        )
+        response = self.client.get(self.url)
+        self.assertContains(response, "1/2")
+        self.assertContains(response, "1/11 apprises")
 
 
 class VocabularyRetirementTests(TestCase):

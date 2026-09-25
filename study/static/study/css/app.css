@@ -2,27 +2,114 @@
    Heureux — design system
    ========================================================================== */
 
-/* Reusable, list-first formulation lessons and their optional recall view. */
+/* Nested formulation directory, focused lessons and optional recall view. */
 .formulations-page { max-width: 1100px; margin-inline: auto; }
 .formulations-page > * + * { margin-top: 1.5rem; }
-.formulation-start, .formulation-empty { padding: 1.25rem; }
-.formulation-start .btn { margin-top: .5rem; }
-.formulation-directory summary,
+.formulation-empty { padding: 1.25rem; }
+.formulation-directory-search {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: .75rem;
+  padding: 1rem;
+}
+.formulation-directory-search label { grid-column: 1 / -1; font-weight: 700; }
+.formulation-directory-search input { width: 100%; min-width: 0; }
+.formulation-directory-tables { display: grid; gap: 1rem; }
+.formulation-directory-table { padding: 0 1rem 1rem; overflow: hidden; }
+.formulation-directory-table > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  padding: 1rem 0;
+  color: var(--text);
+}
+.formulation-directory-table > summary > span:first-child {
+  display: grid;
+  gap: .25rem;
+  min-width: 0;
+}
+.formulation-directory-table > summary strong { font-size: 1.2rem; }
+.formulation-directory-table > summary small { color: var(--muted); font-weight: 400; }
+.formulation-directory-table[open] > summary {
+  color: var(--task-accent, var(--primary));
+}
+.formulation-table-scroll { margin-bottom: 1rem; }
+.formulation-subdivision-table { table-layout: fixed; }
+.formulation-subdivision-table thead th:first-child { width: 29%; }
+.formulation-subdivision-table thead th:last-child { width: 14.5rem; }
+.formulation-directory-table .t1-table__subject {
+  color: var(--text);
+  font-weight: 700;
+}
+.formulation-directory-table .t1-table__subject a {
+  color: var(--task-accent, var(--primary));
+  font-weight: 700;
+}
+.formulation-directory-table .t1-table__versions {
+  text-align: left;
+  color: var(--text-soft);
+}
+.formulation-directory-table td small { display: block; color: var(--muted); margin-top: .2rem; }
+.formulation-subdivision-title { display: flex; align-items: center; gap: .65rem; }
+.formulation-subdivision-icon {
+  display: inline-grid;
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--task-accent, var(--primary)) 12%, var(--surface-2));
+  color: var(--task-accent, var(--primary));
+}
+.formulation-subdivision-icon .ui-icon { width: 1rem; height: 1rem; }
+.formulation-directory-table .t1-table__progress {
+  justify-content: flex-end;
+  gap: .55rem;
+}
+.formulation-progress-count {
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.formulation-directory-table .subject-collection__arrow {
+  background: var(--primary-soft);
+  color: var(--task-accent, var(--primary));
+}
 .formulation-row summary { cursor: pointer; font-weight: 700; padding-block: .75rem; }
-.formulation-category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: .75rem; }
-.formulation-category { display: grid; gap: .4rem; padding: 1rem; color: inherit; text-decoration: none; }
-.formulation-category span { font-size: .9rem; }
-.formulation-category small { color: var(--muted); }
-.formulation-category.is-active { outline: 2px solid currentColor; }
 .formulation-filters { display: flex; align-items: end; flex-wrap: wrap; gap: .75rem; padding: 1rem; }
 .formulation-filter-field { display: grid; gap: .35rem; flex: 1 1 180px; min-width: 0; }
 .formulation-filters input, .formulation-filters select { width: 100%; min-width: 0; }
 .formulation-filters .formulation-essential { display: flex; align-items: center; flex-basis: 100%; }
 .formulation-essential input { width: auto; }
 .formulation-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
-.formulation-row { padding: 1.25rem; min-width: 0; overflow-wrap: anywhere; }
+.formulation-row {
+  padding: 1.25rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  border-left: 3px solid color-mix(in srgb, var(--task-accent, var(--primary)) 55%, var(--border));
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--task-accent, var(--primary)) 5%, var(--surface)),
+    var(--surface) 34%
+  );
+}
+.formulation-row:hover {
+  border-color: color-mix(in srgb, var(--task-accent, var(--primary)) 58%, var(--border));
+  box-shadow: var(--card-shadow-hover);
+}
 .formulation-row__heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .5rem; }
-.formulation-french { font-size: 1.2rem; line-height: 1.65; }
+.formulation-french {
+  margin-block: .8rem;
+  padding: .8rem 1rem;
+  border-radius: var(--radius-sm);
+  background: color-mix(in srgb, var(--task-accent, var(--primary)) 7%, var(--surface-2));
+  color: var(--text);
+  font-size: 1.2rem;
+  line-height: 1.65;
+}
 .formulation-teaching { display: grid; gap: .5rem; }
 .formulation-teaching dt { font-weight: 700; margin-top: .6rem; }
 .formulation-teaching dd { margin: 0; }
@@ -33,7 +120,18 @@
 .formulations-page [hidden] { display: none !important; }
 .formulations-page [data-flashcard-card] { touch-action: pan-y; }
 @media (max-width: 600px) {
-  .formulation-row, .formulation-start { padding: 1rem; }
+  .formulation-row { padding: 1rem; }
+  .formulation-directory-search { grid-template-columns: 1fr; }
+  .formulation-directory-search label { grid-column: auto; }
+  .formulation-directory-table th:nth-child(2),
+  .formulation-directory-table td:nth-child(2) { display: none; }
+  .formulation-subdivision-table thead th:first-child { width: 58%; }
+  .formulation-subdivision-table thead th:last-child { width: 42%; }
+  .formulation-directory-table .progress-status { font-size: 0; padding: .35rem; }
+  .formulation-directory-table .progress-status::before { margin: 0; }
+  .formulation-directory-table .subject-collection__arrow { display: none; }
+  .formulation-subdivision-title { gap: .45rem; }
+  .formulation-subdivision-icon { width: 1.65rem; height: 1.65rem; }
   .formulation-filter-field { flex-basis: 100%; }
   .formulations-page .section-heading { flex-wrap: wrap; }
 }

@@ -352,6 +352,30 @@ urlpatterns = [
         name="ee_formulations",
     ),
     path(
+        "expression/ecrite/tache-3/formulations/recherche/",
+        formulations.formulation_collection,
+        {"kind": "search"},
+        name="ee_formulation_search",
+    ),
+    path(
+        "expression/ecrite/tache-3/formulations/essentiels/",
+        formulations.formulation_collection,
+        {"kind": "essentials"},
+        name="ee_formulation_essentials",
+    ),
+    path(
+        "expression/ecrite/tache-3/formulations/essentiels/<slug:slug>/",
+        formulations.formulation_collection,
+        {"kind": "function"},
+        name="ee_formulation_function",
+    ),
+    path(
+        "expression/ecrite/tache-3/formulations/themes/<slug:slug>/",
+        formulations.formulation_collection,
+        {"kind": "theme"},
+        name="ee_formulation_theme",
+    ),
+    path(
         "expression/ecrite/tache-3/formulations/progression/<slug:slug>/",
         formulations.formulation_learned,
         name="ee_formulation_progress",

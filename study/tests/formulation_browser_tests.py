@@ -65,7 +65,10 @@ class FormulationBrowserTests(StaticLiveServerTestCase):
         page = context.new_page()
         errors = []
         page.on("pageerror", lambda error: errors.append(str(error)))
-        page.goto(self.url + "?essential=1")
+        page.goto(self.url)
+        expect(page.locator(".formulation-directory-table")).to_have_count(2)
+        expect(page.locator(".formulation-list")).to_have_count(0)
+        page.get_by_role("link", name="Affirmation", exact=True).click()
         expect(page.locator(".formulation-list")).to_be_visible()
         expect(page.locator("[data-formulation-practice]")).to_have_count(0)
         page.locator("[data-prompt-copy]").first.click()
@@ -76,7 +79,7 @@ class FormulationBrowserTests(StaticLiveServerTestCase):
                 "document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1"
             ))
         page.set_viewport_size({"width": 390, "height": 844})
-        page.get_by_role("link", name="Pratiquer cette sélection").click()
+        page.get_by_role("link", name="Pratiquer cette subdivision").click()
         expect(page.locator("[data-flashcard-front]")).to_be_visible()
         expect(page.locator("[data-flashcard-back]")).to_be_hidden()
         page.locator("[data-flashcard-card]").focus()
@@ -98,17 +101,18 @@ class FormulationBrowserTests(StaticLiveServerTestCase):
 
     def test_no_javascript_filters_disclosure_progress_and_next(self):
         page = self.context(javascript=False).new_page()
-        page.goto(self.url)
+        page.goto(
+            self.live_server_url
+            + reverse("study:ee_formulation_function", args=["affirmation"])
+        )
         page.get_by_role("searchbox", name="Rechercher").fill("PREVENTION")
-        page.get_by_label("Catégorie", exact=True).select_option("affirmation")
         page.get_by_role("button", name="Filtrer", exact=True).click()
-        expect(page.locator("#formulation-results-title")).to_have_text("2 formulations sélectionnées")
-        page.get_by_role("link", name="Pratiquer cette sélection").click()
+        expect(page.locator("#formulation-results-title")).to_have_text("2 formulations")
+        page.get_by_role("link", name="Pratiquer cette subdivision").click()
         expect(page.locator("[data-flashcard-back]")).to_be_hidden()
         page.get_by_text("Révéler la formulation et l’exemple", exact=True).click()
         expect(page.locator("[data-flashcard-back]")).to_be_visible()
         page.get_by_role("button", name="Je sais reproduire et adapter", exact=False).click()
-        self.assertIn("category=affirmation", page.url)
         self.assertIn("q=PREVENTION", page.url)
         expect(page.get_by_role("button", name="Remettre à apprendre", exact=False)).to_be_visible()
         page.get_by_role("link", name="Suivante", exact=True).click()

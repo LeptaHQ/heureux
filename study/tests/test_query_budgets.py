@@ -283,7 +283,7 @@ class EePageBudgetTests(QueryBudgetTestCase):
             if tache == 3:
                 pages["t3-formulations"] = reverse("study:ee_formulations")
                 pages["t3-formulations-practice"] = (
-                    reverse("study:ee_formulations") + "?essential=1&mode=practice"
+                    reverse("study:ee_formulation_essentials") + "?mode=practice"
                 )
                 continue
             pages[f"t{tache}-vocabulary"] = reverse(

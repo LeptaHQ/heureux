@@ -14,6 +14,7 @@ from ..progress import combine_progress
 
 from .helpers import expression_task_summaries
 
+
 def _parts_with_task_summaries(now, user):
     """Every expression part with the light per-task rows the hub renders.
 

@@ -1,4 +1,4 @@
-# EE — Tâche 3 — 2025 (sujets, réponses, formulations, archives)
+# EE — Tâche 3 — 2025 (sujets, réponses, formulations)
 
 Contenu d'entraînement pour l'**Expression écrite (EE), Tâche 3**.
 Ce dossier regroupe les **sujets sources** et l'ensemble des **réponses modèles**,
@@ -112,11 +112,11 @@ clé pour une autre cible. Les marques apprises et annotations historiques ne
 sont ni copiées ni réattribuées. Modifier l'ordre ou la catégorie d'une même
 cible n'exige pas une nouvelle clé.
 
-Les quatre fichiers `memoires/memoire_<Q>.json` restent **octet pour octet
-inchangés**. Leurs espaces de clés, les réponses, documents sources, identités
-de vocabulaire, racines d'annotation et règles d'import restent indépendants
-de ce nouveau catalogue. Les anciens mémoires sont des archives de compatibilité,
-pas la source des nouvelles fiches.
+Les réponses, documents sources et règles d'import restent indépendants de ce
+nouveau catalogue. Les anciennes URL de mémoires redirigent vers les Formulations :
+aucune interface d'archive ni prise en charge spéciale des anciennes notes ou des
+surlignages n'est ajoutée. Les fichiers historiques ne servent pas de source aux
+nouvelles fiches ; cette évolution ne nécessite pas de migration de suppression.
 
 **Vocabulaire** — `vocabulary/<mois>.json`
 - **30 entrées par réponse**, capturant la langue la plus réutilisable (connecteurs,
@@ -148,7 +148,9 @@ pas la source des nouvelles fiches.
 *Février 2025 : aucune page publiée sur la source.*
 
 Après regroupement des republications (`equivalent_groups.json`), l'application expose
-**78 réponses distinctes** pour **138 sujets datés** et **2 340 entrées de vocabulaire**.
+**78 réponses distinctes** pour **138 sujets datés**, accompagnées des **152
+formulations**. Les **2 340 entrées de vocabulaire** importées ne font plus partie
+du parcours actif EE3.
 
 | Mois | Sujets/Réponses | Vocab (30×) |
 |---|---|---|

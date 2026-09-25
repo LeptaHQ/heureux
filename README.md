@@ -60,17 +60,14 @@ editorial adaptations, not quotations. Examples refer to the bundled reference
 corpus, not live summaries of edited or personal answers. Source revisions must
 keep the evidence current, and workers must restart after catalogue changes.
 
-New completion keys use `formulation:ee3:v1:<slug>` and never inherit unrelated
-vocabulary or old memory completion. Materially changing a learning target requires
-a new slug. The old `/memoires/` directory redirects to Formulations; numbered
-memory pages remain an archive with their original text, keys and highlight
-coordinates.
+New completion keys use `formulation:ee3:v1:<slug>`. Materially changing a
+learning target requires a new slug. Old EE3 memory URLs redirect to Formulations;
+there is no legacy memory interface or special note/highlight compatibility layer.
 
-EE3 vocabulary is retired from active navigation and learning queues. This is a
-read-time exclusion, not a destructive import: historical phrases, schedules,
-review logs, explicit learned marks and annotations remain stored. Phrases still
-owned by another active task remain available there. Old EE3 vocabulary collection
-links lead to Formulations; other tasks retain their existing vocabulary features.
+EE3 vocabulary is removed from active navigation and learning queues. This is a
+read-time exclusion with no data-deletion migration. Phrases still owned by another
+active task remain available there. Old EE3 vocabulary collection links lead to
+Formulations; other tasks retain their existing vocabulary features.
 
 ## Subject pistes and oral equivalence
 
@@ -176,10 +173,6 @@ so workers using the pre-upgrade ORM can finish inserts during replacement.
   separately from subject and note listings. Study/review sessions retain their
   flashcard behavior. Selecting a guided lot opens its entries in table view;
   a separate practice action starts that lot's available review cards.
-- Archived EE Tâche 3 mémoire translations remain alongside French formulations.
-  English display text is excluded from existing French highlight coordinates;
-  approved French corrections retain the original learned-item identities.
-  Do not regenerate completion keys from translated or corrected display text.
 - Subject progress filters highlight candidates before transferring rows to Python.
   Existing source-key and URL parsers remain the final matching authority; batching
   keeps larger requests within database parameter limits.

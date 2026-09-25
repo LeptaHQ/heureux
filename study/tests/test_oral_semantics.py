@@ -9,6 +9,7 @@ from django.core.management import call_command
 from django.db import connection, transaction
 from django.db.migrations.executor import MigrationExecutor
 from django.test import RequestFactory, SimpleTestCase, TestCase
+from django.test.utils import CaptureQueriesContext
 from django.urls import NoReverseMatch, Resolver404, resolve, reverse
 from django.utils import timezone
 
@@ -491,7 +492,16 @@ class OralImportPreservationTests(TestCase):
             response_data(original, key=alias.content_key, members=[alias], group="eo/tache-3/split"),
         ])
         self.assertEqual(Annotation.objects.values().get(pk=annotation.pk), original_annotation)
-        self.assertEqual(annotation_owners([annotation])[annotation.pk], mapping[alias.content_key].pk)
+        with CaptureQueriesContext(connection) as queries:
+            owner_id = annotation_owners([annotation])[annotation.pk]
+        self.assertEqual(owner_id, mapping[alias.content_key].pk)
+        selected_columns = "\n".join(
+            query["sql"].partition(" FROM ")[0]
+            for query in queries
+            if query["sql"].lstrip().upper().startswith("SELECT")
+        )
+        self.assertNotIn('"study_prompt"."model_content"', selected_columns)
+        self.assertNotIn('"study_response"."body_html"', selected_columns)
         progress = subject_progress_by_response(self.users[0], [row.pk for row in mapping.values()])
         self.assertFalse(progress[original.pk].has_highlight)
         self.assertTrue(progress[mapping[alias.content_key].pk].has_highlight)

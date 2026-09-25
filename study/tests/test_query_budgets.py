@@ -179,6 +179,32 @@ class ExpressionPageBudgetTests(QueryBudgetTestCase):
         self._add_theme("deduplicated-extra-theme")
         self.assertEqual(self._query_count(url), before)
 
+    def test_subject_lists_do_not_select_large_prompt_payloads(self):
+        urls = (
+            self._pages()["browse"],
+            reverse(
+                "study:task_search",
+                args=[self.part.slug, self.task.slug],
+            )
+            + "?q=test",
+        )
+        for url in urls:
+            with self.subTest(url=url):
+                _response, queries = self._queries(url)
+                selected_columns = "\n".join(
+                    query["sql"].partition(" FROM ")[0]
+                    for query in queries
+                    if query["sql"].lstrip().upper().startswith("SELECT")
+                )
+                self.assertNotIn(
+                    '"study_prompt"."model_content"',
+                    selected_columns,
+                )
+                self.assertNotIn(
+                    '"study_response"."body_html"',
+                    selected_columns,
+                )
+
     def test_query_count_does_not_grow_with_more_tasks(self):
         pages = self._pages()
         before = {key: self._query_count(url) for key, url in pages.items()}
@@ -324,6 +350,32 @@ class EePageBudgetTests(QueryBudgetTestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.headers["Content-Encoding"], "gzip")
         self.assertLess(len(response.content), 200_000)
+
+    def test_subject_directories_do_not_select_full_content_payloads(self):
+        for tache, task in self.tasks.items():
+            with self.subTest(tache=tache):
+                url = reverse(
+                    "study:task_browse",
+                    args=[task.part.slug, task.slug],
+                )
+                _response, queries = self._queries(url)
+                selected_columns = "\n".join(
+                    query["sql"].partition(" FROM ")[0]
+                    for query in queries
+                    if query["sql"].lstrip().upper().startswith("SELECT")
+                )
+                self.assertNotIn(
+                    '"study_prompt"."model_content"',
+                    selected_columns,
+                )
+                self.assertNotIn(
+                    '"study_response"."body_html"',
+                    selected_columns,
+                )
+                self.assertNotIn(
+                    '"study_writingsujet"."versions"',
+                    selected_columns,
+                )
 
     def test_writing_progress_limits_highlights_to_the_current_task(self):
         url = reverse(

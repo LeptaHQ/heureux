@@ -29,6 +29,17 @@ def model_version_keys(models):
     return keys
 
 
+def active_model_version_count(models, overrides):
+    """Count visible shared versions without loading their database JSON."""
+    return sum(
+        not (
+            (override := overrides.get(key)) is not None
+            and override.is_deleted
+        )
+        for key in model_version_keys(models)
+    )
+
+
 def writing_model_versions(sujet, overrides):
     versions = []
     models = sujet.model_versions

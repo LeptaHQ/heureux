@@ -41,6 +41,7 @@ from ..progress import (
     writing_sujet_id_from_source_key,
     writing_sujet_progress_by_id,
 )
+from ..querysets import lean_prompt_rows
 from ..routing import prompt_detail_url
 from ..templatetags.study_markdown import render_markdown
 
@@ -1125,14 +1126,22 @@ def _annotation_prompt_scope(prompt):
     if prompt.response.semantic_group:
         path = prompt_detail_url(prompt)
         return path, Q(source_path=path) | Q(source_path__startswith=f"{path}?")
-    canonical = prompt.response.canonical_prompt or prompt
+    siblings = list(
+        lean_prompt_rows(
+            prompt.response.prompts.filter(
+                is_active=True,
+                theme__task__isnull=False,
+            ).select_related("theme__task__part")
+        )
+    )
+    canonical = next(
+        (sibling for sibling in siblings if sibling.is_canonical),
+        prompt,
+    )
     canonical_path = prompt_detail_url(canonical)
     sibling_paths = [
         prompt_detail_url(sibling)
-        for sibling in prompt.response.prompts.filter(
-            is_active=True,
-            theme__task__isnull=False,
-        ).select_related("theme__task__part")
+        for sibling in siblings
     ]
     source_filter = Q(source_path=canonical_path) | Q(
         source_path__startswith=f"{canonical_path}?"
@@ -1158,7 +1167,7 @@ def _annotation_writing_sujet_scope(sujet, tache, *, prefer_edit=False):
             task=sujet.task,
             slug__in=sibling_slugs,
             is_active=True,
-        ).order_by("order", "pk")
+        ).only("pk", "slug", "task_id").order_by("order", "pk")
     )
     canonical = next(
         (item for item in siblings if item.slug == canonical_slug),
@@ -1197,16 +1206,18 @@ def _annotation_source_scope(source_path):
     match = SUBJECT_SOURCE_PATH_RE.fullmatch(base_path)
     if match:
         prompt = (
-            Prompt.objects.filter(
-                pk=match.group("prompt_id"),
-                is_active=True,
-                response__is_active=True,
-                theme__task__part__slug=EXPRESSION_PART_BY_PATH[
-                    match.group("part")
-                ],
-                theme__task__slug=match.group("task"),
+            lean_prompt_rows(
+                Prompt.objects.filter(
+                    pk=match.group("prompt_id"),
+                    is_active=True,
+                    response__is_active=True,
+                    theme__task__part__slug=EXPRESSION_PART_BY_PATH[
+                        match.group("part")
+                    ],
+                    theme__task__slug=match.group("task"),
+                ).select_related("response", "theme__task__part"),
+                with_response=True,
             )
-            .select_related("response")
             .first()
         )
         if prompt is not None:
@@ -1228,6 +1239,7 @@ def _annotation_source_scope(source_path):
                     task__slug=task_slug,
                 )
                 .select_related("task__part")
+                .defer("prompt", "versions")
                 .first()
             )
             if sujet is not None:
@@ -1239,20 +1251,22 @@ def _annotation_source_scope(source_path):
     tache_two_match = TACHE_TWO_SUBJECT_PATH_RE.fullmatch(base_path)
     if tache_two_match:
         prompt = (
-            Prompt.objects.filter(
-                content_key=content_module.tache_two_subject_content_key(
-                    tache_two_match.group("month"),
-                    int(tache_two_match.group("batch")),
-                    int(tache_two_match.group("subject")),
-                ),
-                is_active=True,
-                response__is_active=True,
-                theme__task__part__slug=EXPRESSION_PART_BY_PATH[
-                    tache_two_match.group("part")
-                ],
-                theme__task__slug=tache_two_match.group("task"),
+            lean_prompt_rows(
+                Prompt.objects.filter(
+                    content_key=content_module.tache_two_subject_content_key(
+                        tache_two_match.group("month"),
+                        int(tache_two_match.group("batch")),
+                        int(tache_two_match.group("subject")),
+                    ),
+                    is_active=True,
+                    response__is_active=True,
+                    theme__task__part__slug=EXPRESSION_PART_BY_PATH[
+                        tache_two_match.group("part")
+                    ],
+                    theme__task__slug=tache_two_match.group("task"),
+                ).select_related("response", "theme__task__part"),
+                with_response=True,
             )
-            .select_related("response")
             .first()
         )
         if prompt is not None:

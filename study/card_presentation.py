@@ -9,6 +9,7 @@ from __future__ import annotations
 from django.http import Http404
 
 from .models import Card, CardType, PhraseTier
+from .querysets import lean_prompt_rows
 from .response_personalization import effective_response
 from .routing import prompt_detail_url, response_detail_url
 
@@ -53,6 +54,7 @@ def scope_label(scope: dict) -> str:
         ExamPart,
         Family,
         PhraseCategory,
+        Prompt,
         Response,
         Task,
         Theme,
@@ -112,10 +114,23 @@ def scope_label(scope: dict) -> str:
         if test:
             return with_batch(f"Vocabulaire · {test.title}")
     if scope.get("response"):
-        response = Response.objects.select_related("theme").filter(
-            pk=scope["response"],
-            is_active=True,
-        ).first()
+        response = (
+            Response.objects.select_related("theme__task__part")
+            .only(
+                "pk",
+                "theme_id",
+                "theme__display_name",
+                "theme__task_id",
+                "theme__task__slug",
+                "theme__task__part_id",
+                "theme__task__part__slug",
+            )
+            .filter(
+                pk=scope["response"],
+                is_active=True,
+            )
+            .first()
+        )
         if response:
             task = response.theme.task
             tache_two = (
@@ -131,7 +146,16 @@ def scope_label(scope: dict) -> str:
                 deck_name = "Réponse"
             else:
                 deck_name = "Expressions"
-            subject_number = response.canonical_prompt.number
+            subject_number = (
+                Prompt.objects.filter(
+                    response=response,
+                    is_active=True,
+                    is_canonical=True,
+                )
+                .order_by("theme__order", "number", "pk")
+                .values_list("number", flat=True)
+                .first()
+            )
             number_label = (
                 f"Sujet {subject_number}"
                 if tache_two
@@ -234,7 +258,9 @@ def _spine_payload(card: Card, *, prompt=None, model_only=False, personal=None) 
     )
     aliases = [
         prompt
-        for prompt in response.prompts.filter(is_active=True)
+        for prompt in lean_prompt_rows(
+            response.prompts.filter(is_active=True)
+        )
         if canonical is None or prompt.pk != canonical.pk
     ]
     display_theme = canonical.theme if canonical is not None else response.theme

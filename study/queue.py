@@ -117,6 +117,10 @@ def scoped_cards(
             "response__family",
             "phrase__category",
         )
+        .defer(
+            "response__semantic_rationale",
+            "phrase__sources_raw",
+        )
     )
     scope = scope or {}
     kind = scope.get("kind")

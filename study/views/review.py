@@ -29,6 +29,7 @@ from ..models import (
     Theme,
 )
 from ..progress import mark_card_started, subject_progress_by_response
+from ..querysets import lean_prompt_rows
 from ..retirement import is_retired_vocabulary_scope
 from ..routing import (
     comprehension_vocabulary_url,
@@ -825,11 +826,13 @@ def _canonical_prompts_by_response(response_ids) -> dict:
     if not ids:
         return {}
     prompts = {}
-    for prompt in Prompt.objects.filter(
-        response_id__in=ids,
-        is_active=True,
-        is_canonical=True,
-    ).select_related("theme__task__part"):
+    for prompt in lean_prompt_rows(
+        Prompt.objects.filter(
+            response_id__in=ids,
+            is_active=True,
+            is_canonical=True,
+        ).select_related("theme__task__part")
+    ):
         prompts.setdefault(prompt.response_id, prompt)
     return prompts
 

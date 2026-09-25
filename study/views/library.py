@@ -78,6 +78,10 @@ from ..progress import (
     summarize_subject_progress,
     writing_sujet_progress_by_id,
 )
+from ..querysets import (
+    lean_phrase_rows,
+    lean_prompt_rows as _lean_prompt_rows,
+)
 from ..routing import (
     comprehension_skill,
     comprehension_vocabulary_url,
@@ -86,6 +90,7 @@ from ..routing import (
     vocabulary_url,
 )
 from ..writing_responses import (
+    active_model_version_count,
     overrides_by_sujet,
     writing_model_versions,
     writing_version_edit_url,
@@ -114,6 +119,20 @@ from .helpers import (
     review_batches_from_rows,
     summarize_review_batches,
 )
+
+
+def _source_writing_models(source):
+    """Return the source-controlled JSON shape stored on WritingSujet."""
+    return [
+        (
+            {"body": version.body, "origin": version.origin}
+            if source.source_key
+            else {"body": version.body}
+        )
+        for version in source.versions
+    ]
+
+
 def _prompt_response_ids_by_theme(themes):
     response_ids_by_theme = {theme.pk: set() for theme in themes}
     prompt_counts = {theme.pk: 0 for theme in themes}
@@ -236,12 +255,12 @@ def _task_subject_vocabulary_context(
         .values_list("pk", "vocabulary_count")
     )
     prompts = list(
-        Prompt.objects.filter(
-            **prompt_filters,
-            pk__in=vocabulary_counts,
-        )
-        .select_related("theme__task__part", "family", "response")
-        .order_by("theme__order", "number", "pk")
+        _lean_prompt_rows(
+            Prompt.objects.filter(
+                **prompt_filters,
+                pk__in=vocabulary_counts,
+            ).select_related("theme__task__part")
+        ).order_by("theme__order", "number", "pk")
     )
     for prompt in prompts:
         prompt.vocabulary_count = vocabulary_counts[prompt.pk]
@@ -573,12 +592,14 @@ def _ee_tache_three_subject_context(user, task, *, deduplicate=False):
     }
     prompts_by_key = {
         prompt.content_key: prompt
-        for prompt in Prompt.objects.filter(
-            content_key__in=source_keys,
-            theme__task=task,
-            is_active=True,
-            response__is_active=True,
-        ).select_related("response", "theme", "family")
+        for prompt in _lean_prompt_rows(
+            Prompt.objects.filter(
+                content_key__in=source_keys,
+                theme__task=task,
+                is_active=True,
+                response__is_active=True,
+            )
+        ).order_by()
     }
     if (
         set(source_keys) - prompts_by_key.keys()
@@ -861,7 +882,7 @@ def _ee_writing_subject_context(
             task=task,
             is_active=True,
             slug__in=source_by_slug,
-        ).order_by("order", "pk")
+        ).only("pk", "slug").order_by("order", "pk")
     }
     if set(source_by_slug) != set(sujets_by_slug):
         if allow_unsynchronized:
@@ -871,6 +892,10 @@ def _ee_writing_subject_context(
     canonical_by_slug = {
         slug: sujets_by_slug[canonical_slug_by_slug[slug]]
         for slug in source_by_slug
+    }
+    source_models_by_canonical_slug = {
+        slug: _source_writing_models(source_by_slug[slug])
+        for slug in set(canonical_slug_by_slug.values())
     }
     canonical_ids = {
         sujet.pk for sujet in canonical_by_slug.values()
@@ -902,15 +927,22 @@ def _ee_writing_subject_context(
             progress = progress_by_canonical[canonical.pk]
             category_progress.append(progress)
             all_progress.append(progress)
-            model_versions = writing_model_versions(canonical, overrides.get(canonical.pk, {}))
+            model_version_count = active_model_version_count(
+                source_models_by_canonical_slug[
+                    canonical_slug_by_slug[source.slug]
+                ],
+                overrides.get(canonical.pk, {}),
+            )
             rows.append(
                 {
                     "sujet": sujet,
                     "progress_sujet": canonical,
                     "prompt": source.prompt,
                     "source": source,
-                    "version_count": len(model_versions) + int(progress.is_personalized),
-                    "has_model_response": bool(model_versions),
+                    "version_count": (
+                        model_version_count + int(progress.is_personalized)
+                    ),
+                    "has_model_response": bool(model_version_count),
                     "is_personalized": progress.is_personalized,
                     "explicitly_completed": progress.explicitly_completed,
                     "progress": progress,
@@ -953,10 +985,8 @@ def _ee_writing_subject_context(
         "sujet_count": len(source_by_slug),
         "distinct_count": len(canonical_ids),
         "response_count": sum(
-            bool(sujet.model_versions)
-            for sujet in {
-                item.pk: item for item in canonical_by_slug.values()
-            }.values()
+            bool(source_models_by_canonical_slug[slug])
+            for slug in source_models_by_canonical_slug
         ),
         "personalized_count": sum(
             item.is_personalized for item in distinct_progress
@@ -1387,11 +1417,13 @@ def _oral_subject_themes(
     subjects_by_theme = {item["theme"].pk: [] for item in themes}
     if prompts is None:
         prompts = (
-            Prompt.objects.filter(
-                theme_id__in=subjects_by_theme,
-                is_active=True,
-                response__is_active=True,
-            ).select_related("family").order_by("number", "pk")
+            _lean_prompt_rows(
+                Prompt.objects.filter(
+                    theme_id__in=subjects_by_theme,
+                    is_active=True,
+                    response__is_active=True,
+                ).select_related("family")
+            ).order_by("number", "pk")
         )
     for prompt in prompts:
         subjects_by_theme[prompt.theme_id].append(
@@ -1600,12 +1632,13 @@ def browse(request, part_slug=None, task_slug=None):
     oral_prompts = None
     if oral_directory:
         oral_prompts = list(
-            Prompt.objects.filter(
-                theme_id__in=[theme.pk for theme in theme_rows],
-                is_active=True,
-                response__is_active=True,
+            _lean_prompt_rows(
+                Prompt.objects.filter(
+                    theme_id__in=[theme.pk for theme in theme_rows],
+                    is_active=True,
+                    response__is_active=True,
+                ).select_related("family")
             )
-            .select_related("family")
             .order_by("number", "pk")
         )
         response_ids_by_theme = {theme.pk: set() for theme in theme_rows}
@@ -1787,9 +1820,14 @@ def theme_detail(request, part_slug, task_slug, slug):
     if theme is None:
         raise Http404
     prompts = list(
-        Prompt.objects.filter(theme=theme, is_active=True, response__is_active=True)
-        .select_related("response", "response__theme", "family")
-        .order_by("number")
+        _lean_prompt_rows(
+            Prompt.objects.filter(
+                theme=theme,
+                is_active=True,
+                response__is_active=True,
+            ).select_related("response", "response__theme", "family"),
+            with_response=True,
+        ).order_by("number")
     )
     canonical_numbers = _canonical_numbers_by_response(
         prompt.response_id for prompt in prompts
@@ -2103,27 +2141,31 @@ EE_TACHE_TWO_THEME_VOCABULARY_SECTIONS = (
 
 def _theme_vocabulary_phrases(task, theme=None):
     if (task.part.slug, task.slug) == content_module.EE_TACHE_TWO_TASK:
-        phrases = Phrase.objects.filter(
-            tier=PhraseTier.THEME,
-            is_active=True,
-            vocabulary_theme__is_active=True,
-            vocabulary_theme__task=task,
+        phrases = lean_phrase_rows(
+            Phrase.objects.filter(
+                tier=PhraseTier.THEME,
+                is_active=True,
+                vocabulary_theme__is_active=True,
+                vocabulary_theme__task=task,
+            )
         )
         if theme is not None:
             phrases = phrases.filter(vocabulary_theme=theme)
         return phrases
 
-    phrases = Phrase.objects.filter(
-        tier=PhraseTier.THEME,
-        is_active=True,
-    ).filter(
-        Q(
-            source_prompts__is_active=True,
-            source_prompts__theme__task=task,
-        )
-        | Q(
-            vocabulary_theme__is_active=True,
-            vocabulary_theme__task=task,
+    phrases = lean_phrase_rows(
+        Phrase.objects.filter(
+            tier=PhraseTier.THEME,
+            is_active=True,
+        ).filter(
+            Q(
+                source_prompts__is_active=True,
+                source_prompts__theme__task=task,
+            )
+            | Q(
+                vocabulary_theme__is_active=True,
+                vocabulary_theme__task=task,
+            )
         )
     )
     if theme is not None:
@@ -3026,8 +3068,10 @@ def _tache_two_equivalent_subjects(response, selected_prompt):
     """List the other subjects that reuse this exact set of questions."""
     others = [
         prompt
-        for prompt in response.prompts.filter(is_active=True).select_related(
-            "theme__task__part",
+        for prompt in _lean_prompt_rows(
+            response.prompts.filter(is_active=True).select_related(
+                "theme__task__part",
+            )
         )
         if prompt.pk != selected_prompt.pk
     ]
@@ -3483,7 +3527,9 @@ def task_memory_progress(request, part_slug, task_slug, memory_number):
 def subject_completion(request, part_slug, task_slug, response_id):
     task = _route_task(part_slug, task_slug, request=request)
     route_prompt = (
-        Prompt.objects.select_related("response")
+        _lean_prompt_rows(
+            Prompt.objects.select_related("theme__task__part")
+        )
         .filter(
             response_id=response_id,
             response__is_active=True,
@@ -3496,7 +3542,6 @@ def subject_completion(request, part_slug, task_slug, response_id):
     )
     if route_prompt is None:
         raise Http404
-    response = route_prompt.response
     completed = request.POST.get("completed")
     if completed not in {"0", "1"}:
         if request.headers.get("X-Requested-With") == "fetch":
@@ -3509,7 +3554,7 @@ def subject_completion(request, part_slug, task_slug, response_id):
     card, _created = Card.objects.get_or_create(
         user=request.user,
         card_type=CardType.SPINE,
-        response=response,
+        response_id=route_prompt.response_id,
     )
     completed_at = timezone.now() if completed == "1" else None
     Card.objects.filter(pk=card.pk).update(
@@ -3517,13 +3562,13 @@ def subject_completion(request, part_slug, task_slug, response_id):
     )
     progress = subject_progress_by_response(
         request.user,
-        {response.pk},
-    )[response.pk]
+        {route_prompt.response_id},
+    )[route_prompt.response_id]
 
     if request.headers.get("X-Requested-With") == "fetch":
         return JsonResponse(
             {
-                "response_id": response.pk,
+                "response_id": route_prompt.response_id,
                 "completed": progress.explicitly_completed,
                 "subject": {
                     "status": progress.status,
@@ -3557,14 +3602,20 @@ def family_detail(request, part_slug, task_slug, slug):
         is_active=True,
     )
     prompts = list(
-        Prompt.objects.filter(
-            family=family,
-            theme__task=task,
-            theme__is_active=True,
-            response__is_active=True,
-            is_active=True,
+        _lean_prompt_rows(
+            Prompt.objects.filter(
+                family=family,
+                theme__task=task,
+                theme__is_active=True,
+                response__is_active=True,
+                is_active=True,
+            ).select_related(
+                "response__theme",
+                "theme",
+                "family",
+            ),
+            with_response=True,
         )
-        .select_related("response__theme", "theme", "family")
         .order_by("theme__order", "number")
     )
     if (
@@ -3635,11 +3686,13 @@ def _subject_vocabulary_context(response, task_scope, user, *, prompt=None):
         {"source_prompts": prompt} if prompt is not None and response.semantic_group else {}
     )
     subject_vocabulary = list(
-        Phrase.objects.filter(
-            source_prompts__response=response,
-            is_active=True,
-            tier=PhraseTier.SUBJECT,
-            **occurrence_scope,
+        lean_phrase_rows(
+            Phrase.objects.filter(
+                source_prompts__response=response,
+                is_active=True,
+                tier=PhraseTier.SUBJECT,
+                **occurrence_scope,
+            )
         )
         .distinct()
         .select_related("category")
@@ -3722,21 +3775,25 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         {response.pk},
     )[response.pk]
     prompts = list(
-        response.prompts.filter(
-            is_active=True,
-            theme__is_active=True,
-        ).select_related(
-            "theme__task__part",
-            "family",
+        _lean_prompt_rows(
+            response.prompts.filter(
+                is_active=True,
+                theme__is_active=True,
+            ).select_related(
+                "theme__task__part",
+                "family",
+            )
         )
     )
 
-    navigation_prompts = Prompt.objects.filter(
-        is_active=True,
-        theme__is_active=True,
-        response__is_active=True,
-        theme_id=selected_prompt.theme_id,
-    ).select_related("theme__task__part")
+    navigation_prompts = _lean_prompt_rows(
+        Prompt.objects.filter(
+            is_active=True,
+            theme__is_active=True,
+            response__is_active=True,
+            theme_id=selected_prompt.theme_id,
+        ).select_related("theme__task__part")
+    )
     order = (
         ("family__order", "family__name", "number", "pk")
         if (part_slug, task_slug) == ("eo", "tache-3")
@@ -3756,9 +3813,11 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         response=response,
     ).first()
     related_phrases = (
-        active_phrases().filter(
-            source_prompts__response=response,
-            is_active=True,
+        lean_phrase_rows(
+            active_phrases().filter(
+                source_prompts__response=response,
+                is_active=True,
+            )
         )
         .exclude(tier=PhraseTier.SUBJECT)
         .distinct()
@@ -4679,15 +4738,16 @@ def phrases(
             is_active=True,
         )
         source_prompt = (
-            Prompt.objects.filter(
-                is_active=True,
-                theme__is_active=True,
-                theme__task__is_active=True,
-                phrases__is_active=True,
-                phrases__tier=PhraseTier.SHARED,
-                phrases__category=category,
+            _lean_prompt_rows(
+                Prompt.objects.filter(
+                    is_active=True,
+                    theme__is_active=True,
+                    theme__task__is_active=True,
+                    phrases__is_active=True,
+                    phrases__tier=PhraseTier.SHARED,
+                    phrases__category=category,
+                ).select_related("theme__task__part")
             )
-            .select_related("theme__task__part")
             .order_by("theme__task__part__order", "theme__task__order", "pk")
             .first()
         )
@@ -4783,9 +4843,11 @@ def phrases(
     selected = None
     selected_test = None
     all_phrases = (
-        active_phrases().filter(
-            is_active=True,
-            tier=PhraseTier.SHARED,
+        lean_phrase_rows(
+            active_phrases().filter(
+                is_active=True,
+                tier=PhraseTier.SHARED,
+            )
         )
         .select_related("category")
         .prefetch_related(
@@ -4885,11 +4947,13 @@ def phrases(
             is_published=True,
         )
         phrase_qs = (
-            Phrase.objects.filter(
-                is_active=True,
-                tier=PhraseTier.COMPREHENSION,
-                source_questions__test=selected_test,
-                source_questions__is_active=True,
+            lean_phrase_rows(
+                Phrase.objects.filter(
+                    is_active=True,
+                    tier=PhraseTier.COMPREHENSION,
+                    source_questions__test=selected_test,
+                    source_questions__is_active=True,
+                )
             )
             .select_related("category")
             .prefetch_related(
@@ -5226,7 +5290,12 @@ def search(request, part_slug=None, task_slug=None):
     writing_sujet_scope = WritingSujet.objects.filter(
         is_active=True, task__is_active=True, task__part__is_active=True,
     )
-    phrase_scope = active_phrases().filter(is_active=True, category__is_active=True)
+    phrase_scope = lean_phrase_rows(
+        active_phrases().filter(
+            is_active=True,
+            category__is_active=True,
+        )
+    )
     if task:
         prompt_scope = prompt_scope.filter(theme__task=task)
         writing_sujet_scope = writing_sujet_scope.filter(task=task)
@@ -5263,9 +5332,9 @@ def search(request, part_slug=None, task_slug=None):
                 )
             ).filter(equivalent_position=1)
         prompt_results, prompt_result_count = _limited_results(
-            prompt_qs
-            .select_related("response", "theme__task__part", "family")
-            .order_by("theme__order", "number", "pk"),
+            _lean_prompt_rows(
+                prompt_qs.select_related("theme__task__part", "family")
+            ).order_by("theme__order", "number", "pk"),
             result_limit,
         )
         prompt_progress = subject_progress_by_response(
@@ -5276,7 +5345,7 @@ def search(request, part_slug=None, task_slug=None):
             prompt.subject_progress = prompt_progress[prompt.response_id]
         if subjects_only:
             writing_sujet_qs = writing_sujet_scope.filter(prompt__icontains=query)
-            ordered_writing_sujets = writing_sujet_qs.order_by(
+            ordered_writing_sujets = writing_sujet_qs.defer("versions").order_by(
                 "order",
                 "id",
             )

@@ -5,7 +5,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
-from dataclasses import asdict
+from dataclasses import asdict, dataclass
 from datetime import date, datetime
 from urllib.parse import urlsplit
 
@@ -15,6 +15,16 @@ from django.db.models import Q
 
 from .course_practice import lock_course_user as lock_study_user
 from .models import OralStateSnapshot, PersonalResponse, Phrase, PhraseTier, Prompt, Response
+
+
+@dataclass(frozen=True)
+class AnnotationPromptOwner:
+    pk: int
+    content_key: str
+    response_id: int
+    task_id: int
+    task_slug: str
+
 
 def variant_annotation_key(prompt, content):
     digest = hashlib.sha256(
@@ -94,7 +104,7 @@ def prompt_from_path(path, prompts_by_id, prompts_by_key):
     match = re.fullmatch(r"/expression/orale/tache-([23])/sujets/(\d+)/", path)
     if match:
         prompt = prompts_by_id.get(int(match[2]))
-        if prompt and prompt.theme.task.slug == f"tache-{match[1]}":
+        if prompt and prompt.task_slug == f"tache-{match[1]}":
             return prompt
     match = re.fullmatch(
         r"/expression/orale/tache-2/sujets/([a-z0-9-]+)/batch-(\d+)/(\d+)/", path,
@@ -108,16 +118,27 @@ def prompt_from_path(path, prompts_by_id, prompts_by_key):
 
 def annotation_owners(annotations):
     """An explicit occurrence path outranks a historically shared source root."""
-    prompts = list(Prompt.objects.filter(
-        is_active=True, response__semantic_group__gt="",
-    ).select_related("theme__task__part"))
+    prompts = [
+        AnnotationPromptOwner(*row)
+        for row in Prompt.objects.filter(
+            is_active=True,
+            response__semantic_group__gt="",
+        ).order_by().values_list(
+            "pk",
+            "content_key",
+            "response_id",
+            "theme__task_id",
+            "theme__task__slug",
+        )
+    ]
     by_id = {prompt.pk: prompt for prompt in prompts}
     by_key = {prompt.content_key: prompt for prompt in prompts}
     response_by_key = {
-        response.content_key: response.semantic_owner_id or response.pk
-        for response in Response.objects.filter(
+        content_key: semantic_owner_id or response_id
+        for content_key, semantic_owner_id, response_id
+        in Response.objects.filter(
             Q(semantic_group__gt="") | Q(semantic_owner__isnull=False)
-        )
+        ).values_list("content_key", "semantic_owner_id", "pk")
     }
     phrase_keys = {
         match[1] for annotation in annotations
@@ -133,7 +154,7 @@ def annotation_owners(annotations):
             annotation.source_path, by_id, by_key,
         )
         if prompt is not None:
-            if annotation.task_id is None or annotation.task_id == prompt.theme.task_id:
+            if annotation.task_id is None or annotation.task_id == prompt.task_id:
                 result[annotation.pk] = prompt.response_id
             continue
         key = annotation.source_key

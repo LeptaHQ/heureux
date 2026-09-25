@@ -4245,6 +4245,7 @@ def edit_response(request, part_slug, task_slug, prompt_id):
         request.user,
         request.POST or None,
         prompt=selected_prompt,
+        ee_tache_three=is_writing_tache_three,
     )
     if is_writing_tache_three:
         form.fields["reformulation"].label = "Titre"
@@ -4252,6 +4253,22 @@ def edit_response(request, part_slug, task_slug, prompt_id):
         form.fields["position_claire"].label = (
             "Partie 2 — Point de vue personnel"
         )
+        for field_name in (
+            "reformulation",
+            "position",
+            "position_claire",
+        ):
+            form.fields[field_name].widget.attrs[
+                "data-writing-word-total-input"
+            ] = "true"
+        for field_name, minimum, maximum in (
+            ("position", 40, 60),
+            ("position_claire", 80, 120),
+        ):
+            attrs = form.fields[field_name].widget.attrs
+            attrs["data-writing-word-input"] = "true"
+            attrs["data-word-min"] = minimum
+            attrs["data-word-max"] = maximum
     if request.method == "POST" and form.is_valid():
         defaults = form.personal_defaults()
         if is_writing_tache_three:

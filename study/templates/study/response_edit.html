@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}{% if is_tache_two %}Modifier mes questions{% else %}Modifier ma réponse{% endif %} · Heureux{% endblock %}
 
 {% block content %}
@@ -65,9 +66,12 @@
             <label for="{{ field.id_for_label }}">{{ field.label }}</label>
             {{ field }}
             {% for error in field.errors %}<small class="auth-field__error">{{ error }}</small>{% endfor %}
+            {% if is_writing_tache_three and field.name == "position" %}<p class="muted" data-writing-word-status aria-live="polite">Limite officielle : 40 à 60 mots.</p>{% endif %}
+            {% if is_writing_tache_three and field.name == "position_claire" %}<p class="muted" data-writing-word-status aria-live="polite">Limite officielle : 80 à 120 mots.</p>{% endif %}
           </div>
         {% endif %}
       {% endfor %}
+      {% if is_writing_tache_three %}<p class="muted" data-writing-word-total-status data-word-min="120" data-word-max="180" aria-live="polite">Réponse complète : 120 à 180 mots, titre compris.</p>{% endif %}
     </section>
 
     {% if not is_writing_tache_three %}
@@ -125,4 +129,9 @@
     </form>
   </section>
 {% endif %}
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  {% if is_writing_tache_three %}<script src="{% static 'study/js/writing-word-count.js' %}?v=2"></script>{% endif %}
 {% endblock %}

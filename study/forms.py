@@ -5,6 +5,7 @@ import re
 from django import forms
 from django.contrib.auth import get_user_model
 
+from .content_loader import fit_ee_tache_three_answer
 from .models import Annotation
 from .response_personalization import effective_response
 
@@ -306,9 +307,18 @@ class PersonalResponseForm(forms.Form):
         ("consequence", "Conséquence", 3),
     )
 
-    def __init__(self, response, user, *args, prompt=None, **kwargs):
+    def __init__(
+        self,
+        response,
+        user,
+        *args,
+        prompt=None,
+        ee_tache_three=False,
+        **kwargs,
+    ):
         self.response = response
         self.user = user
+        self.ee_tache_three = ee_tache_three
         super().__init__(*args, **kwargs)
         content = effective_response(response, user, prompt=prompt)
         self.argument_orders = []
@@ -341,6 +351,22 @@ class PersonalResponseForm(forms.Form):
                 "conclusion",
             ):
                 self.fields[field_name].initial = getattr(content, field_name)
+
+    def clean(self):
+        cleaned_data = super().clean()
+        if not self.ee_tache_three:
+            return cleaned_data
+        heading, synthese, point_de_vue = fit_ee_tache_three_answer(
+            cleaned_data.get("reformulation", ""),
+            cleaned_data.get("position", ""),
+            cleaned_data.get("position_claire", ""),
+        )
+        cleaned_data.update(
+            reformulation=heading,
+            position=synthese,
+            position_claire=point_de_vue,
+        )
+        return cleaned_data
 
     def personal_defaults(self):
         if not self.is_valid():

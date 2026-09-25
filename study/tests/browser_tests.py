@@ -1114,6 +1114,15 @@ class BrowserTests(StaticLiveServerTestCase):
                 exact=True,
             )
         ).to_have_count(0)
+        synthese_input = self.page.locator("[name='position']")
+        synthese_status = synthese_input.locator(
+            "xpath=ancestor::*[contains(@class, 'response-edit-field')][1]"
+        ).locator("[data-writing-word-status]")
+        synthese_input.fill(" ".join(f"Mot{index}" for index in range(61)))
+        expect(synthese_status).to_contain_text(
+            "61 mots · 1 mot à retirer · objectif 40–60"
+        )
+        synthese_input.fill(response.position)
         self.page.locator("[name='reformulation']").fill("Titre personnel")
         with self.page.expect_navigation():
             self.page.locator(".response-edit button[type='submit']").click()

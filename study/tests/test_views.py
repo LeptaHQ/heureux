@@ -1255,6 +1255,14 @@ class EeTacheThreePageTests(TestCase):
         self.assertNotContains(editor, "Version personnelle")
         self.assertNotContains(editor, "Revenir à la réponse d'origine")
         self.assertNotContains(editor, 'value="reset"')
+        self.assertContains(editor, "data-writing-word-input", count=2)
+        self.assertContains(
+            editor,
+            "data-writing-word-total-input",
+            count=3,
+        )
+        self.assertContains(editor, "data-writing-word-total-status", count=1)
+        self.assertContains(editor, "writing-word-count.js?v=2", count=1)
 
         payload = {
             "reformulation": "Mon titre personnel",
@@ -1373,6 +1381,50 @@ class EeTacheThreePageTests(TestCase):
         self.assertEqual(rejected_reset.status_code, 400)
         personal.refresh_from_db()
         self.assertTrue(personal.is_active)
+
+    def test_written_response_trims_parts_and_total_to_official_maxima(self):
+        prompt = self._first_prompt()
+        edit_url = reverse(
+            "study:edit_response",
+            args=[self.task.part.slug, self.task.slug, prompt.pk],
+        )
+
+        result = self.client.post(
+            edit_url,
+            {
+                "reformulation": " ".join(
+                    f"Titre{index}" for index in range(1, 11)
+                ),
+                "position": " ".join(
+                    f"Synthèse{index}" for index in range(1, 71)
+                ),
+                "position_claire": " ".join(
+                    f"Avis{index}" for index in range(1, 131)
+                ),
+                "action": "save",
+            },
+        )
+
+        self.assertEqual(result.status_code, 302)
+        personal = PersonalResponse.objects.get(
+            user=self.user,
+            response=prompt.response,
+        )
+        self.assertEqual(content_module._ee_word_count(personal.position), 60)
+        self.assertEqual(
+            content_module._ee_word_count(personal.position_claire),
+            110,
+        )
+        self.assertEqual(
+            content_module._ee_word_count(
+                content_module.ee_tache_three_answer_text(
+                    personal.reformulation,
+                    personal.position,
+                    personal.position_claire,
+                )
+            ),
+            180,
+        )
 
     def test_alias_edit_preserves_a_matching_legacy_document_highlight(self):
         from study.oral_highlights import _render_ee_tache_three_root

@@ -3496,6 +3496,63 @@ def _ee_word_count(text: str) -> int:
     )
 
 
+def truncate_ee_words(text: str, maximum: int) -> str:
+    """Trim text at a French word boundary while retaining nearby punctuation."""
+    text = text.strip()
+    matches = list(
+        re.finditer(
+            r"[^\W_]+(?:[’'\-][^\W_]+)*",
+            text,
+            flags=re.UNICODE,
+        )
+    )
+    if len(matches) <= maximum:
+        return text
+    if maximum <= 0:
+        return ""
+    end = matches[maximum - 1].end()
+    separator = text[end:matches[maximum].start()]
+    retained_punctuation = ""
+    for character in separator:
+        if character not in ".!?…)]}»”\"":
+            break
+        retained_punctuation += character
+    return text[:end].rstrip() + retained_punctuation
+
+
+def fit_ee_tache_three_answer(
+    heading: str,
+    synthese: str,
+    point_de_vue: str,
+) -> tuple[str, str, str]:
+    """Fit an edited answer into the official per-part and total maxima."""
+    heading = heading.strip()
+    synthese = truncate_ee_words(synthese, 60)
+    point_de_vue = truncate_ee_words(point_de_vue, 120)
+    total = _ee_word_count(
+        ee_tache_three_answer_text(heading, synthese, point_de_vue)
+    )
+    excess = max(0, total - EE_TACHE_THREE_WORD_LIMIT[1])
+    for name, minimum in (("point_de_vue", 80), ("synthese", 40)):
+        if not excess:
+            break
+        value = point_de_vue if name == "point_de_vue" else synthese
+        count = _ee_word_count(value)
+        removed = min(excess, max(0, count - minimum))
+        value = truncate_ee_words(value, count - removed)
+        if name == "point_de_vue":
+            point_de_vue = value
+        else:
+            synthese = value
+        excess -= removed
+    if excess:
+        heading = truncate_ee_words(
+            heading,
+            max(0, _ee_word_count(heading) - excess),
+        )
+    return heading, synthese, point_de_vue
+
+
 def load_ee_tache_two_response_key_updates():
     path = EE_TACHE_TWO_DIR / "response_key_updates.json"
     payload = json.loads(path.read_text(encoding="utf-8"))

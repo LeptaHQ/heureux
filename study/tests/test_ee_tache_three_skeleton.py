@@ -8,6 +8,37 @@ from study import content_loader as content
 
 
 class EeTacheThreeSkeletonTests(SimpleTestCase):
+    def test_edited_answer_is_trimmed_to_every_maximum(self):
+        heading = " ".join(f"Titre{index}" for index in range(1, 11))
+        synthese = " ".join(f"Synthèse{index}" for index in range(1, 71))
+        point_de_vue = " ".join(f"Avis{index}" for index in range(1, 131))
+
+        fitted = content.fit_ee_tache_three_answer(
+            heading,
+            synthese,
+            point_de_vue,
+        )
+
+        self.assertEqual(content._ee_word_count(fitted[0]), 10)
+        self.assertEqual(content._ee_word_count(fitted[1]), 60)
+        self.assertEqual(content._ee_word_count(fitted[2]), 110)
+        self.assertEqual(
+            content._ee_word_count(
+                content.ee_tache_three_answer_text(*fitted)
+            ),
+            180,
+        )
+
+    def test_word_truncation_drops_punctuation_opening_removed_text(self):
+        self.assertEqual(
+            content.truncate_ee_words("un deux (trois)", 2),
+            "un deux",
+        )
+        self.assertEqual(
+            content.truncate_ee_words("un deux. Trois", 2),
+            "un deux.",
+        )
+
     relation_markers = (
         "De son côté, le second",
         "En revanche, le second",

@@ -10435,16 +10435,16 @@ class BrowserTests(StaticLiveServerTestCase):
             name="Compréhension écrite",
             exact=True,
         ).wait_for()
-        self.assertEqual(self.page.locator(".ce-group-card").count(), 8)
+        batches = self.page.locator("[data-comprehension-batch-group]")
+        self.assertEqual(batches.count(), 8)
         self.assert_no_horizontal_overflow()
 
-        self.page.get_by_role("link", name="Batch 1").click()
-        self.page.get_by_role(
-            "heading",
-            name="Batch 01",
-        ).wait_for()
-        self.assertEqual(self.page.locator(".ce-group-test-row").count(), 5)
-        row_checkbox = self.page.locator(
+        first_batch = batches.first
+        if not first_batch.evaluate("element => element.open"):
+            first_batch.locator(":scope > summary").click()
+        expect(first_batch.locator(".ce-group-test-row").first).to_be_visible()
+        self.assertEqual(first_batch.locator(".ce-group-test-row").count(), 5)
+        row_checkbox = first_batch.locator(
             "[data-comprehension-completion-form] button"
         ).first
         self.assertEqual(row_checkbox.get_attribute("aria-checked"), "false")
@@ -10466,7 +10466,12 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(checkbox_metrics["radius"], "50%")
         row_checkbox.click()
         self.page.wait_for_load_state("networkidle")
-        row_checkbox = self.page.locator(
+        first_batch = self.page.locator(
+            "[data-comprehension-batch-group]"
+        ).first
+        if not first_batch.evaluate("element => element.open"):
+            first_batch.locator(":scope > summary").click()
+        row_checkbox = first_batch.locator(
             "[data-comprehension-completion-form] button"
         ).first
         self.assertEqual(row_checkbox.get_attribute("aria-checked"), "true")
@@ -10593,6 +10598,59 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertLessEqual(max(summary_heights), 96)
         self.assert_no_horizontal_overflow()
+
+    def test_comprehension_batches_reuse_nested_tables_in_both_modes(self):
+        self.disable_service_worker()
+        factories.make_comprehension_test(question_count=2)
+        factories.make_comprehension_test(
+            number=1,
+            question_count=2,
+            mode=ComprehensionMode.ORALE,
+        )
+        self.page.set_viewport_size({"width": 1292, "height": 844})
+
+        for route_name, batch_count in (
+            ("study:comprehension_overview", 8),
+            ("study:comprehension_oral_overview", 2),
+        ):
+            with self.subTest(route=route_name):
+                self.page.goto(self.live_server_url + reverse(route_name))
+                self.page.get_by_role(
+                    "button",
+                    name="Tableau",
+                    exact=True,
+                ).click()
+                batches = self.page.locator(
+                    "[data-comprehension-batch-group]"
+                )
+                self.assertEqual(batches.count(), batch_count)
+                self.assertTrue(batches.evaluate_all(
+                    "groups => groups.every(group => !group.open)"
+                ))
+
+                first_batch = batches.first
+                first_row = first_batch.locator(
+                    ".ce-group-test-row"
+                ).first
+                expect(first_row).not_to_be_visible()
+                first_batch.locator(":scope > summary").click()
+                expect(first_row).to_be_visible()
+                expect(first_batch.locator(
+                    ".collection-table-header--tests"
+                )).to_be_visible()
+                self.assertEqual(
+                    first_batch.locator(".ce-group-test-row").count(),
+                    5,
+                )
+                self.assert_no_horizontal_overflow()
+
+                self.page.set_viewport_size({"width": 390, "height": 844})
+                expect(first_row).to_be_visible()
+                expect(first_batch.locator(
+                    ".collection-table-header--tests"
+                )).not_to_be_visible()
+                self.assert_no_horizontal_overflow()
+                self.page.set_viewport_size({"width": 1292, "height": 844})
 
     def test_mobile_oral_completion_control_uses_the_shared_flow(self):
         test = factories.make_comprehension_test(

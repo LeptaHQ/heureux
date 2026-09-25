@@ -6,8 +6,8 @@
     {% if description %}<span class="t1-theme__description" lang="en">{{ description }}</span>{% endif %}
   </span>
   <span class="t1-theme__meta">
-    <span class="t1-theme__count">{{ count }} {{ count_label }}{{ count|pluralize }}</span>
+    <span class="t1-theme__count">{% if count_text %}{{ count_text }}{% else %}{{ count }} {{ count_label }}{{ count|pluralize }}{% endif %}</span>
     {% if personalized_count %}<span class="chip chip--accent">{{ personalized_count }} personnalisé{{ personalized_count|pluralize }}</span>{% endif %}
-    <span class="progress-status progress-status--{{ status }}"{% if learning %} data-learning-module-status{% endif %}{% if progress_label %} title="{{ progress_label }} : {{ completed }}/{{ total }}"{% endif %}>{{ completed }}/{{ total }}</span>
+    <span class="progress-status progress-status--{{ status }}"{% if learning %} data-learning-module-status{% endif %}{% if progress_label %} title="{{ progress_label }} : {{ completed }}/{{ total }}"{% endif %}>{% if progress_text %}{{ progress_text }}{% else %}{{ completed }}/{{ total }}{% endif %}</span>
   </span>
 </summary>

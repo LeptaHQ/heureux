@@ -510,12 +510,22 @@ class ComprehensionFlowTests(TestCase):
         self.assertNotContains(overview, "Groupe 1")
         self.assertContains(
             overview,
-            'class="deck card ce-group-card"',
+            "data-comprehension-batch-group=",
             count=8,
         )
+        self.assertContains(overview, "data-subject-collection", count=1)
+        self.assertContains(overview, "data-t1-table-theme", count=8)
+        self.assertEqual(len(overview.context["groups"][0]["slots"]), 5)
+        self.assertContains(overview, self.test.title)
+        self.assertContains(overview, "1/3")
+        self.assertContains(overview, "Bientôt")
         self.assertContains(
             overview,
-            reverse("study:comprehension_group", args=[1]),
+            reverse("study:comprehension_test", args=[self.test.slug]),
+        )
+        self.assertNotContains(
+            overview,
+            reverse("study:comprehension_test", args=[self.draft.slug]),
         )
         self.assertEqual(len(group.context["group"]["slots"]), 5)
         self.assertEqual(group.context["group_label"], "Batch")
@@ -747,15 +757,21 @@ class ComprehensionFlowTests(TestCase):
         self.assertContains(overview, "2 batches de 5 tests")
         self.assertContains(
             overview,
-            'class="deck card ce-group-card"',
+            "data-comprehension-batch-group=",
             count=2,
         )
-        self.assertContains(
-            overview,
-            reverse("study:comprehension_oral_group", args=[1]),
-        )
+        self.assertContains(overview, "data-subject-collection", count=1)
+        self.assertContains(overview, "data-t1-table-theme", count=2)
         self.assertContains(overview, "Batch 1")
         self.assertNotContains(overview, "Groupe 1")
+        self.assertContains(
+            overview,
+            reverse("study:comprehension_oral_test", args=[oral.slug]),
+        )
+        self.assertNotContains(
+            overview,
+            reverse("study:comprehension_oral_test", args=[oral_draft.slug]),
+        )
         self.assertEqual(len(group.context["group"]["slots"]), 5)
         self.assertEqual(group.context["group_label"], "Batch")
         self.assertContains(group, "Batch 01")
@@ -1468,8 +1484,12 @@ class OralComprehensionFlowTests(TestCase):
         self.assertEqual(overview.status_code, 200)
         self.assertContains(
             overview,
-            reverse("study:comprehension_oral_group", args=[1]),
+            reverse(
+                "study:comprehension_oral_test",
+                args=[self.test.slug],
+            ),
         )
+        self.assertContains(overview, "data-comprehension-batch-group=")
         self.assertContains(group, "31 questions")
         self.assertContains(
             group,
@@ -1606,8 +1626,13 @@ class OralComprehensionFlowTests(TestCase):
         self.assertEqual(overview.status_code, 200)
         self.assertContains(
             overview,
-            reverse("study:comprehension_oral_group", args=[1]),
+            reverse(
+                "study:comprehension_oral_test",
+                args=[self.test.slug],
+            ),
         )
+        self.assertContains(overview, "Archivé")
+        self.assertContains(overview, "Voir l’historique")
         self.assertContains(group, "Archivé")
         self.assertContains(
             group,

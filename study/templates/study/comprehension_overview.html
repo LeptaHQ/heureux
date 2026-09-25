@@ -51,11 +51,6 @@
     <p>{{ groups|length }} batches de 5 tests</p>
   </div>
 
-  <section class="grid grid--decks ce-group-grid collection-table collection-table--groups" data-collection-view="adaptive" aria-label="Batches de tests de compréhension écrite">
-    {% include "study/partials/collection_table_header.html" with variant="groups" column_1="Batch" column_2="Tests" column_3="Progression" column_4="État" column_5="Accès" only %}
-    {% for group in groups %}
-      {% include "study/partials/comprehension_group_card.html" with group=group group_label="Batch" group_route="study:comprehension_group" accent="var(--ce-blue)" only %}
-    {% endfor %}
-  </section>
+  {% include "study/partials/comprehension_batch_collection.html" with groups=groups batch_icon="book-open" accent="var(--ce-blue)" %}
 </div>
 {% endblock %}

@@ -9711,6 +9711,19 @@ html[data-input-mode="pen"] .selection-translate__shortcut { display: none; }
 }
 .ce-group-page__head h1 { margin-bottom: 0.15rem; }
 .ce-group-test-list { gap: 0.55rem; }
+.comprehension-batch-group > .ce-group-test-list {
+  margin: 0;
+  padding: 0.7rem;
+  border-top: 1px solid var(--border);
+}
+html[data-collection-view-mode="table"]
+  .comprehension-batch-group
+  > .ce-group-test-list {
+  padding: 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+  border-radius: 0;
+}
 .ce-group-test-row {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) minmax(190px, auto);
@@ -13003,6 +13016,11 @@ button.ce-choice:focus-visible .ce-choice__radio {
 }
 
 @media (max-width: 520px) {
+  html[data-collection-view-mode="table"]
+    .comprehension-batch-group
+    > .ce-group-test-list {
+    padding: 0.7rem;
+  }
   .ce-library-hero { padding: 0.15rem 0 1rem; }
   .ce-library-hero h1 { font-size: 2rem; }
   .ce-library-hero__metrics {

@@ -1,0 +1,28 @@
+<div
+  class="t1-collection subject-collection comprehension-batch-collection"
+  data-subject-collection
+  data-collection-view
+  data-comprehension-batch-collection>
+  <div class="t1-themes t1-table-groups">
+    {% include "study/partials/collection_table_header.html" with variant="subject-directory" column_1="Batch" column_2="Tests" column_3="Progression" only %}
+    {% for group in groups %}
+      <details
+        class="t1-theme t1-table-group comprehension-batch-group"
+        style="--accent: {{ accent }};"
+        data-t1-table-theme
+        data-comprehension-batch-group="{{ group.number }}"
+        open>
+        {% include "study/partials/theme_group_summary.html" with title=group.label icon=batch_icon count_text=group.summary_count_text status=group.progress.status completed=group.progress.completed total=group.progress.total progress_text=group.summary_progress_text only %}
+        <div
+          class="qlist ce-group-test-list collection-table collection-table--tests comprehension-batch-tests"
+          data-collection-view="adaptive"
+          aria-label="Tests du batch {{ group.number }}">
+          {% include "study/partials/collection_table_header.html" with variant="tests" column_1="Test" column_2="Détails" column_3="Questions" column_4="Progression" column_5="Action" only %}
+          {% for slot in group.slots %}
+            {% include "study/partials/comprehension_test_row.html" with slot=slot %}
+          {% endfor %}
+        </div>
+      </details>
+    {% endfor %}
+  </div>
+</div>

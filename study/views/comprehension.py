@@ -425,23 +425,58 @@ def _comprehension_groups(tests, group_count):
             ),
             None,
         )
+        tests_by_number = {
+            test.number: test
+            for test in group_tests
+        }
+        slots = [
+            {
+                "number": test_number,
+                "test": tests_by_number.get(test_number),
+            }
+            for test_number in range(start, end + 1)
+        ]
+        if published:
+            summary_count_text = (
+                f"{len(published)} test"
+                f"{'s' if len(published) != 1 else ''} disponible"
+                f"{'s' if len(published) != 1 else ''}"
+            )
+            summary_status = progress_summary(
+                total=len(published),
+                started=published_started_count,
+                completed=published_completed_count,
+            )
+            summary_progress_text = ""
+        elif history_count:
+            summary_count_text = "Historique disponible"
+            summary_status = progress_summary(
+                total=history_count,
+                started=history_count,
+                completed=0,
+            )
+            summary_progress_text = "En cours"
+        else:
+            summary_count_text = "Contenu en préparation"
+            summary_status = progress_summary(total=0, started=0, completed=0)
+            summary_progress_text = "À commencer"
         groups.append(
             {
                 "number": number,
+                "label": f"Batch {number}",
                 "start": start,
                 "end": end,
                 "tests": group_tests,
+                "slots": slots,
                 "available_count": len(published),
                 "completed_count": sum(
                     test.explicitly_completed for test in group_tests
                 ),
                 "history_count": history_count,
                 "active_attempt": active_attempt,
-                "progress": progress_summary(
-                    total=len(published),
-                    started=published_started_count,
-                    completed=published_completed_count,
-                ),
+                "progress": summary_status,
+                "summary_count_text": summary_count_text,
+                "summary_progress_text": summary_progress_text,
             }
         )
     return groups
@@ -675,17 +710,6 @@ def _comprehension_group_detail_response(request, *, mode, group_number):
 
     tests = _comprehension_test_cards(request.user, mode=mode)
     group = _comprehension_groups(tests, group_count)[group_number - 1]
-    tests_by_number = {
-        test.number: test
-        for test in group["tests"]
-    }
-    group["slots"] = [
-        {
-            "number": number,
-            "test": tests_by_number.get(number),
-        }
-        for number in range(group["start"], group["end"] + 1)
-    ]
     routes = COMPREHENSION_ROUTE_NAMES[mode]
     return render(
         request,

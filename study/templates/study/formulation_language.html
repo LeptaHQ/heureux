@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}{{ reference_title }} · Formulations · Heureux{% endblock %}
+{% block content %}
+{% include "study/partials/task_nav.html" %}
+<div class="formulations-page formulation-language-page">
+  <nav class="breadcrumbs" aria-label="Fil d’Ariane">
+    <a href="{% url 'study:ee_formulations' %}">Formulations</a>
+    <span aria-hidden="true">/</span>
+    <a href="{{ back_url }}">{{ category.title }}</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">Vocabulaire utile</span>
+  </nav>
+
+  <header class="learn-lesson-hero formulation-entry-hero">
+    <div>
+      <p class="eyebrow">{{ category.title }} · Référence de langue</p>
+      <h1>{{ reference_title }}</h1>
+      <p>Des mots et associations directement réutilisables pour synthétiser les documents et développer vos arguments dans la Tâche 3.</p>
+    </div>
+  </header>
+
+  <article class="card learn-content-section formulation-language-lesson">
+    <header class="learn-content-section__head formulation-lesson-head">
+      <span>00</span>
+      <div>
+        <p class="eyebrow">À réemployer dans une phrase complète</p>
+        <h2>Expressions et associations utiles</h2>
+      </div>
+    </header>
+    <div class="t1-table-shell">
+      <table class="t1-table formulation-language-table">
+        <thead><tr><th scope="col">Expression</th><th scope="col">Sens</th><th scope="col">Emploi utile</th></tr></thead>
+        <tbody>
+          {% for item in language_bank %}
+            <tr>
+              <td><strong lang="fr">{{ item.french }}</strong></td>
+              <td lang="en">{{ item.english }}</td>
+              <td lang="fr">{{ item.pattern }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <p class="muted">Choisissez uniquement les expressions qui correspondent réellement au sujet et construisez votre propre argument autour d’elles.</p>
+  </article>
+</div>
+{% endblock %}

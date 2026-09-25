@@ -9,10 +9,28 @@ class FormulationLanguageItem:
     french: str
     english: str
     pattern: str
+    # Each pair identifies an effective ResponseData field used editorially.
+    provenance: tuple[tuple[str, str], ...] = ()
 
 
 def _item(french, english, pattern):
     return FormulationLanguageItem(french, english, pattern)
+
+
+def _source(month, combinaison, field):
+    return (f"ee-tache3:{month}:combinaison-{combinaison}", field)
+
+
+def _bank(*rows):
+    return tuple(
+        FormulationLanguageItem(
+            french,
+            english,
+            pattern,
+            tuple(provenance),
+        )
+        for french, english, pattern, *provenance in rows
+    )
 
 
 REPORTING_LANGUAGE = (
@@ -34,466 +52,1160 @@ REPORTING_LANGUAGE = (
 
 
 THEME_LANGUAGE = MappingProxyType({
-    "education": (
-        _item(
+    "education": _bank(
+        (
             "la mixité sociale",
             "social diversity",
             "favoriser la mixité sociale",
+            _source("mars", "5", "position"),
+            _source("mars", "5", "position_claire"),
         ),
-        _item(
+        (
             "les classes socialement homogènes",
             "socially homogeneous classes",
             "éviter des classes socialement homogènes",
+            _source("mars", "5", "position"),
         ),
-        _item(
-            "l’égalité des chances",
-            "equal opportunities",
-            "renforcer l’égalité des chances",
+        (
+            "reproduire les inégalités",
+            "to perpetuate inequalities",
+            "éviter de reproduire les inégalités",
+            _source("mars", "5", "position"),
         ),
-        _item(
-            "le décrochage scolaire",
-            "dropping out of school",
-            "prévenir le décrochage scolaire",
+        (
+            "développer l’autonomie",
+            "to develop independence",
+            "développer l’autonomie des élèves",
+            _source("mars", "6", "position"),
+            _source("mars", "7", "position"),
         ),
-        _item(
-            "la réussite scolaire",
-            "academic success",
-            "favoriser la réussite scolaire",
+        (
+            "consolider les apprentissages",
+            "to reinforce learning",
+            "consolider les apprentissages grâce à une révision régulière",
+            _source("mars", "6", "position_claire"),
         ),
-        _item(
-            "les inégalités scolaires",
-            "educational inequalities",
-            "réduire les inégalités scolaires",
+        (
+            "des devoirs réalisables sans aide parentale",
+            "homework pupils can do without parental help",
+            "proposer des devoirs réalisables sans aide parentale",
+            _source("mars", "6", "position_claire"),
+            _source("juillet", "9", "position_claire"),
         ),
-        _item(
-            "un climat scolaire apaisé",
-            "a positive school climate",
-            "créer un climat scolaire apaisé",
+        (
+            "adapter les exercices au niveau de l’élève",
+            "to tailor exercises to the pupil’s level",
+            "adapter les exercices au niveau de chaque élève",
+            _source("mars", "7", "position_claire"),
         ),
-        _item(
-            "l’inclusion des élèves",
-            "student inclusion",
-            "favoriser l’inclusion des élèves",
+        (
+            "préserver le lien humain",
+            "to preserve human connection",
+            "préserver le lien humain et les échanges directs",
+            _source("mars", "7", "position_claire"),
         ),
-    ),
-    "sante-alimentation": (
-        _item(
-            "une alimentation équilibrée",
-            "a balanced diet",
-            "adopter une alimentation équilibrée",
+        (
+            "développer l’esprit critique",
+            "to develop critical thinking",
+            "développer l’esprit critique en comparant plusieurs sources",
+            _source("mars", "7", "position_claire"),
         ),
-        _item(
-            "l’accès aux soins",
-            "access to healthcare",
-            "améliorer l’accès aux soins",
+        (
+            "garantir les mêmes apprentissages fondamentaux",
+            "to guarantee the same core learning",
+            "garantir à chaque élève les mêmes apprentissages fondamentaux",
+            _source("mars", "5", "position_claire"),
         ),
-        _item(
-            "le dépistage précoce",
-            "early screening",
-            "encourager le dépistage précoce",
+        (
+            "limiter les effectifs",
+            "to limit class sizes",
+            "limiter les effectifs par classe",
+            _source("mars", "5", "position_claire"),
         ),
-        _item(
-            "les comportements à risque",
-            "risky behaviours",
-            "prévenir les comportements à risque",
+        (
+            "renforcer le tutorat",
+            "to strengthen tutoring support",
+            "renforcer le tutorat pour les élèves qui en ont besoin",
+            _source("mars", "5", "position_claire"),
         ),
-        _item(
-            "les effets indésirables",
-            "side effects",
-            "signaler des effets indésirables",
+        (
+            "renforcer le sentiment d’appartenance",
+            "to strengthen a sense of belonging",
+            "renforcer le sentiment d’appartenance à l’école",
+            _source("avril", "12", "position"),
         ),
-        _item(
-            "un mode de vie sédentaire",
-            "a sedentary lifestyle",
-            "lutter contre un mode de vie sédentaire",
+        (
+            "réduire la comparaison des marques",
+            "to reduce comparison of brands",
+            "réduire la comparaison des marques entre élèves",
+            _source("avril", "12", "position_claire"),
+            _source("decembre", "10", "position_claire"),
         ),
-        _item(
-            "la santé mentale",
-            "mental health",
-            "préserver la santé mentale",
+        (
+            "financer du matériel scolaire",
+            "to fund school equipment",
+            "consacrer les recettes à du matériel scolaire",
+            _source("janvier", "1", "position_claire"),
+            _source("novembre", "3", "position_claire"),
         ),
-        _item(
-            "une campagne de sensibilisation",
-            "an awareness campaign",
-            "mener une campagne de sensibilisation",
-        ),
-    ),
-    "environnement": (
-        _item(
-            "la transition écologique",
-            "the green transition",
-            "accélérer la transition écologique",
-        ),
-        _item(
-            "les émissions de gaz à effet de serre",
-            "greenhouse-gas emissions",
-            "réduire les émissions de gaz à effet de serre",
-        ),
-        _item(
-            "l’empreinte carbone",
-            "carbon footprint",
-            "limiter son empreinte carbone",
-        ),
-        _item(
-            "les énergies renouvelables",
-            "renewable energy",
-            "développer les énergies renouvelables",
-        ),
-        _item(
-            "la biodiversité",
-            "biodiversity",
-            "préserver la biodiversité",
-        ),
-        _item(
-            "la consommation responsable",
-            "responsible consumption",
-            "encourager la consommation responsable",
-        ),
-        _item(
-            "le gaspillage",
-            "waste",
-            "lutter contre le gaspillage",
-        ),
-        _item(
-            "les ressources naturelles",
-            "natural resources",
-            "préserver les ressources naturelles",
+        (
+            "protéger la santé des jeunes",
+            "to protect young people’s health",
+            "fixer des règles claires pour protéger la santé des jeunes",
+            _source("janvier", "1", "position_claire"),
+            _source("novembre", "3", "position"),
+            _source("novembre", "3", "position_claire"),
         ),
     ),
-    "travail": (
-        _item(
+    "sante-alimentation": _bank(
+        (
+            "maîtriser l’hygiène et les techniques",
+            "to master hygiene and techniques",
+            "maîtriser l’hygiène, l’organisation et les techniques",
+            _source("janvier", "2", "position_claire"),
+        ),
+        (
+            "transformer sa passion en savoir-faire",
+            "to turn passion into expertise",
+            "transformer sa passion en savoir-faire rigoureux",
+            _source("janvier", "2", "position_claire"),
+        ),
+        (
+            "composer des repas équilibrés",
+            "to put together balanced meals",
+            "composer des repas équilibrés à partir de produits frais",
+            _source("janvier", "12", "position_claire"),
+            _source("avril", "16", "position"),
+        ),
+        (
+            "maîtriser le budget alimentaire",
+            "to keep the food budget under control",
+            "maîtriser le budget alimentaire d’un ménage",
+            _source("janvier", "12", "position_claire"),
+        ),
+        (
+            "contrôler la qualité de l’assiette",
+            "to control the quality of one’s food",
+            "mieux contrôler la qualité de l’assiette",
+            _source("janvier", "12", "position"),
+        ),
+        (
+            "varier les sources de protéines",
+            "to vary sources of protein",
+            "varier les sources de protéines sans nuire à la croissance",
+            _source("janvier", "18", "position_claire"),
+            _source("mai", "6", "position_claire"),
+        ),
+        (
+            "assurer un apport suffisant en protéines",
+            "to ensure an adequate protein intake",
+            "assurer un apport suffisant en protéines",
+            _source("janvier", "18", "position_claire"),
+        ),
+        (
+            "soutenir les producteurs locaux",
+            "to support local producers",
+            "soutenir les producteurs locaux au lieu de les exclure",
+            _source("janvier", "18", "position"),
+            _source("janvier", "18", "position_claire"),
+        ),
+        (
+            "limiter les risques de prise de poids",
+            "to limit the risk of weight gain",
+            "limiter les risques de prise de poids liés à une alimentation trop riche",
+            _source("avril", "13", "position_claire"),
+        ),
+        (
+            "privilégier des produits frais",
+            "to favour fresh food",
+            "privilégier régulièrement des produits frais",
+            _source("avril", "13", "position_claire"),
+        ),
+        (
+            "réduire la consommation de viande",
+            "to reduce meat consumption",
+            "réduire la consommation de viande sans l’interdire",
+            _source("avril", "15", "position_claire"),
+            _source("mai", "6", "position_claire"),
+        ),
+        (
+            "prévenir les carences",
+            "to prevent nutrient deficiencies",
+            "équilibrer ses repas afin de prévenir les carences",
+            _source("avril", "16", "position"),
+            _source("mai", "6", "position_claire"),
+        ),
+        (
+            "privilégier des produits locaux et saisonniers",
+            "to favour local, seasonal produce",
+            "privilégier des produits locaux et saisonniers",
+            _source("mai", "5", "position_claire"),
+        ),
+        (
+            "réduire l’élevage intensif",
+            "to reduce intensive livestock farming",
+            "réduire l’élevage intensif et ses émissions",
+            _source("avril", "15", "position"),
+            _source("mai", "5", "position_claire"),
+        ),
+        (
+            "rompre l’isolement des aînés",
+            "to break older people’s isolation",
+            "rompre l’isolement des aînés grâce à la vie sociale",
+            _source("aout", "1", "position"),
+            _source("aout", "1", "position_claire"),
+        ),
+        (
+            "assurer des soins continus",
+            "to provide continuous care",
+            "assurer des soins continus grâce à un personnel qualifié",
+            _source("octobre", "4", "position_claire"),
+        ),
+        (
+            "préserver les liens familiaux",
+            "to preserve family ties",
+            "préserver les liens familiaux et les visites des proches",
+            _source("aout", "1", "position_claire"),
+            _source("octobre", "4", "position"),
+        ),
+        (
+            "rendre les choix équilibrés abordables",
+            "to make balanced options affordable",
+            "rendre les choix équilibrés visibles, variés et abordables",
+            _source("aout", "8", "position_claire"),
+            _source("aout", "15", "position_claire"),
+        ),
+    ),
+    "environnement": _bank(
+        (
+            "la pollution durable des océans",
+            "long-lasting ocean pollution",
+            "lutter contre la pollution durable des océans",
+            _source("janvier", "6", "position"),
+            _source("janvier", "10", "position"),
+        ),
+        (
+            "menacer la faune marine",
+            "to threaten marine wildlife",
+            "empêcher les déchets de menacer la faune marine",
+            _source("janvier", "10", "position"),
+        ),
+        (
+            "remonter dans la chaîne alimentaire",
+            "to move up the food chain",
+            "des déchets qui remontent dans la chaîne alimentaire",
+            _source("janvier", "10", "position"),
+        ),
+        (
+            "éliminer les objets à usage unique",
+            "to eliminate single-use items",
+            "éliminer les objets en plastique à usage unique lorsqu’ils sont évitables",
+            _source("janvier", "6", "position_claire"),
+        ),
+        (
+            "préserver les usages médicaux essentiels",
+            "to preserve essential medical uses",
+            "préserver les usages médicaux essentiels du plastique",
+            _source("janvier", "6", "position_claire"),
+            _source("janvier", "10", "position_claire"),
+        ),
+        (
+            "proposer des contenants réutilisables",
+            "to offer reusable containers",
+            "proposer des contenants réutilisables et la vente en vrac",
+            _source("janvier", "10", "position_claire"),
+        ),
+        (
+            "imposer la réduction et le réemploi",
+            "to require reduction and reuse",
+            "imposer la réduction, le réemploi et la responsabilité des producteurs",
+            _source("janvier", "6", "position_claire"),
+        ),
+        (
+            "protéger un écosystème",
+            "to protect an ecosystem",
+            "limiter une pratique afin de protéger un écosystème",
+            _source("avril", "4", "position_claire"),
+        ),
+        (
+            "réguler une espèce envahissante",
+            "to control an invasive species",
+            "réguler une espèce envahissante selon des quotas scientifiques",
+            _source("avril", "4", "position_claire"),
+        ),
+        (
+            "établir des quotas",
+            "to set quotas",
+            "établir des quotas avec l’aide de biologistes",
+            _source("avril", "4", "position_claire"),
+        ),
+        (
+            "garantir le bien-être animal",
+            "to guarantee animal welfare",
+            "garantir le bien-être animal et des espaces adaptés",
+            _source("mai", "2", "position_claire"),
+        ),
+        (
+            "préserver des espèces menacées",
+            "to preserve endangered species",
+            "mettre en place des programmes pour préserver des espèces menacées",
+            _source("mai", "2", "position"),
+            _source("mai", "2", "position_claire"),
+        ),
+        (
+            "sensibiliser les visiteurs",
+            "to raise visitors’ awareness",
+            "sensibiliser les visiteurs à la conservation",
+            _source("mai", "2", "position_claire"),
+        ),
+        (
+            "privilégier la densité urbaine",
+            "to favour urban density",
+            "privilégier la densité urbaine et les transports en commun",
+            _source("decembre", "16", "position_claire"),
+        ),
+        (
+            "construire sur des terrains déjà urbanisés",
+            "to build on already developed land",
+            "construire sur des terrains déjà urbanisés plutôt que détruire les forêts",
+            _source("decembre", "16", "position_claire"),
+        ),
+        (
+            "protéger les espaces verts",
+            "to protect green spaces",
+            "protéger les espaces verts capables de retenir le carbone",
+            _source("decembre", "16", "position"),
+            _source("decembre", "16", "position_claire"),
+        ),
+    ),
+    "travail": _bank(
+        (
+            "un revenu décent",
+            "a decent income",
+            "garantir un revenu décent aux salariés",
+            _source("avril", "5", "position_claire"),
+        ),
+        (
+            "des conditions de travail équilibrées",
+            "balanced working conditions",
+            "travailler dans des conditions équilibrées",
+            _source("avril", "5", "position_claire"),
+        ),
+        (
             "l’équilibre entre vie professionnelle et vie personnelle",
             "work-life balance",
             "préserver l’équilibre entre vie professionnelle et vie personnelle",
+            _source("avril", "5", "position"),
+            _source("avril", "5", "position_claire"),
+            _source("mai", "3", "position"),
+            _source("mai", "3", "position_claire"),
         ),
-        _item(
-            "les conditions de travail",
-            "working conditions",
-            "améliorer les conditions de travail",
+        (
+            "discuter de la charge de travail",
+            "to discuss workload",
+            "discuter régulièrement de la charge de travail",
+            _source("avril", "5", "position_claire"),
         ),
-        _item(
-            "l’épuisement professionnel",
-            "burnout",
-            "prévenir l’épuisement professionnel",
+        (
+            "protéger les personnes allergiques ou craintives",
+            "to protect people with allergies or fears",
+            "protéger les personnes allergiques ou craintives grâce à des espaces séparés",
+            _source("decembre", "3", "position"),
+            _source("decembre", "3", "position_claire"),
         ),
-        _item(
-            "la sécurité de l’emploi",
-            "job security",
-            "renforcer la sécurité de l’emploi",
+        (
+            "garder une véritable période de repos",
+            "to retain a proper period of rest",
+            "travailler pendant les vacances tout en gardant une période de repos",
+            _source("avril", "6", "position_claire"),
         ),
-        _item(
-            "l’évolution de carrière",
-            "career development",
-            "favoriser l’évolution de carrière",
+        (
+            "garantir une rémunération égale",
+            "to guarantee equal pay",
+            "garantir une rémunération égale à compétences égales",
+            _source("avril", "7", "position_claire"),
         ),
-        _item(
-            "les compétences transférables",
-            "transferable skills",
-            "développer des compétences transférables",
+        (
+            "des recrutements impartiaux",
+            "impartial recruitment",
+            "garantir des recrutements impartiaux",
+            _source("avril", "7", "position_claire"),
         ),
-        _item(
-            "la fidélisation des salariés",
-            "employee retention",
-            "améliorer la fidélisation des salariés",
+        (
+            "partager les responsabilités familiales",
+            "to share family responsibilities",
+            "favoriser un partage réel des responsabilités familiales",
+            _source("avril", "7", "position"),
+            _source("avril", "7", "position_claire"),
         ),
-        _item(
-            "la qualité de vie au travail",
-            "quality of life at work",
-            "améliorer la qualité de vie au travail",
+        (
+            "adapter les objectifs et les effectifs",
+            "to adjust targets and staffing levels",
+            "adapter les objectifs et les effectifs avant de réduire le temps de travail",
+            _source("avril", "10", "position_claire"),
+        ),
+        (
+            "réduire l’absentéisme",
+            "to reduce absenteeism",
+            "réduire l’absentéisme grâce à une meilleure organisation",
+            _source("avril", "10", "position"),
+        ),
+        (
+            "respecter le temps de travail",
+            "to respect working hours",
+            "respecter le temps de travail et garantir de vraies pauses",
+            _source("juillet", "6", "position"),
+            _source("juillet", "6", "position_claire"),
+        ),
+        (
+            "prévenir les discriminations à l’embauche",
+            "to prevent hiring discrimination",
+            "prévenir les discriminations à l’embauche liées à l’apparence",
+            _source("juin", "1", "position"),
+            _source("juin", "1", "position_claire"),
+        ),
+        (
+            "évaluer une candidature selon les mêmes critères",
+            "to assess an application using the same criteria",
+            "évaluer chaque candidature selon les mêmes critères",
+            _source("juin", "1", "position_claire"),
+        ),
+        (
+            "éviter le favoritisme",
+            "to avoid favouritism",
+            "éviter que les affinités accordent des privilèges",
+            _source("juillet", "44", "position"),
+            _source("juillet", "44", "position_claire"),
+        ),
+        (
+            "compléter le diplôme par l’expérience",
+            "to complement qualifications with experience",
+            "compléter le diplôme par une expérience sur le terrain",
+            _source("aout", "18", "position_claire"),
+        ),
+        (
+            "mettre ses connaissances à l’épreuve",
+            "to put one’s knowledge to the test",
+            "mettre ses connaissances à l’épreuve sur le terrain",
+            _source("aout", "18", "position_claire"),
+        ),
+        (
+            "une courte pause volontaire",
+            "a short voluntary break",
+            "proposer une courte pause volontaire compatible avec l’organisation",
+            _source("aout", "19", "position_claire"),
+            _source("novembre", "4", "position_claire"),
         ),
     ),
-    "numerique": (
-        _item(
-            "la fracture numérique",
-            "the digital divide",
-            "réduire la fracture numérique",
-        ),
-        _item(
-            "la protection des données personnelles",
-            "personal-data protection",
-            "renforcer la protection des données personnelles",
-        ),
-        _item(
-            "la désinformation",
-            "misinformation",
-            "lutter contre la désinformation",
-        ),
-        _item(
-            "le temps d’écran",
-            "screen time",
+    "numerique": _bank(
+        (
             "limiter le temps d’écran",
+            "to limit screen time",
+            "limiter le temps d’écran sans interdire tous les usages",
+            _source("janvier", "7", "position"),
+            _source("decembre", "14", "position"),
         ),
-        _item(
-            "l’esprit critique",
-            "critical thinking",
+        (
             "développer l’esprit critique",
+            "to develop critical thinking",
+            "développer l’esprit critique grâce à des contenus adaptés",
+            _source("janvier", "7", "position_claire"),
         ),
-        _item(
-            "le cyberharcèlement",
-            "cyberbullying",
-            "prévenir le cyberharcèlement",
+        (
+            "compléter la lecture et le lien humain",
+            "to complement reading and human interaction",
+            "utiliser l’écran pour compléter la lecture et le lien humain, sans les remplacer",
+            _source("janvier", "7", "position_claire"),
         ),
-        _item(
-            "les compétences numériques",
-            "digital skills",
-            "acquérir des compétences numériques",
+        (
+            "bénéficier d’un suivi régulier",
+            "to receive regular support",
+            "bénéficier d’un suivi régulier pendant un apprentissage en ligne",
+            _source("janvier", "9", "position_claire"),
         ),
-        _item(
-            "un usage responsable des technologies",
-            "responsible use of technology",
-            "promouvoir un usage responsable des technologies",
+        (
+            "entretenir la motivation",
+            "to sustain motivation",
+            "entretenir la motivation lorsque les progrès ralentissent",
+            _source("janvier", "9", "position_claire"),
+        ),
+        (
+            "un équipement fiable",
+            "reliable equipment",
+            "associer flexibilité, équipement fiable et suivi humain",
+            _source("janvier", "9", "position"),
+            _source("janvier", "9", "position_claire"),
+        ),
+        (
+            "cibler les lieux les plus exposés",
+            "to target the highest-risk places",
+            "cibler les lieux les plus exposés plutôt que surveiller partout",
+            _source("avril", "1", "position_claire"),
+        ),
+        (
+            "limiter la durée de conservation des images",
+            "to limit how long footage is retained",
+            "limiter la durée de conservation des images enregistrées",
+            _source("avril", "1", "position_claire"),
+        ),
+        (
+            "réserver l’accès aux personnes habilitées",
+            "to restrict access to authorised people",
+            "réserver l’accès aux images aux personnes habilitées",
+            _source("avril", "1", "position_claire"),
+        ),
+        (
+            "sécuriser les accès",
+            "to secure access points",
+            "utiliser les caméras uniquement pour sécuriser les accès",
+            _source("avril", "8", "position_claire"),
+        ),
+        (
+            "prévenir les conflits par le dialogue",
+            "to prevent conflict through dialogue",
+            "prévenir les conflits par le dialogue et des règles expliquées",
+            _source("avril", "8", "position"),
+            _source("avril", "8", "position_claire"),
+        ),
+        (
+            "un contenu adapté à l’âge",
+            "age-appropriate content",
+            "choisir un contenu adapté à l’âge de l’enfant",
+            _source("avril", "11", "position_claire"),
+            _source("mai", "1", "position_claire"),
+        ),
+        (
+            "protéger le sommeil et l’activité physique",
+            "to protect sleep and physical activity",
+            "protéger le sommeil, l’activité physique et les devoirs",
+            _source("avril", "11", "position_claire"),
+            _source("mai", "1", "position_claire"),
+            _source("juillet", "5", "position_claire"),
+        ),
+        (
+            "intégrer le jeu dans un emploi du temps équilibré",
+            "to fit gaming into a balanced schedule",
+            "intégrer le jeu dans un emploi du temps équilibré",
+            _source("mai", "3-bis", "position_claire"),
+        ),
+        (
+            "conserver les consoles hors de la chambre",
+            "to keep consoles out of the bedroom",
+            "conserver les consoles hors de la chambre pendant la nuit",
+            _source("mai", "3-bis", "position_claire"),
+        ),
+        (
+            "protéger les données dès la conception",
+            "to protect data by design",
+            "protéger la sécurité et la vie privée dès la conception",
+            _source("aout", "13", "position_claire"),
+        ),
+        (
+            "garantir des mises à jour régulières",
+            "to guarantee regular updates",
+            "garantir des mises à jour de sécurité régulières",
+            _source("aout", "13", "position_claire"),
+        ),
+        (
+            "limiter la collecte des données",
+            "to limit data collection",
+            "limiter la collecte des données au strict nécessaire",
+            _source("aout", "13", "position_claire"),
         ),
     ),
-    "societe": (
-        _item(
-            "la cohésion sociale",
-            "social cohesion",
+    "societe": _bank(
+        (
+            "un don ponctuel de temps ou d’argent",
+            "a one-off donation of time or money",
+            "faire un don ponctuel de temps ou d’argent",
+            _source("janvier", "4", "position"),
+            _source("janvier", "16", "position"),
+        ),
+        (
+            "répondre à une urgence",
+            "to respond to an emergency",
+            "répondre à une urgence avant d’engager un accompagnement",
+            _source("janvier", "16", "position_claire"),
+            _source("juin", "3", "position_claire"),
+        ),
+        (
+            "un accompagnement à long terme",
+            "long-term support",
+            "associer l’aide immédiate à un accompagnement à long terme",
+            _source("janvier", "4", "position_claire"),
+            _source("juin", "3", "position_claire"),
+        ),
+        (
+            "agir sur les causes de la pauvreté",
+            "to address the causes of poverty",
+            "agir sur les causes de la pauvreté grâce à un suivi régulier",
+            _source("janvier", "16", "position_claire"),
+        ),
+        (
+            "faciliter l’accès au logement et à l’emploi",
+            "to facilitate access to housing and employment",
+            "faciliter l’accès au logement, à la formation et à l’emploi",
+            _source("janvier", "4", "position_claire"),
+            _source("janvier", "16", "position_claire"),
+        ),
+        (
+            "ouvrir la voie à l’autonomie",
+            "to pave the way to independence",
+            "faire en sorte que l’aide d’urgence ouvre la voie à l’autonomie",
+            _source("janvier", "16", "position_claire"),
+        ),
+        (
+            "retrouver son autonomie",
+            "to regain independence",
+            "donner aux bénéficiaires les moyens de retrouver leur autonomie",
+            _source("janvier", "4", "position_claire"),
+            _source("juin", "3", "position_claire"),
+        ),
+        (
+            "un engagement familial durable",
+            "a lasting family commitment",
+            "prendre un engagement familial durable avant une adoption",
+            _source("mars", "2", "position"),
+            _source("mars", "2", "position_claire"),
+        ),
+        (
+            "développer l’empathie et le sens des responsabilités",
+            "to develop empathy and a sense of responsibility",
+            "développer l’empathie et le sens des responsabilités",
+            _source("mars", "2", "position_claire"),
+        ),
+        (
+            "rompre la solitude",
+            "to break isolation",
+            "rompre la solitude grâce à une présence quotidienne",
+            _source("mars", "2", "position"),
+            _source("mars", "2", "position_claire"),
+        ),
+        (
+            "faire évoluer les règles avec l’âge",
+            "to adapt rules as a child grows",
+            "faire évoluer les règles parentales avec l’âge",
+            _source("mars", "10", "position_claire"),
+        ),
+        (
+            "donner des repères clairs",
+            "to provide clear boundaries",
+            "donner des repères clairs sans imposer une liberté totale",
+            _source("mars", "10", "position_claire"),
+        ),
+        (
+            "favoriser la confiance plutôt que la peur",
+            "to foster trust rather than fear",
+            "expliquer les limites afin de favoriser la confiance plutôt que la peur",
+            _source("mars", "10", "position_claire"),
+        ),
+        (
+            "trouver un équilibre entre sécurité et liberté",
+            "to strike a balance between safety and freedom",
+            "trouver un équilibre entre sécurité, dialogue et liberté",
+            _source("mars", "10", "position_claire"),
+        ),
+        (
+            "un logement spacieux à un prix abordable",
+            "a spacious home at an affordable price",
+            "trouver un logement plus spacieux à un prix abordable",
+            _source("aout", "17", "position"),
+        ),
+        (
+            "préserver l’accès aux emplois et à la culture",
+            "to preserve access to jobs and culture",
+            "vivre au calme sans renoncer à l’accès aux emplois et à la culture",
+            _source("aout", "17", "position_claire"),
+        ),
+    ),
+    "transports": _bank(
+        (
+            "une réduction progressive de la circulation automobile",
+            "a gradual reduction in car traffic",
+            "engager une réduction progressive de la circulation automobile",
+            _source("janvier", "17", "position_claire"),
+        ),
+        (
+            "réduire la dépendance au pétrole",
+            "to reduce dependence on oil",
+            "réduire les accidents, la dépendance au pétrole et la pollution de l’air",
+            _source("janvier", "17", "position"),
+        ),
+        (
+            "réduire le risque d’accident",
+            "to reduce the risk of accidents",
+            "réduire le trafic et le risque d’accident",
+            _source("janvier", "17", "position_claire"),
+        ),
+        (
+            "prévoir des alternatives crédibles",
+            "to provide credible alternatives",
+            "prévoir des alternatives crédibles avant d’imposer des restrictions",
+            _source("janvier", "17", "position_claire"),
+        ),
+        (
+            "renforcer les lignes de bus",
+            "to improve bus services",
+            "renforcer les lignes de bus avant de limiter la voiture",
+            _source("janvier", "17", "position_claire"),
+        ),
+        (
+            "délivrer des autorisations adaptées",
+            "to issue appropriate permits",
+            "délivrer des autorisations adaptées aux métiers essentiels",
+            _source("janvier", "17", "position"),
+            _source("janvier", "17", "position_claire"),
+        ),
+        (
+            "des alternatives accessibles et fiables",
+            "accessible and reliable alternatives",
+            "construire des alternatives accessibles et fiables",
+            _source("janvier", "17", "position_claire"),
+        ),
+        (
+            "la gratuité des transports publics",
+            "free public transport",
+            "mettre en place la gratuité des transports publics",
+            _source("juillet", "8", "position"),
+            _source("juillet", "8", "position_claire"),
+        ),
+        (
+            "réduire les embouteillages",
+            "to reduce traffic congestion",
+            "réduire les embouteillages et la pollution en centre-ville",
+            _source("juillet", "8", "position_claire"),
+        ),
+        (
+            "desservir tous les quartiers",
+            "to serve every neighbourhood",
+            "veiller à ce que le réseau desserve tous les quartiers",
+            _source("juillet", "8", "position_claire"),
+        ),
+        (
+            "améliorer les liaisons vers les quartiers éloignés",
+            "to improve links to outlying neighbourhoods",
+            "améliorer les liaisons vers les quartiers éloignés",
+            _source("juillet", "8", "position"),
+        ),
+        (
+            "augmenter la fréquence des bus",
+            "to increase bus frequency",
+            "augmenter la fréquence des bus dans les zones mal desservies",
+            _source("juillet", "8", "position_claire"),
+        ),
+        (
+            "laisser sa voiture au garage",
+            "to leave one’s car at home",
+            "inciter les automobilistes à laisser leur voiture au garage",
+            _source("juillet", "8", "position_claire"),
+        ),
+        (
+            "un réseau fréquent, fiable et bien entretenu",
+            "a frequent, reliable and well-maintained network",
+            "garantir un réseau fréquent, fiable et bien entretenu",
+            _source("juillet", "8", "position_claire"),
+        ),
+    ),
+    "logement": _bank(
+        (
+            "réduire les dépenses de logement",
+            "to reduce housing costs",
+            "réduire les dépenses de logement grâce à la colocation",
+            _source("janvier", "3", "position"),
+            _source("avril", "14", "position_claire"),
+        ),
+        (
+            "partager le loyer",
+            "to share the rent",
+            "partager le loyer sans dépasser son budget",
+            _source("janvier", "3", "position_claire"),
+        ),
+        (
+            "respecter l’intimité de chacun",
+            "to respect everyone’s privacy",
+            "respecter l’intimité et les espaces privés de chacun",
+            _source("janvier", "3", "position"),
+            _source("janvier", "3", "position_claire"),
+        ),
+        (
+            "répartir équitablement les tâches",
+            "to divide chores fairly",
+            "répartir équitablement les tâches ménagères",
+            _source("janvier", "3", "position_claire"),
+        ),
+        (
+            "définir les responsabilités dès le départ",
+            "to define responsibilities from the outset",
+            "définir les responsabilités et les limites dès le départ",
+            _source("avril", "14", "position_claire"),
+            _source("mai", "7", "position_claire"),
+        ),
+        (
+            "favoriser la convivialité",
+            "to foster sociability",
+            "réduire les dépenses tout en favorisant la convivialité",
+            _source("avril", "14", "position_claire"),
+        ),
+        (
+            "rompre l’isolement",
+            "to break isolation",
+            "rompre l’isolement dans une nouvelle ville",
+            _source("mai", "7", "position_claire"),
+            _source("juin", "2", "position_claire"),
+        ),
+        (
+            "protéger les espaces privés",
+            "to protect private spaces",
+            "fixer des règles communes pour protéger les espaces privés",
+            _source("avril", "14", "position_claire"),
+        ),
+        (
+            "fixer des heures calmes",
+            "to set quiet hours",
+            "fixer des heures calmes pour protéger le repos",
+            _source("avril", "14", "position_claire"),
+            _source("mai", "7", "position_claire"),
+        ),
+        (
+            "prévenir avant de recevoir des invités",
+            "to give notice before having guests",
+            "prévenir ses colocataires avant de recevoir des invités",
+            _source("mai", "7", "position"),
+            _source("mai", "7", "position_claire"),
+        ),
+        (
+            "résoudre les difficultés par le dialogue",
+            "to resolve difficulties through dialogue",
+            "résoudre les difficultés quotidiennes par le dialogue",
+            _source("juin", "2", "position"),
+            _source("juin", "2", "position_claire"),
+        ),
+        (
+            "choisir des colocataires fiables",
+            "to choose reliable flatmates",
+            "choisir des colocataires fiables et respectueux",
+            _source("mai", "7", "position_claire"),
+        ),
+        (
+            "constituer une réserve financière",
+            "to build up financial savings",
+            "constituer une réserve financière avant de quitter le domicile familial",
+            _source("decembre", "15", "position_claire"),
+        ),
+        (
+            "épargner pour le dépôt d’un futur logement",
+            "to save for a deposit on a future home",
+            "épargner pour le dépôt d’un futur logement",
+            _source("decembre", "15", "position_claire"),
+        ),
+        (
+            "préparer un retour à l’autonomie",
+            "to prepare for a return to independence",
+            "faire d’une étape temporaire un retour progressif à l’autonomie",
+            _source("decembre", "15", "position_claire"),
+        ),
+    ),
+    "culture-loisirs": _bank(
+        (
+            "la coexistence des deux supports",
+            "the coexistence of both formats",
+            "défendre la coexistence du papier et du numérique",
+            _source("janvier", "5", "position_claire"),
+        ),
+        (
+            "agrandir les caractères",
+            "to enlarge the text",
+            "agrandir les caractères selon les besoins du lecteur",
+            _source("janvier", "5", "position"),
+            _source("janvier", "5", "position_claire"),
+        ),
+        (
+            "encourager la lecture sans l’imposer",
+            "to encourage reading without imposing it",
+            "encourager la lecture sans la transformer en punition",
+            _source("mars", "3", "position"),
+            _source("mars", "3", "position_claire"),
+        ),
+        (
+            "nourrir le vocabulaire et la capacité d’analyse",
+            "to develop vocabulary and analytical skills",
+            "nourrir le vocabulaire et la capacité d’analyse des enfants",
+            _source("mars", "3", "position_claire"),
+        ),
+        (
+            "respecter les goûts et le rythme de chacun",
+            "to respect everyone’s tastes and pace",
+            "proposer des lectures variées en respectant les goûts et le rythme de chacun",
+            _source("mars", "3", "position_claire"),
+        ),
+        (
+            "moderniser les infrastructures",
+            "to modernise infrastructure",
+            "moderniser les infrastructures au bénéfice des habitants",
+            _source("avril", "17", "position"),
+        ),
+        (
+            "profiter durablement aux habitants",
+            "to benefit residents in the long term",
+            "veiller à ce que les dépenses profitent durablement aux habitants",
+            _source("avril", "17", "position_claire"),
+        ),
+        (
+            "prévoir l’usage futur des équipements",
+            "to plan the future use of facilities",
+            "prévoir l’usage des équipements après un événement",
+            _source("avril", "17", "position_claire"),
+        ),
+        (
+            "rendre la culture accessible",
+            "to make culture accessible",
+            "rendre la culture accessible hors des institutions traditionnelles",
+            _source("aout", "12", "position_claire"),
+        ),
+        (
+            "des espaces artistiques autorisés",
+            "authorised spaces for art",
+            "réserver des espaces autorisés à l’expression artistique",
+            _source("aout", "12", "position_claire"),
+            _source("novembre", "10", "position_claire"),
+        ),
+        (
             "renforcer la cohésion sociale",
+            "to strengthen social cohesion",
+            "renforcer la cohésion sociale grâce à un projet collectif",
+            _source("aout", "12", "position_claire"),
         ),
-        _item(
-            "le lien social",
-            "social connections",
-            "maintenir le lien social",
+        (
+            "soutenir les artistes locaux",
+            "to support local artists",
+            "soutenir les artistes locaux et les commerces du quartier",
+            _source("novembre", "10", "position"),
+            _source("novembre", "10", "position_claire"),
         ),
-        _item(
-            "l’isolement social",
-            "social isolation",
-            "rompre l’isolement social",
+        (
+            "réduire les inégalités d’accès à la culture",
+            "to reduce inequalities in access to culture",
+            "réduire les inégalités d’accès à la culture par des créneaux gratuits",
+            _source("aout", "14", "position_claire"),
         ),
-        _item(
-            "la solidarité intergénérationnelle",
-            "intergenerational solidarity",
-            "encourager la solidarité intergénérationnelle",
+        (
+            "limiter l’affluence par une réservation horaire",
+            "to limit crowds through timed booking",
+            "limiter l’affluence grâce à une réservation horaire",
+            _source("aout", "14", "position"),
+            _source("aout", "14", "position_claire"),
         ),
-        _item(
-            "la diversité culturelle",
-            "cultural diversity",
-            "valoriser la diversité culturelle",
+        (
+            "financer la conservation des œuvres",
+            "to fund the conservation of artworks",
+            "maintenir des recettes pour financer la conservation des œuvres",
+            _source("aout", "14", "position_claire"),
+            _source("novembre", "11", "position"),
         ),
-        _item(
-            "les discriminations",
-            "discrimination",
-            "lutter contre les discriminations",
+        (
+            "démocratiser la culture",
+            "to broaden access to culture",
+            "démocratiser la culture et attirer de nouveaux visiteurs",
+            _source("novembre", "11", "position"),
         ),
-        _item(
-            "la participation citoyenne",
-            "civic participation",
-            "favoriser la participation citoyenne",
-        ),
-        _item(
-            "le sentiment d’appartenance",
-            "sense of belonging",
-            "renforcer le sentiment d’appartenance",
-        ),
-    ),
-    "transports": (
-        _item(
-            "les transports en commun",
-            "public transport",
-            "développer les transports en commun",
-        ),
-        _item(
-            "la mobilité douce",
-            "active and low-impact transport",
-            "encourager la mobilité douce",
-        ),
-        _item(
-            "des pistes cyclables sécurisées",
-            "safe cycle lanes",
-            "aménager des pistes cyclables sécurisées",
-        ),
-        _item(
-            "la congestion routière",
-            "traffic congestion",
-            "réduire la congestion routière",
-        ),
-        _item(
-            "la desserte des zones rurales",
-            "transport links in rural areas",
-            "améliorer la desserte des zones rurales",
-        ),
-        _item(
-            "le coût des déplacements",
-            "travel costs",
-            "réduire le coût des déplacements",
-        ),
-        _item(
-            "le covoiturage",
-            "carpooling",
-            "favoriser le covoiturage",
-        ),
-        _item(
-            "un réseau fiable",
-            "a reliable network",
-            "garantir un réseau fiable",
+        (
+            "une médiation adaptée",
+            "appropriate educational support",
+            "accompagner la gratuité d’une médiation adaptée aux différents publics",
+            _source("novembre", "11", "position"),
+            _source("novembre", "11", "position_claire"),
         ),
     ),
-    "logement": (
-        _item(
-            "un logement abordable",
-            "affordable housing",
-            "proposer des logements abordables",
+    "consommation": _bank(
+        (
+            "une solution pratique",
+            "a practical solution",
+            "adopter une solution pratique sans en faire une habitude",
+            _source("janvier", "8", "position_claire"),
         ),
-        _item(
-            "la pénurie de logements",
-            "housing shortage",
-            "lutter contre la pénurie de logements",
+        (
+            "prendre une vraie pause",
+            "to take a proper break",
+            "prendre une vraie pause loin de son écran",
+            _source("janvier", "8", "position_claire"),
+            _source("avril", "2", "position_claire"),
         ),
-        _item(
-            "la précarité énergétique",
-            "energy poverty",
-            "réduire la précarité énergétique",
+        (
+            "préserver les échanges entre collègues",
+            "to preserve interaction between colleagues",
+            "préserver les échanges entre collègues pendant le déjeuner",
+            _source("janvier", "8", "position_claire"),
         ),
-        _item(
-            "le cadre de vie",
-            "living environment",
-            "améliorer le cadre de vie",
+        (
+            "protéger le budget familial",
+            "to protect the family budget",
+            "privilégier des produits solides et abordables pour protéger le budget familial",
+            _source("mars", "1", "position_claire"),
         ),
-        _item(
-            "la densification urbaine",
-            "urban densification",
-            "encadrer la densification urbaine",
+        (
+            "résister à la pression des marques",
+            "to resist pressure from brands",
+            "choisir selon la qualité afin de résister à la pression des marques",
+            _source("mars", "1", "position_claire"),
         ),
-        _item(
-            "l’accès à la propriété",
-            "access to home ownership",
-            "faciliter l’accès à la propriété",
+        (
+            "acheter des vêtements d’occasion",
+            "to buy second-hand clothes",
+            "acheter des vêtements d’occasion pour limiter les dépenses",
+            _source("mars", "1", "position_claire"),
         ),
-        _item(
-            "la rénovation énergétique",
-            "energy-efficient renovation",
-            "financer la rénovation énergétique",
+        (
+            "réduire les emballages",
+            "to reduce packaging",
+            "utiliser des contenants réutilisables pour réduire les emballages",
+            _source("mars", "4", "position"),
+            _source("mars", "4", "position_claire"),
         ),
-        _item(
-            "la mixité sociale",
-            "social diversity",
-            "préserver la mixité sociale",
+        (
+            "suivre des recettes simples et fiables",
+            "to follow simple, reliable recipes",
+            "suivre des recettes simples, vérifiées et fiables",
+            _source("mars", "4", "position_claire"),
+            _source("decembre", "13", "position_claire"),
         ),
-    ),
-    "culture-loisirs": (
-        _item(
-            "l’accès à la culture",
-            "access to culture",
-            "élargir l’accès à la culture",
+        (
+            "soutenir les emplois locaux",
+            "to support local jobs",
+            "acheter dans son quartier pour soutenir les emplois locaux",
+            _source("mars", "9", "position_claire"),
         ),
-        _item(
-            "le patrimoine culturel",
-            "cultural heritage",
-            "préserver le patrimoine culturel",
+        (
+            "préserver un service de proximité",
+            "to preserve a local service",
+            "préserver un service de proximité et un lieu d’échange",
+            _source("mars", "9", "position_claire"),
         ),
-        _item(
-            "les pratiques culturelles",
-            "cultural practices",
-            "diversifier les pratiques culturelles",
+        (
+            "privilégier des produits frais",
+            "to favour fresh products",
+            "privilégier des produits frais et des conseils personnalisés",
+            _source("mars", "9", "position"),
+            _source("mars", "9", "position_claire"),
         ),
-        _item(
-            "la création artistique",
-            "artistic creation",
-            "soutenir la création artistique",
+        (
+            "gagner du temps sans sacrifier le repos",
+            "to save time without sacrificing rest",
+            "gagner du temps sans sacrifier le repos ni la convivialité",
+            _source("avril", "2", "position_claire"),
+            _source("juillet", "3", "position_claire"),
         ),
-        _item(
-            "l’offre culturelle",
-            "cultural provision",
-            "enrichir l’offre culturelle",
+        (
+            "acheter local sans dépasser son budget",
+            "to buy local without exceeding one’s budget",
+            "acheter des produits locaux sans dépasser son budget",
+            _source("aout", "3", "position_claire"),
         ),
-        _item(
-            "la démocratisation de la culture",
-            "wider access to culture",
-            "favoriser la démocratisation de la culture",
+        (
+            "encadrer la publicité destinée aux enfants",
+            "to regulate advertising aimed at children",
+            "encadrer strictement la publicité destinée aux enfants",
+            _source("aout", "16", "position_claire"),
         ),
-        _item(
-            "des loisirs accessibles",
-            "accessible leisure activities",
-            "proposer des loisirs accessibles",
+        (
+            "développer l’esprit critique des plus jeunes",
+            "to develop children’s critical thinking",
+            "développer l’esprit critique des plus jeunes face aux techniques commerciales",
+            _source("aout", "16", "position_claire"),
         ),
-        _item(
-            "l’expression artistique",
-            "artistic expression",
-            "encourager l’expression artistique",
+        (
+            "limiter la quantité de publicités",
+            "to limit the amount of advertising",
+            "limiter la quantité de publicités et les supports non sollicités",
+            _source("octobre", "1", "position_claire"),
         ),
-    ),
-    "consommation": (
-        _item(
-            "le pouvoir d’achat",
-            "purchasing power",
-            "préserver le pouvoir d’achat",
+        (
+            "exiger la transparence",
+            "to demand transparency",
+            "exiger la transparence des messages publicitaires",
+            _source("octobre", "1", "position_claire"),
         ),
-        _item(
-            "les achats impulsifs",
-            "impulse purchases",
-            "limiter les achats impulsifs",
-        ),
-        _item(
-            "la surconsommation",
-            "overconsumption",
-            "lutter contre la surconsommation",
-        ),
-        _item(
-            "les produits d’occasion",
-            "second-hand goods",
-            "acheter des produits d’occasion",
-        ),
-        _item(
-            "les circuits courts",
-            "short supply chains",
-            "favoriser les circuits courts",
-        ),
-        _item(
-            "le rapport qualité-prix",
-            "value for money",
-            "évaluer le rapport qualité-prix",
-        ),
-        _item(
-            "l’endettement des ménages",
-            "household debt",
-            "prévenir l’endettement des ménages",
-        ),
-        _item(
-            "la consommation responsable",
-            "responsible consumption",
-            "adopter une consommation responsable",
+        (
+            "respecter les règles de conservation",
+            "to follow storage guidelines",
+            "respecter les règles de conservation des produits faits maison",
+            _source("mars", "4", "position"),
+            _source("decembre", "13", "position_claire"),
         ),
     ),
-    "voyages": (
-        _item(
-            "le tourisme de masse",
-            "mass tourism",
-            "limiter les effets du tourisme de masse",
+    "voyages": _bank(
+        (
+            "une compagnie aérienne à bas prix",
+            "a low-cost airline",
+            "choisir une compagnie aérienne à bas prix pour un trajet court",
+            _source("janvier", "19", "position"),
+            _source("janvier", "19", "position_claire"),
         ),
-        _item(
-            "le tourisme durable",
-            "sustainable tourism",
-            "développer le tourisme durable",
+        (
+            "des tarifs avantageux",
+            "competitive fares",
+            "proposer des tarifs avantageux aux voyageurs",
+            _source("janvier", "19", "position"),
         ),
-        _item(
-            "les retombées économiques",
-            "economic benefits",
-            "générer des retombées économiques",
+        (
+            "un billet abordable",
+            "an affordable ticket",
+            "rendre le voyage accessible grâce à un billet abordable",
+            _source("janvier", "19", "position_claire"),
         ),
-        _item(
-            "la population locale",
-            "the local population",
-            "respecter la population locale",
+        (
+            "les petits budgets",
+            "travellers on limited budgets",
+            "permettre aux petits budgets de voyager plus souvent",
+            _source("janvier", "19", "position_claire"),
         ),
-        _item(
-            "la haute saison",
-            "peak season",
-            "voyager en dehors de la haute saison",
+        (
+            "l’absence de services à bord",
+            "the lack of on-board services",
+            "accepter l’absence de services à bord sur un trajet court",
+            _source("janvier", "19", "position"),
         ),
-        _item(
-            "hors des sentiers battus",
-            "off the beaten track",
-            "sortir des sentiers battus",
+        (
+            "des conditions de travail difficiles",
+            "difficult working conditions",
+            "éviter de dégrader les conditions de travail",
+            _source("janvier", "19", "position"),
+            _source("janvier", "19", "position_claire"),
         ),
-        _item(
-            "le patrimoine local",
-            "local heritage",
-            "valoriser le patrimoine local",
+        (
+            "des avions vieillissants",
+            "ageing aircraft",
+            "surveiller l’état des avions vieillissants",
+            _source("janvier", "19", "position"),
         ),
-        _item(
-            "l’empreinte environnementale",
-            "environmental footprint",
-            "réduire l’empreinte environnementale",
+        (
+            "respecter les normes de sécurité",
+            "to comply with safety standards",
+            "choisir un vol si les normes de sécurité sont respectées",
+            _source("janvier", "19", "position_claire"),
+        ),
+        (
+            "assurer l’entretien des avions",
+            "to ensure aircraft maintenance",
+            "ne jamais réduire l’entretien des avions pour baisser les prix",
+            _source("janvier", "19", "position_claire"),
+        ),
+        (
+            "de meilleures garanties de sécurité",
+            "better safety guarantees",
+            "payer davantage pour de meilleures garanties de sécurité",
+            _source("janvier", "19", "position_claire"),
+        ),
+        (
+            "bénéficier de davantage de confort",
+            "to enjoy greater comfort",
+            "bénéficier de davantage de confort sur un trajet long",
+            _source("janvier", "19", "position_claire"),
+        ),
+        (
+            "un transport transparent, sûr et encadré",
+            "transport that is transparent, safe and regulated",
+            "garantir un transport transparent, sûr et correctement encadré",
+            _source("janvier", "19", "position_claire"),
         ),
     ),
 })

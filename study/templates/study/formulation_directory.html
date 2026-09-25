@@ -5,9 +5,7 @@
 <div class="formulations-page">
   <header class="area-hero formulation-collection-hero">
     <div class="area-hero__copy">
-      <p class="eyebrow">Expression écrite · Tâche 3</p>
       <h1>Formulations</h1>
-      <p>Choisissez une fonction ou un thème pour commencer.</p>
     </div>
     <div class="task-hero__numbers" aria-label="Progression des formulations">
       <span><b>{{ progress.completed }}</b> apprise{{ progress.completed|pluralize }}</span>
@@ -31,7 +29,7 @@
             <h2 id="formulation-table-{{ table.slug }}">{{ table.title }}</h2>
             <p>{{ table.description }}</p>
           </div>
-          {% if table.slug == "essentials" %}<a href="{{ table.all_url }}">{{ table.all_label }} →</a>{% endif %}
+          {% if table.slug == "functions" %}<a href="{{ table.all_url }}">{{ table.all_label }} →</a>{% endif %}
         </header>
         <div class="t1-table-shell formulation-directory-table">
           <table class="t1-table formulation-subdivision-table">
@@ -44,19 +42,63 @@
             </thead>
             <tbody>
               {% for item in table.items %}
-                <tr class="t1-table__row is-status-{{ item.progress.status }}">
-                  <td class="t1-table__subject">
-                    <div class="formulation-subdivision-title">
-                      <span class="formulation-row-arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
-                      <span class="formulation-subdivision-icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=item.category.icon only %}</span>
-                      <a href="{{ item.url }}" data-formulation-subdivision>{{ item.category.title }}</a>
-                    </div>
-                  </td>
-                  <td class="t1-table__versions">{{ item.count }} formulation{{ item.count|pluralize }}</td>
-                  <td class="t1-table__progress-cell">
-                    <div class="t1-table__progress">
-                      <span class="progress-status progress-status--{{ item.progress.status }}">{{ item.completed }}/{{ item.count }}</span>
-                    </div>
+                <tr class="t1-table__row is-status-{{ item.progress.status }}" data-formulation-subdivision>
+                  <td class="formulation-disclosure-cell" colspan="3">
+                    <details class="formulation-subdivision-disclosure">
+                      <summary>
+                        <span class="formulation-subdivision-title">
+                          <span class="formulation-row-arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+                          <span class="formulation-subdivision-icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=item.category.icon only %}</span>
+                          <strong>{{ item.category.title }}</strong>
+                        </span>
+                        <span class="formulation-subdivision-count">{{ item.count }} formulation{{ item.count|pluralize }}</span>
+                        <span class="formulation-subdivision-progress">
+                          <span class="progress-status progress-status--{{ item.progress.status }}">{{ item.completed }}/{{ item.count }}</span>
+                        </span>
+                      </summary>
+                      <div class="formulation-subtopic-panel">
+                        <div class="formulation-subtopic-panel__head">
+                          <span>{% if item.reference_label %}{{ item.count|add:1 }} sections{% else %}{{ item.count }} sections{% endif %}</span>
+                          <a href="{{ item.url }}">Ouvrir toute la subdivision →</a>
+                        </div>
+                        <ol class="formulation-subtopic-list">
+                          {% if item.reference_label %}
+                            <li>
+                              <a href="{{ item.reference_url }}">
+                                <span>00</span>
+                                <strong>{{ item.reference_label }}</strong>
+                                <i class="is-reference" aria-hidden="true"></i>
+                              </a>
+                            </li>
+                          {% endif %}
+                          {% for topic in item.topics %}
+                            <li id="formulation-{{ topic.slug }}">
+                              <a href="{{ topic.url }}">
+                                <span>{{ topic.number }}</span>
+                                <strong>{{ topic.label }}</strong>
+                                {% if topic.essential %}<small>Essentiel</small>{% endif %}
+                              </a>
+                              <form
+                                class="subject-completion-check formulation-subtopic-check{% if topic.learned %} is-complete{% endif %}"
+                                method="post"
+                                action="{% url 'study:ee_formulation_progress' topic.slug %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="next" value="{{ return_url }}">
+                                <input type="hidden" name="completed" value="{% if topic.learned %}0{% else %}1{% endif %}">
+                                <button
+                                  type="submit"
+                                  role="checkbox"
+                                  aria-checked="{{ topic.learned|yesno:'true,false' }}"
+                                  aria-label="{% if topic.learned %}Remettre à apprendre : {% else %}Marquer comme apprise : {% endif %}{{ topic.label }}"
+                                  title="{% if topic.learned %}Apprise{% else %}Marquer comme apprise{% endif %}">
+                                  {% include "study/partials/ui_icon.html" with name="check" only %}
+                                </button>
+                              </form>
+                            </li>
+                          {% endfor %}
+                        </ol>
+                      </div>
+                    </details>
                   </td>
                 </tr>
               {% endfor %}

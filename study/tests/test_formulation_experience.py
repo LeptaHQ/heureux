@@ -45,10 +45,13 @@ class FormulationExperienceTests(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'class="formulation-directory-tables"')
         self.assertContains(response, "<table", count=2)
-        self.assertContains(response, "Essentiels")
+        self.assertContains(response, "Fonctions d’écriture")
         self.assertContains(response, "Thèmes")
         self.assertContains(response, self.function_url)
-        self.assertNotContains(response, '<details class="formulation-directory')
+        self.assertContains(
+            response,
+            'class="formulation-subdivision-disclosure"',
+        )
         self.assertNotContains(response, 'class="formulation-list"')
 
         response = self.client.get(self.function_url)
@@ -68,8 +71,18 @@ class FormulationExperienceTests(TestCase):
         self.assertNotContains(response, 'data-annotation-source-key="formulation')
         self.assertNotContains(response, 'name="transfer_response"')
 
+        response = self.client.get(reverse(
+            "study:ee_formulation_entry", args=["cadre-0"],
+        ))
+        self.assertContains(response, "formulation-entry-lesson")
+        self.assertContains(response, "Comprendre et l’appliquer à la Tâche 3")
+        self.assertNotContains(response, 'class="formulation-list')
+        self.assertNotContains(response, "formulation-topic-sidebar")
+
     def test_synthesis_page_has_a_reporting_language_reference(self):
-        response = self.client.get(self.synthesis_url)
+        response = self.client.get(reverse(
+            "study:ee_formulation_language", args=["synthese"],
+        ))
         self.assertContains(
             response, "Verbes utiles pour présenter les documents",
         )
@@ -84,11 +97,16 @@ class FormulationExperienceTests(TestCase):
         for theme in THEMES:
             with self.subTest(theme=theme):
                 response = self.client.get(reverse(
-                    "study:ee_formulation_theme", args=[theme],
+                    "study:ee_formulation_language", args=[theme],
                 ))
                 self.assertEqual(response.status_code, 200)
                 self.assertContains(response, "Vocabulaire utile")
-                self.assertEqual(len(response.context["language_bank"]), 8)
+                self.assertGreaterEqual(
+                    len(response.context["language_bank"]), 12,
+                )
+                self.assertLessEqual(
+                    len(response.context["language_bank"]), 18,
+                )
 
     def test_all_themes_and_accent_insensitive_search(self):
         response = self.client.get(self.search_url, {"q": "PREVENTION"})

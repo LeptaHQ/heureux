@@ -25,8 +25,11 @@ COLLECTION_ROUTES = {
     "search": "study:ee_formulation_search",
 }
 RETURN_ROUTES = {
+    "ee_formulations",
+    "ee_formulation_entry",
     "ee_formulation_essentials",
     "ee_formulation_function",
+    "ee_formulation_language",
     "ee_formulation_theme",
     "ee_formulation_search",
 }
@@ -101,13 +104,70 @@ def _selection(entries, categories, filters, learned):
     return result
 
 
+def _source_urls(task, entries):
+    sources = {}
+    for key, prompt_id in Prompt.objects.filter(
+        response__content_key__in={
+            entry.source_key for entry in entries
+        },
+        response__is_active=True,
+        is_active=True,
+        theme__is_active=True,
+        theme__task=task,
+    ).order_by(
+        "response_id", "number", "pk",
+    ).values_list("response__content_key", "pk"):
+        sources.setdefault(
+            key,
+            reverse(
+                "study:response_detail",
+                args=["ee", "tache-3", prompt_id],
+            ),
+        )
+    return sources
+
+
+def _entry_row(entry, categories, learned, sources):
+    return {
+        "entry": entry,
+        "category": categories[entry.category],
+        "learned": entry.content_key in learned,
+        "source_url": sources.get(entry.source_key, ""),
+        "copy_id": "formulation-copy-" + entry.slug,
+    }
+
+
 def _directory_item(category, entries, learned, *, kind):
+    url = collection_url(kind, category.slug)
+    language_bank = formulation_language_for(category)
     return {
         "category": category,
         "count": len(entries),
         "completed": sum(entry.content_key in learned for entry in entries),
         "progress": _progress(entries, learned),
-        "url": collection_url(kind, category.slug),
+        "url": url,
+        "reference_label": (
+            "Verbes utiles" if category.slug == "synthese"
+            else "Vocabulaire utile"
+        ) if language_bank else "",
+        "reference_url": (
+            reverse(
+                "study:ee_formulation_language", args=[category.slug],
+            ) if language_bank else ""
+        ),
+        "topics": [
+            {
+                "slug": entry.slug,
+                "number": f"{index:02d}",
+                "label": entry.label,
+                "url": reverse(
+                    "study:ee_formulation_entry", args=[entry.slug],
+                ),
+                "learned": entry.content_key in learned,
+                "essential": entry.essential,
+            }
+            for index, entry in enumerate(entries, start=1)
+        ],
     }
 
 
@@ -139,24 +199,20 @@ def formulations(request):
         return redirect(_legacy_destination(filters, catalog))
 
     learned, progress = formulation_progress(request.user, catalog)
-    essentials = [entry for entry in catalog.entries if entry.essential]
     function_items = []
     theme_items = []
     for category in catalog.categories:
         if category.kind == "function":
             entries = [
-                entry for entry in essentials
+                entry for entry in catalog.entries
                 if entry.category == category.slug
             ]
             if entries:
-                item = _directory_item(
-                    category, entries, learned, kind="function",
+                function_items.append(
+                    _directory_item(
+                        category, entries, learned, kind="function",
+                    )
                 )
-                item["expanded_count"] = sum(
-                    entry.category == category.slug
-                    for entry in catalog.entries
-                )
-                function_items.append(item)
         else:
             entries = [
                 entry for entry in catalog.entries
@@ -170,18 +226,27 @@ def formulations(request):
         "part": task.part,
         "task": task,
         "progress": progress,
+        "return_url": reverse("study:ee_formulations"),
         "tables": (
             {
-                "slug": "essentials",
-                "title": "Essentiels",
+                "slug": "functions",
+                "title": "Fonctions d’écriture",
                 "description": (
-                    "Les constructions à maîtriser pour bâtir une réponse "
-                    "complète, classées par fonction d’écriture."
+                    "Les formulations classées par étape de la réponse."
                 ),
                 "items": function_items,
-                "progress": _progress(essentials, learned),
+                "progress": _progress(
+                    [
+                        entry for entry in catalog.entries
+                        if entry.category in {
+                            category.slug for category in catalog.categories
+                            if category.kind == "function"
+                        }
+                    ],
+                    learned,
+                ),
                 "all_url": collection_url("essentials"),
-                "all_label": "Ouvrir les essentiels",
+                "all_label": "Ouvrir les 16 essentiels",
             },
             {
                 "slug": "themes",
@@ -272,33 +337,9 @@ def formulation_collection(request, kind, slug=""):
         0,
     )
     visible = selected[index:index + 1] if practice else selected
-    sources = {}
-    for key, prompt_id in Prompt.objects.filter(
-        response__content_key__in={
-            entry.source_key for entry in visible
-        },
-        response__is_active=True,
-        is_active=True,
-        theme__is_active=True,
-        theme__task=task,
-    ).order_by(
-        "response_id", "number", "pk",
-    ).values_list("response__content_key", "pk"):
-        sources.setdefault(
-            key,
-            reverse(
-                "study:response_detail",
-                args=["ee", "tache-3", prompt_id],
-            ),
-        )
+    sources = _source_urls(task, visible)
     rows = [
-        {
-            "entry": entry,
-            "category": categories[entry.category],
-            "learned": entry.content_key in learned,
-            "source_url": sources.get(entry.source_key, ""),
-            "copy_id": "formulation-copy-" + entry.slug,
-        }
+        _entry_row(entry, categories, learned, sources)
         for entry in visible
     ]
     browse_filters = {
@@ -342,6 +383,86 @@ def formulation_collection(request, kind, slug=""):
         "next_url": collection_url(
             kind, slug, {**filters, "entry": selected[index + 1].slug},
         ) if practice and index + 1 < len(selected) else "",
+    })
+
+
+@require_GET
+def formulation_entry(request, slug):
+    task = _route_task("ee", "tache-3", request=request)
+    if not task.available:
+        raise Http404
+    catalog = get_ee_formulations()
+    entry = next(
+        (item for item in catalog.entries if item.slug == slug),
+        None,
+    )
+    if entry is None:
+        raise Http404
+    categories = {item.slug: item for item in catalog.categories}
+    category = categories[entry.category]
+    siblings = [
+        item for item in catalog.entries
+        if item.category == category.slug
+    ]
+    position = siblings.index(entry)
+    learned, overall_progress = formulation_progress(request.user, catalog)
+    row = _entry_row(
+        entry, categories, learned, _source_urls(task, [entry]),
+    )
+    kind = "function" if category.kind == "function" else "theme"
+    return render(request, "study/formulation_entry.html", {
+        "part": task.part,
+        "task": task,
+        "row": row,
+        "category": category,
+        "overall_progress": overall_progress,
+        "progress": _progress(siblings, learned),
+        "position": position + 1,
+        "total": len(siblings),
+        "return_url": request.path,
+        "filter_fields": (),
+        "back_url": collection_url(kind, category.slug),
+        "previous_entry": siblings[position - 1] if position else None,
+        "previous_url": reverse(
+            "study:ee_formulation_entry",
+            args=[siblings[position - 1].slug],
+        ) if position else "",
+        "next_entry": (
+            siblings[position + 1] if position + 1 < len(siblings)
+            else None
+        ),
+        "next_url": reverse(
+            "study:ee_formulation_entry",
+            args=[siblings[position + 1].slug],
+        ) if position + 1 < len(siblings) else "",
+    })
+
+
+@require_GET
+def formulation_language_reference(request, slug):
+    task = _route_task("ee", "tache-3", request=request)
+    if not task.available:
+        raise Http404
+    catalog = get_ee_formulations()
+    category = next(
+        (item for item in catalog.categories if item.slug == slug),
+        None,
+    )
+    language_bank = formulation_language_for(category)
+    if category is None or not language_bank:
+        raise Http404
+    kind = "function" if category.kind == "function" else "theme"
+    return render(request, "study/formulation_language.html", {
+        "part": task.part,
+        "task": task,
+        "category": category,
+        "language_bank": language_bank,
+        "back_url": collection_url(kind, category.slug),
+        "reference_title": (
+            "Verbes utiles pour présenter les documents"
+            if category.slug == "synthese"
+            else f"Vocabulaire utile : {category.title}"
+        ),
     })
 
 

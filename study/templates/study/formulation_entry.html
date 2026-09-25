@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}{{ row.entry.label }} · Formulations · Heureux{% endblock %}
+{% block content %}
+{% include "study/partials/task_nav.html" %}
+<div class="formulations-page formulation-entry-page">
+  <nav class="breadcrumbs" aria-label="Fil d’Ariane">
+    <a href="{% url 'study:ee_formulations' %}">Formulations</a>
+    <span aria-hidden="true">/</span>
+    <a href="{{ back_url }}">{{ category.title }}</a>
+    <span aria-hidden="true">/</span>
+    <span aria-current="page">{{ row.entry.label }}</span>
+  </nav>
+
+  <header class="learn-lesson-hero formulation-entry-hero">
+    <div>
+      <p class="eyebrow">{{ category.title }} · Section {{ position }} sur {{ total }}{% if row.entry.essential %} · Essentiel{% endif %}</p>
+      <h1>{{ row.entry.label }}</h1>
+      <p>{{ row.entry.usage }}</p>
+    </div>
+    <div class="learn-lesson-hero__meta">
+      <span class="progress-status progress-status--{% if row.learned %}done{% else %}new{% endif %}">{% if row.learned %}Apprise{% else %}À apprendre{% endif %}</span>
+      <span class="progress-status progress-status--{{ progress.status }}">{{ progress.completed }}/{{ progress.total }} dans cette subdivision</span>
+    </div>
+  </header>
+
+  <article class="card learn-content-section formulation-entry-lesson" id="formulation-{{ row.entry.slug }}">
+    <header class="learn-content-section__head formulation-lesson-head">
+      <span>{{ position|stringformat:"02d" }}</span>
+      <div>
+        <p class="eyebrow">Formulation à retenir</p>
+        <h2>{{ row.entry.label }}</h2>
+      </div>
+    </header>
+
+    <p class="formulation-french" lang="fr">{{ row.entry.french }}</p>
+    {% include "study/partials/prompt_copy_button.html" with button_class="btn" source_id=row.copy_id label="Copier la formulation" toast_message="Formulation copiée." only %}
+    {{ row.entry.french|json_script:row.copy_id }}
+
+    <section class="formulation-entry-guidance" aria-labelledby="formulation-guidance-title">
+      <h2 id="formulation-guidance-title">Comprendre et l’appliquer à la Tâche 3</h2>
+      {% include "study/partials/formulation_teaching.html" %}
+    </section>
+
+    {% include "study/partials/formulation_learned.html" %}
+  </article>
+
+  <nav class="learn-lesson-nav" aria-label="Navigation entre les formulations">
+    {% if previous_entry %}
+      <a class="learn-lesson-nav__link learn-lesson-nav__link--previous" href="{{ previous_url }}">
+        {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
+        <span><small>Formulation précédente</small><strong>{{ previous_entry.label }}</strong></span>
+      </a>
+    {% else %}<span></span>{% endif %}
+    {% if next_entry %}
+      <a class="learn-lesson-nav__link learn-lesson-nav__link--next" href="{{ next_url }}">
+        <span><small>Formulation suivante</small><strong>{{ next_entry.label }}</strong></span>
+        {% include "study/partials/ui_icon.html" with name="arrow-right" only %}
+      </a>
+    {% endif %}
+  </nav>
+</div>
+{% endblock %}
+{% block scripts %}
+{{ block.super }}
+<script src="{% static 'study/js/prompt-copy.js' %}?v=2"></script>
+{% endblock %}

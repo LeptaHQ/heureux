@@ -33,6 +33,19 @@ EXPECTED_THEME_COUNTS = {
     "consommation": 10,
     "voyages": 1,
 }
+EXPECTED_LANGUAGE_COUNTS = {
+    "education": 16,
+    "sante-alimentation": 18,
+    "environnement": 16,
+    "travail": 18,
+    "numerique": 18,
+    "societe": 16,
+    "transports": 14,
+    "logement": 15,
+    "culture-loisirs": 17,
+    "consommation": 18,
+    "voyages": 12,
+}
 LEGACY_MEMOIRE_SHA256 = {
     1: "cda55a4d8208e08f9a9cb2fa6560db61c91aff47025c0c640848abc1c2a429e1",
     2: "86708ac81671de5497706ad8c70b4256c699e297ce3b646ac0ccb82872d9ba6d",
@@ -161,14 +174,28 @@ class EeFormulationsContentTests(SimpleTestCase):
     def test_function_and_theme_language_references_are_complete(self):
         self.assertEqual(len(REPORTING_LANGUAGE), 10)
         self.assertEqual(set(THEME_LANGUAGE), set(EXPECTED_THEME_COUNTS))
-        self.assertTrue(all(len(items) == 8 for items in THEME_LANGUAGE.values()))
+        self.assertEqual(
+            {
+                slug: len(items)
+                for slug, items in THEME_LANGUAGE.items()
+            },
+            EXPECTED_LANGUAGE_COUNTS,
+        )
+        self.assertTrue(all(
+            12 <= len(items) <= 18
+            for items in THEME_LANGUAGE.values()
+        ))
         education = {item.french for item in THEME_LANGUAGE["education"]}
         self.assertIn("la mixité sociale", education)
         self.assertIn("les classes socialement homogènes", education)
+        self.assertIn("développer l’autonomie", education)
         for slug, items in THEME_LANGUAGE.items():
             with self.subTest(theme=slug):
                 self.assertEqual(
                     len({item.french.casefold() for item in items}), len(items),
+                )
+                self.assertEqual(
+                    len({item.pattern.casefold() for item in items}), len(items),
                 )
                 self.assertTrue(all(
                     item.french.strip()
@@ -176,6 +203,37 @@ class EeFormulationsContentTests(SimpleTestCase):
                     and item.pattern.strip()
                     for item in items
                 ))
+
+    def test_theme_language_is_grounded_in_both_response_parts(self):
+        authors = load_ee_tache_three_author_responses()
+        provenance_sources = set()
+        self.assertEqual(len(self.responses), 78)
+        for response in self.responses.values():
+            self.assertTrue(response.reformulation.strip())
+            self.assertTrue(response.position.strip())
+            self.assertTrue(response.position_claire.strip())
+
+        for slug, items in THEME_LANGUAGE.items():
+            parts = set()
+            for item in items:
+                with self.subTest(theme=slug, french=item.french):
+                    self.assertTrue(item.provenance)
+                    for source_key, field in item.provenance:
+                        self.assertIn(source_key, self.responses)
+                        self.assertEqual(self.theme_by_key[source_key], slug)
+                        self.assertIn(
+                            field,
+                            {"reformulation", "position", "position_claire"},
+                        )
+                        self.assertTrue(
+                            getattr(self.responses[source_key], field).strip()
+                        )
+                        provenance_sources.add(source_key)
+                        parts.add(field)
+            self.assertIn("position", parts)
+            self.assertIn("position_claire", parts)
+        self.assertEqual(provenance_sources, set(self.responses))
+        self.assertLessEqual(set(authors), provenance_sources)
 
     def test_source_defects_have_explicit_provenance(self):
         by_slug = {entry.slug: entry for entry in self.catalog.entries}

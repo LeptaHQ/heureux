@@ -81,39 +81,8 @@
           {% if next_url %}<a class="btn" href="{{ next_url }}#formulation-results">Suivante</a>{% endif %}
         </nav>
       </div>
-    {% elif rows or language_bank %}
-      <div class="formulation-learning-layout">
-        <div class="formulation-topic-sidebar-wrap">
-          <aside class="card formulation-topic-sidebar" aria-label="Formulations de cette subdivision">
-            <div class="formulation-topic-sidebar__head">
-              <p class="eyebrow">Dans cette subdivision</p>
-              <strong>{{ result_count }} formulation{{ result_count|pluralize }}</strong>
-            </div>
-            <nav aria-label="Accéder à une formulation">
-              <ol class="formulation-topic-list">
-                {% if language_bank %}
-                  <li>
-                    <a href="#formulation-language-bank">
-                      <span>00</span>
-                      <strong>{{ language_bank_label }}</strong>
-                      <i class="is-reference" aria-hidden="true"></i>
-                    </a>
-                  </li>
-                {% endif %}
-                {% for row in rows %}
-                  <li>
-                    <a href="#formulation-{{ row.entry.slug }}">
-                      <span>{{ forloop.counter|stringformat:"02d" }}</span>
-                      <strong>{{ row.entry.label }}</strong>
-                      <i class="{% if row.learned %}is-learned{% endif %}" aria-label="{% if row.learned %}Apprise{% else %}À apprendre{% endif %}"></i>
-                    </a>
-                  </li>
-                {% endfor %}
-              </ol>
-            </nav>
-          </aside>
-        </div>
-        <div class="formulation-lesson-column">
+    {% elif rows %}
+      <div class="formulation-lesson-column">
           {% if language_bank %}
             <section class="card learn-content-section formulation-language-bank" id="formulation-language-bank" aria-labelledby="formulation-language-bank-title">
               <header class="learn-content-section__head formulation-lesson-head">
@@ -160,7 +129,6 @@
               </li>
             {% endfor %}
           </ol>
-        </div>
       </div>
     {% else %}
       <div class="card formulation-empty"><h3>Aucune formulation dans cette sélection</h3><p>Modifiez les filtres ou revenez à toutes les formulations de cette subdivision.</p><a class="btn" href="{{ return_url }}">Réinitialiser les filtres</a></div>

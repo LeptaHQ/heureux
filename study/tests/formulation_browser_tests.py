@@ -68,21 +68,34 @@ class FormulationBrowserTests(StaticLiveServerTestCase):
         page.goto(self.url)
         expect(page.locator(".formulation-directory-table")).to_have_count(2)
         expect(page.locator(".formulation-list")).to_have_count(0)
-        page.get_by_role("link", name="Affirmation", exact=True).click()
-        expect(page.locator(".formulation-list")).to_be_visible()
-        expect(page.locator(".formulation-topic-sidebar")).to_be_visible()
-        expect(page.locator(".formulation-topic-list a")).to_have_count(2)
-        page.locator(".formulation-topic-list a").nth(1).click()
-        self.assertEqual(page.evaluate("window.location.hash"), "#formulation-cadre-1")
+        subdivision = page.locator(
+            '[data-formulation-subdivision]',
+            has_text="Affirmation",
+        )
+        subdivision.locator("summary").click()
+        expect(
+            subdivision.locator(".formulation-subtopic-list a"),
+        ).to_have_count(2)
+        subdivision.locator(".formulation-subtopic-list a").first.click()
+        expect(page.locator(".formulation-entry-lesson")).to_be_visible()
+        expect(page.locator(".formulation-list")).to_have_count(0)
+        expect(page.locator(".formulation-topic-sidebar")).to_have_count(0)
         expect(page.locator("[data-formulation-practice]")).to_have_count(0)
         page.locator("[data-prompt-copy]").first.click()
         self.assertEqual(page.evaluate("window.copiedFormulation"), self.catalog.entries[0].french)
+        page.get_by_role(
+            "button", name="Je sais reproduire et adapter", exact=False,
+        ).click()
+        expect(page.get_by_role(
+            "button", name="Remettre à apprendre", exact=False,
+        )).to_be_visible()
         for width in (390, 1280):
             page.set_viewport_size({"width": width, "height": 844})
             self.assertTrue(page.evaluate(
                 "document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1"
             ))
         page.set_viewport_size({"width": 390, "height": 844})
+        page.get_by_role("link", name="Affirmation", exact=True).click()
         page.get_by_role("link", name="Pratiquer cette subdivision").click()
         expect(page.locator("[data-flashcard-front]")).to_be_visible()
         expect(page.locator("[data-flashcard-back]")).to_be_hidden()

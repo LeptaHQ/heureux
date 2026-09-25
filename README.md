@@ -34,14 +34,43 @@ keeps all marked records in the folder. Page navigation works without JavaScript
 The shared `study/partials/pagination.html` pager accepts a Django `page_obj`,
 `page_links` (`number` and `url`), previous/next URLs, and an optional accessible label.
 
-EE task 3 vocabulary reuses EO task 2's theme directory and vocabulary detail
-components: theme cards/tables, guided lots, contextual vocabulary, flashcards,
-recall controls and learned checkboxes. Theme links stay in vocabulary, not subject
-pages. Existing phrase identities and review schedules remain unchanged; explicit
-learned flags use the shared vocabulary progress model.
 Vocabulary theme, category and comprehension-test pages share a compact,
 collapsible guided-lots component with completed/active counts. The vocabulary
 stays full-width, and the lot links work with keyboard controls or without JavaScript.
+
+## EE task 3 formulations
+
+`/expression/ecrite/tache-3/formulations/` is the EE3 writing toolkit. One catalogue
+organizes formulations by writing function (titles, neutral synthesis, affirmation,
+opposition, concession, conditions, arguments, examples, consequences and
+conclusions) and by the eleven subject themes. Start with the essentials, then
+learn thematic arguments rather than isolated words.
+
+The catalogue opens as a readable list, with search and category, theme, learned
+status and essentials filters. Each entry pairs a reusable French frame with its
+English meaning, usage and grammar guidance, an example from a reference response,
+and an exercise for adapting it to a different situation. Copy and opt-in recall
+practice are separate actions. Learned status is the learner's own assessment of
+being able to reproduce and adapt the formulation, not an exam score.
+
+The file-backed curriculum lives in `study/content/ee/tache_3/formulations.json`;
+`study/ee_formulations.py` validates its structure, complete effective-source
+coverage and verbatim example provenance. Frames and teaching guidance are
+editorial adaptations, not quotations. Examples refer to the bundled reference
+corpus, not live summaries of edited or personal answers. Source revisions must
+keep the evidence current, and workers must restart after catalogue changes.
+
+New completion keys use `formulation:ee3:v1:<slug>` and never inherit unrelated
+vocabulary or old memory completion. Materially changing a learning target requires
+a new slug. The old `/memoires/` directory redirects to Formulations; numbered
+memory pages remain an archive with their original text, keys and highlight
+coordinates.
+
+EE3 vocabulary is retired from active navigation and learning queues. This is a
+read-time exclusion, not a destructive import: historical phrases, schedules,
+review logs, explicit learned marks and annotations remain stored. Phrases still
+owned by another active task remain available there. Old EE3 vocabulary collection
+links lead to Formulations; other tasks retain their existing vocabulary features.
 
 ## Subject pistes and oral equivalence
 
@@ -145,10 +174,9 @@ so workers using the pre-upgrade ORM can finish inserts during replacement.
   Removing a version preserves the remaining copy and annotation identifiers.
 - Vocabulary listings start in table view and remember their card/table choice
   separately from subject and note listings. Study/review sessions retain their
-  flashcard behavior. The EE Tâche 3 vocabulary directory expands themes into
-  subject rows, defaults to distinct decks, and supports `?deduplicate=0` to show
-  all publications. Its progress is vocabulary progress, not subject completion.
-- EE Tâche 3 mémoire translations are bundled alongside French formulations.
+  flashcard behavior. Selecting a guided lot opens its entries in table view;
+  a separate practice action starts that lot's available review cards.
+- Archived EE Tâche 3 mémoire translations remain alongside French formulations.
   English display text is excluded from existing French highlight coordinates;
   approved French corrections retain the original learned-item identities.
   Do not regenerate completion keys from translated or corrected display text.
@@ -176,6 +204,7 @@ remain history-dependent; the exposure optimization does not truncate or cap the
 | `study/account_services.py`         | Account provisioning, recovery, and login throttling         |
 | `study/content_loader.py`           | Pure parsing and validation of bundled study content         |
 | `study/catalogue.py`                | Shared immutable expression catalogues and lookup indexes    |
+| `study/ee_formulations.py`          | Validated EE3 writing frames, source evidence and categories |
 | `study/learning_content.py`         | Validation and cached loading for the Learn curriculum        |
 | `study/course_content.py`           | Typed original course and benchmark coverage contracts       |
 | `study/course_practice.py`          | Server-side selection, grading, exposure and delayed review  |

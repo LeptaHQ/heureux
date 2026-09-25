@@ -8944,19 +8944,46 @@ class BrowserTests(StaticLiveServerTestCase):
             ),
             [[key, path, "A"] for key, path in expected],
         )
-        self.assertEqual(
-            self.page.locator(".home-destinations").evaluate(
-                "grid => getComputedStyle(grid).gridTemplateColumns.split(' ').length"
-            ),
-            2,
+        desktop_tiles = cards.evaluate_all(
+            """
+            cards => cards.map(card => {
+              const box = card.getBoundingClientRect();
+              const style = getComputedStyle(card);
+              return {
+                x: box.x,
+                y: box.y,
+                width: box.width,
+                height: box.height,
+                background: style.backgroundImage,
+                radii: [
+                  parseFloat(style.borderTopLeftRadius),
+                  parseFloat(style.borderTopRightRadius),
+                  parseFloat(style.borderBottomRightRadius),
+                  parseFloat(style.borderBottomLeftRadius),
+                ],
+              };
+            })
+            """
         )
-        self.assertLessEqual(
-            max(
-                cards.evaluate_all(
-                    "cards => cards.map(card => card.getBoundingClientRect().height)"
-                )
+        self.assertAlmostEqual(desktop_tiles[0]["y"], desktop_tiles[1]["y"], delta=1)
+        self.assertAlmostEqual(desktop_tiles[2]["y"], desktop_tiles[3]["y"], delta=1)
+        self.assertGreater(desktop_tiles[0]["width"], desktop_tiles[1]["width"])
+        self.assertGreater(desktop_tiles[3]["width"], desktop_tiles[2]["width"])
+        self.assertTrue(
+            all(200 <= tile["height"] <= 230 for tile in desktop_tiles),
+            desktop_tiles,
+        )
+        self.assertEqual(
+            len({tile["background"] for tile in desktop_tiles}),
+            4,
+        )
+        self.assertTrue(
+            all(
+                min(tile["radii"]) <= 13
+                and max(tile["radii"]) >= 34
+                for tile in desktop_tiles
             ),
-            170,
+            desktop_tiles,
         )
         expect(
             self.page.locator(
@@ -8965,9 +8992,32 @@ class BrowserTests(StaticLiveServerTestCase):
         ).to_have_count(0)
         self.assert_no_horizontal_overflow()
 
-        for width in (860, 390, 320):
+        self.page.set_viewport_size({"width": 860, "height": 700})
+        self.page.mouse.move(0, 0)
+        tablet_tiles = cards.evaluate_all(
+            """
+            cards => cards.map(card => {
+              const box = card.getBoundingClientRect();
+              return {y: box.y, width: box.width, height: box.height};
+            })
+            """
+        )
+        self.assertAlmostEqual(tablet_tiles[0]["y"], tablet_tiles[1]["y"], delta=2)
+        self.assertGreater(tablet_tiles[0]["width"], tablet_tiles[1]["width"])
+        self.assertTrue(
+            all(180 <= tile["height"] <= 210 for tile in tablet_tiles),
+            tablet_tiles,
+        )
+        self.assert_no_horizontal_overflow()
+
+        for width, minimum, maximum in (
+            (760, 130, 180),
+            (390, 100, 120),
+            (320, 100, 120),
+        ):
             with self.subTest(width=width):
                 self.page.set_viewport_size({"width": width, "height": 700})
+                self.page.mouse.move(0, 0)
                 self.assertEqual(
                     self.page.locator(".home-destinations").evaluate(
                         "grid => getComputedStyle(grid).gridTemplateColumns.split(' ').length"
@@ -8977,8 +9027,10 @@ class BrowserTests(StaticLiveServerTestCase):
                 heights = cards.evaluate_all(
                     "cards => cards.map(card => card.getBoundingClientRect().height)"
                 )
-                self.assertLessEqual(max(heights), 120)
-                self.assertTrue(all(height >= 96 for height in heights))
+                self.assertTrue(
+                    all(minimum <= height <= maximum for height in heights),
+                    heights,
+                )
                 self.assert_no_horizontal_overflow()
 
     def install_course_fixture(self):

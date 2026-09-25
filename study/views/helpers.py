@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from django.db.models import Count, Q
-from django.db.models.functions import Coalesce, TruncDate
+from django.db.models.functions import Coalesce
 from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
@@ -25,8 +25,6 @@ from ..models import (
     PhraseTier,
     Prompt,
     Rating,
-    Response,
-    ReviewLog,
     Task,
     Theme,
     WritingSujet,
@@ -658,53 +656,6 @@ def summarize_review_batches(batches) -> ProgressSummary:
         ),
         completed=sum(batch["status"] == "complete" for batch in available),
     )
-
-
-def review_day_counts(user=None, logs=None) -> dict:
-    """Reviews per local calendar day, in one grouped query.
-
-    The database does the day bucketing, so this reads one short row per active
-    day instead of the learner's whole review history — tens of thousands of
-    timestamps for the same handful of dates.
-    """
-    logs = ReviewLog.objects.filter(user=user) if logs is None else logs
-    return {
-        row["reviewed_day"]: row["total"]
-        for row in (
-            logs.annotate(reviewed_day=TruncDate("reviewed_at"))
-            .order_by()
-            .values("reviewed_day")
-            .annotate(total=Count("id"))
-        )
-        if row["reviewed_day"] is not None
-    }
-
-
-def current_streak(now=None, logs=None, user=None, day_counts=None) -> int:
-    """Consecutive days (up to today) with at least one review.
-
-    ``day_counts`` reuses a :func:`review_day_counts` mapping the caller has
-    already fetched.
-    """
-    now = now or timezone.now()
-    days = set(
-        day_counts
-        if day_counts is not None
-        else review_day_counts(user=user, logs=logs)
-    )
-    if not days:
-        return 0
-    today = timezone.localtime(now).date()
-    cursor = today
-    if cursor not in days:
-        cursor = today - timezone.timedelta(days=1)
-        if cursor not in days:
-            return 0
-    streak = 0
-    while cursor in days:
-        streak += 1
-        cursor = cursor - timezone.timedelta(days=1)
-    return streak
 
 
 def _recent_review_logs(logs):

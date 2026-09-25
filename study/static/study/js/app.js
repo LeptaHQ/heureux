@@ -2,6 +2,79 @@
 (function () {
   "use strict";
 
+  function legacyCopy(text) {
+    return new Promise(function (resolve, reject) {
+      var focused = document.activeElement;
+      var selection = window.getSelection();
+      var ranges = [];
+      for (var index = 0; selection && index < selection.rangeCount; index += 1) {
+        ranges.push(selection.getRangeAt(index).cloneRange());
+      }
+      var input = document.createElement("textarea");
+      input.value = text;
+      input.setAttribute("readonly", "");
+      input.style.position = "fixed";
+      input.style.opacity = "0";
+      input.style.pointerEvents = "none";
+      document.body.appendChild(input);
+      try {
+        input.select();
+        input.setSelectionRange(0, input.value.length);
+        if (!document.execCommand("copy")) {
+          throw new Error("The browser rejected the copy command.");
+        }
+        resolve();
+      } catch (error) {
+        reject(error);
+      } finally {
+        input.remove();
+        if (focused && focused.isConnected) focused.focus({ preventScroll: true });
+        if (selection) {
+          selection.removeAllRanges();
+          ranges.forEach(function (range) { selection.addRange(range); });
+        }
+      }
+    });
+  }
+
+  function writeClipboard(text) {
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+      try {
+        return Promise.resolve(navigator.clipboard.writeText(text)).catch(
+          function () { return legacyCopy(text); }
+        );
+      } catch (error) {
+        return legacyCopy(text);
+      }
+    }
+    return legacyCopy(text);
+  }
+
+  function insertText(textarea, text) {
+    var start = textarea.selectionStart;
+    var end = textarea.selectionEnd;
+    var retainedLength = textarea.value.length - (end - start);
+    var available = textarea.maxLength < 0
+      ? text.length
+      : Math.max(textarea.maxLength - retainedLength, 0);
+    var insertion = text.slice(0, available);
+    if (!insertion) return 0;
+    textarea.value =
+      textarea.value.slice(0, start)
+      + insertion
+      + textarea.value.slice(end);
+    var cursor = start + insertion.length;
+    textarea.setSelectionRange(cursor, cursor);
+    textarea.dispatchEvent(new Event("input", { bubbles: true }));
+    return insertion.length;
+  }
+
+  var clipboard = {
+    insertText: insertText,
+    writeText: writeClipboard
+  };
+  window.HeureuxClipboard = clipboard;
+
   /* ---------- Theme toggle ---------- */
   var root = document.documentElement;
   function setTheme(name) {
@@ -482,81 +555,6 @@
     });
   })();
 
-  /* ---------- Tâche 2 month sections ---------- */
-  (function () {
-    var toggles = Array.from(
-      document.querySelectorAll("[data-tache-two-month-toggle]")
-    );
-    if (!toggles.length) return;
-
-    function setMonthExpanded(monthKey, expanded, persist) {
-      toggles.forEach(function (toggle) {
-        if (toggle.dataset.tacheTwoMonthKey !== monthKey) return;
-
-        var target = document.getElementById(
-          toggle.getAttribute("aria-controls")
-        );
-        if (!target) return;
-
-        toggle.setAttribute("aria-expanded", expanded ? "true" : "false");
-        toggle.setAttribute(
-          "aria-label",
-          (expanded ? "Réduire " : "Afficher ") +
-            toggle.dataset.tacheTwoMonthName
-        );
-        var label = toggle.querySelector(
-          "[data-tache-two-month-toggle-label]"
-        );
-        if (label) label.textContent = expanded ? "Réduire" : "Afficher";
-
-        if (target.tagName === "TBODY") {
-          target.querySelectorAll("[data-tache-two-month-row]").forEach(
-            function (row) {
-              row.hidden = !expanded;
-            }
-          );
-        } else {
-          target.hidden = !expanded;
-        }
-        target.classList.toggle("is-collapsed", !expanded);
-      });
-
-      if (persist) {
-        try {
-          localStorage.setItem(
-            "tacheTwoMonth:" + monthKey,
-            expanded ? "expanded" : "collapsed"
-          );
-        } catch (e) {}
-      }
-    }
-
-    Array.from(
-      new Set(
-        toggles.map(function (toggle) {
-          return toggle.dataset.tacheTwoMonthKey;
-        })
-      )
-    ).forEach(function (monthKey) {
-      var expanded = false;
-      try {
-        expanded =
-          localStorage.getItem("tacheTwoMonth:" + monthKey) === "expanded";
-      } catch (e) {}
-      setMonthExpanded(monthKey, expanded, false);
-    });
-
-    toggles.forEach(function (toggle) {
-      toggle.addEventListener("click", function () {
-        setMonthExpanded(
-          toggle.dataset.tacheTwoMonthKey,
-          toggle.getAttribute("aria-expanded") !== "true",
-          true
-        );
-      });
-    });
-  })();
-
   /* ---------- Form dialogs ---------- */
   (function () {
     var dialogs = Array.from(document.querySelectorAll(".form-dialog"));
@@ -641,26 +639,6 @@
       createPasteStatus.classList.toggle("is-error", Boolean(isError));
     }
 
-    function insertIntoCreateBody(text) {
-      var start = createBody.selectionStart;
-      var end = createBody.selectionEnd;
-      var retainedLength = createBody.value.length - (end - start);
-      var available =
-        createBody.maxLength >= 0
-          ? Math.max(createBody.maxLength - retainedLength, 0)
-          : text.length;
-      var insertion = text.slice(0, available);
-      if (!insertion) return 0;
-      createBody.value =
-        createBody.value.slice(0, start)
-        + insertion
-        + createBody.value.slice(end);
-      var cursor = start + insertion.length;
-      createBody.setSelectionRange(cursor, cursor);
-      createBody.dispatchEvent(new Event("input", { bubbles: true }));
-      return insertion.length;
-    }
-
     function resetCreatePasteState() {
       createPasteOperation += 1;
       createPasteClose.disabled = false;
@@ -705,7 +683,7 @@
             if (!text) {
               throw new Error("Le presse-papiers est vide.");
             }
-            var inserted = insertIntoCreateBody(text);
+            var inserted = clipboard.insertText(createBody, text);
             if (!inserted) {
               throw new Error(
                 "La note a atteint sa longueur maximale."

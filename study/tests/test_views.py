@@ -62,7 +62,7 @@ from study.routing import (
     subject_selection_url,
     theme_detail_url,
 )
-from study.views.library import _ee_tache_three_position_blocks
+from study.oral_highlights import ee_tache_three_position_blocks
 
 from . import factories
 from .vocabulary_assertions import assert_vocabulary_lot_tables
@@ -204,6 +204,51 @@ class PWATests(TestCase):
             if asset in page and version != page[asset]
         }
         self.assertEqual(mismatched, {})
+
+    def test_progress_scripts_are_loaded_only_by_relevant_pages(self):
+        template_root = settings.BASE_DIR / "study" / "templates" / "study"
+        base = (settings.BASE_DIR / "templates" / "base.html").read_text()
+        self.assertNotIn("subject-progress.js", base)
+        self.assertNotIn("comprehension-progress.js", base)
+
+        subject_pages = (
+            "browse.html",
+            "ee_tache_one_subjects.html",
+            "ee_tache_three_month.html",
+            "ee_tache_three_subjects.html",
+            "ee_writing_subjects.html",
+            "family_detail.html",
+            "response_detail.html",
+            "search.html",
+            "tache_two_subject_batch.html",
+            "tache_two_subject_detail.html",
+            "tache_two_subjects.html",
+            "theme_detail.html",
+            "writing_sujet_detail.html",
+        )
+        for path in subject_pages:
+            with self.subTest(path=path):
+                self.assertIn(
+                    "partials/subject_progress_script.html",
+                    (template_root / path).read_text(),
+                )
+
+        comprehension_pages = (
+            "comprehension_group.html",
+            "comprehension_oral_overview.html",
+            "comprehension_overview.html",
+            "comprehension_question.html",
+            "comprehension_question_study.html",
+            "comprehension_results.html",
+            "comprehension_study_list.html",
+            "comprehension_test.html",
+        )
+        for path in comprehension_pages:
+            with self.subTest(path=path):
+                self.assertIn(
+                    "partials/comprehension_progress_script.html",
+                    (template_root / path).read_text(),
+                )
 
     def test_security_headers_block_inline_scripts_and_sensitive_capabilities(self):
         response = self.client.get(reverse("study:login"))
@@ -1011,7 +1056,7 @@ class EeTacheThreePageTests(TestCase):
             "En conclusion, cette mesure est utile si elle reste encadrée."
         )
 
-        blocks = _ee_tache_three_position_blocks(text)
+        blocks = ee_tache_three_position_blocks(text)
 
         self.assertEqual(
             [block["label"] for block in blocks],
@@ -1040,7 +1085,7 @@ class EeTacheThreePageTests(TestCase):
             "De plus, voici un second argument développé par sa conséquence. "
             "En conclusion, voici mon bilan."
         )
-        blocks = _ee_tache_three_position_blocks(text)
+        blocks = ee_tache_three_position_blocks(text)
         self.assertEqual(len(blocks), 4)
         self.assertEqual(" ".join(block["text"] for block in blocks), text)
         self.assertEqual(
@@ -1731,7 +1776,6 @@ class EeTacheThreePageTests(TestCase):
         self.assertContains(response, "<strong>60 minutes</strong>", html=True)
         self.assertContains(response, 'data-writing-methodology="3"', count=1)
         self.assertNotContains(response, "formation-tcfcanada")
-        self.assertNotContains(response, "data-tache-two-month-toggle")
         self.assertNotContains(
             response,
             "data-ee-tache-three-subject-row",
@@ -1914,7 +1958,6 @@ class EeTacheThreePageTests(TestCase):
         self.assertContains(response, "Pratiquer ce thème")
         self.assertNotContains(response, "publications liées")
         self.assertContains(response, "data-collection-view-toggle")
-        self.assertNotContains(response, "data-tache-two-month-toggle")
         self.assertContains(
             review,
             f"Thème · {prompt.theme.display_name}".replace("&", "&amp;"),

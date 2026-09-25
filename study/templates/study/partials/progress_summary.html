@@ -1,9 +1,9 @@
-<div class="tache-two-progress-summary{% if compact %} tache-two-progress-summary--compact{% endif %}">
-  <div class="tache-two-progress-summary__copy">
+<div class="progress-summary{% if compact %} progress-summary--compact{% endif %}">
+  <div class="progress-summary__copy">
     <span class="progress-status progress-status--{{ summary.progress.status }}">{{ summary.progress.label }}</span>
     <span>
       {{ summary.completed }}/{{ summary.total }}
-      <span class="tache-two-progress-summary__unit">{{ unit_label }}</span>
+      <span class="progress-summary__unit">{{ unit_label }}</span>
     </span>
   </div>
   <div class="progress" aria-label="{{ summary.completed }} sur {{ summary.total }} {{ unit_label }}">

@@ -2,6 +2,7 @@
 (function () {
   "use strict";
 
+  var clipboard = window.HeureuxClipboard;
   var main = document.getElementById("main");
   var action = document.querySelector("[data-selection-translate]");
   var noteButton = document.querySelector("[data-note-selection]");
@@ -361,25 +362,6 @@
     }, 0);
   }
 
-  function insertIntoNote(text) {
-    var start = noteBody.selectionStart;
-    var end = noteBody.selectionEnd;
-    var retainedLength = noteBody.value.length - (end - start);
-    var available = noteBody.maxLength < 0
-      ? text.length
-      : Math.max(noteBody.maxLength - retainedLength, 0);
-    var insertion = text.slice(0, available);
-    if (!insertion) return 0;
-    noteBody.value =
-      noteBody.value.slice(0, start)
-      + insertion
-      + noteBody.value.slice(end);
-    var cursor = start + insertion.length;
-    noteBody.setSelectionRange(cursor, cursor);
-    noteBody.dispatchEvent(new Event("input", { bubbles: true }));
-    return insertion.length;
-  }
-
   // Resolves to true only when clipboard text actually landed in the note,
   // so « Coller et fermer » never saves an unchanged note by surprise.
   function readClipboardIntoNote(revision) {
@@ -403,7 +385,7 @@
           noteStatus.textContent = "Le presse-papiers est vide.";
           return false;
         }
-        var inserted = insertIntoNote(text);
+        var inserted = clipboard.insertText(noteBody, text);
         if (!inserted) {
           noteStatus.textContent = "La note a atteint sa longueur maximale.";
           return false;

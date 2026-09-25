@@ -14,13 +14,11 @@
     {% if subjects_only %}<input type="hidden" name="scope" value="subjects">{% endif %}
     {% if subjects_only %}<input type="hidden" name="deduplicate" value="{{ deduplicate_subjects|yesno:'1,0' }}">{% endif %}
     <button class="btn btn--primary btn--icon" type="submit" aria-label="Chercher" title="Chercher">
-      <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
+      {% include "study/partials/ui_icon.html" with name="search" icon_class="btn__icon" only %}
     </button>
   </form>
   {% if query %}
-    {% if result_count or subjects_only %}
-      {% include "study/partials/collection_view_toggle.html" %}
-    {% endif %}
+    {% if result_count or subjects_only %}{% include "study/partials/collection_view_toggle.html" %}{% endif %}
   {% endif %}
 </div>
 
@@ -37,26 +35,7 @@
     <div class="qlist collection-table collection-table--subjects collection-table--search-results" data-collection-view="adaptive">
       {% include "study/partials/collection_table_header.html" with variant="subjects" column_1="Repère" column_2="Résultat" column_3="Contexte" only %}
       {% for prompt in prompt_results %}
-        <article
-          class="qrow subject-progress-row subject-progress-row--{{ prompt.subject_progress.status }}"
-          data-collection-item
-          data-subject-progress-row="{{ prompt.response_id }}">
-          <span class="qrow__num qrow__num--tag"><span class="chip chip--theme" style="--chip: {{ prompt.theme.color }};">{% include "study/partials/ui_icon.html" with name=prompt.theme.icon only %} P{{ prompt.number }}</span></span>
-          <span class="qrow__text">{{ prompt.text }}</span>
-          <div class="qrow__meta">
-            <span class="muted">{{ prompt.family.name }}</span>
-            <span
-              class="progress-status progress-status--{{ prompt.subject_progress.status }}"
-              data-subject-progress-status="{{ prompt.response_id }}">{{ prompt.subject_progress.label }}</span>
-            {% include "study/partials/subject_completion_form.html" with response_id=prompt.response_id progress=prompt.subject_progress subject_label=prompt.text part=prompt.theme.task.part task=prompt.theme.task refresh=True %}
-          </div>
-          <a
-            class="subject-row-hit-area"
-            href="{% subject_url 'study:response_detail' prompt.theme.task.part.slug prompt.theme.task.slug prompt.pk %}"
-            aria-label="Ouvrir le sujet : {{ prompt.text }}">
-            <span class="sr-only">Ouvrir le sujet</span>
-          </a>
-        </article>
+        {% include "study/partials/subject_prompt_row.html" with progress=prompt.subject_progress part=prompt.theme.task.part task=prompt.theme.task show_theme_chip=True context_label=prompt.family.name %}
       {% endfor %}
       {% for sujet in writing_sujet_results %}
         <article
@@ -143,4 +122,9 @@
     {% endif %}
   </div>
 {% endif %}
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  {% include "study/partials/subject_progress_script.html" %}
 {% endblock %}

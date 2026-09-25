@@ -63,10 +63,9 @@ class AuthenticationTests(TestCase):
             fetch_redirect_response=False,
         )
         self.assertIn("no-store", response["Cache-Control"])
-        self.assertEqual(
-            self.client.get(reverse("study:login")).status_code,
-            200,
-        )
+        login = self.client.get(reverse("study:login"))
+        self.assertEqual(login.status_code, 200)
+        self.assertNotContains(login, "recovery-codes.js")
         self.assertEqual(
             self.client.get(reverse("study:register")).status_code,
             200,
@@ -366,6 +365,7 @@ class AuthenticationTests(TestCase):
 
         self.assertEqual(len(codes), 8)
         self.assertContains(first, codes[0])
+        self.assertContains(first, "recovery-codes.js")
         self.assertNotContains(second, codes[0])
 
     def test_recovery_code_rotates_pin_and_all_codes(self):

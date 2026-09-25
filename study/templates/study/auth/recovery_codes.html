@@ -1,4 +1,5 @@
 {% extends "study/auth/base.html" %}
+{% load static %}
 {% block title %}Codes de récupération · Heureux{% endblock %}
 
 {% block content %}
@@ -16,4 +17,8 @@
   {% endif %}
   <a class="btn btn--primary btn--block" href="{{ next_url }}">J'ai enregistré mes codes</a>
 </section>
+{% endblock %}
+
+{% block scripts %}
+  <script src="{% static 'study/js/recovery-codes.js' %}?v=1"></script>
 {% endblock %}

@@ -50,7 +50,7 @@
         <span><b>{{ theme_vocabulary.batch_count }}</b> lots</span>
       </div>
       <footer class="tache-two-overview-panel__footer">
-        {% include "study/partials/tache_two_progress.html" with summary=theme_vocabulary.summary unit_label="lots terminés" compact=True only %}
+        {% include "study/partials/progress_summary.html" with summary=theme_vocabulary.summary unit_label="lots terminés" compact=True only %}
         <span class="tache-two-overview-panel__action">Ouvrir {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
       </footer>
     </a>
@@ -74,7 +74,7 @@
         <span><b>{{ subject_count }}</b> sujets</span>
       </div>
       <footer class="tache-two-overview-panel__footer">
-        {% include "study/partials/tache_two_progress.html" with summary=subject_summary unit_label="sujets terminés" compact=True only %}
+        {% include "study/partials/progress_summary.html" with summary=subject_summary unit_label="sujets terminés" compact=True only %}
         <span class="tache-two-overview-panel__action">Ouvrir {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
       </footer>
     </a>
@@ -85,5 +85,5 @@
 
 {% block scripts %}
   {{ block.super }}
-  <script src="{% static 'study/js/prompt-copy.js' %}?v=2"></script>
+  <script src="{% static 'study/js/prompt-copy.js' %}?v=3"></script>
 {% endblock %}

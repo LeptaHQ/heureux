@@ -1889,10 +1889,6 @@ class BrowserTests(StaticLiveServerTestCase):
             2,
         )
         self.assertEqual(
-            self.page.locator(".ee-t3-month-group").count(),
-            0,
-        )
-        self.assertEqual(
             self.page.locator("[data-collection-view-toggle]").count(),
             0,
         )
@@ -2176,9 +2172,13 @@ class BrowserTests(StaticLiveServerTestCase):
                     "study:task_browse",
                     args=[task.part.slug, task.slug],
                 )
-                vocabulary_url = reverse(
-                    "study:task_phrases",
-                    args=[task.part.slug, task.slug],
+                vocabulary_url = (
+                    reverse("study:ee_tache_one_formulations")
+                    if tache == 1
+                    else reverse(
+                        "study:task_phrases",
+                        args=[task.part.slug, task.slug],
+                    )
                 )
                 self.page.set_viewport_size(
                     {"width": 1183, "height": 844}
@@ -2193,12 +2193,19 @@ class BrowserTests(StaticLiveServerTestCase):
                     arg=content.load_ee_ai_examiner_prompt(tache),
                 )
                 self.page.goto(self.live_server_url + vocabulary_url)
-                self.assertEqual(
-                    self.page.locator(
-                        "[data-theme-vocabulary-directory-item]"
-                    ).count(),
-                    11,
-                )
+                if tache == 1:
+                    expect(
+                        self.page.locator(
+                            '[data-formulation-table="themes"] '
+                            "[data-formulation-subdivision]"
+                        )
+                    ).to_have_count(11)
+                else:
+                    expect(
+                        self.page.locator(
+                            "[data-theme-vocabulary-directory-item]"
+                        )
+                    ).to_have_count(11)
                 self.assert_no_horizontal_overflow()
                 self.page.goto(self.live_server_url + subjects_url)
                 if (
@@ -3733,7 +3740,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(
             self.page.locator(
                 ".tache-two-overview-panel "
-                ".tache-two-progress-summary"
+                ".progress-summary"
             ).count(),
             2,
         )
@@ -4119,7 +4126,6 @@ class BrowserTests(StaticLiveServerTestCase):
             self.page.locator("[data-t1-table-subject]").count(),
             348,
         )
-        self.assertEqual(self.page.locator(".t1-table__theme").count(), 0)
         table_layout = self.page.locator(".t1-table-groups").evaluate(
             """
             table => {

@@ -3,7 +3,6 @@
 from __future__ import annotations
 
 import json
-import re
 
 from django.db import transaction
 from django.db.models import Count, F, Prefetch, Q, Value, Window
@@ -182,30 +181,6 @@ def _distinct_count(qs) -> int:
     return qs.order_by().aggregate(total=Count("pk", distinct=True))["total"]
 
 
-def _prompt_counts_by_theme(themes=None, *, task=None) -> dict:
-    """Active prompt count per theme, grouped once instead of once per theme.
-
-    Passing ``task`` covers every active theme of that task, so the caller can
-    read both each theme's count and the task total from the same query.
-    """
-    prompts = Prompt.objects.filter(
-        is_active=True, response__is_active=True, theme__is_active=True,
-    )
-    if task is not None:
-        prompts = prompts.filter(theme__task=task)
-    else:
-        theme_ids = [theme.pk for theme in themes]
-        if not theme_ids:
-            return {}
-        prompts = prompts.filter(theme_id__in=theme_ids)
-    return {
-        row["theme_id"]: row["total"]
-        for row in (
-            prompts.order_by().values("theme_id").annotate(total=Count("id"))
-        )
-    }
-
-
 def _vocabulary_deck_progress(progress_items):
     items = list(progress_items)
     return progress_summary(
@@ -368,15 +343,6 @@ def _task_subject_vocabulary_context(
             ),
         },
     }
-
-
-def _phrase_deck_stats(now, user=None, task=None):
-    cards = (
-        _task_cards(task, user, "phrase")
-        if task
-        else queue_module.scoped_cards({"kind": "phrase"}, user=user)
-    )
-    return deck_stats(cards, now)
 
 
 def _question_bank_memory_context(user, memories):
@@ -3722,10 +3688,6 @@ def _subject_vocabulary_context(response, task_scope, user, *, prompt=None):
             else None
         ),
     }
-
-
-def _ee_tache_three_position_blocks(text):
-    return ee_tache_three_position_blocks(text)
 
 
 def response_detail(request, part_slug, task_slug, prompt_id):

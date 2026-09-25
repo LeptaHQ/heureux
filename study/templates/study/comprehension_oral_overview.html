@@ -54,3 +54,8 @@
   {% include "study/partials/comprehension_batch_collection.html" with groups=groups batch_icon="microphone" accent="var(--co-teal)" %}
 </div>
 {% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  {% include "study/partials/comprehension_progress_script.html" %}
+{% endblock %}

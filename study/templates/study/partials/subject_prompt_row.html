@@ -1,0 +1,32 @@
+{% load study_links %}
+{% subject_url 'study:response_detail' part.slug task.slug prompt.pk as detail_url %}
+<article
+  class="qrow subject-progress-row subject-progress-row--{{ progress.status }}"
+  data-collection-item
+  data-subject-progress-row="{{ prompt.response_id }}">
+  <span class="qrow__num{% if show_theme_chip %} qrow__num--tag{% endif %}">
+    {% if show_theme_chip %}
+      <span class="chip chip--theme" style="--chip: {{ prompt.theme.color }};">{% include "study/partials/ui_icon.html" with name=prompt.theme.icon only %} P{{ prompt.number }}</span>
+    {% else %}
+      {{ prompt.number }}
+    {% endif %}
+  </span>
+  <span class="qrow__text">
+    {{ prompt.text }}
+    {% if is_alias %}<span class="alias-tag" title="{{ alias_title }}">= {{ prompt.response.theme.display_name }} P{{ canonical_number }}</span>{% endif %}
+  </span>
+  <div class="qrow__meta{% if state_only %} qrow__meta--state{% endif %}">
+    {% if context_label %}<span class="muted">{{ context_label }}</span>{% endif %}
+    <span
+      class="progress-status progress-status--{{ progress.status }}"
+      data-subject-progress-status="{{ prompt.response_id }}">{{ progress.label }}</span>
+    {% include "study/partials/subject_completion_form.html" with response_id=prompt.response_id progress=progress subject_label=prompt.text part=part task=task refresh=True %}
+  </div>
+  <a
+    class="subject-row-hit-area"
+    href="{{ detail_url }}"
+    {% if new_tab %}target="_blank" rel="noopener noreferrer"{% endif %}
+    aria-label="Ouvrir le sujet : {{ prompt.text }}">
+    <span class="sr-only">Ouvrir le sujet</span>
+  </a>
+</article>

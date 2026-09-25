@@ -126,13 +126,6 @@ def collection_url(kind, slug="", filters=None, *, tache=3):
     return url + ("?" + urlencode(filters) if filters else "")
 
 
-def formulation_url(filters=None, *, tache=3):
-    """Keep old internal callers on a stable replacement URL."""
-    return reverse(ROUTES[tache]["directory"]) + (
-        "?" + urlencode(filters) if filters else ""
-    )
-
-
 def _selection(entries, categories, filters, learned, started):
     query = _fold(filters.get("q", ""))
     result = []

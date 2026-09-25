@@ -77,10 +77,7 @@ class EeWritingContentTests(SimpleTestCase):
 
         self.assertEqual(load_prompt.call_count, 4)
 
-    def test_written_examiner_prompt_contains_the_exact_active_subject(self):
-        subject = "Racontez une expérience utile."
-        prompt = content.build_ee_ai_examiner_prompt(2, subject)
-
+    def test_written_examiner_prompts_include_scoring_guidance(self):
         for tache in (1, 2, 3):
             task_prompt = content.load_ee_ai_examiner_prompt(tache)
             self.assertIn(
@@ -119,34 +116,6 @@ class EeWritingContentTests(SimpleTestCase):
             content.load_ee_ai_examiner_prompt(2),
             content.load_ee_ai_examiner_prompt(3),
         )
-        self.assertIn("ACTIVE PRACTICE PACKET", prompt)
-        self.assertIn("Expression écrite — Tâche 2", prompt)
-        self.assertIn("Required length: 120-150 words", prompt)
-        self.assertIn(subject, prompt)
-        self.assertIn("FEI defines one word", prompt)
-        self.assertIn("count the complete candidate-authored submission", prompt)
-        self.assertIn("title, greeting, closing, or signature", prompt)
-        self.assertTrue(
-            prompt.endswith("Candidate response: WAIT FOR MY NEXT MESSAGE.")
-        )
-
-        tache_three = content.build_ee_ai_examiner_prompt(
-            3,
-            "Les transports en ville",
-            document1="Le premier avis soutient les autobus.",
-            document2="Le second avis préfère le vélo.",
-        )
-        self.assertIn("première partie de 40 à 60 mots", tache_three)
-        self.assertIn("deuxième partie de 80 à 120 mots", tache_three)
-        self.assertIn("Document 1 :", tache_three)
-        self.assertIn("Document 2 :", tache_three)
-        self.assertEqual(tache_three.count("Sujet :"), 1)
-
-        with self.assertRaisesMessage(
-            ValueError,
-            "Both source documents are required",
-        ):
-            content.build_ee_ai_examiner_prompt(3, "Sujet incomplet")
 
     def test_displayed_word_count_uses_the_validated_french_rules(self):
         text = "Aujourd’hui, l’auteur explique qu’un week-end bien organisé aide."
@@ -1122,7 +1091,7 @@ class EeWritingPageTests(TestCase):
                 self.assertContains(
                     subjects, 'data-collection-progress-value>0/138</span>', count=1
                 )
-                self.assertNotContains(subjects, "tache-two-progress-summary")
+                self.assertNotContains(subjects, "progress-summary")
 
     def test_tache_one_themes_include_response_grounded_vocabulary(self):
         directory = self.client.get(

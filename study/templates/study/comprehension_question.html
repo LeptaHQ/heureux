@@ -197,3 +197,8 @@
   </footer>
 </div>
 {% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  {% include "study/partials/comprehension_progress_script.html" %}
+{% endblock %}

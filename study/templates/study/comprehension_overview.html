@@ -54,3 +54,8 @@
   {% include "study/partials/comprehension_batch_collection.html" with groups=groups batch_icon="book-open" accent="var(--ce-blue)" %}
 </div>
 {% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  {% include "study/partials/comprehension_progress_script.html" %}
+{% endblock %}

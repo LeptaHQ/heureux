@@ -2906,7 +2906,6 @@ class QuestionBankViewTests(TestCase):
                 ],
                 expected_order,
             )
-        self.assertNotContains(index, 'class="t1-table__theme"')
         self.assertContains(index, subject_url)
         self.assertContains(index, february_subject_url)
         self.assertContains(index, march_subject_url)

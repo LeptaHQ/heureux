@@ -391,19 +391,6 @@ def counts_from_due_row(row) -> dict:
     }
 
 
-def available_counts(
-    scope: Optional[dict] = None,
-    now: datetime | None = None,
-    *,
-    user=None,
-) -> dict:
-    """What a scope has available to study, in a single aggregate."""
-    now = now or timezone.now()
-    return counts_from_due_row(
-        narrow(scoped_cards(scope, user=user)).aggregate(**due_aggregates(now))
-    )
-
-
 def queue_counts(
     scope: Optional[dict] = None,
     now: datetime | None = None,

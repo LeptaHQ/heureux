@@ -44,7 +44,7 @@
         <span><b>{{ distinct_count }}</b> réponses</span>
       </div>
       <footer class="task-choice-card__footer">
-        {% include "study/partials/tache_two_progress.html" with summary=subject_summary unit_label="sujets terminés" compact=True only %}
+        {% include "study/partials/progress_summary.html" with summary=subject_summary unit_label="sujets terminés" compact=True only %}
         <span class="task-choice-card__action">Ouvrir {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
       </footer>
     </a>
@@ -66,7 +66,7 @@
         <span><b>{{ formulation_count }}</b> formulations</span>
       </div>
       <footer class="task-choice-card__footer">
-        {% include "study/partials/tache_two_progress.html" with summary=formulation_summary unit_label="formulations apprises" compact=True only %}
+        {% include "study/partials/progress_summary.html" with summary=formulation_summary unit_label="formulations apprises" compact=True only %}
         <span class="task-choice-card__action">Ouvrir {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
       </footer>
     </a>
@@ -78,5 +78,5 @@
 
 {% block scripts %}
   {{ block.super }}
-  <script src="{% static 'study/js/prompt-copy.js' %}?v=2"></script>
+  <script src="{% static 'study/js/prompt-copy.js' %}?v=3"></script>
 {% endblock %}

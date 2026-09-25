@@ -14,7 +14,7 @@ from django.db import transaction
 from django.db.models import Q
 
 from .course_practice import lock_course_user as lock_study_user
-from .models import Annotation, OralStateSnapshot, PersonalResponse, Phrase, PhraseTier, Prompt, Response
+from .models import OralStateSnapshot, PersonalResponse, Phrase, PhraseTier, Prompt, Response
 
 def variant_annotation_key(prompt, content):
     digest = hashlib.sha256(

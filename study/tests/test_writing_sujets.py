@@ -396,7 +396,6 @@ class WritingSujetViewTests(TestCase):
 
         self.assertContains(page, "data-t1-table-theme", count=2)
         self.assertContains(page, "data-t1-table-subject", count=3)
-        self.assertNotContains(page, 'class="t1-table__theme"')
         self.assertContains(page, "Sujets du thème Invitations")
         self.assertContains(page, "Sujets du thème Sorties")
 

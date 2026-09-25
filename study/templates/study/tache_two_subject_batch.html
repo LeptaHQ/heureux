@@ -76,5 +76,6 @@
 
 {% block scripts %}
   {{ block.super }}
-  <script src="{% static 'study/js/prompt-copy.js' %}?v=2"></script>
+  {% include "study/partials/subject_progress_script.html" %}
+  <script src="{% static 'study/js/prompt-copy.js' %}?v=3"></script>
 {% endblock %}

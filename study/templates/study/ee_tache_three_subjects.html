@@ -25,3 +25,8 @@
 </div>
 {% include "study/partials/writing_methodology_dialog.html" with tache=3 only %}
 {% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  {% include "study/partials/subject_progress_script.html" %}
+{% endblock %}

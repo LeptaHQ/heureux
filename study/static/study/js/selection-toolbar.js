@@ -2,6 +2,7 @@
 (function () {
   "use strict";
 
+  var clipboard = window.HeureuxClipboard;
   var action = document.querySelector("[data-selection-translate]");
   var selectionCopyButton = document.querySelector("[data-copy-selection]");
   var selectionCopyLabel = document.querySelector("[data-copy-selection-label]");
@@ -796,50 +797,6 @@
       });
   }
 
-  function legacyCopy(text) {
-    return new Promise(function (resolve, reject) {
-      var focused = document.activeElement;
-      var selection = window.getSelection();
-      var ranges = [];
-      for (var index = 0; selection && index < selection.rangeCount; index += 1) {
-        ranges.push(selection.getRangeAt(index).cloneRange());
-      }
-      var textarea = document.createElement("textarea");
-      textarea.value = text;
-      textarea.setAttribute("readonly", "");
-      textarea.style.position = "fixed";
-      textarea.style.opacity = "0";
-      document.body.appendChild(textarea);
-      try {
-        textarea.select();
-        if (!document.execCommand("copy")) throw new Error("Copy failed");
-        resolve();
-      } catch (error) {
-        reject(error);
-      } finally {
-        textarea.remove();
-        if (focused && focused.isConnected) focused.focus({ preventScroll: true });
-        if (selection) {
-          selection.removeAllRanges();
-          ranges.forEach(function (range) { selection.addRange(range); });
-        }
-      }
-    });
-  }
-
-  function writeClipboard(text) {
-    if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
-      try {
-        return Promise.resolve(navigator.clipboard.writeText(text)).catch(function () {
-          return legacyCopy(text);
-        });
-      } catch (error) {
-        return legacyCopy(text);
-      }
-    }
-    return legacyCopy(text);
-  }
-
   if (readButton) {
     if (!readLabel || !frenchSpeech || !frenchSpeech.supported) {
       readButton.hidden = true;
@@ -901,7 +858,7 @@
     if (!selectedText) return;
     var copyNumber = ++selectionCopyNumber;
     window.clearTimeout(selectionCopyTimer);
-    writeClipboard(selectedText)
+    clipboard.writeText(selectedText)
       .then(function () {
         if (copyNumber !== selectionCopyNumber) return;
         selectionCopyButton.classList.add("is-copied");
@@ -988,7 +945,7 @@
     var copyNumber = ++translationCopyNumber;
     window.clearTimeout(translationCopyTimer);
 
-    writeClipboard(text)
+    clipboard.writeText(text)
       .then(function () {
         if (currentRequest !== requestNumber || copyNumber !== translationCopyNumber) return;
         copyLabel.textContent = "Copied";

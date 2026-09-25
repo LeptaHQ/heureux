@@ -74,11 +74,9 @@ EE_TACHE_ONE_HINT_THEMES = frozenset({"invitations", "sorties", "accueil", "voya
 EE_TACHE_TWO_TASK = ("ee", "tache-2")
 EE_TACHE_TWO_CONTENT_PREFIX = "ee-tache2:"
 EE_TACHE_TWO_DIR = CONTENT_DIR / "ee" / "tache_2"
-EE_TACHE_TWO_SUBJECTS_DIR = EE_TACHE_TWO_DIR / "subjects"
 EE_TACHE_TWO_THEME_VOCABULARY_DIR = EE_TACHE_TWO_DIR / "theme_vocabulary"
 
 EE_TACHE_ONE_CONTENT_PREFIX = "ee-tache1:"
-EE_TACHE_ONE_SUBJECTS_DIR = EE_TACHE_ONE_DIR / "subjects"
 EE_WRITING_TASKS = {
     1: EE_TACHE_ONE_TASK,
     2: EE_TACHE_TWO_TASK,
@@ -1153,32 +1151,6 @@ def ee_exam_subject_packet(
         if source_note.strip():
             sections.append(f"Source note :\n{source_note.strip()}")
     return "\n\n".join(sections)
-
-
-def build_ee_ai_examiner_prompt(
-    tache: int,
-    subject: str,
-    *,
-    document1: str = "",
-    document2: str = "",
-    source_note: str = "",
-) -> str:
-    """Build a subject-specific evaluator prompt that waits for one response."""
-    packet = ee_exam_subject_packet(
-        tache,
-        subject,
-        document1=document1,
-        document2=document2,
-        source_note=source_note,
-    )
-    return (
-        f"{load_ee_ai_examiner_prompt(tache)}\n\n"
-        "======================================================================\n"
-        "ACTIVE PRACTICE PACKET\n"
-        "======================================================================\n\n"
-        f"{packet}\n\n"
-        "Candidate response: WAIT FOR MY NEXT MESSAGE."
-    )
 
 
 def load_question_bank(
@@ -2790,24 +2762,12 @@ class EeTacheThreeMonth:
     combinaisons: Tuple[EeTacheThreeCombinaison, ...]
 
 
-def ee_tache_three_theme_name(month: EeTacheThreeMonth) -> str:
-    return f"EE · Tâche 3 · {month.name}"
-
-
-def ee_tache_three_family_name(month: EeTacheThreeMonth) -> str:
-    return f"EE Tâche 3 · {month.name}"
-
-
 def ee_subject_theme_name(tache: int, theme: EeSubjectThemeData) -> str:
     return f"EE · Tâche {tache} · {theme.name}"
 
 
 def ee_subject_family_name(tache: int, theme: EeSubjectThemeData) -> str:
     return f"EE Tâche {tache} · {theme.name}"
-
-
-def _ee_tache_three_normalize(text: str) -> str:
-    return text.lower().replace("\u2019", "'").replace("\u0153", "oe")
 
 
 def ee_tache_three_answer_text(
@@ -3764,18 +3724,6 @@ def load_ee_tache_one_categories(
     return tuple(categories)
 
 
-def ee_tache_one_sujets(
-    categories: Optional[Tuple[WritingCategoryData, ...]] = None,
-) -> List[Tuple[int, WritingSujetData]]:
-    """Flatten categories into ``(global_order, sujet)`` pairs, category order."""
-    categories = categories or load_ee_tache_one_categories()
-    ordered: List[Tuple[int, WritingSujetData]] = []
-    for category in categories:
-        for sujet in category.sujets:
-            ordered.append((len(ordered) + 1, sujet))
-    return ordered
-
-
 def ee_tache_three_themes(
     months: Optional[Tuple[EeTacheThreeMonth, ...]] = None,
 ) -> List[ThemeData]:
@@ -4384,10 +4332,6 @@ def load_comprehension_tests() -> List[ComprehensionTestData]:
         )
     )
     return tests
-
-
-def theme_order_map() -> Dict[str, int]:
-    return {t.name: t.order for t in load_themes()}
 
 
 def parse_families() -> Tuple[Dict[Tuple[str, int], str], List[Tuple[str, int]]]:

@@ -43,40 +43,20 @@ from study.models import (
     Task,
     Theme,
 )
-from study.progress import card_unit_progress, subject_progress_by_response
+from study.progress import (
+    card_unit_progress_from_rows,
+    subject_progress_by_response,
+)
 from study.views.helpers import (
     _review_batches,
-    current_streak,
     deck_stats,
-    review_day_counts,
 )
 from study.views.library import _distinct_count, _limited_results
 
 from . import factories
 
 
-def legacy_current_streak(now, user):
-    """The streak as it was computed before the day grouping."""
-    days = {
-        timezone.localtime(moment).date()
-        for moment in ReviewLog.objects.filter(user=user).values_list(
-            "reviewed_at",
-            flat=True,
-        )
-    }
-    if not days:
-        return 0
-    today = timezone.localtime(now).date()
-    cursor = today
-    if cursor not in days:
-        cursor = today - timezone.timedelta(days=1)
-        if cursor not in days:
-            return 0
-    streak = 0
-    while cursor in days:
-        streak += 1
-        cursor -= timezone.timedelta(days=1)
-    return streak
+
 
 
 def legacy_forecast(active_cards, today):
@@ -786,7 +766,15 @@ class ComprehensionVocabularyDirectoryTests(TestCase):
                 )
                 self.assertEqual(
                     deck["progress"],
-                    card_unit_progress(cards),
+                    card_unit_progress_from_rows(
+                        cards.values(
+                            "id",
+                            "phrase_id",
+                            "state",
+                            "started_at",
+                            "suspended",
+                        )
+                    ),
                 )
                 self.assertEqual(deck["stats"], deck_stats(cards, self.now))
                 for key, value in deck["counts"].items():
@@ -1101,72 +1089,6 @@ class StatsAggregateEqualityTests(TestCase):
                     task_counts[task.slug],
                     active.filter(response__theme__task=task).count(),
                 )
-
-
-class StreakAndDayCountTests(TestCase):
-    """The grouped review days must reproduce the timestamp scan."""
-
-    def setUp(self):
-        self.user = factories.make_user("streak")
-        self.now = timezone.localtime(timezone.now()).replace(
-            hour=12,
-            minute=0,
-            second=0,
-            microsecond=0,
-        )
-        theme = factories.make_theme("streak-theme")
-        self.card = factories.make_spine_card(theme=theme, user=self.user)
-
-    def _log(self, days_ago, count=1):
-        for _ in range(count):
-            ReviewLog.objects.create(
-                user=self.user,
-                card_id=self.card.pk,
-                rating=Rating.GOOD,
-                state_before=CardState.REVIEW,
-                state_after=CardState.REVIEW,
-                interval_before=1,
-                interval_after=2,
-                ease_before=2.5,
-                ease_after=2.5,
-                reviewed_at=self.now - timezone.timedelta(days=days_ago, hours=2),
-                elapsed_ms=1000,
-            )
-
-    def test_streak_matches_the_full_history_scan(self):
-        for days_ago in (0, 1, 2, 5, 6):
-            self._log(days_ago)
-
-        self.assertEqual(
-            current_streak(self.now, user=self.user),
-            legacy_current_streak(self.now, self.user),
-        )
-        self.assertEqual(current_streak(self.now, user=self.user), 3)
-
-    def test_streak_is_zero_without_reviews(self):
-        self.assertEqual(current_streak(self.now, user=self.user), 0)
-        self.assertEqual(
-            current_streak(self.now, user=self.user),
-            legacy_current_streak(self.now, self.user),
-        )
-
-    def test_streak_reads_one_row_per_day(self):
-        self._log(0, count=25)
-        self._log(1, count=25)
-
-        with self.assertNumQueries(1):
-            self.assertEqual(current_streak(self.now, user=self.user), 2)
-
-    def test_day_counts_match_the_per_day_totals(self):
-        self._log(0, count=3)
-        self._log(2, count=2)
-
-        counts = review_day_counts(user=self.user)
-        today = timezone.localtime(self.now).date()
-
-        self.assertEqual(counts[today], 3)
-        self.assertEqual(counts[today - timezone.timedelta(days=2)], 2)
-        self.assertEqual(sum(counts.values()), 5)
 
 
 class DashboardBudgetTests(QueryBudgetTestCase):

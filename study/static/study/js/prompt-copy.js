@@ -9,6 +9,7 @@
     return;
   }
 
+  var clipboard = window.HeureuxClipboard;
   var payloadCache = Object.create(null);
   var resetTimers = new WeakMap();
   var copying = new WeakSet();
@@ -50,59 +51,6 @@
     }
 
     return payload;
-  }
-
-  function legacyCopy(text) {
-    return new Promise(function (resolve, reject) {
-      var focused = document.activeElement;
-      var selection = window.getSelection();
-      var ranges = [];
-      for (var index = 0; selection && index < selection.rangeCount; index += 1) {
-        ranges.push(selection.getRangeAt(index).cloneRange());
-      }
-      var input = document.createElement("textarea");
-      input.value = text;
-      input.setAttribute("readonly", "");
-      input.style.position = "fixed";
-      input.style.opacity = "0";
-      input.style.pointerEvents = "none";
-      document.body.appendChild(input);
-      try {
-        input.select();
-        input.setSelectionRange(0, input.value.length);
-        if (!document.execCommand("copy")) {
-          throw new Error("The browser rejected the copy command.");
-        }
-        resolve();
-      } catch (error) {
-        reject(error);
-      } finally {
-        input.remove();
-        if (focused && focused.isConnected) focused.focus({ preventScroll: true });
-        if (selection) {
-          selection.removeAllRanges();
-          ranges.forEach(function (range) { selection.addRange(range); });
-        }
-      }
-    });
-  }
-
-  function writeClipboard(text) {
-    if (
-      navigator.clipboard &&
-      typeof navigator.clipboard.writeText === "function"
-    ) {
-      try {
-        return Promise.resolve(navigator.clipboard.writeText(text)).catch(
-          function () {
-            return legacyCopy(text);
-          }
-        );
-      } catch (error) {
-        return legacyCopy(text);
-      }
-    }
-    return legacyCopy(text);
   }
 
   function showToast(message, isError) {
@@ -201,7 +149,7 @@
       copying.add(button);
       button.setAttribute("aria-disabled", "true");
       button.setAttribute("aria-busy", "true");
-      writeClipboard(text)
+      clipboard.writeText(text)
         .then(function () {
           setButtonState(button, "copied");
           setStatus(button, button.dataset.promptCopyToastMessage);

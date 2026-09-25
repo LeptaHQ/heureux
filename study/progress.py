@@ -250,19 +250,6 @@ def card_unit_progress_from_rows(rows) -> ProgressSummary:
     )
 
 
-def card_unit_progress(cards) -> ProgressSummary:
-    """Summarize active cards, treating both directions as one phrase unit."""
-    return card_unit_progress_from_rows(
-        cards.values(
-            "id",
-            "phrase_id",
-            "state",
-            "started_at",
-            "suspended",
-        )
-    )
-
-
 @dataclass(frozen=True)
 class SubjectProgress:
     status: str

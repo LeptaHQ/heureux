@@ -26,3 +26,8 @@
   </section>
 </div>
 {% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  {% include "study/partials/subject_progress_script.html" %}
+{% endblock %}

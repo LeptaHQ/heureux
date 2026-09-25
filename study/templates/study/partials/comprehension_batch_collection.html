@@ -17,7 +17,7 @@
           class="qlist ce-group-test-list collection-table collection-table--tests comprehension-batch-tests"
           data-collection-view="adaptive"
           aria-label="Tests du batch {{ group.number }}">
-          {% include "study/partials/collection_table_header.html" with variant="tests" column_1="Test" column_2="Détails" column_3="Questions" column_4="Progression" column_5="Action" only %}
+          {% include "study/partials/collection_table_header.html" with variant="tests" column_1="Test" column_2="Questions" column_3="Progression" column_4="État" only %}
           {% for slot in group.slots %}
             {% include "study/partials/comprehension_test_row.html" with slot=slot %}
           {% endfor %}

@@ -8,10 +8,6 @@ by the written and oral comprehension pages.
     data-collection-item
     {% if not test or not test.is_accessible %}aria-disabled="true"{% endif %}>
     <span class="qrow__num">{{ slot.number|stringformat:"02d" }}</span>
-    <span class="qrow__text">
-      <strong>{% if test %}{{ test.title }}{% else %}Test {{ slot.number }}{% endif %}</strong>
-      {% if test.is_active and test.is_published and test.description %}<small>{{ test.description }}</small>{% endif %}
-    </span>
     <span class="ce-group-test-row__facts">
       {% if test.is_active and test.is_published %}
         <strong>{{ test.active_question_count }} questions</strong>
@@ -22,7 +18,25 @@ by the written and oral comprehension pages.
         <span class="table-cell-empty" aria-label="Aucune donnée">—</span>
       {% endif %}
     </span>
-    <div class="ce-group-test-row__progress-cell">
+    {% if test and not test.is_active %}
+      <div class="ce-group-test-row__progress-cell">
+        <span class="ce-group-test-row__progress-copy">Archivé</span>
+      </div>
+    {% elif test and not test.is_published and test.is_accessible %}
+      <div class="ce-group-test-row__progress-cell">
+        <span class="ce-group-test-row__progress-copy">Indisponible</span>
+      </div>
+    {% elif test.active_attempt %}
+      <div class="ce-group-test-row__progress-cell">
+        <span class="ce-group-test-row__progress-copy">{{ test.active_answered_count }}/{{ test.attempt_question_count }}</span>
+        <progress class="ce-group-test-row__progress" value="{{ test.active_answered_count }}" max="{{ test.attempt_question_count }}" aria-label="Progression : {{ test.active_answered_count }} sur {{ test.attempt_question_count }} questions"></progress>
+      </div>
+    {% elif test.best_attempt %}
+      <div class="ce-group-test-row__progress-cell">
+        <span class="ce-group-test-row__progress-copy">Meilleur score · {{ test.best_attempt.percentage }} %</span>
+      </div>
+    {% endif %}
+    <div class="ce-group-test-row__status-cell">
       {% if not test %}
         <span class="ce-status ce-status--soon">À venir</span>
       {% elif not test.is_accessible %}
@@ -35,28 +49,7 @@ by the written and oral comprehension pages.
           {% include "study/partials/comprehension_completion_form.html" with test=test refresh=True %}
         </div>
       {% endif %}
-      {% if test and not test.is_active %}
-        <span class="ce-group-test-row__progress-copy">Archivé</span>
-      {% elif test and not test.is_published and test.is_accessible %}
-        <span class="ce-group-test-row__progress-copy">Indisponible</span>
-      {% elif test.active_attempt %}
-        <span class="ce-group-test-row__progress-copy">{{ test.active_answered_count }}/{{ test.attempt_question_count }} répondues</span>
-        <progress class="ce-group-test-row__progress" value="{{ test.active_answered_count }}" max="{{ test.attempt_question_count }}" aria-label="{{ test.active_answered_count }} questions répondues sur {{ test.attempt_question_count }}"></progress>
-      {% elif test.best_attempt %}
-        <span class="ce-group-test-row__progress-copy">Meilleur score · {{ test.best_attempt.percentage }} %</span>
-      {% endif %}
     </div>
-    <span class="ce-group-test-row__action">
-      {% if test.is_active and test.is_published %}
-        <span class="table-action-label">{% if test.active_attempt %}Continuer{% elif test.latest_attempt %}Voir ou refaire{% else %}Découvrir le test{% endif %}</span>
-        <span class="table-action-arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
-      {% elif test and test.is_accessible %}
-        <span class="table-action-label">{% if test.user_attempts %}Voir l’historique{% else %}Voir le test archivé{% endif %}</span>
-        <span class="table-action-arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
-      {% else %}
-        <span class="table-cell-empty" aria-label="Aucune action">—</span>
-      {% endif %}
-    </span>
     {% if test and test.is_accessible %}
       <a
         class="comprehension-row-hit-area"

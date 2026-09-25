@@ -6999,7 +6999,7 @@ class BrowserTests(StaticLiveServerTestCase):
 
         self.assertEqual(
             header.locator("span").all_text_contents(),
-            ["Test", "Détails", "Questions", "Progression", "Action"],
+            ["Test", "Questions", "Progression", "État"],
         )
         self.assertEqual(
             header.evaluate(
@@ -7009,7 +7009,28 @@ class BrowserTests(StaticLiveServerTestCase):
                 "element => getComputedStyle(element).gridTemplateColumns"
             ),
         )
-        self.assertLessEqual(first_row.bounding_box()["height"], 88)
+        self.assertLessEqual(first_row.bounding_box()["height"], 64)
+        self.assertEqual(
+            first_row.locator(
+                ".ce-group-test-row__progress-cell"
+            ).evaluate("element => getComputedStyle(element).display"),
+            "flex",
+        )
+        progress_copy = first_row.locator(".ce-group-test-row__progress-copy")
+        progress_bar = first_row.locator(".ce-group-test-row__progress")
+        expect(progress_copy).to_have_text("3/31")
+        copy_box = progress_copy.bounding_box()
+        bar_box = progress_bar.bounding_box()
+        self.assertGreaterEqual(bar_box["x"], copy_box["x"] + copy_box["width"])
+        self.assertLessEqual(
+            abs(
+                (bar_box["y"] + (bar_box["height"] / 2))
+                - (copy_box["y"] + (copy_box["height"] / 2))
+            ),
+            1,
+        )
+        self.assertNotIn("répondues", first_row.inner_text())
+        expect(first_row.locator(".ce-group-test-row__action")).to_have_count(0)
         aligned_edges = self.page.evaluate(
             """
             () => {
@@ -7040,8 +7061,8 @@ class BrowserTests(StaticLiveServerTestCase):
         mobile_heights = mobile_rows.evaluate_all(
             "rows => rows.map(row => row.getBoundingClientRect().height)"
         )
-        self.assertLessEqual(max(mobile_heights), 214)
-        self.assertLessEqual(mobile_heights[1], 120)
+        self.assertLessEqual(max(mobile_heights), 112)
+        self.assertLessEqual(mobile_heights[1], 80)
         self.assertNotEqual(
             mobile_rows.first.evaluate(
                 "row => getComputedStyle(row).borderRadius"

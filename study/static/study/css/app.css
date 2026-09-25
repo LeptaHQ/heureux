@@ -3836,11 +3836,10 @@ html[data-collection-view-mode="table"]
 }
 .collection-table--tests {
   --collection-table-columns:
-    4.75rem
-    minmax(18rem, 1.45fr)
-    minmax(7.5rem, 0.42fr)
-    minmax(13rem, 0.72fr)
-    minmax(9rem, 0.55fr);
+    3.5rem
+    minmax(7.25rem, 0.34fr)
+    minmax(18rem, 1fr)
+    minmax(8rem, 0.48fr);
 }
 .collection-table--phrases {
   --collection-table-columns: minmax(10rem, 0.85fr) minmax(9rem, 0.7fr) minmax(0, 1.5fr);
@@ -4303,7 +4302,7 @@ html[data-collection-view-mode="table"]
   .collection-table--tests
   > .ce-group-test-row {
   grid-template-columns: var(--collection-table-columns);
-  min-height: 70px;
+  min-height: 56px;
 }
 html[data-collection-view-mode="table"]
   .collection-table--tests
@@ -4315,22 +4314,30 @@ html[data-collection-view-mode="table"]
 html[data-collection-view-mode="table"]
   .collection-table--tests
   > .ce-group-test-row
-  .qrow__text {
-  display: grid;
-  align-content: center;
-  gap: 0.14rem;
+  > .qrow__num {
+  grid-column: 1;
+  grid-row: 1;
 }
 html[data-collection-view-mode="table"]
   .collection-table--tests
   > .ce-group-test-row
-  .qrow__text strong {
-  font-size: 0.98rem;
+  > .ce-group-test-row__facts {
+  grid-column: 2;
+  grid-row: 1;
 }
 html[data-collection-view-mode="table"]
   .collection-table--tests
   > .ce-group-test-row
-  .qrow__text small {
-  font-size: 0.82rem;
+  > .ce-group-test-row__progress-cell {
+  grid-column: 3;
+  grid-row: 1;
+}
+html[data-collection-view-mode="table"]
+  .collection-table--tests
+  > .ce-group-test-row
+  > .ce-group-test-row__status-cell {
+  grid-column: 4;
+  grid-row: 1;
 }
 html[data-collection-view-mode="table"]
   .collection-table--tests
@@ -4343,24 +4350,30 @@ html[data-collection-view-mode="table"]
 html[data-collection-view-mode="table"]
   .collection-table--tests
   > .ce-group-test-row
-  .ce-group-test-row__action {
+  .ce-group-test-row__status-cell {
   height: 100%;
   min-width: 0;
   align-self: stretch;
-  padding: 0.72rem 1rem;
+  padding: 0.5rem 0.75rem;
   border-left: 1px solid color-mix(in srgb, var(--border) 68%, transparent);
 }
 html[data-collection-view-mode="table"]
   .collection-table--tests
   > .ce-group-test-row
+  > .qrow__num {
+  min-height: 56px;
+  padding: 0.5rem 0.75rem;
+}
+html[data-collection-view-mode="table"]
+  .collection-table--tests
+  > .ce-group-test-row
   .ce-group-test-row__facts {
-  display: grid;
-  align-content: center;
-  gap: 0.05rem;
+  display: flex;
+  align-items: center;
   color: var(--text-faint);
   font-size: 0.77rem;
   line-height: 1.3;
-  white-space: normal;
+  white-space: nowrap;
 }
 html[data-collection-view-mode="table"]
   .collection-table--tests
@@ -4374,19 +4387,9 @@ html[data-collection-view-mode="table"]
   .collection-table--tests
   > .ce-group-test-row
   .ce-group-test-row__progress-cell {
-  display: grid;
-  align-content: center;
-  justify-items: start;
-  gap: 0.3rem;
-  padding-block: 0.55rem;
-}
-html[data-collection-view-mode="table"]
-  .collection-table--tests
-  > .ce-group-test-row
-  .ce-group-test-row__progress {
-  width: 100%;
-  max-width: none;
-  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
 }
 html[data-collection-view-mode="table"]
   .collection-table--tests
@@ -4400,28 +4403,12 @@ html[data-collection-view-mode="table"]
 html[data-collection-view-mode="table"]
   .collection-table--tests
   > .ce-group-test-row
-  .ce-group-test-row__action {
+  .ce-group-test-row__status-cell {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 0.5rem;
-  color: var(--primary);
-  font-size: 0.82rem;
-  font-weight: 750;
-  text-align: right;
+  justify-content: flex-start;
+  gap: 0.4rem;
   white-space: nowrap;
-}
-html[data-collection-view-mode="table"]
-  .collection-table--tests
-  > .ce-group-test-row
-  .table-action-arrow {
-  width: 28px;
-  height: 28px;
-  display: inline-grid;
-  place-items: center;
-  border-radius: 50%;
-  background: var(--primary-soft);
-  color: var(--primary);
 }
 html[data-collection-view-mode="table"]
   .collection-table--tests
@@ -4949,45 +4936,11 @@ html[data-collection-view-mode="table"]
   html[data-collection-view-mode="table"]
     .collection-table--tests
     > .ce-group-test-row {
-    grid-template-columns: 4rem minmax(0, 1fr) minmax(11rem, auto);
-  }
-  html[data-collection-view-mode="table"]
-    .collection-table--tests
-    > .ce-group-test-row
-    > .qrow__num {
-    grid-column: 1;
-    grid-row: 1 / 3;
-  }
-  html[data-collection-view-mode="table"]
-    .collection-table--tests
-    > .ce-group-test-row
-    > .qrow__text {
-    grid-column: 2;
-    grid-row: 1;
-  }
-  html[data-collection-view-mode="table"]
-    .collection-table--tests
-    > .ce-group-test-row
-    > .ce-group-test-row__facts {
-    grid-column: 2;
-    grid-row: 2;
-    border-top: 1px solid var(--border);
-    border-left: 0;
-  }
-  html[data-collection-view-mode="table"]
-    .collection-table--tests
-    > .ce-group-test-row
-    > .ce-group-test-row__progress-cell {
-    grid-column: 3;
-    grid-row: 1;
-  }
-  html[data-collection-view-mode="table"]
-    .collection-table--tests
-    > .ce-group-test-row
-    > .ce-group-test-row__action {
-    grid-column: 3;
-    grid-row: 2;
-    border-top: 1px solid var(--border);
+    grid-template-columns:
+      3.5rem
+      minmax(7rem, 0.4fr)
+      minmax(11rem, 1fr)
+      4rem;
   }
   html[data-collection-view-mode="table"]
     .collection-table--revisit
@@ -5183,9 +5136,9 @@ html[data-collection-view-mode="table"]
   html[data-collection-view-mode="table"]
     .collection-table--tests
     > .ce-group-test-row {
-    grid-template-columns: 2.75rem minmax(0, 1fr);
+    grid-template-columns: 2.5rem minmax(0, 1fr) auto;
     gap: 0.28rem 0.65rem;
-    padding: 0.75rem;
+    padding: 0.6rem;
   }
   html[data-collection-view-mode="table"]
     .collection-table--tests
@@ -5193,9 +5146,9 @@ html[data-collection-view-mode="table"]
     > .qrow__num {
     grid-column: 1;
     grid-row: 1 / 3;
-    width: 38px;
-    height: 38px;
-    min-height: 38px;
+    width: 34px;
+    height: 34px;
+    min-height: 34px;
     padding: 0;
     border: 0;
     border-radius: 10px;
@@ -5204,17 +5157,9 @@ html[data-collection-view-mode="table"]
   html[data-collection-view-mode="table"]
     .collection-table--tests
     > .ce-group-test-row
-    > .qrow__text {
-    grid-column: 2;
-    grid-row: 1;
-    padding: 0;
-  }
-  html[data-collection-view-mode="table"]
-    .collection-table--tests
-    > .ce-group-test-row
     > .ce-group-test-row__facts {
     grid-column: 2;
-    grid-row: 2;
+    grid-row: 1;
     display: flex;
     align-items: baseline;
     gap: 0.22rem;
@@ -5224,15 +5169,23 @@ html[data-collection-view-mode="table"]
   html[data-collection-view-mode="table"]
     .collection-table--tests
     > .ce-group-test-row
-    > .ce-group-test-row__progress-cell,
-  html[data-collection-view-mode="table"]
-    .collection-table--tests
-    > .ce-group-test-row
-    > .ce-group-test-row__action {
-    grid-column: 1 / -1;
+    > .ce-group-test-row__progress-cell {
+    grid-column: 2 / 4;
+    grid-row: 2;
     height: auto;
     align-self: auto;
     padding-inline: 0;
+    border-left: 0;
+  }
+  html[data-collection-view-mode="table"]
+    .collection-table--tests
+    > .ce-group-test-row
+    > .ce-group-test-row__status-cell {
+    grid-column: 3;
+    grid-row: 1;
+    height: auto;
+    align-self: center;
+    padding: 0;
     border-left: 0;
   }
   html[data-collection-view-mode="table"]
@@ -5246,28 +5199,13 @@ html[data-collection-view-mode="table"]
     .collection-table--tests
     > .ce-group-test-row
     > .ce-group-test-row__progress-cell {
-    grid-row: 3;
-    padding-top: 0.45rem;
-    border-top: 0;
-  }
-  html[data-collection-view-mode="table"]
-    .collection-table--tests
-    > .ce-group-test-row
-    > .ce-group-test-row__action {
-    grid-row: 4;
-    min-height: 0;
     padding-top: 0.25rem;
-    padding-bottom: 0;
     border-top: 0;
   }
   html[data-collection-view-mode="table"]
     .collection-table--tests
     > .ce-group-test-row--pending
-    > .ce-group-test-row__facts:has(.table-cell-empty),
-  html[data-collection-view-mode="table"]
-    .collection-table--tests
-    > .ce-group-test-row--pending
-    > .ce-group-test-row__action:has(.table-cell-empty) {
+    > .ce-group-test-row__facts:has(.table-cell-empty) {
     display: none;
   }
 }
@@ -9726,30 +9664,27 @@ html[data-collection-view-mode="table"]
 }
 .ce-group-test-row {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) minmax(190px, auto);
-  min-height: 88px;
-  padding: 0.75rem 0.9rem;
+  grid-template-columns: 2.75rem minmax(7.5rem, 0.34fr) minmax(14rem, 1fr) auto;
+  align-items: center;
+  min-height: 60px;
+  padding: 0.6rem 0.75rem;
   border-radius: 12px;
 }
 .ce-group-test-row > .qrow__num {
   grid-column: 1;
-  grid-row: 1 / 3;
-}
-.ce-group-test-row > .qrow__text {
-  grid-column: 2;
   grid-row: 1;
 }
 .ce-group-test-row__facts {
   grid-column: 2;
-  grid-row: 2;
+  grid-row: 1;
 }
 .ce-group-test-row__progress-cell {
   grid-column: 3;
   grid-row: 1;
 }
-.ce-group-test-row__action {
-  grid-column: 3;
-  grid-row: 2;
+.ce-group-test-row__status-cell {
+  grid-column: 4;
+  grid-row: 1;
 }
 a.ce-group-test-row:hover {
   border-color: color-mix(in srgb, var(--ce-blue) 35%, var(--border));
@@ -9771,29 +9706,12 @@ a.ce-group-test-row:hover {
   font-family: var(--font-serif);
   font-size: 0.86rem;
 }
-.ce-group-test-row .qrow__text {
-  display: grid;
-  gap: 0.08rem;
-}
-.ce-group-test-row .qrow__text strong {
-  font-size: 1.05rem;
-  line-height: 1.35;
-}
-.ce-group-test-row .qrow__text small {
-  overflow: hidden;
-  color: var(--text-faint);
-  font-family: var(--font-sans);
-  font-size: 0.82rem;
-  line-height: 1.35;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 .ce-group-test-row__progress-cell {
-  display: grid;
-  justify-items: end;
-  gap: 0.2rem;
-  min-width: 190px;
-  text-align: right;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  min-width: 0;
+  text-align: left;
 }
 .ce-group-test-row__facts {
   color: var(--text-faint);
@@ -9802,24 +9720,25 @@ a.ce-group-test-row:hover {
 }
 .ce-group-test-row__facts strong { font-variant-numeric: tabular-nums; }
 .ce-group-test-row__facts span + span { margin-left: 0.15rem; }
-.ce-group-test-row__action {
+.ce-group-test-row__status-cell {
   display: inline-flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 0.4rem;
-  color: var(--ce-blue);
-  font-size: 0.82rem;
-  font-weight: 750;
   white-space: nowrap;
 }
 .ce-group-test-row__progress-copy {
   color: var(--text-faint);
   font-size: 0.76rem;
+  white-space: nowrap;
 }
 .ce-group-test-row__progress {
-  width: min(300px, 100%);
+  width: auto;
+  min-width: 3rem;
+  max-width: 9rem;
+  flex: 1 1 5rem;
   height: 5px;
-  margin-top: 0.3rem;
+  margin: 0;
   overflow: hidden;
   border: 0;
   border-radius: 99px;
@@ -16477,7 +16396,7 @@ html[data-collection-view-mode="table"]
 .ce-group-test-row__status-line {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 0.4rem;
 }
 .ce-results-hero__actions .explicit-completion-control {
@@ -17103,6 +17022,34 @@ html[data-collection-view-mode="table"]
   .t1-table:not(.subject-collection__table) [data-subject-progress-status],
   .t1-table:not(.subject-collection__table) [data-writing-sujet-progress-status],
   .tache-two-batch-table [data-subject-progress-status],
+  .ce-group-test-row {
+    grid-template-columns: 2.5rem minmax(0, 1fr) auto;
+    gap: 0.28rem 0.65rem;
+    min-height: 0;
+    padding: 0.6rem;
+  }
+  .ce-group-test-row > .qrow__num {
+    grid-column: 1;
+    grid-row: 1 / 3;
+    width: 34px;
+    height: 34px;
+  }
+  .ce-group-test-row > .ce-group-test-row__facts {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .ce-group-test-row > .ce-group-test-row__progress-cell {
+    grid-column: 2 / 4;
+    grid-row: 2;
+  }
+  .ce-group-test-row > .ce-group-test-row__status-cell {
+    grid-column: 3;
+    grid-row: 1;
+  }
+  .ce-group-test-row--pending > .ce-group-test-row__progress-cell {
+    grid-row: 1;
+    padding-top: 0;
+  }
   html[data-collection-view-mode="table"]
     [data-collection-view]
     [data-subject-progress-status],

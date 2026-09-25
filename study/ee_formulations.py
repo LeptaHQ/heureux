@@ -28,6 +28,7 @@ FUNCTION_CATEGORIES = (
     "consequences",
     "conclusions",
 )
+EXAMPLE_SOURCE_FIELDS = ("reformulation", "position", "position_claire")
 _SLUG = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 
 
@@ -38,6 +39,14 @@ class FormulationCategory:
     title: str
     description: str
     icon: str
+
+
+@dataclass(frozen=True)
+class FormulationExample:
+    french: str
+    english: str
+    source_key: str
+    source_field: str
 
 
 @dataclass(frozen=True)
@@ -55,10 +64,36 @@ class FormulationEntry:
     transfer_prompt: str
     essential: bool
     themes: tuple[str, ...]
+    examples: tuple[FormulationExample, ...] = ()
+
+    def __post_init__(self) -> None:
+        if not self.examples:
+            object.__setattr__(
+                self,
+                "examples",
+                (
+                    FormulationExample(
+                        french=self.example,
+                        english=self.example_english,
+                        source_key=self.source_key,
+                        source_field="position_claire",
+                    ),
+                ),
+            )
+        elif (
+            self.example != self.examples[0].french
+            or self.example_english != self.examples[0].english
+            or self.source_key != self.examples[0].source_key
+        ):
+            raise ValueError("Compatibility fields must match examples[0]")
 
     @property
     def content_key(self) -> str:
         return CONTENT_KEY_PREFIX + self.slug
+
+    @property
+    def primary_example(self) -> FormulationExample:
+        return self.examples[0]
 
 
 @dataclass(frozen=True)
@@ -111,8 +146,9 @@ def _unique_json_object(pairs: list[tuple[str, object]]) -> dict:
 def load_ee_formulations(path: Path = FORMULATIONS_PATH) -> FormulationCatalog:
     """Validate structure, coverage and quotation provenance, not teaching semantics.
 
-    The French frames and translations are editorial adaptations. Only ``example``
-    is required to quote an effective model, with whitespace normalization alone.
+    The French frames and translations are editorial adaptations. Every example
+    must quote its named field in an effective model, with whitespace
+    normalization alone.
     """
     payload = json.loads(
         path.read_text(encoding="utf-8"), object_pairs_hook=_unique_json_object
@@ -168,7 +204,9 @@ def load_ee_formulations(path: Path = FORMULATIONS_PATH) -> FormulationCatalog:
     used_sources = set()
     essential_categories = set()
     entry_fields = {field.name for field in fields(FormulationEntry)}
-    text_fields = entry_fields - {"essential", "themes"}
+    compatibility_fields = {"example", "example_english", "source_key"}
+    text_fields = entry_fields - {"essential", "themes", "examples"}
+    example_fields = {field.name for field in fields(FormulationExample)}
     for index, raw in enumerate(payload["entries"]):
         location = f"entries[{index}]"
         row = _record(raw, entry_fields, location)
@@ -204,26 +242,65 @@ def load_ee_formulations(path: Path = FORMULATIONS_PATH) -> FormulationCatalog:
             raise ValueError(f"{location}.themes: expected known theme slugs")
         if len(set(tags)) != len(tags):
             raise ValueError(f"{location}.themes: duplicate theme")
-        response = responses.get(row["source_key"])
-        if response is None:
-            raise ValueError(f"{location}: source_key is not an effective response")
+        raw_examples = row["examples"]
+        if not isinstance(raw_examples, list) or not raw_examples:
+            raise ValueError(f"{location}.examples: expected a non-empty list")
+        parsed_examples = []
+        normalized_examples = set()
+        for example_index, raw_example in enumerate(raw_examples):
+            example_location = f"{location}.examples[{example_index}]"
+            example_row = _record(raw_example, example_fields, example_location)
+            for name in example_fields:
+                _text(example_row[name], f"{example_location}.{name}")
+            response = responses.get(example_row["source_key"])
+            if response is None:
+                raise ValueError(
+                    f"{example_location}: source_key is not an effective response"
+                )
+            source_field = example_row["source_field"]
+            if source_field not in EXAMPLE_SOURCE_FIELDS:
+                raise ValueError(
+                    f"{example_location}.source_field: expected one of "
+                    f"{EXAMPLE_SOURCE_FIELDS}"
+                )
+            example = _whitespace(example_row["french"])
+            normalized = example.casefold()
+            if normalized in normalized_examples:
+                raise ValueError(f"{location}: duplicate normalized example")
+            normalized_examples.add(normalized)
+            if example not in _whitespace(getattr(response, source_field)):
+                raise ValueError(
+                    f"{example_location}: example is not verbatim evidence "
+                    f"from {source_field}"
+                )
+            parsed_examples.append(FormulationExample(**example_row))
+        primary = parsed_examples[0]
+        if (
+            row["example"] != primary.french
+            or row["example_english"] != primary.english
+            or row["source_key"] != primary.source_key
+        ):
+            raise ValueError(
+                f"{location}: compatibility example fields must match "
+                "examples[0]"
+            )
         if category.kind == "theme" and category.slug not in tags:
             raise ValueError(f"{location}: theme category must occur in themes")
-        if tags and theme_by_key[row["source_key"]] not in tags:
+        if tags and theme_by_key[primary.source_key] not in tags:
             raise ValueError(f"{location}: themes must include the source theme")
-        example = _whitespace(row["example"])
-        if not any(
-            example in _whitespace(text)
-            for text in (
-                response.reformulation,
-                response.position,
-                response.position_claire,
+        entries.append(
+            FormulationEntry(
+                **{
+                    key: value
+                    for key, value in row.items()
+                    if key not in {"themes", "examples"}
+                },
+                themes=tuple(tags),
+                examples=tuple(parsed_examples),
             )
-        ):
-            raise ValueError(f"{location}: example is not verbatim effective evidence")
-        entries.append(FormulationEntry(**{**row, "themes": tuple(tags)}))
+        )
         used_categories.add(category.slug)
-        used_sources.add(row["source_key"])
+        used_sources.update(example.source_key for example in parsed_examples)
         if row["essential"]:
             essential_categories.add(category.slug)
     if used_categories != set(category_by_slug):

@@ -44,14 +44,20 @@ class FormulationExperienceTests(TestCase):
         response = self.client.get(self.url)
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'class="formulation-directory-tables"')
-        self.assertContains(response, "<table", count=2)
-        self.assertContains(response, "Fonctions d’écriture")
-        self.assertContains(response, "Thèmes")
-        self.assertContains(response, self.function_url)
         self.assertContains(
             response,
-            'class="formulation-subdivision-disclosure"',
+            'class="t1-table-groups formulation-directory-table"',
+            count=2,
         )
+        self.assertContains(response, "Fonctions d’écriture")
+        self.assertContains(response, "Thèmes")
+        self.assertContains(
+            response,
+            "formulation-subdivision-disclosure",
+        )
+        self.assertContains(response, "data-formulation-topic-row")
+        self.assertNotContains(response, "Ouvrir toute la subdivision")
+        self.assertNotContains(response, "Ouvrir les 16 essentiels")
         self.assertNotContains(response, 'class="formulation-list"')
 
         response = self.client.get(self.function_url)
@@ -75,7 +81,8 @@ class FormulationExperienceTests(TestCase):
             "study:ee_formulation_entry", args=["cadre-0"],
         ))
         self.assertContains(response, "formulation-entry-lesson")
-        self.assertContains(response, "Comprendre et l’appliquer à la Tâche 3")
+        self.assertContains(response, "Comprendre et appliquer")
+        self.assertContains(response, "formulation-entry-focus__text")
         self.assertNotContains(response, 'class="formulation-list')
         self.assertNotContains(response, "formulation-topic-sidebar")
 
@@ -102,10 +109,13 @@ class FormulationExperienceTests(TestCase):
                 self.assertEqual(response.status_code, 200)
                 self.assertContains(response, "Vocabulaire utile")
                 self.assertGreaterEqual(
-                    len(response.context["language_bank"]), 12,
+                    len(response.context["language_bank"]), 24,
                 )
-                self.assertLessEqual(
-                    len(response.context["language_bank"]), 18,
+                self.assertEqual(
+                    len(response.context["language_sections"]), 7,
+                )
+                self.assertGreaterEqual(
+                    response.context["example_count"], 28,
                 )
 
     def test_all_themes_and_accent_insensitive_search(self):

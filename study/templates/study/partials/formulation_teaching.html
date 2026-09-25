@@ -2,6 +2,20 @@
   <dt>Sens en anglais</dt><dd lang="en">{{ row.entry.english }}</dd>
   <dt>Quand l’utiliser</dt><dd>{{ row.entry.usage }}</dd>
   <dt>Construction et grammaire</dt><dd>{{ row.entry.grammar }}</dd>
-  <dt>Exemple du modèle de référence</dt><dd><blockquote lang="fr">{{ row.entry.example }}</blockquote><p lang="en">{{ row.entry.example_english }}</p>{% if row.source_url %}<a href="{{ row.source_url }}">Voir le sujet et sa réponse</a>{% endif %}</dd>
+  <dt>Exemple{{ row.examples|length|pluralize }} du modèle de référence</dt>
+  <dd>
+    <ol class="formulation-source-examples">
+      {% for example in row.examples %}
+        <li>
+          <blockquote lang="fr">{{ example.content.french }}</blockquote>
+          <p lang="en">{{ example.content.english }}</p>
+          <div class="formulation-source-examples__meta">
+            <span>{% if example.content.source_field == "reformulation" %}Titre{% elif example.content.source_field == "position" %}Partie 1{% else %}Partie 2{% endif %}</span>
+            {% if example.source_url %}<a href="{{ example.source_url }}">Voir le sujet et sa réponse</a>{% endif %}
+          </div>
+        </li>
+      {% endfor %}
+    </ol>
+  </dd>
   <dt>À vous d’adapter</dt><dd>{{ row.entry.transfer_prompt }}<p class="muted">Dites ou écrivez votre phrase sur votre propre support. Cet exercice n’est ni enregistré ni corrigé automatiquement.</p></dd>
 </dl>

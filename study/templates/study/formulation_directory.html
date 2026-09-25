@@ -29,81 +29,81 @@
             <h2 id="formulation-table-{{ table.slug }}">{{ table.title }}</h2>
             <p>{{ table.description }}</p>
           </div>
-          {% if table.slug == "functions" %}<a href="{{ table.all_url }}">{{ table.all_label }} →</a>{% endif %}
         </header>
-        <div class="t1-table-shell formulation-directory-table">
-          <table class="t1-table formulation-subdivision-table">
-            <thead>
-              <tr>
-                <th scope="col">{% if table.slug == "themes" %}Thème{% else %}Fonction{% endif %}</th>
-                <th scope="col">Formulations</th>
-                <th scope="col">Progression</th>
-              </tr>
-            </thead>
-            <tbody>
-              {% for item in table.items %}
-                <tr class="t1-table__row is-status-{{ item.progress.status }}" data-formulation-subdivision>
-                  <td class="formulation-disclosure-cell" colspan="3">
-                    <details class="formulation-subdivision-disclosure">
-                      <summary>
-                        <span class="formulation-subdivision-title">
-                          <span class="formulation-row-arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
-                          <span class="formulation-subdivision-icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=item.category.icon only %}</span>
-                          <strong>{{ item.category.title }}</strong>
-                        </span>
-                        <span class="formulation-subdivision-count">{{ item.count }} formulation{{ item.count|pluralize }}</span>
-                        <span class="formulation-subdivision-progress">
-                          <span class="progress-status progress-status--{{ item.progress.status }}">{{ item.completed }}/{{ item.count }}</span>
-                        </span>
-                      </summary>
-                      <div class="formulation-subtopic-panel">
-                        <div class="formulation-subtopic-panel__head">
-                          <span>{% if item.reference_label %}{{ item.count|add:1 }} sections{% else %}{{ item.count }} sections{% endif %}</span>
-                          <a href="{{ item.url }}">Ouvrir toute la subdivision →</a>
-                        </div>
-                        <ol class="formulation-subtopic-list">
-                          {% if item.reference_label %}
-                            <li>
-                              <a href="{{ item.reference_url }}">
-                                <span>00</span>
-                                <strong>{{ item.reference_label }}</strong>
-                                <i class="is-reference" aria-hidden="true"></i>
-                              </a>
-                            </li>
-                          {% endif %}
-                          {% for topic in item.topics %}
-                            <li id="formulation-{{ topic.slug }}">
-                              <a href="{{ topic.url }}">
-                                <span>{{ topic.number }}</span>
-                                <strong>{{ topic.label }}</strong>
-                                {% if topic.essential %}<small>Essentiel</small>{% endif %}
-                              </a>
-                              <form
-                                class="subject-completion-check formulation-subtopic-check{% if topic.learned %} is-complete{% endif %}"
-                                method="post"
-                                action="{% url 'study:ee_formulation_progress' topic.slug %}">
-                                {% csrf_token %}
-                                <input type="hidden" name="next" value="{{ return_url }}">
-                                <input type="hidden" name="completed" value="{% if topic.learned %}0{% else %}1{% endif %}">
-                                <button
-                                  type="submit"
-                                  role="checkbox"
-                                  aria-checked="{{ topic.learned|yesno:'true,false' }}"
-                                  aria-label="{% if topic.learned %}Remettre à apprendre : {% else %}Marquer comme apprise : {% endif %}{{ topic.label }}"
-                                  title="{% if topic.learned %}Apprise{% else %}Marquer comme apprise{% endif %}">
-                                  {% include "study/partials/ui_icon.html" with name="check" only %}
-                                </button>
-                              </form>
-                            </li>
-                          {% endfor %}
-                        </ol>
-                      </div>
-                    </details>
-                  </td>
-                </tr>
-              {% endfor %}
-            </tbody>
-          </table>
+        <div class="t1-table-groups formulation-directory-table">
+          <div class="t1-table-groups__head" aria-hidden="true">
+            <span>{% if table.slug == "themes" %}Thème{% else %}Fonction{% endif %}</span>
+            <span>Formulations</span>
+            <span>Progression</span>
+          </div>
+          {% for item in table.items %}
+            <details id="formulation-group-{{ item.category.slug }}" class="t1-theme t1-table-group formulation-subdivision-disclosure is-status-{{ item.progress.status }}" data-formulation-subdivision>
+              {% include "study/partials/theme_group_summary.html" with title=item.category.title icon=item.category.icon count=item.count count_label="formulation" status=item.progress.status completed=item.completed total=item.count only %}
+              <div class="t1-table-shell">
+                <table class="t1-table t1-table--grouped formulation-subtopic-table">
+                  <caption class="sr-only">Formulations de la subdivision {{ item.category.title }}</caption>
+                  <colgroup>
+                    <col>
+                    <col class="formulation-subtopic-type-column">
+                    <col class="t1-table__status-column">
+                  </colgroup>
+                  <thead>
+                    <tr>
+                      <th scope="col">Formulation</th>
+                      <th scope="col">Type</th>
+                      <th scope="col">Progression</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% if item.reference_label %}
+                      <tr class="t1-table__row subject-table-row formulation-subtopic-row formulation-subtopic-row--reference" data-formulation-reference-row>
+                        <td class="t1-table__subject">
+                          <a class="subject-table-row-link" href="{{ item.reference_url }}">{{ item.reference_label }}</a>
+                          <span class="t1-table__subject-date">{{ item.reference_count }} expression{{ item.reference_count|pluralize }} à réutiliser</span>
+                        </td>
+                        <td class="t1-table__versions">Référence</td>
+                        <td class="t1-table__progress-cell">
+                          <div class="t1-table__progress">
+                            <span class="progress-status progress-status--new">À consulter</span>
+                          </div>
+                        </td>
+                      </tr>
+                    {% endif %}
+                    {% for topic in item.topics %}
+                      <tr id="formulation-{{ topic.slug }}" class="t1-table__row subject-table-row formulation-subtopic-row{% if topic.learned %} is-status-done{% else %} is-status-new{% endif %}" data-formulation-topic-row>
+                        <td class="t1-table__subject">
+                          <a class="subject-table-row-link" href="{{ topic.url }}">{{ topic.label }}</a>
+                          <span class="t1-table__subject-date">{{ topic.french }}</span>
+                        </td>
+                        <td class="t1-table__versions">{% if topic.essential %}Essentiel{% else %}Leçon{% endif %}</td>
+                        <td class="t1-table__progress-cell">
+                          <div class="t1-table__progress">
+                            <span class="progress-status progress-status--{% if topic.learned %}done{% else %}new{% endif %}">{% if topic.learned %}Apprise{% else %}À apprendre{% endif %}</span>
+                            <form
+                              class="subject-completion-check formulation-subtopic-check{% if topic.learned %} is-complete{% endif %}"
+                              method="post"
+                              action="{% url 'study:ee_formulation_progress' topic.slug %}">
+                              {% csrf_token %}
+                              <input type="hidden" name="next" value="{{ return_url }}">
+                              <input type="hidden" name="completed" value="{% if topic.learned %}0{% else %}1{% endif %}">
+                              <button
+                                type="submit"
+                                role="checkbox"
+                                aria-checked="{{ topic.learned|yesno:'true,false' }}"
+                                aria-label="{% if topic.learned %}Remettre à apprendre : {% else %}Marquer comme apprise : {% endif %}{{ topic.label }}"
+                                title="{% if topic.learned %}Apprise{% else %}Marquer comme apprise{% endif %}">
+                                {% include "study/partials/ui_icon.html" with name="check" only %}
+                              </button>
+                            </form>
+                          </div>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          {% endfor %}
         </div>
       </section>
     {% endfor %}

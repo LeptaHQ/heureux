@@ -164,7 +164,105 @@
       "source_key": "ee-tache3:janvier:combinaison-9",
       "transfer_prompt": "Proposez un titre sur les devoirs qui associe apprendre et préserver le repos.",
       "essential": true,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Langues en ligne : apprendre sans s’isoler",
+          "english": "Online languages: learning without becoming isolated",
+          "source_key": "ee-tache3:janvier:combinaison-9",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "Le plastique : réduire sans compromettre les usages essentiels",
+          "english": "Plastic: reducing its use without compromising essential uses",
+          "source_key": "ee-tache3:janvier:combinaison-6",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "Voyager moins cher, sans négliger la sécurité",
+          "english": "Traveling for less without neglecting safety",
+          "source_key": "ee-tache3:janvier:combinaison-19",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "Les vêtements de marque : s’exprimer sans surconsommer",
+          "english": "Brand-name clothing: expressing yourself without overconsuming",
+          "source_key": "ee-tache3:mars:combinaison-1",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "La lecture des enfants : encourager sans imposer",
+          "english": "Children’s reading: encouraging without imposing",
+          "source_key": "ee-tache3:mars:combinaison-3",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "L’autorité parentale : protéger sans étouffer",
+          "english": "Parental authority: protecting without stifling",
+          "source_key": "ee-tache3:mars:combinaison-10",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "Travailler pendant les vacances : apprendre sans s’épuiser",
+          "english": "Working during the holidays: learning without exhausting yourself",
+          "source_key": "ee-tache3:avril:combinaison-6",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "Les caméras à l’école : protéger sans surveiller partout",
+          "english": "Cameras at school: protecting without monitoring everywhere",
+          "source_key": "ee-tache3:avril:combinaison-8",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "Les jeux vidéo : stimuler sans déséquilibrer",
+          "english": "Video games: stimulating without creating imbalance",
+          "source_key": "ee-tache3:avril:combinaison-11",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "Les parcs zoologiques : protéger sans emprisonner",
+          "english": "Zoos: protecting without imprisoning",
+          "source_key": "ee-tache3:mai:combinaison-2",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "Les jeux vidéo : prévenir la dépendance sans interdire",
+          "english": "Video games: preventing addiction without banning them",
+          "source_key": "ee-tache3:mai:combinaison-3-bis",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "L’art urbain : créer sans dégrader",
+          "english": "Urban art: creating without damaging",
+          "source_key": "ee-tache3:aout:combinaison-12",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "La gratuité des musées : ouvrir sans fragiliser",
+          "english": "Free museums: opening access without weakening them",
+          "source_key": "ee-tache3:aout:combinaison-14",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "La publicité : informer sans envahir",
+          "english": "Advertising: informing without overwhelming",
+          "source_key": "ee-tache3:octobre:combinaison-1",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "Les maisons de retraite : accompagner sans rompre les liens",
+          "english": "Care homes: providing support without breaking family ties",
+          "source_key": "ee-tache3:octobre:combinaison-4",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "La croissance urbaine : densifier sans détruire",
+          "english": "Urban growth: increasing density without destroying",
+          "source_key": "ee-tache3:decembre:combinaison-16",
+          "source_field": "reformulation"
+        }
+      ]
     },
     {
       "slug": "titre-benefice-reserve",
@@ -179,7 +277,33 @@
       "source_key": "ee-tache3:mars:combinaison-4",
       "transfer_prompt": "Donnez un titre sur des transports gratuits dont le financement reste difficile.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Les produits faits maison : naturels, mais pas sans risques",
+          "english": "Homemade products: natural, but not risk-free",
+          "source_key": "ee-tache3:mars:combinaison-4",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "La livraison au bureau : pratique, mais sans sacrifier la pause",
+          "english": "Office meal delivery: convenient, but not at the expense of a break",
+          "source_key": "ee-tache3:janvier:combinaison-8",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "La restauration rapide : pratique, mais coûteuse pour la santé",
+          "english": "Fast food: convenient, but costly for health",
+          "source_key": "ee-tache3:aout:combinaison-8",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "Les objets connectés : utiles, mais vulnérables",
+          "english": "Connected devices: useful, but vulnerable",
+          "source_key": "ee-tache3:aout:combinaison-13",
+          "source_field": "reformulation"
+        }
+      ]
     },
     {
       "slug": "titre-deux-priorites",
@@ -194,7 +318,51 @@
       "source_key": "ee-tache3:janvier:combinaison-4",
       "transfer_prompt": "Intitulez un texte sur les écoles publiques avec deux priorités : qualité et mixité.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Aider les plus pauvres : urgence et autonomie",
+          "english": "Helping the poorest: urgency and independence",
+          "source_key": "ee-tache3:janvier:combinaison-4",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "Manger dehors ou chez soi : plaisir et maîtrise",
+          "english": "Eating out or at home: enjoyment and control",
+          "source_key": "ee-tache3:janvier:combinaison-12",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "Écoles privées ou publiques : égalité et liberté de choix",
+          "english": "Private or public schools: equality and freedom of choice",
+          "source_key": "ee-tache3:mars:combinaison-5",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "La restauration rapide : liberté et responsabilité",
+          "english": "Fast food: freedom and responsibility",
+          "source_key": "ee-tache3:aout:combinaison-15",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "La publicité destinée aux enfants : protéger et éduquer",
+          "english": "Advertising aimed at children: protecting and educating",
+          "source_key": "ee-tache3:aout:combinaison-16",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "Diplôme et expérience : deux forces complémentaires",
+          "english": "Qualifications and experience: two complementary strengths",
+          "source_key": "ee-tache3:aout:combinaison-18",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "L’uniforme au Québec : confort et expression personnelle",
+          "english": "School uniforms in Quebec: comfort and self-expression",
+          "source_key": "ee-tache3:decembre:combinaison-10",
+          "source_field": "reformulation"
+        }
+      ]
     },
     {
       "slug": "titre-condition",
@@ -209,7 +377,33 @@
       "source_key": "ee-tache3:decembre:combinaison-3",
       "transfer_prompt": "Proposez un titre sur les jeux vidéo puis nommez les deux conditions que vous développerez.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Les animaux au bureau : le bien-être sous conditions",
+          "english": "Pets at the office: well-being under certain conditions",
+          "source_key": "ee-tache3:decembre:combinaison-3",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "Le travail : un facteur d’épanouissement sous conditions",
+          "english": "Work: a source of fulfillment under certain conditions",
+          "source_key": "ee-tache3:avril:combinaison-5",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "La colocation : une expérience enrichissante sous conditions",
+          "english": "Shared housing: a rewarding experience under certain conditions",
+          "source_key": "ee-tache3:avril:combinaison-14",
+          "source_field": "reformulation"
+        },
+        {
+          "french": "Les maisons de retraite : un accompagnement sous conditions",
+          "english": "Care homes: support subject to conditions",
+          "source_key": "ee-tache3:aout:combinaison-1",
+          "source_field": "reformulation"
+        }
+      ]
     },
     {
       "slug": "synthese-theme-commun",
@@ -224,7 +418,87 @@
       "source_key": "ee-tache3:juillet:combinaison-8",
       "transfer_prompt": "Deux textes discutent des devoirs scolaires. Rédigez seulement leur phrase d'ouverture neutre.",
       "essential": true,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Les deux documents abordent la gratuité des transports publics.",
+          "english": "Both documents discuss free public transport.",
+          "source_key": "ee-tache3:juillet:combinaison-8",
+          "source_field": "position"
+        },
+        {
+          "french": "Les deux documents abordent l’installation de distributeurs automatiques dans les lycées.",
+          "english": "Both documents discuss installing vending machines in high schools.",
+          "source_key": "ee-tache3:janvier:combinaison-1",
+          "source_field": "position"
+        },
+        {
+          "french": "Les deux documents abordent la légitimité des cuisiniers amateurs.",
+          "english": "Both documents discuss the legitimacy of amateur cooks.",
+          "source_key": "ee-tache3:janvier:combinaison-2",
+          "source_field": "position"
+        },
+        {
+          "french": "Les deux documents abordent la colocation sous des angles opposés.",
+          "english": "Both documents discuss shared housing from opposing perspectives.",
+          "source_key": "ee-tache3:janvier:combinaison-3",
+          "source_field": "position"
+        },
+        {
+          "french": "Les deux documents abordent l’aide aux personnes pauvres.",
+          "english": "Both documents discuss aid for people in poverty.",
+          "source_key": "ee-tache3:janvier:combinaison-4",
+          "source_field": "position"
+        },
+        {
+          "french": "Les deux documents abordent le choix entre le livre numérique et le livre papier.",
+          "english": "Both documents discuss the choice between digital and print books.",
+          "source_key": "ee-tache3:janvier:combinaison-5",
+          "source_field": "position"
+        },
+        {
+          "french": "Les deux documents abordent l’utilisation du plastique.",
+          "english": "Both documents discuss the use of plastic.",
+          "source_key": "ee-tache3:janvier:combinaison-6",
+          "source_field": "position"
+        },
+        {
+          "french": "Les deux documents abordent le rôle éducatif de la télévision.",
+          "english": "Both documents discuss television’s educational role.",
+          "source_key": "ee-tache3:janvier:combinaison-7",
+          "source_field": "position"
+        },
+        {
+          "french": "Les deux documents abordent la livraison de repas au bureau.",
+          "english": "Both documents discuss meal delivery to the workplace.",
+          "source_key": "ee-tache3:janvier:combinaison-8",
+          "source_field": "position"
+        },
+        {
+          "french": "Les deux documents abordent l’apprentissage des langues en ligne.",
+          "english": "Both documents discuss online language learning.",
+          "source_key": "ee-tache3:janvier:combinaison-9",
+          "source_field": "position"
+        },
+        {
+          "french": "Les deux documents abordent l’interdiction des voitures en zone urbaine.",
+          "english": "Both documents discuss banning cars in urban areas.",
+          "source_key": "ee-tache3:janvier:combinaison-17",
+          "source_field": "position"
+        },
+        {
+          "french": "Les deux documents abordent les menus sans viande à la cantine scolaire.",
+          "english": "Both documents discuss meat-free menus in school cafeterias.",
+          "source_key": "ee-tache3:janvier:combinaison-18",
+          "source_field": "position"
+        },
+        {
+          "french": "Les deux documents abordent les compagnies aériennes à bas prix.",
+          "english": "Both documents discuss low-cost airlines.",
+          "source_key": "ee-tache3:janvier:combinaison-19",
+          "source_field": "position"
+        }
+      ]
     },
     {
       "slug": "synthese-premier-argument",
@@ -239,7 +513,69 @@
       "source_key": "ee-tache3:janvier:combinaison-7",
       "transfer_prompt": "Un document dit que les bus gratuits aident les ménages modestes. Résumez cet avantage sans vous prononcer.",
       "essential": true,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Le premier souligne son accès large à l’information, à la culture et aux enjeux sociaux.",
+          "english": "The first highlights its broad access to information, culture and social issues.",
+          "source_key": "ee-tache3:janvier:combinaison-7",
+          "source_field": "position"
+        },
+        {
+          "french": "Le premier apprécie leurs tarifs avantageux, parfois inférieurs à ceux du train ou de la voiture, malgré l’absence de services à bord.",
+          "english": "The first appreciates their attractive fares, sometimes lower than those of trains or cars, despite the lack of onboard services.",
+          "source_key": "ee-tache3:janvier:combinaison-19",
+          "source_field": "position"
+        },
+        {
+          "french": "Le premier estime que des recettes réussies ne remplacent pas les compétences techniques acquises par la formation.",
+          "english": "The first considers that successful recipes are no substitute for technical skills acquired through training.",
+          "source_key": "ee-tache3:janvier:combinaison-2",
+          "source_field": "position"
+        },
+        {
+          "french": "Le premier présente le don de temps ou d’argent comme un devoir solidaire, surtout en hiver.",
+          "english": "The first presents donating time or money as a duty of solidarity, especially in winter.",
+          "source_key": "ee-tache3:janvier:combinaison-4",
+          "source_field": "position"
+        },
+        {
+          "french": "Le premier valorise le numérique, moins cher, moins consommateur de papier et plus accessible aux personnes malvoyantes grâce aux caractères agrandis.",
+          "english": "The first highlights digital books as cheaper, less paper-intensive and more accessible to visually impaired readers through enlarged text.",
+          "source_key": "ee-tache3:janvier:combinaison-5",
+          "source_field": "position"
+        },
+        {
+          "french": "Le premier dénonce la pollution des océans, où les déchets menacent la faune marine et remontent dans la chaîne alimentaire.",
+          "english": "The first condemns ocean pollution, where waste threatens marine wildlife and moves up the food chain.",
+          "source_key": "ee-tache3:janvier:combinaison-10",
+          "source_field": "position"
+        },
+        {
+          "french": "Le premier explique le succès du privé par sa réputation, son encadrement et ses classes socialement homogènes.",
+          "english": "The first explains private schools’ success through their reputation, supervision and socially homogeneous classes.",
+          "source_key": "ee-tache3:mars:combinaison-5",
+          "source_field": "position"
+        },
+        {
+          "french": "Le premier valorise l’acquisition de compétences, l’expérience professionnelle et le revenu gagné.",
+          "english": "The first highlights gaining skills, professional experience and income.",
+          "source_key": "ee-tache3:avril:combinaison-6",
+          "source_field": "position"
+        },
+        {
+          "french": "Le premier met en avant les soins professionnels, les activités et la vie sociale qui évitent l’isolement des aînés.",
+          "english": "The first highlights professional care, activities and social life that prevent older people from becoming isolated.",
+          "source_key": "ee-tache3:aout:combinaison-1",
+          "source_field": "position"
+        },
+        {
+          "french": "Le premier la présente comme un moyen de démocratiser la culture, d’attirer de nouveaux visiteurs et de renforcer la mission éducative des établissements.",
+          "english": "The first presents it as a way to democratize culture, attract new visitors and strengthen museums’ educational mission.",
+          "source_key": "ee-tache3:novembre:combinaison-11",
+          "source_field": "position"
+        }
+      ]
     },
     {
       "slug": "synthese-complement",
@@ -254,7 +590,63 @@
       "source_key": "ee-tache3:avril:combinaison-10",
       "transfer_prompt": "Les deux textes soutiennent le vélo ; le second souligne aussi son faible coût et demande des pistes sûres. Présentez son apport sans l'opposer au premier.",
       "essential": true,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "De son côté, le second ajoute une baisse de l’absentéisme et une meilleure fidélisation des salariés, tout en exigeant une organisation efficace de l’entreprise.",
+          "english": "For its part, the second adds reduced absenteeism and better employee retention, while requiring efficient company organisation.",
+          "source_key": "ee-tache3:avril:combinaison-10",
+          "source_field": "position"
+        },
+        {
+          "french": "De son côté, le second présente des autodidactes formés en ligne qui ont connu un succès viral, dont l’une est devenue auteure de livres de cuisine pour amateurs.",
+          "english": "For its part, the second presents self-taught cooks trained online who achieved viral success, including one who became an author of cookbooks for amateurs.",
+          "source_key": "ee-tache3:janvier:combinaison-2",
+          "source_field": "position"
+        },
+        {
+          "french": "De son côté, le second privilégie l’engagement associatif quotidien, qui aide les bénéficiaires à trouver un logement, un emploi et leur autonomie.",
+          "english": "For its part, the second favors daily volunteer involvement, which helps beneficiaries find housing, employment and independence.",
+          "source_key": "ee-tache3:janvier:combinaison-4",
+          "source_field": "position"
+        },
+        {
+          "french": "De son côté, le second défend l’émotion du papier, que l’on peut offrir ou prêter, et note que le numérique demande des compétences informatiques.",
+          "english": "For its part, the second defends the emotional value of paper books, which can be given or lent, and notes that digital reading requires computer skills.",
+          "source_key": "ee-tache3:janvier:combinaison-5",
+          "source_field": "position"
+        },
+        {
+          "french": "De son côté, le second rappelle qu’une bonne connexion, un équipement adapté et une grande autonomie sont nécessaires, sans quoi l’apprenant risque de se décourager et d’abandonner.",
+          "english": "For its part, the second points out that a good connection, suitable equipment and considerable independence are necessary, without which the learner may become discouraged and give up.",
+          "source_key": "ee-tache3:janvier:combinaison-9",
+          "source_field": "position"
+        },
+        {
+          "french": "De son côté, le second avertit que la transition nécessite des stationnements, des transports en commun et des autorisations adaptées à certains métiers.",
+          "english": "For its part, the second warns that the transition requires parking, public transport and permits suited to certain occupations.",
+          "source_key": "ee-tache3:janvier:combinaison-17",
+          "source_field": "position"
+        },
+        {
+          "french": "De son côté, le second alerte sur les failles de sécurité qui permettraient à des pirates de surveiller un logement, de préparer un cambriolage ou de contrôler une voiture.",
+          "english": "For its part, the second warns of security flaws that could allow hackers to monitor a home, prepare a burglary or control a car.",
+          "source_key": "ee-tache3:aout:combinaison-13",
+          "source_field": "position"
+        },
+        {
+          "french": "De son côté, le second estime que l’éducation familiale, la société et la culture pèsent davantage sur leurs choix de consommation.",
+          "english": "For its part, the second considers that family education, society and culture have a greater influence on their consumer choices.",
+          "source_key": "ee-tache3:aout:combinaison-16",
+          "source_field": "position"
+        },
+        {
+          "french": "De son côté, le second souligne les contraintes financières et logistiques des entreprises ainsi que le malaise possible de certains salariés face à cette pratique.",
+          "english": "For its part, the second highlights companies’ financial and logistical constraints and the possible discomfort of some employees with this practice.",
+          "source_key": "ee-tache3:aout:combinaison-19",
+          "source_field": "position"
+        }
+      ]
     },
     {
       "slug": "synthese-position-attribuee",
@@ -269,7 +661,51 @@
       "source_key": "ee-tache3:juin:combinaison-1",
       "transfer_prompt": "Un auteur affirme que l'uniforme améliore l'ambiance scolaire. Rapportez son opinion sans la présenter comme une certitude.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "En revanche, le second estime qu’elle aide à identifier et à mémoriser un candidat, notamment pour certains métiers d’accueil.",
+          "english": "By contrast, the second considers that it helps identify and remember a candidate, particularly in some customer-facing jobs.",
+          "source_key": "ee-tache3:juin:combinaison-1",
+          "source_field": "position"
+        },
+        {
+          "french": "Le premier estime que quinze minutes d’exercices développent l’autonomie et le lien familial.",
+          "english": "The first considers that fifteen minutes of exercises develop independence and family bonds.",
+          "source_key": "ee-tache3:mars:combinaison-6",
+          "source_field": "position"
+        },
+        {
+          "french": "Le premier affirme que les tablettes et ordinateurs stimulent l’engagement, la créativité et l’autonomie tout en donnant accès à de nombreuses ressources.",
+          "english": "The first states that tablets and computers stimulate engagement, creativity and independence while providing access to many resources.",
+          "source_key": "ee-tache3:mars:combinaison-7",
+          "source_field": "position"
+        },
+        {
+          "french": "Le premier considère la captivité comme une prison inadaptée aux besoins naturels des animaux sauvages.",
+          "english": "The first considers captivity a prison unsuited to wild animals’ natural needs.",
+          "source_key": "ee-tache3:mai:combinaison-2",
+          "source_field": "position"
+        },
+        {
+          "french": "Le premier affirme qu’elle réduit les voitures, la pollution et les maladies respiratoires, tout en ramenant les clients au centre-ville.",
+          "english": "The first states that it reduces car use, pollution and respiratory illness while bringing customers back to the city center.",
+          "source_key": "ee-tache3:juillet:combinaison-8",
+          "source_field": "position"
+        },
+        {
+          "french": "Le premier indique qu’ils peuvent améliorer la rapidité de réaction des adultes, mais évoque aussi la violence et l’addiction.",
+          "english": "The first indicates that they can improve adults’ reaction speed, but also mentions violence and addiction.",
+          "source_key": "ee-tache3:juillet:combinaison-5",
+          "source_field": "position"
+        },
+        {
+          "french": "Le premier estime qu’elle réduit le stress, améliore l’ambiance entre collègues et renforce la motivation.",
+          "english": "The first considers that it reduces stress, improves the atmosphere among colleagues and increases motivation.",
+          "source_key": "ee-tache3:decembre:combinaison-3",
+          "source_field": "position"
+        }
+      ]
     },
     {
       "slug": "synthese-contraste-fidele",
@@ -284,7 +720,57 @@
       "source_key": "ee-tache3:aout:combinaison-17",
       "transfer_prompt": "Le premier texte préfère le train pour son confort, le second l'avion pour sa rapidité. Rédigez une comparaison neutre.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "En revanche, le second privilégie la nature, la tranquillité, les rencontres à domicile et des logements plus spacieux à un prix abordable en zone rurale.",
+          "english": "By contrast, the second favours nature, peace and quiet, meeting people at home and more spacious, affordable housing in rural areas.",
+          "source_key": "ee-tache3:aout:combinaison-17",
+          "source_field": "position"
+        },
+        {
+          "french": "En revanche, le second s’y oppose : trop de boissons sucrées favorisent l’obésité et d’autres problèmes de santé.",
+          "english": "By contrast, the second opposes it: too many sugary drinks contribute to obesity and other health problems.",
+          "source_key": "ee-tache3:janvier:combinaison-1",
+          "source_field": "position"
+        },
+        {
+          "french": "En revanche, le second souligne que les différences de rythme, le bruit, le manque d’intimité et les corvées négligées peuvent provoquer des conflits.",
+          "english": "By contrast, the second highlights that different schedules, noise, lack of privacy and neglected chores can cause conflict.",
+          "source_key": "ee-tache3:avril:combinaison-14",
+          "source_field": "position"
+        },
+        {
+          "french": "En revanche, le second souligne le temps de préparation, le coût initial et les risques d’irritation ou de contamination liés aux erreurs de formulation et de conservation.",
+          "english": "By contrast, the second highlights preparation time, initial cost and the risks of irritation or contamination linked to mistakes in formulation and storage.",
+          "source_key": "ee-tache3:mars:combinaison-4",
+          "source_field": "position"
+        },
+        {
+          "french": "En revanche, le second défend les commerces de quartier pour soutenir l’économie locale, obtenir des produits frais de qualité et renforcer la convivialité entre voisins.",
+          "english": "By contrast, the second supports neighborhood shops to sustain the local economy, obtain quality fresh products and strengthen neighborly ties.",
+          "source_key": "ee-tache3:mars:combinaison-9",
+          "source_field": "position"
+        },
+        {
+          "french": "En revanche, le second juge leurs résultats peu convaincants et préfère prévenir les conflits grâce au dialogue et à des règles expliquées.",
+          "english": "By contrast, the second finds their results unconvincing and prefers to prevent conflicts through dialogue and clearly explained rules.",
+          "source_key": "ee-tache3:avril:combinaison-8",
+          "source_field": "position"
+        },
+        {
+          "french": "En revanche, le second met en avant les soins et l’augmentation des reproductions dans les zoos, qui peuvent contribuer à sauver des espèces menacées.",
+          "english": "By contrast, the second highlights care and increased breeding in zoos, which can help save endangered species.",
+          "source_key": "ee-tache3:mai:combinaison-2",
+          "source_field": "position"
+        },
+        {
+          "french": "En revanche, le second affirme que les maisons de retraite réduisent l’isolement, assurent des soins adaptés et rassurent les familles, malgré leur coût.",
+          "english": "By contrast, the second states that care homes reduce isolation, provide suitable care and reassure families despite their cost.",
+          "source_key": "ee-tache3:octobre:combinaison-4",
+          "source_field": "position"
+        }
+      ]
     },
     {
       "slug": "synthese-document-absent",
@@ -299,7 +785,15 @@
       "source_key": "ee-tache3:juin:combinaison-2",
       "transfer_prompt": "Un dossier d'entraînement sur le covoiturage ne contient qu'un texte favorable. Signalez le manque avant de résumer ce texte.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Un seul document est disponible sur la colocation entre adultes, car le second manque dans la source.",
+          "english": "Only one document is available on adults sharing accommodation, because the second is missing from the source.",
+          "source_key": "ee-tache3:juin:combinaison-2",
+          "source_field": "position"
+        }
+      ]
     },
     {
       "slug": "synthese-doublon-source",
@@ -314,7 +808,15 @@
       "source_key": "ee-tache3:mai:combinaison-3-bis",
       "transfer_prompt": "Deux emplacements reproduisent le même témoignage sur le télétravail. Décrivez honnêtement le dossier.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Les deux documents publiés sont identiques et abordent la dépendance aux jeux vidéo.",
+          "english": "The two published documents are identical and discuss video game addiction.",
+          "source_key": "ee-tache3:mai:combinaison-3-bis",
+          "source_field": "position"
+        }
+      ]
     },
     {
       "slug": "synthese-texte-hors-sujet",
@@ -329,7 +831,15 @@
       "source_key": "ee-tache3:decembre:combinaison-10",
       "transfer_prompt": "Un dossier sur le vélo contient par erreur une invitation à un anniversaire. Indiquez la limite de la source.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Un seul document traite réellement de l’uniforme scolaire, car le premier texte est une consigne d’écriture sans rapport avec le sujet.",
+          "english": "Only one document actually deals with school uniforms, because the first text is a writing instruction unrelated to the subject.",
+          "source_key": "ee-tache3:decembre:combinaison-10",
+          "source_field": "position"
+        }
+      ]
     },
     {
       "slug": "avis-position-claire",
@@ -344,7 +854,69 @@
       "source_key": "ee-tache3:janvier:combinaison-16",
       "transfer_prompt": "Prenez position sur la coexistence des livres papier et numériques en une phrase.",
       "essential": true,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Pour ma part, je pense que l’aide immédiate et l’accompagnement durable sont complémentaires.",
+          "english": "For my part, I think that immediate help and long-term support complement each other.",
+          "source_key": "ee-tache3:janvier:combinaison-16",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, bien qu’elle puisse dépanner, la restauration rapide ne devrait pas devenir une habitude quotidienne.",
+          "english": "For my part, although it can be handy, fast food should not become a daily habit.",
+          "source_key": "ee-tache3:avril:combinaison-13",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, il me semble que manger chez soi est la solution la plus raisonnable au quotidien, sans renoncer au restaurant.",
+          "english": "For my part, it seems to me that eating at home is the most sensible everyday option, without giving up restaurants.",
+          "source_key": "ee-tache3:janvier:combinaison-12",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, la gratuité des transports est utile à condition que le réseau desserve réellement tous les quartiers.",
+          "english": "For my part, free public transport is useful provided the network actually serves every neighbourhood.",
+          "source_key": "ee-tache3:juillet:combinaison-8",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, les maisons de retraite sont utiles si la personne âgée les choisit librement.",
+          "english": "For my part, care homes are useful if the older person chooses them freely.",
+          "source_key": "ee-tache3:aout:combinaison-1",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, bien que la viande puisse apporter des nutriments utiles, je pense qu’il faut en réduire la consommation sans l’interdire à tous.",
+          "english": "For my part, although meat can provide useful nutrients, I think we should reduce its consumption without banning it for everyone.",
+          "source_key": "ee-tache3:avril:combinaison-15",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, je considère qu’une alimentation davantage végétale est souhaitable, sans supposer que tous les légumes sont écologiques.",
+          "english": "For my part, I consider a more plant-based diet desirable, without assuming that all vegetables are environmentally friendly.",
+          "source_key": "ee-tache3:mai:combinaison-5",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, je pense que les deux formats répondent à des besoins différents plutôt que de s’exclure.",
+          "english": "For my part, I think the two formats meet different needs rather than excluding each other.",
+          "source_key": "ee-tache3:janvier:combinaison-5",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, les musées devraient offrir une gratuité régulière, à condition que leurs ressources restent suffisantes pour protéger les œuvres.",
+          "english": "For my part, museums should offer regular free admission, provided their resources remain sufficient to protect the works.",
+          "source_key": "ee-tache3:aout:combinaison-14",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, la livraison constitue une solution pratique, mais elle ne doit pas normaliser les repas pris devant l’écran.",
+          "english": "For my part, delivery is a convenient solution, but it should not make eating in front of a screen the norm.",
+          "source_key": "ee-tache3:janvier:combinaison-8",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "avis-favorable-condition",
@@ -359,7 +931,27 @@
       "source_key": "ee-tache3:janvier:combinaison-18",
       "transfer_prompt": "Soutenez les musées gratuits à condition que leur financement soit assuré.",
       "essential": true,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Pour ma part, je suis favorable à plusieurs repas sans viande par semaine, à condition qu’ils soient équilibrés et savoureux.",
+          "english": "For my part, I support several meat-free meals a week, provided they are balanced and tasty.",
+          "source_key": "ee-tache3:janvier:combinaison-18",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, la gratuité des transports est utile à condition que le réseau desserve réellement tous les quartiers.",
+          "english": "For my part, free public transport is useful provided the network actually serves every neighbourhood.",
+          "source_key": "ee-tache3:juillet:combinaison-8",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, les musées devraient offrir une gratuité régulière, à condition que leurs ressources restent suffisantes pour protéger les œuvres.",
+          "english": "For my part, museums should offer regular free admission, provided their resources remain sufficient to protect the works.",
+          "source_key": "ee-tache3:aout:combinaison-14",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "avis-preference-prudente",
@@ -374,7 +966,15 @@
       "source_key": "ee-tache3:janvier:combinaison-19",
       "transfer_prompt": "Exprimez votre préférence pour un cours en ligne si un professeur reste disponible.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Pour ma part, je choisirais un vol à bas prix pour un trajet court si les normes de sécurité sont respectées.",
+          "english": "For my part, I would choose a low-cost flight for a short trip if safety standards are met.",
+          "source_key": "ee-tache3:janvier:combinaison-19",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "avis-priorite-normative",
@@ -389,7 +989,51 @@
       "source_key": "ee-tache3:mars:combinaison-5",
       "transfer_prompt": "Affirmez que les compétences, plutôt que l'apparence, doivent guider le recrutement.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Pour ma part, il faut que la qualité de l’éducation ne dépende jamais des revenus familiaux.",
+          "english": "For my part, the quality of education must never depend on family income.",
+          "source_key": "ee-tache3:mars:combinaison-5",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "En conclusion, la photo doit rester facultative pour que chaque candidat soit d’abord jugé sur son savoir-faire.",
+          "english": "In conclusion, the photo should remain optional so that every candidate is judged first on their skills.",
+          "source_key": "ee-tache3:juin:combinaison-1",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, il faut que les exercices difficiles soient expliqués ou commencés à l’école pour ne pas pénaliser les familles moins disponibles.",
+          "english": "Moreover, difficult exercises must be explained or started at school so as not to disadvantage families with less time available.",
+          "source_key": "ee-tache3:juillet:combinaison-9",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, il faut que le confort s’accompagne d’horaires respectés et de pauses réelles.",
+          "english": "Moreover, comfort must go hand in hand with respected working hours and genuine breaks.",
+          "source_key": "ee-tache3:juillet:combinaison-6",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, il faut que des alternatives crédibles soient prévues avant les restrictions pour les travailleurs qui dépendent de leur véhicule.",
+          "english": "Moreover, credible alternatives must be arranged before restrictions for workers who depend on their vehicles.",
+          "source_key": "ee-tache3:janvier:combinaison-17",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, le prix ne doit jamais conduire à réduire l’entretien des avions ni à dégrader les conditions de travail.",
+          "english": "Moreover, price should never lead to reduced aircraft maintenance or worse working conditions.",
+          "source_key": "ee-tache3:janvier:combinaison-19",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, il faut que la durée de conservation des images soit limitée et que seuls des enquêteurs habilités y accèdent.",
+          "english": "Moreover, image retention must be limited and only authorised investigators should have access.",
+          "source_key": "ee-tache3:avril:combinaison-1",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "avis-combiner-solutions",
@@ -404,7 +1048,39 @@
       "source_key": "ee-tache3:aout:combinaison-18",
       "transfer_prompt": "Associez aide d'urgence et formation professionnelle sans présenter l'une comme inutile.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Pour ma part, le diplôme et l’expérience doivent se compléter plutôt que s’opposer.",
+          "english": "For my part, qualifications and experience should complement each other rather than oppose each other.",
+          "source_key": "ee-tache3:aout:combinaison-18",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, je pense que les deux formats répondent à des besoins différents plutôt que de s’exclure.",
+          "english": "For my part, I think the two formats meet different needs rather than excluding each other.",
+          "source_key": "ee-tache3:janvier:combinaison-5",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "En conclusion, je privilégie des études qui associent cours exigeants et expériences professionnelles réelles.",
+          "english": "In conclusion, I favour studies that combine demanding courses with real professional experience.",
+          "source_key": "ee-tache3:aout:combinaison-18",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "En conclusion, je combinerais les deux options pour manger des produits locaux sans dépasser mon budget.",
+          "english": "In conclusion, I would combine the two options to eat local produce without exceeding my budget.",
+          "source_key": "ee-tache3:aout:combinaison-3",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "En conclusion, l’apprentissage en ligne devient efficace lorsqu’il associe flexibilité, équipement fiable et véritable suivi humain.",
+          "english": "In conclusion, online learning becomes effective when it combines flexibility, reliable equipment and genuine human support.",
+          "source_key": "ee-tache3:janvier:combinaison-9",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "opposition-reelle",
@@ -419,7 +1095,33 @@
       "source_key": "ee-tache3:janvier:combinaison-1",
       "transfer_prompt": "Un texte soutient la publicité pour informer, un autre la critique comme envahissante. Reliez leurs positions.",
       "essential": true,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "En revanche, le second s’y oppose : trop de boissons sucrées favorisent l’obésité et d’autres problèmes de santé.",
+          "english": "By contrast, the second opposes it: too many sugary drinks contribute to obesity and other health problems.",
+          "source_key": "ee-tache3:janvier:combinaison-1",
+          "source_field": "position"
+        },
+        {
+          "french": "En revanche, le second privilégie la nature, la tranquillité, les rencontres à domicile et des logements plus spacieux à un prix abordable en zone rurale.",
+          "english": "By contrast, the second favours nature, peace and quiet, meeting people at home and more spacious, affordable housing in rural areas.",
+          "source_key": "ee-tache3:aout:combinaison-17",
+          "source_field": "position"
+        },
+        {
+          "french": "En revanche, le second souligne que les différences de rythme, le bruit, le manque d’intimité et les corvées négligées peuvent provoquer des conflits.",
+          "english": "By contrast, the second highlights that different schedules, noise, lack of privacy and neglected chores can cause conflict.",
+          "source_key": "ee-tache3:avril:combinaison-14",
+          "source_field": "position"
+        },
+        {
+          "french": "En revanche, le second souligne le temps de préparation, le coût initial et les risques d’irritation ou de contamination liés aux erreurs de formulation et de conservation.",
+          "english": "By contrast, the second highlights preparation time, initial cost and the risks of irritation or contamination linked to mistakes in formulation and storage.",
+          "source_key": "ee-tache3:mars:combinaison-4",
+          "source_field": "position"
+        }
+      ]
     },
     {
       "slug": "opposition-comparer-fonctions",
@@ -434,7 +1136,27 @@
       "source_key": "ee-tache3:avril:combinaison-8",
       "transfer_prompt": "Comparez ce qu'un cours enregistré et une conversation avec un professeur apportent à l'apprentissage.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Un enregistrement peut éclairer un incident, tandis qu’un adulte présent peut parfois l’empêcher.",
+          "english": "A recording can shed light on an incident, while an adult who is present can sometimes prevent it.",
+          "source_key": "ee-tache3:avril:combinaison-8",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, je pense que les deux formats répondent à des besoins différents plutôt que de s’exclure.",
+          "english": "For my part, I think the two formats meet different needs rather than excluding each other.",
+          "source_key": "ee-tache3:janvier:combinaison-5",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, elles peuvent fournir des preuves après un incident, mais elles ne remplacent ni l’encadrement ni la confiance.",
+          "english": "First of all, they can provide evidence after an incident, but they replace neither supervision nor trust.",
+          "source_key": "ee-tache3:avril:combinaison-8",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "opposition-plutot-que",
@@ -449,7 +1171,45 @@
       "source_key": "ee-tache3:avril:combinaison-17",
       "transfer_prompt": "Préférez améliorer la fréquence des bus à construire un nouveau parking, avec une raison.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Par exemple, une ville pourrait rénover un stade existant plutôt qu’en construire un nouveau, puis l’ouvrir aux associations locales après le tournoi.",
+          "english": "For example, a city could renovate an existing stadium rather than build a new one, then open it to local associations after the tournament.",
+          "source_key": "ee-tache3:avril:combinaison-17",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, je pense que les deux formats répondent à des besoins différents plutôt que de s’exclure.",
+          "english": "For my part, I think the two formats meet different needs rather than excluding each other.",
+          "source_key": "ee-tache3:janvier:combinaison-5",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, les municipalités doivent construire sur des terrains déjà urbanisés plutôt que détruire les forêts voisines.",
+          "english": "Moreover, municipalities should build on already developed land rather than destroy nearby forests.",
+          "source_key": "ee-tache3:decembre:combinaison-16",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Un vêtement qui résiste à plusieurs lavages évite des achats répétés.",
+          "english": "A garment that withstands several washes avoids repeated purchases.",
+          "source_key": "ee-tache3:mars:combinaison-1",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Il vaut mieux renoncer aux préparations que l’on ne maîtrise pas.",
+          "english": "It is better to give up preparations that one does not understand.",
+          "source_key": "ee-tache3:decembre:combinaison-13",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Sur un vol transatlantique, je paierais davantage afin de bénéficier de meilleures garanties de sécurité et de confort.",
+          "english": "On a transatlantic flight, I would pay more to benefit from better assurances of safety and comfort.",
+          "source_key": "ee-tache3:janvier:combinaison-19",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "opposition-limite-substitution",
@@ -464,7 +1224,39 @@
       "source_key": "ee-tache3:avril:combinaison-1",
       "transfer_prompt": "Expliquez pourquoi une application scolaire ne doit pas remplacer l'accompagnement du professeur.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "En conclusion, les caméras doivent compléter des patrouilles et des actions de prévention, sans les remplacer.",
+          "english": "In conclusion, cameras should complement patrols and prevention measures, not replace them.",
+          "source_key": "ee-tache3:avril:combinaison-1",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, un professionnel doit maîtriser l’hygiène, l’organisation et les techniques, pas seulement réussir une recette.",
+          "english": "First of all, a professional must master hygiene, organisation and techniques, not just make a successful recipe.",
+          "source_key": "ee-tache3:janvier:combinaison-2",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, les activités collectives favorisent le lien social sans remplacer les visites familiales.",
+          "english": "Moreover, group activities encourage social ties without replacing family visits.",
+          "source_key": "ee-tache3:octobre:combinaison-4",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, elles peuvent fournir des preuves après un incident, mais elles ne remplacent ni l’encadrement ni la confiance.",
+          "english": "First of all, they can provide evidence after an incident, but they replace neither supervision nor trust.",
+          "source_key": "ee-tache3:avril:combinaison-8",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, je pense que les deux formats répondent à des besoins différents plutôt que de s’exclure.",
+          "english": "For my part, I think the two formats meet different needs rather than excluding each other.",
+          "source_key": "ee-tache3:janvier:combinaison-5",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "concession-bien-que",
@@ -479,7 +1271,21 @@
       "source_key": "ee-tache3:avril:combinaison-13",
       "transfer_prompt": "Reconnaissez que les jeux vidéo peuvent stimuler la réflexion, puis limitez leur durée.",
       "essential": true,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Pour ma part, bien qu’elle puisse dépanner, la restauration rapide ne devrait pas devenir une habitude quotidienne.",
+          "english": "For my part, although it can be handy, fast food should not become a daily habit.",
+          "source_key": "ee-tache3:avril:combinaison-13",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, bien que la viande puisse apporter des nutriments utiles, je pense qu’il faut en réduire la consommation sans l’interdire à tous.",
+          "english": "For my part, although meat can provide useful nutrients, I think we should reduce its consumption without banning it for everyone.",
+          "source_key": "ee-tache3:avril:combinaison-15",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "concession-malgre-nom",
@@ -494,7 +1300,27 @@
       "source_key": "ee-tache3:janvier:combinaison-19",
       "transfer_prompt": "Défendez une sortie occasionnelle au restaurant malgré son coût.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Le premier apprécie leurs tarifs avantageux, parfois inférieurs à ceux du train ou de la voiture, malgré l’absence de services à bord.",
+          "english": "The first appreciates their attractive fares, sometimes lower than those of trains or cars, despite the lack of onboard services.",
+          "source_key": "ee-tache3:janvier:combinaison-19",
+          "source_field": "position"
+        },
+        {
+          "french": "Tout d’abord, un billet abordable permet aux petits budgets de voyager plus souvent, même sans repas à bord.",
+          "english": "First of all, an affordable ticket allows people on smaller budgets to travel more often, even without an onboard meal.",
+          "source_key": "ee-tache3:janvier:combinaison-19",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, la ferme offre des produits frais dont je peux connaître l’origine, même s’ils coûtent un peu plus cher.",
+          "english": "First of all, the farm offers fresh produce whose origin I can know, even if it costs a little more.",
+          "source_key": "ee-tache3:aout:combinaison-3",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "concession-sans-renoncer",
@@ -509,7 +1335,33 @@
       "source_key": "ee-tache3:janvier:combinaison-12",
       "transfer_prompt": "Préférez les commerces locaux tout en conservant certains achats au supermarché.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Pour ma part, il me semble que manger chez soi est la solution la plus raisonnable au quotidien, sans renoncer au restaurant.",
+          "english": "For my part, it seems to me that eating at home is the most sensible everyday option, without giving up restaurants.",
+          "source_key": "ee-tache3:janvier:combinaison-12",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "En conclusion, je préfère la campagne pour le calme et l’espace, sans renoncer à l’accès aux emplois et à la culture.",
+          "english": "In conclusion, I prefer the countryside for its peace and space, without giving up access to jobs and culture.",
+          "source_key": "ee-tache3:aout:combinaison-17",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, bien que la viande puisse apporter des nutriments utiles, je pense qu’il faut en réduire la consommation sans l’interdire à tous.",
+          "english": "For my part, although meat can provide useful nutrients, I think we should reduce its consumption without banning it for everyone.",
+          "source_key": "ee-tache3:avril:combinaison-15",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, je considère qu’une alimentation davantage végétale est souhaitable, sans supposer que tous les légumes sont écologiques.",
+          "english": "For my part, I consider a more plant-based diet desirable, without assuming that all vegetables are environmentally friendly.",
+          "source_key": "ee-tache3:mai:combinaison-5",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "concession-benefice-non-suffisant",
@@ -524,7 +1376,33 @@
       "source_key": "ee-tache3:juillet:combinaison-6",
       "transfer_prompt": "Expliquez pourquoi des tarifs bas ne justifient pas une baisse des normes de sécurité.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Des bureaux modernes ne justifient jamais les heures supplémentaires permanentes.",
+          "english": "Modern desks never justify constant overtime.",
+          "source_key": "ee-tache3:juillet:combinaison-6",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "En conclusion, l’apprentissage en ligne devient efficace lorsqu’il associe flexibilité, équipement fiable et véritable suivi humain.",
+          "english": "In conclusion, online learning becomes effective when it combines flexibility, reliable equipment and genuine human support.",
+          "source_key": "ee-tache3:janvier:combinaison-9",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Un service gratuit ne sert à rien s’il oblige les habitants à attendre une heure.",
+          "english": "A free service is of no use if it makes residents wait an hour.",
+          "source_key": "ee-tache3:juillet:combinaison-8",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, la livraison constitue une solution pratique, mais elle ne doit pas normaliser les repas pris devant l’écran.",
+          "english": "For my part, delivery is a convenient solution, but it should not make eating in front of a screen the norm.",
+          "source_key": "ee-tache3:janvier:combinaison-8",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "condition-subjonctif",
@@ -539,7 +1417,27 @@
       "source_key": "ee-tache3:juillet:combinaison-8",
       "transfer_prompt": "Rendez votre soutien aux cours en ligne dépendant d'un accompagnement régulier.",
       "essential": true,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Pour ma part, la gratuité des transports est utile à condition que le réseau desserve réellement tous les quartiers.",
+          "english": "For my part, free public transport is useful provided the network actually serves every neighbourhood.",
+          "source_key": "ee-tache3:juillet:combinaison-8",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, je suis favorable à plusieurs repas sans viande par semaine, à condition qu’ils soient équilibrés et savoureux.",
+          "english": "For my part, I support several meat-free meals a week, provided they are balanced and tasty.",
+          "source_key": "ee-tache3:janvier:combinaison-18",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, les musées devraient offrir une gratuité régulière, à condition que leurs ressources restent suffisantes pour protéger les œuvres.",
+          "english": "For my part, museums should offer regular free admission, provided their resources remain sufficient to protect the works.",
+          "source_key": "ee-tache3:aout:combinaison-14",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "condition-si-present",
@@ -554,7 +1452,39 @@
       "source_key": "ee-tache3:aout:combinaison-1",
       "transfer_prompt": "Dites ce qui sera possible si une bibliothèque ouvre le dimanche.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Pour ma part, les maisons de retraite sont utiles si la personne âgée les choisit librement.",
+          "english": "For my part, care homes are useful if the older person chooses them freely.",
+          "source_key": "ee-tache3:aout:combinaison-1",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, des programmes scientifiques sérieux peuvent préserver des espèces menacées.",
+          "english": "Moreover, serious scientific programmes can preserve threatened species.",
+          "source_key": "ee-tache3:mai:combinaison-2",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, ils peuvent favoriser l’autonomie des personnes âgées ou malades.",
+          "english": "First of all, they can support the independence of older or ill people.",
+          "source_key": "ee-tache3:aout:combinaison-13",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "En conclusion, je soutiens la gratuité lorsqu’elle s’accompagne d’un réseau fréquent, fiable et bien entretenu.",
+          "english": "In conclusion, I support free travel when it is accompanied by a frequent, reliable and well-maintained network.",
+          "source_key": "ee-tache3:juillet:combinaison-8",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "En conclusion, je soutiens ce choix temporaire lorsque les responsabilités, l’objectif d’épargne et l’échéance sont fixés ensemble.",
+          "english": "In conclusion, I support this temporary choice when responsibilities, the savings goal and the timeframe are agreed together.",
+          "source_key": "ee-tache3:decembre:combinaison-15",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "condition-hypothese-imparfait",
@@ -569,7 +1499,15 @@
       "source_key": "ee-tache3:aout:combinaison-15",
       "transfer_prompt": "Imaginez que des trains plus fréquents vous permettent d'habiter à la campagne.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Par exemple, une étudiante pressée pourrait choisir un sandwich aux légumes, un yaourt et de l’eau si cette formule coûtait moins cher qu’un menu avec frites.",
+          "english": "For example, a student in a hurry could choose a vegetable sandwich, yoghurt and water if that meal cost less than a menu with chips.",
+          "source_key": "ee-tache3:aout:combinaison-15",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "condition-but-pour-que",
@@ -584,7 +1522,15 @@
       "source_key": "ee-tache3:juin:combinaison-1",
       "transfer_prompt": "Proposez des bourses pour que les élèves modestes puissent participer à une sortie.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "En conclusion, la photo doit rester facultative pour que chaque candidat soit d’abord jugé sur son savoir-faire.",
+          "english": "In conclusion, the photo should remain optional so that every candidate is judged first on their skills.",
+          "source_key": "ee-tache3:juin:combinaison-1",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "condition-avant-action",
@@ -599,7 +1545,15 @@
       "source_key": "ee-tache3:janvier:combinaison-17",
       "transfer_prompt": "Avant d'imposer des manuels numériques, indiquez ce que l'école doit fournir.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "De plus, il faut que des alternatives crédibles soient prévues avant les restrictions pour les travailleurs qui dépendent de leur véhicule.",
+          "english": "Moreover, credible alternatives must be arranged before restrictions for workers who depend on their vehicles.",
+          "source_key": "ee-tache3:janvier:combinaison-17",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "argument-premiere-raison",
@@ -614,7 +1568,177 @@
       "source_key": "ee-tache3:janvier:combinaison-3",
       "transfer_prompt": "Défendez les transports publics en expliquant une économie concrète pour un étudiant.",
       "essential": true,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Tout d’abord, partager le loyer permet de vivre près de son université sans dépasser son budget.",
+          "english": "First of all, sharing the rent makes it possible to live near one's university without exceeding one's budget.",
+          "source_key": "ee-tache3:janvier:combinaison-3",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, un accès rapide à une boisson aide les élèves à rester concentrés pendant une longue journée.",
+          "english": "First of all, quick access to a drink helps students stay focused during a long day.",
+          "source_key": "ee-tache3:janvier:combinaison-1",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, une révision régulière consolide les apprentissages et apprend à organiser son temps.",
+          "english": "First of all, regular revision consolidates learning and teaches students to organise their time.",
+          "source_key": "ee-tache3:mars:combinaison-6",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, il donne accès à des ressources actualisées et permet d’adapter certains exercices au niveau de l’élève.",
+          "english": "First of all, it gives access to up-to-date resources and makes it possible to adapt some exercises to the student's level.",
+          "source_key": "ee-tache3:mars:combinaison-7",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, une tenue commune réduit la comparaison des marques et simplifie les choix du matin.",
+          "english": "First of all, a shared uniform reduces brand comparisons and simplifies morning choices.",
+          "source_key": "ee-tache3:avril:combinaison-12",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, un professionnel doit maîtriser l’hygiène, l’organisation et les techniques, pas seulement réussir une recette.",
+          "english": "First of all, a professional must master hygiene, organisation and techniques, not just make a successful recipe.",
+          "source_key": "ee-tache3:janvier:combinaison-2",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, remplacer parfois la viande par des lentilles ou des céréales complètes diversifie l’alimentation sans nuire à la croissance.",
+          "english": "First of all, occasionally replacing meat with lentils or whole grains diversifies the diet without harming growth.",
+          "source_key": "ee-tache3:janvier:combinaison-18",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, une équipe présente jour et nuit peut intervenir après une chute ou un malaise, ce qu’une famille occupée ne peut pas toujours faire.",
+          "english": "First of all, a team present day and night can respond after a fall or a fainting episode, which a busy family cannot always do.",
+          "source_key": "ee-tache3:aout:combinaison-1",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, elles devraient indiquer clairement les calories, le sel et le sucre et proposer des options plus saines.",
+          "english": "First of all, they should clearly display calories, salt and sugar, and offer healthier options.",
+          "source_key": "ee-tache3:aout:combinaison-8",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, un écran à la bonne hauteur et un bureau réglable limitent les douleurs au dos et aident à rester concentré.",
+          "english": "First of all, a screen at the right height and an adjustable desk limit back pain and help people stay focused.",
+          "source_key": "ee-tache3:juillet:combinaison-6",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, le matériel stérile reste indispensable dans certains soins et protège les patients.",
+          "english": "First of all, sterile equipment remains indispensable in some treatments and protects patients.",
+          "source_key": "ee-tache3:janvier:combinaison-6",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, des espaces vastes et adaptés permettent aux animaux d’exprimer leurs comportements naturels et de réduire leur stress, car ils peuvent alors se déplacer, se cacher et interagir plus librement.",
+          "english": "First of all, large, suitable spaces allow animals to express their natural behaviours and reduce stress, because they can then move, hide and interact more freely.",
+          "source_key": "ee-tache3:mai:combinaison-2",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, une ville compacte limite les longs déplacements et partage plus efficacement ses infrastructures.",
+          "english": "First of all, a compact city limits long journeys and shares its infrastructure more efficiently.",
+          "source_key": "ee-tache3:decembre:combinaison-16",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, une activité utile développe l’autonomie et crée des relations.",
+          "english": "First of all, meaningful work develops independence and creates relationships.",
+          "source_key": "ee-tache3:avril:combinaison-5",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, il apprend la ponctualité, le travail en équipe et la gestion d’un budget.",
+          "english": "First of all, it teaches punctuality, teamwork and budget management.",
+          "source_key": "ee-tache3:avril:combinaison-6",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, elles peuvent fournir des preuves après un incident, mais elles ne remplacent ni l’encadrement ni la confiance.",
+          "english": "First of all, they can provide evidence after an incident, but they replace neither supervision nor trust.",
+          "source_key": "ee-tache3:avril:combinaison-8",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, certains jeux développent la réflexion, la coordination et la capacité à résoudre des problèmes.",
+          "english": "First of all, some games develop reasoning, coordination and problem-solving ability.",
+          "source_key": "ee-tache3:avril:combinaison-11",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, une personne qui a froid ou faim ne peut pas attendre les résultats d’un programme d’insertion.",
+          "english": "First of all, a person who is cold or hungry cannot wait for the results of an integration programme.",
+          "source_key": "ee-tache3:janvier:combinaison-4",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, moins de trafic réduit la pollution, le stress et le risque d’accident pour les habitants.",
+          "english": "First of all, less traffic reduces pollution, stress and the risk of accidents for residents.",
+          "source_key": "ee-tache3:janvier:combinaison-17",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, supprimer le prix du ticket peut inciter des automobilistes à laisser leur voiture au garage.",
+          "english": "First of all, removing the ticket price can encourage drivers to leave their cars at home.",
+          "source_key": "ee-tache3:juillet:combinaison-8",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, des textes adaptés aux intérêts de l’enfant nourrissent son vocabulaire et sa capacité d’analyse.",
+          "english": "First of all, texts suited to the child's interests enrich their vocabulary and analytical ability.",
+          "source_key": "ee-tache3:mars:combinaison-3",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, rénover les transports ou les équipements existants peut améliorer le quotidien, car les habitants les utiliseront encore après l’événement.",
+          "english": "First of all, renovating existing transport or facilities can improve daily life, because residents will still use them after the event.",
+          "source_key": "ee-tache3:avril:combinaison-17",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, il rend la culture accessible à un public qui fréquente peu les musées.",
+          "english": "First of all, it makes culture accessible to an audience that rarely visits museums.",
+          "source_key": "ee-tache3:aout:combinaison-12",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, des murs autorisés offrent aux artistes un espace d’expression accessible à tous sans dégrader les bâtiments.",
+          "english": "First of all, authorised walls offer artists a space for expression that is accessible to everyone without damaging buildings.",
+          "source_key": "ee-tache3:novembre:combinaison-10",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, elle évite aux salariés de chercher un restaurant loin du bureau et leur laisse le temps de choisir leur repas à l’avance.",
+          "english": "First of all, it saves employees from looking for a restaurant far from the office and gives them time to choose their meal in advance.",
+          "source_key": "ee-tache3:avril:combinaison-2",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, les plus jeunes distinguent mal une information d’un message conçu pour les persuader.",
+          "english": "First of all, younger children struggle to distinguish information from a message designed to persuade them.",
+          "source_key": "ee-tache3:aout:combinaison-16",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, la ferme offre des produits frais dont je peux connaître l’origine, même s’ils coûtent un peu plus cher.",
+          "english": "First of all, the farm offers fresh produce whose origin I can know, even if it costs a little more.",
+          "source_key": "ee-tache3:aout:combinaison-3",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, un billet abordable permet aux petits budgets de voyager plus souvent, même sans repas à bord.",
+          "english": "First of all, an affordable ticket allows people on smaller budgets to travel more often, even without an onboard meal.",
+          "source_key": "ee-tache3:janvier:combinaison-19",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "argument-deuxieme-raison",
@@ -629,7 +1753,189 @@
       "source_key": "ee-tache3:janvier:combinaison-8",
       "transfer_prompt": "Vous avez expliqué que le sport entretient la forme. Ajoutez un argument différent sur les rencontres.",
       "essential": true,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "De plus, partager le déjeuner préserve les échanges entre collègues.",
+          "english": "Moreover, sharing lunch preserves interaction between colleagues.",
+          "source_key": "ee-tache3:janvier:combinaison-8",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, il faut que les exercices difficiles soient expliqués ou commencés à l’école pour ne pas pénaliser les familles moins disponibles.",
+          "english": "Moreover, difficult exercises must be explained or started at school so as not to disadvantage families with less time available.",
+          "source_key": "ee-tache3:juillet:combinaison-9",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, les recettes peuvent financer des outils pédagogiques utiles à tous.",
+          "english": "Moreover, the revenue can fund educational tools that benefit everyone.",
+          "source_key": "ee-tache3:novembre:combinaison-3",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, la mixité sociale développe l’ouverture d’esprit et prépare à vivre avec des personnes différentes.",
+          "english": "Moreover, social diversity develops open-mindedness and prepares students to live with people who are different from them.",
+          "source_key": "ee-tache3:mars:combinaison-5",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, limiter la quantité préserve le repos et les activités familiales.",
+          "english": "Moreover, limiting the amount protects rest and family activities.",
+          "source_key": "ee-tache3:mars:combinaison-6",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, une diminution progressive facilite l’adaptation des habitudes alimentaires.",
+          "english": "Moreover, a gradual reduction makes it easier to adapt eating habits.",
+          "source_key": "ee-tache3:mai:combinaison-6",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, les restaurants doivent rendre les produits sains aussi visibles et abordables que les plats gras.",
+          "english": "Moreover, restaurants must make healthy products as visible and affordable as fatty dishes.",
+          "source_key": "ee-tache3:aout:combinaison-15",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, les activités collectives favorisent le lien social sans remplacer les visites familiales.",
+          "english": "Moreover, group activities encourage social ties without replacing family visits.",
+          "source_key": "ee-tache3:octobre:combinaison-4",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, des horaires raisonnables préviennent le stress et la fatigue chronique.",
+          "english": "Moreover, reasonable working hours help prevent stress and chronic fatigue.",
+          "source_key": "ee-tache3:mai:combinaison-3",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, les municipalités doivent construire sur des terrains déjà urbanisés plutôt que détruire les forêts voisines.",
+          "english": "Moreover, municipalities should build on already developed land rather than destroy nearby forests.",
+          "source_key": "ee-tache3:decembre:combinaison-16",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, des programmes scientifiques sérieux peuvent préserver des espèces menacées.",
+          "english": "Moreover, serious scientific programmes can preserve threatened species.",
+          "source_key": "ee-tache3:mai:combinaison-2",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, réduire les heures sans revoir la charge risque simplement d’intensifier chaque journée.",
+          "english": "Moreover, reducing hours without reviewing the workload simply risks making each day more intense.",
+          "source_key": "ee-tache3:avril:combinaison-10",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, il faut que le confort s’accompagne d’horaires respectés et de pauses réelles.",
+          "english": "Moreover, comfort must go hand in hand with respected working hours and genuine breaks.",
+          "source_key": "ee-tache3:juillet:combinaison-6",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, un cadre commun évite les abus et les inégalités.",
+          "english": "Moreover, a shared framework prevents abuse and inequality.",
+          "source_key": "ee-tache3:novembre:combinaison-4",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, l’employeur doit protéger les personnes allergiques ou craintives grâce à des espaces séparés et à des règles d’hygiène.",
+          "english": "Moreover, the employer must protect people with allergies or fears through separate spaces and hygiene rules.",
+          "source_key": "ee-tache3:decembre:combinaison-3",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, une charge excessive risque d’épuiser un jeune avant la rentrée.",
+          "english": "Moreover, an excessive workload risks exhausting a young person before the new school term.",
+          "source_key": "ee-tache3:avril:combinaison-6",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, un accompagnement régulier entretient la motivation lorsque les progrès ralentissent.",
+          "english": "Moreover, regular support sustains motivation when progress slows.",
+          "source_key": "ee-tache3:janvier:combinaison-9",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, il faut que la durée de conservation des images soit limitée et que seuls des enquêteurs habilités y accèdent.",
+          "english": "Moreover, image retention must be limited and only authorised investigators should have access.",
+          "source_key": "ee-tache3:avril:combinaison-1",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, des règles précises empêchent le jeu de remplacer le sommeil, les études ou le sport.",
+          "english": "Moreover, clear rules prevent gaming from replacing sleep, study or sport.",
+          "source_key": "ee-tache3:mai:combinaison-3-bis",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, prolonger son contenu par une discussion ou une activité créative empêche l’enfant de rester simple spectateur.",
+          "english": "Moreover, extending the content through discussion or a creative activity prevents the child from remaining a mere spectator.",
+          "source_key": "ee-tache3:decembre:combinaison-14",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, des mises à jour régulières et des mots de passe solides limitent les intrusions.",
+          "english": "Moreover, regular updates and strong passwords limit intrusions.",
+          "source_key": "ee-tache3:aout:combinaison-13",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, un suivi régulier agit sur les causes de la pauvreté en facilitant l’accès au logement et à l’emploi.",
+          "english": "Moreover, regular support addresses the causes of poverty by facilitating access to housing and employment.",
+          "source_key": "ee-tache3:janvier:combinaison-16",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, expliquer ces limites favorise la confiance plutôt que la peur.",
+          "english": "Moreover, explaining these boundaries promotes trust rather than fear.",
+          "source_key": "ee-tache3:mars:combinaison-10",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, il faut que des alternatives crédibles soient prévues avant les restrictions pour les travailleurs qui dépendent de leur véhicule.",
+          "english": "Moreover, credible alternatives must be arranged before restrictions for workers who depend on their vehicles.",
+          "source_key": "ee-tache3:janvier:combinaison-17",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, des règles communes protègent le repos, les espaces privés et une répartition juste du ménage.",
+          "english": "Moreover, shared rules protect rest, private spaces and a fair division of cleaning.",
+          "source_key": "ee-tache3:avril:combinaison-14",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, un accompagnement adapté rend la visite plus enrichissante.",
+          "english": "Moreover, appropriate guidance makes the visit more rewarding.",
+          "source_key": "ee-tache3:novembre:combinaison-11",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, une réservation horaire permet de limiter la foule.",
+          "english": "Moreover, timed booking makes it possible to limit crowds.",
+          "source_key": "ee-tache3:aout:combinaison-14",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, un budget mal contrôlé risque d’affaiblir des services essentiels.",
+          "english": "Moreover, a poorly controlled budget risks weakening essential services.",
+          "source_key": "ee-tache3:avril:combinaison-17",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, une diffusion moins envahissante protège l’attention et réduit les déchets.",
+          "english": "Moreover, less intrusive distribution protects attention and reduces waste.",
+          "source_key": "ee-tache3:octobre:combinaison-1",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, le prix ne doit jamais conduire à réduire l’entretien des avions ni à dégrader les conditions de travail.",
+          "english": "Moreover, price should never lead to reduced aircraft maintenance or worse working conditions.",
+          "source_key": "ee-tache3:janvier:combinaison-19",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "argument-mecanisme-car",
@@ -644,7 +1950,27 @@
       "source_key": "ee-tache3:avril:combinaison-1",
       "transfer_prompt": "Expliquez pourquoi un stage facilite l'entrée dans le monde du travail.",
       "essential": true,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Tout d’abord, elles peuvent aider les enquêteurs après les faits, car les images permettent d’identifier un suspect ou de reconstituer son trajet.",
+          "english": "First of all, they can help investigators afterwards, because the images make it possible to identify a suspect or reconstruct their route.",
+          "source_key": "ee-tache3:avril:combinaison-1",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, des espaces vastes et adaptés permettent aux animaux d’exprimer leurs comportements naturels et de réduire leur stress, car ils peuvent alors se déplacer, se cacher et interagir plus librement.",
+          "english": "First of all, large, suitable spaces allow animals to express their natural behaviours and reduce stress, because they can then move, hide and interact more freely.",
+          "source_key": "ee-tache3:mai:combinaison-2",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, rénover les transports ou les équipements existants peut améliorer le quotidien, car les habitants les utiliseront encore après l’événement.",
+          "english": "First of all, renovating existing transport or facilities can improve daily life, because residents will still use them after the event.",
+          "source_key": "ee-tache3:avril:combinaison-17",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "argument-en-effet",
@@ -659,7 +1985,15 @@
       "source_key": "ee-tache3:mai:combinaison-1",
       "transfer_prompt": "Justifiez l'idée que préparer un budget aide les jeunes à devenir autonomes.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Ces jeux obligent en effet à anticiper, à comparer plusieurs solutions et à corriger ses erreurs.",
+          "english": "These games do indeed require players to anticipate, compare several solutions and correct their mistakes.",
+          "source_key": "ee-tache3:mai:combinaison-1",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "argument-comparer-criteres",
@@ -674,7 +2008,33 @@
       "source_key": "ee-tache3:mars:combinaison-9",
       "transfer_prompt": "Choisissez trois critères pour comparer une résidence spécialisée et l'aide à domicile.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "En conclusion, le plus important est de répartir ses achats selon le prix, la qualité et l’impact sur la vie du quartier.",
+          "english": "In conclusion, what matters most is distributing purchases according to price, quality and their impact on neighbourhood life.",
+          "source_key": "ee-tache3:mars:combinaison-9",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "En conclusion, le plus important est d’offrir un choix accessible entre accompagnement à domicile, accueil spécialisé et solidarité familiale.",
+          "english": "In conclusion, what matters most is offering an accessible choice between home support, specialised care and family solidarity.",
+          "source_key": "ee-tache3:octobre:combinaison-4",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Sur un vol transatlantique, je paierais davantage afin de bénéficier de meilleures garanties de sécurité et de confort.",
+          "english": "On a transatlantic flight, I would pay more to benefit from better assurances of safety and comfort.",
+          "source_key": "ee-tache3:janvier:combinaison-19",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, des règles communes protègent le repos, les espaces privés et une répartition juste du ménage.",
+          "english": "Moreover, shared rules protect rest, private spaces and a fair division of cleaning.",
+          "source_key": "ee-tache3:avril:combinaison-14",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "exemple-acteur-action",
@@ -689,7 +2049,57 @@
       "source_key": "ee-tache3:janvier:combinaison-9",
       "transfer_prompt": "Illustrez comment une bibliothèque peut aider une personne malvoyante à lire.",
       "essential": true,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Par exemple, une salariée peut suivre deux cours du soir sur son ordinateur après le travail.",
+          "english": "For example, an employee can take two evening classes on her computer after work.",
+          "source_key": "ee-tache3:janvier:combinaison-9",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Par exemple, une étudiante pressée pourrait choisir un sandwich aux légumes, un yaourt et de l’eau si cette formule coûtait moins cher qu’un menu avec frites.",
+          "english": "For example, a student in a hurry could choose a vegetable sandwich, yoghurt and water if that meal cost less than a menu with chips.",
+          "source_key": "ee-tache3:aout:combinaison-15",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Par exemple, une personne peut remplacer deux repas carnés par des lentilles et demander conseil à un professionnel pour assurer ses apports en fer.",
+          "english": "For example, someone can replace two meat-based meals with lentils and seek professional advice to ensure their iron intake.",
+          "source_key": "ee-tache3:avril:combinaison-16",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Par exemple, une entreprise peut publier des grilles salariales transparentes et offrir le même congé parental aux mères comme aux pères.",
+          "english": "For example, a company can publish transparent pay scales and offer the same parental leave to mothers and fathers.",
+          "source_key": "ee-tache3:avril:combinaison-7",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Par exemple, une responsable peut déjeuner avec une collègue proche, mais attribuer un projet selon des critères annoncés à tous.",
+          "english": "For example, a manager can have lunch with a close colleague but assign a project according to criteria announced to everyone.",
+          "source_key": "ee-tache3:juillet:combinaison-44",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Par exemple, une montre pourrait rappeler un médicament à son propriétaire et transmettre uniquement les données nécessaires à son médecin, avec son accord.",
+          "english": "For example, a watch could remind its owner to take medication and transmit only the necessary data to their doctor, with the owner's consent.",
+          "source_key": "ee-tache3:aout:combinaison-13",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Par exemple, à Montréal, une association peut offrir un repas chaud, puis aider le bénéficiaire à obtenir une adresse, une formation et un emploi stable.",
+          "english": "For example, in Montreal, an association can offer a hot meal, then help the beneficiary obtain an address, training and stable employment.",
+          "source_key": "ee-tache3:juin:combinaison-3",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Par exemple, un étudiant fraîchement arrivé peut partager son loyer et se faire des amis dès sa première semaine en colocation.",
+          "english": "For example, a newly arrived student can share the rent and make friends in their first week of shared accommodation.",
+          "source_key": "ee-tache3:mai:combinaison-7",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "exemple-hypothetique",
@@ -704,7 +2114,33 @@
       "source_key": "ee-tache3:avril:combinaison-10",
       "transfer_prompt": "Imaginez un essai de bus gratuits le samedi et indiquez comment la ville en observerait les effets.",
       "essential": true,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, la qualité du service et le bien-être des équipes.",
+          "english": "For example, a company could trial a four-day week for three months, then measure productivity, service quality and staff well-being.",
+          "source_key": "ee-tache3:avril:combinaison-10",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Par exemple, une ville pourrait rénover un stade existant plutôt qu’en construire un nouveau, puis l’ouvrir aux associations locales après le tournoi.",
+          "english": "For example, a city could renovate an existing stadium rather than build a new one, then open it to local associations after the tournament.",
+          "source_key": "ee-tache3:avril:combinaison-17",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Par exemple, des agents formés pourraient réguler une espèce envahissante selon des quotas établis par des biologistes.",
+          "english": "For example, trained officers could control an invasive species according to quotas set by biologists.",
+          "source_key": "ee-tache3:avril:combinaison-4",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Par exemple, une montre pourrait rappeler un médicament à son propriétaire et transmettre uniquement les données nécessaires à son médecin, avec son accord.",
+          "english": "For example, a watch could remind its owner to take medication and transmit only the necessary data to their doctor, with the owner's consent.",
+          "source_key": "ee-tache3:aout:combinaison-13",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "exemple-details-utiles",
@@ -719,7 +2155,39 @@
       "source_key": "ee-tache3:mars:combinaison-3",
       "transfer_prompt": "Imaginez une courte séance de devoirs suivie d'une activité familiale, sans en faire une règle pour tous.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Par exemple, une famille peut lire dix minutes chaque soir une bande dessinée choisie par l’enfant, puis échanger sur son personnage préféré.",
+          "english": "For example, a family can read a comic chosen by the child for ten minutes each evening, then discuss the child's favourite character.",
+          "source_key": "ee-tache3:mars:combinaison-3",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Par exemple, une ville pourrait rénover un stade existant plutôt qu’en construire un nouveau, puis l’ouvrir aux associations locales après le tournoi.",
+          "english": "For example, a city could renovate an existing stadium rather than build a new one, then open it to local associations after the tournament.",
+          "source_key": "ee-tache3:avril:combinaison-17",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, la qualité du service et le bien-être des équipes.",
+          "english": "For example, a company could trial a four-day week for three months, then measure productivity, service quality and staff well-being.",
+          "source_key": "ee-tache3:avril:combinaison-10",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Par exemple, à Montréal, une association peut offrir un repas chaud, puis aider le bénéficiaire à obtenir une adresse, une formation et un emploi stable.",
+          "english": "For example, in Montreal, an association can offer a hot meal, then help the beneficiary obtain an address, training and stable employment.",
+          "source_key": "ee-tache3:juin:combinaison-3",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Par exemple, trois adultes peuvent fixer un calendrier de ménage, des heures calmes et des règles concernant les invités, puis faire un bilan chaque mois.",
+          "english": "For example, three adults can set a cleaning rota, quiet hours and rules about guests, then review them every month.",
+          "source_key": "ee-tache3:juin:combinaison-2",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "exemple-revenir-argument",
@@ -734,7 +2202,15 @@
       "source_key": "ee-tache3:octobre:combinaison-1",
       "transfer_prompt": "Après un exemple de créneaux gratuits sur réservation au musée, expliquez le bénéfice pour les visiteurs.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Cela permettrait aux habitants de comparer les prix sans remplir leurs boîtes aux lettres.",
+          "english": "This would allow residents to compare prices without filling their letterboxes.",
+          "source_key": "ee-tache3:octobre:combinaison-1",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "consequence-ainsi",
@@ -749,7 +2225,15 @@
       "source_key": "ee-tache3:mars:combinaison-7",
       "transfer_prompt": "Vous avez proposé des exercices adaptés à chaque niveau. Expliquez leur effet sur l'apprentissage.",
       "essential": true,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Chacun avance ainsi à son rythme sans ralentir le reste de la classe.",
+          "english": "Each learner can thus progress at their own pace without slowing down the rest of the class.",
+          "source_key": "ee-tache3:mars:combinaison-7",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "consequence-risque",
@@ -764,7 +2248,33 @@
       "source_key": "ee-tache3:avril:combinaison-10",
       "transfer_prompt": "Expliquez le risque d'ouvrir gratuitement un musée sans prévoir de financement.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "De plus, réduire les heures sans revoir la charge risque simplement d’intensifier chaque journée.",
+          "english": "Moreover, reducing hours without reviewing the workload simply risks making each day more intense.",
+          "source_key": "ee-tache3:avril:combinaison-10",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Consommés souvent, ils augmentent le risque de prise de poids et de mauvaises habitudes alimentaires.",
+          "english": "When eaten often, they increase the risk of weight gain and poor eating habits.",
+          "source_key": "ee-tache3:avril:combinaison-13",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, une charge excessive risque d’épuiser un jeune avant la rentrée.",
+          "english": "Moreover, an excessive workload risks exhausting a young person before the new school term.",
+          "source_key": "ee-tache3:avril:combinaison-6",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, un budget mal contrôlé risque d’affaiblir des services essentiels.",
+          "english": "Moreover, a poorly controlled budget risks weakening essential services.",
+          "source_key": "ee-tache3:avril:combinaison-17",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "consequence-sinon",
@@ -779,7 +2289,15 @@
       "source_key": "ee-tache3:juillet:combinaison-44",
       "transfer_prompt": "Demandez des règles de ménage en colocation puis expliquez ce qui peut arriver sans ces règles.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Sinon, les personnes écartées se sentent exclues et l’équipe se divise.",
+          "english": "Otherwise, those left out feel excluded and the team becomes divided.",
+          "source_key": "ee-tache3:juillet:combinaison-44",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "consequence-cout-evite",
@@ -794,7 +2312,39 @@
       "source_key": "ee-tache3:juillet:combinaison-6",
       "transfer_prompt": "Reliez l'entretien régulier des bus à la réduction des pannes et des retards.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "Ces mesures peuvent éviter des arrêts de travail liés à une mauvaise posture.",
+          "english": "These measures can prevent sick leave linked to poor posture.",
+          "source_key": "ee-tache3:juillet:combinaison-6",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Les commerces peuvent proposer des contenants réutilisables et la vente en vrac pour éviter que ces déchets n’atteignent les océans.",
+          "english": "Shops can offer reusable containers and bulk sales to prevent this waste from reaching the oceans.",
+          "source_key": "ee-tache3:janvier:combinaison-10",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Une surveillance quotidienne permet de repérer tôt un problème de santé et d’éviter des hospitalisations répétées.",
+          "english": "Daily monitoring makes it possible to detect a health problem early and avoid repeated hospital admissions.",
+          "source_key": "ee-tache3:octobre:combinaison-4",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Un vêtement qui résiste à plusieurs lavages évite des achats répétés.",
+          "english": "A garment that withstands several washes avoids repeated purchases.",
+          "source_key": "ee-tache3:mars:combinaison-1",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, elle évite aux salariés de chercher un restaurant loin du bureau et leur laisse le temps de choisir leur repas à l’avance.",
+          "english": "First of all, it saves employees from looking for a restaurant far from the office and gives them time to choose their meal in advance.",
+          "source_key": "ee-tache3:avril:combinaison-2",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "conclusion-position-condition",
@@ -809,7 +2359,33 @@
       "source_key": "ee-tache3:juillet:combinaison-8",
       "transfer_prompt": "Concluez un avis favorable aux écrans scolaires, déjà limité à un usage accompagné.",
       "essential": true,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "En conclusion, je soutiens la gratuité lorsqu’elle s’accompagne d’un réseau fréquent, fiable et bien entretenu.",
+          "english": "In conclusion, I support free travel when it is accompanied by a frequent, reliable and well-maintained network.",
+          "source_key": "ee-tache3:juillet:combinaison-8",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "En conclusion, je soutiens une pause de quinze minutes, volontaire et compatible avec l’organisation de chaque entreprise.",
+          "english": "In conclusion, I support a voluntary fifteen-minute break that fits each company's organisation.",
+          "source_key": "ee-tache3:aout:combinaison-19",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "En conclusion, je soutiens ce choix temporaire lorsque les responsabilités, l’objectif d’épargne et l’échéance sont fixés ensemble.",
+          "english": "In conclusion, I support this temporary choice when responsibilities, the savings goal and the timeframe are agreed together.",
+          "source_key": "ee-tache3:decembre:combinaison-15",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "En conclusion, je soutiens l’interdiction du ciblage des mineurs et une éducation régulière aux techniques commerciales.",
+          "english": "In conclusion, I support banning the targeting of minors and regular education about marketing techniques.",
+          "source_key": "ee-tache3:aout:combinaison-16",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "conclusion-priorite",
@@ -824,7 +2400,27 @@
       "source_key": "ee-tache3:mars:combinaison-10",
       "transfer_prompt": "Concluez un texte sur les devoirs centré sur l'autonomie et l'égalité.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "En conclusion, le plus important est de trouver un équilibre raisonnable entre sécurité, dialogue et liberté afin de préparer progressivement les jeunes à prendre leurs propres décisions.",
+          "english": "In conclusion, what matters most is finding a reasonable balance between safety, dialogue and freedom to gradually prepare young people to make their own decisions.",
+          "source_key": "ee-tache3:mars:combinaison-10",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "En conclusion, le plus important est de répartir ses achats selon le prix, la qualité et l’impact sur la vie du quartier.",
+          "english": "In conclusion, what matters most is distributing purchases according to price, quality and their impact on neighbourhood life.",
+          "source_key": "ee-tache3:mars:combinaison-9",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "En conclusion, le plus important est d’offrir un choix accessible entre accompagnement à domicile, accueil spécialisé et solidarité familiale.",
+          "english": "In conclusion, what matters most is offering an accessible choice between home support, specialised care and family solidarity.",
+          "source_key": "ee-tache3:octobre:combinaison-4",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "conclusion-complementarite",
@@ -839,7 +2435,39 @@
       "source_key": "ee-tache3:aout:combinaison-18",
       "transfer_prompt": "Concluez votre réponse sur l'aide aux plus pauvres en associant urgence et accompagnement.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "En conclusion, je privilégie des études qui associent cours exigeants et expériences professionnelles réelles.",
+          "english": "In conclusion, I favour studies that combine demanding courses with real professional experience.",
+          "source_key": "ee-tache3:aout:combinaison-18",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, le diplôme et l’expérience doivent se compléter plutôt que s’opposer.",
+          "english": "For my part, qualifications and experience should complement each other rather than oppose each other.",
+          "source_key": "ee-tache3:aout:combinaison-18",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, je pense que les deux formats répondent à des besoins différents plutôt que de s’exclure.",
+          "english": "For my part, I think the two formats meet different needs rather than excluding each other.",
+          "source_key": "ee-tache3:janvier:combinaison-5",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "En conclusion, je combinerais les deux options pour manger des produits locaux sans dépasser mon budget.",
+          "english": "In conclusion, I would combine the two options to eat local produce without exceeding my budget.",
+          "source_key": "ee-tache3:aout:combinaison-3",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "En conclusion, l’apprentissage en ligne devient efficace lorsqu’il associe flexibilité, équipement fiable et véritable suivi humain.",
+          "english": "In conclusion, online learning becomes effective when it combines flexibility, reliable equipment and genuine human support.",
+          "source_key": "ee-tache3:janvier:combinaison-9",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "conclusion-recommandation-ciblee",
@@ -854,7 +2482,15 @@
       "source_key": "ee-tache3:decembre:combinaison-13",
       "transfer_prompt": "Concluez un texte favorable aux emplois de vacances uniquement sur une durée compatible avec le repos.",
       "essential": false,
-      "themes": []
+      "themes": [],
+      "examples": [
+        {
+          "french": "En conclusion, je recommande seulement les recettes simples et validées.",
+          "english": "In conclusion, I recommend only simple, validated recipes.",
+          "source_key": "ee-tache3:decembre:combinaison-13",
+          "source_field": "position_claire"
+        }
+      ]
     },
     {
       "slug": "ecole-eau-accessible",
@@ -871,6 +2507,14 @@
       "essential": false,
       "themes": [
         "education"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, un accès rapide à une boisson aide les élèves à rester concentrés pendant une longue journée.",
+          "english": "First of all, quick access to a drink helps students stay focused during a long day.",
+          "source_key": "ee-tache3:janvier:combinaison-1",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -888,6 +2532,14 @@
       "essential": false,
       "themes": [
         "education"
+      ],
+      "examples": [
+        {
+          "french": "Chaque élève peut alors disposer de professeurs, de matériel et d’un accompagnement comparables, quel que soit le quartier ou le revenu des parents.",
+          "english": "Every student can then have comparable teachers, equipment and support, regardless of their neighbourhood or their parents' income.",
+          "source_key": "ee-tache3:mars:combinaison-5",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -905,6 +2557,20 @@
       "essential": false,
       "themes": [
         "education"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, une révision régulière consolide les apprentissages et apprend à organiser son temps.",
+          "english": "First of all, regular revision consolidates learning and teaches students to organise their time.",
+          "source_key": "ee-tache3:mars:combinaison-6",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, relire une leçon ou préparer son sac apprend à s’organiser et consolide ce qui a été vu en classe.",
+          "english": "First, reviewing a lesson or packing a school bag teaches organization and reinforces what was covered in class.",
+          "source_key": "ee-tache3:juillet:combinaison-9",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -922,6 +2588,20 @@
       "essential": false,
       "themes": [
         "education"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, il donne accès à des ressources actualisées et permet d’adapter certains exercices au niveau de l’élève.",
+          "english": "First of all, it gives access to up-to-date resources and makes it possible to adapt some exercises to the student's level.",
+          "source_key": "ee-tache3:mars:combinaison-7",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Chacun avance ainsi à son rythme sans ralentir le reste de la classe.",
+          "english": "Each learner can thus progress at their own pace without slowing down the rest of the class.",
+          "source_key": "ee-tache3:mars:combinaison-7",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -939,6 +2619,20 @@
       "essential": false,
       "themes": [
         "education"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, une tenue commune réduit la comparaison des marques et simplifie les choix du matin.",
+          "english": "First of all, a shared uniform reduces brand comparisons and simplifies morning choices.",
+          "source_key": "ee-tache3:avril:combinaison-12",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, une tenue commune peut réduire la comparaison des marques et faciliter la préparation du matin.",
+          "english": "First, common attire can reduce comparisons between brands and make getting ready in the morning easier.",
+          "source_key": "ee-tache3:decembre:combinaison-10",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -956,6 +2650,20 @@
       "essential": false,
       "themes": [
         "education"
+      ],
+      "examples": [
+        {
+          "french": "De plus, il faut que les exercices difficiles soient expliqués ou commencés à l’école pour ne pas pénaliser les familles moins disponibles.",
+          "english": "Moreover, difficult exercises must be explained or started at school so as not to disadvantage families with less time available.",
+          "source_key": "ee-tache3:juillet:combinaison-9",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, je pense que des devoirs courts sont utiles, mais il faut qu’ils restent réalisables sans aide parentale.",
+          "english": "For my part, I think short homework assignments are useful, but pupils must be able to complete them without parental help.",
+          "source_key": "ee-tache3:mars:combinaison-6",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -973,6 +2681,20 @@
       "essential": false,
       "themes": [
         "education"
+      ],
+      "examples": [
+        {
+          "french": "De plus, les recettes peuvent financer des outils pédagogiques utiles à tous.",
+          "english": "Moreover, the revenue can fund educational tools that benefit everyone.",
+          "source_key": "ee-tache3:novembre:combinaison-3",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, les recettes peuvent financer du matériel scolaire, à condition que l’établissement contrôle les produits vendus.",
+          "english": "In addition, the proceeds can fund school equipment, provided the school controls the products sold.",
+          "source_key": "ee-tache3:janvier:combinaison-1",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -990,6 +2712,14 @@
       "essential": false,
       "themes": [
         "education"
+      ],
+      "examples": [
+        {
+          "french": "De plus, plusieurs coupes et couleurs permettent de conserver une certaine liberté sans perdre la cohérence collective.",
+          "english": "Moreover, several cuts and colours make it possible to retain some freedom without losing collective consistency.",
+          "source_key": "ee-tache3:decembre:combinaison-10",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1007,6 +2737,14 @@
       "essential": false,
       "themes": [
         "education"
+      ],
+      "examples": [
+        {
+          "french": "De plus, la mixité sociale développe l’ouverture d’esprit et prépare à vivre avec des personnes différentes.",
+          "english": "Moreover, social diversity develops open-mindedness and prepares students to live with people who are different from them.",
+          "source_key": "ee-tache3:mars:combinaison-5",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1024,6 +2762,14 @@
       "essential": false,
       "themes": [
         "education"
+      ],
+      "examples": [
+        {
+          "french": "De plus, limiter la quantité préserve le repos et les activités familiales.",
+          "english": "Moreover, limiting the amount protects rest and family activities.",
+          "source_key": "ee-tache3:mars:combinaison-6",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1041,6 +2787,14 @@
       "essential": false,
       "themes": [
         "sante-alimentation"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, un professionnel doit maîtriser l’hygiène, l’organisation et les techniques, pas seulement réussir une recette.",
+          "english": "First of all, a professional must master hygiene, organisation and techniques, not just make a successful recipe.",
+          "source_key": "ee-tache3:janvier:combinaison-2",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1058,6 +2812,20 @@
       "essential": false,
       "themes": [
         "sante-alimentation"
+      ],
+      "examples": [
+        {
+          "french": "On sait ainsi combien de sel, de matières grasses et de sucre contient chaque plat.",
+          "english": "This way, we know how much salt, fat and sugar each dish contains.",
+          "source_key": "ee-tache3:janvier:combinaison-12",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, préparer des produits frais permet de maîtriser le budget et de composer des repas équilibrés.",
+          "english": "First, preparing fresh ingredients makes it possible to control the budget and put together balanced meals.",
+          "source_key": "ee-tache3:janvier:combinaison-12",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1075,6 +2843,32 @@
       "essential": false,
       "themes": [
         "sante-alimentation"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, remplacer parfois la viande par des lentilles ou des céréales complètes diversifie l’alimentation sans nuire à la croissance.",
+          "english": "First of all, occasionally replacing meat with lentils or whole grains diversifies the diet without harming growth.",
+          "source_key": "ee-tache3:janvier:combinaison-18",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Par exemple, une famille pourrait préparer des légumineuses plusieurs jours par semaine et acheter occasionnellement une petite portion auprès d’un éleveur responsable.",
+          "english": "For example, a family could prepare legumes several days a week and occasionally buy a small portion from a responsible farmer.",
+          "source_key": "ee-tache3:avril:combinaison-15",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Par exemple, une famille peut remplacer deux repas de viande par des lentilles cultivées dans sa région plutôt que par des légumes importés par avion.",
+          "english": "For example, a family can replace two meat-based meals with locally grown lentils rather than vegetables imported by air.",
+          "source_key": "ee-tache3:mai:combinaison-5",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Par exemple, une personne peut cuisiner des pois chiches deux soirs par semaine, conserver un repas de viande de qualité et demander conseil à un nutritionniste.",
+          "english": "For example, someone can cook chickpeas two evenings a week, keep one meal with quality meat and seek advice from a nutritionist.",
+          "source_key": "ee-tache3:mai:combinaison-6",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1092,6 +2886,14 @@
       "essential": false,
       "themes": [
         "sante-alimentation"
+      ],
+      "examples": [
+        {
+          "french": "Consommés souvent, ils augmentent le risque de prise de poids et de mauvaises habitudes alimentaires.",
+          "english": "When eaten often, they increase the risk of weight gain and poor eating habits.",
+          "source_key": "ee-tache3:avril:combinaison-13",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1109,6 +2911,14 @@
       "essential": false,
       "themes": [
         "sante-alimentation"
+      ],
+      "examples": [
+        {
+          "french": "Pour ma part, bien que la viande puisse apporter des nutriments utiles, je pense qu’il faut en réduire la consommation sans l’interdire à tous.",
+          "english": "For my part, although meat can provide useful nutrients, I think we should reduce its consumption without banning it for everyone.",
+          "source_key": "ee-tache3:avril:combinaison-15",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1126,6 +2936,14 @@
       "essential": false,
       "themes": [
         "sante-alimentation"
+      ],
+      "examples": [
+        {
+          "french": "Par exemple, une personne peut remplacer deux repas carnés par des lentilles et demander conseil à un professionnel pour assurer ses apports en fer.",
+          "english": "For example, someone can replace two meat-based meals with lentils and seek professional advice to ensure their iron intake.",
+          "source_key": "ee-tache3:avril:combinaison-16",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1143,6 +2961,14 @@
       "essential": false,
       "themes": [
         "sante-alimentation"
+      ],
+      "examples": [
+        {
+          "french": "Pour ma part, je considère qu’une alimentation davantage végétale est souhaitable, sans supposer que tous les légumes sont écologiques.",
+          "english": "For my part, I consider a more plant-based diet desirable, without assuming that all vegetables are environmentally friendly.",
+          "source_key": "ee-tache3:mai:combinaison-5",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1160,6 +2986,14 @@
       "essential": false,
       "themes": [
         "sante-alimentation"
+      ],
+      "examples": [
+        {
+          "french": "De plus, une diminution progressive facilite l’adaptation des habitudes alimentaires.",
+          "english": "Moreover, a gradual reduction makes it easier to adapt eating habits.",
+          "source_key": "ee-tache3:mai:combinaison-6",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1177,6 +3011,14 @@
       "essential": false,
       "themes": [
         "sante-alimentation"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, une équipe présente jour et nuit peut intervenir après une chute ou un malaise, ce qu’une famille occupée ne peut pas toujours faire.",
+          "english": "First of all, a team present day and night can respond after a fall or a fainting episode, which a busy family cannot always do.",
+          "source_key": "ee-tache3:aout:combinaison-1",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1194,6 +3036,14 @@
       "essential": false,
       "themes": [
         "sante-alimentation"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, elles devraient indiquer clairement les calories, le sel et le sucre et proposer des options plus saines.",
+          "english": "First of all, they should clearly display calories, salt and sugar, and offer healthier options.",
+          "source_key": "ee-tache3:aout:combinaison-8",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1211,6 +3061,20 @@
       "essential": false,
       "themes": [
         "sante-alimentation"
+      ],
+      "examples": [
+        {
+          "french": "De plus, les restaurants doivent rendre les produits sains aussi visibles et abordables que les plats gras.",
+          "english": "Moreover, restaurants must make healthy products as visible and affordable as fatty dishes.",
+          "source_key": "ee-tache3:aout:combinaison-15",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Par exemple, une étudiante pressée pourrait choisir un sandwich aux légumes, un yaourt et de l’eau si cette formule coûtait moins cher qu’un menu avec frites.",
+          "english": "For example, a student in a hurry could choose a vegetable sandwich, yoghurt and water if that meal cost less than a menu with chips.",
+          "source_key": "ee-tache3:aout:combinaison-15",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1228,6 +3092,20 @@
       "essential": false,
       "themes": [
         "sante-alimentation"
+      ],
+      "examples": [
+        {
+          "french": "De plus, les activités collectives favorisent le lien social sans remplacer les visites familiales.",
+          "english": "Moreover, group activities encourage social ties without replacing family visits.",
+          "source_key": "ee-tache3:octobre:combinaison-4",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "La vie collective peut ainsi rompre l’isolement sans donner l’impression d’être abandonné.",
+          "english": "Community life can therefore break isolation without making someone feel abandoned.",
+          "source_key": "ee-tache3:aout:combinaison-1",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1245,6 +3123,14 @@
       "essential": false,
       "themes": [
         "sante-alimentation"
+      ],
+      "examples": [
+        {
+          "french": "En conclusion, le plus important est d’offrir un choix accessible entre accompagnement à domicile, accueil spécialisé et solidarité familiale.",
+          "english": "In conclusion, what matters most is offering an accessible choice between home support, specialised care and family solidarity.",
+          "source_key": "ee-tache3:octobre:combinaison-4",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1263,6 +3149,20 @@
       "themes": [
         "sante-alimentation",
         "travail"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, un écran à la bonne hauteur et un bureau réglable limitent les douleurs au dos et aident à rester concentré.",
+          "english": "First of all, a screen at the right height and an adjustable desk limit back pain and help people stay focused.",
+          "source_key": "ee-tache3:juillet:combinaison-6",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Ces mesures peuvent éviter des arrêts de travail liés à une mauvaise posture.",
+          "english": "These measures can prevent sick leave linked to poor posture.",
+          "source_key": "ee-tache3:juillet:combinaison-6",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1281,6 +3181,14 @@
       "themes": [
         "sante-alimentation",
         "travail"
+      ],
+      "examples": [
+        {
+          "french": "De plus, des horaires raisonnables préviennent le stress et la fatigue chronique.",
+          "english": "Moreover, reasonable working hours help prevent stress and chronic fatigue.",
+          "source_key": "ee-tache3:mai:combinaison-3",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1298,6 +3206,14 @@
       "essential": false,
       "themes": [
         "sante-alimentation"
+      ],
+      "examples": [
+        {
+          "french": "Une surveillance quotidienne permet de repérer tôt un problème de santé et d’éviter des hospitalisations répétées.",
+          "english": "Daily monitoring makes it possible to detect a health problem early and avoid repeated hospital admissions.",
+          "source_key": "ee-tache3:octobre:combinaison-4",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1315,6 +3231,14 @@
       "essential": false,
       "themes": [
         "environnement"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, le matériel stérile reste indispensable dans certains soins et protège les patients.",
+          "english": "First of all, sterile equipment remains indispensable in some treatments and protects patients.",
+          "source_key": "ee-tache3:janvier:combinaison-6",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1332,6 +3256,14 @@
       "essential": false,
       "themes": [
         "environnement"
+      ],
+      "examples": [
+        {
+          "french": "Les commerces peuvent proposer des contenants réutilisables et la vente en vrac pour éviter que ces déchets n’atteignent les océans.",
+          "english": "Shops can offer reusable containers and bulk sales to prevent this waste from reaching the oceans.",
+          "source_key": "ee-tache3:janvier:combinaison-10",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1349,6 +3281,14 @@
       "essential": false,
       "themes": [
         "environnement"
+      ],
+      "examples": [
+        {
+          "french": "Par exemple, des agents formés pourraient réguler une espèce envahissante selon des quotas établis par des biologistes.",
+          "english": "For example, trained officers could control an invasive species according to quotas set by biologists.",
+          "source_key": "ee-tache3:avril:combinaison-4",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1366,6 +3306,14 @@
       "essential": false,
       "themes": [
         "environnement"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, des espaces vastes et adaptés permettent aux animaux d’exprimer leurs comportements naturels et de réduire leur stress, car ils peuvent alors se déplacer, se cacher et interagir plus librement.",
+          "english": "First of all, large, suitable spaces allow animals to express their natural behaviours and reduce stress, because they can then move, hide and interact more freely.",
+          "source_key": "ee-tache3:mai:combinaison-2",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1383,6 +3331,14 @@
       "essential": false,
       "themes": [
         "environnement"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, une ville compacte limite les longs déplacements et partage plus efficacement ses infrastructures.",
+          "english": "First of all, a compact city limits long journeys and shares its infrastructure more efficiently.",
+          "source_key": "ee-tache3:decembre:combinaison-16",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1400,6 +3356,14 @@
       "essential": false,
       "themes": [
         "environnement"
+      ],
+      "examples": [
+        {
+          "french": "De plus, les municipalités doivent construire sur des terrains déjà urbanisés plutôt que détruire les forêts voisines.",
+          "english": "Moreover, municipalities should build on already developed land rather than destroy nearby forests.",
+          "source_key": "ee-tache3:decembre:combinaison-16",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1417,6 +3381,14 @@
       "essential": false,
       "themes": [
         "environnement"
+      ],
+      "examples": [
+        {
+          "french": "De plus, des programmes scientifiques sérieux peuvent préserver des espèces menacées.",
+          "english": "Moreover, serious scientific programmes can preserve threatened species.",
+          "source_key": "ee-tache3:mai:combinaison-2",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1434,6 +3406,14 @@
       "essential": false,
       "themes": [
         "travail"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, une activité utile développe l’autonomie et crée des relations.",
+          "english": "First of all, meaningful work develops independence and creates relationships.",
+          "source_key": "ee-tache3:avril:combinaison-5",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1451,6 +3431,14 @@
       "essential": false,
       "themes": [
         "travail"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, il apprend la ponctualité, le travail en équipe et la gestion d’un budget.",
+          "english": "First of all, it teaches punctuality, teamwork and budget management.",
+          "source_key": "ee-tache3:avril:combinaison-6",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1468,6 +3456,14 @@
       "essential": false,
       "themes": [
         "travail"
+      ],
+      "examples": [
+        {
+          "french": "Pour ma part, les compétences doivent déterminer l’accès à un métier, jamais le sexe.",
+          "english": "For my part, skills should determine access to an occupation, never sex.",
+          "source_key": "ee-tache3:avril:combinaison-7",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1485,6 +3481,14 @@
       "essential": false,
       "themes": [
         "travail"
+      ],
+      "examples": [
+        {
+          "french": "De plus, réduire les heures sans revoir la charge risque simplement d’intensifier chaque journée.",
+          "english": "Moreover, reducing hours without reviewing the workload simply risks making each day more intense.",
+          "source_key": "ee-tache3:avril:combinaison-10",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1502,6 +3506,20 @@
       "essential": false,
       "themes": [
         "travail"
+      ],
+      "examples": [
+        {
+          "french": "En conclusion, il faut que le travail garde une place utile sans qu’il envahisse le temps réservé aux proches.",
+          "english": "In conclusion, work should retain a useful place without taking over time reserved for loved ones.",
+          "source_key": "ee-tache3:mai:combinaison-3",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, des horaires raisonnables préviennent le stress et la fatigue chronique.",
+          "english": "In addition, reasonable working hours prevent stress and chronic fatigue.",
+          "source_key": "ee-tache3:mai:combinaison-3",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1519,6 +3537,14 @@
       "essential": false,
       "themes": [
         "travail"
+      ],
+      "examples": [
+        {
+          "french": "De plus, une candidature anonyme permet au recruteur d’évaluer plus objectivement l’expérience et les diplômes.",
+          "english": "Moreover, an anonymous application allows the recruiter to assess experience and qualifications more objectively.",
+          "source_key": "ee-tache3:juin:combinaison-1",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1536,6 +3562,14 @@
       "essential": false,
       "themes": [
         "travail"
+      ],
+      "examples": [
+        {
+          "french": "De plus, il faut que le confort s’accompagne d’horaires respectés et de pauses réelles.",
+          "english": "Moreover, comfort must go hand in hand with respected working hours and genuine breaks.",
+          "source_key": "ee-tache3:juillet:combinaison-6",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1553,6 +3587,14 @@
       "essential": false,
       "themes": [
         "travail"
+      ],
+      "examples": [
+        {
+          "french": "Un employé qui se sent en confiance ose demander de l’aide ou signaler un problème avant qu’il ne s’aggrave.",
+          "english": "An employee who feels confident dares to ask for help or flag a problem before it gets worse.",
+          "source_key": "ee-tache3:juillet:combinaison-44",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1570,6 +3612,14 @@
       "essential": false,
       "themes": [
         "travail"
+      ],
+      "examples": [
+        {
+          "french": "Un stage leur apprend à travailler en équipe, à respecter un délai et à résoudre un problème concret.",
+          "english": "An internship teaches them to work in a team, meet a deadline and solve a concrete problem.",
+          "source_key": "ee-tache3:aout:combinaison-18",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1587,6 +3637,20 @@
       "essential": false,
       "themes": [
         "travail"
+      ],
+      "examples": [
+        {
+          "french": "En conclusion, je soutiens une pause de quinze minutes, volontaire et compatible avec l’organisation de chaque entreprise.",
+          "english": "In conclusion, I support a voluntary fifteen-minute break that fits each company's organisation.",
+          "source_key": "ee-tache3:aout:combinaison-19",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Pour ma part, une courte sieste peut améliorer le bien-être et la productivité à condition qu’elle reste facultative.",
+          "english": "For my part, a short nap can improve well-being and productivity provided it remains optional.",
+          "source_key": "ee-tache3:novembre:combinaison-4",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1604,6 +3668,14 @@
       "essential": false,
       "themes": [
         "travail"
+      ],
+      "examples": [
+        {
+          "french": "De plus, un cadre commun évite les abus et les inégalités.",
+          "english": "Moreover, a shared framework prevents abuse and inequality.",
+          "source_key": "ee-tache3:novembre:combinaison-4",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1621,6 +3693,14 @@
       "essential": false,
       "themes": [
         "travail"
+      ],
+      "examples": [
+        {
+          "french": "De plus, l’employeur doit protéger les personnes allergiques ou craintives grâce à des espaces séparés et à des règles d’hygiène.",
+          "english": "Moreover, the employer must protect people with allergies or fears through separate spaces and hygiene rules.",
+          "source_key": "ee-tache3:decembre:combinaison-3",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1638,6 +3718,14 @@
       "essential": false,
       "themes": [
         "travail"
+      ],
+      "examples": [
+        {
+          "french": "Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, la qualité du service et le bien-être des équipes.",
+          "english": "For example, a company could trial a four-day week for three months, then measure productivity, service quality and staff well-being.",
+          "source_key": "ee-tache3:avril:combinaison-10",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1655,6 +3743,14 @@
       "essential": false,
       "themes": [
         "travail"
+      ],
+      "examples": [
+        {
+          "french": "Par exemple, une entreprise peut publier des grilles salariales transparentes et offrir le même congé parental aux mères comme aux pères.",
+          "english": "For example, a company can publish transparent pay scales and offer the same parental leave to mothers and fathers.",
+          "source_key": "ee-tache3:avril:combinaison-7",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1672,6 +3768,14 @@
       "essential": false,
       "themes": [
         "travail"
+      ],
+      "examples": [
+        {
+          "french": "Par exemple, une responsable peut déjeuner avec une collègue proche, mais attribuer un projet selon des critères annoncés à tous.",
+          "english": "For example, a manager can have lunch with a close colleague but assign a project according to criteria announced to everyone.",
+          "source_key": "ee-tache3:juillet:combinaison-44",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1689,6 +3793,14 @@
       "essential": false,
       "themes": [
         "travail"
+      ],
+      "examples": [
+        {
+          "french": "De plus, une charge excessive risque d’épuiser un jeune avant la rentrée.",
+          "english": "Moreover, an excessive workload risks exhausting a young person before the new school term.",
+          "source_key": "ee-tache3:avril:combinaison-6",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1706,6 +3818,14 @@
       "essential": false,
       "themes": [
         "numerique"
+      ],
+      "examples": [
+        {
+          "french": "De plus, regarder une émission avec un adulte transforme un usage passif en échange instructif.",
+          "english": "Moreover, watching a programme with an adult turns passive use into an educational exchange.",
+          "source_key": "ee-tache3:janvier:combinaison-7",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1723,6 +3843,14 @@
       "essential": false,
       "themes": [
         "numerique"
+      ],
+      "examples": [
+        {
+          "french": "De plus, un accompagnement régulier entretient la motivation lorsque les progrès ralentissent.",
+          "english": "Moreover, regular support sustains motivation when progress slows.",
+          "source_key": "ee-tache3:janvier:combinaison-9",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1740,6 +3868,14 @@
       "essential": false,
       "themes": [
         "numerique"
+      ],
+      "examples": [
+        {
+          "french": "De plus, il faut que la durée de conservation des images soit limitée et que seuls des enquêteurs habilités y accèdent.",
+          "english": "Moreover, image retention must be limited and only authorised investigators should have access.",
+          "source_key": "ee-tache3:avril:combinaison-1",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1757,6 +3893,14 @@
       "essential": false,
       "themes": [
         "numerique"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, elles peuvent fournir des preuves après un incident, mais elles ne remplacent ni l’encadrement ni la confiance.",
+          "english": "First of all, they can provide evidence after an incident, but they replace neither supervision nor trust.",
+          "source_key": "ee-tache3:avril:combinaison-8",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1774,6 +3918,20 @@
       "essential": false,
       "themes": [
         "numerique"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, certains jeux développent la réflexion, la coordination et la capacité à résoudre des problèmes.",
+          "english": "First of all, some games develop reasoning, coordination and problem-solving ability.",
+          "source_key": "ee-tache3:avril:combinaison-11",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Ces jeux obligent en effet à anticiper, à comparer plusieurs solutions et à corriger ses erreurs.",
+          "english": "These games do indeed require players to anticipate, compare several solutions and correct their mistakes.",
+          "source_key": "ee-tache3:mai:combinaison-1",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1791,6 +3949,20 @@
       "essential": false,
       "themes": [
         "numerique"
+      ],
+      "examples": [
+        {
+          "french": "Ces jeux obligent en effet à anticiper, à comparer plusieurs solutions et à corriger ses erreurs.",
+          "english": "These games do indeed require players to anticipate, compare several solutions and correct their mistakes.",
+          "source_key": "ee-tache3:mai:combinaison-1",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, certains jeux développent la réflexion, la coordination et la capacité à résoudre des problèmes.",
+          "english": "First of all, some games develop reasoning, coordination and problem-solving ability.",
+          "source_key": "ee-tache3:avril:combinaison-11",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1808,6 +3980,14 @@
       "essential": false,
       "themes": [
         "numerique"
+      ],
+      "examples": [
+        {
+          "french": "De plus, des règles précises empêchent le jeu de remplacer le sommeil, les études ou le sport.",
+          "english": "Moreover, clear rules prevent gaming from replacing sleep, study or sport.",
+          "source_key": "ee-tache3:mai:combinaison-3-bis",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1825,6 +4005,14 @@
       "essential": false,
       "themes": [
         "numerique"
+      ],
+      "examples": [
+        {
+          "french": "Pour gagner, le joueur doit observer, décider vite et communiquer avec les autres.",
+          "english": "To win, the player must observe, decide quickly and communicate with others.",
+          "source_key": "ee-tache3:juillet:combinaison-5",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1842,6 +4030,14 @@
       "essential": false,
       "themes": [
         "numerique"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, ils peuvent favoriser l’autonomie des personnes âgées ou malades.",
+          "english": "First of all, they can support the independence of older or ill people.",
+          "source_key": "ee-tache3:aout:combinaison-13",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1859,6 +4055,14 @@
       "essential": false,
       "themes": [
         "numerique"
+      ],
+      "examples": [
+        {
+          "french": "De plus, prolonger son contenu par une discussion ou une activité créative empêche l’enfant de rester simple spectateur.",
+          "english": "Moreover, extending the content through discussion or a creative activity prevents the child from remaining a mere spectator.",
+          "source_key": "ee-tache3:decembre:combinaison-14",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1876,6 +4080,14 @@
       "essential": false,
       "themes": [
         "numerique"
+      ],
+      "examples": [
+        {
+          "french": "De plus, des mises à jour régulières et des mots de passe solides limitent les intrusions.",
+          "english": "Moreover, regular updates and strong passwords limit intrusions.",
+          "source_key": "ee-tache3:aout:combinaison-13",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1893,6 +4105,14 @@
       "essential": false,
       "themes": [
         "numerique"
+      ],
+      "examples": [
+        {
+          "french": "Par exemple, une montre pourrait rappeler un médicament à son propriétaire et transmettre uniquement les données nécessaires à son médecin, avec son accord.",
+          "english": "For example, a watch could remind its owner to take medication and transmit only the necessary data to their doctor, with the owner's consent.",
+          "source_key": "ee-tache3:aout:combinaison-13",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1910,6 +4130,14 @@
       "essential": false,
       "themes": [
         "numerique"
+      ],
+      "examples": [
+        {
+          "french": "En conclusion, l’apprentissage en ligne devient efficace lorsqu’il associe flexibilité, équipement fiable et véritable suivi humain.",
+          "english": "In conclusion, online learning becomes effective when it combines flexibility, reliable equipment and genuine human support.",
+          "source_key": "ee-tache3:janvier:combinaison-9",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1927,6 +4155,14 @@
       "essential": false,
       "themes": [
         "societe"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, une personne qui a froid ou faim ne peut pas attendre les résultats d’un programme d’insertion.",
+          "english": "First of all, a person who is cold or hungry cannot wait for the results of an integration programme.",
+          "source_key": "ee-tache3:janvier:combinaison-4",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1944,6 +4180,14 @@
       "essential": false,
       "themes": [
         "societe"
+      ],
+      "examples": [
+        {
+          "french": "De plus, un suivi régulier agit sur les causes de la pauvreté en facilitant l’accès au logement et à l’emploi.",
+          "english": "Moreover, regular support addresses the causes of poverty by facilitating access to housing and employment.",
+          "source_key": "ee-tache3:janvier:combinaison-16",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1961,6 +4205,14 @@
       "essential": false,
       "themes": [
         "societe"
+      ],
+      "examples": [
+        {
+          "french": "En conclusion, il faut vérifier que la famille dispose du temps, du budget et de conditions de vie adaptées avant toute adoption.",
+          "english": "In conclusion, it is necessary to check that the family has the time, budget and suitable living conditions before any adoption.",
+          "source_key": "ee-tache3:mars:combinaison-2",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1978,6 +4230,14 @@
       "essential": false,
       "themes": [
         "societe"
+      ],
+      "examples": [
+        {
+          "french": "De plus, expliquer ces limites favorise la confiance plutôt que la peur.",
+          "english": "Moreover, explaining these boundaries promotes trust rather than fear.",
+          "source_key": "ee-tache3:mars:combinaison-10",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -1995,6 +4255,26 @@
       "essential": false,
       "themes": [
         "societe"
+      ],
+      "examples": [
+        {
+          "french": "Par exemple, à Montréal, une association peut offrir un repas chaud, puis aider le bénéficiaire à obtenir une adresse, une formation et un emploi stable.",
+          "english": "For example, in Montreal, an association can offer a hot meal, then help the beneficiary obtain an address, training and stable employment.",
+          "source_key": "ee-tache3:juin:combinaison-3",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Tout d’abord, une personne qui a froid ou faim ne peut pas attendre les résultats d’un programme d’insertion.",
+          "english": "First of all, a person who is cold or hungry cannot wait for the results of an integration programme.",
+          "source_key": "ee-tache3:janvier:combinaison-4",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, un suivi régulier agit sur les causes de la pauvreté en facilitant l’accès au logement et à l’emploi.",
+          "english": "Moreover, regular support addresses the causes of poverty by facilitating access to housing and employment.",
+          "source_key": "ee-tache3:janvier:combinaison-16",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2012,6 +4292,14 @@
       "essential": false,
       "themes": [
         "societe"
+      ],
+      "examples": [
+        {
+          "french": "En conclusion, je préfère la campagne pour le calme et l’espace, sans renoncer à l’accès aux emplois et à la culture.",
+          "english": "In conclusion, I prefer the countryside for its peace and space, without giving up access to jobs and culture.",
+          "source_key": "ee-tache3:aout:combinaison-17",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2029,6 +4317,14 @@
       "essential": false,
       "themes": [
         "societe"
+      ],
+      "examples": [
+        {
+          "french": "Nourrir l’animal et nettoyer son espace imposent des gestes réguliers, même les jours sans envie.",
+          "english": "Feeding the animal and cleaning its space require regular actions, even on days when one does not feel like it.",
+          "source_key": "ee-tache3:mars:combinaison-2",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2046,6 +4342,14 @@
       "essential": false,
       "themes": [
         "transports"
+      ],
+      "examples": [
+        {
+          "french": "De plus, il faut que des alternatives crédibles soient prévues avant les restrictions pour les travailleurs qui dépendent de leur véhicule.",
+          "english": "Moreover, credible alternatives must be arranged before restrictions for workers who depend on their vehicles.",
+          "source_key": "ee-tache3:janvier:combinaison-17",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2063,6 +4367,14 @@
       "essential": false,
       "themes": [
         "transports"
+      ],
+      "examples": [
+        {
+          "french": "Un service gratuit ne sert à rien s’il oblige les habitants à attendre une heure.",
+          "english": "A free service is of no use if it makes residents wait an hour.",
+          "source_key": "ee-tache3:juillet:combinaison-8",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2080,6 +4392,14 @@
       "essential": false,
       "themes": [
         "transports"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, moins de trafic réduit la pollution, le stress et le risque d’accident pour les habitants.",
+          "english": "First of all, less traffic reduces pollution, stress and the risk of accidents for residents.",
+          "source_key": "ee-tache3:janvier:combinaison-17",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2097,6 +4417,14 @@
       "essential": false,
       "themes": [
         "transports"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, supprimer le prix du ticket peut inciter des automobilistes à laisser leur voiture au garage.",
+          "english": "First of all, removing the ticket price can encourage drivers to leave their cars at home.",
+          "source_key": "ee-tache3:juillet:combinaison-8",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2114,6 +4442,14 @@
       "essential": false,
       "themes": [
         "logement"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, partager le loyer permet de vivre près de son université sans dépasser son budget.",
+          "english": "First of all, sharing the rent makes it possible to live near one's university without exceeding one's budget.",
+          "source_key": "ee-tache3:janvier:combinaison-3",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2131,6 +4467,20 @@
       "essential": false,
       "themes": [
         "logement"
+      ],
+      "examples": [
+        {
+          "french": "De plus, des règles communes protègent le repos, les espaces privés et une répartition juste du ménage.",
+          "english": "Moreover, shared rules protect rest, private spaces and a fair division of cleaning.",
+          "source_key": "ee-tache3:avril:combinaison-14",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "Par exemple, trois adultes peuvent fixer un calendrier de ménage, des heures calmes et des règles concernant les invités, puis faire un bilan chaque mois.",
+          "english": "For example, three adults can set a cleaning rota, quiet hours and rules about guests, then review them every month.",
+          "source_key": "ee-tache3:juin:combinaison-2",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2148,6 +4498,14 @@
       "essential": false,
       "themes": [
         "logement"
+      ],
+      "examples": [
+        {
+          "french": "Par exemple, un étudiant fraîchement arrivé peut partager son loyer et se faire des amis dès sa première semaine en colocation.",
+          "english": "For example, a newly arrived student can share the rent and make friends in their first week of shared accommodation.",
+          "source_key": "ee-tache3:mai:combinaison-7",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2165,6 +4523,20 @@
       "essential": false,
       "themes": [
         "logement"
+      ],
+      "examples": [
+        {
+          "french": "Par exemple, trois adultes peuvent fixer un calendrier de ménage, des heures calmes et des règles concernant les invités, puis faire un bilan chaque mois.",
+          "english": "For example, three adults can set a cleaning rota, quiet hours and rules about guests, then review them every month.",
+          "source_key": "ee-tache3:juin:combinaison-2",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "De plus, des règles communes protègent le repos, les espaces privés et une répartition juste du ménage.",
+          "english": "Moreover, shared rules protect rest, private spaces and a fair division of cleaning.",
+          "source_key": "ee-tache3:avril:combinaison-14",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2182,6 +4554,14 @@
       "essential": false,
       "themes": [
         "logement"
+      ],
+      "examples": [
+        {
+          "french": "En conclusion, je soutiens ce choix temporaire lorsque les responsabilités, l’objectif d’épargne et l’échéance sont fixés ensemble.",
+          "english": "In conclusion, I support this temporary choice when responsibilities, the savings goal and the timeframe are agreed together.",
+          "source_key": "ee-tache3:decembre:combinaison-15",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2199,6 +4579,14 @@
       "essential": false,
       "themes": [
         "logement"
+      ],
+      "examples": [
+        {
+          "french": "En revanche, le second souligne que les différences de rythme, le bruit, le manque d’intimité et les corvées négligées peuvent provoquer des conflits.",
+          "english": "By contrast, the second highlights that different schedules, noise, lack of privacy and neglected chores can cause conflict.",
+          "source_key": "ee-tache3:avril:combinaison-14",
+          "source_field": "position"
+        }
       ]
     },
     {
@@ -2216,6 +4604,14 @@
       "essential": false,
       "themes": [
         "logement"
+      ],
+      "examples": [
+        {
+          "french": "Sans cette charge mensuelle, on peut financer une formation ou épargner pour le dépôt d’un futur logement.",
+          "english": "Without this monthly expense, one can fund training or save for the deposit on a future home.",
+          "source_key": "ee-tache3:decembre:combinaison-15",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2233,6 +4629,14 @@
       "essential": false,
       "themes": [
         "culture-loisirs"
+      ],
+      "examples": [
+        {
+          "french": "Pour ma part, je pense que les deux formats répondent à des besoins différents plutôt que de s’exclure.",
+          "english": "For my part, I think the two formats meet different needs rather than excluding each other.",
+          "source_key": "ee-tache3:janvier:combinaison-5",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2250,6 +4654,14 @@
       "essential": false,
       "themes": [
         "culture-loisirs"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, des textes adaptés aux intérêts de l’enfant nourrissent son vocabulaire et sa capacité d’analyse.",
+          "english": "First of all, texts suited to the child's interests enrich their vocabulary and analytical ability.",
+          "source_key": "ee-tache3:mars:combinaison-3",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2267,6 +4679,14 @@
       "essential": false,
       "themes": [
         "culture-loisirs"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, rénover les transports ou les équipements existants peut améliorer le quotidien, car les habitants les utiliseront encore après l’événement.",
+          "english": "First of all, renovating existing transport or facilities can improve daily life, because residents will still use them after the event.",
+          "source_key": "ee-tache3:avril:combinaison-17",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2284,6 +4704,14 @@
       "essential": false,
       "themes": [
         "culture-loisirs"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, il rend la culture accessible à un public qui fréquente peu les musées.",
+          "english": "First of all, it makes culture accessible to an audience that rarely visits museums.",
+          "source_key": "ee-tache3:aout:combinaison-12",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2301,6 +4729,14 @@
       "essential": false,
       "themes": [
         "culture-loisirs"
+      ],
+      "examples": [
+        {
+          "french": "Pour ma part, les musées devraient offrir une gratuité régulière, à condition que leurs ressources restent suffisantes pour protéger les œuvres.",
+          "english": "For my part, museums should offer regular free admission, provided their resources remain sufficient to protect the works.",
+          "source_key": "ee-tache3:aout:combinaison-14",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2318,6 +4754,14 @@
       "essential": false,
       "themes": [
         "culture-loisirs"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, des murs autorisés offrent aux artistes un espace d’expression accessible à tous sans dégrader les bâtiments.",
+          "english": "First of all, authorised walls offer artists a space for expression that is accessible to everyone without damaging buildings.",
+          "source_key": "ee-tache3:novembre:combinaison-10",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2335,6 +4779,14 @@
       "essential": false,
       "themes": [
         "culture-loisirs"
+      ],
+      "examples": [
+        {
+          "french": "De plus, un accompagnement adapté rend la visite plus enrichissante.",
+          "english": "Moreover, appropriate guidance makes the visit more rewarding.",
+          "source_key": "ee-tache3:novembre:combinaison-11",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2352,6 +4804,14 @@
       "essential": false,
       "themes": [
         "culture-loisirs"
+      ],
+      "examples": [
+        {
+          "french": "De plus, une réservation horaire permet de limiter la foule.",
+          "english": "Moreover, timed booking makes it possible to limit crowds.",
+          "source_key": "ee-tache3:aout:combinaison-14",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2369,6 +4829,14 @@
       "essential": false,
       "themes": [
         "culture-loisirs"
+      ],
+      "examples": [
+        {
+          "french": "De plus, un budget mal contrôlé risque d’affaiblir des services essentiels.",
+          "english": "Moreover, a poorly controlled budget risks weakening essential services.",
+          "source_key": "ee-tache3:avril:combinaison-17",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2386,6 +4854,14 @@
       "essential": false,
       "themes": [
         "consommation"
+      ],
+      "examples": [
+        {
+          "french": "Pour ma part, la livraison constitue une solution pratique, mais elle ne doit pas normaliser les repas pris devant l’écran.",
+          "english": "For my part, delivery is a convenient solution, but it should not make eating in front of a screen the norm.",
+          "source_key": "ee-tache3:janvier:combinaison-8",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2403,6 +4879,14 @@
       "essential": false,
       "themes": [
         "consommation"
+      ],
+      "examples": [
+        {
+          "french": "Un vêtement qui résiste à plusieurs lavages évite des achats répétés.",
+          "english": "A garment that withstands several washes avoids repeated purchases.",
+          "source_key": "ee-tache3:mars:combinaison-1",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2420,6 +4904,20 @@
       "essential": false,
       "themes": [
         "consommation"
+      ],
+      "examples": [
+        {
+          "french": "En revanche, le second souligne le temps de préparation, le coût initial et les risques d’irritation ou de contamination liés aux erreurs de formulation et de conservation.",
+          "english": "By contrast, the second highlights preparation time, initial cost and the risks of irritation or contamination linked to mistakes in formulation and storage.",
+          "source_key": "ee-tache3:mars:combinaison-4",
+          "source_field": "position"
+        },
+        {
+          "french": "Il vaut mieux renoncer aux préparations que l’on ne maîtrise pas.",
+          "english": "It is better to give up preparations that one does not understand.",
+          "source_key": "ee-tache3:decembre:combinaison-13",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2437,6 +4935,14 @@
       "essential": false,
       "themes": [
         "consommation"
+      ],
+      "examples": [
+        {
+          "french": "Lorsqu’un commerce ferme, les habitants perdent un service de proximité et un lieu d’échange.",
+          "english": "When a shop closes, residents lose a local service and a place for interaction.",
+          "source_key": "ee-tache3:mars:combinaison-9",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2454,6 +4960,14 @@
       "essential": false,
       "themes": [
         "consommation"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, elle évite aux salariés de chercher un restaurant loin du bureau et leur laisse le temps de choisir leur repas à l’avance.",
+          "english": "First of all, it saves employees from looking for a restaurant far from the office and gives them time to choose their meal in advance.",
+          "source_key": "ee-tache3:avril:combinaison-2",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2471,6 +4985,14 @@
       "essential": false,
       "themes": [
         "consommation"
+      ],
+      "examples": [
+        {
+          "french": "Manger sans interrompre le travail entretient la fatigue et isole les employés.",
+          "english": "Eating without interrupting work sustains fatigue and isolates employees.",
+          "source_key": "ee-tache3:juillet:combinaison-3",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2488,6 +5010,14 @@
       "essential": false,
       "themes": [
         "consommation"
+      ],
+      "examples": [
+        {
+          "french": "En conclusion, je combinerais les deux options pour manger des produits locaux sans dépasser mon budget.",
+          "english": "In conclusion, I would combine the two options to eat local produce without exceeding my budget.",
+          "source_key": "ee-tache3:aout:combinaison-3",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2505,6 +5035,14 @@
       "essential": false,
       "themes": [
         "consommation"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, les plus jeunes distinguent mal une information d’un message conçu pour les persuader.",
+          "english": "First of all, younger children struggle to distinguish information from a message designed to persuade them.",
+          "source_key": "ee-tache3:aout:combinaison-16",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2522,6 +5060,14 @@
       "essential": false,
       "themes": [
         "consommation"
+      ],
+      "examples": [
+        {
+          "french": "De plus, une diffusion moins envahissante protège l’attention et réduit les déchets.",
+          "english": "Moreover, less intrusive distribution protects attention and reduces waste.",
+          "source_key": "ee-tache3:octobre:combinaison-1",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2539,6 +5085,20 @@
       "essential": false,
       "themes": [
         "consommation"
+      ],
+      "examples": [
+        {
+          "french": "Il vaut mieux renoncer aux préparations que l’on ne maîtrise pas.",
+          "english": "It is better to give up preparations that one does not understand.",
+          "source_key": "ee-tache3:decembre:combinaison-13",
+          "source_field": "position_claire"
+        },
+        {
+          "french": "En revanche, le second souligne le temps de préparation, le coût initial et les risques d’irritation ou de contamination liés aux erreurs de formulation et de conservation.",
+          "english": "By contrast, the second highlights preparation time, initial cost and the risks of irritation or contamination linked to mistakes in formulation and storage.",
+          "source_key": "ee-tache3:mars:combinaison-4",
+          "source_field": "position"
+        }
       ]
     },
     {
@@ -2556,6 +5116,14 @@
       "essential": false,
       "themes": [
         "consommation"
+      ],
+      "examples": [
+        {
+          "french": "Un même flacon rempli plusieurs fois remplace des dizaines d’emballages jetables.",
+          "english": "One bottle refilled several times replaces dozens of disposable packages.",
+          "source_key": "ee-tache3:mars:combinaison-4",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2573,6 +5141,14 @@
       "essential": false,
       "themes": [
         "consommation"
+      ],
+      "examples": [
+        {
+          "french": "En conclusion, je soutiens l’interdiction du ciblage des mineurs et une éducation régulière aux techniques commerciales.",
+          "english": "In conclusion, I support banning the targeting of minors and regular education about marketing techniques.",
+          "source_key": "ee-tache3:aout:combinaison-16",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2590,6 +5166,14 @@
       "essential": false,
       "themes": [
         "consommation"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, la ferme offre des produits frais dont je peux connaître l’origine, même s’ils coûtent un peu plus cher.",
+          "english": "First of all, the farm offers fresh produce whose origin I can know, even if it costs a little more.",
+          "source_key": "ee-tache3:aout:combinaison-3",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2607,6 +5191,14 @@
       "essential": false,
       "themes": [
         "voyages"
+      ],
+      "examples": [
+        {
+          "french": "Tout d’abord, un billet abordable permet aux petits budgets de voyager plus souvent, même sans repas à bord.",
+          "english": "First of all, an affordable ticket allows people on smaller budgets to travel more often, even without an onboard meal.",
+          "source_key": "ee-tache3:janvier:combinaison-19",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2624,6 +5216,14 @@
       "essential": false,
       "themes": [
         "voyages"
+      ],
+      "examples": [
+        {
+          "french": "De plus, le prix ne doit jamais conduire à réduire l’entretien des avions ni à dégrader les conditions de travail.",
+          "english": "Moreover, price should never lead to reduced aircraft maintenance or worse working conditions.",
+          "source_key": "ee-tache3:janvier:combinaison-19",
+          "source_field": "position_claire"
+        }
       ]
     },
     {
@@ -2641,6 +5241,14 @@
       "essential": false,
       "themes": [
         "voyages"
+      ],
+      "examples": [
+        {
+          "french": "Sur un vol transatlantique, je paierais davantage afin de bénéficier de meilleures garanties de sécurité et de confort.",
+          "english": "On a transatlantic flight, I would pay more to benefit from better assurances of safety and comfort.",
+          "source_key": "ee-tache3:janvier:combinaison-19",
+          "source_field": "position_claire"
+        }
       ]
     }
   ]

@@ -50,15 +50,20 @@ The catalogue root uses two progress tables: one for writing functions and one f
 thematic arguments. Each top-level row expands in place to reveal its individual
 lessons, vocabulary reference and completion controls. A lesson row opens one
 focused page containing only that formulation, its English meaning, usage and
-grammar guidance, a model excerpt, and a transfer exercise for applying it to a
-different Tâche 3 prompt. Search, whole-subdivision browsing and opt-in recall
+grammar guidance, every distinct relevant model excerpt found in the effective
+corpus, and a transfer exercise for applying it to a different Tâche 3 prompt.
+Search, whole-subdivision browsing and opt-in recall
 practice remain available as separate views.
 
 The synthesis subdivision includes a response-grounded reference for reporting
 verbs such as `mettre en avant`, `indiquer` and `mettre en garde contre`. Every
-theme has its own response-grounded vocabulary reference with English meanings and
-productive French collocations. Learned status is the learner's own assessment of
-being able to reproduce and adapt the formulation, not an exam score.
+theme has a substantial response-grounded vocabulary reference (at least 24 entries)
+organized into notions, collocations, benefits, risks, conditions, solutions and
+argument mechanisms.
+Every entry includes an English meaning and all distinct useful complete-sentence
+examples supported by the effective Partie 1 and Partie 2 responses. Learned status
+is the learner's own assessment of being able to reproduce and adapt the
+formulation, not an exam score.
 
 The file-backed curriculum lives in `study/content/ee/tache_3/formulations.json`;
 `study/ee_formulations.py` validates its structure, complete effective-source

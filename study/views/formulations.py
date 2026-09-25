@@ -33,6 +33,18 @@ RETURN_ROUTES = {
     "ee_formulation_theme",
     "ee_formulation_search",
 }
+LANGUAGE_ROLE_LABELS = {
+    "reporting": "Présenter les documents",
+    "notion": "Notions clés",
+    "collocation": "Associations utiles",
+    "benefit": "Bienfaits et avantages",
+    "risk": "Limites et risques",
+    "condition": "Conditions de réussite",
+    "solution": "Solutions",
+    "mechanism": "Mécanismes d’argumentation",
+}
+
+
 def _fold(text):
     return "".join(
         char for char in unicodedata.normalize("NFKD", text.casefold())
@@ -104,12 +116,10 @@ def _selection(entries, categories, filters, learned):
     return result
 
 
-def _source_urls(task, entries):
+def _response_urls(task, source_keys):
     sources = {}
     for key, prompt_id in Prompt.objects.filter(
-        response__content_key__in={
-            entry.source_key for entry in entries
-        },
+        response__content_key__in=source_keys,
         response__is_active=True,
         is_active=True,
         theme__is_active=True,
@@ -127,14 +137,68 @@ def _source_urls(task, entries):
     return sources
 
 
+def _source_urls(task, entries):
+    return _response_urls(task, {
+        example.source_key
+        for entry in entries
+        for example in entry.examples
+    })
+
+
 def _entry_row(entry, categories, learned, sources):
     return {
         "entry": entry,
         "category": categories[entry.category],
         "learned": entry.content_key in learned,
         "source_url": sources.get(entry.source_key, ""),
+        "examples": tuple(
+            {
+                "content": example,
+                "source_url": sources.get(example.source_key, ""),
+            }
+            for example in entry.examples
+        ),
         "copy_id": "formulation-copy-" + entry.slug,
     }
+
+
+def _language_sections(language_bank, source_urls):
+    grouped = {role: [] for role in LANGUAGE_ROLE_LABELS}
+    for item in language_bank:
+        role = item.role or "reporting"
+        grouped[role].append({
+            "item": item,
+            "examples": tuple(
+                {
+                    "text": example.text,
+                    "sources": tuple(
+                        {
+                            "label": (
+                                "Titre"
+                                if field == "reformulation"
+                                else (
+                                    "Partie 1"
+                                    if field == "position"
+                                    else "Partie 2"
+                                )
+                            ),
+                            "url": source_urls.get(source_key, ""),
+                        }
+                        for source_key, field in example.provenance
+                    ),
+                }
+                for example in item.examples
+            ),
+        })
+    return tuple(
+        {
+            "role": role,
+            "title": title,
+            "items": grouped[role],
+        }
+        for role, title in LANGUAGE_ROLE_LABELS.items()
+        if grouped[role]
+    )
 
 
 def _directory_item(category, entries, learned, *, kind):
@@ -155,18 +219,19 @@ def _directory_item(category, entries, learned, *, kind):
                 "study:ee_formulation_language", args=[category.slug],
             ) if language_bank else ""
         ),
+        "reference_count": len(language_bank),
         "topics": [
             {
                 "slug": entry.slug,
-                "number": f"{index:02d}",
                 "label": entry.label,
+                "french": entry.french,
                 "url": reverse(
                     "study:ee_formulation_entry", args=[entry.slug],
                 ),
                 "learned": entry.content_key in learned,
                 "essential": entry.essential,
             }
-            for index, entry in enumerate(entries, start=1)
+            for entry in entries
         ],
     }
 
@@ -245,8 +310,6 @@ def formulations(request):
                     ],
                     learned,
                 ),
-                "all_url": collection_url("essentials"),
-                "all_label": "Ouvrir les 16 essentiels",
             },
             {
                 "slug": "themes",
@@ -266,8 +329,6 @@ def formulations(request):
                     ],
                     learned,
                 ),
-                "all_url": collection_url("search"),
-                "all_label": "Rechercher dans tout le catalogue",
             },
         ),
         "search_url": collection_url("search"),
@@ -451,13 +512,26 @@ def formulation_language_reference(request, slug):
     language_bank = formulation_language_for(category)
     if category is None or not language_bank:
         raise Http404
-    kind = "function" if category.kind == "function" else "theme"
+    source_urls = _response_urls(task, {
+        source_key
+        for item in language_bank
+        for example in item.examples
+        for source_key, _field in example.provenance
+    })
     return render(request, "study/formulation_language.html", {
         "part": task.part,
         "task": task,
         "category": category,
         "language_bank": language_bank,
-        "back_url": collection_url(kind, category.slug),
+        "language_sections": _language_sections(language_bank, source_urls),
+        "example_count": sum(
+            len(item.examples) for item in language_bank
+        ),
+        "back_url": (
+            reverse("study:ee_formulations")
+            + "#formulation-group-"
+            + category.slug
+        ),
         "reference_title": (
             "Verbes utiles pour présenter les documents"
             if category.slug == "synthese"

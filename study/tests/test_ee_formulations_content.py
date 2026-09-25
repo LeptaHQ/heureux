@@ -18,7 +18,11 @@ from study.ee_formulations import (
     FUNCTION_CATEGORIES,
     load_ee_formulations,
 )
-from study.ee_formulation_language import REPORTING_LANGUAGE, THEME_LANGUAGE
+from study.ee_formulation_language import (
+    REPORTING_LANGUAGE,
+    THEME_LANGUAGE,
+    THEME_LANGUAGE_ROLES,
+)
 
 EXPECTED_THEME_COUNTS = {
     "education": 8,
@@ -33,19 +37,95 @@ EXPECTED_THEME_COUNTS = {
     "consommation": 10,
     "voyages": 1,
 }
-EXPECTED_LANGUAGE_COUNTS = {
-    "education": 16,
-    "sante-alimentation": 18,
-    "environnement": 16,
-    "travail": 18,
-    "numerique": 18,
-    "societe": 16,
-    "transports": 14,
-    "logement": 15,
-    "culture-loisirs": 17,
-    "consommation": 18,
-    "voyages": 12,
+EXPECTED_LANGUAGE_ITEM_COUNTS = {
+    "education": 26,
+    "sante-alimentation": 26,
+    "environnement": 26,
+    "travail": 26,
+    "numerique": 27,
+    "societe": 25,
+    "transports": 24,
+    "logement": 27,
+    "culture-loisirs": 26,
+    "consommation": 25,
+    "voyages": 26,
 }
+EXPECTED_LANGUAGE_EXAMPLE_COUNTS = {
+    "education": 31,
+    "sante-alimentation": 39,
+    "environnement": 31,
+    "travail": 32,
+    "numerique": 34,
+    "societe": 31,
+    "transports": 28,
+    "logement": 37,
+    "culture-loisirs": 34,
+    "consommation": 36,
+    "voyages": 31,
+}
+MINIMUM_LANGUAGE_ROLE_COUNTS = {
+    "notion": 4,
+    "collocation": 4,
+    "benefit": 4,
+    "risk": 4,
+    "condition": 4,
+    "solution": 2,
+    "mechanism": 2,
+}
+EXPECTED_PRODUCTION_PRIORITIES = {
+    "education": {
+        "préserver le lien humain",
+        "réduire la comparaison des marques",
+    },
+    "sante-alimentation": {
+        "des informations nutritionnelles claires",
+        "soutenir les producteurs locaux",
+    },
+    "environnement": {
+        "le plastique à usage unique",
+        "la responsabilité des producteurs",
+    },
+    "travail": {
+        "maintenir la qualité du service",
+        "discuter de la charge de travail",
+    },
+    "numerique": {
+        "protéger le sommeil",
+        "un consentement éclairé",
+        "protéger la vie privée",
+    },
+    "societe": {
+        "un accompagnement à long terme",
+        "retrouver son autonomie",
+    },
+    "transports": set(),
+    "logement": {
+        "partager les dépenses",
+        "un calendrier de ménage",
+        "le respect de l’intimité",
+    },
+    "culture-loisirs": {
+        "nourrir la curiosité",
+        "des espaces autorisés",
+        "réduire les inégalités d’accès à la culture",
+    },
+    "consommation": {"faire une vraie pause"},
+    "voyages": {
+        "un tarif transparent",
+        "le coût total",
+        "l’empreinte carbone",
+    },
+}
+CROSS_THEME_LANGUAGE_PROVENANCE = {
+    (
+        "voyages",
+        "l’empreinte carbone",
+        "Comparer l’avion et le train exige de considérer l’empreinte carbone en plus du prix.",
+    ): {("ee-tache3:mai:combinaison-5", "position")},
+}
+# Key exceptions by (theme, headword, complete example) only when natural
+# French requires an inflected surface form.
+JUSTIFIED_LANGUAGE_INFLECTIONS = {}
 LEGACY_MEMOIRE_SHA256 = {
     1: "cda55a4d8208e08f9a9cb2fa6560db61c91aff47025c0c640848abc1c2a429e1",
     2: "86708ac81671de5497706ad8c70b4256c699e297ce3b646ac0ccb82872d9ba6d",
@@ -179,48 +259,123 @@ class EeFormulationsContentTests(SimpleTestCase):
                 slug: len(items)
                 for slug, items in THEME_LANGUAGE.items()
             },
-            EXPECTED_LANGUAGE_COUNTS,
+            EXPECTED_LANGUAGE_ITEM_COUNTS,
+        )
+        self.assertGreater(len(set(EXPECTED_LANGUAGE_ITEM_COUNTS.values())), 1)
+        self.assertEqual(
+            {
+                slug: sum(len(item.examples) for item in items)
+                for slug, items in THEME_LANGUAGE.items()
+            },
+            EXPECTED_LANGUAGE_EXAMPLE_COUNTS,
         )
         self.assertTrue(all(
-            12 <= len(items) <= 18
+            len(items) > 18
+            for items in THEME_LANGUAGE.values()
+        ))
+        self.assertTrue(all(
+            any(len(item.examples) > 1 for item in items)
             for items in THEME_LANGUAGE.values()
         ))
         education = {item.french for item in THEME_LANGUAGE["education"]}
         self.assertIn("la mixité sociale", education)
         self.assertIn("les classes socialement homogènes", education)
         self.assertIn("développer l’autonomie", education)
+        all_french = [item.french.casefold() for item in REPORTING_LANGUAGE]
+        all_examples = [
+            example.text.casefold()
+            for item in REPORTING_LANGUAGE
+            for example in item.examples
+        ]
         for slug, items in THEME_LANGUAGE.items():
             with self.subTest(theme=slug):
                 self.assertEqual(
+                    tuple(dict.fromkeys(item.role for item in items)),
+                    tuple(dict.fromkeys(THEME_LANGUAGE_ROLES)),
+                )
+                role_counts = Counter(item.role for item in items)
+                for role, minimum in MINIMUM_LANGUAGE_ROLE_COUNTS.items():
+                    self.assertGreaterEqual(role_counts[role], minimum)
+                self.assertEqual(
                     len({item.french.casefold() for item in items}), len(items),
                 )
-                self.assertEqual(
-                    len({item.pattern.casefold() for item in items}), len(items),
+                self.assertLessEqual(
+                    EXPECTED_PRODUCTION_PRIORITIES[slug],
+                    {item.french for item in items},
                 )
                 self.assertTrue(all(
                     item.french.strip()
                     and item.english.strip()
-                    and item.pattern.strip()
+                    and item.examples
                     for item in items
                 ))
+                all_french.extend(item.french.casefold() for item in items)
+                all_examples.extend(
+                    example.text.casefold()
+                    for item in items
+                    for example in item.examples
+                )
+        self.assertEqual(len(all_french), len(set(all_french)))
+        self.assertEqual(len(all_examples), len(set(all_examples)))
+
+    def test_language_examples_are_complete_sentences_using_the_headword(self):
+        banks = {"reporting": REPORTING_LANGUAGE, **THEME_LANGUAGE}
+        for slug, items in banks.items():
+            for item in items:
+                self.assertEqual(
+                    item.pattern,
+                    " ".join(example.text for example in item.examples),
+                )
+                for language_example in item.examples:
+                    with self.subTest(
+                        theme=slug,
+                        french=item.french,
+                        example=language_example.text,
+                    ):
+                        example = " ".join(language_example.text.split())
+                        self.assertGreaterEqual(len(example.split()), 6)
+                        self.assertTrue(example[0].isupper())
+                        self.assertTrue(example.endswith((".", "!", "?")))
+                        self.assertNotIn("...", example)
+                        self.assertNotIn("\u2026", example)
+                        inflection = JUSTIFIED_LANGUAGE_INFLECTIONS.get(
+                            (slug, item.french, language_example.text),
+                            item.french,
+                        )
+                        self.assertIn(
+                            " ".join(inflection.split()).casefold(),
+                            example.casefold(),
+                        )
+
+        declared = {
+            (slug, item.french, example.text)
+            for slug, items in banks.items()
+            for item in items
+            for example in item.examples
+        }
+        self.assertLessEqual(set(JUSTIFIED_LANGUAGE_INFLECTIONS), declared)
 
     def test_theme_language_is_grounded_in_both_response_parts(self):
         authors = load_ee_tache_three_author_responses()
         provenance_sources = set()
+        used_cross_theme_provenance = set()
         self.assertEqual(len(self.responses), 78)
         for response in self.responses.values():
             self.assertTrue(response.reformulation.strip())
             self.assertTrue(response.position.strip())
             self.assertTrue(response.position_claire.strip())
 
-        for slug, items in THEME_LANGUAGE.items():
-            parts = set()
-            for item in items:
-                with self.subTest(theme=slug, french=item.french):
-                    self.assertTrue(item.provenance)
-                    for source_key, field in item.provenance:
+        for item in REPORTING_LANGUAGE:
+            with self.subTest(theme="reporting", french=item.french):
+                self.assertEqual(item.role, "reporting")
+                for example in item.examples:
+                    self.assertTrue(example.provenance)
+                    self.assertEqual(
+                        len(example.provenance),
+                        len(set(example.provenance)),
+                    )
+                    for source_key, field in example.provenance:
                         self.assertIn(source_key, self.responses)
-                        self.assertEqual(self.theme_by_key[source_key], slug)
                         self.assertIn(
                             field,
                             {"reformulation", "position", "position_claire"},
@@ -228,12 +383,67 @@ class EeFormulationsContentTests(SimpleTestCase):
                         self.assertTrue(
                             getattr(self.responses[source_key], field).strip()
                         )
-                        provenance_sources.add(source_key)
-                        parts.add(field)
-            self.assertIn("position", parts)
-            self.assertIn("position_claire", parts)
+
+        for slug, items in THEME_LANGUAGE.items():
+            parts = set()
+            for item in items:
+                with self.subTest(theme=slug, french=item.french):
+                    expected_item_provenance = tuple(dict.fromkeys(
+                        pair
+                        for example in item.examples
+                        for pair in example.provenance
+                    ))
+                    self.assertEqual(
+                        item.provenance,
+                        expected_item_provenance,
+                    )
+                    for example in item.examples:
+                        self.assertTrue(example.provenance)
+                        self.assertEqual(
+                            len(example.provenance),
+                            len(set(example.provenance)),
+                        )
+                        for source_key, field in example.provenance:
+                            self.assertIn(source_key, self.responses)
+                            if self.theme_by_key[source_key] != slug:
+                                exception_key = (
+                                    slug,
+                                    item.french,
+                                    example.text,
+                                )
+                                self.assertIn(
+                                    (source_key, field),
+                                    CROSS_THEME_LANGUAGE_PROVENANCE.get(
+                                        exception_key,
+                                        set(),
+                                    ),
+                                )
+                                used_cross_theme_provenance.add(
+                                    (exception_key, (source_key, field))
+                                )
+                            self.assertIn(
+                                field,
+                                {"reformulation", "position", "position_claire"},
+                            )
+                            self.assertTrue(
+                                getattr(self.responses[source_key], field).strip()
+                            )
+                            provenance_sources.add(source_key)
+                            parts.add(field)
+            self.assertEqual(
+                parts,
+                {"reformulation", "position", "position_claire"},
+            )
         self.assertEqual(provenance_sources, set(self.responses))
         self.assertLessEqual(set(authors), provenance_sources)
+        self.assertEqual(
+            used_cross_theme_provenance,
+            {
+                (exception_key, pair)
+                for exception_key, pairs in CROSS_THEME_LANGUAGE_PROVENANCE.items()
+                for pair in pairs
+            },
+        )
 
     def test_source_defects_have_explicit_provenance(self):
         by_slug = {entry.slug: entry for entry in self.catalog.entries}

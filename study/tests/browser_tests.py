@@ -1942,7 +1942,9 @@ class BrowserTests(StaticLiveServerTestCase):
             expect(self.page.locator("[data-formulation-practice]")).to_have_count(0)
             self.assert_no_horizontal_overflow()
         entries.first.locator("summary").click()
-        nested_links = entries.first.locator(".formulation-subtopic-list a")
+        nested_links = entries.first.locator(
+            "[data-formulation-topic-row] a",
+        )
         self.assertGreater(nested_links.count(), 0)
         self.assertTrue(nested_links.evaluate_all(
             "links => links.every(link => link.pathname.includes('/formulations/'))"
@@ -1950,10 +1952,9 @@ class BrowserTests(StaticLiveServerTestCase):
         nested_links.first.click()
         expect(self.page.locator(".formulation-entry-lesson")).to_be_visible()
         self.assertEqual(len(self.context.pages), 1)
-        self.page.goto(url)
-        entries = self.page.locator("[data-formulation-subdivision]")
-        entries.first.locator("summary").click()
-        entries.first.get_by_role("link", name="Ouvrir toute la subdivision", exact=False).click()
+        self.page.goto(self.live_server_url + reverse(
+            "study:ee_formulation_function", args=["titres"],
+        ))
         rows = self.page.locator(".formulation-list > li")
         count = rows.count()
         self.assertGreater(count, 0)
@@ -1990,7 +1991,7 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(categories.first).to_be_visible()
         expect(table_section.locator("summary")).to_have_count(10)
         categories.first.locator("summary").click()
-        topics = categories.first.locator(".formulation-subtopic-list a")
+        topics = categories.first.locator("[data-formulation-topic-row] a")
         expect(topics).to_have_count(4)
         expect(topics.first).to_contain_text("Annoncer un équilibre")
         for width in (1292, 1100, 1099, 900, 640, 390, 320):
@@ -2001,7 +2002,9 @@ class BrowserTests(StaticLiveServerTestCase):
         topics.first.click()
         expect(self.page.locator(".formulation-entry-lesson")).to_be_visible()
         expect(self.page.locator(".formulation-list")).to_have_count(0)
-        self.page.get_by_role("link", name="Titres", exact=True).click()
+        self.page.goto(self.live_server_url + reverse(
+            "study:ee_formulation_function", args=["titres"],
+        ))
         self.page.get_by_role("link", name="Pratiquer cette subdivision", exact=True).click()
         self.page.locator("[data-flashcard-flip]").click()
         expect(self.page.locator("[data-flashcard-back]")).to_be_visible()
@@ -2018,9 +2021,9 @@ class BrowserTests(StaticLiveServerTestCase):
             expect(page.locator("[data-formulation-subdivision]")).to_have_count(21)
             subdivision = page.locator("[data-formulation-subdivision]").first
             subdivision.locator("summary").click()
-            subdivision.locator(".formulation-subtopic-list a").first.click()
+            subdivision.locator("[data-formulation-topic-row] a").first.click()
             expect(page.locator(".formulation-entry-lesson")).to_be_visible()
-            expect(page.locator(".formulation-french")).to_be_visible()
+            expect(page.locator(".formulation-entry-focus__text")).to_be_visible()
             expect(page.locator(".formulation-teaching")).to_be_visible()
             learned = page.locator(".formulation-learned button")
             learned.click()

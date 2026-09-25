@@ -9,8 +9,11 @@ from unittest.mock import patch
 
 from django.test import SimpleTestCase
 
+from study.content_loader import parse_ee_tache_three_responses
 from study.ee_formulations import (
+    EXAMPLE_SOURCE_FIELDS,
     FUNCTION_CATEGORIES,
+    FormulationEntry,
     get_ee_formulations,
     load_ee_formulations,
 )
@@ -54,6 +57,14 @@ class EeFormulationsLoaderTests(SimpleTestCase):
                     "example": "Une mesure peut aider.",
                     "example_english": "A measure can help.",
                     "source_key": self.source_key,
+                    "examples": [
+                        {
+                            "french": "Une mesure peut aider.",
+                            "english": "A measure can help.",
+                            "source_key": self.source_key,
+                            "source_field": "position_claire",
+                        }
+                    ],
                     "transfer_prompt": "Suggest a benefit of free evening classes.",
                     "essential": slug != "education",
                     "themes": ["education"] if slug == "education" else [],
@@ -78,6 +89,16 @@ class EeFormulationsLoaderTests(SimpleTestCase):
         self.path.write_text(json.dumps(self.payload), encoding="utf-8")
         return load_ee_formulations(self.path)
 
+    def set_primary(self, *, french=None, english=None, source_key=None):
+        entry = self.payload["entries"][0]
+        primary = entry["examples"][0]
+        if french is not None:
+            entry["example"] = primary["french"] = french
+        if english is not None:
+            entry["example_english"] = primary["english"] = english
+        if source_key is not None:
+            entry["source_key"] = primary["source_key"] = source_key
+
     def test_contract_is_immutable_and_keys_are_separate(self):
         catalog = self.load()
         self.assertIsInstance(catalog.categories, tuple)
@@ -88,7 +109,13 @@ class EeFormulationsLoaderTests(SimpleTestCase):
         entry = catalog.entries[0]
         self.assertEqual(entry.content_key, "formulation:ee3:v1:frame-titres")
         self.assertIsInstance(entry.themes, tuple)
+        self.assertIsInstance(entry.examples, tuple)
+        self.assertEqual(entry.example, entry.examples[0].french)
+        self.assertEqual(entry.example_english, entry.examples[0].english)
+        self.assertEqual(entry.source_key, entry.examples[0].source_key)
+        self.assertIs(entry.primary_example, entry.examples[0])
         for value, field in ((catalog, "entries"), (entry, "french"),
+                             (entry.examples[0], "french"),
                              (catalog.categories[0], "title")):
             with self.assertRaises(FrozenInstanceError):
                 setattr(value, field, ())
@@ -103,6 +130,29 @@ class EeFormulationsLoaderTests(SimpleTestCase):
             get_ee_formulations.cache_clear()
             get_ee_formulations()
             self.assertEqual(load.call_count, 2)
+
+    def test_legacy_constructor_gets_an_immutable_primary_example(self):
+        entry = FormulationEntry(
+            slug="legacy-frame",
+            category="affirmation",
+            label="Legacy frame",
+            french="[mesure] peut aider.",
+            english="[measure] can help.",
+            usage="State a benefit.",
+            grammar="Use an infinitive.",
+            example="Une mesure peut aider.",
+            example_english="A measure can help.",
+            source_key=self.source_key,
+            transfer_prompt="Suggest another measure.",
+            essential=True,
+            themes=(),
+        )
+
+        self.assertIsInstance(entry.examples, tuple)
+        self.assertEqual(entry.example, entry.primary_example.french)
+        self.assertEqual(entry.example_english, entry.primary_example.english)
+        self.assertEqual(entry.source_key, entry.primary_example.source_key)
+        self.assertEqual(entry.primary_example.source_field, "position_claire")
 
     def test_bad_top_level_types_and_versions(self):
         for field, values in (
@@ -142,8 +192,7 @@ class EeFormulationsLoaderTests(SimpleTestCase):
             entry[field] = original
 
     def test_evidence_allows_only_whitespace_normalization(self):
-        entry = self.payload["entries"][0]
-        entry["example"] = "Une mesure\npeut  aider."
+        self.set_primary(french="Une mesure\npeut  aider.")
         self.load()
         for example in (
             "une mesure peut aider.",
@@ -153,7 +202,7 @@ class EeFormulationsLoaderTests(SimpleTestCase):
             "Original source document text, not the answer.",
         ):
             with self.subTest(example=example):
-                entry["example"] = example
+                self.set_primary(french=example)
                 with self.assertRaisesRegex(ValueError, "verbatim"):
                     self.load()
 
@@ -163,8 +212,89 @@ class EeFormulationsLoaderTests(SimpleTestCase):
             self.load()
 
     def test_titles_and_synthesis_are_valid_evidence(self):
-        for example in ("Un titre", "Les documents se complètent."):
-            self.payload["entries"][0]["example"] = example
+        for example, source_field in (
+            ("Un titre", "reformulation"),
+            ("Les documents se complètent.", "position"),
+        ):
+            self.set_primary(french=example)
+            self.payload["entries"][0]["examples"][0]["source_field"] = source_field
+            self.load()
+
+    def test_examples_are_nonempty_strict_and_field_specific(self):
+        entry = self.payload["entries"][0]
+        for value in (None, {}, [], "example"):
+            entry["examples"] = value
+            with self.subTest(value=value), self.assertRaises(ValueError):
+                self.load()
+        entry["examples"] = [
+            {
+                "french": "Une mesure peut aider.",
+                "english": "A measure can help.",
+                "source_key": self.source_key,
+                "source_field": "position_claire",
+            }
+        ]
+        example = entry["examples"][0]
+        for field, value in (
+            ("source_field", "body"),
+            ("source_key", "ee-tache3:test:missing"),
+            ("english", ""),
+        ):
+            original = example[field]
+            example[field] = value
+            with self.subTest(field=field), self.assertRaises(ValueError):
+                self.load()
+            example[field] = original
+        example["unexpected"] = True
+        with self.assertRaises(ValueError):
+            self.load()
+        del example["unexpected"]
+        example["source_field"] = "position"
+        with self.assertRaisesRegex(ValueError, "from position"):
+            self.load()
+
+    def test_examples_are_unique_after_normalization(self):
+        self.payload["entries"][0]["examples"].append(
+            {
+                "french": "  une   MESURE peut aider. ",
+                "english": "A measure may help.",
+                "source_key": self.source_key,
+                "source_field": "position_claire",
+            }
+        )
+        with self.assertRaisesRegex(ValueError, "duplicate normalized example"):
+            self.load()
+
+    def test_compatibility_fields_must_match_primary_example(self):
+        entry = self.payload["entries"][0]
+        for field, value in (
+            ("example", "Il faut la financer."),
+            ("example_english", "Different translation."),
+            ("source_key", "ee-tache3:test:other"),
+        ):
+            original = entry[field]
+            entry[field] = value
+            with self.subTest(field=field), self.assertRaisesRegex(
+                ValueError, "compatibility"
+            ):
+                self.load()
+            entry[field] = original
+
+    def test_secondary_example_uses_effective_author_override(self):
+        self.payload["entries"][0]["examples"].append(
+            {
+                "french": "Il faut la financer.",
+                "english": "It must be funded.",
+                "source_key": self.source_key,
+                "source_field": "position_claire",
+            }
+        )
+        catalog = self.load()
+        self.assertEqual(len(catalog.entries[0].examples), 2)
+        self.response.position_claire = (
+            "Une mesure peut aider. La réponse de l’auteur a changé."
+        )
+        with self.assertRaisesRegex(ValueError, "verbatim"):
             self.load()
 
     def test_duplicate_ids_and_frames_are_rejected(self):
@@ -248,3 +378,56 @@ class EeFormulationsLoaderTests(SimpleTestCase):
         self.payload["entries"][0]["essential"] = False
         with self.assertRaisesRegex(ValueError, "complete function pipeline"):
             self.load()
+
+
+class EeFormulationsCatalogExamplesTests(SimpleTestCase):
+    def test_effective_catalog_examples_are_complete_and_immutable(self):
+        catalog = load_ee_formulations()
+        responses = {
+            response.content_key: response
+            for response in parse_ee_tache_three_responses()
+        }
+        examples = [
+            example
+            for entry in catalog.entries
+            for example in entry.examples
+        ]
+
+        self.assertEqual(catalog.entry_count, 152)
+        self.assertEqual(catalog.source_response_count, 78)
+        self.assertEqual(
+            {example.source_key for example in examples},
+            set(responses),
+        )
+        self.assertEqual(
+            {example.source_field for example in examples},
+            set(EXAMPLE_SOURCE_FIELDS),
+        )
+        self.assertGreater(
+            sum(len(entry.examples) > 1 for entry in catalog.entries),
+            0,
+        )
+
+        for entry in catalog.entries:
+            self.assertIsInstance(entry.examples, tuple)
+            self.assertTrue(entry.examples)
+            self.assertEqual(entry.example, entry.primary_example.french)
+            self.assertEqual(
+                entry.example_english,
+                entry.primary_example.english,
+            )
+            self.assertEqual(entry.source_key, entry.primary_example.source_key)
+            normalized = [
+                " ".join(example.french.split()).casefold()
+                for example in entry.examples
+            ]
+            self.assertEqual(len(normalized), len(set(normalized)))
+            for example in entry.examples:
+                source = getattr(
+                    responses[example.source_key],
+                    example.source_field,
+                )
+                self.assertIn(
+                    " ".join(example.french.split()),
+                    " ".join(source.split()),
+                )

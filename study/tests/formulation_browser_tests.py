@@ -74,9 +74,9 @@ class FormulationBrowserTests(StaticLiveServerTestCase):
         )
         subdivision.locator("summary").click()
         expect(
-            subdivision.locator(".formulation-subtopic-list a"),
+            subdivision.locator("[data-formulation-topic-row] a"),
         ).to_have_count(2)
-        subdivision.locator(".formulation-subtopic-list a").first.click()
+        subdivision.locator("[data-formulation-topic-row] a").first.click()
         expect(page.locator(".formulation-entry-lesson")).to_be_visible()
         expect(page.locator(".formulation-list")).to_have_count(0)
         expect(page.locator(".formulation-topic-sidebar")).to_have_count(0)
@@ -95,7 +95,9 @@ class FormulationBrowserTests(StaticLiveServerTestCase):
                 "document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1"
             ))
         page.set_viewport_size({"width": 390, "height": 844})
-        page.get_by_role("link", name="Affirmation", exact=True).click()
+        page.goto(self.live_server_url + reverse(
+            "study:ee_formulation_function", args=["affirmation"],
+        ))
         page.get_by_role("link", name="Pratiquer cette subdivision").click()
         expect(page.locator("[data-flashcard-front]")).to_be_visible()
         expect(page.locator("[data-flashcard-back]")).to_be_hidden()

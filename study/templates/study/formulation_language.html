@@ -2,46 +2,63 @@
 {% block title %}{{ reference_title }} · Formulations · Heureux{% endblock %}
 {% block content %}
 {% include "study/partials/task_nav.html" %}
-<div class="formulations-page formulation-language-page">
-  <nav class="breadcrumbs" aria-label="Fil d’Ariane">
-    <a href="{% url 'study:ee_formulations' %}">Formulations</a>
-    <span aria-hidden="true">/</span>
-    <a href="{{ back_url }}">{{ category.title }}</a>
-    <span aria-hidden="true">/</span>
-    <span aria-current="page">Vocabulaire utile</span>
-  </nav>
-
-  <header class="learn-lesson-hero formulation-entry-hero">
-    <div>
-      <p class="eyebrow">{{ category.title }} · Référence de langue</p>
-      <h1>{{ reference_title }}</h1>
-      <p>Des mots et associations directement réutilisables pour synthétiser les documents et développer vos arguments dans la Tâche 3.</p>
+<article class="tache-two-subject-detail formulation-language-page" style="--subject-accent: {{ task.color }};">
+  <header class="tache-two-subject-detail__hero formulation-language-hero">
+    <div class="tache-two-subject-detail__meta">
+      <a class="subject-page-back" href="{{ back_url }}">
+        {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
+        Formulations
+      </a>
+      <span>{{ category.title }} · {{ language_bank|length }} expressions · {{ example_count }} exemples</span>
     </div>
+    <h1>{{ reference_title }}</h1>
+    <p class="formulation-entry-hero__summary">Un lexique organisé pour nommer l’enjeu, développer les avantages et les limites, poser des conditions et proposer des solutions.</p>
   </header>
 
-  <article class="card learn-content-section formulation-language-lesson">
-    <header class="learn-content-section__head formulation-lesson-head">
-      <span>00</span>
+  <section class="formulation-language-catalog" aria-labelledby="formulation-language-title">
+    <header class="section-heading">
       <div>
-        <p class="eyebrow">À réemployer dans une phrase complète</p>
-        <h2>Expressions et associations utiles</h2>
+        <h2 id="formulation-language-title">Expressions et exemples en contexte</h2>
+        <p>Chaque exemple complet vient d’une réponse de référence de la Partie 1 ou de la Partie 2.</p>
       </div>
     </header>
     <div class="t1-table-shell">
       <table class="t1-table formulation-language-table">
-        <thead><tr><th scope="col">Expression</th><th scope="col">Sens</th><th scope="col">Emploi utile</th></tr></thead>
-        <tbody>
-          {% for item in language_bank %}
-            <tr>
-              <td><strong lang="fr">{{ item.french }}</strong></td>
-              <td lang="en">{{ item.english }}</td>
-              <td lang="fr">{{ item.pattern }}</td>
+        <thead><tr><th scope="col">Expression</th><th scope="col">Sens</th><th scope="col">Exemples en contexte</th></tr></thead>
+        {% for section in language_sections %}
+          <tbody aria-labelledby="language-role-{{ section.role }}">
+            <tr class="formulation-language-role-row">
+              <th id="language-role-{{ section.role }}" colspan="3" scope="rowgroup">{{ section.title }} <span>{{ section.items|length }} expression{{ section.items|length|pluralize }}</span></th>
             </tr>
+            {% for row in section.items %}
+              <tr>
+                <td><strong lang="fr">{{ row.item.french }}</strong></td>
+                <td lang="en">{{ row.item.english }}</td>
+                <td>
+                  <ol class="formulation-language-examples">
+                    {% for example in row.examples %}
+                      <li>
+                        <p lang="fr">{{ example.text }}</p>
+                        <div>
+                          {% for source in example.sources %}
+                            {% if source.url %}<a href="{{ source.url }}">{{ source.label }}{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>{% else %}<span>{{ source.label }}</span>{% endif %}
+                          {% endfor %}
+                        </div>
+                      </li>
+                    {% endfor %}
+                  </ol>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        {% empty %}
+          <tbody>
+            <tr><td colspan="3">Aucune expression disponible.</td></tr>
+          </tbody>
           {% endfor %}
-        </tbody>
       </table>
     </div>
-    <p class="muted">Choisissez uniquement les expressions qui correspondent réellement au sujet et construisez votre propre argument autour d’elles.</p>
-  </article>
-</div>
+    <p class="muted">Choisissez uniquement les expressions qui correspondent réellement au sujet et adaptez les exemples à votre propre argument.</p>
+  </section>
+</article>
 {% endblock %}

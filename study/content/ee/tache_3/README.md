@@ -1,8 +1,8 @@
-# EE — Tâche 3 — 2025 (sujets, réponses, vocabulaire, mémoires)
+# EE — Tâche 3 — 2025 (sujets, réponses, formulations, archives)
 
 Contenu d'entraînement pour l'**Expression écrite (EE), Tâche 3**.
 Ce dossier regroupe les **sujets sources** et l'ensemble des **réponses modèles**,
-**vocabulaires** et **mémoires** générés à partir de ces sujets.
+**formulations**, ainsi que les **vocabulaires** et **mémoires** historiques.
 
 ## Contenu
 
@@ -38,8 +38,85 @@ Ce dossier regroupe les **sujets sources** et l'ensemble des **réponses modèle
   achèvement, note, surlignage ou instantané historique n’est réécrit.
 - `ai_examiner_prompt.md` — prompt d’évaluation propre à la Tâche 3, disponible
   depuis la vue d’ensemble avant de fournir le sujet et ses deux documents.
-- La vue d’ensemble donne accès au vocabulaire des sujets regroupé par thème ;
-  chaque thème conserve les decks et la progression des réponses distinctes.
+- Les formulations constituent le parcours principal pour apprendre à construire
+  et adapter une réponse. Le vocabulaire historique conserve ses identités et sa
+  progression ; il n'est pas réimporté sous les nouvelles clés.
+
+**Formulations** — `formulations.json`
+- **152 fiches**, organisées en **10 fonctions de rédaction** et **11 thèmes** :
+  titres, synthèse, affirmation, opposition, concession, conditions, arguments,
+  exemples, conséquences et conclusions, puis les thèmes des sujets existants.
+- **16 essentiels** enseignent le parcours complet avant l'enrichissement
+  thématique. Il s'agit d'une boîte à outils : on ne copie pas toutes les
+  formulations dans une seule réponse. Un titre reste un choix adapté au support,
+  pas une exigence générale ; une conclusion reprend la position sans argument neuf.
+- Le corpus étudié est celui des **78 réponses effectives** renvoyées par
+  `parse_ee_tache_three_responses()`, avec les dix remplacements de l'auteur,
+  et non les 138 variantes brutes. Chaque réponse fournit au moins un exemple
+  substantiel ; la couverture ne repose pas sur des titres quasi identiques.
+- Les champs `french`, `usage`, `grammar` et `transfer_prompt` sont rédigés pour
+  apprendre à réutiliser un raisonnement. `french` est une formulation adaptée,
+  parfois à compléter avec des `[emplacements nommés]`, **pas une citation**.
+  `example` cite exactement un titre ou un extrait de synthèse ou de point de vue
+  effectif ; `source_key` en conserve la provenance canonique. `english` et
+  `example_english` traduisent séparément la formulation et son exemple.
+- Les fiches distinguent documents opposés et complémentaires, synthèse neutre
+  et avis personnel, exemple plausible et fait démontré. Elles signalent les
+  documents absents, dupliqués ou hors sujet sans inventer de preuve. Les bénéfices
+  de santé enseignés restent prudents ; les citations de modèles ne sont pas des
+  prescriptions médicales. Connaître ces formulations ne garantit aucun score.
+
+### Apprendre à adapter, plutôt qu'à réciter
+
+1. Lire les deux documents et noter leur relation réelle ; sélectionner leur
+   thème commun et leurs idées centrales sans ajouter son avis.
+2. Choisir une position claire et deux raisons distinctes. Donner à chaque raison
+   un appui immédiat : explication, conséquence, condition ou exemple concret.
+3. Compléter quelques formulations utiles en respectant les indications de
+   grammaire. Vérifier les accords, les référents et le choix entre indicatif,
+   subjonctif et infinitif ; supprimer les emplacements avant de terminer.
+4. Rédiger un seul texte cohérent : titre éventuel et deux paragraphes, sans
+   ajouter de rubriques « synthèse » ou « avis » dans la réponse finale.
+   La structure pédagogique ne crée pas de nouveaux titres à copier.
+5. Utiliser la consigne de transfert pour un **second contexte**, puis comparer
+   son texte au raisonnement et aux précautions de la fiche. Il s'agit d'une
+   auto-évaluation, pas d'une correction automatique.
+
+### Format, chargement et identités stables
+
+Le JSON version 1 contient `version`, `source_response_count`, `categories` et
+`entries`. `study/ee_formulations.py` expose des dataclasses immuables
+`FormulationCategory`, `FormulationEntry` et `FormulationCatalog`, un chargeur
+non mis en cache `load_ee_formulations(path=FORMULATIONS_PATH)` et un accès
+processus `get_ee_formulations()` avec `cache_clear()`. Le module n'accède ni
+à l'ORM ni aux données des apprenants.
+
+Le chargeur valide les types, champs, identifiants, doublons de formulations,
+références thématiques, catégories, couverture des réponses et citations
+effectives. Seuls les espaces sont normalisés pour comparer les citations :
+apostrophes, accents et ponctuation ne sont pas réécrits. Ces contrôles prouvent
+la **provenance textuelle**, pas la qualité sémantique d'un argument, d'une
+traduction ou d'une consigne ; une relecture éditoriale reste nécessaire.
+
+Une fiche utilise exclusivement la clé
+`formulation:ee3:v1:<slug>` (96 caractères maximum). Sa progression peut être
+enregistrée dans `MemoryQuestionProgress(memory_number=1, question_key=...)`,
+sans migration ni conversion des anciennes fiches. Le numéro `1` ne désigne
+pas une reprise du contenu du mémoire 1 : l'espace de clés est distinct.
+
+Le slug identifie une **cible d'apprentissage stable**, pas sa position dans la
+liste. Une correction de coquille, d'exemple ou de présentation ne transfère pas
+la progression. Si la cible ou l'exercice change de sens, attribuer un **nouveau
+slug**, retirer l'ancienne fiche du catalogue actif et ne jamais réutiliser sa
+clé pour une autre cible. Les marques apprises et annotations historiques ne
+sont ni copiées ni réattribuées. Modifier l'ordre ou la catégorie d'une même
+cible n'exige pas une nouvelle clé.
+
+Les quatre fichiers `memoires/memoire_<Q>.json` restent **octet pour octet
+inchangés**. Leurs espaces de clés, les réponses, documents sources, identités
+de vocabulaire, racines d'annotation et règles d'import restent indépendants
+de ce nouveau catalogue. Les anciens mémoires sont des archives de compatibilité,
+pas la source des nouvelles fiches.
 
 **Vocabulaire** — `vocabulary/<mois>.json`
 - **30 entrées par réponse**, capturant la langue la plus réutilisable (connecteurs,
@@ -260,3 +337,9 @@ proviennent désormais toutes de leur synthèse ou de leur point de vue effectif
   78 réponses canoniques, 35 groupes et 2 340 entrées importées.
 - `study/tests/test_ee_tache_three_titles.py` vérifie le titre dans la réponse
   et sa copie, les totaux complets et la conservation des données à la réimportation.
+- `study/tests/test_ee_formulations_loader.py` couvre le contrat immuable,
+  le cache, les erreurs de schéma, les références et l'ancrage textuel effectif.
+  `study/tests/test_ee_formulations_content.py` verrouille les 152 fiches,
+  21 catégories, 16 essentiels, 78 sources effectives et les empreintes des quatre
+  mémoires historiques. Ces tests structurels ne remplacent pas la relecture
+  du français, des traductions ni de la pertinence pédagogique.

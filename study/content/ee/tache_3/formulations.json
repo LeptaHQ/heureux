@@ -1,0 +1,2647 @@
+{
+  "version": 1,
+  "source_response_count": 78,
+  "categories": [
+    {
+      "slug": "titres",
+      "kind": "function",
+      "title": "Titres",
+      "description": "Nommer l'enjeu en quelques mots si le support appelle un titre. Le titre n'est pas une obligation générale de la Tâche 3.",
+      "icon": "pen-line"
+    },
+    {
+      "slug": "synthese",
+      "kind": "function",
+      "title": "Synthétiser les documents",
+      "description": "Présenter le thème commun et les idées réellement exprimées, sans avis personnel ni opposition inventée.",
+      "icon": "file-text"
+    },
+    {
+      "slug": "affirmation",
+      "kind": "function",
+      "title": "Affirmer sa position",
+      "description": "Choisir une position claire, éventuellement conditionnelle, qui répond au débat plutôt qu'un simple pour ou contre.",
+      "icon": "check"
+    },
+    {
+      "slug": "opposition",
+      "kind": "function",
+      "title": "Opposer et comparer",
+      "description": "Distinguer une opposition réelle, une comparaison et deux solutions qui peuvent coexister.",
+      "icon": "arrow-left-right"
+    },
+    {
+      "slug": "concession",
+      "kind": "function",
+      "title": "Reconnaître une limite",
+      "description": "Accorder un point valable à l'autre position, puis préciser pourquoi votre choix reste défendable.",
+      "icon": "scale"
+    },
+    {
+      "slug": "conditions",
+      "kind": "function",
+      "title": "Poser des conditions",
+      "description": "Dire ce qui doit être réuni pour qu'une solution fonctionne, avec le mode verbal approprié.",
+      "icon": "target"
+    },
+    {
+      "slug": "arguments",
+      "kind": "function",
+      "title": "Développer ses arguments",
+      "description": "Donner deux raisons distinctes et expliquer immédiatement chacune. Un connecteur seul n'est pas un argument.",
+      "icon": "messages"
+    },
+    {
+      "slug": "exemples",
+      "kind": "function",
+      "title": "Illustrer concrètement",
+      "description": "Inventer une situation plausible, clairement hypothétique, avec un acteur, une action et un lien avec l'argument.",
+      "icon": "sparkles"
+    },
+    {
+      "slug": "consequences",
+      "kind": "function",
+      "title": "Expliquer les conséquences",
+      "description": "Relier une décision à son effet, sans confondre possibilité, causalité démontrée et certitude.",
+      "icon": "arrow-right"
+    },
+    {
+      "slug": "conclusions",
+      "kind": "function",
+      "title": "Conclure sans ajouter d'idée",
+      "description": "Reformuler la position et sa condition principale. Ne pas ouvrir un troisième argument dans la dernière phrase.",
+      "icon": "circle-dot"
+    },
+    {
+      "slug": "education",
+      "kind": "theme",
+      "title": "École & éducation",
+      "description": "Autonomie, égalité, santé à l'école et outils pédagogiques : adapter les moyens aux élèves, puis expliquer les effets.",
+      "icon": "graduation-cap"
+    },
+    {
+      "slug": "sante-alimentation",
+      "kind": "theme",
+      "title": "Santé & alimentation",
+      "description": "Alimentation équilibrée, prévention, soins et limites : parler de bénéfices possibles sans garanties médicales.",
+      "icon": "stethoscope"
+    },
+    {
+      "slug": "environnement",
+      "kind": "theme",
+      "title": "Environnement & écologie",
+      "description": "Réduire les déchets, préserver les espèces et aménager la ville en distinguant besoins essentiels et usages évitables.",
+      "icon": "sun"
+    },
+    {
+      "slug": "travail",
+      "kind": "theme",
+      "title": "Travail & entreprise",
+      "description": "Conditions de travail, repos, compétences et équité : proposer des règles applicables plutôt que des promesses de productivité.",
+      "icon": "laptop"
+    },
+    {
+      "slug": "numerique",
+      "kind": "theme",
+      "title": "Numérique & médias",
+      "description": "Apprendre et communiquer avec les outils numériques tout en protégeant l'attention, le lien humain et les données.",
+      "icon": "file-text"
+    },
+    {
+      "slug": "societe",
+      "kind": "theme",
+      "title": "Société & modes de vie",
+      "description": "Solidarité, responsabilité et choix de vie : relier les besoins individuels aux solutions collectives.",
+      "icon": "users"
+    },
+    {
+      "slug": "transports",
+      "kind": "theme",
+      "title": "Transports & mobilité",
+      "description": "Réduire la circulation et rendre la mobilité accessible, avec un réseau fiable avant les restrictions.",
+      "icon": "arrow-left-right"
+    },
+    {
+      "slug": "logement",
+      "kind": "theme",
+      "title": "Logement & habitat",
+      "description": "Partager les coûts et la vie quotidienne tout en organisant les responsabilités, l'intimité et l'autonomie.",
+      "icon": "compass"
+    },
+    {
+      "slug": "culture-loisirs",
+      "kind": "theme",
+      "title": "Culture & loisirs",
+      "description": "Élargir l'accès à la culture et aux loisirs sans négliger la qualité, le financement et le respect des lieux.",
+      "icon": "theater"
+    },
+    {
+      "slug": "consommation",
+      "kind": "theme",
+      "title": "Consommation & argent",
+      "description": "Comparer les prix, la qualité et les effets sociaux ; conserver des choix pratiques sans surconsommer.",
+      "icon": "euro"
+    },
+    {
+      "slug": "voyages",
+      "kind": "theme",
+      "title": "Voyages & tourisme",
+      "description": "Comparer les tarifs et les besoins réels sans sacrifier les conditions de travail, la sécurité ni la transparence.",
+      "icon": "globe"
+    }
+  ],
+  "entries": [
+    {
+      "slug": "titre-enjeu-equilibre",
+      "category": "titres",
+      "label": "Annoncer un équilibre",
+      "french": "[thème] : [objectif à l'infinitif] sans [risque à l'infinitif]",
+      "english": "[topic]: [goal in the infinitive] without [action to avoid, in the -ing form]",
+      "usage": "Si un titre convient au support, annoncez le choix central en restant bref. Sinon, commencez directement par la synthèse.",
+      "grammar": "Après « sans », utilisez l'infinitif : apprendre sans s'isoler. Pas de point final nécessaire dans un titre.",
+      "example": "Langues en ligne : apprendre sans s’isoler",
+      "example_english": "Online languages: learning without becoming isolated",
+      "source_key": "ee-tache3:janvier:combinaison-9",
+      "transfer_prompt": "Proposez un titre sur les devoirs qui associe apprendre et préserver le repos.",
+      "essential": true,
+      "themes": []
+    },
+    {
+      "slug": "titre-benefice-reserve",
+      "category": "titres",
+      "label": "Signaler une réserve",
+      "french": "[thème] : [adjectif positif], mais [limite ou condition]",
+      "english": "[topic]: [positive adjective], but [limitation or condition]",
+      "usage": "Faites apparaître le bénéfice et la prudence que votre réponse développera, pas une opposition absente des documents.",
+      "grammar": "Accordez l'adjectif avec le nom du titre : utiles, mais coûteux ; pratique, mais chère.",
+      "example": "Les produits faits maison : naturels, mais pas sans risques",
+      "example_english": "Homemade products: natural, but not risk-free",
+      "source_key": "ee-tache3:mars:combinaison-4",
+      "transfer_prompt": "Donnez un titre sur des transports gratuits dont le financement reste difficile.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "titre-deux-priorites",
+      "category": "titres",
+      "label": "Réunir deux priorités",
+      "french": "[thème] : [première priorité] et [seconde priorité]",
+      "english": "[topic]: [first priority] and [second priority]",
+      "usage": "Un titre nominal peut annoncer deux objectifs compatibles sans faire semblant de choisir un camp.",
+      "grammar": "Gardez des groupes nominaux parallèles, sans les développer en phrases complètes.",
+      "example": "Aider les plus pauvres : urgence et autonomie",
+      "example_english": "Helping the poorest: urgency and independence",
+      "source_key": "ee-tache3:janvier:combinaison-4",
+      "transfer_prompt": "Intitulez un texte sur les écoles publiques avec deux priorités : qualité et mixité.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "titre-condition",
+      "category": "titres",
+      "label": "Annoncer une condition",
+      "french": "[pratique] : [bénéfice] sous conditions",
+      "english": "[practice]: [benefit] under certain conditions",
+      "usage": "Choisissez ce titre seulement si les conditions sont ensuite nommées dans votre avis.",
+      "grammar": "« Sous conditions » reste au pluriel ; préférez une condition précise dans le texte plutôt qu'une formule vague.",
+      "example": "Les animaux au bureau : le bien-être sous conditions",
+      "example_english": "Pets at the office: well-being under certain conditions",
+      "source_key": "ee-tache3:decembre:combinaison-3",
+      "transfer_prompt": "Proposez un titre sur les jeux vidéo puis nommez les deux conditions que vous développerez.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "synthese-theme-commun",
+      "category": "synthese",
+      "label": "Ouvrir la synthèse",
+      "french": "Les deux documents abordent [thème commun avec son déterminant].",
+      "english": "Both documents discuss [shared topic with its determiner].",
+      "usage": "Identifiez le sujet commun avant les points de vue. Employez cette ouverture uniquement si deux documents exploitables sont fournis.",
+      "grammar": "« Aborder » se construit directement : abordent la gratuité, pas abordent de la gratuité.",
+      "example": "Les deux documents abordent la gratuité des transports publics.",
+      "example_english": "Both documents discuss free public transport.",
+      "source_key": "ee-tache3:juillet:combinaison-8",
+      "transfer_prompt": "Deux textes discutent des devoirs scolaires. Rédigez seulement leur phrase d'ouverture neutre.",
+      "essential": true,
+      "themes": []
+    },
+    {
+      "slug": "synthese-premier-argument",
+      "category": "synthese",
+      "label": "Attribuer la première idée",
+      "french": "Le premier souligne [avantage ou constat avec son déterminant].",
+      "english": "The first highlights [benefit or observation with its determiner].",
+      "usage": "Rapportez l'idée centrale du premier document plutôt que tous ses détails. N'ajoutez pas encore votre propre jugement.",
+      "grammar": "« Souligne » accepte un nom ou « que » suivi de l'indicatif ; « estime que » marque plus nettement un avis.",
+      "example": "Le premier souligne son accès large à l’information, à la culture et aux enjeux sociaux.",
+      "example_english": "The first highlights its broad access to information, culture and social issues.",
+      "source_key": "ee-tache3:janvier:combinaison-7",
+      "transfer_prompt": "Un document dit que les bus gratuits aident les ménages modestes. Résumez cet avantage sans vous prononcer.",
+      "essential": true,
+      "themes": []
+    },
+    {
+      "slug": "synthese-complement",
+      "category": "synthese",
+      "label": "Présenter une complémentarité",
+      "french": "De son côté, le second ajoute [idée complémentaire], tout en rappelant [réserve].",
+      "english": "For its part, the second adds [complementary idea], while pointing out [reservation].",
+      "usage": "Lorsque les textes vont dans le même sens, ajoutez leur apport distinct au lieu d'écrire automatiquement « En revanche ».",
+      "grammar": "Après « en », utilisez le participe présent : rappelant, exigeant. La réserve doit être présente dans le document.",
+      "example": "De son côté, le second ajoute une baisse de l’absentéisme et une meilleure fidélisation des salariés, tout en exigeant une organisation efficace de l’entreprise.",
+      "example_english": "For its part, the second adds reduced absenteeism and better employee retention, while requiring efficient company organisation.",
+      "source_key": "ee-tache3:avril:combinaison-10",
+      "transfer_prompt": "Les deux textes soutiennent le vélo ; le second souligne aussi son faible coût et demande des pistes sûres. Présentez son apport sans l'opposer au premier.",
+      "essential": true,
+      "themes": []
+    },
+    {
+      "slug": "synthese-position-attribuee",
+      "category": "synthese",
+      "label": "Ne pas transformer un avis en fait",
+      "french": "Le second estime que [sujet + verbe à l'indicatif].",
+      "english": "The second considers that [subject + indicative verb].",
+      "usage": "L'attribution distingue l'argument de l'auteur d'un fait établi. Gardez cette distance avec les affirmations contestables.",
+      "grammar": "Après « estime que » affirmatif, employez l'indicatif. N'écrivez pas « il est prouvé que » si aucune preuve n'est fournie.",
+      "example": "En revanche, le second estime qu’elle aide à identifier et à mémoriser un candidat, notamment pour certains métiers d’accueil.",
+      "example_english": "By contrast, the second considers that it helps identify and remember a candidate, particularly in some customer-facing jobs.",
+      "source_key": "ee-tache3:juin:combinaison-1",
+      "transfer_prompt": "Un auteur affirme que l'uniforme améliore l'ambiance scolaire. Rapportez son opinion sans la présenter comme une certitude.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "synthese-contraste-fidele",
+      "category": "synthese",
+      "label": "Résumer deux positions opposées",
+      "french": "Le premier défend [option A], tandis que le second privilégie [option B].",
+      "english": "The first supports [option A], whereas the second favours [option B].",
+      "usage": "Utilisez ce parallèle seulement si les options sont réellement différentes. Respectez aussi l'ordre réel des documents.",
+      "grammar": "Après « tandis que », écrivez une proposition avec un sujet et un verbe conjugué.",
+      "example": "En revanche, le second privilégie la nature, la tranquillité, les rencontres à domicile et des logements plus spacieux à un prix abordable en zone rurale.",
+      "example_english": "By contrast, the second favours nature, peace and quiet, meeting people at home and more spacious, affordable housing in rural areas.",
+      "source_key": "ee-tache3:aout:combinaison-17",
+      "transfer_prompt": "Le premier texte préfère le train pour son confort, le second l'avion pour sa rapidité. Rédigez une comparaison neutre.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "synthese-document-absent",
+      "category": "synthese",
+      "label": "Signaler un document absent",
+      "french": "Un seul document est disponible sur [thème], car le second manque dans la source.",
+      "english": "Only one document is available on [topic], because the second is missing from the source.",
+      "usage": "Cette formule concerne un dossier d'entraînement incomplet, pas une étape obligatoire à l'examen. Résumez uniquement ce qui est disponible.",
+      "grammar": "N'inventez ni deuxième auteur ni avis opposé pour remplir le plan habituel.",
+      "example": "Un seul document est disponible sur la colocation entre adultes, car le second manque dans la source.",
+      "example_english": "Only one document is available on adults sharing accommodation, because the second is missing from the source.",
+      "source_key": "ee-tache3:juin:combinaison-2",
+      "transfer_prompt": "Un dossier d'entraînement sur le covoiturage ne contient qu'un texte favorable. Signalez le manque avant de résumer ce texte.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "synthese-doublon-source",
+      "category": "synthese",
+      "label": "Signaler deux textes identiques",
+      "french": "Les deux documents publiés sont identiques et abordent [thème].",
+      "english": "The two published documents are identical and discuss [topic].",
+      "usage": "Un doublon n'est pas un débat. Distinguez l'état de la source de votre avis personnel, que vous pourrez développer ensuite.",
+      "grammar": "« Identiques » s'accorde avec « documents ». Ne remplacez pas le doublon par une prétendue opinion contraire.",
+      "example": "Les deux documents publiés sont identiques et abordent la dépendance aux jeux vidéo.",
+      "example_english": "The two published documents are identical and discuss video game addiction.",
+      "source_key": "ee-tache3:mai:combinaison-3-bis",
+      "transfer_prompt": "Deux emplacements reproduisent le même témoignage sur le télétravail. Décrivez honnêtement le dossier.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "synthese-texte-hors-sujet",
+      "category": "synthese",
+      "label": "Écarter un texte inutilisable",
+      "french": "Un seul document traite réellement de [thème], car l'autre texte est sans rapport avec le sujet.",
+      "english": "Only one document actually deals with [topic], because the other text is unrelated to the subject.",
+      "usage": "Dans un dossier défectueux, expliquez pourquoi un texte ne permet pas de construire la synthèse prévue.",
+      "grammar": "Après « traiter de », adaptez l'article : de la gratuité, du logement, des musées. Ne prêtez aucune opinion au texte hors sujet.",
+      "example": "Un seul document traite réellement de l’uniforme scolaire, car le premier texte est une consigne d’écriture sans rapport avec le sujet.",
+      "example_english": "Only one document actually deals with school uniforms, because the first text is a writing instruction unrelated to the subject.",
+      "source_key": "ee-tache3:decembre:combinaison-10",
+      "transfer_prompt": "Un dossier sur le vélo contient par erreur une invitation à un anniversaire. Indiquez la limite de la source.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "avis-position-claire",
+      "category": "affirmation",
+      "label": "Passer à son avis",
+      "french": "Pour ma part, je pense que [position avec un verbe à l'indicatif].",
+      "english": "For my part, I think that [position with an indicative verb].",
+      "usage": "Placez votre avis au début du second paragraphe, après la synthèse neutre. Dites ce que vous soutenez, pas seulement que le sujet est important.",
+      "grammar": "« Je pense que » affirmatif est suivi de l'indicatif : les deux solutions sont utiles.",
+      "example": "Pour ma part, je pense que l’aide immédiate et l’accompagnement durable sont complémentaires.",
+      "example_english": "For my part, I think that immediate help and long-term support complement each other.",
+      "source_key": "ee-tache3:janvier:combinaison-16",
+      "transfer_prompt": "Prenez position sur la coexistence des livres papier et numériques en une phrase.",
+      "essential": true,
+      "themes": []
+    },
+    {
+      "slug": "avis-favorable-condition",
+      "category": "affirmation",
+      "label": "Soutenir sous condition",
+      "french": "Je suis favorable à [mesure], à condition que [sujet + verbe au subjonctif].",
+      "english": "I support [measure], provided that [subject + subjunctive verb].",
+      "usage": "Une condition précise rend votre position nuancée sans la rendre indécise.",
+      "grammar": "« Favorable à » : au projet, à la mesure, aux aides. « À condition que » impose le subjonctif : soit, aient, puissent.",
+      "example": "Pour ma part, je suis favorable à plusieurs repas sans viande par semaine, à condition qu’ils soient équilibrés et savoureux.",
+      "example_english": "For my part, I support several meat-free meals a week, provided they are balanced and tasty.",
+      "source_key": "ee-tache3:janvier:combinaison-18",
+      "transfer_prompt": "Soutenez les musées gratuits à condition que leur financement soit assuré.",
+      "essential": true,
+      "themes": []
+    },
+    {
+      "slug": "avis-preference-prudente",
+      "category": "affirmation",
+      "label": "Exprimer un choix personnel",
+      "french": "Je choisirais [option] si [condition au présent de l'indicatif].",
+      "english": "I would choose [option] if [condition in the present indicative].",
+      "usage": "Exprimez une préférence soumise à une condition réelle encore à vérifier. Le conditionnel atténue votre choix, sans prétendre parler pour tout le monde.",
+      "grammar": "Le modèle combine un choix prudent et une condition au présent. Pour une hypothèse moins réelle, utilisez plutôt si + imparfait, puis conditionnel.",
+      "example": "Pour ma part, je choisirais un vol à bas prix pour un trajet court si les normes de sécurité sont respectées.",
+      "example_english": "For my part, I would choose a low-cost flight for a short trip if safety standards are met.",
+      "source_key": "ee-tache3:janvier:combinaison-19",
+      "transfer_prompt": "Exprimez votre préférence pour un cours en ligne si un professeur reste disponible.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "avis-priorite-normative",
+      "category": "affirmation",
+      "label": "Défendre un principe",
+      "french": "Il faut que [sujet + verbe au subjonctif exprimant la priorité].",
+      "english": "[Subject] must [subjunctive verb expressing the priority].",
+      "usage": "Réservez cette formulation à une exigence que vous justifierez, par exemple l'égalité d'accès.",
+      "grammar": "Il faut que chaque élève puisse ; il faut que les tarifs restent. Ne mettez pas un infinitif juste après « que ».",
+      "example": "Pour ma part, il faut que la qualité de l’éducation ne dépende jamais des revenus familiaux.",
+      "example_english": "For my part, the quality of education must never depend on family income.",
+      "source_key": "ee-tache3:mars:combinaison-5",
+      "transfer_prompt": "Affirmez que les compétences, plutôt que l'apparence, doivent guider le recrutement.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "avis-combiner-solutions",
+      "category": "affirmation",
+      "label": "Refuser un faux choix",
+      "french": "[solution A] et [solution B] doivent se compléter plutôt que s'opposer.",
+      "english": "[solution A] and [solution B] should complement each other rather than oppose each other.",
+      "usage": "Si deux solutions répondent à des besoins distincts, défendez leur association puis expliquez le rôle de chacune.",
+      "grammar": "Deux sujets coordonnés appellent « doivent ». Gardez les infinitifs pronominaux : se compléter, s'opposer.",
+      "example": "Pour ma part, le diplôme et l’expérience doivent se compléter plutôt que s’opposer.",
+      "example_english": "For my part, qualifications and experience should complement each other rather than oppose each other.",
+      "source_key": "ee-tache3:aout:combinaison-18",
+      "transfer_prompt": "Associez aide d'urgence et formation professionnelle sans présenter l'une comme inutile.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "opposition-reelle",
+      "category": "opposition",
+      "label": "Marquer un désaccord réel",
+      "french": "En revanche, [sujet + verbe exprimant le point de vue opposé].",
+      "english": "By contrast, [subject + verb expressing the opposing viewpoint].",
+      "usage": "Choisissez ce connecteur quand la seconde idée contredit ou contrebalance vraiment la première, pas automatiquement au deuxième document.",
+      "grammar": "La virgule suit « En revanche ». Complétez par une proposition entière et attribuez l'avis si vous êtes dans la synthèse.",
+      "example": "En revanche, le second s’y oppose : trop de boissons sucrées favorisent l’obésité et d’autres problèmes de santé.",
+      "example_english": "By contrast, the second opposes it: too many sugary drinks contribute to obesity and other health problems.",
+      "source_key": "ee-tache3:janvier:combinaison-1",
+      "transfer_prompt": "Un texte soutient la publicité pour informer, un autre la critique comme envahissante. Reliez leurs positions.",
+      "essential": true,
+      "themes": []
+    },
+    {
+      "slug": "opposition-comparer-fonctions",
+      "category": "opposition",
+      "label": "Comparer sans exclure",
+      "french": "[solution A] permet de [fonction A], tandis que [solution B] peut [fonction B].",
+      "english": "[solution A] makes it possible to [function A], while [solution B] can [function B].",
+      "usage": "Montrez ce que chaque option apporte. Une comparaison peut expliquer une complémentarité, pas seulement désigner un gagnant.",
+      "grammar": "« Permet de » + infinitif ; « peut » + infinitif sans « de ». Les deux sujets peuvent être différents.",
+      "example": "Un enregistrement peut éclairer un incident, tandis qu’un adulte présent peut parfois l’empêcher.",
+      "example_english": "A recording can shed light on an incident, while an adult who is present can sometimes prevent it.",
+      "source_key": "ee-tache3:avril:combinaison-8",
+      "transfer_prompt": "Comparez ce qu'un cours enregistré et une conversation avec un professeur apportent à l'apprentissage.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "opposition-plutot-que",
+      "category": "opposition",
+      "label": "Proposer une meilleure option",
+      "french": "Il vaut mieux [action choisie à l'infinitif] que [action écartée à l'infinitif].",
+      "english": "It is better to [chosen action in the infinitive] rather than [rejected action in the infinitive].",
+      "usage": "Nommez une alternative concrète à la mesure que vous critiquez au lieu de vous limiter au refus.",
+      "grammar": "« Il vaut mieux » est impersonnel ; les deux actions restent à l'infinitif.",
+      "example": "Par exemple, une ville pourrait rénover un stade existant plutôt qu’en construire un nouveau, puis l’ouvrir aux associations locales après le tournoi.",
+      "example_english": "For example, a city could renovate an existing stadium rather than build a new one, then open it to local associations after the tournament.",
+      "source_key": "ee-tache3:avril:combinaison-17",
+      "transfer_prompt": "Préférez améliorer la fréquence des bus à construire un nouveau parking, avec une raison.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "opposition-limite-substitution",
+      "category": "opposition",
+      "label": "Empêcher un remplacement",
+      "french": "[outil] doit compléter [activité ou soutien], sans [conséquence indésirable à l'infinitif].",
+      "english": "[tool] should complement [activity or support], without [undesirable action in the -ing form].",
+      "usage": "Défendez une innovation tout en protégeant ce qu'elle ne doit pas faire disparaître.",
+      "grammar": "Après « sans », employez l'infinitif. Si vous utilisez « le/la/les remplacer », vérifiez clairement l'antécédent.",
+      "example": "En conclusion, les caméras doivent compléter des patrouilles et des actions de prévention, sans les remplacer.",
+      "example_english": "In conclusion, cameras should complement patrols and prevention measures, not replace them.",
+      "source_key": "ee-tache3:avril:combinaison-1",
+      "transfer_prompt": "Expliquez pourquoi une application scolaire ne doit pas remplacer l'accompagnement du professeur.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "concession-bien-que",
+      "category": "concession",
+      "label": "Reconnaître un avantage",
+      "french": "Bien que [sujet + verbe au subjonctif], [position principale].",
+      "english": "Although [subject + subjunctive verb], [main position].",
+      "usage": "Accordez un avantage réel à l'autre option, puis maintenez une position compatible avec cet avantage.",
+      "grammar": "« Bien que » + subjonctif : bien que la mesure soit utile, bien qu'elle puisse aider. « Malgré » demande un nom.",
+      "example": "Pour ma part, bien qu’elle puisse dépanner, la restauration rapide ne devrait pas devenir une habitude quotidienne.",
+      "example_english": "For my part, although it can be handy, fast food should not become a daily habit.",
+      "source_key": "ee-tache3:avril:combinaison-13",
+      "transfer_prompt": "Reconnaissez que les jeux vidéo peuvent stimuler la réflexion, puis limitez leur durée.",
+      "essential": true,
+      "themes": []
+    },
+    {
+      "slug": "concession-malgre-nom",
+      "category": "concession",
+      "label": "Reconnaître un coût ou une gêne",
+      "french": "Malgré [limite sous forme de groupe nominal], [avantage ou choix défendu].",
+      "english": "Despite [limitation as a noun phrase], [benefit or defended choice].",
+      "usage": "Employez une concession courte quand la limite est facile à nommer : coût, bruit, distance.",
+      "grammar": "« Malgré » + nom, pas « malgré que ». Pour une phrase conjuguée, utilisez « bien que » et le subjonctif.",
+      "example": "Le premier apprécie leurs tarifs avantageux, parfois inférieurs à ceux du train ou de la voiture, malgré l’absence de services à bord.",
+      "example_english": "The first appreciates their attractive fares, sometimes lower than those of trains or cars, despite the lack of onboard services.",
+      "source_key": "ee-tache3:janvier:combinaison-19",
+      "transfer_prompt": "Défendez une sortie occasionnelle au restaurant malgré son coût.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "concession-sans-renoncer",
+      "category": "concession",
+      "label": "Garder une place à l'autre option",
+      "french": "Au quotidien, je préfère [choix principal], sans renoncer à [exception limitée].",
+      "english": "In everyday life, I prefer [main choice], without giving up [limited exception].",
+      "usage": "Évitez le tout ou rien : indiquez ce qui est habituel et ce qui reste occasionnel.",
+      "grammar": "« Renoncer à » : au restaurant, aux sorties. Dans ce modèle, « je » désigne la personne qui préfère une option et qui ne renonce pas à l'autre.",
+      "example": "Pour ma part, il me semble que manger chez soi est la solution la plus raisonnable au quotidien, sans renoncer au restaurant.",
+      "example_english": "For my part, it seems to me that eating at home is the most sensible everyday option, without giving up restaurants.",
+      "source_key": "ee-tache3:janvier:combinaison-12",
+      "transfer_prompt": "Préférez les commerces locaux tout en conservant certains achats au supermarché.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "concession-benefice-non-suffisant",
+      "category": "concession",
+      "label": "Distinguer bénéfice et justification",
+      "french": "[avantage] ne justifie pas [coût ou contrainte inacceptable].",
+      "english": "[benefit] does not justify [unacceptable cost or constraint].",
+      "usage": "Un bénéfice peut être réel sans suffire à justifier toute conséquence. Précisez la limite que vous refusez.",
+      "grammar": "« Justifier » est transitif direct : justifier les dépenses. Accordez le verbe avec le sujet.",
+      "example": "Des bureaux modernes ne justifient jamais les heures supplémentaires permanentes.",
+      "example_english": "Modern desks never justify constant overtime.",
+      "source_key": "ee-tache3:juillet:combinaison-6",
+      "transfer_prompt": "Expliquez pourquoi des tarifs bas ne justifient pas une baisse des normes de sécurité.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "condition-subjonctif",
+      "category": "conditions",
+      "label": "Formuler la condition nécessaire",
+      "french": "[solution] est utile à condition que [sujet + verbe au subjonctif].",
+      "english": "[solution] is useful provided that [subject + subjunctive verb].",
+      "usage": "Choisissez une condition vérifiable qui répond au principal risque, plutôt qu'une formule vague comme « si tout va bien ».",
+      "grammar": "À condition que le réseau soit fiable ; que les responsables garantissent un suivi ; que chacun puisse participer.",
+      "example": "Pour ma part, la gratuité des transports est utile à condition que le réseau desserve réellement tous les quartiers.",
+      "example_english": "For my part, free public transport is useful provided the network actually serves every neighbourhood.",
+      "source_key": "ee-tache3:juillet:combinaison-8",
+      "transfer_prompt": "Rendez votre soutien aux cours en ligne dépendant d'un accompagnement régulier.",
+      "essential": true,
+      "themes": []
+    },
+    {
+      "slug": "condition-si-present",
+      "category": "conditions",
+      "label": "Énoncer une condition réelle",
+      "french": "Si [sujet + présent de l'indicatif], [résultat au présent ou au futur].",
+      "english": "If [subject + present indicative], [result in the present or future].",
+      "usage": "Utilisez « si » pour une condition concrète que vous jugez réalisable, en adaptant l'ordre des deux propositions.",
+      "grammar": "Pas de futur après le « si » conditionnel : si les bus passent, les habitants pourront partir.",
+      "example": "Pour ma part, les maisons de retraite sont utiles si la personne âgée les choisit librement.",
+      "example_english": "For my part, care homes are useful if the older person chooses them freely.",
+      "source_key": "ee-tache3:aout:combinaison-1",
+      "transfer_prompt": "Dites ce qui sera possible si une bibliothèque ouvre le dimanche.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "condition-hypothese-imparfait",
+      "category": "conditions",
+      "label": "Imaginer une autre situation",
+      "french": "Si [sujet + imparfait], [sujet + conditionnel présent].",
+      "english": "If [subject + imperfect tense], [subject + present conditional].",
+      "usage": "Imaginez une situation qui n'est pas présentée comme réelle. La condition et sa conséquence doivent aller ensemble.",
+      "grammar": "Si les tarifs baissaient, je choisirais ; jamais « si les tarifs baisseraient ».",
+      "example": "Par exemple, une étudiante pressée pourrait choisir un sandwich aux légumes, un yaourt et de l’eau si cette formule coûtait moins cher qu’un menu avec frites.",
+      "example_english": "For example, a student in a hurry could choose a vegetable sandwich, yoghurt and water if that meal cost less than a menu with chips.",
+      "source_key": "ee-tache3:aout:combinaison-15",
+      "transfer_prompt": "Imaginez que des trains plus fréquents vous permettent d'habiter à la campagne.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "condition-but-pour-que",
+      "category": "conditions",
+      "label": "Nommer le résultat recherché",
+      "french": "Il faut [action à l'infinitif] pour que [autre sujet + subjonctif].",
+      "english": "It is necessary to [action in the infinitive] so that [another subject + subjunctive].",
+      "usage": "Reliez la mesure à son objectif. Un objectif souhaité n'est pas une conséquence déjà démontrée.",
+      "grammar": "« Pour que » + subjonctif quand les sujets diffèrent ; « pour » + infinitif si le même acteur agit.",
+      "example": "En conclusion, la photo doit rester facultative pour que chaque candidat soit d’abord jugé sur son savoir-faire.",
+      "example_english": "In conclusion, the photo should remain optional so that every candidate is judged first on their skills.",
+      "source_key": "ee-tache3:juin:combinaison-1",
+      "transfer_prompt": "Proposez des bourses pour que les élèves modestes puissent participer à une sortie.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "condition-avant-action",
+      "category": "conditions",
+      "label": "Prévoir avant d'imposer",
+      "french": "Avant de [mesure à l'infinitif], il faut [préparation à l'infinitif].",
+      "english": "Before [action in the -ing form], it is necessary to [preparatory action in the infinitive].",
+      "usage": "Distinguez l'objectif souhaitable de sa mise en œuvre : quelle préparation évitera de pénaliser certains usagers ?",
+      "grammar": "« Avant de » + infinitif ; le responsable de la préparation doit être clair dans le contexte.",
+      "example": "De plus, il faut que des alternatives crédibles soient prévues avant les restrictions pour les travailleurs qui dépendent de leur véhicule.",
+      "example_english": "Moreover, credible alternatives must be arranged before restrictions for workers who depend on their vehicles.",
+      "source_key": "ee-tache3:janvier:combinaison-17",
+      "transfer_prompt": "Avant d'imposer des manuels numériques, indiquez ce que l'école doit fournir.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "argument-premiere-raison",
+      "category": "arguments",
+      "label": "Donner la première raison",
+      "french": "Tout d'abord, [action ou mesure] permet de [bénéfice à l'infinitif].",
+      "english": "First of all, [action or measure] makes it possible to [benefit in the infinitive].",
+      "usage": "Donnez une raison qui soutient votre avis, puis expliquez son mécanisme ou illustrez-la immédiatement.",
+      "grammar": "« Permettre de » + infinitif. Un infinitif sujet est singulier : partager permet, pas permettent.",
+      "example": "Tout d’abord, partager le loyer permet de vivre près de son université sans dépasser son budget.",
+      "example_english": "First of all, sharing the rent makes it possible to live near one's university without exceeding one's budget.",
+      "source_key": "ee-tache3:janvier:combinaison-3",
+      "transfer_prompt": "Défendez les transports publics en expliquant une économie concrète pour un étudiant.",
+      "essential": true,
+      "themes": []
+    },
+    {
+      "slug": "argument-deuxieme-raison",
+      "category": "arguments",
+      "label": "Ajouter une raison distincte",
+      "french": "De plus, [second argument différent du premier].",
+      "english": "Moreover, [second argument distinct from the first].",
+      "usage": "Après un premier argument économique, choisissez par exemple un effet social. Reformuler la même économie n'ajoute pas une raison.",
+      "grammar": "Après le connecteur, écrivez une phrase complète avec un verbe. Développez-la avant la conclusion.",
+      "example": "De plus, partager le déjeuner préserve les échanges entre collègues.",
+      "example_english": "Moreover, sharing lunch preserves interaction between colleagues.",
+      "source_key": "ee-tache3:janvier:combinaison-8",
+      "transfer_prompt": "Vous avez expliqué que le sport entretient la forme. Ajoutez un argument différent sur les rencontres.",
+      "essential": true,
+      "themes": []
+    },
+    {
+      "slug": "argument-mecanisme-car",
+      "category": "arguments",
+      "label": "Expliquer pourquoi",
+      "french": "[argument], car [mécanisme concret avec un verbe conjugué].",
+      "english": "[argument], because [concrete mechanism with a conjugated verb].",
+      "usage": "Répondez à « pourquoi ? » au lieu de répéter l'avantage. La cause doit rendre le raisonnement compréhensible.",
+      "grammar": "« Car » relie deux propositions ; ne le faites pas suivre d'un simple nom.",
+      "example": "Tout d’abord, elles peuvent aider les enquêteurs après les faits, car les images permettent d’identifier un suspect ou de reconstituer son trajet.",
+      "example_english": "First of all, they can help investigators afterwards, because the images make it possible to identify a suspect or reconstruct their route.",
+      "source_key": "ee-tache3:avril:combinaison-1",
+      "transfer_prompt": "Expliquez pourquoi un stage facilite l'entrée dans le monde du travail.",
+      "essential": true,
+      "themes": []
+    },
+    {
+      "slug": "argument-en-effet",
+      "category": "arguments",
+      "label": "Justifier sans nouvel argument",
+      "french": "[affirmation]. En effet, [explication précise].",
+      "english": "[claim]. Indeed, [precise explanation].",
+      "usage": "La deuxième phrase soutient la première. « En effet » n'introduit ni une preuve inventée ni un argument sans rapport.",
+      "grammar": "Utilisez l'indicatif pour expliquer un mécanisme plausible ; ajoutez « peut » si l'effet n'est pas systématique.",
+      "example": "Ces jeux obligent en effet à anticiper, à comparer plusieurs solutions et à corriger ses erreurs.",
+      "example_english": "These games do indeed require players to anticipate, compare several solutions and correct their mistakes.",
+      "source_key": "ee-tache3:mai:combinaison-1",
+      "transfer_prompt": "Justifiez l'idée que préparer un budget aide les jeunes à devenir autonomes.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "argument-comparer-criteres",
+      "category": "arguments",
+      "label": "Choisir selon des critères",
+      "french": "Le choix doit tenir compte de [critère 1], de [critère 2] et de [critère 3].",
+      "english": "The choice must take [criterion 1], [criterion 2] and [criterion 3] into account.",
+      "usage": "Remplacez le jugement général « c'est mieux » par des critères adaptés au public et à la situation.",
+      "grammar": "« Tenir compte de » : du prix, de la qualité, des besoins. Répétez la préposition pour clarifier la liste.",
+      "example": "En conclusion, le plus important est de répartir ses achats selon le prix, la qualité et l’impact sur la vie du quartier.",
+      "example_english": "In conclusion, what matters most is distributing purchases according to price, quality and their impact on neighbourhood life.",
+      "source_key": "ee-tache3:mars:combinaison-9",
+      "transfer_prompt": "Choisissez trois critères pour comparer une résidence spécialisée et l'aide à domicile.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "exemple-acteur-action",
+      "category": "exemples",
+      "label": "Donner un exemple plausible",
+      "french": "Par exemple, [acteur concret] peut [action précise] pour [objectif à l'infinitif].",
+      "english": "For example, [specific actor] can [specific action] to [goal in the infinitive].",
+      "usage": "Choisissez une scène courte qui rend l'argument visible. Un exemple possible n'est pas une enquête ni une expérience réellement vécue.",
+      "grammar": "« Peut » + infinitif. « Pour » + infinitif exprime l'objectif du même acteur.",
+      "example": "Par exemple, une salariée peut suivre deux cours du soir sur son ordinateur après le travail.",
+      "example_english": "For example, an employee can take two evening classes on her computer after work.",
+      "source_key": "ee-tache3:janvier:combinaison-9",
+      "transfer_prompt": "Illustrez comment une bibliothèque peut aider une personne malvoyante à lire.",
+      "essential": true,
+      "themes": []
+    },
+    {
+      "slug": "exemple-hypothetique",
+      "category": "exemples",
+      "label": "Proposer plutôt qu'inventer un fait",
+      "french": "Une [organisation concrète] pourrait [mesure précise], puis [action de suivi].",
+      "english": "A [specific organisation] could [specific measure], then [follow-up action].",
+      "usage": "Le conditionnel signale une proposition imaginée. Précisez qui agit et ce qui sera fait ensuite.",
+      "grammar": "« Pourrait » et les deux infinitifs ont le même sujet. N'ajoutez pas une statistique prétendument réelle.",
+      "example": "Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, la qualité du service et le bien-être des équipes.",
+      "example_english": "For example, a company could trial a four-day week for three months, then measure productivity, service quality and staff well-being.",
+      "source_key": "ee-tache3:avril:combinaison-10",
+      "transfer_prompt": "Imaginez un essai de bus gratuits le samedi et indiquez comment la ville en observerait les effets.",
+      "essential": true,
+      "themes": []
+    },
+    {
+      "slug": "exemple-details-utiles",
+      "category": "exemples",
+      "label": "Rendre une scène concrète",
+      "french": "Par exemple, [personne] peut [action] pendant [durée choisie pour l'exemple], puis [activité complémentaire].",
+      "english": "For example, [person] can [action] for [duration chosen for the example], then [complementary activity].",
+      "usage": "Une durée ou un lieu rend la scène concrète, mais ne constitue pas une recommandation médicale ni une norme universelle.",
+      "grammar": "« Peut » commande deux infinitifs : lire pendant dix minutes, puis échanger. « Pendant » introduit la durée. Celle-ci illustre une situation ; ce n'est pas une norme scientifique.",
+      "example": "Par exemple, une famille peut lire dix minutes chaque soir une bande dessinée choisie par l’enfant, puis échanger sur son personnage préféré.",
+      "example_english": "For example, a family can read a comic chosen by the child for ten minutes each evening, then discuss the child's favourite character.",
+      "source_key": "ee-tache3:mars:combinaison-3",
+      "transfer_prompt": "Imaginez une courte séance de devoirs suivie d'une activité familiale, sans en faire une règle pour tous.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "exemple-revenir-argument",
+      "category": "exemples",
+      "label": "Expliquer ce que l'exemple montre",
+      "french": "Cela permettrait de [bénéfice lié à l'argument] sans [risque à l'infinitif].",
+      "english": "This would make it possible to [benefit linked to the argument] without [action to avoid, in the -ing form].",
+      "usage": "Revenez à l'argument après l'exemple si le lien n'est pas évident. « Cela » doit désigner la mesure qui vient d'être décrite.",
+      "grammar": "Le conditionnel garde le statut hypothétique de l'exemple : permettrait, favoriserait.",
+      "example": "Cela permettrait aux habitants de comparer les prix sans remplir leurs boîtes aux lettres.",
+      "example_english": "This would allow residents to compare prices without filling their letterboxes.",
+      "source_key": "ee-tache3:octobre:combinaison-1",
+      "transfer_prompt": "Après un exemple de créneaux gratuits sur réservation au musée, expliquez le bénéfice pour les visiteurs.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "consequence-ainsi",
+      "category": "consequences",
+      "label": "Déduire un effet",
+      "french": "Ainsi, [sujet + effet concret au présent].",
+      "english": "Thus, [subject + concrete effect in the present tense].",
+      "usage": "« Ainsi » relie l'effet au mécanisme précédent. Ne l'utilisez pas pour ajouter une idée indépendante.",
+      "grammar": "Nommez le sujet si « cela » devient ambigu. Utilisez « peut » si la conséquence reste possible.",
+      "example": "Chacun avance ainsi à son rythme sans ralentir le reste de la classe.",
+      "example_english": "Each learner can thus progress at their own pace without slowing down the rest of the class.",
+      "source_key": "ee-tache3:mars:combinaison-7",
+      "transfer_prompt": "Vous avez proposé des exercices adaptés à chaque niveau. Expliquez leur effet sur l'apprentissage.",
+      "essential": true,
+      "themes": []
+    },
+    {
+      "slug": "consequence-risque",
+      "category": "consequences",
+      "label": "Exprimer un risque mesuré",
+      "french": "[décision] risque de [effet négatif à l'infinitif].",
+      "english": "[decision] risks [negative effect expressed with an -ing verb].",
+      "usage": "Présentez un danger plausible sans affirmer qu'il se réalisera dans tous les cas.",
+      "grammar": "« Risquer de » + infinitif. Accordez « risque » avec la décision, non avec le nom placé après « de ».",
+      "example": "De plus, réduire les heures sans revoir la charge risque simplement d’intensifier chaque journée.",
+      "example_english": "Moreover, reducing hours without reviewing the workload simply risks making each day more intense.",
+      "source_key": "ee-tache3:avril:combinaison-10",
+      "transfer_prompt": "Expliquez le risque d'ouvrir gratuitement un musée sans prévoir de financement.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "consequence-sinon",
+      "category": "consequences",
+      "label": "Montrer l'absence de précaution",
+      "french": "Il faut [précaution à l'infinitif]. Sinon, [conséquence négative].",
+      "english": "It is necessary to [precaution in the infinitive]. Otherwise, [negative consequence].",
+      "usage": "Faites comprendre pourquoi une condition est importante en montrant ce qui peut arriver si elle n'est pas respectée.",
+      "grammar": "« Sinon » renvoie à la précaution précédente. Évitez une menace sans lien logique.",
+      "example": "Sinon, les personnes écartées se sentent exclues et l’équipe se divise.",
+      "example_english": "Otherwise, those left out feel excluded and the team becomes divided.",
+      "source_key": "ee-tache3:juillet:combinaison-44",
+      "transfer_prompt": "Demandez des règles de ménage en colocation puis expliquez ce qui peut arriver sans ces règles.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "consequence-cout-evite",
+      "category": "consequences",
+      "label": "Relier un effort à un coût évité",
+      "french": "[mesure préventive] peut éviter [problème] et réduire [coût associé].",
+      "english": "[preventive measure] can prevent [problem] and reduce [associated cost].",
+      "usage": "Développez un argument de prévention sans promettre un résultat certain ni chiffrer une économie non documentée.",
+      "grammar": "« Peut » gouverne les deux infinitifs : éviter et réduire. N'utilisez pas « élimine tout risque ».",
+      "example": "Ces mesures peuvent éviter des arrêts de travail liés à une mauvaise posture.",
+      "example_english": "These measures can prevent sick leave linked to poor posture.",
+      "source_key": "ee-tache3:juillet:combinaison-6",
+      "transfer_prompt": "Reliez l'entretien régulier des bus à la réduction des pannes et des retards.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "conclusion-position-condition",
+      "category": "conclusions",
+      "label": "Reprendre le choix central",
+      "french": "En conclusion, je soutiens [mesure] lorsqu'elle s'accompagne de [condition déjà expliquée].",
+      "english": "In conclusion, I support [measure] when it is accompanied by [condition already explained].",
+      "usage": "Terminez par votre position et la condition développée plus haut. Ne changez pas d'avis sans explication et n'ajoutez pas un nouvel argument.",
+      "grammar": "Adaptez elle/il/elles/ils au nom repris. « Lorsque » prend l'indicatif, contrairement à « à condition que ».",
+      "example": "En conclusion, je soutiens la gratuité lorsqu’elle s’accompagne d’un réseau fréquent, fiable et bien entretenu.",
+      "example_english": "In conclusion, I support free travel when it is accompanied by a frequent, reliable and well-maintained network.",
+      "source_key": "ee-tache3:juillet:combinaison-8",
+      "transfer_prompt": "Concluez un avis favorable aux écrans scolaires, déjà limité à un usage accompagné.",
+      "essential": true,
+      "themes": []
+    },
+    {
+      "slug": "conclusion-priorite",
+      "category": "conclusions",
+      "label": "Rappeler la priorité",
+      "french": "En conclusion, le plus important est de [priorité à l'infinitif].",
+      "english": "In conclusion, what matters most is to [priority in the infinitive].",
+      "usage": "Résumez le critère qui a guidé vos deux arguments, sans recopier toute l'introduction.",
+      "grammar": "Après « est de », utilisez l'infinitif. La priorité doit être déjà présente dans le raisonnement.",
+      "example": "En conclusion, le plus important est de trouver un équilibre raisonnable entre sécurité, dialogue et liberté afin de préparer progressivement les jeunes à prendre leurs propres décisions.",
+      "example_english": "In conclusion, what matters most is finding a reasonable balance between safety, dialogue and freedom to gradually prepare young people to make their own decisions.",
+      "source_key": "ee-tache3:mars:combinaison-10",
+      "transfer_prompt": "Concluez un texte sur les devoirs centré sur l'autonomie et l'égalité.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "conclusion-complementarite",
+      "category": "conclusions",
+      "label": "Conclure par une association",
+      "french": "En conclusion, je privilégie [solution qui associe les deux apports déjà développés].",
+      "english": "In conclusion, I favour [solution combining the two contributions already developed].",
+      "usage": "Lorsque votre réponse refuse un faux choix, rappelez comment les deux options travaillent ensemble.",
+      "grammar": "Après « privilégier », mettez un complément direct, pas « privilégier à ».",
+      "example": "En conclusion, je privilégie des études qui associent cours exigeants et expériences professionnelles réelles.",
+      "example_english": "In conclusion, I favour studies that combine demanding courses with real professional experience.",
+      "source_key": "ee-tache3:aout:combinaison-18",
+      "transfer_prompt": "Concluez votre réponse sur l'aide aux plus pauvres en associant urgence et accompagnement.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "conclusion-recommandation-ciblee",
+      "category": "conclusions",
+      "label": "Recommander une application",
+      "french": "En conclusion, je recommande [mesure limitée déjà justifiée], plutôt qu'une application systématique.",
+      "english": "In conclusion, I recommend [limited measure already justified], rather than systematic implementation.",
+      "usage": "Rappelez le périmètre défendu : certains moments, publics ou usages. Ne promettez ni score d'examen ni réussite automatique.",
+      "grammar": "« Recommander » + nom ou infinitif ; avec une proposition, utilisez « recommander que » + subjonctif.",
+      "example": "En conclusion, je recommande seulement les recettes simples et validées.",
+      "example_english": "In conclusion, I recommend only simple, validated recipes.",
+      "source_key": "ee-tache3:decembre:combinaison-13",
+      "transfer_prompt": "Concluez un texte favorable aux emplois de vacances uniquement sur une durée compatible avec le repos.",
+      "essential": false,
+      "themes": []
+    },
+    {
+      "slug": "ecole-eau-accessible",
+      "category": "education",
+      "label": "Répondre à un besoin pratique",
+      "french": "Un accès rapide à [ressource utile] aide les élèves à [activité nécessaire].",
+      "english": "Quick access to [useful resource] helps students to [necessary activity].",
+      "usage": "Défendez un service par le besoin auquel il répond, sans oublier de contrôler son contenu.",
+      "grammar": "« Aider quelqu'un à » + infinitif. Choisissez une ressource adaptée, pas n'importe quel produit vendu.",
+      "example": "Tout d’abord, un accès rapide à une boisson aide les élèves à rester concentrés pendant une longue journée.",
+      "example_english": "First of all, quick access to a drink helps students stay focused during a long day.",
+      "source_key": "ee-tache3:janvier:combinaison-1",
+      "transfer_prompt": "Expliquez l'intérêt de fontaines à eau près des salles de sport.",
+      "essential": false,
+      "themes": [
+        "education"
+      ]
+    },
+    {
+      "slug": "ecole-financement-egalite",
+      "category": "education",
+      "label": "Garantir l'égalité des moyens",
+      "french": "Une école publique bien financée permet à chaque élève de bénéficier de [moyen pédagogique].",
+      "english": "A well-funded state school enables every student to benefit from [educational resource].",
+      "usage": "Reliez le financement à des moyens concrets plutôt qu'à une qualité abstraite.",
+      "grammar": "« Permettre à quelqu'un de » + infinitif ; « bénéficier de » + nom.",
+      "example": "Chaque élève peut alors disposer de professeurs, de matériel et d’un accompagnement comparables, quel que soit le quartier ou le revenu des parents.",
+      "example_english": "Every student can then have comparable teachers, equipment and support, regardless of their neighbourhood or their parents' income.",
+      "source_key": "ee-tache3:mars:combinaison-5",
+      "transfer_prompt": "Défendez le financement d'une bibliothèque scolaire dans un quartier modeste.",
+      "essential": false,
+      "themes": [
+        "education"
+      ]
+    },
+    {
+      "slug": "ecole-devoirs-consolidation",
+      "category": "education",
+      "label": "Expliquer la révision",
+      "french": "Une révision régulière consolide [apprentissage] et apprend aux élèves à organiser leur temps.",
+      "english": "Regular revision consolidates [learning] and teaches students to organise their time.",
+      "usage": "Développez le mécanisme d'un devoir utile : reprendre un apprentissage précis, sans donner toujours plus de travail.",
+      "grammar": "« Apprendre à » + infinitif. « Régulière » s'accorde avec « révision ».",
+      "example": "Tout d’abord, une révision régulière consolide les apprentissages et apprend à organiser son temps.",
+      "example_english": "First of all, regular revision consolidates learning and teaches students to organise their time.",
+      "source_key": "ee-tache3:mars:combinaison-6",
+      "transfer_prompt": "Proposez une courte révision de vocabulaire après un cours de langue et expliquez son utilité.",
+      "essential": false,
+      "themes": [
+        "education"
+      ]
+    },
+    {
+      "slug": "ecole-numerique-rythme",
+      "category": "education",
+      "label": "Adapter au niveau",
+      "french": "Des exercices adaptés au niveau de l'élève lui permettent d'avancer à son rythme.",
+      "english": "Exercises adapted to the student's level allow them to progress at their own pace.",
+      "usage": "Montrez comment un outil peut aider, sans prétendre qu'un écran améliore automatiquement l'enseignement.",
+      "grammar": "« Lui » renvoie à l'élève ; « permettent » s'accorde avec « exercices ».",
+      "example": "Tout d’abord, il donne accès à des ressources actualisées et permet d’adapter certains exercices au niveau de l’élève.",
+      "example_english": "First of all, it gives access to up-to-date resources and makes it possible to adapt some exercises to the student's level.",
+      "source_key": "ee-tache3:mars:combinaison-7",
+      "transfer_prompt": "Expliquez l'intérêt de proposer deux niveaux de difficulté dans un atelier de lecture.",
+      "essential": false,
+      "themes": [
+        "education"
+      ]
+    },
+    {
+      "slug": "ecole-uniforme-inclusion",
+      "category": "education",
+      "label": "Limiter la comparaison sociale",
+      "french": "Une tenue commune peut réduire la comparaison des marques, à condition de rester abordable.",
+      "english": "A shared uniform can reduce brand comparisons, provided it remains affordable.",
+      "usage": "Reliez la règle à l'égalité visible tout en reconnaissant son coût pour les familles.",
+      "grammar": "« À condition de » + infinitif convient ici car la tenue doit rester abordable. Ne promettez pas de supprimer toutes les inégalités.",
+      "example": "Tout d’abord, une tenue commune réduit la comparaison des marques et simplifie les choix du matin.",
+      "example_english": "First of all, a shared uniform reduces brand comparisons and simplifies morning choices.",
+      "source_key": "ee-tache3:avril:combinaison-12",
+      "transfer_prompt": "Proposez une tenue pour les sorties scolaires qui ne mette pas les familles en difficulté.",
+      "essential": false,
+      "themes": [
+        "education"
+      ]
+    },
+    {
+      "slug": "ecole-aide-sans-parents",
+      "category": "education",
+      "label": "Éviter une inégalité cachée",
+      "french": "Les exercices difficiles doivent être expliqués à l'école pour ne pas pénaliser les familles moins disponibles.",
+      "english": "Difficult exercises should be explained at school so as not to disadvantage families with less time available.",
+      "usage": "Une même consigne à la maison n'offre pas toujours les mêmes chances : précisez l'aide à fournir.",
+      "grammar": "Accord du participe passif avec « exercices » : expliqués. « Pour ne pas » précède l'infinitif.",
+      "example": "De plus, il faut que les exercices difficiles soient expliqués ou commencés à l’école pour ne pas pénaliser les familles moins disponibles.",
+      "example_english": "Moreover, difficult exercises must be explained or started at school so as not to disadvantage families with less time available.",
+      "source_key": "ee-tache3:juillet:combinaison-9",
+      "transfer_prompt": "Adaptez cet argument à un projet scolaire qui demande normalement l'aide des parents.",
+      "essential": false,
+      "themes": [
+        "education"
+      ]
+    },
+    {
+      "slug": "ecole-recettes-collectives",
+      "category": "education",
+      "label": "Réinvestir dans un bien commun",
+      "french": "Une partie des recettes peut financer [équipement pédagogique] utile à tous.",
+      "english": "Part of the revenue can fund [educational equipment] that benefits everyone.",
+      "usage": "Précisez la destination de l'argent plutôt que de présenter les recettes comme une fin en soi.",
+      "grammar": "Le sujet est « une partie », donc « peut ». L'utilité collective ne dispense pas de règles sanitaires.",
+      "example": "De plus, les recettes peuvent financer des outils pédagogiques utiles à tous.",
+      "example_english": "Moreover, the revenue can fund educational tools that benefit everyone.",
+      "source_key": "ee-tache3:novembre:combinaison-3",
+      "transfer_prompt": "Expliquez à quoi une école pourrait consacrer les recettes d'une fête de fin d'année.",
+      "essential": false,
+      "themes": [
+        "education"
+      ]
+    },
+    {
+      "slug": "ecole-regle-souple",
+      "category": "education",
+      "label": "Adapter la règle aux besoins",
+      "french": "Une règle commune doit laisser plusieurs choix pour respecter le confort et les besoins de chacun.",
+      "english": "A shared rule should leave several choices to respect everyone's comfort and needs.",
+      "usage": "Distinguez cohérence collective et uniformité totale. Donnez ensuite un choix concret.",
+      "grammar": "« Laisser » + complément direct ; « chacun » est singulier. Ne réutilisez pas un argument absent dans la synthèse d'un document.",
+      "example": "De plus, plusieurs coupes et couleurs permettent de conserver une certaine liberté sans perdre la cohérence collective.",
+      "example_english": "Moreover, several cuts and colours make it possible to retain some freedom without losing collective consistency.",
+      "source_key": "ee-tache3:decembre:combinaison-10",
+      "transfer_prompt": "Proposez une règle de tenue adaptée à la chaleur et à différents besoins physiques.",
+      "essential": false,
+      "themes": [
+        "education"
+      ]
+    },
+    {
+      "slug": "ecole-mixite-ouverture",
+      "category": "education",
+      "label": "Apprendre à vivre ensemble",
+      "french": "La mixité sociale développe l'ouverture d'esprit en réunissant des élèves de milieux différents.",
+      "english": "Social diversity develops open-mindedness by bringing together students from different backgrounds.",
+      "usage": "Expliquez la valeur éducative des rencontres, en évitant de réduire la réussite à la réputation d'un établissement.",
+      "grammar": "« En réunissant » exprime le moyen. « Différents » s'accorde avec « milieux ».",
+      "example": "De plus, la mixité sociale développe l’ouverture d’esprit et prépare à vivre avec des personnes différentes.",
+      "example_english": "Moreover, social diversity develops open-mindedness and prepares students to live with people who are different from them.",
+      "source_key": "ee-tache3:mars:combinaison-5",
+      "transfer_prompt": "Défendez un projet commun entre deux collèges de quartiers différents.",
+      "essential": false,
+      "themes": [
+        "education"
+      ]
+    },
+    {
+      "slug": "ecole-repos-protege",
+      "category": "education",
+      "label": "Limiter la charge scolaire",
+      "french": "Limiter la quantité de devoirs préserve le repos et laisse du temps aux activités familiales.",
+      "english": "Limiting the amount of homework protects rest and leaves time for family activities.",
+      "usage": "Présentez le repos comme une condition d'équilibre, non comme un refus d'apprendre.",
+      "grammar": "Le groupe infinitif « limiter la quantité » est sujet singulier : préserve, laisse.",
+      "example": "De plus, limiter la quantité préserve le repos et les activités familiales.",
+      "example_english": "Moreover, limiting the amount protects rest and family activities.",
+      "source_key": "ee-tache3:mars:combinaison-6",
+      "transfer_prompt": "Proposez un équilibre entre une préparation d'examen et des activités sportives.",
+      "essential": false,
+      "themes": [
+        "education"
+      ]
+    },
+    {
+      "slug": "sante-formation-pratique",
+      "category": "sante-alimentation",
+      "label": "Transformer la passion en compétence",
+      "french": "La passion peut ouvrir des portes, mais une formation pratique reste nécessaire pour maîtriser [exigence du métier].",
+      "english": "Passion can open doors, but practical training remains necessary to master [professional requirement].",
+      "usage": "Distinguez popularité et compétence, notamment pour les métiers où les gestes ont un effet sur la santé.",
+      "grammar": "« Rester nécessaire pour » + infinitif. N'assimilez pas une vidéo à une formation professionnelle complète.",
+      "example": "Tout d’abord, un professionnel doit maîtriser l’hygiène, l’organisation et les techniques, pas seulement réussir une recette.",
+      "example_english": "First of all, a professional must master hygiene, organisation and techniques, not just make a successful recipe.",
+      "source_key": "ee-tache3:janvier:combinaison-2",
+      "transfer_prompt": "Expliquez pourquoi une personne qui partage des conseils sportifs en ligne doit aussi se former.",
+      "essential": false,
+      "themes": [
+        "sante-alimentation"
+      ]
+    },
+    {
+      "slug": "sante-repas-composition",
+      "category": "sante-alimentation",
+      "label": "Maîtriser l'équilibre alimentaire",
+      "french": "Préparer ses repas permet de mieux contrôler la quantité de sel, de sucre et de matières grasses.",
+      "english": "Preparing one's own meals allows better control over the amount of salt, sugar and fat.",
+      "usage": "Donnez un bénéfice concret de la cuisine maison, sans prétendre que tout plat fait maison est équilibré.",
+      "grammar": "« Permet de contrôler » : infinitif. La quantité reste à adapter aux besoins, sans conseil médical personnalisé.",
+      "example": "On sait ainsi combien de sel, de matières grasses et de sucre contient chaque plat.",
+      "example_english": "This way, we know how much salt, fat and sugar each dish contains.",
+      "source_key": "ee-tache3:janvier:combinaison-12",
+      "transfer_prompt": "Comparez un déjeuner préparé chez soi avec un plat acheté dont la composition est peu claire.",
+      "essential": false,
+      "themes": [
+        "sante-alimentation"
+      ]
+    },
+    {
+      "slug": "sante-proteines-variees",
+      "category": "sante-alimentation",
+      "label": "Diversifier sans imposer",
+      "french": "Remplacer parfois la viande par des légumineuses permet de varier les sources de protéines.",
+      "english": "Occasionally replacing meat with pulses makes it possible to vary protein sources.",
+      "usage": "Proposez une diversification, pas une garantie nutritionnelle. Dans la citation, « sans nuire à la croissance » ne doit pas être compris comme une garantie valable pour tout remplacement : l'équilibre de l'ensemble des repas et les besoins de l'enfant restent à prendre en compte.",
+      "grammar": "« Remplacer A par B ». « Parfois » limite la portée ; le sujet infinitif commande « permet ».",
+      "example": "Tout d’abord, remplacer parfois la viande par des lentilles ou des céréales complètes diversifie l’alimentation sans nuire à la croissance.",
+      "example_english": "First of all, occasionally replacing meat with lentils or whole grains diversifies the diet without harming growth.",
+      "source_key": "ee-tache3:janvier:combinaison-18",
+      "transfer_prompt": "Imaginez un menu de cantine qui varie les protéines et prévoie un avis professionnel.",
+      "essential": false,
+      "themes": [
+        "sante-alimentation"
+      ]
+    },
+    {
+      "slug": "sante-frequence-risque",
+      "category": "sante-alimentation",
+      "label": "Relier fréquence et risque",
+      "french": "Consommés trop souvent, les repas riches en sel, en gras ou en sucre peuvent accroître certains risques pour la santé.",
+      "english": "When eaten too often, meals high in salt, fat or sugar can increase certain health risks.",
+      "usage": "Parlez de fréquence et de composition plutôt que de déclarer un repas occasionnel forcément dangereux.",
+      "grammar": "« Consommés » reprend « repas ». « Peuvent » marque un risque, pas un diagnostic ni une certitude.",
+      "example": "Consommés souvent, ils augmentent le risque de prise de poids et de mauvaises habitudes alimentaires.",
+      "example_english": "When eaten often, they increase the risk of weight gain and poor eating habits.",
+      "source_key": "ee-tache3:avril:combinaison-13",
+      "transfer_prompt": "Nuancez un avis sur les boissons sucrées en distinguant consommation occasionnelle et habitude.",
+      "essential": false,
+      "themes": [
+        "sante-alimentation"
+      ]
+    },
+    {
+      "slug": "sante-moins-mieux",
+      "category": "sante-alimentation",
+      "label": "Réduire sans interdire",
+      "french": "Réduire [aliment ou habitude] peut être préférable à une interdiction générale, si l'on prévoit des alternatives adaptées.",
+      "english": "Reducing [food or habit] may be preferable to a general ban, if suitable alternatives are provided.",
+      "usage": "Défendez un changement progressif qui tient compte des besoins et des habitudes.",
+      "grammar": "« Préférable à » + nom ; « si » + indicatif. N'utilisez pas « si l'on prévoirait ».",
+      "example": "Pour ma part, bien que la viande puisse apporter des nutriments utiles, je pense qu’il faut en réduire la consommation sans l’interdire à tous.",
+      "example_english": "For my part, although meat can provide useful nutrients, I think we should reduce its consumption without banning it for everyone.",
+      "source_key": "ee-tache3:avril:combinaison-15",
+      "transfer_prompt": "Proposez de réduire les goûters très sucrés sans interdire toutes les pâtisseries.",
+      "essential": false,
+      "themes": [
+        "sante-alimentation"
+      ]
+    },
+    {
+      "slug": "sante-prevenir-carences",
+      "category": "sante-alimentation",
+      "label": "Accompagner un changement de régime",
+      "french": "Un changement de régime doit s'appuyer sur des informations fiables pour limiter le risque de carences.",
+      "english": "A change of diet should be based on reliable information to limit the risk of deficiencies.",
+      "usage": "Associez le bénéfice attendu à une précaution. Un modèle d'examen n'est pas une prescription nutritionnelle.",
+      "grammar": "« S'appuyer sur » + nom. Préférez « limiter le risque » à « éviter toutes les carences ».",
+      "example": "Par exemple, une personne peut remplacer deux repas carnés par des lentilles et demander conseil à un professionnel pour assurer ses apports en fer.",
+      "example_english": "For example, someone can replace two meat-based meals with lentils and seek professional advice to ensure their iron intake.",
+      "source_key": "ee-tache3:avril:combinaison-16",
+      "transfer_prompt": "Proposez un accompagnement pour une famille qui souhaite modifier ses menus.",
+      "essential": false,
+      "themes": [
+        "sante-alimentation"
+      ]
+    },
+    {
+      "slug": "sante-vegetal-nuance",
+      "category": "sante-alimentation",
+      "label": "Éviter un raccourci écologique",
+      "french": "Une alimentation plus végétale peut être souhaitable sans que tous les produits végétaux aient le même impact écologique.",
+      "english": "A more plant-based diet may be desirable without all plant products having the same environmental impact.",
+      "usage": "Nuancez une catégorie générale par l'origine et le mode de transport des produits.",
+      "grammar": "« Sans que » + subjonctif : aient. Ne transformez pas l'étude citée dans un document en règle universelle.",
+      "example": "Pour ma part, je considère qu’une alimentation davantage végétale est souhaitable, sans supposer que tous les légumes sont écologiques.",
+      "example_english": "For my part, I consider a more plant-based diet desirable, without assuming that all vegetables are environmentally friendly.",
+      "source_key": "ee-tache3:mai:combinaison-5",
+      "transfer_prompt": "Comparez des légumes locaux de saison avec des produits importés par avion.",
+      "essential": false,
+      "themes": [
+        "sante-alimentation"
+      ]
+    },
+    {
+      "slug": "sante-transition-progressive",
+      "category": "sante-alimentation",
+      "label": "Faciliter l'adaptation",
+      "french": "Une diminution progressive laisse le temps d'adapter les habitudes et de trouver des repas équilibrés.",
+      "english": "A gradual reduction allows time to adapt habits and find balanced meals.",
+      "usage": "Expliquez pourquoi une transition peut être plus réaliste qu'un changement imposé du jour au lendemain.",
+      "grammar": "« Laisser le temps de » + infinitif. N'en déduisez pas qu'une même transition convient à tous.",
+      "example": "De plus, une diminution progressive facilite l’adaptation des habitudes alimentaires.",
+      "example_english": "Moreover, a gradual reduction makes it easier to adapt eating habits.",
+      "source_key": "ee-tache3:mai:combinaison-6",
+      "transfer_prompt": "Imaginez une première étape réaliste pour réduire les plats très salés dans une cantine.",
+      "essential": false,
+      "themes": [
+        "sante-alimentation"
+      ]
+    },
+    {
+      "slug": "sante-soins-disponibles",
+      "category": "sante-alimentation",
+      "label": "Assurer une présence adaptée",
+      "french": "Une équipe qualifiée présente jour et nuit peut intervenir rapidement en cas de [incident concret].",
+      "english": "A qualified team present day and night can respond quickly in the event of [specific incident].",
+      "usage": "Justifiez un accueil spécialisé par les besoins de la personne et les moyens disponibles, pas par son âge seul.",
+      "grammar": "« En cas de » + nom : chute, malaise. « Peut » ne garantit ni absence d'accident ni qualité de tous les établissements.",
+      "example": "Tout d’abord, une équipe présente jour et nuit peut intervenir après une chute ou un malaise, ce qu’une famille occupée ne peut pas toujours faire.",
+      "example_english": "First of all, a team present day and night can respond after a fall or a fainting episode, which a busy family cannot always do.",
+      "source_key": "ee-tache3:aout:combinaison-1",
+      "transfer_prompt": "Expliquez l'intérêt d'une présence professionnelle pour une personne qui a besoin d'aide la nuit.",
+      "essential": false,
+      "themes": [
+        "sante-alimentation"
+      ]
+    },
+    {
+      "slug": "sante-information-visible",
+      "category": "sante-alimentation",
+      "label": "Permettre un choix éclairé",
+      "french": "Indiquer clairement la composition des menus aide les clients à faire des choix plus équilibrés.",
+      "english": "Clearly displaying menu contents helps customers make more balanced choices.",
+      "usage": "Répartissez la responsabilité entre consommateurs et restaurants : on ne choisit pas librement sans information lisible.",
+      "grammar": "« Aider quelqu'un à » + infinitif ; le sujet « indiquer » est singulier.",
+      "example": "Tout d’abord, elles devraient indiquer clairement les calories, le sel et le sucre et proposer des options plus saines.",
+      "example_english": "First of all, they should clearly display calories, salt and sugar, and offer healthier options.",
+      "source_key": "ee-tache3:aout:combinaison-8",
+      "transfer_prompt": "Proposez une amélioration de l'affichage dans une cafétéria universitaire.",
+      "essential": false,
+      "themes": [
+        "sante-alimentation"
+      ]
+    },
+    {
+      "slug": "sante-prix-options",
+      "category": "sante-alimentation",
+      "label": "Rendre l'option saine accessible",
+      "french": "Les options équilibrées doivent être aussi visibles et abordables que les autres menus.",
+      "english": "Balanced options should be as visible and affordable as the other meals.",
+      "usage": "Un conseil individuel est insuffisant si les choix souhaitables coûtent plus cher ou sont difficiles à trouver.",
+      "grammar": "« Aussi + adjectif + que » exprime l'égalité. Accordez « visibles » et « abordables » avec « options ».",
+      "example": "De plus, les restaurants doivent rendre les produits sains aussi visibles et abordables que les plats gras.",
+      "example_english": "Moreover, restaurants must make healthy products as visible and affordable as fatty dishes.",
+      "source_key": "ee-tache3:aout:combinaison-15",
+      "transfer_prompt": "Expliquez comment une cantine pourrait encourager l'eau plutôt que les sodas sans culpabiliser les élèves.",
+      "essential": false,
+      "themes": [
+        "sante-alimentation"
+      ]
+    },
+    {
+      "slug": "sante-soins-liens",
+      "category": "sante-alimentation",
+      "label": "Soigner sans isoler",
+      "french": "Les activités collectives peuvent rompre l'isolement sans remplacer les visites des proches.",
+      "english": "Group activities can break isolation without replacing visits from loved ones.",
+      "usage": "Présentez les soins et le lien familial comme complémentaires, pas comme un choix obligatoire entre deux formes d'aide.",
+      "grammar": "« Sans » + infinitif ; les activités sont le sujet de « peuvent » et de « remplacer ».",
+      "example": "De plus, les activités collectives favorisent le lien social sans remplacer les visites familiales.",
+      "example_english": "Moreover, group activities encourage social ties without replacing family visits.",
+      "source_key": "ee-tache3:octobre:combinaison-4",
+      "transfer_prompt": "Proposez un atelier dans une résidence qui facilite aussi les rencontres avec les familles.",
+      "essential": false,
+      "themes": [
+        "sante-alimentation"
+      ]
+    },
+    {
+      "slug": "sante-cout-choix",
+      "category": "sante-alimentation",
+      "label": "Reconnaître les limites d'accès",
+      "french": "Une solution de soins doit rester accessible financièrement et correspondre aux besoins de la personne.",
+      "english": "A care solution should remain financially accessible and match the person's needs.",
+      "usage": "Ne recommandez pas un établissement coûteux comme solution universelle ; gardez la possibilité d'un accompagnement à domicile.",
+      "grammar": "« Correspondre à » : aux besoins. « Accessible » décrit la solution, pas la personne.",
+      "example": "En conclusion, le plus important est d’offrir un choix accessible entre accompagnement à domicile, accueil spécialisé et solidarité familiale.",
+      "example_english": "In conclusion, what matters most is offering an accessible choice between home support, specialised care and family solidarity.",
+      "source_key": "ee-tache3:octobre:combinaison-4",
+      "transfer_prompt": "Comparez deux solutions d'aide pour un aîné en intégrant son budget et son souhait de rester chez lui.",
+      "essential": false,
+      "themes": [
+        "sante-alimentation"
+      ]
+    },
+    {
+      "slug": "sante-posture-douleurs",
+      "category": "sante-alimentation",
+      "label": "Décrire un bénéfice physique",
+      "french": "Un poste de travail adapté peut limiter les douleurs liées à une mauvaise posture.",
+      "english": "An adapted workstation can limit pain linked to poor posture.",
+      "usage": "Donnez un effet physique précis et prudent ; le confort du mobilier ne remplace pas les pauses ni un avis médical.",
+      "grammar": "« Adapté » s'accorde avec « poste ». « Liées » s'accorde avec « douleurs ».",
+      "example": "Tout d’abord, un écran à la bonne hauteur et un bureau réglable limitent les douleurs au dos et aident à rester concentré.",
+      "example_english": "First of all, a screen at the right height and an adjustable desk limit back pain and help people stay focused.",
+      "source_key": "ee-tache3:juillet:combinaison-6",
+      "transfer_prompt": "Expliquez pourquoi une bibliothèque devrait proposer des sièges et des tables adaptés à ses usagers.",
+      "essential": false,
+      "themes": [
+        "sante-alimentation",
+        "travail"
+      ]
+    },
+    {
+      "slug": "sante-repos-stress",
+      "category": "sante-alimentation",
+      "label": "Préserver le repos",
+      "french": "Des horaires raisonnables peuvent réduire la fatigue et préserver l'équilibre entre travail et vie personnelle.",
+      "english": "Reasonable working hours can reduce fatigue and preserve work-life balance.",
+      "usage": "Reliez le bien-être à l'organisation quotidienne plutôt qu'à un objet ou à une activité présentée comme miraculeuse.",
+      "grammar": "« Peuvent » laisse place aux différences individuelles. Ne faites pas de promesse de guérison du stress.",
+      "example": "De plus, des horaires raisonnables préviennent le stress et la fatigue chronique.",
+      "example_english": "Moreover, reasonable working hours help prevent stress and chronic fatigue.",
+      "source_key": "ee-tache3:mai:combinaison-3",
+      "transfer_prompt": "Défendez une limitation des messages professionnels tardifs en nommant un bénéfice pour le repos.",
+      "essential": false,
+      "themes": [
+        "sante-alimentation",
+        "travail"
+      ]
+    },
+    {
+      "slug": "sante-prevention-suivi",
+      "category": "sante-alimentation",
+      "label": "Prévenir plutôt qu'attendre",
+      "french": "Un suivi régulier peut aider à repérer tôt un problème et à demander une prise en charge adaptée.",
+      "english": "Regular follow-up can help identify a problem early and seek appropriate care.",
+      "usage": "Présentez la prévention comme une possibilité utile, sans affirmer que le suivi évite toutes les complications.",
+      "grammar": "Après « aider à », coordonnez deux infinitifs en répétant « à » : à repérer et à demander.",
+      "example": "Une surveillance quotidienne permet de repérer tôt un problème de santé et d’éviter des hospitalisations répétées.",
+      "example_english": "Daily monitoring makes it possible to detect a health problem early and avoid repeated hospital admissions.",
+      "source_key": "ee-tache3:octobre:combinaison-4",
+      "transfer_prompt": "Expliquez l'intérêt d'un contact régulier avec un professionnel pour une personne fragile vivant seule.",
+      "essential": false,
+      "themes": [
+        "sante-alimentation"
+      ]
+    },
+    {
+      "slug": "environnement-usages-essentiels",
+      "category": "environnement",
+      "label": "Distinguer évitable et indispensable",
+      "french": "Il faut réduire les objets jetables évitables tout en préservant les usages médicaux essentiels.",
+      "english": "Avoidable disposable items should be reduced while preserving essential medical uses.",
+      "usage": "Ne traitez pas tous les usages d'un matériau comme équivalents : distinguez emballages de confort et besoins de soin.",
+      "grammar": "« Tout en » + participe présent : préservant. L'exception doit être justifiée, pas servir à renoncer à toute réduction.",
+      "example": "Tout d’abord, le matériel stérile reste indispensable dans certains soins et protège les patients.",
+      "example_english": "First of all, sterile equipment remains indispensable in some treatments and protects patients.",
+      "source_key": "ee-tache3:janvier:combinaison-6",
+      "transfer_prompt": "Comparez une bouteille jetable utilisée par habitude avec un emballage médical stérile.",
+      "essential": false,
+      "themes": [
+        "environnement"
+      ]
+    },
+    {
+      "slug": "environnement-reemploi-source",
+      "category": "environnement",
+      "label": "Agir avant le déchet",
+      "french": "Le réemploi et la vente en vrac permettent de réduire les emballages avant qu'ils ne deviennent des déchets.",
+      "english": "Reuse and bulk sales make it possible to reduce packaging before it becomes waste.",
+      "usage": "Proposez une action à la source plutôt que de compter uniquement sur le nettoyage après pollution.",
+      "grammar": "« Avant que » + subjonctif : deviennent. Le « ne » est explétif, il ne marque pas une négation.",
+      "example": "Les commerces peuvent proposer des contenants réutilisables et la vente en vrac pour éviter que ces déchets n’atteignent les océans.",
+      "example_english": "Shops can offer reusable containers and bulk sales to prevent this waste from reaching the oceans.",
+      "source_key": "ee-tache3:janvier:combinaison-10",
+      "transfer_prompt": "Proposez une mesure dans une cafétéria pour éviter la multiplication des gobelets jetables.",
+      "essential": false,
+      "themes": [
+        "environnement"
+      ]
+    },
+    {
+      "slug": "environnement-regulation-justifiee",
+      "category": "environnement",
+      "label": "Exiger un objectif contrôlable",
+      "french": "Une intervention sur la faune ne devrait être autorisée que si elle répond à un besoin écologique démontré.",
+      "english": "An intervention affecting wildlife should only be authorised if it meets a demonstrated ecological need.",
+      "usage": "Distinguez gestion encadrée et simple loisir. Demandez des critères et des contrôles au lieu d'une permission générale.",
+      "grammar": "« Ne... que » signifie seulement. « Si » + indicatif, pas subjonctif.",
+      "example": "Par exemple, des agents formés pourraient réguler une espèce envahissante selon des quotas établis par des biologistes.",
+      "example_english": "For example, trained officers could control an invasive species according to quotas set by biologists.",
+      "source_key": "ee-tache3:avril:combinaison-4",
+      "transfer_prompt": "Formulez les conditions d'une intervention contre une espèce envahissante dans un parc.",
+      "essential": false,
+      "themes": [
+        "environnement"
+      ]
+    },
+    {
+      "slug": "environnement-bien-etre-animal",
+      "category": "environnement",
+      "label": "Adapter aux besoins du vivant",
+      "french": "La protection d'une espèce doit aussi garantir des conditions de vie adaptées aux besoins des animaux.",
+      "english": "Protecting a species must also ensure living conditions adapted to the animals' needs.",
+      "usage": "Ne justifiez pas n'importe quelle captivité par le seul mot « conservation ». Précisez les espaces, les soins ou les comportements possibles.",
+      "grammar": "« Adaptées » s'accorde avec « conditions ». « Garantir » exige un complément direct.",
+      "example": "Tout d’abord, des espaces vastes et adaptés permettent aux animaux d’exprimer leurs comportements naturels et de réduire leur stress, car ils peuvent alors se déplacer, se cacher et interagir plus librement.",
+      "example_english": "First of all, large, suitable spaces allow animals to express their natural behaviours and reduce stress, because they can then move, hide and interact more freely.",
+      "source_key": "ee-tache3:mai:combinaison-2",
+      "transfer_prompt": "Évaluez un projet de refuge en expliquant un besoin concret des animaux accueillis.",
+      "essential": false,
+      "themes": [
+        "environnement"
+      ]
+    },
+    {
+      "slug": "environnement-ville-compacte",
+      "category": "environnement",
+      "label": "Relier densité et ressources",
+      "french": "Une ville compacte peut limiter les longs déplacements et partager plus efficacement ses infrastructures.",
+      "english": "A compact city can limit long journeys and share its infrastructure more efficiently.",
+      "usage": "Nuancez l'opposition ville-nature en décrivant un mécanisme : proximité des services et utilisation partagée.",
+      "grammar": "« Peut » porte sur les deux infinitifs. Une densité élevée ne suffit pas sans transports ni espaces verts.",
+      "example": "Tout d’abord, une ville compacte limite les longs déplacements et partage plus efficacement ses infrastructures.",
+      "example_english": "First of all, a compact city limits long journeys and shares its infrastructure more efficiently.",
+      "source_key": "ee-tache3:decembre:combinaison-16",
+      "transfer_prompt": "Défendez la transformation d'un parking proche du métro en logements et services.",
+      "essential": false,
+      "themes": [
+        "environnement"
+      ]
+    },
+    {
+      "slug": "environnement-terrains-existants",
+      "category": "environnement",
+      "label": "Protéger les espaces naturels",
+      "french": "Construire sur des terrains déjà urbanisés évite d'étendre la ville au détriment des espaces naturels.",
+      "english": "Building on already developed land avoids expanding the city at the expense of natural areas.",
+      "usage": "Donnez une alternative concrète à la déforestation plutôt que de condamner toute construction.",
+      "grammar": "« Au détriment de » indique ce qui subit le coût. Le sujet infinitif appelle « évite ».",
+      "example": "De plus, les municipalités doivent construire sur des terrains déjà urbanisés plutôt que détruire les forêts voisines.",
+      "example_english": "Moreover, municipalities should build on already developed land rather than destroy nearby forests.",
+      "source_key": "ee-tache3:decembre:combinaison-16",
+      "transfer_prompt": "Proposez une solution pour créer des logements sans supprimer un bois voisin.",
+      "essential": false,
+      "themes": [
+        "environnement"
+      ]
+    },
+    {
+      "slug": "environnement-conservation-conditions",
+      "category": "environnement",
+      "label": "Ne pas promettre une réintroduction automatique",
+      "french": "Un programme de conservation peut contribuer à préserver une espèce si son habitat et ses besoins sont pris en compte.",
+      "english": "A conservation programme can help preserve a species if its habitat and needs are taken into account.",
+      "usage": "Présentez un programme sérieux comme une contribution possible, pas comme la garantie que tout animal pourra être relâché.",
+      "grammar": "« Contribuer à » + infinitif. « Pris » s'accorde avec les deux noms masculins coordonnés.",
+      "example": "De plus, des programmes scientifiques sérieux peuvent préserver des espèces menacées.",
+      "example_english": "Moreover, serious scientific programmes can preserve threatened species.",
+      "source_key": "ee-tache3:mai:combinaison-2",
+      "transfer_prompt": "Défendez la protection d'une réserve naturelle en lien avec un programme de conservation.",
+      "essential": false,
+      "themes": [
+        "environnement"
+      ]
+    },
+    {
+      "slug": "travail-sens-autonomie",
+      "category": "travail",
+      "label": "Décrire un travail épanouissant",
+      "french": "Une activité utile développe l'autonomie lorsqu'elle permet de prendre des décisions et d'en voir les résultats.",
+      "english": "Meaningful work develops independence when it allows people to make decisions and see their results.",
+      "usage": "Précisez ce qui donne du sens au travail plutôt que de déclarer tout emploi épanouissant.",
+      "grammar": "« En » reprend les décisions dans « en voir les résultats ». « Lorsqu'elle » reprend l'activité.",
+      "example": "Tout d’abord, une activité utile développe l’autonomie et crée des relations.",
+      "example_english": "First of all, meaningful work develops independence and creates relationships.",
+      "source_key": "ee-tache3:avril:combinaison-5",
+      "transfer_prompt": "Expliquez pourquoi confier un petit projet complet à un stagiaire peut le motiver.",
+      "essential": false,
+      "themes": [
+        "travail"
+      ]
+    },
+    {
+      "slug": "travail-vacances-competences",
+      "category": "travail",
+      "label": "Rendre l'expérience formatrice",
+      "french": "Un emploi saisonnier apprend à respecter des horaires, à coopérer et à gérer un budget.",
+      "english": "A seasonal job teaches people to keep to a schedule, cooperate and manage a budget.",
+      "usage": "Nommez les compétences concrètes que l'expérience développe, puis gardez une place pour le repos.",
+      "grammar": "Répétez « à » devant les infinitifs coordonnés après « apprend ».",
+      "example": "Tout d’abord, il apprend la ponctualité, le travail en équipe et la gestion d’un budget.",
+      "example_english": "First of all, it teaches punctuality, teamwork and budget management.",
+      "source_key": "ee-tache3:avril:combinaison-6",
+      "transfer_prompt": "Expliquez deux apprentissages possibles dans un emploi d'été à l'accueil d'un camping.",
+      "essential": false,
+      "themes": [
+        "travail"
+      ]
+    },
+    {
+      "slug": "travail-competences-sans-sexe",
+      "category": "travail",
+      "label": "Défendre un critère équitable",
+      "french": "L'accès à un poste doit dépendre des compétences, jamais du sexe de la personne.",
+      "english": "Access to a position should depend on skills, never on the person's sex.",
+      "usage": "Affirmez un principe puis proposez un moyen de le rendre concret : critères écrits, salaires transparents ou congés équitables.",
+      "grammar": "« Dépendre de » : des compétences, du sexe. « Jamais » renforce ici l'opposition.",
+      "example": "Pour ma part, les compétences doivent déterminer l’accès à un métier, jamais le sexe.",
+      "example_english": "For my part, skills should determine access to an occupation, never sex.",
+      "source_key": "ee-tache3:avril:combinaison-7",
+      "transfer_prompt": "Rédigez une règle de recrutement pour un poste traditionnellement occupé par un seul sexe.",
+      "essential": false,
+      "themes": [
+        "travail"
+      ]
+    },
+    {
+      "slug": "travail-heures-charge",
+      "category": "travail",
+      "label": "Ne pas comprimer la même charge",
+      "french": "Réduire le temps de travail exige de revoir les objectifs et les effectifs, pas seulement les horaires.",
+      "english": "Reducing working time requires reviewing targets and staffing, not just schedules.",
+      "usage": "Expliquez la différence entre une réduction organisée et la même charge comprimée dans moins d'heures.",
+      "grammar": "« Exiger de » + infinitif. Le sujet infinitif « réduire » est singulier.",
+      "example": "De plus, réduire les heures sans revoir la charge risque simplement d’intensifier chaque journée.",
+      "example_english": "Moreover, reducing hours without reviewing the workload simply risks making each day more intense.",
+      "source_key": "ee-tache3:avril:combinaison-10",
+      "transfer_prompt": "Proposez une condition pour passer à quatre jours sans augmenter la pression quotidienne.",
+      "essential": false,
+      "themes": [
+        "travail"
+      ]
+    },
+    {
+      "slug": "travail-vie-personnelle",
+      "category": "travail",
+      "label": "Poser une frontière",
+      "french": "Le travail doit garder une place utile sans envahir le temps réservé aux proches.",
+      "english": "Work should retain a useful place without taking over time reserved for loved ones.",
+      "usage": "Défendez un équilibre plutôt que l'idée que le travail serait toujours nuisible ou toujours central.",
+      "grammar": "« Réservé » s'accorde avec « temps ». « Sans » est suivi de l'infinitif.",
+      "example": "En conclusion, il faut que le travail garde une place utile sans qu’il envahisse le temps réservé aux proches.",
+      "example_english": "In conclusion, work should retain a useful place without taking over time reserved for loved ones.",
+      "source_key": "ee-tache3:mai:combinaison-3",
+      "transfer_prompt": "Justifiez une règle qui interdit d'attendre une réponse aux messages professionnels le dimanche.",
+      "essential": false,
+      "themes": [
+        "travail"
+      ]
+    },
+    {
+      "slug": "travail-cv-anonyme",
+      "category": "travail",
+      "label": "Limiter les préjugés",
+      "french": "Une première sélection anonyme aide à évaluer l'expérience et les diplômes plutôt que l'apparence.",
+      "english": "An anonymous initial selection helps assess experience and qualifications rather than appearance.",
+      "usage": "Proposez une étape précise contre les préjugés sans promettre qu'elle supprime toute discrimination.",
+      "grammar": "« Aider à » + infinitif. « Anonyme » décrit la sélection, pas nécessairement tout le recrutement.",
+      "example": "De plus, une candidature anonyme permet au recruteur d’évaluer plus objectivement l’expérience et les diplômes.",
+      "example_english": "Moreover, an anonymous application allows the recruiter to assess experience and qualifications more objectively.",
+      "source_key": "ee-tache3:juin:combinaison-1",
+      "transfer_prompt": "Décrivez une première sélection de candidats fondée sur un exercice pratique sans photo.",
+      "essential": false,
+      "themes": [
+        "travail"
+      ]
+    },
+    {
+      "slug": "travail-confort-horaires",
+      "category": "travail",
+      "label": "Allier mobilier et organisation",
+      "french": "Le confort matériel doit s'accompagner d'horaires respectés et de pauses réelles.",
+      "english": "Physical comfort should go hand in hand with respected working hours and genuine breaks.",
+      "usage": "Ne réduisez pas le bien-être à un bureau moderne. L'organisation du temps compte aussi.",
+      "grammar": "« S'accompagner de » : d'horaires, de pauses. Accordez « respectés » avec « horaires ».",
+      "example": "De plus, il faut que le confort s’accompagne d’horaires respectés et de pauses réelles.",
+      "example_english": "Moreover, comfort must go hand in hand with respected working hours and genuine breaks.",
+      "source_key": "ee-tache3:juillet:combinaison-6",
+      "transfer_prompt": "Répondez à une entreprise qui offre de nouveaux sièges mais attend des heures supplémentaires permanentes.",
+      "essential": false,
+      "themes": [
+        "travail"
+      ]
+    },
+    {
+      "slug": "travail-amitie-confiance",
+      "category": "travail",
+      "label": "Expliquer l'entraide",
+      "french": "Un climat de confiance permet de demander de l'aide avant qu'un problème ne s'aggrave.",
+      "english": "An atmosphere of trust makes it possible to ask for help before a problem gets worse.",
+      "usage": "Décrivez le mécanisme d'une bonne relation professionnelle : l'aisance à signaler une difficulté.",
+      "grammar": "« Avant que » + subjonctif ; « ne » explétif, sans « pas », ne nie pas l'aggravation.",
+      "example": "Un employé qui se sent en confiance ose demander de l’aide ou signaler un problème avant qu’il ne s’aggrave.",
+      "example_english": "An employee who feels confident dares to ask for help or flag a problem before it gets worse.",
+      "source_key": "ee-tache3:juillet:combinaison-44",
+      "transfer_prompt": "Expliquez comment un accueil bienveillant peut aider une nouvelle collègue à progresser.",
+      "essential": false,
+      "themes": [
+        "travail"
+      ]
+    },
+    {
+      "slug": "travail-theorie-terrain",
+      "category": "travail",
+      "label": "Mettre les savoirs à l'épreuve",
+      "french": "Une formation solide gagne à être complétée par une expérience de terrain.",
+      "english": "A solid education benefits from being complemented by practical experience.",
+      "usage": "Associez connaissances et mise en pratique sans opposer automatiquement diplôme et expérience.",
+      "grammar": "« Gagner à être » + participe passé : être complétée. Accord avec « formation ».",
+      "example": "Un stage leur apprend à travailler en équipe, à respecter un délai et à résoudre un problème concret.",
+      "example_english": "An internship teaches them to work in a team, meet a deadline and solve a concrete problem.",
+      "source_key": "ee-tache3:aout:combinaison-18",
+      "transfer_prompt": "Proposez une expérience pratique pour compléter des études en gestion.",
+      "essential": false,
+      "themes": [
+        "travail"
+      ]
+    },
+    {
+      "slug": "travail-sieste-volontaire",
+      "category": "travail",
+      "label": "Proposer sans imposer",
+      "french": "Une courte pause de repos devrait rester volontaire et compatible avec l'organisation du service.",
+      "english": "A short rest break should remain voluntary and compatible with the organisation of the service.",
+      "usage": "Reconnaissez les besoins différents des salariés. Une possibilité de repos n'est pas une obligation de dormir.",
+      "grammar": "« Compatible avec » + nom. Le conditionnel « devrait » formule une recommandation.",
+      "example": "En conclusion, je soutiens une pause de quinze minutes, volontaire et compatible avec l’organisation de chaque entreprise.",
+      "example_english": "In conclusion, I support a voluntary fifteen-minute break that fits each company's organisation.",
+      "source_key": "ee-tache3:aout:combinaison-19",
+      "transfer_prompt": "Proposez une pause calme facultative dans une équipe qui doit assurer un accueil continu.",
+      "essential": false,
+      "themes": [
+        "travail"
+      ]
+    },
+    {
+      "slug": "travail-sieste-equite",
+      "category": "travail",
+      "label": "Organiser un accès juste",
+      "french": "Un cadre commun doit éviter que seuls certains salariés bénéficient d'un nouvel aménagement.",
+      "english": "A shared framework should prevent access to a new arrangement from being restricted to only some employees.",
+      "usage": "Après le bénéfice, décrivez la règle d'accès : réservation, roulement, confidentialité ou respect des personnes.",
+      "grammar": "« Éviter que » + subjonctif : bénéficient. « Seuls » se rapporte à certains salariés.",
+      "example": "De plus, un cadre commun évite les abus et les inégalités.",
+      "example_english": "Moreover, a shared framework prevents abuse and inequality.",
+      "source_key": "ee-tache3:novembre:combinaison-4",
+      "transfer_prompt": "Proposez une règle de réservation équitable pour une salle de repos.",
+      "essential": false,
+      "themes": [
+        "travail"
+      ]
+    },
+    {
+      "slug": "travail-animaux-proteger",
+      "category": "travail",
+      "label": "Prendre en compte les personnes gênées",
+      "french": "Un avantage pour une partie de l'équipe ne doit pas exposer les autres à des allergènes ni les mettre mal à l'aise.",
+      "english": "A benefit for part of the team should not expose others to allergens or make them uncomfortable.",
+      "usage": "Ne supposez pas que tout le monde apprécie la même mesure. Prévoyez un accord et des espaces séparés.",
+      "grammar": "« Exposer quelqu'un à » : à des allergènes, à un risque. On est exposé à un allergène, qui peut provoquer une réaction allergique, et non à l'allergie elle-même.",
+      "example": "De plus, l’employeur doit protéger les personnes allergiques ou craintives grâce à des espaces séparés et à des règles d’hygiène.",
+      "example_english": "Moreover, the employer must protect people with allergies or fears through separate spaces and hygiene rules.",
+      "source_key": "ee-tache3:decembre:combinaison-3",
+      "transfer_prompt": "Discutez l'accueil d'animaux dans un espace partagé en protégeant les personnes qui ne souhaitent pas y participer.",
+      "essential": false,
+      "themes": [
+        "travail"
+      ]
+    },
+    {
+      "slug": "travail-evaluer-essai",
+      "category": "travail",
+      "label": "Tester avant de généraliser",
+      "french": "Une période d'essai permettrait de mesurer les effets sur la qualité du service et le bien-être des équipes.",
+      "english": "A trial period would make it possible to measure the effects on service quality and staff well-being.",
+      "usage": "Proposez une décision fondée sur des observations plutôt que sur une promesse de productivité.",
+      "grammar": "« Permettrait » marque une proposition. N'inventez pas de résultats pour un essai qui n'a pas eu lieu.",
+      "example": "Par exemple, une entreprise pourrait tester la semaine de quatre jours pendant trois mois, puis mesurer la productivité, la qualité du service et le bien-être des équipes.",
+      "example_english": "For example, a company could trial a four-day week for three months, then measure productivity, service quality and staff well-being.",
+      "source_key": "ee-tache3:avril:combinaison-10",
+      "transfer_prompt": "Imaginez un essai de télétravail avec deux critères d'évaluation concrets.",
+      "essential": false,
+      "themes": [
+        "travail"
+      ]
+    },
+    {
+      "slug": "travail-conge-partage",
+      "category": "travail",
+      "label": "Partager les responsabilités familiales",
+      "french": "Des mesures identiques pour les deux parents favorisent un partage plus équitable des responsabilités familiales.",
+      "english": "Equal measures for both parents encourage a fairer sharing of family responsibilities.",
+      "usage": "Reliez l'égalité au travail à l'organisation de la vie familiale, avec une mesure concrète.",
+      "grammar": "« Favoriser » exprime une contribution, pas une garantie. Accordez « identiques » avec « mesures ».",
+      "example": "Par exemple, une entreprise peut publier des grilles salariales transparentes et offrir le même congé parental aux mères comme aux pères.",
+      "example_english": "For example, a company can publish transparent pay scales and offer the same parental leave to mothers and fathers.",
+      "source_key": "ee-tache3:avril:combinaison-7",
+      "transfer_prompt": "Expliquez comment des horaires flexibles accessibles aux deux parents peuvent soutenir l'égalité.",
+      "essential": false,
+      "themes": [
+        "travail"
+      ]
+    },
+    {
+      "slug": "travail-amitie-criteres",
+      "category": "travail",
+      "label": "Éviter le favoritisme",
+      "french": "Les projets doivent être attribués selon des critères connus de tous, indépendamment des affinités personnelles.",
+      "english": "Projects should be assigned according to criteria known to everyone, regardless of personal friendships.",
+      "usage": "Gardez les avantages de l'amitié sans lui donner le pouvoir de décider des promotions ou des missions.",
+      "grammar": "Passif : « être attribués », accord avec « projets ». « Indépendamment de » introduit ce qui ne doit pas compter.",
+      "example": "Par exemple, une responsable peut déjeuner avec une collègue proche, mais attribuer un projet selon des critères annoncés à tous.",
+      "example_english": "For example, a manager can have lunch with a close colleague but assign a project according to criteria announced to everyone.",
+      "source_key": "ee-tache3:juillet:combinaison-44",
+      "transfer_prompt": "Formulez une règle équitable pour choisir un responsable de projet parmi plusieurs amis.",
+      "essential": false,
+      "themes": [
+        "travail"
+      ]
+    },
+    {
+      "slug": "travail-jeunes-repos",
+      "category": "travail",
+      "label": "Prévenir la surcharge",
+      "french": "Un emploi formateur perd son intérêt s'il épuise l'étudiant avant la reprise des cours.",
+      "english": "An educationally valuable job loses its value if it exhausts the student before classes resume.",
+      "usage": "Reconnaissez le bénéfice de l'expérience tout en fixant une limite de charge adaptée à la personne.",
+      "grammar": "« Si » + présent : s'il épuise. Ne transformez pas le nombre d'heures d'un exemple en seuil universel.",
+      "example": "De plus, une charge excessive risque d’épuiser un jeune avant la rentrée.",
+      "example_english": "Moreover, an excessive workload risks exhausting a young person before the new school term.",
+      "source_key": "ee-tache3:avril:combinaison-6",
+      "transfer_prompt": "Nuancez l'intérêt d'un stage intensif juste avant une période d'examens.",
+      "essential": false,
+      "themes": [
+        "travail"
+      ]
+    },
+    {
+      "slug": "numerique-accompagnement-adulte",
+      "category": "numerique",
+      "label": "Transformer l'écran en échange",
+      "french": "Regarder un contenu avec un adulte peut transformer un usage passif en échange instructif.",
+      "english": "Watching content with an adult can turn passive use into an educational exchange.",
+      "usage": "Le bénéfice dépend du choix du contenu et de la discussion, pas du simple temps passé devant un écran.",
+      "grammar": "« Transformer A en B ». Le groupe infinitif « regarder » est sujet singulier.",
+      "example": "De plus, regarder une émission avec un adulte transforme un usage passif en échange instructif.",
+      "example_english": "Moreover, watching a programme with an adult turns passive use into an educational exchange.",
+      "source_key": "ee-tache3:janvier:combinaison-7",
+      "transfer_prompt": "Proposez une activité après un documentaire sur l'environnement pour vérifier ce que l'enfant a compris.",
+      "essential": false,
+      "themes": [
+        "numerique"
+      ]
+    },
+    {
+      "slug": "numerique-suivi-motivation",
+      "category": "numerique",
+      "label": "Maintenir le lien pédagogique",
+      "french": "Un suivi régulier entretient la motivation lorsque les progrès ralentissent.",
+      "english": "Regular support sustains motivation when progress slows.",
+      "usage": "Complétez l'argument de la flexibilité par une réponse au risque de découragement.",
+      "grammar": "« Lorsque » + indicatif. Précisez ensuite le suivi : retour du professeur, conversation ou correction.",
+      "example": "De plus, un accompagnement régulier entretient la motivation lorsque les progrès ralentissent.",
+      "example_english": "Moreover, regular support sustains motivation when progress slows.",
+      "source_key": "ee-tache3:janvier:combinaison-9",
+      "transfer_prompt": "Proposez un contact hebdomadaire pour un adulte qui apprend seul avec une application.",
+      "essential": false,
+      "themes": [
+        "numerique"
+      ]
+    },
+    {
+      "slug": "numerique-images-acces",
+      "category": "numerique",
+      "label": "Limiter l'accès aux images",
+      "french": "La durée de conservation des images doit être limitée et leur accès réservé aux personnes habilitées.",
+      "english": "Image retention should be limited and access restricted to authorised people.",
+      "usage": "Répondez au risque de surveillance par une règle concrète sur la durée et les accès.",
+      "grammar": "« Réservé » se rapporte à « accès » ; « limitée » à « durée ». Ne proposez pas une conservation illimitée par défaut.",
+      "example": "De plus, il faut que la durée de conservation des images soit limitée et que seuls des enquêteurs habilités y accèdent.",
+      "example_english": "Moreover, image retention must be limited and only authorised investigators should have access.",
+      "source_key": "ee-tache3:avril:combinaison-1",
+      "transfer_prompt": "Énoncez deux protections pour les images filmées à l'entrée d'une résidence.",
+      "essential": false,
+      "themes": [
+        "numerique"
+      ]
+    },
+    {
+      "slug": "numerique-prevention-presence",
+      "category": "numerique",
+      "label": "Distinguer preuve et prévention",
+      "french": "Une caméra peut fournir une preuve après un incident, mais elle ne remplace pas la présence d'un adulte.",
+      "english": "A camera can provide evidence after an incident, but it does not replace an adult's presence.",
+      "usage": "Comparez les fonctions au lieu de présenter la surveillance comme une réponse complète aux conflits.",
+      "grammar": "« Après » + nom situe l'action. « Mais » oppose ici deux fonctions, pas tous les usages d'une caméra.",
+      "example": "Tout d’abord, elles peuvent fournir des preuves après un incident, mais elles ne remplacent ni l’encadrement ni la confiance.",
+      "example_english": "First of all, they can provide evidence after an incident, but they replace neither supervision nor trust.",
+      "source_key": "ee-tache3:avril:combinaison-8",
+      "transfer_prompt": "Expliquez pourquoi une école équipée de caméras a encore besoin de médiation.",
+      "essential": false,
+      "themes": [
+        "numerique"
+      ]
+    },
+    {
+      "slug": "numerique-jeu-resolution",
+      "category": "numerique",
+      "label": "Nommer une compétence précise",
+      "french": "Certains jeux de réflexion entraînent la capacité à comparer des solutions et à résoudre un problème.",
+      "english": "Some thinking games train the ability to compare solutions and solve a problem.",
+      "usage": "Parlez de certains jeux et d'une compétence identifiable, pas d'un bénéfice universel de tous les écrans.",
+      "grammar": "« Certains » limite la généralisation. « Capacité à » + infinitif.",
+      "example": "Tout d’abord, certains jeux développent la réflexion, la coordination et la capacité à résoudre des problèmes.",
+      "example_english": "First of all, some games develop reasoning, coordination and problem-solving ability.",
+      "source_key": "ee-tache3:avril:combinaison-11",
+      "transfer_prompt": "Décrivez l'apprentissage possible dans un jeu où il faut organiser des ressources limitées.",
+      "essential": false,
+      "themes": [
+        "numerique"
+      ]
+    },
+    {
+      "slug": "numerique-jeu-erreurs",
+      "category": "numerique",
+      "label": "Apprendre par essais",
+      "french": "Un jeu adapté peut apprendre à anticiper et à corriger ses erreurs plutôt qu'à abandonner au premier échec.",
+      "english": "A suitable game can teach players to anticipate and correct mistakes rather than give up at the first failure.",
+      "usage": "Expliquez le mécanisme d'apprentissage au lieu de répéter que le jeu est « bon pour le cerveau ».",
+      "grammar": "« Apprendre à » est repris devant les actions. Le bénéfice reste lié au contenu et à l'usage.",
+      "example": "Ces jeux obligent en effet à anticiper, à comparer plusieurs solutions et à corriger ses erreurs.",
+      "example_english": "These games do indeed require players to anticipate, compare several solutions and correct their mistakes.",
+      "source_key": "ee-tache3:mai:combinaison-1",
+      "transfer_prompt": "Imaginez un jeu de construction où un enfant améliore son projet après un essai raté.",
+      "essential": false,
+      "themes": [
+        "numerique"
+      ]
+    },
+    {
+      "slug": "numerique-loisir-parmi-autres",
+      "category": "numerique",
+      "label": "Prévenir le remplacement des activités",
+      "french": "Le jeu doit rester un loisir parmi d'autres, sans remplacer le sommeil, les études ou le sport.",
+      "english": "Gaming should remain one leisure activity among others, without replacing sleep, study or sport.",
+      "usage": "Évaluez l'équilibre quotidien plutôt que le jeu isolément. Ne transformez pas une préférence en diagnostic d'addiction.",
+      "grammar": "« Parmi » est suivi d'un pluriel. « Sans remplacer » garde le même sujet que « le jeu ».",
+      "example": "De plus, des règles précises empêchent le jeu de remplacer le sommeil, les études ou le sport.",
+      "example_english": "Moreover, clear rules prevent gaming from replacing sleep, study or sport.",
+      "source_key": "ee-tache3:mai:combinaison-3-bis",
+      "transfer_prompt": "Proposez une règle qui protège le sommeil d'un adolescent utilisant une console.",
+      "essential": false,
+      "themes": [
+        "numerique"
+      ]
+    },
+    {
+      "slug": "numerique-cooperation",
+      "category": "numerique",
+      "label": "Décrire une tâche collective",
+      "french": "Pour réussir une tâche collective, les joueurs doivent observer, décider et communiquer avec les autres.",
+      "english": "To succeed in a group task, players must observe, decide and communicate with others.",
+      "usage": "Un argument sur la coopération est plus précis qu'une simple promesse de divertissement.",
+      "grammar": "« Pour » exprime le but ; les trois infinitifs dépendent de « doivent ».",
+      "example": "Pour gagner, le joueur doit observer, décider vite et communiquer avec les autres.",
+      "example_english": "To win, the player must observe, decide quickly and communicate with others.",
+      "source_key": "ee-tache3:juillet:combinaison-5",
+      "transfer_prompt": "Adaptez cet argument à un projet collaboratif en classe plutôt qu'à un jeu vidéo.",
+      "essential": false,
+      "themes": [
+        "numerique"
+      ]
+    },
+    {
+      "slug": "numerique-objets-autonomie",
+      "category": "numerique",
+      "label": "Faciliter l'autonomie",
+      "french": "Des outils connectés peuvent aider une personne à rester autonome s'ils répondent à un besoin précis.",
+      "english": "Connected tools can help a person remain independent if they meet a specific need.",
+      "usage": "Décrivez un service concret, comme un rappel, sans présenter l'objet comme un remplacement des soins.",
+      "grammar": "« Aider quelqu'un à » + infinitif ; « si » + indicatif : s'ils répondent.",
+      "example": "Tout d’abord, ils peuvent favoriser l’autonomie des personnes âgées ou malades.",
+      "example_english": "First of all, they can support the independence of older or ill people.",
+      "source_key": "ee-tache3:aout:combinaison-13",
+      "transfer_prompt": "Proposez un usage d'un rappel connecté utile à une personne qui souhaite vivre chez elle.",
+      "essential": false,
+      "themes": [
+        "numerique"
+      ]
+    },
+    {
+      "slug": "numerique-activite-sans-ecran",
+      "category": "numerique",
+      "label": "Prolonger hors de l'écran",
+      "french": "Une activité créative après le visionnage aide l'enfant à devenir acteur plutôt que simple spectateur.",
+      "english": "A creative activity after viewing helps the child become an active participant rather than a mere spectator.",
+      "usage": "Montrez comment un contenu peut nourrir une action personnelle, sans prolonger indéfiniment le visionnage.",
+      "grammar": "« Aider à devenir » + nom sans article ici : acteur, spectateur.",
+      "example": "De plus, prolonger son contenu par une discussion ou une activité créative empêche l’enfant de rester simple spectateur.",
+      "example_english": "Moreover, extending the content through discussion or a creative activity prevents the child from remaining a mere spectator.",
+      "source_key": "ee-tache3:decembre:combinaison-14",
+      "transfer_prompt": "Après une vidéo sur les oiseaux, proposez une activité d'observation ou de dessin.",
+      "essential": false,
+      "themes": [
+        "numerique"
+      ]
+    },
+    {
+      "slug": "numerique-mises-a-jour",
+      "category": "numerique",
+      "label": "Réduire l'exposition aux intrusions",
+      "french": "Des mises à jour régulières et des mots de passe solides peuvent limiter les intrusions.",
+      "english": "Regular updates and strong passwords can limit intrusions.",
+      "usage": "Reliez l'utilité des objets à leur entretien et à leur protection, sans promettre une sécurité absolue.",
+      "grammar": "Le sujet coordonné commande « peuvent ». « Limiter » ne signifie pas éliminer tout risque.",
+      "example": "De plus, des mises à jour régulières et des mots de passe solides limitent les intrusions.",
+      "example_english": "Moreover, regular updates and strong passwords limit intrusions.",
+      "source_key": "ee-tache3:aout:combinaison-13",
+      "transfer_prompt": "Formulez une condition avant l'installation d'une caméra connectée chez soi.",
+      "essential": false,
+      "themes": [
+        "numerique"
+      ]
+    },
+    {
+      "slug": "numerique-donnees-minimales",
+      "category": "numerique",
+      "label": "Limiter la collecte",
+      "french": "Un appareil ne devrait transmettre que les données nécessaires, avec l'accord de son utilisateur.",
+      "english": "A device should transmit only the necessary data, with its user's consent.",
+      "usage": "Précisez ce que protéger la vie privée signifie concrètement : quantité, destinataire et consentement.",
+      "grammar": "« Ne... que » signifie seulement. « Nécessaires » s'accorde avec « données ».",
+      "example": "Par exemple, une montre pourrait rappeler un médicament à son propriétaire et transmettre uniquement les données nécessaires à son médecin, avec son accord.",
+      "example_english": "For example, a watch could remind its owner to take medication and transmit only the necessary data to their doctor, with the owner's consent.",
+      "source_key": "ee-tache3:aout:combinaison-13",
+      "transfer_prompt": "Proposez une règle de partage des données pour une application scolaire.",
+      "essential": false,
+      "themes": [
+        "numerique"
+      ]
+    },
+    {
+      "slug": "numerique-equipement-acces",
+      "category": "numerique",
+      "label": "Reconnaître les conditions matérielles",
+      "french": "La flexibilité des cours en ligne ne suffit pas sans équipement fiable et accompagnement humain.",
+      "english": "The flexibility of online classes is not enough without reliable equipment and human support.",
+      "usage": "Une solution accessible en théorie peut exclure des personnes qui manquent de matériel ou d'aide.",
+      "grammar": "« Sans » + noms coordonnés. Ne supposez pas que tous les apprenants disposent d'un ordinateur et d'une connexion.",
+      "example": "En conclusion, l’apprentissage en ligne devient efficace lorsqu’il associe flexibilité, équipement fiable et véritable suivi humain.",
+      "example_english": "In conclusion, online learning becomes effective when it combines flexibility, reliable equipment and genuine human support.",
+      "source_key": "ee-tache3:janvier:combinaison-9",
+      "transfer_prompt": "Proposez un soutien pour des étudiants qui suivent des cours à distance avec un équipement insuffisant.",
+      "essential": false,
+      "themes": [
+        "numerique"
+      ]
+    },
+    {
+      "slug": "societe-urgence-vitale",
+      "category": "societe",
+      "label": "Répondre d'abord à l'urgence",
+      "french": "Une personne qui a faim ou froid ne peut pas attendre les résultats d'un accompagnement à long terme.",
+      "english": "A person who is hungry or cold cannot wait for the results of long-term support.",
+      "usage": "Expliquez pourquoi l'aide immédiate reste nécessaire même si elle ne résout pas les causes du problème.",
+      "grammar": "« Qui » reprend la personne ; « ne peut pas » porte sur la possibilité d'attendre.",
+      "example": "Tout d’abord, une personne qui a froid ou faim ne peut pas attendre les résultats d’un programme d’insertion.",
+      "example_english": "First of all, a person who is cold or hungry cannot wait for the results of an integration programme.",
+      "source_key": "ee-tache3:janvier:combinaison-4",
+      "transfer_prompt": "Justifiez une aide alimentaire d'urgence tout en prévoyant un suivi social.",
+      "essential": false,
+      "themes": [
+        "societe"
+      ]
+    },
+    {
+      "slug": "societe-accompagnement-causes",
+      "category": "societe",
+      "label": "Agir dans la durée",
+      "french": "Un suivi régulier agit sur les causes de l'exclusion en facilitant l'accès au logement et à l'emploi.",
+      "english": "Regular support addresses the causes of exclusion by facilitating access to housing and employment.",
+      "usage": "Complétez le secours ponctuel par un chemin concret vers l'autonomie, sans culpabiliser les bénéficiaires.",
+      "grammar": "« En facilitant » exprime le moyen. « Accès à » : au logement, à l'emploi.",
+      "example": "De plus, un suivi régulier agit sur les causes de la pauvreté en facilitant l’accès au logement et à l’emploi.",
+      "example_english": "Moreover, regular support addresses the causes of poverty by facilitating access to housing and employment.",
+      "source_key": "ee-tache3:janvier:combinaison-16",
+      "transfer_prompt": "Après une distribution de repas, proposez une action d'accompagnement vers un logement.",
+      "essential": false,
+      "themes": [
+        "societe"
+      ]
+    },
+    {
+      "slug": "societe-animal-engagement",
+      "category": "societe",
+      "label": "Prévoir une responsabilité durable",
+      "french": "Accueillir un animal exige du temps, un budget et un engagement de toute la famille.",
+      "english": "Welcoming a pet requires time, a budget and a commitment from the whole family.",
+      "usage": "Reliez le bénéfice affectif aux responsabilités quotidiennes, y compris quand l'enthousiasme de l'enfant diminue.",
+      "grammar": "Le sujet infinitif « accueillir » commande « exige ». Évitez de confier toute la responsabilité à un jeune enfant.",
+      "example": "En conclusion, il faut vérifier que la famille dispose du temps, du budget et de conditions de vie adaptées avant toute adoption.",
+      "example_english": "In conclusion, it is necessary to check that the family has the time, budget and suitable living conditions before any adoption.",
+      "source_key": "ee-tache3:mars:combinaison-2",
+      "transfer_prompt": "Expliquez ce qu'une famille doit prévoir avant d'adopter un chien après un déménagement.",
+      "essential": false,
+      "themes": [
+        "societe"
+      ]
+    },
+    {
+      "slug": "societe-limites-expliquees",
+      "category": "societe",
+      "label": "Faire évoluer l'autorité",
+      "french": "Expliquer les limites favorise la confiance et prépare progressivement à prendre ses propres décisions.",
+      "english": "Explaining boundaries builds trust and gradually prepares people to make their own decisions.",
+      "usage": "Opposez une règle expliquée à une contrainte arbitraire, sans confondre dialogue et absence de limites.",
+      "grammar": "Deux verbes au singulier après le sujet infinitif : favorise, prépare.",
+      "example": "De plus, expliquer ces limites favorise la confiance plutôt que la peur.",
+      "example_english": "Moreover, explaining these boundaries promotes trust rather than fear.",
+      "source_key": "ee-tache3:mars:combinaison-10",
+      "transfer_prompt": "Proposez une règle de sortie pour un adolescent qui gagne progressivement en autonomie.",
+      "essential": false,
+      "themes": [
+        "societe"
+      ]
+    },
+    {
+      "slug": "societe-urgence-passerelle",
+      "category": "societe",
+      "label": "Construire une suite à l'aide",
+      "french": "L'aide d'urgence peut ouvrir la voie à l'autonomie si elle s'accompagne de démarches concrètes.",
+      "english": "Emergency help can open the way to independence if it is accompanied by concrete steps.",
+      "usage": "Vous pouvez proposer des solutions dans votre avis même si un seul témoignage existe ; ne les attribuez pas à un document absent.",
+      "grammar": "« S'accompagner de » + nom. « Si » + indicatif. Distinguez votre proposition du contenu de la source.",
+      "example": "Par exemple, à Montréal, une association peut offrir un repas chaud, puis aider le bénéficiaire à obtenir une adresse, une formation et un emploi stable.",
+      "example_english": "For example, in Montreal, an association can offer a hot meal, then help the beneficiary obtain an address, training and stable employment.",
+      "source_key": "ee-tache3:juin:combinaison-3",
+      "transfer_prompt": "Imaginez un accompagnement après une aide ponctuelle au paiement d'un loyer, en présentant clairement votre proposition.",
+      "essential": false,
+      "themes": [
+        "societe"
+      ]
+    },
+    {
+      "slug": "societe-cadre-acces",
+      "category": "societe",
+      "label": "Choisir sans perdre l'accès",
+      "french": "Un cadre de vie plus calme reste attractif si l'accès aux emplois et aux services est préservé.",
+      "english": "A quieter living environment remains attractive if access to jobs and services is maintained.",
+      "usage": "Nuancez le choix ville-campagne par les besoins quotidiens plutôt que par des préférences abstraites.",
+      "grammar": "« Accès aux » : contraction de à + les. « Préservé » s'accorde avec « accès ».",
+      "example": "En conclusion, je préfère la campagne pour le calme et l’espace, sans renoncer à l’accès aux emplois et à la culture.",
+      "example_english": "In conclusion, I prefer the countryside for its peace and space, without giving up access to jobs and culture.",
+      "source_key": "ee-tache3:aout:combinaison-17",
+      "transfer_prompt": "Comparez deux lieux de vie pour une famille dont un parent travaille en ville.",
+      "essential": false,
+      "themes": [
+        "societe"
+      ]
+    },
+    {
+      "slug": "societe-responsabilite-routine",
+      "category": "societe",
+      "label": "Relier responsabilité et gestes",
+      "french": "Des tâches régulières apprennent à tenir un engagement, même lorsque l'envie manque.",
+      "english": "Regular tasks teach people to keep a commitment, even when motivation is lacking.",
+      "usage": "Développez le sens concret d'une responsabilité : horaires, gestes, continuité et besoins d'autrui.",
+      "grammar": "« Apprendre à » + infinitif. « Lorsque » + indicatif exprime une situation possible et répétée.",
+      "example": "Nourrir l’animal et nettoyer son espace imposent des gestes réguliers, même les jours sans envie.",
+      "example_english": "Feeding the animal and cleaning its space require regular actions, even on days when one does not feel like it.",
+      "source_key": "ee-tache3:mars:combinaison-2",
+      "transfer_prompt": "Adaptez cet argument au partage des tâches dans une colocation.",
+      "essential": false,
+      "themes": [
+        "societe"
+      ]
+    },
+    {
+      "slug": "transports-alternatives-avant",
+      "category": "transports",
+      "label": "Préparer la transition",
+      "french": "Les restrictions de circulation doivent être précédées d'alternatives fiables pour les personnes qui dépendent de leur véhicule.",
+      "english": "Traffic restrictions should be preceded by reliable alternatives for people who depend on their vehicle.",
+      "usage": "Défendez une transition et non une interdiction indifférente aux contraintes professionnelles.",
+      "grammar": "Passif : « être précédées de », accord avec « restrictions ». Précisez les personnes concernées.",
+      "example": "De plus, il faut que des alternatives crédibles soient prévues avant les restrictions pour les travailleurs qui dépendent de leur véhicule.",
+      "example_english": "Moreover, credible alternatives must be arranged before restrictions for workers who depend on their vehicles.",
+      "source_key": "ee-tache3:janvier:combinaison-17",
+      "transfer_prompt": "Proposez une solution pour les travailleurs de nuit avant de fermer une rue aux voitures.",
+      "essential": false,
+      "themes": [
+        "transports"
+      ]
+    },
+    {
+      "slug": "transports-frequence-acces",
+      "category": "transports",
+      "label": "Privilégier un service utilisable",
+      "french": "Un service gratuit reste peu utile si les bus sont rares ou ne desservent pas les quartiers éloignés.",
+      "english": "A free service remains of little use if buses are infrequent or do not serve outlying neighbourhoods.",
+      "usage": "Distinguez gratuité et accessibilité réelle : prix, fréquence et couverture doivent être pensés ensemble.",
+      "grammar": "« Desservir » prend un complément direct : desservir les quartiers. « Si » est suivi de l'indicatif.",
+      "example": "Un service gratuit ne sert à rien s’il oblige les habitants à attendre une heure.",
+      "example_english": "A free service is of no use if it makes residents wait an hour.",
+      "source_key": "ee-tache3:juillet:combinaison-8",
+      "transfer_prompt": "Comparez un bus gratuit par heure avec un bus fréquent à tarif réduit pour un quartier éloigné.",
+      "essential": false,
+      "themes": [
+        "transports"
+      ]
+    },
+    {
+      "slug": "transports-trafic-benefices",
+      "category": "transports",
+      "label": "Décrire des effets sur le quotidien",
+      "french": "Réduire le trafic peut améliorer la qualité de l'air et rendre les déplacements plus sûrs.",
+      "english": "Reducing traffic can improve air quality and make travel safer.",
+      "usage": "Reliez une mesure urbaine à des bénéfices concrets sans promettre la disparition de toute pollution ou de tout accident.",
+      "grammar": "Le sujet infinitif « réduire » appelle « peut ». « Plus sûrs » s'accorde avec « déplacements ».",
+      "example": "Tout d’abord, moins de trafic réduit la pollution, le stress et le risque d’accident pour les habitants.",
+      "example_english": "First of all, less traffic reduces pollution, stress and the risk of accidents for residents.",
+      "source_key": "ee-tache3:janvier:combinaison-17",
+      "transfer_prompt": "Défendez une rue scolaire à circulation limitée en nommant deux effets attendus.",
+      "essential": false,
+      "themes": [
+        "transports"
+      ]
+    },
+    {
+      "slug": "transports-incitation-prix",
+      "category": "transports",
+      "label": "Relier tarif et changement d'habitude",
+      "french": "Un tarif accessible peut inciter certains automobilistes à laisser leur voiture au garage.",
+      "english": "An affordable fare can encourage some drivers to leave their cars at home.",
+      "usage": "Le prix peut aider à changer les habitudes, mais il ne suffit pas sans trajet fiable et pratique.",
+      "grammar": "« Inciter quelqu'un à » + infinitif. « Certains » évite de supposer le même comportement chez tous.",
+      "example": "Tout d’abord, supprimer le prix du ticket peut inciter des automobilistes à laisser leur voiture au garage.",
+      "example_english": "First of all, removing the ticket price can encourage drivers to leave their cars at home.",
+      "source_key": "ee-tache3:juillet:combinaison-8",
+      "transfer_prompt": "Expliquez l'intérêt d'un abonnement réduit pour les trajets domicile-travail.",
+      "essential": false,
+      "themes": [
+        "transports"
+      ]
+    },
+    {
+      "slug": "logement-partager-budget",
+      "category": "logement",
+      "label": "Expliquer l'économie de logement",
+      "french": "Partager le loyer permet de se loger près de [lieu utile] sans dépasser son budget.",
+      "english": "Sharing the rent makes it possible to live near [useful place] without exceeding one's budget.",
+      "usage": "Développez l'économie par un effet concret : proximité du campus, moins de trajets ou meilleure accessibilité.",
+      "grammar": "« Se loger près de » : de l'université, du travail. L'infinitif sujet appelle « permet ».",
+      "example": "Tout d’abord, partager le loyer permet de vivre près de son université sans dépasser son budget.",
+      "example_english": "First of all, sharing the rent makes it possible to live near one's university without exceeding one's budget.",
+      "source_key": "ee-tache3:janvier:combinaison-3",
+      "transfer_prompt": "Justifiez une colocation près d'un centre de formation plutôt qu'un studio éloigné.",
+      "essential": false,
+      "themes": [
+        "logement"
+      ]
+    },
+    {
+      "slug": "logement-responsabilites-depart",
+      "category": "logement",
+      "label": "Prévenir les conflits",
+      "french": "Définir les responsabilités dès le départ protège le repos et assure une répartition plus juste des tâches.",
+      "english": "Defining responsibilities from the start protects rest and ensures a fairer division of chores.",
+      "usage": "Présentez la règle comme un outil pour vivre ensemble, pas seulement comme une liste d'interdictions.",
+      "grammar": "Les deux verbes s'accordent avec le sujet infinitif : protège, assure.",
+      "example": "De plus, des règles communes protègent le repos, les espaces privés et une répartition juste du ménage.",
+      "example_english": "Moreover, shared rules protect rest, private spaces and a fair division of cleaning.",
+      "source_key": "ee-tache3:avril:combinaison-14",
+      "transfer_prompt": "Proposez deux règles pour des colocataires qui travaillent à des horaires différents.",
+      "essential": false,
+      "themes": [
+        "logement"
+      ]
+    },
+    {
+      "slug": "logement-arrivee-isolement",
+      "category": "logement",
+      "label": "Créer des liens en arrivant",
+      "french": "Partager un logement peut rompre l'isolement lors de l'arrivée dans une nouvelle ville.",
+      "english": "Sharing accommodation can break isolation when arriving in a new city.",
+      "usage": "Complétez l'avantage financier par une raison sociale distincte, sans promettre une amitié automatique.",
+      "grammar": "« Lors de » + nom ; « lors de l'arrivée ». « Peut » garde la prudence nécessaire.",
+      "example": "Par exemple, un étudiant fraîchement arrivé peut partager son loyer et se faire des amis dès sa première semaine en colocation.",
+      "example_english": "For example, a newly arrived student can share the rent and make friends in their first week of shared accommodation.",
+      "source_key": "ee-tache3:mai:combinaison-7",
+      "transfer_prompt": "Imaginez l'arrivée d'un jeune salarié dans une ville où il ne connaît personne.",
+      "essential": false,
+      "themes": [
+        "logement"
+      ]
+    },
+    {
+      "slug": "logement-bilan-dialogue",
+      "category": "logement",
+      "label": "Réviser les règles ensemble",
+      "french": "Un bilan régulier permet d'ajuster les règles quand les besoins des colocataires changent.",
+      "english": "A regular review makes it possible to adjust the rules when housemates' needs change.",
+      "usage": "Une règle initiale ne résout pas tout : prévoyez un moment de dialogue sur le bruit, les invités ou les tâches.",
+      "grammar": "« Permettre de » + infinitif ; « quand » + indicatif.",
+      "example": "Par exemple, trois adultes peuvent fixer un calendrier de ménage, des heures calmes et des règles concernant les invités, puis faire un bilan chaque mois.",
+      "example_english": "For example, three adults can set a cleaning rota, quiet hours and rules about guests, then review them every month.",
+      "source_key": "ee-tache3:juin:combinaison-2",
+      "transfer_prompt": "Proposez une discussion après l'arrivée d'un nouveau colocataire qui télétravaille.",
+      "essential": false,
+      "themes": [
+        "logement"
+      ]
+    },
+    {
+      "slug": "logement-retour-autonomie",
+      "category": "logement",
+      "label": "Faire d'un soutien une étape",
+      "french": "Vivre chez ses parents peut préparer l'autonomie si l'on fixe un objectif d'épargne et des responsabilités.",
+      "english": "Living with one's parents can prepare for independence if a savings goal and responsibilities are set.",
+      "usage": "Défendez un soutien temporaire lié à un projet, pas l'idée que l'âge impose une seule solution.",
+      "grammar": "« Préparer l'autonomie » est direct ; « si l'on fixe » au présent. Évitez une échéance universelle.",
+      "example": "En conclusion, je soutiens ce choix temporaire lorsque les responsabilités, l’objectif d’épargne et l’échéance sont fixés ensemble.",
+      "example_english": "In conclusion, I support this temporary choice when responsibilities, the savings goal and the timeframe are agreed together.",
+      "source_key": "ee-tache3:decembre:combinaison-15",
+      "transfer_prompt": "Proposez un accord pour un jeune adulte qui revient chez ses parents après une perte d'emploi.",
+      "essential": false,
+      "themes": [
+        "logement"
+      ]
+    },
+    {
+      "slug": "logement-respect-intimite",
+      "category": "logement",
+      "label": "Respecter les espaces privés",
+      "french": "La convivialité ne doit pas empêcher chacun de disposer de calme et d'intimité.",
+      "english": "Sociability should not prevent anyone from having peace and privacy.",
+      "usage": "Un bénéfice collectif peut devenir une contrainte individuelle : expliquez la limite à protéger.",
+      "grammar": "« Empêcher quelqu'un de » + infinitif ; « chacun » est singulier.",
+      "example": "En revanche, le second souligne que les différences de rythme, le bruit, le manque d’intimité et les corvées négligées peuvent provoquer des conflits.",
+      "example_english": "By contrast, the second highlights that different schedules, noise, lack of privacy and neglected chores can cause conflict.",
+      "source_key": "ee-tache3:avril:combinaison-14",
+      "transfer_prompt": "Formulez une règle sur les invités pour une colocation où une personne prépare un examen.",
+      "essential": false,
+      "themes": [
+        "logement"
+      ]
+    },
+    {
+      "slug": "logement-epargne-projet",
+      "category": "logement",
+      "label": "Donner un but à l'économie",
+      "french": "L'économie de loyer peut financer une formation ou constituer une réserve pour un futur logement.",
+      "english": "Rent savings can fund training or build a reserve for future accommodation.",
+      "usage": "Expliquez ce que les économies rendent possible plutôt que de présenter l'argent économisé comme un argument suffisant.",
+      "grammar": "« Peut » gouverne financer et constituer ; gardez un usage réaliste des économies.",
+      "example": "Sans cette charge mensuelle, on peut financer une formation ou épargner pour le dépôt d’un futur logement.",
+      "example_english": "Without this monthly expense, one can fund training or save for the deposit on a future home.",
+      "source_key": "ee-tache3:decembre:combinaison-15",
+      "transfer_prompt": "Expliquez comment un hébergement familial temporaire peut soutenir une reconversion professionnelle.",
+      "essential": false,
+      "themes": [
+        "logement"
+      ]
+    },
+    {
+      "slug": "culture-support-besoins",
+      "category": "culture-loisirs",
+      "label": "Adapter le support au lecteur",
+      "french": "Des supports différents répondent à des besoins différents plutôt que de s'exclure.",
+      "english": "Different formats meet different needs rather than excluding each other.",
+      "usage": "Comparez accessibilité, usages et attachement au support au lieu de déclarer un format supérieur pour tous.",
+      "grammar": "« Répondre à » : aux besoins. « S'exclure » est un infinitif pronominal.",
+      "example": "Pour ma part, je pense que les deux formats répondent à des besoins différents plutôt que de s’exclure.",
+      "example_english": "For my part, I think the two formats meet different needs rather than excluding each other.",
+      "source_key": "ee-tache3:janvier:combinaison-5",
+      "transfer_prompt": "Proposez une offre de bibliothèque combinant livres papier, livres numériques et grands caractères.",
+      "essential": false,
+      "themes": [
+        "culture-loisirs"
+      ]
+    },
+    {
+      "slug": "culture-lecture-plaisir",
+      "category": "culture-loisirs",
+      "label": "Encourager sans punir",
+      "french": "Des lectures choisies selon les intérêts de l'enfant associent l'apprentissage au plaisir.",
+      "english": "Reading material chosen according to the child's interests links learning with enjoyment.",
+      "usage": "Expliquez l'intérêt du choix personnel sans abandonner l'accompagnement et la régularité.",
+      "grammar": "« Choisies » s'accorde avec « lectures ». « Associer A à B » : l'apprentissage au plaisir.",
+      "example": "Tout d’abord, des textes adaptés aux intérêts de l’enfant nourrissent son vocabulaire et sa capacité d’analyse.",
+      "example_english": "First of all, texts suited to the child's interests enrich their vocabulary and analytical ability.",
+      "source_key": "ee-tache3:mars:combinaison-3",
+      "transfer_prompt": "Proposez une manière d'intéresser à la lecture un enfant passionné par les animaux.",
+      "essential": false,
+      "themes": [
+        "culture-loisirs"
+      ]
+    },
+    {
+      "slug": "culture-equipements-apres",
+      "category": "culture-loisirs",
+      "label": "Prévoir l'usage durable",
+      "french": "Les équipements d'un grand événement doivent rester utiles aux habitants après sa clôture.",
+      "english": "The facilities for a major event should remain useful to residents after it ends.",
+      "usage": "Défendez un investissement par sa durée d'usage, pas uniquement par le prestige de l'événement.",
+      "grammar": "« Utiles à » : aux habitants. « Sa clôture » renvoie à l'événement.",
+      "example": "Tout d’abord, rénover les transports ou les équipements existants peut améliorer le quotidien, car les habitants les utiliseront encore après l’événement.",
+      "example_english": "First of all, renovating existing transport or facilities can improve daily life, because residents will still use them after the event.",
+      "source_key": "ee-tache3:avril:combinaison-17",
+      "transfer_prompt": "Proposez un usage local d'une salle construite pour une compétition internationale.",
+      "essential": false,
+      "themes": [
+        "culture-loisirs"
+      ]
+    },
+    {
+      "slug": "culture-art-accessible",
+      "category": "culture-loisirs",
+      "label": "Ouvrir la culture hors des institutions",
+      "french": "Une œuvre dans l'espace public peut toucher des personnes qui fréquentent peu les musées.",
+      "english": "A work in public space can reach people who rarely visit museums.",
+      "usage": "Expliquez l'accessibilité par l'absence de billet ou d'horaire, tout en respectant l'autorisation des lieux.",
+      "grammar": "« Toucher » signifie ici atteindre un public. « Peu » nuance la fréquence sans juger les personnes.",
+      "example": "Tout d’abord, il rend la culture accessible à un public qui fréquente peu les musées.",
+      "example_english": "First of all, it makes culture accessible to an audience that rarely visits museums.",
+      "source_key": "ee-tache3:aout:combinaison-12",
+      "transfer_prompt": "Défendez une exposition temporaire autorisée dans une gare.",
+      "essential": false,
+      "themes": [
+        "culture-loisirs"
+      ]
+    },
+    {
+      "slug": "culture-gratuite-financement",
+      "category": "culture-loisirs",
+      "label": "Ouvrir sans fragiliser",
+      "french": "La gratuité doit s'accompagner de ressources suffisantes pour entretenir les lieux et préserver les œuvres.",
+      "english": "Free admission should be accompanied by sufficient resources to maintain the premises and preserve the works.",
+      "usage": "Associez accès et conservation plutôt que de choisir entre les visiteurs et les collections.",
+      "grammar": "« S'accompagner de » + nom ; les infinitifs entretenir et préserver expriment le but.",
+      "example": "Pour ma part, les musées devraient offrir une gratuité régulière, à condition que leurs ressources restent suffisantes pour protéger les œuvres.",
+      "example_english": "For my part, museums should offer regular free admission, provided their resources remain sufficient to protect the works.",
+      "source_key": "ee-tache3:aout:combinaison-14",
+      "transfer_prompt": "Proposez un financement pour des journées gratuites dans un musée municipal.",
+      "essential": false,
+      "themes": [
+        "culture-loisirs"
+      ]
+    },
+    {
+      "slug": "culture-art-autorisation",
+      "category": "culture-loisirs",
+      "label": "Soutenir la création légale",
+      "french": "Des espaces autorisés permettent aux artistes de s'exprimer sans dégrader les bâtiments.",
+      "english": "Authorised spaces allow artists to express themselves without damaging buildings.",
+      "usage": "Distinguez soutien à l'art urbain et acceptation de toutes les interventions sur les murs d'autrui.",
+      "grammar": "« Permettre à quelqu'un de » + infinitif ; « autorisés » s'accorde avec « espaces ».",
+      "example": "Tout d’abord, des murs autorisés offrent aux artistes un espace d’expression accessible à tous sans dégrader les bâtiments.",
+      "example_english": "First of all, authorised walls offer artists a space for expression that is accessible to everyone without damaging buildings.",
+      "source_key": "ee-tache3:novembre:combinaison-10",
+      "transfer_prompt": "Imaginez une fresque réalisée avec l'accord des habitants sur un mur municipal.",
+      "essential": false,
+      "themes": [
+        "culture-loisirs"
+      ]
+    },
+    {
+      "slug": "culture-mediation-visite",
+      "category": "culture-loisirs",
+      "label": "Dépasser le seul prix d'entrée",
+      "french": "Un accompagnement adapté rend la visite plus enrichissante pour les publics peu familiers du musée.",
+      "english": "Appropriate guidance makes the visit more rewarding for audiences less familiar with museums.",
+      "usage": "La gratuité enlève un obstacle financier ; la médiation aide ensuite à comprendre et apprécier les œuvres.",
+      "grammar": "« Adapté » s'accorde avec « accompagnement ». Précisez le public sans le dévaloriser.",
+      "example": "De plus, un accompagnement adapté rend la visite plus enrichissante.",
+      "example_english": "Moreover, appropriate guidance makes the visit more rewarding.",
+      "source_key": "ee-tache3:novembre:combinaison-11",
+      "transfer_prompt": "Proposez une visite adaptée à des adolescents qui découvrent un musée pour la première fois.",
+      "essential": false,
+      "themes": [
+        "culture-loisirs"
+      ]
+    },
+    {
+      "slug": "culture-affluence-creneaux",
+      "category": "culture-loisirs",
+      "label": "Gérer la fréquentation",
+      "french": "Des créneaux sur réservation peuvent limiter l'affluence sans supprimer l'accès gratuit.",
+      "english": "Reserved time slots can limit overcrowding without removing free admission.",
+      "usage": "Répondez à la crainte de la foule par une organisation pratique plutôt qu'en renonçant à toute ouverture.",
+      "grammar": "« Sur réservation » reste singulier. « Peuvent » ne garantit pas l'absence totale de files d'attente.",
+      "example": "De plus, une réservation horaire permet de limiter la foule.",
+      "example_english": "Moreover, timed booking makes it possible to limit crowds.",
+      "source_key": "ee-tache3:aout:combinaison-14",
+      "transfer_prompt": "Organisez une journée gratuite dans un petit site patrimonial qui ne peut pas accueillir tout le monde à la fois.",
+      "essential": false,
+      "themes": [
+        "culture-loisirs"
+      ]
+    },
+    {
+      "slug": "culture-budget-priorites",
+      "category": "culture-loisirs",
+      "label": "Comparer les dépenses publiques",
+      "french": "Un budget culturel ou sportif doit être évalué au regard des besoins des autres services publics.",
+      "english": "A cultural or sports budget should be assessed in light of the needs of other public services.",
+      "usage": "Un projet prestigieux a un coût d'opportunité : expliquez ce que son financement pourrait empêcher ailleurs.",
+      "grammar": "« Au regard de » signifie en tenant compte de. Évitez d'inventer des chiffres budgétaires.",
+      "example": "De plus, un budget mal contrôlé risque d’affaiblir des services essentiels.",
+      "example_english": "Moreover, a poorly controlled budget risks weakening essential services.",
+      "source_key": "ee-tache3:avril:combinaison-17",
+      "transfer_prompt": "Discutez un nouveau stade alors que la ville doit aussi rénover ses écoles.",
+      "essential": false,
+      "themes": [
+        "culture-loisirs"
+      ]
+    },
+    {
+      "slug": "consommation-pause-ecran",
+      "category": "consommation",
+      "label": "Préserver une vraie coupure",
+      "french": "Un service pratique ne doit pas normaliser les repas pris devant l'écran.",
+      "english": "A convenient service should not make eating in front of a screen the norm.",
+      "usage": "Distinguez le gain de temps lié au service du risque de continuer à travailler pendant le repas.",
+      "grammar": "« Pris » s'accorde avec « repas ». « Ne doit pas » exprime votre limite, pas un constat de tous les comportements.",
+      "example": "Pour ma part, la livraison constitue une solution pratique, mais elle ne doit pas normaliser les repas pris devant l’écran.",
+      "example_english": "For my part, delivery is a convenient solution, but it should not make eating in front of a screen the norm.",
+      "source_key": "ee-tache3:janvier:combinaison-8",
+      "transfer_prompt": "Proposez une règle pour une équipe qui utilise souvent la livraison pendant les réunions.",
+      "essential": false,
+      "themes": [
+        "consommation"
+      ]
+    },
+    {
+      "slug": "consommation-qualite-logo",
+      "category": "consommation",
+      "label": "Résister à la pression des marques",
+      "french": "Choisir selon la solidité plutôt que selon un logo protège le budget et limite les achats répétés.",
+      "english": "Choosing according to durability rather than a logo protects the budget and limits repeated purchases.",
+      "usage": "Reliez votre choix à la durée d'usage, tout en respectant les goûts personnels.",
+      "grammar": "« Selon » + nom. Le sujet infinitif « choisir » commande protège et limite.",
+      "example": "Un vêtement qui résiste à plusieurs lavages évite des achats répétés.",
+      "example_english": "A garment that withstands several washes avoids repeated purchases.",
+      "source_key": "ee-tache3:mars:combinaison-1",
+      "transfer_prompt": "Conseillez un critère d'achat pour un sac scolaire utilisé tous les jours.",
+      "essential": false,
+      "themes": [
+        "consommation"
+      ]
+    },
+    {
+      "slug": "consommation-naturel-prudence",
+      "category": "consommation",
+      "label": "Ne pas confondre naturel et sûr",
+      "french": "Un produit fait maison n'est pas automatiquement sans risque : sa préparation et sa conservation doivent être maîtrisées.",
+      "english": "A homemade product is not automatically risk-free: its preparation and storage must be controlled.",
+      "usage": "Reconnaissez les économies ou le contrôle des ingrédients sans transformer le « naturel » en garantie sanitaire.",
+      "grammar": "« Maîtrisées » s'accorde avec préparation et conservation. Restez sur les précautions, sans donner de recette risquée.",
+      "example": "En revanche, le second souligne le temps de préparation, le coût initial et les risques d’irritation ou de contamination liés aux erreurs de formulation et de conservation.",
+      "example_english": "By contrast, the second highlights preparation time, initial cost and the risks of irritation or contamination linked to mistakes in formulation and storage.",
+      "source_key": "ee-tache3:mars:combinaison-4",
+      "transfer_prompt": "Nuancez l'intérêt des cosmétiques maison pour une personne sans formation.",
+      "essential": false,
+      "themes": [
+        "consommation"
+      ]
+    },
+    {
+      "slug": "consommation-proximite-emplois",
+      "category": "consommation",
+      "label": "Soutenir la vie locale",
+      "french": "Acheter dans son quartier soutient des emplois locaux et maintient des lieux d'échange.",
+      "english": "Shopping in one's neighbourhood supports local jobs and preserves places for interaction.",
+      "usage": "Ajoutez une dimension sociale à la comparaison des prix sans supposer que chacun peut payer davantage.",
+      "grammar": "« Soutenir » est direct : soutenir des emplois. « Dans son quartier » donne un cadre concret.",
+      "example": "Lorsqu’un commerce ferme, les habitants perdent un service de proximité et un lieu d’échange.",
+      "example_english": "When a shop closes, residents lose a local service and a place for interaction.",
+      "source_key": "ee-tache3:mars:combinaison-9",
+      "transfer_prompt": "Expliquez ce qu'une boulangerie de quartier apporte au-delà de ses produits.",
+      "essential": false,
+      "themes": [
+        "consommation"
+      ]
+    },
+    {
+      "slug": "consommation-temps-anticipe",
+      "category": "consommation",
+      "label": "Organiser plutôt que subir",
+      "french": "Choisir son repas à l'avance peut éviter des déplacements inutiles pendant une journée chargée.",
+      "english": "Choosing one's meal in advance can avoid unnecessary journeys during a busy day.",
+      "usage": "Expliquez un gain de temps concret, puis protégez une vraie pause au lieu de faire du temps gagné du travail supplémentaire.",
+      "grammar": "« À l'avance » précise l'anticipation. « Peut » reconnaît que les retards restent possibles.",
+      "example": "Tout d’abord, elle évite aux salariés de chercher un restaurant loin du bureau et leur laisse le temps de choisir leur repas à l’avance.",
+      "example_english": "First of all, it saves employees from looking for a restaurant far from the office and gives them time to choose their meal in advance.",
+      "source_key": "ee-tache3:avril:combinaison-2",
+      "transfer_prompt": "Imaginez une organisation du déjeuner pour une équipe avec des rendez-vous rapprochés.",
+      "essential": false,
+      "themes": [
+        "consommation"
+      ]
+    },
+    {
+      "slug": "consommation-repas-lien",
+      "category": "consommation",
+      "label": "Préserver la convivialité",
+      "french": "Manger ensemble pendant une pause permet d'échanger au lieu de rester isolé à son poste.",
+      "english": "Eating together during a break allows people to interact rather than remain isolated at their desks.",
+      "usage": "L'intérêt social vient de l'organisation du repas, pas de son mode d'achat ou de livraison.",
+      "grammar": "« Au lieu de » + infinitif. Adaptez « isolé » au sujet choisi si vous reformulez avec un nom.",
+      "example": "Manger sans interrompre le travail entretient la fatigue et isole les employés.",
+      "example_english": "Eating without interrupting work sustains fatigue and isolates employees.",
+      "source_key": "ee-tache3:juillet:combinaison-3",
+      "transfer_prompt": "Proposez une pause commune pour des collègues qui mangent chacun devant leur ordinateur.",
+      "essential": false,
+      "themes": [
+        "consommation"
+      ]
+    },
+    {
+      "slug": "consommation-achats-complementaires",
+      "category": "consommation",
+      "label": "Combiner selon ses moyens",
+      "french": "Combiner producteurs locaux et supermarchés permet de rechercher la qualité sans dépasser son budget.",
+      "english": "Combining local producers and supermarkets makes it possible to seek quality without exceeding one's budget.",
+      "usage": "Évitez le choix absolu : répartissez les achats selon les produits disponibles, les prix et la saison.",
+      "grammar": "« Combiner A et B », pas « combiner A contre B ». « Sans » + infinitif.",
+      "example": "En conclusion, je combinerais les deux options pour manger des produits locaux sans dépasser mon budget.",
+      "example_english": "In conclusion, I would combine the two options to eat local produce without exceeding my budget.",
+      "source_key": "ee-tache3:aout:combinaison-3",
+      "transfer_prompt": "Répartissez les achats d'une famille entre un marché de quartier et un supermarché.",
+      "essential": false,
+      "themes": [
+        "consommation"
+      ]
+    },
+    {
+      "slug": "consommation-publicite-intention",
+      "category": "consommation",
+      "label": "Reconnaître la persuasion",
+      "french": "Les enfants ont besoin d'apprendre à distinguer une information d'un message conçu pour les persuader.",
+      "english": "Children need to learn to distinguish information from a message designed to persuade them.",
+      "usage": "Expliquez la vulnérabilité au message commercial sans présenter les enfants comme incapables d'apprendre.",
+      "grammar": "« Distinguer A de B ». « Conçu » s'accorde avec « message ».",
+      "example": "Tout d’abord, les plus jeunes distinguent mal une information d’un message conçu pour les persuader.",
+      "example_english": "First of all, younger children struggle to distinguish information from a message designed to persuade them.",
+      "source_key": "ee-tache3:aout:combinaison-16",
+      "transfer_prompt": "Imaginez une discussion parent-enfant comparant une publicité de jouet à ses caractéristiques réelles.",
+      "essential": false,
+      "themes": [
+        "consommation"
+      ]
+    },
+    {
+      "slug": "consommation-publicite-proportion",
+      "category": "consommation",
+      "label": "Informer sans envahir",
+      "french": "Une publicité moins envahissante peut informer les consommateurs tout en préservant leur attention.",
+      "english": "Less intrusive advertising can inform consumers while preserving their attention.",
+      "usage": "Distinguez l'information utile sur une offre de la répétition imposée ou du ciblage excessif.",
+      "grammar": "« Tout en » + participe présent : préservant. Le sujet reste la publicité.",
+      "example": "De plus, une diffusion moins envahissante protège l’attention et réduit les déchets.",
+      "example_english": "Moreover, less intrusive distribution protects attention and reduces waste.",
+      "source_key": "ee-tache3:octobre:combinaison-1",
+      "transfer_prompt": "Proposez une façon de faire connaître des commerces sans multiplier les prospectus non sollicités.",
+      "essential": false,
+      "themes": [
+        "consommation"
+      ]
+    },
+    {
+      "slug": "consommation-limite-savoir-faire",
+      "category": "consommation",
+      "label": "Renoncer à ce qu'on ne maîtrise pas",
+      "french": "Il vaut mieux acheter un produit sensible auprès d'un professionnel que préparer une formule que l'on ne maîtrise pas.",
+      "english": "It is better to buy a sensitive product from a professional than prepare a formula one does not understand.",
+      "usage": "Une économie ne justifie pas une préparation hasardeuse. Distinguez les usages courants des produits appliqués sur la peau.",
+      "grammar": "« Il vaut mieux » + infinitif. « Que » introduit ici la comparaison, pas une proposition au subjonctif.",
+      "example": "Il vaut mieux renoncer aux préparations que l’on ne maîtrise pas.",
+      "example_english": "It is better to give up preparations that one does not understand.",
+      "source_key": "ee-tache3:decembre:combinaison-13",
+      "transfer_prompt": "Nuancez le projet de fabriquer tous ses produits d'hygiène soi-même.",
+      "essential": false,
+      "themes": [
+        "consommation"
+      ]
+    },
+    {
+      "slug": "consommation-reemploi-budget",
+      "category": "consommation",
+      "label": "Relier déchets et durée d'usage",
+      "french": "Réutiliser un contenant plusieurs fois peut réduire à la fois les déchets et les dépenses.",
+      "english": "Reusing a container several times can reduce both waste and spending.",
+      "usage": "Expliquez deux effets d'un même mécanisme sans les compter artificiellement comme deux arguments entièrement indépendants.",
+      "grammar": "« À la fois... et... » met deux effets en parallèle. L'économie dépend aussi des coûts réels.",
+      "example": "Un même flacon rempli plusieurs fois remplace des dizaines d’emballages jetables.",
+      "example_english": "One bottle refilled several times replaces dozens of disposable packages.",
+      "source_key": "ee-tache3:mars:combinaison-4",
+      "transfer_prompt": "Développez l'intérêt d'une boîte réutilisable pour les repas emportés.",
+      "essential": false,
+      "themes": [
+        "consommation"
+      ]
+    },
+    {
+      "slug": "consommation-ciblage-mineurs",
+      "category": "consommation",
+      "label": "Associer règle et éducation",
+      "french": "Encadrer le ciblage publicitaire des mineurs doit aller de pair avec une éducation aux techniques commerciales.",
+      "english": "Regulating advertising targeted at minors should go hand in hand with education about marketing techniques.",
+      "usage": "Proposez une protection collective et un apprentissage individuel complémentaires.",
+      "grammar": "« Aller de pair avec » reste une locution fixe. Le sujet infinitif commande « doit ».",
+      "example": "En conclusion, je soutiens l’interdiction du ciblage des mineurs et une éducation régulière aux techniques commerciales.",
+      "example_english": "In conclusion, I support banning the targeting of minors and regular education about marketing techniques.",
+      "source_key": "ee-tache3:aout:combinaison-16",
+      "transfer_prompt": "Proposez deux mesures complémentaires contre la publicité cachée dans des vidéos pour enfants.",
+      "essential": false,
+      "themes": [
+        "consommation"
+      ]
+    },
+    {
+      "slug": "consommation-information-origine",
+      "category": "consommation",
+      "label": "Choisir avec des informations utiles",
+      "french": "Connaître l'origine d'un produit aide à choisir selon ses priorités, sans supposer que le plus cher est toujours meilleur.",
+      "english": "Knowing a product's origin helps people choose according to their priorities, without assuming the most expensive is always best.",
+      "usage": "L'information sur l'origine est un critère, pas une preuve suffisante de qualité ou de supériorité écologique.",
+      "grammar": "« Aider à » + infinitif ; « supposer que » + indicatif dans cette phrase.",
+      "example": "Tout d’abord, la ferme offre des produits frais dont je peux connaître l’origine, même s’ils coûtent un peu plus cher.",
+      "example_english": "First of all, the farm offers fresh produce whose origin I can know, even if it costs a little more.",
+      "source_key": "ee-tache3:aout:combinaison-3",
+      "transfer_prompt": "Comparez deux produits alimentaires en intégrant l'origine, le prix et vos besoins.",
+      "essential": false,
+      "themes": [
+        "consommation"
+      ]
+    },
+    {
+      "slug": "voyages-prix-acces",
+      "category": "voyages",
+      "label": "Rendre le voyage accessible",
+      "french": "Un tarif abordable ouvre le voyage aux petits budgets, même si les services à bord sont limités.",
+      "english": "An affordable fare makes travel accessible to smaller budgets, even if onboard services are limited.",
+      "usage": "Distinguez un service de confort auquel on peut renoncer des exigences qui ne sont pas négociables.",
+      "grammar": "« Même si » + indicatif : sont limités. Ne transformez pas une différence de service en preuve de danger.",
+      "example": "Tout d’abord, un billet abordable permet aux petits budgets de voyager plus souvent, même sans repas à bord.",
+      "example_english": "First of all, an affordable ticket allows people on smaller budgets to travel more often, even without an onboard meal.",
+      "source_key": "ee-tache3:janvier:combinaison-19",
+      "transfer_prompt": "Défendez un train à tarif réduit avec moins de services, en précisant ce qui doit être maintenu.",
+      "essential": false,
+      "themes": [
+        "voyages"
+      ]
+    },
+    {
+      "slug": "voyages-securite-non-negociable",
+      "category": "voyages",
+      "label": "Fixer une limite au prix bas",
+      "french": "Le prix bas ne doit jamais justifier une réduction de l'entretien ni une dégradation des conditions de travail.",
+      "english": "Low prices must never justify reduced maintenance or worse working conditions.",
+      "usage": "Énoncez une exigence de contrôle sans affirmer que toutes les compagnies bon marché seraient dangereuses.",
+      "grammar": "« Ne... jamais... ni... » relie les deux refus. Aucun lien automatique entre tarif et sécurité n'est établi ici.",
+      "example": "De plus, le prix ne doit jamais conduire à réduire l’entretien des avions ni à dégrader les conditions de travail.",
+      "example_english": "Moreover, price should never lead to reduced aircraft maintenance or worse working conditions.",
+      "source_key": "ee-tache3:janvier:combinaison-19",
+      "transfer_prompt": "Formulez une exigence pour une compagnie d'autocars proposant des billets très bon marché.",
+      "essential": false,
+      "themes": [
+        "voyages"
+      ]
+    },
+    {
+      "slug": "voyages-choix-duree",
+      "category": "voyages",
+      "label": "Adapter le choix au trajet",
+      "french": "Le choix d'un transport doit tenir compte de la durée du trajet et du confort nécessaire, pas seulement du prix affiché.",
+      "english": "The choice of transport should take journey length and the comfort needed into account, not just the advertised price.",
+      "usage": "Un compromis acceptable sur un court trajet ne convient pas forcément à un voyage plus long. Comparez les besoins sans inventer de garantie.",
+      "grammar": "« Tenir compte de » : de la durée, du confort, du prix. Un prix supérieur ne prouve pas une sécurité supérieure.",
+      "example": "Sur un vol transatlantique, je paierais davantage afin de bénéficier de meilleures garanties de sécurité et de confort.",
+      "example_english": "On a transatlantic flight, I would pay more to benefit from better assurances of safety and comfort.",
+      "source_key": "ee-tache3:janvier:combinaison-19",
+      "transfer_prompt": "Comparez un trajet de deux heures et un trajet de nuit pour une personne qui doit travailler à l'arrivée.",
+      "essential": false,
+      "themes": [
+        "voyages"
+      ]
+    }
+  ]
+}

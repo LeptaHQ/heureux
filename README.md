@@ -46,15 +46,18 @@ opposition, concession, conditions, arguments, examples, consequences and
 conclusions) and by the eleven subject themes. Start with the essentials, then
 learn thematic arguments rather than isolated words.
 
-The catalogue root is a compact nested directory: one progress table for the
-essential writing functions and one for thematic arguments. Every subdivision
-opens a dedicated content page with its own learned count, search and status
-filter; global search has a separate page. Each entry pairs a reusable French
-frame with its English meaning, usage and grammar guidance, an example from a
-reference response, and an exercise for adapting it to a different situation.
-Copy and opt-in recall practice are separate actions. Learned status is the
-learner's own assessment of being able to reproduce and adapt the formulation,
-not an exam score.
+The catalogue root uses two simple progress tables: one for the essential writing
+functions and one for thematic arguments. Every subdivision opens a learning page
+with a sticky topic index, its own learned count, search and status filter; global
+search has a separate page. The synthesis subdivision includes a compact reference
+for reporting verbs such as `mettre en avant`, `indiquer` and `mettre en garde
+contre`. Every thematic subdivision begins with an eight-item useful-vocabulary
+reference, including its English meaning and a productive French collocation. Each
+entry then pairs a reusable French frame with its English meaning, usage and grammar
+guidance, an example from a reference response, and an exercise for adapting it to
+a different situation. Copy and opt-in recall practice are separate actions.
+Learned status is the learner's own assessment of being able to reproduce and adapt
+the formulation, not an exam score.
 
 The file-backed curriculum lives in `study/content/ee/tache_3/formulations.json`;
 `study/ee_formulations.py` validates its structure, complete effective-source

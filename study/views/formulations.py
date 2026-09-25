@@ -8,6 +8,7 @@ from django.shortcuts import redirect, render
 from django.urls import Resolver404, resolve, reverse
 from django.views.decorators.http import require_GET, require_POST
 
+from ..ee_formulation_language import formulation_language_for
 from ..ee_formulations import get_ee_formulations
 from ..formulation_progress import formulation_progress
 from ..models import MemoryQuestionProgress, Prompt
@@ -29,8 +30,6 @@ RETURN_ROUTES = {
     "ee_formulation_theme",
     "ee_formulation_search",
 }
-
-
 def _fold(text):
     return "".join(
         char for char in unicodedata.normalize("NFKD", text.casefold())
@@ -307,6 +306,7 @@ def formulation_collection(request, kind, slug=""):
         if key not in {"mode", "entry"}
     }
     base_url = collection_url(kind, slug)
+    language_bank = formulation_language_for(definition["category"])
     return render(request, "study/formulations.html", {
         "part": task.part,
         "task": task,
@@ -319,6 +319,18 @@ def formulation_collection(request, kind, slug=""):
         "result_count": len(selected),
         "practice": practice,
         "position": index + 1,
+        "language_bank": language_bank,
+        "language_bank_label": (
+            "Verbes utiles" if definition["category"]
+            and definition["category"].slug == "synthese"
+            else "Vocabulaire utile"
+        ),
+        "language_bank_title": (
+            "Verbes utiles pour présenter les documents"
+            if definition["category"]
+            and definition["category"].slug == "synthese"
+            else f"Vocabulaire utile : {definition['title']}"
+        ),
         "return_url": base_url,
         "browse_url": collection_url(kind, slug, browse_filters),
         "practice_url": collection_url(

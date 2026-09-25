@@ -13,7 +13,7 @@ THEMES = (
 def formulation_catalog(source_key="test-reference"):
     categories = (
         FormulationCategory("affirmation", "function", "Affirmation", "Prendre position.", "book-open"),
-        FormulationCategory("opposition", "function", "Opposition", "Opposer deux idées.", "book-open"),
+        FormulationCategory("synthese", "function", "Synthèse", "Présenter les documents.", "book-open"),
         *(FormulationCategory(slug, "theme", slug.title(), "Bénéfices et limites.", "book-open")
           for slug in THEMES),
     )

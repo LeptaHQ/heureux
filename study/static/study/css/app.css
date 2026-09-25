@@ -4,42 +4,48 @@
 
 /* Nested formulation directory, focused lessons and optional recall view. */
 .formulations-page { max-width: 1100px; margin-inline: auto; }
-.formulations-page > * + * { margin-top: 1.5rem; }
+.formulations-page > * + * { margin-top: .8rem; }
 .formulation-empty { padding: 1.25rem; }
 .formulation-directory-search {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: end;
-  gap: .75rem;
-  padding: 1rem;
+  width: min(100%, 42rem);
+  margin: 0;
 }
-.formulation-directory-search label { grid-column: 1 / -1; font-weight: 700; }
-.formulation-directory-search input { width: 100%; min-width: 0; }
-.formulation-directory-tables { display: grid; gap: 1rem; }
-.formulation-directory-table { padding: 0 1rem 1rem; overflow: hidden; }
-.formulation-directory-table > summary {
+.formulation-directory-search .search-form__input { min-height: 44px; }
+.formulations-page .formulation-directory-search { flex-direction: row; }
+.formulations-page .formulation-directory-search .btn--icon {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+}
+.formulation-directory-tables { display: grid; gap: 1.5rem; }
+.formulation-directory-section { min-width: 0; }
+.formulation-directory-section__head {
   display: flex;
-  align-items: center;
+  align-items: end;
   justify-content: space-between;
   gap: 1rem;
-  cursor: pointer;
-  padding: 1rem 0;
-  color: var(--text);
+  margin-bottom: .65rem;
 }
-.formulation-directory-table > summary > span:first-child {
-  display: grid;
-  gap: .25rem;
-  min-width: 0;
+.formulation-directory-section__head h2 {
+  margin: 0 0 .15rem;
+  font-size: 1.25rem;
 }
-.formulation-directory-table > summary strong { font-size: 1.2rem; }
-.formulation-directory-table > summary small { color: var(--muted); font-weight: 400; }
-.formulation-directory-table[open] > summary {
-  color: var(--task-accent, var(--primary));
+.formulation-directory-section__head p {
+  max-width: 64ch;
+  margin: 0;
+  color: var(--text-soft);
+  font-size: .86rem;
 }
-.formulation-table-scroll { margin-bottom: 1rem; }
+.formulation-directory-section__head > a {
+  flex: none;
+  font-size: .84rem;
+  font-weight: 700;
+}
+.formulation-directory-table { overflow: hidden; }
 .formulation-subdivision-table { table-layout: fixed; }
-.formulation-subdivision-table thead th:first-child { width: 29%; }
-.formulation-subdivision-table thead th:last-child { width: 14.5rem; }
+.formulation-subdivision-table thead th:first-child { width: auto; }
+.formulation-subdivision-table thead th:nth-child(2) { width: 9rem; }
+.formulation-subdivision-table thead th:last-child { width: 9rem; }
 .formulation-directory-table .t1-table__subject {
   color: var(--text);
   font-weight: 700;
@@ -49,18 +55,27 @@
   font-weight: 700;
 }
 .formulation-directory-table .t1-table__versions {
-  text-align: left;
+  text-align: right;
   color: var(--text-soft);
+  white-space: nowrap;
 }
-.formulation-directory-table td small { display: block; color: var(--muted); margin-top: .2rem; }
 .formulation-subdivision-title { display: flex; align-items: center; gap: .65rem; }
-.formulation-subdivision-icon {
+.formulation-row-arrow {
   display: inline-grid;
-  width: 2rem;
-  height: 2rem;
+  width: 1rem;
+  height: 1rem;
   flex: 0 0 auto;
   place-items: center;
-  border-radius: 50%;
+  color: var(--task-accent, var(--primary));
+}
+.formulation-row-arrow .ui-icon { width: 1rem; height: 1rem; }
+.formulation-subdivision-icon {
+  display: inline-grid;
+  width: 2.25rem;
+  height: 2.25rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border-radius: 10px;
   background: color-mix(in srgb, var(--task-accent, var(--primary)) 12%, var(--surface-2));
   color: var(--task-accent, var(--primary));
 }
@@ -69,40 +84,151 @@
   justify-content: flex-end;
   gap: .55rem;
 }
-.formulation-progress-count {
-  color: var(--text-faint);
-  font-variant-numeric: tabular-nums;
-  white-space: nowrap;
+.formulation-row summary { cursor: pointer; font-weight: 700; padding-block: .75rem; }
+.formulation-collection-hero { margin-bottom: .8rem; }
+.formulation-collection-hero .eyebrow { margin: 0 0 .15rem; }
+.formulation-collection-hero h1 { margin: .1rem 0 .3rem; }
+.formulation-toolbar {
+  display: flex;
+  align-items: center;
+  margin-bottom: .8rem;
 }
-.formulation-directory-table .subject-collection__arrow {
-  background: var(--primary-soft);
+.formulation-filter-form {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+}
+.formulation-search-field {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 44px;
+  flex: 1;
+  min-width: 0;
+  gap: .55rem;
+}
+.formulation-toolbar .search-form__input { min-height: 44px; }
+.formulation-search-field .btn--icon {
+  width: 44px;
+  height: 44px;
+}
+.formulation-filter-options {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  gap: .55rem;
+}
+.formulation-status-field {
+  display: flex;
+  width: 13rem;
+  min-width: 0;
+}
+.formulation-status-field .search-form__select,
+.formulation-status-field .custom-select { width: 100%; }
+.formulation-filter-reset { flex: none; }
+.formulation-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.formulation-learning-layout {
+  display: grid;
+  grid-template-columns: minmax(14rem, 17rem) minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+}
+.formulation-topic-sidebar-wrap {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+.formulation-topic-sidebar {
+  position: sticky;
+  top: 5.5rem;
+  max-height: calc(100vh - 6.5rem);
+  max-height: calc(100dvh - 6.5rem);
+  overflow: auto;
+  padding: .75rem;
+}
+.formulation-topic-sidebar__head {
+  padding: .25rem .35rem .65rem;
+  border-bottom: 1px solid var(--border);
+}
+.formulation-topic-sidebar__head .eyebrow { margin: 0 0 .1rem; }
+.formulation-topic-sidebar__head strong { font-size: .95rem; }
+.formulation-topic-list {
+  display: grid;
+  gap: .15rem;
+  margin: .45rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.formulation-topic-list a {
+  display: grid;
+  grid-template-columns: 1.7rem minmax(0, 1fr) auto;
+  align-items: center;
+  gap: .45rem;
+  padding: .55rem .5rem;
+  border-radius: 9px;
+  color: var(--text-soft);
+  font-size: .8rem;
+  line-height: 1.25;
+  text-decoration: none;
+}
+.formulation-topic-list a:hover,
+.formulation-topic-list a:focus-visible {
+  background: color-mix(in srgb, var(--task-accent, var(--primary)) 8%, var(--surface-2));
   color: var(--task-accent, var(--primary));
 }
-.formulation-row summary { cursor: pointer; font-weight: 700; padding-block: .75rem; }
-.formulation-filters { display: flex; align-items: end; flex-wrap: wrap; gap: .75rem; padding: 1rem; }
-.formulation-filter-field { display: grid; gap: .35rem; flex: 1 1 180px; min-width: 0; }
-.formulation-filters input, .formulation-filters select { width: 100%; min-width: 0; }
-.formulation-filters .formulation-essential { display: flex; align-items: center; flex-basis: 100%; }
-.formulation-essential input { width: auto; }
-.formulation-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; }
+.formulation-topic-list a > span {
+  color: var(--text-faint);
+  font-size: .68rem;
+  font-variant-numeric: tabular-nums;
+}
+.formulation-topic-list a > strong { min-width: 0; }
+.formulation-topic-list a > i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-faint);
+}
+.formulation-topic-list a > i.is-learned { background: var(--success); }
+.formulation-topic-list a > i.is-reference {
+  background: var(--task-accent, var(--primary));
+}
+.formulation-lesson-column {
+  min-width: 0;
+  display: grid;
+  gap: .8rem;
+}
+.formulation-lesson-content { gap: .8rem; }
+.formulation-language-bank {
+  scroll-margin-top: 5.5rem;
+  padding: 1rem;
+}
+.formulation-language-table th:first-child { width: 30%; }
+.formulation-language-table th:nth-child(2) { width: 27%; }
+.formulation-language-table td:nth-child(2),
+.formulation-language-table td:last-child { color: var(--text-soft); }
 .formulation-row {
-  padding: 1.25rem;
+  scroll-margin-top: 5.5rem;
+  padding: 1rem;
   min-width: 0;
   overflow-wrap: anywhere;
-  border-left: 3px solid color-mix(in srgb, var(--task-accent, var(--primary)) 55%, var(--border));
-  background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--task-accent, var(--primary)) 5%, var(--surface)),
-    var(--surface) 34%
-  );
+  border-color: color-mix(in srgb, var(--task-accent, var(--primary)) 24%, var(--border));
+  background: var(--surface);
 }
 .formulation-row:hover {
-  border-color: color-mix(in srgb, var(--task-accent, var(--primary)) 58%, var(--border));
+  border-color: color-mix(in srgb, var(--task-accent, var(--primary)) 42%, var(--border));
   box-shadow: var(--card-shadow-hover);
 }
-.formulation-row__heading { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .5rem; }
+.formulation-lesson-head {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  margin-bottom: .65rem;
+  background: color-mix(in srgb, var(--task-accent, var(--primary)) 7%, var(--surface-2));
+}
+.formulation-lesson-head > div { min-width: 0; }
+.formulation-lesson-head .eyebrow { margin: 0 0 .05rem; }
+.formulation-lesson-head h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
 .formulation-french {
-  margin-block: .8rem;
+  margin-block: .65rem;
   padding: .8rem 1rem;
   border-radius: var(--radius-sm);
   background: color-mix(in srgb, var(--task-accent, var(--primary)) 7%, var(--surface-2));
@@ -121,19 +247,77 @@
 .formulations-page [data-flashcard-card] { touch-action: pan-y; }
 @media (max-width: 600px) {
   .formulation-row { padding: 1rem; }
-  .formulation-directory-search { grid-template-columns: 1fr; }
-  .formulation-directory-search label { grid-column: auto; }
   .formulation-directory-table th:nth-child(2),
   .formulation-directory-table td:nth-child(2) { display: none; }
   .formulation-subdivision-table thead th:first-child { width: 58%; }
   .formulation-subdivision-table thead th:last-child { width: 42%; }
-  .formulation-directory-table .progress-status { font-size: 0; padding: .35rem; }
-  .formulation-directory-table .progress-status::before { margin: 0; }
-  .formulation-directory-table .subject-collection__arrow { display: none; }
   .formulation-subdivision-title { gap: .45rem; }
   .formulation-subdivision-icon { width: 1.65rem; height: 1.65rem; }
-  .formulation-filter-field { flex-basis: 100%; }
-  .formulations-page .section-heading { flex-wrap: wrap; }
+  .formulation-directory-section__head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: .35rem;
+  }
+  .formulation-language-table { min-width: 34rem; }
+  .formulation-language-table td { padding: .65rem .7rem; }
+  .formulation-collection-hero {
+    grid-template-columns: 1fr;
+    gap: .65rem;
+  }
+  .formulation-collection-hero .task-hero__numbers { gap: 1.5rem; }
+  .formulation-toolbar {
+    padding: .7rem;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+  }
+  .formulation-filter-form {
+    display: grid;
+    gap: .6rem;
+  }
+  .formulation-search-field {
+    grid-template-columns: minmax(0, 1fr) 48px;
+    gap: .5rem;
+  }
+  .formulation-toolbar .search-form__input {
+    min-height: 50px;
+    padding: .7rem .85rem;
+    border-radius: 13px;
+    background: var(--surface-2);
+    font-size: 1rem;
+  }
+  .formulation-search-field .btn--icon {
+    width: 48px;
+    height: 48px;
+    align-self: center;
+    border-color: color-mix(in srgb, var(--task-accent, var(--primary)) 32%, var(--border));
+    background: color-mix(in srgb, var(--task-accent, var(--primary)) 12%, var(--surface-2));
+    color: var(--task-accent, var(--primary));
+  }
+  .formulation-filter-options { min-width: 0; }
+  .formulation-status-field {
+    flex: 1;
+    width: auto;
+  }
+}
+@media (max-width: 840px) {
+  .formulation-learning-layout { grid-template-columns: 1fr; }
+  .formulation-topic-sidebar {
+    position: static;
+    max-height: none;
+    overflow: hidden;
+    padding: .6rem;
+  }
+  .formulation-topic-sidebar__head { padding: .15rem .25rem .5rem; }
+  .formulation-topic-list {
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(11rem, 14rem);
+    overflow-x: auto;
+    padding-bottom: .15rem;
+    scrollbar-width: thin;
+  }
+  .formulation-topic-list a { min-height: 44px; }
 }
 
 :root {

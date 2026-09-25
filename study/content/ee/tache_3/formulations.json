@@ -6,7 +6,7 @@
       "slug": "titres",
       "kind": "function",
       "title": "Titres",
-      "description": "Nommer l'enjeu en quelques mots si le support appelle un titre. Le titre n'est pas une obligation générale de la Tâche 3.",
+      "description": "Créer un titre bref et pertinent.",
       "icon": "pen-line"
     },
     {

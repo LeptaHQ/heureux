@@ -3,37 +3,42 @@
 {% block content %}
 {% include "study/partials/task_nav.html" %}
 <div class="formulations-page">
-  <header class="section-heading">
-    <div>
+  <header class="area-hero formulation-collection-hero">
+    <div class="area-hero__copy">
       <p class="eyebrow">Expression écrite · Tâche 3</p>
       <h1>Formulations</h1>
-      <p>Choisissez une subdivision, puis apprenez les formulations sur une page claire et ciblée.</p>
+      <p>Choisissez une fonction ou un thème pour commencer.</p>
     </div>
-    <span class="progress-status progress-status--{{ progress.status }}">{{ progress.completed }}/{{ progress.total }} apprises</span>
+    <div class="task-hero__numbers" aria-label="Progression des formulations">
+      <span><b>{{ progress.completed }}</b> apprise{{ progress.completed|pluralize }}</span>
+      <span><b>{{ progress.total }}</b> au total</span>
+    </div>
   </header>
 
-  <form class="card formulation-directory-search" method="get" action="{{ search_url }}" role="search" aria-label="Rechercher dans les formulations">
-    <label for="formulation-directory-query">Rechercher dans les {{ progress.total }} formulations</label>
-    <input id="formulation-directory-query" type="search" name="q" maxlength="200" placeholder="Ex. santé, opposition, à condition que…">
-    <button class="btn btn--primary" type="submit">Rechercher</button>
+  <form class="search-form formulation-directory-search" method="get" action="{{ search_url }}" role="search" aria-label="Rechercher dans les formulations">
+    <label class="sr-only" for="formulation-directory-query">Rechercher dans les {{ progress.total }} formulations</label>
+    <input id="formulation-directory-query" class="search-form__input" type="search" name="q" maxlength="200" placeholder="Rechercher dans les formulations…">
+    <button class="btn btn--icon" type="submit" aria-label="Rechercher" title="Rechercher">
+      <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
+    </button>
   </form>
 
   <div class="formulation-directory-tables">
     {% for table in tables %}
-      <details class="card formulation-directory-table" data-formulation-table="{{ table.slug }}" open>
-        <summary>
-          <span>
-            <strong>{{ table.title }}</strong>
-            <small>{{ table.description }}</small>
-          </span>
-          <span class="progress-status progress-status--{{ table.progress.status }}">{{ table.progress.completed }}/{{ table.progress.total }}</span>
-        </summary>
-        <div class="t1-table-shell formulation-table-scroll">
+      <section class="formulation-directory-section" data-formulation-table="{{ table.slug }}" aria-labelledby="formulation-table-{{ table.slug }}">
+        <header class="formulation-directory-section__head">
+          <div>
+            <h2 id="formulation-table-{{ table.slug }}">{{ table.title }}</h2>
+            <p>{{ table.description }}</p>
+          </div>
+          {% if table.slug == "essentials" %}<a href="{{ table.all_url }}">{{ table.all_label }} →</a>{% endif %}
+        </header>
+        <div class="t1-table-shell formulation-directory-table">
           <table class="t1-table formulation-subdivision-table">
             <thead>
               <tr>
-                <th scope="col">Subdivision</th>
-                <th scope="col">Contenu</th>
+                <th scope="col">{% if table.slug == "themes" %}Thème{% else %}Fonction{% endif %}</th>
+                <th scope="col">Formulations</th>
                 <th scope="col">Progression</th>
               </tr>
             </thead>
@@ -42,19 +47,15 @@
                 <tr class="t1-table__row is-status-{{ item.progress.status }}">
                   <td class="t1-table__subject">
                     <div class="formulation-subdivision-title">
+                      <span class="formulation-row-arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
                       <span class="formulation-subdivision-icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name=item.category.icon only %}</span>
                       <a href="{{ item.url }}" data-formulation-subdivision>{{ item.category.title }}</a>
                     </div>
                   </td>
-                  <td class="t1-table__versions">
-                    <span>{{ item.category.description }}</span>
-                    {% if item.expanded_count %}<small>{{ item.expanded_count }} formulations sur la page</small>{% endif %}
-                  </td>
+                  <td class="t1-table__versions">{{ item.count }} formulation{{ item.count|pluralize }}</td>
                   <td class="t1-table__progress-cell">
                     <div class="t1-table__progress">
-                      <span class="progress-status progress-status--{{ item.progress.status }}">{{ item.progress.label }}</span>
-                      <span class="formulation-progress-count">{{ item.completed }}/{{ item.count }}</span>
-                      <span class="subject-collection__arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+                      <span class="progress-status progress-status--{{ item.progress.status }}">{{ item.completed }}/{{ item.count }}</span>
                     </div>
                   </td>
                 </tr>
@@ -62,8 +63,7 @@
             </tbody>
           </table>
         </div>
-        <a class="btn" href="{{ table.all_url }}">{{ table.all_label }}</a>
-      </details>
+      </section>
     {% endfor %}
   </div>
 </div>

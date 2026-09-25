@@ -1966,16 +1966,12 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.goto(self.live_server_url + reverse(
             "study:task_phrases", args=["ee", "tache-3"],
         ))
-        disclosure = self.page.locator('[data-formulation-table="essentials"]')
-        categories = disclosure.locator("[data-formulation-subdivision]")
-        expect(disclosure).to_have_attribute("open", "")
+        table_section = self.page.locator('[data-formulation-table="essentials"]')
+        categories = table_section.locator("[data-formulation-subdivision]")
+        expect(table_section).to_be_visible()
         expect(categories).to_have_count(10)
-        disclosure.locator("summary").focus()
-        self.page.keyboard.press("Enter")
-        expect(categories.first).to_be_hidden()
-        disclosure.locator("summary").focus()
-        self.page.keyboard.press("Space")
         expect(categories.first).to_be_visible()
+        expect(table_section.locator("summary")).to_have_count(0)
         for width in (1292, 1100, 1099, 900, 640, 390, 320):
             self.page.set_viewport_size({"width": width, "height": 844})
             self.assert_no_horizontal_overflow()

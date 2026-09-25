@@ -35,6 +35,9 @@ class FormulationExperienceTests(TestCase):
         self.function_url = reverse(
             "study:ee_formulation_function", args=["affirmation"],
         )
+        self.synthesis_url = reverse(
+            "study:ee_formulation_function", args=["synthese"],
+        )
         self.search_url = reverse("study:ee_formulation_search")
 
     def test_nested_tables_open_clear_subdivision_pages(self):
@@ -45,10 +48,14 @@ class FormulationExperienceTests(TestCase):
         self.assertContains(response, "Essentiels")
         self.assertContains(response, "Thèmes")
         self.assertContains(response, self.function_url)
+        self.assertNotContains(response, '<details class="formulation-directory')
         self.assertNotContains(response, 'class="formulation-list"')
 
         response = self.client.get(self.function_url)
-        self.assertContains(response, 'class="formulation-list"')
+        self.assertContains(
+            response,
+            'class="formulation-list formulation-lesson-content"',
+        )
         self.assertNotContains(response, "data-formulation-practice")
         self.assertContains(response, "Essentiels · Fonction d’écriture")
         self.assertContains(response, "Sens en anglais")
@@ -60,6 +67,28 @@ class FormulationExperienceTests(TestCase):
         ]))
         self.assertNotContains(response, 'data-annotation-source-key="formulation')
         self.assertNotContains(response, 'name="transfer_response"')
+
+    def test_synthesis_page_has_a_reporting_language_reference(self):
+        response = self.client.get(self.synthesis_url)
+        self.assertContains(
+            response, "Verbes utiles pour présenter les documents",
+        )
+        for phrase in (
+            "mettre en avant",
+            "mettre en garde contre",
+            "indiquer",
+        ):
+            self.assertContains(response, phrase)
+
+    def test_each_theme_page_has_a_useful_vocabulary_reference(self):
+        for theme in THEMES:
+            with self.subTest(theme=theme):
+                response = self.client.get(reverse(
+                    "study:ee_formulation_theme", args=[theme],
+                ))
+                self.assertEqual(response.status_code, 200)
+                self.assertContains(response, "Vocabulaire utile")
+                self.assertEqual(len(response.context["language_bank"]), 8)
 
     def test_all_themes_and_accent_insensitive_search(self):
         response = self.client.get(self.search_url, {"q": "PREVENTION"})
@@ -191,7 +220,8 @@ class FormulationExperienceTests(TestCase):
         )
         response = self.client.get(self.url)
         self.assertContains(response, "1/2")
-        self.assertContains(response, "1/11 apprises")
+        self.assertContains(response, "<span><b>1</b> apprise</span>", html=True)
+        self.assertContains(response, "<span><b>11</b> au total</span>", html=True)
 
 
 class VocabularyRetirementTests(TestCase):

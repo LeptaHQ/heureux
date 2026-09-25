@@ -18,6 +18,7 @@ from study.ee_formulations import (
     FUNCTION_CATEGORIES,
     load_ee_formulations,
 )
+from study.ee_formulation_language import REPORTING_LANGUAGE, THEME_LANGUAGE
 
 EXPECTED_THEME_COUNTS = {
     "education": 8,
@@ -156,6 +157,25 @@ class EeFormulationsContentTests(SimpleTestCase):
                 if entry.category == theme.slug:
                     self.assertIn(theme.slug, entry.themes)
                     self.assertIn(self.theme_by_key[entry.source_key], entry.themes)
+
+    def test_function_and_theme_language_references_are_complete(self):
+        self.assertEqual(len(REPORTING_LANGUAGE), 10)
+        self.assertEqual(set(THEME_LANGUAGE), set(EXPECTED_THEME_COUNTS))
+        self.assertTrue(all(len(items) == 8 for items in THEME_LANGUAGE.values()))
+        education = {item.french for item in THEME_LANGUAGE["education"]}
+        self.assertIn("la mixité sociale", education)
+        self.assertIn("les classes socialement homogènes", education)
+        for slug, items in THEME_LANGUAGE.items():
+            with self.subTest(theme=slug):
+                self.assertEqual(
+                    len({item.french.casefold() for item in items}), len(items),
+                )
+                self.assertTrue(all(
+                    item.french.strip()
+                    and item.english.strip()
+                    and item.pattern.strip()
+                    for item in items
+                ))
 
     def test_source_defects_have_explicit_provenance(self):
         by_slug = {entry.slug: entry for entry in self.catalog.entries}

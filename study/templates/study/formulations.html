@@ -9,31 +9,40 @@
     <span aria-hidden="true">/</span>
     <span aria-current="page">{{ definition.title }}</span>
   </nav>
-  <header class="section-heading">
-    <div>
+  <header class="area-hero formulation-collection-hero">
+    <div class="area-hero__copy">
       <p class="eyebrow">{{ definition.eyebrow }}</p>
       <h1>{{ definition.title }}</h1>
       <p>{{ definition.description }}</p>
     </div>
-    <span class="progress-status progress-status--{{ progress.status }}">{{ progress.completed }}/{{ progress.total }} apprises</span>
+    <div class="task-hero__numbers" aria-label="Progression de cette subdivision">
+      <span><b>{{ progress.completed }}</b> apprise{{ progress.completed|pluralize }}</span>
+      <span><b>{{ progress.total }}</b> au total</span>
+    </div>
   </header>
 
-  <form class="card formulation-filters" method="get" action="{{ return_url }}#formulation-results" role="search" aria-label="Filtrer cette subdivision">
-    <div class="formulation-filter-field">
-      <label for="formulation-query">Rechercher sur cette page</label>
-      <input id="formulation-query" type="search" name="q" value="{{ filters.q }}" maxlength="200" placeholder="Ex. prévention, opposition…">
-    </div>
-    <div class="formulation-filter-field">
-      <label for="formulation-status">Progression</label>
-      <select id="formulation-status" name="status">
-        <option value="">Toutes</option>
-        <option value="new"{% if filters.status == "new" %} selected{% endif %}>À apprendre</option>
-        <option value="learned"{% if filters.status == "learned" %} selected{% endif %}>Apprises</option>
-      </select>
-    </div>
-    <button class="btn btn--primary" type="submit">Filtrer</button>
-    <a class="btn" href="{{ return_url }}#formulation-results">Réinitialiser</a>
-  </form>
+  <div class="formulation-toolbar">
+    <form class="search-form formulation-filter-form" method="get" action="{{ return_url }}#formulation-results" role="search" aria-label="Filtrer cette subdivision">
+      <div class="formulation-search-field">
+        <label class="sr-only" for="formulation-query">Rechercher sur cette page</label>
+        <input id="formulation-query" class="search-form__input" type="search" name="q" value="{{ filters.q }}" maxlength="200" placeholder="Rechercher…">
+        <button class="btn btn--icon" type="submit" aria-label="Rechercher" title="Rechercher">
+          <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
+        </button>
+      </div>
+      <div class="formulation-filter-options">
+        <div class="formulation-status-field">
+          <label class="sr-only" for="formulation-status">Filtrer par progression</label>
+          <select id="formulation-status" class="search-form__select" name="status" data-auto-submit data-custom-select>
+            <option value="">Toutes les progressions</option>
+            <option value="new"{% if filters.status == "new" %} selected{% endif %}>À apprendre</option>
+            <option value="learned"{% if filters.status == "learned" %} selected{% endif %}>Apprises</option>
+          </select>
+        </div>
+        {% if filters.q or filters.status %}<a class="btn btn--sm formulation-filter-reset" href="{{ return_url }}#formulation-results">Réinitialiser</a>{% endif %}
+      </div>
+    </form>
+  </div>
 
   <section id="formulation-results" aria-labelledby="formulation-results-title">
     <div class="section-heading">
@@ -72,22 +81,87 @@
           {% if next_url %}<a class="btn" href="{{ next_url }}#formulation-results">Suivante</a>{% endif %}
         </nav>
       </div>
-    {% elif rows %}
-      <ol class="formulation-list">
-        {% for row in rows %}
-          <li class="card formulation-row" id="formulation-{{ row.entry.slug }}">
-            <div class="formulation-row__heading"><p class="eyebrow">{{ row.category.title }}{% if row.entry.essential %} · Essentiel{% endif %}</p><span class="progress-status progress-status--{% if row.learned %}done{% else %}new{% endif %}">{% if row.learned %}Apprise{% else %}À apprendre{% endif %}</span></div>
-            <h3>{{ row.entry.label }}</h3>
-            <p class="formulation-french" lang="fr">{{ row.entry.french }}</p>
-            {% include "study/partials/prompt_copy_button.html" with button_class="btn" source_id=row.copy_id label="Copier la formulation" toast_message="Formulation copiée." only %}
-            {{ row.entry.french|json_script:row.copy_id }}
-            <details><summary>Comprendre et adapter</summary>
-              {% include "study/partials/formulation_teaching.html" %}
-            </details>
-            {% include "study/partials/formulation_learned.html" %}
-          </li>
-        {% endfor %}
-      </ol>
+    {% elif rows or language_bank %}
+      <div class="formulation-learning-layout">
+        <div class="formulation-topic-sidebar-wrap">
+          <aside class="card formulation-topic-sidebar" aria-label="Formulations de cette subdivision">
+            <div class="formulation-topic-sidebar__head">
+              <p class="eyebrow">Dans cette subdivision</p>
+              <strong>{{ result_count }} formulation{{ result_count|pluralize }}</strong>
+            </div>
+            <nav aria-label="Accéder à une formulation">
+              <ol class="formulation-topic-list">
+                {% if language_bank %}
+                  <li>
+                    <a href="#formulation-language-bank">
+                      <span>00</span>
+                      <strong>{{ language_bank_label }}</strong>
+                      <i class="is-reference" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                {% endif %}
+                {% for row in rows %}
+                  <li>
+                    <a href="#formulation-{{ row.entry.slug }}">
+                      <span>{{ forloop.counter|stringformat:"02d" }}</span>
+                      <strong>{{ row.entry.label }}</strong>
+                      <i class="{% if row.learned %}is-learned{% endif %}" aria-label="{% if row.learned %}Apprise{% else %}À apprendre{% endif %}"></i>
+                    </a>
+                  </li>
+                {% endfor %}
+              </ol>
+            </nav>
+          </aside>
+        </div>
+        <div class="formulation-lesson-column">
+          {% if language_bank %}
+            <section class="card learn-content-section formulation-language-bank" id="formulation-language-bank" aria-labelledby="formulation-language-bank-title">
+              <header class="learn-content-section__head formulation-lesson-head">
+                <span>00</span>
+                <div>
+                  <p class="eyebrow">Référence de langue</p>
+                  <h2 id="formulation-language-bank-title">{{ language_bank_title }}</h2>
+                </div>
+              </header>
+              <div class="t1-table-shell">
+                <table class="t1-table formulation-language-table">
+                  <thead><tr><th scope="col">Expression</th><th scope="col">Sens</th><th scope="col">Emploi utile</th></tr></thead>
+                  <tbody>
+                    {% for item in language_bank %}
+                      <tr>
+                        <td><strong lang="fr">{{ item.french }}</strong></td>
+                        <td lang="en">{{ item.english }}</td>
+                        <td lang="fr">{{ item.pattern }}</td>
+                      </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          {% endif %}
+          <ol class="formulation-list formulation-lesson-content">
+            {% for row in rows %}
+              <li class="card learn-content-section formulation-row" id="formulation-{{ row.entry.slug }}">
+                <header class="learn-content-section__head formulation-lesson-head">
+                  <span>{{ forloop.counter|stringformat:"02d" }}</span>
+                  <div>
+                    <p class="eyebrow">{{ row.category.title }}{% if row.entry.essential %} · Essentiel{% endif %}</p>
+                    <h2>{{ row.entry.label }}</h2>
+                  </div>
+                  <span class="progress-status progress-status--{% if row.learned %}done{% else %}new{% endif %}">{% if row.learned %}Apprise{% else %}À apprendre{% endif %}</span>
+                </header>
+                <p class="formulation-french" lang="fr">{{ row.entry.french }}</p>
+                {% include "study/partials/prompt_copy_button.html" with button_class="btn" source_id=row.copy_id label="Copier la formulation" toast_message="Formulation copiée." only %}
+                {{ row.entry.french|json_script:row.copy_id }}
+                <details><summary>Comprendre et adapter</summary>
+                  {% include "study/partials/formulation_teaching.html" %}
+                </details>
+                {% include "study/partials/formulation_learned.html" %}
+              </li>
+            {% endfor %}
+          </ol>
+        </div>
+      </div>
     {% else %}
       <div class="card formulation-empty"><h3>Aucune formulation dans cette sélection</h3><p>Modifiez les filtres ou revenez à toutes les formulations de cette subdivision.</p><a class="btn" href="{{ return_url }}">Réinitialiser les filtres</a></div>
     {% endif %}

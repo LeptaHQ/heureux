@@ -1,5 +1,5 @@
 {% load static %}/* Heureux service worker — offline app shell. */
-var CACHE = "heureux-v233";
+var CACHE = "heureux-v234";
 var SHELL = [
   "{% url 'offline' %}",
   "{% static 'study/css/app.css' %}?v=231",
@@ -8,18 +8,18 @@ var SHELL = [
   "{% static 'study/js/flashcards.js' %}?v=5",
   "{% static 'study/js/app.js' %}?v=65",
   "{% static 'study/js/selection-toolbar.js' %}?v=11",
-  "{% static 'study/js/annotations.js' %}?v=33",
+  "{% static 'study/js/annotations.js' %}?v=34",
   "{% static 'study/js/subject-progress.js' %}?v=2",
   "{% static 'study/js/writing-word-count.js' %}?v=1",
   "{% static 'study/js/comprehension-progress.js' %}?v=3",
   "{% static 'study/js/memory-progress.js' %}?v=3",
-  "{% static 'study/js/formulation-progress.js' %}?v=1",
+  "{% static 'study/js/formulation-progress.js' %}?v=2",
   "{% static 'study/js/learning.js' %}?v=12",
   "/manifest.webmanifest",
   "{% static 'study/icons/icon-192.png' %}?v=2",
   "{% static 'study/icons/icon-512.png' %}?v=2",
   "{% static 'study/icons/logo.svg' %}?v=2",
-  "{% static 'study/icons/ui-icons.svg' %}?v=3"
+  "{% static 'study/icons/ui-icons.svg' %}?v=4"
 ];
 
 self.addEventListener("install", function (event) {

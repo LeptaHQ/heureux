@@ -136,10 +136,6 @@ class EeTacheThreeSkeletonTests(SimpleTestCase):
         self.assertEqual(len(self.sources), 138)
         self.assertEqual(len(self.responses), 78)
         self.assertEqual(sum(len(row.prompts) for row in self.responses), 138)
-        self.assertEqual(
-            len(content.parse_ee_tache_three_subject_vocabulary(self.responses)),
-            2340,
-        )
 
     def test_audited_semantic_corrections_remain_in_place(self):
         source = self.source_by_key

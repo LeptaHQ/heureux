@@ -1,4 +1,4 @@
-"""EE3 vocabulary URLs lead to formulations without repurposing stored data."""
+"""Removed EE3 vocabulary URLs stay absent without mutating stored data."""
 
 from django.test import TestCase
 from django.urls import reverse
@@ -42,18 +42,16 @@ class VocabularyEntryTests(TestCase):
     def setUp(self):
         self.client.force_login(self.user)
 
-    def test_old_directory_category_theme_and_lot_links_reach_replacement(self):
+    def test_removed_directory_category_theme_and_lot_links_return_404(self):
         category_url = reverse("study:task_vocabulary_category", args=[
             "ee", "tache-3", self.last.category.slug,
         ])
         for url in (self.url, category_url):
-            self.assertRedirects(self.client.get(url), self.replacement,
-                                 fetch_redirect_response=False)
+            self.assertEqual(self.client.get(url).status_code, 404)
         for query in ({}, {"batch": "1"}, {"batch": "6"}, {"batch": ["1", "2"]}):
-            self.assertRedirects(
-                self.client.get(self.theme_url, query),
-                reverse("study:ee_formulation_theme", args=["education"]),
-                fetch_redirect_response=False,
+            self.assertEqual(
+                self.client.get(self.theme_url, query).status_code,
+                404,
             )
 
     def test_legacy_progress_posts_do_not_repurpose_old_flags(self):
@@ -64,10 +62,11 @@ class VocabularyEntryTests(TestCase):
             "ee", "tache-3", self.theme.slug, self.last.pk,
         ])
         for state in ("0", "1", "invalid"):
-            self.assertRedirects(
-                self.client.post(url, {"completed": state, "batch": "6"}),
-                reverse("study:ee_formulation_theme", args=["education"]),
-                fetch_redirect_response=False,
+            self.assertEqual(
+                self.client.post(
+                    url, {"completed": state, "batch": "6"}
+                ).status_code,
+                404,
             )
         self.assertEqual(original, list(ThemeVocabularyProgress.objects.order_by("pk").values()))
         self.assertFalse(MemoryQuestionProgress.objects.filter(user=self.user).exists())

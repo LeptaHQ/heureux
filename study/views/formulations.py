@@ -11,12 +11,14 @@ from django.views.decorators.http import require_GET, require_POST
 
 from ..content_loader import ee_writing_sujet_slug
 from ..ee_formulation_language import formulation_language_for
+from ..ee_formulation_vocabulary import formulation_vocabulary_for
 from ..ee_formulations import get_ee_formulations
 from ..formulation_progress import (
+    formulation_entry_progress_payload,
     formulation_language_content_key,
     formulation_language_item_id,
     formulation_language_progress,
-    formulation_progress,
+    formulation_progress_state,
 )
 from ..models import MemoryQuestionProgress, Prompt, WritingSujet
 from ..progress import progress_summary
@@ -49,7 +51,18 @@ ROUTES = {
         "progress": "study:ee_formulation_progress",
     },
 }
+
+
+def _language_bank_for(category, *, tache):
+    if category is None:
+        return ()
+    if tache == 1 and category.kind == "theme":
+        return formulation_vocabulary_for(category.slug)
+    if tache == 3:
+        return formulation_language_for(category)
+    return ()
 LANGUAGE_ROLE_LABELS = {
+    "vocabulary": "Vocabulaire courant",
     "reporting": "Présenter les documents",
     "notion": "Notions clés",
     "collocation": "Associations utiles",
@@ -73,7 +86,7 @@ def _filters(data, catalog, *, keys=FILTER_KEYS):
         raise Http404("Filtre répété.")
     values = {key: data.get(key, "").strip() for key in keys}
     choices = {
-        "status": {"new", "learned"},
+        "status": {"new", "active", "learned"},
         "mode": {"table", "practice"},
         "entry": {item.slug for item in catalog.entries},
         "category": {item.slug for item in catalog.categories},
@@ -88,33 +101,22 @@ def _filters(data, catalog, *, keys=FILTER_KEYS):
     return {key: value for key, value in values.items() if value}
 
 
-def _progress(entries, learned):
+def _progress(entries, learned, started):
+    keys = {entry.content_key for entry in entries}
     completed = sum(entry.content_key in learned for entry in entries)
     return progress_summary(
         total=len(entries),
-        started=completed,
+        started=len(keys & started),
         completed=completed,
     )
 
 
-def _progress_payload(catalog, entry, learned):
-    category_entries = [
-        item for item in catalog.entries
-        if item.category == entry.category
-    ]
-    essential_entries = [
-        item for item in catalog.entries if item.essential
-    ]
-    return {
-        "completed": entry.content_key in learned,
-        "slug": entry.slug,
-        "overall": asdict(_progress(catalog.entries, learned)),
-        "category": {
-            "slug": entry.category,
-            **asdict(_progress(category_entries, learned)),
-        },
-        "essentials": asdict(_progress(essential_entries, learned)),
-    }
+def _entry_status(entry, learned, started):
+    if entry.content_key in learned:
+        return "done"
+    if entry.content_key in started:
+        return "active"
+    return "new"
 
 
 def collection_url(kind, slug="", filters=None, *, tache=3):
@@ -131,14 +133,19 @@ def formulation_url(filters=None, *, tache=3):
     )
 
 
-def _selection(entries, categories, filters, learned):
+def _selection(entries, categories, filters, learned, started):
     query = _fold(filters.get("q", ""))
     result = []
     for entry in entries:
         is_learned = entry.content_key in learned
+        is_started = entry.content_key in started
         if filters.get("status") == "learned" and not is_learned:
             continue
-        if filters.get("status") == "new" and is_learned:
+        if filters.get("status") == "active" and (
+            is_learned or not is_started
+        ):
+            continue
+        if filters.get("status") == "new" and is_started:
             continue
         text = " ".join((
             entry.label, entry.french, entry.english, entry.usage, entry.grammar,
@@ -200,11 +207,12 @@ def _source_urls(task, entries, *, tache):
     }, tache=tache)
 
 
-def _entry_row(entry, categories, learned, sources, *, tache):
+def _entry_row(entry, categories, learned, started, sources, *, tache):
     return {
         "entry": entry,
         "category": categories[entry.category],
         "learned": entry.content_key in learned,
+        "status": _entry_status(entry, learned, started),
         "source_url": sources.get(entry.source_key, ""),
         "examples": tuple(
             {
@@ -259,12 +267,16 @@ def _language_sections(
                     "sources": tuple(
                         {
                             "label": (
-                                "Titre"
-                                if field == "reformulation"
+                                "Réponse"
+                                if tache == 1
                                 else (
-                                    "Partie 1"
-                                    if field == "position"
-                                    else "Partie 2"
+                                    "Titre"
+                                    if field == "reformulation"
+                                    else (
+                                        "Partie 1"
+                                        if field == "position"
+                                        else "Partie 2"
+                                    )
                                 )
                             ),
                             "url": source_urls.get(source_key, ""),
@@ -286,14 +298,16 @@ def _language_sections(
     )
 
 
-def _directory_item(category, entries, learned, *, kind, tache):
+def _directory_item(
+    category, entries, learned, started, *, kind, tache,
+):
     url = collection_url(kind, category.slug, tache=tache)
-    language_bank = formulation_language_for(category) if tache == 3 else ()
+    language_bank = _language_bank_for(category, tache=tache)
     return {
         "category": category,
         "count": len(entries),
         "completed": sum(entry.content_key in learned for entry in entries),
-        "progress": _progress(entries, learned),
+        "progress": _progress(entries, learned, started),
         "url": url,
         "reference_label": (
             "Verbes utiles" if category.slug == "synthese"
@@ -317,6 +331,7 @@ def _directory_item(category, entries, learned, *, kind, tache):
                     ROUTES[tache]["progress"], args=[entry.slug],
                 ),
                 "learned": entry.content_key in learned,
+                "status": _entry_status(entry, learned, started),
                 "essential": entry.essential,
             }
             for entry in entries
@@ -355,7 +370,9 @@ def formulations(request, tache=3):
         filters = _filters(request.GET, catalog, keys=LEGACY_FILTER_KEYS)
         return redirect(_legacy_destination(filters, catalog, tache=tache))
 
-    learned, progress = formulation_progress(request.user, catalog)
+    learned, started, progress = formulation_progress_state(
+        request.user, catalog,
+    )
     function_items = []
     theme_items = []
     for category in catalog.categories:
@@ -367,7 +384,7 @@ def formulations(request, tache=3):
             if entries:
                 function_items.append(
                     _directory_item(
-                        category, entries, learned, kind="function",
+                        category, entries, learned, started, kind="function",
                         tache=tache,
                     )
                 )
@@ -379,7 +396,8 @@ def formulations(request, tache=3):
             if entries:
                 theme_items.append(
                     _directory_item(
-                        category, entries, learned, kind="theme", tache=tache,
+                        category, entries, learned, started,
+                        kind="theme", tache=tache,
                     )
                 )
     return render(request, "study/formulation_directory.html", {
@@ -406,6 +424,7 @@ def formulations(request, tache=3):
                         }
                     ],
                     learned,
+                    started,
                 ),
             },
             {
@@ -431,6 +450,7 @@ def formulations(request, tache=3):
                         }
                     ],
                     learned,
+                    started,
                 ),
             },
         ),
@@ -501,10 +521,12 @@ def formulation_collection(request, kind, slug="", tache=3):
     catalog = get_ee_formulations(tache)
     definition = _collection_definition(catalog, kind, slug)
     filters = _filters(request.GET, catalog)
-    learned, overall_progress = formulation_progress(request.user, catalog)
+    learned, started, overall_progress = formulation_progress_state(
+        request.user, catalog,
+    )
     categories = {item.slug: item for item in catalog.categories}
     selected = _selection(
-        definition["entries"], categories, filters, learned,
+        definition["entries"], categories, filters, learned, started,
     )
     practice = filters.get("mode") == "practice"
     index = next(
@@ -518,7 +540,7 @@ def formulation_collection(request, kind, slug="", tache=3):
     sources = _source_urls(task, visible, tache=tache)
     rows = [
         _entry_row(
-            entry, categories, learned, sources, tache=tache,
+            entry, categories, learned, started, sources, tache=tache,
         )
         for entry in visible
     ]
@@ -527,13 +549,13 @@ def formulation_collection(request, kind, slug="", tache=3):
         if key not in {"mode", "entry"}
     }
     base_url = collection_url(kind, slug, tache=tache)
-    language_bank = (
-        formulation_language_for(definition["category"])
-        if tache == 3 else ()
+    language_bank = _language_bank_for(
+        definition["category"], tache=tache,
     )
     return render(request, "study/formulations.html", {
         "part": task.part,
         "task": task,
+        "annotation_task": task,
         "tache": tache,
         "directory_url": reverse(ROUTES[tache]["directory"]),
         "definition": definition,
@@ -541,7 +563,7 @@ def formulation_collection(request, kind, slug="", tache=3):
         "filter_fields": filters.items(),
         "rows": rows,
         "overall_progress": overall_progress,
-        "progress": _progress(definition["entries"], learned),
+        "progress": _progress(definition["entries"], learned, started),
         "progress_scope": (
             definition["category"].slug
             if definition["category"]
@@ -599,11 +621,14 @@ def formulation_entry(request, slug, tache=3):
         if item.category == category.slug
     ]
     position = siblings.index(entry)
-    learned, overall_progress = formulation_progress(request.user, catalog)
+    learned, started, overall_progress = formulation_progress_state(
+        request.user, catalog,
+    )
     row = _entry_row(
         entry,
         categories,
         learned,
+        started,
         _source_urls(task, [entry], tache=tache),
         tache=tache,
     )
@@ -611,12 +636,13 @@ def formulation_entry(request, slug, tache=3):
     return render(request, "study/formulation_entry.html", {
         "part": task.part,
         "task": task,
+        "annotation_task": task,
         "tache": tache,
         "directory_url": reverse(ROUTES[tache]["directory"]),
         "row": row,
         "category": category,
         "overall_progress": overall_progress,
-        "progress": _progress(siblings, learned),
+        "progress": _progress(siblings, learned, started),
         "position": position + 1,
         "total": len(siblings),
         "return_url": request.path,
@@ -648,9 +674,7 @@ def formulation_language_reference(request, slug, tache=3):
         (item for item in catalog.categories if item.slug == slug),
         None,
     )
-    language_bank = (
-        formulation_language_for(category) if tache == 3 else ()
-    )
+    language_bank = _language_bank_for(category, tache=tache)
     if category is None or not language_bank:
         raise Http404
     learned, language_progress = formulation_language_progress(
@@ -703,9 +727,7 @@ def formulation_language_learned(request, slug, item_id, tache=3):
         (item for item in catalog.categories if item.slug == slug),
         None,
     )
-    language_bank = (
-        formulation_language_for(category) if tache == 3 else ()
-    )
+    language_bank = _language_bank_for(category, tache=tache)
     if category is None or not language_bank:
         raise Http404
     item = next(
@@ -805,12 +827,10 @@ def formulation_learned(request, slug, tache=3):
     else:
         MemoryQuestionProgress.objects.filter(**lookup).delete()
     if request.headers.get("X-Requested-With") == "fetch":
-        learned, _progress_state = formulation_progress(
-            request.user,
-            catalog,
-        )
         return JsonResponse(
-            _progress_payload(catalog, entry, learned)
+            formulation_entry_progress_payload(
+                request.user, catalog, entry,
+            )
         )
     destination = (
         _safe_return_path(request.POST.get("next", ""), tache=tache)

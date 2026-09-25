@@ -12,7 +12,10 @@ from .. import catalogue
 from .. import content_loader as content_module
 from .. import queue as queue_module
 from ..ee_formulations import get_ee_formulations
-from ..formulation_progress import formulation_progress
+from ..formulation_progress import (
+    formulation_progress,
+    formulation_progress_states,
+)
 from ..models import (
     Card,
     CardState,
@@ -1691,8 +1694,17 @@ def expression_task_summaries(now, user, tasks, content_counts=None):
         stats["due"] = due_by_task.get(task_id, 0)
         summaries[task_id]["stats"] = stats
 
+    formulation_catalogs = {}
     if ee_tache_three_task_id is not None:
-        _, formulation_state = formulation_progress(user)
+        formulation_catalogs[3] = get_ee_formulations()
+    if ee_tache_one_task_id is not None:
+        formulation_catalogs[1] = get_ee_formulations(1)
+    formulation_states = formulation_progress_states(
+        user, formulation_catalogs.values(),
+    )
+
+    if ee_tache_three_task_id is not None:
+        formulation_state = formulation_states[3][2]
         summary = summaries[ee_tache_three_task_id]
         summary["subject_stats"] = summary["stats"]
         summary["formulation_progress"] = formulation_state
@@ -1717,10 +1729,7 @@ def expression_task_summaries(now, user, tasks, content_counts=None):
         ),
     )
     if ee_tache_one_task_id is not None:
-        catalog = get_ee_formulations(1)
-        _, formulation_state = formulation_progress(
-            user, catalog, tache=1,
-        )
+        formulation_state = formulation_states[1][2]
         summary = summaries[ee_tache_one_task_id]
         summary["subject_stats"] = summary["stats"]
         summary["formulation_progress"] = formulation_state

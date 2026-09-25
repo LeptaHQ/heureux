@@ -60,7 +60,7 @@
                       <tr class="t1-table__row subject-table-row formulation-subtopic-row formulation-subtopic-row--reference" data-formulation-reference-row>
                         <td class="t1-table__subject">
                           <a class="subject-table-row-link" href="{{ item.reference_url }}">{{ item.reference_label }}</a>
-                          <span class="t1-table__subject-date">{{ item.reference_count }} expression{{ item.reference_count|pluralize }} à réutiliser</span>
+                          <span class="t1-table__subject-date">{% if tache == 1 %}{{ item.reference_count }} entrées de vocabulaire{% else %}{{ item.reference_count }} expression{{ item.reference_count|pluralize }} à réutiliser{% endif %}</span>
                         </td>
                         <td class="t1-table__versions">Référence</td>
                         <td class="t1-table__progress-cell">
@@ -71,7 +71,7 @@
                       </tr>
                     {% endif %}
                     {% for topic in item.topics %}
-                      <tr id="formulation-{{ topic.slug }}" class="t1-table__row subject-table-row formulation-subtopic-row{% if topic.learned %} is-status-done{% else %} is-status-new{% endif %}" data-formulation-topic-row data-formulation-row="{{ topic.slug }}">
+                      <tr id="formulation-{{ topic.slug }}" class="t1-table__row subject-table-row formulation-subtopic-row is-status-{{ topic.status }}" data-formulation-topic-row data-formulation-row="{{ topic.slug }}">
                         <td class="t1-table__subject">
                           <a class="subject-table-row-link" href="{{ topic.url }}">{{ topic.label }}</a>
                           <span class="t1-table__subject-date">{{ topic.french }}</span>
@@ -79,7 +79,7 @@
                         <td class="t1-table__versions">{% if topic.essential %}Essentiel{% else %}Leçon{% endif %}</td>
                         <td class="t1-table__progress-cell">
                           <div class="t1-table__progress">
-                            <span class="progress-status progress-status--{% if topic.learned %}done{% else %}new{% endif %}" data-formulation-status="{{ topic.slug }}">{% if topic.learned %}Apprise{% else %}À apprendre{% endif %}</span>
+                            <span class="progress-status progress-status--{{ topic.status }}" data-formulation-status="{{ topic.slug }}">{% if topic.status == "done" %}Apprise{% elif topic.status == "active" %}En cours{% else %}À apprendre{% endif %}</span>
                             <form
                               class="subject-completion-check formulation-subtopic-check{% if topic.learned %} is-complete{% endif %}"
                               method="post"
@@ -120,5 +120,5 @@
 {% endblock %}
 {% block scripts %}
 {{ block.super }}
-<script src="{% static 'study/js/formulation-progress.js' %}?v=1"></script>
+<script src="{% static 'study/js/formulation-progress.js' %}?v=2"></script>
 {% endblock %}

@@ -13,7 +13,7 @@ from study.formulation_progress import (
     formulation_progress,
 )
 from study.models import (
-    Card, CardState, MemoryQuestionProgress, Phrase,
+    Annotation, AnnotationKind, Card, CardState, MemoryQuestionProgress, Phrase,
     PhraseTier, Rating, ReviewLog, ReviewSession, ThemeVocabularyProgress,
 )
 from study.retirement import active_phrases
@@ -79,7 +79,11 @@ class FormulationExperienceTests(TestCase):
         self.assertContains(response, reverse("study:response_detail", args=[
             "ee", "tache-3", self.response.prompts.first().pk,
         ]))
-        self.assertNotContains(response, 'data-annotation-source-key="formulation')
+        self.assertContains(
+            response,
+            'data-annotation-source-key="formulation:ee3:v1:',
+            count=2,
+        )
         self.assertNotContains(response, 'name="transfer_response"')
 
         response = self.client.get(reverse(
@@ -88,6 +92,10 @@ class FormulationExperienceTests(TestCase):
         self.assertContains(response, "formulation-entry-lesson")
         self.assertContains(response, "Comprendre et appliquer")
         self.assertContains(response, "formulation-entry-focus__text")
+        self.assertContains(
+            response,
+            'data-annotation-source-key="formulation:ee3:v1:cadre-0"',
+        )
         self.assertNotContains(response, 'class="formulation-list')
         self.assertNotContains(response, "formulation-topic-sidebar")
 
@@ -281,6 +289,89 @@ class FormulationExperienceTests(TestCase):
         self.assertEqual(self.client.post(url, {"completed": "maybe"}).status_code, 400)
         self.assertEqual(self.client.post(url + "?next=bad", {"completed": ["0", "1"]}).status_code, 400)
 
+    def test_note_or_highlight_marks_formulation_in_progress(self):
+        entry = self.catalog.entries[0]
+        detail_url = reverse(
+            "study:ee_formulation_entry", args=[entry.slug],
+        )
+        created = self.client.post(
+            reverse("study:annotation_create"),
+            {
+                "kind": AnnotationKind.NOTE,
+                "quote": entry.french,
+                "body": "À réutiliser.",
+                "source_path": detail_url,
+                "source_key": entry.content_key,
+                "source_title": entry.label,
+                "task_id": self.task.pk,
+                "start_offset": 0,
+                "end_offset": len(entry.french),
+                "prefix": "",
+                "suffix": "",
+                "overlap_ids": "",
+            },
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        self.assertEqual(created.status_code, 201)
+        self.assertEqual(
+            created.json()["formulation_progress"]["status"],
+            "active",
+        )
+        self.assertEqual(
+            created.json()["formulation_progress"]["label"],
+            "En cours",
+        )
+        state = formulation_progress(self.user, self.catalog)[1]
+        self.assertEqual((state.started, state.completed), (1, 0))
+        self.assertEqual(
+            formulation_progress(self.other, self.catalog)[1].started,
+            0,
+        )
+
+        detail = self.client.get(detail_url)
+        self.assertEqual(detail.context["row"]["status"], "active")
+        self.assertContains(
+            detail,
+            '<span class="progress-status progress-status--active" '
+            f'data-formulation-status="{entry.slug}">En cours</span>',
+            html=True,
+        )
+        directory = self.client.get(self.url)
+        topic = next(
+            topic
+            for table in directory.context["tables"]
+            for item in table["items"]
+            for topic in item["topics"]
+            if topic["slug"] == entry.slug
+        )
+        self.assertEqual(topic["status"], "active")
+        active = self.client.get(self.function_url, {"status": "active"})
+        self.assertEqual(active.context["result_count"], 1)
+        self.assertEqual(active.context["rows"][0]["entry"], entry)
+        self.assertEqual(
+            self.client.get(
+                self.function_url, {"status": "new"},
+            ).context["result_count"],
+            1,
+        )
+
+        annotation = Annotation.objects.get(
+            user=self.user,
+            source_key=entry.content_key,
+        )
+        deleted = self.client.post(
+            reverse("study:annotation_delete", args=[annotation.pk]),
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+        self.assertEqual(
+            deleted.json()["formulation_progress"]["status"],
+            "new",
+        )
+        self.assertEqual(
+            formulation_progress(self.user, self.catalog)[1].started,
+            0,
+        )
+
     def test_fetch_progress_returns_live_counts_without_redirecting(self):
         entry = self.catalog.entries[0]
         response = self.client.post(
@@ -296,7 +387,10 @@ class FormulationExperienceTests(TestCase):
         self.assertEqual(response["Content-Type"], "application/json")
         self.assertEqual(response.json(), {
             "completed": True,
+            "status": "done",
+            "label": "Apprise",
             "slug": entry.slug,
+            "tache": 3,
             "overall": {
                 "status": "active",
                 "label": "En cours",
@@ -379,21 +473,27 @@ class FormulationExperienceTests(TestCase):
         self.assertEqual(card["question_bank"]["question_count"], len(self.catalog.entries))
         self.assertEqual(card["question_bank"]["subject_count"], 1)
 
-    def test_old_lists_and_numbered_memories_redirect_to_formulations(self):
+    def test_removed_vocabulary_urls_404_and_numbered_memories_redirect(self):
         for route, args in (
-            ("task_memories", ["ee", "tache-3"]),
             ("task_phrases", ["ee", "tache-3"]),
             ("task_vocabulary_category", ["ee", "tache-3", "nuancer"]),
         ):
-            self.assertRedirects(self.client.get(reverse("study:" + route, args=args)), self.url,
-                                 fetch_redirect_response=False)
+            self.assertEqual(
+                self.client.get(reverse("study:" + route, args=args)).status_code,
+                404,
+            )
         for theme in THEMES:
             response = self.client.get(reverse("study:task_vocabulary_theme", args=[
                 "ee", "tache-3", "ee-tache-3-" + theme,
             ]))
-            self.assertEqual(response.url, reverse(
-                "study:ee_formulation_theme", args=[theme],
-            ))
+            self.assertEqual(response.status_code, 404)
+        self.assertRedirects(
+            self.client.get(reverse(
+                "study:task_memories", args=["ee", "tache-3"],
+            )),
+            self.url,
+            fetch_redirect_response=False,
+        )
         for number in range(1, 5):
             response = self.client.get(reverse("study:task_memory_detail", args=["ee", "tache-3", number]))
             self.assertRedirects(response, self.url, fetch_redirect_response=False)
@@ -464,7 +564,7 @@ class EeTacheOneFormulationExperienceTests(TestCase):
         html = response.content.decode()
         self.assertLess(html.index(">Sujets</a>"), html.index(">Formulations</a>"))
         self.assertNotContains(response, ">Vocabulaire</a>")
-        self.assertNotContains(response, "Vocabulaire utile")
+        self.assertContains(response, "Vocabulaire utile", count=3)
 
         function_url = reverse(
             "study:ee_tache_one_formulation_function",
@@ -536,7 +636,7 @@ class EeTacheOneFormulationExperienceTests(TestCase):
         self.assertContains(response, "prompt-nav--bottom", count=1)
         self.assertNotContains(response, "formulation-entry-hero__summary")
 
-    def test_legacy_vocabulary_routes_preserve_valid_theme(self):
+    def test_removed_vocabulary_routes_return_404(self):
         theme = factories.make_theme(
             "ee-tache-1-education", task=self.task,
         )
@@ -544,17 +644,12 @@ class EeTacheOneFormulationExperienceTests(TestCase):
             tier=PhraseTier.THEME,
             vocabulary_theme=theme,
         )
-        destination = reverse(
-            "study:ee_tache_one_formulation_theme",
-            args=["education"],
-        )
-        self.assertRedirects(
+        self.assertEqual(
             self.client.get(reverse(
                 "study:task_vocabulary_theme",
                 args=["ee", "tache-1", theme.slug],
-            )),
-            destination,
-            fetch_redirect_response=False,
+            )).status_code,
+            404,
         )
         search = self.client.get(
             reverse("study:task_search", args=["ee", "tache-1"]),
@@ -565,26 +660,25 @@ class EeTacheOneFormulationExperienceTests(TestCase):
             ("task_phrases", ["ee", "tache-1"]),
             ("task_vocabulary_category", ["ee", "tache-1", "nuancer"]),
         ):
-            self.assertRedirects(
-                self.client.get(reverse("study:" + route, args=args)),
-                reverse("study:ee_tache_one_formulations"),
-                fetch_redirect_response=False,
+            self.assertEqual(
+                self.client.get(
+                    reverse("study:" + route, args=args)
+                ).status_code,
+                404,
             )
-        self.assertRedirects(
+        self.assertEqual(
             self.client.post(reverse(
                 "study:theme_vocabulary_progress",
                 args=["ee", "tache-1", theme.slug, 999999],
-            )),
-            destination,
-            fetch_redirect_response=False,
+            )).status_code,
+            404,
         )
-        self.assertRedirects(
+        self.assertEqual(
             self.client.get(
                 reverse("study:task_review", args=["ee", "tache-1"]),
                 {"kind": "vocab", "theme": theme.slug},
-            ),
-            destination,
-            fetch_redirect_response=False,
+            ).status_code,
+            404,
         )
 
     def test_overview_puts_subjects_before_formulations_without_vocabulary(self):
@@ -855,24 +949,33 @@ class VocabularyRetirementTests(TestCase):
                 self.active_card.refresh_from_db()
                 self.assertTrue(self.active_card.needs_revisit)
 
-    def test_explicit_bookmarks_and_saved_scopes_redirect_not_unrelated_review(self):
-        destination = reverse("study:ee_formulations")
+    def test_removed_bookmarks_and_saved_scopes_return_404(self):
         for kind in ("phrase", "vocab", "theme_vocab"):
             url = reverse("study:task_review", args=["ee", "tache-3"])
-            self.assertRedirects(self.client.get(url, {"kind": kind}), destination,
-                                 fetch_redirect_response=False)
-        self.assertRedirects(self.client.get(reverse("study:review"), {
-            "kind": "vocab", "response": self.spine.response_id,
-        }), destination, fetch_redirect_response=False)
+            self.assertEqual(
+                self.client.get(url, {"kind": kind}).status_code,
+                404,
+            )
+        self.assertEqual(
+            self.client.get(reverse("study:review"), {
+                "kind": "vocab", "response": self.spine.response_id,
+            }).status_code,
+            404,
+        )
         scope = {"part": "ee", "task": "tache-3", "kind": "vocab"}
         session, _ = ReviewSession.objects.update_or_create(
             user=self.user, defaults={
                 "scope": scope, "current_card": self.card, "presentation_token": "old-token",
             },
         )
-        self.assertRedirects(self.client.get(reverse("study:review")), destination,
-                             fetch_redirect_response=False)
-        self.assertEqual(self.client.get(reverse("study:review_next")).status_code, 410)
+        self.assertEqual(
+            self.client.get(reverse("study:review")).status_code,
+            404,
+        )
+        self.assertEqual(
+            self.client.get(reverse("study:review_next")).status_code,
+            404,
+        )
         session.refresh_from_db()
         self.assertEqual(session.scope, scope)
         self.assertEqual(session.current_card_id, self.card.pk)

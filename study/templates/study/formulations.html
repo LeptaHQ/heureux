@@ -36,6 +36,7 @@
           <select id="formulation-status" class="search-form__select" name="status" data-auto-submit data-custom-select>
             <option value="">Toutes les progressions</option>
             <option value="new"{% if filters.status == "new" %} selected{% endif %}>À apprendre</option>
+            <option value="active"{% if filters.status == "active" %} selected{% endif %}>En cours</option>
             <option value="learned"{% if filters.status == "learned" %} selected{% endif %}>Apprises</option>
           </select>
         </div>
@@ -56,7 +57,7 @@
       <div data-formulation-practice data-previous-url="{{ previous_url }}#formulation-results" data-next-url="{{ next_url }}#formulation-results">
         <p aria-live="polite">Formulation {{ position }} sur {{ result_count }}</p>
         {% for row in rows %}
-          <article class="card formulation-row flashcard-deck__card{% if row.learned %} is-status-done{% else %} is-status-new{% endif %}" id="formulation-{{ row.entry.slug }}" data-flashcard-card data-formulation-row="{{ row.entry.slug }}" tabindex="0">
+          <article class="card formulation-row flashcard-deck__card is-status-{{ row.status }}" id="formulation-{{ row.entry.slug }}" data-flashcard-card data-formulation-row="{{ row.entry.slug }}" data-annotation-root data-annotation-source-key="{{ row.entry.content_key }}" tabindex="0">
             <div data-flashcard-front>
               <p class="eyebrow">{{ row.category.title }}</p>
               <h3>{{ row.entry.label }}</h3>
@@ -110,14 +111,14 @@
           {% endif %}
           <ol class="formulation-list formulation-lesson-content">
             {% for row in rows %}
-              <li class="card learn-content-section formulation-row{% if row.learned %} is-status-done{% else %} is-status-new{% endif %}" id="formulation-{{ row.entry.slug }}" data-formulation-row="{{ row.entry.slug }}">
+              <li class="card learn-content-section formulation-row is-status-{{ row.status }}" id="formulation-{{ row.entry.slug }}" data-formulation-row="{{ row.entry.slug }}" data-annotation-root data-annotation-source-key="{{ row.entry.content_key }}">
                 <header class="learn-content-section__head formulation-lesson-head">
                   <span>{{ forloop.counter|stringformat:"02d" }}</span>
                   <div>
                     <p class="eyebrow">{{ row.category.title }}{% if row.entry.essential %} · Essentiel{% endif %}</p>
                     <h2>{{ row.entry.label }}</h2>
                   </div>
-                  <span class="progress-status progress-status--{% if row.learned %}done{% else %}new{% endif %}" data-formulation-status="{{ row.entry.slug }}">{% if row.learned %}Apprise{% else %}À apprendre{% endif %}</span>
+                  <span class="progress-status progress-status--{{ row.status }}" data-formulation-status="{{ row.entry.slug }}">{% if row.status == "done" %}Apprise{% elif row.status == "active" %}En cours{% else %}À apprendre{% endif %}</span>
                 </header>
                 <p class="formulation-french" lang="fr">{{ row.entry.french }}</p>
                 {% include "study/partials/prompt_copy_button.html" with button_class="btn" source_id=row.copy_id label="Copier la formulation" toast_message="Formulation copiée." only %}
@@ -139,6 +140,6 @@
 {% block scripts %}
 {{ block.super }}
 <script src="{% static 'study/js/prompt-copy.js' %}?v=2"></script>
-<script src="{% static 'study/js/formulation-progress.js' %}?v=1"></script>
+<script src="{% static 'study/js/formulation-progress.js' %}?v=2"></script>
 {% if practice %}<script src="{% static 'study/js/formulations.js' %}?v=1"></script>{% endif %}
 {% endblock %}

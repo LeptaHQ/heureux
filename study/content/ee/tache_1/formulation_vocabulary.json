@@ -1,0 +1,1600 @@
+{
+  "version": 1,
+  "themes": [
+    {
+      "slug": "invitations",
+      "entries": [
+        {
+          "slug": "fete-surprise",
+          "term": "une fête surprise",
+          "meaning": "a surprise party",
+          "usage": "Nom féminin : « organiser / préparer une fête surprise ». L’adjectif « surprise » reste invariable après le nom.",
+          "examples": [
+            {
+              "french": "Je vous écris pour vous inviter à une fête surprise que j’organise en l’honneur de ma petite sœur Jo.",
+              "english": "I'm writing to invite you to a surprise party I'm organising in honour of my little sister Jo.",
+              "source_key": "ee-tache1:janvier:combinaison-18",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "en-l-honneur-de",
+          "term": "en l'honneur de",
+          "meaning": "in honour of",
+          "usage": "Locution prépositive suivie d’un nom ou d’un prénom : « en l’honneur de Jo », « en l’honneur de son départ ». Registre neutre, utile pour justifier une fête.",
+          "examples": [
+            {
+              "french": "On le célèbre en l'honneur de la naissance de Jésus-Christ, le 25 décembre.",
+              "english": "We celebrate it in honour of the birth of Jesus Christ, on 25 December.",
+              "source_key": "ee-tache1:octobre:combinaison-4",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "au-programme",
+          "term": "Au programme",
+          "meaning": "on the agenda / here's the line-up",
+          "usage": "Formule nominale suivie de deux-points puis d’une énumération sans verbe ; très pratique pour annoncer les activités prévues.",
+          "examples": [
+            {
+              "french": "Au programme : de bons plats, de la musique et des jeux.",
+              "english": "On the agenda: good food, music and games.",
+              "source_key": "ee-tache1:janvier:combinaison-19",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "convives",
+          "term": "convives",
+          "meaning": "guests (at a meal)",
+          "usage": "Nom masculin pluriel réservé aux invités d’un repas : « le nombre de convives », « dix convives ». Pour une fête en général, on dit plutôt « invités ».",
+          "examples": [
+            {
+              "french": "Confirmez-moi votre présence d'ici le week-end afin que je sache le nombre exact de convives.",
+              "english": "Confirm your attendance to me by the weekend so I know the exact number of guests.",
+              "source_key": "ee-tache1:avril:combinaison-8",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "restrictions-alimentaires",
+          "term": "des restrictions alimentaires",
+          "meaning": "dietary restrictions",
+          "usage": "Nom féminin pluriel, registre neutre : « avoir des restrictions alimentaires ». Indispensable quand on organise un repas.",
+          "examples": [
+            {
+              "french": "De plus, faites-moi signe si vous avez des restrictions alimentaires.",
+              "english": "Also, let me know if you have any dietary restrictions.",
+              "source_key": "ee-tache1:avril:combinaison-8",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "avoir-lieu",
+          "term": "aura lieu",
+          "meaning": "will take place",
+          "usage": "Verbe « avoir lieu » (se dérouler), employé avec un événement comme sujet : « la fête aura lieu au restaurant / le 9 mai ». Ne s’emploie pas avec une personne.",
+          "examples": [
+            {
+              "french": "Cet événement aura lieu au restaurant Adebi (123 rue Ad, à côté de l'ancien musée), de 18 h à 22 h.",
+              "english": "This event will take place at the Adebi restaurant (123 rue Ad, next to the old museum), from 6 p.m. to 10 p.m.",
+              "source_key": "ee-tache1:avril:combinaison-8",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "installer-les-decorations",
+          "term": "installer les décorations",
+          "meaning": "to put up the decorations",
+          "usage": "Collocation courante de la préparation d’une fête ; « installer » (et non « mettre ») pour le matériel, les tables, les décorations.",
+          "examples": [
+            {
+              "french": "Deux volontaires pourraient venir vers 17 h pour installer les décorations.",
+              "english": "Two volunteers could come around 5 p.m. to put up the decorations.",
+              "source_key": "ee-tache1:avril:combinaison-6",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "sur-le-theme",
+          "term": "sur le thème",
+          "meaning": "with the theme of / themed around",
+          "usage": "Locution « sur le thème de + nom » pour annoncer un déguisement ou une ambiance ; avec « les », on contracte en « sur le thème des années 80 ».",
+          "examples": [
+            {
+              "french": "Rendez-vous au restaurant Cornell, juste à côté de l’ancienne bibliothèque, le samedi 3 juin à partir de 18 h 30, sur le thème des années 80.",
+              "english": "Let's meet at the Cornell restaurant, right next to the old library, on Saturday 3 June from 6.30 p.m., with an 80s theme.",
+              "source_key": "ee-tache1:janvier:combinaison-18",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "buffet",
+          "term": "un buffet",
+          "meaning": "a buffet (shared spread of food)",
+          "usage": "Nom masculin : « partager / préparer un buffet ». On dit « un buffet froid » pour un repas sans plat chaud.",
+          "examples": [
+            {
+              "french": "Nous partagerons un buffet, puis nous danserons sur une playlist.",
+              "english": "We'll share a buffet, then we'll dance to a playlist.",
+              "source_key": "ee-tache1:avril:combinaison-6",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "moment-convivial",
+          "term": "partager un moment convivial",
+          "meaning": "to share a friendly get-together",
+          "usage": "« Convivial » qualifie une ambiance chaleureuse ; collocation utile dans un message légèrement formel adressé à des collègues.",
+          "examples": [
+            {
+              "french": "Avant mon départ, j’aimerais vous remercier et partager un moment convivial avec vous.",
+              "english": "Before I leave, I'd like to thank you and share a friendly get-together with you.",
+              "source_key": "ee-tache1:decembre:combinaison-3",
+              "source_field": "body"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "sorties",
+      "entries": [
+        {
+          "slug": "faire-une-promenade",
+          "term": "faire une promenade",
+          "meaning": "to go for a walk",
+          "usage": "Collocation avec « faire » ; on précise le lieu avec « dans » (un parc) ou « au bord de » (l’eau). Synonyme familier : « se balader ».",
+          "examples": [
+            {
+              "french": "Ensuite, nous pourrions faire une promenade dans un parc afin de profiter de la nature.",
+              "english": "Then we could go for a walk in a park to enjoy nature.",
+              "source_key": "ee-tache1:avril:combinaison-5",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "faire-le-tour-du-lac",
+          "term": "faire le tour du lac",
+          "meaning": "to go all the way round the lake",
+          "usage": "« Faire le tour de + lieu » signifie en faire le circuit complet ; à ne pas confondre avec « faire un tour », qui veut dire se promener brièvement.",
+          "examples": [
+            {
+              "french": "Une fois sur place, nous louerons des vélos pour faire le tour du lac.",
+              "english": "Once we're there, we'll rent bikes to ride all the way round the lake.",
+              "source_key": "ee-tache1:avril:combinaison-14",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "pique-nique",
+          "term": "un pique-nique",
+          "meaning": "a picnic",
+          "usage": "Nom masculin invariable au singulier composé : « prévoir / faire un pique-nique ». Le verbe existe aussi : « pique-niquer ».",
+          "examples": [
+            {
+              "french": "Ensuite, j’ai prévu un pique-nique sous les grands arbres, avec ton gâteau au chocolat préféré.",
+              "english": "Then I've planned a picnic under the big trees, with your favourite chocolate cake.",
+              "source_key": "ee-tache1:avril:combinaison-14",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "assister-a",
+          "term": "assister à",
+          "meaning": "to attend (an event)",
+          "usage": "Verbe toujours suivi de la préposition « à » : « assister à un concert, à une séance ». Attention au faux ami : il ne signifie pas « aider ».",
+          "examples": [
+            {
+              "french": "L’après-midi, nous visiterons le petit musée voisin avant d’assister à un concert gratuit à 16 h.",
+              "english": "In the afternoon, we'll visit the small museum nearby before attending a free concert at 4 p.m.",
+              "source_key": "ee-tache1:avril:combinaison-14",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "reserver-son-billet",
+          "term": "réserver son billet",
+          "meaning": "to book one's ticket",
+          "usage": "« Réserver » + billet / table / place ; on précise souvent « en ligne » ou « à l’avance ». Le possessif s’accorde avec la personne.",
+          "examples": [
+            {
+              "french": "Il faut réserver son billet en ligne avant vendredi.",
+              "english": "You have to book your ticket online before Friday.",
+              "source_key": "ee-tache1:aout:combinaison-1",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "par-seance",
+          "term": "par séance",
+          "meaning": "per session / per screening",
+          "usage": "« Séance » désigne une projection ou un cours ; « par séance » sert à détailler un tarif, en opposition à « pour toute la journée ».",
+          "examples": [
+            {
+              "french": "Le billet coûte 18 $ pour toute la journée, ou 8 $ par séance.",
+              "english": "The ticket costs $18 for the whole day, or $8 per screening.",
+              "source_key": "ee-tache1:aout:combinaison-1",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "cadre-ombrage",
+          "term": "dans un cadre ombragé",
+          "meaning": "in a shaded setting",
+          "usage": "« Le cadre » = l’environnement d’un lieu ; s’emploie avec un adjectif (ombragé, verdoyant, magnifique) pour décrire une atmosphère.",
+          "examples": [
+            {
+              "french": "Il se trouve au 123 Pike Street, dans un cadre ombragé qui rend l’atmosphère très apaisante.",
+              "english": "It's at 123 Pike Street, in a shaded setting that makes the atmosphere very soothing.",
+              "source_key": "ee-tache1:avril:combinaison-16",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "delicieuses-specialites",
+          "term": "de délicieuses spécialités",
+          "meaning": "delicious specialities (regional dishes)",
+          "usage": "Devant un adjectif antéposé au pluriel, « des » devient « de » : « de délicieuses spécialités ». Se complète par « locales », « d’Afrique », « italiennes ».",
+          "examples": [
+            {
+              "french": "Côté plats, on y propose de délicieuses spécialités d’Afrique et d’Asie.",
+              "english": "As for the dishes, they serve delicious African and Asian specialities there.",
+              "source_key": "ee-tache1:avril:combinaison-16",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "incontournable",
+          "term": "un incontournable",
+          "meaning": "a must / a must-try",
+          "usage": "Nom ou adjectif : « c’est un incontournable », « un musée incontournable ». Registre courant, très utile pour recommander.",
+          "examples": [
+            {
+              "french": "Je recommande surtout les pâtes aux légumes : c’est un incontournable !",
+              "english": "I especially recommend the vegetable pasta: it's a must!",
+              "source_key": "ee-tache1:decembre:combinaison-6",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "prix-raisonnables",
+          "term": "à des prix raisonnables",
+          "meaning": "at reasonable prices",
+          "usage": "Locution « à des prix + adjectif » (raisonnables, abordables, élevés) pour situer un niveau de prix sans donner de chiffre.",
+          "examples": [
+            {
+              "french": "Côté plats, il propose de délicieuses spécialités italiennes à des prix raisonnables.",
+              "english": "As for the dishes, it serves delicious Italian specialities at reasonable prices.",
+              "source_key": "ee-tache1:decembre:combinaison-6",
+              "source_field": "body"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "accueil",
+      "entries": [
+        {
+          "slug": "garder-la-maison",
+          "term": "garder ma maison",
+          "meaning": "to look after my house (while I'm away)",
+          "usage": "« Garder » + maison / chien / enfants signifie surveiller pendant une absence ; le possessif change selon le propriétaire (« garder ta maison »).",
+          "examples": [
+            {
+              "french": "Merci d’avoir accepté de garder ma maison et mon jardin pendant mes vacances.",
+              "english": "Thank you for agreeing to look after my house and my garden while I'm on holiday.",
+              "source_key": "ee-tache1:avril:combinaison-13",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "eteindre-les-lumieres",
+          "term": "éteins les lumières",
+          "meaning": "turn off the lights",
+          "usage": "Impératif de « éteindre » (tu éteins) ; contraire : « allume les lumières ». Courant dans les consignes laissées à un invité.",
+          "examples": [
+            {
+              "french": "Pour économiser l’énergie, éteins les lumières avant 21 h.",
+              "english": "To save energy, turn off the lights before 9 p.m.",
+              "source_key": "ee-tache1:avril:combinaison-13",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "les-cles",
+          "term": "les clés",
+          "meaning": "the keys",
+          "usage": "Nom féminin pluriel ; collocations utiles : « laisser les clés sous… », « rendre les clés », « le trousseau de clés ».",
+          "examples": [
+            {
+              "french": "Important : les clés sont sous la boîte rouge, dans la salle à manger.",
+              "english": "Important: the keys are under the red box, in the dining room.",
+              "source_key": "ee-tache1:avril:combinaison-13",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "petit-dejeuner-compris",
+          "term": "petit déjeuner compris",
+          "meaning": "breakfast included",
+          "usage": "Apposition figée après un prix ; même structure que « charges comprises » ou « repas inclus ». Le participe s’accorde avec le nom qui précède.",
+          "examples": [
+            {
+              "french": "Une chambre familiale coûte 110 $ par nuit, petit déjeuner compris, et les enfants de moins de douze ans bénéficient d’une réduction.",
+              "english": "A family room costs $110 per night, breakfast included, and children under twelve get a discount.",
+              "source_key": "ee-tache1:juillet:combinaison-5",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "une-reduction",
+          "term": "une réduction",
+          "meaning": "a discount",
+          "usage": "« Bénéficier d’une réduction », « avoir une réduction sur… » ; on précise la condition avec « à partir de trois nuits ».",
+          "examples": [
+            {
+              "french": "La chambre coûte 50 $ par nuit, avec une réduction à partir de trois nuits.",
+              "english": "The room costs $50 per night, with a discount from three nights onwards.",
+              "source_key": "ee-tache1:juillet:combinaison-44",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "des-navettes",
+          "term": "des navettes",
+          "meaning": "shuttle buses",
+          "usage": "Nom féminin : « des navettes partent / desservent… toutes les trente minutes ». Très utile pour expliquer l’accès depuis un aéroport ou une gare.",
+          "examples": [
+            {
+              "french": "De plus, des navettes partent toutes les trente minutes vers le centre-ville et le parc Aloha.",
+              "english": "What's more, shuttles leave every thirty minutes for the city centre and Aloha park.",
+              "source_key": "ee-tache1:juillet:combinaison-5",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "complet",
+          "term": "complet",
+          "meaning": "fully booked / sold out",
+          "usage": "Adjectif employé pour un hôtel, un train ou un vol : « l’hôtel est complet », « la salle est complète ». On dit aussi « afficher complet » quand tout est réservé.",
+          "examples": [
+            {
+              "french": "Le seul bémol est qu’il peut être complet, j’aimerais donc que vous réserviez rapidement.",
+              "english": "The only downside is that it can be fully booked, so I'd like you to reserve quickly.",
+              "source_key": "ee-tache1:juillet:combinaison-5",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "composer-le-code",
+          "term": "compose le code",
+          "meaning": "enter the door code",
+          "usage": "Impératif de « composer » (un code, un numéro) ; on ne dit pas « taper le code » dans un registre soigné.",
+          "examples": [
+            {
+              "french": "Pour entrer, compose le code 2480 à la porte principale, puis prends l’ascenseur.",
+              "english": "To get in, enter the code 2480 at the main door, then take the lift.",
+              "source_key": "ee-tache1:decembre:combinaison-15",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "faire-comme-chez-soi",
+          "term": "Fais comme chez toi",
+          "meaning": "make yourself at home",
+          "usage": "Expression amicale à l’impératif, avec « tu » ; la version vouvoyée est « Faites comme chez vous ».",
+          "examples": [
+            {
+              "french": "Fais comme chez toi et n’hésite pas à m’appeler.",
+              "english": "Make yourself at home and don't hesitate to call me.",
+              "source_key": "ee-tache1:decembre:combinaison-15",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "a-l-avance",
+          "term": "à l’avance",
+          "meaning": "in advance / ahead of time",
+          "usage": "Locution adverbiale placée après le verbe : « prévenir / réserver à l’avance ». On renforce avec « bien à l’avance ».",
+          "examples": [
+            {
+              "french": "La réception ferme à 20 h ; il faut donc que tu préviennes à l’avance si tu arrives plus tard.",
+              "english": "Reception closes at 8 p.m., so you need to let them know in advance if you arrive later.",
+              "source_key": "ee-tache1:juillet:combinaison-44",
+              "source_field": "body"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "voyages",
+      "entries": [
+        {
+          "slug": "a-couper-le-souffle",
+          "term": "à couper le souffle",
+          "meaning": "breathtaking",
+          "usage": "Locution adjectivale invariable placée après le nom : « une vue / des vues à couper le souffle ». Registre courant, très valorisant.",
+          "examples": [
+            {
+              "french": "Sur place, nous visiterons le musée de l’Histoire et de l’Industrie, au bord du lac Union, et nous ferons une randonnée au mont Si, qui offre des vues à couper le souffle.",
+              "english": "Once there, we'll visit the Museum of History and Industry, on the shore of Lake Union, and we'll hike up Mount Si, which offers breathtaking views.",
+              "source_key": "ee-tache1:avril:combinaison-10",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "vues-imprenables",
+          "term": "des vues imprenables",
+          "meaning": "unobstructed, stunning views",
+          "usage": "« Imprenable » qualifie une vue que rien ne cache : « une vue imprenable sur la mer ». S’emploie avec « offrir » : « l’hôtel offre des vues imprenables ».",
+          "examples": [
+            {
+              "french": "Il est situé au 123, rue Ag, sur une colline, ce qui offre des vues imprenables.",
+              "english": "It's located at 123, rue Ag, on a hill, which gives unobstructed views.",
+              "source_key": "ee-tache1:avril:combinaison-11",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "faire-une-randonnee",
+          "term": "faire une randonnée",
+          "meaning": "to go hiking",
+          "usage": "Collocation avec « faire » ; le lieu se marque par « à » (au mont Si) ou « dans » (dans les montagnes). La personne qui la pratique est « un randonneur ».",
+          "examples": [
+            {
+              "french": "Une fois sur place, je vous propose de visiter le musée de l’Histoire et de l’Industrie, puis de faire une randonnée au mont Si, qui offre des vues imprenables.",
+              "english": "Once we're there, I suggest we visit the Museum of History and Industry, then hike up Mount Si, which offers stunning views.",
+              "source_key": "ee-tache1:mai:combinaison-3",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "depaysant",
+          "term": "dépaysant",
+          "meaning": "refreshingly different, a real change of scene",
+          "usage": "Adjectif très fréquent dans les récits de voyage ; se combine avec « ressourçant », « reposant ». Nom associé : « le dépaysement ».",
+          "examples": [
+            {
+              "french": "En résumé, c’était un week-end dépaysant et ressourçant.",
+              "english": "All in all, it was a refreshing, restorative weekend.",
+              "source_key": "ee-tache1:mars:combinaison-7",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "flaner",
+          "term": "flâner",
+          "meaning": "to stroll / wander without hurrying",
+          "usage": "Verbe du premier groupe, registre courant et un peu littéraire ; suivi de « dans », « parmi », « le long de ». Plus expressif que « se promener ».",
+          "examples": [
+            {
+              "french": "Nous pourrons aussi flâner parmi les arbres du Washington Park Arboretum.",
+              "english": "We'll also be able to stroll among the trees of the Washington Park Arboretum.",
+              "source_key": "ee-tache1:avril:combinaison-4",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "tres-frequente",
+          "term": "très fréquenté",
+          "meaning": "very busy, crowded (of a place)",
+          "usage": "Participe adjectivé de « fréquenter » ; se dit d’un lieu, jamais d’une personne. Synonyme : « bondé » (plus fort).",
+          "examples": [
+            {
+              "french": "Il peut toutefois être très fréquenté le week-end, alors je te conseille d’y aller le matin.",
+              "english": "It can, however, be very busy at the weekend, so I'd advise you to go in the morning.",
+              "source_key": "ee-tache1:janvier:combinaison-8",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "gouter",
+          "term": "goûter",
+          "meaning": "to taste, to try (food)",
+          "usage": "Employé sans préposition devant un complément direct (« goûter des plats locaux ») ; avec « à » quand on insiste sur l’essai partiel.",
+          "examples": [
+            {
+              "french": "Tout d’abord, nous découvrirons le marché de Pike Place pour goûter des spécialités locales et échanger avec les habitants.",
+              "english": "First of all, we'll explore Pike Place Market to taste local specialities and chat with the locals.",
+              "source_key": "ee-tache1:avril:combinaison-4",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "tarifs-varient",
+          "term": "les tarifs varient entre",
+          "meaning": "prices range between",
+          "usage": "« Le tarif » (prix officiel) s’emploie au pluriel pour une fourchette : « les tarifs varient entre X et Y ». Se complète par « par nuit », « par personne ».",
+          "examples": [
+            {
+              "french": "Côté prix, les tarifs varient entre 90 $ et 150 $ par nuit et par personne, repas inclus, avec une réduction pour les séjours de plus de trois nuits.",
+              "english": "As for prices, rates range between $90 and $150 per night per person, meals included, with a discount for stays of more than three nights.",
+              "source_key": "ee-tache1:avril:combinaison-11",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "excursion",
+          "term": "une excursion",
+          "meaning": "a day trip, an outing",
+          "usage": "Nom féminin : « faire / prévoir une excursion » ; se complète par « à », « au bord de », « en bateau ». Plus court qu’un voyage.",
+          "examples": [
+            {
+              "french": "J’ai aussi prévu un tour de la ville et une excursion au bord de l’eau.",
+              "english": "I've also planned a city tour and an outing by the water.",
+              "source_key": "ee-tache1:avril:combinaison-10",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "hospitalite",
+          "term": "l’hospitalité",
+          "meaning": "hospitality",
+          "usage": "Nom féminin employé avec l’article défini pour parler d’une valeur culturelle ; collocations : « une hospitalité chaleureuse », « offrir l’hospitalité ».",
+          "examples": [
+            {
+              "french": "La famille et l’hospitalité occupent une place importante dans la vie quotidienne, et la musique et la danse sont très présentes lors des fêtes traditionnelles.",
+              "english": "Family and hospitality hold an important place in daily life, and music and dance are very present at traditional celebrations.",
+              "source_key": "ee-tache1:septembre:combinaison-7",
+              "source_field": "body"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ville",
+      "entries": [
+        {
+          "slug": "au-coeur-de",
+          "term": "au cœur du",
+          "meaning": "in the heart of",
+          "usage": "Locution « au cœur de + lieu » (au cœur du centre-ville, de la vieille ville) ; plus expressive que « au centre de ».",
+          "examples": [
+            {
+              "french": "J’ai ce qu’il te faut : le marché de Pike Place, situé au cœur du centre-ville, près de l’ancienne bibliothèque.",
+              "english": "I have just what you need: Pike Place Market, in the heart of the city centre, near the old library.",
+              "source_key": "ee-tache1:janvier:combinaison-5",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "ambiance-animee",
+          "term": "ambiance animée",
+          "meaning": "lively atmosphere",
+          "usage": "« L’ambiance » se qualifie par un adjectif postposé : animée, apaisante, conviviale. On dit « connu pour son ambiance animée ».",
+          "examples": [
+            {
+              "french": "De plus, j’apprécie particulièrement le marché de Pike Place, connu pour son ambiance animée, ses produits frais et ses musiciens de rue.",
+              "english": "What's more, I particularly like Pike Place Market, known for its lively atmosphere, its fresh produce and its street musicians.",
+              "source_key": "ee-tache1:mai:combinaison-1",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "commercants",
+          "term": "les commerçants",
+          "meaning": "the shopkeepers, market traders",
+          "usage": "Nom masculin pluriel (féminin : « commerçantes ») ; à distinguer de « les commerces », qui désigne les magasins eux-mêmes.",
+          "examples": [
+            {
+              "french": "L’ambiance y est animée : les commerçants sont sympas et il y a même des musiciens de rue.",
+              "english": "The atmosphere there is lively: the traders are friendly and there are even street musicians.",
+              "source_key": "ee-tache1:janvier:combinaison-5",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "fruits-et-legumes-frais",
+          "term": "des fruits et légumes frais",
+          "meaning": "fresh fruit and vegetables",
+          "usage": "Groupe figé des marchés ; l’adjectif « frais » se place après et s’accorde au masculin pluriel avec l’ensemble.",
+          "examples": [
+            {
+              "french": "Tu y trouveras des fruits et légumes frais, du poisson vendu par les pêcheurs locaux, du fromage artisanal et du pain, à des prix raisonnables.",
+              "english": "You'll find fresh fruit and vegetables there, fish sold by local fishermen, artisanal cheese and bread, at reasonable prices.",
+              "source_key": "ee-tache1:janvier:combinaison-5",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "a-proximite",
+          "term": "à proximité",
+          "meaning": "nearby, close by",
+          "usage": "Locution employée seule après le nom, ou avec « de » : « à proximité du marché ». Registre neutre, plus soigné que « tout près ».",
+          "examples": [
+            {
+              "french": "Pour t’y rendre, tu peux prendre le bus 5, qui s’arrête à proximité du marché.",
+              "english": "To get there, you can take the number 5 bus, which stops near the market.",
+              "source_key": "ee-tache1:janvier:combinaison-5",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "bien-desservi",
+          "term": "bien desservi par",
+          "meaning": "well served by (public transport)",
+          "usage": "Participe passé de « desservir » au passif ; se dit d’un quartier ou d’un logement : « bien desservi par les transports en commun ».",
+          "examples": [
+            {
+              "french": "Le quartier est calme et bien desservi par les transports en commun.",
+              "english": "The neighbourhood is quiet and well served by public transport.",
+              "source_key": "ee-tache1:mai:combinaison-2",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "espaces-verts",
+          "term": "espaces verts",
+          "meaning": "green spaces, parks",
+          "usage": "Nom masculin pluriel du vocabulaire urbain : « la ville compte de nombreux espaces verts ». Ne s’emploie pas au singulier pour un simple jardin.",
+          "examples": [
+            {
+              "french": "La ville est magnifique, surtout grâce à ses espaces verts et à ses paysages naturels.",
+              "english": "The city is beautiful, above all thanks to its green spaces and its natural landscapes.",
+              "source_key": "ee-tache1:mai:combinaison-2",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "donner-sur",
+          "term": "donne sur",
+          "meaning": "looks out onto, overlooks",
+          "usage": "« Donner sur + lieu » se dit d’une fenêtre, d’un balcon ou d’une chambre ; ne jamais employer « regarder sur ».",
+          "examples": [
+            {
+              "french": "Mon appartement est confortable et lumineux, avec un petit balcon qui donne sur un parc.",
+              "english": "My flat is comfortable and bright, with a small balcony that looks out onto a park.",
+              "source_key": "ee-tache1:mai:combinaison-2",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "emmenager",
+          "term": "emménagé",
+          "meaning": "moved in (to a new home)",
+          "usage": "Participe passé de « emménager » (auxiliaire avoir), à ne pas confondre avec « déménager » (quitter un logement) : on emménage « à » une ville, « dans » un quartier.",
+          "examples": [
+            {
+              "french": "Ça fait maintenant un mois que j’ai emménagé à Seattle, et je m’y plais beaucoup.",
+              "english": "It's now been a month since I moved to Seattle, and I really like it here.",
+              "source_key": "ee-tache1:mai:combinaison-2",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "nouveaux-arrivants",
+          "term": "les nouveaux arrivants",
+          "meaning": "newcomers, new residents",
+          "usage": "Nom masculin pluriel du registre courant et administratif ; utile pour conseiller un public plutôt qu’une personne précise.",
+          "examples": [
+            {
+              "french": "Enfin, je recommande vivement que les nouveaux arrivants aillent découvrir le musée de l’Histoire et de l’Industrie, incontournable pour mieux comprendre l’histoire de la région.",
+              "english": "Finally, I strongly recommend that newcomers go and discover the Museum of History and Industry, essential for understanding the region's history better.",
+              "source_key": "ee-tache1:mai:combinaison-1",
+              "source_field": "body"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "logement",
+      "entries": [
+        {
+          "slug": "loyer-et-charges",
+          "term": "le loyer et les charges",
+          "meaning": "the rent and the service charges",
+          "usage": "« Le loyer » est le montant mensuel, « les charges » couvrent eau, chauffage et parties communes ; toujours au pluriel.",
+          "examples": [
+            {
+              "french": "Concernant l’appartement, pourriez-vous m’indiquer le loyer et les charges ?",
+              "english": "Regarding the flat, could you tell me the rent and the service charges?",
+              "source_key": "ee-tache1:avril:combinaison-1",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "charges-comprises",
+          "term": "charges comprises",
+          "meaning": "bills included",
+          "usage": "Apposition figée après le montant du loyer ; s’abrège « CC » dans les annonces. Contraire : « charges en sus ».",
+          "examples": [
+            {
+              "french": "Le loyer est de 700 $ par mois, charges comprises, ce qui respecte mon budget.",
+              "english": "The rent is $700 a month, bills included, which fits my budget.",
+              "source_key": "ee-tache1:aout:combinaison-18",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "superficie",
+          "term": "une superficie de",
+          "meaning": "a floor area of",
+          "usage": "Nom féminin suivi de « de + chiffre + m² » ; on demande aussi « Quelle est sa superficie ? ». Registre neutre des annonces immobilières.",
+          "examples": [
+            {
+              "french": "Je recherche un studio ou un appartement de deux pièces d'une superficie de 25 à 40 m², mais je suis également ouvert à une colocation, à condition que le colocataire soit étudiant et que la salle de bain soit privée.",
+              "english": "I'm looking for a studio or a two-room flat with a floor area of 25 to 40 m², but I'm also open to a flatshare, provided the flatmate is a student and the bathroom is private.",
+              "source_key": "ee-tache1:juillet:combinaison-4",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "colocation",
+          "term": "une colocation",
+          "meaning": "a flatshare",
+          "usage": "Nom féminin ; la personne est « un colocataire / une colocataire ». On dit « vivre en colocation », « chercher une colocation ».",
+          "examples": [
+            {
+              "french": "Je recherche une colocation conviviale, où chacun respecte l’intimité de l’autre.",
+              "english": "I'm looking for a friendly flatshare, where everyone respects the other's privacy.",
+              "source_key": "ee-tache1:aout:combinaison-14",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "cuisine-equipee",
+          "term": "une cuisine équipée",
+          "meaning": "a fitted kitchen (with appliances)",
+          "usage": "Expression figée des annonces ; « équipé » signifie que l’électroménager est fourni, alors que « meublé » concerne les meubles.",
+          "examples": [
+            {
+              "french": "Il est déjà meublé et dispose d’une cuisine équipée.",
+              "english": "It's already furnished and has a fitted kitchen.",
+              "source_key": "ee-tache1:aout:combinaison-18",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "dernier-etage",
+          "term": "au dernier étage",
+          "meaning": "on the top floor",
+          "usage": "Les étages se marquent par « au » : « au troisième étage », « au dernier étage ». On demande « à quel étage ? ».",
+          "examples": [
+            {
+              "french": "L’appartement de 80 m² est situé au dernier étage d’un immeuble avec ascenseur, au 123, rue Pike.",
+              "english": "The 80 m² flat is on the top floor of a building with a lift, at 123, rue Pike.",
+              "source_key": "ee-tache1:aout:combinaison-14",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "ascenseur",
+          "term": "un ascenseur",
+          "meaning": "a lift, an elevator",
+          "usage": "Nom masculin : « prendre l’ascenseur », « un immeuble avec ascenseur ». Critère classique d’une recherche de logement.",
+          "examples": [
+            {
+              "french": "Y a-t-il un ascenseur et un parking ?",
+              "english": "Is there a lift and a car park?",
+              "source_key": "ee-tache1:avril:combinaison-1",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "transports-en-commun",
+          "term": "les transports en commun",
+          "meaning": "public transport",
+          "usage": "Toujours au pluriel et sans article partitif : « prendre les transports en commun », « accessible en transports en commun ».",
+          "examples": [
+            {
+              "french": "J’aimerais aussi savoir si des commerces, des écoles et des restaurants se trouvent à proximité et si les transports en commun sont facilement accessibles.",
+              "english": "I'd also like to know whether shops, schools and restaurants are nearby and whether public transport is easily accessible.",
+              "source_key": "ee-tache1:avril:combinaison-1",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "demenager",
+          "term": "déménager à",
+          "meaning": "to move (house) to",
+          "usage": "« Déménager à + ville », « déménager dans + quartier / appartement » ; le nom correspondant est « le déménagement ».",
+          "examples": [
+            {
+              "french": "Dans le cadre de mon nouveau travail, je vais déménager à Seattle le 12 mai.",
+              "english": "As part of my new job, I'm going to move to Seattle on 12 May.",
+              "source_key": "ee-tache1:aout:combinaison-13",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "emballer-les-affaires",
+          "term": "emballer mes affaires",
+          "meaning": "to pack up my belongings",
+          "usage": "« Emballer » (mettre en carton) s’oppose à « déballer » ; « les affaires » désigne les effets personnels, toujours au pluriel dans ce sens.",
+          "examples": [
+            {
+              "french": "Comme je dois préparer plusieurs choses avant le déménagement, j’aurais besoin de ton aide pour démonter quelques meubles et emballer mes affaires.",
+              "english": "As I have several things to prepare before the move, I'd need your help to take apart some furniture and pack up my belongings.",
+              "source_key": "ee-tache1:aout:combinaison-13",
+              "source_field": "body"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "transport",
+      "entries": [
+        {
+          "slug": "se-deplacer",
+          "term": "te déplacer",
+          "meaning": "to get around (from place to place)",
+          "usage": "Verbe pronominal « se déplacer » ; « les moyens de se déplacer » = les modes de transport. Le pronom s’accorde avec la personne.",
+          "examples": [
+            {
+              "french": "Voici les meilleurs moyens de te déplacer.",
+              "english": "Here are the best ways to get around.",
+              "source_key": "ee-tache1:janvier:combinaison-1",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "desservir",
+          "term": "desservent",
+          "meaning": "serve (a place), run to",
+          "usage": "Verbe « desservir » (comme « servir ») avec un moyen de transport comme sujet et un lieu comme complément direct : « les bus desservent la ville ».",
+          "examples": [
+            {
+              "french": "Les bus TCAT sont pratiques et desservent les principaux lieux, comme les marchés, les piscines et les cinémas.",
+              "english": "The TCAT buses are convenient and serve the main places, such as the markets, the swimming pools and the cinemas.",
+              "source_key": "ee-tache1:janvier:combinaison-1",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "le-trajet",
+          "term": "Le trajet",
+          "meaning": "the journey, the ride",
+          "usage": "Nom masculin pour un déplacement précis : « le trajet coûte / dure / est long ». « Le voyage » est plus long, « la course » concerne le taxi.",
+          "examples": [
+            {
+              "french": "Le trajet coûte 1,50 $ pour un adulte, et tu peux aussi acheter un abonnement pour plusieurs trajets.",
+              "english": "The ride costs $1.50 for an adult, and you can also buy a pass for several journeys.",
+              "source_key": "ee-tache1:janvier:combinaison-3",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "un-abonnement",
+          "term": "un abonnement",
+          "meaning": "a pass, a subscription",
+          "usage": "« Acheter / prendre un abonnement » ; le verbe associé est « s’abonner à ». Se précise par « mensuel », « pour plusieurs trajets ».",
+          "examples": [
+            {
+              "french": "Le trajet coûte 1,50 $ pour un adulte, et tu peux aussi acheter un abonnement pour plusieurs trajets.",
+              "english": "The ride costs $1.50 for an adult, and you can also buy a pass for several journeys.",
+              "source_key": "ee-tache1:janvier:combinaison-3",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "la-course",
+          "term": "la course",
+          "meaning": "the (taxi) fare / ride",
+          "usage": "Dans le contexte du taxi, « la course » désigne le trajet facturé : « 25 $ la course ». Sens différent de la course à pied.",
+          "examples": [
+            {
+              "french": "Les taxis coûtent environ 25 $ la course, mais ils sont assez rares ici.",
+              "english": "Taxis cost about $25 a ride, but they're fairly rare here.",
+              "source_key": "ee-tache1:janvier:combinaison-3",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "ponctuel",
+          "term": "ponctuel",
+          "meaning": "punctual, on time",
+          "usage": "Adjectif qui s’accorde (« sois ponctuelle » à une femme) ; s’emploie avec « être » et dans la consigne impérative « sois ponctuel ».",
+          "examples": [
+            {
+              "french": "Il faut que tu sois ponctuel, car les bus ne t’attendront pas !",
+              "english": "You need to be on time, because the buses won't wait for you!",
+              "source_key": "ee-tache1:janvier:combinaison-3",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "velos-electriques",
+          "term": "vélos électriques",
+          "meaning": "electric bikes",
+          "usage": "Nom masculin pluriel ; « profiter de leurs vélos électriques », « louer un vélo électrique ». L’adjectif se place après le nom.",
+          "examples": [
+            {
+              "french": "Enfin, tu peux t’abonner au service Lime pour profiter de leurs vélos électriques.",
+              "english": "Finally, you can subscribe to the Lime service to make use of their electric bikes.",
+              "source_key": "ee-tache1:janvier:combinaison-1",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "d-occasion",
+          "term": "d’occasion",
+          "meaning": "second-hand, used",
+          "usage": "Locution invariable placée après le nom : « un vélo d’occasion », « acheter d’occasion ». Contraire : « neuf ».",
+          "examples": [
+            {
+              "french": "Tu peux acheter un bon vélo d’occasion pour environ 150 $, et la ville dispose d’excellentes pistes cyclables.",
+              "english": "You can buy a good second-hand bike for about $150, and the city has excellent cycle paths.",
+              "source_key": "ee-tache1:janvier:combinaison-3",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "pistes-cyclables",
+          "term": "pistes cyclables",
+          "meaning": "cycle paths, bike lanes",
+          "usage": "Nom féminin pluriel du vocabulaire urbain : « la ville dispose de pistes cyclables », « rouler sur les pistes cyclables ».",
+          "examples": [
+            {
+              "french": "Tu peux acheter un bon vélo d’occasion pour environ 150 $, et la ville dispose d’excellentes pistes cyclables.",
+              "english": "You can buy a good second-hand bike for about $150, and the city has excellent cycle paths.",
+              "source_key": "ee-tache1:janvier:combinaison-3",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "au-quotidien",
+          "term": "au quotidien",
+          "meaning": "on a day-to-day basis",
+          "usage": "Locution adverbiale placée en fin de proposition : « c’est pratique au quotidien ». Ne pas confondre avec l’adjectif « quotidien ».",
+          "examples": [
+            {
+              "french": "À vélo, c’est très pratique au quotidien.",
+              "english": "By bike, it's very practical day to day.",
+              "source_key": "ee-tache1:janvier:combinaison-3",
+              "source_field": "body"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "travail",
+      "entries": [
+        {
+          "slug": "decrocher-un-poste",
+          "term": "décroché un poste",
+          "meaning": "landed a job",
+          "usage": "« Décrocher un poste / un emploi / un entretien » est familier mais courant ; on précise la fonction avec « de » : « un poste d’ingénieur ».",
+          "examples": [
+            {
+              "french": "J’ai une super nouvelle : j’ai décroché un poste d’ingénieur logiciel chez Microsoft !",
+              "english": "I have great news: I've landed a software engineer job at Microsoft!",
+              "source_key": "ee-tache1:janvier:combinaison-4",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "se-specialiser-dans",
+          "term": "me spécialise dans",
+          "meaning": "I specialise in",
+          "usage": "Verbe pronominal suivi de « dans + domaine » (jamais « en » pour une activité) ; forme nominale : « une spécialisation en ».",
+          "examples": [
+            {
+              "french": "Je me spécialise dans l’optimisation des bases de données à grande échelle, exactement ce que j’ai étudié à Cornell.",
+              "english": "I specialise in large-scale database optimisation, exactly what I studied at Cornell.",
+              "source_key": "ee-tache1:janvier:combinaison-4",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "les-locaux",
+          "term": "les locaux",
+          "meaning": "the premises, the offices",
+          "usage": "Nom masculin pluriel : « visiter / occuper les locaux ». À distinguer de l’adjectif « local » (spécialités locales).",
+          "examples": [
+            {
+              "french": "Dis-moi quand tu passes à Seattle, je te ferai visiter les locaux !",
+              "english": "Tell me when you're coming to Seattle, I'll show you round the offices!",
+              "source_key": "ee-tache1:janvier:combinaison-4",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "prets-a-aider",
+          "term": "prêts à aider",
+          "meaning": "ready to help",
+          "usage": "« Prêt à + infinitif » s’accorde avec la personne : « toujours prêts à aider ». Registre courant pour décrire des collègues.",
+          "examples": [
+            {
+              "french": "Mes collègues sont chaleureux et toujours prêts à aider.",
+              "english": "My colleagues are warm and always ready to help.",
+              "source_key": "ee-tache1:janvier:combinaison-9",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "francophones",
+          "term": "francophones",
+          "meaning": "French-speaking",
+          "usage": "Adjectif ou nom : « des collègues francophones », « un francophone ». Utile pour parler de la pratique de la langue au travail.",
+          "examples": [
+            {
+              "french": "Je suis content que la moitié d’entre eux soient francophones, donc je pratique tous les jours.",
+              "english": "I'm glad half of them are French speakers, so I practise every day.",
+              "source_key": "ee-tache1:janvier:combinaison-9",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "campus-verdoyant",
+          "term": "un campus verdoyant",
+          "meaning": "a green, leafy campus",
+          "usage": "« Verdoyant » (plein de verdure) se place après le nom et s’accorde : « une région verdoyante ». Registre soigné et descriptif.",
+          "examples": [
+            {
+              "french": "Nos bureaux occupent un campus verdoyant à Redmond, alors le trajet est long, mais j’en profite pour écouter mes podcasts.",
+              "english": "Our offices occupy a leafy campus in Redmond, so the commute is long, but I use it to listen to my podcasts.",
+              "source_key": "ee-tache1:janvier:combinaison-9",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "passionnant",
+          "term": "passionnant",
+          "meaning": "fascinating, really exciting",
+          "usage": "Adjectif issu de « passionner » : « un travail passionnant », « c’est passionnant ». Ne pas confondre avec « passionné » (qui éprouve la passion).",
+          "examples": [
+            {
+              "french": "J’ai commencé chez Microsoft il y a trois semaines comme ingénieur logiciel : j’optimise des bases de données à grande échelle et c’est passionnant.",
+              "english": "I started at Microsoft three weeks ago as a software engineer: I optimise large-scale databases and it's fascinating.",
+              "source_key": "ee-tache1:janvier:combinaison-9",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "salles-de-reunion",
+          "term": "salles de réunion",
+          "meaning": "meeting rooms",
+          "usage": "Nom composé sans article intérieur ; « réunion » reste au singulier. Voisins utiles : « espaces de détente », « cafétéria ».",
+          "examples": [
+            {
+              "french": "Chaque employé dispose de son bureau équipé d’un ordinateur récent, et nous partageons de grandes salles de réunion dotées d’écrans, des espaces de détente et une cafétéria africaine que j’apprécie beaucoup.",
+              "english": "Each employee has their own desk with a recent computer, and we share large meeting rooms fitted with screens, relaxation areas and an African cafeteria that I really like.",
+              "source_key": "ee-tache1:mars:combinaison-1",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "disposer-de",
+          "term": "dispose de",
+          "meaning": "has (at their disposal)",
+          "usage": "« Disposer de + nom » est plus soutenu que « avoir » ; la préposition « de » est obligatoire : « chaque employé dispose d’un bureau ».",
+          "examples": [
+            {
+              "french": "Chaque employé dispose de son bureau équipé d’un ordinateur récent, et nous partageons de grandes salles de réunion dotées d’écrans, des espaces de détente et une cafétéria africaine que j’apprécie beaucoup.",
+              "english": "Each employee has their own desk with a recent computer, and we share large meeting rooms fitted with screens, relaxation areas and an African cafeteria that I really like.",
+              "source_key": "ee-tache1:mars:combinaison-1",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "quartier-dynamique",
+          "term": "dynamique",
+          "meaning": "lively, buzzing (of a place); energetic (of a person)",
+          "usage": "Adjectif invariable en genre : « un quartier dynamique », « une équipe dynamique ». Positif dans une description de lieu de travail.",
+          "examples": [
+            {
+              "french": "Le quartier est dynamique et les arbres autour du bâtiment créent une ambiance calme.",
+              "english": "The neighbourhood is lively and the trees around the building create a calm atmosphere.",
+              "source_key": "ee-tache1:mars:combinaison-1",
+              "source_field": "body"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "ecole",
+      "entries": [
+        {
+          "slug": "echanges-linguistiques",
+          "term": "les échanges linguistiques",
+          "meaning": "language exchanges",
+          "usage": "Nom masculin pluriel : « participer à des échanges linguistiques ». Le partenaire est « un partenaire linguistique ».",
+          "examples": [
+            {
+              "french": "Débutant en français, j’ai lu avec intérêt votre annonce concernant les échanges linguistiques.",
+              "english": "As a beginner in French, I read your advert about language exchanges with interest.",
+              "source_key": "ee-tache1:janvier:combinaison-17",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "mettre-en-relation",
+          "term": "mettre en relation avec",
+          "meaning": "to put (someone) in touch with",
+          "usage": "« Mettre quelqu’un en relation avec quelqu’un » ; registre formel, fréquent dans une demande polie à une institution.",
+          "examples": [
+            {
+              "french": "Pourriez-vous me mettre en relation avec un partenaire ?",
+              "english": "Could you put me in touch with a partner?",
+              "source_key": "ee-tache1:janvier:combinaison-17",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "abonnement-mensuel",
+          "term": "l’abonnement mensuel",
+          "meaning": "the monthly membership / pass",
+          "usage": "« Mensuel » se place après le nom ; variantes : « hebdomadaire », « annuel ». Utile pour détailler des tarifs de cours.",
+          "examples": [
+            {
+              "french": "Côté prix, une séance coûte 20 €, l’abonnement mensuel 180 €, et la première leçon d’essai est gratuite.",
+              "english": "As for prices, a session costs €20, the monthly pass €180, and the first trial lesson is free.",
+              "source_key": "ee-tache1:mars:combinaison-2",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "lecon-d-essai",
+          "term": "leçon d’essai",
+          "meaning": "trial lesson",
+          "usage": "« D’essai » qualifie ce qui est offert avant l’inscription : « une leçon / une séance d’essai », « un essai gratuit ».",
+          "examples": [
+            {
+              "french": "Côté prix, une séance coûte 20 €, l’abonnement mensuel 180 €, et la première leçon d’essai est gratuite.",
+              "english": "As for prices, a session costs €20, the monthly pass €180, and the first trial lesson is free.",
+              "source_key": "ee-tache1:mars:combinaison-2",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "s-inscrire",
+          "term": "t’inscrire",
+          "meaning": "to enrol, to sign up",
+          "usage": "Verbe pronominal « s’inscrire à + cours » ou « dans + établissement » ; le nom est « l’inscription ».",
+          "examples": [
+            {
+              "french": "Dis-moi ce que tu préfères ; je t’accompagnerai pour que tu puisses t’inscrire facilement !",
+              "english": "Tell me what you prefer; I'll come with you so that you can enrol easily!",
+              "source_key": "ee-tache1:mars:combinaison-2",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "pedagogues",
+          "term": "pédagogues",
+          "meaning": "good at explaining, good teachers",
+          "usage": "Adjectif appliqué aux enseignants : « des professeurs très pédagogues ». Comme nom, « un pédagogue » désigne un spécialiste de l’enseignement.",
+          "examples": [
+            {
+              "french": "Les professeurs sont très pédagogues et les séances vraiment interactives.",
+              "english": "The teachers are very good at explaining and the sessions are really interactive.",
+              "source_key": "ee-tache1:avril:combinaison-15",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "expression-orale",
+          "term": "l’expression orale",
+          "meaning": "speaking skills",
+          "usage": "Terme du vocabulaire de l’apprentissage, avec « la compréhension orale », « l’expression écrite » ; s’emploie avec l’article défini.",
+          "examples": [
+            {
+              "french": "Ce que j’apprécie le plus, c’est l’accent mis sur l’expression orale : j’ai gagné en confiance dès le premier mois.",
+              "english": "What I appreciate most is the emphasis on speaking: I gained confidence from the very first month.",
+              "source_key": "ee-tache1:avril:combinaison-15",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "gagner-en-confiance",
+          "term": "gagné en confiance",
+          "meaning": "gained confidence",
+          "usage": "« Gagner en + nom sans article » (en confiance, en assurance, en rapidité) ; construction soignée pour décrire un progrès.",
+          "examples": [
+            {
+              "french": "Ce que j’apprécie le plus, c’est l’accent mis sur l’expression orale : j’ai gagné en confiance dès le premier mois.",
+              "english": "What I appreciate most is the emphasis on speaking: I gained confidence from the very first month.",
+              "source_key": "ee-tache1:avril:combinaison-15",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "comprehension-orale",
+          "term": "la compréhension orale",
+          "meaning": "listening comprehension",
+          "usage": "S’emploie avec l’article défini et se complète par le matériel : « des casques pour la compréhension orale ».",
+          "examples": [
+            {
+              "french": "On y trouve des tableaux interactifs, des tablettes et des casques pour la compréhension orale.",
+              "english": "There are interactive whiteboards, tablets and headsets for listening comprehension.",
+              "source_key": "ee-tache1:mai:combinaison-6",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "emploi-du-temps",
+          "term": "emploi du temps",
+          "meaning": "timetable, schedule",
+          "usage": "Nom masculin figé (jamais « emploi de temps ») : « un emploi du temps chargé », « mon emploi du temps est libre le samedi ».",
+          "examples": [
+            {
+              "french": "Les professeurs sont chaleureux et expérimentés ; bien que leur emploi du temps soit chargé, ils prennent toujours le temps de répondre à nos questions.",
+              "english": "The teachers are warm and experienced; although their timetable is busy, they always take the time to answer our questions.",
+              "source_key": "ee-tache1:juin:combinaison-1",
+              "source_field": "body"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "sport",
+      "entries": [
+        {
+          "slug": "se-mettre-au-sport",
+          "term": "te mettre au sport",
+          "meaning": "to take up sport",
+          "usage": "« Se mettre à + activité » marque le début d’une pratique ; variante « se remettre au sport » après une interruption.",
+          "examples": [
+            {
+              "french": "Puisque tu veux te mettre au sport, je te recommande Jeff’s Gym, au 123, rue Ag, dans mon quartier, entouré d’arbres.",
+              "english": "Since you want to take up sport, I recommend Jeff's Gym, at 123, rue Ag, in my neighbourhood, surrounded by trees.",
+              "source_key": "ee-tache1:mars:combinaison-3",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "s-entrainer",
+          "term": "t’entraîner",
+          "meaning": "to train, to work out",
+          "usage": "Verbe pronominal « s’entraîner » ; on ajoute « avec quelqu’un », « pour un match ». Le nom est « un entraînement ».",
+          "examples": [
+            {
+              "french": "Je me suis remis sérieusement au sport et j’aimerais que tu viennes t’entraîner avec moi chaque semaine.",
+              "english": "I've got back into sport seriously and I'd like you to come and train with me every week.",
+              "source_key": "ee-tache1:avril:combinaison-12",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "aller-courir",
+          "term": "aller courir",
+          "meaning": "to go running",
+          "usage": "« Aller + infinitif » exprime l’activité visée : « aller courir, aller nager ». Le nom courant est « la course à pied ».",
+          "examples": [
+            {
+              "french": "Je prévois d’aller courir tous les samedis matin, de 7 h à 8 h, au parc du centre-ville.",
+              "english": "I'm planning to go running every Saturday morning, from 7 to 8 a.m., in the city-centre park.",
+              "source_key": "ee-tache1:avril:combinaison-12",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "appareils-de-musculation",
+          "term": "des appareils de musculation",
+          "meaning": "weight machines, gym equipment",
+          "usage": "« La musculation » désigne le renforcement musculaire ; « faire de la musculation ». Voisins : « des vélos stationnaires », « des cours collectifs ».",
+          "examples": [
+            {
+              "french": "On y trouve des vélos stationnaires, des appareils de musculation et des cours collectifs de yoga et de boxe.",
+              "english": "There you'll find exercise bikes, weight machines and group classes in yoga and boxing.",
+              "source_key": "ee-tache1:mars:combinaison-3",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "se-vider-l-esprit",
+          "term": "vider l’esprit",
+          "meaning": "to clear one's head",
+          "usage": "Expression pronominale « se vider l’esprit » ; le pronom s’accorde (« me vider l’esprit », « nous vider l’esprit »). Registre courant.",
+          "examples": [
+            {
+              "french": "Cela nous permettrait de décompresser et de nous vider l’esprit après une longue semaine.",
+              "english": "That would let us unwind and clear our heads after a long week.",
+              "source_key": "ee-tache1:avril:combinaison-12",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "gerer-le-stress",
+          "term": "gérer le stress",
+          "meaning": "to manage stress",
+          "usage": "Collocation fixe avec « gérer » ; souvent introduite par « m’aide à » : « cette activité m’aide à gérer le stress ».",
+          "examples": [
+            {
+              "french": "Cette activité m’aide à gérer le stress et à me vider l’esprit.",
+              "english": "This activity helps me manage stress and clear my head.",
+              "source_key": "ee-tache1:mars:combinaison-5",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "chaussures-confortables",
+          "term": "des chaussures confortables",
+          "meaning": "comfortable shoes",
+          "usage": "Groupe nominal fréquent dans les consignes d’une sortie : « apportez / prenez des chaussures confortables ». L’adjectif suit le nom.",
+          "examples": [
+            {
+              "french": "Apportez des chaussures confortables, un maillot de bain et votre bonne humeur !",
+              "english": "Bring comfortable shoes, a swimming costume and your good mood!",
+              "source_key": "ee-tache1:aout:combinaison-19",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "balade-a-velo",
+          "term": "une balade à vélo",
+          "meaning": "a bike ride",
+          "usage": "« À vélo » (moyen de transport) et non « en vélo » ; « une balade » est une promenade de loisir, plus courte qu’une randonnée.",
+          "examples": [
+            {
+              "french": "L’après-midi, je propose une balade à vélo au bord du lac.",
+              "english": "In the afternoon, I suggest a bike ride along the lake.",
+              "source_key": "ee-tache1:novembre:combinaison-4",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "remporter",
+          "term": "a remporté",
+          "meaning": "won (a match, a competition)",
+          "usage": "« Remporter » s’emploie avec une compétition, un prix, une victoire ; pour un adversaire on dit « battre ».",
+          "examples": [
+            {
+              "french": "J’ai une excellente nouvelle : mon club de volley a remporté la compétition régionale samedi dernier !",
+              "english": "I have excellent news: my volleyball club won the regional competition last Saturday!",
+              "source_key": "ee-tache1:decembre:combinaison-16",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "coequipiers",
+          "term": "mes coéquipiers",
+          "meaning": "my teammates",
+          "usage": "Nom masculin (féminin : « coéquipière ») réservé au sport d’équipe ; au travail on dit plutôt « mes collègues ».",
+          "examples": [
+            {
+              "french": "J’ai marqué le dernier point après un échange interminable, puis mes coéquipiers ont couru vers moi.",
+              "english": "I scored the final point after an endless rally, then my teammates ran over to me.",
+              "source_key": "ee-tache1:decembre:combinaison-16",
+              "source_field": "body"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "slug": "annonces",
+      "entries": [
+        {
+          "slug": "ma-commande",
+          "term": "ma commande",
+          "meaning": "my order",
+          "usage": "« Passer une commande », « recevoir sa commande » ; on ajoute le numéro avec « n° ». Nom féminin, base de toute réclamation.",
+          "examples": [
+            {
+              "french": "Je me permets de vous contacter suite à la réception de ma commande n° 1234, passée le 4 juin 2024.",
+              "english": "I am writing to you following the delivery of my order no. 1234, placed on 4 June 2024.",
+              "source_key": "ee-tache1:mars:combinaison-6",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "presenter-des-problemes",
+          "term": "présente plusieurs problèmes",
+          "meaning": "has several faults",
+          "usage": "« Présenter un défaut / un problème » est le verbe soigné d’une réclamation, plus formel que « avoir un problème ».",
+          "examples": [
+            {
+              "french": "Malheureusement, le téléphone reçu aujourd’hui présente plusieurs problèmes.",
+              "english": "Unfortunately, the phone received today has several faults.",
+              "source_key": "ee-tache1:mars:combinaison-6",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "fissure",
+          "term": "fissuré",
+          "meaning": "cracked",
+          "usage": "Participe adjectivé de « fissurer », employé pour un écran ou un mur ; pour un objet brisé en morceaux on dit « cassé ».",
+          "examples": [
+            {
+              "french": "Tout d’abord, l’écran est fissuré, ce qui rend l’appareil difficilement utilisable.",
+              "english": "First of all, the screen is cracked, which makes the device hard to use.",
+              "source_key": "ee-tache1:mars:combinaison-6",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "colis",
+          "term": "colis",
+          "meaning": "parcel, package",
+          "usage": "Nom masculin invariable : « un colis », « des colis ». Collocations : « absent du colis », « recevoir un colis », « retourner un colis ».",
+          "examples": [
+            {
+              "french": "De plus, le chargeur était absent du colis.",
+              "english": "What's more, the charger was missing from the parcel.",
+              "source_key": "ee-tache1:mars:combinaison-6",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "appareil-de-remplacement",
+          "term": "un appareil de remplacement",
+          "meaning": "a replacement device",
+          "usage": "« De remplacement » qualifie le produit envoyé à la place du produit défectueux ; verbe associé : « remplacer ».",
+          "examples": [
+            {
+              "french": "Pour que ce désagrément soit résolu rapidement, je demande l’envoi d’un appareil de remplacement en parfait état.",
+              "english": "So that this inconvenience is resolved quickly, I am requesting that a replacement device in perfect condition be sent.",
+              "source_key": "ee-tache1:mars:combinaison-6",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "remboursement-integral",
+          "term": "un remboursement intégral",
+          "meaning": "a full refund",
+          "usage": "« Intégral » = complet ; on dit aussi « le remboursement total ». Verbe : « rembourser quelqu’un ».",
+          "examples": [
+            {
+              "french": "Si ce modèle n’est plus disponible, je souhaiterais un remboursement intégral.",
+              "english": "If this model is no longer available, I would like a full refund.",
+              "source_key": "ee-tache1:mars:combinaison-6",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "produit-defectueux",
+          "term": "le produit défectueux",
+          "meaning": "the faulty product",
+          "usage": "« Défectueux » se dit d’un objet qui ne fonctionne pas correctement ; collocation : « retourner le produit défectueux ».",
+          "examples": [
+            {
+              "french": "Je reste à votre disposition pour retourner le produit défectueux.",
+              "english": "I remain available to return the faulty product.",
+              "source_key": "ee-tache1:mars:combinaison-6",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "a-vendre",
+          "term": "à vendre",
+          "meaning": "for sale",
+          "usage": "Locution invariable placée après le nom : « un vélo à vendre », « une maison à vendre ». Contraire : « à louer ».",
+          "examples": [
+            {
+              "french": "Je vous écris au sujet de votre annonce : j’ai justement un vélo à vendre.",
+              "english": "I am writing about your advert: I happen to have a bike for sale.",
+              "source_key": "ee-tache1:mars:combinaison-10",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "en-tres-bon-etat",
+          "term": "en très bon état",
+          "meaning": "in very good condition",
+          "usage": "« En + adjectif + état » (bon, parfait, mauvais) après le nom ou le verbe « être » ; essentiel dans une annonce de vente.",
+          "examples": [
+            {
+              "french": "C’est un vélo de montagne, modèle 2021, en très bon état.",
+              "english": "It's a mountain bike, 2021 model, in very good condition.",
+              "source_key": "ee-tache1:mars:combinaison-10",
+              "source_field": "body"
+            }
+          ]
+        },
+        {
+          "slug": "ouvert-a-la-negociation",
+          "term": "ouvert à la négociation",
+          "meaning": "open to negotiation",
+          "usage": "« Être ouvert à + nom » ; l’adjectif s’accorde (« ouverte à la négociation »). Formule polie pour annoncer un prix discutable.",
+          "examples": [
+            {
+              "french": "Je propose un prix de 500 $, mais je suis ouvert à la négociation.",
+              "english": "I'm asking $500, but I'm open to negotiation.",
+              "source_key": "ee-tache1:mars:combinaison-10",
+              "source_field": "body"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

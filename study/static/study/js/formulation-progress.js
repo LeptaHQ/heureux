@@ -102,16 +102,18 @@
     document.querySelectorAll(
       '[data-formulation-row="' + data.slug + '"]'
     ).forEach(function (row) {
-      row.classList.toggle("is-status-done", data.completed);
-      row.classList.toggle("is-status-new", !data.completed);
+      statuses.forEach(function (status) {
+        row.classList.remove("is-status-" + status);
+      });
+      row.classList.add("is-status-" + data.status);
     });
     document.querySelectorAll(
       '[data-formulation-status="' + data.slug + '"]'
     ).forEach(function (status) {
       setStatus(
         status,
-        data.completed ? "done" : "new",
-        data.completed ? "Apprise" : "À apprendre"
+        data.status,
+        data.label
       );
     });
 
@@ -194,5 +196,9 @@
       .finally(function () {
         setPending(form, false);
       });
+  });
+
+  document.addEventListener("heureux:formulation-progress", function (event) {
+    if (event.detail) updateFormulation(event.detail);
   });
 })();

@@ -148,12 +148,8 @@ class Command(BaseCommand):
                 standard_responses
             )
         )
-        ee_writing_theme_vocabulary = [
-            *content.parse_ee_writing_theme_vocabulary(1),
-            *content.parse_ee_writing_theme_vocabulary(2),
-        ]
-        ee_tache_three_vocabulary = content.parse_ee_tache_three_subject_vocabulary(
-            ee_tache_three_responses
+        ee_tache_two_theme_vocabulary = (
+            content.parse_ee_tache_two_theme_vocabulary()
         )
         comprehension_tests = content.load_comprehension_tests()
         comprehension_vocabulary = content.parse_comprehension_vocabulary(
@@ -165,8 +161,7 @@ class Command(BaseCommand):
             *tache_two_vocabulary,
             *tache_two_theme_vocabulary,
             *eo_tache_three_theme_vocabulary,
-            *ee_writing_theme_vocabulary,
-            *ee_tache_three_vocabulary,
+            *ee_tache_two_theme_vocabulary,
             *(item.phrase for item in comprehension_vocabulary),
         ]
         phrase_id_locations = {}
@@ -1299,69 +1294,6 @@ class Command(BaseCommand):
         PhraseCategory.objects.exclude(
             pk__in=[c.pk for c in seen_categories.values()]
         ).update(is_active=False)
-        self._restore_retired_ee_tache_three_phrases()
-
-    @staticmethod
-    def _restore_retired_ee_tache_three_phrases():
-        """Restore and deactivate every retired EE3 identity generation."""
-        retired = content.ee_tache_three_retired_phrase_data()
-        phrases = Phrase.objects.in_bulk(retired, field_name="phrase_id")
-        if not phrases:
-            return
-        category_names = {
-            content.EE_TACHE_THREE_VOCABULARY_CATEGORIES[row["kind"]]
-            for phrase_id, row in retired.items()
-            if phrase_id in phrases
-        }
-        categories = PhraseCategory.objects.in_bulk(
-            [
-                content.phrase_category_content_key(name)
-                for name in category_names
-            ],
-            field_name="content_key",
-        )
-        changed = []
-        for phrase_id, phrase in phrases.items():
-            row = retired[phrase_id]
-            category_name = content.EE_TACHE_THREE_VOCABULARY_CATEGORIES[
-                row["kind"]
-            ]
-            category = categories.get(
-                content.phrase_category_content_key(category_name)
-            )
-            if category is None:
-                raise CommandError(
-                    f"Missing category for retired phrase {phrase_id}"
-                )
-            values = {
-                "tier": "subject",
-                "category_id": category.pk,
-                "english_cue": row["english"],
-                "expression": row["french"],
-                "anchor": row["french"],
-                "example": row["example"],
-                "note": row["usage"],
-                "vocabulary_theme_id": None,
-                "is_active": False,
-            }
-            if _apply_values(phrase, values):
-                changed.append(phrase)
-        if changed:
-            Phrase.objects.bulk_update(
-                changed,
-                [
-                    "tier",
-                    "category",
-                    "english_cue",
-                    "expression",
-                    "anchor",
-                    "example",
-                    "note",
-                    "vocabulary_theme",
-                    "is_active",
-                ],
-                batch_size=IMPORT_BATCH_SIZE,
-            )
 
     @staticmethod
     def _card_progress_rank(card):
@@ -1770,10 +1702,7 @@ class Command(BaseCommand):
                 **content.tache_two_phrase_id_merges(),
             }
         )
-        phrase_id_merges = {
-            **legacy_oral_merges,
-            **content.ee_tache_three_phrase_id_merges(),
-        }
+        phrase_id_merges = legacy_oral_merges
         phrase_ids = set(phrase_id_merges)
         phrase_ids.update(phrase_id_merges.values())
         phrases = {

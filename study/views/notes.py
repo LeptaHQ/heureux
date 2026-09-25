@@ -28,6 +28,7 @@ from .. import content_loader as content_module
 from ..forms import (
     NoteForm,
 )
+from ..formulation_progress import formulation_annotation_progress_payload
 from ..models import (
     Annotation,
     AnnotationKind,
@@ -1526,6 +1527,13 @@ def annotation_create(request):
             + _annotation_anchor(annotation)
         ),
     }
+    payload.update(
+        formulation_annotation_progress_payload(
+            request.user,
+            annotation.source_key,
+            annotation.source_path,
+        )
+    )
     if annotation.kind == AnnotationKind.HIGHLIGHT:
         payload.update(
             _writing_sujet_progress_payload(
@@ -1673,6 +1681,13 @@ def annotation_delete(request, pk):
     source_path = annotation.source_path
     kind = annotation.kind
     annotation.delete()
+    payload.update(
+        formulation_annotation_progress_payload(
+            request.user,
+            source_key,
+            source_path,
+        )
+    )
     if kind == AnnotationKind.HIGHLIGHT:
         payload.update(
             _writing_sujet_progress_payload(request.user, source_key)

@@ -254,11 +254,11 @@ class SmokeTests(TestCase):
 
         self.assertContains(
             response,
-            f"ui-icons.svg?v=3#icon-{part.icon}",
+            f"ui-icons.svg?v=4#icon-{part.icon}",
         )
         self.assertContains(
             response,
-            f"ui-icons.svg?v=3#icon-{task.icon}",
+            f"ui-icons.svg?v=4#icon-{task.icon}",
         )
         self.assertNotContains(response, "emoji")
 
@@ -1120,16 +1120,11 @@ class EeTacheThreePageTests(TestCase):
             theme_by_name,
             family_by_name,
         )
-        prompt_index = command._import_prompts(
+        command._import_prompts(
             responses,
             response_by_key,
             theme_by_name,
             family_by_name,
-        )
-        command._import_phrases(
-            content_module.parse_ee_tache_three_subject_vocabulary(responses),
-            prompt_index,
-            theme_by_name,
         )
         cls.task = task_by_slug["ee/tache-3"]
         cls.user = factories.make_user("ee-tache-three-pages")
@@ -1759,7 +1754,6 @@ class EeTacheThreePageTests(TestCase):
         self.assertEqual(response.context["month_count"], 11)
         self.assertEqual(response.context["subject_count"], 138)
         self.assertEqual(response.context["distinct_count"], 78)
-        self.assertEqual(response.context["vocabulary_count"], 2340)
         from study.ee_formulations import get_ee_formulations
         self.assertEqual(response.context["formulation_count"], len(get_ee_formulations().entries))
         self.assertContains(
@@ -1798,22 +1792,19 @@ class EeTacheThreePageTests(TestCase):
         )
         self.assertContains(response, "par fonction et par thème")
 
-    def test_vocabulary_directory_redirects_without_deleting_imported_records(self):
+    def test_removed_vocabulary_directory_and_theme_urls_return_404(self):
         from study.models import Phrase, Theme
 
         response = self.client.get(self._task_url("study:task_phrases"))
-        self.assertRedirects(
-            response, reverse("study:ee_formulations"), fetch_redirect_response=False,
-        )
+        self.assertEqual(response.status_code, 404)
         self.assertEqual(Phrase.objects.filter(
             source_prompts__theme__task=self.task, tier=PhraseTier.SUBJECT,
-        ).distinct().count(), 2340)
+        ).distinct().count(), 0)
         for theme in Theme.objects.filter(task=self.task, is_active=True):
             response = self.client.get(reverse(
                 "study:task_vocabulary_theme", args=["ee", "tache-3", theme.slug],
             ))
-            self.assertEqual(response.status_code, 302)
-            self.assertIn(reverse("study:ee_formulations"), response.url)
+            self.assertEqual(response.status_code, 404)
 
     def test_old_vocabulary_activity_does_not_complete_formulations(self):
         Card.objects.filter(

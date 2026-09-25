@@ -15,8 +15,9 @@ Le parcours actif s'appuie sur le corpus source 2025 :
   elle n'alimente plus le parcours 2025.
 - `ai_examiner_prompt.md` — prompt d’évaluation propre à la Tâche 1, disponible
   depuis la vue d’ensemble avant de copier un sujet.
-- `theme_vocabulary/<theme>.json` — **220 fiches** réutilisables, soit 20 par
-  thème en quatre parcours : formules, informations, verbes et phrases modèles.
+- `formulations.json` — parcours pédagogique par fonctions et par thèmes.
+- `formulation_vocabulary.json` — **110 mots et expressions utiles**, soit 10
+  références issues des réponses pour chacun des 11 thèmes.
 
 `load_ee_writing_categories(1)` valide les limites, place les versions de l'auteur
 en premier et fournit les 138 publications à l'importeur. Une publication équivalente

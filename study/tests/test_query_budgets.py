@@ -249,13 +249,7 @@ class EePageBudgetTests(QueryBudgetTestCase):
             family_by_name,
         )
         command._import_phrases(
-            [
-                *content_module.parse_ee_writing_theme_vocabulary(1),
-                *content_module.parse_ee_writing_theme_vocabulary(2),
-                *content_module.parse_ee_tache_three_subject_vocabulary(
-                    responses
-                ),
-            ],
+            content_module.parse_ee_tache_two_theme_vocabulary(),
             prompt_index,
             theme_by_name,
         )
@@ -356,20 +350,21 @@ class EePageBudgetTests(QueryBudgetTestCase):
         )
 
         _response, queries = self._queries(url)
-        annotation_queries = [
+        writing_annotation_queries = [
             query["sql"]
             for query in queries
             if '"study_annotation"' in query["sql"]
+            and '"study_annotation"."task_id"' in query["sql"]
         ]
 
-        self.assertEqual(len(annotation_queries), 1)
+        self.assertEqual(len(writing_annotation_queries), 1)
         self.assertIn(
             '"study_annotation"."task_id" =',
-            annotation_queries[0],
+            writing_annotation_queries[0],
         )
         self.assertIn(
             '"study_annotation"."task_id" IS NULL',
-            annotation_queries[0],
+            writing_annotation_queries[0],
         )
 
     def test_bundled_page_content_is_parsed_once_per_process(self):

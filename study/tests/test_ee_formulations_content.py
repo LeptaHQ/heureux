@@ -555,8 +555,13 @@ class EeFormulationsContentTests(SimpleTestCase):
             / "static" / "study" / "icons" / "ui-icons.svg"
         ).read_text(encoding="utf-8")
         icons = set(re.findall(r'id="icon-([a-z0-9-]+)"', sprite))
-        for category in self.catalog.categories:
-            self.assertIn(category.icon, icons)
+        for tache, catalog in (
+            (1, load_ee_formulations(tache=1)),
+            (3, self.catalog),
+        ):
+            for category in catalog.categories:
+                with self.subTest(tache=tache, icon=category.icon):
+                    self.assertIn(category.icon, icons)
 
     def test_new_keys_are_unique_and_fit_existing_progress_field(self):
         keys = [entry.content_key for entry in self.catalog.entries]

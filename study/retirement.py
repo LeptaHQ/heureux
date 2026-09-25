@@ -4,7 +4,6 @@ Historical phrases, cards, schedules, logs, and review sessions stay untouched.
 """
 
 from django.db.models import Exists, OuterRef, Q
-from django.urls import reverse
 
 from .models import CardType, ComprehensionQuestion, Phrase, Prompt, Response, Theme
 
@@ -115,32 +114,6 @@ def exclude_retired_vocabulary_in_scope(cards, scope):
     return cards
 
 
-def exclude_ee3_vocabulary_in_scope(cards, scope):
-    """Compatibility alias for callers predating EE1 vocabulary retirement."""
-    return exclude_retired_vocabulary_in_scope(cards, scope)
-
-
-def formulations_replacement(theme="", *, tache=3):
-    from .ee_formulations import get_ee_formulations
-
-    routes = {
-        1: (
-            "study:ee_tache_one_formulations",
-            "study:ee_tache_one_formulation_theme",
-        ),
-        3: ("study:ee_formulations", "study:ee_formulation_theme"),
-    }
-    directory_route, theme_route = routes[tache]
-    url = reverse(directory_route)
-    slug = theme.removeprefix(f"ee-tache-{tache}-")
-    if slug and any(
-        category.kind == "theme" and category.slug == slug
-        for category in get_ee_formulations(tache).categories
-    ):
-        url = reverse(theme_route, args=[slug])
-    return url
-
-
 def _scope_retired_tache(scope):
     part, task = scope.get("part"), scope.get("task")
     if part == "ee" and task in RETIRED_EE_TASKS:
@@ -159,17 +132,13 @@ def _scope_retired_tache(scope):
     return None
 
 
-def retired_scope_url(scope):
-    """Only explicit vocabulary scopes redirect; response and mixed study remain."""
+def is_retired_vocabulary_scope(scope):
+    """Return whether a scope targets removed EE1/EE3 vocabulary."""
     vocabulary = (
         scope.get("kind") in {"vocab", "phrase", "theme_vocab"}
         or scope.get("content") in {"vocabulary", "theme_vocabulary"}
         or bool(scope.get("category"))
     )
     if not vocabulary or scope.get("test"):
-        return None
-    tache = _scope_retired_tache(scope)
-    return (
-        formulations_replacement(scope.get("theme", ""), tache=tache)
-        if tache else None
-    )
+        return False
+    return _scope_retired_tache(scope) is not None

@@ -29,7 +29,7 @@ from ..models import (
     Theme,
 )
 from ..progress import mark_card_started, subject_progress_by_response
-from ..retirement import retired_scope_url
+from ..retirement import is_retired_vocabulary_scope
 from ..routing import (
     comprehension_vocabulary_url,
     prompt_detail_url,
@@ -67,11 +67,10 @@ FOCUSED_REVIEW_KINDS = {"revisit", "weak"}
 
 
 def _retired_review_response(scope):
-    replacement = retired_scope_url(scope)
-    if replacement:
+    if is_retired_vocabulary_scope(scope):
         return JsonResponse(
-            {"error": "Ce vocabulaire a été remplacé par les formulations.",
-             "redirect_url": replacement}, status=410,
+            {"error": "Ce vocabulaire n’existe plus."},
+            status=404,
         )
     return None
 
@@ -315,9 +314,8 @@ def review(
             session,
             route_scope=route_scope,
         )
-        replacement = retired_scope_url(scope)
-        if replacement:
-            return redirect(replacement)
+        if is_retired_vocabulary_scope(scope):
+            raise Http404
         if explicit and (
             session.scope != scope or request.GET.get("reset") == "1"
             or (
@@ -849,9 +847,8 @@ def revisit_list(request, part_slug=None, task_slug=None):
     content = (request.GET.get("content") or "").strip()
     if content in {"spine", "vocabulary"}:
         scope["content"] = content
-    replacement = retired_scope_url(scope)
-    if replacement:
-        return redirect(replacement)
+    if is_retired_vocabulary_scope(scope):
+        raise Http404
     revisit_scope = {**scope, "kind": "revisit"}
     revisit_cards = queue_module.scoped_cards(
         revisit_scope,

@@ -70,7 +70,7 @@ from ..oral_highlights import (
 from ..response_personalization import effective_response
 from ..ee_formulations import get_ee_formulations
 from ..formulation_progress import formulation_progress
-from ..retirement import active_phrases, formulations_replacement
+from ..retirement import active_phrases
 from ..progress import (
     card_unit_progress_from_rows,
     combine_progress,
@@ -667,9 +667,6 @@ def _ee_tache_three_subject_context(user, task, *, deduplicate=False):
                             combinaison.document2,
                         )
                     ),
-                    "vocabulary_count": (
-                        content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
-                    ),
                 }
             )
 
@@ -684,10 +681,6 @@ def _ee_tache_three_subject_context(user, task, *, deduplicate=False):
                 "theme": theme,
                 "subjects": subjects,
                 "subject_count": len(subjects),
-                "vocabulary_count": (
-                    len({row["prompt"].response_id for row in subjects})
-                    * content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
-                ),
                 "review_url": review_url(
                     {
                         "kind": "spine",
@@ -711,10 +704,6 @@ def _ee_tache_three_subject_context(user, task, *, deduplicate=False):
         "month_count": len(source_months),
         "subject_count": len(all_progress),
         "distinct_count": response_count,
-        "vocabulary_count": (
-            response_count
-            * content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
-        ),
         "subject_summary": summary,
     }
 
@@ -751,10 +740,6 @@ def _ee_tache_three_overview_context(user, task):
         "month_count": len(source_months),
         "subject_count": len(all_progress),
         "distinct_count": response_count,
-        "vocabulary_count": (
-            response_count
-            * content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
-        ),
         "subject_summary": summarize_subject_progress(all_progress),
     }
 
@@ -1148,10 +1133,8 @@ def task_detail(request, part_slug, task_slug):
             })
         else:
             context["theme_vocabulary"] = (
-                _ee_writing_theme_vocabulary_overview_context(
-                    request.user,
-                    task,
-                    writing_tache,
+                _ee_tache_two_theme_vocabulary_overview_context(
+                    request.user, task,
                 )
             )
         return render(
@@ -1825,9 +1808,6 @@ def theme_detail(request, part_slug, task_slug, slug):
                             source.document2,
                         )
                     ),
-                    "vocabulary_count": (
-                        content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
-                    ),
                     "equivalent_count": (
                         occurrence_count_by_response[row["prompt"].response_id]
                         - 1
@@ -1857,10 +1837,6 @@ def theme_detail(request, part_slug, task_slug, slug):
                     "icon": theme.icon,
                     "subject_count": len(rows),
                     "distinct_count": len(subject_progress),
-                    "vocabulary_count": (
-                        len(subject_progress)
-                        * content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
-                    ),
                     **stats,
                 },
                 "review_url": review_url(review_scope),
@@ -2038,118 +2014,53 @@ EO_TACHE_THREE_THEME_VOCABULARY_SECTIONS = (
     },
 )
 
-EE_TACHE_THREE_VOCABULARY_SECTIONS = tuple(
-    {
-        "category": name,
-        "title": name.partition(" · ")[2],
-        "description": "",
-        "icon": "sparkles",
-    }
-    for name in content_module.EE_TACHE_THREE_VOCABULARY_CATEGORIES.values()
-)
 
-EE_WRITING_THEME_VOCABULARY_SECTIONS = {
-    1: (
-        {
-            "category": "EE Tâche 1 · Formules adaptées",
-            "title": "Formules adaptées",
-            "short_title": "formules",
-            "description": (
-                "Des ouvertures, demandes et conclusions adaptées au "
-                "destinataire et à la situation."
-            ),
-            "icon": "mail",
-        },
-        {
-            "category": "EE Tâche 1 · Informations précises",
-            "title": "Informations précises",
-            "short_title": "détails",
-            "description": (
-                "Des formulations concises pour communiquer les lieux, "
-                "horaires, conditions et informations demandées."
-            ),
-            "icon": "file-text",
-        },
-        {
-            "category": "EE Tâche 1 · Verbes et collocations",
-            "title": "Verbes et collocations",
-            "short_title": "verbes",
-            "description": (
-                "Des associations naturelles pour inviter, décrire, demander "
-                "et expliquer clairement."
-            ),
-            "icon": "pen-line",
-        },
-        {
-            "category": "EE Tâche 1 · Phrases modèles",
-            "title": "Phrases modèles",
-            "short_title": "phrases",
-            "description": (
-                "Des constructions complètes et adaptables pour rédiger un "
-                "message efficace sans réciter."
-            ),
-            "icon": "sparkles",
-        },
-    ),
-    2: (
-        {
-            "category": "EE Tâche 2 · Repères temporels",
-            "title": "Repères temporels",
-            "short_title": "repères",
-            "description": (
-                "Des transitions pour situer les événements et faire avancer "
-                "le récit avec clarté."
-            ),
-            "icon": "arrow-right",
-        },
-        {
-            "category": "EE Tâche 2 · Verbes du récit",
-            "title": "Verbes du récit",
-            "short_title": "verbes",
-            "description": (
-                "Des verbes et collocations pour raconter des actions avec "
-                "des temps du passé bien maîtrisés."
-            ),
-            "icon": "pen-line",
-        },
-        {
-            "category": "EE Tâche 2 · Détails et impressions",
-            "title": "Détails et impressions",
-            "short_title": "impressions",
-            "description": (
-                "Des formulations concrètes pour décrire une ambiance, une "
-                "réaction et ce qui vous a marqué."
-            ),
-            "icon": "target",
-        },
-        {
-            "category": "EE Tâche 2 · Commentaires et recommandations",
-            "title": "Commentaires et recommandations",
-            "short_title": "commentaires",
-            "description": (
-                "Des constructions pour expliquer une leçon, donner un avis "
-                "ou formuler un conseil pertinent."
-            ),
-            "icon": "messages",
-        },
-    ),
-}
+EE_TACHE_TWO_THEME_VOCABULARY_SECTIONS = (
+    {
+        "category": "EE Tâche 2 · Repères temporels",
+        "title": "Repères temporels",
+        "short_title": "repères",
+        "description": (
+            "Des transitions pour situer les événements et faire avancer "
+            "le récit avec clarté."
+        ),
+        "icon": "arrow-right",
+    },
+    {
+        "category": "EE Tâche 2 · Verbes du récit",
+        "title": "Verbes du récit",
+        "short_title": "verbes",
+        "description": (
+            "Des verbes et collocations pour raconter des actions avec "
+            "des temps du passé bien maîtrisés."
+        ),
+        "icon": "pen-line",
+    },
+    {
+        "category": "EE Tâche 2 · Détails et impressions",
+        "title": "Détails et impressions",
+        "short_title": "impressions",
+        "description": (
+            "Des formulations concrètes pour décrire une ambiance, une "
+            "réaction et ce qui vous a marqué."
+        ),
+        "icon": "target",
+    },
+    {
+        "category": "EE Tâche 2 · Commentaires et recommandations",
+        "title": "Commentaires et recommandations",
+        "short_title": "commentaires",
+        "description": (
+            "Des constructions pour expliquer une leçon, donner un avis "
+            "ou formuler un conseil pertinent."
+        ),
+        "icon": "messages",
+    },
+)
 
 
 def _theme_vocabulary_phrases(task, theme=None):
-    if (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK:
-        prompts = Prompt.objects.filter(
-            theme__task=task, theme__is_active=True,
-            is_active=True, response__is_active=True,
-        )
-        if theme is not None:
-            prompts = prompts.filter(theme=theme)
-        return Phrase.objects.filter(
-            tier=PhraseTier.SUBJECT, is_active=True,
-            source_prompts__in=prompts,
-        ).distinct()
-
-    if _ee_writing_tache(task) is not None:
+    if (task.part.slug, task.slug) == content_module.EE_TACHE_TWO_TASK:
         phrases = Phrase.objects.filter(
             tier=PhraseTier.THEME,
             is_active=True,
@@ -2587,10 +2498,7 @@ def theme_vocabulary_progress(
         content_module.EE_TACHE_ONE_TASK,
         content_module.EE_TACHE_THREE_TASK,
     }:
-        tache = 1 if task.slug == "tache-1" else 3
-        return redirect(
-            formulations_replacement(vocabulary_theme_slug, tache=tache)
-        )
+        raise Http404
     if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
         raise Http404
     theme = get_object_or_404(
@@ -2771,7 +2679,9 @@ def _eo_tache_three_theme_vocabulary_detail(request, task, theme):
     )
 
 
-def _ee_writing_theme_vocabulary_context(user, task, tache):
+
+def _ee_tache_two_theme_vocabulary_context(user, task):
+    tache = 2
     taxonomy, _subject_mapping = _ee_subject_theme_data(tache)
     model_slug_by_source = {
         item.slug: f"ee-tache-{tache}-{item.slug}" for item in taxonomy
@@ -2789,7 +2699,6 @@ def _ee_writing_theme_vocabulary_context(user, task, tache):
         .values("vocabulary_theme__slug", "category__name")
         .annotate(total=Count("pk", distinct=True))
     }
-    sections = EE_WRITING_THEME_VOCABULARY_SECTIONS[tache]
     ordered_themes = [
         (theme_data, theme_models[model_slug_by_source[theme_data.slug]])
         for theme_data in taxonomy
@@ -2810,7 +2719,7 @@ def _ee_writing_theme_vocabulary_context(user, task, tache):
                     0,
                 ),
             }
-            for section_data in sections
+            for section_data in EE_TACHE_TWO_THEME_VOCABULARY_SECTIONS
         ]
         batches = batches_by_theme[theme.slug]
         next_batch = next(
@@ -2852,30 +2761,23 @@ def _ee_writing_theme_vocabulary_context(user, task, tache):
         "review_url": next_batch["review_url"] if next_batch else "",
         "mixed_review_url": review_url(_theme_vocabulary_scope(task)),
         "vocabulary_description": (
-            "Formules et constructions pour rédiger un message."
-            if tache == 1
-            else "Repères et formulations pour raconter une expérience."
+            "Repères et formulations pour raconter une expérience."
         ),
         "vocabulary_pathways_description": (
-            "Chaque thème rassemble des formules adaptées, des informations "
-            "précises, des verbes naturels et des phrases modèles."
-            if tache == 1
-            else (
-                "Chaque thème rassemble des repères temporels, des verbes du "
-                "récit, des impressions et des recommandations."
-            )
+            "Chaque thème rassemble des repères temporels, des verbes du "
+            "récit, des impressions et des recommandations."
         ),
     }
 
 
-def _ee_writing_theme_vocabulary_overview_context(user, task, tache):
+def _ee_tache_two_theme_vocabulary_overview_context(user, task):
     batches = _review_batches(_theme_vocabulary_scope(task), user)
     next_batch = next(
         (batch for batch in batches if batch["is_next"]),
         None,
     )
     return {
-        "theme_count": len(_ee_subject_theme_data(tache)[0]),
+        "theme_count": len(_ee_subject_theme_data(2)[0]),
         "phrase_count": _theme_vocabulary_phrases(task).count(),
         "batch_count": len(batches),
         "summary": _theme_vocabulary_batch_summary(batches),
@@ -2883,7 +2785,7 @@ def _ee_writing_theme_vocabulary_overview_context(user, task, tache):
     }
 
 
-def _ee_writing_theme_vocabulary_directory(request, task, tache):
+def _ee_tache_two_theme_vocabulary_directory(request, task):
     return render(
         request,
         "study/task_vocabulary.html",
@@ -2891,21 +2793,17 @@ def _ee_writing_theme_vocabulary_directory(request, task, tache):
             "part": task.part,
             "task": task,
             "section": "vocabulary",
-            **_ee_writing_theme_vocabulary_context(
-                request.user,
-                task,
-                tache,
-            ),
+            **_ee_tache_two_theme_vocabulary_context(request.user, task),
         },
     )
 
 
-def _ee_writing_theme_vocabulary_detail(request, task, theme, tache):
+def _ee_tache_two_theme_vocabulary_detail(request, task, theme):
     theme_data = next(
         (
             item
-            for item in _ee_subject_theme_data(tache)[0]
-            if f"ee-tache-{tache}-{item.slug}" == theme.slug
+            for item in _ee_subject_theme_data(2)[0]
+            if f"ee-tache-2-{item.slug}" == theme.slug
         ),
         None,
     )
@@ -2919,7 +2817,7 @@ def _ee_writing_theme_vocabulary_detail(request, task, theme, tache):
             task=task,
             theme=theme,
             theme_data=theme_data,
-            sections=EE_WRITING_THEME_VOCABULARY_SECTIONS[tache],
+            sections=EE_TACHE_TWO_THEME_VOCABULARY_SECTIONS,
             section="vocabulary",
             directory_url=reverse(
                 "study:task_phrases",
@@ -2928,124 +2826,15 @@ def _ee_writing_theme_vocabulary_detail(request, task, theme, tache):
             back_label="Tous les thèmes",
             vocabulary_label="Vocabulaire",
             hero_description=(
-                "Mémorisez des formulations directement réutilisables dans "
-                "vos messages, en respectant le destinataire et l’objectif."
-                if tache == 1
-                else (
-                    "Mémorisez des formulations pour structurer un récit, "
-                    "préciser vos impressions et commenter votre expérience."
-                )
+                "Mémorisez des formulations pour structurer un récit, "
+                "préciser vos impressions et commenter votre expérience."
             ),
             pathways_description=(
-                "Progressez des formules et détails précis vers les verbes "
-                "naturels et les phrases modèles."
-                if tache == 1
-                else (
-                    "Progressez des repères temporels vers les verbes du "
-                    "récit, les impressions et les recommandations."
-                )
+                "Progressez des repères temporels vers les verbes du "
+                "récit, les impressions et les recommandations."
             ),
         ),
     )
-
-
-def _ee_tache_three_vocabulary_directory(request, task):
-    if request.GET.get("theme"):
-        theme = get_object_or_404(
-            Theme, task=task, is_active=True, slug=request.GET["theme"],
-        )
-        return redirect(
-            "study:task_vocabulary_theme",
-            task.part.slug, task.slug, theme.slug,
-        )
-    phrases = _theme_vocabulary_phrases(task)
-    theme_models = list(Theme.objects.filter(
-        task=task, is_active=True,
-    ).order_by("order", "name", "pk"))
-    counts = {
-        (row["source_prompts__theme_id"], row["category__name"]): row["total"]
-        for row in phrases.order_by()
-        .values("source_prompts__theme_id", "category__name")
-        .annotate(total=Count("pk", distinct=True))
-    }
-    review_batches, batches_by_theme = _theme_vocabulary_directory_batches(
-        task, request.user, theme_models,
-    )
-    themes = []
-    for theme in theme_models:
-        section_counts = [
-            {
-                "count": counts.get((theme.pk, section["category"]), 0),
-                "title": section["title"].lower(),
-            }
-            for section in EE_TACHE_THREE_VOCABULARY_SECTIONS
-        ]
-        themes.append({
-            "data": {"name": theme.display_name, "icon": theme.icon},
-            "theme": theme,
-            "section_counts": [item for item in section_counts if item["count"]],
-            "phrase_count": sum(item["count"] for item in section_counts),
-            "summary": _theme_vocabulary_batch_summary(batches_by_theme[theme.slug]),
-            "url": reverse(
-                "study:task_vocabulary_theme",
-                args=[task.part.slug, task.slug, theme.slug],
-            ),
-        })
-    scope = _theme_vocabulary_scope(task)
-    next_batch = next(
-        (batch for batch in review_batches if batch["is_next"]),
-        None,
-    )
-    return render(
-        request,
-        "study/theme_vocabulary_directory.html",
-        {
-            "part": task.part,
-            "task": task,
-            "section": "vocabulary",
-            "themes": themes,
-            "theme_count": len(themes),
-            "phrase_count": _distinct_count(phrases),
-            "batch_count": len(review_batches),
-            "summary": _theme_vocabulary_batch_summary(review_batches),
-            "theme_status_counts": _theme_vocabulary_status_counts(themes),
-            "directory_description": "Mots, expressions et formulations pour l’écriture.",
-            "review_url": (
-                next_batch["review_url"] if next_batch else ""
-            ),
-            "mixed_review_url": review_url(scope),
-        },
-    )
-
-
-def _ee_tache_three_vocabulary_theme_detail(request, task, theme):
-    return render(
-        request,
-        "study/theme_vocabulary_detail.html",
-        _theme_vocabulary_detail_context(
-            request,
-            task=task,
-            theme=theme,
-            theme_data=theme,
-            sections=EE_TACHE_THREE_VOCABULARY_SECTIONS,
-            section="vocabulary",
-            directory_url=reverse(
-                "study:task_phrases", args=[task.part.slug, task.slug],
-            ),
-            back_label="Tous les thèmes",
-            vocabulary_label="Vocabulaire par thème",
-            hero_description=(
-                "Retrouvez les mots et formulations du thème, "
-                "avec leur sens et leur exemple."
-            ),
-            pathways_description=(
-                "Progressez par lots de dix fiches, "
-                "puis révisez les formulations en contexte."
-            ),
-            label_batches_by_section=False,
-        ),
-    )
-
 
 def _tache_two_subject_month(month_slug):
     month = next(
@@ -4887,12 +4676,7 @@ def phrases(
         content_module.EE_TACHE_ONE_TASK,
         content_module.EE_TACHE_THREE_TASK,
     }:
-        tache = 1 if task.slug == "tache-1" else 3
-        return redirect(
-            formulations_replacement(
-                vocabulary_theme_slug or "", tache=tache,
-            )
-        )
+        raise Http404
     if task and (
         task.part.slug,
         task.slug,
@@ -4912,39 +4696,17 @@ def phrases(
         if vocabulary_theme_slug
         else None
     )
-    writing_tache = _ee_writing_tache(task) if task else None
     if (
         task
-        and writing_tache is not None
+        and (task.part.slug, task.slug) == content_module.EE_TACHE_TWO_TASK
         and category_slug is None
         and test_slug is None
     ):
         if vocabulary_theme is not None:
-            return _ee_writing_theme_vocabulary_detail(
-                request,
-                task,
-                vocabulary_theme,
-                writing_tache,
+            return _ee_tache_two_theme_vocabulary_detail(
+                request, task, vocabulary_theme,
             )
-        return _ee_writing_theme_vocabulary_directory(
-            request,
-            task,
-            writing_tache,
-        )
-    if (
-        task
-        and (task.part.slug, task.slug)
-        == content_module.EE_TACHE_THREE_TASK
-        and category_slug is None
-        and test_slug is None
-    ):
-        if vocabulary_theme is not None:
-            return _ee_tache_three_vocabulary_theme_detail(
-                request,
-                task,
-                vocabulary_theme,
-            )
-        return _ee_tache_three_vocabulary_directory(request, task)
+        return _ee_tache_two_theme_vocabulary_directory(request, task)
     if (
         task
         and (task.part.slug, task.slug)

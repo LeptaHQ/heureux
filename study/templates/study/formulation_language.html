@@ -18,21 +18,22 @@
   <section class="formulation-language-catalog" aria-labelledby="formulation-language-title">
     <header class="section-heading">
       <div>
-        <h2 id="formulation-language-title">Expressions et exemples en contexte</h2>
+        <h2 id="formulation-language-title">{% if tache == 1 %}Mots, expressions et exemples en contexte{% else %}Expressions et exemples en contexte{% endif %}</h2>
       </div>
     </header>
     <div class="t1-table-shell">
-      <table class="t1-table formulation-language-table">
-        <thead><tr><th scope="col">Expression</th><th scope="col">Sens</th><th scope="col">Exemples en contexte</th><th scope="col">Progression</th></tr></thead>
+      <table class="t1-table formulation-language-table{% if tache == 1 %} formulation-language-table--usage{% endif %}">
+        <thead><tr><th scope="col">{% if tache == 1 %}Mot ou expression{% else %}Expression{% endif %}</th><th scope="col">Sens</th>{% if tache == 1 %}<th scope="col">Emploi utile</th>{% endif %}<th scope="col">Exemples en contexte</th><th scope="col">Progression</th></tr></thead>
         {% for section in language_sections %}
           <tbody aria-labelledby="language-role-{{ section.role }}">
             <tr class="formulation-language-role-row">
-              <th id="language-role-{{ section.role }}" colspan="4" scope="rowgroup">{{ section.title }} <span>{{ section.items|length }} expression{{ section.items|length|pluralize }}</span></th>
+              <th id="language-role-{{ section.role }}" colspan="{% if tache == 1 %}5{% else %}4{% endif %}" scope="rowgroup">{{ section.title }} <span>{% if tache == 1 %}{{ section.items|length }} mots et expressions{% else %}{{ section.items|length }} expression{{ section.items|length|pluralize }}{% endif %}</span></th>
             </tr>
             {% for row in section.items %}
               <tr id="vocabulaire-{{ row.item_id }}" data-formulation-language-row="{{ row.item_id }}"{% if row.learned %} class="is-status-done"{% endif %}>
                 <td><strong lang="fr">{{ row.item.french }}</strong></td>
                 <td lang="en">{{ row.item.english }}</td>
+                {% if tache == 1 %}<td lang="fr">{{ row.item.usage }}</td>{% endif %}
                 <td>
                   <ol class="formulation-language-examples">
                     {% for example in row.examples %}
@@ -76,7 +77,7 @@
           </tbody>
         {% empty %}
           <tbody>
-            <tr><td colspan="4">Aucune expression disponible.</td></tr>
+            <tr><td colspan="{% if tache == 1 %}5{% else %}4{% endif %}">Aucune expression disponible.</td></tr>
           </tbody>
           {% endfor %}
       </table>
@@ -86,5 +87,5 @@
 {% endblock %}
 {% block scripts %}
 {{ block.super }}
-<script src="{% static 'study/js/formulation-progress.js' %}?v=1"></script>
+<script src="{% static 'study/js/formulation-progress.js' %}?v=2"></script>
 {% endblock %}

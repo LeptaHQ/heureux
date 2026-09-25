@@ -57,11 +57,13 @@ corpus, and a transfer exercise for applying it to a different prompt. Search,
 whole-subdivision browsing and opt-in recall
 practice remain available as separate views.
 
-The synthesis subdivision includes a response-grounded reference for reporting
+The EE3 synthesis subdivision includes a response-grounded reference for reporting
 verbs such as `mettre en avant`, `indiquer` and `mettre en garde contre`. Every
-theme has a substantial response-grounded vocabulary reference (at least 24 entries)
-organized into notions, collocations, benefits, risks, conditions, solutions and
-argument mechanisms.
+EE3 theme has a substantial response-grounded vocabulary reference (at least 24
+entries) organized into notions, collocations, benefits, risks, conditions,
+solutions and argument mechanisms. Every EE1 theme also exposes a concise
+response-grounded vocabulary reference with common words and phrases, English
+meanings, French usage guidance and verbatim examples from its model responses.
 Every entry includes an English meaning and all distinct useful complete-sentence
 examples supported by the effective Partie 1 and Partie 2 responses. Each expression
 has a private completion checkmark, and the page header reports learned entries
@@ -70,7 +72,9 @@ able to reproduce and adapt the formulation or expression, not an exam score.
 
 The file-backed curricula live in
 `study/content/ee/tache_1/formulations.json` and
-`study/content/ee/tache_3/formulations.json`; `study/ee_formulations.py` validates
+`study/content/ee/tache_3/formulations.json`. The EE1 vocabulary reference lives in
+`study/content/ee/tache_1/formulation_vocabulary.json`.
+`study/ee_formulations.py` and `study/ee_formulation_vocabulary.py` validate
 their task-specific categories, complete effective-source coverage and verbatim
 example provenance. Frames and teaching guidance are editorial adaptations, not
 quotations. Examples refer to the bundled reference corpus, not live summaries of
@@ -78,16 +82,19 @@ edited or personal answers. Source revisions must keep the evidence current, and
 workers must restart after catalogue changes.
 
 Lesson completion keys use `formulation:ee1:v1:<slug>` and
-`formulation:ee3:v1:<slug>`. EE3 vocabulary-reference completion keys use
-`formulation-language:ee3:v1:<category>:<stable-expression-id>`. Materially
-changing a learning target requires a new identifier. Old vocabulary collection
-URLs for EE1 and EE3 redirect to the matching Formulations directory; there is no
-legacy memory interface or special note/highlight compatibility layer.
+`formulation:ee3:v1:<slug>`. Vocabulary-reference completion keys use
+`formulation-language:ee<tache>:v1:<category>:<stable-expression-id>`. A note or
+highlight on a formulation lesson marks that lesson as started (`En cours`) without
+marking it learned; deleting the last annotation returns it to `À apprendre`.
+Materially
+changing a learning target requires a new identifier. Removed EE1 and EE3
+vocabulary collection URLs return 404; there is no legacy vocabulary interface.
 
-EE1 and EE3 vocabulary are removed from active navigation and learning queues.
-This is a read-time exclusion with no data-deletion migration, so cards, schedules,
-reviews and annotations remain intact. Phrases still owned by another active task
-remain available there. Other tasks retain their existing vocabulary features.
+The retired EE1 and EE3 vocabulary source files, parsers, imports and page renderers
+are deleted. Existing database rows are deactivated and excluded without a
+data-deletion migration, so cards, schedules, reviews and annotations remain intact.
+Phrases still owned by another active task remain available there. Other tasks
+retain their existing vocabulary features.
 
 EE1 keeps one authored repository-default response per canonical subject in
 `study/content/ee/tache_1/responses/`. Imports update that reference corpus without

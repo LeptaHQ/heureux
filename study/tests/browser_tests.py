@@ -408,16 +408,11 @@ class BrowserTests(StaticLiveServerTestCase):
             theme_by_name,
             family_by_name,
         )
-        prompt_index = command._import_prompts(
+        command._import_prompts(
             responses,
             response_by_key,
             theme_by_name,
             family_by_name,
-        )
-        command._import_phrases(
-            content.parse_ee_tache_three_subject_vocabulary(responses),
-            prompt_index,
-            theme_by_name,
         )
         provision_user_study_data(self.user)
         task = task_by_slug["ee/tache-3"]
@@ -440,10 +435,7 @@ class BrowserTests(StaticLiveServerTestCase):
                 task_key=f"ee/tache-{tache}",
             )
         command._import_phrases(
-            [
-                *content.parse_ee_writing_theme_vocabulary(1),
-                *content.parse_ee_writing_theme_vocabulary(2),
-            ],
+            content.parse_ee_tache_two_theme_vocabulary(),
             {},
             theme_by_name,
         )
@@ -1899,11 +1891,6 @@ class BrowserTests(StaticLiveServerTestCase):
             "study:task_browse",
             args=[task.part.slug, task.slug],
         )
-        vocabulary_url = reverse(
-            "study:task_phrases",
-            args=[task.part.slug, task.slug],
-        )
-
         self.page.goto(self.live_server_url + overview_url)
 
         self.assertEqual(
@@ -1921,51 +1908,13 @@ class BrowserTests(StaticLiveServerTestCase):
             0,
         )
 
-        self.page.goto(self.live_server_url + vocabulary_url)
-        self.assertIn("/formulations/", self.page.url)
+        self.page.goto(
+            self.live_server_url + reverse("study:ee_formulations")
+        )
         expect(self.page.locator('[data-formulation-table="themes"] [data-formulation-subdivision]')).to_have_count(len(themes))
         self.assert_no_horizontal_overflow()
         self.assert_ee3_subject_directory(subjects_url, themes)
 
-    def test_ee3_legacy_vocabulary_opens_formulation_list_not_flashcards(self):
-        self._import_ee_tache_three_content()
-        url = self.live_server_url + reverse("study:task_phrases", args=["ee", "tache-3"])
-        self.page.set_viewport_size({"width": 1292, "height": 844})
-        self.page.goto(url)
-        self.assertIn("/formulations/", self.page.url)
-        entries = self.page.locator("[data-formulation-subdivision]")
-        expect(entries).to_have_count(21)
-        expect(self.page.locator("[data-subject-vocabulary-row]")).to_have_count(0)
-        for width in (1292, 390, 320):
-            self.page.set_viewport_size({"width": width, "height": 844})
-            expect(entries).to_have_count(21)
-            expect(self.page.locator("[data-formulation-practice]")).to_have_count(0)
-            self.assert_no_horizontal_overflow()
-        entries.first.locator("summary").click()
-        nested_links = entries.first.locator(
-            "[data-formulation-topic-row] a",
-        )
-        self.assertGreater(nested_links.count(), 0)
-        self.assertTrue(nested_links.evaluate_all(
-            "links => links.every(link => link.pathname.includes('/formulations/'))"
-        ))
-        nested_links.first.click()
-        expect(self.page.locator(".formulation-entry-lesson")).to_be_visible()
-        self.assertEqual(len(self.context.pages), 1)
-        self.page.goto(self.live_server_url + reverse(
-            "study:ee_formulation_function", args=["titres"],
-        ))
-        rows = self.page.locator(".formulation-list > li")
-        count = rows.count()
-        self.assertGreater(count, 0)
-        rows.first.locator("summary").click()
-        expect(rows.first.locator(".formulation-teaching")).to_be_visible()
-        self.page.get_by_role("link", name="Pratiquer cette subdivision", exact=True).click()
-        expect(self.page.locator("[data-flashcard-front]")).to_be_visible()
-        expect(self.page.locator("[data-flashcard-back]")).to_be_hidden()
-        self.page.locator("[data-flashcard-flip]").click()
-        expect(self.page.locator("[data-flashcard-back]")).to_be_visible()
-        self.assert_no_horizontal_overflow()
 
     def open_vocabulary_lots(self, expected_count):
         disclosure = self.page.locator("[data-review-batches]")
@@ -1982,7 +1931,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self._import_ee_tache_three_content()
         self.page.set_viewport_size({"width": 1292, "height": 844})
         self.page.goto(self.live_server_url + reverse(
-            "study:task_phrases", args=["ee", "tache-3"],
+            "study:ee_formulations",
         ))
         table_section = self.page.locator('[data-formulation-table="functions"]')
         categories = table_section.locator("[data-formulation-subdivision]")
@@ -2017,7 +1966,9 @@ class BrowserTests(StaticLiveServerTestCase):
         try:
             context.add_cookies(self.context.cookies())
             page = context.new_page()
-            page.goto(self.live_server_url + reverse("study:task_phrases", args=["ee", "tache-3"]))
+            page.goto(
+                self.live_server_url + reverse("study:ee_formulations")
+            )
             expect(page.locator("[data-formulation-subdivision]")).to_have_count(21)
             subdivision = page.locator("[data-formulation-subdivision]").first
             subdivision.locator("summary").click()
@@ -2033,30 +1984,28 @@ class BrowserTests(StaticLiveServerTestCase):
         finally:
             context.close()
 
-    def test_writing_vocabulary_lots_use_shared_tables(self):
+    def test_tache_two_writing_vocabulary_lots_use_shared_tables(self):
         self._import_ee_writing_content()
-        for tache in (1, 2):
-            with self.subTest(tache=tache):
-                self.page.goto(self.live_server_url + reverse(
-                    "study:task_phrases", args=["ee", f"tache-{tache}"],
-                ))
-                self.page.locator("[data-theme-vocabulary-directory-item]").first.click()
-                self.page.get_by_role("button", name="Cartes", exact=True).click()
-                self.open_vocabulary_lots(4).last.click()
-                expect(self.page.locator("html")).to_have_attribute("data-collection-view-mode", "table")
-                expect(self.page.get_by_role("heading", name="Lot 04", exact=True)).to_be_visible()
-                rows = self.page.locator("[data-theme-vocabulary-phrase]")
-                expect(rows).to_have_count(5)
-                expect(rows.filter(visible=True)).to_have_count(5)
-                expect(self.page.locator('[data-theme-vocabulary-filter-count="all"]')).to_have_text("5")
-                for width in (1292, 390, 320):
-                    self.page.set_viewport_size({"width": width, "height": 844})
-                    self.assert_no_horizontal_overflow()
-                practice = self.page.get_by_role("link", name="Pratiquer ce lot", exact=True)
-                self.assertIn("kind=theme_vocab", practice.get_attribute("href"))
-                self.assertIn("batch=4", practice.get_attribute("href"))
-                practice.click()
-                self.page.locator("#card-front .cue-text").wait_for()
+        self.page.goto(self.live_server_url + reverse(
+            "study:task_phrases", args=["ee", "tache-2"],
+        ))
+        self.page.locator("[data-theme-vocabulary-directory-item]").first.click()
+        self.page.get_by_role("button", name="Cartes", exact=True).click()
+        self.open_vocabulary_lots(4).last.click()
+        expect(self.page.locator("html")).to_have_attribute("data-collection-view-mode", "table")
+        expect(self.page.get_by_role("heading", name="Lot 04", exact=True)).to_be_visible()
+        rows = self.page.locator("[data-theme-vocabulary-phrase]")
+        expect(rows).to_have_count(5)
+        expect(rows.filter(visible=True)).to_have_count(5)
+        expect(self.page.locator('[data-theme-vocabulary-filter-count="all"]')).to_have_text("5")
+        for width in (1292, 390, 320):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            self.assert_no_horizontal_overflow()
+        practice = self.page.get_by_role("link", name="Pratiquer ce lot", exact=True)
+        self.assertIn("kind=theme_vocab", practice.get_attribute("href"))
+        self.assertIn("batch=4", practice.get_attribute("href"))
+        practice.click()
+        self.page.locator("#card-front .cue-text").wait_for()
 
     def assert_ee3_subject_directory(self, subjects_url, themes):
         self.page.goto(self.live_server_url + subjects_url)
@@ -5515,7 +5464,7 @@ class BrowserTests(StaticLiveServerTestCase):
         panel.get_by_text("Texte collé.", exact=True).wait_for()
         self.assertEqual(note_body.input_value(), "Avant texte collé après")
         self.assertIn(
-            "ui-icons.svg?v=3#icon-clipboard-paste",
+            "ui-icons.svg?v=4#icon-clipboard-paste",
             paste_button.locator("use").get_attribute("href"),
         )
         paste_box = paste_button.bounding_box()
@@ -8067,7 +8016,7 @@ class BrowserTests(StaticLiveServerTestCase):
             exact=True,
         )
         self.assertIn(
-            "ui-icons.svg?v=3#icon-clipboard-paste",
+            "ui-icons.svg?v=4#icon-clipboard-paste",
             paste_close.locator("use").get_attribute("href"),
         )
         paste_close.click()

@@ -250,7 +250,7 @@
     });
   }
 
-  function announceWritingSujetProgress(data) {
+  function announceAnnotationProgress(data) {
     if (!data) return;
     if (data.writing_sujet_progress) {
       document.dispatchEvent(new CustomEvent("heureux:writing-sujet-progress", {
@@ -260,6 +260,11 @@
     if (data.subject_progress) {
       document.dispatchEvent(new CustomEvent("heureux:subject-progress", {
         detail: data.subject_progress
+      }));
+    }
+    if (data.formulation_progress) {
+      document.dispatchEvent(new CustomEvent("heureux:formulation-progress", {
+        detail: data.formulation_progress
       }));
     }
   }
@@ -298,7 +303,10 @@
         "Content-Type": "application/x-www-form-urlencoded"
       },
       body: annotationBody(kind, details, body).toString()
-    }).then(readJson);
+    }).then(readJson).then(function (data) {
+      announceAnnotationProgress(data);
+      return data;
+    });
   }
 
   function resetNoteFormState() {
@@ -964,7 +972,7 @@
       if (data.deleted !== true) {
         throw new Error("Ce surlignage n’a pas pu être supprimé.");
       }
-      announceWritingSujetProgress(data);
+      announceAnnotationProgress(data);
       return data;
     });
   }
@@ -1026,7 +1034,6 @@
   function highlightSelection(details) {
     return createAnnotation("highlight", details, "").then(function (data) {
       highlightsRevision += 1;
-      announceWritingSujetProgress(data);
       var selected = details.highlight;
       var item = {
         id: data.id,

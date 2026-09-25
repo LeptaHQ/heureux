@@ -60,23 +60,14 @@ EE_TACHE_THREE_CONTENT_PREFIX = "ee-tache3:"
 EE_TACHE_THREE_DIR = CONTENT_DIR / "ee" / "tache_3"
 EE_TACHE_THREE_RESPONSES_DIR = EE_TACHE_THREE_DIR / "responses"
 EE_TACHE_THREE_SUBJECTS_DIR = EE_TACHE_THREE_DIR / "subjects"
-EE_TACHE_THREE_VOCABULARY_DIR = EE_TACHE_THREE_DIR / "vocabulary"
 EE_TACHE_THREE_MEMOIRES_DIR = EE_TACHE_THREE_DIR / "memoires"
-EE_TACHE_THREE_PHRASE_ID_MERGES_PATH = (
-    EE_TACHE_THREE_DIR / "phrase_id_merges.json"
-)
-EE_TACHE_THREE_PHRASE_ID_REVISIONS_PATH = (
-    EE_TACHE_THREE_DIR / "phrase_id_revisions.json"
-)
 EE_TACHE_THREE_AUTHOR_RESPONSES_PATH = (
     EE_TACHE_THREE_DIR / "author_responses.json"
 )
-EE_TACHE_THREE_VOCABULARY_PER_RESPONSE = 30
 
 EE_TACHE_ONE_TASK = ("ee", "tache-1")
 EE_TACHE_ONE_DIR = CONTENT_DIR / "ee" / "tache_1"
 EE_TACHE_ONE_SUJETS_PATH = EE_TACHE_ONE_DIR / "sujets.json"
-EE_TACHE_ONE_THEME_VOCABULARY_DIR = EE_TACHE_ONE_DIR / "theme_vocabulary"
 EE_TACHE_ONE_SUBJECT_HINTS_PATH = EE_TACHE_ONE_DIR / "hints.json"
 EE_TACHE_ONE_HINT_THEMES = frozenset({"invitations", "sorties", "accueil", "voyages", "ville", "logement", "transport"})
 
@@ -105,41 +96,21 @@ EE_WRITING_WORD_LIMITS = {
     1: (60, 120),
     2: (120, 150),
 }
-EE_WRITING_THEME_VOCABULARY_DIRS = {
-    1: EE_TACHE_ONE_THEME_VOCABULARY_DIR,
-    2: EE_TACHE_TWO_THEME_VOCABULARY_DIR,
-}
-EE_WRITING_THEME_VOCABULARY_KINDS = {
-    1: (
-        "formule-adaptee",
-        "information-precise",
-        "verbe-collocation",
-        "phrase-modele",
-    ),
-    2: (
-        "repere-temporel",
-        "verbe-recit",
-        "detail-impression",
-        "commentaire-recommandation",
+EE_TACHE_TWO_THEME_VOCABULARY_KINDS = (
+    "repere-temporel",
+    "verbe-recit",
+    "detail-impression",
+    "commentaire-recommandation",
+)
+EE_TACHE_TWO_THEME_VOCABULARY_CATEGORIES = {
+    "repere-temporel": "EE Tâche 2 · Repères temporels",
+    "verbe-recit": "EE Tâche 2 · Verbes du récit",
+    "detail-impression": "EE Tâche 2 · Détails et impressions",
+    "commentaire-recommandation": (
+        "EE Tâche 2 · Commentaires et recommandations"
     ),
 }
-EE_WRITING_THEME_VOCABULARY_CATEGORIES = {
-    1: {
-        "formule-adaptee": "EE Tâche 1 · Formules adaptées",
-        "information-precise": "EE Tâche 1 · Informations précises",
-        "verbe-collocation": "EE Tâche 1 · Verbes et collocations",
-        "phrase-modele": "EE Tâche 1 · Phrases modèles",
-    },
-    2: {
-        "repere-temporel": "EE Tâche 2 · Repères temporels",
-        "verbe-recit": "EE Tâche 2 · Verbes du récit",
-        "detail-impression": "EE Tâche 2 · Détails et impressions",
-        "commentaire-recommandation": (
-            "EE Tâche 2 · Commentaires et recommandations"
-        ),
-    },
-}
-EE_WRITING_THEME_VOCABULARY_FIELDS = (
+EE_TACHE_TWO_THEME_VOCABULARY_FIELDS = (
     "id",
     "kind",
     "french",
@@ -148,8 +119,8 @@ EE_WRITING_THEME_VOCABULARY_FIELDS = (
     "example",
     "usage",
 )
-EE_WRITING_THEME_VOCABULARY_PER_KIND = 5
-EE_WRITING_THEME_VOCABULARY_PER_THEME = 20
+EE_TACHE_TWO_THEME_VOCABULARY_PER_KIND = 5
+EE_TACHE_TWO_THEME_VOCABULARY_PER_THEME = 20
 EE_TACHE_THREE_WORD_LIMIT = (120, 180)
 
 # The 2025 corpus is published month by month; février 2025 was never
@@ -305,32 +276,6 @@ COMPREHENSION_VOCABULARY_FIELDS = (
     "usage",
     "questions",
 )
-EE_TACHE_THREE_VOCABULARY_FIELDS = (
-    "id",
-    "kind",
-    "french",
-    "english",
-    "example",
-    "usage",
-)
-EE_TACHE_THREE_VOCABULARY_KINDS = (
-    "mot-cle",
-    "collocation",
-    "expression",
-    "tournure",
-    "phrase-modele",
-    "verbe-action",
-    "reformulation",
-)
-EE_TACHE_THREE_VOCABULARY_CATEGORIES = {
-    "mot-cle": "EE Tâche 3 · Mots clés",
-    "collocation": "EE Tâche 3 · Collocations",
-    "expression": "EE Tâche 3 · Expressions",
-    "tournure": "EE Tâche 3 · Tournures",
-    "phrase-modele": "EE Tâche 3 · Phrases modèles",
-    "verbe-action": "EE Tâche 3 · Verbes et actions",
-    "reformulation": "EE Tâche 3 · Reformulations",
-}
 PHRASE_FIELDS = (
     "id",
     "tier",
@@ -2940,12 +2885,11 @@ def load_ee_tache_three_months(
     subjects_dir: Path = EE_TACHE_THREE_SUBJECTS_DIR,
     responses_dir: Path = EE_TACHE_THREE_RESPONSES_DIR,
 ) -> Tuple[EeTacheThreeMonth, ...]:
-    """Load EE Tâche 3 months by zipping subjects, essays and vocab keys.
+    """Load EE Tâche 3 months by zipping subjects and model essays.
 
     Subjects provide the sujet + source documents, the responses/*.md file
-    provides the model essay (heading + Partie 1/2), and the vocabulary file
-    provides the authoritative ``response_key`` used as the content key.
-    All three are verified to be aligned by position for every month.
+    provides the model essay (heading + Partie 1/2), and stable content keys
+    are derived from the published month and combinaison labels.
     """
     months: List[EeTacheThreeMonth] = []
     subject_paths = sorted(subjects_dir.glob("*.json"))
@@ -2961,39 +2905,33 @@ def load_ee_tache_three_months(
         if not isinstance(sujets, list) or not sujets:
             raise ValueError(f"{subject_path.name} must contain a sujets list")
 
-        vocab_path = EE_TACHE_THREE_VOCABULARY_DIR / f"{slug}.json"
-        vocab = json.loads(vocab_path.read_text(encoding="utf-8"))
-        vocab_rows = vocab.get("responses")
-        if not isinstance(vocab_rows, list):
-            raise ValueError(f"{vocab_path.name} must contain a responses list")
-
         essays = _ee_tache_three_parse_essays(
             (responses_dir / f"{slug}.md").read_text(encoding="utf-8")
         )
 
-        if not (len(sujets) == len(vocab_rows) == len(essays)):
+        if len(sujets) != len(essays):
             raise ValueError(
                 f"{slug}: misaligned counts — subjects {len(sujets)}, "
-                f"vocab {len(vocab_rows)}, essays {len(essays)}"
+                f"essays {len(essays)}"
             )
 
         combinaisons: List[EeTacheThreeCombinaison] = []
-        for position, (subject, vocab_row, essay) in enumerate(
-            zip(sujets, vocab_rows, essays), start=1
-        ):
+        seen_content_keys = set()
+        for position, (subject, essay) in enumerate(zip(sujets, essays), start=1):
             label = subject.get("combinaison", "")
-            if not (label == vocab_row.get("combinaison") == essay["label"]):
+            if label != essay["label"]:
                 raise ValueError(
                     f"{slug} position {position}: combinaison label mismatch "
-                    f"({label!r}, {vocab_row.get('combinaison')!r}, "
-                    f"{essay['label']!r})"
+                    f"({label!r}, {essay['label']!r})"
                 )
-            content_key = vocab_row.get("response_key", "")
-            if not content_key.startswith(EE_TACHE_THREE_CONTENT_PREFIX):
+            content_key = ee_subject_content_key(3, slug, label)
+            if content_key in seen_content_keys:
+                content_key += "-bis"
+            if content_key in seen_content_keys:
                 raise ValueError(
-                    f"{slug} position {position}: bad response_key "
-                    f"{content_key!r}"
+                    f"{slug} repeats combinaison label {label!r} more than twice"
                 )
+            seen_content_keys.add(content_key)
             heading = essay["heading"]
             flags = subject.get("flags") or {}
             deduced_theme = str(flags.get("deduced_theme") or "").strip()
@@ -3054,17 +2992,29 @@ def ee_subject_content_key(
 def load_ee_subject_keys(tache: int) -> Tuple[str, ...]:
     """Return every content key for an EE tâche, in published order.
 
-    Tâches 1 and 2 key off their own ``subjects/<mois>.json`` files; Tâche 3
-    reuses the authoritative ``response_key`` already stored in its
-    vocabulary files so a single subject never gains two identities.
+    Tâches 1 and 2 retain their explicit source keys. Tâche 3 derives stable
+    keys from its month and combinaison labels, disambiguating the one
+    duplicated publication with a ``-bis`` suffix.
     """
     directory = EE_TACHE_DIRS[tache]
     keys: List[str] = []
     for month_slug in EE_MONTH_ORDER:
         if tache == 3:
-            path = EE_TACHE_THREE_VOCABULARY_DIR / f"{month_slug}.json"
-            rows = json.loads(path.read_text(encoding="utf-8"))["responses"]
-            keys.extend(str(row["response_key"]) for row in rows)
+            path = EE_TACHE_THREE_SUBJECTS_DIR / f"{month_slug}.json"
+            rows = json.loads(path.read_text(encoding="utf-8"))["sujets"]
+            month_keys = []
+            for row in rows:
+                key = ee_subject_content_key(
+                    3, month_slug, str(row["combinaison"])
+                )
+                if key in month_keys:
+                    key += "-bis"
+                if key in month_keys:
+                    raise ValueError(
+                        f"{month_slug} repeats a combinaison label more than twice"
+                    )
+                month_keys.append(key)
+            keys.extend(month_keys)
             continue
         path = directory / "subjects" / f"{month_slug}.json"
         rows = json.loads(path.read_text(encoding="utf-8"))["sujets"]
@@ -3175,11 +3125,14 @@ def _ee_subject_signatures(tache: int) -> Dict[str, str]:
                 (EE_TACHE_THREE_SUBJECTS_DIR / f"{month_slug}.json")
                 .read_text(encoding="utf-8")
             )["sujets"]
-            vocab = json.loads(
-                (EE_TACHE_THREE_VOCABULARY_DIR / f"{month_slug}.json")
-                .read_text(encoding="utf-8")
-            )["responses"]
-            for subject, row in zip(subjects, vocab):
+            month_keys = []
+            for subject in subjects:
+                key = ee_subject_content_key(
+                    3, month_slug, str(subject["combinaison"])
+                )
+                if key in month_keys:
+                    key += "-bis"
+                month_keys.append(key)
                 # A Tâche 3 exam item *is* its pair of source documents; the
                 # title is editorial and drifts between republications, so it
                 # is deliberately excluded from the signature.
@@ -3189,7 +3142,7 @@ def _ee_subject_signatures(tache: int) -> Dict[str, str]:
                     )
                     for field in ("document1", "document2")
                 )
-                signatures[str(row["response_key"])] = "|".join(documents)
+                signatures[key] = "|".join(documents)
             continue
         rows = json.loads(
             (directory / "subjects" / f"{month_slug}.json")
@@ -3860,14 +3813,11 @@ def ee_writing_themes(tache: int) -> List[ThemeData]:
     ]
 
 
-def parse_ee_writing_theme_vocabulary(
-    tache: int,
-    directory: Optional[Path] = None,
+def parse_ee_tache_two_theme_vocabulary(
+    directory: Path = EE_TACHE_TWO_THEME_VOCABULARY_DIR,
 ) -> List[PhraseData]:
-    """Validate and parse reusable theme vocabulary for EE Tâches 1 and 2."""
-    if tache not in EE_WRITING_TASKS:
-        raise ValueError(f"Unsupported EE writing task: {tache}")
-    directory = directory or EE_WRITING_THEME_VOCABULARY_DIRS[tache]
+    """Validate and parse reusable theme vocabulary for EE Tâche 2."""
+    tache = 2
     themes, _ = load_ee_subject_themes(tache)
     theme_by_slug = {theme.slug: theme for theme in themes}
     paths = sorted(directory.glob("*.json"))
@@ -3883,8 +3833,8 @@ def parse_ee_writing_theme_vocabulary(
 
     expected_kinds = tuple(
         kind
-        for kind in EE_WRITING_THEME_VOCABULARY_KINDS[tache]
-        for _ in range(EE_WRITING_THEME_VOCABULARY_PER_KIND)
+        for kind in EE_TACHE_TWO_THEME_VOCABULARY_KINDS
+        for _ in range(EE_TACHE_TWO_THEME_VOCABULARY_PER_KIND)
     )
     seen_ids = {}
     seen_targets = {}
@@ -3911,11 +3861,11 @@ def parse_ee_writing_theme_vocabulary(
         entries = payload["entries"]
         if (
             not isinstance(entries, list)
-            or len(entries) != EE_WRITING_THEME_VOCABULARY_PER_THEME
+            or len(entries) != EE_TACHE_TWO_THEME_VOCABULARY_PER_THEME
         ):
             raise ValueError(
                 f"{path.name} must contain exactly "
-                f"{EE_WRITING_THEME_VOCABULARY_PER_THEME} entries"
+                f"{EE_TACHE_TWO_THEME_VOCABULARY_PER_THEME} entries"
             )
         actual_kinds = tuple(
             entry.get("kind") if isinstance(entry, dict) else None
@@ -3924,7 +3874,7 @@ def parse_ee_writing_theme_vocabulary(
         if actual_kinds != expected_kinds:
             raise ValueError(
                 f"{path.name} must group exactly "
-                f"{EE_WRITING_THEME_VOCABULARY_PER_KIND} entries for each "
+                f"{EE_TACHE_TWO_THEME_VOCABULARY_PER_KIND} entries for each "
                 "kind in the documented order"
             )
 
@@ -3932,14 +3882,14 @@ def parse_ee_writing_theme_vocabulary(
             location = f"{path.name} entry {entry_index}"
             if (
                 not isinstance(entry, dict)
-                or set(entry) != set(EE_WRITING_THEME_VOCABULARY_FIELDS)
+                or set(entry) != set(EE_TACHE_TWO_THEME_VOCABULARY_FIELDS)
             ):
                 raise ValueError(
                     f"{location} fields must be "
-                    f"{EE_WRITING_THEME_VOCABULARY_FIELDS}"
+                    f"{EE_TACHE_TWO_THEME_VOCABULARY_FIELDS}"
                 )
             values = {}
-            for field_name in EE_WRITING_THEME_VOCABULARY_FIELDS:
+            for field_name in EE_TACHE_TWO_THEME_VOCABULARY_FIELDS:
                 value = entry[field_name]
                 if not isinstance(value, str) or not value.strip():
                     raise ValueError(
@@ -3987,7 +3937,7 @@ def parse_ee_writing_theme_vocabulary(
                 PhraseData(
                     phrase_id=phrase_id,
                     tier="theme",
-                    category=EE_WRITING_THEME_VOCABULARY_CATEGORIES[tache][
+                    category=EE_TACHE_TWO_THEME_VOCABULARY_CATEGORIES[
                         values["kind"]
                     ],
                     english_cue=english,
@@ -4206,542 +4156,6 @@ def parse_ee_tache_three_responses(
             )
         )
     return responses
-
-
-def parse_ee_tache_three_subject_vocabulary(
-    responses: Optional[List[ResponseData]] = None,
-    directory: Path = EE_TACHE_THREE_VOCABULARY_DIR,
-) -> List[PhraseData]:
-    if responses is None:
-        responses = parse_ee_tache_three_responses()
-    response_by_key = {
-        response.content_key: response
-        for response in responses
-        if response.content_key.startswith(EE_TACHE_THREE_CONTENT_PREFIX)
-    }
-    if not response_by_key:
-        return []
-    canonical_by_key = ee_canonical_by_content_key(3)
-    identity_manifest = (
-        _load_ee_tache_three_phrase_identity_manifest()
-        if directory == EE_TACHE_THREE_VOCABULARY_DIR
-        else None
-    )
-    effective_answers = {}
-    if directory == EE_TACHE_THREE_VOCABULARY_DIR:
-        authors = load_ee_tache_three_author_responses(
-            EE_TACHE_THREE_AUTHOR_RESPONSES_PATH
-        )
-        for month in load_ee_tache_three_months():
-            for combinaison in month.combinaisons:
-                author = authors.get(combinaison.content_key)
-                effective_answers[combinaison.content_key] = (
-                    author["synthese"] + " " + author["point_de_vue"]
-                    if author
-                    else combinaison.synthese + " " + combinaison.point_de_vue
-                )
-
-    paths = sorted(directory.glob("*.json"))
-    if not paths:
-        raise ValueError("No EE Tâche 3 vocabulary JSON files found")
-
-    payloads = []
-    for path in paths:
-        payload = json.loads(path.read_text(encoding="utf-8"))
-        if not isinstance(payload, dict) or payload.get("version") != 1:
-            raise ValueError(
-                f"{path.name} must use EE Tâche 3 vocabulary version 1"
-            )
-        month_row = payload.get("month")
-        month_number = (
-            int(month_row["number"])
-            if isinstance(month_row, dict) and "number" in month_row
-            else 0
-        )
-        response_rows = payload.get("responses")
-        if not isinstance(response_rows, list) or not response_rows:
-            raise ValueError(f"{path.name} must contain a responses list")
-        payloads.append((month_number, path.name, path, response_rows))
-
-    seen_response_keys: set = set()
-    seen_raw_response_keys: set = set()
-    seen_ids: Dict[str, str] = {}
-    seen_phrase_ids: set = set()
-    phrases: List[PhraseData] = []
-    base_order = 900_000
-    for _, file_name, path, response_rows in sorted(
-        payloads, key=lambda item: (item[0], item[1])
-    ):
-        for response_row in response_rows:
-            if not isinstance(response_row, dict):
-                raise ValueError(f"{file_name} has a non-object response")
-            response_key = response_row.get("response_key")
-            canonical_key = canonical_by_key.get(response_key, response_key)
-            if canonical_key not in response_by_key:
-                raise ValueError(
-                    f"{file_name} references unknown response "
-                    f"{response_key!r}"
-                )
-            if response_key in seen_raw_response_keys:
-                raise ValueError(
-                    f"Duplicate EE Tâche 3 vocabulary for {response_key!r}"
-                )
-            seen_raw_response_keys.add(response_key)
-            is_canonical = response_key == canonical_key
-            if is_canonical:
-                seen_response_keys.add(response_key)
-
-            entries = response_row.get("entries")
-            if not isinstance(entries, list):
-                raise ValueError(
-                    f"{response_key} must contain an entries list"
-                )
-            if len(entries) != EE_TACHE_THREE_VOCABULARY_PER_RESPONSE:
-                raise ValueError(
-                    f"{response_key} must have "
-                    f"{EE_TACHE_THREE_VOCABULARY_PER_RESPONSE} vocabulary entries"
-                )
-
-            response = response_by_key[canonical_key]
-            sources = tuple(
-                (prompt.theme, prompt.number) for prompt in response.prompts
-            )
-            sources_raw = "; ".join(
-                f"{theme} P{number}" for theme, number in sources
-            )
-            seen_targets: set = set()
-            for entry_index, entry in enumerate(entries, start=1):
-                location = f"{response_key} entry {entry_index}"
-                if not isinstance(entry, dict):
-                    raise ValueError(f"{location} must be an object")
-                if set(entry) != set(EE_TACHE_THREE_VOCABULARY_FIELDS):
-                    raise ValueError(
-                        f"{location} fields must be "
-                        f"{EE_TACHE_THREE_VOCABULARY_FIELDS}"
-                    )
-                values = {}
-                for field_name in EE_TACHE_THREE_VOCABULARY_FIELDS:
-                    value = entry.get(field_name)
-                    if not isinstance(value, str) or not value.strip():
-                        raise ValueError(
-                            f"{location} has an empty {field_name!r} field"
-                        )
-                    values[field_name] = value.strip()
-
-                if values["kind"] not in EE_TACHE_THREE_VOCABULARY_KINDS:
-                    raise ValueError(
-                        f"{location} has an unknown kind {values['kind']!r}"
-                    )
-
-                phrase_id = values["id"]
-                phrase_id_key = phrase_id.casefold()
-                if len(phrase_id) > PHRASE_MAX_LENGTHS["id"]:
-                    raise ValueError(
-                        f"{location} id exceeds "
-                        f"{PHRASE_MAX_LENGTHS['id']} characters"
-                    )
-                if phrase_id_key in seen_ids:
-                    raise ValueError(
-                        f"Duplicate EE Tâche 3 vocabulary id {phrase_id!r} "
-                        f"in {seen_ids[phrase_id_key]} and {location}"
-                    )
-                seen_ids[phrase_id_key] = location
-                seen_phrase_ids.add(phrase_id)
-
-                french = values["french"]
-                english = values["english"]
-                example = values["example"]
-                if len(french) > PHRASE_MAX_LENGTHS["expression"]:
-                    raise ValueError(f"{location} french target is too long")
-                if len(english) > PHRASE_MAX_LENGTHS["english_cue"]:
-                    raise ValueError(f"{location} english cue is too long")
-                target_key = _ee_tache_three_normalize(french)
-                if target_key in seen_targets:
-                    raise ValueError(
-                        f"{response_key} repeats french target {french!r}"
-                    )
-                seen_targets.add(target_key)
-                if target_key not in _ee_tache_three_normalize(example):
-                    raise ValueError(
-                        f"{location} example must contain its french target "
-                        f"{french!r}"
-                    )
-                if effective_answers:
-                    try:
-                        effective_answer = effective_answers[response_key]
-                    except KeyError as error:
-                        raise ValueError(
-                            f"{location} has no final source response"
-                        ) from error
-                    if example not in effective_answer:
-                        raise ValueError(
-                            f"{location} example is not verbatim in its final "
-                            "source or effective author response"
-                        )
-                if identity_manifest:
-                    historical_identities, revisions, _ = identity_manifest
-                    identity_digest = _ee_tache_three_phrase_identity_digest(
-                        values["kind"],
-                        french,
-                        english,
-                    )
-                    if phrase_id not in historical_identities:
-                        raise ValueError(
-                            f"{location} has an untracked vocabulary ID "
-                            f"{phrase_id!r}"
-                        )
-                    if phrase_id in revisions:
-                        raise ValueError(
-                            f"{location} reuses retired vocabulary ID "
-                            f"{phrase_id!r}"
-                        )
-                    if identity_digest != historical_identities[phrase_id]:
-                        raise ValueError(
-                            f"{location} repurposes historical vocabulary ID "
-                            f"{phrase_id!r}"
-                        )
-
-                if is_canonical:
-                    phrases.append(
-                        PhraseData(
-                            phrase_id=phrase_id,
-                            tier="subject",
-                            category=EE_TACHE_THREE_VOCABULARY_CATEGORIES[
-                                values["kind"]
-                            ],
-                            english_cue=english,
-                            expression=french,
-                            anchor=french,
-                            example=example,
-                            note=values["usage"],
-                            sources_raw=sources_raw,
-                            sources=sources,
-                            order=base_order + len(phrases) + 1,
-                        )
-                    )
-
-    missing = sorted(set(response_by_key) - seen_response_keys)
-    if missing:
-        raise ValueError(
-            "Missing EE Tâche 3 subject vocabulary for: "
-            + ", ".join(missing)
-        )
-    expected_raw_keys = set(load_ee_subject_keys(3))
-    if seen_raw_response_keys != expected_raw_keys:
-        missing_raw = sorted(expected_raw_keys - seen_raw_response_keys)
-        extra_raw = sorted(seen_raw_response_keys - expected_raw_keys)
-        raise ValueError(
-            "EE Tâche 3 raw vocabulary coverage mismatch: "
-            f"missing {missing_raw[:3]}, extra {extra_raw[:3]}"
-        )
-    if identity_manifest:
-        historical_identities, revisions, _ = identity_manifest
-        expected_ids = set(historical_identities).difference(revisions)
-        if seen_phrase_ids != expected_ids:
-            raise ValueError("EE Tâche 3 phrase identity coverage mismatch")
-    return phrases
-
-
-def _ee_tache_three_phrase_identity_digest(
-    kind: str,
-    french: str,
-    english: str,
-) -> str:
-    identity = "\0".join((kind, french, english))
-    return hashlib.sha256(identity.encode()).hexdigest()
-
-
-_EE_TACHE_THREE_REVISION_ID_RE = re.compile(
-    r"^(?P<base>.+?)R(?P<generation>[1-9][0-9]*)$"
-)
-
-
-def _ee_tache_three_phrase_id_generation(phrase_id: str) -> Tuple[str, int]:
-    """Return an immutable phrase-ID root and its revision generation."""
-    match = _EE_TACHE_THREE_REVISION_ID_RE.fullmatch(phrase_id)
-    if match is None:
-        return phrase_id, 0
-    return match["base"], int(match["generation"])
-
-
-def _ee_tache_three_next_phrase_id(phrase_id: str) -> str:
-    """Return the direct successor ID for one retired semantic identity."""
-    root, generation = _ee_tache_three_phrase_id_generation(phrase_id)
-    return f"{root}R{generation + 1}"
-
-
-def _load_ee_tache_three_phrase_identity_manifest(
-    path: Path = EE_TACHE_THREE_PHRASE_ID_REVISIONS_PATH,
-) -> Tuple[Dict[str, str], Dict[str, str], Dict[str, dict]]:
-    payload = json.loads(
-        path.read_text(encoding="utf-8"),
-        object_pairs_hook=_unique_json_fields,
-    )
-    if (
-        not isinstance(payload, dict)
-        or set(payload)
-        != {"version", "historical_identities", "retired"}
-        or type(payload["version"]) is not int
-        or payload["version"] != 4
-        or not isinstance(payload["historical_identities"], dict)
-        or not isinstance(payload["retired"], dict)
-    ):
-        raise ValueError("Invalid EE Tâche 3 phrase identity manifest")
-    historical_identities = payload["historical_identities"]
-    retired = payload["retired"]
-    if len(historical_identities) < 4140 or any(
-        not isinstance(phrase_id, str)
-        or not phrase_id
-        or len(phrase_id) > PHRASE_MAX_LENGTHS["id"]
-        or not isinstance(identity_digest, str)
-        or re.fullmatch(r"[0-9a-f]{64}", identity_digest) is None
-        for phrase_id, identity_digest in historical_identities.items()
-    ):
-        raise ValueError("Invalid historical EE Tâche 3 phrase identity")
-    original_ids = {
-        phrase_id
-        for phrase_id in historical_identities
-        if _ee_tache_three_phrase_id_generation(phrase_id)[1] == 0
-    }
-    if len(original_ids) != 4140:
-        raise ValueError(
-            "EE Tâche 3 phrase identity history must retain 4,140 original IDs"
-        )
-    retired_fields = {
-        "replacement_id",
-        "kind",
-        "french",
-        "english",
-        "example",
-        "usage",
-    }
-    if any(
-        not isinstance(source_id, str)
-        or not source_id
-        or len(source_id) > PHRASE_MAX_LENGTHS["id"]
-        or not isinstance(row, dict)
-        or set(row) != retired_fields
-        or any(not isinstance(value, str) or not value for value in row.values())
-        or row["kind"] not in EE_TACHE_THREE_VOCABULARY_KINDS
-        or len(row["replacement_id"]) > PHRASE_MAX_LENGTHS["id"]
-        or source_id == row["replacement_id"]
-        or _ee_tache_three_phrase_identity_digest(
-            row["kind"],
-            row["french"],
-            row["english"],
-        )
-        != historical_identities.get(source_id)
-        for source_id, row in retired.items()
-    ):
-        raise ValueError("Invalid retired EE Tâche 3 phrase identity")
-    revisions = {
-        source_id: row["replacement_id"]
-        for source_id, row in retired.items()
-    }
-    if len(set(revisions.values())) != len(revisions):
-        raise ValueError("Duplicate EE Tâche 3 replacement phrase ID")
-    if not set(revisions).issubset(historical_identities):
-        raise ValueError("Unknown retired EE Tâche 3 phrase ID")
-    if not set(revisions.values()).issubset(historical_identities):
-        raise ValueError("Unknown EE Tâche 3 replacement phrase ID")
-    if any(
-        _ee_tache_three_next_phrase_id(source_id) != replacement_id
-        for source_id, replacement_id in revisions.items()
-    ):
-        raise ValueError(
-            "EE Tâche 3 phrase-ID revisions must use direct successor IDs"
-        )
-    for source_id in revisions:
-        seen = set()
-        cursor = source_id
-        while cursor in revisions:
-            if cursor in seen:
-                raise ValueError("Cyclic EE Tâche 3 phrase-ID revision")
-            seen.add(cursor)
-            cursor = revisions[cursor]
-    return dict(historical_identities), revisions, {
-        source_id: dict(row)
-        for source_id, row in retired.items()
-    }
-
-
-def ee_tache_three_historical_phrase_identities() -> Dict[str, str]:
-    """Return immutable semantic target digests for every ID generation."""
-    historical_identities, _, _ = _load_ee_tache_three_phrase_identity_manifest()
-    return historical_identities
-
-
-def ee_tache_three_phrase_id_revisions() -> Dict[str, str]:
-    """Return direct retired-to-successor IDs without migrating learner state."""
-    _, revisions, _ = _load_ee_tache_three_phrase_identity_manifest()
-    return revisions
-
-
-def ee_tache_three_retired_phrase_data() -> Dict[str, dict]:
-    """Return recoverable content for every retired identity generation."""
-    _, _, retired = _load_ee_tache_three_phrase_identity_manifest()
-    return retired
-
-
-def ee_tache_three_phrase_id_merges(
-    groups: Optional[Tuple[EeEquivalentGroupData, ...]] = None,
-    directory: Path = EE_TACHE_THREE_VOCABULARY_DIR,
-) -> Dict[str, str]:
-    """Map retired alias-vocabulary IDs onto their historical canonical IDs.
-
-    Bundled content uses an explicit historical manifest so editorial vocabulary
-    changes cannot redirect existing learner schedules. Custom directories retain
-    the deterministic matching fallback used by content-contract tests.
-    """
-    use_stable_manifest = (
-        groups is None and directory == EE_TACHE_THREE_VOCABULARY_DIR
-    )
-    groups = groups or load_ee_equivalent_groups(3)
-
-    if use_stable_manifest:
-        payload = json.loads(
-            EE_TACHE_THREE_PHRASE_ID_MERGES_PATH.read_text(encoding="utf-8"),
-            object_pairs_hook=_unique_json_fields,
-        )
-        if (
-            not isinstance(payload, dict)
-            or set(payload) != {"version", "historical"}
-            or payload["version"] != 2
-            or not isinstance(payload["historical"], dict)
-        ):
-            raise ValueError("Invalid EE Tâche 3 phrase-ID merge manifest")
-        merges = payload["historical"]
-        expected_count = sum(
-            len(group.members) - 1 for group in groups
-        ) * EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
-        if len(merges) != expected_count:
-            raise ValueError("EE Tâche 3 phrase-ID merge coverage mismatch")
-        if any(
-            not isinstance(source_id, str)
-            or not source_id
-            or len(source_id) > PHRASE_MAX_LENGTHS["id"]
-            or not isinstance(target_id, str)
-            or not target_id
-            or len(target_id) > PHRASE_MAX_LENGTHS["id"]
-            or source_id == target_id
-            for source_id, target_id in merges.items()
-        ):
-            raise ValueError("Invalid EE Tâche 3 phrase-ID merge")
-        historical_identities = ee_tache_three_historical_phrase_identities()
-        if not (
-            set(merges).issubset(historical_identities)
-            and set(merges.values()).issubset(historical_identities)
-        ):
-            raise ValueError(
-                "EE Tâche 3 phrase-ID merge references unknown history"
-            )
-        if any(
-            _ee_tache_three_phrase_id_generation(phrase_id)[1] != 0
-            for phrase_id in (*merges, *merges.values())
-        ):
-            raise ValueError(
-                "EE Tâche 3 phrase-ID merge must preserve original alias IDs"
-            )
-        return dict(merges)
-
-    entries_by_response: Dict[str, List[dict]] = {}
-    for path in sorted(directory.glob("*.json")):
-        payload = json.loads(path.read_text(encoding="utf-8"))
-        for row in payload.get("responses", []):
-            if isinstance(row, dict):
-                entries_by_response[str(row.get("response_key"))] = row.get(
-                    "entries"
-                )
-
-    merges: Dict[str, str] = {}
-    for group in groups:
-        canonical_entries = entries_by_response.get(group.canonical)
-        if (
-            not isinstance(canonical_entries, list)
-            or len(canonical_entries) != EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
-        ):
-            raise ValueError(
-                f"Missing canonical EE Tâche 3 vocabulary for {group.canonical!r}"
-            )
-        for member in group.members:
-            if member == group.canonical:
-                continue
-            source_entries = entries_by_response.get(member)
-            if (
-                not isinstance(source_entries, list)
-                or len(source_entries)
-                != EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
-            ):
-                raise ValueError(
-                    f"Missing alias EE Tâche 3 vocabulary for {member!r}"
-                )
-
-            available = set(range(len(canonical_entries)))
-            assignments: Dict[int, int] = {}
-
-            def assign_matching(predicate) -> None:
-                for source_index, source in enumerate(source_entries):
-                    if source_index in assignments:
-                        continue
-                    target_index = next(
-                        (
-                            index
-                            for index in sorted(available)
-                            if predicate(source, canonical_entries[index])
-                        ),
-                        None,
-                    )
-                    if target_index is None:
-                        continue
-                    assignments[source_index] = target_index
-                    available.remove(target_index)
-
-            assign_matching(
-                lambda source, target: (
-                    source.get("kind") == target.get("kind")
-                    and _ee_subject_signature_text(
-                        str(source.get("french") or "")
-                    )
-                    == _ee_subject_signature_text(
-                        str(target.get("french") or "")
-                    )
-                )
-            )
-            assign_matching(
-                lambda source, target: _ee_subject_signature_text(
-                    str(source.get("french") or "")
-                )
-                == _ee_subject_signature_text(
-                    str(target.get("french") or "")
-                )
-            )
-            assign_matching(
-                lambda source, target: source.get("kind") == target.get("kind")
-            )
-            assign_matching(lambda _source, _target: True)
-
-            if (
-                len(assignments) != EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
-                or available
-            ):
-                raise ValueError(
-                    f"Could not map all EE Tâche 3 vocabulary for {member!r}"
-                )
-            for source_index, target_index in assignments.items():
-                source_id = source_entries[source_index].get("id")
-                target_id = canonical_entries[target_index].get("id")
-                if not isinstance(source_id, str) or not source_id:
-                    raise ValueError(f"Invalid alias vocabulary id for {member!r}")
-                if not isinstance(target_id, str) or not target_id:
-                    raise ValueError(
-                        f"Invalid canonical vocabulary id for {group.canonical!r}"
-                    )
-                previous = merges.setdefault(source_id, target_id)
-                if previous != target_id:
-                    raise ValueError(
-                        f"Conflicting EE Tâche 3 phrase merge for {source_id!r}"
-                    )
-    return merges
 
 
 def _ce_plain_text(value: str) -> str:

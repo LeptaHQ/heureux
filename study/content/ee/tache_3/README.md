@@ -2,7 +2,7 @@
 
 Contenu d'entraînement pour l'**Expression écrite (EE), Tâche 3**.
 Ce dossier regroupe les **sujets sources** et l'ensemble des **réponses modèles**,
-**formulations**, ainsi que les **vocabulaires** et **mémoires** historiques.
+**formulations**, ainsi que les **mémoires** historiques.
 
 ## Contenu
 
@@ -39,8 +39,7 @@ Ce dossier regroupe les **sujets sources** et l'ensemble des **réponses modèle
 - `ai_examiner_prompt.md` — prompt d’évaluation propre à la Tâche 3, disponible
   depuis la vue d’ensemble avant de fournir le sujet et ses deux documents.
 - Les formulations constituent le parcours principal pour apprendre à construire
-  et adapter une réponse. Le vocabulaire historique conserve ses identités et sa
-  progression ; il n'est pas réimporté sous les nouvelles clés.
+  et adapter une réponse.
 
 **Formulations** — `formulations.json`
 - **152 fiches**, organisées en **10 fonctions de rédaction** et **11 thèmes** :
@@ -115,57 +114,35 @@ cible n'exige pas une nouvelle clé.
 Les réponses, documents sources et règles d'import restent indépendants de ce
 nouveau catalogue. Les anciennes URL de mémoires redirigent vers les Formulations :
 aucune interface d'archive ni prise en charge spéciale des anciennes notes ou des
-surlignages n'est ajoutée. Les fichiers historiques ne servent pas de source aux
-nouvelles fiches ; cette évolution ne nécessite pas de migration de suppression.
-
-**Vocabulaire** — `vocabulary/<mois>.json`
-- **30 entrées par réponse**, capturant la langue la plus réutilisable (connecteurs,
-  formules d'avis/conclusion en `phrase-modele`, mots-clés/collocations/verbes thématiques).
-  Chaque `example` contextualise exactement sa cible française ; après une correction
-  de réponse, les exemples fondés sur une phrase retirée sont régénérés. Clé :
-  `ee-tache3:<mois>:combinaison-<n>`.
-  Les 138 blocs sont conservés, mais le parseur n'importe que les blocs `canonical`
-  (voir « Thèmes et sujets équivalents ») : **78 × 30 = 2 340 entrées importées**.
-- L'identifiant d'une entrée désigne sa cible d'apprentissage, pas son emplacement
-  dans un bloc. Une correction d'exemple ou d'usage conserve l'identifiant si la
-  cible française, la consigne anglaise et la catégorie restent les mêmes. Une
-  cible remplacée reçoit un nouvel identifiant répertorié dans
-  `phrase_id_revisions.json`. Le manifeste v4 fixe l'empreinte sémantique des
-  **4 140 identifiants d'origine** et de chaque génération `R<n>` ultérieure.
-  Chaque cible retirée conserve son contenu récupérable et son successeur direct :
-  `original → R1`, puis `R1 → R2` si la cible R1 change à son tour. Une correction
-  d'exemple ou d'usage seule ne crée pas de génération. L'import rétablit et
-  désactive chaque ancienne génération écrasée, sans transférer son calendrier,
-  son statut appris, ses journaux ou ses annotations vers le remplacement.
+surlignages n'est ajoutée.
 
 **Mémoires** — `memoires/memoire_<Q>.json`
 - **4 mémoires trimestrielles** de formulations réutilisables, calquées sur la structure
   des mémoires de l'Expression orale Tâche 2 (`tache_2/master_question_bank*.json`) :
   Q1 = janvier+mars · Q2 = avril+mai+juin · Q3 = juillet+août+septembre · Q4 = octobre+novembre+décembre.
 
-**Archive source : 138 sujets → 138 blocs de réponse → 4 140 blocs de vocabulaire
-→ 4 mémoires (1 286 formulations).**
+**Archive source : 138 sujets → 138 blocs de réponse → 4 mémoires
+(1 286 formulations).**
 *Février 2025 : aucune page publiée sur la source.*
 
 Après regroupement des republications (`equivalent_groups.json`), l'application expose
 **78 réponses distinctes** pour **138 sujets datés**, accompagnées des **152
-formulations**. Les **2 340 entrées de vocabulaire** importées ne font plus partie
-du parcours actif EE3.
+formulations**.
 
-| Mois | Sujets/Réponses | Vocab (30×) |
-|---|---|---|
-| Janvier | 15 | 450 |
-| Mars | 14 | 420 |
-| Avril | 20 | 600 |
-| Mai | 8 | 240 |
-| Juin | 5 | 150 |
-| Juillet | 19 | 570 |
-| Août | 16 | 480 |
-| Septembre | 6 | 180 |
-| Octobre | 4 | 120 |
-| Novembre | 12 | 360 |
-| Décembre | 19 | 570 |
-| **Total** | **138** | **4 140** |
+| Mois | Sujets/Réponses |
+|---|---|
+| Janvier | 15 |
+| Mars | 14 |
+| Avril | 20 |
+| Mai | 8 |
+| Juin | 5 |
+| Juillet | 19 |
+| Août | 16 |
+| Septembre | 6 |
+| Octobre | 4 |
+| Novembre | 12 |
+| Décembre | 19 |
+| **Total** | **138** |
 
 ## Format d'un sujet (JSON)
 
@@ -228,12 +205,6 @@ entre les textes ressort de leur contenu.
   ces empreintes et exige une nouvelle revue. Le membre `canonical`
   est toujours le plus ancien du groupe. Mêmes règles de validation que l'Expression
   orale Tâche 2.
-- `ee_tache_three_phrase_id_merges()` associe les **1 800 identifiants** de vocabulaire
-  des publications devenues alias aux 30 fiches de leur réponse canonique.
-  `phrase_id_merges.json` conserve cette bijection historique sous forme
-  d'identifiants explicites afin qu'une régénération éditoriale ne réattribue jamais
-  un ancien alias à une autre fiche. L'import conserve ainsi les calendriers de
-  révision et les annotations de l'ancienne cible, y compris lorsqu'elle est retirée.
 - `author_responses.json` — **10 réponses rédigées par l'auteur** qui remplacent le
   modèle fourni. Chaque `content_key` doit être un sujet `canonical` ; les entrées
   sont classées par ordre de publication. Elles proviennent de sa
@@ -276,9 +247,8 @@ le texte verbatim** :
 Deux d'entre eux étaient de véritables défauts de données : Août C15 portait un
 `document2` sur les caméras de surveillance scolaires sous un titre « La Restauration
 Rapide », et Novembre C3 reprenait les documents de Janvier C1. Les **synthèses**
-(Partie 1) de ces deux réponses ont été réécrites pour coller aux documents réels ;
-leurs entrées de vocabulaire issues de la synthèse ont été régénérées. Novembre C2
-retrouve son titre source (« Les bureaux électriques »).
+(Partie 1) de ces deux réponses ont été réécrites pour coller aux documents réels.
+Novembre C2 retrouve son titre source (« Les bureaux électriques »).
 
 Le miroir lisible `sujets-documents-2025.md` est également comparé aux fichiers
 mensuels ; cinq champs qui avaient dérivé ont été réalignés lors de l'audit final.
@@ -286,8 +256,7 @@ mensuels ; cinq champs qui avaient dérivé ont été réalignés lors de l'audi
 ## Fidélité des réponses modèles (audit 2026-09, seconde passe)
 
 Les 138 réponses ont été relues face à leurs documents sources. **Aucun texte source
-n'a été modifié** ; seules les réponses, leurs comptes de mots et le vocabulaire
-associé ont été corrigés.
+n'a été modifié** ; seules les réponses et leurs comptes de mots ont été corrigés.
 
 | Réponse | Correction |
 |---|---|
@@ -321,22 +290,16 @@ une concession auto-contradictoire et Janvier C17 ne prétend plus citer
 désormais le même squelette à deux arguments soutenus que le reste du corpus,
 tout en conservant leurs idées propres.
 
-Vocabulaire : chaque entrée dont l'`example` reprenait une phrase supprimée a été
-régénérée à partir du texte corrigé. Les **300 entrées** des dix réponses de l'auteur
-proviennent désormais toutes de leur synthèse ou de leur point de vue effectif
-(30 entrées par réponse, identifiants inchangés).
-
 ## Reproduction
 
 - Les sujets proviennent des pages mensuelles publiques 2025 ; chaque combinaison
   a été dépliée avant extraction et comparée champ par champ.
 - `load_ee_tache_three_months`, `load_ee_subject_themes(3)`,
-  `load_ee_equivalent_groups(3)`, `parse_ee_tache_three_responses` et
-  `parse_ee_tache_three_subject_vocabulary` valident l'alignement, la couverture,
-  les limites, les groupes et le vocabulaire avant tout import.
+  `load_ee_equivalent_groups(3)` et `parse_ee_tache_three_responses` valident
+  l'alignement, la couverture, les limites et les groupes avant tout import.
 - `study/tests/test_ee_subject_themes.py` et
   `study/tests/test_ee_writing_feature.py` verrouillent les 138 occurrences,
-  78 réponses canoniques, 35 groupes et 2 340 entrées importées.
+  78 réponses canoniques et 35 groupes.
 - `study/tests/test_ee_tache_three_titles.py` vérifie le titre dans la réponse
   et sa copie, les totaux complets et la conservation des données à la réimportation.
 - `study/tests/test_ee_formulations_loader.py` couvre le contrat immuable,

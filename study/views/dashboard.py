@@ -17,7 +17,7 @@ from ..models import (
     Task,
 )
 from ..progress import combine_progress
-from ..retirement import retired_scope_url
+from ..retirement import is_retired_vocabulary_scope
 from .learning import learning_summary
 
 from .helpers import (
@@ -352,7 +352,9 @@ def dashboard(request):
     session = ReviewSession.load(request.user)
     can_resume_review = bool(
         session.current_card_id
-        and not retired_scope_url(session.scope if isinstance(session.scope, dict) else {})
+        and not is_retired_vocabulary_scope(
+            session.scope if isinstance(session.scope, dict) else {}
+        )
         and queue_module.scoped_cards(
             session.scope if isinstance(session.scope, dict) else {},
             user=request.user,

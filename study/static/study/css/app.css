@@ -389,6 +389,14 @@
     padding-top: .65rem;
     border-top: 1px solid var(--border);
   }
+  .formulation-language-table--usage
+    tbody
+    tr:not(.formulation-language-role-row)
+    td:nth-child(4) {
+    margin-top: .65rem;
+    padding-top: .65rem;
+    border-top: 1px solid var(--border);
+  }
   .formulation-language-table
     tbody
     tr:not(.formulation-language-role-row)

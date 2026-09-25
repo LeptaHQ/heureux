@@ -7,7 +7,7 @@ from django.test import override_settings
 from django.urls import reverse
 from playwright.sync_api import expect, sync_playwright
 
-from study.models import MemoryQuestionProgress
+from study.models import Annotation, MemoryQuestionProgress
 from . import factories
 from .formulation_fixtures import formulation_catalog, mock_catalog
 
@@ -178,3 +178,37 @@ class FormulationBrowserTests(StaticLiveServerTestCase):
         expect(page.get_by_role(
             "checkbox", name="Remettre à apprendre", exact=False,
         ).first).to_have_attribute("aria-checked", "true")
+
+    def test_highlight_updates_lesson_status_without_navigation(self):
+        page = self.context().new_page()
+        page.goto(self.live_server_url + reverse(
+            "study:ee_formulation_entry",
+            args=[self.catalog.entries[0].slug],
+        ))
+        status = page.locator("[data-formulation-status]")
+        expect(status).to_have_text("À apprendre")
+        original_url = page.url
+        page.locator(".formulation-entry-focus__text").evaluate("""
+            element => {
+              const selection = window.getSelection();
+              const range = document.createRange();
+              range.selectNodeContents(element);
+              selection.removeAllRanges();
+              selection.addRange(range);
+              element.dispatchEvent(new MouseEvent("mouseup", { bubbles: true }));
+            }
+        """)
+        page.locator("[data-highlight-selection]").click()
+        expect(status).to_have_text("En cours")
+        expect(status).to_have_class(
+            "progress-status progress-status--active",
+        )
+        self.assertEqual(page.url, original_url)
+        self.assertTrue(Annotation.objects.filter(
+            user=self.user,
+            source_key=self.catalog.entries[0].content_key,
+        ).exists())
+        page.reload()
+        expect(page.locator("[data-formulation-status]")).to_have_text(
+            "En cours",
+        )

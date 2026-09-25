@@ -17,7 +17,7 @@
 
   {% include "study/partials/formulation_navigation.html" %}
 
-  <div class="detail-grid tache-two-subject-detail__grid formulation-entry-grid formulation-entry-lesson{% if row.learned %} is-status-done{% else %} is-status-new{% endif %}" id="formulation-{{ row.entry.slug }}" data-formulation-row="{{ row.entry.slug }}">
+  <div class="detail-grid tache-two-subject-detail__grid formulation-entry-grid formulation-entry-lesson is-status-{{ row.status }}" id="formulation-{{ row.entry.slug }}" data-formulation-row="{{ row.entry.slug }}" data-annotation-root data-annotation-source-key="{{ row.entry.content_key }}">
     <div class="answer-columns">
       <section class="tache-two-consigne formulation-entry-focus" aria-labelledby="formulation-focus-title">
         <span class="tache-two-consigne__icon" aria-hidden="true">
@@ -43,7 +43,7 @@
       <section class="card section-card response-sidebar-card response-sidebar-card--status formulation-entry-progress">
         <div class="spine-label">Progression</div>
         <div class="formulation-entry-progress__status">
-          <span class="progress-status progress-status--{% if row.learned %}done{% else %}new{% endif %}" data-formulation-status="{{ row.entry.slug }}">{% if row.learned %}Apprise{% else %}À apprendre{% endif %}</span>
+          <span class="progress-status progress-status--{{ row.status }}" data-formulation-status="{{ row.entry.slug }}">{% if row.status == "done" %}Apprise{% elif row.status == "active" %}En cours{% else %}À apprendre{% endif %}</span>
           <span><span data-formulation-progress-summary="{{ category.slug }}">{{ progress.completed }}/{{ progress.total }}</span> dans {{ category.title }}</span>
         </div>
         {% include "study/partials/formulation_learned.html" %}
@@ -57,5 +57,5 @@
 {% block scripts %}
 {{ block.super }}
 <script src="{% static 'study/js/prompt-copy.js' %}?v=2"></script>
-<script src="{% static 'study/js/formulation-progress.js' %}?v=1"></script>
+<script src="{% static 'study/js/formulation-progress.js' %}?v=2"></script>
 {% endblock %}

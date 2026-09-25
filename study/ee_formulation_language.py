@@ -16,11 +16,12 @@ class FormulationLanguageItem:
     english: str
     examples: tuple[FormulationLanguageExample, ...]
     role: str = ""
+    usage: str = ""
 
     @property
     def pattern(self):
         """Keep the existing Emploi renderer useful without a UI change."""
-        return " ".join(example.text for example in self.examples)
+        return self.usage or " ".join(example.text for example in self.examples)
 
     @property
     def provenance(self):

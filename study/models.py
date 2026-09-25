@@ -1144,9 +1144,11 @@ class Rating(models.IntegerChoices):
 
 class CardQuerySet(models.QuerySet):
     def current_content(self):
+        from .retirement import retired_vocabulary
+
         return self.filter(
             Q(response__is_active=True) | Q(phrase__is_active=True)
-        )
+        ).exclude(phrase_id__in=retired_vocabulary())
 
     def active(self):
         return self.current_content().filter(suspended=False)

@@ -84,6 +84,9 @@
         </span>
         <span class="stats-action__arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
       </a>
+      {% if part.slug == "ee" and task.slug == "tache-3" %}
+      <a class="stats-action" href="{% url 'study:ee_formulations' %}?status=new"><span class="stats-action__copy"><small>Formulations</small><strong>Reproduire et adapter</strong><span>Voir les constructions à apprendre</span></span></a>
+      {% else %}
       <a class="stats-action" href="{{ vocabulary_weak_url }}">
         <span class="stats-action__icon stats-action__icon--vocabulary" aria-hidden="true">
           <svg><use href="#nav-icon-book"></use></svg>
@@ -95,6 +98,7 @@
         </span>
         <span class="stats-action__arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
       </a>
+      {% endif %}
     </div>
   </section>
 

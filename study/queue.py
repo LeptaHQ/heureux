@@ -119,6 +119,8 @@ def scoped_cards(
     scope = scope or {}
     kind = scope.get("kind")
     content = scope.get("content")
+    if scope.get("part") == "ee" and scope.get("task") == "tache-3":
+        qs = qs.filter(card_type=CardType.SPINE)
     if kind == "spine":
         qs = qs.filter(card_type=CardType.SPINE)
     elif kind == "phrase":

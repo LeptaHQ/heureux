@@ -68,6 +68,9 @@ from ..oral_highlights import (
     preserve_tache_two_highlights,
 )
 from ..response_personalization import effective_response
+from ..ee_formulations import get_ee_formulations
+from ..formulation_progress import formulation_progress
+from ..retirement import active_phrases, formulations_replacement
 from ..progress import (
     card_unit_progress_from_rows,
     combine_progress,
@@ -1144,13 +1147,8 @@ def task_detail(request, part_slug, task_slug):
         and _has_ee_tache_three_content(task)
     ):
         subject_context = _ee_tache_three_overview_context(request.user, task)
-        memory_context = _question_bank_memory_context(
-            request.user,
-            _load_task_memoires(task),
-        )
-        vocabulary_progress = _vocabulary_deck_progress(
-            subject_context["_progress_by_response"].values()
-        )
+        catalog = get_ee_formulations()
+        _, formulations_progress = formulation_progress(request.user, catalog)
         return render(
             request,
             "study/ee_tache_three_overview.html",
@@ -1158,23 +1156,11 @@ def task_detail(request, part_slug, task_slug):
                 "part": task.part,
                 "task": task,
                 **subject_context,
-                **memory_context,
-                "vocabulary_theme_count": subject_context["theme_count"],
-                "vocabulary_entry_count": (
-                    subject_context["distinct_count"]
-                    * content_module.EE_TACHE_THREE_VOCABULARY_PER_RESPONSE
-                ),
-                "vocabulary_deck_count": subject_context["distinct_count"],
-                "vocabulary_summary": {
-                    "progress": vocabulary_progress,
-                    "completed": vocabulary_progress.completed,
-                    "total": vocabulary_progress.total,
-                    "started_new": max(
-                        vocabulary_progress.started
-                        - vocabulary_progress.completed,
-                        0,
-                    ),
-                },
+                "formulation_count": len(catalog.entries),
+                "category_count": len(catalog.categories),
+                "formulation_summary": {"progress": formulations_progress,
+                                        "completed": formulations_progress.completed,
+                                        "total": formulations_progress.total},
                 "ai_practice_prompt": (
                     content_module.load_ee_ai_examiner_prompt(3)
                 ),
@@ -1650,7 +1636,7 @@ def browse(request, part_slug=None, task_slug=None):
         is_active=True, response__is_active=True, theme__is_active=True,
     )
     response_qs = Response.objects.filter(is_active=True)
-    phrase_qs = Phrase.objects.filter(is_active=True)
+    phrase_qs = active_phrases().filter(is_active=True)
     if scope.get("task"):
         prompt_qs = prompt_qs.filter(
             theme__task__slug=scope["task"],
@@ -1936,6 +1922,8 @@ def _memory_by_number(memories, memory_number):
 
 def task_memories(request, part_slug, task_slug):
     task = _memoire_task(request, part_slug, task_slug)
+    if (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK:
+        return redirect("study:ee_formulations")
     if (task.part.slug, task.slug) == content_module.EO_TACHE_ONE_TASK:
         return redirect(
             "study:task_detail",
@@ -2578,6 +2566,8 @@ def theme_vocabulary_progress(
     phrase_pk,
 ):
     task = _route_task(part_slug, task_slug, request=request)
+    if (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK:
+        return redirect(formulations_replacement(vocabulary_theme_slug))
     if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
         raise Http404
     theme = get_object_or_404(
@@ -3910,7 +3900,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         response=response,
     ).first()
     related_phrases = (
-        Phrase.objects.filter(
+        active_phrases().filter(
             source_prompts__response=response,
             is_active=True,
         )
@@ -3918,6 +3908,8 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         .distinct()
         .select_related("category")
     )
+    if (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK:
+        related_phrases = related_phrases.none()
     task_scope = {"part": task.part.slug, "task": task.slug}
     # The phrase lots only ever cover shared and response-level phrases of this
     # sujet, all of which appear in the related list, so an empty list means
@@ -3937,11 +3929,11 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         else []
     )
     phrase_batch_progress = summarize_review_batches(phrase_batches)
-    vocabulary_context = _subject_vocabulary_context(
-        response,
-        task_scope,
-        request.user,
-        prompt=selected_prompt,
+    vocabulary_context = (
+        {} if (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK
+        else _subject_vocabulary_context(
+            response, task_scope, request.user, prompt=selected_prompt,
+        )
     )
     ee_response = (
         (task.part.slug, task.slug)
@@ -4845,6 +4837,8 @@ def phrases(
             "study/coming_soon.html",
             {"part": task.part, "task": task},
         )
+    if task and (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK:
+        return redirect(formulations_replacement(vocabulary_theme_slug or ""))
     if task and (
         task.part.slug,
         task.slug,
@@ -4935,7 +4929,7 @@ def phrases(
     selected = None
     selected_test = None
     all_phrases = (
-        Phrase.objects.filter(
+        active_phrases().filter(
             is_active=True,
             tier=PhraseTier.SHARED,
         )
@@ -5370,7 +5364,7 @@ def search(request, part_slug=None, task_slug=None):
     writing_sujet_scope = WritingSujet.objects.filter(
         is_active=True, task__is_active=True, task__part__is_active=True,
     )
-    phrase_scope = Phrase.objects.filter(is_active=True, category__is_active=True)
+    phrase_scope = active_phrases().filter(is_active=True, category__is_active=True)
     if task:
         prompt_scope = prompt_scope.filter(theme__task=task)
         writing_sujet_scope = writing_sujet_scope.filter(task=task)
@@ -5378,6 +5372,8 @@ def search(request, part_slug=None, task_slug=None):
             Q(source_prompts__in=prompt_scope)
             | Q(vocabulary_theme__task=task, vocabulary_theme__is_active=True)
         ).distinct()
+        if (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK:
+            phrase_scope = phrase_scope.none()
     if query:
         prompt_query = Q(text__icontains=query)
         if not subjects_only:
@@ -5620,8 +5616,10 @@ def _learning_activity(scope, user, scoped_cards, logs_base, now):
         sources.append(
             (
                 "memories",
-                "Mémoires apprises",
-                MemoryQuestionProgress.objects.filter(user=user),
+                "Mémoires apprises (historique)",
+                MemoryQuestionProgress.objects.filter(user=user).exclude(
+                    question_key__startswith="formulation:ee3:v1:",
+                ),
                 "completed_at",
             )
         )
@@ -5636,6 +5634,16 @@ def _learning_activity(scope, user, scoped_cards, logs_base, now):
                 "completed_at",
             )
         )
+
+    if not scope or part == "ee" and task in (None, "tache-3"):
+        sources.append((
+            "formulations", "Formulations apprises",
+            MemoryQuestionProgress.objects.filter(
+                user=user, memory_number=1,
+                question_key__startswith="formulation:ee3:v1:",
+            ),
+            "completed_at",
+        ))
 
     per_day: dict = {}
     active_days: set = set()

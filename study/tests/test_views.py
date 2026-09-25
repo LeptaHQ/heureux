@@ -1689,7 +1689,7 @@ class EeTacheThreePageTests(TestCase):
                     )
                     self.assertContains(page, "Sujets équivalents")
 
-    def test_overview_presents_subject_vocabulary_and_memory_collections(self):
+    def test_overview_presents_subjects_and_curated_formulations(self):
         response = self.client.get(self._task_url("study:task_detail"))
 
         self.assertEqual(response.status_code, 200)
@@ -1699,16 +1699,14 @@ class EeTacheThreePageTests(TestCase):
         self.assertEqual(response.context["subject_count"], 138)
         self.assertEqual(response.context["distinct_count"], 78)
         self.assertEqual(response.context["vocabulary_count"], 2340)
-        self.assertEqual(response.context["vocabulary_entry_count"], 2340)
-        self.assertEqual(response.context["vocabulary_theme_count"], 11)
-        self.assertEqual(response.context["vocabulary_deck_count"], 78)
-        self.assertEqual(response.context["memory_count"], 4)
+        from study.ee_formulations import get_ee_formulations
+        self.assertEqual(response.context["formulation_count"], len(get_ee_formulations().entries))
         self.assertContains(
             response,
             "data-ee-tache-three-overview-entry",
-            count=3,
+            count=2,
         )
-        self.assertContains(response, "data-task-choice", count=3)
+        self.assertContains(response, "data-task-choice", count=2)
         self.assertNotContains(response, "data-collection-view-toggle")
         self.assertContains(
             response,
@@ -1716,9 +1714,9 @@ class EeTacheThreePageTests(TestCase):
         )
         self.assertContains(
             response,
-            self._task_url("study:task_memories"),
+            reverse("study:ee_formulations"),
         )
-        self.assertContains(
+        self.assertNotContains(
             response,
             self._task_url("study:task_phrases"),
         )
@@ -1737,75 +1735,30 @@ class EeTacheThreePageTests(TestCase):
             response,
             "data-ee-tache-three-subject-row",
         )
-        self.assertContains(response, "regroupées par grand thème")
+        self.assertContains(response, "par fonction et par thème")
 
-    def test_vocabulary_directory_reuses_theme_components_and_guided_practice(self):
+    def test_vocabulary_directory_redirects_without_deleting_imported_records(self):
         response = self.client.get(self._task_url("study:task_phrases"))
-
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "study/theme_vocabulary_directory.html")
-        self.assertEqual(response.context["theme_count"], 11)
-        self.assertEqual(response.context["phrase_count"], 2340)
-        self.assertEqual(len(response.context["themes"]), 11)
-        self.assertContains(response, "data-theme-vocabulary-directory-item", count=11)
-        self.assertContains(response, "lots terminés")
-        self.assertNotContains(response, "data-subject-vocabulary-row")
-        self.assertNotContains(response, "Dédupliquer")
-        self.assertNotContains(response, "data-subject-completion-form")
-        ids = set()
-        for item in response.context["themes"]:
-            detail = self.client.get(item["url"])
-            self.assertTemplateUsed(detail, "study/theme_vocabulary_detail.html")
-            self.assertEqual(detail.context["phrase_count"], item["phrase_count"])
-            self.assertGreater(detail.context["phrase_count"], 0)
-            self.assertEqual(detail.context["theme"], item["theme"])
-            self.assertEqual(detail.context["summary"], item["summary"])
-            self.assertEqual(len(detail.context["phrase_sections"]), 7)
-            for section in detail.context["phrase_sections"]:
-                for phrase in section["phrases"]:
-                    ids.add(phrase.pk)
-                    self.assertContains(detail, phrase.expression)
-                    self.assertContains(detail, escape(phrase.english_cue))
-                    self.assertContains(detail, phrase.example_html)
-        self.assertEqual(len(ids), 2340)
-        all_publications = self.client.get(self._task_url("study:task_phrases"), {"deduplicate": "0"})
-        self.assertEqual(all_publications.context["phrase_count"], 2340)
-        self.assertEqual(all_publications.context["summary"], response.context["summary"])
-
-        first_batch = queue_module.scoped_cards(
-            {
-                "kind": "vocab",
-                "part": self.task.part.slug,
-                "task": self.task.slug,
-                "batch": "1",
-            },
-            user=self.user,
+        self.assertRedirects(
+            response, reverse("study:ee_formulations"), fetch_redirect_response=False,
         )
-        first_batch.update(
-            state=CardState.REVIEW,
-            started_at=timezone.now(),
-            due=timezone.now() + timedelta(days=30),
-        )
-        continued = self.client.get(self._task_url("study:task_phrases"))
-        self.assertIn("batch=2", continued.context["review_url"])
+        self.assertEqual(Phrase.objects.filter(
+            source_prompts__theme__task=self.task, tier=PhraseTier.SUBJECT,
+        ).distinct().count(), 2340)
+        for theme in Theme.objects.filter(task=self.task, is_active=True):
+            response = self.client.get(reverse(
+                "study:task_vocabulary_theme", args=["ee", "tache-3", theme.slug],
+            ))
+            self.assertEqual(response.status_code, 302)
+            self.assertIn(reverse("study:ee_formulations"), response.url)
 
-    def test_vocabulary_entries_use_vocabulary_not_subject_completion(self):
-        page = self.client.get(self._task_url("study:task_phrases"))
-        detail = self.client.get(page.context["themes"][0]["url"])
-        phrase = detail.context["phrase_sections"][0]["phrases"][0]
-        prompt = phrase.source_prompts.first()
+    def test_old_vocabulary_activity_does_not_complete_formulations(self):
         Card.objects.filter(
-            user=self.user, response=prompt.response, card_type=CardType.SPINE,
-        ).update(subject_completed_at=timezone.now())
-        page = self.client.get(self._task_url("study:task_phrases"))
-        self.assertEqual(page.context["summary"]["progress"].status, "new")
-        phrase_card = Card.objects.filter(
-            user=self.user, phrase=phrase, card_type=CardType.PHRASE_PRODUCTION,
-        ).get()
-        phrase_card.started_at = timezone.now()
-        phrase_card.save(update_fields=["started_at"])
-        page = self.client.get(self._task_url("study:task_phrases"))
-        self.assertEqual(page.context["summary"]["progress"].status, "active")
+            user=self.user, phrase__source_prompts__theme__task=self.task,
+        ).update(started_at=timezone.now())
+        page = self.client.get(reverse("study:ee_formulations"))
+        self.assertEqual(page.context["progress"].status, "new")
+        self.assertEqual(page.context["progress"].completed, 0)
 
     def test_subject_page_groups_all_combinations_in_collapsible_themes(self):
         response = self.client.get(self._task_url("study:task_browse"), {"deduplicate": "0"})
@@ -2150,26 +2103,17 @@ class EeTacheThreePageTests(TestCase):
 
         self.assertEqual(overview.status_code, 200)
         self.assertContains(overview, "Formulations")
-        self.assertContains(overview, "4</b> collections")
+        self.assertNotContains(overview, "4</b> collections")
         self.assertNotContains(overview, ">Mémoires<", html=False)
         self.assertEqual(practice.status_code, 200)
         self.assertContains(practice, "Choisir un thème")
         self.assertNotContains(practice, "Choisir un mois")
-        self.assertEqual(memories.status_code, 200)
-        self.assertEqual(memories.context["memory_count"], 4)
-        self.assertContains(memories, "Collections de formulations")
-        for label, title in (
-            ("Fondations", "Cadrer, comparer et prendre position"),
-            ("Argumentation", "Justifier, protéger et concilier"),
-            ("Nuance", "Concéder, illustrer et équilibrer"),
-            ("Maîtrise", "Prioriser, conclure et mettre en œuvre"),
-        ):
-            with self.subTest(collection=label):
-                self.assertContains(memories, label)
-                self.assertContains(memories, title)
+        self.assertRedirects(memories, reverse("study:ee_formulations"), fetch_redirect_response=False)
         for number in range(1, 5):
-            self.assertNotContains(memories, f"Mémoire {number}")
-        self.assertNotContains(memories, "Tâche 2")
+            archive = self.client.get(reverse(
+                "study:task_memory_detail", args=["ee", "tache-3", number],
+            ))
+            self.assertContains(archive, "Archive · Ancienne mémoire")
 
 
 class TaskOrganizationTests(TestCase):

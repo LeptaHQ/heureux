@@ -17,7 +17,6 @@
     <dl class="memory-overview-hero__metrics" aria-label="Progression de {{ subject_theme.name }}">
       <div><dt>{% if deduplicate_subjects %}Sujets distincts{% else %}Sujets publiés{% endif %}</dt><dd>{{ subject_theme.subject_count }}</dd></div>
       <div><dt>Réponses distinctes</dt><dd>{{ subject_theme.distinct_count }}</dd></div>
-      <div><dt>Vocabs</dt><dd>{{ subject_theme.vocabulary_count }}</dd></div>
     </dl>
   </header>
   {% include "study/partials/collection_toolbar.html" with progress_completed=subject_theme.completed progress_total=subject_theme.total progress_unit="sujets terminés" show_views=subjects primary_action_url=review_url primary_action_label="Pratiquer ce thème" %}

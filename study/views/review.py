@@ -29,6 +29,7 @@ from ..models import (
     Theme,
 )
 from ..progress import mark_card_started, subject_progress_by_response
+from ..retirement import retired_scope_url
 from ..routing import (
     comprehension_vocabulary_url,
     prompt_detail_url,
@@ -63,6 +64,16 @@ REVIEW_SCOPE_KEYS = (
 
 
 FOCUSED_REVIEW_KINDS = {"revisit", "weak"}
+
+
+def _retired_review_response(scope):
+    replacement = retired_scope_url(scope)
+    if replacement:
+        return JsonResponse(
+            {"error": "Ce vocabulaire a été remplacé par les formulations.",
+             "redirect_url": replacement}, status=410,
+        )
+    return None
 
 
 def _review_card_payload(card, user, scope=None):
@@ -292,6 +303,9 @@ def review(
             session,
             route_scope=route_scope,
         )
+        replacement = retired_scope_url(scope)
+        if replacement:
+            return redirect(replacement)
         if explicit and (
             session.scope != scope or request.GET.get("reset") == "1"
             or (
@@ -590,6 +604,9 @@ def review_next(request):
     with transaction.atomic():
         session = _locked_review_session(request.user)
         scope, _ = _resolved_review_scope(request, session)
+        retired_response = _retired_review_response(scope)
+        if retired_response is not None:
+            return retired_response
         state = _queue_state_locked(scope, request, session)
     state["can_undo"] = bool(
         session.scope == scope and session.previous_review_id
@@ -602,13 +619,16 @@ def review_previous(request):
     with transaction.atomic():
         session = _locked_review_session(request.user)
         scope, _ = _resolved_review_scope(request, session)
+        retired_response = _retired_review_response(scope)
+        if retired_response is not None:
+            return retired_response
         if session.scope != scope or not session.previous_card_id:
             return JsonResponse(
                 {"error": "Aucune carte précédente dans cette session."},
                 status=404,
             )
         card = get_object_or_404(
-            Card,
+            Card.objects.current_content(),
             pk=session.previous_card_id,
             user=request.user,
         )
@@ -660,6 +680,9 @@ def review_answer(request):
     with transaction.atomic():
         session = _locked_review_session(request.user)
         scope, _ = _resolved_review_scope(request, session)
+        retired_response = _retired_review_response(scope)
+        if retired_response is not None:
+            return retired_response
         if (
             not presentation_token
             or session is None
@@ -687,7 +710,7 @@ def review_answer(request):
             )
 
         card = get_object_or_404(
-            Card.objects.select_for_update(),
+            Card.objects.current_content().select_for_update(),
             pk=card_id,
             user=request.user,
         )
@@ -737,6 +760,9 @@ def review_undo(request):
     with transaction.atomic():
         session = _locked_review_session(request.user)
         scope, _ = _resolved_review_scope(request, session)
+        retired_response = _retired_review_response(scope)
+        if retired_response is not None:
+            return retired_response
         if session.scope != scope:
             return JsonResponse(
                 {"error": "Cette session de révision a changé."},
@@ -744,6 +770,10 @@ def review_undo(request):
             )
         card = None
         if session.previous_review_id and session.previous_card_id:
+            get_object_or_404(
+                Card.objects.current_content(), pk=session.previous_card_id,
+                user=request.user,
+            )
             try:
                 card = undo_last(
                     request.user,
@@ -806,6 +836,9 @@ def revisit_list(request, part_slug=None, task_slug=None):
     content = (request.GET.get("content") or "").strip()
     if content in {"spine", "vocabulary"}:
         scope["content"] = content
+    replacement = retired_scope_url(scope)
+    if replacement:
+        return redirect(replacement)
     revisit_scope = {**scope, "kind": "revisit"}
     revisit_cards = queue_module.scoped_cards(
         revisit_scope,

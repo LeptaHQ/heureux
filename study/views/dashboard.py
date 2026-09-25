@@ -101,9 +101,7 @@ def _home_expression_paths(parts):
                 "content_unit": (
                     "contenus" if item["part"].slug == "eo" else "sujets"
                 ),
-                "progress_unit": (
-                    "contenus" if item["part"].slug == "eo" else "sujets"
-                ),
+                "progress_unit": "contenus",
                 "title": {
                     "ee": "Écrite",
                     "eo": "Orale",

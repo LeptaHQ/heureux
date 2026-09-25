@@ -1,0 +1,5 @@
+<h3>{{ row.entry.label }}</h3>
+<p class="formulation-french" lang="fr">{{ row.entry.french }}</p>
+{% include "study/partials/prompt_copy_button.html" with button_class="btn" source_id=row.copy_id label="Copier la formulation" toast_message="Formulation copiée." only %}
+{{ row.entry.french|json_script:row.copy_id }}
+{% include "study/partials/formulation_teaching.html" %}

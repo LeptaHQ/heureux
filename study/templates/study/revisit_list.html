@@ -62,7 +62,10 @@
     <div class="done-state__icon done-state__icon--success">{% include "study/partials/ui_icon.html" with name="check" only %}</div>
     <h2>Aucune carte à revoir</h2>
     <p>Lorsque vous hésitez sur une carte, choisissez « Revoir » : elle apparaîtra ici.</p>
-    {% if content == "spine" %}
+    {% if part.slug == "ee" and task.slug == "tache-3" %}
+      <a class="btn btn--primary" href="{% url 'study:ee_formulations' %}">Explorer les formulations</a>
+      <a class="btn" href="{% url 'study:task_review' part.slug task.slug %}?kind=spine">Pratiquer les réponses</a>
+    {% elif content == "spine" %}
       <a class="btn btn--primary" href="{% if task %}{% url 'study:task_review' part.slug task.slug %}?kind=spine{% elif part %}{% url 'study:part_review' part.slug %}?kind=spine{% else %}{% url 'study:review' %}?kind=spine{% endif %}">Pratiquer les réponses</a>
     {% else %}
       <a class="btn btn--primary" href="{% if task %}{% url 'study:task_phrases' part.slug task.slug %}{% else %}{% url 'study:review' %}?content=vocabulary{% endif %}">{% if task %}Retour au vocabulaire de la tâche{% else %}Pratiquer le vocabulaire disponible{% endif %}</a>

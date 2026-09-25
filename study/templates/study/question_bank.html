@@ -4,6 +4,13 @@
 
 {% block content %}
 {% include "study/partials/task_nav.html" %}
+{% if part.slug == "ee" and task.slug == "tache-3" %}
+<aside class="card formulation-archive-notice" aria-label="Mémoire archivée">
+  <strong>Archive · Ancienne mémoire</strong>
+  <p>Ce contenu et votre historique restent consultables. Cette progression est distincte des nouvelles formulations.</p>
+  <a class="btn" href="{% url 'study:ee_formulations' %}">Ouvrir les formulations</a>
+</aside>
+{% endif %}
 
 <div class="question-bank-page" style="--question-bank-accent: {{ task.color }};">
 <header class="question-bank-hero">

@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Formulations · Tâche 3 · Heureux{% endblock %}
+{% block content %}
+{% include "study/partials/task_nav.html" %}
+<div class="formulations-page">
+  <header class="section-heading">
+    <div>
+      <p class="eyebrow">Expression écrite · Tâche 3</p>
+      <h1>Formulations</h1>
+      <p>Choisir une tournure, comprendre sa construction, puis l’adapter à un autre sujet.</p>
+    </div>
+    <span class="progress-status progress-status--{{ progress.status }}">{{ progress.completed }}/{{ progress.total }} apprises</span>
+  </header>
+  <section class="card formulation-start" aria-labelledby="formulation-start-title">
+    <h2 id="formulation-start-title">Commencer par les essentiels</h2>
+    <p>{{ essential_count }} formulations pour une synthèse neutre, une prise de position, deux arguments et au moins un exemple concret. Les crochets indiquent les éléments à adapter, pas des mots à recopier.</p>
+    <a class="btn btn--primary" href="{% url 'study:ee_formulations' %}?essential=1#formulation-results">Voir les essentiels</a>
+    <a class="btn" href="{% url 'study:ee_formulations' %}?essential=1&amp;mode=practice#formulation-results">Pratiquer les essentiels</a>
+  </section>
+
+  <details class="formulation-directory"{% if not filters %} open{% endif %}>
+    <summary>Choisir une fonction ou un thème</summary>
+    {% for group in groups %}
+      <section aria-labelledby="formulation-group-{{ forloop.counter }}">
+        <h2 id="formulation-group-{{ forloop.counter }}">{{ group.title }}</h2>
+        <div class="formulation-category-grid">
+          {% for item in group.items %}
+            <a class="card formulation-category{% if filters.category == item.category.slug %} is-active{% endif %}" href="{{ item.url }}#formulation-results">
+              <strong>{{ item.category.title }}</strong>
+              <span>{{ item.category.description }}</span>
+              <small>{{ item.completed }}/{{ item.count }} apprises</small>
+            </a>
+          {% endfor %}
+        </div>
+      </section>
+    {% endfor %}
+  </details>
+
+  <form class="card formulation-filters" method="get" action="{% url 'study:ee_formulations' %}#formulation-results" role="search" aria-label="Filtrer les formulations">
+    <div class="formulation-filter-field">
+      <label for="formulation-query">Rechercher</label>
+      <input id="formulation-query" type="search" name="q" value="{{ filters.q }}" maxlength="200" placeholder="Ex. prévention, opposition…">
+    </div>
+    <div class="formulation-filter-field">
+      <label for="formulation-category">Catégorie</label>
+      <select id="formulation-category" name="category">
+        <option value="">Toutes les catégories</option>
+        {% for category in categories %}<option value="{{ category.slug }}"{% if filters.category == category.slug %} selected{% endif %}>{{ category.title }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="formulation-filter-field">
+      <label for="formulation-theme">Thème d’application</label>
+      <select id="formulation-theme" name="theme">
+        <option value="">Tous les thèmes</option>
+        {% for theme in themes %}<option value="{{ theme.slug }}"{% if filters.theme == theme.slug %} selected{% endif %}>{{ theme.title }}</option>{% endfor %}
+      </select>
+    </div>
+    <div class="formulation-filter-field">
+      <label for="formulation-status">Progression</label>
+      <select id="formulation-status" name="status">
+        <option value="">Toutes</option>
+        <option value="new"{% if filters.status == "new" %} selected{% endif %}>À apprendre</option>
+        <option value="learned"{% if filters.status == "learned" %} selected{% endif %}>Apprises</option>
+      </select>
+    </div>
+    <label class="formulation-essential"><input type="checkbox" name="essential" value="1"{% if filters.essential %} checked{% endif %}> Essentiels seulement</label>
+    <button class="btn btn--primary" type="submit">Filtrer</button>
+    <a class="btn" href="{% url 'study:ee_formulations' %}#formulation-results">Réinitialiser</a>
+  </form>
+
+  <section id="formulation-results" aria-labelledby="formulation-results-title">
+    <div class="section-heading">
+      <h2 id="formulation-results-title">{{ result_count }} formulation{{ result_count|pluralize }} sélectionnée{{ result_count|pluralize }}</h2>
+      {% if rows %}
+        {% if practice %}<a class="btn" href="{{ browse_url }}#formulation-results">Retour à la liste</a>{% else %}<a class="btn" href="{{ practice_url }}#formulation-results">Pratiquer cette sélection</a>{% endif %}
+      {% endif %}
+    </div>
+    <p class="muted">« Apprise » signifie : je peux reproduire cette construction et l’adapter. Ce n’est ni une note automatique ni une réponse complète à mémoriser.</p>
+    {% if practice and rows %}
+      <div data-formulation-practice data-previous-url="{{ previous_url }}#formulation-results" data-next-url="{{ next_url }}#formulation-results">
+        <p aria-live="polite">Formulation {{ position }} sur {{ result_count }}</p>
+        {% for row in rows %}
+          <article class="card formulation-row flashcard-deck__card" id="formulation-{{ row.entry.slug }}" data-flashcard-card tabindex="0">
+            <div data-flashcard-front>
+              <p class="eyebrow">{{ row.category.title }}</p>
+              <h3>{{ row.entry.label }}</h3>
+              <p>{{ row.entry.usage }}</p>
+              <p class="muted">Retrouvez la construction en français, puis adaptez-la : {{ row.entry.transfer_prompt }}</p>
+            </div>
+            <details data-formulation-answer>
+              <summary>Révéler la formulation et l’exemple</summary>
+              <div data-flashcard-back>
+                {% include "study/partials/formulation_content.html" %}
+              </div>
+            </details>
+          </article>
+          {% include "study/partials/formulation_learned.html" %}
+        {% endfor %}
+        <div data-formulation-controls hidden>
+          {% include "study/partials/flashcard_controls.html" %}
+          {% include "study/partials/flashcard_keyboard_hint.html" %}
+        </div>
+        <nav class="formulation-native-navigation" aria-label="Navigation des formulations" data-formulation-native-navigation>
+          {% if previous_url %}<a class="btn" href="{{ previous_url }}#formulation-results">Précédente</a>{% endif %}
+          {% if next_url %}<a class="btn" href="{{ next_url }}#formulation-results">Suivante</a>{% endif %}
+        </nav>
+      </div>
+    {% elif rows %}
+      <ol class="formulation-list">
+        {% for row in rows %}
+          <li class="card formulation-row" id="formulation-{{ row.entry.slug }}">
+            <div class="formulation-row__heading"><p class="eyebrow">{{ row.category.title }}{% if row.entry.essential %} · Essentiel{% endif %}</p><span class="progress-status progress-status--{% if row.learned %}done{% else %}new{% endif %}">{% if row.learned %}Apprise{% else %}À apprendre{% endif %}</span></div>
+            <h3>{{ row.entry.label }}</h3>
+            <p class="formulation-french" lang="fr">{{ row.entry.french }}</p>
+            {% include "study/partials/prompt_copy_button.html" with button_class="btn" source_id=row.copy_id label="Copier la formulation" toast_message="Formulation copiée." only %}
+            {{ row.entry.french|json_script:row.copy_id }}
+            <details><summary>Comprendre et adapter</summary>
+              {% include "study/partials/formulation_teaching.html" %}
+            </details>
+            {% include "study/partials/formulation_learned.html" %}
+          </li>
+        {% endfor %}
+      </ol>
+    {% else %}
+      <div class="card formulation-empty"><h3>Aucune formulation dans cette sélection</h3><p>Modifiez les filtres ou retrouvez toutes les formulations.</p><a class="btn" href="{% url 'study:ee_formulations' %}">Réinitialiser les filtres</a></div>
+    {% endif %}
+  </section>
+  <details class="formulation-archives"><summary>Anciennes mémoires (archives)</summary><p>Vos anciennes notes, surlignages et cases apprises sont conservés ici. Ils ne comptent pas dans la nouvelle progression.</p><nav aria-label="Mémoires archivées">{% for number in "1234" %}<a class="btn" href="{% url 'study:task_memory_detail' 'ee' 'tache-3' number %}">Mémoire {{ number }} · archive</a>{% endfor %}</nav></details>
+</div>
+{% endblock %}
+{% block scripts %}
+{{ block.super }}
+<script src="{% static 'study/js/prompt-copy.js' %}?v=2"></script>
+{% if practice %}<script src="{% static 'study/js/formulations.js' %}?v=1"></script>{% endif %}
+{% endblock %}

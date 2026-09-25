@@ -5,13 +5,14 @@ Parameters:
   annotation — Annotation instance.
   variant    — "notes" | "highlights" | "search".
 {% endcomment %}
+{% load study_links %}
 {% if variant == "search" %}
   <a class="linkbtn annotation-text-action" href="{{ annotation.notes_url }}" aria-label="Ouvrir dans mes notes" title="Ouvrir">
     <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5H5v14h14v-3M11 13l8-8M13 5h6v6"></path></svg>
     <span>Ouvrir</span>
   </a>
   {% if annotation.source_path %}
-    <a class="linkbtn annotation-text-action" href="{{ annotation.source_path }}" aria-label="Voir la source" title="Voir la source">
+    <a class="linkbtn annotation-text-action" href="{% annotation_source_url annotation %}" aria-label="Voir la source" title="Voir la source">
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M14 7l5 5-5 5"></path></svg>
       <span>Source</span>
     </a>

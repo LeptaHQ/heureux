@@ -1,0 +1,272 @@
+from urllib.parse import parse_qs, urlsplit
+
+from django.db import connection
+from django.test import TestCase
+from django.test.utils import CaptureQueriesContext
+from django.urls import reverse
+from django.utils import timezone
+
+from study import queue
+from study.formulation_progress import formulation_progress
+from study.models import (
+    Annotation, Card, CardState, MemoryQuestionProgress, Phrase,
+    PhraseTier, ReviewSession, ThemeVocabularyProgress,
+)
+from study.retirement import active_phrases
+from study.views.helpers import expression_task_summaries, _task_card
+from . import factories
+from .formulation_fixtures import THEMES, formulation_catalog, mock_catalog
+
+
+class FormulationExperienceTests(TestCase):
+    def setUp(self):
+        self.user = factories.make_user()
+        self.other = factories.make_user()
+        self.task = factories.make_task(factories.make_part("ee"), "tache-3")
+        self.theme = factories.make_theme("ee-tache-3-education", task=self.task)
+        self.response = factories.make_response(theme=self.theme)
+        self.catalog = formulation_catalog(self.response.content_key)
+        self.mocks = mock_catalog(self.catalog)
+        self.addCleanup(self.mocks.close)
+        self.client.force_login(self.user)
+        self.url = reverse("study:ee_formulations")
+
+    def test_list_first_complete_teaching_and_scoped_source(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'class="formulation-list"')
+        self.assertNotContains(response, "data-formulation-practice")
+        self.assertContains(response, "Fonctions d’écriture")
+        self.assertContains(response, "Arguments par thème")
+        self.assertContains(response, "Sens en anglais")
+        self.assertContains(response, "Construction et grammaire")
+        self.assertContains(response, "Exemple du modèle de référence")
+        self.assertContains(response, "Je sais reproduire et adapter")
+        self.assertContains(response, reverse("study:response_detail", args=[
+            "ee", "tache-3", self.response.prompts.first().pk,
+        ]))
+        self.assertNotContains(response, 'data-annotation-source-key="formulation')
+        self.assertNotContains(response, 'name="transfer_response"')
+
+    def test_all_themes_and_accent_insensitive_search(self):
+        for theme in THEMES:
+            response = self.client.get(self.url, {"theme": theme, "q": "PREVENTION"})
+            self.assertEqual(response.context["result_count"], 1)
+            self.assertEqual(response.context["rows"][0]["entry"].themes, (theme,))
+        response = self.client.get(self.url, {"essential": "1", "category": "affirmation"})
+        self.assertEqual(response.context["result_count"], 2)
+        response = self.client.get(self.url, {"q": "not-a-real-search"})
+        self.assertContains(response, "Aucune formulation dans cette sélection")
+        self.assertContains(response, "Réinitialiser les filtres")
+
+    def test_filter_ids_duplicates_and_open_redirects(self):
+        for query in (
+            "theme=invalid", "category=invalid", "status=invalid", "essential=2",
+            "mode=flashcards", "entry=missing", "theme=education&theme=education",
+            "q=a&q=b", "q=" + "x" * 201,
+        ):
+            self.assertEqual(self.client.get(self.url + "?" + query).status_code, 404)
+        response = self.client.post(reverse("study:ee_formulation_progress", args=["cadre-0"]), {
+            "completed": "1", "next": "https://example.invalid/", "q": "prevention",
+        })
+        self.assertEqual(urlsplit(response.url).netloc, "")
+        self.assertEqual(parse_qs(urlsplit(response.url).query), {"q": ["prevention"]})
+
+    def test_native_post_private_state_context_and_legacy_retention(self):
+        legacy = MemoryQuestionProgress.objects.create(
+            user=self.user, memory_number=1, question_key="legacy-question",
+        )
+        other = MemoryQuestionProgress.objects.create(
+            user=self.other, memory_number=1, question_key=self.catalog.entries[0].content_key,
+        )
+        self.assertEqual(formulation_progress(self.user)[1].completed, 0)
+        params = {
+            "completed": "1", "q": "prévention", "theme": "education",
+            "category": "affirmation", "status": "new", "essential": "1",
+            "mode": "practice", "entry": "cadre-0",
+        }
+        url = reverse("study:ee_formulation_progress", args=["cadre-0"])
+        self.assertEqual(self.client.get(url).status_code, 405)
+        result = self.client.post(url, params)
+        expected = {key: [value] for key, value in params.items() if key != "completed"}
+        self.assertEqual(parse_qs(urlsplit(result.url).query), expected)
+        self.assertEqual(formulation_progress(self.user)[1].completed, 1)
+        self.assertEqual(self.client.get(result.url).context["result_count"], 0)
+        self.client.post(url, {"completed": "0"})
+        self.assertEqual(formulation_progress(self.user)[1].completed, 0)
+        self.assertTrue(MemoryQuestionProgress.objects.filter(pk=legacy.pk).exists())
+        self.assertTrue(MemoryQuestionProgress.objects.filter(pk=other.pk).exists())
+        self.assertEqual(self.client.post(url, {"completed": "maybe"}).status_code, 400)
+        self.assertEqual(self.client.post(url + "?next=bad", {"completed": ["0", "1"]}).status_code, 400)
+
+    def test_explicit_practice_reveals_and_preserves_selection(self):
+        response = self.client.get(self.url, {"essential": "1", "mode": "practice"})
+        self.assertContains(response, "data-formulation-practice")
+        self.assertContains(response, "Révéler la formulation et l’exemple")
+        self.assertContains(response, "data-flashcard-controls")
+        self.assertContains(response, "data-prompt-copy")
+        self.assertContains(response, "Formulation 1 sur 2")
+        self.assertEqual(response.context["rows"][0]["entry"].slug, "cadre-0")
+        next_url = response.context["next_url"]
+        response = self.client.get(next_url)
+        self.assertEqual(response.context["position"], 2)
+        self.assertEqual(response.context["next_url"], "")
+
+    def test_sources_are_batched_and_never_link_to_other_task(self):
+        with CaptureQueriesContext(connection) as queries:
+            self.client.get(self.url)
+        source_queries = [
+            query["sql"] for query in queries
+            if 'FROM "study_prompt"' in query["sql"]
+            and '"study_response"."content_key" IN' in query["sql"]
+        ]
+        self.assertEqual(len(source_queries), 1)
+        self.theme.task = factories.make_task(factories.make_part("eo"))
+        self.theme.save()
+        response = self.client.get(self.url)
+        self.assertTrue(all(not row["source_url"] for row in response.context["rows"]))
+
+    def test_rollups_use_new_namespace_not_archived_memory(self):
+        MemoryQuestionProgress.objects.create(
+            user=self.user, memory_number=1, question_key="legacy-question",
+        )
+        summaries = expression_task_summaries(timezone.now(), self.user, [self.task])
+        self.assertEqual(summaries[self.task.pk]["formulation_progress"].completed, 0)
+        self.assertEqual(summaries[self.task.pk]["stats"]["total"], 1 + len(self.catalog.entries))
+        card = _task_card(self.task, timezone.now(), self.user, summaries=summaries)
+        self.assertEqual(card["question_bank"]["question_count"], len(self.catalog.entries))
+        self.assertEqual(card["question_bank"]["subject_count"], 1)
+
+    def test_old_lists_redirect_numbered_memories_stay_archived(self):
+        for route, args in (
+            ("task_memories", ["ee", "tache-3"]),
+            ("task_phrases", ["ee", "tache-3"]),
+            ("task_vocabulary_category", ["ee", "tache-3", "nuancer"]),
+        ):
+            self.assertRedirects(self.client.get(reverse("study:" + route, args=args)), self.url,
+                                 fetch_redirect_response=False)
+        for theme in THEMES:
+            response = self.client.get(reverse("study:task_vocabulary_theme", args=[
+                "ee", "tache-3", "ee-tache-3-" + theme,
+            ]))
+            self.assertEqual(response.url, self.url + "?theme=" + theme)
+        response = self.client.get(reverse("study:task_memory_detail", args=["ee", "tache-3", 1]))
+        self.assertContains(response, "Archive · Ancienne mémoire")
+        self.assertContains(response, "data-annotation-source-key=")
+
+
+class VocabularyRetirementTests(TestCase):
+    def setUp(self):
+        self.user = factories.make_user()
+        self.task = factories.make_task(factories.make_part("ee"))
+        self.theme = factories.make_theme("ee-tache-3-education", task=self.task)
+        self.spine = factories.make_spine_card(user=self.user, theme=self.theme)
+        self.prompt = self.spine.response.prompts.first()
+        self.phrase = factories.make_phrase(tier=PhraseTier.SUBJECT)
+        self.phrase.source_prompts.add(self.prompt)
+        self.card = factories.make_phrase_card(
+            user=self.user, phrase=self.phrase, state=CardState.REVIEW,
+            due=timezone.now(), interval_days=17, needs_revisit=True,
+        )
+        self.other_task = factories.make_task(factories.make_part("eo"))
+        self.other_theme = factories.make_theme("active-oral", task=self.other_task)
+        self.other_response = factories.make_response(theme=self.other_theme)
+        self.active_phrase = factories.make_phrase()
+        self.active_phrase.source_prompts.add(self.other_response.prompts.first())
+        self.active_card = factories.make_phrase_card(user=self.user, phrase=self.active_phrase)
+        self.mocks = mock_catalog(formulation_catalog())
+        self.addCleanup(self.mocks.close)
+        self.client.force_login(self.user)
+
+    def test_global_mixed_focused_and_task_queues_skip_legacy_without_mutation(self):
+        ThemeVocabularyProgress.objects.create(user=self.user, phrase=self.phrase)
+        before = Card.objects.filter(pk=self.card.pk).values().get()
+        for scope in ({}, {"kind": "vocab"}, {"kind": "weak"}, {"kind": "revisit"},
+                      {"part": "ee", "task": "tache-3"}):
+            self.assertNotIn(self.card, queue.scoped_cards(scope, user=self.user))
+        self.assertIn(self.active_card, queue.scoped_cards(user=self.user))
+        self.assertIn(self.spine, queue.scoped_cards(user=self.user))
+        self.assertEqual(before, Card.objects.filter(pk=self.card.pk).values().get())
+        self.assertTrue(Phrase.objects.filter(pk=self.phrase.pk).exists())
+        self.assertTrue(ThemeVocabularyProgress.objects.filter(phrase=self.phrase).exists())
+
+    def test_shared_with_other_active_task_or_comprehension_is_not_retired(self):
+        self.phrase.source_prompts.add(self.other_response.prompts.first())
+        self.assertIn(self.card, queue.scoped_cards({"kind": "vocab"}, user=self.user))
+        self.assertNotIn(self.card, queue.scoped_cards({"part": "ee", "task": "tache-3"}, user=self.user))
+        self.phrase.source_prompts.remove(self.other_response.prompts.first())
+        test = factories.make_comprehension_test()
+        self.phrase.source_questions.add(test.questions.first())
+        self.assertIn(self.phrase, active_phrases())
+        self.assertIn(self.card, queue.scoped_cards({"kind": "vocab"}, user=self.user))
+
+    def test_direct_theme_and_unrelated_ee_tasks(self):
+        direct = factories.make_phrase(tier=PhraseTier.THEME, vocabulary_theme=self.theme)
+        self.assertNotIn(direct, active_phrases())
+        other = factories.make_task(self.task.part, "tache-2")
+        active_theme = factories.make_theme("ee2-theme", task=other)
+        direct.vocabulary_theme = active_theme
+        direct.save()
+        self.assertIn(direct, active_phrases())
+
+    def test_explicit_bookmarks_and_saved_scopes_redirect_not_unrelated_review(self):
+        destination = reverse("study:ee_formulations")
+        for kind in ("phrase", "vocab", "theme_vocab"):
+            url = reverse("study:task_review", args=["ee", "tache-3"])
+            self.assertRedirects(self.client.get(url, {"kind": kind}), destination,
+                                 fetch_redirect_response=False)
+        self.assertRedirects(self.client.get(reverse("study:review"), {
+            "kind": "vocab", "response": self.spine.response_id,
+        }), destination, fetch_redirect_response=False)
+        scope = {"part": "ee", "task": "tache-3", "kind": "vocab"}
+        session, _ = ReviewSession.objects.update_or_create(
+            user=self.user, defaults={
+                "scope": scope, "current_card": self.card, "presentation_token": "old-token",
+            },
+        )
+        self.assertRedirects(self.client.get(reverse("study:review")), destination,
+                             fetch_redirect_response=False)
+        self.assertEqual(self.client.get(reverse("study:review_next")).status_code, 410)
+        session.refresh_from_db()
+        self.assertEqual(session.scope, scope)
+        self.assertEqual(session.current_card_id, self.card.pk)
+
+    def test_stale_mixed_review_post_cannot_grade_retired_card(self):
+        ReviewSession.objects.create(
+            user=self.user, scope={"kind": "phrase"},
+            current_card=self.card, presentation_token="old-token",
+            previous_card=self.card,
+        )
+        response = self.client.post(reverse("study:review_answer"), {
+            "card_id": self.card.pk, "presentation_token": "old-token", "rating": "3",
+        })
+        self.assertEqual(response.status_code, 404)
+        self.assertEqual(self.client.get(reverse("study:review_previous")).status_code, 404)
+        self.card.refresh_from_db()
+        self.assertEqual(self.card.interval_days, 17)
+        self.assertFalse(self.card.reviews.exists())
+
+    def test_subject_no_longer_offers_vocabulary_and_search_omits_retired_phrase(self):
+        response = self.client.get(reverse("study:response_detail", args=["ee", "tache-3", self.prompt.pk]))
+        self.assertContains(response, "Explorer les formulations")
+        self.assertNotContains(response, "Vocabulaire de ce sujet")
+        self.assertNotContains(response, "Pratiquer les vocabs")
+        response = self.client.get(reverse("study:search"), {"q": self.phrase.expression})
+        self.assertEqual(response.context["phrase_result_count"], 0)
+
+    def test_archived_phrase_note_source_is_private_and_never_reanchors_offsets(self):
+        note = Annotation.objects.create(
+            user=self.user, task=self.task, kind="highlight",
+            source_key=f"phrase:{self.phrase.phrase_id}:catalog",
+            source_path=reverse("study:task_phrases", args=["ee", "tache-3"]),
+            quote=self.phrase.expression, start_offset=2, end_offset=8,
+        )
+        original = Annotation.objects.values().get(pk=note.pk)
+        url = reverse("study:annotation_source", args=[note.pk])
+        response = self.client.get(url)
+        self.assertContains(response, "Ancienne fiche de vocabulaire")
+        self.assertContains(response, self.phrase.expression)
+        self.assertNotContains(response, "data-annotation-root")
+        self.assertEqual(Annotation.objects.values().get(pk=note.pk), original)
+        self.client.force_login(factories.make_user())
+        self.assertEqual(self.client.get(url).status_code, 404)

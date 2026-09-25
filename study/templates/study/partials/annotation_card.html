@@ -12,7 +12,7 @@ Parameters:
                which footer actions render.
   anchor_prefix — "note" | "highlight" | "annotation".
 {% endcomment %}
-{% load study_markdown %}
+{% load study_markdown study_links %}
 <article
   class="card annotation-card annotation-card--{{ annotation.kind }} annotation-card--{{ variant }}"
   data-collection-item
@@ -110,7 +110,7 @@ Parameters:
     <div class="annotation-card__context">
       <span class="annotation-card__scope">{{ annotation.scope_label }}</span>
       {% if annotation.source_path %}
-        <a class="annotation-card__source" href="{{ annotation.source_path }}">{% include "study/partials/ui_icon.html" with name="external-link" only %} {{ annotation.source_title|default:"Voir la source" }}</a>
+        <a class="annotation-card__source" href="{% annotation_source_url annotation %}">{% include "study/partials/ui_icon.html" with name="external-link" only %} {{ annotation.source_title|default:"Voir la source" }}</a>
       {% endif %}
     </div>
   {% endif %}

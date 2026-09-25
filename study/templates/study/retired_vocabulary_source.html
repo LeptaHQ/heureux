@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load study_markdown %}
+{% block title %}Source archivée · Vocabulaire EE3{% endblock %}
+{% block content %}
+<header class="page-head">
+  <p class="eyebrow">Archive · Expression écrite · Tâche 3</p>
+  <h1>Ancienne fiche de vocabulaire</h1>
+  <p>Cette fiche n’est plus proposée à l’apprentissage. Votre note et son passage d’origine sont conservés ; aucun ancien surlignage n’est repositionné sur une nouvelle formulation.</p>
+  <a class="btn" href="{% url 'study:ee_formulations' %}">Ouvrir les formulations</a>
+  <a class="btn" href="{% url 'study:notes_overview' %}">Mes notes</a>
+</header>
+<section class="card formulation-row" aria-labelledby="archived-quote-title">
+  <h2 id="archived-quote-title">Votre passage conservé</h2>
+  {% if annotation.quote %}<blockquote><mark>{{ annotation.quote }}</mark></blockquote>{% endif %}
+  {% if annotation.title %}<h3>{{ annotation.title }}</h3>{% endif %}
+  {% if annotation.body %}<div class="annotation-markdown">{{ annotation.body|markdown }}</div>{% endif %}
+</section>
+<section class="card formulation-row" aria-labelledby="archived-phrase-title">
+  <h2 id="archived-phrase-title">{{ phrase.expression }}</h2>
+  <p lang="en">{{ phrase.english_cue }}</p>
+  <p>{{ phrase.example }}</p>
+  {% if phrase.note %}<p>{{ phrase.note }}</p>{% endif %}
+</section>
+{% endblock %}

@@ -9,4 +9,4 @@
     {% include "study/partials/subject_completion_form.html" with response_id=response.pk progress=subject_progress subject_label=subject_label part=part task=task %}
   </div>
 </div>
-{% if not hide_help %}<p class="subject-progress-control__help">La pratique et le vocabulaire gardent le statut « En cours » jusqu’à votre validation.</p>{% endif %}
+{% if not hide_help %}<p class="subject-progress-control__help">{% if part.slug == "ee" and task.slug == "tache-3" %}La pratique garde le statut « En cours » jusqu’à votre validation.{% else %}La pratique et le vocabulaire gardent le statut « En cours » jusqu’à votre validation.{% endif %}</p>{% endif %}

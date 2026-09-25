@@ -1,0 +1,7 @@
+<dl class="formulation-teaching">
+  <dt>Sens en anglais</dt><dd lang="en">{{ row.entry.english }}</dd>
+  <dt>Quand l’utiliser</dt><dd>{{ row.entry.usage }}</dd>
+  <dt>Construction et grammaire</dt><dd>{{ row.entry.grammar }}</dd>
+  <dt>Exemple du modèle de référence</dt><dd><blockquote lang="fr">{{ row.entry.example }}</blockquote><p lang="en">{{ row.entry.example_english }}</p>{% if row.source_url %}<a href="{{ row.source_url }}">Voir le sujet et sa réponse</a>{% endif %}</dd>
+  <dt>À vous d’adapter</dt><dd>{{ row.entry.transfer_prompt }}<p class="muted">Dites ou écrivez votre phrase sur votre propre support. Cet exercice n’est ni enregistré ni corrigé automatiquement.</p></dd>
+</dl>

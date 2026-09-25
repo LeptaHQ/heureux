@@ -40,7 +40,7 @@
               </span>
               <span class="tache-two-batch-table__month-copy">
                 <strong>{{ month.name }}</strong>
-                <span>Mois {{ month.number_label }} · {{ month.subject_count }} sujets · {{ month.vocabulary_count }} vocabs</span>
+                <span>Mois {{ month.number_label }} · {{ month.subject_count }} sujets</span>
               </span>
               <span class="tache-two-batch-table__month-progress">
                 <span class="progress-status progress-status--{{ month.progress.status }}">{{ month.progress.label }}</span>
@@ -68,7 +68,7 @@
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Ouvrir le sujet : {{ subject.prompt.text }}">{{ subject.prompt.text }}</a>
-              <span>{{ subject.document_count }} documents · {{ subject.vocabulary_count }} vocabs</span>
+              <span>{{ subject.document_count }} documents</span>
             </td>
             <td class="ee-t3-subject-table__progress-cell">
               <div class="ee-t3-subject-table__progress">

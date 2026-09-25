@@ -15,6 +15,12 @@
     <span><b>{{ response_due }}</b> disponibles</span>
   </div>
 </header>
+{% if part.slug == "ee" and task.slug == "tache-3" %}
+<section class="practice-launcher" aria-labelledby="formulation-practice-title">
+  <div><h2 id="formulation-practice-title">Pratiquer les formulations</h2><p>Retrouver une construction et l’adapter à un autre sujet, sans notation automatique.</p></div>
+  <a class="btn" href="{% url 'study:ee_formulations' %}?essential=1&amp;mode=practice">Pratiquer les essentiels</a>
+</section>
+{% endif %}
 
 {% if can_resume %}
   <a class="resume-review" href="{{ resume_url }}">

@@ -1,7 +1,7 @@
 from django.urls import path, register_converter
 
 from . import views
-from .views import course
+from .views import course, formulations, notes
 
 
 class ExpressionPartConverter:
@@ -311,6 +311,7 @@ urlpatterns = [
         name="annotations_for_source",
     ),
     path("notes/ajouter/", views.annotation_create, name="annotation_create"),
+    path("notes/<int:pk>/source/", notes.annotation_source, name="annotation_source"),
     path(
         "notes/<int:pk>/modifier/",
         views.annotation_update,
@@ -346,6 +347,16 @@ urlpatterns = [
     path("revision/annuler/", views.review_undo, name="review_undo"),
     path("revision/a-revoir/", views.revisit_list, name="revisit_list"),
     # Expression écrite (EE) and expression orale (EO)
+    path(
+        "expression/ecrite/tache-3/formulations/",
+        formulations.formulations,
+        name="ee_formulations",
+    ),
+    path(
+        "expression/ecrite/tache-3/formulations/progression/<slug:slug>/",
+        formulations.formulation_learned,
+        name="ee_formulation_progress",
+    ),
     path(
         "expression/<expression_part:part_slug>/",
         views.part_detail,

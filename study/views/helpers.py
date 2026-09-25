@@ -11,6 +11,8 @@ from django.utils import timezone
 from .. import catalogue
 from .. import content_loader as content_module
 from .. import queue as queue_module
+from ..ee_formulations import get_ee_formulations
+from ..formulation_progress import formulation_progress
 from ..models import (
     Card,
     CardState,
@@ -1334,6 +1336,35 @@ def _task_card(
         functional_phrase_count = 0
         subject_vocabulary_count = 0
         subject_vocabulary_prompt_count = 0
+    if task.available and with_stats and task_key == content_module.EE_TACHE_THREE_TASK:
+        catalog = get_ee_formulations()
+        formulation_state = (summary or {}).get("formulation_progress")
+        if formulation_state is None:
+            _, formulation_state = formulation_progress(user, catalog)
+        subject_summary = (summary or {}).get("subject_stats", response_stats)
+        total_progress = combine_progress([subject_summary["progress"], formulation_state])
+        response_stats = subject_summary
+        stats = {
+            **subject_summary,
+            "progress": total_progress,
+            "total": total_progress.total,
+            "completed": total_progress.completed,
+            "seen": total_progress.started,
+            "started_new": max(total_progress.started - total_progress.completed, 0),
+        }
+        question_bank = {
+            "title": "Formulations",
+            "formulations": True,
+            "category_count": len(catalog.categories),
+            "question_count": len(catalog.entries),
+            "subject_count": subject_summary["total"],
+            "progress": total_progress,
+            "memory_progress": formulation_state,
+            "subject_progress": subject_summary["progress"],
+            "active_count": max(total_progress.started - total_progress.completed, 0),
+        }
+        phrase_count = functional_phrase_count = subject_vocabulary_count = 0
+        subject_vocabulary_prompt_count = 0
     return {
         "task": task,
         "stats": stats,
@@ -1596,6 +1627,21 @@ def expression_task_summaries(now, user, tasks, content_counts=None):
         # subject summary carries.
         stats["due"] = due_by_task.get(task_id, 0)
         summaries[task_id]["stats"] = stats
+
+    if ee_tache_three_task_id is not None:
+        _, formulation_state = formulation_progress(user)
+        summary = summaries[ee_tache_three_task_id]
+        summary["subject_stats"] = summary["stats"]
+        summary["formulation_progress"] = formulation_state
+        combined = combine_progress([summary["stats"]["progress"], formulation_state])
+        summary["stats"] = {
+            **summary["stats"],
+            "progress": combined,
+            "total": combined.total,
+            "completed": combined.completed,
+            "started_new": max(combined.started - combined.completed, 0),
+            "seen": combined.started,
+        }
 
     _writing_task_summaries(
         summaries,

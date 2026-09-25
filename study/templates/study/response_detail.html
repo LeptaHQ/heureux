@@ -144,7 +144,7 @@
         </ul>
       </div>
     {% elif response.has_aliases %}
-      <div class="card section-card response-sidebar-card response-sidebar-card--aliases" id="subject-vocabulary">
+      <div class="card section-card response-sidebar-card response-sidebar-card--aliases" {% if part.slug == "ee" and task.slug == "tache-3" %}id="subject-equivalents"{% else %}id="subject-vocabulary"{% endif %}>
         <div class="spine-label">Sujets équivalents</div>
         <ul class="mini-list">
           {% for p in prompts %}
@@ -159,6 +159,13 @@
       </div>
     {% endif %}
 
+    {% if part.slug == "ee" and task.slug == "tache-3" %}
+      <section class="card section-card" id="subject-vocabulary">
+        <h2>Formulations</h2>
+        <p>Le vocabulaire de cette tâche a été remplacé par des constructions à comprendre et à adapter.</p>
+        <a class="btn" href="{% url 'study:ee_formulations' %}">Explorer les formulations</a>
+      </section>
+    {% endif %}
     {% if subject_vocabulary %}
       <div class="card section-card response-sidebar-card response-sidebar-card--vocabulary">
         <div class="response-batches__head">

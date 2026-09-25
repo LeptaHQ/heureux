@@ -647,7 +647,12 @@ def _subject_highlight_rows(user, response_ids):
     return rows, response_by_content_key, prompts
 
 
-def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgress]:
+def subject_progress_by_response(
+    user,
+    response_ids,
+    *,
+    summary_only=False,
+) -> dict[int, SubjectProgress]:
     """Calculate sujet progress from direct, material-specific activity."""
     response_ids = {
         int(response_id)
@@ -661,7 +666,11 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
         return {
             response_id: state
             for batch in _batches(sorted(response_ids), 800)
-            for response_id, state in subject_progress_by_response(user, batch).items()
+            for response_id, state in subject_progress_by_response(
+                user,
+                batch,
+                summary_only=summary_only,
+            ).items()
         }
 
     progress = {
@@ -706,6 +715,55 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
     # owns thousands of subject-vocabulary cards, and every page summarizing
     # several sujets at once had to pull and count each of them in Python.
     started_activity = Q(started_at__isnull=False) | ~Q(state=CardState.NEW)
+    vocabulary_aggregates = {
+        "activity_started": Count(
+            "id",
+            distinct=True,
+            filter=started_activity,
+        ),
+    }
+    if not summary_only:
+        vocabulary_aggregates.update(
+            {
+                "total": Count(
+                    "id",
+                    distinct=True,
+                    filter=Q(suspended=False),
+                ),
+                "started": Count(
+                    "id",
+                    distinct=True,
+                    filter=Q(suspended=False) & started_activity,
+                ),
+                "completed": Count(
+                    "id",
+                    distinct=True,
+                    filter=Q(suspended=False) & ~Q(state=CardState.NEW),
+                ),
+                "mastered": Count(
+                    "id",
+                    distinct=True,
+                    filter=Q(
+                        suspended=False,
+                        state=CardState.REVIEW,
+                        interval_days__gte=MATURE_INTERVAL_DAYS,
+                    ),
+                ),
+                "due": Count(
+                    "id",
+                    distinct=True,
+                    filter=Q(
+                        suspended=False,
+                        state__in=[
+                            CardState.LEARNING,
+                            CardState.RELEARNING,
+                            CardState.REVIEW,
+                        ],
+                        due__lte=now,
+                    ),
+                ),
+            }
+        )
     vocabulary_rows = (
         Card.objects.current_content()
         .filter(
@@ -716,55 +774,17 @@ def subject_progress_by_response(user, response_ids) -> dict[int, SubjectProgres
         )
         .order_by()
         .values("phrase__source_prompts__response_id")
-        .annotate(
-            activity_started=Count(
-                "id",
-                distinct=True,
-                filter=started_activity,
-            ),
-            total=Count("id", distinct=True, filter=Q(suspended=False)),
-            started=Count(
-                "id",
-                distinct=True,
-                filter=Q(suspended=False) & started_activity,
-            ),
-            completed=Count(
-                "id",
-                distinct=True,
-                filter=Q(suspended=False) & ~Q(state=CardState.NEW),
-            ),
-            mastered=Count(
-                "id",
-                distinct=True,
-                filter=Q(
-                    suspended=False,
-                    state=CardState.REVIEW,
-                    interval_days__gte=MATURE_INTERVAL_DAYS,
-                ),
-            ),
-            due=Count(
-                "id",
-                distinct=True,
-                filter=Q(
-                    suspended=False,
-                    state__in=[
-                        CardState.LEARNING,
-                        CardState.RELEARNING,
-                        CardState.REVIEW,
-                    ],
-                    due__lte=now,
-                ),
-            ),
-        )
+        .annotate(**vocabulary_aggregates)
     )
     for row in vocabulary_rows:
         values = progress[row["phrase__source_prompts__response_id"]]
         values["vocabulary_activity_started"] = bool(row["activity_started"])
-        values["vocabulary_total"] = row["total"]
-        values["vocabulary_started"] = row["started"]
-        values["vocabulary_completed"] = row["completed"]
-        values["vocabulary_mastered"] = row["mastered"]
-        values["vocabulary_due"] = row["due"]
+        if not summary_only:
+            values["vocabulary_total"] = row["total"]
+            values["vocabulary_started"] = row["started"]
+            values["vocabulary_completed"] = row["completed"]
+            values["vocabulary_mastered"] = row["mastered"]
+            values["vocabulary_due"] = row["due"]
 
     highlight_rows, response_by_content_key, prompt_rows = _subject_highlight_rows(
         user, response_ids,

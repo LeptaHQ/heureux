@@ -371,6 +371,31 @@ def export_account(request):
     for card in (
         Card.objects.filter(user=request.user)
         .select_related("response", "phrase")
+        .only(
+            "pk",
+            "card_type",
+            "response_id",
+            "response__content_key",
+            "phrase_id",
+            "phrase__phrase_id",
+            "state",
+            "due",
+            "interval_days",
+            "ease",
+            "reps",
+            "lapses",
+            "learning_step",
+            "last_reviewed",
+            "last_rating",
+            "projection_review_boundary",
+            "needs_revisit",
+            "revisit_added_at",
+            "suspended",
+            "started_at",
+            "response_practice_started_at",
+            "subject_completed_at",
+            "created_at",
+        )
         .order_by("pk")
     ):
         cards.append(
@@ -462,18 +487,54 @@ def export_account(request):
         }
         for personal in PersonalResponse.objects.filter(
             user=request.user
-        ).select_related("response")
+        )
+        .select_related("response")
+        .only(
+            "response_id",
+            "response__content_key",
+            "source_prompt_id",
+            "is_active",
+            "reformulation",
+            "position",
+            "position_claire",
+            "arguments",
+            "nuance",
+            "conclusion",
+            "created_at",
+            "updated_at",
+        )
     ]
     comprehension_attempts = []
     for attempt in (
         ComprehensionAttempt.objects.filter(user=request.user)
         .select_related("test")
+        .only(
+            "test_id",
+            "test__slug",
+            "status",
+            "current_question",
+            "score",
+            "total_questions",
+            "content_snapshot",
+            "started_at",
+            "updated_at",
+            "completed_at",
+        )
         .prefetch_related(
             Prefetch(
                 "answers",
                 queryset=ComprehensionAnswer.objects.select_related(
                     "question",
                     "selected_choice",
+                ).only(
+                    "attempt_id",
+                    "question_id",
+                    "question__content_key",
+                    "selected_choice_id",
+                    "selected_choice__letter",
+                    "is_correct",
+                    "question_snapshot",
+                    "submitted_at",
                 ),
             )
         )

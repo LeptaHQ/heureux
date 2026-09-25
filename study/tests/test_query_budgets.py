@@ -27,8 +27,10 @@ from study.models import (
     Card,
     CardState,
     CardType,
+    ComprehensionAttemptStatus,
     ComprehensionMode,
     ComprehensionTest,
+    ContentImportState,
     MemoryQuestionProgress,
     PersonalResponse,
     Phrase,
@@ -48,7 +50,7 @@ from study.views.helpers import (
     deck_stats,
     review_day_counts,
 )
-from study.views.library import _distinct_count
+from study.views.library import _distinct_count, _limited_results
 
 from . import factories
 
@@ -530,6 +532,19 @@ class ReviewHubEqualityTests(TestCase):
                 user=self.user,
             ).count(),
         )
+
+    def test_review_hub_keeps_one_batched_aggregate_per_scope(self):
+        url = reverse(
+            "study:task_review_hub",
+            args=[self.part.slug, self.task.slug],
+        )
+        self.client.get(url)
+
+        with CaptureQueriesContext(connection) as queries:
+            response = self.client.get(url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertLessEqual(len(queries.captured_queries), 11)
 
 
 class ThemeVocabularyDirectoryEqualityTests(TestCase):
@@ -1189,6 +1204,190 @@ class DashboardBudgetTests(QueryBudgetTestCase):
         for url in pages:
             with self.subTest(url=url):
                 self.assertEqual(self._query_count(url), before[url])
+
+    def test_summary_progress_matches_full_subject_statuses(self):
+        response_ids = set(
+            Response.objects.filter(
+                theme__task__part=self.part,
+            ).values_list("pk", flat=True)
+        )
+
+        detailed = subject_progress_by_response(self.user, response_ids)
+        lightweight = subject_progress_by_response(
+            self.user,
+            response_ids,
+            summary_only=True,
+        )
+
+        self.assertEqual(
+            {
+                response_id: (
+                    progress.status,
+                    progress.explicitly_completed,
+                )
+                for response_id, progress in lightweight.items()
+            },
+            {
+                response_id: (
+                    progress.status,
+                    progress.explicitly_completed,
+                )
+                for response_id, progress in detailed.items()
+            },
+        )
+
+
+class BoundedResultTests(TestCase):
+    """Small searches avoid a second exact-count query."""
+
+    def test_exact_count_runs_only_after_the_page_overflows(self):
+        task = factories.make_task(
+            factories.make_part("eo"),
+            "bounded-search",
+        )
+        theme = factories.make_theme("bounded-search-theme", task=task)
+        for _ in range(3):
+            factories.make_response(theme=theme)
+
+        queryset = Response.objects.filter(theme=theme).order_by("pk")
+        with self.assertNumQueries(1):
+            rows, total = _limited_results(queryset, 12)
+        self.assertEqual(len(rows), 3)
+        self.assertEqual(total, 3)
+
+        for _ in range(12):
+            factories.make_response(theme=theme)
+
+        with self.assertNumQueries(2):
+            rows, total = _limited_results(queryset, 12)
+        self.assertEqual(len(rows), 12)
+        self.assertEqual(total, 15)
+
+
+class ComprehensionHistoryVolumeTests(QueryBudgetTestCase):
+    """History summaries never transfer every attempt's pinned JSON."""
+
+    def setUp(self):
+        self.user = factories.make_user("history-volume")
+        self.client.force_login(self.user)
+        self.test = factories.make_comprehension_test(
+            number=1,
+            question_count=2,
+        )
+        for index in range(20):
+            attempt = factories.make_comprehension_attempt(
+                user=self.user,
+                test=self.test,
+                status=ComprehensionAttemptStatus.COMPLETED,
+                answered_questions=(index % 2) + 1,
+            )
+            attempt.content_snapshot = {
+                "questions": [],
+                "padding": "x" * 20_000,
+            }
+            attempt.save(update_fields=["content_snapshot"])
+
+    def _assert_attempt_snapshots_not_selected(self, url):
+        self.client.get(url)
+        with CaptureQueriesContext(connection) as queries:
+            response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+        attempt_selects = [
+            query["sql"]
+            for query in queries.captured_queries
+            if 'FROM "study_comprehensionattempt"' in query["sql"]
+            and query["sql"].lstrip().upper().startswith("SELECT")
+        ]
+        self.assertTrue(attempt_selects)
+        self.assertTrue(
+            all('"content_snapshot"' not in sql for sql in attempt_selects)
+        )
+
+    def test_hub_uses_scalar_history_rows(self):
+        self._assert_attempt_snapshots_not_selected(
+            reverse("study:comprehension_hub")
+        )
+
+    def test_test_detail_defers_attempt_snapshots(self):
+        self._assert_attempt_snapshots_not_selected(
+            reverse("study:comprehension_test", args=[self.test.slug])
+        )
+
+
+class ProvisioningPayloadTests(TestCase):
+    """Login provisioning reads catalogue identifiers, not full content."""
+
+    def test_catalogue_scans_select_only_identifiers(self):
+        user = factories.make_user("provisioning-payload")
+        factories.make_response()
+        factories.make_phrase()
+
+        with CaptureQueriesContext(connection) as queries:
+            provision_user_study_data(user)
+
+        response_selects = [
+            query["sql"]
+            for query in queries.captured_queries
+            if 'FROM "study_response"' in query["sql"]
+            and query["sql"].lstrip().upper().startswith("SELECT")
+        ]
+        phrase_selects = [
+            query["sql"]
+            for query in queries.captured_queries
+            if 'FROM "study_phrase"' in query["sql"]
+            and query["sql"].lstrip().upper().startswith("SELECT")
+        ]
+        self.assertTrue(response_selects)
+        self.assertTrue(phrase_selects)
+        self.assertTrue(
+            all('"body"' not in sql for sql in response_selects)
+        )
+        self.assertTrue(
+            all('"expression"' not in sql for sql in phrase_selects)
+        )
+
+    def test_matching_content_revision_skips_catalogue_rescan(self):
+        ContentImportState.objects.create(
+            key="bundled",
+            fingerprint="revision-a",
+        )
+        user = factories.make_user("revision-provisioning")
+        response = factories.make_response()
+        provision_user_study_data(user)
+
+        with CaptureQueriesContext(connection) as queries:
+            provision_user_study_data(user)
+
+        sql = "\n".join(
+            query["sql"] for query in queries.captured_queries
+        )
+        self.assertNotIn('FROM "study_response"', sql)
+        self.assertNotIn('FROM "study_phrase"', sql)
+        self.assertNotIn('FROM "study_card"', sql)
+
+        added_response = factories.make_response(theme=response.theme)
+        ContentImportState.objects.filter(pk="bundled").update(
+            fingerprint="revision-b",
+        )
+        provision_user_study_data(user)
+
+        self.assertTrue(
+            Card.objects.filter(
+                user=user,
+                card_type=CardType.SPINE,
+                response=added_response,
+            ).exists()
+        )
+
+        forced_response = factories.make_response(theme=response.theme)
+        provision_user_study_data(user, force=True)
+        self.assertTrue(
+            Card.objects.filter(
+                user=user,
+                card_type=CardType.SPINE,
+                response=forced_response,
+            ).exists()
+        )
 
 
 class DistinctCountTests(TestCase):

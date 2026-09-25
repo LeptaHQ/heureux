@@ -115,15 +115,31 @@ from .helpers import (
     review_batches_from_rows,
     summarize_review_batches,
 )
-def _subject_stats_for_themes(themes, user, now=None):
-    now = now or timezone.now()
+def _prompt_response_ids_by_theme(themes):
     response_ids_by_theme = {theme.pk: set() for theme in themes}
+    prompt_counts = {theme.pk: 0 for theme in themes}
     for theme_id, response_id in Prompt.objects.filter(
         theme_id__in=response_ids_by_theme,
         is_active=True,
         response__is_active=True,
     ).values_list("theme_id", "response_id"):
         response_ids_by_theme[theme_id].add(response_id)
+        prompt_counts[theme_id] += 1
+    return response_ids_by_theme, prompt_counts
+
+
+def _subject_stats_for_themes(
+    themes,
+    user,
+    now=None,
+    *,
+    response_ids_by_theme=None,
+):
+    now = now or timezone.now()
+    if response_ids_by_theme is None:
+        response_ids_by_theme, _prompt_counts = (
+            _prompt_response_ids_by_theme(themes)
+        )
     response_ids = {
         response_id
         for theme_response_ids in response_ids_by_theme.values()
@@ -1182,12 +1198,15 @@ def task_detail(request, part_slug, task_slug):
         )
 
     active_themes = list(Theme.objects.filter(task=task, is_active=True))
+    response_ids_by_theme, prompt_counts = _prompt_response_ids_by_theme(
+        active_themes
+    )
     theme_stats, response_progress, due_response_ids = _subject_stats_for_themes(
         active_themes,
         request.user,
         now,
+        response_ids_by_theme=response_ids_by_theme,
     )
-    prompt_counts = _prompt_counts_by_theme(task=task)
     themes = [
         {
             "theme": theme,
@@ -1198,36 +1217,10 @@ def task_detail(request, part_slug, task_slug):
     ]
     response_stats = summarize_subject_progress(response_progress.values())
     response_stats["due"] = len(due_response_ids)
-    # The catalogue counts this page shows all read the same phrase and prompt
-    # tables, so they are one grouped scan each instead of four.
-    task_phrase_counts = _task_phrases(task).aggregate(
-        functional=Count(
-            "pk",
-            distinct=True,
-            filter=Q(category__name__in=FUNCTIONAL_PHRASE_CATEGORY_NAMES),
-        ),
-        functional_categories=Count(
-            "category_id",
-            distinct=True,
-            filter=Q(category__name__in=FUNCTIONAL_PHRASE_CATEGORY_NAMES),
-        ),
-    )
-    phrase_count = task_phrase_counts["functional"]
     is_eo_tache_three = (
         task.part.slug,
         task.slug,
     ) == content_module.EO_TACHE_THREE_TASK
-    subject_vocabulary_count = 0
-    if not is_eo_tache_three:
-        subject_vocabulary_count = _distinct_count(
-            Phrase.objects.filter(
-                is_active=True,
-                tier=PhraseTier.SUBJECT,
-                source_prompts__is_active=True,
-                source_prompts__theme__is_active=True,
-                source_prompts__theme__task=task,
-            )
-        )
     context = {
         "part": task.part,
         "task": task,
@@ -1235,9 +1228,6 @@ def task_detail(request, part_slug, task_slug):
         "stats": response_stats,
         "response_stats": response_stats,
         "prompt_count": sum(prompt_counts.values()),
-        "phrase_count": phrase_count,
-        "phrase_category_count": task_phrase_counts["functional_categories"],
-        "vocabulary_entry_count": phrase_count + subject_vocabulary_count,
     }
     if is_eo_tache_three:
         vocabulary_context = (
@@ -1256,6 +1246,41 @@ def task_detail(request, part_slug, task_slug):
             "study/eo_tache_three_overview.html",
             context,
         )
+    # The catalogue counts this page shows all read the same phrase and prompt
+    # tables, so they are one grouped scan each instead of four.
+    task_phrase_counts = _task_phrases(task).aggregate(
+        functional=Count(
+            "pk",
+            distinct=True,
+            filter=Q(category__name__in=FUNCTIONAL_PHRASE_CATEGORY_NAMES),
+        ),
+        functional_categories=Count(
+            "category_id",
+            distinct=True,
+            filter=Q(category__name__in=FUNCTIONAL_PHRASE_CATEGORY_NAMES),
+        ),
+    )
+    phrase_count = task_phrase_counts["functional"]
+    subject_vocabulary_count = _distinct_count(
+        Phrase.objects.filter(
+            is_active=True,
+            tier=PhraseTier.SUBJECT,
+            source_prompts__is_active=True,
+            source_prompts__theme__is_active=True,
+            source_prompts__theme__task=task,
+        )
+    )
+    context.update(
+        {
+            "phrase_count": phrase_count,
+            "phrase_category_count": task_phrase_counts[
+                "functional_categories"
+            ],
+            "vocabulary_entry_count": (
+                phrase_count + subject_vocabulary_count
+            ),
+        }
+    )
     return render(request, "study/task_detail.html", context)
 
 
@@ -1263,6 +1288,25 @@ def _scope_filters(request, forced_task=None, forced_part_slug=None):
     """Build canonical path-based part/task filters for progression pages."""
     if "part" in request.GET or "task" in request.GET:
         raise Http404
+    if forced_task is not None:
+        scope = _task_scope(forced_task)
+        return {
+            "filter_base": reverse("study:stats"),
+            "filter_parts": [],
+            "active_part": forced_task.part.slug,
+            "active_task": forced_task.slug,
+            "active_part_tasks": [],
+            "active_part_url": reverse(
+                "study:part_stats",
+                args=[forced_task.part.slug],
+            ),
+            "scope_review_url": review_url({**scope, "kind": "spine"}),
+            "scope_label": scope_label(scope),
+            "scope": scope,
+            "task": forced_task,
+            "part": forced_task.part,
+            "task_locked": True,
+        }
 
     selected_task = forced_task
     selected_part = None
@@ -1366,16 +1410,23 @@ def _scope_filters(request, forced_task=None, forced_part_slug=None):
     }
 
 
-def _oral_subject_themes(themes, response_progress, *, deduplicate=False):
+def _oral_subject_themes(
+    themes,
+    response_progress,
+    *,
+    deduplicate=False,
+    prompts=None,
+):
     family_labels = catalogue.eo_tache_three_family_labels()
     subjects_by_theme = {item["theme"].pk: [] for item in themes}
-    prompts = (
-        Prompt.objects.filter(
-            theme_id__in=subjects_by_theme,
-            is_active=True,
-            response__is_active=True,
-        ).select_related("family").order_by("number", "pk")
-    )
+    if prompts is None:
+        prompts = (
+            Prompt.objects.filter(
+                theme_id__in=subjects_by_theme,
+                is_active=True,
+                response__is_active=True,
+            ).select_related("family").order_by("number", "pk")
+        )
     for prompt in prompts:
         subjects_by_theme[prompt.theme_id].append(
             {
@@ -1572,11 +1623,39 @@ def browse(request, part_slug=None, task_slug=None):
         theme_qs = theme_qs.filter(task__part__slug=scope["part"])
 
     theme_rows = list(theme_qs)
+    oral_directory = bool(
+        forced_task
+        and (
+            forced_task.part.slug,
+            forced_task.slug,
+        )
+        == content_module.EO_TACHE_THREE_TASK
+    )
+    oral_prompts = None
+    if oral_directory:
+        oral_prompts = list(
+            Prompt.objects.filter(
+                theme_id__in=[theme.pk for theme in theme_rows],
+                is_active=True,
+                response__is_active=True,
+            )
+            .select_related("family")
+            .order_by("number", "pk")
+        )
+        response_ids_by_theme = {theme.pk: set() for theme in theme_rows}
+        prompt_counts = {theme.pk: 0 for theme in theme_rows}
+        for prompt in oral_prompts:
+            response_ids_by_theme[prompt.theme_id].add(prompt.response_id)
+            prompt_counts[prompt.theme_id] += 1
+    else:
+        response_ids_by_theme, prompt_counts = (
+            _prompt_response_ids_by_theme(theme_rows)
+        )
     theme_stats, response_progress, _due_response_ids = _subject_stats_for_themes(
         theme_rows,
         request.user,
+        response_ids_by_theme=response_ids_by_theme,
     )
-    prompt_counts = _prompt_counts_by_theme(theme_rows)
     themes = [
         {
             "theme": theme,
@@ -1585,84 +1664,80 @@ def browse(request, part_slug=None, task_slug=None):
         }
         for theme in theme_rows
     ]
-    family_qs = Family.objects.filter(is_active=True)
-    if scope.get("task"):
-        family_qs = family_qs.filter(
-            prompts__is_active=True,
-            prompts__theme__task__slug=scope["task"],
-            prompts__theme__task__part__slug=scope["part"],
-        )
-    elif scope.get("part"):
-        family_qs = family_qs.filter(
-            prompts__is_active=True,
-            prompts__theme__task__part__slug=scope["part"]
-        )
-    families = list(
-        family_qs.annotate(
-            n=Count(
-                "prompts",
-                filter=Q(prompts__is_active=True),
-                distinct=True,
+    families = []
+    response_ids_by_family = {}
+    if not oral_directory:
+        family_qs = Family.objects.filter(is_active=True)
+        if scope.get("task"):
+            family_qs = family_qs.filter(
+                prompts__is_active=True,
+                prompts__theme__task__slug=scope["task"],
+                prompts__theme__task__part__slug=scope["part"],
             )
-        ).order_by("order")
-    )
-    response_ids_by_family = {family.pk: set() for family in families}
-    family_prompts = Prompt.objects.filter(
-        family_id__in=response_ids_by_family,
-        is_active=True,
-        response__is_active=True,
-        theme__is_active=True,
-    )
-    if scope.get("task"):
-        family_prompts = family_prompts.filter(
-            theme__task__slug=scope["task"],
-            theme__task__part__slug=scope["part"],
+        elif scope.get("part"):
+            family_qs = family_qs.filter(
+                prompts__is_active=True,
+                prompts__theme__task__part__slug=scope["part"]
+            )
+        families = list(
+            family_qs.annotate(
+                n=Count(
+                    "prompts",
+                    filter=Q(prompts__is_active=True),
+                    distinct=True,
+                )
+            ).order_by("order")
         )
-    elif scope.get("part"):
-        family_prompts = family_prompts.filter(
-            theme__task__part__slug=scope["part"],
+        response_ids_by_family = {family.pk: set() for family in families}
+        family_prompts = Prompt.objects.filter(
+            family_id__in=response_ids_by_family,
+            is_active=True,
+            response__is_active=True,
+            theme__is_active=True,
         )
-    for family_id, response_id in family_prompts.values_list(
-        "family_id",
-        "response_id",
-    ):
-        response_ids_by_family[family_id].add(response_id)
-    for family in families:
-        family.progress = summarize_subject_progress(
-            response_progress[response_id]
-            for response_id in response_ids_by_family[family.pk]
-        )["progress"]
-    prompt_qs = Prompt.objects.filter(
-        is_active=True, response__is_active=True, theme__is_active=True,
-    )
-    response_qs = Response.objects.filter(is_active=True)
-    phrase_qs = active_phrases().filter(is_active=True)
-    if scope.get("task"):
-        prompt_qs = prompt_qs.filter(
-            theme__task__slug=scope["task"],
-            theme__task__part__slug=scope["part"],
-        )
-        response_qs = response_qs.filter(
-            theme__task__slug=scope["task"],
-            theme__task__part__slug=scope["part"],
-        )
-        phrase_qs = phrase_qs.filter(
-            source_prompts__theme__task__slug=scope["task"],
-            source_prompts__theme__task__part__slug=scope["part"],
-        ).distinct()
-    elif scope.get("part"):
-        prompt_qs = prompt_qs.filter(theme__task__part__slug=scope["part"])
-        response_qs = response_qs.filter(
-            theme__task__part__slug=scope["part"]
-        )
-        phrase_qs = phrase_qs.filter(
-            source_prompts__theme__task__part__slug=scope["part"]
-        ).distinct()
-    oral_directory = bool(
-        forced_task and (forced_task.part.slug, forced_task.slug) == content_module.EO_TACHE_THREE_TASK
-    )
+        if scope.get("task"):
+            family_prompts = family_prompts.filter(
+                theme__task__slug=scope["task"],
+                theme__task__part__slug=scope["part"],
+            )
+        elif scope.get("part"):
+            family_prompts = family_prompts.filter(
+                theme__task__part__slug=scope["part"],
+            )
+        for family_id, response_id in family_prompts.values_list(
+            "family_id",
+            "response_id",
+        ):
+            response_ids_by_family[family_id].add(response_id)
+        for family in families:
+            family.progress = summarize_subject_progress(
+                response_progress[response_id]
+                for response_id in response_ids_by_family[family.pk]
+            )["progress"]
+
+    publication_count = sum(prompt_counts.values())
+    response_count = len(response_progress)
+    phrase_count = 0
+    if not oral_directory:
+        phrase_qs = active_phrases().filter(is_active=True)
+        if scope.get("task"):
+            phrase_qs = phrase_qs.filter(
+                source_prompts__theme__task__slug=scope["task"],
+                source_prompts__theme__task__part__slug=scope["part"],
+            ).distinct()
+        elif scope.get("part"):
+            phrase_qs = phrase_qs.filter(
+                source_prompts__theme__task__part__slug=scope["part"]
+            ).distinct()
+        phrase_count = _distinct_count(phrase_qs)
+
     subject_themes = (
-        _oral_subject_themes(themes, response_progress, deduplicate=deduplicate)
+        _oral_subject_themes(
+            themes,
+            response_progress,
+            deduplicate=deduplicate,
+            prompts=oral_prompts,
+        )
         if oral_directory else []
     )
     deduplicated_count = (
@@ -1670,7 +1745,6 @@ def browse(request, part_slug=None, task_slug=None):
         if oral_directory and deduplicate
         else None
     )
-    publication_count = prompt_qs.count()
     context = {
         "themes": themes,
         "subject_themes": subject_themes,
@@ -1695,9 +1769,11 @@ def browse(request, part_slug=None, task_slug=None):
             deduplicated_count if deduplicated_count is not None else publication_count
         ),
         "response_count": (
-            deduplicated_count if deduplicated_count is not None else response_qs.count()
+            deduplicated_count
+            if deduplicated_count is not None
+            else response_count
         ),
-        "phrase_count": _distinct_count(phrase_qs),
+        "phrase_count": phrase_count,
         **filters,
     }
     if oral_directory:
@@ -5148,6 +5224,14 @@ def _canonical_writing_sujets(sujets):
     return {pk: by_key[key] for pk, key in canonical_keys.items()}
 
 
+def _limited_results(queryset, limit):
+    """Return one result page and avoid an exact count when it already fits."""
+    rows = list(queryset[: limit + 1])
+    if len(rows) <= limit:
+        return rows, len(rows)
+    return rows[:limit], queryset.count()
+
+
 def search(request, part_slug=None, task_slug=None):
     if "part" in request.GET or "task" in request.GET:
         raise Http404
@@ -5216,13 +5300,11 @@ def search(request, part_slug=None, task_slug=None):
                     order_by=["theme__order", "number", "pk"],
                 )
             ).filter(equivalent_position=1)
-        prompt_result_count = prompt_qs.count()
-        if not subjects_only:
-            phrase_result_count = _distinct_count(phrase_qs)
-        prompt_results = list(
+        prompt_results, prompt_result_count = _limited_results(
             prompt_qs
             .select_related("response", "theme__task__part", "family")
-            .order_by("theme__order", "number", "pk")[:result_limit]
+            .order_by("theme__order", "number", "pk"),
+            result_limit,
         )
         prompt_progress = subject_progress_by_response(
             request.user,
@@ -5232,33 +5314,87 @@ def search(request, part_slug=None, task_slug=None):
             prompt.subject_progress = prompt_progress[prompt.response_id]
         if subjects_only:
             writing_sujet_qs = writing_sujet_scope.filter(prompt__icontains=query)
-            writing_sujet_result_count = writing_sujet_qs.count()
-            writing_sujet_results = list(
-                writing_sujet_qs.select_related("task__part").order_by(
-                    "order",
-                    "id",
-                )[:None if deduplicate else result_limit]
+            ordered_writing_sujets = writing_sujet_qs.order_by(
+                "order",
+                "id",
             )
-            canonical_sujets = _canonical_writing_sujets(writing_sujet_results)
             if deduplicate:
-                representatives = {}
-                for sujet in writing_sujet_results:
-                    representatives.setdefault(canonical_sujets[sujet.pk].pk, sujet)
-                writing_sujet_result_count = len(representatives)
-                writing_sujet_results = list(representatives.values())[:result_limit]
+                representative_ids = []
+                canonical_keys = set()
+                sujet_references = list(
+                    ordered_writing_sujets.values_list(
+                        "pk",
+                        "task_id",
+                        "slug",
+                    )
+                )
+                writing_tasks = (
+                    {task.pk: task}
+                    if task is not None
+                    else {
+                        item.pk: item
+                        for item in Task.objects.select_related("part").filter(
+                            pk__in={
+                                sujet_task_id
+                                for _pk, sujet_task_id, _slug in sujet_references
+                            }
+                        )
+                    }
+                )
+                for sujet_id, sujet_task_id, sujet_slug in sujet_references:
+                    tache = _ee_writing_tache(
+                        writing_tasks[sujet_task_id]
+                    )
+                    mapping = (
+                        content_module.ee_writing_canonical_slug_by_slug(tache)
+                        if tache is not None
+                        else {}
+                    )
+                    key = (
+                        sujet_task_id,
+                        mapping.get(sujet_slug, sujet_slug),
+                    )
+                    if key in canonical_keys:
+                        continue
+                    canonical_keys.add(key)
+                    if len(representative_ids) < result_limit:
+                        representative_ids.append(sujet_id)
+                writing_sujet_result_count = len(canonical_keys)
+                writing_sujet_results = list(
+                    ordered_writing_sujets.filter(
+                        pk__in=representative_ids
+                    ).select_related("task__part")
+                )
+            else:
+                (
+                    writing_sujet_results,
+                    writing_sujet_result_count,
+                ) = _limited_results(
+                    ordered_writing_sujets.select_related("task__part"),
+                    result_limit,
+                )
+            canonical_sujets = _canonical_writing_sujets(
+                writing_sujet_results
+            )
             writing_progress = writing_sujet_progress_by_id(
                 request.user,
-                {canonical_sujets[sujet.pk].pk for sujet in writing_sujet_results},
+                {
+                    canonical_sujets[sujet.pk].pk
+                    for sujet in writing_sujet_results
+                },
                 task_id=task.pk if task else None,
             )
             for sujet in writing_sujet_results:
                 sujet.progress_sujet = canonical_sujets[sujet.pk]
-                sujet.subject_progress = writing_progress[sujet.progress_sujet.pk]
+                sujet.subject_progress = writing_progress[
+                    sujet.progress_sujet.pk
+                ]
         else:
-            phrase_results = list(
+            phrase_results, phrase_result_count = _limited_results(
                 phrase_qs
                 .select_related("category")
-                .order_by("order", "pk")[:result_limit]
+                .order_by("order", "pk"),
+                result_limit,
             )
         if not task and not subjects_only:
             comprehension_qs = (
@@ -5279,10 +5415,10 @@ def search(request, part_slug=None, task_slug=None):
                 .distinct()
                 .order_by("test__number", "number")
             )
-            comprehension_result_count = comprehension_qs.count()
-            comprehension_results = list(
-                comprehension_qs[:result_limit]
-            )
+            (
+                comprehension_results,
+                comprehension_result_count,
+            ) = _limited_results(comprehension_qs, result_limit)
     subject_result_count = prompt_result_count + writing_sujet_result_count
     result_count = (
         subject_result_count
@@ -5298,6 +5434,7 @@ def search(request, part_slug=None, task_slug=None):
     prompt_total = prompt_scope.count()
     if subjects_only:
         prompt_total += writing_sujet_scope.count()
+    phrase_total = _distinct_count(phrase_scope)
     return render(
         request,
         "study/search.html",
@@ -5322,7 +5459,7 @@ def search(request, part_slug=None, task_slug=None):
             "visible_result_count": visible_result_count,
             "results_truncated": result_count > visible_result_count,
             "prompt_total": prompt_total,
-            "phrase_total": _distinct_count(phrase_scope),
+            "phrase_total": phrase_total,
         },
     )
 

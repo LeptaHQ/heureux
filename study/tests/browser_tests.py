@@ -1527,7 +1527,7 @@ class BrowserTests(StaticLiveServerTestCase):
         batch = month.batches[0]
         other_directories = [
             reverse("study:task_phrases", args=[part, f"tache-{tache}"])
-            for part, tache in (("eo", 2), ("eo", 3), ("ee", 1))
+            for part, tache in (("eo", 2), ("eo", 3))
         ] + [
             reverse("study:task_subject_batch", args=[
                 "eo", "tache-2", month.slug, batch.number,

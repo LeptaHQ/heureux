@@ -15,6 +15,7 @@ from .models import (
     AccountRecoveryCode,
     Card,
     CardType,
+    ContentImportState,
     LoginThrottle,
     Phrase,
     PhraseTier,
@@ -48,10 +49,27 @@ def acquire_study_data_lock() -> None:
             )
 
 
-def provision_user_study_data(user) -> None:
+def provision_user_study_data(user, *, force=False) -> None:
     """Create a private deck, claiming legacy progress for the first account."""
     with transaction.atomic():
         acquire_study_data_lock()
+        content_fingerprint = (
+            ContentImportState.objects.filter(pk="bundled")
+            .values_list("fingerprint", flat=True)
+            .first()
+            or ""
+        )
+        study_settings = Settings.objects.filter(user=user).first()
+        if (
+            not force
+            and content_fingerprint
+            and study_settings is not None
+            and study_settings.provisioned_content_fingerprint
+            == content_fingerprint
+        ):
+            ReviewSession.load(user)
+            return
+
         is_first_user = not get_user_model().objects.exclude(pk=user.pk).exists()
         has_owned_cards = Card.objects.filter(user__isnull=False).exists()
         if is_first_user or not has_owned_cards:
@@ -128,6 +146,8 @@ def provision_user_study_data(user) -> None:
                     legacy_session.user = user
                     legacy_session.save(update_fields=["user"])
 
+        study_settings = Settings.load(user)
+
         existing_responses = set(
             Card.objects.filter(
                 user=user,
@@ -136,9 +156,16 @@ def provision_user_study_data(user) -> None:
         )
         Card.objects.bulk_create(
             [
-                Card(user=user, card_type=CardType.SPINE, response=response)
-                for response in Response.objects.filter(is_active=True).exclude(
-                    pk__in=existing_responses
+                Card(
+                    user=user,
+                    card_type=CardType.SPINE,
+                    response_id=response_id,
+                )
+                for response_id in (
+                    Response.objects.filter(is_active=True)
+                    .exclude(pk__in=existing_responses)
+                    .values_list("pk", flat=True)
+                    .iterator(chunk_size=STUDY_DATA_BATCH_SIZE)
                 )
             ],
             ignore_conflicts=True,
@@ -167,14 +194,32 @@ def provision_user_study_data(user) -> None:
             )
             Card.objects.bulk_create(
                 [
-                    Card(user=user, card_type=card_type, phrase=phrase)
-                    for phrase in phrases.exclude(pk__in=existing_phrases)
+                    Card(
+                        user=user,
+                        card_type=card_type,
+                        phrase_id=phrase_id,
+                    )
+                    for phrase_id in (
+                        phrases.exclude(pk__in=existing_phrases)
+                        .values_list("pk", flat=True)
+                        .iterator(chunk_size=STUDY_DATA_BATCH_SIZE)
+                    )
                 ],
                 ignore_conflicts=True,
                 batch_size=STUDY_DATA_BATCH_SIZE,
             )
 
-        Settings.load(user)
+        if (
+            content_fingerprint
+            and study_settings.provisioned_content_fingerprint
+            != content_fingerprint
+        ):
+            study_settings.provisioned_content_fingerprint = (
+                content_fingerprint
+            )
+            study_settings.save(
+                update_fields=["provisioned_content_fingerprint"]
+            )
         ReviewSession.load(user)
 
 

@@ -6,10 +6,7 @@ from django.db.models import Prefetch
 from django.shortcuts import render
 from django.utils import timezone
 
-from ..models import (
-    ExamPart,
-    Task,
-)
+from ..models import ExamPart, Task
 from ..progress import combine_progress
 
 from .helpers import expression_task_summaries

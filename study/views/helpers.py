@@ -1666,6 +1666,7 @@ def expression_task_summaries(now, user, tasks, content_counts=None):
     progress_by_response = subject_progress_by_response(
         user,
         wanted_response_ids,
+        summary_only=True,
     )
     due_by_task = _due_response_counts_by_task(user, subject_task_ids, now)
 

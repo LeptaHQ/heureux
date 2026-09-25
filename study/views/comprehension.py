@@ -8,7 +8,7 @@ from django.contrib.auth import (
     get_user_model,
 )
 from django.db import transaction
-from django.db.models import Count, Prefetch, Q
+from django.db.models import Count, Exists, OuterRef, Prefetch, Q
 from django.http import Http404, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
@@ -192,6 +192,7 @@ def _comprehension_test_cards(
         .annotate(
             answer_total=Count("answers"),
         )
+        .defer("content_snapshot")
         .order_by("-started_at", "-pk")
     )
     tests = ComprehensionTest.objects.filter(
@@ -269,7 +270,12 @@ def _comprehension_test_cards(
     return tests
 
 
-def _comprehension_mode_summary(tests, *, group_count=0):
+def _comprehension_mode_summary(
+    tests,
+    *,
+    group_count=0,
+    best_percentage=None,
+):
     available_tests = [
         test
         for test in tests
@@ -322,9 +328,13 @@ def _comprehension_mode_summary(tests, *, group_count=0):
         "active_question_count": (
             active_test.attempt_question_count if active_test else 0
         ),
-        "best_percentage": max(
-            (attempt.percentage for attempt in completed_attempts),
-            default=None,
+        "best_percentage": (
+            best_percentage
+            if best_percentage is not None
+            else max(
+                (attempt.percentage for attempt in completed_attempts),
+                default=None,
+            )
         ),
         "next_test": next_test,
         "next_test_url": (
@@ -348,12 +358,91 @@ def _comprehension_mode_summary(tests, *, group_count=0):
 
 
 def _comprehension_summary(user):
+    active_attempts = (
+        ComprehensionAttempt.objects.filter(
+            user=user,
+            status=ComprehensionAttemptStatus.IN_PROGRESS,
+        )
+        .annotate(answer_total=Count("answers"))
+        .defer("content_snapshot")
+        .order_by("-started_at", "-pk")
+    )
+    tests = list(
+        ComprehensionTest.objects.filter(
+            Q(is_active=True)
+            | Q(attempts__user=user)
+            | Q(explicit_completions__user=user)
+        )
+        .distinct()
+        .annotate(
+            active_question_count=Count(
+                "questions",
+                filter=Q(questions__is_active=True),
+                distinct=True,
+            ),
+            attempt_count=Count(
+                "attempts",
+                filter=Q(attempts__user=user),
+                distinct=True,
+            ),
+            has_explicit_completion=Exists(
+                ComprehensionTestCompletion.objects.filter(
+                    user=user,
+                    test_id=OuterRef("pk"),
+                )
+            ),
+        )
+        .prefetch_related(
+            Prefetch(
+                "attempts",
+                queryset=active_attempts,
+                to_attr="active_user_attempts",
+            )
+        )
+    )
+    for test in tests:
+        _prepare_comprehension_test(test)
+        test.active_attempt = (
+            test.active_user_attempts[0]
+            if test.active_user_attempts
+            else None
+        )
+        test.completed_attempts = []
+        test.active_answered_count = (
+            test.active_attempt.answer_total if test.active_attempt else 0
+        )
+        test.attempt_question_count = (
+            test.active_attempt.total_questions
+            if test.active_attempt
+            else test.active_question_count
+        )
+        _attach_comprehension_test_progress(
+            test,
+            explicitly_completed=test.has_explicit_completion,
+            has_activity=bool(test.attempt_count),
+        )
+
+    best_by_mode = {}
+    for mode, score, total_questions in (
+        ComprehensionAttempt.objects.filter(
+            user=user,
+            status=ComprehensionAttemptStatus.COMPLETED,
+            score__isnull=False,
+            total_questions__gt=0,
+        ).values_list("test__mode", "score", "total_questions")
+    ):
+        percentage = round(100 * score / total_questions)
+        best_by_mode[mode] = max(
+            best_by_mode.get(mode, percentage),
+            percentage,
+        )
+
     tests = [
         test
-        for test in _comprehension_test_cards(user)
+        for test in tests
         if (
             (test.is_active and test.is_published)
-            or test.user_attempts
+            or test.has_activity
             or test.explicitly_completed
         )
     ]
@@ -366,14 +455,17 @@ def _comprehension_summary(user):
     summary = _comprehension_mode_summary(
         tests,
         group_count=_comprehension_group_count(ComprehensionMode.ECRITE),
+        best_percentage=max(best_by_mode.values(), default=None),
     )
     summary["ecrite"] = _comprehension_mode_summary(
         written_tests,
         group_count=_comprehension_group_count(ComprehensionMode.ECRITE),
+        best_percentage=best_by_mode.get(ComprehensionMode.ECRITE),
     )
     summary["orale"] = _comprehension_mode_summary(
         oral_tests,
         group_count=_comprehension_group_count(ComprehensionMode.ORALE),
+        best_percentage=best_by_mode.get(ComprehensionMode.ORALE),
     )
     return summary
 
@@ -780,7 +872,10 @@ def comprehension_test_detail(
         answers = (
             {
                 answer.question_id: answer
-                for answer in progress_attempt.answers.all()
+                for answer in progress_attempt.answers.only(
+                    "question_id",
+                    "is_correct",
+                )
             }
             if progress_attempt
             else {}
@@ -1336,15 +1431,18 @@ def _comprehension_question_context(attempt, question_number, error=""):
     if question_index is None:
         return None
 
-    answers = {
-        answer.question_id: answer
-        for answer in attempt.answers.select_related(
+    answered_ids = set(
+        attempt.answers.values_list("question_id", flat=True)
+    )
+    answer = (
+        attempt.answers.select_related(
             "question",
             "selected_choice",
-        )
-    }
+        ).filter(question_id=questions[question_index]["id"]).first()
+        if questions[question_index]["id"] in answered_ids
+        else None
+    )
     question = questions[question_index]
-    answer = answers.get(question["id"])
 
     question_model = ComprehensionQuestion.objects.filter(
         pk=question["id"],
@@ -1382,7 +1480,7 @@ def _comprehension_question_context(attempt, question_number, error=""):
         {
             "number": item["number"],
             "question_id": item["id"],
-            "is_answered": item["id"] in answers,
+            "is_answered": item["id"] in answered_ids,
             "is_current": item["id"] == question["id"],
             "is_to_study": item["id"] in marked_ids,
         }
@@ -1400,7 +1498,7 @@ def _comprehension_question_context(attempt, question_number, error=""):
         "selected_choice": selected_choice,
         "selected_letter": selected_letter,
         "correct_choice": correct_choice,
-        "answered_count": len(answers),
+        "answered_count": len(answered_ids),
         "total_questions": len(questions),
         "position": question_index + 1,
         "previous_number": (
@@ -1573,7 +1671,6 @@ def comprehension_results(
             "question",
             "selected_choice",
         )
-        .prefetch_related("question__choices")
         .order_by("question__number")
     )
     review_items = []

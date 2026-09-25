@@ -202,6 +202,13 @@ class Command(BaseCommand):
         self._import_phrases(phrases, prompt_index, theme_by_name)
         self._import_comprehension_tests(comprehension_tests)
         self._link_comprehension_vocabulary(comprehension_vocabulary)
+        # Publish the new revision before provisioning so existing learners do
+        # not short-circuit against the revision they already own. The whole
+        # command is atomic, so a failed deck sync rolls this marker back too.
+        ContentImportState.objects.update_or_create(
+            pk="bundled",
+            defaults={"fingerprint": fingerprint},
+        )
         users = list(users_with_study_state())
         self.stdout.write(
             f"Synchronizing {len(users)} learner deck"
@@ -210,7 +217,7 @@ class Command(BaseCommand):
         self.stdout.flush()
         if users:
             for user in users:
-                provision_user_study_data(user)
+                provision_user_study_data(user, force=True)
         else:
             self._sync_cards(response_by_key)
             Settings.load()
@@ -218,10 +225,6 @@ class Command(BaseCommand):
         self._reconcile_oral_review_sessions()
         self._reconcile_phrase_cards()
         self._reconcile_local_phrase_directions()
-        ContentImportState.objects.update_or_create(
-            pk="bundled",
-            defaults={"fingerprint": fingerprint},
-        )
 
         self.stdout.write(
             self.style.SUCCESS(

@@ -1403,6 +1403,11 @@ class Settings(models.Model):
     )
     new_cards_per_day = models.PositiveIntegerField(default=15)
     max_reviews_per_day = models.PositiveIntegerField(default=200)
+    provisioned_content_fingerprint = models.CharField(
+        max_length=64,
+        blank=True,
+        default="",
+    )
 
     class Meta:
         verbose_name_plural = "settings"

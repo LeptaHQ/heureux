@@ -40,12 +40,12 @@ from ..routing import (
 from ..srs import ProjectionUndoError, review as apply_review, undo_last
 
 from .helpers import (
+    _deck_stat_aggregates,
+    _deck_stats_from_counts,
     _review_batches,
     _route_task,
     _task_scope,
-    deck_stats,
     empty_deck_stats,
-    grouped_deck_stats,
 )
 
 REVIEW_SCOPE_KEYS = (
@@ -491,15 +491,15 @@ def review_hub(request, part_slug, task_slug):
         response_scope,
         user=request.user,
     )
-    response_stats = deck_stats(
-        cards,
-        now,
+    deck_aggregates = _deck_stat_aggregates(now)
+    deck_aggregates["deck_due"] = deck_aggregates.pop("due")
+    response_row = queue_module.narrow(cards).aggregate(
+        **deck_aggregates,
+        **queue_module.due_aggregates(now),
     )
-    response_counts = queue_module.queue_counts(
-        response_scope,
-        now,
-        user=request.user,
-    )
+    response_row["due"] = response_row["deck_due"]
+    response_stats = _deck_stats_from_counts(response_row)
+    response_counts = queue_module.counts_from_due_row(response_row)
     # Only the weak total is shown, so count the weak cards directly instead of
     # running the whole queue summary, which also scans today's reviews and the
     # revisit list for a scope that never uses them.
@@ -534,19 +534,24 @@ def review_hub(request, part_slug, task_slug):
             response_scope,
             user=request.user,
         )
-        theme_stats_by_theme = grouped_deck_stats(
-            theme_cards,
-            "response__theme__slug",
-            now,
+        theme_deck_aggregates = _deck_stat_aggregates(now)
+        theme_deck_aggregates["deck_due"] = (
+            theme_deck_aggregates.pop("due")
         )
-        theme_counts_by_theme = {
-            row["response__theme__slug"]: queue_module.counts_from_due_row(row)
-            for row in (
-                queue_module.narrow(theme_cards)
-                .values("response__theme__slug")
-                .annotate(**queue_module.due_aggregates(now))
+        for row in (
+            queue_module.narrow(theme_cards)
+            .values("response__theme__slug")
+            .annotate(
+                **theme_deck_aggregates,
+                **queue_module.due_aggregates(now),
             )
-        }
+        ):
+            theme_slug = row["response__theme__slug"]
+            row["due"] = row["deck_due"]
+            theme_stats_by_theme[theme_slug] = _deck_stats_from_counts(row)
+            theme_counts_by_theme[theme_slug] = (
+                queue_module.counts_from_due_row(row)
+            )
     for theme in task_themes:
         theme_scope = {
             **response_scope,

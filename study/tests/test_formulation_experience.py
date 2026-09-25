@@ -75,6 +75,14 @@ class FormulationExperienceTests(TestCase):
         self.assertContains(response, "Sens en anglais")
         self.assertContains(response, "Construction et grammaire")
         self.assertContains(response, "Exemple du modèle de référence")
+        self.assertContains(
+            response,
+            'data-recall-controls="formulation-reference-examples-cadre-0"',
+        )
+        self.assertContains(response, 'data-recall-column="french"', count=2)
+        self.assertContains(response, 'data-recall-column="english"', count=2)
+        self.assertContains(response, 'data-recall-cell="french"', count=2)
+        self.assertContains(response, 'data-recall-cell="english"', count=2)
         self.assertContains(response, "Je sais reproduire et adapter")
         self.assertContains(response, reverse("study:response_detail", args=[
             "ee", "tache-3", self.response.prompts.first().pk,

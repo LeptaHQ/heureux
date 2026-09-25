@@ -3,12 +3,44 @@
   <dt>Quand l’utiliser</dt><dd>{{ row.entry.usage }}</dd>
   <dt>Construction et grammaire</dt><dd>{{ row.entry.grammar }}</dd>
   <dt>Exemple{{ row.examples|length|pluralize }} du modèle de référence</dt>
-  <dd>
+  <dd
+    id="formulation-reference-examples-{{ row.entry.slug }}"
+    data-recall-catalog
+  >
+    <div
+      class="recall-controls formulation-reference-recall"
+      data-recall-controls="formulation-reference-examples-{{ row.entry.slug }}"
+      hidden
+    >
+      <span class="recall-controls__label">Flouter</span>
+      <div class="recall-controls__options" role="group" aria-label="Langue des exemples à flouter">
+        <button
+          type="button"
+          data-recall-column="french"
+          data-recall-label="le français"
+          aria-pressed="false"
+        >Français</button>
+        <button
+          type="button"
+          data-recall-column="english"
+          data-recall-label="l’anglais"
+          aria-pressed="false"
+        >Anglais</button>
+      </div>
+    </div>
     <ol class="formulation-source-examples">
       {% for example in row.examples %}
         <li>
-          <blockquote lang="fr">{{ example.content.french }}</blockquote>
-          <p lang="en">{{ example.content.english }}</p>
+          <blockquote
+            lang="fr"
+            data-recall-cell="french"
+            data-recall-entry="{{ forloop.counter }}"
+          ><span data-recall-content>{{ example.content.french }}</span></blockquote>
+          <p
+            lang="en"
+            data-recall-cell="english"
+            data-recall-entry="{{ forloop.counter }}"
+          ><span data-recall-content>{{ example.content.english }}</span></p>
           <div class="formulation-source-examples__meta">
             <span>{{ example.source_label }}</span>
             {% if example.source_url %}<a href="{{ example.source_url }}">Voir le sujet et sa réponse</a>{% endif %}

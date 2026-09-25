@@ -1969,6 +1969,74 @@ class BrowserTests(StaticLiveServerTestCase):
         finally:
             context.close()
 
+    def test_ee3_reference_examples_blur_french_and_english_independently(self):
+        self._import_ee_tache_three_content()
+        self.page.goto(self.live_server_url + reverse(
+            "study:ee_formulation_function", args=["titres"],
+        ))
+        row = self.page.locator(".formulation-row").first
+        row.locator("details > summary").click()
+        controls = row.locator(".formulation-reference-recall")
+        french_button = controls.locator('[data-recall-column="french"]')
+        english_button = controls.locator('[data-recall-column="english"]')
+        french_cell = row.locator('[data-recall-cell="french"]').first
+        english_cell = row.locator('[data-recall-cell="english"]').first
+        french_content = french_cell.locator("[data-recall-content]")
+        english_content = english_cell.locator("[data-recall-content]")
+
+        expect(controls).to_be_visible()
+        expect(french_button).to_have_attribute("aria-pressed", "false")
+        expect(english_button).to_have_attribute("aria-pressed", "false")
+
+        french_button.click()
+        expect(french_button).to_have_attribute("aria-pressed", "true")
+        self.assertNotEqual(
+            french_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+        self.assertEqual(
+            english_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+        french_cell.click()
+        self.assertEqual(
+            french_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+
+        english_button.click()
+        expect(french_button).to_have_attribute("aria-pressed", "false")
+        expect(english_button).to_have_attribute("aria-pressed", "true")
+        self.assertEqual(
+            french_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+        self.assertNotEqual(
+            english_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+        english_cell.focus()
+        self.page.keyboard.press("Space")
+        self.assertEqual(
+            english_content.evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+        self.page.set_viewport_size({"width": 320, "height": 844})
+        expect(controls).to_be_visible()
+        self.assert_no_horizontal_overflow()
+
     def test_tache_two_writing_vocabulary_lots_use_shared_tables(self):
         self._import_ee_writing_content()
         self.page.goto(self.live_server_url + reverse(

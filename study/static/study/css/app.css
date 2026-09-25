@@ -233,6 +233,10 @@
   padding: 0;
   list-style: none;
 }
+.formulation-reference-recall {
+  width: fit-content;
+  margin-bottom: .75rem;
+}
 .formulation-source-examples > li + li {
   padding-top: .75rem;
   border-top: 1px solid var(--border);

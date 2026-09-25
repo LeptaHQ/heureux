@@ -801,7 +801,9 @@ class ExpressionPathSummaryTests(TestCase):
         summary = summaries[self.ee_tache_three.pk]
 
         self.assertEqual(summary["prompt_count"], 2)
-        self.assertEqual(summary["stats"]["total"], 2)
+        from study.ee_formulations import get_ee_formulations
+        self.assertEqual(summary["stats"]["total"], 2 + len(get_ee_formulations().entries))
+        self.assertEqual(summary["subject_stats"]["total"], 2)
         self.assertEqual(summary["stats"]["completed"], 2)
         self.assertEqual(summary["stats"]["seen"], 2)
 
@@ -826,7 +828,9 @@ class ExpressionPathSummaryTests(TestCase):
             self.user,
         )
 
-        self.assertEqual(card["stats"]["total"], 2)
+        from study.ee_formulations import get_ee_formulations
+        self.assertEqual(card["stats"]["total"], 2 + len(get_ee_formulations().entries))
+        self.assertEqual(card["response_stats"]["total"], 2)
         self.assertEqual(card["stats"]["completed"], 2)
 
     def test_unavailable_tasks_and_parts_stay_empty(self):
@@ -894,7 +898,7 @@ class ExpressionPathSummaryTests(TestCase):
                     skills[slug]["detail"],
                     (
                         f"{progress.completed}/{progress.total} "
-                        f"{'contenus' if slug == 'eo' else 'sujets'}"
+                        "contenus"
                     ),
                 )
 
@@ -915,6 +919,6 @@ class ExpressionPathSummaryTests(TestCase):
         self.assertGreaterEqual(len(tasks), 6)
         self.assertLessEqual(
             len(every_task.captured_queries),
-            len(one_task.captured_queries) + 4,
+            len(one_task.captured_queries) + 5,
         )
         self.assertLessEqual(len(every_task.captured_queries), 12)

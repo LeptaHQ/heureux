@@ -1738,6 +1738,8 @@ class EeTacheThreePageTests(TestCase):
         self.assertContains(response, "par fonction et par thème")
 
     def test_vocabulary_directory_redirects_without_deleting_imported_records(self):
+        from study.models import Phrase, Theme
+
         response = self.client.get(self._task_url("study:task_phrases"))
         self.assertRedirects(
             response, reverse("study:ee_formulations"), fetch_redirect_response=False,
@@ -1759,6 +1761,19 @@ class EeTacheThreePageTests(TestCase):
         page = self.client.get(reverse("study:ee_formulations"))
         self.assertEqual(page.context["progress"].status, "new")
         self.assertEqual(page.context["progress"].completed, 0)
+
+    def test_formulation_examples_all_resolve_to_known_active_subjects(self):
+        from study.ee_formulations import get_ee_formulations
+
+        page = self.client.get(reverse("study:ee_formulations"))
+        rows = page.context["rows"]
+        self.assertEqual(len(rows), len(get_ee_formulations().entries))
+        self.assertTrue(all(row["source_url"] for row in rows))
+        self.assertEqual(
+            len({row["entry"].source_key for row in rows}),
+            get_ee_formulations().source_response_count,
+        )
+        self.assertNotContains(page, "Pratiquer les vocabs")
 
     def test_subject_page_groups_all_combinations_in_collapsible_themes(self):
         response = self.client.get(self._task_url("study:task_browse"), {"deduplicate": "0"})
@@ -2110,10 +2125,10 @@ class EeTacheThreePageTests(TestCase):
         self.assertNotContains(practice, "Choisir un mois")
         self.assertRedirects(memories, reverse("study:ee_formulations"), fetch_redirect_response=False)
         for number in range(1, 5):
-            archive = self.client.get(reverse(
+            response = self.client.get(reverse(
                 "study:task_memory_detail", args=["ee", "tache-3", number],
             ))
-            self.assertContains(archive, "Archive · Ancienne mémoire")
+            self.assertRedirects(response, reverse("study:ee_formulations"), fetch_redirect_response=False)
 
 
 class TaskOrganizationTests(TestCase):

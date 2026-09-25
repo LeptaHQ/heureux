@@ -67,7 +67,8 @@ def _selection(catalog, filters, learned):
             continue
         text = " ".join((
             entry.label, entry.french, entry.english, entry.usage, entry.grammar,
-            entry.example, categories[entry.category].title,
+            entry.example, entry.example_english, entry.transfer_prompt,
+            categories[entry.category].title,
             *(categories[slug].title for slug in entry.themes),
         ))
         if query and query not in _fold(text):

@@ -3439,6 +3439,8 @@ def _memory_progress_error(request, message):
 @require_POST
 def task_question_response(request, part_slug, task_slug, memory_number):
     task = _memoire_task(request, part_slug, task_slug)
+    if (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK:
+        return redirect("study:ee_formulations")
     if (task.part.slug, task.slug) != content_module.EO_TACHE_ONE_TASK:
         raise Http404
 
@@ -3506,6 +3508,8 @@ def task_question_response(request, part_slug, task_slug, memory_number):
 
 def task_memory_detail(request, part_slug, task_slug, memory_number):
     task = _memoire_task(request, part_slug, task_slug)
+    if (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK:
+        return redirect("study:ee_formulations")
     if (task.part.slug, task.slug) == content_module.EO_TACHE_ONE_TASK:
         return redirect(
             "study:task_detail",
@@ -3530,6 +3534,8 @@ def task_memory_detail(request, part_slug, task_slug, memory_number):
 @require_POST
 def task_memory_progress(request, part_slug, task_slug, memory_number):
     task = _memoire_task(request, part_slug, task_slug)
+    if (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK:
+        return redirect("study:ee_formulations")
     if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
         return redirect("study:tache_two_theme_vocabulary")
     memories = _load_task_memoires(task)
@@ -5616,7 +5622,7 @@ def _learning_activity(scope, user, scoped_cards, logs_base, now):
         sources.append(
             (
                 "memories",
-                "Mémoires apprises (historique)",
+                "Mémoires apprises",
                 MemoryQuestionProgress.objects.filter(user=user).exclude(
                     question_key__startswith="formulation:ee3:v1:",
                 ),

@@ -31,7 +31,6 @@ from ..forms import (
 from ..models import (
     Annotation,
     AnnotationKind,
-    Phrase,
     Prompt,
     Task,
     WritingSujet,
@@ -42,7 +41,6 @@ from ..progress import (
     writing_sujet_progress_by_id,
 )
 from ..routing import prompt_detail_url
-from ..retirement import retired_vocabulary
 from ..templatetags.study_markdown import render_markdown
 
 from .helpers import _route_task
@@ -52,28 +50,6 @@ MAX_ANNOTATION_QUOTE_LENGTH = 5000
 
 MAX_ANNOTATION_BODY_LENGTH = 20000
 NOTES_PAGE_SIZE = 50
-
-
-@require_GET
-def annotation_source(request, pk):
-    annotation = get_object_or_404(
-        Annotation.objects.select_related("task__part"), pk=pk, user=request.user,
-    )
-    phrase_id = annotation.source_key.split(":")[1] if annotation.source_key.startswith("phrase:") else ""
-    phrase = Phrase.objects.filter(
-        pk__in=retired_vocabulary(), phrase_id=phrase_id,
-    ).select_related("category").first() if phrase_id else None
-    if phrase is None:
-        try:
-            source_path = _safe_source_path(annotation.source_path)
-        except ValueError as exc:
-            raise Http404("Source introuvable.") from exc
-        if not source_path or source_path == request.path:
-            raise Http404("Source introuvable.")
-        return redirect(source_path)
-    return render(request, "study/retired_vocabulary_source.html", {
-        "annotation": annotation, "phrase": phrase,
-    })
 
 
 ANNOTATION_SOURCE_KEY_RE = re.compile(r"^[A-Za-z0-9:._-]{0,200}$")

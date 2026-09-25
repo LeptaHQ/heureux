@@ -280,6 +280,12 @@ class EePageBudgetTests(QueryBudgetTestCase):
                 "study:task_browse",
                 args=args,
             )
+            if tache == 3:
+                pages["t3-formulations"] = reverse("study:ee_formulations")
+                pages["t3-formulations-practice"] = (
+                    reverse("study:ee_formulations") + "?essential=1&mode=practice"
+                )
+                continue
             pages[f"t{tache}-vocabulary"] = reverse(
                 "study:task_phrases",
                 args=args,
@@ -306,8 +312,8 @@ class EePageBudgetTests(QueryBudgetTestCase):
             "t2-vocabulary-theme": 8,
             "t3-overview": 11,
             "t3-subjects": 10,
-            "t3-vocabulary": 11,
-            "t3-vocabulary-theme": 10,
+            "t3-formulations": 6,
+            "t3-formulations-practice": 6,
         }
         for name, url in self._pages().items():
             with self.subTest(page=name):

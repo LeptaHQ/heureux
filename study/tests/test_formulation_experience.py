@@ -9,7 +9,7 @@ from django.utils import timezone
 from study import queue
 from study.formulation_progress import formulation_progress
 from study.models import (
-    Annotation, Card, CardState, MemoryQuestionProgress, Phrase,
+    Card, CardState, MemoryQuestionProgress, Phrase,
     PhraseTier, ReviewSession, ThemeVocabularyProgress,
 )
 from study.retirement import active_phrases
@@ -58,6 +58,9 @@ class FormulationExperienceTests(TestCase):
         response = self.client.get(self.url, {"q": "not-a-real-search"})
         self.assertContains(response, "Aucune formulation dans cette sélection")
         self.assertContains(response, "Réinitialiser les filtres")
+        for query in ("improves health", "Adaptez cette construction"):
+            response = self.client.get(self.url, {"q": query})
+            self.assertEqual(response.context["result_count"], len(self.catalog.entries))
 
     def test_filter_ids_duplicates_and_open_redirects(self):
         for query in (
@@ -137,7 +140,7 @@ class FormulationExperienceTests(TestCase):
         self.assertEqual(card["question_bank"]["question_count"], len(self.catalog.entries))
         self.assertEqual(card["question_bank"]["subject_count"], 1)
 
-    def test_old_lists_redirect_numbered_memories_stay_archived(self):
+    def test_old_lists_and_numbered_memories_redirect_to_formulations(self):
         for route, args in (
             ("task_memories", ["ee", "tache-3"]),
             ("task_phrases", ["ee", "tache-3"]),
@@ -150,9 +153,16 @@ class FormulationExperienceTests(TestCase):
                 "ee", "tache-3", "ee-tache-3-" + theme,
             ]))
             self.assertEqual(response.url, self.url + "?theme=" + theme)
-        response = self.client.get(reverse("study:task_memory_detail", args=["ee", "tache-3", 1]))
-        self.assertContains(response, "Archive · Ancienne mémoire")
-        self.assertContains(response, "data-annotation-source-key=")
+        for number in range(1, 5):
+            response = self.client.get(reverse("study:task_memory_detail", args=["ee", "tache-3", number]))
+            self.assertRedirects(response, self.url, fetch_redirect_response=False)
+            for route in ("task_memory_progress", "task_question_response"):
+                response = self.client.post(reverse("study:" + route, args=["ee", "tache-3", number]), {
+                    "question_key": "unused", "completed": "1",
+                })
+                self.assertRedirects(response, self.url, fetch_redirect_response=False)
+        self.assertFalse(MemoryQuestionProgress.objects.filter(user=self.user).exists())
+        self.assertNotContains(self.client.get(self.url), "archives")
 
 
 class VocabularyRetirementTests(TestCase):
@@ -246,6 +256,23 @@ class VocabularyRetirementTests(TestCase):
         self.assertEqual(self.card.interval_days, 17)
         self.assertFalse(self.card.reviews.exists())
 
+    def test_dashboard_does_not_offer_retired_saved_review(self):
+        session = ReviewSession.objects.create(
+            user=self.user, scope={"kind": "phrase"},
+            current_card=self.card, presentation_token="old-token",
+        )
+        response = self.client.get(reverse("study:dashboard"))
+        self.assertFalse(response.context["can_resume_review"])
+        session.current_card = self.active_card
+        session.scope = {"part": "ee", "task": "tache-3", "kind": "vocab"}
+        session.save()
+        response = self.client.get(reverse("study:dashboard"))
+        self.assertFalse(response.context["can_resume_review"])
+        session.scope = {"kind": "phrase"}
+        session.save()
+        response = self.client.get(reverse("study:dashboard"))
+        self.assertTrue(response.context["can_resume_review"])
+
     def test_subject_no_longer_offers_vocabulary_and_search_omits_retired_phrase(self):
         response = self.client.get(reverse("study:response_detail", args=["ee", "tache-3", self.prompt.pk]))
         self.assertContains(response, "Explorer les formulations")
@@ -253,20 +280,3 @@ class VocabularyRetirementTests(TestCase):
         self.assertNotContains(response, "Pratiquer les vocabs")
         response = self.client.get(reverse("study:search"), {"q": self.phrase.expression})
         self.assertEqual(response.context["phrase_result_count"], 0)
-
-    def test_archived_phrase_note_source_is_private_and_never_reanchors_offsets(self):
-        note = Annotation.objects.create(
-            user=self.user, task=self.task, kind="highlight",
-            source_key=f"phrase:{self.phrase.phrase_id}:catalog",
-            source_path=reverse("study:task_phrases", args=["ee", "tache-3"]),
-            quote=self.phrase.expression, start_offset=2, end_offset=8,
-        )
-        original = Annotation.objects.values().get(pk=note.pk)
-        url = reverse("study:annotation_source", args=[note.pk])
-        response = self.client.get(url)
-        self.assertContains(response, "Ancienne fiche de vocabulaire")
-        self.assertContains(response, self.phrase.expression)
-        self.assertNotContains(response, "data-annotation-root")
-        self.assertEqual(Annotation.objects.values().get(pk=note.pk), original)
-        self.client.force_login(factories.make_user())
-        self.assertEqual(self.client.get(url).status_code, 404)

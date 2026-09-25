@@ -126,7 +126,6 @@
       <div class="card formulation-empty"><h3>Aucune formulation dans cette sélection</h3><p>Modifiez les filtres ou retrouvez toutes les formulations.</p><a class="btn" href="{% url 'study:ee_formulations' %}">Réinitialiser les filtres</a></div>
     {% endif %}
   </section>
-  <details class="formulation-archives"><summary>Anciennes mémoires (archives)</summary><p>Vos anciennes notes, surlignages et cases apprises sont conservés ici. Ils ne comptent pas dans la nouvelle progression.</p><nav aria-label="Mémoires archivées">{% for number in "1234" %}<a class="btn" href="{% url 'study:task_memory_detail' 'ee' 'tache-3' number %}">Mémoire {{ number }} · archive</a>{% endfor %}</nav></details>
 </div>
 {% endblock %}
 {% block scripts %}

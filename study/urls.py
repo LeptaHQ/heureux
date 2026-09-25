@@ -1,7 +1,7 @@
 from django.urls import path, register_converter
 
 from . import views
-from .views import course, formulations, notes
+from .views import course, formulations
 
 
 class ExpressionPartConverter:
@@ -311,7 +311,6 @@ urlpatterns = [
         name="annotations_for_source",
     ),
     path("notes/ajouter/", views.annotation_create, name="annotation_create"),
-    path("notes/<int:pk>/source/", notes.annotation_source, name="annotation_source"),
     path(
         "notes/<int:pk>/modifier/",
         views.annotation_update,

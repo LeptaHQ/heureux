@@ -5,9 +5,9 @@
 /* Reusable, list-first formulation lessons and their optional recall view. */
 .formulations-page { max-width: 1100px; margin-inline: auto; }
 .formulations-page > * + * { margin-top: 1.5rem; }
-.formulation-start, .formulation-empty, .formulation-archive-notice { padding: 1.25rem; }
+.formulation-start, .formulation-empty { padding: 1.25rem; }
 .formulation-start .btn { margin-top: .5rem; }
-.formulation-directory summary, .formulation-archives summary,
+.formulation-directory summary,
 .formulation-row summary { cursor: pointer; font-weight: 700; padding-block: .75rem; }
 .formulation-category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: .75rem; }
 .formulation-category { display: grid; gap: .4rem; padding: 1rem; color: inherit; text-decoration: none; }
@@ -30,7 +30,6 @@
 .formulation-learned { margin-top: 1rem; }
 .formulation-learned .btn { white-space: normal; text-align: left; }
 .formulation-native-navigation { display: flex; justify-content: space-between; gap: .5rem; margin-top: 1rem; }
-.formulation-archives nav { display: flex; flex-wrap: wrap; gap: .5rem; }
 .formulations-page [hidden] { display: none !important; }
 .formulations-page [data-flashcard-card] { touch-action: pan-y; }
 @media (max-width: 600px) {

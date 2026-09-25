@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load study_markdown study_links %}
+{% load study_markdown %}
 {% block title %}Étudier mes notes · Heureux{% endblock %}
 
 {% block content %}
@@ -72,7 +72,7 @@
           {% else %}
             {% if item.body %}<div class="annotation-study__body annotation-markdown">{{ item.body|markdown }}</div>{% else %}<p class="muted">Aucune note enregistrée.</p>{% endif %}
           {% endif %}
-          {% if item.source_path %}<a class="annotation-study__source" href="{% annotation_source_url item %}" target="_blank" rel="noopener">Voir la source {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>{% endif %}
+          {% if item.source_path %}<a class="annotation-study__source" href="{{ item.source_path }}" target="_blank" rel="noopener">Voir la source {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>{% endif %}
         </div>
         <div class="flashcard-deck__actions annotation-study__card-actions">
           <button

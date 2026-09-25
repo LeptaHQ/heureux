@@ -1,20 +1,13 @@
 import hashlib
 import json
-from html.parser import HTMLParser
 from pathlib import Path
 from unittest.mock import patch
 
 from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
-from django.utils.html import escape
 
 from study import content_loader as content
-from study.models import (
-    Annotation,
-    AnnotationKind,
-    MemoryQuestionProgress,
-    PersonalQuestionResponse,
-)
+from study.models import MemoryQuestionProgress
 from study.views.library import _memory_sections
 
 from . import factories
@@ -49,12 +42,6 @@ EXPECTED_COLLECTIONS = {
     3: ("Nuance", "Concéder, illustrer et équilibrer"),
     4: ("Maîtrise", "Prioriser, conclure et mettre en œuvre"),
 }
-BASELINE_ROOT_TEXT = {
-    1: "eb81439f71133137b1b89d24960fadf87dc9c41e928f88eb197da1988d8809da",
-    2: "17d17d4de63fdff2e56a269c248e6290b5b20df8a145e84aa8c53d565c7ae41d",
-    3: "0b1e9a2b5bf0ad70366b5b08d92041eb39176854a01172d110f6890209485c0a",
-    4: "3bf26d5d22e71ae16be73f7b0417265a8b7d394e4238102193ccd94063345dd9",
-}
 APPROVED_CORRECTIONS = {
     (1, 10, 1, 11): (
         "une alimentation moins grasse et variée",
@@ -88,47 +75,6 @@ def _banks():
         content.EE_TACHE_THREE_MEMOIRES_DIR,
         key_namespace="ee-tache3",
     )
-
-
-class AnnotationRootText(HTMLParser):
-    """Collect the exact text stream used by French annotation offsets."""
-
-    VOID_TAGS = {
-        "area", "base", "br", "col", "embed", "hr", "img", "input",
-        "link", "meta", "param", "source", "track", "wbr",
-    }
-
-    def __init__(self, legacy=False):
-        super().__init__(convert_charrefs=True)
-        self.stack = []
-        self.roots = {}
-        self.legacy = legacy
-
-    def handle_starttag(self, tag, attrs):
-        attrs = dict(attrs)
-        key = attrs.get("data-annotation-source-key", "")
-        if key:
-            self.roots[key] = ""
-        if tag not in self.VOID_TAGS:
-            excluded = "data-annotation-exclude" in attrs
-            if self.legacy and "data-annotation-legacy-text" in attrs:
-                if not excluded:
-                    self.handle_data(attrs["data-annotation-legacy-text"])
-                excluded = True
-            self.stack.append((tag, key, excluded))
-
-    def handle_endtag(self, tag):
-        for index in range(len(self.stack) - 1, -1, -1):
-            if self.stack[index][0] == tag:
-                del self.stack[index:]
-                break
-
-    def handle_data(self, data):
-        if any(excluded for _, _, excluded in self.stack):
-            return
-        for _, key, _ in self.stack:
-            if key:
-                self.roots[key] += data
 
 
 class EeTacheThreeMemoryTranslationContentTests(SimpleTestCase):
@@ -315,62 +261,15 @@ class EeTacheThreeMemoryTranslationViewTests(TestCase):
     def _url(self, bank):
         return reverse("study:task_memory_detail", args=["ee", "tache-3", bank.number])
 
-    def test_all_four_pages_render_paired_language_tagged_formulations(self):
+    def test_all_four_old_pages_redirect_to_formulations(self):
         for bank in _banks():
             with self.subTest(bank=bank.number):
                 response = self.client.get(self._url(bank))
-                self.assertEqual(response.status_code, 200)
-                self.assertContains(
-                    response, 'class="question-bank-question__translation"',
-                    count=bank.question_count,
+                self.assertRedirects(
+                    response, reverse("study:ee_formulations"), fetch_redirect_response=False,
                 )
-                self.assertContains(response, 'lang="en" data-annotation-exclude',
-                                    count=bank.question_count)
-                self.assertContains(response, '<p lang="fr"',
-                                    count=bank.question_count)
-                self.assertContains(
-                    response,
-                    'id="ee3-memory-guide-dialog"',
-                    count=1,
-                )
-                self.assertContains(
-                    response,
-                    'id="writing-methodology-dialog"',
-                    count=1,
-                )
-                self.assertContains(
-                    response,
-                    'aria-label="Catégories de formulations"',
-                    count=1,
-                )
-                self.assertContains(response, "formulations apprises", count=1)
-                self.assertNotContains(response, "questions apprises")
-                parser = AnnotationRootText(legacy=True)
-                parser.feed(response.content.decode())
-                self.assertEqual(len(parser.roots), 10)
-                self.assertEqual(
-                    hashlib.sha256(json.dumps(
-                        parser.roots, ensure_ascii=False, sort_keys=True
-                    ).encode()).hexdigest(),
-                    BASELINE_ROOT_TEXT[bank.number],
-                )
-                self.assertContains(
-                    response, "data-annotation-legacy-text=",
-                    count=sum(key[0] == bank.number for key in APPROVED_CORRECTIONS),
-                )
-                for section in bank.sections:
-                    self.assertContains(
-                        response,
-                        f'data-annotation-source-key="{bank.annotation_key_prefix}'
-                        f':part-{section.number_label}"',
-                        count=1,
-                    )
-                    for group in section.groups:
-                        for question in group.questions:
-                            self.assertContains(response, escape(question.text))
-                            self.assertContains(response, escape(question.english))
 
-    def test_all_1286_original_completion_keys_restore_after_corrections(self):
+    def test_original_completion_keys_do_not_complete_new_formulations(self):
         banks = _banks()
         records = []
         for bank in banks:
@@ -389,67 +288,6 @@ class EeTacheThreeMemoryTranslationViewTests(TestCase):
                         ))
         MemoryQuestionProgress.objects.bulk_create(records)
         self.assertEqual(MemoryQuestionProgress.objects.count(), 1286)
-        for bank in banks:
-            with self.subTest(bank=bank.number):
-                response = self.client.get(self._url(bank))
-                self.assertEqual(
-                    response.context["memory_progress"].completed,
-                    bank.question_count,
-                )
-                self.assertContains(response, 'class="is-complete"',
-                                    count=bank.question_count)
-                self.assertTrue(all(
-                    question["completed"]
-                    for section in response.context["memory_sections"]
-                    for group in section["groups"]
-                    for question in group["questions"]
-                ))
-
-    def test_saved_learning_state_responses_and_highlights_remain_intact(self):
-        bank = _banks()[0]
-        question = bank.sections[0].groups[0].questions[2]
-        completed = MemoryQuestionProgress.objects.create(
-            user=self.user, memory_number=bank.number,
-            question_key=question.content_key,
-        )
-        personal = PersonalQuestionResponse.objects.create(
-            user=self.user, task=self.task, question_key=question.content_key,
-            body="Une réponse personnelle déjà enregistrée.",
-        )
-        response = self.client.get(self._url(bank))
-        parser = AnnotationRootText()
-        parser.feed(response.content.decode())
-        source_key = f"{bank.annotation_key_prefix}:part-01"
-        french_root = parser.roots[source_key]
-        start = french_root.index(question.text)
-        highlight = Annotation.objects.create(
-            user=self.user, task=self.task, kind=AnnotationKind.HIGHLIGHT,
-            source_path=self._url(bank), source_key=source_key,
-            quote=question.text, start_offset=start,
-            end_offset=start + len(question.text),
-            prefix=french_root[max(0, start - 160):start],
-            suffix=french_root[start + len(question.text):][:160],
-        )
-        before = (
-            completed.completed_at, personal.body, personal.updated_at,
-            highlight.source_key, highlight.quote, highlight.start_offset,
-            highlight.end_offset, highlight.prefix, highlight.suffix,
-        )
-        response = self.client.get(self._url(bank))
-        self.assertContains(response, 'class="is-complete"')
-        self.assertEqual(response.context["memory_progress"].completed, 1)
-        highlights = self.client.get(
-            reverse("study:annotations_for_source"),
-            {"source_path": self._url(bank)},
-        ).json()["highlights"]
-        self.assertEqual(len(highlights), 1)
-        self.assertEqual(highlights[0]["source_key"], source_key)
-        self.assertEqual(highlights[0]["start_offset"], start)
-        completed.refresh_from_db()
-        personal.refresh_from_db()
-        highlight.refresh_from_db()
-        self.assertEqual(before, (
-            completed.completed_at, personal.body, personal.updated_at,
-            highlight.source_key, highlight.quote, highlight.start_offset,
-            highlight.end_offset, highlight.prefix, highlight.suffix,
-        ))
+        response = self.client.get(reverse("study:ee_formulations"))
+        self.assertEqual(response.context["progress"].completed, 0)
+        self.assertEqual(MemoryQuestionProgress.objects.count(), 1286)

@@ -6,13 +6,6 @@ from study import routing
 register = template.Library()
 
 
-@register.simple_tag
-def annotation_source_url(annotation):
-    if annotation.source_key.startswith("phrase:"):
-        return reverse("study:annotation_source", args=[annotation.pk])
-    return annotation.source_path
-
-
 @register.simple_tag(takes_context=True)
 def subject_link(context, url):
     return routing.subject_selection_url(url, context.get("request"))

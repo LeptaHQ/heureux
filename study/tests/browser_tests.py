@@ -34,7 +34,6 @@ from study.models import (
     LearningLessonProgress,
     CourseAttempt,
     CourseProduction,
-    MemoryQuestionProgress,
     PhraseCategory,
     PhraseTier,
     PersonalQuestionResponse,
@@ -51,6 +50,7 @@ from study.routing import prompt_detail_url, response_detail_url, review_url, th
 
 from . import factories
 from .course_fixtures import course_catalog, sectioned_course_lesson
+from .formulation_browser_tests import FormulationBrowserTests
 
 
 @override_settings(
@@ -1159,346 +1159,19 @@ class BrowserTests(StaticLiveServerTestCase):
             2,
         )
 
-    def test_ee3_memory_guide_labels_completion_and_methodology_are_responsive(self):
-        _, task = self._import_ee_tache_three_content()
-        bank = content.load_question_banks(
-            content.EE_TACHE_THREE_MEMOIRES_DIR,
-            key_namespace="ee-tache3",
-        )[0]
-        corrected = next(
-            question
-            for section in bank.sections
-            for group in section.groups
-            for question in group.questions
-            if question.legacy_text
-        )
-        overview_path = reverse("study:task_memories", args=["ee", "tache-3"])
-        path = reverse("study:task_memory_detail", args=["ee", "tache-3", 1])
-
-        for width in (320, 390, 1280):
-            with self.subTest(width=width):
-                self.page.set_viewport_size({"width": width, "height": 844})
-                self.page.goto(self.live_server_url + overview_path)
-                expect(
-                    self.page.get_by_role(
-                        "heading", name="Collections de formulations"
-                    )
-                ).to_be_visible()
-                entries = self.page.locator(".memory-entry")
-                expect(entries).to_have_count(4)
-                for label, title in (
-                    ("Fondations", "Cadrer, comparer et prendre position"),
-                    ("Argumentation", "Justifier, protéger et concilier"),
-                    ("Nuance", "Concéder, illustrer et équilibrer"),
-                    ("Maîtrise", "Prioriser, conclure et mettre en œuvre"),
-                ):
-                    entry = entries.filter(has_text=title)
-                    expect(entry).to_have_count(1)
-                    expect(entry).to_contain_text(label)
-                for number in range(1, 5):
-                    expect(
-                        self.page.get_by_text(f"Mémoire {number}", exact=True)
-                    ).to_have_count(0)
-                self.assert_no_horizontal_overflow()
-
-                self.page.goto(self.live_server_url + path)
-                guide = self.page.locator(".ee3-memory-guide")
-                expect(guide).not_to_have_attribute("open", "")
-                expect(
-                    self.page.locator(".question-bank-hero__metrics")
-                ).to_contain_text("Formulations")
-                expect(
-                    self.page.locator("#memory-learning-title")
-                ).to_contain_text("formulations apprises")
-                expect(
-                    self.page.locator(".question-bank-index nav")
-                ).to_have_attribute(
-                    "aria-label",
-                    "Catégories de formulations",
-                )
-                self.page.get_by_role(
-                    "button", name="Comment apprendre ces formulations", exact=True
-                ).click()
-                expect(guide).to_have_attribute("open", "")
-                english = guide.locator(":scope > .ee3-memory-guide__body > p[lang=en]").first
-                french = guide.locator(":scope > .ee3-memory-guide__body > p").first
-                styles = self.page.evaluate(
-                    """
-                    ([french, english]) => ({
-                      frenchSize: parseFloat(getComputedStyle(french).fontSize),
-                      englishSize: parseFloat(getComputedStyle(english).fontSize),
-                      frenchColor: getComputedStyle(french).color,
-                      englishColor: getComputedStyle(english).color,
-                    })
-                    """,
-                    [french.element_handle(), english.element_handle()],
-                )
-                self.assertLess(styles["englishSize"], styles["frenchSize"])
-                self.assertNotEqual(styles["englishColor"], styles["frenchColor"])
-                self.assert_no_horizontal_overflow()
-
-                if width == 390:
-                    guide.get_by_role(
-                        "button", name="Méthodologie", exact=True
-                    ).click()
-                    dialog = self.page.locator("#writing-methodology-dialog")
-                    expect(dialog).to_be_visible()
-                    expect(dialog).to_have_attribute(
-                        "data-writing-methodology", "3"
-                    )
-                    dialog.get_by_role(
-                        "button", name="Fermer la méthodologie"
-                    ).click()
-                    expect(dialog).to_be_hidden()
-
-                guide.get_by_role(
-                    "button", name="Fermer le guide des formulations"
-                ).click()
-                expect(guide).to_be_hidden()
-
-        row = self.page.locator(
-            f'[data-question-key="{corrected.content_key}"]'
-        )
-        checkbox = row.locator("[data-memory-progress-form] button")
-        expect(checkbox).to_have_attribute("aria-checked", "false")
-        with self.page.expect_response(
-            lambda response: "/progression/" in response.url
-        ) as completed:
-            checkbox.click()
-        self.assertTrue(completed.value.ok)
-        expect(checkbox).to_have_attribute("aria-checked", "true")
-        self.page.reload()
-        row = self.page.locator(
-            f'[data-question-key="{corrected.content_key}"]'
-        )
-        expect(
-            row.locator("[data-memory-progress-form] button")
-        ).to_have_attribute("aria-checked", "true")
-        self.assertTrue(MemoryQuestionProgress.objects.filter(
-            user=self.user,
-            memory_number=1,
-            question_key=corrected.content_key,
-        ).exists())
-        self.assertEqual(task.part.slug, "ee")
-
-    def test_ee3_memory_highlights_ignore_english_and_survive_crud(self):
+    def test_ee3_memory_bookmarks_open_the_single_formulations_feature(self):
         self._import_ee_tache_three_content()
-        path = reverse("study:task_memory_detail", args=["ee", "tache-3", 1])
-        self.page.goto(self.live_server_url + path)
-        row = self.page.locator("[data-question-bank-question]").nth(24)
-        key = row.get_attribute("data-question-key")
-        french = row.locator("p[lang=fr]")
-        english = row.locator("p[lang=en]")
-        button = self.page.locator("[data-highlight-selection]")
-
-        self.select_prompt(target=french)
-        expect(button).to_be_visible()
-        english.evaluate(
-            """
-            element => {
-              const range = document.createRange();
-              range.selectNodeContents(element);
-              const selection = window.getSelection();
-              selection.removeAllRanges();
-              selection.addRange(range);
-              document.dispatchEvent(new Event("selectionchange"));
-            }
-            """
-        )
-        expect(button).to_be_hidden()
-        button.evaluate("element => element.click()")
-        self.assertFalse(Annotation.objects.filter(
-            user=self.user, kind=AnnotationKind.HIGHLIGHT
-        ).exists())
-
-        row.evaluate(
-            """
-            element => {
-              const french = element.querySelector("p[lang=fr]");
-              const english = element.querySelector("p[lang=en]");
-              const range = document.createRange();
-              range.setStart(french.firstChild, 0);
-              range.setEnd(english.firstChild, english.firstChild.data.length);
-              const selection = window.getSelection();
-              selection.removeAllRanges();
-              selection.addRange(range);
-              document.dispatchEvent(new Event("selectionchange"));
-            }
-            """
-        )
-        expect(button).to_be_hidden()
-        button.evaluate("element => element.click()")
-        self.assertFalse(Annotation.objects.filter(
-            user=self.user, kind=AnnotationKind.HIGHLIGHT
-        ).exists())
-
-        self.save_current_prompt_highlight(target=french)
-        expect(row.locator("mark.user-highlight")).to_have_count(1)
-        highlight = Annotation.objects.get(
-            user=self.user, kind=AnnotationKind.HIGHLIGHT
-        )
-        self.assertNotIn(english.inner_text(), highlight.quote)
-        self.page.reload()
-        row = self.page.locator(f'[data-question-key="{key}"]')
-        mark = row.locator("mark.user-highlight")
-        expect(mark).to_have_text(highlight.quote)
-        self.select_prompt(target=mark)
-        expect(button).to_have_attribute(
-            "aria-label", "Unhighlight selected text"
-        )
-        with self.page.expect_response(
-            lambda response: str(highlight.pk) in response.url
-        ) as deleted:
-            button.click()
-        self.assertTrue(deleted.value.ok)
-        expect(row.locator("mark.user-highlight")).to_have_count(0)
-        self.page.reload()
-        expect(
-            self.page.locator(f'[data-question-key="{key}"] mark.user-highlight')
-        ).to_have_count(0)
-        self.assertFalse(Annotation.objects.filter(pk=highlight.pk).exists())
-
-    def test_ee3_historical_repeated_highlight_ignores_preceding_english(self):
-        _, task = self._import_ee_tache_three_content()
-        path = reverse("study:task_memory_detail", args=["ee", "tache-3", 4])
-        source_key = "question-bank:ee-tache3:memory-04:part-10"
-        self.page.goto(self.live_server_url + path)
-        root = self.page.locator(
-            f'[data-annotation-source-key="{source_key}"]'
-        )
-        quote = "la qualité"
-        snapshot = root.evaluate(
-            """
-            (element, target) => {
-              const walker = document.createTreeWalker(
-                element,
-                NodeFilter.SHOW_TEXT,
-                {acceptNode: node => node.parentElement.closest(
-                  "[data-annotation-exclude]"
-                ) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT}
-              );
-              let text = "";
-              let node;
-              while ((node = walker.nextNode())) text += node.data;
-              const first = text.indexOf(target);
-              const start = text.indexOf(target, first + target.length);
-              return {
-                start,
-                end: start + target.length,
-                prefix: text.slice(Math.max(0, start - 160), start),
-                suffix: text.slice(start + target.length, start + target.length + 160),
-              };
-            }
-            """,
-            quote,
-        )
-        self.assertGreater(snapshot["start"], 0)
-        Annotation.objects.create(
-            user=self.user,
-            task=task,
-            kind=AnnotationKind.HIGHLIGHT,
-            source_path=path,
-            source_key=source_key,
-            quote=quote,
-            start_offset=snapshot["start"],
-            end_offset=snapshot["end"],
-            prefix=snapshot["prefix"],
-            suffix=snapshot["suffix"],
-        )
-
-        self.page.reload()
-        matching = root.locator("p[lang=fr]", has_text=quote)
-        expect(matching).to_have_count(2)
-        expect(matching.nth(0).locator("mark.user-highlight")).to_have_count(0)
-        expect(matching.nth(1).locator("mark.user-highlight")).to_have_text(
-            quote
-        )
-
-    def test_ee3_all_corrected_roots_project_legacy_offsets_in_chromium(self):
-        _, task = self._import_ee_tache_three_content()
-        total = 0
-        for memory_number in (1, 2, 3, 4):
-            path = reverse(
-                "study:task_memory_detail",
-                args=["ee", "tache-3", memory_number],
-            )
+        paths = [reverse("study:task_memories", args=["ee", "tache-3"])] + [
+            reverse("study:task_memory_detail", args=["ee", "tache-3", number])
+            for number in range(1, 5)
+        ]
+        for path in paths:
             self.page.goto(self.live_server_url + path)
-            corrections = self.page.locator("[data-annotation-legacy-text]")
-            expected = []
-            for correction in corrections.all():
-                saved = correction.evaluate(
-                    """
-                    element => {
-                      const root = element.closest("[data-annotation-root]");
-                      const rows = [...root.querySelectorAll("p[lang=fr]")];
-                      const index = rows.indexOf(element);
-                      const target = rows[index + 1] || rows[index - 1];
-                      if (!target) throw new Error("Correction has no adjacent row.");
-                      function excluded(node) {
-                        return node.nodeType === Node.ELEMENT_NODE
-                          && node.closest("[data-annotation-exclude]");
-                      }
-                      function collect(node, stopAt) {
-                        if (node === stopAt) return {text: "", found: true};
-                        if (node.nodeType === Node.TEXT_NODE) {
-                          return {text: node.data, found: false};
-                        }
-                        if (excluded(node)) return {text: "", found: false};
-                        if (node.nodeType === Node.ELEMENT_NODE
-                            && node.hasAttribute("data-annotation-legacy-text")) {
-                          return {
-                            text: node.dataset.annotationLegacyText,
-                            found: false,
-                          };
-                        }
-                        let text = "";
-                        for (const child of node.childNodes) {
-                          const result = collect(child, stopAt);
-                          text += result.text;
-                          if (result.found) return {text, found: true};
-                        }
-                        return {text, found: false};
-                      }
-                      const before = collect(root, target).text;
-                      const complete = collect(root, null).text;
-                      const quote = target.textContent;
-                      return {
-                        questionKey: target.closest(
-                          "[data-question-key]"
-                        ).dataset.questionKey,
-                        sourceKey: root.dataset.annotationSourceKey,
-                        quote,
-                        start: before.length,
-                        end: before.length + quote.length,
-                        prefix: before.slice(-160),
-                        suffix: complete.slice(before.length + quote.length,
-                                               before.length + quote.length + 160),
-                      };
-                    }
-                    """
-                )
-                Annotation.objects.create(
-                    user=self.user,
-                    task=task,
-                    kind=AnnotationKind.HIGHLIGHT,
-                    source_path=path,
-                    source_key=saved["sourceKey"],
-                    quote=saved["quote"],
-                    start_offset=saved["start"],
-                    end_offset=saved["end"],
-                    prefix=saved["prefix"],
-                    suffix=saved["suffix"],
-                )
-                expected.append(saved)
-            total += len(expected)
-            if expected:
-                self.page.reload()
-                for saved in expected:
-                    expect(self.page.locator(
-                        f'[data-question-key="{saved["questionKey"]}"] '
-                        "mark.user-highlight"
-                    )).to_have_text(saved["quote"])
-        self.assertEqual(total, 6)
+            self.assertEqual(self.page.url, self.live_server_url + reverse("study:ee_formulations"))
+            expect(self.page.get_by_role("heading", name="Formulations", exact=True)).to_be_visible()
+            expect(self.page.locator(".formulation-category")).to_have_count(21)
+            expect(self.page.locator(".formulation-archives")).to_have_count(0)
+            self.assert_no_horizontal_overflow()
 
     def test_tache_one_question_response_editor_saves_and_reopens(self):
         task = Command()._import_sections(load_sections())["eo/tache-1"]
@@ -1637,7 +1310,7 @@ class BrowserTests(StaticLiveServerTestCase):
         overview_entries = self.page.locator(
             "[data-ee-tache-three-overview-entry]"
         )
-        self.assertEqual(overview_entries.count(), 3)
+        self.assertEqual(overview_entries.count(), 2)
         overview_entries.first.hover()
         self.assertEqual(
             overview_entries.first.evaluate(
@@ -1652,7 +1325,7 @@ class BrowserTests(StaticLiveServerTestCase):
                     ".gridTemplateColumns.split(' ')"
                 )
             ),
-            3,
+            2,
         )
         self.assert_no_horizontal_overflow()
 
@@ -1864,9 +1537,8 @@ class BrowserTests(StaticLiveServerTestCase):
         batch = month.batches[0]
         other_directories = [
             reverse("study:task_phrases", args=[part, f"tache-{tache}"])
-            for part, tache in (("eo", 2), ("eo", 3), ("ee", 1), ("ee", 3))
+            for part, tache in (("eo", 2), ("eo", 3), ("ee", 1))
         ] + [
-            reverse("study:task_memories", args=["ee", "tache-3"]),
             reverse("study:task_subject_batch", args=[
                 "eo", "tache-2", month.slug, batch.number,
             ]),
@@ -1985,85 +1657,6 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertIsNone(dialog.evaluate(
             "element => element.closest('.memory-overview-hero')"
         ))
-
-    def test_ee3_memory_guide_scrolls_inside_a_modal_on_overview_and_memory_pages(self):
-        factories.make_task(factories.make_part("ee"), "tache-3")
-        self.page.emulate_media(reduced_motion="reduce")
-        paths = (
-            reverse("study:task_memories", args=["ee", "tache-3"]),
-            reverse("study:task_memory_detail", args=["ee", "tache-3", 1]),
-        )
-        for path in paths:
-            for width, height in ((320, 568), (390, 844), (1280, 800), (844, 390)):
-                with self.subTest(path=path, width=width, height=height):
-                    self.page.set_viewport_size({"width": width, "height": height})
-                    self.page.goto(self.live_server_url + path)
-                    trigger = self.page.get_by_role(
-                        "button", name="Comment apprendre ces formulations", exact=True
-                    )
-                    dialog = self.page.get_by_role(
-                        "dialog", name="Comment apprendre ces formulations", exact=True,
-                        include_hidden=True,
-                    )
-                    body = dialog.get_by_role("region", name="Guide des formulations")
-                    close = dialog.get_by_role("button", name="Fermer le guide des formulations")
-                    expect(dialog).to_be_hidden()
-                    trigger.focus()
-                    page_scroll = self.page.evaluate("window.scrollY")
-                    trigger.press("Enter")
-                    expect(dialog).to_be_visible()
-                    self.assertTrue(dialog.evaluate("element => element.matches(':modal')"))
-                    self.assert_scrollable_dialog_layout(dialog, close)
-                    expect(close).to_be_focused()
-                    close_top = close.bounding_box()["y"]
-                    self.page.keyboard.press("Tab")
-                    expect(body).to_be_focused()
-                    body.press("End")
-                    self.page.wait_for_function("""() => {
-                        const body = document.querySelector(".ee3-memory-guide__body");
-                        return body.scrollTop > 0 &&
-                            body.scrollHeight - body.clientHeight - body.scrollTop < 2;
-                    }""")
-                    self.assertAlmostEqual(close.bounding_box()["y"], close_top, delta=1)
-                    self.assertEqual(self.page.evaluate("window.scrollY"), page_scroll)
-                    expect(self.page.locator("html")).to_have_css("overflow", "hidden")
-                    expect(body).to_have_css("overscroll-behavior", "contain")
-                    self.assertTrue(body.evaluate("""element => {
-                        const body = element.getBoundingClientRect();
-                        const last = element.lastElementChild.getBoundingClientRect();
-                        return last.bottom <= body.bottom;
-                    }"""))
-                    self.page.keyboard.press("Tab")
-                    methodology = dialog.get_by_role("button", name="Méthodologie", exact=True)
-                    expect(methodology).to_be_focused()
-                    methodology.press("Enter")
-                    full_guide = self.page.locator("#writing-methodology-dialog")
-                    expect(full_guide).to_be_visible()
-                    self.page.keyboard.press("Escape")
-                    expect(full_guide).to_be_hidden()
-                    expect(dialog).to_be_visible()
-                    expect(methodology).to_be_focused()
-                    expect(self.page.locator("html")).to_have_css("overflow", "hidden")
-                    self.page.keyboard.press("Tab")
-                    # The native tab cycle can include browser chrome, never background controls.
-                    if not self.page.evaluate("document.hasFocus()"):
-                        self.page.keyboard.press("Tab")
-                    expect(close).to_be_focused()
-                    self.page.keyboard.press("Escape")
-                    expect(dialog).to_be_hidden()
-                    expect(trigger).to_be_focused()
-                    expect(self.page.locator("html")).not_to_have_css("overflow", "hidden")
-                    self.assertEqual(self.page.evaluate("window.scrollY"), page_scroll)
-                    trigger.click()
-                    close.click()
-                    expect(dialog).to_be_hidden()
-                    expect(trigger).to_be_focused()
-                    trigger.click()
-                    self.page.mouse.click(2, 2)
-                    expect(dialog).to_be_hidden()
-                    expect(trigger).to_be_focused()
-                    self.assertEqual(self.page.url, self.live_server_url + path)
-                    self.assert_no_horizontal_overflow()
 
     def test_writing_methodology_opens_locally_and_restores_focus(self):
         self._import_ee_writing_content()
@@ -2308,7 +1901,7 @@ class BrowserTests(StaticLiveServerTestCase):
             self.page.locator(
                 "[data-ee-tache-three-overview-entry]"
             ).count(),
-            3,
+            2,
         )
         self.assertEqual(
             self.page.locator(".ee-t3-month-group").count(),
@@ -2320,86 +1913,41 @@ class BrowserTests(StaticLiveServerTestCase):
         )
 
         self.page.goto(self.live_server_url + vocabulary_url)
-        self.assertEqual(
-            self.page.locator(
-                "[data-theme-vocabulary-directory-item]"
-            ).count(),
-            len(themes),
-        )
+        self.assertIn("/formulations/", self.page.url)
+        expect(self.page.locator("#formulation-theme option")).to_have_count(len(themes) + 1)
         self.assert_no_horizontal_overflow()
         self.assert_ee3_subject_directory(subjects_url, themes)
 
-    def test_ee3_vocabulary_reuses_theme_directory_and_flashcards(self):
+    def test_ee3_legacy_vocabulary_opens_formulation_list_not_flashcards(self):
         self._import_ee_tache_three_content()
         url = self.live_server_url + reverse("study:task_phrases", args=["ee", "tache-3"])
         self.page.set_viewport_size({"width": 1292, "height": 844})
         self.page.goto(url)
-        entries = self.page.locator("[data-theme-vocabulary-directory-item]")
-        expect(entries).to_have_count(11)
+        self.assertIn("/formulations/", self.page.url)
+        entries = self.page.locator(".formulation-category")
+        expect(entries).to_have_count(21)
         expect(self.page.locator("[data-subject-vocabulary-row]")).to_have_count(0)
         self.assertTrue(entries.evaluate_all(
-            "links => links.every(link => link.pathname.includes('/vocabulaire/'))"
+            "links => links.every(link => link.pathname.includes('/formulations/'))"
         ))
         for width in (1292, 390, 320):
             self.page.set_viewport_size({"width": width, "height": 844})
-            for view in ("Cartes", "Tableau"):
-                self.page.get_by_role("button", name=view, exact=True).click()
-                expect(entries).to_have_count(11)
-                self.assert_no_horizontal_overflow()
-        theme_url = entries.first.get_attribute("href")
+            expect(entries).to_have_count(21)
+            expect(self.page.locator("[data-formulation-practice]")).to_have_count(0)
+            self.assert_no_horizontal_overflow()
         entries.first.click()
-        self.page.wait_for_url(self.live_server_url + theme_url)
-        rows = self.page.locator("[data-theme-vocabulary-phrase]")
+        rows = self.page.locator(".formulation-list > li")
         count = rows.count()
-        self.assertGreater(count, 30)
-        self.assertEqual(self.page.locator("[data-theme-vocabulary-group]").count(), 7)
-        self.assertEqual(rows.locator("[data-read-aloud]").count(), count)
-        expect(rows.first.locator("[data-read-aloud]")).to_be_enabled()
-        first_expression = rows.first.locator("[data-recall-cell=french]")
-        first_expression.click()
-        self.assertEqual(self.page.url, self.live_server_url + theme_url)
+        self.assertGreater(count, 0)
         self.assertEqual(len(self.context.pages), 1)
-        for width in (1292, 900, 640, 390, 320):
-            self.page.set_viewport_size({"width": width, "height": 844})
-            for view in ("Tableau", "Cartes"):
-                with self.subTest(width=width, view=view):
-                    self.page.get_by_role("button", name=view, exact=True).click()
-                    expect(rows).to_have_count(count)
-                    expect(rows.filter(visible=True)).to_have_count(count if view == "Tableau" else 1)
-                    self.assert_no_horizontal_overflow()
-        self.page.get_by_role("button", name="Tableau", exact=True).click()
-        first_meaning = rows.first.locator("[data-recall-cell=meaning]")
-        self.page.locator('[data-theme-vocabulary-recall-column="meaning"]').click()
-        expect(first_meaning).to_have_attribute("aria-pressed", "false")
-        expect(first_meaning.locator("[data-recall-content]")).to_have_attribute("aria-hidden", "true")
-        first_meaning.click()
-        expect(first_meaning).to_have_attribute("aria-pressed", "true")
-        expect(first_meaning.locator("[data-recall-content]")).not_to_have_attribute("aria-hidden", "true")
-        self.page.locator('[data-theme-vocabulary-recall-column="meaning"]').click()
-        form = rows.first.locator("[data-theme-vocabulary-progress-form]")
-        learned = form.locator("button")
-        route_pattern = "**" + form.get_attribute("action")
-        self.page.route(route_pattern, lambda route: route.fulfill(status=403, json={"error": "Progression refusée."}))
-        learned.click()
-        expect(self.page.locator("[data-theme-vocabulary-progress-error]")).to_have_text("Progression refusée.")
-        expect(learned).to_have_attribute("aria-checked", "false")
-        self.page.unroute(route_pattern)
-        learned.click()
-        expect(learned).to_have_attribute("aria-checked", "true")
-        self.page.locator('[data-theme-vocabulary-status-filter="learned"]').click()
-        expect(rows.filter(visible=True)).to_have_count(1)
-        self.page.locator('[data-theme-vocabulary-status-filter="learning"]').click()
-        expect(rows.filter(visible=True)).to_have_count(count - 1)
-        self.page.locator('[data-theme-vocabulary-status-filter="all"]').click()
-        self.page.reload()
-        expect(learned).to_have_attribute("aria-checked", "true")
-        expect(self.page.locator("[data-theme-vocabulary-learned-count]")).to_have_text("1")
-        practice = self.page.get_by_role("link", name="Pratiquer le prochain lot", exact=True)
-        self.assertIn("kind=vocab", practice.get_attribute("href"))
-        self.assertIn("theme=", practice.get_attribute("href"))
-        practice.click()
-        self.page.locator("#card-front .cue-text").wait_for()
-        self.page.wait_for_load_state("networkidle")
+        rows.first.locator("summary").click()
+        expect(rows.first.locator(".formulation-teaching")).to_be_visible()
+        self.page.get_by_role("link", name="Pratiquer cette sélection", exact=True).click()
+        expect(self.page.locator("[data-flashcard-front]")).to_be_visible()
+        expect(self.page.locator("[data-flashcard-back]")).to_be_hidden()
+        self.page.locator("[data-flashcard-flip]").click()
+        expect(self.page.locator("[data-flashcard-back]")).to_be_visible()
+        self.assert_no_horizontal_overflow()
 
     def open_vocabulary_lots(self, expected_count):
         disclosure = self.page.locator("[data-review-batches]")
@@ -2412,127 +1960,57 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(lots.locator(".batch-card__status, strong")).to_have_count(0)
         return lots
 
-    def test_vocabulary_lots_are_collapsible_compact_and_responsive(self):
+    def test_ee3_formulation_categories_are_native_and_do_not_start_srs(self):
         self._import_ee_tache_three_content()
         self.page.set_viewport_size({"width": 1292, "height": 844})
         self.page.goto(self.live_server_url + reverse(
             "study:task_phrases", args=["ee", "tache-3"],
         ))
-        self.page.locator("[data-theme-vocabulary-directory-item]").first.click()
-        disclosure = self.page.locator("[data-review-batches]")
-        lot_list = disclosure.locator(".review-lots__list")
-        lots = lot_list.locator(".batch-card")
-        catalog = self.page.locator("[data-theme-vocabulary-recall-catalog]")
-        expect(disclosure).not_to_have_attribute("open", "")
-        expect(lots.first).not_to_be_visible()
-        self.assertLessEqual(disclosure.bounding_box()["height"], 60)
-        self.assertAlmostEqual(
-            disclosure.bounding_box()["width"], catalog.bounding_box()["width"],
-        )
-        self.assertLess(
-            catalog.bounding_box()["y"] - disclosure.bounding_box()["y"], 100,
-        )
+        disclosure = self.page.locator(".formulation-directory")
+        categories = disclosure.locator(".formulation-category")
+        expect(disclosure).to_have_attribute("open", "")
+        expect(categories).to_have_count(21)
         disclosure.locator("summary").focus()
         self.page.keyboard.press("Enter")
-        expect(lots.first).to_be_visible()
-        self.assertGreater(lots.count(), 15)
-        expect(lots.first.locator(".batch-card__number")).to_have_text("Lot 01")
-        expect(lots.first.locator(".batch-card__count")).to_have_text("0/10")
-        expect(lots.locator(".batch-card__status, strong")).to_have_count(0)
-        expect(self.page.locator(".review-batches")).to_have_count(0)
-        self.assertAlmostEqual(lots.nth(0).bounding_box()["y"], lots.nth(1).bounding_box()["y"])
-        self.assertTrue(lots.evaluate_all(
-            "lots => lots.every(lot => lot.getBoundingClientRect().height <= 48)"
-        ))
-        disclosure.locator("summary").focus()
-        self.page.keyboard.press("Tab")
-        expect(lots.first).to_be_focused()
-        for width in (1292, 1100, 1099, 900, 640, 390, 320):
-            self.page.set_viewport_size({"width": width, "height": 844})
-            for view in ("Tableau", "Cartes"):
-                with self.subTest(width=width, view=view):
-                    self.page.get_by_role("button", name=view, exact=True).click()
-                    self.assertLessEqual(lot_list.bounding_box()["height"], 256)
-                    self.assert_no_horizontal_overflow()
-        self.assertTrue(lot_list.evaluate("list => list.scrollHeight > list.clientHeight"))
-        scroll_y = self.page.evaluate("window.scrollY")
-        lot_list.evaluate("list => { list.scrollTop = list.scrollHeight; }")
-        self.assertGreater(lot_list.evaluate("list => list.scrollTop"), 0)
-        self.assertEqual(self.page.evaluate("window.scrollY"), scroll_y)
-        disclosure.locator("summary").click()
-        expect(lots.first).not_to_be_visible()
-        self.assertLessEqual(disclosure.bounding_box()["height"], 60)
-        self.page.reload()
-        expect(disclosure).not_to_have_attribute("open", "")
-        expect(lots.first).not_to_be_visible()
+        expect(categories.first).to_be_hidden()
         disclosure.locator("summary").focus()
         self.page.keyboard.press("Space")
-        expect(lots.first).to_be_visible()
-        self.assertLessEqual(lot_list.bounding_box()["height"], 256)
-        self.assert_no_horizontal_overflow()
-        lot_url = lots.first.get_attribute("href")
-        self.assertNotIn("kind=vocab", lot_url)
-        self.assertIn("batch=1", lot_url)
-        sessions_before = ReviewSession.objects.filter(user=self.user).count()
-        lots.first.click()
-        expect(self.page.locator("html")).to_have_attribute("data-collection-view-mode", "table")
-        expect(self.page.get_by_role("heading", name="Lot 01", exact=True)).to_be_visible()
-        rows = self.page.locator("[data-theme-vocabulary-phrase]")
-        expect(rows).to_have_count(10)
-        expect(rows.filter(visible=True)).to_have_count(10)
-        expect(rows.first.locator(".phrase__cue")).to_be_visible()
-        expect(self.page.locator('[data-theme-vocabulary-filter-count="all"]')).to_have_text("10")
-        self.assertEqual(
-            self.page.evaluate("localStorage.getItem('vocabularyCollectionViewMode')"), "cards",
-        )
-        self.assertEqual(ReviewSession.objects.filter(user=self.user).count(), sessions_before)
-        expect(self.page.locator("#card-front")).to_have_count(0)
-        rows.first.get_by_role("checkbox").click()
-        expect(self.page.locator('[data-theme-vocabulary-filter-count="learned"]')).to_have_text("1")
-        expect(self.page.locator("[data-theme-vocabulary-learned-count]")).to_have_text("1")
-        for width in (1292, 390, 320):
+        expect(categories.first).to_be_visible()
+        for width in (1292, 1100, 1099, 900, 640, 390, 320):
             self.page.set_viewport_size({"width": width, "height": 844})
             self.assert_no_horizontal_overflow()
-        self.page.get_by_role("link", name="Toutes les fiches", exact=True).click()
-        self.assertGreater(rows.count(), 30)
-        expect(self.page.locator("html")).to_have_attribute("data-collection-view-mode", "cards")
-        self.page.goto(self.live_server_url + lot_url)
-        expect(self.page.locator("html")).to_have_attribute("data-collection-view-mode", "table")
-        practice = self.page.get_by_role("link", name="Pratiquer ce lot", exact=True)
-        self.assertIn("kind=vocab", practice.get_attribute("href"))
-        self.assertIn("batch=1", practice.get_attribute("href"))
-        practice.click()
-        self.page.locator("#card-front .cue-text").wait_for()
+        sessions_before = ReviewSession.objects.filter(user=self.user).count()
+        reviews_before = ReviewLog.objects.filter(user=self.user).count()
+        categories.first.click()
+        expect(self.page.locator(".formulation-list")).to_be_visible()
+        expect(self.page.locator(".formulation-directory")).not_to_have_attribute("open", "")
+        self.page.get_by_role("link", name="Pratiquer cette sélection", exact=True).click()
+        self.page.locator("[data-flashcard-flip]").click()
+        expect(self.page.locator("[data-flashcard-back]")).to_be_visible()
+        self.assertEqual(ReviewSession.objects.filter(user=self.user).count(), sessions_before)
+        self.assertEqual(ReviewLog.objects.filter(user=self.user).count(), reviews_before)
 
-    def test_ee3_shared_vocabulary_and_learned_controls_work_without_javascript(self):
+    def test_ee3_formulation_learning_works_without_javascript(self):
         self._import_ee_tache_three_content()
         context = self.browser.new_context(java_script_enabled=False, viewport={"width": 390, "height": 844})
         try:
             context.add_cookies(self.context.cookies())
             page = context.new_page()
             page.goto(self.live_server_url + reverse("study:task_phrases", args=["ee", "tache-3"]))
-            expect(page.locator("[data-theme-vocabulary-directory-item]")).to_have_count(11)
-            page.locator("[data-theme-vocabulary-directory-item]").first.click()
-            disclosure = page.locator("[data-review-batches]")
-            expect(disclosure.locator(".batch-card").first).not_to_be_visible()
-            disclosure.locator("summary").click()
-            expect(disclosure.locator(".batch-card").first).to_be_visible()
-            expect(disclosure.locator(".batch-card__count").first).to_have_text("0/10")
-            rows = page.locator("[data-theme-vocabulary-phrase]")
-            self.assertGreater(rows.count(), 30)
-            disclosure.locator(".batch-card").first.click()
-            expect(rows).to_have_count(10)
-            expect(page.get_by_role("link", name="Pratiquer ce lot", exact=True)).to_be_visible()
-            expect(rows.first.locator(".phrase__expr")).to_be_visible()
-            expect(rows.first.locator(".phrase__cue")).to_be_visible()
-            expect(rows.first.locator(".phrase__ex")).to_be_visible()
-            learned = rows.first.locator("[data-theme-vocabulary-progress-form] button")
+            expect(page.locator(".formulation-category")).to_have_count(21)
+            page.locator(".formulation-category").first.click()
+            rows = page.locator(".formulation-list > li")
+            count = rows.count()
+            self.assertGreater(count, 0)
+            expect(rows.first.locator(".formulation-french")).to_be_visible()
+            rows.first.locator("summary").click()
+            expect(rows.first.locator(".formulation-teaching")).to_be_visible()
+            learned = rows.first.locator(".formulation-learned button")
             learned.click()
-            expect(learned).to_have_attribute("aria-checked", "true")
-            expect(page.locator("[data-theme-vocabulary-learned-count]")).to_have_text("1")
-            self.assertIn("#phrase-", page.url)
-            self.assertIn("?batch=1", page.url)
-            expect(rows).to_have_count(10)
+            expect(learned).to_contain_text("Apprise")
+            self.assertIn("#formulation-", page.url)
+            self.assertIn("?category=", page.url)
+            expect(rows).to_have_count(count)
             self.assertLessEqual(page.evaluate("document.documentElement.scrollWidth"), 390)
         finally:
             context.close()

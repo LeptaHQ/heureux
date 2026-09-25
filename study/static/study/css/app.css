@@ -157,7 +157,12 @@
   width: .75rem;
   height: .75rem;
 }
-.formulation-entry-page,
+.formulation-entry-page {
+  width: min(1200px, calc(100vw - 2rem));
+  max-width: none;
+  margin-left: 50%;
+  transform: translateX(-50%);
+}
 .formulation-language-page { max-width: 1100px; margin-inline: auto; }
 .formulation-entry-hero__summary {
   max-width: 68ch;
@@ -165,7 +170,8 @@
   color: var(--text-soft);
 }
 .formulation-entry-grid {
-  grid-template-columns: minmax(0, 1fr) 260px;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  gap: 1rem;
 }
 .formulation-entry-focus__text {
   color: var(--text) !important;
@@ -189,18 +195,22 @@
 .formulation-entry-progress .formulation-learned .btn {
   width: 100%;
 }
-.formulation-entry-lesson,
 .formulation-language-lesson {
   width: min(100%, 820px);
   margin-inline: auto;
   padding: 1rem;
+}
+.formulation-entry-lesson {
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
 .formulation-entry-guidance {
   margin: 0;
 }
 .formulation-entry-guidance .formulation-teaching {
   display: grid;
-  grid-template-columns: minmax(9rem, .34fr) minmax(0, 1fr);
+  grid-template-columns: 11rem minmax(0, 1fr);
   gap: 0;
   margin: .75rem 0 0;
 }

@@ -102,10 +102,18 @@
   scroll-margin-top: 5.5rem;
   padding: 1rem;
 }
-.formulation-language-table th:first-child { width: 30%; }
-.formulation-language-table th:nth-child(2) { width: 24%; }
+.formulation-language-table th:first-child { width: 28%; }
+.formulation-language-table th:nth-child(2) { width: 22%; }
+.formulation-language-table th:last-child { width: 5.5rem; }
+.formulation-language-role-row th { width: auto; }
 .formulation-language-table td:nth-child(2),
-.formulation-language-table td:last-child { color: var(--text-soft); }
+.formulation-language-table td:nth-child(3) { color: var(--text-soft); }
+.formulation-language-progress-cell {
+  text-align: center;
+}
+.formulation-language-progress-cell .subject-completion-check {
+  display: inline-flex;
+}
 .formulation-language-catalog {
   margin-top: 1.2rem;
 }
@@ -366,7 +374,9 @@
   .formulation-language-table
     tbody
     tr:not(.formulation-language-role-row) {
+    position: relative;
     padding: .8rem;
+    padding-right: 3.25rem;
     border-bottom: 1px solid var(--border);
   }
   .formulation-language-table
@@ -385,10 +395,22 @@
   .formulation-language-table
     tbody
     tr:not(.formulation-language-role-row)
-    td:last-child {
+    td:nth-child(3) {
     margin-top: .65rem;
     padding-top: .65rem;
     border-top: 1px solid var(--border);
+  }
+  .formulation-language-table
+    tbody
+    tr:not(.formulation-language-role-row)
+    .formulation-language-progress-cell {
+    position: absolute;
+    top: .8rem;
+    right: .8rem;
+    width: auto;
+    margin: 0;
+    padding: 0;
+    border: 0;
   }
   .formulation-language-table .formulation-language-role-row th {
     width: 100%;

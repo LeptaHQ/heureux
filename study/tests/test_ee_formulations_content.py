@@ -23,6 +23,10 @@ from study.ee_formulation_language import (
     THEME_LANGUAGE,
     THEME_LANGUAGE_ROLES,
 )
+from study.formulation_progress import (
+    formulation_language_content_key,
+    formulation_language_item_id,
+)
 
 EXPECTED_THEME_COUNTS = {
     "education": 8,
@@ -354,6 +358,32 @@ class EeFormulationsContentTests(SimpleTestCase):
             for example in item.examples
         }
         self.assertLessEqual(set(JUSTIFIED_LANGUAGE_INFLECTIONS), declared)
+
+    def test_language_progress_keys_are_stable_unique_and_compact(self):
+        banks = {"reporting": REPORTING_LANGUAGE, **THEME_LANGUAGE}
+        keys = []
+        for category_slug, items in banks.items():
+            item_ids = [
+                formulation_language_item_id(category_slug, item.french)
+                for item in items
+            ]
+            self.assertEqual(len(item_ids), len(set(item_ids)))
+            for item in items:
+                key = formulation_language_content_key(
+                    category_slug, item.french,
+                )
+                self.assertLessEqual(len(key), 96)
+                keys.append(key)
+                self.assertEqual(
+                    formulation_language_item_id(
+                        category_slug,
+                        "  " + item.french.upper() + "  ",
+                    ),
+                    formulation_language_item_id(
+                        category_slug, item.french,
+                    ),
+                )
+        self.assertEqual(len(keys), len(set(keys)))
 
     def test_theme_language_is_grounded_in_both_response_parts(self):
         authors = load_ee_tache_three_author_responses()

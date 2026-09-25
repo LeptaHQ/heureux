@@ -10,7 +10,12 @@ from django.views.decorators.http import require_GET, require_POST
 
 from ..ee_formulation_language import formulation_language_for
 from ..ee_formulations import get_ee_formulations
-from ..formulation_progress import formulation_progress
+from ..formulation_progress import (
+    formulation_language_content_key,
+    formulation_language_item_id,
+    formulation_language_progress,
+    formulation_progress,
+)
 from ..models import MemoryQuestionProgress, Prompt
 from ..progress import progress_summary
 from .helpers import _route_task
@@ -162,12 +167,22 @@ def _entry_row(entry, categories, learned, sources):
     }
 
 
-def _language_sections(language_bank, source_urls):
+def _language_sections(
+    language_bank, source_urls, category_slug, learned,
+):
     grouped = {role: [] for role in LANGUAGE_ROLE_LABELS}
     for item in language_bank:
         role = item.role or "reporting"
+        item_id = formulation_language_item_id(
+            category_slug, item.french,
+        )
+        content_key = formulation_language_content_key(
+            category_slug, item.french,
+        )
         grouped[role].append({
             "item": item,
+            "item_id": item_id,
+            "learned": content_key in learned,
             "examples": tuple(
                 {
                     "text": example.text,
@@ -512,6 +527,9 @@ def formulation_language_reference(request, slug):
     language_bank = formulation_language_for(category)
     if category is None or not language_bank:
         raise Http404
+    learned, language_progress = formulation_language_progress(
+        request.user, category.slug, language_bank,
+    )
     source_urls = _response_urls(task, {
         source_key
         for item in language_bank
@@ -523,7 +541,10 @@ def formulation_language_reference(request, slug):
         "task": task,
         "category": category,
         "language_bank": language_bank,
-        "language_sections": _language_sections(language_bank, source_urls),
+        "language_sections": _language_sections(
+            language_bank, source_urls, category.slug, learned,
+        ),
+        "language_progress": language_progress,
         "example_count": sum(
             len(item.examples) for item in language_bank
         ),
@@ -538,6 +559,51 @@ def formulation_language_reference(request, slug):
             else f"Vocabulaire utile : {category.title}"
         ),
     })
+
+
+@require_POST
+def formulation_language_learned(request, slug, item_id):
+    task = _route_task("ee", "tache-3", request=request)
+    if not task.available:
+        raise Http404
+    catalog = get_ee_formulations()
+    category = next(
+        (item for item in catalog.categories if item.slug == slug),
+        None,
+    )
+    language_bank = formulation_language_for(category)
+    if category is None or not language_bank:
+        raise Http404
+    item = next(
+        (
+            item for item in language_bank
+            if formulation_language_item_id(
+                category.slug, item.french,
+            ) == item_id
+        ),
+        None,
+    )
+    if item is None:
+        raise Http404
+    completed = request.POST.getlist("completed")
+    if completed not in (["0"], ["1"]):
+        return HttpResponseBadRequest("État de progression invalide.")
+    lookup = {
+        "user": request.user,
+        "memory_number": 1,
+        "question_key": formulation_language_content_key(
+            category.slug, item.french,
+        ),
+    }
+    if completed == ["1"]:
+        MemoryQuestionProgress.objects.get_or_create(**lookup)
+    else:
+        MemoryQuestionProgress.objects.filter(**lookup).delete()
+    return redirect(
+        reverse("study:ee_formulation_language", args=[category.slug])
+        + "#vocabulaire-"
+        + item_id
+    )
 
 
 def _safe_return_path(value):

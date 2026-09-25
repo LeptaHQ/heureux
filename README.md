@@ -61,9 +61,10 @@ theme has a substantial response-grounded vocabulary reference (at least 24 entr
 organized into notions, collocations, benefits, risks, conditions, solutions and
 argument mechanisms.
 Every entry includes an English meaning and all distinct useful complete-sentence
-examples supported by the effective Partie 1 and Partie 2 responses. Learned status
-is the learner's own assessment of being able to reproduce and adapt the
-formulation, not an exam score.
+examples supported by the effective Partie 1 and Partie 2 responses. Each expression
+has a private completion checkmark, and the page header reports learned entries
+against the category total. Learned status is the learner's own assessment of being
+able to reproduce and adapt the formulation or expression, not an exam score.
 
 The file-backed curriculum lives in `study/content/ee/tache_3/formulations.json`;
 `study/ee_formulations.py` validates its structure, complete effective-source
@@ -72,9 +73,12 @@ editorial adaptations, not quotations. Examples refer to the bundled reference
 corpus, not live summaries of edited or personal answers. Source revisions must
 keep the evidence current, and workers must restart after catalogue changes.
 
-New completion keys use `formulation:ee3:v1:<slug>`. Materially changing a
-learning target requires a new slug. Old EE3 memory URLs redirect to Formulations;
-there is no legacy memory interface or special note/highlight compatibility layer.
+New lesson completion keys use `formulation:ee3:v1:<slug>`. Vocabulary-reference
+completion keys use
+`formulation-language:ee3:v1:<category>:<stable-expression-id>`. Materially changing
+a learning target requires a new identifier. Old EE3 memory URLs redirect to
+Formulations; there is no legacy memory interface or special note/highlight
+compatibility layer.
 
 EE3 vocabulary is removed from active navigation and learning queues. This is a
 read-time exclusion with no data-deletion migration. Phrases still owned by another

@@ -381,6 +381,11 @@ urlpatterns = [
         name="ee_formulation_language",
     ),
     path(
+        "expression/ecrite/tache-3/formulations/langue/<slug:slug>/<slug:item_id>/progression/",
+        formulations.formulation_language_learned,
+        name="ee_formulation_language_progress",
+    ),
+    path(
         "expression/ecrite/tache-3/formulations/fiches/<slug:slug>/",
         formulations.formulation_entry,
         name="ee_formulation_entry",

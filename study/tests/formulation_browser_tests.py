@@ -136,3 +136,25 @@ class FormulationBrowserTests(StaticLiveServerTestCase):
         expect(page.get_by_role("button", name="Remettre à apprendre", exact=False)).to_be_visible()
         page.get_by_role("link", name="Suivante", exact=True).click()
         expect(page.locator("[data-formulation-practice]")).to_contain_text("Formulation 2 sur 2")
+
+    def test_language_checkmark_persists(self):
+        page = self.context(javascript=False).new_page()
+        page.goto(self.live_server_url + reverse(
+            "study:ee_formulation_language", args=["education"],
+        ))
+        checkmark = page.get_by_role(
+            "checkbox", name="Marquer comme apprise", exact=False,
+        ).first
+        expect(checkmark).to_have_attribute("aria-checked", "false")
+        checkmark.click()
+        checkmark = page.get_by_role(
+            "checkbox", name="Remettre à apprendre", exact=False,
+        ).first
+        expect(checkmark).to_have_attribute("aria-checked", "true")
+        expect(page.locator(".tache-two-subject-detail__meta")).to_contain_text(
+            "1/",
+        )
+        page.reload()
+        expect(page.get_by_role(
+            "checkbox", name="Remettre à apprendre", exact=False,
+        ).first).to_have_attribute("aria-checked", "true")

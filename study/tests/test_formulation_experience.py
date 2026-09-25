@@ -7,7 +7,10 @@ from django.urls import reverse
 from django.utils import timezone
 
 from study import queue
-from study.formulation_progress import formulation_progress
+from study.formulation_progress import (
+    formulation_language_content_key,
+    formulation_progress,
+)
 from study.models import (
     Card, CardState, MemoryQuestionProgress, Phrase,
     PhraseTier, Rating, ReviewLog, ReviewSession, ThemeVocabularyProgress,
@@ -117,6 +120,85 @@ class FormulationExperienceTests(TestCase):
                 self.assertGreaterEqual(
                     response.context["example_count"], 28,
                 )
+                self.assertNotContains(
+                    response,
+                    "Chaque exemple complet vient d’une réponse de référence",
+                )
+
+    def test_vocabulary_checkmarks_are_private_and_persistent(self):
+        page_url = reverse(
+            "study:ee_formulation_language", args=["education"],
+        )
+        response = self.client.get(page_url)
+        row = response.context["language_sections"][0]["items"][0]
+        item = row["item"]
+        progress_url = reverse(
+            "study:ee_formulation_language_progress",
+            args=["education", row["item_id"]],
+        )
+        key = formulation_language_content_key(
+            "education", item.french,
+        )
+        self.assertLessEqual(len(key), 96)
+        self.assertEqual(self.client.get(progress_url).status_code, 405)
+        self.assertEqual(
+            self.client.post(
+                progress_url, {"completed": "maybe"},
+            ).status_code,
+            400,
+        )
+        self.assertEqual(
+            self.client.post(
+                progress_url, {"completed": ["0", "1"]},
+            ).status_code,
+            400,
+        )
+        result = self.client.post(
+            progress_url, {"completed": "1"},
+        )
+        self.assertEqual(
+            result.url,
+            page_url + "#vocabulaire-" + row["item_id"],
+        )
+        self.assertTrue(MemoryQuestionProgress.objects.filter(
+            user=self.user,
+            memory_number=1,
+            question_key=key,
+        ).exists())
+        self.assertFalse(MemoryQuestionProgress.objects.filter(
+            user=self.other,
+            memory_number=1,
+            question_key=key,
+        ).exists())
+        response = self.client.get(page_url)
+        self.assertEqual(response.context["language_progress"].completed, 1)
+        self.assertTrue(
+            response.context["language_sections"][0]["items"][0]["learned"],
+        )
+        other_progress = MemoryQuestionProgress.objects.create(
+            user=self.other,
+            memory_number=1,
+            question_key=key,
+        )
+        self.client.post(progress_url, {"completed": "0"})
+        self.assertFalse(MemoryQuestionProgress.objects.filter(
+            user=self.user,
+            memory_number=1,
+            question_key=key,
+        ).exists())
+        self.assertTrue(MemoryQuestionProgress.objects.filter(
+            pk=other_progress.pk,
+        ).exists())
+        self.assertEqual(
+            self.client.post(
+                reverse(
+                    "study:ee_formulation_language_progress",
+                    args=["education", "missing"],
+                ),
+                {"completed": "1"},
+            ).status_code,
+            404,
+        )
 
     def test_all_themes_and_accent_insensitive_search(self):
         response = self.client.get(self.search_url, {"q": "PREVENTION"})

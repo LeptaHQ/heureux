@@ -9,7 +9,7 @@
         {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
         Formulations
       </a>
-      <span>{{ category.title }} · {{ language_bank|length }} expressions · {{ example_count }} exemples</span>
+      <span>{{ category.title }} · {{ language_progress.completed }}/{{ language_progress.total }} apprises · {{ example_count }} exemples</span>
     </div>
     <h1>{{ reference_title }}</h1>
   </header>
@@ -18,19 +18,18 @@
     <header class="section-heading">
       <div>
         <h2 id="formulation-language-title">Expressions et exemples en contexte</h2>
-        <p>Chaque exemple complet vient d’une réponse de référence de la Partie 1 ou de la Partie 2.</p>
       </div>
     </header>
     <div class="t1-table-shell">
       <table class="t1-table formulation-language-table">
-        <thead><tr><th scope="col">Expression</th><th scope="col">Sens</th><th scope="col">Exemples en contexte</th></tr></thead>
+        <thead><tr><th scope="col">Expression</th><th scope="col">Sens</th><th scope="col">Exemples en contexte</th><th scope="col">Progression</th></tr></thead>
         {% for section in language_sections %}
           <tbody aria-labelledby="language-role-{{ section.role }}">
             <tr class="formulation-language-role-row">
-              <th id="language-role-{{ section.role }}" colspan="3" scope="rowgroup">{{ section.title }} <span>{{ section.items|length }} expression{{ section.items|length|pluralize }}</span></th>
+              <th id="language-role-{{ section.role }}" colspan="4" scope="rowgroup">{{ section.title }} <span>{{ section.items|length }} expression{{ section.items|length|pluralize }}</span></th>
             </tr>
             {% for row in section.items %}
-              <tr>
+              <tr id="vocabulaire-{{ row.item_id }}"{% if row.learned %} class="is-status-done"{% endif %}>
                 <td><strong lang="fr">{{ row.item.french }}</strong></td>
                 <td lang="en">{{ row.item.english }}</td>
                 <td>
@@ -47,12 +46,29 @@
                     {% endfor %}
                   </ol>
                 </td>
+                <td class="formulation-language-progress-cell">
+                  <form
+                    class="subject-completion-check{% if row.learned %} is-complete{% endif %}"
+                    method="post"
+                    action="{% url 'study:ee_formulation_language_progress' category.slug row.item_id %}">
+                    {% csrf_token %}
+                    <input type="hidden" name="completed" value="{% if row.learned %}0{% else %}1{% endif %}">
+                    <button
+                      type="submit"
+                      role="checkbox"
+                      aria-checked="{{ row.learned|yesno:'true,false' }}"
+                      aria-label="{% if row.learned %}Remettre à apprendre : {% else %}Marquer comme apprise : {% endif %}{{ row.item.french }}"
+                      title="{% if row.learned %}Apprise{% else %}Marquer comme apprise{% endif %}">
+                      {% include "study/partials/ui_icon.html" with name="check" only %}
+                    </button>
+                  </form>
+                </td>
               </tr>
             {% endfor %}
           </tbody>
         {% empty %}
           <tbody>
-            <tr><td colspan="3">Aucune expression disponible.</td></tr>
+            <tr><td colspan="4">Aucune expression disponible.</td></tr>
           </tbody>
           {% endfor %}
       </table>

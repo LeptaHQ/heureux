@@ -23,6 +23,7 @@ from .models import (
     Rating,
     ReviewLog,
 )
+from .retirement import exclude_ee3_vocabulary_in_scope
 
 
 RESPONSE_BATCH_SIZE = 15
@@ -105,8 +106,9 @@ def scoped_cards(
     *,
     user=None,
     include_suspended: bool = False,
+    include_completed_focus: bool = False,
 ):
-    """A user's active cards narrowed to an optional deck scope."""
+    """Active scoped cards; completed focus is only for previous/undo history."""
     qs = (
         Card.objects.current_content()
         .filter(user=user)
@@ -119,8 +121,7 @@ def scoped_cards(
     scope = scope or {}
     kind = scope.get("kind")
     content = scope.get("content")
-    if scope.get("part") == "ee" and scope.get("task") == "tache-3":
-        qs = qs.filter(card_type=CardType.SPINE)
+    qs = exclude_ee3_vocabulary_in_scope(qs, scope)
     if kind == "spine":
         qs = qs.filter(card_type=CardType.SPINE)
     elif kind == "phrase":
@@ -143,9 +144,9 @@ def scoped_cards(
             card_type=CardType.PHRASE_PRODUCTION,
             phrase__tier=PhraseTier.THEME,
         )
-    elif kind == "revisit":
+    elif kind == "revisit" and not include_completed_focus:
         qs = qs.filter(needs_revisit=True)
-    elif kind == "weak":
+    elif kind == "weak" and not include_completed_focus:
         recent_cutoff = timezone.now() - timezone.timedelta(
             days=WEAK_LOOKBACK_DAYS
         )

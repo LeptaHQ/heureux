@@ -1,5 +1,6 @@
 import hashlib
 import json
+from html.parser import HTMLParser
 from pathlib import Path
 from unittest.mock import patch
 
@@ -75,6 +76,41 @@ def _banks():
         content.EE_TACHE_THREE_MEMOIRES_DIR,
         key_namespace="ee-tache3",
     )
+
+
+class AnnotationRootText(HTMLParser):
+    """Read annotation roots for the response title and editing regressions."""
+
+    VOID_TAGS = {
+        "area", "base", "br", "col", "embed", "hr", "img", "input",
+        "link", "meta", "param", "source", "track", "wbr",
+    }
+
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.stack = []
+        self.roots = {}
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        key = attrs.get("data-annotation-source-key", "")
+        if key:
+            self.roots[key] = ""
+        if tag not in self.VOID_TAGS:
+            self.stack.append((tag, key, "data-annotation-exclude" in attrs))
+
+    def handle_endtag(self, tag):
+        for index in range(len(self.stack) - 1, -1, -1):
+            if self.stack[index][0] == tag:
+                del self.stack[index:]
+                break
+
+    def handle_data(self, data):
+        if any(excluded for _, _, excluded in self.stack):
+            return
+        for _, key, _ in self.stack:
+            if key:
+                self.roots[key] += data
 
 
 class EeTacheThreeMemoryTranslationContentTests(SimpleTestCase):

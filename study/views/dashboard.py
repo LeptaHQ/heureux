@@ -353,7 +353,10 @@ def dashboard(request):
     can_resume_review = bool(
         session.current_card_id
         and not retired_scope_url(session.scope if isinstance(session.scope, dict) else {})
-        and user_cards.filter(pk=session.current_card_id).exists()
+        and queue_module.scoped_cards(
+            session.scope if isinstance(session.scope, dict) else {},
+            user=request.user,
+        ).filter(pk=session.current_card_id).exists()
     )
 
     skills = _skill_rings(expression_paths, comprehension, learning)

@@ -712,6 +712,8 @@ class SmokeTests(TestCase):
         self.assertIsNone(response.context["content_task"])
 
     def test_written_expression_opens_three_task_section_cards(self):
+        from study.ee_formulations import get_ee_formulations
+
         task_map = Command()._import_sections(load_sections())
 
         hub = self.client.get(reverse("study:expression"))
@@ -725,7 +727,10 @@ class SmokeTests(TestCase):
             hub,
             reverse("study:part_detail", args=["ee"]),
         )
-        self.assertContains(hub, "3 tâches · 0 sujets · 0/0 sujets commencés")
+        self.assertContains(
+            hub,
+            f"3 tâches · 0 sujets · 0/{len(get_ee_formulations().entries)} contenus commencés",
+        )
         self.assertEqual(written.status_code, 200)
         self.assertContains(written, "Tâche 1")
         self.assertContains(written, "Tâche 2")

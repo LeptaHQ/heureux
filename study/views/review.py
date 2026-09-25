@@ -76,6 +76,18 @@ def _retired_review_response(scope):
     return None
 
 
+def _eligible_session_cards(scope, user, *, previous=False):
+    eligibility_scope = scope
+    if previous and scope.get("kind") in FOCUSED_REVIEW_KINDS:
+        # A successful grade changes focus membership and its batch positions.
+        eligibility_scope = {key: value for key, value in scope.items() if key != "batch"}
+    eligible = queue_module.scoped_cards(
+        eligibility_scope, user=user, include_completed_focus=previous,
+    )
+    # Keep DISTINCT/related joins inside a subquery so row locking works on PostgreSQL.
+    return Card.objects.filter(pk__in=queue_module.narrow(eligible).values("pk"))
+
+
 def _review_card_payload(card, user, scope=None):
     scope = scope or {}
     prompt = None
@@ -628,7 +640,7 @@ def review_previous(request):
                 status=404,
             )
         card = get_object_or_404(
-            Card.objects.current_content(),
+            _eligible_session_cards(scope, request.user, previous=True),
             pk=session.previous_card_id,
             user=request.user,
         )
@@ -710,7 +722,7 @@ def review_answer(request):
             )
 
         card = get_object_or_404(
-            Card.objects.current_content().select_for_update(),
+            _eligible_session_cards(scope, request.user).select_for_update(),
             pk=card_id,
             user=request.user,
         )
@@ -771,7 +783,8 @@ def review_undo(request):
         card = None
         if session.previous_review_id and session.previous_card_id:
             get_object_or_404(
-                Card.objects.current_content(), pk=session.previous_card_id,
+                _eligible_session_cards(scope, request.user, previous=True),
+                pk=session.previous_card_id,
                 user=request.user,
             )
             try:

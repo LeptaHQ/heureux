@@ -10,9 +10,10 @@ from study import queue
 from study.formulation_progress import formulation_progress
 from study.models import (
     Card, CardState, MemoryQuestionProgress, Phrase,
-    PhraseTier, ReviewSession, ThemeVocabularyProgress,
+    PhraseTier, Rating, ReviewLog, ReviewSession, ThemeVocabularyProgress,
 )
 from study.retirement import active_phrases
+from study.srs import review as apply_review
 from study.views.helpers import expression_task_summaries, _task_card
 from . import factories
 from .formulation_fixtures import THEMES, formulation_catalog, mock_catalog
@@ -218,6 +219,93 @@ class VocabularyRetirementTests(TestCase):
         direct.vocabulary_theme = active_theme
         direct.save()
         self.assertIn(direct, active_phrases())
+
+    def test_inferred_ee3_scopes_exclude_shared_phrases_in_one_query(self):
+        self.phrase.tier = PhraseTier.SHARED
+        self.phrase.save()
+        self.phrase.source_prompts.add(self.other_response.prompts.first())
+        scopes = (
+            {"part": "ee", "task": "tache-3"},
+            {"theme": self.theme.slug},
+            {"theme": self.theme.slug, "kind": "revisit"},
+            {"theme": self.theme.slug, "kind": "weak"},
+            {"response": self.spine.response_id},
+            {"response": self.spine.response_id, "kind": "revisit"},
+            {"prompt": self.prompt.pk, "kind": "revisit"},
+        )
+        for scope in scopes:
+            with self.subTest(scope=scope), self.assertNumQueries(1):
+                ids = list(queue.scoped_cards(scope, user=self.user).values_list("pk", flat=True))
+                self.assertNotIn(self.card.pk, ids)
+        for scope in ({}, {"part": "eo", "task": "tache-3"},
+                      {"theme": self.other_theme.slug},
+                      {"response": self.other_response.pk}):
+            with self.subTest(active_scope=scope):
+                self.assertIn(self.card, queue.scoped_cards(scope, user=self.user))
+
+    def test_stale_shared_cards_cannot_cross_ee3_review_boundaries(self):
+        self.phrase.tier = PhraseTier.SHARED
+        self.phrase.save()
+        self.phrase.source_prompts.add(self.other_response.prompts.first())
+        _, log = apply_review(self.card, Rating.GOOD, return_log=True)
+        scopes = (
+            {"part": "ee", "task": "tache-3"},
+            {"theme": self.theme.slug, "kind": "revisit"},
+            {"response": self.spine.response_id},
+            {"prompt": self.prompt.pk, "kind": "revisit"},
+        )
+        for scope in scopes:
+            session, _ = ReviewSession.objects.update_or_create(
+                user=self.user, defaults={
+                    "scope": scope, "current_card": self.card,
+                    "previous_card": self.card, "previous_review": log,
+                    "presentation_token": "old-shared-token",
+                },
+            )
+            before_card = Card.objects.filter(pk=self.card.pk).values().get()
+            before_session = ReviewSession.objects.filter(pk=session.pk).values().get()
+            before_log = ReviewLog.objects.filter(pk=log.pk).values().get()
+            with self.subTest(scope=scope):
+                self.assertEqual(self.client.get(reverse("study:review_previous")).status_code, 404)
+                self.assertEqual(self.client.post(reverse("study:review_answer"), {
+                    "card_id": self.card.pk, "presentation_token": "old-shared-token",
+                    "action": "correct",
+                }).status_code, 404)
+                self.assertEqual(self.client.post(reverse("study:review_undo")).status_code, 404)
+                self.assertEqual(Card.objects.filter(pk=self.card.pk).values().get(), before_card)
+                self.assertEqual(ReviewSession.objects.filter(pk=session.pk).values().get(), before_session)
+                self.assertEqual(ReviewLog.objects.filter(pk=log.pk).values().get(), before_log)
+                self.assertEqual(ReviewLog.objects.count(), 1)
+                response = self.client.get(reverse("study:dashboard"))
+                self.assertFalse(response.context["can_resume_review"])
+
+    def test_completed_focused_review_still_allows_previous_and_undo(self):
+        for kind in ("revisit", "weak"):
+            self.active_card.refresh_from_db()
+            self.active_card.state = CardState.REVIEW
+            self.active_card.needs_revisit = True
+            self.active_card.due = timezone.now() + timezone.timedelta(days=10)
+            self.active_card.save()
+            ReviewSession.objects.update_or_create(
+                user=self.user, defaults={
+                    "scope": {"part": "eo", "task": "tache-3", "kind": kind},
+                    "current_card": self.active_card, "presentation_token": "active-token",
+                },
+            )
+            with self.subTest(kind=kind):
+                answer = self.client.post(reverse("study:review_answer"), {
+                    "card_id": self.active_card.pk, "presentation_token": "active-token",
+                    "action": "correct",
+                })
+                self.assertEqual(answer.status_code, 200)
+                self.active_card.refresh_from_db()
+                self.assertFalse(self.active_card.needs_revisit)
+                self.assertEqual(self.client.get(reverse("study:review_previous")).status_code, 200)
+                undone = self.client.post(reverse("study:review_undo"))
+                self.assertEqual(undone.status_code, 200)
+                self.assertTrue(undone.json()["undone"])
+                self.active_card.refresh_from_db()
+                self.assertTrue(self.active_card.needs_revisit)
 
     def test_explicit_bookmarks_and_saved_scopes_redirect_not_unrelated_review(self):
         destination = reverse("study:ee_formulations")

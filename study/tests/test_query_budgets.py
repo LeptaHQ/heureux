@@ -1206,6 +1206,16 @@ class DashboardBudgetTests(QueryBudgetTestCase):
                 self.assertEqual(self._query_count(url), before[url])
 
     def test_summary_progress_matches_full_subject_statuses(self):
+        response = Response.objects.filter(
+            theme__task__part=self.part,
+        ).first()
+        phrase = factories.make_phrase(tier=PhraseTier.SUBJECT)
+        phrase.source_prompts.add(response.prompts.first())
+        factories.make_phrase_card(
+            phrase=phrase,
+            user=self.user,
+            started_at=timezone.now(),
+        )
         response_ids = set(
             Response.objects.filter(
                 theme__task__part=self.part,
@@ -1234,6 +1244,53 @@ class DashboardBudgetTests(QueryBudgetTestCase):
                 )
                 for response_id, progress in detailed.items()
             },
+        )
+        self.assertTrue(
+            lightweight[response.pk].vocabulary_activity_started
+        )
+
+        with CaptureQueriesContext(connection) as queries:
+            subject_progress_by_response(
+                self.user,
+                response_ids,
+                summary_only=True,
+            )
+        activity_queries = [
+            query["sql"]
+            for query in queries.captured_queries
+            if '"study_phrase_source_prompts"' in query["sql"]
+            and 'AS "phrase__source_prompts__response_id"' in query["sql"]
+        ]
+        self.assertEqual(len(activity_queries), 1)
+        self.assertNotIn("COUNT(DISTINCT", activity_queries[0])
+        self.assertNotIn("GROUP BY", activity_queries[0])
+
+    def test_summary_progress_excludes_retired_vocabulary_activity(self):
+        ee = factories.make_part("ee")
+        task = factories.make_task(ee, "tache-1")
+        theme = factories.make_theme("retired-vocabulary", task=task)
+        response = factories.make_response(theme=theme)
+        phrase = factories.make_phrase(tier=PhraseTier.SUBJECT)
+        phrase.source_prompts.add(response.prompts.first())
+        factories.make_phrase_card(
+            phrase=phrase,
+            user=self.user,
+            started_at=timezone.now(),
+        )
+
+        detailed = subject_progress_by_response(self.user, {response.pk})
+        lightweight = subject_progress_by_response(
+            self.user,
+            {response.pk},
+            summary_only=True,
+        )
+
+        self.assertFalse(
+            detailed[response.pk].vocabulary_activity_started
+        )
+        self.assertEqual(
+            lightweight[response.pk].status,
+            detailed[response.pk].status,
         )
 
 

@@ -310,9 +310,9 @@ class QueueCountsTests(TestCase):
             .exists()
         )
 
-    def test_written_theme_vocabulary_uses_direct_theme_in_lots_of_five(self):
-        task = make_task(part=make_part("ee"), slug="tache-1")
-        theme = make_theme(slug="ee-tache-1-invitations", task=task)
+    def test_active_written_theme_vocabulary_uses_direct_theme_in_lots_of_five(self):
+        task = make_task(part=make_part("ee"), slug="tache-2")
+        theme = make_theme(slug="ee-tache-2-sorties", task=task)
         cards = [
             make_phrase_card(
                 phrase=make_phrase(
@@ -326,7 +326,7 @@ class QueueCountsTests(TestCase):
         scope = {
             "kind": "theme_vocab",
             "part": "ee",
-            "task": "tache-1",
+            "task": "tache-2",
             "theme": theme.slug,
             "batch": "1",
         }
@@ -350,7 +350,7 @@ class QueueCountsTests(TestCase):
         )
         base_scope = {
             "part": "ee",
-            "task": "tache-1",
+            "task": "tache-2",
         }
         self.assertTrue(
             q.scoped_cards(

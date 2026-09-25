@@ -10,6 +10,7 @@ from django.utils import timezone
 
 from study import content_loader as content
 from study.account_services import provision_user_study_data
+from study.ee_formulations import get_ee_formulations
 from study.management.commands.import_content import Command
 from study.models import (
     Annotation,
@@ -23,7 +24,6 @@ from study.models import (
     ThemeVocabularyProgress,
     WritingSujet,
     WritingSujetCompletion,
-    WritingResponseOverride,
     WritingResponseOverride,
 )
 from study.templatetags.study_markdown import french_wordcount
@@ -156,11 +156,11 @@ class EeWritingContentTests(SimpleTestCase):
             content._ee_word_count(text),
         )
 
-    def test_every_author_response_uses_one_or_two_natural_subjunctive_triggers(
+    def test_advanced_author_responses_use_natural_subjunctive_triggers(
         self,
     ):
         responses = []
-        for tache in (1, 2):
+        for tache in (2,):
             responses.extend(
                 (tache, sujet.source_key, version.body)
                 for category in content.load_ee_writing_categories(tache)
@@ -182,9 +182,9 @@ class EeWritingContentTests(SimpleTestCase):
         self.assertEqual(
             {
                 tache: sum(item[0] == tache for item in responses)
-                for tache in (1, 2, 3)
+                for tache in (2, 3)
             },
-            {1: 55, 2: 16, 3: 10},
+            {2: 16, 3: 10},
         )
         for tache, content_key, body in responses:
             with self.subTest(tache=tache, content_key=content_key):
@@ -281,9 +281,15 @@ class EeWritingContentTests(SimpleTestCase):
                 if tache == 2:
                     self.assertEqual(len(versions), 92)
                     self.assertTrue(all(120 <= len(version.body.split()) <= 150 for version in versions))
+                else:
+                    self.assertEqual(len(versions), 63)
+                    self.assertTrue(all(
+                        not re.search(r"\bCorn\b", version.body)
+                        for version in versions
+                    ))
                 self.assertEqual(
                     {version.origin for version in versions},
-                    {"author", "original"},
+                    {"author"} if tache == 1 else {"author", "original"},
                 )
                 for sujet in canonical:
                     origins = [version.origin for version in sujet.versions]
@@ -877,22 +883,40 @@ class EeWritingImportPreservationTests(TestCase):
         ).json()["highlights"]
         self.assertEqual([item["id"] for item in marks], [mark.pk])
 
-    def test_trimming_alternatives_preserves_main_response_and_private_work(self):
+    def test_promoting_primary_and_trimming_alternatives_preserves_private_work(self):
         source = next(
             sujet for category in self.categories for sujet in category.sujets
             if sujet.source_key == "ee-tache1:janvier:combinaison-2"
         )
         main = source.versions[0].body
+        previous_main = (
+            "Salut Cédric, voici mon ancienne réponse modèle de référence."
+        )
         alternative = "Une ancienne alternative."
         sujet = factories.make_writing_sujet(
             self.task, slug=source.slug, prompt=source.prompt,
-            versions=(main, alternative),
+            versions=(previous_main, alternative),
         )
+        previous_keys = model_version_keys(sujet.model_versions)
+        private = WritingResponseOverride.objects.create(
+            user=self.user,
+            sujet=sujet,
+            version_key=previous_keys[0],
+            body="Mon adaptation privée du modèle principal.",
+        )
+        other = factories.make_user("hidden-ee1-primary")
+        hidden = WritingResponseOverride.objects.create(
+            user=other,
+            sujet=sujet,
+            version_key=previous_keys[0],
+            is_deleted=True,
+        )
+        private_updated_at = private.updated_at
         personal = PersonalWritingResponse.objects.create(
             user=self.user, sujet=sujet, body="Ma version choisie, à conserver.",
         )
         completion = WritingSujetCompletion.objects.create(user=self.user, sujet=sujet)
-        for number, body in enumerate((main, alternative), 1):
+        for number, body in enumerate((previous_main, alternative), 1):
             Annotation.objects.create(
                 user=self.user, task=self.task, kind=AnnotationKind.HIGHLIGHT,
                 quote=body[:7], start_offset=0, end_offset=7,
@@ -904,17 +928,45 @@ class EeWritingImportPreservationTests(TestCase):
         saved_personal = PersonalWritingResponse.objects.values().get(pk=personal.pk)
         saved_completion = WritingSujetCompletion.objects.values().get(pk=completion.pk)
         saved_annotations = list(Annotation.objects.order_by("pk").values())
-        saved_annotations[1]["source_key"] = (
-            f"writing-sujet:{sujet.pk}:archived-model-"
-            f"{model_version_keys(sujet.model_versions)[1]}"
-        )
+        for annotation, version_key in zip(
+            saved_annotations,
+            previous_keys,
+        ):
+            annotation["source_key"] = (
+                f"writing-sujet:{sujet.pk}:archived-model-{version_key}"
+            )
         for _ in range(2):
             self.command._import_writing_sujets(self.categories, self.task_by_slug)
             sujet.refresh_from_db()
+            private.refresh_from_db()
+            hidden.refresh_from_db()
+            new_key = model_version_keys(sujet.model_versions)[0]
             self.assertEqual(sujet.prompt, source.prompt)
             self.assertEqual(
                 sujet.model_versions,
                 [{"body": main, "origin": source.versions[0].origin}],
+            )
+            self.assertEqual(private.version_key, new_key)
+            self.assertEqual(
+                private.body,
+                "Mon adaptation privée du modèle principal.",
+            )
+            self.assertEqual(private.updated_at, private_updated_at)
+            self.assertEqual(hidden.version_key, new_key)
+            self.assertTrue(hidden.is_deleted)
+            self.assertEqual(
+                writing_model_versions(
+                    sujet,
+                    {new_key: private},
+                )[0]["content"]["body"],
+                private.body,
+            )
+            self.assertEqual(
+                writing_model_versions(
+                    sujet,
+                    {new_key: hidden},
+                ),
+                [],
             )
             self.assertEqual(
                 PersonalWritingResponse.objects.values().get(pk=personal.pk),
@@ -969,8 +1021,9 @@ class EeWritingImportPreservationTests(TestCase):
             user=self.user, sujet=alias
         )
         highlights = []
+        primary_quote = source.versions[0].body.split()[0]
         for sujet, quote, body in (
-            (canonical, "la terrasse", source.versions[0].body),
+            (canonical, primary_quote, source.versions[0].body),
             (alias, "Gas Works Park", source.versions[2].body),
         ):
             start = body.index(quote)
@@ -1032,7 +1085,26 @@ class EeWritingImportPreservationTests(TestCase):
             if sujet.source_key == "ee-tache1:aout:combinaison-14"
         )
         self.assertEqual(source.versions[0].origin, "author")
-        original_body = source.versions[1].body
+        original_body = (
+            "Chambre lumineuse près du centre, avec un balcon calme."
+        )
+        source = replace(
+            source,
+            versions=(
+                source.versions[0],
+                content.WritingVersionData(
+                    body=original_body,
+                    origin="original",
+                ),
+            ),
+        )
+        categories = tuple(
+            replace(category, sujets=tuple(
+                source if sujet.slug == source.slug else sujet
+                for sujet in category.sujets
+            ))
+            for category in self.categories
+        )
         canonical = factories.make_writing_sujet(
             self.task,
             slug=source.slug,
@@ -1050,7 +1122,7 @@ class EeWritingImportPreservationTests(TestCase):
             end_offset=start + len("Chambre"),
         )
 
-        self.command._import_writing_sujets(self.categories, self.task_by_slug)
+        self.command._import_writing_sujets(categories, self.task_by_slug)
         highlight.refresh_from_db()
         canonical.refresh_from_db()
         self.assertEqual(
@@ -1313,10 +1385,20 @@ class EeWritingPageTests(TestCase):
                 self.assertEqual(response.context["sujet_count"], 138)
                 self.assertEqual(response.context["distinct_count"], distinct)
                 self.assertEqual(response.context["response_count"], distinct)
-                self.assertEqual(
-                    response.context["theme_vocabulary"]["phrase_count"],
-                    220,
-                )
+                if tache == 1:
+                    self.assertEqual(
+                        response.context["formulation_count"],
+                        len(get_ee_formulations(1).entries),
+                    )
+                    self.assertNotIn(
+                        "theme_vocabulary",
+                        response.context,
+                    )
+                else:
+                    self.assertEqual(
+                        response.context["theme_vocabulary"]["phrase_count"],
+                        220,
+                    )
                 self.assertContains(response, "data-task-choice", count=2)
                 self.assertContains(response, "AI Practice Prompt")
                 self.assertContains(
@@ -1741,7 +1823,7 @@ class EeWritingPageTests(TestCase):
                 )
 
     def test_theme_vocabulary_reuses_shared_directory_and_progress(self):
-        for tache in (1, 2):
+        for tache in (2,):
             task = self.tasks[tache]
             with self.subTest(tache=tache):
                 directory = self.client.get(
@@ -1795,7 +1877,7 @@ class EeWritingPageTests(TestCase):
                 self.assertEqual(marked.json()["learned"], 1)
 
     def test_direct_theme_vocabulary_revisit_links_back_to_its_theme(self):
-        task = self.tasks[1]
+        task = self.tasks[2]
         phrase = Phrase.objects.filter(
             vocabulary_theme__task=task,
             is_active=True,
@@ -1930,11 +2012,24 @@ class EeWritingPageTests(TestCase):
         other_user = factories.make_user("other-response-copy-user")
         for tache in (1, 2):
             task = self.tasks[tache]
+            sujets = list(WritingSujet.objects.filter(task=task, is_active=True))
             sujet = next(
-                sujet
-                for sujet in WritingSujet.objects.filter(task=task, is_active=True)
-                if len(sujet.model_versions) > 1
+                (
+                    sujet for sujet in sujets
+                    if len(sujet.model_versions) > 1
+                ),
+                None,
             )
+            if sujet is None:
+                sujet = sujets[0]
+                sujet.versions = [
+                    *sujet.model_versions,
+                    {
+                        "body": "Une seconde réponse modèle pour vérifier la copie.",
+                        "origin": "author",
+                    },
+                ]
+                sujet.save(update_fields=["versions"])
             PersonalWritingResponse.objects.create(
                 user=other_user, sujet=sujet, body="Réponse privée d'un autre compte."
             )
@@ -2313,7 +2408,7 @@ class EeWritingPageTests(TestCase):
             {annotation.pk, edit_annotation.pk},
         )
 
-    def test_dashboard_repeats_canonical_completion_for_every_occurrence(self):
+    def test_dashboard_counts_canonical_once_and_includes_formulations(self):
         task = self.tasks[1]
         group = content.load_ee_equivalent_groups(1)[0]
         canonical = WritingSujet.objects.get(
@@ -2334,5 +2429,9 @@ class EeWritingPageTests(TestCase):
 
         self.assertEqual(
             written["detail"],
-            f"{len(group.members)}/276 sujets",
+            (
+                "1/"
+                f"{63 + 138 + len(get_ee_formulations(1).entries) + len(get_ee_formulations(3).entries)} "
+                "contenus"
+            ),
         )

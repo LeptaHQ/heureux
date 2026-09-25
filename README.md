@@ -38,21 +38,23 @@ Vocabulary theme, category and comprehension-test pages share a compact,
 collapsible guided-lots component with completed/active counts. The vocabulary
 stays full-width, and the lot links work with keyboard controls or without JavaScript.
 
-## EE task 3 formulations
+## EE writing formulations
 
-`/expression/ecrite/tache-3/formulations/` is the EE3 writing toolkit. One catalogue
-organizes formulations by writing function (titles, neutral synthesis, affirmation,
-opposition, concession, conditions, arguments, examples, consequences and
-conclusions) and by the eleven subject themes. Start with the essentials, then
-learn thematic arguments rather than isolated words.
+`/expression/ecrite/tache-1/formulations/` and
+`/expression/ecrite/tache-3/formulations/` are the EE writing toolkits. Each
+catalogue organizes formulations into writing functions and subject themes. EE1
+covers practical messages: opening and closing, setting context, invitations,
+descriptions, practical information, advice, requests, impressions and complaints.
+EE3 covers titles, neutral synthesis, stance, opposition, concession, conditions,
+arguments, examples, consequences and conclusions.
 
 The catalogue root uses two progress tables: one for writing functions and one for
-thematic arguments. Each top-level row expands in place to reveal its individual
-lessons, vocabulary reference and completion controls. A lesson row opens one
+themes. Each top-level row expands in place to reveal its individual lessons and
+completion controls. EE3 theme rows also expose their vocabulary reference. A lesson opens one
 focused page containing only that formulation, its English meaning, usage and
 grammar guidance, every distinct relevant model excerpt found in the effective
-corpus, and a transfer exercise for applying it to a different Tâche 3 prompt.
-Search, whole-subdivision browsing and opt-in recall
+corpus, and a transfer exercise for applying it to a different prompt. Search,
+whole-subdivision browsing and opt-in recall
 practice remain available as separate views.
 
 The synthesis subdivision includes a response-grounded reference for reporting
@@ -66,24 +68,30 @@ has a private completion checkmark, and the page header reports learned entries
 against the category total. Learned status is the learner's own assessment of being
 able to reproduce and adapt the formulation or expression, not an exam score.
 
-The file-backed curriculum lives in `study/content/ee/tache_3/formulations.json`;
-`study/ee_formulations.py` validates its structure, complete effective-source
-coverage and verbatim example provenance. Frames and teaching guidance are
-editorial adaptations, not quotations. Examples refer to the bundled reference
-corpus, not live summaries of edited or personal answers. Source revisions must
-keep the evidence current, and workers must restart after catalogue changes.
+The file-backed curricula live in
+`study/content/ee/tache_1/formulations.json` and
+`study/content/ee/tache_3/formulations.json`; `study/ee_formulations.py` validates
+their task-specific categories, complete effective-source coverage and verbatim
+example provenance. Frames and teaching guidance are editorial adaptations, not
+quotations. Examples refer to the bundled reference corpus, not live summaries of
+edited or personal answers. Source revisions must keep the evidence current, and
+workers must restart after catalogue changes.
 
-New lesson completion keys use `formulation:ee3:v1:<slug>`. Vocabulary-reference
-completion keys use
-`formulation-language:ee3:v1:<category>:<stable-expression-id>`. Materially changing
-a learning target requires a new identifier. Old EE3 memory URLs redirect to
-Formulations; there is no legacy memory interface or special note/highlight
-compatibility layer.
+Lesson completion keys use `formulation:ee1:v1:<slug>` and
+`formulation:ee3:v1:<slug>`. EE3 vocabulary-reference completion keys use
+`formulation-language:ee3:v1:<category>:<stable-expression-id>`. Materially
+changing a learning target requires a new identifier. Old vocabulary collection
+URLs for EE1 and EE3 redirect to the matching Formulations directory; there is no
+legacy memory interface or special note/highlight compatibility layer.
 
-EE3 vocabulary is removed from active navigation and learning queues. This is a
-read-time exclusion with no data-deletion migration. Phrases still owned by another
-active task remain available there. Old EE3 vocabulary collection links lead to
-Formulations; other tasks retain their existing vocabulary features.
+EE1 and EE3 vocabulary are removed from active navigation and learning queues.
+This is a read-time exclusion with no data-deletion migration, so cards, schedules,
+reviews and annotations remain intact. Phrases still owned by another active task
+remain available there. Other tasks retain their existing vocabulary features.
+
+EE1 keeps one authored repository-default response per canonical subject in
+`study/content/ee/tache_1/responses/`. Imports update that reference corpus without
+deleting learner-authored responses, overrides, highlights or completion history.
 
 ## Subject pistes and oral equivalence
 
@@ -213,7 +221,7 @@ remain history-dependent; the exposure optimization does not truncate or cap the
 | `study/account_services.py`         | Account provisioning, recovery, and login throttling         |
 | `study/content_loader.py`           | Pure parsing and validation of bundled study content         |
 | `study/catalogue.py`                | Shared immutable expression catalogues and lookup indexes    |
-| `study/ee_formulations.py`          | Validated EE3 writing frames, source evidence and categories |
+| `study/ee_formulations.py`          | Validated EE1/EE3 writing frames, evidence and categories    |
 | `study/learning_content.py`         | Validation and cached loading for the Learn curriculum        |
 | `study/course_content.py`           | Typed original course and benchmark coverage contracts       |
 | `study/course_practice.py`          | Server-side selection, grading, exposure and delayed review  |

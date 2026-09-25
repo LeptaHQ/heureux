@@ -436,12 +436,32 @@ class Command(BaseCommand):
             is_active=False
         )
         model_targets = {}
+        override_model_targets = {}
         if task_key == "ee/tache-2":
             from study.writing_responses import model_update_targets
 
             model_targets = model_update_targets(
                 imported_sujets, content.load_ee_tache_two_response_key_updates()
             )
+        elif task_key == "ee/tache-1":
+            from study.writing_responses import model_version_keys
+
+            # EE1 intentionally keeps one current repository default. Carry a
+            # learner's edit or deletion of the former primary model onto its
+            # replacement, while removed alternatives remain archived.
+            for sujet in imported_sujets.values():
+                previous = previous_model_versions.get(sujet.pk, ())
+                current = sujet.model_versions
+                if not previous or len(current) != 1:
+                    continue
+                previous_key = model_version_keys(previous)[0]
+                current_key = model_version_keys(current)[0]
+                if previous_key != current_key:
+                    override_model_targets[(sujet.pk, previous_key)] = (
+                        sujet,
+                        current_key,
+                        1,
+                    )
         conflicts = self._reconcile_writing_sujet_state(
             task,
             {
@@ -451,6 +471,7 @@ class Command(BaseCommand):
             },
             previous_model_versions,
             model_targets,
+            override_model_targets,
         )
         if conflicts:
             self.stdout.write(self.style.WARNING(
@@ -459,7 +480,11 @@ class Command(BaseCommand):
 
     @staticmethod
     def _reconcile_writing_sujet_state(
-        task, canonical_slug_by_slug, previous_model_versions, model_targets=None
+        task,
+        canonical_slug_by_slug,
+        previous_model_versions,
+        model_targets=None,
+        override_model_targets=None,
     ):
         """Move private writing work from equivalent aliases to the canonical sujet."""
         sujets = {
@@ -475,6 +500,7 @@ class Command(BaseCommand):
 
         model_targets = model_targets or {}
         override_targets = dict(model_targets)
+        override_targets.update(override_model_targets or {})
         for source_slug, canonical_slug in canonical_slug_by_slug.items():
             source = sujets.get(source_slug)
             canonical = sujets.get(canonical_slug)

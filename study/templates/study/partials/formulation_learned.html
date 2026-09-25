@@ -1,10 +1,27 @@
-<form class="formulation-learned" method="post" action="{% url 'study:ee_formulation_progress' row.entry.slug %}">
+<form
+  class="formulation-learned{% if row.learned %} is-complete{% endif %}"
+  method="post"
+  action="{{ row.progress_url }}"
+  data-formulation-progress-form
+  data-formulation-slug="{{ row.entry.slug }}">
   {% csrf_token %}
   <input type="hidden" name="next" value="{{ return_url }}">
   {% for key, value in filter_fields %}<input type="hidden" name="{{ key }}" value="{{ value }}">{% endfor %}
-  {% if row.learned %}
-    <button class="btn" name="completed" value="0" type="submit" aria-label="Remettre à apprendre : {{ row.entry.label }}">Apprise · Remettre à apprendre</button>
-  {% else %}
-    <button class="btn" name="completed" value="1" type="submit" aria-label="Je sais reproduire et adapter : {{ row.entry.label }}">Je sais reproduire et adapter</button>
-  {% endif %}
+  <input
+    type="hidden"
+    name="completed"
+    value="{% if row.learned %}0{% else %}1{% endif %}"
+    data-formulation-completed-input>
+  <button
+    class="btn"
+    type="submit"
+    data-formulation-progress-button
+    data-formulation-complete-aria="Remettre à apprendre : {{ row.entry.label }}"
+    data-formulation-incomplete-aria="Je sais reproduire et adapter : {{ row.entry.label }}"
+    data-formulation-complete-title="Apprise"
+    data-formulation-incomplete-title="Marquer comme apprise"
+    data-formulation-complete-text="Apprise · Remettre à apprendre"
+    data-formulation-incomplete-text="Je sais reproduire et adapter"
+    aria-label="{% if row.learned %}Remettre à apprendre : {% else %}Je sais reproduire et adapter : {% endif %}{{ row.entry.label }}"
+    title="{% if row.learned %}Apprise{% else %}Marquer comme apprise{% endif %}">{% if row.learned %}Apprise · Remettre à apprendre{% else %}Je sais reproduire et adapter{% endif %}</button>
 </form>

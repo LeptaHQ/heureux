@@ -1058,10 +1058,17 @@ def _ee_writing_task_card(task, user, content_counts=None, summary=None):
     """Deck card for an EE writing task with shared explicit completion."""
     counts = _counts_for_task(task, content_counts)
     sujet_ids = list(counts["writing_sujet_ids"])
+    occurrence_total = len(sujet_ids)
+    is_tache_one = (
+        task.part.slug,
+        task.slug,
+    ) == content_module.EE_TACHE_ONE_TASK
+    if is_tache_one:
+        sujet_ids = list(dict.fromkeys(sujet_ids))
     total = len(sujet_ids)
     response_total = counts["writing_sujet_response_count"]
     if summary is not None and summary["stats"] is not None:
-        stats = summary["stats"]
+        stats = summary.get("subject_stats", summary["stats"])
         total = summary["prompt_count"]
     else:
         progress_by_sujet = writing_sujet_progress_by_id(
@@ -1090,6 +1097,42 @@ def _ee_writing_task_card(task, user, content_counts=None, summary=None):
             "seen": started,
             "due": 0,
         }
+    response_stats = stats
+    question_bank = None
+    if is_tache_one:
+        catalog = get_ee_formulations(1)
+        formulation_state = (summary or {}).get("formulation_progress")
+        if formulation_state is None:
+            _, formulation_state = formulation_progress(
+                user, catalog, tache=1,
+            )
+        combined = combine_progress([
+            response_stats["progress"],
+            formulation_state,
+        ])
+        stats = {
+            **response_stats,
+            "progress": combined,
+            "total": combined.total,
+            "completed": combined.completed,
+            "started_new": max(
+                combined.started - combined.completed, 0,
+            ),
+            "seen": combined.started,
+        }
+        question_bank = {
+            "title": "Formulations",
+            "formulations": True,
+            "category_count": len(catalog.categories),
+            "question_count": len(catalog.entries),
+            "subject_count": response_stats["total"],
+            "progress": combined,
+            "memory_progress": formulation_state,
+            "subject_progress": response_stats["progress"],
+            "active_count": max(
+                combined.started - combined.completed, 0,
+            ),
+        }
     return {
         "task": task,
         "stats": stats,
@@ -1100,12 +1143,12 @@ def _ee_writing_task_card(task, user, content_counts=None, summary=None):
         "phrase_counts": None,
         "revisit_count": 0,
         "theme_count": counts["writing_sujet_category_count"],
-        "prompt_count": total,
+        "prompt_count": occurrence_total,
         "phrase_count": 0,
         "functional_phrase_count": 0,
         "subject_vocabulary_count": 0,
         "subject_vocabulary_prompt_count": 0,
-        "question_bank": None,
+        "question_bank": question_bank,
         "show_phrases": False,
     }
 
@@ -1435,11 +1478,18 @@ def _expression_prompt_rows(task_ids):
     )
 
 
-def _writing_task_summaries(summaries, user, task_ids, content_counts=None):
+def _writing_task_summaries(
+    summaries,
+    user,
+    task_ids,
+    content_counts=None,
+    tache_one_task_ids=(),
+):
     """EE Tâche 1/2 progress, which counts sujets rather than responses."""
     if not task_ids:
         return
     sujet_ids_by_task = {task_id: [] for task_id in task_ids}
+    tache_one_task_ids = set(tache_one_task_ids)
     if content_counts and all(
         task_id in content_counts for task_id in task_ids
     ):
@@ -1465,6 +1515,11 @@ def _writing_task_summaries(summaries, user, task_ids, content_counts=None):
             rows,
             task_ids,
         )
+        tache_one_task_ids = {
+            task_id
+            for task_id, _pk, _category, _slug, part_slug, task_slug in rows
+            if (part_slug, task_slug) == content_module.EE_TACHE_ONE_TASK
+        }
     progress_by_sujet = writing_sujet_progress_by_id(
         user,
         [
@@ -1474,15 +1529,20 @@ def _writing_task_summaries(summaries, user, task_ids, content_counts=None):
         ],
     )
     for task_id, sujet_ids in sujet_ids_by_task.items():
+        progress_sujet_ids = (
+            list(dict.fromkeys(sujet_ids))
+            if task_id in tache_one_task_ids
+            else sujet_ids
+        )
         items = [
             progress_by_sujet[sujet_id]
-            for sujet_id in sujet_ids
+            for sujet_id in progress_sujet_ids
             if sujet_id in progress_by_sujet
         ]
         started = sum(progress.started for progress in items)
         completed = sum(progress.completed for progress in items)
         summary = progress_summary(
-            total=len(sujet_ids),
+            total=len(progress_sujet_ids),
             started=started,
             completed=completed,
         )
@@ -1529,6 +1589,7 @@ def expression_task_summaries(now, user, tasks, content_counts=None):
     subject_task_ids = []
     question_bank_task_id = None
     direct_question_bank_tasks = []
+    ee_tache_one_task_id = None
     ee_tache_three_task_id = None
     for task in available:
         task_key = (task.part.slug, task.slug)
@@ -1537,6 +1598,8 @@ def expression_task_summaries(now, user, tasks, content_counts=None):
             content_module.EE_TACHE_TWO_TASK,
         }:
             writing_task_ids.append(task.pk)
+            if task_key == content_module.EE_TACHE_ONE_TASK:
+                ee_tache_one_task_id = task.pk
             continue
         if task_key == content_module.EO_TACHE_ONE_TASK:
             direct_question_bank_tasks.append(task)
@@ -1648,7 +1711,33 @@ def expression_task_summaries(now, user, tasks, content_counts=None):
         user,
         writing_task_ids,
         content_counts,
+        (
+            (ee_tache_one_task_id,)
+            if ee_tache_one_task_id is not None else ()
+        ),
     )
+    if ee_tache_one_task_id is not None:
+        catalog = get_ee_formulations(1)
+        _, formulation_state = formulation_progress(
+            user, catalog, tache=1,
+        )
+        summary = summaries[ee_tache_one_task_id]
+        summary["subject_stats"] = summary["stats"]
+        summary["formulation_progress"] = formulation_state
+        combined = combine_progress([
+            summary["subject_stats"]["progress"],
+            formulation_state,
+        ])
+        summary["stats"] = {
+            **summary["subject_stats"],
+            "progress": combined,
+            "total": combined.total,
+            "completed": combined.completed,
+            "started_new": max(
+                combined.started - combined.completed, 0,
+            ),
+            "seen": combined.started,
+        }
     for task in direct_question_bank_tasks:
         task_key = (task.part.slug, task.slug)
         memories = catalogue.task_memoires(*task_key)

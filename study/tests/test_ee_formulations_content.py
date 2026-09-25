@@ -129,7 +129,58 @@ CROSS_THEME_LANGUAGE_PROVENANCE = {
 }
 # Key exceptions by (theme, headword, complete example) only when natural
 # French requires an inflected surface form.
-JUSTIFIED_LANGUAGE_INFLECTIONS = {}
+JUSTIFIED_LANGUAGE_INFLECTIONS = {
+    (
+        "reporting",
+        "aborder",
+        "Les deux documents abordent l’installation de distributeurs automatiques dans les lycées.",
+    ): "abordent",
+    (
+        "reporting",
+        "mettre en avant",
+        "Le premier met en avant la prévention de certaines maladies, la réduction de la pollution et le respect des animaux.",
+    ): "met en avant",
+    (
+        "reporting",
+        "souligner",
+        "Le premier souligne son accès large à l’information, à la culture et aux enjeux sociaux.",
+    ): "souligne",
+    (
+        "reporting",
+        "indiquer",
+        "Le premier soutient cette mesure pour des raisons de santé et de coût, et indique qu’elle plaît globalement aux familles.",
+    ): "indique",
+    (
+        "reporting",
+        "rappeler",
+        "De son côté, le second rappelle qu’une bonne connexion, un équipement adapté et une grande autonomie sont nécessaires, sans quoi l’apprenant risque de se décourager et d’abandonner.",
+    ): "rappelle",
+    (
+        "reporting",
+        "ajouter",
+        "De son côté, le second ajoute une baisse de l’absentéisme et une meilleure fidélisation des salariés, tout en exigeant une organisation efficace de l’entreprise.",
+    ): "ajoute",
+    (
+        "reporting",
+        "estimer que",
+        "Le premier estime qu’elle réduit le stress, améliore l’ambiance entre collègues et renforce la motivation.",
+    ): "estime qu",
+    (
+        "reporting",
+        "défendre",
+        "Le premier défend le don ponctuel d’argent ou de temps, surtout en hiver, comme un geste accessible à tous.",
+    ): "défend",
+    (
+        "reporting",
+        "privilégier",
+        "De son côté, le second privilégie l’engagement associatif quotidien, qui aide les bénéficiaires à trouver un logement, un emploi et leur autonomie.",
+    ): "privilégie",
+    (
+        "reporting",
+        "mettre en garde contre",
+        "En revanche, le second met en garde contre les tensions liées aux personnalités, au partage des tâches et au manque d’intimité, et recommande des règles claires.",
+    ): "met en garde contre",
+}
 LEGACY_MEMOIRE_SHA256 = {
     1: "cda55a4d8208e08f9a9cb2fa6560db61c91aff47025c0c640848abc1c2a429e1",
     2: "86708ac81671de5497706ad8c70b4256c699e297ce3b646ac0ccb82872d9ba6d",
@@ -412,6 +463,10 @@ class EeFormulationsContentTests(SimpleTestCase):
                         )
                         self.assertTrue(
                             getattr(self.responses[source_key], field).strip()
+                        )
+                        self.assertIn(
+                            example.text,
+                            getattr(self.responses[source_key], field),
                         )
 
         for slug, items in THEME_LANGUAGE.items():

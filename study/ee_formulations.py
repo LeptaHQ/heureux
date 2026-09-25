@@ -1,4 +1,4 @@
-"""Read the EE3 formulation curriculum without importing models or learner data."""
+"""Read the immutable EE formulation curricula without learner data."""
 
 from __future__ import annotations
 
@@ -9,13 +9,23 @@ from functools import lru_cache
 from pathlib import Path
 
 from .content_loader import (
+    EE_TACHE_DIRS,
     EE_TACHE_THREE_DIR,
+    load_ee_writing_categories,
     load_ee_subject_themes,
     parse_ee_tache_three_responses,
 )
 
 FORMULATIONS_PATH = EE_TACHE_THREE_DIR / "formulations.json"
+FORMULATIONS_PATHS = {
+    1: EE_TACHE_DIRS[1] / "formulations.json",
+    3: FORMULATIONS_PATH,
+}
 CONTENT_KEY_PREFIX = "formulation:ee3:v1:"
+CONTENT_KEY_PREFIXES = {
+    1: "formulation:ee1:v1:",
+    3: CONTENT_KEY_PREFIX,
+}
 FUNCTION_CATEGORIES = (
     "titres",
     "synthese",
@@ -28,6 +38,21 @@ FUNCTION_CATEGORIES = (
     "consequences",
     "conclusions",
 )
+FUNCTION_CATEGORIES_BY_TACHE = {
+    1: (
+        "salutations",
+        "mise-en-contexte",
+        "invitations-propositions",
+        "descriptions",
+        "informations-pratiques",
+        "conseils-recommandations",
+        "demandes",
+        "impressions",
+        "problemes-reclamations",
+        "conclusions",
+    ),
+    3: FUNCTION_CATEGORIES,
+}
 EXAMPLE_SOURCE_FIELDS = ("reformulation", "position", "position_claire")
 _SLUG = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*\Z")
 
@@ -65,6 +90,7 @@ class FormulationEntry:
     essential: bool
     themes: tuple[str, ...]
     examples: tuple[FormulationExample, ...] = ()
+    tache: int = 3
 
     def __post_init__(self) -> None:
         if not self.examples:
@@ -76,7 +102,9 @@ class FormulationEntry:
                         french=self.example,
                         english=self.example_english,
                         source_key=self.source_key,
-                        source_field="position_claire",
+                        source_field=(
+                            "body" if self.tache == 1 else "position_claire"
+                        ),
                     ),
                 ),
             )
@@ -89,7 +117,7 @@ class FormulationEntry:
 
     @property
     def content_key(self) -> str:
-        return CONTENT_KEY_PREFIX + self.slug
+        return CONTENT_KEY_PREFIXES[self.tache] + self.slug
 
     @property
     def primary_example(self) -> FormulationExample:
@@ -101,6 +129,7 @@ class FormulationCatalog:
     categories: tuple[FormulationCategory, ...]
     entries: tuple[FormulationEntry, ...]
     source_response_count: int
+    tache: int = 3
 
     @property
     def entry_count(self) -> int:
@@ -143,13 +172,36 @@ def _unique_json_object(pairs: list[tuple[str, object]]) -> dict:
     return result
 
 
-def load_ee_formulations(path: Path = FORMULATIONS_PATH) -> FormulationCatalog:
+def _source_responses(tache: int):
+    if tache == 3:
+        return {
+            response.content_key: response
+            for response in parse_ee_tache_three_responses()
+        }
+    if tache == 1:
+        return {
+            sujet.source_key: sujet.versions[0]
+            for category in load_ee_writing_categories(1)
+            for sujet in category.sujets
+            if sujet.versions
+        }
+    raise ValueError("Formulations only support EE Tâches 1 and 3")
+
+
+def load_ee_formulations(
+    path: Path | None = None,
+    *,
+    tache: int = 3,
+) -> FormulationCatalog:
     """Validate structure, coverage and quotation provenance, not teaching semantics.
 
     The French frames and translations are editorial adaptations. Every example
     must quote its named field in an effective model, with whitespace
     normalization alone.
     """
+    if tache not in FORMULATIONS_PATHS:
+        raise ValueError("Formulations only support EE Tâches 1 and 3")
+    path = FORMULATIONS_PATHS[tache] if path is None else path
     payload = json.loads(
         path.read_text(encoding="utf-8"), object_pairs_hook=_unique_json_object
     )
@@ -164,12 +216,9 @@ def load_ee_formulations(path: Path = FORMULATIONS_PATH) -> FormulationCatalog:
         if not isinstance(payload[name], list) or not payload[name]:
             raise ValueError(f"{name}: expected a non-empty list")
 
-    themes, theme_by_key = load_ee_subject_themes(3)
+    themes, theme_by_key = load_ee_subject_themes(tache)
     theme_slugs = {theme.slug for theme in themes}
-    responses = {
-        response.content_key: response
-        for response in parse_ee_tache_three_responses()
-    }
+    responses = _source_responses(tache)
     count = payload["source_response_count"]
     if type(count) is not int or count != len(responses):
         raise ValueError("source_response_count must match the effective corpus")
@@ -188,13 +237,19 @@ def load_ee_formulations(path: Path = FORMULATIONS_PATH) -> FormulationCatalog:
             raise ValueError(f"Duplicate category: {slug}")
         if row["kind"] not in ("function", "theme"):
             raise ValueError(f"{location}.kind: expected function or theme")
-        allowed = FUNCTION_CATEGORIES if row["kind"] == "function" else theme_slugs
+        allowed = (
+            FUNCTION_CATEGORIES_BY_TACHE[tache]
+            if row["kind"] == "function"
+            else theme_slugs
+        )
         if slug not in allowed:
             raise ValueError(f"{location}: unknown {row['kind']} category {slug}")
         category = FormulationCategory(**row)
         categories.append(category)
         category_by_slug[slug] = category
-    if set(category_by_slug) != set(FUNCTION_CATEGORIES) | theme_slugs:
+    if set(category_by_slug) != (
+        set(FUNCTION_CATEGORIES_BY_TACHE[tache]) | theme_slugs
+    ):
         raise ValueError("Categories must cover all functions and subject themes")
 
     entries = []
@@ -203,7 +258,10 @@ def load_ee_formulations(path: Path = FORMULATIONS_PATH) -> FormulationCatalog:
     used_categories = set()
     used_sources = set()
     essential_categories = set()
-    entry_fields = {field.name for field in fields(FormulationEntry)}
+    entry_fields = {
+        field.name for field in fields(FormulationEntry)
+        if field.name != "tache"
+    }
     compatibility_fields = {"example", "example_english", "source_key"}
     text_fields = entry_fields - {"essential", "themes", "examples"}
     example_fields = {field.name for field in fields(FormulationExample)}
@@ -213,7 +271,7 @@ def load_ee_formulations(path: Path = FORMULATIONS_PATH) -> FormulationCatalog:
         for name in text_fields:
             _text(row[name], f"{location}.{name}")
         slug = _slug(row["slug"], f"{location}.slug")
-        if len(CONTENT_KEY_PREFIX + slug) > 96:
+        if len(CONTENT_KEY_PREFIXES[tache] + slug) > 96:
             raise ValueError(f"{location}: content_key exceeds 96 characters")
         if slug in entry_slugs:
             raise ValueError(f"Duplicate entry: {slug}")
@@ -258,10 +316,13 @@ def load_ee_formulations(path: Path = FORMULATIONS_PATH) -> FormulationCatalog:
                     f"{example_location}: source_key is not an effective response"
                 )
             source_field = example_row["source_field"]
-            if source_field not in EXAMPLE_SOURCE_FIELDS:
+            allowed_source_fields = (
+                ("body",) if tache == 1 else EXAMPLE_SOURCE_FIELDS
+            )
+            if source_field not in allowed_source_fields:
                 raise ValueError(
                     f"{example_location}.source_field: expected one of "
-                    f"{EXAMPLE_SOURCE_FIELDS}"
+                    f"{allowed_source_fields}"
                 )
             example = _whitespace(example_row["french"])
             normalized = example.casefold()
@@ -297,6 +358,7 @@ def load_ee_formulations(path: Path = FORMULATIONS_PATH) -> FormulationCatalog:
                 },
                 themes=tuple(tags),
                 examples=tuple(parsed_examples),
+                tache=tache,
             )
         )
         used_categories.add(category.slug)
@@ -308,11 +370,28 @@ def load_ee_formulations(path: Path = FORMULATIONS_PATH) -> FormulationCatalog:
     if used_sources != set(responses):
         missing = sorted(set(responses) - used_sources)
         raise ValueError(f"Every effective response must ground an entry; missing {missing}")
-    if not set(FUNCTION_CATEGORIES) <= essential_categories:
+    if not set(FUNCTION_CATEGORIES_BY_TACHE[tache]) <= essential_categories:
         raise ValueError("Essentials must cover the complete function pipeline")
-    return FormulationCatalog(tuple(categories), tuple(entries), count)
+    return FormulationCatalog(
+        tuple(categories), tuple(entries), count, tache=tache,
+    )
 
 
-@lru_cache(maxsize=1)
-def get_ee_formulations() -> FormulationCatalog:
-    return load_ee_formulations()
+@lru_cache(maxsize=2)
+def _get_ee_formulations(tache: int) -> FormulationCatalog:
+    if tache == 3:
+        # Keep the historical no-argument loader call observable to callers
+        # that patch it in EE3 tests and editorial validation tools.
+        return load_ee_formulations()
+    return load_ee_formulations(tache=tache)
+
+
+def get_ee_formulations(tache: int = 3) -> FormulationCatalog:
+    return _get_ee_formulations(tache)
+
+
+# Preserve the cache-management API exposed by the historical decorated
+# getter while normalizing omitted and explicit ``3`` onto the same cache key.
+get_ee_formulations.cache_clear = _get_ee_formulations.cache_clear
+get_ee_formulations.cache_info = _get_ee_formulations.cache_info
+get_ee_formulations.cache_parameters = _get_ee_formulations.cache_parameters

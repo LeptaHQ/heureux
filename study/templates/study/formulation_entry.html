@@ -6,17 +6,18 @@
 <article class="tache-two-subject-detail formulation-entry-page" style="--subject-accent: {{ task.color }};">
   <header class="tache-two-subject-detail__hero formulation-entry-hero">
     <div class="tache-two-subject-detail__meta">
-      <a class="subject-page-back" href="{% url 'study:ee_formulations' %}#formulation-{{ row.entry.slug }}">
+      <a class="subject-page-back" href="{{ directory_url }}#formulation-{{ row.entry.slug }}">
         {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
         Formulations
       </a>
       <span>{{ category.title }} · {{ position }} sur {{ total }}{% if row.entry.essential %} · Essentiel{% endif %}</span>
     </div>
     <h1>{{ row.entry.label }}</h1>
-    <p class="formulation-entry-hero__summary">{{ row.entry.usage }}</p>
   </header>
 
-  <div class="detail-grid tache-two-subject-detail__grid formulation-entry-grid formulation-entry-lesson" id="formulation-{{ row.entry.slug }}">
+  {% include "study/partials/formulation_navigation.html" %}
+
+  <div class="detail-grid tache-two-subject-detail__grid formulation-entry-grid formulation-entry-lesson{% if row.learned %} is-status-done{% else %} is-status-new{% endif %}" id="formulation-{{ row.entry.slug }}" data-formulation-row="{{ row.entry.slug }}">
     <div class="answer-columns">
       <section class="tache-two-consigne formulation-entry-focus" aria-labelledby="formulation-focus-title">
         <span class="tache-two-consigne__icon" aria-hidden="true">
@@ -42,36 +43,19 @@
       <section class="card section-card response-sidebar-card response-sidebar-card--status formulation-entry-progress">
         <div class="spine-label">Progression</div>
         <div class="formulation-entry-progress__status">
-          <span class="progress-status progress-status--{% if row.learned %}done{% else %}new{% endif %}">{% if row.learned %}Apprise{% else %}À apprendre{% endif %}</span>
-          <span>{{ progress.completed }}/{{ progress.total }} dans {{ category.title }}</span>
+          <span class="progress-status progress-status--{% if row.learned %}done{% else %}new{% endif %}" data-formulation-status="{{ row.entry.slug }}">{% if row.learned %}Apprise{% else %}À apprendre{% endif %}</span>
+          <span><span data-formulation-progress-summary="{{ category.slug }}">{{ progress.completed }}/{{ progress.total }}</span> dans {{ category.title }}</span>
         </div>
         {% include "study/partials/formulation_learned.html" %}
       </section>
     </aside>
   </div>
 
-  <nav class="prompt-nav prompt-nav--bottom" aria-label="Navigation entre les formulations">
-    <div class="prompt-nav__item">
-      {% if previous_entry %}
-        <a class="prompt-nav__link" href="{{ previous_url }}" rel="prev">
-          <span class="prompt-nav__direction">{% include "study/partials/ui_icon.html" with name="arrow-left" only %} Formulation précédente</span>
-          <span class="prompt-nav__label">{{ previous_entry.label }}</span>
-        </a>
-      {% endif %}
-    </div>
-    <span class="prompt-nav__position">{{ position }} sur {{ total }}</span>
-    <div class="prompt-nav__item prompt-nav__item--next">
-      {% if next_entry %}
-        <a class="prompt-nav__link prompt-nav__link--next" href="{{ next_url }}" rel="next">
-          <span class="prompt-nav__direction">Formulation suivante {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
-          <span class="prompt-nav__label">{{ next_entry.label }}</span>
-        </a>
-      {% endif %}
-    </div>
-  </nav>
+  {% include "study/partials/formulation_navigation.html" with bottom=True %}
 </article>
 {% endblock %}
 {% block scripts %}
 {{ block.super }}
 <script src="{% static 'study/js/prompt-copy.js' %}?v=2"></script>
+<script src="{% static 'study/js/formulation-progress.js' %}?v=1"></script>
 {% endblock %}

@@ -21,7 +21,12 @@
        href="{% url 'study:task_detail' part.slug task.slug %}">Vue d'ensemble</a>
   {% endif %}
   {% if part.slug == 'eo' and task.slug == 'tache-1' %}
-  {% elif part.slug == 'ee' and task.slug == 'tache-1' or part.slug == 'ee' and task.slug == 'tache-2' %}
+  {% elif part.slug == 'ee' and task.slug == 'tache-1' %}
+    <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'writing_sujet_detail' or request.resolver_match.url_name == 'writing_sujet_edit' %}is-active{% endif %}"
+       href="{% subject_url 'study:task_browse' part.slug task.slug %}">Sujets</a>
+    <a class="{% if tache == 1 %}is-active{% endif %}"
+       href="{% url 'study:ee_tache_one_formulations' %}">Formulations</a>
+  {% elif part.slug == 'ee' and task.slug == 'tache-2' %}
     <a class="{% if request.resolver_match.url_name == 'task_phrases' or request.resolver_match.url_name == 'task_vocabulary_theme' %}is-active{% endif %}"
        href="{% url 'study:task_phrases' part.slug task.slug %}">Vocabulaire</a>
     <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'writing_sujet_detail' or request.resolver_match.url_name == 'writing_sujet_edit' %}is-active{% endif %}"
@@ -39,7 +44,7 @@
   {% elif part.slug == 'ee' and task.slug == 'tache-3' %}
     <a class="{% if request.resolver_match.url_name == 'task_browse' or request.resolver_match.url_name == 'theme_detail' or request.resolver_match.url_name == 'response_detail' %}is-active{% endif %}"
        href="{% subject_url 'study:task_browse' part.slug task.slug %}">Sujets</a>
-    <a class="{% if request.resolver_match.url_name == 'ee_formulations' %}is-active{% endif %}"
+    <a class="{% if tache == 3 %}is-active{% endif %}"
        href="{% url 'study:ee_formulations' %}">Formulations</a>
     <a class="{% if request.resolver_match.url_name == 'task_review_hub' %}is-active{% endif %}"
        href="{% url 'study:task_review_hub' part.slug task.slug %}">Pratiquer</a>

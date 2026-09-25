@@ -86,6 +86,8 @@
       </a>
       {% if part.slug == "ee" and task.slug == "tache-3" %}
       <a class="stats-action" href="{% url 'study:ee_formulations' %}?status=new"><span class="stats-action__copy"><small>Formulations</small><strong>Reproduire et adapter</strong><span>Voir les constructions à apprendre</span></span></a>
+      {% elif part.slug == "ee" and task.slug == "tache-1" %}
+      <a class="stats-action" href="{% url 'study:ee_tache_one_formulations' %}?status=new"><span class="stats-action__copy"><small>Formulations</small><strong>Reproduire et adapter</strong><span>Voir les constructions à apprendre</span></span></a>
       {% else %}
       <a class="stats-action" href="{{ vocabulary_weak_url }}">
         <span class="stats-action__icon stats-action__icon--vocabulary" aria-hidden="true">

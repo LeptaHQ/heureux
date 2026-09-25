@@ -1,4 +1,4 @@
-"""Private, explicit learning state for the curated EE3 formulation bank."""
+"""Private, task-isolated learning state for EE formulation banks."""
 
 import hashlib
 import unicodedata
@@ -9,10 +9,14 @@ from .progress import progress_summary
 
 
 LANGUAGE_CONTENT_KEY_PREFIX = "formulation-language:ee3:v1:"
+LANGUAGE_CONTENT_KEY_PREFIXES = {
+    1: "formulation-language:ee1:v1:",
+    3: LANGUAGE_CONTENT_KEY_PREFIX,
+}
 
 
-def formulation_progress(user, catalog=None):
-    catalog = catalog or get_ee_formulations()
+def formulation_progress(user, catalog=None, *, tache=3):
+    catalog = catalog or get_ee_formulations(tache)
     keys = {entry.content_key for entry in catalog.entries}
     learned = set(
         MemoryQuestionProgress.objects.filter(
@@ -33,18 +37,20 @@ def formulation_language_item_id(category_slug, french):
     ).hexdigest()[:16]
 
 
-def formulation_language_content_key(category_slug, french):
+def formulation_language_content_key(category_slug, french, *, tache=3):
     return (
-        LANGUAGE_CONTENT_KEY_PREFIX
+        LANGUAGE_CONTENT_KEY_PREFIXES[tache]
         + category_slug
         + ":"
         + formulation_language_item_id(category_slug, french)
     )
 
 
-def formulation_language_progress(user, category_slug, items):
+def formulation_language_progress(user, category_slug, items, *, tache=3):
     keys = {
-        formulation_language_content_key(category_slug, item.french)
+        formulation_language_content_key(
+            category_slug, item.french, tache=tache,
+        )
         for item in items
     }
     learned = set(

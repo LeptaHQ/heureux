@@ -11,8 +11,10 @@ from django.test import SimpleTestCase
 
 from study.content_loader import parse_ee_tache_three_responses
 from study.ee_formulations import (
+    FUNCTION_CATEGORIES_BY_TACHE,
     EXAMPLE_SOURCE_FIELDS,
     FUNCTION_CATEGORIES,
+    FormulationCatalog,
     FormulationEntry,
     get_ee_formulations,
     load_ee_formulations,
@@ -130,6 +132,92 @@ class EeFormulationsLoaderTests(SimpleTestCase):
             get_ee_formulations.cache_clear()
             get_ee_formulations()
             self.assertEqual(load.call_count, 2)
+
+    def test_getter_cache_is_bounded_and_isolates_both_tasks(self):
+        ee3 = self.load()
+        ee1 = FormulationCatalog(
+            ee3.categories,
+            tuple(
+                FormulationEntry(
+                    **{
+                        field: getattr(entry, field)
+                        for field in (
+                            "slug", "category", "label", "french", "english",
+                            "usage", "grammar", "example", "example_english",
+                            "source_key", "transfer_prompt", "essential",
+                            "themes", "examples",
+                        )
+                    },
+                    tache=1,
+                )
+                for entry in ee3.entries
+            ),
+            ee3.source_response_count,
+            tache=1,
+        )
+        with patch(
+            "study.ee_formulations.load_ee_formulations",
+            side_effect=lambda *args, **kwargs: (
+                ee1 if kwargs.get("tache") == 1 else ee3
+            ),
+        ) as load:
+            self.assertIs(get_ee_formulations(1), get_ee_formulations(1))
+            self.assertIs(get_ee_formulations(3), get_ee_formulations())
+            self.assertEqual(load.call_count, 2)
+            info = get_ee_formulations.cache_info()
+            self.assertEqual(info.maxsize, 2)
+            self.assertEqual(info.currsize, 2)
+            self.assertEqual(
+                get_ee_formulations.cache_parameters()["maxsize"], 2,
+            )
+
+    def test_tache_one_uses_body_and_a_separate_content_namespace(self):
+        self.response.body = "Une mesure peut aider. Il faut la financer."
+        tache_one_categories = (
+            *FUNCTION_CATEGORIES_BY_TACHE[1],
+            "education",
+        )
+        for category, slug in zip(
+            self.payload["categories"],
+            tache_one_categories,
+        ):
+            category["slug"] = slug
+            category["title"] = slug
+        for entry, slug in zip(
+            self.payload["entries"],
+            tache_one_categories,
+        ):
+            entry["slug"] = f"frame-{slug}"
+            entry["category"] = slug
+            entry["french"] = f"{slug} : [mesure] peut aider."
+            entry["examples"][0]["source_field"] = "body"
+        category = SimpleNamespace(sujets=(
+            SimpleNamespace(
+                source_key=self.source_key,
+                versions=(self.response,),
+            ),
+        ))
+        with patch(
+            "study.ee_formulations.load_ee_writing_categories",
+            return_value=(category,),
+        ):
+            self.path.write_text(json.dumps(self.payload), encoding="utf-8")
+            catalog = load_ee_formulations(self.path, tache=1)
+        self.assertEqual(catalog.tache, 1)
+        self.assertEqual(catalog.entries[0].tache, 1)
+        self.assertEqual(
+            catalog.entries[0].content_key,
+            "formulation:ee1:v1:frame-salutations",
+        )
+        self.payload["entries"][0]["examples"][0][
+            "source_field"
+        ] = "position_claire"
+        with patch(
+            "study.ee_formulations.load_ee_writing_categories",
+            return_value=(category,),
+        ), self.assertRaises(ValueError):
+            self.path.write_text(json.dumps(self.payload), encoding="utf-8")
+            load_ee_formulations(self.path, tache=1)
 
     def test_legacy_constructor_gets_an_immutable_primary_example(self):
         entry = FormulationEntry(

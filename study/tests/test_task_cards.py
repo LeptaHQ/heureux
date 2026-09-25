@@ -12,6 +12,7 @@ from django.urls import reverse
 from django.utils import timezone
 
 from study import content_loader as content_module
+from study.ee_formulations import get_ee_formulations
 from study.models import (
     Annotation,
     AnnotationKind,
@@ -354,9 +355,12 @@ class WritingSujetCardCountsTests(TestCase):
             content_counts=counts,
         )
 
-        self.assertEqual(card["stats"]["total"], 3)
-        self.assertEqual(card["stats"]["completed"], 2)
-        self.assertEqual(card["stats"]["seen"], 2)
+        self.assertEqual(
+            card["stats"]["total"],
+            2 + len(get_ee_formulations(1).entries),
+        )
+        self.assertEqual(card["stats"]["completed"], 1)
+        self.assertEqual(card["stats"]["seen"], 1)
 
     def test_writing_sujets_add_two_queries_to_a_batch(self):
         other = factories.make_task(factories.make_part("eo"), "tache-3")
@@ -764,7 +768,7 @@ class ExpressionPathSummaryTests(TestCase):
         self.assertEqual(summaries[self.tache_three.pk]["stats"]["due"], 0)
         self.assertEqual(summaries[self.tache_two.pk]["stats"]["due"], 0)
 
-    def test_writing_task_counts_sujets(self):
+    def test_writing_task_combines_sujets_and_formulations(self):
         summaries = expression_task_summaries(
             self.now,
             self.user,
@@ -773,7 +777,11 @@ class ExpressionPathSummaryTests(TestCase):
         summary = summaries[self.writing_task.pk]
 
         self.assertEqual(summary["prompt_count"], 4)
-        self.assertEqual(summary["stats"]["total"], 4)
+        self.assertEqual(summary["subject_stats"]["total"], 4)
+        self.assertEqual(
+            summary["stats"]["total"],
+            4 + len(get_ee_formulations(1).entries),
+        )
         self.assertEqual(summary["stats"]["completed"], 1)
         self.assertEqual(summary["stats"]["seen"], 3)
         self.assertEqual(summary["stats"]["due"], 0)
@@ -919,6 +927,6 @@ class ExpressionPathSummaryTests(TestCase):
         self.assertGreaterEqual(len(tasks), 6)
         self.assertLessEqual(
             len(every_task.captured_queries),
-            len(one_task.captured_queries) + 5,
+            len(one_task.captured_queries) + 6,
         )
         self.assertLessEqual(len(every_task.captured_queries), 12)

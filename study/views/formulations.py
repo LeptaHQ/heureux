@@ -1,13 +1,15 @@
-"""Nested directory and optional, ungraded recall of reusable EE3 frames."""
+"""Nested directory and optional, ungraded recall of reusable EE frames."""
 
 import unicodedata
+from dataclasses import asdict
 from urllib.parse import urlencode, urlsplit
 
-from django.http import Http404, HttpResponseBadRequest
+from django.http import Http404, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import redirect, render
 from django.urls import Resolver404, resolve, reverse
 from django.views.decorators.http import require_GET, require_POST
 
+from ..content_loader import ee_writing_sujet_slug
 from ..ee_formulation_language import formulation_language_for
 from ..ee_formulations import get_ee_formulations
 from ..formulation_progress import (
@@ -16,27 +18,36 @@ from ..formulation_progress import (
     formulation_language_progress,
     formulation_progress,
 )
-from ..models import MemoryQuestionProgress, Prompt
+from ..models import MemoryQuestionProgress, Prompt, WritingSujet
 from ..progress import progress_summary
 from .helpers import _route_task
 
 
 FILTER_KEYS = ("q", "status", "mode", "entry")
 LEGACY_FILTER_KEYS = (*FILTER_KEYS, "category", "theme", "essential")
-COLLECTION_ROUTES = {
-    "essentials": "study:ee_formulation_essentials",
-    "function": "study:ee_formulation_function",
-    "theme": "study:ee_formulation_theme",
-    "search": "study:ee_formulation_search",
-}
-RETURN_ROUTES = {
-    "ee_formulations",
-    "ee_formulation_entry",
-    "ee_formulation_essentials",
-    "ee_formulation_function",
-    "ee_formulation_language",
-    "ee_formulation_theme",
-    "ee_formulation_search",
+ROUTES = {
+    1: {
+        "directory": "study:ee_tache_one_formulations",
+        "essentials": "study:ee_tache_one_formulation_essentials",
+        "function": "study:ee_tache_one_formulation_function",
+        "theme": "study:ee_tache_one_formulation_theme",
+        "search": "study:ee_tache_one_formulation_search",
+        "language": "study:ee_tache_one_formulation_language",
+        "language_progress": "study:ee_tache_one_formulation_language_progress",
+        "entry": "study:ee_tache_one_formulation_entry",
+        "progress": "study:ee_tache_one_formulation_progress",
+    },
+    3: {
+        "directory": "study:ee_formulations",
+        "essentials": "study:ee_formulation_essentials",
+        "function": "study:ee_formulation_function",
+        "theme": "study:ee_formulation_theme",
+        "search": "study:ee_formulation_search",
+        "language": "study:ee_formulation_language",
+        "language_progress": "study:ee_formulation_language_progress",
+        "entry": "study:ee_formulation_entry",
+        "progress": "study:ee_formulation_progress",
+    },
 }
 LANGUAGE_ROLE_LABELS = {
     "reporting": "Présenter les documents",
@@ -86,16 +97,36 @@ def _progress(entries, learned):
     )
 
 
-def collection_url(kind, slug="", filters=None):
-    route = COLLECTION_ROUTES[kind]
+def _progress_payload(catalog, entry, learned):
+    category_entries = [
+        item for item in catalog.entries
+        if item.category == entry.category
+    ]
+    essential_entries = [
+        item for item in catalog.entries if item.essential
+    ]
+    return {
+        "completed": entry.content_key in learned,
+        "slug": entry.slug,
+        "overall": asdict(_progress(catalog.entries, learned)),
+        "category": {
+            "slug": entry.category,
+            **asdict(_progress(category_entries, learned)),
+        },
+        "essentials": asdict(_progress(essential_entries, learned)),
+    }
+
+
+def collection_url(kind, slug="", filters=None, *, tache=3):
+    route = ROUTES[tache][kind]
     args = [slug] if slug else []
     url = reverse(route, args=args)
     return url + ("?" + urlencode(filters) if filters else "")
 
 
-def formulation_url(filters=None):
+def formulation_url(filters=None, *, tache=3):
     """Keep old internal callers on a stable replacement URL."""
-    return reverse("study:ee_formulations") + (
+    return reverse(ROUTES[tache]["directory"]) + (
         "?" + urlencode(filters) if filters else ""
     )
 
@@ -121,7 +152,26 @@ def _selection(entries, categories, filters, learned):
     return result
 
 
-def _response_urls(task, source_keys):
+def _response_urls(task, source_keys, *, tache):
+    if tache == 1:
+        slug_by_key = {
+            source_key: ee_writing_sujet_slug(source_key)
+            for source_key in source_keys
+        }
+        sources = {}
+        for sujet_id, slug in WritingSujet.objects.filter(
+            task=task,
+            slug__in=slug_by_key.values(),
+            is_active=True,
+        ).values_list("pk", "slug"):
+            sources[slug] = reverse(
+                "study:writing_sujet_detail",
+                args=["ee", "tache-1", sujet_id],
+            )
+        return {
+            source_key: sources.get(slug, "")
+            for source_key, slug in slug_by_key.items()
+        }
     sources = {}
     for key, prompt_id in Prompt.objects.filter(
         response__content_key__in=source_keys,
@@ -142,15 +192,15 @@ def _response_urls(task, source_keys):
     return sources
 
 
-def _source_urls(task, entries):
+def _source_urls(task, entries, *, tache):
     return _response_urls(task, {
         example.source_key
         for entry in entries
         for example in entry.examples
-    })
+    }, tache=tache)
 
 
-def _entry_row(entry, categories, learned, sources):
+def _entry_row(entry, categories, learned, sources, *, tache):
     return {
         "entry": entry,
         "category": categories[entry.category],
@@ -160,15 +210,31 @@ def _entry_row(entry, categories, learned, sources):
             {
                 "content": example,
                 "source_url": sources.get(example.source_key, ""),
+                "source_label": (
+                    "Réponse"
+                    if tache == 1
+                    else (
+                        "Titre"
+                        if example.source_field == "reformulation"
+                        else (
+                            "Partie 1"
+                            if example.source_field == "position"
+                            else "Partie 2"
+                        )
+                    )
+                ),
             }
             for example in entry.examples
         ),
         "copy_id": "formulation-copy-" + entry.slug,
+        "progress_url": reverse(
+            ROUTES[tache]["progress"], args=[entry.slug],
+        ),
     }
 
 
 def _language_sections(
-    language_bank, source_urls, category_slug, learned,
+    language_bank, source_urls, category_slug, learned, *, tache,
 ):
     grouped = {role: [] for role in LANGUAGE_ROLE_LABELS}
     for item in language_bank:
@@ -177,12 +243,16 @@ def _language_sections(
             category_slug, item.french,
         )
         content_key = formulation_language_content_key(
-            category_slug, item.french,
+            category_slug, item.french, tache=tache,
         )
         grouped[role].append({
             "item": item,
             "item_id": item_id,
             "learned": content_key in learned,
+            "progress_url": reverse(
+                ROUTES[tache]["language_progress"],
+                args=[category_slug, item_id],
+            ),
             "examples": tuple(
                 {
                     "text": example.text,
@@ -216,9 +286,9 @@ def _language_sections(
     )
 
 
-def _directory_item(category, entries, learned, *, kind):
-    url = collection_url(kind, category.slug)
-    language_bank = formulation_language_for(category)
+def _directory_item(category, entries, learned, *, kind, tache):
+    url = collection_url(kind, category.slug, tache=tache)
+    language_bank = formulation_language_for(category) if tache == 3 else ()
     return {
         "category": category,
         "count": len(entries),
@@ -231,7 +301,7 @@ def _directory_item(category, entries, learned, *, kind):
         ) if language_bank else "",
         "reference_url": (
             reverse(
-                "study:ee_formulation_language", args=[category.slug],
+                ROUTES[tache]["language"], args=[category.slug],
             ) if language_bank else ""
         ),
         "reference_count": len(language_bank),
@@ -241,7 +311,10 @@ def _directory_item(category, entries, learned, *, kind):
                 "label": entry.label,
                 "french": entry.french,
                 "url": reverse(
-                    "study:ee_formulation_entry", args=[entry.slug],
+                    ROUTES[tache]["entry"], args=[entry.slug],
+                ),
+                "progress_url": reverse(
+                    ROUTES[tache]["progress"], args=[entry.slug],
                 ),
                 "learned": entry.content_key in learned,
                 "essential": entry.essential,
@@ -251,32 +324,36 @@ def _directory_item(category, entries, learned, *, kind):
     }
 
 
-def _legacy_destination(filters, catalog):
+def _legacy_destination(filters, catalog, *, tache):
     forwarded = {
         key: value for key, value in filters.items()
         if key in FILTER_KEYS
     }
     categories = {category.slug: category for category in catalog.categories}
     if filters.get("theme"):
-        return collection_url("theme", filters["theme"], forwarded)
+        return collection_url(
+            "theme", filters["theme"], forwarded, tache=tache,
+        )
     if filters.get("category"):
         category = categories[filters["category"]]
         kind = "function" if category.kind == "function" else "theme"
-        return collection_url(kind, category.slug, forwarded)
+        return collection_url(
+            kind, category.slug, forwarded, tache=tache,
+        )
     if filters.get("essential"):
-        return collection_url("essentials", filters=forwarded)
-    return collection_url("search", filters=forwarded)
+        return collection_url("essentials", filters=forwarded, tache=tache)
+    return collection_url("search", filters=forwarded, tache=tache)
 
 
 @require_GET
-def formulations(request):
-    task = _route_task("ee", "tache-3", request=request)
+def formulations(request, tache=3):
+    task = _route_task("ee", f"tache-{tache}", request=request)
     if not task.available:
         raise Http404
-    catalog = get_ee_formulations()
+    catalog = get_ee_formulations(tache)
     if request.GET:
         filters = _filters(request.GET, catalog, keys=LEGACY_FILTER_KEYS)
-        return redirect(_legacy_destination(filters, catalog))
+        return redirect(_legacy_destination(filters, catalog, tache=tache))
 
     learned, progress = formulation_progress(request.user, catalog)
     function_items = []
@@ -291,6 +368,7 @@ def formulations(request):
                 function_items.append(
                     _directory_item(
                         category, entries, learned, kind="function",
+                        tache=tache,
                     )
                 )
         else:
@@ -300,13 +378,17 @@ def formulations(request):
             ]
             if entries:
                 theme_items.append(
-                    _directory_item(category, entries, learned, kind="theme")
+                    _directory_item(
+                        category, entries, learned, kind="theme", tache=tache,
+                    )
                 )
     return render(request, "study/formulation_directory.html", {
         "part": task.part,
         "task": task,
         "progress": progress,
-        "return_url": reverse("study:ee_formulations"),
+        "return_url": reverse(ROUTES[tache]["directory"]),
+        "directory_url": reverse(ROUTES[tache]["directory"]),
+        "tache": tache,
         "tables": (
             {
                 "slug": "functions",
@@ -330,8 +412,14 @@ def formulations(request):
                 "slug": "themes",
                 "title": "Thèmes",
                 "description": (
-                    "Des arguments, bénéfices, limites et solutions prêts "
-                    "à adapter aux sujets fréquents."
+                    (
+                        "Des formulations concrètes pour décrire, informer, "
+                        "inviter, demander et conseiller selon chaque situation."
+                    )
+                    if tache == 1 else (
+                        "Des arguments, bénéfices, limites et solutions prêts "
+                        "à adapter aux sujets fréquents."
+                    )
                 ),
                 "items": theme_items,
                 "progress": _progress(
@@ -346,7 +434,7 @@ def formulations(request):
                 ),
             },
         ),
-        "search_url": collection_url("search"),
+        "search_url": collection_url("search", tache=tache),
     })
 
 
@@ -357,8 +445,15 @@ def _collection_definition(catalog, kind, slug):
             "title": "Les essentiels",
             "eyebrow": "Parcours recommandé",
             "description": (
-                "Les formulations indispensables pour synthétiser, prendre "
-                "position, développer deux raisons et conclure."
+                (
+                    "Les formulations indispensables pour ouvrir un message, "
+                    "annoncer son objectif, donner des informations précises, "
+                    "formuler une demande et conclure."
+                )
+                if catalog.tache == 1 else (
+                    "Les formulations indispensables pour synthétiser, prendre "
+                    "position, développer deux raisons et conclure."
+                )
             ),
             "entries": [entry for entry in catalog.entries if entry.essential],
             "category": None,
@@ -380,8 +475,15 @@ def _collection_definition(catalog, kind, slug):
         raise Http404("Subdivision inconnue.")
     return {
         "title": category.title,
-        "eyebrow": "Essentiels · Fonction d’écriture" if kind == "function"
-        else "Thèmes · Arguments à adapter",
+        "eyebrow": (
+            "Essentiels · Fonction d’écriture"
+            if kind == "function"
+            else (
+                "Thèmes · Messages à adapter"
+                if catalog.tache == 1
+                else "Thèmes · Arguments à adapter"
+            )
+        ),
         "description": category.description,
         "entries": [
             entry for entry in catalog.entries
@@ -392,11 +494,11 @@ def _collection_definition(catalog, kind, slug):
 
 
 @require_GET
-def formulation_collection(request, kind, slug=""):
-    task = _route_task("ee", "tache-3", request=request)
+def formulation_collection(request, kind, slug="", tache=3):
+    task = _route_task("ee", f"tache-{tache}", request=request)
     if not task.available:
         raise Http404
-    catalog = get_ee_formulations()
+    catalog = get_ee_formulations(tache)
     definition = _collection_definition(catalog, kind, slug)
     filters = _filters(request.GET, catalog)
     learned, overall_progress = formulation_progress(request.user, catalog)
@@ -413,26 +515,38 @@ def formulation_collection(request, kind, slug=""):
         0,
     )
     visible = selected[index:index + 1] if practice else selected
-    sources = _source_urls(task, visible)
+    sources = _source_urls(task, visible, tache=tache)
     rows = [
-        _entry_row(entry, categories, learned, sources)
+        _entry_row(
+            entry, categories, learned, sources, tache=tache,
+        )
         for entry in visible
     ]
     browse_filters = {
         key: value for key, value in filters.items()
         if key not in {"mode", "entry"}
     }
-    base_url = collection_url(kind, slug)
-    language_bank = formulation_language_for(definition["category"])
+    base_url = collection_url(kind, slug, tache=tache)
+    language_bank = (
+        formulation_language_for(definition["category"])
+        if tache == 3 else ()
+    )
     return render(request, "study/formulations.html", {
         "part": task.part,
         "task": task,
+        "tache": tache,
+        "directory_url": reverse(ROUTES[tache]["directory"]),
         "definition": definition,
         "filters": filters,
         "filter_fields": filters.items(),
         "rows": rows,
         "overall_progress": overall_progress,
         "progress": _progress(definition["entries"], learned),
+        "progress_scope": (
+            definition["category"].slug
+            if definition["category"]
+            else ("essentials" if kind == "essentials" else "overall")
+        ),
         "result_count": len(selected),
         "practice": practice,
         "position": index + 1,
@@ -449,25 +563,29 @@ def formulation_collection(request, kind, slug=""):
             else f"Vocabulaire utile : {definition['title']}"
         ),
         "return_url": base_url,
-        "browse_url": collection_url(kind, slug, browse_filters),
+        "browse_url": collection_url(
+            kind, slug, browse_filters, tache=tache,
+        ),
         "practice_url": collection_url(
-            kind, slug, {**browse_filters, "mode": "practice"},
+            kind, slug, {**browse_filters, "mode": "practice"}, tache=tache,
         ),
         "previous_url": collection_url(
             kind, slug, {**filters, "entry": selected[index - 1].slug},
+            tache=tache,
         ) if practice and index else "",
         "next_url": collection_url(
             kind, slug, {**filters, "entry": selected[index + 1].slug},
+            tache=tache,
         ) if practice and index + 1 < len(selected) else "",
     })
 
 
 @require_GET
-def formulation_entry(request, slug):
-    task = _route_task("ee", "tache-3", request=request)
+def formulation_entry(request, slug, tache=3):
+    task = _route_task("ee", f"tache-{tache}", request=request)
     if not task.available:
         raise Http404
-    catalog = get_ee_formulations()
+    catalog = get_ee_formulations(tache)
     entry = next(
         (item for item in catalog.entries if item.slug == slug),
         None,
@@ -483,12 +601,18 @@ def formulation_entry(request, slug):
     position = siblings.index(entry)
     learned, overall_progress = formulation_progress(request.user, catalog)
     row = _entry_row(
-        entry, categories, learned, _source_urls(task, [entry]),
+        entry,
+        categories,
+        learned,
+        _source_urls(task, [entry], tache=tache),
+        tache=tache,
     )
     kind = "function" if category.kind == "function" else "theme"
     return render(request, "study/formulation_entry.html", {
         "part": task.part,
         "task": task,
+        "tache": tache,
+        "directory_url": reverse(ROUTES[tache]["directory"]),
         "row": row,
         "category": category,
         "overall_progress": overall_progress,
@@ -497,10 +621,10 @@ def formulation_entry(request, slug):
         "total": len(siblings),
         "return_url": request.path,
         "filter_fields": (),
-        "back_url": collection_url(kind, category.slug),
+        "back_url": collection_url(kind, category.slug, tache=tache),
         "previous_entry": siblings[position - 1] if position else None,
         "previous_url": reverse(
-            "study:ee_formulation_entry",
+            ROUTES[tache]["entry"],
             args=[siblings[position - 1].slug],
         ) if position else "",
         "next_entry": (
@@ -508,48 +632,56 @@ def formulation_entry(request, slug):
             else None
         ),
         "next_url": reverse(
-            "study:ee_formulation_entry",
+            ROUTES[tache]["entry"],
             args=[siblings[position + 1].slug],
         ) if position + 1 < len(siblings) else "",
     })
 
 
 @require_GET
-def formulation_language_reference(request, slug):
-    task = _route_task("ee", "tache-3", request=request)
+def formulation_language_reference(request, slug, tache=3):
+    task = _route_task("ee", f"tache-{tache}", request=request)
     if not task.available:
         raise Http404
-    catalog = get_ee_formulations()
+    catalog = get_ee_formulations(tache)
     category = next(
         (item for item in catalog.categories if item.slug == slug),
         None,
     )
-    language_bank = formulation_language_for(category)
+    language_bank = (
+        formulation_language_for(category) if tache == 3 else ()
+    )
     if category is None or not language_bank:
         raise Http404
     learned, language_progress = formulation_language_progress(
-        request.user, category.slug, language_bank,
+        request.user, category.slug, language_bank, tache=tache,
     )
     source_urls = _response_urls(task, {
         source_key
         for item in language_bank
         for example in item.examples
         for source_key, _field in example.provenance
-    })
+    }, tache=tache)
     return render(request, "study/formulation_language.html", {
         "part": task.part,
         "task": task,
+        "tache": tache,
+        "directory_url": reverse(ROUTES[tache]["directory"]),
         "category": category,
         "language_bank": language_bank,
         "language_sections": _language_sections(
-            language_bank, source_urls, category.slug, learned,
+            language_bank,
+            source_urls,
+            category.slug,
+            learned,
+            tache=tache,
         ),
         "language_progress": language_progress,
         "example_count": sum(
             len(item.examples) for item in language_bank
         ),
         "back_url": (
-            reverse("study:ee_formulations")
+            reverse(ROUTES[tache]["directory"])
             + "#formulation-group-"
             + category.slug
         ),
@@ -562,16 +694,18 @@ def formulation_language_reference(request, slug):
 
 
 @require_POST
-def formulation_language_learned(request, slug, item_id):
-    task = _route_task("ee", "tache-3", request=request)
+def formulation_language_learned(request, slug, item_id, tache=3):
+    task = _route_task("ee", f"tache-{tache}", request=request)
     if not task.available:
         raise Http404
-    catalog = get_ee_formulations()
+    catalog = get_ee_formulations(tache)
     category = next(
         (item for item in catalog.categories if item.slug == slug),
         None,
     )
-    language_bank = formulation_language_for(category)
+    language_bank = (
+        formulation_language_for(category) if tache == 3 else ()
+    )
     if category is None or not language_bank:
         raise Http404
     item = next(
@@ -587,26 +721,43 @@ def formulation_language_learned(request, slug, item_id):
         raise Http404
     completed = request.POST.getlist("completed")
     if completed not in (["0"], ["1"]):
+        if request.headers.get("X-Requested-With") == "fetch":
+            return JsonResponse(
+                {"error": "État de progression invalide."},
+                status=400,
+            )
         return HttpResponseBadRequest("État de progression invalide.")
     lookup = {
         "user": request.user,
         "memory_number": 1,
         "question_key": formulation_language_content_key(
-            category.slug, item.french,
+            category.slug, item.french, tache=tache,
         ),
     }
     if completed == ["1"]:
         MemoryQuestionProgress.objects.get_or_create(**lookup)
     else:
         MemoryQuestionProgress.objects.filter(**lookup).delete()
+    if request.headers.get("X-Requested-With") == "fetch":
+        learned, progress = formulation_language_progress(
+            request.user,
+            category.slug,
+            language_bank,
+            tache=tache,
+        )
+        return JsonResponse({
+            "completed": lookup["question_key"] in learned,
+            "item_id": item_id,
+            "progress": asdict(progress),
+        })
     return redirect(
-        reverse("study:ee_formulation_language", args=[category.slug])
+        reverse(ROUTES[tache]["language"], args=[category.slug])
         + "#vocabulaire-"
         + item_id
     )
 
 
-def _safe_return_path(value):
+def _safe_return_path(value, *, tache):
     parsed = urlsplit(value)
     if parsed.scheme or parsed.netloc or parsed.query or parsed.fragment:
         return ""
@@ -614,17 +765,21 @@ def _safe_return_path(value):
         match = resolve(parsed.path)
     except Resolver404:
         return ""
-    if match.url_name not in RETURN_ROUTES:
+    if match.url_name not in {
+        route.removeprefix("study:")
+        for key, route in ROUTES[tache].items()
+        if key not in {"progress", "language_progress"}
+    }:
         return ""
     return parsed.path
 
 
 @require_POST
-def formulation_learned(request, slug):
-    task = _route_task("ee", "tache-3", request=request)
+def formulation_learned(request, slug, tache=3):
+    task = _route_task("ee", f"tache-{tache}", request=request)
     if not task.available:
         raise Http404
-    catalog = get_ee_formulations()
+    catalog = get_ee_formulations(tache)
     filters = _filters(request.POST, catalog)
     entry = next(
         (entry for entry in catalog.entries if entry.slug == slug),
@@ -634,6 +789,11 @@ def formulation_learned(request, slug):
         raise Http404
     completed = request.POST.getlist("completed")
     if completed not in (["0"], ["1"]):
+        if request.headers.get("X-Requested-With") == "fetch":
+            return JsonResponse(
+                {"error": "État de progression invalide."},
+                status=400,
+            )
         return HttpResponseBadRequest("État de progression invalide.")
     lookup = {
         "user": request.user,
@@ -644,9 +804,17 @@ def formulation_learned(request, slug):
         MemoryQuestionProgress.objects.get_or_create(**lookup)
     else:
         MemoryQuestionProgress.objects.filter(**lookup).delete()
+    if request.headers.get("X-Requested-With") == "fetch":
+        learned, _progress_state = formulation_progress(
+            request.user,
+            catalog,
+        )
+        return JsonResponse(
+            _progress_payload(catalog, entry, learned)
+        )
     destination = (
-        _safe_return_path(request.POST.get("next", ""))
-        or reverse("study:ee_formulations")
+        _safe_return_path(request.POST.get("next", ""), tache=tache)
+        or reverse(ROUTES[tache]["directory"])
     )
     if filters:
         destination += "?" + urlencode(filters)

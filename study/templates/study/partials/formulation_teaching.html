@@ -10,7 +10,7 @@
           <blockquote lang="fr">{{ example.content.french }}</blockquote>
           <p lang="en">{{ example.content.english }}</p>
           <div class="formulation-source-examples__meta">
-            <span>{% if example.content.source_field == "reformulation" %}Titre{% elif example.content.source_field == "position" %}Partie 1{% else %}Partie 2{% endif %}</span>
+            <span>{{ example.source_label }}</span>
             {% if example.source_url %}<a href="{{ example.source_url }}">Voir le sujet et sa réponse</a>{% endif %}
           </div>
         </li>

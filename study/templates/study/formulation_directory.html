@@ -1,5 +1,6 @@
 {% extends "base.html" %}
-{% block title %}Formulations · Tâche 3 · Heureux{% endblock %}
+{% load static %}
+{% block title %}Formulations · {{ task.name }} · Heureux{% endblock %}
 {% block content %}
 {% include "study/partials/task_nav.html" %}
 <div class="formulations-page">
@@ -8,7 +9,7 @@
       <h1>Formulations</h1>
     </div>
     <div class="task-hero__numbers" aria-label="Progression des formulations">
-      <span><b>{{ progress.completed }}</b> apprise{{ progress.completed|pluralize }}</span>
+      <span><b data-formulation-progress-completed="overall">{{ progress.completed }}</b> <span data-formulation-progress-word="overall">apprise{{ progress.completed|pluralize }}</span></span>
       <span><b>{{ progress.total }}</b> au total</span>
     </div>
   </header>
@@ -37,7 +38,7 @@
             <span>Progression</span>
           </div>
           {% for item in table.items %}
-            <details id="formulation-group-{{ item.category.slug }}" class="t1-theme t1-table-group formulation-subdivision-disclosure is-status-{{ item.progress.status }}" data-formulation-subdivision>
+            <details id="formulation-group-{{ item.category.slug }}" class="t1-theme t1-table-group formulation-subdivision-disclosure is-status-{{ item.progress.status }}" data-formulation-subdivision data-formulation-category="{{ item.category.slug }}">
               {% include "study/partials/theme_group_summary.html" with title=item.category.title icon=item.category.icon count=item.count count_label="formulation" status=item.progress.status completed=item.completed total=item.count only %}
               <div class="t1-table-shell">
                 <table class="t1-table t1-table--grouped formulation-subtopic-table">
@@ -70,7 +71,7 @@
                       </tr>
                     {% endif %}
                     {% for topic in item.topics %}
-                      <tr id="formulation-{{ topic.slug }}" class="t1-table__row subject-table-row formulation-subtopic-row{% if topic.learned %} is-status-done{% else %} is-status-new{% endif %}" data-formulation-topic-row>
+                      <tr id="formulation-{{ topic.slug }}" class="t1-table__row subject-table-row formulation-subtopic-row{% if topic.learned %} is-status-done{% else %} is-status-new{% endif %}" data-formulation-topic-row data-formulation-row="{{ topic.slug }}">
                         <td class="t1-table__subject">
                           <a class="subject-table-row-link" href="{{ topic.url }}">{{ topic.label }}</a>
                           <span class="t1-table__subject-date">{{ topic.french }}</span>
@@ -78,17 +79,24 @@
                         <td class="t1-table__versions">{% if topic.essential %}Essentiel{% else %}Leçon{% endif %}</td>
                         <td class="t1-table__progress-cell">
                           <div class="t1-table__progress">
-                            <span class="progress-status progress-status--{% if topic.learned %}done{% else %}new{% endif %}">{% if topic.learned %}Apprise{% else %}À apprendre{% endif %}</span>
+                            <span class="progress-status progress-status--{% if topic.learned %}done{% else %}new{% endif %}" data-formulation-status="{{ topic.slug }}">{% if topic.learned %}Apprise{% else %}À apprendre{% endif %}</span>
                             <form
                               class="subject-completion-check formulation-subtopic-check{% if topic.learned %} is-complete{% endif %}"
                               method="post"
-                              action="{% url 'study:ee_formulation_progress' topic.slug %}">
+                              action="{{ topic.progress_url }}"
+                              data-formulation-progress-form
+                              data-formulation-slug="{{ topic.slug }}">
                               {% csrf_token %}
                               <input type="hidden" name="next" value="{{ return_url }}">
-                              <input type="hidden" name="completed" value="{% if topic.learned %}0{% else %}1{% endif %}">
+                              <input type="hidden" name="completed" value="{% if topic.learned %}0{% else %}1{% endif %}" data-formulation-completed-input>
                               <button
                                 type="submit"
                                 role="checkbox"
+                                data-formulation-progress-button
+                                data-formulation-complete-aria="Remettre à apprendre : {{ topic.label }}"
+                                data-formulation-incomplete-aria="Marquer comme apprise : {{ topic.label }}"
+                                data-formulation-complete-title="Apprise"
+                                data-formulation-incomplete-title="Marquer comme apprise"
                                 aria-checked="{{ topic.learned|yesno:'true,false' }}"
                                 aria-label="{% if topic.learned %}Remettre à apprendre : {% else %}Marquer comme apprise : {% endif %}{{ topic.label }}"
                                 title="{% if topic.learned %}Apprise{% else %}Marquer comme apprise{% endif %}">
@@ -109,4 +117,8 @@
     {% endfor %}
   </div>
 </div>
+{% endblock %}
+{% block scripts %}
+{{ block.super }}
+<script src="{% static 'study/js/formulation-progress.js' %}?v=1"></script>
 {% endblock %}

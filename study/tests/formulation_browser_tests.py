@@ -83,17 +83,35 @@ class FormulationBrowserTests(StaticLiveServerTestCase):
         expect(page.locator("[data-formulation-practice]")).to_have_count(0)
         page.locator("[data-prompt-copy]").first.click()
         self.assertEqual(page.evaluate("window.copiedFormulation"), self.catalog.entries[0].french)
+        original_url = page.url
         page.get_by_role(
             "button", name="Je sais reproduire et adapter", exact=False,
         ).click()
         expect(page.get_by_role(
             "button", name="Remettre à apprendre", exact=False,
         )).to_be_visible()
-        for width in (390, 1280):
+        self.assertEqual(page.url, original_url)
+        for width in (320, 390, 1280):
             page.set_viewport_size({"width": width, "height": 844})
             self.assertTrue(page.evaluate(
                 "document.documentElement.scrollWidth <= document.documentElement.clientWidth + 1"
             ))
+        layout = page.locator(".formulation-entry-page").evaluate("""
+            element => {
+              const parent = element.parentElement;
+              const parentStyle = getComputedStyle(parent);
+              const expectedWidth = parent.clientWidth
+                - parseFloat(parentStyle.paddingLeft)
+                - parseFloat(parentStyle.paddingRight);
+              return {
+                width: element.getBoundingClientRect().width,
+                expectedWidth,
+                transform: getComputedStyle(element).transform,
+              };
+            }
+        """)
+        self.assertAlmostEqual(layout["width"], layout["expectedWidth"], delta=1)
+        self.assertEqual(layout["transform"], "none")
         page.set_viewport_size({"width": 390, "height": 844})
         page.goto(self.live_server_url + reverse(
             "study:ee_formulation_function", args=["affirmation"],
@@ -137,11 +155,12 @@ class FormulationBrowserTests(StaticLiveServerTestCase):
         page.get_by_role("link", name="Suivante", exact=True).click()
         expect(page.locator("[data-formulation-practice]")).to_contain_text("Formulation 2 sur 2")
 
-    def test_language_checkmark_persists(self):
-        page = self.context(javascript=False).new_page()
+    def test_language_checkmark_updates_without_navigation_and_persists(self):
+        page = self.context().new_page()
         page.goto(self.live_server_url + reverse(
             "study:ee_formulation_language", args=["education"],
         ))
+        original_url = page.url
         checkmark = page.get_by_role(
             "checkbox", name="Marquer comme apprise", exact=False,
         ).first
@@ -154,6 +173,7 @@ class FormulationBrowserTests(StaticLiveServerTestCase):
         expect(page.locator(".tache-two-subject-detail__meta")).to_contain_text(
             "1/",
         )
+        self.assertEqual(page.url, original_url)
         page.reload()
         expect(page.get_by_role(
             "checkbox", name="Remettre à apprendre", exact=False,

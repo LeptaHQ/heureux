@@ -6,6 +6,7 @@ from django.utils import timezone
 
 from study.models import (
     Card,
+    MemoryQuestionProgress,
     PersonalResponse,
     PersonalWritingResponse,
     PhraseTier,
@@ -60,15 +61,15 @@ class ExpressionSearchVisibilityTests(TestCase):
                 archived.is_active = True
                 archived.save(update_fields=["is_active"])
 
-    def test_task_vocabulary_search_includes_direct_theme_sources(self):
-        writing_task = factories.make_task(factories.make_part("ee"), "tache-1")
+    def test_active_task_vocabulary_search_includes_direct_theme_sources(self):
+        writing_task = factories.make_task(factories.make_part("ee"), "tache-2")
         writing_theme = factories.make_theme("writing-search", task=writing_task)
         phrase = factories.make_phrase(
             tier=PhraseTier.THEME, vocabulary_theme=writing_theme,
         )
         phrase.english_cue = "Searchable vocabulary"
         phrase.save(update_fields=["english_cue"])
-        url = reverse("study:task_search", args=["ee", "tache-1"])
+        url = reverse("study:task_search", args=["ee", "tache-2"])
         page = self.client.get(url, {"q": "Searchable vocabulary"})
         self.assertEqual(page.context["phrase_results"], [phrase])
         self.assertEqual(page.context["phrase_result_count"], 1)
@@ -282,8 +283,61 @@ class WritingLearningActivityTests(TestCase):
                 self.assertEqual(
                     [item["key"] for item in activity["breakdown"]],
                     ["reviews", "subjects", "responses", "notes"]
-                    + ([] if scope else ["comprehension", "memories", "lessons"]),
+                    + ([] if scope else ["comprehension", "memories", "lessons"])
+                    + (
+                        ["formulations"]
+                        if not scope
+                        or scope.get("part") == "ee"
+                        and scope.get("task") in {None, "tache-1", "tache-3"}
+                        else []
+                    ),
                 )
+
+    def test_formulation_language_progress_is_not_reported_as_memory(self):
+        now = timezone.now()
+        for question_key in (
+            "formulation:ee1:v1:opening",
+            "formulation-language:ee1:v1:greetings:hello",
+            "formulation:ee3:v1:stance",
+            "formulation-language:ee3:v1:education:access",
+            "legacy-memory",
+        ):
+            MemoryQuestionProgress.objects.create(
+                user=self.user,
+                memory_number=1,
+                question_key=question_key,
+            )
+
+        activity = _learning_activity(
+            {},
+            self.user,
+            _stats_scope_cards({}, self.user),
+            ReviewLog.objects.filter(user=self.user),
+            now,
+        )
+        counts = {
+            row["key"]: row["count"]
+            for row in activity["breakdown"]
+        }
+        self.assertEqual(counts["memories"], 1)
+        self.assertEqual(counts["formulations"], 4)
+
+        activity = _learning_activity(
+            {"part": "ee", "task": "tache-1"},
+            self.user,
+            _stats_scope_cards(
+                {"part": "ee", "task": "tache-1"},
+                self.user,
+            ),
+            ReviewLog.objects.filter(user=self.user),
+            now,
+        )
+        counts = {
+            row["key"]: row["count"]
+            for row in activity["breakdown"]
+        }
+        self.assertEqual(counts["formulations"], 2)
+        self.assertNotIn("memories", counts)
 
     def test_batched_activity_keeps_local_days_and_exact_history_cutoff(self):
         now = datetime(2026, 3, 12, 0, 30, tzinfo=datetime_timezone.utc)

@@ -347,6 +347,60 @@ urlpatterns = [
     path("revision/a-revoir/", views.revisit_list, name="revisit_list"),
     # Expression écrite (EE) and expression orale (EO)
     path(
+        "expression/ecrite/tache-1/formulations/",
+        formulations.formulations,
+        {"tache": 1},
+        name="ee_tache_one_formulations",
+    ),
+    path(
+        "expression/ecrite/tache-1/formulations/recherche/",
+        formulations.formulation_collection,
+        {"kind": "search", "tache": 1},
+        name="ee_tache_one_formulation_search",
+    ),
+    path(
+        "expression/ecrite/tache-1/formulations/essentiels/",
+        formulations.formulation_collection,
+        {"kind": "essentials", "tache": 1},
+        name="ee_tache_one_formulation_essentials",
+    ),
+    path(
+        "expression/ecrite/tache-1/formulations/essentiels/<slug:slug>/",
+        formulations.formulation_collection,
+        {"kind": "function", "tache": 1},
+        name="ee_tache_one_formulation_function",
+    ),
+    path(
+        "expression/ecrite/tache-1/formulations/themes/<slug:slug>/",
+        formulations.formulation_collection,
+        {"kind": "theme", "tache": 1},
+        name="ee_tache_one_formulation_theme",
+    ),
+    path(
+        "expression/ecrite/tache-1/formulations/langue/<slug:slug>/",
+        formulations.formulation_language_reference,
+        {"tache": 1},
+        name="ee_tache_one_formulation_language",
+    ),
+    path(
+        "expression/ecrite/tache-1/formulations/langue/<slug:slug>/<slug:item_id>/progression/",
+        formulations.formulation_language_learned,
+        {"tache": 1},
+        name="ee_tache_one_formulation_language_progress",
+    ),
+    path(
+        "expression/ecrite/tache-1/formulations/fiches/<slug:slug>/",
+        formulations.formulation_entry,
+        {"tache": 1},
+        name="ee_tache_one_formulation_entry",
+    ),
+    path(
+        "expression/ecrite/tache-1/formulations/progression/<slug:slug>/",
+        formulations.formulation_learned,
+        {"tache": 1},
+        name="ee_tache_one_formulation_progress",
+    ),
+    path(
         "expression/ecrite/tache-3/formulations/",
         formulations.formulations,
         name="ee_formulations",

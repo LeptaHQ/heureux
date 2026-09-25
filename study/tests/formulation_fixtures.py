@@ -10,7 +10,7 @@ THEMES = (
 )
 
 
-def formulation_catalog(source_key="test-reference"):
+def formulation_catalog(source_key="test-reference", *, tache=3):
     categories = (
         FormulationCategory("affirmation", "function", "Affirmation", "Prendre position.", "book-open"),
         FormulationCategory("synthese", "function", "Synthèse", "Présenter les documents.", "book-open"),
@@ -29,10 +29,10 @@ def formulation_catalog(source_key="test-reference"):
             example_english="In my view, this measure improves health.",
             source_key=source_key,
             transfer_prompt="Adaptez cette construction au travail.",
-            essential=i < 2, themes=(theme,),
+            essential=i < 2, themes=(theme,), tache=tache,
         ) for i, theme in enumerate(THEMES)
     )
-    return FormulationCatalog(categories, entries, 1)
+    return FormulationCatalog(categories, entries, 1, tache=tache)
 
 
 def mock_catalog(catalog):

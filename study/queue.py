@@ -23,7 +23,7 @@ from .models import (
     Rating,
     ReviewLog,
 )
-from .retirement import exclude_ee3_vocabulary_in_scope
+from .retirement import exclude_retired_vocabulary_in_scope
 
 
 RESPONSE_BATCH_SIZE = 15
@@ -121,7 +121,7 @@ def scoped_cards(
     scope = scope or {}
     kind = scope.get("kind")
     content = scope.get("content")
-    qs = exclude_ee3_vocabulary_in_scope(qs, scope)
+    qs = exclude_retired_vocabulary_in_scope(qs, scope)
     if kind == "spine":
         qs = qs.filter(card_type=CardType.SPINE)
     elif kind == "phrase":

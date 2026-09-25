@@ -1,0 +1,19 @@
+<nav class="prompt-nav{% if bottom %} prompt-nav--bottom{% endif %}" aria-label="Navigation entre les formulations">
+  <div class="prompt-nav__item">
+    {% if previous_entry %}
+      <a class="prompt-nav__link" href="{{ previous_url }}" rel="prev">
+        <span class="prompt-nav__direction">{% include "study/partials/ui_icon.html" with name="arrow-left" only %} Formulation précédente</span>
+        <span class="prompt-nav__label">{{ previous_entry.label }}</span>
+      </a>
+    {% endif %}
+  </div>
+  <span class="prompt-nav__position">{{ position }} sur {{ total }}</span>
+  <div class="prompt-nav__item prompt-nav__item--next">
+    {% if next_entry %}
+      <a class="prompt-nav__link prompt-nav__link--next" href="{{ next_url }}" rel="next">
+        <span class="prompt-nav__direction">Formulation suivante {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+        <span class="prompt-nav__label">{{ next_entry.label }}</span>
+      </a>
+    {% endif %}
+  </div>
+</nav>

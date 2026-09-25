@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% block title %}{{ reference_title }} · Formulations · Heureux{% endblock %}
 {% block content %}
 {% include "study/partials/task_nav.html" %}
@@ -9,7 +10,7 @@
         {% include "study/partials/ui_icon.html" with name="arrow-left" only %}
         Formulations
       </a>
-      <span>{{ category.title }} · {{ language_progress.completed }}/{{ language_progress.total }} apprises · {{ example_count }} exemples</span>
+      <span>{{ category.title }} · <span data-formulation-language-completed>{{ language_progress.completed }}</span>/{{ language_progress.total }} apprises · {{ example_count }} exemples</span>
     </div>
     <h1>{{ reference_title }}</h1>
   </header>
@@ -29,7 +30,7 @@
               <th id="language-role-{{ section.role }}" colspan="4" scope="rowgroup">{{ section.title }} <span>{{ section.items|length }} expression{{ section.items|length|pluralize }}</span></th>
             </tr>
             {% for row in section.items %}
-              <tr id="vocabulaire-{{ row.item_id }}"{% if row.learned %} class="is-status-done"{% endif %}>
+              <tr id="vocabulaire-{{ row.item_id }}" data-formulation-language-row="{{ row.item_id }}"{% if row.learned %} class="is-status-done"{% endif %}>
                 <td><strong lang="fr">{{ row.item.french }}</strong></td>
                 <td lang="en">{{ row.item.english }}</td>
                 <td>
@@ -50,12 +51,19 @@
                   <form
                     class="subject-completion-check{% if row.learned %} is-complete{% endif %}"
                     method="post"
-                    action="{% url 'study:ee_formulation_language_progress' category.slug row.item_id %}">
+                    action="{{ row.progress_url }}"
+                    data-formulation-language-progress-form
+                    data-formulation-item-id="{{ row.item_id }}">
                     {% csrf_token %}
-                    <input type="hidden" name="completed" value="{% if row.learned %}0{% else %}1{% endif %}">
+                    <input type="hidden" name="completed" value="{% if row.learned %}0{% else %}1{% endif %}" data-formulation-completed-input>
                     <button
                       type="submit"
                       role="checkbox"
+                      data-formulation-progress-button
+                      data-formulation-complete-aria="Remettre à apprendre : {{ row.item.french }}"
+                      data-formulation-incomplete-aria="Marquer comme apprise : {{ row.item.french }}"
+                      data-formulation-complete-title="Apprise"
+                      data-formulation-incomplete-title="Marquer comme apprise"
                       aria-checked="{{ row.learned|yesno:'true,false' }}"
                       aria-label="{% if row.learned %}Remettre à apprendre : {% else %}Marquer comme apprise : {% endif %}{{ row.item.french }}"
                       title="{% if row.learned %}Apprise{% else %}Marquer comme apprise{% endif %}">
@@ -73,7 +81,10 @@
           {% endfor %}
       </table>
     </div>
-    <p class="muted">Choisissez uniquement les expressions qui correspondent réellement au sujet et adaptez les exemples à votre propre argument.</p>
   </section>
 </article>
+{% endblock %}
+{% block scripts %}
+{{ block.super }}
+<script src="{% static 'study/js/formulation-progress.js' %}?v=1"></script>
 {% endblock %}

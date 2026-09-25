@@ -1112,35 +1112,52 @@ def task_detail(request, part_slug, task_slug):
             writing_tache,
             writing_sujet_ids,
         )
-        vocabulary_context = _ee_writing_theme_vocabulary_overview_context(
-            request.user,
-            task,
-            writing_tache,
-        )
+        context = {
+            "part": task.part,
+            "task": task,
+            **subject_context,
+            "subject_summary": {
+                "progress": subject_context["subject_progress"],
+                "completed": subject_context[
+                    "subject_progress"
+                ].completed,
+                "total": subject_context["subject_progress"].total,
+                "started_new": max(
+                    subject_context["subject_progress"].started
+                    - subject_context["subject_progress"].completed,
+                    0,
+                ),
+            },
+            "ai_practice_prompt": (
+                content_module.load_ee_ai_examiner_prompt(writing_tache)
+            ),
+        }
+        if writing_tache == 1:
+            catalog = get_ee_formulations(1)
+            _, formulations_progress = formulation_progress(
+                request.user, catalog,
+            )
+            context.update({
+                "formulation_count": len(catalog.entries),
+                "formulation_category_count": len(catalog.categories),
+                "formulation_summary": {
+                    "progress": formulations_progress,
+                    "completed": formulations_progress.completed,
+                    "total": formulations_progress.total,
+                },
+            })
+        else:
+            context["theme_vocabulary"] = (
+                _ee_writing_theme_vocabulary_overview_context(
+                    request.user,
+                    task,
+                    writing_tache,
+                )
+            )
         return render(
             request,
             "study/ee_writing_overview.html",
-            {
-                "part": task.part,
-                "task": task,
-                **subject_context,
-                "subject_summary": {
-                    "progress": subject_context["subject_progress"],
-                    "completed": subject_context[
-                        "subject_progress"
-                    ].completed,
-                    "total": subject_context["subject_progress"].total,
-                    "started_new": max(
-                        subject_context["subject_progress"].started
-                        - subject_context["subject_progress"].completed,
-                        0,
-                    ),
-                },
-                "theme_vocabulary": vocabulary_context,
-                "ai_practice_prompt": (
-                    content_module.load_ee_ai_examiner_prompt(writing_tache)
-                ),
-            },
+            context,
         )
     if (
         (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK
@@ -2566,8 +2583,14 @@ def theme_vocabulary_progress(
     phrase_pk,
 ):
     task = _route_task(part_slug, task_slug, request=request)
-    if (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK:
-        return redirect(formulations_replacement(vocabulary_theme_slug))
+    if (task.part.slug, task.slug) in {
+        content_module.EE_TACHE_ONE_TASK,
+        content_module.EE_TACHE_THREE_TASK,
+    }:
+        tache = 1 if task.slug == "tache-1" else 3
+        return redirect(
+            formulations_replacement(vocabulary_theme_slug, tache=tache)
+        )
     if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
         raise Http404
     theme = get_object_or_404(
@@ -4860,8 +4883,16 @@ def phrases(
             "study/coming_soon.html",
             {"part": task.part, "task": task},
         )
-    if task and (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK:
-        return redirect(formulations_replacement(vocabulary_theme_slug or ""))
+    if task and (task.part.slug, task.slug) in {
+        content_module.EE_TACHE_ONE_TASK,
+        content_module.EE_TACHE_THREE_TASK,
+    }:
+        tache = 1 if task.slug == "tache-1" else 3
+        return redirect(
+            formulations_replacement(
+                vocabulary_theme_slug or "", tache=tache,
+            )
+        )
     if task and (
         task.part.slug,
         task.slug,
@@ -5395,7 +5426,10 @@ def search(request, part_slug=None, task_slug=None):
             Q(source_prompts__in=prompt_scope)
             | Q(vocabulary_theme__task=task, vocabulary_theme__is_active=True)
         ).distinct()
-        if (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK:
+        if (task.part.slug, task.slug) in {
+            content_module.EE_TACHE_ONE_TASK,
+            content_module.EE_TACHE_THREE_TASK,
+        }:
             phrase_scope = phrase_scope.none()
     if query:
         prompt_query = Q(text__icontains=query)
@@ -5641,7 +5675,18 @@ def _learning_activity(scope, user, scoped_cards, logs_base, now):
                 "memories",
                 "Mémoires apprises",
                 MemoryQuestionProgress.objects.filter(user=user).exclude(
-                    question_key__startswith="formulation:ee3:v1:",
+                    Q(question_key__startswith="formulation:ee1:v1:")
+                    | Q(
+                        question_key__startswith=(
+                            "formulation-language:ee1:v1:"
+                        )
+                    )
+                    | Q(question_key__startswith="formulation:ee3:v1:")
+                    | Q(
+                        question_key__startswith=(
+                            "formulation-language:ee3:v1:"
+                        )
+                    ),
                 ),
                 "completed_at",
             )
@@ -5658,13 +5703,29 @@ def _learning_activity(scope, user, scoped_cards, logs_base, now):
             )
         )
 
-    if not scope or part == "ee" and task in (None, "tache-3"):
+    formulation_prefixes = ()
+    if not scope or part == "ee" and task is None:
+        formulation_prefixes = (
+            "formulation:ee1:v1:",
+            "formulation-language:ee1:v1:",
+            "formulation:ee3:v1:",
+            "formulation-language:ee3:v1:",
+        )
+    elif part == "ee" and task in {"tache-1", "tache-3"}:
+        tache_number = task.removeprefix("tache-")
+        formulation_prefixes = (
+            f"formulation:ee{tache_number}:v1:",
+            f"formulation-language:ee{tache_number}:v1:",
+        )
+    if formulation_prefixes:
+        formulation_scope = Q()
+        for prefix in formulation_prefixes:
+            formulation_scope |= Q(question_key__startswith=prefix)
         sources.append((
             "formulations", "Formulations apprises",
             MemoryQuestionProgress.objects.filter(
                 user=user, memory_number=1,
-                question_key__startswith="formulation:ee3:v1:",
-            ),
+            ).filter(formulation_scope),
             "completed_at",
         ))
 

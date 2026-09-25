@@ -729,7 +729,11 @@ class SmokeTests(TestCase):
         )
         self.assertContains(
             hub,
-            f"3 tâches · 0 sujets · 0/{len(get_ee_formulations().entries)} contenus commencés",
+            (
+                "3 tâches · 0 sujets · 0/"
+                f"{len(get_ee_formulations(1).entries) + len(get_ee_formulations(3).entries)} "
+                "contenus commencés"
+            ),
         )
         self.assertEqual(written.status_code, 200)
         self.assertContains(written, "Tâche 1")

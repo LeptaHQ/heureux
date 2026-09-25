@@ -19,6 +19,7 @@ from django.utils import timezone
 from study import content_loader as content_module
 from study import queue as queue_module
 from study.account_services import provision_user_study_data
+from study.ee_formulations import get_ee_formulations
 from study.management.commands.import_content import Command
 from study.models import (
     Annotation,
@@ -280,10 +281,23 @@ class EePageBudgetTests(QueryBudgetTestCase):
                 "study:task_browse",
                 args=args,
             )
-            if tache == 3:
-                pages["t3-formulations"] = reverse("study:ee_formulations")
-                pages["t3-formulations-practice"] = (
-                    reverse("study:ee_formulation_essentials") + "?mode=practice"
+            if tache in {1, 3}:
+                prefix = "ee_tache_one" if tache == 1 else "ee"
+                pages[f"t{tache}-formulations"] = reverse(
+                    f"study:{prefix}_formulations"
+                )
+                pages[f"t{tache}-formulations-practice"] = (
+                    reverse(f"study:{prefix}_formulation_essentials")
+                    + "?mode=practice"
+                )
+                first_theme = next(
+                    category
+                    for category in get_ee_formulations(tache).categories
+                    if category.kind == "theme"
+                )
+                pages[f"t{tache}-formulations-theme"] = reverse(
+                    f"study:{prefix}_formulation_theme",
+                    args=[first_theme.slug],
                 )
                 continue
             pages[f"t{tache}-vocabulary"] = reverse(
@@ -304,8 +318,9 @@ class EePageBudgetTests(QueryBudgetTestCase):
         budgets = {
             "t1-overview": 9,
             "t1-subjects": 8,
-            "t1-vocabulary": 8,
-            "t1-vocabulary-theme": 8,
+            "t1-formulations": 6,
+            "t1-formulations-practice": 6,
+            "t1-formulations-theme": 6,
             "t2-overview": 9,
             "t2-subjects": 8,
             "t2-vocabulary": 8,
@@ -314,6 +329,7 @@ class EePageBudgetTests(QueryBudgetTestCase):
             "t3-subjects": 10,
             "t3-formulations": 6,
             "t3-formulations-practice": 6,
+            "t3-formulations-theme": 6,
         }
         for name, url in self._pages().items():
             with self.subTest(page=name):

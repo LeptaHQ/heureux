@@ -9035,10 +9035,14 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertAlmostEqual(desktop_tiles[0]["y"], desktop_tiles[1]["y"], delta=1)
         self.assertAlmostEqual(desktop_tiles[2]["y"], desktop_tiles[3]["y"], delta=1)
-        self.assertGreater(desktop_tiles[0]["width"], desktop_tiles[1]["width"])
-        self.assertGreater(desktop_tiles[3]["width"], desktop_tiles[2]["width"])
+        self.assertAlmostEqual(
+            desktop_tiles[0]["width"], desktop_tiles[1]["width"], delta=2
+        )
+        self.assertAlmostEqual(
+            desktop_tiles[2]["width"], desktop_tiles[3]["width"], delta=2
+        )
         self.assertTrue(
-            all(200 <= tile["height"] <= 230 for tile in desktop_tiles),
+            all(165 <= tile["height"] <= 190 for tile in desktop_tiles),
             desktop_tiles,
         )
         self.assertEqual(
@@ -9047,8 +9051,8 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertTrue(
             all(
-                min(tile["radii"]) <= 13
-                and max(tile["radii"]) >= 34
+                min(tile["radii"]) >= 20
+                and max(tile["radii"]) <= 24
                 for tile in desktop_tiles
             ),
             desktop_tiles,
@@ -9071,17 +9075,19 @@ class BrowserTests(StaticLiveServerTestCase):
             """
         )
         self.assertAlmostEqual(tablet_tiles[0]["y"], tablet_tiles[1]["y"], delta=2)
-        self.assertGreater(tablet_tiles[0]["width"], tablet_tiles[1]["width"])
+        self.assertAlmostEqual(
+            tablet_tiles[0]["width"], tablet_tiles[1]["width"], delta=2
+        )
         self.assertTrue(
-            all(180 <= tile["height"] <= 210 for tile in tablet_tiles),
+            all(150 <= tile["height"] <= 175 for tile in tablet_tiles),
             tablet_tiles,
         )
         self.assert_no_horizontal_overflow()
 
-        for width, minimum, maximum in (
-            (760, 130, 180),
-            (390, 100, 120),
-            (320, 100, 120),
+        for width, columns, minimum, maximum in (
+            (760, 2, 145, 165),
+            (390, 1, 95, 115),
+            (320, 1, 95, 115),
         ):
             with self.subTest(width=width):
                 self.page.set_viewport_size({"width": width, "height": 700})
@@ -9090,7 +9096,7 @@ class BrowserTests(StaticLiveServerTestCase):
                     self.page.locator(".home-destinations").evaluate(
                         "grid => getComputedStyle(grid).gridTemplateColumns.split(' ').length"
                     ),
-                    1,
+                    columns,
                 )
                 heights = cards.evaluate_all(
                     "cards => cards.map(card => card.getBoundingClientRect().height)"

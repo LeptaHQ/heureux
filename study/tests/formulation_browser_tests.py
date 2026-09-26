@@ -179,6 +179,71 @@ class FormulationBrowserTests(StaticLiveServerTestCase):
             "checkbox", name="Remettre à apprendre", exact=False,
         ).first).to_have_attribute("aria-checked", "true")
 
+    def test_language_vocabulary_blurs_french_and_english_independently(self):
+        page = self.context().new_page()
+        page.goto(self.live_server_url + reverse(
+            "study:ee_formulation_language", args=["education"],
+        ))
+        controls = page.locator("[data-formulation-language-recall]")
+        french_button = controls.locator('[data-recall-column="french"]')
+        english_button = controls.locator('[data-recall-column="english"]')
+        first_row = page.locator("[data-formulation-language-row]").first
+        french_cells = first_row.locator('[data-recall-cell="french"]')
+        english_cell = first_row.locator('[data-recall-cell="english"]')
+
+        expect(controls).to_be_visible()
+        expect(french_cells).not_to_have_count(0)
+        expect(english_cell).to_have_count(1)
+
+        french_button.click()
+        expect(french_button).to_have_attribute("aria-pressed", "true")
+        expect(english_button).to_have_attribute("aria-pressed", "false")
+        self.assertTrue(all(
+            value != "none"
+            for value in french_cells.locator(
+                "[data-recall-content]",
+            ).evaluate_all(
+                "elements => elements.map("
+                "element => getComputedStyle(element).filter"
+                ")"
+            )
+        ))
+        self.assertEqual(
+            english_cell.locator("[data-recall-content]").evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+
+        french_cells.first.click()
+        self.assertTrue(all(
+            value == "none"
+            for value in french_cells.locator(
+                "[data-recall-content]",
+            ).evaluate_all(
+                "elements => elements.map("
+                "element => getComputedStyle(element).filter"
+                ")"
+            )
+        ))
+
+        english_button.click()
+        expect(french_button).to_have_attribute("aria-pressed", "false")
+        expect(english_button).to_have_attribute("aria-pressed", "true")
+        self.assertNotEqual(
+            english_cell.locator("[data-recall-content]").evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+        english_cell.press("Enter")
+        self.assertEqual(
+            english_cell.locator("[data-recall-content]").evaluate(
+                "element => getComputedStyle(element).filter"
+            ),
+            "none",
+        )
+
     def test_highlight_updates_lesson_status_without_navigation(self):
         page = self.context().new_page()
         page.goto(self.live_server_url + reverse(

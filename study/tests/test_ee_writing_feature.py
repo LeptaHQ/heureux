@@ -1123,6 +1123,30 @@ class EeWritingPageTests(TestCase):
                 self.assertContains(page, "Exemples en contexte")
                 self.assertContains(
                     page,
+                    'data-formulation-language-recall',
+                    count=1,
+                )
+                self.assertContains(
+                    page,
+                    'data-recall-column="french"',
+                    count=1,
+                )
+                self.assertContains(
+                    page,
+                    'data-recall-column="english"',
+                    count=1,
+                )
+                self.assertContains(
+                    page,
+                    'data-recall-cell="french"',
+                )
+                self.assertContains(
+                    page,
+                    'data-recall-cell="english"',
+                    count=theme["reference_count"],
+                )
+                self.assertContains(
+                    page,
                     reverse(
                         "study:writing_sujet_detail",
                         args=[

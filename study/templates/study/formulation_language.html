@@ -15,10 +15,37 @@
     <h1>{{ reference_title }}</h1>
   </header>
 
-  <section class="formulation-language-catalog" aria-labelledby="formulation-language-title">
+  <section
+    class="formulation-language-catalog"
+    id="formulation-language-recall-catalog"
+    data-recall-catalog
+    aria-labelledby="formulation-language-title"
+  >
     <header class="section-heading">
       <div>
         <h2 id="formulation-language-title">{% if tache == 1 %}Mots, expressions et exemples en contexte{% else %}Expressions et exemples en contexte{% endif %}</h2>
+      </div>
+      <div
+        class="recall-controls formulation-language-recall"
+        data-formulation-language-recall
+        data-recall-controls="formulation-language-recall-catalog"
+        hidden
+      >
+        <span class="recall-controls__label">Flouter</span>
+        <div class="recall-controls__options" role="group" aria-label="Langue du vocabulaire à flouter">
+          <button
+            type="button"
+            data-recall-column="french"
+            data-recall-label="le français"
+            aria-pressed="false"
+          >Français</button>
+          <button
+            type="button"
+            data-recall-column="english"
+            data-recall-label="l’anglais"
+            aria-pressed="false"
+          >Anglais</button>
+        </div>
       </div>
     </header>
     <div class="t1-table-shell">
@@ -31,14 +58,36 @@
             </tr>
             {% for row in section.items %}
               <tr id="vocabulaire-{{ row.item_id }}" data-formulation-language-row="{{ row.item_id }}"{% if row.learned %} class="is-status-done"{% endif %}>
-                <td><strong lang="fr">{{ row.item.french }}</strong></td>
-                <td lang="en">{{ row.item.english }}</td>
-                {% if tache == 1 %}<td lang="fr">{{ row.item.usage }}</td>{% endif %}
+                <td>
+                  <strong
+                    lang="fr"
+                    data-recall-cell="french"
+                    data-recall-entry="{{ row.item_id }}"
+                  ><span data-recall-content>{{ row.item.french }}</span></strong>
+                </td>
+                <td lang="en">
+                  <span
+                    data-recall-cell="english"
+                    data-recall-entry="{{ row.item_id }}"
+                  ><span data-recall-content>{{ row.item.english }}</span></span>
+                </td>
+                {% if tache == 1 %}
+                  <td lang="fr">
+                    <span
+                      data-recall-cell="french"
+                      data-recall-entry="{{ row.item_id }}"
+                    ><span data-recall-content>{{ row.item.usage }}</span></span>
+                  </td>
+                {% endif %}
                 <td>
                   <ol class="formulation-language-examples">
                     {% for example in row.examples %}
                       <li>
-                        <p lang="fr">{{ example.text }}</p>
+                        <p
+                          lang="fr"
+                          data-recall-cell="french"
+                          data-recall-entry="{{ row.item_id }}"
+                        ><span data-recall-content>{{ example.text }}</span></p>
                         <div>
                           {% for source in example.sources %}
                             {% if source.url %}<a href="{{ source.url }}">{{ source.label }}{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</a>{% else %}<span>{{ source.label }}</span>{% endif %}

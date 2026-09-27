@@ -753,17 +753,33 @@ def formulation_language_learned(request, slug, item_id, tache=3):
         MemoryQuestionProgress.objects.get_or_create(**lookup)
     else:
         MemoryQuestionProgress.objects.filter(**lookup).delete()
-    if request.headers.get("X-Requested-With") == "fetch":
-        learned, progress = formulation_language_progress(
-            request.user,
-            category.slug,
-            language_bank,
-            tache=tache,
+    learned, progress = formulation_language_progress(
+        request.user, category.slug, language_bank, tache=tache,
+    )
+    completed_entries = ()
+    if progress.completed == progress.total:
+        category_entries = tuple(
+            entry for entry in catalog.entries
+            if entry.category == category.slug
         )
+        for entry in category_entries:
+            MemoryQuestionProgress.objects.get_or_create(
+                user=request.user,
+                memory_number=1,
+                question_key=entry.content_key,
+            )
+        completed_entries = tuple(
+            formulation_entry_progress_payload(
+                request.user, catalog, entry,
+            )
+            for entry in category_entries
+        )
+    if request.headers.get("X-Requested-With") == "fetch":
         return JsonResponse({
             "completed": lookup["question_key"] in learned,
             "item_id": item_id,
             "progress": asdict(progress),
+            "formulation_progress": completed_entries,
         })
     return redirect(
         reverse(ROUTES[tache]["language"], args=[category.slug])

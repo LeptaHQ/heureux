@@ -10105,7 +10105,10 @@ button.ce-choice:focus-visible .ce-choice__radio {
   gap: clamp(1.4rem, 3vw, 2.2rem);
 }
 .home-page > .home-hero {
-  display: block;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 190px;
+  align-items: center;
+  gap: clamp(1.5rem, 5vw, 4.25rem);
   padding: 0.5rem 0 0;
   border: 0;
   background: transparent;
@@ -10135,6 +10138,105 @@ button.ce-choice:focus-visible .ce-choice__radio {
   margin-top: 0.45rem;
   color: var(--text-soft);
   font-size: 0.95rem;
+}
+.home-study-scene {
+  position: relative;
+  width: 180px;
+  height: 128px;
+  justify-self: end;
+  border-radius: 2rem;
+  background:
+    radial-gradient(
+      circle at 75% 25%,
+      color-mix(in srgb, var(--tone-expression-soft) 86%, transparent) 0 9%,
+      transparent 10%
+    ),
+    linear-gradient(
+      145deg,
+      color-mix(in srgb, var(--tone-learning-soft) 72%, var(--surface)),
+      color-mix(in srgb, var(--tone-comprehension-soft) 48%, var(--surface))
+    );
+  overflow: hidden;
+}
+.home-study-scene::before,
+.home-study-scene::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--tone-home) 12%, transparent);
+}
+.home-study-scene::before {
+  width: 84px;
+  height: 84px;
+  right: -28px;
+  bottom: -32px;
+}
+.home-study-scene::after {
+  width: 42px;
+  height: 42px;
+  left: 10px;
+  top: -20px;
+}
+.home-study-scene__book {
+  position: absolute;
+  z-index: 1;
+  left: 9px;
+  bottom: -1px;
+  width: 164px;
+  height: auto;
+  overflow: visible;
+  animation: home-book-bob 3.8s ease-in-out infinite;
+}
+.home-study-scene__page,
+.home-study-scene__cover,
+.home-study-scene__spine,
+.home-study-scene__smile,
+.home-study-scene__arm {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.home-study-scene__page {
+  fill: color-mix(in srgb, var(--surface) 82%, white);
+  stroke: color-mix(in srgb, var(--tone-comprehension) 22%, var(--border));
+  stroke-width: 2;
+}
+.home-study-scene__cover {
+  fill: color-mix(in srgb, var(--tone-home) 84%, var(--primary));
+  stroke: color-mix(in srgb, var(--tone-home) 72%, #102b6a);
+  stroke-width: 2.5;
+}
+.home-study-scene__spine,
+.home-study-scene__smile,
+.home-study-scene__arm {
+  stroke: color-mix(in srgb, white 82%, var(--tone-home));
+  stroke-width: 2.5;
+}
+.home-study-scene__eye {
+  fill: color-mix(in srgb, white 88%, var(--tone-home));
+}
+.home-study-scene__spark {
+  position: absolute;
+  z-index: 2;
+  color: var(--tone-notes);
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  line-height: 1;
+  animation: home-sparkle 2.8s ease-in-out infinite;
+}
+.home-study-scene__spark--one { top: 20px; left: 25px; }
+.home-study-scene__spark--two {
+  top: 24px;
+  right: 24px;
+  color: var(--tone-expression);
+  animation-delay: -1.1s;
+}
+.home-study-scene__spark--three {
+  right: 34px;
+  bottom: 23px;
+  color: var(--tone-comprehension);
+  font-size: 1.55rem;
+  animation-delay: -1.9s;
 }
 .home-destinations {
   display: grid;
@@ -10179,7 +10281,11 @@ button.ce-choice:focus-visible .ce-choice__radio {
     border-color 0.2s ease,
     box-shadow 0.2s ease,
     transform 0.2s ease;
+  animation: home-card-arrive 0.48s both cubic-bezier(0.22, 0.8, 0.35, 1);
 }
+.home-destination:nth-child(2) { animation-delay: 0.06s; }
+.home-destination:nth-child(3) { animation-delay: 0.12s; }
+.home-destination:nth-child(4) { animation-delay: 0.18s; }
 .home-destination::before {
   content: "";
   position: absolute;
@@ -10225,6 +10331,9 @@ button.ce-choice:focus-visible .ce-choice__radio {
   background: var(--home-destination-accent);
   color: var(--surface);
   transform: translateX(1px);
+}
+.home-destination:hover .home-destination__icon {
+  animation: home-icon-wiggle 0.45s ease-in-out;
 }
 .home-destination:active {
   box-shadow: none;
@@ -10296,6 +10405,31 @@ button.ce-choice:focus-visible .ce-choice__radio {
 .home-destination__arrow svg {
   width: 0.95rem;
   height: 0.95rem;
+}
+@keyframes home-card-arrive {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes home-book-bob {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50% { transform: translateY(-6px) rotate(1deg); }
+}
+@keyframes home-sparkle {
+  0%, 100% { opacity: 0.45; transform: scale(0.78) rotate(0); }
+  50% { opacity: 1; transform: scale(1.1) rotate(24deg); }
+}
+@keyframes home-icon-wiggle {
+  25% { transform: rotate(-7deg); }
+  70% { transform: rotate(5deg); }
+  100% { transform: rotate(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-destination,
+  .home-study-scene__book,
+  .home-study-scene__spark,
+  .home-destination:hover .home-destination__icon {
+    animation: none;
+  }
 }
 .expression-paths {
   display: grid;
@@ -11414,6 +11548,19 @@ button.ce-choice:focus-visible .ce-choice__radio {
 }
 
 @media (max-width: 760px) {
+  .home-page > .home-hero {
+    grid-template-columns: minmax(0, 1fr) 132px;
+    gap: 1rem;
+  }
+  .home-study-scene {
+    width: 132px;
+    height: 102px;
+    border-radius: 1.5rem;
+  }
+  .home-study-scene__book {
+    left: 2px;
+    width: 128px;
+  }
   .home-destinations {
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.75rem;
@@ -12083,6 +12230,23 @@ button.ce-choice:focus-visible .ce-choice__radio {
     gap: 1rem;
     padding-top: 0;
   }
+  .home-page > .home-hero {
+    grid-template-columns: 1fr;
+    gap: 0.35rem;
+  }
+  .home-study-scene {
+    width: 98px;
+    height: 86px;
+    border-radius: 1.25rem;
+    justify-self: end;
+  }
+  .home-study-scene__book {
+    left: -4px;
+    width: 108px;
+  }
+  .home-study-scene__spark--one { top: 12px; left: 13px; }
+  .home-study-scene__spark--two { top: 13px; right: 13px; }
+  .home-study-scene__spark--three { right: 18px; bottom: 13px; }
   .home-destinations {
     grid-template-columns: 1fr;
     gap: 0.7rem;
@@ -13907,7 +14071,7 @@ html[data-collection-view-mode="table"]
   }
   .home-hero__copy h1 {
     margin: 0;
-    font-size: 1.85rem;
+    font-size: 1.75rem;
     line-height: 1.12;
   }
 }

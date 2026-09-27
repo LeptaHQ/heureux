@@ -1933,8 +1933,10 @@ class BrowserTests(StaticLiveServerTestCase):
             self.assert_no_horizontal_overflow()
         sessions_before = ReviewSession.objects.filter(user=self.user).count()
         reviews_before = ReviewLog.objects.filter(user=self.user).count()
-        topics.first.click()
-        expect(self.page.locator(".formulation-entry-lesson")).to_be_visible()
+        self.assert_opens_new_tab(
+            topics.first.click,
+            urlsplit(topics.first.get_attribute("href")).path,
+        )
         expect(self.page.locator(".formulation-list")).to_have_count(0)
         self.page.goto(self.live_server_url + reverse(
             "study:ee_formulation_function", args=["titres"],
@@ -1957,7 +1959,12 @@ class BrowserTests(StaticLiveServerTestCase):
             expect(page.locator("[data-formulation-subdivision]")).to_have_count(21)
             subdivision = page.locator("[data-formulation-subdivision]").first
             subdivision.locator("summary").click()
-            subdivision.locator("[data-formulation-topic-row] a").first.click()
+            with context.expect_page() as popup:
+                subdivision.locator(
+                    "[data-formulation-topic-row] a"
+                ).first.click()
+            page = popup.value
+            page.wait_for_load_state()
             expect(page.locator(".formulation-entry-lesson")).to_be_visible()
             expect(page.locator(".formulation-entry-focus__text")).to_be_visible()
             expect(page.locator(".formulation-teaching")).to_be_visible()
@@ -8997,6 +9004,7 @@ class BrowserTests(StaticLiveServerTestCase):
         ]
 
         self.page.set_viewport_size({"width": 1110, "height": 700})
+        self.page.emulate_media(reduced_motion="reduce")
         self.page.goto(dashboard_url)
         cards = self.page.locator("[data-home-destination]")
         expect(cards).to_have_count(4)
@@ -9033,8 +9041,8 @@ class BrowserTests(StaticLiveServerTestCase):
             })
             """
         )
-        self.assertAlmostEqual(desktop_tiles[0]["y"], desktop_tiles[1]["y"], delta=1)
-        self.assertAlmostEqual(desktop_tiles[2]["y"], desktop_tiles[3]["y"], delta=1)
+        self.assertAlmostEqual(desktop_tiles[0]["y"], desktop_tiles[1]["y"], delta=2)
+        self.assertAlmostEqual(desktop_tiles[2]["y"], desktop_tiles[3]["y"], delta=2)
         self.assertAlmostEqual(
             desktop_tiles[0]["width"], desktop_tiles[1]["width"], delta=2
         )

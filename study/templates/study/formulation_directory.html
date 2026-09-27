@@ -59,7 +59,7 @@
                     {% if item.reference_label %}
                       <tr class="t1-table__row subject-table-row formulation-subtopic-row formulation-subtopic-row--reference" data-formulation-reference-row>
                         <td class="t1-table__subject">
-                          <a class="subject-table-row-link" href="{{ item.reference_url }}">{{ item.reference_label }}</a>
+                          <a class="subject-table-row-link" href="{{ item.reference_url }}" target="_blank" rel="noopener noreferrer">{{ item.reference_label }}</a>
                           <span class="t1-table__subject-date">{% if tache == 1 %}{{ item.reference_count }} entrées de vocabulaire{% else %}{{ item.reference_count }} expression{{ item.reference_count|pluralize }} à réutiliser{% endif %}</span>
                         </td>
                         <td class="t1-table__versions">Référence</td>
@@ -73,7 +73,7 @@
                     {% for topic in item.topics %}
                       <tr id="formulation-{{ topic.slug }}" class="t1-table__row subject-table-row formulation-subtopic-row is-status-{{ topic.status }}" data-formulation-topic-row data-formulation-row="{{ topic.slug }}">
                         <td class="t1-table__subject">
-                          <a class="subject-table-row-link" href="{{ topic.url }}">{{ topic.label }}</a>
+                          <a class="subject-table-row-link" href="{{ topic.url }}" target="_blank" rel="noopener noreferrer">{{ topic.label }}</a>
                           <span class="t1-table__subject-date">{{ topic.french }}</span>
                         </td>
                         <td class="t1-table__versions">{% if topic.essential %}Essentiel{% else %}Leçon{% endif %}</td>

@@ -61,6 +61,10 @@ class FormulationExperienceTests(TestCase):
             "formulation-subdivision-disclosure",
         )
         self.assertContains(response, "data-formulation-topic-row")
+        self.assertContains(
+            response,
+            'target="_blank" rel="noopener noreferrer"',
+        )
         self.assertNotContains(response, "Ouvrir toute la subdivision")
         self.assertNotContains(response, "Ouvrir les 16 essentiels")
         self.assertNotContains(response, 'class="formulation-list"')
@@ -238,6 +242,49 @@ class FormulationExperienceTests(TestCase):
                 {"completed": "1"},
             ).status_code,
             404,
+        )
+
+    def test_completing_language_bank_marks_category_formulations_learned(self):
+        page_url = reverse(
+            "study:ee_formulation_language", args=["education"],
+        )
+        response = self.client.get(page_url)
+        rows = tuple(
+            row
+            for section in response.context["language_sections"]
+            for row in section["items"]
+        )
+        self.assertGreater(len(rows), 1)
+
+        for row in rows:
+            result = self.client.post(
+                row["progress_url"],
+                {"completed": "1"},
+                HTTP_X_REQUESTED_WITH="fetch",
+            )
+            self.assertEqual(result.status_code, 200)
+
+        payload = result.json()
+        category_entries = tuple(
+            entry for entry in self.catalog.entries
+            if entry.category == "education"
+        )
+        self.assertEqual(
+            {item["slug"] for item in payload["formulation_progress"]},
+            {entry.slug for entry in category_entries},
+        )
+        self.assertTrue(all(
+            item["completed"] for item in payload["formulation_progress"]
+        ))
+        self.assertEqual(
+            MemoryQuestionProgress.objects.filter(
+                user=self.user,
+                memory_number=1,
+                question_key__in=[
+                    entry.content_key for entry in category_entries
+                ],
+            ).count(),
+            len(category_entries),
         )
 
     def test_all_themes_and_accent_insensitive_search(self):

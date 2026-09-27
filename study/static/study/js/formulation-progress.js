@@ -184,6 +184,7 @@
       .then(function (data) {
         if (form.hasAttribute("data-formulation-language-progress-form")) {
           updateLanguage(data);
+          (data.formulation_progress || []).forEach(updateFormulation);
         } else {
           updateFormulation(data);
         }

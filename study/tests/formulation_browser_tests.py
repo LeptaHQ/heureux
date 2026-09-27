@@ -76,7 +76,10 @@ class FormulationBrowserTests(StaticLiveServerTestCase):
         expect(
             subdivision.locator("[data-formulation-topic-row] a"),
         ).to_have_count(2)
-        subdivision.locator("[data-formulation-topic-row] a").first.click()
+        with context.expect_page() as popup:
+            subdivision.locator("[data-formulation-topic-row] a").first.click()
+        page = popup.value
+        page.wait_for_load_state()
         expect(page.locator(".formulation-entry-lesson")).to_be_visible()
         expect(page.locator(".formulation-list")).to_have_count(0)
         expect(page.locator(".formulation-topic-sidebar")).to_have_count(0)

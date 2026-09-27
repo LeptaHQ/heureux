@@ -6,29 +6,30 @@
   <header class="home-hero">
     <div class="home-hero__copy">
       <p class="eyebrow">Bonjour @{{ request.user.username }}</p>
-      <h1>Que veux-tu travailler aujourd’hui&nbsp;?</h1>
+      <h1>Que veux&#8209;tu travailler aujourd’hui&nbsp;?</h1>
       <p>Choisis un espace pour continuer.</p>
     </div>
     <div class="home-study-scene" aria-hidden="true" data-home-study-scene>
-      <span class="home-study-scene__spark home-study-scene__spark--one">✦</span>
-      <span class="home-study-scene__spark home-study-scene__spark--two">✦</span>
-      <span class="home-study-scene__spark home-study-scene__spark--three">•</span>
-      <svg class="home-study-scene__book" viewBox="0 0 180 136">
-        <path class="home-study-scene__page" d="M30 39c23-11 43-8 60 8v63c-18-15-38-18-60-8z"/>
-        <path class="home-study-scene__page" d="M150 39c-23-11-43-8-60 8v63c18-15 38-18 60-8z"/>
-        <path class="home-study-scene__cover" d="M28 35c24-12 45-8 62 9v68c-17-15-38-19-62-8z"/>
-        <path class="home-study-scene__cover" d="M152 35c-24-12-45-8-62 9v68c17-15 38-19 62-8z"/>
-        <path class="home-study-scene__spine" d="M90 44v68"/>
-        <circle class="home-study-scene__eye" cx="72" cy="66" r="3"/>
-        <circle class="home-study-scene__eye" cx="108" cy="66" r="3"/>
-        <path class="home-study-scene__smile" d="M82 78c5 5 11 5 16 0"/>
-        <path class="home-study-scene__arm" d="M35 89 17 99"/>
-        <path class="home-study-scene__arm" d="m145 89 18-12"/>
+      <svg viewBox="0 0 280 200">
+        <circle class="home-study-scene__sun" cx="225" cy="34" r="18"/>
+        <path class="home-study-scene__ray" d="m225 6 0 10m0 36 0 10m-28-28 10 0m36 0 10 0m-38-20 7 7m-7 27 7-7m20-20 7-7m-7 27 7 7"/>
+        <path class="home-study-scene__leaf home-study-scene__leaf--one" d="M22 47c22-7 35 3 39 19-18 5-33-1-39-19Z"/>
+        <path class="home-study-scene__leaf home-study-scene__leaf--two" d="M44 26c15 10 16 25 8 37-13-10-17-22-8-37Z"/>
+        <path class="home-study-scene__ground" d="M25 157h217"/>
+        <path class="home-study-scene__elephant" d="M73 134c0-26 22-47 50-47 25 0 45 17 49 40l18 5-5 12-19-7v23h-11v-27h-20v27h-11v-29h-18v29H95v-26c-12-2-22-12-22-25Z"/>
+        <path class="home-study-scene__ear" d="M119 105c-13 5-18 18-11 29 11-3 18-13 17-25Z"/>
+        <circle class="home-study-scene__elephant-eye" cx="145" cy="111" r="2.5"/>
+        <path class="home-study-scene__tusk" d="m170 130 13 8"/>
+        <path class="home-study-scene__trunk" d="M170 128c8 7 7 19-1 25-5 4-12 2-12-3"/>
+        <path class="home-study-scene__bird" d="M52 93c8-11 17-11 24 0 7-11 16-11 24 0-12 4-34 4-48 0Z"/>
+        <path class="home-study-scene__grass" d="m44 157 4-12 3 12m12 0 3-9 4 9m137 0 4-11 3 11m10 0 3-7 3 7"/>
       </svg>
     </div>
   </header>
 
   <nav class="home-destinations" aria-label="Espaces d’étude">
+    <span class="home-destinations__butterfly home-destinations__butterfly--one" aria-hidden="true">✦</span>
+    <span class="home-destinations__butterfly home-destinations__butterfly--two" aria-hidden="true">✦</span>
     <a class="home-destination home-destination--learning" data-home-destination="learn" href="{% url 'study:learn' %}">
       <span class="home-destination__icon" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="graduation-cap" only %}</span>
       <span class="home-destination__copy">
@@ -62,5 +63,16 @@
       <span class="home-destination__arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
     </a>
   </nav>
+  <div class="home-landscape" aria-hidden="true" data-home-landscape>
+    <svg viewBox="0 0 980 100" preserveAspectRatio="none">
+      <path class="home-landscape__hill home-landscape__hill--far" d="M0 70c117-31 194-28 296-2 113 29 228 29 338-9 114-39 233-35 346 9v32H0Z"/>
+      <path class="home-landscape__hill home-landscape__hill--near" d="M0 80c133-15 220-3 332 10 142 17 257 10 383-18 83-18 167-19 265 8v20H0Z"/>
+      <path class="home-landscape__trunk" d="M760 78c-5-19-1-38 11-53m-1 27c-14-12-25-14-37-12m35-1c9-14 21-20 35-20m-31 42c13-11 27-13 41-8"/>
+      <path class="home-landscape__canopy" d="M718 34c8-23 35-31 55-16 19-16 45-5 49 18 15 5 21 23 12 35H704c-8-17-1-32 14-37Z"/>
+      <path class="home-landscape__elephant" d="M360 79c0-12 10-22 23-22 12 0 21 7 23 18l9 3-3 6-9-3v12h-5V81h-9v12h-5V80h-8v13h-5V82c-7-1-11-6-11-13Z"/>
+      <path class="home-landscape__bird home-landscape__bird--one" d="M198 31c4-6 8-6 12 0 4-6 8-6 12 0-6 3-18 3-24 0Z"/>
+      <path class="home-landscape__bird home-landscape__bird--two" d="M228 21c3-5 7-5 10 0 3-5 7-5 10 0-5 2-15 2-20 0Z"/>
+    </svg>
+  </div>
 </div>
 {% endblock %}

@@ -9050,17 +9050,17 @@ class BrowserTests(StaticLiveServerTestCase):
             desktop_tiles[2]["width"], desktop_tiles[3]["width"], delta=2
         )
         self.assertTrue(
-            all(165 <= tile["height"] <= 190 for tile in desktop_tiles),
+            all(130 <= tile["height"] <= 150 for tile in desktop_tiles),
             desktop_tiles,
         )
         self.assertEqual(
-            len({tile["background"] for tile in desktop_tiles}),
-            4,
+            {tile["background"] for tile in desktop_tiles},
+            {"none"},
         )
         self.assertTrue(
             all(
-                min(tile["radii"]) >= 20
-                and max(tile["radii"]) <= 24
+                min(tile["radii"]) == 0
+                and max(tile["radii"]) == 0
                 for tile in desktop_tiles
             ),
             desktop_tiles,
@@ -9094,8 +9094,8 @@ class BrowserTests(StaticLiveServerTestCase):
 
         for width, columns, minimum, maximum in (
             (760, 2, 145, 165),
-            (390, 1, 95, 115),
-            (320, 1, 95, 115),
+            (390, 1, 90, 105),
+            (320, 1, 90, 105),
         ):
             with self.subTest(width=width):
                 self.page.set_viewport_size({"width": width, "height": 700})

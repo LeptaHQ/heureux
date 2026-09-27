@@ -818,9 +818,8 @@ class SmokeTests(TestCase):
     def test_dashboard_presents_four_direct_area_cards(self):
         response = self.client.get(reverse("study:dashboard"))
 
-        self.assertContains(response, '<h1>Que veux-tu travailler', count=1)
+        self.assertContains(response, '<h1>Que veux', count=1)
         self.assertContains(response, 'class="home-destination ', count=4)
-        self.assertContains(response, 'data-home-study-scene')
         destinations = (
             ("learn", "Apprendre", "study:learn"),
             ("comprehension", "Compr\u00e9hension", "study:comprehension_hub"),

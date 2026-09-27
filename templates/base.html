@@ -7,7 +7,7 @@
   <title>{% block title %}Heureux{% endblock %}</title>
   <meta name="description" content="Révisions pour l'expression et la compréhension du français.">
   <script src="{% static 'study/js/theme-init.js' %}?v=4"></script>
-  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=237">
+  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=241">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#173f90">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -172,10 +172,51 @@
       </nav>
     </div>
   </header>
-
+  {% if active_nav_area == "expression" %}
+    <div class="area-atmosphere area-atmosphere--expression" aria-hidden="true">
+      <svg class="area-atmosphere__birds" viewBox="0 0 180 72">
+        <path d="M10 37c8-12 16-12 24 0 8-12 16-12 24 0"></path>
+        <path d="M70 22c6-9 12-9 18 0 6-9 12-9 18 0"></path>
+        <path d="M120 46c5-8 10-8 15 0 5-8 10-8 15 0"></path>
+      </svg>
+      <svg class="area-atmosphere__butterfly" viewBox="0 0 40 40">
+        <path d="M20 21c-5-12-15-13-14-2 1 8 9 7 14 3ZM20 21c5-12 15-13 14-2-1 8-9 7-14 3Z"></path>
+        <path d="M20 20v10"></path>
+      </svg>
+    </div>
+  {% elif active_nav_area == "comprehension" %}
+    <div class="area-atmosphere area-atmosphere--comprehension" aria-hidden="true">
+      <svg class="area-atmosphere__birds" viewBox="0 0 180 72">
+        <path d="M9 25c8-12 16-12 24 0 8-12 16-12 24 0"></path>
+        <path d="M71 43c6-9 12-9 18 0 6-9 12-9 18 0"></path>
+        <path d="M124 18c5-8 10-8 15 0 5-8 10-8 15 0"></path>
+      </svg>
+      <svg class="area-atmosphere__butterfly" viewBox="0 0 40 40">
+        <path d="M20 21c-5-12-15-13-14-2 1 8 9 7 14 3ZM20 21c5-12 15-13 14-2-1 8-9 7-14 3Z"></path>
+        <path d="M20 20v10"></path>
+      </svg>
+    </div>
+  {% endif %}
   <main id="main" class="container">
     {% block content %}{% endblock %}
   </main>
+  <footer class="site-footer">
+    <span class="site-footer__rule" aria-hidden="true"></span>
+    <p>
+      <span>Built with</span>
+      <span class="site-footer__love" role="img" aria-label="love">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M16 27.2 4.7 16.5A7.3 7.3 0 0 1 15.1 6.2L16 7.1l.9-.9a7.3 7.3 0 0 1 10.4 10.3Z"></path>
+          <path class="site-footer__heart-shine" d="M8.7 13.5c1-2.5 3.5-3.7 5.8-2.8"></path>
+        </svg>
+      </span>
+      <span>by</span>
+      <strong>Lepta Apps</strong>
+      <span class="site-footer__separator" aria-hidden="true">·</span>
+      <span>&copy; 2026</span>
+    </p>
+    <span class="site-footer__rule" aria-hidden="true"></span>
+  </footer>
 
   <span class="pen-pointer-dot" aria-hidden="true" data-pen-cursor></span>
 

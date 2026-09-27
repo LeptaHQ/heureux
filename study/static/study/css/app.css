@@ -557,7 +557,7 @@
   --card-bg-soft: #fbfcff;
   --card-border: color-mix(in srgb, var(--border) 84%, var(--primary) 16%);
   --card-border-hover: color-mix(in srgb, var(--border-strong) 62%, var(--primary) 38%);
-  --card-radius: 12px;
+  --card-radius: 0px;
   --card-shadow: none;
   --card-shadow-hover: none;
   --card-focus-ring: 0 0 0 4px var(--primary-soft);
@@ -1204,7 +1204,8 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   pointer-events: none;
 }
 .area-atmosphere__birds,
-.area-atmosphere__butterfly {
+.area-atmosphere__butterfly,
+.area-atmosphere__elephant {
   position: absolute;
   color: var(--primary);
   fill: none;
@@ -1228,10 +1229,32 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   opacity: 0.42;
   animation: area-butterfly-float 5.5s ease-in-out infinite;
 }
+.area-atmosphere__elephant {
+  right: max(1.25rem, calc((100vw - var(--maxw)) / 2 - 1rem));
+  bottom: 1.2rem;
+  width: clamp(4.5rem, 8vw, 6.6rem);
+  fill: color-mix(in srgb, var(--primary) 30%, transparent);
+  stroke: color-mix(in srgb, var(--primary) 65%, var(--text));
+  stroke-width: 2.5;
+  opacity: 0.2;
+  animation: area-elephant-stroll 11s ease-in-out infinite alternate;
+}
 .area-atmosphere--expression .area-atmosphere__birds { color: var(--tone-expression); }
 .area-atmosphere--expression .area-atmosphere__butterfly { color: #c88735; }
+.area-atmosphere--expression .area-atmosphere__elephant {
+  fill: color-mix(in srgb, var(--tone-expression) 24%, transparent);
+  stroke: var(--tone-expression);
+}
 .area-atmosphere--comprehension .area-atmosphere__birds { color: var(--tone-comprehension); }
 .area-atmosphere--comprehension .area-atmosphere__butterfly { color: var(--tone-learn); }
+.area-atmosphere--comprehension .area-atmosphere__elephant {
+  fill: color-mix(in srgb, var(--tone-comprehension) 25%, transparent);
+  stroke: var(--tone-comprehension);
+}
+.area-atmosphere--learn .area-atmosphere__birds,
+.area-atmosphere--learn .area-atmosphere__elephant { color: var(--tone-learning); stroke: var(--tone-learning); }
+.area-atmosphere--notes .area-atmosphere__birds,
+.area-atmosphere--notes .area-atmosphere__elephant { color: var(--tone-notes); stroke: var(--tone-notes); }
 .area-atmosphere + .container,
 .area-atmosphere ~ .site-footer {
   position: relative;
@@ -1244,6 +1267,10 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
 @keyframes area-butterfly-float {
   0%, 100% { transform: translate3d(0, 0, 0) rotate(-8deg); }
   50% { transform: translate3d(0.85rem, -0.75rem, 0) rotate(10deg); }
+}
+@keyframes area-elephant-stroll {
+  from { transform: translate3d(0, 0, 0) rotate(-1deg); }
+  to { transform: translate3d(-1.4rem, 0.25rem, 0) rotate(1deg); }
 }
 }
 .stack > * + * { margin-top: 1.2rem; }
@@ -10230,7 +10257,7 @@ button.ce-choice:focus-visible .ce-choice__radio {
 
 .home-page {
   display: flex;
-  min-height: calc(100dvh - 10rem);
+  min-height: 0;
   flex-direction: column;
   width: min(100%, 980px);
   margin-inline: auto;
@@ -10238,8 +10265,7 @@ button.ce-choice:focus-visible .ce-choice__radio {
   gap: clamp(1.6rem, 3.5vw, 2.8rem);
 }
 .home-page > .home-hero {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(200px, 260px);
+  display: block;
   align-items: center;
   gap: clamp(1.5rem, 5vw, 4rem);
   padding: 0.5rem 0 0.1rem;
@@ -10273,9 +10299,17 @@ button.ce-choice:focus-visible .ce-choice__radio {
   font-size: 0.95rem;
 }
 .home-study-scene {
-  position: relative;
-  justify-self: end;
-  width: min(100%, 260px);
+  position: fixed;
+  top: 6.4rem;
+  right: max(1.6rem, calc((100vw - var(--maxw)) / 2 - 0.4rem));
+  z-index: 0;
+  width: min(22vw, 260px);
+  opacity: 0.58;
+  pointer-events: none;
+}
+.home-hero__copy,
+.home-destinations {
+  z-index: 1;
 }
 .home-study-scene svg {
   display: block;
@@ -10327,11 +10361,15 @@ button.ce-choice:focus-visible .ce-choice__radio {
   animation: home-bird-flutter 2.7s ease-in-out infinite;
 }
 .home-landscape {
-  min-height: 130px;
-  height: clamp(130px, 18vh, 220px);
-  margin-top: auto;
+  position: fixed;
+  right: 0;
+  bottom: 2.6rem;
+  left: 0;
+  z-index: 0;
+  height: clamp(100px, 14vh, 170px);
   overflow: hidden;
-  opacity: 0.82;
+  opacity: 0.46;
+  pointer-events: none;
 }
 .home-landscape svg {
   display: block;
@@ -12326,12 +12364,17 @@ button.ce-choice:focus-visible .ce-choice__radio {
     gap: 0.35rem;
   }
   .home-study-scene {
+    top: 10.25rem;
+    right: -1rem;
     width: 178px;
     margin-top: -0.45rem;
+    opacity: 0.22;
   }
   .home-landscape {
     min-height: 112px;
     height: clamp(112px, 18vh, 160px);
+    bottom: 1.9rem;
+    opacity: 0.28;
   }
   .home-destinations {
     grid-template-columns: 1fr;
@@ -13022,6 +13065,24 @@ html[data-collection-view-mode="table"]
 }
 .batch-card {
   background: var(--surface);
+}
+
+/* Square edges keep study content visually structured without flattening controls or icons. */
+:is(
+  .card,
+  .tile,
+  .deck,
+  .batch-card,
+  .qrow,
+  .collection-table,
+  .table-wrap,
+  .table-scroll,
+  .t1-table,
+  .formulation-directory-table,
+  [data-collection-view],
+  [data-collection-view-panel]
+) {
+  border-radius: 0 !important;
 }
 .batch-card--unavailable {
   background: var(--surface-2);
@@ -16486,6 +16547,20 @@ html[data-collection-view-mode="table"]
   font-size: 0.82rem;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+/* All study cards and table surfaces use the same square visual language. */
+:is(
+  [class*="card"],
+  [class*="table"],
+  [class*="deck"],
+  .tile,
+  .t1-theme,
+  .learn-module,
+  .learn-lesson-nav__link,
+  table
+) {
+  border-radius: 0 !important;
 }
 .learn-lesson-nav__link .ui-icon {
   color: var(--learn-accent);

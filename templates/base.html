@@ -7,7 +7,7 @@
   <title>{% block title %}Heureux{% endblock %}</title>
   <meta name="description" content="Révisions pour l'expression et la compréhension du français.">
   <script src="{% static 'study/js/theme-init.js' %}?v=4"></script>
-  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=241">
+  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=242">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#173f90">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -172,8 +172,8 @@
       </nav>
     </div>
   </header>
-  {% if active_nav_area == "expression" %}
-    <div class="area-atmosphere area-atmosphere--expression" aria-hidden="true">
+  {% if request.user.is_authenticated %}
+    <div class="area-atmosphere area-atmosphere--{{ active_nav_area|default:'general' }}" aria-hidden="true">
       <svg class="area-atmosphere__birds" viewBox="0 0 180 72">
         <path d="M10 37c8-12 16-12 24 0 8-12 16-12 24 0"></path>
         <path d="M70 22c6-9 12-9 18 0 6-9 12-9 18 0"></path>
@@ -183,17 +183,10 @@
         <path d="M20 21c-5-12-15-13-14-2 1 8 9 7 14 3ZM20 21c5-12 15-13 14-2-1 8-9 7-14 3Z"></path>
         <path d="M20 20v10"></path>
       </svg>
-    </div>
-  {% elif active_nav_area == "comprehension" %}
-    <div class="area-atmosphere area-atmosphere--comprehension" aria-hidden="true">
-      <svg class="area-atmosphere__birds" viewBox="0 0 180 72">
-        <path d="M9 25c8-12 16-12 24 0 8-12 16-12 24 0"></path>
-        <path d="M71 43c6-9 12-9 18 0 6-9 12-9 18 0"></path>
-        <path d="M124 18c5-8 10-8 15 0 5-8 10-8 15 0"></path>
-      </svg>
-      <svg class="area-atmosphere__butterfly" viewBox="0 0 40 40">
-        <path d="M20 21c-5-12-15-13-14-2 1 8 9 7 14 3ZM20 21c5-12 15-13 14-2-1 8-9 7-14 3Z"></path>
-        <path d="M20 20v10"></path>
+      <svg class="area-atmosphere__elephant" viewBox="0 0 120 85">
+        <path d="M14 63c0-25 20-44 46-44 23 0 41 15 45 36l15 4-4 10-16-5v16H89V61H72v19H61V59H45v21H34V62H23c-5 0-9 1-9 1Z"></path>
+        <path d="M61 35c-14 4-22 18-16 31 13-2 22-12 21-27Z"></path>
+        <path d="m98 59 11 7m-12-8c8 8 7 19-2 25"></path>
       </svg>
     </div>
   {% endif %}

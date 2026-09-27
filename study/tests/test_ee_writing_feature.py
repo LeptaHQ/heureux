@@ -412,6 +412,7 @@ class EeTacheThreeUnifiedResponseTests(SimpleTestCase):
             == "ee-tache3:decembre:combinaison-10"
         )
         self.assertTrue(invalid.document1_invalid)
+        self.assertEqual(invalid.document1, "")
 
 
 

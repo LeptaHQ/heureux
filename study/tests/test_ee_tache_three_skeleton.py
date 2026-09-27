@@ -198,7 +198,7 @@ class EeTacheThreeSkeletonTests(SimpleTestCase):
             source["ee-tache3:novembre:combinaison-10"].point_de_vue,
         )
         self.assertIn(
-            "Le seul document exploitable constate",
+            "Le texte exploitable constate",
             source["ee-tache3:decembre:combinaison-10"].synthese,
         )
 

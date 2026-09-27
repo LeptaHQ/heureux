@@ -2144,7 +2144,20 @@ class EeTacheThreePageTests(TestCase):
         )
         response = self.client.get(prompt_detail_url(prompt))
 
-        self.assertContains(response, "premier document publié est hors sujet")
+        self.assertContains(
+            response,
+            "premier document est invalide dans la source et a été retiré",
+        )
+        self.assertNotContains(
+            response,
+            "Vous avez étudié dans une université à l'étranger pendant six mois",
+        )
+        self.assertNotIn("Document 1", response.context["source_documents_html"])
+        self.assertIn("Document 2", response.context["source_documents_html"])
+        self.assertIn(
+            "(document retiré : contenu invalide dans la source publiée)",
+            response.context["ee_subject_copy_text"],
+        )
 
     def test_practice_and_memory_pages_use_ee_task_language(self):
         overview = self.client.get(

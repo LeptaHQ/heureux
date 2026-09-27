@@ -822,20 +822,20 @@
       "slug": "synthese-texte-hors-sujet",
       "category": "synthese",
       "label": "Écarter un texte inutilisable",
-      "french": "Un seul document traite réellement de [thème], car l'autre texte est sans rapport avec le sujet.",
-      "english": "Only one document actually deals with [topic], because the other text is unrelated to the subject.",
-      "usage": "Dans un dossier défectueux, expliquez pourquoi un texte ne permet pas de construire la synthèse prévue.",
-      "grammar": "Après « traiter de », adaptez l'article : de la gratuité, du logement, des musées. Ne prêtez aucune opinion au texte hors sujet.",
-      "example": "Un seul document traite réellement de l’uniforme scolaire, car le premier texte est une consigne d’écriture sans rapport avec le sujet.",
-      "example_english": "Only one document actually deals with school uniforms, because the first text is a writing instruction unrelated to the subject.",
+      "french": "Un seul document traite réellement de [thème], car l'autre document invalide a été retiré de la source.",
+      "english": "Only one document actually deals with [topic], because the other invalid document was removed from the source.",
+      "usage": "Dans un dossier défectueux, signalez qu'un document invalide a été retiré et ne permet pas de construire la synthèse prévue.",
+      "grammar": "Après « traiter de », adaptez l'article : de la gratuité, du logement, des musées. Ne prêtez aucune opinion au document retiré.",
+      "example": "Un seul document traite réellement de l’uniforme scolaire, car le premier document invalide a été retiré de la source.",
+      "example_english": "Only one document actually deals with school uniforms, because the first invalid document was removed from the source.",
       "source_key": "ee-tache3:decembre:combinaison-10",
       "transfer_prompt": "Un dossier sur le vélo contient par erreur une invitation à un anniversaire. Indiquez la limite de la source.",
       "essential": false,
       "themes": [],
       "examples": [
         {
-          "french": "Un seul document traite réellement de l’uniforme scolaire, car le premier texte est une consigne d’écriture sans rapport avec le sujet.",
-          "english": "Only one document actually deals with school uniforms, because the first text is a writing instruction unrelated to the subject.",
+          "french": "Un seul document traite réellement de l’uniforme scolaire, car le premier document invalide a été retiré de la source.",
+          "english": "Only one document actually deals with school uniforms, because the first invalid document was removed from the source.",
           "source_key": "ee-tache3:decembre:combinaison-10",
           "source_field": "position"
         }

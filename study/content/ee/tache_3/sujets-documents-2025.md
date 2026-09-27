@@ -1881,12 +1881,10 @@ Les enfants grandissent très vite et les vêtements sont portés pendant une co
 
 **Sujet :** L'uniforme scolaire
 
-> **Anomalie de la source :** le premier document publié est une consigne de
-> Tâche 1 sans rapport avec l'uniforme. Il est conservé verbatim ci-dessous.
+> **Anomalie de la source :** le premier document publié reprend une consigne
+> de Tâche 2 sans rapport avec l'uniforme. Ce contenu invalide a été retiré.
 
 **Document 1**
-
-Vous avez étudié dans une université à l'étranger pendant six mois. Vous écrivez un message à vos amis pour raconter votre expérience et vous expliquez ce que vous avez aimé
 
 **Document 2**
 

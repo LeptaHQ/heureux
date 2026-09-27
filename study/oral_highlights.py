@@ -155,8 +155,8 @@ def _ee_tache_three_root_context(prompt, content):
     warnings = []
     if source.document1_invalid:
         warnings.append(
-            "Le premier document publié est hors sujet ; la réponse "
-            "s’appuie uniquement sur le document valide."
+            "Le premier document est invalide dans la source et a été "
+            "retiré ; la réponse s’appuie uniquement sur le document valide."
         )
     if source.document2_missing:
         warnings.append(

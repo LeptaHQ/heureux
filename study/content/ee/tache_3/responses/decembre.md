@@ -170,15 +170,15 @@ Pour ma part, bien que certaines marques plaisent aux enfants, elles ne devraien
 
 ### L’uniforme au Québec : confort et expression personnelle
 
-**Partie 1 — Synthèse (53 mots)**
+**Partie 1 — Synthèse (50 mots)**
 
-Un seul document traite réellement de l’uniforme scolaire, car le premier texte est une consigne d’écriture sans rapport avec le sujet. Le seul document exploitable constate que certaines écoles publiques québécoises imposent l’uniforme, mais que des adolescents le jugent inconfortable, trop chaud et peu esthétique, et regrettent qu’il limite l’expression de leur personnalité.
+Un seul document traite réellement de l’uniforme scolaire, car le premier document invalide a été retiré de la source. Le texte exploitable constate que certaines écoles publiques québécoises imposent l’uniforme, mais que des adolescents le jugent inconfortable, trop chaud et peu esthétique, et regrettent qu’il limite l’expression de leur personnalité.
 
 **Partie 2 — Point de vue personnel (111 mots)**
 
 Pour ma part, je suis favorable à un uniforme souple à condition qu’il soit abordable et adapté aux saisons. Tout d’abord, une tenue commune peut réduire la comparaison des marques et faciliter la préparation du matin. Les élèves s’habillent sans hésiter et les écarts de moyens se voient moins dans la cour. De plus, plusieurs coupes et couleurs permettent de conserver une certaine liberté sans perdre la cohérence collective. Par exemple, une école québécoise pourrait proposer des pantalons, des jupes et des polos respirants parmi lesquels chaque élève compose sa tenue. En conclusion, je soutiens un uniforme seulement si les élèves participent au choix de tenues confortables, inclusives et financièrement accessibles.
 
-**Total : 171 mots (titre compris)**
+**Total : 168 mots (titre compris)**
 
 ---
 

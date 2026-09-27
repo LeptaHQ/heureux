@@ -3909,8 +3909,8 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         )
         if source.document1_invalid:
             ee_source_warnings.append(
-                "Le premier document publié est hors sujet ; la réponse "
-                "s’appuie uniquement sur le document valide."
+                "Le premier document est invalide dans la source et a été "
+                "retiré ; la réponse s’appuie uniquement sur le document valide."
             )
         if source.document2_missing:
             ee_source_warnings.append(
@@ -3923,6 +3923,11 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         ee_subject_instruction = content_module.ee_tache_three_instruction(
             selected_prompt.text
         )
+        copied_document1 = (
+            source.document1
+            if source.document1
+            else "(document retiré : contenu invalide dans la source publiée)"
+        )
         copied_document2 = (
             source.document2
             if source.document2
@@ -3932,7 +3937,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         ee_subject_copy_text = content_module.ee_exam_subject_packet(
             3,
             selected_prompt.text,
-            document1=source.document1,
+            document1=copied_document1,
             document2=copied_document2,
             source_note=source_note,
         )

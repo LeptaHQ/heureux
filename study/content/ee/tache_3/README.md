@@ -175,10 +175,9 @@ entre les textes ressort de leur contenu.
 - **Deuxième document absent** : Juin — Combinaisons 2, 3.
 - **Documents identiques** (doublon source) : Mai — Combinaison 3.
 - **Premier document hors sujet** (`document1_invalid`) : Décembre — Combinaison 10. La
-  source a publié à la place du premier document une consigne d'écriture de Tâche 1
-  (« Vous avez étudié dans une université à l'étranger… »). Le texte source est conservé
-  **verbatim** ; seule la réponse modèle a été réécrite pour ne s'appuyer que sur le
-  document réellement valide.
+  source a dupliqué à la place du premier document la consigne d'écriture de Tâche 2
+  de la même combinaison. Ce texte hors sujet est omis ; la réponse modèle s'appuie
+  uniquement sur le document réellement valide.
 - **Coquilles de la source conservées verbatim** (aucune correction du texte source) :
   Mai — Combinaison 6 (« je mange mos gras » pour « moins gras ») ; Décembre —
   Combinaison 16 (« la déforestation, qui augmente le végétaux qui retiennent le

@@ -10,8 +10,7 @@
         class="t1-theme t1-table-group comprehension-batch-group"
         style="--accent: {{ accent }};"
         data-t1-table-theme
-        data-comprehension-batch-group="{{ group.number }}"
-        open>
+        data-comprehension-batch-group="{{ group.number }}">
         {% include "study/partials/theme_group_summary.html" with title=group.label icon=batch_icon count_text=group.summary_count_text status=group.progress.status completed=group.progress.completed total=group.progress.total progress_text=group.summary_progress_text only %}
         <div
           class="qlist ce-group-test-list collection-table collection-table--tests comprehension-batch-tests"

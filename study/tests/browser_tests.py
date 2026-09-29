@@ -8479,6 +8479,9 @@ class BrowserTests(StaticLiveServerTestCase):
         body = dialog.get_by_label("Votre note")
         body.fill("Brouillon à conserver.")
         form = dialog.locator("form")
+        form.locator("input[name='csrfmiddlewaretoken']").evaluate(
+            "input => { input.value = 'outdated-token'; }"
+        )
         endpoint = self.live_server_url + form.get_attribute("action")
         pending = []
         self.page.route(endpoint, lambda route: pending.append(route))
@@ -8490,6 +8493,10 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(body).to_have_attribute("readonly", "")
         form.evaluate("form => form.requestSubmit()")
         self.assertEqual(len(pending), 1)
+        self.assertNotIn(
+            "csrfmiddlewaretoken=outdated-token",
+            pending[0].request.post_data or "",
+        )
         pending[0].fulfill(
             status=503, content_type="application/json",
             body=json.dumps({"error": "Enregistrement indisponible."}),

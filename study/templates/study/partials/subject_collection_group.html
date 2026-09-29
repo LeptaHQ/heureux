@@ -1,4 +1,4 @@
-<details class="t1-theme t1-table-group"{% if not legacy %} id="theme-{{ group.slug }}"{% endif %} data-t1-table-theme open>
+<details class="t1-theme t1-table-group"{% if not legacy %} id="theme-{{ group.slug }}"{% endif %} data-t1-table-theme>
   {% if legacy %}
     {% include "study/partials/theme_group_summary.html" with title=title icon="file-text" count=count count_label="sujet" status=status completed=completed total=total personalized_count=group.personalized_count only %}
   {% else %}

@@ -75,6 +75,29 @@
   };
   window.HeureuxClipboard = clipboard;
 
+  function currentCsrfToken() {
+    var match = document.cookie.match(/(?:^|;\s*)csrftoken=([^;]+)/);
+    return match ? decodeURIComponent(match[1]) : "";
+  }
+
+  function syncCsrfTokens(scope) {
+    var token = currentCsrfToken();
+    if (!token) return;
+    (scope || document).querySelectorAll(
+      "input[name='csrfmiddlewaretoken']"
+    ).forEach(function (input) {
+      input.value = token;
+    });
+  }
+
+  syncCsrfTokens();
+  window.addEventListener("pageshow", function () {
+    syncCsrfTokens();
+  });
+  document.addEventListener("submit", function (event) {
+    syncCsrfTokens(event.target);
+  }, true);
+
   /* ---------- Theme toggle ---------- */
   var root = document.documentElement;
   function setTheme(name) {
@@ -104,7 +127,7 @@
     ).map(function (element) {
       return {
         element: element,
-        cards: element.open || element.hasAttribute("data-collection-cards-open"),
+        cards: element.open,
         table: false
       };
     });

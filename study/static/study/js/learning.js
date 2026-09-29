@@ -111,12 +111,9 @@
     }
 
     function syncModuleDisclosure(resetTable) {
+      if (!resetTable) return;
       moduleDetails.forEach(function (module) {
-        if (!tableMode()) {
-          module.open = true;
-        } else if (resetTable) {
-          module.open = false;
-        }
+        module.open = false;
       });
     }
 

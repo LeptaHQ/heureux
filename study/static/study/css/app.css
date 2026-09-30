@@ -13084,6 +13084,22 @@ html[data-collection-view-mode="table"]
 ) {
   border-radius: 0 !important;
 }
+
+/* Controls always retain their rounded, pressable affordance. */
+:is(
+  button,
+  input[type="button"],
+  input[type="submit"],
+  input[type="reset"],
+  [role="button"],
+  .btn,
+  .icon-button,
+  .linkbtn,
+  [data-writing-response-edit],
+  [data-response-edit]
+) {
+  border-radius: 999px !important;
+}
 .batch-card--unavailable {
   background: var(--surface-2);
 }

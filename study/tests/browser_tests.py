@@ -9210,7 +9210,7 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(self.page.locator(".learn-toolbar .learn-reading-note")).to_have_count(1)
         expect(self.page.locator(".learn-page > p")).to_have_count(0)
         level_filter = self.page.get_by_role("combobox", name="Niveau CEFR", exact=True)
-        expect(level_filter).to_have_css("border-radius", "12px")
+        expect(level_filter).to_have_css("border-radius", "0px")
         self.assertEqual(level_filter.evaluate("element => element.tagName"), "SELECT")
         level_filter.focus()
         expect(level_filter).to_be_focused()

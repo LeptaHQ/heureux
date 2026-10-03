@@ -251,6 +251,20 @@ class EeFormulationsContentTests(SimpleTestCase):
                     self.assertGreaterEqual(len(entry.example.split()), 8)
                     self.assertTrue(entry.example.endswith((".", "!", "?")))
 
+    def test_grammar_examples_demonstrate_the_named_construction(self):
+        by_slug = {entry.slug: entry for entry in self.catalog.entries}
+        markers = {
+            "avis-priorite-normative": "il faut que",
+            "concession-bien-que": "bien que",
+            "concession-malgre-nom": "malgré",
+            "condition-subjonctif": r"à condition qu(?:e |['’])",
+            "condition-si-present": " si ",
+        }
+        for slug, marker in markers.items():
+            for example in by_slug[slug].examples:
+                with self.subTest(slug=slug, source=example.source_key):
+                    self.assertRegex(example.french.casefold(), marker)
+
     def test_essentials_cover_the_function_pipeline(self):
         essential = [entry for entry in self.catalog.entries if entry.essential]
         self.assertEqual(len(essential), 16)
@@ -545,7 +559,7 @@ class EeFormulationsContentTests(SimpleTestCase):
             "ee-tache3:decembre:combinaison-10",
         )
         self.assertEqual(
-            by_slug["societe-urgence-passerelle"].source_key,
+            by_slug["societe-urgence-vitale"].source_key,
             "ee-tache3:juin:combinaison-3",
         )
 

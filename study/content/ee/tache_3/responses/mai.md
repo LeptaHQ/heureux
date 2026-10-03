@@ -12,11 +12,11 @@
 
 Les deux documents abordent les effets des jeux vidéo chez les enfants. Le premier associe les jeux violents à des comportements agressifs, malgré la vigilance des parents. En revanche, le second souligne qu’une pratique adaptée peut améliorer la concentration, la créativité et la capacité d’analyse.
 
-**Partie 2 — Point de vue personnel (116 mots)**
+**Partie 2 — Point de vue personnel (97 mots)**
 
-Pour ma part, les jeux vidéo peuvent être utiles, mais seulement si leur durée et leur contenu sont encadrés. Tout d’abord, certains jeux développent la réflexion et la coordination. Ces jeux obligent en effet à anticiper, à comparer plusieurs solutions et à corriger ses erreurs. De plus, une limite quotidienne protège le sommeil, les résultats scolaires et le lien social. Par exemple, un adolescent peut jouer trente minutes à un jeu de stratégie après ses devoirs, puis pratiquer un sport avec ses amis. Cela favorise ses capacités sans remplacer ses autres activités. En conclusion, il faut que les parents choisissent des jeux adaptés et fixent des règles claires : un usage encadré reste préférable à une interdiction.
+Pour ma part, les jeux vidéo ont leur place parmi les loisirs des enfants, avec des limites claires. Tout d’abord, certains jeux encouragent la réflexion. En effet, avancer exige d’anticiper, d’essayer plusieurs solutions et d’apprendre de ses erreurs. De plus, choisir des contenus adaptés évite d’exposer inutilement les plus jeunes à des scènes violentes. Par exemple, des parents pourraient sélectionner un jeu de construction, y jouer brièvement avec leur enfant et discuter de ses choix. En conclusion, je recommande un usage accompagné et raisonnable qui laisse du temps pour le sommeil, les amis et les activités physiques.
 
-**Total : 171 mots (titre compris)**
+**Total : 152 mots (titre compris)**
 
 ---
 
@@ -30,11 +30,11 @@ Pour ma part, les jeux vidéo peuvent être utiles, mais seulement si leur duré
 
 Les deux documents abordent les parcs zoologiques. Le premier considère la captivité comme une prison inadaptée aux besoins naturels des animaux sauvages. En revanche, le second met en avant les soins et l’augmentation des reproductions dans les zoos, qui peuvent contribuer à sauver des espèces menacées.
 
-**Partie 2 — Point de vue personnel (105 mots)**
+**Partie 2 — Point de vue personnel (103 mots)**
 
-Pour ma part, les zoos ne sont acceptables qu’à condition qu’ils donnent la priorité au bien-être et à la conservation. Tout d’abord, des espaces vastes et adaptés permettent aux animaux d’exprimer leurs comportements naturels et de réduire leur stress, car ils peuvent alors se déplacer, se cacher et interagir plus librement. De plus, des programmes scientifiques sérieux peuvent préserver des espèces menacées. Par exemple, un parc pourrait reproduire une espèce rare, sensibiliser les visiteurs, puis relâcher les jeunes animaux dans une réserve protégée lorsque les conditions le permettent. En conclusion, chaque parc doit garantir le bien-être animal et participer réellement à la sauvegarde des espèces.
+Pour ma part, les zoos ne sont acceptables que s’ils donnent la priorité aux animaux plutôt qu’au spectacle. Tout d’abord, un espace adapté réduit certaines contraintes de la captivité, car l’animal peut se déplacer, se cacher et retrouver des comportements naturels. De plus, des programmes scientifiques peuvent contribuer à préserver une espèce menacée en organisant sa reproduction. Par exemple, un parc pourrait participer à un programme de conservation et préparer une réintroduction lorsque les conditions le permettent. En conclusion, je soutiens les établissements qui prouvent leur utilité pour la conservation et garantissent le bien-être animal, non ceux qui se contentent d’attirer des visiteurs.
 
-**Total : 157 mots (titre compris)**
+**Total : 155 mots (titre compris)**
 
 ---
 
@@ -48,11 +48,11 @@ Pour ma part, les zoos ne sont acceptables qu’à condition qu’ils donnent la
 
 Les deux documents abordent la place du travail dans la vie. Le premier dénonce la fatigue et le manque de temps pour les proches, puis propose de travailler moins. En revanche, le second souligne que l’emploi construit l’identité, crée des relations et nourrit le sentiment d’être utile.
 
-**Partie 2 — Point de vue personnel (111 mots)**
+**Partie 2 — Point de vue personnel (106 mots)**
 
-Pour ma part, je pense que le travail reste essentiel, mais qu’il ne doit pas envahir la vie personnelle. Tout d’abord, un emploi stable procure un revenu, des relations et un sentiment d’utilité. Par exemple, un salarié responsable d’un projet peut prendre des décisions, collaborer avec son équipe et voir le résultat de son travail. De plus, des horaires raisonnables préviennent le stress et la fatigue chronique. Ainsi, une entreprise qui répartit les tâches sur quatre jours peut maintenir sa productivité tout en laissant aux salariés davantage de temps pour leur famille. En conclusion, il faut que le travail garde une place utile sans qu’il envahisse le temps réservé aux proches.
+Pour ma part, le travail est important, mais il ne doit pas définir toute notre existence. Tout d’abord, participer à un projet renforce le sentiment d’utilité, car on voit comment ses compétences aident les autres. Les relations avec les collègues peuvent aussi réduire l’isolement. De plus, du temps libre permet de préserver les liens familiaux que le travail ne remplace pas. Par exemple, une entreprise pourrait répartir les tâches sur quatre jours pour que les salariés gardent une journée pour leurs proches. En conclusion, je défends un travail qui donne une place dans la société sans absorber le temps nécessaire pour vivre en dehors du bureau.
 
-**Total : 165 mots (titre compris)**
+**Total : 160 mots (titre compris)**
 
 ---
 
@@ -66,11 +66,11 @@ Pour ma part, je pense que le travail reste essentiel, mais qu’il ne doit pas 
 
 Les deux documents publiés sont identiques et abordent la dépendance aux jeux vidéo. Ils expliquent tous deux que le jeu devient une addiction lorsqu’il remplace les relations, les études, le travail, les loisirs ou le sport. La source ayant dupliqué le même texte, elle ne fournit aucun point de vue opposé.
 
-**Partie 2 — Point de vue personnel (114 mots)**
+**Partie 2 — Point de vue personnel (104 mots)**
 
-Pour ma part, il ne faut pas interdire les jeux vidéo, mais les intégrer dans un emploi du temps équilibré. Tout d’abord, leur usage modéré peut développer la stratégie, la persévérance et la coopération. Par exemple, un jeu de gestion pousse un adolescent à élaborer une stratégie, à coordonner son équipe et à persévérer après plusieurs échecs. De plus, des règles précises empêchent le jeu de remplacer le sommeil, les études ou le sport. Ainsi, des parents peuvent autoriser une heure de jeu après les devoirs et conserver les consoles hors de la chambre la nuit. En conclusion, il faut que le jeu reste un loisir parmi d’autres : mieux vaut donc l’encadrer que l’interdire.
+Pour ma part, il vaut mieux encadrer les jeux vidéo que les interdire systématiquement. Tout d’abord, des limites régulières empêchent le jeu de prendre toute la place dans la journée. Elles préservent ainsi le temps nécessaire aux études et au sommeil. De plus, discuter des habitudes permet de repérer une difficulté, car un adolescent qui abandonne ses amis ou ses activités peut avoir besoin d’aide. Par exemple, des parents pourraient convenir d’un horaire de jeu et consulter un professionnel si leur enfant n’arrive plus à s’arrêter. En conclusion, je recommande un accompagnement attentif, avec des règles et une aide adaptée en cas de dépendance.
 
-**Total : 173 mots (titre compris)**
+**Total : 163 mots (titre compris)**
 
 ---
 
@@ -84,11 +84,11 @@ Pour ma part, il ne faut pas interdire les jeux vidéo, mais les intégrer dans 
 
 Les deux documents abordent l’organisation de grands événements sportifs. Le premier dénonce leur coût, le risque d’endettement et le détournement de fonds destinés à la santé ou à l’éducation. En revanche, le second valorise les emplois, les infrastructures modernes, les retombées économiques et la visibilité culturelle qu’ils peuvent apporter.
 
-**Partie 2 — Point de vue personnel (119 mots)**
+**Partie 2 — Point de vue personnel (101 mots)**
 
-Pour ma part, un État peut accueillir une grande compétition, mais seulement si les bénéfices durables sont démontrés. Tout d’abord, les dépenses doivent être transparentes et ne pas réduire les moyens de la santé ou de l’éducation. Sans cette rigueur, une compétition de quelques semaines peut laisser une dette que les habitants rembourseront pendant des années. De plus, les nouvelles infrastructures doivent servir quotidiennement à la population. Par exemple, une ville pourrait rénover un réseau de transport prévu dans son plan urbain, l’utiliser pendant les Jeux, puis le conserver pour ses habitants. En conclusion, ces événements peuvent être utiles, mais il faut que chaque projet soit soumis à un contrôle indépendant et à une consultation publique avant tout investissement.
+Pour ma part, un grand événement sportif est justifié seulement s’il laisse un bénéfice durable aux habitants. Tout d’abord, rénover des équipements existants peut améliorer la vie quotidienne, car ils restent utilisables après la compétition. De plus, protéger les dépenses essentielles évite qu’un spectacle temporaire prive les citoyens de services utiles pendant des années. Par exemple, une ville pourrait moderniser un stade déjà utilisé par les associations sans réduire le budget des écoles. En conclusion, je soutiens les projets dont les coûts sont transparents et l’usage futur prévu, mais pas une compétition financée au détriment de la santé ou de l’éducation.
 
-**Total : 175 mots (titre compris)**
+**Total : 157 mots (titre compris)**
 
 ---
 
@@ -102,11 +102,11 @@ Pour ma part, un État peut accueillir une grande compétition, mais seulement s
 
 Les deux documents abordent l’impact écologique du végétarisme. Le premier met en avant la protection animale et relie l’élevage à une part importante des émissions de carbone. En revanche, le second cite une étude selon laquelle la production et le transport de certains végétaux peuvent davantage polluer que la viande.
 
-**Partie 2 — Point de vue personnel (106 mots)**
+**Partie 2 — Point de vue personnel (100 mots)**
 
-Pour ma part, je considère qu’une alimentation davantage végétale est souhaitable, sans supposer que tous les légumes sont écologiques. Tout d’abord, réduire l’élevage intensif limite la souffrance animale et certaines émissions. Un kilo de viande mobilise beaucoup plus d’eau et de terres qu’une culture destinée directement à l’assiette. De plus, choisir des produits locaux et saisonniers diminue les transports inutiles. Par exemple, une famille peut remplacer deux repas de viande par des lentilles cultivées dans sa région plutôt que par des légumes importés par avion. En conclusion, il faut que l’Europe augmente la part végétale de son alimentation, tout en privilégiant des produits locaux et saisonniers.
+Pour ma part, une alimentation plus végétale est souhaitable, mais il faut aussi examiner son mode de production. Tout d’abord, manger moins de viande peut réduire la demande d’élevage intensif, ce qui limite notre soutien à des pratiques nuisibles aux animaux. De plus, choisir des aliments de saison évite certains transports et certaines cultures très énergivores. Par exemple, une famille pourrait remplacer un repas de viande par des lentilles locales plutôt que par des légumes transportés en avion. En conclusion, je défends une alimentation davantage végétale, sans croire que chaque produit végétal est écologique : l’origine et la production comptent aussi.
 
-**Total : 163 mots (titre compris)**
+**Total : 157 mots (titre compris)**
 
 ---
 
@@ -120,11 +120,11 @@ Pour ma part, je considère qu’une alimentation davantage végétale est souha
 
 Les deux documents abordent la consommation de viande. Le premier valorise une consommation réduite, jugée bénéfique pour l’équilibre alimentaire, la santé et la planète. En revanche, le second défend une alimentation variée, souligne la difficulté des menus végétariens et craint qu’une diminution entraîne fatigue ou carences.
 
-**Partie 2 — Point de vue personnel (103 mots)**
+**Partie 2 — Point de vue personnel (105 mots)**
 
-Pour ma part, il est préférable de consommer moins de viande sans nécessairement la supprimer. Tout d’abord, varier les sources de protéines peut réduire les graisses et l’empreinte écologique. À condition que l’on associe céréales et légumineuses, ces repas restent complets et évitent les carences redoutées. De plus, une diminution progressive facilite l’adaptation des habitudes alimentaires. Par exemple, une personne peut cuisiner des pois chiches deux soirs par semaine, conserver un repas de viande de qualité et demander conseil à un nutritionniste. En conclusion, réduire la viande fonctionne mieux lorsqu’on compose des repas équilibrés, abordables et adaptés, plutôt que d’imposer un régime unique.
+Pour ma part, réduire progressivement la viande est plus réaliste que la supprimer sans préparation. Tout d’abord, varier les sources de protéines permet de découvrir d’autres repas sans renoncer à une alimentation complète. Il faut toutefois apprendre à couvrir ses besoins plutôt que simplement retirer un aliment. De plus, avancer par étapes facilite le changement, car on a le temps de trouver des recettes appréciées. Par exemple, une personne pourrait préparer des pois chiches deux soirs par semaine et demander conseil si elle ressent une fatigue persistante. En conclusion, je recommande une réduction adaptée à chacun, fondée sur des repas variés et des informations fiables.
 
-**Total : 155 mots (titre compris)**
+**Total : 157 mots (titre compris)**
 
 ---
 
@@ -138,10 +138,10 @@ Pour ma part, il est préférable de consommer moins de viande sans nécessairem
 
 Les deux documents abordent la vie en colocation. Le premier valorise les échanges, le partage des tâches, l’entraide et l’ouverture à d’autres habitudes. En revanche, le second souligne le manque de calme, les invités imposés et les conflits ménagers, qui nécessitent de la diplomatie.
 
-**Partie 2 — Point de vue personnel (108 mots)**
+**Partie 2 — Point de vue personnel (104 mots)**
 
-Pour ma part, la colocation est enrichissante à condition que les responsabilités et les limites soient définies dès le départ. Tout d’abord, elle réduit les dépenses et rompt l’isolement dans une nouvelle ville. Par exemple, un étudiant fraîchement arrivé peut partager son loyer et se faire des amis dès sa première semaine en colocation. De plus, vivre à plusieurs apprend à communiquer et à respecter les besoins de chacun. Ainsi, trois étudiants peuvent établir un calendrier du ménage, fixer des heures calmes et prévenir avant de recevoir des amis. En conclusion, une colocation réussie repose sur le choix de colocataires fiables et une communication ouverte, honnête et respectueuse.
+Pour ma part, la colocation est enrichissante si elle laisse une place à la vie privée. Tout d’abord, partager des repas et des loisirs facilite l’intégration dans une nouvelle ville, car les échanges réguliers permettent de mieux se connaître. De plus, apprendre à négocier développe le respect des autres au lieu de laisser les petits désaccords s’accumuler. Par exemple, deux colocataires pourraient prévoir une soirée commune et convenir de prévenir avant d’inviter des amis, pour préserver aussi des moments calmes. En conclusion, je recommande cette vie partagée pour sa convivialité et son apprentissage du dialogue, avec des responsabilités claires et le respect de l’intimité.
 
-**Total : 159 mots (titre compris)**
+**Total : 155 mots (titre compris)**
 
 ---

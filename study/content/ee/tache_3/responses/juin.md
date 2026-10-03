@@ -12,11 +12,11 @@
 
 Les deux documents abordent la photo sur le CV. Le premier la juge inutile et susceptible de favoriser les discriminations, puisque les recruteurs privilégient surtout l’expérience et les diplômes. En revanche, le second estime qu’elle aide à identifier et à mémoriser un candidat, notamment pour certains métiers d’accueil.
 
-**Partie 2 — Point de vue personnel (104 mots)**
+**Partie 2 — Point de vue personnel (102 mots)**
 
-Pour ma part, la photo devrait rester facultative, afin que les compétences déterminent d’abord le recrutement. Tout d’abord, l’apparence peut provoquer des préjugés conscients ou inconscients et réduire l’égalité des chances. Un visage suffit parfois à déclencher une supposition sur l’âge, l’origine ou la santé du candidat. De plus, une candidature anonyme permet au recruteur d’évaluer plus objectivement l’expérience et les diplômes. Par exemple, une entreprise pourrait masquer les photos et les noms lors de la première sélection, puis rencontrer les candidats retenus selon les mêmes critères. En conclusion, la photo doit rester facultative pour que chaque candidat soit d’abord jugé sur son savoir-faire.
+Pour ma part, la photo doit rester facultative et ne pas guider la première sélection des candidats. Tout d’abord, un visage peut susciter des préjugés, car certains recruteurs associent une apparence à des qualités sans les vérifier. De plus, une sélection fondée sur des critères professionnels facilite la comparaison, car chaque candidature est évaluée de la même manière. Par exemple, une entreprise pourrait masquer les photos, comparer les expériences utiles au poste, puis rencontrer les personnes retenues. En conclusion, je préfère une première sélection sans photo pour que les compétences soient évaluées avant l’apparence, puis un entretien qui vérifie les qualités relationnelles.
 
-**Total : 160 mots (titre compris)**
+**Total : 158 mots (titre compris)**
 
 ---
 
@@ -30,11 +30,11 @@ Pour ma part, la photo devrait rester facultative, afin que les compétences dé
 
 Un seul document est disponible sur la colocation entre adultes, car le second manque dans la source. Le texte publié explique que la vie commune exige des règles sur le bruit, les invités et la vaisselle. Il insiste sur le respect mutuel, l’organisation et le dialogue pour résoudre les difficultés quotidiennes.
 
-**Partie 2 — Point de vue personnel (109 mots)**
+**Partie 2 — Point de vue personnel (101 mots)**
 
-Pour ma part, la colocation est une solution enrichissante à condition que les responsabilités soient définies dès le départ. Tout d’abord, elle réduit les dépenses et rompt l’isolement. Partager un logement permet de diviser le loyer et évite à une personne qui vient d’arriver dans une ville de rentrer seule tous les soirs. De plus, discuter ouvertement des problèmes apprend à chacun à respecter les besoins des autres. Par exemple, trois adultes peuvent fixer un calendrier de ménage, des heures calmes et des règles concernant les invités, puis faire un bilan chaque mois. En conclusion, une colocation réussie repose sur des colocataires respectueux, des règles claires et le dialogue.
+Pour ma part, une colocation réussie dépend surtout de règles discutées ensemble. Tout d’abord, préciser les responsabilités évite les malentendus, car chacun sait ce qu’il doit faire sans attendre des rappels. De plus, parler rapidement d’un problème empêche le ressentiment de s’installer. Une gêne expliquée calmement se règle plus facilement qu’une dispute après plusieurs semaines. Par exemple, trois adultes pourraient fixer les tours de ménage, prévenir avant de recevoir des invités et revoir leur organisation chaque mois. En conclusion, je recommande une vie commune fondée sur le dialogue et des engagements concrets, tout en respectant le besoin de calme de chacun.
 
-**Total : 168 mots (titre compris)**
+**Total : 160 mots (titre compris)**
 
 ---
 
@@ -50,7 +50,7 @@ Un seul document est disponible sur l’aide aux personnes pauvres, car le secon
 
 **Partie 2 — Point de vue personnel (103 mots)**
 
-Pour ma part, je pense que l’aide immédiate et l’accompagnement à long terme doivent se compléter. Tout d’abord, une personne qui a faim ou froid a besoin d’un secours sans délai. Aucun projet d’insertion ne peut commencer tant que ces besoins vitaux ne sont pas couverts. De plus, un suivi régulier permet d’agir sur les causes de l’exclusion. Par exemple, à Montréal, une association peut offrir un repas chaud, puis aider le bénéficiaire à obtenir une adresse, une formation et un emploi stable. En conclusion, il faut que l’aide soulage l’urgence tout en donnant aux plus pauvres les moyens de retrouver leur autonomie.
+Pour ma part, les petits dons sont utiles, mais la solidarité doit se poursuivre au-delà de l’hiver. Tout d’abord, un geste simple peut répondre à un besoin urgent, car un repas chaud ou un vêtement protège une personne exposée au froid. De plus, une aide régulière permet aux associations de prévoir leurs actions au lieu de dépendre uniquement de dons occasionnels. Par exemple, un habitant pourrait donner chaque mois une petite somme et participer à une distribution de repas lorsqu’il est disponible. En conclusion, je soutiens une solidarité accessible à tous, qui associe les secours immédiats à un engagement aussi régulier que possible.
 
 **Total : 164 mots (titre compris)**
 
@@ -66,11 +66,11 @@ Pour ma part, je pense que l’aide immédiate et l’accompagnement à long ter
 
 Les deux documents abordent la place du travail dans la vie. Le premier dénonce la fatigue et le manque de temps pour les proches, puis propose de travailler moins. En revanche, le second présente l’emploi comme une source d’identité, de relations et de sentiment d’être utile.
 
-**Partie 2 — Point de vue personnel (107 mots)**
+**Partie 2 — Point de vue personnel (106 mots)**
 
-Pour ma part, le travail contribue à l’épanouissement, mais il ne doit pas envahir toute l’existence. Tout d’abord, un emploi stable procure des revenus, des relations et un sentiment d’utilité. Un salaire régulier, des collègues et des objectifs concrets donnent un rythme à la semaine et évitent l’isolement. De plus, des conditions de travail équilibrées protègent la santé et la vie familiale. Par exemple, une entreprise qui répartit les tâches sur quatre jours peut atteindre ses objectifs tout en laissant aux salariés davantage de temps pour leurs proches. En conclusion, il faut que le travail garde une place utile sans qu’il envahisse le temps réservé aux proches.
+Pour ma part, le travail est important, mais il ne doit pas définir toute notre existence. Tout d’abord, participer à un projet renforce le sentiment d’utilité, car on voit comment ses compétences aident les autres. Les relations avec les collègues peuvent aussi réduire l’isolement. De plus, du temps libre permet de préserver les liens familiaux que le travail ne remplace pas. Par exemple, une entreprise pourrait répartir les tâches sur quatre jours pour que les salariés gardent une journée pour leurs proches. En conclusion, je défends un travail qui donne une place dans la société sans absorber le temps nécessaire pour vivre en dehors du bureau.
 
-**Total : 160 mots (titre compris)**
+**Total : 159 mots (titre compris)**
 
 ---
 
@@ -84,10 +84,10 @@ Pour ma part, le travail contribue à l’épanouissement, mais il ne doit pas e
 
 Les deux documents abordent les lieux où faire ses courses. Le premier valorise la variété, le stationnement et les promotions des supermarchés. En revanche, le second défend les commerces de quartier pour soutenir leur survie, obtenir des produits frais de qualité et renforcer la convivialité entre voisins.
 
-**Partie 2 — Point de vue personnel (113 mots)**
+**Partie 2 — Point de vue personnel (101 mots)**
 
-Pour ma part, les deux types de commerce peuvent coexister, mais les petits commerces méritent un soutien régulier. Tout d’abord, ils maintiennent des emplois et du lien social dans le quartier. Quand la dernière boulangerie ferme, c’est aussi un lieu de rencontre qui disparaît pour les voisins. De plus, les supermarchés restent utiles pour regrouper les achats et maîtriser le budget grâce aux prix bas. Par exemple, une famille peut acheter ses produits frais chez un marchand local, puis se rendre une fois par mois en grande surface pour les articles ménagers. En conclusion, il faut que chacun soutienne les petits commerces sans renoncer aux supermarchés quand ils sont plus pratiques ou économiques.
+Pour ma part, je privilégie les commerces de quartier sans renoncer aux supermarchés. Tout d’abord, des achats réguliers aident les petits commerçants à maintenir leur activité. Les habitants conservent ainsi des services accessibles à pied et des lieux de rencontre. De plus, les grandes surfaces permettent de regrouper les courses et de comparer les prix, ce qui reste important pour les budgets modestes. Par exemple, une famille pourrait acheter ses légumes chez un marchand voisin et ses produits ménagers en promotion au supermarché. En conclusion, je préfère répartir mes achats selon mes moyens tout en soutenant la vie de mon quartier.
 
-**Total : 168 mots (titre compris)**
+**Total : 156 mots (titre compris)**
 
 ---

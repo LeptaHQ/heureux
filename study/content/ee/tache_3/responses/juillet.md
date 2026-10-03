@@ -12,11 +12,11 @@
 
 Les deux documents abordent la chasse. Le premier condamne le plaisir de tuer et estime qu’on ne peut pas aimer la nature tout en la détruisant. En revanche, le second rappelle qu’elle peut servir à se nourrir, à gérer la faune ou à protéger les biens, mais aussi au commerce, au loisir et au prestige.
 
-**Partie 2 — Point de vue personnel (118 mots)**
+**Partie 2 — Point de vue personnel (101 mots)**
 
-Pour ma part, la chasse ne devrait être permise que lorsqu’elle répond à un besoin démontré. Tout d’abord, un prélèvement limité peut protéger un milieu lorsqu’une population animale devient trop nombreuse. Sans régulation, des cerfs peuvent manger les jeunes pousses d’une forêt et ravager les champs voisins. De plus, il faut que des règles strictes empêchent que la nécessité serve de prétexte au prestige ou au loisir. Des permis, des périodes précises et des contrôles permettent de distinguer la subsistance de la chasse-trophée. Par exemple, une commune peut fixer un quota de cerfs après avoir constaté des dégâts dans les vergers. En conclusion, je n’accepte la chasse que si elle protège réellement les écosystèmes et reste rigoureusement contrôlée.
+Pour ma part, je refuse la chasse pour le simple plaisir, mais j’accepte certaines interventions nécessaires. Tout d’abord, tuer un animal pour obtenir un trophée impose une souffrance sans répondre à un besoin vital. Le loisir ne me paraît donc pas une justification suffisante. De plus, une régulation limitée peut protéger des cultures lorsqu’une population animale devient excessive. Par exemple, des biologistes pourraient constater des dégâts causés par des cerfs et proposer une intervention encadrée après avoir étudié les alternatives. En conclusion, la chasse doit répondre à un besoin démontré, avec des contrôles stricts, et non servir le prestige des chasseurs.
 
-**Total : 180 mots (titre compris)**
+**Total : 163 mots (titre compris)**
 
 ---
 
@@ -30,11 +30,11 @@ Pour ma part, la chasse ne devrait être permise que lorsqu’elle répond à un
 
 Les deux documents abordent les produits biologiques faits maison. Le premier vante le contrôle des ingrédients, la personnalisation, les économies à long terme et la réduction des emballages plastiques. En revanche, le second alerte sur le temps, le coût initial et les risques d’une mauvaise formule ou conservation, notamment l’irritation et la contamination.
 
-**Partie 2 — Point de vue personnel (118 mots)**
+**Partie 2 — Point de vue personnel (101 mots)**
 
-Pour ma part, le fait maison convient aux usages simples, à condition que la recette soit sûre. Tout d’abord, préparer un nettoyant permet de choisir les ingrédients et de réutiliser un flacon. Une famille réduit les emballages sans acheter un produit neuf chaque semaine. De plus, il faut que les soins appliqués sur la peau reposent sur des dosages fiables ou sur des produits testés. Une recette mal dosée peut irriter la peau, et une mauvaise conservation favoriser la contamination. Par exemple, on peut mélanger du vinaigre et de l’eau pour nettoyer des vitres, mais choisir une crème testée pour un enfant allergique. En conclusion, je privilégie le fait maison lorsqu’il est simple, bien dosé et sans risque.
+Pour ma part, fabriquer des produits simples est intéressant, mais le naturel ne garantit pas la sécurité. Tout d’abord, réutiliser un flacon réduit les emballages, car on ne jette plus un contenant à chaque achat. Cette habitude peut aussi limiter certaines dépenses. De plus, une recette fiable évite les erreurs de dosage ou de conservation qui rendent un produit irritant. Par exemple, une personne pourrait préparer un nettoyant ménager selon des consignes vérifiées, mais acheter une crème adaptée à sa peau sensible. En conclusion, je recommande le fait maison pour les usages maîtrisés, sans faire passer les économies avant la santé.
 
-**Total : 179 mots (titre compris)**
+**Total : 162 mots (titre compris)**
 
 ---
 
@@ -48,11 +48,11 @@ Pour ma part, le fait maison convient aux usages simples, à condition que la re
 
 Les deux documents abordent la livraison de repas au bureau. Le premier souligne le gain de temps, la diversité des plats et la disponibilité du service à toute heure. En revanche, le second déplore les retards stressants et le fait de déjeuner sans quitter son poste, qui prive les salariés d’une pause et accroît leur fatigue.
 
-**Partie 2 — Point de vue personnel (116 mots)**
+**Partie 2 — Point de vue personnel (100 mots)**
 
-Pour ma part, la livraison est pratique à condition que chacun puisse faire une vraie pause. Tout d’abord, elle évite aux salariés de perdre du temps à chercher un restaurant ou à faire la queue. On peut commander un plat adapté à ses besoins et rentrer moins tard chez soi. De plus, il faut que le repas permette de quitter l’écran et d’échanger avec ses collègues. Manger sans interrompre le travail entretient la fatigue et isole les employés. Par exemple, une équipe peut faire livrer ses repas, puis déjeuner ensemble dehors avant de retourner travailler. En conclusion, je suis favorable à la livraison si elle fait gagner du temps sans sacrifier la pause ni les échanges.
+Pour ma part, la livraison de repas est pratique si elle ne transforme pas le déjeuner en travail continu. Tout d’abord, commander à l’avance libère du temps pour déjeuner, car on évite le trajet et l’attente au restaurant. De plus, une pause loin de l’écran permet de récupérer, car elle interrompt les demandes et les notifications. Par exemple, des collègues pourraient commander dans le même restaurant, puis déjeuner ensemble dehors, avec une solution de remplacement si la livraison tarde. En conclusion, je soutiens ce service lorsqu’il facilite une vraie pause, sans rendre les salariés dépendants d’un horaire de livraison incertain.
 
-**Total : 180 mots (titre compris)**
+**Total : 164 mots (titre compris)**
 
 ---
 
@@ -66,11 +66,11 @@ Pour ma part, la livraison est pratique à condition que chacun puisse faire une
 
 Les deux documents abordent la vidéosurveillance. Le premier souligne qu’elle rassure une majorité de Français dans les rues, les magasins et les transports, mais pas au travail. En revanche, le second la juge coûteuse, peu efficace contre les délits et lourde à gérer puisqu’il faut du personnel pour examiner les images.
 
-**Partie 2 — Point de vue personnel (107 mots)**
+**Partie 2 — Point de vue personnel (102 mots)**
 
-Pour ma part, les caméras peuvent aider à résoudre certains délits, mais il faut que leur usage reste exceptionnel et contrôlé. Tout d’abord, une image peut aider les enquêteurs à identifier un agresseur après une infraction. Elle complète alors les témoignages, surtout dans un lieu très fréquenté. De plus, une caméra ne remplace ni un bon éclairage ni des agents présents sur le terrain. Par exemple, une gare victime de vols répétés peut filmer uniquement ses entrées, informer les voyageurs et supprimer les images sans intérêt après un délai court. En conclusion, j’accepte une vidéosurveillance ciblée si elle améliore réellement la sécurité sans surveiller toute la population.
+Pour ma part, les caméras peuvent être utiles dans certains lieux, mais leur présence ne suffit pas à garantir la sécurité. Tout d’abord, les images peuvent aider à établir les faits après un incident, car elles complètent les témoignages. De plus, réserver les images aux personnes habilitées limite les abus, car elles ne peuvent pas être consultées par simple curiosité. Par exemple, une gare confrontée à des vols pourrait filmer ses accès, réserver les images aux enquêteurs et évaluer le coût du dispositif. En conclusion, je soutiens une surveillance ciblée et contrôlée, sans remplacer la présence humaine ni les actions de prévention.
 
-**Total : 164 mots (titre compris)**
+**Total : 159 mots (titre compris)**
 
 ---
 
@@ -84,11 +84,11 @@ Pour ma part, les caméras peuvent aider à résoudre certains délits, mais il 
 
 Les deux documents abordent les effets des jeux vidéo. Le premier indique qu’ils peuvent améliorer la rapidité de réaction des adultes, mais évoque aussi la violence et l’addiction. En revanche, le second relie l’usage excessif chez les 8-17 ans à la nervosité, au stress, aux comportements violents et à de moins bons résultats scolaires.
 
-**Partie 2 — Point de vue personnel (118 mots)**
+**Partie 2 — Point de vue personnel (103 mots)**
 
-Pour ma part, les jeux vidéo peuvent être utiles à condition que le temps de jeu et le contenu soient adaptés à l’âge. Tout d’abord, certains jeux de stratégie ou de coopération entraînent la logique, la coordination et le travail d’équipe. Pour gagner, le joueur doit observer, décider vite et communiquer avec les autres. De plus, il faut que les parents protègent le sommeil, l’activité physique et les devoirs. Trop d’heures devant l’écran peuvent rendre un adolescent irritable et moins concentré à l’école. Par exemple, après ses devoirs, un jeune peut jouer quarante-cinq minutes, puis éteindre la console avant le repas familial. En conclusion, les jeux vidéo sont bénéfiques lorsqu’ils s’inscrivent dans des loisirs variés et bien encadrés.
+Pour ma part, les jeux vidéo peuvent être bénéfiques, mais ils doivent rester un loisir parmi d’autres. Tout d’abord, un jeu coopératif exerce la communication, car les joueurs doivent expliquer leurs choix et coordonner leurs actions. De plus, une durée raisonnable protège les autres activités en évitant que chaque moment libre soit absorbé par l’écran. Par exemple, un adolescent pourrait jouer quarante-cinq minutes avec ses amis après les devoirs, puis éteindre la console avant le repas familial. En conclusion, je recommande des contenus adaptés et des horaires discutés avec les parents, sans confondre quelques bénéfices possibles avec une raison de jouer sans limite.
 
-**Total : 179 mots (titre compris)**
+**Total : 164 mots (titre compris)**
 
 ---
 
@@ -102,11 +102,11 @@ Pour ma part, les jeux vidéo peuvent être utiles à condition que le temps de 
 
 Les deux documents abordent le bien-être au travail. Le premier rapporte que les bureaux réglables rendent les employés plus productifs, plus efficaces au téléphone et plus à l’aise avec leurs collègues. En revanche, le second craint que les entreprises utilisent ces aménagements pour obtenir davantage d’heures et réclame le respect du temps de travail.
 
-**Partie 2 — Point de vue personnel (116 mots)**
+**Partie 2 — Point de vue personnel (97 mots)**
 
-Pour ma part, l’employeur doit offrir un poste confortable sans attendre des salariés qu’ils restent plus longtemps. Tout d’abord, un écran à la bonne hauteur et un bureau réglable limitent les douleurs au dos et aident à rester concentré. Ces mesures peuvent éviter des arrêts de travail liés à une mauvaise posture. De plus, il faut que le confort s’accompagne d’horaires respectés et de pauses réelles. Des bureaux modernes ne justifient jamais les heures supplémentaires permanentes. Par exemple, une entreprise peut installer des postes réglables, désactiver la messagerie professionnelle à dix-huit heures et demander aux équipes de prendre leur pause déjeuner. En conclusion, le bien-être au travail dépend autant de l’organisation du temps que du mobilier.
+Pour ma part, le confort matériel doit améliorer le travail, non prolonger les journées. Tout d’abord, un bureau réglable permet d’adapter sa position, ce qui peut réduire l’inconfort d’une posture maintenue longtemps. De plus, respecter les horaires protège la récupération, car même un poste confortable ne supprime pas la fatigue accumulée. Par exemple, une entreprise pourrait équiper ses bureaux et organiser les tâches pour que les équipes terminent à l’heure prévue, sans courriels attendus le soir. En conclusion, je soutiens les aménagements utiles lorsqu’ils s’accompagnent de pauses et d’une charge raisonnable, plutôt que d’attentes toujours plus élevées.
 
-**Total : 177 mots (titre compris)**
+**Total : 158 mots (titre compris)**
 
 ---
 
@@ -120,11 +120,11 @@ Pour ma part, l’employeur doit offrir un poste confortable sans attendre des s
 
 Les deux documents abordent l’égalité professionnelle. Le premier indique qu’au Québec, les femmes peuvent accéder aux métiers longtemps réservés aux hommes, notamment à la direction. En revanche, le second constate que certains métiers restent très féminisés et affirme que les femmes devraient s’occuper des enfants plutôt que d’exercer des métiers d’hommes.
 
-**Partie 2 — Point de vue personnel (113 mots)**
+**Partie 2 — Point de vue personnel (103 mots)**
 
-Pour ma part, tout emploi doit être accessible selon les compétences, jamais selon le sexe. Tout d’abord, écarter une candidate prive une organisation d’un talent et entretient les écarts de salaire. Une équipe qui recrute toujours le même profil se prive aussi de points de vue utiles. De plus, il faut que les responsabilités familiales soient partagées entre les parents, au lieu d’être automatiquement attribuées aux femmes. Par exemple, une entreprise peut nommer une ingénieure pour diriger un chantier et offrir le même congé parental aux mères et aux pères. En conclusion, l’égalité professionnelle exige un recrutement impartial, une rémunération équitable et des conditions qui permettent à chacun de concilier travail et famille.
+Pour ma part, les compétences doivent déterminer l’accès à un métier, jamais le sexe. Tout d’abord, exclure les femmes prive une entreprise de candidatures utiles, car le talent ne dépend pas du genre. Un recrutement ouvert augmente les chances de trouver la personne adaptée. De plus, partager les responsabilités familiales permet aux deux parents de poursuivre leur carrière. Par exemple, une entreprise pourrait sélectionner ses cadres selon des critères transparents et offrir le même congé parental aux mères et aux pères. En conclusion, je défends l’égalité des chances, avec des décisions professionnelles objectives et une organisation familiale qui ne pénalise pas les femmes.
 
-**Total : 171 mots (titre compris)**
+**Total : 161 mots (titre compris)**
 
 ---
 
@@ -138,11 +138,11 @@ Pour ma part, tout emploi doit être accessible selon les compétences, jamais s
 
 Les deux documents abordent la gratuité des transports publics. Le premier affirme qu’elle réduit les voitures, la pollution et les maladies respiratoires, tout en ramenant les clients au centre-ville. En revanche, le second la juge trop coûteuse, préfère améliorer les liaisons vers les quartiers éloignés et pense qu’un ticket payant incite les usagers à respecter les équipements.
 
-**Partie 2 — Point de vue personnel (113 mots)**
+**Partie 2 — Point de vue personnel (102 mots)**
 
-Pour ma part, la gratuité des transports est utile à condition que le réseau desserve réellement tous les quartiers. Tout d’abord, supprimer le prix du ticket peut inciter des automobilistes à laisser leur voiture au garage. Moins de véhicules en centre-ville réduit les embouteillages et la pollution. De plus, il faut que les bus passent assez souvent, notamment dans les zones éloignées. Un service gratuit ne sert à rien s’il oblige les habitants à attendre une heure. Par exemple, une ville peut rendre les trajets gratuits le week-end tout en ajoutant des bus dans les quartiers mal desservis. En conclusion, je soutiens la gratuité lorsqu’elle s’accompagne d’un réseau fréquent, fiable et bien entretenu.
+Pour ma part, la gratuité des transports est utile à condition que le réseau desserve bien les habitants. Tout d’abord, supprimer le prix du ticket facilite les déplacements des personnes modestes. Elles peuvent rejoindre un emploi ou un service sans limiter chaque trajet pour économiser. De plus, des bus fréquents rendent l’alternative crédible pour les automobilistes, car personne ne souhaite attendre une heure. Par exemple, une ville pourrait renforcer une ligne éloignée, puis tester sa gratuité avec un financement prévu pour l’entretien. En conclusion, je soutiens la gratuité lorsqu’elle s’accompagne d’un réseau fiable et d’un financement durable, plutôt qu’un service mal organisé.
 
-**Total : 177 mots (titre compris)**
+**Total : 166 mots (titre compris)**
 
 ---
 
@@ -156,11 +156,11 @@ Pour ma part, la gratuité des transports est utile à condition que le réseau 
 
 Les deux documents abordent les devoirs à la maison. Le premier estime qu’ils apprennent aux élèves à organiser leur temps et permettent aux parents de suivre l’école au quotidien. En revanche, le second conteste leur effet sur les résultats et dénonce les inégalités entre les enfants soutenus chez eux et ceux laissés seuls.
 
-**Partie 2 — Point de vue personnel (108 mots)**
+**Partie 2 — Point de vue personnel (100 mots)**
 
-Pour ma part, des devoirs courts peuvent être utiles, à condition qu’un enfant puisse les faire sans aide familiale. Tout d’abord, relire une leçon ou préparer son sac apprend à s’organiser et consolide ce qui a été vu en classe. Dix minutes de révision chaque soir évitent d’oublier les notions importantes. De plus, il faut que les exercices difficiles soient expliqués ou commencés à l’école pour ne pas pénaliser les familles moins disponibles. Par exemple, un enseignant peut demander quinze minutes de lecture, puis proposer une étude gratuite aux élèves qui ont besoin d’aide. En conclusion, les devoirs devraient développer l’autonomie sans prolonger les inégalités après la classe.
+Pour ma part, les devoirs doivent rester courts et ne pas dépendre du soutien des parents. Tout d’abord, une tâche simple apprend à organiser son temps, car l’élève doit prévoir un moment et respecter une consigne connue. De plus, un accompagnement à l’école réduit les inégalités entre les familles disponibles et celles qui ne peuvent pas aider. Par exemple, un enseignant pourrait faire commencer un exercice en classe et proposer une étude gratuite pour le terminer. En conclusion, je conserve les devoirs qui développent réellement l’autonomie, mais je refuse de faire porter aux familles la responsabilité d’expliquer les notions difficiles.
 
-**Total : 169 mots (titre compris)**
+**Total : 161 mots (titre compris)**
 
 ---
 
@@ -174,11 +174,11 @@ Pour ma part, des devoirs courts peuvent être utiles, à condition qu’un enfa
 
 Les deux documents abordent les écoles privées et publiques. Le premier explique le succès des écoles privées par leur réputation, l’encadrement et la présence des professeurs, plutôt que par les résultats. En revanche, le second dénonce des frais qui excluent les familles modestes, limitent la mixité sociale et reproduisent les inégalités.
 
-**Partie 2 — Point de vue personnel (110 mots)**
+**Partie 2 — Point de vue personnel (99 mots)**
 
-Pour ma part, une éducation de qualité doit être accessible à tous, quel que soit le revenu des parents. Tout d’abord, la mixité sociale apprend aux élèves à connaître des réalités différentes et à vivre ensemble. Elle évite que chaque établissement ne regroupe uniquement des enfants du même milieu. De plus, il faut que l’école publique reçoive les moyens d’offrir un encadrement solide et des classes moins chargées. Par exemple, une municipalité peut financer du soutien scolaire gratuit dans un quartier défavorisé et recruter un enseignant supplémentaire. En conclusion, je privilégie un système qui donne à chaque enfant de bons professeurs, des ressources suffisantes et les mêmes possibilités de réussir.
+Pour ma part, il faut que l’école publique offre une éducation de qualité à tous. Tout d’abord, des moyens suffisants limitent les inégalités, car un enfant ne choisit pas les revenus de ses parents. Du soutien scolaire gratuit lui permet d’avancer même sans cours privés. De plus, la mixité sociale apprend à connaître d’autres réalités et à dépasser les préjugés. Par exemple, des élèves de quartiers différents pourraient réaliser un projet commun et découvrir les difficultés de chacun. En conclusion, je respecte le choix des familles, mais une bonne éducation ne devrait jamais dépendre de leur capacité à payer.
 
-**Total : 169 mots (titre compris)**
+**Total : 158 mots (titre compris)**
 
 ---
 
@@ -192,11 +192,11 @@ Pour ma part, une éducation de qualité doit être accessible à tous, quel que
 
 Les deux documents abordent la fabrication de produits biologiques à la maison. Le premier met en avant le choix des ingrédients, les emballages réutilisables et les économies à long terme. En revanche, le second avertit que les recettes demandent du temps et un investissement initial, et qu’une formule ou une conservation inadéquate peut irriter la peau ou favoriser une contamination.
 
-**Partie 2 — Point de vue personnel (109 mots)**
+**Partie 2 — Point de vue personnel (101 mots)**
 
-Pour ma part, je recommande le fait maison pour les produits simples, à condition que leur préparation soit sûre. Tout d’abord, réutiliser un flacon pour une lessive ou un nettoyant réduit les déchets. Cela évite d’acheter un contenant neuf. De plus, il faut que les produits appliqués sur la peau soient préparés avec une recette fiable et conservés correctement. Une mauvaise formule peut irriter la peau, et un produit mal conservé peut être contaminé. Par exemple, un parent peut fabriquer une lessive avec une recette vérifiée, mais acheter une crème testée pour un enfant allergique. En conclusion, le fait maison est intéressant s’il reste simple, bien dosé et sûr.
+Pour ma part, fabriquer des produits simples est intéressant, mais le naturel ne garantit pas la sécurité. Tout d’abord, réutiliser un flacon réduit les emballages, car on ne jette plus un contenant à chaque achat. Cette habitude peut aussi limiter certaines dépenses. De plus, une recette fiable évite les erreurs de dosage ou de conservation qui rendent un produit irritant. Par exemple, une personne pourrait préparer un nettoyant ménager selon des consignes vérifiées, mais acheter une crème adaptée à sa peau sensible. En conclusion, je recommande le fait maison pour les usages maîtrisés, sans faire passer les économies avant la santé.
 
-**Total : 177 mots (titre compris)**
+**Total : 169 mots (titre compris)**
 
 ---
 
@@ -210,11 +210,11 @@ Pour ma part, je recommande le fait maison pour les produits simples, à conditi
 
 Les deux documents abordent le numérique à l’école. Le premier présente les tablettes et les ordinateurs comme des outils qui stimulent l’engagement, la créativité et l’autonomie grâce à l’accès aux ressources. En revanche, le second craint la dépendance aux écrans et la baisse des échanges directs avec les enseignants.
 
-**Partie 2 — Point de vue personnel (108 mots)**
+**Partie 2 — Point de vue personnel (102 mots)**
 
-Pour ma part, le numérique est utile à condition que l’enseignant le guide et qu’il ne remplace pas les échanges en classe. Tout d’abord, une tablette permet à l’élève de consulter des ressources variées et de refaire un exercice à son rythme. Elle peut ainsi soutenir un élève sans ralentir toute la classe. De plus, il faut que les écrans laissent du temps aux échanges, car discuter développe l’expression, l’empathie et l’esprit critique. Par exemple, des collégiens peuvent explorer une carte interactive pendant vingt minutes, puis expliquer leur parcours à leurs camarades. En conclusion, je privilégie une école qui associe outils numériques, écriture, discussion et activités sans écran.
+Pour ma part, les technologies sont utiles à l’école si elles servent un objectif pédagogique précis. Tout d’abord, un exercice numérique permet de travailler à son rythme. Ainsi, un élève peut recommencer sans attendre toute la classe. De plus, les échanges avec le professeur restent indispensables pour expliquer une erreur et apprendre à défendre une idée. L’écran ne remplace donc pas la relation humaine. Par exemple, des élèves pourraient comparer deux sources sur une tablette, puis discuter oralement de leur fiabilité. En conclusion, je recommande un usage limité qui associe ressources numériques, livres et travail collectif plutôt qu’un enseignement entièrement sur écran.
 
-**Total : 166 mots (titre compris)**
+**Total : 160 mots (titre compris)**
 
 ---
 
@@ -228,11 +228,11 @@ Pour ma part, le numérique est utile à condition que l’enseignant le guide e
 
 Les deux documents abordent les caméras de surveillance en ville. Le premier rapporte que la majorité des citoyens interrogés accepte d’être filmée dans l’espace public pour se sentir plus en sécurité, mais refuse la surveillance au travail. En revanche, le second juge ce dispositif coûteux, peu dissuasif et très exigeant en personnel.
 
-**Partie 2 — Point de vue personnel (107 mots)**
+**Partie 2 — Point de vue personnel (102 mots)**
 
-Pour ma part, la vidéosurveillance n’est acceptable que si son utilité est démontrée et sa portée limitée. Tout d’abord, des images peuvent aider une enquête après un incident précis et faciliter l’identification d’un suspect. Encore faut-il que les enregistrements soient exploitables et consultés par un personnel formé. De plus, une collecte massive sans contrôle expose les citoyens à des abus et mobilise des moyens importants. Par exemple, un réseau de transport peut filmer les quais, conserver les enregistrements pendant trente jours et réserver leur consultation à des agents autorisés. En conclusion, le plus important est de concilier sécurité publique, protection de la vie privée et évaluation indépendante.
+Pour ma part, les caméras peuvent être utiles dans certains lieux, mais leur présence ne suffit pas à garantir la sécurité. Tout d’abord, les images peuvent aider à établir les faits après un incident, car elles complètent les témoignages. De plus, réserver les images aux personnes habilitées limite les abus, car elles ne peuvent pas être consultées par simple curiosité. Par exemple, une gare confrontée à des vols pourrait filmer ses accès, réserver les images aux enquêteurs et évaluer le coût du dispositif. En conclusion, je soutiens une surveillance ciblée et contrôlée, sans remplacer la présence humaine ni les actions de prévention.
 
-**Total : 167 mots (titre compris)**
+**Total : 162 mots (titre compris)**
 
 ---
 
@@ -246,11 +246,11 @@ Pour ma part, la vidéosurveillance n’est acceptable que si son utilité est d
 
 Les deux documents abordent les vêtements de marque chez les enfants et les adolescents. Le premier les présente comme un moyen d’exprimer sa personnalité et d’appartenir à un groupe. En revanche, le second rappelle qu’ils deviennent vite trop petits, sales ou troués à cause de la croissance et des jeux dehors.
 
-**Partie 2 — Point de vue personnel (119 mots)**
+**Partie 2 — Point de vue personnel (104 mots)**
 
-Pour ma part, une marque peut faire plaisir, mais il ne faut pas qu’elle dicte les vêtements des enfants. Tout d’abord, les vêtements coûteux pèsent sur le budget puisque leurs habits deviennent vite trop petits, sales ou troués. Dépenser beaucoup pour un jean porté quelques mois est peu raisonnable. De plus, il faut que les enfants choisissent leurs vêtements pour leur confort et leur solidité, non pour plaire à un groupe. Un logo ne garantit ni la qualité ni l’estime des autres. Par exemple, des parents peuvent offrir un tee-shirt de marque pour un anniversaire et acheter les vêtements de jeu d’occasion. En conclusion, une marque peut faire plaisir occasionnellement, mais je privilégie des habits adaptés, solides et abordables.
+Pour ma part, les vêtements de marque peuvent faire plaisir, mais ils ne devraient pas guider tous les achats. Tout d’abord, les enfants grandissent vite, ce qui limite la durée d’utilisation des habits. Dépenser beaucoup pour une tenue portée quelques mois laisse moins d’argent pour d’autres besoins. De plus, choisir selon le confort plutôt que le logo réduit la pression sociale. Un jeune apprend ainsi que sa valeur ne dépend pas de ses vêtements. Par exemple, des parents pourraient offrir un tee-shirt de marque pour un anniversaire et acheter les tenues quotidiennes d’occasion. En conclusion, je privilégie des habits utiles, abordables et librement choisis.
 
-**Total : 178 mots (titre compris)**
+**Total : 163 mots (titre compris)**
 
 ---
 
@@ -264,11 +264,11 @@ Pour ma part, une marque peut faire plaisir, mais il ne faut pas qu’elle dicte
 
 Les deux documents abordent la réduction du temps de travail. Le premier souligne un meilleur équilibre de vie, moins de stress et une productivité accrue chez les salariés. De son côté, le second ajoute que les entreprises peuvent réduire l’absentéisme et fidéliser leurs équipes, à condition d’adapter leur organisation pour maintenir leurs services.
 
-**Partie 2 — Point de vue personnel (117 mots)**
+**Partie 2 — Point de vue personnel (103 mots)**
 
-Pour ma part, je suis favorable à la réduction du temps de travail à condition que la charge de travail baisse elle aussi. Tout d’abord, plus de repos aide les salariés à récupérer, à mieux se concentrer et à commettre moins d’erreurs. Ils peuvent consacrer du temps à leur santé ou à leur famille. De plus, il faut que les entreprises réorganisent les équipes, car la même quantité de travail concentrée en moins d’heures augmente le stress. Par exemple, une entreprise peut tester une semaine de quatre jours pendant trois mois, faire tourner les équipes et suivre l’absentéisme. En conclusion, réduire le temps de travail est bénéfique lorsqu’on protège les salaires et qu’on n’intensifie pas le rythme.
+Pour ma part, réduire le temps de travail est souhaitable si l’entreprise adapte réellement son organisation. Tout d’abord, davantage de repos aide les salariés à récupérer, ce qui peut améliorer leur attention et limiter les erreurs. De plus, revoir les priorités évite de concentrer la même pression sur des journées plus courtes. Par exemple, une entreprise pourrait supprimer des réunions inutiles, répartir les équipes sur quatre jours et mesurer la qualité du service pendant trois mois. En conclusion, je soutiens une réduction négociée qui préserve les salaires et améliore la vie des salariés, plutôt qu’un simple changement d’horaires sans diminution de la charge.
 
-**Total : 180 mots (titre compris)**
+**Total : 166 mots (titre compris)**
 
 ---
 
@@ -282,11 +282,11 @@ Pour ma part, je suis favorable à la réduction du temps de travail à conditio
 
 Les deux documents abordent les parcours des cuisiniers amateurs et professionnels. Le premier insiste sur la formation, l’expérience et la technique nécessaires pour exercer sérieusement. En revanche, le second montre que des autodidactes formés sur Internet peuvent gagner en notoriété, devenir professionnels et publier des livres destinés aux passionnés de cuisine.
 
-**Partie 2 — Point de vue personnel (112 mots)**
+**Partie 2 — Point de vue personnel (97 mots)**
 
-Pour ma part, il faut que le professionnalisme repose sur les compétences démontrées plutôt que sur le parcours suivi. Tout d’abord, une formation classique transmet rapidement l’hygiène, les techniques et l’organisation d’une cuisine. Ces bases s’acquièrent difficilement seul, car elles supposent des corrections immédiates et la pression d’un vrai service. De plus, un autodidacte rigoureux peut acquérir ces savoirs grâce à la pratique et à des stages. Par exemple, une cuisinière connue en ligne peut obtenir une certification sanitaire, travailler six mois auprès d’un chef et tester son projet avant d’ouvrir un restaurant. En conclusion, le plus important est de maîtriser le métier, d’accepter les évaluations et de continuer à se former.
+Pour ma part, un amateur peut devenir professionnel, mais sa popularité ne suffit pas à prouver ses compétences. Tout d’abord, une formation solide protège les clients, car une mauvaise conservation des aliments peut provoquer une intoxication. Réussir une recette ne garantit donc pas la maîtrise de l’hygiène. De plus, l’expérience permet d’apprendre à servir plusieurs personnes dans un temps limité. Par exemple, une cuisinière connue sur Internet pourrait effectuer un stage auprès d’un chef pour organiser les commandes et corriger ses erreurs. En conclusion, il faut que chaque cuisinier démontre son savoir-faire, qu’il soit diplômé ou autodidacte.
 
-**Total : 170 mots (titre compris)**
+**Total : 155 mots (titre compris)**
 
 ---
 
@@ -300,11 +300,11 @@ Pour ma part, il faut que le professionnalisme repose sur les compétences démo
 
 Les deux documents abordent la vie en colocation. Le premier met en avant le partage des dépenses, la convivialité et les échanges entre personnes de différents horizons. En revanche, le second souligne le manque d’intimité, les conflits de personnalité et les désaccords concernant les tâches ménagères ou les responsabilités communes.
 
-**Partie 2 — Point de vue personnel (117 mots)**
+**Partie 2 — Point de vue personnel (102 mots)**
 
-Pour ma part, la colocation est enrichissante à condition que les règles soient claires dès l’arrivée. Tout d’abord, partager le loyer et les factures rend un logement plus accessible et évite l’isolement. Un appartement à 1 800 dollars ne coûte plus que 600 dollars par personne lorsqu’il est partagé à trois. De plus, il faut que les colocataires parlent tôt de leurs habitudes, du bruit et du ménage. Les petits malentendus deviennent vite des conflits lorsqu’ils s’accumulent. Par exemple, trois colocataires peuvent établir un planning de ménage et verser chaque mois la même somme dans une caisse commune. En conclusion, la colocation fonctionne quand chacun respecte les règles, l’intimité des autres et assume sa part de responsabilité.
+Pour ma part, la colocation est une bonne solution à condition que chacun respecte les règles communes. Tout d’abord, partager le loyer et les factures réduit les dépenses individuelles. L’argent économisé peut ainsi financer les études ou les transports. De plus, vivre avec d’autres personnes facilite l’intégration dans une nouvelle ville, car les échanges quotidiens évitent de rester isolé. Par exemple, un étudiant pourrait découvrir son quartier grâce à ses colocataires et partager un repas avec eux chaque semaine. En conclusion, je recommande la colocation pour ses avantages financiers et humains, avec des règles claires sur le ménage, le bruit et l’intimité.
 
-**Total : 174 mots (titre compris)**
+**Total : 159 mots (titre compris)**
 
 ---
 
@@ -318,11 +318,11 @@ Pour ma part, la colocation est enrichissante à condition que les règles soien
 
 Les deux documents abordent la place du travail dans la vie. Le premier déplore qu’il soit souvent associé à la fatigue et qu’il laisse trop peu de temps aux proches, d’où l’idée de travailler moins. En revanche, le second souligne qu’il construit l’identité, multiplie les contacts et donne le sentiment d’être utile.
 
-**Partie 2 — Point de vue personnel (115 mots)**
+**Partie 2 — Point de vue personnel (106 mots)**
 
-Pour ma part, le travail est positif s’il donne une place dans la société sans envahir la vie privée. Tout d’abord, un emploi apporte autonomie, relations et sentiment d’utilité. Participer à une équipe renforce la confiance en soi. De plus, il faut que les horaires laissent du temps pour la santé, la famille et les amis. Sans cela, le travail qui devrait soutenir la vie devient une source d’épuisement. Par exemple, une entreprise peut garantir deux soirées sans réunion ni courriel chaque semaine afin que les salariés puissent participer à une activité avec leurs proches. En conclusion, je valorise un emploi qui apporte lien social et autonomie sans empêcher de vivre en dehors du bureau.
+Pour ma part, le travail est important, mais il ne doit pas définir toute notre existence. Tout d’abord, participer à un projet renforce le sentiment d’utilité, car on voit comment ses compétences aident les autres. Les relations avec les collègues peuvent aussi réduire l’isolement. De plus, du temps libre permet de préserver les liens familiaux que le travail ne remplace pas. Par exemple, une entreprise pourrait répartir les tâches sur quatre jours pour que les salariés gardent une journée pour leurs proches. En conclusion, je défends un travail qui donne une place dans la société sans absorber le temps nécessaire pour vivre en dehors du bureau.
 
-**Total : 172 mots (titre compris)**
+**Total : 163 mots (titre compris)**
 
 ---
 
@@ -336,10 +336,10 @@ Pour ma part, le travail est positif s’il donne une place dans la société sa
 
 Les deux documents abordent les relations amicales au travail. Le premier affirme qu’elles améliorent l’ambiance, la communication, la coopération et la résolution des problèmes. En revanche, le second avertit que des liens trop exclusifs peuvent provoquer des tensions, exclure certains collègues et compromettre la hiérarchie, le professionnalisme ou la productivité.
 
-**Partie 2 — Point de vue personnel (109 mots)**
+**Partie 2 — Point de vue personnel (96 mots)**
 
-Pour ma part, l’amitié entre collègues est précieuse à condition que les décisions restent justes. Tout d’abord, bien connaître ses collègues facilite l’entraide et rend les échanges plus simples. Un employé qui se sent en confiance ose demander de l’aide ou signaler un problème avant qu’il ne s’aggrave. De plus, il faut que les affinités ne donnent aucun privilège au travail. Sinon, les personnes écartées se sentent exclues et l’équipe se divise. Par exemple, une responsable peut déjeuner avec une collègue proche, mais attribuer un projet selon des critères annoncés à tous. En conclusion, l’amitié améliore la vie au travail lorsqu’elle respecte l’équité, la hiérarchie et les objectifs communs.
+Pour ma part, l’amitié au travail est bénéfique si elle ne crée aucun privilège. Tout d’abord, la confiance facilite l’entraide, car on ose demander une explication ou signaler une erreur avant qu’elle s’aggrave. De plus, les décisions doivent suivre des critères transparents. Sinon, les collègues écartés peuvent perdre confiance et cesser de coopérer. Par exemple, une responsable pourrait déjeuner avec une amie, mais attribuer un projet selon les compétences annoncées à toute l’équipe. En conclusion, je soutiens des relations chaleureuses, avec des règles identiques pour tous et une séparation claire entre affinités personnelles et responsabilités professionnelles.
 
-**Total : 165 mots (titre compris)**
+**Total : 152 mots (titre compris)**
 
 ---

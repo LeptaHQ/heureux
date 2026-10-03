@@ -12,11 +12,11 @@
 
 Les deux documents abordent l’accueil des personnes âgées. Le premier préfère la vie avec les jeunes générations, qui préserve les liens familiaux et évite de confier ses proches à des inconnus. En revanche, le second affirme que les maisons de retraite réduisent l’isolement, offrent des soins adaptés et rassurent les familles, malgré leur coût élevé.
 
-**Partie 2 — Point de vue personnel (108 mots)**
+**Partie 2 — Point de vue personnel (99 mots)**
 
-Pour ma part, une maison de retraite peut être une bonne solution à condition que la personne âgée la choisisse et conserve des liens réguliers avec ses proches. Tout d’abord, un personnel qualifié assure les soins et réagit rapidement en cas d’urgence. Un malaise nocturne y est pris en charge en quelques minutes. De plus, les activités collectives réduisent l’isolement sans empêcher les visites familiales. Par exemple, une veuve vivant seule peut rejoindre un établissement proche de ses enfants, participer à des ateliers chaque jour et déjeuner avec eux le dimanche. En conclusion, je soutiens cette solution lorsqu’elle associe soins accessibles, consentement du résident et visites familiales régulières.
+Pour ma part, une maison de retraite peut compléter la solidarité familiale plutôt que la remplacer. Tout d’abord, un suivi professionnel permet de repérer une difficulté et d’intervenir rapidement. Les proches peuvent alors consacrer leurs visites à la relation plutôt qu’aux seules tâches médicales. De plus, vivre avec d’autres résidents crée des échanges réguliers qui limitent l’isolement. Par exemple, une personne peu autonome pourrait recevoir son traitement sur place, participer à des activités et déjeuner avec ses enfants le dimanche. En conclusion, je soutiens une solution accessible et librement choisie, avec des soins adaptés et des liens familiaux maintenus.
 
-**Total : 172 mots (titre compris)**
+**Total : 163 mots (titre compris)**
 
 ---
 
@@ -30,11 +30,11 @@ Pour ma part, une maison de retraite peut être une bonne solution à condition 
 
 Les deux documents abordent les cours de langue en ligne. Le premier apprécie leur disponibilité, la liberté d’organiser son horaire et les économies de déplacement. En revanche, le second rappelle qu’ils nécessitent une connexion fiable, un équipement adapté, beaucoup d’autonomie et une motivation durable pour ne pas abandonner.
 
-**Partie 2 — Point de vue personnel (107 mots)**
+**Partie 2 — Point de vue personnel (105 mots)**
 
-Pour ma part, l’apprentissage en ligne est efficace à condition qu’il associe flexibilité et lien humain. Tout d’abord, de courtes séances régulières s’intègrent facilement dans une journée chargée. Vingt minutes le soir demandent moins d’organisation qu’un cours hebdomadaire à l’autre bout de la ville. De plus, les échanges avec un professeur permettent de corriger la prononciation et de maintenir la motivation. Par exemple, une personne qui arrive au Québec peut étudier trente minutes chez elle trois soirs par semaine, puis participer à une conversation virtuelle le samedi. En conclusion, je recommande les cours en ligne lorsqu’ils offrent des objectifs clairs, un suivi régulier et un équipement accessible.
+Pour ma part, les cours de langue en ligne sont efficaces à condition qu’ils offrent un véritable suivi. Tout d’abord, leur souplesse facilite une pratique régulière, car chacun peut étudier sans perdre de temps dans les transports. Une journée chargée n’oblige donc pas à abandonner sa leçon. De plus, les échanges avec un professeur entretiennent la motivation, car on comprend ses erreurs et voit comment progresser. Par exemple, une salariée pourrait réviser chez elle trois soirs par semaine, puis pratiquer la conversation avec son enseignant le samedi. En conclusion, je recommande cette formule aux personnes bien équipées, avec des objectifs précis et un accompagnement humain.
 
-**Total : 162 mots (titre compris)**
+**Total : 160 mots (titre compris)**
 
 ---
 
@@ -48,11 +48,11 @@ Pour ma part, l’apprentissage en ligne est efficace à condition qu’il assoc
 
 Les deux documents abordent la présence d’animaux de compagnie au travail. Le premier estime qu’elle réduit le stress, améliore l’ambiance entre collègues et renforce la motivation. En revanche, le second redoute les allergies, les comportements imprévisibles et les distractions, qui peuvent nuire au confort des salariés et à leur productivité.
 
-**Partie 2 — Point de vue personnel (113 mots)**
+**Partie 2 — Point de vue personnel (105 mots)**
 
-Pour ma part, je suis favorable aux animaux au bureau à condition que des règles précises protègent toute l’équipe. Tout d’abord, leur présence peut apaiser les tensions et rendre les échanges plus chaleureux. Une courte pause auprès d’un chien détend et facilite la reprise du travail. De plus, l’employeur doit protéger les personnes allergiques ou craintives grâce à des espaces séparés et à des règles d’hygiène. Par exemple, une petite entreprise pourrait autoriser un chien calme chaque vendredi dans une salle déterminée, après avoir obtenu l’accord de toute l’équipe. En conclusion, j’accepterais les animaux au bureau seulement dans un cadre volontaire, avec des espaces séparés pour les personnes allergiques ou mal à l’aise.
+Pour ma part, les animaux au bureau sont acceptables seulement si le confort de toute l’équipe est protégé. Tout d’abord, leur présence peut favoriser des échanges informels, car une pause autour d’un animal crée un sujet commun en dehors des dossiers. De plus, des limites préviennent les conflits lorsque certains collègues sont allergiques ou craintifs. Par exemple, une petite entreprise pourrait tester la présence d’un chien calme dans un espace adapté, après un accord libre de chacun et une vérification des risques. En conclusion, je soutiens une expérience réversible et surveillée, mais je renoncerais si elle nuisait à la santé ou au travail d’un collègue.
 
-**Total : 171 mots (titre compris)**
+**Total : 163 mots (titre compris)**
 
 ---
 
@@ -66,11 +66,11 @@ Pour ma part, je suis favorable aux animaux au bureau à condition que des règl
 
 Les deux documents abordent la publicité. Le premier souligne qu’elle fait connaître les produits, annonce des promotions, permet de comparer les prix et finance certains services gratuits. En revanche, le second dénonce son omniprésence, les interruptions agaçantes et le gaspillage de papier, puis demande une réglementation qui la rende plus discrète.
 
-**Partie 2 — Point de vue personnel (100 mots)**
+**Partie 2 — Point de vue personnel (96 mots)**
 
-Pour ma part, il faut que la publicité soit encadrée sans être supprimée totalement. Tout d’abord, elle peut aider les consommateurs à comparer les offres et permettre aux petites entreprises de se faire connaître. Sans elle, un artisan récemment installé resterait peu visible face aux grandes enseignes. De plus, sa quantité, l’usage des données personnelles et les prospectus inutiles doivent être strictement limités. Par exemple, une application gratuite pourrait afficher une seule annonce clairement identifiée et offrir une version payante sans publicité. En conclusion, je défends une publicité limitée, clairement identifiée et respectueuse de la vie privée comme de l’environnement.
+Pour ma part, la publicité reste utile si elle informe sans envahir le quotidien. Tout d’abord, elle permet aux petits commerces d’annoncer leurs produits et leurs promotions. Les habitants découvrent ainsi des offres locales. De plus, limiter la quantité de publicités évite des déchets, car les prospectus non sollicités finissent souvent à la poubelle. Par exemple, une ville pourrait proposer un site de promotions consulté volontairement. Cela permettrait de comparer les prix sans remplir les boîtes aux lettres. En conclusion, je défends des annonces clairement identifiées et choisies par le public, non une présence permanente imposée.
 
-**Total : 156 mots (titre compris)**
+**Total : 152 mots (titre compris)**
 
 ---
 
@@ -84,11 +84,11 @@ Pour ma part, il faut que la publicité soit encadrée sans être supprimée tot
 
 Les deux documents abordent le rôle éducatif de la télévision. Le premier valorise son large accès à l’information, à la culture et aux grands enjeux sociaux. En revanche, le second dénonce les stéréotypes de certains programmes et un temps d’écran qui peut réduire la place de la lecture, du sport et des interactions sociales.
 
-**Partie 2 — Point de vue personnel (115 mots)**
+**Partie 2 — Point de vue personnel (100 mots)**
 
-Pour ma part, la télévision peut enrichir les apprentissages à condition qu’elle complète la lecture, le jeu et les échanges sans les remplacer. Tout d’abord, des documentaires adaptés éveillent la curiosité et rendent des sujets complexes plus concrets. Des images réelles aident ainsi l’enfant à comprendre un volcan ou une migration. De plus, la présence d’un adulte aide l’enfant à questionner les images et à développer son esprit critique. Par exemple, une famille peut regarder une courte émission sur les océans, puis chercher les pays mentionnés sur une carte et discuter de la pollution. En conclusion, je recommande des programmes courts choisis avec un adulte, en complément de la lecture, du jeu et des échanges.
+Pour ma part, la télévision peut enrichir les apprentissages si les adultes accompagnent les enfants. Tout d’abord, les documentaires rendent certains sujets plus concrets, car les images montrent ce qu’un enfant connaît seulement par les livres. De plus, une discussion après l’émission aide à distinguer une information d’un stéréotype. L’enfant apprend alors à questionner ce qu’il voit plutôt qu’à tout accepter. Par exemple, après un programme sur les animaux, une famille pourrait vérifier une affirmation dans un livre et comparer les explications. En conclusion, je recommande des programmes choisis et courts, qui complètent la lecture et les activités sans écran.
 
-**Total : 176 mots (titre compris)**
+**Total : 161 mots (titre compris)**
 
 ---
 
@@ -102,11 +102,11 @@ Pour ma part, la télévision peut enrichir les apprentissages à condition qu�
 
 Les deux documents abordent la colocation entre adultes. Le premier valorise les repas et les jeux partagés, la répartition des tâches ménagères et l’ouverture aux autres. En revanche, le second souligne la perte de soirées calmes, les invités que l’on n’a pas choisis et les tours de ménage qu’il faut respecter.
 
-**Partie 2 — Point de vue personnel (105 mots)**
+**Partie 2 — Point de vue personnel (104 mots)**
 
-Pour ma part, la colocation est une solution enrichissante à condition que les responsabilités soient définies dès le départ. Tout d’abord, le partage des dépenses permet de mieux maîtriser son budget. Le loyer, l’électricité et Internet, divisés en trois, libèrent une marge pour épargner. De plus, la vie commune rompt l’isolement et favorise l’entraide au quotidien. Par exemple, trois adultes peuvent établir un calendrier de ménage, fixer des heures calmes et verser chaque mois leur part des charges sur un compte commun. En conclusion, je recommande la colocation aux adultes prêts à partager les dépenses et les tâches dans le respect de l’intimité de chacun.
+Pour ma part, la colocation est enrichissante si elle laisse une place à la vie privée. Tout d’abord, partager des repas et des loisirs facilite l’intégration dans une nouvelle ville, car les échanges réguliers permettent de mieux se connaître. De plus, apprendre à négocier développe le respect des autres au lieu de laisser les petits désaccords s’accumuler. Par exemple, deux colocataires pourraient prévoir une soirée commune et convenir de prévenir avant d’inviter des amis, pour préserver aussi des moments calmes. En conclusion, je recommande cette vie partagée pour sa convivialité et son apprentissage du dialogue, avec des responsabilités claires et le respect de l’intimité.
 
-**Total : 165 mots (titre compris)**
+**Total : 164 mots (titre compris)**
 
 ---
 
@@ -120,11 +120,11 @@ Pour ma part, la colocation est une solution enrichissante à condition que les 
 
 Les deux documents abordent l’adoption d’un animal de compagnie pour un enfant. Le premier met en avant la compagnie, la confiance en soi, l’autonomie et l’apprentissage du respect d’un être vivant. De son côté, le second rappelle qu’un animal coûte cher, exige des soins pendant de longues années et ne saurait devenir un jouet abandonné.
 
-**Partie 2 — Point de vue personnel (117 mots)**
+**Partie 2 — Point de vue personnel (102 mots)**
 
-Pour ma part, je trouve cette expérience bénéfique à condition que toute la famille accepte d’en assumer la responsabilité. Tout d’abord, prendre soin d’un être vivant développe l’empathie et le sens des responsabilités dès le plus jeune âge. Nourrir et brosser un animal chaque jour impose une régularité formatrice. De plus, les parents doivent vérifier que leur budget et leur emploi du temps permettent des soins durables. Par exemple, un enfant de dix ans peut nourrir le chat et nettoyer son bol, tandis que ses parents paient les soins et organisent sa garde pendant les vacances. En conclusion, je soutiens l’adoption si les adultes garantissent les soins et placent les besoins de l’animal avant un désir passager.
+Pour ma part, un animal peut enrichir la vie d’un enfant si les adultes s’engagent à garantir ses soins. Tout d’abord, nourrir et brosser un animal développe le sens des responsabilités, car ces gestes restent nécessaires même quand l’enfant préfère jouer. De plus, sa présence peut réduire la solitude en créant une routine rassurante. Par exemple, après un déménagement, un enfant pourrait promener son chien avec un parent chaque soir et retrouver un moment familier dans son nouveau quartier. En conclusion, je soutiens l’adoption seulement lorsque la famille dispose du temps et du budget nécessaires pour respecter durablement les besoins de l’animal.
 
-**Total : 180 mots (titre compris)**
+**Total : 165 mots (titre compris)**
 
 ---
 
@@ -138,11 +138,11 @@ Pour ma part, je trouve cette expérience bénéfique à condition que toute la 
 
 Les deux documents abordent la lecture des enfants. Le premier refuse de l’imposer et préfère laisser chaque jeune choisir librement parmi ses nombreux loisirs. En revanche, le second souligne qu’une pratique régulière enrichit le langage, améliore la concentration et crée un moment partagé qui renforce la complicité entre parents et enfants.
 
-**Partie 2 — Point de vue personnel (106 mots)**
+**Partie 2 — Point de vue personnel (102 mots)**
 
-Pour ma part, il faut que les adultes encouragent la lecture sans la transformer en obligation pénible. Tout d’abord, laisser l’enfant choisir un roman, une bande dessinée ou un documentaire nourrit sa curiosité. Un livre imposé devient vite une corvée, alors qu’un livre choisi se lit jusqu’au bout. De plus, une courte routine familiale donne l’exemple et installe le goût de la lecture progressivement. Par exemple, un parent peut consacrer dix minutes chaque soir à lire avec son enfant une histoire choisie ensemble, puis écouter ses réactions. En conclusion, je préfère une routine courte et librement choisie à une obligation qui ferait des livres une corvée.
+Pour ma part, il faut encourager la lecture sans l’imposer comme une corvée. Tout d’abord, choisir un livre selon ses intérêts donne envie de poursuivre l’histoire. L’enfant rencontre alors de nouveaux mots dans un contexte qu’il comprend et retient plus facilement. De plus, lire avec un adulte transforme une difficulté en moment de complicité, car l’enfant peut poser ses questions sans crainte. Par exemple, un parent pourrait lire dix minutes une bande dessinée choisie par son fils, puis discuter avec lui des personnages. En conclusion, je préfère une pratique courte, régulière et plaisante à une obligation qui éloignerait les enfants des livres.
 
-**Total : 166 mots (titre compris)**
+**Total : 162 mots (titre compris)**
 
 ---
 
@@ -156,11 +156,11 @@ Pour ma part, il faut que les adultes encouragent la lecture sans la transformer
 
 Les deux documents abordent les vêtements de marque pour les enfants. Le premier y voit un moyen d’exprimer sa personnalité et d’appartenir à un groupe, notamment pendant l’adolescence. En revanche, le second rappelle que les enfants grandissent vite, portent leurs habits très peu de temps et les abîment en jouant dehors.
 
-**Partie 2 — Point de vue personnel (95 mots)**
+**Partie 2 — Point de vue personnel (104 mots)**
 
-Pour ma part, bien que certaines marques plaisent aux enfants, elles ne devraient pas guider la majorité des achats. Tout d’abord, des vêtements confortables et résistants protègent mieux le budget familial lorsque les tailles changent rapidement. De plus, limiter la course aux logos réduit la pression sociale et la consommation inutile. Par exemple, une famille peut acheter des habits d’occasion pour le quotidien et choisir une paire de chaussures solides pour l’activité sportive de l’enfant. En conclusion, je privilégie des vêtements utiles, durables et choisis selon le goût de l’enfant plutôt que selon leur logo.
+Pour ma part, les vêtements de marque peuvent faire plaisir, mais ils ne devraient pas guider tous les achats. Tout d’abord, les enfants grandissent vite, ce qui limite la durée d’utilisation des habits. Dépenser beaucoup pour une tenue portée quelques mois laisse moins d’argent pour d’autres besoins. De plus, choisir selon le confort plutôt que le logo réduit la pression sociale. Un jeune apprend ainsi que sa valeur ne dépend pas de ses vêtements. Par exemple, des parents pourraient offrir un tee-shirt de marque pour un anniversaire et acheter les tenues quotidiennes d’occasion. En conclusion, je privilégie des habits utiles, abordables et librement choisis.
 
-**Total : 155 mots (titre compris)**
+**Total : 164 mots (titre compris)**
 
 ---
 
@@ -174,11 +174,11 @@ Pour ma part, bien que certaines marques plaisent aux enfants, elles ne devraien
 
 Un seul document traite réellement de l’uniforme scolaire, car le premier document invalide a été retiré de la source. Le texte exploitable constate que certaines écoles publiques québécoises imposent l’uniforme, mais que des adolescents le jugent inconfortable, trop chaud et peu esthétique, et regrettent qu’il limite l’expression de leur personnalité.
 
-**Partie 2 — Point de vue personnel (111 mots)**
+**Partie 2 — Point de vue personnel (103 mots)**
 
-Pour ma part, je suis favorable à un uniforme souple à condition qu’il soit abordable et adapté aux saisons. Tout d’abord, une tenue commune peut réduire la comparaison des marques et faciliter la préparation du matin. Les élèves s’habillent sans hésiter et les écarts de moyens se voient moins dans la cour. De plus, plusieurs coupes et couleurs permettent de conserver une certaine liberté sans perdre la cohérence collective. Par exemple, une école québécoise pourrait proposer des pantalons, des jupes et des polos respirants parmi lesquels chaque élève compose sa tenue. En conclusion, je soutiens un uniforme seulement si les élèves participent au choix de tenues confortables, inclusives et financièrement accessibles.
+Pour ma part, un uniforme n’est acceptable que s’il est confortable et choisi avec les élèves. Tout d’abord, des vêtements adaptés aux saisons évitent que la tenue devienne une gêne pendant les cours. Une règle scolaire ne devrait pas imposer de supporter la chaleur. De plus, plusieurs coupes et couleurs laissent une liberté réelle, car les adolescents peuvent composer une tenue qui leur ressemble. Par exemple, une école pourrait proposer des polos respirants et différents pantalons après avoir recueilli l’avis des jeunes. En conclusion, je soutiens un cadre vestimentaire souple et abordable, non une tenue unique décidée sans écouter ceux qui la portent.
 
-**Total : 168 mots (titre compris)**
+**Total : 160 mots (titre compris)**
 
 ---
 
@@ -192,11 +192,11 @@ Pour ma part, je suis favorable à un uniforme souple à condition qu’il soit 
 
 Les deux documents abordent les caméras de surveillance à l’école. Le premier affirme qu’elles découragent la violence et rassurent les parents comme les enseignants, malgré les réserves de certains élèves. En revanche, le second doute de leur efficacité face aux zones non filmées et préfère renforcer le règlement ainsi que le dialogue.
 
-**Partie 2 — Point de vue personnel (99 mots)**
+**Partie 2 — Point de vue personnel (93 mots)**
 
-Pour ma part, les caméras peuvent compléter la prévention à condition qu’elles ne remplacent jamais la présence humaine. Tout d’abord, des images limitées aux accès facilitent l’analyse d’un incident grave. Elles permettent d’identifier une intrusion sans filmer les salles de classe. De plus, la médiation, des règles claires et la confiance préviennent davantage les conflits quotidiens. Par exemple, une école pourrait filmer uniquement ses entrées, effacer les données après quarante-huit heures et réserver leur consultation à deux responsables autorisés. En conclusion, je les accepte uniquement pour des besoins précis, transparents et contrôlés, tandis que le dialogue doit rester prioritaire.
+Pour ma part, les caméras à l’école doivent rester limitées aux besoins de sécurité clairement établis. Tout d’abord, un enregistrement peut éclairer un incident, tandis qu’un adulte disponible peut parfois l’empêcher. L’écoute permet d’intervenir avant qu’un conflit dégénère. De plus, des règles transparentes protègent la vie privée, car elles empêchent de consulter les images par simple curiosité. Par exemple, une école pourrait filmer son entrée et informer les familles des personnes autorisées à voir les enregistrements. En conclusion, je privilégie le dialogue et une présence humaine, avec des caméras seulement comme complément contrôlé.
 
-**Total : 159 mots (titre compris)**
+**Total : 153 mots (titre compris)**
 
 ---
 
@@ -210,11 +210,11 @@ Pour ma part, les caméras peuvent compléter la prévention à condition qu’e
 
 Les deux documents abordent les nouvelles technologies à l’école. Le premier souligne qu’elles donnent accès à de nombreuses ressources et stimulent l’engagement, la créativité ainsi que l’autonomie. En revanche, le second craint une dépendance aux écrans et un recul des interactions humaines, puis défend le contact direct et les méthodes traditionnelles.
 
-**Partie 2 — Point de vue personnel (104 mots)**
+**Partie 2 — Point de vue personnel (102 mots)**
 
-Pour ma part, les technologies sont utiles à condition qu’elles servent un objectif pédagogique précis. Tout d’abord, elles facilitent l’accès à des ressources variées et permettent d’adapter certains exercices au rythme des élèves. Un élève en difficulté peut refaire un exercice autant de fois que nécessaire. De plus, leur usage raisonné développe des compétences numériques nécessaires sans supprimer la coopération. Par exemple, un enseignant peut faire explorer une carte interactive par binômes pendant vingt minutes, puis organiser un débat oral sans écran. En conclusion, je soutiens un usage limité, guidé par le professeur et alterné avec les livres, l’oral et le travail en groupe.
+Pour ma part, les technologies sont utiles à l’école si elles servent un objectif pédagogique précis. Tout d’abord, un exercice numérique permet de travailler à son rythme. Ainsi, un élève peut recommencer sans attendre toute la classe. De plus, les échanges avec le professeur restent indispensables pour expliquer une erreur et apprendre à défendre une idée. L’écran ne remplace donc pas la relation humaine. Par exemple, des élèves pourraient comparer deux sources sur une tablette, puis discuter oralement de leur fiabilité. En conclusion, je recommande un usage limité qui associe ressources numériques, livres et travail collectif plutôt qu’un enseignement entièrement sur écran.
 
-**Total : 164 mots (titre compris)**
+**Total : 162 mots (titre compris)**
 
 ---
 
@@ -228,11 +228,11 @@ Pour ma part, les technologies sont utiles à condition qu’elles servent un ob
 
 Les deux documents abordent les produits faits maison. Le premier apprécie le contrôle des ingrédients, l’emploi de composants naturels et la réduction des emballages. De son côté, le second reconnaît les économies, mais alerte sur les risques sanitaires liés à de mauvais ingrédients, au manque d’hygiène ou à une mauvaise conservation, ainsi que sur le temps nécessaire à la fabrication.
 
-**Partie 2 — Point de vue personnel (107 mots)**
+**Partie 2 — Point de vue personnel (99 mots)**
 
-Pour ma part, fabriquer certains produits simples est intéressant à condition que l’on suive des consignes fiables. Tout d’abord, cette pratique permet de choisir la composition et de réduire les emballages plastiques. Du vinaigre et du savon noir peuvent remplacer plusieurs flacons industriels. De plus, il faut distinguer un produit ménager courant d’une crème ou d’un savon dont la préparation exige de vraies précautions. Par exemple, une personne peut préparer un nettoyant selon une recette validée, l’étiqueter clairement et le conserver hors de portée des enfants. En conclusion, je recommande seulement les recettes simples et validées. Il vaut mieux renoncer aux préparations que l’on ne maîtrise pas.
+Pour ma part, fabriquer certains produits est intéressant, mais il faut privilégier la sécurité plutôt que le seul caractère naturel. Tout d’abord, réutiliser les contenants réduit les déchets, car un même flacon sert à plusieurs préparations. De plus, suivre des règles précises évite les erreurs qui peuvent irriter la peau ou favoriser une contamination. Par exemple, une personne pourrait choisir une recette vérifiée de nettoyant ménager, respecter sa conservation et acheter les soins qu’elle ne sait pas préparer. En conclusion, je recommande uniquement des préparations simples et maîtrisées, lorsque le temps disponible permet de respecter toutes les précautions nécessaires.
 
-**Total : 176 mots (titre compris)**
+**Total : 168 mots (titre compris)**
 
 ---
 
@@ -246,11 +246,11 @@ Pour ma part, fabriquer certains produits simples est intéressant à condition 
 
 Les deux documents abordent la télévision pour les enfants. Le premier valorise les programmes jeunesse de qualité lorsque les parents choisissent les contenus et limitent le temps d’écran. De son côté, le second craint qu’un visionnage passif freine l’imagination en remplaçant des activités essentielles comme le jeu et la lecture.
 
-**Partie 2 — Point de vue personnel (107 mots)**
+**Partie 2 — Point de vue personnel (105 mots)**
 
-Pour ma part, la télévision a sa place dans la vie familiale à condition qu’elle reste limitée et accompagnée. Tout d’abord, un programme bien choisi peut divertir tout en éveillant la curiosité. Une émission sur les animaux nourrit des questions que l’enfant pose ensuite. De plus, prolonger son contenu par une discussion ou une activité créative empêche l’enfant de rester simple spectateur. Par exemple, après une courte émission de bricolage, un enfant peut inventer son propre objet avec du carton, puis l’expliquer à ses parents. En conclusion, je recommande des horaires courts, des programmes choisis et une activité sans écran pour prolonger ce que l’enfant a vu.
+Pour ma part, la télévision peut être bénéfique si elle laisse les enfants participer et imaginer. Tout d’abord, discuter d’une émission apprend à exprimer ses goûts, car l’enfant doit expliquer ce qu’il a aimé ou compris. De plus, prolonger le programme par une activité évite de rester un simple spectateur. Par exemple, après une courte émission de bricolage, un enfant pourrait inventer un objet en carton et présenter ses propres choix à ses parents. En conclusion, je recommande des programmes choisis ensemble, avec une durée limitée et une activité sans écran, afin que la télévision stimule la curiosité sans remplacer le jeu ni la lecture.
 
-**Total : 164 mots (titre compris)**
+**Total : 162 mots (titre compris)**
 
 ---
 
@@ -264,11 +264,11 @@ Pour ma part, la télévision a sa place dans la vie familiale à condition qu�
 
 Les deux documents abordent la vie des jeunes chez leurs parents. Le premier présente la stabilité, les repas, l’aide quotidienne et les économies de logement, notamment pendant les études. En revanche, le second, revenu chez ses parents après la perte d’un emploi, souligne le manque de liberté et d’intimité ainsi que les obstacles à l’indépendance.
 
-**Partie 2 — Point de vue personnel (110 mots)**
+**Partie 2 — Point de vue personnel (101 mots)**
 
-Pour ma part, vivre chez ses parents est raisonnable à condition que cette étape prépare un retour à l’autonomie. Tout d’abord, l’économie de loyer permet de reprendre des études, de chercher un emploi ou de constituer une réserve financière. Sans cette charge mensuelle, on peut financer une formation ou épargner pour le dépôt d’un futur logement. De plus, l’adulte doit contribuer aux tâches et respecter les besoins de chacun. Par exemple, un jeune salarié peut payer une partie des courses, cuisiner deux soirs par semaine et épargner chaque mois pour son futur logement. En conclusion, je soutiens ce choix temporaire lorsque les responsabilités, l’objectif d’épargne et l’échéance sont fixés ensemble.
+Pour ma part, vivre chez ses parents est raisonnable si cette étape prépare l’autonomie. Tout d’abord, économiser le loyer permet de financer un projet, car une charge importante disparaît temporairement. Un jeune peut ainsi reprendre des études ou constituer une réserve pour un logement. De plus, contribuer à la vie commune entretient le sens des responsabilités au lieu de renforcer la dépendance. Par exemple, un salarié pourrait participer aux courses, cuisiner certains soirs et prévoir une épargne mensuelle pour son départ. En conclusion, je soutiens un accueil fondé sur des règles discutées, un espace privé respecté et un projet réaliste d’indépendance.
 
-**Total : 173 mots (titre compris)**
+**Total : 164 mots (titre compris)**
 
 ---
 
@@ -282,11 +282,11 @@ Pour ma part, vivre chez ses parents est raisonnable à condition que cette éta
 
 Les deux documents abordent l’impact environnemental du grossissement des villes. Le premier dénonce la déforestation et la disparition d’espaces verts capables de retenir le carbone au profit des bâtiments et des routes. En revanche, le second rappelle qu’un citadin peut consommer moins d’énergie qu’un habitant rural, ce qui nuance l’image systématiquement antiécologique des villes.
 
-**Partie 2 — Point de vue personnel (111 mots)**
+**Partie 2 — Point de vue personnel (103 mots)**
 
-Pour ma part, la croissance urbaine peut être durable à condition qu’elle privilégie la densité, les transports en commun et les espaces verts. Tout d’abord, une ville compacte limite les longs déplacements et partage plus efficacement ses infrastructures. Chauffer des logements mitoyens et desservir un quartier dense consomment moins d’énergie par habitant. De plus, les municipalités doivent construire sur des terrains déjà urbanisés plutôt que détruire les forêts voisines. Par exemple, une municipalité peut transformer un ancien stationnement près du métro en logements, en commerces et en parc public. En conclusion, je soutiens une ville compacte qui construit sur des terrains déjà urbanisés, protège la nature et offre des transports efficaces.
+Pour ma part, la croissance urbaine peut être durable si elle utilise mieux les espaces déjà construits. Tout d’abord, un quartier dense facilite les déplacements courts et les transports collectifs, car les habitants partagent des services proches. De plus, réutiliser des terrains urbanisés évite de détruire les forêts voisines et conserve leur rôle écologique. Par exemple, une ville pourrait transformer un ancien stationnement près du métro en logements et en commerces, tout en aménageant un parc. En conclusion, je soutiens une ville compacte qui protège la nature, plutôt qu’un étalement continu : accueillir davantage d’habitants ne doit pas signifier supprimer toujours plus d’espaces verts.
 
-**Total : 171 mots (titre compris)**
+**Total : 163 mots (titre compris)**
 
 ---
 
@@ -300,11 +300,11 @@ Pour ma part, la croissance urbaine peut être durable à condition qu’elle pr
 
 Les deux documents abordent la restauration rapide. Le premier affirme que l’offre peut être variée, équilibrée et conforme aux règles d’hygiène, le client restant responsable de son menu. En revanche, le second dénonce des repas trop caloriques et répétitifs, accompagnés de boissons sucrées, ainsi qu’une importante production de déchets plastiques.
 
-**Partie 2 — Point de vue personnel (103 mots)**
+**Partie 2 — Point de vue personnel (101 mots)**
 
-Pour ma part, je considère la restauration rapide comme une solution occasionnelle, non comme une habitude. Tout d’abord, sa rapidité peut dépanner les personnes pressées, à condition que les informations nutritionnelles soient claires. Un repas servi en quelques minutes permet de manger pendant une courte pause. De plus, les restaurants doivent proposer davantage de produits frais et de contenants réutilisables. Par exemple, un salarié peut choisir un sandwich aux légumes, un fruit et de l’eau, servis dans un emballage consigné pendant sa courte pause. En conclusion, je l’accepte comme dépannage si les enseignes rendent les choix sains abordables et réduisent réellement les déchets.
+Pour ma part, la restauration rapide peut dépanner, mais les enseignes doivent faciliter des choix plus responsables. Tout d’abord, des informations nutritionnelles claires permettent de comparer les menus, car le client ne devine pas toujours leur quantité de sel ou de sucre. De plus, la vaisselle réutilisable réduit les déchets lorsqu’on mange sur place. Un service rapide n’exige donc pas systématiquement des emballages jetables. Par exemple, un restaurant pourrait proposer une formule avec légumes, fruit et eau, servie dans une assiette lavable. En conclusion, j’accepte cette solution occasionnelle si les choix équilibrés sont accessibles et si les restaurants réduisent leurs déchets.
 
-**Total : 162 mots (titre compris)**
+**Total : 160 mots (titre compris)**
 
 ---
 
@@ -318,11 +318,11 @@ Pour ma part, je considère la restauration rapide comme une solution occasionne
 
 Les deux documents abordent les effets des jeux vidéo. Le premier attribue à certains jeux une amélioration de l’analyse, de la prise de décision et des réflexes chez les adultes. De son côté, le second associe une pratique intensive chez les enfants au stress, à la nervosité, à la violence et à de moins bons résultats scolaires.
 
-**Partie 2 — Point de vue personnel (105 mots)**
+**Partie 2 — Point de vue personnel (102 mots)**
 
-Pour ma part, les jeux vidéo peuvent être un loisir stimulant à condition qu’ils soient adaptés à l’âge et limités dans le temps. Tout d’abord, certains jeux développent la stratégie, la coordination et la persévérance. Recommencer un niveau difficile oblige le joueur à analyser ses erreurs au lieu d’abandonner. De plus, des règles familiales protègent le sommeil, les études et l’activité physique. Par exemple, un adolescent peut jouer quarante-cinq minutes à un jeu de réflexion après ses devoirs, puis rejoindre son équipe de sport. En conclusion, je les accepte comme loisir lorsque le contenu, la durée et l’équilibre avec les autres activités sont clairement encadrés.
+Pour ma part, les jeux vidéo peuvent être stimulants, mais leurs bénéfices dépendent du contenu et de la durée. Tout d’abord, un jeu de réflexion entraîne l’analyse, car le joueur doit comparer des solutions et corriger ses erreurs. Cette activité demande donc autre chose que des réactions automatiques. De plus, une limite de temps protège le sommeil et les devoirs en laissant de la place aux autres occupations. Par exemple, un adolescent pourrait terminer ses exercices, jouer trente minutes à un jeu de stratégie, puis rejoindre ses amis dehors. En conclusion, je préfère un loisir varié et encadré à une pratique excessive.
 
-**Total : 171 mots (titre compris)**
+**Total : 168 mots (titre compris)**
 
 ---
 
@@ -336,10 +336,10 @@ Pour ma part, les jeux vidéo peuvent être un loisir stimulant à condition qu�
 
 Les deux documents abordent la réduction du temps de travail. Le premier la présente comme favorable à l’équilibre personnel, à la santé, à la satisfaction et parfois à la productivité des salariés. De son côté, le second ajoute qu’elle réduit l’absentéisme et fidélise le personnel si l’organisation et les processus sont adaptés pour maintenir l’efficacité.
 
-**Partie 2 — Point de vue personnel (116 mots)**
+**Partie 2 — Point de vue personnel (103 mots)**
 
-Pour ma part, réduire le temps de travail est bénéfique à condition que la même charge ne soit pas simplement concentrée sur moins d’heures. Tout d’abord, des salariés reposés sont souvent plus attentifs, motivés et fidèles à leur employeur. Moins de fatigue signifie aussi moins d’erreurs coûteuses. De plus, l’entreprise doit réorganiser les priorités et garantir la continuité de ses services. Par exemple, une clinique peut répartir les semaines de quatre jours entre ses équipes afin de rester ouverte chaque jour sans multiplier les heures supplémentaires. En conclusion, je soutiens une réduction adaptée à chaque activité, négociée avec les salariés et évaluée selon ses effets sur la santé, la qualité du travail et le service rendu.
+Pour ma part, réduire le temps de travail est souhaitable si l’entreprise adapte réellement son organisation. Tout d’abord, davantage de repos aide les salariés à récupérer, ce qui peut améliorer leur attention et limiter les erreurs. De plus, revoir les priorités évite de concentrer la même pression sur des journées plus courtes. Par exemple, une entreprise pourrait supprimer des réunions inutiles, répartir les équipes sur quatre jours et mesurer la qualité du service pendant trois mois. En conclusion, je soutiens une réduction négociée qui préserve les salaires et améliore la vie des salariés, plutôt qu’un simple changement d’horaires sans diminution de la charge.
 
-**Total : 179 mots (titre compris)**
+**Total : 166 mots (titre compris)**
 
 ---

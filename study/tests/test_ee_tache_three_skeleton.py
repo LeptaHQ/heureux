@@ -170,7 +170,7 @@ class EeTacheThreeSkeletonTests(SimpleTestCase):
             effective["ee-tache3:janvier:combinaison-19"].position_claire,
         )
         self.assertIn(
-            "un accès rapide à une boisson aide les élèves à rester concentrés",
+            "boire pendant une courte pause sans quitter l’établissement",
             effective["ee-tache3:janvier:combinaison-1"].position_claire,
         )
         self.assertNotIn(
@@ -178,11 +178,11 @@ class EeTacheThreeSkeletonTests(SimpleTestCase):
             source["ee-tache3:avril:combinaison-4"].point_de_vue,
         )
         self.assertIn(
-            "répartit les tâches sur quatre jours",
+            "répartir les tâches sur quatre jours",
             source["ee-tache3:mai:combinaison-3"].point_de_vue,
         )
         self.assertIn(
-            "un jeu de gestion pousse un adolescent à élaborer une stratégie",
+            "consulter un professionnel si leur enfant n’arrive plus à s’arrêter",
             source["ee-tache3:mai:combinaison-3-bis"].point_de_vue,
         )
         self.assertNotIn(
@@ -201,6 +201,38 @@ class EeTacheThreeSkeletonTests(SimpleTestCase):
             "Le texte exploitable constate",
             source["ee-tache3:decembre:combinaison-10"].synthese,
         )
+
+    def test_source_opinions_match_the_current_canonical_response(self):
+        canonical_by_key = content.ee_canonical_by_content_key(3)
+        for source in self.sources:
+            key = canonical_by_key.get(source.content_key, source.content_key)
+            with self.subTest(key=source.content_key):
+                self.assertEqual(
+                    source.point_de_vue,
+                    self.response_by_key[key].position_claire,
+                )
+
+    def test_rewritten_opinions_leave_room_for_the_synthesis_and_title(self):
+        for response in self.responses:
+            with self.subTest(key=response.content_key):
+                self.assertLessEqual(
+                    content._ee_word_count(response.position_claire), 110,
+                )
+
+    def test_rewritten_examples_support_the_developed_argument(self):
+        effective = self.response_by_key
+        flight = effective["ee-tache3:janvier:combinaison-19"].position_claire
+        self.assertIn("les frais de bagage peuvent augmenter la facture", flight)
+        self.assertIn("un billet comprenant sa valise", flight)
+        self.assertIn("la sécurité soit garantie quel que soit le tarif", flight)
+        self.assertNotIn("meilleures garanties de sécurité", flight)
+        devices = effective["ee-tache3:aout:combinaison-13"].position_claire
+        self.assertIn("des mises à jour régulières corrigent certaines failles", devices)
+        self.assertIn("une caméra dont le fabricant assure les mises à jour", devices)
+        street_art = effective["ee-tache3:novembre:combinaison-10"].position_claire
+        self.assertIn("apporter des clients aux commerces voisins", street_art)
+        self.assertIn("une promenade autour de fresques autorisées", street_art)
+        self.assertIn("près des cafés et des boutiques", street_art)
 
     def test_complete_source_pairs_use_the_flexible_synthesis_frame(self):
         for source in self.sources:

@@ -12,11 +12,11 @@
 
 Les deux documents abordent la publicité. Le premier la juge indispensable pour faire connaître les produits, signaler les promotions, comparer les prix et financer certains services gratuits. En revanche, le second dénonce son omniprésence, les interruptions de programmes et le gaspillage de papier qu’elle entraîne, et demande une réglementation plus stricte.
 
-**Partie 2 — Point de vue personnel (116 mots)**
+**Partie 2 — Point de vue personnel (96 mots)**
 
-Pour ma part, la publicité reste utile à condition qu’elle soit mieux encadrée. Tout d’abord, elle informe les consommateurs et aide les petites entreprises à faire connaître leurs produits. Sans elle, un commerce de quartier aurait plus de mal à annoncer son ouverture ou ses promotions. De plus, une diffusion moins envahissante protège l’attention et réduit les déchets. Par exemple, une municipalité pourrait interdire les prospectus non sollicités tout en autorisant une plateforme locale présentant les promotions des commerces. Cela permettrait aux habitants de comparer les prix sans remplir leurs boîtes aux lettres. En conclusion, le plus important est de limiter la quantité de publicités, d’exiger leur transparence et de privilégier des supports respectueux de l’environnement.
+Pour ma part, la publicité reste utile si elle informe sans envahir le quotidien. Tout d’abord, elle permet aux petits commerces d’annoncer leurs produits et leurs promotions. Les habitants découvrent ainsi des offres locales. De plus, limiter la quantité de publicités évite des déchets, car les prospectus non sollicités finissent souvent à la poubelle. Par exemple, une ville pourrait proposer un site de promotions consulté volontairement. Cela permettrait de comparer les prix sans remplir les boîtes aux lettres. En conclusion, je défends des annonces clairement identifiées et choisies par le public, non une présence permanente imposée.
 
-**Total : 172 mots (titre compris)**
+**Total : 152 mots (titre compris)**
 
 ---
 
@@ -30,11 +30,11 @@ Pour ma part, la publicité reste utile à condition qu’elle soit mieux encadr
 
 Les deux documents abordent les vols à bas prix. Le premier apprécie des tarifs parfois inférieurs à ceux du train ou de la voiture, malgré l’absence de services, mais les déconseille pour les longs trajets. En revanche, le second critique l’inconfort, les conditions de travail et l’état vieillissant des appareils, qui peut compromettre la sécurité.
 
-**Partie 2 — Point de vue personnel (115 mots)**
+**Partie 2 — Point de vue personnel (105 mots)**
 
-Pour ma part, j’accepterais un vol à bas prix pour un trajet court, à condition que le tarif soit transparent et que les normes de sécurité soient respectées. Tout d’abord, ces compagnies rendent les déplacements accessibles aux petits budgets. Leurs tarifs peuvent coûter moins cher qu’un trajet en voiture ou en train, ce qui permet de voyager plus souvent. De plus, le faible prix ne doit jamais faire oublier la sécurité ni les conditions de travail du personnel. Par exemple, entre Montréal et Toronto, je privilégierais le train, qui permet de travailler confortablement pendant le voyage. En conclusion, le plus important est de choisir selon le coût total, la sécurité, la durée et l’impact environnemental.
+Pour ma part, je choisirais un vol à bas prix pour un trajet court si les normes sont respectées. Tout d’abord, un tarif abordable rend le voyage accessible aux personnes qui disposent de peu d’argent. L’absence de repas est alors un compromis acceptable. De plus, comparer le coût total évite les fausses économies, car les frais de bagage peuvent augmenter la facture. Par exemple, un voyageur pourrait comparer un aller-retour à bas prix vers l’Espagne avec un billet comprenant sa valise. En conclusion, je choisirais selon le prix réel et le confort, mais il faut que la sécurité soit garantie quel que soit le tarif.
 
-**Total : 178 mots (titre compris)**
+**Total : 168 mots (titre compris)**
 
 ---
 
@@ -48,11 +48,11 @@ Pour ma part, j’accepterais un vol à bas prix pour un trajet court, à condit
 
 Les deux documents abordent les cours de langue en ligne. Le premier apprécie leur flexibilité, leur accès depuis tout lieu et les économies de transport. En revanche, le second rappelle qu’une connexion fiable, un équipement adapté, de l’autonomie et une forte motivation sont nécessaires pour éviter le découragement et l’abandon.
 
-**Partie 2 — Point de vue personnel (118 mots)**
+**Partie 2 — Point de vue personnel (105 mots)**
 
-Pour ma part, l’apprentissage en ligne est efficace à condition que la flexibilité soit associée à un encadrement. Tout d’abord, les ressources numériques permettent de réviser régulièrement sans perdre de temps dans les déplacements. Une leçon suivie depuis son salon ou un café proche s’intègre plus facilement dans une journée chargée. De plus, un professeur peut corriger la prononciation et entretenir la motivation. Par exemple, une personne nouvellement installée au Québec peut suivre trois courtes leçons chez elle chaque semaine et participer le samedi à une conversation de groupe. Cette régularité permet de progresser sans s’isoler. En conclusion, il faut que les cours en ligne restent flexibles tout en offrant des objectifs clairs et un véritable lien humain.
+Pour ma part, les cours de langue en ligne sont efficaces à condition qu’ils offrent un véritable suivi. Tout d’abord, leur souplesse facilite une pratique régulière, car chacun peut étudier sans perdre de temps dans les transports. Une journée chargée n’oblige donc pas à abandonner sa leçon. De plus, les échanges avec un professeur entretiennent la motivation, car on comprend ses erreurs et voit comment progresser. Par exemple, une salariée pourrait réviser chez elle trois soirs par semaine, puis pratiquer la conversation avec son enseignant le samedi. En conclusion, je recommande cette formule aux personnes bien équipées, avec des objectifs précis et un accompagnement humain.
 
-**Total : 175 mots (titre compris)**
+**Total : 162 mots (titre compris)**
 
 ---
 
@@ -66,10 +66,10 @@ Pour ma part, l’apprentissage en ligne est efficace à condition que la flexib
 
 Les deux documents abordent la prise en charge des personnes âgées. Le premier préfère la vie avec les jeunes générations, qui préserve les liens familiaux et évite de confier un proche à des inconnus. En revanche, le second affirme que les maisons de retraite réduisent l’isolement, assurent des soins adaptés et rassurent les familles, malgré leur coût.
 
-**Partie 2 — Point de vue personnel (108 mots)**
+**Partie 2 — Point de vue personnel (99 mots)**
 
-Pour ma part, les maisons de retraite sont une bonne solution à condition qu’elles répondent réellement aux besoins de chacun. Tout d’abord, un personnel qualifié peut assurer des soins continus et prévenir les accidents. Une surveillance quotidienne permet de repérer tôt un problème de santé et d’éviter des hospitalisations répétées. De plus, les activités collectives favorisent le lien social sans remplacer les visites familiales. Par exemple, une résidente peu autonome peut recevoir son traitement sur place, participer à un atelier de musique et dîner chaque dimanche avec ses enfants. En conclusion, le plus important est d’offrir un choix accessible entre accompagnement à domicile, accueil spécialisé et solidarité familiale.
+Pour ma part, une maison de retraite peut compléter la solidarité familiale plutôt que la remplacer. Tout d’abord, un suivi professionnel permet de repérer une difficulté et d’intervenir rapidement. Les proches peuvent alors consacrer leurs visites à la relation plutôt qu’aux seules tâches médicales. De plus, vivre avec d’autres résidents crée des échanges réguliers qui limitent l’isolement. Par exemple, une personne peu autonome pourrait recevoir son traitement sur place, participer à des activités et déjeuner avec ses enfants le dimanche. En conclusion, je soutiens une solution accessible et librement choisie, avec des soins adaptés et des liens familiaux maintenus.
 
-**Total : 174 mots (titre compris)**
+**Total : 165 mots (titre compris)**
 
 ---

@@ -2424,7 +2424,7 @@ THEME_LANGUAGE = MappingProxyType({
         (
             "de meilleures garanties de sécurité",
             "better safety guarantees",
-            "Un voyageur peut payer davantage pour de meilleures garanties de sécurité.",
+            "De meilleures garanties de sécurité reposent sur des contrôles renforcés, non sur le prix du billet.",
             _source("janvier", "19", "position_claire"),
         ),
         (
@@ -2441,7 +2441,7 @@ THEME_LANGUAGE = MappingProxyType({
                 _source("janvier", "19", "position"),
             ),
             _example(
-                "Le coût total peut être plus élevé sur un trajet long lorsque la sécurité et le confort priment.",
+                "Le coût total peut augmenter lorsqu’un billet bon marché ajoute des frais de bagage.",
                 _source("janvier", "19", "position_claire"),
             ),
         )),

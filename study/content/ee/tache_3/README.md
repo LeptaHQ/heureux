@@ -81,6 +81,22 @@ Ce dossier regroupe les **sujets sources** et l'ensemble des **réponses modèle
    son texte au raisonnement et aux précautions de la fiche. Il s'agit d'une
    auto-évaluation, pas d'une correction automatique.
 
+### Points de vue : clarté et développement
+
+Les Parties 2 actuelles visent un entraînement **NCLC 7–8**, sans garantir un
+résultat à l'épreuve. Elles privilégient un français précis et accessible :
+position claire, deux points distincts expliqués par un mécanisme ou une
+conséquence, exemple concret relié au raisonnement, puis conclusion cohérente.
+Une condition peut constituer le second point si son utilité est expliquée ;
+un simple conseil ou une liste d'avantages ne suffit pas.
+
+Les 138 blocs mensuels et les dix remplacements de l'auteur utilisent le même
+point de vue pour un sujet canonique donné, sans ajouter de variante. Les titres,
+les synthèses et les documents restent inchangés. Les citations et traductions
+des fiches sont alignées sur ces réponses actuelles. Pour mémoriser, retenir la
+chaîne **position → raison → pourquoi/comment → exemple → conclusion**, puis
+l'adapter au sujet, plutôt que réciter un texte sans comprendre ses liens.
+
 ### Format, chargement et identités stables
 
 Le JSON version 1 contient `version`, `source_response_count`, `categories` et

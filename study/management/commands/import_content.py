@@ -19,6 +19,7 @@ from django.urls import reverse
 from django.utils import timezone
 
 from study import content_loader as content
+from study.tache_two_dialogues import load_tache_two_dialogues
 from study.account_services import (
     acquire_study_data_lock,
     provision_user_study_data,
@@ -99,6 +100,7 @@ class Command(BaseCommand):
         self.stdout.write("Bundled content changed; parsing source files...")
         self.stdout.flush()
         subject_months = content.load_tache_two_subject_months()
+        load_tache_two_dialogues(months=subject_months)
         ee_tache_three_months = content.load_ee_tache_three_months()
         themes = [
             *content.load_themes(),
@@ -270,6 +272,7 @@ class Command(BaseCommand):
             for name in (
                 "account_services.py", "models.py", "oral_history.py",
                 "writing_responses.py",
+                "tache_two_dialogues.py",
             )
         )
         files.extend(

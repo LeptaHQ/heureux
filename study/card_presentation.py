@@ -7,11 +7,13 @@ card-detail pages.
 from __future__ import annotations
 
 from django.http import Http404
+from django.urls import reverse
 
 from .models import Card, CardType, PhraseTier
 from .querysets import lean_prompt_rows
 from .response_personalization import effective_response
 from .routing import prompt_detail_url, response_detail_url
+from .tache_two_dialogues import prompt_note_presentation, question_presentation
 
 
 def scope_from_request(request) -> dict:
@@ -287,6 +289,14 @@ def _spine_payload(card: Card, *, prompt=None, model_only=False, personal=None) 
         "response": response,
         "response_content": content,
         "arguments": content.arguments,
+        **(question_presentation(canonical, content) if tache_two_subject else {}),
+        "subject_prompt_note": (
+            prompt_note_presentation(canonical, content) if tache_two_subject else None
+        ),
+        "prompt_note_edit_url": (
+            reverse("study:edit_response", args=["eo", "tache-2", canonical.pk])
+            if tache_two_subject and canonical is not None else ""
+        ),
         "detail_url": prompt_detail_url(canonical) if canonical else response_detail_url(response),
         "annotation_source_key": annotation_key,
     }

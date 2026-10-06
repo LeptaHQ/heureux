@@ -13,6 +13,7 @@ from functools import lru_cache
 from types import MappingProxyType
 
 from . import content_loader as content
+from .tache_two_dialogues import TacheTwoDialogue, load_tache_two_dialogues
 
 
 @lru_cache(maxsize=1)
@@ -32,6 +33,13 @@ def tache_two_subject_themes() -> tuple[
 def tache_two_subject_hints() -> Mapping[str, tuple[content.SubjectHintData, ...]]:
     return MappingProxyType(
         content.load_tache_two_subject_hints(months=tache_two_subject_months())
+    )
+
+
+@lru_cache(maxsize=1)
+def tache_two_dialogues() -> Mapping[str, TacheTwoDialogue]:
+    return MappingProxyType(
+        load_tache_two_dialogues(months=tache_two_subject_months())
     )
 
 
@@ -114,6 +122,7 @@ def clear_catalogue_cache() -> None:
     tache_two_subject_months.cache_clear()
     tache_two_subject_themes.cache_clear()
     tache_two_subject_hints.cache_clear()
+    tache_two_dialogues.cache_clear()
     tache_three_subject_hints.cache_clear()
     ee_tache_one_subject_hints.cache_clear()
     task_memoires.cache_clear()

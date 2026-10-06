@@ -10,7 +10,7 @@
     <h1>{% if is_tache_two %}Modifier mes questions{% else %}Modifier ma réponse{% endif %}</h1>
     <p>
       {% if is_tache_two %}
-        Modifiez, supprimez ou ajoutez vos propres questions. Vous pouvez aussi préparer une réponse ou des notes pour chacune.
+        Modifiez votre note en anglais, vos questions, votre salutation et votre remerciement. Les réponses ne sont pas affichées.
       {% else %}
         Seule votre réponse change. Le sujet officiel reste toujours intact.
       {% endif %}
@@ -30,6 +30,29 @@
     {{ question_formset.management_form }}
     {% if question_formset.non_form_errors %}<div class="auth-error">{{ question_formset.non_form_errors|striptags }}</div>{% endif %}
 
+    <section class="card card--pad response-edit__section">
+      <h2 class="mt-0">Comprendre la consigne</h2>
+      <div class="response-edit-field">
+        <label for="{{ conversation_form.prompt_note.id_for_label }}">{{ conversation_form.prompt_note.label }}</label>
+        {{ conversation_form.prompt_note }}
+        {% for error in conversation_form.prompt_note.errors %}<small class="auth-field__error">{{ error }}</small>{% endfor %}
+        <p class="muted">{{ conversation_form.prompt_note.help_text }}</p>
+      </div>
+    </section>
+
+    <section class="card card--pad response-edit__section">
+      <h2 class="mt-0">Début et fin de l'échange</h2>
+      {% for field in conversation_form %}
+        {% if field.name != "prompt_note" %}
+        <div class="response-edit-field">
+          <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+          {{ field }}
+          {% for error in field.errors %}<small class="auth-field__error">{{ error }}</small>{% endfor %}
+        </div>
+        {% endif %}
+      {% endfor %}
+    </section>
+
     <section
       class="card card--pad response-edit__section response-edit__section--questions"
       data-tache-two-question-editor
@@ -37,7 +60,7 @@
     >
       <div class="response-edit__section-head">
         <div>
-          <h2 class="mt-0">Questions et réponses préparées</h2>
+          <h2 class="mt-0">Mes questions</h2>
           <p class="muted">Au moins une question est requise. Les nouvelles questions sont ajoutées à la fin.</p>
         </div>
         <button class="btn btn--primary" type="button" data-question-add>
@@ -112,7 +135,7 @@
   <div class="response-edit__actions">
     <a class="btn" href="{{ detail_url }}">Annuler</a>
     <button class="btn btn--primary" type="submit" name="action" value="save">
-      {% if is_tache_two %}Enregistrer mes questions{% elif is_writing_tache_three %}Enregistrer ma réponse{% else %}Enregistrer ma version{% endif %}
+      {% if is_tache_two %}Enregistrer mes questions et ma note{% elif is_writing_tache_three %}Enregistrer ma réponse{% else %}Enregistrer ma version{% endif %}
     </button>
   </div>
 </form>

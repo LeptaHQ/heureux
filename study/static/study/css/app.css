@@ -2377,6 +2377,154 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   font-size: 0.92rem;
   line-height: 1.5;
 }
+.eo2-prompt-note {
+  margin: 0.8rem 0 1.2rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--subject-accent, var(--primary));
+  background: var(--surface-2);
+}
+.eo2-prompt-note__heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+  font-size: 0.86rem;
+}
+.eo2-prompt-note__register {
+  color: var(--subject-accent, var(--primary));
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+.eo2-prompt-note__edit {
+  min-height: 2.75rem;
+  font-size: 0.78rem;
+}
+.eo2-prompt-note p {
+  margin: 0.4rem 0 0;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+  line-height: 1.55;
+}
+.eo2-dialogue__guidance {
+  margin: 0 0 1rem;
+  color: var(--text-soft);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+.eo2-dialogue__boundary {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+.eo2-dialogue__boundary > span,
+.eo2-dialogue__speaker {
+  color: var(--subject-accent, var(--primary));
+  font-size: 0.72rem;
+  font-weight: 750;
+}
+.eo2-dialogue__boundary p,
+.eo2-personal-boundary {
+  margin: 0.3rem 0 0;
+  line-height: 1.5;
+}
+.eo2-personal-boundary {
+  margin: 0.8rem 0;
+}
+.eo2-dialogue__questions {
+  margin: 0.85rem 0;
+  padding: 0;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  list-style: none;
+}
+.eo2-dialogue__questions > li + li {
+  border-top: 1px solid var(--border);
+}
+.eo2-dialogue__topic {
+  margin: 0;
+  padding: 0.65rem 1rem;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-2);
+  font-size: 0.93rem;
+  font-weight: 750;
+}
+.eo2-dialogue__turn {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  align-items: start;
+  gap: 0.7rem;
+  padding: 0.85rem 1rem;
+}
+.eo2-dialogue__number {
+  padding-top: 0.1rem;
+  color: var(--subject-accent, var(--primary));
+  font-size: 0.82rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.eo2-dialogue__content {
+  min-width: 0;
+}
+.eo2-dialogue__speaker {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.65rem;
+}
+.eo2-dialogue__follow-up {
+  color: var(--text-faint);
+  font-weight: 600;
+}
+.eo2-dialogue__question {
+  margin: 0.2rem 0 0;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.eo2-dialogue__condition {
+  margin: 0.35rem 0 0;
+  color: var(--text-faint);
+  font-size: 0.8rem;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.eo2-guidelines {
+  margin-top: 1rem;
+  color: var(--text-soft);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+.eo2-guidelines summary {
+  min-height: 2.75rem;
+  padding: 0.35rem 0;
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+}
+.eo2-guidelines summary:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 4px;
+}
+.eo2-guidelines li + li {
+  margin-top: 0.5rem;
+}
+.eo2-guidelines__sources {
+  font-size: 0.8rem;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 480px) {
+  .eo2-dialogue__turn {
+    grid-template-columns: 1.5rem minmax(0, 1fr);
+    gap: 0.45rem;
+    padding: 0.75rem;
+  }
+  .eo2-dialogue__topic {
+    padding: 0.6rem 0.75rem;
+  }
+}
 .question-bank-page {
   --bank-accent: var(--question-bank-accent, var(--primary));
 }

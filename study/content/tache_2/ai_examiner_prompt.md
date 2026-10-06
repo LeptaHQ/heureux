@@ -8,10 +8,11 @@
 > identifiable strength and error. It generates a subject only when you
 > explicitly request one.
 >
-> **Research status:** Checked on **20 August 2026** against France Éducation
-> international (FEI), the April 2026 *Manuel du candidat TCF*, FEI's official
-> sample, the FEI level grid, IRCC's TCF Canada-to-NCLC table, and several
-> specialist preparation sites.
+> **Research status:** Task format, assessment principles and NCLC conversions
+> rechecked against France Éducation international (FEI), the September 2026
+> *Manuel du candidat TCF* (version Q, pages 19 and 21), FEI's assessment page
+> and IRCC's official table. The sample, level-grid and specialist references
+> below are retained from the original 20 August 2026 review.
 
 ## Quick start
 
@@ -36,6 +37,14 @@
 The assessment is necessarily an **unofficial practice estimate**. A real TCF
 Canada oral result is based on all three oral tasks and two independent,
 trained human assessments.
+
+The app's seven-question models are adaptable practice routes, not an official
+question quota or a script to memorize. Mix suitable question forms, follow
+actual replies, skip information already given and continue with relevant
+details when needed. The answer-only simulator policy below is a training
+constraint, not a claim that a real examiner can never interrupt: FEI's current
+handbook explicitly allows intervention to check actual ability when recitation
+is suspected.
 
 The AI must never reverse the exercise or interview you. If it asks you
 anything, send `[STOP ASKING]`. The master prompt defines this as an immediate
@@ -1538,7 +1547,8 @@ and 12: the top conversion band is **"10 and above."**
 1. [France Éducation international — TCF Canada](https://www.france-education-international.fr/test/tcf-canada)  
    Official test structure, objectives, and duration.
 
-2. [France Éducation international — Manuel du candidat TCF, version P, April 2026](https://www.france-education-international.fr/document/manuelcandidattoutes20dc3a9clinaisonsi)  
+2. [France Éducation international — Manuel du candidat TCF, version Q, September 2026](https://www.france-education-international.fr/document/manuelcandidattoutes20dc3a9clinaisonsi)
+
    Exact Tâche 2 duration and objective; oral-test administration; two
    independent ratings; three assessment dimensions; warning about recitation.
 

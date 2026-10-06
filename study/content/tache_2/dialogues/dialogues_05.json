@@ -1,0 +1,344 @@
+{
+  "version": 1,
+  "dialogues": [
+    {
+      "group": "friend-canadian-weekend-customs",
+      "register": "tu",
+      "note": "Your friend lives in Canada, so do not ask whether they live there. You are curious about how Canadians usually spend weekends, not planning one particular weekend. Cover free time, sport and outings, and treat their answers as personal observations rather than national rules. Use tu with your friend.",
+      "opening": "Salut ! J'aimerais savoir comment les Canadiens passent leurs week-ends, et tu es la personne idéale pour me l'expliquer.",
+      "closing": "Merci beaucoup, c'est passionnant ! J'ai maintenant une idée bien plus précise des week-ends à la canadienne.",
+      "questions": [
+        {"topic": "Temps libre", "question": "Comment se passe un samedi typique chez les Canadiens que tu connais ?", "answer": "Le matin, on fait les courses et le ménage, puis l'après-midi est réservé à la famille, aux amis ou à une activité dehors.", "follow_up_to": null},
+        {"topic": "Temps libre", "question": "Et le dimanche, les gens restent plutôt à la maison ?", "answer": "Souvent, oui : on prend un brunch en famille, on se repose et on prépare la semaine.", "follow_up_to": null},
+        {"topic": "Temps libre", "question": "Ce brunch, on le prend plutôt au restaurant ou chez soi ?", "answer": "Les deux : le dimanche matin, les cafés sont pleins de gens qui viennent manger des œufs, des crêpes et du sirop d'érable.", "follow_up_to": 2, "condition": "If they mention a Sunday brunch; adapt to the habit described."},
+        {"topic": "Sport", "question": "Quels sports pratique-t-on selon les saisons ?", "answer": "En hiver, le patin, le ski de fond et le hockey ; en été, le vélo, la randonnée et le canot.", "follow_up_to": null},
+        {"topic": "Sport", "question": "Le hockey, les gens y jouent vraiment ou ils le regardent surtout à la télévision ?", "answer": "Les deux : beaucoup jouent dans des ligues amicales, et le samedi soir, de nombreuses familles regardent le match.", "follow_up_to": 4, "condition": "If hockey is mentioned; adapt to the sport they actually name."},
+        {"topic": "Sorties", "question": "Quand ils sortent, où vont-ils le plus souvent ?", "answer": "L'été, beaucoup partent au chalet ou en camping ; sinon, on va au cinéma, au restaurant ou dans les festivals.", "follow_up_to": null},
+        {"topic": "Sorties", "question": "Le chalet, c'est réservé à ceux qui en possèdent un ?", "answer": "Pas du tout, beaucoup de gens en louent un à plusieurs pour le week-end.", "follow_up_to": 6, "condition": "If cottage weekends are mentioned; adapt to the outing described."}
+      ]
+    },
+    {
+      "group": "colleague-internal-job-change",
+      "register": "vous",
+      "note": "Your colleague has moved to a new position within the same company: there is no new employer and no interview for you to prepare. Ask about their duties, schedule and pay, raising salary tactfully. Vous is chosen as a cautious default; close colleagues may use tu.",
+      "opening": "Bonjour ! J'ai appris que vous aviez changé de poste, félicitations ! Ce nouveau rôle m'intéresse, alors j'aimerais vous poser quelques questions.",
+      "closing": "Merci beaucoup pour ces précisions, et encore bravo ! Je vous souhaite de continuer à vous plaire dans ce nouveau poste.",
+      "questions": [
+        {"topic": "Missions", "question": "En quoi consiste votre nouveau poste ?", "answer": "Je coordonne les projets clients : je planifie les livraisons et je fais le lien entre la production et le service client.", "follow_up_to": null},
+        {"topic": "Missions", "question": "Ce rôle de coordination vous oblige-t-il à multiplier les réunions ?", "answer": "Oui, j'en ai deux ou trois par jour, mais elles sont courtes.", "follow_up_to": 1, "condition": "If they describe a coordination role; adapt to their actual duties."},
+        {"topic": "Planning", "question": "Vos horaires ont-ils changé ?", "answer": "Je commence maintenant à 8 h au lieu de 9 h, mais je suis en télétravail le vendredi.", "follow_up_to": null},
+        {"topic": "Planning", "question": "Ce télétravail du vendredi est-il propre à votre poste ?", "answer": "Oui, il est lié à ce poste ; dans mon ancienne équipe, on venait au bureau tous les jours.", "follow_up_to": 3, "condition": "If they mention remote work; adapt the day to their reply."},
+        {"topic": "Rémunération", "question": "Sans indiscrétion, ce changement s'est-il accompagné d'une augmentation ?", "answer": "Oui, d'environ 10 %, avec en plus une prime annuelle si les projets sont livrés dans les délais.", "follow_up_to": null},
+        {"topic": "Rémunération", "question": "À combien peut s'élever cette prime ?", "answer": "Jusqu'à 5 % du salaire annuel.", "follow_up_to": 5, "condition": "If a bonus is mentioned, unless its amount is already given."},
+        {"topic": "Accès au poste", "question": "Comment avez-vous obtenu ce poste ?", "answer": "Il était affiché sur l'intranet ; j'ai posé ma candidature, puis j'ai passé un entretien avec la direction.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "home-chef-family-meal",
+      "register": "vous",
+      "note": "You are organizing a family meal and considering hiring this chef, who cooks in clients' homes. This is neither a restaurant booking nor a cooking class. Ask about menus, the equipment needed in your kitchen and the rates. Use vous, as with any service provider.",
+      "opening": "Bonjour ! J'organise un repas de famille et je pense faire appel à vos services. J'aimerais d'abord en savoir plus sur vos prestations.",
+      "closing": "Merci beaucoup, c'est très clair ! J'en parle à ma famille et je vous recontacte rapidement pour fixer la date.",
+      "questions": [
+        {"topic": "Menus", "question": "Quels menus proposez-vous ?", "answer": "Trois formules : cuisine traditionnelle, méditerranéenne ou végétarienne, toujours avec entrée, plat et dessert.", "follow_up_to": null},
+        {"topic": "Menus", "question": "Que comprend la formule méditerranéenne, par exemple ?", "answer": "Un taboulé en entrée, un poisson grillé avec des légumes rôtis, puis une tarte au citron.", "follow_up_to": 1, "condition": "If several menus are offered; name the one that tempts you."},
+        {"topic": "Menus", "question": "Si certains invités avaient des allergies, pourriez-vous adapter les plats ?", "answer": "Bien sûr, il suffit de me les signaler une semaine avant le repas.", "follow_up_to": null},
+        {"topic": "Matériel", "question": "De quel équipement aurez-vous besoin dans ma cuisine ?", "answer": "D'un four et de plaques de cuisson ; j'apporte mes couteaux, mes casseroles et mes ustensiles.", "follow_up_to": null},
+        {"topic": "Matériel", "question": "Faut-il aussi que je fournisse la vaisselle pour le service ?", "answer": "Oui, sinon je peux en louer pour 4 $ par personne.", "follow_up_to": 4, "condition": "After kitchen equipment is discussed, unless tableware is already covered."},
+        {"topic": "Tarifs", "question": "Quels sont vos tarifs ?", "answer": "Entre 55 et 75 $ par personne selon le menu, courses, préparation et service compris.", "follow_up_to": null},
+        {"topic": "Tarifs", "question": "Ce prix inclut-il le nettoyage après le repas ?", "answer": "Je laisse la cuisine propre, mais la vaisselle des invités reste à votre charge.", "follow_up_to": 6, "condition": "After rates are given, unless cleaning is already included."}
+      ]
+    },
+    {
+      "group": "neighbor-regular-carpool-invitation",
+      "register": "vous",
+      "note": "Your neighbour offers to share their regular car journeys: this is an arrangement between neighbours, not a taxi service. Before accepting, check the route, times, cost-sharing and practical rules. Vous is chosen as a cautious default; a close neighbour may be addressed with tu.",
+      "opening": "Bonjour ! Merci pour votre proposition de covoiturage, l'idée me plaît beaucoup. J'aimerais voir avec vous comment nous organiser.",
+      "closing": "Merci beaucoup, tout est clair ! C'est d'accord pour moi : dites-moi simplement quand vous souhaitez commencer.",
+      "questions": [
+        {"topic": "Trajet et horaires", "question": "Quel trajet faites-vous, et quels jours ?", "answer": "Je vais au centre-ville du lundi au jeudi, dans le quartier de la gare.", "follow_up_to": null},
+        {"topic": "Trajet et horaires", "question": "À quelle heure partez-vous le matin, et quand repartez-vous le soir ?", "answer": "Je pars à 7 h 30 et je quitte le centre vers 17 h 15.", "follow_up_to": null},
+        {"topic": "Trajet et horaires", "question": "S'il m'arrivait de finir plus tard, pourriez-vous m'attendre un peu ?", "answer": "Jusqu'à un quart d'heure, si vous me prévenez par texto avant 16 h.", "follow_up_to": 2, "condition": "After return times are given, if your own hours may vary."},
+        {"topic": "Frais", "question": "Comment voudriez-vous partager les frais ?", "answer": "Je pensais à 5 $ par aller-retour, pour l'essence et le stationnement.", "follow_up_to": null},
+        {"topic": "Frais", "question": "Préférez-vous que je règle chaque jour ou en fin de semaine ?", "answer": "En fin de semaine, par virement, ce sera plus simple.", "follow_up_to": 4, "condition": "After a contribution is agreed, unless payment timing is already set."},
+        {"topic": "Organisation", "question": "Que fait-on si l'un de nous ne peut pas partir un matin ?", "answer": "On se prévient la veille au soir ; si c'est moi qui ne peux pas, vous prendrez le bus.", "follow_up_to": null},
+        {"topic": "Organisation", "question": "Y a-t-il des règles à respecter dans la voiture ?", "answer": "Pas de repas à bord et la radio à volume raisonnable, c'est tout.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "music-school-course-information",
+      "register": "vous",
+      "note": "You are speaking to the reception desk of a music school where you want to take lessons, so do not ask whether it offers courses. Start with instruments, then formats, schedules and prices. Do not invent a musical level for yourself. Use vous in this professional setting.",
+      "notes": {
+        "tache2:octobre:batch-05:subject-23": "Here, your neighbour teaches piano at a local music school and can tell you about the whole school: you need not choose piano or take lessons with them. Cover formats, prices and schedules. Vous is chosen as a cautious default; a close neighbour may be addressed with tu."
+      },
+      "opening": "Bonjour ! J'aimerais suivre des cours dans votre école de musique et je voudrais me renseigner sur ce que vous proposez.",
+      "closing": "Merci beaucoup pour ces renseignements ! Je vais réfléchir à la formule qui me convient, puis je reviendrai m'inscrire.",
+      "questions": [
+        {"topic": "Cours et formules", "question": "Quels instruments enseigne-t-on dans votre école ?", "answer": "Le piano, la guitare, le violon et la batterie, ainsi que le chant, du niveau débutant au niveau avancé.", "follow_up_to": null},
+        {"topic": "Cours et formules", "question": "Les cours sont-ils individuels ou collectifs ?", "answer": "Les deux : des leçons individuelles de 30 ou 45 minutes, ou des cours en groupe de quatre à six élèves.", "follow_up_to": null},
+        {"topic": "Cours et formules", "question": "Si l'on débute complètement, quelle formule me conseilleriez-vous ?", "answer": "Plutôt les leçons individuelles au début, pour acquérir les bases à votre rythme.", "follow_up_to": 2, "condition": "After individual and group formats are described, if you are a beginner."},
+        {"topic": "Horaires", "question": "À quels moments les cours ont-ils lieu ?", "answer": "En semaine de 15 h à 21 h, et le samedi de 9 h à 17 h.", "follow_up_to": null},
+        {"topic": "Tarifs", "question": "Combien coûtent les cours ?", "answer": "40 $ la leçon individuelle de 30 minutes, et 220 $ la session de dix cours en groupe.", "follow_up_to": null},
+        {"topic": "Tarifs", "question": "Peut-on régler la session en plusieurs fois ?", "answer": "Oui, en deux versements : la moitié à l'inscription, le reste à mi-session.", "follow_up_to": 5, "condition": "After a session price is given, if instalments would help."},
+        {"topic": "Tarifs", "question": "Proposez-vous un cours d'essai avant l'inscription ?", "answer": "Oui, pour 20 $, montant déduit ensuite de l'inscription.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "hotel-reception-room-booking",
+      "register": "vous",
+      "note": "You are contacting the reception of a hotel where you are not yet a guest. First check that a room is free on your dates, then compare room types, prices and included services. Ask about cancellation conditions too. Use vous with the receptionist.",
+      "opening": "Bonjour ! J'aimerais réserver une chambre dans votre hôtel et j'aurais besoin de quelques renseignements.",
+      "closing": "Merci beaucoup pour ces informations ! Je vais réfléchir au type de chambre, et je vous rappelle dans la journée pour confirmer ma réservation.",
+      "questions": [
+        {"topic": "Chambres", "question": "Auriez-vous une chambre libre pour deux nuits, le week-end prochain ?", "answer": "Oui, il nous reste des disponibilités pour vendredi et samedi soir.", "follow_up_to": null},
+        {"topic": "Chambres", "question": "Quels types de chambres proposez-vous ?", "answer": "Des chambres standard avec un grand lit ou deux lits doubles, et deux suites avec coin salon.", "follow_up_to": null},
+        {"topic": "Chambres", "question": "Qu'est-ce qui distingue la suite d'une chambre standard ?", "answer": "Elle est deux fois plus grande, avec une baignoire et une vue sur le fleuve.", "follow_up_to": 2, "condition": "If suites are offered; compare the room types actually listed."},
+        {"topic": "Prix et services", "question": "Quel est le prix par nuit ?", "answer": "149 $ pour une chambre standard et 229 $ pour une suite, taxes en sus.", "follow_up_to": null},
+        {"topic": "Prix et services", "question": "Le petit-déjeuner est-il compris dans ce prix ?", "answer": "Oui, le buffet est inclus et servi de 6 h 30 à 10 h.", "follow_up_to": 4, "condition": "After nightly prices are given, unless breakfast is already mentioned."},
+        {"topic": "Prix et services", "question": "Quels autres services offrez-vous à vos clients ?", "answer": "Le wifi et la salle de sport sont gratuits ; le stationnement coûte 20 $ par nuit.", "follow_up_to": null},
+        {"topic": "Conditions de réservation", "question": "Si je devais annuler, quelles seraient les conditions ?", "answer": "L'annulation est gratuite jusqu'à 48 heures avant l'arrivée ; ensuite, la première nuit est facturée.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "acquaintance-hiking-walking-club",
+      "register": "tu",
+      "note": "Your friend belongs to a hiking club and you are thinking of joining. Ask about locations, times, members, levels and equipment. This is a leisure activity, not a competition, and you should not invent your own fitness level. Use tu with your friend.",
+      "notes": {
+        "tache2:novembre:batch-01:subject-03": "Here, a colleague belongs to a walking club and the idea appeals to you. Prioritize locations, times and equipment, then how the group works. The model uses tu, which suits familiar colleagues; otherwise, use vous with your colleague throughout."
+      },
+      "opening": "Salut ! Tu m'as souvent parlé de ton club, et l'idée de venir marcher avec ton groupe me tente de plus en plus. J'aimerais en savoir un peu plus.",
+      "closing": "Merci beaucoup, ça me donne vraiment envie ! Je viendrai essayer une première sortie avec le groupe de mon niveau.",
+      "questions": [
+        {"topic": "Lieux et horaires", "question": "Où est-ce que le club organise ses sorties ?", "answer": "Dans les parcs et sur les sentiers autour de la ville, et une fois par mois dans un parc régional, à une heure de route.", "follow_up_to": null},
+        {"topic": "Lieux et horaires", "question": "Comment on va jusqu'à ce parc régional ?", "answer": "En covoiturage : on se donne rendez-vous à 8 h devant le centre sportif.", "follow_up_to": 1, "condition": "If a distant park is mentioned; adapt to the place named."},
+        {"topic": "Lieux et horaires", "question": "Les sorties ont lieu quels jours, en général ?", "answer": "Le samedi de 9 h à midi, et parfois le mercredi soir en été.", "follow_up_to": null},
+        {"topic": "Participants et niveaux", "question": "Qui fait partie du club ?", "answer": "Une trentaine de membres de tous les âges, des étudiants comme des retraités.", "follow_up_to": null},
+        {"topic": "Participants et niveaux", "question": "Est-ce qu'il y a plusieurs niveaux ?", "answer": "Trois groupes : découverte, environ 8 km ; intermédiaire, 12 km ; et sportif, jusqu'à 20 km.", "follow_up_to": null},
+        {"topic": "Participants et niveaux", "question": "Si je n'ai jamais fait de longues marches, je devrais commencer par quel groupe ?", "answer": "Par le groupe découverte ; tu pourras changer dès que tu te sentiras à l'aise.", "follow_up_to": 5, "condition": "After levels are described, if you have little hiking experience."},
+        {"topic": "Matériel", "question": "Quel matériel faut-il prévoir ?", "answer": "De bonnes chaussures de marche, un petit sac avec de l'eau et une veste imperméable.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "friend-child-language-stay-abroad",
+      "register": "tu",
+      "note": "Your friend's child has already completed a language stay abroad, so use past tenses. You are looking for a similar stay for your own child; do not invent their age or level. Cover the country, activities and conditions through your friend's experience. Use tu with your friend.",
+      "opening": "Salut ! Je cherche un séjour linguistique pour mon enfant, et comme le tien en a fait un, j'aimerais profiter de ton expérience.",
+      "closing": "Merci beaucoup, ça m'aide énormément ! Je vais en parler avec mon enfant et comparer quelques séjours de ce type.",
+      "questions": [
+        {"topic": "Destination", "question": "Où ton enfant est-il parti, et pour combien de temps ?", "answer": "En Irlande, à Dublin, pendant trois semaines en juillet.", "follow_up_to": null},
+        {"topic": "Destination", "question": "Pourquoi avoir choisi l'Irlande ?", "answer": "C'était moins cher qu'en Angleterre, et on nous avait vanté l'accueil chaleureux des familles.", "follow_up_to": 1, "condition": "After the destination is named; adapt the country to their reply."},
+        {"topic": "Activités et hébergement", "question": "Comment se passaient ses journées sur place ?", "answer": "Il y avait des cours le matin, puis du sport, des visites ou du théâtre l'après-midi.", "follow_up_to": null},
+        {"topic": "Activités et hébergement", "question": "Y avait-il aussi des excursions plus loin ?", "answer": "Oui, une par semaine, notamment à Galway et dans le Connemara.", "follow_up_to": 3, "condition": "After daily activities are described, unless excursions are already mentioned."},
+        {"topic": "Activités et hébergement", "question": "Où logeait ton enfant ?", "answer": "Dans une famille d'accueil, avec un autre élève d'une langue différente.", "follow_up_to": null},
+        {"topic": "Conditions", "question": "Quelles étaient les conditions pour participer ?", "answer": "Il fallait avoir entre 12 et 17 ans, un passeport valide et une autorisation parentale, puis passer un test de niveau en ligne.", "follow_up_to": null},
+        {"topic": "Conditions", "question": "Combien ça t'a coûté, au total ?", "answer": "Environ 4 500 $, avec le vol, les cours, l'hébergement et les excursions.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "colleague-unusable-music-festival-tickets",
+      "register": "vous",
+      "note": "Your colleague can no longer attend a music festival and is reselling their tickets. Check the dates first, then the line-up, venue and price. You are buying tickets, not organizing the festival. Vous is chosen as a cautious default; close colleagues may use tu.",
+      "opening": "Bonjour ! Il paraît que vous revendez vos billets pour un festival de musique. Ça pourrait m'intéresser, alors j'ai quelques questions.",
+      "closing": "Merci beaucoup, c'est une belle occasion ! Je vous confirme d'ici demain combien de billets je vous prends.",
+      "questions": [
+        {"topic": "Dates et programme", "question": "À quelles dates a lieu le festival ?", "answer": "Du vendredi 18 au dimanche 20 juillet.", "follow_up_to": null},
+        {"topic": "Dates et programme", "question": "Quels artistes sont à l'affiche ?", "answer": "Surtout de la pop et du rock indépendant, avec notamment Charlotte Cardin et Half Moon Run.", "follow_up_to": null},
+        {"topic": "Dates et programme", "question": "Half Moon Run, ils jouent quel jour ?", "answer": "Le samedi soir, sur la grande scène, vers 21 h.", "follow_up_to": 2, "condition": "If an artist you like is named; substitute that artist."},
+        {"topic": "Lieu", "question": "Où se déroule le festival ?", "answer": "Dans un grand parc au bord du lac, à une demi-heure du centre-ville.", "follow_up_to": null},
+        {"topic": "Lieu", "question": "Peut-on s'y rendre facilement sans voiture ?", "answer": "Oui, des navettes gratuites partent de la gare centrale toutes les 15 minutes.", "follow_up_to": 4, "condition": "After the venue is given, unless transport is already explained."},
+        {"topic": "Billets", "question": "Combien de billets vendez-vous, et à quel prix ?", "answer": "Deux passes de trois jours, à 180 $ chacun, c'est-à-dire le prix que je les ai payés.", "follow_up_to": null},
+        {"topic": "Billets", "question": "S'agit-il de billets nominatifs ?", "answer": "Ce sont des billets électroniques : je peux les transférer à votre nom dans l'application officielle.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "local-acquaintance-birthday-restaurant-choice",
+      "register": "vous",
+      "note": "Your neighbour knows the local restaurants: they are advising you, not booking for you. Have them compare places by cuisine, price and atmosphere, then check what matters for a birthday celebration. Vous is chosen as a cautious default; a close neighbour may be addressed with tu.",
+      "notes": {
+        "tache2:juillet:batch-04:subject-18": "Here, a colleague advises you because you have just arrived in Toronto and do not yet know its restaurants. Compare the cuisine, prices and atmosphere of the places they recommend, then check group arrangements. Vous is chosen as a cautious default; close colleagues may use tu.",
+        "tache2:juillet:batch-05:subject-23": "Here, a colleague advises you because you have just arrived in Toronto and do not yet know its restaurants. Compare the cuisine, prices and atmosphere of the places they recommend, then check group arrangements. Vous is chosen as a cautious default; close colleagues may use tu."
+      },
+      "opening": "Bonjour ! Je cherche un restaurant pour fêter mon anniversaire, et comme vous connaissez les bonnes adresses, j'aimerais vous demander conseil.",
+      "closing": "Merci beaucoup pour ces bonnes adresses ! Je vais en parler à mes invités, puis je réserverai rapidement une table.",
+      "questions": [
+        {"topic": "Cuisine", "question": "Quel restaurant me recommanderiez-vous pour l'occasion ?", "answer": "Chez Lina, un restaurant libanais à dix minutes à pied d'ici, où l'on partage de nombreux petits plats.", "follow_up_to": null},
+        {"topic": "Cuisine", "question": "Et si mes invités préféraient une cuisine plus classique ?", "answer": "Dans ce cas, le Bistro du Marché, qui sert une cuisine française simple et bien faite.", "follow_up_to": 1, "condition": "If the first suggestion may not suit all your guests."},
+        {"topic": "Prix", "question": "Quel budget faut-il prévoir par personne ?", "answer": "Environ 35 $ chez Lina, contre 50 $ au bistro, sans les boissons.", "follow_up_to": null},
+        {"topic": "Prix", "question": "Chez Lina, existe-t-il une formule pour les groupes ?", "answer": "Oui, un menu à partager à 30 $ par personne, à partir de huit convives.", "follow_up_to": 3, "condition": "After prices are given; substitute the restaurant you prefer."},
+        {"topic": "Ambiance et réservation", "question": "Et côté ambiance, à quoi faut-il s'attendre ?", "answer": "Chez Lina, c'est animé, avec de la musique le samedi soir ; le bistro est plus calme et intime.", "follow_up_to": null},
+        {"topic": "Ambiance et réservation", "question": "Où serait-on le plus à l'aise pour une fête à plusieurs ?", "answer": "Chez Lina : sa salle du fond accueille jusqu'à quinze personnes, sur réservation une semaine à l'avance.", "follow_up_to": null},
+        {"topic": "Ambiance et réservation", "question": "Dans cette salle, pourrait-on apporter notre propre gâteau ?", "answer": "Oui, sans supplément, et l'équipe le sert même avec des bougies.", "follow_up_to": 6, "condition": "If a private room is offered and you want your own cake."}
+      ]
+    },
+    {
+      "group": "neighbor-municipal-pool-information",
+      "register": "vous",
+      "note": "Your neighbour swims regularly at the municipal pool and answers as a regular user, not a staff member. The activity appeals to you: ask about facilities, opening hours and entry prices, then practical advice. Vous is chosen as a cautious default; a close neighbour may be addressed with tu.",
+      "opening": "Bonjour ! Vous allez souvent à la piscine municipale, je crois, et j'ai bien envie de m'y mettre. J'aimerais avoir votre avis avant d'y aller.",
+      "closing": "Merci beaucoup, c'est très utile ! Je vais choisir la formule la plus avantageuse et y aller aux heures les plus calmes.",
+      "questions": [
+        {"topic": "Installations", "question": "Comment sont les bassins ?", "answer": "Il y a un bassin de 25 mètres avec des couloirs, et un petit bassin pour les enfants.", "follow_up_to": null},
+        {"topic": "Installations", "question": "Les couloirs sont-ils répartis selon la vitesse de nage ?", "answer": "Oui, il y a un couloir lent, un moyen et un rapide, ce qui évite de se gêner.", "follow_up_to": 1, "condition": "If lap lanes are mentioned, unless their organization is already explained."},
+        {"topic": "Installations", "question": "Quels autres équipements trouve-t-on sur place ?", "answer": "Des vestiaires avec casiers, des douches et un petit sauna, mais pas de salle de sport.", "follow_up_to": null},
+        {"topic": "Horaires", "question": "Quels sont les horaires d'ouverture ?", "answer": "En semaine de 6 h à 21 h, et le week-end de 8 h à 18 h.", "follow_up_to": null},
+        {"topic": "Horaires", "question": "À quel moment y a-t-il le moins de monde ?", "answer": "Tôt le matin ou après 19 h ; le samedi après-midi, en revanche, c'est bondé.", "follow_up_to": 4, "condition": "After opening hours are given, if you prefer quieter times."},
+        {"topic": "Prix des entrées", "question": "Combien coûte une entrée ?", "answer": "5,50 $ pour un adulte.", "follow_up_to": null},
+        {"topic": "Prix des entrées", "question": "Existe-t-il des formules plus avantageuses pour venir souvent ?", "answer": "Oui, une carte de dix entrées à 45 $ ou un abonnement mensuel à 60 $.", "follow_up_to": 6, "condition": "After the single-entry price is given, if you plan to swim often."}
+      ]
+    },
+    {
+      "group": "visit-friend-canada-december-preparation",
+      "register": "tu",
+      "note": "Your friend lives in Canada and your December visit is still ahead, so use future or conditional forms, never the past. Start from the climate to choose clothing, then move on to activities and the equipment to bring. Use tu with your friend.",
+      "opening": "Salut ! J'ai hâte de venir te voir en décembre, et j'aimerais que tu m'aides à bien préparer mon séjour.",
+      "closing": "Merci beaucoup, ça me rassure ! Je vais préparer ma valise en conséquence, et j'ai déjà hâte de te retrouver.",
+      "questions": [
+        {"topic": "Météo et vêtements", "question": "Quel temps fait-il chez toi en décembre ?", "answer": "Il fait généralement entre -5 et -15 °C, avec de la neige et du vent.", "follow_up_to": null},
+        {"topic": "Météo et vêtements", "question": "Avec ce froid, quels vêtements devrais-je emporter ?", "answer": "Un manteau chaud, des bottes imperméables, une tuque, des mitaines et plusieurs couches de vêtements.", "follow_up_to": 1, "condition": "After cold weather is described; adapt to the conditions given."},
+        {"topic": "Météo et vêtements", "question": "Vaudrait-il mieux que j'achète ces vêtements avant de partir ?", "answer": "Non, achète-les plutôt ici : ils sont mieux adaptés au climat et souvent en solde en décembre.", "follow_up_to": 2, "condition": "After clothing is listed, if you do not already own it."},
+        {"topic": "Activités", "question": "Qu'est-ce qu'on pourrait faire pendant mon séjour ?", "answer": "Du patin en plein air, de la raquette en forêt et, le soir, une balade dans les marchés de Noël.", "follow_up_to": null},
+        {"topic": "Activités", "question": "La raquette, c'est accessible à quelqu'un qui n'en a jamais fait ?", "answer": "Tout à fait, c'est simplement de la marche dans la neige.", "follow_up_to": 4, "condition": "If snowshoeing is suggested; adapt to an activity new to you."},
+        {"topic": "Matériel", "question": "Y a-t-il de petits accessoires utiles auxquels je ne penserais pas ?", "answer": "Oui : des chaufferettes pour les mains, un baume pour les lèvres et des lunettes de soleil contre la réverbération.", "follow_up_to": null},
+        {"topic": "Matériel", "question": "Pour ces activités, devrai-je apporter mon propre équipement ?", "answer": "Non, on loue des patins sur place pour 10 $, et je te prêterai des raquettes.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "offered-room-in-existing-shared-apartment",
+      "register": "tu",
+      "note": "Your friend is offering you a room in the apartment they already share, so do not ask whether a room is available. Before deciding, ask about rent, layout, neighbourhood and flatmates. This is a conversation between friends, not an agency viewing. Use tu with your friend.",
+      "notes": {
+        "tache2:septembre:batch-07:subject-35": "Here, the relationship is not specified: someone offers you a place in their shared apartment as you prepare to settle in Canada. The model uses tu, as between friends; if you barely know this person, use vous throughout. Cover the spaces, price and flatmates."
+      },
+      "opening": "Salut ! Merci de penser à moi pour cette chambre, ta proposition me tente vraiment. Avant de me décider, j'ai quelques questions.",
+      "closing": "Merci beaucoup, ça me semble idéal ! Je te donne ma réponse d'ici la fin de la semaine.",
+      "questions": [
+        {"topic": "Loyer et disponibilité", "question": "Combien coûterait la chambre par mois ?", "answer": "900 $, chauffage, électricité et internet compris.", "follow_up_to": null},
+        {"topic": "Loyer et disponibilité", "question": "À partir de quand serait-elle libre ?", "answer": "Dès le 1er du mois prochain.", "follow_up_to": null},
+        {"topic": "Logement et quartier", "question": "Comment l'appartement est-il agencé ?", "answer": "Il y a trois chambres, une cuisine ouverte sur le salon et deux salles de bains.", "follow_up_to": null},
+        {"topic": "Logement et quartier", "question": "Et la chambre libre, elle est comment ?", "answer": "Elle fait environ 12 m², elle est meublée avec un lit double et un bureau, et elle donne sur une cour calme.", "follow_up_to": 3, "condition": "After the layout is described, unless the room is already detailed."},
+        {"topic": "Logement et quartier", "question": "Le quartier est-il bien desservi ?", "answer": "Oui, il y a un arrêt de bus et une épicerie au coin de la rue, et le métro est à dix minutes à pied.", "follow_up_to": null},
+        {"topic": "Colocataires et vie quotidienne", "question": "Qui vit avec toi dans l'appartement ?", "answer": "Karim, un infirmier de 30 ans qui travaille souvent de nuit.", "follow_up_to": null},
+        {"topic": "Colocataires et vie quotidienne", "question": "Comme Karim travaille de nuit, quelles sont les règles de la maison ?", "answer": "Pas de bruit avant 15 h en semaine, et le ménage est réparti grâce à un tableau.", "follow_up_to": 6, "condition": "If a flatmate's schedule is mentioned; use the name and detail given."}
+      ]
+    },
+    {
+      "group": "neighbor-community-sports-instructor",
+      "register": "vous",
+      "note": "Your neighbour leads these community sports sessions personally and can describe the activities, schedule, participants and registration. The idea appeals to you, but do not invent your level or choose an activity before they describe them. Vous is chosen as a cautious default; a close neighbour may be addressed with tu.",
+      "opening": "Bonjour ! On m'a parlé des séances de sport que vous animez, et ça me donne envie de m'y mettre. J'aimerais en savoir un peu plus.",
+      "closing": "Merci beaucoup ! Je viendrai essayer une séance dès la semaine prochaine.",
+      "questions": [
+        {"topic": "Disciplines", "question": "Quelles disciplines proposez-vous ?", "answer": "Du renforcement musculaire, du cardio-boxe et du yoga doux.", "follow_up_to": null},
+        {"topic": "Disciplines", "question": "En quoi consiste le cardio-boxe ?", "answer": "Ce sont des mouvements de boxe sans contact, enchaînés en musique pour travailler l'endurance.", "follow_up_to": 1, "condition": "If an unfamiliar activity is named; substitute the one mentioned."},
+        {"topic": "Horaires et participants", "question": "À quels moments ont lieu les séances ?", "answer": "Le lundi à 18 h, le mercredi à 19 h et le samedi à 10 h, pendant une heure.", "follow_up_to": null},
+        {"topic": "Horaires et participants", "question": "Qui participe à ces séances, en général ?", "answer": "Des gens de 20 à 70 ans, surtout des débutants qui veulent bouger dans une bonne ambiance.", "follow_up_to": null},
+        {"topic": "Conditions", "question": "Que faut-il faire pour participer ?", "answer": "S'inscrire sur place et payer une cotisation annuelle de 40 $ ; ensuite, toutes les séances sont gratuites.", "follow_up_to": null},
+        {"topic": "Conditions", "question": "Peut-on assister à une séance avant de payer cette cotisation ?", "answer": "Oui, la première séance est offerte.", "follow_up_to": 5, "condition": "If a membership fee is required, unless a free trial is mentioned."},
+        {"topic": "Conditions", "question": "Quel équipement dois-je apporter ?", "answer": "Une tenue de sport, une bouteille d'eau et un tapis pour le yoga ; les gants de boxe sont prêtés.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "bicycle-rental-model-and-terms",
+      "register": "vous",
+      "note": "On holiday, you want to explore the city by bike: you are renting, not buying. Compare models first, then rates and rental conditions such as the deposit, equipment and breakdowns. Use vous with the rental employee.",
+      "notes": {
+        "tache2:decembre:batch-04:subject-16": "Here, the purpose of the rental is not specified: state your own use so the employee can recommend a model. This model assumes city rides; adapt if needed. Ask about models, rates and how the rental works. Use vous with the employee."
+      },
+      "opening": "Bonjour ! J'aimerais louer un vélo pour me promener en ville, et je voudrais savoir ce que vous proposez.",
+      "closing": "Merci beaucoup, c'est très clair ! Je vais suivre votre conseil et réserver un vélo pour la journée.",
+      "questions": [
+        {"topic": "Modèles", "question": "Quels modèles proposez-vous ?", "answer": "Des vélos de ville, des vélos hybrides et des vélos à assistance électrique.", "follow_up_to": null},
+        {"topic": "Modèles", "question": "Lequel me conseilleriez-vous pour une journée en ville ?", "answer": "Le vélo de ville, avec son panier ; s'il y a beaucoup de côtes sur votre parcours, l'électrique sera plus confortable.", "follow_up_to": 1, "condition": "After models are listed; adapt the outing to your plans."},
+        {"topic": "Modèles", "question": "Quelle est l'autonomie de la batterie ?", "answer": "Environ 60 km, ce qui suffit largement pour une journée.", "follow_up_to": 2, "condition": "If an electric bike is recommended or interests you."},
+        {"topic": "Tarifs", "question": "Combien coûte la location ?", "answer": "40 $ la journée pour un vélo de ville, 65 $ pour un électrique ; on peut aussi louer à l'heure.", "follow_up_to": null},
+        {"topic": "Tarifs", "question": "Le casque et l'antivol sont-ils compris dans ce prix ?", "answer": "Oui, et nous vous donnons aussi une carte des pistes cyclables.", "follow_up_to": 4, "condition": "After rates are given, unless equipment is already included."},
+        {"topic": "Conditions de location", "question": "Que dois-je fournir pour louer un vélo ?", "answer": "Une pièce d'identité et un dépôt de 200 $ sur carte de crédit, remboursé au retour du vélo.", "follow_up_to": null},
+        {"topic": "Conditions de location", "question": "Que se passe-t-il en cas de crevaison ?", "answer": "Vous nous appelez, et nous venons réparer ou échanger le vélo gratuitement dans un rayon de 10 km.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "travel-agency-canada-cruise",
+      "register": "vous",
+      "note": "You dream of a cruise in Canada and are enquiring at a travel agency: this is a boat trip, not a coach tour. Cover the route and its length, the price and what it includes, then on-board activities. Use vous with the travel agent.",
+      "opening": "Bonjour ! Je rêve depuis longtemps d'une croisière au Canada, et j'aimerais savoir ce que votre agence propose.",
+      "closing": "Merci beaucoup, ça fait rêver ! Je vais réfléchir à mon budget et je reviendrai vous voir pour réserver.",
+      "questions": [
+        {"topic": "Parcours et durée", "question": "Quelles croisières proposez-vous au Canada ?", "answer": "Deux itinéraires : le Saint-Laurent au départ de Montréal, et les provinces maritimes, avec Halifax et Charlottetown.", "follow_up_to": null},
+        {"topic": "Parcours et durée", "question": "Quelles sont les escales sur le Saint-Laurent ?", "answer": "Québec, Tadoussac pour observer les baleines, puis la Gaspésie avec le rocher Percé.", "follow_up_to": 1, "condition": "After routes are offered; substitute the itinerary that interests you."},
+        {"topic": "Parcours et durée", "question": "Combien de temps dure cette croisière ?", "answer": "Huit jours et sept nuits, avec retour à Montréal.", "follow_up_to": null},
+        {"topic": "Prix", "question": "Quel en est le prix ?", "answer": "À partir de 2 900 $ par personne en cabine intérieure, et 3 800 $ avec balcon.", "follow_up_to": null},
+        {"topic": "Prix", "question": "Qu'est-ce qui est compris dans ce prix ?", "answer": "La cabine, tous les repas et les spectacles ; les excursions et les boissons sont en supplément.", "follow_up_to": 4, "condition": "After a price is given, unless inclusions are already explained."},
+        {"topic": "Activités à bord", "question": "Quelles activités sont prévues à bord ?", "answer": "Des conférences sur la faune marine, des spectacles le soir, une piscine chauffée et des ateliers de cuisine québécoise.", "follow_up_to": null},
+        {"topic": "Activités à bord", "question": "Ces conférences sont-elles données en français ?", "answer": "En français et en anglais, par une biologiste spécialiste des baleines.", "follow_up_to": 6, "condition": "If talks or guided activities are mentioned; adapt to the activity."}
+      ]
+    },
+    {
+      "group": "friend-concert-invitation",
+      "register": "tu",
+      "note": "Your friend is inviting you to a concert, so do not ask whether they plan to go. Check the date first, then the music style and venue, before discussing tickets and arrangements for the evening. Use tu with your friend.",
+      "opening": "Salut ! Merci pour ton invitation, ça me tente beaucoup. Avant de te dire oui, j'aimerais avoir quelques détails.",
+      "closing": "Merci, c'est parfait ! Compte sur moi, j'ai hâte d'y être.",
+      "questions": [
+        {"topic": "Date et style", "question": "C'est quand, ce concert ?", "answer": "Le samedi 14, à 20 h.", "follow_up_to": null},
+        {"topic": "Date et style", "question": "Quel style de musique est-ce ?", "answer": "Du jazz manouche, joué par quatre guitaristes.", "follow_up_to": null},
+        {"topic": "Date et style", "question": "C'est plutôt calme ou rythmé ?", "answer": "Très rythmé : en général, toute la salle finit par danser.", "follow_up_to": 2, "condition": "After the music style is named, if it is unfamiliar to you."},
+        {"topic": "Lieu et trajet", "question": "Où se passe le concert ?", "answer": "Au Studio 88, une petite salle du centre-ville.", "follow_up_to": null},
+        {"topic": "Lieu et trajet", "question": "Comment je peux m'y rendre depuis chez moi ?", "answer": "Le bus 24 t'y dépose en vingt minutes.", "follow_up_to": 4, "condition": "After the venue is given, unless transport is already arranged."},
+        {"topic": "Billets et organisation", "question": "Combien coûte la place ?", "answer": "35 $ ; j'ai déjà les deux billets, tu me rembourseras ta place.", "follow_up_to": null},
+        {"topic": "Billets et organisation", "question": "Qui d'autre vient avec nous ?", "answer": "Sarah et son frère, qui nous rejoindront sur place.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "friend-cooking-workshop-experience",
+      "register": "tu",
+      "note": "Your friend has just completed a cooking workshop: use past tenses for their experience, then present or conditional forms for your own plans. They are a participant, not the chef. Cover what is taught, schedules and cost. Use tu with your friend.",
+      "opening": "Salut ! Ton atelier de cuisine me donne envie d'essayer à mon tour, alors j'aimerais que tu m'en parles.",
+      "closing": "Merci beaucoup, ça me donne vraiment envie ! Je vais réserver mon premier atelier dès ce soir.",
+      "questions": [
+        {"topic": "Contenu", "question": "Qu'est-ce que tu as appris à préparer ?", "answer": "À faire des pâtes fraîches et deux sauces italiennes.", "follow_up_to": null},
+        {"topic": "Contenu", "question": "Les pâtes fraîches, c'est difficile à réussir quand on débute ?", "answer": "Pas vraiment : le chef montrait chaque geste, puis on le refaisait en binôme.", "follow_up_to": 1, "condition": "If a specific dish is named; substitute that dish."},
+        {"topic": "Lieu et horaires", "question": "Où se déroule cet atelier ?", "answer": "Dans une école de cuisine du centre-ville, qui propose un thème différent chaque semaine.", "follow_up_to": null},
+        {"topic": "Lieu et horaires", "question": "À quels horaires ont lieu les ateliers ?", "answer": "Le mardi et le jeudi de 18 h 30 à 21 h, et le samedi de 10 h à 13 h.", "follow_up_to": null},
+        {"topic": "Coût et réservation", "question": "Combien as-tu payé ?", "answer": "75 $ pour la séance, ingrédients et dégustation compris.", "follow_up_to": null},
+        {"topic": "Coût et réservation", "question": "Existe-t-il des forfaits pour plusieurs ateliers ?", "answer": "Oui, une carte de cinq ateliers coûte 320 $.", "follow_up_to": 5, "condition": "After the session price is given, if you might attend several."},
+        {"topic": "Coût et réservation", "question": "Faut-il réserver longtemps à l'avance ?", "answer": "Environ deux semaines, car il n'y a que douze places par atelier.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "edmonton-newcomer-neighbor-schools",
+      "register": "vous",
+      "note": "You have just settled in Edmonton and want to enrol your children; your neighbour knows the local schools from experience, not official rules. Ask where the schools are, what the teachers are like and which activities are offered. Vous is chosen as a cautious default; a close neighbour may be addressed with tu.",
+      "opening": "Bonjour ! Je viens de m'installer dans le quartier et je dois inscrire mes enfants à l'école. Comme vous connaissez le secteur, j'aimerais vous poser quelques questions.",
+      "closing": "Merci beaucoup pour tous ces conseils ! Je vais contacter les écoles dès demain pour inscrire mes enfants.",
+      "questions": [
+        {"topic": "Écoles du secteur", "question": "Quelles écoles y a-t-il près d'ici ?", "answer": "Une école primaire publique à deux rues, une école catholique près du parc et une école secondaire à quinze minutes en bus.", "follow_up_to": null},
+        {"topic": "Écoles du secteur", "question": "Certaines d'entre elles enseignent-elles en français ?", "answer": "Il y a une école francophone et des programmes d'immersion, mais à une vingtaine de minutes en voiture.", "follow_up_to": 1, "condition": "After nearby schools are listed, if French-language schooling matters to you."},
+        {"topic": "Enseignants", "question": "Les enseignants ont-ils bonne réputation dans le quartier ?", "answer": "Oui, ils sont très disponibles : ceux de mes enfants envoient des nouvelles aux parents chaque semaine.", "follow_up_to": null},
+        {"topic": "Enseignants", "question": "Comment accueillent-ils les nouveaux élèves ?", "answer": "Avec beaucoup d'attention : ils désignent un camarade pour guider chaque nouvel élève pendant les premières semaines.", "follow_up_to": 3, "condition": "After teachers are described, unless newcomer support is already mentioned."},
+        {"topic": "Activités", "question": "Quelles activités les écoles proposent-elles ?", "answer": "Un club de lecture, du basketball, une chorale et du patinage en hiver.", "follow_up_to": null},
+        {"topic": "Activités", "question": "Ces activités ont-elles lieu le midi ou après la classe ?", "answer": "Surtout le midi, sauf le basketball, qui se termine à 16 h 30.", "follow_up_to": 5, "condition": "After activities are listed, unless their timing is already given."},
+        {"topic": "Inscription", "question": "À qui dois-je m'adresser pour les inscrire ?", "answer": "Au secrétariat de l'école de votre secteur : on vous y indiquera les documents à fournir.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "canadian-city-resident-advice-transit",
+      "register": "vous",
+      "note": "You have just settled in Canada and your neighbour advises you as a regular public-transport user, not as a transit-company agent. Cover the available modes, how they work and how to get a pass. Vous is chosen as a cautious default; a close neighbour may be addressed with tu.",
+      "notes": {
+        "tache2:decembre:batch-04:subject-17": "Here, a Canadian friend is hosting you and you want to explore the city: use tu with them (« Tu me conseilles quel bus pour le centre ? »). The model questions keep the neighbour's vous, so adapt the forms. Also ask which places to see, timetables and fares."
+      },
+      "opening": "Bonjour ! Je ne connais pas encore les transports en commun d'ici, et j'aimerais que vous m'expliquiez comment ils fonctionnent.",
+      "closing": "Merci beaucoup, c'est beaucoup plus clair ! Je vais pouvoir me déplacer en toute confiance dès demain.",
+      "questions": [
+        {"topic": "Modes de transport", "question": "Quels modes de transport existe-t-il ici ?", "answer": "Des bus, une ligne de métro et un train de banlieue pour les villes voisines.", "follow_up_to": null},
+        {"topic": "Modes de transport", "question": "Pour aller au centre-ville, lequel me conseilleriez-vous ?", "answer": "Le bus 18 jusqu'à la station Centrale, puis deux arrêts de métro : comptez vingt-cinq minutes.", "follow_up_to": 1, "condition": "After transport modes are listed; adapt the destination to your needs."},
+        {"topic": "Fonctionnement et horaires", "question": "Comment paie-t-on son trajet ?", "answer": "Avec une carte rechargeable qu'on valide à chaque montée, ou en monnaie exacte dans le bus.", "follow_up_to": null},
+        {"topic": "Fonctionnement et horaires", "question": "Jusqu'à quelle heure les transports circulent-ils ?", "answer": "Jusqu'à 1 h environ ; ensuite, des bus de nuit passent toutes les 30 minutes.", "follow_up_to": null},
+        {"topic": "Tarifs et abonnements", "question": "Combien coûte un trajet simple ?", "answer": "Environ 3,75 $, avec une correspondance gratuite pendant 90 minutes.", "follow_up_to": null},
+        {"topic": "Tarifs et abonnements", "question": "Existe-t-il des formules plus avantageuses ?", "answer": "Oui, un passe d'une journée à 11 $ et un abonnement mensuel d'environ 100 $.", "follow_up_to": 5, "condition": "After the single fare is given, if you will travel often."},
+        {"topic": "Tarifs et abonnements", "question": "Comment prend-on cet abonnement mensuel ?", "answer": "On obtient d'abord la carte au guichet d'une station, puis on la recharge chaque mois en ligne ou aux distributeurs.", "follow_up_to": 6, "condition": "If a monthly pass is mentioned, unless purchase steps are already explained."}
+      ]
+    }
+  ]
+}

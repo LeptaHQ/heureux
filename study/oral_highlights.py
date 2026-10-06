@@ -18,6 +18,7 @@ from .models import Annotation, AnnotationKind
 from .oral_history import variant_annotation_key
 from .response_personalization import effective_response
 from .routing import TACHE_TWO_PROMPT_KEY, prompt_detail_url
+from .tache_two_dialogues import question_presentation
 
 
 _EE_TACHE_THREE_POSITION_PATTERN = re.compile(
@@ -81,18 +82,24 @@ class QuestionText(HTMLParser):
             ),
             None,
         )
-        self.stack.append((field, "data-annotation-root" in attrs, self.length))
+        excluded = (
+            (self.stack[-1][3] if self.stack else False)
+            or "data-annotation-exclude" in attrs
+        )
+        self.stack.append((field, "data-annotation-root" in attrs, self.length, excluded))
 
     def handle_endtag(self, tag):
         if tag in {"br", "hr", "img", "input", "meta", "link", "wbr"}:
             return
-        field, container, start = self.stack.pop()
-        if field is not None:
+        field, container, start, excluded = self.stack.pop()
+        if field is not None and not excluded:
             self.fields[field] = (start, self.length)
         if container:
             self.container = (start, self.length)
 
     def handle_data(self, data):
+        if self.stack and self.stack[-1][3]:
+            return
         encoded = data.encode("utf-16-le")
         self.parts.append(encoded)
         self.length += len(encoded) // 2
@@ -634,8 +641,13 @@ def preserve_ee_tache_three_highlights(response, user, *, selected_prompt=None):
 
 
 def _render_questions(prompt, content, surface, prompts):
+    context = {
+        **question_presentation(prompt, content),
+        "response_content": content,
+    }
     if surface == "back":
         return QuestionText(render_to_string("study/partials/card_back.html", {
+            **context,
             "kind": "spine",
             "tache_two_subject": True,
             "arguments": content.arguments,
@@ -644,10 +656,7 @@ def _render_questions(prompt, content, surface, prompts):
             "detail_url": prompt_detail_url(prompt),
         }))
     return QuestionText(render_to_string("study/partials/tache_two_questions.html", {
-        "subject_questions": [
-            {"number": index, "text": arg.idea, "response": arg.developpement}
-            for index, arg in enumerate(content.arguments, 1)
-        ],
+        **context,
     }))
 
 

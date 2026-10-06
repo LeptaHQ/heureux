@@ -28,9 +28,8 @@ def oral_response_context(request, prompt):
     legacy_keys = [f"response:{storage_key}"]
     match = TACHE_TWO_PROMPT_KEY.fullmatch(storage_key)
     if match:
-        legacy_keys.append(
-            f"tache-two:{match['month']}:batch-{int(match['batch'])}:subject-{int(match['subject'])}"
-        )
+        # EO2 no longer renders prepared answers, including personal ones.
+        legacy_keys = []
     return {
         "response_content": value,
         "oral_annotation_key": variant_annotation_key(prompt, value),

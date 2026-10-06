@@ -14,7 +14,8 @@
         {"topic": "Activités et préparation", "question": "Quelles activités pratiquez-vous pendant vos séjours ?", "answer": "Surtout la randonnée, avec parfois une nuit dans un refuge.", "follow_up_to": null},
         {"topic": "Activités et préparation", "question": "Quel matériel emportez-vous pour ces randonnées ?", "answer": "De bonnes chaussures, des vêtements adaptés, de l'eau et le matériel correspondant au parcours.", "follow_up_to": 4, "condition": "If hiking is mentioned; ask about equipment for the actual activity."},
         {"topic": "Activités et préparation", "question": "Comment préparez-vous une sortie avant de partir ?", "answer": "Je vérifie la météo, l'itinéraire et le niveau de difficulté pour choisir une sortie adaptée.", "follow_up_to": null},
-        {"topic": "Souvenirs", "question": "Quel souvenir de montagne vous a le plus marqué ?", "answer": "Un lever de soleil après une nuit en refuge, avec une vue dégagée sur toute la vallée.", "follow_up_to": null}
+        {"topic": "Souvenirs", "question": "Quel souvenir de montagne vous a le plus marqué ?", "answer": "Un lever de soleil après une nuit en refuge, avec une vue dégagée sur toute la vallée.", "follow_up_to": null},
+        {"topic": "Souvenirs", "question": "Avez-vous déjà dû renoncer à une sortie à cause des conditions sur place ?", "answer": "Oui, une fois à cause du brouillard ; cette décision nous a évité de prendre un risque inutile.", "follow_up_to": null}
       ]
     },
     {
@@ -29,8 +30,9 @@
         {"topic": "Devis et tarif", "question": "Ce tarif comprend-il une livraison jusqu'à la pièce choisie ?", "answer": "Pas toujours ; le devis précise si la livraison s'arrête à l'entrée ou comprend la mise en place.", "follow_up_to": 2, "condition": "After the price is given, unless delivery scope is already explained."},
         {"topic": "Délais et organisation", "question": "Quel délai faut-il prévoir pour la livraison ?", "answer": "En général, entre trois et cinq jours après confirmation, selon les disponibilités.", "follow_up_to": null},
         {"topic": "Délais et organisation", "question": "Peut-on choisir un créneau de passage ?", "answer": "Oui, nous proposons une plage horaire et confirmons le passage avant la livraison.", "follow_up_to": null},
-        {"topic": "Délais et organisation", "question": "Quel moyen de transport utilisez-vous pour les meubles ?", "answer": "Un véhicule de livraison adapté, avec le matériel nécessaire pour protéger le meuble.", "follow_up_to": null},
-        {"topic": "Réception", "question": "Que dois-je vérifier au moment de recevoir le meuble ?", "answer": "L'état du meuble et la conformité de la livraison, en signalant tout problème selon les modalités fournies.", "follow_up_to": null}
+        {"topic": "Délais et organisation", "question": "Si l'escalier est étroit, comment votre équipe organise-t-elle la livraison du meuble ?", "answer": "Nous vérifions les dimensions et l'accès à l'avance, puis nous prévoyons l'équipe et le matériel adaptés.", "follow_up_to": null},
+        {"topic": "Réception", "question": "Que dois-je vérifier au moment de recevoir le meuble ?", "answer": "L'état du meuble et la conformité de la livraison, en signalant tout problème selon les modalités fournies.", "follow_up_to": null},
+        {"topic": "Réception", "question": "Quelle procédure dois-je suivre si le meuble arrive endommagé ou incomplet ?", "answer": "Notez le problème sur le reçu, prenez des photos et contactez notre service le jour même.", "follow_up_to": null}
       ]
     },
     {
@@ -46,7 +48,8 @@
         {"topic": "Hébergement", "question": "Quel budget prévoir pour une nuit dans ce secteur ?", "answer": "Lors de mon séjour, c'était autour de 90 $ ; il faut vérifier les tarifs actuels.", "follow_up_to": 3, "condition": "After an area or lodging type is suggested, unless prices are already given."},
         {"topic": "Restaurants", "question": "Où me conseillerais-tu de manger ?", "answer": "Dans les petits restaurants près du marché, qui proposent des plats locaux.", "follow_up_to": null},
         {"topic": "Restaurants", "question": "Quel budget faut-il prévoir pour un repas là-bas ?", "answer": "Environ 20 à 30 $ par personne, selon le restaurant.", "follow_up_to": 5, "condition": "After restaurants are suggested, unless meal prices are already discussed."},
-        {"topic": "Déplacements", "question": "Comment se déplacer le plus facilement sur place ?", "answer": "À pied dans le centre, puis en bus pour les lieux plus éloignés.", "follow_up_to": null}
+        {"topic": "Déplacements", "question": "Comment se déplacer le plus facilement sur place ?", "answer": "À pied dans le centre, puis en bus pour les lieux plus éloignés.", "follow_up_to": null},
+        {"topic": "Déplacements", "question": "Existe-t-il un forfait de transport intéressant pour les trajets du week-end ?", "answer": "Oui, le passe de deux jours couvre les bus et coûte moins cher que plusieurs billets.", "follow_up_to": null}
       ]
     },
     {
@@ -62,7 +65,8 @@
         {"topic": "Inscription", "question": "Jusqu'à quand les inscriptions sont-elles ouvertes ?", "answer": "Jusqu'à la fin du mois précédent, sauf si toutes les places sont prises avant.", "follow_up_to": 3, "condition": "After the registration method is given, unless the deadline is already specified."},
         {"topic": "Inscription", "question": "Quel est le prix de l'inscription ?", "answer": "30 $ pour le parcours de cinq kilomètres, d'après les informations reçues.", "follow_up_to": null},
         {"topic": "Préparation et organisation", "question": "Comment vous préparez-vous pour cette course ?", "answer": "Je m'entraîne progressivement et je choisis une distance adaptée à mon niveau.", "follow_up_to": null},
-        {"topic": "Préparation et organisation", "question": "Comment est organisé le départ le jour de la course ?", "answer": "Les participants se retrouvent au point indiqué dans leur confirmation, avec des horaires différents selon le parcours.", "follow_up_to": null}
+        {"topic": "Préparation et organisation", "question": "Comment est organisé le départ le jour de la course ?", "answer": "Les participants se retrouvent au point indiqué dans leur confirmation, avec des horaires différents selon le parcours.", "follow_up_to": null},
+        {"topic": "Préparation et organisation", "question": "Quand et où devrez-vous récupérer votre dossard avant la course ?", "answer": "Au centre des congrès la veille, entre midi et vingt heures, avec une pièce d'identité.", "follow_up_to": null}
       ]
     },
     {
@@ -78,7 +82,8 @@
         {"topic": "Lieux touristiques", "question": "Ces lieux sont-ils proches les uns des autres ?", "answer": "Le centre et les villages sont assez proches ; le parc demande un trajet plus long.", "follow_up_to": 3, "condition": "After several places are named, unless distances are already explained."},
         {"topic": "Activités", "question": "Quelles activités permettraient de profiter des paysages ?", "answer": "La marche, le vélo et certaines excursions accompagnées.", "follow_up_to": null},
         {"topic": "Activités", "question": "Ces excursions sont-elles accessibles aux personnes peu expérimentées ?", "answer": "Certaines oui, mais il faut choisir le parcours et le niveau annoncés par l'organisateur.", "follow_up_to": 5, "condition": "If excursions are suggested; ask about the activity and level you actually need."},
-        {"topic": "Hébergement", "question": "Où serait-il pratique de loger pour limiter les déplacements ?", "answer": "Près du centre, où plusieurs hébergements permettent d'accéder facilement aux principaux services.", "follow_up_to": null}
+        {"topic": "Hébergement", "question": "Où serait-il pratique de loger pour limiter les déplacements ?", "answer": "Près du centre, où plusieurs hébergements permettent d'accéder facilement aux principaux services.", "follow_up_to": null},
+        {"topic": "Hébergement", "question": "Quelle fourchette de prix faut-il prévoir pour une nuit dans ce secteur ?", "answer": "Entre 90 et 140 $ selon la saison et le type d'hébergement.", "follow_up_to": null}
       ]
     },
     {
@@ -94,7 +99,8 @@
         {"topic": "Invités et repas", "question": "Quel type de repas aimerais-tu proposer ?", "answer": "Un buffet simple, pour pouvoir discuter sans rester toute la soirée à table.", "follow_up_to": null},
         {"topic": "Invités et repas", "question": "Y a-t-il des restrictions alimentaires à prévoir pour ce buffet ?", "answer": "Oui, deux invités sont végétariens ; je te préciserai aussi les allergies connues.", "follow_up_to": 4, "condition": "After food is discussed, unless guests' dietary needs are already specified."},
         {"topic": "Ambiance et décoration", "question": "Quelle ambiance souhaiterais-tu pour la soirée ?", "answer": "Quelque chose de chaleureux et détendu, avec de la musique sans trop de bruit.", "follow_up_to": null},
-        {"topic": "Ambiance et décoration", "question": "Quelle décoration irait bien avec cette ambiance ?", "answer": "Des lumières douces et quelques fleurs, sans thème compliqué.", "follow_up_to": 6, "condition": "After an atmosphere is chosen, unless decoration preferences are already given."}
+        {"topic": "Ambiance et décoration", "question": "Quelle décoration irait bien avec cette ambiance ?", "answer": "Des lumières douces et quelques fleurs, sans thème compliqué.", "follow_up_to": 6, "condition": "After an atmosphere is chosen, unless decoration preferences are already given."},
+        {"topic": "Ambiance et décoration", "question": "Quel budget total aimerais-tu ne pas dépasser pour la fête ?", "answer": "J'aimerais rester autour de 500 $, en demandant à chacun d'apporter quelque chose.", "follow_up_to": null}
       ]
     },
     {
@@ -110,7 +116,8 @@
         {"topic": "Avis et ambiance", "question": "Qu'as-tu pensé des plats que tu as commandés ?", "answer": "Les ingrédients étaient frais et les portions suffisantes, sans être trop grandes.", "follow_up_to": null},
         {"topic": "Avis et ambiance", "question": "L'ambiance est-elle plutôt calme ou animée ?", "answer": "Assez animée, mais on pouvait discuter sans difficulté.", "follow_up_to": null},
         {"topic": "Budget et réservation", "question": "Quel budget faut-il prévoir pour un repas ?", "answer": "J'ai payé environ 35 $ pour un plat et une boisson.", "follow_up_to": null},
-        {"topic": "Budget et réservation", "question": "Est-ce qu'il vaut mieux réserver le soir ?", "answer": "Le week-end, oui ; la salle était presque pleine quand j'y suis allé.", "follow_up_to": null}
+        {"topic": "Budget et réservation", "question": "Est-ce qu'il vaut mieux réserver le soir ?", "answer": "Le week-end, oui ; la salle était presque pleine quand j'y suis allé.", "follow_up_to": null},
+        {"topic": "Budget et réservation", "question": "Le restaurant propose-t-il des options adaptées aux allergies ou aux régimes particuliers ?", "answer": "Oui, plusieurs plats sont végétariens et le personnel peut signaler les principaux allergènes.", "follow_up_to": null}
       ]
     },
     {
@@ -123,10 +130,11 @@
         {"topic": "Superficie et agencement", "question": "Quelle est la superficie exacte de l'appartement ?", "answer": "Soixante-dix mètres carrés, selon les documents de l'annonce.", "follow_up_to": null},
         {"topic": "Superficie et agencement", "question": "Comment les pièces sont-elles réparties dans cette surface ?", "answer": "Deux chambres, un séjour, une cuisine séparée et une salle de bains.", "follow_up_to": 1, "condition": "After the area is given, unless the layout is already described."},
         {"topic": "Quartier", "question": "Comment décririez-vous le quartier autour de l'immeuble ?", "answer": "Un secteur résidentiel, avec des commerces et un parc à proximité.", "follow_up_to": null},
-        {"topic": "Quartier", "question": "Quels transports desservent ce secteur ?", "answer": "Deux lignes de bus passent près de l'immeuble.", "follow_up_to": null},
+        {"topic": "Quartier", "question": "Quels transports desservent ce secteur — bus, tramway ou métro — et peut-on facilement vivre sans voiture ?", "answer": "Deux lignes de bus passent près de l'immeuble et rejoignent le métro ; une voiture n'est pas indispensable au quotidien.", "follow_up_to": null},
         {"topic": "Prix et charges", "question": "Quel est le prix de vente demandé ?", "answer": "250 000 $, d'après l'offre actuelle du propriétaire.", "follow_up_to": null},
-        {"topic": "Prix et charges", "question": "Quelles charges récurrentes faudrait-il prévoir pour cet appartement ?", "answer": "Les charges de l'immeuble et les dépenses propres au logement ; je peux vous fournir les montants documentés.", "follow_up_to": null},
-        {"topic": "Visite", "question": "Quand serait-il possible de visiter l'appartement ?", "answer": "Nous pouvons proposer un rendez-vous cette semaine, selon les disponibilités du propriétaire.", "follow_up_to": null}
+        {"topic": "Prix et charges", "question": "À combien s'élèvent les charges de copropriété, et qu'est-ce qui est compris dans ce montant ?", "answer": "Elles sont de 280 $ par mois et comprennent l'entretien des parties communes, l'eau et le fonds de réserve.", "follow_up_to": null},
+        {"topic": "État et visite", "question": "Quand serait-il possible de visiter l'appartement ?", "answer": "Nous pouvons proposer un rendez-vous cette semaine, selon les disponibilités du propriétaire.", "follow_up_to": null},
+        {"topic": "État et visite", "question": "Quels travaux importants ont été réalisés ou sont prévus dans l'appartement et l'immeuble ?", "answer": "La toiture a été refaite récemment, mais les fenêtres de l'appartement seront à moderniser.", "follow_up_to": null}
       ]
     },
     {
@@ -142,7 +150,8 @@
         {"topic": "Horaires et encadrement", "question": "Qui encadre les enfants pendant les séances ?", "answer": "Des animateurs du centre ; l'accueil peut vous préciser leurs qualifications et le fonctionnement des groupes.", "follow_up_to": null},
         {"topic": "Tarifs", "question": "Quel est le prix d'une session ?", "answer": "La session de dessin que je connais coûtait 90 $ pour dix semaines.", "follow_up_to": null},
         {"topic": "Tarifs", "question": "Le matériel est-il compris dans ce tarif ?", "answer": "Pour ce groupe, oui, mais il faut vérifier les conditions de chaque activité.", "follow_up_to": 5, "condition": "After a fee is given, unless material costs are already specified."},
-        {"topic": "Inscription", "question": "À qui faut-il s'adresser pour connaître les places disponibles et s'inscrire ?", "answer": "À l'accueil du centre qui organise l'activité.", "follow_up_to": null}
+        {"topic": "Inscription", "question": "À qui faut-il s'adresser pour connaître les places disponibles et s'inscrire ?", "answer": "À l'accueil du centre qui organise l'activité.", "follow_up_to": null},
+        {"topic": "Inscription", "question": "Que se passe-t-il si le groupe choisi est déjà complet au moment de l'inscription ?", "answer": "Le centre tient une liste d'attente et propose parfois un second créneau.", "follow_up_to": null}
       ]
     },
     {
@@ -158,7 +167,8 @@
         {"topic": "Disponibilités", "question": "Peut-on participer ponctuellement ou faut-il venir chaque semaine ?", "answer": "Les deux sont possibles, à condition de prévenir pour organiser les équipes.", "follow_up_to": null},
         {"topic": "Conditions et accompagnement", "question": "Faut-il une expérience particulière pour rejoindre l'équipe ?", "answer": "Non, les nouveaux sont accompagnés et reçoivent les consignes avant de commencer.", "follow_up_to": null},
         {"topic": "Conditions et accompagnement", "question": "En quoi consiste cet accompagnement au début ?", "answer": "Un bénévole expérimenté explique les tâches et reste avec toi pendant la première distribution.", "follow_up_to": 5, "condition": "If introductory support is mentioned, unless its details are already given."},
-        {"topic": "Conditions et accompagnement", "question": "Comment proposer ma candidature comme bénévole ?", "answer": "En contactant la personne qui coordonne les équipes ; je peux te transmettre ses coordonnées.", "follow_up_to": null}
+        {"topic": "Conditions et accompagnement", "question": "Comment proposer ma candidature comme bénévole ?", "answer": "En contactant la personne qui coordonne les équipes ; je peux te transmettre ses coordonnées.", "follow_up_to": null},
+        {"topic": "Conditions et accompagnement", "question": "Quelles consignes de sécurité et d'hygiène faut-il respecter pendant la distribution ?", "answer": "L'association explique le service des aliments, le travail en binôme et la conduite à tenir en cas d'incident.", "follow_up_to": null}
       ]
     },
     {
@@ -174,7 +184,8 @@
         {"topic": "Conditions de travail", "question": "Quels sont tes horaires habituels ?", "answer": "De neuf heures à dix-sept heures, avec une certaine souplesse selon les rendez-vous.", "follow_up_to": null},
         {"topic": "Conditions de travail", "question": "Si tu es d'accord pour en parler, quelle est la fourchette de salaire pour ce type de poste ?", "answer": "Les offres comparables dans l'entreprise se situent autour de 45 000 à 50 000 $ par an.", "follow_up_to": null},
         {"topic": "Conditions de travail", "question": "Quelles possibilités d'évolution sont proposées ?", "answer": "Des formations et, avec de l'expérience, la possibilité de coordonner certains projets.", "follow_up_to": null},
-        {"topic": "Recrutement", "question": "Comment savoir si l'entreprise recrute actuellement ?", "answer": "Sur sa page de recrutement ; je peux aussi te signaler les annonces que je vois.", "follow_up_to": null}
+        {"topic": "Recrutement", "question": "Comment savoir si l'entreprise recrute actuellement ?", "answer": "Sur sa page de recrutement ; je peux aussi te signaler les annonces que je vois.", "follow_up_to": null},
+        {"topic": "Recrutement", "question": "Quels profils et quelles compétences l'entreprise recherche-t-elle le plus souvent ?", "answer": "Elle cherche surtout des personnes autonomes qui savent travailler en équipe et gérer plusieurs projets.", "follow_up_to": null}
       ]
     },
     {
@@ -190,7 +201,8 @@
         {"topic": "Missions et engagement", "question": "Quel engagement de temps attendez-vous des membres ?", "answer": "Cela dépend des missions ; certaines sont ponctuelles et d'autres demandent une présence régulière.", "follow_up_to": null},
         {"topic": "Conditions et intégration", "question": "Faut-il des compétences particulières pour commencer ?", "answer": "Pas pour toutes les tâches ; nous accompagnons les nouveaux et réservons certaines missions aux personnes formées.", "follow_up_to": null},
         {"topic": "Conditions et intégration", "question": "Comment accompagnez-vous les nouveaux membres ?", "answer": "Une personne présente les consignes et aide à choisir une première mission adaptée.", "follow_up_to": 5, "condition": "If introductory support is mentioned, unless it has already been explained."},
-        {"topic": "Conditions et intégration", "question": "Quelles démarches faut-il effectuer pour vous rejoindre ?", "answer": "Prendre contact avec le responsable des bénévoles et convenir d'une première rencontre.", "follow_up_to": null}
+        {"topic": "Conditions et intégration", "question": "Quelles démarches faut-il effectuer pour vous rejoindre ?", "answer": "Prendre contact avec le responsable des bénévoles et convenir d'une première rencontre.", "follow_up_to": null},
+        {"topic": "Conditions et intégration", "question": "Les bénévoles sont-ils formés et assurés pendant les activités de l'association ?", "answer": "Oui, une formation est prévue et l'assurance de l'association couvre les activités autorisées.", "follow_up_to": null}
       ]
     },
     {
@@ -206,7 +218,8 @@
         {"topic": "Histoire, acteurs et avis", "question": "Qui joue les rôles principaux ?", "answer": "Marion Barbeau, avec notamment Denis Podalydès et Pio Marmaï.", "follow_up_to": null},
         {"topic": "Histoire, acteurs et avis", "question": "Qu'est-ce qui t'a plu dans cette histoire ?", "answer": "La façon de montrer sa reconstruction, avec de l'émotion sans rendre tout le film triste.", "follow_up_to": 3, "condition": "After the plot is outlined, unless their personal reaction is already clear."},
         {"topic": "Durée et séances", "question": "Combien de temps dure le film ?", "answer": "Un peu moins de deux heures.", "follow_up_to": null},
-        {"topic": "Durée et séances", "question": "Tu sais à quelles heures on peut le voir cette semaine ?", "answer": "J'avais vu des séances en fin d'après-midi et en soirée ; vérifie le programme actuel du cinéma.", "follow_up_to": null}
+        {"topic": "Durée et séances", "question": "Tu sais à quelles heures on peut le voir cette semaine ?", "answer": "J'avais vu des séances en fin d'après-midi et en soirée ; vérifie le programme actuel du cinéma.", "follow_up_to": null},
+        {"topic": "Durée et séances", "question": "Où puis-je vérifier les séances disponibles et réserver une place si je me décide ?", "answer": "Sur le site ou l'application du cinéma, qui affichent les horaires actualisés.", "follow_up_to": null}
       ]
     },
     {
@@ -222,7 +235,8 @@
         {"topic": "Installation et adaptation", "question": "Qu'est-ce qui vous a donné envie de venir travailler ici ?", "answer": "Une occasion professionnelle intéressante et l'envie de découvrir un autre environnement.", "follow_up_to": null},
         {"topic": "Installation et adaptation", "question": "Quelle difficulté avez-vous rencontrée en arrivant ?", "answer": "Comprendre certaines habitudes de travail et créer un réseau en dehors du bureau.", "follow_up_to": null},
         {"topic": "Installation et adaptation", "question": "Qu'est-ce qui vous a aidé à surmonter ces difficultés ?", "answer": "Les échanges avec les collègues et la participation à des activités locales.", "follow_up_to": 5, "condition": "If difficulties are described, unless they already explain how they overcame them."},
-        {"topic": "Bilan", "question": "Qu'est-ce que cette expérience vous a apporté sur le plan professionnel ?", "answer": "Plus de souplesse et une meilleure capacité à travailler avec des équipes différentes.", "follow_up_to": null}
+        {"topic": "Bilan", "question": "Qu'est-ce que cette expérience vous a apporté sur le plan professionnel ?", "answer": "Plus de souplesse et une meilleure capacité à travailler avec des équipes différentes.", "follow_up_to": null},
+        {"topic": "Bilan", "question": "Quelle différence entre les deux milieux de travail vous a demandé le plus d'adaptation ?", "answer": "Ici, les décisions sont plus formelles et prennent davantage de temps qu'au Québec.", "follow_up_to": null}
       ]
     },
     {
@@ -235,10 +249,11 @@
         {"topic": "Démarche et offres", "question": "Par où commencer pour chercher un logement avec votre agence ?", "answer": "Par votre budget, vos critères et votre date d'installation, puis nous sélectionnons des offres et proposons des visites.", "follow_up_to": null},
         {"topic": "Démarche et offres", "question": "Quels types de logements avez-vous actuellement à louer ?", "answer": "Des studios et des appartements de différentes tailles, selon les secteurs.", "follow_up_to": null},
         {"topic": "Démarche et offres", "question": "Quels secteurs conseilleriez-vous pour bien accéder aux services et aux transports ?", "answer": "Nous pouvons comparer les quartiers proches de vos activités et des lignes de transport utiles.", "follow_up_to": null},
-        {"topic": "Budget", "question": "Comment connaître le coût total mensuel d'un logement ?", "answer": "Il faut examiner le loyer et les dépenses incluses ou non, en demandant les montants disponibles pour chaque offre.", "follow_up_to": null},
+        {"topic": "Budget", "question": "Quelle fourchette de loyers faut-il prévoir, et quelles charges sont généralement incluses ?", "answer": "Comptez de 1 100 à 1 500 $ par mois ; l'eau est souvent incluse, mais pas toujours le chauffage ni l'électricité.", "follow_up_to": null},
         {"topic": "Dossier et vérifications", "question": "Quels renseignements demandez-vous pour présenter un dossier ?", "answer": "Des informations adaptées à votre situation ; certaines offres demandent aussi des références locatives.", "follow_up_to": null},
         {"topic": "Dossier et vérifications", "question": "Si je n'ai pas encore de références locatives ici, comment compléter mon dossier ?", "answer": "Nous pouvons examiner les autres justificatifs disponibles et vérifier ce que le propriétaire accepte pour cette offre.", "follow_up_to": 5, "condition": "If local rental references are requested and you do not have them."},
-        {"topic": "Dossier et vérifications", "question": "Où trouver une information officielle sur le bail avant de m'engager ?", "answer": "Auprès du Tribunal administratif du logement, en complément des documents de la location proposée.", "follow_up_to": null}
+        {"topic": "Dossier et vérifications", "question": "Où trouver une information officielle sur le bail avant de m'engager ?", "answer": "Auprès du Tribunal administratif du logement, en complément des documents de la location proposée.", "follow_up_to": null},
+        {"topic": "Dossier et vérifications", "question": "Comment organiser une visite lorsque je trouve une offre qui correspond à mes critères ?", "answer": "Contactez l'agence avec vos disponibilités ; nous regroupons parfois plusieurs visites le même jour.", "follow_up_to": null}
       ]
     },
     {
@@ -248,13 +263,14 @@
       "opening": "Bonjour ! J'aimerais m'inscrire à la bibliothèque et mieux comprendre son fonctionnement.",
       "closing": "Merci pour ces renseignements. Je vais préparer les documents nécessaires et consulter le programme des animations.",
       "questions": [
-        {"topic": "Inscription", "question": "Quelles sont les démarches pour devenir membre ?", "answer": "Remplir une fiche et présenter les justificatifs demandés, notamment un document pour l'adresse.", "follow_up_to": null},
-        {"topic": "Inscription", "question": "Acceptez-vous un justificatif d'adresse en version numérique ?", "answer": "Oui, s'il est lisible et correspond aux documents acceptés par la bibliothèque.", "follow_up_to": 1, "condition": "If proof of address is required, unless accepted formats are already specified."},
-        {"topic": "Inscription", "question": "L'inscription est-elle payante ?", "answer": "Elle est gratuite pour certaines catégories ; nous vérifierons le tarif correspondant à votre situation.", "follow_up_to": null},
+        {"topic": "Inscription et ressources", "question": "Quelles sont les démarches pour devenir membre ?", "answer": "Remplir une fiche et présenter les justificatifs demandés, notamment un document pour l'adresse.", "follow_up_to": null},
+        {"topic": "Inscription et ressources", "question": "Quels documents et quelles ressources numériques la carte permet-elle d'emprunter ?", "answer": "Des livres, des films et des livres numériques, avec des limites différentes selon le support.", "follow_up_to": null},
+        {"topic": "Inscription et ressources", "question": "L'inscription est-elle payante ?", "answer": "Elle est gratuite pour certaines catégories ; nous vérifierons le tarif correspondant à votre situation.", "follow_up_to": null},
         {"topic": "Horaires et emprunts", "question": "Quels sont vos horaires d'ouverture ?", "answer": "Du mardi au samedi, avec une ouverture plus tardive le jeudi.", "follow_up_to": null},
         {"topic": "Horaires et emprunts", "question": "Quelles sont les conditions pour emprunter des livres ?", "answer": "La carte permet plusieurs emprunts pour une durée déterminée ; nous vous remettons le règlement détaillé.", "follow_up_to": null},
         {"topic": "Animations", "question": "Quelles animations proposez-vous aux membres ?", "answer": "Des rencontres avec des auteurs, des ateliers et un club de lecture.", "follow_up_to": null},
-        {"topic": "Animations", "question": "Faut-il réserver pour participer à ces rencontres avec les auteurs ?", "answer": "Oui, certaines ont un nombre de places limité ; la réservation est indiquée dans le programme.", "follow_up_to": 6, "condition": "If author events are offered; adapt to the activity that interests you."}
+        {"topic": "Animations", "question": "Faut-il réserver pour participer à ces rencontres avec les auteurs ?", "answer": "Oui, certaines ont un nombre de places limité ; la réservation est indiquée dans le programme.", "follow_up_to": 6, "condition": "If author events are offered; adapt to the activity that interests you."},
+        {"topic": "Animations", "question": "Ces animations sont-elles gratuites pour les membres de la bibliothèque ?", "answer": "La plupart le sont ; seuls certains ateliers avec du matériel demandent une petite participation.", "follow_up_to": null}
       ]
     },
     {
@@ -270,7 +286,8 @@
         {"topic": "Déroulement", "question": "Combien de temps faut-il prévoir pour l'entretien ?", "answer": "Environ quarante-cinq minutes.", "follow_up_to": null},
         {"topic": "Déroulement", "question": "Comment se déroulera l'échange ?", "answer": "Une présentation de votre parcours, des questions sur vos expériences et une courte mise en situation.", "follow_up_to": null},
         {"topic": "Déroulement", "question": "Avec qui aurai-je l'entretien ?", "answer": "Une personne du recrutement et le responsable de l'équipe concernée.", "follow_up_to": null},
-        {"topic": "Préparation", "question": "Quels documents ou éléments me conseilleriez-vous de préparer ?", "answer": "Votre CV à jour et quelques exemples concrets de situations professionnelles en lien avec le poste.", "follow_up_to": null}
+        {"topic": "Préparation", "question": "Quels documents ou éléments me conseilleriez-vous de préparer ?", "answer": "Votre CV à jour et quelques exemples concrets de situations professionnelles en lien avec le poste.", "follow_up_to": null},
+        {"topic": "Préparation", "question": "Après l'entretien, dans quel délai prévoyez-vous de communiquer la suite du processus ?", "answer": "Nous vous répondrons sous une semaine et préciserons alors s'il y a une seconde étape.", "follow_up_to": null}
       ]
     },
     {
@@ -286,11 +303,12 @@
       "questions": [
         {"topic": "Quartiers", "question": "Quels quartiers me conseillerais-tu pour chercher un logement ?", "answer": "Les secteurs proches du centre ou bien reliés aux transports, selon ton budget.", "follow_up_to": null},
         {"topic": "Quartiers", "question": "Comment décrirais-tu l'ambiance de ces quartiers ?", "answer": "Certains sont animés près des commerces ; d'autres sont plus calmes, un peu plus loin du centre.", "follow_up_to": 1, "condition": "After neighbourhoods are suggested, unless their atmosphere is already described."},
-        {"topic": "Budget", "question": "Quel budget faut-il envisager pour un petit appartement ?", "answer": "Les loyers varient beaucoup ; compare les annonces récentes et les charges réellement incluses.", "follow_up_to": null},
-        {"topic": "Services de proximité", "question": "Quels services trouve-t-on près des logements de ces secteurs ?", "answer": "Des commerces, des lignes de transport et différents services, à vérifier autour de chaque adresse.", "follow_up_to": null},
+        {"topic": "Budget", "question": "Quelle fourchette de loyers faut-il envisager pour un petit appartement, charges comprises ?", "answer": "Dans les secteurs bien desservis, compte environ 1 300 à 1 700 $ par mois selon les charges incluses.", "follow_up_to": null},
+        {"topic": "Services de proximité", "question": "Quels transports en commun et quels commerces trouve-t-on dans ces secteurs, et une voiture serait-elle nécessaire ?", "answer": "Les deux secteurs ont des bus fréquents, des épiceries et une pharmacie ; près du centre, une voiture n'est pas nécessaire.", "follow_up_to": null},
         {"topic": "Recherche et démarches", "question": "Quels sites seraient utiles pour trouver des annonces fiables ?", "answer": "Les plateformes connues et les sites d'agences locales, sans se fier uniquement aux photos.", "follow_up_to": null},
         {"topic": "Recherche et démarches", "question": "Quelles étapes me conseillerais-tu avant d'accepter une location ?", "answer": "Contacter le propriétaire, voir le logement et examiner les conditions du bail avant de verser une somme.", "follow_up_to": null},
-        {"topic": "Recherche et démarches", "question": "Qui pourrait m'aider à vérifier ces conditions du bail ?", "answer": "Un service d'information sur le logement ou l'organisme officiel compétent pour la ville concernée.", "follow_up_to": 6, "condition": "If lease checks are mentioned and the appropriate contact remains unspecified."}
+        {"topic": "Recherche et démarches", "question": "Quels documents devrais-je préparer pour répondre rapidement à une annonce intéressante ?", "answer": "Prépare tes pièces d'identité, tes justificatifs de revenus et les références que tu peux fournir, sans envoyer de données sensibles avant de vérifier l'annonce.", "follow_up_to": 6, "condition": "After the application steps are outlined, ask how to prepare a responsive file."},
+        {"topic": "Recherche et démarches", "question": "Lors d'une visite, quels signes devraient m'alerter sur l'état du logement ou l'annonce ?", "answer": "Vérifie l'humidité, les équipements, l'identité du bailleur et refuse tout paiement précipité.", "follow_up_to": null}
       ]
     },
     {
@@ -306,7 +324,8 @@
         {"topic": "Histoire et acteurs", "question": "Qui joue dans ce film ?", "answer": "Marion Barbeau, Denis Podalydès et Pio Marmaï, entre autres.", "follow_up_to": null},
         {"topic": "Histoire et acteurs", "question": "Qu'est-ce qui te donne envie de me recommander cette histoire ?", "answer": "Elle parle de reconstruction et de rencontre, des thèmes qui pourraient t'intéresser.", "follow_up_to": 3, "condition": "After the plot is outlined, unless their recommendation is already explained."},
         {"topic": "Durée et rythme", "question": "Combien de temps dure le film ?", "answer": "Un peu moins de deux heures.", "follow_up_to": null},
-        {"topic": "Durée et rythme", "question": "Est-ce que le rythme est plutôt rapide ou posé ?", "answer": "D'après ce que j'en connais, il prend le temps de développer les personnages, avec des scènes de danse plus dynamiques.", "follow_up_to": 6, "condition": "After duration is given, if they can comment on the pacing."}
+        {"topic": "Durée et rythme", "question": "Est-ce que le rythme est plutôt rapide ou posé ?", "answer": "D'après ce que j'en connais, il prend le temps de développer les personnages, avec des scènes de danse plus dynamiques.", "follow_up_to": 6, "condition": "After duration is given, if they can comment on the pacing."},
+        {"topic": "Durée et rythme", "question": "Sais-tu si le film est proposé en version française ou avec des sous-titres ?", "answer": "Oui, certaines séances sont doublées et d'autres sont en version originale sous-titrée.", "follow_up_to": null}
       ]
     },
     {
@@ -322,7 +341,8 @@
         {"topic": "Personnalité et type de cadeau", "question": "Préférerait-elle un objet ou une activité à faire ?", "answer": "Une activité choisie selon ses goûts pourrait lui faire très plaisir.", "follow_up_to": 3, "condition": "After her personality is described, unless the preferred gift type is already clear."},
         {"topic": "Personnalité et type de cadeau", "question": "Qu'est-ce qu'elle possède déjà qu'il vaudrait mieux ne pas lui offrir ?", "answer": "Elle a beaucoup de livres ; mieux vaut vérifier le titre ou choisir une autre idée.", "follow_up_to": null},
         {"topic": "Budget et délai", "question": "Quel budget te semblerait raisonnable pour ce cadeau ?", "answer": "Autour de 25 à 40 $, sans obligation de dépenser autant.", "follow_up_to": null},
-        {"topic": "Budget et délai", "question": "Quel jour tombe son anniversaire ?", "answer": "Le 12 septembre ; tu as encore deux semaines pour trouver quelque chose.", "follow_up_to": null}
+        {"topic": "Budget et délai", "question": "Pour quelle date dois-je avoir trouvé le cadeau ?", "answer": "Pour le 12 septembre ; tu as encore deux semaines pour choisir quelque chose.", "follow_up_to": null},
+        {"topic": "Budget et délai", "question": "Penses-tu qu'il vaudrait mieux choisir un cadeau commun pour augmenter le budget ?", "answer": "Oui, trois amis seraient prêts à participer pour lui offrir l'activité qu'elle souhaite.", "follow_up_to": null}
       ]
     }
   ]

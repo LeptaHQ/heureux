@@ -3847,7 +3847,7 @@ class BrowserTests(StaticLiveServerTestCase):
             '[data-subject-collection] [data-prompt-copy]'
         ).first
         card_prompt_key = card_copy.get_attribute("data-prompt-copy-key")
-        card_copy.click()
+        card_copy.evaluate("button => button.click()")
         self.page.wait_for_function(
             "expected => window.__subjectPromptCopied === expected",
             arg=prompt_payload[card_prompt_key],
@@ -3943,7 +3943,7 @@ class BrowserTests(StaticLiveServerTestCase):
         ).wait_for()
         self.assertEqual(
             self.page.locator("[data-tache-two-question]").count(),
-            14,
+            8,
         )
         self.assertEqual(
             self.page.locator(".tache-two-question__memory").count(),
@@ -3956,6 +3956,16 @@ class BrowserTests(StaticLiveServerTestCase):
             exact=True,
         ).wait_for()
         self.page.get_by_role("heading", name="Pistes", exact=True).wait_for()
+        prompt_note = self.page.locator("details.eo2-prompt-note")
+        expect(prompt_note).not_to_have_attribute("open", "")
+        expect(
+            prompt_note.get_by_role("link", name="Modifier la note", exact=True)
+        ).not_to_be_visible()
+        prompt_note.locator("summary").click()
+        expect(prompt_note).to_have_attribute("open", "")
+        expect(
+            prompt_note.get_by_role("link", name="Modifier la note", exact=True)
+        ).to_be_visible()
         hints = self.page.locator(".subject-hints__list")
         hint_text = hints.inner_text()
         self.assertGreaterEqual(hints.locator("[lang=fr]").count(), 5)
@@ -3970,11 +3980,6 @@ class BrowserTests(StaticLiveServerTestCase):
         bounds = self.page.locator(".subject-hints").bounding_box()
         questions_bounds = self.page.locator(".answer-columns").bounding_box()
         self.assertGreaterEqual(bounds["x"], questions_bounds["x"] + questions_bounds["width"])
-        vocabulary_prompt = Prompt.objects.get(content_key=responses[0].content_key)
-        vocabulary_review_path = review_url({
-            "part": "eo", "task": "tache-2", "kind": "vocab", "batch": "1",
-            "response": vocabulary_prompt.response_id, "prompt": vocabulary_prompt.pk,
-        })
         detail_prompt = json.loads(
             self.page.locator("#tache-two-subject-prompt").text_content()
         )
@@ -4009,7 +4014,10 @@ class BrowserTests(StaticLiveServerTestCase):
         question_rows = self.page.locator(
             "[data-question-list] [data-question-form]"
         )
-        self.assertEqual(question_rows.count(), 14)
+        self.assertEqual(question_rows.count(), 8)
+        self.page.get_by_label("Ma note sur la consigne (en anglais)").fill(
+            "You are buying useful items from a friend who is moving abroad."
+        )
         self.page.set_viewport_size({"width": 320, "height": 700})
         self.assert_no_horizontal_overflow()
         control_sizes = self.page.locator(
@@ -4040,16 +4048,17 @@ class BrowserTests(StaticLiveServerTestCase):
             name="Ajouter une question",
             exact=True,
         ).click()
-        self.assertEqual(question_rows.count(), 15)
+        self.assertEqual(question_rows.count(), 9)
         question_rows.locator("textarea[name$='-question']").last.fill(
             "Quand puis-je venir chercher les meubles ?"
         )
-        question_rows.locator("textarea[name$='-response']").last.fill(
-            "Samedi après-midi serait idéal."
+        self.assertEqual(
+            question_rows.locator("textarea[name$='-response']").count(),
+            0,
         )
         self.page.get_by_role(
             "button",
-            name="Enregistrer mes questions",
+            name="Enregistrer mes questions et ma note",
             exact=True,
         ).click()
         self.page.wait_for_url(
@@ -4057,16 +4066,21 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertEqual(
             self.page.locator("[data-tache-two-question]").count(),
-            15,
+            9,
         )
         self.page.get_by_text(
             "Quand puis-je venir chercher les meubles ?",
             exact=True,
         ).wait_for()
-        self.page.locator(
-            ".tache-two-question__prepared-response",
-            has_text="Samedi après-midi serait idéal.",
-        ).wait_for()
+        personal_note = self.page.locator("details.eo2-prompt-note")
+        expect(personal_note).not_to_have_attribute("open", "")
+        personal_note.locator("summary").click()
+        expect(
+            personal_note.get_by_text(
+                "You are buying useful items from a friend who is moving abroad.",
+                exact=True,
+            )
+        ).to_be_visible()
         self.page.get_by_text("Version personnelle", exact=True).wait_for()
         self.assertEqual(hints.inner_text(), hint_text)
         self.assert_no_horizontal_overflow()
@@ -4086,18 +4100,11 @@ class BrowserTests(StaticLiveServerTestCase):
             "Quand puis-je venir chercher les meubles ?",
             exact=True,
         ).wait_for()
-        self.page.locator(
-            ".flashcard-question-list__response",
-            has_text="Samedi après-midi serait idéal.",
-        ).wait_for()
+        self.assertEqual(
+            self.page.locator(".flashcard-question-list__response").count(),
+            0,
+        )
         self.assertNotIn("3 arguments", self.page.locator("main").inner_text())
-
-        self.page.goto(self.live_server_url + vocabulary_review_path)
-        self.page.get_by_text(
-            "Vocabulaire du sujet",
-            exact=True,
-        ).wait_for()
-        self.assert_no_horizontal_overflow()
 
         apartment_path = reverse(
             "study:task_subject_detail", args=["eo", "tache-2", "mai", 2, 8],
@@ -4407,7 +4414,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(childcare_rows.count(), 5)
         self.assertEqual(
             set(childcare_rows.locator(".t1-table__questions").all_inner_texts()),
-            {"15"},
+            {"8"},
         )
         self.assertEqual(
             neighborhood_group.locator(".t1-table__related-group").count(),
@@ -6469,10 +6476,22 @@ class BrowserTests(StaticLiveServerTestCase):
         legacy.save(update_fields=["source_key"])
 
         self.page.goto(edit_url)
+        self.page.get_by_label("Ma note sur la consigne (en anglais)").fill(
+            "You are buying practical items from a friend before the move."
+        )
         with self.page.expect_navigation():
             self.page.locator(".response-edit button[type='submit']").click()
         for number in (0, 1, 2):
             expect(questions.nth(number).locator("mark.user-highlight")).to_have_count(1)
+        note = self.page.locator("details.eo2-prompt-note")
+        expect(note).not_to_have_attribute("open", "")
+        note.locator("summary").click()
+        expect(
+            note.get_by_text(
+                "You are buying practical items from a friend before the move.",
+                exact=True,
+            )
+        ).to_be_visible()
 
         self.page.goto(review_url)
         self.page.locator("#card-front .prompt-text").wait_for()
@@ -6485,7 +6504,10 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.locator("[name='questions-0-question']").fill(
             "Quel budget faut-il prévoir pour toute une semaine avec les enfants ?"
         )
-        self.page.locator("[name='questions-1-response']").fill("Le samedi matin me convient.")
+        self.assertEqual(
+            self.page.locator("textarea[name$='-response']").count(),
+            0,
+        )
         with self.page.expect_navigation():
             self.page.locator(".response-edit button[type='submit']").click()
         expect(questions.nth(0).locator("mark.user-highlight")).to_have_count(0)
@@ -6500,24 +6522,32 @@ class BrowserTests(StaticLiveServerTestCase):
             "#card-back [data-question-highlight-text='2'] mark.user-highlight"
         )).to_have_count(1)
         self.page.goto(detail_url)
-        prepared = self.page.locator("[data-question-highlight-response='2']")
-        self.save_current_prompt_highlight(prepared)
+        personal = PersonalResponse.objects.get(user=self.user, response=prompt.response)
+        private_arguments = list(personal.arguments)
+        private_arguments[1] = {
+            **private_arguments[1],
+            "developpement": "Le samedi matin me convient.",
+        }
+        personal.arguments = private_arguments
+        personal.save(update_fields=["arguments"])
+        self.page.reload()
+        self.assertEqual(
+            self.page.locator("[data-question-highlight-response]").count(),
+            0,
+        )
+        self.assertNotIn("Le samedi matin me convient.", self.page.locator("main").inner_text())
         self.page.goto(edit_url)
         self.page.locator("[name='questions-2-question']").fill("Où peut-on se retrouver demain ?")
         with self.page.expect_navigation():
             self.page.locator(".response-edit button[type='submit']").click()
-        expect(prepared.locator("mark.user-highlight")).to_have_count(1)
         expect(questions.nth(1).locator("mark.user-highlight")).to_have_count(1)
         expect(questions.nth(2).locator("mark.user-highlight")).to_have_count(0)
-        self.assertEqual(Annotation.objects.filter(user=self.user).count(), 6)
-
-        self.page.goto(edit_url)
-        self.page.locator("[name='questions-1-response']").fill("Le dimanche soir, finalement.")
-        with self.page.expect_navigation():
-            self.page.locator(".response-edit button[type='submit']").click()
-        expect(prepared.locator("mark.user-highlight")).to_have_count(0)
-        expect(questions.nth(1).locator("mark.user-highlight")).to_have_count(1)
-        self.assertEqual(Annotation.objects.filter(user=self.user).count(), 6)
+        self.assertEqual(Annotation.objects.filter(user=self.user).count(), 5)
+        personal.refresh_from_db()
+        self.assertEqual(
+            personal.arguments[1]["developpement"],
+            "Le samedi matin me convient.",
+        )
         self.select_prompt(target=questions.nth(1))
         toggle = self.page.locator("[data-highlight-selection]")
         expect(toggle).to_have_attribute("aria-label", "Unhighlight selected text")
@@ -6526,7 +6556,7 @@ class BrowserTests(StaticLiveServerTestCase):
         ):
             toggle.click()
         expect(questions.nth(1).locator("mark.user-highlight")).to_have_count(0)
-        self.assertEqual(Annotation.objects.filter(user=self.user).count(), 5)
+        self.assertEqual(Annotation.objects.filter(user=self.user).count(), 4)
 
     def test_mobile_review_recovers_a_rotated_presentation_token(self):
         self.page.goto(

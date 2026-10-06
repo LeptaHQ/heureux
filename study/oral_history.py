@@ -32,6 +32,15 @@ def variant_annotation_key(prompt, content):
         from .tache_two_dialogues import matching_dialogue
         dialogue = matching_dialogue(prompt, content)
         payload["nuance"] = ""
+        payload["arguments"] = [
+            {
+                **argument,
+                "developpement": "",
+                "exemple": "",
+                "consequence": "",
+            }
+            for argument in payload["arguments"]
+        ]
         if dialogue is not None:
             payload["is_personal"] = False
         payload["eo2_questions_only_layout"] = {

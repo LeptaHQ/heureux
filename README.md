@@ -109,10 +109,10 @@ deleting learner-authored responses, overrides, highlights or completion history
 
 ## Subject pistes and oral equivalence
 
-EO task 2 provides reviewed **seven-question conversations** for all 163 semantic
+EO task 2 provides reviewed **eight-question conversations** for all 163 semantic
 situations and their 348 published prompts. The file-backed corpus in
 `study/content/tache_2/dialogues/` uses priority-ordered topic headings,
-response-grounded follow-ups included in the seven,
+response-grounded follow-ups included in the eight,
 and a separate greeting and final thanks. A short English **Comprendre la consigne** note
 identifies the roles, objective, chosen tu/vous register and contextual traps;
 substantively different publications can have their own note.
@@ -127,10 +127,11 @@ learners should adapt to the actual examiner's reply.
 duplicate questions, noncontiguous headings and invalid follow-up references.
 Subject pages, practice and the personal editor use the same current model.
 Personal questions remain private and take precedence; the editor also preserves
-editable greetings and thanks. **Modifier la note** opens the editable English
-consigne explanation in the same personal editor. It stays private, appears on
-the subject and practice front, and can be cleared to restore the publication's
-default note. EO2 uses the generic response's otherwise unused `nuance` section
+editable greetings and thanks. The English consigne explanation is collapsed by
+default on the subject and practice front; expanding it reveals **Modifier la
+note**, which opens the same personal editor. A personal note stays private and
+can be cleared to restore the publication's default note. EO2 uses the generic
+response's otherwise unused `nuance` section
 for this explanation. Note-only changes preserve the French questions, thematic
 layout and their highlights; the English note is not read aloud in French.
 Existing private prepared replies remain stored
@@ -150,7 +151,7 @@ The preparation guidance was checked against FEI's
 Task 2 allows two minutes of preparation followed by three minutes thirty of
 interaction. The objective is obtaining relevant everyday information in the
 assigned roles, not reciting a monologue. Assessment considers linguistic control,
-interaction/coherence and appropriateness to the situation. Seven questions and
+interaction/coherence and appropriateness to the situation. Eight questions and
 a varied mix of question forms are teaching choices, not official quotas or
 mandatory inversion rules. Follow the actual replies and the examiner's timing.
 The handbook explicitly warns against reciting memorized texts.

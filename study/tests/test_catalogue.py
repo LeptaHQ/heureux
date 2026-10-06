@@ -86,6 +86,7 @@ class CatalogueTests(SimpleTestCase):
 
     def test_catalogue_mappings_and_records_are_read_only(self):
         mappings = [
+            catalogue.tache_two_dialogues(),
             catalogue.eo_tache_three_family_labels(),
             catalogue.tache_two_subject_themes()[1],
             catalogue.ee_subject_themes(3)[1],
@@ -103,6 +104,7 @@ class CatalogueTests(SimpleTestCase):
         cases = [
             (catalogue.tache_two_subject_months, ()),
             (catalogue.tache_two_subject_themes, ()),
+            (catalogue.tache_two_dialogues, ()),
             (catalogue.task_memoires, ("eo", "tache-1")),
             (catalogue.eo_tache_three_family_labels, ()),
             (catalogue.ee_tache_three_months, ()),

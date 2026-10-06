@@ -38,7 +38,7 @@ The assessment is necessarily an **unofficial practice estimate**. A real TCF
 Canada oral result is based on all three oral tasks and two independent,
 trained human assessments.
 
-The app's seven-question models are adaptable practice routes, not an official
+The app's eight-question models are adaptable practice routes, not an official
 question quota or a script to memorize. Mix suitable question forms, follow
 actual replies, skip information already given and continue with relevant
 details when needed. The answer-only simulator policy below is a training

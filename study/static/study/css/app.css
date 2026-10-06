@@ -2379,7 +2379,6 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
 }
 .eo2-prompt-note {
   margin: 0.8rem 0 1.2rem;
-  padding: 0.85rem 1rem;
   border: 1px solid var(--border);
   border-left: 3px solid var(--subject-accent, var(--primary));
   background: var(--surface-2);
@@ -2387,22 +2386,42 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
 .eo2-prompt-note__heading {
   display: flex;
   align-items: baseline;
-  justify-content: space-between;
   flex-wrap: wrap;
+  min-height: 2.75rem;
+  padding: 0.7rem 1rem;
   gap: 0.4rem 0.8rem;
   font-size: 0.86rem;
+  cursor: pointer;
+  list-style: none;
+}
+.eo2-prompt-note__heading::-webkit-details-marker {
+  display: none;
+}
+.eo2-prompt-note__heading::after {
+  margin-left: auto;
+  color: var(--subject-accent, var(--primary));
+  content: "+";
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+.eo2-prompt-note[open] > .eo2-prompt-note__heading::after {
+  content: "−";
 }
 .eo2-prompt-note__register {
   color: var(--subject-accent, var(--primary));
   font-size: 0.76rem;
   font-weight: 700;
 }
+.eo2-prompt-note__body {
+  padding: 0 1rem 0.85rem;
+  border-top: 1px solid var(--border);
+}
 .eo2-prompt-note__edit {
   min-height: 2.75rem;
   font-size: 0.78rem;
 }
-.eo2-prompt-note p {
-  margin: 0.4rem 0 0;
+.eo2-prompt-note__body p {
+  margin: 0.75rem 0;
   color: var(--text-soft);
   font-size: 0.9rem;
   line-height: 1.55;

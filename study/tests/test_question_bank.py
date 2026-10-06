@@ -2238,7 +2238,12 @@ class QuestionBankViewTests(TestCase):
             self.assertIs(page.context["subject_hints"], expected)
             self.assertEqual(
                 [question["text"] for question in page.context["subject_questions"]],
-                [argument["idea"] for argument in prompt.model_content["arguments"]],
+                [
+                    question.question
+                    for question in catalogue.tache_two_dialogues()[
+                        prompt.content_key
+                    ].questions
+                ],
             )
         personal = PersonalResponse.objects.create(
             user=self.user, response=canonical.response, source_prompt=canonical,
@@ -2740,7 +2745,7 @@ class QuestionBankViewTests(TestCase):
                 10,
                 50,
                 "Apéritif de bienvenue – Québec",
-                15,
+                8,
             ),
             (
                 "novembre",
@@ -2748,7 +2753,7 @@ class QuestionBankViewTests(TestCase):
                 3,
                 15,
                 "Louer son appartement pour les vacances",
-                15,
+                8,
             ),
             (
                 "decembre",
@@ -2756,7 +2761,7 @@ class QuestionBankViewTests(TestCase):
                 10,
                 50,
                 "Découvrir la ville avec des amis – Office de tourisme",
-                15,
+                8,
             ),
         )
         final_routes = [
@@ -2802,7 +2807,7 @@ class QuestionBankViewTests(TestCase):
         self.assertTemplateUsed(index, "study/tache_two_subjects.html")
         self.assertEqual(index.context["theme_count"], 11)
         self.assertEqual(index.context["subject_count"], 348)
-        self.assertEqual(index.context["question_count"], 5172)
+        self.assertEqual(index.context["question_count"], 2784)
         self.assertEqual(len(index.context["subject_prompt_map"]), 348)
         self.assertContains(index, "data-subject-directory-search")
         self.assertContains(
@@ -2951,7 +2956,7 @@ class QuestionBankViewTests(TestCase):
             subject,
             "Achat d&#x27;objets avant un déménagement",
         )
-        self.assertContains(subject, "data-tache-two-question", count=14)
+        self.assertContains(subject, "data-tache-two-question", count=8)
         self.assertNotContains(subject, "tache-two-question__memory")
         self.assertNotContains(subject, "Réflexe Mémoire")
         self.assertContains(subject, "Progression du sujet")
@@ -2987,7 +2992,9 @@ class QuestionBankViewTests(TestCase):
         )
         self.assertContains(
             subject,
-            "Merci pour toutes ces infos",
+            catalogue.tache_two_dialogues()[
+                subject.context["selected_prompt"].content_key
+            ].closing,
         )
         self.assertContains(
             subject,
@@ -3013,7 +3020,7 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(
             second_batch_subject,
             "data-tache-two-question",
-            count=14,
+            count=8,
         )
         self.assert_subject_hints(second_batch_subject)
 
@@ -3036,7 +3043,7 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(
             third_batch_subject,
             "data-tache-two-question",
-            count=15,
+            count=8,
         )
         self.assert_subject_hints(third_batch_subject)
 
@@ -3059,7 +3066,7 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(
             february_subject,
             "data-tache-two-question",
-            count=15,
+            count=8,
         )
         self.assert_subject_hints(february_subject)
 
@@ -3082,7 +3089,7 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(
             march_subject,
             "data-tache-two-question",
-            count=15,
+            count=8,
         )
         self.assert_subject_hints(march_subject)
 
@@ -3108,7 +3115,7 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(
             march_second_subject,
             "data-tache-two-question",
-            count=14,
+            count=8,
         )
         self.assert_subject_hints(march_second_subject)
 
@@ -3131,7 +3138,7 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(
             march_third_subject,
             "data-tache-two-question",
-            count=15,
+            count=8,
         )
         self.assert_subject_hints(march_third_subject)
 
@@ -3154,7 +3161,7 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(
             april_subject,
             "data-tache-two-question",
-            count=15,
+            count=8,
         )
         self.assert_subject_hints(april_subject)
 
@@ -3177,7 +3184,7 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(
             april_second_subject,
             "data-tache-two-question",
-            count=15,
+            count=8,
         )
         self.assert_subject_hints(april_second_subject)
 
@@ -3200,7 +3207,7 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(
             may_subject,
             "data-tache-two-question",
-            count=15,
+            count=8,
         )
         self.assert_subject_hints(may_subject)
 
@@ -3223,7 +3230,7 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(
             june_subject,
             "data-tache-two-question",
-            count=15,
+            count=8,
         )
         self.assert_subject_hints(june_subject)
 
@@ -3243,7 +3250,7 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(
             july_subject,
             "data-tache-two-question",
-            count=15,
+            count=8,
         )
         self.assert_subject_hints(july_subject)
 
@@ -3266,7 +3273,7 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(
             august_subject,
             "data-tache-two-question",
-            count=15,
+            count=8,
         )
         self.assert_subject_hints(august_subject)
 
@@ -3286,7 +3293,7 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(
             september_subject,
             "data-tache-two-question",
-            count=15,
+            count=8,
         )
         self.assert_subject_hints(september_subject)
         for (

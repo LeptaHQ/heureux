@@ -91,7 +91,7 @@ class TacheTwoDialogueLoaderTests(SimpleTestCase):
     def test_records_and_question_collections_are_immutable(self):
         records = self.load()
         dialogue = records[self.manifest["groups"][0]["canonical"]]
-        self.assertEqual(len(dialogue.questions), 7)
+        self.assertEqual(len(dialogue.questions), 8)
         self.assertIsInstance(dialogue.questions, tuple)
         with self.assertRaises(FrozenInstanceError):
             dialogue.note = "Changed"
@@ -151,12 +151,12 @@ class TacheTwoDialogueLoaderTests(SimpleTestCase):
         with self.assertRaisesRegex(ValueError, "Missing reviewed EO2 dialogues"):
             self.load()
 
-    def test_requires_seven_questions_including_followups(self):
+    def test_requires_eight_questions_including_followups(self):
         original = copy.deepcopy(self.row["questions"])
-        for count in (6, 8):
+        for count in (7, 9):
             with self.subTest(count=count):
                 self.row["questions"] = (original + original)[:count]
-                with self.assertRaisesRegex(ValueError, "exactly seven"):
+                with self.assertRaisesRegex(ValueError, "exactly eight"):
                     self.load()
 
     def test_rejects_duplicate_or_incomplete_questions(self):
@@ -258,8 +258,8 @@ class TacheTwoDialogueLoaderTests(SimpleTestCase):
             body_html = render_to_string("study/partials/tache_two_dialogue_body.html", context)
         for html in (subject_html, back_html):
             self.assertIn(body_html, html)
-            self.assertEqual(html.count("data-tache-two-question"), 7)
-            self.assertEqual(html.count("data-question-highlight-text="), 7)
+            self.assertEqual(html.count("data-tache-two-question"), 8)
+            self.assertEqual(html.count("data-question-highlight-text="), 8)
             self.assertNotIn("data-question-highlight-response", html)
             self.assertNotIn("Réponse préparée", html)
             for question in dialogue.questions:
@@ -270,7 +270,7 @@ class TacheTwoDialogueLoaderTests(SimpleTestCase):
         )))
         self.assertIn(dialogue.opening, spoken)
         self.assertIn(dialogue.closing, spoken)
-        self.assertNotIn("Seven questions are", spoken)
+        self.assertNotIn("Eight questions are", spoken)
         for question in dialogue.questions:
             self.assertIn(question.question, spoken)
             if question.condition:
@@ -329,6 +329,22 @@ class TacheTwoDialogueLoaderTests(SimpleTestCase):
                 variant_annotation_key(prompt, personal),
             )
             self.assertEqual(
+                variant_annotation_key(prompt, personal),
+                variant_annotation_key(
+                    prompt,
+                    replace(
+                        personal,
+                        arguments=(
+                            replace(
+                                personal.arguments[0],
+                                developpement="A hidden private reply.",
+                            ),
+                            *personal.arguments[1:],
+                        ),
+                    ),
+                ),
+            )
+            self.assertEqual(
                 prompt_note_presentation(prompt, replace(personal, nuance=""))["note"],
                 dialogue.note,
             )
@@ -355,6 +371,9 @@ class TacheTwoDialogueLoaderTests(SimpleTestCase):
         self.assertNotIn("<b>My note</b>", html)
         self.assertIn('lang="en"', html)
         self.assertIn('href="/edit/#id_prompt_note"', html)
+        self.assertIn('<details class="eo2-prompt-note"', html)
+        self.assertIn('<summary class="eo2-prompt-note__heading">', html)
+        self.assertNotIn('<details class="eo2-prompt-note" open', html)
         self.assertNotIn("data-read-aloud-text", html)
         self.assertNotIn("Vouvoiement", html)
         self.assertEqual(
@@ -378,14 +397,14 @@ class TacheTwoDialogueCorpusTests(SimpleTestCase):
         catalogue.clear_catalogue_cache()
         self.addCleanup(catalogue.clear_catalogue_cache)
 
-    def test_all_publications_have_seven_reviewed_questions(self):
+    def test_all_publications_have_eight_reviewed_questions(self):
         dialogues = load_tache_two_dialogues()
         self.assertEqual(len(dialogues), 348)
         self.assertEqual(len({dialogue.group for dialogue in dialogues.values()}), 163)
-        self.assertEqual(sum(len(dialogue.questions) for dialogue in dialogues.values()), 2436)
+        self.assertEqual(sum(len(dialogue.questions) for dialogue in dialogues.values()), 2784)
         for key, dialogue in dialogues.items():
             with self.subTest(publication=key):
-                self.assertEqual(len(dialogue.questions), 7)
+                self.assertEqual(len(dialogue.questions), 8)
                 self.assertRegex(dialogue.note, r"(?i)\b(?:you|your|the|this|ask|use|already)\b")
                 self.assertRegex(dialogue.closing, r"(?i)\bmerci\b")
                 for question in dialogue.questions:
@@ -487,7 +506,7 @@ class TacheTwoDialogueViewTests(TestCase):
 
     def question_payload(self, note):
         return {
-            "questions-TOTAL_FORMS": "7", "questions-INITIAL_FORMS": "7",
+            "questions-TOTAL_FORMS": "8", "questions-INITIAL_FORMS": "8",
             "opening": self.dialogue.opening, "closing": self.dialogue.closing,
             "prompt_note": note,
             **{
@@ -501,13 +520,13 @@ class TacheTwoDialogueViewTests(TestCase):
         detail = self.client.get(self.detail_url)
         editor = self.client.get(self.edit_url)
         practice = self.review()
-        self.assertContains(detail, "data-tache-two-question", count=7)
+        self.assertContains(detail, "data-tache-two-question", count=8)
         self.assertContains(detail, str(escape(dialogue.note)))
         self.assertContains(detail, 'class="eo2-dialogue__topic"', count=3)
-        self.assertContains(detail, "Task 2: how to practise effectively")
+        self.assertNotContains(detail, "Task 2: how to practise effectively")
         self.assertIn(str(escape(dialogue.note)), practice["front_html"])
-        self.assertEqual(practice["back_html"].count("data-tache-two-question"), 7)
-        self.assertEqual(editor.context["question_formset"].total_form_count(), 7)
+        self.assertEqual(practice["back_html"].count("data-tache-two-question"), 8)
+        self.assertEqual(editor.context["question_formset"].total_form_count(), 8)
         self.assertContains(editor, 'name="opening"')
         self.assertContains(editor, 'name="closing"')
         self.assertContains(editor, 'name="prompt_note"', count=1)
@@ -614,9 +633,13 @@ class TacheTwoDialogueViewTests(TestCase):
         self.assertContains(detail, note)
         self.assertContains(detail, "Modifier la note")
         self.assertContains(detail, self.edit_url + "#id_prompt_note")
+        self.assertContains(detail, '<details class="eo2-prompt-note"', count=1)
+        self.assertNotContains(detail, '<details class="eo2-prompt-note" open')
         self.assertContains(detail, 'class="eo2-dialogue__topic"', count=3)
         practice = self.review()
         self.assertIn(note, practice["front_html"])
+        self.assertIn('<details class="eo2-prompt-note"', practice["front_html"])
+        self.assertNotIn('<details class="eo2-prompt-note" open', practice["front_html"])
         self.assertNotIn(note, practice["back_html"])
         self.assertEqual(
             self.client.get(self.edit_url).context["conversation_form"]["prompt_note"].value(),

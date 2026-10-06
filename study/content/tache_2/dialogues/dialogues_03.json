@@ -17,7 +17,8 @@
         {"topic": "Jeux et sorties", "question": "Où as-tu l'habitude de l'emmener pour une petite sortie ?", "answer": "Au parc près de chez nous, dans l'espace de jeux pour les petits.", "follow_up_to": null},
         {"topic": "Sommeil", "question": "Quels rituels l'aident à s'endormir pour la sieste ?", "answer": "Une histoire courte, son doudou et une pièce calme.", "follow_up_to": null},
         {"topic": "Sommeil", "question": "Que faire si elle a du mal à s'endormir ?", "answer": "Reste un moment près d'elle et propose-lui un temps calme ; appelle-moi si tu as un doute.", "follow_up_to": 5, "condition": "If settling difficulties have not already been covered in the instructions."},
-        {"topic": "Contact", "question": "Comment pourrai-je te joindre si j'ai besoin d'un conseil ?", "answer": "Sur mon portable ; je te laisserai aussi un contact de secours.", "follow_up_to": null}
+        {"topic": "Contact", "question": "Comment pourrai-je te joindre si j'ai besoin d'un conseil ?", "answer": "Sur mon portable ; je te laisserai aussi un contact de secours.", "follow_up_to": null},
+        {"topic": "Contact", "question": "Où trouverai-je son carnet de santé et les coordonnées de son médecin en cas de besoin ?", "answer": "Je laisserai son carnet et toutes les coordonnées utiles dans le tiroir de l'entrée.", "follow_up_to": null}
       ]
     },
     {
@@ -33,7 +34,8 @@
         {"topic": "Lieu, horaire et prix", "question": "À quelle date et à quelle heure est-elle prévue ?", "answer": "Vendredi prochain, à vingt heures.", "follow_up_to": null},
         {"topic": "Lieu, horaire et prix", "question": "Combien coûte une place ?", "answer": "25 $ au tarif normal.", "follow_up_to": null},
         {"topic": "Organisation de la sortie", "question": "Est-ce que d'autres collègues viennent avec nous ?", "answer": "Deux collègues sont intéressés, mais ils n'ont pas encore confirmé.", "follow_up_to": null},
-        {"topic": "Organisation de la sortie", "question": "Comment pourrait-on s'organiser pour le trajet ?", "answer": "On pourrait se retrouver devant le bureau et prendre le métro ensemble.", "follow_up_to": null}
+        {"topic": "Organisation de la sortie", "question": "Comment pourrait-on s'organiser pour le trajet ?", "answer": "On pourrait se retrouver devant le bureau et prendre le métro ensemble.", "follow_up_to": null},
+        {"topic": "Organisation de la sortie", "question": "Comment allons-nous acheter les billets pour être placés ensemble ?", "answer": "Je peux faire une seule réservation en ligne et tu me rembourseras ensuite.", "follow_up_to": null}
       ]
     },
     {
@@ -47,9 +49,10 @@
         {"topic": "Expositions et musées", "question": "Jusqu'à quand cette exposition de photographies reste-t-elle ouverte ?", "answer": "Jusqu'à la fin du mois prochain.", "follow_up_to": 1, "condition": "If a photography exhibition is suggested; substitute the exhibition that interests you."},
         {"topic": "Expositions et musées", "question": "Quels musées recommanderiez-vous pour mieux connaître la ville ?", "answer": "Le musée d'histoire locale donne une bonne introduction à son évolution.", "follow_up_to": null},
         {"topic": "Ateliers", "question": "Quels ateliers sont accessibles aux débutants ?", "answer": "Des ateliers d'écriture et de dessin accueillent les personnes sans expérience.", "follow_up_to": null},
-        {"topic": "Tarifs et accès", "question": "Où puis-je consulter les tarifs des différentes activités ?", "answer": "Dans le programme municipal, où les activités gratuites sont aussi indiquées.", "follow_up_to": null},
+        {"topic": "Tarifs et accès", "question": "Certaines de ces activités sont-elles gratuites, et quelle fourchette de prix faut-il prévoir pour les autres ?", "answer": "Oui, plusieurs expositions sont gratuites ; les ateliers coûtent généralement entre 10 et 30 $.", "follow_up_to": null},
         {"topic": "Tarifs et accès", "question": "Les lieux sont-ils faciles à rejoindre en transports en commun ?", "answer": "La plupart sont près d'un arrêt de bus ; chaque fiche précise l'accès au lieu concerné.", "follow_up_to": null},
-        {"topic": "Tarifs et accès", "question": "Comment réserver une place lorsqu'une activité le demande ?", "answer": "Sur le site du service culturel ou directement au guichet.", "follow_up_to": null}
+        {"topic": "Tarifs et accès", "question": "Comment réserver une place lorsqu'une activité le demande ?", "answer": "Sur le site du service culturel ou directement au guichet.", "follow_up_to": null},
+        {"topic": "Tarifs et accès", "question": "Existe-t-il un passe culturel pour réduire le coût de plusieurs visites ?", "answer": "Oui, le passe municipal donne accès à trois musées et offre une réduction sur certains ateliers.", "follow_up_to": null}
       ]
     },
     {
@@ -65,7 +68,8 @@
         {"topic": "Hébergement", "question": "Quels types d'hébergement proposez-vous ?", "answer": "Des hôtels en ville et de petites auberges pendant les étapes régionales.", "follow_up_to": null},
         {"topic": "Budget et réservation", "question": "Quel serait le prix par personne pour cette formule ?", "answer": "La formule commence à 1 400 $, selon la saison et l'hébergement choisi.", "follow_up_to": null},
         {"topic": "Budget et réservation", "question": "Qu'est-ce qui est compris dans ce prix ?", "answer": "Les hébergements, les transports entre les étapes et certaines visites ; les vols sont à ajouter.", "follow_up_to": 5, "condition": "After a price is given, unless inclusions are already explained."},
-        {"topic": "Budget et réservation", "question": "Quelles conditions dois-je connaître avant de réserver ?", "answer": "Nous vous remettons le détail de l'acompte, des modifications et des frais d'annulation avant tout paiement.", "follow_up_to": null}
+        {"topic": "Budget et réservation", "question": "Quelles conditions dois-je connaître avant de réserver ?", "answer": "Nous vous remettons le détail de l'acompte, des modifications et des frais d'annulation avant tout paiement.", "follow_up_to": null},
+        {"topic": "Budget et réservation", "question": "Quelles dates de départ ont encore des places pour cette formule ?", "answer": "Il reste des places en juin et en septembre, mais les départs de juillet sont complets.", "follow_up_to": null}
       ]
     },
     {
@@ -81,7 +85,8 @@
         {"topic": "Remorquage et frais", "question": "Quels frais d'assistance et de remorquage mon contrat couvre-t-il ?", "answer": "Je dois vérifier vos garanties et leurs plafonds avant de vous confirmer les frais pris en charge.", "follow_up_to": null},
         {"topic": "Réparations et retour", "question": "Les réparations du garage peuvent-elles aussi être prises en charge ?", "answer": "Cela dépend de vos garanties ; l'assistance ne signifie pas automatiquement que les réparations sont couvertes.", "follow_up_to": null},
         {"topic": "Réparations et retour", "question": "Quelle aide est prévue pour mon retour si la voiture reste immobilisée ?", "answer": "Nous vérifierons si votre contrat prévoit un véhicule de remplacement ou un autre moyen de transport.", "follow_up_to": null},
-        {"topic": "Suivi du dossier", "question": "Quels justificatifs dois-je conserver pour le dossier ?", "answer": "Les factures du dépannage et du garage, ainsi que les dépenses de transport éventuellement autorisées.", "follow_up_to": null}
+        {"topic": "Suivi du dossier", "question": "Quels justificatifs dois-je conserver pour le dossier ?", "answer": "Les factures du dépannage et du garage, ainsi que les dépenses de transport éventuellement autorisées.", "follow_up_to": null},
+        {"topic": "Suivi du dossier", "question": "Comment pourrai-je suivre l'avancement de ma demande de remboursement ?", "answer": "Avec le numéro de dossier, depuis votre espace client ou auprès de notre service d'assistance.", "follow_up_to": null}
       ]
     },
     {
@@ -92,12 +97,13 @@
       "closing": "Merci pour ton aide ! Je vais vérifier les démarches qui me concernent et explorer ces possibilités.",
       "questions": [
         {"topic": "Logement", "question": "Quels quartiers me conseillerais-tu pour chercher un logement ?", "answer": "Les secteurs près du centre ou d'une ligne de bus fréquente sont pratiques pour commencer.", "follow_up_to": null},
-        {"topic": "Logement", "question": "Où pourrais-je trouver des annonces pour ces quartiers ?", "answer": "Sur les sites de location et auprès des agences locales, en vérifiant chaque offre.", "follow_up_to": 1, "condition": "After neighbourhoods are suggested, ask where to find suitable rental listings."},
-        {"topic": "Démarches administratives", "question": "À qui m'adresser pour connaître les démarches prioritaires dans ma situation ?", "answer": "Un service d'accueil des nouveaux arrivants peut t'orienter vers les organismes officiels concernés.", "follow_up_to": null},
-        {"topic": "Démarches administratives", "question": "Est-ce que ce service propose un accompagnement individuel ?", "answer": "À ma connaissance, oui, sur rendez-vous ; il faudra confirmer leurs possibilités actuelles.", "follow_up_to": 3, "condition": "If an advisory service is suggested; confirm its actual support options."},
+        {"topic": "Logement", "question": "Quelle fourchette de loyers faut-il prévoir dans ces quartiers, charges comprises ?", "answer": "Pour un petit appartement, compte entre 1 100 et 1 400 $ par mois selon les charges incluses.", "follow_up_to": 1, "condition": "After neighbourhoods are suggested, ask about rent in the recommended areas."},
+        {"topic": "Démarches administratives", "question": "Quelles démarches devrais-je traiter en priorité pendant mes premières semaines ?", "answer": "Commence par vérifier l'assurance maladie, les identifiants nécessaires pour travailler et les documents liés à ton statut.", "follow_up_to": null},
+        {"topic": "Démarches administratives", "question": "Parmi ces démarches, lesquelles puis-je commencer avant d'avoir une adresse définitive ?", "answer": "Certaines demandes peuvent être préparées, mais un service d'accueil vérifiera les exigences applicables à ta situation.", "follow_up_to": 3, "condition": "After priority steps are identified, clarify which ones require a permanent address."},
         {"topic": "Vie quotidienne", "question": "Quel moyen de transport est le plus pratique pour mes premiers déplacements ?", "answer": "Le bus dessert les principaux services ; tu peux commencer par consulter le plan du réseau.", "follow_up_to": null},
         {"topic": "Vie quotidienne", "question": "Où trouver les commerces utiles pour les achats de tous les jours ?", "answer": "Il y a plusieurs épiceries près du centre et un marché le samedi.", "follow_up_to": null},
-        {"topic": "Vie quotidienne", "question": "Quelles activités de loisirs me permettraient aussi de rencontrer du monde ?", "answer": "Les ateliers du centre culturel et les sorties de marche sont assez accueillants.", "follow_up_to": null}
+        {"topic": "Vie quotidienne", "question": "Quelles activités de loisirs me permettraient aussi de rencontrer du monde ?", "answer": "Les ateliers du centre culturel et les sorties de marche sont assez accueillants.", "follow_up_to": null},
+        {"topic": "Vie quotidienne", "question": "Où pourrais-je consulter rapidement si j'ai besoin de soins avant de trouver un médecin de famille ?", "answer": "La clinique communautaire reçoit sur rendez-vous, et le service provincial peut confirmer les options adaptées.", "follow_up_to": null}
       ]
     },
     {
@@ -113,7 +119,8 @@
         {"topic": "Difficulté de lecture", "question": "Est-ce qu'on y trouve aussi des articles courts pour commencer ?", "answer": "Oui, plusieurs pages proposent des nouvelles brèves et des portraits.", "follow_up_to": 3, "condition": "If reading difficulty is a concern and shorter formats remain unspecified."},
         {"topic": "Parution et achat", "question": "À quelle fréquence paraît-elle ?", "answer": "Une fois par semaine.", "follow_up_to": null},
         {"topic": "Parution et achat", "question": "Combien coûte un numéro ?", "answer": "6 $ pour un numéro.", "follow_up_to": null},
-        {"topic": "Parution et achat", "question": "Puis-je feuilleter ce numéro pour voir si les sujets m'intéressent ?", "answer": "Bien sûr, vous pouvez regarder celui-ci avant de décider.", "follow_up_to": null}
+        {"topic": "Parution et achat", "question": "Puis-je feuilleter ce numéro pour voir si les sujets m'intéressent ?", "answer": "Bien sûr, vous pouvez regarder celui-ci avant de décider.", "follow_up_to": null},
+        {"topic": "Parution et achat", "question": "Existe-t-il une formule numérique ou un abonnement moins cher que l'achat au numéro ?", "answer": "Oui, l'abonnement numérique annuel revient environ trente pour cent moins cher.", "follow_up_to": null}
       ]
     },
     {
@@ -129,7 +136,8 @@
         {"topic": "Admission et préparation", "question": "Comment me préparer au niveau de français demandé ?", "answer": "Nous pouvons travailler vos points faibles, puis utiliser les exigences du programme pour choisir les exercices.", "follow_up_to": 3, "condition": "If a French-language requirement is relevant to the selected programme."},
         {"topic": "Budget et accompagnement", "question": "Quelles dépenses faudrait-il prévoir pour ce projet ?", "answer": "Les frais de formation, le logement, le transport et les dépenses quotidiennes.", "follow_up_to": null},
         {"topic": "Budget et accompagnement", "question": "Où chercher des informations fiables sur les bourses disponibles ?", "answer": "Auprès des établissements visés et des organismes qui financent les échanges.", "follow_up_to": null},
-        {"topic": "Budget et accompagnement", "question": "Quel service pourrait m'aider à préparer les formalités du séjour ?", "answer": "Le service des étudiants internationaux peut vous orienter vers les autorités compétentes pour votre situation.", "follow_up_to": null}
+        {"topic": "Budget et accompagnement", "question": "Quel service pourrait m'aider à préparer les formalités du séjour ?", "answer": "Le service des étudiants internationaux peut vous orienter vers les autorités compétentes pour votre situation.", "follow_up_to": null},
+        {"topic": "Budget et accompagnement", "question": "À quel moment devrais-je commencer mes demandes pour respecter les délais d'admission et de financement ?", "answer": "Commencez environ un an avant le départ, car certaines bourses ferment très tôt.", "follow_up_to": null}
       ]
     },
     {
@@ -149,7 +157,8 @@
         {"topic": "État et entretien", "question": "Quels travaux faudrait-il prévoir prochainement ?", "answer": "Les pneus devraient être remplacés d'ici quelques mois ; je n'ai pas connaissance d'autre réparation nécessaire.", "follow_up_to": 3, "condition": "After condition is discussed, unless upcoming repairs are already specified."},
         {"topic": "État et entretien", "question": "Avez-vous les factures d'entretien et les documents du véhicule ?", "answer": "Oui, je peux vous montrer les factures conservées et les documents disponibles.", "follow_up_to": null},
         {"topic": "Prix et vérification", "question": "Quel prix demandez-vous pour la voiture ?", "answer": "8 000 $, en tenant compte de son état.", "follow_up_to": null},
-        {"topic": "Prix et vérification", "question": "Serait-il possible de prévoir un essai et une vérification avant l'achat ?", "answer": "Oui, nous pouvons convenir d'un rendez-vous pour l'essai et d'un contrôle indépendant.", "follow_up_to": null}
+        {"topic": "Prix et vérification", "question": "Serait-il possible de prévoir un essai et une vérification avant l'achat ?", "answer": "Oui, nous pouvons convenir d'un rendez-vous pour l'essai et d'un contrôle indépendant.", "follow_up_to": null},
+        {"topic": "Prix et vérification", "question": "Comment puis-je vérifier l'historique des accidents et la situation administrative du véhicule ?", "answer": "Je vous fournirai le numéro d'identification et un rapport récent pour effectuer les vérifications officielles.", "follow_up_to": null}
       ]
     },
     {
@@ -165,7 +174,8 @@
         {"topic": "Horaires", "question": "Quels sont les horaires d'ouverture ?", "answer": "De sept heures à vingt et une heures en semaine, avec des horaires plus courts le week-end.", "follow_up_to": null},
         {"topic": "Coût et matériel", "question": "Combien paies-tu pour ton abonnement ?", "answer": "45 $ par mois pour la formule que j'ai choisie.", "follow_up_to": null},
         {"topic": "Coût et matériel", "question": "Quelles activités sont comprises dans cette formule ?", "answer": "La salle et plusieurs cours collectifs ; certaines séances spéciales sont en supplément.", "follow_up_to": 5, "condition": "After an actual membership price is given, unless inclusions are already clear."},
-        {"topic": "Coût et matériel", "question": "Quel matériel faut-il apporter soi-même ?", "answer": "Une tenue de sport, des chaussures propres et une serviette ; le centre prête le matériel des cours.", "follow_up_to": null}
+        {"topic": "Coût et matériel", "question": "Quel matériel faut-il apporter soi-même ?", "answer": "Une tenue de sport, des chaussures propres et une serviette ; le centre prête le matériel des cours.", "follow_up_to": null},
+        {"topic": "Coût et matériel", "question": "Peut-on faire une séance d'essai avant de choisir un abonnement ?", "answer": "Oui, la première séance coûte dix dollars et cette somme est déduite si tu t'inscris.", "follow_up_to": null}
       ]
     },
     {
@@ -181,7 +191,8 @@
         {"topic": "Date, prix et trajet", "question": "À quelle date cette sortie aura-t-elle lieu ?", "answer": "Le samedi 14 novembre, d'après le programme que j'ai reçu.", "follow_up_to": null},
         {"topic": "Date, prix et trajet", "question": "Quel est le prix annoncé pour y participer ?", "answer": "20 $ par personne.", "follow_up_to": null},
         {"topic": "Date, prix et trajet", "question": "Le transport est-il compris dans ce prix ?", "answer": "Oui, pour cette sortie, le car au départ de la mairie est inclus.", "follow_up_to": 5, "condition": "After the fee is given, unless transport arrangements are already specified."},
-        {"topic": "Inscription", "question": "Comment m'inscrire à une prochaine sortie ?", "answer": "Auprès du service culturel de la mairie, qui confirmera les places disponibles.", "follow_up_to": null}
+        {"topic": "Inscription", "question": "Comment m'inscrire à une prochaine sortie ?", "answer": "Auprès du service culturel de la mairie, qui confirmera les places disponibles.", "follow_up_to": null},
+        {"topic": "Inscription", "question": "Jusqu'à quelle date peut-on s'inscrire à la prochaine sortie ?", "answer": "Les inscriptions ferment une semaine avant la visite, ou plus tôt si le groupe est complet.", "follow_up_to": null}
       ]
     },
     {
@@ -197,7 +208,8 @@
         {"topic": "Assurance", "question": "Quelle assurance est incluse dans la formule ?", "answer": "Je peux vous présenter les garanties incluses et les exclusions indiquées au contrat.", "follow_up_to": null},
         {"topic": "Assurance", "question": "Quel montant resterait à ma charge en cas de dommage couvert ?", "answer": "La franchise varie selon la formule ; nous vous préciserons son montant avant la réservation.", "follow_up_to": 4, "condition": "After coverage is discussed, if the excess remains unclear."},
         {"topic": "Conditions pratiques", "question": "Quels documents faut-il présenter pour louer une voiture ?", "answer": "Un permis accepté par l'agence et les justificatifs demandés pour votre situation ; voici notre liste de conditions.", "follow_up_to": null},
-        {"topic": "Conditions pratiques", "question": "Quelles sont vos conditions pour restituer le véhicule ?", "answer": "Le lieu, l'heure limite et le niveau de carburant sont précisés dans la réservation.", "follow_up_to": null}
+        {"topic": "Conditions pratiques", "question": "Quelles sont vos conditions pour restituer le véhicule ?", "answer": "Le lieu, l'heure limite et le niveau de carburant sont précisés dans la réservation.", "follow_up_to": null},
+        {"topic": "Conditions pratiques", "question": "Puis-je ajouter un deuxième conducteur, et quels frais cela entraînerait-il ?", "answer": "Oui, pour huit dollars par jour, à condition qu'il présente aussi son permis.", "follow_up_to": null}
       ]
     },
     {
@@ -213,7 +225,8 @@
         {"topic": "Organisation des cours", "question": "Quels créneaux sont proposés pour ce niveau ?", "answer": "Deux soirées par semaine, ou un groupe le samedi matin.", "follow_up_to": null},
         {"topic": "Organisation des cours", "question": "Les cours ont-ils lieu sur place ou aussi en ligne ?", "answer": "Les deux formats sont proposés, mais les créneaux ne sont pas identiques.", "follow_up_to": null},
         {"topic": "Tarifs et supports", "question": "Quel est le prix d'une session ?", "answer": "240 $ pour huit semaines de cours.", "follow_up_to": null},
-        {"topic": "Tarifs et supports", "question": "Les supports pédagogiques sont-ils compris dans ce prix ?", "answer": "Les documents sont inclus, mais un manuel peut être demandé selon le groupe.", "follow_up_to": 6, "condition": "After the session fee is given, unless material costs are already explained."}
+        {"topic": "Tarifs et supports", "question": "Les supports pédagogiques sont-ils compris dans ce prix ?", "answer": "Les documents sont inclus, mais un manuel peut être demandé selon le groupe.", "follow_up_to": 6, "condition": "After the session fee is given, unless material costs are already explained."},
+        {"topic": "Tarifs et supports", "question": "Puis-je faire un cours d'essai ou une évaluation avant de choisir mon groupe ?", "answer": "Oui, l'évaluation est gratuite et vous pouvez assister à un cours avant l'inscription définitive.", "follow_up_to": null}
       ]
     },
     {
@@ -229,7 +242,8 @@
         {"topic": "Location", "question": "Où pourrais-je louer un vélo ?", "answer": "Il y a des loueurs près du centre et de certains itinéraires touristiques.", "follow_up_to": null},
         {"topic": "Location", "question": "Tu connais leurs tarifs pour une journée ?", "answer": "Ma dernière location coûtait environ 30 $, mais il faut confirmer le prix actuel.", "follow_up_to": 4, "condition": "If they know a rental provider and its prices have not been given."},
         {"topic": "Matériel et informations", "question": "Quel équipement devrais-je prévoir pour mes déplacements ?", "answer": "Un casque, un éclairage adapté et un bon antivol ; le loueur peut expliquer son matériel.", "follow_up_to": null},
-        {"topic": "Matériel et informations", "question": "Où consulter les règles et les informations à jour sur les parcours ?", "answer": "Sur les pages de la Ville d'Ottawa et des organismes qui gèrent les parcours concernés.", "follow_up_to": null}
+        {"topic": "Matériel et informations", "question": "Où consulter les règles et les informations à jour sur les parcours ?", "answer": "Sur les pages de la Ville d'Ottawa et des organismes qui gèrent les parcours concernés.", "follow_up_to": null},
+        {"topic": "Matériel et informations", "question": "Où peut-on stationner un vélo en sécurité près des principaux services du centre-ville ?", "answer": "Il y a des supports surveillés près de l'hôtel de ville et des casiers à certaines stations.", "follow_up_to": null}
       ]
     },
     {
@@ -245,7 +259,8 @@
         {"topic": "Tâches à assurer", "question": "Y a-t-il des précautions particulières pour leurs repas ?", "answer": "Oui, l'un des enfants ne peut pas manger de noix ; nous fournirons les consignes.", "follow_up_to": 3, "condition": "If meal preparation is required, unless dietary instructions are already given."},
         {"topic": "Profil et rémunération", "question": "Quelle expérience recherchez-vous chez la baby-sitter ?", "answer": "Une personne fiable, habituée aux enfants de cet âge et à l'accompagnement après l'école.", "follow_up_to": null},
         {"topic": "Profil et rémunération", "question": "Quel salaire proposez-vous pour cette garde ?", "answer": "18 $ de l'heure, à préciser avec la personne selon les tâches convenues.", "follow_up_to": null},
-        {"topic": "Profil et rémunération", "question": "Comment souhaiteriez-vous rencontrer la personne que je vous recommanderais ?", "answer": "Lors d'un premier rendez-vous à la maison, avec les enfants présents.", "follow_up_to": null}
+        {"topic": "Profil et rémunération", "question": "Comment souhaiteriez-vous rencontrer la personne que je vous recommanderais ?", "answer": "Lors d'un premier rendez-vous à la maison, avec les enfants présents.", "follow_up_to": null},
+        {"topic": "Profil et rémunération", "question": "Pendant combien de semaines ou de mois aurez-vous besoin de cette garde ?", "answer": "Pendant tout le trimestre scolaire, avec une possibilité de prolongation.", "follow_up_to": null}
       ]
     },
     {
@@ -259,9 +274,10 @@
         {"topic": "Services et tarifs", "question": "Quels services sont compris dans le prix de la chambre ?", "answer": "La connexion Internet et la consigne ; le petit-déjeuner et la blanchisserie sont facturés séparément.", "follow_up_to": null},
         {"topic": "Services et tarifs", "question": "Combien coûte le petit-déjeuner ?", "answer": "14 $ par personne.", "follow_up_to": 2, "condition": "If breakfast is available at extra cost and its price is not given."},
         {"topic": "Horaires et accès", "question": "À quelles heures peut-on prendre le petit-déjeuner ?", "answer": "De sept heures à dix heures, dans la salle près de la réception.", "follow_up_to": null},
-        {"topic": "Organisation pratique", "question": "Comment demander un service qui m'intéresse ?", "answer": "À la réception ; nous vous indiquerons s'il faut réserver et dans quel délai.", "follow_up_to": null},
+        {"topic": "Organisation pratique", "question": "Quel délai faut-il prévoir pour récupérer du linge confié à la blanchisserie ?", "answer": "Déposé avant neuf heures, il est généralement rendu le lendemain en fin de journée.", "follow_up_to": null},
         {"topic": "Organisation pratique", "question": "Pouvez-vous garder mes bagages après mon départ de la chambre ?", "answer": "Oui, la consigne reste accessible jusqu'à vingt heures le jour du départ.", "follow_up_to": null},
-        {"topic": "Organisation pratique", "question": "À qui m'adresser si j'ai besoin d'aide pendant la soirée ?", "answer": "À la réception, ou au numéro indiqué dans votre chambre après sa fermeture.", "follow_up_to": null}
+        {"topic": "Organisation pratique", "question": "À qui m'adresser si j'ai besoin d'aide pendant la soirée ?", "answer": "À la réception, ou au numéro indiqué dans votre chambre après sa fermeture.", "follow_up_to": null},
+        {"topic": "Organisation pratique", "question": "Quels services faut-il réserver à l'avance plutôt que de les demander au dernier moment ?", "answer": "Le spa et la navette doivent être réservés ; la bagagerie reste accessible sans réservation.", "follow_up_to": null}
       ]
     },
     {
@@ -277,7 +293,8 @@
         {"topic": "Départ et places", "question": "Combien de places restent disponibles ?", "answer": "Deux pour le prochain départ, à confirmer au moment de réserver.", "follow_up_to": null},
         {"topic": "Prix et réservation", "question": "Quel est le prix pour une place sur ce trajet ?", "answer": "12 $ pour l'aller.", "follow_up_to": null},
         {"topic": "Prix et réservation", "question": "À quel moment faut-il payer cette somme ?", "answer": "Au moment de confirmer la réservation sur la plateforme.", "follow_up_to": 5, "condition": "After the fare is given, unless payment timing is already explained."},
-        {"topic": "Prix et réservation", "question": "Comment réserver une place pour t'accompagner ?", "answer": "Je te transmettrai l'annonce du trajet pour vérifier les places et réserver.", "follow_up_to": null}
+        {"topic": "Prix et réservation", "question": "Comment réserver une place pour t'accompagner ?", "answer": "Je te transmettrai l'annonce du trajet pour vérifier les places et réserver.", "follow_up_to": null},
+        {"topic": "Prix et réservation", "question": "Quelle quantité de bagages peut-on emporter sans gêner les autres passagers ?", "answer": "Un sac de voyage par personne tient dans le coffre ; il faut signaler les objets encombrants.", "follow_up_to": null}
       ]
     },
     {
@@ -293,7 +310,8 @@
         {"topic": "Transports", "question": "Si tu as changé de ville, quel moyen de transport as-tu utilisé ?", "answer": "Le train entre Montréal et Québec, puis une voiture de location pour les lacs.", "follow_up_to": null},
         {"topic": "Transports", "question": "Et sur place, en ville, comment te déplaçais-tu ?", "answer": "À pied et en transports en commun, ce qui évitait de chercher une place de stationnement.", "follow_up_to": 4, "condition": "If several places were visited; distinguish local journeys from travel between them."},
         {"topic": "Organisation et bilan", "question": "Dans quel type d'hébergement as-tu séjourné ?", "answer": "Dans de petits hôtels en ville et une auberge près des lacs.", "follow_up_to": null},
-        {"topic": "Organisation et bilan", "question": "Qu'est-ce que tu ferais différemment si tu y retournais ?", "answer": "Je passerais moins de temps sur la route et davantage dans chaque région.", "follow_up_to": null}
+        {"topic": "Organisation et bilan", "question": "Qu'est-ce que tu ferais différemment si tu y retournais ?", "answer": "Je passerais moins de temps sur la route et davantage dans chaque région.", "follow_up_to": null},
+        {"topic": "Organisation et bilan", "question": "Quel budget as-tu consacré au voyage, et quelles dépenses t'ont surpris ?", "answer": "Environ 2 500 $ ; les déplacements entre les régions ont coûté plus cher que prévu.", "follow_up_to": null}
       ]
     },
     {
@@ -309,7 +327,8 @@
         {"topic": "Aménagement et équipement", "question": "Quels équipements sont disponibles dans la maison ?", "answer": "Une cuisine équipée, un lave-linge et une petite terrasse.", "follow_up_to": null},
         {"topic": "Disponibilités, tarif et réservation", "question": "Quelles périodes sont encore disponibles ?", "answer": "La première semaine de juillet et deux semaines à la fin d'août.", "follow_up_to": null},
         {"topic": "Disponibilités, tarif et réservation", "question": "Quel serait le prix pour une semaine à cette période ?", "answer": "700 $ pour une semaine en juillet, avec des conditions détaillées dans l'offre.", "follow_up_to": 5, "condition": "After availability is given; specify the dates and duration you select."},
-        {"topic": "Disponibilités, tarif et réservation", "question": "Quelles sont les conditions de réservation ?", "answer": "Un acompte confirme la réservation ; je vous enverrai aussi les conditions de modification et d'annulation.", "follow_up_to": null}
+        {"topic": "Disponibilités, tarif et réservation", "question": "Quelles sont les conditions de réservation ?", "answer": "Un acompte confirme la réservation ; je vous enverrai aussi les conditions de modification et d'annulation.", "follow_up_to": null},
+        {"topic": "Disponibilités, tarif et réservation", "question": "Quelles charges et quels services sont compris dans le prix de la semaine ?", "answer": "L'eau, l'électricité, le stationnement et le ménage de fin de séjour sont inclus.", "follow_up_to": null}
       ]
     },
     {
@@ -325,7 +344,8 @@
         {"topic": "Accès et sécurité", "question": "Comment me remettras-tu les clés ?", "answer": "Je te les donnerai la veille du départ, en te montrant les points utiles.", "follow_up_to": null},
         {"topic": "Accès et sécurité", "question": "Quelles consignes dois-je suivre avant de quitter l'appartement ?", "answer": "Vérifier la fermeture des fenêtres et de la porte, sans modifier les réglages des appareils.", "follow_up_to": null},
         {"topic": "En cas de problème", "question": "Comment te joindre si je remarque un problème ?", "answer": "Par téléphone ou par message ; je consulterai mon portable chaque jour.", "follow_up_to": null},
-        {"topic": "En cas de problème", "question": "Si je n'arrive pas à te joindre, qui pourrait m'aider ?", "answer": "Le concierge pour les problèmes du bâtiment ; je te laisserai ses coordonnées.", "follow_up_to": 6, "condition": "If they ask you to contact them but give no backup contact."}
+        {"topic": "En cas de problème", "question": "Si je n'arrive pas à te joindre, qui pourrait m'aider ?", "answer": "Le concierge pour les problèmes du bâtiment ; je te laisserai ses coordonnées.", "follow_up_to": 6, "condition": "If they ask you to contact them but give no backup contact."},
+        {"topic": "En cas de problème", "question": "Que dois-je faire en priorité si je constate une fuite ou une alarme dans l'appartement ?", "answer": "Coupe l'eau si possible, préviens le concierge, puis appelle le contact de secours.", "follow_up_to": null}
       ]
     }
   ]

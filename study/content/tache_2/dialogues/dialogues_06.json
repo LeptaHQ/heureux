@@ -8,13 +8,14 @@
       "opening": "Salut ! Ton annonce pour le vélo électrique m'intéresse beaucoup, alors j'aimerais avoir quelques précisions.",
       "closing": "Merci beaucoup, il a l'air parfait ! Dis-moi quand je peux passer l'essayer.",
       "questions": [
-        {"topic": "Modèle et couleur", "question": "De quel modèle s'agit-il ?", "answer": "C'est un vélo de ville électrique à cadre bas, avec sept vitesses ; je l'ai acheté il y a deux ans.", "follow_up_to": null},
-        {"topic": "Modèle et couleur", "question": "Il est de quelle couleur ?", "answer": "Gris anthracite, avec des garde-boue noirs.", "follow_up_to": null},
-        {"topic": "État", "question": "Dans quel état est-il ?", "answer": "En très bon état : je l'ai fait réviser au printemps, et il n'a que quelques rayures sur le cadre.", "follow_up_to": null},
+        {"topic": "Modèle et couleur", "question": "De quel type de vélo s'agit-il, et depuis combien de temps l'as-tu ?", "answer": "C'est un vélo de ville électrique à cadre bas, avec sept vitesses ; je l'ai acheté il y a deux ans.", "follow_up_to": null},
+        {"topic": "Modèle et couleur", "question": "Quelle est la couleur du cadre et des principaux accessoires ?", "answer": "Le cadre est gris anthracite, avec des garde-boue noirs.", "follow_up_to": null},
+        {"topic": "État", "question": "Quel est son état général, et quand a-t-il été révisé pour la dernière fois ?", "answer": "Il est en très bon état : je l'ai fait réviser au printemps, et le cadre n'a que quelques rayures.", "follow_up_to": null},
         {"topic": "État", "question": "Et la batterie, elle tient toujours bien la charge ?", "answer": "Oui, elle permet encore de faire environ 60 km, contre 70 quand elle était neuve.", "follow_up_to": 3, "condition": "After condition is described, unless battery range is already given."},
-        {"topic": "Prix et essai", "question": "Combien en demandes-tu ?", "answer": "1 200 $, alors qu'il coûtait plus de 3 000 $ neuf.", "follow_up_to": null},
-        {"topic": "Prix et essai", "question": "Le chargeur et les accessoires sont-ils compris dans ce prix ?", "answer": "Oui, je te laisse aussi l'antivol et le panier arrière.", "follow_up_to": 5, "condition": "After the price is given, unless accessories are already included."},
-        {"topic": "Prix et essai", "question": "Est-ce que je pourrais l'essayer avant de me décider ?", "answer": "Bien sûr, passe samedi matin, on fera un tour dans le quartier.", "follow_up_to": null}
+        {"topic": "État", "question": "Combien de kilomètres a-t-il parcourus, approximativement ?", "answer": "Un peu moins de 2 500 km, surtout sur des pistes cyclables en ville.", "follow_up_to": null},
+        {"topic": "Prix et essai", "question": "Quel prix en demandes-tu, et as-tu prévu une petite marge de négociation ?", "answer": "J'en demande 1 200 $, contre plus de 3 000 $ neuf ; je pourrais descendre à 1 150 $.", "follow_up_to": null},
+        {"topic": "Prix et essai", "question": "Est-ce que le chargeur et les accessoires sont compris dans ce prix ?", "answer": "Oui, je te laisse aussi l'antivol et le panier arrière.", "follow_up_to": 6, "condition": "After the price is given, unless accessories are already included."},
+        {"topic": "Prix et essai", "question": "Quand pourrais-je l'essayer, et sur quel trajet vérifier son confort et l'assistance électrique ?", "answer": "Passe samedi matin ; nous ferons un tour dans le quartier avec une montée et une piste cyclable.", "follow_up_to": null}
       ]
     },
     {
@@ -25,11 +26,12 @@
       "closing": "Merci beaucoup, ça me motive ! Je vais suivre tes conseils et me lancer dès les premières neiges.",
       "questions": [
         {"topic": "Apprentissage", "question": "Quelle est la meilleure façon d'apprendre quand on n'en a jamais fait ?", "answer": "Prendre deux ou trois cours en groupe dans un centre de ski de fond : on y apprend le pas classique en quelques heures.", "follow_up_to": null},
-        {"topic": "Apprentissage", "question": "Ces cours se donnent-ils aussi le week-end ?", "answer": "Oui, le samedi et le dimanche matin, par groupes de huit débutants.", "follow_up_to": 1, "condition": "If lessons are recommended, unless their schedule is already given."},
-        {"topic": "Matériel et tenue", "question": "De quel matériel a-t-on besoin ?", "answer": "Des skis, des bottes et des bâtons ; pour commencer, on peut tout louer au centre.", "follow_up_to": null},
-        {"topic": "Matériel et tenue", "question": "Vaut-il mieux louer ou acheter au début ?", "answer": "Louer, le temps de savoir si tu aimes ; ensuite, un ensemble d'occasion coûte environ 250 $.", "follow_up_to": 3, "condition": "After equipment is listed, if you are unsure whether to buy."},
-        {"topic": "Matériel et tenue", "question": "Comment faut-il s'habiller ?", "answer": "En couches légères, car on a vite chaud : un sous-vêtement technique, une veste coupe-vent, des gants fins et une tuque.", "follow_up_to": null},
-        {"topic": "Coût", "question": "Combien coûtent les cours et la location ?", "answer": "Environ 40 $ le cours de deux heures, et 25 $ la journée de location.", "follow_up_to": null},
+        {"topic": "Apprentissage", "question": "Est-ce que ces cours se donnent aussi le week-end ?", "answer": "Oui, le samedi et le dimanche matin, par groupes de huit débutants.", "follow_up_to": 1, "condition": "If lessons are recommended, unless their schedule is already given."},
+        {"topic": "Apprentissage", "question": "Où pourrait-on pratiquer près d'ici sur des pistes adaptées aux débutants ?", "answer": "Au centre du parc régional : la boucle verte est plate et bien balisée.", "follow_up_to": null},
+        {"topic": "Matériel et tenue", "question": "Quel matériel complet faut-il prévoir, et peut-on tout louer au centre pour débuter ?", "answer": "Il faut des skis, des bottes et des bâtons ; le centre loue l'ensemble aux débutants.", "follow_up_to": null},
+        {"topic": "Matériel et tenue", "question": "Tu me conseillerais plutôt de louer ou d'acheter au début ?", "answer": "Louer, le temps de savoir si tu aimes ; ensuite, un ensemble d'occasion coûte environ 250 $.", "follow_up_to": 4, "condition": "After equipment is listed, if you are unsure whether to buy."},
+        {"topic": "Matériel et tenue", "question": "Quelle tenue permet de rester au chaud sans avoir trop chaud pendant l'effort ?", "answer": "Porte des couches légères : un sous-vêtement technique, une veste coupe-vent, des gants fins et une tuque.", "follow_up_to": null},
+        {"topic": "Coût", "question": "Quel budget faut-il prévoir séparément pour un cours et une journée de location ?", "answer": "Environ 40 $ pour un cours de deux heures et 25 $ pour la location à la journée.", "follow_up_to": null},
         {"topic": "Coût", "question": "Faut-il aussi payer pour accéder aux pistes ?", "answer": "Oui, environ 20 $ par jour dans les centres, mais certains parcs municipaux sont gratuits.", "follow_up_to": null}
       ]
     },
@@ -42,11 +44,12 @@
       "questions": [
         {"topic": "Activités à la maison", "question": "Quelles activités me conseillerais-tu pour les occuper à la maison ?", "answer": "Une séance de pâtisserie, un atelier de bricolage ou une soirée cinéma avec du maïs soufflé.", "follow_up_to": null},
         {"topic": "Activités à la maison", "question": "Pour la pâtisserie, quelle recette serait facile à réaliser avec eux ?", "answer": "Des biscuits à décorer : la pâte est simple, et les enfants adorent choisir les couleurs du glaçage.", "follow_up_to": 1, "condition": "If baking is suggested; adapt to the home activity proposed."},
-        {"topic": "Sorties", "question": "Quelles sorties pourrait-on faire en ville ?", "answer": "Le musée des sciences, très interactif, et le zoo, s'il fait beau.", "follow_up_to": null},
+        {"topic": "Sorties", "question": "Est-ce que tu aurais des idées de sorties en ville ?", "answer": "Le musée des sciences, très interactif, et le zoo, s'il fait beau.", "follow_up_to": null},
         {"topic": "Sorties", "question": "Et en cas de pluie, quelle autre sortie leur plairait ?", "answer": "Le centre d'escalade intérieur, accessible dès cinq ans avec un moniteur.", "follow_up_to": 3, "condition": "If outdoor outings are suggested and rain is possible."},
-        {"topic": "Sorties", "question": "Quel budget faudrait-il prévoir pour ces sorties ?", "answer": "Une vingtaine de dollars par enfant pour le musée ou l'escalade ; le zoo est un peu plus cher.", "follow_up_to": null},
+        {"topic": "Sorties", "question": "Quel budget par enfant faut-il prévoir pour le musée, l'escalade ou le zoo ?", "answer": "Environ 20 $ pour le musée ou l'escalade ; le zoo est un peu plus cher.", "follow_up_to": null},
+        {"topic": "Sorties", "question": "Pour l'escalade et le musée, faut-il réserver à l'avance et, si oui, peut-on le faire en ligne ou par téléphone ?", "answer": "Réservez l'escalade par téléphone ; pour le musée, acheter les billets en ligne le jour même suffit généralement.", "follow_up_to": null},
         {"topic": "Jeux", "question": "Quels jeux de société pourrais-je leur proposer le soir ?", "answer": "Uno, Dobble ou Les Aventuriers du Rail, selon leur âge.", "follow_up_to": null},
-        {"topic": "Jeux", "question": "Les Aventuriers du Rail, ce n'est pas trop compliqué pour des enfants ?", "answer": "Non, une partie dure environ 45 minutes, mais le jeu convient plutôt à partir de huit ans.", "follow_up_to": 6, "condition": "If a demanding game is named; substitute the title suggested."}
+        {"topic": "Jeux", "question": "Les Aventuriers du Rail, ce n'est pas trop compliqué pour des enfants ?", "answer": "Non, une partie dure environ 45 minutes, mais le jeu convient plutôt à partir de huit ans.", "follow_up_to": 7, "condition": "If a demanding game is named; substitute the title suggested."}
       ]
     },
     {
@@ -56,13 +59,14 @@
       "opening": "Bonjour ! Je viens d'arriver au Canada et je m'installe dans votre ville. J'aimerais savoir vers qui me tourner pour mes premières démarches.",
       "closing": "Merci beaucoup pour votre aide ! Je vais commencer par les démarches prioritaires, puis je reviendrai vous voir si besoin.",
       "questions": [
-        {"topic": "Logement", "question": "Où puis-je trouver de l'aide pour chercher un logement ?", "answer": "Au centre d'accueil des nouveaux arrivants, à deux rues d'ici : on vous y aide gratuitement à chercher un appartement et à comprendre un bail.", "follow_up_to": null},
-        {"topic": "Logement", "question": "Faut-il prendre rendez-vous avec ce centre ?", "answer": "C'est préférable : appelez-les ou réservez en ligne, il y a souvent des disponibilités dans la semaine.", "follow_up_to": 1, "condition": "If a support centre is suggested, unless access is already explained."},
-        {"topic": "Logement", "question": "La ville propose-t-elle des logements à loyer réduit ?", "answer": "Elle gère quelques logements sociaux avec une liste d'attente ; le service de l'habitation vous dira si vous pouvez vous y inscrire.", "follow_up_to": null},
-        {"topic": "Démarches", "question": "Quelles démarches devrais-je effectuer en priorité ?", "answer": "Cela dépend de votre situation ; le centre d'accueil vous aidera à établir la liste, qui comprend souvent l'assurance maladie et le numéro d'assurance sociale.", "follow_up_to": null},
-        {"topic": "Démarches", "question": "Et ici, à la mairie, que puis-je régler directement ?", "answer": "Vous pouvez demander la carte municipale, qui donne accès aux bibliothèques et au tarif résident des activités.", "follow_up_to": 4, "condition": "After you are referred elsewhere, to check what city hall handles."},
-        {"topic": "Services municipaux", "question": "Quels services la ville propose-t-elle aux nouveaux arrivants ?", "answer": "Des ateliers de conversation, des séances d'information sur l'emploi et un programme de jumelage avec des bénévoles.", "follow_up_to": null},
-        {"topic": "Services municipaux", "question": "Comment fonctionne ce jumelage avec des bénévoles ?", "answer": "Un habitant vous rencontre quelques heures par mois pour vous faire découvrir la ville et répondre à vos questions.", "follow_up_to": 6, "condition": "If a volunteer matching programme is mentioned; adapt to the service named."}
+        {"topic": "Logement", "question": "Quels types de logements un nouvel arrivant peut-il envisager ici — location privée, logement temporaire ou logement social ?", "answer": "La location privée offre le plus de choix ; il existe aussi des résidences temporaires et des logements sociaux sous conditions.", "follow_up_to": null},
+        {"topic": "Logement", "question": "Pour un studio ou un appartement d'une chambre, quelle gamme de loyers faut-il prévoir selon le secteur ?", "answer": "Le guide municipal indique environ 900 à 1 200 $ hors centre, et 1 200 à 1 600 $ dans les secteurs centraux.", "follow_up_to": 1, "condition": "After housing options are outlined, compare realistic rents by type and area."},
+        {"topic": "Logement", "question": "Pour les logements à loyer réduit, quelles conditions et quels délais faut-il vérifier ?", "answer": "L'admissibilité dépend notamment des revenus et de la situation du ménage ; le service de l'habitation confirme aussi la liste d'attente.", "follow_up_to": 1, "condition": "If affordable housing is mentioned among the available options."},
+        {"topic": "Démarches", "question": "Quelles démarches faut-il traiter en premier, notamment pour l'assurance maladie et le numéro d'assurance sociale ?", "answer": "Le centre d'accueil établira l'ordre selon votre situation ; ces deux démarches figurent généralement parmi les premières.", "follow_up_to": null},
+        {"topic": "Démarches", "question": "Et ici, à la mairie, qu'est-ce que je peux régler directement ?", "answer": "Vous pouvez demander la carte municipale, qui donne accès aux bibliothèques et au tarif résident des activités.", "follow_up_to": 4, "condition": "After you are referred elsewhere, to check what city hall handles."},
+        {"topic": "Démarches", "question": "Le centre d'accueil reçoit-il sans rendez-vous ou faut-il réserver en ligne ou par téléphone, et quels documents apporter ?", "answer": "Réservez en ligne ou par téléphone ; apportez une pièce d'identité et une preuve d'adresse, si vous en avez une.", "follow_up_to": null},
+        {"topic": "Services municipaux", "question": "Quels services municipaux facilitent l'intégration linguistique, la recherche d'emploi et la découverte de la ville ?", "answer": "Des ateliers de conversation, des séances d'information sur l'emploi et un programme de jumelage avec des bénévoles.", "follow_up_to": null},
+        {"topic": "Services municipaux", "question": "À quelle fréquence rencontre-t-on le bénévole, et quel accompagnement propose-t-il concrètement ?", "answer": "Quelques heures par mois, pour découvrir la ville et obtenir des réponses aux questions du quotidien.", "follow_up_to": 7, "condition": "If a volunteer matching programme is mentioned; adapt to the service named."}
       ]
     },
     {
@@ -74,10 +78,11 @@
       "questions": [
         {"topic": "Préparation", "question": "Comment devrais-je me préparer dans les jours qui viennent ?", "answer": "Renseigne-toi sur l'entreprise et prépare deux ou trois exemples concrets de réussites professionnelles.", "follow_up_to": null},
         {"topic": "Préparation", "question": "Quels exemples auraient le plus d'impact, selon toi ?", "answer": "Ceux qui montrent un résultat précis, comme un délai respecté ou un problème que tu as résolu.", "follow_up_to": 1, "condition": "If they suggest preparing examples, unless they already say which."},
-        {"topic": "Tenue", "question": "Quelle tenue serait la plus adaptée ?", "answer": "Une tenue sobre et soignée, un peu plus habillée que celle des employés de l'entreprise.", "follow_up_to": null},
-        {"topic": "Tenue", "question": "Comment savoir quelle tenue portent les employés de l'entreprise ?", "answer": "Regarde les photos de l'équipe sur leur site ou sur leurs réseaux sociaux.", "follow_up_to": 3, "condition": "If they advise matching the company's dress style."},
-        {"topic": "Attitude et déroulement", "question": "Quelle attitude faut-il adopter face au recruteur ?", "answer": "Arrive dix minutes en avance, regarde ton interlocuteur dans les yeux et réponds de façon concise.", "follow_up_to": null},
-        {"topic": "Attitude et déroulement", "question": "Combien de temps dure un entretien, en général ?", "answer": "Entre 30 minutes et une heure, selon le poste.", "follow_up_to": null},
+        {"topic": "Préparation", "question": "Quelles questions devrais-je préparer pour éviter d'être pris au dépourvu ?", "answer": "Prépare surtout des réponses sur ta motivation, tes compétences et une difficulté professionnelle que tu as surmontée.", "follow_up_to": null},
+        {"topic": "Tenue", "question": "Quelle tenue serait adaptée au secteur tout en restant sobre et professionnelle ?", "answer": "Une tenue soignée, légèrement plus habillée que celle que portent habituellement les employés de l'entreprise.", "follow_up_to": null},
+        {"topic": "Tenue", "question": "Comment savoir quelle tenue portent les employés de l'entreprise ?", "answer": "Regarde les photos de l'équipe sur leur site ou sur leurs réseaux sociaux.", "follow_up_to": 4, "condition": "If they advise matching the company's dress style."},
+        {"topic": "Attitude et déroulement", "question": "Et face au recruteur, qu'est-ce que je dois faire pour donner une bonne impression ?", "answer": "Arrive dix minutes en avance, regarde ton interlocuteur dans les yeux et réponds de façon concise.", "follow_up_to": null},
+        {"topic": "Attitude et déroulement", "question": "Ça dure combien de temps, en général, un entretien ?", "answer": "Entre 30 minutes et une heure, selon le poste.", "follow_up_to": null},
         {"topic": "Attitude et déroulement", "question": "Est-il bien vu de poser des questions à la fin ?", "answer": "Oui, c'est même apprécié : demande par exemple comment se passerait ton intégration dans l'équipe.", "follow_up_to": null}
       ]
     },
@@ -89,12 +94,13 @@
       "closing": "Merci beaucoup ! Je commence ta première suggestion dès ce soir, et je garde l'autre pour plus tard.",
       "questions": [
         {"topic": "Genre et histoire", "question": "Quel genre de série me conseillerais-tu en ce moment ?", "answer": "Si tu aimes le suspense, Lupin, une série policière française pleine de rebondissements.", "follow_up_to": null},
-        {"topic": "Genre et histoire", "question": "De quoi parle-t-elle ?", "answer": "D'un homme qui s'inspire du gentleman cambrioleur Arsène Lupin pour venger son père, accusé à tort d'un vol.", "follow_up_to": 1, "condition": "After a series is recommended, unless its plot is already outlined."},
+        {"topic": "Genre et histoire", "question": "Quelle est l'intrigue principale, sans me révéler la fin ?", "answer": "Un homme s'inspire du gentleman cambrioleur Arsène Lupin pour venger son père, accusé à tort d'un vol.", "follow_up_to": 1, "condition": "After a series is recommended, unless its plot is already outlined."},
         {"topic": "Genre et histoire", "question": "Et si j'avais plutôt envie de quelque chose de léger ?", "answer": "Alors Dix pour cent, une comédie sur une agence d'acteurs parisienne, où de vraies vedettes jouent leur propre rôle.", "follow_up_to": null},
-        {"topic": "Acteurs", "question": "Qui joue dans la première série que tu m'as conseillée ?", "answer": "C'est Omar Sy, vraiment excellent dans le rôle principal.", "follow_up_to": null},
-        {"topic": "Acteurs", "question": "Dans quels films a-t-il joué avant cette série ?", "answer": "Notamment dans Intouchables, la comédie qui l'a rendu célèbre dans le monde entier.", "follow_up_to": 4, "condition": "If the lead actor is unfamiliar to you; adapt the pronoun."},
-        {"topic": "Plateforme", "question": "Sur quelle plateforme peut-on regarder ces séries ?", "answer": "Lupin est sur Netflix ; pour Dix pour cent, vérifie le catalogue, car il change selon les pays.", "follow_up_to": null},
-        {"topic": "Plateforme", "question": "Combien coûte un abonnement à Netflix ?", "answer": "Environ 19 $ par mois sans publicité, et moins cher avec publicité.", "follow_up_to": 6, "condition": "If a subscription platform is named; substitute the service mentioned."}
+        {"topic": "Acteurs et format", "question": "Qui joue dans la première série que tu m'as conseillée ?", "answer": "C'est Omar Sy, vraiment excellent dans le rôle principal.", "follow_up_to": null},
+        {"topic": "Acteurs et format", "question": "Quel est le format de la série — nombre de saisons, durée des épisodes et histoire continue ou indépendante ?", "answer": "Elle compte plusieurs saisons d'environ cinq épisodes de quarante-cinq minutes, avec une histoire qui se poursuit d'un épisode à l'autre.", "follow_up_to": null},
+        {"topic": "Plateforme", "question": "Sur quelle plateforme est-ce qu'on peut regarder ces séries ?", "answer": "Lupin est sur Netflix ; pour Dix pour cent, vérifie le catalogue, car il change selon les pays.", "follow_up_to": null},
+        {"topic": "Plateforme", "question": "Est-ce que je pourrai les regarder en français ou avec des sous-titres français ?", "answer": "Oui, les deux séries proposent une version française et des sous-titres français.", "follow_up_to": null},
+        {"topic": "Plateforme", "question": "Quel budget mensuel faut-il prévoir pour Netflix, avec ou sans publicité ?", "answer": "Environ 19 $ par mois sans publicité, et moins cher avec publicité.", "follow_up_to": 6, "condition": "If a subscription platform is named; substitute the service mentioned."}
       ]
     },
     {
@@ -105,12 +111,13 @@
       "closing": "Merci beaucoup pour ces bons plans ! Je vais commencer mes découvertes dès ce week-end.",
       "questions": [
         {"topic": "Endroits à voir", "question": "Quels endroits gratuits me conseillerais-tu de découvrir en premier ?", "answer": "Le vieux port, le parc de la colline et le marché public, où l'on peut se promener sans rien payer.", "follow_up_to": null},
-        {"topic": "Endroits à voir", "question": "Qu'y a-t-il à voir dans ce parc ?", "answer": "Un belvédère avec une vue sur toute la ville, surtout au coucher du soleil.", "follow_up_to": 1, "condition": "If a park is recommended; adapt to the place named."},
-        {"topic": "Activités", "question": "Quelles activités peut-on faire à petit prix ?", "answer": "Les musées sont gratuits le premier dimanche du mois, et il y a des concerts en plein air tout l'été.", "follow_up_to": null},
-        {"topic": "Activités", "question": "Ces concerts sont-ils vraiment gratuits ?", "answer": "Oui, il suffit d'apporter une chaise pliante ou une couverture.", "follow_up_to": 3, "condition": "If outdoor concerts are mentioned, unless their cost is already clear."},
-        {"topic": "Activités", "question": "Et le soir, où peut-on sortir sans se ruiner ?", "answer": "Dans les bars de la rue principale, où les consommations sont à moitié prix de 17 h à 19 h.", "follow_up_to": null},
+        {"topic": "Endroits à voir", "question": "Qu'est-ce qu'il y a à voir dans ce parc ?", "answer": "Un belvédère avec une vue sur toute la ville, surtout au coucher du soleil.", "follow_up_to": 1, "condition": "If a park is recommended; adapt to the place named."},
+        {"topic": "Activités", "question": "Quelles activités culturelles sont gratuites ou à tarif réduit selon le jour ou la saison ?", "answer": "Les musées sont gratuits le premier dimanche du mois, et des concerts en plein air ont lieu tout l'été.", "follow_up_to": null},
+        {"topic": "Activités", "question": "L'accès à ces concerts est-il entièrement gratuit, ou faut-il réserver une place ?", "answer": "L'accès est gratuit et sans réservation ; il suffit d'apporter une chaise pliante ou une couverture.", "follow_up_to": 3, "condition": "If outdoor concerts are mentioned, unless their cost is already clear."},
+        {"topic": "Activités", "question": "Et le soir, où est-ce qu'on peut sortir sans se ruiner ?", "answer": "Dans les bars de la rue principale, où les consommations sont à moitié prix de 17 h à 19 h.", "follow_up_to": null},
+        {"topic": "Activités", "question": "Existe-t-il une carte ou un laissez-passer qui donne des réductions sur plusieurs sorties ?", "answer": "Oui, la carte culturelle municipale offre des réductions dans trois musées et sur certaines visites guidées.", "follow_up_to": null},
         {"topic": "Transports", "question": "Quel est le moyen le plus économique pour me déplacer ?", "answer": "Le vélo en libre-service : l'abonnement mensuel coûte une vingtaine de dollars.", "follow_up_to": null},
-        {"topic": "Transports", "question": "Ces vélos sont-ils disponibles toute l'année ?", "answer": "Non, seulement d'avril à novembre ; l'hiver, il faudra prendre le bus.", "follow_up_to": 6, "condition": "If bike-share is recommended, unless its season is already given."}
+        {"topic": "Transports", "question": "Le vélo en libre-service fonctionne-t-il toute l'année et, sinon, quelle option économique reste disponible l'hiver ?", "answer": "Il fonctionne seulement d'avril à novembre ; l'hiver, le bus est l'option la plus économique.", "follow_up_to": 7, "condition": "If bike-share is recommended, unless its season is already given."}
       ]
     },
     {
@@ -120,13 +127,14 @@
       "opening": "Bonsoir ! J'ai cru comprendre que vous rentriez tout juste de voyage. Ça m'intéresse beaucoup, j'adore les récits de voyage.",
       "closing": "Merci de m'avoir raconté tout ça, ça donne vraiment envie de partir à mon tour !",
       "questions": [
-        {"topic": "Destination et durée", "question": "Quelle destination aviez-vous choisie ?", "answer": "Le Japon, que j'ai parcouru de Tokyo jusqu'à Hiroshima.", "follow_up_to": null},
+        {"topic": "Destination et durée", "question": "Quelle destination aviez-vous choisie, et quel itinéraire avez-vous suivi ?", "answer": "Le Japon, que j'ai parcouru de Tokyo jusqu'à Hiroshima.", "follow_up_to": null},
         {"topic": "Destination et durée", "question": "Combien de temps a duré ce voyage, et à quelle période ?", "answer": "Trois semaines, début avril, en pleine floraison des cerisiers.", "follow_up_to": null},
-        {"topic": "Destination et durée", "question": "N'y avait-il pas trop de monde à ce moment-là ?", "answer": "Si, dans les parcs les plus célèbres, mais en se levant tôt, on en profitait au calme.", "follow_up_to": 2, "condition": "If they travelled during a peak season or festival."},
-        {"topic": "Lieux visités", "question": "Quelle étape avez-vous préférée ?", "answer": "Kyoto, pour ses temples, ses jardins et ses ruelles bordées de maisons en bois.", "follow_up_to": null},
-        {"topic": "Lieux visités", "question": "Qu'y avez-vous fait de particulier ?", "answer": "J'ai dormi dans une auberge traditionnelle, sur un futon posé sur des tatamis, et j'ai assisté à une cérémonie du thé.", "follow_up_to": 4, "condition": "After a favourite place is named."},
+        {"topic": "Destination et durée", "question": "Il n'y avait pas trop de monde à ce moment-là ?", "answer": "Si, dans les parcs les plus célèbres, mais en se levant tôt, on en profitait au calme.", "follow_up_to": 2, "condition": "If they travelled during a peak season or festival."},
+        {"topic": "Lieux visités", "question": "Parmi toutes ces étapes, laquelle avez-vous préférée, et pour quelles raisons ?", "answer": "Kyoto, pour ses temples, ses jardins et ses ruelles bordées de maisons en bois.", "follow_up_to": null},
+        {"topic": "Lieux visités", "question": "Qu'est-ce que vous y avez fait de particulier ?", "answer": "J'ai dormi dans une auberge traditionnelle, sur un futon posé sur des tatamis, et j'ai assisté à une cérémonie du thé.", "follow_up_to": 4, "condition": "After a favourite place is named."},
+        {"topic": "Lieux visités", "question": "Comment vous déplaciez-vous entre les différentes étapes du voyage ?", "answer": "Surtout en train, avec un laissez-passer national réservé avant le départ.", "follow_up_to": null},
         {"topic": "Impressions", "question": "Quelle a été votre plus belle surprise là-bas ?", "answer": "La gentillesse des habitants, qui prenaient le temps de m'aider, même sans parler la même langue.", "follow_up_to": null},
-        {"topic": "Impressions", "question": "Y retourneriez-vous ?", "answer": "Sans hésiter, mais cette fois à l'automne, pour voir les érables rougir.", "follow_up_to": null}
+        {"topic": "Impressions", "question": "Après cette expérience, auriez-vous envie d'y retourner à une autre saison ?", "answer": "Sans hésiter, mais cette fois à l'automne, pour voir les érables rougir.", "follow_up_to": null}
       ]
     },
     {
@@ -139,13 +147,14 @@
       "opening": "Salut ! Raconte-moi un peu ton nouveau travail, j'ai hâte de savoir comment ça se passe.",
       "closing": "Merci de m'avoir raconté tout ça ! Ça fait plaisir de voir que ce nouveau travail te plaît autant.",
       "questions": [
-        {"topic": "Tâches et intégration", "question": "Alors, comment se passent tes débuts ?", "answer": "Très bien : je m'occupe du service client en ligne, et j'apprends vite grâce à ma tutrice.", "follow_up_to": null},
-        {"topic": "Tâches et intégration", "question": "Ta tutrice t'accompagne pendant combien de temps ?", "answer": "Pendant tout le premier mois ; ensuite, je serai autonome.", "follow_up_to": 1, "condition": "If they mention a mentor or trainer; adapt to that person."},
-        {"topic": "Collègues et locaux", "question": "Comment sont tes collègues ?", "answer": "Très accueillants : on déjeune souvent ensemble, et l'ambiance est détendue.", "follow_up_to": null},
-        {"topic": "Collègues et locaux", "question": "Et les locaux, ils sont agréables ?", "answer": "Oui, c'est un bureau lumineux au dixième étage, avec une grande cuisine commune et une terrasse.", "follow_up_to": null},
-        {"topic": "Avantages et activités", "question": "Quels avantages ton employeur offre-t-il ?", "answer": "Une assurance santé complémentaire, trois semaines de vacances et un remboursement partiel du passe de transport.", "follow_up_to": null},
-        {"topic": "Avantages et activités", "question": "Ce remboursement couvre-t-il une bonne partie du passe ?", "answer": "La moitié, soit environ 75 $ par mois.", "follow_up_to": 5, "condition": "If a transit reimbursement is mentioned, unless its amount is given."},
-        {"topic": "Avantages et activités", "question": "L'entreprise organise-t-elle des activités entre collègues ?", "answer": "Oui, un apéritif d'équipe chaque mois et une sortie au parc d'attractions en été.", "follow_up_to": null}
+        {"topic": "Tâches et intégration", "question": "Comment se passent tes débuts, et quelles responsabilités t'a-t-on confiées en priorité ?", "answer": "Très bien : je m'occupe du service client en ligne, et j'apprends vite grâce à ma tutrice.", "follow_up_to": null},
+        {"topic": "Tâches et intégration", "question": "Combien de temps dure l'accompagnement de ta tutrice, et quand devras-tu travailler en autonomie ?", "answer": "Elle m'accompagne pendant tout le premier mois ; ensuite, je serai autonome.", "follow_up_to": 1, "condition": "If they mention a mentor or trainer; adapt to that person."},
+        {"topic": "Tâches et intégration", "question": "À quoi ressemble une journée de travail typique dans ce nouveau poste ?", "answer": "Je traite les demandes des clients le matin, puis je travaille sur les projets de l'équipe l'après-midi.", "follow_up_to": null},
+        {"topic": "Collègues et locaux", "question": "Comment décrirais-tu tes collègues et l'ambiance au sein de l'équipe ?", "answer": "Mes collègues sont très accueillants : on déjeune souvent ensemble, et l'ambiance est détendue.", "follow_up_to": null},
+        {"topic": "Collègues et locaux", "question": "Comment sont aménagés les locaux, et quels espaces communs avez-vous à disposition ?", "answer": "C'est un bureau lumineux au dixième étage, avec une grande cuisine commune et une terrasse.", "follow_up_to": null},
+        {"topic": "Avantages et activités", "question": "Est-ce que ton employeur offre des avantages intéressants ?", "answer": "Oui : une assurance santé complémentaire, trois semaines de vacances et un remboursement partiel du passe de transport.", "follow_up_to": null},
+        {"topic": "Avantages et activités", "question": "Ce remboursement couvre-t-il une bonne partie du passe ?", "answer": "La moitié, soit environ 75 $ par mois.", "follow_up_to": 6, "condition": "If a transit reimbursement is mentioned, unless its amount is given."},
+        {"topic": "Avantages et activités", "question": "Quels types d'activités l'entreprise organise-t-elle, et à quelle fréquence les collègues se retrouvent-ils ?", "answer": "Un apéritif d'équipe a lieu chaque mois, avec une grande sortie au parc d'attractions en été.", "follow_up_to": null}
       ]
     },
     {
@@ -155,13 +164,14 @@
       "opening": "Bonjour ! J'ai appris que mon médecin de famille était absent, et j'aimerais me renseigner sur la personne qui le remplace.",
       "closing": "Merci beaucoup pour ces renseignements ! Je vais prendre rendez-vous dès aujourd'hui.",
       "questions": [
-        {"topic": "Le médecin remplaçant", "question": "Comment s'appelle le médecin remplaçant ?", "answer": "C'est la docteure Sophie Tremblay, médecin généraliste.", "follow_up_to": null},
-        {"topic": "Le médecin remplaçant", "question": "Connaît-elle déjà les dossiers des patients ?", "answer": "Oui, elle y a accès et elle a déjà fait plusieurs remplacements au cabinet.", "follow_up_to": 1, "condition": "After the replacement is named; adapt pronouns to the doctor."},
-        {"topic": "Durée et horaires", "question": "Combien de temps ce remplacement va-t-il durer ?", "answer": "Six semaines, jusqu'au 15 mars, date du retour de votre médecin.", "follow_up_to": null},
-        {"topic": "Durée et horaires", "question": "Quels sont ses horaires de consultation ?", "answer": "Du lundi au jeudi de 8 h 30 à 16 h, et le vendredi matin.", "follow_up_to": null},
-        {"topic": "Durée et horaires", "question": "Si j'avais besoin de consulter un vendredi après-midi, que pourrais-je faire ?", "answer": "Vous pourriez vous adresser à la clinique sans rendez-vous du quartier, ouverte jusqu'à 20 h.", "follow_up_to": 4, "condition": "If the hours leave a gap that matters to you; adapt the time slot."},
-        {"topic": "Rendez-vous", "question": "Comment puis-je prendre rendez-vous pendant cette période ?", "answer": "Par téléphone ici, ou en ligne sur le site du cabinet, comme d'habitude.", "follow_up_to": null},
-        {"topic": "Rendez-vous", "question": "Quel délai faut-il prévoir pour un rendez-vous ?", "answer": "En général deux ou trois jours, et le jour même pour les cas urgents.", "follow_up_to": 6, "condition": "After booking methods are explained, unless waiting times are mentioned."}
+        {"topic": "Le médecin remplaçant", "question": "Qui assure le remplacement, et quelle est sa spécialité ?", "answer": "C'est la docteure Sophie Tremblay, médecin généraliste.", "follow_up_to": null},
+        {"topic": "Le médecin remplaçant", "question": "Est-ce qu'elle a accès aux dossiers des patients ?", "answer": "Oui, et elle a déjà fait plusieurs remplacements au cabinet.", "follow_up_to": 1, "condition": "After the replacement is named; adapt pronouns to the doctor."},
+        {"topic": "Le médecin remplaçant", "question": "Pourra-t-elle renouveler une ordonnance ou demander un examen pendant l'absence de mon médecin ?", "answer": "Oui, après avoir consulté votre dossier et évalué votre situation lors d'un rendez-vous.", "follow_up_to": null},
+        {"topic": "Durée et horaires", "question": "Combien de temps durera le remplacement, et à quelle date mon médecin reviendra-t-il ?", "answer": "Six semaines, jusqu'au 15 mars, date du retour de votre médecin.", "follow_up_to": null},
+        {"topic": "Durée et horaires", "question": "Quels jours et sur quelles plages horaires le médecin remplaçant reçoit-il les patients ?", "answer": "Du lundi au jeudi de 8 h 30 à 16 h, et le vendredi matin.", "follow_up_to": null},
+        {"topic": "Durée et horaires", "question": "Si j'avais besoin de consulter un vendredi après-midi, que pourrais-je faire ?", "answer": "Vous pourriez vous adresser à la clinique sans rendez-vous du quartier, ouverte jusqu'à 20 h.", "follow_up_to": 5, "condition": "If the hours leave a gap that matters to you; adapt the time slot."},
+        {"topic": "Rendez-vous", "question": "Puis-je prendre rendez-vous en ligne, ou faut-il appeler directement le secrétariat ?", "answer": "Les deux options sont possibles : par téléphone ici, ou en ligne sur le site du cabinet.", "follow_up_to": null},
+        {"topic": "Rendez-vous", "question": "Quel délai faut-il prévoir pour un rendez-vous ?", "answer": "En général deux ou trois jours, et le jour même pour les cas urgents.", "follow_up_to": 7, "condition": "After booking methods are explained, unless waiting times are mentioned."}
       ]
     },
     {
@@ -175,12 +185,13 @@
       "closing": "Merci beaucoup pour tous ces conseils ! Je vais choisir un nom pour mon blog et préparer mes premières rubriques.",
       "questions": [
         {"topic": "Lancement", "question": "Par quoi avez-vous commencé quand vous avez créé votre blog ?", "answer": "J'ai d'abord choisi un nom facile à retenir, puis j'ai ouvert le site sur WordPress avec un modèle gratuit.", "follow_up_to": null},
-        {"topic": "Lancement", "question": "Combien cela vous a-t-il coûté au départ ?", "answer": "Environ 100 $ la première année, pour le nom de domaine et l'hébergement du site.", "follow_up_to": 1, "condition": "After they describe their launch, unless start-up costs are mentioned."},
-        {"topic": "Rubriques et contenus", "question": "Quelles rubriques me conseilleriez-vous de créer ?", "answer": "Des carnets de route par destination, une rubrique de conseils pratiques et une autre consacrée au budget.", "follow_up_to": null},
-        {"topic": "Rubriques et contenus", "question": "Que mettez-vous dans la rubrique budget ?", "answer": "Le détail de mes dépenses pour chaque voyage : transport, logement, repas et activités.", "follow_up_to": 3, "condition": "If a budget section is suggested; adapt to a section named."},
+        {"topic": "Lancement", "question": "Quel budget avez-vous consacré au lancement, et quelles dépenses cela couvrait-il ?", "answer": "Environ 100 $ la première année, pour le nom de domaine et l'hébergement du site.", "follow_up_to": 1, "condition": "After they describe their launch, unless start-up costs are mentioned."},
+        {"topic": "Lancement", "question": "Quelle plateforme me conseilleriez-vous pour débuter sans compétences techniques particulières ?", "answer": "WordPress ou Wix : les deux proposent des modèles simples et permettent de commencer sans programmation.", "follow_up_to": null},
+        {"topic": "Rubriques et contenus", "question": "Quelles rubriques structureraient clairement les destinations, les conseils pratiques et le budget ?", "answer": "Des carnets de route par destination, une rubrique de conseils pratiques et une autre consacrée au budget.", "follow_up_to": null},
+        {"topic": "Rubriques et contenus", "question": "Qu'est-ce que vous mettez dans la rubrique budget ?", "answer": "Le détail de mes dépenses pour chaque voyage : transport, logement, repas et activités.", "follow_up_to": 4, "condition": "If a budget section is suggested; adapt to a section named."},
         {"topic": "Rubriques et contenus", "question": "Quels types de contenus attirent le plus de lecteurs ?", "answer": "Les articles riches en photos et les courtes vidéos, surtout quand elles montrent des adresses peu connues.", "follow_up_to": null},
-        {"topic": "Rythme de publication", "question": "À quel rythme devrais-je publier ?", "answer": "Un article par semaine suffit, à condition de garder toujours le même jour.", "follow_up_to": null},
-        {"topic": "Rythme de publication", "question": "Et quand on est en voyage, comment tenir ce rythme ?", "answer": "Prenez des notes et des photos chaque soir, et préparez quelques articles à l'avance pour publier sans interruption.", "follow_up_to": 6, "condition": "After a publishing frequency is suggested."}
+        {"topic": "Rythme de publication", "question": "Quel rythme de publication serait réaliste tout en restant assez régulier pour fidéliser les lecteurs ?", "answer": "Un article par semaine suffit, à condition de publier toujours le même jour.", "follow_up_to": null},
+        {"topic": "Rythme de publication", "question": "Et quand on est en voyage, comment tenir ce rythme ?", "answer": "Prenez des notes et des photos chaque soir, et préparez quelques articles à l'avance pour publier sans interruption.", "follow_up_to": 7, "condition": "After a publishing frequency is suggested."}
       ]
     },
     {
@@ -190,13 +201,14 @@
       "opening": "Bonjour ! Je prépare une surprise pour l'anniversaire de ma moitié, et comme je connais encore mal la ville, votre aide me serait précieuse.",
       "closing": "Merci beaucoup pour votre aide ! Je vais réserver le lieu dès demain, en toute discrétion.",
       "questions": [
-        {"topic": "Lieu et invités", "question": "Où pourrait-on organiser la fête, à votre avis ?", "answer": "Dans la salle commune de notre immeuble : elle se loue 50 $ la soirée et peut accueillir une trentaine de personnes.", "follow_up_to": null},
-        {"topic": "Lieu et invités", "question": "Comment fait-on pour la réserver ?", "answer": "Il suffit de passer voir le concierge au moins deux semaines à l'avance.", "follow_up_to": 1, "condition": "If a bookable venue is suggested, unless booking is already explained."},
+        {"topic": "Lieu et invités", "question": "À votre avis, où est-ce que je pourrais organiser la fête ?", "answer": "Dans la salle commune de notre immeuble : elle se loue 50 $ la soirée et peut accueillir une trentaine de personnes.", "follow_up_to": null},
+        {"topic": "Lieu et invités", "question": "Est-ce que cette salle serait facilement accessible en transport en commun pour les invités ?", "answer": "Oui, elle se trouve à trois minutes du métro et l'entrée est accessible aux personnes à mobilité réduite.", "follow_up_to": null},
+        {"topic": "Lieu et invités", "question": "La salle se réserve-t-elle auprès du concierge ou en ligne, et quel délai faut-il prévoir ?", "answer": "Auprès du concierge, au moins deux semaines à l'avance.", "follow_up_to": 1, "condition": "If a bookable venue is suggested, unless booking is already explained."},
         {"topic": "Lieu et invités", "question": "Comme je connais encore peu de monde ici, qui pourrais-je inviter ?", "answer": "Quelques voisins de l'immeuble, et les personnes que vous avez rencontrées tous les deux depuis votre arrivée.", "follow_up_to": null},
-        {"topic": "Repas", "question": "Pour le repas, que me conseilleriez-vous ?", "answer": "Un buffet froid du traiteur du coin, environ 20 $ par personne, avec un gâteau de la pâtisserie d'à côté.", "follow_up_to": null},
-        {"topic": "Repas", "question": "Le traiteur peut-il livrer directement dans la salle ?", "answer": "Oui, et la livraison est gratuite pour les commandes de plus de 300 $.", "follow_up_to": 4, "condition": "If a caterer is suggested; adapt to the venue chosen."},
-        {"topic": "Surprise et cadeau", "question": "Comment pourrais-je éloigner ma moitié pendant les préparatifs ?", "answer": "Je pourrais l'inviter à prendre un café chez moi, puis l'accompagner jusqu'à la salle au bon moment.", "follow_up_to": null},
-        {"topic": "Surprise et cadeau", "question": "Quel cadeau original me suggéreriez-vous pour ce premier anniversaire fêté au Canada ?", "answer": "Une fin de semaine dans un chalet, pour découvrir à deux la nature d'ici.", "follow_up_to": null}
+        {"topic": "Repas", "question": "Et pour le repas, vous auriez une suggestion ?", "answer": "Un buffet froid du traiteur du coin, accompagné d'un gâteau de la pâtisserie d'à côté.", "follow_up_to": null},
+        {"topic": "Repas", "question": "Pour ce buffet et le gâteau, quel budget total faudrait-il prévoir par personne ?", "answer": "Environ 25 $ par invité, livraison et gâteau compris, à confirmer selon le nombre de personnes.", "follow_up_to": 5, "condition": "If a catered buffet is suggested, ask for its realistic total cost."},
+        {"topic": "Surprise et cadeau", "question": "Qu'est-ce que je pourrais faire pour éloigner ma moitié pendant les préparatifs ?", "answer": "Je pourrais l'inviter à prendre un café chez moi, puis l'accompagner jusqu'à la salle au bon moment.", "follow_up_to": null},
+        {"topic": "Surprise et cadeau", "question": "Enfin, quel cadeau original pourrait marquer ce premier anniversaire fêté au Canada ?", "answer": "Une fin de semaine dans un chalet, pour découvrir à deux la nature d'ici.", "follow_up_to": null}
       ]
     },
     {
@@ -208,11 +220,12 @@
       "questions": [
         {"topic": "Lieu", "question": "Quel coin de campagne nous conseilleriez-vous pour une journée ?", "answer": "Un petit village à une heure d'ici, au bord d'un lac et entouré de fermes.", "follow_up_to": null},
         {"topic": "Lieu", "question": "Y a-t-il un endroit pour pique-niquer là-bas ?", "answer": "Oui, un parc au bord du lac, avec des tables et des barbecues en libre accès.", "follow_up_to": 1, "condition": "After a place is suggested, if you plan to bring food."},
-        {"topic": "Activités", "question": "Quelles activités pourrait-on y faire ?", "answer": "Une randonnée facile de deux heures, de la cueillette de pommes en automne et du canot sur le lac.", "follow_up_to": null},
-        {"topic": "Activités", "question": "Où peut-on louer des canots ?", "answer": "À la base nautique du lac, pour environ 30 $ l'heure par canot de deux places.", "follow_up_to": 3, "condition": "If canoeing is mentioned; adapt to the equipment needed."},
+        {"topic": "Activités", "question": "Qu'est-ce qu'on pourrait y faire comme activités ?", "answer": "Une randonnée facile de deux heures, de la cueillette de pommes en automne et du canot sur le lac.", "follow_up_to": null},
+        {"topic": "Activités", "question": "Et les canots, on peut les louer où ?", "answer": "À la base nautique du lac, pour environ 30 $ l'heure par canot de deux places.", "follow_up_to": 3, "condition": "If canoeing is mentioned; adapt to the equipment needed."},
         {"topic": "Activités", "question": "Si le temps se gâtait, que pourrait-on faire à l'abri ?", "answer": "Visiter la fromagerie du village, qui propose une dégustation.", "follow_up_to": null},
+        {"topic": "Budget", "question": "Quel budget faudrait-il prévoir par personne pour la journée, activités comprises ?", "answer": "Environ 45 $ par personne pour le pique-nique, la location d'un canot et le transport partagé.", "follow_up_to": null},
         {"topic": "Transport", "question": "Quel moyen de transport serait le plus pratique pour y aller ?", "answer": "La voiture, car l'autobus ne passe que deux fois par jour ; à plusieurs, vous pourriez louer une fourgonnette.", "follow_up_to": null},
-        {"topic": "Transport", "question": "Combien coûte la location d'une fourgonnette pour la journée ?", "answer": "Environ 120 $, sans l'essence.", "follow_up_to": 6, "condition": "If a vehicle rental is suggested, unless its price is given."}
+        {"topic": "Transport", "question": "Combien coûte la location d'une fourgonnette pour la journée ?", "answer": "Environ 120 $, sans l'essence.", "follow_up_to": 7, "condition": "If a vehicle rental is suggested, unless its price is given."}
       ]
     },
     {
@@ -222,12 +235,13 @@
       "opening": "Bonjour ! J'aimerais me faire livrer mes courses à domicile, et je voudrais savoir comment fonctionne votre service.",
       "closing": "Merci beaucoup, c'est très pratique ! Je passerai ma première commande dès ce soir.",
       "questions": [
-        {"topic": "Commande et paiement", "question": "Comment passe-t-on une commande ?", "answer": "Sur notre site ou notre application, ou par téléphone si vous préférez.", "follow_up_to": null},
-        {"topic": "Commande et paiement", "question": "Faut-il payer en ligne au moment de la commande ?", "answer": "Vous pouvez payer en ligne ou par carte au livreur, comme vous préférez.", "follow_up_to": 1, "condition": "After ordering methods are explained, unless payment is already covered."},
-        {"topic": "Délais", "question": "Quels sont les délais de livraison ?", "answer": "Le jour même pour une commande passée avant midi, sinon le lendemain.", "follow_up_to": null},
-        {"topic": "Délais", "question": "Peut-on choisir un créneau horaire ?", "answer": "Oui, des créneaux de deux heures, entre 9 h et 21 h.", "follow_up_to": 3, "condition": "After delivery times are given, unless time slots are mentioned."},
-        {"topic": "Frais et modalités", "question": "Combien coûte la livraison ?", "answer": "7,99 $, et elle est gratuite à partir de 100 $ d'achats.", "follow_up_to": null},
-        {"topic": "Frais et modalités", "question": "Comment les produits frais sont-ils transportés ?", "answer": "Dans des sacs isothermes, et les surgelés dans des bacs réfrigérés.", "follow_up_to": null},
+        {"topic": "Zone de livraison", "question": "Quels quartiers livrez-vous, et y a-t-il un montant minimum de commande ?", "answer": "Nous livrons dans un rayon de quinze kilomètres, à partir de 50 $ d'achats.", "follow_up_to": null},
+        {"topic": "Commande et paiement", "question": "Peut-on commander sur le site, dans l'application ou par téléphone ?", "answer": "Oui, les trois options sont possibles, selon ce que vous préférez.", "follow_up_to": null},
+        {"topic": "Commande et paiement", "question": "Faut-il payer en ligne au moment de la commande ?", "answer": "Vous pouvez payer en ligne ou par carte au livreur, comme vous préférez.", "follow_up_to": 2, "condition": "After ordering methods are explained, unless payment is already covered."},
+        {"topic": "Délais", "question": "Quels délais faut-il prévoir, et une livraison le jour même est-elle possible ?", "answer": "Oui, pour une commande passée avant midi ; sinon, nous livrons le lendemain.", "follow_up_to": null},
+        {"topic": "Délais", "question": "Serait-il possible de choisir un créneau horaire ?", "answer": "Oui, des créneaux de deux heures, entre 9 h et 21 h.", "follow_up_to": 4, "condition": "After delivery times are given, unless time slots are mentioned."},
+        {"topic": "Frais et modalités", "question": "Quels sont les frais de livraison, et à partir de quel montant deviennent-ils gratuits ?", "answer": "Ils sont de 7,99 $, et la livraison devient gratuite à partir de 100 $ d'achats.", "follow_up_to": null},
+        {"topic": "Frais et modalités", "question": "Qu'est-ce que vous faites pour garder les produits frais au froid ?", "answer": "Dans des sacs isothermes, et les surgelés dans des bacs réfrigérés.", "follow_up_to": null},
         {"topic": "Frais et modalités", "question": "Si je n'étais pas chez moi au moment de la livraison, que se passerait-il ?", "answer": "Le livreur vous appellerait ; sans réponse, la livraison serait reportée au créneau suivant, sans frais.", "follow_up_to": null}
       ]
     },
@@ -238,13 +252,14 @@
       "opening": "Bonjour ! J'envisage de louer mon logement pendant les vacances, et j'aimerais avoir vos conseils avant de me lancer.",
       "closing": "Merci beaucoup pour ces conseils ! Je vais vérifier les démarches nécessaires, puis je reviendrai vous voir pour mettre mon logement en location.",
       "questions": [
-        {"topic": "Prix", "question": "À quel prix pourrais-je proposer mon logement ?", "answer": "Dans votre quartier, entre 120 et 180 $ la nuit, selon la taille et l'équipement.", "follow_up_to": null},
+        {"topic": "Prix", "question": "À votre avis, à quel prix est-ce que je pourrais proposer mon logement ?", "answer": "Dans votre quartier, entre 120 et 180 $ la nuit, selon la taille et l'équipement.", "follow_up_to": null},
         {"topic": "Prix", "question": "Faudrait-il prévoir des prix différents selon la saison ?", "answer": "Oui, vous pourriez les augmenter d'environ 30 % en juillet et en août.", "follow_up_to": 1, "condition": "After a nightly price range is suggested."},
-        {"topic": "Durée", "question": "Quelle durée de location me conseilleriez-vous ?", "answer": "Une semaine minimum, pour limiter le ménage et les changements de locataires.", "follow_up_to": null},
-        {"topic": "Durée", "question": "Pourrait-on accepter des séjours plus courts hors saison ?", "answer": "Oui, deux ou trois nuits, sinon le logement risquerait de rester vide.", "follow_up_to": 3, "condition": "If a minimum stay is recommended."},
-        {"topic": "Locataires", "question": "Quel type de locataires vise-t-on généralement ?", "answer": "Surtout des familles et des couples en vacances, qui recherchent le calme d'un vrai logement.", "follow_up_to": null},
+        {"topic": "Durée", "question": "Quelle durée minimale recommanderiez-vous pour limiter les changements de locataires et les frais de ménage ?", "answer": "Une semaine minimum offre le meilleur équilibre.", "follow_up_to": null},
+        {"topic": "Durée", "question": "Et hors saison, je pourrais accepter des séjours plus courts ?", "answer": "Oui, deux ou trois nuits, sinon le logement risquerait de rester vide.", "follow_up_to": 3, "condition": "If a minimum stay is recommended."},
+        {"topic": "Locataires", "question": "Quels locataires s'intéressent généralement à ce type de location ?", "answer": "Surtout des familles et des couples en vacances, qui recherchent le calme d'un vrai logement.", "follow_up_to": null},
         {"topic": "Locataires", "question": "Comment peut-on vérifier le sérieux d'un locataire ?", "answer": "Nous demandons une pièce d'identité et un dépôt de garantie de 500 $, rendu après l'état des lieux.", "follow_up_to": null},
-        {"topic": "Démarches", "question": "Y a-t-il des démarches à faire avant de louer ?", "answer": "Les règles varient selon les villes : vérifiez auprès de votre municipalité, et prévenez votre assureur.", "follow_up_to": null}
+        {"topic": "Démarches", "question": "Quels frais l'agence prélèverait-elle pour gérer les réservations et l'accueil des locataires ?", "answer": "Nous retenons 15 % du loyer pour les annonces, les paiements, l'accueil et l'assistance pendant le séjour.", "follow_up_to": null},
+        {"topic": "Démarches", "question": "Est-ce qu'il y a des démarches à faire avant de mettre mon logement en location ?", "answer": "Les règles varient selon les villes : vérifiez auprès de votre municipalité, et prévenez votre assureur.", "follow_up_to": null}
       ]
     },
     {
@@ -255,12 +270,13 @@
       "closing": "Merci beaucoup pour ces idées ! Je vais réserver mon hébergement et organiser mon trajet dès ce soir.",
       "questions": [
         {"topic": "Destination et hébergement", "question": "Quelle destination me conseilleriez-vous pour un week-end à petit prix ?", "answer": "Un parc national à une heure et demie d'ici : la nature y est superbe, et l'entrée coûte une dizaine de dollars par jour.", "follow_up_to": null},
-        {"topic": "Destination et hébergement", "question": "Où pourrais-je dormir sur place sans trop dépenser ?", "answer": "Au camping du parc, à partir de 35 $ la nuit par emplacement.", "follow_up_to": null},
-        {"topic": "Destination et hébergement", "question": "Et si je n'avais pas de tente ?", "answer": "Il y a aussi des refuges, à environ 30 $ par personne ; il suffit d'apporter un sac de couchage.", "follow_up_to": 2, "condition": "If camping is suggested and you have no tent."},
-        {"topic": "Activités", "question": "Quelles activités peut-on y faire sans payer de supplément ?", "answer": "La randonnée, sur une centaine de kilomètres de sentiers, et la baignade au lac en été.", "follow_up_to": null},
+        {"topic": "Destination et hébergement", "question": "Où est-ce que je pourrais dormir sur place sans trop dépenser ?", "answer": "Au camping du parc, à partir de 35 $ la nuit par emplacement.", "follow_up_to": null},
+        {"topic": "Destination et hébergement", "question": "Sans tente, quelles solutions couvertes et abordables sont proposées, et quel équipement faut-il apporter ?", "answer": "Des refuges coûtent environ 30 $ par personne ; il suffit d'apporter un sac de couchage.", "follow_up_to": 2, "condition": "If camping is suggested and you have no tent."},
+        {"topic": "Activités", "question": "Une fois l'entrée payée, quelles activités sont gratuites ?", "answer": "La randonnée, sur une centaine de kilomètres de sentiers, et la baignade au lac en été.", "follow_up_to": null},
         {"topic": "Activités", "question": "Peut-on aussi faire du canot sur ce lac ?", "answer": "Oui, en location au centre de services, pour environ 25 $ l'heure.", "follow_up_to": 4, "condition": "If a lake is mentioned; adapt to an activity you enjoy."},
+        {"topic": "Budget", "question": "Au total, quel budget minimal faudrait-il prévoir pour le transport, une nuit et les repas ?", "answer": "Environ 120 $ par personne en covoiturage, avec une nuit au camping et des repas préparés soi-même.", "follow_up_to": null},
         {"topic": "Transport", "question": "Quel serait le moyen le plus économique pour m'y rendre ?", "answer": "Le covoiturage, car aucun autocar ne dessert le parc : comptez environ 20 $ l'aller.", "follow_up_to": null},
-        {"topic": "Transport", "question": "Où trouve-t-on ce genre de covoiturage ?", "answer": "Sur les applications spécialisées ; réservez tôt dans la semaine, car les places partent vite le vendredi.", "follow_up_to": 6, "condition": "If carpooling is recommended, unless they explain how to find it."}
+        {"topic": "Transport", "question": "Sur quelles plateformes trouver ce covoiturage, et combien de temps à l'avance faudrait-il réserver ?", "answer": "Sur les applications spécialisées ; réservez tôt dans la semaine, car les places partent vite le vendredi.", "follow_up_to": 7, "condition": "If carpooling is recommended, unless they explain how to find it."}
       ]
     },
     {
@@ -271,12 +287,13 @@
       "closing": "Merci beaucoup ! Je vais commencer à comparer les prix, et je garde ton idée d'activité comme surprise.",
       "questions": [
         {"topic": "Destination", "question": "Quelle région du Canada choisirais-tu pour une occasion comme celle-là ?", "answer": "Les Rocheuses, autour de Banff, pour leurs lacs turquoise et leurs sommets spectaculaires.", "follow_up_to": null},
-        {"topic": "Destination", "question": "À quelle période vaudrait-il mieux y aller ?", "answer": "Entre la fin juin et le début septembre, quand les lacs ont dégelé et que tous les sentiers sont ouverts.", "follow_up_to": null},
+        {"topic": "Destination", "question": "Ce serait mieux d'y aller à quelle période ?", "answer": "Entre la fin juin et le début septembre, quand les lacs ont dégelé et que tous les sentiers sont ouverts.", "follow_up_to": null},
         {"topic": "Destination", "question": "Et si on y allait plutôt en hiver ?", "answer": "Ce serait magnifique aussi, avec le ski et les sources thermales de Banff.", "follow_up_to": 2, "condition": "After the best season is given; substitute the season that suits you."},
-        {"topic": "Idées d'activités", "question": "Quelle activité rendrait ce voyage vraiment spécial ?", "answer": "En été, une balade en canot sur le lac Louise, face au glacier Victoria.", "follow_up_to": null},
-        {"topic": "Idées d'activités", "question": "Combien coûte ce genre d'activité ?", "answer": "Plus de 100 $ la demi-heure, mais pour un anniversaire, ça vaut la peine.", "follow_up_to": 4, "condition": "After a special activity is suggested, unless its price is given."},
+        {"topic": "Destination", "question": "Quel type d'hébergement choisirais-tu pour que le séjour reste romantique sans dépasser notre budget ?", "answer": "Un petit gîte avec déjeuner, en dehors du centre, plutôt qu'un grand hôtel au bord du lac.", "follow_up_to": null},
+        {"topic": "Idées d'activités", "question": "Quelle expérience romantique et typique de la région rendrait ce voyage d'anniversaire vraiment mémorable ?", "answer": "En été, une balade en canot sur le lac Louise, face au glacier Victoria.", "follow_up_to": null},
+        {"topic": "Idées d'activités", "question": "Est-ce que c'est cher, ce genre d'activité ?", "answer": "Assez, oui : plus de 100 $ la demi-heure, mais pour un anniversaire, ça vaut la peine.", "follow_up_to": 5, "condition": "After a special activity is suggested, unless its price is given."},
         {"topic": "Budget", "question": "Quel budget faudrait-il prévoir pour une semaine à deux ?", "answer": "Au moins 3 000 $, sans compter le transport jusqu'à Banff, car l'hébergement y coûte cher.", "follow_up_to": null},
-        {"topic": "Budget", "question": "Comment pourrait-on réduire un peu cette somme ?", "answer": "En logeant à Canmore, à une vingtaine de minutes de Banff, où les hôtels sont moins chers.", "follow_up_to": 6, "condition": "If the suggested budget seems too high for you."}
+        {"topic": "Budget", "question": "Comment pourrait-on réduire un peu cette somme ?", "answer": "En logeant à Canmore, à une vingtaine de minutes de Banff, où les hôtels sont moins chers.", "follow_up_to": 7, "condition": "If the suggested budget seems too high for you."}
       ]
     },
     {
@@ -286,13 +303,14 @@
       "opening": "Salut ! Tu rentres tout juste du Canada, et comme j'y pars bientôt, j'aimerais profiter de ton expérience.",
       "closing": "Merci pour tous ces conseils ! Je vais revoir mon itinéraire et mon budget dès ce soir.",
       "questions": [
-        {"topic": "Itinéraire et climat", "question": "Quelles étapes me conseillerais-tu de prévoir ?", "answer": "Toronto, les chutes du Niagara, puis Ottawa et Montréal : c'est le parcours que j'ai fait en deux semaines.", "follow_up_to": null},
-        {"topic": "Itinéraire et climat", "question": "Qu'as-tu fait de plus marquant aux chutes du Niagara ?", "answer": "La croisière en bateau au pied des chutes : le grondement de l'eau et les embruns, c'est inoubliable !", "follow_up_to": 1, "condition": "After an itinerary is described; name a stop they mentioned."},
-        {"topic": "Itinéraire et climat", "question": "Quel temps faisait-il pendant ton séjour ?", "answer": "Chaud et humide, autour de 30 °C en juillet ; si tu pars en été, prévois des vêtements légers et de la crème solaire.", "follow_up_to": null},
-        {"topic": "Hébergement et repas", "question": "Où as-tu logé ?", "answer": "Surtout dans des auberges de jeunesse, autour de 50 $ la nuit en dortoir.", "follow_up_to": null},
-        {"topic": "Hébergement et repas", "question": "Pouvait-on y cuisiner ?", "answer": "Oui, il y avait une cuisine commune ; je ne mangeais au restaurant qu'une fois par jour, et j'ai goûté la poutine à Montréal !", "follow_up_to": 4, "condition": "If hostels or self-catering lodging are mentioned."},
-        {"topic": "Transports et budget", "question": "Comment te déplaçais-tu d'une ville à l'autre ?", "answer": "En train : VIA Rail relie Toronto, Ottawa et Montréal, et un train régional va de Toronto jusqu'à Niagara Falls.", "follow_up_to": null},
-        {"topic": "Transports et budget", "question": "D'après ton expérience, quel budget devrais-je prévoir ?", "answer": "Compte environ 120 $ par jour, sans le billet d'avion ; c'est à peu près ce que j'ai dépensé.", "follow_up_to": null}
+        {"topic": "Itinéraire et climat", "question": "Quelles étapes formeraient un itinéraire réaliste sur deux semaines, et dans quel ordre les visiter ?", "answer": "Toronto, les chutes du Niagara, puis Ottawa et Montréal : c'est le parcours que j'ai suivi.", "follow_up_to": null},
+        {"topic": "Itinéraire et climat", "question": "Qu'est-ce que tu as fait de plus marquant aux chutes du Niagara ?", "answer": "La croisière en bateau au pied des chutes : le grondement de l'eau et les embruns, c'est inoubliable !", "follow_up_to": 1, "condition": "After an itinerary is described; name a stop they mentioned."},
+        {"topic": "Itinéraire et climat", "question": "Quel temps as-tu eu en juillet, et quels vêtements me conseillerais-tu d'emporter ?", "answer": "Il faisait chaud et humide, autour de 30 °C ; prévois des vêtements légers et de la crème solaire.", "follow_up_to": null},
+        {"topic": "Hébergement et repas", "question": "Dans quels types d'hébergement as-tu logé, et dans quelle gamme de prix ?", "answer": "Surtout dans des auberges de jeunesse, autour de 50 $ la nuit en dortoir.", "follow_up_to": null},
+        {"topic": "Hébergement et repas", "question": "Ces auberges avaient-elles une cuisine commune pour limiter le budget des repas ?", "answer": "Oui ; je cuisinais sur place et je ne mangeais au restaurant qu'une fois par jour.", "follow_up_to": 4, "condition": "If hostels or self-catering lodging are mentioned."},
+        {"topic": "Hébergement et repas", "question": "Pour les repas, quelles spécialités locales vaudrait-il vraiment la peine de goûter ?", "answer": "La poutine au Québec, les produits de l'érable et, sur la côte, les fruits de mer.", "follow_up_to": null},
+        {"topic": "Transports et budget", "question": "Pour relier ces villes, vaut-il mieux prendre le train, l'autocar ou louer une voiture ?", "answer": "Le train est le plus simple : VIA Rail relie Toronto, Ottawa et Montréal, et une ligne régionale dessert Niagara Falls.", "follow_up_to": null},
+        {"topic": "Transports et budget", "question": "Si je voyageais comme toi, quel budget faudrait-il prévoir ?", "answer": "Compte environ 120 $ par jour, sans le billet d'avion ; c'est à peu près ce que j'ai dépensé.", "follow_up_to": null}
       ]
     },
     {
@@ -302,13 +320,14 @@
       "opening": "Bonjour ! J'ai appris que vous veniez de boucler l'organisation d'un séjour à la montagne. Ça m'intrigue, j'aimerais en savoir plus.",
       "closing": "Merci de m'avoir parlé de ce beau projet ! Je vous souhaite un excellent séjour à la montagne.",
       "questions": [
-        {"topic": "Destination et saison", "question": "Où partirez-vous ?", "answer": "À Whistler, en Colombie-Britannique, l'une des plus grandes stations de ski d'Amérique du Nord.", "follow_up_to": null},
-        {"topic": "Destination et saison", "question": "À quelle période ferez-vous ce séjour ?", "answer": "Une semaine début mars, quand la neige est encore abondante et que les journées rallongent.", "follow_up_to": null},
-        {"topic": "Destination et saison", "question": "Ne craignez-vous pas le froid à cette période ?", "answer": "Pas vraiment : près de la côte, l'hiver est bien plus doux que dans l'est du pays.", "follow_up_to": 2, "condition": "If they travel in winter; adapt to the season given."},
-        {"topic": "Hébergement et coût", "question": "Où logerez-vous ?", "answer": "Dans un chalet loué avec trois amis, à dix minutes à pied des remontées mécaniques.", "follow_up_to": null},
-        {"topic": "Hébergement et coût", "question": "Combien ce séjour va-t-il vous coûter ?", "answer": "Environ 2 000 $ par personne, avion et forfaits de ski compris.", "follow_up_to": null},
-        {"topic": "Hébergement et coût", "question": "Les forfaits représentent-ils une grosse partie de cette somme ?", "answer": "Oui, plus de 200 $ par jour au guichet, mais je les ai achetés en ligne, bien moins cher.", "follow_up_to": 5, "condition": "If ski passes are included in the cost given."},
-        {"topic": "Activités", "question": "Quelles activités avez-vous prévues sur place ?", "answer": "Du ski, bien sûr, mais aussi une sortie en raquettes et un tour dans la télécabine Peak 2 Peak, qui relie les deux montagnes de la station.", "follow_up_to": null}
+        {"topic": "Destination et saison", "question": "Quelle destination avez-vous finalement choisie pour ce séjour à la montagne ?", "answer": "Whistler, en Colombie-Britannique, l'une des plus grandes stations de ski d'Amérique du Nord.", "follow_up_to": null},
+        {"topic": "Destination et saison", "question": "À quelle période partirez-vous, et pourquoi l'avez-vous choisie ?", "answer": "Une semaine début mars, quand la neige est encore abondante et que les journées rallongent.", "follow_up_to": null},
+        {"topic": "Destination et saison", "question": "Vous n'avez pas peur d'avoir froid à cette période ?", "answer": "Pas vraiment : près de la côte, l'hiver est bien plus doux que dans l'est du pays.", "follow_up_to": 2, "condition": "If they travel in winter; adapt to the season given."},
+        {"topic": "Destination et saison", "question": "Comment comptez-vous vous rendre sur place, et aurez-vous besoin d'une voiture ensuite ?", "answer": "Nous prendrons l'avion jusqu'à Vancouver, puis une navette directe ; sur place, la voiture ne sera pas nécessaire.", "follow_up_to": null},
+        {"topic": "Hébergement et coût", "question": "Quel type d'hébergement avez-vous réservé, et à quelle distance des activités ?", "answer": "Un chalet loué avec trois amis, à dix minutes à pied des remontées mécaniques.", "follow_up_to": null},
+        {"topic": "Hébergement et coût", "question": "Quel budget total avez-vous prévu par personne, et qu'est-ce qui est compris dans cette somme ?", "answer": "Environ 2 000 $ par personne, avion et forfaits de ski compris.", "follow_up_to": null},
+        {"topic": "Hébergement et coût", "question": "Est-ce que les forfaits représentent une grosse partie de cette somme ?", "answer": "Oui, plus de 200 $ par jour au guichet, mais je les ai achetés en ligne, bien moins cher.", "follow_up_to": 6, "condition": "If ski passes are included in the cost given."},
+        {"topic": "Activités", "question": "En dehors du ski, quelles activités avez-vous prévu d'essayer sur place ?", "answer": "Une sortie en raquettes et un tour dans la télécabine Peak 2 Peak, qui relie les deux montagnes de la station.", "follow_up_to": null}
       ]
     },
     {
@@ -318,13 +337,14 @@
       "opening": "Bonjour ! J'ai appris pour votre accident, et je tenais à prendre de vos nouvelles.",
       "closing": "Merci de m'avoir tout raconté ! Reposez-vous bien, et n'hésitez pas à m'appeler si vous avez besoin de quoi que ce soit.",
       "questions": [
-        {"topic": "État de santé", "question": "Comment vous sentez-vous aujourd'hui ?", "answer": "Mieux, merci : j'ai encore mal au poignet, mais ce n'est qu'une entorse.", "follow_up_to": null},
-        {"topic": "État de santé", "question": "Qu'a dit le médecin pour cette entorse ?", "answer": "De porter une attelle pendant trois semaines et de ménager mon poignet.", "follow_up_to": 1, "condition": "After an injury is mentioned; adapt to the injury described."},
-        {"topic": "L'accident", "question": "Quand cela s'est-il produit ?", "answer": "Lundi matin, vers 8 h, en venant au bureau.", "follow_up_to": null},
-        {"topic": "L'accident", "question": "Où cela s'est-il passé exactement ?", "answer": "Sur les marches de la station de métro, juste devant l'immeuble.", "follow_up_to": null},
-        {"topic": "L'accident", "question": "Et comment est-ce arrivé ?", "answer": "J'ai glissé sur une plaque de verglas que je n'avais pas vue, et j'ai mis la main en avant pour amortir la chute.", "follow_up_to": null},
-        {"topic": "Retour au travail", "question": "Quand pensez-vous reprendre le travail ?", "answer": "Lundi prochain, en télétravail pour commencer.", "follow_up_to": null},
-        {"topic": "Retour au travail", "question": "Avez-vous tout ce qu'il faut pour travailler à distance ?", "answer": "Presque : il me manque mon ordinateur portable, resté au bureau.", "follow_up_to": 6, "condition": "If they plan to resume work remotely."}
+        {"topic": "État de santé", "question": "Comment vous sentez-vous aujourd'hui, et la douleur limite-t-elle encore vos mouvements ?", "answer": "Je vais mieux, merci : mon poignet reste douloureux, mais ce n'est qu'une entorse.", "follow_up_to": null},
+        {"topic": "État de santé", "question": "Quel traitement et quelle durée de repos le médecin vous a-t-il recommandés pour cette entorse ?", "answer": "Porter une attelle pendant trois semaines et ménager mon poignet.", "follow_up_to": 1, "condition": "After an injury is mentioned; adapt to the injury described."},
+        {"topic": "L'accident", "question": "Quand est-ce que l'accident a eu lieu ?", "answer": "Lundi matin, vers 8 h, en venant au bureau.", "follow_up_to": null},
+        {"topic": "L'accident", "question": "À quel endroit précis l'accident s'est-il produit, à l'intérieur ou à l'extérieur de la station ?", "answer": "À l'extérieur, sur les marches de la station de métro, juste devant l'immeuble.", "follow_up_to": null},
+        {"topic": "L'accident", "question": "Dans quelles circonstances avez-vous chuté, et comment votre poignet a-t-il été blessé ?", "answer": "J'ai glissé sur du verglas et mis la main en avant pour amortir la chute.", "follow_up_to": null},
+        {"topic": "Retour au travail", "question": "Souhaitez-vous que je prévienne l'équipe ou que je transmette un message à notre responsable ?", "answer": "Merci, notre responsable est déjà informé, mais dites à l'équipe que je vais bien.", "follow_up_to": null},
+        {"topic": "Retour au travail", "question": "Vous savez déjà quand vous pourrez reprendre le travail ?", "answer": "Oui, lundi prochain, en télétravail pour commencer.", "follow_up_to": null},
+        {"topic": "Retour au travail", "question": "Est-ce que je pourrais vous apporter quelque chose du bureau pour travailler de chez vous ?", "answer": "Oui, volontiers : il me manque mon ordinateur portable, resté au bureau.", "follow_up_to": 7, "condition": "If they plan to resume work remotely."}
       ]
     }
   ]

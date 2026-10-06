@@ -12,7 +12,7 @@ from .response_personalization import EffectiveArgument, EffectiveResponse
 
 
 DIALOGUES_DIR = content.QUESTION_BANK_DIR / "dialogues"
-QUESTION_COUNT = 7
+QUESTION_COUNT = 8
 
 
 @dataclass(frozen=True)
@@ -96,7 +96,7 @@ def load_tache_two_dialogues(
                 raise ValueError(f"{label} needs a separate opening and final thanks, not extra questions")
             raw_questions = row["questions"]
             if not isinstance(raw_questions, list) or len(raw_questions) != QUESTION_COUNT:
-                raise ValueError(f"{label} needs exactly seven questions, including follow-ups")
+                raise ValueError(f"{label} needs exactly eight questions, including follow-ups")
             questions = []
             seen_questions, seen_topics = set(), set()
             previous_topic = None
@@ -194,7 +194,15 @@ def dialogue_response(dialogue: TacheTwoDialogue) -> EffectiveResponse:
 
 def matching_dialogue(prompt, value: EffectiveResponse) -> TacheTwoDialogue | None:
     dialogue = published_dialogue(prompt)
-    questions_only = replace(value, is_personal=False, nuance="")
+    questions_only = replace(
+        value,
+        arguments=tuple(
+            EffectiveArgument(argument.order, argument.idea, "", "", "")
+            for argument in value.arguments
+        ),
+        is_personal=False,
+        nuance="",
+    )
     return (
         dialogue
         if dialogue is not None and questions_only == dialogue_response(dialogue)

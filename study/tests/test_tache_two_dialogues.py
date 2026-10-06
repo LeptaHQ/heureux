@@ -264,6 +264,8 @@ class TacheTwoDialogueLoaderTests(SimpleTestCase):
             self.assertNotIn("Réponse préparée", html)
             for question in dialogue.questions:
                 self.assertNotIn(str(escape(question.answer)), html)
+                if question.condition:
+                    self.assertNotIn(question.condition, html)
         self.assertTrue(all("response" not in row for row in context["subject_questions"]))
         spoken = unescape(" ".join(re.findall(
             r'<p[^>]*data-read-aloud-text[^>]*>(.*?)</p>', body_html, re.S,

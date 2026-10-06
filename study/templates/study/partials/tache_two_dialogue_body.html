@@ -1,5 +1,5 @@
 <div class="eo2-dialogue">
-  <p class="eo2-dialogue__guidance" lang="en" data-annotation-exclude>Eight questions are a practice framework, not an exam quota. Listen to each reply, adapt the details, and use a follow-up only when its condition fits. Skip information already given.</p>
+  <p class="eo2-dialogue__guidance" lang="en" data-annotation-exclude>Eight questions are a practice framework, not an exam quota. Listen to each reply, adapt the details, and use a follow-up only when it fits. Skip information already given.</p>
   <div class="eo2-dialogue__boundary">
     <span>Pour commencer</span>
     <p data-read-aloud-text lang="fr">{{ response_content.reformulation|linebreaksbr }}</p>
@@ -13,7 +13,6 @@
           <div class="eo2-dialogue__content">
             {% if question.follow_up_to %}<div class="eo2-dialogue__speaker"><span class="eo2-dialogue__follow-up">Relance possible après la question {{ question.follow_up_to }}</span></div>{% endif %}
             <p class="eo2-dialogue__question" data-question-highlight-text="{{ question.number }}" data-read-aloud-text lang="fr">{{ question.text|linebreaksbr }}</p>
-            {% if question.condition %}<p class="eo2-dialogue__condition" lang="en">{{ question.condition }}</p>{% endif %}
           </div>
         </div>
       </li>

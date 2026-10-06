@@ -2503,13 +2503,6 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   line-height: 1.5;
   overflow-wrap: anywhere;
 }
-.eo2-dialogue__condition {
-  margin: 0.35rem 0 0;
-  color: var(--text-faint);
-  font-size: 0.8rem;
-  line-height: 1.5;
-  overflow-wrap: anywhere;
-}
 .eo2-guidelines {
   margin-top: 1rem;
   color: var(--text-soft);

@@ -272,7 +272,7 @@ class TacheTwoDialogueLoaderTests(SimpleTestCase):
         )))
         self.assertIn(dialogue.opening, spoken)
         self.assertIn(dialogue.closing, spoken)
-        self.assertNotIn("Eight questions are", spoken)
+        self.assertNotIn("Eight questions are", body_html)
         for question in dialogue.questions:
             self.assertIn(question.question, spoken)
             if question.condition:

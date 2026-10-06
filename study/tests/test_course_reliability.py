@@ -210,7 +210,11 @@ class CourseRequestReliabilityTests(TestCase):
         self.assertEqual(response.status_code, 400)
         self.assertContains(response, escape(body), status_code=400)
         self.assertContains(response, 'aria-invalid="true"', status_code=400)
-        self.assertContains(response, 'aria-describedby="production-error"', status_code=400)
+        self.assertContains(
+            response,
+            'aria-describedby="production-error production-hint"',
+            status_code=400,
+        )
         self.assertContains(
             response,
             f'action="{reverse("study:course_practice", args=[self.lesson.slug])}"',

@@ -314,7 +314,7 @@ class WritingHintsViewTests(TestCase):
         with patch("study.views.library.catalogue.ee_tache_one_subject_hints", return_value={sujet.slug: ()}):
             baseline = self.client.get(self.url(sujet))
         roots = re.compile(
-            r'<div\s+class="t1-response__body"\s+data-annotation-root\s+data-annotation-source-key="([^"]+)">(.*?)</div>',
+            r'<div\s+class="t1-response__body markdown-prose"\s+data-annotation-root\s+data-annotation-source-key="([^"]+)">(.*?)</div>',
             re.S,
         )
         annotated = roots.findall(page.content.decode())

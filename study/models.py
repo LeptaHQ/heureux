@@ -538,6 +538,39 @@ class PersonalQuestionResponse(models.Model):
         return f"{self.user_id} · {self.task_id} · {self.question_key}"
 
 
+PERSONAL_TASK_RESPONSE_MAX_LENGTH = 10_000
+
+
+class PersonalTaskResponse(models.Model):
+    """A learner-owned response to a whole expression task."""
+
+    user = models.ForeignKey(
+        django_settings.AUTH_USER_MODEL,
+        on_delete=models.CASCADE,
+        related_name="personal_task_responses",
+    )
+    task = models.ForeignKey(
+        Task,
+        on_delete=models.CASCADE,
+        related_name="personal_task_responses",
+    )
+    body = models.TextField(max_length=PERSONAL_TASK_RESPONSE_MAX_LENGTH)
+    created_at = models.DateTimeField(default=timezone.now)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        ordering = ["-updated_at", "-id"]
+        constraints = [
+            models.UniqueConstraint(
+                fields=["user", "task"],
+                name="unique_user_task_response",
+            ),
+        ]
+
+    def __str__(self) -> str:
+        return f"{self.user_id} · {self.task_id}"
+
+
 class MemoryQuestionProgress(models.Model):
     """A reusable expression question marked as learned by one learner."""
 

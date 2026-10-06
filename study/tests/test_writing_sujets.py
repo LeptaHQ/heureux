@@ -284,6 +284,31 @@ class WritingSujetViewTests(TestCase):
         self.assertEqual(len(other_page.context["model_versions"]), 3)
         self.assertNotContains(other_page, personal.body)
 
+    def test_writing_responses_render_markdown_safely(self):
+        PersonalWritingResponse.objects.create(
+            user=self.owner,
+            sujet=self.multi,
+            body=(
+                "Salut **Cédric**,\nviens au *château*.\n\n"
+                "- samedi\n- dimanche\n\n<script>alert(1)</script>"
+            ),
+        )
+
+        page = self.client.get(self._detail_url(self.multi))
+
+        self.assertContains(page, 'class="t1-response__body markdown-prose"', count=4)
+        self.assertContains(
+            page,
+            "<p>Salut <strong>Cédric</strong>,<br>viens au <em>château</em>.</p>",
+            html=True,
+        )
+        self.assertContains(page, "<ul><li>samedi</li><li>dimanche</li></ul>", html=True)
+        self.assertContains(page, "<p>Version A la meilleure.</p>", html=True)
+        self.assertNotContains(page, "<script>alert(1)</script>")
+        edit = self.client.get(self._edit_url(self.multi))
+        self.assertContains(edit, 'aria-describedby="t1-body-hint"')
+        self.assertContains(edit, "Markdown pris en charge")
+
     def test_editing_one_alternative_does_not_replace_the_main_response(self):
         original = list(self.multi.versions)
         page = self.client.get(self._detail_url(self.multi))

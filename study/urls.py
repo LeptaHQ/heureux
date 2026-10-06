@@ -480,6 +480,11 @@ urlpatterns = [
         name="task_detail",
     ),
     path(
+        "expression/orale/tache-1/reponse/",
+        views.eo_tache_one_response,
+        name="eo_tache_one_response",
+    ),
+    path(
         "expression/orale/tache-2/vocabulaire-par-theme/",
         views.tache_two_theme_vocabulary,
         name="tache_two_theme_vocabulary",

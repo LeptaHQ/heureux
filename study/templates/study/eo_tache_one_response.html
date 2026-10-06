@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static study_markdown %}
+{% block title %}Ma réponse · {{ task.name }}{% endblock %}
+
+{% block content %}
+{% include "study/partials/task_nav.html" %}
+
+<div class="question-bank-page eo1-response-page" style="--question-bank-accent: {{ task.color }};">
+<header class="question-bank-hero">
+  <div class="question-bank-hero__copy">
+    <h1 class="title-with-icon" style="--icon-accent: {{ task.color }};">
+      <span class="title-with-icon__glyph">{% include "study/partials/ui_icon.html" with name=task.icon only %}</span>
+      <span>Ma réponse</span>
+    </h1>
+    <p>Collez votre présentation pour la relire et l’entraîner à voix haute. Elle reste privée dans votre espace.</p>
+  </div>
+  {% if personal_response %}
+    <dl class="question-bank-hero__metrics" aria-label="Longueur de votre réponse">
+      <div><dt>Mots</dt><dd>{{ word_count }}</dd></div>
+      <div><dt>Durée estimée</dt><dd>≈ {{ speaking_duration }}</dd></div>
+    </dl>
+  {% endif %}
+</header>
+
+{% if response_saved %}<div class="notice" role="status">Votre réponse a été enregistrée.</div>{% endif %}
+{% if response_deleted %}<div class="notice" role="status">Votre réponse a été supprimée.</div>{% endif %}
+
+{% if editing %}
+  <form method="post" action="{% url 'study:eo_tache_one_response' %}" class="response-edit eo1-response-form" novalidate>
+    {% csrf_token %}
+    <input type="hidden" name="action" value="save">
+    {% if error %}<div class="auth-error" role="alert">{{ error }}</div>{% endif %}
+    <section class="card card--pad">
+      <div class="response-edit-field">
+        <label for="eo1-response-body">Votre présentation</label>
+        <textarea
+          id="eo1-response-body"
+          name="body"
+          rows="16"
+          maxlength="{{ max_length }}"
+          placeholder="Collez ou rédigez ici votre réponse…"
+          aria-describedby="eo1-response-hint"
+          {% if error %}aria-invalid="true"{% endif %}>{{ body_value }}</textarea>
+        <small class="muted" id="eo1-response-hint">Markdown pris en charge : **gras**, *italique*, listes, titres. 10 000 caractères maximum.</small>
+      </div>
+    </section>
+    <div class="response-edit__actions">
+      {% if personal_response %}<a class="btn" href="{% url 'study:eo_tache_one_response' %}">Annuler</a>{% endif %}
+      <button class="btn btn--primary" type="submit">Enregistrer</button>
+    </div>
+  </form>
+{% else %}
+  <article class="card card--pad eo1-response" aria-labelledby="eo1-response-title">
+    <header class="eo1-response__head">
+      <div>
+        <h2 id="eo1-response-title">Votre présentation</h2>
+        <p class="muted">Mise à jour le {{ personal_response.updated_at|date:"j F Y" }}</p>
+      </div>
+      <div class="eo1-response__actions">
+        {% include "study/partials/response_copy_button.html" with source_id="eo1-response-copy" button_class="btn" label="Copier" only %}
+        <a class="btn" href="{% url 'study:eo_tache_one_response' %}?modifier=1">
+          {% include "study/partials/ui_icon.html" with name="pencil" icon_class="btn__icon" only %}
+          <span>Modifier</span>
+        </a>
+        <form method="post" action="{% url 'study:eo_tache_one_response' %}"
+              data-confirm="Supprimer votre réponse de votre espace ? Cette action est définitive."
+              data-confirm-label="Supprimer"
+              data-confirm-tone="danger">
+          {% csrf_token %}
+          <input type="hidden" name="action" value="delete">
+          <button class="btn btn--danger" type="submit">Supprimer</button>
+        </form>
+      </div>
+    </header>
+    <div class="eo1-response__body markdown-prose">{{ personal_response.body|markdown_prose }}</div>
+    <p class="eo1-response__note">Durée estimée pour un débit posé d’environ {{ speaking_words_per_minute }} mots par minute.</p>
+  </article>
+  {{ personal_response.body|json_script:"eo1-response-copy" }}
+{% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+  {{ block.super }}
+  {% if personal_response and not editing %}<script src="{% static 'study/js/prompt-copy.js' %}?v=3"></script>{% endif %}
+{% endblock %}

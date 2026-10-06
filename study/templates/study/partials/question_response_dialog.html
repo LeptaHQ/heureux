@@ -31,8 +31,9 @@
           rows="10"
           maxlength="{{ question_response_max_length }}"
           placeholder="Rédigez ici votre réponse personnelle…"
+          aria-describedby="question-response-hint"
           data-question-response-body></textarea>
-        <small class="notes-form-field__hint">Écrivez une réponse personnelle que vous pourrez ensuite pratiquer à voix haute.</small>
+        <small class="notes-form-field__hint" id="question-response-hint">Écrivez une réponse personnelle que vous pourrez ensuite pratiquer à voix haute. Markdown pris en charge.</small>
       </div>
     </div>
     <footer class="form-dialog__actions">

@@ -34,7 +34,21 @@ def _french_inline_code(tokens, index, options, env):
     return f'<code lang="fr">{content}</code>'
 
 
+def _line_break(tokens, index, options, env):
+    # Match Django's linebreaks text nodes so saved highlight quotes still anchor.
+    return "<br>"
+
+
+def _make_prose_renderer():
+    # Learner prose often starts paragraphs with tabs; keep them as text, not code.
+    renderer = _make_renderer().disable("code")
+    renderer.renderer.rules["softbreak"] = _line_break
+    renderer.renderer.rules["hardbreak"] = _line_break
+    return renderer
+
+
 _renderer = _make_renderer()
+_prose_renderer = _make_prose_renderer()
 _inline_renderer = _make_renderer()
 _inline_renderer.renderer.rules["text"] = _french_text
 _inline_renderer.renderer.rules["code_inline"] = _french_inline_code
@@ -46,6 +60,13 @@ def render_markdown(value):
         return ""
     # Raw HTML is disabled, so only renderer-generated markup is marked safe.
     return mark_safe(_renderer.render(str(value)))
+
+
+@register.filter(name="markdown_prose")
+def render_markdown_prose(value):
+    if not value:
+        return ""
+    return mark_safe(_prose_renderer.render(str(value)))
 
 
 @register.filter(name="markdown_inline")

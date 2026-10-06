@@ -11,7 +11,7 @@ from django.http import Http404, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse
 from django.utils import timezone
-from django.views.decorators.http import require_POST
+from django.views.decorators.http import require_http_methods, require_POST
 
 from .. import catalogue
 from .. import content_loader as content_module
@@ -44,7 +44,9 @@ from ..models import (
     LearningLessonProgress,
     MemoryQuestionProgress,
     PERSONAL_QUESTION_RESPONSE_MAX_LENGTH,
+    PERSONAL_TASK_RESPONSE_MAX_LENGTH,
     PersonalQuestionResponse,
+    PersonalTaskResponse,
     Phrase,
     PhraseCategory,
     PhraseTier,
@@ -101,6 +103,7 @@ from ..writing_responses import (
     writing_model_versions,
     writing_version_edit_url,
 )
+from ..templatetags.study_markdown import render_markdown_prose
 
 from .helpers import (
     FUNCTIONAL_PHRASE_CATEGORY_NAMES,
@@ -3392,6 +3395,7 @@ def task_question_response(request, part_slug, task_slug, memory_number):
             {
                 "question_key": question_key,
                 "body": body,
+                "html": render_markdown_prose(body),
                 "has_response": bool(body),
             }
         )
@@ -3401,6 +3405,98 @@ def task_question_response(request, part_slug, task_slug, memory_number):
             args=[task.part.slug, task.slug],
         )
         + f"#{section.anchor}"
+    )
+
+
+EO_TACHE_ONE_SPEAKING_WORDS_PER_MINUTE = 130
+
+
+def _speaking_duration_label(word_count):
+    if not word_count:
+        return ""
+    seconds = max(
+        5,
+        5 * round(word_count * 60 / EO_TACHE_ONE_SPEAKING_WORDS_PER_MINUTE / 5),
+    )
+    minutes, seconds = divmod(seconds, 60)
+    if not minutes:
+        return f"{seconds} s"
+    if not seconds:
+        return f"{minutes} min"
+    return f"{minutes} min {seconds:02d}"
+
+
+@require_http_methods(["GET", "POST"])
+def eo_tache_one_response(request):
+    task = _route_task(*content_module.EO_TACHE_ONE_TASK, request=request)
+    if not task.available:
+        return render(
+            request,
+            "study/coming_soon.html",
+            {"part": task.part, "task": task},
+        )
+    page_url = reverse("study:eo_tache_one_response")
+    personal = PersonalTaskResponse.objects.filter(
+        user=request.user,
+        task=task,
+    ).first()
+    body_value = personal.body if personal is not None else ""
+    editing = personal is None or request.GET.get("modifier") == "1"
+    error = ""
+
+    if request.method == "POST":
+        action = request.POST.get("action", "save")
+        if action == "delete":
+            PersonalTaskResponse.objects.filter(
+                user=request.user,
+                task=task,
+            ).delete()
+            return redirect(f"{page_url}?deleted=1")
+        if action != "save":
+            return HttpResponseBadRequest("Action invalide.")
+        body_value = (
+            (request.POST.get("body") or "")
+            .replace("\r\n", "\n")
+            .replace("\r", "\n")
+        )
+        cleaned = body_value.strip()
+        if not cleaned:
+            error = "Votre réponse ne peut pas être vide."
+        elif len(cleaned) > PERSONAL_TASK_RESPONSE_MAX_LENGTH:
+            error = "Votre réponse ne peut pas dépasser 10 000 caractères."
+        else:
+            PersonalTaskResponse.objects.update_or_create(
+                user=request.user,
+                task=task,
+                defaults={"body": cleaned},
+            )
+            return redirect(f"{page_url}?saved=1")
+        editing = True
+
+    word_count = (
+        content_module._ee_word_count(personal.body)
+        if personal is not None
+        else 0
+    )
+    return render(
+        request,
+        "study/eo_tache_one_response.html",
+        {
+            "part": task.part,
+            "task": task,
+            "personal_response": personal,
+            "editing": editing,
+            "body_value": body_value,
+            "error": error,
+            "max_length": PERSONAL_TASK_RESPONSE_MAX_LENGTH,
+            "word_count": word_count,
+            "speaking_duration": _speaking_duration_label(word_count),
+            "speaking_words_per_minute": (
+                EO_TACHE_ONE_SPEAKING_WORDS_PER_MINUTE
+            ),
+            "response_saved": request.GET.get("saved") == "1",
+            "response_deleted": request.GET.get("deleted") == "1",
+        },
     )
 
 

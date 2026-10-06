@@ -221,7 +221,10 @@
     var display = row.querySelector("[data-question-response-display]");
     var edit = row.querySelector("[data-question-response-edit]");
     if (source) source.value = data.body;
-    if (display) display.textContent = data.body;
+    if (display) {
+      if (typeof data.html === "string") display.innerHTML = data.html;
+      else display.textContent = data.body;
+    }
     if (preview) preview.classList.toggle("hidden", !data.has_response);
     row.classList.toggle("has-response", data.has_response);
     if (edit) {

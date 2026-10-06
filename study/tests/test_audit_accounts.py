@@ -48,7 +48,7 @@ class AccountReliabilityTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         payload = response.json()
-        self.assertEqual(payload["version"], 11)
+        self.assertEqual(payload["version"], 12)
         self.assertEqual(payload["writing_response_overrides"], [
             {
                 "part": sujet.task.part.slug,

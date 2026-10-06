@@ -39,6 +39,7 @@ from .learning import (
 from .library import (
     browse,
     edit_response,
+    eo_tache_one_response,
     family_detail,
     part_detail,
     part_vocabulary,

@@ -66,7 +66,8 @@
       {% csrf_token %}
       <label for="production-body">Your French response</label>
       {% if production_error %}<p id="production-error" class="memory-progress-error" role="alert">{{ production_error }}</p>{% endif %}
-      <textarea id="production-body" name="body" lang="fr" rows="7" maxlength="20000" required{% if production_error %} aria-invalid="true" aria-describedby="production-error"{% endif %}>{{ production_body }}</textarea>
+      <textarea id="production-body" name="body" lang="fr" rows="7" maxlength="20000" required aria-describedby="{% if production_error %}production-error {% endif %}production-hint"{% if production_error %} aria-invalid="true"{% endif %}>{{ production_body }}</textarea>
+      <small id="production-hint" class="muted">Markdown supported: **bold**, *italic*, lists.</small>
       <button class="btn" type="submit">Save and self-review</button>
     </form>
   </section>

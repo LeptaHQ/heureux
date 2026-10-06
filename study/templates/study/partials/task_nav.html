@@ -15,7 +15,10 @@
 </div>
 <nav class="task-nav{% if memory_task or part.slug == 'eo' and task.slug == 'tache-1' or part.slug == 'eo' and task.slug == 'tache-2' %} task-nav--memories{% endif %}{% if part.slug == 'eo' and task.slug == 'tache-3' %} task-nav--eo-t3{% endif %}{% if part.slug == 'ee' and task.slug == 'tache-3' %} task-nav--ee-t3{% endif %}{% if compact %} task-nav--compact{% endif %}" style="--task-accent: {{ task.color }};" aria-label="Navigation de {{ task.name }}">
   {% if part.slug == 'eo' and task.slug == 'tache-1' %}
-    <a class="is-active" href="{% url 'study:task_detail' part.slug task.slug %}">Questions</a>
+    <a class="{% if request.resolver_match.url_name != 'eo_tache_one_response' %}is-active{% endif %}"
+       href="{% url 'study:task_detail' part.slug task.slug %}">Questions</a>
+    <a class="{% if request.resolver_match.url_name == 'eo_tache_one_response' %}is-active{% endif %}"
+       href="{% url 'study:eo_tache_one_response' %}">Réponse</a>
   {% else %}
     <a class="{% if request.resolver_match.url_name == 'task_detail' %}is-active{% endif %}"
        href="{% url 'study:task_detail' part.slug task.slug %}">Vue d'ensemble</a>

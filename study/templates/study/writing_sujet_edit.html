@@ -37,9 +37,9 @@
           <section class="card section-card section-card--model">
             {% if model_versions|length > 1 %}<div class="spine-label">Version {{ card.number }}</div>{% else %}<div class="spine-label">Réponse modèle</div>{% endif %}
             <div
-              class="t1-response__body"
+              class="t1-response__body markdown-prose"
               data-annotation-root
-              data-annotation-source-key="writing-sujet:{{ progress_sujet.pk }}:model-{{ card.number }}">{{ card.content.body|linebreaks }}</div>
+              data-annotation-source-key="writing-sujet:{{ progress_sujet.pk }}:model-{{ card.number }}">{{ card.content.body|markdown_prose }}</div>
             <p class="muted">{{ card.content.body|french_wordcount }} mots{% if card.content.origin == "author" %} · version de l’auteur{% endif %}</p>
           </section>
         {% endfor %}
@@ -61,7 +61,9 @@
           data-writing-word-input
           data-word-min="{{ word_limit_min }}"
           data-word-max="{{ word_limit_max }}"
+          aria-describedby="t1-body-hint"
           placeholder="{% if writing_tache == 1 %}Rédigez ici votre courriel ou message…{% else %}Rédigez ici votre expérience et votre avis…{% endif %}">{{ body_value }}</textarea>
+        <small class="muted" id="t1-body-hint">Markdown pris en charge : **gras**, *italique*, listes.</small>
         <p class="muted" data-writing-word-status aria-live="polite">Limite officielle : {{ word_limit_min }} à {{ word_limit_max }} mots.</p>
       </div>
     </section>

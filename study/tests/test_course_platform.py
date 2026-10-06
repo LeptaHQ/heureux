@@ -634,7 +634,7 @@ class CoursePlatformTests(TestCase):
         self.assertEqual(self.client.get(url).status_code, 404)
         self.assertEqual(self.client.post(url, {"reviewed": "1"}).status_code, 404)
 
-    def test_production_snapshot_renders_authored_french_not_learner_markup(self):
+    def test_production_snapshot_renders_authored_french_and_learner_markdown(self):
         task = replace(
             self.lesson.production_task,
             prompt="Describe an `école` using `il y a`.",
@@ -653,7 +653,11 @@ class CoursePlatformTests(TestCase):
         response = self.client.get(reverse("study:course_production", args=[production.pk]))
         for text in (task.prompt, task.translation, *task.rubric):
             self.assertContains(response, render_markdown_inline(text))
-        self.assertContains(response, body)
+        self.assertContains(
+            response,
+            '<div class="course-production-text markdown-prose" lang="fr">'
+            "<p>Je garde <code>école</code> tel quel.</p>\n</div>",
+        )
         self.assertEqual(production.body, body)
         self.assertEqual(production.task_snapshot["prompt"], task.prompt)
 

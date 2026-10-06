@@ -53,6 +53,7 @@ from ..models import (
     MemoryQuestionProgress,
     PersonalQuestionResponse,
     PersonalResponse,
+    PersonalTaskResponse,
     PersonalWritingResponse,
     ReviewLog,
     ReviewSession,
@@ -68,7 +69,7 @@ from .review import (
 )
 from ..course_practice import lock_course_user, public_snapshot
 
-ACCOUNT_EXPORT_VERSION = 11
+ACCOUNT_EXPORT_VERSION = 12
 
 
 def _auth_redirect(request):
@@ -634,6 +635,20 @@ def export_account(request):
                 "updated_at": personal.updated_at,
             }
             for personal in PersonalQuestionResponse.objects.filter(
+                user=request.user
+            )
+            .select_related("task__part")
+            .order_by("created_at", "pk")
+        ],
+        "personal_task_responses": [
+            {
+                "part": personal.task.part.slug,
+                "task": personal.task.slug,
+                "body": personal.body,
+                "created_at": personal.created_at,
+                "updated_at": personal.updated_at,
+            }
+            for personal in PersonalTaskResponse.objects.filter(
                 user=request.user
             )
             .select_related("task__part")

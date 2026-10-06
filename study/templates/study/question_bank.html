@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static %}
+{% load static study_markdown %}
 {% block title %}{{ question_bank.title }} · {{ task.name }}{% endblock %}
 
 {% block content %}
@@ -103,7 +103,7 @@
                       {% if question_responses_enabled %}
                         <div class="question-bank-response{% if not question.response %} hidden{% endif %}" data-question-response-preview>
                           <span>Ma réponse</span>
-                          <div data-question-response-display>{{ question.response }}</div>
+                          <div class="markdown-prose" data-question-response-display>{{ question.response|markdown_prose }}</div>
                         </div>
                         <textarea hidden data-question-response-source>{{ question.response }}</textarea>
                       {% endif %}
@@ -162,5 +162,5 @@
 
 {% block scripts %}
   {{ block.super }}
-  <script src="{% static 'study/js/memory-progress.js' %}?v=3"></script>
+  <script src="{% static 'study/js/memory-progress.js' %}?v=4"></script>
 {% endblock %}

@@ -48,6 +48,7 @@ from study.content_loader import (
     tache_two_response_key_by_subject_key,
     tache_two_phrase_id_merges,
     tache_two_subject_content_key,
+    _ee_word_count,
 )
 from study.models import (
     Annotation,
@@ -59,6 +60,8 @@ from study.models import (
     PERSONAL_QUESTION_RESPONSE_MAX_LENGTH,
     PersonalQuestionResponse,
     PersonalResponse,
+    PersonalTaskResponse,
+    PERSONAL_TASK_RESPONSE_MAX_LENGTH,
     Phrase,
     PhraseTier,
     Prompt,
@@ -2002,6 +2005,45 @@ class EoTacheOneQuestionBankViewTests(TestCase):
             PersonalQuestionResponse.objects.filter(pk=personal.pk).exists()
         )
 
+    def test_question_responses_render_markdown_safely(self):
+        question_key = self.bank.question_keys[0]
+        body = "Je suis **Cornelius**.\n- Cornell\n- Microsoft\n\n<b>brut</b>"
+        expected = (
+            "<p>Je suis <strong>Cornelius</strong>.</p>\n"
+            "<ul>\n<li>Cornell</li>\n<li>Microsoft</li>\n</ul>\n"
+            "<p>&lt;b&gt;brut&lt;/b&gt;</p>\n"
+        )
+
+        saved = self.client.post(
+            self._response_url(),
+            {"question_key": question_key, "body": body, "action": "save"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(saved.status_code, 200)
+        self.assertEqual(saved.json()["body"], body)
+        self.assertEqual(saved.json()["html"], expected)
+        page = self.client.get(
+            reverse(
+                "study:task_detail",
+                args=[self.task.part.slug, self.task.slug],
+            )
+        )
+        self.assertContains(
+            page,
+            f'<div class="markdown-prose" data-question-response-display>{expected}</div>',
+        )
+        self.assertContains(page, "Markdown pris en charge")
+        self.assertNotContains(page, "<b>brut</b>")
+
+        deleted = self.client.post(
+            self._response_url(),
+            {"question_key": question_key, "action": "delete"},
+            HTTP_X_REQUESTED_WITH="fetch",
+        )
+
+        self.assertEqual(deleted.json()["html"], "")
+
     def test_question_response_rejects_invalid_input(self):
         question_key = self.bank.question_keys[0]
         cases = (
@@ -2196,6 +2238,338 @@ class EoTacheOneQuestionBankViewTests(TestCase):
         ):
             with self.subTest(url=url):
                 self.assertRedirects(self.client.get(url), task_url)
+
+
+class EoTacheOneResponseViewTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        call_command("import_content", stdout=StringIO())
+        cls.user = factories.make_user("tache-one-response")
+        provision_user_study_data(cls.user)
+        cls.task = Task.objects.select_related("part").get(
+            part__slug="eo",
+            slug="tache-1",
+        )
+        cls.url = reverse("study:eo_tache_one_response")
+        cls.questions_url = reverse(
+            "study:task_detail",
+            args=[cls.task.part.slug, cls.task.slug],
+        )
+
+    def setUp(self):
+        self.client.force_login(self.user)
+
+    def test_route_is_the_tache_one_response_tab(self):
+        self.assertEqual(self.url, "/expression/orale/tache-1/reponse/")
+
+    def test_questions_page_links_to_the_response_tab(self):
+        response = self.client.get(self.questions_url)
+
+        self.assertContains(
+            response,
+            f'<a class="is-active" href="{self.questions_url}">Questions</a>',
+            html=True,
+        )
+        self.assertContains(response, f'href="{self.url}">Réponse</a>')
+        self.assertNotContains(
+            response,
+            f'<a class="is-active" href="{self.url}">Réponse</a>',
+            html=True,
+        )
+
+    def test_empty_response_tab_opens_the_editor(self):
+        response = self.client.get(self.url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "study/eo_tache_one_response.html")
+        self.assertTrue(response.context["editing"])
+        self.assertIsNone(response.context["personal_response"])
+        self.assertContains(
+            response,
+            f'<a class="is-active" href="{self.url}">Réponse</a>',
+            html=True,
+        )
+        self.assertNotContains(
+            response,
+            f'<a class="is-active" href="{self.questions_url}">Questions</a>',
+            html=True,
+        )
+        self.assertContains(response, 'name="body"')
+        self.assertContains(
+            response,
+            f'maxlength="{PERSONAL_TASK_RESPONSE_MAX_LENGTH}"',
+        )
+        self.assertContains(response, '<input type="hidden" name="action" value="save">', html=True)
+        self.assertNotContains(response, ">Annuler</a>")
+        self.assertNotContains(response, "Durée estimée</dt>")
+        self.assertNotContains(response, 'value="delete"')
+
+    def test_saving_a_response_shows_it_ready_to_practise(self):
+        body = (
+            "  Je m’appelle Cornelius, j’ai vingt-six ans.\r\n\r\n"
+            "Je travaille chez Microsoft.  "
+        )
+
+        response = self.client.post(
+            self.url,
+            {"action": "save", "body": body},
+        )
+
+        self.assertRedirects(
+            response,
+            f"{self.url}?saved=1",
+            fetch_redirect_response=False,
+        )
+        personal = PersonalTaskResponse.objects.get(user=self.user)
+        self.assertEqual(personal.task, self.task)
+        self.assertEqual(
+            personal.body,
+            "Je m’appelle Cornelius, j’ai vingt-six ans.\n\n"
+            "Je travaille chez Microsoft.",
+        )
+
+        page = self.client.get(f"{self.url}?saved=1")
+
+        self.assertFalse(page.context["editing"])
+        self.assertEqual(page.context["word_count"], _ee_word_count(personal.body))
+        self.assertContains(page, "Votre réponse a été enregistrée.")
+        self.assertContains(
+            page,
+            "<p>Je m’appelle Cornelius, j’ai vingt-six ans.</p>",
+            html=True,
+        )
+        self.assertContains(page, "<p>Je travaille chez Microsoft.</p>", html=True)
+        self.assertContains(page, "<dt>Durée estimée</dt>", html=True)
+        self.assertContains(page, f'href="{self.url}?modifier=1"')
+        self.assertContains(page, 'value="delete"')
+        self.assertContains(page, 'data-prompt-copy-source="eo1-response-copy"')
+        self.assertContains(page, 'id="eo1-response-copy"')
+        self.assertNotContains(page, 'name="body"')
+
+    def test_saved_response_renders_markdown_safely(self):
+        PersonalTaskResponse.objects.create(
+            user=self.user,
+            task=self.task,
+            body=(
+                "## Ma présentation\n"
+                "Je suis **Cornelius**, *ingénieur*.\n\n"
+                "- Cornell\n- Microsoft\n\n"
+                "<script>alert(1)</script>"
+            ),
+        )
+
+        page = self.client.get(self.url)
+
+        self.assertContains(page, 'class="eo1-response__body markdown-prose"')
+        self.assertContains(page, "<h2>Ma présentation</h2>", html=True)
+        self.assertContains(
+            page,
+            "<p>Je suis <strong>Cornelius</strong>, <em>ingénieur</em>.</p>",
+            html=True,
+        )
+        self.assertContains(page, "<ul><li>Cornell</li><li>Microsoft</li></ul>", html=True)
+        self.assertContains(page, "<p>&lt;script&gt;alert(1)&lt;/script&gt;</p>", html=True)
+        self.assertNotContains(page, "<script>alert(1)</script>")
+
+    def test_editor_explains_markdown_support(self):
+        response = self.client.get(self.url)
+
+        self.assertContains(response, 'aria-describedby="eo1-response-hint"')
+        self.assertContains(response, "Markdown pris en charge")
+
+    def test_edit_mode_prefills_the_saved_response(self):
+        PersonalTaskResponse.objects.create(
+            user=self.user,
+            task=self.task,
+            body="Ma présentation enregistrée.",
+        )
+
+        response = self.client.get(f"{self.url}?modifier=1")
+
+        self.assertTrue(response.context["editing"])
+        self.assertEqual(
+            response.context["body_value"],
+            "Ma présentation enregistrée.",
+        )
+        self.assertContains(response, "Ma présentation enregistrée.</textarea>")
+        self.assertContains(response, f'<a class="btn" href="{self.url}">Annuler</a>', html=True)
+
+    def test_saving_again_updates_the_single_response(self):
+        PersonalTaskResponse.objects.create(
+            user=self.user,
+            task=self.task,
+            body="Première version.",
+        )
+
+        self.client.post(self.url, {"action": "save", "body": "Deuxième version."})
+
+        self.assertEqual(
+            list(
+                PersonalTaskResponse.objects.filter(user=self.user)
+                .values_list("body", flat=True)
+            ),
+            ["Deuxième version."],
+        )
+
+    def test_blank_and_overlong_responses_are_rejected(self):
+        PersonalTaskResponse.objects.create(
+            user=self.user,
+            task=self.task,
+            body="Version conservée.",
+        )
+        cases = (
+            ("   \r\n ", "Votre réponse ne peut pas être vide."),
+            (
+                "a" * (PERSONAL_TASK_RESPONSE_MAX_LENGTH + 1),
+                "Votre réponse ne peut pas dépasser 10 000 caractères.",
+            ),
+        )
+
+        for body, message in cases:
+            with self.subTest(message=message):
+                response = self.client.post(
+                    self.url,
+                    {"action": "save", "body": body},
+                )
+
+                self.assertEqual(response.status_code, 200)
+                self.assertTrue(response.context["editing"])
+                self.assertContains(response, message)
+                self.assertEqual(
+                    PersonalTaskResponse.objects.get(user=self.user).body,
+                    "Version conservée.",
+                )
+
+    def test_line_breaks_count_once_toward_the_length_limit(self):
+        body = "\r\n".join(["a" * 99] * 100)
+
+        response = self.client.post(self.url, {"action": "save", "body": body})
+
+        self.assertEqual(response.status_code, 302)
+        self.assertEqual(
+            len(PersonalTaskResponse.objects.get(user=self.user).body),
+            PERSONAL_TASK_RESPONSE_MAX_LENGTH - 1,
+        )
+
+    def test_deleting_the_response_reopens_the_editor(self):
+        PersonalTaskResponse.objects.create(
+            user=self.user,
+            task=self.task,
+            body="À supprimer.",
+        )
+
+        response = self.client.post(self.url, {"action": "delete"})
+
+        self.assertRedirects(
+            response,
+            f"{self.url}?deleted=1",
+            fetch_redirect_response=False,
+        )
+        self.assertFalse(
+            PersonalTaskResponse.objects.filter(user=self.user).exists()
+        )
+        page = self.client.get(f"{self.url}?deleted=1")
+        self.assertTrue(page.context["editing"])
+        self.assertContains(page, "Votre réponse a été supprimée.")
+
+    def test_unknown_actions_and_methods_are_rejected(self):
+        self.assertEqual(
+            self.client.post(self.url, {"action": "publier"}).status_code,
+            400,
+        )
+        self.assertEqual(self.client.put(self.url).status_code, 405)
+        self.assertFalse(PersonalTaskResponse.objects.exists())
+
+    def test_responses_are_private_to_each_learner(self):
+        other_user = factories.make_user("other-tache-one-response")
+        PersonalTaskResponse.objects.create(
+            user=other_user,
+            task=self.task,
+            body="Présentation d’un autre utilisateur.",
+        )
+
+        response = self.client.get(self.url)
+        self.client.post(self.url, {"action": "delete"})
+
+        self.assertTrue(response.context["editing"])
+        self.assertNotContains(response, "Présentation d’un autre utilisateur.")
+        self.assertTrue(
+            PersonalTaskResponse.objects.filter(user=other_user).exists()
+        )
+
+    def test_anonymous_visitors_are_sent_to_login(self):
+        self.client.logout()
+
+        response = self.client.get(self.url)
+
+        self.assertEqual(response.status_code, 302)
+        self.assertIn(reverse("study:login"), response["Location"])
+
+    def test_speaking_duration_is_estimated_at_a_steady_pace(self):
+        from study.views.library import _speaking_duration_label
+
+        for words, label in (
+            (0, ""),
+            (1, "5 s"),
+            (65, "30 s"),
+            (130, "1 min"),
+            (195, "1 min 30"),
+            (260, "2 min"),
+        ):
+            with self.subTest(words=words):
+                self.assertEqual(_speaking_duration_label(words), label)
+
+    def test_account_export_includes_the_task_response(self):
+        personal = PersonalTaskResponse.objects.create(
+            user=self.user,
+            task=self.task,
+            body="Ma présentation exportée.",
+        )
+        PersonalTaskResponse.objects.create(
+            user=factories.make_user("other-exported-task-response"),
+            task=self.task,
+            body="Réponse d’un autre utilisateur.",
+        )
+
+        exported = self.client.get(reverse("study:export_account")).json()
+
+        self.assertEqual(exported["version"], ACCOUNT_EXPORT_VERSION)
+        self.assertEqual(
+            exported["personal_task_responses"],
+            [
+                {
+                    "part": "eo",
+                    "task": "tache-1",
+                    "body": personal.body,
+                    "created_at": personal.created_at.isoformat(
+                        timespec="milliseconds"
+                    ).replace("+00:00", "Z"),
+                    "updated_at": personal.updated_at.isoformat(
+                        timespec="milliseconds"
+                    ).replace("+00:00", "Z"),
+                }
+            ],
+        )
+
+    def test_resetting_progress_preserves_the_task_response(self):
+        personal = PersonalTaskResponse.objects.create(
+            user=self.user,
+            task=self.task,
+            body="Ma présentation durable.",
+        )
+
+        response = self.client.post(
+            reverse("study:reset_progress"),
+            {
+                "current_pin": "123456",
+                "confirmation": "REINITIALISER",
+            },
+        )
+
+        self.assertEqual(response.status_code, 302)
+        self.assertTrue(
+            PersonalTaskResponse.objects.filter(pk=personal.pk).exists()
+        )
 
 
 class QuestionBankViewTests(TestCase):

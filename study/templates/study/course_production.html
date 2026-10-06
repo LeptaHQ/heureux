@@ -8,7 +8,7 @@
   <section class="card course-practice-section">
     <h2>Your response</h2>
     <p>{{ production.task_snapshot.prompt|markdown_inline }}</p>
-    <div class="course-production-text" lang="fr">{{ production.body|linebreaksbr }}</div>
+    <div class="course-production-text markdown-prose" lang="fr">{{ production.body|markdown_prose }}</div>
   </section>
   <section class="card course-practice-section" data-read-aloud-scope>
     <h2>One possible model</h2>

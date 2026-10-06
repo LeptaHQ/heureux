@@ -357,6 +357,28 @@ class PersonalResponseForm(forms.Form):
         }
 
 
+class TacheTwoConversationForm(forms.Form):
+    prompt_note = forms.CharField(
+        label="Ma note sur la consigne (en anglais)",
+        max_length=1000,
+        required=False,
+        help_text="Cette note reste privée. Laissez vide pour utiliser la note d'origine.",
+        widget=forms.Textarea(attrs={"rows": 3, "lang": "en"}),
+    )
+    opening = forms.CharField(
+        label="Salutation et mise en situation (facultatif)",
+        max_length=1000,
+        required=False,
+        widget=forms.Textarea(attrs={"rows": 2}),
+    )
+    closing = forms.CharField(
+        label="Conclusion et remerciement (facultatif)",
+        max_length=1000,
+        required=False,
+        widget=forms.Textarea(attrs={"rows": 2}),
+    )
+
+
 class TacheTwoQuestionForm(forms.Form):
     question = forms.CharField(
         label="Question",

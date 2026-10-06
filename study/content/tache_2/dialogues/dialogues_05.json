@@ -1,0 +1,344 @@
+{
+  "version": 1,
+  "dialogues": [
+    {
+      "group": "friend-canadian-weekend-customs",
+      "register": "tu",
+      "note": "Votre ami vit au Canada : inutile de lui demander s'il y habite. Vous vous intéressez aux habitudes de week-end des Canadiens, pas à l'organisation d'un week-end précis. Couvrez le temps libre, le sport et les sorties, sans généraliser à l'excès. Le modèle tutoie, comme entre amis.",
+      "opening": "Salut ! J'aimerais savoir comment les Canadiens passent leurs week-ends, et tu es la personne idéale pour me l'expliquer.",
+      "closing": "Merci beaucoup, c'est passionnant ! J'ai maintenant une idée bien plus précise des week-ends à la canadienne.",
+      "questions": [
+        {"topic": "Temps libre", "question": "Comment se passe un samedi typique chez les Canadiens que tu connais ?", "answer": "Le matin, on fait les courses et le ménage, puis l'après-midi est réservé à la famille, aux amis ou à une activité dehors.", "follow_up_to": null},
+        {"topic": "Temps libre", "question": "Et le dimanche, les gens restent plutôt à la maison ?", "answer": "Souvent, oui : on prend un brunch en famille, on se repose et on prépare la semaine.", "follow_up_to": null},
+        {"topic": "Temps libre", "question": "Ce brunch, on le prend plutôt au restaurant ou chez soi ?", "answer": "Les deux : le dimanche matin, les cafés sont pleins de gens qui viennent manger des œufs, des crêpes et du sirop d'érable.", "follow_up_to": 2},
+        {"topic": "Sport", "question": "Quels sports pratique-t-on selon les saisons ?", "answer": "En hiver, le patin, le ski de fond et le hockey ; en été, le vélo, la randonnée et le canot.", "follow_up_to": null},
+        {"topic": "Sport", "question": "Le hockey, les gens y jouent vraiment ou ils le regardent surtout à la télévision ?", "answer": "Les deux : beaucoup jouent dans des ligues amicales, et le samedi soir, de nombreuses familles regardent le match.", "follow_up_to": 4},
+        {"topic": "Sorties", "question": "Quand ils sortent, où vont-ils le plus souvent ?", "answer": "L'été, beaucoup partent au chalet ou en camping ; sinon, on va au cinéma, au restaurant ou dans les festivals.", "follow_up_to": null},
+        {"topic": "Sorties", "question": "Le chalet, c'est réservé à ceux qui en possèdent un ?", "answer": "Pas du tout, beaucoup de gens en louent un à plusieurs pour le week-end.", "follow_up_to": 6}
+      ]
+    },
+    {
+      "group": "colleague-internal-job-change",
+      "register": "vous",
+      "note": "Votre collègue a changé de poste dans la même entreprise : pas de nouvel employeur ni d'entretien d'embauche à préparer. Interrogez-le sur ses tâches, son planning et sa rémunération, en abordant le salaire avec tact. Le modèle vouvoie par prudence ; des collègues proches peuvent se tutoyer.",
+      "opening": "Bonjour ! J'ai appris que vous aviez changé de poste, félicitations ! Ce nouveau rôle m'intéresse, alors j'aimerais vous poser quelques questions.",
+      "closing": "Merci beaucoup pour ces précisions, et encore bravo ! Je vous souhaite de continuer à vous plaire dans ce nouveau poste.",
+      "questions": [
+        {"topic": "Missions", "question": "En quoi consiste votre nouveau poste ?", "answer": "Je coordonne les projets clients : je planifie les livraisons et je fais le lien entre la production et le service client.", "follow_up_to": null},
+        {"topic": "Missions", "question": "Ce rôle de coordination vous oblige-t-il à multiplier les réunions ?", "answer": "Oui, j'en ai deux ou trois par jour, mais elles sont courtes.", "follow_up_to": 1},
+        {"topic": "Planning", "question": "Vos horaires ont-ils changé ?", "answer": "Je commence maintenant à 8 h au lieu de 9 h, mais je suis en télétravail le vendredi.", "follow_up_to": null},
+        {"topic": "Planning", "question": "Ce télétravail du vendredi est-il propre à votre poste ?", "answer": "Oui, il est lié à ce poste ; dans mon ancienne équipe, on venait au bureau tous les jours.", "follow_up_to": 3},
+        {"topic": "Rémunération", "question": "Sans indiscrétion, ce changement s'est-il accompagné d'une augmentation ?", "answer": "Oui, d'environ 10 %, avec en plus une prime annuelle si les projets sont livrés dans les délais.", "follow_up_to": null},
+        {"topic": "Rémunération", "question": "À combien peut s'élever cette prime ?", "answer": "Jusqu'à 5 % du salaire annuel.", "follow_up_to": 5},
+        {"topic": "Accès au poste", "question": "Comment avez-vous obtenu ce poste ?", "answer": "Il était affiché sur l'intranet ; j'ai posé ma candidature, puis j'ai passé un entretien avec la direction.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "home-chef-family-meal",
+      "register": "vous",
+      "note": "Vous organisez un repas de famille et envisagez de faire appel à ce chef, qui cuisine chez ses clients. Ce n'est ni un restaurant ni un cours de cuisine. Renseignez-vous sur les menus, le matériel nécessaire et les tarifs. Vouvoiement, comme avec tout prestataire.",
+      "opening": "Bonjour ! J'organise un repas de famille et je pense faire appel à vos services. J'aimerais d'abord en savoir plus sur vos prestations.",
+      "closing": "Merci beaucoup, c'est très clair ! J'en parle à ma famille et je vous recontacte rapidement pour fixer la date.",
+      "questions": [
+        {"topic": "Menus", "question": "Quels menus proposez-vous ?", "answer": "Trois formules : cuisine traditionnelle, méditerranéenne ou végétarienne, toujours avec entrée, plat et dessert.", "follow_up_to": null},
+        {"topic": "Menus", "question": "Que comprend la formule méditerranéenne, par exemple ?", "answer": "Un taboulé en entrée, un poisson grillé avec des légumes rôtis, puis une tarte au citron.", "follow_up_to": 1},
+        {"topic": "Menus", "question": "Si certains invités avaient des allergies, pourriez-vous adapter les plats ?", "answer": "Bien sûr, il suffit de me les signaler une semaine avant le repas.", "follow_up_to": null},
+        {"topic": "Matériel", "question": "De quel équipement aurez-vous besoin dans ma cuisine ?", "answer": "D'un four et de plaques de cuisson ; j'apporte mes couteaux, mes casseroles et mes ustensiles.", "follow_up_to": null},
+        {"topic": "Matériel", "question": "Faut-il aussi que je fournisse la vaisselle pour le service ?", "answer": "Oui, sinon je peux en louer pour 4 $ par personne.", "follow_up_to": 4},
+        {"topic": "Tarifs", "question": "Quels sont vos tarifs ?", "answer": "Entre 55 et 75 $ par personne selon le menu, courses, préparation et service compris.", "follow_up_to": null},
+        {"topic": "Tarifs", "question": "Ce prix inclut-il le nettoyage après le repas ?", "answer": "Je laisse la cuisine propre, mais la vaisselle des invités reste à votre charge.", "follow_up_to": 6}
+      ]
+    },
+    {
+      "group": "neighbor-regular-carpool-invitation",
+      "register": "vous",
+      "note": "Votre voisin propose de partager ses trajets réguliers en voiture : ce n'est pas un taxi, mais un arrangement entre voisins. Avant d'accepter, vérifiez le trajet, les horaires, le partage des frais et les règles pratiques. Le modèle vouvoie par prudence ; un voisin proche peut être tutoyé.",
+      "opening": "Bonjour ! Merci pour votre proposition de covoiturage, l'idée me plaît beaucoup. J'aimerais voir avec vous comment nous organiser.",
+      "closing": "Merci beaucoup, tout est clair ! Je vous confirme ce soir pour que nous commencions dès la semaine prochaine.",
+      "questions": [
+        {"topic": "Trajet et horaires", "question": "Quel trajet faites-vous, et quels jours ?", "answer": "Je vais au centre-ville du lundi au jeudi, dans le quartier de la gare.", "follow_up_to": null},
+        {"topic": "Trajet et horaires", "question": "À quelle heure partez-vous le matin, et quand repartez-vous le soir ?", "answer": "Je pars à 7 h 30 et je quitte le centre vers 17 h 15.", "follow_up_to": null},
+        {"topic": "Trajet et horaires", "question": "S'il m'arrivait de finir plus tard, pourriez-vous m'attendre un peu ?", "answer": "Jusqu'à un quart d'heure, si vous me prévenez par texto avant 16 h.", "follow_up_to": 2},
+        {"topic": "Frais", "question": "Comment voudriez-vous partager les frais ?", "answer": "Je pensais à 5 $ par aller-retour, pour l'essence et le stationnement.", "follow_up_to": null},
+        {"topic": "Frais", "question": "Préférez-vous que je règle chaque jour ou en fin de semaine ?", "answer": "En fin de semaine, par virement, ce sera plus simple.", "follow_up_to": 4},
+        {"topic": "Organisation", "question": "Que fait-on si l'un de nous ne peut pas partir un matin ?", "answer": "On se prévient la veille au soir ; si c'est moi qui ne peux pas, vous prendrez le bus.", "follow_up_to": null},
+        {"topic": "Organisation", "question": "Y a-t-il des règles à respecter dans la voiture ?", "answer": "Pas de repas à bord et la radio à volume raisonnable, c'est tout.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "music-school-course-information",
+      "register": "vous",
+      "note": "Vous parlez à l'accueil d'une école de musique où vous voulez suivre des cours : inutile de demander si l'école en propose. Commencez par les instruments, puis les formules, les horaires et les prix. Ne présumez pas votre niveau avant la réponse. Vouvoiement professionnel.",
+      "opening": "Bonjour ! J'aimerais suivre des cours dans votre école de musique et je voudrais me renseigner sur ce que vous proposez.",
+      "closing": "Merci beaucoup pour ces renseignements ! Je vais réfléchir à la formule, puis je reviendrai réserver un cours d'essai.",
+      "questions": [
+        {"topic": "Cours et formules", "question": "Quels instruments enseigne-t-on dans votre école ?", "answer": "Le piano, la guitare, le violon et la batterie, ainsi que le chant, du niveau débutant au niveau avancé.", "follow_up_to": null},
+        {"topic": "Cours et formules", "question": "Les cours sont-ils individuels ou collectifs ?", "answer": "Les deux : des leçons individuelles de 30 ou 45 minutes, ou des cours en groupe de quatre à six élèves.", "follow_up_to": null},
+        {"topic": "Cours et formules", "question": "Si l'on débute complètement, quelle formule me conseilleriez-vous ?", "answer": "Plutôt les leçons individuelles au début, pour acquérir les bases à votre rythme.", "follow_up_to": 2},
+        {"topic": "Horaires", "question": "À quels moments les cours ont-ils lieu ?", "answer": "En semaine de 15 h à 21 h, et le samedi de 9 h à 17 h.", "follow_up_to": null},
+        {"topic": "Tarifs", "question": "Combien coûtent les cours ?", "answer": "40 $ la leçon individuelle de 30 minutes, et 220 $ la session de dix cours en groupe.", "follow_up_to": null},
+        {"topic": "Tarifs", "question": "Peut-on régler la session en plusieurs fois ?", "answer": "Oui, en deux versements : la moitié à l'inscription, le reste à mi-session.", "follow_up_to": 5},
+        {"topic": "Tarifs", "question": "Proposez-vous un cours d'essai avant l'inscription ?", "answer": "Oui, pour 20 $, montant déduit ensuite de l'inscription.", "follow_up_to": null}
+      ],
+      "notes": {
+        "tache2:octobre:batch-05:subject-23": "Ici, votre voisin enseigne le piano dans une école de musique du quartier et vous renseigne sur tout l'établissement : rien ne vous oblige à choisir le piano ni à le prendre comme professeur. Couvrez les formules, les prix et les horaires. Le modèle vouvoie par prudence ; un voisin proche peut être tutoyé."
+      }
+    },
+    {
+      "group": "hotel-reception-room-booking",
+      "register": "vous",
+      "note": "Vous vous adressez à la réception d'un hôtel où vous n'êtes pas encore client. Vérifiez d'abord qu'une chambre est libre à vos dates, puis comparez les types de chambres, les prix et les services inclus. Pensez aussi aux conditions d'annulation. Vouvoiement professionnel.",
+      "opening": "Bonjour ! J'aimerais réserver une chambre dans votre hôtel et j'aurais besoin de quelques renseignements.",
+      "closing": "Merci beaucoup pour ces informations ! Je réfléchis entre la chambre standard et la suite, et je vous rappelle dans la journée pour confirmer.",
+      "questions": [
+        {"topic": "Chambres", "question": "Auriez-vous une chambre libre pour deux nuits, le week-end prochain ?", "answer": "Oui, il nous reste des disponibilités pour vendredi et samedi soir.", "follow_up_to": null},
+        {"topic": "Chambres", "question": "Quels types de chambres proposez-vous ?", "answer": "Des chambres standard avec un grand lit ou deux lits doubles, et deux suites avec coin salon.", "follow_up_to": null},
+        {"topic": "Chambres", "question": "Qu'est-ce qui distingue la suite d'une chambre standard ?", "answer": "Elle est deux fois plus grande, avec une baignoire et une vue sur le fleuve.", "follow_up_to": 2},
+        {"topic": "Prix et services", "question": "Quel est le prix par nuit ?", "answer": "149 $ pour une chambre standard et 229 $ pour une suite, taxes en sus.", "follow_up_to": null},
+        {"topic": "Prix et services", "question": "Le petit-déjeuner est-il compris dans ce prix ?", "answer": "Oui, le buffet est inclus et servi de 6 h 30 à 10 h.", "follow_up_to": 4},
+        {"topic": "Prix et services", "question": "Quels autres services offrez-vous à vos clients ?", "answer": "Le wifi et la salle de sport sont gratuits ; le stationnement coûte 20 $ par nuit.", "follow_up_to": null},
+        {"topic": "Conditions de réservation", "question": "Si je devais annuler, quelles seraient les conditions ?", "answer": "L'annulation est gratuite jusqu'à 48 heures avant l'arrivée ; ensuite, la première nuit est facturée.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "acquaintance-hiking-walking-club",
+      "register": "tu",
+      "note": "Votre ami est membre d'un club de randonnée et vous pensez le rejoindre. Renseignez-vous sur les lieux, les horaires, les participants, les niveaux et le matériel. C'est un loisir, pas une compétition ; ne présumez pas votre niveau avant ses réponses. Tutoiement entre amis.",
+      "opening": "Salut ! Tu m'as souvent parlé de ton club, et l'idée de venir marcher avec ton groupe me tente de plus en plus. J'aimerais en savoir un peu plus.",
+      "closing": "Merci beaucoup, ça me donne vraiment envie ! Je viendrai essayer le groupe découverte samedi prochain.",
+      "questions": [
+        {"topic": "Lieux et horaires", "question": "Où est-ce que le club organise ses sorties ?", "answer": "Dans les parcs et sur les sentiers autour de la ville, et une fois par mois dans un parc régional, à une heure de route.", "follow_up_to": null},
+        {"topic": "Lieux et horaires", "question": "Comment on va jusqu'à ce parc régional ?", "answer": "En covoiturage : on se donne rendez-vous à 8 h devant le centre sportif.", "follow_up_to": 1},
+        {"topic": "Lieux et horaires", "question": "Les sorties ont lieu quels jours, en général ?", "answer": "Le samedi de 9 h à midi, et parfois le mercredi soir en été.", "follow_up_to": null},
+        {"topic": "Participants et niveaux", "question": "Qui fait partie du club ?", "answer": "Une trentaine de membres de tous les âges, des étudiants comme des retraités.", "follow_up_to": null},
+        {"topic": "Participants et niveaux", "question": "Est-ce qu'il y a plusieurs niveaux ?", "answer": "Trois groupes : découverte, environ 8 km ; intermédiaire, 12 km ; et sportif, jusqu'à 20 km.", "follow_up_to": null},
+        {"topic": "Participants et niveaux", "question": "Si je n'ai jamais fait de longues marches, je devrais commencer par quel groupe ?", "answer": "Par le groupe découverte ; tu pourras changer dès que tu te sentiras à l'aise.", "follow_up_to": 5},
+        {"topic": "Matériel", "question": "Quel matériel faut-il prévoir ?", "answer": "De bonnes chaussures de marche, un petit sac avec de l'eau et une veste imperméable.", "follow_up_to": null}
+      ],
+      "notes": {
+        "tache2:novembre:batch-01:subject-03": "Ici, c'est un collègue qui fait partie d'un club de marche, et l'idée vous tente. Priorité aux lieux, aux horaires et au matériel, puis au fonctionnement du groupe. Le modèle tutoie, ce qui convient entre collègues proches ; sinon, vouvoyez votre collègue du début à la fin."
+      }
+    },
+    {
+      "group": "friend-child-language-stay-abroad",
+      "register": "tu",
+      "note": "Le séjour de l'enfant de votre ami est terminé : parlez-en au passé. Vous cherchez un séjour semblable pour votre propre enfant ; n'inventez ni son âge ni son niveau. Couvrez le pays, les activités et les conditions en vous appuyant sur l'expérience de votre ami. Tutoiement entre amis.",
+      "opening": "Salut ! Je cherche un séjour linguistique pour mon enfant, et comme le tien en a fait un, j'aimerais profiter de ton expérience.",
+      "closing": "Merci beaucoup, ça m'aide énormément ! Envoie-moi les coordonnées de l'organisme qui s'est occupé du séjour quand tu auras un moment.",
+      "questions": [
+        {"topic": "Destination", "question": "Où ton enfant est-il parti, et pour combien de temps ?", "answer": "En Irlande, à Dublin, pendant trois semaines en juillet.", "follow_up_to": null},
+        {"topic": "Destination", "question": "Pourquoi avoir choisi l'Irlande ?", "answer": "C'était moins cher qu'en Angleterre, et on nous avait vanté l'accueil chaleureux des familles.", "follow_up_to": 1},
+        {"topic": "Activités et hébergement", "question": "Comment se passaient ses journées sur place ?", "answer": "Il y avait des cours le matin, puis du sport, des visites ou du théâtre l'après-midi.", "follow_up_to": null},
+        {"topic": "Activités et hébergement", "question": "Y avait-il aussi des excursions plus loin ?", "answer": "Oui, une par semaine, notamment à Galway et dans le Connemara.", "follow_up_to": 3},
+        {"topic": "Activités et hébergement", "question": "Où logeait ton enfant ?", "answer": "Dans une famille d'accueil, avec un autre élève d'une langue différente.", "follow_up_to": null},
+        {"topic": "Conditions", "question": "Quelles étaient les conditions pour participer ?", "answer": "Il fallait avoir entre 12 et 17 ans, un passeport valide et une autorisation parentale, puis passer un test de niveau en ligne.", "follow_up_to": null},
+        {"topic": "Conditions", "question": "Combien ça t'a coûté, au total ?", "answer": "Environ 4 500 $, avec le vol, les cours, l'hébergement et les excursions.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "colleague-unusable-music-festival-tickets",
+      "register": "vous",
+      "note": "Votre collègue ne peut plus aller au festival et revend ses billets. Vérifiez d'abord les dates, puis les artistes, le lieu et le prix. Vous achetez des billets : vous n'organisez pas le festival. Le modèle vouvoie par prudence ; des collègues proches peuvent se tutoyer.",
+      "opening": "Bonjour ! Il paraît que vous revendez vos billets pour un festival de musique. Ça pourrait m'intéresser, alors j'ai quelques questions.",
+      "closing": "Merci beaucoup, c'est une belle occasion ! Je vous confirme d'ici demain si je prends les deux passes.",
+      "questions": [
+        {"topic": "Dates et programme", "question": "À quelles dates a lieu le festival ?", "answer": "Du vendredi 18 au dimanche 20 juillet.", "follow_up_to": null},
+        {"topic": "Dates et programme", "question": "Quels artistes sont à l'affiche ?", "answer": "Surtout de la pop et du rock indépendant, avec notamment Charlotte Cardin et Half Moon Run.", "follow_up_to": null},
+        {"topic": "Dates et programme", "question": "Half Moon Run, ils jouent quel jour ?", "answer": "Le samedi soir, sur la grande scène, vers 21 h.", "follow_up_to": 2},
+        {"topic": "Lieu", "question": "Où se déroule le festival ?", "answer": "Dans un grand parc au bord du lac, à une demi-heure du centre-ville.", "follow_up_to": null},
+        {"topic": "Lieu", "question": "Peut-on s'y rendre facilement sans voiture ?", "answer": "Oui, des navettes gratuites partent de la gare centrale toutes les 15 minutes.", "follow_up_to": 4},
+        {"topic": "Billets", "question": "Combien de billets vendez-vous, et à quel prix ?", "answer": "Deux passes de trois jours, à 180 $ chacun, c'est-à-dire le prix que je les ai payés.", "follow_up_to": null},
+        {"topic": "Billets", "question": "S'agit-il de billets nominatifs ?", "answer": "Ce sont des billets électroniques : je peux les transférer à votre nom dans l'application officielle.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "local-acquaintance-birthday-restaurant-choice",
+      "register": "vous",
+      "note": "Votre voisin connaît les restaurants du quartier : il vous conseille, il ne réserve pas pour vous. Faites-lui comparer les adresses selon la cuisine, les prix et l'ambiance, puis vérifiez ce qui compte pour une fête. Le modèle vouvoie par prudence ; un voisin proche peut être tutoyé.",
+      "opening": "Bonjour ! Je cherche un restaurant pour fêter mon anniversaire, et comme vous connaissez les bonnes adresses, j'aimerais vous demander conseil.",
+      "closing": "Merci beaucoup pour ces bonnes adresses ! Je crois que je vais réserver la salle du fond chez Lina.",
+      "questions": [
+        {"topic": "Cuisine", "question": "Quel restaurant me recommanderiez-vous pour l'occasion ?", "answer": "Chez Lina, un restaurant libanais à dix minutes à pied d'ici, où l'on partage de nombreux petits plats.", "follow_up_to": null},
+        {"topic": "Cuisine", "question": "Et si mes invités préféraient une cuisine plus classique ?", "answer": "Dans ce cas, le Bistro du Marché, qui sert une cuisine française simple et bien faite.", "follow_up_to": 1},
+        {"topic": "Prix", "question": "Lequel des deux est le plus abordable ?", "answer": "Chez Lina, il faut compter environ 35 $ par personne, contre 50 $ au bistro.", "follow_up_to": null},
+        {"topic": "Prix", "question": "Chez Lina, existe-t-il une formule pour les groupes ?", "answer": "Oui, un menu à partager à 30 $ par personne, à partir de huit convives.", "follow_up_to": 3},
+        {"topic": "Ambiance et réservation", "question": "Quelle ambiance trouve-t-on dans chacun ?", "answer": "Chez Lina, c'est animé, avec de la musique le samedi soir ; le bistro est plus calme et intime.", "follow_up_to": null},
+        {"topic": "Ambiance et réservation", "question": "Lequel conviendrait le mieux à un grand groupe ?", "answer": "Chez Lina : sa salle du fond accueille jusqu'à quinze personnes, sur réservation une semaine à l'avance.", "follow_up_to": null},
+        {"topic": "Ambiance et réservation", "question": "Dans cette salle, pourrait-on apporter notre propre gâteau ?", "answer": "Oui, sans supplément, et l'équipe le sert même avec des bougies.", "follow_up_to": 6}
+      ],
+      "notes": {
+        "tache2:juillet:batch-04:subject-18": "Ici, c'est un collègue qui vous conseille, car vous venez d'arriver à Toronto et ne connaissez pas encore ses restaurants. Comparez la cuisine, les prix et l'ambiance des adresses qu'il recommande ; « d'ici » désigne alors le bureau. Le modèle vouvoie par prudence ; des collègues proches peuvent se tutoyer.",
+        "tache2:juillet:batch-05:subject-23": "Ici, c'est un collègue qui vous conseille, car vous venez d'arriver à Toronto et ne connaissez pas encore ses restaurants. Comparez la cuisine, les prix et l'ambiance des adresses qu'il recommande ; « d'ici » désigne alors le bureau. Le modèle vouvoie par prudence ; des collègues proches peuvent se tutoyer."
+      }
+    },
+    {
+      "group": "neighbor-municipal-pool-information",
+      "register": "vous",
+      "note": "Votre voisin va régulièrement nager à la piscine municipale : il répond en habitué, pas en employé. L'activité vous tente ; demandez les équipements, les horaires d'ouverture et le prix des entrées, puis ses conseils pratiques. Le modèle vouvoie par prudence ; un voisin proche peut être tutoyé.",
+      "opening": "Bonjour ! Vous allez souvent à la piscine municipale, je crois, et j'ai bien envie de m'y mettre. J'aimerais avoir votre avis avant d'y aller.",
+      "closing": "Merci beaucoup, c'est très utile ! Je vais commencer par une carte de dix entrées et y aller tôt le matin.",
+      "questions": [
+        {"topic": "Installations", "question": "Comment sont les bassins ?", "answer": "Il y a un bassin de 25 mètres avec des couloirs, et un petit bassin pour les enfants.", "follow_up_to": null},
+        {"topic": "Installations", "question": "Les couloirs sont-ils répartis selon la vitesse de nage ?", "answer": "Oui, il y a un couloir lent, un moyen et un rapide, ce qui évite de se gêner.", "follow_up_to": 1},
+        {"topic": "Installations", "question": "Quels autres équipements trouve-t-on sur place ?", "answer": "Des vestiaires avec casiers, des douches et un petit sauna, mais pas de salle de sport.", "follow_up_to": null},
+        {"topic": "Horaires", "question": "Quels sont les horaires d'ouverture ?", "answer": "En semaine de 6 h à 21 h, et le week-end de 8 h à 18 h.", "follow_up_to": null},
+        {"topic": "Horaires", "question": "À quel moment y a-t-il le moins de monde ?", "answer": "Tôt le matin ou après 19 h ; le samedi après-midi, en revanche, c'est bondé.", "follow_up_to": 4},
+        {"topic": "Prix des entrées", "question": "Combien coûte une entrée ?", "answer": "5,50 $ pour un adulte.", "follow_up_to": null},
+        {"topic": "Prix des entrées", "question": "Existe-t-il des formules plus avantageuses pour venir souvent ?", "answer": "Oui, une carte de dix entrées à 45 $ ou un abonnement mensuel à 60 $.", "follow_up_to": 6}
+      ]
+    },
+    {
+      "group": "visit-friend-canada-december-preparation",
+      "register": "tu",
+      "note": "Votre ami vit au Canada et votre visite en décembre est encore à venir : parlez au futur ou au conditionnel, jamais au passé. Partez du climat pour choisir les vêtements, puis passez aux activités et au matériel à prévoir. Tutoiement entre amis.",
+      "opening": "Salut ! J'ai hâte de venir te voir en décembre, et j'aimerais que tu m'aides à bien préparer mon séjour.",
+      "closing": "Merci beaucoup, ça me rassure ! Je vais préparer ma valise en conséquence, et j'ai déjà hâte de chausser les raquettes avec toi.",
+      "questions": [
+        {"topic": "Météo et vêtements", "question": "Quel temps fait-il chez toi en décembre ?", "answer": "Il fait généralement entre -5 et -15 °C, avec de la neige et du vent.", "follow_up_to": null},
+        {"topic": "Météo et vêtements", "question": "Avec ce froid, quels vêtements devrais-je emporter ?", "answer": "Un manteau chaud, des bottes imperméables, une tuque, des mitaines et plusieurs couches de vêtements.", "follow_up_to": 1},
+        {"topic": "Météo et vêtements", "question": "Vaudrait-il mieux que j'achète ces vêtements avant de partir ?", "answer": "Non, achète-les plutôt ici : ils sont mieux adaptés au climat et souvent en solde en décembre.", "follow_up_to": 2},
+        {"topic": "Activités", "question": "Qu'est-ce qu'on pourrait faire pendant mon séjour ?", "answer": "Du patin en plein air, de la raquette en forêt et, le soir, une balade dans les marchés de Noël.", "follow_up_to": null},
+        {"topic": "Activités", "question": "La raquette, c'est accessible à quelqu'un qui n'en a jamais fait ?", "answer": "Tout à fait, c'est simplement de la marche dans la neige.", "follow_up_to": 4},
+        {"topic": "Matériel", "question": "Quel autre matériel devrais-je prévoir ?", "answer": "Des chaufferettes pour les mains, un baume pour les lèvres et des lunettes de soleil contre la réverbération.", "follow_up_to": null},
+        {"topic": "Matériel", "question": "Faudra-t-il que j'apporte des patins ou des raquettes ?", "answer": "Non, on loue des patins sur place pour 10 $, et je te prêterai des raquettes.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "offered-room-in-existing-shared-apartment",
+      "register": "tu",
+      "note": "Votre ami vous propose une chambre dans l'appartement qu'il partage déjà : inutile de demander si une place est libre. Avant de vous décider, interrogez-le sur le loyer, la disposition des pièces, le quartier et les colocataires. C'est une conversation entre amis, pas une visite d'agence. Tutoiement.",
+      "opening": "Salut ! Merci de penser à moi pour cette chambre, ta proposition me tente vraiment. Avant de me décider, j'ai quelques questions.",
+      "closing": "Merci beaucoup, ça me semble idéal ! Je te donne ma réponse d'ici la fin de la semaine.",
+      "questions": [
+        {"topic": "Loyer et disponibilité", "question": "Combien coûterait la chambre par mois ?", "answer": "900 $, chauffage, électricité et internet compris.", "follow_up_to": null},
+        {"topic": "Loyer et disponibilité", "question": "À partir de quand serait-elle libre ?", "answer": "Dès le 1er du mois prochain.", "follow_up_to": null},
+        {"topic": "Logement et quartier", "question": "Comment l'appartement est-il agencé ?", "answer": "Il y a trois chambres, une cuisine ouverte sur le salon et deux salles de bains.", "follow_up_to": null},
+        {"topic": "Logement et quartier", "question": "Et la chambre libre, elle est comment ?", "answer": "Elle fait environ 12 m², elle est meublée avec un lit double et un bureau, et elle donne sur une cour calme.", "follow_up_to": 3},
+        {"topic": "Logement et quartier", "question": "Le quartier est-il bien desservi ?", "answer": "Oui, il y a un arrêt de bus et une épicerie au coin de la rue, et le métro est à dix minutes à pied.", "follow_up_to": null},
+        {"topic": "Colocataires et vie quotidienne", "question": "Qui vit avec toi dans l'appartement ?", "answer": "Karim, un infirmier de 30 ans qui travaille souvent de nuit.", "follow_up_to": null},
+        {"topic": "Colocataires et vie quotidienne", "question": "Comme Karim travaille de nuit, quelles sont les règles de la maison ?", "answer": "Pas de bruit avant 15 h en semaine, et le ménage est réparti grâce à un tableau.", "follow_up_to": 6}
+      ],
+      "notes": {
+        "tache2:septembre:batch-07:subject-35": "Ici, la relation n'est pas précisée : quelqu'un vous propose sa colocation alors que vous allez vous installer au Canada. Le modèle tutoie comme entre amis ; si vous connaissez peu cette personne, vouvoyez-la du début à la fin. Couvrez les espaces, le prix et les colocataires."
+      }
+    },
+    {
+      "group": "neighbor-community-sports-instructor",
+      "register": "vous",
+      "note": "Votre voisin anime lui-même ces séances : il peut décrire les disciplines, les horaires, les participants et les conditions d'inscription. L'activité vous tente, mais ne présumez ni votre niveau ni une discipline avant ses réponses. Le modèle vouvoie par prudence ; un voisin proche peut être tutoyé.",
+      "opening": "Bonjour ! On m'a parlé des séances de sport que vous animez, et ça me donne envie de m'y mettre. J'aimerais en savoir un peu plus.",
+      "closing": "Merci beaucoup ! Je viendrai essayer le cardio-boxe mercredi prochain.",
+      "questions": [
+        {"topic": "Disciplines", "question": "Quelles disciplines proposez-vous ?", "answer": "Du renforcement musculaire, du cardio-boxe et du yoga doux.", "follow_up_to": null},
+        {"topic": "Disciplines", "question": "En quoi consiste le cardio-boxe ?", "answer": "Ce sont des mouvements de boxe sans contact, enchaînés en musique pour travailler l'endurance.", "follow_up_to": 1},
+        {"topic": "Horaires et participants", "question": "À quels moments ont lieu les séances ?", "answer": "Le lundi à 18 h, le mercredi à 19 h et le samedi à 10 h, pendant une heure.", "follow_up_to": null},
+        {"topic": "Horaires et participants", "question": "Qui participe à ces séances, en général ?", "answer": "Des gens de 20 à 70 ans, surtout des débutants qui veulent bouger dans une bonne ambiance.", "follow_up_to": null},
+        {"topic": "Conditions", "question": "Que faut-il faire pour participer ?", "answer": "S'inscrire sur place et payer une cotisation annuelle de 40 $ ; ensuite, toutes les séances sont gratuites.", "follow_up_to": null},
+        {"topic": "Conditions", "question": "Peut-on assister à une séance avant de payer cette cotisation ?", "answer": "Oui, la première séance est offerte.", "follow_up_to": 5},
+        {"topic": "Conditions", "question": "Quel équipement dois-je apporter ?", "answer": "Une tenue de sport, une bouteille d'eau et un tapis pour le yoga ; les gants de boxe sont prêtés.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "bicycle-rental-model-and-terms",
+      "register": "vous",
+      "note": "En vacances, vous voulez découvrir la ville à vélo : vous louez, vous n'achetez pas. Comparez d'abord les modèles, puis les tarifs et les conditions de location, comme le dépôt, l'équipement ou les pannes. Vouvoiement professionnel.",
+      "opening": "Bonjour ! J'aimerais louer un vélo pour me promener en ville, et je voudrais savoir ce que vous proposez.",
+      "closing": "Merci beaucoup, c'est très clair ! Je pense prendre un vélo de ville pour la journée de demain.",
+      "questions": [
+        {"topic": "Modèles", "question": "Quels modèles proposez-vous ?", "answer": "Des vélos de ville, des vélos hybrides et des vélos à assistance électrique.", "follow_up_to": null},
+        {"topic": "Modèles", "question": "Lequel me conseilleriez-vous pour une journée en ville ?", "answer": "Le vélo de ville, avec son panier ; s'il y a beaucoup de côtes sur votre parcours, l'électrique sera plus confortable.", "follow_up_to": 1},
+        {"topic": "Modèles", "question": "Quelle est l'autonomie de la batterie ?", "answer": "Environ 60 km, ce qui suffit largement pour une journée.", "follow_up_to": 2},
+        {"topic": "Tarifs", "question": "Combien coûte la location ?", "answer": "40 $ la journée pour un vélo de ville, 65 $ pour un électrique ; on peut aussi louer à l'heure.", "follow_up_to": null},
+        {"topic": "Tarifs", "question": "Le casque et l'antivol sont-ils compris dans ce prix ?", "answer": "Oui, et nous vous donnons aussi une carte des pistes cyclables.", "follow_up_to": 4},
+        {"topic": "Conditions de location", "question": "Que dois-je fournir pour louer un vélo ?", "answer": "Une pièce d'identité et un dépôt de 200 $ sur carte de crédit, remboursé au retour du vélo.", "follow_up_to": null},
+        {"topic": "Conditions de location", "question": "Que se passe-t-il en cas de crevaison ?", "answer": "Vous nous appelez, et nous venons réparer ou échanger le vélo gratuitement dans un rayon de 10 km.", "follow_up_to": null}
+      ],
+      "notes": {
+        "tache2:decembre:batch-04:subject-16": "Ici, l'usage du vélo n'est pas précisé : indiquez le vôtre pour qu'on vous conseille un modèle. Le modèle choisit des promenades en ville ; adaptez si besoin. Interrogez l'employé sur les modèles, les tarifs et le fonctionnement de la location. Vouvoiement professionnel."
+      }
+    },
+    {
+      "group": "travel-agency-canada-cruise",
+      "register": "vous",
+      "note": "Vous rêvez d'une croisière au Canada et vous vous renseignez dans une agence de voyages : il s'agit d'un voyage en bateau, pas d'un circuit en autocar. Couvrez le parcours et sa durée, le prix et ce qu'il comprend, puis les activités à bord. Vouvoiement professionnel.",
+      "opening": "Bonjour ! Je rêve depuis longtemps d'une croisière au Canada, et j'aimerais savoir ce que votre agence propose.",
+      "closing": "Merci beaucoup, ça fait rêver ! Je vais réfléchir à mon budget et je reviendrai vous voir pour réserver.",
+      "questions": [
+        {"topic": "Parcours et durée", "question": "Quelles croisières proposez-vous au Canada ?", "answer": "Deux itinéraires : le Saint-Laurent au départ de Montréal, et les provinces maritimes, avec Halifax et Charlottetown.", "follow_up_to": null},
+        {"topic": "Parcours et durée", "question": "Quelles sont les escales sur le Saint-Laurent ?", "answer": "Québec, Tadoussac pour observer les baleines, puis la Gaspésie avec le rocher Percé.", "follow_up_to": 1},
+        {"topic": "Parcours et durée", "question": "Combien de temps dure ce parcours ?", "answer": "Huit jours et sept nuits, avec retour à Montréal.", "follow_up_to": null},
+        {"topic": "Prix", "question": "Quel en est le prix ?", "answer": "À partir de 2 900 $ par personne en cabine intérieure, et 3 800 $ avec balcon.", "follow_up_to": null},
+        {"topic": "Prix", "question": "Qu'est-ce qui est compris dans ce prix ?", "answer": "La cabine, tous les repas et les spectacles ; les excursions et les boissons sont en supplément.", "follow_up_to": 4},
+        {"topic": "Activités à bord", "question": "Quelles activités sont prévues à bord ?", "answer": "Des conférences sur la faune marine, des spectacles le soir, une piscine chauffée et des ateliers de cuisine québécoise.", "follow_up_to": null},
+        {"topic": "Activités à bord", "question": "Ces conférences sont-elles données en français ?", "answer": "En français et en anglais, par une biologiste spécialiste des baleines.", "follow_up_to": 6}
+      ]
+    },
+    {
+      "group": "friend-concert-invitation",
+      "register": "tu",
+      "note": "C'est votre ami qui vous invite : inutile de lui demander s'il compte y aller. Vérifiez d'abord la date, puis le style de musique et le lieu, avant de parler des billets et de l'organisation de la soirée. Tutoiement entre amis.",
+      "opening": "Salut ! Merci pour ton invitation, ça me tente beaucoup. Avant de te dire oui, j'aimerais avoir quelques détails.",
+      "closing": "Merci, c'est parfait ! Compte sur moi samedi, et je te rembourse ma place dès demain.",
+      "questions": [
+        {"topic": "Date et style", "question": "C'est quand, ce concert ?", "answer": "Le samedi 14, à 20 h.", "follow_up_to": null},
+        {"topic": "Date et style", "question": "Quel style de musique est-ce ?", "answer": "Du jazz manouche, joué par quatre guitaristes.", "follow_up_to": null},
+        {"topic": "Date et style", "question": "C'est plutôt calme ou rythmé ?", "answer": "Très rythmé : en général, toute la salle finit par danser.", "follow_up_to": 2},
+        {"topic": "Lieu et trajet", "question": "Où se passe le concert ?", "answer": "Au Studio 88, une petite salle du centre-ville.", "follow_up_to": null},
+        {"topic": "Lieu et trajet", "question": "Comment je peux m'y rendre depuis chez moi ?", "answer": "Le bus 24 t'y dépose en vingt minutes.", "follow_up_to": 4},
+        {"topic": "Billets et organisation", "question": "Combien coûte la place ?", "answer": "35 $ ; j'ai déjà les deux billets, tu me rembourseras ta place.", "follow_up_to": null},
+        {"topic": "Billets et organisation", "question": "Qui d'autre vient avec nous ?", "answer": "Sarah et son frère, qui nous rejoindront sur place.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "friend-cooking-workshop-experience",
+      "register": "tu",
+      "note": "Votre ami vient de terminer un atelier de cuisine : interrogez-le au passé sur son expérience, puis au présent ou au conditionnel pour votre propre projet. Il n'est pas le chef. Couvrez ce qu'on y apprend, les horaires et le coût. Tutoiement entre amis.",
+      "opening": "Salut ! Ton atelier de cuisine me donne envie d'essayer à mon tour, alors j'aimerais que tu m'en parles.",
+      "closing": "Merci beaucoup, ça me donne vraiment envie ! Je vais réserver un atelier de pâtes fraîches pour le mois prochain.",
+      "questions": [
+        {"topic": "Contenu", "question": "Qu'est-ce que tu as appris à préparer ?", "answer": "À faire des pâtes fraîches et deux sauces italiennes.", "follow_up_to": null},
+        {"topic": "Contenu", "question": "Les explications étaient-elles faciles à suivre ?", "answer": "Oui, le chef montrait chaque geste, puis on le refaisait en binôme.", "follow_up_to": 1},
+        {"topic": "Lieu et horaires", "question": "Où se déroule cet atelier ?", "answer": "Dans une école de cuisine du centre-ville, qui propose un thème différent chaque semaine.", "follow_up_to": null},
+        {"topic": "Lieu et horaires", "question": "À quels horaires ont lieu les ateliers ?", "answer": "Le mardi et le jeudi de 18 h 30 à 21 h, et le samedi de 10 h à 13 h.", "follow_up_to": null},
+        {"topic": "Coût et réservation", "question": "Combien as-tu payé ?", "answer": "75 $ pour la séance, ingrédients et dégustation compris.", "follow_up_to": null},
+        {"topic": "Coût et réservation", "question": "Existe-t-il des forfaits pour plusieurs ateliers ?", "answer": "Oui, une carte de cinq ateliers coûte 320 $.", "follow_up_to": 5},
+        {"topic": "Coût et réservation", "question": "Faut-il réserver longtemps à l'avance ?", "answer": "Environ deux semaines, car il n'y a que douze places par atelier.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "edmonton-newcomer-neighbor-schools",
+      "register": "vous",
+      "note": "Vous venez de vous installer à Edmonton et votre voisin connaît les écoles du secteur : ses réponses reposent sur son expérience, pas sur un règlement officiel. Demandez où se trouvent les écoles, comment sont les enseignants et quelles activités sont proposées. Le modèle vouvoie par prudence ; un voisin proche peut être tutoyé.",
+      "opening": "Bonjour ! Je viens de m'installer dans le quartier et je dois inscrire mes enfants à l'école. Comme vous connaissez le secteur, j'aimerais vous poser quelques questions.",
+      "closing": "Merci beaucoup pour tous ces conseils ! Je passerai au secrétariat de l'école dès demain.",
+      "questions": [
+        {"topic": "Écoles du secteur", "question": "Quelles écoles y a-t-il près d'ici ?", "answer": "Une école primaire publique à deux rues, une école catholique près du parc et une école secondaire à quinze minutes en bus.", "follow_up_to": null},
+        {"topic": "Écoles du secteur", "question": "Certaines d'entre elles enseignent-elles en français ?", "answer": "Il y a une école francophone et des programmes d'immersion, mais à une vingtaine de minutes en voiture.", "follow_up_to": 1},
+        {"topic": "Enseignants", "question": "Comment sont les enseignants, d'après votre expérience ?", "answer": "Très disponibles : ceux de mes enfants envoient des nouvelles aux parents chaque semaine.", "follow_up_to": null},
+        {"topic": "Enseignants", "question": "Comment accueillent-ils les nouveaux élèves ?", "answer": "Avec beaucoup d'attention : ils désignent un camarade pour guider chaque nouvel élève pendant les premières semaines.", "follow_up_to": 3},
+        {"topic": "Activités", "question": "Quelles activités les écoles proposent-elles ?", "answer": "Un club de lecture, du basketball, une chorale et du patinage en hiver.", "follow_up_to": null},
+        {"topic": "Activités", "question": "Ces activités ont-elles lieu le midi ou après la classe ?", "answer": "Surtout le midi, sauf le basketball, qui se termine à 16 h 30.", "follow_up_to": 5},
+        {"topic": "Inscription", "question": "À qui dois-je m'adresser pour les inscrire ?", "answer": "Au secrétariat de l'école de votre secteur : on vous y indiquera les documents à fournir.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "canadian-city-resident-advice-transit",
+      "register": "vous",
+      "note": "Vous venez de vous installer au Canada et votre voisin vous conseille en habitué des transports de sa ville, pas comme agent de la société de transport. Couvrez les modes disponibles, leur fonctionnement et la façon de prendre un abonnement. Le modèle vouvoie par prudence ; un voisin proche peut être tutoyé.",
+      "opening": "Bonjour ! Je ne connais pas encore les transports en commun d'ici, et j'aimerais que vous m'expliquiez comment ils fonctionnent.",
+      "closing": "Merci beaucoup, c'est beaucoup plus clair ! Je passerai au guichet dès demain pour obtenir ma carte.",
+      "questions": [
+        {"topic": "Modes de transport", "question": "Quels modes de transport existe-t-il ici ?", "answer": "Des bus, une ligne de métro et un train de banlieue pour les villes voisines.", "follow_up_to": null},
+        {"topic": "Modes de transport", "question": "Pour aller au centre-ville, lequel me conseilleriez-vous ?", "answer": "Le bus 18 jusqu'à la station Centrale, puis deux arrêts de métro : comptez vingt-cinq minutes.", "follow_up_to": 1},
+        {"topic": "Fonctionnement et horaires", "question": "Comment paie-t-on son trajet ?", "answer": "Avec une carte rechargeable qu'on valide à chaque montée, ou en monnaie exacte dans le bus.", "follow_up_to": null},
+        {"topic": "Fonctionnement et horaires", "question": "Jusqu'à quelle heure les transports circulent-ils ?", "answer": "Jusqu'à 1 h environ ; ensuite, des bus de nuit passent toutes les 30 minutes.", "follow_up_to": null},
+        {"topic": "Tarifs et abonnements", "question": "Combien coûte un trajet simple ?", "answer": "Environ 3,75 $, avec une correspondance gratuite pendant 90 minutes.", "follow_up_to": null},
+        {"topic": "Tarifs et abonnements", "question": "Existe-t-il des formules plus avantageuses ?", "answer": "Oui, un passe d'une journée à 11 $ et un abonnement mensuel d'environ 100 $.", "follow_up_to": 5},
+        {"topic": "Tarifs et abonnements", "question": "Comment prend-on cet abonnement mensuel ?", "answer": "On obtient d'abord la carte au guichet d'une station, puis on la recharge chaque mois en ligne ou aux distributeurs.", "follow_up_to": 6}
+      ],
+      "notes": {
+        "tache2:decembre:batch-04:subject-17": "Ici, un ami canadien vous héberge et vous voulez vous balader en ville : tutoyez-le (« Tu me conseilles quel bus pour le centre ? »). Le modèle garde le vouvoiement du voisin ; adaptez les formes. Demandez aussi les destinations à voir, les horaires et les tarifs."
+      }
+    }
+  ]
+}

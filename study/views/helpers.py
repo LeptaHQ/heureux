@@ -117,6 +117,7 @@ def _tache_two_response_ids_by_subject_key(content_keys):
 def _tache_two_progress(user, months):
     """Attach material-specific progress to Tâche 2 months and subjects."""
     months = tuple(months)
+    dialogues = catalogue.tache_two_dialogues()
     content_keys = [
         content_module.tache_two_subject_content_key(
             month.slug,
@@ -169,7 +170,7 @@ def _tache_two_progress(user, months):
                         "title": subject.title,
                         "prompt": subject.prompt,
                         "questions": subject.questions,
-                        "question_count": subject.question_count,
+                        "question_count": len(dialogues[content_key].questions),
                         "memory_question_count": subject.memory_question_count,
                         "content_key": content_key,
                         "response_id": response_id_by_content_key.get(
@@ -191,7 +192,7 @@ def _tache_two_progress(user, months):
                     "number_label": batch.number_label,
                     "subjects": tuple(subjects),
                     "subject_count": batch.subject_count,
-                    "question_count": batch.question_count,
+                    "question_count": sum(subject["question_count"] for subject in subjects),
                     "first_subject_number": batch.first_subject_number,
                     "last_subject_number": batch.last_subject_number,
                     **batch_summary,
@@ -206,7 +207,7 @@ def _tache_two_progress(user, months):
                 "batches": tuple(batch_rows),
                 "batch_count": month.batch_count,
                 "subject_count": month.subject_count,
-                "question_count": month.question_count,
+                "question_count": sum(batch["question_count"] for batch in batch_rows),
                 **month_summary,
             }
         )
@@ -251,6 +252,7 @@ def _tache_two_theme_progress(user, months=None, *, deduplicate=False):
     if months is None:
         months = catalogue.tache_two_subject_months()
     months = tuple(months)
+    dialogues = catalogue.tache_two_dialogues()
     themes, mapping = catalogue.tache_two_subject_themes()
     progress_by_content_key, response_id_by_content_key = (
         _tache_two_progress_by_content_key(user, months)
@@ -285,7 +287,7 @@ def _tache_two_theme_progress(user, months=None, *, deduplicate=False):
                         "title": subject.title,
                         "prompt": subject.prompt,
                         "questions": subject.questions,
-                        "question_count": subject.question_count,
+                        "question_count": len(dialogues[content_key].questions),
                         "memory_question_count": subject.memory_question_count,
                         "content_key": content_key,
                         "response_id": response_id_by_content_key.get(

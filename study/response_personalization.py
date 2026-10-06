@@ -33,6 +33,10 @@ def effective_response(response, user, *, prompt=None, model_only=False, persona
     if personal is None:
         model = prompt.model_content if prompt is not None else {}
         if model:
+            from .tache_two_dialogues import dialogue_response, published_dialogue
+            dialogue = published_dialogue(prompt)
+            if dialogue is not None:
+                return dialogue_response(dialogue)
             return EffectiveResponse(
                 **{name: model[name] for name in (
                     "reformulation", "position", "position_claire", "nuance", "conclusion",

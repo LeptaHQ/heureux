@@ -1,0 +1,331 @@
+{
+  "version": 1,
+  "dialogues": [
+    {
+      "group": "friend-used-electric-bicycle-sale",
+      "register": "tu",
+      "note": "Votre ami se sépare de son vélo électrique : c'est un achat d'occasion entre amis, pas une location ni un magasin. Demandez le modèle, la couleur et l'état avant de parler du prix, puis vérifiez la batterie et la possibilité d'un essai. Tutoiement entre amis.",
+      "opening": "Salut ! Ton annonce pour le vélo électrique m'intéresse beaucoup, alors j'aimerais avoir quelques précisions.",
+      "closing": "Merci beaucoup, il a l'air parfait ! Je passe samedi matin pour l'essayer.",
+      "questions": [
+        {"topic": "Modèle et couleur", "question": "De quel modèle s'agit-il ?", "answer": "C'est un vélo de ville électrique à cadre bas, avec sept vitesses ; je l'ai acheté il y a deux ans.", "follow_up_to": null},
+        {"topic": "Modèle et couleur", "question": "Il est de quelle couleur ?", "answer": "Gris anthracite, avec des garde-boue noirs.", "follow_up_to": null},
+        {"topic": "État", "question": "Dans quel état est-il ?", "answer": "En très bon état : je l'ai fait réviser au printemps, et il n'a que quelques rayures sur le cadre.", "follow_up_to": null},
+        {"topic": "État", "question": "Et la batterie, elle tient toujours bien la charge ?", "answer": "Oui, elle permet encore de faire environ 60 km, contre 70 quand elle était neuve.", "follow_up_to": 3},
+        {"topic": "Prix et essai", "question": "Combien en demandes-tu ?", "answer": "1 200 $, alors qu'il coûtait plus de 3 000 $ neuf.", "follow_up_to": null},
+        {"topic": "Prix et essai", "question": "Le chargeur et les accessoires sont-ils compris dans ce prix ?", "answer": "Oui, je te laisse aussi l'antivol et le panier arrière.", "follow_up_to": 5},
+        {"topic": "Prix et essai", "question": "Est-ce que je pourrais l'essayer avant de me décider ?", "answer": "Bien sûr, passe samedi matin, on fera un tour dans le quartier.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "friend-canada-cross-country-skiing",
+      "register": "tu",
+      "note": "Votre ami au Canada pratique le ski de fond, et vous aimeriez essayer. Demandez comment apprendre, quel matériel et quelle tenue prévoir, et combien cela coûte. Ne confondez pas avec le ski alpin : pas de remontées mécaniques ici. Tutoiement entre amis.",
+      "opening": "Salut ! Le ski de fond me tente de plus en plus, et comme tu en fais, j'aimerais te demander quelques conseils.",
+      "closing": "Merci beaucoup, ça me motive ! Je vais m'inscrire à un cours d'initiation dès les premières neiges.",
+      "questions": [
+        {"topic": "Apprentissage", "question": "Quelle est la meilleure façon d'apprendre quand on n'en a jamais fait ?", "answer": "Prendre deux ou trois cours en groupe dans un centre de ski de fond : on y apprend le pas classique en quelques heures.", "follow_up_to": null},
+        {"topic": "Apprentissage", "question": "Ces cours se donnent-ils aussi le week-end ?", "answer": "Oui, le samedi et le dimanche matin, par groupes de huit débutants.", "follow_up_to": 1},
+        {"topic": "Matériel et tenue", "question": "De quel matériel a-t-on besoin ?", "answer": "Des skis, des bottes et des bâtons ; pour commencer, on peut tout louer au centre.", "follow_up_to": null},
+        {"topic": "Matériel et tenue", "question": "Vaut-il mieux louer ou acheter au début ?", "answer": "Louer, le temps de savoir si tu aimes ; ensuite, un ensemble d'occasion coûte environ 250 $.", "follow_up_to": 3},
+        {"topic": "Matériel et tenue", "question": "Comment faut-il s'habiller ?", "answer": "En couches légères, car on a vite chaud : un sous-vêtement technique, une veste coupe-vent, des gants fins et une tuque.", "follow_up_to": null},
+        {"topic": "Coût", "question": "Combien coûtent les cours et la location ?", "answer": "Environ 40 $ le cours de deux heures, et 25 $ la journée de location.", "follow_up_to": null},
+        {"topic": "Coût", "question": "Faut-il aussi payer pour accéder aux pistes ?", "answer": "Oui, environ 20 $ par jour dans les centres, mais certains parcs municipaux sont gratuits.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "friend-entertain-visiting-nephews",
+      "register": "tu",
+      "note": "Vous allez accueillir vos neveux et votre ami vous donne des idées. Leur âge n'est pas indiqué : ne l'inventez pas, ou présentez-le comme une hypothèse. Couvrez les activités à la maison, les sorties et les jeux, en pensant au budget et à la météo. Tutoiement entre amis.",
+      "opening": "Salut ! Je vais bientôt accueillir mes neveux à la maison, et j'aimerais que tu m'aides à trouver de quoi les occuper.",
+      "closing": "Merci beaucoup pour toutes ces idées ! Avec ça, mes neveux ne vont pas s'ennuyer une seconde.",
+      "questions": [
+        {"topic": "Activités à la maison", "question": "Quelles activités me conseillerais-tu pour les occuper à la maison ?", "answer": "Une séance de pâtisserie, un atelier de bricolage ou une soirée cinéma avec du maïs soufflé.", "follow_up_to": null},
+        {"topic": "Activités à la maison", "question": "Pour la pâtisserie, quelle recette serait facile à réaliser avec eux ?", "answer": "Des biscuits à décorer : la pâte est simple, et les enfants adorent choisir les couleurs du glaçage.", "follow_up_to": 1},
+        {"topic": "Sorties", "question": "Quelles sorties pourrait-on faire en ville ?", "answer": "Le musée des sciences, très interactif, et le zoo, s'il fait beau.", "follow_up_to": null},
+        {"topic": "Sorties", "question": "Et en cas de pluie, quelle autre sortie leur plairait ?", "answer": "Le centre d'escalade intérieur, accessible dès cinq ans avec un moniteur.", "follow_up_to": 3},
+        {"topic": "Sorties", "question": "Quel budget faudrait-il prévoir pour ces sorties ?", "answer": "Une vingtaine de dollars par enfant pour le musée ou l'escalade ; le zoo est un peu plus cher.", "follow_up_to": null},
+        {"topic": "Jeux", "question": "Quels jeux de société pourrais-je leur proposer le soir ?", "answer": "Uno, Dobble ou Les Aventuriers du Rail, selon leur âge.", "follow_up_to": null},
+        {"topic": "Jeux", "question": "Les Aventuriers du Rail, ce n'est pas trop compliqué pour des enfants ?", "answer": "Non, une partie dure environ 45 minutes, mais le jeu convient plutôt à partir de huit ans.", "follow_up_to": 6}
+      ]
+    },
+    {
+      "group": "canada-newcomer-municipal-settlement-service",
+      "register": "vous",
+      "note": "Vous venez d'arriver au Canada et vous vous adressez à l'accueil de la mairie, qui oriente vers les bons services sans traiter votre dossier d'immigration. Interrogez l'agent sur le logement, les démarches et les services municipaux ; ses renseignements restent à vérifier auprès des organismes concernés. Vouvoiement professionnel.",
+      "opening": "Bonjour ! Je viens d'arriver au Canada et je m'installe dans votre ville. J'aimerais savoir vers qui me tourner pour mes premières démarches.",
+      "closing": "Merci beaucoup pour votre aide ! Je vais d'abord prendre rendez-vous au centre d'accueil, puis je reviendrai pour la carte municipale.",
+      "questions": [
+        {"topic": "Logement", "question": "Où puis-je trouver de l'aide pour chercher un logement ?", "answer": "Au centre d'accueil des nouveaux arrivants, à deux rues d'ici : on vous y aide gratuitement à chercher un appartement et à comprendre un bail.", "follow_up_to": null},
+        {"topic": "Logement", "question": "Faut-il prendre rendez-vous avec ce centre ?", "answer": "C'est préférable : appelez-les ou réservez en ligne, il y a souvent des disponibilités dans la semaine.", "follow_up_to": 1},
+        {"topic": "Logement", "question": "La ville propose-t-elle des logements à loyer réduit ?", "answer": "Elle gère quelques logements sociaux avec une liste d'attente ; le service de l'habitation vous dira si vous pouvez vous y inscrire.", "follow_up_to": null},
+        {"topic": "Démarches", "question": "Quelles démarches devrais-je effectuer en priorité ?", "answer": "Cela dépend de votre situation ; le centre d'accueil vous aidera à établir la liste, qui comprend souvent l'assurance maladie et le numéro d'assurance sociale.", "follow_up_to": null},
+        {"topic": "Démarches", "question": "Et ici, à la mairie, que puis-je régler directement ?", "answer": "Vous pouvez demander la carte municipale, qui donne accès aux bibliothèques et au tarif résident des activités.", "follow_up_to": 4},
+        {"topic": "Services municipaux", "question": "Quels services la ville propose-t-elle aux nouveaux arrivants ?", "answer": "Des ateliers de conversation, des séances d'information sur l'emploi et un programme de jumelage avec des bénévoles.", "follow_up_to": null},
+        {"topic": "Services municipaux", "question": "Comment fonctionne ce jumelage avec des bénévoles ?", "answer": "Un habitant vous rencontre quelques heures par mois pour vous faire découvrir la ville et répondre à vos questions.", "follow_up_to": 6}
+      ]
+    },
+    {
+      "group": "friend-upcoming-job-interview-advice",
+      "register": "tu",
+      "note": "Votre entretien d'embauche est à venir : parlez au futur et demandez conseil à votre ami, qui ne vous fait pas passer l'entretien. Couvrez la préparation, la tenue, l'attitude et la durée habituelle. Ses conseils viennent de son expérience, pas d'une règle valable pour toutes les entreprises. Tutoiement entre amis.",
+      "opening": "Salut ! J'ai bientôt un entretien d'embauche, et j'aimerais beaucoup avoir tes conseils pour mettre toutes les chances de mon côté.",
+      "closing": "Merci beaucoup pour tous ces conseils ! Je vais préparer mes exemples dès ce soir.",
+      "questions": [
+        {"topic": "Préparation", "question": "Comment devrais-je me préparer dans les jours qui viennent ?", "answer": "Renseigne-toi sur l'entreprise et prépare deux ou trois exemples concrets de réussites professionnelles.", "follow_up_to": null},
+        {"topic": "Préparation", "question": "Quels exemples auraient le plus d'impact, selon toi ?", "answer": "Ceux qui montrent un résultat précis, comme un délai respecté ou un problème que tu as résolu.", "follow_up_to": 1},
+        {"topic": "Tenue", "question": "Quelle tenue serait la plus adaptée ?", "answer": "Une tenue sobre et soignée, un peu plus habillée que celle des employés de l'entreprise.", "follow_up_to": null},
+        {"topic": "Tenue", "question": "Comment savoir comment s'habillent leurs employés ?", "answer": "Regarde les photos de l'équipe sur leur site ou sur leurs réseaux sociaux.", "follow_up_to": 3},
+        {"topic": "Attitude et déroulement", "question": "Quelle attitude faut-il adopter face au recruteur ?", "answer": "Arrive dix minutes en avance, regarde ton interlocuteur dans les yeux et réponds de façon concise.", "follow_up_to": null},
+        {"topic": "Attitude et déroulement", "question": "Combien de temps dure un entretien, en général ?", "answer": "Entre 30 minutes et une heure, selon le poste.", "follow_up_to": null},
+        {"topic": "Attitude et déroulement", "question": "Est-il bien vu de poser des questions à la fin ?", "answer": "Oui, c'est même apprécié : demande par exemple comment se passerait ton intégration dans l'équipe.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "friend-choose-television-series",
+      "register": "tu",
+      "note": "Vous hésitez entre plusieurs séries et votre ami vous conseille, sans vous imposer son choix. Laissez-le proposer un genre, puis interrogez-le sur l'histoire, les acteurs et la plateforme ou la chaîne. Si vous citez de vraies séries, restez exact sur leur contenu. Tutoiement entre amis.",
+      "opening": "Salut ! J'aimerais commencer une nouvelle série, mais je n'arrive pas à choisir. J'aurais besoin de tes conseils.",
+      "closing": "Merci beaucoup ! Je commence Lupin dès ce soir, et je garde Dix pour cent pour plus tard.",
+      "questions": [
+        {"topic": "Genre et histoire", "question": "Quel genre de série me conseillerais-tu en ce moment ?", "answer": "Si tu aimes le suspense, Lupin, une série policière française pleine de rebondissements.", "follow_up_to": null},
+        {"topic": "Genre et histoire", "question": "De quoi parle-t-elle ?", "answer": "D'un homme qui s'inspire du gentleman cambrioleur Arsène Lupin pour venger son père, accusé à tort d'un vol.", "follow_up_to": 1},
+        {"topic": "Genre et histoire", "question": "Et si j'avais plutôt envie de quelque chose de léger ?", "answer": "Alors Dix pour cent, une comédie sur une agence d'acteurs parisienne, où de vraies vedettes jouent leur propre rôle.", "follow_up_to": null},
+        {"topic": "Acteurs", "question": "Qui tient le rôle principal dans Lupin ?", "answer": "Omar Sy, qui est vraiment excellent dans ce rôle.", "follow_up_to": null},
+        {"topic": "Acteurs", "question": "Dans quels films a-t-il joué avant cette série ?", "answer": "Notamment dans Intouchables, la comédie qui l'a rendu célèbre dans le monde entier.", "follow_up_to": 4},
+        {"topic": "Plateforme", "question": "Sur quelle plateforme peut-on regarder ces séries ?", "answer": "Lupin est sur Netflix ; pour Dix pour cent, vérifie le catalogue, car il change selon les pays.", "follow_up_to": null},
+        {"topic": "Plateforme", "question": "Combien coûte un abonnement à Netflix ?", "answer": "Environ 19 $ par mois sans publicité, et moins cher avec publicité.", "follow_up_to": 6}
+      ]
+    },
+    {
+      "group": "new-city-friend-low-budget-outings",
+      "register": "tu",
+      "note": "Vous venez de vous installer dans la ville de votre ami et vous voulez sortir sans trop dépenser. Il vous oriente : demandez les endroits à voir, les activités possibles et les moyens de transport, en gardant le budget au centre de vos questions. Ce n'est pas une recherche de logement. Tutoiement entre amis.",
+      "opening": "Salut ! Maintenant que j'habite ici, j'aimerais découvrir la ville sans trop dépenser, et tu es la personne idéale pour me guider.",
+      "closing": "Merci beaucoup pour ces bons plans ! Je commence par le belvédère dimanche, au coucher du soleil.",
+      "questions": [
+        {"topic": "Endroits à voir", "question": "Quels endroits gratuits me conseillerais-tu de découvrir en premier ?", "answer": "Le vieux port, le parc de la colline et le marché public, où l'on peut se promener sans rien payer.", "follow_up_to": null},
+        {"topic": "Endroits à voir", "question": "Qu'y a-t-il à voir dans ce parc ?", "answer": "Un belvédère avec une vue sur toute la ville, surtout au coucher du soleil.", "follow_up_to": 1},
+        {"topic": "Activités", "question": "Quelles activités peut-on faire à petit prix ?", "answer": "Les musées sont gratuits le premier dimanche du mois, et il y a des concerts en plein air tout l'été.", "follow_up_to": null},
+        {"topic": "Activités", "question": "Ces concerts sont-ils vraiment gratuits ?", "answer": "Oui, il suffit d'apporter une chaise pliante ou une couverture.", "follow_up_to": 3},
+        {"topic": "Activités", "question": "Et le soir, où peut-on sortir sans se ruiner ?", "answer": "Dans les bars de la rue principale, où les consommations sont à moitié prix de 17 h à 19 h.", "follow_up_to": null},
+        {"topic": "Transports", "question": "Quel est le moyen le plus économique pour me déplacer ?", "answer": "Le vélo en libre-service : l'abonnement mensuel coûte une vingtaine de dollars.", "follow_up_to": null},
+        {"topic": "Transports", "question": "Ces vélos sont-ils disponibles toute l'année ?", "answer": "Non, seulement d'avril à novembre ; l'hiver, il faudra prendre le bus.", "follow_up_to": 6}
+      ]
+    },
+    {
+      "group": "party-new-acquaintance-trip-report",
+      "register": "vous",
+      "note": "Vous venez de rencontrer cette personne lors d'une soirée et son voyage est terminé : posez vos questions au passé. Interrogez-la sur la période, la durée, les lieux visités et ses impressions, sans la questionner comme un agent de voyages. Le modèle vouvoie une nouvelle connaissance ; entre jeunes, le tutoiement est possible.",
+      "opening": "Bonsoir ! J'ai cru comprendre que vous rentriez tout juste de voyage. Ça m'intéresse beaucoup, j'adore les récits de voyage.",
+      "closing": "Merci de m'avoir raconté tout ça, ça donne vraiment envie de découvrir le Japon !",
+      "questions": [
+        {"topic": "Destination et durée", "question": "Quelle destination aviez-vous choisie ?", "answer": "Le Japon, que j'ai parcouru de Tokyo jusqu'à Hiroshima.", "follow_up_to": null},
+        {"topic": "Destination et durée", "question": "Combien de temps a duré ce voyage, et à quelle période ?", "answer": "Trois semaines, début avril, en pleine floraison des cerisiers.", "follow_up_to": null},
+        {"topic": "Destination et durée", "question": "N'y avait-il pas trop de monde à ce moment-là ?", "answer": "Si, dans les parcs les plus célèbres, mais en se levant tôt, on en profitait au calme.", "follow_up_to": 2},
+        {"topic": "Lieux visités", "question": "Quelle ville avez-vous préférée ?", "answer": "Kyoto, pour ses temples, ses jardins et ses ruelles bordées de maisons en bois.", "follow_up_to": null},
+        {"topic": "Lieux visités", "question": "Qu'y avez-vous fait de particulier ?", "answer": "J'ai dormi dans une auberge traditionnelle, sur un futon posé sur des tatamis, et j'ai assisté à une cérémonie du thé.", "follow_up_to": 4},
+        {"topic": "Impressions", "question": "Quelle a été votre plus belle surprise là-bas ?", "answer": "La gentillesse des habitants, qui prenaient le temps de m'aider, même sans parler la même langue.", "follow_up_to": null},
+        {"topic": "Impressions", "question": "Y retourneriez-vous ?", "answer": "Sans hésiter, mais cette fois à l'automne, pour voir les érables rougir.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "acquaintance-new-job-overall-experience",
+      "register": "tu",
+      "note": "Votre ami vient de commencer un nouveau travail et vous raconte ses débuts. Interrogez-le sur ses tâches, son intégration, ses collègues, les locaux et les avantages. Ce n'est pas un entretien d'embauche, et vous ne cherchez pas d'emploi. Tutoiement entre amis.",
+      "opening": "Salut ! Raconte-moi un peu ton nouveau travail, j'ai hâte de savoir comment ça se passe.",
+      "closing": "Merci de m'avoir raconté tout ça ! Ça fait plaisir de voir que ce nouveau travail te plaît autant.",
+      "questions": [
+        {"topic": "Tâches et intégration", "question": "Alors, comment se passent tes débuts ?", "answer": "Très bien : je m'occupe du service client en ligne, et j'apprends vite grâce à ma tutrice.", "follow_up_to": null},
+        {"topic": "Tâches et intégration", "question": "Ta tutrice t'accompagne pendant combien de temps ?", "answer": "Pendant tout le premier mois ; ensuite, je serai autonome.", "follow_up_to": 1},
+        {"topic": "Collègues et locaux", "question": "Comment sont tes collègues ?", "answer": "Très accueillants : on déjeune souvent ensemble, et l'ambiance est détendue.", "follow_up_to": null},
+        {"topic": "Collègues et locaux", "question": "Et les locaux, ils sont agréables ?", "answer": "Oui, c'est un bureau lumineux au dixième étage, avec une grande cuisine commune et une terrasse.", "follow_up_to": null},
+        {"topic": "Avantages et activités", "question": "Quels avantages ton employeur offre-t-il ?", "answer": "Une assurance santé complémentaire, trois semaines de vacances et un remboursement partiel du passe de transport.", "follow_up_to": null},
+        {"topic": "Avantages et activités", "question": "Ce remboursement couvre-t-il une bonne partie du passe ?", "answer": "La moitié, soit environ 75 $ par mois.", "follow_up_to": 5},
+        {"topic": "Avantages et activités", "question": "L'entreprise organise-t-elle des activités entre collègues ?", "answer": "Oui, un apéritif d'équipe chaque mois et une sortie au parc d'attractions en été.", "follow_up_to": null}
+      ],
+      "notes": {
+        "tache2:septembre:batch-07:subject-32": "Ici, la relation n'est pas précisée et le poste vient d'être obtenu dans une société de la région de Toronto. Le modèle tutoie comme entre amis ; vouvoyez une simple connaissance. Couvrez les collègues, les locaux, les avantages et les activités ; si l'emploi n'a pas encore commencé, passez au futur."
+      }
+    },
+    {
+      "group": "medical-secretary-temporary-replacement-doctor",
+      "register": "vous",
+      "note": "Vous appelez le secrétariat de votre médecin de famille, actuellement absent, pour vous renseigner sur la personne qui le remplace. Commencez par son nom et la durée du remplacement, puis ses horaires et la prise de rendez-vous. Inutile de décrire des symptômes. Vouvoiement professionnel.",
+      "opening": "Bonjour ! J'ai appris que mon médecin de famille était absent, et j'aimerais me renseigner sur la personne qui le remplace.",
+      "closing": "Merci beaucoup pour ces renseignements ! Je vais prendre rendez-vous en ligne avec la docteure Tremblay.",
+      "questions": [
+        {"topic": "Le médecin remplaçant", "question": "Comment s'appelle le médecin remplaçant ?", "answer": "C'est la docteure Sophie Tremblay, médecin généraliste.", "follow_up_to": null},
+        {"topic": "Le médecin remplaçant", "question": "Connaît-elle déjà les dossiers des patients ?", "answer": "Oui, elle y a accès et elle a déjà fait plusieurs remplacements au cabinet.", "follow_up_to": 1},
+        {"topic": "Durée et horaires", "question": "Pendant combien de temps va-t-elle assurer les consultations ?", "answer": "Six semaines, jusqu'au 15 mars, date du retour de votre médecin.", "follow_up_to": null},
+        {"topic": "Durée et horaires", "question": "Quels sont ses horaires de consultation ?", "answer": "Du lundi au jeudi de 8 h 30 à 16 h, et le vendredi matin.", "follow_up_to": null},
+        {"topic": "Durée et horaires", "question": "Si j'avais besoin de consulter un vendredi après-midi, que pourrais-je faire ?", "answer": "Vous pourriez vous adresser à la clinique sans rendez-vous du quartier, ouverte jusqu'à 20 h.", "follow_up_to": 4},
+        {"topic": "Rendez-vous", "question": "Comment puis-je obtenir un rendez-vous avec elle ?", "answer": "Par téléphone ici, ou en ligne sur le site du cabinet, comme d'habitude.", "follow_up_to": null},
+        {"topic": "Rendez-vous", "question": "Quel délai faut-il prévoir pour un rendez-vous ?", "answer": "En général deux ou trois jours, et le jour même pour les cas urgents.", "follow_up_to": 6}
+      ]
+    },
+    {
+      "group": "experienced-blogger-start-travel-blog",
+      "register": "vous",
+      "note": "Votre interlocuteur anime déjà un blog de voyage : demandez-lui au passé comment il a commencé, puis ses conseils pour le vôtre. Couvrez le lancement, les rubriques, le type de contenus et le rythme de publication. La relation n'est pas précisée : le modèle vouvoie, mais vous pouvez tutoyer un ami.",
+      "opening": "Bonjour ! Je rêve de lancer mon propre blog de voyage, et comme vous en animez un, j'aimerais profiter de votre expérience.",
+      "closing": "Merci beaucoup pour tous ces conseils ! Je vais choisir un nom pour mon blog et préparer mes premières rubriques.",
+      "questions": [
+        {"topic": "Lancement", "question": "Par quoi avez-vous commencé quand vous avez créé votre blog ?", "answer": "J'ai d'abord choisi un nom facile à retenir, puis j'ai ouvert le site sur WordPress avec un modèle gratuit.", "follow_up_to": null},
+        {"topic": "Lancement", "question": "Combien cela vous a-t-il coûté au départ ?", "answer": "Environ 100 $ la première année, pour le nom de domaine et l'hébergement du site.", "follow_up_to": 1},
+        {"topic": "Rubriques et contenus", "question": "Quelles rubriques me conseilleriez-vous de créer ?", "answer": "Des carnets de route par destination, une rubrique de conseils pratiques et une autre consacrée au budget.", "follow_up_to": null},
+        {"topic": "Rubriques et contenus", "question": "Que mettez-vous dans la rubrique budget ?", "answer": "Le détail de mes dépenses pour chaque voyage : transport, logement, repas et activités.", "follow_up_to": 3},
+        {"topic": "Rubriques et contenus", "question": "Quels types de contenus attirent le plus de lecteurs ?", "answer": "Les articles riches en photos et les courtes vidéos, surtout quand elles montrent des adresses peu connues.", "follow_up_to": null},
+        {"topic": "Rythme de publication", "question": "À quel rythme devrais-je publier ?", "answer": "Un article par semaine suffit, à condition de garder toujours le même jour.", "follow_up_to": null},
+        {"topic": "Rythme de publication", "question": "Et quand on est en voyage, comment tenir ce rythme ?", "answer": "Prenez des notes et des photos chaque soir, et préparez quelques articles à l'avance pour publier sans interruption.", "follow_up_to": 6}
+      ],
+      "notes": {
+        "tache2:septembre:batch-07:subject-33": "Ici, votre blog accompagnera un futur voyage au Canada : parlez de ce voyage au futur. Insistez sur les rubriques, la cadence de publication et le type de contenus ; ses débuts de blogueur restent un point secondaire. Le modèle vouvoie ce blogueur expérimenté."
+      }
+    },
+    {
+      "group": "newcomer-neighbor-partner-surprise-birthday",
+      "register": "vous",
+      "note": "Vous venez d'arriver au Canada et préparez une surprise pour l'anniversaire de votre moitié ; votre voisin connaît mieux la ville et vous aide à l'organiser. Demandez-lui un lieu, des idées d'invités et de repas, puis comment garder le secret. Le modèle vouvoie par prudence ; un voisin proche peut être tutoyé.",
+      "opening": "Bonjour ! Je prépare une surprise pour l'anniversaire de ma moitié, et comme je connais encore mal la ville, votre aide me serait précieuse.",
+      "closing": "Merci beaucoup pour votre aide ! Je passe voir le concierge dès demain pour réserver la salle.",
+      "questions": [
+        {"topic": "Lieu et invités", "question": "Où pourrait-on organiser la fête, à votre avis ?", "answer": "Dans la salle commune de notre immeuble : elle se loue 50 $ la soirée et peut accueillir une trentaine de personnes.", "follow_up_to": null},
+        {"topic": "Lieu et invités", "question": "Comment fait-on pour la réserver ?", "answer": "Il suffit de passer voir le concierge au moins deux semaines à l'avance.", "follow_up_to": 1},
+        {"topic": "Lieu et invités", "question": "Comme je connais encore peu de monde ici, qui pourrais-je inviter ?", "answer": "Quelques voisins de l'immeuble, et les personnes que vous avez rencontrées tous les deux depuis votre arrivée.", "follow_up_to": null},
+        {"topic": "Repas", "question": "Pour le repas, que me conseilleriez-vous ?", "answer": "Un buffet froid du traiteur du coin, environ 20 $ par personne, avec un gâteau de la pâtisserie d'à côté.", "follow_up_to": null},
+        {"topic": "Repas", "question": "Le traiteur peut-il livrer directement dans la salle ?", "answer": "Oui, et la livraison est gratuite pour les commandes de plus de 300 $.", "follow_up_to": 4},
+        {"topic": "Surprise et cadeau", "question": "Comment pourrais-je éloigner ma moitié pendant les préparatifs ?", "answer": "Je pourrais l'inviter à prendre un café chez moi, puis l'accompagner jusqu'à la salle au bon moment.", "follow_up_to": null},
+        {"topic": "Surprise et cadeau", "question": "Quel cadeau original me suggéreriez-vous pour ce premier anniversaire fêté au Canada ?", "answer": "Une fin de semaine dans un chalet, pour découvrir à deux la nature d'ici.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "neighbor-friends-countryside-outing-advice",
+      "register": "vous",
+      "note": "Vous organisez une sortie à la campagne avec des amis, et votre voisin, qui connaît la région, vous conseille ; rien n'indique qu'il vous accompagne. Demandez d'abord un lieu, puis les activités et le transport, en prévoyant une solution en cas de pluie. Le modèle vouvoie par prudence ; un voisin proche peut être tutoyé.",
+      "opening": "Bonjour ! J'aimerais organiser une sortie à la campagne avec des amis, et j'ai pensé que vous auriez de bonnes idées.",
+      "closing": "Merci beaucoup pour ces idées ! Je vais proposer ce village à mes amis et réserver une fourgonnette.",
+      "questions": [
+        {"topic": "Lieu", "question": "Quel coin de campagne nous conseilleriez-vous pour une journée ?", "answer": "Un petit village à une heure d'ici, au bord d'un lac et entouré de fermes.", "follow_up_to": null},
+        {"topic": "Lieu", "question": "Y a-t-il un endroit pour pique-niquer là-bas ?", "answer": "Oui, un parc au bord du lac, avec des tables et des barbecues en libre accès.", "follow_up_to": 1},
+        {"topic": "Activités", "question": "Quelles activités pourrait-on y faire ?", "answer": "Une randonnée facile de deux heures, de la cueillette de pommes en automne et du canot sur le lac.", "follow_up_to": null},
+        {"topic": "Activités", "question": "Où peut-on louer des canots ?", "answer": "À la base nautique du lac, pour environ 30 $ l'heure par canot de deux places.", "follow_up_to": 3},
+        {"topic": "Activités", "question": "Si le temps se gâtait, que pourrait-on faire à l'abri ?", "answer": "Visiter la fromagerie du village, qui propose une dégustation.", "follow_up_to": null},
+        {"topic": "Transport", "question": "Quel moyen de transport serait le plus pratique pour y aller ?", "answer": "La voiture, car l'autobus ne passe que deux fois par jour ; à plusieurs, vous pourriez louer une fourgonnette.", "follow_up_to": null},
+        {"topic": "Transport", "question": "Combien coûte la location d'une fourgonnette pour la journée ?", "answer": "Environ 120 $, sans l'essence.", "follow_up_to": 6}
+      ]
+    },
+    {
+      "group": "grocery-store-home-delivery",
+      "register": "vous",
+      "note": "Vous voulez vous faire livrer vos courses, et un employé du magasin vous renseigne. Commencez par la façon de commander, puis demandez les délais, les tarifs et les modalités de livraison, par exemple pour les produits frais ou en cas d'absence. Vouvoiement professionnel.",
+      "opening": "Bonjour ! J'aimerais me faire livrer mes courses à domicile, et je voudrais savoir comment fonctionne votre service.",
+      "closing": "Merci beaucoup, c'est très pratique ! Je passerai ma première commande en ligne dès ce soir.",
+      "questions": [
+        {"topic": "Commande et paiement", "question": "Comment passe-t-on une commande ?", "answer": "Sur notre site ou notre application, ou par téléphone si vous préférez.", "follow_up_to": null},
+        {"topic": "Commande et paiement", "question": "Faut-il payer en ligne au moment de la commande ?", "answer": "Vous pouvez payer en ligne ou par carte au livreur, comme vous préférez.", "follow_up_to": 1},
+        {"topic": "Délais", "question": "Quels sont les délais de livraison ?", "answer": "Le jour même pour une commande passée avant midi, sinon le lendemain.", "follow_up_to": null},
+        {"topic": "Délais", "question": "Peut-on choisir un créneau horaire ?", "answer": "Oui, des créneaux de deux heures, entre 9 h et 21 h.", "follow_up_to": 3},
+        {"topic": "Frais et modalités", "question": "Combien coûte la livraison ?", "answer": "7,99 $, et elle est gratuite à partir de 100 $ d'achats.", "follow_up_to": null},
+        {"topic": "Frais et modalités", "question": "Comment les produits frais sont-ils transportés ?", "answer": "Dans des sacs isothermes, et les surgelés dans des bacs réfrigérés.", "follow_up_to": null},
+        {"topic": "Frais et modalités", "question": "Si je n'étais pas chez moi au moment de la livraison, que se passerait-il ?", "answer": "Le livreur vous appellerait ; sans réponse, la livraison serait reportée au créneau suivant, sans frais.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "owner-holiday-letting-estate-agency-advice",
+      "register": "vous",
+      "note": "Le logement vous appartient : vous voulez le louer à des vacanciers, et non en louer un. L'agent vous conseille sur le prix, la durée et le profil des locataires ; pour les règles locales, il vous oriente vers la municipalité. Vouvoiement professionnel.",
+      "opening": "Bonjour ! J'envisage de louer mon logement pendant les vacances, et j'aimerais avoir vos conseils avant de me lancer.",
+      "closing": "Merci beaucoup pour ces conseils ! Je vais me renseigner auprès de la ville, puis je reviendrai vous voir pour publier l'annonce.",
+      "questions": [
+        {"topic": "Prix", "question": "À quel prix pourrais-je proposer mon logement ?", "answer": "Dans votre quartier, entre 120 et 180 $ la nuit, selon la taille et l'équipement.", "follow_up_to": null},
+        {"topic": "Prix", "question": "Faudrait-il prévoir des prix différents selon la saison ?", "answer": "Oui, vous pourriez les augmenter d'environ 30 % en juillet et en août.", "follow_up_to": 1},
+        {"topic": "Durée", "question": "Quelle durée de location me conseilleriez-vous ?", "answer": "Une semaine minimum, pour limiter le ménage et les changements de locataires.", "follow_up_to": null},
+        {"topic": "Durée", "question": "Pourrait-on accepter des séjours plus courts hors saison ?", "answer": "Oui, deux ou trois nuits, sinon le logement risquerait de rester vide.", "follow_up_to": 3},
+        {"topic": "Locataires", "question": "Quel type de locataires vise-t-on généralement ?", "answer": "Surtout des familles et des couples en vacances, qui recherchent le calme d'un vrai logement.", "follow_up_to": null},
+        {"topic": "Locataires", "question": "Comment peut-on vérifier le sérieux d'un locataire ?", "answer": "Nous demandons une pièce d'identité et un dépôt de garantie de 500 $, rendu après l'état des lieux.", "follow_up_to": null},
+        {"topic": "Démarches", "question": "Y a-t-il des démarches à faire avant de louer ?", "answer": "Les règles varient selon les villes : vérifiez auprès de votre municipalité, et prévenez votre assureur.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "tourist-office-low-budget-weekend",
+      "register": "vous",
+      "note": "Vous voulez partir un week-end en dépensant le moins possible ; l'agent de l'office de tourisme vous propose des idées. Demandez une destination, puis l'hébergement, les activités et le transport, en gardant toujours le prix en tête. Vouvoiement professionnel.",
+      "opening": "Bonjour ! J'aimerais m'offrir un week-end d'évasion sans me ruiner, et j'aurais besoin de quelques idées.",
+      "closing": "Merci beaucoup pour ces idées ! Je vais réserver un refuge et chercher un covoiturage dès ce soir.",
+      "questions": [
+        {"topic": "Destination et hébergement", "question": "Quelle destination me conseilleriez-vous pour un week-end à petit prix ?", "answer": "Un parc national à une heure et demie d'ici : la nature y est superbe, et l'entrée coûte une dizaine de dollars par jour.", "follow_up_to": null},
+        {"topic": "Destination et hébergement", "question": "Où pourrais-je dormir sur place sans trop dépenser ?", "answer": "Au camping du parc, à partir de 35 $ la nuit par emplacement.", "follow_up_to": null},
+        {"topic": "Destination et hébergement", "question": "Et si je n'avais pas de tente ?", "answer": "Il y a aussi des refuges, à environ 30 $ par personne ; il suffit d'apporter un sac de couchage.", "follow_up_to": 2},
+        {"topic": "Activités", "question": "Quelles activités peut-on y faire sans payer de supplément ?", "answer": "La randonnée, sur une centaine de kilomètres de sentiers, et la baignade au lac en été.", "follow_up_to": null},
+        {"topic": "Activités", "question": "Peut-on aussi faire du canot sur ce lac ?", "answer": "Oui, en location au centre de services, pour environ 25 $ l'heure.", "follow_up_to": 4},
+        {"topic": "Transport", "question": "Quel serait le moyen le plus économique pour m'y rendre ?", "answer": "Le covoiturage, car aucun autocar ne dessert le parc : comptez environ 20 $ l'aller.", "follow_up_to": null},
+        {"topic": "Transport", "question": "Où trouve-t-on ce genre de covoiturage ?", "answer": "Sur les applications spécialisées ; réservez tôt dans la semaine, car les places partent vite le vendredi.", "follow_up_to": 6}
+      ]
+    },
+    {
+      "group": "friend-canada-partner-birthday-trip",
+      "register": "tu",
+      "note": "Vous préparez un voyage au Canada pour l'anniversaire de votre moitié, et votre ami vous conseille. Le voyage est à venir : employez le futur ou le conditionnel. Couvrez la destination, les idées d'activités et le budget ; si vous connaissez les goûts de votre moitié, précisez-les pour obtenir des conseils ciblés. Tutoiement entre amis.",
+      "opening": "Salut ! Pour l'anniversaire de ma moitié, j'aimerais organiser un voyage au Canada, et j'aurais besoin de tes idées.",
+      "closing": "Merci beaucoup ! Je vais regarder les hôtels à Canmore, et je garde l'idée du canot comme surprise.",
+      "questions": [
+        {"topic": "Destination", "question": "Quelle région du Canada choisirais-tu pour une occasion comme celle-là ?", "answer": "Les Rocheuses, autour de Banff, pour leurs lacs turquoise et leurs sommets spectaculaires.", "follow_up_to": null},
+        {"topic": "Destination", "question": "À quelle période vaudrait-il mieux y aller ?", "answer": "Entre la fin juin et le début septembre, quand les lacs ont dégelé et que tous les sentiers sont ouverts.", "follow_up_to": null},
+        {"topic": "Destination", "question": "Et si on y allait plutôt en hiver ?", "answer": "Ce serait magnifique aussi, avec le ski et les sources thermales de Banff.", "follow_up_to": 2},
+        {"topic": "Idées d'activités", "question": "Quelle activité rendrait ce voyage vraiment spécial ?", "answer": "En été, une balade en canot sur le lac Louise, face au glacier Victoria.", "follow_up_to": null},
+        {"topic": "Idées d'activités", "question": "Combien coûte ce genre de balade ?", "answer": "Plus de 100 $ la demi-heure, mais pour un anniversaire, ça vaut la peine.", "follow_up_to": 4},
+        {"topic": "Budget", "question": "Quel budget faudrait-il prévoir pour une semaine à deux ?", "answer": "Au moins 3 000 $, sans compter le transport jusqu'à Banff, car l'hébergement y coûte cher.", "follow_up_to": null},
+        {"topic": "Budget", "question": "Comment pourrait-on réduire un peu cette somme ?", "answer": "En logeant à Canmore, à une vingtaine de minutes de Banff, où les hôtels sont moins chers.", "follow_up_to": 6}
+      ]
+    },
+    {
+      "group": "friend-upcoming-canada-trip-advice",
+      "register": "tu",
+      "note": "Votre ami rentre d'un séjour au Canada et vous y partez bientôt : interrogez-le au passé sur son expérience, et parlez de votre propre voyage au futur. Les cibles sont nombreuses : étapes, activités, climat, hébergement, repas, transports et budget ; une question par cible suffit. Tutoiement entre amis.",
+      "opening": "Salut ! Tu rentres tout juste du Canada, et comme j'y pars bientôt, j'aimerais profiter de ton expérience.",
+      "closing": "Merci pour tous ces conseils ! Je vais réserver mes auberges de jeunesse et regarder les billets de train dès ce soir.",
+      "questions": [
+        {"topic": "Itinéraire et climat", "question": "Quelles étapes me conseillerais-tu de prévoir ?", "answer": "Toronto, les chutes du Niagara, puis Ottawa et Montréal : c'est le parcours que j'ai fait en deux semaines.", "follow_up_to": null},
+        {"topic": "Itinéraire et climat", "question": "Qu'as-tu fait de plus marquant aux chutes du Niagara ?", "answer": "La croisière en bateau au pied des chutes : le grondement de l'eau et les embruns, c'est inoubliable !", "follow_up_to": 1},
+        {"topic": "Itinéraire et climat", "question": "Quel temps faisait-il pendant ton séjour ?", "answer": "Chaud et humide, autour de 30 °C en juillet ; si tu pars en été, prévois des vêtements légers et de la crème solaire.", "follow_up_to": null},
+        {"topic": "Hébergement et repas", "question": "Où as-tu logé ?", "answer": "Surtout dans des auberges de jeunesse, autour de 50 $ la nuit en dortoir.", "follow_up_to": null},
+        {"topic": "Hébergement et repas", "question": "Pouvait-on y cuisiner ?", "answer": "Oui, il y avait une cuisine commune ; je ne mangeais au restaurant qu'une fois par jour, et j'ai goûté la poutine à Montréal !", "follow_up_to": 4},
+        {"topic": "Transports et budget", "question": "Comment te déplaçais-tu d'une ville à l'autre ?", "answer": "En train : VIA Rail relie Toronto, Ottawa et Montréal, et un train régional va de Toronto jusqu'à Niagara Falls.", "follow_up_to": null},
+        {"topic": "Transports et budget", "question": "D'après ton expérience, quel budget devrais-je prévoir ?", "answer": "Compte environ 120 $ par jour, sans le billet d'avion ; c'est à peu près ce que j'ai dépensé.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "interlocutor-planned-mountain-trip",
+      "register": "vous",
+      "note": "Votre interlocuteur vient de finir d'organiser un séjour à la montagne qui n'a pas encore eu lieu : posez vos questions au futur. Interrogez-le sur la destination, la saison, l'hébergement, le coût et les activités. La relation n'est pas précisée : le modèle vouvoie, mais un ami peut être tutoyé.",
+      "opening": "Bonjour ! J'ai appris que vous veniez de boucler l'organisation d'un séjour à la montagne. Ça m'intrigue, j'aimerais en savoir plus.",
+      "closing": "Merci de m'avoir parlé de ce beau projet ! Je vous souhaite un excellent séjour à Whistler.",
+      "questions": [
+        {"topic": "Destination et saison", "question": "Où partirez-vous ?", "answer": "À Whistler, en Colombie-Britannique, l'une des plus grandes stations de ski d'Amérique du Nord.", "follow_up_to": null},
+        {"topic": "Destination et saison", "question": "À quelle période ferez-vous ce séjour ?", "answer": "Une semaine début mars, quand la neige est encore abondante et que les journées rallongent.", "follow_up_to": null},
+        {"topic": "Destination et saison", "question": "Ne craignez-vous pas le froid à cette période ?", "answer": "Pas vraiment : près de la côte, l'hiver est bien plus doux que dans l'est du pays.", "follow_up_to": 2},
+        {"topic": "Hébergement et coût", "question": "Où logerez-vous ?", "answer": "Dans un chalet loué avec trois amis, à dix minutes à pied des remontées mécaniques.", "follow_up_to": null},
+        {"topic": "Hébergement et coût", "question": "Combien ce séjour va-t-il vous coûter ?", "answer": "Environ 2 000 $ par personne, avion et forfaits de ski compris.", "follow_up_to": null},
+        {"topic": "Hébergement et coût", "question": "Les forfaits représentent-ils une grosse partie de cette somme ?", "answer": "Oui, plus de 200 $ par jour au guichet, mais je les ai achetés en ligne, bien moins cher.", "follow_up_to": 5},
+        {"topic": "Activités", "question": "En dehors du ski, quelles activités avez-vous prévues ?", "answer": "Une sortie en raquettes et un tour dans la télécabine Peak 2 Peak, qui relie les deux montagnes de la station.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "visit-colleague-minor-accident",
+      "register": "vous",
+      "note": "Vous rendez visite à un collègue victime d'un accident sans gravité. Prenez d'abord de ses nouvelles, puis demandez quand, où et comment l'accident s'est produit, avant de parler de son retour au travail. Restez attentionné sans être indiscret. Le modèle vouvoie par prudence ; des collègues proches peuvent se tutoyer.",
+      "opening": "Bonjour ! J'ai appris pour votre accident, et je tenais à prendre de vos nouvelles.",
+      "closing": "Merci de m'avoir tout raconté ! Je vous apporte votre ordinateur demain ; d'ici là, reposez-vous bien.",
+      "questions": [
+        {"topic": "État de santé", "question": "Comment vous sentez-vous aujourd'hui ?", "answer": "Mieux, merci : j'ai encore mal au poignet, mais ce n'est qu'une entorse.", "follow_up_to": null},
+        {"topic": "État de santé", "question": "Qu'a dit le médecin pour cette entorse ?", "answer": "De porter une attelle pendant trois semaines et de ménager mon poignet.", "follow_up_to": 1},
+        {"topic": "L'accident", "question": "Quand cela s'est-il produit ?", "answer": "Lundi matin, vers 8 h, en venant au bureau.", "follow_up_to": null},
+        {"topic": "L'accident", "question": "Où cela s'est-il passé exactement ?", "answer": "Sur les marches de la station de métro, juste devant l'immeuble.", "follow_up_to": null},
+        {"topic": "L'accident", "question": "Et comment est-ce arrivé ?", "answer": "J'ai glissé sur une plaque de verglas que je n'avais pas vue, et j'ai mis la main en avant pour amortir la chute.", "follow_up_to": null},
+        {"topic": "Retour au travail", "question": "Quand pensez-vous reprendre le travail ?", "answer": "Lundi prochain, en télétravail pour commencer.", "follow_up_to": null},
+        {"topic": "Retour au travail", "question": "Avez-vous tout ce qu'il faut pour travailler à distance ?", "answer": "Presque : il me manque mon ordinateur portable, resté au bureau.", "follow_up_to": 6}
+      ]
+    }
+  ]
+}

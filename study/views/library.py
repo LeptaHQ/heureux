@@ -27,6 +27,7 @@ from ..catalogue import (
 )
 from ..forms import (
     PersonalResponseForm,
+    TacheTwoConversationForm,
     TacheTwoQuestionFormSet,
 )
 from ..models import (
@@ -67,6 +68,11 @@ from ..oral_highlights import (
     preserve_tache_two_highlights,
 )
 from ..response_personalization import effective_response
+from ..tache_two_dialogues import (
+    prompt_note_presentation,
+    published_dialogue,
+    question_presentation,
+)
 from ..ee_formulations import get_ee_formulations
 from ..formulation_progress import formulation_progress
 from ..retirement import active_phrases
@@ -3179,17 +3185,7 @@ def task_subject_detail(
         response, request.user, prompt=selected_prompt,
     )
     subject_annotation_key = oral_context.get("oral_annotation_key", subject_annotation_key)
-    questions = [
-        {
-            "number": index,
-            "text": argument.idea,
-            "response": argument.developpement,
-        }
-        for index, argument in enumerate(
-            response_content.arguments,
-            start=1,
-        )
-    ]
+    question_context = question_presentation(selected_prompt, response_content)
     (
         subject_theme,
         subject_position,
@@ -3211,7 +3207,11 @@ def task_subject_detail(
             "subject_month": month,
             "subject_batch": batch,
             "subject": subject,
-            "subject_questions": questions,
+            **question_context,
+            "subject_prompt_note": prompt_note_presentation(selected_prompt, response_content),
+            "prompt_note_edit_url": reverse(
+                "study:edit_response", args=["eo", "tache-2", selected_prompt.pk],
+            ),
             "subject_hints": catalogue.tache_two_subject_hints()[selected_prompt.content_key],
             "response_content": response_content,
             "subject_theme_name": (
@@ -4089,10 +4089,11 @@ def edit_response(request, part_slug, task_slug, prompt_id):
 
     if is_tache_two:
         response_content = effective_response(response, request.user, prompt=selected_prompt)
+        prompt_note = prompt_note_presentation(selected_prompt, response_content)
         initial_questions = [
             {
                 "question": argument.idea,
-                "response": argument.developpement,
+                "response": argument.developpement if response_content.is_personal else "",
             }
             for argument in response_content.arguments
         ]
@@ -4103,7 +4104,23 @@ def edit_response(request, part_slug, task_slug, prompt_id):
             initial=initial_questions,
             prefix="questions",
         )
-        if request.method == "POST" and question_formset.is_valid():
+        conversation_form = TacheTwoConversationForm(
+            request.POST or None,
+            initial={
+                "prompt_note": prompt_note["note"] if prompt_note is not None else "",
+                "opening": response_content.reformulation,
+                "closing": response_content.conclusion,
+            },
+        )
+        if request.method == "POST" and all((
+            question_formset.is_valid(), conversation_form.is_valid(),
+        )):
+            personal_note = response_content.nuance
+            if "prompt_note" in request.POST:
+                personal_note = conversation_form.cleaned_data["prompt_note"]
+                model_dialogue = published_dialogue(selected_prompt)
+                if model_dialogue is not None and personal_note == model_dialogue.note:
+                    personal_note = ""
             arguments = []
             question_mapping = {}
             for old_index, question_form in enumerate(question_formset, 1):
@@ -4112,13 +4129,17 @@ def edit_response(request, part_slug, task_slug, prompt_id):
                     or question_form.cleaned_data.get("DELETE")
                 ):
                     continue
+                prepared_response = question_form.cleaned_data["response"]
+                if (
+                    f"questions-{old_index - 1}-response" not in request.POST
+                    and old_index <= len(initial_questions)
+                ):
+                    prepared_response = initial_questions[old_index - 1]["response"]
                 arguments.append(
                     {
                         "order": len(arguments) + 1,
                         "idea": question_form.cleaned_data["question"],
-                        "developpement": question_form.cleaned_data[
-                            "response"
-                        ],
+                        "developpement": prepared_response,
                         "exemple": "",
                         "consequence": "",
                     }
@@ -4130,12 +4151,18 @@ def edit_response(request, part_slug, task_slug, prompt_id):
             ):
                 save_personal(
                     response, request.user, {
-                        "reformulation": "",
+                        "reformulation": (
+                            conversation_form.cleaned_data["opening"]
+                            if "opening" in request.POST else response_content.reformulation
+                        ),
                         "position": "",
                         "position_claire": "",
                         "arguments": arguments,
-                        "nuance": "",
-                        "conclusion": "",
+                        "nuance": personal_note,
+                        "conclusion": (
+                            conversation_form.cleaned_data["closing"]
+                            if "closing" in request.POST else response_content.conclusion
+                        ),
                     }, source_prompt=selected_prompt,
                 )
             return redirect(routing.subject_selection_url(f"{detail_url}?saved=1", request))
@@ -4149,6 +4176,7 @@ def edit_response(request, part_slug, task_slug, prompt_id):
                 "part": task.part,
                 "is_tache_two": True,
                 "question_formset": question_formset,
+                "conversation_form": conversation_form,
                 "has_personal_response": has_personal_response,
                 "detail_url": routing.subject_selection_url(detail_url, request),
             },

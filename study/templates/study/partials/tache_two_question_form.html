@@ -12,10 +12,6 @@
     {{ question_form.question }}
     {% for error in question_form.question.errors %}<div class="auth-field__error">{{ error }}</div>{% endfor %}
   </div>
-  <div class="response-edit-field">
-    {{ question_form.response.label_tag }}
-    {{ question_form.response }}
-    {% for error in question_form.response.errors %}<div class="auth-field__error">{{ error }}</div>{% endfor %}
-  </div>
+  {% for error in question_form.response.errors %}<div class="auth-field__error">{{ error }}</div>{% endfor %}
   <span class="response-edit-question__delete-input" aria-hidden="true">{{ question_form.DELETE }}</span>
 </fieldset>

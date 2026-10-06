@@ -27,8 +27,22 @@ class AnnotationPromptOwner:
 
 
 def variant_annotation_key(prompt, content):
+    payload = asdict(content)
+    if prompt.content_key.startswith("tache2:"):
+        from .tache_two_dialogues import matching_dialogue
+        dialogue = matching_dialogue(prompt, content)
+        payload["nuance"] = ""
+        if dialogue is not None:
+            payload["is_personal"] = False
+        payload["eo2_questions_only_layout"] = {
+            "version": 2,
+            "questions": [
+                (question.topic, question.follow_up_to, question.condition)
+                for question in dialogue.questions
+            ] if dialogue is not None else [],
+        }
     digest = hashlib.sha256(
-        json.dumps(asdict(content), sort_keys=True).encode("utf-8")
+        json.dumps(payload, sort_keys=True).encode("utf-8")
     ).hexdigest()[:16]
     return f"response:{prompt.content_key}:variant-{digest}"
 

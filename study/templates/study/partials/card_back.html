@@ -1,22 +1,23 @@
 {% if kind == "spine" %}
-  <div class="answer" data-read-aloud-text lang="fr">
+  <div class="answer"{% if not tache_two_subject %} data-read-aloud-text{% endif %} lang="fr">
     {% if tache_two_subject %}
+      {% if tache_two_dialogue %}
+        <div class="spine-block">
+          <div class="spine-label">Questions et relances · {{ subject_questions|length }} questions, relances comprises</div>
+          {% include "study/partials/tache_two_dialogue_body.html" %}
+        </div>
+      {% else %}
       <div class="spine-block">
-        <div class="spine-label">Questions à poser</div>
+        <div class="spine-label">Questions à poser</div>{% if response_content.reformulation %}<p class="eo2-personal-boundary" data-read-aloud-text lang="fr">{{ response_content.reformulation|linebreaksbr }}</p>{% endif %}
         <ol class="flashcard-question-list">
           {% for arg in arguments %}
             <li>
-              <span data-question-highlight-text="{{ forloop.counter }}">{{ arg.idea|linebreaksbr }}</span>
-              {% if arg.developpement %}
-                <span class="flashcard-question-list__response" data-question-highlight-response="{{ forloop.counter }}">
-                  <strong>Réponse préparée</strong>
-                  {{ arg.developpement|linebreaksbr }}
-                </span>
-              {% endif %}
+              <span data-question-highlight-text="{{ forloop.counter }}" data-read-aloud-text lang="fr">{{ arg.idea|linebreaksbr }}</span>
             </li>
           {% endfor %}
-        </ol>
+        </ol>{% if response_content.conclusion %}<p class="eo2-personal-boundary" data-read-aloud-text lang="fr">{{ response_content.conclusion|linebreaksbr }}</p>{% endif %}
       </div>
+      {% endif %}
       {% if aliases %}
         <div class="spine-block" style="margin-top:1rem;">
           <div class="spine-label">Sujets équivalents</div>

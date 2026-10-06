@@ -109,6 +109,56 @@ deleting learner-authored responses, overrides, highlights or completion history
 
 ## Subject pistes and oral equivalence
 
+EO task 2 provides reviewed **seven-question conversations** for all 163 semantic
+situations and their 348 published prompts. The file-backed corpus in
+`study/content/tache_2/dialogues/` uses priority-ordered topic headings,
+response-grounded follow-ups included in the seven,
+and a separate greeting and final thanks. A short English **Comprendre la consigne** note
+identifies the roles, objective, chosen tu/vous register and contextual traps;
+substantively different publications can have their own note.
+Examiner replies in the source files are editorial scaffolding only: they help
+review realism and consistency, but are never shown or seeded into learner
+responses. Subject pages, practice and the editor display questions only.
+English conditional cues explain when a follow-up fits the actual reply.
+This is an NCLC 7/8 preparation target, not a score guarantee or a fixed script:
+learners should adapt to the actual examiner's reply.
+
+`study/tache_two_dialogues.py` rejects incomplete coverage, malformed dialogues,
+duplicate questions, noncontiguous headings and invalid follow-up references.
+Subject pages, practice and the personal editor use the same current model.
+Personal questions remain private and take precedence; the editor also preserves
+editable greetings and thanks. **Modifier la note** opens the editable English
+consigne explanation in the same personal editor. It stays private, appears on
+the subject and practice front, and can be cleared to restore the publication's
+default note. EO2 uses the generic response's otherwise unused `nuance` section
+for this explanation. Note-only changes preserve the French questions, thematic
+layout and their highlights; the English note is not read aloud in French.
+Existing private prepared replies remain stored
+and exportable, but are not rendered or discarded when saving questions.
+The original batches, import models, vocabulary
+evidence, semantic memberships and learner progress are unchanged. New model
+annotation keys include dialogue structure, so old selections are not replayed on
+rewritten text; existing annotations remain available in Notes. Restart workers
+after editing the corpus; deployment imports validate the complete corpus without
+overwriting personal responses.
+
+The preparation guidance was checked against FEI's
+[TCF Canada description](https://www.france-education-international.fr/test/tcf-canada),
+[September 2026 candidate handbook, version Q](https://www.france-education-international.fr/document/manuelcandidattoutes20dc3a9clinaisonsi)
+(pages 19 and 21), and
+[oral assessment criteria](https://www.france-education-international.fr/article/evaluation-epreuves-tcf).
+Task 2 allows two minutes of preparation followed by three minutes thirty of
+interaction. The objective is obtaining relevant everyday information in the
+assigned roles, not reciting a monologue. Assessment considers linguistic control,
+interaction/coherence and appropriateness to the situation. Seven questions and
+a varied mix of question forms are teaching choices, not official quotas or
+mandatory inversion rules. Follow the actual replies and the examiner's timing.
+The handbook explicitly warns against reciting memorized texts.
+
+[IRCC's official conversion](https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html)
+maps the **whole oral test** score of 10–11/20 to NCLC 7 and 12–13/20 to NCLC 8.
+No single task or fixed set of questions guarantees either level.
+
 EO task 2 subject pages show bilingual **Pistes** (hints): short French information targets
 with English meanings, not ready-made questions. The editorial lists in
 `study/content/tache_2/subjects/hints.json` cover every semantic group, including

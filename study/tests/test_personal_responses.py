@@ -329,7 +329,7 @@ class TacheTwoPersonalResponseTests(TestCase):
         ).json()
         self.assertContains(owner_detail, "Version personnelle")
         self.assertContains(owner_detail, "Quel est votre budget personnel ?")
-        self.assertContains(owner_detail, "Samedi matin me conviendrait.")
+        self.assertNotContains(owner_detail, "Samedi matin me conviendrait.")
         self.assertEqual(
             [
                 question["text"]
@@ -341,7 +341,8 @@ class TacheTwoPersonalResponseTests(TestCase):
             ],
         )
         self.assertIn("Quand pouvons-nous nous rencontrer ?", owner_review["back_html"])
-        self.assertIn("Samedi matin me conviendrait.", owner_review["back_html"])
+        self.assertNotIn("Samedi matin me conviendrait.", owner_review["back_html"])
+        self.assertEqual(personal.arguments[1]["developpement"], "Samedi matin me conviendrait.")
 
         self.response.refresh_from_db()
         self.assertEqual(

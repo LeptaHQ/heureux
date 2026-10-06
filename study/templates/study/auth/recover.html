@@ -16,6 +16,7 @@
       <div class="auth-field">
         <label for="{{ field.id_for_label }}">{{ field.label }}</label>
         {{ field }}
+        {% if field.help_text %}<small>{{ field.help_text }}</small>{% endif %}
         {% for error in field.errors %}<small class="auth-field__error">{{ error }}</small>{% endfor %}
       </div>
     {% endfor %}

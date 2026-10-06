@@ -25,6 +25,13 @@ python -m playwright install chromium
 python manage.py test study.tests.browser_tests
 ```
 
+## Account PINs
+
+PINs accept 6–128 characters: letters (`A–Z`, `a–z`), digits, or a mix of both.
+They are case-sensitive and do not allow spaces or punctuation. Registration,
+login, PIN changes, recovery, and account confirmations use the same validation.
+Existing six-digit PINs remain valid; no account migration or PIN reset is needed.
+
 ## Notes and highlights
 
 Notes folders show 50 records per page and load only the active tab. Search and

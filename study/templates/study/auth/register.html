@@ -20,11 +20,13 @@
     <div class="auth-field">
       <label for="{{ form.pin.id_for_label }}">{{ form.pin.label }}</label>
       {{ form.pin }}
+      <small>{{ form.pin.help_text }}</small>
       {% for error in form.pin.errors %}<small class="auth-field__error">{{ error }}</small>{% endfor %}
     </div>
     <div class="auth-field">
       <label for="{{ form.pin_confirm.id_for_label }}">{{ form.pin_confirm.label }}</label>
       {{ form.pin_confirm }}
+      <small>{{ form.pin_confirm.help_text }}</small>
       {% for error in form.pin_confirm.errors %}<small class="auth-field__error">{{ error }}</small>{% endfor %}
     </div>
     <button class="btn btn--primary btn--block" type="submit">Créer mon profil</button>

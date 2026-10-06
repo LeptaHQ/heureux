@@ -5,8 +5,9 @@ from io import StringIO
 from unittest.mock import MagicMock, patch
 
 from django.contrib.auth import get_user_model
+from django.core.exceptions import ValidationError
 from django.core.management import call_command
-from django.test import Client, RequestFactory, TestCase, override_settings
+from django.test import Client, RequestFactory, SimpleTestCase, TestCase, override_settings
 from django.urls import reverse
 from django.utils import timezone
 
@@ -22,6 +23,16 @@ from study.account_services import (
     reserve_throttled_action,
     users_with_study_state,
 )
+from study.forms import (
+    PIN_MAX_LENGTH,
+    PIN_MIN_LENGTH,
+    PIN_PATTERN,
+    ChangePinForm,
+    CurrentPinForm,
+    RecoveryForm,
+    RegistrationForm,
+    UsernamePinForm,
+)
 from study.models import (
     AccountRecoveryCode,
     Annotation,
@@ -36,6 +47,38 @@ from study.models import (
 )
 
 from . import factories
+
+
+class PinFieldTests(SimpleTestCase):
+    def test_all_pin_fields_accept_letters_digits_and_longer_values(self):
+        forms = (
+            (UsernamePinForm(), ("pin",)),
+            (RegistrationForm(), ("pin", "pin_confirm")),
+            (ChangePinForm(None), ("current_pin", "new_pin", "new_pin_confirm")),
+            (RecoveryForm(), ("new_pin", "new_pin_confirm")),
+            (CurrentPinForm(None), ("current_pin",)),
+        )
+        for form, names in forms:
+            for name in names:
+                field = form.fields[name]
+                for pin in ("123456", "123456789", "AbCdEf", "LongerPin123", "a" * 128):
+                    with self.subTest(form=type(form).__name__, field=name, pin=pin):
+                        self.assertEqual(field.clean(pin), pin)
+                self.assertEqual(field.min_length, PIN_MIN_LENGTH)
+                self.assertEqual(field.max_length, PIN_MAX_LENGTH)
+                self.assertEqual(field.widget.attrs["inputmode"], "text")
+                self.assertEqual(field.widget.attrs["pattern"], PIN_PATTERN)
+                self.assertEqual(field.widget.attrs["autocapitalize"], "none")
+                html = str(form[name])
+                self.assertIn('minlength="6"', html)
+                self.assertIn('maxlength="128"', html)
+                self.assertNotIn('maxlength="6"', html)
+
+    def test_pin_fields_reject_short_long_or_non_alphanumeric_values(self):
+        field = UsernamePinForm().fields["pin"]
+        for pin in ("", "12345", "abcde", "a" * 129, "12 ab6", "12ab!6", "AbCdEf\n"):
+            with self.subTest(pin=pin), self.assertRaises(ValidationError):
+                field.clean(pin)
 
 
 @override_settings(
@@ -178,24 +221,58 @@ class AuthenticationTests(TestCase):
         self.assertContains(response, "déjà utilisé")
         self.assertEqual(get_user_model().objects.count(), 1)
 
-    def test_registration_requires_matching_six_digit_numeric_pin(self):
-        for pin, confirmation in (
+    def test_registration_requires_matching_valid_alphanumeric_pins(self):
+        for number, (pin, confirmation) in enumerate((
             ("12345", "12345"),
-            ("1234567", "1234567"),
-            ("12ab56", "12ab56"),
+            ("abcde", "abcde"),
+            ("a" * 129, "a" * 129),
+            ("12ab!6", "12ab!6"),
+            ("12 ab6", "12 ab6"),
             ("123456", "654321"),
-        ):
+            ("AbCdEf", "abcdef"),
+        )):
             with self.subTest(pin=pin, confirmation=confirmation):
                 response = self.client.post(
                     reverse("study:register"),
                     {
-                        "username": f"user{pin[:2]}{len(pin)}",
+                        "username": f"user{number}",
                         "pin": pin,
                         "pin_confirm": confirmation,
                     },
                 )
                 self.assertEqual(response.status_code, 200)
         self.assertEqual(get_user_model().objects.count(), 0)
+
+    def test_registration_and_login_accept_alphabetic_and_longer_pins(self):
+        for number, pin in enumerate(("AbCdEf", "LongerPin123", "123456789")):
+            with self.subTest(pin=pin):
+                username = f"flexible-pin-{number}"
+                response = self.client.post(
+                    reverse("study:register"),
+                    {"username": username, "pin": pin, "pin_confirm": pin},
+                )
+                self.assertRedirects(response, reverse("study:recovery_codes"))
+                user = get_user_model().objects.get(username=username)
+                self.assertNotEqual(user.password, pin)
+                self.assertTrue(user.check_password(pin))
+                self.client.post(reverse("study:logout"))
+                response = self.client.post(
+                    reverse("study:login"),
+                    {"username": username, "pin": pin},
+                )
+                self.assertRedirects(response, reverse("study:dashboard"))
+                self.assertEqual(int(self.client.session["_auth_user_id"]), user.pk)
+                self.client.post(reverse("study:logout"))
+
+    def test_alphanumeric_pin_login_is_case_sensitive(self):
+        factories.make_user("case-sensitive-pin", pin="LongerPin123")
+        response = self.client.post(
+            reverse("study:login"),
+            {"username": "case-sensitive-pin", "pin": "longerpin123"},
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertNotIn("_auth_user_id", self.client.session)
+        self.assertContains(response, "Connexion impossible")
 
     def test_login_logout_and_safe_next_redirect(self):
         user = factories.make_user("alice", pin="482731")
@@ -383,8 +460,8 @@ class AuthenticationTests(TestCase):
             {
                 "username": "RECOVER-ME",
                 "recovery_code": original_codes[0].lower(),
-                "new_pin": "731284",
-                "new_pin_confirm": "731284",
+                "new_pin": "Recovered731284",
+                "new_pin_confirm": "Recovered731284",
             },
         )
 
@@ -394,7 +471,7 @@ class AuthenticationTests(TestCase):
             fetch_redirect_response=False,
         )
         user.refresh_from_db()
-        self.assertTrue(user.check_password("731284"))
+        self.assertTrue(user.check_password("Recovered731284"))
         self.assertFalse(user.check_password("482731"))
         replacement_digests = set(
             AccountRecoveryCode.objects.filter(user=user).values_list(
@@ -427,8 +504,8 @@ class AuthenticationTests(TestCase):
             reverse("study:change_pin"),
             {
                 "current_pin": "482731",
-                "new_pin": "731284",
-                "new_pin_confirm": "731284",
+                "new_pin": "ChangedPin731284",
+                "new_pin_confirm": "ChangedPin731284",
             },
         )
 
@@ -446,6 +523,13 @@ class AuthenticationTests(TestCase):
             reverse("study:login") + "?next=/",
             fetch_redirect_response=False,
         )
+        user.refresh_from_db()
+        self.assertTrue(user.check_password("ChangedPin731284"))
+        confirmation = self.client.post(
+            reverse("study:regenerate_recovery_codes"),
+            {"current_pin": "ChangedPin731284"},
+        )
+        self.assertRedirects(confirmation, reverse("study:recovery_codes"))
 
     def test_account_export_contains_private_data_but_no_credentials(self):
         user = factories.make_user("export-user", pin="482731")

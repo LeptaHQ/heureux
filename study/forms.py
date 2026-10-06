@@ -10,12 +10,46 @@ from .models import Annotation
 from .response_personalization import effective_response
 
 USERNAME_RE = re.compile(r"^[a-z0-9][a-z0-9._-]{2,29}$")
-PIN_RE = re.compile(r"^\d{6}$")
+PIN_MIN_LENGTH = 6
+PIN_MAX_LENGTH = 128
+PIN_PATTERN = rf"[A-Za-z0-9]{{{PIN_MIN_LENGTH},{PIN_MAX_LENGTH}}}"
+PIN_RE = re.compile(rf"\A{PIN_PATTERN}\Z")
+PIN_HELP_TEXT = (
+    f"De {PIN_MIN_LENGTH} à {PIN_MAX_LENGTH} caractères : lettres (A-Z, a-z) "
+    "et chiffres. Respectez les majuscules et minuscules."
+)
 RESET_CONFIRMATION = "REINITIALISER"
 
 
 def normalize_username(value: str) -> str:
     return value.strip().lower()
+
+
+def pin_field(label: str, *, autocomplete: str) -> forms.CharField:
+    return forms.RegexField(
+        regex=PIN_RE,
+        label=label,
+        min_length=PIN_MIN_LENGTH,
+        max_length=PIN_MAX_LENGTH,
+        strip=False,
+        help_text=PIN_HELP_TEXT,
+        error_messages={
+            "invalid": (
+                f"Le code PIN doit contenir de {PIN_MIN_LENGTH} à "
+                f"{PIN_MAX_LENGTH} lettres (A-Z, a-z) ou chiffres."
+            ),
+        },
+        widget=forms.PasswordInput(
+            attrs={
+                "autocomplete": autocomplete,
+                "inputmode": "text",
+                "autocapitalize": "none",
+                "autocorrect": "off",
+                "spellcheck": "false",
+                "pattern": PIN_PATTERN,
+            }
+        ),
+    )
 
 
 class UsernamePinForm(forms.Form):
@@ -31,19 +65,7 @@ class UsernamePinForm(forms.Form):
             }
         ),
     )
-    pin = forms.CharField(
-        label="Code PIN",
-        min_length=6,
-        max_length=6,
-        strip=False,
-        widget=forms.PasswordInput(
-            attrs={
-                "autocomplete": "current-password",
-                "inputmode": "numeric",
-                "pattern": "[0-9]{6}",
-            }
-        ),
-    )
+    pin = pin_field("Code PIN", autocomplete="current-password")
 
     def clean_username(self):
         username = normalize_username(self.cleaned_data["username"])
@@ -53,26 +75,10 @@ class UsernamePinForm(forms.Form):
             )
         return username
 
-    def clean_pin(self):
-        pin = self.cleaned_data["pin"]
-        if not PIN_RE.fullmatch(pin):
-            raise forms.ValidationError("Le code PIN doit contenir exactement 6 chiffres.")
-        return pin
-
-
 class RegistrationForm(UsernamePinForm):
-    pin_confirm = forms.CharField(
-        label="Confirmer le code PIN",
-        min_length=6,
-        max_length=6,
-        strip=False,
-        widget=forms.PasswordInput(
-            attrs={
-                "autocomplete": "new-password",
-                "inputmode": "numeric",
-                "pattern": "[0-9]{6}",
-            }
-        ),
+    pin_confirm = pin_field(
+        "Confirmer le code PIN",
+        autocomplete="new-password",
     )
 
     def __init__(self, *args, **kwargs):
@@ -91,28 +97,7 @@ class RegistrationForm(UsernamePinForm):
         confirmation = cleaned.get("pin_confirm")
         if pin and confirmation and pin != confirmation:
             self.add_error("pin_confirm", "Les deux codes PIN ne correspondent pas.")
-        elif confirmation and not PIN_RE.fullmatch(confirmation):
-            self.add_error(
-                "pin_confirm",
-                "Le code PIN doit contenir exactement 6 chiffres.",
-            )
         return cleaned
-
-
-def pin_field(label: str, *, autocomplete: str) -> forms.CharField:
-    return forms.CharField(
-        label=label,
-        min_length=6,
-        max_length=6,
-        strip=False,
-        widget=forms.PasswordInput(
-            attrs={
-                "autocomplete": autocomplete,
-                "inputmode": "numeric",
-                "pattern": "[0-9]{6}",
-            }
-        ),
-    )
 
 
 class PinConfirmationMixin:
@@ -147,14 +132,6 @@ class ChangePinForm(PinConfirmationMixin, forms.Form):
         pin = self.cleaned_data["current_pin"]
         if not self.user.check_password(pin):
             raise forms.ValidationError("Le code PIN actuel est incorrect.")
-        return pin
-
-    def clean_new_pin(self):
-        pin = self.cleaned_data["new_pin"]
-        if not PIN_RE.fullmatch(pin):
-            raise forms.ValidationError(
-                "Le code PIN doit contenir exactement 6 chiffres."
-            )
         return pin
 
     def clean(self):
@@ -198,15 +175,6 @@ class RecoveryForm(PinConfirmationMixin, forms.Form):
                 "Utilisez un nom d'utilisateur valide."
             )
         return username
-
-    def clean_new_pin(self):
-        pin = self.cleaned_data["new_pin"]
-        if not PIN_RE.fullmatch(pin):
-            raise forms.ValidationError(
-                "Le code PIN doit contenir exactement 6 chiffres."
-            )
-        return pin
-
 
 class CurrentPinForm(forms.Form):
     current_pin = pin_field("Code PIN actuel", autocomplete="current-password")

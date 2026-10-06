@@ -262,6 +262,7 @@ class TacheTwoDialogueLoaderTests(SimpleTestCase):
             self.assertEqual(html.count("data-question-highlight-text="), 8)
             self.assertNotIn("data-question-highlight-response", html)
             self.assertNotIn("Réponse préparée", html)
+            self.assertNotIn("Relance possible après la question", html)
             for question in dialogue.questions:
                 self.assertNotIn(str(escape(question.answer)), html)
                 if question.condition:

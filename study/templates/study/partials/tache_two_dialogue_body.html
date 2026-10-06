@@ -10,7 +10,6 @@
         <div class="eo2-dialogue__turn">
           <span class="eo2-dialogue__number" aria-hidden="true">{{ question.number|stringformat:"02d" }}</span>
           <div class="eo2-dialogue__content">
-            {% if question.follow_up_to %}<div class="eo2-dialogue__speaker"><span class="eo2-dialogue__follow-up">Relance possible après la question {{ question.follow_up_to }}</span></div>{% endif %}
             <p class="eo2-dialogue__question" data-question-highlight-text="{{ question.number }}" data-read-aloud-text lang="fr">{{ question.text|linebreaksbr }}</p>
           </div>
         </div>

@@ -2277,6 +2277,18 @@ class EoTacheOneResponseViewTests(TestCase):
             html=True,
         )
 
+    def test_response_tab_comes_before_questions(self):
+        for url in (self.url, self.questions_url):
+            with self.subTest(url=url):
+                html = self.client.get(url).content.decode()
+                nav = html[html.index('class="task-nav'):]
+                nav = nav[: nav.index("</nav>")]
+
+                self.assertLess(
+                    nav.index(f'href="{self.url}">Réponse</a>'),
+                    nav.index(f'href="{self.questions_url}">Questions</a>'),
+                )
+
     def test_empty_response_tab_opens_the_editor(self):
         response = self.client.get(self.url)
 
@@ -2370,6 +2382,109 @@ class EoTacheOneResponseViewTests(TestCase):
         self.assertContains(page, "<ul><li>Cornell</li><li>Microsoft</li></ul>", html=True)
         self.assertContains(page, "<p>&lt;script&gt;alert(1)&lt;/script&gt;</p>", html=True)
         self.assertNotContains(page, "<script>alert(1)</script>")
+
+    def test_saved_response_is_an_annotation_root_filed_under_the_task(self):
+        PersonalTaskResponse.objects.create(
+            user=self.user,
+            task=self.task,
+            body="Je suis passionné de cinéma et de lecture.",
+        )
+
+        page = self.client.get(f"{self.url}?saved=1")
+
+        self.assertEqual(page.context["annotation_task"], self.task)
+        self.assertEqual(page.context["active_nav_area"], "expression")
+        self.assertContains(page, f'data-annotation-task-id="{self.task.pk}"')
+        self.assertContains(page, "data-annotation-root", count=1)
+        self.assertContains(
+            page,
+            'data-annotation-source-key="personal-response:eo:tache-1"',
+            count=1,
+        )
+
+    def test_editor_is_not_an_annotation_root(self):
+        response = self.client.get(self.url)
+
+        self.assertEqual(response.context["annotation_task"], self.task)
+        self.assertNotContains(response, "data-annotation-root")
+
+    def test_highlights_and_notes_follow_the_response_across_notices(self):
+        PersonalTaskResponse.objects.create(
+            user=self.user,
+            task=self.task,
+            body="Je suis passionné de cinéma et de lecture.",
+        )
+        selection = {
+            "quote": "passionné de cinéma",
+            "start_offset": "8",
+            "end_offset": "27",
+            "prefix": "Je suis ",
+            "suffix": " et de lecture.",
+            "source_title": "Ma réponse · Tâche 1",
+            "source_key": "personal-response:eo:tache-1",
+            "task_id": str(self.task.pk),
+        }
+        legacy = Annotation.objects.create(
+            user=self.user,
+            task=self.task,
+            kind=AnnotationKind.HIGHLIGHT,
+            quote="de lecture",
+            source_path=f"{self.url}?saved=1",
+            start_offset=31,
+            end_offset=41,
+        )
+
+        highlight = self.client.post(
+            reverse("study:annotation_create"),
+            {
+                **selection,
+                "kind": AnnotationKind.HIGHLIGHT,
+                "source_path": f"{self.url}?saved=1",
+            },
+        )
+        note = self.client.post(
+            reverse("study:annotation_create"),
+            {
+                **selection,
+                "kind": AnnotationKind.NOTE,
+                "body": "Citer Interstellar.",
+                "source_path": self.url,
+            },
+        )
+
+        self.assertEqual(highlight.status_code, 201)
+        self.assertEqual(note.status_code, 201)
+        saved_highlight = Annotation.objects.get(pk=highlight.json()["id"])
+        saved_note = Annotation.objects.get(pk=note.json()["id"])
+        for annotation in (saved_highlight, saved_note):
+            with self.subTest(kind=annotation.kind):
+                self.assertEqual(annotation.task, self.task)
+                self.assertEqual(annotation.source_path, self.url)
+                self.assertEqual(
+                    annotation.source_key,
+                    "personal-response:eo:tache-1",
+                )
+        for source_path in (
+            self.url,
+            f"{self.url}?saved=1",
+            f"{self.url}?deleted=1",
+        ):
+            with self.subTest(source_path=source_path):
+                restored = self.client.get(
+                    reverse("study:annotations_for_source"),
+                    {"source_path": source_path},
+                ).json()["highlights"]
+                self.assertCountEqual(
+                    [item["id"] for item in restored],
+                    [legacy.id, saved_highlight.id],
+                )
+        task_notes = self.client.get(
+            reverse(
+                "study:task_notes",
+                args=[self.task.part.slug, self.task.slug],
+            )
+        )
+        self.assertContains(task_notes, "Citer Interstellar.")
 
     def test_editor_explains_markdown_support(self):
         response = self.client.get(self.url)

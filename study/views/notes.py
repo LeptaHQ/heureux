@@ -1200,8 +1200,12 @@ def _annotation_writing_sujet_scope(sujet, tache, *, prefer_edit=False):
 
 def _annotation_source_scope(source_path):
     base_path = source_path.split("?", 1)[0]
-    if LEARNING_LESSON_PATH_RE.fullmatch(base_path):
-        # Level/search navigation does not create a different annotation source.
+    if (
+        LEARNING_LESSON_PATH_RE.fullmatch(base_path)
+        or base_path == reverse("study:eo_tache_one_response")
+    ):
+        # Level/search navigation and save/edit notices do not create a
+        # different annotation source.
         return base_path, Q(source_path=base_path) | Q(source_path__startswith=base_path + "?")
     match = SUBJECT_SOURCE_PATH_RE.fullmatch(base_path)
     if match:

@@ -72,7 +72,10 @@
         </form>
       </div>
     </header>
-    <div class="eo1-response__body markdown-prose">{{ personal_response.body|markdown_prose }}</div>
+    <div
+      class="eo1-response__body markdown-prose"
+      data-annotation-root
+      data-annotation-source-key="personal-response:{{ task.part.slug }}:{{ task.slug }}">{{ personal_response.body|markdown_prose }}</div>
     <p class="eo1-response__note">Durée estimée pour un débit posé d’environ {{ speaking_words_per_minute }} mots par minute.</p>
   </article>
   {{ personal_response.body|json_script:"eo1-response-copy" }}

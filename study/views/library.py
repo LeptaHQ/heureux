@@ -3484,6 +3484,7 @@ def eo_tache_one_response(request):
         {
             "part": task.part,
             "task": task,
+            "annotation_task": task,
             "personal_response": personal,
             "editing": editing,
             "body_value": body_value,

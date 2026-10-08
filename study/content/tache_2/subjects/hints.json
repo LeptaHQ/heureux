@@ -38,36 +38,36 @@
     ],
     "host-foreign-friends-city-advice": [
       {
-        "french": "Durée conseillée pour découvrir la ville",
-        "english": "Recommended time to explore the city"
+        "french": "Lieux prioritaires à faire découvrir à Calgary",
+        "english": "Priority places to show visitors in Calgary"
       },
       {
-        "french": "Lieux incontournables et ordre des visites",
-        "english": "Essential sights and sightseeing order"
+        "french": "Ordre des visites pour une journée à pied",
+        "english": "Visit order for a walkable day"
       },
       {
-        "french": "Musées et activités de plein air",
-        "english": "Museums and outdoor activities"
+        "french": "Activité sur l'histoire et la culture régionales",
+        "english": "Activity about regional history and culture"
       },
       {
-        "french": "Événements pendant le séjour",
-        "english": "Events during the visit"
+        "french": "Visite intérieure intéressante en cas de pluie",
+        "english": "Interesting indoor visit for a rainy day"
       },
       {
-        "french": "Restaurants pour accueillir les amis",
-        "english": "Restaurants for hosting the friends"
+        "french": "Restaurant convivial pour goûter un produit local",
+        "english": "Friendly restaurant for trying a local specialty"
       },
       {
-        "french": "Réservations de visites et de tables",
-        "english": "Bookings for visits and restaurants"
+        "french": "Budget par personne au restaurant",
+        "english": "Restaurant budget per person"
       },
       {
         "french": "Déplacements entre les lieux",
-        "english": "Travel between locations"
+        "english": "Travel between the different places"
       },
       {
-        "french": "Intérêt d'un pass touristique",
-        "english": "Value of a tourist pass"
+        "french": "Forfait de transport pour une journée",
+        "english": "Day transit pass"
       }
     ],
     "colleague-wedding-report": [
@@ -144,32 +144,32 @@
         "english": "Exact dates of dog care"
       },
       {
-        "french": "Âge et caractère du chien",
-        "english": "Dog's age and temperament"
+        "french": "Garde chez le voisin ou à votre domicile",
+        "english": "Care at the neighbour's home or your home"
       },
       {
-        "french": "Lieu de garde pendant l'absence",
-        "english": "Care location during the absence"
+        "french": "Horaires habituels des repas",
+        "english": "Usual mealtimes"
       },
       {
-        "french": "Repas et nourriture à fournir",
-        "english": "Meals and food to supply"
+        "french": "Nombre de promenades quotidiennes",
+        "english": "Number of daily walks"
       },
       {
-        "french": "Fréquence et durée des promenades",
-        "english": "Walk frequency and length"
+        "french": "Consignes particulières pendant les promenades",
+        "english": "Special instructions during walks"
       },
       {
-        "french": "Soins et habitudes à respecter",
-        "english": "Care needs and routines to follow"
+        "french": "Soins ou traitement pendant la semaine",
+        "english": "Care or treatment during the week"
       },
       {
-        "french": "Contacts en cas de problème",
-        "english": "Contacts if problems arise"
+        "french": "Contact en cas de problème de santé",
+        "english": "Contact for a health problem"
       },
       {
-        "french": "Rémunération et moment du paiement",
-        "english": "Pay and payment timing"
+        "french": "Rémunération et remboursement des dépenses urgentes",
+        "english": "Pay and reimbursement of urgent expenses"
       }
     ],
     "employee-yoga-colleague-organizer": [
@@ -348,36 +348,36 @@
     ],
     "new-employee-company-orientation": [
       {
-        "french": "Rôles dans l'équipe et responsable direct",
-        "english": "Team roles and direct manager"
+        "french": "Interlocuteur principal pendant les premiers jours",
+        "english": "Main contact during the first few days"
       },
       {
-        "french": "Ambiance et intégration des nouveaux",
-        "english": "Atmosphere and integration of new employees"
+        "french": "Moyen de joindre cette personne",
+        "english": "How to reach that person"
       },
       {
-        "french": "Répartition du travail quotidien",
-        "english": "Allocation of everyday work"
+        "french": "Horaires habituels de l'équipe",
+        "english": "Team's usual working hours"
       },
       {
-        "french": "Réunions et outils de communication",
-        "english": "Meetings and communication tools"
+        "french": "Répartition quotidienne des tâches",
+        "english": "Daily allocation of tasks"
       },
       {
-        "french": "Horaires et possibilités de télétravail",
-        "english": "Working hours and remote work options"
+        "french": "Ambiance entre les collègues",
+        "english": "Atmosphere among colleagues"
       },
       {
-        "french": "Organisation de la pause déjeuner",
-        "english": "Lunch break arrangements"
+        "french": "Endroits où déjeuner sur place",
+        "english": "Places to eat lunch on site"
       },
       {
-        "french": "Cantine éventuelle et prix des repas",
-        "english": "Canteen availability and meal prices"
+        "french": "Paiement des repas à la cantine",
+        "english": "Paying for meals in the canteen"
       },
       {
-        "french": "Solutions pour apporter son déjeuner",
-        "english": "Options for bringing lunch"
+        "french": "Habitude d'équipe utile pour s'intégrer",
+        "english": "Team custom that helps integration"
       }
     ],
     "new-quebec-resident-first-party": [
@@ -688,36 +688,36 @@
     ],
     "director-canada-fortnight-training": [
       {
-        "french": "Objectifs et contenu du stage au Canada",
-        "english": "Goals and content of the Canadian training"
+        "french": "Dates prévues pour le stage",
+        "english": "Planned training dates"
       },
       {
-        "french": "Ville et établissement de formation",
-        "english": "Training city and institution"
+        "french": "Sujets abordés pendant la formation",
+        "english": "Topics covered during training"
       },
       {
-        "french": "Formateurs et autres participants",
-        "english": "Trainers and other participants"
+        "french": "Exercices pratiques sur le logiciel",
+        "english": "Practical exercises using the software"
       },
       {
-        "french": "Hébergement réservé par l'entreprise ou personnellement",
-        "english": "Accommodation booked by employer or employee"
+        "french": "Hébergement prévu pendant le séjour",
+        "english": "Accommodation during the stay"
       },
       {
-        "french": "Transport et prise en charge du voyage",
-        "english": "Transport and travel expense coverage"
+        "french": "Trajets jusqu'au centre de formation",
+        "english": "Travel to the training centre"
       },
       {
-        "french": "Repas et activités hors formation",
-        "english": "Meals and activities outside training"
+        "french": "Frais pris en charge par l'entreprise",
+        "english": "Expenses covered by the company"
       },
       {
-        "french": "Documents et démarches éventuelles avant le départ",
-        "english": "Documents and any formalities before departure"
+        "french": "Activités prévues hors formation",
+        "english": "Activities outside training hours"
       },
       {
-        "french": "Personne à contacter pendant le séjour",
-        "english": "Contact person during the stay"
+        "french": "Temps libre pour découvrir la ville",
+        "english": "Free time to explore the city"
       }
     ],
     "new-neighbor-evening-entertainment": [
@@ -756,36 +756,36 @@
     ],
     "trusted-person-temporary-pet-care": [
       {
-        "french": "Espèce, âge et caractère de l'animal",
-        "english": "Pet's species, age and temperament"
+        "french": "Animal confié pendant l'absence",
+        "english": "Animal being left in your care"
       },
       {
-        "french": "Dates et lieu de la garde",
-        "english": "Care dates and location"
+        "french": "Dates exactes de la garde",
+        "english": "Exact care dates"
       },
       {
-        "french": "Accès au domicile si nécessaire",
-        "english": "Home access if needed"
+        "french": "Lieu où l'animal doit rester",
+        "english": "Where the animal should stay"
       },
       {
-        "french": "Repas habituels et aliments à éviter",
-        "english": "Usual meals and foods to avoid"
+        "french": "Routine habituelle pour les repas",
+        "english": "Usual feeding routine"
       },
       {
-        "french": "Promenades éventuelles et besoins d'activité",
-        "english": "Walks if needed and activity needs"
+        "french": "Autre habitude quotidienne à respecter",
+        "english": "Other daily routine to follow"
       },
       {
-        "french": "Routines et tolérance à la solitude",
-        "english": "Routines and tolerance of being alone"
+        "french": "Soin particulier à donner",
+        "english": "Any special care to provide"
       },
       {
-        "french": "Soins particuliers et médicaments éventuels",
-        "english": "Special care and any medication"
+        "french": "Comportement ou habitude à connaître",
+        "english": "Behaviour or habit to know about"
       },
       {
-        "french": "Vétérinaire et autres contacts d'urgence",
-        "english": "Vet and other emergency contacts"
+        "french": "Contacts, vétérinaire et autorisation en cas d'urgence",
+        "english": "Contacts, vet details and authorization in an emergency"
       }
     ],
     "canadian-friend-wedding-guest-preparation": [
@@ -892,36 +892,36 @@
     ],
     "friend-first-workday-report": [
       {
-        "french": "État d'esprit à l'arrivée",
-        "english": "Feelings on arrival"
+        "french": "Impression générale après la première journée",
+        "english": "Overall impression after the first day"
       },
       {
-        "french": "Accueil des collègues et ambiance découverte",
-        "english": "Colleagues' welcome and initial workplace atmosphere"
+        "french": "Premières tâches confiées à Ève",
+        "english": "First tasks assigned to Ève"
       },
       {
-        "french": "Première rencontre avec le responsable",
-        "english": "First meeting with the manager"
+        "french": "Accompagnement pour utiliser le nouveau logiciel",
+        "english": "Support with using the new software"
       },
       {
-        "french": "Tâches effectuées et formation éventuelle",
-        "english": "Tasks completed and any training"
+        "french": "Accueil réservé par les collègues",
+        "english": "How colleagues welcomed her"
       },
       {
-        "french": "Découverte des locaux",
-        "english": "First impressions of the premises"
+        "french": "Ambiance ressentie dans l'équipe",
+        "english": "Atmosphere within the team"
       },
       {
-        "french": "Déjeuner et premiers échanges",
-        "english": "Lunch and first conversations"
+        "french": "Informations les plus difficiles à retenir",
+        "english": "Information that was hardest to remember"
       },
       {
-        "french": "Difficultés et surprises de la journée",
-        "english": "Difficulties and surprises during the day"
+        "french": "Motivation pour les prochaines semaines",
+        "english": "Motivation for the coming weeks"
       },
       {
-        "french": "Bilan de la journée et envie de continuer",
-        "english": "Overall impressions and enthusiasm to continue"
+        "french": "Écart entre le poste imaginé et la réalité",
+        "english": "Difference between expectations and the actual role"
       }
     ],
     "neighbor-home-music-tutor-advice": [
@@ -994,74 +994,70 @@
     ],
     "newcomer-canada-friend-job-market": [
       {
-        "french": "Secteurs et régions qui recrutent",
-        "english": "Sectors and regions that are hiring"
+        "french": "Secteurs qui recrutent à Calgary",
+        "english": "Sectors hiring in Calgary"
       },
       {
-        "french": "Sites d'emploi et réseau professionnel",
-        "english": "Job websites and professional networks"
+        "french": "Sites et entreprises où chercher des offres",
+        "english": "Websites and companies where jobs are posted"
       },
       {
-        "french": "Candidature, CV et entretien au Canada",
-        "english": "Applications, CVs and interviews in Canada"
+        "french": "Adaptation du CV au marché canadien",
+        "english": "Adapting a CV for the Canadian market"
       },
       {
-        "french": "Profils recherchés et langues utiles",
-        "english": "Desired profiles and useful languages"
+        "french": "Vérifications avant de commencer à travailler",
+        "english": "Checks before starting work"
       },
       {
-        "french": "Accompagnement éventuel pour la recherche d'emploi",
-        "english": "Possible support with finding a job"
+        "french": "Documents prouvant le droit de travailler",
+        "english": "Documents proving the right to work"
       },
       {
-        "french": "Types de contrats et temps de travail",
-        "english": "Contract types and working hours"
+        "french": "Salaire en service à la clientèle",
+        "english": "Customer service pay"
       },
       {
-        "french": "Salaires habituels selon le secteur",
-        "english": "Typical salaries by sector"
+        "french": "Offres à temps plein ou à temps partiel",
+        "english": "Full-time or part-time openings"
       },
       {
-        "french": "Retenues salariales et avantages associés",
-        "english": "Payroll deductions and associated benefits"
-      },
-      {
-        "french": "Usages professionnels et intégration des nouveaux arrivants",
-        "english": "Workplace customs and newcomer integration"
+        "french": "Horaires et contraintes fréquentes",
+        "english": "Common schedules and constraints"
       }
     ],
     "volunteer-local-association-information-office": [
       {
-        "french": "Associations du quartier et causes défendues",
-        "english": "Local associations and causes supported"
+        "french": "Associations qui recherchent des bénévoles",
+        "english": "Associations seeking volunteers"
       },
       {
-        "french": "Missions bénévoles en équipe ou individuellement",
-        "english": "Volunteer tasks in teams or individually"
+        "french": "Public aidé par l'association alimentaire",
+        "english": "People helped by the food-aid association"
       },
       {
-        "french": "Personnes aidées par chaque association",
-        "english": "People helped by each association"
+        "french": "Missions proposées aux bénévoles",
+        "english": "Tasks offered to volunteers"
       },
       {
-        "french": "Compétences utiles et expérience nécessaire",
-        "english": "Useful skills and necessary experience"
+        "french": "Créneaux disponibles pour ces missions",
+        "english": "Available time slots for these tasks"
       },
       {
-        "french": "Formation et accompagnement au début",
-        "english": "Initial training and support"
+        "french": "Engagement régulier demandé",
+        "english": "Expected regular commitment"
       },
       {
-        "french": "Créneaux et engagement hebdomadaire attendu",
-        "english": "Time slots and expected weekly commitment"
+        "french": "Expérience nécessaire pour commencer",
+        "english": "Experience needed to start"
       },
       {
-        "french": "Inscription et interlocuteur de référence",
-        "english": "Registration and main contact person"
+        "french": "Démarche pour proposer sa candidature",
+        "english": "How to apply as a volunteer"
       },
       {
-        "french": "Remboursement éventuel des frais engagés",
-        "english": "Possible reimbursement of expenses incurred"
+        "french": "Délai avant de pouvoir commencer",
+        "english": "Time before being able to start"
       }
     ],
     "newcomer-canada-private-french-teacher": [
@@ -1176,32 +1172,32 @@
         "english": "Quebec City neighbourhood atmosphere at different times"
       },
       {
-        "french": "Relations entre voisins et façon discrète de faire connaissance",
-        "english": "Neighbour relations and a tactful way to meet them"
+        "french": "Se présenter, participer à une rencontre ou attendre une occasion informelle",
+        "english": "Introducing yourself, joining a gathering or waiting for an informal opportunity"
       },
       {
-        "french": "Commerces à pied et lieu pour les achats importants",
-        "english": "Nearby shops and where to do larger shopping"
+        "french": "Épicerie, pharmacie et boulangerie à pied; autres achats en transport",
+        "english": "Grocery store, pharmacy and bakery on foot; other shopping by transit"
       },
       {
-        "french": "Accès au centre-ville et à la gare sans voiture",
-        "english": "Reaching downtown and the station without a car"
+        "french": "Bus, métro ou train vers le centre-ville et la gare",
+        "english": "Bus, metro or train to downtown and the station"
       },
       {
         "french": "École, clinique, bibliothèque et services de proximité",
         "english": "Nearby school, clinic, library and community services"
       },
       {
-        "french": "Activités pour découvrir le quartier",
-        "english": "Activities for discovering the neighbourhood"
+        "french": "Sport, ateliers, bénévolat ou sorties pour rencontrer des habitants",
+        "english": "Sports, workshops, volunteering or outings for meeting residents"
       },
       {
-        "french": "Inscription à la première activité choisie",
-        "english": "Registration for the first chosen activity"
+        "french": "Inscription en ligne, sur place ou participation libre",
+        "english": "Online, in-person or drop-in participation"
       },
       {
-        "french": "Horaires et annonces en ligne ou affichés localement",
-        "english": "Schedules and announcements online or on local noticeboards"
+        "french": "Site, réseaux sociaux, bulletin ou affichage pour suivre les annonces",
+        "english": "Website, social media, bulletin or noticeboard for local updates"
       }
     ],
     "friend-films-for-association-review": [
@@ -1338,70 +1334,70 @@
     ],
     "canadian-work-hours-home-country-comparison": [
       {
-        "french": "Journée et semaine de travail selon le secteur",
-        "english": "Working day and week by sector"
+        "french": "Horaires habituels de Pierre",
+        "english": "Pierre's usual working hours"
       },
       {
         "french": "Jours de repos et travail le week-end",
         "english": "Days off and weekend work"
       },
       {
-        "french": "Souplesse des horaires et télétravail",
-        "english": "Flexible hours and remote work"
+        "french": "Durée et souplesse de la pause déjeuner",
+        "english": "Length and flexibility of the lunch break"
       },
       {
-        "french": "Paiement ou récupération des heures supplémentaires",
-        "english": "Overtime pay or time off in lieu"
+        "french": "Possibilité de décaler les horaires",
+        "english": "Ability to shift working hours"
       },
       {
-        "french": "Pauses déjeuner comparées au pays d'origine",
-        "english": "Lunch breaks compared with the home country"
+        "french": "Nombre de jours de vacances annuels",
+        "english": "Annual vacation allowance"
       },
       {
-        "french": "Congés annuels ici et au pays",
-        "english": "Annual leave here and back home"
+        "french": "Accord nécessaire pour prendre ses congés",
+        "english": "Approval needed to take vacation"
       },
       {
-        "french": "Jours fériés selon les provinces",
-        "english": "Public holidays by province"
+        "french": "Organisation pendant les jours fériés",
+        "english": "Work arrangements on public holidays"
       },
       {
-        "french": "Équilibre personnel et professionnel comparé au pays",
-        "english": "Work–life balance compared with back home"
+        "french": "Compensation des heures supplémentaires",
+        "english": "Compensation for overtime"
       }
     ],
     "friend-three-year-old-weekend-care": [
       {
-        "french": "Repas habituels et aliments préférés",
-        "english": "Usual meals and favourite foods"
+        "french": "Repas et goûter habituels",
+        "english": "Usual meals and snacks"
       },
       {
-        "french": "Allergies et aliments interdits éventuels",
-        "english": "Any allergies and forbidden foods"
+        "french": "Aliments à ne pas lui donner",
+        "english": "Foods she must not eat"
       },
       {
-        "french": "Jeux favoris et sorties adaptées",
-        "english": "Favourite games and suitable outings"
+        "french": "Activités qui l'occupent à la maison",
+        "english": "Activities that keep her busy at home"
       },
       {
-        "french": "Réactions à la fatigue et réconfort",
-        "english": "Reactions to tiredness and ways to comfort"
+        "french": "Petite sortie adaptée à son âge",
+        "english": "Short outing suited to her age"
       },
       {
-        "french": "Horaires du coucher et de la sieste",
-        "english": "Bedtime and nap times"
+        "french": "Routine habituelle pour la sieste",
+        "english": "Usual nap routine"
       },
       {
-        "french": "Rituels de sommeil, réveils nocturnes et doudou éventuel",
-        "english": "Sleep routines, night waking and any comfort toy"
+        "french": "Rituel qui l'aide à s'endormir le soir",
+        "english": "Bedtime ritual that helps her sleep"
       },
       {
-        "french": "Soins, médicaments éventuels, doses et horaires",
-        "english": "Care, any medication, doses and timing"
+        "french": "Façon de la rassurer pendant la nuit",
+        "english": "How to comfort her during the night"
       },
       {
-        "french": "Contacts parentaux et médicaux en cas d'urgence",
-        "english": "Parent and medical contacts for emergencies"
+        "french": "Parent et proche à joindre en cas de besoin",
+        "english": "Parent and backup contact in case of need"
       }
     ],
     "colleague-invitation-unspecified-show": [
@@ -1554,8 +1550,8 @@
     ],
     "canada-newcomer-settlement-friend": [
       {
-        "french": "Quartiers bien desservis pour débuter à Calgary",
-        "english": "Well-connected neighbourhoods for starting out in Calgary"
+        "french": "Logement temporaire, colocation ou appartement dans un quartier bien desservi",
+        "english": "Temporary housing, shared housing or an apartment in a connected area"
       },
       {
         "french": "Loyers d'une chambre ou d'un petit appartement",
@@ -1566,24 +1562,24 @@
         "english": "Priority steps during the first week"
       },
       {
-        "french": "Démarches possibles sans adresse définitive",
-        "english": "Steps possible without a permanent address"
+        "french": "Démarches exigeant une adresse ou possibles en ligne avec ses documents",
+        "english": "Steps requiring an address or possible online with your documents"
       },
       {
         "french": "Déplacements à Calgary sans voiture",
         "english": "Getting around Calgary without a car"
       },
       {
-        "french": "Commerces et services ouverts le soir",
-        "english": "Shops and services open in the evening"
+        "french": "Épicerie, pharmacie, banque et magasin à petits prix ouverts le soir",
+        "english": "Grocery store, pharmacy, bank and discount store open in the evening"
       },
       {
-        "french": "Soins avant d'avoir un médecin de famille",
-        "english": "Healthcare before finding a family doctor"
+        "french": "Service provincial, clinique ou consultation sans rendez-vous",
+        "english": "Provincial service, clinic or walk-in care"
       },
       {
-        "french": "Activité régulière pour rencontrer du monde",
-        "english": "Regular activity for meeting people"
+        "french": "Conversation, sport, bénévolat ou atelier pour rencontrer du monde",
+        "english": "Conversation group, sport, volunteering or workshop for meeting people"
       }
     ],
     "canadian-press-newsagent-selection": [
@@ -1864,32 +1860,32 @@
         "english": "Number and ages of the children"
       },
       {
-        "french": "Jours, horaires et fréquence de garde",
-        "english": "Care days, times and frequency"
+        "french": "Jours et horaires à couvrir",
+        "english": "Days and times to cover"
       },
       {
-        "french": "Tâches auprès des enfants et ménage éventuel",
-        "english": "Childcare duties and any housework"
+        "french": "Tâches attendues pendant la garde",
+        "english": "Expected childcare duties"
       },
       {
-        "french": "Trajets scolaires ou activités à assurer",
-        "english": "School or activity transport to provide"
+        "french": "Consignes particulières pour les repas",
+        "english": "Special instructions for meals"
       },
       {
-        "french": "Règles familiales et besoins particuliers",
-        "english": "Family rules and particular needs"
+        "french": "Expérience recherchée chez la baby-sitter",
+        "english": "Desired babysitting experience"
       },
       {
-        "french": "Expérience et références de la personne recherchée",
-        "english": "Experience and references of the desired sitter"
+        "french": "Salaire proposé pour la garde",
+        "english": "Pay offered for the childcare"
       },
       {
-        "french": "Salaire proposé et base de rémunération",
-        "english": "Proposed pay and basis of payment"
+        "french": "Durée prévue du besoin de garde",
+        "english": "How long childcare will be needed"
       },
       {
-        "french": "Date de début et urgence du besoin",
-        "english": "Start date and urgency of the need"
+        "french": "Organisation d'une première rencontre",
+        "english": "Arranging an initial meeting"
       }
     ],
     "hotel-host-services": [
@@ -2038,32 +2034,32 @@
         "english": "Departure and return dates"
       },
       {
-        "french": "Fréquence des visites à prévoir",
-        "english": "Expected frequency of visits"
+        "french": "Courrier, colis et plantes pendant l'absence",
+        "english": "Mail, packages and plants during the absence"
       },
       {
-        "french": "Clés, codes et restitution",
+        "french": "Fréquence souhaitée des passages",
+        "english": "Desired frequency of visits"
+      },
+      {
+        "french": "Remise des clés, codes et restitution",
         "english": "Keys, access codes and key return"
       },
       {
-        "french": "Alarme éventuelle et consignes de sécurité",
-        "english": "Any alarm and security instructions"
+        "french": "Vérifications de sécurité : fenêtres, robinets, chauffage et alarme",
+        "english": "Security checks: windows, taps, heating and alarm"
       },
       {
-        "french": "Courrier et colis à récupérer",
-        "english": "Mail and packages to collect"
+        "french": "Moyen de joindre l'ami en cas de problème",
+        "english": "How to reach the friend if a problem arises"
       },
       {
-        "french": "Soins aux plantes ou animaux éventuels",
-        "english": "Care for any plants or pets"
+        "french": "Personne à contacter si l'ami est injoignable",
+        "english": "Backup contact if the friend cannot be reached"
       },
       {
-        "french": "Vérifications prioritaires dans l'appartement",
-        "english": "Priority checks inside the apartment"
-      },
-      {
-        "french": "Personnes à joindre en cas d'urgence",
-        "english": "People to contact in an emergency"
+        "french": "Message après chaque passage",
+        "english": "Update after each visit"
       }
     ],
     "station-stranger-mountain-passion": [
@@ -2318,16 +2314,16 @@
         "english": "Work needed before moving into the apartment"
       },
       {
-        "french": "Ambiance et commodités du quartier de Beltline",
-        "english": "Atmosphere and amenities in Beltline"
+        "french": "Commerces, parcs, transports et vie sans voiture à Beltline",
+        "english": "Shops, parks, transport and car-free living in Beltline"
       },
       {
         "french": "Prix de vente demandé",
         "english": "Asking price"
       },
       {
-        "french": "Charges mensuelles de copropriété",
-        "english": "Monthly condominium fees"
+        "french": "Charges mensuelles et services compris",
+        "english": "Monthly condominium fees and included services"
       },
       {
         "french": "Travaux importants prévus dans l'immeuble",
@@ -2374,104 +2370,104 @@
     ],
     "friend-homeless-meal-volunteering": [
       {
-        "french": "Quartiers desservis et personnes aidées",
-        "english": "Neighborhoods served and people supported"
+        "french": "Déroulement complet d'une distribution",
+        "english": "How a full meal distribution works"
       },
       {
-        "french": "Missions et déroulement des distributions",
-        "english": "Duties and meal distribution process"
+        "french": "Première tâche confiée aux nouveaux",
+        "english": "First task given to new volunteers"
       },
       {
-        "french": "Précautions auprès des personnes sans abri",
-        "english": "Precautions when helping people experiencing homelessness"
+        "french": "Jours et horaires des distributions",
+        "english": "Meal distribution days and times"
       },
       {
-        "french": "Compétences utiles et accompagnement des débutants",
-        "english": "Useful skills and support for newcomers"
+        "french": "Participation ponctuelle ou engagement chaque semaine",
+        "english": "Occasional participation or weekly commitment"
       },
       {
-        "french": "Horaires et engagement hebdomadaire",
-        "english": "Schedule and weekly time commitment"
+        "french": "Expérience nécessaire pour commencer",
+        "english": "Experience needed to start"
       },
       {
-        "french": "Démarches pour rejoindre les bénévoles",
-        "english": "Steps to join the volunteers"
+        "french": "Consignes d'hygiène avant le service",
+        "english": "Hygiene rules before serving food"
       },
       {
-        "french": "Gants et matériel à prévoir",
-        "english": "Gloves and equipment needed"
+        "french": "Accueil lors de la première participation",
+        "english": "Support during the first shift"
       },
       {
-        "french": "Remboursement éventuel des frais",
-        "english": "Possible reimbursement of expenses"
+        "french": "Contact pour proposer son aide",
+        "english": "Contact for offering to help"
       }
     ],
     "former-colleague-new-job-to-change-employment": [
       {
-        "french": "Secteur et activités de l'entreprise",
-        "english": "Company sector and business activities"
+        "french": "Poste occupé dans la nouvelle entreprise",
+        "english": "Role in the new company"
       },
       {
-        "french": "Nouveau poste et responsabilités quotidiennes",
-        "english": "New role and daily responsibilities"
+        "french": "Tâches qui occupent les journées",
+        "english": "Tasks that fill the working day"
       },
       {
-        "french": "Horaires et possibilités de télétravail",
-        "english": "Working hours and remote work options"
+        "french": "Ambiance entre les collègues",
+        "english": "Atmosphere among colleagues"
       },
       {
-        "french": "Accueil et relations avec les collègues",
-        "english": "Welcome and relationships with coworkers"
+        "french": "Horaires habituels de travail",
+        "english": "Usual working hours"
       },
       {
-        "french": "Salaire et avantages proposés",
-        "english": "Salary and benefits offered"
+        "french": "Fourchette de salaire pour ce poste",
+        "english": "Salary range for this role"
       },
       {
-        "french": "Points forts et limites du poste",
-        "english": "Strengths and drawbacks of the role"
+        "french": "Possibilités d'évolution",
+        "english": "Career development opportunities"
       },
       {
-        "french": "Recrutements en cours ou à venir",
-        "english": "Current or upcoming recruitment"
+        "french": "Moyen de suivre les recrutements",
+        "english": "How to find current vacancies"
       },
       {
-        "french": "Compétences recherchées et adéquation du profil",
-        "english": "Skills sought and suitability of background"
+        "french": "Profils et compétences recherchés",
+        "english": "Profiles and skills sought"
       }
     ],
     "animal-protection-association-invitation": [
       {
-        "french": "Actions de protection et événements proposés",
-        "english": "Animal protection work and planned events"
+        "french": "Principales actions de l'association",
+        "english": "Association's main activities"
       },
       {
-        "french": "Espèces animales prises en charge",
-        "english": "Animal species cared for"
+        "french": "Service proposé pour adopter un animal",
+        "english": "Service offered to prospective adopters"
       },
       {
-        "french": "Lieux des différentes missions",
-        "english": "Locations of the different activities"
+        "french": "Public visé par les campagnes d'information",
+        "english": "Audience for awareness campaigns"
       },
       {
-        "french": "Public concerné et conditions de participation",
-        "english": "Intended participants and participation conditions"
+        "french": "Premières missions confiées aux bénévoles",
+        "english": "First tasks given to volunteers"
       },
       {
-        "french": "Compétences utiles et formation initiale",
-        "english": "Useful skills and initial training"
+        "french": "Engagement de temps attendu",
+        "english": "Expected time commitment"
       },
       {
-        "french": "Fréquence et durée de l'engagement",
-        "english": "Frequency and length of commitment"
+        "french": "Compétences nécessaires pour commencer",
+        "english": "Skills needed to start"
       },
       {
-        "french": "Matériel et précautions avec les animaux",
-        "english": "Equipment and precautions around animals"
+        "french": "Déroulement de la formation",
+        "english": "How the training works"
       },
       {
-        "french": "Adhésion et cotisation éventuelle",
-        "english": "Joining and any membership fee"
+        "french": "Démarche pour rejoindre l'association",
+        "english": "How to join the association"
       }
     ],
     "acquaintance-recent-cinema-film": [
@@ -2510,36 +2506,36 @@
     ],
     "new-colleague-quebec-career-migration": [
       {
-        "french": "Temps vécu au Québec et arrivée ici",
-        "english": "Time lived in Quebec and arrival here"
+        "french": "Formation suivie par le collègue",
+        "english": "Colleague's educational background"
       },
       {
-        "french": "Motivations du départ du Québec",
-        "english": "Reasons for leaving Quebec"
+        "french": "Premier poste occupé",
+        "english": "First job"
       },
       {
-        "french": "Études suivies et lieux de formation",
-        "english": "Studies pursued and places of education"
+        "french": "Expériences professionnelles à l'étranger",
+        "english": "Previous work experience abroad"
       },
       {
-        "french": "Premiers emplois et expériences à l'étranger",
-        "english": "First jobs and experience abroad"
+        "french": "Motivation pour venir travailler ici",
+        "english": "Reason for coming to work here"
       },
       {
-        "french": "Différences entre les milieux professionnels",
-        "english": "Differences between work environments"
+        "french": "Difficulté rencontrée à l'arrivée",
+        "english": "Difficulty encountered on arrival"
       },
       {
-        "french": "Difficultés rencontrées lors de l'installation",
-        "english": "Difficulties encountered when settling in"
+        "french": "Aide reçue pour surmonter les difficultés",
+        "english": "Help received to overcome difficulties"
       },
       {
-        "french": "Aides reçues et moyens d'adaptation",
-        "english": "Support received and ways of adapting"
+        "french": "Apports professionnels de l'expérience",
+        "english": "Professional benefits of the experience"
       },
       {
-        "french": "Apports de l'expatriation et regrets éventuels",
-        "english": "Benefits of moving abroad and any regrets"
+        "french": "Différence qui a demandé le plus d'adaptation",
+        "english": "Difference requiring the most adjustment"
       }
     ],
     "quebec-newcomer-estate-agency-housing-procedures": [
@@ -2612,36 +2608,36 @@
     ],
     "recruiter-scheduled-interview-preparation": [
       {
-        "french": "Confirmation de l'heure et durée prévue",
-        "english": "Confirmed time and expected duration"
+        "french": "Heure d'arrivée le jour de l'entretien",
+        "english": "Arrival time on interview day"
       },
       {
         "french": "Entretien sur place ou à distance",
         "english": "In-person or remote interview"
       },
       {
+        "french": "Endroit où se présenter en arrivant",
+        "english": "Where to report on arrival"
+      },
+      {
+        "french": "Durée prévue de l'entretien",
+        "english": "Expected interview duration"
+      },
+      {
+        "french": "Déroulement de l'échange",
+        "english": "How the interview will proceed"
+      },
+      {
         "french": "Personnes présentes à l'entretien",
         "english": "People attending the interview"
       },
       {
-        "french": "Déroulement et tests éventuels",
-        "english": "Interview format and any tests"
+        "french": "Documents et éléments à préparer",
+        "english": "Documents and materials to prepare"
       },
       {
-        "french": "Présentation et documents à préparer",
-        "english": "Presentation and documents to prepare"
-      },
-      {
-        "french": "Aspects du poste abordés",
-        "english": "Aspects of the role to discuss"
-      },
-      {
-        "french": "Contact en cas d'empêchement",
-        "english": "Contact if unable to attend"
-      },
-      {
-        "french": "Étapes suivantes et délais du recrutement",
-        "english": "Next stages and recruitment timelines"
+        "french": "Délai pour connaître la suite du processus",
+        "english": "Timeline for hearing about next steps"
       }
     ],
     "friend-city-housing-search-advice": [
@@ -2654,12 +2650,12 @@
         "english": "Calmest neighbourhood among the suggestions"
       },
       {
-        "french": "Services utiles à High Park",
-        "english": "Useful services in High Park"
+        "french": "Épiceries, pharmacies, clinique et cafés à High Park",
+        "english": "Grocery stores, pharmacies, clinic and cafés in High Park"
       },
       {
-        "french": "Transports en commun à High Park",
-        "english": "Public transport in High Park"
+        "french": "Métro, bus et possibilité de vivre sans voiture à High Park",
+        "english": "Metro, buses and car-free living in High Park"
       },
       {
         "french": "Loyer d'un petit appartement dans ce secteur",
@@ -2782,36 +2778,36 @@
     ],
     "colleague-internal-job-change": [
       {
-        "french": "Date et nature du changement interne",
-        "english": "Timing and nature of the internal move"
+        "french": "Contenu du nouveau poste",
+        "english": "What the new role involves"
       },
       {
-        "french": "Nouvelles tâches et responsabilités",
-        "english": "New duties and responsibilities"
+        "french": "Nombre de réunions lié à la coordination",
+        "english": "Number of meetings in the coordination role"
       },
       {
-        "french": "Évolution des horaires de travail",
-        "english": "Changes to working hours"
+        "french": "Changement éventuel des horaires",
+        "english": "Any change to working hours"
       },
       {
-        "french": "Formation et accompagnement pendant la transition",
-        "english": "Training and support during the transition"
+        "french": "Télétravail du vendredi selon le poste",
+        "english": "Friday remote work for this role"
       },
       {
-        "french": "Relations avec l'équipe",
-        "english": "Relationships within the team"
+        "french": "Augmentation liée au changement de poste",
+        "english": "Pay rise linked to the internal move"
       },
       {
-        "french": "Évolution de la rémunération",
-        "english": "Changes in pay"
+        "french": "Montant possible de la prime",
+        "english": "Possible bonus amount"
       },
       {
-        "french": "Satisfactions et difficultés du nouveau rôle",
-        "english": "Rewards and challenges of the new role"
+        "french": "Façon d'obtenir le nouveau poste",
+        "english": "How the new role was obtained"
       },
       {
-        "french": "Objectifs dans cette nouvelle fonction",
-        "english": "Goals in this new position"
+        "french": "Compétence déterminante pour la mobilité",
+        "english": "Key skill for the internal move"
       }
     ],
     "home-chef-family-meal": [
@@ -3508,36 +3504,36 @@
     ],
     "friend-entertain-visiting-nephews": [
       {
-        "french": "Sorties adaptées à l'âge des neveux",
-        "english": "Outings suited to the nephews' ages"
+        "french": "Activités à proposer à la maison",
+        "english": "Activities to do at home"
       },
       {
-        "french": "Parcs et activités par beau temps",
-        "english": "Parks and activities in good weather"
+        "french": "Idée qui demande le moins de préparation",
+        "english": "Idea requiring the least preparation"
       },
       {
-        "french": "Solutions en intérieur les jours de pluie",
-        "english": "Indoor options for rainy days"
+        "french": "Activité physique sans sortir",
+        "english": "Physical activity without going out"
       },
       {
-        "french": "Jeux de société à la maison",
-        "english": "Board games at home"
+        "french": "Sortie pour permettre aux neveux de bouger",
+        "english": "Outing where the nephews can be active"
       },
       {
-        "french": "Activités calmes avant le coucher",
-        "english": "Quiet activities before bedtime"
+        "french": "Sortie intérieure en cas de pluie",
+        "english": "Indoor outing for a rainy day"
       },
       {
-        "french": "Idées gratuites ou peu coûteuses",
-        "english": "Free or inexpensive ideas"
+        "french": "Réservation nécessaire pour le musée",
+        "english": "Whether the museum requires booking"
       },
       {
-        "french": "Transport et réservations à anticiper",
-        "english": "Transport and bookings to plan ahead"
+        "french": "Jeu de société facile à expliquer",
+        "english": "Board game that is easy to explain"
       },
       {
-        "french": "Fatigue et risques à éviter",
-        "english": "Fatigue and risks to avoid"
+        "french": "Jeu calme avant le coucher",
+        "english": "Quiet game before bedtime"
       }
     ],
     "canada-newcomer-municipal-settlement-service": [
@@ -3550,8 +3546,8 @@
         "english": "Rent by housing type and area"
       },
       {
-        "french": "Conditions d'accès au logement à loyer réduit",
-        "english": "Eligibility for reduced-rent housing"
+        "french": "Conditions et délai pour un logement à loyer réduit",
+        "english": "Eligibility and wait for reduced-rent housing"
       },
       {
         "french": "Premières démarches administratives",
@@ -3562,50 +3558,50 @@
         "english": "City hall services and other government offices"
       },
       {
-        "french": "Rendez-vous au centre d'accueil",
-        "english": "Appointment with the newcomer centre"
+        "french": "Réservation et documents pour le centre d'accueil",
+        "english": "Booking and documents for the newcomer centre"
       },
       {
-        "french": "Services municipaux pour s'intégrer à Calgary",
-        "english": "Municipal services for settling into Calgary"
+        "french": "Français, emploi et découverte de Calgary",
+        "english": "French practice, employment and discovering Calgary"
       },
       {
-        "french": "Fonctionnement du programme de jumelage",
-        "english": "How the volunteer matching program works"
+        "french": "Inscription et accompagnement du programme de jumelage",
+        "english": "Registration and support in the volunteer matching program"
       }
     ],
     "friend-upcoming-job-interview-advice": [
       {
-        "french": "Déroulement habituel et durée approximative",
-        "english": "Typical format and approximate duration"
+        "french": "Préparation pendant les prochains jours",
+        "english": "Preparation during the coming days"
       },
       {
-        "french": "Recherches préalables sur l'entreprise",
-        "english": "Advance research about the company"
+        "french": "Exemples professionnels les plus convaincants",
+        "english": "Most convincing professional examples"
       },
       {
-        "french": "Présentation du parcours et des expériences",
-        "english": "Presenting background and experience"
+        "french": "Questions à préparer avant l'entretien",
+        "english": "Questions to prepare before the interview"
       },
       {
-        "french": "Questions probables du recruteur",
-        "english": "Likely questions from the recruiter"
+        "french": "Tenue sobre adaptée au secteur",
+        "english": "Professional clothing suited to the sector"
       },
       {
-        "french": "Tenue et attitude adaptées",
-        "english": "Suitable clothing and attitude"
+        "french": "Façon de connaître les habitudes vestimentaires",
+        "english": "How to learn the company's dress norms"
       },
       {
-        "french": "CV et références à préparer",
-        "english": "Resume and references to prepare"
+        "french": "Attitude pour donner une bonne impression",
+        "english": "How to make a good impression"
       },
       {
-        "french": "Gestion du stress et erreurs à éviter",
-        "english": "Managing stress and mistakes to avoid"
+        "french": "Durée habituelle d'un entretien",
+        "english": "Typical interview duration"
       },
       {
-        "french": "Questions à préparer pour le recruteur",
-        "english": "Questions to prepare for the recruiter"
+        "french": "Questions à poser au recruteur à la fin",
+        "english": "Questions to ask the recruiter at the end"
       }
     ],
     "friend-choose-television-series": [
@@ -3716,36 +3712,36 @@
     ],
     "acquaintance-new-job-overall-experience": [
       {
-        "french": "Activité de l'entreprise et poste occupé",
-        "english": "Company business and position held"
+        "french": "Débuts et premières responsabilités",
+        "english": "Early experience and first responsibilities"
       },
       {
-        "french": "Formation et accueil à l'arrivée",
-        "english": "Training and welcome when starting"
+        "french": "Accompagnement avant le travail autonome",
+        "english": "Support before working independently"
       },
       {
-        "french": "Collègues, responsable et ambiance d'équipe",
-        "english": "Coworkers, manager and team atmosphere"
+        "french": "Journée de travail typique",
+        "english": "Typical working day"
       },
       {
-        "french": "Locaux et trajet domicile-travail",
-        "english": "Workplace facilities and commute"
+        "french": "Collègues et ambiance d'équipe",
+        "english": "Coworkers and team atmosphere"
       },
       {
-        "french": "Horaires et organisation quotidienne",
-        "english": "Working hours and daily organization"
+        "french": "Aménagement des locaux et espaces communs",
+        "english": "Workplace layout and shared spaces"
       },
       {
-        "french": "Contrat et avantages du poste",
-        "english": "Employment contract and job benefits"
+        "french": "Avantages offerts par l'employeur",
+        "english": "Benefits offered by the employer"
       },
       {
-        "french": "Premières impressions et difficultés éventuelles",
-        "english": "Initial impressions and any difficulties"
+        "french": "Part du passe de transport remboursée",
+        "english": "Share of the transit pass reimbursed"
       },
       {
-        "french": "Possibilités d'apprentissage et d'évolution",
-        "english": "Learning and career development opportunities"
+        "french": "Activités organisées entre collègues",
+        "english": "Activities organized for coworkers"
       }
     ],
     "medical-secretary-temporary-replacement-doctor": [
@@ -3754,32 +3750,32 @@
         "english": "Identity of the replacement doctor"
       },
       {
-        "french": "Durée du remplacement et retour prévu",
-        "english": "Replacement duration and expected return"
+        "french": "Prise en charge des patients habituels",
+        "english": "Care for the regular doctor's patients"
       },
       {
-        "french": "Lieu et horaires des consultations",
-        "english": "Consultation location and hours"
+        "french": "Accès au dossier médical au cabinet",
+        "english": "Access to the medical record at the clinic"
       },
       {
-        "french": "Prise de rendez-vous et délais actuels",
-        "english": "Appointment booking and current waiting times"
+        "french": "Date de fin du remplacement",
+        "english": "Replacement end date"
       },
       {
-        "french": "Accès au dossier et documents à apporter",
-        "english": "Access to records and documents to bring"
+        "french": "Jours de consultation",
+        "english": "Consultation days"
       },
       {
-        "french": "Possibilité de renouveler les ordonnances habituelles",
-        "english": "Possibility of renewing regular prescriptions"
+        "french": "Heures de consultation",
+        "english": "Consultation hours"
       },
       {
-        "french": "Tarifs comparés aux consultations habituelles",
-        "english": "Fees compared with usual consultations"
+        "french": "Rendez-vous en ligne ou par téléphone",
+        "english": "Booking online or by phone"
       },
       {
-        "french": "Contact d'urgence pendant l'absence",
-        "english": "Emergency contact during the absence"
+        "french": "Délai pour obtenir une consultation",
+        "english": "Wait for an appointment"
       }
     ],
     "experienced-blogger-start-travel-blog": [
@@ -3894,40 +3890,36 @@
     ],
     "grocery-store-home-delivery": [
       {
-        "french": "Commande minimale et frais",
-        "english": "Minimum order and delivery fees"
+        "french": "Quartiers desservis par la livraison",
+        "english": "Neighbourhoods covered by delivery"
       },
       {
-        "french": "Délais et créneaux disponibles",
-        "english": "Delivery lead times and available slots"
+        "french": "Commande sur le site, dans l'application ou par téléphone",
+        "english": "Ordering on the website, in the app or by phone"
       },
       {
-        "french": "Conservation des produits frais et surgelés",
-        "english": "Keeping fresh and frozen groceries cold"
+        "french": "Montant minimum de commande",
+        "english": "Minimum order amount"
       },
       {
-        "french": "Suivi du livreur",
-        "english": "Tracking the delivery driver"
+        "french": "Délai entre commande et livraison",
+        "english": "Time from order to delivery"
       },
       {
-        "french": "Livraison jusqu'à la porte",
-        "english": "Delivery to the doorstep"
+        "french": "Choix d'un créneau de livraison",
+        "english": "Choosing a delivery time slot"
       },
       {
-        "french": "Nouveau créneau en cas d'absence",
-        "english": "Rescheduling delivery if nobody is home"
+        "french": "Frais de livraison et seuil de gratuité",
+        "english": "Delivery fee and free-delivery threshold"
       },
       {
-        "french": "Paiement des courses et de la livraison",
-        "english": "Payment for groceries and delivery"
+        "french": "Transport des produits frais et surgelés",
+        "english": "Transport of fresh and frozen groceries"
       },
       {
-        "french": "Réclamation pour produits manquants ou abîmés",
-        "english": "Complaints about missing or damaged products"
-      },
-      {
-        "french": "Modification ou annulation de commande",
-        "english": "Changing or cancelling an order"
+        "french": "Solution en cas d'absence à la livraison",
+        "english": "What happens if nobody is home"
       }
     ],
     "owner-holiday-letting-estate-agency-advice": [
@@ -3940,8 +3932,8 @@
         "english": "Adjusting the price in high season"
       },
       {
-        "french": "Durée minimale de séjour conseillée",
-        "english": "Recommended minimum stay"
+        "french": "Durée minimale pour limiter rotations et frais de ménage",
+        "english": "Minimum stay to limit guest turnover and cleaning costs"
       },
       {
         "french": "Profil de locataires intéressés",
@@ -4110,32 +4102,32 @@
         "english": "Current state of health"
       },
       {
-        "french": "Moment et lieu de l'accident",
-        "english": "Time and place of the accident"
+        "french": "Aide concrète nécessaire maintenant",
+        "english": "Practical help needed now"
       },
       {
-        "french": "Circonstances de l'accident",
-        "english": "Circumstances of the accident"
+        "french": "Moment où l'accident s'est produit",
+        "english": "When the accident happened"
       },
       {
-        "french": "Aide reçue sur place",
-        "english": "Help received at the scene"
+        "french": "Lieu où l'accident s'est produit",
+        "english": "Where the accident happened"
       },
       {
-        "french": "Soins éventuels et temps de récupération",
-        "english": "Any treatment and recovery time"
+        "french": "Déroulement de l'accident",
+        "english": "How the accident happened"
       },
       {
-        "french": "Limites temporaires et reprise du travail",
-        "english": "Temporary limitations and returning to work"
+        "french": "Message à transmettre à l'équipe",
+        "english": "Message to pass on to the team"
       },
       {
-        "french": "Aide utile au quotidien",
-        "english": "Useful help with daily tasks"
+        "french": "Date possible de retour au travail",
+        "english": "Possible return-to-work date"
       },
       {
-        "french": "Nouvelles à transmettre aux collègues",
-        "english": "Updates to share with colleagues"
+        "french": "Affaires à apporter depuis le bureau",
+        "english": "Items to bring from the office"
       }
     ],
     "canada-newcomer-apartment-procedure-unspecified-adviser": [
@@ -4212,36 +4204,36 @@
     ],
     "retirement-party-invitation": [
       {
-        "french": "Date de la fête de retraite",
-        "english": "Date of the retirement party"
+        "french": "Jour et heure de début de la soirée",
+        "english": "Party date and start time"
       },
       {
-        "french": "Lieu et accès à la soirée",
-        "english": "Venue and getting to the party"
+        "french": "Lieu prévu pour réunir les invités",
+        "english": "Venue chosen for the guests"
       },
       {
-        "french": "Heures de début et de fin",
-        "english": "Start and finish times"
+        "french": "Accès en métro et stationnement",
+        "english": "Metro access and parking"
       },
       {
-        "french": "Collègues et proches invités",
-        "english": "Invited colleagues and loved ones"
+        "french": "Nombre et profil des invités",
+        "english": "Number and type of guests"
       },
       {
-        "french": "Programme et discours éventuels",
-        "english": "Programme and any speeches"
+        "french": "Possibilité de venir accompagné",
+        "english": "Whether guests may bring someone"
       },
       {
-        "french": "Repas prévu et contributions souhaitées",
-        "english": "Planned food and requested contributions"
+        "french": "Date limite pour confirmer sa présence",
+        "english": "RSVP deadline"
       },
       {
-        "french": "Préférences pour un cadeau éventuel",
-        "english": "Preferences for a possible gift"
+        "french": "Enchaînement des moments de la soirée",
+        "english": "Order of events during the party"
       },
       {
-        "french": "Délai de confirmation et aide utile",
-        "english": "RSVP deadline and useful help"
+        "french": "Contribution utile à la célébration",
+        "english": "Useful contribution to the celebration"
       }
     ],
     "neighbor-gardening-activity-organizer": [
@@ -4380,8 +4372,8 @@
         "english": "Changes in daily life"
       },
       {
-        "french": "Choix que ferait Ève avec le recul",
-        "english": "Choice Ève would make in hindsight"
+        "french": "Économies, logement, documents ou contacts à mieux préparer",
+        "english": "Savings, housing, documents or contacts to prepare better"
       }
     ],
     "quebec-region-accommodation-tourist-office": [
@@ -4454,70 +4446,70 @@
     ],
     "child-friends-family-holiday-invitation": [
       {
-        "french": "Dates de départ et de retour",
-        "english": "Departure and return dates"
+        "french": "Dates exactes du séjour",
+        "english": "Exact holiday dates"
       },
       {
-        "french": "Destination et moyen de transport",
-        "english": "Destination and means of transport"
+        "french": "Destination des vacances",
+        "english": "Holiday destination"
       },
       {
-        "french": "Hébergement et couchage des enfants",
-        "english": "Accommodation and children's sleeping arrangements"
+        "french": "Hébergement prévu sur place",
+        "english": "Planned accommodation"
       },
       {
-        "french": "Activités adaptées et adultes responsables",
-        "english": "Suitable activities and supervising adults"
+        "french": "Moyen de transport des enfants",
+        "english": "How the children will travel"
       },
       {
-        "french": "Repas et affaires à préparer",
-        "english": "Meals and belongings to prepare"
+        "french": "Adultes présents pour les encadrer",
+        "english": "Adults supervising the children"
       },
       {
-        "french": "Documents et autorisations éventuels",
-        "english": "Any documents and permissions needed"
+        "french": "Activités prévues pour les enfants",
+        "english": "Activities planned for the children"
       },
       {
-        "french": "Participation aux frais du séjour",
-        "english": "Contribution towards holiday expenses"
+        "french": "Mesures de sécurité pour le canot",
+        "english": "Canoe safety measures"
       },
       {
-        "french": "Contacts, imprévus et délai de réponse",
-        "english": "Contacts, unexpected issues and response deadline"
+        "french": "Nouvelles pendant le séjour",
+        "english": "Updates during the holiday"
       }
     ],
     "neighbor-environmental-association-volunteering": [
       {
-        "french": "Actions environnementales et besoins actuels en bénévoles",
-        "english": "Environmental activities and current volunteer needs"
+        "french": "Actions concrètes confiées aux bénévoles sur le terrain",
+        "english": "Practical fieldwork assigned to volunteers"
       },
       {
-        "french": "Lieux des missions et équipe bénévole",
-        "english": "Activity locations and volunteer team"
+        "french": "Équipement pour le nettoyage des berges",
+        "english": "Equipment for the riverbank cleanup"
       },
       {
-        "french": "Public admis et compétences utiles",
-        "english": "Eligible participants and useful skills"
+        "french": "Fréquence, horaires et mois des activités",
+        "english": "Frequency, times and months of activities"
       },
       {
-        "french": "Horaires et engagement demandé",
-        "english": "Schedule and expected commitment"
+        "french": "Participation régulière ou ponctuelle",
+        "english": "Regular or occasional participation"
       },
       {
-        "french": "Matériel fourni ou à apporter",
-        "english": "Equipment provided or to bring"
+        "french": "Profil des personnes qui participent",
+        "english": "Types of people who participate"
       },
       {
-        "french": "Précautions sur le terrain",
-        "english": "Precautions during field activities"
+        "french": "Expérience nécessaire pour devenir bénévole",
+        "english": "Experience needed to volunteer"
       },
       {
-        "french": "Cotisation éventuelle",
-        "english": "Possible membership fee"
+        "french": "Accueil lors d'une première participation",
+        "english": "Welcome for first-time volunteers"
       },
       {
-        "french": "Premier contact pour rejoindre l'association",
-        "english": "Initial contact to join the association"
+        "french": "Contact pour s'inscrire à une activité",
+        "english": "Contact for registering for an activity"
       }
     ],
     "specialist-agency-day-excursions": [
@@ -4666,32 +4658,32 @@
         "english": "Country, city and assignment duration"
       },
       {
-        "french": "Missions, équipe et responsable direct",
-        "english": "Duties, team and direct manager"
+        "french": "Responsabilités et équipe à constituer",
+        "english": "Responsibilities and team to build"
       },
       {
-        "french": "Langue de travail",
-        "english": "Working language"
+        "french": "Recrutements et soutien des ressources humaines",
+        "english": "Recruitment and human resources support"
       },
       {
-        "french": "Salaire et avantages d'expatriation",
-        "english": "Salary and expatriate benefits"
+        "french": "Démarches prises en charge avant le départ",
+        "english": "Formalities covered before departure"
       },
       {
-        "french": "Prise en charge du voyage et de l'installation",
-        "english": "Coverage of travel and relocation costs"
+        "french": "Salaire et prime d'expatriation",
+        "english": "Salary and expatriation allowance"
       },
       {
-        "french": "Couverture santé et accompagnement familial éventuel",
-        "english": "Health coverage and possible family support"
+        "french": "Adaptation de la prime au coût de la vie",
+        "english": "Allowance adjustment for the cost of living"
       },
       {
-        "french": "Évolution professionnelle et possibilités de retour",
-        "english": "Career progression and options for returning"
+        "french": "Déménagement, logement et retours annuels",
+        "english": "Relocation, housing and annual trips home"
       },
       {
-        "french": "Délai de réponse et proposition écrite",
-        "english": "Response deadline and written offer"
+        "french": "Poste prévu au retour",
+        "english": "Role available after returning"
       }
     ],
     "friend-choose-tonight-outing": [
@@ -4764,12 +4756,12 @@
     ],
     "help-transport-heavy-objects-no-vehicle": [
       {
-        "french": "Objets lourds à transporter",
-        "english": "Heavy objects to transport"
+        "french": "Objets à transporter et élément le plus difficile",
+        "english": "Objects to move and the most difficult item"
       },
       {
-        "french": "Dimensions de l'objet le plus encombrant",
-        "english": "Dimensions of the bulkiest object"
+        "french": "Démontage et dimensions de l'objet le plus encombrant",
+        "english": "Dismantling and dimensions of the bulkiest item"
       },
       {
         "french": "Distance entre le départ et l'arrivée",
@@ -4798,36 +4790,36 @@
     ],
     "neighbor-home-childcare-provider-referral": [
       {
-        "french": "Expérience et références de la personne recommandée",
-        "english": "The recommended caregiver's experience and references"
+        "french": "Expérience et références vérifiées de la personne",
+        "english": "Caregiver's experience and verified references"
       },
       {
-        "french": "Âges des enfants pris en charge",
-        "english": "Ages of children cared for"
+        "french": "Tranches d'âge prises en charge",
+        "english": "Age groups she has cared for"
       },
       {
-        "french": "Approche avec les enfants et premiers secours",
-        "english": "Approach to children and first-aid skills"
+        "french": "Formation en premiers secours",
+        "english": "First-aid training"
       },
       {
-        "french": "Repas et devoirs éventuellement pris en charge",
-        "english": "Possible help with meals and homework"
+        "french": "Jours de disponibilité habituels",
+        "english": "Usual days of availability"
       },
       {
-        "french": "Horaires et régularité possibles",
-        "english": "Available times and possible regular arrangements"
+        "french": "Disponibilité en soirée",
+        "english": "Evening availability"
       },
       {
-        "french": "Secteur couvert et frais de déplacement éventuels",
-        "english": "Service area and any travel fees"
+        "french": "Tâches acceptées pendant la garde",
+        "english": "Tasks accepted during childcare"
       },
       {
-        "french": "Tarifs pour une garde ponctuelle ou régulière",
-        "english": "Rates for occasional or regular childcare"
+        "french": "Tarif horaire habituel",
+        "english": "Usual hourly rate"
       },
       {
-        "french": "Coordonnées et première rencontre",
-        "english": "Contact details and initial meeting"
+        "french": "Contact et première rencontre",
+        "english": "Contact details and first meeting"
       }
     ],
     "canadian-tourist-office-restful-weekend": [
@@ -4980,8 +4972,8 @@
         "english": "Reason for his career change"
       },
       {
-        "french": "Déménagement depuis la dernière rencontre",
-        "english": "Move since the last meeting"
+        "french": "Déménagement de Beltline à Bridgeland",
+        "english": "Move from Beltline to Bridgeland"
       },
       {
         "french": "Effet du déménagement sur son quotidien",
@@ -5000,42 +4992,42 @@
         "english": "Pierre's current hobbies in Calgary"
       },
       {
-        "french": "Ce qui lui plaît dans sa nouvelle activité",
-        "english": "What he likes about his new activity"
+        "french": "Ce qui lui plaît dans le curling",
+        "english": "What he likes about curling"
       }
     ],
     "help-friend-post-parcel": [
       {
-        "french": "Contenu, taille et poids du paquet",
-        "english": "Parcel contents, size and weight"
+        "french": "Date limite pour poster le paquet",
+        "english": "Deadline for posting the parcel"
       },
       {
-        "french": "État de l'emballage et de l'étiquette",
-        "english": "Readiness of packaging and label"
+        "french": "Ville de destination",
+        "english": "Destination city"
       },
       {
-        "french": "Nom et adresse du destinataire",
-        "english": "Recipient's name and address"
+        "french": "Date d'arrivée souhaitée",
+        "english": "Desired arrival date"
       },
       {
-        "french": "Date limite d'envoi et d'arrivée",
-        "english": "Posting and arrival deadlines"
+        "french": "Choix de l'express si nécessaire",
+        "english": "Choosing express delivery if needed"
       },
       {
-        "french": "Service, point de dépôt et temps de trajet",
-        "english": "Service, drop-off location and travel time"
+        "french": "Dimensions approximatives du paquet",
+        "english": "Approximate parcel dimensions"
       },
       {
-        "french": "Envoi standard ou express, suivi et assurance",
-        "english": "Standard or express delivery, tracking and insurance"
+        "french": "Poids approximatif du paquet",
+        "english": "Approximate parcel weight"
       },
       {
-        "french": "Frais, avance d'argent ou remboursement",
-        "english": "Costs, advance payment or reimbursement"
+        "french": "Remboursement, reçu et numéro de suivi",
+        "english": "Reimbursement, receipt and tracking number"
       },
       {
-        "french": "Consignes en cas de problème au guichet",
-        "english": "Instructions for problems at the counter"
+        "french": "Moment pour récupérer le paquet",
+        "english": "Time to collect the parcel"
       }
     ],
     "friend-city-for-cultural-magazine-article": [
@@ -5400,8 +5392,8 @@
         "english": "Bowness neighbourhood atmosphere in summer"
       },
       {
-        "french": "Accès au centre-ville sans voiture",
-        "english": "Reaching downtown without a car"
+        "french": "Accès au parc et au centre-ville en autobus, sans voiture",
+        "english": "Reaching the park and downtown by bus without a car"
       },
       {
         "french": "Dates exactes de disponibilité",
@@ -5418,36 +5410,36 @@
     ],
     "friend-association-work-experience": [
       {
-        "french": "Mission de l'association et public concerné",
-        "english": "Association's purpose and target audience"
+        "french": "Mission et services de l'association",
+        "english": "Association's mission and services"
       },
       {
-        "french": "Débuts dans l'association",
-        "english": "Getting started in the association"
+        "french": "Sources de financement et contraintes",
+        "english": "Funding sources and constraints"
       },
       {
-        "french": "Missions et heures consacrées chaque semaine",
-        "english": "Duties and hours spent each week"
+        "french": "Façon d'obtenir le poste et compétences demandées",
+        "english": "How the role was found and skills required"
       },
       {
-        "french": "Statut salarié ou bénévole",
-        "english": "Paid or volunteer role"
+        "french": "Rôle précis dans l'association",
+        "english": "Exact role in the association"
       },
       {
-        "french": "Compétences utiles et soutien de l'équipe",
-        "english": "Useful skills and team support"
+        "french": "Bénévoles coordonnés et difficulté principale",
+        "english": "Volunteers coordinated and main difficulty"
       },
       {
-        "french": "Satisfactions et difficultés rencontrées",
-        "english": "Rewards and difficulties experienced"
+        "french": "Temps plein et travail en soirée",
+        "english": "Full-time schedule and evening work"
       },
       {
-        "french": "Effets concrets de l'action menée",
-        "english": "Practical impact of the work"
+        "french": "Récupération des heures du soir",
+        "english": "Time off for evening hours"
       },
       {
-        "french": "Projets en cours et envie de continuer",
-        "english": "Current projects and desire to continue"
+        "french": "Aspect préféré et difficulté persistante",
+        "english": "Favourite aspect and ongoing difficulty"
       }
     ],
     "calgary-university-adult-language-courses": [
@@ -5528,70 +5520,66 @@
     ],
     "colleague-management-promotion-party": [
       {
-        "french": "Date de la fête pour la nomination",
-        "english": "Date of the promotion celebration"
-      },
-      {
-        "french": "Lieu et accès aux invités",
-        "english": "Venue and access for guests"
+        "french": "Jour choisi pour célébrer la promotion",
+        "english": "Day chosen for the promotion party"
       },
       {
         "french": "Heures de début et de fin",
         "english": "Start and finish times"
       },
       {
-        "french": "Collègues et proches conviés",
-        "english": "Colleagues and loved ones invited"
+        "french": "Lieu de la fête et proximité du bureau",
+        "english": "Party venue and distance from the office"
       },
       {
-        "french": "Déroulement et repas prévus",
-        "english": "Planned programme and food"
+        "french": "Solution prévue en cas de pluie",
+        "english": "Backup plan in case of rain"
       },
       {
-        "french": "Tenue et contributions éventuelles",
-        "english": "Clothing and possible contributions"
+        "french": "Groupes d'invités présents",
+        "english": "Groups of guests attending"
       },
       {
-        "french": "Aide souhaitée pour préparer la fête",
-        "english": "Help wanted with party preparations"
+        "french": "Discours du directeur et nouvelles fonctions",
+        "english": "Director's speech and new duties"
       },
       {
-        "french": "Date limite pour confirmer sa venue",
-        "english": "Deadline for confirming attendance"
+        "french": "Boissons ou bouchées à apporter",
+        "english": "Drinks or snacks to bring"
+      },
+      {
+        "french": "Tenue adaptée à la soirée",
+        "english": "Suitable clothing for the party"
       }
     ],
     "neighbor-child-one-day-care": [
       {
-        "french": "Jour, horaires et lieu de garde",
-        "english": "Day, times and childcare location"
+        "french": "Âge de l'enfant",
+        "english": "Child's age"
       },
       {
-        "french": "Prénom, âge et habitudes de l'enfant",
-        "english": "Child's name, age and habits"
+        "french": "Allergie ou soin particulier",
+        "english": "Any allergy or special care"
       },
       {
-        "french": "Jeux et activités préférés",
-        "english": "Favourite games and activities"
+        "french": "Repas à servir pendant la garde",
+        "english": "Meal to serve during childcare"
       },
       {
-        "french": "Sorties autorisées et règles sur les écrans",
-        "english": "Permitted outings and screen-time rules"
+        "french": "Moment habituel pour un temps calme",
+        "english": "Usual quiet-time schedule"
       },
       {
-        "french": "Repas, horaires et allergies éventuelles",
-        "english": "Meals, mealtimes and any allergies"
+        "french": "Activités préférées de l'enfant",
+        "english": "Child's favourite activities"
       },
       {
-        "french": "Sieste éventuelle et horaire habituel",
-        "english": "Possible nap and usual time"
+        "french": "Autorisation pour une sortie au parc",
+        "english": "Permission for a trip to the park"
       },
       {
-        "french": "Soins particuliers et précautions de santé",
-        "english": "Special care and health precautions"
-      },
-      {
-        "french": "Affaires fournies ou à préparer",
-        "english": "Supplies provided or to prepare"
+        "french": "Règles à respecter pendant les activités",
+        "english": "Rules to follow during activities"
       },
       {
         "french": "Contacts des parents et relais d'urgence",

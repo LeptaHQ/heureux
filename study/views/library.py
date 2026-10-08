@@ -71,6 +71,7 @@ from ..oral_highlights import (
 )
 from ..response_personalization import effective_response
 from ..tache_two_dialogues import (
+    hint_section_presentation,
     prompt_note_presentation,
     published_dialogue,
     question_presentation,
@@ -3201,6 +3202,11 @@ def task_subject_detail(
         subject.number,
         deduplicate=request.GET.get("deduplicate", "1") == "1",
     )
+    subject_hints = catalogue.tache_two_subject_hints()[selected_prompt.content_key]
+    subject_hint_sections = hint_section_presentation(
+        published_dialogue(selected_prompt),
+        subject_hints,
+    )
     return render(
         request,
         "study/tache_two_subject_detail.html",
@@ -3215,7 +3221,8 @@ def task_subject_detail(
             "prompt_note_edit_url": reverse(
                 "study:edit_response", args=["eo", "tache-2", selected_prompt.pk],
             ),
-            "subject_hints": catalogue.tache_two_subject_hints()[selected_prompt.content_key],
+            "subject_hints": subject_hints,
+            "subject_hint_sections": subject_hint_sections,
             "response_content": response_content,
             "subject_theme_name": (
                 subject_theme.name if subject_theme else ""

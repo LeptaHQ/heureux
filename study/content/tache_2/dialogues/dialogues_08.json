@@ -76,14 +76,14 @@
       "opening": "Salut Pierre ! Ça fait une éternité ! Ça me fait vraiment plaisir de te revoir ici à Calgary. Tu dois avoir beaucoup de choses à me raconter.",
       "closing": "Merci pour toutes ces nouvelles, Pierre ! Et cette fois, on se revoit bientôt !",
       "questions": [
-        {"topic": "Travail", "question": "Côté travail, tu es toujours comptable à l'hôpital ?", "answer": "Non, j'ai changé d'emploi l'an dernier : j'enseigne maintenant dans une école primaire.", "follow_up_to": null},
-        {"topic": "Travail", "question": "Qu'est-ce qui t'a motivé à faire ce changement ?", "answer": "Je voulais un travail plus humain et davantage de temps libre.", "follow_up_to": 1, "condition": "If they mention a professional change without explaining it."},
-        {"topic": "Vie quotidienne", "question": "Et côté logement, as-tu déménagé depuis notre dernière rencontre ?", "answer": "Oui, je me suis rapproché de l'école où je travaille.", "follow_up_to": null},
-        {"topic": "Vie quotidienne", "question": "Qu'est-ce que ce déménagement a changé dans ton quotidien ?", "answer": "Je peux maintenant aller travailler à pied et je perds moins de temps dans les transports.", "follow_up_to": 3, "condition": "If they have moved since your last meeting."},
-        {"topic": "Famille", "question": "Et dans ta famille, quelles sont les grandes nouvelles ?", "answer": "Ma sœur vient d'avoir un bébé, alors j'ai maintenant une petite nièce.", "follow_up_to": null},
-        {"topic": "Famille", "question": "Tu vois souvent ta sœur et ta nièce ?", "answer": "Oui, elles habitent à dix minutes de chez moi et nous nous voyons tous les dimanches.", "follow_up_to": 5, "condition": "If Pierre mentions his sister and niece; adapt to the relatives named."},
-        {"topic": "Loisirs", "question": "Et toi, qu'est-ce que tu fais de ton temps libre en ce moment ?", "answer": "J'ai commencé le curling avec des collègues et je participe aussi à un club de lecture.", "follow_up_to": null},
-        {"topic": "Loisirs", "question": "Qu'est-ce qui te plaît le plus dans cette nouvelle activité ?", "answer": "J'aime surtout l'esprit d'équipe et l'ambiance avec mes collègues.", "follow_up_to": 7, "condition": "If a new hobby is mentioned; substitute the activity named."}
+        {"topic": "Travail", "question": "Pour commencer, est-ce que tu travailles toujours comme comptable à l'hôpital, comme la dernière fois qu'on s'est vus ?", "answer": "Non, j'ai changé d'emploi l'an dernier : j'enseigne maintenant dans une école primaire.", "follow_up_to": null},
+        {"topic": "Travail", "question": "Ah, tu enseignes maintenant ! Qu'est-ce qui t'a donné envie de quitter la comptabilité pour travailler dans une école ?", "answer": "J'avais envie d'un métier plus humain, et le rythme scolaire me laisse aussi davantage de temps libre.", "follow_up_to": 1, "condition": "If Pierre says he left accounting to teach."},
+        {"topic": "Vie quotidienne", "question": "Et depuis qu'on ne s'est pas vus, est-ce que tu habites toujours dans le même quartier de Calgary ?", "answer": "Non, j'ai quitté Beltline pour Bridgeland afin de me rapprocher de l'école où je travaille.", "follow_up_to": null},
+        {"topic": "Vie quotidienne", "question": "Maintenant que tu habites près de l'école, qu'est-ce que ce déménagement a changé dans ton quotidien ?", "answer": "Je vais travailler à pied, je passe moins de temps dans les transports et je rentre plus tôt chez moi.", "follow_up_to": 3, "condition": "If Pierre says he moved closer to his school."},
+        {"topic": "Famille", "question": "Et du côté de ta famille, quels événements importants ont eu lieu depuis notre dernière rencontre ?", "answer": "Ma sœur vient d'avoir un bébé, alors j'ai maintenant une petite nièce.", "follow_up_to": null},
+        {"topic": "Famille", "question": "Une petite nièce, c'est une belle nouvelle ! Est-ce que tu vois souvent ta sœur et le bébé ?", "answer": "Oui, elles habitent à dix minutes de chez moi et nous nous voyons tous les dimanches.", "follow_up_to": 5, "condition": "If Pierre says his sister recently had a baby."},
+        {"topic": "Loisirs", "question": "Et quand tu ne travailles pas, comment occupes-tu ton temps libre en ce moment ?", "answer": "Je joue au curling avec des collègues le mercredi et je vais à un club de lecture deux fois par mois.", "follow_up_to": null},
+        {"topic": "Loisirs", "question": "Tu t'es donc mis au curling ! Qu'est-ce qui te plaît le plus dans ce sport ?", "answer": "J'aime l'esprit d'équipe et l'ambiance détendue ; on prend souvent un café ensemble après les matchs.", "follow_up_to": 7, "condition": "If Pierre says he recently started curling."}
       ]
     },
     {
@@ -99,7 +99,7 @@
         {"topic": "Délai et envoi", "question": "Si l'envoi standard est trop lent, souhaites-tu que je choisisse l'express ?", "answer": "Oui, mais seulement si le standard ne peut pas arriver mardi.", "follow_up_to": 3, "condition": "After the required arrival date is known."},
         {"topic": "Le colis", "question": "Quelles sont les dimensions approximatives du paquet ?", "answer": "Environ trente centimètres sur vingt, comme une boîte à chaussures.", "follow_up_to": null},
         {"topic": "Le colis", "question": "Combien pèse-t-il à peu près ?", "answer": "Environ deux kilos.", "follow_up_to": null},
-        {"topic": "Préparation et récupération", "question": "Combien de temps faut-il prévoir pour faire la démarche au bureau de poste ?", "answer": "Environ vingt minutes en dehors de l'heure du dîner.", "follow_up_to": null},
+        {"topic": "Préparation et récupération", "question": "Comment me rembourseras-tu les frais d'envoi, et dois-je conserver le reçu et le numéro de suivi ?", "answer": "Je te ferai un virement dès ton retour ; garde le reçu et envoie-moi une photo du numéro de suivi.", "follow_up_to": null},
         {"topic": "Préparation et récupération", "question": "Quand puis-je passer le récupérer chez toi ?", "answer": "Ce soir après 18 h ou demain matin avant 8 h.", "follow_up_to": null}
       ]
     },
@@ -284,7 +284,7 @@
         {"topic": "Maison", "question": "Avec ces chambres, combien de personnes peuvent y dormir confortablement ?", "answer": "Six personnes, grâce à deux lits doubles et deux lits simples.", "follow_up_to": 1, "condition": "After the number of bedrooms is given."},
         {"topic": "Maison", "question": "Et sur place, quels équipements seront à la disposition des locataires ?", "answer": "Un lave-vaisselle, une laveuse, une sécheuse et un barbecue.", "follow_up_to": null},
         {"topic": "Cadre", "question": "Comment est le quartier de Bowness en été : plutôt calme ou animé ?", "answer": "Il est plutôt calme, avec un grand parc et plusieurs commerces à proximité.", "follow_up_to": null},
-        {"topic": "Cadre", "question": "Peut-on rejoindre facilement le centre-ville sans voiture ?", "answer": "Oui, un autobus direct y mène en environ vingt-cinq minutes.", "follow_up_to": 4, "condition": "After the setting is described, if access to the city matters to you."},
+        {"topic": "Cadre", "question": "Peut-on rejoindre facilement le parc et le centre-ville en autobus, sans avoir de voiture ?", "answer": "Oui, le parc est à pied et un autobus direct mène au centre-ville en environ vingt-cinq minutes.", "follow_up_to": 4, "condition": "After the setting is described, if access to the city matters to you."},
         {"topic": "Dates et prix", "question": "Concernant les dates, quand la maison est-elle disponible exactement ?", "answer": "Du premier juillet au quinze août.", "follow_up_to": null},
         {"topic": "Dates et prix", "question": "Quel loyer demandez-vous pour une semaine ?", "answer": "Le loyer est de 1 500 $ par semaine.", "follow_up_to": null},
         {"topic": "Dates et prix", "question": "Quelles charges sont comprises dans ce loyer ?", "answer": "L'eau, l'électricité et Internet sont compris.", "follow_up_to": 7, "condition": "After the weekly rent is given, unless included charges are already explained."}
@@ -372,7 +372,7 @@
         {"topic": "Activités", "question": "Quelles activités plaisent le plus à votre enfant pendant la journée ?", "answer": "Le dessin, les jeux de construction et les sorties au parc.", "follow_up_to": null},
         {"topic": "Activités", "question": "Est-ce que je peux l'emmener au parc s'il en a envie ?", "answer": "Oui, le parc du quartier lui plaît beaucoup.", "follow_up_to": 5, "condition": "If the child's preferred activities suggest that an outing would suit them."},
         {"topic": "Activités", "question": "Y a-t-il une règle habituelle à respecter pendant les jeux ou les sorties ?", "answer": "Votre enfant doit rester près de l'adulte et ranger un jeu avant d'en commencer un autre.", "follow_up_to": null},
-        {"topic": "Contact", "question": "Comment puis-je vous joindre rapidement pendant la journée ?", "answer": "Appelez mon portable ; je vous laisserai aussi un second numéro.", "follow_up_to": null}
+        {"topic": "Contact", "question": "Comment puis-je vous joindre rapidement et, si vous êtes injoignable, quelle autre personne dois-je appeler ?", "answer": "Appelez mon portable ; si je ne réponds pas, vous pourrez joindre son autre parent.", "follow_up_to": null}
       ]
     },
     {

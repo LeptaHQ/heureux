@@ -526,6 +526,9 @@ class TacheTwoDialogueViewTests(TestCase):
         self.assertContains(detail, "data-tache-two-question", count=8)
         self.assertContains(detail, str(escape(dialogue.note)))
         self.assertContains(detail, 'class="eo2-dialogue__topic"', count=3)
+        self.assertContains(detail, 'class="subject-hints__section"', count=3)
+        for topic in dict.fromkeys(question.topic for question in dialogue.questions):
+            self.assertContains(detail, f'<h3 class="subject-hints__label" lang="fr">{topic}</h3>')
         self.assertNotContains(detail, "Task 2: how to practise effectively")
         self.assertIn(str(escape(dialogue.note)), practice["front_html"])
         self.assertEqual(practice["back_html"].count("data-tache-two-question"), 8)

@@ -117,7 +117,7 @@
         {"topic": "Obstacles", "question": "Et pour ton premier hiver, quels vêtements ou équipements ont été indispensables ?", "answer": "Un manteau chaud, des bottes imperméables et de bons gants ont été indispensables.", "follow_up_to": null},
         {"topic": "Mode de vie", "question": "Côté vie sociale, où as-tu rencontré tes premiers amis à Montréal — au travail, dans le voisinage ou grâce à des activités ?", "answer": "Surtout au travail et dans un club de vélo.", "follow_up_to": null},
         {"topic": "Mode de vie", "question": "Plus largement, qu'est-ce qui a le plus changé dans ton quotidien : tes déplacements, ton rythme de travail ou tes loisirs ?", "answer": "Je me déplace davantage à vélo, je termine plus tôt et je passe beaucoup plus de temps dehors toute l'année.", "follow_up_to": null},
-        {"topic": "Mode de vie", "question": "Avec le recul, referais-tu le même choix ?", "answer": "Oui, mais j'arriverais avec plus d'économies, mes diplômes déjà évalués et quelques contacts professionnels.", "follow_up_to": null}
+        {"topic": "Mode de vie", "question": "Avec le recul, que préparerais-tu différemment si tu devais refaire ce choix — économies, logement, documents ou réseau de contacts ?", "answer": "J'arriverais avec plus d'économies, mes diplômes déjà évalués et quelques contacts professionnels.", "follow_up_to": null}
       ]
     },
     {
@@ -178,9 +178,9 @@
       "opening": "Bonjour ! J'ai appris que vous faisiez du bénévolat pour l'environnement, et j'aimerais beaucoup participer moi aussi.",
       "closing": "Merci pour vos explications. Je vais vérifier mes disponibilités avant de contacter l'association.",
       "questions": [
-        {"topic": "Activités", "question": "Quelles actions l'association propose-t-elle aux bénévoles ?", "answer": "Surtout le nettoyage des berges et la plantation d'arbres au printemps.", "follow_up_to": null},
+        {"topic": "Activités", "question": "Quelles actions concrètes l'association confie-t-elle aux bénévoles sur le terrain ?", "answer": "Surtout le nettoyage des berges et la plantation d'arbres au printemps.", "follow_up_to": null},
         {"topic": "Activités", "question": "Pour le nettoyage des berges, quel équipement faut-il apporter ?", "answer": "L'association fournit les gants et les sacs ; il faut seulement prévoir de bonnes bottes.", "follow_up_to": 1, "condition": "If an outdoor clean-up is mentioned; adapt to the activity actually named."},
-        {"topic": "Horaires et engagement", "question": "Quand ces activités ont-elles lieu ?", "answer": "Un samedi matin sur deux, de 9 h à midi, entre avril et octobre.", "follow_up_to": null},
+        {"topic": "Horaires et engagement", "question": "À quelle fréquence ces activités ont-elles lieu, et pendant quels mois de l'année ?", "answer": "Un samedi matin sur deux, de 9 h à midi, entre avril et octobre.", "follow_up_to": null},
         {"topic": "Horaires et engagement", "question": "Doit-on participer régulièrement ou peut-on aider ponctuellement ?", "answer": "On peut aider ponctuellement, à condition de s'inscrire avant chaque activité.", "follow_up_to": null},
         {"topic": "Membres et inscription", "question": "Quel type de personnes participe à l'association ?", "answer": "Des habitants de tous âges, notamment des étudiants, des familles et des retraités.", "follow_up_to": null},
         {"topic": "Membres et inscription", "question": "Faut-il une expérience particulière pour devenir bénévole ?", "answer": "Non, les responsables expliquent chaque tâche avant le début de l'activité.", "follow_up_to": null},
@@ -314,8 +314,8 @@
       "opening": "Bonjour ! Je veux bien vous aider à organiser ce transport, mais j'ai besoin de quelques précisions.",
       "closing": "Merci ! Je vais comparer les camionnettes disponibles pour samedi matin et vous confirmer la réservation.",
       "questions": [
-        {"topic": "Objets", "question": "Quels objets faut-il transporter ?", "answer": "Un canapé, une commode et une machine à laver.", "follow_up_to": null},
-        {"topic": "Objets", "question": "Quelles sont les dimensions du canapé ?", "answer": "Il mesure deux mètres de long et quatre-vingt-dix centimètres de profondeur.", "follow_up_to": 1, "condition": "If a sofa is among the heavy items; adapt to the bulkiest object named."},
+        {"topic": "Objets", "question": "Quels objets faut-il transporter, et lequel sera le plus difficile à déplacer ?", "answer": "Un canapé, une commode et une machine à laver ; le canapé sera le plus encombrant.", "follow_up_to": null},
+        {"topic": "Objets", "question": "Le canapé se démonte-t-il, et quelles sont ses dimensions une fois préparé pour le transport ?", "answer": "Les pieds se retirent ; il mesure alors deux mètres de long et quatre-vingt-dix centimètres de profondeur.", "follow_up_to": 1, "condition": "After the bulkiest object is identified; adapt to that item."},
         {"topic": "Trajet et accès", "question": "Pour le trajet, quelle distance faut-il parcourir entre le départ et l'arrivée ?", "answer": "Environ vingt kilomètres, jusqu'à la commune voisine.", "follow_up_to": null},
         {"topic": "Trajet et accès", "question": "Et côté accès, y a-t-il des étages ou un ascenseur au départ et à l'arrivée ?", "answer": "Il y a deux étages sans ascenseur au départ, puis un rez-de-chaussée à l'arrivée.", "follow_up_to": null},
         {"topic": "Organisation", "question": "Quel jour et à quelle heure souhaitez-vous effectuer le transport ?", "answer": "Samedi prochain, vers neuf heures.", "follow_up_to": null},
@@ -331,7 +331,7 @@
       "opening": "Bonjour ! Vous m'avez parlé d'une personne qui garde des enfants à domicile, et ça m'intéresse beaucoup.",
       "closing": "Merci pour cette recommandation. Je vais contacter cette personne pour vérifier directement mes besoins avec elle.",
       "questions": [
-        {"topic": "Expérience et compétences", "question": "Quelle expérience a-t-elle auprès des enfants ?", "answer": "Elle garde les enfants de plusieurs familles du quartier depuis deux ans.", "follow_up_to": null},
+        {"topic": "Expérience et compétences", "question": "Quelle expérience a-t-elle auprès des enfants, et avez-vous déjà pu vérifier ses références ?", "answer": "Elle garde les enfants de plusieurs familles depuis deux ans, et j'ai vérifié deux références avant de l'engager.", "follow_up_to": null},
         {"topic": "Expérience et compétences", "question": "Avec quelles tranches d'âge a-t-elle l'habitude de travailler ?", "answer": "Surtout avec des enfants de trois à dix ans.", "follow_up_to": 1, "condition": "After the neighbour describes the provider's childcare experience."},
         {"topic": "Expérience et compétences", "question": "Savez-vous si elle possède une formation en premiers secours ?", "answer": "Oui, elle a suivi une formation l'an dernier.", "follow_up_to": null},
         {"topic": "Disponibilités", "question": "Quels jours est-elle généralement disponible ?", "answer": "En semaine après ses cours, ainsi que certains samedis.", "follow_up_to": null},

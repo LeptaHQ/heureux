@@ -21,17 +21,17 @@
     {
       "group": "host-foreign-friends-city-advice",
       "register": "tu",
-      "note": "You are hosting foreign friends in your own city and ask a friend for practical ideas. Choose visits, activities, restaurants and transport without turning the exchange into a booking or housing search. The friend offers personal advice, not official information. Use tu and adapt follow-ups to what they recommend.",
-      "opening": "Salut ! J'aimerais préparer un séjour sympa pour mes amis qui découvrent la ville.",
-      "closing": "Merci, tes conseils vont m'aider à organiser un séjour varié sans trop charger les journées !",
+      "note": "You are hosting foreign friends in Calgary and ask your friend Pierre for practical ideas. Choose visits, activities, restaurants and transport without turning the exchange into a booking. Pierre offers personal advice, not official information. Use tu and adapt follow-ups to what he recommends.",
+      "opening": "Salut Pierre ! Mes amis viennent bientôt découvrir Calgary, et j'aimerais leur préparer un séjour varié sans trop charger les journées.",
+      "closing": "Merci, Pierre ! Je vais commencer par organiser la journée autour de Stephen Avenue et de Prince's Island Park.",
       "questions": [
-        {"topic": "Visites et activités", "question": "Pour leur donner un bon aperçu de la ville, quels endroits me conseillerais-tu en priorité ?", "answer": "Le vieux centre et les quais donnent un bon aperçu de l'histoire et de l'ambiance locale.", "follow_up_to": null},
-        {"topic": "Visites et activités", "question": "Par lequel vaudrait-il mieux commencer ?", "answer": "Par le vieux centre, car plusieurs lieux intéressants se découvrent facilement à pied.", "follow_up_to": 1, "condition": "After several places have been recommended."},
-        {"topic": "Visites et activités", "question": "Quelle activité leur permettrait de découvrir la culture locale ?", "answer": "Le musée régional propose une exposition claire sur l'histoire de la ville.", "follow_up_to": null},
-        {"topic": "Visites et activités", "question": "Et s'il pleut, quelle activité intérieure me conseillerais-tu ?", "answer": "La visite guidée du marché couvert serait une bonne solution.", "follow_up_to": null},
-        {"topic": "Restaurants", "question": "Où pourrait-on goûter une spécialité locale dans une ambiance conviviale ?", "answer": "Au Bistro du Marché, qui sert une cuisine régionale dans une salle assez animée.", "follow_up_to": null},
-        {"topic": "Restaurants", "question": "Quel budget faudrait-il prévoir par personne dans ce restaurant ?", "answer": "Environ 25 $ par personne, sans les boissons.", "follow_up_to": 5, "condition": "After a restaurant is recommended, unless its prices are already given."},
-        {"topic": "Déplacements", "question": "Quel moyen de transport serait le plus simple entre ces différentes sorties ?", "answer": "Le métro pour rejoindre le centre, puis la marche entre les principaux sites.", "follow_up_to": null},
+        {"topic": "Visites et activités", "question": "Pour leur donner un bon aperçu de Calgary, quels endroits me conseillerais-tu en priorité ?", "answer": "Stephen Avenue et Prince's Island Park montrent bien le centre, l'architecture et les espaces verts de Calgary.", "follow_up_to": null},
+        {"topic": "Visites et activités", "question": "Par lequel vaudrait-il mieux commencer pour construire une journée qui se fait facilement à pied ?", "answer": "Par Stephen Avenue le matin, puis vous pourriez rejoindre Prince's Island Park après le déjeuner.", "follow_up_to": 1, "condition": "After several places have been recommended."},
+        {"topic": "Visites et activités", "question": "Quelle activité leur permettrait de mieux comprendre l'histoire et la culture de la région ?", "answer": "Heritage Park présente l'histoire de l'Ouest canadien dans un village historique vivant.", "follow_up_to": null},
+        {"topic": "Visites et activités", "question": "Et s'il pleut, quelle visite intérieure resterait vraiment intéressante ?", "answer": "Studio Bell serait un bon choix, avec ses expositions interactives consacrées à la musique canadienne.", "follow_up_to": null},
+        {"topic": "Restaurants", "question": "Où pourrait-on goûter une spécialité locale dans une ambiance conviviale ?", "answer": "Dans un restaurant de Kensington qui sert notamment du bœuf de l'Alberta et des produits locaux.", "follow_up_to": null},
+        {"topic": "Restaurants", "question": "Quel budget faudrait-il prévoir par personne dans ce restaurant ?", "answer": "Environ 35 $ par personne pour un plat et une boisson sans alcool.", "follow_up_to": 5, "condition": "After a restaurant is recommended, unless its prices are already given."},
+        {"topic": "Déplacements", "question": "Quel moyen de transport serait le plus simple entre ces différentes sorties ?", "answer": "Le CTrain pour rejoindre le centre, puis la marche entre Stephen Avenue et le parc.", "follow_up_to": null},
         {"topic": "Déplacements", "question": "Quel titre de transport serait le plus avantageux pour une journée de visites ?", "answer": "Le forfait journalier devient intéressant à partir de trois trajets.", "follow_up_to": null}
       ]
     },
@@ -77,13 +77,13 @@
       "closing": "Merci pour ces précisions. Je vais vérifier mes disponibilités avant de vous confirmer.",
       "questions": [
         {"topic": "Organisation de la garde", "question": "Quelles sont les dates exactes de votre absence ?", "answer": "Je pars lundi matin et je rentre dimanche soir.", "follow_up_to": null},
-        {"topic": "Organisation de la garde", "question": "Où souhaitez-vous que votre chien reste pendant la semaine ?", "answer": "Chez moi, pour qu'il conserve ses repères ; je vous laisserai une clé.", "follow_up_to": null},
+        {"topic": "Organisation de la garde", "question": "Vous préféreriez que je garde votre chien chez vous ou chez moi pendant la semaine ?", "answer": "Chez moi, pour qu'il conserve ses repères ; je vous laisserai une clé.", "follow_up_to": null},
         {"topic": "Routine quotidienne", "question": "À quels moments faut-il lui donner ses repas ?", "answer": "Le matin vers 8 h et le soir vers 18 h, avec les portions que je préparerai.", "follow_up_to": null},
         {"topic": "Routine quotidienne", "question": "Combien de promenades lui faut-il chaque jour ?", "answer": "Deux promenades d'environ trente minutes, toujours en laisse.", "follow_up_to": null},
         {"topic": "Routine quotidienne", "question": "Pendant les promenades, y a-t-il une consigne particulière à respecter ?", "answer": "Évitez le parc à chiens, car il est nerveux avec les grands chiens.", "follow_up_to": 4, "condition": "After the walking routine has been explained."},
         {"topic": "Santé et contact", "question": "A-t-il des soins ou un traitement à recevoir pendant cette semaine ?", "answer": "Non, aucun traitement ; il faut seulement surveiller son appétit.", "follow_up_to": null},
         {"topic": "Santé et contact", "question": "Qui dois-je contacter si je remarque un problème de santé ?", "answer": "Appelez-moi d'abord ; je vous laisserai aussi les coordonnées de son vétérinaire.", "follow_up_to": null},
-        {"topic": "Rémunération", "question": "Quelle rémunération avez-vous prévue pour l'ensemble de la garde ?", "answer": "Je vous propose 140 $ pour la semaine.", "follow_up_to": null}
+        {"topic": "Rémunération", "question": "Quelle rémunération avez-vous prévue pour la garde, et comment seront remboursées d'éventuelles dépenses urgentes ?", "answer": "Je vous propose 140 $ pour la semaine et je rembourserai séparément toute dépense urgente sur présentation du reçu.", "follow_up_to": null}
       ]
     },
     {

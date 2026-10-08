@@ -221,6 +221,21 @@ def prompt_note_presentation(prompt, value: EffectiveResponse) -> dict[str, str]
     return {"note": note, "register": dialogue.register if dialogue is not None else ""}
 
 
+def hint_section_presentation(dialogue, hints) -> tuple[dict, ...]:
+    """Group aligned EO2 pistes under the dialogue's question topics."""
+    if dialogue is None or len(hints) != len(dialogue.questions):
+        return ()
+    sections = []
+    for question, hint in zip(dialogue.questions, hints):
+        if not sections or sections[-1]["topic"] != question.topic:
+            sections.append({"topic": question.topic, "hints": []})
+        sections[-1]["hints"].append(hint)
+    return tuple(
+        {"topic": section["topic"], "hints": tuple(section["hints"])}
+        for section in sections
+    )
+
+
 def question_presentation(prompt, value: EffectiveResponse) -> dict:
     dialogue = matching_dialogue(prompt, value)
     questions = []

@@ -62,6 +62,18 @@ class SubjectHintsTests(SimpleTestCase):
         for keys in distinct_scenarios:
             self.assertEqual(len({hints[key] for key in keys}), len(keys))
 
+    def test_reviewed_themes_have_one_piste_per_grouped_question(self):
+        hints = content.load_tache_two_subject_hints(months=self.months)
+        _themes, theme_by_key = content.load_tache_two_subject_themes()
+        reviewed_themes = {"arrivee", "logement", "vie-quartier", "travail"}
+        for response in self.responses:
+            if theme_by_key[response.content_key] in reviewed_themes:
+                self.assertEqual(
+                    len(hints[response.content_key]),
+                    8,
+                    f"{response.content_key} must keep one piste per reviewed question",
+                )
+
     def test_apartment_watching_cues_cover_the_requested_practical_topics(self):
         hints = catalogue.tache_two_subject_hints()["tache2:mai:batch-02:subject-08"]
         french = " ".join(hint.french for hint in hints).casefold()

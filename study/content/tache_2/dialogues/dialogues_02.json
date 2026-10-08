@@ -54,7 +54,7 @@
         {"topic": "Repas et soins", "question": "En dehors des repas, quelle autre habitude dois-je respecter dans la journée ?", "answer": "Il lui faut une promenade le matin et une autre en fin de journée.", "follow_up_to": 4, "condition": "After the animal and feeding routine are known; adapt the habit to its species."},
         {"topic": "Repas et soins", "question": "Y a-t-il un soin particulier à lui donner ?", "answer": "Non, aucun traitement ; il faut seulement brosser son pelage une fois.", "follow_up_to": null},
         {"topic": "Habitudes et contact", "question": "Y a-t-il une habitude ou un comportement particulier que je dois connaître ?", "answer": "Il reste calme pendant quelques heures, mais il n'aime pas être seul toute la journée.", "follow_up_to": null},
-        {"topic": "Habitudes et contact", "question": "Qui dois-je contacter si son comportement ou son état m'inquiète ?", "answer": "Appelle-moi d'abord ; je te laisserai aussi le numéro de son vétérinaire.", "follow_up_to": null}
+        {"topic": "Habitudes et contact", "question": "Qui dois-je contacter, et quels renseignements me laisseras-tu si une consultation vétérinaire devient urgente ?", "answer": "Appelle-moi d'abord ; je te laisserai aussi le numéro du vétérinaire, son carnet de santé et une autorisation écrite.", "follow_up_to": null}
       ]
     },
     {
@@ -111,18 +111,18 @@
     {
       "group": "friend-first-workday-report",
       "register": "tu",
-      "note": "Your friend has already completed the first day of a new job. Ask for a past-tense account of tasks, welcome, atmosphere and personal impressions. You are not preparing your own interview or negotiating an employment offer. Use tu with your friend and react to the details they actually share.",
-      "opening": "Salut ! J'avais envie de prendre de tes nouvelles après ta première journée de travail.",
-      "closing": "Merci de m'avoir raconté ta journée ! Je te souhaite une bonne continuation dans ce nouveau travail.",
+      "note": "Your friend Ève has completed the first day of a new job. Ask for a past-tense account of tasks, welcome, atmosphere and personal impressions. You are not preparing your own interview or negotiating an offer. Use tu and react to the details Ève actually shares.",
+      "opening": "Salut Ève ! Maintenant que ta première journée est terminée, j'ai vraiment envie de savoir comment tu l'as vécue.",
+      "closing": "Merci de m'avoir raconté tout ça, Ève ! Ce début a l'air encourageant pour la suite.",
       "questions": [
-        {"topic": "Premières impressions", "question": "Comment s'est passée ta première journée ?", "answer": "Plutôt bien, même si j'avais beaucoup d'informations à retenir.", "follow_up_to": null},
-        {"topic": "Tâches et accompagnement", "question": "Quelles tâches t'a-t-on confiées ?", "answer": "J'ai accueilli des clients et découvert le logiciel de gestion.", "follow_up_to": null},
-        {"topic": "Tâches et accompagnement", "question": "Quelqu'un t'a montré comment utiliser ce logiciel ?", "answer": "Oui, une collègue m'a accompagné pendant les premières opérations.", "follow_up_to": 2, "condition": "If unfamiliar software is mentioned; adapt to the task they describe."},
-        {"topic": "Collègues et ambiance", "question": "Comment les collègues t'ont-ils accueilli ?", "answer": "Ils se sont présentés et m'ont invité à prendre un café avec eux.", "follow_up_to": null},
-        {"topic": "Collègues et ambiance", "question": "Tu as senti une ambiance plutôt détendue ou formelle ?", "answer": "Assez détendue, même si chacun restait concentré pendant les périodes chargées.", "follow_up_to": 4, "condition": "After the welcome is described, unless the atmosphere is already clear."},
-        {"topic": "Bilan", "question": "Qu'est-ce qui t'a posé le plus de difficultés ?", "answer": "Retenir les différentes procédures pour répondre aux demandes des clients.", "follow_up_to": null},
-        {"topic": "Bilan", "question": "Pour la suite, qu'est-ce qui te motive le plus ?", "answer": "La possibilité de travailler bientôt sur des projets plus variés.", "follow_up_to": null},
-        {"topic": "Bilan", "question": "Cette première journée a-t-elle changé l'idée que tu te faisais du poste ?", "answer": "Oui, le travail est plus collaboratif et plus varié que je ne l'imaginais.", "follow_up_to": null}
+        {"topic": "Premières impressions", "question": "Alors, maintenant que cette première journée est passée, quelle impression générale en gardes-tu ?", "answer": "Plutôt bonne, même si j'avais beaucoup d'informations à retenir et que tout était encore nouveau.", "follow_up_to": null},
+        {"topic": "Tâches et accompagnement", "question": "Et concrètement, quelles premières tâches t'a-t-on confiées ?", "answer": "J'ai accueilli des clients et commencé à utiliser le logiciel de gestion.", "follow_up_to": null},
+        {"topic": "Tâches et accompagnement", "question": "Comme ce logiciel était nouveau pour toi, est-ce que quelqu'un t'a accompagnée pendant tes premières opérations ?", "answer": "Oui, une collègue est restée avec moi et m'a laissé essayer progressivement.", "follow_up_to": 2, "condition": "If Ève mentions using unfamiliar software."},
+        {"topic": "Collègues et ambiance", "question": "À ton arrivée, qu'est-ce que tes collègues ont fait pour t'accueillir ?", "answer": "Ils se sont présentés, m'ont fait visiter les locaux et m'ont invitée à prendre un café.", "follow_up_to": null},
+        {"topic": "Collègues et ambiance", "question": "Après ce premier contact, tu as senti une ambiance plutôt détendue ou formelle ?", "answer": "Assez détendue, même si chacun restait concentré pendant les périodes chargées.", "follow_up_to": 4, "condition": "After Ève describes how her colleagues welcomed her."},
+        {"topic": "Bilan", "question": "Avec toutes ces nouvelles informations, qu'est-ce qui t'a semblé le plus difficile à retenir ?", "answer": "Les différentes procédures à suivre pour répondre correctement aux demandes des clients.", "follow_up_to": null},
+        {"topic": "Bilan", "question": "Malgré cette difficulté, qu'est-ce qui te motive le plus pour les prochaines semaines ?", "answer": "Devenir autonome, mieux connaître les clients et travailler bientôt sur des projets plus variés.", "follow_up_to": 6, "condition": "After Ève identifies the main difficulty."},
+        {"topic": "Bilan", "question": "Au final, cette première journée correspondait-elle à l'idée que tu te faisais du poste ?", "answer": "Pas tout à fait : le travail est plus collaboratif et plus varié que je ne l'imaginais.", "follow_up_to": null}
       ]
     },
     {
@@ -162,12 +162,12 @@
     {
       "group": "newcomer-canada-friend-job-market",
       "register": "tu",
-      "note": "You have just arrived in Canada and ask your friend how to begin looking for work. Cover the local market, applications, required checks and working conditions. Their experience is not a nationwide legal rule: verify your status and obligations through official services. Use tu with your friend.",
-      "opening": "Salut ! J'aimerais comprendre comment commencer ma recherche de travail ici.",
-      "closing": "Merci pour tes conseils ! Je vais vérifier les démarches qui me concernent et préparer mes candidatures.",
+      "note": "You have just arrived in Calgary and ask your friend Pierre how to begin looking for work. Cover the local market, applications, required checks and working conditions. Pierre's experience is not a legal rule: verify your status through official services. Use tu.",
+      "opening": "Salut Pierre ! Maintenant que je suis installé à Calgary, j'aimerais organiser sérieusement ma recherche de travail.",
+      "closing": "Merci, Pierre ! Je vais vérifier mon droit de travailler, adapter mon CV et commencer par les offres de service à la clientèle.",
       "questions": [
-        {"topic": "Marché et candidatures", "question": "Dans quels secteurs vois-tu le plus d'offres en ce moment ?", "answer": "Dans ma ville, je vois surtout des annonces en restauration et en service à la clientèle.", "follow_up_to": null},
-        {"topic": "Marché et candidatures", "question": "Pour ces secteurs, où chercherais-tu les annonces ?", "answer": "Sur les sites d'emploi et les pages des entreprises locales.", "follow_up_to": 1, "condition": "After they identify sectors with openings."},
+        {"topic": "Marché et candidatures", "question": "À Calgary, dans quels secteurs vois-tu le plus d'offres accessibles aux nouveaux arrivants ?", "answer": "Je vois surtout des annonces en restauration, en service à la clientèle et en logistique.", "follow_up_to": null},
+        {"topic": "Marché et candidatures", "question": "Pour ces secteurs, sur quels sites et auprès de quelles entreprises chercherais-tu ?", "answer": "Sur le Guichet-Emplois, Indeed et les pages de recrutement des entreprises locales.", "follow_up_to": 1, "condition": "After Pierre identifies sectors with openings."},
         {"topic": "Marché et candidatures", "question": "Comment me conseillerais-tu d'adapter mon CV ?", "answer": "Présente clairement tes compétences et tes expériences en lien avec le poste, sans informations personnelles inutiles.", "follow_up_to": null},
         {"topic": "Démarches", "question": "Qu'est-ce que je devrais vérifier avant de commencer à travailler ?", "answer": "Les conditions de ton statut et les démarches qui s'appliquent à ta situation.", "follow_up_to": null},
         {"topic": "Démarches", "question": "Quels documents devrais-je préparer pour que les employeurs puissent vérifier mon droit de travailler ?", "answer": "Prépare les documents liés à ton statut, puis confirme la liste exacte auprès d'un service officiel.", "follow_up_to": 4, "condition": "If your status requires checks before you can work."},
@@ -251,14 +251,14 @@
       "opening": "Bonjour Ève ! Merci de prendre le temps de me parler du quartier. Comme je viens d'arriver à Québec, vos conseils vont beaucoup m'aider.",
       "closing": "Merci pour tous vos conseils, Ève ! Je vais commencer par le marché et le café-rencontre.",
       "questions": [
-        {"topic": "Voisinage", "question": "Comme je découvre encore le quartier, comment décririez-vous son ambiance, surtout le soir et le week-end ?", "answer": "Il est calme en semaine et plus animé autour du marché le week-end.", "follow_up_to": null},
-        {"topic": "Voisinage", "question": "Est-ce que les voisins se connaissent bien, et comment pourrais-je faire connaissance avec eux sans être indiscret ?", "answer": "Oui, surtout dans l'immeuble. Présentez-vous aux voisins immédiats, puis venez au café-rencontre mensuel de l'association.", "follow_up_to": null},
-        {"topic": "Vie quotidienne et services", "question": "Pour les courses, quels commerces sont accessibles à pied, et où fait-on les achats plus importants ?", "answer": "L'épicerie, la pharmacie et la boulangerie sont à moins de dix minutes ; le supermarché est à quelques arrêts de bus.", "follow_up_to": null},
-        {"topic": "Vie quotidienne et services", "question": "Peut-on facilement rejoindre le centre-ville et la gare sans voiture ?", "answer": "Oui, deux lignes de bus rejoignent directement le centre-ville et la gare.", "follow_up_to": null},
-        {"topic": "Vie quotidienne et services", "question": "Quels services utiles trouve-t-on dans le quartier, par exemple une clinique ou une bibliothèque ?", "answer": "L'école primaire et la bibliothèque sont près du parc ; la clinique et le centre communautaire sont à quinze minutes en bus.", "follow_up_to": null},
-        {"topic": "Loisirs et informations", "question": "Quelles activités me conseilleriez-vous pour découvrir le quartier et rencontrer du monde ?", "answer": "Je vous conseille les marches de l'association ; elle propose aussi des ateliers créatifs et du bénévolat au jardin communautaire.", "follow_up_to": null},
-        {"topic": "Loisirs et informations", "question": "Pour l'activité que vous me conseillez, faut-il s'inscrire ou peut-on venir directement ?", "answer": "Pour les marches, vous pouvez venir directement au point de départ indiqué sur le site.", "follow_up_to": 6, "condition": "After a suitable local activity is recommended."},
-        {"topic": "Loisirs et informations", "question": "Enfin, où puis-je consulter les horaires et les annonces du quartier, en ligne ou sur un affichage local ?", "answer": "Le site de l'association est le plus à jour ; la bibliothèque affiche aussi le bulletin mensuel.", "follow_up_to": null}
+        {"topic": "Voisinage", "question": "Le quartier est-il plutôt calme, familial ou animé, surtout le soir et le week-end ?", "answer": "Il est calme en semaine et plus animé autour du marché le week-end.", "follow_up_to": null},
+        {"topic": "Voisinage", "question": "Est-ce que les voisins se connaissent bien et, pour faire connaissance sans être indiscret, vaut-il mieux me présenter directement, participer à une rencontre de quartier ou attendre une occasion informelle ?", "answer": "Oui, surtout dans l'immeuble. Présentez-vous aux voisins immédiats, puis venez au café-rencontre mensuel de l'association.", "follow_up_to": null},
+        {"topic": "Vie quotidienne et services", "question": "Et pour les courses courantes, quels commerces sont accessibles à pied — épicerie, pharmacie ou boulangerie — et lesquels nécessitent de prendre un transport ?", "answer": "L'épicerie, la pharmacie et la boulangerie sont à moins de dix minutes ; le supermarché est à quelques arrêts de bus.", "follow_up_to": null},
+        {"topic": "Vie quotidienne et services", "question": "Peut-on rejoindre facilement le centre-ville et la gare en bus, en métro ou en train, sans avoir de voiture ?", "answer": "Oui, deux lignes de bus rejoignent directement le centre-ville et la gare ; il n'y a pas de métro dans ce secteur.", "follow_up_to": null},
+        {"topic": "Vie quotidienne et services", "question": "À part les commerces, quels services trouve-t-on à proximité — écoles, clinique, bibliothèque ou centre communautaire ?", "answer": "L'école primaire et la bibliothèque sont près du parc ; la clinique et le centre communautaire sont à quinze minutes en bus.", "follow_up_to": null},
+        {"topic": "Loisirs et informations", "question": "Quelles activités permettent de découvrir le quartier et de rencontrer des habitants — sport, ateliers, bénévolat ou sorties culturelles ?", "answer": "Je vous conseille les marches de l'association ; elle propose aussi des ateliers créatifs et du bénévolat au jardin communautaire.", "follow_up_to": null},
+        {"topic": "Loisirs et informations", "question": "Pour l'activité que vous me conseillez, faut-il s'inscrire en ligne, sur place ou peut-on venir directement ?", "answer": "Pour les marches, vous pouvez venir directement au point de départ indiqué sur le site.", "follow_up_to": 6, "condition": "After a suitable local activity is recommended."},
+        {"topic": "Loisirs et informations", "question": "Enfin, où puis-je consulter les horaires et les annonces du quartier — site internet, réseaux sociaux, bulletin municipal ou affichage local ?", "answer": "Le site de l'association est le plus à jour ; la bibliothèque affiche aussi le bulletin mensuel.", "follow_up_to": null}
       ]
     },
     {
@@ -335,9 +335,9 @@
     {
       "group": "canadian-work-hours-home-country-comparison",
       "register": "tu",
-      "note": "Compare your interlocutor's working routine in Canada with experience in your own country. Do not present one employer's arrangements as nationwide Canadian rules. Ask about hours, breaks, flexibility, holidays and public holidays. Adapt the example comparisons to your actual experience. The model chooses an informal relationship and tu.",
-      "opening": "Salut ! J'aimerais comparer ton rythme de travail au Canada avec celui que je connais.",
-      "closing": "Merci pour ces explications ! Ça m'aide à distinguer les habitudes de ton entreprise de celles que je connais.",
+      "note": "Compare your friend Pierre's working routine in Calgary with experience in your own country. Do not present one employer's arrangements as nationwide Canadian rules. Ask about hours, breaks, flexibility, holidays and public holidays. Use tu and adapt comparisons to your experience.",
+      "opening": "Salut Pierre ! J'aimerais comparer ton rythme de travail à Calgary avec celui que je connais dans mon pays.",
+      "closing": "Merci, Pierre ! Je comprends mieux ce qui relève de ton entreprise et ce qui peut varier ailleurs au Canada.",
       "questions": [
         {"topic": "Horaires hebdomadaires", "question": "Quels sont tes horaires habituels de travail ?", "answer": "Je commence à huit heures trente et je termine à seize heures trente.", "follow_up_to": null},
         {"topic": "Horaires hebdomadaires", "question": "Chez moi, le samedi est parfois travaillé ; dans ton entreprise, comment ça se passe ?", "answer": "Dans mon entreprise, le samedi est libre, sauf lors de périodes vraiment exceptionnelles.", "follow_up_to": 1, "condition": "If weekend work remains unclear; adapt the comparison to your own experience."},

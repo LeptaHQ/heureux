@@ -4,21 +4,21 @@
     {
       "group": "friend-three-year-old-weekend-care",
       "register": "tu",
-      "note": "You have agreed to care for your friend's three-year-old daughter for a weekend. Focus on the child's food, play and sleep routines, not applying for a babysitting job. Use tu with your friend. Do not repeat instructions already supplied; clarify remaining practical needs.",
+      "note": "You have agreed to care for your friend's three-year-old daughter for a full weekend. Ask about meals, play, outings, naps, bedtime and emergency contact without treating this as a paid babysitting interview. Use tu with your friend. One variant already supplies timings and initial instructions, so do not repeat known information.",
       "notes": {
         "tache2:septembre:batch-02:subject-06": "You already know the three-year-old a little, and care timings and initial instructions have been supplied. Do not ask for them again. Explore remaining meal, play and nap routines, adapting if an answer is already known. The parent is a friend, so this model uses tu."
       },
       "opening": "Salut ! Pour bien m'occuper de ta fille ce week-end, j'aimerais mieux connaître ses habitudes.",
       "closing": "Merci pour ces précisions ! Je vais respecter ses habitudes pour qu'elle se sente bien pendant ton absence.",
       "questions": [
-        {"topic": "Repas", "question": "Qu'est-ce qu'elle mange habituellement au cours de la journée ?", "answer": "Des repas simples, avec des légumes, et un fruit ou un yaourt au goûter.", "follow_up_to": null},
-        {"topic": "Repas", "question": "Y a-t-il des aliments qu'elle ne doit pas manger ?", "answer": "Oui, elle est allergique aux noix ; je te laisserai la liste des aliments autorisés.", "follow_up_to": 1, "condition": "After meals are discussed, unless dietary restrictions are already specified."},
-        {"topic": "Jeux et sorties", "question": "Quelles activités lui plaisent le plus ?", "answer": "Elle aime les dessins, les puzzles adaptés à son âge et les histoires.", "follow_up_to": null},
-        {"topic": "Jeux et sorties", "question": "Où as-tu l'habitude de l'emmener pour une petite sortie ?", "answer": "Au parc près de chez nous, dans l'espace de jeux pour les petits.", "follow_up_to": null},
-        {"topic": "Sommeil", "question": "Quels rituels l'aident à s'endormir pour la sieste ?", "answer": "Une histoire courte, son doudou et une pièce calme.", "follow_up_to": null},
-        {"topic": "Sommeil", "question": "Que faire si elle a du mal à s'endormir ?", "answer": "Reste un moment près d'elle et propose-lui un temps calme ; appelle-moi si tu as un doute.", "follow_up_to": 5, "condition": "If settling difficulties have not already been covered in the instructions."},
-        {"topic": "Contact", "question": "Comment pourrai-je te joindre si j'ai besoin d'un conseil ?", "answer": "Sur mon portable ; je te laisserai aussi un contact de secours.", "follow_up_to": null},
-        {"topic": "Contact", "question": "Où trouverai-je son carnet de santé et les coordonnées de son médecin en cas de besoin ?", "answer": "Je laisserai son carnet et toutes les coordonnées utiles dans le tiroir de l'entrée.", "follow_up_to": null}
+        {"topic": "Repas", "question": "Que mange-t-elle habituellement aux repas et au goûter ?", "answer": "Des plats simples avec des légumes, puis un fruit ou un yaourt au goûter.", "follow_up_to": null},
+        {"topic": "Repas", "question": "Y a-t-il des aliments qu'elle ne doit pas manger ?", "answer": "Non, aucune restriction particulière ; évite simplement les aliments trop épicés.", "follow_up_to": 1, "condition": "After her usual meals are discussed, unless restrictions are already known."},
+        {"topic": "Jeux et sorties", "question": "Quelles activités l'occupent le plus longtemps à la maison ?", "answer": "Elle aime dessiner, faire des puzzles simples et écouter des histoires.", "follow_up_to": null},
+        {"topic": "Jeux et sorties", "question": "Où puis-je l'emmener pour une petite sortie ?", "answer": "Au parc près de chez nous, dans l'espace réservé aux jeunes enfants.", "follow_up_to": null},
+        {"topic": "Sommeil", "question": "Quelle est sa routine pour la sieste ?", "answer": "Elle dort après le repas avec son doudou, dans une pièce calme.", "follow_up_to": null},
+        {"topic": "Sommeil", "question": "Et le soir, quel rituel l'aide à s'endormir ?", "answer": "Un bain, une histoire courte, puis sa veilleuse allumée.", "follow_up_to": null},
+        {"topic": "Sommeil", "question": "Si elle se réveille pendant la nuit, qu'est-ce qui la rassure habituellement ?", "answer": "Parle-lui doucement et reste près d'elle quelques minutes.", "follow_up_to": 6, "condition": "If an overnight bedtime routine is needed and this has not already been explained."},
+        {"topic": "Contact", "question": "Comment pourrai-je te joindre rapidement en cas de besoin ?", "answer": "Sur mon portable ; je te laisserai aussi le numéro d'un proche.", "follow_up_to": null}
       ]
     },
     {
@@ -249,18 +249,18 @@
     {
       "group": "colleague-babysitter-referral-needs",
       "register": "vous",
-      "note": "Your colleague wants you to recommend someone else as a babysitter. Gather their requirements, schedule, duties and pay so you can make a suitable referral. You are neither applying for the job nor hiring care for your own children. Vous is chosen for this professional relationship.",
+      "note": "Your office colleague wants you to recommend somebody from your network as a babysitter. Gather the children's ages, schedule, expected tasks, desired experience, pay and duration so the referral fits. You are neither applying nor interviewing the provider. Use vous for this professional relationship and keep your recommendation conditional.",
       "opening": "Bonjour ! Pour voir si je peux vous recommander quelqu'un, j'aimerais préciser vos besoins pour la garde.",
       "closing": "Merci pour ces précisions. Je vais voir si une personne de mon entourage correspond à vos besoins.",
       "questions": [
         {"topic": "Enfants et horaires", "question": "Combien d'enfants faudrait-il garder et quels âges ont-ils ?", "answer": "Deux enfants, de cinq et huit ans.", "follow_up_to": null},
         {"topic": "Enfants et horaires", "question": "Quels jours et horaires souhaitez-vous couvrir ?", "answer": "Le mardi et le jeudi, de seize heures à dix-neuf heures.", "follow_up_to": null},
-        {"topic": "Tâches à assurer", "question": "Quelles tâches attendez-vous de la personne ?", "answer": "Récupérer les enfants, les accompagner dans leurs devoirs et préparer un repas simple.", "follow_up_to": null},
-        {"topic": "Tâches à assurer", "question": "Y a-t-il des précautions particulières pour leurs repas ?", "answer": "Oui, l'un des enfants ne peut pas manger de noix ; nous fournirons les consignes.", "follow_up_to": 3, "condition": "If meal preparation is required, unless dietary instructions are already given."},
+        {"topic": "Tâches à assurer", "question": "Quelles tâches devra assurer la personne ?", "answer": "Récupérer les enfants, les aider à faire leurs devoirs et préparer un repas simple.", "follow_up_to": null},
+        {"topic": "Tâches à assurer", "question": "Pour le repas, y a-t-il une consigne particulière à respecter ?", "answer": "Non, il faudra seulement réchauffer le plat que nous aurons préparé.", "follow_up_to": 3, "condition": "If meal preparation is among the requested tasks."},
         {"topic": "Profil et rémunération", "question": "Quelle expérience recherchez-vous chez la baby-sitter ?", "answer": "Une personne fiable, habituée aux enfants de cet âge et à l'accompagnement après l'école.", "follow_up_to": null},
         {"topic": "Profil et rémunération", "question": "Quel salaire proposez-vous pour cette garde ?", "answer": "18 $ de l'heure, à préciser avec la personne selon les tâches convenues.", "follow_up_to": null},
-        {"topic": "Profil et rémunération", "question": "Comment souhaiteriez-vous rencontrer la personne que je vous recommanderais ?", "answer": "Lors d'un premier rendez-vous à la maison, avec les enfants présents.", "follow_up_to": null},
-        {"topic": "Profil et rémunération", "question": "Pendant combien de semaines ou de mois aurez-vous besoin de cette garde ?", "answer": "Pendant tout le trimestre scolaire, avec une possibilité de prolongation.", "follow_up_to": null}
+        {"topic": "Profil et rémunération", "question": "Pendant combien de temps aurez-vous besoin de cette garde ?", "answer": "Pendant tout le trimestre scolaire, avec une possibilité de prolongation.", "follow_up_to": null},
+        {"topic": "Profil et rémunération", "question": "Comment souhaitez-vous rencontrer la personne que je pourrais vous recommander ?", "answer": "Lors d'un premier rendez-vous à la maison, avec les enfants présents.", "follow_up_to": null}
       ]
     },
     {
@@ -317,35 +317,35 @@
     {
       "group": "neighbor-seaside-house-rental",
       "register": "vous",
-      "note": "Your neighbour offers a specific seaside house to rent. You already have a neighbourly home context, but asking about a holiday rental is still relevant. Check this property's location, equipment, availability, price and booking conditions, not unrelated apartments. Use vous. The one-week stay is an adaptable example, not an imposed duration.",
-      "opening": "Bonjour ! La maison que vous proposez au bord de la mer m'intéresse et j'aimerais avoir quelques précisions.",
-      "closing": "Merci pour ces renseignements. Je vais comparer mes disponibilités et mon budget avant de réserver.",
+      "note": "Your neighbour is offering a specific seaside house, generally for holidays. The neighbour relationship means you already have nearby housing; this is not a main-home search. Ask about this property's setting, capacity, equipment, availability and price. Use vous; one week is only an example.",
+      "opening": "Bonjour ! Votre maison au bord de la mer pourrait bien me convenir pour les vacances, alors j'aimerais avoir quelques précisions.",
+      "closing": "Merci pour ces renseignements. Je vais vérifier mes dates et mon budget avant de vous donner ma réponse.",
       "questions": [
         {"topic": "Emplacement et cadre", "question": "Où se situe exactement la maison ?", "answer": "Dans un village côtier, à environ dix minutes du centre.", "follow_up_to": null},
         {"topic": "Emplacement et cadre", "question": "Est-ce qu'on peut rejoindre la plage à pied depuis la maison ?", "answer": "Oui, un chemin mène à la plage en cinq minutes environ.", "follow_up_to": 1, "condition": "After the location is given, unless beach access is already explained."},
-        {"topic": "Aménagement et équipement", "question": "De combien de chambres dispose-t-elle ?", "answer": "De deux chambres, avec un couchage pour quatre personnes.", "follow_up_to": null},
-        {"topic": "Aménagement et équipement", "question": "Quels équipements sont disponibles dans la maison ?", "answer": "Une cuisine équipée, un lave-linge et une petite terrasse.", "follow_up_to": null},
-        {"topic": "Disponibilités, tarif et réservation", "question": "Quelles périodes sont encore disponibles ?", "answer": "La première semaine de juillet et deux semaines à la fin d'août.", "follow_up_to": null},
-        {"topic": "Disponibilités, tarif et réservation", "question": "Quel serait le prix pour une semaine à cette période ?", "answer": "700 $ pour une semaine en juillet, avec des conditions détaillées dans l'offre.", "follow_up_to": 5, "condition": "After availability is given; specify the dates and duration you select."},
-        {"topic": "Disponibilités, tarif et réservation", "question": "Quelles sont les conditions de réservation ?", "answer": "Un acompte confirme la réservation ; je vous enverrai aussi les conditions de modification et d'annulation.", "follow_up_to": null},
-        {"topic": "Disponibilités, tarif et réservation", "question": "Quelles charges et quels services sont compris dans le prix de la semaine ?", "answer": "L'eau, l'électricité, le stationnement et le ménage de fin de séjour sont inclus.", "follow_up_to": null}
+        {"topic": "Emplacement et cadre", "question": "Quelle est l'ambiance dans les environs pendant les vacances ?", "answer": "Le secteur reste calme, avec quelques commerces et des activités nautiques au village.", "follow_up_to": null},
+        {"topic": "Aménagement et équipement", "question": "Pour le couchage, combien de personnes la maison peut-elle accueillir confortablement ?", "answer": "Quatre personnes, grâce aux deux chambres.", "follow_up_to": null},
+        {"topic": "Aménagement et équipement", "question": "Quels équipements seront à la disposition des locataires ?", "answer": "Une cuisine équipée, un lave-linge, un barbecue et du mobilier de terrasse.", "follow_up_to": null},
+        {"topic": "Disponibilités et tarif", "question": "Quelles périodes sont encore disponibles ?", "answer": "La première semaine de juillet et deux semaines à la fin d'août.", "follow_up_to": null},
+        {"topic": "Disponibilités et tarif", "question": "Quel tarif demandez-vous pour une semaine en juillet ?", "answer": "Le tarif est de 700 $ pour la semaine.", "follow_up_to": 6, "condition": "After availability is given; adapt the dates and duration to the period you select."},
+        {"topic": "Disponibilités et tarif", "question": "Qu'est-ce qui est compris dans ce tarif ?", "answer": "L'eau, l'électricité, le stationnement et le ménage de fin de séjour sont inclus.", "follow_up_to": 7, "condition": "After the price is given, unless inclusions are already explained."}
       ]
     },
     {
       "group": "friend-holiday-apartment-watch",
       "register": "tu",
-      "note": "Your friend wants you to watch their apartment while they are away on holiday. You are helping with checks and tasks, not renting it or moving in. Clarify dates, duties, visit frequency, access, security instructions and contacts. Use tu; only ask for a backup contact if one has not already been supplied.",
+      "note": "Your friend entrusts you with watching their apartment during a holiday. This is a favour involving checks and agreed tasks, not a rental or move. Clarify dates, duties, visit frequency, access, security instructions and emergency contacts. Use tu, and ask for a backup only if none has already been supplied.",
       "opening": "Salut ! Avant ton départ, j'aimerais vérifier comment surveiller ton appartement et ce qu'il faudra faire.",
       "closing": "Merci pour ces consignes ! Je vais m'organiser pour passer comme prévu et te prévenir si quelque chose ne va pas.",
       "questions": [
-        {"topic": "Dates et tâches", "question": "Pendant quelles dates souhaites-tu que je surveille l'appartement ?", "answer": "Du 10 au 20 décembre, pendant mon voyage.", "follow_up_to": null},
+        {"topic": "Dates et tâches", "question": "Entre quelles dates souhaites-tu que je surveille l'appartement ?", "answer": "Du 10 au 20 décembre, pendant mon voyage.", "follow_up_to": null},
         {"topic": "Dates et tâches", "question": "Quelles tâches faudrait-il assurer pendant ton absence ?", "answer": "Arroser les plantes, relever le courrier et vérifier que tout va bien.", "follow_up_to": null},
         {"topic": "Dates et tâches", "question": "À quelle fréquence voudrais-tu que je passe ?", "answer": "Deux fois par semaine, si possible.", "follow_up_to": 2, "condition": "If visits are needed, unless their frequency is already specified."},
         {"topic": "Accès et sécurité", "question": "Comment me remettras-tu les clés ?", "answer": "Je te les donnerai la veille du départ, en te montrant les points utiles.", "follow_up_to": null},
-        {"topic": "Accès et sécurité", "question": "Quelles consignes dois-je suivre avant de quitter l'appartement ?", "answer": "Vérifier la fermeture des fenêtres et de la porte, sans modifier les réglages des appareils.", "follow_up_to": null},
-        {"topic": "En cas de problème", "question": "Comment te joindre si je remarque un problème ?", "answer": "Par téléphone ou par message ; je consulterai mon portable chaque jour.", "follow_up_to": null},
-        {"topic": "En cas de problème", "question": "Si je n'arrive pas à te joindre, qui pourrait m'aider ?", "answer": "Le concierge pour les problèmes du bâtiment ; je te laisserai ses coordonnées.", "follow_up_to": 6, "condition": "If they ask you to contact them but give no backup contact."},
-        {"topic": "En cas de problème", "question": "Que dois-je faire en priorité si je constate une fuite ou une alarme dans l'appartement ?", "answer": "Coupe l'eau si possible, préviens le concierge, puis appelle le contact de secours.", "follow_up_to": null}
+        {"topic": "Accès et sécurité", "question": "Quelles vérifications dois-je faire avant de repartir après chaque passage ?", "answer": "Ferme bien les fenêtres et la porte, puis vérifie que les robinets ne coulent pas.", "follow_up_to": null},
+        {"topic": "Suivi et contact", "question": "Comment te joindre si je remarque un problème ?", "answer": "Par téléphone ou par message ; je consulterai mon portable chaque jour.", "follow_up_to": null},
+        {"topic": "Suivi et contact", "question": "Si je n'arrive pas à te joindre, qui pourrait m'aider ?", "answer": "Le concierge pour les problèmes du bâtiment ; je te laisserai ses coordonnées.", "follow_up_to": 6, "condition": "If they ask you to contact them but give no backup contact."},
+        {"topic": "Suivi et contact", "question": "Souhaites-tu que je t'envoie un message après chaque passage ?", "answer": "Oui, un court message pour me confirmer que tout va bien me rassurerait.", "follow_up_to": null}
       ]
     }
   ]

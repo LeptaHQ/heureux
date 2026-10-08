@@ -21,18 +21,18 @@
     {
       "group": "furniture-delivery-service",
       "register": "vous",
-      "note": "You ask a delivery-company or furniture-shop employee about furniture delivery. Keep questions within that service: quote, cost, delivery scope, timing, transport and receipt. Do not ask a carrier to advise on furniture stock or warranties. Use vous; supply your actual destination and access constraints when a quote requires them.",
-      "opening": "Bonjour ! J'aimerais faire livrer un meuble et connaître les modalités avant de confirmer.",
-      "closing": "Merci pour ces précisions. Je vais vérifier les dimensions et l'accès pour préparer la livraison.",
+      "note": "You ask a delivery-company or furniture-shop employee about delivering a furniture purchase. Focus on the service: quote, scope, timing, vehicle, access and problems on receipt. Do not ask a carrier about stock or warranties. Use vous and provide actual access details when needed.",
+      "opening": "Bonjour ! Avant de faire livrer mon meuble, j'aimerais comprendre précisément comment votre service fonctionne.",
+      "closing": "Merci pour ces précisions. Je vais vérifier l'accès à mon logement avant de confirmer la livraison.",
       "questions": [
-        {"topic": "Devis et tarif", "question": "Quelles informations vous faut-il pour établir un devis de livraison ?", "answer": "L'adresse, les dimensions du meuble et les conditions d'accès au logement.", "follow_up_to": null},
+        {"topic": "Devis et tarif", "question": "De quelles informations avez-vous besoin pour calculer le prix de la livraison ?", "answer": "De l'adresse, des dimensions du meuble et des conditions d'accès au logement.", "follow_up_to": null},
         {"topic": "Devis et tarif", "question": "Quel est le tarif pour une livraison à domicile ?", "answer": "Il commence à 50 $, puis dépend de la distance et de l'accès.", "follow_up_to": null},
-        {"topic": "Devis et tarif", "question": "Ce tarif comprend-il une livraison jusqu'à la pièce choisie ?", "answer": "Pas toujours ; le devis précise si la livraison s'arrête à l'entrée ou comprend la mise en place.", "follow_up_to": 2, "condition": "After the price is given, unless delivery scope is already explained."},
-        {"topic": "Délais et organisation", "question": "Quel délai faut-il prévoir pour la livraison ?", "answer": "En général, entre trois et cinq jours après confirmation, selon les disponibilités.", "follow_up_to": null},
-        {"topic": "Délais et organisation", "question": "Peut-on choisir un créneau de passage ?", "answer": "Oui, nous proposons une plage horaire et confirmons le passage avant la livraison.", "follow_up_to": null},
-        {"topic": "Délais et organisation", "question": "Si l'escalier est étroit, comment votre équipe organise-t-elle la livraison du meuble ?", "answer": "Nous vérifions les dimensions et l'accès à l'avance, puis nous prévoyons l'équipe et le matériel adaptés.", "follow_up_to": null},
-        {"topic": "Réception", "question": "Que dois-je vérifier au moment de recevoir le meuble ?", "answer": "L'état du meuble et la conformité de la livraison, en signalant tout problème selon les modalités fournies.", "follow_up_to": null},
-        {"topic": "Réception", "question": "Quelle procédure dois-je suivre si le meuble arrive endommagé ou incomplet ?", "answer": "Notez le problème sur le reçu, prenez des photos et contactez notre service le jour même.", "follow_up_to": null}
+        {"topic": "Devis et tarif", "question": "Est-ce que ce tarif comprend la livraison jusqu'à la pièce choisie ?", "answer": "Oui, dans ce cas la mise en place dans la pièce est comprise.", "follow_up_to": 2, "condition": "After the price is given, unless the delivery scope is already explained."},
+        {"topic": "Délais et organisation", "question": "Une fois la commande confirmée, quel délai faut-il prévoir ?", "answer": "En général, entre trois et cinq jours après confirmation, selon les disponibilités.", "follow_up_to": null},
+        {"topic": "Délais et organisation", "question": "Pourrai-je choisir un créneau de passage ?", "answer": "Oui, nous proposons des plages de deux heures et confirmons le passage la veille.", "follow_up_to": null},
+        {"topic": "Délais et organisation", "question": "Dans quel type de véhicule le meuble sera-t-il transporté ?", "answer": "Dans un camion capitonné, où le meuble sera sanglé et protégé par des couvertures.", "follow_up_to": null},
+        {"topic": "Accès et réception", "question": "Chez moi, l'escalier est étroit. Comment dois-je vous le signaler avant la livraison ?", "answer": "Indiquez-le dans la commande avec les dimensions de l'escalier et, si possible, quelques photos.", "follow_up_to": null},
+        {"topic": "Accès et réception", "question": "Quelle procédure faudra-t-il suivre si le meuble arrive endommagé ?", "answer": "Signalez-le sur le reçu, prenez des photos et contactez notre service le jour même.", "follow_up_to": null}
       ]
     },
     {
@@ -123,18 +123,18 @@
     {
       "group": "estate-agent-advertised-apartment-purchase",
       "register": "vous",
-      "note": "You explicitly want to buy an apartment and have seen a specific advertisement. Ask the estate agent about that property's size, layout, neighbourhood, purchase price, ongoing charges and a visit. Use vous. Do not switch to monthly rent, a rental application or a different housing search.",
-      "opening": "Bonjour ! L'annonce de l'appartement à vendre m'intéresse et j'aimerais obtenir quelques précisions.",
-      "closing": "Merci pour ces renseignements. Je vais examiner le prix et les caractéristiques avant de poursuivre mon projet d'achat.",
+      "note": "You want to buy the specific advertised apartment and are speaking to the estate agent. Ask about its size, layout, condition, neighbourhood, sale price, ownership costs and a visit. Use vous. Do not switch to rent, a rental application or other listings.",
+      "opening": "Bonjour ! J'ai vu votre annonce pour l'appartement à vendre et j'aimerais vérifier quelques points avant d'envisager une visite.",
+      "closing": "Merci pour ces renseignements. Je vais examiner le coût total et je vous recontacterai pour la suite de mon projet d'achat.",
       "questions": [
         {"topic": "Superficie et agencement", "question": "Quelle est la superficie exacte de l'appartement ?", "answer": "Soixante-dix mètres carrés, selon les documents de l'annonce.", "follow_up_to": null},
         {"topic": "Superficie et agencement", "question": "Comment les pièces sont-elles réparties dans cette surface ?", "answer": "Deux chambres, un séjour, une cuisine séparée et une salle de bains.", "follow_up_to": 1, "condition": "After the area is given, unless the layout is already described."},
-        {"topic": "Quartier", "question": "Comment décririez-vous le quartier autour de l'immeuble ?", "answer": "Un secteur résidentiel, avec des commerces et un parc à proximité.", "follow_up_to": null},
-        {"topic": "Quartier", "question": "Quels transports desservent ce secteur — bus, tramway ou métro — et peut-on facilement vivre sans voiture ?", "answer": "Deux lignes de bus passent près de l'immeuble et rejoignent le métro ; une voiture n'est pas indispensable au quotidien.", "follow_up_to": null},
-        {"topic": "Prix et charges", "question": "Quel est le prix de vente demandé ?", "answer": "250 000 $, d'après l'offre actuelle du propriétaire.", "follow_up_to": null},
-        {"topic": "Prix et charges", "question": "À combien s'élèvent les charges de copropriété, et qu'est-ce qui est compris dans ce montant ?", "answer": "Elles sont de 280 $ par mois et comprennent l'entretien des parties communes, l'eau et le fonds de réserve.", "follow_up_to": null},
-        {"topic": "État et visite", "question": "Quand serait-il possible de visiter l'appartement ?", "answer": "Nous pouvons proposer un rendez-vous cette semaine, selon les disponibilités du propriétaire.", "follow_up_to": null},
-        {"topic": "État et visite", "question": "Quels travaux importants ont été réalisés ou sont prévus dans l'appartement et l'immeuble ?", "answer": "La toiture a été refaite récemment, mais les fenêtres de l'appartement seront à moderniser.", "follow_up_to": null}
+        {"topic": "État et quartier", "question": "L'appartement nécessite-t-il des travaux avant d'être habité ?", "answer": "Il est habitable immédiatement, mais les fenêtres devront probablement être modernisées.", "follow_up_to": null},
+        {"topic": "État et quartier", "question": "Et autour de l'immeuble, comment est le quartier ?", "answer": "C'est un secteur résidentiel, avec des commerces, un parc et des transports à proximité.", "follow_up_to": null},
+        {"topic": "Prix et copropriété", "question": "Quel est le prix de vente demandé ?", "answer": "Le propriétaire demande 250 000 $.", "follow_up_to": null},
+        {"topic": "Prix et copropriété", "question": "À combien s'élèvent les charges de copropriété mensuelles ?", "answer": "Elles sont de 280 $ par mois, entretien des parties communes et eau compris.", "follow_up_to": 5, "condition": "After the sale price is given, unless recurring ownership costs are already explained."},
+        {"topic": "Prix et copropriété", "question": "Des travaux importants sont-ils déjà prévus dans l'immeuble ?", "answer": "Aucun chantier majeur n'est voté ; la toiture a été refaite récemment.", "follow_up_to": null},
+        {"topic": "Visite", "question": "Quand serait-il possible de visiter l'appartement ?", "answer": "Nous pouvons proposer un rendez-vous mercredi soir ou samedi matin.", "follow_up_to": null}
       ]
     },
     {
@@ -157,18 +157,18 @@
     {
       "group": "friend-homeless-meal-volunteering",
       "register": "tu",
-      "note": "Your friend volunteers with an association distributing meals to homeless people, and you want to join. The beneficiaries and mission are already given: do not ask whom it helps again. Explore organization, volunteer tasks, time commitment, conditions, support and joining. Use tu; do not promise availability before checking it.",
+      "note": "Your friend volunteers with an association that distributes meals to homeless people, and you want to join. The mission and beneficiaries are already established, so ask about organization, tasks, schedule, commitment, conditions and joining instead of rediscovering them. Use tu; your friend shares experience but does not make official promises.",
       "opening": "Salut ! J'aimerais devenir bénévole dans ton association et comprendre comment participer à la distribution des repas.",
       "closing": "Merci pour tes explications ! Je vais regarder mes disponibilités et prendre contact avec l'association.",
       "questions": [
-        {"topic": "Organisation et missions", "question": "Comment s'organise la distribution des repas ?", "answer": "Une équipe prépare les repas, puis une autre accueille les personnes et assure la distribution.", "follow_up_to": null},
-        {"topic": "Organisation et missions", "question": "Quelles tâches pourrait-on confier à un nouveau bénévole ?", "answer": "Aider à préparer les portions, installer le matériel ou participer à l'accueil.", "follow_up_to": 1, "condition": "After the organization is described, unless beginner tasks are already explained."},
-        {"topic": "Disponibilités", "question": "Quels jours et horaires faut-il prévoir ?", "answer": "Les distributions ont lieu le mercredi et le samedi en fin d'après-midi.", "follow_up_to": null},
-        {"topic": "Disponibilités", "question": "Peut-on participer ponctuellement ou faut-il venir chaque semaine ?", "answer": "Les deux sont possibles, à condition de prévenir pour organiser les équipes.", "follow_up_to": null},
-        {"topic": "Conditions et accompagnement", "question": "Faut-il une expérience particulière pour rejoindre l'équipe ?", "answer": "Non, les nouveaux sont accompagnés et reçoivent les consignes avant de commencer.", "follow_up_to": null},
-        {"topic": "Conditions et accompagnement", "question": "En quoi consiste cet accompagnement au début ?", "answer": "Un bénévole expérimenté explique les tâches et reste avec toi pendant la première distribution.", "follow_up_to": 5, "condition": "If introductory support is mentioned, unless its details are already given."},
-        {"topic": "Conditions et accompagnement", "question": "Comment proposer ma candidature comme bénévole ?", "answer": "En contactant la personne qui coordonne les équipes ; je peux te transmettre ses coordonnées.", "follow_up_to": null},
-        {"topic": "Conditions et accompagnement", "question": "Quelles consignes de sécurité et d'hygiène faut-il respecter pendant la distribution ?", "answer": "L'association explique le service des aliments, le travail en binôme et la conduite à tenir en cas d'incident.", "follow_up_to": null}
+        {"topic": "Organisation et missions", "question": "Comment se déroule une distribution de repas, du début à la fin ?", "answer": "L'équipe prépare le matériel, accueille les personnes, sert les repas puis range le local.", "follow_up_to": null},
+        {"topic": "Organisation et missions", "question": "Quelle tâche confie-t-on généralement à un nouveau bénévole ?", "answer": "On commence souvent par préparer les portions ou installer le matériel.", "follow_up_to": 1, "condition": "After the distribution process is described, unless beginner tasks are already clear."},
+        {"topic": "Disponibilités", "question": "Quels jours et à quelles heures ont lieu les distributions ?", "answer": "Le mercredi et le samedi, de 16 h à 19 h.", "follow_up_to": null},
+        {"topic": "Disponibilités", "question": "Faut-il venir chaque semaine pour faire partie de l'équipe ?", "answer": "Non, mais il faut annoncer ses disponibilités assez tôt pour organiser les équipes.", "follow_up_to": null},
+        {"topic": "Conditions et inscription", "question": "Une expérience particulière est-elle nécessaire pour commencer ?", "answer": "Non, les nouveaux reçoivent des explications avant leur première distribution.", "follow_up_to": null},
+        {"topic": "Conditions et inscription", "question": "Quelles consignes d'hygiène faut-il connaître avant de servir les repas ?", "answer": "Il faut se laver les mains, porter les protections fournies et respecter les zones de service.", "follow_up_to": null},
+        {"topic": "Conditions et inscription", "question": "Comment se passe la première participation d'un nouveau bénévole ?", "answer": "Un bénévole expérimenté lui montre les tâches et reste à ses côtés pendant le service.", "follow_up_to": 5, "condition": "If an introduction for new volunteers is mentioned."},
+        {"topic": "Conditions et inscription", "question": "Qui dois-je contacter pour proposer mon aide ?", "answer": "La personne qui coordonne les équipes ; je peux te transmettre ses coordonnées.", "follow_up_to": null}
       ]
     },
     {
@@ -191,18 +191,18 @@
     {
       "group": "animal-protection-association-invitation",
       "register": "vous",
-      "note": "An active animal-protection association member invites you to learn more before committing. Accepting the invitation does not fix your duties or hours. Ask about actions, services, participants, volunteer tasks and the commitment required. Use vous; keep the focus on the association, not caring for one neighbour's pet.",
+      "note": "An active member invites you to learn about an animal-protection association before committing. Ask about its actions, services, beneficiaries, volunteer roles, time commitment and joining process. Accepting the invitation does not establish your future duties. Use vous with this member and do not reduce the scenario to caring for one pet.",
       "opening": "Bonjour ! Merci pour votre invitation. J'aimerais mieux connaître l'association avant de préciser mon engagement.",
       "closing": "Merci pour ces explications. Je vais réfléchir aux missions qui correspondent à mes disponibilités.",
       "questions": [
-        {"topic": "Actions et participants", "question": "Quelles sont les principales actions de votre association ?", "answer": "Nous aidons des refuges, sensibilisons le public et accompagnons certaines démarches d'adoption.", "follow_up_to": null},
-        {"topic": "Actions et participants", "question": "À qui s'adressent vos actions de sensibilisation ?", "answer": "Aux habitants et à certaines écoles qui nous invitent à présenter nos activités.", "follow_up_to": 1, "condition": "If awareness activities are mentioned; adapt to the action you want to understand."},
-        {"topic": "Missions et engagement", "question": "Quelles tâches pourrais-je assurer en rejoignant l'association ?", "answer": "Aider pendant les événements, préparer des supports ou participer à des missions encadrées.", "follow_up_to": null},
-        {"topic": "Missions et engagement", "question": "Quel engagement de temps attendez-vous des membres ?", "answer": "Cela dépend des missions ; certaines sont ponctuelles et d'autres demandent une présence régulière.", "follow_up_to": null},
-        {"topic": "Conditions et intégration", "question": "Faut-il des compétences particulières pour commencer ?", "answer": "Pas pour toutes les tâches ; nous accompagnons les nouveaux et réservons certaines missions aux personnes formées.", "follow_up_to": null},
-        {"topic": "Conditions et intégration", "question": "Comment accompagnez-vous les nouveaux membres ?", "answer": "Une personne présente les consignes et aide à choisir une première mission adaptée.", "follow_up_to": 5, "condition": "If introductory support is mentioned, unless it has already been explained."},
-        {"topic": "Conditions et intégration", "question": "Quelles démarches faut-il effectuer pour vous rejoindre ?", "answer": "Prendre contact avec le responsable des bénévoles et convenir d'une première rencontre.", "follow_up_to": null},
-        {"topic": "Conditions et intégration", "question": "Les bénévoles sont-ils formés et assurés pendant les activités de l'association ?", "answer": "Oui, une formation est prévue et l'assurance de l'association couvre les activités autorisées.", "follow_up_to": null}
+        {"topic": "Actions et services", "question": "Quelles sont les principales actions de votre association ?", "answer": "Nous soutenons des refuges, organisons des campagnes d'information et accompagnons certaines adoptions.", "follow_up_to": null},
+        {"topic": "Actions et services", "question": "Quel service proposez-vous aux personnes qui souhaitent adopter un animal ?", "answer": "Nous les informons sur les besoins de l'animal et les mettons en contact avec un refuge partenaire.", "follow_up_to": 1, "condition": "If adoption support is among the actions mentioned."},
+        {"topic": "Actions et services", "question": "À quel public s'adressent vos campagnes d'information ?", "answer": "Aux habitants, aux futurs adoptants et aux écoles qui nous invitent.", "follow_up_to": null},
+        {"topic": "Missions bénévoles", "question": "Quelles missions pourrait-on me confier au début ?", "answer": "Aider lors d'un événement, préparer des documents ou soutenir une collecte.", "follow_up_to": null},
+        {"topic": "Missions bénévoles", "question": "Quel engagement de temps attendez-vous des bénévoles ?", "answer": "Certaines missions sont ponctuelles ; d'autres demandent deux heures par semaine.", "follow_up_to": null},
+        {"topic": "Conditions et intégration", "question": "Faut-il une compétence particulière pour commencer ?", "answer": "Non pour les missions d'accueil ; les tâches avec les animaux demandent une formation.", "follow_up_to": null},
+        {"topic": "Conditions et intégration", "question": "Comment cette formation se déroule-t-elle ?", "answer": "Elle comprend une séance sur la sécurité, puis une première mission accompagnée.", "follow_up_to": 6, "condition": "If training is required for the mission that interests you."},
+        {"topic": "Conditions et intégration", "question": "Quelle démarche faut-il suivre pour rejoindre l'association ?", "answer": "Remplir un formulaire, puis rencontrer la personne qui coordonne les bénévoles.", "follow_up_to": null}
       ]
     },
     {
@@ -242,18 +242,18 @@
     {
       "group": "quebec-newcomer-estate-agency-housing-procedures",
       "register": "vous",
-      "note": "You have recently arrived in Quebec and ask a housing professional how to find accommodation. Renting fits every version; do not impose a purchase. Cover the search process, property types, areas, total budget and an appropriate application. Use vous. Verify lease obligations through official Quebec information rather than inventing nationwide rules.",
-      "opening": "Bonjour ! Je viens d'arriver au Québec et j'aimerais comprendre comment chercher un logement avec votre agence.",
-      "closing": "Merci pour votre aide. Je vais préciser mes critères et vérifier les conditions avant de m'engager.",
+      "note": "You have just settled in Quebec and ask an estate or rental agency how to find housing. Renting fits every source; no purchase is stated. Cover the agency process, property types, areas, costs and application. Use vous and refer legal lease questions to official Quebec information.",
+      "opening": "Bonjour ! Je viens de m'installer au Québec et j'aimerais savoir comment votre agence peut m'aider à trouver un logement.",
+      "closing": "Merci pour votre aide. Je vais préparer mes critères et mon dossier avant de commencer les visites.",
       "questions": [
-        {"topic": "Démarche et offres", "question": "Par où commencer pour chercher un logement avec votre agence ?", "answer": "Par votre budget, vos critères et votre date d'installation, puis nous sélectionnons des offres et proposons des visites.", "follow_up_to": null},
-        {"topic": "Démarche et offres", "question": "Quels types de logements avez-vous actuellement à louer ?", "answer": "Des studios et des appartements de différentes tailles, selon les secteurs.", "follow_up_to": null},
-        {"topic": "Démarche et offres", "question": "Quels secteurs conseilleriez-vous pour bien accéder aux services et aux transports ?", "answer": "Nous pouvons comparer les quartiers proches de vos activités et des lignes de transport utiles.", "follow_up_to": null},
-        {"topic": "Budget", "question": "Quelle fourchette de loyers faut-il prévoir, et quelles charges sont généralement incluses ?", "answer": "Comptez de 1 100 à 1 500 $ par mois ; l'eau est souvent incluse, mais pas toujours le chauffage ni l'électricité.", "follow_up_to": null},
-        {"topic": "Dossier et vérifications", "question": "Quels renseignements demandez-vous pour présenter un dossier ?", "answer": "Des informations adaptées à votre situation ; certaines offres demandent aussi des références locatives.", "follow_up_to": null},
-        {"topic": "Dossier et vérifications", "question": "Si je n'ai pas encore de références locatives ici, comment compléter mon dossier ?", "answer": "Nous pouvons examiner les autres justificatifs disponibles et vérifier ce que le propriétaire accepte pour cette offre.", "follow_up_to": 5, "condition": "If local rental references are requested and you do not have them."},
-        {"topic": "Dossier et vérifications", "question": "Où trouver une information officielle sur le bail avant de m'engager ?", "answer": "Auprès du Tribunal administratif du logement, en complément des documents de la location proposée.", "follow_up_to": null},
-        {"topic": "Dossier et vérifications", "question": "Comment organiser une visite lorsque je trouve une offre qui correspond à mes critères ?", "answer": "Contactez l'agence avec vos disponibilités ; nous regroupons parfois plusieurs visites le même jour.", "follow_up_to": null}
+        {"topic": "Démarche et offres", "question": "Comment se déroule une recherche de logement avec votre agence ?", "answer": "Nous définissons votre budget, vos critères et votre date d'installation, puis nous sélectionnons des offres et proposons des visites.", "follow_up_to": null},
+        {"topic": "Démarche et offres", "question": "Pour commencer, quel type de logement pourrait me convenir ?", "answer": "Un appartement d'une chambre si vous vivez seul ; une colocation coûterait moins cher.", "follow_up_to": null},
+        {"topic": "Secteurs et budget", "question": "Quels secteurs me conseilleriez-vous pour une première installation ?", "answer": "Les quartiers situés le long des principales lignes de transport sont pratiques et regroupent beaucoup de commerces et de services.", "follow_up_to": null},
+        {"topic": "Secteurs et budget", "question": "Quelle fourchette de loyers faut-il prévoir dans ces secteurs ?", "answer": "Pour un appartement d'une chambre, comptez généralement de 1 100 à 1 500 $ par mois.", "follow_up_to": 3, "condition": "After suitable areas are suggested, unless typical rents are already given."},
+        {"topic": "Secteurs et budget", "question": "Quelles charges sont habituellement comprises dans le loyer ?", "answer": "L'eau est souvent incluse, mais le chauffage et l'électricité varient selon le logement.", "follow_up_to": 4, "condition": "After the rent range is given, unless inclusions are already explained."},
+        {"topic": "Dossier et bail", "question": "Une fois une offre trouvée, quels documents faut-il fournir pour présenter un dossier ?", "answer": "Une pièce d'identité, une preuve de revenus et, selon le propriétaire, des références locatives.", "follow_up_to": null},
+        {"topic": "Dossier et bail", "question": "Si je n'ai pas encore de références locatives au Québec, quelles solutions acceptez-vous ?", "answer": "Nous vérifierons quels autres justificatifs le propriétaire accepte pour cette offre.", "follow_up_to": 6, "condition": "If Quebec rental references are requested and you do not have them."},
+        {"topic": "Dossier et bail", "question": "Avant de signer, où puis-je vérifier les règles officielles du bail au Québec ?", "answer": "Consultez le Tribunal administratif du logement avant de vous engager.", "follow_up_to": null}
       ]
     },
     {
@@ -293,22 +293,22 @@
     {
       "group": "friend-city-housing-search-advice",
       "register": "tu",
-      "note": "You want to find housing in your friend's city; you may still be considering the move. Ask your friend about areas, rents, nearby services, search methods and useful checks. Some prompts name Toronto, others do not: use the actual city given. Your friend is an adviser, not an estate agent. Use tu.",
+      "note": "You want housing in your friend's city and ask for local advice on areas, rents, services and search methods. Some sources name Toronto; use the city actually given. Your friend is not an agent and cannot confirm an offer or legal condition. Use tu.",
       "notes": {
-        "tache2:juin:batch-02:subject-09": "Toronto is explicitly named, and your resident friend advises you on finding an apartment there. Ask about suitable neighbourhoods, prices, searches and procedures, not their own housing needs. Use tu. Confirm current rental offers and formal conditions with their actual providers.",
-        "tache2:juillet:batch-08:subject-37": "You are looking for housing in Toronto and ask your friend about budget, procedures and useful websites. Toronto is fixed, but your move is not necessarily completed. Use tu. Your friend's experience can guide the search; verify actual offers and rental conditions separately."
+        "tache2:juin:batch-02:subject-09": "Your friend lives in Toronto, where you want an apartment. Ask for local neighbourhood, price, search and procedure advice. Use tu; verify current offers and formal conditions with the relevant provider.",
+        "tache2:juillet:batch-08:subject-37": "You want housing in Toronto and ask your friend about budget, procedures and useful websites. Use tu; their experience guides the search but does not establish current rental conditions."
       },
-      "opening": "Salut ! J'aimerais trouver un logement dans ta ville et profiter de tes conseils pour orienter mes recherches.",
-      "closing": "Merci pour ton aide ! Je vais préciser mon budget et commencer mes recherches dans ces quartiers.",
+      "opening": "Salut ! Comme tu connais bien la ville, j'aimerais profiter de tes conseils pour chercher un logement.",
+      "closing": "Merci pour tes conseils ! Je vais commencer mes recherches dans les secteurs qui semblent le mieux me convenir.",
       "questions": [
-        {"topic": "Quartiers", "question": "Quels quartiers me conseillerais-tu pour chercher un logement ?", "answer": "Les secteurs proches du centre ou bien reliés aux transports, selon ton budget.", "follow_up_to": null},
-        {"topic": "Quartiers", "question": "Comment décrirais-tu l'ambiance de ces quartiers ?", "answer": "Certains sont animés près des commerces ; d'autres sont plus calmes, un peu plus loin du centre.", "follow_up_to": 1, "condition": "After neighbourhoods are suggested, unless their atmosphere is already described."},
-        {"topic": "Budget", "question": "Quelle fourchette de loyers faut-il envisager pour un petit appartement, charges comprises ?", "answer": "Dans les secteurs bien desservis, compte environ 1 300 à 1 700 $ par mois selon les charges incluses.", "follow_up_to": null},
-        {"topic": "Services de proximité", "question": "Quels transports en commun et quels commerces trouve-t-on dans ces secteurs, et une voiture serait-elle nécessaire ?", "answer": "Les deux secteurs ont des bus fréquents, des épiceries et une pharmacie ; près du centre, une voiture n'est pas nécessaire.", "follow_up_to": null},
-        {"topic": "Recherche et démarches", "question": "Quels sites seraient utiles pour trouver des annonces fiables ?", "answer": "Les plateformes connues et les sites d'agences locales, sans se fier uniquement aux photos.", "follow_up_to": null},
-        {"topic": "Recherche et démarches", "question": "Quelles étapes me conseillerais-tu avant d'accepter une location ?", "answer": "Contacter le propriétaire, voir le logement et examiner les conditions du bail avant de verser une somme.", "follow_up_to": null},
-        {"topic": "Recherche et démarches", "question": "Quels documents devrais-je préparer pour répondre rapidement à une annonce intéressante ?", "answer": "Prépare tes pièces d'identité, tes justificatifs de revenus et les références que tu peux fournir, sans envoyer de données sensibles avant de vérifier l'annonce.", "follow_up_to": 6, "condition": "After the application steps are outlined, ask how to prepare a responsive file."},
-        {"topic": "Recherche et démarches", "question": "Lors d'une visite, quels signes devraient m'alerter sur l'état du logement ou l'annonce ?", "answer": "Vérifie l'humidité, les équipements, l'identité du bailleur et refuse tout paiement précipité.", "follow_up_to": null}
+        {"topic": "Quartiers", "question": "Quels quartiers me conseillerais-tu pour chercher un logement ?", "answer": "Le secteur du parc et celui de la gare sont les deux possibilités que je connais le mieux.", "follow_up_to": null},
+        {"topic": "Quartiers", "question": "Parmi ces quartiers, lequel choisirais-tu pour une ambiance plutôt calme ?", "answer": "Le secteur du parc, plus résidentiel que celui de la gare.", "follow_up_to": 1, "condition": "After several neighbourhoods are suggested; adapt to the atmosphere you prefer."},
+        {"topic": "Quartiers", "question": "Et au quotidien, quels services trouve-t-on dans ce secteur ?", "answer": "Une épicerie, une pharmacie, une clinique et plusieurs cafés.", "follow_up_to": 2, "condition": "After a neighbourhood has been selected."},
+        {"topic": "Quartiers", "question": "Et pour les déplacements, ce secteur est-il bien desservi ?", "answer": "Oui, le métro est à dix minutes à pied et plusieurs bus passent dans le quartier.", "follow_up_to": 2, "condition": "After a neighbourhood has been selected."},
+        {"topic": "Budget", "question": "Quel loyer faut-il prévoir pour un petit appartement dans ce secteur ?", "answer": "Environ 1 300 à 1 600 $ par mois, selon l'état et les charges incluses.", "follow_up_to": null},
+        {"topic": "Budget", "question": "D'après toi, quelles dépenses de logement oublie-t-on souvent d'ajouter au loyer ?", "answer": "Le chauffage, l'électricité, Internet et parfois le stationnement.", "follow_up_to": 5, "condition": "After discussing the expected rent."},
+        {"topic": "Recherche et démarches", "question": "Pour commencer mes recherches, quels sites locaux sont les plus utiles ?", "answer": "Les grandes plateformes immobilières et les sites des agences locales.", "follow_up_to": null},
+        {"topic": "Recherche et démarches", "question": "Quelles étapes me conseillerais-tu avant d'accepter une location ?", "answer": "Vérifie l'annonce, visite le logement et lis le bail avant tout paiement.", "follow_up_to": null}
       ]
     },
     {

@@ -55,18 +55,18 @@
     {
       "group": "estate-agent-advertised-apartment-unspecified",
       "register": "vous",
-      "note": "An apartment advertisement interests you and you question the estate agent. The subject title suggests a purchase, so the model asks about the sale price and condo fees; for a rental, ask about rent and charges instead. Cover size, condition, price and neighbourhood. Use vous with the agent.",
-      "opening": "Bonjour ! J'ai vu votre annonce pour l'appartement à vendre, et il m'intéresse beaucoup.",
-      "closing": "Merci pour ces renseignements ! J'aimerais visiter l'appartement cette semaine, si c'est possible.",
+      "note": "A specific apartment advertisement interests you and you question the estate agent. The prompt does not establish sale or rental, despite the source title, so clarify the transaction first. Then ask about price, size, condition, neighbourhood, recurring costs and a visit. Use vous.",
+      "opening": "Bonjour ! L'appartement de votre annonce m'intéresse et j'aimerais obtenir quelques précisions.",
+      "closing": "Merci pour ces renseignements. Je vais examiner les conditions avant de vous recontacter pour une visite.",
       "questions": [
-        {"topic": "L'appartement", "question": "Quelle est sa superficie, et combien de chambres comporte-t-il ?", "answer": "Il fait 85 mètres carrés, soit environ 900 pieds carrés, avec deux chambres et un grand salon.", "follow_up_to": null},
-        {"topic": "L'appartement", "question": "Dans quel état sont la cuisine et la salle de bains, et quand ont-elles été rénovées ?", "answer": "La cuisine a été refaite il y a deux ans, mais la salle de bains date un peu.", "follow_up_to": null},
-        {"topic": "L'appartement", "question": "Faudrait-il prévoir de gros travaux dans la salle de bains ?", "answer": "Pas forcément, mais comptez environ 10 000 $ pour la moderniser.", "follow_up_to": 2, "condition": "If a dated room is mentioned; adapt to the room described."},
-        {"topic": "Prix, frais et visite", "question": "Quel est le prix demandé, et comment se situe-t-il par rapport au marché du quartier ?", "answer": "Le prix demandé est de 425 000 $, ce qui correspond à la moyenne du quartier.", "follow_up_to": null},
-        {"topic": "Prix, frais et visite", "question": "Quel budget annuel faut-il prévoir pour les taxes municipales et scolaires ?", "answer": "Environ 3 600 $ par an au total, d'après les derniers avis d'imposition.", "follow_up_to": null},
-        {"topic": "Prix, frais et visite", "question": "À combien s'élèvent les frais de copropriété mensuels, et quelles charges comprennent-ils ?", "answer": "Ils sont d'environ 300 $ par mois, chauffage compris.", "follow_up_to": null},
-        {"topic": "Prix, frais et visite", "question": "Quand pourrais-je visiter l'appartement pour vérifier son état et la disposition des pièces ?", "answer": "Une visite est possible mercredi soir ou samedi matin, sur rendez-vous avec l'agent.", "follow_up_to": null},
-        {"topic": "Quartier", "question": "Quels commerces et transports trouve-t-on à proximité, et une voiture est-elle vraiment nécessaire ?", "answer": "Une école, des commerces et le métro sont à cinq minutes à pied ; une voiture n'est pas indispensable.", "follow_up_to": null}
+        {"topic": "Transaction et coût", "question": "Cet appartement est-il proposé à la vente ou à la location ?", "answer": "Il est proposé à la vente.", "follow_up_to": null},
+        {"topic": "Transaction et coût", "question": "Dans ce cas, quel montant demande le propriétaire ?", "answer": "Le prix demandé est de 425 000 $.", "follow_up_to": 1, "condition": "After the agent clarifies the transaction; use sale price or monthly rent as appropriate."},
+        {"topic": "Appartement", "question": "Quelle est la superficie de l'appartement ?", "answer": "Il fait quatre-vingt-cinq mètres carrés.", "follow_up_to": null},
+        {"topic": "Appartement", "question": "Comment les pièces sont-elles réparties ?", "answer": "Il comprend deux chambres, un grand salon, une cuisine et une salle de bains.", "follow_up_to": 3, "condition": "After the area is given, unless the layout is already described."},
+        {"topic": "Appartement", "question": "Dans quel état général se trouve le logement ?", "answer": "La cuisine a été rénovée récemment, mais la salle de bains est plus ancienne.", "follow_up_to": null},
+        {"topic": "Quartier et décision", "question": "Et autour de l'immeuble, comment est le quartier ?", "answer": "C'est un quartier résidentiel avec des commerces, une école et le métro à proximité.", "follow_up_to": null},
+        {"topic": "Quartier et décision", "question": "En plus du montant annoncé, quels frais réguliers faut-il prévoir ?", "answer": "Les charges de copropriété sont de 300 $ par mois, et il faut aussi prévoir les taxes.", "follow_up_to": null},
+        {"topic": "Quartier et décision", "question": "Quand serait-il possible de visiter l'appartement ?", "answer": "Une visite est possible mercredi soir ou samedi matin.", "follow_up_to": null}
       ]
     },
     {
@@ -89,18 +89,18 @@
     {
       "group": "help-friend-post-parcel",
       "register": "tu",
-      "note": "Your friend cannot go to post a parcel and asks you to do it. The need is theirs: your questions about the deadline, parcel size and delivery time help you decide whether you can accept. Use tu with your friend.",
-      "opening": "Salut ! Pas de souci, je vais voir si je peux poster ton paquet ; j'ai juste besoin de quelques précisions.",
-      "closing": "Merci pour ces précisions ! C'est d'accord : je m'occupe de ton colis comme convenu.",
+      "note": "Your friend cannot post a parcel and asks you for this favour. You must decide whether you can help, so clarify the deadline, destination, expected delivery speed, parcel size and weight, readiness, and collection arrangements. Use tu. This is a personal errand, not a commercial delivery service or an open-ended promise.",
+      "opening": "Salut ! Je vais voir si je peux poster ton paquet, mais j'ai besoin de quelques précisions pour m'organiser.",
+      "closing": "Merci pour ces précisions ! Je peux m'en charger dans le délai que tu m'as indiqué.",
       "questions": [
-        {"topic": "Délai et durée", "question": "Quelle est la date limite pour le poster, et pourquoi ce délai est-il important ?", "answer": "Avant jeudi midi, pour qu'il arrive à Vancouver le jour de l'anniversaire de ma mère.", "follow_up_to": null},
-        {"topic": "Délai et durée", "question": "Où faut-il envoyer le paquet, et quel mode d'expédition voudrais-tu choisir ?", "answer": "À Vancouver ; un envoi suivi standard suffira, sauf si le délai est trop long.", "follow_up_to": null},
-        {"topic": "Délai et durée", "question": "Quel délai faut-il prévoir en envoi standard jusqu'à Vancouver ?", "answer": "Environ cinq jours ouvrables ; c'est pour cela que jeudi midi est la limite.", "follow_up_to": 1, "condition": "After the deadline and destination are given; substitute the city named."},
-        {"topic": "Délai et durée", "question": "Et si je ne pouvais y aller que jeudi après-midi ?", "answer": "Il faudrait alors choisir l'envoi express, qui coûte environ 30 $ de plus ; je préférerais l'éviter.", "follow_up_to": 3, "condition": "If the deadline may not fit your availability; adapt the day."},
-        {"topic": "Le colis", "question": "Quelles sont les dimensions et le poids approximatifs du paquet ?", "answer": "C'est un carton à chaussures d'environ deux kilos, qui tient dans un sac à dos.", "follow_up_to": null},
-        {"topic": "Le colis", "question": "Est-ce qu'il y a quelque chose de fragile dedans ?", "answer": "Oui, une tasse en céramique, bien protégée ; demande simplement une étiquette « fragile » au comptoir.", "follow_up_to": null},
-        {"topic": "Organisation", "question": "À quelle adresse et dans quels créneaux pourrais-je récupérer le colis avant ton départ ?", "answer": "Chez moi, ce soir après 18 h ou demain matin avant 8 h.", "follow_up_to": null},
-        {"topic": "Organisation", "question": "Comment me rembourseras-tu l'envoi, et dois-je conserver le reçu et le numéro de suivi ?", "answer": "Je te donnerai 40 $ en liquide ; garde bien le reçu avec le numéro de suivi.", "follow_up_to": null}
+        {"topic": "Délai et envoi", "question": "Au plus tard, quand faut-il poster le paquet ?", "answer": "Jeudi avant midi.", "follow_up_to": null},
+        {"topic": "Délai et envoi", "question": "Dans quelle ville doit-il être envoyé ?", "answer": "À Vancouver.", "follow_up_to": null},
+        {"topic": "Délai et envoi", "question": "Quand doit-il arriver à destination ?", "answer": "Mardi prochain, pour un anniversaire.", "follow_up_to": null},
+        {"topic": "Délai et envoi", "question": "Si l'envoi standard est trop lent, souhaites-tu que je choisisse l'express ?", "answer": "Oui, mais seulement si le standard ne peut pas arriver mardi.", "follow_up_to": 3, "condition": "After the required arrival date is known."},
+        {"topic": "Le colis", "question": "Quelles sont les dimensions approximatives du paquet ?", "answer": "Environ trente centimètres sur vingt, comme une boîte à chaussures.", "follow_up_to": null},
+        {"topic": "Le colis", "question": "Combien pèse-t-il à peu près ?", "answer": "Environ deux kilos.", "follow_up_to": null},
+        {"topic": "Préparation et récupération", "question": "Combien de temps faut-il prévoir pour faire la démarche au bureau de poste ?", "answer": "Environ vingt minutes en dehors de l'heure du dîner.", "follow_up_to": null},
+        {"topic": "Préparation et récupération", "question": "Quand puis-je passer le récupérer chez toi ?", "answer": "Ce soir après 18 h ou demain matin avant 8 h.", "follow_up_to": null}
       ]
     },
     {
@@ -276,18 +276,18 @@
     {
       "group": "colleague-summer-house-rental",
       "register": "vous",
-      "note": "A colleague is renting out their house for the summer holidays, and you are interested. Ask about the rooms, equipment, surroundings, dates and price; do not assume a seaside house or a cottage. Vous is chosen as a cautious default; close colleagues may use tu.",
-      "opening": "Bonjour ! Votre maison à louer cet été m'intéresse beaucoup, et j'aimerais en savoir plus.",
-      "closing": "Merci ! Je vous confirme mes dates dès demain, et je prendrai grand soin de votre maison.",
+      "note": "Your colleague is offering their own house during the summer holidays. Ask about this house's rooms, capacity, equipment, setting, exact dates and price; do not assume seaside or cottage features. This model uses vous, but close colleagues may use tu consistently.",
+      "opening": "Bonjour ! Votre maison disponible pendant les vacances d'été pourrait m'intéresser, alors j'aimerais en savoir un peu plus.",
+      "closing": "Merci pour toutes ces précisions. Je vais vérifier mes dates et je vous donnerai rapidement ma réponse.",
       "questions": [
-        {"topic": "La maison", "question": "Combien de pièces et de chambres la maison compte-t-elle ?", "answer": "Elle comprend trois chambres, un salon, une cuisine, un bureau et deux salles de bains.", "follow_up_to": null},
-        {"topic": "La maison", "question": "Combien de personnes peuvent y dormir confortablement, et comment sont répartis les couchages ?", "answer": "Six personnes : deux chambres doubles et une chambre avec deux lits simples.", "follow_up_to": null},
-        {"topic": "La maison", "question": "Quels équipements sont fournis, et y a-t-il notamment la climatisation ?", "answer": "Il y a un lave-vaisselle, une laveuse, une sécheuse et un barbecue, mais pas de climatisation.", "follow_up_to": null},
-        {"topic": "La maison", "question": "Sans climatisation, il ne fait pas trop chaud en été ?", "answer": "Pas vraiment : de grands érables ombragent la maison, et les nuits sont fraîches.", "follow_up_to": 3, "condition": "If air conditioning is missing; adapt to the equipment lacking."},
-        {"topic": "Le cadre", "question": "Le quartier est-il calme, et comment accède-t-on au parc et au centre-ville sans voiture ?", "answer": "Un grand parc se trouve à proximité, et le centre-ville est à vingt minutes en autobus.", "follow_up_to": null},
-        {"topic": "Le cadre", "question": "À quelle fréquence passe l'autobus, et à quelle distance se trouve l'arrêt ?", "answer": "Il passe toutes les dix minutes en journée, et l'arrêt se trouve au coin de la rue.", "follow_up_to": 5, "condition": "If a bus connection is mentioned; adapt to the transport named."},
-        {"topic": "Dates et prix", "question": "À quelles dates la maison est-elle disponible, et quelle est la durée minimale de location ?", "answer": "Du 1er juillet au 15 août, avec une location minimale d'une semaine.", "follow_up_to": null},
-        {"topic": "Dates et prix", "question": "Quel loyer demandez-vous, et quelles charges sont comprises ?", "answer": "Le loyer est de 900 $ la semaine, électricité et Internet compris ; je vous demanderai seulement d'arroser mes plantes.", "follow_up_to": null}
+        {"topic": "Maison", "question": "Combien de chambres la maison compte-t-elle ?", "answer": "Elle comprend trois chambres.", "follow_up_to": null},
+        {"topic": "Maison", "question": "Avec ces chambres, combien de personnes peuvent y dormir confortablement ?", "answer": "Six personnes, grâce à deux lits doubles et deux lits simples.", "follow_up_to": 1, "condition": "After the number of bedrooms is given."},
+        {"topic": "Maison", "question": "Et sur place, quels équipements seront à la disposition des locataires ?", "answer": "Un lave-vaisselle, une laveuse, une sécheuse et un barbecue.", "follow_up_to": null},
+        {"topic": "Cadre", "question": "Comment sont les environs en été : plutôt calmes ou animés ?", "answer": "Ils sont plutôt calmes, avec un grand parc et quelques commerces à proximité.", "follow_up_to": null},
+        {"topic": "Cadre", "question": "Peut-on rejoindre facilement le centre-ville sans voiture ?", "answer": "Oui, un autobus direct y mène en vingt minutes.", "follow_up_to": 4, "condition": "After the setting is described, if access to the city matters to you."},
+        {"topic": "Dates et prix", "question": "Concernant les dates, quand la maison est-elle disponible exactement ?", "answer": "Du premier juillet au quinze août.", "follow_up_to": null},
+        {"topic": "Dates et prix", "question": "Quel loyer demandez-vous pour une semaine ?", "answer": "Le loyer est de 900 $ par semaine.", "follow_up_to": null},
+        {"topic": "Dates et prix", "question": "Quelles charges sont comprises dans ce loyer ?", "answer": "L'électricité et Internet sont compris.", "follow_up_to": 7, "condition": "After the weekly rent is given, unless included charges are already explained."}
       ]
     },
     {
@@ -361,18 +361,18 @@
     {
       "group": "neighbor-child-one-day-care",
       "register": "vous",
-      "note": "You have already agreed to look after your neighbour's child for a day, so do not ask again whether you can. The child's age and needs are not given: ask about health, meals, daily habits and favourite activities. Vous is chosen as a cautious default; a close neighbour may be addressed with tu.",
+      "note": "You have already agreed to care for your neighbour's child for one day as a favour. The child's age, gender and needs are unspecified, so establish age and ask about meals, habits, rest, favourite activities and contact details without inventing medical issues. Use vous as a cautious neighbourly default.",
       "opening": "Bonjour ! C'est avec plaisir que je garderai votre enfant ; j'aimerais simplement en savoir un peu plus à son sujet.",
-      "closing": "Merci pour toutes ces informations ! Tout est noté, votre enfant va passer une belle journée.",
+      "closing": "Merci pour toutes ces informations ! Je vais respecter ses habitudes pendant la journée.",
       "questions": [
-        {"topic": "Santé", "question": "Votre enfant a-t-elle une allergie ou un traitement particulier, et où trouverez-vous son médicament d'urgence ?", "answer": "Léa est allergique aux arachides ; son auto-injecteur sera dans son sac à dos.", "follow_up_to": null},
-        {"topic": "Santé", "question": "En cas de réaction allergique, dans quel ordre dois-je utiliser l'auto-injecteur, appeler les secours et vous prévenir ?", "answer": "Faites l'injection dans la cuisse, appelez le 911, puis prévenez-moi.", "follow_up_to": 1, "condition": "If an allergy is mentioned, unless the emergency procedure is explained."},
-        {"topic": "Santé", "question": "Comment puis-je vous joindre rapidement pendant la journée en cas d'urgence ?", "answer": "Appelez d'abord mon portable ; si je ne réponds pas, contactez l'autre parent au numéro que je vous laisserai.", "follow_up_to": null},
-        {"topic": "Repas et habitudes", "question": "Quel repas et quelle collation faudra-t-il lui donner, et à quelles heures ?", "answer": "Réchauffez le repas que je laisserai pour midi, puis donnez-lui une collation vers 15 h.", "follow_up_to": null},
-        {"topic": "Repas et habitudes", "question": "À quelle heure fait-elle sa sieste, combien de temps dort-elle et a-t-elle besoin de son lapin en peluche ?", "answer": "Elle dort environ une heure après le repas, avec son lapin en peluche.", "follow_up_to": null},
-        {"topic": "Repas et habitudes", "question": "Si elle a du mal à s'endormir, quelle routine fonctionne habituellement avec elle ?", "answer": "Lisez-lui une histoire ; en général, elle s'endort avant la fin.", "follow_up_to": 5, "condition": "If a nap is part of the routine."},
-        {"topic": "Activités", "question": "Quelles activités calmes et quelles sorties lui plaisent le plus pendant la journée ?", "answer": "Elle aime dessiner et surtout jouer au parc, où elle adore la balançoire.", "follow_up_to": null},
-        {"topic": "Activités", "question": "Ça vous dérangerait que je l'emmène au parc du quartier ?", "answer": "Pas du tout, mais gardez-la à l'œil : elle grimpe partout !", "follow_up_to": 7, "condition": "If outdoor play is mentioned; adapt to the place."}
+        {"topic": "Repères essentiels", "question": "Quel âge a votre enfant ?", "answer": "Six ans.", "follow_up_to": null},
+        {"topic": "Repères essentiels", "question": "Y a-t-il une allergie ou un soin particulier que je dois connaître ?", "answer": "Non, aucun soin particulier ni aucune allergie connue.", "follow_up_to": null},
+        {"topic": "Repas et habitudes", "question": "Qu'est-ce que je dois lui servir pour le repas ?", "answer": "Je préparerai un plat à réchauffer pour midi.", "follow_up_to": null},
+        {"topic": "Repas et habitudes", "question": "À quel moment votre enfant a généralement besoin d'un temps calme ?", "answer": "Après le repas, pendant une trentaine de minutes.", "follow_up_to": null},
+        {"topic": "Activités", "question": "Quelles activités plaisent le plus à votre enfant pendant la journée ?", "answer": "Le dessin, les jeux de construction et les sorties au parc.", "follow_up_to": null},
+        {"topic": "Activités", "question": "Est-ce que je peux l'emmener au parc s'il en a envie ?", "answer": "Oui, le parc du quartier lui plaît beaucoup.", "follow_up_to": 5, "condition": "If the child's preferred activities suggest that an outing would suit them."},
+        {"topic": "Activités", "question": "Y a-t-il une règle habituelle à respecter pendant les jeux ou les sorties ?", "answer": "Votre enfant doit rester près de l'adulte et ranger un jeu avant d'en commencer un autre.", "follow_up_to": null},
+        {"topic": "Contact", "question": "Comment puis-je vous joindre rapidement pendant la journée ?", "answer": "Appelez mon portable ; je vous laisserai aussi un second numéro.", "follow_up_to": null}
       ]
     },
     {

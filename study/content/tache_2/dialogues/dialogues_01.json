@@ -4,35 +4,35 @@
     {
       "group": "friend-moving-abroad-sale",
       "register": "tu",
-      "note": "Your friend is selling belongings before moving abroad; the move is already confirmed. Start with available items, then their condition, price and collection. You are considering buying objects, not finding accommodation. Use tu with your friend, and replace example objects with whatever they actually mention.",
-      "opening": "Salut ! Certaines de tes affaires pourraient m'intéresser avant ton départ.",
-      "closing": "Merci pour ces précisions ! Je vais vérifier la place chez moi avant de te confirmer.",
+      "note": "Your friend is moving abroad and is selling belongings they cannot take. You are a potential buyer. Ask about the items, condition, prices and collection; the move itself is already confirmed. Use tu and adapt follow-ups to the objects named.",
+      "opening": "Salut ! Comme certaines de tes affaires m'intéressent, j'aimerais en savoir un peu plus avant ton départ.",
+      "closing": "Merci pour toutes ces précisions ! Je vais réfléchir aux objets qui me conviendraient et je te confirmerai mon choix.",
       "questions": [
-        {"topic": "Objets et état", "question": "Qu'est-ce que tu mets en vente ?", "answer": "Je vends un canapé, une table à manger et quelques lampes.", "follow_up_to": null},
-        {"topic": "Objets et état", "question": "Le canapé est dans quel état ?", "answer": "Il est propre, mais l'un des accoudoirs porte une petite rayure.", "follow_up_to": 1, "condition": "If a sofa is offered."},
-        {"topic": "Objets et état", "question": "Quelles sont ses dimensions ?", "answer": "Il mesure deux mètres de long sur quatre-vingt-dix centimètres de profondeur.", "follow_up_to": 2, "condition": "If that item interests you and its size matters."},
-        {"topic": "Prix", "question": "Quels prix demandes-tu pour les objets qui m'intéressent ?", "answer": "Je demande 180 $ pour le canapé et 60 $ pour la table.", "follow_up_to": null},
-        {"topic": "Prix", "question": "Si je prends plusieurs articles, pourrais-tu me faire un prix ?", "answer": "Oui, je pourrais te laisser le canapé et la table pour 220 $.", "follow_up_to": 4, "condition": "After individual prices are given, if you might buy several items."},
-        {"topic": "Visite et récupération", "question": "Quand pourrais-je passer les voir ?", "answer": "Tu peux venir jeudi après dix-huit heures.", "follow_up_to": null},
-        {"topic": "Visite et récupération", "question": "Comment pourrait-on organiser leur récupération ?", "answer": "Il faudrait venir les chercher ce week-end avec un véhicule assez grand.", "follow_up_to": null},
-        {"topic": "Visite et récupération", "question": "Est-ce que tu pourrais me réserver les objets choisis jusqu'à ce que je vienne les chercher ?", "answer": "Oui, je peux les mettre de côté jusqu'à samedi si tu me confirmes ton choix.", "follow_up_to": null}
+        {"topic": "Objets et état", "question": "Quelles affaires as-tu décidé de vendre ?", "answer": "Je vends un canapé, une table à manger et quelques lampes.", "follow_up_to": null},
+        {"topic": "Objets et état", "question": "Est-ce que tout est encore en bon état, ou y a-t-il des défauts à signaler ?", "answer": "La table et les lampes sont impeccables ; le canapé porte seulement une petite rayure.", "follow_up_to": 1, "condition": "After the available items have been listed."},
+        {"topic": "Objets et état", "question": "Quelles sont les dimensions du canapé ?", "answer": "Il mesure deux mètres de long sur quatre-vingt-dix centimètres de profondeur.", "follow_up_to": 1, "condition": "If a sofa is offered and you are considering it."},
+        {"topic": "Prix", "question": "Et côté prix, combien demandes-tu pour les objets que tu viens de me présenter ?", "answer": "Je demande 180 $ pour le canapé et 60 $ pour la table.", "follow_up_to": null},
+        {"topic": "Prix", "question": "Si j'en prends plusieurs, pourrais-tu me faire un prix ?", "answer": "Je pourrais te laisser le canapé et la table pour 220 $.", "follow_up_to": 4, "condition": "After the individual prices are given, if you want several items."},
+        {"topic": "Visite et récupération", "question": "Quand pourrais-je passer voir les affaires ?", "answer": "Tu peux venir jeudi après dix-huit heures.", "follow_up_to": null},
+        {"topic": "Visite et récupération", "question": "Après ma visite, jusqu'à quand pourrais-tu mettre mon choix de côté ?", "answer": "Je pourrais te réserver les articles jusqu'à samedi soir.", "follow_up_to": 6, "condition": "After arranging a viewing, if you may need time to confirm."},
+        {"topic": "Visite et récupération", "question": "Comment devrai-je récupérer les objets que j'achèterai ?", "answer": "Il faudra venir les chercher ce week-end avec un véhicule assez grand.", "follow_up_to": null}
       ]
     },
     {
       "group": "host-foreign-friends-city-advice",
       "register": "tu",
-      "note": "You are hosting foreign friends in your own city. Your interlocutor is advising you, not booking their trip. Prioritize worthwhile visits, activities, restaurants and practical transport. Do not turn this into a housing search. Use tu with your friend; follow up on the places they actually recommend.",
+      "note": "You are hosting foreign friends in your own city and ask a friend for practical ideas. Choose visits, activities, restaurants and transport without turning the exchange into a booking or housing search. The friend offers personal advice, not official information. Use tu and adapt follow-ups to what they recommend.",
       "opening": "Salut ! J'aimerais préparer un séjour sympa pour mes amis qui découvrent la ville.",
       "closing": "Merci, tes conseils vont m'aider à organiser un séjour varié sans trop charger les journées !",
       "questions": [
-        {"topic": "Visites et activités", "question": "Pour une première visite, quels endroits me conseillerais-tu ?", "answer": "Le vieux centre et les quais sont de bons points de départ.", "follow_up_to": null},
-        {"topic": "Visites et activités", "question": "Lequel serait le plus pratique pour commencer ?", "answer": "Le vieux centre, parce qu'on peut découvrir plusieurs monuments à pied.", "follow_up_to": 1, "condition": "After they recommend several places."},
-        {"topic": "Visites et activités", "question": "Quelle activité leur ferait découvrir la culture locale ?", "answer": "Le musée régional propose une belle exposition sur l'histoire de la ville.", "follow_up_to": null},
-        {"topic": "Visites et activités", "question": "Pour ce musée, faut-il réserver à l'avance ?", "answer": "Seulement pour la visite guidée, qui affiche souvent complet le week-end.", "follow_up_to": 3, "condition": "If they recommend a museum; otherwise adapt to the suggested activity."},
-        {"topic": "Restaurants", "question": "Où pourrait-on goûter des spécialités locales sans trop dépenser ?", "answer": "Au Bistro du Marché, qui sert une cuisine régionale dans une ambiance détendue.", "follow_up_to": null},
-        {"topic": "Restaurants", "question": "Quel budget prévoir pour un repas là-bas ?", "answer": "Environ 25 $ par personne, sans les boissons.", "follow_up_to": 5, "condition": "After a restaurant is recommended, unless its prices are already given."},
-        {"topic": "Déplacements", "question": "Quel moyen de transport serait le plus simple pour ces sorties ?", "answer": "Le métro pour rejoindre le centre, puis la marche entre les visites.", "follow_up_to": null},
-        {"topic": "Déplacements", "question": "Existe-t-il un titre de transport avantageux pour leurs déplacements pendant la journée ?", "answer": "Oui, le forfait journalier devient rentable dès le troisième trajet.", "follow_up_to": null}
+        {"topic": "Visites et activités", "question": "Pour leur donner un bon aperçu de la ville, quels endroits me conseillerais-tu en priorité ?", "answer": "Le vieux centre et les quais donnent un bon aperçu de l'histoire et de l'ambiance locale.", "follow_up_to": null},
+        {"topic": "Visites et activités", "question": "Par lequel vaudrait-il mieux commencer ?", "answer": "Par le vieux centre, car plusieurs lieux intéressants se découvrent facilement à pied.", "follow_up_to": 1, "condition": "After several places have been recommended."},
+        {"topic": "Visites et activités", "question": "Quelle activité leur permettrait de découvrir la culture locale ?", "answer": "Le musée régional propose une exposition claire sur l'histoire de la ville.", "follow_up_to": null},
+        {"topic": "Visites et activités", "question": "Et s'il pleut, quelle activité intérieure me conseillerais-tu ?", "answer": "La visite guidée du marché couvert serait une bonne solution.", "follow_up_to": null},
+        {"topic": "Restaurants", "question": "Où pourrait-on goûter une spécialité locale dans une ambiance conviviale ?", "answer": "Au Bistro du Marché, qui sert une cuisine régionale dans une salle assez animée.", "follow_up_to": null},
+        {"topic": "Restaurants", "question": "Quel budget faudrait-il prévoir par personne dans ce restaurant ?", "answer": "Environ 25 $ par personne, sans les boissons.", "follow_up_to": 5, "condition": "After a restaurant is recommended, unless its prices are already given."},
+        {"topic": "Déplacements", "question": "Quel moyen de transport serait le plus simple entre ces différentes sorties ?", "answer": "Le métro pour rejoindre le centre, puis la marche entre les principaux sites.", "follow_up_to": null},
+        {"topic": "Déplacements", "question": "Quel titre de transport serait le plus avantageux pour une journée de visites ?", "answer": "Le forfait journalier devient intéressant à partir de trois trajets.", "follow_up_to": null}
       ]
     },
     {
@@ -72,18 +72,18 @@
     {
       "group": "neighbor-dog-care-week-paid",
       "register": "vous",
-      "note": "A local resident needs paid care for their dog during a one-week holiday. Check dates, where the dog will stay, daily care and emergency contacts before discussing payment and confirming. You are considering providing a service, not hiring a sitter. Vous is chosen for this neighbourly but not necessarily close relationship.",
+      "note": "A resident of your neighbourhood needs someone to care for their dog during a one-week holiday, with remuneration explicitly mentioned. You are considering providing the care, not hiring somebody else. Clarify dates, location, routine, health contacts and pay. Use vous for this neighbourly but not necessarily close relationship.",
       "opening": "Bonjour ! Votre proposition m'intéresse. J'aimerais vérifier que je pourrai bien m'occuper de votre chien.",
       "closing": "Merci pour ces précisions. Je vais vérifier mes disponibilités avant de vous confirmer.",
       "questions": [
-        {"topic": "Organisation de la garde", "question": "Quelles sont les dates de votre absence ?", "answer": "Je pars lundi matin et je rentre dimanche soir.", "follow_up_to": null},
-        {"topic": "Organisation de la garde", "question": "Vous préféreriez que je le garde chez vous ou chez moi ?", "answer": "Chez vous, si cela vous convient ; il supporte bien les changements d'environnement.", "follow_up_to": null},
-        {"topic": "Repas", "question": "Quelles sont ses habitudes pour les repas ?", "answer": "Il mange une portion de ses croquettes habituelles le matin et une autre le soir.", "follow_up_to": null},
-        {"topic": "Repas", "question": "Vous me laisserez assez de ces croquettes pour la semaine ?", "answer": "Oui, je préparerai les portions et vous donnerai les quantités par écrit.", "follow_up_to": 3, "condition": "If they mention kibble; adapt the food name to their reply."},
-        {"topic": "Sorties et soins", "question": "De quelles promenades a-t-il besoin chaque jour ?", "answer": "De deux sorties d'environ trente minutes, toujours en laisse.", "follow_up_to": null},
-        {"topic": "Sorties et soins", "question": "S'il a un problème de santé, qui dois-je contacter ?", "answer": "Appelez-moi d'abord ; je vous laisserai aussi les coordonnées de son vétérinaire.", "follow_up_to": null},
-        {"topic": "Rémunération", "question": "Quelle rémunération aviez-vous prévue pour la semaine ?", "answer": "Je vous propose 140 $ pour l'ensemble de la garde.", "follow_up_to": null},
-        {"topic": "Rémunération", "question": "Cette somme couvrira-t-elle aussi d'éventuelles dépenses urgentes pour votre chien ?", "answer": "Non, je vous rembourserai séparément toute dépense urgente sur présentation du reçu.", "follow_up_to": null}
+        {"topic": "Organisation de la garde", "question": "Quelles sont les dates exactes de votre absence ?", "answer": "Je pars lundi matin et je rentre dimanche soir.", "follow_up_to": null},
+        {"topic": "Organisation de la garde", "question": "Où souhaitez-vous que votre chien reste pendant la semaine ?", "answer": "Chez moi, pour qu'il conserve ses repères ; je vous laisserai une clé.", "follow_up_to": null},
+        {"topic": "Routine quotidienne", "question": "À quels moments faut-il lui donner ses repas ?", "answer": "Le matin vers 8 h et le soir vers 18 h, avec les portions que je préparerai.", "follow_up_to": null},
+        {"topic": "Routine quotidienne", "question": "Combien de promenades lui faut-il chaque jour ?", "answer": "Deux promenades d'environ trente minutes, toujours en laisse.", "follow_up_to": null},
+        {"topic": "Routine quotidienne", "question": "Pendant les promenades, y a-t-il une consigne particulière à respecter ?", "answer": "Évitez le parc à chiens, car il est nerveux avec les grands chiens.", "follow_up_to": 4, "condition": "After the walking routine has been explained."},
+        {"topic": "Santé et contact", "question": "A-t-il des soins ou un traitement à recevoir pendant cette semaine ?", "answer": "Non, aucun traitement ; il faut seulement surveiller son appétit.", "follow_up_to": null},
+        {"topic": "Santé et contact", "question": "Qui dois-je contacter si je remarque un problème de santé ?", "answer": "Appelez-moi d'abord ; je vous laisserai aussi les coordonnées de son vétérinaire.", "follow_up_to": null},
+        {"topic": "Rémunération", "question": "Quelle rémunération avez-vous prévue pour l'ensemble de la garde ?", "answer": "Je vous propose 140 $ pour la semaine.", "follow_up_to": null}
       ]
     },
     {
@@ -157,18 +157,18 @@
     {
       "group": "help-friend-moving-day",
       "register": "tu",
-      "note": "You will help your friend move, so clarify how to organize your help. The new home already exists: do not ask which apartment they want to rent. Prioritize date, addresses, bulky items, helpers and transport. Use tu with your friend; ask about dismantling only after relevant furniture is mentioned.",
-      "opening": "Salut ! Pour ton déménagement, j'aimerais qu'on prépare bien la journée.",
-      "closing": "Merci pour les précisions ! Je vais m'organiser en fonction de ce que tu m'as expliqué.",
+      "note": "You are helping a friend move into an already chosen home. Clarify the schedule, route, access, heavy items, helpers, transport and your role. Do not turn this into a housing search. Use tu and mention dismantling only if a relevant item is named.",
+      "opening": "Salut ! Pour que ton déménagement se passe bien, j'aimerais qu'on organise la journée ensemble.",
+      "closing": "Merci pour ces précisions ! Je saurai quoi préparer et comment t'aider le jour du déménagement.",
       "questions": [
-        {"topic": "Date et trajet", "question": "Quand est-ce que tu prévois le déménagement ?", "answer": "Samedi prochain, avec un départ vers neuf heures.", "follow_up_to": null},
-        {"topic": "Date et trajet", "question": "Quelles sont les adresses de départ et d'arrivée ?", "answer": "On part de mon appartement rue des Érables pour aller au 18, avenue du Parc.", "follow_up_to": null},
-        {"topic": "Meubles et préparation", "question": "Quels sont les meubles les plus encombrants à déplacer ?", "answer": "Le canapé et une grande armoire sont les deux plus lourds.", "follow_up_to": null},
-        {"topic": "Meubles et préparation", "question": "Il faudra démonter l'armoire avant de la sortir ?", "answer": "Oui, je la démonterai vendredi soir pour gagner du temps.", "follow_up_to": 3, "condition": "If a wardrobe is mentioned; substitute another bulky item when appropriate."},
-        {"topic": "Transport et répartition des tâches", "question": "Qui sera là pour nous aider ?", "answer": "Ma sœur et deux collègues viendront aussi.", "follow_up_to": null},
-        {"topic": "Transport et répartition des tâches", "question": "Comment as-tu prévu de transporter les affaires ?", "answer": "J'ai réservé une camionnette pour la journée.", "follow_up_to": null},
-        {"topic": "Transport et répartition des tâches", "question": "Qu'aimerais-tu que je prépare avant d'arriver ?", "answer": "Si tu peux apporter des gants et quelques couvertures pour protéger les meubles, ce serait utile.", "follow_up_to": null},
-        {"topic": "Transport et répartition des tâches", "question": "Y a-t-il des escaliers ou un ascenseur aux deux adresses ?", "answer": "Il y a un ascenseur au départ, mais deux étages sans ascenseur à l'arrivée.", "follow_up_to": null}
+        {"topic": "Horaire et trajet", "question": "Quel jour déménages-tu, et à quelle heure veux-tu commencer ?", "answer": "Samedi prochain, avec un départ vers neuf heures.", "follow_up_to": null},
+        {"topic": "Horaire et trajet", "question": "D'où part-on, et à quelle adresse allons-nous ?", "answer": "On part de mon appartement rue des Érables pour aller au 18, avenue du Parc.", "follow_up_to": null},
+        {"topic": "Horaire et trajet", "question": "Et pour l'accès, y a-t-il des étages ou un ascenseur dans les deux logements ?", "answer": "Il y a un ascenseur au départ, mais deux étages sans ascenseur à l'arrivée.", "follow_up_to": null},
+        {"topic": "Meubles et préparation", "question": "Quels sont les objets les plus encombrants à déplacer ?", "answer": "Le canapé et une grande armoire seront les plus difficiles à porter.", "follow_up_to": null},
+        {"topic": "Meubles et préparation", "question": "Est-ce que l'armoire sera démontée avant notre arrivée ?", "answer": "Oui, je la démonterai vendredi soir pour nous faire gagner du temps.", "follow_up_to": 4, "condition": "If a wardrobe is mentioned; adapt to the bulky item actually named."},
+        {"topic": "Aide et transport", "question": "À part nous, qui sera là pour aider ?", "answer": "Ma sœur et deux collègues viendront aussi.", "follow_up_to": null},
+        {"topic": "Aide et transport", "question": "Quel moyen de transport as-tu prévu pour les affaires ?", "answer": "J'ai réservé une camionnette pour toute la journée.", "follow_up_to": null},
+        {"topic": "Aide et transport", "question": "De mon côté, de quoi voudrais-tu que je m'occupe en priorité ?", "answer": "J'aimerais surtout que tu aides à protéger les meubles.", "follow_up_to": null}
       ]
     },
     {

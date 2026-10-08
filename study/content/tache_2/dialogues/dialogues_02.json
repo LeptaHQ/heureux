@@ -38,23 +38,23 @@
     {
       "group": "trusted-person-temporary-pet-care",
       "register": "tu",
-      "note": "Someone trusts you to care for an animal during an absence. Its species is not given: identify it before asking species-specific questions. Check dates, location, food, care, routines and emergency contacts before confirming. Tu is chosen for a familiar relationship. Adapt activities to the actual animal, not an assumed dog.",
+      "note": "A friend or neighbour entrusts an unspecified animal to you temporarily, with no payment stated. Identify the animal before asking species-specific questions, then clarify dates, location, food, activity, care and emergency contacts. Tu reflects the familiar relationship used by this model; adapt every follow-up to the animal named.",
       "notes": {
         "tache2:juin:batch-03:subject-13": "Your neighbour asks you to care for their animal for a few days; no payment is specified. Identify the animal, then clarify dates, location, meals, routines and emergency contacts. Tu is chosen for a familiar neighbourly relationship. Do not automatically ask dog-specific questions.",
         "tache2:septembre:batch-05:subject-22": "The interlocutor wants to leave their animal with you during a holiday. Find out what the care involves before confirming: species, dates, location, food, care and routines. The model chooses an informal relationship and tu. Adapt questions to the animal actually described.",
         "tache2:septembre:batch-06:subject-27": "Your neighbour is looking for someone to care for their animal. Gather practical details before agreeing; no payment is specified. Identify the species before asking about meals, activities and care. Tu is chosen for a familiar neighbourly relationship."
       },
-      "opening": "Salut ! J'aimerais vérifier comment m'occuper de ton animal pendant ton absence.",
+      "opening": "Salut ! Pour bien m'occuper de ton animal pendant ton absence, j'aimerais préciser ses besoins.",
       "closing": "Merci pour toutes ces précisions ! Je vais m'organiser à partir de ces consignes.",
       "questions": [
-        {"topic": "Organisation de la garde", "question": "Quel animal voudrais-tu me confier ?", "answer": "Mon chien, un petit terrier assez calme.", "follow_up_to": null},
-        {"topic": "Organisation de la garde", "question": "Comment souhaites-tu organiser la garde pendant ton absence ?", "answer": "À mon domicile, du vendredi soir au lundi matin ; je te laisserai les clés.", "follow_up_to": null},
-        {"topic": "Alimentation et soins", "question": "Quelle nourriture lui donner et à quels moments ?", "answer": "Ses croquettes habituelles, le matin et le soir, selon les portions que je préparerai.", "follow_up_to": null},
-        {"topic": "Alimentation et soins", "question": "En dehors de ces croquettes, y a-t-il des aliments à éviter ?", "answer": "Oui, ne lui donne pas de restes de table ni de nouvelles friandises.", "follow_up_to": 3, "condition": "If kibble is mentioned; adapt the food name to their reply."},
-        {"topic": "Habitudes et présence", "question": "Quelles sont ses habitudes de sortie ou d'activité ?", "answer": "Une promenade matin et soir, plus une petite sortie à midi.", "follow_up_to": null},
-        {"topic": "Habitudes et présence", "question": "Comment se comporte-t-il quand il reste seul ?", "answer": "Il reste calme une heure ou deux, mais il n'aime pas être seul toute la journée.", "follow_up_to": null},
-        {"topic": "Contact en cas de problème", "question": "Qui dois-je contacter si je remarque un problème de santé ?", "answer": "Appelle-moi ; je te laisserai aussi le numéro de son vétérinaire.", "follow_up_to": null},
-        {"topic": "Contact en cas de problème", "question": "Me laisseras-tu une autorisation et les renseignements nécessaires si une consultation vétérinaire devient urgente ?", "answer": "Oui, je préparerai une autorisation écrite, son carnet de santé et les coordonnées de la clinique.", "follow_up_to": null}
+        {"topic": "Organisation de la garde", "question": "Quel animal vas-tu me confier ?", "answer": "Mon chien, un petit terrier assez calme.", "follow_up_to": null},
+        {"topic": "Organisation de la garde", "question": "Pendant quelles dates faudra-t-il m'en occuper ?", "answer": "Du vendredi soir au lundi matin.", "follow_up_to": null},
+        {"topic": "Organisation de la garde", "question": "Où souhaites-tu qu'il reste pendant ton absence ?", "answer": "Chez moi, pour qu'il conserve ses repères ; je te laisserai les clés.", "follow_up_to": null},
+        {"topic": "Repas et soins", "question": "Quelle est sa routine pour les repas ?", "answer": "Il mange ses croquettes habituelles le matin et le soir.", "follow_up_to": null},
+        {"topic": "Repas et soins", "question": "En dehors des repas, quelle autre habitude dois-je respecter dans la journée ?", "answer": "Il lui faut une promenade le matin et une autre en fin de journée.", "follow_up_to": 4, "condition": "After the animal and feeding routine are known; adapt the habit to its species."},
+        {"topic": "Repas et soins", "question": "Y a-t-il un soin particulier à lui donner ?", "answer": "Non, aucun traitement ; il faut seulement brosser son pelage une fois.", "follow_up_to": null},
+        {"topic": "Habitudes et contact", "question": "Y a-t-il une habitude ou un comportement particulier que je dois connaître ?", "answer": "Il reste calme pendant quelques heures, mais il n'aime pas être seul toute la journée.", "follow_up_to": null},
+        {"topic": "Habitudes et contact", "question": "Qui dois-je contacter si son comportement ou son état m'inquiète ?", "answer": "Appelle-moi d'abord ; je te laisserai aussi le numéro de son vétérinaire.", "follow_up_to": null}
       ]
     },
     {
@@ -77,35 +77,35 @@
     {
       "group": "help-friend-find-rental-needs",
       "register": "tu",
-      "note": "Your friend, not you, is looking for an apartment. You are helping by gathering their budget, preferred area, size, housing type and essential criteria. Do not ask for accommodation for yourself or pretend to be an estate agent. Use tu; their requirements should guide the search.",
-      "opening": "Salut ! Pour t'aider à trouver un appartement, j'aimerais bien cerner tes besoins.",
-      "closing": "Merci, j'ai maintenant une idée plus précise de ce que tu cherches. Je vais regarder les annonces correspondantes.",
+      "note": "Your friend needs a rental and you are helping define the search. They are the future tenant; you are not an agent. Ask about timing, budget, location, size, housing type and priorities. Use tu and let their answers determine the criteria.",
+      "opening": "Salut ! Avant de chercher des annonces pour toi, j'aimerais bien comprendre ce dont tu as vraiment besoin.",
+      "closing": "Merci, tes priorités sont beaucoup plus claires ! Je vais maintenant chercher des locations qui correspondent à tes critères.",
       "questions": [
-        {"topic": "Budget", "question": "Quel loyer maximal peux-tu payer, charges comprises ?", "answer": "Je voudrais rester autour de 1 000 $ par mois.", "follow_up_to": null},
-        {"topic": "Logement et secteur", "question": "Quels trajets feras-tu souvent, et souhaites-tu pouvoir vivre sans voiture ?", "answer": "Je veux rejoindre mon travail en transport en commun en moins de quarante minutes et me passer de voiture.", "follow_up_to": null},
-        {"topic": "Logement et secteur", "question": "Compte tenu de ces trajets, dans quels quartiers aimerais-tu habiter ?", "answer": "Près de mon travail, ou au moins sur une ligne de transport directe.", "follow_up_to": 2, "condition": "After transport needs are clear, ask which areas would satisfy them."},
-        {"topic": "Logement et secteur", "question": "Quelle superficie te faudrait-il ?", "answer": "Environ quarante mètres carrés me suffiraient.", "follow_up_to": null},
-        {"topic": "Logement et secteur", "question": "Quel type de logement préfères-tu ?", "answer": "Un appartement avec une chambre séparée, de préférence non meublé.", "follow_up_to": null},
-        {"topic": "Logement et secteur", "question": "Quels autres critères sont vraiment indispensables pour toi ?", "answer": "Un endroit lumineux et peu bruyant ; un balcon serait seulement un plus.", "follow_up_to": null},
-        {"topic": "Date et dossier", "question": "À partir de quand voudrais-tu emménager ?", "answer": "Au début du mois prochain, si je trouve quelque chose à temps.", "follow_up_to": null},
-        {"topic": "Date et dossier", "question": "Quels documents ou références as-tu déjà pour préparer tes dossiers de location ?", "answer": "J'ai mes justificatifs de revenus et une référence de mon propriétaire actuel.", "follow_up_to": null}
+        {"topic": "Calendrier et budget", "question": "À partir de quand voudrais-tu emménager ?", "answer": "Au début du mois prochain, si je trouve quelque chose à temps.", "follow_up_to": null},
+        {"topic": "Calendrier et budget", "question": "Quel loyer maximal peux-tu payer, charges comprises ?", "answer": "Je voudrais rester autour de 1 000 $ par mois.", "follow_up_to": null},
+        {"topic": "Localisation", "question": "Quel trajet feras-tu le plus souvent depuis ton futur logement ?", "answer": "Je devrai surtout rejoindre mon travail en transport en commun.", "follow_up_to": null},
+        {"topic": "Localisation", "question": "En fonction de ce trajet, quels secteurs préférerais-tu ?", "answer": "Un quartier sur la ligne de métro directe, à moins de quarante minutes du travail.", "follow_up_to": 3, "condition": "After the main daily journey has been identified."},
+        {"topic": "Logement et priorités", "question": "Et pour le logement lui-même, quel type recherches-tu ?", "answer": "Un appartement non meublé avec une chambre séparée.", "follow_up_to": null},
+        {"topic": "Logement et priorités", "question": "Quelle superficie minimale te conviendrait ?", "answer": "Environ quarante mètres carrés me suffiraient.", "follow_up_to": null},
+        {"topic": "Logement et priorités", "question": "Quels critères sont indispensables pour toi au quotidien ?", "answer": "Je veux surtout un logement calme et lumineux.", "follow_up_to": null},
+        {"topic": "Logement et priorités", "question": "Si aucune annonce ne réunit tout, sur quel critère serais-tu prêt à faire un compromis ?", "answer": "Je pourrais renoncer au balcon si le quartier et le loyer me conviennent.", "follow_up_to": null}
       ]
     },
     {
       "group": "estate-agent-housing-options",
       "register": "vous",
-      "note": "You are consulting an agency about housing. The prompt allows renting or buying; this model consistently chooses renting, without mixing rent and purchase prices. Compare available properties, location, total cost and availability before arranging a visit and discussing the application. Use vous with the agent.",
-      "opening": "Bonjour ! Je cherche un logement et j'aimerais examiner vos offres de location.",
-      "closing": "Merci pour ces renseignements. Je vais comparer ces offres avant de prévoir une visite.",
+      "note": "You ask an estate agent about available housing. One source allows renting or buying; this shared model chooses renting, which fits every member. Compare property types, locations, prices, availability and rental conditions. Use vous and do not mix rental and purchase terminology.",
+      "opening": "Bonjour ! Je cherche un logement à louer et j'aimerais savoir quelles options votre agence peut me proposer.",
+      "closing": "Merci pour ces renseignements. Je vais comparer les possibilités avant de retenir l'offre la plus adaptée.",
       "questions": [
         {"topic": "Offres et quartiers", "question": "Quels types de logements avez-vous actuellement à louer ?", "answer": "Des studios et plusieurs appartements avec deux chambres.", "follow_up_to": null},
-        {"topic": "Offres et quartiers", "question": "Dans quels quartiers se trouvent les appartements de deux chambres, et quels transports les desservent ?", "answer": "Principalement près du parc, desservi par le bus, et dans le secteur de la gare, relié au métro.", "follow_up_to": 1, "condition": "If two-bedroom apartments are offered; substitute the housing type you choose."},
-        {"topic": "Budget", "question": "Quelle est la fourchette de loyers pour ces appartements ?", "answer": "Entre 1 200 et 1 500 $ par mois.", "follow_up_to": null},
-        {"topic": "Budget", "question": "Quelles charges sont comprises dans ces loyers ?", "answer": "L'eau est incluse ; le chauffage et l'électricité dépendent de chaque annonce.", "follow_up_to": 3, "condition": "After rent amounts are given, unless included charges are already explained."},
-        {"topic": "Conditions et visite", "question": "À partir de quand ces logements sont-ils disponibles ?", "answer": "Deux sont libres immédiatement, et un troisième sera disponible le mois prochain.", "follow_up_to": null},
-        {"topic": "Conditions et visite", "question": "Comment peut-on organiser une visite ?", "answer": "Nous pouvons fixer un rendez-vous avec le propriétaire après avoir sélectionné une annonce.", "follow_up_to": null},
-        {"topic": "Conditions et visite", "question": "Quels renseignements demandez-vous pour un dossier de location ?", "answer": "Vos coordonnées et des justificatifs adaptés à votre situation ; nous vous donnerons la liste pour le logement choisi.", "follow_up_to": null},
-        {"topic": "Conditions et visite", "question": "Après le dépôt d'un dossier complet, quel délai de réponse faut-il généralement prévoir ?", "answer": "Pour ces offres, les propriétaires répondent habituellement sous trois à cinq jours ouvrables.", "follow_up_to": null}
+        {"topic": "Offres et quartiers", "question": "Et dans quels quartiers se trouvent ces différentes offres ?", "answer": "Principalement près du parc et dans le secteur de la gare.", "follow_up_to": null},
+        {"topic": "Offres et quartiers", "question": "Comment décririez-vous l'ambiance dans ces quartiers ?", "answer": "Le secteur du parc est plutôt calme et résidentiel ; celui de la gare est plus animé.", "follow_up_to": 2, "condition": "After several areas have been named."},
+        {"topic": "Offres et quartiers", "question": "Lequel de ces quartiers est le mieux desservi par les transports ?", "answer": "Le secteur de la gare, qui donne directement accès au métro et à plusieurs bus.", "follow_up_to": 2, "condition": "After several areas have been named."},
+        {"topic": "Budget", "question": "Côté budget, quelle fourchette de loyers faut-il prévoir ?", "answer": "Entre 950 $ pour un studio et 1 500 $ pour un appartement de deux chambres.", "follow_up_to": null},
+        {"topic": "Budget", "question": "Quelles charges sont généralement comprises dans ces loyers ?", "answer": "L'eau est souvent incluse ; le chauffage et l'électricité varient selon l'annonce.", "follow_up_to": 5, "condition": "After the rent range is given, unless included charges are already explained."},
+        {"topic": "Disponibilité et conditions", "question": "À partir de quand ces logements sont-ils disponibles ?", "answer": "Deux sont libres immédiatement, et un autre le sera le mois prochain.", "follow_up_to": null},
+        {"topic": "Disponibilité et conditions", "question": "Quels documents faut-il prévoir pour déposer un dossier de location ?", "answer": "Une pièce d'identité, une preuve de revenus et, selon le propriétaire, des références locatives.", "follow_up_to": null}
       ]
     },
     {
@@ -183,14 +183,14 @@
       "opening": "Bonjour ! J'aimerais devenir bénévole dans une association du quartier.",
       "closing": "Merci pour votre aide. Je vais prendre contact avec l'association qui correspond à mes disponibilités.",
       "questions": [
-        {"topic": "Choix de l'association", "question": "Quels types d'associations recherchent des bénévoles près d'ici ?", "answer": "Des associations d'aide alimentaire, de soutien scolaire et de protection de l'environnement.", "follow_up_to": null},
-        {"topic": "Choix de l'association", "question": "À quel public s'adresse l'association d'aide alimentaire ?", "answer": "Aux habitants qui rencontrent des difficultés pour se nourrir régulièrement.", "follow_up_to": 1, "condition": "If a food-aid association is mentioned; adapt to the association you choose."},
-        {"topic": "Missions et planning", "question": "Quelles tâches pourrais-je y effectuer ?", "answer": "Préparer les paniers, accueillir les bénéficiaires ou aider à la distribution.", "follow_up_to": null},
-        {"topic": "Missions et planning", "question": "Quels horaires sont proposés aux bénévoles ?", "answer": "Des créneaux de deux heures, le mercredi après-midi et le samedi matin.", "follow_up_to": null},
-        {"topic": "Conditions et contact", "question": "Faut-il une expérience particulière pour participer ?", "answer": "Non, les nouveaux bénévoles sont accompagnés pendant leur première distribution.", "follow_up_to": null},
-        {"topic": "Conditions et contact", "question": "En quoi consiste cet accompagnement ?", "answer": "Un bénévole expérimenté présente les consignes et travaille avec vous pendant le créneau.", "follow_up_to": 5, "condition": "If support for new volunteers is mentioned."},
-        {"topic": "Conditions et contact", "question": "Comment prendre contact pour proposer mon aide ?", "answer": "Je vous donne les coordonnées de la personne qui organise les bénévoles.", "follow_up_to": null},
-        {"topic": "Conditions et contact", "question": "Quel engagement de temps l'association demande-t-elle généralement aux bénévoles ?", "answer": "Elle demande au moins deux heures toutes les deux semaines pendant trois mois.", "follow_up_to": null}
+        {"topic": "Choix de l'association", "question": "Quels types d'associations recherchent actuellement des bénévoles dans le quartier ?", "answer": "Des associations d'aide alimentaire, de soutien scolaire et de protection de l'environnement.", "follow_up_to": null},
+        {"topic": "Choix de l'association", "question": "Quel public l'association d'aide alimentaire accompagne-t-elle ?", "answer": "Des habitants qui rencontrent des difficultés pour se nourrir régulièrement.", "follow_up_to": 1, "condition": "If a food-aid association is mentioned; adapt to the option that interests you."},
+        {"topic": "Missions et disponibilités", "question": "Quelles missions cette association propose-t-elle aux bénévoles ?", "answer": "Préparer les paniers, accueillir les bénéficiaires ou aider à la distribution.", "follow_up_to": null},
+        {"topic": "Missions et disponibilités", "question": "Quels créneaux sont proposés pour ces missions ?", "answer": "Des créneaux de deux heures, le mercredi après-midi et le samedi matin.", "follow_up_to": null},
+        {"topic": "Missions et disponibilités", "question": "Quel engagement régulier demande-t-elle ?", "answer": "Au moins un créneau toutes les deux semaines pendant trois mois.", "follow_up_to": null},
+        {"topic": "Conditions et contact", "question": "Faut-il une expérience particulière pour commencer ?", "answer": "Non, les nouveaux bénévoles sont accompagnés pendant leur première mission.", "follow_up_to": null},
+        {"topic": "Conditions et contact", "question": "Comment puis-je proposer ma candidature ?", "answer": "Je peux vous donner les coordonnées de la personne qui coordonne les bénévoles.", "follow_up_to": null},
+        {"topic": "Conditions et contact", "question": "Après ce premier contact, sous quel délai pourrait-on commencer ?", "answer": "Une réunion d'accueil a lieu chaque mois, puis vous pouvez choisir un premier créneau.", "follow_up_to": 7, "condition": "After the contact procedure has been explained."}
       ]
     },
     {
@@ -252,13 +252,13 @@
       "closing": "Merci pour votre aide. Je vais prendre le temps de découvrir ces endroits et de rencontrer les voisins.",
       "questions": [
         {"topic": "Voisinage", "question": "Le quartier est-il plutôt calme, familial ou animé, surtout le soir et le week-end ?", "answer": "Il est calme en semaine et plus animé autour du marché le week-end.", "follow_up_to": null},
-        {"topic": "Voisinage", "question": "Pour faire connaissance sans être indiscret, vaut-il mieux me présenter directement, participer à une rencontre de quartier ou attendre une occasion informelle ?", "answer": "Présentez-vous aux voisins immédiats, puis venez au café-rencontre mensuel de l'association.", "follow_up_to": null},
-        {"topic": "Vie quotidienne et services", "question": "Et pour les courses courantes, quels commerces sont accessibles à pied — épicerie, pharmacie ou boulangerie — et lesquels nécessitent de prendre un transport ?", "answer": "L'épicerie, la pharmacie et la boulangerie sont à moins de dix minutes à pied ; le supermarché demande un court trajet en bus.", "follow_up_to": null},
-        {"topic": "Vie quotidienne et services", "question": "Peut-on rejoindre facilement le centre-ville et la gare en bus, en métro ou en train, sans avoir de voiture ?", "answer": "Deux lignes de bus rejoignent le centre-ville et la gare ; il n'y a pas de métro ici, et une voiture n'est pas indispensable.", "follow_up_to": null},
-        {"topic": "Vie quotidienne et services", "question": "À part les commerces, quels services trouve-t-on à proximité — écoles, clinique, bibliothèque ou centre communautaire ?", "answer": "L'école primaire et la bibliothèque sont près du parc ; la clinique et le centre communautaire sont à quinze minutes en bus.", "follow_up_to": null},
-        {"topic": "Loisirs et informations", "question": "Et pour découvrir le quartier, quelles activités me conseillez-vous — sport, ateliers, bénévolat ou sorties culturelles ?", "answer": "Je vous conseille les marches de l'association ; elle propose aussi des ateliers créatifs et du bénévolat au jardin communautaire.", "follow_up_to": null},
-        {"topic": "Loisirs et informations", "question": "Pour commencer par cette activité, faut-il s'inscrire à l'avance et, si oui, peut-on le faire en ligne ou directement sur place ?", "answer": "Inscrivez-vous en ligne pour les ateliers ; les marches et le jardin accueillent aussi les nouveaux directement sur place.", "follow_up_to": 6, "condition": "After a suitable local activity is recommended."},
-        {"topic": "Loisirs et informations", "question": "Enfin, où puis-je consulter les horaires et les annonces du quartier : site de l'association, réseaux sociaux ou affichage local ?", "answer": "Le site de l'association est le plus à jour ; la bibliothèque affiche aussi le bulletin mensuel et les changements de dernière minute.", "follow_up_to": null}
+        {"topic": "Voisinage", "question": "Comment puis-je faire connaissance avec les voisins sans être indiscret ?", "answer": "Présentez-vous aux voisins immédiats, puis venez au café-rencontre mensuel de l'association.", "follow_up_to": null},
+        {"topic": "Vie quotidienne et services", "question": "Pour les courses courantes, quels commerces sont accessibles à pied ?", "answer": "L'épicerie, la pharmacie et la boulangerie sont à moins de dix minutes à pied.", "follow_up_to": null},
+        {"topic": "Vie quotidienne et services", "question": "Peut-on rejoindre facilement le centre-ville et la gare sans voiture ?", "answer": "Oui, deux lignes de bus rejoignent directement le centre-ville et la gare.", "follow_up_to": null},
+        {"topic": "Vie quotidienne et services", "question": "Quels services utiles trouve-t-on à proximité ?", "answer": "L'école primaire et la bibliothèque sont près du parc ; la clinique et le centre communautaire sont à quinze minutes en bus.", "follow_up_to": null},
+        {"topic": "Loisirs et informations", "question": "Quelles activités me conseillez-vous pour découvrir le quartier ?", "answer": "Je vous conseille les marches de l'association ; elle propose aussi des ateliers créatifs et du bénévolat au jardin communautaire.", "follow_up_to": null},
+        {"topic": "Loisirs et informations", "question": "Pour cette activité, comment faut-il s'inscrire ?", "answer": "Pour les marches, vous pouvez venir directement au point de départ indiqué sur le site.", "follow_up_to": 6, "condition": "After a suitable local activity is recommended."},
+        {"topic": "Loisirs et informations", "question": "Enfin, où puis-je consulter les horaires et les annonces du quartier ?", "answer": "Le site de l'association est le plus à jour ; la bibliothèque affiche aussi le bulletin mensuel.", "follow_up_to": null}
       ]
     },
     {
@@ -322,13 +322,13 @@
       "opening": "Bonjour ! Je découvre la ville et j'aimerais trouver des occasions de rencontrer du monde.",
       "closing": "Merci pour vos conseils. Je vais regarder ces activités et essayer de participer à une première rencontre.",
       "questions": [
-        {"topic": "Choix d'une activité", "question": "Pour rencontrer régulièrement les mêmes personnes, me conseilleriez-vous plutôt une activité sportive, un atelier culturel, du bénévolat ou un groupe de conversation ?", "answer": "Le groupe de marche et les ateliers créatifs réunissent les mêmes participants chaque semaine ; le bénévolat est plus ponctuel.", "follow_up_to": null},
+        {"topic": "Choix d'une activité", "question": "Quelle activité me conseilleriez-vous pour rencontrer régulièrement les mêmes personnes ?", "answer": "Le groupe de marche et les ateliers créatifs réunissent les mêmes participants chaque semaine.", "follow_up_to": null},
         {"topic": "Choix d'une activité", "question": "Parmi celles que vous venez de citer, laquelle serait la plus conviviale pour quelqu'un qui arrive seul ?", "answer": "Le groupe de marche : les nouveaux sont présentés au départ et peuvent discuter tranquillement pendant le trajet.", "follow_up_to": 1, "condition": "After several social activities are compared."},
         {"topic": "Choix d'une activité", "question": "Où se déroulent ces rencontres ?", "answer": "Le groupe part devant la bibliothèque du centre-ville, à trois minutes d'un arrêt de bus.", "follow_up_to": 2, "condition": "After one activity is recommended."},
         {"topic": "Organisation des rencontres", "question": "Quels jours et à quels horaires le groupe se réunit-il ?", "answer": "La marche a lieu chaque samedi matin ; un atelier est aussi proposé un jeudi soir sur deux.", "follow_up_to": null},
         {"topic": "Organisation des rencontres", "question": "Et si cet horaire ne me convient pas, existe-t-il une activité comparable un autre jour ?", "answer": "Oui, un groupe de conversation se réunit le mardi soir et un café-rencontre a lieu un dimanche sur deux.", "follow_up_to": 4, "condition": "If the proposed schedule does not suit you."},
         {"topic": "Organisation des rencontres", "question": "Pour essayer une première fois, faut-il réserver en ligne ou peut-on venir librement ?", "answer": "Vous pouvez essayer une sortie librement ; pour les ateliers, il faut réserver en ligne avant le mercredi.", "follow_up_to": null},
-        {"topic": "Budget et préparation", "question": "Et côté budget, combien coûte l'adhésion, et certaines activités sont-elles payantes en plus ?", "answer": "L'adhésion annuelle coûte 25 $ et couvre les marches ; les ateliers avec du matériel coûtent parfois 5 $ de plus.", "follow_up_to": null},
+        {"topic": "Budget et préparation", "question": "Et côté budget, combien faut-il prévoir pour participer ?", "answer": "L'adhésion annuelle coûte 25 $ ; certains ateliers avec du matériel demandent 5 $ de plus.", "follow_up_to": null},
         {"topic": "Budget et préparation", "question": "Avant de venir, dois-je apporter du matériel ou prévoir une tenue particulière ?", "answer": "Pour la marche, aucun matériel n'est nécessaire, mais prévoyez de bonnes chaussures et une veste.", "follow_up_to": null}
       ]
     },

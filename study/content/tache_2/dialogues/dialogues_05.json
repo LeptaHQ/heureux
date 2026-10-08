@@ -218,21 +218,21 @@
     {
       "group": "offered-room-in-existing-shared-apartment",
       "register": "tu",
-      "note": "Your friend is offering you a room in the apartment they already share, so do not ask whether a room is available. Before deciding, ask about rent, layout, neighbourhood and flatmates. This is a conversation between friends, not an agency viewing. Use tu with your friend.",
+      "note": "Your friend offers you the room already becoming free in their shared apartment. Ask about its cost, availability, spaces, neighbourhood and shared life; do not ask whether a room exists or treat your friend as an agent. Use tu.",
       "notes": {
-        "tache2:septembre:batch-07:subject-35": "Here, the relationship is not specified: someone offers you a place in their shared apartment as you prepare to settle in Canada. The model uses tu, as between friends; if you barely know this person, use vous throughout. Cover the spaces, price and flatmates."
+        "tache2:septembre:batch-07:subject-35": "The relationship is unspecified: someone offers you a place in their shared apartment before your move to Canada. This model uses tu; use vous consistently if the relationship is distant. Ask about spaces, price and flatmates."
       },
-      "opening": "Salut ! Merci de penser à moi pour cette chambre, ta proposition me tente vraiment. Avant de me décider, j'ai quelques questions.",
-      "closing": "Merci beaucoup, ça me semble idéal ! Je te donne ma réponse d'ici la fin de la semaine.",
+      "opening": "Salut ! Merci de m'avoir proposé cette chambre. J'aimerais vérifier quelques détails avant de me décider.",
+      "closing": "Merci pour toutes ces précisions ! Je vais y réfléchir et je te donnerai ma réponse rapidement.",
       "questions": [
-        {"topic": "Loyer et disponibilité", "question": "Combien coûterait la chambre par mois ?", "answer": "900 $, chauffage, électricité et internet compris.", "follow_up_to": null},
-        {"topic": "Loyer et disponibilité", "question": "À partir de quand serait-elle libre ?", "answer": "Dès le 1er du mois prochain.", "follow_up_to": null},
-        {"topic": "Logement et quartier", "question": "Comment l'appartement est-il agencé ?", "answer": "Il y a trois chambres, une cuisine ouverte sur le salon et deux salles de bains.", "follow_up_to": null},
-        {"topic": "Logement et quartier", "question": "Et la chambre libre, elle est comment ?", "answer": "Elle fait environ 12 m², elle est meublée avec un lit double et un bureau, et elle donne sur une cour calme.", "follow_up_to": 3, "condition": "After the layout is described, unless the room is already detailed."},
-        {"topic": "Logement et quartier", "question": "Quels transports desservent le quartier — bus, tramway ou métro — et est-ce qu'une voiture serait utile ?", "answer": "Le bus s'arrête au coin de la rue et le métro est à dix minutes à pied ; une voiture n'est pas indispensable.", "follow_up_to": null},
-        {"topic": "Colocataires et vie quotidienne", "question": "Qui vit avec toi dans l'appartement ?", "answer": "Karim, un infirmier de 30 ans qui travaille souvent de nuit.", "follow_up_to": null},
-        {"topic": "Colocataires et vie quotidienne", "question": "Comme Karim travaille de nuit, quelles sont les règles de la maison ?", "answer": "Pas de bruit avant 15 h en semaine, et le ménage est réparti grâce à un tableau.", "follow_up_to": 6, "condition": "If a flatmate's schedule is mentioned; use the name and detail given."},
-        {"topic": "Colocataires et vie quotidienne", "question": "Quelles charges sont incluses dans le loyer, et lesquelles partagez-vous séparément ?", "answer": "Le chauffage et l'eau sont inclus ; nous partageons l'électricité et Internet chaque mois.", "follow_up_to": null}
+        {"topic": "Loyer et disponibilité", "question": "Combien coûterait la chambre par mois ?", "answer": "Le loyer serait de 900 $ par mois.", "follow_up_to": null},
+        {"topic": "Loyer et disponibilité", "question": "Quelles charges sont comprises dans ce loyer ?", "answer": "Le chauffage, l'électricité et Internet sont compris.", "follow_up_to": 1, "condition": "After the monthly rent is given, unless included charges are already explained."},
+        {"topic": "Loyer et disponibilité", "question": "À partir de quand la chambre sera-t-elle libre ?", "answer": "Dès le premier du mois prochain.", "follow_up_to": null},
+        {"topic": "Espaces et quartier", "question": "Comment est aménagée la chambre ?", "answer": "Elle fait environ douze mètres carrés, avec un lit double, un bureau et une armoire.", "follow_up_to": null},
+        {"topic": "Espaces et quartier", "question": "Et quelles pièces partagerions-nous au quotidien ?", "answer": "La cuisine ouverte, le salon, les deux salles de bains et le balcon.", "follow_up_to": null},
+        {"topic": "Espaces et quartier", "question": "Est-ce un quartier pratique au quotidien ?", "answer": "Oui, il est calme, avec des commerces proches et le métro à dix minutes à pied.", "follow_up_to": null},
+        {"topic": "Colocataires et vie quotidienne", "question": "Qui habite déjà dans l'appartement ?", "answer": "Karim, qui travaille de nuit, et Léa, qui étudie à l'université.", "follow_up_to": null},
+        {"topic": "Colocataires et vie quotidienne", "question": "Avec des horaires aussi différents, comment organisez-vous la vie commune ?", "answer": "Nous respectons des périodes calmes et nous répartissons le ménage sur un tableau.", "follow_up_to": 7, "condition": "If the flatmates have different schedules; adapt to the lifestyle details actually given."}
       ]
     },
     {

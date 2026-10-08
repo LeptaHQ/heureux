@@ -4,18 +4,18 @@
     {
       "group": "canada-newcomer-apartment-procedure-unspecified-adviser",
       "register": "vous",
-      "note": "You have just arrived in Canada and are looking for an apartment; your interlocutor is advising you. Cover housing type, neighbourhoods and procedures. Rental rules vary by province: a good adviser refers you to the competent organizations rather than stating a general rule. The model uses vous because the role is not specified.",
-      "opening": "Bonjour ! Je viens d'arriver au Canada et je cherche un appartement. J'aimerais avoir vos conseils pour bien commencer.",
-      "closing": "Merci beaucoup pour ces conseils ! Je vais visiter quelques quartiers, puis préparer mes documents.",
+      "note": "You have just arrived in Canada and ask an unspecified adviser how to find an apartment. Cover housing type, neighbourhoods, costs and procedures without treating them as an agent. Use vous. Rules vary by province, so verify them with the competent provincial body.",
+      "opening": "Bonjour ! Je viens d'arriver au Canada et j'aurais besoin de conseils pour chercher mon premier appartement.",
+      "closing": "Merci pour ces conseils. Je vais cibler quelques quartiers et préparer mon dossier avant de répondre aux annonces.",
       "questions": [
         {"topic": "Type de logement", "question": "Quel type de logement me conseilleriez-vous pour commencer ?", "answer": "Un appartement meublé avec un bail de courte durée, le temps de découvrir la ville.", "follow_up_to": null},
-        {"topic": "Type de logement", "question": "Est-ce qu'un logement meublé coûte beaucoup plus cher ?", "answer": "Un peu, souvent 200 à 300 $ de plus par mois, mais vous n'aurez aucun meuble à acheter.", "follow_up_to": 1, "condition": "If furnished housing is recommended, unless its cost is already compared."},
+        {"topic": "Type de logement", "question": "Quel supplément faut-il prévoir pour un logement meublé ?", "answer": "Souvent de 200 à 300 $ de plus par mois, selon la ville.", "follow_up_to": 1, "condition": "If furnished housing is recommended, unless its added cost is already explained."},
         {"topic": "Quartiers", "question": "Dans quels quartiers devrais-je chercher en priorité ?", "answer": "Dans ceux qui sont bien desservis par les transports en commun, un peu à l'écart du centre, où les loyers restent plus abordables.", "follow_up_to": null},
-        {"topic": "Quartiers", "question": "Combien coûte en moyenne un loyer dans ces quartiers ?", "answer": "Pour un appartement d'une chambre, comptez souvent entre 1 200 et 1 500 $ par mois, selon la ville.", "follow_up_to": 3, "condition": "After neighbourhoods are suggested, unless typical rents are already given."},
-        {"topic": "Démarches", "question": "Sur quels sites ou auprès de quels organismes fiables devrais-je chercher des annonces ?", "answer": "Consultez les grands sites immobiliers, les coopératives d'habitation et le service d'aide au logement de votre ville.", "follow_up_to": null},
-        {"topic": "Démarches", "question": "Quels documents les propriétaires demandent-ils en général ?", "answer": "Souvent une pièce d'identité, une preuve de revenus et des références d'anciens propriétaires.", "follow_up_to": null},
-        {"topic": "Démarches", "question": "Et si je n'avais encore ni références ni historique de crédit au Canada ?", "answer": "Un garant ou une lettre d'un employeur pourrait rassurer le propriétaire ; un organisme d'aide aux nouveaux arrivants peut aussi vous accompagner.", "follow_up_to": 6, "condition": "After required documents are listed, if you lack local references."},
-        {"topic": "Démarches", "question": "Avant de signer le bail, qu'est-ce que je devrais vérifier ?", "answer": "Ce qui est compris dans le loyer, comme le chauffage ; pour vos droits, renseignez-vous auprès de l'organisme de votre province chargé du logement.", "follow_up_to": null}
+        {"topic": "Quartiers", "question": "Quel loyer moyen faut-il prévoir dans ces quartiers ?", "answer": "Pour un appartement d'une chambre, comptez souvent entre 1 200 et 1 500 $ par mois.", "follow_up_to": 3, "condition": "After neighbourhoods are suggested, unless typical rents are already given."},
+        {"topic": "Démarches", "question": "Une fois les quartiers ciblés, où me conseillez-vous de chercher des annonces fiables ?", "answer": "Sur les grands sites immobiliers et auprès des services locaux d'aide au logement.", "follow_up_to": null},
+        {"topic": "Démarches", "question": "Quels documents les propriétaires demandent-ils généralement ?", "answer": "Souvent une pièce d'identité, une preuve de revenus et des références locatives.", "follow_up_to": null},
+        {"topic": "Démarches", "question": "Sans références locatives canadiennes, comment pourrais-je renforcer mon dossier ?", "answer": "Une lettre d'employeur ou un garant peut aider, selon ce que le propriétaire accepte.", "follow_up_to": 6, "condition": "After required documents are listed, if you lack Canadian rental references."},
+        {"topic": "Démarches", "question": "Avant de signer, auprès de quel organisme provincial puis-je vérifier les règles du bail ?", "answer": "Consultez l'autorité du logement de votre province, dont le nom varie selon votre lieu d'installation.", "follow_up_to": null}
       ]
     },
     {
@@ -157,35 +157,35 @@
     {
       "group": "child-friends-family-holiday-invitation",
       "register": "vous",
-      "note": "The parent of your child's friend offers to take your child on holiday with their family. Before deciding, ask about dates, destination, accommodation, activities and safety, then how to stay in touch. Show gratitude without accepting too quickly. Vous is chosen as a cautious default; parents who know each other well may use tu.",
+      "note": "The parent of your child's friend offers to take your child on a family holiday. Before deciding, clarify dates, destination, accommodation, transport, activities, supervision and contact. You are authorizing care, not providing it. Use vous as a cautious default and avoid accepting before the practical details are known.",
       "opening": "Bonjour ! C'est très gentil de proposer d'emmener mon enfant en vacances avec vous. Avant de vous répondre, j'aimerais connaître quelques détails.",
       "closing": "Merci beaucoup pour cette belle proposition ! J'en parle ce soir avec mon enfant, et je vous donne ma réponse demain.",
       "questions": [
-        {"topic": "Dates et destination", "question": "Quelles sont les dates exactes du séjour, et combien de jours partirez-vous ?", "answer": "Une semaine, du 5 au 12 juillet.", "follow_up_to": null},
-        {"topic": "Dates et destination", "question": "Dans quelle région irez-vous, et quel type d'hébergement avez-vous choisi ?", "answer": "Dans un chalet au bord d'un lac, dans les Laurentides, à deux heures de route.", "follow_up_to": null},
-        {"topic": "Dates et destination", "question": "Comment comptez-vous vous rendre au chalet, et combien de temps durera le trajet ?", "answer": "Nous partirons en voiture tôt le matin ; comptez environ deux heures et demie avec une courte pause.", "follow_up_to": null},
-        {"topic": "Dates et destination", "question": "Est-ce que le chalet est assez grand pour accueillir un enfant de plus ?", "answer": "Oui, les deux enfants partageraient une chambre avec des lits superposés.", "follow_up_to": 2, "condition": "After the accommodation is named; adapt to the lodging described."},
-        {"topic": "Activités et sécurité", "question": "Quelles activités de plein air avez-vous prévues pour les enfants pendant le séjour ?", "answer": "Baignade, canot, randonnée et sûrement quelques feux de camp le soir.", "follow_up_to": null},
-        {"topic": "Activités et sécurité", "question": "Pour la baignade et le canot, quelle surveillance adulte et quel équipement de sécurité sont prévus ?", "answer": "Un adulte sera toujours présent, et les enfants porteront un gilet de sauvetage dans le canot.", "follow_up_to": 5, "condition": "If water activities are planned; adapt to the activity's risk."},
-        {"topic": "Organisation pratique", "question": "Comment pourrais-je avoir des nouvelles pendant la semaine ?", "answer": "Je vous enverrai des photos chaque soir, et votre enfant pourra vous appeler à tout moment.", "follow_up_to": null},
-        {"topic": "Organisation pratique", "question": "Et si je participais aux frais du séjour ?", "answer": "Ce n'est pas nécessaire pour le chalet ; prévoyez seulement un peu d'argent de poche.", "follow_up_to": null}
+        {"topic": "Dates et destination", "question": "Quelles sont les dates exactes du séjour ?", "answer": "Du 5 au 12 juillet, pendant une semaine.", "follow_up_to": null},
+        {"topic": "Dates et destination", "question": "Où comptez-vous passer les vacances ?", "answer": "Dans les Laurentides, au bord d'un lac.", "follow_up_to": null},
+        {"topic": "Dates et destination", "question": "Quel hébergement avez-vous prévu sur place ?", "answer": "Un chalet familial avec une chambre pour les enfants.", "follow_up_to": null},
+        {"topic": "Transport", "question": "Comment les enfants feront-ils le trajet ?", "answer": "Nous irons en voiture et nous ferons une pause à mi-chemin.", "follow_up_to": null},
+        {"topic": "Activités et sécurité", "question": "Quels adultes seront présents pour encadrer les enfants ?", "answer": "Mon conjoint et moi serons présents pendant tout le séjour.", "follow_up_to": null},
+        {"topic": "Activités et sécurité", "question": "Quelles activités avez-vous prévues pour eux ?", "answer": "De la randonnée, des jeux au chalet et, si le temps le permet, du canot.", "follow_up_to": null},
+        {"topic": "Activités et sécurité", "question": "Pour le canot, quelles mesures de sécurité prendrez-vous ?", "answer": "Un adulte accompagnera les enfants et chacun portera un gilet de sauvetage.", "follow_up_to": 6, "condition": "If a water activity is planned; adapt to the activity actually named."},
+        {"topic": "Organisation pratique", "question": "Comment pourrai-je avoir des nouvelles pendant le séjour ?", "answer": "Je vous enverrai un message chaque soir, et votre enfant pourra vous appeler.", "follow_up_to": null}
       ]
     },
     {
       "group": "neighbor-environmental-association-volunteering",
       "register": "vous",
-      "note": "Your neighbour volunteers with an environmental protection association, and you would like to take part. Ask about activities, schedule and members, then how to join. A conditional question about your availability allows a genuine follow-up. Vous is chosen as a cautious default; a close neighbour may be addressed with tu.",
+      "note": "Your neighbour volunteers with an environmental-protection association, and you want to participate. Ask about its concrete activities, schedule, expected commitment, members, entry conditions and joining process. The neighbour shares personal knowledge rather than speaking as official staff. Use vous as a cautious default; a close neighbour could use tu.",
       "opening": "Bonjour ! J'ai appris que vous faisiez du bénévolat pour l'environnement, et j'aimerais beaucoup participer moi aussi.",
-      "closing": "Merci beaucoup ! Je vais m'inscrire dès ce soir, et j'ai hâte de participer à ma première activité.",
+      "closing": "Merci pour vos explications. Je vais vérifier mes disponibilités avant de contacter l'association.",
       "questions": [
-        {"topic": "Activités", "question": "Quelles actions concrètes l'association confie-t-elle aux bénévoles sur le terrain ?", "answer": "Surtout le nettoyage des berges de la rivière et la plantation d'arbres au printemps.", "follow_up_to": null},
-        {"topic": "Activités", "question": "Pour les nettoyages, quel équipement fournissez-vous et que faut-il apporter soi-même ?", "answer": "L'association fournit les gants et les sacs ; prévoyez seulement de bonnes bottes.", "follow_up_to": 1, "condition": "If clean-ups or outdoor work are mentioned; adapt to the activity."},
-        {"topic": "Horaires", "question": "À quelle fréquence ces activités ont-elles lieu, et pendant quels mois de l'année ?", "answer": "Un samedi matin sur deux, de 9 h à midi, d'avril à octobre.", "follow_up_to": null},
-        {"topic": "Horaires", "question": "Si je suis disponible uniquement en semaine, quelles tâches pourrais-je accomplir et à quel moment ?", "answer": "Vous pourriez préparer nos ateliers de sensibilisation dans les écoles, le mercredi après-midi.", "follow_up_to": 3, "condition": "If activities fall on days you cannot attend."},
-        {"topic": "Membres", "question": "Combien de membres compte l'association, et combien participent régulièrement aux actions bénévoles ?", "answer": "Une quarantaine, dont une quinzaine de bénévoles très actifs.", "follow_up_to": null},
-        {"topic": "Membres", "question": "Quel est le profil des bénévoles, en général ?", "answer": "Des gens de tous âges : des étudiants, des familles et beaucoup de retraités du quartier.", "follow_up_to": null},
-        {"topic": "Membres", "question": "Y a-t-il une cotisation ou des conditions particulières pour participer comme bénévole ?", "answer": "La cotisation annuelle est de 15 $, et aucune expérience n'est exigée.", "follow_up_to": null},
-        {"topic": "Membres", "question": "Quelles démarches faut-il suivre pour devenir membre et commencer comme bénévole ?", "answer": "Remplissez le formulaire en ligne ; le responsable des bénévoles vous contactera ensuite pour une courte séance d'accueil.", "follow_up_to": null}
+        {"topic": "Activités", "question": "Quelles actions l'association propose-t-elle aux bénévoles ?", "answer": "Surtout le nettoyage des berges et la plantation d'arbres au printemps.", "follow_up_to": null},
+        {"topic": "Activités", "question": "Pour le nettoyage des berges, quel équipement faut-il apporter ?", "answer": "L'association fournit les gants et les sacs ; il faut seulement prévoir de bonnes bottes.", "follow_up_to": 1, "condition": "If an outdoor clean-up is mentioned; adapt to the activity actually named."},
+        {"topic": "Horaires et engagement", "question": "Quand ces activités ont-elles lieu ?", "answer": "Un samedi matin sur deux, de 9 h à midi, entre avril et octobre.", "follow_up_to": null},
+        {"topic": "Horaires et engagement", "question": "Doit-on participer régulièrement ou peut-on aider ponctuellement ?", "answer": "On peut aider ponctuellement, à condition de s'inscrire avant chaque activité.", "follow_up_to": null},
+        {"topic": "Membres et inscription", "question": "Quel type de personnes participe à l'association ?", "answer": "Des habitants de tous âges, notamment des étudiants, des familles et des retraités.", "follow_up_to": null},
+        {"topic": "Membres et inscription", "question": "Faut-il une expérience particulière pour devenir bénévole ?", "answer": "Non, les responsables expliquent chaque tâche avant le début de l'activité.", "follow_up_to": null},
+        {"topic": "Membres et inscription", "question": "Comment se passe l'accueil lors d'une première participation ?", "answer": "Un responsable présente l'équipe, les consignes et la tâche choisie.", "follow_up_to": 6, "condition": "If beginners receive instructions before participating."},
+        {"topic": "Membres et inscription", "question": "Qui dois-je contacter pour m'inscrire à une activité ?", "answer": "La personne responsable des bénévoles, dont les coordonnées figurent sur le site.", "follow_up_to": null}
       ]
     },
     {
@@ -310,35 +310,35 @@
     {
       "group": "help-transport-heavy-objects-no-vehicle",
       "register": "vous",
-      "note": "Your interlocutor must move heavy items without a vehicle and asks for your help: the need is theirs, and you are helping them organize it. Ask about the items, distance, access, date and available helpers. The relationship is not specified: the model uses vous, but a friend may be addressed with tu.",
-      "opening": "Bonjour ! Je veux bien vous aider à organiser le transport de vos affaires, mais j'ai d'abord besoin de quelques précisions.",
-      "closing": "Merci de m'avoir tout expliqué ! Comptez sur moi le jour venu pour vous donner un coup de main.",
+      "note": "The interlocutor has no vehicle and asks you to help organize heavy-item transport. This may be a few objects, not a full move. Ask about the load, route, access, date, vehicle and helpers. The relationship is unspecified; this model uses vous, but a friend may use tu.",
+      "opening": "Bonjour ! Je veux bien vous aider à organiser ce transport, mais j'ai besoin de quelques précisions.",
+      "closing": "Merci, l'organisation est plus claire ! Je vais confirmer ce que je peux prendre en charge pour le transport.",
       "questions": [
-        {"topic": "Les objets", "question": "Quels objets faut-il déplacer, et lequel sera le plus difficile à transporter ?", "answer": "Un canapé, une commode et une machine à laver ; le canapé sera le plus encombrant.", "follow_up_to": null},
-        {"topic": "Les objets", "question": "Le canapé se démonte-t-il, et combien de personnes faudra-t-il pour le porter ?", "answer": "Seuls les pieds se démontent, et il faut au moins deux personnes pour le porter.", "follow_up_to": 1, "condition": "If bulky furniture is mentioned; adapt to the item named."},
-        {"topic": "Les objets", "question": "Connaissez-vous leurs dimensions et leur poids approximatif pour choisir un véhicule adapté ?", "answer": "Oui, j'ai tout mesuré ; le canapé est l'objet le plus long, avec deux mètres.", "follow_up_to": null},
-        {"topic": "Distance et accès", "question": "Quelle distance sépare les deux logements, et dans quelle commune faut-il livrer les objets ?", "answer": "Ma sœur habite dans la commune voisine, à une vingtaine de kilomètres d'ici.", "follow_up_to": null},
-        {"topic": "Distance et accès", "question": "Y a-t-il un ascenseur au départ et à l'arrivée ?", "answer": "Pas chez moi, au deuxième étage, mais ma sœur habite au rez-de-chaussée.", "follow_up_to": 4, "condition": "After the destination is given, unless access is already described."},
-        {"topic": "Date et organisation", "question": "Quel jour et à quel moment souhaiteriez-vous effectuer ce transport ?", "answer": "Samedi prochain, de préférence le matin.", "follow_up_to": null},
-        {"topic": "Date et organisation", "question": "Et si on louait une camionnette pour l'occasion ?", "answer": "Bonne idée : il y a une agence de location à deux rues d'ici, et mon frère pourrait la conduire.", "follow_up_to": null},
-        {"topic": "Date et organisation", "question": "Qui d'autre pourra aider, et serons-nous assez nombreux pour porter les objets en sécurité ?", "answer": "Mon frère et un voisin ; avec vous, nous serons quatre, ce qui suffira largement.", "follow_up_to": null}
+        {"topic": "Objets", "question": "Quels objets faut-il transporter ?", "answer": "Un canapé, une commode et une machine à laver.", "follow_up_to": null},
+        {"topic": "Objets", "question": "Quelles sont les dimensions du canapé ?", "answer": "Il mesure deux mètres de long et quatre-vingt-dix centimètres de profondeur.", "follow_up_to": 1, "condition": "If a sofa is among the heavy items; adapt to the bulkiest object named."},
+        {"topic": "Trajet et accès", "question": "Pour le trajet, quelle distance faut-il parcourir entre le départ et l'arrivée ?", "answer": "Environ vingt kilomètres, jusqu'à la commune voisine.", "follow_up_to": null},
+        {"topic": "Trajet et accès", "question": "Et côté accès, y a-t-il des étages ou un ascenseur au départ et à l'arrivée ?", "answer": "Il y a deux étages sans ascenseur au départ, puis un rez-de-chaussée à l'arrivée.", "follow_up_to": null},
+        {"topic": "Organisation", "question": "Quel jour et à quelle heure souhaitez-vous effectuer le transport ?", "answer": "Samedi prochain, vers neuf heures.", "follow_up_to": null},
+        {"topic": "Organisation", "question": "Quelle solution de transport avez-vous envisagée sans véhicule personnel ?", "answer": "Je pensais louer une camionnette pour la matinée.", "follow_up_to": null},
+        {"topic": "Organisation", "question": "Qui d'autre pourra nous aider à porter les objets ?", "answer": "Mon frère et un voisin seront disponibles.", "follow_up_to": null},
+        {"topic": "Organisation", "question": "De mon côté, de quelle tâche voulez-vous que je m'occupe en priorité ?", "answer": "J'aimerais que vous réserviez la camionnette.", "follow_up_to": null}
       ]
     },
     {
       "group": "neighbor-home-childcare-provider-referral",
       "register": "vous",
-      "note": "Your neighbour recommends someone who looks after children at home: you are looking for childcare, not offering your services. Ask about this person, their skills, availability and rates; you may describe your own needs. Vous is chosen as a cautious default; a close neighbour may be addressed with tu.",
+      "note": "Your neighbour recommends a person who provides childcare at families' homes. You are seeking care, not offering it, and the neighbour is a referrer rather than the provider. Ask what they know about the person's experience, skills, availability, duties and rates. Use vous as a cautious neighbourly default.",
       "opening": "Bonjour ! Vous m'avez parlé d'une personne qui garde des enfants à domicile, et ça m'intéresse beaucoup.",
-      "closing": "Merci beaucoup pour cette recommandation ! Je vais contacter cette personne dès ce soir pour organiser une rencontre.",
+      "closing": "Merci pour cette recommandation. Je vais contacter cette personne pour vérifier directement mes besoins avec elle.",
       "questions": [
-        {"topic": "La personne", "question": "Qui est cette personne, et quelle expérience a-t-elle auprès des enfants ?", "answer": "Amina est étudiante en éducation à l'enfance et elle a gardé mes enfants pendant deux ans.", "follow_up_to": null},
-        {"topic": "La personne", "question": "A-t-elle une formation en premiers secours ?", "answer": "Oui, elle l'a suivie l'an dernier, et elle a toujours su réagir aux petits imprévus.", "follow_up_to": 1, "condition": "After the person is introduced; adapt pronouns to the caregiver."},
-        {"topic": "La personne", "question": "A-t-elle des références récentes que je pourrais vérifier avant de lui confier mes enfants ?", "answer": "Oui, deux familles du quartier ont accepté d'être contactées comme références.", "follow_up_to": null},
-        {"topic": "Disponibilités", "question": "Quels jours et à partir de quelle heure est-elle généralement disponible ?", "answer": "En semaine à partir de 15 h, après ses cours, et parfois le samedi.", "follow_up_to": null},
-        {"topic": "Disponibilités", "question": "Et si j'avais besoin de ses services un soir, exceptionnellement ?", "answer": "C'est possible, à condition de la prévenir quelques jours à l'avance.", "follow_up_to": 4, "condition": "After availability is given, if you may need evening care."},
-        {"topic": "Conditions", "question": "Est-ce qu'elle s'occupe aussi des repas des enfants ?", "answer": "Oui, elle prépare le goûter et peut faire réchauffer le souper si vous l'avez préparé à l'avance.", "follow_up_to": null},
-        {"topic": "Conditions", "question": "Quel tarif horaire demande-t-elle en semaine et pour une garde occasionnelle en soirée ?", "answer": "Environ 18 $ de l'heure en semaine et 20 $ en soirée.", "follow_up_to": null},
-        {"topic": "Conditions", "question": "Pourrais-je la rencontrer avant de me décider ?", "answer": "Bien sûr, elle propose toujours une première rencontre avec la famille, sans engagement.", "follow_up_to": null}
+        {"topic": "Expérience et compétences", "question": "Quelle expérience a-t-elle auprès des enfants ?", "answer": "Elle garde les enfants de plusieurs familles du quartier depuis deux ans.", "follow_up_to": null},
+        {"topic": "Expérience et compétences", "question": "Avec quelles tranches d'âge a-t-elle l'habitude de travailler ?", "answer": "Surtout avec des enfants de trois à dix ans.", "follow_up_to": 1, "condition": "After the neighbour describes the provider's childcare experience."},
+        {"topic": "Expérience et compétences", "question": "Savez-vous si elle possède une formation en premiers secours ?", "answer": "Oui, elle a suivi une formation l'an dernier.", "follow_up_to": null},
+        {"topic": "Disponibilités", "question": "Quels jours est-elle généralement disponible ?", "answer": "En semaine après ses cours, ainsi que certains samedis.", "follow_up_to": null},
+        {"topic": "Disponibilités", "question": "Jusqu'à quelle heure peut-elle garder les enfants en soirée ?", "answer": "D'après mon expérience, jusqu'à 22 h, mais il faudra le confirmer avec elle.", "follow_up_to": null},
+        {"topic": "Conditions", "question": "Quelles tâches accepte-t-elle habituellement pendant la garde ?", "answer": "Elle supervise les jeux, aide aux devoirs et peut réchauffer un repas préparé.", "follow_up_to": null},
+        {"topic": "Conditions", "question": "Quel tarif horaire demande-t-elle en général ?", "answer": "Elle demandait 18 $ de l'heure chez nous ; confirmez son tarif actuel directement avec elle.", "follow_up_to": null},
+        {"topic": "Conditions", "question": "Comment puis-je la contacter pour organiser une première rencontre ?", "answer": "Je peux vous transmettre son numéro avec son accord.", "follow_up_to": null}
       ]
     }
   ]

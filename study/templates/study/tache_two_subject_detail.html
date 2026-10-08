@@ -41,6 +41,7 @@
 
       {% include "study/partials/tache_two_prompt_note.html" %}
 
+      {% subject_url 'study:edit_response' part.slug task.slug selected_prompt.pk as questions_edit_url %}
       {% include "study/partials/tache_two_questions.html" %}
     </div>
 
@@ -49,7 +50,7 @@
         <div class="spine-label">Progression du sujet</div>
         {% include "study/partials/subject_progress_control.html" with subject_label=subject.title hide_help=True %}
         <div class="response-sidebar-actions">
-          <a class="btn btn--block" href="{% subject_url 'study:edit_response' part.slug task.slug selected_prompt.pk %}">
+          <a class="btn btn--block" href="{{ questions_edit_url }}">
             {% if response_content.is_personal %}Modifier mes questions{% else %}Personnaliser les questions{% endif %}
           </a>
           <a class="btn btn--primary btn--block" href="{{ response_review_url }}">Pratiquer ce sujet</a>

@@ -31,23 +31,23 @@
 
       {# Keep the nested response-card tags adjacent so historical annotation whitespace offsets remain unchanged. #}
       {% include "study/partials/ee_tache_three_annotation_root.html" %}
-    {% else %}
+    {% else %}{# The edit pencil sits in the first card's label row; its wrapper is excluded so annotation offsets stay unchanged. #}
     {% if response_content.position %}
       <section class="card section-card">
-        <div class="spine-label">Position</div>
+        <div class="section-card__head"><div class="spine-label">Position</div>{% if can_edit_response %}<span class="section-card__tools" data-annotation-exclude>{% spaceless %}{% include "study/partials/oral_response_edit_button.html" %}{% endspaceless %}</span>{% endif %}</div>
         <p class="spine-text">{{ response_content.position }}</p>
       </section>
     {% endif %}
 
     {% if response_content.position_claire %}
       <section class="card section-card">
-        <div class="spine-label">Introduction</div>
+        <div class="section-card__head"><div class="spine-label">Introduction</div>{% if can_edit_response and not response_content.position %}<span class="section-card__tools" data-annotation-exclude>{% spaceless %}{% include "study/partials/oral_response_edit_button.html" %}{% endspaceless %}</span>{% endif %}</div>
         <p class="spine-text">{{ response_content.position_claire }}</p>
       </section>
     {% endif %}
 
     <section class="card section-card section-card--arguments">
-      <div class="spine-label">Arguments développés</div>
+      <div class="section-card__head"><div class="spine-label">Arguments développés</div>{% if can_edit_response and not response_content.position and not response_content.position_claire %}<span class="section-card__tools" data-annotation-exclude>{% spaceless %}{% include "study/partials/oral_response_edit_button.html" %}{% endspaceless %}</span>{% endif %}</div>
       {% for arg in arguments %}
         <article class="arg arg--full">
           <h2 class="arg__idea">

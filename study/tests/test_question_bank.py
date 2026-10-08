@@ -2356,6 +2356,18 @@ class EoTacheOneResponseViewTests(TestCase):
         self.assertContains(page, 'value="delete"')
         self.assertContains(page, 'data-prompt-copy-source="eo1-response-copy"')
         self.assertContains(page, 'id="eo1-response-copy"')
+        self.assertContains(
+            page,
+            f'<a class="icon-button" href="{self.url}?modifier=1" data-response-edit '
+            'aria-label="Modifier ma réponse"',
+        )
+        self.assertContains(
+            page,
+            '<button class="icon-button btn--danger" type="submit" '
+            'aria-label="Supprimer ma réponse"',
+        )
+        self.assertContains(page, 'aria-label="Copier ma réponse"')
+        self.assertNotContains(page, "eo1-response__actions")
         self.assertNotContains(page, 'name="body"')
 
     def test_saved_response_renders_markdown_safely(self):

@@ -9,7 +9,7 @@
           <div>
             <h2 id="subject-questions-title">Questions et relances</h2>
           </div>
-          <span>{{ subject_questions|length }} questions, relances comprises</span>
+          <div class="tache-two-question-section__tools"><span>{{ subject_questions|length }} questions, relances comprises</span>{% if questions_edit_url %}<a class="icon-button" href="{{ questions_edit_url }}" data-annotation-exclude data-response-edit aria-label="{{ response_content.is_personal|yesno:'Modifier mes questions,Personnaliser les questions' }}" title="{{ response_content.is_personal|yesno:'Modifier mes questions,Personnaliser les questions' }}">{% spaceless %}{% include "study/partials/ui_icon.html" with name="pencil" only %}{% endspaceless %}</a>{% endif %}</div>
         </header>
         {% include "study/partials/tache_two_dialogue_body.html" %}
       </section>
@@ -26,7 +26,7 @@
             <p class="eyebrow">Préparation orale</p>
             <h2 id="subject-questions-title">Questions à poser</h2>
           </div>
-          <span>{{ subject_questions|length }} questions</span>
+          <div class="tache-two-question-section__tools"><span>{{ subject_questions|length }} questions</span>{% if questions_edit_url %}<a class="icon-button" href="{{ questions_edit_url }}" data-annotation-exclude data-response-edit aria-label="{{ response_content.is_personal|yesno:'Modifier mes questions,Personnaliser les questions' }}" title="{{ response_content.is_personal|yesno:'Modifier mes questions,Personnaliser les questions' }}">{% spaceless %}{% include "study/partials/ui_icon.html" with name="pencil" only %}{% endspaceless %}</a>{% endif %}</div>
         </header>{% if response_content.reformulation %}<p class="eo2-personal-boundary">{{ response_content.reformulation|linebreaksbr }}</p>{% endif %}
         <ol class="tache-two-question-list">
           {% for question in subject_questions %}

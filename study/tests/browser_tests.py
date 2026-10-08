@@ -4001,10 +4001,8 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assert_no_horizontal_overflow()
         self.page.set_viewport_size({"width": 1280, "height": 850})
 
-        self.page.get_by_role(
-            "link",
-            name="Personnaliser les questions",
-            exact=True,
+        self.page.locator(
+            ".tache-two-question-section [data-response-edit]"
         ).click()
         self.page.get_by_role(
             "heading",
@@ -4165,7 +4163,7 @@ class BrowserTests(StaticLiveServerTestCase):
             "study:task_subject_detail",
             args=["eo", "tache-2", "janvier", 1, 1],
         ))
-        self.page.get_by_role(
+        self.page.locator(".response-sidebar-actions").get_by_role(
             "link", name="Personnaliser les questions", exact=True
         ).click()
         rows = self.page.locator("[data-question-list] [data-question-form]:visible")

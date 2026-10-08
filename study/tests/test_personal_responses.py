@@ -1,5 +1,8 @@
 from __future__ import annotations
 
+import re
+
+from django.template.loader import render_to_string
 from django.test import TestCase
 from django.urls import reverse
 
@@ -8,6 +11,27 @@ from study.models import Argument, Card, CardType, PersonalResponse
 from study.routing import response_detail_url
 
 from . import factories
+
+
+def _root_texts(html, root_pattern):
+    """Return a root's annotation text and its full textContent."""
+    from .test_ee_tache_three_memory_translations import AnnotationRootText
+
+    class RootTextContent(AnnotationRootText):
+        def handle_data(self, data):
+            for _, key, _ in self.stack:
+                if key:
+                    self.roots[key] += data
+
+    key = re.search(
+        root_pattern + r'[^>]*data-annotation-source-key="([^"]+)"',
+        html,
+    ).group(1)
+    texts = []
+    for parser in (AnnotationRootText(), RootTextContent()):
+        parser.feed(html)
+        texts.append(parser.roots[key])
+    return tuple(texts)
 
 
 class PersonalResponseTests(TestCase):
@@ -75,26 +99,74 @@ class PersonalResponseTests(TestCase):
             response_detail_url(self.response)
         )
 
-        self.assertContains(
-            detail,
-            """
-            <section class="card section-card">
-              <div class="spine-label">Position</div>
-              <p class="spine-text">Ma position personnelle.</p>
-            </section>
-            """,
-            html=True,
+        position_card = re.search(
+            r'<section class="card section-card">\s*<div class="section-card__head">'
+            r'<div class="spine-label">Position</div>.*?</section>',
+            detail.content.decode(),
+            re.S,
+        )
+        self.assertIsNotNone(position_card)
+        self.assertIn(
+            '<p class="spine-text">Ma position personnelle.</p>',
+            position_card.group(),
         )
         self.assertContains(
             detail,
             """
             <section class="card section-card">
-              <div class="spine-label">Introduction</div>
+              <div class="section-card__head"><div class="spine-label">Introduction</div></div>
               <p class="spine-text">Je suis clairement favorable.</p>
             </section>
             """,
             html=True,
         )
+
+    def test_detail_pencil_opens_the_editor_from_the_first_card(self):
+        detail_url = response_detail_url(self.response)
+        pencil = 'href="{}" data-response-edit aria-label="{}"'
+
+        shared = self.client.get(detail_url).content.decode()
+
+        self.assertEqual(shared.count("data-response-edit"), 1)
+        self.assertIn(
+            'Arguments développés</div><span class="section-card__tools" data-annotation-exclude>',
+            shared,
+        )
+        self.assertIn(pencil.format(self.edit_url, "Personnaliser la réponse"), shared)
+
+        self.client.post(self.edit_url, self.payload)
+        personal = self.client.get(detail_url).content.decode()
+
+        self.assertEqual(personal.count("data-response-edit"), 1)
+        self.assertIn(
+            'Position</div><span class="section-card__tools" data-annotation-exclude>',
+            personal,
+        )
+        self.assertIn(pencil.format(self.edit_url, "Modifier ma version"), personal)
+
+    def test_detail_pencil_leaves_annotation_text_unchanged(self):
+        detail_url = response_detail_url(self.response)
+        for personalized in (False, True):
+            with self.subTest(personalized=personalized):
+                if personalized:
+                    self.client.post(self.edit_url, self.payload)
+                page = self.client.get(detail_url)
+                without_pencil = render_to_string(
+                    "study/response_detail.html",
+                    {**page.context[0].flatten(), "can_edit_response": False},
+                    request=page.wsgi_request,
+                )
+                texts = [
+                    _root_texts(html, r'<div class="answer-columns" data-annotation-root')
+                    for html in (page.content.decode(), without_pencil)
+                ]
+
+                self.assertIn("data-response-edit", page.content.decode())
+                self.assertNotIn("data-response-edit", without_pencil)
+                self.assertIn("Arguments développés", texts[0][0])
+                self.assertNotIn("Personnaliser la réponse", texts[0][1])
+                self.assertNotIn("Modifier ma version", texts[0][1])
+                self.assertEqual(texts[0], texts[1])
 
     def test_personal_edit_keeps_shared_prompt_and_response_unchanged(self):
         original_prompt = self.response.prompt
@@ -296,6 +368,43 @@ class TacheTwoPersonalResponseTests(TestCase):
         self.assertContains(editor, 'data-question-template')
         self.assertContains(editor, "Je suis votre ami(e).")
         self.assertNotContains(editor, 'name="prompt"')
+
+    def test_questions_header_pencil_opens_the_editor(self):
+        pencil = (
+            'class="icon-button" href="{}" data-annotation-exclude '
+            'data-response-edit aria-label="{}"'
+        )
+
+        shared = self.client.get(self.detail_url)
+
+        self.assertContains(
+            shared,
+            pencil.format(self.edit_url, "Personnaliser les questions"),
+            count=1,
+        )
+
+        self.client.post(self.edit_url, self._payload())
+        personal = self.client.get(self.detail_url)
+
+        self.assertContains(
+            personal,
+            pencil.format(self.edit_url, "Modifier mes questions"),
+            count=1,
+        )
+        for page in (shared, personal):
+            context = page.context[0].flatten()
+            texts = [
+                _root_texts(
+                    render_to_string(
+                        "study/partials/tache_two_questions.html",
+                        {**context, "questions_edit_url": questions_edit_url},
+                        request=page.wsgi_request,
+                    ),
+                    r'<section\s+class="tache-two-question-section"',
+                )
+                for questions_edit_url in (self.edit_url, "")
+            ]
+            self.assertEqual(texts[0], texts[1])
 
     def test_personal_questions_are_private_and_used_on_cards(self):
         result = self.client.post(self.edit_url, self._payload())

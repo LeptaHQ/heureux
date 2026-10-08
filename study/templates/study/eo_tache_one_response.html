@@ -56,20 +56,22 @@
         <h2 id="eo1-response-title">Votre présentation</h2>
         <p class="muted">Mise à jour le {{ personal_response.updated_at|date:"j F Y" }}</p>
       </div>
-      <div class="eo1-response__actions">
-        {% include "study/partials/response_copy_button.html" with source_id="eo1-response-copy" button_class="btn" label="Copier" only %}
-        <a class="btn" href="{% url 'study:eo_tache_one_response' %}?modifier=1">
-          {% include "study/partials/ui_icon.html" with name="pencil" icon_class="btn__icon" only %}
-          <span>Modifier</span>
+      <div class="writing-response-controls">
+        <a class="icon-button" href="{% url 'study:eo_tache_one_response' %}?modifier=1" data-response-edit aria-label="Modifier ma réponse" title="Modifier ma réponse">
+          {% include "study/partials/ui_icon.html" with name="pencil" only %}
         </a>
         <form method="post" action="{% url 'study:eo_tache_one_response' %}"
+              data-response-delete
               data-confirm="Supprimer votre réponse de votre espace ? Cette action est définitive."
               data-confirm-label="Supprimer"
               data-confirm-tone="danger">
           {% csrf_token %}
           <input type="hidden" name="action" value="delete">
-          <button class="btn btn--danger" type="submit">Supprimer</button>
+          <button class="icon-button btn--danger" type="submit" aria-label="Supprimer ma réponse" title="Supprimer ma réponse">
+            <svg class="ui-icon" data-icon="trash" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13M10 11v5M14 11v5"></path></svg>
+          </button>
         </form>
+        {% include "study/partials/response_copy_button.html" with source_id="eo1-response-copy" label="Copier ma réponse" label_hidden=True only %}
       </div>
     </header>
     <div

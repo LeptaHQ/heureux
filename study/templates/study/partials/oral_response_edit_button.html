@@ -1,0 +1,4 @@
+{% load study_links %}{# Include inside a data-annotation-exclude wrapper and a spaceless block so the pencil adds no text to annotation roots. #}
+<a class="icon-button" href="{% subject_url 'study:edit_response' part.slug task.slug selected_prompt.pk %}" data-response-edit aria-label="{{ response_content.is_personal|yesno:'Modifier ma version,Personnaliser la réponse' }}" title="{{ response_content.is_personal|yesno:'Modifier ma version,Personnaliser la réponse' }}">
+  {% include "study/partials/ui_icon.html" with name="pencil" only %}
+</a>

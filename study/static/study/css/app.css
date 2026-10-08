@@ -2310,10 +2310,21 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   margin: 0.08rem 0 0;
   font-size: 1.4rem;
 }
-.tache-two-question-section > header > span {
+.tache-two-question-section__tools {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 0.6rem;
+}
+.tache-two-question-section__tools > span {
   color: var(--text-faint);
   font-size: 0.84rem;
   font-weight: 700;
+}
+.tache-two-question-section__tools > .icon-button {
+  width: 2rem;
+  height: 2rem;
+  flex: 0 0 auto;
 }
 .tache-two-question-list {
   margin: 0;
@@ -2606,7 +2617,7 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
 .eo1-response__head {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: center;
   justify-content: space-between;
   gap: 0.75rem 1rem;
   padding-bottom: 0.9rem;
@@ -2619,15 +2630,6 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
 .eo1-response__head p {
   margin: 0.2rem 0 0;
   font-size: 0.8rem;
-}
-.eo1-response__actions {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 0.5rem;
-}
-.eo1-response__actions form {
-  margin: 0;
 }
 .eo1-response__body {
   --markdown-gap: 0.95em;
@@ -7360,6 +7362,26 @@ a.qrow:focus-visible {
 .detail-prompt { font-family: var(--font-serif); font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.35; }
 .answer-columns { display: grid; gap: 1.2rem; }
 .section-card { padding: 1.2rem 1.4rem; }
+.section-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.2rem;
+}
+.section-card__head > .spine-label {
+  min-width: 0;
+  margin-bottom: 0;
+}
+.section-card__tools {
+  display: inline-flex;
+  flex: 0 0 auto;
+  margin: -0.45rem 0;
+}
+.section-card__tools > .icon-button {
+  width: 2rem;
+  height: 2rem;
+}
 .detail-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 1.4rem; align-items: start; }
 .detail-side { display: grid; gap: 1rem; }
 /* Keep the legacy annotation root intact while placing pistes after progression. */

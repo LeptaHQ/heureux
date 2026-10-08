@@ -317,17 +317,17 @@
     {
       "group": "neighbor-seaside-house-rental",
       "register": "vous",
-      "note": "Your neighbour is offering a specific seaside house, generally for holidays. The neighbour relationship means you already have nearby housing; this is not a main-home search. Ask about this property's setting, capacity, equipment, availability and price. Use vous; one week is only an example.",
-      "opening": "Bonjour ! Votre maison au bord de la mer pourrait bien me convenir pour les vacances, alors j'aimerais avoir quelques précisions.",
-      "closing": "Merci pour ces renseignements. Je vais vérifier mes dates et mon budget avant de vous donner ma réponse.",
+      "note": "Your neighbour Ève is offering a specific seaside house in the Gaspésie region, generally for holidays. The neighbour relationship means you already have nearby housing; this is not a main-home search. Ask about this property's setting, capacity, equipment, availability and price. Use vous.",
+      "opening": "Bonjour Ève ! Votre maison en Gaspésie pourrait bien me convenir pour les vacances, alors j'aimerais avoir quelques précisions.",
+      "closing": "Merci, Ève ! Je vais vérifier mes dates pour la première semaine de juillet.",
       "questions": [
-        {"topic": "Emplacement et cadre", "question": "Où se situe exactement la maison ?", "answer": "Dans un village côtier, à environ dix minutes du centre.", "follow_up_to": null},
+        {"topic": "Emplacement et cadre", "question": "Où se situe exactement la maison ?", "answer": "À Carleton-sur-Mer, dans un secteur calme à environ dix minutes du centre.", "follow_up_to": null},
         {"topic": "Emplacement et cadre", "question": "Est-ce qu'on peut rejoindre la plage à pied depuis la maison ?", "answer": "Oui, un chemin mène à la plage en cinq minutes environ.", "follow_up_to": 1, "condition": "After the location is given, unless beach access is already explained."},
         {"topic": "Emplacement et cadre", "question": "Quelle est l'ambiance dans les environs pendant les vacances ?", "answer": "Le secteur reste calme, avec quelques commerces et des activités nautiques au village.", "follow_up_to": null},
         {"topic": "Aménagement et équipement", "question": "Pour le couchage, combien de personnes la maison peut-elle accueillir confortablement ?", "answer": "Quatre personnes, grâce aux deux chambres.", "follow_up_to": null},
         {"topic": "Aménagement et équipement", "question": "Quels équipements seront à la disposition des locataires ?", "answer": "Une cuisine équipée, un lave-linge, un barbecue et du mobilier de terrasse.", "follow_up_to": null},
         {"topic": "Disponibilités et tarif", "question": "Quelles périodes sont encore disponibles ?", "answer": "La première semaine de juillet et deux semaines à la fin d'août.", "follow_up_to": null},
-        {"topic": "Disponibilités et tarif", "question": "Quel tarif demandez-vous pour une semaine en juillet ?", "answer": "Le tarif est de 700 $ pour la semaine.", "follow_up_to": 6, "condition": "After availability is given; adapt the dates and duration to the period you select."},
+        {"topic": "Disponibilités et tarif", "question": "Quel tarif demandez-vous pour une semaine en juillet ?", "answer": "Le tarif est de 1 200 $ pour la semaine.", "follow_up_to": 6, "condition": "After availability is given; adapt the dates and duration to the period you select."},
         {"topic": "Disponibilités et tarif", "question": "Qu'est-ce qui est compris dans ce tarif ?", "answer": "L'eau, l'électricité, le stationnement et le ménage de fin de séjour sont inclus.", "follow_up_to": 7, "condition": "After the price is given, unless inclusions are already explained."}
       ]
     },

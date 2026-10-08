@@ -4,18 +4,18 @@
     {
       "group": "canada-newcomer-apartment-procedure-unspecified-adviser",
       "register": "vous",
-      "note": "You have just arrived in Canada and ask an unspecified adviser how to find an apartment. Cover housing type, neighbourhoods, costs and procedures without treating them as an agent. Use vous. Rules vary by province, so verify them with the competent provincial body.",
-      "opening": "Bonjour ! Je viens d'arriver au Canada et j'aurais besoin de conseils pour chercher mon premier appartement.",
-      "closing": "Merci pour ces conseils. Je vais cibler quelques quartiers et préparer mon dossier avant de répondre aux annonces.",
+      "note": "You have just arrived in Calgary and ask an unspecified adviser how to find an apartment. Cover housing type, neighbourhoods, costs and procedures without treating them as an agent. Use vous and verify rental rules through official Alberta information.",
+      "opening": "Bonjour ! Je viens d'arriver à Calgary et j'aurais besoin de conseils pour chercher mon premier appartement.",
+      "closing": "Merci ! Je vais comparer Sunnyside et Brentwood, puis préparer mon dossier avant de répondre aux annonces.",
       "questions": [
         {"topic": "Type de logement", "question": "Quel type de logement me conseilleriez-vous pour commencer ?", "answer": "Un appartement meublé avec un bail de courte durée, le temps de découvrir la ville.", "follow_up_to": null},
-        {"topic": "Type de logement", "question": "Quel supplément faut-il prévoir pour un logement meublé ?", "answer": "Souvent de 200 à 300 $ de plus par mois, selon la ville.", "follow_up_to": 1, "condition": "If furnished housing is recommended, unless its added cost is already explained."},
-        {"topic": "Quartiers", "question": "Dans quels quartiers devrais-je chercher en priorité ?", "answer": "Dans ceux qui sont bien desservis par les transports en commun, un peu à l'écart du centre, où les loyers restent plus abordables.", "follow_up_to": null},
-        {"topic": "Quartiers", "question": "Quel loyer moyen faut-il prévoir dans ces quartiers ?", "answer": "Pour un appartement d'une chambre, comptez souvent entre 1 200 et 1 500 $ par mois.", "follow_up_to": 3, "condition": "After neighbourhoods are suggested, unless typical rents are already given."},
-        {"topic": "Démarches", "question": "Une fois les quartiers ciblés, où me conseillez-vous de chercher des annonces fiables ?", "answer": "Sur les grands sites immobiliers et auprès des services locaux d'aide au logement.", "follow_up_to": null},
+        {"topic": "Type de logement", "question": "Quel supplément faut-il prévoir pour un logement meublé ?", "answer": "Souvent de 200 à 300 $ de plus par mois à Calgary.", "follow_up_to": 1, "condition": "If furnished housing is recommended, unless its added cost is already explained."},
+        {"topic": "Quartiers", "question": "Dans quels quartiers de Calgary devrais-je chercher en priorité ?", "answer": "Sunnyside est proche du centre ; Brentwood est plus éloigné, mais calme et bien relié par le CTrain.", "follow_up_to": null},
+        {"topic": "Quartiers", "question": "Quel loyer moyen faut-il prévoir dans ces quartiers ?", "answer": "Pour un appartement d'une chambre, comptez généralement entre 1 500 et 1 900 $ par mois.", "follow_up_to": 3, "condition": "After neighbourhoods are suggested, unless typical rents are already given."},
+        {"topic": "Démarches", "question": "Une fois les quartiers ciblés, où me conseillez-vous de chercher des annonces fiables ?", "answer": "Sur Rentals.ca, Realtor.ca et auprès des services locaux d'aide au logement.", "follow_up_to": null},
         {"topic": "Démarches", "question": "Quels documents les propriétaires demandent-ils généralement ?", "answer": "Souvent une pièce d'identité, une preuve de revenus et des références locatives.", "follow_up_to": null},
         {"topic": "Démarches", "question": "Sans références locatives canadiennes, comment pourrais-je renforcer mon dossier ?", "answer": "Une lettre d'employeur ou un garant peut aider, selon ce que le propriétaire accepte.", "follow_up_to": 6, "condition": "After required documents are listed, if you lack Canadian rental references."},
-        {"topic": "Démarches", "question": "Avant de signer, auprès de quel organisme provincial puis-je vérifier les règles du bail ?", "answer": "Consultez l'autorité du logement de votre province, dont le nom varie selon votre lieu d'installation.", "follow_up_to": null}
+        {"topic": "Démarches", "question": "Avant de signer, où puis-je vérifier les règles officielles de location en Alberta ?", "answer": "Consultez la rubrique « Residential tenancies » du site Alberta.ca avant de vous engager.", "follow_up_to": null}
       ]
     },
     {
@@ -312,7 +312,7 @@
       "register": "vous",
       "note": "The interlocutor has no vehicle and asks you to help organize heavy-item transport. This may be a few objects, not a full move. Ask about the load, route, access, date, vehicle and helpers. The relationship is unspecified; this model uses vous, but a friend may use tu.",
       "opening": "Bonjour ! Je veux bien vous aider à organiser ce transport, mais j'ai besoin de quelques précisions.",
-      "closing": "Merci, l'organisation est plus claire ! Je vais confirmer ce que je peux prendre en charge pour le transport.",
+      "closing": "Merci ! Je vais comparer les camionnettes disponibles pour samedi matin et vous confirmer la réservation.",
       "questions": [
         {"topic": "Objets", "question": "Quels objets faut-il transporter ?", "answer": "Un canapé, une commode et une machine à laver.", "follow_up_to": null},
         {"topic": "Objets", "question": "Quelles sont les dimensions du canapé ?", "answer": "Il mesure deux mètres de long et quatre-vingt-dix centimètres de profondeur.", "follow_up_to": 1, "condition": "If a sofa is among the heavy items; adapt to the bulkiest object named."},

@@ -249,8 +249,8 @@
       "group": "owner-holiday-letting-estate-agency-advice",
       "register": "vous",
       "note": "You own the home and want extra income by letting it during holidays. The agency advises you on price, stay length, guest profile, safeguards and management; you are not seeking a rental. Use vous. Local legal rules require the competent authority.",
-      "opening": "Bonjour ! J'aimerais louer mon logement pendant les vacances et je voudrais préparer ce projet avec votre agence.",
-      "closing": "Merci pour vos conseils. Je vais vérifier les démarches et décider des conditions avant de confier mon logement à l'agence.",
+      "opening": "Bonjour ! J'aimerais louer mon logement pendant les vacances et préparer ce projet avec votre agence.",
+      "closing": "Merci ! Je vais d'abord vérifier les autorisations, puis je reviendrai vers vous.",
       "questions": [
         {"topic": "Tarif", "question": "À quel prix pourrais-je proposer mon logement par nuit ?", "answer": "Dans votre quartier, entre 120 et 180 $ selon la taille et l'équipement.", "follow_up_to": null},
         {"topic": "Tarif", "question": "Comment faudrait-il adapter ce tarif pendant la haute saison ?", "answer": "Vous pourriez l'augmenter d'environ 30 % en juillet et en août.", "follow_up_to": 1, "condition": "After a base nightly rate has been suggested."},
@@ -258,7 +258,7 @@
         {"topic": "Stratégie de location", "question": "Quel profil de locataires serait le plus intéressé par mon logement ?", "answer": "Surtout des familles et des couples qui recherchent un séjour calme.", "follow_up_to": null},
         {"topic": "Stratégie de location", "question": "Quel équipement devrais-je mettre en valeur pour ce public ?", "answer": "La cuisine équipée et les couchages familiaux seraient vos meilleurs arguments.", "follow_up_to": 4, "condition": "After the likely guest profile is identified."},
         {"topic": "Gestion et démarches", "question": "Avant de confirmer une réservation, comment l'agence vérifie-t-elle le sérieux des locataires ?", "answer": "Nous vérifions l'identité du titulaire et sécurisons le paiement avant de confirmer.", "follow_up_to": null},
-        {"topic": "Gestion et démarches", "question": "Quelle commission l'agence prendrait-elle sur chaque location ?", "answer": "Nous retenons 15 % du loyer pour la gestion complète.", "follow_up_to": null},
+        {"topic": "Gestion et démarches", "question": "Quelle commission prenez-vous, et quels services comprend-elle ?", "answer": "Nous retenons 15 % pour l'annonce, les réservations, les échanges avec les locataires et la remise des clés.", "follow_up_to": null},
         {"topic": "Gestion et démarches", "question": "Quelles autorisations dois-je vérifier avant de publier l'annonce ?", "answer": "Vérifiez auprès de votre municipalité si un permis ou un enregistrement est exigé.", "follow_up_to": null}
       ]
     },

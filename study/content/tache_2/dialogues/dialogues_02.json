@@ -77,14 +77,14 @@
     {
       "group": "help-friend-find-rental-needs",
       "register": "tu",
-      "note": "Your friend needs a rental and you are helping define the search. They are the future tenant; you are not an agent. Ask about timing, budget, location, size, housing type and priorities. Use tu and let their answers determine the criteria.",
-      "opening": "Salut ! Avant de chercher des annonces pour toi, j'aimerais bien comprendre ce dont tu as vraiment besoin.",
-      "closing": "Merci, tes priorités sont beaucoup plus claires ! Je vais maintenant chercher des locations qui correspondent à tes critères.",
+      "note": "Your friend Ève needs a rental in Calgary, and you are helping define the search. She is the future tenant; you are not an agent. Ask about timing, budget, location, size, housing type and priorities. Use tu and let her answers determine the criteria.",
+      "opening": "Salut Ève ! Avant de chercher des annonces à Calgary, j'aimerais bien comprendre ce dont tu as vraiment besoin.",
+      "closing": "C'est clair maintenant : je vais viser un logement près du CTrain, jusqu'à 1 600 $. Merci, Ève !",
       "questions": [
         {"topic": "Calendrier et budget", "question": "À partir de quand voudrais-tu emménager ?", "answer": "Au début du mois prochain, si je trouve quelque chose à temps.", "follow_up_to": null},
-        {"topic": "Calendrier et budget", "question": "Quel loyer maximal peux-tu payer, charges comprises ?", "answer": "Je voudrais rester autour de 1 000 $ par mois.", "follow_up_to": null},
-        {"topic": "Localisation", "question": "Quel trajet feras-tu le plus souvent depuis ton futur logement ?", "answer": "Je devrai surtout rejoindre mon travail en transport en commun.", "follow_up_to": null},
-        {"topic": "Localisation", "question": "En fonction de ce trajet, quels secteurs préférerais-tu ?", "answer": "Un quartier sur la ligne de métro directe, à moins de quarante minutes du travail.", "follow_up_to": 3, "condition": "After the main daily journey has been identified."},
+        {"topic": "Calendrier et budget", "question": "Quel loyer maximal peux-tu payer, charges comprises ?", "answer": "Je voudrais rester autour de 1 600 $ par mois.", "follow_up_to": null},
+        {"topic": "Localisation", "question": "Comme tu travailleras au centre-ville, quel temps de trajet maximal accepterais-tu ?", "answer": "Je préférerais rester à moins de trente-cinq minutes en transport en commun.", "follow_up_to": null},
+        {"topic": "Localisation", "question": "Tu préférerais Sunnyside, près du centre, ou Bridgeland, un peu plus résidentiel ?", "answer": "Bridgeland me conviendrait mieux, surtout si je reste près du CTrain.", "follow_up_to": 3, "condition": "After the maximum commute has been established."},
         {"topic": "Logement et priorités", "question": "Et pour le logement lui-même, quel type recherches-tu ?", "answer": "Un appartement non meublé avec une chambre séparée.", "follow_up_to": null},
         {"topic": "Logement et priorités", "question": "Quelle superficie minimale te conviendrait ?", "answer": "Environ quarante mètres carrés me suffiraient.", "follow_up_to": null},
         {"topic": "Logement et priorités", "question": "Quels critères sont indispensables pour toi au quotidien ?", "answer": "Je veux surtout un logement calme et lumineux.", "follow_up_to": null},
@@ -94,15 +94,15 @@
     {
       "group": "estate-agent-housing-options",
       "register": "vous",
-      "note": "You ask an estate agent about available housing. One source allows renting or buying; this shared model chooses renting, which fits every member. Compare property types, locations, prices, availability and rental conditions. Use vous and do not mix rental and purchase terminology.",
-      "opening": "Bonjour ! Je cherche un logement à louer et j'aimerais savoir quelles options votre agence peut me proposer.",
-      "closing": "Merci pour ces renseignements. Je vais comparer les possibilités avant de retenir l'offre la plus adaptée.",
+      "note": "You ask an estate agent about available housing in Calgary. One source allows renting or buying; this shared model chooses renting, which fits every member. Compare property types, locations, prices, availability and rental conditions. Use vous and do not mix rental and purchase terminology.",
+      "opening": "Bonjour ! Je cherche un logement à louer à Calgary et j'aimerais savoir quelles options votre agence propose.",
+      "closing": "Merci pour ces renseignements. Je vais comparer Beltline et Bridgeland avant de demander une visite.",
       "questions": [
         {"topic": "Offres et quartiers", "question": "Quels types de logements avez-vous actuellement à louer ?", "answer": "Des studios et plusieurs appartements avec deux chambres.", "follow_up_to": null},
-        {"topic": "Offres et quartiers", "question": "Et dans quels quartiers se trouvent ces différentes offres ?", "answer": "Principalement près du parc et dans le secteur de la gare.", "follow_up_to": null},
-        {"topic": "Offres et quartiers", "question": "Comment décririez-vous l'ambiance dans ces quartiers ?", "answer": "Le secteur du parc est plutôt calme et résidentiel ; celui de la gare est plus animé.", "follow_up_to": 2, "condition": "After several areas have been named."},
-        {"topic": "Offres et quartiers", "question": "Lequel de ces quartiers est le mieux desservi par les transports ?", "answer": "Le secteur de la gare, qui donne directement accès au métro et à plusieurs bus.", "follow_up_to": 2, "condition": "After several areas have been named."},
-        {"topic": "Budget", "question": "Côté budget, quelle fourchette de loyers faut-il prévoir ?", "answer": "Entre 950 $ pour un studio et 1 500 $ pour un appartement de deux chambres.", "follow_up_to": null},
+        {"topic": "Offres et quartiers", "question": "Et dans quels quartiers se trouvent ces différentes offres ?", "answer": "Principalement à Beltline et à Bridgeland.", "follow_up_to": null},
+        {"topic": "Offres et quartiers", "question": "Comment décririez-vous l'ambiance dans ces quartiers ?", "answer": "Beltline est central et animé ; Bridgeland est plus résidentiel tout en restant proche du centre.", "follow_up_to": 2, "condition": "After several areas have been named."},
+        {"topic": "Offres et quartiers", "question": "Lequel de ces quartiers est le mieux desservi par les transports ?", "answer": "Beltline, avec plusieurs lignes de bus et des stations de CTrain à proximité.", "follow_up_to": 2, "condition": "After several areas have been named."},
+        {"topic": "Budget", "question": "Côté budget, quelle fourchette de loyers faut-il prévoir ?", "answer": "Environ 1 500 $ pour un studio et jusqu'à 2 400 $ pour un appartement de deux chambres.", "follow_up_to": null},
         {"topic": "Budget", "question": "Quelles charges sont généralement comprises dans ces loyers ?", "answer": "L'eau est souvent incluse ; le chauffage et l'électricité varient selon l'annonce.", "follow_up_to": 5, "condition": "After the rent range is given, unless included charges are already explained."},
         {"topic": "Disponibilité et conditions", "question": "À partir de quand ces logements sont-ils disponibles ?", "answer": "Deux sont libres immédiatement, et un autre le sera le mois prochain.", "follow_up_to": null},
         {"topic": "Disponibilité et conditions", "question": "Quels documents faut-il prévoir pour déposer un dossier de location ?", "answer": "Une pièce d'identité, une preuve de revenus et, selon le propriétaire, des références locatives.", "follow_up_to": null}
@@ -315,21 +315,21 @@
     {
       "group": "newcomer-local-acquaintance-meet-people",
       "register": "vous",
-      "note": "You have just arrived in Calgary and ask a local acquaintance named Pierre how to meet people. Depending on the source, he is a neighbour or colleague. Accommodation is already found: focus on social connection, not housing. Use vous and follow the activity actually recommended.",
+      "note": "You have just arrived in Calgary and ask Pierre, a colleague or neighbour depending on the source, how to build a social circle. Cover welcoming places, recurring activities, associations and a realistic first visit. Accommodation is already found. Use vous.",
       "notes": {
         "tache2:decembre:batch-01:subject-05": "You have recently arrived in Canada and ask your colleague where to meet people. They advise you about local social life, not recruitment or immigration paperwork. Explore activities, associations and welcoming venues. Vous is chosen for this new professional relationship."
       },
-      "opening": "Bonjour Pierre ! Je viens d'arriver à Calgary et j'aimerais trouver des occasions de rencontrer du monde.",
-      "closing": "Merci pour vos conseils, Pierre ! Je vais essayer le groupe de marche samedi.",
+      "opening": "Bonjour Pierre ! Comme je viens d'arriver à Calgary, j'aimerais rencontrer du monde et me créer un cercle d'amis. Vous connaissez bien la ville, alors j'aurais besoin de vos conseils.",
+      "closing": "Merci beaucoup, Pierre ! Je vous retrouve dimanche devant la bibliothèque.",
       "questions": [
-        {"topic": "Choix d'une activité", "question": "Quelle activité me conseilleriez-vous pour rencontrer régulièrement les mêmes personnes ?", "answer": "Le groupe de marche et les ateliers créatifs réunissent les mêmes participants chaque semaine.", "follow_up_to": null},
-        {"topic": "Choix d'une activité", "question": "Parmi celles que vous venez de citer, laquelle serait la plus conviviale pour quelqu'un qui arrive seul ?", "answer": "Le groupe de marche : les nouveaux sont présentés au départ et peuvent discuter tranquillement pendant le trajet.", "follow_up_to": 1, "condition": "After several social activities are compared."},
-        {"topic": "Choix d'une activité", "question": "Où se déroulent ces rencontres ?", "answer": "Le groupe part devant la bibliothèque du centre-ville, à trois minutes d'un arrêt de bus.", "follow_up_to": 2, "condition": "After one activity is recommended."},
-        {"topic": "Organisation des rencontres", "question": "Quels jours et à quels horaires le groupe se réunit-il ?", "answer": "La marche a lieu chaque samedi matin ; un atelier est aussi proposé un jeudi soir sur deux.", "follow_up_to": null},
-        {"topic": "Organisation des rencontres", "question": "Et si cet horaire ne me convient pas, existe-t-il une activité comparable un autre jour ?", "answer": "Oui, un groupe de conversation se réunit le mardi soir et un café-rencontre a lieu un dimanche sur deux.", "follow_up_to": 4, "condition": "If the proposed schedule does not suit you."},
-        {"topic": "Organisation des rencontres", "question": "Pour essayer une première fois, faut-il réserver en ligne ou peut-on venir librement ?", "answer": "Vous pouvez essayer une sortie librement ; pour les ateliers, il faut réserver en ligne avant le mercredi.", "follow_up_to": null},
-        {"topic": "Budget et préparation", "question": "Et côté budget, combien faut-il prévoir pour participer ?", "answer": "L'adhésion annuelle coûte 25 $ ; certains ateliers avec du matériel demandent 5 $ de plus.", "follow_up_to": null},
-        {"topic": "Budget et préparation", "question": "Avant de venir, dois-je apporter du matériel ou prévoir une tenue particulière ?", "answer": "Pour la marche, aucun matériel n'est nécessaire, mais prévoyez de bonnes chaussures et une veste.", "follow_up_to": null}
+        {"topic": "Endroits conviviaux", "question": "À Calgary, quels endroits sont vraiment accueillants quand on arrive seul et qu'on veut discuter avec des gens ?", "answer": "La bibliothèque centrale organise un café de conversation, et le centre communautaire de Beltline propose des rencontres ouvertes aux nouveaux.", "follow_up_to": null},
+        {"topic": "Endroits conviviaux", "question": "Le café de conversation de la bibliothèque, comment ça se passe quand on vient pour la première fois ?", "answer": "Un bénévole accueille les nouveaux, puis tout le monde discute par petites tables autour d'un thème simple.", "follow_up_to": 1, "condition": "If the library conversation café is suggested."},
+        {"topic": "Activités et associations", "question": "Et pour revoir régulièrement les mêmes personnes, quelles activités fonctionnent le mieux ?", "answer": "Le groupe de randonnée du dimanche et la ligue récréative de volleyball réunissent les mêmes participants chaque semaine.", "follow_up_to": null},
+        {"topic": "Activités et associations", "question": "Entre ces deux activités, laquelle serait la plus facile pour quelqu'un qui ne connaît encore personne ?", "answer": "La randonnée du dimanche, car il n'y a pas d'équipe fixe et j'y participe déjà.", "follow_up_to": 3, "condition": "After several recurring activities are suggested."},
+        {"topic": "Activités et associations", "question": "Existe-t-il aussi une association francophone ou un groupe destiné aux nouveaux arrivants ?", "answer": "Oui, La Cité des Rocheuses organise des activités en français et une soirée d'accueil chaque mois.", "follow_up_to": null},
+        {"topic": "Première participation", "question": "Pour essayer la randonnée dimanche, faut-il s'inscrire à l'avance ?", "answer": "Oui, inscrivez-vous sur la page du groupe avant vendredi soir ; vous recevrez ensuite le lieu de départ.", "follow_up_to": null},
+        {"topic": "Première participation", "question": "Combien faut-il prévoir pour une première sortie ?", "answer": "La sortie est gratuite ; prévoyez seulement le transport, que les participants partagent souvent, et une collation.", "follow_up_to": 6, "condition": "After the registration process is explained."},
+        {"topic": "Première participation", "question": "Est-ce que je pourrais vous accompagner dimanche pour ne pas arriver seul ?", "answer": "Bien sûr. On peut se retrouver devant la bibliothèque et rejoindre le groupe ensemble.", "follow_up_to": null}
       ]
     },
     {

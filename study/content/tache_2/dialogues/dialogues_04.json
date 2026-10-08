@@ -21,18 +21,18 @@
     {
       "group": "furniture-delivery-service",
       "register": "vous",
-      "note": "You ask a delivery-company or furniture-shop employee about delivering a furniture purchase. Focus on the service: quote, scope, timing, vehicle, access and problems on receipt. Do not ask a carrier about stock or warranties. Use vous and provide actual access details when needed.",
-      "opening": "Bonjour ! Avant de faire livrer mon meuble, j'aimerais comprendre précisément comment votre service fonctionne.",
-      "closing": "Merci pour ces précisions. Je vais vérifier l'accès à mon logement avant de confirmer la livraison.",
+      "note": "You ask a delivery-company or furniture-shop employee about delivering a sofa you plan to buy. Focus on the service: quote, scope, timing, vehicle, access and problems on receipt. Do not ask the carrier about stock or warranties. Use vous; adapt the item if needed.",
+      "opening": "Bonjour ! Avant de faire livrer ce canapé, j'aimerais comprendre précisément comment votre service fonctionne.",
+      "closing": "Merci ! Je vais mesurer mon escalier et joindre des photos avant de confirmer la livraison.",
       "questions": [
-        {"topic": "Devis et tarif", "question": "De quelles informations avez-vous besoin pour calculer le prix de la livraison ?", "answer": "De l'adresse, des dimensions du meuble et des conditions d'accès au logement.", "follow_up_to": null},
-        {"topic": "Devis et tarif", "question": "Quel est le tarif pour une livraison à domicile ?", "answer": "Il commence à 50 $, puis dépend de la distance et de l'accès.", "follow_up_to": null},
+        {"topic": "Devis et tarif", "question": "De quelles informations avez-vous besoin pour calculer la livraison de ce canapé ?", "answer": "De l'adresse, des dimensions du canapé et des conditions d'accès au logement.", "follow_up_to": null},
+        {"topic": "Devis et tarif", "question": "Quel est le tarif pour une livraison à domicile ?", "answer": "Il commence à 80 $, puis dépend de la distance et de l'accès.", "follow_up_to": null},
         {"topic": "Devis et tarif", "question": "Est-ce que ce tarif comprend la livraison jusqu'à la pièce choisie ?", "answer": "Oui, dans ce cas la mise en place dans la pièce est comprise.", "follow_up_to": 2, "condition": "After the price is given, unless the delivery scope is already explained."},
         {"topic": "Délais et organisation", "question": "Une fois la commande confirmée, quel délai faut-il prévoir ?", "answer": "En général, entre trois et cinq jours après confirmation, selon les disponibilités.", "follow_up_to": null},
         {"topic": "Délais et organisation", "question": "Pourrai-je choisir un créneau de passage ?", "answer": "Oui, nous proposons des plages de deux heures et confirmons le passage la veille.", "follow_up_to": null},
-        {"topic": "Délais et organisation", "question": "Dans quel type de véhicule le meuble sera-t-il transporté ?", "answer": "Dans un camion capitonné, où le meuble sera sanglé et protégé par des couvertures.", "follow_up_to": null},
+        {"topic": "Délais et organisation", "question": "Dans quel type de véhicule le canapé sera-t-il transporté ?", "answer": "Dans un camion capitonné, où il sera sanglé et protégé par des couvertures.", "follow_up_to": null},
         {"topic": "Accès et réception", "question": "Chez moi, l'escalier est étroit. Comment dois-je vous le signaler avant la livraison ?", "answer": "Indiquez-le dans la commande avec les dimensions de l'escalier et, si possible, quelques photos.", "follow_up_to": null},
-        {"topic": "Accès et réception", "question": "Quelle procédure faudra-t-il suivre si le meuble arrive endommagé ?", "answer": "Signalez-le sur le reçu, prenez des photos et contactez notre service le jour même.", "follow_up_to": null}
+        {"topic": "Accès et réception", "question": "Quelle procédure faudra-t-il suivre si le canapé arrive endommagé ?", "answer": "Signalez-le sur le reçu, prenez des photos et contactez notre service le jour même.", "follow_up_to": null}
       ]
     },
     {
@@ -123,16 +123,16 @@
     {
       "group": "estate-agent-advertised-apartment-purchase",
       "register": "vous",
-      "note": "You want to buy the specific advertised apartment and are speaking to the estate agent. Ask about its size, layout, condition, neighbourhood, sale price, ownership costs and a visit. Use vous. Do not switch to rent, a rental application or other listings.",
-      "opening": "Bonjour ! J'ai vu votre annonce pour l'appartement à vendre et j'aimerais vérifier quelques points avant d'envisager une visite.",
-      "closing": "Merci pour ces renseignements. Je vais examiner le coût total et je vous recontacterai pour la suite de mon projet d'achat.",
+      "note": "You want to buy a specific advertised apartment in Calgary's Beltline district and are speaking to the estate agent. Ask about its size, layout, condition, neighbourhood, sale price, ownership costs and a visit. Use vous. Do not switch to rent or other listings.",
+      "opening": "Bonjour ! J'ai vu votre annonce pour l'appartement à vendre dans le quartier de Beltline et j'aimerais vérifier quelques points avant une visite.",
+      "closing": "Merci ! Le samedi matin me conviendrait ; je vais vous confirmer le rendez-vous.",
       "questions": [
         {"topic": "Superficie et agencement", "question": "Quelle est la superficie exacte de l'appartement ?", "answer": "Soixante-dix mètres carrés, selon les documents de l'annonce.", "follow_up_to": null},
         {"topic": "Superficie et agencement", "question": "Comment les pièces sont-elles réparties dans cette surface ?", "answer": "Deux chambres, un séjour, une cuisine séparée et une salle de bains.", "follow_up_to": 1, "condition": "After the area is given, unless the layout is already described."},
         {"topic": "État et quartier", "question": "L'appartement nécessite-t-il des travaux avant d'être habité ?", "answer": "Il est habitable immédiatement, mais les fenêtres devront probablement être modernisées.", "follow_up_to": null},
-        {"topic": "État et quartier", "question": "Et autour de l'immeuble, comment est le quartier ?", "answer": "C'est un secteur résidentiel, avec des commerces, un parc et des transports à proximité.", "follow_up_to": null},
-        {"topic": "Prix et copropriété", "question": "Quel est le prix de vente demandé ?", "answer": "Le propriétaire demande 250 000 $.", "follow_up_to": null},
-        {"topic": "Prix et copropriété", "question": "À combien s'élèvent les charges de copropriété mensuelles ?", "answer": "Elles sont de 280 $ par mois, entretien des parties communes et eau compris.", "follow_up_to": 5, "condition": "After the sale price is given, unless recurring ownership costs are already explained."},
+        {"topic": "État et quartier", "question": "Et autour de l'immeuble, comment est le quartier ?", "answer": "Beltline est animé, avec des commerces, des parcs et le CTrain à proximité.", "follow_up_to": null},
+        {"topic": "Prix et copropriété", "question": "Quel est le prix de vente demandé ?", "answer": "Le propriétaire demande 365 000 $.", "follow_up_to": null},
+        {"topic": "Prix et copropriété", "question": "À combien s'élèvent les charges de copropriété mensuelles ?", "answer": "Elles sont de 480 $ par mois, entretien des parties communes et eau compris.", "follow_up_to": 5, "condition": "After the sale price is given, unless recurring ownership costs are already explained."},
         {"topic": "Prix et copropriété", "question": "Des travaux importants sont-ils déjà prévus dans l'immeuble ?", "answer": "Aucun chantier majeur n'est voté ; la toiture a été refaite récemment.", "follow_up_to": null},
         {"topic": "Visite", "question": "Quand serait-il possible de visiter l'appartement ?", "answer": "Nous pouvons proposer un rendez-vous mercredi soir ou samedi matin.", "follow_up_to": null}
       ]
@@ -242,14 +242,14 @@
     {
       "group": "quebec-newcomer-estate-agency-housing-procedures",
       "register": "vous",
-      "note": "You have just settled in Quebec and ask an estate or rental agency how to find housing. Renting fits every source; no purchase is stated. Cover the agency process, property types, areas, costs and application. Use vous and refer legal lease questions to official Quebec information.",
-      "opening": "Bonjour ! Je viens de m'installer au Québec et j'aimerais savoir comment votre agence peut m'aider à trouver un logement.",
-      "closing": "Merci pour votre aide. Je vais préparer mes critères et mon dossier avant de commencer les visites.",
+      "note": "You have just settled in Québec City and ask a rental agency how to find housing. Renting fits every source; no purchase is stated. Cover the agency process, property types, areas, costs and application. Use vous and refer legal lease questions to official Quebec information.",
+      "opening": "Bonjour ! Je viens de m'installer à Québec et j'aimerais savoir comment votre agence peut m'aider à trouver un logement.",
+      "closing": "Merci ! Je vais préparer mon dossier et commencer par regarder les offres à Limoilou et à Sainte-Foy.",
       "questions": [
         {"topic": "Démarche et offres", "question": "Comment se déroule une recherche de logement avec votre agence ?", "answer": "Nous définissons votre budget, vos critères et votre date d'installation, puis nous sélectionnons des offres et proposons des visites.", "follow_up_to": null},
         {"topic": "Démarche et offres", "question": "Pour commencer, quel type de logement pourrait me convenir ?", "answer": "Un appartement d'une chambre si vous vivez seul ; une colocation coûterait moins cher.", "follow_up_to": null},
-        {"topic": "Secteurs et budget", "question": "Quels secteurs me conseilleriez-vous pour une première installation ?", "answer": "Les quartiers situés le long des principales lignes de transport sont pratiques et regroupent beaucoup de commerces et de services.", "follow_up_to": null},
-        {"topic": "Secteurs et budget", "question": "Quelle fourchette de loyers faut-il prévoir dans ces secteurs ?", "answer": "Pour un appartement d'une chambre, comptez généralement de 1 100 à 1 500 $ par mois.", "follow_up_to": 3, "condition": "After suitable areas are suggested, unless typical rents are already given."},
+        {"topic": "Secteurs et budget", "question": "Quels secteurs me conseilleriez-vous pour une première installation à Québec ?", "answer": "Limoilou est vivant et bien desservi ; Sainte-Foy offre aussi beaucoup de services près des lignes de Métrobus.", "follow_up_to": null},
+        {"topic": "Secteurs et budget", "question": "Quelle fourchette de loyers faut-il prévoir dans ces secteurs ?", "answer": "Pour un appartement d'une chambre, comptez généralement de 1 200 à 1 600 $ par mois.", "follow_up_to": 3, "condition": "After suitable areas are suggested, unless typical rents are already given."},
         {"topic": "Secteurs et budget", "question": "Quelles charges sont habituellement comprises dans le loyer ?", "answer": "L'eau est souvent incluse, mais le chauffage et l'électricité varient selon le logement.", "follow_up_to": 4, "condition": "After the rent range is given, unless inclusions are already explained."},
         {"topic": "Dossier et bail", "question": "Une fois une offre trouvée, quels documents faut-il fournir pour présenter un dossier ?", "answer": "Une pièce d'identité, une preuve de revenus et, selon le propriétaire, des références locatives.", "follow_up_to": null},
         {"topic": "Dossier et bail", "question": "Si je n'ai pas encore de références locatives au Québec, quelles solutions acceptez-vous ?", "answer": "Nous vérifierons quels autres justificatifs le propriétaire accepte pour cette offre.", "follow_up_to": 6, "condition": "If Quebec rental references are requested and you do not have them."},
@@ -293,21 +293,21 @@
     {
       "group": "friend-city-housing-search-advice",
       "register": "tu",
-      "note": "You want housing in your friend's city and ask for local advice on areas, rents, services and search methods. Some sources name Toronto; use the city actually given. Your friend is not an agent and cannot confirm an offer or legal condition. Use tu.",
+      "note": "You want housing in Toronto and ask your friend Pierre for local advice on areas, rents, services and search methods. This concrete setting fits the sources that name Toronto and the more general city prompts. Pierre is not an agent and cannot confirm an offer or legal condition. Use tu.",
       "notes": {
         "tache2:juin:batch-02:subject-09": "Your friend lives in Toronto, where you want an apartment. Ask for local neighbourhood, price, search and procedure advice. Use tu; verify current offers and formal conditions with the relevant provider.",
         "tache2:juillet:batch-08:subject-37": "You want housing in Toronto and ask your friend about budget, procedures and useful websites. Use tu; their experience guides the search but does not establish current rental conditions."
       },
-      "opening": "Salut ! Comme tu connais bien la ville, j'aimerais profiter de tes conseils pour chercher un logement.",
-      "closing": "Merci pour tes conseils ! Je vais commencer mes recherches dans les secteurs qui semblent le mieux me convenir.",
+      "opening": "Salut Pierre ! Comme tu connais bien Toronto, j'aimerais profiter de tes conseils pour chercher un logement.",
+      "closing": "Merci, Pierre ! Je vais commencer par comparer les annonces à High Park et organiser quelques visites.",
       "questions": [
-        {"topic": "Quartiers", "question": "Quels quartiers me conseillerais-tu pour chercher un logement ?", "answer": "Le secteur du parc et celui de la gare sont les deux possibilités que je connais le mieux.", "follow_up_to": null},
-        {"topic": "Quartiers", "question": "Parmi ces quartiers, lequel choisirais-tu pour une ambiance plutôt calme ?", "answer": "Le secteur du parc, plus résidentiel que celui de la gare.", "follow_up_to": 1, "condition": "After several neighbourhoods are suggested; adapt to the atmosphere you prefer."},
-        {"topic": "Quartiers", "question": "Et au quotidien, quels services trouve-t-on dans ce secteur ?", "answer": "Une épicerie, une pharmacie, une clinique et plusieurs cafés.", "follow_up_to": 2, "condition": "After a neighbourhood has been selected."},
-        {"topic": "Quartiers", "question": "Et pour les déplacements, ce secteur est-il bien desservi ?", "answer": "Oui, le métro est à dix minutes à pied et plusieurs bus passent dans le quartier.", "follow_up_to": 2, "condition": "After a neighbourhood has been selected."},
-        {"topic": "Budget", "question": "Quel loyer faut-il prévoir pour un petit appartement dans ce secteur ?", "answer": "Environ 1 300 à 1 600 $ par mois, selon l'état et les charges incluses.", "follow_up_to": null},
+        {"topic": "Quartiers", "question": "Quels quartiers de Toronto me conseillerais-tu pour chercher un logement ?", "answer": "High Park et Davisville sont deux secteurs agréables et bien reliés au centre.", "follow_up_to": null},
+        {"topic": "Quartiers", "question": "Parmi ces quartiers, lequel choisirais-tu pour une ambiance plutôt calme ?", "answer": "High Park, plus résidentiel et plus vert que Davisville.", "follow_up_to": 1, "condition": "After several neighbourhoods are suggested; adapt to the atmosphere you prefer."},
+        {"topic": "Quartiers", "question": "Et au quotidien, quels services trouve-t-on à High Park ?", "answer": "Des épiceries, des pharmacies, une clinique et plusieurs cafés le long de Bloor Street.", "follow_up_to": 2, "condition": "After High Park is selected."},
+        {"topic": "Quartiers", "question": "Et pour les déplacements, High Park est-il bien desservi ?", "answer": "Oui, la station de métro est proche et plusieurs bus desservent les rues voisines.", "follow_up_to": 2, "condition": "After High Park is selected."},
+        {"topic": "Budget", "question": "Quel loyer faut-il prévoir pour un petit appartement dans ce secteur ?", "answer": "Environ 2 200 à 2 600 $ par mois, selon l'état et les charges incluses.", "follow_up_to": null},
         {"topic": "Budget", "question": "D'après toi, quelles dépenses de logement oublie-t-on souvent d'ajouter au loyer ?", "answer": "Le chauffage, l'électricité, Internet et parfois le stationnement.", "follow_up_to": 5, "condition": "After discussing the expected rent."},
-        {"topic": "Recherche et démarches", "question": "Pour commencer mes recherches, quels sites locaux sont les plus utiles ?", "answer": "Les grandes plateformes immobilières et les sites des agences locales.", "follow_up_to": null},
+        {"topic": "Recherche et démarches", "question": "Pour commencer mes recherches, quels sites locaux sont les plus utiles ?", "answer": "Rentals.ca et Realtor.ca donnent une bonne vue des offres ; compare aussi avec les agences locales.", "follow_up_to": null},
         {"topic": "Recherche et démarches", "question": "Quelles étapes me conseillerais-tu avant d'accepter une location ?", "answer": "Vérifie l'annonce, visite le logement et lis le bail avant tout paiement.", "follow_up_to": null}
       ]
     },

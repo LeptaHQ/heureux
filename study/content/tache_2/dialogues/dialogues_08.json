@@ -55,17 +55,17 @@
     {
       "group": "estate-agent-advertised-apartment-unspecified",
       "register": "vous",
-      "note": "A specific apartment advertisement interests you and you question the estate agent. The prompt does not establish sale or rental, despite the source title, so clarify the transaction first. Then ask about price, size, condition, neighbourhood, recurring costs and a visit. Use vous.",
-      "opening": "Bonjour ! L'appartement de votre annonce m'intéresse et j'aimerais obtenir quelques précisions.",
-      "closing": "Merci pour ces renseignements. Je vais examiner les conditions avant de vous recontacter pour une visite.",
+      "note": "A specific apartment advertisement in Montréal's Rosemont district interests you. The prompt does not establish sale or rental, so clarify the transaction first; this model then follows the agent's answer that it is for sale. Ask about price, size, condition, neighbourhood, recurring costs and a visit. Use vous.",
+      "opening": "Bonjour ! L'appartement de votre annonce à Rosemont m'intéresse et j'aimerais obtenir quelques précisions.",
+      "closing": "Merci ! Le samedi matin me conviendrait ; je vais vous confirmer le rendez-vous.",
       "questions": [
         {"topic": "Transaction et coût", "question": "Cet appartement est-il proposé à la vente ou à la location ?", "answer": "Il est proposé à la vente.", "follow_up_to": null},
         {"topic": "Transaction et coût", "question": "Dans ce cas, quel montant demande le propriétaire ?", "answer": "Le prix demandé est de 425 000 $.", "follow_up_to": 1, "condition": "After the agent clarifies the transaction; use sale price or monthly rent as appropriate."},
         {"topic": "Appartement", "question": "Quelle est la superficie de l'appartement ?", "answer": "Il fait quatre-vingt-cinq mètres carrés.", "follow_up_to": null},
         {"topic": "Appartement", "question": "Comment les pièces sont-elles réparties ?", "answer": "Il comprend deux chambres, un grand salon, une cuisine et une salle de bains.", "follow_up_to": 3, "condition": "After the area is given, unless the layout is already described."},
         {"topic": "Appartement", "question": "Dans quel état général se trouve le logement ?", "answer": "La cuisine a été rénovée récemment, mais la salle de bains est plus ancienne.", "follow_up_to": null},
-        {"topic": "Quartier et décision", "question": "Et autour de l'immeuble, comment est le quartier ?", "answer": "C'est un quartier résidentiel avec des commerces, une école et le métro à proximité.", "follow_up_to": null},
-        {"topic": "Quartier et décision", "question": "En plus du montant annoncé, quels frais réguliers faut-il prévoir ?", "answer": "Les charges de copropriété sont de 300 $ par mois, et il faut aussi prévoir les taxes.", "follow_up_to": null},
+        {"topic": "Quartier et décision", "question": "Et autour de l'immeuble, comment est le quartier ?", "answer": "Rosemont est résidentiel et animé, avec des commerces, des écoles et le métro à proximité.", "follow_up_to": null},
+        {"topic": "Quartier et décision", "question": "En plus du montant annoncé, quels frais réguliers faut-il prévoir ?", "answer": "Les charges de copropriété sont de 375 $ par mois, et il faut aussi prévoir les taxes.", "follow_up_to": null},
         {"topic": "Quartier et décision", "question": "Quand serait-il possible de visiter l'appartement ?", "answer": "Une visite est possible mercredi soir ou samedi matin.", "follow_up_to": null}
       ]
     },
@@ -276,18 +276,18 @@
     {
       "group": "colleague-summer-house-rental",
       "register": "vous",
-      "note": "Your colleague is offering their own house during the summer holidays. Ask about this house's rooms, capacity, equipment, setting, exact dates and price; do not assume seaside or cottage features. This model uses vous, but close colleagues may use tu consistently.",
-      "opening": "Bonjour ! Votre maison disponible pendant les vacances d'été pourrait m'intéresser, alors j'aimerais en savoir un peu plus.",
-      "closing": "Merci pour toutes ces précisions. Je vais vérifier mes dates et je vous donnerai rapidement ma réponse.",
+      "note": "Your colleague Pierre is offering his own house in Calgary's Bowness neighbourhood during the summer holidays. Ask about its rooms, capacity, equipment, setting, exact dates and price; do not assume seaside or cottage features. This model uses vous.",
+      "opening": "Bonjour Pierre ! Votre maison à Bowness pourrait m'intéresser pour les vacances d'été, alors j'aimerais en savoir un peu plus.",
+      "closing": "Merci, Pierre ! Je vérifie mes dates pour début juillet et je vous réponds demain.",
       "questions": [
         {"topic": "Maison", "question": "Combien de chambres la maison compte-t-elle ?", "answer": "Elle comprend trois chambres.", "follow_up_to": null},
         {"topic": "Maison", "question": "Avec ces chambres, combien de personnes peuvent y dormir confortablement ?", "answer": "Six personnes, grâce à deux lits doubles et deux lits simples.", "follow_up_to": 1, "condition": "After the number of bedrooms is given."},
         {"topic": "Maison", "question": "Et sur place, quels équipements seront à la disposition des locataires ?", "answer": "Un lave-vaisselle, une laveuse, une sécheuse et un barbecue.", "follow_up_to": null},
-        {"topic": "Cadre", "question": "Comment sont les environs en été : plutôt calmes ou animés ?", "answer": "Ils sont plutôt calmes, avec un grand parc et quelques commerces à proximité.", "follow_up_to": null},
-        {"topic": "Cadre", "question": "Peut-on rejoindre facilement le centre-ville sans voiture ?", "answer": "Oui, un autobus direct y mène en vingt minutes.", "follow_up_to": 4, "condition": "After the setting is described, if access to the city matters to you."},
+        {"topic": "Cadre", "question": "Comment est le quartier de Bowness en été : plutôt calme ou animé ?", "answer": "Il est plutôt calme, avec un grand parc et plusieurs commerces à proximité.", "follow_up_to": null},
+        {"topic": "Cadre", "question": "Peut-on rejoindre facilement le centre-ville sans voiture ?", "answer": "Oui, un autobus direct y mène en environ vingt-cinq minutes.", "follow_up_to": 4, "condition": "After the setting is described, if access to the city matters to you."},
         {"topic": "Dates et prix", "question": "Concernant les dates, quand la maison est-elle disponible exactement ?", "answer": "Du premier juillet au quinze août.", "follow_up_to": null},
-        {"topic": "Dates et prix", "question": "Quel loyer demandez-vous pour une semaine ?", "answer": "Le loyer est de 900 $ par semaine.", "follow_up_to": null},
-        {"topic": "Dates et prix", "question": "Quelles charges sont comprises dans ce loyer ?", "answer": "L'électricité et Internet sont compris.", "follow_up_to": 7, "condition": "After the weekly rent is given, unless included charges are already explained."}
+        {"topic": "Dates et prix", "question": "Quel loyer demandez-vous pour une semaine ?", "answer": "Le loyer est de 1 500 $ par semaine.", "follow_up_to": null},
+        {"topic": "Dates et prix", "question": "Quelles charges sont comprises dans ce loyer ?", "answer": "L'eau, l'électricité et Internet sont compris.", "follow_up_to": 7, "condition": "After the weekly rent is given, unless included charges are already explained."}
       ]
     },
     {

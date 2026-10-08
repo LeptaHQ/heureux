@@ -247,18 +247,18 @@
     {
       "group": "new-resident-neighbor-neighborhood-orientation",
       "register": "vous",
-      "note": "You have just moved in and ask your neighbour about the area, sometimes at a welcome gathering. Voisin means accommodation is already found: do not start an apartment search. Cover neighbours, shops, transport, services, schools and leisure without inventing children or family needs. Vous is chosen for this first conversation.",
-      "opening": "Bonjour ! Je découvre encore le quartier et vos conseils me seraient bien utiles.",
-      "closing": "Merci pour votre aide. Je vais prendre le temps de découvrir ces endroits et de rencontrer les voisins.",
+      "note": "You have just moved into a neighbourhood in Québec City and ask your neighbour Ève about the area, sometimes at a welcome gathering. Voisin means accommodation is already found: do not start an apartment search. Cover neighbours, shops, transport, services, schools and leisure. Use vous.",
+      "opening": "Bonjour Ève ! Merci de prendre le temps de me parler du quartier. Comme je viens d'arriver à Québec, vos conseils vont beaucoup m'aider.",
+      "closing": "Merci pour tous vos conseils, Ève ! Je vais commencer par le marché et le café-rencontre.",
       "questions": [
-        {"topic": "Voisinage", "question": "Le quartier est-il plutôt calme, familial ou animé, surtout le soir et le week-end ?", "answer": "Il est calme en semaine et plus animé autour du marché le week-end.", "follow_up_to": null},
-        {"topic": "Voisinage", "question": "Comment puis-je faire connaissance avec les voisins sans être indiscret ?", "answer": "Présentez-vous aux voisins immédiats, puis venez au café-rencontre mensuel de l'association.", "follow_up_to": null},
-        {"topic": "Vie quotidienne et services", "question": "Pour les courses courantes, quels commerces sont accessibles à pied ?", "answer": "L'épicerie, la pharmacie et la boulangerie sont à moins de dix minutes à pied.", "follow_up_to": null},
-        {"topic": "Vie quotidienne et services", "question": "Peut-on rejoindre facilement le centre-ville et la gare sans voiture ?", "answer": "Oui, deux lignes de bus rejoignent directement le centre-ville et la gare.", "follow_up_to": null},
-        {"topic": "Vie quotidienne et services", "question": "Quels services utiles trouve-t-on à proximité ?", "answer": "L'école primaire et la bibliothèque sont près du parc ; la clinique et le centre communautaire sont à quinze minutes en bus.", "follow_up_to": null},
-        {"topic": "Loisirs et informations", "question": "Quelles activités me conseillez-vous pour découvrir le quartier ?", "answer": "Je vous conseille les marches de l'association ; elle propose aussi des ateliers créatifs et du bénévolat au jardin communautaire.", "follow_up_to": null},
-        {"topic": "Loisirs et informations", "question": "Pour cette activité, comment faut-il s'inscrire ?", "answer": "Pour les marches, vous pouvez venir directement au point de départ indiqué sur le site.", "follow_up_to": 6, "condition": "After a suitable local activity is recommended."},
-        {"topic": "Loisirs et informations", "question": "Enfin, où puis-je consulter les horaires et les annonces du quartier ?", "answer": "Le site de l'association est le plus à jour ; la bibliothèque affiche aussi le bulletin mensuel.", "follow_up_to": null}
+        {"topic": "Voisinage", "question": "Comme je découvre encore le quartier, comment décririez-vous son ambiance, surtout le soir et le week-end ?", "answer": "Il est calme en semaine et plus animé autour du marché le week-end.", "follow_up_to": null},
+        {"topic": "Voisinage", "question": "Est-ce que les voisins se connaissent bien, et comment pourrais-je faire connaissance avec eux sans être indiscret ?", "answer": "Oui, surtout dans l'immeuble. Présentez-vous aux voisins immédiats, puis venez au café-rencontre mensuel de l'association.", "follow_up_to": null},
+        {"topic": "Vie quotidienne et services", "question": "Pour les courses, quels commerces sont accessibles à pied, et où fait-on les achats plus importants ?", "answer": "L'épicerie, la pharmacie et la boulangerie sont à moins de dix minutes ; le supermarché est à quelques arrêts de bus.", "follow_up_to": null},
+        {"topic": "Vie quotidienne et services", "question": "Peut-on facilement rejoindre le centre-ville et la gare sans voiture ?", "answer": "Oui, deux lignes de bus rejoignent directement le centre-ville et la gare.", "follow_up_to": null},
+        {"topic": "Vie quotidienne et services", "question": "Quels services utiles trouve-t-on dans le quartier, par exemple une clinique ou une bibliothèque ?", "answer": "L'école primaire et la bibliothèque sont près du parc ; la clinique et le centre communautaire sont à quinze minutes en bus.", "follow_up_to": null},
+        {"topic": "Loisirs et informations", "question": "Quelles activités me conseilleriez-vous pour découvrir le quartier et rencontrer du monde ?", "answer": "Je vous conseille les marches de l'association ; elle propose aussi des ateliers créatifs et du bénévolat au jardin communautaire.", "follow_up_to": null},
+        {"topic": "Loisirs et informations", "question": "Pour l'activité que vous me conseillez, faut-il s'inscrire ou peut-on venir directement ?", "answer": "Pour les marches, vous pouvez venir directement au point de départ indiqué sur le site.", "follow_up_to": 6, "condition": "After a suitable local activity is recommended."},
+        {"topic": "Loisirs et informations", "question": "Enfin, où puis-je consulter les horaires et les annonces du quartier, en ligne ou sur un affichage local ?", "answer": "Le site de l'association est le plus à jour ; la bibliothèque affiche aussi le bulletin mensuel.", "follow_up_to": null}
       ]
     },
     {
@@ -315,12 +315,12 @@
     {
       "group": "newcomer-local-acquaintance-meet-people",
       "register": "vous",
-      "note": "You have just arrived in town and ask your neighbour how to meet people. Accommodation is already found: your goal is social connection, not an apartment search. Find welcoming activities and practical ways to join. Vous is chosen for this new relationship; follow the activity actually recommended.",
+      "note": "You have just arrived in Calgary and ask a local acquaintance named Pierre how to meet people. Depending on the source, he is a neighbour or colleague. Accommodation is already found: focus on social connection, not housing. Use vous and follow the activity actually recommended.",
       "notes": {
         "tache2:decembre:batch-01:subject-05": "You have recently arrived in Canada and ask your colleague where to meet people. They advise you about local social life, not recruitment or immigration paperwork. Explore activities, associations and welcoming venues. Vous is chosen for this new professional relationship."
       },
-      "opening": "Bonjour ! Je découvre la ville et j'aimerais trouver des occasions de rencontrer du monde.",
-      "closing": "Merci pour vos conseils. Je vais regarder ces activités et essayer de participer à une première rencontre.",
+      "opening": "Bonjour Pierre ! Je viens d'arriver à Calgary et j'aimerais trouver des occasions de rencontrer du monde.",
+      "closing": "Merci pour vos conseils, Pierre ! Je vais essayer le groupe de marche samedi.",
       "questions": [
         {"topic": "Choix d'une activité", "question": "Quelle activité me conseilleriez-vous pour rencontrer régulièrement les mêmes personnes ?", "answer": "Le groupe de marche et les ateliers créatifs réunissent les mêmes participants chaque semaine.", "follow_up_to": null},
         {"topic": "Choix d'une activité", "question": "Parmi celles que vous venez de citer, laquelle serait la plus conviviale pour quelqu'un qui arrive seul ?", "answer": "Le groupe de marche : les nouveaux sont présentés au départ et peuvent discuter tranquillement pendant le trajet.", "follow_up_to": 1, "condition": "After several social activities are compared."},

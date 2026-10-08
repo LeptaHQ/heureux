@@ -1172,36 +1172,36 @@
     ],
     "new-resident-neighbor-neighborhood-orientation": [
       {
-        "french": "Voisinage, ambiance et entraide",
-        "english": "Neighbours, atmosphere and mutual help"
+        "french": "Ambiance du quartier à Québec selon le moment",
+        "english": "Quebec City neighbourhood atmosphere at different times"
       },
       {
-        "french": "Règles de vie entre voisins",
-        "english": "Rules for living alongside neighbours"
+        "french": "Relations entre voisins et façon discrète de faire connaissance",
+        "english": "Neighbour relations and a tactful way to meet them"
       },
       {
-        "french": "Commerces accessibles pour les courses",
-        "english": "Accessible shops for everyday shopping"
+        "french": "Commerces à pied et lieu pour les achats importants",
+        "english": "Nearby shops and where to do larger shopping"
       },
       {
-        "french": "Écoles et garderies du secteur",
-        "english": "Schools and childcare in the area"
+        "french": "Accès au centre-ville et à la gare sans voiture",
+        "english": "Reaching downtown and the station without a car"
       },
       {
-        "french": "Médecins et pharmacies à proximité",
-        "english": "Nearby doctors and pharmacies"
+        "french": "École, clinique, bibliothèque et services de proximité",
+        "english": "Nearby school, clinic, library and community services"
       },
       {
-        "french": "Transports et possibilités de stationnement",
-        "english": "Transport and parking options"
+        "french": "Activités pour découvrir le quartier",
+        "english": "Activities for discovering the neighbourhood"
       },
       {
-        "french": "Parcs, loisirs et lieux culturels",
-        "english": "Parks, leisure activities and cultural venues"
+        "french": "Inscription à la première activité choisie",
+        "english": "Registration for the first chosen activity"
       },
       {
-        "french": "Rencontres et événements du quartier",
-        "english": "Neighbourhood gatherings and events"
+        "french": "Horaires et annonces en ligne ou affichés localement",
+        "english": "Schedules and announcements online or on local noticeboards"
       }
     ],
     "friend-films-for-association-review": [
@@ -1304,36 +1304,36 @@
     ],
     "newcomer-local-acquaintance-meet-people": [
       {
-        "french": "Activités propices à de nouvelles amitiés",
-        "english": "Activities that encourage new friendships"
+        "french": "Activités régulières pour rencontrer du monde à Calgary",
+        "english": "Regular activities for meeting people in Calgary"
       },
       {
-        "french": "Lieux de rencontre conviviaux",
-        "english": "Welcoming places to meet people"
+        "french": "Activité la plus conviviale quand on arrive seul",
+        "english": "Most welcoming activity when arriving alone"
       },
       {
-        "french": "Associations et possibilités de bénévolat",
-        "english": "Associations and volunteering opportunities"
+        "french": "Lieu précis des rencontres",
+        "english": "Exact meeting location"
       },
       {
-        "french": "Groupes pour nouveaux arrivants, notamment en ligne",
-        "english": "Newcomer groups, including online groups"
+        "french": "Jours et horaires du groupe",
+        "english": "Group days and times"
       },
       {
-        "french": "Événements et rencontres régulières",
-        "english": "Events and regular gatherings"
+        "french": "Autre activité si l'horaire ne convient pas",
+        "english": "Alternative activity if the schedule does not work"
       },
       {
-        "french": "Calendriers et annonces des activités",
-        "english": "Activity calendars and announcements"
+        "french": "Conditions pour une première participation",
+        "english": "Requirements for attending the first time"
       },
       {
-        "french": "Activités gratuites et lieux accessibles",
-        "english": "Free activities and accessible venues"
+        "french": "Budget à prévoir pour participer",
+        "english": "Budget needed to take part"
       },
       {
-        "french": "Usages sociaux pour faire connaissance",
-        "english": "Social customs for getting acquainted"
+        "french": "Matériel ou tenue à prévoir",
+        "english": "Equipment or clothing to bring"
       }
     ],
     "canadian-work-hours-home-country-comparison": [
@@ -1554,36 +1554,36 @@
     ],
     "canada-newcomer-settlement-friend": [
       {
-        "french": "Types de logement et quartiers conseillés",
-        "english": "Housing types and recommended neighbourhoods"
+        "french": "Quartiers bien desservis pour débuter à Calgary",
+        "english": "Well-connected neighbourhoods for starting out in Calgary"
       },
       {
-        "french": "Loyers et dossier de location",
-        "english": "Rents and rental application documents"
+        "french": "Loyers d'une chambre ou d'un petit appartement",
+        "english": "Rent for a room or small apartment"
       },
       {
-        "french": "Démarches administratives après l'arrivée au Canada",
-        "english": "Administrative steps after arriving in Canada"
+        "french": "Démarches prioritaires de la première semaine",
+        "english": "Priority steps during the first week"
       },
       {
-        "french": "Documents pour la banque et le téléphone",
-        "english": "Documents for banking and phone services"
+        "french": "Démarches possibles sans adresse définitive",
+        "english": "Steps possible without a permanent address"
       },
       {
-        "french": "Accès aux médecins et aux soins",
-        "english": "Access to doctors and healthcare"
+        "french": "Déplacements à Calgary sans voiture",
+        "english": "Getting around Calgary without a car"
       },
       {
-        "french": "Transports disponibles et titres adaptés",
-        "english": "Available transport and suitable tickets"
+        "french": "Commerces et services ouverts le soir",
+        "english": "Shops and services open in the evening"
       },
       {
-        "french": "Commerces abordables pour les courses",
-        "english": "Affordable shops for everyday shopping"
+        "french": "Soins avant d'avoir un médecin de famille",
+        "english": "Healthcare before finding a family doctor"
       },
       {
-        "french": "Loisirs pour créer des liens",
-        "english": "Leisure activities for making connections"
+        "french": "Activité régulière pour rencontrer du monde",
+        "english": "Regular activity for meeting people"
       }
     ],
     "canadian-press-newsagent-selection": [
@@ -3542,36 +3542,36 @@
     ],
     "canada-newcomer-municipal-settlement-service": [
       {
-        "french": "Démarches prioritaires et documents nécessaires",
-        "english": "Priority procedures and required documents"
+        "french": "Solutions de logement pour débuter à Calgary",
+        "english": "Housing options for starting out in Calgary"
       },
       {
-        "french": "Organismes compétents pour l'assurance sociale et la santé",
-        "english": "Responsible agencies for social insurance and healthcare"
+        "french": "Loyers selon le type de logement et le secteur",
+        "english": "Rent by housing type and area"
       },
       {
-        "french": "Orientation vers un médecin ou une clinique",
-        "english": "Guidance on finding a doctor or clinic"
+        "french": "Conditions d'accès au logement à loyer réduit",
+        "english": "Eligibility for reduced-rent housing"
       },
       {
-        "french": "Aide au logement et quartiers conseillés",
-        "english": "Housing support and recommended neighborhoods"
+        "french": "Premières démarches administratives",
+        "english": "First administrative steps"
       },
       {
-        "french": "Transports disponibles et formules tarifaires",
-        "english": "Available transport and fare options"
+        "french": "Services de la mairie et autres administrations",
+        "english": "City hall services and other government offices"
       },
       {
-        "french": "Programmes d'accueil et cours de français",
-        "english": "Newcomer programs and French classes"
+        "french": "Rendez-vous au centre d'accueil",
+        "english": "Appointment with the newcomer centre"
       },
       {
-        "french": "Associations et activités pour rencontrer du monde",
-        "english": "Associations and activities for meeting people"
+        "french": "Services municipaux pour s'intégrer à Calgary",
+        "english": "Municipal services for settling into Calgary"
       },
       {
-        "french": "Service à contacter après l'installation",
-        "english": "Service to contact after settling in"
+        "french": "Fonctionnement du programme de jumelage",
+        "english": "How the volunteer matching program works"
       }
     ],
     "friend-upcoming-job-interview-advice": [
@@ -4352,36 +4352,36 @@
     ],
     "friend-two-years-quebec-expatriation-experience": [
       {
-        "french": "Motifs du départ au Québec",
-        "english": "Reasons for moving to Quebec"
+        "french": "Principale adaptation des premiers mois à Montréal",
+        "english": "Main adjustment during the first months in Montreal"
       },
       {
-        "french": "Premières difficultés d'adaptation",
-        "english": "Early adjustment difficulties"
+        "french": "Habitudes et ressources utiles pour s'adapter",
+        "english": "Helpful habits and resources for adjusting"
       },
       {
-        "french": "Obstacles administratifs, linguistiques ou climatiques",
-        "english": "Challenges with paperwork, language or climate"
+        "french": "Obstacle ayant le plus retardé l'installation",
+        "english": "Obstacle that delayed settling in the most"
       },
       {
-        "french": "Recherche d'emploi et intégration professionnelle",
-        "english": "Job search and workplace integration"
+        "french": "Délai et budget de la démarche nécessaire",
+        "english": "Time and budget for the required procedure"
       },
       {
-        "french": "Coût de la vie au Québec",
-        "english": "Cost of living in Quebec"
+        "french": "Vêtements et équipements du premier hiver",
+        "english": "Clothing and equipment for the first winter"
       },
       {
-        "french": "Rencontres et sentiment d'intégration",
-        "english": "Meeting people and feeling settled"
+        "french": "Premières amitiés créées à Montréal",
+        "english": "First friendships made in Montreal"
       },
       {
-        "french": "Nouvelles habitudes et mal du pays",
-        "english": "New habits and homesickness"
+        "french": "Changements dans la vie quotidienne",
+        "english": "Changes in daily life"
       },
       {
-        "french": "Bilan après deux ans et conseils",
-        "english": "Reflections after two years and advice"
+        "french": "Choix que ferait Ève avec le recul",
+        "english": "Choice Ève would make in hindsight"
       }
     ],
     "quebec-region-accommodation-tourist-office": [
@@ -4972,36 +4972,36 @@
     ],
     "canadian-friend-long-time-catch-up": [
       {
-        "french": "Lieu de vie actuel au Canada",
-        "english": "Current home location in Canada"
+        "french": "Poste actuel de Pierre après son emploi à l'hôpital",
+        "english": "Pierre's current role after his hospital job"
       },
       {
-        "french": "Nouvelles de la famille",
-        "english": "Family news"
+        "french": "Raison de son changement professionnel",
+        "english": "Reason for his career change"
       },
       {
-        "french": "Travail et changements récents",
-        "english": "Work and recent changes"
+        "french": "Déménagement depuis la dernière rencontre",
+        "english": "Move since the last meeting"
       },
       {
-        "french": "Loisirs, sorties et vie sociale",
-        "english": "Hobbies, outings and social life"
+        "french": "Effet du déménagement sur son quotidien",
+        "english": "Effect of the move on his daily life"
       },
       {
-        "french": "Voyages depuis les dernières retrouvailles",
-        "english": "Trips since the last get-together"
+        "french": "Grandes nouvelles de sa famille",
+        "english": "Major news from his family"
       },
       {
-        "french": "Santé et moral",
-        "english": "Health and spirits"
+        "french": "Fréquence des rencontres avec sa sœur et sa nièce",
+        "english": "How often he sees his sister and niece"
       },
       {
-        "french": "Souvenirs communs et projets à venir",
-        "english": "Shared memories and future plans"
+        "french": "Loisirs actuels de Pierre à Calgary",
+        "english": "Pierre's current hobbies in Calgary"
       },
       {
-        "french": "Prochaine occasion de se revoir",
-        "english": "Next opportunity to meet again"
+        "french": "Ce qui lui plaît dans sa nouvelle activité",
+        "english": "What he likes about his new activity"
       }
     ],
     "help-friend-post-parcel": [

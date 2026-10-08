@@ -106,16 +106,16 @@
     {
       "group": "friend-two-years-quebec-expatriation-experience",
       "register": "tu",
-      "note": "Your friend has lived in Quebec for two years, and you are thinking of moving abroad. Ask in the past tense about their adjustment and difficulties, then how their lifestyle changed; a conditional question about whether they would do it again is a good ending. Use tu with your friend.",
-      "opening": "Salut ! Je pense de plus en plus à partir vivre à l'étranger, et ton expérience au Québec m'intéresse beaucoup.",
-      "closing": "Merci de m'avoir parlé si franchement de ton expérience ! Ça m'aide beaucoup à réfléchir à mon projet.",
+      "note": "Your friend Ève has lived in Montréal for two years, and you are thinking of moving abroad. Ask about her adjustment and difficulties, then how her lifestyle changed. Use tu; the concrete name and city can be adapted.",
+      "opening": "Salut Ève ! Je pense de plus en plus à partir vivre à l'étranger, et tes deux années à Montréal m'intéressent beaucoup.",
+      "closing": "Merci d'avoir partagé ton expérience, Ève ! Ça m'aide vraiment à réfléchir à mon projet.",
       "questions": [
-        {"topic": "Adaptation", "question": "Pendant tes premiers mois, qu'est-ce qui t'a demandé le plus d'adaptation — la langue, les codes sociaux, le rythme de vie ou le climat ?", "answer": "Surtout l'accent et les expressions québécoises ; le rythme de vie m'a paru plus facile à comprendre.", "follow_up_to": null},
+        {"topic": "Adaptation", "question": "Pendant tes premiers mois à Montréal, qu'est-ce qui t'a demandé le plus d'adaptation — la langue, les codes sociaux, le rythme de vie ou le climat ?", "answer": "Surtout l'accent et les expressions québécoises ; le rythme de vie m'a paru plus facile à comprendre.", "follow_up_to": null},
         {"topic": "Adaptation", "question": "Et pour t'y habituer, quelles habitudes ou quelles ressources t'ont aidé au quotidien ?", "answer": "Regarder des séries québécoises et discuter avec mes collègues pendant les pauses m'ont beaucoup aidé.", "follow_up_to": 1, "condition": "After the main adaptation challenge is identified."},
         {"topic": "Obstacles", "question": "En dehors de cette adaptation, quel obstacle a le plus retardé ton installation — le logement, l'emploi, les diplômes ou les démarches administratives ?", "answer": "La recherche d'emploi, car mon diplôme n'était pas reconnu tel quel et j'ai dû faire évaluer mes études.", "follow_up_to": null},
         {"topic": "Obstacles", "question": "Quel délai et quel budget as-tu dû prévoir pour cette démarche ?", "answer": "Elle a pris environ quatre mois et coûté un peu plus de 200 $.", "follow_up_to": 3, "condition": "If they describe a formal procedure."},
         {"topic": "Obstacles", "question": "Et pour ton premier hiver, quels vêtements ou équipements ont été indispensables ?", "answer": "Un manteau chaud, des bottes imperméables et de bons gants ont été indispensables.", "follow_up_to": null},
-        {"topic": "Mode de vie", "question": "Côté vie sociale, où as-tu rencontré tes premiers amis — au travail, dans le voisinage ou grâce à des activités ?", "answer": "Surtout au travail et dans un club de vélo.", "follow_up_to": null},
+        {"topic": "Mode de vie", "question": "Côté vie sociale, où as-tu rencontré tes premiers amis à Montréal — au travail, dans le voisinage ou grâce à des activités ?", "answer": "Surtout au travail et dans un club de vélo.", "follow_up_to": null},
         {"topic": "Mode de vie", "question": "Plus largement, qu'est-ce qui a le plus changé dans ton quotidien : tes déplacements, ton rythme de travail ou tes loisirs ?", "answer": "Je me déplace davantage à vélo, je termine plus tôt et je passe beaucoup plus de temps dehors toute l'année.", "follow_up_to": null},
         {"topic": "Mode de vie", "question": "Avec le recul, referais-tu le même choix ?", "answer": "Oui, mais j'arriverais avec plus d'économies, mes diplômes déjà évalués et quelques contacts professionnels.", "follow_up_to": null}
       ]

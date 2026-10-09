@@ -217,11 +217,11 @@
       "register": "vous",
       "note": "You ask language-school staff about learning a new foreign language; neither a particular language nor private-only lessons are imposed. Find out what is taught, how beginners join, who teaches, scheduling and costs. Use vous. Choose from the actual offer instead of automatically turning this into French exam preparation.",
       "opening": "Bonjour ! J'aimerais apprendre une nouvelle langue étrangère et connaître le fonctionnement de vos cours.",
-      "closing": "Merci pour ces explications. Je vais choisir une langue et vérifier le créneau qui me convient.",
+      "closing": "Merci pour ces renseignements. Je vais faire l'évaluation et choisir le groupe qui convient à mon horaire.",
       "questions": [
         {"topic": "Langues et enseignement", "question": "Quelles langues peut-on apprendre dans votre école ?", "answer": "L'anglais, l'espagnol et l'italien, avec plusieurs niveaux.", "follow_up_to": null},
         {"topic": "Langues et enseignement", "question": "Pour l'espagnol, proposez-vous un groupe de vrais débutants ?", "answer": "Oui, un groupe commence sans connaissances préalables.", "follow_up_to": 1, "condition": "If Spanish is offered; substitute the language you want to start."},
-        {"topic": "Langues et enseignement", "question": "Quelles qualifications ont vos enseignants ?", "answer": "Ils sont formés à l'enseignement des langues et ont de l'expérience avec des adultes.", "follow_up_to": null},
+        {"topic": "Langues et enseignement", "question": "Qui enseigne les groupes de débutants, et quelle place cette personne donne-t-elle à la pratique orale ?", "answer": "Des enseignants formés pour les adultes les encadrent, avec des dialogues et des exercices en binôme à chaque cours.", "follow_up_to": null},
         {"topic": "Organisation des cours", "question": "Quels créneaux sont proposés pour ce niveau ?", "answer": "Deux soirées par semaine, ou un groupe le samedi matin.", "follow_up_to": null},
         {"topic": "Organisation des cours", "question": "Les cours ont-ils lieu sur place ou aussi en ligne ?", "answer": "Les deux formats sont proposés, mais les créneaux ne sont pas identiques.", "follow_up_to": null},
         {"topic": "Tarifs et supports", "question": "Quel est le prix d'une session ?", "answer": "240 $ pour huit semaines de cours.", "follow_up_to": null},
@@ -321,14 +321,14 @@
       "opening": "Bonjour Ève ! Votre maison en Gaspésie pourrait bien me convenir pour les vacances, alors j'aimerais avoir quelques précisions.",
       "closing": "Merci, Ève ! Je vais vérifier mes dates pour la première semaine de juillet.",
       "questions": [
-        {"topic": "Emplacement et cadre", "question": "Où se situe exactement la maison ?", "answer": "À Carleton-sur-Mer, dans un secteur calme à environ dix minutes du centre.", "follow_up_to": null},
+        {"topic": "Emplacement et cadre", "question": "Où se situe exactement la maison, et à quelle distance se trouve le centre de Carleton-sur-Mer ?", "answer": "Dans un secteur résidentiel de Carleton-sur-Mer, à environ dix minutes du centre en voiture.", "follow_up_to": null},
         {"topic": "Emplacement et cadre", "question": "Est-ce qu'on peut rejoindre la plage à pied depuis la maison ?", "answer": "Oui, un chemin mène à la plage en cinq minutes environ.", "follow_up_to": 1, "condition": "After the location is given, unless beach access is already explained."},
-        {"topic": "Emplacement et cadre", "question": "Quelle est l'ambiance dans les environs pendant les vacances ?", "answer": "Le secteur reste calme, avec quelques commerces et des activités nautiques au village.", "follow_up_to": null},
-        {"topic": "Aménagement et équipement", "question": "Pour le couchage, combien de personnes la maison peut-elle accueillir confortablement ?", "answer": "Quatre personnes, grâce aux deux chambres.", "follow_up_to": null},
-        {"topic": "Aménagement et équipement", "question": "Quels équipements seront à la disposition des locataires ?", "answer": "Une cuisine équipée, un lave-linge, un barbecue et du mobilier de terrasse.", "follow_up_to": null},
-        {"topic": "Disponibilités et tarif", "question": "Quelles périodes sont encore disponibles ?", "answer": "La première semaine de juillet et deux semaines à la fin d'août.", "follow_up_to": null},
-        {"topic": "Disponibilités et tarif", "question": "Quel tarif demandez-vous pour une semaine en juillet ?", "answer": "Le tarif est de 1 200 $ pour la semaine.", "follow_up_to": 6, "condition": "After availability is given; adapt the dates and duration to the period you select."},
-        {"topic": "Disponibilités et tarif", "question": "Qu'est-ce qui est compris dans ce tarif ?", "answer": "L'eau, l'électricité, le stationnement et le ménage de fin de séjour sont inclus.", "follow_up_to": 7, "condition": "After the price is given, unless inclusions are already explained."}
+        {"topic": "Emplacement et cadre", "question": "Quels commerces, restaurants ou activités trouve-t-on facilement dans les environs ?", "answer": "Une épicerie et quelques restaurants se trouvent au village, avec du kayak et des sentiers côtiers à proximité.", "follow_up_to": null},
+        {"topic": "Aménagement et équipement", "question": "Combien de chambres et de lits y a-t-il, et combien de personnes peuvent dormir confortablement ?", "answer": "Deux chambres, chacune avec un lit double, permettent d'accueillir quatre personnes.", "follow_up_to": null},
+        {"topic": "Aménagement et équipement", "question": "La cuisine, le linge de maison, le lave-linge et le barbecue sont-ils à la disposition des locataires ?", "answer": "Oui, la cuisine est équipée, le linge est fourni, et le lave-linge ainsi que le barbecue sont disponibles.", "follow_up_to": null},
+        {"topic": "Disponibilités et tarif", "question": "Quelles périodes sont encore disponibles, et faut-il réserver au moins une semaine ?", "answer": "La première semaine de juillet et deux semaines fin août ; la location minimale est de sept nuits.", "follow_up_to": null},
+        {"topic": "Disponibilités et tarif", "question": "Quel tarif demandez-vous pour une semaine en juillet, et faut-il verser un dépôt à la réservation ?", "answer": "Le tarif est de 1 200 $, avec un dépôt de 300 $ à la réservation.", "follow_up_to": 6, "condition": "After availability is given; adapt the dates to the period selected."},
+        {"topic": "Disponibilités et tarif", "question": "L'eau, l'électricité, le stationnement et le ménage de fin de séjour sont-ils compris dans ce tarif ?", "answer": "Oui, tout cela est compris ; seuls les repas et les activités restent à votre charge.", "follow_up_to": 7, "condition": "After the price is given, unless inclusions are already explained."}
       ]
     },
     {

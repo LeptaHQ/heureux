@@ -79,15 +79,15 @@
       "register": "tu",
       "note": "Your friend Ève needs a rental in Calgary, and you are helping define the search. She is the future tenant; you are not an agent. Ask about timing, budget, location, size, housing type and priorities. Use tu and let her answers determine the criteria.",
       "opening": "Salut Ève ! Avant de chercher des annonces à Calgary, j'aimerais bien comprendre ce dont tu as vraiment besoin.",
-      "closing": "C'est clair maintenant : je vais viser un logement près du CTrain, jusqu'à 1 600 $. Merci, Ève !",
+      "closing": "Parfait, Ève, merci ! Je vais chercher près du CTrain avec ces critères et je t'enverrai les annonces les plus sérieuses.",
       "questions": [
-        {"topic": "Calendrier et budget", "question": "À partir de quand voudrais-tu emménager ?", "answer": "Au début du mois prochain, si je trouve quelque chose à temps.", "follow_up_to": null},
-        {"topic": "Calendrier et budget", "question": "Quel loyer maximal peux-tu payer, charges comprises ?", "answer": "Je voudrais rester autour de 1 600 $ par mois.", "follow_up_to": null},
+        {"topic": "Calendrier et budget", "question": "À partir de quand voudrais-tu emménager, et cherches-tu un bail d'un an ou une formule plus flexible ?", "answer": "Au début du mois prochain, avec un bail d'au moins un an.", "follow_up_to": null},
+        {"topic": "Calendrier et budget", "question": "Quel loyer maximal peux-tu payer, et quelles charges faudrait-il inclure dans ce montant ?", "answer": "Environ 1 600 $ par mois, idéalement avec le chauffage et l'eau.", "follow_up_to": null},
         {"topic": "Localisation", "question": "Comme tu travailleras au centre-ville, quel temps de trajet maximal accepterais-tu ?", "answer": "Je préférerais rester à moins de trente-cinq minutes en transport en commun.", "follow_up_to": null},
         {"topic": "Localisation", "question": "Tu préférerais Sunnyside, près du centre, ou Bridgeland, un peu plus résidentiel ?", "answer": "Bridgeland me conviendrait mieux, surtout si je reste près du CTrain.", "follow_up_to": 3, "condition": "After the maximum commute has been established."},
         {"topic": "Logement et priorités", "question": "Et pour le logement lui-même, quel type recherches-tu ?", "answer": "Un appartement non meublé avec une chambre séparée.", "follow_up_to": null},
-        {"topic": "Logement et priorités", "question": "Quelle superficie minimale te conviendrait ?", "answer": "Environ quarante mètres carrés me suffiraient.", "follow_up_to": null},
-        {"topic": "Logement et priorités", "question": "Quels critères sont indispensables pour toi au quotidien ?", "answer": "Je veux surtout un logement calme et lumineux.", "follow_up_to": null},
+        {"topic": "Logement et priorités", "question": "Quelle superficie minimale te conviendrait, et as-tu besoin d'un espace pour travailler chez toi ?", "answer": "Environ quarante mètres carrés, avec un coin où installer un petit bureau.", "follow_up_to": null},
+        {"topic": "Logement et priorités", "question": "Parmi le calme, la lumière, une buanderie dans l'immeuble et un balcon, quels critères sont indispensables pour toi ?", "answer": "Le calme, la lumière et une buanderie sont essentiels ; le balcon serait seulement un avantage.", "follow_up_to": null},
         {"topic": "Logement et priorités", "question": "Si aucune annonce ne réunit tout, sur quel critère serais-tu prêt à faire un compromis ?", "answer": "Je pourrais renoncer au balcon si le quartier et le loyer me conviennent.", "follow_up_to": null}
       ]
     },
@@ -98,14 +98,14 @@
       "opening": "Bonjour ! Je cherche un logement à louer à Calgary et j'aimerais savoir quelles options votre agence propose.",
       "closing": "Merci pour ces renseignements. Je vais comparer Beltline et Bridgeland avant de demander une visite.",
       "questions": [
-        {"topic": "Offres et quartiers", "question": "Quels types de logements avez-vous actuellement à louer ?", "answer": "Des studios et plusieurs appartements avec deux chambres.", "follow_up_to": null},
+        {"topic": "Offres et quartiers", "question": "Quels types de logements avez-vous actuellement à louer, et quelles superficies proposent-ils ?", "answer": "Des studios de trente-cinq mètres carrés et plusieurs appartements de deux chambres autour de soixante-dix mètres carrés.", "follow_up_to": null},
         {"topic": "Offres et quartiers", "question": "Et dans quels quartiers se trouvent ces différentes offres ?", "answer": "Principalement à Beltline et à Bridgeland.", "follow_up_to": null},
-        {"topic": "Offres et quartiers", "question": "Comment décririez-vous l'ambiance dans ces quartiers ?", "answer": "Beltline est central et animé ; Bridgeland est plus résidentiel tout en restant proche du centre.", "follow_up_to": 2, "condition": "After several areas have been named."},
-        {"topic": "Offres et quartiers", "question": "Lequel de ces quartiers est le mieux desservi par les transports ?", "answer": "Beltline, avec plusieurs lignes de bus et des stations de CTrain à proximité.", "follow_up_to": 2, "condition": "After several areas have been named."},
+        {"topic": "Offres et quartiers", "question": "Comment compareriez-vous l'ambiance et les services de proximité à Beltline et à Bridgeland ?", "answer": "Beltline est central et animé ; Bridgeland est plus résidentiel, avec des commerces de quartier et des parcs.", "follow_up_to": 2, "condition": "After several areas have been named."},
+        {"topic": "Offres et quartiers", "question": "Lequel est le mieux desservi pour rejoindre le centre-ville sans voiture ?", "answer": "Beltline, avec plusieurs lignes de bus et des stations de CTrain à proximité.", "follow_up_to": 2, "condition": "After several areas have been named."},
         {"topic": "Budget", "question": "Côté budget, quelle fourchette de loyers faut-il prévoir ?", "answer": "Environ 1 500 $ pour un studio et jusqu'à 2 400 $ pour un appartement de deux chambres.", "follow_up_to": null},
-        {"topic": "Budget", "question": "Quelles charges sont généralement comprises dans ces loyers ?", "answer": "L'eau est souvent incluse ; le chauffage et l'électricité varient selon l'annonce.", "follow_up_to": 5, "condition": "After the rent range is given, unless included charges are already explained."},
-        {"topic": "Disponibilité et conditions", "question": "À partir de quand ces logements sont-ils disponibles ?", "answer": "Deux sont libres immédiatement, et un autre le sera le mois prochain.", "follow_up_to": null},
-        {"topic": "Disponibilité et conditions", "question": "Quels documents faut-il prévoir pour déposer un dossier de location ?", "answer": "Une pièce d'identité, une preuve de revenus et, selon le propriétaire, des références locatives.", "follow_up_to": null}
+        {"topic": "Budget", "question": "Pour chaque offre, quelles charges sont comprises, et faut-il ajouter le stationnement ou la buanderie ?", "answer": "L'eau est incluse ; le chauffage varie, le stationnement coûte 100 $ et la buanderie est payante.", "follow_up_to": 5, "condition": "After the rent range is given, unless additional costs are already explained."},
+        {"topic": "Disponibilité et conditions", "question": "À partir de quand ces logements sont-ils disponibles, et quelle est la durée minimale du bail ?", "answer": "Deux sont libres immédiatement, un autre le mois prochain, et les baux sont généralement d'un an.", "follow_up_to": null},
+        {"topic": "Disponibilité et conditions", "question": "Quels documents faut-il fournir, et sous quel délai reçoit-on normalement une réponse après la demande ?", "answer": "Une pièce d'identité, une preuve de revenus et parfois des références ; la réponse arrive habituellement sous deux jours ouvrables.", "follow_up_to": null}
       ]
     },
     {
@@ -198,16 +198,16 @@
       "register": "vous",
       "note": "You have recently arrived in Canada and are considering private French lessons with this teacher. Ask about teaching experience, methods, scheduling and fees. These are individual lessons, not enrolment in an entire school. Use vous and do not ask for a guaranteed exam score or proficiency level.",
       "opening": "Bonjour ! J'aimerais prendre des cours particuliers de français et connaître votre façon de travailler.",
-      "closing": "Merci pour ces explications. Je vais regarder quel créneau conviendrait à mon planning.",
+      "closing": "Merci pour toutes ces précisions. Je vais vérifier mon horaire et je vous recontacterai pour un premier cours.",
       "questions": [
         {"topic": "Expérience et méthode", "question": "Quelle expérience avez-vous dans l'enseignement du français ?", "answer": "J'enseigne depuis huit ans, notamment à des adultes récemment arrivés au Canada.", "follow_up_to": null},
-        {"topic": "Expérience et méthode", "question": "Comment adaptez-vous les cours au niveau de chaque élève ?", "answer": "Je commence par une courte évaluation, puis je construis un programme selon ses objectifs.", "follow_up_to": null},
-        {"topic": "Expérience et méthode", "question": "Comment suivrez-vous mes progrès et adapterez-vous les objectifs au fil des cours ?", "answer": "Nous ferons un court bilan chaque mois pour ajuster les exercices et les priorités.", "follow_up_to": 2, "condition": "After they explain how lessons are adapted to each learner."},
+        {"topic": "Expérience et méthode", "question": "Pendant une leçon, quelle place accordez-vous à la conversation, à la grammaire et à la prononciation ?", "answer": "Nous partons d'une conversation concrète, puis nous travaillons la grammaire et la prononciation à partir de vos difficultés.", "follow_up_to": null},
+        {"topic": "Expérience et méthode", "question": "Comment évaluerez-vous mon niveau au départ, puis mes progrès au fil des cours ?", "answer": "Je ferai une courte évaluation au début, puis un bilan mensuel pour ajuster les exercices et les objectifs.", "follow_up_to": null},
         {"topic": "Organisation des cours", "question": "Où se déroulent les cours particuliers ?", "answer": "Dans mon bureau ou en ligne, selon ce qui vous convient.", "follow_up_to": null},
-        {"topic": "Organisation des cours", "question": "Quels créneaux avez-vous actuellement de disponibles ?", "answer": "Le lundi et le jeudi en fin de journée.", "follow_up_to": null},
+        {"topic": "Organisation des cours", "question": "Quels créneaux avez-vous actuellement, et quelle fréquence recommandez-vous pour progresser régulièrement ?", "answer": "Je suis disponible le lundi et le jeudi en fin de journée ; je recommande une séance par semaine.", "follow_up_to": null},
         {"topic": "Tarifs", "question": "Quel est votre tarif pour une heure de cours ?", "answer": "Une heure coûte 40 $.", "follow_up_to": null},
         {"topic": "Tarifs", "question": "Les supports de travail sont-ils compris dans ce tarif ?", "answer": "Oui, je fournis les exercices et les documents utilisés pendant les cours.", "follow_up_to": 6, "condition": "After the fee is given, unless materials are already included explicitly."},
-        {"topic": "Tarifs", "question": "Proposez-vous un forfait si je réserve plusieurs cours à l'avance ?", "answer": "Oui, un forfait de dix heures réduit le tarif de dix pour cent.", "follow_up_to": null}
+        {"topic": "Tarifs", "question": "Puis-je faire un cours d'essai avant de réserver un forfait de plusieurs heures ?", "answer": "Oui, je propose une rencontre de trente minutes gratuite, puis un forfait de dix heures à tarif réduit.", "follow_up_to": null}
       ]
     },
     {

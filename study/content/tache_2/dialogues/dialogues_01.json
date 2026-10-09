@@ -10,12 +10,12 @@
       "questions": [
         {"topic": "Objets et état", "question": "Quelles affaires as-tu décidé de vendre ?", "answer": "Je vends un canapé, une table à manger et quelques lampes.", "follow_up_to": null},
         {"topic": "Objets et état", "question": "Est-ce que tout est encore en bon état, ou y a-t-il des défauts à signaler ?", "answer": "La table et les lampes sont impeccables ; le canapé porte seulement une petite rayure.", "follow_up_to": 1, "condition": "After the available items have been listed."},
-        {"topic": "Objets et état", "question": "Quelles sont les dimensions du canapé ?", "answer": "Il mesure deux mètres de long sur quatre-vingt-dix centimètres de profondeur.", "follow_up_to": 1, "condition": "If a sofa is offered and you are considering it."},
+        {"topic": "Objets et état", "question": "Quelles sont les dimensions du canapé, et peut-on retirer les pieds pour le transporter plus facilement ?", "answer": "Il mesure deux mètres sur quatre-vingt-dix centimètres, et les pieds se dévissent.", "follow_up_to": 1, "condition": "If a sofa is offered and you are considering it."},
         {"topic": "Prix", "question": "Et côté prix, combien demandes-tu pour le canapé, la table et les lampes ?", "answer": "Je demande 180 $ pour le canapé, 60 $ pour la table et 20 $ par lampe.", "follow_up_to": null},
         {"topic": "Prix", "question": "Si j'en prends plusieurs, pourrais-tu me faire un prix ?", "answer": "Je pourrais te laisser le canapé et la table pour 220 $.", "follow_up_to": 4, "condition": "After the individual prices are given, if you want several items."},
-        {"topic": "Visite et récupération", "question": "Quand pourrais-je passer voir les affaires ?", "answer": "Tu peux venir jeudi après dix-huit heures.", "follow_up_to": null},
-        {"topic": "Visite et récupération", "question": "Après ma visite, jusqu'à quand pourrais-tu mettre mon choix de côté ?", "answer": "Je pourrais te réserver les articles jusqu'à samedi soir.", "follow_up_to": 6, "condition": "After arranging a viewing, if you may need time to confirm."},
-        {"topic": "Visite et récupération", "question": "Comment devrai-je récupérer les objets que j'achèterai ?", "answer": "Il faudra venir les chercher ce week-end avec un véhicule assez grand.", "follow_up_to": null}
+        {"topic": "Visite et récupération", "question": "Quand pourrais-je passer voir les affaires et essayer le canapé avant de me décider ?", "answer": "Tu peux venir jeudi après dix-huit heures et prendre le temps de tout vérifier.", "follow_up_to": null},
+        {"topic": "Visite et récupération", "question": "Après ma visite, jusqu'à quand pourrais-tu réserver les objets que je choisirais ?", "answer": "Je pourrais te les réserver jusqu'à samedi soir.", "follow_up_to": 6, "condition": "After arranging a viewing, if you may need time to confirm."},
+        {"topic": "Visite et récupération", "question": "Pour récupérer le canapé et la table, faut-il louer une camionnette, et quelqu'un pourra-t-il m'aider à les charger ?", "answer": "Oui, prévois une camionnette ; mon voisin et moi pourrons t'aider à les charger samedi.", "follow_up_to": null}
       ]
     },
     {
@@ -163,11 +163,11 @@
       "questions": [
         {"topic": "Horaire et trajet", "question": "Quel jour déménages-tu, et à quelle heure veux-tu commencer ?", "answer": "Samedi prochain, avec un départ vers neuf heures.", "follow_up_to": null},
         {"topic": "Horaire et trajet", "question": "D'où part-on, et à quelle adresse allons-nous ?", "answer": "On part de mon appartement à Kensington pour aller au 18, 1st Avenue NE, dans le quartier de Bridgeland.", "follow_up_to": null},
-        {"topic": "Horaire et trajet", "question": "Et pour l'accès, y a-t-il des étages ou un ascenseur dans les deux logements ?", "answer": "Il y a un ascenseur au départ, mais deux étages sans ascenseur à l'arrivée.", "follow_up_to": null},
+        {"topic": "Horaire et trajet", "question": "Pour l'accès, y a-t-il des étages, un ascenseur ou une place où garer la camionnette aux deux adresses ?", "answer": "Il y a un ascenseur au départ, deux étages sans ascenseur à l'arrivée et une place de chargement réservée.", "follow_up_to": null},
         {"topic": "Meubles et préparation", "question": "Quels sont les objets les plus encombrants à déplacer ?", "answer": "Le canapé et une grande armoire seront les plus difficiles à porter.", "follow_up_to": null},
         {"topic": "Meubles et préparation", "question": "Est-ce que l'armoire sera démontée avant notre arrivée ?", "answer": "Oui, je la démonterai vendredi soir pour nous faire gagner du temps.", "follow_up_to": 4, "condition": "If a wardrobe is mentioned; adapt to the bulky item actually named."},
         {"topic": "Aide et transport", "question": "À part nous, qui sera là pour aider ?", "answer": "Ma sœur et deux collègues viendront aussi.", "follow_up_to": null},
-        {"topic": "Aide et transport", "question": "Quel moyen de transport as-tu prévu pour les affaires ?", "answer": "J'ai réservé une camionnette pour toute la journée.", "follow_up_to": null},
+        {"topic": "Aide et transport", "question": "Quelle camionnette as-tu réservée, et aurons-nous un chariot, des sangles et des couvertures pour protéger les meubles ?", "answer": "Une camionnette avec rampe et chariot ; j'ai aussi prévu des sangles et des couvertures.", "follow_up_to": null},
         {"topic": "Aide et transport", "question": "De mon côté, de quoi voudrais-tu que je m'occupe en priorité ?", "answer": "J'aimerais surtout que tu aides à protéger les meubles.", "follow_up_to": null}
       ]
     },

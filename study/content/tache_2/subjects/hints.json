@@ -12,8 +12,8 @@
         "english": "Overall condition and any defects"
       },
       {
-        "french": "Dimensions du canapé",
-        "english": "Sofa dimensions"
+        "french": "Dimensions et démontage du canapé",
+        "english": "Sofa dimensions and dismantling"
       },
       {
         "french": "Prix du canapé, de la table et des lampes",
@@ -24,16 +24,16 @@
         "english": "Discount for buying several items"
       },
       {
-        "french": "Moment possible pour voir les affaires",
-        "english": "Possible time to view the items"
+        "french": "Moment pour voir les affaires et essayer le canapé",
+        "english": "Time to view the items and try the sofa"
       },
       {
-        "french": "Délai pour réserver son choix",
-        "english": "How long selected items can be held"
+        "french": "Délai de réservation après la visite",
+        "english": "Reservation period after the viewing"
       },
       {
-        "french": "Modalités de récupération des achats",
-        "english": "Arrangements for collecting purchases"
+        "french": "Camionnette et aide pour charger les achats",
+        "english": "Van and help loading the purchases"
       }
     ],
     "host-foreign-friends-city-advice": [
@@ -322,8 +322,8 @@
         "english": "Departure from Kensington and arrival in Bridgeland"
       },
       {
-        "french": "Étages et ascenseurs dans les deux logements",
-        "english": "Floors and elevators in both homes"
+        "french": "Étages, ascenseurs et stationnement aux deux adresses",
+        "english": "Floors, elevators and parking at both addresses"
       },
       {
         "french": "Objets les plus encombrants à déplacer",
@@ -338,8 +338,8 @@
         "english": "Other people available to help"
       },
       {
-        "french": "Camionnette prévue pour le transport",
-        "english": "Van arranged for transporting the belongings"
+        "french": "Camionnette, rampe, chariot et protections prévus",
+        "english": "Van, ramp, trolley and protective equipment"
       },
       {
         "french": "Tâche prioritaire confiée au candidat",
@@ -824,12 +824,12 @@
     ],
     "help-friend-find-rental-needs": [
       {
-        "french": "Date souhaitée pour emménager",
-        "english": "Desired move-in date"
+        "french": "Date d'emménagement et souplesse du bail",
+        "english": "Move-in date and lease flexibility"
       },
       {
-        "french": "Loyer maximal avec les charges",
-        "english": "Maximum rent including utilities"
+        "french": "Loyer maximal et charges à inclure",
+        "english": "Maximum rent and utilities to include"
       },
       {
         "french": "Temps de trajet maximal jusqu'au centre-ville",
@@ -844,12 +844,12 @@
         "english": "Preferred housing type and furnishing"
       },
       {
-        "french": "Superficie minimale souhaitée",
-        "english": "Minimum desired floor area"
+        "french": "Superficie minimale et espace de travail",
+        "english": "Minimum floor area and workspace"
       },
       {
-        "french": "Critères indispensables au quotidien",
-        "english": "Essential everyday criteria"
+        "french": "Calme, lumière, buanderie et balcon",
+        "english": "Quiet, natural light, laundry and balcony"
       },
       {
         "french": "Critère pouvant faire l'objet d'un compromis",
@@ -858,36 +858,36 @@
     ],
     "estate-agent-housing-options": [
       {
-        "french": "Types de logements actuellement à louer",
-        "english": "Types of homes currently available to rent"
+        "french": "Types et superficies des logements disponibles",
+        "english": "Types and sizes of available homes"
       },
       {
         "french": "Quartiers où se trouvent les offres",
         "english": "Neighbourhoods where the listings are located"
       },
       {
-        "french": "Ambiance à Beltline et à Bridgeland",
-        "english": "Atmosphere in Beltline and Bridgeland"
+        "french": "Ambiance et services à Beltline et à Bridgeland",
+        "english": "Atmosphere and services in Beltline and Bridgeland"
       },
       {
-        "french": "Quartier le mieux desservi",
-        "english": "Best-connected neighbourhood"
+        "french": "Quartier le mieux desservi sans voiture",
+        "english": "Best-connected neighbourhood without a car"
       },
       {
         "french": "Fourchette de loyers à prévoir",
         "english": "Expected rent range"
       },
       {
-        "french": "Charges généralement comprises",
-        "english": "Utilities generally included"
+        "french": "Charges, stationnement et buanderie à ajouter",
+        "english": "Utilities, parking and laundry costs"
       },
       {
-        "french": "Dates de disponibilité des logements",
-        "english": "Dates when the homes are available"
+        "french": "Disponibilité et durée minimale du bail",
+        "english": "Availability and minimum lease length"
       },
       {
-        "french": "Documents pour déposer un dossier",
-        "english": "Documents needed for a rental application"
+        "french": "Documents du dossier et délai de réponse",
+        "english": "Application documents and response time"
       }
     ],
     "friend-first-workday-report": [
@@ -1066,32 +1066,32 @@
         "english": "Background and experience teaching French"
       },
       {
-        "french": "Méthodes et place de la conversation",
-        "english": "Methods and emphasis on conversation"
+        "french": "Place de la conversation, de la grammaire et de la prononciation",
+        "english": "Emphasis on conversation, grammar and pronunciation"
       },
       {
-        "french": "Adaptation au niveau et aux objectifs",
-        "english": "Adaptation to level and goals"
-      },
-      {
-        "french": "Bilans de progression pendant les cours",
-        "english": "Progress reviews during the course"
-      },
-      {
-        "french": "Fréquence et durée des cours particuliers",
-        "english": "Frequency and length of private lessons"
+        "french": "Évaluation initiale et suivi des progrès",
+        "english": "Initial assessment and progress tracking"
       },
       {
         "french": "Lieu des cours et possibilité en ligne",
         "english": "Lesson location and online option"
       },
       {
+        "french": "Créneaux disponibles et fréquence recommandée",
+        "english": "Available time slots and recommended frequency"
+      },
+      {
+        "french": "Tarif d'une heure de cours particulier",
+        "english": "Price of a one-hour private lesson"
+      },
+      {
         "french": "Supports fournis et matériel à prévoir",
         "english": "Resources supplied and materials needed"
       },
       {
-        "french": "Tarifs, forfaits, essai éventuel et inscription",
-        "english": "Fees, packages, possible trial and registration"
+        "french": "Cours d'essai et forfait de plusieurs heures",
+        "english": "Trial lesson and multi-hour package"
       }
     ],
     "friend-mountain-holiday-advice": [
@@ -1618,36 +1618,36 @@
     ],
     "french-teacher-study-abroad-advice": [
       {
-        "french": "Destinations conseillées et avantages du départ",
-        "english": "Recommended destinations and benefits of going abroad"
+        "french": "Destinations conseillées pour étudier en français",
+        "english": "Recommended destinations for studying in French"
       },
       {
-        "french": "Échange universitaire ou inscription indépendante",
-        "english": "University exchange or independent enrolment"
+        "french": "Échange universitaire ou formation complète",
+        "english": "University exchange or full programme"
       },
       {
-        "french": "Profil requis et niveau de langue",
-        "english": "Required profile and language level"
+        "french": "Conditions d'admission à vérifier",
+        "english": "Admission requirements to verify"
       },
       {
-        "french": "Durée du séjour et reconnaissance des études",
-        "english": "Study duration and academic recognition"
+        "french": "Préparation au niveau de français demandé",
+        "english": "Preparation for the required French level"
       },
       {
-        "french": "Dossier de candidature et démarches d'inscription",
-        "english": "Application documents and enrolment procedures"
+        "french": "Dépenses à prévoir pour le projet",
+        "english": "Expenses to budget for the project"
       },
       {
-        "french": "Budget global et bourses éventuelles",
-        "english": "Overall budget and possible scholarships"
+        "french": "Sources fiables sur les bourses disponibles",
+        "english": "Reliable sources for available scholarships"
       },
       {
-        "french": "Recherche de logement à l'étranger",
-        "english": "Finding accommodation abroad"
+        "french": "Service d'aide aux formalités du séjour",
+        "english": "Service helping with stay formalities"
       },
       {
-        "french": "Visa et assurances à prévoir éventuellement",
-        "english": "Visas and insurance that may be needed"
+        "french": "Moment idéal pour commencer les demandes",
+        "english": "Best time to begin applications"
       }
     ],
     "private-owner-used-car-purchase": [
@@ -1792,32 +1792,32 @@
         "english": "Languages taught at the school"
       },
       {
-        "french": "Formules de cours et taille des groupes",
-        "english": "Course formats and group sizes"
+        "french": "Groupe d'espagnol pour vrais débutants",
+        "english": "Spanish group for complete beginners"
       },
       {
-        "french": "Méthodes et place de la pratique orale",
-        "english": "Methods and emphasis on speaking practice"
+        "french": "Enseignants des débutants et pratique orale",
+        "english": "Beginner teachers and speaking practice"
       },
       {
-        "french": "Niveaux proposés et évaluation de départ",
-        "english": "Available levels and initial assessment"
+        "french": "Créneaux proposés pour le niveau choisi",
+        "english": "Time slots for the selected level"
       },
       {
-        "french": "Qualifications et expérience des enseignants",
-        "english": "Teachers' qualifications and experience"
+        "french": "Cours sur place ou également en ligne",
+        "english": "Classes on site or also online"
       },
       {
-        "french": "Fréquence et durée des leçons",
-        "english": "Lesson frequency and length"
+        "french": "Prix d'une session de cours",
+        "english": "Price of a course session"
       },
       {
         "french": "Tarifs et supports pédagogiques inclus",
         "english": "Fees and included learning materials"
       },
       {
-        "french": "Possibilité de découvrir un cours",
-        "english": "Opportunity to try a class"
+        "french": "Cours d'essai ou évaluation avant le choix du groupe",
+        "english": "Trial class or assessment before choosing a group"
       }
     ],
     "ottawa-newcomer-cycling-friend": [
@@ -1996,36 +1996,36 @@
     ],
     "neighbor-seaside-house-rental": [
       {
-        "french": "Emplacement exact à Carleton-sur-Mer",
-        "english": "Exact location in Carleton-sur-Mer"
+        "french": "Emplacement et distance du centre de Carleton-sur-Mer",
+        "english": "Location and distance from central Carleton-sur-Mer"
       },
       {
         "french": "Accès à pied jusqu'à la plage",
         "english": "Walking access to the beach"
       },
       {
-        "french": "Ambiance et services dans les environs",
-        "english": "Atmosphere and services nearby"
+        "french": "Commerces, restaurants et activités des environs",
+        "english": "Nearby shops, restaurants and activities"
       },
       {
-        "french": "Capacité de couchage de la maison",
-        "english": "Sleeping capacity of the house"
+        "french": "Chambres, lits et capacité de couchage",
+        "english": "Bedrooms, beds and sleeping capacity"
       },
       {
-        "french": "Équipements à la disposition des locataires",
-        "english": "Amenities available to guests"
+        "french": "Cuisine, linge, lave-linge et barbecue disponibles",
+        "english": "Kitchen, linens, washing machine and barbecue"
       },
       {
-        "french": "Périodes encore disponibles",
-        "english": "Dates still available"
+        "french": "Périodes disponibles et durée minimale",
+        "english": "Available dates and minimum stay"
       },
       {
-        "french": "Tarif pour une semaine en juillet",
-        "english": "Price for one week in July"
+        "french": "Tarif hebdomadaire et dépôt de réservation",
+        "english": "Weekly rate and booking deposit"
       },
       {
-        "french": "Services et charges compris dans le tarif",
-        "english": "Services and utilities included in the price"
+        "french": "Charges, stationnement et ménage compris",
+        "english": "Utilities, parking and cleaning included"
       }
     ],
     "friend-holiday-apartment-watch": [
@@ -2102,20 +2102,20 @@
         "english": "Information needed to calculate the delivery"
       },
       {
-        "french": "Tarif de la livraison à domicile",
-        "english": "Home delivery price"
+        "french": "Tarif total et suppléments éventuels",
+        "english": "Total price and possible surcharges"
       },
       {
-        "french": "Livraison jusque dans la pièce choisie",
-        "english": "Delivery into the chosen room"
+        "french": "Mise en place et enlèvement des emballages",
+        "english": "Placement and packaging removal"
       },
       {
         "french": "Délai après la confirmation de la commande",
         "english": "Lead time after confirming the order"
       },
       {
-        "french": "Choix d'un créneau de passage",
-        "english": "Choosing a delivery time slot"
+        "french": "Créneau de passage et préavis d'arrivée",
+        "english": "Delivery window and arrival notice"
       },
       {
         "french": "Véhicule et protection du canapé",
@@ -2318,16 +2318,16 @@
         "english": "Shops, parks, transport and car-free living in Beltline"
       },
       {
-        "french": "Prix de vente demandé",
-        "english": "Asking price"
+        "french": "Prix demandé et durée de mise en vente",
+        "english": "Asking price and time on the market"
       },
       {
         "french": "Charges mensuelles et services compris",
         "english": "Monthly condominium fees and included services"
       },
       {
-        "french": "Travaux importants prévus dans l'immeuble",
-        "english": "Major work planned for the building"
+        "french": "Travaux importants et cotisation spéciale",
+        "english": "Major work and special assessment"
       },
       {
         "french": "Créneaux disponibles pour une visite",
@@ -2344,28 +2344,28 @@
         "english": "Eligible ages and ability groups"
       },
       {
-        "french": "Lieu et accès depuis l'école",
-        "english": "Location and access from school"
+        "french": "Lieu des activités et accompagnement depuis l'école",
+        "english": "Activity location and escort from school"
       },
       {
-        "french": "Qualifications des animateurs et taille des groupes",
-        "english": "Staff qualifications and group sizes"
+        "french": "Jours, horaires et heure de fin",
+        "english": "Days, times and finishing time"
       },
       {
-        "french": "Jours, horaires et durée des séances",
-        "english": "Days, times and session length"
+        "french": "Encadrement et nombre d'enfants par groupe",
+        "english": "Supervision and number of children per group"
       },
       {
-        "french": "Inscription et places restantes",
-        "english": "Enrollment and remaining places"
+        "french": "Prix et réduction pour plusieurs enfants",
+        "english": "Price and discount for multiple children"
       },
       {
-        "french": "Tarifs et réductions pour plusieurs enfants",
-        "english": "Prices and discounts for multiple children"
+        "french": "Matériel de dessin fourni ou à apporter",
+        "english": "Drawing materials provided or to bring"
       },
       {
-        "french": "Matériel fourni ou à apporter",
-        "english": "Equipment provided or to bring"
+        "french": "Places restantes et procédure d'inscription",
+        "english": "Remaining places and registration process"
       }
     ],
     "friend-homeless-meal-volunteering": [
@@ -2540,16 +2540,16 @@
     ],
     "quebec-newcomer-estate-agency-housing-procedures": [
       {
-        "french": "Déroulement d'une recherche avec l'agence",
-        "english": "How a housing search works with the agency"
+        "french": "Fonctionnement de l'agence et frais éventuels",
+        "english": "How the agency works and possible fees"
       },
       {
         "french": "Type de logement adapté pour commencer",
         "english": "Suitable housing type for getting started"
       },
       {
-        "french": "Quartiers conseillés à Québec",
-        "english": "Recommended neighbourhoods in Quebec City"
+        "french": "Secteurs combinant transports, commerces et loyer raisonnable",
+        "english": "Areas balancing transport, shops and reasonable rent"
       },
       {
         "french": "Loyers à Limoilou et à Sainte-Foy",
@@ -2666,8 +2666,8 @@
         "english": "Housing costs to add to the rent"
       },
       {
-        "french": "Sites locaux utiles pour les recherches",
-        "english": "Useful local housing websites"
+        "french": "Sites utiles et signes d'une annonce douteuse",
+        "english": "Useful websites and signs of a suspicious listing"
       },
       {
         "french": "Vérifications avant d'accepter une location",
@@ -2982,36 +2982,36 @@
     ],
     "friend-child-language-stay-abroad": [
       {
-        "french": "Pays visité et langue apprise",
-        "english": "Country visited and language learned"
+        "french": "Destination et durée du séjour linguistique",
+        "english": "Destination and length of the language stay"
       },
       {
-        "french": "Âge de l'enfant et durée du séjour",
-        "english": "Child's age and length of stay"
+        "french": "Raisons du choix de l'Irlande",
+        "english": "Reasons for choosing Ireland"
       },
       {
-        "french": "Hébergement choisi et encadrement sur place",
-        "english": "Chosen accommodation and supervision on site"
+        "french": "Cours et activités d'une journée habituelle",
+        "english": "Lessons and activities in a typical day"
       },
       {
-        "french": "Activités proposées en dehors des cours",
-        "english": "Activities offered outside lessons"
+        "french": "Hébergement et sélection de la famille d'accueil",
+        "english": "Accommodation and host-family selection"
       },
       {
         "french": "Adaptation de l'enfant et progrès observés",
         "english": "Child's adjustment and progress observed"
       },
       {
-        "french": "Critères de choix et délai de réservation",
-        "english": "Selection criteria and booking lead time"
+        "french": "Âge, documents et test exigés par l'organisme",
+        "english": "Age, documents and test required by the provider"
       },
       {
-        "french": "Documents et autorisations à préparer",
-        "english": "Documents and permissions to prepare"
+        "french": "Coût total et éléments compris dans le prix",
+        "english": "Total cost and items included in the price"
       },
       {
-        "french": "Coût total de l'expérience",
-        "english": "Total cost of the experience"
+        "french": "Encadrement et contact en cas de problème",
+        "english": "Supervision and contact in case of a problem"
       }
     ],
     "colleague-unusable-music-festival-tickets": [
@@ -3164,16 +3164,16 @@
         "english": "Monthly rent for the room"
       },
       {
-        "french": "Charges comprises dans le loyer",
-        "english": "Utilities included in the rent"
+        "french": "Charges et dépenses communes comprises",
+        "english": "Included utilities and shared expenses"
       },
       {
-        "french": "Date de disponibilité de la chambre",
-        "english": "Date when the room becomes available"
+        "french": "Disponibilité et durée minimale d'engagement",
+        "english": "Availability and minimum commitment"
       },
       {
-        "french": "Taille et mobilier de la chambre",
-        "english": "Room size and furnishings"
+        "french": "Taille, mobilier et rangements de la chambre",
+        "english": "Room size, furniture and storage"
       },
       {
         "french": "Pièces partagées dans l'appartement",
@@ -3188,8 +3188,8 @@
         "english": "People already living in the shared apartment"
       },
       {
-        "french": "Organisation de la vie commune",
-        "english": "How shared living is organized"
+        "french": "Règles de ménage, d'invités et de calme",
+        "english": "Rules for cleaning, guests and quiet times"
       }
     ],
     "neighbor-community-sports-instructor": [
@@ -3368,36 +3368,36 @@
     ],
     "edmonton-newcomer-neighbor-schools": [
       {
-        "french": "Écoles proches et langues d'enseignement",
-        "english": "Nearby schools and languages of instruction"
+        "french": "Écoles proches et trajets habituels",
+        "english": "Nearby schools and usual journeys"
       },
       {
-        "french": "Réputation des enseignants et taille des classes",
-        "english": "Teachers' reputation and class sizes"
+        "french": "Écoles francophones et programmes d'immersion",
+        "english": "Francophone schools and immersion programmes"
       },
       {
-        "french": "Activités sportives, artistiques et scolaires",
-        "english": "Sports, arts and academic activities"
+        "french": "Avis des parents sur les enseignants",
+        "english": "Parents' opinions of the teachers"
       },
       {
-        "french": "Garderie et activités après l'école",
-        "english": "Childcare and after-school activities"
+        "french": "Accueil réservé aux nouveaux élèves",
+        "english": "Support provided to new pupils"
       },
       {
-        "french": "Trajet et transport scolaire éventuel",
-        "english": "School journey and possible school transport"
+        "french": "Activités proposées aux élèves",
+        "english": "Activities offered to pupils"
       },
       {
-        "french": "Secteur de résidence et accès aux écoles",
-        "english": "Residential catchment area and school eligibility"
+        "french": "Horaires des activités et service de garde",
+        "english": "Activity times and childcare service"
       },
       {
-        "french": "Période d'inscription et documents à fournir",
-        "english": "Enrollment period and documents to provide"
+        "french": "Secrétariat à contacter et documents demandés",
+        "english": "School office to contact and required documents"
       },
       {
-        "french": "Frais éventuels de matériel et d'activités",
-        "english": "Any costs for supplies and activities"
+        "french": "Vérification officielle de l'école de secteur",
+        "english": "Official catchment-school verification"
       }
     ],
     "canadian-city-resident-advice-transit": [
@@ -3944,16 +3944,16 @@
         "english": "Amenities to highlight"
       },
       {
-        "french": "Vérification des locataires par l'agence",
-        "english": "Agency checks on prospective guests"
+        "french": "Vérification des locataires et mesures en cas de dommages",
+        "english": "Guest checks and measures for possible damage"
       },
       {
-        "french": "Commission et services de l'agence",
-        "english": "Agency commission and included services"
+        "french": "Commission, gestion, clés, ménage et urgences",
+        "english": "Commission, management, keys, cleaning and emergencies"
       },
       {
-        "french": "Autorisations avant la publication",
-        "english": "Authorizations before publishing the listing"
+        "french": "Autorisations et assurances avant publication",
+        "english": "Authorizations and insurance before publishing"
       }
     ],
     "tourist-office-low-budget-weekend": [
@@ -4132,24 +4132,24 @@
     ],
     "canada-newcomer-apartment-procedure-unspecified-adviser": [
       {
-        "french": "Type de logement conseillé pour commencer",
-        "english": "Recommended housing type for getting started"
+        "french": "Meublé temporaire, colocation ou bail d'un an",
+        "english": "Temporary furnished rental, shared housing or annual lease"
       },
       {
         "french": "Supplément pour un logement meublé",
         "english": "Extra cost for a furnished apartment"
       },
       {
-        "french": "Quartiers de Calgary à privilégier",
-        "english": "Calgary neighbourhoods to prioritize"
+        "french": "Quartiers équilibrant transports, commerces et loyer",
+        "english": "Areas balancing transport, shops and rent"
       },
       {
         "french": "Loyer moyen dans ces quartiers",
         "english": "Average rent in those neighbourhoods"
       },
       {
-        "french": "Sources fiables pour trouver des annonces",
-        "english": "Reliable sources for finding listings"
+        "french": "Annonces fiables et signes d'une offre douteuse",
+        "english": "Reliable listings and signs of a suspicious offer"
       },
       {
         "french": "Documents généralement demandés",
@@ -4624,32 +4624,32 @@
         "english": "Game concept and rules"
       },
       {
-        "french": "Jeu individuel ou en équipe",
-        "english": "Individual or team play"
+        "french": "Niveaux et étudiants admis à participer",
+        "english": "Levels and students allowed to participate"
       },
       {
-        "french": "Niveau de français et participants admis",
-        "english": "French level and eligible participants"
+        "french": "Formation des équipes par les étudiants ou l'école",
+        "english": "Teams formed by students or the school"
       },
       {
-        "french": "Calendrier, durée et lieu",
-        "english": "Schedule, duration and location"
+        "french": "Utilisation autorisée du téléphone",
+        "english": "Permitted use of mobile phones"
       },
       {
-        "french": "Inscription et frais éventuels",
-        "english": "Registration and any fees"
+        "french": "Récompense de chaque membre de l'équipe gagnante",
+        "english": "Prize for each winning-team member"
       },
       {
-        "french": "Préparation avant le jeu",
-        "english": "Preparation before the game"
+        "french": "Souvenir ou certificat pour les autres participants",
+        "english": "Souvenir or certificate for other participants"
       },
       {
-        "french": "Récompenses éventuelles",
-        "english": "Possible prizes"
+        "french": "Date, horaires et lieu de rendez-vous",
+        "english": "Date, times and meeting point"
       },
       {
-        "french": "Apports pour l'apprentissage du français",
-        "english": "Benefits for learning French"
+        "french": "Inscription, date limite et gratuité",
+        "english": "Registration, deadline and free participation"
       }
     ],
     "supervisor-overseas-job-offer": [
@@ -4722,36 +4722,36 @@
     ],
     "friend-planned-canadian-studies": [
       {
-        "french": "Motifs du choix du Canada",
-        "english": "Reasons for choosing Canada"
+        "french": "Raisons de poursuivre ses études au Canada",
+        "english": "Reasons for continuing studies in Canada"
       },
       {
-        "french": "Ville, université et spécialité envisagées",
-        "english": "Proposed city, university and field of study"
+        "french": "Ville et établissement envisagés",
+        "english": "Proposed city and institution"
       },
       {
-        "french": "Langue des cours et durée du programme",
-        "english": "Teaching language and programme duration"
+        "french": "Raisons de choisir Sherbrooke plutôt que Montréal",
+        "english": "Reasons for choosing Sherbrooke over Montreal"
       },
       {
-        "french": "Date de rentrée et départ prévu",
-        "english": "Term start and planned departure"
+        "french": "Programme et spécialité choisis",
+        "english": "Chosen programme and specialization"
       },
       {
-        "french": "Démarches d'inscription et autorisations d'études",
-        "english": "Enrolment procedures and study authorizations"
+        "french": "État de la demande d'admission",
+        "english": "Status of the admission application"
       },
       {
-        "french": "Financement et logement envisagés",
-        "english": "Planned funding and accommodation"
+        "french": "Financement des études et de la vie sur place",
+        "english": "Funding studies and living expenses"
       },
       {
-        "french": "Objectifs après les études",
-        "english": "Goals after studying"
+        "french": "Logement souhaité et date d'arrivée",
+        "english": "Preferred accommodation and arrival date"
       },
       {
-        "french": "Inquiétudes et aide aux préparatifs",
-        "english": "Concerns and help with preparations"
+        "french": "Projet professionnel après la maîtrise",
+        "english": "Career plans after the master's degree"
       }
     ],
     "help-transport-heavy-objects-no-vehicle": [
@@ -4776,8 +4776,8 @@
         "english": "Transport date and time"
       },
       {
-        "french": "Solution de transport sans véhicule personnel",
-        "english": "Transport solution without a personal vehicle"
+        "french": "Taille de camionnette, rampe et chariot",
+        "english": "Van size, ramp and trolley"
       },
       {
         "french": "Personnes disponibles pour aider",
@@ -4938,24 +4938,24 @@
         "english": "Amount requested for the transaction"
       },
       {
-        "french": "Superficie de l'appartement",
-        "english": "Apartment floor area"
+        "french": "Superficie, balcon et espace de rangement",
+        "english": "Floor area, balcony and storage space"
       },
       {
         "french": "Répartition des pièces",
         "english": "Room layout"
       },
       {
-        "french": "État général du logement",
-        "english": "Overall condition of the apartment"
+        "french": "État de la cuisine, salle de bains, fenêtres et chauffage",
+        "english": "Condition of kitchen, bathroom, windows and heating"
       },
       {
         "french": "Vie du quartier de Rosemont",
         "english": "Life in the Rosemont neighbourhood"
       },
       {
-        "french": "Frais réguliers en plus du prix",
-        "english": "Recurring costs in addition to the price"
+        "french": "Frais de copropriété et taxes à prévoir",
+        "english": "Condominium fees and taxes to budget for"
       },
       {
         "french": "Créneaux disponibles pour une visite",
@@ -5134,32 +5134,32 @@
     ],
     "fellow-parent-first-school-fete": [
       {
-        "french": "Horaires de la fête de l'école",
-        "english": "School fair times"
+        "french": "Date et horaires de la fête de l'école",
+        "english": "School fair date and times"
       },
       {
-        "french": "Programme des spectacles et jeux",
-        "english": "Programme of performances and games"
+        "french": "Principaux moments du programme",
+        "english": "Main events in the programme"
       },
       {
-        "french": "Animations adaptées aux enfants",
-        "english": "Entertainment suited to children"
+        "french": "Heure d'arrivée conseillée avant le spectacle",
+        "english": "Recommended arrival time before the show"
       },
       {
-        "french": "Rôle des parents et des enseignants",
-        "english": "Parents' and teachers' roles"
+        "french": "Animations pour les enfants et les parents",
+        "english": "Activities for children and parents"
       },
       {
-        "french": "Repas et contributions à apporter",
-        "english": "Food and contributions to bring"
+        "french": "Entrée gratuite et prix des billets de tombola",
+        "english": "Free admission and raffle-ticket price"
       },
       {
-        "french": "Entrée et collecte de fonds éventuelle",
-        "english": "Admission and possible fundraising"
+        "french": "Contribution des familles au buffet",
+        "english": "Families' contribution to the buffet"
       },
       {
-        "french": "Accès à l'école et stationnement",
-        "english": "Getting to the school and parking"
+        "french": "Stand recherchant des parents bénévoles",
+        "english": "Stall needing parent volunteers"
       },
       {
         "french": "Organisation prévue en cas de pluie",
@@ -5202,36 +5202,36 @@
     ],
     "french-class-survey-francophone-student": [
       {
-        "french": "Pays francophone d'origine et ville de résidence",
-        "english": "French-speaking country of origin and current city"
+        "french": "Pays francophone d'origine et domaine d'études",
+        "english": "French-speaking country of origin and field of study"
       },
       {
-        "french": "Études suivies et établissement",
-        "english": "Current studies and educational institution"
+        "french": "Établissement et durée d'installation",
+        "english": "Institution and time since moving"
       },
       {
-        "french": "Déroulement d'une journée de cours",
-        "english": "Typical day of classes"
+        "french": "Déroulement d'une journée d'études habituelle",
+        "english": "Typical day of study"
       },
       {
-        "french": "Horaires habituels et lieux fréquentés",
-        "english": "Usual times and places visited"
+        "french": "Activités ou emploi en dehors des cours",
+        "english": "Activities or job outside classes"
       },
       {
-        "french": "Transports et lieux de repas",
-        "english": "Transport and places to eat"
+        "french": "Organisation entre travail et études",
+        "english": "Balancing work and studies"
       },
       {
-        "french": "Loisirs, culture et activités du week-end",
-        "english": "Hobbies, culture and weekend activities"
+        "french": "Loisir régulier et fréquence",
+        "english": "Regular hobby and frequency"
       },
       {
-        "french": "Emploi étudiant éventuel",
-        "english": "Any job alongside studies"
+        "french": "Concerts publics de la chorale",
+        "english": "Public choir concerts"
       },
       {
-        "french": "Vie sociale et projets après les études",
-        "english": "Social life and plans after studying"
+        "french": "Lieux de sortie pendant le week-end",
+        "english": "Places visited at weekends"
       }
     ],
     "bookshop-public-game-participation": [
@@ -5376,16 +5376,16 @@
     ],
     "colleague-summer-house-rental": [
       {
-        "french": "Nombre de chambres dans la maison",
-        "english": "Number of bedrooms in the house"
+        "french": "Nombre de chambres et de salles de bains",
+        "english": "Number of bedrooms and bathrooms"
       },
       {
         "french": "Nombre de personnes pouvant y dormir",
         "english": "Number of people who can sleep there"
       },
       {
-        "french": "Équipements à la disposition des locataires",
-        "english": "Amenities available to guests"
+        "french": "Cuisine, linge, électroménagers et barbecue",
+        "english": "Kitchen, linens, appliances and barbecue"
       },
       {
         "french": "Ambiance du quartier de Bowness en été",
@@ -5396,16 +5396,16 @@
         "english": "Reaching the park and downtown by bus without a car"
       },
       {
-        "french": "Dates exactes de disponibilité",
-        "english": "Exact availability dates"
+        "french": "Dates disponibles et durée minimale",
+        "english": "Available dates and minimum stay"
       },
       {
-        "french": "Loyer demandé pour une semaine",
-        "english": "Weekly rental price"
+        "french": "Loyer hebdomadaire et dépôt de réservation",
+        "english": "Weekly rent and booking deposit"
       },
       {
-        "french": "Charges comprises dans le loyer",
-        "english": "Utilities included in the rent"
+        "french": "Charges comprises et frais de ménage",
+        "english": "Included utilities and cleaning fee"
       }
     ],
     "friend-association-work-experience": [
@@ -5452,32 +5452,28 @@
         "english": "Enrolment without university student status"
       },
       {
-        "french": "Niveaux et test de placement éventuel",
-        "english": "Levels and possible placement test"
+        "french": "Test de niveau pour la langue choisie",
+        "english": "Placement test for the chosen language"
       },
       {
-        "french": "Cours en présentiel, en ligne ou hybrides",
-        "english": "In-person, online or hybrid classes"
+        "french": "Cours sur le campus ou en ligne",
+        "english": "Classes on campus or online"
       },
       {
-        "french": "Horaires compatibles avec un emploi",
-        "english": "Schedules compatible with a job"
+        "french": "Durée et fréquence d'une session",
+        "english": "Length and frequency of a session"
       },
       {
-        "french": "Durée et rythme des sessions",
-        "english": "Course length and pace"
+        "french": "Horaires du soir et du week-end",
+        "english": "Evening and weekend schedules"
       },
       {
-        "french": "Crédits universitaires éventuels",
-        "english": "Possible university credits"
+        "french": "Prix de la session et coût du manuel",
+        "english": "Session fee and textbook cost"
       },
       {
-        "french": "Tarifs des cours et formules",
-        "english": "Course prices and packages"
-      },
-      {
-        "french": "Démarches et dates limites d'inscription",
-        "english": "Enrolment procedures and deadlines"
+        "french": "Date limite et inscription en ligne",
+        "english": "Deadline and online registration"
       }
     ],
     "colleague-association-dance-classes": [

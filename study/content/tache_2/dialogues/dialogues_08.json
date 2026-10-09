@@ -61,11 +61,11 @@
       "questions": [
         {"topic": "Transaction et coût", "question": "Cet appartement est-il proposé à la vente ou à la location ?", "answer": "Il est proposé à la vente.", "follow_up_to": null},
         {"topic": "Transaction et coût", "question": "Dans ce cas, quel montant demande le propriétaire ?", "answer": "Le prix demandé est de 425 000 $.", "follow_up_to": 1, "condition": "After the agent clarifies the transaction; use sale price or monthly rent as appropriate."},
-        {"topic": "Appartement", "question": "Quelle est la superficie de l'appartement ?", "answer": "Il fait quatre-vingt-cinq mètres carrés.", "follow_up_to": null},
+        {"topic": "Appartement", "question": "Quelle est la superficie de l'appartement, et dispose-t-il d'un balcon ou d'un espace de rangement ?", "answer": "Il fait quatre-vingt-cinq mètres carrés, avec un balcon et un casier de rangement au sous-sol.", "follow_up_to": null},
         {"topic": "Appartement", "question": "Comment les pièces sont-elles réparties ?", "answer": "Il comprend deux chambres, un grand salon, une cuisine et une salle de bains.", "follow_up_to": 3, "condition": "After the area is given, unless the layout is already described."},
-        {"topic": "Appartement", "question": "Dans quel état général se trouve le logement ?", "answer": "La cuisine a été rénovée récemment, mais la salle de bains est plus ancienne.", "follow_up_to": null},
+        {"topic": "Appartement", "question": "Dans quel état sont la cuisine, la salle de bains, les fenêtres et le chauffage ?", "answer": "La cuisine est rénovée et les fenêtres sont récentes ; la salle de bains et le chauffage sont plus anciens.", "follow_up_to": null},
         {"topic": "Quartier et décision", "question": "Et autour de l'immeuble, comment est le quartier ?", "answer": "Rosemont est résidentiel et animé, avec des commerces, des écoles et le métro à proximité.", "follow_up_to": null},
-        {"topic": "Quartier et décision", "question": "En plus du montant annoncé, quels frais réguliers faut-il prévoir ?", "answer": "Les charges de copropriété sont de 375 $ par mois, et il faut aussi prévoir les taxes.", "follow_up_to": null},
+        {"topic": "Quartier et décision", "question": "En plus du prix annoncé, quels frais de copropriété et quelles taxes faut-il prévoir chaque mois ou chaque année ?", "answer": "Les charges sont de 375 $ par mois ; les taxes municipales et scolaires totalisent environ 2 800 $ par an.", "follow_up_to": null},
         {"topic": "Quartier et décision", "question": "Quand serait-il possible de visiter l'appartement ?", "answer": "Une visite est possible mercredi soir ou samedi matin.", "follow_up_to": null}
       ]
     },
@@ -161,14 +161,14 @@
       "opening": "Bonjour ! Je vais aller à la fête de l'école pour la première fois, et j'aimerais savoir comment elle se déroule.",
       "closing": "Merci beaucoup ! Je vais proposer mon aide dès demain, et j'ai hâte de découvrir cette fête.",
       "questions": [
-        {"topic": "Horaires et programme", "question": "À quelle date la fête aura-t-elle lieu, et est-elle maintenue en cas de pluie ?", "answer": "Le dernier samedi de juin ; elle sera maintenue, car une partie peut se dérouler dans le gymnase.", "follow_up_to": null},
-        {"topic": "Horaires et programme", "question": "À quelle heure la fête commence-t-elle, et jusqu'à quelle heure durera-t-elle ?", "answer": "Elle commencera à 14 h et se terminera vers 18 h.", "follow_up_to": null},
-        {"topic": "Horaires et programme", "question": "Est-il préférable d'arriver dès l'ouverture pour ne manquer aucun moment important du programme ?", "answer": "Oui, car les élèves présentent leur spectacle à 14 h 30, juste après le mot de la directrice.", "follow_up_to": 2, "condition": "After the timetable is given, if you may arrive late."},
-        {"topic": "Horaires et programme", "question": "Que présenteront les élèves pendant le spectacle, et chaque classe participera-t-elle ?", "answer": "Chaque classe chantera ou dansera quelques minutes ; c'est le moment préféré des parents.", "follow_up_to": 3, "condition": "If a pupils' show is mentioned, unless it is already described."},
-        {"topic": "Animations", "question": "Quelles animations seront proposées aux enfants et aux parents pendant l'après-midi ?", "answer": "Des jeux d'adresse, un atelier de maquillage et une tombola, avec un vélo à gagner.", "follow_up_to": null},
-        {"topic": "Animations", "question": "Combien coûte un billet de tombola, et à quelle heure aura lieu le tirage ?", "answer": "Les billets coûtent 2 $, et le tirage aura lieu à 17 h 30.", "follow_up_to": 5, "condition": "If a raffle is mentioned; adapt to the activity named."},
-        {"topic": "Participation des familles", "question": "Est-ce que les familles doivent apporter quelque chose ?", "answer": "Oui, chacune apporte un plat sucré ou salé pour le buffet partagé.", "follow_up_to": null},
-        {"topic": "Participation des familles", "question": "À quel stand manque-t-il des bénévoles, et auprès de qui dois-je m'inscrire pour aider ?", "answer": "Il manque du monde au stand de maquillage ; inscrivez-vous au secrétariat de l'école.", "follow_up_to": null}
+        {"topic": "Horaires et programme", "question": "À quelle date et à quelles heures la fête de l'école aura-t-elle lieu ?", "answer": "Le dernier samedi de juin, de 14 h à 18 h.", "follow_up_to": null},
+        {"topic": "Horaires et programme", "question": "Quels seront les principaux moments du programme pendant l'après-midi ?", "answer": "Le spectacle des élèves commencera à 14 h 30, puis les jeux ouvriront avant le tirage de la tombola à 17 h 30.", "follow_up_to": null},
+        {"topic": "Horaires et programme", "question": "À quelle heure me conseillez-vous d'arriver pour ne pas manquer le spectacle des enfants ?", "answer": "Arrivez vers 14 h, juste avant le mot de la directrice et l'installation des classes.", "follow_up_to": 2, "condition": "After the programme and pupils' show are described."},
+        {"topic": "Animations", "question": "Quelles animations seront proposées aux enfants et aux parents ?", "answer": "Des jeux d'adresse, un atelier de maquillage et une tombola avec un vélo à gagner.", "follow_up_to": null},
+        {"topic": "Animations", "question": "L'entrée est-elle gratuite, et combien coûte un billet de tombola ?", "answer": "L'entrée est gratuite, et les billets de tombola coûtent 2 $ chacun.", "follow_up_to": 4, "condition": "If a raffle or paid activity is mentioned."},
+        {"topic": "Participation des familles", "question": "Est-ce que les familles doivent apporter quelque chose pour le buffet ou les activités ?", "answer": "Oui, chacune apporte un plat sucré ou salé pour le buffet partagé.", "follow_up_to": null},
+        {"topic": "Participation des familles", "question": "À quel stand manque-t-il des bénévoles, et auprès de qui dois-je m'inscrire pour aider ?", "answer": "Il manque du monde au stand de maquillage ; inscrivez-vous au secrétariat de l'école.", "follow_up_to": null},
+        {"topic": "Organisation pratique", "question": "Si la météo est mauvaise, quelles parties de la fête seront déplacées à l'intérieur ?", "answer": "Le spectacle, le buffet et plusieurs jeux auront lieu dans le gymnase ; seuls quelques stands extérieurs seront annulés.", "follow_up_to": null}
       ]
     },
     {
@@ -195,9 +195,9 @@
       "opening": "Bonjour ! Pour mon cours de français, je réalise une enquête sur les activités des étudiants francophones, et j'aimerais vous poser quelques questions.",
       "closing": "Merci beaucoup pour votre temps ! Vos réponses vont vraiment enrichir mon enquête.",
       "questions": [
-        {"topic": "Études", "question": "De quel pays francophone venez-vous, et depuis combien de temps étudiez-vous ici ?", "answer": "Je viens du Sénégal et j'étudie ici depuis deux ans.", "follow_up_to": null},
-        {"topic": "Études", "question": "Quel domaine étudiez-vous, dans quel établissement, et depuis quand êtes-vous installé ici ?", "answer": "J'étudie le génie informatique à l'université ; j'ai quitté Dakar il y a deux ans.", "follow_up_to": null},
-        {"topic": "Études", "question": "Pourriez-vous me dire combien d'heures de cours vous avez par semaine ?", "answer": "Environ vingt, surtout le matin ; l'après-midi, je travaille en laboratoire avec mon équipe de projet.", "follow_up_to": null},
+        {"topic": "Études", "question": "De quel pays francophone venez-vous, et quel domaine étudiez-vous ici ?", "answer": "Je viens du Sénégal et j'étudie le génie informatique.", "follow_up_to": null},
+        {"topic": "Études", "question": "Dans quel établissement étudiez-vous, et depuis combien de temps êtes-vous installé ici ?", "answer": "J'étudie à l'université et j'ai quitté Dakar il y a deux ans.", "follow_up_to": null},
+        {"topic": "Études", "question": "À quoi ressemble une journée de cours habituelle pour vous ?", "answer": "J'ai surtout cours le matin ; l'après-midi, je travaille en laboratoire avec mon équipe de projet.", "follow_up_to": null},
         {"topic": "Emploi du temps", "question": "Est-ce que vous avez d'autres activités en dehors des cours ?", "answer": "Oui, deux soirs par semaine, je travaille dans un café du campus pour couvrir mes dépenses.", "follow_up_to": null},
         {"topic": "Emploi du temps", "question": "Comment parvenez-vous à concilier ce travail et vos études ?", "answer": "Je consacre mes dimanches aux révisions, et mon responsable adapte mes horaires pendant les examens.", "follow_up_to": 4, "condition": "If a part-time job is mentioned alongside studies."},
         {"topic": "Loisirs", "question": "Quel loisir pratiquez-vous régulièrement, et à quelle fréquence vous y consacrez-vous ?", "answer": "Je chante dans la chorale de l'université, qui répète chaque mercredi soir.", "follow_up_to": null},
@@ -280,14 +280,14 @@
       "opening": "Bonjour Pierre ! Votre maison à Bowness pourrait m'intéresser pour les vacances d'été, alors j'aimerais en savoir un peu plus.",
       "closing": "Merci, Pierre ! Je vérifie mes dates pour début juillet et je vous réponds demain.",
       "questions": [
-        {"topic": "Maison", "question": "Combien de chambres la maison compte-t-elle ?", "answer": "Elle comprend trois chambres.", "follow_up_to": null},
+        {"topic": "Maison", "question": "Combien de chambres et de salles de bains la maison compte-t-elle ?", "answer": "Elle comprend trois chambres et deux salles de bains.", "follow_up_to": null},
         {"topic": "Maison", "question": "Avec ces chambres, combien de personnes peuvent y dormir confortablement ?", "answer": "Six personnes, grâce à deux lits doubles et deux lits simples.", "follow_up_to": 1, "condition": "After the number of bedrooms is given."},
-        {"topic": "Maison", "question": "Et sur place, quels équipements seront à la disposition des locataires ?", "answer": "Un lave-vaisselle, une laveuse, une sécheuse et un barbecue.", "follow_up_to": null},
+        {"topic": "Maison", "question": "La cuisine est-elle entièrement équipée, et le linge, la laveuse, la sécheuse ainsi que le barbecue seront-ils disponibles ?", "answer": "Oui, la cuisine et le linge sont fournis, avec une laveuse, une sécheuse et un barbecue.", "follow_up_to": null},
         {"topic": "Cadre", "question": "Comment est le quartier de Bowness en été : plutôt calme ou animé ?", "answer": "Il est plutôt calme, avec un grand parc et plusieurs commerces à proximité.", "follow_up_to": null},
         {"topic": "Cadre", "question": "Peut-on rejoindre facilement le parc et le centre-ville en autobus, sans avoir de voiture ?", "answer": "Oui, le parc est à pied et un autobus direct mène au centre-ville en environ vingt-cinq minutes.", "follow_up_to": 4, "condition": "After the setting is described, if access to the city matters to you."},
-        {"topic": "Dates et prix", "question": "Concernant les dates, quand la maison est-elle disponible exactement ?", "answer": "Du premier juillet au quinze août.", "follow_up_to": null},
-        {"topic": "Dates et prix", "question": "Quel loyer demandez-vous pour une semaine ?", "answer": "Le loyer est de 1 500 $ par semaine.", "follow_up_to": null},
-        {"topic": "Dates et prix", "question": "Quelles charges sont comprises dans ce loyer ?", "answer": "L'eau, l'électricité et Internet sont compris.", "follow_up_to": 7, "condition": "After the weekly rent is given, unless included charges are already explained."}
+        {"topic": "Dates et prix", "question": "Quand la maison est-elle disponible exactement, et quelle est la durée minimale de location ?", "answer": "Du premier juillet au quinze août, pour des séjours d'au moins une semaine.", "follow_up_to": null},
+        {"topic": "Dates et prix", "question": "Quel loyer demandez-vous par semaine, et faut-il verser un dépôt pour confirmer la réservation ?", "answer": "Le loyer est de 1 500 $ par semaine, avec un dépôt de 400 $ à la réservation.", "follow_up_to": null},
+        {"topic": "Dates et prix", "question": "L'eau, l'électricité, Internet et le ménage de fin de séjour sont-ils compris dans ce loyer ?", "answer": "L'eau, l'électricité et Internet sont compris ; le ménage de fin de séjour coûte 100 $.", "follow_up_to": 7, "condition": "After the weekly rent is given, unless included charges are already explained."}
       ]
     },
     {
@@ -314,13 +314,13 @@
       "opening": "Bonjour ! Je m'intéresse à vos cours de langues pour adultes, et j'aimerais en savoir un peu plus.",
       "closing": "Merci beaucoup ! Je vais choisir mon cours et m'inscrire avant la date limite.",
       "questions": [
-        {"topic": "Formations", "question": "Quelles langues proposez-vous aux adultes, parmi les langues européennes et asiatiques ?", "answer": "Une dizaine, dont le français, l'espagnol, l'allemand, le mandarin et le japonais.", "follow_up_to": null},
-        {"topic": "Formations", "question": "Comment le niveau est-il évalué avant l'inscription : par un test en ligne ou un entretien ?", "answer": "Vous passez un court test en ligne, puis un conseiller vous oriente vers le bon groupe.", "follow_up_to": 1, "condition": "After the languages are listed, unless placement is already explained."},
+        {"topic": "Formations", "question": "Quelles langues proposez-vous actuellement aux adultes ?", "answer": "Une dizaine, dont le français, l'espagnol, l'allemand, le mandarin et le japonais.", "follow_up_to": null},
+        {"topic": "Formations", "question": "Faut-il être étudiant de l'université pour s'inscrire à ces cours ?", "answer": "Non, ils sont ouverts à tous les adultes, même sans statut d'étudiant universitaire.", "follow_up_to": null},
+        {"topic": "Formations", "question": "Si je choisissais l'espagnol, comment détermineriez-vous le groupe correspondant à mon niveau ?", "answer": "Vous passeriez un court test en ligne, puis un conseiller vous orienterait vers le bon groupe.", "follow_up_to": 1, "condition": "If Spanish is offered; substitute the language you prefer."},
         {"topic": "Formations", "question": "Les cours sont-ils offerts sur le campus, en ligne, ou dans les deux formats ?", "answer": "La plupart ont lieu sur le campus, mais certaines langues sont aussi offertes en ligne.", "follow_up_to": null},
-        {"topic": "Formations", "question": "Combien de semaines dure chaque session, et à quelle fréquence les cours ont-ils lieu selon le format choisi ?", "answer": "La session dure douze semaines, à raison d'un ou deux cours par semaine selon le format.", "follow_up_to": null},
-        {"topic": "Horaires", "question": "Quels horaires proposez-vous le soir et le week-end, notamment en format intensif ?", "answer": "Deux soirs par semaine, de 18 h 30 à 21 h, ou le samedi matin en format intensif.", "follow_up_to": null},
-        {"topic": "Horaires", "question": "Si je choisissais le format intensif, j'aurais plus de travail personnel ?", "answer": "Un peu, oui : comptez environ deux heures de devoirs par semaine.", "follow_up_to": 5, "condition": "If an intensive format is offered."},
-        {"topic": "Tarifs et inscription", "question": "Combien coûte une session de douze semaines, et le manuel est-il compris ?", "answer": "Elle coûte environ 350 $, manuel non compris.", "follow_up_to": null},
+        {"topic": "Organisation", "question": "Combien de semaines dure une session, et à quelle fréquence les cours ont-ils lieu ?", "answer": "La session dure douze semaines, à raison d'un ou deux cours par semaine selon le groupe.", "follow_up_to": null},
+        {"topic": "Organisation", "question": "Quels horaires proposez-vous le soir et le week-end pour les personnes qui travaillent ?", "answer": "Deux soirs par semaine, de 18 h 30 à 21 h, ou le samedi matin.", "follow_up_to": null},
+        {"topic": "Tarifs et inscription", "question": "Combien coûte une session de douze semaines, et le manuel est-il compris ?", "answer": "Elle coûte environ 350 $, mais le manuel doit être acheté séparément.", "follow_up_to": null},
         {"topic": "Tarifs et inscription", "question": "Quelle est la date limite, et l'inscription peut-elle se faire entièrement en ligne ?", "answer": "Oui, jusqu'au 1er septembre ; les groupes sont limités à quinze personnes, alors ne tardez pas.", "follow_up_to": null}
       ]
     },

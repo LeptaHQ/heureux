@@ -136,11 +136,11 @@
         {"topic": "Destination", "question": "Où est-ce que ton enfant est parti, et pour combien de temps ?", "answer": "En Irlande, à Dublin, pendant trois semaines en juillet.", "follow_up_to": null},
         {"topic": "Destination", "question": "Pourquoi avoir choisi l'Irlande ?", "answer": "C'était moins cher qu'en Angleterre, et on nous avait vanté l'accueil chaleureux des familles.", "follow_up_to": 1, "condition": "After the destination is named; adapt the country to their reply."},
         {"topic": "Activités et hébergement", "question": "Comment se passaient ses journées sur place ?", "answer": "Il y avait des cours le matin, puis du sport, des visites ou du théâtre l'après-midi.", "follow_up_to": null},
-        {"topic": "Activités et hébergement", "question": "Il y avait aussi des excursions plus loin ?", "answer": "Oui, une par semaine, notamment à Galway et dans le Connemara.", "follow_up_to": 3, "condition": "After daily activities are described, unless excursions are already mentioned."},
-        {"topic": "Activités et hébergement", "question": "Où logeait ton enfant ?", "answer": "Dans une famille d'accueil, avec un autre élève d'une langue différente.", "follow_up_to": null},
+        {"topic": "Activités et hébergement", "question": "Où logeait ton enfant, et comment la famille d'accueil avait-elle été choisie ?", "answer": "Chez une famille vérifiée par l'organisme, avec un autre élève d'une langue différente.", "follow_up_to": null},
+        {"topic": "Activités et hébergement", "question": "Comment s'est-il adapté au séjour, et quels progrès as-tu remarqués à son retour ?", "answer": "Les premiers jours ont été difficiles, puis il a gagné en confiance et parlait beaucoup plus spontanément.", "follow_up_to": 4, "condition": "After the accommodation arrangement is described."},
         {"topic": "Conditions", "question": "Si mon enfant voulait partir avec le même organisme, quelles seraient les conditions ?", "answer": "Avoir entre 12 et 17 ans, un passeport valide et une autorisation parentale, puis réussir un test de niveau en ligne.", "follow_up_to": null},
-        {"topic": "Conditions", "question": "Combien ça t'a coûté, au total ?", "answer": "Environ 4 500 $, avec le vol, les cours, l'hébergement et les excursions.", "follow_up_to": null},
-        {"topic": "Conditions", "question": "Comment les jeunes étaient-ils encadrés en dehors des cours et pendant les sorties ?", "answer": "Des animateurs restaient joignables et accompagnaient chaque excursion en petits groupes.", "follow_up_to": null}
+        {"topic": "Conditions", "question": "Combien le séjour a-t-il coûté au total, et qu'est-ce qui était compris dans ce prix ?", "answer": "Environ 4 500 $, avec le vol, les cours, l'hébergement, les repas et les excursions.", "follow_up_to": null},
+        {"topic": "Conditions", "question": "Comment les jeunes étaient-ils encadrés en dehors des cours, notamment en cas de problème ?", "answer": "Des animateurs restaient joignables jour et nuit, et les parents disposaient d'un numéro d'urgence.", "follow_up_to": null}
       ]
     },
     {
@@ -226,13 +226,13 @@
       "closing": "Merci, Ève ! La colocation semble bien me convenir. Je vais y réfléchir et je te réponds demain.",
       "questions": [
         {"topic": "Loyer et disponibilité", "question": "Combien coûterait la chambre par mois ?", "answer": "Le loyer serait de 1 300 $ par mois.", "follow_up_to": null},
-        {"topic": "Loyer et disponibilité", "question": "Quelles charges sont comprises dans ce loyer ?", "answer": "Le chauffage, l'électricité et Internet sont compris.", "follow_up_to": 1, "condition": "After the monthly rent is given, unless included charges are already explained."},
-        {"topic": "Loyer et disponibilité", "question": "À partir de quand la chambre sera-t-elle libre ?", "answer": "Dès le premier du mois prochain.", "follow_up_to": null},
-        {"topic": "Espaces et quartier", "question": "Comment est aménagée la chambre ?", "answer": "Elle fait environ douze mètres carrés, avec un lit double, un bureau et une armoire.", "follow_up_to": null},
+        {"topic": "Loyer et disponibilité", "question": "Quelles charges et quelles dépenses communes sont comprises dans ce loyer ?", "answer": "Le chauffage, l'électricité et Internet sont compris ; nous partageons seulement les produits ménagers.", "follow_up_to": 1, "condition": "After the monthly rent is given, unless included costs are already explained."},
+        {"topic": "Loyer et disponibilité", "question": "À partir de quand la chambre sera-t-elle libre, et faut-il s'engager pour une durée minimale ?", "answer": "Dès le premier du mois prochain, avec un engagement d'au moins six mois.", "follow_up_to": null},
+        {"topic": "Espaces et quartier", "question": "Quelle est la taille de la chambre, et quels meubles ou rangements resteront sur place ?", "answer": "Elle fait douze mètres carrés, avec un lit double, un bureau, une armoire et des étagères.", "follow_up_to": null},
         {"topic": "Espaces et quartier", "question": "Et quelles pièces partagerions-nous au quotidien ?", "answer": "La cuisine ouverte, le salon, les deux salles de bains et le balcon.", "follow_up_to": null},
         {"topic": "Espaces et quartier", "question": "Est-ce que le quartier de Danforth est pratique au quotidien ?", "answer": "Oui, il est animé, avec des commerces proches et le métro à dix minutes à pied.", "follow_up_to": null},
         {"topic": "Colocataires et vie quotidienne", "question": "Qui habite déjà dans l'appartement ?", "answer": "Karim, qui travaille de nuit, et Léa, qui étudie à l'université.", "follow_up_to": null},
-        {"topic": "Colocataires et vie quotidienne", "question": "Avec des horaires aussi différents, comment organisez-vous la vie commune ?", "answer": "Nous respectons des périodes calmes et nous répartissons le ménage sur un tableau.", "follow_up_to": 7, "condition": "If the flatmates have different schedules; adapt to the lifestyle details actually given."}
+        {"topic": "Colocataires et vie quotidienne", "question": "Quelles règles avez-vous fixées pour le ménage, les invités et les périodes calmes ?", "answer": "Nous suivons un tableau de ménage, prévenons avant d'inviter quelqu'un et évitons le bruit après 22 h.", "follow_up_to": 7, "condition": "After the flatmates and their schedules are described."}
       ]
     },
     {
@@ -328,15 +328,15 @@
       "register": "vous",
       "note": "You have just settled in Edmonton and want to enrol your children; your neighbour knows the local schools from experience, not official rules. Ask where the schools are, what the teachers are like and which activities are offered. Vous is chosen as a cautious default; a close neighbour may be addressed with tu.",
       "opening": "Bonjour ! Je viens de m'installer dans le quartier et je dois inscrire mes enfants à l'école. Comme vous connaissez le secteur, j'aimerais vous poser quelques questions.",
-      "closing": "Merci beaucoup pour tous ces conseils ! Je vais contacter les écoles dès demain pour inscrire mes enfants.",
+      "closing": "Merci beaucoup pour vos conseils ! Je vais vérifier les écoles correspondant à notre adresse et contacter leur secrétariat.",
       "questions": [
-        {"topic": "Écoles du secteur", "question": "Quelles sont les écoles près d'ici ?", "answer": "Une école primaire publique à deux rues, une école catholique près du parc et une école secondaire à quinze minutes en bus.", "follow_up_to": null},
+        {"topic": "Écoles du secteur", "question": "Quelles écoles se trouvent près d'ici, et comment les enfants s'y rendent-ils habituellement ?", "answer": "L'école primaire est à deux rues et se rejoint à pied ; l'école secondaire est à quinze minutes en bus.", "follow_up_to": null},
         {"topic": "Écoles du secteur", "question": "Est-ce que certaines d'entre elles enseignent en français ?", "answer": "Il y a une école francophone et des programmes d'immersion, mais à une vingtaine de minutes en voiture.", "follow_up_to": 1, "condition": "After nearby schools are listed, if French-language schooling matters to you."},
         {"topic": "Enseignants", "question": "Que disent les parents du quartier au sujet des enseignants ?", "answer": "Beaucoup de bien : ils sont très disponibles, et ceux de mes enfants envoient des nouvelles aux parents chaque semaine.", "follow_up_to": null},
         {"topic": "Enseignants", "question": "Comment accueillent-ils les nouveaux élèves ?", "answer": "Avec beaucoup d'attention : ils désignent un camarade pour guider chaque nouvel élève pendant les premières semaines.", "follow_up_to": 3, "condition": "After teachers are described, unless newcomer support is already mentioned."},
         {"topic": "Activités", "question": "Quelles activités sont proposées aux élèves ?", "answer": "Un club de lecture, du basketball, une chorale et du patinage en hiver.", "follow_up_to": null},
-        {"topic": "Activités", "question": "Ces activités ont-elles lieu le midi ou après la classe ?", "answer": "Surtout le midi, sauf le basketball, qui se termine à 16 h 30.", "follow_up_to": 5, "condition": "After activities are listed, unless their timing is already given."},
-        {"topic": "Inscription", "question": "Pour les inscrire, à qui faudrait-il que je m'adresse ?", "answer": "Au secrétariat de l'école de votre secteur : on vous y indiquera les documents à fournir.", "follow_up_to": null},
+        {"topic": "Activités", "question": "Ces activités ont-elles lieu le midi ou après la classe, et existe-t-il aussi un service de garde ?", "answer": "La plupart ont lieu le midi ; un service de garde payant accueille les enfants jusqu'à 18 h.", "follow_up_to": 5, "condition": "After activities are listed, unless their timing is already given."},
+        {"topic": "Inscription", "question": "Pour les inscrire, à qui dois-je m'adresser et quels documents sont généralement demandés ?", "answer": "Au secrétariat de l'école de secteur ; prévoyez une preuve d'adresse et les documents d'identité des enfants.", "follow_up_to": null},
         {"topic": "Inscription", "question": "Où puis-je vérifier officiellement l'école correspondant à mon adresse avant de préparer le dossier ?", "answer": "Le site du conseil scolaire permet de chercher l'établissement par adresse et donne les coordonnées du secrétariat.", "follow_up_to": null}
       ]
     },

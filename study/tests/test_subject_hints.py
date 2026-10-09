@@ -65,7 +65,13 @@ class SubjectHintsTests(SimpleTestCase):
     def test_reviewed_themes_have_one_piste_per_grouped_question(self):
         hints = content.load_tache_two_subject_hints(months=self.months)
         _themes, theme_by_key = content.load_tache_two_subject_themes()
-        reviewed_themes = {"arrivee", "logement", "vie-quartier", "travail"}
+        reviewed_themes = {
+            "arrivee",
+            "logement",
+            "vie-quartier",
+            "travail",
+            "ecole-etudes",
+        }
         for response in self.responses:
             if theme_by_key[response.content_key] in reviewed_themes:
                 self.assertEqual(

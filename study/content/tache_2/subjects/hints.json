@@ -4,8 +4,8 @@
   "groups": {
     "friend-moving-abroad-sale": [
       {
-        "french": "Objets et meubles en vente",
-        "english": "Objects and furniture for sale"
+        "french": "Canapé, télévision, lampes ou un peu de tout",
+        "english": "Sofa, television, lamps or a bit of everything"
       },
       {
         "french": "État général et défauts éventuels",
@@ -16,8 +16,8 @@
         "english": "Sofa dimensions and dismantling"
       },
       {
-        "french": "Prix du canapé, de la table et des lampes",
-        "english": "Prices of the sofa, table and lamps"
+        "french": "Prix du canapé, de la table, de la télévision et des lampes",
+        "english": "Prices of the sofa, table, television and lamps"
       },
       {
         "french": "Réduction pour plusieurs objets",
@@ -28,8 +28,8 @@
         "english": "Time to view the items and try the sofa"
       },
       {
-        "french": "Délai de réservation après la visite",
-        "english": "Reservation period after the viewing"
+        "french": "Factures d'origine et garanties encore valables",
+        "english": "Original receipts and remaining warranties"
       },
       {
         "french": "Camionnette et aide pour charger les achats",
@@ -318,20 +318,20 @@
         "english": "Moving day and start time"
       },
       {
-        "french": "Départ à Kensington et arrivée à Bridgeland",
-        "english": "Departure from Kensington and arrival in Bridgeland"
+        "french": "Nouvelle adresse et trajet depuis l'appartement actuel",
+        "english": "New address and travel time from the current apartment"
       },
       {
-        "french": "Étages, ascenseurs et stationnement aux deux adresses",
-        "english": "Floors, elevators and parking at both addresses"
+        "french": "Ascenseur et stationnement au nouveau logement",
+        "english": "Elevator and parking at the new home"
       },
       {
-        "french": "Objets les plus encombrants à déplacer",
-        "english": "Bulkiest items to move"
+        "french": "Objets les plus encombrants et les plus lourds",
+        "english": "Bulkiest and heaviest items"
       },
       {
-        "french": "Démontage de l'armoire avant le déménagement",
-        "english": "Dismantling the wardrobe before moving day"
+        "french": "Meubles à démonter et pieds du canapé à retirer",
+        "english": "Furniture to dismantle and sofa legs to remove"
       },
       {
         "french": "Autres personnes présentes pour aider",
@@ -342,8 +342,8 @@
         "english": "Van, ramp, trolley and protective equipment"
       },
       {
-        "french": "Tâche prioritaire confiée au candidat",
-        "english": "Priority task assigned to the candidate"
+        "french": "Déjeuner et boissons pour les participants",
+        "english": "Lunch and drinks for the helpers"
       }
     ],
     "new-employee-company-orientation": [
@@ -836,8 +836,8 @@
         "english": "Maximum commute to downtown"
       },
       {
-        "french": "Préférence entre Sunnyside et Bridgeland",
-        "english": "Preference between Sunnyside and Bridgeland"
+        "french": "Quartier vivant et commerçant ou calme et résidentiel",
+        "english": "Lively area with shops or quiet residential area"
       },
       {
         "french": "Type de logement et ameublement souhaités",
@@ -848,12 +848,12 @@
         "english": "Minimum floor area and workspace"
       },
       {
-        "french": "Calme, lumière, buanderie et balcon",
-        "english": "Quiet, natural light, laundry and balcony"
+        "french": "Buanderie, balcon, rangement ou stationnement",
+        "english": "Laundry, balcony, storage or parking"
       },
       {
-        "french": "Critère pouvant faire l'objet d'un compromis",
-        "english": "Criterion open to compromise"
+        "french": "Ouverture à la colocation et conditions souhaitées",
+        "english": "Openness to shared housing and preferred conditions"
       }
     ],
     "estate-agent-housing-options": [
@@ -866,20 +866,20 @@
         "english": "Neighbourhoods where the listings are located"
       },
       {
-        "french": "Ambiance et services à Beltline et à Bridgeland",
-        "english": "Atmosphere and services in Beltline and Bridgeland"
+        "french": "Ambiance le soir et le week-end dans les deux quartiers",
+        "english": "Evening and weekend atmosphere in both neighbourhoods"
       },
       {
-        "french": "Quartier le mieux desservi sans voiture",
-        "english": "Best-connected neighbourhood without a car"
+        "french": "Commerces et services accessibles à pied",
+        "english": "Shops and services within walking distance"
       },
       {
         "french": "Fourchette de loyers à prévoir",
         "english": "Expected rent range"
       },
       {
-        "french": "Charges, stationnement et buanderie à ajouter",
-        "english": "Utilities, parking and laundry costs"
+        "french": "Charges comprises et frais de stationnement ou de buanderie",
+        "english": "Included utilities and parking or laundry costs"
       },
       {
         "french": "Disponibilité et durée minimale du bail",
@@ -1304,8 +1304,8 @@
         "english": "Conversation café, sport or volunteering as a first step"
       },
       {
-        "french": "Déroulement d'une première séance au café de conversation",
-        "english": "What happens at a first conversation café session"
+        "french": "Présentation au groupe quand on arrive seul",
+        "english": "Being introduced to the group when arriving alone"
       },
       {
         "french": "Sport, atelier culturel ou bénévolat ouvert aux débutants",
@@ -1316,8 +1316,8 @@
         "english": "Francophone association or newcomer group"
       },
       {
-        "french": "Lieux et événements gratuits propices aux rencontres",
-        "english": "Free places and events where meeting people is easy"
+        "french": "Soirées de jeux, marchés et fêtes sans inscription",
+        "english": "Game nights, markets and festivals without registration"
       },
       {
         "french": "Dates et modalités d'inscription aux activités",
@@ -1328,8 +1328,8 @@
         "english": "A natural way to start a conversation"
       },
       {
-        "french": "Première activité en compagnie de Pierre",
-        "english": "Attending a first activity with Pierre"
+        "french": "Possibilité d'accompagner Pierre à la randonnée",
+        "english": "Possibility of joining Pierre on the hike"
       }
     ],
     "canadian-work-hours-home-country-comparison": [
@@ -1996,8 +1996,8 @@
     ],
     "neighbor-seaside-house-rental": [
       {
-        "french": "Emplacement et distance du centre de Carleton-sur-Mer",
-        "english": "Location and distance from central Carleton-sur-Mer"
+        "french": "Secteur de la maison et distance du centre",
+        "english": "Area where the house is located and distance downtown"
       },
       {
         "french": "Accès à pied jusqu'à la plage",
@@ -2318,8 +2318,8 @@
         "english": "Shops, parks, transport and car-free living in Beltline"
       },
       {
-        "french": "Prix demandé et durée de mise en vente",
-        "english": "Asking price and time on the market"
+        "french": "Prix demandé et taxes foncières annuelles",
+        "english": "Asking price and annual property taxes"
       },
       {
         "french": "Charges mensuelles et services compris",
@@ -2544,12 +2544,12 @@
         "english": "How the agency works and possible fees"
       },
       {
-        "french": "Type de logement adapté pour commencer",
-        "english": "Suitable housing type for getting started"
+        "french": "Studio, appartement d'une chambre ou colocation",
+        "english": "Studio, one-bedroom apartment or shared housing"
       },
       {
-        "french": "Secteurs combinant transports, commerces et loyer raisonnable",
-        "english": "Areas balancing transport, shops and reasonable rent"
+        "french": "Secteurs proches des commerces et du Métrobus",
+        "english": "Areas near shops and Metrobus routes"
       },
       {
         "french": "Loyers à Limoilou et à Sainte-Foy",
@@ -3168,8 +3168,8 @@
         "english": "Included utilities and shared expenses"
       },
       {
-        "french": "Disponibilité et durée minimale d'engagement",
-        "english": "Availability and minimum commitment"
+        "french": "Disponibilité, bail et durée minimale",
+        "english": "Availability, lease and minimum term"
       },
       {
         "french": "Taille, mobilier et rangements de la chambre",
@@ -3180,8 +3180,8 @@
         "english": "Shared rooms in the apartment"
       },
       {
-        "french": "Vie quotidienne dans le quartier de Danforth",
-        "english": "Daily life in the Danforth neighbourhood"
+        "french": "Commerces, services et métro à Danforth",
+        "english": "Shops, services and subway access in Danforth"
       },
       {
         "french": "Personnes qui vivent déjà dans la colocation",
@@ -4140,8 +4140,8 @@
         "english": "Extra cost for a furnished apartment"
       },
       {
-        "french": "Quartiers équilibrant transports, commerces et loyer",
-        "english": "Areas balancing transport, shops and rent"
+        "french": "Quartiers desservis par le CTrain avec services à pied",
+        "english": "Areas served by CTrain with walkable services"
       },
       {
         "french": "Loyer moyen dans ces quartiers",
@@ -4756,8 +4756,8 @@
     ],
     "help-transport-heavy-objects-no-vehicle": [
       {
-        "french": "Objets à transporter et élément le plus difficile",
-        "english": "Objects to move and the most difficult item"
+        "french": "Objets les plus encombrants et les plus lourds",
+        "english": "Bulkiest and heaviest objects"
       },
       {
         "french": "Démontage et dimensions de l'objet le plus encombrant",
@@ -4784,8 +4784,8 @@
         "english": "People available to help"
       },
       {
-        "french": "Tâche à prendre en charge en priorité",
-        "english": "Priority task to handle"
+        "french": "Réservation, protections ou coordination des aides",
+        "english": "Booking, protective materials or coordinating helpers"
       }
     ],
     "neighbor-home-childcare-provider-referral": [
@@ -4950,8 +4950,8 @@
         "english": "Condition of kitchen, bathroom, windows and heating"
       },
       {
-        "french": "Vie du quartier de Rosemont",
-        "english": "Life in the Rosemont neighbourhood"
+        "french": "Ambiance à Rosemont le soir et le week-end",
+        "english": "Rosemont atmosphere in evenings and on weekends"
       },
       {
         "french": "Frais de copropriété et taxes à prévoir",
@@ -5388,12 +5388,12 @@
         "english": "Kitchen, linens, appliances and barbecue"
       },
       {
-        "french": "Ambiance du quartier de Bowness en été",
-        "english": "Bowness neighbourhood atmosphere in summer"
+        "french": "Ambiance à Bowness le soir et le week-end",
+        "english": "Bowness atmosphere in evenings and on weekends"
       },
       {
-        "french": "Accès au parc et au centre-ville en autobus, sans voiture",
-        "english": "Reaching the park and downtown by bus without a car"
+        "french": "Accès à pied au parc et aux commerces, puis au centre",
+        "english": "Walking access to park and shops, then downtown"
       },
       {
         "french": "Dates disponibles et durée minimale",

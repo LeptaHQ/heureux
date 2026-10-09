@@ -321,7 +321,7 @@
       "opening": "Bonjour Ève ! Votre maison en Gaspésie pourrait bien me convenir pour les vacances, alors j'aimerais avoir quelques précisions.",
       "closing": "Merci, Ève ! Je vais vérifier mes dates pour la première semaine de juillet.",
       "questions": [
-        {"topic": "Emplacement et cadre", "question": "Où se situe exactement la maison, et à quelle distance se trouve le centre de Carleton-sur-Mer ?", "answer": "Dans un secteur résidentiel de Carleton-sur-Mer, à environ dix minutes du centre en voiture.", "follow_up_to": null},
+        {"topic": "Emplacement et cadre", "question": "Dans quel secteur de Carleton-sur-Mer se situe la maison, et à quelle distance se trouve le centre ?", "answer": "Dans un secteur résidentiel de Carleton-sur-Mer, à environ dix minutes du centre en voiture.", "follow_up_to": null},
         {"topic": "Emplacement et cadre", "question": "Est-ce qu'on peut rejoindre la plage à pied depuis la maison ?", "answer": "Oui, un chemin mène à la plage en cinq minutes environ.", "follow_up_to": 1, "condition": "After the location is given, unless beach access is already explained."},
         {"topic": "Emplacement et cadre", "question": "Quels commerces, restaurants ou activités trouve-t-on facilement dans les environs ?", "answer": "Une épicerie et quelques restaurants se trouvent au village, avec du kayak et des sentiers côtiers à proximité.", "follow_up_to": null},
         {"topic": "Aménagement et équipement", "question": "Combien de chambres et de lits y a-t-il, et combien de personnes peuvent dormir confortablement ?", "answer": "Deux chambres, chacune avec un lit double, permettent d'accueillir quatre personnes.", "follow_up_to": null},

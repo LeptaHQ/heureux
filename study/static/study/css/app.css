@@ -7442,15 +7442,15 @@ a.qrow:focus-visible {
 }
 .subject-hints__french {
   display: block;
-  color: var(--text);
-  font-size: 0.84rem;
-  font-weight: 600;
-}
-.subject-hints__english {
-  display: block;
   margin-top: 0.15rem;
   color: var(--text-soft);
   font-size: 0.79rem;
+}
+.subject-hints__english {
+  display: block;
+  color: var(--text);
+  font-size: 0.84rem;
+  font-weight: 600;
 }
 .subject-hints__section {
   margin-top: 1rem;
@@ -7476,7 +7476,7 @@ a.qrow:focus-visible {
   color: var(--text-soft);
   font-size: 0.73rem;
 }
-.subject-hints__example .subject-hints__french {
+.subject-hints__example .subject-hints__english {
   font-weight: 400;
 }
 .subject-hints-jump {

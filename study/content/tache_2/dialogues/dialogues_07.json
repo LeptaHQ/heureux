@@ -10,7 +10,7 @@
       "questions": [
         {"topic": "Type de logement", "question": "Pour commencer, vaut-il mieux choisir un logement meublé temporaire, une colocation ou directement un bail d'un an ?", "answer": "Un logement meublé pour quelques mois permettrait de découvrir la ville avant de signer un bail plus long.", "follow_up_to": null},
         {"topic": "Type de logement", "question": "Quel supplément faut-il prévoir pour un logement meublé ?", "answer": "Souvent de 200 à 300 $ de plus par mois à Calgary.", "follow_up_to": 1, "condition": "If furnished housing is recommended, unless its added cost is already explained."},
-        {"topic": "Quartiers", "question": "Dans quels quartiers trouverais-je un bon équilibre entre transports, commerces et loyer raisonnable ?", "answer": "Sunnyside est proche du centre ; Brentwood est plus calme, moins cher et bien relié par le CTrain.", "follow_up_to": null},
+        {"topic": "Quartiers", "question": "Quels quartiers sont bien desservis par le CTrain tout en offrant des commerces et des services accessibles à pied ?", "answer": "Sunnyside est proche du centre ; Brentwood est plus calme et bien relié par le CTrain, avec plusieurs commerces près de la station.", "follow_up_to": null},
         {"topic": "Quartiers", "question": "Quel loyer moyen faut-il prévoir dans ces quartiers ?", "answer": "Pour un appartement d'une chambre, comptez généralement entre 1 500 et 1 900 $ par mois.", "follow_up_to": 3, "condition": "After neighbourhoods are suggested, unless typical rents are already given."},
         {"topic": "Démarches", "question": "Où chercher des annonces fiables, et quels signes devraient me faire éviter une offre ?", "answer": "Consultez Rentals.ca ou Realtor.ca, et évitez tout paiement avant une visite et la vérification du propriétaire.", "follow_up_to": null},
         {"topic": "Démarches", "question": "Quels documents les propriétaires demandent-ils généralement ?", "answer": "Souvent une pièce d'identité, une preuve de revenus et des références locatives.", "follow_up_to": null},
@@ -314,14 +314,14 @@
       "opening": "Bonjour ! Je veux bien vous aider à organiser ce transport, mais j'ai besoin de quelques précisions.",
       "closing": "Merci ! Je vais comparer les camionnettes disponibles pour samedi matin et vous confirmer la réservation.",
       "questions": [
-        {"topic": "Objets", "question": "Quels objets faut-il transporter, et lequel sera le plus difficile à déplacer ?", "answer": "Un canapé, une commode et une machine à laver ; le canapé sera le plus encombrant.", "follow_up_to": null},
+        {"topic": "Objets", "question": "Quels objets faut-il transporter, et lesquels sont les plus encombrants ou les plus lourds ?", "answer": "Un canapé, une commode et une machine à laver ; le canapé est le plus encombrant et la machine est la plus lourde.", "follow_up_to": null},
         {"topic": "Objets", "question": "Le canapé se démonte-t-il, et quelles sont ses dimensions une fois préparé pour le transport ?", "answer": "Les pieds se retirent ; il mesure alors deux mètres de long et quatre-vingt-dix centimètres de profondeur.", "follow_up_to": 1, "condition": "After the bulkiest object is identified; adapt to that item."},
         {"topic": "Trajet et accès", "question": "Pour le trajet, quelle distance faut-il parcourir entre le départ et l'arrivée ?", "answer": "Environ vingt kilomètres, jusqu'à la commune voisine.", "follow_up_to": null},
         {"topic": "Trajet et accès", "question": "Et côté accès, y a-t-il des étages ou un ascenseur au départ et à l'arrivée ?", "answer": "Il y a deux étages sans ascenseur au départ, puis un rez-de-chaussée à l'arrivée.", "follow_up_to": null},
         {"topic": "Organisation", "question": "Quel jour et à quelle heure souhaitez-vous effectuer le transport ?", "answer": "Samedi prochain, vers neuf heures.", "follow_up_to": null},
         {"topic": "Organisation", "question": "Quelle taille de camionnette faudrait-il louer, et doit-elle avoir une rampe ou un chariot ?", "answer": "Une camionnette de douze mètres cubes avec rampe et chariot devrait suffire.", "follow_up_to": null},
         {"topic": "Organisation", "question": "Qui d'autre pourra nous aider à porter les objets ?", "answer": "Mon frère et un voisin seront disponibles.", "follow_up_to": null},
-        {"topic": "Organisation", "question": "De mon côté, de quelle tâche voulez-vous que je m'occupe en priorité ?", "answer": "J'aimerais que vous réserviez la camionnette.", "follow_up_to": null}
+        {"topic": "Organisation", "question": "De mon côté, voulez-vous que je réserve la camionnette, que j'achète les protections ou que je coordonne les personnes qui aideront ?", "answer": "Occupez-vous surtout de réserver la camionnette ; je préparerai les protections et contacterai les autres personnes.", "follow_up_to": null}
       ]
     },
     {

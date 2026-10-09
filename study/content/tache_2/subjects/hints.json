@@ -1300,36 +1300,36 @@
     ],
     "newcomer-local-acquaintance-meet-people": [
       {
-        "french": "Endroits accueillants pour rencontrer du monde à Calgary",
-        "english": "Welcoming places to meet people in Calgary"
+        "french": "Café de conversation, sport ou bénévolat pour commencer",
+        "english": "Conversation café, sport or volunteering as a first step"
       },
       {
-        "french": "Accueil lors d'un premier café de conversation",
-        "english": "What to expect at a first conversation café"
+        "french": "Déroulement d'une première séance au café de conversation",
+        "english": "What happens at a first conversation café session"
       },
       {
-        "french": "Activités pour revoir régulièrement les mêmes personnes",
-        "english": "Activities for regularly seeing the same people"
-      },
-      {
-        "french": "Activité la plus facile quand on ne connaît personne",
-        "english": "Easiest activity when you do not know anyone"
+        "french": "Sport, atelier culturel ou bénévolat ouvert aux débutants",
+        "english": "Sport, cultural workshop or volunteering open to beginners"
       },
       {
         "french": "Association francophone ou groupe de nouveaux arrivants",
         "english": "Francophone association or newcomer group"
       },
       {
-        "french": "Inscription à la randonnée du dimanche",
-        "english": "Registration for the Sunday hike"
+        "french": "Lieux et événements gratuits propices aux rencontres",
+        "english": "Free places and events where meeting people is easy"
       },
       {
-        "french": "Coût d'une première sortie",
-        "english": "Cost of a first outing"
+        "french": "Dates et modalités d'inscription aux activités",
+        "english": "Activity dates and registration details"
       },
       {
-        "french": "Possibilité d'y aller avec Pierre",
-        "english": "Going to the first outing with Pierre"
+        "french": "Façon naturelle d'engager la conversation",
+        "english": "A natural way to start a conversation"
+      },
+      {
+        "french": "Première activité en compagnie de Pierre",
+        "english": "Attending a first activity with Pierre"
       }
     ],
     "canadian-work-hours-home-country-comparison": [
@@ -4356,8 +4356,8 @@
         "english": "Obstacle that delayed settling in the most"
       },
       {
-        "french": "Délai et budget de la démarche nécessaire",
-        "english": "Time and budget for the required procedure"
+        "french": "Durée et coût de la démarche nécessaire",
+        "english": "Time and cost of the required procedure"
       },
       {
         "french": "Vêtements et équipements du premier hiver",
@@ -4368,8 +4368,8 @@
         "english": "First friendships made in Montreal"
       },
       {
-        "french": "Changements dans la vie quotidienne",
-        "english": "Changes in daily life"
+        "french": "Travail, déplacements et temps libre depuis l'arrivée à Montréal",
+        "english": "Work, travel and free time since moving to Montreal"
       },
       {
         "french": "Économies, logement, documents ou contacts à mieux préparer",

@@ -77,8 +77,8 @@
     {
       "group": "help-friend-find-rental-needs",
       "register": "tu",
-      "note": "Your friend Ève needs a rental in Calgary, and you are helping define the search. She is the future tenant; you are not an agent. Ask about timing, budget, location, size, housing type and priorities. Use tu and let her answers determine the criteria.",
-      "opening": "Salut Ève ! Avant de chercher des annonces à Calgary, j'aimerais bien comprendre ce dont tu as vraiment besoin.",
+      "note": "Your friend Ève needs a rental in Seattle, and you are helping define the search. She is the future tenant; you are not an agent. Ask about timing, budget, location, size, housing type and priorities. Use tu and let her answers determine the criteria.",
+      "opening": "Salut Ève ! Avant de chercher des annonces à Seattle, j'aimerais bien comprendre ce dont tu as vraiment besoin.",
       "closing": "Parfait, Ève, merci ! Je vais chercher un logement calme à moins de trente-cinq minutes du centre, y compris en colocation.",
       "questions": [
         {"topic": "Calendrier et budget", "question": "À partir de quand voudrais-tu emménager, et cherches-tu un bail d'un an ou une formule plus flexible ?", "answer": "Au début du mois prochain, avec un bail d'au moins un an.", "follow_up_to": null},
@@ -94,14 +94,14 @@
     {
       "group": "estate-agent-housing-options",
       "register": "vous",
-      "note": "You ask an estate agent about available housing in Calgary. One source allows renting or buying; this shared model chooses renting, which fits every member. Compare property types, locations, prices, availability and rental conditions. Use vous and do not mix rental and purchase terminology.",
-      "opening": "Bonjour ! Je cherche un logement à louer à Calgary et j'aimerais savoir quelles options votre agence propose.",
-      "closing": "Merci pour ces renseignements. Je vais comparer Beltline et Bridgeland avant de demander une visite.",
+      "note": "You ask an estate agent about available housing in Seattle. One source allows renting or buying; this shared model chooses renting, which fits every member. Compare property types, locations, prices, availability and rental conditions. Use vous and do not mix rental and purchase terminology.",
+      "opening": "Bonjour ! Je cherche un logement à louer à Seattle et j'aimerais savoir quelles options votre agence propose.",
+      "closing": "Merci pour ces renseignements. Je vais comparer Capitol Hill et Ballard avant de demander une visite.",
       "questions": [
         {"topic": "Offres et quartiers", "question": "Quels types de logements avez-vous actuellement à louer, et quelles superficies proposent-ils ?", "answer": "Des studios de trente-cinq mètres carrés et plusieurs appartements de deux chambres autour de soixante-dix mètres carrés.", "follow_up_to": null},
-        {"topic": "Offres et quartiers", "question": "Et dans quels quartiers se trouvent ces différentes offres ?", "answer": "Principalement à Beltline et à Bridgeland.", "follow_up_to": null},
-        {"topic": "Offres et quartiers", "question": "Beltline et Bridgeland sont-ils plutôt calmes, familiaux ou animés, surtout le soir et le week-end ?", "answer": "Beltline est animé le soir et le week-end ; Bridgeland est plus calme, résidentiel et familial.", "follow_up_to": 2, "condition": "After several areas have been named."},
-        {"topic": "Offres et quartiers", "question": "Et pour la vie quotidienne, quels commerces et services sont accessibles à pied — épicerie, pharmacie, clinique ou bibliothèque — dans chacun de ces quartiers ?", "answer": "Beltline offre davantage de commerces et de cliniques ; Bridgeland compte une épicerie, une pharmacie et une bibliothèque de quartier.", "follow_up_to": 2, "condition": "After several areas have been named."},
+        {"topic": "Offres et quartiers", "question": "Et dans quels quartiers se trouvent ces différentes offres ?", "answer": "Principalement à Capitol Hill et à Ballard.", "follow_up_to": null},
+        {"topic": "Offres et quartiers", "question": "Capitol Hill et Ballard sont-ils plutôt calmes, familiaux ou animés, surtout le soir et le week-end ?", "answer": "Capitol Hill est animé le soir et le week-end ; Ballard est plus calme, résidentiel et familial.", "follow_up_to": 2, "condition": "After several areas have been named."},
+        {"topic": "Offres et quartiers", "question": "Et pour la vie quotidienne, quels commerces et services sont accessibles à pied — épicerie, pharmacie, clinique ou bibliothèque — dans chacun de ces quartiers ?", "answer": "Près de nos offres, Capitol Hill compte de nombreux commerces et cliniques ; Ballard offre aussi une épicerie, une pharmacie et une bibliothèque.", "follow_up_to": 2, "condition": "After several areas have been named."},
         {"topic": "Budget", "question": "Côté budget, quelle fourchette de loyers faut-il prévoir ?", "answer": "Environ 1 500 $ pour un studio et jusqu'à 2 400 $ pour un appartement de deux chambres.", "follow_up_to": null},
         {"topic": "Budget", "question": "Pour chaque offre, quelles charges sont comprises, et quels frais faut-il prévoir pour le stationnement ou la buanderie ?", "answer": "L'eau est incluse ; le chauffage varie, le stationnement coûte 100 $ et la buanderie est payante.", "follow_up_to": 5, "condition": "After the rent range is given, unless additional costs are already explained."},
         {"topic": "Disponibilité et conditions", "question": "À partir de quand ces logements sont-ils disponibles, et quelle est la durée minimale du bail ?", "answer": "Deux sont libres immédiatement, un autre le mois prochain, et les baux sont généralement d'un an.", "follow_up_to": null},
@@ -217,10 +217,10 @@
       "opening": "Salut ! Ton séjour à la montagne me donne envie d'y aller à mon tour.",
       "closing": "Merci pour tes conseils ! Je vais chercher un séjour adapté à mon rythme et à mon budget.",
       "questions": [
-        {"topic": "Région et saison", "question": "Dans quelle région es-tu allé à la montagne ?", "answer": "Dans Charlevoix, au Québec.", "follow_up_to": null},
+        {"topic": "Région et saison", "question": "Dans quelle région es-tu allé à la montagne ?", "answer": "Dans les Cascades, près de Seattle.", "follow_up_to": null},
         {"topic": "Région et saison", "question": "Pour cette région, quelle saison conseillerais-tu ?", "answer": "Septembre est agréable pour les randonnées, avec des journées douces et des matinées plus fraîches.", "follow_up_to": 1, "condition": "After they identify the region, ask when it is worth visiting."},
         {"topic": "Durée et activités", "question": "Combien de temps as-tu passé sur place ?", "answer": "Cinq jours, avec une activité principale par jour.", "follow_up_to": null},
-        {"topic": "Durée et activités", "question": "Quelles activités as-tu le plus appréciées ?", "answer": "Les randonnées et une visite dans un village au bord du fleuve.", "follow_up_to": null},
+        {"topic": "Durée et activités", "question": "Quelles activités as-tu le plus appréciées ?", "answer": "Les randonnées et une visite dans un village au pied des montagnes.", "follow_up_to": null},
         {"topic": "Durée et activités", "question": "Ces randonnées demandaient-elles une bonne condition physique ?", "answer": "Certaines oui, mais plusieurs sentiers faciles permettaient de profiter du paysage.", "follow_up_to": 4, "condition": "If hiking is mentioned; adapt the difficulty question to the actual activity."},
         {"topic": "Hébergement et budget", "question": "Dans quel type d'hébergement étais-tu ?", "answer": "Dans un petit chalet partagé avec deux amis.", "follow_up_to": null},
         {"topic": "Hébergement et budget", "question": "Quel budget as-tu prévu pour le séjour ?", "answer": "Environ 600 $ par personne, pour le chalet, les repas et les activités.", "follow_up_to": null},
@@ -285,8 +285,8 @@
       "opening": "Bonjour ! Je prépare des vacances et j'aimerais comparer les voyages que vous proposez.",
       "closing": "Merci pour ces renseignements. Je vais comparer cette proposition avec mes dates et mon budget.",
       "questions": [
-        {"topic": "Destinations et parcours", "question": "Quelles destinations touristiques proposez-vous en ce moment ?", "answer": "Des circuits au Portugal et des séjours de découverte au Canada.", "follow_up_to": null},
-        {"topic": "Destinations et parcours", "question": "Pour le Portugal, quels circuits avez-vous ?", "answer": "Un circuit entre Lisbonne et Porto, avec plusieurs étapes dans les villes de la côte.", "follow_up_to": 1, "condition": "If Portugal is offered; substitute a destination actually mentioned."},
+        {"topic": "Destinations et parcours", "question": "Quelles destinations touristiques proposez-vous en ce moment ?", "answer": "Des circuits aux États-Unis et des séjours de découverte au Canada.", "follow_up_to": null},
+        {"topic": "Destinations et parcours", "question": "Pour les États-Unis, quels circuits avez-vous ?", "answer": "Un circuit entre Seattle et Portland, avec plusieurs étapes dans les villes de la côte.", "follow_up_to": 1, "condition": "If the United States is offered; substitute a destination actually mentioned."},
         {"topic": "Destinations et parcours", "question": "Combien de temps dure ce circuit ?", "answer": "Huit jours, avec deux nuits dans chacune des principales étapes.", "follow_up_to": null},
         {"topic": "Budget", "question": "Quel est le prix par personne ?", "answer": "Le tarif commence à 1 100 $, selon la date de départ.", "follow_up_to": null},
         {"topic": "Budget", "question": "Qu'est-ce qui est compris dans ce tarif ?", "answer": "Les hôtels, les petits-déjeuners et les transports entre les étapes, mais pas le vol.", "follow_up_to": 4, "condition": "After the price is given, unless inclusions are already explained."},
@@ -315,17 +315,14 @@
     {
       "group": "newcomer-local-acquaintance-meet-people",
       "register": "vous",
-      "note": "You have just arrived in Calgary and ask Pierre, a colleague or neighbour depending on the source, how to build a social circle. Cover welcoming places, recurring activities, associations and a realistic first visit. Accommodation is already found. Use vous.",
-      "notes": {
-        "tache2:decembre:batch-01:subject-05": "You have recently arrived in Canada and ask your colleague where to meet people. They advise you about local social life, not recruitment or immigration paperwork. Explore activities, associations and welcoming venues. Vous is chosen for this new professional relationship."
-      },
-      "opening": "Bonjour Pierre ! Comme je viens d'arriver à Calgary, j'aimerais rencontrer du monde et me créer un cercle d'amis. Vous connaissez bien la ville, alors j'aurais besoin de vos conseils.",
+      "note": "You have just arrived in a city and ask your neighbour Pierre how to build a social circle. Cover welcoming places, recurring activities, associations and a realistic first visit. The neighbour relationship means accommodation is already found. Use vous.",
+      "opening": "Bonjour Pierre ! Comme je viens d'arriver dans la ville, j'aimerais rencontrer du monde et me créer un cercle d'amis. Vous connaissez bien le quartier, alors j'aurais besoin de vos conseils.",
       "closing": "Merci beaucoup, Pierre ! Je vous retrouve dimanche devant la bibliothèque.",
       "questions": [
         {"topic": "Premières rencontres", "question": "Comme je ne connais encore personne, par quoi me conseilleriez-vous de commencer : un café de conversation, une activité sportive ou du bénévolat ?", "answer": "Je commencerais par le café de conversation de la bibliothèque centrale : l'ambiance est détendue et beaucoup de participants viennent seuls.", "follow_up_to": null},
         {"topic": "Premières rencontres", "question": "Quand on arrive seul, est-ce qu'un animateur nous présente au groupe ou faut-il engager la conversation soi-même ?", "answer": "Un bénévole accueille les nouveaux, puis tout le monde discute par petites tables autour d'un thème simple.", "follow_up_to": 1, "condition": "If the library conversation café is suggested."},
         {"topic": "Activités et associations", "question": "Pour revoir régulièrement les mêmes personnes, connaissez-vous un club de sport, un atelier culturel ou une association de bénévolat qui accueille facilement les débutants ?", "answer": "Le groupe de randonnée du dimanche accueille les débutants, et le centre communautaire cherche des bénévoles deux fois par mois. Je participe souvent aux randonnées.", "follow_up_to": null},
-        {"topic": "Activités et associations", "question": "Existe-t-il aussi une association francophone ou un groupe destiné aux nouveaux arrivants ?", "answer": "Oui, La Cité des Rocheuses organise des activités en français et une soirée d'accueil chaque mois.", "follow_up_to": null},
+        {"topic": "Activités et associations", "question": "Existe-t-il aussi une association francophone ou un groupe destiné aux nouveaux arrivants ?", "answer": "Oui, une association francophone de Seattle organise des activités en français et une soirée d'accueil chaque mois.", "follow_up_to": null},
         {"topic": "Activités et associations", "question": "Y a-t-il aussi des événements gratuits — soirées de jeux, marchés ou fêtes de quartier — où l'on peut rencontrer du monde sans s'inscrire ?", "answer": "Les soirées de jeux de la bibliothèque, les marchés de quartier et les fêtes communautaires sont gratuits et permettent de discuter naturellement.", "follow_up_to": null},
         {"topic": "Conseils pratiques", "question": "Où puis-je consulter les dates et les modalités d'inscription à toutes ces activités ?", "answer": "Consultez les sites de la bibliothèque, de la ville et des associations ; chacun indique si une réservation est nécessaire.", "follow_up_to": null},
         {"topic": "Conseils pratiques", "question": "Quand on vient seul, comment engager la conversation sans paraître trop direct ?", "answer": "Présentez-vous simplement, posez une question sur l'activité, puis proposez un café après quelques rencontres si le courant passe.", "follow_up_to": null},

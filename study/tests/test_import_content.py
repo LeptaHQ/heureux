@@ -775,11 +775,28 @@ class ImportFingerprintTests(TestCase):
                     self._fingerprint_with_changed_bytes(path),
                 )
 
+    def test_file_backed_dialogues_and_editorial_docs_do_not_invalidate_database_content(self):
+        for path in (
+            content.CONTENT_DIR / "tache_2" / "dialogues",
+            content.CONTENT_DIR / "tache_2" / "dialogue_history",
+            content.CONTENT_DIR / "tache_2" / "EDITORIAL_PLAYBOOK.md",
+        ):
+            with self.subTest(path=path):
+                self.assertEqual(
+                    Command._source_fingerprint(),
+                    self._fingerprint_with_changed_bytes(path),
+                )
+
     def test_imported_content_still_invalidates_the_fingerprint(self):
-        self.assertNotEqual(
-            Command._source_fingerprint(),
-            self._fingerprint_with_changed_bytes(content.CONTENT_DIR / "sections.json"),
-        )
+        for path in (
+            content.CONTENT_DIR / "sections.json",
+            content.ORAL_SEMANTIC_GROUP_PATHS["eo/tache-2"],
+        ):
+            with self.subTest(path=path):
+                self.assertNotEqual(
+                    Command._source_fingerprint(),
+                    self._fingerprint_with_changed_bytes(path),
+                )
 
     def test_writing_identity_helpers_invalidate_the_fingerprint(self):
         self.assertNotEqual(

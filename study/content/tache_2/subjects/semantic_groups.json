@@ -400,10 +400,9 @@
         "tache2:fevrier:batch-05:subject-24",
         "tache2:mars:batch-03:subject-14",
         "tache2:septembre:batch-03:subject-14",
-        "tache2:octobre:batch-02:subject-09",
-        "tache2:decembre:batch-01:subject-05"
+        "tache2:octobre:batch-02:subject-09"
       ],
-      "rationale": "All have a newcomer seeking ways to meet people through local activities, associations and sociable places, asking a local acquaintance. Neighbor versus colleague and Canadian versus unspecified city do not alter the informal adviser role, social-integration goal or eligibility."
+      "rationale": "All have a newcomer asking a neighbor for advice about meeting people and integrating through local activities, associations and sociable places. Existing neighborhood knowledge and the non-professional relationship distinguish these prompts from the colleague scenario."
     },
     {
       "id": "canadian-work-hours-home-country-comparison",
@@ -1354,6 +1353,14 @@
         "tache2:decembre:batch-01:subject-02"
       ],
       "rationale": "The candidate decides whether they can post a package for a friend unable to go, asking deadline, volume and time required. The candidate supplies a favor, not a commercial delivery service."
+    },
+    {
+      "id": "newcomer-colleague-meet-people",
+      "canonical": "tache2:decembre:batch-01:subject-05",
+      "members": [
+        "tache2:decembre:batch-01:subject-05"
+      ],
+      "rationale": "The candidate has just arrived in Canada and asks a colleague where and how to meet people. The professional relationship creates a realistic first route through workplace lunches or outings before exploring public activities, associations and welcoming venues."
     },
     {
       "id": "friend-city-for-cultural-magazine-article",

@@ -1285,6 +1285,8 @@ def annotations_for_source(request):
     except ValueError:
         return HttpResponseBadRequest("Invalid source path.")
     _, source_filter = _annotation_source_scope(source_path)
+    from ..oral_highlights import recover_published_tache_two_highlights
+    recover_published_tache_two_highlights(request.user, source_filter)
     highlights = list(
         Annotation.objects.filter(
             source_filter,

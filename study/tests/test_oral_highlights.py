@@ -1,3 +1,5 @@
+from unittest.mock import patch
+
 from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
 
@@ -24,6 +26,12 @@ class AnnotationRootTextTests(SimpleTestCase):
 
 class OralHighlightPersonalizationTests(TestCase):
     def setUp(self):
+        dialogue_patch = patch(
+            "study.tache_two_dialogues.published_dialogue",
+            return_value=None,
+        )
+        dialogue_patch.start()
+        self.addCleanup(dialogue_patch.stop)
         self.user = factories.make_user("eo2-highlights")
         self.task = factories.make_task(factories.make_part("eo"), "tache-2")
         self.response = factories.make_response(theme=factories.make_theme(task=self.task))
@@ -108,11 +116,9 @@ class OralHighlightPersonalizationTests(TestCase):
             self._assert_current(mark)
         self.assertEqual(Annotation.objects.count(), 3)
 
-    def test_edits_only_reset_the_changed_question_or_prepared_answer(self):
+    def test_answer_edits_preserve_questions_and_only_changed_questions_reset(self):
         question = self._highlight(1)
-        changed_answer = self._highlight(1, "response")
         changed_question = self._highlight(2, quote="Quel")
-        answer = self._highlight(2, "response")
         last = self._highlight(3, body="Ma note.", title="À retenir", study_later=True)
         old_key = question.source_key
         rows = [
@@ -121,16 +127,14 @@ class OralHighlightPersonalizationTests(TestCase):
             self.rows[2],
         ]
         self._save(rows)
-        for mark in (question, answer, last):
+        for mark in (question, last):
             self._assert_current(mark)
-        for mark in (changed_answer, changed_question):
-            mark.refresh_from_db()
-            self.assertEqual(mark.source_key, old_key)
+        changed_question.refresh_from_db()
+        self.assertEqual(changed_question.source_key, old_key)
         self.assertEqual((last.body, last.title, last.study_later), ("Ma note.", "À retenir", True))
         self._save([("Un nouveau texte plus long ?", rows[0][1]), *rows[1:]])
-        for mark in (answer, last):
-            self._assert_current(mark)
-        self.assertEqual(Annotation.objects.count(), 5)
+        self._assert_current(last)
+        self.assertEqual(Annotation.objects.count(), 3)
 
     def test_deleting_an_earlier_question_keeps_renumbered_question_highlights(self):
         removed = self._highlight(1)

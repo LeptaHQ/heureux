@@ -5,6 +5,14 @@ services:
     plan: free
     region: oregon
     healthCheckPath: /healthz
+    buildFilter:
+      ignoredPaths:
+        - ".github/**"
+        - "README.md"
+        - "docs/**"
+        - "requirements-dev.txt"
+        - "study/content/tache_2/EDITORIAL_PLAYBOOK.md"
+        - "study/tests/**"
     # Free Render services do not support pre-deploy commands, so run database
     # deployment work once in the build instead of on every cold start.
     # Vercel runs the same guarded import for deployment resilience; the

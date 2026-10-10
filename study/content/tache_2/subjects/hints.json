@@ -1240,8 +1240,8 @@
         "english": "Available destinations and tour themes"
       },
       {
-        "french": "Visites phares et activités possibles",
-        "english": "Key sights and possible activities"
+        "french": "Circuits proposés aux États-Unis",
+        "english": "Available tours in the United States"
       },
       {
         "french": "Durée conseillée selon le voyage",
@@ -2098,20 +2098,24 @@
     ],
     "furniture-delivery-service": [
       {
-        "french": "Informations nécessaires pour calculer la livraison",
-        "english": "Information needed to calculate the delivery"
+        "french": "Adresse, dimensions et conditions d'accès pour le devis",
+        "english": "Address, dimensions and access details for the quote"
       },
       {
-        "french": "Tarif total et suppléments éventuels",
-        "english": "Total price and possible surcharges"
+        "french": "Vérification du passage dans l'escalier avec mesures et photos",
+        "english": "Checking staircase clearance with measurements and photos"
+      },
+      {
+        "french": "Tarif de base et suppléments de distance, d'étage ou d'accès",
+        "english": "Base rate and distance, floor or access surcharges"
       },
       {
         "french": "Mise en place et enlèvement des emballages",
         "english": "Placement and packaging removal"
       },
       {
-        "french": "Délai après la confirmation de la commande",
-        "english": "Lead time after confirming the order"
+        "french": "Délai de livraison après la réservation",
+        "english": "Delivery lead time after booking"
       },
       {
         "french": "Créneau de passage et préavis d'arrivée",
@@ -2122,12 +2126,8 @@
         "english": "Vehicle and protection for the sofa"
       },
       {
-        "french": "Signalement d'un escalier étroit",
-        "english": "Reporting a narrow staircase"
-      },
-      {
-        "french": "Procédure si le canapé arrive endommagé",
-        "english": "Procedure if the sofa arrives damaged"
+        "french": "Rayure ou déchirure : bon de livraison et réclamation",
+        "english": "Scratch or tear: delivery note and damage claim"
       }
     ],
     "colleague-recommended-city-weekend": [
@@ -2314,8 +2314,8 @@
         "english": "Work needed before moving into the apartment"
       },
       {
-        "french": "Commerces, parcs, transports et vie sans voiture à Beltline",
-        "english": "Shops, parks, transport and car-free living in Beltline"
+        "french": "Commerces, parcs, transports et vie sans voiture à Capitol Hill",
+        "english": "Shops, parks, transport and car-free living in Capitol Hill"
       },
       {
         "french": "Prix demandé et taxes foncières annuelles",
@@ -2986,8 +2986,8 @@
         "english": "Destination and length of the language stay"
       },
       {
-        "french": "Raisons du choix de l'Irlande",
-        "english": "Reasons for choosing Ireland"
+        "french": "Raisons du choix des États-Unis",
+        "english": "Reasons for choosing the United States"
       },
       {
         "french": "Cours et activités d'une journée habituelle",
@@ -4950,8 +4950,8 @@
         "english": "Condition of kitchen, bathroom, windows and heating"
       },
       {
-        "french": "Ambiance à Rosemont le soir et le week-end",
-        "english": "Rosemont atmosphere in evenings and on weekends"
+        "french": "Ambiance à Ballard le soir et le week-end",
+        "english": "Ballard atmosphere in evenings and on weekends"
       },
       {
         "french": "Frais de copropriété et taxes à prévoir",
@@ -4960,6 +4960,40 @@
       {
         "french": "Créneaux disponibles pour une visite",
         "english": "Available viewing times"
+      }
+    ],
+    "newcomer-colleague-meet-people": [
+      {
+        "french": "Déjeuners ou sorties avec les collègues",
+        "english": "Lunches or outings with colleagues"
+      },
+      {
+        "french": "Lieu accueillant quand on vient seul",
+        "english": "Welcoming place when arriving alone"
+      },
+      {
+        "french": "Présentation au groupe quand on arrive seul",
+        "english": "Being introduced to the group when arriving alone"
+      },
+      {
+        "french": "Activité hebdomadaire pour créer des liens durables",
+        "english": "Weekly activity for building lasting connections"
+      },
+      {
+        "french": "Association francophone ou groupe de nouveaux arrivants",
+        "english": "Francophone association or newcomer group"
+      },
+      {
+        "french": "Soirées de jeux, marchés et fêtes sans inscription",
+        "english": "Game nights, markets and festivals without registration"
+      },
+      {
+        "french": "Horaires et inscription aux activités choisies",
+        "english": "Schedules and registration for selected activities"
+      },
+      {
+        "french": "Possibilité d'accompagner Pierre à la randonnée",
+        "english": "Possibility of joining Pierre on the hike"
       }
     ],
     "canadian-friend-long-time-catch-up": [
@@ -5036,8 +5070,8 @@
         "english": "Favourite cities and cultural appeal"
       },
       {
-        "french": "Architecture et monuments caractéristiques",
-        "english": "Distinctive architecture and landmarks"
+        "french": "Particularités par rapport aux autres grandes villes américaines",
+        "english": "What distinguishes it from other major US cities"
       },
       {
         "french": "Quartiers emblématiques et lieux méconnus",
@@ -5048,8 +5082,8 @@
         "english": "Activities that capture the city's character"
       },
       {
-        "french": "Cuisine locale et accueil des habitants",
-        "english": "Local cuisine and residents' hospitality"
+        "french": "Présence des bâtiments en brique rouge dans la ville",
+        "english": "Where red-brick buildings can be found in the city"
       },
       {
         "french": "Transports et facilité des déplacements",
@@ -5060,8 +5094,8 @@
         "english": "Season, duration and budget for exploring"
       },
       {
-        "french": "Angle à retenir pour l'article",
-        "english": "Focus to choose for the article"
+        "french": "Fréquentation touristique du monorail",
+        "english": "How crowded the monorail gets with tourists"
       }
     ],
     "friend-music-festival-organizer": [
@@ -5388,8 +5422,8 @@
         "english": "Kitchen, linens, appliances and barbecue"
       },
       {
-        "french": "Ambiance à Bowness le soir et le week-end",
-        "english": "Bowness atmosphere in evenings and on weekends"
+        "french": "Ambiance à Ballard le soir et le week-end",
+        "english": "Ballard atmosphere in evenings and on weekends"
       },
       {
         "french": "Accès à pied au parc et aux commerces, puis au centre",

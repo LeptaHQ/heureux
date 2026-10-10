@@ -26,11 +26,11 @@ class AnnotationPromptOwner:
     task_slug: str
 
 
-def variant_annotation_key(prompt, content):
+def variant_annotation_key(prompt, content, *, tache_two_dialogue=None):
     payload = asdict(content)
     if prompt.content_key.startswith("tache2:"):
         from .tache_two_dialogues import matching_dialogue
-        dialogue = matching_dialogue(prompt, content)
+        dialogue = tache_two_dialogue or matching_dialogue(prompt, content)
         payload["nuance"] = ""
         payload["arguments"] = [
             {

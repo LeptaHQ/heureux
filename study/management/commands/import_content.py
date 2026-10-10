@@ -289,12 +289,19 @@ class Command(BaseCommand):
             )
             for path in content.CONTENT_DIR.rglob("*")
             if path.is_file()
-            # Lessons and hints are file-backed, not consumed by this DB importer.
+            # These sources are loaded directly at runtime, not stored by this importer.
             and not path.is_relative_to(content.CONTENT_DIR / "learning")
+            and not path.is_relative_to(
+                content.CONTENT_DIR / "tache_2" / "dialogues"
+            )
+            and not path.is_relative_to(
+                content.CONTENT_DIR / "tache_2" / "dialogue_history"
+            )
             and path not in {
                 content.TACHE_TWO_SUBJECT_HINTS_PATH,
                 content.TACHE_THREE_SUBJECT_HINTS_PATH,
                 content.EE_TACHE_ONE_SUBJECT_HINTS_PATH,
+                content.CONTENT_DIR / "tache_2" / "EDITORIAL_PLAYBOOK.md",
             }
         )
         digest = hashlib.sha256()

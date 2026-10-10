@@ -31,7 +31,7 @@ class SubjectHintsTests(SimpleTestCase):
 
     def test_every_publication_uses_its_semantic_groups_bilingual_hints(self):
         hints = content.load_tache_two_subject_hints(months=self.months)
-        self.assertEqual(len(self.responses), 163)
+        self.assertEqual(len(self.responses), 164)
         self.assertEqual(len(hints), 348)
         self.assertEqual(
             set(hints),

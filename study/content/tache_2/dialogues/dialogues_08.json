@@ -55,8 +55,8 @@
     {
       "group": "estate-agent-advertised-apartment-unspecified",
       "register": "vous",
-      "note": "A specific apartment advertisement in Montréal's Rosemont district interests you. The prompt does not establish sale or rental, so clarify the transaction first; this model then follows the agent's answer that it is for sale. Ask about price, size, condition, neighbourhood, recurring costs and a visit. Use vous.",
-      "opening": "Bonjour ! L'appartement de votre annonce à Rosemont m'intéresse et j'aimerais obtenir quelques précisions.",
+      "note": "A specific apartment advertisement in Seattle's Ballard district interests you. The prompt does not establish sale or rental, so clarify the transaction first; this model then follows the agent's answer that it is for sale. Ask about price, size, condition, neighbourhood, recurring costs and a visit. Use vous.",
+      "opening": "Bonjour ! L'appartement de votre annonce à Ballard m'intéresse et j'aimerais obtenir quelques précisions.",
       "closing": "Merci ! Le samedi matin me conviendrait ; je vais vous confirmer le rendez-vous.",
       "questions": [
         {"topic": "Transaction et coût", "question": "Cet appartement est-il proposé à la vente ou à la location ?", "answer": "Il est proposé à la vente.", "follow_up_to": null},
@@ -64,9 +64,26 @@
         {"topic": "Appartement", "question": "Quelle est la superficie de l'appartement, et dispose-t-il d'un balcon ou d'un espace de rangement ?", "answer": "Il fait quatre-vingt-cinq mètres carrés, avec un balcon et un casier de rangement au sous-sol.", "follow_up_to": null},
         {"topic": "Appartement", "question": "Comment les pièces sont-elles réparties ?", "answer": "Il comprend deux chambres, un grand salon, une cuisine et une salle de bains.", "follow_up_to": 3, "condition": "After the area is given, unless the layout is already described."},
         {"topic": "Appartement", "question": "Dans quel état sont la cuisine, la salle de bains, les fenêtres et le chauffage ?", "answer": "La cuisine est rénovée et les fenêtres sont récentes ; la salle de bains et le chauffage sont plus anciens.", "follow_up_to": null},
-        {"topic": "Quartier et décision", "question": "Rosemont est-il plutôt calme, familial ou animé, surtout le soir et le week-end ?", "answer": "Le secteur est familial et plutôt calme ; l'ambiance est plus animée près des rues commerçantes le week-end.", "follow_up_to": null},
-        {"topic": "Quartier et décision", "question": "En plus du prix annoncé, quels frais de copropriété et quelles taxes faut-il prévoir chaque mois ou chaque année ?", "answer": "Les charges sont de 375 $ par mois ; les taxes municipales et scolaires totalisent environ 2 800 $ par an.", "follow_up_to": null},
+        {"topic": "Quartier et décision", "question": "Ballard est-il plutôt calme, familial ou animé, surtout le soir et le week-end ?", "answer": "Le secteur est familial et plutôt calme ; l'ambiance est plus animée près des rues commerçantes le week-end.", "follow_up_to": null},
+        {"topic": "Quartier et décision", "question": "En plus du prix annoncé, quels frais de copropriété et quelles taxes faut-il prévoir chaque mois ou chaque année ?", "answer": "Les charges sont de 375 $ par mois ; les taxes foncières totalisent environ 2 800 $ par an.", "follow_up_to": null},
         {"topic": "Quartier et décision", "question": "Quand serait-il possible de visiter l'appartement ?", "answer": "Une visite est possible mercredi soir ou samedi matin.", "follow_up_to": null}
+      ]
+    },
+    {
+      "group": "newcomer-colleague-meet-people",
+      "register": "vous",
+      "note": "You have just arrived in Canada and ask a colleague where and how to meet people. Begin with realistic social opportunities through colleagues, then cover a welcoming venue, one recurring activity, associations, free events and a concrete first outing. This is social integration, not immigration paperwork. Use vous for the new professional relationship.",
+      "opening": "Bonjour Pierre ! Comme je viens d'arriver au Canada, j'aimerais rencontrer du monde et commencer à me créer un cercle social. Vous connaissez bien les habitudes ici, alors j'aurais besoin de vos conseils.",
+      "closing": "Merci beaucoup, Pierre ! Je vous retrouve dimanche devant la bibliothèque pour rejoindre le groupe de randonnée.",
+      "questions": [
+        {"topic": "Premières rencontres", "question": "Au bureau, les collègues déjeunent-ils parfois ensemble ou organisent-ils des sorties après le travail auxquelles je pourrais me joindre ?", "answer": "Nous déjeunons ensemble le vendredi et organisons parfois une sortie après le travail ; je pourrai vous présenter aux autres collègues.", "follow_up_to": null},
+        {"topic": "Premières rencontres", "question": "En dehors du travail, quel endroit me conseilleriez-vous pour rencontrer facilement des gens quand on vient seul ?", "answer": "Le café de conversation de la bibliothèque centrale : l'ambiance est détendue et beaucoup de participants viennent seuls.", "follow_up_to": null},
+        {"topic": "Premières rencontres", "question": "Quand on arrive seul, est-ce qu'un animateur nous présente au groupe ou faut-il engager la conversation soi-même ?", "answer": "Un bénévole accueille les nouveaux, puis tout le monde discute par petites tables autour d'un thème simple.", "follow_up_to": 2, "condition": "If the library conversation café is suggested."},
+        {"topic": "Activités et organisation", "question": "Pour revoir régulièrement les mêmes personnes et créer de vrais liens, quelle activité hebdomadaire me recommanderiez-vous ?", "answer": "Le groupe de randonnée du dimanche accueille les débutants, et j'y participe assez souvent.", "follow_up_to": null},
+        {"topic": "Activités et organisation", "question": "Existe-t-il une association francophone ou un groupe de nouveaux arrivants qui organise des rencontres régulières ?", "answer": "Le centre communautaire francophone organise une soirée d'accueil mensuelle et plusieurs ateliers ouverts aux nouveaux arrivants.", "follow_up_to": null},
+        {"topic": "Activités et organisation", "question": "Y a-t-il aussi des événements gratuits — soirées de jeux, marchés ou fêtes de quartier — où l'on peut rencontrer du monde sans s'inscrire ?", "answer": "Les soirées de jeux de la bibliothèque, les marchés de quartier et les fêtes communautaires sont gratuits et permettent de discuter naturellement.", "follow_up_to": null},
+        {"topic": "Activités et organisation", "question": "Où puis-je vérifier les horaires, et faut-il s'inscrire à l'avance pour le café, la randonnée ou la soirée d'accueil ?", "answer": "Leurs sites indiquent les horaires ; le café est libre, mais la randonnée et la soirée d'accueil demandent une inscription.", "follow_up_to": null},
+        {"topic": "Activités et organisation", "question": "Vous m'avez dit que vous faisiez la randonnée du dimanche : est-ce que je pourrais venir avec vous cette semaine ?", "answer": "Bien sûr. Retrouvons-nous dimanche devant la bibliothèque, puis nous rejoindrons le groupe ensemble.", "follow_up_to": 4, "condition": "If Pierre says he joins the Sunday hike."}
       ]
     },
     {
@@ -94,7 +111,7 @@
       "closing": "Merci pour ces précisions ! Je peux m'en charger dans le délai que tu m'as indiqué.",
       "questions": [
         {"topic": "Délai et envoi", "question": "Au plus tard, quand faut-il poster le paquet ?", "answer": "Jeudi avant midi.", "follow_up_to": null},
-        {"topic": "Délai et envoi", "question": "Dans quelle ville doit-il être envoyé ?", "answer": "À Vancouver.", "follow_up_to": null},
+        {"topic": "Délai et envoi", "question": "Dans quelle ville doit-il être envoyé ?", "answer": "À Seattle.", "follow_up_to": null},
         {"topic": "Délai et envoi", "question": "Quand doit-il arriver à destination ?", "answer": "Mardi prochain, pour un anniversaire.", "follow_up_to": null},
         {"topic": "Délai et envoi", "question": "Si l'envoi standard est trop lent, souhaites-tu que je choisisse l'express ?", "answer": "Oui, mais seulement si le standard ne peut pas arriver mardi.", "follow_up_to": 3, "condition": "After the required arrival date is known."},
         {"topic": "Le colis", "question": "Quelles sont les dimensions approximatives du paquet ?", "answer": "Environ trente centimètres sur vingt, comme une boîte à chaussures.", "follow_up_to": null},
@@ -110,14 +127,14 @@
       "opening": "Salut ! Je dois écrire un article sur une ville pour un magazine culturel, et j'aimerais profiter de tes idées.",
       "closing": "Merci, c'est exactement ce qu'il me fallait ! Je tiens mon sujet, et je vais pouvoir commencer mon article.",
       "questions": [
-        {"topic": "La ville choisie", "question": "Parmi les villes que tu as visitées, laquelle préfères-tu ?", "answer": "Lisbonne, sans hésiter : une ville lumineuse, construite sur des collines au bord du Tage.", "follow_up_to": null},
-        {"topic": "La ville choisie", "question": "Qu'est-ce qui la distingue des autres capitales européennes, selon toi ?", "answer": "Sa lumière : les façades claires reflètent le soleil, et chaque colline offre un nouveau point de vue sur la ville.", "follow_up_to": 1, "condition": "After a city is named; adapt the comparison to its region."},
-        {"topic": "La ville choisie", "question": "Quel quartier représenterait le mieux l'identité de la ville pour servir de fil conducteur à l'article ?", "answer": "L'Alfama, avec ses ruelles, ses façades couvertes d'azulejos et ses points de vue sur le Tage.", "follow_up_to": null},
-        {"topic": "Architecture", "question": "Côté architecture, tu conseillerais de voir quoi en priorité ?", "answer": "Les façades couvertes d'azulejos, ces carreaux de faïence peints, et le monastère des Hiéronymites, à Belém.", "follow_up_to": null},
-        {"topic": "Architecture", "question": "Et ces azulejos, on en voit un peu partout ?", "answer": "Oui, sur les maisons, dans les églises et même dans certaines stations de métro ; un musée leur est entièrement consacré.", "follow_up_to": 4, "condition": "If a distinctive architectural feature is mentioned; substitute that feature."},
-        {"topic": "Activités", "question": "Quelle expérience culturelle recommandes-tu le soir pour découvrir l'ambiance locale ?", "answer": "Écouter du fado, ce chant mélancolique typique, dans une petite salle du quartier de l'Alfama.", "follow_up_to": null},
-        {"topic": "Transports", "question": "Comment les visiteurs peuvent-ils s'y déplacer le plus facilement ?", "answer": "En tramway, notamment le célèbre 28, ou grâce aux funiculaires et aux ascenseurs publics.", "follow_up_to": null},
-        {"topic": "Transports", "question": "Il n'est pas pris d'assaut par les touristes, ce tramway 28 ?", "answer": "Si, en journée ; prends-le tôt le matin, ou marche : c'est la meilleure façon de découvrir la ville.", "follow_up_to": 7, "condition": "If a famous tourist transport is mentioned; adapt to the line named."}
+        {"topic": "La ville choisie", "question": "Parmi les villes que tu as visitées, laquelle préfères-tu ?", "answer": "Seattle, sans hésiter : une ville construite sur des collines, entre le Puget Sound et le lac Washington.", "follow_up_to": null},
+        {"topic": "La ville choisie", "question": "Qu'est-ce qui la distingue des autres grandes villes américaines, selon toi ?", "answer": "La présence de l'eau et des montagnes : chaque colline offre un nouveau point de vue sur la ville.", "follow_up_to": 1, "condition": "After a city is named; adapt the comparison to its region."},
+        {"topic": "La ville choisie", "question": "Quel quartier représenterait le mieux l'identité de la ville pour servir de fil conducteur à l'article ?", "answer": "Pioneer Square, avec ses bâtiments historiques en brique rouge et ses galeries d'art.", "follow_up_to": null},
+        {"topic": "Architecture", "question": "Côté architecture, tu conseillerais de voir quoi en priorité ?", "answer": "Les bâtiments en brique rouge de Pioneer Square et la Space Needle, la tour emblématique de Seattle.", "follow_up_to": null},
+        {"topic": "Architecture", "question": "Et ces bâtiments en brique rouge, on en voit un peu partout ?", "answer": "Surtout dans le quartier historique ; ailleurs, on voit davantage de bâtiments modernes et de maisons en bois.", "follow_up_to": 4, "condition": "If a distinctive architectural feature is mentioned; substitute that feature."},
+        {"topic": "Activités", "question": "Quelle expérience culturelle recommandes-tu le soir pour découvrir l'ambiance locale ?", "answer": "Écouter du jazz dans une petite salle de Pioneer Square, ou découvrir les concerts de Capitol Hill.", "follow_up_to": null},
+        {"topic": "Transports", "question": "Comment les visiteurs peuvent-ils s'y déplacer le plus facilement ?", "answer": "En métro léger Link et en bus, ou avec le monorail qui relie le centre au Seattle Center.", "follow_up_to": null},
+        {"topic": "Transports", "question": "Il n'est pas pris d'assaut par les touristes, ce monorail ?", "answer": "Si, en journée ; prends-le en dehors des heures de pointe, ou marche : c'est la meilleure façon de découvrir la ville.", "follow_up_to": 7, "condition": "If a famous tourist transport is mentioned; adapt to the line named."}
       ]
     },
     {
@@ -195,8 +212,8 @@
       "opening": "Bonjour ! Pour mon cours de français, je réalise une enquête sur les activités des étudiants francophones, et j'aimerais vous poser quelques questions.",
       "closing": "Merci beaucoup pour votre temps ! Vos réponses vont vraiment enrichir mon enquête.",
       "questions": [
-        {"topic": "Études", "question": "De quel pays francophone venez-vous, et quel domaine étudiez-vous ici ?", "answer": "Je viens du Sénégal et j'étudie le génie informatique.", "follow_up_to": null},
-        {"topic": "Études", "question": "Dans quel établissement étudiez-vous, et depuis combien de temps êtes-vous installé ici ?", "answer": "J'étudie à l'université et j'ai quitté Dakar il y a deux ans.", "follow_up_to": null},
+        {"topic": "Études", "question": "De quel pays francophone venez-vous, et quel domaine étudiez-vous ici ?", "answer": "Je viens du Canada, plus précisément du Québec, et j'étudie le génie informatique.", "follow_up_to": null},
+        {"topic": "Études", "question": "Dans quel établissement étudiez-vous, et depuis combien de temps êtes-vous installé ici ?", "answer": "J'étudie à l'université et j'ai quitté Montréal il y a deux ans.", "follow_up_to": null},
         {"topic": "Études", "question": "À quoi ressemble une journée de cours habituelle pour vous ?", "answer": "J'ai surtout cours le matin ; l'après-midi, je travaille en laboratoire avec mon équipe de projet.", "follow_up_to": null},
         {"topic": "Emploi du temps", "question": "Est-ce que vous avez d'autres activités en dehors des cours ?", "answer": "Oui, deux soirs par semaine, je travaille dans un café du campus pour couvrir mes dépenses.", "follow_up_to": null},
         {"topic": "Emploi du temps", "question": "Comment parvenez-vous à concilier ce travail et vos études ?", "answer": "Je consacre mes dimanches aux révisions, et mon responsable adapte mes horaires pendant les examens.", "follow_up_to": 4, "condition": "If a part-time job is mentioned alongside studies."},
@@ -246,13 +263,13 @@
       "opening": "Salut ! Je cherche une destination pour mon prochain voyage, et comme tu as beaucoup voyagé, j'aimerais avoir ton avis.",
       "closing": "Merci pour tous ces conseils ! Je crois que je tiens ma prochaine destination.",
       "questions": [
-        {"topic": "Pays visités", "question": "Quels pays as-tu visités récemment, et lesquels envisagerais-tu de recommander pour mon voyage ?", "answer": "Le Vietnam, le Portugal et le Maroc ; chacun m'a plu pour des raisons différentes.", "follow_up_to": null},
-        {"topic": "Pays visités", "question": "Lequel t'a laissé le meilleur souvenir, et pour quelles raisons précises ?", "answer": "Le Vietnam, pour ses paysages spectaculaires, sa cuisine délicieuse et l'accueil des habitants.", "follow_up_to": 1, "condition": "After several countries are listed."},
-        {"topic": "Activités", "question": "Et là-bas, qu'est-ce qui t'a le plus marqué ?", "answer": "Une croisière de deux jours dans la baie d'Ha Long, puis une randonnée dans les rizières en terrasses de Sapa.", "follow_up_to": null},
+        {"topic": "Pays visités", "question": "Quels pays as-tu visités récemment, et lesquels envisagerais-tu de recommander pour mon voyage ?", "answer": "Le Canada et les États-Unis ; chacun m'a plu pour des raisons différentes.", "follow_up_to": null},
+        {"topic": "Pays visités", "question": "Lequel t'a laissé le meilleur souvenir, et pour quelles raisons précises ?", "answer": "Les États-Unis, pour leurs paysages spectaculaires, leur cuisine délicieuse et l'accueil des habitants.", "follow_up_to": 1, "condition": "After several countries are listed."},
+        {"topic": "Activités", "question": "Et là-bas, qu'est-ce qui t'a le plus marqué ?", "answer": "Une traversée de Puget Sound en ferry depuis Seattle, puis une randonnée sur la côte du parc national Olympic.", "follow_up_to": null},
         {"topic": "Climat", "question": "Quel temps as-tu eu en mars, et le climat variait-il beaucoup entre le nord et le sud ?", "answer": "Il faisait chaud dans le sud, mais étonnamment frais et brumeux dans le nord.", "follow_up_to": null},
-        {"topic": "Climat", "question": "Quelle serait la meilleure période pour y aller, alors ?", "answer": "Mars ou avril, à mon avis : il pleut peu, et la chaleur reste supportable presque partout.", "follow_up_to": 4, "condition": "After the weather is described, unless the best season is already given."},
-        {"topic": "Budget", "question": "Pour te déplacer dans ce pays, quelles options étaient pratiques et abordables ?", "answer": "Les autobus régionaux coûtaient peu cher ; pour les longues distances, les trains réservés à l'avance étaient plus confortables.", "follow_up_to": null},
-        {"topic": "Budget", "question": "Quel budget quotidien faut-il prévoir sur place pour les repas et une chambre correcte ?", "answer": "On mange très bien pour 3 ou 4 $, et une chambre correcte coûte environ 25 $ la nuit.", "follow_up_to": null},
+        {"topic": "Climat", "question": "Quelle serait la meilleure période pour y aller, alors ?", "answer": "Mai ou juin, à mon avis : sur la côte ouest, les journées sont longues et les températures généralement agréables.", "follow_up_to": 4, "condition": "After the weather is described, unless the best season is already given."},
+        {"topic": "Budget", "question": "Pour te déplacer dans ce pays, quelles options étaient pratiques et abordables ?", "answer": "Les bus étaient pratiques en ville ; entre Seattle et Portland, j'ai choisi Amtrak, avec des billets réservés à l'avance.", "follow_up_to": null},
+        {"topic": "Budget", "question": "Quel budget quotidien faut-il prévoir sur place pour les repas et une chambre correcte ?", "answer": "On mange très bien pour 20 à 30 $, et une chambre correcte coûte environ 150 $ la nuit.", "follow_up_to": null},
         {"topic": "Budget", "question": "Et le billet d'avion, tu l'as payé combien ?", "answer": "Environ 1 500 $ aller-retour, avec une escale ; c'était la plus grosse dépense du voyage.", "follow_up_to": null}
       ]
     },
@@ -276,14 +293,14 @@
     {
       "group": "colleague-summer-house-rental",
       "register": "vous",
-      "note": "Your colleague Pierre is offering his own house in Calgary's Bowness neighbourhood during the summer holidays. Ask about its rooms, capacity, equipment, setting, exact dates and price; do not assume seaside or cottage features. This model uses vous.",
-      "opening": "Bonjour Pierre ! Votre maison à Bowness pourrait m'intéresser pour les vacances d'été, alors j'aimerais en savoir un peu plus.",
+      "note": "Your colleague Pierre is offering his own house in Seattle's Ballard neighbourhood during the summer holidays. Ask about its rooms, capacity, equipment, setting, exact dates and price; do not assume seaside or cottage features. This model uses vous.",
+      "opening": "Bonjour Pierre ! Votre maison à Ballard pourrait m'intéresser pour les vacances d'été, alors j'aimerais en savoir un peu plus.",
       "closing": "Merci, Pierre ! Je vérifie mes dates pour début juillet et je vous réponds demain.",
       "questions": [
         {"topic": "Maison", "question": "Combien de chambres et de salles de bains la maison compte-t-elle ?", "answer": "Elle comprend trois chambres et deux salles de bains.", "follow_up_to": null},
         {"topic": "Maison", "question": "Avec ces chambres, combien de personnes peuvent y dormir confortablement ?", "answer": "Six personnes, grâce à deux lits doubles et deux lits simples.", "follow_up_to": 1, "condition": "After the number of bedrooms is given."},
         {"topic": "Maison", "question": "La cuisine est-elle entièrement équipée, et le linge, la laveuse, la sécheuse ainsi que le barbecue seront-ils disponibles ?", "answer": "Oui, la cuisine et le linge sont fournis, avec une laveuse, une sécheuse et un barbecue.", "follow_up_to": null},
-        {"topic": "Cadre", "question": "Bowness est-il plutôt calme ou animé en été, surtout le soir et le week-end ?", "answer": "Le secteur est animé près du parc le week-end, mais les rues résidentielles restent calmes le soir.", "follow_up_to": null},
+        {"topic": "Cadre", "question": "Ballard est-il plutôt calme ou animé en été, surtout le soir et le week-end ?", "answer": "Le secteur est animé près du parc le week-end, mais les rues résidentielles restent calmes le soir.", "follow_up_to": null},
         {"topic": "Cadre", "question": "Peut-on aller à pied au parc et aux commerces, puis rejoindre facilement le centre-ville sans voiture ?", "answer": "Le parc et les commerces sont à une douzaine de minutes à pied ; un autobus direct mène au centre-ville en vingt-cinq minutes.", "follow_up_to": 4, "condition": "After the setting is described, if access to the city matters to you."},
         {"topic": "Dates et prix", "question": "Quand la maison est-elle disponible exactement, et quelle est la durée minimale de location ?", "answer": "Du premier juillet au quinze août, pour des séjours d'au moins une semaine.", "follow_up_to": null},
         {"topic": "Dates et prix", "question": "Quel loyer demandez-vous par semaine, et faut-il verser un dépôt pour confirmer la réservation ?", "answer": "Le loyer est de 1 500 $ par semaine, avec un dépôt de 400 $ à la réservation.", "follow_up_to": null},

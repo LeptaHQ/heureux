@@ -14,11 +14,11 @@ from django.utils import timezone
 
 from . import catalogue
 from . import content_loader as content_module
-from .models import Annotation, AnnotationKind
+from .models import Annotation, AnnotationKind, Prompt
 from .oral_history import variant_annotation_key
 from .response_personalization import effective_response
 from .routing import TACHE_TWO_PROMPT_KEY, prompt_detail_url
-from .tache_two_dialogues import question_presentation
+from .tache_two_dialogues import dialogue_response, published_dialogue, question_presentation
 
 
 _EE_TACHE_THREE_POSITION_PATTERN = re.compile(
@@ -66,6 +66,10 @@ class QuestionText(HTMLParser):
                 key: (left - start, right - start)
                 for key, (left, right) in self.fields.items()
             }
+        self.units = tuple(
+            int.from_bytes(self.text[index:index + 2], "little")
+            for index in range(0, len(self.text), 2)
+        )
 
     def handle_starttag(self, tag, attrs):
         if tag in {"br", "hr", "img", "input", "meta", "link", "wbr"}:
@@ -77,11 +81,14 @@ class QuestionText(HTMLParser):
                 for name, kind in (
                     ("data-question-highlight-text", "question"),
                     ("data-question-highlight-response", "response"),
+                    ("data-question-highlight-topic", "topic"),
                 )
                 if name in attrs
             ),
             None,
         )
+        if "data-question-highlight-boundary" in attrs:
+            field = (0, attrs["data-question-highlight-boundary"])
         excluded = (
             (self.stack[-1][3] if self.stack else False)
             or "data-annotation-exclude" in attrs
@@ -640,9 +647,9 @@ def preserve_ee_tache_three_highlights(response, user, *, selected_prompt=None):
                     break
 
 
-def _render_questions(prompt, content, surface, prompts):
+def _render_questions(prompt, content, surface, prompts, *, dialogue=None):
     context = {
-        **question_presentation(prompt, content),
+        **question_presentation(prompt, content, dialogue=dialogue),
         "response_content": content,
     }
     if surface == "back":
@@ -658,6 +665,120 @@ def _render_questions(prompt, content, surface, prompts):
     return QuestionText(render_to_string("study/partials/tache_two_questions.html", {
         **context,
     }))
+
+
+def _project_location_annotation(annotation, old, new, replacements):
+    """Map selections through only the recorded, exact geographic substitutions."""
+    start, end = annotation.start_offset, annotation.end_offset
+    if (
+        start is None or end is None or not 0 <= start < end <= len(old.units)
+        or old.slice(start, end) != annotation.quote
+        or annotation.prefix and not old.slice(0, start).endswith(annotation.prefix)
+        or annotation.suffix and not old.slice(end, len(old.units)).startswith(annotation.suffix)
+    ):
+        return None
+    text = old.text
+    for before, after in replacements:
+        before_bytes, after_bytes = before.encode("utf-16-le"), after.encode("utf-16-le")
+        positions, cursor = [], 0
+        while (position := text.find(before_bytes, cursor)) != -1:
+            if position % 2 == 0:
+                positions.append(position)
+                cursor = position + len(before_bytes)
+            else:
+                cursor = position + 1
+        for position in reversed(positions):
+            left, right = position // 2, (position + len(before_bytes)) // 2
+            replacement_end = left + len(after_bytes) // 2
+            delta = (len(after_bytes) - len(before_bytes)) // 2
+            if start >= right:
+                start += delta
+            elif start > left:
+                start = left
+            if end >= right:
+                end += delta
+            elif end > left:
+                end = replacement_end
+            text = text[:position] + after_bytes + text[position + len(before_bytes):]
+    # A later editorial rewrite is not authorization to remap a location selection.
+    if text != new.text or not 0 <= start < end <= len(new.units):
+        return None
+    return start, end
+
+
+_PUBLISHED_EO2_KEY = re.compile(
+    r"^response:(tache2:[a-z0-9-]+:batch-\d+:subject-\d+)"
+    r":variant-[0-9a-f]{16}(?::(?:front|back))?$"
+)
+
+
+def recover_published_tache_two_highlights(user, source_filter):
+    """Recover this learner's scoped anchors without changing their personal text."""
+    with transaction.atomic():
+        annotations = list(Annotation.objects.select_for_update().filter(
+            source_filter, user=user, kind=AnnotationKind.HIGHLIGHT,
+            source_key__startswith="response:tache2:",
+        ).order_by("pk"))
+        keys = {
+            match[1] for annotation in annotations
+            if (match := _PUBLISHED_EO2_KEY.fullmatch(annotation.source_key))
+        }
+        if not keys:
+            return
+        history = catalogue.tache_two_location_history()
+        prompts = Prompt.objects.filter(
+            content_key__in=keys, is_active=True, response__is_active=True,
+            theme__task__part__slug="eo", theme__task__slug="tache-2",
+        ).select_related("response", "theme__task__part")
+        for prompt in prompts:
+            published = published_dialogue(prompt)
+            if published is None or published.group not in history:
+                continue
+            entry = history[published.group]
+            current = effective_response(prompt.response, user, prompt=prompt)
+            current_key = variant_annotation_key(prompt, current)
+            aliases = list(prompt.response.prompts.filter(is_active=True).select_related(
+                "theme__task__part",
+            ))
+            for revision in entry.revisions:
+                previous = dialogue_response(revision)
+                old_key = variant_annotation_key(
+                    prompt, previous, tache_two_dialogue=revision,
+                )
+                for surface, suffix in (("front", ":front"), ("detail", ""), ("back", ":back")):
+                    candidates = [
+                        annotation for annotation in annotations
+                        if annotation.source_key == old_key + suffix
+                        and annotation.source_key != current_key + suffix
+                    ]
+                    if not candidates:
+                        continue
+                    if surface == "front":
+                        # Geography edits do not alter the immutable source prompt.
+                        for annotation in candidates:
+                            _move_anchor(annotation, {"source_key": current_key + suffix})
+                        continue
+                    old = _render_questions(prompt, previous, surface, aliases, dialogue=revision)
+                    new = _render_questions(prompt, current, surface, aliases)
+                    for annotation in candidates:
+                        offsets = _project_location_annotation(annotation, old, new, entry.replacements)
+                        if offsets is None and _project_unchanged_annotation(
+                            annotation, old, old, validate_context=True,
+                        ) is not None:
+                            offsets = _project(
+                                annotation, old, new,
+                                _matching_fields(previous, current, old, new),
+                            )
+                        if offsets is None:
+                            continue
+                        start, end = offsets
+                        _move_anchor(annotation, {
+                            "source_key": current_key + suffix,
+                            "quote": new.slice(start, end),
+                            "start_offset": start, "end_offset": end,
+                            "prefix": new.slice(max(0, start - 160), start),
+                            "suffix": new.slice(end, end + 160),
+                        })
 
 
 def _matching_fields(before, after, old, new, question_mapping=None):
@@ -681,7 +802,7 @@ def _matching_fields(before, after, old, new, question_mapping=None):
                 pairs[index] = index
     result = {}
     for (number, field), old_span in old.fields.items():
-        new_span = new.fields.get((pairs.get(number), field))
+        new_span = new.fields.get((0 if number == 0 else pairs.get(number), field))
         if new_span is not None and old.slice(*old_span) == new.slice(*new_span):
             result[(number, field)] = (old_span, new_span)
     return result

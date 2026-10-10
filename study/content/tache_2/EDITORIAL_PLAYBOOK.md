@@ -232,6 +232,32 @@ Reuse a strong construction from another model when it fits the new role and
 context. Do not copy it mechanically when the relationship, place, decision,
 or information boundary differs.
 
+### Targeted geography changes
+
+Leave the **Arrivée & installation** theme unchanged. In other themes, retain
+Canadian settings required by any source prompt in a shared semantic group.
+For optional examples, prefer Seattle and nearby US destinations; substitute
+US examples for locations outside Canada. Nationality is not a destination:
+a Canadian friend may have travelled in the US. A francophone-country role
+still requires a genuinely francophone country, such as Canada.
+
+Change only place names and directly dependent details: local landmarks,
+transport, climate, currency or tax terminology. Keep question structures,
+order, topic headings, and unrelated learned vocabulary intact. Do not add a
+named city to an otherwise generic question just to enforce this convention.
+Treat private accommodation addresses, prices and event arrangements as
+fictional scenario details, not verified listings.
+
+Before changing visible model text, retain the previous opening, questions,
+closing and layout in `dialogue_history/locations.json`, with exact geographic
+substitutions. Never replace old revision entries when adding a later one.
+The annotation endpoint recovers only known published revisions and verifies
+saved quotes and contexts before projecting offsets. A selection on a replaced
+place name follows the replacement; an unchanged field retains its selection.
+Unrecognized or inconsistent anchors stay stored, not guessed or deleted.
+Never rewrite learners' personal questions, private prompt notes or annotation
+bodies as part of a geography edit.
+
 ## 11. Generation workflow
 
 Use this sequence for every new or substantially rewritten model:
@@ -318,6 +344,7 @@ Run:
 ```bash
 .venv/bin/python manage.py test \
   study.tests.test_tache_two_dialogues \
+  study.tests.test_tache_two_locations \
   study.tests.test_subject_hints \
   study.tests.test_question_bank \
   --noinput

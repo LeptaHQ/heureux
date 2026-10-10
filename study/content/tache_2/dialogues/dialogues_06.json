@@ -127,12 +127,12 @@
       "opening": "Bonsoir ! J'ai cru comprendre que vous rentriez tout juste de voyage. Ça m'intéresse beaucoup, j'adore les récits de voyage.",
       "closing": "Merci de m'avoir raconté tout ça, ça donne vraiment envie de partir à mon tour !",
       "questions": [
-        {"topic": "Destination et durée", "question": "Quelle destination aviez-vous choisie, et quel itinéraire avez-vous suivi ?", "answer": "Le Japon, que j'ai parcouru de Tokyo jusqu'à Hiroshima.", "follow_up_to": null},
-        {"topic": "Destination et durée", "question": "Combien de temps a duré ce voyage, et à quelle période ?", "answer": "Trois semaines, début avril, en pleine floraison des cerisiers.", "follow_up_to": null},
+        {"topic": "Destination et durée", "question": "Quelle destination aviez-vous choisie, et quel itinéraire avez-vous suivi ?", "answer": "La côte ouest des États-Unis, de Seattle à San Francisco, en passant par Portland.", "follow_up_to": null},
+        {"topic": "Destination et durée", "question": "Combien de temps a duré ce voyage, et à quelle période ?", "answer": "Trois semaines, début avril, pendant la floraison des cerisiers à Seattle.", "follow_up_to": null},
         {"topic": "Destination et durée", "question": "Il n'y avait pas trop de monde à ce moment-là ?", "answer": "Si, dans les parcs les plus célèbres, mais en se levant tôt, on en profitait au calme.", "follow_up_to": 2, "condition": "If they travelled during a peak season or festival."},
-        {"topic": "Lieux visités", "question": "Parmi toutes ces étapes, laquelle avez-vous préférée, et pour quelles raisons ?", "answer": "Kyoto, pour ses temples, ses jardins et ses ruelles bordées de maisons en bois.", "follow_up_to": null},
-        {"topic": "Lieux visités", "question": "Qu'est-ce que vous y avez fait de particulier ?", "answer": "J'ai dormi dans une auberge traditionnelle, sur un futon posé sur des tatamis, et j'ai assisté à une cérémonie du thé.", "follow_up_to": 4, "condition": "After a favourite place is named."},
-        {"topic": "Lieux visités", "question": "Comment vous déplaciez-vous entre les différentes étapes du voyage ?", "answer": "Surtout en train, avec un laissez-passer national réservé avant le départ.", "follow_up_to": null},
+        {"topic": "Lieux visités", "question": "Parmi toutes ces étapes, laquelle avez-vous préférée, et pour quelles raisons ?", "answer": "Seattle, pour son marché, ses parcs et ses quartiers au bord de l'eau.", "follow_up_to": null},
+        {"topic": "Lieux visités", "question": "Qu'est-ce que vous y avez fait de particulier ?", "answer": "J'ai visité Pike Place Market et pris un ferry pour découvrir Puget Sound.", "follow_up_to": 4, "condition": "After a favourite place is named."},
+        {"topic": "Lieux visités", "question": "Comment vous déplaciez-vous entre les différentes étapes du voyage ?", "answer": "Surtout en train, avec des billets Amtrak réservés avant le départ.", "follow_up_to": null},
         {"topic": "Impressions", "question": "Quelle a été votre plus belle surprise là-bas ?", "answer": "La gentillesse des habitants, qui prenaient le temps de m'aider, même sans parler la même langue.", "follow_up_to": null},
         {"topic": "Impressions", "question": "Après cette expérience, auriez-vous envie d'y retourner à une autre saison ?", "answer": "Sans hésiter, mais cette fois à l'automne, pour voir les érables rougir.", "follow_up_to": null}
       ]
@@ -320,14 +320,14 @@
       "opening": "Bonjour ! J'ai appris que vous veniez de boucler l'organisation d'un séjour à la montagne. Ça m'intrigue, j'aimerais en savoir plus.",
       "closing": "Merci de m'avoir parlé de ce beau projet ! Je vous souhaite un excellent séjour à la montagne.",
       "questions": [
-        {"topic": "Destination et saison", "question": "Quelle destination avez-vous finalement choisie pour ce séjour à la montagne ?", "answer": "Whistler, en Colombie-Britannique, l'une des plus grandes stations de ski d'Amérique du Nord.", "follow_up_to": null},
+        {"topic": "Destination et saison", "question": "Quelle destination avez-vous finalement choisie pour ce séjour à la montagne ?", "answer": "Crystal Mountain, dans les Cascades, à environ deux heures de Seattle.", "follow_up_to": null},
         {"topic": "Destination et saison", "question": "À quelle période partirez-vous, et pourquoi l'avez-vous choisie ?", "answer": "Une semaine début mars, quand la neige est encore abondante et que les journées rallongent.", "follow_up_to": null},
-        {"topic": "Destination et saison", "question": "Vous n'avez pas peur d'avoir froid à cette période ?", "answer": "Pas vraiment : près de la côte, l'hiver est bien plus doux que dans l'est du pays.", "follow_up_to": 2, "condition": "If they travel in winter; adapt to the season given."},
-        {"topic": "Destination et saison", "question": "Comment comptez-vous vous rendre sur place, et aurez-vous besoin d'une voiture ensuite ?", "answer": "Nous prendrons l'avion jusqu'à Vancouver, puis une navette directe ; sur place, la voiture ne sera pas nécessaire.", "follow_up_to": null},
+        {"topic": "Destination et saison", "question": "Vous n'avez pas peur d'avoir froid à cette période ?", "answer": "Pas vraiment : dans cette région, l'hiver est généralement moins rigoureux que dans le nord-est des États-Unis.", "follow_up_to": 2, "condition": "If they travel in winter; adapt to the season given."},
+        {"topic": "Destination et saison", "question": "Comment comptez-vous vous rendre sur place, et aurez-vous besoin d'une voiture ensuite ?", "answer": "Nous prendrons l'avion jusqu'à Seattle, puis une voiture de location ; une fois installés, nous rejoindrons les pistes à pied.", "follow_up_to": null},
         {"topic": "Hébergement et coût", "question": "Quel type d'hébergement avez-vous réservé, et à quelle distance des activités ?", "answer": "Un chalet loué avec trois amis, à dix minutes à pied des remontées mécaniques.", "follow_up_to": null},
         {"topic": "Hébergement et coût", "question": "Quel budget total avez-vous prévu par personne, et qu'est-ce qui est compris dans cette somme ?", "answer": "Environ 2 000 $ par personne, avion et forfaits de ski compris.", "follow_up_to": null},
         {"topic": "Hébergement et coût", "question": "Est-ce que les forfaits représentent une grosse partie de cette somme ?", "answer": "Oui, plus de 200 $ par jour au guichet, mais je les ai achetés en ligne, bien moins cher.", "follow_up_to": 6, "condition": "If ski passes are included in the cost given."},
-        {"topic": "Activités", "question": "En dehors du ski, quelles activités avez-vous prévu d'essayer sur place ?", "answer": "Une sortie en raquettes et un tour dans la télécabine Peak 2 Peak, qui relie les deux montagnes de la station.", "follow_up_to": null}
+        {"topic": "Activités", "question": "En dehors du ski, quelles activités avez-vous prévu d'essayer sur place ?", "answer": "Une sortie en raquettes et un tour dans la télécabine de la station, qui offre une vue sur le mont Rainier.", "follow_up_to": null}
       ]
     },
     {

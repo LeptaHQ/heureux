@@ -236,8 +236,12 @@ def hint_section_presentation(dialogue, hints) -> tuple[dict, ...]:
     )
 
 
-def question_presentation(prompt, value: EffectiveResponse) -> dict:
-    dialogue = matching_dialogue(prompt, value)
+def question_presentation(prompt, value: EffectiveResponse, *, dialogue=None) -> dict:
+    dialogue = dialogue or matching_dialogue(prompt, value)
+    if dialogue is None:
+        published = published_dialogue(prompt)
+        if published is not None and len(published.questions) == len(value.arguments):
+            dialogue = published
     questions = []
     previous_topic = None
     for number, argument in enumerate(value.arguments, 1):
@@ -247,9 +251,12 @@ def question_presentation(prompt, value: EffectiveResponse) -> dict:
             row.update(
                 topic=question.topic,
                 starts_topic=question.topic != previous_topic,
-                follow_up_to=question.follow_up_to,
-                condition=question.condition,
             )
+            if argument.idea == question.question:
+                row.update(
+                    follow_up_to=question.follow_up_to,
+                    condition=question.condition,
+                )
             previous_topic = question.topic
         questions.append(row)
     return {"subject_questions": questions, "tache_two_dialogue": dialogue}

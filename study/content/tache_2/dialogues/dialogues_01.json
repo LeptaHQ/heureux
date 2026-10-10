@@ -21,18 +21,18 @@
     {
       "group": "host-foreign-friends-city-advice",
       "register": "tu",
-      "note": "You are hosting foreign friends in Calgary and ask your friend Pierre for practical ideas. Choose visits, activities, restaurants and transport without turning the exchange into a booking. Pierre offers personal advice, not official information. Use tu and adapt follow-ups to what he recommends.",
-      "opening": "Salut Pierre ! Mes amis viennent bientôt découvrir Calgary, et j'aimerais leur préparer un séjour varié sans trop charger les journées.",
-      "closing": "Merci, Pierre ! Je vais commencer par organiser la journée autour de Stephen Avenue et de Prince's Island Park.",
+      "note": "You are hosting foreign friends in Seattle and ask your friend Pierre for practical ideas. Choose visits, activities, restaurants and transport without turning the exchange into a booking. Pierre offers personal advice, not official information. Use tu and adapt follow-ups to what he recommends.",
+      "opening": "Salut Pierre ! Mes amis viennent bientôt découvrir Seattle, et j'aimerais leur préparer un séjour varié sans trop charger les journées.",
+      "closing": "Merci, Pierre ! Je vais commencer par organiser la journée autour de Pike Place Market et de l'Olympic Sculpture Park.",
       "questions": [
-        {"topic": "Visites et activités", "question": "Pour leur donner un bon aperçu de Calgary, quels endroits me conseillerais-tu en priorité ?", "answer": "Stephen Avenue et Prince's Island Park montrent bien le centre, l'architecture et les espaces verts de Calgary.", "follow_up_to": null},
-        {"topic": "Visites et activités", "question": "Par lequel vaudrait-il mieux commencer pour construire une journée qui se fait facilement à pied ?", "answer": "Par Stephen Avenue le matin, puis vous pourriez rejoindre Prince's Island Park après le déjeuner.", "follow_up_to": 1, "condition": "After several places have been recommended."},
-        {"topic": "Visites et activités", "question": "Quelle activité leur permettrait de mieux comprendre l'histoire et la culture de la région ?", "answer": "Heritage Park présente l'histoire de l'Ouest canadien dans un village historique vivant.", "follow_up_to": null},
-        {"topic": "Visites et activités", "question": "Et s'il pleut, quelle visite intérieure resterait vraiment intéressante ?", "answer": "Studio Bell serait un bon choix, avec ses expositions interactives consacrées à la musique canadienne.", "follow_up_to": null},
-        {"topic": "Restaurants", "question": "Où pourrait-on goûter une spécialité locale dans une ambiance conviviale ?", "answer": "Dans un restaurant de Kensington qui sert notamment du bœuf de l'Alberta et des produits locaux.", "follow_up_to": null},
+        {"topic": "Visites et activités", "question": "Pour leur donner un bon aperçu de Seattle, quels endroits me conseillerais-tu en priorité ?", "answer": "Pike Place Market et Olympic Sculpture Park montrent bien le centre, l'architecture et les espaces verts de Seattle.", "follow_up_to": null},
+        {"topic": "Visites et activités", "question": "Par lequel vaudrait-il mieux commencer pour construire une journée qui se fait facilement à pied ?", "answer": "Par Pike Place Market le matin, puis vous pourriez rejoindre Olympic Sculpture Park après le déjeuner.", "follow_up_to": 1, "condition": "After several places have been recommended."},
+        {"topic": "Visites et activités", "question": "Quelle activité leur permettrait de mieux comprendre l'histoire et la culture de la région ?", "answer": "Le musée MOHAI présente l'histoire de Seattle et de la région à travers des objets et des expositions.", "follow_up_to": null},
+        {"topic": "Visites et activités", "question": "Et s'il pleut, quelle visite intérieure resterait vraiment intéressante ?", "answer": "Le Museum of Pop Culture serait un bon choix, avec ses expositions consacrées à la musique et à la culture populaire.", "follow_up_to": null},
+        {"topic": "Restaurants", "question": "Où pourrait-on goûter une spécialité locale dans une ambiance conviviale ?", "answer": "Dans un restaurant de Capitol Hill qui sert notamment du saumon du Pacifique et des produits locaux.", "follow_up_to": null},
         {"topic": "Restaurants", "question": "Quel budget faudrait-il prévoir par personne dans ce restaurant ?", "answer": "Environ 35 $ par personne pour un plat et une boisson sans alcool.", "follow_up_to": 5, "condition": "After a restaurant is recommended, unless its prices are already given."},
-        {"topic": "Déplacements", "question": "Quel moyen de transport serait le plus simple entre ces différentes sorties ?", "answer": "Le CTrain pour rejoindre le centre, puis la marche entre Stephen Avenue et le parc.", "follow_up_to": null},
-        {"topic": "Déplacements", "question": "Quel titre de transport serait le plus avantageux pour une journée de visites ?", "answer": "Le forfait journalier devient intéressant à partir de trois trajets.", "follow_up_to": null}
+        {"topic": "Déplacements", "question": "Quel moyen de transport serait le plus simple entre ces différentes sorties ?", "answer": "Le métro léger Link pour rejoindre le centre, puis la marche entre Pike Place Market et le parc.", "follow_up_to": null},
+        {"topic": "Déplacements", "question": "Quel titre de transport serait le plus avantageux pour une journée de visites ?", "answer": "Un forfait journalier peut être intéressant ; vérifie qu'il couvre les trajets prévus en métro léger et en bus.", "follow_up_to": null}
       ]
     },
     {
@@ -157,12 +157,12 @@
     {
       "group": "help-friend-moving-day",
       "register": "tu",
-      "note": "You are helping your friend Pierre move between two neighbourhoods in Calgary. The new home is already chosen. Clarify the schedule, route, access, heavy items, helpers, transport and your role. Use tu and mention dismantling only if a relevant item is named.",
+      "note": "You are helping your friend Pierre move between two neighbourhoods in Seattle. The new home is already chosen. Clarify the schedule, route, access, heavy items, helpers, transport and your role. Use tu and mention dismantling only if a relevant item is named.",
       "opening": "Salut Pierre ! Pour que ton déménagement se passe bien, j'aimerais qu'on organise la journée ensemble.",
       "closing": "Parfait, Pierre, merci ! J'apporterai les sandwichs et je serai chez toi samedi un peu avant neuf heures.",
       "questions": [
         {"topic": "Horaire et trajet", "question": "Quel jour déménages-tu, et à quelle heure veux-tu commencer ?", "answer": "Samedi prochain, avec un départ vers neuf heures.", "follow_up_to": null},
-        {"topic": "Horaire et trajet", "question": "Quelle est l'adresse exacte de ton nouveau logement, et combien de temps faut-il prévoir depuis ton appartement actuel ?", "answer": "Le 18, 1st Avenue NE, à Bridgeland, à environ dix minutes en voiture de mon appartement à Kensington.", "follow_up_to": null},
+        {"topic": "Horaire et trajet", "question": "Quelle est l'adresse exacte de ton nouveau logement, et combien de temps faut-il prévoir depuis ton appartement actuel ?", "answer": "Je t'envoie l'adresse complète par message ; le logement est à Ballard, à environ vingt minutes en voiture de mon appartement à Capitol Hill.", "follow_up_to": null},
         {"topic": "Horaire et trajet", "question": "À l'arrivée, y a-t-il un ascenseur, et pourra-t-on garer la camionnette près de l'entrée ?", "answer": "Il faudra monter deux étages sans ascenseur, mais une place de chargement est réservée devant l'immeuble.", "follow_up_to": null},
         {"topic": "Meubles et préparation", "question": "Quels sont les objets les plus encombrants ou les plus lourds à déplacer ?", "answer": "Le canapé est le plus encombrant ; l'armoire et le lit sont les plus lourds, et la table est particulièrement large.", "follow_up_to": null},
         {"topic": "Meubles et préparation", "question": "Est-ce que tu pourras démonter les meubles concernés (l'armoire, le lit et la table) et retirer les pieds du canapé avant notre arrivée ?", "answer": "Oui, je démonterai ces meubles et retirerai les pieds du canapé vendredi soir.", "follow_up_to": 4, "condition": "If bulky or heavy furniture is mentioned."},
@@ -246,8 +246,8 @@
       "opening": "Salut ! J'aimerais trouver une bonne idée pour partir le temps d'un week-end.",
       "closing": "Merci pour tes conseils ! Je vais regarder les possibilités d'hébergement avant de me décider.",
       "questions": [
-        {"topic": "Destination et activités", "question": "Quel endroit me conseillerais-tu pour passer le week-end ?", "answer": "Le lac Saint-Clair, à une heure de la ville, est agréable pour deux jours.", "follow_up_to": null},
-        {"topic": "Destination et activités", "question": "Qu'est-ce qu'on pourrait faire autour de ce lac ?", "answer": "Marcher au bord de l'eau ou louer des vélos pour suivre la piste du lac.", "follow_up_to": 1, "condition": "If a lakeside destination is suggested; adapt to the actual place."},
+        {"topic": "Destination et activités", "question": "Quel endroit me conseillerais-tu pour passer le week-end ?", "answer": "Le lac Sammamish, à une heure de la ville, est agréable pour deux jours.", "follow_up_to": null},
+        {"topic": "Destination et activités", "question": "Qu'est-ce qu'on pourrait faire autour de ce lac ?", "answer": "Marcher au bord de l'eau ou louer des vélos pour suivre les pistes du parc.", "follow_up_to": 1, "condition": "If a lakeside destination is suggested; adapt to the actual place."},
         {"topic": "Trajet", "question": "Quel serait le moyen le plus pratique pour y aller ?", "answer": "La voiture est la plus rapide ; le bus existe, mais le trajet prend deux heures.", "follow_up_to": null},
         {"topic": "Hébergement et budget", "question": "Où pourrait-on dormir sur place ?", "answer": "Une petite auberge se trouve à quelques minutes à pied du lac.", "follow_up_to": null},
         {"topic": "Hébergement et budget", "question": "Quel budget faudrait-il prévoir pour deux jours ?", "answer": "Environ 180 $ par personne pour l'auberge, les repas et les déplacements.", "follow_up_to": null},

@@ -1,12 +1,12 @@
 <div class="eo2-dialogue">
   <div class="eo2-dialogue__boundary">
     <span>Pour commencer</span>
-    <p data-read-aloud-text lang="fr">{{ response_content.reformulation|linebreaksbr }}</p>
+    <p data-question-highlight-boundary="opening" data-read-aloud-text lang="fr">{{ response_content.reformulation|linebreaksbr }}</p>
   </div>
   <ol class="eo2-dialogue__questions">
     {% for question in subject_questions %}
       <li data-tache-two-question>
-        {% if question.starts_topic %}<h3 class="eo2-dialogue__topic">{{ question.topic }}</h3>{% endif %}
+        {% if question.starts_topic %}<h3 class="eo2-dialogue__topic" data-question-highlight-topic="{{ question.number }}">{{ question.topic }}</h3>{% endif %}
         <div class="eo2-dialogue__turn">
           <span class="eo2-dialogue__number" aria-hidden="true">{{ question.number|stringformat:"02d" }}</span>
           <div class="eo2-dialogue__content">
@@ -18,6 +18,6 @@
   </ol>
   <div class="eo2-dialogue__boundary eo2-dialogue__boundary--closing">
     <span>Pour terminer</span>
-    <p data-read-aloud-text lang="fr">{{ response_content.conclusion|linebreaksbr }}</p>
+    <p data-question-highlight-boundary="closing" data-read-aloud-text lang="fr">{{ response_content.conclusion|linebreaksbr }}</p>
   </div>
 </div>

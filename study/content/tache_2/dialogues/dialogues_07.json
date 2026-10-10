@@ -212,14 +212,14 @@
       "opening": "Salut ! Je dois écrire un article sur un spectacle pour le bulletin de mon association culturelle, et je manque d'idées.",
       "closing": "Merci beaucoup ! Grâce à toi, j'ai enfin une idée précise pour mon article.",
       "questions": [
-        {"topic": "Type de spectacle", "question": "Quel est le spectacle que tu as préféré ces derniers temps ?", "answer": "Le dernier spectacle du Cirque du Soleil, à Montréal.", "follow_up_to": null},
+        {"topic": "Type de spectacle", "question": "Quel est le spectacle que tu as préféré ces derniers temps ?", "answer": "Un spectacle de cirque contemporain que j'ai vu à Seattle.", "follow_up_to": null},
         {"topic": "Type de spectacle", "question": "Quels éléments t'ont le plus marqué : les acrobaties, la mise en scène ou la musique ?", "answer": "Les acrobaties, bien sûr, mais surtout la musique jouée en direct.", "follow_up_to": 1, "condition": "After a show is named, unless their reasons are already clear."},
         {"topic": "Type de spectacle", "question": "Le spectacle convenait-il vraiment à toute la famille, notamment aux jeunes enfants ?", "answer": "Oui, c'était un spectacle tout public, et il y avait beaucoup d'enfants dans la salle.", "follow_up_to": null},
         {"topic": "Type de spectacle", "question": "Combien de temps durait la représentation, entracte compris ?", "answer": "Environ deux heures, avec un entracte de quinze minutes.", "follow_up_to": null},
-        {"topic": "Lieu et prix", "question": "Dans quel lieu le spectacle était-il présenté, et dans quel secteur de la ville ?", "answer": "Sous le grand chapiteau du Vieux-Port, au bord du fleuve.", "follow_up_to": null},
+        {"topic": "Lieu et prix", "question": "Dans quel lieu le spectacle était-il présenté, et dans quel secteur de la ville ?", "answer": "Sous un chapiteau installé pour l'événement dans la région de Seattle.", "follow_up_to": null},
         {"topic": "Lieu et prix", "question": "Dans quelle fourchette de prix se situaient les billets selon les places ?", "answer": "Ils commençaient autour de 70 $, mais les meilleures places dépassaient 150 $.", "follow_up_to": null},
         {"topic": "Lieu et prix", "question": "Quels tarifs réduits ou promotions étaient proposés aux familles et aux groupes ?", "answer": "Il y avait des réductions pour les enfants et les groupes, ainsi que certaines promotions en semaine.", "follow_up_to": 6, "condition": "After ticket prices are given, if they seem expensive for readers."},
-        {"topic": "Angle de l'article", "question": "À ton avis, quel aspect devrais-je mettre en avant dans mon article ?", "answer": "Le travail des artistes : Montréal est un grand centre des arts du cirque, et beaucoup d'entre eux s'y forment.", "follow_up_to": null}
+        {"topic": "Angle de l'article", "question": "À ton avis, quel aspect devrais-je mettre en avant dans mon article ?", "answer": "Le travail des artistes : leurs acrobaties, leur préparation et la façon dont ils racontent une histoire ensemble.", "follow_up_to": null}
       ]
     },
     {
@@ -263,12 +263,12 @@
       "opening": "Bonjour ! Ce poste à l'étranger m'intéresse beaucoup, mais avant de me décider, j'aimerais en savoir un peu plus.",
       "closing": "Merci pour toutes ces précisions ! Je vais y réfléchir sérieusement, et je vous donnerai ma réponse d'ici la fin de la semaine.",
       "questions": [
-        {"topic": "Le poste", "question": "Où se trouverait ce poste, et pour combien de temps ?", "answer": "En France, dans notre filiale de Lyon, pour une mission de deux ans.", "follow_up_to": null},
-        {"topic": "Le poste", "question": "Quelles seraient mes principales responsabilités, et devrais-je constituer une nouvelle équipe sur place ?", "answer": "Vous lanceriez notre service client européen et recruteriez son équipe.", "follow_up_to": null},
-        {"topic": "Le poste", "question": "Combien de personnes faudrait-il recruter au départ, et quel soutien recevrais-je des ressources humaines ?", "answer": "Six personnes, avec l'aide des ressources humaines de Lyon.", "follow_up_to": 2, "condition": "If recruiting a team is part of the role."},
-        {"topic": "Le poste", "question": "Quelles démarches administratives l'entreprise prendrait-elle en charge avant mon départ ?", "answer": "L'entreprise préparerait le permis de travail et prendrait en charge les traductions ainsi que les frais de dossier.", "follow_up_to": null},
+        {"topic": "Le poste", "question": "Où se trouverait ce poste, et pour combien de temps ?", "answer": "Aux États-Unis, dans notre filiale de Seattle, pour une mission de deux ans.", "follow_up_to": null},
+        {"topic": "Le poste", "question": "Quelles seraient mes principales responsabilités, et devrais-je constituer une nouvelle équipe sur place ?", "answer": "Vous lanceriez notre service client américain et recruteriez son équipe.", "follow_up_to": null},
+        {"topic": "Le poste", "question": "Combien de personnes faudrait-il recruter au départ, et quel soutien recevrais-je des ressources humaines ?", "answer": "Six personnes, avec l'aide des ressources humaines de Seattle.", "follow_up_to": 2, "condition": "If recruiting a team is part of the role."},
+        {"topic": "Le poste", "question": "Quelles démarches administratives l'entreprise prendrait-elle en charge avant mon départ ?", "answer": "L'entreprise préparerait le dossier de visa de travail et prendrait en charge les traductions ainsi que les frais de dossier.", "follow_up_to": null},
         {"topic": "Salaire et avantages", "question": "Quel salaire et quelle prime d'expatriation seraient prévus pour cette mission ?", "answer": "Vous conserveriez le même salaire, avec une prime d'expatriation de 15 %.", "follow_up_to": null},
-        {"topic": "Salaire et avantages", "question": "Est-ce que cette prime tiendrait compte du coût de la vie à Lyon ?", "answer": "Oui, elle a été calculée pour cela, et elle serait révisée chaque année.", "follow_up_to": 5, "condition": "If an expatriation bonus is mentioned; substitute the city named."},
+        {"topic": "Salaire et avantages", "question": "Est-ce que cette prime tiendrait compte du coût de la vie à Seattle ?", "answer": "Oui, elle a été calculée pour cela, et elle serait révisée chaque année.", "follow_up_to": 5, "condition": "If an expatriation bonus is mentioned; substitute the city named."},
         {"topic": "Salaire et avantages", "question": "Quels frais ou avantages l'entreprise prendrait-elle en charge pour le déménagement, le logement et les retours annuels ?", "answer": "Le déménagement, trois mois de logement et un billet aller-retour par an seraient pris en charge.", "follow_up_to": null},
         {"topic": "Retour", "question": "Et à mon retour, retrouverais-je un poste ici ?", "answer": "Un poste équivalent vous serait garanti, probablement avec plus de responsabilités.", "follow_up_to": null}
       ]

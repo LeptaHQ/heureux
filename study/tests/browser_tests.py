@@ -1348,7 +1348,7 @@ class BrowserTests(StaticLiveServerTestCase):
                 self.page.goto(url)
                 rows = self.page.locator("[data-subject-collection-row]")
                 self.assertEqual(rows.count(), count)
-                progress_total = 163 if (part, tache) == ("eo", 2) else count
+                progress_total = 164 if (part, tache) == ("eo", 2) else count
                 expect(self.page.locator(
                     "[data-collection-progress-value]"
                 )).to_have_text(f"0/{progress_total}")
@@ -3228,7 +3228,7 @@ class BrowserTests(StaticLiveServerTestCase):
         task_card.wait_for()
         self.assertEqual(
             task_card.locator(".deck__progress-copy").inner_text(),
-            "0/33 lots terminés · 0/163 sujets terminés",
+            "0/33 lots terminés · 0/164 sujets terminés",
         )
 
         self.context.add_init_script(
@@ -6448,6 +6448,64 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(restored.text_content(), quote)
         saved.refresh_from_db()
         self.assertEqual(saved.quote, quote)
+
+    def test_eo2_location_edits_preserve_visible_highlights_on_detail_and_review(self):
+        from study import catalogue
+        from study.oral_highlights import _render_questions
+        from study.oral_history import variant_annotation_key
+        from study.tache_two_dialogues import dialogue_response
+
+        self._import_eo_tache_two_content()
+        key, current = next(
+            (key, value) for key, value in catalogue.tache_two_dialogues().items()
+            if value.group == "estate-agent-housing-options"
+        )
+        prompt = Prompt.objects.select_related("response", "theme__task__part").get(content_key=key)
+        old = catalogue.tache_two_location_history()[current.group].revisions[0]
+        previous = dialogue_response(old)
+        old_key = variant_annotation_key(prompt, previous, tache_two_dialogue=old)
+        detail_path = prompt_detail_url(prompt)
+        review_path = (
+            reverse("study:review")
+            + f"?kind=spine&response={prompt.response_id}&prompt={prompt.pk}"
+        )
+        prompts = list(prompt.response.prompts.filter(is_active=True).select_related("theme__task__part"))
+        marks = []
+        for surface, number, quote, path in (
+            ("detail", 1, old.questions[0].question, detail_path),
+            ("detail", 3, "Beltline", detail_path),
+            ("back", 3, "Bridgeland", review_path),
+        ):
+            rendered = _render_questions(prompt, previous, surface, prompts, dialogue=old)
+            left, right = rendered.fields[(number, "question")]
+            start = rendered.text.index(quote.encode("utf-16-le"), left * 2, right * 2) // 2
+            end = start + len(quote.encode("utf-16-le")) // 2
+            marks.append(Annotation.objects.create(
+                user=self.user, task=prompt.theme.task, kind=AnnotationKind.HIGHLIGHT,
+                source_path=path, source_key=old_key + (":back" if surface == "back" else ""),
+                quote=quote, start_offset=start, end_offset=end,
+                prefix=rendered.slice(max(0, start - 160), start),
+                suffix=rendered.slice(end, end + 160),
+                body="My preserved learning note.",
+            ))
+
+        self.page.goto(self.live_server_url + detail_path)
+        for mark, quote in zip(marks[:2], (old.questions[0].question, "Capitol Hill")):
+            expect(self.page.locator(f'[data-highlight-id="{mark.pk}"]')).to_have_text(quote)
+        self.page.goto(self.live_server_url + review_path)
+        self.page.locator("#card-front .prompt-text").wait_for()
+        expect(self.page.locator("#card-front .prompt-text")).to_have_text(prompt.text)
+        self.save_current_prompt_highlight()
+        front = Annotation.objects.filter(user=self.user).latest("pk")
+        front.source_key = old_key + ":front"
+        front.save(update_fields=["source_key"])
+        self.page.reload()
+        expect(self.page.locator(f'#card-front [data-highlight-id="{front.pk}"]')).to_be_visible()
+        self.page.locator("#reveal").click()
+        expect(self.page.locator(f'#card-back [data-highlight-id="{marks[2].pk}"]')).to_have_text("Ballard")
+        for mark in marks:
+            mark.refresh_from_db()
+            self.assertEqual(mark.body, "My preserved learning note.")
 
     def test_eo2_personalization_only_resets_highlights_on_changed_text(self):
         self._import_eo_tache_two_content()

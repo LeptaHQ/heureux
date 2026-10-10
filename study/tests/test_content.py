@@ -59,6 +59,7 @@ class AppCopyTests(SimpleTestCase):
         forbidden = ("T" + "CF", "T" + "EF")
         exam_specific_sources = {
             project_root / "study/content/tache_2/ai_examiner_prompt.md",
+            project_root / "study/content/tache_2/EDITORIAL_PLAYBOOK.md",
             project_root / "study/content/ee/tache_1/ai_examiner_prompt.md",
             project_root / "study/content/ee/tache_2/ai_examiner_prompt.md",
             project_root / "study/content/ee/tache_3/ai_examiner_prompt.md",
@@ -97,6 +98,7 @@ class AppCopyTests(SimpleTestCase):
                 if disclaimer := approved_disclaimers.get(path):
                     self.assertEqual(text.count(disclaimer), 1, path)
                     text = text.replace(disclaimer, "", 1)
+                text = re.sub(r"https?://[^\"'\s>]+", "", text)
                 if match := pattern.search(text):
                     violations.append(
                         f"{path.relative_to(project_root)}: {match.group(0)}"

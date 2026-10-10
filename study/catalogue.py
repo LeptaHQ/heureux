@@ -14,6 +14,7 @@ from types import MappingProxyType
 
 from . import content_loader as content
 from .tache_two_dialogues import TacheTwoDialogue, load_tache_two_dialogues
+from .tache_two_location_history import LocationHistory, load_location_history
 
 
 @lru_cache(maxsize=1)
@@ -41,6 +42,15 @@ def tache_two_dialogues() -> Mapping[str, TacheTwoDialogue]:
     return MappingProxyType(
         load_tache_two_dialogues(months=tache_two_subject_months())
     )
+
+
+@lru_cache(maxsize=1)
+def tache_two_location_history() -> Mapping[str, LocationHistory]:
+    history = load_location_history()
+    groups = {dialogue.group for dialogue in tache_two_dialogues().values()}
+    if set(history) - groups:
+        raise ValueError("EO2 location history contains unknown dialogue groups")
+    return MappingProxyType(history)
 
 
 @lru_cache(maxsize=1)
@@ -123,6 +133,7 @@ def clear_catalogue_cache() -> None:
     tache_two_subject_themes.cache_clear()
     tache_two_subject_hints.cache_clear()
     tache_two_dialogues.cache_clear()
+    tache_two_location_history.cache_clear()
     tache_three_subject_hints.cache_clear()
     ee_tache_one_subject_hints.cache_clear()
     task_memoires.cache_clear()

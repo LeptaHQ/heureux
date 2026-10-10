@@ -130,7 +130,7 @@
       "opening": "Bonjour ! J'envisage d'étudier à l'étranger et j'aimerais profiter de vos conseils pour préparer ce projet.",
       "closing": "Merci pour votre aide. Je vais comparer les programmes et vérifier les conditions auprès des établissements concernés.",
       "questions": [
-        {"topic": "Destinations et programmes", "question": "Quelles destinations me conseilleriez-vous pour étudier à l'étranger ?", "answer": "Pour un projet en français, le Québec et la France offrent des possibilités très différentes.", "follow_up_to": null},
+        {"topic": "Destinations et programmes", "question": "Quelles destinations me conseilleriez-vous pour étudier à l'étranger ?", "answer": "Le Québec propose des formations en français ; certaines universités américaines offrent aussi des échanges en études françaises, avec des exigences linguistiques différentes.", "follow_up_to": null},
         {"topic": "Destinations et programmes", "question": "Quels types de programmes pourrais-je y envisager ?", "answer": "Un échange universitaire ou une formation complète, selon votre parcours et vos objectifs.", "follow_up_to": 1, "condition": "After destinations are suggested; focus on your actual study interests."},
         {"topic": "Admission et préparation", "question": "Quelles conditions d'admission devrais-je vérifier avant de candidater ?", "answer": "Elles dépendent de l'établissement ; vérifiez notamment les diplômes attendus, les exigences linguistiques et les dates limites.", "follow_up_to": null},
         {"topic": "Admission et préparation", "question": "Comment me préparer au niveau de français demandé ?", "answer": "Nous pouvons travailler vos points faibles, puis utiliser les exigences du programme pour choisir les exercices.", "follow_up_to": 3, "condition": "If a French-language requirement is relevant to the selected programme."},
@@ -317,13 +317,13 @@
     {
       "group": "neighbor-seaside-house-rental",
       "register": "vous",
-      "note": "Your neighbour Ève is offering a specific seaside house in the Gaspésie region, generally for holidays. The neighbour relationship means you already have nearby housing; this is not a main-home search. Ask about this property's setting, capacity, equipment, availability and price. Use vous.",
-      "opening": "Bonjour Ève ! Votre maison en Gaspésie pourrait bien me convenir pour les vacances, alors j'aimerais avoir quelques précisions.",
+      "note": "Your neighbour Ève is offering a specific seaside house in Seattle's Alki area, generally for holidays. The neighbour relationship means you already have nearby housing; this is not a main-home search. Ask about this property's setting, capacity, equipment, availability and price. Use vous.",
+      "opening": "Bonjour Ève ! Votre maison à Seattle pourrait bien me convenir pour les vacances, alors j'aimerais avoir quelques précisions.",
       "closing": "Merci, Ève ! Je vais vérifier mes dates pour la première semaine de juillet.",
       "questions": [
-        {"topic": "Emplacement et cadre", "question": "Dans quel secteur de Carleton-sur-Mer se situe la maison, et à quelle distance se trouve le centre ?", "answer": "Dans un secteur résidentiel de Carleton-sur-Mer, à environ dix minutes du centre en voiture.", "follow_up_to": null},
+        {"topic": "Emplacement et cadre", "question": "Dans quel secteur de Seattle se situe la maison, et à quelle distance se trouve le centre ?", "answer": "À Alki, près de la plage, à environ vingt minutes du centre en voiture.", "follow_up_to": null},
         {"topic": "Emplacement et cadre", "question": "Est-ce qu'on peut rejoindre la plage à pied depuis la maison ?", "answer": "Oui, un chemin mène à la plage en cinq minutes environ.", "follow_up_to": 1, "condition": "After the location is given, unless beach access is already explained."},
-        {"topic": "Emplacement et cadre", "question": "Quels commerces, restaurants ou activités trouve-t-on facilement dans les environs ?", "answer": "Une épicerie et quelques restaurants se trouvent au village, avec du kayak et des sentiers côtiers à proximité.", "follow_up_to": null},
+        {"topic": "Emplacement et cadre", "question": "Quels commerces, restaurants ou activités trouve-t-on facilement dans les environs ?", "answer": "Une épicerie et quelques restaurants se trouvent à Alki, avec du kayak et des sentiers côtiers à proximité.", "follow_up_to": null},
         {"topic": "Aménagement et équipement", "question": "Combien de chambres et de lits y a-t-il, et combien de personnes peuvent dormir confortablement ?", "answer": "Deux chambres, chacune avec un lit double, permettent d'accueillir quatre personnes.", "follow_up_to": null},
         {"topic": "Aménagement et équipement", "question": "La cuisine, le linge de maison, le lave-linge et le barbecue sont-ils à la disposition des locataires ?", "answer": "Oui, la cuisine est équipée, le linge est fourni, et le lave-linge ainsi que le barbecue sont disponibles.", "follow_up_to": null},
         {"topic": "Disponibilités et tarif", "question": "Quelles périodes sont encore disponibles, et faut-il réserver au moins une semaine ?", "answer": "La première semaine de juillet et deux semaines fin août ; la location minimale est de sept nuits.", "follow_up_to": null},

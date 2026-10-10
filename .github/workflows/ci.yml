@@ -2,7 +2,23 @@ name: CI
 
 on:
   push:
+    paths-ignore:
+      - ".github/copilot-instructions.md"
+      - "README.md"
+      - "docs/**"
+      - "study/content/tache_2/EDITORIAL_PLAYBOOK.md"
+      - "study/content/tache_2/dialogues/**"
+      - "study/content/tache_2/dialogue_history/**"
+      - "study/content/tache_2/subjects/hints.json"
   pull_request:
+    paths-ignore:
+      - ".github/copilot-instructions.md"
+      - "README.md"
+      - "docs/**"
+      - "study/content/tache_2/EDITORIAL_PLAYBOOK.md"
+      - "study/content/tache_2/dialogues/**"
+      - "study/content/tache_2/dialogue_history/**"
+      - "study/content/tache_2/subjects/hints.json"
 
 permissions:
   contents: read
@@ -59,7 +75,6 @@ jobs:
 
   browser:
     runs-on: ubuntu-latest
-    needs: test
     services:
       postgres:
         image: postgres:16

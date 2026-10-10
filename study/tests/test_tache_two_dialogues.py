@@ -358,7 +358,22 @@ class TacheTwoDialogueLoaderTests(SimpleTestCase):
                     *personal.arguments[1:],
                 ),
             )
-            self.assertIsNone(question_presentation(prompt, changed)["tache_two_dialogue"])
+            changed_presentation = question_presentation(prompt, changed)
+            self.assertEqual(changed_presentation["tache_two_dialogue"], dialogue)
+            self.assertEqual(
+                [row["topic"] for row in changed_presentation["subject_questions"]],
+                [question.topic for question in dialogue.questions],
+            )
+            self.assertNotIn(
+                "follow_up_to",
+                changed_presentation["subject_questions"][0],
+            )
+            self.assertIsNone(
+                question_presentation(
+                    prompt,
+                    replace(changed, arguments=changed.arguments[:-1]),
+                )["tache_two_dialogue"],
+            )
 
     def test_personal_note_is_escaped_excluded_from_annotations_and_not_spoken(self):
         dialogue = next(iter(self.load().values()))
@@ -403,7 +418,7 @@ class TacheTwoDialogueCorpusTests(SimpleTestCase):
     def test_all_publications_have_eight_reviewed_questions(self):
         dialogues = load_tache_two_dialogues()
         self.assertEqual(len(dialogues), 348)
-        self.assertEqual(len({dialogue.group for dialogue in dialogues.values()}), 163)
+        self.assertEqual(len({dialogue.group for dialogue in dialogues.values()}), 164)
         self.assertEqual(sum(len(dialogue.questions) for dialogue in dialogues.values()), 2784)
         for key, dialogue in dialogues.items():
             with self.subTest(publication=key):

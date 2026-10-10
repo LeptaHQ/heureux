@@ -133,8 +133,8 @@
       "opening": "Salut ! Je cherche un séjour linguistique pour mon enfant, et comme le tien en a fait un, j'aimerais profiter de ton expérience.",
       "closing": "Merci beaucoup, ça m'aide énormément ! Je vais en parler avec mon enfant et comparer quelques séjours de ce type.",
       "questions": [
-        {"topic": "Destination", "question": "Où est-ce que ton enfant est parti, et pour combien de temps ?", "answer": "En Irlande, à Dublin, pendant trois semaines en juillet.", "follow_up_to": null},
-        {"topic": "Destination", "question": "Pourquoi avoir choisi l'Irlande ?", "answer": "C'était moins cher qu'en Angleterre, et on nous avait vanté l'accueil chaleureux des familles.", "follow_up_to": 1, "condition": "After the destination is named; adapt the country to their reply."},
+        {"topic": "Destination", "question": "Où est-ce que ton enfant est parti, et pour combien de temps ?", "answer": "Aux États-Unis, à Seattle, pendant trois semaines en juillet.", "follow_up_to": null},
+        {"topic": "Destination", "question": "Pourquoi avoir choisi les États-Unis ?", "answer": "Le programme correspondait à son niveau d'anglais, et on nous avait vanté l'accueil chaleureux des familles.", "follow_up_to": 1, "condition": "After the destination is named; adapt the country to their reply."},
         {"topic": "Activités et hébergement", "question": "Comment se passaient ses journées sur place ?", "answer": "Il y avait des cours le matin, puis du sport, des visites ou du théâtre l'après-midi.", "follow_up_to": null},
         {"topic": "Activités et hébergement", "question": "Où logeait ton enfant, et comment la famille d'accueil avait-elle été choisie ?", "answer": "Chez une famille vérifiée par l'organisme, avec un autre élève d'une langue différente.", "follow_up_to": null},
         {"topic": "Activités et hébergement", "question": "Comment s'est-il adapté au séjour, et quels progrès as-tu remarqués à son retour ?", "answer": "Les premiers jours ont été difficiles, puis il a gagné en confiance et parlait beaucoup plus spontanément.", "follow_up_to": 4, "condition": "After the accommodation arrangement is described."},

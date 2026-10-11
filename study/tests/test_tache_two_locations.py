@@ -60,16 +60,22 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
                         [question.topic for question in old.questions],
                         [question.topic for question in current.questions],
                     )
-                    self.assertEqual(
-                        [question.follow_up_to for question in old.questions],
-                        [question.follow_up_to for question in current.questions],
-                    )
+                    if history[current.group].replacements:
+                        reference = history[current.group].revisions[-1]
+                        if len(history[current.group].revisions) == 1:
+                            reference = current
+                        self.assertEqual(
+                            [question.follow_up_to for question in old.questions],
+                            [question.follow_up_to for question in reference.questions],
+                        )
 
-    def test_recorded_substitutions_reconstruct_each_current_visible_model(self):
+    def test_recorded_substitutions_reconstruct_current_or_archived_geographic_models(self):
         by_group = {item.group: item for item in catalogue.tache_two_dialogues().values()}
         for group, history in catalogue.tache_two_location_history().items():
+            if not history.replacements:
+                continue
             previous = history.revisions[0]
-            current = by_group[group]
+            current = history.revisions[-1] if len(history.revisions) > 1 else by_group[group]
             old_fields = [
                 previous.opening, *(row.question for row in previous.questions), previous.closing,
             ]
@@ -80,6 +86,137 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
                 for before, after in history.replacements:
                     old = old.replace(before, after)
                 self.assertEqual(old, new, group)
+
+    def test_apartment_condition_question_offers_work_or_ready_to_live_in(self):
+        current = next(
+            row for row in catalogue.tache_two_dialogues().values()
+            if row.group == "estate-agent-advertised-apartment-purchase"
+        )
+        self.assertEqual(
+            current.questions[2].question,
+            "L'appartement nécessite-t-il des travaux, ou est-il prêt à être habité ?",
+        )
+        self.assertIn("habitable immédiatement", current.questions[2].answer)
+        self.assertEqual(
+            current.questions[7].question, "Quand pourrais-je passer voir l'appartement ?",
+        )
+        self.assertEqual(
+            current.questions[5].question,
+            "L'appartement dispose-t-il d'un balcon, d'un espace de rangement ou d'une place de stationnement ?",
+        )
+        self.assertIsNone(current.questions[5].follow_up_to)
+        hints = json.loads(content.TACHE_TWO_SUBJECT_HINTS_PATH.read_text())["groups"][current.group]
+        self.assertEqual(hints[5]["english"], "Balcony, storage space and parking")
+
+    def test_delivery_price_precedes_access_solutions_and_pistes_follow_question_order(self):
+        current = next(
+            row for row in catalogue.tache_two_dialogues().values()
+            if row.group == "furniture-delivery-service"
+        )
+        self.assertTrue(current.questions[1].question.startswith("Quel est votre tarif de base"))
+        self.assertEqual(
+            current.questions[2].question,
+            "Si le canapé ne passe pas par l'escalier, quelles solutions proposez-vous ?",
+        )
+        self.assertEqual(current.questions[3].follow_up_to, 2)
+        hints = json.loads(content.TACHE_TWO_SUBJECT_HINTS_PATH.read_text())["groups"][current.group]
+        self.assertEqual(hints[1]["english"], "Base rate and distance, floor or access surcharges")
+        self.assertEqual(hints[2]["french"], "Solutions si le canapé ne passe pas par l'escalier")
+        self.assertNotIn("photos", current.closing)
+
+    def test_quebec_agency_starts_with_offers_fees_then_availability_and_lease_length(self):
+        current = next(
+            row for row in catalogue.tache_two_dialogues().values()
+            if row.group == "quebec-newcomer-estate-agency-housing-procedures"
+        )
+        self.assertEqual(
+            current.questions[0].question,
+            "Quels types de logements avez-vous actuellement à louer, et vos services sont-ils payants pour les locataires ?",
+        )
+        self.assertEqual(
+            current.questions[1].question,
+            "À partir de quand ces logements sont-ils disponibles, et quelle est la durée minimale du bail ?",
+        )
+        self.assertEqual(current.questions[1].follow_up_to, 1)
+        self.assertIn("payés par le propriétaire", current.questions[0].answer)
+        self.assertIn("immédiatement", current.questions[1].answer)
+        self.assertIn("d'un an", current.questions[1].answer)
+        previous = catalogue.tache_two_location_history()[current.group].revisions[-1]
+        self.assertEqual(current.opening, previous.opening)
+        self.assertEqual(current.closing, previous.closing)
+        for number, (old, new) in enumerate(zip(previous.questions, current.questions), 1):
+            if number == 7:
+                continue
+            self.assertEqual(old.question, new.question)
+            self.assertEqual(old.follow_up_to, new.follow_up_to)
+            self.assertEqual(old.topic, new.topic)
+            self.assertEqual(old.condition, new.condition)
+        self.assertEqual(
+            current.questions[6].question,
+            "Si je n'ai pas de références locatives au Québec, quels justificatifs puis-je fournir à la place, et faut-il un garant ?",
+        )
+        self.assertEqual(current.questions[6].follow_up_to, 6)
+        self.assertIn("ancien propriétaire à l'étranger", current.questions[6].answer)
+        self.assertIn("un garant peut être demandé selon", current.questions[6].answer)
+        hints = json.loads(content.TACHE_TWO_SUBJECT_HINTS_PATH.read_text())["groups"][current.group]
+        self.assertEqual(hints[0]["english"], "Available rental types and agency fees for tenants")
+        self.assertEqual(hints[1]["english"], "Availability dates and minimum lease length")
+        self.assertEqual(
+            hints[6]["french"],
+            "Justificatifs sans références locatives au Québec et nécessité d'un garant",
+        )
+        self.assertEqual(
+            hints[6]["english"],
+            "Alternative supporting documents without Quebec rental references and need for a guarantor",
+        )
+
+    def test_shared_room_combines_costs_and_separates_availability_from_lease_arrangements(self):
+        current = next(
+            row for row in catalogue.tache_two_dialogues().values()
+            if row.group == "offered-room-in-existing-shared-apartment"
+        )
+        self.assertEqual(len(current.questions), 8)
+        self.assertEqual(
+            [row.question for row in current.questions[:3]],
+            [
+                "Combien coûterait la chambre par mois, et quelles charges et dépenses communes seraient comprises dans ce loyer ?",
+                "À partir de quand la chambre sera-t-elle libre ?",
+                "Signerais-je un bail ou une entente de sous-location, et pour quelle durée minimale ?",
+            ],
+        )
+        self.assertIn("1 300 $ par mois", current.questions[0].answer)
+        self.assertIn("chauffage, électricité et Internet compris", current.questions[0].answer)
+        self.assertIn("produits ménagers", current.questions[0].answer)
+        self.assertEqual(current.questions[1].answer, "Dès le premier du mois prochain.")
+        self.assertIn("ajout au bail existant", current.questions[2].answer)
+        self.assertIn("six mois", current.questions[2].answer)
+        self.assertTrue(all(row.follow_up_to is None for row in current.questions[:3]))
+        previous = catalogue.tache_two_location_history()[current.group].revisions[0]
+        self.assertEqual(current.opening, previous.opening)
+        self.assertEqual(current.closing, previous.closing)
+        for old, new in zip(previous.questions[3:], current.questions[3:]):
+            self.assertEqual(old.question, new.question)
+            self.assertEqual(old.topic, new.topic)
+            self.assertEqual(old.follow_up_to, new.follow_up_to)
+            self.assertEqual(old.condition, new.condition)
+        hints = json.loads(content.TACHE_TWO_SUBJECT_HINTS_PATH.read_text())["groups"][current.group]
+        self.assertEqual(
+            hints[:3],
+            [
+                {
+                    "french": "Loyer mensuel, charges et dépenses communes comprises",
+                    "english": "Monthly rent, included utilities and shared expenses",
+                },
+                {
+                    "french": "Date de disponibilité de la chambre",
+                    "english": "Room availability date",
+                },
+                {
+                    "french": "Bail ou entente de sous-location et durée minimale",
+                    "english": "Lease or sublet agreement and minimum term",
+                },
+            ],
+        )
 
     def test_fixed_canadian_settings_and_francophone_roles_remain_valid(self):
         by_group = {item.group: item for item in catalogue.tache_two_dialogues().values()}
@@ -138,20 +275,23 @@ class PublishedTacheTwoHighlightTests(TestCase):
         self.user = factories.make_user("location-highlights")
         self.task = factories.make_task(factories.make_part("eo"), "tache-2")
         self.response = factories.make_response(theme=factories.make_theme(task=self.task))
+        self.prompt = self.response.prompts.get()
+        self.configure_group("estate-agent-housing-options")
+        self.client.force_login(self.user)
+
+    def configure_group(self, group):
         key, self.current = next(
             (key, value) for key, value in catalogue.tache_two_dialogues().items()
-            if value.group == "estate-agent-housing-options"
+            if value.group == group
         )
         self.response.content_key = key
         self.response.semantic_group = self.current.group
         self.response.save(update_fields=["content_key", "semantic_group"])
-        self.prompt = self.response.prompts.get()
         self.prompt.content_key = key
         self.prompt.model_content = {"storage_key": key}
         self.prompt.save(update_fields=["content_key", "model_content"])
         self.old = catalogue.tache_two_location_history()[self.current.group].revisions[0]
         self.path = prompt_detail_url(self.prompt)
-        self.client.force_login(self.user)
 
     def highlight(self, number, quote=None, *, surface="detail", **overrides):
         previous = dialogue_response(self.old)
@@ -240,6 +380,110 @@ class PublishedTacheTwoHighlightTests(TestCase):
         self.assertEqual(
             front.source_key, variant_annotation_key(self.prompt, dialogue_response(self.current)) + ":front",
         )
+
+    def test_delivery_reorder_recovers_unchanged_questions_but_not_rewritten_wording(self):
+        self.configure_group("furniture-delivery-service")
+        marks = [
+            self.highlight(1),
+            self.highlight(3, body="My price vocabulary."),
+            self.highlight(4),
+            self.highlight(7),
+        ]
+        changed = self.highlight(2)
+        old_key = changed.source_key
+        review_path = reverse("study:task_review", args=["eo", "tache-2"]) + "?kind=spine"
+        back = self.highlight(3, surface="back", source_path=review_path)
+        self.fetch()
+        self.fetch(review_path)
+        for mark in marks:
+            self.assert_current(mark)
+        self.assert_current(back, "back")
+        rendered = _render_questions(
+            self.prompt, dialogue_response(self.current), "detail", [self.prompt],
+        )
+        self.assertEqual(
+            (marks[1].start_offset, marks[1].end_offset), rendered.fields[(2, "question")],
+        )
+        self.assertEqual(marks[1].body, "My price vocabulary.")
+        changed.refresh_from_db()
+        self.assertEqual(changed.source_key, old_key)
+        self.assertIn("mesures et de photos", changed.quote)
+        self.assertEqual(Annotation.objects.count(), 6)
+
+    def test_apartment_rewrite_preserves_other_highlights_from_both_published_revisions(self):
+        self.configure_group("estate-agent-advertised-apartment-purchase")
+        marks = [self.highlight(1), self.highlight(7)]
+        previous = dialogue_response(self.old)
+        rendered = _render_questions(
+            self.prompt, previous, "detail", [self.prompt], dialogue=self.old,
+        )
+        quote = "Beltline"
+        start = rendered.text.index(quote.encode("utf-16-le")) // 2
+        location = Annotation.objects.create(
+            user=self.user, task=self.task, kind=AnnotationKind.HIGHLIGHT,
+            source_path=self.path,
+            source_key=variant_annotation_key(self.prompt, previous, tache_two_dialogue=self.old),
+            quote=quote, start_offset=start, end_offset=start + len(quote),
+            prefix=rendered.slice(max(0, start - 160), start),
+            suffix=rendered.slice(start + len(quote), start + len(quote) + 160),
+        )
+        self.old = catalogue.tache_two_location_history()[self.current.group].revisions[-1]
+        marks.append(self.highlight(4))
+        changed = self.highlight(3, body="My original work-needed note.")
+        old_key = changed.source_key
+        self.fetch()
+        for mark in (*marks, location):
+            self.assert_current(mark)
+        self.assertEqual(location.quote, "Capitol Hill")
+        changed.refresh_from_db()
+        self.assertEqual(changed.source_key, old_key)
+        self.assertEqual(changed.body, "My original work-needed note.")
+
+    def test_quebec_agency_rewrite_preserves_highlights_from_original_revision(self):
+        self.configure_group("quebec-newcomer-estate-agency-housing-procedures")
+        unchanged = [self.highlight(number) for number in (3, 4, 5, 6, 8)]
+        changed = [self.highlight(number) for number in (1, 2, 7)]
+        old_keys = [mark.source_key for mark in changed]
+        self.fetch()
+        for mark in unchanged:
+            self.assert_current(mark)
+        for mark, old_key in zip(changed, old_keys):
+            mark.refresh_from_db()
+            self.assertEqual(mark.source_key, old_key)
+        self.assertEqual(Annotation.objects.count(), 8)
+
+    def test_quebec_agency_guarantor_edit_preserves_other_highlights_and_archived_note(self):
+        self.configure_group("quebec-newcomer-estate-agency-housing-procedures")
+        self.old = catalogue.tache_two_location_history()[self.current.group].revisions[-1]
+        unchanged = [self.highlight(number) for number in (1, 2, 3, 4, 5, 6, 8)]
+        changed = self.highlight(7, body="My rental references note.", study_later=True)
+        old_key = changed.source_key
+        self.fetch()
+        for mark in unchanged:
+            self.assert_current(mark)
+        changed.refresh_from_db()
+        self.assertEqual(changed.source_key, old_key)
+        self.assertEqual(changed.body, "My rental references note.")
+        self.assertTrue(changed.study_later)
+        self.assertEqual(Annotation.objects.count(), 8)
+
+    def test_shared_room_combination_preserves_unchanged_highlights_and_archived_notes(self):
+        self.configure_group("offered-room-in-existing-shared-apartment")
+        unchanged = [self.highlight(number) for number in range(4, 9)]
+        changed = [
+            self.highlight(number, body=f"My original question {number} note.", study_later=True)
+            for number in range(1, 4)
+        ]
+        old_keys = [mark.source_key for mark in changed]
+        self.fetch()
+        for mark in unchanged:
+            self.assert_current(mark)
+        for number, (mark, old_key) in enumerate(zip(changed, old_keys), 1):
+            mark.refresh_from_db()
+            self.assertEqual(mark.source_key, old_key)
+            self.assertEqual(mark.body, f"My original question {number} note.")
+            self.assertTrue(mark.study_later)
+        self.assertEqual(Annotation.objects.count(), 8)
 
     def test_old_personal_model_and_private_note_are_not_rewritten(self):
         previous = dialogue_response(self.old)

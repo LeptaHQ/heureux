@@ -1,4 +1,4 @@
-"""Known published revisions for narrowly scoped EO2 geography corrections."""
+"""Known EO2 revisions with optional exact geographic substitutions."""
 
 from dataclasses import dataclass
 import json
@@ -31,7 +31,7 @@ def load_location_history(path=LOCATION_HISTORY_PATH):
         label = f"EO2 location history {group}"
         if (
             not isinstance(row, dict) or set(row) != {"replacements", "revisions"}
-            or not isinstance(row["replacements"], list) or not row["replacements"]
+            or not isinstance(row["replacements"], list)
             or not isinstance(row["revisions"], list) or not row["revisions"]
         ):
             raise ValueError(f"{label} needs replacements and revisions")

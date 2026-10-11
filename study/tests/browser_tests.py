@@ -6449,6 +6449,53 @@ class BrowserTests(StaticLiveServerTestCase):
         saved.refresh_from_db()
         self.assertEqual(saved.quote, quote)
 
+    def test_eo2_delivery_reorder_keeps_unchanged_questions_highlighted(self):
+        from study import catalogue
+        from study.oral_highlights import _render_questions
+        from study.oral_history import variant_annotation_key
+        from study.tache_two_dialogues import dialogue_response
+
+        self._import_eo_tache_two_content()
+        prompt = Prompt.objects.select_related("response", "theme__task__part").get(
+            content_key="tache2:mai:batch-02:subject-10",
+        )
+        old = catalogue.tache_two_location_history()["furniture-delivery-service"].revisions[0]
+        previous = dialogue_response(old)
+        old_key = variant_annotation_key(prompt, previous, tache_two_dialogue=old)
+        detail_path = prompt_detail_url(prompt)
+        review_path = (
+            reverse("study:review")
+            + f"?kind=spine&response={prompt.response_id}&prompt={prompt.pk}"
+        )
+        prompts = list(prompt.response.prompts.filter(is_active=True).select_related("theme__task__part"))
+        for surface, path in (("detail", detail_path), ("back", review_path)):
+            rendered = _render_questions(prompt, previous, surface, prompts, dialogue=old)
+            start, end = rendered.fields[(3, "question")]
+            Annotation.objects.create(
+                user=self.user, task=prompt.theme.task, kind=AnnotationKind.HIGHLIGHT,
+                source_path=path, source_key=old_key + (":back" if surface == "back" else ""),
+                quote=rendered.slice(start, end), start_offset=start, end_offset=end,
+                prefix=rendered.slice(max(0, start - 160), start),
+                suffix=rendered.slice(end, end + 160),
+            )
+        self.page.goto(self.live_server_url + detail_path)
+        expect(self.page.locator(
+            '[data-question-highlight-text="2"] mark.user-highlight',
+        )).to_have_text(old.questions[2].question)
+        expect(self.page.locator('[data-question-highlight-text="3"]')).to_have_text(
+            "Si le canapé ne passe pas par l'escalier, quelles solutions proposez-vous ?",
+        )
+        with self.page.expect_response(
+            lambda response: reverse("study:annotations_for_source") in response.url,
+        ) as highlight_response:
+            self.page.goto(self.live_server_url + review_path)
+        self.assertEqual(highlight_response.value.status, 200)
+        self.page.locator("#card-front .prompt-text").wait_for()
+        self.page.locator("#reveal").click()
+        expect(self.page.locator(
+            '#card-back [data-question-highlight-text="2"] mark.user-highlight',
+        )).to_have_text(old.questions[2].question)
+
     def test_eo2_location_edits_preserve_visible_highlights_on_detail_and_review(self):
         from study import catalogue
         from study.oral_highlights import _render_questions

@@ -258,6 +258,14 @@ Unrecognized or inconsistent anchors stay stored, not guessed or deleted.
 Never rewrite learners' personal questions, private prompt notes or annotation
 bodies as part of a geography edit.
 
+For a wording rewrite or reordered model, archive its previous visible revision
+in the same history file. Use an empty `replacements` list for a new group entry;
+for an existing entry, retain its geographic substitutions and append the
+revision. Only unchanged fields are recovered after a wording change, matching
+moved questions by their exact, unique text. Highlights
+on rewritten questions remain stored against the previous revision; do not map
+them onto different wording as though they were geographic substitutions.
+
 ## 11. Generation workflow
 
 Use this sequence for every new or substantially rewritten model:

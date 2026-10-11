@@ -433,6 +433,21 @@
               "follow_up_to": null
             }
           ]
+        },
+        {
+          "group": "estate-agent-advertised-apartment-purchase",
+          "opening": "Bonjour ! J'ai vu votre annonce pour l'appartement à vendre dans le quartier de Capitol Hill et j'aimerais vérifier quelques points avant une visite.",
+          "closing": "Merci ! Le samedi matin me conviendrait ; je vais vous confirmer le rendez-vous.",
+          "questions": [
+            {"topic": "Superficie et agencement", "question": "Quelle est la superficie exacte de l'appartement ?", "follow_up_to": null},
+            {"topic": "Superficie et agencement", "question": "Comment les pièces sont-elles réparties dans cette surface ?", "follow_up_to": 1, "condition": "After the area is given, unless the layout is already described."},
+            {"topic": "État et quartier", "question": "L'appartement nécessite-t-il des travaux avant d'être habité ?", "follow_up_to": null},
+            {"topic": "État et quartier", "question": "Quels commerces, parcs et transports trouve-t-on autour de l'immeuble, et peut-on facilement vivre dans ce secteur sans voiture ?", "follow_up_to": null},
+            {"topic": "Prix et copropriété", "question": "Quel est le prix demandé, et à combien s'élèvent les taxes foncières annuelles ?", "follow_up_to": null},
+            {"topic": "Prix et copropriété", "question": "À combien s'élèvent les charges de copropriété mensuelles, et qu'est-ce qui est compris dans ce montant ?", "follow_up_to": 5, "condition": "After the sale price is given, unless recurring ownership costs are already explained."},
+            {"topic": "Prix et copropriété", "question": "Des travaux importants ou une cotisation spéciale sont-ils déjà prévus dans l'immeuble ?", "follow_up_to": null},
+            {"topic": "Visite", "question": "Quand serait-il possible de visiter l'appartement ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -733,6 +748,81 @@
               "follow_up_to": 7,
               "condition": "If a famous tourist transport is mentioned; adapt to the line named."
             }
+          ]
+        }
+      ]
+    },
+    "offered-room-in-existing-shared-apartment": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "offered-room-in-existing-shared-apartment",
+          "opening": "Salut Ève ! Merci de m'avoir proposé cette chambre à Toronto. J'aimerais vérifier quelques détails avant de me décider.",
+          "closing": "Merci, Ève ! La colocation semble bien me convenir. Je vais y réfléchir et je te réponds demain.",
+          "questions": [
+            {"topic": "Loyer et disponibilité", "question": "Combien coûterait la chambre par mois ?", "follow_up_to": null},
+            {"topic": "Loyer et disponibilité", "question": "Quelles charges et quelles dépenses communes sont comprises dans ce loyer ?", "follow_up_to": 1, "condition": "After the monthly rent is given, unless included costs are already explained."},
+            {"topic": "Loyer et disponibilité", "question": "À partir de quand la chambre sera-t-elle libre, et signerais-je un bail ou une entente de sous-location ?", "follow_up_to": null},
+            {"topic": "Espaces et quartier", "question": "Quelle est la taille de la chambre, et quels meubles ou rangements resteront sur place ?", "follow_up_to": null},
+            {"topic": "Espaces et quartier", "question": "Et quelles pièces partagerions-nous au quotidien ?", "follow_up_to": null},
+            {"topic": "Espaces et quartier", "question": "À Danforth, quels commerces et services sont accessibles à pied, et à combien de minutes se trouve le métro ?", "follow_up_to": null},
+            {"topic": "Colocataires et vie quotidienne", "question": "Qui habite déjà dans l'appartement ?", "follow_up_to": null},
+            {"topic": "Colocataires et vie quotidienne", "question": "Quelles règles avez-vous fixées pour le ménage, les invités et les périodes calmes ?", "follow_up_to": 7, "condition": "After the flatmates and their schedules are described."}
+          ]
+        }
+      ]
+    },
+    "quebec-newcomer-estate-agency-housing-procedures": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "quebec-newcomer-estate-agency-housing-procedures",
+          "opening": "Bonjour ! Je viens de m'installer à Québec et j'aimerais savoir comment votre agence peut m'aider à trouver un logement.",
+          "closing": "Merci ! Je vais préparer mon dossier et commencer par regarder les offres à Limoilou et à Sainte-Foy.",
+          "questions": [
+            {"topic": "Démarche et offres", "question": "Comment se déroule une recherche avec votre agence, et facturez-vous des frais au futur locataire ?", "follow_up_to": null},
+            {"topic": "Démarche et offres", "question": "Quelles options proposez-vous généralement pour commencer : un studio, un appartement d'une chambre ou une colocation ?", "follow_up_to": null},
+            {"topic": "Secteurs et budget", "question": "Quels secteurs me conseilleriez-vous pour être proche des commerces et bien desservi par le Métrobus ?", "follow_up_to": null},
+            {"topic": "Secteurs et budget", "question": "Pour un appartement d'une chambre, quelle fourchette de loyers faut-il prévoir dans ces secteurs ?", "follow_up_to": 3, "condition": "After suitable areas are suggested, unless typical rents are already given."},
+            {"topic": "Secteurs et budget", "question": "Quelles charges sont habituellement comprises dans le loyer ?", "follow_up_to": 4, "condition": "After the rent range is given, unless inclusions are already explained."},
+            {"topic": "Dossier et bail", "question": "Une fois une offre trouvée, quels documents faut-il fournir pour présenter un dossier ?", "follow_up_to": null},
+            {"topic": "Dossier et bail", "question": "Si je n'ai pas encore de références locatives au Québec, quelles solutions acceptez-vous ?", "follow_up_to": 6, "condition": "If Quebec rental references are requested and you do not have them."},
+            {"topic": "Dossier et bail", "question": "Avant de signer, où puis-je vérifier les règles officielles du bail au Québec ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "quebec-newcomer-estate-agency-housing-procedures",
+          "opening": "Bonjour ! Je viens de m'installer à Québec et j'aimerais savoir comment votre agence peut m'aider à trouver un logement.",
+          "closing": "Merci ! Je vais préparer mon dossier et commencer par regarder les offres à Limoilou et à Sainte-Foy.",
+          "questions": [
+            {"topic": "Démarche et offres", "question": "Quels types de logements avez-vous actuellement à louer, et vos services sont-ils payants pour les locataires ?", "follow_up_to": null},
+            {"topic": "Démarche et offres", "question": "À partir de quand ces logements sont-ils disponibles, et quelle est la durée minimale du bail ?", "follow_up_to": 1, "condition": "After available housing is described, unless dates and lease terms are already given."},
+            {"topic": "Secteurs et budget", "question": "Quels secteurs me conseilleriez-vous pour être proche des commerces et bien desservi par le Métrobus ?", "follow_up_to": null},
+            {"topic": "Secteurs et budget", "question": "Pour un appartement d'une chambre, quelle fourchette de loyers faut-il prévoir dans ces secteurs ?", "follow_up_to": 3, "condition": "After suitable areas are suggested, unless typical rents are already given."},
+            {"topic": "Secteurs et budget", "question": "Quelles charges sont habituellement comprises dans le loyer ?", "follow_up_to": 4, "condition": "After the rent range is given, unless inclusions are already explained."},
+            {"topic": "Dossier et bail", "question": "Une fois une offre trouvée, quels documents faut-il fournir pour présenter un dossier ?", "follow_up_to": null},
+            {"topic": "Dossier et bail", "question": "Si je n'ai pas encore de références locatives au Québec, quelles solutions acceptez-vous ?", "follow_up_to": 6, "condition": "If Quebec rental references are requested and you do not have them."},
+            {"topic": "Dossier et bail", "question": "Avant de signer, où puis-je vérifier les règles officielles du bail au Québec ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "furniture-delivery-service": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "furniture-delivery-service",
+          "opening": "Bonjour ! Avant de faire livrer ce canapé, j'aimerais comprendre précisément comment votre service fonctionne.",
+          "closing": "Merci ! Je vais mesurer mon escalier et joindre des photos avant de confirmer la livraison.",
+          "questions": [
+            {"topic": "Devis et accès", "question": "Pour obtenir un devis précis, devez-vous connaître l'adresse de livraison, les dimensions du canapé et les conditions d'accès au logement ?", "follow_up_to": null},
+            {"topic": "Devis et accès", "question": "Mon escalier est étroit : pouvez-vous vérifier, à partir de mesures et de photos, si le canapé pourra passer avant de confirmer la livraison ?", "follow_up_to": null},
+            {"topic": "Devis et accès", "question": "Quel est votre tarif de base, et quels suppléments faut-il prévoir selon la distance, les étages ou l'accès ?", "follow_up_to": null},
+            {"topic": "Devis et accès", "question": "Ce tarif comprend-il la mise en place dans la pièce choisie et l'enlèvement des emballages ?", "follow_up_to": 3, "condition": "After the price is given, unless the delivery scope is already explained."},
+            {"topic": "Délais et transport", "question": "Une fois la livraison réservée, sous quel délai le canapé pourra-t-il être livré ?", "follow_up_to": null},
+            {"topic": "Délais et transport", "question": "Puis-je choisir un créneau de livraison, et combien de temps avant votre arrivée serai-je prévenu ?", "follow_up_to": null},
+            {"topic": "Délais et transport", "question": "Dans quel type de véhicule le canapé sera-t-il transporté, et comment sera-t-il protégé pendant le trajet ?", "follow_up_to": null},
+            {"topic": "Réception et réclamation", "question": "Si le canapé arrive rayé ou déchiré, dois-je le signaler sur le bon de livraison, et comment faire une réclamation ?", "follow_up_to": null}
           ]
         }
       ]

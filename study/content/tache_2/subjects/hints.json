@@ -2102,12 +2102,12 @@
         "english": "Address, dimensions and access details for the quote"
       },
       {
-        "french": "Vérification du passage dans l'escalier avec mesures et photos",
-        "english": "Checking staircase clearance with measurements and photos"
-      },
-      {
         "french": "Tarif de base et suppléments de distance, d'étage ou d'accès",
         "english": "Base rate and distance, floor or access surcharges"
+      },
+      {
+        "french": "Solutions si le canapé ne passe pas par l'escalier",
+        "english": "Solutions if the sofa cannot fit through the staircase"
       },
       {
         "french": "Mise en place et enlèvement des emballages",
@@ -2310,8 +2310,8 @@
         "english": "Room layout within that floor area"
       },
       {
-        "french": "Travaux nécessaires avant d'habiter le logement",
-        "english": "Work needed before moving into the apartment"
+        "french": "Travaux nécessaires ou appartement prêt à être habité",
+        "english": "Work needed or apartment ready to move into"
       },
       {
         "french": "Commerces, parcs, transports et vie sans voiture à Capitol Hill",
@@ -2322,8 +2322,8 @@
         "english": "Asking price and annual property taxes"
       },
       {
-        "french": "Charges mensuelles et services compris",
-        "english": "Monthly condominium fees and included services"
+        "french": "Balcon, espace de rangement et stationnement",
+        "english": "Balcony, storage space and parking"
       },
       {
         "french": "Travaux importants et cotisation spéciale",
@@ -2540,12 +2540,12 @@
     ],
     "quebec-newcomer-estate-agency-housing-procedures": [
       {
-        "french": "Fonctionnement de l'agence et frais éventuels",
-        "english": "How the agency works and possible fees"
+        "french": "Types de logements à louer et frais d'agence pour les locataires",
+        "english": "Available rental types and agency fees for tenants"
       },
       {
-        "french": "Studio, appartement d'une chambre ou colocation",
-        "english": "Studio, one-bedroom apartment or shared housing"
+        "french": "Dates de disponibilité et durée minimale du bail",
+        "english": "Availability dates and minimum lease length"
       },
       {
         "french": "Secteurs proches des commerces et du Métrobus",
@@ -2564,8 +2564,8 @@
         "english": "Documents required for the application"
       },
       {
-        "french": "Solutions sans références locatives au Québec",
-        "english": "Options without Quebec rental references"
+        "french": "Justificatifs sans références locatives au Québec et nécessité d'un garant",
+        "english": "Alternative supporting documents without Quebec rental references and need for a guarantor"
       },
       {
         "french": "Règles officielles du bail auprès du TAL",
@@ -3160,16 +3160,16 @@
     ],
     "offered-room-in-existing-shared-apartment": [
       {
-        "french": "Loyer mensuel de la chambre",
-        "english": "Monthly rent for the room"
+        "french": "Loyer mensuel, charges et dépenses communes comprises",
+        "english": "Monthly rent, included utilities and shared expenses"
       },
       {
-        "french": "Charges et dépenses communes comprises",
-        "english": "Included utilities and shared expenses"
+        "french": "Date de disponibilité de la chambre",
+        "english": "Room availability date"
       },
       {
-        "french": "Disponibilité, bail et durée minimale",
-        "english": "Availability, lease and minimum term"
+        "french": "Bail ou entente de sous-location et durée minimale",
+        "english": "Lease or sublet agreement and minimum term"
       },
       {
         "french": "Taille, mobilier et rangements de la chambre",

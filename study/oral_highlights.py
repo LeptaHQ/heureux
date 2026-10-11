@@ -4,6 +4,7 @@ from contextlib import contextmanager
 from difflib import SequenceMatcher
 from html.parser import HTMLParser
 import re
+from types import SimpleNamespace
 from urllib.parse import parse_qs, urlsplit
 
 from django.db import IntegrityError, transaction
@@ -754,12 +755,20 @@ def recover_published_tache_two_highlights(user, source_filter):
                     if not candidates:
                         continue
                     if surface == "front":
-                        # Geography edits do not alter the immutable source prompt.
+                        # Model edits do not alter the immutable source prompt.
                         for annotation in candidates:
                             _move_anchor(annotation, {"source_key": current_key + suffix})
                         continue
                     old = _render_questions(prompt, previous, surface, aliases, dialogue=revision)
                     new = _render_questions(prompt, current, surface, aliases)
+                    mapping = {}
+                    for old_number, argument in enumerate(previous.arguments, 1):
+                        matches = [
+                            number for number, item in enumerate(current.arguments, 1)
+                            if item.idea == argument.idea
+                        ]
+                        if len(matches) == 1:
+                            mapping[old_number] = matches[0]
                     for annotation in candidates:
                         offsets = _project_location_annotation(annotation, old, new, entry.replacements)
                         if offsets is None and _project_unchanged_annotation(
@@ -767,8 +776,32 @@ def recover_published_tache_two_highlights(user, source_filter):
                         ) is not None:
                             offsets = _project(
                                 annotation, old, new,
-                                _matching_fields(previous, current, old, new),
+                                _matching_fields(previous, current, old, new, mapping),
                             )
+                        if offsets is None and entry.replacements:
+                            for intermediate in entry.revisions:
+                                if intermediate == revision:
+                                    continue
+                                content = dialogue_response(intermediate)
+                                rendered = _render_questions(
+                                    prompt, content, surface, aliases, dialogue=intermediate,
+                                )
+                                projected = _project_location_annotation(
+                                    annotation, old, rendered, entry.replacements,
+                                )
+                                if projected is None:
+                                    continue
+                                start, end = projected
+                                anchor = SimpleNamespace(
+                                    start_offset=start, end_offset=end,
+                                    quote=rendered.slice(start, end),
+                                )
+                                offsets = _project(
+                                    anchor, rendered, new,
+                                    _matching_fields(content, current, rendered, new),
+                                )
+                                if offsets is not None:
+                                    break
                         if offsets is None:
                             continue
                         start, end = offsets

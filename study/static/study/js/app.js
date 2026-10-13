@@ -767,30 +767,28 @@
         function (field) { field.readOnly = pending; }
       );
     }
-    document.querySelectorAll("[data-annotation-edit]").forEach(
-      function (button) {
-        button.addEventListener("click", function () {
-          if (!editDialog || !editForm) return;
-          if (editDialog.dataset.pending === "true") return;
-          var annotationId = button.dataset.annotationEdit;
-          var source = Array.from(
-            document.querySelectorAll("[data-annotation-edit-source]")
-          ).find(function (candidate) {
-            return candidate.dataset.annotationEditSource === annotationId;
-          });
-          if (!source) return;
-          editForm.action = button.dataset.annotationUpdateUrl;
-          editForm.querySelector("[data-annotation-edit-title]").value =
-            source.dataset.annotationEditTitle || "";
-          editForm.querySelector("[data-annotation-edit-body]").value =
-            source.dataset.annotationEditBody || "";
-          editForm.dataset.annotationHasQuote =
-            source.dataset.annotationEditHasQuote || "0";
-          setEditError("");
-          openDialog(editDialog, button);
-        });
-      }
-    );
+    document.addEventListener("click", function (event) {
+      var button = event.target.closest("[data-annotation-edit]");
+      if (!button) return;
+      if (!editDialog || !editForm) return;
+      if (editDialog.dataset.pending === "true") return;
+      var annotationId = button.dataset.annotationEdit;
+      var source = Array.from(
+        document.querySelectorAll("[data-annotation-edit-source]")
+      ).find(function (candidate) {
+        return candidate.dataset.annotationEditSource === annotationId;
+      });
+      if (!source) return;
+      editForm.action = button.dataset.annotationUpdateUrl;
+      editForm.querySelector("[data-annotation-edit-title]").value =
+        source.dataset.annotationEditTitle || "";
+      editForm.querySelector("[data-annotation-edit-body]").value =
+        source.dataset.annotationEditBody || "";
+      editForm.dataset.annotationHasQuote =
+        source.dataset.annotationEditHasQuote || "0";
+      setEditError("");
+      openDialog(editDialog, button);
+    });
     if (editForm && window.fetch) {
       editForm.addEventListener("submit", function (event) {
         event.preventDefault();
@@ -1333,6 +1331,8 @@
       list.dataset.activeTab === "highlights" ? "highlights" : "notes";
     var toast = document.querySelector("[data-annotation-toast]");
     var toastTimer = null;
+    var actionPending = false;
+    var actionFocus = null;
 
     var STUDY_LABEL = { on: "Retirer de l’étude", off: "Ajouter à étudier" };
     var DONE_LABEL = {
@@ -1426,12 +1426,23 @@
     }
 
     function setButtonBusy(form, busy) {
+      actionPending = busy;
+      if (busy) list.setAttribute("aria-busy", "true");
+      else list.removeAttribute("aria-busy");
       form.dataset.pending = busy ? "true" : "false";
+      list.querySelectorAll("form[data-annotation-action] button").forEach(
+        function (control) { control.disabled = busy; }
+      );
       var button = form.querySelector("button");
       if (button) {
+        if (busy) actionFocus = button;
         button.disabled = busy;
         if (busy) button.setAttribute("aria-busy", "true");
         else button.removeAttribute("aria-busy");
+      }
+      if (!busy && actionFocus && actionFocus.isConnected) {
+        actionFocus.focus({ preventScroll: true });
+        actionFocus = null;
       }
     }
 
@@ -1473,11 +1484,8 @@
     }
 
     function detachItem(id) {
-      // Refill a paginated slice after removal; the server also clamps a
-      // now-empty final page to the last remaining page.
       if (list.dataset.paginated === "true") {
-        window.location.reload();
-        return;
+        return refreshPage(id);
       }
       var node = itemNode(id);
       if (node) {
@@ -1489,9 +1497,97 @@
     }
 
     function removeFromView(id) {
-      detachItem(id);
       bumpHero(panelKind, -1);
       adjustCount(tabCount(panelKind), -1);
+      return detachItem(id);
+    }
+
+    function refreshPage(removedId) {
+      return fetch(window.location.href, {
+        headers: { "Accept": "text/html", "X-Requested-With": "fetch" },
+        credentials: "same-origin",
+        cache: "no-store",
+      }).then(function (response) {
+        if (!response.ok) throw new Error("Unable to refresh notes.");
+        return response.text().then(function (html) {
+          var page = new DOMParser().parseFromString(html, "text/html");
+          var fresh = page.querySelector("[data-annotation-list]");
+          var section = list.querySelector(".annotations-section");
+          var freshSection = fresh && fresh.querySelector(".annotations-section");
+          var pager = list.querySelector("[data-annotation-pagination]");
+          var freshPager = fresh && fresh.querySelector("[data-annotation-pagination]");
+          if (!freshSection || !section || !pager || !freshPager) {
+            throw new Error("Incomplete notes page.");
+          }
+          var scrollX = window.scrollX;
+          var scrollY = window.scrollY;
+          var focused = document.activeElement;
+          var anchor = Array.from(list.querySelectorAll("[data-annotation-item]"))
+            .find(function (node) {
+              return node.dataset.annotationItem !== String(removedId) &&
+                node.getBoundingClientRect().bottom > 0;
+            });
+          var anchorTop = anchor ? anchor.getBoundingClientRect().top : null;
+          // Reuse surviving cards: individual reveals and focused controls
+          // belong to the learner, not to the refreshed server slice.
+          freshSection.querySelectorAll("[data-annotation-item]").forEach(function (node) {
+            var existing = itemNode(node.dataset.annotationItem);
+            if (existing) node.replaceWith(existing);
+          });
+          section.replaceChildren.apply(section, Array.from(freshSection.childNodes));
+          pager.replaceChildren.apply(pager, Array.from(freshPager.childNodes));
+          list.dataset.paginated = fresh.dataset.paginated;
+          ["notes", "highlights", "study"].forEach(function (name) {
+            var count = heroEl(name);
+            var updated = page.querySelector('[data-hero-count="' + name + '"]');
+            if (count && updated) count.parentNode.innerHTML = updated.parentNode.innerHTML;
+            var tab = tabCount(name);
+            var freshTab = fresh.querySelector('[data-tab-count="' + name + '"]');
+            if (tab && freshTab) tab.textContent = freshTab.textContent;
+          });
+          document.querySelectorAll("[data-scope-count]").forEach(function (count) {
+            var updated = page.querySelector(
+              '[data-scope-count="' + count.dataset.scopeCount + '"]'
+            );
+            if (updated) count.textContent = updated.textContent;
+          });
+          [".notes-toolbar__action--flashcards", ".notes-toolbar__action--study"].forEach(
+            function (selector) {
+              var link = list.querySelector(selector);
+              var updated = fresh.querySelector(selector);
+              if (!link || !updated) return;
+              link.href = updated.href;
+              link.hidden = updated.hidden;
+              var count = link.querySelector("[data-study-queue-count]");
+              var updatedCount = updated.querySelector("[data-study-queue-count]");
+              if (count && updatedCount) count.textContent = updatedCount.textContent;
+            }
+          );
+          var target = new URL(response.url);
+          var hash = window.location.hash;
+          target.hash = hash && document.getElementById(hash.slice(1)) ? hash : "";
+          window.history.replaceState(window.history.state, "", target.href);
+          list.querySelectorAll('input[name="next"]').forEach(function (input) {
+            input.value = target.pathname + target.search;
+          });
+          if (anchor && anchor.isConnected) {
+            scrollY += anchor.getBoundingClientRect().top - anchorTop;
+          }
+          if (focused !== document.body && focused.isConnected) {
+            actionFocus = focused;
+          } else if (actionFocus && !actionFocus.isConnected) {
+            var next = anchor && anchor.isConnected
+              ? anchor : list.querySelector("[data-annotation-item]");
+            actionFocus = next && next.querySelector("form[data-annotation-action] button");
+          }
+          window.scrollTo(scrollX, scrollY);
+        });
+      }).catch(function () {
+        throw new Error(
+          "Action enregistrée, mais la liste n’a pas pu être actualisée. " +
+          "Actualisez la page pour afficher les derniers résultats."
+        );
+      });
     }
 
     function badgeText(type, annKind) {
@@ -1541,35 +1637,32 @@
 
     function handleStudy(id, studyLater) {
       bumpHero("study", studyLater ? 1 : -1);
-      if (
-        (status === "study" && !studyLater) ||
-        (status === "todo" && studyLater)
-      ) {
-        removeFromView(id);
-        return;
-      }
       var node = itemNode(id);
       if (!node) return;
       updateToggleForm(node, "study", studyLater, STUDY_LABEL);
       setBadge(node, "study", studyLater, node.dataset.annotationKind);
+      if (
+        (status === "study" && !studyLater) ||
+        (status === "todo" && studyLater)
+      ) {
+        return removeFromView(id);
+      }
     }
 
     function handleComplete(id, completed) {
-      if (
-        (status === "todo" && completed) ||
-        (status === "done" && !completed)
-      ) {
-        removeFromView(id);
-        return;
-      }
       var node = itemNode(id);
       if (!node) return;
       updateToggleForm(node, "complete", completed, DONE_LABEL);
       setBadge(node, "done", completed, node.dataset.annotationKind);
+      if (
+        (status === "todo" && completed) ||
+        (status === "done" && !completed)
+      ) {
+        return removeFromView(id);
+      }
     }
 
     function handleDelete(id, data) {
-      detachItem(id);
       bumpHero(panelKind, -1);
       adjustCount(tabCount(panelKind), -1);
       if (data && data.scope) {
@@ -1581,6 +1674,7 @@
       flashToast(
         panelKind === "highlights" ? "Surlignage supprimé." : "Note supprimée."
       );
+      return detachItem(id);
     }
 
     function runToggle(form, action) {
@@ -1589,9 +1683,9 @@
       postForm(form)
         .then(function (data) {
           if (action === "study") {
-            handleStudy(id, !!data.study_later);
+            return handleStudy(id, !!data.study_later);
           } else {
-            handleComplete(id, !!data.completed);
+            return handleComplete(id, !!data.completed);
           }
         })
         .catch(function (error) {
@@ -1606,7 +1700,7 @@
       setButtonBusy(form, true);
       postForm(form)
         .then(function (data) {
-          handleDelete(form.dataset.annotationId, data);
+          return handleDelete(form.dataset.annotationId, data);
         })
         .catch(function (error) {
           flashToast(error.message || "Impossible de supprimer cette note.");
@@ -1620,7 +1714,7 @@
       var form = event.target.closest("form[data-annotation-action]");
       if (!form || !list.contains(form)) return;
       event.preventDefault();
-      if (form.dataset.pending === "true") return;
+      if (actionPending || form.dataset.pending === "true") return;
       if (form.dataset.annotationAction === "delete") {
         form.dataset.pending = "true";
         openConfirm({

@@ -167,6 +167,8 @@
 </section>
 </div>
 {% endif %}
-{% include "study/partials/pagination.html" with pagination_label="Pagination des notes et surlignages" %}
+<div data-annotation-pagination>
+  {% include "study/partials/pagination.html" with pagination_label="Pagination des notes et surlignages" %}
+</div>
 </div>
 {% endblock %}

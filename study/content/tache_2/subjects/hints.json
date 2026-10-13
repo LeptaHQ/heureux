@@ -2654,24 +2654,24 @@
         "english": "Grocery stores, pharmacies, clinic and cafés in High Park"
       },
       {
-        "french": "Métro, bus et possibilité de vivre sans voiture à High Park",
-        "english": "Metro, buses and car-free living in High Park"
-      },
-      {
         "french": "Loyer d'un petit appartement dans ce secteur",
         "english": "Rent for a small apartment in that area"
       },
       {
-        "french": "Dépenses à ajouter au loyer",
-        "english": "Housing costs to add to the rent"
+        "french": "Frais en plus du loyer : chauffage, Internet et assurance habitation",
+        "english": "Costs beyond rent: heating, Internet and home insurance"
       },
       {
         "french": "Sites utiles et signes d'une annonce douteuse",
         "english": "Useful websites and signs of a suspicious listing"
       },
       {
-        "french": "Vérifications avant d'accepter une location",
-        "english": "Checks before accepting a rental"
+        "french": "Documents à préparer pour le dossier de location",
+        "english": "Documents to prepare for the rental application"
+      },
+      {
+        "french": "Justificatifs sans références locatives au Canada et nécessité d'un garant",
+        "english": "Alternatives to Canadian rental references and need for a guarantor"
       }
     ],
     "friend-choose-film-ticket-already-held": [

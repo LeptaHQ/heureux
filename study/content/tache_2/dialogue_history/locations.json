@@ -752,6 +752,26 @@
         }
       ]
     },
+    "friend-city-housing-search-advice": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "friend-city-housing-search-advice",
+          "opening": "Salut Pierre ! Comme tu connais bien Toronto, j'aimerais profiter de tes conseils pour chercher un logement.",
+          "closing": "Merci, Pierre ! Je vais commencer par comparer les annonces à High Park et organiser quelques visites.",
+          "questions": [
+            {"topic": "Quartiers", "question": "Quels quartiers de Toronto me conseillerais-tu pour chercher un logement ?", "follow_up_to": null},
+            {"topic": "Quartiers", "question": "Parmi ces quartiers, lequel choisirais-tu pour une ambiance plutôt calme ?", "follow_up_to": 1, "condition": "After several neighbourhoods are suggested; adapt to the atmosphere you prefer."},
+            {"topic": "Quartiers", "question": "Et au quotidien, trouve-t-on facilement à High Park des épiceries, des pharmacies, une clinique et des cafés ?", "follow_up_to": 2, "condition": "After High Park is selected."},
+            {"topic": "Quartiers", "question": "Et pour les déplacements, quels métros ou bus desservent High Park, et peut-on facilement y vivre sans voiture ?", "follow_up_to": 2, "condition": "After High Park is selected."},
+            {"topic": "Budget", "question": "Quel loyer faut-il prévoir pour un petit appartement dans ce secteur ?", "follow_up_to": null},
+            {"topic": "Budget", "question": "D'après toi, quelles dépenses de logement oublie-t-on souvent d'ajouter au loyer ?", "follow_up_to": 5, "condition": "After discussing the expected rent."},
+            {"topic": "Recherche et démarches", "question": "Quels sites sont les plus utiles, et quels signes permettent de repérer une annonce douteuse ?", "follow_up_to": null},
+            {"topic": "Recherche et démarches", "question": "Quelles étapes me conseillerais-tu avant d'accepter une location ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
     "offered-room-in-existing-shared-apartment": {
       "replacements": [],
       "revisions": [

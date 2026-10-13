@@ -56,11 +56,11 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
             with self.subTest(group=current.group):
                 self.assertNotEqual(mapping[key], "arrivee")
                 for old in history[current.group].revisions:
-                    self.assertEqual(
-                        [question.topic for question in old.questions],
-                        [question.topic for question in current.questions],
-                    )
                     if history[current.group].replacements:
+                        self.assertEqual(
+                            [question.topic for question in old.questions],
+                            [question.topic for question in current.questions],
+                        )
                         reference = history[current.group].revisions[-1]
                         if len(history[current.group].revisions) == 1:
                             reference = current
@@ -216,6 +216,49 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
                     "english": "Lease or sublet agreement and minimum term",
                 },
             ],
+        )
+
+    def test_friend_housing_advice_has_two_procedure_questions_and_concrete_extra_costs(self):
+        current = next(
+            row for row in catalogue.tache_two_dialogues().values()
+            if row.group == "friend-city-housing-search-advice"
+        )
+        previous = catalogue.tache_two_location_history()[current.group].revisions[0]
+        self.assertEqual(len(current.questions), 8)
+        self.assertEqual(
+            [row.topic for row in current.questions],
+            ["Quartiers"] * 3 + ["Budget"] * 2 + ["Recherche", "Démarches", "Démarches"],
+        )
+        self.assertEqual(current.opening, previous.opening)
+        self.assertEqual(current.closing, previous.closing)
+        for old_number, new_number in ((1, 1), (2, 2), (3, 3), (5, 4), (7, 6)):
+            self.assertEqual(
+                current.questions[new_number - 1].question,
+                previous.questions[old_number - 1].question,
+            )
+        self.assertEqual(
+            current.questions[4].question,
+            "En plus du loyer, quels frais dois-je prévoir, par exemple pour le chauffage, Internet ou l'assurance habitation ?",
+        )
+        self.assertEqual(current.questions[4].follow_up_to, 4)
+        self.assertIn("l'assurance habitation", current.questions[4].answer)
+        self.assertEqual(
+            current.questions[6].question,
+            "Quels documents me conseillerais-tu de préparer pour déposer un dossier de location ?",
+        )
+        self.assertIn("les exigences varient selon le propriétaire", current.questions[6].answer)
+        self.assertEqual(
+            current.questions[7].question,
+            "Si je n'ai pas de références locatives au Canada, quels justificatifs puis-je fournir à la place, et faut-il un garant ?",
+        )
+        self.assertEqual(current.questions[7].follow_up_to, 7)
+        self.assertIn("Certains propriétaires", current.questions[7].answer)
+        self.assertIn("d'autres peuvent demander un garant", current.questions[7].answer)
+        hints = json.loads(content.TACHE_TWO_SUBJECT_HINTS_PATH.read_text())["groups"][current.group]
+        self.assertEqual(hints[4]["english"], "Costs beyond rent: heating, Internet and home insurance")
+        self.assertEqual(hints[6]["english"], "Documents to prepare for the rental application")
+        self.assertEqual(
+            hints[7]["english"], "Alternatives to Canadian rental references and need for a guarantor",
         )
 
     def test_fixed_canadian_settings_and_francophone_roles_remain_valid(self):
@@ -483,6 +526,29 @@ class PublishedTacheTwoHighlightTests(TestCase):
             self.assertEqual(mark.source_key, old_key)
             self.assertEqual(mark.body, f"My original question {number} note.")
             self.assertTrue(mark.study_later)
+        self.assertEqual(Annotation.objects.count(), 8)
+
+    def test_friend_housing_topic_split_preserves_unchanged_and_moved_question_highlights(self):
+        self.configure_group("friend-city-housing-search-advice")
+        unchanged = [
+            self.highlight(number, body=f"My learned question {number}.")
+            for number in (1, 2, 3, 5, 7)
+        ]
+        changed = [self.highlight(number) for number in (4, 6, 8)]
+        old_keys = [mark.source_key for mark in changed]
+        self.fetch()
+        rendered = _render_questions(
+            self.prompt, dialogue_response(self.current), "detail", [self.prompt],
+        )
+        for mark, new_number in zip(unchanged, (1, 2, 3, 4, 6)):
+            self.assert_current(mark)
+            self.assertEqual(
+                (mark.start_offset, mark.end_offset), rendered.fields[(new_number, "question")],
+            )
+            self.assertTrue(mark.body.startswith("My learned question "))
+        for mark, old_key in zip(changed, old_keys):
+            mark.refresh_from_db()
+            self.assertEqual(mark.source_key, old_key)
         self.assertEqual(Annotation.objects.count(), 8)
 
     def test_old_personal_model_and_private_note_are_not_rewritten(self):

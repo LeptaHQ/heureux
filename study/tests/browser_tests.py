@@ -8511,6 +8511,10 @@ class BrowserTests(StaticLiveServerTestCase):
                     + f"?q=Matching&status=todo&tab={tab}&page=2"
                 )
                 expect(self.page.locator("[data-annotation-item]")).to_have_count(1)
+                self.page.evaluate("window.__notesPageRetained = true")
+                self.page.locator(
+                    '[data-notes-recall] [data-recall-column="french"]'
+                ).click()
                 self.page.locator(
                     f'form[data-annotation-action="{action}"] button'
                 ).click()
@@ -8525,6 +8529,128 @@ class BrowserTests(StaticLiveServerTestCase):
                     self.page.locator(f'[data-tab-count="{tab}"]')
                 ).to_have_text("50")
                 expect(self.page.locator(".collection-pagination")).to_have_count(0)
+                self.assertTrue(self.page.evaluate("window.__notesPageRetained === true"))
+                expect(self.page.locator("[data-annotation-list]")).to_have_attribute(
+                    "data-recall-column", "french"
+                )
+                expect(self.page.locator(
+                    '[data-recall-cell="french"] [data-recall-content]'
+                ).first).to_have_css("filter", "blur(5px)")
+
+    def test_paginated_note_status_changes_keep_blur_reveals_and_view_without_navigation(self):
+        url = reverse("study:task_notes", args=[self.part.slug, self.task.slug])
+        for kind, status, action in (
+            (AnnotationKind.NOTE, "todo", "complete"),
+            (AnnotationKind.NOTE, "todo", "study"),
+            (AnnotationKind.NOTE, "done", "complete"),
+            (AnnotationKind.NOTE, "study", "study"),
+            (AnnotationKind.HIGHLIGHT, "todo", "complete"),
+            (AnnotationKind.HIGHLIGHT, "study", "study"),
+        ):
+            with self.subTest(kind=kind, status=status, action=action):
+                Annotation.objects.filter(user=self.user).delete()
+                notes = self._pagination_annotations(
+                    102, kind=kind, quote="Texte français",
+                    completed_at=timezone.now() if status == "done" else None,
+                    study_later=status == "study",
+                )
+                tab = "highlights" if kind == AnnotationKind.HIGHLIGHT else "notes"
+                column = "english" if kind == AnnotationKind.NOTE and status == "done" else "french"
+                content_selector = f'[data-recall-cell="{column}"] [data-recall-content]'
+                self.page.goto(
+                    self.live_server_url + url
+                    + f"?q=Matching&status={status}&tab={tab}&page=2"
+                )
+                self.page.evaluate("window.__notesPageRetained = true")
+                self.page.get_by_role("button", name="Tableau", exact=True).click()
+                self.page.locator(
+                    f'[data-notes-recall] [data-recall-column="{column}"]'
+                ).click()
+                revealed = self.page.locator(f'[data-annotation-item="{notes[50].pk}"]')
+                revealed.locator(f'[data-recall-cell="{column}"]').first.click()
+                hidden = self.page.locator(f'[data-annotation-item="{notes[49].pk}"]')
+                changed = self.page.locator(f'[data-annotation-item="{notes[51].pk}"]')
+                changed.locator(f'form[data-annotation-action="{action}"] button').click()
+                expect(changed).to_have_count(0)
+                expect(self.page.locator("[data-annotation-item]")).to_have_count(50)
+                expect(self.page.locator(f'[data-tab-count="{tab}"]')).to_have_text("101")
+                self.assertTrue(self.page.evaluate("window.__notesPageRetained === true"))
+                expect(self.page.locator("[data-annotation-list]")).to_have_attribute(
+                    "data-recall-column", column
+                )
+                expect(self.page.get_by_role("button", name="Tableau", exact=True)).to_have_attribute(
+                    "aria-pressed", "true"
+                )
+                expect(revealed.locator(content_selector).first).to_have_css("filter", "none")
+                expect(hidden.locator(content_selector).first).to_have_css("filter", "blur(5px)")
+                added = self.page.locator(f'[data-annotation-item="{notes[1].pk}"]')
+                expect(added).to_have_count(1)
+                expect(added.locator(content_selector).first).to_have_css("filter", "blur(5px)")
+                if kind == AnnotationKind.NOTE:
+                    added.get_by_role("button", name="Modifier la note").click()
+                    dialog = self.page.locator("#note-edit-dialog")
+                    expect(dialog).to_be_visible()
+                    expect(dialog.get_by_label("Titre (facultatif)")).to_have_value(notes[1].title)
+                    dialog.get_by_role("button", name="Annuler", exact=True).click()
+                self.assert_no_horizontal_overflow()
+
+    def test_paginated_note_refill_failure_reports_saved_action_without_losing_blur(self):
+        notes = self._pagination_annotations(51)
+        url = reverse("study:task_notes", args=[self.part.slug, self.task.slug])
+        full_url = self.live_server_url + url + "?status=todo&page=2"
+        self.page.goto(full_url)
+        self.page.evaluate("window.__notesPageRetained = true")
+        self.page.locator('[data-notes-recall] [data-recall-column="french"]').click()
+        self.page.route(full_url, lambda route: route.fulfill(status=503, body="Unavailable"))
+        row = self.page.locator(f'[data-annotation-item="{notes[0].pk}"]')
+        row.locator('form[data-annotation-action="complete"] button').click()
+        expect(self.page.locator("[data-annotation-toast]")).to_contain_text(
+            "Action enregistrée, mais la liste n’a pas pu être actualisée."
+        )
+        expect(row.locator('form[data-annotation-action="complete"] button')).to_be_enabled()
+        expect(row.locator(".annotation-card__done")).to_be_visible()
+        self.assertTrue(self.page.evaluate("window.__notesPageRetained === true"))
+        expect(self.page.locator("[data-annotation-list]")).to_have_attribute(
+            "data-recall-column", "french"
+        )
+        notes[0].refresh_from_db()
+        self.assertTrue(notes[0].completed)
+
+    def test_notes_and_note_translation_popups_have_rounded_buttons(self):
+        Annotation.objects.create(
+            user=self.user, task=self.task, kind=AnnotationKind.NOTE,
+            title="Une note française", body="An English note",
+        )
+        url = reverse("study:task_notes", args=[self.part.slug, self.task.slug])
+        self.page.goto(self.live_server_url + url)
+        for width in (390, 1183):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            for selector in (
+                ".notes-toolbar button",
+                ".notes-toolbar__actions .btn",
+                ".annotation-card__actions button",
+                "#note-create-dialog button",
+                "#note-edit-dialog button",
+                ".selection-note-panel button",
+                ".translation-panel button",
+            ):
+                with self.subTest(width=width, selector=selector):
+                    radii = self.page.locator(selector).evaluate_all(
+                        "buttons => buttons.map(button => parseFloat("
+                        "getComputedStyle(button).borderTopLeftRadius))"
+                    )
+                    self.assertTrue(radii)
+                    self.assertTrue(all(radius > 0 for radius in radii), radii)
+            for selector in (
+                "#note-create-dialog", "#note-edit-dialog",
+                ".selection-note-panel", ".translation-panel",
+            ):
+                self.assertGreater(
+                    self.page.locator(selector).evaluate(
+                        "element => parseFloat(getComputedStyle(element).borderTopLeftRadius)"
+                    ), 0,
+                )
+            self.assert_no_horizontal_overflow()
 
     def test_new_note_from_later_page_returns_to_its_first_page_anchor(self):
         self._pagination_annotations(51)
@@ -8727,6 +8853,8 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.page.goto(self.live_server_url + notes_url)
         url_before = self.page.url
+        self.page.evaluate("window.__notesPageRetained = true")
+        self.page.locator('[data-notes-recall] [data-recall-column="french"]').click()
 
         card = self.page.locator(
             f'.annotation-card[data-annotation-item="{note.pk}"]'
@@ -8763,6 +8891,12 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(self.page.url, url_before)
         note.refresh_from_db()
         self.assertTrue(note.completed)
+        done_button.click()
+        expect(card.locator(".annotation-card__done")).to_have_count(0)
+        self.assertTrue(self.page.evaluate("window.__notesPageRetained === true"))
+        expect(card.locator('[data-recall-cell="french"] [data-recall-content]')).to_have_css(
+            "filter", "blur(5px)"
+        )
 
     def test_notes_actions_apply_in_place_in_table_mode(self):
         recent = [

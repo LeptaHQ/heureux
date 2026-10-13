@@ -16903,6 +16903,22 @@ html[data-collection-view-mode="table"]
 ) {
   border-radius: 0 !important;
 }
+
+body :is(
+  .notes-collection,
+  #note-create-dialog,
+  #note-edit-dialog,
+  #app-confirm-dialog,
+  .selection-note-panel,
+  .translation-panel
+) :is(button, .btn, .linkbtn) {
+  border-radius: 999px !important;
+}
+
+:is(#note-create-dialog, #note-edit-dialog, .selection-note-panel, .translation-panel) {
+  border-radius: 18px !important;
+}
+
 .learn-lesson-nav__link .ui-icon {
   color: var(--learn-accent);
 }

@@ -38,17 +38,17 @@
     {
       "group": "friend-entertain-visiting-nephews",
       "register": "tu",
-      "note": "You will soon host your nephews and ask a friend for ideas to entertain them. Their ages and interests are not supplied, so do not invent them or assume your friend knows them. Ask for adaptable activities, outings and games. Use tu and follow the ideas actually recommended.",
+      "note": "You will soon host your nephews and ask a friend for ideas to entertain them. Their ages and interests are not supplied: give them if asked, rather than inventing them or assuming your friend knows. Ask for adaptable activities, outings and games. Use tu and follow the ideas actually recommended. Confirm venue age limits, booking requirements and prices directly.",
       "opening": "Salut ! Je vais bientôt accueillir mes neveux à la maison, et j'aimerais que tu m'aides à trouver de quoi les occuper.",
       "closing": "Merci pour toutes ces idées ! Je vais choisir celles qui correspondent le mieux à leur âge et à leurs goûts.",
       "questions": [
         {"topic": "Activités à la maison", "question": "Pour les occuper à la maison, quelles activités me conseillerais-tu ?", "answer": "Les activités créatives et les recettes simples fonctionnent souvent bien.", "follow_up_to": null},
         {"topic": "Activités à la maison", "question": "Parmi ces idées, laquelle demanderait le moins de préparation ?", "answer": "Un atelier de dessin, car du papier et quelques crayons suffisent.", "follow_up_to": 1, "condition": "After several home activities have been suggested."},
         {"topic": "Activités à la maison", "question": "Quelle activité les ferait bouger sans avoir besoin de sortir ?", "answer": "Une chasse au trésor intérieure peut les occuper tout en les faisant bouger.", "follow_up_to": null},
-        {"topic": "Sorties", "question": "Quelle sortie leur permettrait de se dépenser ?", "answer": "Le parc d'aventure propose des parcours adaptés à plusieurs tranches d'âge.", "follow_up_to": null},
+        {"topic": "Sorties", "question": "Quelle sortie leur permettrait de se dépenser, avec des activités adaptées à différents âges ?", "answer": "Le parc d'aventure propose des parcours pour plusieurs tranches d'âge ; son site précise les limites d'âge et de taille.", "follow_up_to": null},
         {"topic": "Sorties", "question": "En cas de pluie, quelle sortie intérieure pourrait les intéresser ?", "answer": "Le musée des sciences, avec ses expériences interactives.", "follow_up_to": null},
-        {"topic": "Sorties", "question": "Pour le musée, faut-il réserver avant de venir ?", "answer": "Le week-end, il vaut mieux choisir un créneau sur le site du musée.", "follow_up_to": 5, "condition": "If an indoor venue is suggested and advance entry may be required."},
-        {"topic": "Jeux", "question": "Quel jeu de société serait facile à expliquer à tout le monde ?", "answer": "Dobble, car les règles sont rapides à comprendre et les parties sont courtes.", "follow_up_to": null},
+        {"topic": "Sorties", "question": "Pour le musée, faut-il réserver à l'avance, et quel budget prévoir pour les enfants ?", "answer": "Le week-end, mieux vaut réserver en ligne ; compte environ 12 $ par enfant, selon l'âge et l'exposition, à confirmer sur le site.", "follow_up_to": 5, "condition": "If a museum is suggested without explaining booking or admission prices."},
+        {"topic": "Jeux", "question": "Quel jeu de société, avec des règles simples et des parties courtes, pourrais-je leur proposer ?", "answer": "Un jeu d'observation comme Dobble, en choisissant une version adaptée à leur âge.", "follow_up_to": null},
         {"topic": "Jeux", "question": "Quel jeu plus calme pourrais-je proposer avant le coucher ?", "answer": "Un jeu de devinettes ou un petit puzzle à faire ensemble.", "follow_up_to": null}
       ]
     },
@@ -76,14 +76,14 @@
       "opening": "Salut ! J'ai bientôt un entretien d'embauche, et j'aimerais beaucoup avoir tes conseils pour mettre toutes les chances de mon côté.",
       "closing": "Merci beaucoup pour tous ces conseils ! Je vais commencer à me préparer dès ce soir.",
       "questions": [
-        {"topic": "Préparation", "question": "Comment devrais-je me préparer dans les jours qui viennent ?", "answer": "Renseigne-toi sur l'entreprise et prépare deux ou trois exemples concrets de réussites professionnelles.", "follow_up_to": null},
-        {"topic": "Préparation", "question": "Quels exemples auraient le plus d'impact, selon toi ?", "answer": "Ceux qui montrent un résultat précis, comme un délai respecté ou un problème que tu as résolu.", "follow_up_to": 1, "condition": "If they suggest preparing examples, unless they already say which."},
-        {"topic": "Préparation", "question": "Quelles questions devrais-je préparer pour éviter d'être pris au dépourvu ?", "answer": "Prépare surtout des réponses sur ta motivation, tes compétences et une difficulté professionnelle que tu as surmontée.", "follow_up_to": null},
+        {"topic": "Préparation", "question": "Quelles informations sur l'entreprise et le poste devrais-je chercher avant l'entretien ?", "answer": "Ses activités, ses clients, les missions du poste et les compétences demandées dans l'offre.", "follow_up_to": null},
+        {"topic": "Préparation", "question": "Quels exemples de mon expérience devrais-je préparer pour montrer que je corresponds au poste ?", "answer": "Ceux qui montrent un résultat précis, comme un délai respecté ou un problème que tu as résolu.", "follow_up_to": null},
+        {"topic": "Préparation", "question": "À quelles questions du recruteur devrais-je me préparer, notamment sur ma motivation et mes points faibles ?", "answer": "À expliquer pourquoi tu veux ce poste, tes points forts et une difficulté surmontée ; prépare aussi une réponse honnête sur un point à améliorer.", "follow_up_to": null},
         {"topic": "Tenue", "question": "Quelle tenue serait adaptée au secteur tout en restant sobre et professionnelle ?", "answer": "Une tenue soignée, légèrement plus habillée que celle que portent habituellement les employés de l'entreprise.", "follow_up_to": null},
         {"topic": "Tenue", "question": "Comment savoir quelle tenue portent les employés de l'entreprise ?", "answer": "Regarde les photos de l'équipe sur leur site ou sur leurs réseaux sociaux.", "follow_up_to": 4, "condition": "If they advise matching the company's dress style."},
-        {"topic": "Attitude et déroulement", "question": "Et face au recruteur, qu'est-ce que je dois faire pour donner une bonne impression ?", "answer": "Arrive dix minutes en avance, regarde ton interlocuteur dans les yeux et réponds de façon concise.", "follow_up_to": null},
+        {"topic": "Attitude et déroulement", "question": "Pendant l'entretien, comment montrer ma motivation sans donner l'impression de réciter un texte ?", "answer": "Le mieux est d'écouter sans interrompre et de répondre avec un exemple concret, plutôt que de tout apprendre par cœur.", "follow_up_to": null},
         {"topic": "Attitude et déroulement", "question": "Ça dure combien de temps, en général, un entretien ?", "answer": "Entre 30 minutes et une heure, selon le poste.", "follow_up_to": null},
-        {"topic": "Attitude et déroulement", "question": "Est-il bien vu de poser des questions à la fin ?", "answer": "Oui, c'est même apprécié : demande par exemple comment se passerait ton intégration dans l'équipe.", "follow_up_to": null}
+        {"topic": "Attitude et déroulement", "question": "Quelles questions pourrais-je poser à la fin sur le poste et l'équipe ?", "answer": "Le déroulement de l'intégration, les priorités des premiers mois ou la façon de travailler avec l'équipe, sans reprendre ce qui a déjà été expliqué.", "follow_up_to": null}
       ]
     },
     {
@@ -147,25 +147,25 @@
       "opening": "Salut ! Raconte-moi un peu ton nouveau travail, j'ai hâte de savoir comment ça se passe.",
       "closing": "Merci de m'avoir raconté tout ça ! Ça fait plaisir de voir que ce nouveau travail te plaît autant.",
       "questions": [
-        {"topic": "Tâches et intégration", "question": "Comment se passent tes débuts, et quelles responsabilités t'a-t-on confiées en priorité ?", "answer": "Très bien : je m'occupe du service client en ligne, et j'apprends vite grâce à ma tutrice.", "follow_up_to": null},
+        {"topic": "Tâches et intégration", "question": "Quelles tâches t'a-t-on confiées au début, et est-ce que tu t'en sors bien ?", "answer": "Je m'occupe du service client en ligne ; ça se passe bien, et ma tutrice m'aide quand je bloque.", "follow_up_to": null},
         {"topic": "Tâches et intégration", "question": "Combien de temps dure l'accompagnement de ta tutrice, et quand devras-tu travailler en autonomie ?", "answer": "Elle m'accompagne pendant tout le premier mois ; ensuite, je serai autonome.", "follow_up_to": 1, "condition": "If they mention a mentor or trainer; adapt to that person."},
         {"topic": "Tâches et intégration", "question": "À quoi ressemble une journée de travail typique dans ce nouveau poste ?", "answer": "Je traite les demandes des clients le matin, puis je travaille sur les projets de l'équipe l'après-midi.", "follow_up_to": null},
-        {"topic": "Collègues et locaux", "question": "Comment décrirais-tu tes collègues et l'ambiance au sein de l'équipe ?", "answer": "Mes collègues sont très accueillants : on déjeune souvent ensemble, et l'ambiance est détendue.", "follow_up_to": null},
+        {"topic": "Collègues et locaux", "question": "Comment ça se passe avec tes collègues : vous vous entraidez facilement, ou chacun travaille plutôt de son côté ?", "answer": "On s'entraide beaucoup, surtout sur les dossiers compliqués ; les collègues sont accueillants et nous déjeunons souvent ensemble.", "follow_up_to": null},
         {"topic": "Collègues et locaux", "question": "Comment sont aménagés les locaux, et quels espaces communs avez-vous à disposition ?", "answer": "C'est un bureau lumineux au dixième étage, avec une grande cuisine commune et une terrasse.", "follow_up_to": null},
-        {"topic": "Avantages et activités", "question": "Est-ce que ton employeur offre des avantages intéressants ?", "answer": "Oui : une assurance santé complémentaire, trois semaines de vacances et un remboursement partiel du passe de transport.", "follow_up_to": null},
-        {"topic": "Avantages et activités", "question": "Ce remboursement couvre-t-il une bonne partie du passe ?", "answer": "La moitié, soit environ 75 $ par mois.", "follow_up_to": 6, "condition": "If a transit reimbursement is mentioned, unless its amount is given."},
+        {"topic": "Avantages et activités", "question": "Quels avantages as-tu en plus du salaire : assurance santé, congés ou aide pour les transports ?", "answer": "Une assurance santé complémentaire, trois semaines de vacances et un remboursement partiel du passe de transport.", "follow_up_to": null},
+        {"topic": "Avantages et activités", "question": "Quelle part de ton abonnement de transport l'entreprise rembourse-t-elle ?", "answer": "La moitié, soit environ 75 $ par mois.", "follow_up_to": 6, "condition": "If a transit reimbursement is mentioned, unless its amount is given."},
         {"topic": "Avantages et activités", "question": "Quels types d'activités l'entreprise organise-t-elle, et à quelle fréquence les collègues se retrouvent-ils ?", "answer": "Un apéritif d'équipe a lieu chaque mois, avec une grande sortie au parc d'attractions en été.", "follow_up_to": null}
       ]
     },
     {
       "group": "medical-secretary-temporary-replacement-doctor",
       "register": "vous",
-      "note": "You call your family doctor's secretary because a temporary physician is covering the absence. Ask who the replacement is, the replacement period, consultation schedule and appointment arrangements. The secretary can explain office logistics, not provide medical advice. Use vous, and do not invent symptoms, diagnoses or a need for treatment.",
+      "note": "Your family doctor is away and a temporary physician already covers consultations. Ask the secretary about the physician, consultation location, replacement period, hours and booking. The secretary handles office logistics, not medical advice. Use vous; do not invent symptoms or a need for treatment.",
       "opening": "Bonjour ! J'ai appris que mon médecin de famille était absent, et j'aimerais me renseigner sur la personne qui le remplace.",
       "closing": "Merci pour ces renseignements. Je vais vérifier mes disponibilités avant de prendre rendez-vous.",
       "questions": [
         {"topic": "Le remplacement", "question": "Quel est le nom du médecin qui assure le remplacement ?", "answer": "C'est la docteure Sophie Tremblay.", "follow_up_to": null},
-        {"topic": "Le remplacement", "question": "Recevra-t-elle les patients habituels de mon médecin ?", "answer": "Oui, elle assure les consultations courantes de sa patientèle pendant l'absence.", "follow_up_to": 1, "condition": "After the replacement physician has been identified."},
+        {"topic": "Le remplacement", "question": "Consulte-t-elle dans le même cabinet que mon médecin habituel ?", "answer": "Oui, elle consulte au cabinet habituel, dans le bureau de votre médecin.", "follow_up_to": null},
         {"topic": "Le remplacement", "question": "Aura-t-elle accès à mon dossier au cabinet ?", "answer": "Oui, elle pourra consulter votre dossier avant le rendez-vous.", "follow_up_to": null},
         {"topic": "Durée et horaires", "question": "Jusqu'à quelle date assurera-t-elle le remplacement ?", "answer": "Jusqu'au 15 mars, date prévue du retour de votre médecin.", "follow_up_to": null},
         {"topic": "Durée et horaires", "question": "Quels jours reçoit-elle les patients ?", "answer": "Du lundi au jeudi, ainsi que le vendredi matin.", "follow_up_to": null},
@@ -235,31 +235,31 @@
       "opening": "Bonjour ! J'aimerais me faire livrer mes courses à domicile, et je voudrais savoir comment fonctionne votre service.",
       "closing": "Merci pour ces renseignements. Je vais vérifier les créneaux avant de passer ma première commande.",
       "questions": [
-        {"topic": "Commande", "question": "Quels quartiers votre service dessert-il ?", "answer": "Nous livrons les adresses situées dans un rayon de quinze kilomètres.", "follow_up_to": null},
+        {"topic": "Commande", "question": "Quelle est votre zone de livraison, et comment vérifier si mon adresse est desservie ?", "answer": "Nous livrons dans un rayon de quinze kilomètres ; votre code postal sur notre site permet de vérifier votre adresse.", "follow_up_to": null},
         {"topic": "Commande", "question": "Peut-on passer une commande sur votre site, dans l'application ou par téléphone ?", "answer": "Les trois options sont possibles.", "follow_up_to": null},
         {"topic": "Commande", "question": "Y a-t-il un montant minimum pour utiliser ce service ?", "answer": "Oui, il faut commander pour au moins 50 $.", "follow_up_to": null},
-        {"topic": "Délais", "question": "Quel délai faut-il prévoir entre la commande et la livraison ?", "answer": "Le jour même avant midi ; sinon, la livraison a généralement lieu le lendemain.", "follow_up_to": null},
-        {"topic": "Délais", "question": "Puis-je choisir un créneau de livraison ?", "answer": "Oui, nous proposons des créneaux de deux heures entre 9 h et 21 h.", "follow_up_to": 4, "condition": "After the general delivery delay is known."},
-        {"topic": "Frais et modalités", "question": "Combien coûte la livraison, et à partir de quel montant devient-elle gratuite ?", "answer": "Elle coûte 7,99 $ et devient gratuite à partir de 100 $ d'achats.", "follow_up_to": null},
-        {"topic": "Frais et modalités", "question": "Comment les produits frais et surgelés sont-ils transportés ?", "answer": "Dans des sacs isothermes et des bacs réfrigérés.", "follow_up_to": null},
-        {"topic": "Frais et modalités", "question": "Que se passe-t-il si je suis absent au moment prévu ?", "answer": "Le livreur vous appelle ; sans réponse, le magasin organise un nouveau créneau.", "follow_up_to": null}
+        {"topic": "Frais", "question": "Combien coûte la livraison, et existe-t-il un seuil d'achat pour qu'elle soit gratuite ?", "answer": "Elle coûte 7,99 $ et devient gratuite à partir de 100 $ d'achats.", "follow_up_to": null},
+        {"topic": "Délais", "question": "Quel délai faut-il prévoir entre la commande et la livraison ?", "answer": "Une commande passée avant midi peut être livrée le jour même ; après midi, la livraison a généralement lieu le lendemain.", "follow_up_to": null},
+        {"topic": "Délais", "question": "Puis-je choisir un créneau de livraison ?", "answer": "Oui, nous proposons des créneaux de deux heures entre 9 h et 21 h.", "follow_up_to": 5, "condition": "If delivery days are explained without saying whether you can choose a time slot."},
+        {"topic": "Livraison", "question": "Comment les produits frais et surgelés sont-ils transportés ?", "answer": "Dans des sacs isothermes et des bacs réfrigérés.", "follow_up_to": null},
+        {"topic": "Livraison", "question": "Que se passe-t-il si je suis absent au moment prévu, et une nouvelle livraison est-elle payante ?", "answer": "Le livreur vous appelle ; si vous restez injoignable, les courses reviennent au magasin et une nouvelle livraison coûte 7,99 $.", "follow_up_to": null}
       ]
     },
     {
       "group": "owner-holiday-letting-estate-agency-advice",
       "register": "vous",
-      "note": "You own the home and want extra income by letting it during holidays. The agency advises you on price, stay length, guest profile, safeguards and management; you are not seeking a rental. Use vous. Local legal rules require the competent authority.",
+      "note": "You want extra income by letting your home during holidays, not to find accommodation. Ownership is not stated. Use vous with the agency; give the location, size and dates if asked before a tailored recommendation. Ask about price, stay length, guests, preparation and management. Confirm permissions with the competent authority, insurance with your insurer and, if renting, any lease restrictions.",
       "opening": "Bonjour ! J'aimerais louer mon logement pendant les vacances et préparer ce projet avec votre agence.",
       "closing": "Merci ! Je vais d'abord vérifier les autorisations, puis je reviendrai vers vous.",
       "questions": [
-        {"topic": "Tarif", "question": "À quel prix pourrais-je proposer mon logement par nuit ?", "answer": "Dans votre quartier, entre 120 et 180 $ selon la taille et l'équipement.", "follow_up_to": null},
-        {"topic": "Tarif", "question": "Comment faudrait-il adapter ce tarif pendant la haute saison ?", "answer": "Vous pourriez l'augmenter d'environ 30 % en juillet et en août.", "follow_up_to": 1, "condition": "After a base nightly rate has been suggested."},
-        {"topic": "Stratégie de location", "question": "Quelle durée minimale me recommanderiez-vous pour limiter les changements de locataires et les frais de ménage ?", "answer": "Une semaine offre un bon équilibre entre l'occupation et les changements de locataires.", "follow_up_to": null},
-        {"topic": "Stratégie de location", "question": "Quel profil de locataires serait le plus intéressé par mon logement ?", "answer": "Surtout des familles et des couples qui recherchent un séjour calme.", "follow_up_to": null},
-        {"topic": "Stratégie de location", "question": "Quel équipement devrais-je mettre en valeur pour ce public ?", "answer": "La cuisine équipée et les couchages familiaux seraient vos meilleurs arguments.", "follow_up_to": 4, "condition": "After the likely guest profile is identified."},
-        {"topic": "Gestion et démarches", "question": "Comment vérifiez-vous les locataires, et quelles mesures prévoyez-vous en cas de dommages ?", "answer": "Nous vérifions leur identité, sécurisons le paiement et retenons un dépôt remboursable après l'état des lieux.", "follow_up_to": null},
-        {"topic": "Gestion et démarches", "question": "Quelle commission prenez-vous, et couvre-t-elle l'annonce, les réservations, les clés, le ménage et les urgences pendant le séjour ?", "answer": "La commission de 15 % couvre l'annonce, les réservations, les échanges, les clés et l'assistance d'urgence ; le ménage est facturé séparément.", "follow_up_to": null},
-        {"topic": "Gestion et démarches", "question": "Quelles autorisations et quelles assurances dois-je vérifier avant de publier l'annonce ?", "answer": "Vérifiez les exigences de la municipalité et confirmez auprès de votre assureur que la location temporaire est couverte.", "follow_up_to": null}
+        {"topic": "Locataires et équipement", "question": "Quel type de locataires me conseilleriez-vous de viser : des touristes, des familles ou des voyageurs d'affaires ?", "answer": "Les familles sont une piste intéressante pendant les vacances, à confirmer selon la capacité d'accueil et l'emplacement de votre logement.", "follow_up_to": null},
+        {"topic": "Locataires et équipement", "question": "Pour accueillir ces locataires, quels meubles et équipements devrais-je prévoir, notamment pour la cuisine et les couchages ?", "answer": "Des couchages adaptés, une cuisine équipée et du linge sont essentiels ; un lit bébé peut aussi être utile pour les familles.", "follow_up_to": 1, "condition": "If a guest profile is recommended without specifying the equipment needed."},
+        {"topic": "Durée et tarif", "question": "Quelle durée de location vaut-il mieux privilégier : des courts séjours ou des séjours d'une semaine ou plus ?", "answer": "Une semaine est un bon point de départ pour les vacances ; elle limite les changements de locataires tout en restant accessible aux vacanciers.", "follow_up_to": null},
+        {"topic": "Durée et tarif", "question": "À quel prix pourrais-je proposer mon logement par nuit ?", "answer": "Une fourchette indicative serait de 120 à 180 $ par nuit ; nous affinerions ce tarif selon le quartier, la taille du logement et les dates.", "follow_up_to": null},
+        {"topic": "Démarches et protection", "question": "Quelles autorisations et quelles assurances dois-je vérifier avant de publier l'annonce ?", "answer": "Vérifiez les règles locales et votre couverture auprès de l'assureur ; si vous êtes locataire, confirmez aussi les conditions de votre bail et les autorisations nécessaires.", "follow_up_to": null},
+        {"topic": "Démarches et protection", "question": "Comment se passent l'état des lieux et le dépôt de garantie ?", "answer": "L'état des lieux est documenté à l'arrivée et au départ ; lorsqu'un dépôt est autorisé, le contrat précise son montant et ses conditions de remboursement.", "follow_up_to": null},
+        {"topic": "Gestion et frais", "question": "Qui s'occupe du ménage et de la remise des clés entre deux locations ?", "answer": "Notre équipe remet les clés et vérifie le logement après chaque départ ; une entreprise partenaire assure le ménage.", "follow_up_to": null},
+        {"topic": "Gestion et frais", "question": "Quelle commission prenez-vous pour la gestion, et quels frais restent à ma charge ?", "answer": "Notre commission de 15 % couvre la gestion des réservations et la remise des clés ; le ménage est facturé séparément.", "follow_up_to": 7, "condition": "If the agency manages changeovers without explaining its fees."}
       ]
     },
     {
@@ -337,8 +337,8 @@
       "opening": "Bonjour ! J'ai appris pour votre accident, et je tenais à prendre de vos nouvelles.",
       "closing": "Merci de m'avoir donné de vos nouvelles. Reposez-vous bien, et dites-moi si je peux vous rendre service.",
       "questions": [
-        {"topic": "Nouvelles et aide", "question": "Comment vous sentez-vous aujourd'hui ?", "answer": "Je vais mieux, merci ; j'ai encore quelques courbatures.", "follow_up_to": null},
-        {"topic": "Nouvelles et aide", "question": "Pour le moment, avez-vous besoin d'aide pour quelque chose de concret ?", "answer": "Oui, quelques courses me rendraient service cet après-midi.", "follow_up_to": 1, "condition": "After hearing how the colleague is recovering."},
+        {"topic": "Nouvelles et aide", "question": "Comment vous sentez-vous aujourd'hui ?", "answer": "Je vais mieux ; j'ai encore quelques courbatures et je me repose à la maison.", "follow_up_to": null},
+        {"topic": "Nouvelles et aide", "question": "Avez-vous besoin d'aide pour les courses, les repas ou un déplacement pendant votre convalescence ?", "answer": "Oui, quelques courses me rendraient service cet après-midi.", "follow_up_to": 1, "condition": "If recovery makes everyday tasks difficult and no practical help is already arranged."},
         {"topic": "L'accident", "question": "Quand l'accident s'est-il produit ?", "answer": "Lundi matin, vers 8 h.", "follow_up_to": null},
         {"topic": "L'accident", "question": "Où étiez-vous à ce moment-là ?", "answer": "Sur les marches de la station de métro, près du bureau.", "follow_up_to": null},
         {"topic": "L'accident", "question": "Comment l'accident est-il arrivé ?", "answer": "J'ai glissé en descendant les marches mouillées.", "follow_up_to": null},

@@ -62,6 +62,8 @@ Questions must:
 - remain directly relevant to the prompt;
 - help the candidate make a real decision or complete a real action;
 - avoid asking for information already given;
+- establish an option before referring to it as a fact: teams, a host family,
+  a buffet, a comparison city, or a selected course level are not automatic;
 - avoid repeating an earlier information goal in different words;
 - contain one main information goal, with only closely related supports;
 - sound speakable in an ordinary conversation;
@@ -119,8 +121,13 @@ more content. In particular, distinguish:
 - **procedure:** documents, application, authorization, response time.
 
 A single question may combine closely related details, such as bedrooms, beds,
-and sleeping capacity, or rent and included utilities. It should not combine
+and sleeping capacity, rent and included utilities, or a lesson fee and included
+learning materials. It should not combine
 neighbourhood atmosphere, transport, services, price, and property condition.
+
+For lessons, distinguish the initial booking from a later cancellation or
+rescheduling request. Prepayment can justify a genuine follow-up about the
+notice period and what happens to an unused paid session.
 
 ## 5. Respect practical and factual reality
 
@@ -138,6 +145,20 @@ Examples:
   condominium fees, planned work, special assessments, and a viewing.
 - A friend can offer local experience but should not make authoritative legal
   guarantees.
+- A teacher can advise on study choices and language preparation, not guarantee
+  admission, scholarships, or permission to study abroad.
+- A neighbour or fellow parent can report school and activity experience;
+  confirm current eligibility, enrolment requirements, and fees with the provider.
+- Known childcare start and end times do not establish nap or bedtime routines.
+  Ask about the child's remaining sleep timings and rituals without repeating
+  information already supplied.
+- A personal errand needs a realistic time estimate, not only a deadline.
+  Parcel dimensions and weight can share one question, leaving room for the
+  post office, round trip and expected wait.
+- For an overseas job offer, clarify payment currency and health coverage.
+  Ask whether an allowance can be reviewed before assuming automatic adjustments.
+- A student from a francophone country need not study there or have moved abroad.
+  A survey of their activities is not an immigration interview.
 - Questions about legal rules should direct the learner to the competent
   official source when the answer depends on jurisdiction.
 
@@ -164,6 +185,13 @@ Each hidden answer must:
 Check named-item continuity. If a conversation introduces a sofa, table,
 television, and lamps, later questions about condition or price must not
 silently omit an item unless the narrower scope is intentional.
+
+The same applies to courses and activities: cover each option when giving
+schedules, distinguish formats and levels, and attach quoted fees to the
+actual course. Keep required contributions separate from optional help.
+Distinguish shifted evening hours from overtime before asking how extra hours
+are compensated. A failed delivery may also have a separate redelivery fee;
+do not imply that another attempt is automatically free.
 
 ## 7. Use relances only when the reply genuinely drives them
 

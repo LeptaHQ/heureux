@@ -8632,7 +8632,7 @@ class BrowserTests(StaticLiveServerTestCase):
                 "#note-create-dialog button",
                 "#note-edit-dialog button",
                 ".selection-note-panel button",
-                ".translation-panel button",
+                ".translation-panel .panel-action",
             ):
                 with self.subTest(width=width, selector=selector):
                     radii = self.page.locator(selector).evaluate_all(
@@ -8651,6 +8651,51 @@ class BrowserTests(StaticLiveServerTestCase):
                     ), 0,
                 )
             self.assert_no_horizontal_overflow()
+
+    def test_translation_external_link_is_round_and_yellow_in_both_themes(self):
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:task_notes", args=[self.part.slug, self.task.slug])
+        )
+        external = self.page.locator("[data-translation-fallback]")
+        for width in (390, 1183):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            for theme in ("light", "dark"):
+                self.page.evaluate(
+                    "theme => { document.documentElement.dataset.theme = theme; }", theme,
+                )
+                for suggested in (False, True):
+                    with self.subTest(width=width, theme=theme, suggested=suggested):
+                        styles = external.evaluate(
+                            """(element, suggested) => {
+                              element.classList.toggle("is-suggested", suggested);
+                              const probe = document.createElement("span");
+                              probe.style.backgroundColor = "var(--warning-soft)";
+                              probe.style.color = "var(--warning)";
+                              element.parentElement.append(probe);
+                              const expected = getComputedStyle(probe);
+                              const style = getComputedStyle(element);
+                              const values = {
+                                radius: parseFloat(style.borderTopLeftRadius),
+                                width: parseFloat(style.width),
+                                height: parseFloat(style.height),
+                                background: style.backgroundColor,
+                                color: style.color,
+                                expectedBackground: expected.backgroundColor,
+                                expectedColor: expected.color,
+                              };
+                              probe.remove();
+                              return values;
+                            }""",
+                            suggested,
+                        )
+                        self.assertGreaterEqual(
+                            styles["radius"], min(styles["width"], styles["height"]) / 2,
+                        )
+                        self.assertEqual(styles["background"], styles["expectedBackground"])
+                        self.assertEqual(styles["color"], styles["expectedColor"])
+        self.assertEqual(external.get_attribute("target"), "_blank")
+        self.assertIn("noopener", external.get_attribute("rel").split())
 
     def test_new_note_from_later_page_returns_to_its_first_page_anchor(self):
         self._pagination_annotations(51)

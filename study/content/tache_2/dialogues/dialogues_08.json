@@ -55,17 +55,17 @@
     {
       "group": "estate-agent-advertised-apartment-unspecified",
       "register": "vous",
-      "note": "A specific apartment advertisement in Seattle's Ballard district interests you. The prompt does not establish sale or rental, so clarify the transaction first; this model then follows the agent's answer that it is for sale. Ask about price, size, condition, neighbourhood, recurring costs and a visit. Use vous.",
+      "note": "The advertised apartment interests you, but the prompt does not say whether it is for sale or rent. Clarify this first; the model follows a sale. Ask about price, size, layout, condition, neighbourhood, recurring costs and a visit. Use vous. If the agent says it is a rental, ask about monthly rent and included charges instead of purchase costs.",
       "opening": "Bonjour ! L'appartement de votre annonce à Ballard m'intéresse et j'aimerais obtenir quelques précisions.",
       "closing": "Merci ! Le samedi matin me conviendrait ; je vais vous confirmer le rendez-vous.",
       "questions": [
         {"topic": "Transaction et coût", "question": "Cet appartement est-il proposé à la vente ou à la location ?", "answer": "Il est proposé à la vente.", "follow_up_to": null},
-        {"topic": "Transaction et coût", "question": "Dans ce cas, quel montant demande le propriétaire ?", "answer": "Le prix demandé est de 425 000 $.", "follow_up_to": 1, "condition": "After the agent clarifies the transaction; use sale price or monthly rent as appropriate."},
+        {"topic": "Transaction et coût", "question": "Quel est le prix demandé pour cet appartement ?", "answer": "Le prix demandé est de 425 000 $.", "follow_up_to": 1, "condition": "After sale is confirmed without a price; ask monthly rent for a rental."},
         {"topic": "Appartement", "question": "Quelle est la superficie de l'appartement, et dispose-t-il d'un balcon ou d'un espace de rangement ?", "answer": "Il fait quatre-vingt-cinq mètres carrés, avec un balcon et un casier de rangement au sous-sol.", "follow_up_to": null},
         {"topic": "Appartement", "question": "Comment les pièces sont-elles réparties ?", "answer": "Il comprend deux chambres, un grand salon, une cuisine et une salle de bains.", "follow_up_to": 3, "condition": "After the area is given, unless the layout is already described."},
         {"topic": "Appartement", "question": "Dans quel état sont la cuisine, la salle de bains, les fenêtres et le chauffage ?", "answer": "La cuisine est rénovée et les fenêtres sont récentes ; la salle de bains et le chauffage sont plus anciens.", "follow_up_to": null},
         {"topic": "Quartier et décision", "question": "Ballard est-il plutôt calme, familial ou animé, surtout le soir et le week-end ?", "answer": "Le secteur est familial et plutôt calme ; l'ambiance est plus animée près des rues commerçantes le week-end.", "follow_up_to": null},
-        {"topic": "Quartier et décision", "question": "En plus du prix annoncé, quels frais de copropriété et quelles taxes faut-il prévoir chaque mois ou chaque année ?", "answer": "Les charges sont de 375 $ par mois ; les taxes foncières totalisent environ 2 800 $ par an.", "follow_up_to": null},
+        {"topic": "Quartier et décision", "question": "En plus du prix annoncé, à combien s'élèvent les frais de copropriété mensuels et les taxes foncières annuelles ?", "answer": "Les charges sont de 375 $ par mois ; les taxes foncières totalisent environ 2 800 $ par an.", "follow_up_to": null},
         {"topic": "Quartier et décision", "question": "Quand serait-il possible de visiter l'appartement ?", "answer": "Une visite est possible mercredi soir ou samedi matin.", "follow_up_to": null}
       ]
     },
@@ -106,17 +106,17 @@
     {
       "group": "help-friend-post-parcel",
       "register": "tu",
-      "note": "Your friend cannot post a parcel and asks you for this favour. You must decide whether you can help, so clarify the deadline, destination, expected delivery speed, parcel size and weight, readiness, and collection arrangements. Use tu. This is a personal errand, not a commercial delivery service or an open-ended promise.",
+      "note": "Your friend cannot post a parcel and asks you for this favour. Decide whether you can help by checking the deadline, destination, delivery speed, size and weight, post office and time needed, preparation and collection. Use tu. Postal delivery dates and express availability must be checked with the carrier; your friend cannot guarantee them. This is a personal errand, not a commercial delivery service.",
       "opening": "Salut ! Je vais voir si je peux poster ton paquet, mais j'ai besoin de quelques précisions pour m'organiser.",
       "closing": "Merci pour ces précisions ! Je peux m'en charger dans le délai que tu m'as indiqué.",
       "questions": [
         {"topic": "Délai et envoi", "question": "Au plus tard, quand faut-il poster le paquet ?", "answer": "Jeudi avant midi.", "follow_up_to": null},
         {"topic": "Délai et envoi", "question": "Dans quelle ville doit-il être envoyé ?", "answer": "À Seattle.", "follow_up_to": null},
         {"topic": "Délai et envoi", "question": "Quand doit-il arriver à destination ?", "answer": "Mardi prochain, pour un anniversaire.", "follow_up_to": null},
-        {"topic": "Délai et envoi", "question": "Si l'envoi standard est trop lent, souhaites-tu que je choisisse l'express ?", "answer": "Oui, mais seulement si le standard ne peut pas arriver mardi.", "follow_up_to": 3, "condition": "After the required arrival date is known."},
-        {"topic": "Le colis", "question": "Quelles sont les dimensions approximatives du paquet ?", "answer": "Environ trente centimètres sur vingt, comme une boîte à chaussures.", "follow_up_to": null},
-        {"topic": "Le colis", "question": "Combien pèse-t-il à peu près ?", "answer": "Environ deux kilos.", "follow_up_to": null},
-        {"topic": "Préparation et récupération", "question": "Comment me rembourseras-tu les frais d'envoi, et dois-je conserver le reçu et le numéro de suivi ?", "answer": "Je te ferai un virement dès ton retour ; garde le reçu et envoie-moi une photo du numéro de suivi.", "follow_up_to": null},
+        {"topic": "Délai et envoi", "question": "Si l'envoi standard est trop lent, souhaites-tu l'express, et jusqu'à quel montant ?", "answer": "Oui, si le standard n'arrive pas mardi ; je préfère ne pas dépasser 40 $ pour l'envoi.", "follow_up_to": 3, "condition": "If the required arrival date may rule out standard delivery."},
+        {"topic": "Le colis", "question": "Quelles sont les dimensions approximatives du paquet, et combien pèse-t-il ?", "answer": "Environ trente centimètres sur vingt et quinze de hauteur, comme une boîte à chaussures ; il pèse à peu près deux kilos.", "follow_up_to": null},
+        {"topic": "Préparation et récupération", "question": "Quel bureau de poste me conseilles-tu, et combien de temps faut-il prévoir pour l'aller-retour ?", "answer": "Celui près de la gare, à dix minutes à pied de chez moi ; compte une demi-heure au total, avec un peu d'attente au guichet.", "follow_up_to": null},
+        {"topic": "Préparation et récupération", "question": "Le paquet sera-t-il déjà emballé, étiqueté et affranchi ?", "answer": "Il sera emballé et étiqueté, mais pas affranchi ; je te donnerai de quoi payer l'envoi dans la limite convenue.", "follow_up_to": null},
         {"topic": "Préparation et récupération", "question": "Quand puis-je passer le récupérer chez toi ?", "answer": "Ce soir après 18 h ou demain matin avant 8 h.", "follow_up_to": null}
       ]
     },
@@ -174,17 +174,17 @@
     {
       "group": "fellow-parent-first-school-fete",
       "register": "vous",
-      "note": "Another pupil's parent tells you about the school fête, which you will attend for the first time. Ask about times, the programme and activities, then what families are expected to do. Vous is chosen as a cautious default; parents who know each other may use tu.",
+      "note": "Your children attend the same school as the other parent's. You are attending its fête for the first time, not necessarily visiting the school for the first time. Ask about times, programme and activities, then food and practical arrangements. Do not assume a buffet or mandatory volunteering. Check a weather backup if outdoor activities are mentioned. Use vous as a cautious default; familiar parents may use tu.",
       "opening": "Bonjour ! Je vais aller à la fête de l'école pour la première fois, et j'aimerais savoir comment elle se déroule.",
-      "closing": "Merci beaucoup ! Je vais proposer mon aide dès demain, et j'ai hâte de découvrir cette fête.",
+      "closing": "Merci beaucoup ! J'ai hâte de découvrir cette fête avec mes enfants.",
       "questions": [
         {"topic": "Horaires et programme", "question": "À quelle date et à quelles heures la fête de l'école aura-t-elle lieu ?", "answer": "Le dernier samedi de juin, de 14 h à 18 h.", "follow_up_to": null},
-        {"topic": "Horaires et programme", "question": "Quels seront les principaux moments du programme pendant l'après-midi ?", "answer": "Le spectacle des élèves commencera à 14 h 30, puis les jeux ouvriront avant le tirage de la tombola à 17 h 30.", "follow_up_to": null},
-        {"topic": "Horaires et programme", "question": "À quelle heure me conseillez-vous d'arriver pour ne pas manquer le spectacle des enfants ?", "answer": "Arrivez vers 14 h, juste avant le mot de la directrice et l'installation des classes.", "follow_up_to": 2, "condition": "After the programme and pupils' show are described."},
+        {"topic": "Horaires et programme", "question": "Quels seront les principaux moments du programme pendant l'après-midi ?", "answer": "Dans la cour, le spectacle des élèves commencera à 14 h 30, puis les jeux ouvriront ; le tirage de la tombola est prévu à 17 h 30.", "follow_up_to": null},
+        {"topic": "Horaires et programme", "question": "Y aura-t-il des places assises au spectacle, et à quelle heure conseillez-vous d'arriver pour en avoir ?", "answer": "Oui, mais le nombre de chaises est limité ; mieux vaut venir dès l'ouverture à 14 h, car les places ne se réservent pas.", "follow_up_to": 2, "condition": "If a show is mentioned without explaining seating and recommended arrival time."},
         {"topic": "Animations", "question": "Quelles animations seront proposées aux enfants et aux parents ?", "answer": "Des jeux d'adresse, un atelier de maquillage et une tombola avec un vélo à gagner.", "follow_up_to": null},
-        {"topic": "Animations", "question": "L'entrée est-elle gratuite, et combien coûte un billet de tombola ?", "answer": "L'entrée est gratuite, et les billets de tombola coûtent 2 $ chacun.", "follow_up_to": 4, "condition": "If a raffle or paid activity is mentioned."},
-        {"topic": "Participation des familles", "question": "Est-ce que les familles doivent apporter quelque chose pour le buffet ou les activités ?", "answer": "Oui, chacune apporte un plat sucré ou salé pour le buffet partagé.", "follow_up_to": null},
-        {"topic": "Participation des familles", "question": "À quel stand manque-t-il des bénévoles, et auprès de qui dois-je m'inscrire pour aider ?", "answer": "Il manque du monde au stand de maquillage ; inscrivez-vous au secrétariat de l'école.", "follow_up_to": null},
+        {"topic": "Animations", "question": "L'entrée est-elle gratuite, et combien coûte un billet de tombola ?", "answer": "L'entrée est gratuite, et les billets de tombola coûtent 2 $ chacun.", "follow_up_to": 4, "condition": "If a raffle is mentioned and admission or ticket prices remain unclear."},
+        {"topic": "Participation des familles", "question": "Y a-t-il un buffet, et faut-il apporter quelque chose ou est-ce facultatif ?", "answer": "Il y a un buffet partagé ; ceux qui le souhaitent apportent un plat sucré ou salé, sans obligation pour les familles.", "follow_up_to": null},
+        {"topic": "Participation des familles", "question": "Si je souhaite aider, y a-t-il un stand qui manque de bénévoles et à qui m'adresser ?", "answer": "Il manque du monde au stand de maquillage ; le secrétariat de l'école recueille les inscriptions des parents bénévoles.", "follow_up_to": null},
         {"topic": "Organisation pratique", "question": "Si la météo est mauvaise, quelles parties de la fête seront déplacées à l'intérieur ?", "answer": "Le spectacle, le buffet et plusieurs jeux auront lieu dans le gymnase ; seuls quelques stands extérieurs seront annulés.", "follow_up_to": null}
       ]
     },
@@ -213,12 +213,12 @@
       "closing": "Merci beaucoup pour votre temps ! Vos réponses vont vraiment enrichir mon enquête.",
       "questions": [
         {"topic": "Études", "question": "De quel pays francophone venez-vous, et quel domaine étudiez-vous ici ?", "answer": "Je viens du Canada, plus précisément du Québec, et j'étudie le génie informatique.", "follow_up_to": null},
-        {"topic": "Études", "question": "Dans quel établissement étudiez-vous, et depuis combien de temps êtes-vous installé ici ?", "answer": "J'étudie à l'université et j'ai quitté Montréal il y a deux ans.", "follow_up_to": null},
-        {"topic": "Études", "question": "À quoi ressemble une journée de cours habituelle pour vous ?", "answer": "J'ai surtout cours le matin ; l'après-midi, je travaille en laboratoire avec mon équipe de projet.", "follow_up_to": null},
-        {"topic": "Emploi du temps", "question": "Est-ce que vous avez d'autres activités en dehors des cours ?", "answer": "Oui, deux soirs par semaine, je travaille dans un café du campus pour couvrir mes dépenses.", "follow_up_to": null},
-        {"topic": "Emploi du temps", "question": "Comment parvenez-vous à concilier ce travail et vos études ?", "answer": "Je consacre mes dimanches aux révisions, et mon responsable adapte mes horaires pendant les examens.", "follow_up_to": 4, "condition": "If a part-time job is mentioned alongside studies."},
-        {"topic": "Loisirs", "question": "Quel loisir pratiquez-vous régulièrement, et à quelle fréquence vous y consacrez-vous ?", "answer": "Je chante dans la chorale de l'université, qui répète chaque mercredi soir.", "follow_up_to": null},
-        {"topic": "Loisirs", "question": "La chorale donne-t-elle des concerts publics, et quand aura lieu le prochain ?", "answer": "Oui, deux fois par an ; le prochain aura lieu en décembre dans la grande salle du campus.", "follow_up_to": 6, "condition": "If they mention a choir or band; adapt to the activity."},
+        {"topic": "Études", "question": "Dans quel établissement étudiez-vous, et en quelle année êtes-vous ?", "answer": "À l'université de Washington, à Seattle, en deuxième année.", "follow_up_to": null},
+        {"topic": "Études", "question": "Comment se répartit votre journée entre les cours, les travaux pratiques et le travail personnel ?", "answer": "J'ai cours le matin, un projet en laboratoire l'après-midi, puis je relis mes notes le soir.", "follow_up_to": null},
+        {"topic": "Emploi du temps", "question": "Avez-vous un emploi étudiant ou une activité bénévole en dehors des cours, et combien de temps y consacrez-vous ?", "answer": "Je travaille au café du campus les mardis et jeudis, de 18 h à 21 h, soit six heures par semaine.", "follow_up_to": null},
+        {"topic": "Emploi du temps", "question": "Quand les examens approchent, comment conciliez-vous cette activité avec vos révisions ?", "answer": "Je garde le dimanche pour réviser et, pendant les examens, je ne travaille qu'un soir par semaine, avec l'accord de mon responsable.", "follow_up_to": 4, "condition": "If work or volunteering is mentioned without explaining how revision fits around it."},
+        {"topic": "Loisirs", "question": "Quel est votre loisir principal, et où et quand le pratiquez-vous ?", "answer": "La chorale de l'université ; les répétitions ont lieu chaque mercredi à 19 h dans la salle de musique du campus.", "follow_up_to": null},
+        {"topic": "Loisirs", "question": "La chorale donne-t-elle des concerts publics, et quand aura lieu le prochain ?", "answer": "Oui, deux fois par an ; le prochain aura lieu en décembre dans la grande salle du campus.", "follow_up_to": 6, "condition": "If a choir or band is mentioned without concert details; adapt as needed."},
         {"topic": "Loisirs", "question": "Et le week-end, où est-ce que vous aimez sortir ?", "answer": "Le samedi, au marché ou dans les parcs quand il fait beau ; l'hiver, je découvre les musées avec des amis.", "follow_up_to": null}
       ]
     },
@@ -293,18 +293,18 @@
     {
       "group": "colleague-summer-house-rental",
       "register": "vous",
-      "note": "Your colleague Pierre is offering his own house in Seattle's Ballard neighbourhood during the summer holidays. Ask about its rooms, capacity, equipment, setting, exact dates and price; do not assume seaside or cottage features. This model uses vous.",
+      "note": "Your colleague Pierre offers his house in Seattle's Ballard neighbourhood for the summer holidays. Summer letting is already confirmed: ask for exact dates, not whether it is offered. Check availability and total cost before rooms, capacity, equipment and surroundings. Do not assume seaside or cottage features. Use vous with this colleague.",
       "opening": "Bonjour Pierre ! Votre maison à Ballard pourrait m'intéresser pour les vacances d'été, alors j'aimerais en savoir un peu plus.",
       "closing": "Merci, Pierre ! Je vérifie mes dates pour début juillet et je vous réponds demain.",
       "questions": [
-        {"topic": "Maison", "question": "Combien de chambres et de salles de bains la maison compte-t-elle ?", "answer": "Elle comprend trois chambres et deux salles de bains.", "follow_up_to": null},
-        {"topic": "Maison", "question": "Avec ces chambres, combien de personnes peuvent y dormir confortablement ?", "answer": "Six personnes, grâce à deux lits doubles et deux lits simples.", "follow_up_to": 1, "condition": "After the number of bedrooms is given."},
-        {"topic": "Maison", "question": "La cuisine est-elle entièrement équipée, et le linge, la laveuse, la sécheuse ainsi que le barbecue seront-ils disponibles ?", "answer": "Oui, la cuisine et le linge sont fournis, avec une laveuse, une sécheuse et un barbecue.", "follow_up_to": null},
-        {"topic": "Cadre", "question": "Ballard est-il plutôt calme ou animé en été, surtout le soir et le week-end ?", "answer": "Le secteur est animé près du parc le week-end, mais les rues résidentielles restent calmes le soir.", "follow_up_to": null},
-        {"topic": "Cadre", "question": "Peut-on aller à pied au parc et aux commerces, puis rejoindre facilement le centre-ville sans voiture ?", "answer": "Le parc et les commerces sont à une douzaine de minutes à pied ; un autobus direct mène au centre-ville en vingt-cinq minutes.", "follow_up_to": 4, "condition": "After the setting is described, if access to the city matters to you."},
         {"topic": "Dates et prix", "question": "Quand la maison est-elle disponible exactement, et quelle est la durée minimale de location ?", "answer": "Du premier juillet au quinze août, pour des séjours d'au moins une semaine.", "follow_up_to": null},
         {"topic": "Dates et prix", "question": "Quel loyer demandez-vous par semaine, et faut-il verser un dépôt pour confirmer la réservation ?", "answer": "Le loyer est de 1 500 $ par semaine, avec un dépôt de 400 $ à la réservation.", "follow_up_to": null},
-        {"topic": "Dates et prix", "question": "L'eau, l'électricité, Internet et le ménage de fin de séjour sont-ils compris dans ce loyer ?", "answer": "L'eau, l'électricité et Internet sont compris ; le ménage de fin de séjour coûte 100 $.", "follow_up_to": 7, "condition": "After the weekly rent is given, unless included charges are already explained."}
+        {"topic": "Dates et prix", "question": "L'eau, l'électricité, Internet et le ménage de fin de séjour sont-ils compris dans ce loyer ?", "answer": "L'eau, l'électricité et Internet sont compris ; le ménage de fin de séjour coûte 100 $.", "follow_up_to": 2, "condition": "After the weekly rent is given, unless included charges are already explained."},
+        {"topic": "Maison", "question": "Combien de chambres et de salles de bains la maison compte-t-elle ?", "answer": "Elle comprend trois chambres et deux salles de bains.", "follow_up_to": null},
+        {"topic": "Maison", "question": "Avec ces chambres, combien de personnes peuvent y dormir confortablement ?", "answer": "Six personnes, grâce à deux lits doubles et deux lits simples.", "follow_up_to": 4, "condition": "After the number of bedrooms is given, unless sleeping capacity is already explained."},
+        {"topic": "Maison", "question": "La cuisine est-elle entièrement équipée, et le linge, la laveuse, la sécheuse ainsi que le barbecue seront-ils disponibles ?", "answer": "Oui, la cuisine et le linge sont fournis, avec une laveuse, une sécheuse et un barbecue.", "follow_up_to": null},
+        {"topic": "Cadre", "question": "Ballard est-il plutôt calme ou animé en été, surtout le soir et le week-end ?", "answer": "Le secteur est animé près du parc le week-end, mais les rues résidentielles restent calmes le soir.", "follow_up_to": null},
+        {"topic": "Cadre", "question": "Peut-on aller à pied au parc et aux commerces, puis rejoindre facilement le centre-ville sans voiture ?", "answer": "Le parc et les commerces sont à une douzaine de minutes à pied ; un autobus direct mène au centre-ville en vingt-cinq minutes.", "follow_up_to": null}
       ]
     },
     {
@@ -315,13 +315,13 @@
       "closing": "Merci de m'avoir parlé de ton travail ! Je comprends beaucoup mieux ce qui te plaît dans cette activité.",
       "questions": [
         {"topic": "L'association", "question": "Quelle est la mission de ton association, et quels services offre-t-elle concrètement ?", "answer": "Elle accompagne les nouveaux arrivants : aide à la recherche de logement, cours de français et sorties pour créer des liens.", "follow_up_to": null},
-        {"topic": "L'association", "question": "Quelles sont ses principales sources de financement, et cela impose-t-il des contraintes particulières ?", "answer": "Surtout des subventions publiques et quelques dons ; chaque dépense doit donc être justifiée.", "follow_up_to": 1, "condition": "After its mission is described, unless funding is already mentioned."},
-        {"topic": "L'association", "question": "Comment as-tu trouvé ce poste, et quelles compétences l'association recherchait-elle ?", "answer": "J'ai répondu à une annonce ; ils cherchaient surtout quelqu'un sachant coordonner des projets et communiquer avec le public.", "follow_up_to": null},
-        {"topic": "Missions", "question": "Quel est précisément ton rôle dans l'association, du recrutement jusqu'à l'organisation des horaires ?", "answer": "Je recrute et forme les bénévoles, puis j'organise leurs horaires.", "follow_up_to": null},
-        {"topic": "Missions", "question": "Combien de bénévoles coordonnes-tu, et quelle difficulté revient le plus souvent dans cette mission ?", "answer": "Une soixantaine ; leurs disponibilités changent sans cesse, ce qui complique les horaires.", "follow_up_to": 4, "condition": "If coordinating volunteers or staff is part of their role."},
-        {"topic": "Temps de travail", "question": "Tu travailles à temps plein, et tes horaires incluent-ils souvent des soirées ?", "answer": "Oui, 35 heures par semaine, avec des soirées fréquentes quand les bénévoles sont libres.", "follow_up_to": null},
-        {"topic": "Temps de travail", "question": "Est-ce que tu récupères ces heures du soir ?", "answer": "Oui, je les reprends en congés, ce qui compense bien.", "follow_up_to": 6, "condition": "If evening or weekend work is mentioned; adapt the wording."},
-        {"topic": "Bilan personnel", "question": "Avec le recul, qu'est-ce qui te plaît le plus dans ce travail, et qu'est-ce qui reste difficile ?", "answer": "Voir les nouveaux arrivants gagner en autonomie me motive ; coordonner des disponibilités très variables reste le plus difficile.", "follow_up_to": null}
+        {"topic": "Missions et parcours", "question": "Quelles sont tes principales tâches au quotidien dans l'association ?", "answer": "Je recrute et forme les bénévoles, puis j'organise leurs horaires.", "follow_up_to": null},
+        {"topic": "Missions et parcours", "question": "Combien de bénévoles coordonnes-tu, et quelle difficulté revient le plus souvent dans cette mission ?", "answer": "Une soixantaine ; leurs disponibilités changent sans cesse, ce qui complique les horaires.", "follow_up_to": 2, "condition": "If coordinating volunteers is mentioned without explaining numbers or difficulties."},
+        {"topic": "Missions et parcours", "question": "Comment as-tu trouvé ce poste, et quelles compétences l'association recherchait-elle ?", "answer": "J'ai répondu à une annonce ; ils cherchaient surtout quelqu'un sachant coordonner des projets et communiquer avec le public.", "follow_up_to": null},
+        {"topic": "Temps de travail", "question": "Tu travailles combien d'heures par semaine, et est-ce que tu dois aussi venir le soir ?", "answer": "35 heures par semaine, avec des soirées fréquentes quand les bénévoles sont libres.", "follow_up_to": null},
+        {"topic": "Temps de travail", "question": "Ces soirées s'ajoutent-elles à tes heures habituelles, ou est-ce que tu décales ton horaire ?", "answer": "En général, je décale mon horaire ; lors des grands événements, je fais parfois des heures supplémentaires.", "follow_up_to": 5, "condition": "If evening work is mentioned without explaining how it fits the regular schedule."},
+        {"topic": "Temps de travail", "question": "Pour ces heures supplémentaires, peux-tu choisir entre un paiement et du temps de repos ?", "answer": "Chez nous, elles sont généralement récupérées en temps de repos ; un paiement reste possible avec l'accord du responsable.", "follow_up_to": 6, "condition": "If evening work adds extra hours and compensation has not been explained."},
+        {"topic": "Bilan personnel", "question": "Qu'est-ce qui te donne le plus le sentiment d'être utile dans ce travail ?", "answer": "Voir les nouveaux arrivants gagner en autonomie : on les voit trouver un logement, reprendre une formation ou créer des liens.", "follow_up_to": null}
       ]
     },
     {
@@ -333,11 +333,11 @@
       "questions": [
         {"topic": "Formations", "question": "Quelles langues proposez-vous actuellement aux adultes ?", "answer": "Une dizaine, dont le français, l'espagnol, l'allemand, le mandarin et le japonais.", "follow_up_to": null},
         {"topic": "Formations", "question": "Faut-il être étudiant de l'université pour s'inscrire à ces cours ?", "answer": "Non, ils sont ouverts à tous les adultes, même sans statut d'étudiant universitaire.", "follow_up_to": null},
-        {"topic": "Formations", "question": "Si je choisissais l'espagnol, comment détermineriez-vous le groupe correspondant à mon niveau ?", "answer": "Vous passeriez un court test en ligne, puis un conseiller vous orienterait vers le bon groupe.", "follow_up_to": 1, "condition": "If Spanish is offered; substitute the language you prefer."},
-        {"topic": "Formations", "question": "Les cours sont-ils offerts sur le campus, en ligne, ou dans les deux formats ?", "answer": "La plupart ont lieu sur le campus, mais certaines langues sont aussi offertes en ligne.", "follow_up_to": null},
-        {"topic": "Organisation", "question": "Combien de semaines dure une session, et à quelle fréquence les cours ont-ils lieu ?", "answer": "La session dure douze semaines, à raison d'un ou deux cours par semaine selon le groupe.", "follow_up_to": null},
-        {"topic": "Organisation", "question": "Quels horaires proposez-vous le soir et le week-end pour les personnes qui travaillent ?", "answer": "Deux soirs par semaine, de 18 h 30 à 21 h, ou le samedi matin.", "follow_up_to": null},
-        {"topic": "Tarifs et inscription", "question": "Combien coûte une session de douze semaines, et le manuel est-il compris ?", "answer": "Elle coûte environ 350 $, mais le manuel doit être acheté séparément.", "follow_up_to": null},
+        {"topic": "Formations", "question": "Si je choisissais l'espagnol, comment détermineriez-vous le groupe correspondant à mon niveau ?", "answer": "Si vous avez déjà étudié l'espagnol, un court test en ligne permettra de vous orienter ; sinon, vous pourrez rejoindre directement un groupe débutant.", "follow_up_to": 1, "condition": "If Spanish is offered without explaining placement; substitute the language you prefer."},
+        {"topic": "Formations", "question": "Les cours sont-ils proposés sur le campus et en ligne, ou le format dépend-il du niveau ?", "answer": "Pour l'espagnol, les débutants ont les deux options ; les groupes avancés sont sur le campus. Le format dépend donc du groupe.", "follow_up_to": null},
+        {"topic": "Organisation", "question": "Combien de semaines dure une session, et combien d'heures de cours y a-t-il par semaine ?", "answer": "Douze semaines, avec trois heures de cours par semaine, réparties sur une ou deux séances selon le groupe.", "follow_up_to": null},
+        {"topic": "Organisation", "question": "Quels jours et à quelles heures proposez-vous des cours le soir ou le week-end ?", "answer": "Le mardi et le jeudi de 18 h 30 à 20 h, ou le samedi de 9 h à midi.", "follow_up_to": null},
+        {"topic": "Tarifs et inscription", "question": "Combien coûte une session de douze semaines, et le manuel est-il compris ?", "answer": "Environ 350 $, hors manuel ; comptez 35 $ de plus pour celui-ci.", "follow_up_to": null},
         {"topic": "Tarifs et inscription", "question": "Quelle est la date limite, et l'inscription peut-elle se faire entièrement en ligne ?", "answer": "Oui, jusqu'au 1er septembre ; les groupes sont limités à quinze personnes, alors ne tardez pas.", "follow_up_to": null}
       ]
     },
@@ -369,8 +369,8 @@
         {"topic": "Date et lieu", "question": "À quelle heure la fête commencera-t-elle, et vers quelle heure devrait-elle se terminer ?", "answer": "Elle commencera à 18 h 30 et se terminera vers minuit.", "follow_up_to": null},
         {"topic": "Date et lieu", "question": "Dans quel lieu la fête se déroulera-t-elle, et est-ce près du bureau ?", "answer": "Sur la terrasse du restaurant italien, juste en face du bureau.", "follow_up_to": null},
         {"topic": "Date et lieu", "question": "En cas de pluie, la réception sera-t-elle déplacée dans un espace couvert suffisamment grand ?", "answer": "Oui, le restaurant nous réserve aussi sa salle du fond.", "follow_up_to": 3, "condition": "If an outdoor venue is mentioned, unless a backup is given."},
-        {"topic": "Invités", "question": "Quels groupes d'invités seront présents parmi l'équipe, les anciens collègues et la direction ?", "answer": "Toute l'équipe, quelques anciens collègues et mon nouveau directeur.", "follow_up_to": null},
-        {"topic": "Invités", "question": "Votre nouveau directeur prendra-t-il la parole, et à quel moment présentera-t-il vos nouvelles fonctions ?", "answer": "Oui, il dira quelques mots vers 19 h ; ensuite, place à la fête.", "follow_up_to": 5, "condition": "If their new manager is invited; adapt to the person named."},
+        {"topic": "Invités", "question": "Qui avez-vous invité : l'équipe, d'anciens collègues ou aussi des proches ?", "answer": "Toute l'équipe, quelques anciens collègues et mon nouveau directeur.", "follow_up_to": null},
+        {"topic": "Invités", "question": "Est-ce que je peux venir accompagné, ou la fête est-elle réservée aux collègues ?", "answer": "Elle est réservée aux collègues cette fois, car le restaurant nous garde un nombre limité de places.", "follow_up_to": 5, "condition": "If guests are described but bringing a companion has not been discussed."},
         {"topic": "Organisation", "question": "Puis-je apporter quelque chose, ou vous occupez-vous déjà des boissons et des bouchées ?", "answer": "N'apportez rien : je m'occupe déjà des bouchées et des boissons.", "follow_up_to": null},
         {"topic": "Organisation", "question": "Quelle tenue conviendrait à cette soirée : vêtements de bureau ou tenue plus habillée ?", "answer": "Venez comme au bureau ; ce sera une soirée simple et détendue.", "follow_up_to": null}
       ]
@@ -378,17 +378,17 @@
     {
       "group": "neighbor-child-one-day-care",
       "register": "vous",
-      "note": "You have already agreed to care for your neighbour's child for one day as a favour. The child's age, gender and needs are unspecified, so establish age and ask about meals, habits, rest, favourite activities and contact details without inventing medical issues. Use vous as a cautious neighbourly default.",
+      "note": "You have already agreed to care for your neighbour's child for one day as a favour, not a paid job. Clarify where and when, then age, meals, rest, activities, outing permission and contacts. Age, gender and medical needs are unspecified; ask rather than inventing them. The child belongs to your neighbour, not you. Use vous as a cautious neighbourly default.",
       "opening": "Bonjour ! C'est avec plaisir que je garderai votre enfant ; j'aimerais simplement en savoir un peu plus à son sujet.",
       "closing": "Merci pour toutes ces informations ! Je vais respecter ses habitudes pendant la journée.",
       "questions": [
+        {"topic": "Repères essentiels", "question": "Où se passera la garde, et de quelle heure à quelle heure ?", "answer": "Chez vous, de 9 h à 17 h ; j'amènerai et viendrai rechercher mon enfant.", "follow_up_to": null},
         {"topic": "Repères essentiels", "question": "Quel âge a votre enfant ?", "answer": "Six ans.", "follow_up_to": null},
         {"topic": "Repères essentiels", "question": "Y a-t-il une allergie ou un soin particulier que je dois connaître ?", "answer": "Non, aucun soin particulier ni aucune allergie connue.", "follow_up_to": null},
         {"topic": "Repas et habitudes", "question": "Qu'est-ce que je dois lui servir pour le repas ?", "answer": "Je préparerai un plat à réchauffer pour midi.", "follow_up_to": null},
         {"topic": "Repas et habitudes", "question": "À quel moment votre enfant a généralement besoin d'un temps calme ?", "answer": "Après le repas, pendant une trentaine de minutes.", "follow_up_to": null},
-        {"topic": "Activités", "question": "Quelles activités plaisent le plus à votre enfant pendant la journée ?", "answer": "Le dessin, les jeux de construction et les sorties au parc.", "follow_up_to": null},
-        {"topic": "Activités", "question": "Est-ce que je peux l'emmener au parc s'il en a envie ?", "answer": "Oui, le parc du quartier lui plaît beaucoup.", "follow_up_to": 5, "condition": "If the child's preferred activities suggest that an outing would suit them."},
-        {"topic": "Activités", "question": "Y a-t-il une règle habituelle à respecter pendant les jeux ou les sorties ?", "answer": "Votre enfant doit rester près de l'adulte et ranger un jeu avant d'en commencer un autre.", "follow_up_to": null},
+        {"topic": "Activités", "question": "Quelles activités votre enfant préfère-t-il : le dessin, les jeux de construction ou les sorties au parc ?", "answer": "Le dessin, les jeux de construction et les sorties au parc.", "follow_up_to": null},
+        {"topic": "Activités", "question": "Puis-je l'emmener au parc, et quelles consignes dois-je respecter pendant la sortie ?", "answer": "Oui, mon enfant peut aller au parc, à condition de rester près de vous et de ne pas sortir de l'aire de jeux.", "follow_up_to": 6, "condition": "If a park outing is mentioned without confirming permission or safety instructions."},
         {"topic": "Contact", "question": "Comment puis-je vous joindre rapidement et, si vous êtes injoignable, quelle autre personne dois-je appeler ?", "answer": "Appelez mon portable ; si je ne réponds pas, vous pourrez joindre son autre parent.", "follow_up_to": null}
       ]
     },

@@ -140,18 +140,18 @@
     {
       "group": "parent-after-school-activity-advice",
       "register": "vous",
-      "note": "You want after-school activities for your own children and ask another pupil's parent for advice. Children are explicit, but their ages are not: check eligible age groups rather than inventing them. Cover activities, hours, supervision, fees and registration. Use vous and confirm current conditions with the organizer.",
+      "note": "You want after-school activities for your own children and ask another pupil's parent for advice. Children are explicit, but their ages are not: check eligible age groups rather than inventing them. Cover activities, hours, supervision, fees and registration. Adapt later references to the activity selected. Use vous and confirm current conditions with the organizer.",
       "opening": "Bonjour ! J'aimerais inscrire mes enfants à une activité après l'école et profiter de vos conseils sur le quartier.",
       "closing": "Merci pour vos conseils. Je vais vérifier les groupes adaptés à mes enfants et les inscrire dès que possible.",
       "questions": [
-        {"topic": "Activités et accès", "question": "Quelles activités sont proposées après l'école dans le quartier ?", "answer": "Des ateliers de dessin, du théâtre et plusieurs activités sportives.", "follow_up_to": null},
-        {"topic": "Activités et accès", "question": "À quels âges s'adressent les ateliers de dessin, et les enfants sont-ils répartis par groupe d'âge ?", "answer": "Il y a un groupe pour les six à huit ans et un autre pour les plus grands.", "follow_up_to": 1, "condition": "If drawing is offered; adapt the activity to your children's interests."},
+        {"topic": "Activités et accès", "question": "Quelles activités sont proposées après l'école dans le quartier : sport, dessin ou théâtre ?", "answer": "Des ateliers de dessin et de théâtre, ainsi qu'un groupe multisports.", "follow_up_to": null},
+        {"topic": "Activités et accès", "question": "À quels âges s'adressent les ateliers de dessin, et les enfants sont-ils répartis par groupe d'âge ?", "answer": "Dans les informations que j'ai vues, il y a un groupe pour les six à huit ans et un autre pour les neuf à douze ans.", "follow_up_to": 1, "condition": "If drawing is offered without age-group details; adapt to your children's interests."},
         {"topic": "Activités et accès", "question": "Où se déroulent les activités, et les enfants peuvent-ils être accompagnés depuis l'école ?", "answer": "Au centre communautaire situé en face de l'école ; un animateur accompagne les enfants inscrits à la sortie des classes.", "follow_up_to": null},
-        {"topic": "Horaires et encadrement", "question": "Quels jours ont lieu les activités, et à quelle heure se terminent-elles ?", "answer": "Le dessin a lieu le mardi et le théâtre le jeudi, de 16 h 30 à 17 h 30.", "follow_up_to": null},
+        {"topic": "Horaires et encadrement", "question": "Quels jours ont lieu ces activités, et à quelle heure commencent-elles et se terminent-elles ?", "answer": "Le dessin est le mardi, le théâtre le jeudi et les multisports le vendredi, de 16 h 30 à 17 h 30.", "follow_up_to": null},
         {"topic": "Horaires et encadrement", "question": "Qui encadre les enfants, et combien sont-ils généralement par groupe ?", "answer": "D'après le centre, des animateurs qualifiés les encadrent, par groupes de douze enfants au maximum.", "follow_up_to": null},
-        {"topic": "Tarifs et inscription", "question": "Combien coûte une session, et existe-t-il une réduction lorsqu'on inscrit plusieurs enfants ?", "answer": "Une session de dix semaines coûte 90 $, avec une réduction de dix pour cent pour le deuxième enfant.", "follow_up_to": null},
+        {"topic": "Tarifs et inscription", "question": "Combien coûte une session, et existe-t-il une réduction lorsqu'on inscrit plusieurs enfants ?", "answer": "Pour le dessin, j'ai payé 90 $ pour dix semaines ; le centre proposait dix pour cent de réduction pour le deuxième enfant.", "follow_up_to": null},
         {"topic": "Tarifs et inscription", "question": "Pour l'atelier de dessin, le matériel est-il fourni ou faut-il en apporter ?", "answer": "Le papier et la peinture sont fournis ; les enfants doivent seulement apporter un tablier.", "follow_up_to": null},
-        {"topic": "Tarifs et inscription", "question": "Comment puis-je vérifier les places restantes et inscrire mes enfants ?", "answer": "Consultez le site du centre ou passez à l'accueil ; l'inscription est confirmée dès le paiement.", "follow_up_to": null}
+        {"topic": "Tarifs et inscription", "question": "Comment puis-je vérifier les places restantes et inscrire mes enfants ?", "answer": "Le site du centre indique les places et l'inscription en ligne ; l'accueil pourra confirmer le groupe adapté à vos enfants et les tarifs actuels.", "follow_up_to": null}
       ]
     },
     {
@@ -167,7 +167,7 @@
         {"topic": "Disponibilités", "question": "Peut-on participer ponctuellement, ou faut-il venir chaque semaine pour faire partie de l'équipe ?", "answer": "On peut participer ponctuellement, mais il faut annoncer ses disponibilités assez tôt pour organiser les équipes.", "follow_up_to": null},
         {"topic": "Conditions et inscription", "question": "Une expérience particulière est-elle nécessaire pour commencer ?", "answer": "Non, les nouveaux reçoivent des explications avant leur première distribution.", "follow_up_to": null},
         {"topic": "Conditions et inscription", "question": "Quelles consignes d'hygiène faut-il connaître avant de servir les repas ?", "answer": "Il faut se laver les mains, porter les protections fournies et respecter les zones de service.", "follow_up_to": null},
-        {"topic": "Conditions et inscription", "question": "Comment se passe la première participation d'un nouveau bénévole ?", "answer": "Un bénévole expérimenté lui montre les tâches et reste à ses côtés pendant le service.", "follow_up_to": 5, "condition": "If an introduction for new volunteers is mentioned."},
+        {"topic": "Conditions et inscription", "question": "Pour ma première distribution, serai-je accompagné par un bénévole expérimenté ?", "answer": "Oui, un bénévole expérimenté te montre les tâches et reste à tes côtés pendant le service.", "follow_up_to": 5, "condition": "If an introduction is mentioned without explaining who supports new volunteers."},
         {"topic": "Conditions et inscription", "question": "Qui dois-je contacter pour proposer mon aide ?", "answer": "La personne qui coordonne les équipes ; je peux te transmettre ses coordonnées.", "follow_up_to": null}
       ]
     },
@@ -178,14 +178,14 @@
       "opening": "Salut ! Comme je réfléchis à changer d'emploi, j'aimerais en savoir plus sur ton nouveau travail.",
       "closing": "Merci pour ces infos ! Ça m'aide à comparer ce que je recherche avec les possibilités de ton entreprise.",
       "questions": [
-        {"topic": "Poste et tâches", "question": "Quel poste occupes-tu dans la nouvelle entreprise ?", "answer": "Un poste de chargé de clientèle dans une petite équipe.", "follow_up_to": null},
+        {"topic": "Poste et tâches", "question": "Dans quel secteur travaille ton entreprise, et quel poste y occupes-tu ?", "answer": "Une entreprise de services informatiques pour les petites entreprises ; j'y suis chargé de clientèle.", "follow_up_to": null},
         {"topic": "Poste et tâches", "question": "Quelles tâches remplissent le plus tes journées ?", "answer": "Le suivi des clients, la préparation des dossiers et la coordination avec les autres services.", "follow_up_to": 1, "condition": "After the role is identified, unless everyday duties are already described."},
-        {"topic": "Équipe", "question": "Comment trouves-tu l'ambiance entre collègues ?", "answer": "Assez collaborative, avec beaucoup d'entraide quand un dossier est compliqué.", "follow_up_to": null},
-        {"topic": "Conditions de travail", "question": "Quels sont tes horaires habituels ?", "answer": "De neuf heures à dix-sept heures, avec une certaine souplesse selon les rendez-vous.", "follow_up_to": null},
+        {"topic": "Équipe", "question": "Comment ça se passe avec tes collègues : vous vous entraidez facilement, ou chacun travaille plutôt de son côté ?", "answer": "On s'entraide beaucoup sur les dossiers compliqués ; chacun peut demander de l'aide.", "follow_up_to": null},
+        {"topic": "Conditions de travail", "question": "Quels sont tes horaires, et est-ce qu'il faut parfois travailler le soir ou le week-end ?", "answer": "De 9 h à 17 h du lundi au vendredi, avec une certaine souplesse ; aucun soir ni week-end travaillé dans mon équipe.", "follow_up_to": null},
         {"topic": "Conditions de travail", "question": "Si tu es d'accord pour en parler, quelle est la fourchette de salaire pour ce type de poste ?", "answer": "Les offres comparables dans l'entreprise se situent autour de 45 000 à 50 000 $ par an.", "follow_up_to": null},
-        {"topic": "Conditions de travail", "question": "Quelles possibilités d'évolution sont proposées ?", "answer": "Des formations et, avec de l'expérience, la possibilité de coordonner certains projets.", "follow_up_to": null},
-        {"topic": "Recrutement", "question": "Comment savoir si l'entreprise recrute actuellement ?", "answer": "Sur sa page de recrutement ; je peux aussi te signaler les annonces que je vois.", "follow_up_to": null},
-        {"topic": "Recrutement", "question": "Quels profils et quelles compétences l'entreprise recherche-t-elle le plus souvent ?", "answer": "Elle cherche surtout des personnes autonomes qui savent travailler en équipe et gérer plusieurs projets.", "follow_up_to": null}
+        {"topic": "Conditions de travail", "question": "Quelles possibilités d'évolution vois-tu : formations, changement de poste ou davantage de responsabilités ?", "answer": "Des formations et, avec de l'expérience, la possibilité de coordonner certains projets.", "follow_up_to": null},
+        {"topic": "Recrutement", "question": "Est-ce que ton entreprise recrute en ce moment, et où pourrais-je consulter les offres ?", "answer": "Oui, deux postes de service client sont affichés sur notre page de recrutement ; je pourrais t'envoyer le lien.", "follow_up_to": null},
+        {"topic": "Recrutement", "question": "Pour ces postes, quels profils ou quelles compétences sont recherchés ?", "answer": "Des personnes à l'aise avec les clients et les outils informatiques, capables de gérer plusieurs dossiers et de travailler en équipe.", "follow_up_to": 7, "condition": "If vacancies are mentioned without describing requirements; adapt to the roles named."}
       ]
     },
     {
@@ -229,14 +229,14 @@
       "opening": "Bonjour ! Votre parcours avant de rejoindre notre équipe m'intéresse, notamment votre expérience au Québec.",
       "closing": "Merci d'avoir partagé votre parcours. Cela m'aide à mieux comprendre votre expérience et votre arrivée dans l'équipe.",
       "questions": [
-        {"topic": "Études et parcours professionnel", "question": "Quelle formation avez-vous suivie ?", "answer": "Une formation en gestion, puis une spécialisation en communication.", "follow_up_to": null},
-        {"topic": "Études et parcours professionnel", "question": "Quel a été votre premier poste ?", "answer": "Assistant dans une petite entreprise, où j'ai découvert le suivi des clients.", "follow_up_to": null},
+        {"topic": "Études et parcours professionnel", "question": "Quelles études avez-vous faites, et qu'est-ce qui vous a orienté vers ce domaine ?", "answer": "J'ai étudié la gestion, puis la communication ; j'aimais organiser des projets et travailler avec le public.", "follow_up_to": null},
+        {"topic": "Études et parcours professionnel", "question": "Quel a été votre premier emploi, et comment l'avez-vous obtenu ?", "answer": "Assistant dans une petite entreprise, après un stage qui a débouché sur une embauche.", "follow_up_to": null},
         {"topic": "Études et parcours professionnel", "question": "Avez-vous eu d'autres expériences professionnelles à l'étranger avant de vous installer ici ?", "answer": "Oui, une mission de quelques mois aux États-Unis, à Seattle, avant mon arrivée dans votre pays.", "follow_up_to": null},
         {"topic": "Installation et adaptation", "question": "Qu'est-ce qui vous a donné envie de venir travailler ici ?", "answer": "Une occasion professionnelle intéressante et l'envie de découvrir un autre environnement.", "follow_up_to": null},
-        {"topic": "Installation et adaptation", "question": "Quelle difficulté avez-vous rencontrée en arrivant ?", "answer": "Comprendre certaines habitudes de travail et créer un réseau en dehors du bureau.", "follow_up_to": null},
+        {"topic": "Installation et adaptation", "question": "À votre arrivée, qu'est-ce qui a été le plus difficile : trouver un logement, faire les démarches ou créer un réseau ?", "answer": "Créer un réseau en dehors du bureau ; je ne connaissais personne et je ne savais pas où rencontrer des habitants.", "follow_up_to": null},
         {"topic": "Installation et adaptation", "question": "Qu'est-ce qui vous a aidé à surmonter ces difficultés ?", "answer": "Les échanges avec les collègues et la participation à des activités locales.", "follow_up_to": 5, "condition": "If difficulties are described, unless they already explain how they overcame them."},
-        {"topic": "Bilan", "question": "Qu'est-ce que cette expérience vous a apporté sur le plan professionnel ?", "answer": "Plus de souplesse et une meilleure capacité à travailler avec des équipes différentes.", "follow_up_to": null},
-        {"topic": "Bilan", "question": "Quelle différence entre les deux milieux de travail vous a demandé le plus d'adaptation ?", "answer": "Ici, les décisions sont plus formelles et prennent davantage de temps qu'au Québec.", "follow_up_to": null}
+        {"topic": "Bilan", "question": "Quelles compétences avez-vous développées en travaillant dans plusieurs pays ?", "answer": "J'ai appris à adapter ma façon de communiquer et à travailler avec des équipes aux habitudes différentes.", "follow_up_to": null},
+        {"topic": "Bilan", "question": "Entre le Québec et ici, quelles différences vous ont le plus marqué dans les réunions ou la façon de prendre les décisions ?", "answer": "Ici, les réunions sont plus formelles et les décisions prennent davantage de temps que dans mon équipe au Québec.", "follow_up_to": null}
       ]
     },
     {
@@ -276,17 +276,17 @@
     {
       "group": "recruiter-scheduled-interview-preparation",
       "register": "vous",
-      "note": "Your interview with this company is already scheduled. Ask the recruiter for remaining practical details: arrival time, format, access, duration, stages, interviewers and preparation. Do not ask whether you have an interview or turn this into a general job-market discussion. Use vous and skip details already supplied in your invitation.",
-      "opening": "Bonjour ! Je vous contacte au sujet de l'entretien prévu dans votre entreprise, pour bien préparer ma venue.",
+      "note": "Your interview with this company is already scheduled. Clarify the format before arrival time and access, then duration, stages, interviewers and preparation. Use vous and skip details already supplied in the invitation. If it is online, adapt arrival and access questions to connection time and link. You are preparing your appointment, not asking about the general job market.",
+      "opening": "Bonjour ! Je vous contacte au sujet de l'entretien prévu dans votre entreprise, pour bien me préparer.",
       "closing": "Merci pour ces précisions. Je vais préparer les éléments demandés et m'organiser pour être à l'heure.",
       "questions": [
-        {"topic": "Heure et accès", "question": "À quelle heure dois-je me présenter le jour de l'entretien ?", "answer": "À neuf heures quinze, pour un entretien qui commence à neuf heures trente.", "follow_up_to": null},
         {"topic": "Heure et accès", "question": "L'entretien se déroulera-t-il sur place ou à distance ?", "answer": "Sur place, dans nos bureaux.", "follow_up_to": null},
-        {"topic": "Heure et accès", "question": "À quel endroit dois-je me présenter en arrivant ?", "answer": "À l'accueil du bâtiment principal, en donnant votre nom et celui du service de recrutement.", "follow_up_to": 2, "condition": "If the interview is onsite; ask about connection details if it is online."},
+        {"topic": "Heure et accès", "question": "À quelle heure dois-je me présenter le jour de l'entretien ?", "answer": "À neuf heures quinze, pour un entretien qui commence à neuf heures trente.", "follow_up_to": 1, "condition": "If the format is confirmed without arrival or connection time."},
+        {"topic": "Heure et accès", "question": "À quel endroit dois-je me présenter en arrivant ?", "answer": "À l'accueil du bâtiment principal, en donnant votre nom et celui du service de recrutement.", "follow_up_to": 1, "condition": "If the interview is onsite; ask about connection details if it is online."},
         {"topic": "Déroulement", "question": "Combien de temps faut-il prévoir pour l'entretien ?", "answer": "Environ quarante-cinq minutes.", "follow_up_to": null},
-        {"topic": "Déroulement", "question": "Comment se déroulera l'échange ?", "answer": "Une présentation de votre parcours, des questions sur vos expériences et une courte mise en situation.", "follow_up_to": null},
+        {"topic": "Déroulement", "question": "Quelles sont les étapes prévues : présentation de mon parcours, questions ou mise en situation ?", "answer": "Une présentation de votre parcours, des questions sur vos expériences et une courte mise en situation.", "follow_up_to": null},
         {"topic": "Déroulement", "question": "Avec qui aurai-je l'entretien ?", "answer": "Une personne du recrutement et le responsable de l'équipe concernée.", "follow_up_to": null},
-        {"topic": "Préparation", "question": "Quels documents ou éléments me conseilleriez-vous de préparer ?", "answer": "Votre CV à jour et quelques exemples concrets de situations professionnelles en lien avec le poste.", "follow_up_to": null},
+        {"topic": "Préparation", "question": "Dois-je apporter mon CV, des références ou des exemples de réalisations en lien avec le poste ?", "answer": "Votre CV à jour et deux ou trois exemples de réalisations ; aucune référence n'est demandée pour ce premier entretien.", "follow_up_to": null},
         {"topic": "Préparation", "question": "Après l'entretien, dans quel délai prévoyez-vous de communiquer la suite du processus ?", "answer": "Nous vous répondrons sous une semaine et préciserons alors s'il y a une seconde étape.", "follow_up_to": null}
       ]
     },

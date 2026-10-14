@@ -8549,7 +8549,10 @@ html[data-input-mode="pen"] .selection-translate__shortcut { display: none; }
 .panel-action--save { --panel-action-tint: #16a34a; }
 .panel-action--paste { --panel-action-tint: #7c3aed; }
 .panel-action--copy { --panel-action-tint: #0284c7; }
-.panel-action--external { --panel-action-tint: var(--text-soft); }
+.panel-action--external {
+  --panel-action-tint: var(--warning);
+  background: var(--warning-soft);
+}
 .panel-action--cancel,
 .panel-action--close { --panel-action-tint: var(--text-soft); }
 .panel-action--copy.is-done {
@@ -8558,10 +8561,9 @@ html[data-input-mode="pen"] .selection-translate__shortcut { display: none; }
 }
 /* Google Translate becomes the recommended route when local translation fails. */
 .panel-action--external.is-suggested {
-  --panel-action-tint: var(--primary);
-  border-color: transparent;
-  background: var(--panel-action-tint);
-  color: #fff;
+  border-color: var(--panel-action-tint);
+  background: var(--warning-soft);
+  color: var(--panel-action-tint);
 }
 .panel-action.is-busy::after {
   content: "";
@@ -16911,7 +16913,7 @@ body :is(
   #app-confirm-dialog,
   .selection-note-panel,
   .translation-panel
-) :is(button, .btn, .linkbtn) {
+) :is(button, .btn, .linkbtn, .panel-action) {
   border-radius: 999px !important;
 }
 

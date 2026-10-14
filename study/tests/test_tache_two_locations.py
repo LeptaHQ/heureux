@@ -46,7 +46,7 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
             "b3f62225759c57d763f3af704a1a1756d7d83700d5b9c061b8b5b2de52304802",
         )
 
-    def test_history_excludes_arrival_theme_and_retains_topic_and_question_order(self):
+    def test_history_excludes_arrival_theme(self):
         history = catalogue.tache_two_location_history()
         _, mapping = catalogue.tache_two_subject_themes()
         dialogues = catalogue.tache_two_dialogues()
@@ -55,19 +55,6 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
                 continue
             with self.subTest(group=current.group):
                 self.assertNotEqual(mapping[key], "arrivee")
-                for old in history[current.group].revisions:
-                    if history[current.group].replacements:
-                        self.assertEqual(
-                            [question.topic for question in old.questions],
-                            [question.topic for question in current.questions],
-                        )
-                        reference = history[current.group].revisions[-1]
-                        if len(history[current.group].revisions) == 1:
-                            reference = current
-                        self.assertEqual(
-                            [question.follow_up_to for question in old.questions],
-                            [question.follow_up_to for question in reference.questions],
-                        )
 
     def test_recorded_substitutions_reconstruct_current_or_archived_geographic_models(self):
         by_group = {item.group: item for item in catalogue.tache_two_dialogues().values()}
@@ -75,17 +62,235 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
             if not history.replacements:
                 continue
             previous = history.revisions[0]
-            current = history.revisions[-1] if len(history.revisions) > 1 else by_group[group]
             old_fields = [
                 previous.opening, *(row.question for row in previous.questions), previous.closing,
             ]
-            new_fields = [
-                current.opening, *(row.question for row in current.questions), current.closing,
-            ]
-            for old, new in zip(old_fields, new_fields):
+            translated = []
+            for old in old_fields:
                 for before, after in history.replacements:
                     old = old.replace(before, after)
-                self.assertEqual(old, new, group)
+                translated.append(old)
+            matches = [
+                row for row in (*history.revisions[1:], by_group[group])
+                if [row.opening, *(question.question for question in row.questions), row.closing]
+                == translated
+            ]
+            self.assertTrue(matches, group)
+            for geographic in matches:
+                self.assertEqual(
+                    [row.topic for row in previous.questions],
+                    [row.topic for row in geographic.questions], group,
+                )
+                self.assertEqual(
+                    [row.follow_up_to for row in previous.questions],
+                    [row.follow_up_to for row in geographic.questions], group,
+                )
+
+    def test_remaining_housing_models_keep_distinct_roles_and_practical_priority(self):
+        by_group = {row.group: row for row in catalogue.tache_two_dialogues().values()}
+        transport = by_group["help-transport-heavy-objects-no-vehicle"]
+        self.assertIn("Quel jour et à quelle heure", transport.questions[0].question)
+        self.assertIn("les plus encombrants ou les plus lourds", transport.questions[1].question)
+        self.assertIn("peut-on retirer les pieds", transport.questions[2].question)
+        self.assertEqual(transport.questions[2].follow_up_to, 2)
+        self.assertIn("où doit-on déposer les objets", transport.questions[3].question)
+        self.assertIn("stationner près des entrées", transport.questions[4].question)
+        self.assertIn("budget", transport.questions[5].question)
+        self.assertIn("chariot adapté aux escaliers", transport.questions[5].answer)
+        self.assertNotIn("se démonte-t-il", transport.questions[2].question)
+        self.assertIn("not necessarily move house", transport.note)
+        apartment = by_group["estate-agent-advertised-apartment-unspecified"]
+        self.assertEqual(
+            apartment.questions[0].question,
+            "Cet appartement est-il proposé à la vente ou à la location ?",
+        )
+        self.assertEqual(
+            apartment.questions[1].question, "Quel est le prix demandé pour cet appartement ?",
+        )
+        self.assertIn("monthly rent and included charges", apartment.note)
+        self.assertIn("mensuels", apartment.questions[6].question)
+        self.assertIn("taxes foncières annuelles", apartment.questions[6].question)
+        summer = by_group["colleague-summer-house-rental"]
+        previous = catalogue.tache_two_location_history()[summer.group].revisions[-1]
+        order = (6, 7, 8, 1, 2, 3, 4, 5)
+        self.assertEqual(
+            [row.question for row in summer.questions],
+            [previous.questions[index - 1].question for index in order],
+        )
+        self.assertEqual(summer.questions[2].follow_up_to, 2)
+        self.assertEqual(summer.questions[4].follow_up_to, 4)
+        self.assertIsNone(summer.questions[7].follow_up_to)
+        hints = json.loads(content.TACHE_TWO_SUBJECT_HINTS_PATH.read_text())["groups"]
+        self.assertEqual(hints[transport.group][0]["english"], "Transport date and time")
+        self.assertEqual(hints[transport.group][2]["english"], "Sofa dimensions and removable legs")
+        self.assertEqual(
+            hints[apartment.group][6]["english"],
+            "Monthly condominium fees and annual property taxes",
+        )
+        self.assertEqual(hints[summer.group][0]["english"], "Available dates and minimum stay")
+        self.assertEqual(
+            hints[summer.group][7]["english"], "Park and shops on foot, downtown without a car",
+        )
+        for row in (transport, apartment, summer):
+            old = catalogue.tache_two_location_history()[row.group].revisions[-1]
+            self.assertEqual(row.opening, old.opening)
+            self.assertEqual(row.closing, old.closing)
+
+    def test_neighbourhood_coverage_includes_the_shared_arrival_model(self):
+        _, themes = catalogue.tache_two_subject_themes()
+        publications = {
+            key: row for key, row in catalogue.tache_two_dialogues().items()
+            if themes[key] == "vie-quartier"
+        }
+        self.assertEqual(len(publications), 44)
+        self.assertEqual(len({row.group for row in publications.values()}), 20)
+        shared = [
+            row for row in publications.values()
+            if row.group == "new-resident-neighbor-neighborhood-orientation"
+        ]
+        self.assertEqual(len(shared), 4)
+
+    def test_neighbourhood_childcare_preserves_the_distinct_roles_and_known_facts(self):
+        by_group = {row.group: row for row in catalogue.tache_two_dialogues().values()}
+        referral = by_group["colleague-babysitter-referral-needs"]
+        self.assertIn("neither applying nor interviewing", referral.note)
+        self.assertIn("pour quelle durée", referral.questions[2].question)
+        self.assertIn("sortie de l'école", referral.questions[3].question)
+        self.assertEqual(referral.questions[4].follow_up_to, 4)
+        self.assertIn("not already been explained", referral.questions[4].condition)
+        self.assertIn("restriction alimentaire", referral.questions[4].answer)
+        self.assertIn("premiers secours", referral.questions[5].question)
+        self.assertTrue(referral.questions[6].question.startswith("Quel salaire"))
+        provider = by_group["neighbor-home-childcare-provider-referral"]
+        self.assertIn("referrer rather than the provider", provider.note)
+        self.assertIn("à partir de quelle heure", provider.questions[3].question)
+        self.assertIn("confirmer avec elle", provider.questions[3].answer)
+        self.assertIn("avec son accord", provider.questions[7].answer)
+        day = by_group["neighbor-child-one-day-care"]
+        self.assertEqual(
+            day.questions[0].question,
+            "Où se passera la garde, et de quelle heure à quelle heure ?",
+        )
+        self.assertEqual(day.questions[1].question, "Quel âge a votre enfant ?")
+        self.assertIn("Age, gender and medical needs are unspecified", day.note)
+        self.assertIn("mon enfant", day.questions[0].answer)
+        self.assertIn("mon enfant", day.questions[6].answer)
+        self.assertNotIn("votre enfant", day.questions[6].answer)
+        self.assertEqual(day.questions[6].follow_up_to, 6)
+        self.assertIn("consignes", day.questions[6].question)
+        weekend = by_group["friend-three-year-old-weekend-care"]
+        self.assertIn("already supplies timings", weekend.note)
+        self.assertIn("allergies", weekend.questions[1].question)
+        self.assertIn("dessin, les puzzles ou les histoires", weekend.questions[2].question)
+        self.assertIn("précautions", weekend.questions[3].question)
+        holiday = by_group["child-friends-family-holiday-invitation"]
+        self.assertIn("authorizing care, not providing it", holiday.note)
+        self.assertIn("adaptés à l'âge", holiday.questions[3].question)
+        self.assertIn("joindre", holiday.questions[7].question)
+        self.assertIn("avoir des nouvelles", holiday.questions[7].question)
+
+    def test_pet_care_reuses_the_feeding_goal_without_merging_paid_and_unpaid_roles(self):
+        by_group = {row.group: row for row in catalogue.tache_two_dialogues().values()}
+        paid = by_group["neighbor-dog-care-week-paid"]
+        favour = by_group["trusted-person-temporary-pet-care"]
+        self.assertEqual(paid.register, "vous")
+        self.assertEqual(favour.register, "tu")
+        self.assertIn("remuneration explicitly mentioned", paid.note)
+        self.assertIn("no payment stated", favour.note)
+        self.assertEqual(favour.questions[0].question, "Quel animal vas-tu me confier ?")
+        self.assertEqual(paid.questions[2].question, favour.questions[3].question)
+        self.assertIn("en quelles quantités", paid.questions[2].question)
+        self.assertIn("pendant combien de temps", paid.questions[3].question)
+        self.assertNotIn("laisse", paid.questions[3].answer)
+        self.assertIn("laisse", paid.questions[4].answer)
+        self.assertIsNone(favour.questions[4].follow_up_to)
+        self.assertEqual(favour.questions[6].follow_up_to, 5)
+        self.assertIn("adapt to the animal named", favour.questions[6].condition)
+        self.assertFalse(any("rémunération" in row.question for row in favour.questions))
+
+    def test_volunteer_relances_distinguish_mentoring_from_tasks_and_training(self):
+        by_group = {row.group: row for row in catalogue.tache_two_dialogues().values()}
+        for group, reference in (
+            ("friend-homeless-meal-volunteering", 5),
+            ("neighbor-environmental-association-volunteering", 6),
+        ):
+            with self.subTest(group=group):
+                row = by_group[group]
+                self.assertEqual(row.questions[6].follow_up_to, reference)
+                self.assertIn("bénévole expérimenté", row.questions[6].question)
+                self.assertNotEqual(row.questions[6].question, row.questions[reference - 1].question)
+                self.assertIn("support", row.questions[6].condition)
+        office = by_group["volunteer-local-association-information-office"]
+        self.assertIn("formation", office.questions[5].question)
+        self.assertIn("renseignements", office.questions[6].question)
+        self.assertIn("deux à quatre semaines", office.questions[7].answer)
+        self.assertIn("without a possible starting date", office.questions[7].condition)
+        environment = by_group["neighbor-environmental-association-volunteering"]
+        self.assertIn("à quels horaires", environment.questions[2].question)
+
+    def test_neighbourhood_delivery_questions_cover_actual_service_constraints(self):
+        by_group = {row.group: row for row in catalogue.tache_two_dialogues().values()}
+        grocery = by_group["grocery-store-home-delivery"]
+        self.assertIn("mon adresse est desservie", grocery.questions[0].question)
+        self.assertIn("existe-t-il", grocery.questions[3].question)
+        self.assertIn("commande passée avant midi", grocery.questions[4].answer)
+        self.assertIn("après midi", grocery.questions[4].answer)
+        self.assertEqual(grocery.questions[5].follow_up_to, 5)
+        parcel = by_group["help-friend-post-parcel"]
+        self.assertIn("jusqu'à quel montant", parcel.questions[3].question)
+        self.assertIn("40 $", parcel.questions[3].answer)
+        self.assertEqual(
+            parcel.questions[6].question,
+            "Le paquet sera-t-il déjà emballé, étiqueté et affranchi ?",
+        )
+        self.assertIn("mais pas affranchi", parcel.questions[6].answer)
+        watch = by_group["friend-holiday-apartment-watch"]
+        self.assertIn("récupérer des colis", watch.questions[1].question)
+        self.assertIn("code d'accès", watch.questions[3].question)
+        self.assertIn("chauffage", watch.questions[4].answer)
+        nephews = by_group["friend-entertain-visiting-nephews"]
+        self.assertIn("différents âges", nephews.questions[3].question)
+        self.assertIn("quel budget", nephews.questions[5].question)
+        self.assertIn("parties courtes", nephews.questions[6].question)
+        visit = by_group["visit-colleague-minor-accident"]
+        self.assertIn("les courses, les repas ou un déplacement", visit.questions[1].question)
+        self.assertIn("je me repose à la maison", visit.questions[0].answer)
+
+    def test_neighbourhood_pistes_follow_reordered_and_extended_questions(self):
+        hints = json.loads(content.TACHE_TWO_SUBJECT_HINTS_PATH.read_text())["groups"]
+        expected = {
+            "colleague-babysitter-referral-needs": (
+                "Number and ages of the children", "Days and times to cover",
+                "Childcare start date and duration",
+                "School pickup, homework or meal preparation",
+                "Meal allergies or dietary restrictions", "Experience, training and first aid",
+                "Pay offered for the childcare", "Arranging an initial meeting",
+            ),
+            "grocery-store-home-delivery": (
+                "Delivery area and checking coverage for your address",
+                "Ordering on the website, in the app or by phone", "Minimum order amount",
+                "Delivery fee and any free-delivery threshold", "Time from order to delivery",
+                "Choosing a delivery time slot", "Transport of fresh and frozen groceries",
+                "Missed delivery and any redelivery fee",
+            ),
+            "neighbor-child-one-day-care": (
+                "Childcare location and hours", "Child's age", "Any allergy or special care",
+                "Meal to serve during childcare", "Usual quiet-time schedule",
+                "Favourite activities: drawing, building games or the park",
+                "Permission and safety instructions for a park outing",
+                "Parent's contact details and backup contact",
+            ),
+        }
+        for group, english in expected.items():
+            with self.subTest(group=group):
+                self.assertEqual(tuple(row["english"] for row in hints[group]), english)
+        self.assertNotIn("return", hints["friend-holiday-apartment-watch"][3]["english"])
+        self.assertNotIn("authorization", hints["trusted-person-temporary-pet-care"][7]["english"])
+        self.assertIn("Seattle", hints["host-foreign-friends-city-advice"][0]["english"])
+        self.assertEqual(
+            hints["neighbor-dog-care-week-paid"][2],
+            hints["trusted-person-temporary-pet-care"][3],
+        )
 
     def test_apartment_condition_question_offers_work_or_ready_to_live_in(self):
         current = next(
@@ -261,6 +466,136 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
             hints[7]["english"], "Alternatives to Canadian rental references and need for a guarantor",
         )
 
+    def test_newcomer_apartment_advice_adds_included_charges_and_guarantor_question(self):
+        current = catalogue.tache_two_dialogues()["tache2:octobre:batch-03:subject-15"]
+        previous = catalogue.tache_two_location_history()[current.group].revisions[0]
+        self.assertEqual(current.opening, previous.opening)
+        self.assertEqual(current.closing, previous.closing)
+        for number, (old, new) in enumerate(zip(previous.questions, current.questions), 1):
+            if number in (4, 7):
+                continue
+            self.assertEqual(old.question, new.question)
+            self.assertEqual(old.topic, new.topic)
+            self.assertEqual(old.follow_up_to, new.follow_up_to)
+            self.assertEqual(old.condition, new.condition)
+        self.assertEqual(
+            current.questions[3].question,
+            "Quel loyer moyen faut-il prévoir dans ces quartiers, et quelles charges sont comprises ?",
+        )
+        self.assertIn("1 500 et 1 900 $ par mois", current.questions[3].answer)
+        self.assertIn("L'eau et le chauffage peuvent être inclus, selon l'annonce", current.questions[3].answer)
+        self.assertEqual(current.questions[3].follow_up_to, 3)
+        self.assertIn("rents and included charges", current.questions[3].condition)
+        self.assertEqual(
+            current.questions[6].question,
+            "Sans références locatives canadiennes, comment pourrais-je renforcer mon dossier, et faut-il un garant ?",
+        )
+        self.assertIn("Une lettre d'employeur peut aider", current.questions[6].answer)
+        self.assertIn("un garant n'est pas systématique", current.questions[6].answer)
+        self.assertIn("selon le dossier", current.questions[6].answer)
+        self.assertEqual(current.questions[6].follow_up_to, 6)
+        hints = json.loads(content.TACHE_TWO_SUBJECT_HINTS_PATH.read_text())["groups"][current.group]
+        self.assertEqual(
+            hints[3],
+            {
+                "french": "Loyer moyen dans ces quartiers et charges comprises",
+                "english": "Average rent in those neighbourhoods and included utilities",
+            },
+        )
+        self.assertEqual(
+            hints[6],
+            {
+                "french": "Renforcer le dossier sans références canadiennes et nécessité d'un garant",
+                "english": "Strengthening an application without Canadian rental references and need for a guarantor",
+            },
+        )
+
+    def test_holiday_letting_uses_concrete_questions_and_separates_management_from_fees(self):
+        group = "owner-holiday-letting-estate-agency-advice"
+        dialogues = catalogue.tache_two_dialogues()
+        current = dialogues["tache2:septembre:batch-04:subject-20"]
+        self.assertEqual(current, dialogues["tache2:novembre:batch-03:subject-15"])
+        self.assertEqual(current.group, group)
+        self.assertEqual(current.register, "vous")
+        self.assertEqual(
+            [row.topic for row in current.questions],
+            ["Locataires et équipement"] * 2
+            + ["Durée et tarif"] * 2
+            + ["Démarches et protection"] * 2
+            + ["Gestion et frais"] * 2,
+        )
+        self.assertEqual(
+            [row.question for row in current.questions],
+            [
+                "Quel type de locataires me conseilleriez-vous de viser : des touristes, des familles ou des voyageurs d'affaires ?",
+                "Pour accueillir ces locataires, quels meubles et équipements devrais-je prévoir, notamment pour la cuisine et les couchages ?",
+                "Quelle durée de location vaut-il mieux privilégier : des courts séjours ou des séjours d'une semaine ou plus ?",
+                "À quel prix pourrais-je proposer mon logement par nuit ?",
+                "Quelles autorisations et quelles assurances dois-je vérifier avant de publier l'annonce ?",
+                "Comment se passent l'état des lieux et le dépôt de garantie ?",
+                "Qui s'occupe du ménage et de la remise des clés entre deux locations ?",
+                "Quelle commission prenez-vous pour la gestion, et quels frais restent à ma charge ?",
+            ],
+        )
+        self.assertNotIn("haute saison", json.dumps(asdict(current), ensure_ascii=False))
+        self.assertIn("Ownership is not stated", current.note)
+        self.assertIn("location, size and dates", current.note)
+        self.assertIn("capacité d'accueil", current.questions[0].answer)
+        self.assertEqual(current.questions[1].follow_up_to, 1)
+        self.assertIn("without specifying the equipment", current.questions[1].condition)
+        self.assertIn("fourchette indicative", current.questions[3].answer)
+        self.assertIn("si vous êtes locataire", current.questions[4].answer)
+        self.assertIn("lorsqu'un dépôt est autorisé", current.questions[5].answer)
+        self.assertIn("à l'arrivée et au départ", current.questions[5].answer)
+        self.assertNotIn("facturé", current.questions[6].answer)
+        self.assertEqual(current.questions[7].follow_up_to, 7)
+        self.assertIn("without explaining its fees", current.questions[7].condition)
+        self.assertIn("15 %", current.questions[7].answer)
+        self.assertIn("le ménage est facturé séparément", current.questions[7].answer)
+        previous = catalogue.tache_two_location_history()[group].revisions[0]
+        self.assertEqual(current.opening, previous.opening)
+        self.assertEqual(current.closing, previous.closing)
+        self.assertEqual(current.questions[3].question, previous.questions[0].question)
+        self.assertEqual(current.questions[4].question, previous.questions[7].question)
+        hints = json.loads(content.TACHE_TWO_SUBJECT_HINTS_PATH.read_text())["groups"][group]
+        self.assertEqual(
+            hints,
+            [
+                {
+                    "french": "Public conseillé : touristes, familles ou voyageurs d'affaires",
+                    "english": "Recommended guests: tourists, families or business travellers",
+                },
+                {
+                    "french": "Mobilier et équipements adaptés aux locataires : cuisine et couchages",
+                    "english": "Furniture and equipment for the guests: kitchen and sleeping arrangements",
+                },
+                {
+                    "french": "Courts séjours ou séjours d'une semaine ou plus",
+                    "english": "Short stays or stays of a week or longer",
+                },
+                {
+                    "french": "Tarif conseillé par nuit",
+                    "english": "Recommended nightly price",
+                },
+                {
+                    "french": "Autorisations et assurances avant publication",
+                    "english": "Authorizations and insurance before publishing",
+                },
+                {
+                    "french": "État des lieux et dépôt de garantie",
+                    "english": "Condition inspection and security deposit",
+                },
+                {
+                    "french": "Responsables du ménage et de la remise des clés",
+                    "english": "Who handles cleaning and key handover",
+                },
+                {
+                    "french": "Commission de gestion et frais restant à votre charge",
+                    "english": "Management commission and costs you still pay",
+                },
+            ],
+        )
+
     def test_fixed_canadian_settings_and_francophone_roles_remain_valid(self):
         by_group = {item.group: item for item in catalogue.tache_two_dialogues().values()}
         for group, place in (
@@ -274,7 +609,8 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
                 self.assertNotIn("Seattle", json.dumps(asdict(by_group[group]), ensure_ascii=False))
         student = by_group["french-class-survey-francophone-student"]
         self.assertIn("du Canada", student.questions[0].answer)
-        self.assertIn("Montréal", student.questions[1].answer)
+        self.assertIn("du Québec", student.questions[0].answer)
+        self.assertIn("Seattle", student.questions[1].answer)
         countries = by_group["friend-visited-countries-destination-choice"]
         self.assertIn("Le Canada et les États-Unis", countries.questions[0].answer)
 
@@ -550,6 +886,362 @@ class PublishedTacheTwoHighlightTests(TestCase):
             mark.refresh_from_db()
             self.assertEqual(mark.source_key, old_key)
         self.assertEqual(Annotation.objects.count(), 8)
+
+    def assert_revision_highlights_preserved(self, group, moved, *, revision=-1):
+        self.configure_group(group)
+        self.old = catalogue.tache_two_location_history()[group].revisions[revision]
+        marks = {
+            number: self.highlight(number, body=f"My question {number} note.", study_later=True)
+            for number in range(1, 9)
+        }
+        old_keys = {number: mark.source_key for number, mark in marks.items()}
+        self.fetch()
+        rendered = _render_questions(
+            self.prompt, dialogue_response(self.current), "detail", [self.prompt],
+        )
+        for number, mark in marks.items():
+            mark.refresh_from_db()
+            if number in moved:
+                self.assert_current(mark)
+                self.assertEqual(
+                    (mark.start_offset, mark.end_offset), rendered.fields[(moved[number], "question")],
+                )
+            else:
+                self.assertEqual(mark.source_key, old_keys[number])
+            self.assertEqual(mark.body, f"My question {number} note.")
+            self.assertTrue(mark.study_later)
+        self.assertEqual(Annotation.objects.count(), 8)
+
+    def test_heavy_transport_reorder_preserves_unchanged_questions_and_archived_notes(self):
+        self.assert_revision_highlights_preserved(
+            "help-transport-heavy-objects-no-vehicle", {5: 1, 1: 2, 7: 7},
+        )
+
+    def test_work_rewrites_preserve_unchanged_questions_and_archive_learned_wording(self):
+        mappings = {
+            "new-employee-company-orientation": {1: 1, 2: 2, 3: 3},
+            "director-canada-fortnight-training": {2: 2, 3: 3, 7: 7},
+            "friend-first-workday-report": {2: 4, 3: 5, 4: 2, 5: 3, 6: 6, 7: 7, 8: 8},
+            "newcomer-canada-friend-job-market": {7: 7},
+            "canadian-work-hours-home-country-comparison": {4: 4, 5: 5, 6: 6, 8: 8},
+            "former-colleague-new-job-to-change-employment": {2: 2, 5: 5},
+            "new-colleague-quebec-career-migration": {3: 3, 4: 4, 6: 6},
+            "recruiter-scheduled-interview-preparation": {1: 2, 2: 1, 3: 3, 4: 4, 6: 6, 8: 8},
+            "colleague-internal-job-change": {4: 4, 6: 6, 7: 7, 8: 8},
+            "friend-upcoming-job-interview-advice": {4: 4, 5: 5, 7: 7},
+            "acquaintance-new-job-overall-experience": {2: 2, 3: 3, 5: 5, 8: 8},
+            "retirement-party-invitation": {1: 1, 2: 2, 4: 4},
+            "supervisor-overseas-job-offer": {1: 1, 2: 2, 3: 3, 4: 4},
+            "friend-association-work-experience": {1: 1, 3: 4, 5: 3},
+            "colleague-management-promotion-party": {1: 1, 2: 2, 3: 3, 4: 4, 7: 7, 8: 8},
+        }
+        for group, mapping in mappings.items():
+            with self.subTest(group=group):
+                revision = 1 if group == "supervisor-overseas-job-offer" else 0
+                self.assert_revision_highlights_preserved(group, mapping, revision=revision)
+            Annotation.objects.filter(user=self.user).delete()
+
+    def test_education_rewrites_preserve_unchanged_questions_and_archive_learned_wording(self):
+        mappings = {
+            "newcomer-canada-private-french-teacher": {2: 2, 3: 3},
+            "french-teacher-study-abroad-advice": {8: 8},
+            "language-school-new-language": {1: 1, 2: 2, 5: 4},
+            "parent-after-school-activity-advice": {2: 2, 3: 3, 5: 5, 6: 6, 7: 7, 8: 8},
+            "friend-child-language-stay-abroad": {1: 1, 3: 3, 7: 8},
+            "edmonton-newcomer-neighbor-schools": {2: 2, 7: 8, 8: 7},
+            "french-teacher-language-school-student-game": {2: 2, 3: 3, 4: 5, 5: 6, 7: 7},
+            "friend-planned-canadian-studies": {1: 1, 2: 3, 4: 2, 6: 6, 7: 7, 8: 8},
+            "fellow-parent-first-school-fete": {1: 1, 2: 2, 4: 4, 5: 5, 8: 8},
+            "french-class-survey-francophone-student": {1: 1, 7: 7, 8: 8},
+            "calgary-university-adult-language-courses": {1: 1, 2: 2, 3: 3, 7: 7, 8: 8},
+        }
+        for group, mapping in mappings.items():
+            with self.subTest(group=group):
+                revision = 1 if group == "friend-child-language-stay-abroad" else 0
+                self.assert_revision_highlights_preserved(group, mapping, revision=revision)
+            Annotation.objects.filter(user=self.user).delete()
+
+    def test_second_education_pass_preserves_the_first_review_and_its_moved_highlights(self):
+        mappings = {
+            "calgary-university-adult-language-courses": {
+                1: 1, 2: 2, 3: 3, 5: 5, 6: 6, 7: 7, 8: 8,
+            },
+            "edmonton-newcomer-neighbor-schools": {
+                2: 2, 3: 3, 4: 4, 7: 7, 8: 8,
+            },
+            "fellow-parent-first-school-fete": {1: 1, 2: 2, 4: 4, 5: 5, 7: 7, 8: 8},
+            "french-class-survey-francophone-student": {
+                1: 1, 2: 2, 3: 3, 4: 4, 6: 6, 7: 7, 8: 8,
+            },
+            "french-teacher-language-school-student-game": {
+                2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8,
+            },
+            "french-teacher-study-abroad-advice": {1: 2, 2: 1, 3: 3, 4: 4, 6: 6, 7: 7, 8: 8},
+            "friend-child-language-stay-abroad": {1: 1, 2: 2, 3: 3, 5: 5, 6: 6, 7: 7, 8: 8},
+            "friend-planned-canadian-studies": {1: 1, 2: 2, 3: 3, 6: 6, 7: 7, 8: 8},
+            "language-school-new-language": {1: 1, 2: 2, 4: 5, 5: 4, 6: 6, 7: 7, 8: 8},
+        }
+        for group, mapping in mappings.items():
+            with self.subTest(group=group):
+                revision = 2 if group == "friend-child-language-stay-abroad" else 1
+                self.assert_revision_highlights_preserved(group, mapping, revision=revision)
+            Annotation.objects.filter(user=self.user).delete()
+
+    def test_specificity_pass_preserves_the_second_review_and_its_learned_questions(self):
+        mappings = {
+            "newcomer-canada-private-french-teacher": {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 8: 7},
+            "edmonton-newcomer-neighbor-schools": {2: 2, 3: 3, 4: 4, 7: 7, 8: 8},
+            "fellow-parent-first-school-fete": {1: 1, 2: 2, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8},
+            "language-school-new-language": {1: 1, 2: 2, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8},
+        }
+        for group, mapping in mappings.items():
+            with self.subTest(group=group):
+                self.assert_revision_highlights_preserved(group, mapping)
+            Annotation.objects.filter(user=self.user).delete()
+
+    def test_education_reorder_does_not_replace_private_questions_or_prompt_notes(self):
+        cases = (
+            ("edmonton-newcomer-neighbor-schools", 0, 8, "Quelle école conviendrait à mes enfants ?"),
+            ("language-school-new-language", 1, 4, "Proposez-vous aussi des cours intensifs ?"),
+            ("newcomer-canada-private-french-teacher", 1, 8, "Comment préparez-vous vos cours particuliers ?"),
+        )
+        for group, revision, number, question in cases:
+            with self.subTest(group=group):
+                self.configure_group(group)
+                self.old = catalogue.tache_two_location_history()[group].revisions[revision]
+                values = asdict(dialogue_response(self.old))
+                values.pop("is_personal")
+                values["arguments"] = list(values["arguments"])
+                values["arguments"][0]["idea"] = question
+                values["nuance"] = "My private explanation of this education enquiry."
+                personal = PersonalResponse.objects.create(
+                    user=self.user, response=self.response, source_prompt=self.prompt, **values,
+                )
+                mark = self.highlight(number, body="My learned education question.", study_later=True)
+                self.fetch()
+                self.assert_current(mark)
+                personal.refresh_from_db()
+                self.assertEqual(personal.arguments, values["arguments"])
+                self.assertEqual(personal.nuance, values["nuance"])
+                self.assertTrue(personal.is_active)
+                current = effective_response(self.response, self.user, prompt=self.prompt)
+                self.assertTrue(current.is_personal)
+                self.assertEqual([asdict(row) for row in current.arguments], values["arguments"])
+                self.assertEqual(mark.body, "My learned education question.")
+                self.assertTrue(mark.study_later)
+            PersonalResponse.objects.filter(user=self.user).delete()
+            Annotation.objects.filter(user=self.user).delete()
+
+    def test_work_reorder_does_not_replace_private_questions_or_prompt_notes(self):
+        self.configure_group("friend-first-workday-report")
+        self.old = catalogue.tache_two_location_history()[self.current.group].revisions[-1]
+        values = asdict(dialogue_response(self.old))
+        values.pop("is_personal")
+        values["arguments"] = list(values["arguments"])
+        values["arguments"][0]["idea"] = "Ma question personnelle sur cette première journée ?"
+        values["nuance"] = "My private first-day explanation."
+        personal = PersonalResponse.objects.create(
+            user=self.user, response=self.response, source_prompt=self.prompt, **values,
+        )
+        mark = self.highlight(4, body="My learned welcome question.", study_later=True)
+        self.fetch()
+        self.assert_current(mark)
+        personal.refresh_from_db()
+        self.assertEqual(personal.arguments, values["arguments"])
+        self.assertEqual(personal.nuance, values["nuance"])
+        self.assertTrue(personal.is_active)
+        current = effective_response(self.response, self.user, prompt=self.prompt)
+        self.assertTrue(current.is_personal)
+        self.assertEqual([asdict(row) for row in current.arguments], values["arguments"])
+        self.assertEqual(mark.body, "My learned welcome question.")
+        self.assertTrue(mark.study_later)
+
+    def test_babysitter_referral_reorder_preserves_unchanged_questions_and_archived_notes(self):
+        self.assert_revision_highlights_preserved(
+            "colleague-babysitter-referral-needs", {1: 1, 2: 2, 6: 7, 8: 8},
+        )
+
+    def test_grocery_fee_before_timing_reorder_preserves_unchanged_question_highlights(self):
+        self.assert_revision_highlights_preserved(
+            "grocery-store-home-delivery", {2: 2, 3: 3, 4: 5, 5: 6, 7: 7},
+            revision=0,
+        )
+
+    def test_childcare_logistics_insertion_preserves_moved_questions_and_archived_notes(self):
+        self.assert_revision_highlights_preserved(
+            "neighbor-child-one-day-care", {1: 2, 2: 3, 3: 4, 4: 5, 8: 8},
+        )
+
+    def test_neighbourhood_wording_changes_preserve_other_highlights_and_archived_notes(self):
+        unchanged = {
+            "neighbor-dog-care-week-paid": (1, 2, 5, 6, 7, 8),
+            "trusted-person-temporary-pet-care": (1, 2, 3, 8),
+            "volunteer-local-association-information-office": (1, 2, 3, 8),
+            "friend-three-year-old-weekend-care": (1, 7, 8),
+            "friend-holiday-apartment-watch": (1, 3, 5, 6, 7, 8),
+            "friend-homeless-meal-volunteering": (1, 2, 3, 4, 5, 6, 8),
+            "friend-entertain-visiting-nephews": (1, 2, 3, 5, 8),
+            "visit-colleague-minor-accident": (1, 3, 4, 5, 6, 7, 8),
+            "child-friends-family-holiday-invitation": (1, 2, 3, 5, 6, 7),
+            "neighbor-environmental-association-volunteering": (1, 2, 4, 5, 6, 8),
+            "neighbor-home-childcare-provider-referral": (1, 2, 3, 5, 6, 7, 8),
+            "help-friend-post-parcel": (1, 2, 3, 8),
+        }
+        for group, numbers in unchanged.items():
+            with self.subTest(group=group):
+                self.assert_revision_highlights_preserved(
+                    group, {number: number for number in numbers}, revision=0,
+                )
+            Annotation.objects.filter(user=self.user).delete()
+
+    def test_prior_theme_second_pass_preserves_all_learned_questions_and_archived_notes(self):
+        mappings = {
+            "friend-three-year-old-weekend-care": {1: 1, 2: 2, 3: 3, 4: 4, 7: 7, 8: 8},
+            "grocery-store-home-delivery": {number: number for number in range(1, 8)},
+            "help-friend-post-parcel": {1: 1, 2: 2, 3: 3, 4: 4, 7: 7, 8: 8},
+            "medical-secretary-temporary-replacement-doctor": {
+                1: 1, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8,
+            },
+            "volunteer-local-association-information-office": {
+                1: 1, 2: 2, 3: 3, 6: 6, 7: 7, 8: 8,
+            },
+            "friend-association-work-experience": {
+                1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 8: 8,
+            },
+            "supervisor-overseas-job-offer": {1: 1, 2: 2, 3: 3, 4: 4, 8: 8},
+            "recruiter-scheduled-interview-preparation": {
+                1: 2, 2: 1, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8,
+            },
+        }
+        for group, mapping in mappings.items():
+            with self.subTest(group=group):
+                self.assert_revision_highlights_preserved(group, mapping)
+            Annotation.objects.filter(user=self.user).delete()
+
+    def test_prior_theme_second_pass_does_not_replace_private_versions_or_their_highlights(self):
+        cases = (
+            ("help-friend-post-parcel", 7, "À quel guichet puis-je déposer ton paquet ?"),
+            ("recruiter-scheduled-interview-preparation", 2, "Quel matériel dois-je tester avant l'entretien ?"),
+            ("supervisor-overseas-job-offer", 8, "Quelles conditions faudrait-il négocier avant le départ ?"),
+        )
+        for group, number, question in cases:
+            with self.subTest(group=group):
+                self.configure_group(group)
+                self.old = catalogue.tache_two_location_history()[group].revisions[-1]
+                values = asdict(dialogue_response(self.old))
+                values.pop("is_personal")
+                values["arguments"] = list(values["arguments"])
+                values["arguments"][0]["idea"] = question
+                values["nuance"] = "My private explanation of this neighbourhood or work enquiry."
+                personal = PersonalResponse.objects.create(
+                    user=self.user, response=self.response, source_prompt=self.prompt, **values,
+                )
+                mark = self.highlight(number, body="My learned private question.", study_later=True)
+                self.fetch()
+                self.assert_current(mark)
+                personal.refresh_from_db()
+                self.assertEqual(personal.arguments, values["arguments"])
+                self.assertEqual(personal.nuance, values["nuance"])
+                self.assertTrue(personal.is_active)
+                current = effective_response(self.response, self.user, prompt=self.prompt)
+                self.assertTrue(current.is_personal)
+                self.assertEqual([asdict(row) for row in current.arguments], values["arguments"])
+                self.assertEqual(mark.body, "My learned private question.")
+                self.assertTrue(mark.study_later)
+            Annotation.objects.filter(user=self.user).delete()
+            PersonalResponse.objects.filter(user=self.user).delete()
+
+    def test_unspecified_apartment_revision_preserves_other_questions_and_archived_notes(self):
+        self.assert_revision_highlights_preserved(
+            "estate-agent-advertised-apartment-unspecified",
+            {number: number for number in (1, 3, 4, 5, 6, 8)},
+        )
+
+    def test_summer_house_priority_reorder_recovers_current_and_pre_geography_highlights(self):
+        self.assert_revision_highlights_preserved(
+            "colleague-summer-house-rental", {1: 4, 2: 5, 3: 6, 4: 7, 5: 8, 6: 1, 7: 2, 8: 3},
+        )
+        self.old = catalogue.tache_two_location_history()[self.current.group].revisions[0]
+        legacy = self.highlight(4, "Bowness", body="My original neighbourhood note.")
+        self.fetch()
+        self.assert_current(legacy)
+        self.assertEqual(legacy.quote, "Ballard")
+        self.assertEqual(legacy.body, "My original neighbourhood note.")
+        self.assertEqual(Annotation.objects.count(), 9)
+
+    def test_newcomer_rent_and_guarantor_extensions_preserve_other_question_highlights(self):
+        self.configure_group("canada-newcomer-apartment-procedure-unspecified-adviser")
+        unchanged = [self.highlight(number) for number in (1, 2, 3, 5, 6, 8)]
+        changed = [
+            self.highlight(number, body=f"My original question {number}.", study_later=True)
+            for number in (4, 7)
+        ]
+        old_keys = [mark.source_key for mark in changed]
+        self.fetch()
+        for mark in unchanged:
+            self.assert_current(mark)
+        for number, mark, old_key in zip((4, 7), changed, old_keys):
+            mark.refresh_from_db()
+            self.assertEqual(mark.source_key, old_key)
+            self.assertEqual(mark.body, f"My original question {number}.")
+            self.assertTrue(mark.study_later)
+        self.assertEqual(Annotation.objects.count(), 8)
+
+    def test_holiday_letting_rewrite_recovers_moved_questions_and_archives_changed_wording(self):
+        self.configure_group("owner-holiday-letting-estate-agency-advice")
+        unchanged = [
+            self.highlight(number, body=f"My learned question {number}.")
+            for number in (1, 8)
+        ]
+        changed = [
+            self.highlight(number, body=f"My original question {number}.", study_later=True)
+            for number in range(2, 8)
+        ]
+        old_keys = [mark.source_key for mark in changed]
+        review_path = reverse("study:task_review", args=["eo", "tache-2"]) + "?kind=spine"
+        back = self.highlight(1, surface="back", source_path=review_path)
+        self.fetch()
+        self.fetch(review_path)
+        rendered = _render_questions(
+            self.prompt, dialogue_response(self.current), "detail", [self.prompt],
+        )
+        for mark, new_number in zip(unchanged, (4, 5)):
+            self.assert_current(mark)
+            self.assertEqual(
+                (mark.start_offset, mark.end_offset), rendered.fields[(new_number, "question")],
+            )
+            self.assertTrue(mark.body.startswith("My learned question "))
+        self.assert_current(back, "back")
+        for number, (mark, old_key) in enumerate(zip(changed, old_keys), 2):
+            mark.refresh_from_db()
+            self.assertEqual(mark.source_key, old_key)
+            self.assertEqual(mark.body, f"My original question {number}.")
+            self.assertTrue(mark.study_later)
+        self.assertEqual(Annotation.objects.count(), 9)
+
+    def test_holiday_letting_upgrade_does_not_replace_a_longer_personal_version(self):
+        self.configure_group("owner-holiday-letting-estate-agency-advice")
+        values = asdict(dialogue_response(self.old))
+        values.pop("is_personal")
+        values["arguments"] = list(values["arguments"])
+        values["arguments"].extend(
+            values["arguments"][0] | {"idea": f"Ma question personnelle supplémentaire {number} ?"}
+            for number in range(1, 8)
+        )
+        values["nuance"] = "My private holiday-letting explanation."
+        personal = PersonalResponse.objects.create(
+            user=self.user, response=self.response, source_prompt=self.prompt, **values,
+        )
+        self.fetch()
+        personal.refresh_from_db()
+        self.assertEqual(personal.arguments, values["arguments"])
+        self.assertEqual(personal.nuance, values["nuance"])
+        self.assertTrue(personal.is_active)
+        current = effective_response(self.response, self.user, prompt=self.prompt)
+        self.assertTrue(current.is_personal)
+        self.assertEqual(len(current.arguments), 15)
+        self.assertEqual([asdict(row) for row in current.arguments], values["arguments"])
+        self.assertEqual(current.nuance, values["nuance"])
 
     def test_old_personal_model_and_private_note_are_not_rewritten(self):
         previous = dialogue_response(self.old)

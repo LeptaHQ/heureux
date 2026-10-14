@@ -41,6 +41,8 @@ keeps all marked records in the folder. Page navigation works without JavaScript
 With JavaScript, status changes and deletion update in place, including refilling
 filtered pages and moving off an emptied final page. French/English blur,
 individual reveals and the chosen card/table view stay active.
+Note and translation pop-ups use rounded action controls, including the amber
+external translation link.
 The shared `study/partials/pagination.html` pager accepts a Django `page_obj`,
 `page_links` (`number` and `url`), previous/next URLs, and an optional accessible label.
 
@@ -142,7 +144,9 @@ and exportable, but are not rendered or discarded when saving questions.
 The original batches, import models, vocabulary
 evidence, semantic memberships and learner progress are unchanged. New model
 annotation keys include dialogue structure, so old selections are not replayed on
-rewritten text; existing annotations remain available in Notes. Restart workers
+rewritten text; existing annotations remain available in Notes. Archived published
+layouts recover highlights on unchanged questions after reordering, including
+questions that previously received a geography update. Restart workers
 after editing the corpus; deployment imports validate the complete corpus without
 overwriting personal responses.
 
@@ -158,6 +162,11 @@ interaction/coherence and appropriateness to the situation. Eight questions and
 a varied mix of question forms are teaching choices, not official quotas or
 mandatory inversion rules. Follow the actual replies and the examiner's timing.
 The handbook explicitly warns against reciting memorized texts.
+
+The Canadian job-search scenario distinguishes work-authorization checks with
+IRCC from [Service Canada's social insurance number procedure](https://www.canada.ca/en/employment-social-development/services/sin/apply.html).
+Required documents depend on the learner's status; a friend's examples are not
+legal guarantees or a substitute for the current official requirements.
 
 [IRCC's official conversion](https://www.canada.ca/en/immigration-refugees-citizenship/services/immigrate-canada/express-entry/documents/language-test.html)
 maps the **whole oral test** score of 10–11/20 to NCLC 7 and 12–13/20 to NCLC 8.

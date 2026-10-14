@@ -713,6 +713,18 @@ _PUBLISHED_EO2_KEY = re.compile(
 )
 
 
+def _unique_question_mapping(before, after):
+    mapping = {}
+    for old_number, argument in enumerate(before.arguments, 1):
+        matches = [
+            number for number, item in enumerate(after.arguments, 1)
+            if item.idea == argument.idea
+        ]
+        if len(matches) == 1:
+            mapping[old_number] = matches[0]
+    return mapping
+
+
 def recover_published_tache_two_highlights(user, source_filter):
     """Recover this learner's scoped anchors without changing their personal text."""
     with transaction.atomic():
@@ -761,14 +773,7 @@ def recover_published_tache_two_highlights(user, source_filter):
                         continue
                     old = _render_questions(prompt, previous, surface, aliases, dialogue=revision)
                     new = _render_questions(prompt, current, surface, aliases)
-                    mapping = {}
-                    for old_number, argument in enumerate(previous.arguments, 1):
-                        matches = [
-                            number for number, item in enumerate(current.arguments, 1)
-                            if item.idea == argument.idea
-                        ]
-                        if len(matches) == 1:
-                            mapping[old_number] = matches[0]
+                    mapping = _unique_question_mapping(previous, current)
                     for annotation in candidates:
                         offsets = _project_location_annotation(annotation, old, new, entry.replacements)
                         if offsets is None and _project_unchanged_annotation(
@@ -798,7 +803,10 @@ def recover_published_tache_two_highlights(user, source_filter):
                                 )
                                 offsets = _project(
                                     anchor, rendered, new,
-                                    _matching_fields(content, current, rendered, new),
+                                    _matching_fields(
+                                        content, current, rendered, new,
+                                        _unique_question_mapping(content, current),
+                                    ),
                                 )
                                 if offsets is not None:
                                     break

@@ -42,16 +42,16 @@
         "english": "Priority places to show visitors in Seattle"
       },
       {
-        "french": "Ordre des visites pour une journée à pied",
-        "english": "Visit order for a walkable day"
+        "french": "Ordre conseillé pour visiter les lieux proposés",
+        "english": "Recommended order for visiting the suggested places"
       },
       {
         "french": "Activité sur l'histoire et la culture régionales",
         "english": "Activity about regional history and culture"
       },
       {
-        "french": "Visite intérieure intéressante en cas de pluie",
-        "english": "Interesting indoor visit for a rainy day"
+        "french": "Autres activités intérieures en cas de pluie : exposition ou spectacle",
+        "english": "Other indoor rainy-day activities: exhibition or show"
       },
       {
         "french": "Restaurant convivial pour goûter un produit local",
@@ -62,12 +62,12 @@
         "english": "Restaurant budget per person"
       },
       {
-        "french": "Déplacements entre les lieux",
-        "english": "Travel between the different places"
+        "french": "Trajets conseillés à pied ou en transports en commun",
+        "english": "Recommended walking legs and public-transport legs"
       },
       {
-        "french": "Forfait de transport pour une journée",
-        "english": "Day transit pass"
+        "french": "Billets séparés ou pass à la journée pour les trajets prévus",
+        "english": "Individual tickets or a day pass for the planned journeys"
       }
     ],
     "colleague-wedding-report": [
@@ -144,8 +144,8 @@
         "english": "Exact dates of dog care"
       },
       {
-        "french": "Garde chez le voisin ou à votre domicile",
-        "english": "Care at the neighbour's home or your home"
+        "french": "Garde chez le propriétaire ou chez soi et présence la nuit",
+        "english": "Care at the owner's or your home and overnight presence"
       },
       {
         "french": "Nourriture, quantités et horaires des repas",
@@ -160,8 +160,8 @@
         "english": "Special instructions during walks"
       },
       {
-        "french": "Soins ou traitement pendant la semaine",
-        "english": "Care or treatment during the week"
+        "french": "Allergies, soins ou traitement pendant la garde",
+        "english": "Allergies, care or treatment during the stay"
       },
       {
         "french": "Contact en cas de problème de santé",
@@ -756,16 +756,16 @@
     ],
     "trusted-person-temporary-pet-care": [
       {
-        "french": "Animal confié pendant l'absence",
-        "english": "Animal being left in your care"
+        "french": "Espèce et âge de l'animal confié",
+        "english": "Species and age of the animal entrusted to you"
       },
       {
         "french": "Dates exactes de la garde",
         "english": "Exact care dates"
       },
       {
-        "french": "Lieu où l'animal doit rester",
-        "english": "Where the animal should stay"
+        "french": "Lieu de garde et durée maximale pendant laquelle l'animal reste seul",
+        "english": "Care location and maximum time the animal can be left alone"
       },
       {
         "french": "Nourriture, quantités et horaires des repas",
@@ -1308,8 +1308,8 @@
         "english": "Being introduced to the group when arriving alone"
       },
       {
-        "french": "Sport, atelier culturel ou bénévolat ouvert aux débutants",
-        "english": "Sport, cultural workshop or volunteering open to beginners"
+        "french": "Clubs, ateliers ou associations pour participer régulièrement",
+        "english": "Clubs, workshops or associations for recurring participation"
       },
       {
         "french": "Association francophone ou groupe de nouveaux arrivants",
@@ -1320,16 +1320,16 @@
         "english": "Game nights, markets and festivals without registration"
       },
       {
-        "french": "Dates et modalités d'inscription aux activités",
-        "english": "Activity dates and registration details"
+        "french": "Frais du groupe de randonnée et essai avant d'adhérer",
+        "english": "Hiking-group fees and a trial before membership"
       },
       {
-        "french": "Façon naturelle d'engager la conversation",
-        "english": "A natural way to start a conversation"
+        "french": "Sujets de conversation pour faire connaissance sans indiscrétion",
+        "english": "Conversation topics for meeting people without being intrusive"
       },
       {
-        "french": "Possibilité d'accompagner Pierre à la randonnée",
-        "english": "Possibility of joining Pierre on the hike"
+        "french": "Accompagner le voisin à la randonnée, lieu et heure de rendez-vous",
+        "english": "Joining the neighbour's hike and meeting place and time"
       }
     ],
     "canadian-work-hours-home-country-comparison": [
@@ -1368,8 +1368,8 @@
     ],
     "friend-three-year-old-weekend-care": [
       {
-        "french": "Repas et goûter habituels",
-        "english": "Usual meals and snacks"
+        "french": "Horaires des repas et du goûter, aliments appréciés",
+        "english": "Meal and snack times and favourite foods"
       },
       {
         "french": "Allergies et aliments à éviter",
@@ -1380,8 +1380,8 @@
         "english": "Home activities: drawing, puzzles or stories"
       },
       {
-        "french": "Sorties adaptées à son âge et précautions",
-        "english": "Age-appropriate outings and safety precautions"
+        "french": "Permission de sortie au parc et précautions à respecter",
+        "english": "Permission for a park outing and parental precautions"
       },
       {
         "french": "Horaires et routine de la sieste",
@@ -1860,12 +1860,12 @@
         "english": "Number and ages of the children"
       },
       {
-        "french": "Jours et horaires à couvrir",
-        "english": "Days and times to cover"
+        "french": "Jours, horaires, date de début et durée de la garde",
+        "english": "Days, hours, start date and duration of childcare"
       },
       {
-        "french": "Date de début et durée de la garde",
-        "english": "Childcare start date and duration"
+        "french": "Quartier et garde chez le collègue ou chez la personne recommandée",
+        "english": "Neighbourhood and care at the colleague's or caregiver's home"
       },
       {
         "french": "Sortie de l'école, devoirs ou préparation des repas",
@@ -2042,6 +2042,10 @@
         "english": "Desired frequency of visits"
       },
       {
+        "french": "Quantité d'eau par plante et plantes à ne pas arroser",
+        "english": "Water quantity per plant and plants not to water"
+      },
+      {
         "french": "Remise des clés et éventuel code d'accès",
         "english": "Collecting the keys and any entry code"
       },
@@ -2056,10 +2060,6 @@
       {
         "french": "Personne à contacter si l'ami est injoignable",
         "english": "Backup contact if the friend cannot be reached"
-      },
-      {
-        "french": "Message après chaque passage",
-        "english": "Update after each visit"
       }
     ],
     "station-stranger-mountain-passion": [
@@ -2378,8 +2378,8 @@
         "english": "First task given to new volunteers"
       },
       {
-        "french": "Jours et horaires des distributions",
-        "english": "Meal distribution days and times"
+        "french": "Lieu des distributions, jours et horaires de présence",
+        "english": "Distribution location, days and full volunteer shift"
       },
       {
         "french": "Participation ponctuelle ou engagement chaque semaine",
@@ -2438,32 +2438,32 @@
     ],
     "animal-protection-association-invitation": [
       {
-        "french": "Principales actions de l'association",
-        "english": "Association's main activities"
+        "french": "Actions : refuges, adoption ou sensibilisation",
+        "english": "Actions: shelters, adoption or awareness"
       },
       {
-        "french": "Service proposé pour adopter un animal",
-        "english": "Service offered to prospective adopters"
+        "french": "Accompagnement des personnes souhaitant adopter",
+        "english": "Support for prospective adopters"
       },
       {
         "french": "Public visé par les campagnes d'information",
         "english": "Audience for awareness campaigns"
       },
       {
-        "french": "Premières missions confiées aux bénévoles",
-        "english": "First tasks given to volunteers"
+        "french": "Premières tâches : accueil, collectes ou refuge",
+        "english": "Initial tasks: public welcome, collections or shelter"
       },
       {
-        "french": "Engagement de temps attendu",
-        "english": "Expected time commitment"
+        "french": "Aide ponctuelle ou hebdomadaire et durée minimale",
+        "english": "Occasional or weekly help and minimum commitment"
       },
       {
         "french": "Compétences nécessaires pour commencer",
         "english": "Skills needed to start"
       },
       {
-        "french": "Déroulement de la formation",
-        "english": "How the training works"
+        "french": "Durée de la formation et format sur place ou en ligne",
+        "english": "Training duration and onsite or online format"
       },
       {
         "french": "Démarche pour rejoindre l'association",
@@ -3504,24 +3504,24 @@
     ],
     "friend-entertain-visiting-nephews": [
       {
-        "french": "Activités à proposer à la maison",
-        "english": "Activities to do at home"
+        "french": "Activités créatives ou recettes simples à la maison",
+        "english": "Creative activities or simple recipes at home"
       },
       {
         "french": "Idée qui demande le moins de préparation",
         "english": "Idea requiring the least preparation"
       },
       {
-        "french": "Activité physique sans sortir",
-        "english": "Physical activity without going out"
+        "french": "Jeu à la maison pour bouger sans matériel compliqué",
+        "english": "Active home game without complicated equipment"
       },
       {
         "french": "Sortie pour se dépenser, adaptée à différents âges",
         "english": "Active outing suited to different ages"
       },
       {
-        "french": "Sortie intérieure en cas de pluie",
-        "english": "Indoor outing for a rainy day"
+        "french": "Sortie intérieure en cas de pluie : atelier ou exposition interactive",
+        "english": "Indoor rainy-day outing: workshop or interactive exhibition"
       },
       {
         "french": "Réservation et budget pour les enfants au musée",
@@ -3750,6 +3750,10 @@
         "english": "Identity of the replacement doctor"
       },
       {
+        "french": "Médecin généraliste et années d'expérience",
+        "english": "General practitioner and years of experience"
+      },
+      {
         "french": "Lieu de consultation du médecin remplaçant",
         "english": "Where the replacement doctor sees patients"
       },
@@ -3762,12 +3766,8 @@
         "english": "Replacement end date"
       },
       {
-        "french": "Jours de consultation",
-        "english": "Consultation days"
-      },
-      {
-        "french": "Heures de consultation",
-        "english": "Consultation hours"
+        "french": "Jours et heures de consultation pendant le remplacement",
+        "english": "Consultation days and hours during the replacement"
       },
       {
         "french": "Rendez-vous en ligne ou par téléphone",
@@ -3894,8 +3894,8 @@
         "english": "Delivery area and checking coverage for your address"
       },
       {
-        "french": "Commande sur le site, dans l'application ou par téléphone",
-        "english": "Ordering on the website, in the app or by phone"
+        "french": "Comment commander et moyens de paiement acceptés",
+        "english": "How to order and accepted payment methods"
       },
       {
         "french": "Montant minimum de commande",
@@ -3910,8 +3910,8 @@
         "english": "Time from order to delivery"
       },
       {
-        "french": "Choix d'un créneau de livraison",
-        "english": "Choosing a delivery time slot"
+        "french": "Choix d'un créneau de livraison et durée du créneau",
+        "english": "Choosing a delivery window and its duration"
       },
       {
         "french": "Transport des produits frais et surgelés",
@@ -4102,20 +4102,20 @@
         "english": "Current state of health"
       },
       {
-        "french": "Aide pour les courses, les repas ou les déplacements",
-        "english": "Help with shopping, meals or getting around"
+        "french": "Aide pour les courses, repas ou déplacements pendant le repos",
+        "english": "Help with shopping, meals or travel while resting"
       },
       {
-        "french": "Moment où l'accident s'est produit",
-        "english": "When the accident happened"
+        "french": "Moment et lieu de l'accident",
+        "english": "When and where the accident happened"
       },
       {
-        "french": "Lieu où l'accident s'est produit",
-        "english": "Where the accident happened"
+        "french": "Déroulement précis de l'accident",
+        "english": "What exactly happened during the accident"
       },
       {
-        "french": "Déroulement de l'accident",
-        "english": "How the accident happened"
+        "french": "Aide reçue sur place après l'accident",
+        "english": "Help received at the scene after the accident"
       },
       {
         "french": "Message à transmettre à l'équipe",
@@ -4458,20 +4458,20 @@
         "english": "Planned accommodation"
       },
       {
-        "french": "Transport et équipements de sécurité adaptés à l'âge",
-        "english": "Transport and age-appropriate safety equipment"
+        "french": "Moyen de transport et équipements de sécurité des enfants",
+        "english": "Transport and children's safety equipment"
       },
       {
-        "french": "Adultes présents pour les encadrer",
-        "english": "Adults supervising the children"
+        "french": "Nombre d'enfants et adultes présents pour les encadrer",
+        "english": "Number of children and supervising adults"
       },
       {
         "french": "Activités prévues pour les enfants",
         "english": "Activities planned for the children"
       },
       {
-        "french": "Mesures de sécurité pour le canot",
-        "english": "Canoe safety measures"
+        "french": "Adulte accompagnateur et équipements de sécurité pour le canot",
+        "english": "Accompanying adult and canoe safety equipment"
       },
       {
         "french": "Joindre les adultes et avoir des nouvelles de votre enfant",
@@ -4496,20 +4496,20 @@
         "english": "Regular or occasional participation"
       },
       {
-        "french": "Profil des personnes qui participent",
-        "english": "Types of people who participate"
+        "french": "Participants : habitants, familles ou étudiants",
+        "english": "Participants: local residents, families or students"
       },
       {
-        "french": "Expérience nécessaire pour devenir bénévole",
-        "english": "Experience needed to volunteer"
-      },
-      {
-        "french": "Accompagnement par un bénévole expérimenté pour la première activité",
-        "english": "Experienced volunteer support for the first activity"
+        "french": "Expérience nécessaire, explications et accompagnement au début",
+        "english": "Required experience, induction and initial support"
       },
       {
         "french": "Contact pour s'inscrire à une activité",
         "english": "Contact for registering for an activity"
+      },
+      {
+        "french": "Lieu de rendez-vous pour le nettoyage et arrivée avant le début",
+        "english": "Clean-up meeting place and whether to arrive early"
       }
     ],
     "specialist-agency-day-excursions": [
@@ -4802,12 +4802,12 @@
         "english": "First-aid training"
       },
       {
-        "french": "Jours de disponibilité et horaires de début",
-        "english": "Usual days and start times of availability"
+        "french": "Secteur desservi et garde chez les parents ou chez la personne",
+        "english": "Service area and care at the parents' or provider's home"
       },
       {
-        "french": "Disponibilité en soirée",
-        "english": "Evening availability"
+        "french": "Jours et horaires habituels connus du voisin",
+        "english": "Usual days and hours known to the neighbour"
       },
       {
         "french": "Tâches acceptées pendant la garde",
@@ -5036,12 +5036,12 @@
         "english": "Deadline for posting the parcel"
       },
       {
-        "french": "Ville de destination",
-        "english": "Destination city"
+        "french": "Contenu du paquet et précautions pour l'envoi",
+        "english": "Parcel contents and shipping precautions"
       },
       {
-        "french": "Date d'arrivée souhaitée",
-        "english": "Desired arrival date"
+        "french": "Ville de destination et date limite d'arrivée",
+        "english": "Destination city and latest arrival date"
       },
       {
         "french": "Envoi express si nécessaire et budget maximal",
@@ -5052,8 +5052,8 @@
         "english": "Approximate parcel dimensions and weight"
       },
       {
-        "french": "Bureau de poste conseillé et durée de l'aller-retour",
-        "english": "Suggested post office and time needed for the round trip"
+        "french": "Bureau de poste et durée de l'aller-retour, dépôt compris",
+        "english": "Suggested post office and round-trip time including the deposit"
       },
       {
         "french": "Emballage, étiquette d'adresse et affranchissement",
@@ -5596,12 +5596,12 @@
         "english": "Any allergy or special care"
       },
       {
-        "french": "Repas à servir pendant la garde",
-        "english": "Meal to serve during childcare"
+        "french": "Horaires du repas et du goûter, aliments fournis par le parent",
+        "english": "Meal and snack times and food supplied by the parent"
       },
       {
-        "french": "Moment habituel pour un temps calme",
-        "english": "Usual quiet-time schedule"
+        "french": "Sieste ou temps calme et moment à prévoir",
+        "english": "Nap or quiet time and when to plan it"
       },
       {
         "french": "Activités préférées : dessin, construction ou parc",

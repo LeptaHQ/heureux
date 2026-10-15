@@ -464,7 +464,11 @@ class TacheTwoDialogueCorpusTests(SimpleTestCase):
         self.assertIn("already", child.note)
         self.assertIn("timings", child.note)
         for question in child.questions:
-            self.assertNotRegex(question.question, r"(?i)quelles dates|quels horaires")
+            self.assertNotRegex(
+                question.question,
+                r"(?i)quelles dates|horaires de garde|à quelle heure.*(?:amener|récupérer)",
+            )
+        self.assertIn("repas et son goûter", child.questions[0].question)
         ticket = dialogues["tache2:juin:batch-02:subject-10"]
         self.assertIn("already have a cinema ticket", ticket.note)
         for question in ticket.questions:

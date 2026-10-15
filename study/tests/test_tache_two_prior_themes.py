@@ -116,7 +116,7 @@ class TacheTwoPriorThemeReviewTests(SimpleTestCase):
         )
         self.assertEqual(
             self.hints[parcel.group][5]["english"],
-            "Suggested post office and time needed for the round trip",
+            "Suggested post office and round-trip time including the deposit",
         )
 
     def test_volunteer_feasibility_covers_actual_hours_and_optional_versus_regular_commitment(self):
@@ -138,16 +138,17 @@ class TacheTwoPriorThemeReviewTests(SimpleTestCase):
 
     def test_replacement_doctor_question_checks_location_not_already_confirmed_coverage(self):
         doctor = self.by_group["medical-secretary-temporary-replacement-doctor"]
-        self.assertIn("already covers consultations", doctor.note)
+        self.assertIn("already covers your family doctor's absence", doctor.note)
         self.assertIn("not medical advice", doctor.note)
         self.assertEqual(
-            doctor.questions[1].question,
+            doctor.questions[2].question,
             "Consulte-t-elle dans le même cabinet que mon médecin habituel ?",
         )
-        self.assertIsNone(doctor.questions[1].follow_up_to)
-        self.assertEqual(doctor.questions[5].follow_up_to, 5)
+        self.assertIsNone(doctor.questions[2].follow_up_to)
+        self.assertEqual(doctor.questions[3].follow_up_to, 3)
+        self.assertIn("Quels jours et à quelles heures", doctor.questions[5].question)
         self.assertEqual(
-            self.hints[doctor.group][1]["english"], "Where the replacement doctor sees patients",
+            self.hints[doctor.group][2]["english"], "Where the replacement doctor sees patients",
         )
 
     def test_redelivery_is_not_implicitly_free_or_left_outside_the_cold_chain(self):

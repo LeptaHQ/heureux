@@ -150,11 +150,22 @@ Examples:
 - A neighbour or fellow parent can report school and activity experience;
   confirm current eligibility, enrolment requirements, and fees with the provider.
 - Known childcare start and end times do not establish nap or bedtime routines.
-  Ask about the child's remaining sleep timings and rituals without repeating
-  information already supplied.
+  Ask about remaining meal, snack and sleep timings and rituals without repeating
+  information already supplied. Check outing permission separately from preferences.
+- Pet care requires agreement on location and presence, not only feeding and
+  walks. Overnight presence or maximum time alone must fit the complete routine.
+- A visit order does not imply an entirely walkable itinerary. Discuss suitable
+  walking legs and transport separately; rainy-day alternatives should name
+  useful indoor activities rather than repeat a museum already recommended.
+- Distinguish a childcare referral from hiring or providing care. Ask where
+  and when care is needed; a referrer reports past experience, not guaranteed
+  current availability or prices.
+- A volunteer shift may include preparation and cleanup. Confirm its actual
+  location and time burden; induction and practical support can share a question.
 - A personal errand needs a realistic time estimate, not only a deadline.
   Parcel dimensions and weight can share one question, leaving room for the
-  post office, round trip and expected wait.
+  post office, round trip and expected wait. Ask about contents and packaging;
+  check carrier and office feasibility before promising to complete the errand.
 - For an overseas job offer, clarify payment currency and health coverage.
   Ask whether an allowance can be reviewed before assuming automatic adjustments.
 - A student from a francophone country need not study there or have moved abroad.

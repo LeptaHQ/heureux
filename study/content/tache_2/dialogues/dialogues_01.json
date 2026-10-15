@@ -21,18 +21,18 @@
     {
       "group": "host-foreign-friends-city-advice",
       "register": "tu",
-      "note": "You are hosting foreign friends in Seattle and ask your friend Pierre for practical ideas. Choose visits, activities, restaurants and transport without turning the exchange into a booking. Pierre offers personal advice, not official information. Use tu and adapt follow-ups to what he recommends.",
+      "note": "You are hosting foreign friends in Seattle and ask your friend Pierre for advice. Plan visits, their order, indoor alternatives, meals and transport across the stay; do not assume every outing fits one walkable day. Pierre shares personal recommendations, not confirmed bookings or current fares. Use tu and adapt follow-ups to the places actually suggested.",
       "opening": "Salut Pierre ! Mes amis viennent bientôt découvrir Seattle, et j'aimerais leur préparer un séjour varié sans trop charger les journées.",
       "closing": "Merci, Pierre ! Je vais commencer par organiser la journée autour de Pike Place Market et de l'Olympic Sculpture Park.",
       "questions": [
         {"topic": "Visites et activités", "question": "Pour leur donner un bon aperçu de Seattle, quels endroits me conseillerais-tu en priorité ?", "answer": "Pike Place Market et Olympic Sculpture Park montrent bien le centre, l'architecture et les espaces verts de Seattle.", "follow_up_to": null},
-        {"topic": "Visites et activités", "question": "Par lequel vaudrait-il mieux commencer pour construire une journée qui se fait facilement à pied ?", "answer": "Par Pike Place Market le matin, puis vous pourriez rejoindre Olympic Sculpture Park après le déjeuner.", "follow_up_to": 1, "condition": "After several places have been recommended."},
+        {"topic": "Visites et activités", "question": "Dans quel ordre me conseilles-tu de visiter ces lieux ?", "answer": "Commence par Pike Place Market le matin, puis rejoins Olympic Sculpture Park après le déjeuner.", "follow_up_to": 1, "condition": "If several places are suggested without explaining a suitable visit order."},
         {"topic": "Visites et activités", "question": "Quelle activité leur permettrait de mieux comprendre l'histoire et la culture de la région ?", "answer": "Le musée MOHAI présente l'histoire de Seattle et de la région à travers des objets et des expositions.", "follow_up_to": null},
-        {"topic": "Visites et activités", "question": "Et s'il pleut, quelle visite intérieure resterait vraiment intéressante ?", "answer": "Le Museum of Pop Culture serait un bon choix, avec ses expositions consacrées à la musique et à la culture populaire.", "follow_up_to": null},
+        {"topic": "Visites et activités", "question": "En cas de pluie, quelles autres activités à l'intérieur me conseillerais-tu, comme une exposition ou un spectacle ?", "answer": "Une exposition au Museum of Pop Culture ou un spectacle en salle à Seattle Center ; regarde la programmation pour les dates du séjour.", "follow_up_to": null},
         {"topic": "Restaurants", "question": "Où pourrait-on goûter une spécialité locale dans une ambiance conviviale ?", "answer": "Dans un restaurant de Capitol Hill qui sert notamment du saumon du Pacifique et des produits locaux.", "follow_up_to": null},
         {"topic": "Restaurants", "question": "Quel budget faudrait-il prévoir par personne dans ce restaurant ?", "answer": "Environ 35 $ par personne pour un plat et une boisson sans alcool.", "follow_up_to": 5, "condition": "After a restaurant is recommended, unless its prices are already given."},
-        {"topic": "Déplacements", "question": "Quel moyen de transport serait le plus simple entre ces différentes sorties ?", "answer": "À pied entre Pike Place Market et Olympic Sculpture Park ; en bus vers MOHAI, en monorail vers le Museum of Pop Culture et en métro léger Link vers Capitol Hill.", "follow_up_to": null},
-        {"topic": "Déplacements", "question": "Quel titre de transport serait le plus avantageux pour une journée de visites ?", "answer": "Un forfait journalier peut être intéressant ; vérifie son prix et les trajets couverts en bus, en monorail et en métro léger.", "follow_up_to": null}
+        {"topic": "Déplacements", "question": "Pour rejoindre ces lieux, quels trajets me conseilles-tu de faire à pied et lesquels plutôt en transports en commun ?", "answer": "À pied entre Pike Place Market et Olympic Sculpture Park ; en bus vers MOHAI, en monorail vers Seattle Center et le Museum of Pop Culture, et en métro léger Link vers Capitol Hill.", "follow_up_to": null},
+        {"topic": "Déplacements", "question": "Pour ces déplacements, vaut-il mieux payer chaque trajet ou acheter un pass à la journée ?", "answer": "Compare le pass aux billets séparés selon le nombre de trajets prévus ; vérifie les prix et les réseaux couverts, notamment pour le bus, le métro léger et le monorail.", "follow_up_to": 7, "condition": "If public transport is recommended without explaining tickets or day passes."}
       ]
     },
     {
@@ -72,18 +72,18 @@
     {
       "group": "neighbor-dog-care-week-paid",
       "register": "vous",
-      "note": "A resident of your neighbourhood needs someone to care for their dog during a one-week holiday, with remuneration explicitly mentioned. You are considering providing the care, not hiring somebody else. Clarify dates, location, routine, health contacts and pay. Use vous for this neighbourly but not necessarily close relationship.",
+      "note": "A neighbourhood resident seeks paid care for their dog during a one-week holiday. You are considering providing the care, not hiring someone. Clarify dates, location, any overnight presence, feeding, walks, health contacts and pay before confirming. Use vous for this neighbourly but not necessarily close relationship. The owner's routines and proposed remuneration are specific to this example.",
       "opening": "Bonjour ! Votre proposition m'intéresse. J'aimerais vérifier que je pourrai bien m'occuper de votre chien.",
       "closing": "Merci pour ces précisions. Je vais vérifier mes disponibilités avant de vous confirmer.",
       "questions": [
         {"topic": "Organisation de la garde", "question": "Quelles sont les dates exactes de votre absence ?", "answer": "Je pars lundi matin et je rentre dimanche soir.", "follow_up_to": null},
-        {"topic": "Organisation de la garde", "question": "Vous préféreriez que je garde votre chien chez vous ou chez moi pendant la semaine ?", "answer": "Chez moi, pour qu'il conserve ses repères ; je vous laisserai une clé.", "follow_up_to": null},
+        {"topic": "Organisation de la garde", "question": "Souhaitez-vous que je garde le chien chez vous ou chez moi, et faut-il prévoir une présence la nuit ?", "answer": "Chez moi, pour qu'il garde ses repères ; j'aimerais que vous restiez la nuit, et je vous laisserai une clé.", "follow_up_to": null},
         {"topic": "Routine quotidienne", "question": "Quelle nourriture dois-je lui donner, en quelles quantités et à quels horaires ?", "answer": "Ses croquettes habituelles, à 8 h et à 18 h ; je préparerai les portions pour chaque repas.", "follow_up_to": null},
-        {"topic": "Routine quotidienne", "question": "Combien de promenades lui faut-il chaque jour, et pendant combien de temps ?", "answer": "Deux promenades d'environ trente minutes, une le matin et une en fin de journée.", "follow_up_to": null},
+        {"topic": "Routine quotidienne", "question": "Combien de promenades lui faut-il chaque jour, et pendant combien de temps ?", "answer": "Trois sorties par jour : trente minutes le matin et le soir, et dix minutes vers midi.", "follow_up_to": null},
         {"topic": "Routine quotidienne", "question": "Pendant les promenades, y a-t-il une consigne particulière à respecter ?", "answer": "Il doit rester en laisse ; le parc à chiens est à éviter, car il est nerveux avec les grands chiens.", "follow_up_to": 4, "condition": "If walks are needed and safety instructions have not already been given."},
-        {"topic": "Santé et contact", "question": "A-t-il des soins ou un traitement à recevoir pendant cette semaine ?", "answer": "Non, aucun traitement ; il faut seulement surveiller son appétit.", "follow_up_to": null},
+        {"topic": "Santé et contact", "question": "A-t-il des allergies, des soins ou un traitement à prévoir pendant la garde ?", "answer": "Aucune allergie connue ni aucun traitement ; il faut simplement surveiller son appétit et vérifier qu'il boit normalement.", "follow_up_to": null},
         {"topic": "Santé et contact", "question": "Qui dois-je contacter si je remarque un problème de santé ?", "answer": "Appelez-moi d'abord ; je vous laisserai aussi les coordonnées de son vétérinaire.", "follow_up_to": null},
-        {"topic": "Rémunération", "question": "Quelle rémunération avez-vous prévue pour la garde, et comment seront remboursées d'éventuelles dépenses urgentes ?", "answer": "Je vous propose 140 $ pour la semaine et je rembourserai séparément toute dépense urgente sur présentation du reçu.", "follow_up_to": null}
+        {"topic": "Rémunération", "question": "Quelle rémunération avez-vous prévue pour la garde, et comment seront remboursées d'éventuelles dépenses urgentes ?", "answer": "Je vous propose 280 $ pour la semaine, et je rembourserai séparément les dépenses urgentes sur présentation d'un reçu.", "follow_up_to": null}
       ]
     },
     {

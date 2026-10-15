@@ -11,10 +11,10 @@
       "opening": "Salut ! Pour bien m'occuper de ta fille ce week-end, j'aimerais mieux connaître ses habitudes.",
       "closing": "Merci pour ces précisions ! Je vais respecter ses habitudes pour qu'elle se sente bien pendant ton absence.",
       "questions": [
-        {"topic": "Repas", "question": "Que mange-t-elle habituellement aux repas et au goûter ?", "answer": "Des plats simples avec des légumes, puis un fruit ou un yaourt au goûter.", "follow_up_to": null},
+        {"topic": "Repas", "question": "À quels horaires prend-elle ses repas et son goûter, et qu'est-ce qu'elle aime manger ?", "answer": "À 8 h, midi et 18 h 30, avec un goûter à 16 h ; elle aime les pâtes, les légumes cuits et les fruits.", "follow_up_to": null},
         {"topic": "Repas", "question": "A-t-elle des allergies ou des aliments à éviter ?", "answer": "Aucune allergie connue ; les aliments très épicés sont à éviter.", "follow_up_to": 1, "condition": "After her usual meals are discussed, unless restrictions are already known."},
         {"topic": "Jeux et sorties", "question": "Quels jeux ou activités aime-t-elle à la maison, par exemple le dessin, les puzzles ou les histoires ?", "answer": "Elle aime dessiner, faire des puzzles simples et écouter des histoires.", "follow_up_to": null},
-        {"topic": "Jeux et sorties", "question": "Quelles sorties me conseillerais-tu pour son âge, et quelles précautions dois-je prendre ?", "answer": "Le parc près de chez nous, dans l'espace des petits ; elle doit rester près de toi et ne pas sortir de l'aire de jeux.", "follow_up_to": null},
+        {"topic": "Jeux et sorties", "question": "Puis-je l'emmener au parc, et quelles précautions veux-tu que je prenne pendant la sortie ?", "answer": "Oui, au parc près de chez nous, dans l'espace des petits ; elle doit rester près de toi et ne pas sortir de l'aire de jeux.", "follow_up_to": null},
         {"topic": "Sommeil", "question": "Pour la sieste, quels sont ses horaires habituels et qu'est-ce qui l'aide à s'endormir ?", "answer": "De 13 h 30 à 15 h, avec son doudou, dans une pièce calme.", "follow_up_to": null},
         {"topic": "Sommeil", "question": "Et le soir, à quelle heure se couche-t-elle et quel rituel l'aide à s'endormir ?", "answer": "Vers 19 h 30, après un bain et une histoire courte, avec sa veilleuse allumée.", "follow_up_to": null},
         {"topic": "Sommeil", "question": "Si elle se réveille pendant la nuit, qu'est-ce qui la rassure habituellement ?", "answer": "Une voix douce et quelques minutes près d'elle la rassurent.", "follow_up_to": 6, "condition": "If an overnight bedtime routine is needed and this has not already been explained."},
@@ -249,13 +249,13 @@
     {
       "group": "colleague-babysitter-referral-needs",
       "register": "vous",
-      "note": "Your office colleague wants you to recommend somebody from your network as a babysitter. Gather the children's ages, schedule, expected tasks, desired experience, pay and duration so the referral fits. You are neither applying nor interviewing the provider. Use vous for this professional relationship and keep your recommendation conditional.",
+      "note": "Your colleague seeks a babysitter recommendation, not your own services. Clarify the children's ages, the full schedule and duration, work location, duties, desired experience and pay before suggesting a contact. You are neither applying nor interviewing the provider. Use vous as a cautious professional default and keep any recommendation conditional.",
       "opening": "Bonjour ! Pour voir si je peux vous recommander quelqu'un, j'aimerais préciser vos besoins pour la garde.",
       "closing": "Merci pour ces précisions. Je vais voir si une personne de mon entourage correspond à vos besoins.",
       "questions": [
-        {"topic": "Enfants et horaires", "question": "Combien d'enfants faudrait-il garder et quels âges ont-ils ?", "answer": "Deux enfants, de cinq et huit ans.", "follow_up_to": null},
-        {"topic": "Enfants et horaires", "question": "Quels jours et horaires souhaitez-vous couvrir ?", "answer": "Le mardi et le jeudi, de seize heures à dix-neuf heures.", "follow_up_to": null},
-        {"topic": "Enfants et horaires", "question": "À partir de quand souhaitez-vous commencer la garde, et pour quelle durée ?", "answer": "Dès le mois prochain, pour tout le trimestre scolaire, avec une possibilité de prolongation.", "follow_up_to": null},
+        {"topic": "Enfants et organisation", "question": "Combien d'enfants faudrait-il garder et quels âges ont-ils ?", "answer": "Deux enfants, de cinq et huit ans.", "follow_up_to": null},
+        {"topic": "Enfants et organisation", "question": "Quels jours et horaires faut-il couvrir, et à partir de quand et pour quelle durée ?", "answer": "Le mardi et le jeudi, de 16 h à 19 h, dès le mois prochain pour le trimestre scolaire ; la garde pourrait être prolongée.", "follow_up_to": null},
+        {"topic": "Enfants et organisation", "question": "Dans quel quartier se ferait la garde, et serait-ce chez vous ou chez la personne recommandée ?", "answer": "Chez nous, dans le quartier près de la bibliothèque ; l'école des enfants est à cinq minutes à pied.", "follow_up_to": null},
         {"topic": "Tâches à assurer", "question": "Quelles tâches devra assurer la personne : sortie de l'école, aide aux devoirs ou préparation des repas ?", "answer": "Récupérer les enfants, les aider à faire leurs devoirs et réchauffer un repas préparé.", "follow_up_to": null},
         {"topic": "Tâches à assurer", "question": "Pour les repas, y a-t-il des allergies ou des restrictions alimentaires à signaler ?", "answer": "Aucune allergie connue ni restriction alimentaire particulière.", "follow_up_to": 4, "condition": "If meals are requested and dietary restrictions have not already been explained."},
         {"topic": "Profil et rémunération", "question": "Quelle expérience ou formation souhaitez-vous que la personne possède, notamment en premiers secours ?", "answer": "Une personne habituée aux enfants de cinq à huit ans et formée aux premiers secours.", "follow_up_to": null},
@@ -341,11 +341,11 @@
         {"topic": "Dates et tâches", "question": "Entre quelles dates souhaites-tu que je surveille l'appartement ?", "answer": "Du 10 au 20 décembre, pendant mon voyage.", "follow_up_to": null},
         {"topic": "Dates et tâches", "question": "Quelles tâches souhaites-tu que j'assure : arroser les plantes, relever le courrier ou récupérer des colis ?", "answer": "Arroser les plantes, relever le courrier et vérifier que tout va bien ; aucun colis n'est attendu.", "follow_up_to": null},
         {"topic": "Dates et tâches", "question": "À quelle fréquence voudrais-tu que je passe ?", "answer": "Deux fois par semaine, si possible.", "follow_up_to": 2, "condition": "If visits are needed, unless their frequency is already specified."},
+        {"topic": "Dates et tâches", "question": "Pour les plantes, quelle quantité d'eau dois-je donner à chacune, et y en a-t-il à ne pas arroser ?", "answer": "Je laisserai un verre doseur : 150 millilitres pour chaque plante du salon à chaque passage, mais rien pour les cactus de la chambre.", "follow_up_to": 2, "condition": "If watering is requested without quantities or exceptions."},
         {"topic": "Accès et sécurité", "question": "Quand et comment pourrais-je récupérer les clés, et y a-t-il un code d'accès à connaître ?", "answer": "Je te remettrai les clés la veille du départ et te montrerai l'entrée ; l'immeuble n'a pas de code d'accès.", "follow_up_to": null},
         {"topic": "Accès et sécurité", "question": "Avant de repartir, dois-je vérifier les fenêtres, les robinets, le chauffage ou une éventuelle alarme ?", "answer": "Le chauffage doit garder son réglage habituel ; les fenêtres, la porte et les robinets doivent être fermés. Il n'y a pas d'alarme.", "follow_up_to": null},
         {"topic": "Suivi et contact", "question": "Comment te joindre si je remarque un problème ?", "answer": "Par téléphone ou par message ; je consulterai mon portable chaque jour.", "follow_up_to": null},
-        {"topic": "Suivi et contact", "question": "Si je n'arrive pas à te joindre, qui pourrait m'aider ?", "answer": "Le concierge pour les problèmes du bâtiment ; je te laisserai ses coordonnées.", "follow_up_to": 6, "condition": "If they ask you to contact them but give no backup contact."},
-        {"topic": "Suivi et contact", "question": "Souhaites-tu que je t'envoie un message après chaque passage ?", "answer": "Oui, un court message pour me confirmer que tout va bien me rassurerait.", "follow_up_to": null}
+        {"topic": "Suivi et contact", "question": "Si je n'arrive pas à te joindre, qui pourrait m'aider ?", "answer": "Le concierge pour les problèmes du bâtiment ; je te laisserai ses coordonnées.", "follow_up_to": 7, "condition": "If they ask you to contact them but give no backup contact."}
       ]
     }
   ]

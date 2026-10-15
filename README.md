@@ -32,6 +32,9 @@ They are case-sensitive and do not allow spaces or punctuation. Registration,
 login, PIN changes, recovery, and account confirmations use the same validation.
 Existing six-digit PINs remain valid; no account migration or PIN reset is needed.
 
+The account-menu initial avatar stays circular on mobile and desktop, in both
+light and dark themes.
+
 ## Notes and highlights
 
 Notes folders show 50 records per page and load only the active tab. Search and

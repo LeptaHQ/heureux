@@ -3132,6 +3132,52 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(desktop_active_style["borderBottomWidth"], "2px")
         self.assertEqual(desktop_active_style["borderRadius"], "0px")
 
+    def test_account_avatar_stays_circular_in_both_themes_and_responsive_layouts(self):
+        for width in (320, 390, 760, 761, 1183):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            self.page.goto(self.live_server_url + "/")
+            toggle = self.page.get_by_role("button", name="Ouvrir le menu")
+            if toggle.is_visible():
+                toggle.click()
+            avatar = self.page.locator(".nav__avatar")
+            summary = self.page.locator(".nav__more > summary")
+            expect(avatar).to_be_visible()
+            expect(avatar).to_have_text("B")
+            for theme in ("light", "dark"):
+                self.page.evaluate(
+                    "theme => { document.documentElement.dataset.theme = theme; }", theme,
+                )
+                for opened in (False, True):
+                    with self.subTest(width=width, theme=theme, opened=opened):
+                        if opened:
+                            summary.click()
+                        styles = avatar.evaluate(
+                            """element => {
+                              const style = getComputedStyle(element);
+                              const {width, height} = element.getBoundingClientRect();
+                              return {
+                                width, height, color: style.color,
+                                radii: [
+                                  style.borderTopLeftRadius, style.borderTopRightRadius,
+                                  style.borderBottomRightRadius, style.borderBottomLeftRadius,
+                                ].map(radius => radius.endsWith("%")
+                                  ? parseFloat(radius) * width / 100 : parseFloat(radius)),
+                              };
+                            }"""
+                        )
+                        self.assertGreater(styles["width"], 0)
+                        self.assertEqual(styles["width"], styles["height"])
+                        self.assertEqual(styles["color"], "rgb(255, 255, 255)")
+                        for radius in styles["radii"]:
+                            self.assertGreaterEqual(radius, styles["width"] / 2)
+                        if opened:
+                            expect(self.page.locator(".nav__menu").get_by_role(
+                                "link", name="Réglages", exact=True,
+                            )).to_be_visible()
+                    if opened:
+                        summary.click()
+                self.assert_no_horizontal_overflow()
+
     @override_settings(DEBUG=False)
     def test_unknown_url_uses_custom_not_found_page(self):
         self.page.set_viewport_size({"width": 320, "height": 568})

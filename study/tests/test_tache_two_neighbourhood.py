@@ -80,7 +80,7 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
                 self.assertEqual(hashlib.sha256(snapshot).hexdigest(), digest)
         self.assertNotIn("new-resident-neighbor-neighborhood-orientation", self.history)
         self.assertEqual(
-            len(self.history["volunteer-local-association-information-office"]["revisions"]), 3,
+            len(self.history["volunteer-local-association-information-office"]["revisions"]), 4,
         )
 
     def test_all_eighteen_exact_previous_layouts_are_archived_without_hidden_answers(self):
@@ -150,7 +150,18 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
                 before = self.history[group]["revisions"][2]
                 snapshot = json.dumps(before, ensure_ascii=False, sort_keys=True).encode()
                 self.assertEqual(hashlib.sha256(snapshot).hexdigest(), digest)
-                self.assertEqual(len(self.history[group]["revisions"]), 3)
+                self.assertEqual(
+                    len(self.history[group]["revisions"]),
+                    4 if group == "volunteer-local-association-information-office" else 3,
+                )
+
+    def test_exact_food_aid_layout_is_archived_before_following_a_cultural_association(self):
+        before = self.history["volunteer-local-association-information-office"]["revisions"][3]
+        snapshot = json.dumps(before, ensure_ascii=False, sort_keys=True).encode()
+        self.assertEqual(
+            hashlib.sha256(snapshot).hexdigest(),
+            "b6581d4816f7e566429215aa30079321b39de48fd671c59a997bca3af994866e",
+        )
 
     def test_city_visit_opens_with_culture_and_keeps_every_piste_aligned(self):
         row = self.by_group["host-foreign-friends-city-advice"]
@@ -285,18 +296,48 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
 
     def test_volunteer_task_question_asks_about_assignments_within_the_officers_role(self):
         row = self.by_group["volunteer-local-association-information-office"]
+        self.assertIn("associations culturelles", row.questions[0].answer)
+        self.assertEqual(
+            row.questions[1].question,
+            "L'association culturelle m'intéresse. Quelles activités propose-t-elle, et à quel public s'adressent-elles ?",
+        )
+        self.assertEqual(row.questions[1].follow_up_to, 1)
+        self.assertIn("If a cultural association is mentioned", row.questions[1].condition)
+        for detail in ("ateliers de théâtre", "adolescents", "projections de films", "tous les habitants"):
+            self.assertIn(detail, row.questions[1].answer)
         self.assertEqual(
             row.questions[2].question,
             "Quelles missions sont confiées aux bénévoles dans cette association ?",
         )
         self.assertIn("does not necessarily run", row.note)
-        self.assertIn("Préparer les paniers", row.questions[2].answer)
+        self.assertIn("cultural association mentioned by the officer", row.note)
+        self.assertIn("otherwise adapt the choice", row.note)
+        self.assertIn("simulation examples to confirm", row.note)
+        self.assertIn("Préparer les salles", row.questions[2].answer)
+        self.assertIn("les ateliers et les projections", row.questions[2].answer)
+        self.assertIn("18 h à 20 h", row.questions[3].answer)
+        self.assertIn("14 h à 17 h", row.questions[3].answer)
+        self.assertEqual(
+            row.questions[4].question,
+            "Puis-je participer ponctuellement, sans m'engager pour plusieurs mois ?",
+        )
+        self.assertTrue(row.questions[4].answer.startswith("Pour ces missions, non :"))
+        self.assertIn("pendant trois mois", row.questions[4].answer)
+        self.assertIn("pour une aide ponctuelle", row.questions[4].answer)
+        self.assertEqual(
+            self.hints[row.group][1]["english"],
+            "Cultural association's activities and intended audiences",
+        )
         self.assertEqual(
             self.hints[row.group][2]["english"], "Tasks assigned to volunteers",
         )
         self.assertEqual(
+            self.hints[row.group][4]["english"],
+            "Possibility of occasional help without a commitment lasting several months",
+        )
+        self.assertEqual(
             row.questions[7].question,
-            "Pourrais-je rencontrer l'équipe et observer une distribution avant de m'engager régulièrement ?",
+            "Pourrais-je rencontrer l'équipe et observer un atelier avant de m'engager régulièrement ?",
         )
         self.assertIn("sur rendez-vous", row.questions[7].answer)
         self.assertIn("l'association confirmera le créneau", row.questions[7].answer)
@@ -305,7 +346,7 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertEqual(row.questions[1].follow_up_to, 1)
         self.assertEqual(
             self.hints[row.group][7]["english"],
-            "Meeting the team and observing a distribution before committing",
+            "Meeting the team and observing a workshop before committing",
         )
 
     def test_paid_dog_routine_distinguishes_walk_frequency_from_behaviour_with_unfamiliar_people(self):

@@ -123,17 +123,18 @@ class TacheTwoPriorThemeReviewTests(SimpleTestCase):
         office = self.by_group["volunteer-local-association-information-office"]
         self.assertIn("does not necessarily run", office.note)
         self.assertIn("jours et à quelles heures", office.questions[3].question)
-        self.assertIn("14 h à 16 h", office.questions[3].answer)
-        self.assertIn("9 h à 11 h", office.questions[3].answer)
+        self.assertIn("18 h à 20 h", office.questions[3].answer)
+        self.assertIn("14 h à 17 h", office.questions[3].answer)
         self.assertIn("confirmera les places disponibles", office.questions[3].answer)
         self.assertIn("ponctuellement", office.questions[4].question)
-        self.assertIn("régulièrement", office.questions[4].question)
-        self.assertIn("durée", office.questions[4].question)
+        self.assertIn("sans m'engager pour plusieurs mois", office.questions[4].question)
+        self.assertIn("Pour ces missions, non", office.questions[4].answer)
+        self.assertIn("toutes les deux semaines", office.questions[4].answer)
         self.assertIn("trois mois", office.questions[4].answer)
         self.assertIn("vérifiez", office.questions[4].answer)
         self.assertEqual(
             self.hints[office.group][4]["english"],
-            "Occasional participation or regular commitment and duration",
+            "Possibility of occasional help without a commitment lasting several months",
         )
 
     def test_replacement_doctor_question_checks_location_not_already_confirmed_coverage(self):

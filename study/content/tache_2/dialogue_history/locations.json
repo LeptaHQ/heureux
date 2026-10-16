@@ -1114,6 +1114,21 @@
             {"topic": "Conditions et contact", "question": "À qui dois-je m'adresser pour m'inscrire, et quels renseignements faut-il fournir ?", "follow_up_to": null},
             {"topic": "Conditions et contact", "question": "Après ce premier contact, sous quel délai pourrait-on commencer ?", "follow_up_to": 7, "condition": "After the contact procedure is explained without a possible starting date."}
           ]
+        },
+        {
+          "group": "volunteer-local-association-information-office",
+          "opening": "Bonjour ! J'aimerais devenir bénévole dans une association du quartier.",
+          "closing": "Merci pour votre aide. Je vais prendre contact avec l'association qui correspond à mes disponibilités.",
+          "questions": [
+            {"topic": "Choix de l'association", "question": "Quels types d'associations recherchent actuellement des bénévoles dans le quartier ?", "follow_up_to": null},
+            {"topic": "Choix de l'association", "question": "Quel public l'association d'aide alimentaire accompagne-t-elle ?", "follow_up_to": 1, "condition": "If a food-aid association is mentioned; adapt to the option that interests you."},
+            {"topic": "Missions et disponibilités", "question": "Quelles missions sont confiées aux bénévoles dans cette association ?", "follow_up_to": null},
+            {"topic": "Missions et disponibilités", "question": "Quels jours et à quelles heures ont lieu ces missions ?", "follow_up_to": null},
+            {"topic": "Missions et disponibilités", "question": "Peut-on aider ponctuellement, ou faut-il s'engager régulièrement sur une certaine durée ?", "follow_up_to": null},
+            {"topic": "Conditions et contact", "question": "Faut-il une expérience particulière, ou une formation est-elle prévue pour les nouveaux bénévoles ?", "follow_up_to": null},
+            {"topic": "Conditions et contact", "question": "À qui dois-je m'adresser pour m'inscrire, et quels renseignements faut-il fournir ?", "follow_up_to": null},
+            {"topic": "Conditions et contact", "question": "Pourrais-je rencontrer l'équipe et observer une distribution avant de m'engager régulièrement ?", "follow_up_to": null}
+          ]
         }
       ]
     },

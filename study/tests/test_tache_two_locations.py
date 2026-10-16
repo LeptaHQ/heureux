@@ -226,7 +226,7 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
         office = by_group["volunteer-local-association-information-office"]
         self.assertIn("formation", office.questions[5].question)
         self.assertIn("renseignements", office.questions[6].question)
-        self.assertIn("observer une distribution", office.questions[7].question)
+        self.assertIn("observer un atelier", office.questions[7].question)
         self.assertIn("sur rendez-vous", office.questions[7].answer)
         self.assertIn("l'association confirmera le créneau", office.questions[7].answer)
         self.assertIsNone(office.questions[7].follow_up_to)
@@ -1095,7 +1095,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
         mappings = {
             "neighbor-dog-care-week-paid": {1: 1, 7: 7},
             "trusted-person-temporary-pet-care": {2: 2, 8: 8},
-            "volunteer-local-association-information-office": {1: 1, 2: 2},
+            "volunteer-local-association-information-office": {1: 1},
             "friend-three-year-old-weekend-care": {7: 7, 8: 8},
             "friend-holiday-apartment-watch": {1: 1, 3: 3, 5: 6, 6: 7, 7: 8},
             "friend-homeless-meal-volunteering": {1: 1, 2: 2, 4: 4, 5: 5, 6: 6, 8: 8},
@@ -1123,7 +1123,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
                 1: 1, 3: 4, 4: 5, 7: 7, 8: 8,
             },
             "volunteer-local-association-information-office": {
-                1: 1, 2: 2, 6: 6, 7: 7,
+                1: 1, 6: 6, 7: 7,
             },
             "friend-association-work-experience": {
                 1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 8: 8,
@@ -1151,6 +1151,8 @@ class PublishedTacheTwoHighlightTests(TestCase):
             ("trusted-person-temporary-pet-care", 1, 5, "Quels jouets préfères-tu laisser à ton animal ?"),
             ("trusted-person-temporary-pet-care", 2, 4, "Tu pourrais me montrer comment préparer ses repas ?"),
             ("volunteer-local-association-information-office", 2, 8, "Est-ce que je peux venir observer une mission avec un ami ?"),
+            ("volunteer-local-association-information-office", 3, 2, "Cette association propose-t-elle des ateliers pour les enfants ?"),
+            ("volunteer-local-association-information-office", 3, 5, "Puis-je aider seulement pendant les vacances scolaires ?"),
             ("newcomer-local-acquaintance-meet-people", 0, 2, "Quelle association correspondrait à mes loisirs ?"),
             ("host-foreign-friends-city-advice", 2, 3, "Quels quartiers se prêtent à une visite avec des amis ?"),
             ("neighbor-dog-care-week-paid", 2, 4, "Comment puis-je vérifier les consignes avant votre départ ?"),
@@ -1239,8 +1241,15 @@ class PublishedTacheTwoHighlightTests(TestCase):
     def test_volunteer_tasks_and_first_visit_preserve_other_questions_and_archive_previous_wording(self):
         self.assert_revision_highlights_preserved(
             "volunteer-local-association-information-office",
-            {number: number for number in (1, 2, 4, 5, 6, 7)},
+            {number: number for number in (1, 4, 6, 7)},
             revision=2,
+        )
+
+    def test_cultural_volunteering_choice_preserves_other_questions_and_archives_previous_wording(self):
+        self.assert_revision_highlights_preserved(
+            "volunteer-local-association-information-office",
+            {number: number for number in (1, 3, 4, 6, 7)},
+            revision=3,
         )
 
     def test_unspecified_apartment_revision_preserves_other_questions_and_archived_notes(self):

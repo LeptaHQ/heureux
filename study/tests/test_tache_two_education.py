@@ -69,7 +69,7 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         expected = {
             "arrivee": "b3f62225759c57d763f3af704a1a1756d7d83700d5b9c061b8b5b2de52304802",
             "logement": "e650f8cfbd4e5c653958e7601692e2d4d0549302f09a4e9b9bdfa7f53f240847",
-            "vie-quartier": "29c2d1056ad78746b6101141666c68076f5c091ca127b0002928a695e7c02d64",
+            "vie-quartier": "3cb7510a9343310f25e6b9277aed168ebc10d7f818feac53c9e1b292b7ca4142",
             "travail": "5529b40e35c4d3fd44ca29e4fc103345feebe67ca35618a24091b59d716b8752",
         }
         for theme, digest in expected.items():

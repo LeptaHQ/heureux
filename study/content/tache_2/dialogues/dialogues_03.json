@@ -260,7 +260,7 @@
         {"topic": "Tâches à assurer", "question": "Y a-t-il des allergies, des aliments à éviter ou des soins particuliers dont la personne devra tenir compte ?", "answer": "Aucune allergie connue, aucun aliment interdit ni soin particulier à prévoir ; nous laisserons les consignes pour les repas.", "follow_up_to": 4, "condition": "If the duties involve meals or care needs that have not been explained."},
         {"topic": "Profil et rémunération", "question": "Quelle expérience ou formation souhaitez-vous que la personne possède, notamment en premiers secours ?", "answer": "Une personne habituée aux enfants de cinq à huit ans et formée aux premiers secours.", "follow_up_to": null},
         {"topic": "Profil et rémunération", "question": "Quelle rémunération proposez-vous pour cette garde, et comment et quand sera-t-elle versée ?", "answer": "18 $ de l'heure, par virement après chaque garde ; le montant et les tâches seront à convenir directement avec la personne.", "follow_up_to": null},
-        {"topic": "Profil et rémunération", "question": "Comment souhaitez-vous rencontrer la personne que je pourrais vous recommander ?", "answer": "Lors d'un premier rendez-vous à la maison, avec les enfants présents.", "follow_up_to": null}
+        {"topic": "Profil et rémunération", "question": "Souhaitez-vous prévoir une première rencontre entre la personne et vos enfants avant de confirmer la garde ?", "answer": "Oui, chez nous, avec les enfants, pour faire connaissance et voir si le contact passe bien.", "follow_up_to": null}
       ]
     },
     {

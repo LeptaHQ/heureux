@@ -1244,6 +1244,21 @@
             {"topic": "Profil et rémunération", "question": "Quel salaire proposez-vous pour cette garde ?", "follow_up_to": null},
             {"topic": "Profil et rémunération", "question": "Comment souhaitez-vous rencontrer la personne que je pourrais vous recommander ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "colleague-babysitter-referral-needs",
+          "opening": "Bonjour ! Pour voir si je peux vous recommander quelqu'un, j'aimerais préciser vos besoins pour la garde.",
+          "closing": "Merci pour ces précisions. Je vais voir si une personne de mon entourage correspond à vos besoins.",
+          "questions": [
+            {"topic": "Enfants et organisation", "question": "Combien d'enfants faudrait-il garder et quels âges ont-ils ?", "follow_up_to": null},
+            {"topic": "Enfants et organisation", "question": "Quels jours et horaires faut-il couvrir, et à partir de quand et pour quelle durée ?", "follow_up_to": null},
+            {"topic": "Enfants et organisation", "question": "Dans quel quartier se ferait la garde, et serait-ce chez vous ou chez la personne recommandée ?", "follow_up_to": null},
+            {"topic": "Tâches à assurer", "question": "Quelles tâches devra assurer la personne : sortie de l'école, aide aux devoirs ou préparation des repas ?", "follow_up_to": null},
+            {"topic": "Tâches à assurer", "question": "Y a-t-il des allergies, des aliments à éviter ou des soins particuliers dont la personne devra tenir compte ?", "follow_up_to": 4, "condition": "If the duties involve meals or care needs that have not been explained."},
+            {"topic": "Profil et rémunération", "question": "Quelle expérience ou formation souhaitez-vous que la personne possède, notamment en premiers secours ?", "follow_up_to": null},
+            {"topic": "Profil et rémunération", "question": "Quelle rémunération proposez-vous pour cette garde, et comment et quand sera-t-elle versée ?", "follow_up_to": null},
+            {"topic": "Profil et rémunération", "question": "Comment souhaitez-vous rencontrer la personne que je pourrais vous recommander ?", "follow_up_to": null}
+          ]
         }
       ]
     },

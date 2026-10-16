@@ -340,7 +340,8 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
                 "School pickup, homework or meal preparation",
                 "Allergies, foods to avoid and care needs to tell the recommended person",
                 "Experience, training and first aid",
-                "Proposed pay, payment method and timing", "Arranging an initial meeting",
+                "Proposed pay, payment method and timing",
+                "Initial meeting with the children before confirming childcare",
             ),
             "grocery-store-home-delivery": (
                 "Delivery area and checking coverage for your address",
@@ -1144,7 +1145,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
 
     def test_babysitter_referral_reorder_preserves_unchanged_questions_and_archived_notes(self):
         self.assert_revision_highlights_preserved(
-            "colleague-babysitter-referral-needs", {1: 1, 8: 8}, revision=0,
+            "colleague-babysitter-referral-needs", {1: 1}, revision=0,
         )
 
     def test_grocery_fee_before_timing_reorder_preserves_unchanged_question_highlights(self):
@@ -1226,6 +1227,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             ("friend-three-year-old-weekend-care", 3, 2, "Quels repas faciles puis-je préparer si elle refuse ce que tu as prévu ?"),
             ("friend-three-year-old-weekend-care", 3, 8, "Pourrais-tu me laisser un autre numéro si ton téléphone est éteint ?"),
             ("colleague-babysitter-referral-needs", 2, 7, "La personne sera-t-elle payée après chaque garde ?"),
+            ("colleague-babysitter-referral-needs", 3, 8, "Pourriez-vous rencontrer cette personne à la sortie de l'école ?"),
             ("neighbor-home-childcare-provider-referral", 2, 7, "Comment régliez-vous les heures supplémentaires ?"),
             ("neighbor-child-one-day-care", 2, 3, "Qu'est-ce qui rassure votre enfant avec de nouvelles personnes ?"),
             ("grocery-store-home-delivery", 3, 4, "Quels frais sont inclus dans le total annoncé ?"),
@@ -1262,7 +1264,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
         cases = {
             "animal-protection-association-invitation": (0, {3: 3, 6: 6}),
             "child-friends-family-holiday-invitation": (1, {3: 2, 6: 6}),
-            "colleague-babysitter-referral-needs": (1, {1: 1, 4: 4, 6: 6, 8: 8}),
+            "colleague-babysitter-referral-needs": (1, {1: 1, 4: 4, 6: 6}),
             "friend-entertain-visiting-nephews": (1, {2: 2, 4: 4, 7: 7, 8: 8}),
             "friend-holiday-apartment-watch": (1, {1: 1, 2: 2, 4: 5, 5: 6}),
             "friend-homeless-meal-volunteering": (1, {1: 1, 2: 2, 5: 5, 7: 7}),
@@ -1321,7 +1323,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
         cases = {
             "animal-protection-association-invitation": (1, {1: 1, 2: 2, 3: 3, 6: 6, 7: 7}),
             "child-friends-family-holiday-invitation": (2, {3: 2, 4: 4, 5: 5, 6: 6, 7: 7}),
-            "colleague-babysitter-referral-needs": (2, {1: 1, 2: 2, 3: 3, 4: 4, 6: 6, 8: 8}),
+            "colleague-babysitter-referral-needs": (2, {1: 1, 2: 2, 3: 3, 4: 4, 6: 6}),
             "friend-entertain-visiting-nephews": (2, {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 7: 7, 8: 8}),
             "friend-holiday-apartment-watch": (2, {1: 1, 2: 2, 4: 4, 5: 5, 6: 6}),
             "friend-homeless-meal-volunteering": (2, {1: 1, 2: 2, 3: 3, 5: 5, 7: 7}),
@@ -1344,6 +1346,13 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "neighbor-dog-care-week-paid",
             {1: 1, 2: 2, 7: 7},
             revision=2,
+        )
+
+    def test_babysitter_first_meeting_refinement_preserves_all_other_question_highlights(self):
+        self.assert_revision_highlights_preserved(
+            "colleague-babysitter-referral-needs",
+            {number: number for number in range(1, 8)},
+            revision=3,
         )
 
     def test_dog_care_and_payment_refinements_preserve_other_questions_and_archive_previous_wording(self):

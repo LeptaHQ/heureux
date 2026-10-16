@@ -144,7 +144,10 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         for group, revision in sorted(DEVELOPMENT_REVISIONS.items()):
             with self.subTest(group=group):
                 revisions = self.history[group]["revisions"]
-                self.assertEqual(len(revisions), revision + 1)
+                self.assertEqual(
+                    len(revisions),
+                    revision + (2 if group == "colleague-babysitter-referral-needs" else 1),
+                )
                 previous = revisions[revision]
                 self.assertEqual(revisions.count(previous), 1)
                 self.assertEqual(set(previous), {"group", "opening", "closing", "questions"})
@@ -498,6 +501,29 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertIn("disponibilités actuelles", provider.questions[4].answer)
         self.assertIn("tarif actuel", provider.questions[6].answer)
         self.assertIn("avec son accord", provider.questions[7].answer)
+
+    def test_babysitter_first_meeting_includes_children_before_confirming_care(self):
+        row = self.by_group["colleague-babysitter-referral-needs"]
+        self.assertEqual(
+            row.questions[7].question,
+            "Souhaitez-vous prévoir une première rencontre entre la personne et vos enfants avant de confirmer la garde ?",
+        )
+        self.assertTrue(row.questions[7].answer.startswith("Oui"))
+        self.assertIn("avec les enfants", row.questions[7].answer)
+        self.assertEqual(
+            self.hints[row.group][7]["english"],
+            "Initial meeting with the children before confirming childcare",
+        )
+        before = self.history[row.group]["revisions"][3]
+        self.assertEqual(
+            [question.question for question in row.questions[:7]],
+            [question["question"] for question in before["questions"][:7]],
+        )
+        snapshot = json.dumps(before, ensure_ascii=False, sort_keys=True).encode()
+        self.assertEqual(
+            hashlib.sha256(snapshot).hexdigest(),
+            "db69186b38b31c111e404f88150dfc1c7297cc54f033d47c432b1ac98872a21e",
+        )
 
     def test_holiday_child_safety_checks_actual_arrangements_not_only_reassurance(self):
         row = self.by_group["child-friends-family-holiday-invitation"]

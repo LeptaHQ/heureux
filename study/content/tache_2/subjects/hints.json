@@ -38,28 +38,28 @@
     ],
     "host-foreign-friends-city-advice": [
       {
-        "french": "Lieux prioritaires à faire découvrir à Seattle",
-        "english": "Priority places to show visitors in Seattle"
-      },
-      {
-        "french": "Ordre conseillé pour visiter les lieux proposés",
-        "english": "Recommended order for visiting the suggested places"
-      },
-      {
         "french": "Activité sur l'histoire et la culture régionales",
         "english": "Activity about regional history and culture"
       },
       {
-        "french": "Autres activités intérieures en cas de pluie : exposition ou spectacle",
-        "english": "Other indoor rainy-day activities: exhibition or show"
+        "french": "Durée de l'activité recommandée et réservation à l'avance",
+        "english": "Recommended activity's duration and advance booking"
       },
       {
-        "french": "Restaurant convivial pour goûter un produit local",
-        "english": "Friendly restaurant for trying a local specialty"
+        "french": "Balade au bord de l'eau ou dans un parc",
+        "english": "Waterfront or park walk"
       },
       {
-        "french": "Budget par personne au restaurant",
-        "english": "Restaurant budget per person"
+        "french": "Activités à faire ensemble à la maison en cas de pluie",
+        "english": "Activities to do together at home if it rains"
+      },
+      {
+        "french": "Restaurant convivial proposant des spécialités locales",
+        "english": "Welcoming restaurant serving local specialties"
+      },
+      {
+        "french": "Budget par personne : repas, boisson, taxes et pourboire",
+        "english": "Per-person meal budget including a drink, taxes and tip"
       },
       {
         "french": "Trajets conseillés à pied ou en transports en commun",
@@ -148,16 +148,16 @@
         "english": "Care at the owner's or your home and overnight presence"
       },
       {
-        "french": "Nourriture, quantités et horaires des repas",
-        "english": "Food, portions and meal times"
+        "french": "Qui fournit la nourriture et horaires des repas",
+        "english": "Who provides the food and feeding times"
       },
       {
-        "french": "Nombre et durée des promenades quotidiennes",
-        "english": "Number and length of daily walks"
+        "french": "Fréquence des promenades et durée de chaque sortie",
+        "english": "Walk frequency and time to allow for each outing"
       },
       {
-        "french": "Consignes particulières pendant les promenades",
-        "english": "Special instructions during walks"
+        "french": "Comportement en promenade et sociabilité avec les inconnus",
+        "english": "Behaviour on walks and sociability with unfamiliar people"
       },
       {
         "french": "Allergies, soins ou traitement pendant la garde",
@@ -168,8 +168,8 @@
         "english": "Contact for a health problem"
       },
       {
-        "french": "Rémunération et remboursement des dépenses urgentes",
-        "english": "Pay and reimbursement of urgent expenses"
+        "french": "Rémunération prévue et moment du paiement",
+        "english": "Pay offered and when it will be paid"
       }
     ],
     "employee-yoga-colleague-organizer": [

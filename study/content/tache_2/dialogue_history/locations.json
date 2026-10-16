@@ -104,6 +104,21 @@
             {"topic": "Déplacements", "question": "Quel moyen de transport serait le plus simple entre ces différentes sorties ?", "follow_up_to": null},
             {"topic": "Déplacements", "question": "Quel titre de transport serait le plus avantageux pour une journée de visites ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "host-foreign-friends-city-advice",
+          "opening": "Salut Pierre ! Mes amis viennent bientôt découvrir Seattle, et j'aimerais leur préparer un séjour varié sans trop charger les journées.",
+          "closing": "Merci, Pierre ! Je vais commencer par organiser la journée autour de Pike Place Market et de l'Olympic Sculpture Park.",
+          "questions": [
+            {"topic": "Visites et activités", "question": "Pour leur donner un bon aperçu de Seattle, quels endroits me conseillerais-tu en priorité ?", "follow_up_to": null},
+            {"topic": "Visites et activités", "question": "Dans quel ordre me conseilles-tu de visiter ces lieux ?", "follow_up_to": 1, "condition": "If several places are suggested without explaining a suitable visit order."},
+            {"topic": "Visites et activités", "question": "Quelle activité leur permettrait de mieux comprendre l'histoire et la culture de la région ?", "follow_up_to": null},
+            {"topic": "Visites et activités", "question": "En cas de pluie, quelles autres activités à l'intérieur me conseillerais-tu, comme une exposition ou un spectacle ?", "follow_up_to": null},
+            {"topic": "Restaurants", "question": "Où pourrait-on goûter une spécialité locale dans une ambiance conviviale ?", "follow_up_to": null},
+            {"topic": "Restaurants", "question": "Quel budget faudrait-il prévoir par personne dans ce restaurant ?", "follow_up_to": 5, "condition": "After a restaurant is recommended, unless its prices are already given."},
+            {"topic": "Déplacements", "question": "Pour rejoindre ces lieux, quels trajets me conseilles-tu de faire à pied et lesquels plutôt en transports en commun ?", "follow_up_to": null},
+            {"topic": "Déplacements", "question": "Pour ces déplacements, vaut-il mieux payer chaque trajet ou acheter un pass à la journée ?", "follow_up_to": 7, "condition": "If public transport is recommended without explaining tickets or day passes."}
+          ]
         }
       ]
     },
@@ -966,6 +981,21 @@
             {"topic": "Routine quotidienne", "question": "Combien de promenades lui faut-il chaque jour, et pendant combien de temps ?", "follow_up_to": null},
             {"topic": "Routine quotidienne", "question": "Pendant les promenades, y a-t-il une consigne particulière à respecter ?", "follow_up_to": 4, "condition": "If walks are needed and safety instructions have not already been given."},
             {"topic": "Santé et contact", "question": "A-t-il des soins ou un traitement à recevoir pendant cette semaine ?", "follow_up_to": null},
+            {"topic": "Santé et contact", "question": "Qui dois-je contacter si je remarque un problème de santé ?", "follow_up_to": null},
+            {"topic": "Rémunération", "question": "Quelle rémunération avez-vous prévue pour la garde, et comment seront remboursées d'éventuelles dépenses urgentes ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "neighbor-dog-care-week-paid",
+          "opening": "Bonjour ! Votre proposition m'intéresse. J'aimerais vérifier que je pourrai bien m'occuper de votre chien.",
+          "closing": "Merci pour ces précisions. Je vais vérifier mes disponibilités avant de vous confirmer.",
+          "questions": [
+            {"topic": "Organisation de la garde", "question": "Quelles sont les dates exactes de votre absence ?", "follow_up_to": null},
+            {"topic": "Organisation de la garde", "question": "Souhaitez-vous que je garde le chien chez vous ou chez moi, et faut-il prévoir une présence la nuit ?", "follow_up_to": null},
+            {"topic": "Routine quotidienne", "question": "Quelle nourriture dois-je lui donner, en quelles quantités et à quels horaires ?", "follow_up_to": null},
+            {"topic": "Routine quotidienne", "question": "Combien de promenades lui faut-il chaque jour, et pendant combien de temps ?", "follow_up_to": null},
+            {"topic": "Routine quotidienne", "question": "Pendant les promenades, y a-t-il une consigne particulière à respecter ?", "follow_up_to": 4, "condition": "If walks are needed and safety instructions have not already been given."},
+            {"topic": "Santé et contact", "question": "A-t-il des allergies, des soins ou un traitement à prévoir pendant la garde ?", "follow_up_to": null},
             {"topic": "Santé et contact", "question": "Qui dois-je contacter si je remarque un problème de santé ?", "follow_up_to": null},
             {"topic": "Rémunération", "question": "Quelle rémunération avez-vous prévue pour la garde, et comment seront remboursées d'éventuelles dépenses urgentes ?", "follow_up_to": null}
           ]

@@ -192,7 +192,7 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
         self.assertIn("joindre", holiday.questions[7].question)
         self.assertIn("avoir des nouvelles", holiday.questions[7].question)
 
-    def test_pet_care_reuses_the_feeding_goal_without_merging_paid_and_unpaid_roles(self):
+    def test_pet_care_distinguishes_feeding_goals_without_merging_paid_and_unpaid_roles(self):
         by_group = {row.group: row for row in catalogue.tache_two_dialogues().values()}
         paid = by_group["neighbor-dog-care-week-paid"]
         favour = by_group["trusted-person-temporary-pet-care"]
@@ -203,9 +203,11 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
         self.assertEqual(
             favour.questions[0].question, "Quel animal vas-tu me confier, et quel âge a-t-il ?",
         )
-        self.assertEqual(paid.questions[2].question, favour.questions[3].question)
-        self.assertIn("en quelles quantités", paid.questions[2].question)
-        self.assertIn("pendant combien de temps", paid.questions[3].question)
+        self.assertIn("Fournirez-vous sa nourriture ou devrai-je m'en occuper", paid.questions[2].question)
+        self.assertIn("à quelles heures", paid.questions[2].question)
+        self.assertIn("en quelles quantités", favour.questions[3].question)
+        self.assertIn("À quelle fréquence", paid.questions[3].question)
+        self.assertIn("pour chaque sortie", paid.questions[3].question)
         self.assertNotIn("laisse", paid.questions[3].answer)
         self.assertIn("laisse", paid.questions[4].answer)
         self.assertIsNone(favour.questions[4].follow_up_to)
@@ -292,10 +294,17 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
                 self.assertEqual(tuple(row["english"] for row in hints[group]), english)
         self.assertNotIn("return", hints["friend-holiday-apartment-watch"][3]["english"])
         self.assertNotIn("authorization", hints["trusted-person-temporary-pet-care"][7]["english"])
-        self.assertIn("Seattle", hints["host-foreign-friends-city-advice"][0]["english"])
         self.assertEqual(
-            hints["neighbor-dog-care-week-paid"][2],
-            hints["trusted-person-temporary-pet-care"][3],
+            hints["host-foreign-friends-city-advice"][0]["english"],
+            "Activity about regional history and culture",
+        )
+        self.assertEqual(
+            hints["neighbor-dog-care-week-paid"][2]["english"],
+            "Who provides the food and feeding times",
+        )
+        self.assertEqual(
+            hints["trusted-person-temporary-pet-care"][3]["english"],
+            "Food, portions and meal times",
         )
 
     def test_apartment_condition_question_offers_work_or_ready_to_live_in(self):
@@ -1080,7 +1089,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
 
     def test_neighbourhood_wording_changes_preserve_other_highlights_and_archived_notes(self):
         mappings = {
-            "neighbor-dog-care-week-paid": {1: 1, 5: 5, 7: 7, 8: 8},
+            "neighbor-dog-care-week-paid": {1: 1, 7: 7},
             "trusted-person-temporary-pet-care": {2: 2, 8: 8},
             "volunteer-local-association-information-office": {1: 1, 2: 2, 3: 3, 8: 8},
             "friend-three-year-old-weekend-care": {7: 7, 8: 8},
@@ -1092,7 +1101,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "neighbor-environmental-association-volunteering": {1: 1, 2: 2, 4: 4, 8: 7},
             "neighbor-home-childcare-provider-referral": {1: 1, 2: 2, 3: 3, 6: 6, 7: 7, 8: 8},
             "help-friend-post-parcel": {1: 1, 8: 8},
-            "host-foreign-friends-city-advice": {1: 1, 3: 3, 5: 5, 6: 6},
+            "host-foreign-friends-city-advice": {3: 1},
         }
         for group, mapping in mappings.items():
             with self.subTest(group=group):
@@ -1137,6 +1146,8 @@ class PublishedTacheTwoHighlightTests(TestCase):
             ("medical-secretary-temporary-replacement-doctor", 1, 3, "Comment pourrai-je transmettre mes résultats ?"),
             ("trusted-person-temporary-pet-care", 1, 5, "Quels jouets préfères-tu laisser à ton animal ?"),
             ("newcomer-local-acquaintance-meet-people", 0, 2, "Quelle association correspondrait à mes loisirs ?"),
+            ("host-foreign-friends-city-advice", 2, 3, "Quels quartiers se prêtent à une visite avec des amis ?"),
+            ("neighbor-dog-care-week-paid", 2, 4, "Comment puis-je vérifier les consignes avant votre départ ?"),
         )
         for group, revision, number, question in cases:
             with self.subTest(group=group):
@@ -1176,10 +1187,10 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "friend-three-year-old-weekend-care": (2, {2: 2, 3: 3, 5: 5, 6: 6, 7: 7, 8: 8}),
             "grocery-store-home-delivery": (2, {1: 1, 3: 3, 4: 4, 5: 5, 7: 7, 8: 8}),
             "help-friend-post-parcel": (2, {1: 1, 4: 4, 5: 5, 7: 7, 8: 8}),
-            "host-foreign-friends-city-advice": (1, {1: 1, 3: 3, 5: 5, 6: 6}),
+            "host-foreign-friends-city-advice": (1, {3: 1}),
             "medical-secretary-temporary-replacement-doctor": (1, {1: 1, 2: 3, 3: 4, 4: 5, 7: 7, 8: 8}),
             "neighbor-child-one-day-care": (1, {1: 1, 2: 2, 3: 3, 6: 6, 7: 7, 8: 8}),
-            "neighbor-dog-care-week-paid": (1, {1: 1, 3: 3, 4: 4, 5: 5, 7: 7, 8: 8}),
+            "neighbor-dog-care-week-paid": (1, {1: 1, 7: 7}),
             "neighbor-environmental-association-volunteering": (1, {1: 1, 2: 2, 3: 3, 4: 4, 8: 7}),
             "neighbor-home-childcare-provider-referral": (1, {1: 1, 2: 2, 3: 3, 6: 6, 7: 7, 8: 8}),
             "newcomer-local-acquaintance-meet-people": (0, {1: 1, 2: 2, 4: 4, 5: 5}),
@@ -1190,6 +1201,20 @@ class PublishedTacheTwoHighlightTests(TestCase):
             with self.subTest(group=group):
                 self.assert_revision_highlights_preserved(group, mapping, revision=revision)
             Annotation.objects.filter(user=self.user).delete()
+
+    def test_city_rewrite_preserves_retained_questions_and_archives_rewritten_highlights(self):
+        self.assert_revision_highlights_preserved(
+            "host-foreign-friends-city-advice",
+            {3: 1, 7: 7, 8: 8},
+            revision=2,
+        )
+
+    def test_dog_routine_rewrite_preserves_other_questions_and_archives_changed_highlights(self):
+        self.assert_revision_highlights_preserved(
+            "neighbor-dog-care-week-paid",
+            {1: 1, 2: 2, 6: 6, 7: 7},
+            revision=2,
+        )
 
     def test_unspecified_apartment_revision_preserves_other_questions_and_archived_notes(self):
         self.assert_revision_highlights_preserved(

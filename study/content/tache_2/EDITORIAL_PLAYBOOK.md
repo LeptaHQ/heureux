@@ -72,6 +72,11 @@ Questions must:
 - avoid generic filler when a concrete logistical or decision-making question
   would be more useful.
 
+In a fixed practice route, do not rely on a broad recommendation receiving only
+a narrow scripted answer. Each later question must still be useful after a
+natural reply. Distinguish an indoor outing from an activity at home; rain does
+not automatically mean that the visitors must remain at home.
+
 Do not remove useful examples merely to make a question shorter. Examples such
 as documents, equipment, services, costs, schedules, transport options, safety
 checks, or comparison criteria are instructional support when they remain

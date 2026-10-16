@@ -217,9 +217,8 @@ class TacheTwoPriorThemeReviewTests(SimpleTestCase):
         self.assertIn("Mme Martin", orientation.questions[3].answer)
         visits = self.by_group["host-foreign-friends-city-advice"]
         for place in (
-            "Pike Place Market", "Olympic Sculpture Park", "MOHAI",
-            "Museum of Pop Culture", "Capitol Hill",
+            "Pike Place Market", "Olympic Sculpture Park", "MOHAI", "front de mer",
         ):
             self.assertIn(place, visits.questions[6].answer)
-        for mode in ("bus", "monorail", "métro léger"):
-            self.assertIn(mode, visits.questions[7].answer)
+        self.assertIn("bus", visits.questions[7].answer)
+        self.assertIn("lignes prévues", visits.questions[7].answer)

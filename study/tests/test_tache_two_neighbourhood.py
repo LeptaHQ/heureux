@@ -101,28 +101,90 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
             "38daa5beaf13a09fcd8f09db4d648eb5bd7e7dab4070ce90cf127fd7fb9de63e",
         )
 
-    def test_visit_order_does_not_force_a_single_walkable_day(self):
+    def test_city_route_separates_visits_shared_activities_restaurants_and_transport(self):
         row = self.by_group["host-foreign-friends-city-advice"]
         self.assertEqual(
-            row.questions[1].question, "Dans quel ordre me conseilles-tu de visiter ces lieux ?",
+            [question.topic for question in row.questions],
+            ["Visite culturelle"] * 2 + ["Activités à partager"] * 2
+            + ["Restaurants et budget"] * 2 + ["Déplacements"] * 2,
         )
-        self.assertIn("without explaining a suitable visit order", row.questions[1].condition)
+        self.assertIn("au bord de l'eau ou dans un parc", row.questions[2].question)
+        for question in row.questions:
+            self.assertNotIn("Dans quel ordre", question.question)
+            self.assertNotIn("quels endroits", question.question)
+        for question in row.questions[:6]:
+            self.assertNotRegex(question.question, r"trajets|s'y rendre|transports en commun")
         self.assertIn("à pied", row.questions[6].question)
         self.assertIn("en transports en commun", row.questions[6].question)
         self.assertIn("acheter un pass à la journée", row.questions[7].question)
         self.assertEqual(row.questions[7].follow_up_to, 7)
-        self.assertIn("réseaux couverts", row.questions[7].answer)
-        self.assertNotIn("à pied", self.hints[row.group][1]["french"])
-        self.assertNotIn("walkable day", self.hints[row.group][1]["english"])
+        self.assertIn("aller-retour en bus", row.questions[7].answer)
+        self.assertIn("lignes prévues", row.questions[7].answer)
 
-    def test_rainy_day_questions_name_real_indoor_alternatives(self):
+    def test_previous_city_and_dog_layouts_are_archived_exactly(self):
+        expected = {
+            "host-foreign-friends-city-advice":
+                "093bfa2c772f100ba890fd0bd4d11f80928fb979095a98d62d6296e6f40fc4ce",
+            "neighbor-dog-care-week-paid":
+                "aa3b80a62d55b3d69a78a18dc6e9369be1bf0fa27dcf4b8a029a636426b61902",
+        }
+        for group, digest in expected.items():
+            with self.subTest(group=group):
+                before = self.history[group]["revisions"][2]
+                snapshot = json.dumps(before, ensure_ascii=False, sort_keys=True).encode()
+                self.assertEqual(hashlib.sha256(snapshot).hexdigest(), digest)
+                self.assertEqual(len(self.history[group]["revisions"]), 3)
+
+    def test_city_visit_opens_with_culture_and_keeps_every_piste_aligned(self):
+        row = self.by_group["host-foreign-friends-city-advice"]
+        before = self.history[row.group]["revisions"][2]
+        self.assertEqual(
+            row.questions[0].question,
+            "Quelle activité leur permettrait de mieux comprendre l'histoire et la culture de la région ?",
+        )
+        self.assertEqual(
+            row.questions[0].question, before["questions"][2]["question"],
+        )
+        self.assertEqual(
+            [cue["english"] for cue in self.hints[row.group]],
+            [
+                "Activity about regional history and culture",
+                "Recommended activity's duration and advance booking",
+                "Waterfront or park walk",
+                "Activities to do together at home if it rains",
+                "Welcoming restaurant serving local specialties",
+                "Per-person meal budget including a drink, taxes and tip",
+                "Recommended walking legs and public-transport legs",
+                "Individual tickets or a day pass for the planned journeys",
+            ],
+        )
+        self.assertEqual(len(self.history[row.group]["revisions"]), 3)
+        self.assertIn("Seattle is an example", row.note)
+        self.assertIn("with them, not this friend", row.note)
+        self.assertIn("simulation examples to verify", row.note)
+        self.assertEqual(row.questions[1].follow_up_to, 1)
+        self.assertIn("combien de temps", row.questions[1].question)
+        self.assertIn("réserver à l'avance", row.questions[1].question)
+        self.assertIn("without its duration or advance-booking advice", row.questions[1].condition)
+        self.assertIn("deux heures", row.questions[1].answer)
+        self.assertIn("conditions pour vos dates", row.questions[1].answer)
+        self.assertEqual(row.questions[5].follow_up_to, 5)
+        self.assertIn("taxes et pourboire compris", row.questions[5].question)
+        self.assertIn("dollars américains", row.questions[5].answer)
+        self.assertIn("taxes et pourboire compris", row.questions[5].answer)
+        self.assertIn("estimation", row.questions[5].answer)
+        self.assertNotIn("journée autour", row.closing)
+
+    def test_rainy_day_questions_distinguish_staying_home_from_indoor_outings(self):
         city = self.by_group["host-foreign-friends-city-advice"]
-        self.assertIn("quelles autres activités à l'intérieur", city.questions[3].question)
-        self.assertIn("une exposition ou un spectacle", city.questions[3].question)
-        self.assertIn("MOHAI", city.questions[2].answer)
+        self.assertIn("S'il pleut et qu'on préfère rester à la maison", city.questions[3].question)
+        self.assertIn("ensemble", city.questions[3].question)
+        self.assertIn("MOHAI", city.questions[0].answer)
         self.assertNotIn("MOHAI", city.questions[3].answer)
-        self.assertIn("Museum of Pop Culture", city.questions[3].answer)
-        self.assertIn("programmation", city.questions[3].answer)
+        self.assertIn("cuisiner ensemble", city.questions[3].answer)
+        self.assertIn("jeu d'observation", city.questions[3].answer)
+        self.assertIn("à la maison", self.hints[city.group][3]["french"])
+        self.assertIn("at home", self.hints[city.group][3]["english"])
         nephews = self.by_group["friend-entertain-visiting-nephews"]
         self.assertIn("où pourrais-je les emmener", nephews.questions[4].question)
         self.assertIn("atelier ou une exposition interactive", nephews.questions[4].question)
@@ -143,8 +205,53 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertIn("présence la nuit", paid.questions[1].question)
         self.assertIn("Trois sorties", paid.questions[3].answer)
         self.assertIn("allergies", paid.questions[5].question)
-        self.assertIn("séparément", paid.questions[7].answer)
+        self.assertIn("280 $ pour la semaine", paid.questions[7].answer)
+        self.assertIn("dimanche soir, à mon retour", paid.questions[7].answer)
         self.assertIn("avant de vous confirmer", paid.closing)
+
+    def test_paid_dog_routine_distinguishes_walk_frequency_from_behaviour_with_unfamiliar_people(self):
+        row = self.by_group["neighbor-dog-care-week-paid"]
+        self.assertEqual(
+            row.questions[2].question,
+            "Fournirez-vous sa nourriture ou devrai-je m'en occuper, et à quelles heures prend-il ses repas ?",
+        )
+        self.assertIn("Je fournirai ses croquettes", row.questions[2].answer)
+        self.assertIn("8 h et à 18 h", row.questions[2].answer)
+        self.assertEqual(
+            self.hints[row.group][2]["english"],
+            "Who provides the food and feeding times",
+        )
+        walks, behaviour = row.questions[3:5]
+        self.assertEqual(
+            walks.question,
+            "À quelle fréquence faut-il le promener, et combien de temps prévoir pour chaque sortie ?",
+        )
+        self.assertIn("Trois sorties par jour", walks.answer)
+        self.assertIn("trente minutes", walks.answer)
+        self.assertIn("dix minutes vers midi", walks.answer)
+        self.assertEqual(
+            behaviour.question,
+            "Comment se comporte-t-il pendant les promenades, et est-il sociable avec les personnes qu'il ne connaît pas ?",
+        )
+        self.assertEqual(behaviour.follow_up_to, 4)
+        self.assertIn("has not been explained", behaviour.condition)
+        self.assertIn("calme en laisse", behaviour.answer)
+        self.assertIn("sociable avec les personnes", behaviour.answer)
+        self.assertIn("nerveux avec les grands chiens", behaviour.answer)
+        self.assertEqual(
+            [cue["english"] for cue in self.hints[row.group][3:5]],
+            [
+                "Walk frequency and time to allow for each outing",
+                "Behaviour on walks and sociability with unfamiliar people",
+            ],
+        )
+        self.assertEqual(
+            row.questions[7].question,
+            "Quelle rémunération avez-vous prévue pour la garde, et quand sera-t-elle versée ?",
+        )
+        self.assertEqual(
+            self.hints[row.group][7]["english"], "Pay offered and when it will be paid",
+        )
 
     def test_childcare_meal_and_sleep_arrangements_are_actionable(self):
         weekend = self.by_group["friend-three-year-old-weekend-care"]

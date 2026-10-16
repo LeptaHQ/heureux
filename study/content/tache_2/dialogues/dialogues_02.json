@@ -49,7 +49,7 @@
       "questions": [
         {"topic": "Organisation de la garde", "question": "Quel animal vas-tu me confier, et quel âge a-t-il ?", "answer": "Mon chien, un petit terrier de quatre ans, assez calme.", "follow_up_to": null},
         {"topic": "Organisation de la garde", "question": "Pendant quelles dates faudra-t-il m'en occuper ?", "answer": "Du vendredi soir au lundi matin.", "follow_up_to": null},
-        {"topic": "Organisation de la garde", "question": "Où souhaites-tu qu'il reste, et combien de temps peut-il rester seul pendant la journée ?",         "answer": "Chez moi ; reste la nuit et prévois aussi de la présence en journée, car il ne doit pas rester seul plus de quatre heures. Je te laisserai les clés.", "follow_up_to": null},
+        {"topic": "Organisation de la garde", "question": "Où souhaites-tu qu'il reste, et combien de temps peut-il rester seul pendant la journée ?", "answer": "Chez moi ; reste la nuit et prévois aussi de la présence en journée, car il ne doit pas rester seul plus de quatre heures. Je te laisserai les clés.", "follow_up_to": null},
         {"topic": "Besoins quotidiens", "question": "Côté alimentation, me laisseras-tu sa nourriture ou devrai-je l'acheter, et à quelles heures prend-il ses repas ?", "answer": "Je te laisserai ses croquettes et des portions mesurées pour chaque repas, à donner à 8 h et à 18 h.", "follow_up_to": null},
         {"topic": "Besoins quotidiens", "question": "Combien de sorties ou de séances de jeu faut-il prévoir chaque jour, et combien de temps doit durer chacune ?", "answer": "Deux promenades de trente minutes, matin et soir, une sortie de dix minutes à midi et deux séances de jeu de dix minutes à la maison.", "follow_up_to": null},
         {"topic": "Besoins quotidiens", "question": "Comment se comporte-t-il pendant les promenades, et est-il sociable avec les personnes qu'il ne connaît pas ?", "answer": "Il est calme en laisse et sociable avec les inconnus, mais nerveux avec les grands chiens ; évite le parc à chiens.", "follow_up_to": 5, "condition": "If walks are mentioned without explaining behaviour around strangers; adapt to the animal named."},
@@ -152,7 +152,7 @@
         {"topic": "Invitation et disponibilités", "question": "Ça te dirait de m'accompagner pour un séjour à la campagne ?", "answer": "Oui, ça me ferait plaisir de changer d'air.", "follow_up_to": null},
         {"topic": "Invitation et disponibilités", "question": "À quelle période pourrais-tu te libérer ?", "answer": "Pendant le dernier week-end du mois.", "follow_up_to": null},
         {"topic": "Durée et programme", "question": "Combien de jours aimerais-tu rester ?", "answer": "Deux ou trois jours seraient bien, sans prendre trop de congés.", "follow_up_to": null},
-        {"topic": "Durée et programme", "question": "Quel coin de campagne nous conseillerais-tu ?", "answer": "La vallée près du lac, où il y a plusieurs sentiers et des villages à visiter.", "follow_up_to": null},
+        {"topic": "Durée et programme", "question": "Quel coin de campagne nous conseillerais-tu ?", "answer": "La vallée près du lac, où l'on peut marcher sur des sentiers, faire du vélo et visiter les marchés des villages.", "follow_up_to": null},
         {"topic": "Durée et programme", "question": "Parmi ces activités, lesquelles te tenteraient le plus ?", "answer": "Une promenade facile et la visite d'un marché de village.", "follow_up_to": 4, "condition": "If they mention activities when suggesting a destination."},
         {"topic": "Hébergement et budget", "question": "Quel type d'hébergement préférerais-tu ?", "answer": "Un petit gîte avec une cuisine, pour être tranquilles et préparer quelques repas.", "follow_up_to": null},
         {"topic": "Hébergement et budget", "question": "Quel budget voudrais-tu prévoir pour l'ensemble du séjour ?", "answer": "Autour de 200 $ chacun, transport compris si on partage la voiture.", "follow_up_to": null},
@@ -223,7 +223,7 @@
         {"topic": "Durée et activités", "question": "Quelles activités as-tu le plus appréciées ?", "answer": "Les randonnées et une visite dans un village au pied des montagnes.", "follow_up_to": null},
         {"topic": "Durée et activités", "question": "Ces randonnées demandaient-elles une bonne condition physique ?", "answer": "Certaines oui, mais plusieurs sentiers faciles permettaient de profiter du paysage.", "follow_up_to": 4, "condition": "If hiking is mentioned; adapt the difficulty question to the actual activity."},
         {"topic": "Hébergement et budget", "question": "Dans quel type d'hébergement étais-tu ?", "answer": "Dans un petit chalet partagé avec deux amis.", "follow_up_to": null},
-        {"topic": "Hébergement et budget", "question": "Quel budget as-tu prévu pour le séjour ?", "answer": "Environ 600 $ par personne, pour le chalet, les repas et les activités.", "follow_up_to": null},
+        {"topic": "Hébergement et budget", "question": "Quel budget as-tu consacré au séjour ?", "answer": "Environ 600 $ par personne, pour le chalet, les repas et les activités.", "follow_up_to": null},
         {"topic": "Hébergement et budget", "question": "Quels frais ont le plus pesé dans ce budget, et où pourrait-on économiser ?", "answer": "Le chalet représentait la moitié du budget ; partir en semaine permettrait de payer moins cher.", "follow_up_to": null}
       ]
     },
@@ -269,13 +269,13 @@
       "closing": "Merci pour ton avis ! J'ai maintenant une piste concrète pour préparer mon article.",
       "questions": [
         {"topic": "Choix du film", "question": "Quel film que tu as aimé me conseillerais-tu de présenter ?", "answer": "En corps, de Cédric Klapisch.", "follow_up_to": null},
-        {"topic": "Choix du film", "question": "C'est quel genre de film ?", "answer": "Une comédie dramatique centrée sur la danse.", "follow_up_to": 1, "condition": "After a film is recommended, unless its genre is already given."},
+        {"topic": "Choix du film", "question": "C'est quel genre de film ?", "answer": "Une comédie dramatique centrée sur la danse.", "follow_up_to": null},
         {"topic": "Histoire et avis", "question": "Quelle est l'histoire, sans dévoiler la fin ?", "answer": "Une danseuse classique blessée découvre la danse contemporaine et cherche une nouvelle voie.", "follow_up_to": null},
         {"topic": "Histoire et avis", "question": "Qu'est-ce qui t'a plu dans cette façon de raconter son parcours ?", "answer": "Le film montre sa reconstruction sans réduire le personnage à sa blessure.", "follow_up_to": 3, "condition": "After the plot is outlined; adapt the reference to its actual subject."},
         {"topic": "Histoire et avis", "question": "Quels acteurs jouent dans le film ?", "answer": "Marion Barbeau et Denis Podalydès, entre autres.", "follow_up_to": null},
         {"topic": "Lieu et prix", "question": "Où l'as-tu vu ?", "answer": "Au cinéma de mon quartier, pendant une soirée consacrée au cinéma français.", "follow_up_to": null},
         {"topic": "Lieu et prix", "question": "Combien avais-tu payé pour cette séance ?", "answer": "12 $, sans réduction particulière.", "follow_up_to": 6, "condition": "If they saw it at a paid screening."},
-        {"topic": "Lieu et prix", "question": "Est-ce que le film est encore à l'affiche ou disponible légalement en ligne ?", "answer": "Il n'est plus au cinéma, mais il vient d'arriver sur une plateforme de location.", "follow_up_to": null}
+        {"topic": "Lieu et prix", "question": "Est-ce que le film est encore à l'affiche ou disponible légalement en ligne ?", "answer": "La dernière fois que j'ai cherché, il était proposé en location en ligne ; la disponibilité actuelle dépend du pays et reste à vérifier.", "follow_up_to": null}
       ]
     },
     {
@@ -291,7 +291,7 @@
         {"topic": "Budget", "question": "Quel est le prix par personne ?", "answer": "Le tarif commence à 1 100 $, selon la date de départ.", "follow_up_to": null},
         {"topic": "Budget", "question": "Qu'est-ce qui est compris dans ce tarif ?", "answer": "Les hôtels, les petits-déjeuners et les transports entre les étapes, mais pas le vol.", "follow_up_to": 4, "condition": "After the price is given, unless inclusions are already explained."},
         {"topic": "Activités et réservation", "question": "Quelles activités sont prévues pendant le circuit ?", "answer": "Des visites guidées, une promenade en bateau et des moments libres.", "follow_up_to": null},
-        {"topic": "Activités et réservation", "question": "Quelles sont les conditions pour réserver ?", "answer": "Un acompte confirme la réservation ; nous vous remettons les conditions d'annulation avant le paiement.", "follow_up_to": null},
+        {"topic": "Activités et réservation", "question": "Quel acompte faut-il verser pour réserver, et quand le solde sera-t-il dû ?", "answer": "Un acompte de 25 % confirme la réservation ; le solde est dû trente jours avant le départ.", "follow_up_to": null},
         {"topic": "Activités et réservation", "question": "Quels départs ont encore des places pendant la période des vacances scolaires ?", "answer": "Il reste des places début juillet et à la fin du mois d'août.", "follow_up_to": null}
       ]
     },
@@ -303,13 +303,13 @@
       "closing": "Merci pour vos idées. Je vais vérifier le lieu et proposer une date aux voisins.",
       "questions": [
         {"topic": "Invités", "question": "Qui faudrait-il inviter pour commencer ?", "answer": "Les voisins les plus proches, pour garder une première rencontre facile à organiser.", "follow_up_to": null},
-        {"topic": "Invités", "question": "Comment leur proposer la fête sans oublier personne ?", "answer": "Un petit mot dans les boîtes aux lettres, avec un contact pour répondre, serait simple.", "follow_up_to": 1, "condition": "After they suggest whom to invite."},
+        {"topic": "Invités", "question": "Pour joindre ces voisins proches sans oublier personne, vaudrait-il mieux passer les voir ou laisser un mot ?", "answer": "Un petit mot dans les boîtes aux lettres, avec un contact pour répondre, serait simple.", "follow_up_to": 1, "condition": "If nearby neighbours are suggested and invitation methods remain unspecified."},
         {"topic": "Lieu et moment", "question": "Quel lieu pourrait convenir à cette fête ?", "answer": "La salle du centre de quartier, si elle est disponible à la location.", "follow_up_to": null},
         {"topic": "Lieu et moment", "question": "Quel moment serait le plus pratique pour la rencontre ?", "answer": "Un samedi en fin d'après-midi permettrait aux familles de passer sans finir trop tard.", "follow_up_to": null},
         {"topic": "Repas et animations", "question": "Quel type de repas serait le plus facile à prévoir ?", "answer": "Un buffet partagé, où chacun apporte quelque chose en indiquant les ingrédients.", "follow_up_to": null},
         {"topic": "Repas et animations", "question": "Quelle musique conviendrait à des invités d'âges différents ?", "answer": "Une playlist variée, à un volume qui permet de discuter.", "follow_up_to": null},
         {"topic": "Repas et animations", "question": "Quelle animation aiderait les voisins à faire connaissance ?", "answer": "Un petit jeu de présentation, puis des tables où les gens peuvent discuter.", "follow_up_to": null},
-        {"topic": "Repas et animations", "question": "Comment pourrions-nous répartir les dépenses de repas et d'animation entre les voisins ?", "answer": "Chacun pourrait apporter un plat, et nous partagerions seulement les frais de salle et de décoration.", "follow_up_to": null}
+        {"topic": "Repas et animations", "question": "Avec ce buffet partagé, quelles dépenses communes faudrait-il prévoir et comment les répartir ?", "answer": "Il resterait les frais de salle et de décoration ; on pourrait les partager entre les participants après leur avoir proposé un budget.", "follow_up_to": 5, "condition": "If a shared buffet is suggested without a common-cost arrangement."}
       ]
     },
     {
@@ -343,7 +343,7 @@
         {"topic": "Congés et repos", "question": "De combien de jours de vacances disposes-tu par an ?", "answer": "Mon contrat prévoit quinze jours ouvrables.", "follow_up_to": null},
         {"topic": "Congés et repos", "question": "Tu peux choisir librement ces jours, ou faut-il un accord ?", "answer": "Il faut l'accord du responsable pour éviter que toute l'équipe parte en même temps.", "follow_up_to": 5, "condition": "After the holiday allowance is given, unless approval rules are already explained."},
         {"topic": "Congés et repos", "question": "Les jours fériés, ton entreprise ferme-t-elle, ou certaines équipes doivent-elles travailler ?", "answer": "Notre équipe ne travaille pas ; une petite permanence est prévue pour le service client.", "follow_up_to": null},
-        {"topic": "Congés et repos", "question": "Quand tu travailles plus tard, comment ces heures supplémentaires sont-elles compensées ?", "answer": "Je peux les récupérer la semaine suivante ou les faire payer avec l'accord du responsable.", "follow_up_to": null}
+        {"topic": "Congés et repos", "question": "T'arrive-t-il de faire des heures supplémentaires, et comment sont-elles compensées ?", "answer": "Oui, lors des périodes chargées ; je peux les récupérer la semaine suivante ou les faire payer avec l'accord du responsable.", "follow_up_to": null}
       ]
     }
   ]

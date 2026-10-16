@@ -64,7 +64,7 @@ class HousingWorkClassificationTests(SimpleTestCase):
                 found.add(row.group)
         self.assertEqual(found, set(expected))
 
-    def test_reclassification_keeps_all_six_dialogues_exactly_unchanged(self):
+    def test_the_six_reclassified_models_keep_the_latest_reviewed_content(self):
         groups = set().union(*RECLASSIFIED_GROUPS.values())
         raw = {
             row["group"]: row
@@ -77,7 +77,7 @@ class HousingWorkClassificationTests(SimpleTestCase):
         ).encode()
         self.assertEqual(
             hashlib.sha256(snapshot).hexdigest(),
-            "03510980a6b8f6d7596bb8c693b4eddd52ec26ed56e95835d80218a0619b6694",
+            "a7e593d312b24fbabc497e7460e1a44c1e3f8fdbb73dba430e033fc8e1214a91",
         )
 
 

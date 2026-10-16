@@ -55,7 +55,7 @@ class TravelSplitCorpusTests(SimpleTestCase):
                     if row.group in groups:
                         self.assertEqual(mapping[key], slug)
 
-    def test_the_twenty_nine_travel_models_are_not_rewritten_by_reclassification(self):
+    def test_the_twenty_nine_travel_models_keep_the_latest_reviewed_content(self):
         raw = {
             row["group"]: row
             for path in (content.QUESTION_BANK_DIR / "dialogues").glob("*.json")
@@ -67,7 +67,7 @@ class TravelSplitCorpusTests(SimpleTestCase):
         ).encode()
         self.assertEqual(
             hashlib.sha256(snapshot).hexdigest(),
-            "b53b1cb06aea422673d439b8f5e49ffb5912950c936ae33d0a1f564cc0b757fd",
+            "4927722f7518390b36c0103755201b76597d768b285b178fa2a8de8fb42a6145",
         )
 
     def test_every_old_memory_question_survives_once_with_its_exact_learning_key(self):

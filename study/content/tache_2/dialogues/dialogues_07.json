@@ -27,10 +27,10 @@
       "questions": [
         {"topic": "Lieu et horaires", "question": "Dans quel lieu le club se réunit-il, et dispose-t-il d'un espace réservé ?", "answer": "Dans un café-jeux du centre-ville, qui nous réserve une grande salle à l'étage.", "follow_up_to": null},
         {"topic": "Lieu et horaires", "question": "À quelle fréquence vous retrouvez-vous, et à quelle heure ?", "answer": "Tous les jeudis, de 19 h à 22 h.", "follow_up_to": null},
-        {"topic": "Lieu et horaires", "question": "Et si je ne pouvais pas venir chaque semaine ?", "answer": "Aucun problème : chacun vient quand il peut ; il suffit de s'inscrire la veille sur notre groupe de discussion.", "follow_up_to": 2, "condition": "After a weekly schedule is given, if you cannot always attend."},
-        {"topic": "Prix", "question": "Quel budget faut-il prévoir entre l'adhésion annuelle et les frais de chaque soirée ?", "answer": "L'adhésion coûte 40 $ par an, plus une consommation par soirée au café.", "follow_up_to": null},
-        {"topic": "Prix", "question": "Est-ce que je pourrais faire un essai avant de m'inscrire ?", "answer": "Oui, la première soirée est gratuite.", "follow_up_to": 4, "condition": "After the fee is given, unless a free trial is mentioned."},
-        {"topic": "Inscription", "question": "Pour une première soirée, faut-il écrire au responsable ou peut-on simplement se présenter au club ?", "answer": "Écrivez-lui avant mercredi soir afin qu'il vous réserve une place.", "follow_up_to": null},
+        {"topic": "Lieu et horaires", "question": "Et si je ne pouvais pas venir chaque semaine ?", "answer": "Aucun problème : chacun vient quand il peut, sans obligation d'assister à toutes les soirées.", "follow_up_to": 2, "condition": "After a weekly schedule is given, if you cannot always attend."},
+        {"topic": "Prix", "question": "Quel budget faut-il prévoir entre une éventuelle adhésion annuelle et les frais de chaque soirée ?", "answer": "L'adhésion coûte 40 $ par an, plus une consommation par soirée au café.", "follow_up_to": null},
+        {"topic": "Prix", "question": "Est-ce que je pourrais faire un essai avant de m'inscrire ?", "answer": "Oui, vous pouvez essayer une soirée sans payer l'adhésion ; seule la consommation au café reste à votre charge.", "follow_up_to": 4, "condition": "After the fee is given, unless a free trial is mentioned."},
+        {"topic": "Inscription", "question": "Pour une première soirée, faut-il écrire au responsable ou peut-on simplement se présenter au club ?", "answer": "Il faut écrire au responsable avant mercredi soir afin qu'il vous réserve une place.", "follow_up_to": null},
         {"topic": "Ambiance et jeux", "question": "Quelle est l'ambiance pendant les soirées, et comment les nouveaux sont-ils accueillis ?", "answer": "Elle est très conviviale : on joue par petites tables, et les habitués expliquent volontiers les règles aux nouveaux.", "follow_up_to": null},
         {"topic": "Ambiance et jeux", "question": "À quels jeux jouez-vous le plus souvent ?", "answer": "Surtout à des jeux de stratégie comme Catan, et à des jeux d'ambiance comme Dixit en fin de soirée.", "follow_up_to": null}
       ]
@@ -59,14 +59,14 @@
       "opening": "Bonjour ! J'ai entendu parler des activités de jardinage que vous animez dans le quartier, et j'aimerais beaucoup y participer.",
       "closing": "Merci beaucoup ! Je viendrai à la prochaine séance pour faire connaissance avec le groupe.",
       "questions": [
-        {"topic": "Activités", "question": "Quelles tâches réalise-t-on au potager collectif selon les saisons ?", "answer": "Les semis au printemps, l'entretien en été et les récoltes à l'automne.", "follow_up_to": null},
-        {"topic": "Activités", "question": "Comment les récoltes sont-elles réparties entre les participants et les organismes du quartier ?", "answer": "Elles sont partagées entre les participants, et le surplus est donné à la banque alimentaire.", "follow_up_to": 1, "condition": "If a shared vegetable garden is described."},
+        {"topic": "Activités", "question": "Quelles activités de jardinage proposez-vous selon les saisons ?", "answer": "Dans notre potager collectif, nous faisons les semis au printemps, l'entretien en été et les récoltes à l'automne.", "follow_up_to": null},
+        {"topic": "Activités", "question": "Comment les récoltes de ce potager sont-elles partagées ?", "answer": "Elles sont partagées entre les participants, et le surplus est donné à la banque alimentaire.", "follow_up_to": 1, "condition": "If a shared vegetable garden is described."},
         {"topic": "Activités", "question": "L'activité est-elle accessible aux débutants, et les outils sont-ils fournis sur place ?", "answer": "Oui : je montre les gestes de base, et tous les outils sont fournis.", "follow_up_to": null},
         {"topic": "Organisation", "question": "Où est-ce que les séances ont lieu ?", "answer": "Dans la cour de l'école primaire, au bout de la rue.", "follow_up_to": null},
-        {"topic": "Organisation", "question": "Quels jours et à quels horaires le groupe se réunit-il selon la saison ?", "answer": "Le samedi de 9 h à 11 h, et aussi le mercredi soir en été pour l'arrosage.", "follow_up_to": null},
-        {"topic": "Organisation", "question": "Est-ce qu'il faudrait venir à chaque séance ?", "answer": "Non, mais on demande au moins deux présences par mois pour bien répartir le travail.", "follow_up_to": 5, "condition": "After session days are given, if your availability is limited."},
-        {"topic": "Organisation", "question": "Quelles démarches faut-il faire pour rejoindre le groupe cette saison ?", "answer": "Remplissez le court formulaire de l'association avant la première séance ; je peux vous envoyer le lien.", "follow_up_to": null},
-        {"topic": "Coût", "question": "Combien coûte l'inscription pour la saison, et qu'est-ce qui est compris dans ce montant ?", "answer": "Elle coûte 20 $ pour toute la saison, semences et eau comprises.", "follow_up_to": null}
+        {"topic": "Organisation", "question": "Quels jours et à quels horaires le groupe se réunit-il selon la saison ?", "answer": "Le samedi de 9 h à 11 h, et aussi le mercredi de 18 h à 19 h en été pour l'arrosage.", "follow_up_to": null},
+        {"topic": "Organisation", "question": "Est-ce qu'il faudrait venir à chaque séance ?", "answer": "Non, mais on demande au moins deux présences par mois pour bien répartir le travail.", "follow_up_to": null},
+        {"topic": "Coût et inscription", "question": "Combien coûte l'inscription pour la saison, et qu'est-ce qui est compris dans ce montant ?", "answer": "Elle coûte 20 $ pour toute la saison, semences et eau comprises.", "follow_up_to": null},
+        {"topic": "Coût et inscription", "question": "Quelles démarches faut-il faire pour rejoindre le groupe cette saison ?", "answer": "Il suffit de remplir le court formulaire de l'association avant la première séance ; je peux vous envoyer le lien.", "follow_up_to": null}
       ]
     },
     {
@@ -77,11 +77,11 @@
       "closing": "Merci beaucoup pour ces explications ! Je reviendrai demain avec les documents nécessaires pour m'inscrire.",
       "questions": [
         {"topic": "Inscription", "question": "Quels documents faut-il fournir pour s'inscrire, et la carte est-elle gratuite pour les résidents ?", "answer": "Il faut une pièce d'identité et une preuve d'adresse ; la carte est gratuite pour les résidents de la ville.", "follow_up_to": null},
-        {"topic": "Inscription", "question": "Cette carte donne-t-elle aussi accès aux livres numériques et aux réservations en ligne ?", "answer": "Oui, elle permet d'emprunter des livres numériques, de réserver les documents et de renouveler les prêts en ligne.", "follow_up_to": 1, "condition": "After registration is explained, clarify which remote borrowing services the card includes."},
+        {"topic": "Inscription", "question": "Cette carte donne-t-elle aussi accès aux livres numériques et aux réservations en ligne ?", "answer": "Oui, elle permet d'emprunter des livres numériques et de réserver les documents en ligne.", "follow_up_to": null},
         {"topic": "Prêt", "question": "Quels types de documents peut-on emprunter avec la carte municipale ?", "answer": "Des livres, des revues, des bandes dessinées, des films et des livres audio.", "follow_up_to": null},
         {"topic": "Prêt", "question": "Combien de documents peut-on emprunter à la fois ?", "answer": "Jusqu'à dix, dont trois DVD au maximum.", "follow_up_to": null},
         {"topic": "Prêt", "question": "Quelle est la durée du prêt pour les livres et pour les DVD ?", "answer": "Trois semaines pour les livres, une semaine pour les DVD.", "follow_up_to": null},
-        {"topic": "Prêt", "question": "Peut-on prolonger un prêt en ligne ou au comptoir, et dans quelles conditions ?", "answer": "Oui, deux fois par l'un ou l'autre moyen, si personne n'a réservé le document.", "follow_up_to": 5, "condition": "After loan periods are given, unless renewals are already mentioned."},
+        {"topic": "Prêt", "question": "Si les trois semaines ne me suffisent pas, pourrais-je prolonger un prêt, en ligne ou au comptoir, et à quelles conditions ?", "answer": "Oui, deux fois par l'un ou l'autre moyen, si personne n'a réservé le document.", "follow_up_to": 5, "condition": "If three-week loans are offered without explaining renewals."},
         {"topic": "Conditions", "question": "Qu'est-ce qui se passe en cas de retard ?", "answer": "Il n'y a pas d'amende, mais votre carte est bloquée jusqu'au retour des documents.", "follow_up_to": null},
         {"topic": "Conditions", "question": "En cas de document abîmé ou perdu, quel remboursement et quels frais seraient demandés ?", "answer": "Il faudrait le rembourser au prix d'achat, plus 5 $ de frais de traitement.", "follow_up_to": null}
       ]
@@ -100,7 +100,7 @@
         {"topic": "Tarifs", "question": "Quel est le prix des dix cours pour un résident et pour un non-résident ?", "answer": "120 $ pour un non-résident, ou 90 $ pour un résident de la ville.", "follow_up_to": null},
         {"topic": "Tarifs", "question": "Que faut-il présenter pour obtenir le tarif résident ?", "answer": "Une preuve d'adresse récente, comme une facture d'électricité.", "follow_up_to": 5, "condition": "If a resident rate is mentioned and you live locally."},
         {"topic": "Accès au bassin", "question": "Est-ce qu'il y a des règles particulières pour accéder au bassin ?", "answer": "Oui : le bonnet de bain est obligatoire, et il faut prendre une douche avant d'entrer dans l'eau.", "follow_up_to": null},
-        {"topic": "Accès au bassin", "question": "Je pourrais aussi venir m'entraîner en dehors des cours ?", "answer": "Oui, pendant les bains libres, tous les jours de 12 h à 13 h 30, pour 5 $ l'entrée.", "follow_up_to": null}
+        {"topic": "Accès au bassin", "question": "Je pourrais aussi venir m'entraîner en dehors des cours ?", "answer": "Oui, aux bains libres de 12 h à 13 h 30, pour 5 $ ; le personnel doit d'abord confirmer la zone et les consignes adaptées à votre niveau.", "follow_up_to": null}
       ]
     },
     {
@@ -142,15 +142,15 @@
       "register": "vous",
       "note": "Your colleague is looking for a sports partner, and the proposal intrigues you. Ask which sport it is, then the schedule and expected level; a conditional question about your availability is a natural follow-up. Vous is chosen as a cautious default; close colleagues may use tu.",
       "opening": "Bonjour ! Vous m'avez dit que vous cherchiez un partenaire de sport, et ça m'intrigue.",
-      "closing": "Merci pour ces précisions ! Ça me tente beaucoup : dites-moi simplement quand je peux vous rejoindre.",
+      "closing": "Merci pour ces précisions ! Je vais vérifier mon planning et le matériel avant de vous confirmer ma participation.",
       "questions": [
-        {"topic": "Sport et lieu", "question": "Quel sport pratiquez-vous, et cherchez-vous un partenaire pour jouer en simple ou en double ?", "answer": "Je pratique le badminton et je cherche quelqu'un pour jouer en simple.", "follow_up_to": null},
+        {"topic": "Sport et lieu", "question": "Quel sport pratiquez-vous, et quel type de partenaire recherchez-vous ?", "answer": "Je pratique le badminton et je cherche quelqu'un pour jouer en simple.", "follow_up_to": null},
         {"topic": "Sport et lieu", "question": "Dans quel établissement jouez-vous, et est-il facilement accessible depuis le bureau ?", "answer": "Au centre sportif municipal, à dix minutes du bureau.", "follow_up_to": null},
         {"topic": "Horaires", "question": "Quels jours et à quelle heure vous entraînez-vous ?", "answer": "Le mardi et le jeudi, de 17 h 30 à 18 h 30, juste après le travail.", "follow_up_to": null},
         {"topic": "Horaires", "question": "Et si je ne pouvais venir qu'une fois par semaine ?", "answer": "Ce serait déjà très bien ; je trouverais un autre partenaire pour le jeudi.", "follow_up_to": 3, "condition": "After several weekly sessions are proposed, if your availability is limited."},
         {"topic": "Niveau et matériel", "question": "Quel niveau attendez-vous concrètement de votre partenaire ?", "answer": "Un niveau intermédiaire : savoir tenir un échange, sans forcément connaître toutes les règles.", "follow_up_to": null},
-        {"topic": "Niveau et matériel", "question": "Quel est votre propre niveau, et depuis combien de temps jouez-vous régulièrement ?", "answer": "J'ai un niveau moyen et je joue depuis l'université, seulement pour le plaisir.", "follow_up_to": 5, "condition": "After the expected level is described, unless theirs is already clear."},
-        {"topic": "Niveau et matériel", "question": "Quel matériel devrais-je apporter, et fournissez-vous déjà les volants ?", "answer": "Une raquette suffit ; j'apporte toujours les volants.", "follow_up_to": null},
+        {"topic": "Niveau et matériel", "question": "Quel est votre propre niveau, et depuis combien de temps jouez-vous régulièrement ?", "answer": "J'ai un niveau moyen et je joue depuis l'université, seulement pour le plaisir.", "follow_up_to": null},
+        {"topic": "Niveau et matériel", "question": "Quel matériel devrais-je apporter, et fournissez-vous déjà les volants ?", "answer": "Une raquette, des chaussures de salle et une tenue de sport ; j'apporte les volants.", "follow_up_to": null},
         {"topic": "Niveau et matériel", "question": "Quel budget faut-il prévoir entre la location du terrain et le matériel de base ?", "answer": "En partageant le terrain, environ 15 $ par séance ; une raquette d'occasion coûte autour de 50 $.", "follow_up_to": null}
       ]
     },
@@ -197,28 +197,28 @@
       "questions": [
         {"topic": "Destinations", "question": "Quels types de destinations proposez-vous à moins de deux heures de route ?", "answer": "Des villages historiques, une route des vignobles et un parc national.", "follow_up_to": null},
         {"topic": "Destinations", "question": "Laquelle recommanderiez-vous pour une première excursion, et qu'est-ce qui la distingue des autres ?", "answer": "La route des vignobles : on visite trois domaines, avec une dégustation dans chacun.", "follow_up_to": 1, "condition": "After several destinations are listed."},
-        {"topic": "Destinations", "question": "D'où part l'autocar, et à quelle heure revient-il en général ?", "answer": "Il part de la gare centrale à 8 h et revient vers 19 h, selon la circulation.", "follow_up_to": null},
-        {"topic": "Programme", "question": "Quelles étapes sont prévues le matin et l'après-midi pendant cette excursion ?", "answer": "Vous visiterez deux domaines le matin, déjeunerez dans une ferme, puis découvrirez le troisième domaine avant le retour vers 19 h.", "follow_up_to": null},
-        {"topic": "Programme", "question": "Combien de participants accueille chaque groupe, et le guide parle-t-il français et anglais ?", "answer": "Quatorze personnes au maximum voyagent en minibus avec un guide bilingue.", "follow_up_to": null},
+        {"topic": "Destinations", "question": "D'où part le transport organisé, et quelles sont les heures de départ et de retour ?", "answer": "Le minibus part de la gare centrale à 8 h et revient vers 19 h, selon la circulation.", "follow_up_to": null},
+        {"topic": "Programme", "question": "Quelles étapes sont prévues le matin et l'après-midi pendant cette excursion ?", "answer": "Deux domaines sont prévus le matin, une pause déjeuner dans une ferme à midi, puis le troisième domaine l'après-midi.", "follow_up_to": null},
+        {"topic": "Programme", "question": "Combien de participants accueille chaque groupe, et le guide parle-t-il français et anglais ?", "answer": "Quatorze participants au maximum, avec un guide qui commente les visites en français et en anglais.", "follow_up_to": null},
         {"topic": "Prix et réservation", "question": "Quel est le prix par personne, et quels services sont compris dans ce tarif ?", "answer": "Le prix est de 129 $, transport, guide et dégustations compris.", "follow_up_to": null},
         {"topic": "Prix et réservation", "question": "Le repas du midi est-il compris, ou faut-il prévoir un supplément ou apporter un pique-nique ?", "answer": "Il coûte environ 25 $ de plus, mais vous pouvez aussi apporter votre pique-nique.", "follow_up_to": 6, "condition": "After the price is given, unless lunch costs are already clear."},
-        {"topic": "Prix et réservation", "question": "Faut-il réserver longtemps à l'avance et, si oui, peut-on le faire en ligne ou par téléphone ?", "answer": "Réservez en ligne ou par téléphone une semaine avant ; pendant les vendanges, prévoyez plutôt trois semaines.", "follow_up_to": null}
+        {"topic": "Prix et réservation", "question": "Faut-il réserver longtemps à l'avance et, si oui, peut-on le faire en ligne ou par téléphone ?", "answer": "La réservation se fait en ligne ou par téléphone une semaine avant ; pendant les vendanges, un délai de trois semaines est préférable.", "follow_up_to": null}
       ]
     },
     {
       "group": "friend-shows-for-association-article",
       "register": "tu",
-      "note": "Your French-speaking friend tells you about shows they enjoyed, to help you write an article for your cultural association's newsletter. These shows are over, so use past tenses. Ask about the type of show, venue and cost, then an angle for your article. Use tu with your friend.",
+      "note": "Your francophone friend describes shows they enjoyed so you can write for your cultural association's newsletter. Use past tenses for their experience; ask type, venue, price and an article angle. The show title and arrangements here are illustrative, not a verified listing. Use tu.",
       "opening": "Salut ! Je dois écrire un article sur un spectacle pour le bulletin de mon association culturelle, et je manque d'idées.",
       "closing": "Merci beaucoup ! Grâce à toi, j'ai enfin une idée précise pour mon article.",
       "questions": [
-        {"topic": "Type de spectacle", "question": "Quel est le spectacle que tu as préféré ces derniers temps ?", "answer": "Un spectacle de cirque contemporain que j'ai vu à Seattle.", "follow_up_to": null},
-        {"topic": "Type de spectacle", "question": "Quels éléments t'ont le plus marqué : les acrobaties, la mise en scène ou la musique ?", "answer": "Les acrobaties, bien sûr, mais surtout la musique jouée en direct.", "follow_up_to": 1, "condition": "After a show is named, unless their reasons are already clear."},
-        {"topic": "Type de spectacle", "question": "Le spectacle convenait-il vraiment à toute la famille, notamment aux jeunes enfants ?", "answer": "Oui, c'était un spectacle tout public, et il y avait beaucoup d'enfants dans la salle.", "follow_up_to": null},
-        {"topic": "Type de spectacle", "question": "Combien de temps durait la représentation, entracte compris ?", "answer": "Environ deux heures, avec un entracte de quinze minutes.", "follow_up_to": null},
-        {"topic": "Lieu et prix", "question": "Dans quel lieu le spectacle était-il présenté, et dans quel secteur de la ville ?", "answer": "Sous un chapiteau installé pour l'événement dans la région de Seattle.", "follow_up_to": null},
+        {"topic": "Type de spectacle", "question": "Quel spectacle as-tu préféré ces derniers temps, et de quel type de spectacle s'agissait-il ?", "answer": "Un spectacle de cirque contemporain intitulé « Équilibre », que j'ai vu à Seattle.", "follow_up_to": null},
+        {"topic": "Type de spectacle", "question": "Quels éléments t'ont le plus marqué : les acrobaties, la mise en scène ou la musique ?", "answer": "Les acrobaties, bien sûr, mais surtout la musique jouée en direct.", "follow_up_to": 1, "condition": "If contemporary circus is mentioned without explaining what stood out."},
+        {"topic": "Type de spectacle", "question": "À quel public le spectacle s'adressait-il, et convenait-il aux jeunes enfants ?", "answer": "C'était un spectacle tout public, avec de nombreux enfants dans la salle ; les numéros visuels plaisaient aussi aux plus jeunes.", "follow_up_to": null},
+        {"topic": "Type de spectacle", "question": "Combien de temps durait la représentation, et y avait-il un entracte ?", "answer": "Environ deux heures, avec un entracte de quinze minutes.", "follow_up_to": null},
+        {"topic": "Lieu et prix", "question": "Dans quel lieu le spectacle était-il présenté, et dans quel secteur de la ville ?", "answer": "Sous un chapiteau installé près du centre-ville de Seattle.", "follow_up_to": null},
         {"topic": "Lieu et prix", "question": "Dans quelle fourchette de prix se situaient les billets selon les places ?", "answer": "Ils commençaient autour de 70 $, mais les meilleures places dépassaient 150 $.", "follow_up_to": null},
-        {"topic": "Lieu et prix", "question": "Quels tarifs réduits ou promotions étaient proposés aux familles et aux groupes ?", "answer": "Il y avait des réductions pour les enfants et les groupes, ainsi que certaines promotions en semaine.", "follow_up_to": 6, "condition": "After ticket prices are given, if they seem expensive for readers."},
+        {"topic": "Lieu et prix", "question": "Y avait-il des tarifs réduits ou des promotions pour les familles et les groupes ?", "answer": "Il y avait des réductions pour les enfants et les groupes, ainsi que certaines promotions en semaine.", "follow_up_to": 6, "condition": "After ticket prices are given, if they seem expensive for readers."},
         {"topic": "Angle de l'article", "question": "À ton avis, quel aspect devrais-je mettre en avant dans mon article ?", "answer": "Le travail des artistes : leurs acrobaties, leur préparation et la façon dont ils racontent une histoire ensemble.", "follow_up_to": null}
       ]
     },
@@ -234,8 +234,8 @@
         {"topic": "Fonctionnement", "question": "Depuis l'aéroport, quel transport rejoint directement le centre-ville, et combien de temps faut-il prévoir ?", "answer": "Le bus 747 circule jour et nuit et met généralement de 45 minutes à une heure.", "follow_up_to": null},
         {"topic": "Fonctionnement", "question": "Quelle application serait la plus fiable pour préparer mes trajets et suivre les interruptions de service ?", "answer": "Chrono est très pratique pour les horaires en temps réel, et Transit propose de bons itinéraires combinés.", "follow_up_to": null},
         {"topic": "Prix", "question": "Quel titre de transport me conseilleriez-vous pour une semaine ?", "answer": "Le titre hebdomadaire, une trentaine de dollars, valable du lundi au dimanche.", "follow_up_to": null},
-        {"topic": "Prix", "question": "Si j'arrive un mercredi, le titre hebdomadaire reste-t-il rentable ou vaut-il mieux acheter des passages ?", "answer": "Il reste rentable si vous prenez le métro au moins deux fois par jour.", "follow_up_to": 5, "condition": "If a weekly pass has fixed validity days."},
-        {"topic": "Horaires", "question": "Jusqu'à quelle heure le métro circule-t-il en semaine et le samedi soir ?", "answer": "Jusqu'à minuit et demi environ en semaine, et vers 1 h 30 le samedi.", "follow_up_to": null},
+        {"topic": "Prix", "question": "Si j'arrive un mercredi, le titre hebdomadaire reste-t-il rentable ou vaut-il mieux acheter des passages ?", "answer": "Le titre expire le dimanche, même acheté mercredi ; il faut comparer les trajets prévus jusqu'à dimanche, puis ajouter les titres nécessaires pour le début de la semaine suivante.", "follow_up_to": 5, "condition": "If a weekly pass has fixed validity days."},
+        {"topic": "Horaires", "question": "Jusqu'à quelle heure le métro circule-t-il en semaine et le samedi soir ?", "answer": "Environ minuit et demi en semaine et une heure et demie le samedi ; le dernier départ exact dépend de la station et de la direction.", "follow_up_to": null},
         {"topic": "Horaires", "question": "Et après un repas d'affaires tardif, quelles seraient mes options pour rentrer ?", "answer": "Il y a des bus de nuit, sinon un taxi.", "follow_up_to": 7, "condition": "After closing times are given, if you may return later."}
       ]
     },
@@ -246,14 +246,14 @@
       "opening": "Bonjour ! J'ai vu l'affiche du jeu organisé par l'école, et j'aimerais bien comprendre comment il fonctionne.",
       "closing": "Merci beaucoup pour ces explications ! Je vais en parler à mes camarades et m'inscrire rapidement.",
       "questions": [
+        {"topic": "Rendez-vous", "question": "À quelle date et à quelles heures le jeu aura-t-il lieu, et où faudra-t-il se présenter ?", "answer": "Le dernier samedi du mois, de 13 h à 17 h ; le départ se fera devant l'école.", "follow_up_to": null},
         {"topic": "Principe et règles", "question": "Quel est le principe du jeu, et quelles tâches les participants doivent-ils accomplir en français ?", "answer": "C'est un rallye dans le quartier : les équipes résolvent des énigmes en interrogeant les commerçants.", "follow_up_to": null},
         {"topic": "Principe et règles", "question": "Qui peut participer : tous les étudiants ou seulement certains niveaux ?", "answer": "Tous les étudiants peuvent participer, y compris les débutants.", "follow_up_to": null},
-        {"topic": "Principe et règles", "question": "Peut-on former sa propre équipe, ou l'école répartit-elle les participants ?", "answer": "L'école forme des équipes de quatre personnes, en mélangeant les niveaux ; vous pouvez indiquer les camarades avec qui vous aimeriez jouer.", "follow_up_to": 1, "condition": "If teams are mentioned without explaining how participants are grouped."},
-        {"topic": "Principe et règles", "question": "Comment les équipes gagnent-elles des points, et qu'est-ce qui compte le plus : les bonnes réponses ou la rapidité ?", "answer": "Chaque énigme résolue rapporte un point ; le temps sert à départager les équipes à égalité.", "follow_up_to": 1, "condition": "If puzzles are mentioned without scoring rules; adapt to the game described."},
+        {"topic": "Principe et règles", "question": "Peut-on former sa propre équipe, ou l'école répartit-elle les participants ?", "answer": "L'école forme des équipes de quatre personnes, en mélangeant les niveaux ; vous pouvez indiquer les camarades avec qui vous aimeriez jouer.", "follow_up_to": 2, "condition": "If teams are mentioned without explaining how participants are grouped."},
+        {"topic": "Principe et règles", "question": "Comment les équipes gagnent-elles des points, et qu'est-ce qui compte le plus : les bonnes réponses ou la rapidité ?", "answer": "Chaque énigme résolue rapporte un point ; le temps sert à départager les équipes à égalité.", "follow_up_to": 2, "condition": "If puzzles are mentioned without scoring rules; adapt to the game described."},
         {"topic": "Principe et règles", "question": "Est-ce qu'on a le droit d'utiliser son téléphone ?", "answer": "Seulement pour prendre des photos ; les dictionnaires et les traducteurs sont interdits.", "follow_up_to": null},
-        {"topic": "Prix", "question": "Quelle récompense reçoit chaque membre de l'équipe gagnante ?", "answer": "Chaque membre de l'équipe gagnante obtient un mois de cours gratuit.", "follow_up_to": null},
-        {"topic": "Modalités", "question": "À quelle date et à quelles heures le jeu aura-t-il lieu, et où faudra-t-il se présenter ?", "answer": "Le dernier samedi du mois, de 13 h à 17 h ; le départ se fera devant l'école.", "follow_up_to": null},
-        {"topic": "Modalités", "question": "L'inscription se fait-elle en ligne ou à l'accueil, jusqu'à quelle date et à quel tarif ?", "answer": "À l'accueil avant vendredi ; la participation est gratuite.", "follow_up_to": null}
+        {"topic": "Prix et inscription", "question": "Y a-t-il des récompenses pour les gagnants, et si oui lesquelles ?", "answer": "Oui, chaque membre de l'équipe gagnante obtient un mois de cours gratuit.", "follow_up_to": null},
+        {"topic": "Prix et inscription", "question": "L'inscription se fait-elle en ligne ou à l'accueil, jusqu'à quelle date et à quel tarif ?", "answer": "À l'accueil avant vendredi ; la participation est gratuite.", "follow_up_to": null}
       ]
     },
     {

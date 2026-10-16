@@ -1,4 +1,5 @@
 from dataclasses import asdict
+from pathlib import Path
 from types import SimpleNamespace
 from unittest.mock import patch
 import hashlib
@@ -1006,19 +1007,77 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "help-transport-heavy-objects-no-vehicle", {5: 1, 1: 2, 7: 7},
         )
 
+    def test_blue_audit_keeps_every_learned_question_or_its_exact_archived_revision(self):
+        manifest = json.loads(Path(__file__).with_name("blue_audit_fixtures.json").read_text())
+        dialogues = {row.group: row for row in catalogue.tache_two_dialogues().values()}
+        histories = catalogue.tache_two_location_history()
+        for group, audit in manifest["reviewed"].items():
+            if audit["archive_index"] is None:
+                continue
+            with self.subTest(group=group):
+                before = histories[group].revisions[audit["archive_index"]]
+                positions = {
+                    row.question: number for number, row in enumerate(dialogues[group].questions, 1)
+                }
+                moved = {
+                    number: positions[row.question]
+                    for number, row in enumerate(before.questions, 1) if row.question in positions
+                }
+                self.assert_revision_highlights_preserved(
+                    group, moved, revision=audit["archive_index"],
+                )
+            Annotation.objects.filter(user=self.user).delete()
+
+    def test_blue_audit_does_not_replace_private_questions_explanations_or_saved_notes(self):
+        manifest = json.loads(Path(__file__).with_name("blue_audit_fixtures.json").read_text())
+        for theme, groups in manifest["themes"].items():
+            candidates = [
+                group for group in groups
+                if manifest["reviewed"][group]["archive_index"] is not None
+            ]
+            if not candidates:
+                continue
+            group = candidates[0]
+            with self.subTest(theme=theme, group=group):
+                self.configure_group(group)
+                index = manifest["reviewed"][group]["archive_index"]
+                self.old = catalogue.tache_two_location_history()[group].revisions[index]
+                values = asdict(dialogue_response(self.old))
+                values.pop("is_personal")
+                values["arguments"] = list(values["arguments"])
+                values["arguments"][0]["idea"] = "Ma question personnelle pour cette situation ?"
+                values["nuance"] = f"My private explanation for {theme}."
+                personal = PersonalResponse.objects.create(
+                    user=self.user, response=self.response, source_prompt=self.prompt, **values,
+                )
+                mark = self.highlight(2, body=f"My learned {theme} note.", study_later=True)
+                self.fetch()
+                personal.refresh_from_db()
+                mark.refresh_from_db()
+                self.assertEqual(personal.arguments, values["arguments"])
+                self.assertEqual(personal.nuance, values["nuance"])
+                self.assertTrue(personal.is_active)
+                self.assertEqual(mark.body, f"My learned {theme} note.")
+                self.assertTrue(mark.study_later)
+                current = effective_response(self.response, self.user, prompt=self.prompt)
+                self.assertTrue(current.is_personal)
+                self.assertEqual([asdict(row) for row in current.arguments], values["arguments"])
+            PersonalResponse.objects.filter(user=self.user).delete()
+            Annotation.objects.filter(user=self.user).delete()
+
     def test_work_rewrites_preserve_unchanged_questions_and_archive_learned_wording(self):
         mappings = {
             "new-employee-company-orientation": {1: 1, 2: 2, 3: 3},
             "director-canada-fortnight-training": {2: 2, 3: 3, 7: 7},
             "friend-first-workday-report": {2: 4, 3: 5, 4: 2, 5: 3, 6: 6, 7: 7, 8: 8},
             "newcomer-canada-friend-job-market": {7: 7},
-            "canadian-work-hours-home-country-comparison": {4: 4, 5: 5, 6: 6, 8: 8},
+            "canadian-work-hours-home-country-comparison": {4: 4, 5: 5, 6: 6},
             "former-colleague-new-job-to-change-employment": {2: 2, 5: 5},
             "new-colleague-quebec-career-migration": {3: 3, 4: 4, 6: 6},
             "recruiter-scheduled-interview-preparation": {1: 2, 2: 1, 3: 3, 4: 4, 6: 6, 8: 8},
             "colleague-internal-job-change": {4: 4, 6: 6, 7: 7, 8: 8},
             "friend-upcoming-job-interview-advice": {4: 4, 5: 5, 7: 7},
-            "acquaintance-new-job-overall-experience": {2: 2, 3: 3, 5: 5, 8: 8},
+            "acquaintance-new-job-overall-experience": {2: 2, 5: 5, 8: 8},
             "retirement-party-invitation": {1: 1, 2: 2, 4: 4},
             "supervisor-overseas-job-offer": {1: 1, 2: 2, 3: 3, 4: 4},
             "friend-association-work-experience": {1: 1, 3: 4, 5: 3},
@@ -1036,9 +1095,9 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "french-teacher-study-abroad-advice": {8: 8},
             "language-school-new-language": {1: 1, 2: 2, 5: 4},
             "parent-after-school-activity-advice": {2: 2, 3: 3, 5: 5, 6: 6, 7: 7, 8: 8},
-            "friend-child-language-stay-abroad": {1: 1, 3: 3, 7: 8},
+            "friend-child-language-stay-abroad": {1: 1, 3: 4, 7: 8},
             "edmonton-newcomer-neighbor-schools": {2: 2, 7: 8, 8: 7},
-            "french-teacher-language-school-student-game": {2: 2, 3: 3, 4: 5, 5: 6, 7: 7},
+            "french-teacher-language-school-student-game": {2: 3, 3: 4, 4: 6, 7: 1},
             "friend-planned-canadian-studies": {1: 1, 2: 3, 4: 2, 6: 6, 7: 7, 8: 8},
             "fellow-parent-first-school-fete": {1: 1, 2: 2, 4: 4, 5: 5, 8: 8},
             "french-class-survey-francophone-student": {1: 1, 7: 7, 8: 8},
@@ -1063,10 +1122,10 @@ class PublishedTacheTwoHighlightTests(TestCase):
                 1: 1, 2: 2, 3: 3, 4: 4, 6: 6, 7: 7, 8: 8,
             },
             "french-teacher-language-school-student-game": {
-                2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8,
+                2: 3, 3: 4, 4: 5, 5: 6, 7: 1, 8: 8,
             },
-            "french-teacher-study-abroad-advice": {1: 2, 2: 1, 3: 3, 4: 4, 6: 6, 7: 7, 8: 8},
-            "friend-child-language-stay-abroad": {1: 1, 2: 2, 3: 3, 5: 5, 6: 6, 7: 7, 8: 8},
+            "french-teacher-study-abroad-advice": {3: 3, 4: 4, 6: 6, 7: 7, 8: 8},
+            "friend-child-language-stay-abroad": {1: 1, 2: 2, 3: 4, 5: 6, 6: 3, 7: 7, 8: 8},
             "friend-planned-canadian-studies": {1: 1, 2: 2, 3: 3, 6: 6, 7: 7, 8: 8},
             "language-school-new-language": {1: 1, 2: 2, 4: 5, 5: 4, 6: 6, 7: 7, 8: 8},
         }

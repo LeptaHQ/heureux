@@ -65,7 +65,7 @@ class CultureSplitCorpusTests(SimpleTestCase):
         }
         self.assertEqual(
             fingerprint([raw[group] for group in sorted(ALL_CULTURE_GROUPS)]),
-            "498d57bbd7dc2e3ef1ceda077cde2d053d8150be2267d9ad3d13fa7f41ed13a2",
+            "ac2741b71d53117f3ac81c3953ba952b9be95623397a4aa03b8dad9c0d41d324",
         )
 
     def test_all_104_original_questions_keep_their_wording_and_learning_identity(self):

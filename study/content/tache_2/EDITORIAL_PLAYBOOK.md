@@ -72,6 +72,12 @@ Questions must:
 - avoid generic filler when a concrete logistical or decision-making question
   would be more useful.
 
+Check essential availability or eligibility before detailed features when it
+determines whether participation is possible. Reorder sound learned questions
+rather than paraphrasing them merely to make the revised route look new.
+If a personal profile has not been supplied, ask for comparison criteria or
+establish the relevant constraints before requesting a tailored recommendation.
+
 In a fixed practice route, do not rely on a broad recommendation receiving only
 a narrow scripted answer. Each later question must still be useful after a
 natural reply. Distinguish an indoor outing from an activity at home; rain does

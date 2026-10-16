@@ -11,11 +11,11 @@
         {"topic": "Lieux à découvrir", "question": "Quel endroit calme me conseilleriez-vous pour un week-end réellement reposant, à moins de deux heures d'ici ?", "answer": "Une auberge en pleine forêt, à une heure d'ici, juste à côté d'un spa nordique.", "follow_up_to": null},
         {"topic": "Lieux à découvrir", "question": "Comment se déroule une séance dans un spa nordique, et les installations restent-elles accessibles en hiver ?", "answer": "On alterne bains chauds, bains froids et repos en plein air, même en hiver.", "follow_up_to": 1, "condition": "If a Nordic spa or another unfamiliar facility is suggested."},
         {"topic": "Lieux à découvrir", "question": "Et dans les environs, il y a des choses à voir ?", "answer": "Oui, un joli village avec des galeries d'art, et un marché fermier le samedi matin.", "follow_up_to": null},
-        {"topic": "Lieux à découvrir", "question": "Pour l'auberge et le spa, faut-il réserver à l'avance et, si oui, directement en ligne ou par téléphone ?", "answer": "Réservez en ligne ou par téléphone environ trois semaines avant, surtout pour les samedis et les fins de semaine prolongées.", "follow_up_to": null},
+        {"topic": "Lieux à découvrir", "question": "Pour l'auberge et le spa, faut-il réserver à l'avance et, si oui, directement en ligne ou par téléphone ?", "answer": "La réservation se fait en ligne ou par téléphone environ trois semaines avant, surtout pour les samedis et les fins de semaine prolongées.", "follow_up_to": null},
         {"topic": "Sorties", "question": "Quelle sortie tranquille peut-on faire le soir, sans compromettre l'ambiance reposante du séjour ?", "answer": "Le bistro du village propose de la musique acoustique le samedi, dans une ambiance tranquille.", "follow_up_to": null},
-        {"topic": "Sorties", "question": "Quel budget total prévoir pour une nuit à l'auberge, l'accès au spa et un repas au village ?", "answer": "Environ 220 $ par personne en chambre double, avec le spa et un repas simple.", "follow_up_to": 5, "condition": "After an evening option is suggested, estimate the weekend's essential costs."},
+        {"topic": "Sorties", "question": "Quel budget total prévoir pour une nuit à l'auberge, l'accès au spa et un repas au village ?", "answer": "Environ 220 $ par personne en chambre double, avec le spa et un repas simple.", "follow_up_to": null},
         {"topic": "Déplacements", "question": "Quel serait le moyen le plus simple de s'y rendre ?", "answer": "L'autocar jusqu'au village : l'auberge vient ensuite vous chercher gratuitement en navette.", "follow_up_to": null},
-        {"topic": "Déplacements", "question": "La navette dessert-elle également le spa, et à quelle fréquence passe-t-elle ?", "answer": "Oui, plusieurs fois par jour ; en été, on peut même y aller à vélo.", "follow_up_to": 7, "condition": "If a shuttle is mentioned; adapt to the places you plan to visit."}
+        {"topic": "Déplacements", "question": "La navette permet-elle aussi de rejoindre le village pour les sorties, et à quelle fréquence passe-t-elle ?", "answer": "Oui, elle relie l'auberge et le village toutes les heures, de 9 h à 23 h.", "follow_up_to": 7, "condition": "If a shuttle is mentioned without its village links and operating frequency."}
       ]
     },
     {
@@ -31,8 +31,8 @@
         {"topic": "Date et départ", "question": "Quelle est l'heure limite d'embarquement, et que se passe-t-il si j'arrive après sa fermeture ?", "answer": "L'embarquement ferme dix minutes avant le départ, et il est ensuite impossible de monter.", "follow_up_to": 2, "condition": "After a fixed departure time is given."},
         {"topic": "Prix", "question": "Quelle participation demandes-tu, et qu'est-ce qui est compris dans ce montant ?", "answer": "Je demande 40 $ par personne, repas et croisière compris ; les boissons sont en plus.", "follow_up_to": null},
         {"topic": "Prix", "question": "Comment dois-je te payer, et avant quelle date ?", "answer": "Par virement avant le 20 juin, car je dois payer la location à l'avance.", "follow_up_to": 5, "condition": "If a contribution is requested, unless payment arrangements are explained."},
-        {"topic": "Invités et tenue", "question": "Combien d'invités seront présents, et connaîtrai-je plutôt tes amis de l'université ou tes collègues ?", "answer": "Une trentaine : surtout des amis de l'université et quelques collègues.", "follow_up_to": null},
-        {"topic": "Invités et tenue", "question": "Quelle tenue serait adaptée, et faut-il prévoir quelque chose contre le froid sur l'eau ?", "answer": "Une tenue décontractée convient, mais prends une veste chaude : il fait frais sur l'eau le soir.", "follow_up_to": null}
+        {"topic": "Invités et tenue", "question": "Combien d'invités seront présents, et s'agira-t-il surtout de tes amis ou de tes collègues ?", "answer": "Une trentaine : surtout des amis de l'université et quelques collègues.", "follow_up_to": null},
+        {"topic": "Invités et tenue", "question": "Quelle tenue serait adaptée, et faut-il prévoir quelque chose contre le froid sur l'eau ?", "answer": "Une tenue décontractée convient, avec une veste chaude : il fait frais sur l'eau le soir.", "follow_up_to": null}
       ]
     },
     {
@@ -134,7 +134,7 @@
         {"topic": "Architecture", "question": "Et ces bâtiments en brique rouge, on en voit un peu partout ?", "answer": "Surtout dans le quartier historique ; ailleurs, on voit davantage de bâtiments modernes et de maisons en bois.", "follow_up_to": 4, "condition": "If a distinctive architectural feature is mentioned; substitute that feature."},
         {"topic": "Activités", "question": "Quelle expérience culturelle recommandes-tu le soir pour découvrir l'ambiance locale ?", "answer": "Écouter du jazz dans une petite salle de Pioneer Square, ou découvrir les concerts de Capitol Hill.", "follow_up_to": null},
         {"topic": "Transports", "question": "Comment les visiteurs peuvent-ils s'y déplacer le plus facilement ?", "answer": "En métro léger Link et en bus, ou avec le monorail qui relie le centre au Seattle Center.", "follow_up_to": null},
-        {"topic": "Transports", "question": "Il n'est pas pris d'assaut par les touristes, ce monorail ?", "answer": "Si, en journée ; prends-le en dehors des heures de pointe, ou marche : c'est la meilleure façon de découvrir la ville.", "follow_up_to": 7, "condition": "If a famous tourist transport is mentioned; adapt to the line named."}
+        {"topic": "Transports", "question": "Il n'est pas pris d'assaut par les touristes, ce monorail ?", "answer": "D'après mon expérience, il est souvent fréquenté en journée ; pour ce court trajet, marcher une vingtaine de minutes peut être une alternative.", "follow_up_to": 7, "condition": "If a famous tourist transport is mentioned; adapt to the line named."}
       ]
     },
     {
@@ -157,16 +157,16 @@
     {
       "group": "french-teacher-canadian-new-year-customs",
       "register": "vous",
-      "note": "Your French teacher explains how Canadians celebrate New Year's Eve. Your trip is still ahead: use the future for your stay but the present for customs. Ask about places, activities and traditions. Use vous with your teacher.",
+      "note": "You will spend the next New Year in Canada and ask your French teacher about customs, places and activities. Use the future for your stay and the present for habits. Traditions, weather and event programmes vary by region; the teacher offers guidance, not guaranteed local schedules. Use vous.",
       "opening": "Bonjour ! Je vais passer le prochain Nouvel An au Canada, et j'aimerais savoir comment on le fête là-bas.",
       "closing": "Merci beaucoup ! Grâce à vous, je vais pouvoir fêter le Nouvel An à la canadienne.",
       "questions": [
         {"topic": "Lieux de fête", "question": "Où les Canadiens passent-ils généralement la soirée du 31 décembre ?", "answer": "Beaucoup la passent en famille ou entre amis, à la maison ; d'autres vont aux fêtes en plein air des grandes villes.", "follow_up_to": null},
-        {"topic": "Lieux de fête", "question": "Comment se déroulent ces fêtes en plein air ?", "answer": "Il y a des concerts gratuits, un compte à rebours à minuit et un feu d'artifice, souvent par moins quinze degrés !", "follow_up_to": 1, "condition": "If outdoor celebrations are mentioned, unless they are already described."},
-        {"topic": "Lieux de fête", "question": "Par un tel froid, comment conseilleriez-vous de s'habiller ?", "answer": "Comme un oignon : plusieurs couches, une tuque, des mitaines et de bonnes bottes d'hiver.", "follow_up_to": 2, "condition": "If very cold temperatures are mentioned."},
-        {"topic": "Lieux de fête", "question": "Les transports en commun circulent-ils après minuit dans les grandes villes ce soir-là ?", "answer": "Souvent oui, avec un service prolongé, mais les horaires spéciaux varient selon la ville.", "follow_up_to": null},
+        {"topic": "Lieux de fête", "question": "Comment se déroulent ces fêtes en plein air ?", "answer": "Selon la ville, il peut y avoir des concerts, un compte à rebours et parfois un feu d'artifice ; il peut faire très froid.", "follow_up_to": 1, "condition": "If outdoor celebrations are mentioned, unless they are already described."},
+        {"topic": "Lieux de fête", "question": "Par un tel froid, comment conseilleriez-vous de s'habiller ?", "answer": "Plusieurs couches, une tuque, des mitaines et de bonnes bottes d'hiver permettent de rester au chaud.", "follow_up_to": 2, "condition": "If very cold temperatures are mentioned."},
+        {"topic": "Lieux de fête", "question": "Les transports en commun circulent-ils après minuit dans les grandes villes ce soir-là ?", "answer": "Certaines villes prolongent le service ; les horaires exacts et les lignes concernées sont à vérifier auprès du réseau local.", "follow_up_to": null},
         {"topic": "Traditions", "question": "Est-ce qu'il y a une tradition particulière avant minuit ?", "answer": "Au Québec, beaucoup de familles regardent le « Bye Bye », une émission humoristique qui revient sur l'année écoulée.", "follow_up_to": null},
-        {"topic": "Traditions", "question": "Et côté repas, quels plats sont typiques ce soir-là ?", "answer": "Souvent de la tourtière, du ragoût de boulettes, et une tarte au sucre en dessert.", "follow_up_to": null},
+        {"topic": "Traditions", "question": "Et côté repas, quels plats sont typiques ce soir-là ?", "answer": "Dans certaines familles québécoises, on sert de la tourtière, du ragoût de boulettes et une tarte au sucre ; les habitudes varient ailleurs.", "follow_up_to": null},
         {"topic": "Le jour de l'An", "question": "Et le 1er janvier, que font les gens ?", "answer": "On rend visite à la famille ; à Vancouver, des milliers de courageux se baignent même dans l'eau glaciale de la baie !", "follow_up_to": null},
         {"topic": "Le jour de l'An", "question": "Avez-vous déjà participé vous-même à cette tradition, et comment avez-vous vécu l'expérience ?", "answer": "Une fois : trente secondes dans l'eau m'ont suffi pour toute une vie.", "follow_up_to": 7, "condition": "If an unusual custom is described; ask about their own experience."}
       ]
@@ -196,7 +196,7 @@
       "closing": "Merci beaucoup ! Je reviendrai bientôt avec mes documents pour m'inscrire.",
       "questions": [
         {"topic": "Les jeux", "question": "Quels types de jeux proposez-vous pour les enfants, les familles et les adultes ?", "answer": "Plus de deux mille : des jouets pour les tout-petits, des jeux de société, des casse-têtes et des jeux géants.", "follow_up_to": null},
-        {"topic": "Les jeux", "question": "Est-ce que les jeux de société s'adressent aussi aux adultes ?", "answer": "Bien sûr : nous avons tout un rayon de jeux de stratégie et d'enquête, très demandé.", "follow_up_to": 1, "condition": "After the collection is described, if you are interested in adult games."},
+        {"topic": "Les jeux", "question": "Parmi ces jeux de société, lesquels conseilleriez-vous à des adultes qui débutent ?", "answer": "Des jeux aux règles simples, comme Dixit ou Les Aventuriers du Rail, sont de bons choix pour commencer.", "follow_up_to": 1, "condition": "If board games are offered without recommendations for adult beginners."},
         {"topic": "Les jeux", "question": "Peut-on jouer librement sur place, et un animateur est-il disponible pour expliquer les règles ?", "answer": "Oui, les tables sont en libre accès, et un animateur est présent le samedi après-midi.", "follow_up_to": null},
         {"topic": "Horaires et prêt", "question": "Quels sont vos horaires en semaine et le samedi, et proposez-vous une ouverture en soirée ?", "answer": "Nous ouvrons du mardi au samedi, de 10 h à 18 h, et jusqu'à 20 h le jeudi.", "follow_up_to": null},
         {"topic": "Horaires et prêt", "question": "On peut emprunter combien de jeux, et pour combien de temps ?", "answer": "Trois jeux à la fois, pour trois semaines, renouvelables une fois.", "follow_up_to": null},
@@ -229,14 +229,14 @@
       "opening": "Bonjour ! Votre jeu m'intrigue, et j'aimerais en savoir plus avant de décider si j'y participe.",
       "closing": "Merci beaucoup ! C'est décidé, je vais tenter ma chance.",
       "questions": [
-        {"topic": "Contenu", "question": "Quel est le principe de cette chasse au trésor littéraire, et joue-t-on seul ou en équipe ?", "answer": "Des équipes résolvent des énigmes cachées dans les rayons de la librairie.", "follow_up_to": null},
-        {"topic": "Contenu", "question": "Faut-il avoir beaucoup lu pour avoir une chance ?", "answer": "Pas forcément : les énigmes portent sur des classiques, mais les indices se trouvent dans les livres eux-mêmes.", "follow_up_to": 1, "condition": "If a literary game is described, unless the required knowledge is explained."},
-        {"topic": "Contenu", "question": "Combien de temps dure une partie, et les équipes partent-elles toutes en même temps ?", "answer": "Environ une heure ; les équipes partent à intervalles réguliers pour éviter l'attente.", "follow_up_to": null},
-        {"topic": "Intérêt", "question": "Quelle récompense recevra l'équipe gagnante, et les autres participants bénéficieront-ils d'un avantage ?", "answer": "Les gagnants recevront 200 $ en bons d'achat, et chaque participant aura 10 % de réduction ce jour-là.", "follow_up_to": null},
-        {"topic": "Intérêt", "question": "À partir de quel âge peut-on participer, et le jeu convient-il aussi aux personnes venues seules ?", "answer": "Il est ouvert à tous dès douze ans et permet de rencontrer d'autres passionnés de lecture.", "follow_up_to": null},
-        {"topic": "Inscription", "question": "Quand le jeu aura-t-il lieu, et combien coûte la participation ?", "answer": "Samedi prochain à partir de 14 h ; la participation est gratuite, mais les places sont limitées.", "follow_up_to": null},
-        {"topic": "Inscription", "question": "L'inscription se fait-elle à la caisse ou en ligne, avant quelle date, et faut-il inscrire toute l'équipe ensemble ?", "answer": "Les deux méthodes sont possibles jusqu'à vendredi ; inscrivez en une fois votre équipe de deux à quatre personnes.", "follow_up_to": null},
-        {"topic": "Inscription", "question": "Si je m'inscris seul, serez-vous en mesure de m'intégrer à une équipe avant le départ ?", "answer": "Oui, nous formons des équipes avec les inscrits individuels juste avant le départ.", "follow_up_to": 7, "condition": "If teams are required for registration."}
+        {"topic": "Contenu et public", "question": "Quel est le principe du jeu, et joue-t-on seul ou en équipe ?", "answer": "C'est une chasse au trésor littéraire : des équipes résolvent des énigmes cachées dans les rayons de la librairie.", "follow_up_to": null},
+        {"topic": "Contenu et public", "question": "Faut-il avoir beaucoup lu pour avoir une chance ?", "answer": "Pas forcément : les énigmes portent sur des classiques, mais les indices se trouvent dans les livres eux-mêmes.", "follow_up_to": 1, "condition": "If a literary game is described, unless the required knowledge is explained."},
+        {"topic": "Contenu et public", "question": "À partir de quel âge peut-on participer ?", "answer": "Le jeu est ouvert à tous dès douze ans.", "follow_up_to": null},
+        {"topic": "Déroulement et récompenses", "question": "Combien de temps dure une partie, et les équipes partent-elles toutes en même temps ?", "answer": "Environ une heure ; les équipes partent à intervalles réguliers pour éviter l'attente.", "follow_up_to": null},
+        {"topic": "Déroulement et récompenses", "question": "Comment déterminez-vous l'équipe gagnante, et quelles récompenses sont prévues ?", "answer": "Chaque énigme résolue rapporte un point ; l'équipe ayant le plus de points gagne 200 $ en bons d'achat.", "follow_up_to": null},
+        {"topic": "Inscription", "question": "Quand le jeu aura-t-il lieu, et combien coûte la participation ?", "answer": "Samedi prochain à partir de 14 h ; la participation est gratuite.", "follow_up_to": null},
+        {"topic": "Inscription", "question": "Comment s'inscrire, et avant quelle date ?", "answer": "L'inscription se fait à la caisse ou en ligne jusqu'à vendredi, dans la limite des places disponibles.", "follow_up_to": null},
+        {"topic": "Inscription", "question": "Si je m'inscris seul, serez-vous en mesure de m'intégrer à une équipe avant le départ ?", "answer": "Oui, nous formons des équipes avec les inscrits individuels juste avant le départ.", "follow_up_to": null}
       ]
     },
     {
@@ -247,13 +247,13 @@
       "closing": "Merci ! C'est décidé, je viens essayer dès la semaine prochaine.",
       "questions": [
         {"topic": "L'activité", "question": "Quelle activité artistique pratiques-tu, et est-ce dans un cadre amateur ou professionnel ?", "answer": "Je fais du théâtre d'improvisation dans une troupe amateur.", "follow_up_to": null},
-        {"topic": "L'activité", "question": "Qu'est-ce que cette activité t'apporte sur le plan personnel, notamment pour la confiance en toi ?", "answer": "Avant, j'étais très timide ; maintenant, je parle facilement devant un groupe.", "follow_up_to": 1, "condition": "After the activity is named, unless its benefits are already described."},
-        {"topic": "L'activité", "question": "Quel matériel ou quelle tenue faut-il prévoir pour une première séance ?", "answer": "Des vêtements souples et un carnet suffisent ; le studio prête le reste du matériel.", "follow_up_to": null},
+        {"topic": "L'activité", "question": "Qu'est-ce que cette activité t'apporte sur le plan personnel, notamment pour la confiance en toi ?", "answer": "Avant, j'étais très timide ; maintenant, je parle facilement devant un groupe.", "follow_up_to": null},
+        {"topic": "L'activité", "question": "Quel matériel ou quelle tenue faut-il prévoir pour une première séance ?", "answer": "Des vêtements souples et des chaussures confortables suffisent ; aucun matériel particulier n'est nécessaire.", "follow_up_to": null},
         {"topic": "Organisation", "question": "Dans quel lieu se déroulent les séances, et est-il facile d'accès ?", "answer": "Dans une salle du centre communautaire, près de la bibliothèque et d'un arrêt d'autobus.", "follow_up_to": null},
         {"topic": "Organisation", "question": "Quels sont les horaires des séances, et à quelle fréquence la troupe se produit-elle ?", "answer": "Les séances ont lieu le mardi de 19 h à 21 h, et la troupe joue un spectacle tous les deux mois.", "follow_up_to": null},
         {"topic": "Organisation", "question": "Les nouveaux doivent-ils monter sur scène immédiatement, ou peuvent-ils d'abord observer les autres ?", "answer": "Ils peuvent d'abord observer, puis jouer quand ils se sentent prêts.", "follow_up_to": 5, "condition": "If public performances are mentioned; adapt to the activity."},
-        {"topic": "Inscription", "question": "Faut-il déjà avoir de l'expérience pour s'inscrire, et peut-on essayer un premier cours gratuitement ?", "answer": "Aucune expérience n'est requise, et le premier cours est gratuit.", "follow_up_to": null},
-        {"topic": "Inscription", "question": "Et après ce cours gratuit, combien coûte l'inscription ?", "answer": "120 $ pour une session de dix semaines ; c'est raisonnable, avec un metteur en scène professionnel.", "follow_up_to": 7, "condition": "If a free trial is mentioned, unless the full fee is given."}
+        {"topic": "Inscription", "question": "Faut-il déjà avoir de l'expérience pour s'inscrire, et peut-on essayer une première séance gratuitement ?", "answer": "Aucune expérience n'est requise, et la première séance est gratuite.", "follow_up_to": null},
+        {"topic": "Inscription", "question": "Et après cette séance gratuite, combien coûte l'inscription ?", "answer": "120 $ pour une session de dix semaines ; c'est raisonnable, avec un metteur en scène professionnel.", "follow_up_to": 7, "condition": "If a free trial is mentioned, unless the full fee is given."}
       ]
     },
     {
@@ -263,14 +263,14 @@
       "opening": "Salut ! Je cherche une destination pour mon prochain voyage, et comme tu as beaucoup voyagé, j'aimerais avoir ton avis.",
       "closing": "Merci pour tous ces conseils ! Je crois que je tiens ma prochaine destination.",
       "questions": [
-        {"topic": "Pays visités", "question": "Quels pays as-tu visités récemment, et lesquels envisagerais-tu de recommander pour mon voyage ?", "answer": "Le Canada et les États-Unis ; chacun m'a plu pour des raisons différentes.", "follow_up_to": null},
-        {"topic": "Pays visités", "question": "Lequel t'a laissé le meilleur souvenir, et pour quelles raisons précises ?", "answer": "Les États-Unis, pour leurs paysages spectaculaires, leur cuisine délicieuse et l'accueil des habitants.", "follow_up_to": 1, "condition": "After several countries are listed."},
-        {"topic": "Activités", "question": "Et là-bas, qu'est-ce qui t'a le plus marqué ?", "answer": "Une traversée de Puget Sound en ferry depuis Seattle, puis une randonnée sur la côte du parc national Olympic.", "follow_up_to": null},
-        {"topic": "Climat", "question": "Quel temps as-tu eu en mars, et le climat variait-il beaucoup entre le nord et le sud ?", "answer": "Il faisait chaud dans le sud, mais étonnamment frais et brumeux dans le nord.", "follow_up_to": null},
+        {"topic": "Pays visités", "question": "Quels pays as-tu visités récemment ?", "answer": "Le Canada et les États-Unis ; chacun m'a plu pour des raisons différentes.", "follow_up_to": null},
+        {"topic": "Pays visités", "question": "Pour un voyage mêlant ville et nature, lequel de ces pays choisirais-tu ?", "answer": "Les États-Unis, car j'ai pu combiner des étapes urbaines avec des paysages très différents.", "follow_up_to": 1, "condition": "If several countries are named without a recommendation for city and nature."},
+        {"topic": "Activités", "question": "Et là-bas, quelles activités as-tu particulièrement appréciées ?", "answer": "Une traversée de Puget Sound en ferry depuis Seattle, puis une randonnée sur la côte du parc national Olympic.", "follow_up_to": null},
+        {"topic": "Climat", "question": "À quelle saison y es-tu allé, et quel temps as-tu rencontré dans les régions visitées ?", "answer": "J'y suis allé en avril : il faisait frais et souvent pluvieux sur la côte du Nord-Ouest.", "follow_up_to": null},
         {"topic": "Climat", "question": "Quelle serait la meilleure période pour y aller, alors ?", "answer": "Mai ou juin, à mon avis : sur la côte ouest, les journées sont longues et les températures généralement agréables.", "follow_up_to": 4, "condition": "After the weather is described, unless the best season is already given."},
         {"topic": "Budget", "question": "Pour te déplacer dans ce pays, quelles options étaient pratiques et abordables ?", "answer": "Les bus étaient pratiques en ville ; entre Seattle et Portland, j'ai choisi Amtrak, avec des billets réservés à l'avance.", "follow_up_to": null},
-        {"topic": "Budget", "question": "Quel budget quotidien faut-il prévoir sur place pour les repas et une chambre correcte ?", "answer": "On mange très bien pour 20 à 30 $, et une chambre correcte coûte environ 150 $ la nuit.", "follow_up_to": null},
-        {"topic": "Budget", "question": "Et le billet d'avion, tu l'as payé combien ?", "answer": "Environ 1 500 $ aller-retour, avec une escale ; c'était la plus grosse dépense du voyage.", "follow_up_to": null}
+        {"topic": "Budget", "question": "Quel budget quotidien faut-il prévoir sur place pour les repas et une chambre correcte ?", "answer": "Je comptais environ 45 $ par jour pour les repas et 150 $ pour une chambre simple, en dollars américains.", "follow_up_to": null},
+        {"topic": "Budget", "question": "Combien t'a coûté le vol aller-retour, et depuis quelle ville partais-tu ?", "answer": "Environ 450 dollars américains, au départ de Denver ; les prix variaient beaucoup selon les dates.", "follow_up_to": null}
       ]
     },
     {
@@ -280,14 +280,14 @@
       "opening": "Bonjour ! J'aimerais suivre des cours de guitare avec vous, et j'ai quelques questions sur leur organisation.",
       "closing": "Merci beaucoup ! Je vais regarder mon emploi du temps et je vous confirme un créneau d'ici la fin de la semaine.",
       "questions": [
-        {"topic": "Styles musicaux", "question": "Quels styles musicaux enseignez-vous, et adaptez-vous le programme aux goûts de chaque élève ?", "answer": "J'enseigne surtout le folk, le rock et la guitare classique, en adaptant le programme aux goûts de l'élève.", "follow_up_to": null},
-        {"topic": "Styles musicaux", "question": "Est-ce qu'on pourrait travailler des chansons que je choisis moi-même ?", "answer": "Bien sûr : on part de vos morceaux préférés, et j'en tire les exercices techniques.", "follow_up_to": 1, "condition": "After styles are given, if you want to learn your own songs."},
+        {"topic": "Styles musicaux", "question": "Quels styles musicaux enseignez-vous ?", "answer": "J'enseigne surtout le folk, le rock et la guitare classique.", "follow_up_to": null},
+        {"topic": "Styles musicaux", "question": "Pour le rock, est-ce qu'on pourrait travailler des chansons que je choisis moi-même ?", "answer": "Bien sûr : on part de vos morceaux préférés, et j'en tire les exercices techniques.", "follow_up_to": 1, "condition": "If rock is taught without explaining whether learners can choose songs."},
         {"topic": "Organisation", "question": "Les cours se donnent-ils dans votre studio, en ligne, ou dans les deux formats ?", "answer": "Dans les deux formats : dans mon studio au centre-ville, ou en ligne si vous préférez.", "follow_up_to": null},
         {"topic": "Organisation", "question": "Quels créneaux proposez-vous en semaine et le samedi ?", "answer": "En semaine après 16 h, et le samedi matin.", "follow_up_to": null},
         {"topic": "Organisation", "question": "Serait-il possible d'avoir un créneau fixe le samedi ?", "answer": "Oui, il me reste 10 h ; je peux vous le garder jusqu'à vendredi.", "follow_up_to": 4, "condition": "If weekend slots are offered; adapt to the day that suits you."},
         {"topic": "Organisation", "question": "Combien de temps dure une leçon, et à quel rythme conseillez-vous de venir ?", "answer": "Une heure par semaine convient à la plupart des élèves, avec un peu de pratique entre les cours.", "follow_up_to": null},
         {"topic": "Tarifs et matériel", "question": "Quels sont vos tarifs à la leçon et pour un forfait de quatre cours ?", "answer": "Une leçon d'une heure coûte 50 $, ou 180 $ pour un forfait de quatre.", "follow_up_to": null},
-        {"topic": "Tarifs et matériel", "question": "Faut-il posséder sa propre guitare, ou existe-t-il une solution de prêt ou de location au début ?", "answer": "Il faut la vôtre pour pratiquer ; je peux vous conseiller un modèle d'occasion autour de 150 $, mais je ne propose pas de location.", "follow_up_to": null}
+        {"topic": "Tarifs et matériel", "question": "Faut-il posséder sa propre guitare, ou existe-t-il une solution de prêt ou de location au début ?", "answer": "Il faut votre guitare pour pratiquer ; je peux conseiller un modèle d'occasion autour de 150 $, mais je ne propose ni prêt ni location.", "follow_up_to": null}
       ]
     },
     {
@@ -350,12 +350,12 @@
       "questions": [
         {"topic": "Les cours", "question": "Quels styles de danse peut-on apprendre, et lequel conseilleriez-vous à une personne qui débute ?", "answer": "L'association propose salsa, tango et swing ; la salsa est particulièrement accessible aux débutants.", "follow_up_to": null},
         {"topic": "Les cours", "question": "Pour la salsa, faut-il venir avec un partenaire ?", "answer": "Non, on change de partenaire toutes les cinq minutes ; c'est ce qui rend les cours si conviviaux.", "follow_up_to": 1, "condition": "If partner dances are mentioned; adapt to the style named."},
-        {"topic": "Les cours", "question": "Est-ce qu'un débutant peut commencer en cours d'année ?", "answer": "Oui, un nouveau groupe débutant démarre chaque mois, et le premier cours est gratuit.", "follow_up_to": null},
+        {"topic": "Les cours", "question": "Est-ce qu'un débutant peut commencer en cours d'année ?", "answer": "Oui, un nouveau groupe débutant démarre chaque mois.", "follow_up_to": null},
         {"topic": "Lieu et horaires", "question": "Où ont lieu les cours, et combien de temps faut-il pour s'y rendre depuis le travail ?", "answer": "Dans une salle au-dessus de la bibliothèque municipale, à dix minutes d'ici.", "follow_up_to": null},
-        {"topic": "Lieu et horaires", "question": "Quel jour et à quelles heures ont lieu les cours destinés aux débutants ?", "answer": "Ils ont lieu le jeudi, de 19 h à 20 h 30.", "follow_up_to": null},
+        {"topic": "Lieu et horaires", "question": "Quel jour et à quelles heures ont lieu les cours de salsa pour débutants ?", "answer": "Ils ont lieu le jeudi, de 19 h à 20 h 30.", "follow_up_to": null},
         {"topic": "Lieu et horaires", "question": "Pourrait-on y aller ensemble directement après le travail ?", "answer": "Excellente idée : en partant à 18 h 15, on aurait même le temps de manger un morceau.", "follow_up_to": 5, "condition": "After the class time is given, if it follows your workday."},
         {"topic": "Tarif", "question": "Peut-on assister à un cours d'essai avant de payer la session complète ?", "answer": "Oui, le premier cours coûte 10 $, déduits ensuite du prix de la session.", "follow_up_to": null},
-        {"topic": "Tarif", "question": "Quel est le coût total entre les cours et l'adhésion obligatoire à l'association ?", "answer": "Il faut prévoir 150 $ pour l'année, plus 10 $ d'adhésion à l'association.", "follow_up_to": null}
+        {"topic": "Tarif", "question": "Quel budget total faut-il prévoir pour ces cours de salsa, en comptant une éventuelle adhésion à l'association ?", "answer": "Les cours de salsa coûtent 150 $ pour l'année, plus 10 $ d'adhésion obligatoire à l'association.", "follow_up_to": null}
       ]
     },
     {
@@ -371,8 +371,8 @@
         {"topic": "Date et lieu", "question": "En cas de pluie, la réception sera-t-elle déplacée dans un espace couvert suffisamment grand ?", "answer": "Oui, le restaurant nous réserve aussi sa salle du fond.", "follow_up_to": 3, "condition": "If an outdoor venue is mentioned, unless a backup is given."},
         {"topic": "Invités", "question": "Qui avez-vous invité : l'équipe, d'anciens collègues ou aussi des proches ?", "answer": "Toute l'équipe, quelques anciens collègues et mon nouveau directeur.", "follow_up_to": null},
         {"topic": "Invités", "question": "Est-ce que je peux venir accompagné, ou la fête est-elle réservée aux collègues ?", "answer": "Elle est réservée aux collègues cette fois, car le restaurant nous garde un nombre limité de places.", "follow_up_to": 5, "condition": "If guests are described but bringing a companion has not been discussed."},
-        {"topic": "Organisation", "question": "Puis-je apporter quelque chose, ou vous occupez-vous déjà des boissons et des bouchées ?", "answer": "N'apportez rien : je m'occupe déjà des bouchées et des boissons.", "follow_up_to": null},
-        {"topic": "Organisation", "question": "Quelle tenue conviendrait à cette soirée : vêtements de bureau ou tenue plus habillée ?", "answer": "Venez comme au bureau ; ce sera une soirée simple et détendue.", "follow_up_to": null}
+        {"topic": "Organisation", "question": "Puis-je apporter quelque chose, ou vous occupez-vous déjà des boissons et des bouchées ?", "answer": "Vous n'avez rien à apporter : je m'occupe déjà des bouchées et des boissons.", "follow_up_to": null},
+        {"topic": "Organisation", "question": "Quelle tenue conviendrait à cette soirée : vêtements de bureau ou tenue plus habillée ?", "answer": "Une tenue de bureau convient ; ce sera une soirée simple et détendue.", "follow_up_to": null}
       ]
     },
     {

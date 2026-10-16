@@ -44,12 +44,12 @@
       "questions": [
         {"topic": "Menus", "question": "Qu'est-ce que vous proposez comme menus ?", "answer": "Trois formules : cuisine traditionnelle, méditerranéenne ou végétarienne, toujours avec entrée, plat et dessert.", "follow_up_to": null},
         {"topic": "Menus", "question": "Que comprend la formule méditerranéenne, par exemple ?", "answer": "Un taboulé en entrée, un poisson grillé avec des légumes rôtis, puis une tarte au citron.", "follow_up_to": 1, "condition": "If several menus are offered; name the one that tempts you."},
-        {"topic": "Menus", "question": "Si certains invités avaient des allergies, pourriez-vous adapter les plats ?", "answer": "Bien sûr, il suffit de me les signaler une semaine avant le repas.", "follow_up_to": null},
+        {"topic": "Menus", "question": "Si certains invités avaient des allergies, pourriez-vous adapter les plats ?", "answer": "Oui, les plats sont adaptables si les allergies me sont signalées une semaine avant le repas.", "follow_up_to": null},
         {"topic": "Matériel", "question": "De quel équipement aurez-vous besoin dans ma cuisine ?", "answer": "D'un four et de plaques de cuisson ; j'apporte mes couteaux, mes casseroles et mes ustensiles.", "follow_up_to": null},
         {"topic": "Matériel", "question": "Faut-il aussi que je fournisse la vaisselle pour le service ?", "answer": "Oui, sinon je peux en louer pour 4 $ par personne.", "follow_up_to": 4, "condition": "After kitchen equipment is discussed, unless tableware is already covered."},
-        {"topic": "Tarifs", "question": "Quels sont vos tarifs ?", "answer": "Entre 55 et 75 $ par personne selon le menu, courses, préparation et service compris.", "follow_up_to": null},
-        {"topic": "Tarifs", "question": "Est-ce que ce prix inclut aussi le nettoyage après le repas ?", "answer": "Je laisse la cuisine propre, mais la vaisselle des invités reste à votre charge.", "follow_up_to": 6, "condition": "After rates are given, unless cleaning is already included."},
-        {"topic": "Tarifs", "question": "Les ingrédients et votre déplacement sont-ils compris dans le montant annoncé ?", "answer": "Les ingrédients sont inclus ; le déplacement est gratuit dans un rayon de quinze kilomètres.", "follow_up_to": null}
+        {"topic": "Tarifs et réservation", "question": "Quels sont vos tarifs ?", "answer": "Entre 55 et 75 $ par personne selon le menu, courses, préparation et service compris.", "follow_up_to": null},
+        {"topic": "Tarifs et réservation", "question": "Est-ce que ce prix inclut aussi le nettoyage après le repas ?", "answer": "Je laisse la cuisine propre, mais la vaisselle des invités reste à votre charge.", "follow_up_to": 6, "condition": "After rates are given, unless cleaning is already included."},
+        {"topic": "Tarifs et réservation", "question": "Combien de temps à l'avance faut-il réserver, et demandez-vous un acompte ?", "answer": "Je demande une réservation au moins deux semaines avant le repas, avec un acompte de 30 % du devis.", "follow_up_to": null}
       ]
     },
     {
@@ -57,7 +57,7 @@
       "register": "vous",
       "note": "Your neighbour offers to share their regular car journeys: this is an arrangement between neighbours, not a taxi service. Before accepting, check the route, times, cost-sharing and practical rules. Vous is chosen as a cautious default; a close neighbour may be addressed with tu.",
       "opening": "Bonjour ! Merci pour votre proposition de covoiturage, l'idée me plaît beaucoup. J'aimerais voir avec vous comment nous organiser.",
-      "closing": "Merci beaucoup, tout est clair ! C'est d'accord pour moi : dites-moi simplement quand vous souhaitez commencer.",
+      "closing": "Merci beaucoup ! Je vais comparer ces horaires avec les miens avant de confirmer notre organisation.",
       "questions": [
         {"topic": "Trajet et horaires", "question": "Vous faites quel trajet exactement, et quels jours ?", "answer": "Je vais au centre-ville du lundi au jeudi, dans le quartier de la gare.", "follow_up_to": null},
         {"topic": "Trajet et horaires", "question": "À quelle heure partez-vous le matin, et quand repartez-vous le soir ?", "answer": "Je pars à 7 h 30 et je quitte le centre vers 17 h 15.", "follow_up_to": null},
@@ -66,7 +66,7 @@
         {"topic": "Frais", "question": "Vous préférez que je règle chaque jour ou en fin de semaine ?", "answer": "En fin de semaine, par virement, ce sera plus simple.", "follow_up_to": 4, "condition": "After a contribution is agreed, unless payment timing is already set."},
         {"topic": "Organisation", "question": "Et si l'un de nous ne pouvait pas partir un matin, qu'est-ce qu'on ferait ?", "answer": "On se préviendrait la veille au soir ; si c'était moi, vous prendriez le bus ce jour-là.", "follow_up_to": null},
         {"topic": "Organisation", "question": "Y a-t-il des règles à respecter dans la voiture ?", "answer": "Pas de repas à bord et la radio à volume raisonnable, c'est tout.", "follow_up_to": null},
-        {"topic": "Organisation", "question": "Quel préavis faudrait-il donner si l'un de nous changeait exceptionnellement son horaire ?", "answer": "Un message la veille suffit normalement, sauf urgence bien sûr.", "follow_up_to": null}
+        {"topic": "Organisation", "question": "Où nous retrouverions-nous pour partir le matin ?", "answer": "Devant chez vous, au bord du trottoir, là où je peux m'arrêter sans gêner la circulation.", "follow_up_to": null}
       ]
     },
     {
@@ -80,13 +80,13 @@
       "closing": "Merci beaucoup pour ces renseignements ! Je vais réfléchir à la formule qui me convient, puis je reviendrai m'inscrire.",
       "questions": [
         {"topic": "Cours et formules", "question": "Quels sont les instruments enseignés dans votre école ?", "answer": "Le piano, la guitare, le violon et la batterie, ainsi que le chant, du niveau débutant au niveau avancé.", "follow_up_to": null},
-        {"topic": "Cours et formules", "question": "Les cours sont-ils individuels ou collectifs ?", "answer": "Les deux : des leçons individuelles de 30 ou 45 minutes, ou des cours en groupe de quatre à six élèves.", "follow_up_to": null},
+        {"topic": "Cours et formules", "question": "Les cours sont-ils individuels ou collectifs ?", "answer": "Les deux : des leçons individuelles de 30 ou 45 minutes, ou des cours collectifs d'une heure, en groupe de quatre à six élèves.", "follow_up_to": null},
         {"topic": "Cours et formules", "question": "Si l'on débute complètement, quelle formule me conseilleriez-vous ?", "answer": "Plutôt les leçons individuelles au début, pour acquérir les bases à votre rythme.", "follow_up_to": 2, "condition": "After individual and group formats are described, if you are a beginner."},
         {"topic": "Horaires", "question": "Quels jours et à quelle heure se donnent les cours ?", "answer": "En semaine de 15 h à 21 h, et le samedi de 9 h à 17 h.", "follow_up_to": null},
-        {"topic": "Tarifs", "question": "Combien coûtent les cours ?", "answer": "40 $ la leçon individuelle de 30 minutes, et 220 $ la session de dix cours en groupe.", "follow_up_to": null},
+        {"topic": "Tarifs", "question": "Combien coûtent les cours ?", "answer": "Une leçon individuelle coûte 40 $ pour 30 minutes ou 55 $ pour 45 minutes ; dix cours collectifs coûtent 220 $.", "follow_up_to": null},
         {"topic": "Tarifs", "question": "Est-ce qu'il serait possible de régler la session en plusieurs fois ?", "answer": "Oui, en deux versements : la moitié à l'inscription, le reste à mi-session.", "follow_up_to": 5, "condition": "After a session price is given, if instalments would help."},
         {"topic": "Tarifs", "question": "Proposez-vous un cours d'essai avant l'inscription ?", "answer": "Oui, pour 20 $, montant déduit ensuite de l'inscription.", "follow_up_to": null},
-        {"topic": "Tarifs", "question": "Peut-on louer un instrument auprès de l'école au lieu d'en acheter un immédiatement ?", "answer": "Oui, nous proposons une location mensuelle pour les instruments les plus demandés.", "follow_up_to": null}
+        {"topic": "Tarifs", "question": "Peut-on louer un instrument auprès de l'école au lieu d'en acheter un immédiatement ?", "answer": "La location mensuelle est possible pour la guitare et le violon, mais pas pour le piano ni la batterie.", "follow_up_to": null}
       ]
     },
     {
@@ -133,14 +133,14 @@
       "opening": "Salut ! Je cherche un séjour linguistique pour mon enfant, et comme le tien en a fait un, j'aimerais profiter de ton expérience.",
       "closing": "Merci beaucoup, ça m'aide énormément ! Je vais en parler avec mon enfant et comparer quelques séjours de ce type.",
       "questions": [
-        {"topic": "Destination", "question": "Où est-ce que ton enfant est parti, et pour combien de temps ?", "answer": "Aux États-Unis, à Seattle, pendant trois semaines en juillet.", "follow_up_to": null},
-        {"topic": "Destination", "question": "Quel organisme avait organisé le séjour, et pourquoi l'avais-tu choisi ?", "answer": "L'association de parents de son école, avec une école de langues de Seattle ; son professeur nous l'avait recommandée pour l'encadrement et les petits groupes.", "follow_up_to": null},
+        {"topic": "Projet et conditions d'accès", "question": "Où est-ce que ton enfant est parti, et pour combien de temps ?", "answer": "Aux États-Unis, à Seattle, pendant trois semaines en juillet.", "follow_up_to": null},
+        {"topic": "Projet et conditions d'accès", "question": "Quel organisme avait organisé le séjour, et pourquoi l'avais-tu choisi ?", "answer": "L'association de parents de son école, avec une école de langues de Seattle ; son professeur nous l'avait recommandée pour l'encadrement et les petits groupes.", "follow_up_to": null},
+        {"topic": "Projet et conditions d'accès", "question": "Quels âges et niveaux étaient acceptés, et quels documents fallait-il fournir ?", "answer": "À l'époque, les 12 à 17 ans étaient acceptés, même débutants ; on fournissait une copie du passeport et une autorisation parentale. Les conditions actuelles sont à confirmer.", "follow_up_to": null},
         {"topic": "Activités et hébergement", "question": "Comment se passaient ses journées sur place ?", "answer": "Il y avait des cours le matin, puis du sport, des visites ou du théâtre l'après-midi.", "follow_up_to": null},
         {"topic": "Activités et hébergement", "question": "Où logeait ton enfant, et comment l'organisme avait-il vérifié les conditions d'accueil ?", "answer": "En famille d'accueil ; l'école partenaire avait rencontré la famille et visité le logement avant le séjour.", "follow_up_to": null},
-        {"topic": "Activités et hébergement", "question": "La vie en famille d'accueil l'a-t-elle aidé à prendre confiance et à parler plus facilement ?", "answer": "Oui, les repas et les échanges quotidiens l'ont aidé ; après quelques jours difficiles, mon enfant parlait beaucoup plus spontanément.", "follow_up_to": 4, "condition": "If a host family is mentioned without explaining its effect on language practice."},
-        {"topic": "Conditions", "question": "Quels âges et niveaux étaient acceptés, et quels documents fallait-il fournir ?", "answer": "À l'époque, les 12 à 17 ans étaient acceptés, même débutants ; on fournissait une copie du passeport et une autorisation parentale. Les conditions actuelles sont à confirmer.", "follow_up_to": null},
-        {"topic": "Conditions", "question": "Qui accompagnait les jeunes pendant les sorties, et qui pouvait-on joindre en cas de problème ?", "answer": "Des animateurs accompagnaient les sorties ; le responsable du séjour était joignable jour et nuit sur un numéro d'urgence transmis aux parents.", "follow_up_to": null},
-        {"topic": "Conditions", "question": "Combien le séjour a-t-il coûté au total, et qu'est-ce qui était compris dans ce prix ?", "answer": "Environ 4 500 $, avec le vol, les cours, l'hébergement, les repas et les excursions.", "follow_up_to": null}
+        {"topic": "Activités et hébergement", "question": "La vie en famille d'accueil l'a-t-elle aidé à prendre confiance et à parler plus facilement ?", "answer": "Oui, les repas et les échanges quotidiens l'ont aidé ; après quelques jours difficiles, mon enfant parlait beaucoup plus spontanément.", "follow_up_to": 5, "condition": "If a host family is mentioned without explaining its effect on language practice."},
+        {"topic": "Encadrement et budget", "question": "Qui accompagnait les jeunes pendant les sorties, et qui pouvait-on joindre en cas de problème ?", "answer": "Des animateurs accompagnaient les sorties ; le responsable du séjour était joignable jour et nuit sur un numéro d'urgence transmis aux parents.", "follow_up_to": null},
+        {"topic": "Encadrement et budget", "question": "Combien le séjour a-t-il coûté au total, et qu'est-ce qui était compris dans ce prix ?", "answer": "Environ 4 500 $, avec le vol, les cours, l'hébergement, les repas et les excursions.", "follow_up_to": null}
       ]
     },
     {
@@ -163,7 +163,7 @@
     {
       "group": "local-acquaintance-birthday-restaurant-choice",
       "register": "vous",
-      "note": "Your neighbour knows the local restaurants: they are advising you, not booking for you. Have them compare places by cuisine, price and atmosphere, then check what matters for a birthday celebration. Vous is chosen as a cautious default; a close neighbour may be addressed with tu.",
+      "note": "Your neighbour advises you about local restaurants for your birthday, not as restaurant staff. Compare cuisine, price and atmosphere, then group arrangements. Their experience does not guarantee current policies or availability; confirm these with the restaurant. Vous is chosen; close neighbours may use tu.",
       "notes": {
         "tache2:juillet:batch-04:subject-18": "Here, a colleague advises you because you have just arrived in Toronto and do not yet know its restaurants. Compare the cuisine, prices and atmosphere of the places they recommend, then check group arrangements. Vous is chosen as a cautious default; close colleagues may use tu.",
         "tache2:juillet:batch-05:subject-23": "Here, a colleague advises you because you have just arrived in Toronto and do not yet know its restaurants. Compare the cuisine, prices and atmosphere of the places they recommend, then check group arrangements. Vous is chosen as a cautious default; close colleagues may use tu."
@@ -172,12 +172,12 @@
       "closing": "Merci beaucoup pour ces bonnes adresses ! Je vais en parler à mes invités, puis je réserverai rapidement une table.",
       "questions": [
         {"topic": "Cuisine", "question": "Quel restaurant me recommanderiez-vous pour l'occasion ?", "answer": "Chez Lina, un restaurant libanais à dix minutes à pied d'ici, où l'on partage de nombreux petits plats.", "follow_up_to": null},
-        {"topic": "Cuisine", "question": "Et si mes invités préféraient une cuisine plus classique ?", "answer": "Dans ce cas, le Bistro du Marché, qui sert une cuisine française simple et bien faite.", "follow_up_to": 1, "condition": "If the first suggestion may not suit all your guests."},
+        {"topic": "Cuisine", "question": "Et si mes invités préféraient une cuisine française, quelle autre adresse me conseilleriez-vous ?", "answer": "Dans ce cas, le Bistro du Marché, qui sert une cuisine française simple et bien faite.", "follow_up_to": 1, "condition": "If the first suggestion is Lebanese; adapt the alternative cuisine."},
         {"topic": "Prix", "question": "Combien est-ce qu'il faut prévoir par personne ?", "answer": "Environ 35 $ chez Lina, contre 50 $ au bistro, sans les boissons.", "follow_up_to": null},
-        {"topic": "Prix", "question": "Chez Lina, existe-t-il une formule pour les groupes ?", "answer": "Oui, un menu à partager à 30 $ par personne, à partir de huit convives.", "follow_up_to": 3, "condition": "After prices are given; substitute the restaurant you prefer."},
+        {"topic": "Prix", "question": "Chez Lina, existe-t-il une formule pour les groupes ?", "answer": "Lors de ma dernière visite, un menu à partager coûtait 30 $ par personne, à partir de huit convives ; c'est à confirmer avec le restaurant.", "follow_up_to": 3, "condition": "After prices are given; substitute the restaurant you prefer."},
         {"topic": "Ambiance et réservation", "question": "Et l'ambiance, elle est comment dans ces restaurants ?", "answer": "Chez Lina, c'est animé, avec de la musique le samedi soir ; le bistro est plus calme et intime.", "follow_up_to": null},
-        {"topic": "Ambiance et réservation", "question": "Où serait-on le plus à l'aise pour une fête à plusieurs ?", "answer": "Chez Lina : sa salle du fond accueille jusqu'à quinze personnes, sur réservation une semaine à l'avance.", "follow_up_to": null},
-        {"topic": "Ambiance et réservation", "question": "Et pour le gâteau, on aurait le droit d'apporter le nôtre ?", "answer": "Oui, sans supplément, et l'équipe le sert même avec des bougies.", "follow_up_to": 6, "condition": "If a private room is offered and you want your own cake."},
+        {"topic": "Ambiance et réservation", "question": "Où serait-on le plus à l'aise pour une fête à plusieurs ?", "answer": "Chez Lina : la salle du fond peut être privatisée pour quinze personnes, d'après mon expérience.", "follow_up_to": null},
+        {"topic": "Ambiance et réservation", "question": "Pour une fête chez Lina, le restaurant accepterait-il qu'on apporte notre gâteau ?", "answer": "Lors de notre fête, il l'avait accepté sans supplément ; mieux vaut confirmer que c'est toujours possible.", "follow_up_to": 6, "condition": "If Chez Lina is chosen and its cake policy remains unknown."},
         {"topic": "Ambiance et réservation", "question": "Combien de temps à l'avance faudrait-il réserver pour un groupe le samedi soir ?", "answer": "Je réserverais au moins deux semaines avant, surtout si vous souhaitez la salle privée.", "follow_up_to": null}
       ]
     },
@@ -188,31 +188,31 @@
       "opening": "Bonjour ! Vous allez souvent à la piscine municipale, je crois, et j'ai bien envie de m'y mettre. J'aimerais avoir votre avis avant d'y aller.",
       "closing": "Merci beaucoup, c'est très utile ! Je vais choisir la formule la plus avantageuse et y aller aux heures les plus calmes.",
       "questions": [
-        {"topic": "Installations", "question": "Comment sont les bassins ?", "answer": "Il y a un bassin de 25 mètres avec des couloirs, et un petit bassin pour les enfants.", "follow_up_to": null},
+        {"topic": "Installations", "question": "Quels types de bassins trouve-t-on à la piscine ?", "answer": "Il y a un bassin de 25 mètres avec des couloirs, et un petit bassin pour les enfants.", "follow_up_to": null},
         {"topic": "Installations", "question": "Est-ce que les couloirs sont répartis selon la vitesse de nage ?", "answer": "Oui, il y a un couloir lent, un moyen et un rapide, ce qui évite de se gêner.", "follow_up_to": 1, "condition": "If lap lanes are mentioned, unless their organization is already explained."},
         {"topic": "Installations", "question": "Quels autres équipements trouve-t-on sur place ?", "answer": "Des vestiaires avec casiers, des douches et un petit sauna, mais pas de salle de sport.", "follow_up_to": null},
         {"topic": "Horaires", "question": "Quels sont les horaires d'ouverture ?", "answer": "En semaine de 6 h à 21 h, et le week-end de 8 h à 18 h.", "follow_up_to": null},
-        {"topic": "Horaires", "question": "Si je voulais éviter la foule, à quel moment vaudrait-il mieux y aller ?", "answer": "Tôt le matin ou après 19 h ; le samedi après-midi, en revanche, c'est bondé.", "follow_up_to": 4, "condition": "After opening hours are given, if you prefer quieter times."},
+        {"topic": "Horaires", "question": "Si je voulais éviter la foule, à quel moment vaudrait-il mieux y aller ?", "answer": "En semaine, tôt le matin ou après 19 h ; le week-end, plutôt à l'ouverture, car le samedi après-midi est très fréquenté.", "follow_up_to": 4, "condition": "After opening hours are given, if you prefer quieter times."},
         {"topic": "Tarifs et accès", "question": "Combien coûte une entrée ?", "answer": "5,50 $ pour un adulte.", "follow_up_to": null},
         {"topic": "Tarifs et accès", "question": "Existe-t-il des formules plus avantageuses pour venir souvent ?", "answer": "Oui, une carte de dix entrées à 45 $ ou un abonnement mensuel à 60 $.", "follow_up_to": 6, "condition": "After the single-entry price is given, if you plan to swim often."},
-        {"topic": "Tarifs et accès", "question": "Que faut-il apporter pour utiliser les vestiaires et accéder aux bassins ?", "answer": "Un cadenas, une serviette et un bonnet ; les casiers sont inclus dans l'entrée.", "follow_up_to": null}
+        {"topic": "Tarifs et accès", "question": "Que faut-il apporter pour utiliser les vestiaires et accéder aux bassins ?", "answer": "Un maillot, un bonnet, une serviette et un cadenas ; les casiers sont compris dans l'entrée.", "follow_up_to": null}
       ]
     },
     {
       "group": "visit-friend-canada-december-preparation",
       "register": "tu",
-      "note": "Your friend lives in Canada and your December visit is still ahead, so use future or conditional forms, never the past. Start from the climate to choose clothing, then move on to activities and the equipment to bring. Use tu with your friend.",
+      "note": "You will visit your friend in Canada in December; the stay is still ahead. Ask about the weather where they live, not a uniform Canadian climate, then clothing, activities and equipment. Have suitable warm clothing on arrival rather than relying on later shopping. Activities, rental prices and weather are local examples to confirm. Use tu; follow up on the actual clothing and activities mentioned.",
       "opening": "Salut ! J'ai hâte de venir te voir en décembre, et j'aimerais que tu m'aides à bien préparer mon séjour.",
       "closing": "Merci beaucoup, ça me rassure ! Je vais préparer ma valise en conséquence, et j'ai déjà hâte de te retrouver.",
       "questions": [
         {"topic": "Météo et vêtements", "question": "Il fait quel temps chez toi en décembre ?", "answer": "Il fait généralement entre -5 et -15 °C, avec de la neige et du vent.", "follow_up_to": null},
         {"topic": "Météo et vêtements", "question": "Avec ce froid, quels vêtements devrais-je emporter ?", "answer": "Un manteau chaud, des bottes imperméables, une tuque, des mitaines et plusieurs couches de vêtements.", "follow_up_to": 1, "condition": "After cold weather is described; adapt to the conditions given."},
-        {"topic": "Météo et vêtements", "question": "Tu crois que je devrais acheter ces vêtements avant de partir ?", "answer": "Non, achète-les plutôt ici : ils sont mieux adaptés au climat et souvent en solde en décembre.", "follow_up_to": 2, "condition": "After clothing is listed, if you do not already own it."},
+        {"topic": "Météo et vêtements", "question": "Si mes vêtements ne suffisaient pas, pourrais-je emprunter quelques affaires chaudes pour les premiers jours ?", "answer": "Oui, je peux te prêter un manteau et des mitaines ; pour les bottes, il vaut mieux avoir une paire à ta taille avant de partir.", "follow_up_to": 2, "condition": "If the clothing described includes items you lack and need immediately."},
         {"topic": "Activités", "question": "Qu'est-ce qu'on pourrait faire pendant mon séjour ?", "answer": "Du patin en plein air, de la raquette en forêt et, le soir, une balade dans les marchés de Noël.", "follow_up_to": null},
-        {"topic": "Activités", "question": "La raquette, c'est accessible à quelqu'un qui n'en a jamais fait ?", "answer": "Tout à fait, c'est simplement de la marche dans la neige.", "follow_up_to": 4, "condition": "If snowshoeing is suggested; adapt to an activity new to you."},
+        {"topic": "Activités", "question": "La raquette, c'est accessible à quelqu'un qui n'en a jamais fait ?", "answer": "Une courte boucle plate convient pour commencer, en vérifiant l'enneigement et la météo ; les parcours longs ou en pente demandent davantage d'effort.", "follow_up_to": 4, "condition": "If snowshoeing is suggested; adapt to an activity new to you."},
         {"topic": "Matériel", "question": "Y a-t-il de petits accessoires utiles auxquels je ne penserais pas ?", "answer": "Oui : des chaufferettes pour les mains, un baume pour les lèvres et des lunettes de soleil contre la réverbération.", "follow_up_to": null},
         {"topic": "Matériel", "question": "Pour ces activités, est-ce que je devrai apporter mon propre équipement ?", "answer": "Non, on loue des patins sur place pour 10 $, et je te prêterai des raquettes.", "follow_up_to": null},
-        {"topic": "Matériel", "question": "Faudra-t-il réserver l'équipement de location avant mon arrivée ?", "answer": "Pour les patins, non, mais mieux vaut réserver les skis pendant les vacances.", "follow_up_to": null}
+        {"topic": "Matériel", "question": "Faudra-t-il réserver l'équipement de location avant mon arrivée ?", "answer": "Pour les patins, la location se fait sur place ; nous vérifierons les horaires avant d'y aller.", "follow_up_to": null}
       ]
     },
     {
@@ -244,12 +244,12 @@
       "questions": [
         {"topic": "Disciplines", "question": "Qu'est-ce que vous proposez comme disciplines ?", "answer": "Du renforcement musculaire, du cardio-boxe et du yoga doux.", "follow_up_to": null},
         {"topic": "Disciplines", "question": "En quoi consiste le cardio-boxe ?", "answer": "Ce sont des mouvements de boxe sans contact, enchaînés en musique pour travailler l'endurance.", "follow_up_to": 1, "condition": "If an unfamiliar activity is named; substitute the one mentioned."},
-        {"topic": "Horaires et participants", "question": "À quels moments ont lieu les séances ?", "answer": "Le lundi à 18 h, le mercredi à 19 h et le samedi à 10 h, pendant une heure.", "follow_up_to": null},
+        {"topic": "Horaires et participants", "question": "Où ont lieu les séances, et comment accéder à la salle ?", "answer": "Dans la salle polyvalente du centre communautaire, au rez-de-chaussée ; l'entrée se trouve du côté du jardin.", "follow_up_to": null},
+        {"topic": "Horaires et participants", "question": "Quels sont les créneaux pour chacune de ces disciplines ?", "answer": "Renforcement le lundi à 18 h, cardio-boxe le mercredi à 19 h et yoga le samedi à 10 h ; chaque séance dure une heure.", "follow_up_to": null},
         {"topic": "Horaires et participants", "question": "Qui participe à ces séances, en général ?", "answer": "Des gens de 20 à 70 ans, surtout des débutants qui veulent bouger dans une bonne ambiance.", "follow_up_to": null},
         {"topic": "Conditions", "question": "Que faut-il faire pour participer ?", "answer": "S'inscrire sur place et payer une cotisation annuelle de 40 $ ; ensuite, toutes les séances sont gratuites.", "follow_up_to": null},
-        {"topic": "Conditions", "question": "Est-ce que je pourrais essayer une séance avant de payer cette cotisation ?", "answer": "Oui, la première séance est offerte.", "follow_up_to": 5, "condition": "If a membership fee is required, unless a free trial is mentioned."},
-        {"topic": "Conditions", "question": "Quel équipement dois-je apporter ?", "answer": "Une tenue de sport, une bouteille d'eau et un tapis pour le yoga ; les gants de boxe sont prêtés.", "follow_up_to": null},
-        {"topic": "Conditions", "question": "Combien coûte la cotisation, et quelles séances permet-elle de suivre ?", "answer": "Elle coûte 25 $ par mois et donne accès à toutes les séances communautaires.", "follow_up_to": null}
+        {"topic": "Conditions", "question": "Est-ce que je pourrais essayer une séance avant de payer cette cotisation ?", "answer": "Oui, la première séance est offerte.", "follow_up_to": 6, "condition": "If a membership fee is required, unless a free trial is mentioned."},
+        {"topic": "Conditions", "question": "Quel équipement dois-je apporter ?", "answer": "Une tenue de sport, des chaussures propres, une bouteille d'eau et un tapis pour le yoga ; le centre fournit les accessoires de renforcement.", "follow_up_to": null}
       ]
     },
     {
@@ -264,10 +264,10 @@
       "questions": [
         {"topic": "Modèles", "question": "Quels sont les modèles disponibles ?", "answer": "Des vélos de ville, des vélos hybrides et des vélos à assistance électrique.", "follow_up_to": null},
         {"topic": "Modèles", "question": "Lequel me conseilleriez-vous pour une journée en ville ?", "answer": "Le vélo de ville, avec son panier ; s'il y a beaucoup de côtes sur votre parcours, l'électrique sera plus confortable.", "follow_up_to": 1, "condition": "After models are listed; adapt the outing to your plans."},
-        {"topic": "Modèles", "question": "Quelle est l'autonomie de la batterie ?", "answer": "Environ 60 km, ce qui suffit largement pour une journée.", "follow_up_to": 2, "condition": "If an electric bike is recommended or interests you."},
-        {"topic": "Tarifs", "question": "Combien coûte la location ?", "answer": "40 $ la journée pour un vélo de ville, 65 $ pour un électrique ; on peut aussi louer à l'heure.", "follow_up_to": null},
-        {"topic": "Tarifs", "question": "Est-ce que le casque et l'antivol sont compris dans ce prix ?", "answer": "Oui, et nous vous donnons aussi une carte des pistes cyclables.", "follow_up_to": 4, "condition": "After rates are given, unless equipment is already included."},
-        {"topic": "Conditions de location", "question": "Que dois-je fournir pour louer un vélo ?", "answer": "Une pièce d'identité et un dépôt de 200 $ sur carte de crédit, remboursé au retour du vélo.", "follow_up_to": null},
+        {"topic": "Modèles", "question": "Quelle est l'autonomie de la batterie ?", "answer": "Environ 60 km avec une charge, selon le relief et le niveau d'assistance choisi.", "follow_up_to": 2, "condition": "If an electric bike is recommended or interests you."},
+        {"topic": "Tarifs", "question": "Quels sont les tarifs à l'heure et à la journée pour ces modèles ?", "answer": "Pour le vélo de ville, 20 $ l'heure ou 40 $ la journée ; pour l'hybride, 25 $ ou 50 $ ; pour l'électrique, 30 $ ou 65 $.", "follow_up_to": null},
+        {"topic": "Tarifs", "question": "Est-ce que le casque et l'antivol sont compris dans ces tarifs ?", "answer": "Oui, le casque et l'antivol sont fournis sans supplément.", "follow_up_to": 4, "condition": "If equipment inclusions remain unclear after the model rates."},
+        {"topic": "Conditions de location", "question": "Quels documents et moyens de paiement faut-il présenter pour louer un vélo ?", "answer": "Une pièce d'identité et une carte de crédit au nom du locataire.", "follow_up_to": null},
         {"topic": "Conditions de location", "question": "Et si je crevais en route, qu'est-ce qui se passerait ?", "answer": "Il suffirait de nous appeler : nous venons réparer ou échanger le vélo gratuitement dans un rayon de 10 km.", "follow_up_to": null},
         {"topic": "Conditions de location", "question": "Quel dépôt de garantie demandez-vous, et quand est-il restitué ?", "answer": "Nous bloquons 150 $ sur la carte, puis nous libérons la somme au retour du vélo.", "follow_up_to": null}
       ]
@@ -309,18 +309,18 @@
     {
       "group": "friend-cooking-workshop-experience",
       "register": "tu",
-      "note": "Your friend has just completed a cooking workshop: use past tenses for their experience, then present or conditional forms for your own plans. They are a participant, not the chef. Cover what is taught, schedules and cost. Use tu with your friend.",
+      "note": "Your friend has just completed a cooking workshop and you want to try one. Ask about their experience in past tenses, then reported schedules, prices and booking. They are a participant, not the chef; confirm current arrangements with the school. Use tu.",
       "opening": "Salut ! Ton atelier de cuisine me donne envie d'essayer à mon tour, alors j'aimerais que tu m'en parles.",
       "closing": "Merci beaucoup, ça me donne vraiment envie ! Je vais réserver mon premier atelier dès ce soir.",
       "questions": [
         {"topic": "Contenu", "question": "Qu'est-ce que tu as appris à préparer ?", "answer": "À faire des pâtes fraîches et deux sauces italiennes.", "follow_up_to": null},
         {"topic": "Contenu", "question": "Les pâtes fraîches, c'est difficile à réussir quand on débute ?", "answer": "Pas vraiment : le chef montrait chaque geste, puis on le refaisait en binôme.", "follow_up_to": 1, "condition": "If a specific dish is named; substitute that dish."},
-        {"topic": "Lieu et horaires", "question": "Où se déroule cet atelier ?", "answer": "Dans une école de cuisine du centre-ville, qui propose un thème différent chaque semaine.", "follow_up_to": null},
-        {"topic": "Lieu et horaires", "question": "À quels horaires ont lieu les ateliers ?", "answer": "Le mardi et le jeudi de 18 h 30 à 21 h, et le samedi de 10 h à 13 h.", "follow_up_to": null},
-        {"topic": "Coût et réservation", "question": "Tu as payé combien ?", "answer": "75 $ pour la séance, ingrédients et dégustation compris.", "follow_up_to": null},
-        {"topic": "Coût et réservation", "question": "Existe-t-il des forfaits pour plusieurs ateliers ?", "answer": "Oui, une carte de cinq ateliers coûte 320 $.", "follow_up_to": 5, "condition": "After the session price is given, if you might attend several."},
-        {"topic": "Coût et réservation", "question": "Si je voulais m'inscrire, il faudrait réserver combien de temps à l'avance ?", "answer": "Environ deux semaines, car il n'y a que douze places par atelier.", "follow_up_to": null},
-        {"topic": "Coût et réservation", "question": "Les ingrédients et les ustensiles sont-ils compris dans le prix de l'atelier ?", "answer": "Oui, tout est fourni et chacun repart avec ce qu'il a préparé.", "follow_up_to": null}
+        {"topic": "Lieu et horaires", "question": "Où se déroule cet atelier ?", "answer": "Dans une école de cuisine du centre-ville.", "follow_up_to": null},
+        {"topic": "Lieu et horaires", "question": "À quels horaires ont lieu les ateliers ?", "answer": "Le programme que j'ai reçu indiquait le mardi et le jeudi de 18 h 30 à 21 h, et le samedi de 10 h à 13 h.", "follow_up_to": null},
+        {"topic": "Coût et réservation", "question": "Tu as payé combien, et qu'est-ce qui était compris dans ce prix ?", "answer": "75 $ pour la séance, ingrédients et dégustation compris.", "follow_up_to": null},
+        {"topic": "Coût et réservation", "question": "Existe-t-il des forfaits pour plusieurs ateliers ?", "answer": "Le programme proposait une carte de cinq ateliers à 320 $, à confirmer auprès de l'école.", "follow_up_to": 5, "condition": "After the session price is given, if you might attend several."},
+        {"topic": "Coût et réservation", "question": "Si je voulais m'inscrire, il faudrait réserver combien de temps à l'avance ?", "answer": "J'avais réservé deux semaines avant ; il n'y avait que douze places, donc mieux vaut vérifier les disponibilités auprès de l'école.", "follow_up_to": null},
+        {"topic": "Coût et réservation", "question": "Les ustensiles sont-ils compris dans le prix, ou faut-il apporter son propre matériel ?", "answer": "Les ustensiles et les tabliers sont fournis ; il suffit d'apporter un récipient pour emporter ses préparations.", "follow_up_to": null}
       ]
     },
     {
@@ -351,13 +351,13 @@
       "closing": "Merci beaucoup, c'est beaucoup plus clair ! Je vais pouvoir me déplacer en toute confiance dès demain.",
       "questions": [
         {"topic": "Modes de transport", "question": "Qu'est-ce qu'il y a comme transports en commun ici ?", "answer": "Des bus, une ligne de métro et un train de banlieue pour les villes voisines.", "follow_up_to": null},
-        {"topic": "Modes de transport", "question": "Pour aller au centre-ville, lequel me conseilleriez-vous ?", "answer": "Le bus 18 jusqu'à la station Centrale, puis deux arrêts de métro : comptez vingt-cinq minutes.", "follow_up_to": 1, "condition": "After transport modes are listed; adapt the destination to your needs."},
+        {"topic": "Modes de transport", "question": "Pour aller au centre-ville, lequel me conseilleriez-vous ?", "answer": "Le bus 18 jusqu'à la station Centrale, puis deux arrêts de métro ; le trajet dure environ vingt-cinq minutes.", "follow_up_to": 1, "condition": "After transport modes are listed; adapt the destination to your needs."},
         {"topic": "Fonctionnement et horaires", "question": "Et pour payer son trajet, comment ça fonctionne ?", "answer": "Avec une carte rechargeable qu'on valide à chaque montée, ou en monnaie exacte dans le bus.", "follow_up_to": null},
         {"topic": "Fonctionnement et horaires", "question": "Jusqu'à quelle heure les transports circulent-ils ?", "answer": "Jusqu'à 1 h environ ; ensuite, des bus de nuit passent toutes les 30 minutes.", "follow_up_to": null},
         {"topic": "Tarifs et abonnements", "question": "Combien coûte un trajet simple ?", "answer": "Environ 3,75 $, avec une correspondance gratuite pendant 90 minutes.", "follow_up_to": null},
         {"topic": "Tarifs et abonnements", "question": "Si je prenais les transports tous les jours, quelle formule serait la plus avantageuse ?", "answer": "L'abonnement mensuel, à environ 100 $ ; il existe aussi un passe d'une journée à 11 $.", "follow_up_to": 5, "condition": "After the single fare is given, if you will travel often."},
         {"topic": "Tarifs et abonnements", "question": "Comment prend-on cet abonnement mensuel ?", "answer": "On obtient d'abord la carte au guichet d'une station, puis on la recharge chaque mois en ligne ou aux distributeurs.", "follow_up_to": 6, "condition": "If a monthly pass is mentioned, unless purchase steps are already explained."},
-        {"topic": "Tarifs et abonnements", "question": "Cet abonnement couvre-t-il tous les modes de transport et toutes les zones de la ville ?", "answer": "Il couvre les bus et le métro dans la zone centrale ; les secteurs éloignés demandent un supplément.", "follow_up_to": null}
+        {"topic": "Tarifs et abonnements", "question": "Cet abonnement couvre-t-il tous les modes de transport et toutes les zones de la ville ?", "answer": "Les bus et le métro de la zone centrale sont couverts ; le train de banlieue et les zones éloignées demandent un autre titre ou un supplément.", "follow_up_to": null}
       ]
     }
   ]

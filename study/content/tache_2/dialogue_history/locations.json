@@ -320,6 +320,21 @@
               "follow_up_to": null
             }
           ]
+        },
+        {
+          "group": "travel-agency-choose-holiday-destination",
+          "opening": "Bonjour ! Je prépare des vacances et j'aimerais comparer les voyages que vous proposez.",
+          "closing": "Merci pour ces renseignements. Je vais comparer cette proposition avec mes dates et mon budget.",
+          "questions": [
+            {"topic": "Destinations et parcours", "question": "Quelles destinations touristiques proposez-vous en ce moment ?", "follow_up_to": null},
+            {"topic": "Destinations et parcours", "question": "Pour les États-Unis, quels circuits avez-vous ?", "follow_up_to": 1, "condition": "If the United States is offered; substitute a destination actually mentioned."},
+            {"topic": "Destinations et parcours", "question": "Combien de temps dure ce circuit ?", "follow_up_to": null},
+            {"topic": "Budget", "question": "Quel est le prix par personne ?", "follow_up_to": null},
+            {"topic": "Budget", "question": "Qu'est-ce qui est compris dans ce tarif ?", "follow_up_to": 4, "condition": "After the price is given, unless inclusions are already explained."},
+            {"topic": "Activités et réservation", "question": "Quelles activités sont prévues pendant le circuit ?", "follow_up_to": null},
+            {"topic": "Activités et réservation", "question": "Quelles sont les conditions pour réserver ?", "follow_up_to": null},
+            {"topic": "Activités et réservation", "question": "Quels départs ont encore des places pendant la période des vacances scolaires ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -570,6 +585,21 @@
             {"topic": "Destination", "question": "Quel organisme avait organisé le séjour, et pourquoi l'avais-tu choisi ?", "follow_up_to": null},
             {"topic": "Activités et hébergement", "question": "Comment se passaient ses journées sur place ?", "follow_up_to": null},
             {"topic": "Activités et hébergement", "question": "Où logeait ton enfant, et comment la famille d'accueil avait-elle été choisie ?", "follow_up_to": null},
+            {"topic": "Activités et hébergement", "question": "La vie en famille d'accueil l'a-t-elle aidé à prendre confiance et à parler plus facilement ?", "follow_up_to": 4, "condition": "If a host family is mentioned without explaining its effect on language practice."},
+            {"topic": "Conditions", "question": "Quels âges et niveaux étaient acceptés, et quels documents fallait-il fournir ?", "follow_up_to": null},
+            {"topic": "Conditions", "question": "Qui accompagnait les jeunes pendant les sorties, et qui pouvait-on joindre en cas de problème ?", "follow_up_to": null},
+            {"topic": "Conditions", "question": "Combien le séjour a-t-il coûté au total, et qu'est-ce qui était compris dans ce prix ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "friend-child-language-stay-abroad",
+          "opening": "Salut ! Je cherche un séjour linguistique pour mon enfant, et comme le tien en a fait un, j'aimerais profiter de ton expérience.",
+          "closing": "Merci beaucoup, ça m'aide énormément ! Je vais en parler avec mon enfant et comparer quelques séjours de ce type.",
+          "questions": [
+            {"topic": "Destination", "question": "Où est-ce que ton enfant est parti, et pour combien de temps ?", "follow_up_to": null},
+            {"topic": "Destination", "question": "Quel organisme avait organisé le séjour, et pourquoi l'avais-tu choisi ?", "follow_up_to": null},
+            {"topic": "Activités et hébergement", "question": "Comment se passaient ses journées sur place ?", "follow_up_to": null},
+            {"topic": "Activités et hébergement", "question": "Où logeait ton enfant, et comment l'organisme avait-il vérifié les conditions d'accueil ?", "follow_up_to": null},
             {"topic": "Activités et hébergement", "question": "La vie en famille d'accueil l'a-t-elle aidé à prendre confiance et à parler plus facilement ?", "follow_up_to": 4, "condition": "If a host family is mentioned without explaining its effect on language practice."},
             {"topic": "Conditions", "question": "Quels âges et niveaux étaient acceptés, et quels documents fallait-il fournir ?", "follow_up_to": null},
             {"topic": "Conditions", "question": "Qui accompagnait les jeunes pendant les sorties, et qui pouvait-on joindre en cas de problème ?", "follow_up_to": null},
@@ -1993,6 +2023,21 @@
             {"topic": "Vie dans l'entreprise", "question": "Comment fonctionne le paiement à la cantine ?", "follow_up_to": 6, "condition": "If a canteen is mentioned; otherwise ask about the offered meal option."},
             {"topic": "Vie dans l'entreprise", "question": "Y a-t-il une habitude d'équipe importante à connaître pour bien m'intégrer ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "new-employee-company-orientation",
+          "opening": "Bonjour ! Je prends mes repères dans l'entreprise et j'aurais besoin de quelques renseignements.",
+          "closing": "Merci pour votre aide. Ces informations vont me permettre de mieux m'intégrer à l'équipe.",
+          "questions": [
+            {"topic": "Équipe et interlocuteurs", "question": "Qui sera mon interlocuteur principal pendant mes premiers jours ?", "follow_up_to": null},
+            {"topic": "Équipe et interlocuteurs", "question": "Comment puis-je joindre cette personne si j'ai une question ?", "follow_up_to": 1, "condition": "After they identify your main contact."},
+            {"topic": "Organisation du travail", "question": "Quels sont les horaires habituels de l'équipe ?", "follow_up_to": null},
+            {"topic": "Organisation du travail", "question": "Comment les tâches sont-elles réparties : par notre responsable, en réunion d'équipe ou directement entre collègues ?", "follow_up_to": null},
+            {"topic": "Vie dans l'entreprise", "question": "Comment se passent les échanges entre collègues : on s'entraide facilement ou chacun travaille plutôt de son côté ?", "follow_up_to": null},
+            {"topic": "Vie dans l'entreprise", "question": "Pour le déjeuner, y a-t-il une cantine ou une salle où manger son propre repas ?", "follow_up_to": null},
+            {"topic": "Vie dans l'entreprise", "question": "Comment paie-t-on à la cantine, et quel budget faut-il prévoir pour un repas ?", "follow_up_to": 6, "condition": "If a canteen is mentioned without explaining payment or prices."},
+            {"topic": "Vie dans l'entreprise", "question": "Y a-t-il des pauses ou des rencontres d'équipe auxquelles je pourrais participer pour faire connaissance ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -2071,6 +2116,21 @@
             {"topic": "Congés et repos", "question": "De combien de jours de vacances disposes-tu par an ?", "follow_up_to": null},
             {"topic": "Congés et repos", "question": "Tu peux choisir librement ces jours, ou faut-il un accord ?", "follow_up_to": 5, "condition": "After the holiday allowance is given, unless approval rules are already explained."},
             {"topic": "Congés et repos", "question": "Comment ton entreprise s'organise-t-elle pendant les jours fériés ?", "follow_up_to": null},
+            {"topic": "Congés et repos", "question": "Quand tu travailles plus tard, comment ces heures supplémentaires sont-elles compensées ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "canadian-work-hours-home-country-comparison",
+          "opening": "Salut Pierre ! J'aimerais comparer ton rythme de travail à Calgary avec celui que je connais dans mon pays.",
+          "closing": "Merci, Pierre ! Je comprends mieux ce qui relève de ton entreprise et ce qui peut varier ailleurs au Canada.",
+          "questions": [
+            {"topic": "Horaires hebdomadaires", "question": "Tu travailles quels jours de la semaine, et de quelle heure à quelle heure ?", "follow_up_to": null},
+            {"topic": "Horaires hebdomadaires", "question": "Chez moi, on travaille parfois le samedi ; est-ce que ça t'arrive aussi en période chargée ?", "follow_up_to": 1, "condition": "If regular weekdays are given without explaining exceptions; adapt to your own experience."},
+            {"topic": "Organisation quotidienne", "question": "Combien de temps dure ta pause déjeuner, et est-elle comptée dans tes heures de travail ?", "follow_up_to": null},
+            {"topic": "Organisation quotidienne", "question": "Dans mon pays, j'ai connu des horaires fixes ; peux-tu décaler les tiens ?", "follow_up_to": null},
+            {"topic": "Congés et repos", "question": "De combien de jours de vacances disposes-tu par an ?", "follow_up_to": null},
+            {"topic": "Congés et repos", "question": "Tu peux choisir librement ces jours, ou faut-il un accord ?", "follow_up_to": 5, "condition": "After the holiday allowance is given, unless approval rules are already explained."},
+            {"topic": "Congés et repos", "question": "Les jours fériés, ton entreprise ferme-t-elle, ou certaines équipes doivent-elles travailler ?", "follow_up_to": null},
             {"topic": "Congés et repos", "question": "Quand tu travailles plus tard, comment ces heures supplémentaires sont-elles compensées ?", "follow_up_to": null}
           ]
         }
@@ -2206,6 +2266,21 @@
             {"topic": "Collègues et locaux", "question": "Comment sont aménagés les locaux, et quels espaces communs avez-vous à disposition ?", "follow_up_to": null},
             {"topic": "Avantages et activités", "question": "Est-ce que ton employeur offre des avantages intéressants ?", "follow_up_to": null},
             {"topic": "Avantages et activités", "question": "Ce remboursement couvre-t-il une bonne partie du passe ?", "follow_up_to": 6, "condition": "If a transit reimbursement is mentioned, unless its amount is given."},
+            {"topic": "Avantages et activités", "question": "Quels types d'activités l'entreprise organise-t-elle, et à quelle fréquence les collègues se retrouvent-ils ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "acquaintance-new-job-overall-experience",
+          "opening": "Salut ! Raconte-moi un peu ton nouveau travail, j'ai hâte de savoir comment ça se passe.",
+          "closing": "Merci de m'avoir raconté tout ça ! Ça fait plaisir de voir que ce nouveau travail te plaît autant.",
+          "questions": [
+            {"topic": "Tâches et intégration", "question": "Quelles tâches t'a-t-on confiées au début, et est-ce que tu t'en sors bien ?", "follow_up_to": null},
+            {"topic": "Tâches et intégration", "question": "Combien de temps dure l'accompagnement de ta tutrice, et quand devras-tu travailler en autonomie ?", "follow_up_to": 1, "condition": "If they mention a mentor or trainer; adapt to that person."},
+            {"topic": "Tâches et intégration", "question": "À quoi ressemble une journée de travail typique dans ce nouveau poste ?", "follow_up_to": null},
+            {"topic": "Collègues et locaux", "question": "Comment ça se passe avec tes collègues : vous vous entraidez facilement, ou chacun travaille plutôt de son côté ?", "follow_up_to": null},
+            {"topic": "Collègues et locaux", "question": "Comment sont aménagés les locaux, et quels espaces communs avez-vous à disposition ?", "follow_up_to": null},
+            {"topic": "Avantages et activités", "question": "Quels avantages as-tu en plus du salaire : assurance santé, congés ou aide pour les transports ?", "follow_up_to": null},
+            {"topic": "Avantages et activités", "question": "Quelle part de ton abonnement de transport l'entreprise rembourse-t-elle ?", "follow_up_to": 6, "condition": "If a transit reimbursement is mentioned, unless its amount is given."},
             {"topic": "Avantages et activités", "question": "Quels types d'activités l'entreprise organise-t-elle, et à quelle fréquence les collègues se retrouvent-ils ?", "follow_up_to": null}
           ]
         }
@@ -2488,6 +2563,21 @@
             {"topic": "Modalités", "question": "À quelle date et à quelles heures le jeu aura-t-il lieu, et où faudra-t-il se présenter ?", "follow_up_to": null},
             {"topic": "Modalités", "question": "L'inscription se fait-elle en ligne ou à l'accueil, jusqu'à quelle date et à quel tarif ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "french-teacher-language-school-student-game",
+          "opening": "Bonjour ! J'ai vu l'affiche du jeu organisé par l'école, et j'aimerais bien comprendre comment il fonctionne.",
+          "closing": "Merci beaucoup pour ces explications ! Je vais en parler à mes camarades et m'inscrire rapidement.",
+          "questions": [
+            {"topic": "Principe et règles", "question": "Quel est le principe du jeu, et quelles tâches les participants doivent-ils accomplir en français ?", "follow_up_to": null},
+            {"topic": "Principe et règles", "question": "Qui peut participer : tous les étudiants ou seulement certains niveaux ?", "follow_up_to": null},
+            {"topic": "Principe et règles", "question": "Peut-on former sa propre équipe, ou l'école répartit-elle les participants ?", "follow_up_to": 1, "condition": "If teams are mentioned without explaining how participants are grouped."},
+            {"topic": "Principe et règles", "question": "Comment les équipes gagnent-elles des points, et qu'est-ce qui compte le plus : les bonnes réponses ou la rapidité ?", "follow_up_to": 1, "condition": "If puzzles are mentioned without scoring rules; adapt to the game described."},
+            {"topic": "Principe et règles", "question": "Est-ce qu'on a le droit d'utiliser son téléphone ?", "follow_up_to": null},
+            {"topic": "Prix", "question": "Quelle récompense reçoit chaque membre de l'équipe gagnante ?", "follow_up_to": null},
+            {"topic": "Modalités", "question": "À quelle date et à quelles heures le jeu aura-t-il lieu, et où faudra-t-il se présenter ?", "follow_up_to": null},
+            {"topic": "Modalités", "question": "L'inscription se fait-elle en ligne ou à l'accueil, jusqu'à quelle date et à quel tarif ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -2519,6 +2609,21 @@
             {"topic": "Admission et préparation", "question": "Quels diplômes, résultats ou tests de langue devrais-je vérifier dans les conditions d'admission ?", "follow_up_to": null},
             {"topic": "Admission et préparation", "question": "Pour un programme en français, comment travailler la compréhension des cours, la rédaction et les présentations orales ?", "follow_up_to": 3, "condition": "If French-language study is discussed without explaining preparation for academic work."},
             {"topic": "Budget et accompagnement", "question": "Pour le budget, quels frais faut-il compter entre les études, le logement, l'assurance et les déplacements ?", "follow_up_to": null},
+            {"topic": "Budget et accompagnement", "question": "Où puis-je vérifier les bourses auxquelles je pourrais prétendre et les dates limites pour les demander ?", "follow_up_to": null},
+            {"topic": "Budget et accompagnement", "question": "À qui m'adresser pour vérifier les documents de voyage, l'assurance et une éventuelle autorisation de séjour ?", "follow_up_to": null},
+            {"topic": "Budget et accompagnement", "question": "À quel moment devrais-je commencer mes demandes pour respecter les délais d'admission et de financement ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "french-teacher-study-abroad-advice",
+          "opening": "Bonjour ! J'envisage d'étudier à l'étranger et j'aimerais profiter de vos conseils pour préparer ce projet.",
+          "closing": "Merci pour votre aide. Je vais comparer les programmes et vérifier les conditions auprès des établissements concernés.",
+          "questions": [
+            {"topic": "Destinations et programmes", "question": "Quelles possibilités correspondent à mon projet : un échange universitaire, un diplôme complet ou un séjour pour améliorer la langue ?", "follow_up_to": null},
+            {"topic": "Destinations et programmes", "question": "Quels pays me conseilleriez-vous selon mon domaine d'études, mon niveau de langue et mon budget ?", "follow_up_to": null},
+            {"topic": "Admission et préparation", "question": "Quels diplômes, résultats ou tests de langue devrais-je vérifier dans les conditions d'admission ?", "follow_up_to": null},
+            {"topic": "Admission et préparation", "question": "Pour un programme en français, comment travailler la compréhension des cours, la rédaction et les présentations orales ?", "follow_up_to": 3, "condition": "If French-language study is discussed without explaining preparation for academic work."},
+            {"topic": "Budget et accompagnement", "question": "Comment estimer le budget total, en comptant les études, le logement, les repas, l'assurance et les déplacements ?", "follow_up_to": null},
             {"topic": "Budget et accompagnement", "question": "Où puis-je vérifier les bourses auxquelles je pourrais prétendre et les dates limites pour les demander ?", "follow_up_to": null},
             {"topic": "Budget et accompagnement", "question": "À qui m'adresser pour vérifier les documents de voyage, l'assurance et une éventuelle autorisation de séjour ?", "follow_up_to": null},
             {"topic": "Budget et accompagnement", "question": "À quel moment devrais-je commencer mes demandes pour respecter les délais d'admission et de financement ?", "follow_up_to": null}
@@ -2767,6 +2872,1046 @@
             {"topic": "Conseils pratiques", "question": "Où puis-je consulter les dates et les modalités d'inscription à toutes ces activités ?", "follow_up_to": null},
             {"topic": "Conseils pratiques", "question": "Quand on vient seul, comment engager la conversation sans paraître trop direct ?", "follow_up_to": null},
             {"topic": "Conseils pratiques", "question": "Vous m'avez dit que vous faisiez la randonnée du dimanche : est-ce que je pourrais venir avec vous cette semaine ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "colleague-wedding-report": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "colleague-wedding-report",
+          "opening": "Salut ! J'aimerais bien savoir comment s'est passé le mariage de ce week-end.",
+          "closing": "Merci de m'avoir raconté tout ça ! On dirait que tu as passé une belle soirée.",
+          "questions": [
+            {"topic": "Lieu et ambiance", "question": "Le mariage, c'était où exactement ?", "follow_up_to": null},
+            {"topic": "Lieu et ambiance", "question": "Quel effet le lieu avait-il sur l'ambiance de la fête ?", "follow_up_to": 1, "condition": "After they describe the venue."},
+            {"topic": "Repas", "question": "Qu'est-ce qui était prévu au menu ?", "follow_up_to": null},
+            {"topic": "Repas", "question": "Tu as trouvé le repas réussi ?", "follow_up_to": 3, "condition": "After the menu is described, unless they already give their opinion."},
+            {"topic": "Animations et souvenirs", "question": "Quelles animations y avait-il pendant la soirée ?", "follow_up_to": null},
+            {"topic": "Animations et souvenirs", "question": "Quel moment de la soirée t'a le plus marqué ?", "follow_up_to": 5, "condition": "After they describe the entertainment, ask for a memorable moment."},
+            {"topic": "Animations et souvenirs", "question": "La fête s'est terminée vers quelle heure ?", "follow_up_to": null},
+            {"topic": "Animations et souvenirs", "question": "Comment les mariés ont-ils réagi aux surprises préparées pendant la soirée ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "cultural-center-reception-activities": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "cultural-center-reception-activities",
+          "opening": "Bonjour ! Je voudrais me renseigner sur les activités de votre centre.",
+          "closing": "Merci pour ces renseignements. Je vais regarder quel créneau me conviendrait.",
+          "questions": [
+            {"topic": "Activités et public", "question": "Quelles activités proposez-vous en ce moment ?", "follow_up_to": null},
+            {"topic": "Activités et public", "question": "Est-ce que les ateliers de dessin accueillent tous les niveaux ?", "follow_up_to": 1, "condition": "If drawing workshops are offered; adapt to the activity you choose."},
+            {"topic": "Lieu et horaires", "question": "À quels horaires ont lieu ces ateliers ?", "follow_up_to": null},
+            {"topic": "Lieu et horaires", "question": "Dans quelle salle se déroulent-ils ?", "follow_up_to": null},
+            {"topic": "Tarifs et inscription", "question": "Quel est le tarif pour une session ?", "follow_up_to": null},
+            {"topic": "Tarifs et inscription", "question": "Le matériel est-il compris dans ce prix ?", "follow_up_to": 5, "condition": "After the fee is given, if materials have not been discussed."},
+            {"topic": "Tarifs et inscription", "question": "Quelle est la démarche pour s'inscrire ?", "follow_up_to": null},
+            {"topic": "Tarifs et inscription", "question": "Reste-t-il des places pour la prochaine session de cet atelier ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "friend-reading-for-literary-review": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "friend-reading-for-literary-review",
+          "opening": "Salut ! Je cherche une idée de livre à présenter dans la revue de mon association.",
+          "closing": "Merci pour ton avis ! Ces pistes vont m'aider à choisir l'angle de mon article.",
+          "questions": [
+            {"topic": "Choix du livre", "question": "Parmi tes lectures récentes, quel livre me conseillerais-tu de présenter ?", "follow_up_to": null},
+            {"topic": "Choix du livre", "question": "Qui en est l'auteur ?", "follow_up_to": 1, "condition": "After a book is named, unless its author is already given."},
+            {"topic": "Contenu et impressions", "question": "De quoi parle ce livre, sans raconter toute la fin ?", "follow_up_to": null},
+            {"topic": "Contenu et impressions", "question": "Qu'est-ce qui t'a particulièrement plu dans cette histoire ?", "follow_up_to": 3, "condition": "After the story is outlined, ask for their personal reaction."},
+            {"topic": "Pistes pour l'article", "question": "Le style serait-il accessible aux lecteurs de ma revue ?", "follow_up_to": null},
+            {"topic": "Pistes pour l'article", "question": "Quel aspect mériterait d'être développé dans mon article ?", "follow_up_to": null},
+            {"topic": "Pistes pour l'article", "question": "Y a-t-il un point que tu critiquerais pour équilibrer ma présentation ?", "follow_up_to": null},
+            {"topic": "Pistes pour l'article", "question": "À quel type de lecteur conseillerais-tu ce livre, et pour quelle raison ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "friend-films-for-association-review": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "friend-films-for-association-review",
+          "opening": "Salut ! Je cherche un film à présenter dans la revue de mon association culturelle.",
+          "closing": "Merci pour ton avis ! J'ai maintenant une piste concrète pour préparer mon article.",
+          "questions": [
+            {"topic": "Choix du film", "question": "Quel film que tu as aimé me conseillerais-tu de présenter ?", "follow_up_to": null},
+            {"topic": "Choix du film", "question": "C'est quel genre de film ?", "follow_up_to": 1, "condition": "After a film is recommended, unless its genre is already given."},
+            {"topic": "Histoire et avis", "question": "Quelle est l'histoire, sans dévoiler la fin ?", "follow_up_to": null},
+            {"topic": "Histoire et avis", "question": "Qu'est-ce qui t'a plu dans cette façon de raconter son parcours ?", "follow_up_to": 3, "condition": "After the plot is outlined; adapt the reference to its actual subject."},
+            {"topic": "Histoire et avis", "question": "Quels acteurs jouent dans le film ?", "follow_up_to": null},
+            {"topic": "Lieu et prix", "question": "Où l'as-tu vu ?", "follow_up_to": null},
+            {"topic": "Lieu et prix", "question": "Combien avais-tu payé pour cette séance ?", "follow_up_to": 6, "condition": "If they saw it at a paid screening."},
+            {"topic": "Lieu et prix", "question": "Est-ce que le film est encore à l'affiche ou disponible légalement en ligne ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "neighbor-party-planning-advice": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "neighbor-party-planning-advice",
+          "opening": "Bonjour ! J'aimerais organiser une fête entre voisins et profiter de vos conseils.",
+          "closing": "Merci pour vos idées. Je vais vérifier le lieu et proposer une date aux voisins.",
+          "questions": [
+            {"topic": "Invités", "question": "Qui faudrait-il inviter pour commencer ?", "follow_up_to": null},
+            {"topic": "Invités", "question": "Comment leur proposer la fête sans oublier personne ?", "follow_up_to": 1, "condition": "After they suggest whom to invite."},
+            {"topic": "Lieu et moment", "question": "Quel lieu pourrait convenir à cette fête ?", "follow_up_to": null},
+            {"topic": "Lieu et moment", "question": "Quel moment serait le plus pratique pour la rencontre ?", "follow_up_to": null},
+            {"topic": "Repas et animations", "question": "Quel type de repas serait le plus facile à prévoir ?", "follow_up_to": null},
+            {"topic": "Repas et animations", "question": "Quelle musique conviendrait à des invités d'âges différents ?", "follow_up_to": null},
+            {"topic": "Repas et animations", "question": "Quelle animation aiderait les voisins à faire connaissance ?", "follow_up_to": null},
+            {"topic": "Repas et animations", "question": "Comment pourrions-nous répartir les dépenses de repas et d'animation entre les voisins ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "canadian-press-newsagent-selection": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "canadian-press-newsagent-selection",
+          "opening": "Bonjour ! J'aimerais lire la presse canadienne et trouver une publication adaptée à mon niveau de français.",
+          "closing": "Merci pour vos conseils. Je vais feuilleter cette publication avant de faire mon choix.",
+          "questions": [
+            {"topic": "Publication et thèmes", "question": "Quels journaux ou magazines conseilleriez-vous pour découvrir l'actualité canadienne ?", "follow_up_to": null},
+            {"topic": "Publication et thèmes", "question": "Quels thèmes aborde cette revue d'actualité ?", "follow_up_to": 1, "condition": "If a current-affairs magazine is suggested; adapt to the publication you choose."},
+            {"topic": "Difficulté de lecture", "question": "Quel est le niveau de langue des articles ?", "follow_up_to": null},
+            {"topic": "Difficulté de lecture", "question": "Est-ce qu'on y trouve aussi des articles courts pour commencer ?", "follow_up_to": 3, "condition": "If reading difficulty is a concern and shorter formats remain unspecified."},
+            {"topic": "Parution et achat", "question": "À quelle fréquence paraît-elle ?", "follow_up_to": null},
+            {"topic": "Parution et achat", "question": "Combien coûte un numéro ?", "follow_up_to": null},
+            {"topic": "Parution et achat", "question": "Puis-je feuilleter ce numéro pour voir si les sujets m'intéressent ?", "follow_up_to": null},
+            {"topic": "Parution et achat", "question": "Existe-t-il une formule numérique ou un abonnement moins cher que l'achat au numéro ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "plan-friends-birthday-with-birthday-person": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "plan-friends-birthday-with-birthday-person",
+          "opening": "Salut ! J'aimerais t'aider à préparer une fête d'anniversaire qui te corresponde vraiment.",
+          "closing": "Merci pour tes idées ! Je vais chercher des propositions qui respectent tes préférences.",
+          "questions": [
+            {"topic": "Date et lieu", "question": "Quand aimerais-tu organiser la fête ?", "follow_up_to": null},
+            {"topic": "Date et lieu", "question": "Quel lieu te conviendrait le mieux ?", "follow_up_to": null},
+            {"topic": "Invités et repas", "question": "Qui voudrais-tu inviter ?", "follow_up_to": null},
+            {"topic": "Invités et repas", "question": "Quel type de repas aimerais-tu proposer ?", "follow_up_to": null},
+            {"topic": "Invités et repas", "question": "Y a-t-il des restrictions alimentaires à prévoir pour ce buffet ?", "follow_up_to": 4, "condition": "After food is discussed, unless guests' dietary needs are already specified."},
+            {"topic": "Ambiance et décoration", "question": "Quelle ambiance souhaiterais-tu pour la soirée ?", "follow_up_to": null},
+            {"topic": "Ambiance et décoration", "question": "Quelle décoration irait bien avec cette ambiance ?", "follow_up_to": 6, "condition": "After an atmosphere is chosen, unless decoration preferences are already given."},
+            {"topic": "Ambiance et décoration", "question": "Quel budget total aimerais-tu ne pas dépasser pour la fête ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "acquaintance-recent-cinema-film": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "acquaintance-recent-cinema-film",
+          "opening": "Salut ! Le film que tu viens de voir m'intéresse et j'aimerais savoir s'il me plairait aussi.",
+          "closing": "Merci pour ton avis ! Je vais regarder les séances et décider si ce film me tente.",
+          "questions": [
+            {"topic": "Titre et genre", "question": "Quel film as-tu vu ?", "follow_up_to": null},
+            {"topic": "Titre et genre", "question": "C'est quel genre de film ?", "follow_up_to": 1, "condition": "After the title is given, unless the genre is already specified."},
+            {"topic": "Histoire, acteurs et avis", "question": "De quoi parle l'histoire, sans me raconter la fin ?", "follow_up_to": null},
+            {"topic": "Histoire, acteurs et avis", "question": "Qui joue les rôles principaux ?", "follow_up_to": null},
+            {"topic": "Histoire, acteurs et avis", "question": "Qu'est-ce qui t'a plu dans cette histoire ?", "follow_up_to": 3, "condition": "After the plot is outlined, unless their personal reaction is already clear."},
+            {"topic": "Durée et séances", "question": "Combien de temps dure le film ?", "follow_up_to": null},
+            {"topic": "Durée et séances", "question": "Tu sais à quelles heures on peut le voir cette semaine ?", "follow_up_to": null},
+            {"topic": "Durée et séances", "question": "Où puis-je vérifier les séances disponibles et réserver une place si je me décide ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "neighborhood-library-membership": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "neighborhood-library-membership",
+          "opening": "Bonjour ! J'aimerais m'inscrire à la bibliothèque et mieux comprendre son fonctionnement.",
+          "closing": "Merci pour ces renseignements. Je vais préparer les documents nécessaires et consulter le programme des animations.",
+          "questions": [
+            {"topic": "Inscription et ressources", "question": "Quelles sont les démarches pour devenir membre ?", "follow_up_to": null},
+            {"topic": "Inscription et ressources", "question": "Quels documents et quelles ressources numériques la carte permet-elle d'emprunter ?", "follow_up_to": null},
+            {"topic": "Inscription et ressources", "question": "L'inscription est-elle payante ?", "follow_up_to": null},
+            {"topic": "Horaires et emprunts", "question": "Quels sont vos horaires d'ouverture ?", "follow_up_to": null},
+            {"topic": "Horaires et emprunts", "question": "Quelles sont les conditions pour emprunter des livres ?", "follow_up_to": null},
+            {"topic": "Animations", "question": "Quelles animations proposez-vous aux membres ?", "follow_up_to": null},
+            {"topic": "Animations", "question": "Faut-il réserver pour participer à ces rencontres avec les auteurs ?", "follow_up_to": 6, "condition": "If author events are offered; adapt to the activity that interests you."},
+            {"topic": "Animations", "question": "Ces animations sont-elles gratuites pour les membres de la bibliothèque ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "friend-choose-film-ticket-already-held": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "friend-choose-film-ticket-already-held",
+          "opening": "Salut ! J'ai déjà un billet de cinéma, mais j'hésite encore sur le film à choisir.",
+          "closing": "Merci pour tes conseils ! Je vais choisir le film qui correspond le mieux à mes envies.",
+          "questions": [
+            {"topic": "Choix et genre", "question": "Quel film me conseillerais-tu parmi ceux qui sont proposés ?", "follow_up_to": null},
+            {"topic": "Choix et genre", "question": "C'est quel genre de film ?", "follow_up_to": 1, "condition": "After a film is suggested, unless its genre is already given."},
+            {"topic": "Histoire et acteurs", "question": "De quoi parle l'histoire, sans dévoiler la fin ?", "follow_up_to": null},
+            {"topic": "Histoire et acteurs", "question": "Qui joue dans ce film ?", "follow_up_to": null},
+            {"topic": "Histoire et acteurs", "question": "Qu'est-ce qui te donne envie de me recommander cette histoire ?", "follow_up_to": 3, "condition": "After the plot is outlined, unless their recommendation is already explained."},
+            {"topic": "Durée et rythme", "question": "Combien de temps dure le film ?", "follow_up_to": null},
+            {"topic": "Durée et rythme", "question": "Est-ce que le rythme est plutôt rapide ou posé ?", "follow_up_to": 6, "condition": "After duration is given, if they can comment on the pacing."},
+            {"topic": "Durée et rythme", "question": "Sais-tu si le film est proposé en version française ou avec des sous-titres ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "friend-sister-birthday-gift": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "friend-sister-birthday-gift",
+          "opening": "Salut ! J'aimerais trouver un cadeau qui plairait vraiment à ta sœur pour son anniversaire.",
+          "closing": "Merci pour ton aide ! Je vais choisir quelque chose qui corresponde à ses goûts, sans lui offrir ce qu'elle a déjà.",
+          "questions": [
+            {"topic": "Goûts et activités", "question": "Qu'est-ce qu'elle aime faire pendant son temps libre ?", "follow_up_to": null},
+            {"topic": "Goûts et activités", "question": "Quel genre de livres lui plaît le plus ?", "follow_up_to": 1, "condition": "If reading is mentioned; adapt to the hobby actually described."},
+            {"topic": "Personnalité et type de cadeau", "question": "Comment décrirais-tu son caractère ?", "follow_up_to": null},
+            {"topic": "Personnalité et type de cadeau", "question": "Préférerait-elle un objet ou une activité à faire ?", "follow_up_to": 3, "condition": "After her personality is described, unless the preferred gift type is already clear."},
+            {"topic": "Personnalité et type de cadeau", "question": "Qu'est-ce qu'elle possède déjà qu'il vaudrait mieux ne pas lui offrir ?", "follow_up_to": null},
+            {"topic": "Budget et délai", "question": "Quel budget te semblerait raisonnable pour ce cadeau ?", "follow_up_to": null},
+            {"topic": "Budget et délai", "question": "Pour quelle date dois-je avoir trouvé le cadeau ?", "follow_up_to": null},
+            {"topic": "Budget et délai", "question": "Penses-tu qu'il vaudrait mieux choisir un cadeau commun pour augmenter le budget ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "home-chef-family-meal": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "home-chef-family-meal",
+          "opening": "Bonjour ! J'organise un repas de famille et je pense faire appel à vos services. J'aimerais d'abord en savoir plus sur vos prestations.",
+          "closing": "Merci beaucoup, c'est très clair ! J'en parle à ma famille et je vous recontacte rapidement pour fixer la date.",
+          "questions": [
+            {"topic": "Menus", "question": "Qu'est-ce que vous proposez comme menus ?", "follow_up_to": null},
+            {"topic": "Menus", "question": "Que comprend la formule méditerranéenne, par exemple ?", "follow_up_to": 1, "condition": "If several menus are offered; name the one that tempts you."},
+            {"topic": "Menus", "question": "Si certains invités avaient des allergies, pourriez-vous adapter les plats ?", "follow_up_to": null},
+            {"topic": "Matériel", "question": "De quel équipement aurez-vous besoin dans ma cuisine ?", "follow_up_to": null},
+            {"topic": "Matériel", "question": "Faut-il aussi que je fournisse la vaisselle pour le service ?", "follow_up_to": 4, "condition": "After kitchen equipment is discussed, unless tableware is already covered."},
+            {"topic": "Tarifs", "question": "Quels sont vos tarifs ?", "follow_up_to": null},
+            {"topic": "Tarifs", "question": "Est-ce que ce prix inclut aussi le nettoyage après le repas ?", "follow_up_to": 6, "condition": "After rates are given, unless cleaning is already included."},
+            {"topic": "Tarifs", "question": "Les ingrédients et votre déplacement sont-ils compris dans le montant annoncé ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "local-acquaintance-birthday-restaurant-choice": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "local-acquaintance-birthday-restaurant-choice",
+          "opening": "Bonjour ! Je cherche un restaurant pour fêter mon anniversaire, et comme vous connaissez les bonnes adresses, j'aimerais vous demander conseil.",
+          "closing": "Merci beaucoup pour ces bonnes adresses ! Je vais en parler à mes invités, puis je réserverai rapidement une table.",
+          "questions": [
+            {"topic": "Cuisine", "question": "Quel restaurant me recommanderiez-vous pour l'occasion ?", "follow_up_to": null},
+            {"topic": "Cuisine", "question": "Et si mes invités préféraient une cuisine plus classique ?", "follow_up_to": 1, "condition": "If the first suggestion may not suit all your guests."},
+            {"topic": "Prix", "question": "Combien est-ce qu'il faut prévoir par personne ?", "follow_up_to": null},
+            {"topic": "Prix", "question": "Chez Lina, existe-t-il une formule pour les groupes ?", "follow_up_to": 3, "condition": "After prices are given; substitute the restaurant you prefer."},
+            {"topic": "Ambiance et réservation", "question": "Et l'ambiance, elle est comment dans ces restaurants ?", "follow_up_to": null},
+            {"topic": "Ambiance et réservation", "question": "Où serait-on le plus à l'aise pour une fête à plusieurs ?", "follow_up_to": null},
+            {"topic": "Ambiance et réservation", "question": "Et pour le gâteau, on aurait le droit d'apporter le nôtre ?", "follow_up_to": 6, "condition": "If a private room is offered and you want your own cake."},
+            {"topic": "Ambiance et réservation", "question": "Combien de temps à l'avance faudrait-il réserver pour un groupe le samedi soir ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "friend-cooking-workshop-experience": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "friend-cooking-workshop-experience",
+          "opening": "Salut ! Ton atelier de cuisine me donne envie d'essayer à mon tour, alors j'aimerais que tu m'en parles.",
+          "closing": "Merci beaucoup, ça me donne vraiment envie ! Je vais réserver mon premier atelier dès ce soir.",
+          "questions": [
+            {"topic": "Contenu", "question": "Qu'est-ce que tu as appris à préparer ?", "follow_up_to": null},
+            {"topic": "Contenu", "question": "Les pâtes fraîches, c'est difficile à réussir quand on débute ?", "follow_up_to": 1, "condition": "If a specific dish is named; substitute that dish."},
+            {"topic": "Lieu et horaires", "question": "Où se déroule cet atelier ?", "follow_up_to": null},
+            {"topic": "Lieu et horaires", "question": "À quels horaires ont lieu les ateliers ?", "follow_up_to": null},
+            {"topic": "Coût et réservation", "question": "Tu as payé combien ?", "follow_up_to": null},
+            {"topic": "Coût et réservation", "question": "Existe-t-il des forfaits pour plusieurs ateliers ?", "follow_up_to": 5, "condition": "After the session price is given, if you might attend several."},
+            {"topic": "Coût et réservation", "question": "Si je voulais m'inscrire, il faudrait réserver combien de temps à l'avance ?", "follow_up_to": null},
+            {"topic": "Coût et réservation", "question": "Les ingrédients et les ustensiles sont-ils compris dans le prix de l'atelier ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "friend-choose-television-series": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "friend-choose-television-series",
+          "opening": "Salut ! J'aimerais commencer une nouvelle série, mais je n'arrive pas à choisir. J'aurais besoin de tes conseils.",
+          "closing": "Merci beaucoup ! Je commence ta première suggestion dès ce soir, et je garde l'autre pour plus tard.",
+          "questions": [
+            {"topic": "Genre et histoire", "question": "Quel genre de série me conseillerais-tu en ce moment ?", "follow_up_to": null},
+            {"topic": "Genre et histoire", "question": "Quelle est l'intrigue principale, sans me révéler la fin ?", "follow_up_to": 1, "condition": "After a series is recommended, unless its plot is already outlined."},
+            {"topic": "Genre et histoire", "question": "Et si j'avais plutôt envie de quelque chose de léger ?", "follow_up_to": null},
+            {"topic": "Acteurs et format", "question": "Qui joue dans la première série que tu m'as conseillée ?", "follow_up_to": null},
+            {"topic": "Acteurs et format", "question": "Quel est le format de la série — nombre de saisons, durée des épisodes et histoire continue ou indépendante ?", "follow_up_to": null},
+            {"topic": "Plateforme", "question": "Sur quelle plateforme est-ce qu'on peut regarder ces séries ?", "follow_up_to": null},
+            {"topic": "Plateforme", "question": "Est-ce que je pourrai les regarder en français ou avec des sous-titres français ?", "follow_up_to": null},
+            {"topic": "Plateforme", "question": "Quel budget mensuel faut-il prévoir pour Netflix, avec ou sans publicité ?", "follow_up_to": 6, "condition": "If a subscription platform is named; substitute the service mentioned."}
+          ]
+        }
+      ]
+    },
+    "experienced-blogger-start-travel-blog": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "experienced-blogger-start-travel-blog",
+          "opening": "Bonjour ! Je rêve de lancer mon propre blog de voyage, et comme vous en animez un, j'aimerais profiter de votre expérience.",
+          "closing": "Merci beaucoup pour tous ces conseils ! Je vais choisir un nom pour mon blog et préparer mes premières rubriques.",
+          "questions": [
+            {"topic": "Lancement", "question": "Par quoi avez-vous commencé quand vous avez créé votre blog ?", "follow_up_to": null},
+            {"topic": "Lancement", "question": "Quel budget avez-vous consacré au lancement, et quelles dépenses cela couvrait-il ?", "follow_up_to": 1, "condition": "After they describe their launch, unless start-up costs are mentioned."},
+            {"topic": "Lancement", "question": "Quelle plateforme me conseilleriez-vous pour débuter sans compétences techniques particulières ?", "follow_up_to": null},
+            {"topic": "Rubriques et contenus", "question": "Quelles rubriques structureraient clairement les destinations, les conseils pratiques et le budget ?", "follow_up_to": null},
+            {"topic": "Rubriques et contenus", "question": "Qu'est-ce que vous mettez dans la rubrique budget ?", "follow_up_to": 4, "condition": "If a budget section is suggested; adapt to a section named."},
+            {"topic": "Rubriques et contenus", "question": "Quels types de contenus attirent le plus de lecteurs ?", "follow_up_to": null},
+            {"topic": "Rythme de publication", "question": "Quel rythme de publication serait réaliste tout en restant assez régulier pour fidéliser les lecteurs ?", "follow_up_to": null},
+            {"topic": "Rythme de publication", "question": "Et quand on est en voyage, comment tenir ce rythme ?", "follow_up_to": 7, "condition": "After a publishing frequency is suggested."}
+          ]
+        }
+      ]
+    },
+    "newcomer-neighbor-partner-surprise-birthday": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "newcomer-neighbor-partner-surprise-birthday",
+          "opening": "Bonjour ! Je prépare une surprise pour l'anniversaire de ma moitié, et comme je connais encore mal la ville, votre aide me serait précieuse.",
+          "closing": "Merci beaucoup pour votre aide ! Je vais réserver le lieu dès demain, en toute discrétion.",
+          "questions": [
+            {"topic": "Lieu et invités", "question": "À votre avis, où est-ce que je pourrais organiser la fête ?", "follow_up_to": null},
+            {"topic": "Lieu et invités", "question": "Est-ce que cette salle serait facilement accessible en transport en commun pour les invités ?", "follow_up_to": null},
+            {"topic": "Lieu et invités", "question": "La salle se réserve-t-elle auprès du concierge ou en ligne, et quel délai faut-il prévoir ?", "follow_up_to": 1, "condition": "If a bookable venue is suggested, unless booking is already explained."},
+            {"topic": "Lieu et invités", "question": "Comme je connais encore peu de monde ici, qui pourrais-je inviter ?", "follow_up_to": null},
+            {"topic": "Repas", "question": "Et pour le repas, vous auriez une suggestion ?", "follow_up_to": null},
+            {"topic": "Repas", "question": "Pour ce buffet et le gâteau, quel budget total faudrait-il prévoir par personne ?", "follow_up_to": 5, "condition": "If a catered buffet is suggested, ask for its realistic total cost."},
+            {"topic": "Surprise et cadeau", "question": "Qu'est-ce que je pourrais faire pour éloigner ma moitié pendant les préparatifs ?", "follow_up_to": null},
+            {"topic": "Surprise et cadeau", "question": "Enfin, quel cadeau original pourrait marquer ce premier anniversaire fêté au Canada ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "colleague-board-game-club": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "colleague-board-game-club",
+          "opening": "Bonjour ! Vous m'avez parlé de votre club de jeux de société, et l'idée me tente beaucoup.",
+          "closing": "Merci pour toutes ces informations ! Je viendrai essayer à la prochaine soirée.",
+          "questions": [
+            {"topic": "Lieu et horaires", "question": "Dans quel lieu le club se réunit-il, et dispose-t-il d'un espace réservé ?", "follow_up_to": null},
+            {"topic": "Lieu et horaires", "question": "À quelle fréquence vous retrouvez-vous, et à quelle heure ?", "follow_up_to": null},
+            {"topic": "Lieu et horaires", "question": "Et si je ne pouvais pas venir chaque semaine ?", "follow_up_to": 2, "condition": "After a weekly schedule is given, if you cannot always attend."},
+            {"topic": "Prix", "question": "Quel budget faut-il prévoir entre l'adhésion annuelle et les frais de chaque soirée ?", "follow_up_to": null},
+            {"topic": "Prix", "question": "Est-ce que je pourrais faire un essai avant de m'inscrire ?", "follow_up_to": 4, "condition": "After the fee is given, unless a free trial is mentioned."},
+            {"topic": "Inscription", "question": "Pour une première soirée, faut-il écrire au responsable ou peut-on simplement se présenter au club ?", "follow_up_to": null},
+            {"topic": "Ambiance et jeux", "question": "Quelle est l'ambiance pendant les soirées, et comment les nouveaux sont-ils accueillis ?", "follow_up_to": null},
+            {"topic": "Ambiance et jeux", "question": "À quels jeux jouez-vous le plus souvent ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "neighbor-gardening-activity-organizer": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "neighbor-gardening-activity-organizer",
+          "opening": "Bonjour ! J'ai entendu parler des activités de jardinage que vous animez dans le quartier, et j'aimerais beaucoup y participer.",
+          "closing": "Merci beaucoup ! Je viendrai à la prochaine séance pour faire connaissance avec le groupe.",
+          "questions": [
+            {"topic": "Activités", "question": "Quelles tâches réalise-t-on au potager collectif selon les saisons ?", "follow_up_to": null},
+            {"topic": "Activités", "question": "Comment les récoltes sont-elles réparties entre les participants et les organismes du quartier ?", "follow_up_to": 1, "condition": "If a shared vegetable garden is described."},
+            {"topic": "Activités", "question": "L'activité est-elle accessible aux débutants, et les outils sont-ils fournis sur place ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "Où est-ce que les séances ont lieu ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "Quels jours et à quels horaires le groupe se réunit-il selon la saison ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "Est-ce qu'il faudrait venir à chaque séance ?", "follow_up_to": 5, "condition": "After session days are given, if your availability is limited."},
+            {"topic": "Organisation", "question": "Quelles démarches faut-il faire pour rejoindre le groupe cette saison ?", "follow_up_to": null},
+            {"topic": "Coût", "question": "Combien coûte l'inscription pour la saison, et qu'est-ce qui est compris dans ce montant ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "municipal-library-document-borrowing": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "municipal-library-document-borrowing",
+          "opening": "Bonjour ! J'aimerais emprunter des livres, mais je ne connais pas encore le fonctionnement de la bibliothèque.",
+          "closing": "Merci beaucoup pour ces explications ! Je reviendrai demain avec les documents nécessaires pour m'inscrire.",
+          "questions": [
+            {"topic": "Inscription", "question": "Quels documents faut-il fournir pour s'inscrire, et la carte est-elle gratuite pour les résidents ?", "follow_up_to": null},
+            {"topic": "Inscription", "question": "Cette carte donne-t-elle aussi accès aux livres numériques et aux réservations en ligne ?", "follow_up_to": 1, "condition": "After registration is explained, clarify which remote borrowing services the card includes."},
+            {"topic": "Prêt", "question": "Quels types de documents peut-on emprunter avec la carte municipale ?", "follow_up_to": null},
+            {"topic": "Prêt", "question": "Combien de documents peut-on emprunter à la fois ?", "follow_up_to": null},
+            {"topic": "Prêt", "question": "Quelle est la durée du prêt pour les livres et pour les DVD ?", "follow_up_to": null},
+            {"topic": "Prêt", "question": "Peut-on prolonger un prêt en ligne ou au comptoir, et dans quelles conditions ?", "follow_up_to": 5, "condition": "After loan periods are given, unless renewals are already mentioned."},
+            {"topic": "Conditions", "question": "Qu'est-ce qui se passe en cas de retard ?", "follow_up_to": null},
+            {"topic": "Conditions", "question": "En cas de document abîmé ou perdu, quel remboursement et quels frais seraient demandés ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "friend-shows-for-association-article": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "friend-shows-for-association-article",
+          "opening": "Salut ! Je dois écrire un article sur un spectacle pour le bulletin de mon association culturelle, et je manque d'idées.",
+          "closing": "Merci beaucoup ! Grâce à toi, j'ai enfin une idée précise pour mon article.",
+          "questions": [
+            {"topic": "Type de spectacle", "question": "Quel est le spectacle que tu as préféré ces derniers temps ?", "follow_up_to": null},
+            {"topic": "Type de spectacle", "question": "Quels éléments t'ont le plus marqué : les acrobaties, la mise en scène ou la musique ?", "follow_up_to": 1, "condition": "After a show is named, unless their reasons are already clear."},
+            {"topic": "Type de spectacle", "question": "Le spectacle convenait-il vraiment à toute la famille, notamment aux jeunes enfants ?", "follow_up_to": null},
+            {"topic": "Type de spectacle", "question": "Combien de temps durait la représentation, entracte compris ?", "follow_up_to": null},
+            {"topic": "Lieu et prix", "question": "Dans quel lieu le spectacle était-il présenté, et dans quel secteur de la ville ?", "follow_up_to": null},
+            {"topic": "Lieu et prix", "question": "Dans quelle fourchette de prix se situaient les billets selon les places ?", "follow_up_to": null},
+            {"topic": "Lieu et prix", "question": "Quels tarifs réduits ou promotions étaient proposés aux familles et aux groupes ?", "follow_up_to": 6, "condition": "After ticket prices are given, if they seem expensive for readers."},
+            {"topic": "Angle de l'article", "question": "À ton avis, quel aspect devrais-je mettre en avant dans mon article ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "friend-birthday-party-on-boat": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "friend-birthday-party-on-boat",
+          "opening": "Salut ! Fêter ton anniversaire sur un bateau, quelle bonne idée ! J'aimerais en savoir un peu plus.",
+          "closing": "Merci pour toutes ces infos ! J'ai hâte d'y être, ça va être une fête mémorable.",
+          "questions": [
+            {"topic": "Date et départ", "question": "À quelle date la fête sur le bateau est-elle prévue ?", "follow_up_to": null},
+            {"topic": "Date et départ", "question": "D'où et à quelle heure le bateau partira-t-il ?", "follow_up_to": null},
+            {"topic": "Date et départ", "question": "À quelle heure le bateau reviendra-t-il, et le débarquement se fera-t-il au quai de départ ?", "follow_up_to": null},
+            {"topic": "Date et départ", "question": "Quelle est l'heure limite d'embarquement, et que se passe-t-il si j'arrive après sa fermeture ?", "follow_up_to": 2, "condition": "After a fixed departure time is given."},
+            {"topic": "Prix", "question": "Quelle participation demandes-tu, et qu'est-ce qui est compris dans ce montant ?", "follow_up_to": null},
+            {"topic": "Prix", "question": "Comment dois-je te payer, et avant quelle date ?", "follow_up_to": 5, "condition": "If a contribution is requested, unless payment arrangements are explained."},
+            {"topic": "Invités et tenue", "question": "Combien d'invités seront présents, et connaîtrai-je plutôt tes amis de l'université ou tes collègues ?", "follow_up_to": null},
+            {"topic": "Invités et tenue", "question": "Quelle tenue serait adaptée, et faut-il prévoir quelque chose contre le froid sur l'eau ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "toy-library-membership": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "toy-library-membership",
+          "opening": "Bonjour ! J'aimerais m'inscrire à la ludothèque, mais j'ai d'abord quelques questions.",
+          "closing": "Merci beaucoup ! Je reviendrai bientôt avec mes documents pour m'inscrire.",
+          "questions": [
+            {"topic": "Les jeux", "question": "Quels types de jeux proposez-vous pour les enfants, les familles et les adultes ?", "follow_up_to": null},
+            {"topic": "Les jeux", "question": "Est-ce que les jeux de société s'adressent aussi aux adultes ?", "follow_up_to": 1, "condition": "After the collection is described, if you are interested in adult games."},
+            {"topic": "Les jeux", "question": "Peut-on jouer librement sur place, et un animateur est-il disponible pour expliquer les règles ?", "follow_up_to": null},
+            {"topic": "Horaires et prêt", "question": "Quels sont vos horaires en semaine et le samedi, et proposez-vous une ouverture en soirée ?", "follow_up_to": null},
+            {"topic": "Horaires et prêt", "question": "On peut emprunter combien de jeux, et pour combien de temps ?", "follow_up_to": null},
+            {"topic": "Horaires et prêt", "question": "Pour un jeu très demandé, peut-on le réserver en ligne ou faut-il passer au comptoir ?", "follow_up_to": null},
+            {"topic": "Inscription", "question": "Quel est le tarif annuel pour les résidents et pour les personnes qui habitent hors de la ville ?", "follow_up_to": null},
+            {"topic": "Inscription", "question": "Quel justificatif faut-il pour obtenir le tarif résident ?", "follow_up_to": 7, "condition": "If a resident rate is mentioned and you live locally."}
+          ]
+        }
+      ]
+    },
+    "bookshop-public-game-participation": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "bookshop-public-game-participation",
+          "opening": "Bonjour ! Votre jeu m'intrigue, et j'aimerais en savoir plus avant de décider si j'y participe.",
+          "closing": "Merci beaucoup ! C'est décidé, je vais tenter ma chance.",
+          "questions": [
+            {"topic": "Contenu", "question": "Quel est le principe de cette chasse au trésor littéraire, et joue-t-on seul ou en équipe ?", "follow_up_to": null},
+            {"topic": "Contenu", "question": "Faut-il avoir beaucoup lu pour avoir une chance ?", "follow_up_to": 1, "condition": "If a literary game is described, unless the required knowledge is explained."},
+            {"topic": "Contenu", "question": "Combien de temps dure une partie, et les équipes partent-elles toutes en même temps ?", "follow_up_to": null},
+            {"topic": "Intérêt", "question": "Quelle récompense recevra l'équipe gagnante, et les autres participants bénéficieront-ils d'un avantage ?", "follow_up_to": null},
+            {"topic": "Intérêt", "question": "À partir de quel âge peut-on participer, et le jeu convient-il aussi aux personnes venues seules ?", "follow_up_to": null},
+            {"topic": "Inscription", "question": "Quand le jeu aura-t-il lieu, et combien coûte la participation ?", "follow_up_to": null},
+            {"topic": "Inscription", "question": "L'inscription se fait-elle à la caisse ou en ligne, avant quelle date, et faut-il inscrire toute l'équipe ensemble ?", "follow_up_to": null},
+            {"topic": "Inscription", "question": "Si je m'inscris seul, serez-vous en mesure de m'intégrer à une équipe avant le départ ?", "follow_up_to": 7, "condition": "If teams are required for registration."}
+          ]
+        }
+      ]
+    },
+    "friend-unspecified-artistic-activity": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "friend-unspecified-artistic-activity",
+          "opening": "Salut ! Ton activité artistique m'intéresse beaucoup ; j'aimerais bien essayer, moi aussi.",
+          "closing": "Merci ! C'est décidé, je viens essayer dès la semaine prochaine.",
+          "questions": [
+            {"topic": "L'activité", "question": "Quelle activité artistique pratiques-tu, et est-ce dans un cadre amateur ou professionnel ?", "follow_up_to": null},
+            {"topic": "L'activité", "question": "Qu'est-ce que cette activité t'apporte sur le plan personnel, notamment pour la confiance en toi ?", "follow_up_to": 1, "condition": "After the activity is named, unless its benefits are already described."},
+            {"topic": "L'activité", "question": "Quel matériel ou quelle tenue faut-il prévoir pour une première séance ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "Dans quel lieu se déroulent les séances, et est-il facile d'accès ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "Quels sont les horaires des séances, et à quelle fréquence la troupe se produit-elle ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "Les nouveaux doivent-ils monter sur scène immédiatement, ou peuvent-ils d'abord observer les autres ?", "follow_up_to": 5, "condition": "If public performances are mentioned; adapt to the activity."},
+            {"topic": "Inscription", "question": "Faut-il déjà avoir de l'expérience pour s'inscrire, et peut-on essayer un premier cours gratuitement ?", "follow_up_to": null},
+            {"topic": "Inscription", "question": "Et après ce cours gratuit, combien coûte l'inscription ?", "follow_up_to": 7, "condition": "If a free trial is mentioned, unless the full fee is given."}
+          ]
+        }
+      ]
+    },
+    "guitar-teacher-lesson-enrollment": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "guitar-teacher-lesson-enrollment",
+          "opening": "Bonjour ! J'aimerais suivre des cours de guitare avec vous, et j'ai quelques questions sur leur organisation.",
+          "closing": "Merci beaucoup ! Je vais regarder mon emploi du temps et je vous confirme un créneau d'ici la fin de la semaine.",
+          "questions": [
+            {"topic": "Styles musicaux", "question": "Quels styles musicaux enseignez-vous, et adaptez-vous le programme aux goûts de chaque élève ?", "follow_up_to": null},
+            {"topic": "Styles musicaux", "question": "Est-ce qu'on pourrait travailler des chansons que je choisis moi-même ?", "follow_up_to": 1, "condition": "After styles are given, if you want to learn your own songs."},
+            {"topic": "Organisation", "question": "Les cours se donnent-ils dans votre studio, en ligne, ou dans les deux formats ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "Quels créneaux proposez-vous en semaine et le samedi ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "Serait-il possible d'avoir un créneau fixe le samedi ?", "follow_up_to": 4, "condition": "If weekend slots are offered; adapt to the day that suits you."},
+            {"topic": "Organisation", "question": "Combien de temps dure une leçon, et à quel rythme conseillez-vous de venir ?", "follow_up_to": null},
+            {"topic": "Tarifs et matériel", "question": "Quels sont vos tarifs à la leçon et pour un forfait de quatre cours ?", "follow_up_to": null},
+            {"topic": "Tarifs et matériel", "question": "Faut-il posséder sa propre guitare, ou existe-t-il une solution de prêt ou de location au début ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "colleague-association-dance-classes": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "colleague-association-dance-classes",
+          "opening": "Bonjour ! Vos cours de danse me tentent beaucoup, et j'aimerais en savoir plus.",
+          "closing": "Merci ! Ça me tente vraiment : je vais m'inscrire dès cette semaine.",
+          "questions": [
+            {"topic": "Les cours", "question": "Quels styles de danse peut-on apprendre, et lequel conseilleriez-vous à une personne qui débute ?", "follow_up_to": null},
+            {"topic": "Les cours", "question": "Pour la salsa, faut-il venir avec un partenaire ?", "follow_up_to": 1, "condition": "If partner dances are mentioned; adapt to the style named."},
+            {"topic": "Les cours", "question": "Est-ce qu'un débutant peut commencer en cours d'année ?", "follow_up_to": null},
+            {"topic": "Lieu et horaires", "question": "Où ont lieu les cours, et combien de temps faut-il pour s'y rendre depuis le travail ?", "follow_up_to": null},
+            {"topic": "Lieu et horaires", "question": "Quel jour et à quelles heures ont lieu les cours destinés aux débutants ?", "follow_up_to": null},
+            {"topic": "Lieu et horaires", "question": "Pourrait-on y aller ensemble directement après le travail ?", "follow_up_to": 5, "condition": "After the class time is given, if it follows your workday."},
+            {"topic": "Tarif", "question": "Peut-on assister à un cours d'essai avant de payer la session complète ?", "follow_up_to": null},
+            {"topic": "Tarif", "question": "Quel est le coût total entre les cours et l'adhésion obligatoire à l'association ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "sport-club-reception-choose-activity": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "sport-club-reception-choose-activity",
+          "opening": "Bonjour ! J'aimerais commencer une activité sportive et comparer vos cours.",
+          "closing": "Merci pour ces renseignements. Je vais choisir le cours qui correspond le mieux à mon planning.",
+          "questions": [
+            {"topic": "Activités et niveau", "question": "Quelles activités proposez-vous pour commencer progressivement ?", "follow_up_to": null},
+            {"topic": "Activités et niveau", "question": "Pour quelqu'un qui débute, est-ce que le pilates serait un bon choix ?", "follow_up_to": 1, "condition": "If pilates is offered; ask about the activity that interests you."},
+            {"topic": "Horaires et essai", "question": "Quels sont les créneaux de ce groupe ?", "follow_up_to": null},
+            {"topic": "Horaires et essai", "question": "Puis-je essayer une séance avant de m'engager ?", "follow_up_to": null},
+            {"topic": "Tarifs et inscription", "question": "Quel est le prix de l'abonnement ?", "follow_up_to": null},
+            {"topic": "Tarifs et inscription", "question": "Quel équipement faut-il prévoir pour ces cours ?", "follow_up_to": null},
+            {"topic": "Tarifs et inscription", "question": "Quels documents faut-il fournir pour s'inscrire ?", "follow_up_to": null},
+            {"topic": "Tarifs et inscription", "question": "L'abonnement impose-t-il un engagement, ou puis-je l'interrompre en cours d'année ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "friend-weekend-getaway-advice": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "friend-weekend-getaway-advice",
+          "opening": "Salut ! J'aimerais trouver une bonne idée pour partir le temps d'un week-end.",
+          "closing": "Merci pour tes conseils ! Je vais regarder les possibilités d'hébergement avant de me décider.",
+          "questions": [
+            {"topic": "Destination et activités", "question": "Quel endroit me conseillerais-tu pour passer le week-end ?", "follow_up_to": null},
+            {"topic": "Destination et activités", "question": "Qu'est-ce qu'on pourrait faire autour de ce lac ?", "follow_up_to": 1, "condition": "If a lakeside destination is suggested; adapt to the actual place."},
+            {"topic": "Trajet", "question": "Quel serait le moyen le plus pratique pour y aller ?", "follow_up_to": null},
+            {"topic": "Hébergement et budget", "question": "Où pourrait-on dormir sur place ?", "follow_up_to": null},
+            {"topic": "Hébergement et budget", "question": "Quel budget faudrait-il prévoir pour deux jours ?", "follow_up_to": null},
+            {"topic": "Hébergement et budget", "question": "Est-ce qu'il faut réserver cette auberge longtemps à l'avance ?", "follow_up_to": 4, "condition": "If an inn is recommended; ask about the lodging actually suggested."},
+            {"topic": "Solution en cas de pluie", "question": "Quelle activité resterait possible s'il pleuvait ?", "follow_up_to": null},
+            {"topic": "Solution en cas de pluie", "question": "Pourrait-on annuler l'hébergement sans frais si la météo devenait vraiment mauvaise ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "friend-mountain-holiday-advice": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "friend-mountain-holiday-advice",
+          "opening": "Salut ! Ton séjour à la montagne me donne envie d'y aller à mon tour.",
+          "closing": "Merci pour tes conseils ! Je vais chercher un séjour adapté à mon rythme et à mon budget.",
+          "questions": [
+            {"topic": "Région et saison", "question": "Dans quelle région es-tu allé à la montagne ?", "follow_up_to": null},
+            {"topic": "Région et saison", "question": "Pour cette région, quelle saison conseillerais-tu ?", "follow_up_to": 1, "condition": "After they identify the region, ask when it is worth visiting."},
+            {"topic": "Durée et activités", "question": "Combien de temps as-tu passé sur place ?", "follow_up_to": null},
+            {"topic": "Durée et activités", "question": "Quelles activités as-tu le plus appréciées ?", "follow_up_to": null},
+            {"topic": "Durée et activités", "question": "Ces randonnées demandaient-elles une bonne condition physique ?", "follow_up_to": 4, "condition": "If hiking is mentioned; adapt the difficulty question to the actual activity."},
+            {"topic": "Hébergement et budget", "question": "Dans quel type d'hébergement étais-tu ?", "follow_up_to": null},
+            {"topic": "Hébergement et budget", "question": "Quel budget as-tu prévu pour le séjour ?", "follow_up_to": null},
+            {"topic": "Hébergement et budget", "question": "Quels frais ont le plus pesé dans ce budget, et où pourrait-on économiser ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "travel-agency-canada-stay": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "travel-agency-canada-stay",
+          "opening": "Bonjour ! Je souhaite organiser un séjour au Canada et connaître les possibilités que vous proposez.",
+          "closing": "Merci pour ces renseignements. Je vais vérifier mes dates et mon budget avant de réserver.",
+          "questions": [
+            {"topic": "Régions et programme", "question": "Quelles régions du Canada me recommanderiez-vous de découvrir ?", "follow_up_to": null},
+            {"topic": "Régions et programme", "question": "Combien de jours faudrait-il pour découvrir le Québec sans trop se presser ?", "follow_up_to": 1, "condition": "If Quebec is suggested; substitute the region you are considering."},
+            {"topic": "Régions et programme", "question": "Quelles activités pourraient être prévues pendant ce séjour ?", "follow_up_to": null},
+            {"topic": "Hébergement", "question": "Quels types d'hébergement proposez-vous ?", "follow_up_to": null},
+            {"topic": "Budget et réservation", "question": "Quel serait le prix par personne pour cette formule ?", "follow_up_to": null},
+            {"topic": "Budget et réservation", "question": "Qu'est-ce qui est compris dans ce prix ?", "follow_up_to": 5, "condition": "After a price is given, unless inclusions are already explained."},
+            {"topic": "Budget et réservation", "question": "Quelles conditions dois-je connaître avant de réserver ?", "follow_up_to": null},
+            {"topic": "Budget et réservation", "question": "Quelles dates de départ ont encore des places pour cette formule ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "private-owner-used-car-purchase": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "private-owner-used-car-purchase",
+          "opening": "Bonjour ! Merci de me recevoir. J'aimerais avoir quelques précisions sur la voiture que vous vendez.",
+          "closing": "Merci pour ces renseignements. Je vais examiner ces éléments avant de prendre une décision.",
+          "questions": [
+            {"topic": "Âge et utilisation", "question": "De quelle année est la voiture ?", "follow_up_to": null},
+            {"topic": "Âge et utilisation", "question": "Quel est son kilométrage actuel ?", "follow_up_to": null},
+            {"topic": "État et entretien", "question": "Comment décririez-vous son état général ?", "follow_up_to": null},
+            {"topic": "État et entretien", "question": "Quels travaux faudrait-il prévoir prochainement ?", "follow_up_to": 3, "condition": "After condition is discussed, unless upcoming repairs are already specified."},
+            {"topic": "État et entretien", "question": "Avez-vous les factures d'entretien et les documents du véhicule ?", "follow_up_to": null},
+            {"topic": "Prix et vérification", "question": "Quel prix demandez-vous pour la voiture ?", "follow_up_to": null},
+            {"topic": "Prix et vérification", "question": "Serait-il possible de prévoir un essai et une vérification avant l'achat ?", "follow_up_to": null},
+            {"topic": "Prix et vérification", "question": "Comment puis-je vérifier l'historique des accidents et la situation administrative du véhicule ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "friend-carpooling-offer": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "friend-carpooling-offer",
+          "opening": "Salut ! Le covoiturage que tu fais m'intéresse et j'aimerais voir si je pourrais t'accompagner.",
+          "closing": "Merci pour ces infos ! Je vais vérifier quel trajet et quelle date me conviendraient.",
+          "questions": [
+            {"topic": "Trajets et horaires", "question": "Sur quels trajets fais-tu du covoiturage ?", "follow_up_to": null},
+            {"topic": "Trajets et horaires", "question": "Quelles sont les prochaines dates disponibles pour ce trajet ?", "follow_up_to": 1, "condition": "After a suitable route is identified, unless available dates are already given."},
+            {"topic": "Départ et places", "question": "Où se trouve le point de rendez-vous ?", "follow_up_to": null},
+            {"topic": "Départ et places", "question": "Combien de places restent disponibles ?", "follow_up_to": null},
+            {"topic": "Prix et réservation", "question": "Quel est le prix pour une place sur ce trajet ?", "follow_up_to": null},
+            {"topic": "Prix et réservation", "question": "À quel moment faut-il payer cette somme ?", "follow_up_to": 5, "condition": "After the fare is given, unless payment timing is already explained."},
+            {"topic": "Prix et réservation", "question": "Comment réserver une place pour t'accompagner ?", "follow_up_to": null},
+            {"topic": "Prix et réservation", "question": "Quelle quantité de bagages peut-on emporter sans gêner les autres passagers ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "colleague-canada-trip-report": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "colleague-canada-trip-report",
+          "opening": "Salut ! Ton voyage au Canada m'intéresse ; j'aimerais savoir ce que tu as découvert.",
+          "closing": "Merci de m'avoir raconté ton séjour ! Ça me donne une idée plus concrète de ton expérience.",
+          "questions": [
+            {"topic": "Lieux et activités", "question": "Quelles régions ou villes as-tu visitées ?", "follow_up_to": null},
+            {"topic": "Lieux et activités", "question": "Quelles activités as-tu faites pendant le séjour ?", "follow_up_to": null},
+            {"topic": "Lieux et activités", "question": "Laquelle de ces activités t'a le plus plu ?", "follow_up_to": 2, "condition": "After several activities are described, unless a favourite is already identified."},
+            {"topic": "Transports", "question": "Si tu as changé de ville, quel moyen de transport as-tu utilisé ?", "follow_up_to": null},
+            {"topic": "Transports", "question": "Et sur place, en ville, comment te déplaçais-tu ?", "follow_up_to": 4, "condition": "If several places were visited; distinguish local journeys from travel between them."},
+            {"topic": "Organisation et bilan", "question": "Dans quel type d'hébergement as-tu séjourné ?", "follow_up_to": null},
+            {"topic": "Organisation et bilan", "question": "Qu'est-ce que tu ferais différemment si tu y retournais ?", "follow_up_to": null},
+            {"topic": "Organisation et bilan", "question": "Quel budget as-tu consacré au voyage, et quelles dépenses t'ont surpris ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "station-stranger-mountain-passion": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "station-stranger-mountain-passion",
+          "opening": "Vous me disiez que vous aimiez beaucoup la montagne. J'aimerais bien en savoir un peu plus.",
+          "closing": "Merci pour cette conversation ! J'ai beaucoup aimé découvrir ce qui vous passionne dans la montagne.",
+          "questions": [
+            {"topic": "La passion de la montagne", "question": "Qu'est-ce qui vous plaît le plus dans la montagne ?", "follow_up_to": null},
+            {"topic": "Régions préférées", "question": "Quelles régions aimez-vous particulièrement ?", "follow_up_to": null},
+            {"topic": "Régions préférées", "question": "Qu'est-ce qui rend ces vallées si agréables pour vous ?", "follow_up_to": 2, "condition": "If they mention valleys; adapt to the places actually described."},
+            {"topic": "Activités et préparation", "question": "Quelles activités pratiquez-vous pendant vos séjours ?", "follow_up_to": null},
+            {"topic": "Activités et préparation", "question": "Quel matériel emportez-vous pour ces randonnées ?", "follow_up_to": 4, "condition": "If hiking is mentioned; ask about equipment for the actual activity."},
+            {"topic": "Activités et préparation", "question": "Comment préparez-vous une sortie avant de partir ?", "follow_up_to": null},
+            {"topic": "Souvenirs", "question": "Quel souvenir de montagne vous a le plus marqué ?", "follow_up_to": null},
+            {"topic": "Souvenirs", "question": "Avez-vous déjà dû renoncer à une sortie à cause des conditions sur place ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "neighbor-vancouver-running-race": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "neighbor-vancouver-running-race",
+          "opening": "Bonjour ! La course à laquelle vous allez participer à Vancouver m'intéresse.",
+          "closing": "Merci pour ces infos. Je vais consulter les conditions de participation et voir si cette course me convient.",
+          "questions": [
+            {"topic": "Événement", "question": "À quelle date cette course aura-t-elle lieu ?", "follow_up_to": null},
+            {"topic": "Événement", "question": "Quelles distances sont proposées aux participants ?", "follow_up_to": null},
+            {"topic": "Inscription", "question": "Comment peut-on s'inscrire à la course ?", "follow_up_to": null},
+            {"topic": "Inscription", "question": "Jusqu'à quand les inscriptions sont-elles ouvertes ?", "follow_up_to": 3, "condition": "After the registration method is given, unless the deadline is already specified."},
+            {"topic": "Inscription", "question": "Quel est le prix de l'inscription ?", "follow_up_to": null},
+            {"topic": "Préparation et organisation", "question": "Comment vous préparez-vous pour cette course ?", "follow_up_to": null},
+            {"topic": "Préparation et organisation", "question": "Comment est organisé le départ le jour de la course ?", "follow_up_to": null},
+            {"topic": "Préparation et organisation", "question": "Quand et où devrez-vous récupérer votre dossard avant la course ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "neighbor-regular-carpool-invitation": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "neighbor-regular-carpool-invitation",
+          "opening": "Bonjour ! Merci pour votre proposition de covoiturage, l'idée me plaît beaucoup. J'aimerais voir avec vous comment nous organiser.",
+          "closing": "Merci beaucoup, tout est clair ! C'est d'accord pour moi : dites-moi simplement quand vous souhaitez commencer.",
+          "questions": [
+            {"topic": "Trajet et horaires", "question": "Vous faites quel trajet exactement, et quels jours ?", "follow_up_to": null},
+            {"topic": "Trajet et horaires", "question": "À quelle heure partez-vous le matin, et quand repartez-vous le soir ?", "follow_up_to": null},
+            {"topic": "Trajet et horaires", "question": "S'il m'arrivait de finir plus tard, pourriez-vous m'attendre un peu ?", "follow_up_to": 2, "condition": "After return times are given, if your own hours may vary."},
+            {"topic": "Frais", "question": "Comment est-ce que vous voudriez partager les frais ?", "follow_up_to": null},
+            {"topic": "Frais", "question": "Vous préférez que je règle chaque jour ou en fin de semaine ?", "follow_up_to": 4, "condition": "After a contribution is agreed, unless payment timing is already set."},
+            {"topic": "Organisation", "question": "Et si l'un de nous ne pouvait pas partir un matin, qu'est-ce qu'on ferait ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "Y a-t-il des règles à respecter dans la voiture ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "Quel préavis faudrait-il donner si l'un de nous changeait exceptionnellement son horaire ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "neighbor-municipal-pool-information": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "neighbor-municipal-pool-information",
+          "opening": "Bonjour ! Vous allez souvent à la piscine municipale, je crois, et j'ai bien envie de m'y mettre. J'aimerais avoir votre avis avant d'y aller.",
+          "closing": "Merci beaucoup, c'est très utile ! Je vais choisir la formule la plus avantageuse et y aller aux heures les plus calmes.",
+          "questions": [
+            {"topic": "Installations", "question": "Comment sont les bassins ?", "follow_up_to": null},
+            {"topic": "Installations", "question": "Est-ce que les couloirs sont répartis selon la vitesse de nage ?", "follow_up_to": 1, "condition": "If lap lanes are mentioned, unless their organization is already explained."},
+            {"topic": "Installations", "question": "Quels autres équipements trouve-t-on sur place ?", "follow_up_to": null},
+            {"topic": "Horaires", "question": "Quels sont les horaires d'ouverture ?", "follow_up_to": null},
+            {"topic": "Horaires", "question": "Si je voulais éviter la foule, à quel moment vaudrait-il mieux y aller ?", "follow_up_to": 4, "condition": "After opening hours are given, if you prefer quieter times."},
+            {"topic": "Tarifs et accès", "question": "Combien coûte une entrée ?", "follow_up_to": null},
+            {"topic": "Tarifs et accès", "question": "Existe-t-il des formules plus avantageuses pour venir souvent ?", "follow_up_to": 6, "condition": "After the single-entry price is given, if you plan to swim often."},
+            {"topic": "Tarifs et accès", "question": "Que faut-il apporter pour utiliser les vestiaires et accéder aux bassins ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "visit-friend-canada-december-preparation": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "visit-friend-canada-december-preparation",
+          "opening": "Salut ! J'ai hâte de venir te voir en décembre, et j'aimerais que tu m'aides à bien préparer mon séjour.",
+          "closing": "Merci beaucoup, ça me rassure ! Je vais préparer ma valise en conséquence, et j'ai déjà hâte de te retrouver.",
+          "questions": [
+            {"topic": "Météo et vêtements", "question": "Il fait quel temps chez toi en décembre ?", "follow_up_to": null},
+            {"topic": "Météo et vêtements", "question": "Avec ce froid, quels vêtements devrais-je emporter ?", "follow_up_to": 1, "condition": "After cold weather is described; adapt to the conditions given."},
+            {"topic": "Météo et vêtements", "question": "Tu crois que je devrais acheter ces vêtements avant de partir ?", "follow_up_to": 2, "condition": "After clothing is listed, if you do not already own it."},
+            {"topic": "Activités", "question": "Qu'est-ce qu'on pourrait faire pendant mon séjour ?", "follow_up_to": null},
+            {"topic": "Activités", "question": "La raquette, c'est accessible à quelqu'un qui n'en a jamais fait ?", "follow_up_to": 4, "condition": "If snowshoeing is suggested; adapt to an activity new to you."},
+            {"topic": "Matériel", "question": "Y a-t-il de petits accessoires utiles auxquels je ne penserais pas ?", "follow_up_to": null},
+            {"topic": "Matériel", "question": "Pour ces activités, est-ce que je devrai apporter mon propre équipement ?", "follow_up_to": null},
+            {"topic": "Matériel", "question": "Faudra-t-il réserver l'équipement de location avant mon arrivée ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "neighbor-community-sports-instructor": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "neighbor-community-sports-instructor",
+          "opening": "Bonjour ! On m'a parlé des séances de sport que vous animez, et ça me donne envie de m'y mettre. J'aimerais en savoir un peu plus.",
+          "closing": "Merci beaucoup ! Je viendrai essayer une séance dès la semaine prochaine.",
+          "questions": [
+            {"topic": "Disciplines", "question": "Qu'est-ce que vous proposez comme disciplines ?", "follow_up_to": null},
+            {"topic": "Disciplines", "question": "En quoi consiste le cardio-boxe ?", "follow_up_to": 1, "condition": "If an unfamiliar activity is named; substitute the one mentioned."},
+            {"topic": "Horaires et participants", "question": "À quels moments ont lieu les séances ?", "follow_up_to": null},
+            {"topic": "Horaires et participants", "question": "Qui participe à ces séances, en général ?", "follow_up_to": null},
+            {"topic": "Conditions", "question": "Que faut-il faire pour participer ?", "follow_up_to": null},
+            {"topic": "Conditions", "question": "Est-ce que je pourrais essayer une séance avant de payer cette cotisation ?", "follow_up_to": 5, "condition": "If a membership fee is required, unless a free trial is mentioned."},
+            {"topic": "Conditions", "question": "Quel équipement dois-je apporter ?", "follow_up_to": null},
+            {"topic": "Conditions", "question": "Combien coûte la cotisation, et quelles séances permet-elle de suivre ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "bicycle-rental-model-and-terms": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "bicycle-rental-model-and-terms",
+          "opening": "Bonjour ! J'aimerais louer un vélo pour me promener en ville, et je voudrais savoir ce que vous proposez.",
+          "closing": "Merci beaucoup, c'est très clair ! Je vais suivre votre conseil et réserver un vélo pour la journée.",
+          "questions": [
+            {"topic": "Modèles", "question": "Quels sont les modèles disponibles ?", "follow_up_to": null},
+            {"topic": "Modèles", "question": "Lequel me conseilleriez-vous pour une journée en ville ?", "follow_up_to": 1, "condition": "After models are listed; adapt the outing to your plans."},
+            {"topic": "Modèles", "question": "Quelle est l'autonomie de la batterie ?", "follow_up_to": 2, "condition": "If an electric bike is recommended or interests you."},
+            {"topic": "Tarifs", "question": "Combien coûte la location ?", "follow_up_to": null},
+            {"topic": "Tarifs", "question": "Est-ce que le casque et l'antivol sont compris dans ce prix ?", "follow_up_to": 4, "condition": "After rates are given, unless equipment is already included."},
+            {"topic": "Conditions de location", "question": "Que dois-je fournir pour louer un vélo ?", "follow_up_to": null},
+            {"topic": "Conditions de location", "question": "Et si je crevais en route, qu'est-ce qui se passerait ?", "follow_up_to": null},
+            {"topic": "Conditions de location", "question": "Quel dépôt de garantie demandez-vous, et quand est-il restitué ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "friend-used-electric-bicycle-sale": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "friend-used-electric-bicycle-sale",
+          "opening": "Salut ! Ton annonce pour le vélo électrique m'intéresse beaucoup, alors j'aimerais avoir quelques précisions.",
+          "closing": "Merci beaucoup, il a l'air parfait ! Dis-moi quand je peux passer l'essayer.",
+          "questions": [
+            {"topic": "Modèle et couleur", "question": "De quel type de vélo s'agit-il, et depuis combien de temps l'as-tu ?", "follow_up_to": null},
+            {"topic": "Modèle et couleur", "question": "Quelle est la couleur du cadre et des principaux accessoires ?", "follow_up_to": null},
+            {"topic": "État", "question": "Quel est son état général, et quand a-t-il été révisé pour la dernière fois ?", "follow_up_to": null},
+            {"topic": "État", "question": "Et la batterie, elle tient toujours bien la charge ?", "follow_up_to": 3, "condition": "After condition is described, unless battery range is already given."},
+            {"topic": "État", "question": "Combien de kilomètres a-t-il parcourus, approximativement ?", "follow_up_to": null},
+            {"topic": "Prix et essai", "question": "Quel prix en demandes-tu, et as-tu prévu une petite marge de négociation ?", "follow_up_to": null},
+            {"topic": "Prix et essai", "question": "Est-ce que le chargeur et les accessoires sont compris dans ce prix ?", "follow_up_to": 6, "condition": "After the price is given, unless accessories are already included."},
+            {"topic": "Prix et essai", "question": "Quand pourrais-je l'essayer, et sur quel trajet vérifier son confort et l'assistance électrique ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "friend-canada-cross-country-skiing": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "friend-canada-cross-country-skiing",
+          "opening": "Salut ! Le ski de fond me tente de plus en plus, et comme tu en fais, j'aimerais te demander quelques conseils.",
+          "closing": "Merci beaucoup, ça me motive ! Je vais suivre tes conseils et me lancer dès les premières neiges.",
+          "questions": [
+            {"topic": "Apprentissage", "question": "Quelle est la meilleure façon d'apprendre quand on n'en a jamais fait ?", "follow_up_to": null},
+            {"topic": "Apprentissage", "question": "Est-ce que ces cours se donnent aussi le week-end ?", "follow_up_to": 1, "condition": "If lessons are recommended, unless their schedule is already given."},
+            {"topic": "Apprentissage", "question": "Où pourrait-on pratiquer près d'ici sur des pistes adaptées aux débutants ?", "follow_up_to": null},
+            {"topic": "Matériel et tenue", "question": "Quel matériel complet faut-il prévoir, et peut-on tout louer au centre pour débuter ?", "follow_up_to": null},
+            {"topic": "Matériel et tenue", "question": "Tu me conseillerais plutôt de louer ou d'acheter au début ?", "follow_up_to": 4, "condition": "After equipment is listed, if you are unsure whether to buy."},
+            {"topic": "Matériel et tenue", "question": "Quelle tenue permet de rester au chaud sans avoir trop chaud pendant l'effort ?", "follow_up_to": null},
+            {"topic": "Coût", "question": "Quel budget faut-il prévoir séparément pour un cours et une journée de location ?", "follow_up_to": null},
+            {"topic": "Coût", "question": "Faut-il aussi payer pour accéder aux pistes ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "neighbor-friends-countryside-outing-advice": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "neighbor-friends-countryside-outing-advice",
+          "opening": "Bonjour ! J'aimerais organiser une sortie à la campagne avec des amis, et j'ai pensé que vous auriez de bonnes idées.",
+          "closing": "Merci beaucoup pour ces idées ! Je vais en parler à mes amis et organiser le transport dès cette semaine.",
+          "questions": [
+            {"topic": "Lieu", "question": "Quel coin de campagne nous conseilleriez-vous pour une journée ?", "follow_up_to": null},
+            {"topic": "Lieu", "question": "Y a-t-il un endroit pour pique-niquer là-bas ?", "follow_up_to": 1, "condition": "After a place is suggested, if you plan to bring food."},
+            {"topic": "Activités", "question": "Qu'est-ce qu'on pourrait y faire comme activités ?", "follow_up_to": null},
+            {"topic": "Activités", "question": "Et les canots, on peut les louer où ?", "follow_up_to": 3, "condition": "If canoeing is mentioned; adapt to the equipment needed."},
+            {"topic": "Activités", "question": "Si le temps se gâtait, que pourrait-on faire à l'abri ?", "follow_up_to": null},
+            {"topic": "Budget", "question": "Quel budget faudrait-il prévoir par personne pour la journée, activités comprises ?", "follow_up_to": null},
+            {"topic": "Transport", "question": "Quel moyen de transport serait le plus pratique pour y aller ?", "follow_up_to": null},
+            {"topic": "Transport", "question": "Combien coûte la location d'une fourgonnette pour la journée ?", "follow_up_to": 7, "condition": "If a vehicle rental is suggested, unless its price is given."}
+          ]
+        }
+      ]
+    },
+    "tourist-office-low-budget-weekend": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "tourist-office-low-budget-weekend",
+          "opening": "Bonjour ! J'aimerais m'offrir un week-end d'évasion sans me ruiner, et j'aurais besoin de quelques idées.",
+          "closing": "Merci beaucoup pour ces idées ! Je vais réserver mon hébergement et organiser mon trajet dès ce soir.",
+          "questions": [
+            {"topic": "Destination et hébergement", "question": "Quelle destination me conseilleriez-vous pour un week-end à petit prix ?", "follow_up_to": null},
+            {"topic": "Destination et hébergement", "question": "Où est-ce que je pourrais dormir sur place sans trop dépenser ?", "follow_up_to": null},
+            {"topic": "Destination et hébergement", "question": "Sans tente, quelles solutions couvertes et abordables sont proposées, et quel équipement faut-il apporter ?", "follow_up_to": 2, "condition": "If camping is suggested and you have no tent."},
+            {"topic": "Activités", "question": "Une fois l'entrée payée, quelles activités sont gratuites ?", "follow_up_to": null},
+            {"topic": "Activités", "question": "Peut-on aussi faire du canot sur ce lac ?", "follow_up_to": 4, "condition": "If a lake is mentioned; adapt to an activity you enjoy."},
+            {"topic": "Budget", "question": "Au total, quel budget minimal faudrait-il prévoir pour le transport, une nuit et les repas ?", "follow_up_to": null},
+            {"topic": "Transport", "question": "Quel serait le moyen le plus économique pour m'y rendre ?", "follow_up_to": null},
+            {"topic": "Transport", "question": "Sur quelles plateformes trouver ce covoiturage, et combien de temps à l'avance faudrait-il réserver ?", "follow_up_to": 7, "condition": "If carpooling is recommended, unless they explain how to find it."}
+          ]
+        }
+      ]
+    },
+    "friend-canada-partner-birthday-trip": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "friend-canada-partner-birthday-trip",
+          "opening": "Salut ! Pour l'anniversaire de ma moitié, j'aimerais organiser un voyage au Canada, et j'aurais besoin de tes idées.",
+          "closing": "Merci beaucoup ! Je vais commencer à comparer les prix, et je garde ton idée d'activité comme surprise.",
+          "questions": [
+            {"topic": "Destination", "question": "Quelle région du Canada choisirais-tu pour une occasion comme celle-là ?", "follow_up_to": null},
+            {"topic": "Destination", "question": "Ce serait mieux d'y aller à quelle période ?", "follow_up_to": null},
+            {"topic": "Destination", "question": "Et si on y allait plutôt en hiver ?", "follow_up_to": 2, "condition": "After the best season is given; substitute the season that suits you."},
+            {"topic": "Destination", "question": "Quel type d'hébergement choisirais-tu pour que le séjour reste romantique sans dépasser notre budget ?", "follow_up_to": null},
+            {"topic": "Idées d'activités", "question": "Quelle expérience romantique et typique de la région rendrait ce voyage d'anniversaire vraiment mémorable ?", "follow_up_to": null},
+            {"topic": "Idées d'activités", "question": "Est-ce que c'est cher, ce genre d'activité ?", "follow_up_to": 5, "condition": "After a special activity is suggested, unless its price is given."},
+            {"topic": "Budget", "question": "Quel budget faudrait-il prévoir pour une semaine à deux ?", "follow_up_to": null},
+            {"topic": "Budget", "question": "Comment pourrait-on réduire un peu cette somme ?", "follow_up_to": 7, "condition": "If the suggested budget seems too high for you."}
+          ]
+        }
+      ]
+    },
+    "friend-upcoming-canada-trip-advice": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "friend-upcoming-canada-trip-advice",
+          "opening": "Salut ! Tu rentres tout juste du Canada, et comme j'y pars bientôt, j'aimerais profiter de ton expérience.",
+          "closing": "Merci pour tous ces conseils ! Je vais revoir mon itinéraire et mon budget dès ce soir.",
+          "questions": [
+            {"topic": "Itinéraire et climat", "question": "Quelles étapes formeraient un itinéraire réaliste sur deux semaines, et dans quel ordre les visiter ?", "follow_up_to": null},
+            {"topic": "Itinéraire et climat", "question": "Qu'est-ce que tu as fait de plus marquant aux chutes du Niagara ?", "follow_up_to": 1, "condition": "After an itinerary is described; name a stop they mentioned."},
+            {"topic": "Itinéraire et climat", "question": "Quel temps as-tu eu en juillet, et quels vêtements me conseillerais-tu d'emporter ?", "follow_up_to": null},
+            {"topic": "Hébergement et repas", "question": "Dans quels types d'hébergement as-tu logé, et dans quelle gamme de prix ?", "follow_up_to": null},
+            {"topic": "Hébergement et repas", "question": "Ces auberges avaient-elles une cuisine commune pour limiter le budget des repas ?", "follow_up_to": 4, "condition": "If hostels or self-catering lodging are mentioned."},
+            {"topic": "Hébergement et repas", "question": "Pour les repas, quelles spécialités locales vaudrait-il vraiment la peine de goûter ?", "follow_up_to": null},
+            {"topic": "Transports et budget", "question": "Pour relier ces villes, vaut-il mieux prendre le train, l'autocar ou louer une voiture ?", "follow_up_to": null},
+            {"topic": "Transports et budget", "question": "Si je voyageais comme toi, quel budget faudrait-il prévoir ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "interlocutor-planned-mountain-trip": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "interlocutor-planned-mountain-trip",
+          "opening": "Bonjour ! J'ai appris que vous veniez de boucler l'organisation d'un séjour à la montagne. Ça m'intrigue, j'aimerais en savoir plus.",
+          "closing": "Merci de m'avoir parlé de ce beau projet ! Je vous souhaite un excellent séjour à la montagne.",
+          "questions": [
+            {"topic": "Destination et saison", "question": "Quelle destination avez-vous finalement choisie pour ce séjour à la montagne ?", "follow_up_to": null},
+            {"topic": "Destination et saison", "question": "À quelle période partirez-vous, et pourquoi l'avez-vous choisie ?", "follow_up_to": null},
+            {"topic": "Destination et saison", "question": "Vous n'avez pas peur d'avoir froid à cette période ?", "follow_up_to": 2, "condition": "If they travel in winter; adapt to the season given."},
+            {"topic": "Destination et saison", "question": "Comment comptez-vous vous rendre sur place, et aurez-vous besoin d'une voiture ensuite ?", "follow_up_to": null},
+            {"topic": "Hébergement et coût", "question": "Quel type d'hébergement avez-vous réservé, et à quelle distance des activités ?", "follow_up_to": null},
+            {"topic": "Hébergement et coût", "question": "Quel budget total avez-vous prévu par personne, et qu'est-ce qui est compris dans cette somme ?", "follow_up_to": null},
+            {"topic": "Hébergement et coût", "question": "Est-ce que les forfaits représentent une grosse partie de cette somme ?", "follow_up_to": 6, "condition": "If ski passes are included in the cost given."},
+            {"topic": "Activités", "question": "En dehors du ski, quelles activités avez-vous prévu d'essayer sur place ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "colleague-looking-for-sports-partner": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "colleague-looking-for-sports-partner",
+          "opening": "Bonjour ! Vous m'avez dit que vous cherchiez un partenaire de sport, et ça m'intrigue.",
+          "closing": "Merci pour ces précisions ! Ça me tente beaucoup : dites-moi simplement quand je peux vous rejoindre.",
+          "questions": [
+            {"topic": "Sport et lieu", "question": "Quel sport pratiquez-vous, et cherchez-vous un partenaire pour jouer en simple ou en double ?", "follow_up_to": null},
+            {"topic": "Sport et lieu", "question": "Dans quel établissement jouez-vous, et est-il facilement accessible depuis le bureau ?", "follow_up_to": null},
+            {"topic": "Horaires", "question": "Quels jours et à quelle heure vous entraînez-vous ?", "follow_up_to": null},
+            {"topic": "Horaires", "question": "Et si je ne pouvais venir qu'une fois par semaine ?", "follow_up_to": 3, "condition": "After several weekly sessions are proposed, if your availability is limited."},
+            {"topic": "Niveau et matériel", "question": "Quel niveau attendez-vous concrètement de votre partenaire ?", "follow_up_to": null},
+            {"topic": "Niveau et matériel", "question": "Quel est votre propre niveau, et depuis combien de temps jouez-vous régulièrement ?", "follow_up_to": 5, "condition": "After the expected level is described, unless theirs is already clear."},
+            {"topic": "Niveau et matériel", "question": "Quel matériel devrais-je apporter, et fournissez-vous déjà les volants ?", "follow_up_to": null},
+            {"topic": "Niveau et matériel", "question": "Quel budget faut-il prévoir entre la location du terrain et le matériel de base ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "specialist-agency-day-excursions": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "specialist-agency-day-excursions",
+          "opening": "Bonjour ! Les excursions à la journée m'intéressent beaucoup, et j'aimerais savoir ce que vous proposez.",
+          "closing": "Merci pour toutes ces informations ! Je vais réserver l'excursion que vous m'avez recommandée.",
+          "questions": [
+            {"topic": "Destinations", "question": "Quels types de destinations proposez-vous à moins de deux heures de route ?", "follow_up_to": null},
+            {"topic": "Destinations", "question": "Laquelle recommanderiez-vous pour une première excursion, et qu'est-ce qui la distingue des autres ?", "follow_up_to": 1, "condition": "After several destinations are listed."},
+            {"topic": "Destinations", "question": "D'où part l'autocar, et à quelle heure revient-il en général ?", "follow_up_to": null},
+            {"topic": "Programme", "question": "Quelles étapes sont prévues le matin et l'après-midi pendant cette excursion ?", "follow_up_to": null},
+            {"topic": "Programme", "question": "Combien de participants accueille chaque groupe, et le guide parle-t-il français et anglais ?", "follow_up_to": null},
+            {"topic": "Prix et réservation", "question": "Quel est le prix par personne, et quels services sont compris dans ce tarif ?", "follow_up_to": null},
+            {"topic": "Prix et réservation", "question": "Le repas du midi est-il compris, ou faut-il prévoir un supplément ou apporter un pique-nique ?", "follow_up_to": 6, "condition": "After the price is given, unless lunch costs are already clear."},
+            {"topic": "Prix et réservation", "question": "Faut-il réserver longtemps à l'avance et, si oui, peut-on le faire en ligne ou par téléphone ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "canadian-tourist-office-restful-weekend": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "canadian-tourist-office-restful-weekend",
+          "opening": "Bonjour ! J'aimerais passer un week-end vraiment reposant, et j'aurais besoin de vos recommandations.",
+          "closing": "Merci beaucoup ! Grâce à vos recommandations, je vais pouvoir organiser un week-end vraiment reposant.",
+          "questions": [
+            {"topic": "Lieux à découvrir", "question": "Quel endroit calme me conseilleriez-vous pour un week-end réellement reposant, à moins de deux heures d'ici ?", "follow_up_to": null},
+            {"topic": "Lieux à découvrir", "question": "Comment se déroule une séance dans un spa nordique, et les installations restent-elles accessibles en hiver ?", "follow_up_to": 1, "condition": "If a Nordic spa or another unfamiliar facility is suggested."},
+            {"topic": "Lieux à découvrir", "question": "Et dans les environs, il y a des choses à voir ?", "follow_up_to": null},
+            {"topic": "Lieux à découvrir", "question": "Pour l'auberge et le spa, faut-il réserver à l'avance et, si oui, directement en ligne ou par téléphone ?", "follow_up_to": null},
+            {"topic": "Sorties", "question": "Quelle sortie tranquille peut-on faire le soir, sans compromettre l'ambiance reposante du séjour ?", "follow_up_to": null},
+            {"topic": "Sorties", "question": "Quel budget total prévoir pour une nuit à l'auberge, l'accès au spa et un repas au village ?", "follow_up_to": 5, "condition": "After an evening option is suggested, estimate the weekend's essential costs."},
+            {"topic": "Déplacements", "question": "Quel serait le moyen le plus simple de s'y rendre ?", "follow_up_to": null},
+            {"topic": "Déplacements", "question": "La navette dessert-elle également le spa, et à quelle fréquence passe-t-elle ?", "follow_up_to": 7, "condition": "If a shuttle is mentioned; adapt to the places you plan to visit."}
+          ]
+        }
+      ]
+    },
+    "friend-visited-countries-destination-choice": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "friend-visited-countries-destination-choice",
+          "opening": "Salut ! Je cherche une destination pour mon prochain voyage, et comme tu as beaucoup voyagé, j'aimerais avoir ton avis.",
+          "closing": "Merci pour tous ces conseils ! Je crois que je tiens ma prochaine destination.",
+          "questions": [
+            {"topic": "Pays visités", "question": "Quels pays as-tu visités récemment, et lesquels envisagerais-tu de recommander pour mon voyage ?", "follow_up_to": null},
+            {"topic": "Pays visités", "question": "Lequel t'a laissé le meilleur souvenir, et pour quelles raisons précises ?", "follow_up_to": 1, "condition": "After several countries are listed."},
+            {"topic": "Activités", "question": "Et là-bas, qu'est-ce qui t'a le plus marqué ?", "follow_up_to": null},
+            {"topic": "Climat", "question": "Quel temps as-tu eu en mars, et le climat variait-il beaucoup entre le nord et le sud ?", "follow_up_to": null},
+            {"topic": "Climat", "question": "Quelle serait la meilleure période pour y aller, alors ?", "follow_up_to": 4, "condition": "After the weather is described, unless the best season is already given."},
+            {"topic": "Budget", "question": "Pour te déplacer dans ce pays, quelles options étaient pratiques et abordables ?", "follow_up_to": null},
+            {"topic": "Budget", "question": "Quel budget quotidien faut-il prévoir sur place pour les repas et une chambre correcte ?", "follow_up_to": null},
+            {"topic": "Budget", "question": "Et le billet d'avion, tu l'as payé combien ?", "follow_up_to": null}
           ]
         }
       ]

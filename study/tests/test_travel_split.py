@@ -15,6 +15,7 @@ from study.models import (
     Response, ReviewLog, Theme, ThemeVocabularyProgress,
 )
 from study.tests import factories
+from study.tests.housing_work_fixtures import RECLASSIFIED_GROUPS
 from study.tests.travel_fixtures import ALL_TRAVEL_GROUPS, TRAVEL_GROUPS
 from study.views.helpers import _memory_progress
 
@@ -36,14 +37,17 @@ class TravelSplitCorpusTests(SimpleTestCase):
         expected_counts = {
             "voyages": (32, 15),
             "escapades-tourisme": (14, 7),
-            "hebergements-touristiques": (4, 4),
+            "hebergements-touristiques": (9, 6),
         }
         for slug, groups in TRAVEL_GROUPS.items():
             rows = [row for key, row in dialogues.items() if mapping[key] == slug]
             actual = {row.group for row in rows}
             with self.subTest(theme=slug):
                 if slug in expected_counts:
-                    self.assertEqual(actual, groups)
+                    expected_groups = groups
+                    if slug == "hebergements-touristiques":
+                        expected_groups = groups | RECLASSIFIED_GROUPS[slug]
+                    self.assertEqual(actual, expected_groups)
                     self.assertEqual((len(rows), len(actual)), expected_counts[slug])
                 else:
                     self.assertLessEqual(groups, actual)

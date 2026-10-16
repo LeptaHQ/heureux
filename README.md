@@ -199,7 +199,8 @@ The former **Voyages & vacances** theme is likewise split by objective:
 **Voyages & circuits** (Mémoire 7) covers whole trips, preparation and travel
 experiences; **Escapades & tourisme régional** (Mémoire 14) covers weekend
 getaways, regional visits and day excursions; **Hébergements touristiques**
-(Mémoire 15) covers hotels, guesthouses and campsites, not permanent housing.
+(Mémoire 15) covers hotels, guesthouses, campsites and holiday-house bookings,
+not permanent housing.
 A tourist-office enquiry follows its subject, not the employee's workplace.
 Travel-blog creation belongs to **Culture, lectures & médias**, and Canadian
 weekend leisure habits belong to **Cours, clubs & loisirs**; discovering the
@@ -225,6 +226,15 @@ questions that move between the two old books or into Mémoire 16. Each of the
 three collections contains 52 questions and 45 vocabulary entries. Exact source
 snapshots are stored in `question_bank_history/culture.json` and
 `question_bank_history/culture_vocabulary.json`; dialogues and Pistes are unchanged.
+
+**Travail & emploi** and **Logement & déménagement** remain single themes.
+Retirement and promotion parties belong to **Fêtes & célébrations**; furniture
+delivery and help transporting heavy objects without an established household
+move belong to **Services du quotidien & entraide**. Renting out one's own home
+for income remains a housing question, and working in an association remains
+employment unless volunteering is specified. These boundary corrections move
+all equivalents and their source-question memory links, without changing
+dialogues, learning identities, reusable question banks or vocabulary collections.
 
 The EO2 sidebar retains completion, personalisation and individual practice controls;
 practice statistics and vocabulary are no longer displayed there. Vocabulary and

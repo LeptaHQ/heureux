@@ -1139,7 +1139,6 @@ class QuestionBankContentTests(TestCase):
                 "sorties-spectacles",
                 "sport",
                 "transports",
-                "travail",
                 "garde-enfants-animaux",
                 "voyages",
             },
@@ -2945,7 +2944,7 @@ class QuestionBankViewTests(TestCase):
                 if selection:
                     self.assertLessEqual(keys, arrival)
                     self.assertEqual(len(arrival), 17)
-                    self.assertEqual(len(neighbourhood), 9)
+                    self.assertEqual(len(neighbourhood), 14)
                 else:
                     self.assertEqual(len(keys & arrival), 1)
         for prompt in prompts:

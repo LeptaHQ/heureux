@@ -4,6 +4,7 @@ import json
 from django.test import SimpleTestCase
 
 from study import catalogue, content_loader as content
+from study.tests.housing_work_fixtures import ORIGINAL_HOUSING_GROUPS, ORIGINAL_WORK_GROUPS
 from study.tests.neighbourhood_fixtures import ALL_NEIGHBOURHOOD_GROUPS
 
 
@@ -15,10 +16,9 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
         self.by_group = {row.group: row for row in self.dialogues.values()}
         self.hints = json.loads(content.TACHE_TWO_SUBJECT_HINTS_PATH.read_text())["groups"]
 
-    def test_work_theme_covers_thirty_publications_and_fifteen_archived_models(self):
-        _, themes = catalogue.tache_two_subject_themes()
+    def test_original_work_review_keeps_thirty_publications_and_fifteen_archived_models(self):
         publications = {
-            key: row for key, row in self.dialogues.items() if themes[key] == "travail"
+            key: row for key, row in self.dialogues.items() if row.group in ORIGINAL_WORK_GROUPS
         }
         groups = {row.group for row in publications.values()}
         self.assertEqual(len(publications), 30)
@@ -53,6 +53,7 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
             with self.subTest(theme=theme):
                 groups = (
                     ALL_NEIGHBOURHOOD_GROUPS if theme == "vie-quartier" else
+                    ORIGINAL_HOUSING_GROUPS if theme == "logement" else
                     {row.group for key, row in self.dialogues.items() if themes[key] == theme}
                 )
                 snapshot = json.dumps(

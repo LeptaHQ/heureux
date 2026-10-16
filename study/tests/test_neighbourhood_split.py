@@ -15,6 +15,7 @@ from study.models import (
     ReviewLog, Theme, ThemeVocabularyProgress,
 )
 from study.tests import factories
+from study.tests.housing_work_fixtures import RECLASSIFIED_GROUPS
 from study.tests.neighbourhood_fixtures import ALL_NEIGHBOURHOOD_GROUPS, NEIGHBOURHOOD_GROUPS
 from study.views.helpers import _memory_progress
 
@@ -44,11 +45,13 @@ class NeighbourhoodSplitCorpusTests(SimpleTestCase):
         themes, mapping = catalogue.tache_two_subject_themes()
         self.assertEqual(len(themes), 16)
         expected_counts = {
-            "vie-quartier": (9, 5),
+            "vie-quartier": (14, 7),
             "garde-enfants-animaux": (15, 7),
             "benevolat-associations": (10, 4),
         }
         for slug, expected_groups in NEIGHBOURHOOD_GROUPS.items():
+            if slug == "vie-quartier":
+                expected_groups = expected_groups | RECLASSIFIED_GROUPS[slug]
             rows = [row for key, row in dialogues.items() if mapping[key] == slug]
             groups = {row.group for row in rows}
             with self.subTest(theme=slug):

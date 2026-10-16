@@ -4,6 +4,7 @@ import json
 from django.test import SimpleTestCase
 
 from study import catalogue, content_loader as content
+from study.tests.housing_work_fixtures import ORIGINAL_HOUSING_GROUPS, ORIGINAL_WORK_GROUPS
 from study.tests.neighbourhood_fixtures import ALL_NEIGHBOURHOOD_GROUPS
 
 
@@ -24,7 +25,7 @@ class TacheTwoPriorThemeReviewTests(SimpleTestCase):
             rows = [
                 row for key, row in self.dialogues.items()
                 if (row.group in ALL_NEIGHBOURHOOD_GROUPS if theme == "vie-quartier"
-                    else self.themes[key] == theme)
+                    else row.group in ORIGINAL_WORK_GROUPS)
             ]
             with self.subTest(theme=theme):
                 self.assertEqual(len(rows), publications)
@@ -47,7 +48,7 @@ class TacheTwoPriorThemeReviewTests(SimpleTestCase):
         }
         for theme, digest in expected.items():
             with self.subTest(theme=theme):
-                groups = {
+                groups = ORIGINAL_HOUSING_GROUPS if theme == "logement" else {
                     row.group for key, row in self.dialogues.items() if self.themes[key] == theme
                 }
                 snapshot = json.dumps(

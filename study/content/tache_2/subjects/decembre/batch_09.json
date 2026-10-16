@@ -82,7 +82,7 @@
         },
         {
           "text": "Elle peut accueillir combien de personnes confortablement ?",
-          "memory_number": 2,
+          "memory_number": 15,
           "memory_section": 7
         },
         {
@@ -96,7 +96,7 @@
         },
         {
           "text": "Y a-t-il une durée minimale de location ?",
-          "memory_number": 2,
+          "memory_number": 15,
           "memory_section": 6
         },
         {
@@ -110,7 +110,7 @@
         },
         {
           "text": "Comme c'est chez toi, je préfère être clair dès le départ. Est-ce qu'il y a des règles particulières à respecter ?",
-          "memory_number": 2,
+          "memory_number": 15,
           "memory_section": 8
         },
         {

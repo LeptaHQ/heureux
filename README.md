@@ -195,6 +195,21 @@ Moved questions retain their original identity through `legacy_memory_number`,
 and moved vocabulary retains its phrase ID, preserving learned state. Exact
 pre-split study collections are kept in `question_bank_history/`.
 
+The former **Voyages & vacances** theme is likewise split by objective:
+**Voyages & circuits** (Mémoire 7) covers whole trips, preparation and travel
+experiences; **Escapades & tourisme régional** (Mémoire 14) covers weekend
+getaways, regional visits and day excursions; **Hébergements touristiques**
+(Mémoire 15) covers hotels, guesthouses and campsites, not permanent housing.
+A tourist-office enquiry follows its subject, not the employee's workplace.
+Travel-blog creation and Canadian weekend leisure habits belong to **Arts &
+loisirs**; discovering the city with friends belongs to **Sorties & spectacles**.
+All equivalent publications move together without changing their consignes,
+dialogues or Pistes. The original 52 Mémoire 7 questions and 45 travel vocabulary
+entries remain available with their exact learning identities; the three
+collections each contain 52 questions and 45 vocabulary entries. Exact pre-split
+snapshots are stored in `question_bank_history/travel.json` and
+`question_bank_history/travel_vocabulary.json`.
+
 The EO2 sidebar retains completion, personalisation and individual practice controls;
 practice statistics and vocabulary are no longer displayed there. Vocabulary and
 its saved practice data remain available in their existing dedicated views.

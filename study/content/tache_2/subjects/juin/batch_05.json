@@ -252,67 +252,67 @@
         "Bonjour ! Je vais rester ici pendant une semaine et je suis particulièrement intéressé(e) par la nature et la culture — que me conseillez-vous ?",
         {
           "text": "Quels sont les plus beaux parcs naturels ou espaces protégés à visiter dans les environs ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 2
         },
         {
           "text": "Y a-t-il des randonnées que vous recommandez — elles sont accessibles à tous les niveaux ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 2
         },
         {
           "text": "Existe-t-il des points de vue panoramiques vraiment impressionnants à ne pas manquer ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 11
         },
         {
           "text": "Côté découvertes, conseillez-vous la visite de villages typiques ou pittoresques aux alentours ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 2
         },
         {
           "text": "Quels musées me recommandez-vous en priorité ? Y a-t-il des monuments historiques ou des sites culturels importants ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 2
         },
         {
           "text": "Proposez-vous des visites guidées — dans quelles langues et à quel tarif ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 2
         },
         {
           "text": "Question programme, y a-t-il des événements culturels, des festivals ou des marchés locaux cette semaine ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 2
         },
         {
           "text": "Et quelles activités de plein air peut-on pratiquer — vélo, kayak ? Est-il possible de louer du matériel sur place ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 8
         },
         {
           "text": "La région est-elle animée la nuit ? Et que recommandez-vous de faire le soir ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 2
         },
         {
           "text": "Pour les repas, vous auriez des adresses à recommander pour goûter les spécialités locales ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 9
         },
         {
           "text": "Quelles activités restent possibles en cas de mauvais temps ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 8
         },
         {
           "text": "Pour ce qui est du trajet, est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 5
         },
         {
           "text": "Pour finir — si vous ne deviez me recommander qu'une seule chose, ce serait laquelle ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 13
         }
       ]

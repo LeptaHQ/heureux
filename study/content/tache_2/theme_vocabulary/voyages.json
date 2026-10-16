@@ -1,7 +1,7 @@
 {
   "version": 1,
   "theme": "voyages",
-  "name": "Voyages & vacances",
+  "name": "Voyages & circuits",
   "entries": [
     {
       "id": "voymc01",
@@ -31,15 +31,6 @@
       "usage": "Nom féminin désignant le bagage principal utilisé pour voyager."
     },
     {
-      "id": "voymc04",
-      "kind": "mot-cle",
-      "french": "un hébergement (m.)",
-      "anchor": "un hébergement",
-      "english": "accommodation",
-      "example": "Réservez-vous toujours un hébergement avant de partir en voyage ?",
-      "usage": "Nom masculin désignant le lieu où l'on loge pendant un séjour."
-    },
-    {
       "id": "voymc05",
       "kind": "mot-cle",
       "french": "le décalage horaire (m.)",
@@ -58,15 +49,6 @@
       "usage": "Groupe nominal désignant une protection contre les imprévus pendant un séjour."
     },
     {
-      "id": "voymc07",
-      "kind": "mot-cle",
-      "french": "un guide touristique (m.)",
-      "anchor": "un guide touristique",
-      "english": "a tour guide / guidebook",
-      "example": "Avez-vous fait appel à un guide touristique sur place ?",
-      "usage": "Nom désignant une personne ou un ouvrage qui renseigne les visiteurs."
-    },
-    {
       "id": "voymc08",
       "kind": "mot-cle",
       "french": "un vol sans escale (m.)",
@@ -83,15 +65,6 @@
       "english": "a layover",
       "example": "Est-il parfois utile de prévoir une escale plus longue pour visiter une ville ?",
       "usage": "Nom féminin désignant un arrêt intermédiaire durant un trajet."
-    },
-    {
-      "id": "voymc10",
-      "kind": "mot-cle",
-      "french": "un souvenir (m.)",
-      "anchor": "un souvenir",
-      "english": "a souvenir",
-      "example": "Rapportez-vous toujours un souvenir typique de vos voyages ?",
-      "usage": "Nom masculin désignant un objet rappelant un lieu visité."
     },
     {
       "id": "voymc11",
@@ -130,13 +103,40 @@
       "usage": "Nom masculin désignant le document officiel permettant de voyager à l'étranger."
     },
     {
-      "id": "voymc15",
+      "id": "vctmc01",
       "kind": "mot-cle",
-      "french": "une carte routière (f.)",
-      "anchor": "une carte routière",
-      "english": "a road map",
-      "example": "Utilisez-vous encore une carte routière ou seulement votre téléphone ?",
-      "usage": "Groupe nominal désignant un plan représentant les routes d'une région."
+      "french": "une cabine (f.)",
+      "anchor": "une cabine",
+      "english": "a cabin",
+      "example": "Peut-on choisir une cabine avec un hublot pour cette croisière ?",
+      "usage": "Nom féminin désignant la chambre à bord d'un bateau."
+    },
+    {
+      "id": "vctmc02",
+      "kind": "mot-cle",
+      "french": "un circuit accompagné (m.)",
+      "anchor": "un circuit accompagné",
+      "english": "an escorted tour",
+      "example": "Que comprend un circuit accompagné au Canada ?",
+      "usage": "Groupe nominal pour un parcours touristique encadré par un accompagnateur."
+    },
+    {
+      "id": "vctmc03",
+      "kind": "mot-cle",
+      "french": "un transfert aéroportuaire (m.)",
+      "anchor": "un transfert aéroportuaire",
+      "english": "an airport transfer",
+      "example": "Le prix prévoit-il un transfert aéroportuaire à l'arrivée ?",
+      "usage": "Groupe nominal pour le trajet organisé entre l'aéroport et l'hébergement."
+    },
+    {
+      "id": "vctmc04",
+      "kind": "mot-cle",
+      "french": "une étape (f.)",
+      "anchor": "une étape",
+      "english": "a stop on an itinerary",
+      "example": "Combien de nuits conseillez-vous de prévoir pour une étape dans cette ville ?",
+      "usage": "Nom féminin désignant un arrêt dans le parcours d'un voyage."
     },
     {
       "id": "voyeu01",
@@ -157,24 +157,6 @@
       "usage": "Expression courante pour désigner le fait de voyager en avion."
     },
     {
-      "id": "voyeu03",
-      "kind": "expression-utile",
-      "french": "profiter du dépaysement",
-      "anchor": "profiter du dépaysement",
-      "english": "to enjoy the change of scenery",
-      "example": "Qu'est-ce qui vous plaît le plus dans le fait de profiter du dépaysement ?",
-      "usage": "Expression pour évoquer le plaisir de découvrir un environnement différent."
-    },
-    {
-      "id": "voyeu04",
-      "kind": "expression-utile",
-      "french": "réserver à l'avance",
-      "anchor": "réserver à l'avance",
-      "english": "to book in advance",
-      "example": "Préférez-vous réserver à l'avance ou improviser sur place ?",
-      "usage": "Expression pour désigner une organisation anticipée d'un séjour."
-    },
-    {
       "id": "voyeu05",
       "kind": "expression-utile",
       "french": "voyager léger",
@@ -182,24 +164,6 @@
       "english": "to travel light",
       "example": "Arrivez-vous à voyager léger même pour un long séjour ?",
       "usage": "Expression pour évoquer le fait d'emporter un minimum de bagages."
-    },
-    {
-      "id": "voyeu06",
-      "kind": "expression-utile",
-      "french": "sortir des sentiers battus",
-      "anchor": "sortir des sentiers battus",
-      "english": "to go off the beaten path",
-      "example": "Aimez-vous sortir des sentiers battus plutôt que suivre les circuits classiques ?",
-      "usage": "Expression imagée signifiant explorer des lieux peu fréquentés par les touristes."
-    },
-    {
-      "id": "voyeu07",
-      "kind": "expression-utile",
-      "french": "s'imprégner de la culture locale",
-      "anchor": "vous imprégner de la culture locale",
-      "english": "to immerse oneself in local culture",
-      "example": "Prenez-vous le temps de vous imprégner de la culture locale à chaque étape ?",
-      "usage": "Expression pour évoquer une découverte approfondie des coutumes d'un lieu."
     },
     {
       "id": "voyeu08",
@@ -229,24 +193,6 @@
       "usage": "Expression pour désigner l'organisation d'un parcours touristique."
     },
     {
-      "id": "voyeu11",
-      "kind": "expression-utile",
-      "french": "subir le tourisme de masse",
-      "anchor": "subir le tourisme de masse",
-      "english": "to suffer from mass tourism",
-      "example": "Est-ce que cette destination commence à subir le tourisme de masse depuis quelques années ?",
-      "usage": "Expression pour évoquer les effets négatifs d'une trop forte affluence touristique sur une destination."
-    },
-    {
-      "id": "voyeu12",
-      "kind": "expression-utile",
-      "french": "recharger ses batteries",
-      "anchor": "recharger vos batteries",
-      "english": "to recharge one's batteries",
-      "example": "Ce séjour vous a-t-il vraiment permis de recharger vos batteries ?",
-      "usage": "Expression imagée signifiant se reposer et retrouver de l'énergie."
-    },
-    {
       "id": "voyeu13",
       "kind": "expression-utile",
       "french": "vivre une expérience inoubliable",
@@ -274,6 +220,60 @@
       "usage": "Expression pour évoquer l'ajustement aux conditions météorologiques d'une destination."
     },
     {
+      "id": "vcteu01",
+      "kind": "expression-utile",
+      "french": "comparer les circuits",
+      "anchor": "comparer les circuits",
+      "english": "to compare tours",
+      "example": "Sur quels critères peut-on comparer les circuits proposés par votre agence ?",
+      "usage": "Expression pour choisir entre plusieurs parcours touristiques."
+    },
+    {
+      "id": "vcteu02",
+      "kind": "expression-utile",
+      "french": "répartir les étapes",
+      "anchor": "répartir les étapes",
+      "english": "to spread out the stops",
+      "example": "Comment répartir les étapes pour éviter de longs trajets chaque jour ?",
+      "usage": "Expression pour équilibrer le rythme d'un voyage."
+    },
+    {
+      "id": "vcteu03",
+      "kind": "expression-utile",
+      "french": "vérifier les formalités d'entrée",
+      "anchor": "vérifier les formalités d'entrée",
+      "english": "to check entry requirements",
+      "example": "Sur quel site officiel peut-on vérifier les formalités d'entrée selon sa nationalité ?",
+      "usage": "Expression pour rechercher les exigences auprès de la source compétente."
+    },
+    {
+      "id": "vcteu04",
+      "kind": "expression-utile",
+      "french": "souscrire une assurance annulation",
+      "anchor": "souscrire une assurance annulation",
+      "english": "to take out cancellation insurance",
+      "example": "Peut-on souscrire une assurance annulation au moment de réserver ce voyage ?",
+      "usage": "Expression pour demander une protection contre certains frais d'annulation."
+    },
+    {
+      "id": "vcteu05",
+      "kind": "expression-utile",
+      "french": "partager les frais du voyage",
+      "anchor": "partager les frais du voyage",
+      "english": "to share travel expenses",
+      "example": "Comment pourrions-nous partager les frais du voyage à la campagne ?",
+      "usage": "Expression utile quand plusieurs personnes partent ensemble."
+    },
+    {
+      "id": "vcteu06",
+      "kind": "expression-utile",
+      "french": "choisir la période du départ",
+      "anchor": "choisir la période du départ",
+      "english": "to choose when to leave",
+      "example": "Quels critères conseillez-vous pour choisir la période du départ ?",
+      "usage": "Expression pour adapter les dates au climat et au budget."
+    },
+    {
       "id": "voyfr01",
       "kind": "fragment",
       "french": "Concrètement, comment avez-vous organisé…",
@@ -290,24 +290,6 @@
       "english": "If I understand correctly, this stay included…",
       "example": "Si je comprends bien, ce séjour incluait déjà les excursions sur place ?",
       "usage": "Amorce pour reformuler et vérifier le contenu d'un voyage."
-    },
-    {
-      "id": "voyfr03",
-      "kind": "fragment",
-      "french": "Qu'est-ce qui vous a donné envie de visiter…",
-      "anchor": "qu'est-ce qui vous a donné envie de visiter",
-      "english": "What made you want to visit…",
-      "example": "Qu'est-ce qui vous a donné envie de visiter cette région en particulier ?",
-      "usage": "Amorce pour explorer les motivations d'une destination choisie."
-    },
-    {
-      "id": "voyfr04",
-      "kind": "fragment",
-      "french": "Pourriez-vous décrire l'ambiance de…",
-      "anchor": "pourriez-vous décrire l'ambiance de",
-      "english": "Could you describe the atmosphere of…",
-      "example": "Pourriez-vous décrire l'ambiance de ce marché local que vous avez visité ?",
-      "usage": "Amorce polie pour demander une description sensorielle d'un lieu."
     },
     {
       "id": "voyfr05",
@@ -373,15 +355,6 @@
       "usage": "Amorce pour vérifier une interprétation malgré un contretemps."
     },
     {
-      "id": "voyfr12",
-      "kind": "fragment",
-      "french": "Pour clore ce point, recommanderiez-vous cette destination à…",
-      "anchor": "pour clore ce point, recommanderiez-vous cette destination à",
-      "english": "To close this point, would you recommend this destination to…",
-      "example": "Pour clore ce point, recommanderiez-vous cette destination à des amis ?",
-      "usage": "Amorce pour conclure un échange sur une expérience de voyage."
-    },
-    {
       "id": "voyfr13",
       "kind": "fragment",
       "french": "Comment avez-vous réussi à…",
@@ -391,15 +364,6 @@
       "usage": "Amorce pour demander la méthode utilisée pour surmonter une difficulté de voyage."
     },
     {
-      "id": "voyfr14",
-      "kind": "fragment",
-      "french": "Juste pour bien comprendre, ce guide dont vous parlez…",
-      "anchor": "juste pour bien comprendre, ce guide dont vous parlez",
-      "english": "Just to make sure I understand, the guide you mention…",
-      "example": "Juste pour bien comprendre, ce guide dont vous parlez connaissait bien la région ?",
-      "usage": "Amorce pour clarifier un détail relatif à une personne mentionnée."
-    },
-    {
       "id": "voyfr15",
       "kind": "fragment",
       "french": "Et si le vol était annulé, comment…",
@@ -407,6 +371,42 @@
       "english": "And if the flight were cancelled, how…",
       "example": "Et si le vol était annulé la veille du départ, comment réagiriez-vous ?",
       "usage": "Amorce hypothétique pour explorer un scénario de voyage perturbé."
+    },
+    {
+      "id": "vctfr01",
+      "kind": "fragment",
+      "french": "Concernant les escales prévues…",
+      "anchor": "Concernant les escales prévues",
+      "english": "Regarding the scheduled ports of call…",
+      "example": "Concernant les escales prévues, combien de temps reste-t-on à terre ?",
+      "usage": "Amorce pour préciser le temps disponible pendant une croisière."
+    },
+    {
+      "id": "vctfr02",
+      "kind": "fragment",
+      "french": "Pour distinguer les prestations incluses…",
+      "anchor": "Pour distinguer les prestations incluses",
+      "english": "To distinguish the included services…",
+      "example": "Pour distinguer les prestations incluses, pouvez-vous détailler le transport et les repas ?",
+      "usage": "Amorce pour clarifier le contenu d'un forfait."
+    },
+    {
+      "id": "vctfr03",
+      "kind": "fragment",
+      "french": "Si nous décalions notre départ…",
+      "anchor": "Si nous décalions notre départ",
+      "english": "If we postponed our departure…",
+      "example": "Si nous décalions notre départ, quels frais faudrait-il prévoir ?",
+      "usage": "Amorce hypothétique pour demander les conditions d'un changement de dates."
+    },
+    {
+      "id": "vctfr04",
+      "kind": "fragment",
+      "french": "À partir de votre expérience de ce circuit…",
+      "anchor": "À partir de votre expérience de ce circuit",
+      "english": "Based on your experience of this tour…",
+      "example": "À partir de votre expérience de ce circuit, quelles étapes modifieriez-vous ?",
+      "usage": "Amorce pour obtenir un conseil fondé sur un voyage terminé."
     }
   ]
 }

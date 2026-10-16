@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "theme": "hebergements-touristiques",
+  "name": "Hébergements touristiques",
+  "entries": [
+    {
+      "id": "voymc04",
+      "kind": "mot-cle",
+      "french": "un hébergement (m.)",
+      "anchor": "un hébergement",
+      "english": "accommodation",
+      "example": "Réservez-vous toujours un hébergement avant de partir en voyage ?",
+      "usage": "Nom masculin désignant le lieu où l'on loge pendant un séjour."
+    },
+    {
+      "id": "hetmc01",
+      "kind": "mot-cle",
+      "french": "une chambre double (f.)",
+      "anchor": "une chambre double",
+      "english": "a double room",
+      "example": "Quel est le tarif pour une chambre double le week-end prochain ?",
+      "usage": "Groupe nominal pour une chambre prévue pour deux personnes."
+    },
+    {
+      "id": "hetmc02",
+      "kind": "mot-cle",
+      "french": "un emplacement de camping (m.)",
+      "anchor": "un emplacement de camping",
+      "english": "a campsite pitch",
+      "example": "Peut-on choisir un emplacement de camping à l'ombre ?",
+      "usage": "Groupe nominal pour l'espace loué où installer une tente ou un véhicule."
+    },
+    {
+      "id": "hetmc03",
+      "kind": "mot-cle",
+      "french": "une nuitée (f.)",
+      "anchor": "une nuitée",
+      "english": "an overnight stay",
+      "example": "Quel est le prix total pour une nuitée avec le petit-déjeuner ?",
+      "usage": "Nom féminin désignant une nuit passée dans un hébergement."
+    },
+    {
+      "id": "hetmc04",
+      "kind": "mot-cle",
+      "french": "une salle de bains privative (f.)",
+      "anchor": "une salle de bains privative",
+      "english": "a private bathroom",
+      "example": "Toutes vos chambres possèdent-elles une salle de bains privative ?",
+      "usage": "Groupe nominal pour des sanitaires réservés aux occupants d'une chambre."
+    },
+    {
+      "id": "hetmc05",
+      "kind": "mot-cle",
+      "french": "une taxe de séjour (f.)",
+      "anchor": "une taxe de séjour",
+      "english": "a tourist accommodation tax",
+      "example": "Faut-il ajouter une taxe de séjour au prix affiché ?",
+      "usage": "Groupe nominal pour une taxe locale éventuelle liée à l'hébergement."
+    },
+    {
+      "id": "hetmc06",
+      "kind": "mot-cle",
+      "french": "un acompte de réservation (m.)",
+      "anchor": "un acompte de réservation",
+      "english": "a booking deposit",
+      "example": "Demandez-vous un acompte de réservation pour bloquer la chambre ?",
+      "usage": "Groupe nominal pour un premier versement dont les conditions doivent être vérifiées."
+    },
+    {
+      "id": "hetmc07",
+      "kind": "mot-cle",
+      "french": "une consigne à bagages (f.)",
+      "anchor": "une consigne à bagages",
+      "english": "a luggage storage facility",
+      "example": "Disposez-vous d'une consigne à bagages après le départ de la chambre ?",
+      "usage": "Groupe nominal pour le service qui conserve temporairement les bagages."
+    },
+    {
+      "id": "hetmc08",
+      "kind": "mot-cle",
+      "french": "un gîte (m.)",
+      "anchor": "un gîte",
+      "english": "a holiday cottage / guesthouse",
+      "example": "Que comprend le tarif pour un gîte dans cette région ?",
+      "usage": "Nom masculin dont le type de location ou d'accueil varie selon la destination."
+    },
+    {
+      "id": "hetmc09",
+      "kind": "mot-cle",
+      "french": "une auberge (f.)",
+      "anchor": "une auberge",
+      "english": "an inn / hostel",
+      "example": "Connaissez-vous une auberge accessible à pied depuis la gare ?",
+      "usage": "Nom féminin désignant un hébergement dont il faut préciser les services et le type de chambres."
+    },
+    {
+      "id": "hetmc10",
+      "kind": "mot-cle",
+      "french": "un branchement électrique (m.)",
+      "anchor": "un branchement électrique",
+      "english": "an electrical hookup",
+      "example": "L'emplacement dispose-t-il d'un branchement électrique pour le véhicule ?",
+      "usage": "Groupe nominal pour l'accès à l'électricité sur un emplacement de camping."
+    },
+    {
+      "id": "hetmc11",
+      "kind": "mot-cle",
+      "french": "un bloc sanitaire (m.)",
+      "anchor": "un bloc sanitaire",
+      "english": "a campsite washroom block",
+      "example": "Y a-t-il un bloc sanitaire près de cet emplacement ?",
+      "usage": "Groupe nominal pour un bâtiment regroupant douches et toilettes au camping."
+    },
+    {
+      "id": "hetmc12",
+      "kind": "mot-cle",
+      "french": "une réception d'hôtel (f.)",
+      "anchor": "une réception d'hôtel",
+      "english": "a hotel reception desk",
+      "example": "Quel numéro permet de joindre une réception d'hôtel après minuit ?",
+      "usage": "Groupe nominal pour le service d'accueil d'un établissement."
+    },
+    {
+      "id": "hetmc13",
+      "kind": "mot-cle",
+      "french": "un lit d'appoint (m.)",
+      "anchor": "un lit d'appoint",
+      "english": "an extra bed",
+      "example": "Peut-on ajouter un lit d'appoint dans cette chambre ?",
+      "usage": "Groupe nominal pour un couchage supplémentaire temporaire."
+    },
+    {
+      "id": "hetmc14",
+      "kind": "mot-cle",
+      "french": "une formule en demi-pension (f.)",
+      "anchor": "une formule en demi-pension",
+      "english": "a half-board package",
+      "example": "Quels repas comprend une formule en demi-pension dans votre établissement ?",
+      "usage": "Groupe nominal pour un hébergement incluant le petit-déjeuner et un autre repas."
+    },
+    {
+      "id": "voyeu04",
+      "kind": "expression-utile",
+      "french": "réserver à l'avance",
+      "anchor": "réserver à l'avance",
+      "english": "to book in advance",
+      "example": "Préférez-vous réserver à l'avance ou improviser sur place ?",
+      "usage": "Expression pour désigner une organisation anticipée d'un séjour."
+    },
+    {
+      "id": "heteu01",
+      "kind": "expression-utile",
+      "french": "libérer la chambre",
+      "anchor": "libérer la chambre",
+      "english": "to check out of the room",
+      "example": "À quelle heure faut-il libérer la chambre le jour du départ ?",
+      "usage": "Expression pour demander l'heure de fin d'occupation."
+    },
+    {
+      "id": "heteu02",
+      "kind": "expression-utile",
+      "french": "régler le solde du séjour",
+      "anchor": "régler le solde du séjour",
+      "english": "to pay the remaining accommodation balance",
+      "example": "À quel moment faut-il régler le solde du séjour ?",
+      "usage": "Expression pour préciser quand payer le montant restant."
+    },
+    {
+      "id": "heteu03",
+      "kind": "expression-utile",
+      "french": "confirmer une nuitée",
+      "anchor": "confirmer une nuitée",
+      "english": "to confirm an overnight booking",
+      "example": "Quelles informations faut-il fournir pour confirmer une nuitée ?",
+      "usage": "Expression pour finaliser une réservation d'hébergement."
+    },
+    {
+      "id": "heteu04",
+      "kind": "expression-utile",
+      "french": "choisir un emplacement",
+      "anchor": "choisir un emplacement",
+      "english": "to choose a campsite pitch",
+      "example": "Peut-on choisir un emplacement sur votre plan avant de réserver ?",
+      "usage": "Expression pour demander un secteur précis du camping."
+    },
+    {
+      "id": "heteu05",
+      "kind": "expression-utile",
+      "french": "séjourner en demi-pension",
+      "anchor": "séjourner en demi-pension",
+      "english": "to stay on a half-board basis",
+      "example": "Est-il possible de séjourner en demi-pension seulement une partie de la semaine ?",
+      "usage": "Expression pour demander une formule avec une partie des repas."
+    },
+    {
+      "id": "heteu06",
+      "kind": "expression-utile",
+      "french": "demander une chambre au calme",
+      "anchor": "demander une chambre au calme",
+      "english": "to request a quiet room",
+      "example": "Peut-on demander une chambre au calme à l'écart de la route ?",
+      "usage": "Expression pour préciser une préférence d'emplacement."
+    },
+    {
+      "id": "heteu07",
+      "kind": "expression-utile",
+      "french": "accéder aux sanitaires",
+      "anchor": "accéder aux sanitaires",
+      "english": "to access the washroom facilities",
+      "example": "Faut-il un code pour accéder aux sanitaires du camping ?",
+      "usage": "Expression pour vérifier les modalités d'accès aux douches et toilettes."
+    },
+    {
+      "id": "heteu08",
+      "kind": "expression-utile",
+      "french": "déposer ses bagages",
+      "anchor": "déposer ses bagages",
+      "english": "to leave one's luggage",
+      "example": "Est-il possible de déposer ses bagages avant que la chambre soit prête ?",
+      "usage": "Expression pour demander une garde temporaire des bagages."
+    },
+    {
+      "id": "heteu09",
+      "kind": "expression-utile",
+      "french": "récupérer les clés à la réception",
+      "anchor": "récupérer les clés à la réception",
+      "english": "to collect the keys at reception",
+      "example": "Jusqu'à quelle heure peut-on récupérer les clés à la réception ?",
+      "usage": "Expression pour préparer son arrivée dans l'établissement."
+    },
+    {
+      "id": "heteu10",
+      "kind": "expression-utile",
+      "french": "prolonger son séjour",
+      "anchor": "prolonger son séjour",
+      "english": "to extend one's stay",
+      "example": "Quel délai faut-il respecter pour prolonger son séjour d'une nuit ?",
+      "usage": "Expression pour demander une nuit supplémentaire."
+    },
+    {
+      "id": "heteu11",
+      "kind": "expression-utile",
+      "french": "louer du linge de lit",
+      "anchor": "louer du linge de lit",
+      "english": "to rent bed linen",
+      "example": "Au camping, peut-on louer du linge de lit pour un hébergement équipé ?",
+      "usage": "Expression pour vérifier ce qui est fourni ou proposé en supplément."
+    },
+    {
+      "id": "heteu12",
+      "kind": "expression-utile",
+      "french": "bénéficier d'une annulation gratuite",
+      "anchor": "bénéficier d'une annulation gratuite",
+      "english": "to qualify for free cancellation",
+      "example": "Jusqu'à quelle date peut-on bénéficier d'une annulation gratuite ?",
+      "usage": "Expression pour demander les conditions exactes d'un remboursement sans frais."
+    },
+    {
+      "id": "heteu13",
+      "kind": "expression-utile",
+      "french": "arriver après la fermeture",
+      "anchor": "arriver après la fermeture",
+      "english": "to arrive after closing time",
+      "example": "Comment s'organiser si l'on doit arriver après la fermeture de la réception ?",
+      "usage": "Expression pour anticiper une arrivée tardive."
+    },
+    {
+      "id": "heteu14",
+      "kind": "expression-utile",
+      "french": "se garer sur place",
+      "anchor": "se garer sur place",
+      "english": "to park on site",
+      "example": "Faut-il payer un supplément pour se garer sur place ?",
+      "usage": "Expression pour préciser le coût du stationnement."
+    },
+    {
+      "id": "hetfr01",
+      "kind": "fragment",
+      "french": "Pour une chambre avec salle de bains privative…",
+      "anchor": "Pour une chambre avec salle de bains privative",
+      "english": "For a room with a private bathroom…",
+      "example": "Pour une chambre avec salle de bains privative, quel tarif appliquez-vous ?",
+      "usage": "Amorce pour comparer une catégorie précise de chambre."
+    },
+    {
+      "id": "hetfr02",
+      "kind": "fragment",
+      "french": "Concernant les nuits disponibles…",
+      "anchor": "Concernant les nuits disponibles",
+      "english": "Regarding available nights…",
+      "example": "Concernant les nuits disponibles, reste-t-il une chambre pour le week-end prochain ?",
+      "usage": "Amorce pour vérifier la disponibilité avant les services."
+    },
+    {
+      "id": "hetfr03",
+      "kind": "fragment",
+      "french": "En plus du prix de la nuitée…",
+      "anchor": "En plus du prix de la nuitée",
+      "english": "In addition to the nightly rate…",
+      "example": "En plus du prix de la nuitée, quels frais faut-il prévoir ?",
+      "usage": "Amorce pour repérer les coûts additionnels."
+    },
+    {
+      "id": "hetfr04",
+      "kind": "fragment",
+      "french": "Si j'arrivais tard dans la soirée…",
+      "anchor": "Si j'arrivais tard dans la soirée",
+      "english": "If I arrived late in the evening…",
+      "example": "Si j'arrivais tard dans la soirée, comment accéderais-je à ma chambre ?",
+      "usage": "Amorce hypothétique pour organiser une arrivée hors horaires."
+    },
+    {
+      "id": "hetfr05",
+      "kind": "fragment",
+      "french": "Pour un emplacement sans équipement…",
+      "anchor": "Pour un emplacement sans équipement",
+      "english": "For an unequipped campsite pitch…",
+      "example": "Pour un emplacement sans équipement, que dois-je apporter moi-même ?",
+      "usage": "Amorce pour distinguer le terrain nu d'un hébergement aménagé."
+    },
+    {
+      "id": "hetfr06",
+      "kind": "fragment",
+      "french": "À propos de l'acompte demandé…",
+      "anchor": "À propos de l'acompte demandé",
+      "english": "About the requested deposit…",
+      "example": "À propos de l'acompte demandé, dans quels cas serait-il remboursable ?",
+      "usage": "Amorce pour vérifier les conditions sans présumer du droit au remboursement."
+    },
+    {
+      "id": "hetfr07",
+      "kind": "fragment",
+      "french": "Une fois la chambre libérée…",
+      "anchor": "Une fois la chambre libérée",
+      "english": "Once the room has been vacated…",
+      "example": "Une fois la chambre libérée, pourriez-vous garder mes bagages jusqu'au soir ?",
+      "usage": "Amorce pour demander un service après le départ."
+    },
+    {
+      "id": "hetfr08",
+      "kind": "fragment",
+      "french": "Pour éviter les chambres bruyantes…",
+      "anchor": "Pour éviter les chambres bruyantes",
+      "english": "To avoid noisy rooms…",
+      "example": "Pour éviter les chambres bruyantes, quel étage me conseilleriez-vous ?",
+      "usage": "Amorce pour obtenir un conseil lié au confort."
+    },
+    {
+      "id": "hetfr09",
+      "kind": "fragment",
+      "french": "Si nous venions avec un enfant…",
+      "anchor": "Si nous venions avec un enfant",
+      "english": "If we came with a child…",
+      "example": "Si nous venions avec un enfant, quel type de chambre conviendrait ?",
+      "usage": "Amorce conditionnelle qui n'invente pas la composition du groupe."
+    },
+    {
+      "id": "hetfr10",
+      "kind": "fragment",
+      "french": "Avant de confirmer cet hébergement…",
+      "anchor": "Avant de confirmer cet hébergement",
+      "english": "Before confirming this accommodation…",
+      "example": "Avant de confirmer cet hébergement, puis-je recevoir les conditions par écrit ?",
+      "usage": "Amorce pour vérifier les modalités avant de s'engager."
+    },
+    {
+      "id": "hetfr11",
+      "kind": "fragment",
+      "french": "En cas de problème dans la chambre…",
+      "anchor": "En cas de problème dans la chambre",
+      "english": "If there is a problem in the room…",
+      "example": "En cas de problème dans la chambre, quel numéro faut-il appeler le soir ?",
+      "usage": "Amorce pour identifier l'interlocuteur compétent."
+    },
+    {
+      "id": "hetfr12",
+      "kind": "fragment",
+      "french": "Pour les services facturés séparément…",
+      "anchor": "Pour les services facturés séparément",
+      "english": "For services charged separately…",
+      "example": "Pour les services facturés séparément, peut-on consulter une liste des tarifs ?",
+      "usage": "Amorce pour distinguer les suppléments des prestations incluses."
+    },
+    {
+      "id": "hetfr13",
+      "kind": "fragment",
+      "french": "Concernant l'accès aux douches…",
+      "anchor": "Concernant l'accès aux douches",
+      "english": "Regarding access to the showers…",
+      "example": "Concernant l'accès aux douches, le tarif de l'emplacement comprend-il leur utilisation ?",
+      "usage": "Amorce pour préciser les prestations du camping."
+    },
+    {
+      "id": "hetfr14",
+      "kind": "fragment",
+      "french": "Si nous prolongions d'une nuit…",
+      "anchor": "Si nous prolongions d'une nuit",
+      "english": "If we extended by one night…",
+      "example": "Si nous prolongions d'une nuit, pourrions-nous garder la même chambre ?",
+      "usage": "Amorce hypothétique pour préparer une prolongation."
+    },
+    {
+      "id": "hetfr15",
+      "kind": "fragment",
+      "french": "Pour comparer le gîte et l'hôtel…",
+      "anchor": "Pour comparer le gîte et l'hôtel",
+      "english": "To compare the guesthouse and the hotel…",
+      "example": "Pour comparer le gîte et l'hôtel, quels repas sont compris dans chaque formule ?",
+      "usage": "Amorce pour demander une comparaison sur un critère précis."
+    }
+  ]
+}

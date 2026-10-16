@@ -1167,7 +1167,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "trusted-person-temporary-pet-care": {2: 2, 8: 8},
             "volunteer-local-association-information-office": {1: 1},
             "friend-three-year-old-weekend-care": {},
-            "friend-holiday-apartment-watch": {1: 1, 5: 6},
+            "friend-holiday-apartment-watch": {1: 1},
             "friend-homeless-meal-volunteering": {2: 4, 5: 5},
             "friend-entertain-visiting-nephews": {2: 2, 8: 8},
             "visit-colleague-minor-accident": {1: 1, 6: 6, 7: 7},
@@ -1218,6 +1218,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             ("supervisor-overseas-job-offer", 2, 8, "Quelles conditions faudrait-il négocier avant le départ ?"),
             ("friend-holiday-apartment-watch", 1, 4, "Pourrais-tu me montrer les plantes avant ton départ ?"),
             ("friend-holiday-apartment-watch", 3, 4, "Pourrais-tu marquer les pots des plantes à arroser ?"),
+            ("friend-holiday-apartment-watch", 4, 7, "Pourrais-tu me laisser un contact local avant de partir ?"),
             ("friend-homeless-meal-volunteering", 3, 3, "Les repas sont-ils cuisinés par l'association ou par un partenaire ?"),
             ("medical-secretary-temporary-replacement-doctor", 1, 3, "Comment pourrai-je transmettre mes résultats ?"),
             ("trusted-person-temporary-pet-care", 1, 5, "Quels jouets préfères-tu laisser à ton animal ?"),
@@ -1270,7 +1271,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "child-friends-family-holiday-invitation": (1, {3: 2, 6: 6}),
             "colleague-babysitter-referral-needs": (1, {1: 1, 4: 4, 6: 6}),
             "friend-entertain-visiting-nephews": (1, {2: 2, 4: 4, 7: 7, 8: 8}),
-            "friend-holiday-apartment-watch": (1, {1: 1, 2: 2, 4: 5, 5: 6}),
+            "friend-holiday-apartment-watch": (1, {1: 1, 2: 2, 4: 5}),
             "friend-homeless-meal-volunteering": (1, {2: 4, 5: 5, 7: 7}),
             "friend-three-year-old-weekend-care": (2, {3: 3}),
             "grocery-store-home-delivery": (2, {1: 1, 5: 4, 7: 6, 8: 7}),
@@ -1329,7 +1330,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "child-friends-family-holiday-invitation": (2, {3: 2, 4: 4, 5: 5, 6: 6, 7: 7}),
             "colleague-babysitter-referral-needs": (2, {1: 1, 2: 2, 3: 3, 4: 4, 6: 6}),
             "friend-entertain-visiting-nephews": (2, {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 7: 7, 8: 8}),
-            "friend-holiday-apartment-watch": (2, {1: 1, 2: 2, 5: 5, 6: 6}),
+            "friend-holiday-apartment-watch": (2, {1: 1, 2: 2, 5: 5}),
             "friend-homeless-meal-volunteering": (2, {2: 4, 3: 1, 5: 5, 7: 7}),
             "friend-three-year-old-weekend-care": (3, {3: 3, 4: 4}),
             "grocery-store-home-delivery": (3, {1: 1, 5: 4, 6: 5, 7: 6, 8: 7}),
@@ -1362,8 +1363,15 @@ class PublishedTacheTwoHighlightTests(TestCase):
     def test_apartment_watering_refinement_preserves_moved_visit_question_and_other_highlights(self):
         self.assert_revision_highlights_preserved(
             "friend-holiday-apartment-watch",
-            {1: 1, 2: 2, 3: 4, 5: 5, 6: 6, 7: 7, 8: 8},
+            {1: 1, 2: 2, 3: 4, 5: 5},
             revision=3,
+        )
+
+    def test_apartment_contact_merger_keeps_other_highlights_and_archives_rewritten_questions(self):
+        self.assert_revision_highlights_preserved(
+            "friend-holiday-apartment-watch",
+            {number: number for number in range(1, 6)},
+            revision=4,
         )
 
     def test_meal_volunteering_reorder_preserves_moved_questions_and_archives_the_broad_question(self):

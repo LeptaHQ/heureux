@@ -1,0 +1,260 @@
+{
+  "number": 14,
+  "title": "Mémoire 14 · Escapades & tourisme régional",
+  "label": "Escapades & tourisme régional",
+  "icon": "compass",
+  "subtitle": "Préparer une escapade, un week-end ou des visites dans une région : lieux, programme, activités, déplacements, budget et solutions en cas de pluie. Adapter les questions au temps disponible et aux recommandations reçues.",
+  "sections": [
+    {
+      "number": 1,
+      "title": "Ouverture et objectif de l'escapade",
+      "guidance": "Adapter les questions à la consigne : ouverture et objectif de l'escapade. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Ouverture et objectif de l'escapade",
+          "guidance": "Adapter les questions à la consigne : ouverture et objectif de l'escapade. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Bonjour ! J'aimerais découvrir la région pendant mon séjour, pourriez-vous m'orienter ?",
+            "Tu connaîtrais un endroit où partir deux jours pour changer d'air ?",
+            "Bonjour ! Je cherche une excursion à la journée, quelles possibilités proposez-vous ?",
+            "Pour organiser une sortie à la campagne entre amis, quels renseignements vous seraient utiles ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Sites, visites et activités de la région",
+      "guidance": "Adapter les questions à la consigne : sites, visites et activités de la région. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Sites, visites et activités de la région",
+          "guidance": "Adapter les questions à la consigne : sites, visites et activités de la région. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Quelles activités peut-on faire sur place — plutôt culturelles, sportives ou un mélange des deux ?",
+              "legacy_memory_number": 7
+            },
+            {
+              "text": "Quels quartiers typiques ou animés conseillez-vous de visiter pour se promener et profiter de l'ambiance ?",
+              "legacy_memory_number": 7
+            },
+            {
+              "text": "Est-ce courant de partir en excursion d'une journée, comme à la campagne ou au bord de l'eau ?",
+              "legacy_memory_number": 7
+            },
+            "Quelles étapes sont prévues au programme de cette excursion à la journée ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Budget de l'escapade et tarifs des activités",
+      "guidance": "Adapter les questions à la consigne : budget de l'escapade et tarifs des activités. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Budget de l'escapade et tarifs des activités",
+          "guidance": "Adapter les questions à la consigne : budget de l'escapade et tarifs des activités. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Quel budget prévoir pour un week-end, avec le trajet, une nuit et les repas ?",
+            "Quelles visites sont gratuites dans la région ?",
+            "Le prix de l'excursion comprend-il le guide et les entrées aux sites ?",
+            "Existe-t-il un billet combiné pour les visites que vous recommandez ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Horaires, durée et ordre des visites",
+      "guidance": "Adapter les questions à la consigne : horaires, durée et ordre des visites. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Horaires, durée et ordre des visites",
+          "guidance": "Adapter les questions à la consigne : horaires, durée et ordre des visites. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Combien de temps faut-il prévoir pour bien découvrir la région — une semaine ou plutôt deux ?",
+              "legacy_memory_number": 7
+            },
+            "Dans quel ordre visiteriez-vous ces sites pour éviter les allers-retours ?",
+            "Combien de temps faut-il consacrer à ce parc pour en profiter sans se presser ?",
+            "À quelle heure part l'excursion et quand serons-nous de retour au point de départ ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Accès aux sites et déplacements locaux",
+      "guidance": "Adapter les questions à la consigne : accès aux sites et déplacements locaux. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Accès aux sites et déplacements locaux",
+          "guidance": "Adapter les questions à la consigne : accès aux sites et déplacements locaux. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
+              "legacy_memory_number": 7
+            },
+            {
+              "text": "Une fois sur place, il vaut mieux utiliser les transports en commun ou tout peut se faire à pied ?",
+              "legacy_memory_number": 7
+            },
+            "Quel est le moyen le plus économique pour rejoindre cette destination le temps d'un week-end ?",
+            "La navette dessert-elle à la fois le village et le lieu de l'activité ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Réservation des visites et excursions",
+      "guidance": "Adapter les questions à la consigne : réservation des visites et excursions. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Réservation des visites et excursions",
+          "guidance": "Adapter les questions à la consigne : réservation des visites et excursions. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Quelles visites nécessitent une réservation avant notre arrivée ?",
+            "Pour cette excursion, combien de jours à l'avance faut-il réserver ?",
+            "Peut-on acheter les billets au comptoir de l'office de tourisme ?",
+            "Faut-il réserver séparément l'accès au spa et la nuit à l'auberge ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Participants et accessibilité des activités",
+      "guidance": "Adapter les questions à la consigne : participants et accessibilité des activités. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Participants et accessibilité des activités",
+          "guidance": "Adapter les questions à la consigne : participants et accessibilité des activités. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Cette visite serait-elle adaptée à un groupe comprenant de jeunes enfants ?",
+            "Le parcours comporte-t-il des escaliers ou des passages difficiles d'accès ?",
+            "Combien de personnes participent généralement à l'excursion ?",
+            "Les visites guidées sont-elles proposées en français ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Météo, tenue et matériel de sortie",
+      "guidance": "Adapter les questions à la consigne : météo, tenue et matériel de sortie. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Météo, tenue et matériel de sortie",
+          "guidance": "Adapter les questions à la consigne : météo, tenue et matériel de sortie. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Quelles activités de plein air peut-on pratiquer — vélo, kayak ? Est-il possible de louer du matériel sur place ?",
+              "legacy_memory_number": 7
+            },
+            "Quels vêtements et chaussures conseillez-vous pour cette sortie à la campagne ?",
+            "Pour faire du canot, le gilet de sauvetage est-il fourni avec la location ?",
+            "Quelles activités restent ouvertes dans la région en hiver ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Repas et nuitée pendant l'escapade",
+      "guidance": "Adapter les questions à la consigne : repas et nuitée pendant l'escapade. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Repas et nuitée pendant l'escapade",
+          "guidance": "Adapter les questions à la consigne : repas et nuitée pendant l'escapade. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Pour les repas sur place, vous auriez des adresses à recommander — des spécialités locales à essayer absolument ?",
+              "legacy_memory_number": 7
+            },
+            "Y a-t-il une aire où pique-niquer près des activités ?",
+            "Où passer une nuit à petit prix près des sites que vous recommandez ?",
+            "Pour l'excursion à la journée, faut-il apporter son repas ou peut-on manger sur place ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Ambiance et repos sur place",
+      "guidance": "Adapter les questions à la consigne : ambiance et repos sur place. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Ambiance et repos sur place",
+          "guidance": "Adapter les questions à la consigne : ambiance et repos sur place. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Quel endroit conviendrait pour un week-end vraiment reposant ?",
+            "À quels moments ces sites sont-ils les moins fréquentés ?",
+            "Pour le soir, quelle sortie tranquille conseilleriez-vous dans les environs ?",
+            "Ce village est-il plutôt animé ou calme en fin de semaine ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Incontournables et conseils de visite",
+      "guidance": "Adapter les questions à la consigne : incontournables et conseils de visite. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Incontournables et conseils de visite",
+          "guidance": "Adapter les questions à la consigne : incontournables et conseils de visite. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Y avait-il des visites ou des excursions que tu recommanderais particulièrement ?",
+              "legacy_memory_number": 7
+            },
+            {
+              "text": "Selon toi, quels sont les endroits incontournables que je devrais absolument voir ?",
+              "legacy_memory_number": 7
+            },
+            "Pour une première journée dans la région, quelle visite privilégieriez-vous ?",
+            "Quelle activité permettrait de découvrir l'histoire et la culture locales ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Pluie, retards et annulation des activités",
+      "guidance": "Adapter les questions à la consigne : pluie, retards et annulation des activités. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Pluie, retards et annulation des activités",
+          "guidance": "Adapter les questions à la consigne : pluie, retards et annulation des activités. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Si la météo se gâtait, quelle activité à l'abri resterait possible près de ce site ?",
+            "En cas de forte pluie, l'excursion est-elle maintenue ou remboursée ?",
+            "Si la navette du retour était complète, quelle autre solution aurions-nous ?",
+            "Si nous arrivions en retard, pourrions-nous rejoindre la visite en cours ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Rendez-vous, billets et informations à emporter",
+      "guidance": "Adapter les questions à la consigne : rendez-vous, billets et informations à emporter. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Rendez-vous, billets et informations à emporter",
+          "guidance": "Adapter les questions à la consigne : rendez-vous, billets et informations à emporter. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Où se trouve le point de rendez-vous pour le départ de l'excursion ?",
+            "Pouvez-vous me remettre un plan avec les sites et les arrêts de transport conseillés ?",
+            "Les billets doivent-ils être imprimés ou peut-on les présenter sur son téléphone ?",
+            "Merci pour ces suggestions, où consulter les horaires actualisés des visites ?"
+          ]
+        }
+      ]
+    }
+  ]
+}

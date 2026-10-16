@@ -13,77 +13,77 @@
       "questions": [
         {
           "text": "Salut ! Tu m'as conseillé de visiter cette ville pour le week-end — ça me tente bien, qu'est-ce qui te plaît le plus là-bas ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 10
         },
         {
           "text": "Quelle est la distance — c'est à combien de temps d'ici environ ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 4
         },
         {
           "text": "Combien de temps faut-il prévoir pour bien découvrir la ville — deux jours suffisent ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 4
         },
         {
           "text": "Selon toi, quels sont les endroits incontournables que je devrais absolument voir ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 11
         },
         {
           "text": "Côté visites, il y a des musées, des monuments ou des sites culturels qui valent vraiment la peine ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 2
         },
         {
           "text": "Et côté plein air, est-ce qu'il y a de beaux parcs ou des quartiers agréables où se promener ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 2
         },
         {
           "text": "Pour ce qui est du programme, il y a des événements spéciaux ou des animations pendant le week-end ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 2
         },
         {
           "text": "Côté météo, c'est une bonne période pour y aller — quel temps fait-il généralement à cette époque ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 8
         },
         {
           "text": "Côté hébergement, tu connais de bons endroits où dormir — hôtels, chambres d'hôtes, auberges ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 9
         },
         {
           "text": "C'est dans quelle gamme de prix pour l'hébergement — plutôt cher ou abordable ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 3
         },
         {
           "text": "Pour les repas, tu aurais des adresses à recommander — des spécialités locales à essayer absolument ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 9
         },
         {
           "text": "Il faut réserver une table à l'avance ou on peut y aller directement ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 9
         },
         {
           "text": "Une fois sur place, il vaut mieux utiliser les transports en commun ou tout peut se faire à pied ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 5
         },
         {
           "text": "Parlons du budget — combien est-ce que ça coûte approximativement au total pour un week-end ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 3
         },
         {
           "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 13
         }
       ]

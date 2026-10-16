@@ -259,77 +259,77 @@
       "questions": [
         {
           "text": "Bonjour ! J'aimerais en savoir plus sur les services proposés dans votre hôtel — vous pourriez me renseigner ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 13
         },
         {
           "text": "Quels services sont compris dans le prix de la chambre — le petit-déjeuner est-il inclus ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 3
         },
         {
           "text": "À quelle heure sont servis le petit-déjeuner et les repas — et y a-t-il un restaurant sur place ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 9
         },
         {
           "text": "Y a-t-il un service en chambre — et jusqu'à quelle heure ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 9
         },
         {
           "text": "L'hôtel dispose-t-il d'une salle de sport, d'une piscine ou d'un spa ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 9
         },
         {
           "text": "Y a-t-il une connexion Internet dans les chambres — c'est gratuit ou payant ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 9
         },
         {
           "text": "Et puis, proposez-vous un service de blanchisserie ou de repassage ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 9
         },
         {
           "text": "Côté transport, est-ce que l'hôtel propose une navette pour l'aéroport ou le centre-ville ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 5
         },
         {
           "text": "Pouvez-vous m'indiquer de bons endroits à visiter ou de bons restaurants dans les environs ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 9
         },
         {
           "text": "Est-ce qu'il y a un parking à l'hôtel — et est-il gratuit pour les clients ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 5
         },
         {
           "text": "Côté horaires, à quelle heure faut-il libérer la chambre le jour du départ — et peut-on la garder un peu plus longtemps ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 12
         },
         {
           "text": "Est-il possible de laisser mes bagages à la réception après le départ ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 9
         },
         {
           "text": "En ce qui concerne le budget, y a-t-il des services payants en supplément dont je devrais connaître les tarifs ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 3
         },
         {
           "text": "En cas de problème dans la chambre, peut-on joindre la réception à toute heure ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 13
         },
         {
           "text": "Pour finir — comment réserver les services qui m'intéressent ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 13
         }
       ]

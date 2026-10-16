@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "theme": "escapades-tourisme",
+  "name": "Escapades & tourisme régional",
+  "entries": [
+    {
+      "id": "voymc07",
+      "kind": "mot-cle",
+      "french": "un guide touristique (m.)",
+      "anchor": "un guide touristique",
+      "english": "a tour guide / guidebook",
+      "example": "Avez-vous fait appel à un guide touristique sur place ?",
+      "usage": "Nom désignant une personne ou un ouvrage qui renseigne les visiteurs."
+    },
+    {
+      "id": "voymc10",
+      "kind": "mot-cle",
+      "french": "un souvenir (m.)",
+      "anchor": "un souvenir",
+      "english": "a souvenir",
+      "example": "Rapportez-vous toujours un souvenir typique de vos voyages ?",
+      "usage": "Nom masculin désignant un objet rappelant un lieu visité."
+    },
+    {
+      "id": "voymc15",
+      "kind": "mot-cle",
+      "french": "une carte routière (f.)",
+      "anchor": "une carte routière",
+      "english": "a road map",
+      "example": "Utilisez-vous encore une carte routière ou seulement votre téléphone ?",
+      "usage": "Groupe nominal désignant un plan représentant les routes d'une région."
+    },
+    {
+      "id": "escmc01",
+      "kind": "mot-cle",
+      "french": "une escapade (f.)",
+      "anchor": "une escapade",
+      "english": "a short getaway",
+      "example": "Quel endroit conseilleriez-vous pour une escapade de deux jours ?",
+      "usage": "Nom féminin désignant un court séjour pour changer d'air."
+    },
+    {
+      "id": "escmc02",
+      "kind": "mot-cle",
+      "french": "une excursion à la journée (f.)",
+      "anchor": "une excursion à la journée",
+      "english": "a day excursion",
+      "example": "Que proposez-vous pour une excursion à la journée sans voiture ?",
+      "usage": "Groupe nominal pour une sortie avec retour le même jour."
+    },
+    {
+      "id": "escmc03",
+      "kind": "mot-cle",
+      "french": "un office de tourisme (m.)",
+      "anchor": "un office de tourisme",
+      "english": "a tourist information office",
+      "example": "Y a-t-il un office de tourisme ouvert le dimanche dans ce village ?",
+      "usage": "Groupe nominal pour le service qui renseigne les visiteurs."
+    },
+    {
+      "id": "escmc04",
+      "kind": "mot-cle",
+      "french": "une visite guidée (f.)",
+      "anchor": "une visite guidée",
+      "english": "a guided tour",
+      "example": "À quelle heure commence une visite guidée du quartier historique ?",
+      "usage": "Groupe nominal pour une découverte commentée par un guide."
+    },
+    {
+      "id": "escmc05",
+      "kind": "mot-cle",
+      "french": "un site incontournable (m.)",
+      "anchor": "un site incontournable",
+      "english": "a must-see attraction",
+      "example": "Quel lieu considérez-vous comme un site incontournable de la région ?",
+      "usage": "Groupe nominal pour un lieu particulièrement recommandé aux visiteurs."
+    },
+    {
+      "id": "escmc06",
+      "kind": "mot-cle",
+      "french": "une aire de pique-nique (f.)",
+      "anchor": "une aire de pique-nique",
+      "english": "a picnic area",
+      "example": "Trouve-t-on une aire de pique-nique près du lac ?",
+      "usage": "Groupe nominal pour un espace aménagé où manger dehors."
+    },
+    {
+      "id": "escmc07",
+      "kind": "mot-cle",
+      "french": "un point de départ (m.)",
+      "anchor": "un point de départ",
+      "english": "a departure point",
+      "example": "Y a-t-il un point de départ différent pour l'excursion du dimanche ?",
+      "usage": "Groupe nominal pour le lieu où commence une sortie organisée."
+    },
+    {
+      "id": "escmc08",
+      "kind": "mot-cle",
+      "french": "une navette touristique (f.)",
+      "anchor": "une navette touristique",
+      "english": "a tourist shuttle",
+      "example": "Peut-on rejoindre le parc avec une navette touristique depuis le village ?",
+      "usage": "Groupe nominal pour une liaison locale destinée aux visiteurs."
+    },
+    {
+      "id": "escmc09",
+      "kind": "mot-cle",
+      "french": "un billet combiné (m.)",
+      "anchor": "un billet combiné",
+      "english": "a combined ticket",
+      "example": "Proposez-vous un billet combiné pour le musée et la visite guidée ?",
+      "usage": "Groupe nominal pour un titre donnant accès à plusieurs activités."
+    },
+    {
+      "id": "escmc10",
+      "kind": "mot-cle",
+      "french": "une spécialité régionale (f.)",
+      "anchor": "une spécialité régionale",
+      "english": "a regional speciality",
+      "example": "Où peut-on goûter une spécialité régionale près du parcours ?",
+      "usage": "Groupe nominal pour un plat ou un produit typique d'une région."
+    },
+    {
+      "id": "escmc11",
+      "kind": "mot-cle",
+      "french": "un parcours de visite (m.)",
+      "anchor": "un parcours de visite",
+      "english": "a sightseeing route",
+      "example": "Pourriez-vous suggérer un parcours de visite réalisable en une journée ?",
+      "usage": "Groupe nominal pour l'enchaînement des lieux à découvrir."
+    },
+    {
+      "id": "escmc12",
+      "kind": "mot-cle",
+      "french": "une activité de repli (f.)",
+      "anchor": "une activité de repli",
+      "english": "a fallback activity",
+      "example": "Quelle serait une activité de repli à proximité en cas de pluie ?",
+      "usage": "Groupe nominal pour une solution alternative si le programme initial devient impossible."
+    },
+    {
+      "id": "voyeu03",
+      "kind": "expression-utile",
+      "french": "profiter du dépaysement",
+      "anchor": "profiter du dépaysement",
+      "english": "to enjoy the change of scenery",
+      "example": "Qu'est-ce qui vous plaît le plus dans le fait de profiter du dépaysement ?",
+      "usage": "Expression pour évoquer le plaisir de découvrir un environnement différent."
+    },
+    {
+      "id": "voyeu06",
+      "kind": "expression-utile",
+      "french": "sortir des sentiers battus",
+      "anchor": "sortir des sentiers battus",
+      "english": "to go off the beaten path",
+      "example": "Aimez-vous sortir des sentiers battus plutôt que suivre les circuits classiques ?",
+      "usage": "Expression imagée signifiant explorer des lieux peu fréquentés par les touristes."
+    },
+    {
+      "id": "voyeu07",
+      "kind": "expression-utile",
+      "french": "s'imprégner de la culture locale",
+      "anchor": "vous imprégner de la culture locale",
+      "english": "to immerse oneself in local culture",
+      "example": "Prenez-vous le temps de vous imprégner de la culture locale à chaque étape ?",
+      "usage": "Expression pour évoquer une découverte approfondie des coutumes d'un lieu."
+    },
+    {
+      "id": "voyeu11",
+      "kind": "expression-utile",
+      "french": "subir le tourisme de masse",
+      "anchor": "subir le tourisme de masse",
+      "english": "to suffer from mass tourism",
+      "example": "Est-ce que cette destination commence à subir le tourisme de masse depuis quelques années ?",
+      "usage": "Expression pour évoquer les effets négatifs d'une trop forte affluence touristique sur une destination."
+    },
+    {
+      "id": "voyeu12",
+      "kind": "expression-utile",
+      "french": "recharger ses batteries",
+      "anchor": "recharger vos batteries",
+      "english": "to recharge one's batteries",
+      "example": "Ce séjour vous a-t-il vraiment permis de recharger vos batteries ?",
+      "usage": "Expression imagée signifiant se reposer et retrouver de l'énergie."
+    },
+    {
+      "id": "esceu01",
+      "kind": "expression-utile",
+      "french": "partir le temps d'un week-end",
+      "anchor": "partir le temps d'un week-end",
+      "english": "to go away for a weekend",
+      "example": "Où conseillerais-tu de partir le temps d'un week-end sans trop dépenser ?",
+      "usage": "Expression pour demander une destination de court séjour."
+    },
+    {
+      "id": "esceu02",
+      "kind": "expression-utile",
+      "french": "découvrir les environs",
+      "anchor": "découvrir les environs",
+      "english": "to explore the surrounding area",
+      "example": "Quel moyen de transport permet de découvrir les environs sans voiture ?",
+      "usage": "Expression pour explorer les lieux proches de son point de séjour."
+    },
+    {
+      "id": "esceu03",
+      "kind": "expression-utile",
+      "french": "éviter les heures d'affluence",
+      "anchor": "éviter les heures d'affluence",
+      "english": "to avoid busy times",
+      "example": "Quand vaut-il mieux arriver pour éviter les heures d'affluence au musée ?",
+      "usage": "Expression pour choisir un créneau moins fréquenté."
+    },
+    {
+      "id": "esceu04",
+      "kind": "expression-utile",
+      "french": "prévoir une solution à l'abri",
+      "anchor": "prévoir une solution à l'abri",
+      "english": "to plan an indoor alternative",
+      "example": "Pourrait-on prévoir une solution à l'abri si l'excursion est annulée ?",
+      "usage": "Expression pour anticiper une météo défavorable."
+    },
+    {
+      "id": "esceu05",
+      "kind": "expression-utile",
+      "french": "réserver une visite guidée",
+      "anchor": "réserver une visite guidée",
+      "english": "to book a guided tour",
+      "example": "Peut-on réserver une visite guidée directement au comptoir ?",
+      "usage": "Expression pour demander la procédure d'inscription à une visite."
+    },
+    {
+      "id": "esceu06",
+      "kind": "expression-utile",
+      "french": "rejoindre le point de rendez-vous",
+      "anchor": "rejoindre le point de rendez-vous",
+      "english": "to get to the meeting point",
+      "example": "Comment rejoindre le point de rendez-vous depuis la gare ?",
+      "usage": "Expression pour organiser l'arrivée au départ d'une sortie."
+    },
+    {
+      "id": "esceu07",
+      "kind": "expression-utile",
+      "french": "limiter les allers-retours",
+      "anchor": "limiter les allers-retours",
+      "english": "to limit backtracking",
+      "example": "Dans quel ordre visiter ces sites pour limiter les allers-retours ?",
+      "usage": "Expression pour organiser un parcours cohérent."
+    },
+    {
+      "id": "esceu08",
+      "kind": "expression-utile",
+      "french": "louer du matériel sur place",
+      "anchor": "louer du matériel sur place",
+      "english": "to rent equipment on site",
+      "example": "Pour le canot, peut-on louer du matériel sur place ?",
+      "usage": "Expression pour éviter d'apporter l'équipement d'une activité."
+    },
+    {
+      "id": "esceu09",
+      "kind": "expression-utile",
+      "french": "profiter d'un tarif de groupe",
+      "anchor": "profiter d'un tarif de groupe",
+      "english": "to benefit from a group rate",
+      "example": "À partir de combien de participants peut-on profiter d'un tarif de groupe ?",
+      "usage": "Expression pour vérifier les conditions d'une réduction collective."
+    },
+    {
+      "id": "esceu10",
+      "kind": "expression-utile",
+      "french": "prendre son temps pendant les visites",
+      "anchor": "prendre son temps pendant les visites",
+      "english": "to take one's time while sightseeing",
+      "example": "Quel programme permettrait de prendre son temps pendant les visites ?",
+      "usage": "Expression pour privilégier une découverte sans rythme trop soutenu."
+    },
+    {
+      "id": "voyfr03",
+      "kind": "fragment",
+      "french": "Qu'est-ce qui vous a donné envie de visiter…",
+      "anchor": "qu'est-ce qui vous a donné envie de visiter",
+      "english": "What made you want to visit…",
+      "example": "Qu'est-ce qui vous a donné envie de visiter cette région en particulier ?",
+      "usage": "Amorce pour explorer les motivations d'une destination choisie."
+    },
+    {
+      "id": "voyfr04",
+      "kind": "fragment",
+      "french": "Pourriez-vous décrire l'ambiance de…",
+      "anchor": "pourriez-vous décrire l'ambiance de",
+      "english": "Could you describe the atmosphere of…",
+      "example": "Pourriez-vous décrire l'ambiance de ce marché local que vous avez visité ?",
+      "usage": "Amorce polie pour demander une description sensorielle d'un lieu."
+    },
+    {
+      "id": "voyfr12",
+      "kind": "fragment",
+      "french": "Pour clore ce point, recommanderiez-vous cette destination à…",
+      "anchor": "pour clore ce point, recommanderiez-vous cette destination à",
+      "english": "To close this point, would you recommend this destination to…",
+      "example": "Pour clore ce point, recommanderiez-vous cette destination à des amis ?",
+      "usage": "Amorce pour conclure un échange sur une expérience de voyage."
+    },
+    {
+      "id": "voyfr14",
+      "kind": "fragment",
+      "french": "Juste pour bien comprendre, ce guide dont vous parlez…",
+      "anchor": "juste pour bien comprendre, ce guide dont vous parlez",
+      "english": "Just to make sure I understand, the guide you mention…",
+      "example": "Juste pour bien comprendre, ce guide dont vous parlez connaissait bien la région ?",
+      "usage": "Amorce pour clarifier un détail relatif à une personne mentionnée."
+    },
+    {
+      "id": "escfr01",
+      "kind": "fragment",
+      "french": "Pour un week-end sans voiture…",
+      "anchor": "Pour un week-end sans voiture",
+      "english": "For a car-free weekend…",
+      "example": "Pour un week-end sans voiture, quelle destination recommandez-vous ?",
+      "usage": "Amorce pour annoncer une contrainte de transport."
+    },
+    {
+      "id": "escfr02",
+      "kind": "fragment",
+      "french": "Parmi les visites proposées…",
+      "anchor": "Parmi les visites proposées",
+      "english": "Among the suggested visits…",
+      "example": "Parmi les visites proposées, laquelle choisiriez-vous en premier ?",
+      "usage": "Amorce pour hiérarchiser les recommandations."
+    },
+    {
+      "id": "escfr03",
+      "kind": "fragment",
+      "french": "Si nous n'avions qu'une journée…",
+      "anchor": "Si nous n'avions qu'une journée",
+      "english": "If we only had one day…",
+      "example": "Si nous n'avions qu'une journée, quels sites pourrions-nous combiner ?",
+      "usage": "Amorce pour adapter un programme au temps disponible."
+    },
+    {
+      "id": "escfr04",
+      "kind": "fragment",
+      "french": "En dehors des activités payantes…",
+      "anchor": "En dehors des activités payantes",
+      "english": "Apart from paid activities…",
+      "example": "En dehors des activités payantes, que peut-on faire gratuitement dans les environs ?",
+      "usage": "Amorce pour demander des alternatives économiques."
+    },
+    {
+      "id": "escfr05",
+      "kind": "fragment",
+      "french": "Une fois au point de départ…",
+      "anchor": "Une fois au point de départ",
+      "english": "Once at the departure point…",
+      "example": "Une fois au point de départ, comment reconnaître le guide de l'excursion ?",
+      "usage": "Amorce pour préciser les modalités de rendez-vous."
+    },
+    {
+      "id": "escfr06",
+      "kind": "fragment",
+      "french": "Pour garder un rythme reposant…",
+      "anchor": "Pour garder un rythme reposant",
+      "english": "To keep a relaxing pace…",
+      "example": "Pour garder un rythme reposant, combien de visites conseillez-vous par jour ?",
+      "usage": "Amorce pour adapter les activités à un objectif de détente."
+    },
+    {
+      "id": "escfr07",
+      "kind": "fragment",
+      "french": "Au cas où la pluie commencerait…",
+      "anchor": "Au cas où la pluie commencerait",
+      "english": "In case it started raining…",
+      "example": "Au cas où la pluie commencerait, quel lieu couvert pourrait nous accueillir ?",
+      "usage": "Amorce pour prévoir une solution de remplacement réaliste."
+    },
+    {
+      "id": "escfr08",
+      "kind": "fragment",
+      "french": "À propos du billet combiné…",
+      "anchor": "À propos du billet combiné",
+      "english": "About the combined ticket…",
+      "example": "À propos du billet combiné, faut-il utiliser toutes les entrées le même jour ?",
+      "usage": "Amorce pour clarifier la validité d'un tarif groupé."
+    },
+    {
+      "id": "escfr09",
+      "kind": "fragment",
+      "french": "Pour le retour de l'excursion…",
+      "anchor": "Pour le retour de l'excursion",
+      "english": "For the return from the excursion…",
+      "example": "Pour le retour de l'excursion, la navette nous ramène-t-elle au même endroit ?",
+      "usage": "Amorce pour vérifier la logistique du retour."
+    },
+    {
+      "id": "escfr10",
+      "kind": "fragment",
+      "french": "Afin de découvrir la culture régionale…",
+      "anchor": "Afin de découvrir la culture régionale",
+      "english": "To discover regional culture…",
+      "example": "Afin de découvrir la culture régionale, quelle visite serait la plus intéressante ?",
+      "usage": "Amorce pour demander une recommandation culturelle ciblée."
+    },
+    {
+      "id": "escfr11",
+      "kind": "fragment",
+      "french": "Avant de choisir cette activité…",
+      "anchor": "Avant de choisir cette activité",
+      "english": "Before choosing this activity…",
+      "example": "Avant de choisir cette activité, pouvez-vous préciser le niveau physique nécessaire ?",
+      "usage": "Amorce pour vérifier l'adaptation d'une activité aux participants."
+    }
+  ]
+}

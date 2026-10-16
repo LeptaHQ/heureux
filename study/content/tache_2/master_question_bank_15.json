@@ -1,0 +1,272 @@
+{
+  "number": 15,
+  "title": "Mémoire 15 · Hébergements touristiques",
+  "label": "Hébergements touristiques",
+  "icon": "bed",
+  "subtitle": "Comparer et réserver un hébergement touristique ou se renseigner sur ses services : hôtel, gîte, auberge ou camping. Vérifier les chambres, emplacements, tarifs, prestations et conditions, sans confondre séjour touristique et logement permanent.",
+  "sections": [
+    {
+      "number": 1,
+      "title": "Ouverture et recherche d'un hébergement",
+      "guidance": "Adapter les questions à la consigne : ouverture et recherche d'un hébergement. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Ouverture et recherche d'un hébergement",
+          "guidance": "Adapter les questions à la consigne : ouverture et recherche d'un hébergement. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Bonjour ! Je cherche un hébergement pour mon séjour dans la région, pourriez-vous me renseigner ?",
+            "Bonjour ! Avant de réserver une chambre, puis-je vous demander quelques précisions ?",
+            "Pour préparer mon séjour au camping, pourriez-vous m'expliquer les différentes formules ?",
+            "Je souhaite comparer vos hébergements, quels renseignements vous faut-il sur mon séjour ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Catégories de chambres et emplacements",
+      "guidance": "Adapter les questions à la consigne : catégories de chambres et emplacements. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Catégories de chambres et emplacements",
+          "guidance": "Adapter les questions à la consigne : catégories de chambres et emplacements. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Quels types de chambres proposez-vous dans cet hôtel ?",
+            "Qu'est-ce qui distingue un gîte d'une auberge dans cette région ?",
+            "Quels emplacements conviennent à une tente et lesquels accueillent les véhicules récréatifs ?",
+            "La salle de bains est-elle privative ou partagée avec d'autres chambres ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Prix de la nuitée et services inclus",
+      "guidance": "Adapter les questions à la consigne : prix de la nuitée et services inclus. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Prix de la nuitée et services inclus",
+          "guidance": "Adapter les questions à la consigne : prix de la nuitée et services inclus. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Quel est le prix par nuit pour une chambre double à cette période ?",
+            "Les taxes et les frais de ménage sont-ils compris dans le tarif annoncé ?",
+            "Au camping, le tarif dépend-il du nombre de personnes ou seulement de l'emplacement ?",
+            "L'accès aux douches et à l'électricité est-il compris dans le prix de l'emplacement ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Dates, disponibilité et heures d'arrivée",
+      "guidance": "Adapter les questions à la consigne : dates, disponibilité et heures d'arrivée. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Dates, disponibilité et heures d'arrivée",
+          "guidance": "Adapter les questions à la consigne : dates, disponibilité et heures d'arrivée. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "À quelle heure puis-je arriver, et à quelle heure faut-il libérer la chambre le jour du départ ?",
+              "legacy_memory_number": 7
+            },
+            "Avez-vous encore des chambres disponibles pour le week-end prochain ?",
+            "Faut-il réserver un nombre minimal de nuits en haute saison ?",
+            "Si j'arrive après la fermeture de la réception, comment pourrai-je récupérer les clés ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Emplacement de l'établissement et accès",
+      "guidance": "Adapter les questions à la consigne : emplacement de l'établissement et accès. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Emplacement de l'établissement et accès",
+          "guidance": "Adapter les questions à la consigne : emplacement de l'établissement et accès. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Est-ce que l'hôtel propose une navette pour l'aéroport ou le centre-ville ?",
+              "legacy_memory_number": 7
+            },
+            "Quel secteur recommandez-vous pour loger près des sites touristiques sans voiture ?",
+            "À quelle distance de la gare se trouve votre établissement ?",
+            "Le stationnement se situe-t-il près des chambres ou à l'entrée du camping ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Réservation, acompte et documents",
+      "guidance": "Adapter les questions à la consigne : réservation, acompte et documents. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Réservation, acompte et documents",
+          "guidance": "Adapter les questions à la consigne : réservation, acompte et documents. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Faut-il verser des arrhes au moment de la réservation ?",
+              "legacy_memory_number": 7
+            },
+            "Dois-je réserver directement auprès de l'établissement ou passer par votre office de tourisme ?",
+            "Quel montant faut-il verser pour confirmer la réservation de la chambre ?",
+            "Quels documents demandez-vous lors de l'arrivée à l'hôtel ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Capacité d'accueil et besoins particuliers",
+      "guidance": "Adapter les questions à la consigne : capacité d'accueil et besoins particuliers. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Capacité d'accueil et besoins particuliers",
+          "guidance": "Adapter les questions à la consigne : capacité d'accueil et besoins particuliers. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Pouvez-vous ajouter un lit supplémentaire si on est accompagné d'un enfant ?",
+              "legacy_memory_number": 7
+            },
+            {
+              "text": "Nous serons cinq ou six personnes — proposez-vous des tarifs de groupe ?",
+              "legacy_memory_number": 7
+            },
+            "Disposez-vous de chambres accessibles aux personnes à mobilité réduite ?",
+            "Combien de personnes peuvent dormir dans cet hébergement sans ajouter de lit ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Règlement, équipement et animaux",
+      "guidance": "Adapter les questions à la consigne : règlement, équipement et animaux. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Règlement, équipement et animaux",
+          "guidance": "Adapter les questions à la consigne : règlement, équipement et animaux. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Y a-t-il des conditions particulières pour les animaux de compagnie ?",
+              "legacy_memory_number": 7
+            },
+            "Les chiens sont-ils admis dans toutes les catégories de chambres ou seulement certaines ?",
+            "Au camping, quels équipements dois-je apporter si je ne loue qu'un emplacement ?",
+            "Peut-on cuisiner sur l'emplacement et quelles consignes faut-il respecter ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Repas et services de l'établissement",
+      "guidance": "Adapter les questions à la consigne : repas et services de l'établissement. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Repas et services de l'établissement",
+          "guidance": "Adapter les questions à la consigne : repas et services de l'établissement. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Le Wi-Fi est-il gratuit dans les chambres ?",
+              "legacy_memory_number": 7
+            },
+            {
+              "text": "Est-il possible de demander une chambre avec vue, ou à un étage précis ?",
+              "legacy_memory_number": 7
+            },
+            "À quelles heures servez-vous le petit-déjeuner ?",
+            "Disposez-vous d'une consigne pour les bagages avant l'arrivée ou après le départ ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Calme, confort et cadre du séjour",
+      "guidance": "Adapter les questions à la consigne : calme, confort et cadre du séjour. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Calme, confort et cadre du séjour",
+          "guidance": "Adapter les questions à la consigne : calme, confort et cadre du séjour. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Quelles chambres sont les plus éloignées de la route et des espaces communs ?",
+            "La chambre dispose-t-elle de la climatisation ou d'un ventilateur en été ?",
+            "Les emplacements de camping sont-ils ombragés et séparés les uns des autres ?",
+            "Les espaces communs restent-ils accessibles le soir après la fermeture de la réception ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Comparaison et choix de l'hébergement",
+      "guidance": "Adapter les questions à la consigne : comparaison et choix de l'hébergement. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Comparaison et choix de l'hébergement",
+          "guidance": "Adapter les questions à la consigne : comparaison et choix de l'hébergement. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Pour un séjour sans voiture, conseilleriez-vous plutôt un hôtel central ou un gîte en périphérie ?",
+            "Quelle différence de confort justifie l'écart de prix entre ces deux chambres ?",
+            "Peut-on choisir son emplacement de camping sur un plan avant de réserver ?",
+            "Quelles formules d'hébergement permettent de préparer ses propres repas ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Départ, annulation et incidents",
+      "guidance": "Adapter les questions à la consigne : départ, annulation et incidents. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Départ, annulation et incidents",
+          "guidance": "Adapter les questions à la consigne : départ, annulation et incidents. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "À quelle heure faut-il libérer la chambre le jour du départ — et peut-on la garder un peu plus longtemps ?",
+              "legacy_memory_number": 7
+            },
+            {
+              "text": "Quelles sont les règles à respecter — il y a des horaires de silence le soir ?",
+              "legacy_memory_number": 7
+            },
+            {
+              "text": "Pour le séjour, comment se passe l'arrivée sur place, et à partir de quelle heure peut-on s'installer ?",
+              "legacy_memory_number": 7
+            },
+            "Si j'annule cette chambre, jusqu'à quelle date le remboursement reste-t-il possible ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Confirmation, réception et contacts",
+      "guidance": "Adapter les questions à la consigne : confirmation, réception et contacts. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Confirmation, réception et contacts",
+          "guidance": "Adapter les questions à la consigne : confirmation, réception et contacts. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Bonjour, je souhaiterais réserver une chambre — comment dois-je procéder ?",
+              "legacy_memory_number": 7
+            },
+            {
+              "text": "En cas de problème dans la chambre, à qui dois-je m'adresser et à quelle heure ?",
+              "legacy_memory_number": 7
+            },
+            {
+              "text": "Pour finir — si vous ne deviez me recommander qu'un seul service de l'hôtel, ce serait lequel ?",
+              "legacy_memory_number": 7
+            },
+            "Merci pour ces renseignements, pourriez-vous m'envoyer les conditions de réservation par écrit ?"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,18 +1,18 @@
 {
   "number": 7,
-  "title": "Mémoire 7 · Voyages & vacances",
-  "label": "Voyages & vacances",
+  "title": "Mémoire 7 · Voyages & circuits",
+  "label": "Voyages & circuits",
   "icon": "globe",
-  "subtitle": "Les questions tirées des sujets de voyages et de vacances, généralisées pour préparer un séjour, un hébergement, un circuit ou des activités sur place.",
+  "subtitle": "Choisir et préparer un voyage ou un circuit, puis échanger sur une expérience passée : itinéraire, saison, transport, budget et réservation. Distinguer les conseils d'un proche des conditions à confirmer auprès de l'agence.",
   "sections": [
     {
       "number": 1,
-      "title": "Ouverture — premiers mots pour préparer un voyage",
-      "guidance": "Lancer l'échange en expliquant qu'on cherche des informations avant de partir ou de réserver.",
+      "title": "Ouverture et projet de voyage",
+      "guidance": "Adapter les questions à la consigne : ouverture et projet de voyage. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Présenter son projet de vacances",
-          "guidance": "À utiliser avec une agence, un office de tourisme, un hôtel ou un ami qui connaît la destination.",
+          "title": "Ouverture et projet de voyage",
+          "guidance": "Adapter les questions à la consigne : ouverture et projet de voyage. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Bonjour ! Je prépare un séjour et j'aurais besoin de quelques renseignements pour m'organiser — pouvez-vous m'aider ?",
             "Salut ! Tu m'as dit que tu avais fait ce voyage — ça me tente d'essayer, tu peux m'en parler ?",
@@ -24,29 +24,29 @@
     },
     {
       "number": 2,
-      "title": "Séjours, circuits et activités proposés",
-      "guidance": "Faire décrire le contenu du voyage, les étapes, les visites et les loisirs.",
+      "title": "Destinations, circuits et programme",
+      "guidance": "Adapter les questions à la consigne : destinations, circuits et programme. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Découvrir le programme",
-          "guidance": "Quand il faut comprendre ce qu'on peut faire pendant le séjour.",
+          "title": "Destinations, circuits et programme",
+          "guidance": "Adapter les questions à la consigne : destinations, circuits et programme. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Quels types de circuits proposez-vous — culture, nature, aventure, gastronomie ?",
-            "Quelles activités peut-on faire sur place — plutôt culturelles, sportives ou un mélange des deux ?",
-            "Quels quartiers typiques ou animés conseillez-vous de visiter pour se promener et profiter de l'ambiance ?",
-            "Est-ce courant de partir en excursion d'une journée, comme à la campagne ou au bord de l'eau ?"
+            "Quelles régions du Canada ce circuit permet-il de découvrir ?",
+            "Quelles escales sont prévues pendant la croisière ?",
+            "Quelles activités sont proposées à bord les jours sans escale ?"
           ]
         }
       ]
     },
     {
       "number": 3,
-      "title": "Budget du séjour et services inclus",
-      "guidance": "Clarifier le prix total, les suppléments et les possibilités de paiement.",
+      "title": "Budget du voyage et prestations incluses",
+      "guidance": "Adapter les questions à la consigne : budget du voyage et prestations incluses. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Comprendre ce qu'on paie",
-          "guidance": "Indispensable avant de réserver un hébergement, un vol ou un circuit.",
+          "title": "Budget du voyage et prestations incluses",
+          "guidance": "Adapter les questions à la consigne : budget du voyage et prestations incluses. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Parlons du budget — combien est-ce que ça coûte approximativement, transport, hébergement et repas inclus ?",
             "Le tarif comprend quoi exactement — le transport, les repas et les excursions sont-ils inclus ?",
@@ -58,114 +58,114 @@
     },
     {
       "number": 4,
-      "title": "Dates, durée et disponibilités du séjour",
-      "guidance": "Préciser la période, le rythme, les heures d'arrivée et les disponibilités.",
+      "title": "Dates, durée et rythme du voyage",
+      "guidance": "Adapter les questions à la consigne : dates, durée et rythme du voyage. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Caler le calendrier",
-          "guidance": "Quand le séjour dépend de dates, d'horaires ou d'une durée précise.",
+          "title": "Dates, durée et rythme du voyage",
+          "guidance": "Adapter les questions à la consigne : dates, durée et rythme du voyage. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Le circuit a duré combien de temps ?",
             "Le rythme était plutôt intensif ou assez équilibré ?",
-            "À quelle heure puis-je arriver, et à quelle heure faut-il libérer la chambre le jour du départ ?",
-            "Combien de temps faut-il prévoir pour bien découvrir la région — une semaine ou plutôt deux ?"
+            "Quelles dates de départ proposez-vous pour ce circuit en été ?",
+            "Combien de nuits passe-t-on dans chaque ville du parcours ?"
           ]
         }
       ]
     },
     {
       "number": 5,
-      "title": "Destination, accès et déplacements sur place",
-      "guidance": "Savoir comment rejoindre le lieu et circuler pendant les vacances.",
+      "title": "Trajet et déplacements entre les étapes",
+      "guidance": "Adapter les questions à la consigne : trajet et déplacements entre les étapes. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Se déplacer pendant le voyage",
-          "guidance": "Pour choisir entre transports, navette, voiture ou marche.",
+          "title": "Trajet et déplacements entre les étapes",
+          "guidance": "Adapter les questions à la consigne : trajet et déplacements entre les étapes. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Comment vous déplaciez-vous entre les différentes étapes ?",
-            "Est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
-            "Est-ce que l'hôtel propose une navette pour l'aéroport ou le centre-ville ?",
-            "Une fois sur place, il vaut mieux utiliser les transports en commun ou tout peut se faire à pied ?"
+            "Les transferts entre l'aéroport et le premier hôtel sont-ils compris dans le voyage ?",
+            "Sur cet itinéraire, quelles étapes nécessitent un long trajet en autocar ?",
+            "As-tu loué une voiture pour tout le voyage ou seulement pour certaines étapes ?"
           ]
         }
       ]
     },
     {
       "number": 6,
-      "title": "Réservation, places et formalités",
-      "guidance": "Vérifier les démarches avant de partir : réservation, arrhes, documents ou conditions.",
+      "title": "Réservation et documents de voyage",
+      "guidance": "Adapter les questions à la consigne : réservation et documents de voyage. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Préparer son dossier de voyage",
-          "guidance": "À utiliser pour un hôtel, un circuit, un camping ou un voyage organisé.",
+          "title": "Réservation et documents de voyage",
+          "guidance": "Adapter les questions à la consigne : réservation et documents de voyage. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Il faut réserver à l'avance ou on peut trouver facilement sur place ?",
             "Est-ce qu'il reste encore des places pour ce séjour, ou c'est déjà complet ?",
-            "Faut-il verser des arrhes au moment de la réservation ?",
-            "Quels documents faut-il préparer — un passeport, une autorisation ou une confirmation de réservation ?"
+            "Quels documents faut-il préparer — un passeport, une autorisation ou une confirmation de réservation ?",
+            "Pour les formalités d'entrée, quelle source officielle dois-je consulter selon ma nationalité ?"
           ]
         }
       ]
     },
     {
       "number": 7,
-      "title": "Voyageurs, groupe et besoins particuliers",
-      "guidance": "Adapter le séjour au nombre de voyageurs, aux enfants et au niveau d'autonomie.",
+      "title": "Compagnons de voyage et besoins particuliers",
+      "guidance": "Adapter les questions à la consigne : compagnons de voyage et besoins particuliers. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Décrire le groupe",
-          "guidance": "Quand les conseils dépendent de la famille, du groupe ou du confort attendu.",
+          "title": "Compagnons de voyage et besoins particuliers",
+          "guidance": "Adapter les questions à la consigne : compagnons de voyage et besoins particuliers. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Tu as fait ce circuit seul, en couple ou avec un groupe organisé ?",
             "C'est adapté si on y va en couple ou c'est plutôt un plan entre amis ?",
-            "Pouvez-vous ajouter un lit supplémentaire si on est accompagné d'un enfant ?",
-            "Nous serons cinq ou six personnes — proposez-vous des tarifs de groupe ?"
+            "Ça te dirait de m'accompagner pour ce voyage à la campagne ?",
+            "Les excursions de cette croisière conviennent-elles aux personnes qui marchent difficilement ?"
           ]
         }
       ]
     },
     {
       "number": 8,
-      "title": "Saison, valise et règles à connaître",
-      "guidance": "Anticiper la météo, l'équipement, les conditions et les précautions du séjour.",
+      "title": "Saison, vêtements et équipement",
+      "guidance": "Adapter les questions à la consigne : saison, vêtements et équipement. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Partir bien préparé",
-          "guidance": "Pour savoir quoi emporter et quand partir.",
+          "title": "Saison, vêtements et équipement",
+          "guidance": "Adapter les questions à la consigne : saison, vêtements et équipement. Ne pas redemander les faits déjà connus.",
           "questions": [
             "C'est une bonne période pour visiter la région ou il vaut mieux attendre une autre saison ?",
             "Quel temps fait-il généralement à cette époque — il faut prévoir des vêtements particuliers ?",
-            "Quelles activités de plein air peut-on pratiquer — vélo, kayak ? Est-il possible de louer du matériel sur place ?",
-            "Y a-t-il des conditions particulières pour les animaux de compagnie ?"
+            "Pour un séjour au Canada en décembre, quels vêtements chauds devrais-je prévoir ?",
+            "L'équipement nécessaire aux activités d'hiver peut-il être loué sur place ?"
           ]
         }
       ]
     },
     {
       "number": 9,
-      "title": "Hébergement, repas et services sur place",
-      "guidance": "Repérer le confort quotidien : chambre, wifi, repas, parking et services.",
+      "title": "Hébergement et repas pendant le voyage",
+      "guidance": "Adapter les questions à la consigne : hébergement et repas pendant le voyage. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Vérifier le confort du séjour",
-          "guidance": "Utile avant de choisir un hôtel, une location, une auberge ou un camping.",
+          "title": "Hébergement et repas pendant le voyage",
+          "guidance": "Adapter les questions à la consigne : hébergement et repas pendant le voyage. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Vous logiez plutôt à l'hôtel, en auberge ou ailleurs ?",
-            "Le Wi-Fi est-il gratuit dans les chambres ?",
-            "Pour les repas sur place, vous auriez des adresses à recommander — des spécialités locales à essayer absolument ?",
-            "Est-il possible de demander une chambre avec vue, ou à un étage précis ?"
+            "Les hôtels du circuit sont-ils situés au centre des villes ou en périphérie ?",
+            "Quels repas restent à notre charge pendant le voyage organisé ?",
+            "Les auberges où tu as dormi permettaient-elles de cuisiner sur place ?"
           ]
         }
       ]
     },
     {
       "number": 10,
-      "title": "Ambiance et expérience de vacances",
-      "guidance": "Parler du ressenti, du style du lieu et de ce qui marque le séjour.",
+      "title": "Expérience et impressions de voyage",
+      "guidance": "Adapter les questions à la consigne : expérience et impressions de voyage. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Imaginer l'atmosphère",
-          "guidance": "Quand le choix dépend de l'ambiance et de l'expérience recherchée.",
+          "title": "Expérience et impressions de voyage",
+          "guidance": "Adapter les questions à la consigne : expérience et impressions de voyage. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Alors, comment s'est passé ton séjour ?",
             "C'était plutôt une station animée ou un endroit plus calme et authentique ?",
@@ -177,51 +177,51 @@
     },
     {
       "number": 11,
-      "title": "Conseils et recommandations de voyage",
-      "guidance": "Demander les lieux incontournables, les excursions et le meilleur choix.",
+      "title": "Conseils et choix du circuit",
+      "guidance": "Adapter les questions à la consigne : conseils et choix du circuit. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Choisir ce qui vaut le détour",
-          "guidance": "Pour transformer les informations en itinéraire concret.",
+          "title": "Conseils et choix du circuit",
+          "guidance": "Adapter les questions à la consigne : conseils et choix du circuit. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Quelles destinations recommandez-vous ?",
             "Vous avez mentionné le circuit le plus apprécié — vous pourriez m'en dire un peu plus ?",
-            "Y avait-il des visites ou des excursions que tu recommanderais particulièrement ?",
-            "Selon toi, quels sont les endroits incontournables que je devrais absolument voir ?"
+            "Pour un premier voyage au Canada, quelles étapes éviterais-tu de combiner en une seule semaine ?",
+            "Quel pays parmi ceux que tu as visités conviendrait le mieux à mon budget ?"
           ]
         }
       ]
     },
     {
       "number": 12,
-      "title": "Imprévus, annulation et flexibilité du séjour",
-      "guidance": "Prévoir les changements de dates, retards, règles et conditions d'annulation.",
+      "title": "Imprévus et modification du voyage",
+      "guidance": "Adapter les questions à la consigne : imprévus et modification du voyage. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Anticiper les contretemps",
-          "guidance": "À poser avant de bloquer une chambre, un circuit ou une activité.",
+          "title": "Imprévus et modification du voyage",
+          "guidance": "Adapter les questions à la consigne : imprévus et modification du voyage. Ne pas redemander les faits déjà connus.",
           "questions": [
-            "À quelle heure faut-il libérer la chambre le jour du départ — et peut-on la garder un peu plus longtemps ?",
-            "Quelles sont les règles à respecter — il y a des horaires de silence le soir ?",
             "Et en cas d'imprévu, quelles sont vos conditions d'annulation ?",
-            "Pour le séjour, comment se passe l'arrivée sur place, et à partir de quelle heure peut-on s'installer ?"
+            "Que prévoit l'agence si une étape du circuit devient inaccessible ?",
+            "Si je devais changer mes dates de départ, quels frais s'appliqueraient ?",
+            "Comment joindre l'assistance du voyage en dehors des heures d'ouverture de l'agence ?"
           ]
         }
       ]
     },
     {
       "number": 13,
-      "title": "Réservation, contact et suivi du voyage",
-      "guidance": "Finaliser l'échange avec une procédure, un contact et les prochaines étapes.",
+      "title": "Agence, confirmation et prochaines étapes",
+      "guidance": "Adapter les questions à la consigne : agence, confirmation et prochaines étapes. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Organiser la suite",
-          "guidance": "Idéal pour clore avec une réservation ou un interlocuteur clair.",
+          "title": "Agence, confirmation et prochaines étapes",
+          "guidance": "Adapter les questions à la consigne : agence, confirmation et prochaines étapes. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Tu es parti avec quelle agence ou compagnie de voyage ?",
-            "Bonjour, je souhaiterais réserver une chambre — comment dois-je procéder ?",
-            "En cas de problème dans la chambre, à qui dois-je m'adresser et à quelle heure ?",
-            "Pour finir — si vous ne deviez me recommander qu'un seul service de l'hôtel, ce serait lequel ?"
+            "L'agence peut-elle m'envoyer un devis détaillé avant que je confirme le voyage ?",
+            "Quels éléments devrai-je vérifier sur la confirmation de réservation du circuit ?",
+            "Merci pour tes conseils, pourrais-tu me transmettre les références du circuit que tu as suivi ?"
           ]
         }
       ]

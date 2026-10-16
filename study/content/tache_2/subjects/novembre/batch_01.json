@@ -295,7 +295,7 @@
         },
         {
           "text": "Quelles sont les règles à respecter — il y a des horaires de silence le soir ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 12
         },
         {
@@ -306,7 +306,7 @@
         },
         {
           "text": "Et en cas d'imprévu, quelles sont vos conditions d'annulation ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 12
         },
         {
@@ -314,12 +314,12 @@
         },
         {
           "text": "Le tarif comprend quoi exactement ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 3
         },
         {
           "text": "Pour finir — comment se passe l'arrivée sur place, et à partir de quelle heure peut-on s'installer ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 12
         }
       ]

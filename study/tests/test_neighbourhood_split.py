@@ -42,7 +42,7 @@ class NeighbourhoodSplitCorpusTests(SimpleTestCase):
     def test_each_equivalent_consigne_has_the_objective_based_theme(self):
         dialogues = catalogue.tache_two_dialogues()
         themes, mapping = catalogue.tache_two_subject_themes()
-        self.assertEqual(len(themes), 13)
+        self.assertEqual(len(themes), 15)
         expected_counts = {
             "vie-quartier": (9, 5),
             "garde-enfants-animaux": (15, 7),
@@ -71,7 +71,7 @@ class NeighbourhoodSplitCorpusTests(SimpleTestCase):
             for row in json.loads(path.read_text())["dialogues"]
         }
         expected = {
-            "vie-quartier": "a9b6675d01a9e58630ca96a8a1051a55a4b59add3dfbc59e10b8d0db02f8c19f",
+            "vie-quartier": "7c07e560fc94df9404e5b36e06e5384fa0ea18f325099b8392b1d42631d9f3b1",
             "garde-enfants-animaux": "fd0d29214cb1ba88cd3f45b82cff5caf83a4b1851bfba564314f20df54615962",
             "benevolat-associations": "94acdfc8cdbb0c25b65987a65334833476c59f425409c11f469373b836266ca9",
         }
@@ -96,8 +96,8 @@ class NeighbourhoodSplitCorpusTests(SimpleTestCase):
             for section in bank.sections for group in section.groups
             for question in group.questions
         ]
-        self.assertEqual(len(questions), 676)
-        self.assertEqual(len({question.content_key for question in questions}), 676)
+        self.assertEqual(len(questions), 780)
+        self.assertEqual(len({question.content_key for question in questions}), 780)
         by_text = {question.text: question.content_key for question in questions}
         for section in original["sections"]:
             for group in section["groups"]:
@@ -114,7 +114,7 @@ class NeighbourhoodSplitCorpusTests(SimpleTestCase):
             for path in content.TACHE_TWO_THEME_VOCABULARY_DIR.glob("*.json")
             for entry in json.loads(path.read_text())["entries"]
         }
-        self.assertEqual(len(by_id), 585)
+        self.assertEqual(len(by_id), 675)
         for entry in original["entries"]:
             self.assertEqual(by_id[entry["id"]], entry)
 

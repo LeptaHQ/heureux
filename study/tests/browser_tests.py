@@ -3278,7 +3278,7 @@ class BrowserTests(StaticLiveServerTestCase):
         task_card.wait_for()
         self.assertEqual(
             task_card.locator(".deck__progress-copy").inner_text(),
-            "0/39 lots terminés · 0/164 sujets terminés",
+            "0/45 lots terminés · 0/164 sujets terminés",
         )
 
         self.context.add_init_script(
@@ -3384,7 +3384,7 @@ class BrowserTests(StaticLiveServerTestCase):
             [int(value) for value in self.page.locator(
                 ".memory-overview-hero__metrics dd"
             ).all_text_contents()],
-            [13, 585, 39],
+            [15, 675, 45],
         )
         directory_nav = self.page.locator(".task-nav")
         self.assertEqual(directory_nav.locator("a").count(), 3)
@@ -3405,7 +3405,7 @@ class BrowserTests(StaticLiveServerTestCase):
             "cards",
         )
         theme_entries = self.page.locator(".theme-vocabulary-entry.memory-entry")
-        self.assertEqual(theme_entries.count(), 13)
+        self.assertEqual(theme_entries.count(), 15)
         first_theme_entry = theme_entries.first
         self.assertLess(
             first_theme_entry.bounding_box()["width"],
@@ -3430,7 +3430,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assert_no_horizontal_overflow()
 
         self.page.set_viewport_size({"width": 320, "height": 700})
-        self.assertEqual(theme_entries.count(), 13)
+        self.assertEqual(theme_entries.count(), 15)
         self.assert_no_horizontal_overflow()
 
         self.page.set_viewport_size({"width": 1280, "height": 850})
@@ -3883,7 +3883,7 @@ class BrowserTests(StaticLiveServerTestCase):
             ).all_text_contents()
         ]
         theme_count, subject_count, _ = directory_metrics
-        self.assertEqual(theme_count, 13)
+        self.assertEqual(theme_count, 15)
         self.assertEqual(subject_count, len(responses))
         self.assertEqual(
             self.page.locator("[data-subject-collection-row]").count(),
@@ -4251,7 +4251,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.get_by_role("button", name="Tableau").click()
 
         groups = self.page.locator("[data-t1-table-theme]")
-        self.assertEqual(groups.count(), 13)
+        self.assertEqual(groups.count(), 15)
         self.assertEqual(
             self.page.locator("[data-t1-table-subject]").count(),
             348,

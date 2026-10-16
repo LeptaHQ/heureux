@@ -237,12 +237,12 @@
         },
         {
           "text": "Quels sont les plus beaux parcs naturels ou espaces protégés à visiter dans les environs ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 2
         },
         {
           "text": "Existe-t-il des points de vue panoramiques vraiment impressionnants à ne pas manquer ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 11
         },
         {
@@ -250,7 +250,7 @@
         },
         {
           "text": "Y a-t-il des randonnées que vous recommandez — elles sont accessibles à tous les niveaux ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 2
         },
         {
@@ -261,7 +261,7 @@
         },
         {
           "text": "Pour les repas, vous auriez des adresses à recommander — des spécialités locales à goûter absolument ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 9
         },
         {
@@ -269,12 +269,12 @@
         },
         {
           "text": "Quelle période me conseillez-vous pour visiter la région au calme ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 8
         },
         {
           "text": "Est-ce qu'il est facile de se déplacer en transports en commun — ou vaut-il mieux louer une voiture ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 5
         },
         {
@@ -285,7 +285,7 @@
         },
         {
           "text": "Pour finir — si vous ne deviez me recommander qu'une seule chose, ce serait laquelle ?",
-          "memory_number": 7,
+          "memory_number": 14,
           "memory_section": 13
         }
       ]

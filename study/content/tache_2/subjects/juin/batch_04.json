@@ -341,77 +341,77 @@
       "questions": [
         {
           "text": "Bonjour ! Je prévois de passer quelques nuits dans votre ville et je souhaiterais réserver une chambre — comment dois-je procéder ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 13
         },
         {
           "text": "Quels types de chambres proposez-vous — simple, double, familiale ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 2
         },
         {
           "text": "Question hébergement, est-il possible de demander une chambre avec vue, ou à un étage précis ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 9
         },
         {
           "text": "Pouvez-vous ajouter un lit supplémentaire si on est accompagné d'un enfant ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 7
         },
         {
           "text": "Proposez-vous des services comme une salle de sport ou une piscine — sont-ils inclus dans le prix ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 9
         },
         {
           "text": "Le Wi-Fi est-il gratuit dans les chambres ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 9
         },
         {
           "text": "L'hôtel dispose-t-il d'un parking, et est-il gratuit pour les clients ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 9
         },
         {
           "text": "L'hôtel est-il facilement accessible depuis le centre-ville ou l'aéroport ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 5
         },
         {
           "text": "En ce qui concerne les règles, y a-t-il des conditions particulières pour les animaux de compagnie ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 8
         },
         {
           "text": "Côté horaires, à quelle heure puis-je arriver, et à quelle heure faut-il libérer la chambre le jour du départ ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 4
         },
         {
           "text": "En ce qui concerne le budget, quel est le prix par nuit pour chaque type de chambre ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 3
         },
         {
           "text": "Le petit-déjeuner est-il inclus dans le prix, ou facturé séparément ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 3
         },
         {
           "text": "Quelle est la politique d'annulation si mes dates changent ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 8
         },
         {
           "text": "Faut-il verser des arrhes au moment de la réservation ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 6
         },
         {
           "text": "Pour finir — comment puis-je vérifier les disponibilités pour les dates de mon séjour ?",
-          "memory_number": 7,
+          "memory_number": 15,
           "memory_section": 11
         }
       ]

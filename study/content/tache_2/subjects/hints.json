@@ -2050,16 +2050,16 @@
         "english": "Collecting the keys and any entry code"
       },
       {
-        "french": "Vérifications de sécurité : fenêtres, robinets, chauffage et alarme",
-        "english": "Security checks: windows, taps, heating and alarm"
+        "french": "Consignes de sécurité avant de partir : chauffage et éventuelle alarme",
+        "english": "Security instructions before leaving: heating and any alarm"
       },
       {
-        "french": "Disponibilité de l'ami et moyen de le prévenir en cas de problème",
-        "english": "Friend's availability and how to report a problem"
+        "french": "Disponibilité de l'ami et contact sur place s'il est injoignable",
+        "english": "Friend's availability and local backup if unreachable"
       },
       {
-        "french": "Contact sur place et double des clés si l'ami est injoignable",
-        "english": "Local backup contact and spare keys if the friend cannot be reached"
+        "french": "Nouvelles après les passages, même sans problème",
+        "english": "Routine updates after visits, even when nothing is wrong"
       }
     ],
     "station-stranger-mountain-passion": [

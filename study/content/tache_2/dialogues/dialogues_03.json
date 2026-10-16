@@ -334,7 +334,7 @@
     {
       "group": "friend-holiday-apartment-watch",
       "register": "tu",
-      "note": "Your friend entrusts you with watching their apartment during a holiday. This is a favour, not a rental, move or paid job. Clarify dates, duties, visit frequency and duration, access and security. Check when your friend can be reached, plus a local backup and access if they cannot respond. Use tu, and do not repeat contact details already supplied.",
+      "note": "Your friend asks you to watch their apartment during a holiday: this is a favour, not a rental or paid job. Clarify dates, tasks, visit frequency and duration, key collection and specific security instructions. Combine availability and a local backup in one question, then ask separately about routine updates when everything is fine. Use tu.",
       "opening": "Salut ! Avant ton départ, j'aimerais vérifier comment surveiller ton appartement et ce qu'il faudra faire.",
       "closing": "Merci pour ces consignes ! Je vais m'organiser pour passer comme prévu et te prévenir si quelque chose ne va pas.",
       "questions": [
@@ -343,9 +343,9 @@
         {"topic": "Dates et tâches", "question": "Quelles plantes dois-je arroser, et quelle quantité d'eau faut-il donner à chacune à chaque passage ?", "answer": "Les plantes du salon : 150 millilitres chacune à chaque passage, avec le verre doseur que je laisserai. N'arrose pas les cactus de la chambre.", "follow_up_to": 2, "condition": "If watering is requested without identifying the plants or water quantities per visit."},
         {"topic": "Dates et tâches", "question": "À quelle fréquence voudrais-tu que je passe, et combien de temps devrais-je rester à chaque visite ?", "answer": "Deux fois par semaine, si possible ; compte une vingtaine de minutes par visite pour les plantes, le courrier et les vérifications.", "follow_up_to": 2, "condition": "If visits are needed without their frequency or duration being specified."},
         {"topic": "Accès et sécurité", "question": "Quand et comment pourrais-je récupérer les clés, et y a-t-il un code d'accès à connaître ?", "answer": "Je te remettrai les clés la veille du départ et te montrerai l'entrée ; l'immeuble n'a pas de code d'accès.", "follow_up_to": null},
-        {"topic": "Accès et sécurité", "question": "Avant de repartir, dois-je vérifier les fenêtres, les robinets, le chauffage ou une éventuelle alarme ?", "answer": "Le chauffage doit garder son réglage habituel ; les fenêtres, la porte et les robinets doivent être fermés. Il n'y a pas d'alarme.", "follow_up_to": null},
-        {"topic": "Suivi et contact", "question": "Seras-tu joignable pendant ton absence, et comment te prévenir si je remarque un problème dans l'appartement ?", "answer": "Pas en permanence, notamment pendant les vols ; laisse-moi un message ou appelle mon portable. Je regarderai mes messages chaque soir.", "follow_up_to": null},
-        {"topic": "Suivi et contact", "question": "Si je n'arrive pas à te joindre, quelle personne sur place pourrai-je contacter, et aura-t-elle un double des clés ?", "answer": "Le concierge pourra intervenir pour les problèmes du bâtiment ; je lui laisserai un double des clés et te transmettrai ses coordonnées.", "follow_up_to": 7, "condition": "If your friend cannot always respond without naming a local backup with access."}
+        {"topic": "Accès et sécurité", "question": "Avant de quitter l'appartement après chaque visite, quelles consignes particulières dois-je respecter, notamment pour le chauffage ou une éventuelle alarme ?", "answer": "Garde le chauffage à 18 degrés, ferme les fenêtres et verrouille la porte en sortant. Il n'y a pas d'alarme.", "follow_up_to": null},
+        {"topic": "Suivi et contact", "question": "Seras-tu joignable pendant ton absence et, sinon, qui pourrai-je contacter sur place en cas de problème ?", "answer": "Tu peux m'appeler ou m'écrire, mais je serai parfois injoignable. Dans ce cas, contacte le concierge ; je te laisserai son numéro.", "follow_up_to": null},
+        {"topic": "Suivi et contact", "question": "Souhaites-tu que je t'envoie un petit message après chaque passage, même si tout va bien ?", "answer": "Oui, un petit message après chaque visite me rassurerait ; une photo des plantes suffit si tout va bien.", "follow_up_to": null}
       ]
     }
   ]

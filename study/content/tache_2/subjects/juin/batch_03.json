@@ -259,77 +259,77 @@
       "questions": [
         {
           "text": "Salut ! Tu vis au Canada — ça m'intrigue, comment les gens passent-ils leurs week-ends là-bas en général ?",
-          "memory_number": 7,
+          "memory_number": 10,
           "memory_section": 13
         },
         {
           "text": "Les activités en plein air sont-elles très populaires, comme la randonnée ou le vélo ?",
-          "memory_number": 7,
+          "memory_number": 10,
           "memory_section": 2
         },
         {
           "text": "Le sport tient une grande place dans les week-ends, ou c'est plutôt occasionnel ?",
-          "memory_number": 7,
+          "memory_number": 10,
           "memory_section": 2
         },
         {
           "text": "Les gens sortent-ils beaucoup — au restaurant, au cinéma, dans des bars ?",
-          "memory_number": 7,
+          "memory_number": 10,
           "memory_section": 2
         },
         {
           "text": "Sur un autre point, est-ce courant de partir en excursion d'une journée, comme à la campagne ou au bord de l'eau ?",
-          "memory_number": 7,
+          "memory_number": 10,
           "memory_section": 2
         },
         {
           "text": "Pour ce qui est du programme, y a-t-il des lieux ou des événements incontournables que les gens fréquentent régulièrement ?",
-          "memory_number": 7,
+          "memory_number": 10,
           "memory_section": 9
         },
         {
           "text": "Ça change beaucoup selon les saisons, ou les habitudes restent similaires toute l'année ?",
-          "memory_number": 7,
+          "memory_number": 10,
           "memory_section": 8
         },
         {
           "text": "Côté organisation, les Canadiens organisent-ils leur week-end à l'avance, ou plutôt à la dernière minute ?",
-          "memory_number": 7,
+          "memory_number": 10,
           "memory_section": 4
         },
         {
           "text": "Les week-ends de repos en famille sont-ils très importants là-bas ?",
-          "memory_number": 7,
+          "memory_number": 10,
           "memory_section": 4
         },
         {
           "text": "Est-ce que beaucoup de gens travaillent quand même un peu le week-end, ou c'est vraiment réservé au repos ?",
-          "memory_number": 7,
+          "memory_number": 10,
           "memory_section": 4
         },
         {
           "text": "L'ambiance est plutôt détendue, ou les gens restent très occupés même le week-end ?",
-          "memory_number": 7,
+          "memory_number": 10,
           "memory_section": 10
         },
         {
           "text": "En ce qui concerne le budget, ce genre d'activités coûte cher en général, ou on peut facilement en profiter sans grand budget ?",
-          "memory_number": 7,
+          "memory_number": 10,
           "memory_section": 3
         },
         {
           "text": "Ces habitudes changent-elles beaucoup d'une région du Canada à l'autre ?",
-          "memory_number": 7,
+          "memory_number": 10,
           "memory_section": 11
         },
         {
           "text": "Et toi personnellement, tu fais quoi la plupart du temps le week-end ?",
-          "memory_number": 7,
+          "memory_number": 10,
           "memory_section": 4
         },
         {
           "text": "Pour finir — si je voulais passer un week-end « à la canadienne », qu'est-ce que tu me conseillerais de faire ?",
-          "memory_number": 7,
+          "memory_number": 10,
           "memory_section": 13
         }
       ]

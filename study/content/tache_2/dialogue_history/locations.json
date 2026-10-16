@@ -1324,6 +1324,21 @@
             {"topic": "Suivi et contact", "question": "Seras-tu joignable pendant ton absence, et comment te prévenir si je remarque un problème dans l'appartement ?", "follow_up_to": null},
             {"topic": "Suivi et contact", "question": "Si je n'arrive pas à te joindre, quelle personne sur place pourrai-je contacter, et aura-t-elle un double des clés ?", "follow_up_to": 7, "condition": "If your friend cannot always respond without naming a local backup with access."}
           ]
+        },
+        {
+          "group": "friend-holiday-apartment-watch",
+          "opening": "Salut ! Avant ton départ, j'aimerais vérifier comment surveiller ton appartement et ce qu'il faudra faire.",
+          "closing": "Merci pour ces consignes ! Je vais m'organiser pour passer comme prévu et te prévenir si quelque chose ne va pas.",
+          "questions": [
+            {"topic": "Dates et tâches", "question": "Entre quelles dates souhaites-tu que je surveille l'appartement ?", "follow_up_to": null},
+            {"topic": "Dates et tâches", "question": "Quelles tâches souhaites-tu que j'assure : arroser les plantes, relever le courrier ou récupérer des colis ?", "follow_up_to": null},
+            {"topic": "Dates et tâches", "question": "Quelles plantes dois-je arroser, et quelle quantité d'eau faut-il donner à chacune à chaque passage ?", "follow_up_to": 2, "condition": "If watering is requested without identifying the plants or water quantities per visit."},
+            {"topic": "Dates et tâches", "question": "À quelle fréquence voudrais-tu que je passe, et combien de temps devrais-je rester à chaque visite ?", "follow_up_to": 2, "condition": "If visits are needed without their frequency or duration being specified."},
+            {"topic": "Accès et sécurité", "question": "Quand et comment pourrais-je récupérer les clés, et y a-t-il un code d'accès à connaître ?", "follow_up_to": null},
+            {"topic": "Accès et sécurité", "question": "Avant de repartir, dois-je vérifier les fenêtres, les robinets, le chauffage ou une éventuelle alarme ?", "follow_up_to": null},
+            {"topic": "Suivi et contact", "question": "Seras-tu joignable pendant ton absence, et comment te prévenir si je remarque un problème dans l'appartement ?", "follow_up_to": null},
+            {"topic": "Suivi et contact", "question": "Si je n'arrive pas à te joindre, quelle personne sur place pourrai-je contacter, et aura-t-elle un double des clés ?", "follow_up_to": 7, "condition": "If your friend cannot always respond without naming a local backup with access."}
+          ]
         }
       ]
     },

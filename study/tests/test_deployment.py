@@ -2,7 +2,7 @@
 
 These guard the settings that keep a serverless Postgres (Neon) asleep: short
 connection lifetimes, no deploy-time database work in the web start path, and
-fingerprinted imports that remain safe when both platforms deploy.
+fingerprinted imports that only the Render build runs.
 """
 
 from __future__ import annotations
@@ -165,10 +165,14 @@ class DeploymentCommandTests(SimpleTestCase):
             body,
         )
 
-    def test_vercel_build_runs_the_database_deployment_command(self):
-        config = json.loads(VERCEL_JSON.read_text())
+    def test_vercel_build_leaves_database_work_to_render(self):
+        # A Vercel import holds the shared advisory lock from far away, so the
+        # Render build would wait for it instead of importing in seconds.
+        build = json.loads(VERCEL_JSON.read_text())["buildCommand"]
 
-        self.assertEqual(config["buildCommand"], DEPLOY_COMMAND)
+        self.assertEqual(build, "python manage.py check")
+        for database_command in ("deploy_database", "migrate", "import_content"):
+            self.assertNotIn(database_command, build)
 
 
 class DatabaseDeployCommandTests(SimpleTestCase):

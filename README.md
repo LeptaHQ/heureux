@@ -238,8 +238,9 @@ Timestamp ties and unchanged imports do not invalidate genuinely later reviews,
 including reviews written by an old worker during application replacement.
 
 **Deployment gate:** apply migrations and import both complete manifests before
-serving the new application. Render and Vercel builds call `deploy_database`
+serving the new application. Render builds call `deploy_database`
 (migrations first, then fingerprinted import); Procfile releases do the same.
+Vercel builds only run `manage.py check` and never touch the database.
 Do not use `[skip db]` for this rollout. For a manual deployment run
 `python manage.py deploy_database --force`, then restart workers. Do not regenerate
 manifests from body hashes or replace the immutable original source files.

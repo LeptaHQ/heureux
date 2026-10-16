@@ -26,11 +26,12 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
         catalogue.clear_catalogue_cache()
         self.addCleanup(catalogue.clear_catalogue_cache)
 
-    def test_arrival_theme_is_unchanged(self):
+    def test_original_arrival_models_are_unchanged_after_social_integration_reclassification(self):
         _, mapping = catalogue.tache_two_subject_themes()
         protected = {
             row.group for key, row in catalogue.tache_two_dialogues().items()
             if mapping[key] == "arrivee"
+            and row.group != "newcomer-local-acquaintance-meet-people"
         }
         rows = [
             row for path in (content.QUESTION_BANK_DIR / "dialogues").glob("*.json")
@@ -46,15 +47,46 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
             "b3f62225759c57d763f3af704a1a1756d7d83700d5b9c061b8b5b2de52304802",
         )
 
-    def test_history_excludes_arrival_theme(self):
+    def test_social_integration_and_all_equivalent_consignes_belong_to_arrival(self):
+        _, mapping = catalogue.tache_two_subject_themes()
+        dialogues = catalogue.tache_two_dialogues()
+        keys = {
+            key for key, row in dialogues.items()
+            if row.group == "newcomer-local-acquaintance-meet-people"
+        }
+        self.assertEqual(keys, {
+            "tache2:fevrier:batch-05:subject-24",
+            "tache2:mars:batch-03:subject-14",
+            "tache2:septembre:batch-03:subject-14",
+            "tache2:octobre:batch-02:subject-09",
+        })
+        subjects = {
+            content.tache_two_subject_content_key(month.slug, batch.number, subject.number): subject
+            for month in catalogue.tache_two_subject_months()
+            for batch in month.batches
+            for subject in batch.subjects
+        }
+        for key in keys:
+            with self.subTest(content_key=key):
+                self.assertEqual(mapping[key], "arrivee")
+                self.assertEqual(
+                    [question.memory_number for question in subjects[key].questions], [1] * 15,
+                )
+        arrival = [row for key, row in dialogues.items() if mapping[key] == "arrivee"]
+        self.assertEqual(len(arrival), 13)
+        self.assertEqual(len({row.group for row in arrival}), 7)
+
+    def test_arrival_history_contains_only_the_reclassified_social_integration_model(self):
         history = catalogue.tache_two_location_history()
         _, mapping = catalogue.tache_two_subject_themes()
         dialogues = catalogue.tache_two_dialogues()
-        for key, current in dialogues.items():
-            if current.group not in history:
-                continue
-            with self.subTest(group=current.group):
-                self.assertNotEqual(mapping[key], "arrivee")
+        archived_arrival_groups = {
+            current.group for key, current in dialogues.items()
+            if mapping[key] == "arrivee" and current.group in history
+        }
+        self.assertEqual(
+            archived_arrival_groups, {"newcomer-local-acquaintance-meet-people"},
+        )
 
     def test_recorded_substitutions_reconstruct_current_or_archived_geographic_models(self):
         by_group = {item.group: item for item in catalogue.tache_two_dialogues().values()}
@@ -142,8 +174,8 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
             key: row for key, row in catalogue.tache_two_dialogues().items()
             if themes[key] == "vie-quartier"
         }
-        self.assertEqual(len(publications), 44)
-        self.assertEqual(len({row.group for row in publications.values()}), 20)
+        self.assertEqual(len(publications), 40)
+        self.assertEqual(len({row.group for row in publications.values()}), 19)
         shared = [
             row for row in publications.values()
             if row.group == "new-resident-neighbor-neighborhood-orientation"

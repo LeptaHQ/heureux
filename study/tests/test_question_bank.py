@@ -2910,6 +2910,40 @@ class QuestionBankViewTests(TestCase):
         self.assertNotContains(response, "data-question-bank-question")
         self.assertNotContains(response, "data-tache-two-subject-month")
 
+    def test_social_integration_equivalents_are_grouped_under_arrival_not_neighbourhood(self):
+        keys = {
+            "tache2:fevrier:batch-05:subject-24",
+            "tache2:mars:batch-03:subject-14",
+            "tache2:septembre:batch-03:subject-14",
+            "tache2:octobre:batch-02:subject-09",
+        }
+        prompts = list(Prompt.objects.select_related("theme").filter(content_key__in=keys))
+        self.assertEqual({prompt.content_key for prompt in prompts}, keys)
+        self.assertEqual({prompt.theme.slug for prompt in prompts}, {"tache-2-arrivee"})
+        self.assertEqual(len({prompt.response_id for prompt in prompts}), 1)
+        url = reverse("study:task_browse", args=[self.task.part.slug, self.task.slug])
+        for selection in ({}, {"deduplicate": "0"}):
+            with self.subTest(selection=selection):
+                page = self.client.get(url, selection)
+                self.assertEqual(page.status_code, 200)
+                themes = {theme["slug"]: theme for theme in page.context["subject_themes"]}
+                arrival = {row["content_key"] for row in themes["arrivee"]["subjects"]}
+                neighbourhood = {
+                    row["content_key"] for row in themes["vie-quartier"]["subjects"]
+                }
+                self.assertFalse(keys & neighbourhood)
+                if selection:
+                    self.assertLessEqual(keys, arrival)
+                    self.assertEqual(len(arrival), 13)
+                    self.assertEqual(len(neighbourhood), 40)
+                else:
+                    self.assertEqual(len(keys & arrival), 1)
+        for prompt in prompts:
+            with self.subTest(content_key=prompt.content_key):
+                page = self.client.get(prompt_detail_url(prompt))
+                self.assertEqual(page.status_code, 200)
+                self.assert_subject_hints(page)
+
     def test_subject_directory_deduplicates_existing_response_groups(self):
         url = reverse(
             "study:task_browse", args=[self.task.part.slug, self.task.slug],

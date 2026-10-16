@@ -40,13 +40,15 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
             (content.QUESTION_BANK_DIR / "dialogue_history/locations.json").read_text(),
         )["groups"]
 
-    def test_review_covers_twenty_models_and_all_forty_four_publications(self):
+    def test_review_covers_nineteen_neighbourhood_models_and_forty_publications(self):
         publications = [
             row for key, row in self.dialogues.items() if self.themes[key] == "vie-quartier"
         ]
         groups = {row.group for row in publications}
-        self.assertEqual(len(publications), 44)
-        self.assertEqual(groups, set(REVIEW_REVISIONS) | {
+        self.assertEqual(len(publications), 40)
+        self.assertEqual(groups, (set(REVIEW_REVISIONS) - {
+            "newcomer-local-acquaintance-meet-people",
+        }) | {
             "new-resident-neighbor-neighborhood-orientation",
             "volunteer-local-association-information-office",
         })
@@ -63,7 +65,7 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
             for row in json.loads(path.read_text())["dialogues"]
         }
         expected = {
-            "arrivee": "b3f62225759c57d763f3af704a1a1756d7d83700d5b9c061b8b5b2de52304802",
+            "arrivee": "eeb337d3fd34d07c863b10f58fa4da53bae6f1b91822e56eaa8042170a48e278",
             "logement": "e650f8cfbd4e5c653958e7601692e2d4d0549302f09a4e9b9bdfa7f53f240847",
             "travail": "5529b40e35c4d3fd44ca29e4fc103345feebe67ca35618a24091b59d716b8752",
             "ecole-etudes": "2fdd745d22e7b18c13bf1ffb59ba3b1aa85a67a33932b0e3412851a7fe2d43e1",

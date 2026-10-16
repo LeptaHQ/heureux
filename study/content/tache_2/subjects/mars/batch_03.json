@@ -259,77 +259,77 @@
       "questions": [
         {
           "text": "Bonjour ! Je viens d'arriver dans la ville et je ne connais encore personne — vous pourriez me conseiller un peu ?",
-          "memory_number": 3,
+          "memory_number": 1,
           "memory_section": 13
         },
         {
           "text": "Comment est le quartier en général — plutôt animé ou calme ?",
-          "memory_number": 3,
+          "memory_number": 1,
           "memory_section": 10
         },
         {
           "text": "Est-ce que les habitants sont accueillants avec les nouveaux arrivants ?",
-          "memory_number": 3,
+          "memory_number": 1,
           "memory_section": 10
         },
         {
           "text": "Concrètement, quels types d'activités ou clubs sont populaires ici pour se faire des amis ?",
-          "memory_number": 3,
+          "memory_number": 1,
           "memory_section": 2
         },
         {
           "text": "Y a-t-il des lieux conviviaux où les habitants se retrouvent régulièrement — cafés, bibliothèques ou maisons de quartier ?",
-          "memory_number": 3,
+          "memory_number": 1,
           "memory_section": 13
         },
         {
           "text": "Est-ce que les voisins organisent parfois des activités ou des rencontres dans l'immeuble ?",
-          "memory_number": 3,
+          "memory_number": 1,
           "memory_section": 2
         },
         {
           "text": "Et puis, le bénévolat est-il courant ici — où peut-on trouver des associations qui recherchent des bénévoles ?",
-          "memory_number": 3,
+          "memory_number": 1,
           "memory_section": 2
         },
         {
           "text": "Existe-t-il des groupes en ligne pour les nouveaux habitants du quartier ?",
-          "memory_number": 3,
+          "memory_number": 1,
           "memory_section": 9
         },
         {
           "text": "Et côté agenda, y a-t-il des festivals ou événements annuels incontournables pour rencontrer des gens ?",
-          "memory_number": 3,
+          "memory_number": 1,
           "memory_section": 2
         },
         {
           "text": "Y a-t-il aussi des rencontres régulières où l'on peut retrouver les mêmes personnes ?",
-          "memory_number": 3,
+          "memory_number": 1,
           "memory_section": 4
         },
         {
           "text": "Où peut-on consulter le programme de ces événements ?",
-          "memory_number": 3,
+          "memory_number": 1,
           "memory_section": 2
         },
         {
           "text": "Côté déplacements, ces lieux et ces activités sont-ils facilement accessibles en transports en commun ?",
-          "memory_number": 3,
+          "memory_number": 1,
           "memory_section": 5
         },
         {
           "text": "En ce qui concerne le budget, les activités proposées sont-elles gratuites ou faut-il prévoir un petit budget ?",
-          "memory_number": 3,
+          "memory_number": 1,
           "memory_section": 3
         },
         {
           "text": "Parmi toutes ces possibilités, laquelle vous semble la plus efficace pour rencontrer rapidement du monde ?",
-          "memory_number": 3,
+          "memory_number": 1,
           "memory_section": 11
         },
         {
           "text": "Pour finir — quel conseil me donneriez-vous pour me sentir rapidement chez moi ?",
-          "memory_number": 3,
+          "memory_number": 1,
           "memory_section": 13
         }
       ]

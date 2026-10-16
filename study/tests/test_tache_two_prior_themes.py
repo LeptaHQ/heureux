@@ -18,8 +18,8 @@ class TacheTwoPriorThemeReviewTests(SimpleTestCase):
             (content.QUESTION_BANK_DIR / "dialogue_history/locations.json").read_text(),
         )["groups"]
 
-    def test_review_keeps_all_thirty_five_models_and_seventy_four_publications(self):
-        for theme, publications, groups in (("vie-quartier", 44, 20), ("travail", 30, 15)):
+    def test_review_keeps_all_thirty_four_models_and_seventy_publications(self):
+        for theme, publications, groups in (("vie-quartier", 40, 19), ("travail", 30, 15)):
             rows = [row for key, row in self.dialogues.items() if self.themes[key] == theme]
             with self.subTest(theme=theme):
                 self.assertEqual(len(rows), publications)
@@ -36,7 +36,7 @@ class TacheTwoPriorThemeReviewTests(SimpleTestCase):
             for row in json.loads(path.read_text())["dialogues"]
         }
         expected = {
-            "arrivee": "b3f62225759c57d763f3af704a1a1756d7d83700d5b9c061b8b5b2de52304802",
+            "arrivee": "eeb337d3fd34d07c863b10f58fa4da53bae6f1b91822e56eaa8042170a48e278",
             "logement": "e650f8cfbd4e5c653958e7601692e2d4d0549302f09a4e9b9bdfa7f53f240847",
             "ecole-etudes": "2fdd745d22e7b18c13bf1ffb59ba3b1aa85a67a33932b0e3412851a7fe2d43e1",
         }

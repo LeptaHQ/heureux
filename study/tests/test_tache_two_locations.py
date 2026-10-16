@@ -1212,8 +1212,15 @@ class PublishedTacheTwoHighlightTests(TestCase):
     def test_dog_routine_rewrite_preserves_other_questions_and_archives_changed_highlights(self):
         self.assert_revision_highlights_preserved(
             "neighbor-dog-care-week-paid",
-            {1: 1, 2: 2, 6: 6, 7: 7},
+            {1: 1, 2: 2, 7: 7},
             revision=2,
+        )
+
+    def test_dog_care_and_payment_refinements_preserve_other_questions_and_archive_previous_wording(self):
+        self.assert_revision_highlights_preserved(
+            "neighbor-dog-care-week-paid",
+            {number: number for number in (1, 2, 3, 4, 5, 7)},
+            revision=3,
         )
 
     def test_unspecified_apartment_revision_preserves_other_questions_and_archived_notes(self):

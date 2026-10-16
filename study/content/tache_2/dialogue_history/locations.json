@@ -999,6 +999,21 @@
             {"topic": "Santé et contact", "question": "Qui dois-je contacter si je remarque un problème de santé ?", "follow_up_to": null},
             {"topic": "Rémunération", "question": "Quelle rémunération avez-vous prévue pour la garde, et comment seront remboursées d'éventuelles dépenses urgentes ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "neighbor-dog-care-week-paid",
+          "opening": "Bonjour ! Votre proposition m'intéresse. J'aimerais vérifier que je pourrai bien m'occuper de votre chien.",
+          "closing": "Merci pour ces précisions. Je vais vérifier mes disponibilités avant de vous confirmer.",
+          "questions": [
+            {"topic": "Organisation de la garde", "question": "Quelles sont les dates exactes de votre absence ?", "follow_up_to": null},
+            {"topic": "Organisation de la garde", "question": "Souhaitez-vous que je garde le chien chez vous ou chez moi, et faut-il prévoir une présence la nuit ?", "follow_up_to": null},
+            {"topic": "Routine quotidienne", "question": "Fournirez-vous sa nourriture ou devrai-je m'en occuper, et à quelles heures prend-il ses repas ?", "follow_up_to": null},
+            {"topic": "Routine quotidienne", "question": "À quelle fréquence faut-il le promener, et combien de temps prévoir pour chaque sortie ?", "follow_up_to": null},
+            {"topic": "Routine quotidienne", "question": "Comment se comporte-t-il pendant les promenades, et est-il sociable avec les personnes qu'il ne connaît pas ?", "follow_up_to": 4, "condition": "If walks are needed and behaviour around unfamiliar people has not been explained."},
+            {"topic": "Santé et contact", "question": "A-t-il des allergies, des soins ou un traitement à prévoir pendant la garde ?", "follow_up_to": null},
+            {"topic": "Santé et contact", "question": "Qui dois-je contacter si je remarque un problème de santé ?", "follow_up_to": null},
+            {"topic": "Rémunération", "question": "Quelle rémunération avez-vous prévue pour la garde, et quand sera-t-elle versée ?", "follow_up_to": null}
+          ]
         }
       ]
     },

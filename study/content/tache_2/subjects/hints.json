@@ -160,16 +160,16 @@
         "english": "Behaviour on walks and sociability with unfamiliar people"
       },
       {
-        "french": "Allergies, soins ou traitement pendant la garde",
-        "english": "Allergies, care or treatment during the stay"
+        "french": "Allergies, soins particuliers ou traitement pendant la garde",
+        "english": "Known allergies, special care or treatment during the stay"
       },
       {
         "french": "Contact en cas de problème de santé",
         "english": "Contact for a health problem"
       },
       {
-        "french": "Rémunération prévue et moment du paiement",
-        "english": "Pay offered and when it will be paid"
+        "french": "Rémunération et paiement avant le départ ou au retour",
+        "english": "Pay and payment before departure or on return"
       }
     ],
     "employee-yoga-colleague-organizer": [

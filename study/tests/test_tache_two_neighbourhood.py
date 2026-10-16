@@ -133,7 +133,10 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
                 before = self.history[group]["revisions"][2]
                 snapshot = json.dumps(before, ensure_ascii=False, sort_keys=True).encode()
                 self.assertEqual(hashlib.sha256(snapshot).hexdigest(), digest)
-                self.assertEqual(len(self.history[group]["revisions"]), 3)
+                self.assertEqual(
+                    len(self.history[group]["revisions"]),
+                    4 if group == "neighbor-dog-care-week-paid" else 3,
+                )
 
     def test_city_visit_opens_with_culture_and_keeps_every_piste_aligned(self):
         row = self.by_group["host-foreign-friends-city-advice"]
@@ -205,6 +208,8 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertIn("présence la nuit", paid.questions[1].question)
         self.assertIn("Trois sorties", paid.questions[3].answer)
         self.assertIn("allergies", paid.questions[5].question)
+        self.assertIn("soins particuliers", paid.questions[5].question)
+        self.assertIn("aucun soin particulier", paid.questions[5].answer)
         self.assertIn("280 $ pour la semaine", paid.questions[7].answer)
         self.assertIn("dimanche soir, à mon retour", paid.questions[7].answer)
         self.assertIn("avant de vous confirmer", paid.closing)
@@ -247,10 +252,18 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         )
         self.assertEqual(
             row.questions[7].question,
-            "Quelle rémunération avez-vous prévue pour la garde, et quand sera-t-elle versée ?",
+            "Quelle rémunération avez-vous prévue pour la garde, et sera-t-elle versée avant votre départ ou à votre retour ?",
         )
         self.assertEqual(
-            self.hints[row.group][7]["english"], "Pay offered and when it will be paid",
+            self.hints[row.group][7]["english"], "Pay and payment before departure or on return",
+        )
+
+    def test_dog_health_and_payment_refinement_keeps_exact_previous_layout(self):
+        before = self.history["neighbor-dog-care-week-paid"]["revisions"][3]
+        snapshot = json.dumps(before, ensure_ascii=False, sort_keys=True).encode()
+        self.assertEqual(
+            hashlib.sha256(snapshot).hexdigest(),
+            "22e0da946de86941a1b8d100e6c28a6537c11ae4c1c3ea2793299bf6a857f92e",
         )
 
     def test_childcare_meal_and_sleep_arrangements_are_actionable(self):

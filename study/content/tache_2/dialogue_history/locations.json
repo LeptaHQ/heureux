@@ -1049,6 +1049,21 @@
             {"topic": "Besoins quotidiens", "question": "Pendant les promenades, y a-t-il des endroits à éviter ou des précautions particulières à prendre ?", "follow_up_to": 5, "condition": "If walks are mentioned without safety precautions; adapt to the animal named."},
             {"topic": "Contact et urgence", "question": "Qui dois-je contacter, et quels renseignements me laisseras-tu si une consultation vétérinaire devient urgente ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "trusted-person-temporary-pet-care",
+          "opening": "Salut ! Pour bien m'occuper de ton animal pendant ton absence, j'aimerais préciser ses besoins.",
+          "closing": "Merci pour toutes ces précisions ! Je vais m'organiser à partir de ces consignes.",
+          "questions": [
+            {"topic": "Organisation de la garde", "question": "Quel animal vas-tu me confier, et quel âge a-t-il ?", "follow_up_to": null},
+            {"topic": "Organisation de la garde", "question": "Pendant quelles dates faudra-t-il m'en occuper ?", "follow_up_to": null},
+            {"topic": "Organisation de la garde", "question": "Où souhaites-tu qu'il reste, et combien de temps peut-il rester seul pendant la journée ?", "follow_up_to": null},
+            {"topic": "Besoins quotidiens", "question": "Quelle nourriture dois-je lui donner, en quelles quantités et à quels horaires ?", "follow_up_to": null},
+            {"topic": "Besoins quotidiens", "question": "De quelle activité a-t-il besoin chaque jour, et à quelle fréquence ?", "follow_up_to": null},
+            {"topic": "Besoins quotidiens", "question": "A-t-il un traitement à prendre ou des soins particuliers à recevoir pendant ton absence ?", "follow_up_to": null},
+            {"topic": "Besoins quotidiens", "question": "Pendant les promenades, y a-t-il des endroits à éviter ou des précautions particulières à prendre ?", "follow_up_to": 5, "condition": "If walks are mentioned without safety precautions; adapt to the animal named."},
+            {"topic": "Contact et urgence", "question": "Qui dois-je contacter, et quels renseignements me laisseras-tu si une consultation vétérinaire devient urgente ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -1080,6 +1095,21 @@
             {"topic": "Missions et disponibilités", "question": "Quelles missions cette association propose-t-elle aux bénévoles ?", "follow_up_to": null},
             {"topic": "Missions et disponibilités", "question": "Quels créneaux sont proposés pour ces missions ?", "follow_up_to": null},
             {"topic": "Missions et disponibilités", "question": "Quel engagement régulier demande-t-elle ?", "follow_up_to": null},
+            {"topic": "Conditions et contact", "question": "Faut-il une expérience particulière, ou une formation est-elle prévue pour les nouveaux bénévoles ?", "follow_up_to": null},
+            {"topic": "Conditions et contact", "question": "À qui dois-je m'adresser pour m'inscrire, et quels renseignements faut-il fournir ?", "follow_up_to": null},
+            {"topic": "Conditions et contact", "question": "Après ce premier contact, sous quel délai pourrait-on commencer ?", "follow_up_to": 7, "condition": "After the contact procedure is explained without a possible starting date."}
+          ]
+        },
+        {
+          "group": "volunteer-local-association-information-office",
+          "opening": "Bonjour ! J'aimerais devenir bénévole dans une association du quartier.",
+          "closing": "Merci pour votre aide. Je vais prendre contact avec l'association qui correspond à mes disponibilités.",
+          "questions": [
+            {"topic": "Choix de l'association", "question": "Quels types d'associations recherchent actuellement des bénévoles dans le quartier ?", "follow_up_to": null},
+            {"topic": "Choix de l'association", "question": "Quel public l'association d'aide alimentaire accompagne-t-elle ?", "follow_up_to": 1, "condition": "If a food-aid association is mentioned; adapt to the option that interests you."},
+            {"topic": "Missions et disponibilités", "question": "Quelles missions cette association propose-t-elle aux bénévoles ?", "follow_up_to": null},
+            {"topic": "Missions et disponibilités", "question": "Quels jours et à quelles heures ont lieu ces missions ?", "follow_up_to": null},
+            {"topic": "Missions et disponibilités", "question": "Peut-on aider ponctuellement, ou faut-il s'engager régulièrement sur une certaine durée ?", "follow_up_to": null},
             {"topic": "Conditions et contact", "question": "Faut-il une expérience particulière, ou une formation est-elle prévue pour les nouveaux bénévoles ?", "follow_up_to": null},
             {"topic": "Conditions et contact", "question": "À qui dois-je m'adresser pour m'inscrire, et quels renseignements faut-il fournir ?", "follow_up_to": null},
             {"topic": "Conditions et contact", "question": "Après ce premier contact, sous quel délai pourrait-on commencer ?", "follow_up_to": 7, "condition": "After the contact procedure is explained without a possible starting date."}

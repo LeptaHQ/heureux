@@ -768,20 +768,20 @@
         "english": "Care location and maximum time the animal can be left alone"
       },
       {
-        "french": "Nourriture, quantités et horaires des repas",
-        "english": "Food, portions and meal times"
+        "french": "Nourriture laissée par le propriétaire ou à acheter, horaires des repas",
+        "english": "Food left by the owner or to buy, and feeding times"
       },
       {
-        "french": "Activité quotidienne et fréquence",
-        "english": "Daily activity and frequency"
+        "french": "Nombre de sorties ou de séances de jeu par jour et durée de chacune",
+        "english": "Daily number of outings or play sessions and duration of each"
       },
       {
-        "french": "Traitement ou soins pendant l'absence",
-        "english": "Treatment or care during the absence"
+        "french": "Comportement en promenade et sociabilité avec les inconnus",
+        "english": "Behaviour on walks and sociability with unfamiliar people"
       },
       {
-        "french": "Lieux à éviter et précautions pendant les promenades",
-        "english": "Places to avoid and precautions during walks"
+        "french": "Allergies, soins particuliers ou traitement pendant l'absence",
+        "english": "Known allergies, special care or treatment during the absence"
       },
       {
         "french": "Contacts et renseignements pour une urgence vétérinaire",
@@ -1036,8 +1036,8 @@
         "english": "People helped by the food-aid association"
       },
       {
-        "french": "Missions proposées aux bénévoles",
-        "english": "Tasks offered to volunteers"
+        "french": "Missions confiées aux bénévoles",
+        "english": "Tasks assigned to volunteers"
       },
       {
         "french": "Jours et horaires des missions",
@@ -1056,8 +1056,8 @@
         "english": "Registration contact and information to provide"
       },
       {
-        "french": "Délai avant de pouvoir commencer",
-        "english": "Time before being able to start"
+        "french": "Rencontre de l'équipe et observation d'une distribution avant de s'engager",
+        "english": "Meeting the team and observing a distribution before committing"
       }
     ],
     "newcomer-canada-private-french-teacher": [

@@ -80,7 +80,7 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
                 self.assertEqual(hashlib.sha256(snapshot).hexdigest(), digest)
         self.assertNotIn("new-resident-neighbor-neighborhood-orientation", self.history)
         self.assertEqual(
-            len(self.history["volunteer-local-association-information-office"]["revisions"]), 2,
+            len(self.history["volunteer-local-association-information-office"]["revisions"]), 3,
         )
 
     def test_all_eighteen_exact_previous_layouts_are_archived_without_hidden_answers(self):
@@ -137,6 +137,20 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
                     len(self.history[group]["revisions"]),
                     4 if group == "neighbor-dog-care-week-paid" else 3,
                 )
+
+    def test_previous_friend_pet_and_office_layouts_are_archived_exactly(self):
+        expected = {
+            "trusted-person-temporary-pet-care":
+                "02e0cc074fa1690558a88166b655e024c1aede017d8e044c2be6d3fea4f31210",
+            "volunteer-local-association-information-office":
+                "833b236ba0714be73c2a638bbe99d1707a8b70b28dd985caa95b279b5ef52c9b",
+        }
+        for group, digest in expected.items():
+            with self.subTest(group=group):
+                before = self.history[group]["revisions"][2]
+                snapshot = json.dumps(before, ensure_ascii=False, sort_keys=True).encode()
+                self.assertEqual(hashlib.sha256(snapshot).hexdigest(), digest)
+                self.assertEqual(len(self.history[group]["revisions"]), 3)
 
     def test_city_visit_opens_with_culture_and_keeps_every_piste_aligned(self):
         row = self.by_group["host-foreign-friends-city-advice"]
@@ -202,7 +216,7 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertIn("combien de temps peut-il rester seul", pet.questions[2].question)
         for detail in ("la nuit", "présence en journée", "quatre heures"):
             self.assertIn(detail, pet.questions[2].answer)
-        self.assertIn("sortie à midi", pet.questions[4].answer)
+        self.assertIn("sortie de dix minutes à midi", pet.questions[4].answer)
         self.assertIn("adapt walks and overnight presence", pet.note)
         paid = self.by_group["neighbor-dog-care-week-paid"]
         self.assertIn("présence la nuit", paid.questions[1].question)
@@ -213,6 +227,86 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertIn("280 $ pour la semaine", paid.questions[7].answer)
         self.assertIn("dimanche soir, à mon retour", paid.questions[7].answer)
         self.assertIn("avant de vous confirmer", paid.closing)
+
+    def test_friend_pet_care_uses_the_same_practical_goals_without_assuming_a_paid_dog_job(self):
+        group = "trusted-person-temporary-pet-care"
+        publications = [row for row in self.dialogues.values() if row.group == group]
+        self.assertEqual(len(publications), 5)
+        for row in publications:
+            with self.subTest(note=row.note):
+                self.assertEqual(row.register, "tu")
+                self.assertEqual(
+                    row.questions[0].question, "Quel animal vas-tu me confier, et quel âge a-t-il ?",
+                )
+                self.assertTrue(row.questions[3].question.startswith("Côté alimentation,"))
+                self.assertIn("me laisseras-tu sa nourriture ou devrai-je l'acheter", row.questions[3].question)
+                self.assertIn("à quelles heures", row.questions[3].question)
+                self.assertIn("Je te laisserai ses croquettes", row.questions[3].answer)
+                self.assertIn("8 h et à 18 h", row.questions[3].answer)
+                self.assertIn("sorties ou de séances de jeu", row.questions[4].question)
+                self.assertIn("combien de temps doit durer chacune", row.questions[4].question)
+                self.assertIn("sortie de dix minutes à midi", row.questions[4].answer)
+                self.assertIn("deux séances de jeu de dix minutes", row.questions[4].answer)
+                self.assertIn("allergies à connaître", row.questions[6].question)
+                self.assertIn("soins particuliers", row.questions[6].question)
+                self.assertIn("ton absence", row.questions[6].question)
+                self.assertIn("Aucune allergie connue", row.questions[6].answer)
+                self.assertIn("sociable avec les personnes qu'il ne connaît pas", row.questions[5].question)
+                self.assertIn("sociable avec les inconnus", row.questions[5].answer)
+                self.assertEqual(row.questions[5].follow_up_to, 5)
+                self.assertIn("without explaining behaviour around strangers", row.questions[5].condition)
+                self.assertIn("adapt to the animal named", row.questions[5].condition)
+                self.assertIn("vétérinaire", row.questions[7].question)
+                self.assertEqual(
+                    [question.topic for question in row.questions],
+                    ["Organisation de la garde"] * 3 + ["Besoins quotidiens"] * 3
+                    + ["Santé et urgence"] * 2,
+                )
+                self.assertFalse(any(
+                    word in question.question.lower()
+                    for question in row.questions for word in ("rémunération", "salaire", "paiement")
+                ))
+        self.assertEqual(
+            [cue["english"] for cue in self.hints[group][3:7]],
+            [
+                "Food left by the owner or to buy, and feeding times",
+                "Daily number of outings or play sessions and duration of each",
+                "Behaviour on walks and sociability with unfamiliar people",
+                "Known allergies, special care or treatment during the absence",
+            ],
+        )
+        self.assertIn(
+            "not yet agreed", self.dialogues["tache2:septembre:batch-05:subject-22"].note,
+        )
+        self.assertIn(
+            "Do not assume walks or overnight care",
+            self.dialogues["tache2:septembre:batch-06:subject-27"].note,
+        )
+
+    def test_volunteer_task_question_asks_about_assignments_within_the_officers_role(self):
+        row = self.by_group["volunteer-local-association-information-office"]
+        self.assertEqual(
+            row.questions[2].question,
+            "Quelles missions sont confiées aux bénévoles dans cette association ?",
+        )
+        self.assertIn("does not necessarily run", row.note)
+        self.assertIn("Préparer les paniers", row.questions[2].answer)
+        self.assertEqual(
+            self.hints[row.group][2]["english"], "Tasks assigned to volunteers",
+        )
+        self.assertEqual(
+            row.questions[7].question,
+            "Pourrais-je rencontrer l'équipe et observer une distribution avant de m'engager régulièrement ?",
+        )
+        self.assertIn("sur rendez-vous", row.questions[7].answer)
+        self.assertIn("l'association confirmera le créneau", row.questions[7].answer)
+        self.assertIn("les consignes avant votre venue", row.questions[7].answer)
+        self.assertIsNone(row.questions[7].follow_up_to)
+        self.assertEqual(row.questions[1].follow_up_to, 1)
+        self.assertEqual(
+            self.hints[row.group][7]["english"],
+            "Meeting the team and observing a distribution before committing",
+        )
 
     def test_paid_dog_routine_distinguishes_walk_frequency_from_behaviour_with_unfamiliar_people(self):
         row = self.by_group["neighbor-dog-care-week-paid"]

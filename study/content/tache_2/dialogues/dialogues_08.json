@@ -106,7 +106,7 @@
     {
       "group": "help-friend-post-parcel",
       "register": "tu",
-      "note": "Your friend cannot post a parcel and asks for help; you have not yet agreed. Check posting deadline, contents and precautions, destination and arrival date, budget, size and weight, total errand time, preparation and collection. Use tu. Your friend cannot guarantee carrier restrictions, express availability or delivery dates. Verify these before confirming. This is a personal errand, not a commercial service.",
+      "note": "Your friend cannot post a parcel and asks for help; you have not yet agreed. Check deadline, contents, precautions, destination, arrival date, budget, size, weight, total errand time, preparation, money before posting and collection. Use tu. Your friend cannot guarantee carrier restrictions, express availability or delivery dates. Verify these before confirming. This is a favour, not a paid delivery job; postage funding is not remuneration.",
       "opening": "Salut ! Je vais voir si je peux poster ton paquet, mais j'ai besoin de quelques précisions pour m'organiser.",
       "closing": "Merci pour ces précisions ! Je vais vérifier les horaires du bureau et les possibilités d'envoi avant de te confirmer.",
       "questions": [
@@ -116,7 +116,7 @@
         {"topic": "Envoi et délai", "question": "Si l'envoi standard est trop lent, souhaites-tu l'express, et jusqu'à quel montant ?", "answer": "Oui, si le standard n'arrive pas mardi ; je préfère ne pas dépasser 40 $ pour l'envoi.", "follow_up_to": 3, "condition": "If the required arrival date may rule out standard delivery."},
         {"topic": "Le colis", "question": "Quelles sont les dimensions approximatives du paquet, et combien pèse-t-il ?", "answer": "Environ trente centimètres sur vingt et quinze de hauteur, comme une boîte à chaussures ; il pèse à peu près deux kilos.", "follow_up_to": null},
         {"topic": "Préparation et récupération", "question": "Quel bureau de poste me conseilles-tu, et combien de temps faut-il prévoir pour l'aller-retour, dépôt compris ?", "answer": "Celui près de la gare, à dix minutes à pied de chez moi ; compte une demi-heure au total, avec un peu d'attente au guichet.", "follow_up_to": null},
-        {"topic": "Préparation et récupération", "question": "Le paquet sera-t-il déjà emballé, étiqueté et affranchi ?", "answer": "Il sera emballé et étiqueté, mais pas affranchi ; je te donnerai de quoi payer l'envoi dans la limite convenue.", "follow_up_to": null},
+        {"topic": "Préparation et récupération", "question": "Le paquet sera-t-il déjà emballé, étiqueté et affranchi, et me donneras-tu l'argent avant le dépôt si l'envoi reste à payer ?", "answer": "Il sera emballé et étiqueté, mais pas affranchi ; tu n'auras rien à avancer, je te donnerai l'argent avant le dépôt, dans la limite convenue.", "follow_up_to": null},
         {"topic": "Préparation et récupération", "question": "Quand puis-je passer le récupérer chez toi ?", "answer": "Ce soir après 18 h ou demain matin avant 8 h.", "follow_up_to": null}
       ]
     },
@@ -378,18 +378,18 @@
     {
       "group": "neighbor-child-one-day-care",
       "register": "vous",
-      "note": "You have already agreed to care for your neighbour's child for one day as a favour, not a paid job. Confirm place and hours, then age, allergies, meal and snack arrangements, rest, activities, outings and contacts. Age, gender and medical needs are unspecified; ask rather than assume. The neighbour is the parent. Use vous as a cautious default.",
+      "note": "You have already agreed to care for your neighbour's child for one day as a favour, not a paid job. Confirm place and hours, then age, health needs, behaviour, sociability, food provision, eating times, rest, activities, outing permission and contact availability. Age, gender and medical needs are unspecified; ask rather than assume. Adapt rest to the child's age, without adding overnight routines. The neighbour is the parent. Use vous.",
       "opening": "Bonjour ! C'est avec plaisir que je garderai votre enfant ; j'aimerais simplement en savoir un peu plus à son sujet.",
       "closing": "Merci pour toutes ces informations ! Je vais respecter ses habitudes pendant la journée.",
       "questions": [
         {"topic": "Repères essentiels", "question": "Où se passera la garde, et de quelle heure à quelle heure ?", "answer": "Chez vous, de 9 h à 17 h ; j'amènerai et viendrai rechercher mon enfant.", "follow_up_to": null},
-        {"topic": "Repères essentiels", "question": "Quel âge a votre enfant ?", "answer": "Six ans.", "follow_up_to": null},
-        {"topic": "Repères essentiels", "question": "Y a-t-il une allergie ou un soin particulier que je dois connaître ?", "answer": "Non, aucun soin particulier ni aucune allergie connue.", "follow_up_to": null},
-        {"topic": "Repas et habitudes", "question": "À quelles heures faut-il prévoir le repas et le goûter, et me laisserez-vous les aliments nécessaires ?", "answer": "Je laisserai un plat à réchauffer pour midi et un goûter pour 16 h ; prévoyez seulement de l'eau.", "follow_up_to": null},
-        {"topic": "Repas et habitudes", "question": "Faut-il prévoir une sieste ou un temps calme, et à quel moment de la journée ?", "answer": "Pas de sieste ; un temps calme d'une trentaine de minutes après le repas suffit, dans un endroit tranquille.", "follow_up_to": null},
+        {"topic": "Repères essentiels", "question": "Quel âge a votre enfant, et a-t-il des allergies ou des besoins de santé particuliers ?", "answer": "Six ans, aucune allergie connue et aucun soin particulier à prévoir.", "follow_up_to": null},
+        {"topic": "Repères essentiels", "question": "Comment se comporte votre enfant avec les personnes qu'il connaît peu, et s'entend-il bien avec les autres enfants ?", "answer": "Mon enfant est réservé au début avec les adultes, mais joue facilement avec les autres enfants ; prenez un moment pour faire connaissance ensemble.", "follow_up_to": null},
+        {"topic": "Repas et habitudes", "question": "Fournirez-vous le repas et le goûter ou devrai-je les prévoir, et à quelles heures votre enfant mange-t-il ?", "answer": "Je laisserai un plat à réchauffer pour midi et un goûter pour 16 h ; prévoyez seulement de l'eau.", "follow_up_to": null},
+        {"topic": "Repas et habitudes", "question": "Faut-il prévoir une sieste ou un temps calme, à quel moment et avec quelles habitudes pour aider votre enfant à se reposer ?", "answer": "Pas de sieste ; prévoyez une demi-heure au calme après le repas, avec un livre ou une histoire.", "follow_up_to": null},
         {"topic": "Activités", "question": "Quelles activités votre enfant préfère-t-il : le dessin, les jeux de construction ou les sorties au parc ?", "answer": "Le dessin, les jeux de construction et les sorties au parc.", "follow_up_to": null},
         {"topic": "Activités", "question": "Puis-je l'emmener au parc, et quelles consignes dois-je respecter pendant la sortie ?", "answer": "Oui, mon enfant peut aller au parc, à condition de rester près de vous et de ne pas sortir de l'aire de jeux.", "follow_up_to": 6, "condition": "If a park outing is mentioned without confirming permission or safety instructions."},
-        {"topic": "Contact", "question": "Comment puis-je vous joindre rapidement et, si vous êtes injoignable, quelle autre personne dois-je appeler ?", "answer": "Vous pourrez m'appeler sur mon portable ; si je ne réponds pas, contactez son autre parent. Je vous laisserai nos deux numéros.", "follow_up_to": null}
+        {"topic": "Contact", "question": "Serez-vous joignable pendant toute la garde, et qui pourrai-je contacter si un problème survient ?", "answer": "Oui, sur mon portable pendant la journée ; si je ne réponds pas, contactez son autre parent. Je vous laisserai nos deux numéros.", "follow_up_to": null}
       ]
     },
     {

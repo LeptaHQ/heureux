@@ -2934,8 +2934,42 @@ class QuestionBankViewTests(TestCase):
                 self.assertFalse(keys & neighbourhood)
                 if selection:
                     self.assertLessEqual(keys, arrival)
-                    self.assertEqual(len(arrival), 13)
-                    self.assertEqual(len(neighbourhood), 40)
+                    self.assertEqual(len(arrival), 17)
+                    self.assertEqual(len(neighbourhood), 36)
+                else:
+                    self.assertEqual(len(keys & arrival), 1)
+        for prompt in prompts:
+            with self.subTest(content_key=prompt.content_key):
+                page = self.client.get(prompt_detail_url(prompt))
+                self.assertEqual(page.status_code, 200)
+                self.assert_subject_hints(page)
+
+    def test_new_resident_neighbourhood_equivalents_share_arrival_response_and_detail_links(self):
+        keys = {
+            "tache2:fevrier:batch-04:subject-20",
+            "tache2:avril:batch-01:subject-03",
+            "tache2:mai:batch-01:subject-05",
+            "tache2:juin:batch-09:subject-43",
+            "tache2:juillet:batch-01:subject-05",
+            "tache2:juillet:batch-03:subject-15",
+            "tache2:octobre:batch-10:subject-50",
+            "tache2:decembre:batch-03:subject-13",
+        }
+        prompts = list(Prompt.objects.select_related("theme").filter(content_key__in=keys))
+        self.assertEqual({prompt.content_key for prompt in prompts}, keys)
+        self.assertEqual({prompt.theme.slug for prompt in prompts}, {"tache-2-arrivee"})
+        self.assertEqual(len({prompt.response_id for prompt in prompts}), 1)
+        url = reverse("study:task_browse", args=[self.task.part.slug, self.task.slug])
+        for selection in ({}, {"deduplicate": "0"}):
+            with self.subTest(selection=selection):
+                page = self.client.get(url, selection)
+                self.assertEqual(page.status_code, 200)
+                themes = {theme["slug"]: theme for theme in page.context["subject_themes"]}
+                arrival = {row["content_key"] for row in themes["arrivee"]["subjects"]}
+                neighbourhood = {row["content_key"] for row in themes["vie-quartier"]["subjects"]}
+                self.assertFalse(keys & neighbourhood)
+                if selection:
+                    self.assertLessEqual(keys, arrival)
                 else:
                     self.assertEqual(len(keys & arrival), 1)
         for prompt in prompts:

@@ -1368,12 +1368,12 @@
     ],
     "friend-three-year-old-weekend-care": [
       {
-        "french": "Horaires des repas et du goûter, aliments appréciés",
-        "english": "Meal and snack times and favourite foods"
+        "french": "Repas et goûters fournis ou à prévoir, horaires pour manger",
+        "english": "Provided meals and snacks or food to arrange, and eating times"
       },
       {
-        "french": "Allergies et aliments à éviter",
-        "english": "Allergies and foods to avoid"
+        "french": "Allergies, aliments à éviter et soins particuliers",
+        "english": "Allergies, foods to avoid and special care"
       },
       {
         "french": "Jeux à la maison : dessin, puzzles ou histoires",
@@ -1384,20 +1384,20 @@
         "english": "Permission for a park outing and parental precautions"
       },
       {
-        "french": "Horaires et routine de la sieste",
-        "english": "Nap times and routine"
+        "french": "Comportement avec les personnes peu connues et entente avec les autres enfants",
+        "english": "Behaviour around unfamiliar people and getting along with other children"
       },
       {
-        "french": "Heure du coucher et rituel pour s'endormir",
-        "english": "Bedtime and ritual that helps her sleep"
+        "french": "Heures du coucher et du réveil, présence d'une sieste",
+        "english": "Bedtime, waking time and whether she naps"
       },
       {
-        "french": "Façon de la rassurer pendant la nuit",
-        "english": "How to comfort her during the night"
+        "french": "Rituels de la sieste et du soir, réconfort lors d'un réveil nocturne",
+        "english": "Nap and bedtime routines, and comfort during night waking"
       },
       {
-        "french": "Parent et proche à joindre en cas de besoin",
-        "english": "Parent and backup contact in case of need"
+        "french": "Parent joignable pendant le week-end et personne à contacter en cas de souci",
+        "english": "Parent's weekend availability and whom to contact if there is a problem"
       }
     ],
     "colleague-invitation-unspecified-show": [
@@ -1872,16 +1872,16 @@
         "english": "School pickup, homework or meal preparation"
       },
       {
-        "french": "Allergies ou restrictions alimentaires pour les repas",
-        "english": "Meal allergies or dietary restrictions"
+        "french": "Allergies, aliments à éviter et soins à signaler à la personne recommandée",
+        "english": "Allergies, foods to avoid and care needs to tell the recommended person"
       },
       {
         "french": "Expérience, formation et premiers secours",
         "english": "Experience, training and first aid"
       },
       {
-        "french": "Salaire proposé pour la garde",
-        "english": "Pay offered for the childcare"
+        "french": "Rémunération proposée, mode et moment du versement",
+        "english": "Proposed pay, payment method and timing"
       },
       {
         "french": "Organisation d'une première rencontre",
@@ -2038,8 +2038,8 @@
         "english": "Mail, packages and plants during the absence"
       },
       {
-        "french": "Fréquence souhaitée des passages",
-        "english": "Desired frequency of visits"
+        "french": "Fréquence et durée de chaque passage",
+        "english": "Visit frequency and time needed for each visit"
       },
       {
         "french": "Quantité d'eau par plante et plantes à ne pas arroser",
@@ -2054,12 +2054,12 @@
         "english": "Security checks: windows, taps, heating and alarm"
       },
       {
-        "french": "Moyen de joindre l'ami en cas de problème",
-        "english": "How to reach the friend if a problem arises"
+        "french": "Disponibilité de l'ami et moyen de le prévenir en cas de problème",
+        "english": "Friend's availability and how to report a problem"
       },
       {
-        "french": "Personne à contacter si l'ami est injoignable",
-        "english": "Backup contact if the friend cannot be reached"
+        "french": "Contact sur place et double des clés si l'ami est injoignable",
+        "english": "Local backup contact and spare keys if the friend cannot be reached"
       }
     ],
     "station-stranger-mountain-passion": [
@@ -2382,24 +2382,24 @@
         "english": "Distribution location, days and full volunteer shift"
       },
       {
-        "french": "Participation ponctuelle ou engagement chaque semaine",
-        "english": "Occasional participation or weekly commitment"
+        "french": "Participation ponctuelle et délai pour confirmer sa présence",
+        "english": "Occasional participation and notice for confirming attendance"
       },
       {
         "french": "Expérience nécessaire pour commencer",
         "english": "Experience needed to start"
       },
       {
-        "french": "Consignes d'hygiène avant le service",
-        "english": "Hygiene rules before serving food"
+        "french": "Consignes d'hygiène et protections fournies",
+        "english": "Hygiene rules and protective equipment provided"
       },
       {
         "french": "Accompagnement par un bénévole expérimenté lors du premier service",
         "english": "Experienced volunteer alongside you on the first shift"
       },
       {
-        "french": "Contact pour proposer son aide",
-        "english": "Contact for offering to help"
+        "french": "Contact pour s'inscrire et possibilité d'observer une distribution",
+        "english": "Registration contact and possibility of observing a distribution"
       }
     ],
     "former-colleague-new-job-to-change-employment": [
@@ -2450,12 +2450,12 @@
         "english": "Audience for awareness campaigns"
       },
       {
-        "french": "Premières tâches : accueil, collectes ou refuge",
-        "english": "Initial tasks: public welcome, collections or shelter"
+        "french": "Premières tâches et lieux : refuge, permanence d'accueil ou collectes",
+        "english": "Initial tasks and locations: shelter, public reception or collections"
       },
       {
-        "french": "Aide ponctuelle ou hebdomadaire et durée minimale",
-        "english": "Occasional or weekly help and minimum commitment"
+        "french": "Jours, horaires et aide ponctuelle ou engagement sur une durée minimale",
+        "english": "Days, hours and occasional help or a minimum commitment"
       },
       {
         "french": "Compétences nécessaires pour commencer",
@@ -2466,8 +2466,8 @@
         "english": "Training duration and onsite or online format"
       },
       {
-        "french": "Démarche pour rejoindre l'association",
-        "english": "How to join the association"
+        "french": "Démarche pour rejoindre l'association et première rencontre avec l'équipe",
+        "english": "Joining procedure and meeting the team first"
       }
     ],
     "acquaintance-recent-cinema-film": [
@@ -3524,8 +3524,8 @@
         "english": "Indoor rainy-day outing: workshop or interactive exhibition"
       },
       {
-        "french": "Réservation et budget pour les enfants au musée",
-        "english": "Museum booking and budget for the children"
+        "french": "Réservation au musée et budget des entrées pour enfants et adultes",
+        "english": "Museum booking and admission budget for children and adults"
       },
       {
         "french": "Jeu de société aux règles simples et aux parties courtes",
@@ -3758,8 +3758,8 @@
         "english": "Where the replacement doctor sees patients"
       },
       {
-        "french": "Accès au dossier médical au cabinet",
-        "english": "Access to the medical record at the clinic"
+        "french": "Accès au dossier médical ou documents à transmettre avant la consultation",
+        "english": "Access to existing records or documents to send before the appointment"
       },
       {
         "french": "Date de fin du remplacement",
@@ -3770,8 +3770,8 @@
         "english": "Consultation days and hours during the replacement"
       },
       {
-        "french": "Rendez-vous en ligne ou par téléphone",
-        "english": "Booking online or by phone"
+        "french": "Prise de rendez-vous et documents à apporter",
+        "english": "Booking procedure and documents to bring"
       },
       {
         "french": "Délai pour obtenir une consultation",
@@ -3894,16 +3894,12 @@
         "english": "Delivery area and checking coverage for your address"
       },
       {
-        "french": "Comment commander et moyens de paiement acceptés",
-        "english": "How to order and accepted payment methods"
+        "french": "Commande, moyens de paiement et règlement à la commande ou à la livraison",
+        "english": "Ordering channels, payment methods and payment at ordering or delivery"
       },
       {
-        "french": "Montant minimum de commande",
-        "english": "Minimum order amount"
-      },
-      {
-        "french": "Frais de livraison et éventuel seuil de gratuité",
-        "english": "Delivery fee and any free-delivery threshold"
+        "french": "Minimum de commande et frais de livraison selon le montant des achats",
+        "english": "Minimum order and delivery fees by basket value"
       },
       {
         "french": "Délai entre commande et livraison",
@@ -3920,6 +3916,10 @@
       {
         "french": "Absence à la livraison et frais d'un second passage",
         "english": "Missed delivery and any redelivery fee"
+      },
+      {
+        "french": "Signalement et remboursement d'un produit manquant ou abîmé",
+        "english": "Reporting and getting a refund for a missing or damaged item"
       }
     ],
     "owner-holiday-letting-estate-agency-advice": [
@@ -4126,8 +4126,8 @@
         "english": "Possible return-to-work date"
       },
       {
-        "french": "Affaires à apporter depuis le bureau",
-        "english": "Items to bring from the office"
+        "french": "Affaires à apporter du bureau et moment pour les déposer",
+        "english": "Items to bring from the office and when to drop them off"
       }
     ],
     "canada-newcomer-apartment-procedure-unspecified-adviser": [
@@ -4446,16 +4446,16 @@
     ],
     "child-friends-family-holiday-invitation": [
       {
-        "french": "Dates exactes du séjour",
-        "english": "Exact holiday dates"
-      },
-      {
-        "french": "Destination des vacances",
-        "english": "Holiday destination"
+        "french": "Destination et dates du séjour",
+        "english": "Holiday destination and dates"
       },
       {
         "french": "Hébergement prévu sur place",
         "english": "Planned accommodation"
+      },
+      {
+        "french": "Participation aux frais, dépenses couvertes et versement avant le départ",
+        "english": "Contribution, covered expenses and payment before departure"
       },
       {
         "french": "Moyen de transport et équipements de sécurité des enfants",
@@ -4474,8 +4474,8 @@
         "english": "Accompanying adult and canoe safety equipment"
       },
       {
-        "french": "Joindre les adultes et avoir des nouvelles de votre enfant",
-        "english": "Reaching the adults and getting updates about your child"
+        "french": "Disponibilité des adultes pendant le séjour et nouvelles de votre enfant",
+        "english": "Adults' availability during the stay and updates about your child"
       }
     ],
     "neighbor-environmental-association-volunteering": [
@@ -4484,16 +4484,16 @@
         "english": "Practical fieldwork assigned to volunteers"
       },
       {
-        "french": "Équipement pour le nettoyage des berges",
-        "english": "Equipment for the riverbank cleanup"
+        "french": "Matériel fourni et équipement à apporter pour le nettoyage des berges",
+        "english": "Supplied equipment and what to bring for the riverbank cleanup"
       },
       {
         "french": "Fréquence, horaires et mois des activités",
         "english": "Frequency, times and months of activities"
       },
       {
-        "french": "Participation régulière ou ponctuelle",
-        "english": "Regular or occasional participation"
+        "french": "Aide ponctuelle et délai d'inscription à une activité",
+        "english": "Occasional help and advance notice for registering for an activity"
       },
       {
         "french": "Participants : habitants, familles ou étudiants",
@@ -4504,12 +4504,12 @@
         "english": "Required experience, induction and initial support"
       },
       {
-        "french": "Contact pour s'inscrire à une activité",
-        "english": "Contact for registering for an activity"
+        "french": "Contact pour une première participation et rencontre avec l'équipe",
+        "english": "First-participation contact and meeting the team beforehand"
       },
       {
-        "french": "Lieu de rendez-vous pour le nettoyage et arrivée avant le début",
-        "english": "Clean-up meeting place and whether to arrive early"
+        "french": "Lieu de rendez-vous et notification d'annulation en cas de mauvais temps",
+        "english": "Meeting place and cancellation notice in bad weather"
       }
     ],
     "specialist-agency-day-excursions": [
@@ -4810,12 +4810,12 @@
         "english": "Usual days and hours known to the neighbour"
       },
       {
-        "french": "Tâches acceptées pendant la garde",
-        "english": "Tasks accepted during childcare"
+        "french": "Tâches connues du voisin et repas fournis ou non par les parents",
+        "english": "Known childcare duties and whether parents provide meals"
       },
       {
-        "french": "Tarif horaire habituel",
-        "english": "Usual hourly rate"
+        "french": "Tarif connu du voisin et règlement après chaque garde ou en fin de mois",
+        "english": "Rate known to the neighbour and payment per visit or at month-end"
       },
       {
         "french": "Contact et première rencontre",
@@ -5056,8 +5056,8 @@
         "english": "Suggested post office and round-trip time including the deposit"
       },
       {
-        "french": "Emballage, étiquette d'adresse et affranchissement",
-        "english": "Packaging, address label and prepaid postage"
+        "french": "Emballage, étiquette, affranchissement et argent fourni avant le dépôt si nécessaire",
+        "english": "Prepared parcel, postage and money provided before posting if needed"
       },
       {
         "french": "Moment pour récupérer le paquet",
@@ -5588,20 +5588,20 @@
         "english": "Childcare location and hours"
       },
       {
-        "french": "Âge de l'enfant",
-        "english": "Child's age"
+        "french": "Âge de l'enfant, allergies et besoins de santé particuliers",
+        "english": "Child's age, allergies and special health needs"
       },
       {
-        "french": "Allergie ou soin particulier",
-        "english": "Any allergy or special care"
+        "french": "Comportement avec les personnes peu connues et entente avec les autres enfants",
+        "english": "Behaviour around unfamiliar people and getting along with other children"
       },
       {
-        "french": "Horaires du repas et du goûter, aliments fournis par le parent",
-        "english": "Meal and snack times and food supplied by the parent"
+        "french": "Repas et goûter fournis ou à prévoir, horaires pour manger",
+        "english": "Provided meal and snack or food to arrange, and eating times"
       },
       {
-        "french": "Sieste ou temps calme et moment à prévoir",
-        "english": "Nap or quiet time and when to plan it"
+        "french": "Sieste ou temps calme, moment à prévoir et habitudes pour se reposer",
+        "english": "Nap or quiet time, timing and habits that help the child rest"
       },
       {
         "french": "Activités préférées : dessin, construction ou parc",
@@ -5612,8 +5612,8 @@
         "english": "Permission and safety instructions for a park outing"
       },
       {
-        "french": "Coordonnées du parent et personne à joindre en son absence",
-        "english": "Parent's contact details and backup contact"
+        "french": "Disponibilité du parent pendant la garde et contact en cas de problème",
+        "english": "Parent's availability throughout care and contact if a problem arises"
       }
     ],
     "tourist-office-city-discovery-with-friends": [

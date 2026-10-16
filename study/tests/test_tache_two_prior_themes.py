@@ -18,8 +18,8 @@ class TacheTwoPriorThemeReviewTests(SimpleTestCase):
             (content.QUESTION_BANK_DIR / "dialogue_history/locations.json").read_text(),
         )["groups"]
 
-    def test_review_keeps_all_thirty_four_models_and_seventy_publications(self):
-        for theme, publications, groups in (("vie-quartier", 40, 19), ("travail", 30, 15)):
+    def test_review_keeps_all_thirty_three_models_and_sixty_six_publications(self):
+        for theme, publications, groups in (("vie-quartier", 36, 18), ("travail", 30, 15)):
             rows = [row for key, row in self.dialogues.items() if self.themes[key] == theme]
             with self.subTest(theme=theme):
                 self.assertEqual(len(rows), publications)
@@ -83,19 +83,24 @@ class TacheTwoPriorThemeReviewTests(SimpleTestCase):
     def test_sleep_timings_are_distinct_from_previously_supplied_care_timings(self):
         weekend = self.by_group["friend-three-year-old-weekend-care"]
         self.assertIn("already supplies timings", weekend.note)
-        self.assertIn("sieste", weekend.questions[4].question)
-        self.assertIn("horaires habituels", weekend.questions[4].question)
-        self.assertIn("s'endormir", weekend.questions[4].question)
-        self.assertIn("13 h 30 à 15 h", weekend.questions[4].answer)
-        self.assertIn("doudou", weekend.questions[4].answer)
-        self.assertIn("à quelle heure se couche-t-elle", weekend.questions[5].question)
-        self.assertIn("rituel", weekend.questions[5].question)
+        self.assertIn("fait-elle une sieste", weekend.questions[5].question)
+        self.assertIn("se couche-t-elle et se réveille-t-elle", weekend.questions[5].question)
+        self.assertNotIn("s'endormir", weekend.questions[5].question)
+        self.assertIn("13 h 30 à 15 h", weekend.questions[5].answer)
         self.assertIn("19 h 30", weekend.questions[5].answer)
-        self.assertIn("veilleuse", weekend.questions[5].answer)
+        self.assertIn("7 h", weekend.questions[5].answer)
+        self.assertIn("pour la sieste et le soir", weekend.questions[6].question)
+        self.assertIn("se réveille la nuit", weekend.questions[6].question)
+        self.assertIn("doudou", weekend.questions[6].answer)
+        self.assertIn("veilleuse", weekend.questions[6].answer)
         self.assertEqual(weekend.questions[6].follow_up_to, 6)
-        self.assertEqual(self.hints[weekend.group][4]["english"], "Nap times and routine")
+        self.assertIn("skip nap details if she does not nap", weekend.note)
         self.assertEqual(
-            self.hints[weekend.group][5]["english"], "Bedtime and ritual that helps her sleep",
+            self.hints[weekend.group][5]["english"], "Bedtime, waking time and whether she naps",
+        )
+        self.assertEqual(
+            self.hints[weekend.group][6]["english"],
+            "Nap and bedtime routines, and comfort during night waking",
         )
 
     def test_parcel_size_and_weight_leave_room_for_the_errands_actual_time_burden(self):
@@ -154,14 +159,14 @@ class TacheTwoPriorThemeReviewTests(SimpleTestCase):
 
     def test_redelivery_is_not_implicitly_free_or_left_outside_the_cold_chain(self):
         grocery = self.by_group["grocery-store-home-delivery"]
-        self.assertIn("une nouvelle livraison est-elle payante", grocery.questions[7].question)
-        self.assertIn("reviennent au magasin", grocery.questions[7].answer)
-        self.assertIn("nouvelle livraison coûte", grocery.questions[7].answer)
-        self.assertIn("7,99 $", grocery.questions[7].answer)
+        self.assertIn("une nouvelle livraison est-elle payante", grocery.questions[6].question)
+        self.assertIn("reviennent au magasin", grocery.questions[6].answer)
+        self.assertIn("nouvelle livraison coûte", grocery.questions[6].answer)
+        self.assertIn("7,99 $", grocery.questions[6].answer)
         self.assertEqual(
-            self.hints[grocery.group][7]["english"], "Missed delivery and any redelivery fee",
+            self.hints[grocery.group][6]["english"], "Missed delivery and any redelivery fee",
         )
-        self.assertNotIn("7,99", self.hints[grocery.group][7]["french"])
+        self.assertNotIn("7,99", self.hints[grocery.group][6]["french"])
 
     def test_interview_format_precedes_arrival_and_access_without_rewriting_learned_questions(self):
         recruiter = self.by_group["recruiter-scheduled-interview-preparation"]

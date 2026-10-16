@@ -468,7 +468,8 @@ class TacheTwoDialogueCorpusTests(SimpleTestCase):
                 question.question,
                 r"(?i)quelles dates|horaires de garde|à quelle heure.*(?:amener|récupérer)",
             )
-        self.assertIn("repas et son goûter", child.questions[0].question)
+        self.assertIn("ses repas et ses goûters", child.questions[0].question)
+        self.assertIn("à quelles heures mange-t-elle", child.questions[0].question)
         ticket = dialogues["tache2:juin:batch-02:subject-10"]
         self.assertIn("already have a cinema ticket", ticket.note)
         for question in ticket.questions:
@@ -600,6 +601,42 @@ class TacheTwoDialogueViewTests(TestCase):
         self.assertEqual(personal.arguments[0]["developpement"], private_answer)
         self.assertEqual(personal.reformulation, "Bonjour, j'aimerais préparer cet achat.")
         self.assertEqual(personal.conclusion, "Merci pour votre aide.")
+
+    def test_every_neighbourhood_publication_renders_reviewed_questions_and_pistes_without_answers(self):
+        dialogues = load_tache_two_dialogues()
+        _, themes = catalogue.tache_two_subject_themes()
+        subjects = {
+            content.tache_two_subject_content_key(month.slug, batch.number, subject.number): subject
+            for month in catalogue.tache_two_subject_months()
+            for batch in month.batches
+            for subject in batch.subjects
+        }
+        publications = {key: row for key, row in dialogues.items() if themes[key] == "vie-quartier"}
+        self.assertEqual(len(publications), 36)
+        with patch("study.catalogue.tache_two_dialogues", return_value=dialogues):
+            for key, row in publications.items():
+                with self.subTest(content_key=key):
+                    self.prompt.content_key = key
+                    self.prompt.text = subjects[key].prompt
+                    self.prompt.save(update_fields=["content_key", "text"])
+                    self.response.content_key = key
+                    self.response.semantic_group = row.group
+                    self.response.save(update_fields=["content_key", "semantic_group"])
+                    detail = self.client.get(prompt_detail_url(self.prompt))
+                    self.assertEqual(detail.status_code, 200)
+                    self.assertContains(detail, "data-tache-two-question", count=8)
+                    self.assertContains(detail, str(escape(row.note)))
+                    self.assertContains(detail, 'class="subject-hints__english"', count=8)
+                    self.assertContains(detail, 'class="subject-hints__french"', count=8)
+                    topics = len({question.topic for question in row.questions})
+                    self.assertContains(detail, 'class="eo2-dialogue__topic"', count=topics)
+                    self.assertContains(detail, 'class="subject-hints__section"', count=topics)
+                    practice = self.review()
+                    self.assertEqual(practice["back_html"].count("data-tache-two-question"), 8)
+                    for question in row.questions:
+                        for html in (detail.content.decode(), practice["back_html"]):
+                            self.assertIn(str(escape(question.question)), html)
+                            self.assertNotIn(str(escape(question.answer)), html)
 
     def test_question_offsets_match_actual_subject_and_practice_templates(self):
         value = effective_response(self.response, self.user, prompt=self.prompt)

@@ -276,6 +276,16 @@ Reuse a strong construction from another model when it fits the new role and
 context. Do not copy it mechanically when the relationship, place, decision,
 or information boundary differs.
 
+When developing related neighbourhood scenarios, check the practical counterpart
+of each agreement: who provides food or equipment, the time actually required,
+payment amount and timing, and whom to contact if the main person cannot respond.
+Distinguish a salary from reimbursement or a contribution to shared expenses.
+For recurring childcare, ask about payment per visit or period, not holiday
+departure and return. A referrer can describe past arrangements, not guarantee
+current terms. Check behaviour and sociability when providing care, and establish
+whether rest is needed before asking about settling routines. For volunteering,
+separate joining the association from confirming attendance at a particular shift.
+
 ### Targeted geography changes
 
 Leave the **Arrivée & installation** theme unchanged. In other themes, retain

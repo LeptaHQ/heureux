@@ -1179,6 +1179,21 @@
             {"topic": "Sommeil", "question": "Si elle se réveille pendant la nuit, qu'est-ce qui la rassure habituellement ?", "follow_up_to": 6, "condition": "If an overnight bedtime routine is needed and this has not already been explained."},
             {"topic": "Contact", "question": "Comment pourrai-je te joindre rapidement et, si tu ne réponds pas, quel proche pourrai-je appeler ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "friend-three-year-old-weekend-care",
+          "opening": "Salut ! Pour bien m'occuper de ta fille ce week-end, j'aimerais mieux connaître ses habitudes.",
+          "closing": "Merci pour ces précisions ! Je vais respecter ses habitudes pour qu'elle se sente bien pendant ton absence.",
+          "questions": [
+            {"topic": "Repas", "question": "À quels horaires prend-elle ses repas et son goûter, et qu'est-ce qu'elle aime manger ?", "follow_up_to": null},
+            {"topic": "Repas", "question": "A-t-elle des allergies ou des aliments à éviter ?", "follow_up_to": 1, "condition": "After her usual meals are discussed, unless restrictions are already known."},
+            {"topic": "Jeux et sorties", "question": "Quels jeux ou activités aime-t-elle à la maison, par exemple le dessin, les puzzles ou les histoires ?", "follow_up_to": null},
+            {"topic": "Jeux et sorties", "question": "Puis-je l'emmener au parc, et quelles précautions veux-tu que je prenne pendant la sortie ?", "follow_up_to": null},
+            {"topic": "Sommeil", "question": "Pour la sieste, quels sont ses horaires habituels et qu'est-ce qui l'aide à s'endormir ?", "follow_up_to": null},
+            {"topic": "Sommeil", "question": "Et le soir, à quelle heure se couche-t-elle et quel rituel l'aide à s'endormir ?", "follow_up_to": null},
+            {"topic": "Sommeil", "question": "Si elle se réveille pendant la nuit, qu'est-ce qui la rassure habituellement ?", "follow_up_to": 6, "condition": "If an overnight bedtime routine is needed and this has not already been explained."},
+            {"topic": "Contact", "question": "Comment pourrai-je te joindre rapidement et, si tu ne réponds pas, quel proche pourrai-je appeler ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -1208,6 +1223,21 @@
             {"topic": "Enfants et horaires", "question": "Combien d'enfants faudrait-il garder et quels âges ont-ils ?", "follow_up_to": null},
             {"topic": "Enfants et horaires", "question": "Quels jours et horaires souhaitez-vous couvrir ?", "follow_up_to": null},
             {"topic": "Enfants et horaires", "question": "À partir de quand souhaitez-vous commencer la garde, et pour quelle durée ?", "follow_up_to": null},
+            {"topic": "Tâches à assurer", "question": "Quelles tâches devra assurer la personne : sortie de l'école, aide aux devoirs ou préparation des repas ?", "follow_up_to": null},
+            {"topic": "Tâches à assurer", "question": "Pour les repas, y a-t-il des allergies ou des restrictions alimentaires à signaler ?", "follow_up_to": 4, "condition": "If meals are requested and dietary restrictions have not already been explained."},
+            {"topic": "Profil et rémunération", "question": "Quelle expérience ou formation souhaitez-vous que la personne possède, notamment en premiers secours ?", "follow_up_to": null},
+            {"topic": "Profil et rémunération", "question": "Quel salaire proposez-vous pour cette garde ?", "follow_up_to": null},
+            {"topic": "Profil et rémunération", "question": "Comment souhaitez-vous rencontrer la personne que je pourrais vous recommander ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "colleague-babysitter-referral-needs",
+          "opening": "Bonjour ! Pour voir si je peux vous recommander quelqu'un, j'aimerais préciser vos besoins pour la garde.",
+          "closing": "Merci pour ces précisions. Je vais voir si une personne de mon entourage correspond à vos besoins.",
+          "questions": [
+            {"topic": "Enfants et organisation", "question": "Combien d'enfants faudrait-il garder et quels âges ont-ils ?", "follow_up_to": null},
+            {"topic": "Enfants et organisation", "question": "Quels jours et horaires faut-il couvrir, et à partir de quand et pour quelle durée ?", "follow_up_to": null},
+            {"topic": "Enfants et organisation", "question": "Dans quel quartier se ferait la garde, et serait-ce chez vous ou chez la personne recommandée ?", "follow_up_to": null},
             {"topic": "Tâches à assurer", "question": "Quelles tâches devra assurer la personne : sortie de l'école, aide aux devoirs ou préparation des repas ?", "follow_up_to": null},
             {"topic": "Tâches à assurer", "question": "Pour les repas, y a-t-il des allergies ou des restrictions alimentaires à signaler ?", "follow_up_to": 4, "condition": "If meals are requested and dietary restrictions have not already been explained."},
             {"topic": "Profil et rémunération", "question": "Quelle expérience ou formation souhaitez-vous que la personne possède, notamment en premiers secours ?", "follow_up_to": null},
@@ -1249,6 +1279,21 @@
             {"topic": "Suivi et contact", "question": "Si je n'arrive pas à te joindre, qui pourrait m'aider ?", "follow_up_to": 6, "condition": "If they ask you to contact them but give no backup contact."},
             {"topic": "Suivi et contact", "question": "Souhaites-tu que je t'envoie un message après chaque passage ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "friend-holiday-apartment-watch",
+          "opening": "Salut ! Avant ton départ, j'aimerais vérifier comment surveiller ton appartement et ce qu'il faudra faire.",
+          "closing": "Merci pour ces consignes ! Je vais m'organiser pour passer comme prévu et te prévenir si quelque chose ne va pas.",
+          "questions": [
+            {"topic": "Dates et tâches", "question": "Entre quelles dates souhaites-tu que je surveille l'appartement ?", "follow_up_to": null},
+            {"topic": "Dates et tâches", "question": "Quelles tâches souhaites-tu que j'assure : arroser les plantes, relever le courrier ou récupérer des colis ?", "follow_up_to": null},
+            {"topic": "Dates et tâches", "question": "À quelle fréquence voudrais-tu que je passe ?", "follow_up_to": 2, "condition": "If visits are needed, unless their frequency is already specified."},
+            {"topic": "Dates et tâches", "question": "Pour les plantes, quelle quantité d'eau dois-je donner à chacune, et y en a-t-il à ne pas arroser ?", "follow_up_to": 2, "condition": "If watering is requested without quantities or exceptions."},
+            {"topic": "Accès et sécurité", "question": "Quand et comment pourrais-je récupérer les clés, et y a-t-il un code d'accès à connaître ?", "follow_up_to": null},
+            {"topic": "Accès et sécurité", "question": "Avant de repartir, dois-je vérifier les fenêtres, les robinets, le chauffage ou une éventuelle alarme ?", "follow_up_to": null},
+            {"topic": "Suivi et contact", "question": "Comment te joindre si je remarque un problème ?", "follow_up_to": null},
+            {"topic": "Suivi et contact", "question": "Si je n'arrive pas à te joindre, qui pourrait m'aider ?", "follow_up_to": 7, "condition": "If they ask you to contact them but give no backup contact."}
+          ]
         }
       ]
     },
@@ -1279,6 +1324,21 @@
             {"topic": "Organisation et missions", "question": "Quelle tâche confie-t-on généralement à un nouveau bénévole ?", "follow_up_to": 1, "condition": "After the distribution process is described, unless beginner tasks are already clear."},
             {"topic": "Disponibilités", "question": "Quels jours et à quelles heures ont lieu les distributions ?", "follow_up_to": null},
             {"topic": "Disponibilités", "question": "Peut-on participer ponctuellement, ou faut-il venir chaque semaine pour faire partie de l'équipe ?", "follow_up_to": null},
+            {"topic": "Conditions et inscription", "question": "Une expérience particulière est-elle nécessaire pour commencer ?", "follow_up_to": null},
+            {"topic": "Conditions et inscription", "question": "Quelles consignes d'hygiène faut-il connaître avant de servir les repas ?", "follow_up_to": null},
+            {"topic": "Conditions et inscription", "question": "Pour ma première distribution, serai-je accompagné par un bénévole expérimenté ?", "follow_up_to": 5, "condition": "If an introduction is mentioned without explaining who supports new volunteers."},
+            {"topic": "Conditions et inscription", "question": "Qui dois-je contacter pour proposer mon aide ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "friend-homeless-meal-volunteering",
+          "opening": "Salut ! J'aimerais devenir bénévole dans ton association et comprendre comment participer à la distribution des repas.",
+          "closing": "Merci pour tes explications ! Je vais regarder mes disponibilités et prendre contact avec l'association.",
+          "questions": [
+            {"topic": "Organisation et missions", "question": "Comment se déroule une distribution de repas, du début à la fin ?", "follow_up_to": null},
+            {"topic": "Organisation et missions", "question": "Quelle tâche confie-t-on généralement à un nouveau bénévole ?", "follow_up_to": 1, "condition": "After the distribution process is described, unless beginner tasks are already clear."},
+            {"topic": "Lieu et disponibilités", "question": "Où ont lieu les distributions, et quels jours et horaires faut-il prévoir pour participer ?", "follow_up_to": null},
+            {"topic": "Lieu et disponibilités", "question": "Peut-on participer ponctuellement, ou faut-il venir chaque semaine pour faire partie de l'équipe ?", "follow_up_to": null},
             {"topic": "Conditions et inscription", "question": "Une expérience particulière est-elle nécessaire pour commencer ?", "follow_up_to": null},
             {"topic": "Conditions et inscription", "question": "Quelles consignes d'hygiène faut-il connaître avant de servir les repas ?", "follow_up_to": null},
             {"topic": "Conditions et inscription", "question": "Pour ma première distribution, serai-je accompagné par un bénévole expérimenté ?", "follow_up_to": 5, "condition": "If an introduction is mentioned without explaining who supports new volunteers."},
@@ -1315,6 +1375,21 @@
             {"topic": "Activités à la maison", "question": "Quelle activité les ferait bouger sans avoir besoin de sortir ?", "follow_up_to": null},
             {"topic": "Sorties", "question": "Quelle sortie leur permettrait de se dépenser, avec des activités adaptées à différents âges ?", "follow_up_to": null},
             {"topic": "Sorties", "question": "En cas de pluie, quelle sortie intérieure pourrait les intéresser ?", "follow_up_to": null},
+            {"topic": "Sorties", "question": "Pour le musée, faut-il réserver à l'avance, et quel budget prévoir pour les enfants ?", "follow_up_to": 5, "condition": "If a museum is suggested without explaining booking or admission prices."},
+            {"topic": "Jeux", "question": "Quel jeu de société, avec des règles simples et des parties courtes, pourrais-je leur proposer ?", "follow_up_to": null},
+            {"topic": "Jeux", "question": "Quel jeu plus calme pourrais-je proposer avant le coucher ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "friend-entertain-visiting-nephews",
+          "opening": "Salut ! Je vais bientôt accueillir mes neveux à la maison, et j'aimerais que tu m'aides à trouver de quoi les occuper.",
+          "closing": "Merci pour toutes ces idées ! Je vais choisir celles qui correspondent le mieux à leur âge et à leurs goûts.",
+          "questions": [
+            {"topic": "Activités à la maison", "question": "Pour les occuper à la maison, quelles activités créatives ou recettes simples me conseillerais-tu ?", "follow_up_to": null},
+            {"topic": "Activités à la maison", "question": "Parmi ces idées, laquelle demanderait le moins de préparation ?", "follow_up_to": 1, "condition": "If several home activities are suggested without explaining the preparation each needs."},
+            {"topic": "Activités à la maison", "question": "Quel jeu pourrais-je organiser à la maison pour les faire bouger sans matériel compliqué ?", "follow_up_to": null},
+            {"topic": "Sorties", "question": "Quelle sortie leur permettrait de se dépenser, avec des activités adaptées à différents âges ?", "follow_up_to": null},
+            {"topic": "Sorties", "question": "S'il pleut, où pourrais-je les emmener pour une activité à l'intérieur, comme un atelier ou une exposition interactive ?", "follow_up_to": null},
             {"topic": "Sorties", "question": "Pour le musée, faut-il réserver à l'avance, et quel budget prévoir pour les enfants ?", "follow_up_to": 5, "condition": "If a museum is suggested without explaining booking or admission prices."},
             {"topic": "Jeux", "question": "Quel jeu de société, avec des règles simples et des parties courtes, pourrais-je leur proposer ?", "follow_up_to": null},
             {"topic": "Jeux", "question": "Quel jeu plus calme pourrais-je proposer avant le coucher ?", "follow_up_to": null}
@@ -1369,6 +1444,21 @@
             {"topic": "Livraison", "question": "Comment les produits frais et surgelés sont-ils transportés ?", "follow_up_to": null},
             {"topic": "Livraison", "question": "Que se passe-t-il si je suis absent au moment prévu, et une nouvelle livraison est-elle payante ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "grocery-store-home-delivery",
+          "opening": "Bonjour ! J'aimerais me faire livrer mes courses à domicile, et je voudrais savoir comment fonctionne votre service.",
+          "closing": "Merci pour ces renseignements. Je vais vérifier les créneaux avant de passer ma première commande.",
+          "questions": [
+            {"topic": "Commande", "question": "Quelle est votre zone de livraison, et comment vérifier si mon adresse est desservie ?", "follow_up_to": null},
+            {"topic": "Commande", "question": "Comment passe-t-on commande, et quels moyens de paiement acceptez-vous ?", "follow_up_to": null},
+            {"topic": "Commande", "question": "Y a-t-il un montant minimum pour utiliser ce service ?", "follow_up_to": null},
+            {"topic": "Frais", "question": "Combien coûte la livraison, et existe-t-il un seuil d'achat pour qu'elle soit gratuite ?", "follow_up_to": null},
+            {"topic": "Délais", "question": "Quel délai faut-il prévoir entre la commande et la livraison ?", "follow_up_to": null},
+            {"topic": "Délais", "question": "Puis-je choisir un créneau de livraison, et combien de temps dure-t-il ?", "follow_up_to": 5, "condition": "If delivery timing is given without a selectable window or its duration."},
+            {"topic": "Livraison", "question": "Comment les produits frais et surgelés sont-ils transportés ?", "follow_up_to": null},
+            {"topic": "Livraison", "question": "Que se passe-t-il si je suis absent au moment prévu, et une nouvelle livraison est-elle payante ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -1400,6 +1490,21 @@
             {"topic": "L'accident", "question": "Quand l'accident s'est-il produit ?", "follow_up_to": null},
             {"topic": "L'accident", "question": "Où étiez-vous à ce moment-là ?", "follow_up_to": null},
             {"topic": "L'accident", "question": "Comment l'accident est-il arrivé ?", "follow_up_to": null},
+            {"topic": "Travail et soutien", "question": "Souhaitez-vous que je transmette un message à l'équipe ?", "follow_up_to": null},
+            {"topic": "Travail et soutien", "question": "Avez-vous une idée de la date de votre retour au travail ?", "follow_up_to": null},
+            {"topic": "Travail et soutien", "question": "Que pourrais-je vous apporter du bureau d'ici là ?", "follow_up_to": 7, "condition": "If the colleague expects to remain away from work for a few days."}
+          ]
+        },
+        {
+          "group": "visit-colleague-minor-accident",
+          "opening": "Bonjour ! J'ai appris pour votre accident, et je tenais à prendre de vos nouvelles.",
+          "closing": "Merci de m'avoir donné de vos nouvelles. Reposez-vous bien, et dites-moi si je peux vous rendre service.",
+          "questions": [
+            {"topic": "Nouvelles et aide", "question": "Comment vous sentez-vous aujourd'hui ?", "follow_up_to": null},
+            {"topic": "Nouvelles et aide", "question": "Avez-vous besoin d'aide pour les courses, les repas ou vos déplacements pendant que vous vous reposez ?", "follow_up_to": 1, "condition": "If they mention resting at home without saying whether help is needed."},
+            {"topic": "L'accident", "question": "Quand et où l'accident s'est-il produit ?", "follow_up_to": null},
+            {"topic": "L'accident", "question": "Qu'est-ce qui s'est passé exactement ?", "follow_up_to": null},
+            {"topic": "L'accident", "question": "Quelqu'un a-t-il pu vous aider sur place après l'accident ?", "follow_up_to": 4, "condition": "If a fall is described without explaining whether someone helped."},
             {"topic": "Travail et soutien", "question": "Souhaitez-vous que je transmette un message à l'équipe ?", "follow_up_to": null},
             {"topic": "Travail et soutien", "question": "Avez-vous une idée de la date de votre retour au travail ?", "follow_up_to": null},
             {"topic": "Travail et soutien", "question": "Que pourrais-je vous apporter du bureau d'ici là ?", "follow_up_to": 7, "condition": "If the colleague expects to remain away from work for a few days."}
@@ -1439,6 +1544,21 @@
             {"topic": "Activités et sécurité", "question": "Pour le canot, quelles mesures de sécurité prendrez-vous ?", "follow_up_to": 6, "condition": "If a water activity is planned; adapt to the activity actually named."},
             {"topic": "Organisation pratique", "question": "Comment pourrai-je vous joindre pendant le séjour et avoir des nouvelles de mon enfant ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "child-friends-family-holiday-invitation",
+          "opening": "Bonjour ! C'est très gentil de proposer d'emmener mon enfant en vacances avec vous. Avant de vous répondre, j'aimerais connaître quelques détails.",
+          "closing": "Merci beaucoup pour cette belle proposition ! J'en parle ce soir avec mon enfant, et je vous donne ma réponse demain.",
+          "questions": [
+            {"topic": "Dates et destination", "question": "Quelles sont les dates exactes du séjour ?", "follow_up_to": null},
+            {"topic": "Dates et destination", "question": "Où comptez-vous passer les vacances ?", "follow_up_to": null},
+            {"topic": "Dates et destination", "question": "Quel hébergement avez-vous prévu sur place ?", "follow_up_to": null},
+            {"topic": "Transport", "question": "Quel moyen de transport utiliserez-vous, et quels équipements de sécurité sont prévus pour les enfants ?", "follow_up_to": null},
+            {"topic": "Activités et sécurité", "question": "Combien d'enfants participeront au séjour, et quels adultes seront présents pour les encadrer ?", "follow_up_to": null},
+            {"topic": "Activités et sécurité", "question": "Quelles activités avez-vous prévues pour eux ?", "follow_up_to": null},
+            {"topic": "Activités et sécurité", "question": "Pour le canot, un adulte sera-t-il avec les enfants, et quels équipements de sécurité porteront-ils ?", "follow_up_to": 6, "condition": "If a water activity is planned; adapt to the activity actually named."},
+            {"topic": "Organisation pratique", "question": "Comment pourrai-je vous joindre pendant le séjour et avoir des nouvelles de mon enfant ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -1474,6 +1594,21 @@
             {"topic": "Membres et inscription", "question": "Pour ma première activité, pourrai-je être accompagné par un bénévole expérimenté ?", "follow_up_to": 6, "condition": "If beginners receive instructions but individual support has not been explained."},
             {"topic": "Membres et inscription", "question": "Qui dois-je contacter pour m'inscrire à une activité ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "neighbor-environmental-association-volunteering",
+          "opening": "Bonjour ! J'ai appris que vous faisiez du bénévolat pour l'environnement, et j'aimerais beaucoup participer moi aussi.",
+          "closing": "Merci pour vos explications. Je vais vérifier mes disponibilités avant de contacter l'association.",
+          "questions": [
+            {"topic": "Activités", "question": "Quelles actions concrètes l'association confie-t-elle aux bénévoles sur le terrain ?", "follow_up_to": null},
+            {"topic": "Activités", "question": "Pour le nettoyage des berges, quel équipement faut-il apporter ?", "follow_up_to": 1, "condition": "If an outdoor clean-up is mentioned; adapt to the activity actually named."},
+            {"topic": "Horaires et engagement", "question": "À quelle fréquence les activités ont-elles lieu, à quels horaires et pendant quels mois de l'année ?", "follow_up_to": null},
+            {"topic": "Horaires et engagement", "question": "Doit-on participer régulièrement ou peut-on aider ponctuellement ?", "follow_up_to": null},
+            {"topic": "Membres et participation", "question": "Qui participe aux activités : surtout des habitants du quartier, des familles ou des étudiants ?", "follow_up_to": null},
+            {"topic": "Membres et participation", "question": "Faut-il déjà avoir de l'expérience, ou reçoit-on des explications et un accompagnement pour commencer ?", "follow_up_to": null},
+            {"topic": "Membres et participation", "question": "Qui dois-je contacter pour m'inscrire à une activité ?", "follow_up_to": null},
+            {"topic": "Membres et participation", "question": "Pour une première participation au nettoyage, où faut-il se présenter et faut-il arriver avant le début de l'activité ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -1505,6 +1640,21 @@
             {"topic": "Expérience et compétences", "question": "Savez-vous si elle possède une formation en premiers secours ?", "follow_up_to": null},
             {"topic": "Disponibilités", "question": "Quels jours et à partir de quelle heure est-elle généralement disponible ?", "follow_up_to": null},
             {"topic": "Disponibilités", "question": "Jusqu'à quelle heure peut-elle garder les enfants en soirée ?", "follow_up_to": null},
+            {"topic": "Conditions", "question": "Quelles tâches accepte-t-elle habituellement pendant la garde ?", "follow_up_to": null},
+            {"topic": "Conditions", "question": "Quel tarif horaire demande-t-elle en général ?", "follow_up_to": null},
+            {"topic": "Conditions", "question": "Comment puis-je la contacter pour organiser une première rencontre ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "neighbor-home-childcare-provider-referral",
+          "opening": "Bonjour ! Vous m'avez parlé d'une personne qui garde des enfants à domicile, et ça m'intéresse beaucoup.",
+          "closing": "Merci pour cette recommandation. Je vais lui présenter mes besoins et vérifier ses disponibilités.",
+          "questions": [
+            {"topic": "Expérience et compétences", "question": "Quelle expérience a-t-elle auprès des enfants, et avez-vous déjà pu vérifier ses références ?", "follow_up_to": null},
+            {"topic": "Expérience et compétences", "question": "Avec quelles tranches d'âge a-t-elle l'habitude de travailler ?", "follow_up_to": 1, "condition": "If childcare experience is described without the ages of the children."},
+            {"topic": "Expérience et compétences", "question": "Savez-vous si elle possède une formation en premiers secours ?", "follow_up_to": null},
+            {"topic": "Lieu et disponibilités", "question": "Dans quel secteur travaille-t-elle, et la garde se fait-elle chez les parents ou chez elle ?", "follow_up_to": null},
+            {"topic": "Lieu et disponibilités", "question": "D'après ce que vous savez, quels jours et à quels horaires est-elle habituellement disponible ?", "follow_up_to": null},
             {"topic": "Conditions", "question": "Quelles tâches accepte-t-elle habituellement pendant la garde ?", "follow_up_to": null},
             {"topic": "Conditions", "question": "Quel tarif horaire demande-t-elle en général ?", "follow_up_to": null},
             {"topic": "Conditions", "question": "Comment puis-je la contacter pour organiser une première rencontre ?", "follow_up_to": null}
@@ -1559,6 +1709,21 @@
             {"topic": "Préparation et récupération", "question": "Le paquet sera-t-il déjà emballé, étiqueté et affranchi ?", "follow_up_to": null},
             {"topic": "Préparation et récupération", "question": "Quand puis-je passer le récupérer chez toi ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "help-friend-post-parcel",
+          "opening": "Salut ! Je vais voir si je peux poster ton paquet, mais j'ai besoin de quelques précisions pour m'organiser.",
+          "closing": "Merci pour ces précisions ! Je vais vérifier les horaires du bureau et les possibilités d'envoi avant de te confirmer.",
+          "questions": [
+            {"topic": "Envoi et délai", "question": "Au plus tard, quand faut-il poster le paquet ?", "follow_up_to": null},
+            {"topic": "Envoi et délai", "question": "Que contient le paquet, et faut-il prendre des précautions particulières pour l'envoi ?", "follow_up_to": null},
+            {"topic": "Envoi et délai", "question": "Dans quelle ville doit-il être livré, et pour quelle date au plus tard ?", "follow_up_to": null},
+            {"topic": "Envoi et délai", "question": "Si l'envoi standard est trop lent, souhaites-tu l'express, et jusqu'à quel montant ?", "follow_up_to": 3, "condition": "If the required arrival date may rule out standard delivery."},
+            {"topic": "Le colis", "question": "Quelles sont les dimensions approximatives du paquet, et combien pèse-t-il ?", "follow_up_to": null},
+            {"topic": "Préparation et récupération", "question": "Quel bureau de poste me conseilles-tu, et combien de temps faut-il prévoir pour l'aller-retour, dépôt compris ?", "follow_up_to": null},
+            {"topic": "Préparation et récupération", "question": "Le paquet sera-t-il déjà emballé, étiqueté et affranchi ?", "follow_up_to": null},
+            {"topic": "Préparation et récupération", "question": "Quand puis-je passer le récupérer chez toi ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -1590,6 +1755,21 @@
             {"topic": "Repères essentiels", "question": "Y a-t-il une allergie ou un soin particulier que je dois connaître ?", "follow_up_to": null},
             {"topic": "Repas et habitudes", "question": "Qu'est-ce que je dois lui servir pour le repas ?", "follow_up_to": null},
             {"topic": "Repas et habitudes", "question": "À quel moment votre enfant a généralement besoin d'un temps calme ?", "follow_up_to": null},
+            {"topic": "Activités", "question": "Quelles activités votre enfant préfère-t-il : le dessin, les jeux de construction ou les sorties au parc ?", "follow_up_to": null},
+            {"topic": "Activités", "question": "Puis-je l'emmener au parc, et quelles consignes dois-je respecter pendant la sortie ?", "follow_up_to": 6, "condition": "If a park outing is mentioned without confirming permission or safety instructions."},
+            {"topic": "Contact", "question": "Comment puis-je vous joindre rapidement et, si vous êtes injoignable, quelle autre personne dois-je appeler ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "neighbor-child-one-day-care",
+          "opening": "Bonjour ! C'est avec plaisir que je garderai votre enfant ; j'aimerais simplement en savoir un peu plus à son sujet.",
+          "closing": "Merci pour toutes ces informations ! Je vais respecter ses habitudes pendant la journée.",
+          "questions": [
+            {"topic": "Repères essentiels", "question": "Où se passera la garde, et de quelle heure à quelle heure ?", "follow_up_to": null},
+            {"topic": "Repères essentiels", "question": "Quel âge a votre enfant ?", "follow_up_to": null},
+            {"topic": "Repères essentiels", "question": "Y a-t-il une allergie ou un soin particulier que je dois connaître ?", "follow_up_to": null},
+            {"topic": "Repas et habitudes", "question": "À quelles heures faut-il prévoir le repas et le goûter, et me laisserez-vous les aliments nécessaires ?", "follow_up_to": null},
+            {"topic": "Repas et habitudes", "question": "Faut-il prévoir une sieste ou un temps calme, et à quel moment de la journée ?", "follow_up_to": null},
             {"topic": "Activités", "question": "Quelles activités votre enfant préfère-t-il : le dessin, les jeux de construction ou les sorties au parc ?", "follow_up_to": null},
             {"topic": "Activités", "question": "Puis-je l'emmener au parc, et quelles consignes dois-je respecter pendant la sortie ?", "follow_up_to": 6, "condition": "If a park outing is mentioned without confirming permission or safety instructions."},
             {"topic": "Contact", "question": "Comment puis-je vous joindre rapidement et, si vous êtes injoignable, quelle autre personne dois-je appeler ?", "follow_up_to": null}
@@ -2458,6 +2638,21 @@
             {"topic": "Rendez-vous", "question": "Puis-je prendre rendez-vous en ligne, ou faut-il appeler directement le secrétariat ?", "follow_up_to": null},
             {"topic": "Rendez-vous", "question": "Quel délai faut-il prévoir pour obtenir une consultation ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "medical-secretary-temporary-replacement-doctor",
+          "opening": "Bonjour ! J'ai appris que mon médecin de famille était absent, et j'aimerais me renseigner sur la personne qui le remplace.",
+          "closing": "Merci pour ces renseignements. Je vais vérifier mes disponibilités avant de prendre rendez-vous.",
+          "questions": [
+            {"topic": "Le remplacement", "question": "Quel est le nom du médecin qui assure le remplacement ?", "follow_up_to": null},
+            {"topic": "Le remplacement", "question": "Est-elle médecin généraliste, et depuis combien de temps exerce-t-elle ?", "follow_up_to": null},
+            {"topic": "Le remplacement", "question": "Consulte-t-elle dans le même cabinet que mon médecin habituel ?", "follow_up_to": null},
+            {"topic": "Le remplacement", "question": "Aura-t-elle accès à mon dossier au cabinet ?", "follow_up_to": 3, "condition": "If the same clinic is confirmed without explaining access to existing records."},
+            {"topic": "Durée et horaires", "question": "Jusqu'à quelle date assurera-t-elle le remplacement ?", "follow_up_to": null},
+            {"topic": "Durée et horaires", "question": "Quels jours et à quelles heures consulte-t-elle pendant ce remplacement ?", "follow_up_to": null},
+            {"topic": "Rendez-vous", "question": "Puis-je prendre rendez-vous en ligne, ou faut-il appeler directement le secrétariat ?", "follow_up_to": null},
+            {"topic": "Rendez-vous", "question": "Quel délai faut-il prévoir pour obtenir une consultation ?", "follow_up_to": null}
+          ]
         }
       ]
     },
@@ -2476,6 +2671,21 @@
             {"topic": "Missions bénévoles", "question": "Quel engagement de temps attendez-vous des bénévoles ?", "follow_up_to": null},
             {"topic": "Conditions et intégration", "question": "Faut-il une compétence particulière pour commencer ?", "follow_up_to": null},
             {"topic": "Conditions et intégration", "question": "Comment cette formation se déroule-t-elle ?", "follow_up_to": 6, "condition": "If training is required for the mission that interests you."},
+            {"topic": "Conditions et intégration", "question": "Quelle démarche faut-il suivre pour rejoindre l'association ?", "follow_up_to": null}
+          ]
+        },
+        {
+          "group": "animal-protection-association-invitation",
+          "opening": "Bonjour ! Merci pour votre invitation. J'aimerais savoir ce que fait l'association et comment je pourrais y participer.",
+          "closing": "Merci pour ces explications. Je vais réfléchir aux missions qui correspondent à mes disponibilités.",
+          "questions": [
+            {"topic": "Actions et services", "question": "Quelles actions menez-vous pour protéger les animaux : soutien aux refuges, adoption ou sensibilisation ?", "follow_up_to": null},
+            {"topic": "Actions et services", "question": "Comment accompagnez-vous les personnes qui souhaitent adopter un animal ?", "follow_up_to": 1, "condition": "If adoption support is mentioned without explaining help for prospective adopters."},
+            {"topic": "Actions et services", "question": "À quel public s'adressent vos campagnes d'information ?", "follow_up_to": null},
+            {"topic": "Missions bénévoles", "question": "Quelles tâches pourrait-on me confier au début : accueil du public, collectes ou aide au refuge ?", "follow_up_to": null},
+            {"topic": "Missions bénévoles", "question": "Peut-on aider ponctuellement, ou faut-il s'engager chaque semaine sur une durée minimale ?", "follow_up_to": null},
+            {"topic": "Conditions et intégration", "question": "Faut-il une compétence particulière pour commencer ?", "follow_up_to": null},
+            {"topic": "Conditions et intégration", "question": "Combien de temps dure cette formation, et se fait-elle sur place ou en ligne ?", "follow_up_to": 6, "condition": "If training is required for the mission that interests you."},
             {"topic": "Conditions et intégration", "question": "Quelle démarche faut-il suivre pour rejoindre l'association ?", "follow_up_to": null}
           ]
         }

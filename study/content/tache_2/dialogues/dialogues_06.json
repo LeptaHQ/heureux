@@ -38,7 +38,7 @@
     {
       "group": "friend-entertain-visiting-nephews",
       "register": "tu",
-      "note": "You will soon host your nephews and ask a friend for ideas to entertain them. Their ages and interests are not supplied: give them if asked, rather than inventing them or assuming your friend knows. Ask for adaptable activities, outings and games. Use tu and follow the ideas actually recommended. Confirm venue age limits, booking requirements and prices directly.",
+      "note": "You will soon host your nephews and ask a friend for ideas to entertain them. Their ages and interests are not supplied: give them if asked, rather than inventing them or assuming your friend knows. Ask for adaptable activities, outings and games. Use tu and follow the ideas actually recommended. Include accompanying adults in admission costs. Confirm venue age limits, booking requirements and prices directly.",
       "opening": "Salut ! Je vais bientôt accueillir mes neveux à la maison, et j'aimerais que tu m'aides à trouver de quoi les occuper.",
       "closing": "Merci pour toutes ces idées ! Je vais choisir celles qui correspondent le mieux à leur âge et à leurs goûts.",
       "questions": [
@@ -47,7 +47,7 @@
         {"topic": "Activités à la maison", "question": "Quel jeu pourrais-je organiser à la maison pour les faire bouger sans matériel compliqué ?", "answer": "Une chasse au trésor avec des indices dessinés et des images à retrouver ; adapte les cachettes à leur âge et reste avec les plus jeunes.", "follow_up_to": null},
         {"topic": "Sorties", "question": "Quelle sortie leur permettrait de se dépenser, avec des activités adaptées à différents âges ?", "answer": "Le parc d'aventure propose des parcours pour plusieurs tranches d'âge ; son site précise les limites d'âge et de taille.", "follow_up_to": null},
         {"topic": "Sorties", "question": "S'il pleut, où pourrais-je les emmener pour une activité à l'intérieur, comme un atelier ou une exposition interactive ?", "answer": "Le musée des sciences, avec ses expériences interactives.", "follow_up_to": null},
-        {"topic": "Sorties", "question": "Pour le musée, faut-il réserver à l'avance, et quel budget prévoir pour les enfants ?", "answer": "Le week-end, mieux vaut réserver en ligne ; compte environ 12 $ par enfant, selon l'âge et l'exposition, à confirmer sur le site.", "follow_up_to": 5, "condition": "If a museum is suggested without explaining booking or admission prices."},
+        {"topic": "Sorties", "question": "Pour le musée, faut-il réserver à l'avance, et quel budget prévoir pour les entrées des enfants et des adultes ?", "answer": "Le week-end, réserve en ligne ; prévois environ 12 $ par enfant et 18 $ par adulte, selon l'âge et l'exposition, à confirmer sur le site.", "follow_up_to": 5, "condition": "If a museum is suggested without booking advice or children's and adults' admission prices."},
         {"topic": "Jeux", "question": "Quel jeu de société, avec des règles simples et des parties courtes, pourrais-je leur proposer ?", "answer": "Un jeu d'observation comme Dobble, en choisissant une version adaptée à leur âge.", "follow_up_to": null},
         {"topic": "Jeux", "question": "Quel jeu plus calme pourrais-je proposer avant le coucher ?", "answer": "Un jeu de devinettes ou un petit puzzle à faire ensemble.", "follow_up_to": null}
       ]
@@ -160,17 +160,17 @@
     {
       "group": "medical-secretary-temporary-replacement-doctor",
       "register": "vous",
-      "note": "A temporary physician already covers your family doctor's absence. Ask the secretary about identity and experience, consultation location, records, replacement period, hours and booking. The secretary provides administrative information, not medical advice. Use vous and adapt pronouns to the physician named. If consultations are elsewhere, ask how existing records can be made available. Do not invent symptoms or a need for treatment.",
+      "note": "A temporary physician already covers your family doctor's absence. Ask the secretary about identity and experience, consultation location, records, replacement period, hours, booking and documents to bring. The secretary provides administrative information, not medical advice. Use vous and adapt pronouns to the physician named. If consultations are elsewhere, ask how existing records can be made available. Do not invent symptoms or a need for treatment.",
       "opening": "Bonjour ! J'ai appris que mon médecin de famille était absent, et j'aimerais me renseigner sur la personne qui le remplace.",
       "closing": "Merci pour ces renseignements. Je vais vérifier mes disponibilités avant de prendre rendez-vous.",
       "questions": [
         {"topic": "Le remplacement", "question": "Quel est le nom du médecin qui assure le remplacement ?", "answer": "C'est la docteure Sophie Tremblay.", "follow_up_to": null},
         {"topic": "Le remplacement", "question": "Est-elle médecin généraliste, et depuis combien de temps exerce-t-elle ?", "answer": "Elle est médecin généraliste et exerce depuis huit ans ; son parcours est présenté sur le site du cabinet.", "follow_up_to": null},
         {"topic": "Le remplacement", "question": "Consulte-t-elle dans le même cabinet que mon médecin habituel ?", "answer": "Oui, elle consulte au cabinet habituel, dans le bureau de votre médecin.", "follow_up_to": null},
-        {"topic": "Le remplacement", "question": "Aura-t-elle accès à mon dossier au cabinet ?", "answer": "Oui, elle pourra consulter votre dossier avant le rendez-vous.", "follow_up_to": 3, "condition": "If the same clinic is confirmed without explaining access to existing records."},
+        {"topic": "Le remplacement", "question": "Aura-t-elle accès à mon dossier, ou faudra-t-il lui transmettre des documents avant la consultation ?", "answer": "Oui, elle aura accès à votre dossier au cabinet ; inutile de le retransmettre. Apportez seulement les éventuels résultats récents qui n'y figurent pas.", "follow_up_to": 3, "condition": "If the same clinic is confirmed without explaining access to existing records."},
         {"topic": "Durée et horaires", "question": "Jusqu'à quelle date assurera-t-elle le remplacement ?", "answer": "Jusqu'au 15 mars, date prévue du retour de votre médecin.", "follow_up_to": null},
         {"topic": "Durée et horaires", "question": "Quels jours et à quelles heures consulte-t-elle pendant ce remplacement ?", "answer": "De 8 h 30 à 16 h du lundi au jeudi, puis de 9 h à midi le vendredi.", "follow_up_to": null},
-        {"topic": "Rendez-vous", "question": "Puis-je prendre rendez-vous en ligne, ou faut-il appeler directement le secrétariat ?", "answer": "Vous pouvez utiliser le site du cabinet ou appeler directement le secrétariat.", "follow_up_to": null},
+        {"topic": "Rendez-vous", "question": "Comment prendre rendez-vous avec elle, et quels documents faut-il apporter à la consultation ?", "answer": "Par le site ou le secrétariat ; apportez une pièce d'identité et votre carte de couverture santé, si vous en avez une.", "follow_up_to": null},
         {"topic": "Rendez-vous", "question": "Quel délai faut-il prévoir pour obtenir une consultation ?", "answer": "En général, deux ou trois jours.", "follow_up_to": null}
       ]
     },
@@ -231,18 +231,18 @@
     {
       "group": "grocery-store-home-delivery",
       "register": "vous",
-      "note": "You ask a grocery-store employee about home delivery. Check address coverage, ordering and payment, minimum order, fees, delivery delay, selectable time windows, cold transport and missed-delivery charges. The employee can explain the store's own service; the example's prices and policies are not universal. Use vous. This is neither furniture delivery nor a personal favour.",
+      "note": "You ask a grocery-store employee about home delivery. Check address coverage, ordering, payment methods and timing, minimum order, fees, delivery delay, selectable windows, cold transport, missed-delivery charges and damaged or missing items. The employee can explain the store's own service; prices and policies are simulation examples, not universal rules. Use vous. This is neither furniture delivery nor a personal favour.",
       "opening": "Bonjour ! J'aimerais me faire livrer mes courses à domicile, et je voudrais savoir comment fonctionne votre service.",
       "closing": "Merci pour ces renseignements. Je vais vérifier les créneaux avant de passer ma première commande.",
       "questions": [
         {"topic": "Commande", "question": "Quelle est votre zone de livraison, et comment vérifier si mon adresse est desservie ?", "answer": "Nous livrons dans un rayon de quinze kilomètres ; votre code postal sur notre site permet de vérifier votre adresse.", "follow_up_to": null},
-        {"topic": "Commande", "question": "Comment passe-t-on commande, et quels moyens de paiement acceptez-vous ?", "answer": "Sur le site, dans l'application ou par téléphone ; le paiement se fait par carte à la commande, ou par carte au livreur pour les commandes téléphoniques.", "follow_up_to": null},
-        {"topic": "Commande", "question": "Y a-t-il un montant minimum pour utiliser ce service ?", "answer": "Oui, il faut commander pour au moins 50 $.", "follow_up_to": null},
-        {"topic": "Frais", "question": "Combien coûte la livraison, et existe-t-il un seuil d'achat pour qu'elle soit gratuite ?", "answer": "Elle coûte 7,99 $ et devient gratuite à partir de 100 $ d'achats.", "follow_up_to": null},
+        {"topic": "Commande", "question": "Comment passe-t-on commande, et le paiement se fait-il en ligne ou auprès du livreur, par carte ou en espèces ?", "answer": "Sur le site, dans l'application ou par téléphone ; uniquement par carte, à la commande en ligne ou auprès du livreur pour les commandes téléphoniques.", "follow_up_to": null},
+        {"topic": "Frais", "question": "Quel est le montant minimum de commande, et combien coûte la livraison selon le montant des achats ?", "answer": "Il faut commander pour au moins 50 $ ; la livraison coûte 7,99 $ et devient gratuite à partir de 100 $ d'achats.", "follow_up_to": null},
         {"topic": "Délais", "question": "Quel délai faut-il prévoir entre la commande et la livraison ?", "answer": "Une commande passée avant midi peut être livrée le jour même ; après midi, la livraison a généralement lieu le lendemain.", "follow_up_to": null},
-        {"topic": "Délais", "question": "Puis-je choisir un créneau de livraison, et combien de temps dure-t-il ?", "answer": "Oui, parmi les créneaux disponibles, d'une durée de deux heures, entre 9 h et 21 h.", "follow_up_to": 5, "condition": "If delivery timing is given without a selectable window or its duration."},
+        {"topic": "Délais", "question": "Puis-je choisir un créneau de livraison, et combien de temps dure-t-il ?", "answer": "Oui, parmi les créneaux disponibles, d'une durée de deux heures, entre 9 h et 21 h.", "follow_up_to": 4, "condition": "If delivery timing is given without a selectable window or its duration."},
         {"topic": "Livraison", "question": "Comment les produits frais et surgelés sont-ils transportés ?", "answer": "Dans des sacs isothermes et des bacs réfrigérés.", "follow_up_to": null},
-        {"topic": "Livraison", "question": "Que se passe-t-il si je suis absent au moment prévu, et une nouvelle livraison est-elle payante ?", "answer": "Le livreur vous appelle ; si vous restez injoignable, les courses reviennent au magasin et une nouvelle livraison coûte 7,99 $.", "follow_up_to": null}
+        {"topic": "Livraison", "question": "Que se passe-t-il si je suis absent au moment prévu, et une nouvelle livraison est-elle payante ?", "answer": "Le livreur vous appelle ; si vous restez injoignable, les courses reviennent au magasin et une nouvelle livraison coûte 7,99 $.", "follow_up_to": null},
+        {"topic": "Livraison", "question": "Si un produit manque ou arrive abîmé, comment le signaler et obtenir un remboursement ?", "answer": "Appelez le service client avec le numéro de commande et, si possible, une photo ; nous vérifions le problème puis remboursons les articles concernés sur le moyen de paiement utilisé.", "follow_up_to": null}
       ]
     },
     {
@@ -344,7 +344,7 @@
         {"topic": "L'accident", "question": "Quelqu'un a-t-il pu vous aider sur place après l'accident ?", "answer": "Un passant m'a aidé à me relever, puis un collègue m'a raccompagné à la maison.", "follow_up_to": 4, "condition": "If a fall is described without explaining whether someone helped."},
         {"topic": "Travail et soutien", "question": "Souhaitez-vous que je transmette un message à l'équipe ?", "answer": "Oui, dites-leur simplement que je vais bien et que je les remercie.", "follow_up_to": null},
         {"topic": "Travail et soutien", "question": "Avez-vous une idée de la date de votre retour au travail ?", "answer": "Probablement lundi prochain, si je continue à récupérer normalement.", "follow_up_to": null},
-        {"topic": "Travail et soutien", "question": "Que pourrais-je vous apporter du bureau d'ici là ?", "answer": "Mon chargeur et le dossier bleu posé sur mon bureau me seraient utiles.", "follow_up_to": 7, "condition": "If the colleague expects to remain away from work for a few days."}
+        {"topic": "Travail et soutien", "question": "Que pourrais-je vous apporter du bureau d'ici là, et quand pourrais-je vous le déposer ?", "answer": "Mon chargeur et le dossier bleu sur mon bureau ; vous pouvez les déposer demain après 17 h, mais ne vous dérangez pas si vous êtes occupé.", "follow_up_to": 7, "condition": "If the colleague expects to remain away from work for a few days."}
       ]
     }
   ]

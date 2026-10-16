@@ -27,6 +27,23 @@ REVIEW_REVISIONS = {
     "visit-colleague-minor-accident": 1,
 }
 
+DEVELOPMENT_REVISIONS = {
+    "animal-protection-association-invitation": 1,
+    "child-friends-family-holiday-invitation": 2,
+    "colleague-babysitter-referral-needs": 2,
+    "friend-entertain-visiting-nephews": 2,
+    "friend-holiday-apartment-watch": 2,
+    "friend-homeless-meal-volunteering": 2,
+    "friend-three-year-old-weekend-care": 3,
+    "grocery-store-home-delivery": 3,
+    "help-friend-post-parcel": 3,
+    "medical-secretary-temporary-replacement-doctor": 2,
+    "neighbor-child-one-day-care": 2,
+    "neighbor-environmental-association-volunteering": 2,
+    "neighbor-home-childcare-provider-referral": 2,
+    "visit-colleague-minor-accident": 2,
+}
+
 
 class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
     def setUp(self):
@@ -40,16 +57,15 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
             (content.QUESTION_BANK_DIR / "dialogue_history/locations.json").read_text(),
         )["groups"]
 
-    def test_review_covers_nineteen_neighbourhood_models_and_forty_publications(self):
+    def test_review_covers_eighteen_neighbourhood_models_and_thirty_six_publications(self):
         publications = [
             row for key, row in self.dialogues.items() if self.themes[key] == "vie-quartier"
         ]
         groups = {row.group for row in publications}
-        self.assertEqual(len(publications), 40)
+        self.assertEqual(len(publications), 36)
         self.assertEqual(groups, (set(REVIEW_REVISIONS) - {
             "newcomer-local-acquaintance-meet-people",
         }) | {
-            "new-resident-neighbor-neighborhood-orientation",
             "volunteer-local-association-information-office",
         })
         for row in publications:
@@ -122,6 +138,54 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertEqual(row.questions[7].follow_up_to, 7)
         self.assertIn("aller-retour en bus", row.questions[7].answer)
         self.assertIn("lignes prévues", row.questions[7].answer)
+
+    def test_developments_archive_all_fourteen_exact_published_layouts_once(self):
+        snapshots = []
+        for group, revision in sorted(DEVELOPMENT_REVISIONS.items()):
+            with self.subTest(group=group):
+                revisions = self.history[group]["revisions"]
+                self.assertEqual(len(revisions), revision + 1)
+                previous = revisions[revision]
+                self.assertEqual(revisions.count(previous), 1)
+                self.assertEqual(set(previous), {"group", "opening", "closing", "questions"})
+                self.assertEqual(len(previous["questions"]), 8)
+                for question in previous["questions"]:
+                    self.assertNotIn("answer", question)
+                snapshots.append(previous)
+        snapshot = json.dumps(snapshots, ensure_ascii=False, sort_keys=True).encode()
+        self.assertEqual(
+            hashlib.sha256(snapshot).hexdigest(),
+            "70c0d8597ac6451b3f4a1ecb89f47f579f8256c066f405eccd6acbd5fda44c8f",
+        )
+
+    def test_previously_developed_routes_keep_their_exact_approved_visible_wording(self):
+        protected = {
+            "host-foreign-friends-city-advice",
+            "neighbor-dog-care-week-paid",
+            "trusted-person-temporary-pet-care",
+            "volunteer-local-association-information-office",
+        }
+        raw = {
+            row["group"]: row
+            for path in (content.QUESTION_BANK_DIR / "dialogues").glob("*.json")
+            for row in json.loads(path.read_text())["dialogues"]
+            if row["group"] in protected
+        }
+        snapshots = [
+            {
+                "group": group, "opening": raw[group]["opening"], "closing": raw[group]["closing"],
+                "questions": [
+                    {key: value for key, value in question.items() if key != "answer"}
+                    for question in raw[group]["questions"]
+                ],
+            }
+            for group in sorted(protected)
+        ]
+        snapshot = json.dumps(snapshots, ensure_ascii=False, sort_keys=True).encode()
+        self.assertEqual(
+            hashlib.sha256(snapshot).hexdigest(),
+            "4e5389b996ea9bc7ca6975cdd89b6cc4281153c129c63fbb9b8a8211ac0b588c",
+        )
 
     def test_previous_city_and_dog_layouts_are_archived_exactly(self):
         expected = {
@@ -405,13 +469,15 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
 
     def test_childcare_meal_and_sleep_arrangements_are_actionable(self):
         weekend = self.by_group["friend-three-year-old-weekend-care"]
-        self.assertIn("repas et son goûter", weekend.questions[0].question)
+        self.assertIn("fourniras-tu ses repas et ses goûters", weekend.questions[0].question)
+        self.assertIn("devrai-je m'en occuper", weekend.questions[0].question)
         for timing in ("8 h", "midi", "18 h 30", "16 h"):
             self.assertIn(timing, weekend.questions[0].answer)
         self.assertIn("Puis-je l'emmener", weekend.questions[3].question)
         self.assertTrue(weekend.questions[3].answer.startswith("Oui"))
         day = self.by_group["neighbor-child-one-day-care"]
-        self.assertIn("me laisserez-vous les aliments", day.questions[3].question)
+        self.assertIn("Fournirez-vous le repas et le goûter", day.questions[3].question)
+        self.assertIn("devrai-je les prévoir", day.questions[3].question)
         self.assertIn("midi", day.questions[3].answer)
         self.assertIn("16 h", day.questions[3].answer)
         self.assertIn("sieste ou un temps calme", day.questions[4].question)
@@ -450,7 +516,8 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertEqual(row.questions[3].follow_up_to, 2)
         self.assertIn("cactus", row.questions[3].answer)
         self.assertIn("code d'accès", row.questions[4].question)
-        self.assertIn("qui pourrait m'aider", row.questions[7].question)
+        self.assertIn("quelle personne sur place", row.questions[7].question)
+        self.assertIn("double des clés", row.questions[7].question)
         self.assertEqual(row.questions[7].follow_up_to, 7)
         self.assertEqual(
             self.hints[row.group][3]["english"],
@@ -472,7 +539,7 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertIn("explications et un accompagnement", environment.questions[5].question)
         self.assertIn("où faut-il se présenter", environment.questions[7].question)
         self.assertIn("quinze minutes avant 9 h", environment.questions[7].answer)
-        self.assertIn("vérifiez le point de rendez-vous", environment.questions[7].answer)
+        self.assertIn("Confirmez ces détails lors de l'inscription", environment.questions[7].answer)
 
     def test_meeting_people_moves_from_recurring_groups_to_a_concrete_meeting(self):
         row = self.by_group["newcomer-local-acquaintance-meet-people"]
@@ -487,13 +554,136 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
 
     def test_delivery_questions_cover_payment_and_window_length(self):
         row = self.by_group["grocery-store-home-delivery"]
-        self.assertIn("moyens de paiement", row.questions[1].question)
-        self.assertIn("par carte au livreur", row.questions[1].answer)
-        self.assertIn("combien de temps dure", row.questions[5].question)
-        self.assertIn("deux heures", row.questions[5].answer)
-        self.assertIn("créneaux disponibles", row.questions[5].answer)
-        self.assertEqual(row.questions[5].follow_up_to, 5)
-        self.assertIn("nouvelle livraison coûte", row.questions[7].answer)
+        self.assertIn("en ligne ou auprès du livreur", row.questions[1].question)
+        self.assertIn("par carte ou en espèces", row.questions[1].question)
+        self.assertIn("uniquement par carte", row.questions[1].answer)
+        self.assertIn("auprès du livreur", row.questions[1].answer)
+        self.assertIn("combien de temps dure", row.questions[4].question)
+        self.assertIn("deux heures", row.questions[4].answer)
+        self.assertIn("créneaux disponibles", row.questions[4].answer)
+        self.assertEqual(row.questions[4].follow_up_to, 4)
+        self.assertIn("nouvelle livraison coûte", row.questions[6].answer)
+
+    def test_remuneration_development_distinguishes_employer_from_referrer_and_favours(self):
+        colleague = self.by_group["colleague-babysitter-referral-needs"]
+        self.assertEqual(
+            colleague.questions[6].question,
+            "Quelle rémunération proposez-vous pour cette garde, et comment et quand sera-t-elle versée ?",
+        )
+        self.assertIn("18 $ de l'heure", colleague.questions[6].answer)
+        self.assertIn("par virement après chaque garde", colleague.questions[6].answer)
+        self.assertNotIn("départ", colleague.questions[6].question)
+        self.assertEqual(
+            self.hints[colleague.group][6]["english"], "Proposed pay, payment method and timing",
+        )
+        referrer = self.by_group["neighbor-home-childcare-provider-referral"]
+        self.assertIn("Savez-vous quel tarif", referrer.questions[6].question)
+        self.assertIn("après chaque garde ou en fin de mois", referrer.questions[6].question)
+        self.assertIn("D'après ce que vous savez", referrer.questions[5].question)
+        self.assertIn("repas doivent-ils être fournis par les parents", referrer.questions[5].question)
+        self.assertNotIn("chez vous", referrer.questions[5].question)
+        self.assertIn("Do not assume the neighbour has employed this person", referrer.note)
+        self.assertIn("par virement après chaque garde", referrer.questions[6].answer)
+        self.assertIn("confirmera son tarif actuel", referrer.questions[6].answer)
+        self.assertIn("ses modalités de paiement", referrer.questions[6].answer)
+        for group in (
+            "friend-three-year-old-weekend-care", "neighbor-child-one-day-care",
+            "friend-holiday-apartment-watch", "trusted-person-temporary-pet-care",
+            "help-friend-post-parcel",
+        ):
+            with self.subTest(group=group):
+                for question in self.by_group[group].questions:
+                    self.assertNotRegex(question.question.lower(), r"salaire|rémunération")
+        parcel = self.by_group["help-friend-post-parcel"]
+        self.assertIn("l'argent avant le dépôt", parcel.questions[6].question)
+        self.assertIn("tu n'auras rien à avancer", parcel.questions[6].answer)
+        self.assertIn("postage funding is not remuneration", parcel.note)
+
+    def test_childcare_development_covers_behaviour_health_rest_and_parent_availability(self):
+        weekend = self.by_group["friend-three-year-old-weekend-care"]
+        self.assertEqual(
+            [row.topic for row in weekend.questions],
+            ["Repas et santé"] * 2 + ["Jeux, sorties et comportement"] * 3
+            + ["Sommeil"] * 2 + ["Disponibilité et contacts"],
+        )
+        self.assertIn("soins particuliers", weekend.questions[1].question)
+        self.assertIn("personnes qu'elle connaît peu", weekend.questions[4].question)
+        self.assertIn("s'entend-elle bien avec les autres enfants", weekend.questions[4].question)
+        self.assertIn("Seras-tu joignable pendant tout le week-end", weekend.questions[7].question)
+        self.assertIn("qui pourrai-je contacter en cas de souci", weekend.questions[7].question)
+        self.assertIn("sa grand-mère", weekend.questions[7].answer)
+        day = self.by_group["neighbor-child-one-day-care"]
+        self.assertIn("allergies", day.questions[1].question)
+        self.assertIn("s'entend-il bien avec les autres enfants", day.questions[2].question)
+        self.assertIn("habitudes pour aider votre enfant à se reposer", day.questions[4].question)
+        self.assertIn("Pas de sieste", day.questions[4].answer)
+        self.assertIn("joignable pendant toute la garde", day.questions[7].question)
+        self.assertFalse(any("coucher" in row.question for row in day.questions))
+        self.assertEqual(
+            self.hints[weekend.group][4]["english"],
+            self.hints[day.group][2]["english"],
+        )
+
+    def test_holiday_costs_are_a_contribution_with_inclusions_and_payment_timing(self):
+        row = self.by_group["child-friends-family-holiday-invitation"]
+        self.assertIn("dates du séjour", row.questions[0].question)
+        self.assertIn("Où comptez-vous", row.questions[0].question)
+        self.assertIn("Quel hébergement", row.questions[1].question)
+        self.assertIn("participation aux frais", row.questions[2].question)
+        self.assertIn("que couvrira-t-elle", row.questions[2].question)
+        self.assertIn("avant le départ", row.questions[2].question)
+        for detail in ("150 $", "repas et toutes les activités", "transport et le chalet"):
+            self.assertIn(detail, row.questions[2].answer)
+        self.assertIn("Pas en permanence", row.questions[7].answer)
+        self.assertIn("nos deux numéros", row.questions[7].answer)
+        nephews = self.by_group["friend-entertain-visiting-nephews"]
+        self.assertIn("entrées des enfants et des adultes", nephews.questions[5].question)
+        self.assertIn("12 $ par enfant et 18 $ par adulte", nephews.questions[5].answer)
+
+    def test_volunteer_developments_cover_places_shifts_supplies_notice_and_first_visit(self):
+        animals = self.by_group["animal-protection-association-invitation"]
+        self.assertIn("où se déroulent les missions", animals.questions[3].question)
+        self.assertIn("jours et horaires", animals.questions[4].question)
+        self.assertIn("10 h à 13 h", animals.questions[4].answer)
+        self.assertIn("14 h à 16 h", animals.questions[4].answer)
+        self.assertIn("rencontrer l'équipe sur place", animals.questions[7].question)
+        meals = self.by_group["friend-homeless-meal-volunteering"]
+        self.assertIn("combien de temps à l'avance", meals.questions[3].question)
+        self.assertIn("deux jours avant", meals.questions[3].answer)
+        self.assertIn("protections nécessaires sont-elles fournies", meals.questions[5].question)
+        self.assertIn("observer une distribution", meals.questions[7].question)
+        environment = self.by_group["neighbor-environmental-association-volunteering"]
+        self.assertIn("matériel est fourni", environment.questions[1].question)
+        self.assertIn("apporter soi-même", environment.questions[1].question)
+        self.assertIn("8 h 45 à midi", environment.questions[2].answer)
+        self.assertIn("deux jours avant", environment.questions[3].answer)
+        self.assertIn("mauvais temps", environment.questions[7].question)
+        self.assertIn("prévient les inscrits par message", environment.questions[7].answer)
+
+    def test_delivery_refund_and_practical_handover_developments_remain_role_specific(self):
+        grocery = self.by_group["grocery-store-home-delivery"]
+        self.assertIn("produit manque ou arrive abîmé", grocery.questions[7].question)
+        self.assertIn("remboursement", grocery.questions[7].question)
+        self.assertIn("numéro de commande", grocery.questions[7].answer)
+        self.assertIn("moyen de paiement utilisé", grocery.questions[7].answer)
+        watch = self.by_group["friend-holiday-apartment-watch"]
+        self.assertIn("combien de temps", watch.questions[2].question)
+        self.assertIn("vingtaine de minutes", watch.questions[2].answer)
+        self.assertIn("Seras-tu joignable", watch.questions[6].question)
+        self.assertIn("double des clés", watch.questions[7].answer)
+        doctor = self.by_group["medical-secretary-temporary-replacement-doctor"]
+        self.assertIn("transmettre des documents", doctor.questions[3].question)
+        self.assertIn("documents faut-il apporter", doctor.questions[6].question)
+        self.assertIn("pièce d'identité", doctor.questions[6].answer)
+        visit = self.by_group["visit-colleague-minor-accident"]
+        self.assertIn("quand pourrais-je vous le déposer", visit.questions[7].question)
+        self.assertIn("demain après 17 h", visit.questions[7].answer)
+
+    def test_pet_urgency_replies_do_not_require_waiting_for_the_owners_response(self):
+        paid = self.by_group["neighbor-dog-care-week-paid"]
+        self.assertIn("en cas d'urgence ou si je suis injoignable", paid.questions[6].answer)
+        unpaid = self.by_group["trusted-person-temporary-pet-care"]
+        self.assertIn("En urgence, contacte directement le vétérinaire", unpaid.questions[7].answer)
 
     def test_parcel_errand_checks_contents_arrival_and_feasibility_before_accepting(self):
         row = self.by_group["help-friend-post-parcel"]

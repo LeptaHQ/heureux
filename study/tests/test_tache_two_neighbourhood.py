@@ -148,6 +148,7 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
                     len(revisions),
                     revision + (2 if group in {
                         "colleague-babysitter-referral-needs", "friend-holiday-apartment-watch",
+                        "friend-homeless-meal-volunteering",
                     } else 1),
                 )
                 previous = revisions[revision]
@@ -584,8 +585,8 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
 
     def test_volunteering_covers_real_shifts_commitment_and_arrival(self):
         meals = self.by_group["friend-homeless-meal-volunteering"]
-        self.assertIn("Où ont lieu", meals.questions[2].question)
-        self.assertIn("préparation et rangement compris", meals.questions[2].answer)
+        self.assertIn("Où ont lieu", meals.questions[0].question)
+        self.assertIn("préparation et rangement compris", meals.questions[0].answer)
         animals = self.by_group["animal-protection-association-invitation"]
         self.assertIn("personnes qui souhaitent adopter", animals.questions[1].question)
         self.assertIn("ponctuellement", animals.questions[4].question)
@@ -598,6 +599,62 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertIn("où faut-il se présenter", environment.questions[7].question)
         self.assertIn("quinze minutes avant 9 h", environment.questions[7].answer)
         self.assertIn("Confirmez ces détails lors de l'inscription", environment.questions[7].answer)
+
+    def test_meal_volunteering_checks_availability_before_distinct_general_and_beginner_tasks(self):
+        group = "friend-homeless-meal-volunteering"
+        publications = [row for row in self.dialogues.values() if row.group == group]
+        self.assertEqual(len(publications), 2)
+        before = self.history[group]["revisions"][3]
+        for row in publications:
+            with self.subTest(note=row.note):
+                self.assertEqual(
+                    [question.topic for question in row.questions],
+                    ["Lieu et disponibilités"] * 2 + ["Organisation et missions"] * 2
+                    + ["Conditions et inscription"] * 4,
+                )
+                self.assertEqual(row.questions[0].question, before["questions"][2]["question"])
+                self.assertEqual(row.questions[1].question, before["questions"][3]["question"])
+                self.assertEqual(
+                    row.questions[2].question,
+                    "Les bénévoles participent-ils aussi à la préparation des repas, ou seulement à leur distribution ?",
+                )
+                self.assertIn("arrivent déjà cuisinés", row.questions[2].answer)
+                self.assertIn("prépare les portions", row.questions[2].answer)
+                self.assertEqual(row.questions[3].question, before["questions"][1]["question"])
+                self.assertEqual(row.questions[3].follow_up_to, 3)
+                self.assertIn("without specifying beginners' tasks", row.questions[3].condition)
+                self.assertEqual(
+                    [question.question for question in row.questions[4:]],
+                    [question["question"] for question in before["questions"][4:]],
+                )
+                self.assertIn("First check location, full shifts and attendance notice", row.note)
+                self.assertFalse(any("du début à la fin" in q.question for q in row.questions))
+        self.assertEqual(
+            self.hints[group][:4],
+            [
+                {
+                    "french": "Lieu des distributions, jours et horaires de présence",
+                    "english": "Distribution location, days and full volunteer shift",
+                },
+                {
+                    "french": "Participation ponctuelle et délai pour confirmer sa présence",
+                    "english": "Occasional participation and notice for confirming attendance",
+                },
+                {
+                    "french": "Préparation des repas ou distribution uniquement",
+                    "english": "Meal preparation or distribution only",
+                },
+                {
+                    "french": "Première tâche confiée aux nouveaux",
+                    "english": "First task given to new volunteers",
+                },
+            ],
+        )
+        snapshot = json.dumps(before, ensure_ascii=False, sort_keys=True).encode()
+        self.assertEqual(
+            hashlib.sha256(snapshot).hexdigest(),
+            "63cceefb4f3d85998007f59786782c9abf842a10696744bb9270d5d8c834e905",
+        )
 
     def test_meeting_people_moves_from_recurring_groups_to_a_concrete_meeting(self):
         row = self.by_group["newcomer-local-acquaintance-meet-people"]
@@ -706,8 +763,8 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertIn("14 h à 16 h", animals.questions[4].answer)
         self.assertIn("rencontrer l'équipe sur place", animals.questions[7].question)
         meals = self.by_group["friend-homeless-meal-volunteering"]
-        self.assertIn("combien de temps à l'avance", meals.questions[3].question)
-        self.assertIn("deux jours avant", meals.questions[3].answer)
+        self.assertIn("combien de temps à l'avance", meals.questions[1].question)
+        self.assertIn("deux jours avant", meals.questions[1].answer)
         self.assertIn("protections nécessaires sont-elles fournies", meals.questions[5].question)
         self.assertIn("observer une distribution", meals.questions[7].question)
         environment = self.by_group["neighbor-environmental-association-volunteering"]

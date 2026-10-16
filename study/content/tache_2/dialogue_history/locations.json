@@ -1374,6 +1374,21 @@
             {"topic": "Conditions et inscription", "question": "Pour ma première distribution, serai-je accompagné par un bénévole expérimenté ?", "follow_up_to": 5, "condition": "If an introduction is mentioned without explaining who supports new volunteers."},
             {"topic": "Conditions et inscription", "question": "Qui dois-je contacter pour proposer mon aide ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "friend-homeless-meal-volunteering",
+          "opening": "Salut ! J'aimerais devenir bénévole dans ton association et comprendre comment participer à la distribution des repas.",
+          "closing": "Merci pour tes explications ! Je vais regarder mes disponibilités et prendre contact avec l'association.",
+          "questions": [
+            {"topic": "Organisation et missions", "question": "Comment se déroule une distribution de repas, du début à la fin ?", "follow_up_to": null},
+            {"topic": "Organisation et missions", "question": "Quelle tâche confie-t-on généralement à un nouveau bénévole ?", "follow_up_to": 1, "condition": "After the distribution process is described, unless beginner tasks are already clear."},
+            {"topic": "Lieu et disponibilités", "question": "Où ont lieu les distributions, et quels jours et horaires faut-il prévoir pour participer ?", "follow_up_to": null},
+            {"topic": "Lieu et disponibilités", "question": "Peut-on participer ponctuellement, et combien de temps à l'avance faut-il confirmer sa présence ?", "follow_up_to": null},
+            {"topic": "Conditions et inscription", "question": "Une expérience particulière est-elle nécessaire pour commencer ?", "follow_up_to": null},
+            {"topic": "Conditions et inscription", "question": "Quelles consignes d'hygiène faut-il respecter, et les protections nécessaires sont-elles fournies ?", "follow_up_to": null},
+            {"topic": "Conditions et inscription", "question": "Pour ma première distribution, serai-je accompagné par un bénévole expérimenté ?", "follow_up_to": 5, "condition": "If an introduction is mentioned without explaining who supports new volunteers."},
+            {"topic": "Conditions et inscription", "question": "À qui dois-je m'adresser pour m'inscrire, et pourrais-je d'abord venir observer une distribution ?", "follow_up_to": null}
+          ]
         }
       ]
     },

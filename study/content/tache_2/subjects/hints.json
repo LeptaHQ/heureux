@@ -2370,20 +2370,20 @@
     ],
     "friend-homeless-meal-volunteering": [
       {
-        "french": "Déroulement complet d'une distribution",
-        "english": "How a full meal distribution works"
-      },
-      {
-        "french": "Première tâche confiée aux nouveaux",
-        "english": "First task given to new volunteers"
-      },
-      {
         "french": "Lieu des distributions, jours et horaires de présence",
         "english": "Distribution location, days and full volunteer shift"
       },
       {
         "french": "Participation ponctuelle et délai pour confirmer sa présence",
         "english": "Occasional participation and notice for confirming attendance"
+      },
+      {
+        "french": "Préparation des repas ou distribution uniquement",
+        "english": "Meal preparation or distribution only"
+      },
+      {
+        "french": "Première tâche confiée aux nouveaux",
+        "english": "First task given to new volunteers"
       },
       {
         "french": "Expérience nécessaire pour commencer",

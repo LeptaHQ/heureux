@@ -46,7 +46,7 @@ class TacheTwoWorkCorpusTests(SimpleTestCase):
         expected = {
             "arrivee": "eeb337d3fd34d07c863b10f58fa4da53bae6f1b91822e56eaa8042170a48e278",
             "logement": "e650f8cfbd4e5c653958e7601692e2d4d0549302f09a4e9b9bdfa7f53f240847",
-            "vie-quartier": "8e4fe7e98c98188b5a710c2770ad5e39c35a8068ab3f3c1ed42c7bcced6673f8",
+            "vie-quartier": "7445a193783b753cd246b0a261fea7c913eac9f9e545730245f7e6f18614eed3",
         }
         for theme, digest in expected.items():
             with self.subTest(theme=theme):

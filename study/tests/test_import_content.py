@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib
+from dataclasses import replace
 from datetime import timedelta
 from io import StringIO
 from pathlib import Path
@@ -13,6 +14,7 @@ from django.utils import timezone
 
 from study import content_loader as content
 from study import queue, srs
+from study.account_services import provision_user_study_data
 from study.management.commands.import_content import Command
 from study.models import (
     Annotation,
@@ -198,6 +200,74 @@ class CardStartedAtMigrationTests(TestCase):
         )
 
 
+class PromptReclassificationImportTests(TestCase):
+    def test_existing_bundle_can_move_subjects_between_themes_without_losing_learning_data(self):
+        themes, mapping = content.load_tache_two_subject_themes()
+        moved_keys = {
+            "tache2:fevrier:batch-05:subject-24",
+            "tache2:mars:batch-03:subject-14",
+            "tache2:septembre:batch-03:subject-14",
+            "tache2:octobre:batch-02:subject-09",
+            "tache2:avril:batch-01:subject-03",
+            "tache2:juin:batch-09:subject-43",
+            "tache2:juillet:batch-01:subject-05",
+            "tache2:decembre:batch-03:subject-13",
+        }
+        legacy_mapping = {**mapping, **dict.fromkeys(moved_keys, "vie-quartier")}
+        with patch(
+            "study.content_loader.load_tache_two_subject_themes",
+            return_value=(themes, legacy_mapping),
+        ):
+            call_command("import_content", stdout=StringIO())
+        identities = dict(Prompt.objects.values_list("content_key", "pk"))
+        prompt = Prompt.objects.select_related("response", "theme__task").get(
+            content_key="tache2:fevrier:batch-05:subject-24",
+        )
+        user = factories.make_user("reclassified-subject")
+        provision_user_study_data(user)
+        card = Card.objects.get(
+            user=user, response=prompt.response, card_type=CardType.SPINE,
+        )
+        srs.review(card, Rating.GOOD)
+        personal = PersonalResponse.objects.create(
+            user=user, response=prompt.response, source_prompt=prompt,
+            conclusion="Mes questions personnelles.",
+        )
+        mark = Annotation.objects.create(
+            user=user, task=prompt.theme.task, kind=AnnotationKind.HIGHLIGHT,
+            source_key=f"response:{prompt.response.content_key}:back",
+            source_path="/expression/orale/tache-2/",
+            quote="Mon passage appris.", start_offset=0, end_offset=19,
+            body="Ma note de révision.", study_later=True,
+        )
+        schedule_fields = (
+            "pk", "response_id", "state", "due", "interval_days", "ease",
+            "reps", "lapses", "learning_step", "last_reviewed", "last_rating",
+            "started_at", "response_practice_started_at", "subject_completed_at",
+        )
+        schedule = Card.objects.filter(pk=card.pk).values(*schedule_fields).get()
+        personal_before = PersonalResponse.objects.filter(pk=personal.pk).values().get()
+        mark_before = Annotation.objects.filter(pk=mark.pk).values().get()
+        reviews_before = list(ReviewLog.objects.filter(card=card).values())
+
+        call_command("import_content", stdout=StringIO())
+        call_command("import_content", stdout=StringIO())
+
+        self.assertEqual(dict(Prompt.objects.values_list("content_key", "pk")), identities)
+        for key in moved_keys:
+            with self.subTest(content_key=key):
+                current = Prompt.objects.select_related("theme").get(content_key=key)
+                self.assertEqual(current.theme.slug, f"tache-2-{mapping[key]}")
+        self.assertEqual(
+            Card.objects.filter(pk=card.pk).values(*schedule_fields).get(), schedule,
+        )
+        self.assertEqual(
+            PersonalResponse.objects.filter(pk=personal.pk).values().get(), personal_before,
+        )
+        self.assertEqual(Annotation.objects.filter(pk=mark.pk).values().get(), mark_before)
+        self.assertEqual(list(ReviewLog.objects.filter(card=card).values()), reviews_before)
+
+
 class NonDestructiveImportTests(TestCase):
     def _response_data(self, response, *, body_hash="b" * 64, body="Updated"):
         prompt = response.prompts.get(is_canonical=True)
@@ -235,6 +305,150 @@ class NonDestructiveImportTests(TestCase):
                 )
             ],
         )
+
+    def _import_prompt_rows(self, data, responses):
+        return Command()._import_prompts(
+            data,
+            {response.content_key: response for response in responses},
+            {theme.name: theme for theme in Theme.objects.all()},
+            {response.family.name: response.family for response in responses},
+        )
+
+    def test_prompt_number_swap_preserves_ids_and_private_learning_state(self):
+        first = factories.make_response()
+        second = factories.make_response(theme=first.theme)
+        prompts = [response.prompts.get(is_canonical=True) for response in (first, second)]
+        data = [self._response_data(response) for response in (first, second)]
+        numbers = [prompt.number for prompt in prompts]
+        for row, number in zip(data, reversed(numbers)):
+            row.prompts = [replace(row.prompts[0], number=number)]
+        user = factories.make_user("renumber-preservation")
+        card = Card.objects.create(
+            user=user, response=first, card_type=CardType.SPINE,
+        )
+        srs.review(card, Rating.GOOD)
+        personal = PersonalResponse.objects.create(
+            user=user, response=first, source_prompt=prompts[0],
+            conclusion="Ma version personnelle.",
+        )
+        mark = Annotation.objects.create(
+            user=user, task=first.theme.task, kind=AnnotationKind.HIGHLIGHT,
+            source_key=f"response:{first.content_key}:back",
+            source_path="/expression/orale/tache-3/",
+            quote="Passage appris.", start_offset=0, end_offset=15,
+            body="Ma note personnelle.", study_later=True,
+        )
+        before = {
+            model: list(model.objects.order_by("pk").values())
+            for model in (Card, ReviewLog, PersonalResponse, Annotation)
+        }
+
+        index = self._import_prompt_rows(data, [first, second])
+
+        for prompt, number in zip(prompts, reversed(numbers)):
+            prompt.refresh_from_db()
+            self.assertEqual(prompt.number, number)
+            self.assertEqual(index[(prompt.theme.name, number)].pk, prompt.pk)
+        for model, snapshot in before.items():
+            self.assertEqual(list(model.objects.order_by("pk").values()), snapshot)
+        self.assertEqual(personal.source_prompt_id, prompts[0].pk)
+        self.assertTrue(Annotation.objects.filter(pk=mark.pk).exists())
+
+    def test_prompt_number_swap_is_safe_across_update_batches(self):
+        first = factories.make_response()
+        second = factories.make_response(theme=first.theme)
+        data = [self._response_data(response) for response in (first, second)]
+        original = [row.prompts[0] for row in data]
+        for row, number in zip(data, reversed([prompt.number for prompt in original])):
+            row.prompts = [replace(row.prompts[0], number=number)]
+
+        with patch("study.management.commands.import_content.IMPORT_BATCH_SIZE", 1):
+            self._import_prompt_rows(data, [first, second])
+
+        for old, row in zip(original, data):
+            prompt = Prompt.objects.get(content_key=old.content_key)
+            self.assertEqual(prompt.number, row.prompts[0].number)
+
+    def test_prompt_theme_swap_is_safe_across_update_batches(self):
+        first = factories.make_response()
+        other_theme = factories.make_theme("other-import-theme", task=first.theme.task)
+        second = factories.make_response(theme=other_theme)
+        responses = [first, second]
+        for response in responses:
+            response.prompts.update(number=1)
+        data = [self._response_data(response) for response in responses]
+        for row, theme in zip(data, (other_theme, first.theme)):
+            row.prompts = [replace(row.prompts[0], theme=theme.name)]
+        identities = {
+            prompt.content_key: prompt.pk for prompt in Prompt.objects.all()
+        }
+
+        with patch("study.management.commands.import_content.IMPORT_BATCH_SIZE", 1):
+            self._import_prompt_rows(data, responses)
+
+        for row in data:
+            prompt = Prompt.objects.get(content_key=row.prompts[0].content_key)
+            self.assertEqual(prompt.pk, identities[prompt.content_key])
+            self.assertEqual(prompt.theme.name, row.prompts[0].theme)
+            self.assertEqual(prompt.number, 1)
+
+    def test_new_prompt_can_reuse_a_number_vacated_by_a_moving_prompt(self):
+        response = factories.make_response()
+        prompt = response.prompts.get(is_canonical=True)
+        prompt.number = 1
+        prompt.save(update_fields=["number"])
+        data = self._response_data(response)
+        data.prompts = [
+            replace(data.prompts[0], number=2),
+            replace(
+                data.prompts[0], content_key="test-prompt:new-before-existing",
+                number=1, is_canonical=False,
+            ),
+        ]
+
+        self._import_prompt_rows([data], [response])
+
+        prompt.refresh_from_db()
+        self.assertEqual(prompt.number, 2)
+        self.assertEqual(
+            Prompt.objects.get(content_key="test-prompt:new-before-existing").number, 1,
+        )
+
+    def test_retired_prompt_does_not_block_reusing_its_old_number(self):
+        for active in (True, False):
+            with self.subTest(previously_active=active):
+                theme = factories.make_theme(f"retired-import-{active}")
+                response = factories.make_response(theme=theme)
+                prompt = response.prompts.get(is_canonical=True)
+                prompt.number = 1
+                prompt.is_active = active
+                prompt.save(update_fields=["number", "is_active"])
+                data = self._response_data(response)
+                new_key = f"test-prompt:replacement-{active}"
+                data.prompts = [replace(data.prompts[0], content_key=new_key)]
+
+                self._import_prompt_rows([data], [response])
+
+                prompt.refresh_from_db()
+                self.assertFalse(prompt.is_active)
+                self.assertGreater(prompt.number, 1)
+                self.assertEqual(prompt.response_id, response.pk)
+                replacement = Prompt.objects.get(content_key=new_key)
+                self.assertNotEqual(replacement.pk, prompt.pk)
+                self.assertEqual(replacement.number, 1)
+
+    def test_unchanged_prompt_import_does_not_renumber_or_bulk_update(self):
+        response = factories.make_response()
+        data = self._response_data(response)
+        before = list(Prompt.objects.values())
+
+        with patch.object(
+            Prompt.objects, "bulk_update", wraps=Prompt.objects.bulk_update,
+        ) as bulk_update:
+            self._import_prompt_rows([data], [response])
+
+        bulk_update.assert_not_called()
+        self.assertEqual(list(Prompt.objects.values()), before)
 
     def test_response_text_edit_preserves_private_learning_state(self):
         user = factories.make_user("import-user")

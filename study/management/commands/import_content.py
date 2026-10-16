@@ -1105,6 +1105,7 @@ class Command(BaseCommand):
         )
         new_prompts = []
         changed_prompts = []
+        renumbered_ids = set()
         prompt_fields = [
             "theme",
             "number",
@@ -1130,9 +1131,38 @@ class Command(BaseCommand):
             if obj is None:
                 obj = Prompt(content_key=prompt.content_key, **values)
                 new_prompts.append(obj)
-            elif _apply_values(obj, values):
-                changed_prompts.append(obj)
+            else:
+                if obj.theme_id != values["theme_id"] or obj.number != values["number"]:
+                    renumbered_ids.add(obj.pk)
+                if _apply_values(obj, values):
+                    changed_prompts.append(obj)
             index[(prompt.theme, prompt.number)] = obj
+
+        if new_prompts or renumbered_ids:
+            desired_slots = {
+                (obj.theme_id, obj.number): obj.content_key for obj in index.values()
+            }
+            occupants = Prompt.objects.filter(
+                theme_id__in={theme_id for theme_id, _number in desired_slots},
+            ).values_list("pk", "theme_id", "number", "content_key")
+            renumbered_ids.update(
+                pk for pk, theme_id, number, content_key in occupants
+                if desired_slots.get((theme_id, number), content_key) != content_key
+            )
+            if renumbered_ids:
+                number_offset = max(
+                    Prompt.objects.aggregate(max_number=Max("number"))["max_number"] or 0,
+                    max(obj.number for obj in index.values()),
+                )
+                # Vacate slots before inserts or moves; uniqueness is checked within each update.
+                Prompt.objects.bulk_update(
+                    [
+                        Prompt(pk=pk, number=number_offset + offset)
+                        for offset, pk in enumerate(sorted(renumbered_ids), start=1)
+                    ],
+                    ["number"],
+                    batch_size=IMPORT_BATCH_SIZE,
+                )
 
         Prompt.objects.bulk_create(
             new_prompts,

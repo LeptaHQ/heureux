@@ -188,7 +188,7 @@ EO task 2 separates **Services du quotidien & entraide**, **Garde d'enfants &
 d'animaux**, and **Bénévolat & vie associative**. Classification follows the
 candidate's objective: an animal-protection association is volunteering, watching
 a friend's apartment is practical help, and choosing outings for visitors belongs
-to **Sorties & spectacles**. Equivalent consignes always move together. Existing
+to **Sorties, visites & spectacles**. Equivalent consignes always move together. Existing
 memory numbers remain stable; the care and volunteering collections are Mémoires
 12 and 13. Each theme retains 52 reusable questions and 45 vocabulary entries.
 Moved questions retain their original identity through `legacy_memory_number`,
@@ -201,14 +201,30 @@ experiences; **Escapades & tourisme régional** (Mémoire 14) covers weekend
 getaways, regional visits and day excursions; **Hébergements touristiques**
 (Mémoire 15) covers hotels, guesthouses and campsites, not permanent housing.
 A tourist-office enquiry follows its subject, not the employee's workplace.
-Travel-blog creation and Canadian weekend leisure habits belong to **Arts &
-loisirs**; discovering the city with friends belongs to **Sorties & spectacles**.
+Travel-blog creation belongs to **Culture, lectures & médias**, and Canadian
+weekend leisure habits belong to **Cours, clubs & loisirs**; discovering the
+city with friends belongs to **Sorties, visites & spectacles**.
 All equivalent publications move together without changing their consignes,
 dialogues or Pistes. The original 52 Mémoire 7 questions and 45 travel vocabulary
 entries remain available with their exact learning identities; the three
 collections each contain 52 questions and 45 vocabulary entries. Exact pre-split
 snapshots are stored in `question_bank_history/travel.json` and
 `question_bank_history/travel_vocabulary.json`.
+
+The former arts/leisure and outings collections are reorganized together into
+**Cours, clubs & loisirs** (Mémoire 10), **Culture, lectures & médias**
+(Mémoire 16), and **Sorties, visites & spectacles** (Mémoire 9). Classify by the
+candidate's dominant objective: taking a theatre class is a leisure activity,
+discussing a film for an article is media research, and arranging a screening is
+an outing. Participating in a television game or a bookshop game remains a
+leisure activity; the medium or organizer does not determine the theme.
+Existing theme slugs and Mémoires 9 and 10 stay stable, and all 85 publications
+are classified together with their equivalents. All 104 existing reusable questions and 90
+vocabulary entries keep their exact wording and learning identities, including
+questions that move between the two old books or into Mémoire 16. Each of the
+three collections contains 52 questions and 45 vocabulary entries. Exact source
+snapshots are stored in `question_bank_history/culture.json` and
+`question_bank_history/culture_vocabulary.json`; dialogues and Pistes are unchanged.
 
 The EO2 sidebar retains completion, personalisation and individual practice controls;
 practice statistics and vocabulary are no longer displayed there. Vocabulary and

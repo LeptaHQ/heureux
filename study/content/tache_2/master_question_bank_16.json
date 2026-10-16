@@ -1,0 +1,278 @@
+{
+  "number": 16,
+  "title": "Mémoire 16 · Culture, lectures & médias",
+  "label": "Culture, lectures & médias",
+  "icon": "book-open",
+  "subtitle": "Choisir ou commenter une lecture, un film ou une série, utiliser une bibliothèque et préparer un article ou un blog. Distinguer le contenu et l'avis culturel de l'organisation d'une sortie ou de l'inscription à un cours.",
+  "sections": [
+    {
+      "number": 1,
+      "title": "Ouverture et recherche culturelle",
+      "guidance": "Adapter les questions à la consigne : ouverture et recherche culturelle. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Ouverture et recherche culturelle",
+          "guidance": "Adapter les questions à la consigne : ouverture et recherche culturelle. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Alors, comment va ta vie culturelle en général en ce moment ?",
+              "legacy_memory_number": 10
+            },
+            "Tu aurais un livre à me conseiller pour ma prochaine lecture ?",
+            "Pour préparer mon article culturel, pourrais-je te poser quelques questions sur les œuvres que tu as appréciées ?",
+            "Bonjour ! Je souhaite créer un blog de voyage, accepteriez-vous de me raconter vos débuts ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Genres, sujets et contenu des œuvres",
+      "guidance": "Adapter les questions à la consigne : genres, sujets et contenu des œuvres. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Genres, sujets et contenu des œuvres",
+          "guidance": "Adapter les questions à la consigne : genres, sujets et contenu des œuvres. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Sans tout me raconter, tu peux me dire un peu de quoi ça parle ?",
+              "legacy_memory_number": 9
+            },
+            "Quels genres de livres lis-tu le plus volontiers ?",
+            "Quelles rubriques me conseilleriez-vous pour structurer mon blog ?",
+            "Pour mon article sur une ville, quel aspect de son patrimoine mériterait d'être présenté ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Prix, abonnements et budget de publication",
+      "guidance": "Adapter les questions à la consigne : prix, abonnements et budget de publication. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Prix, abonnements et budget de publication",
+          "guidance": "Adapter les questions à la consigne : prix, abonnements et budget de publication. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "C'est dans quelle gamme de prix — plutôt cher ou raisonnable ?",
+              "legacy_memory_number": 9
+            },
+            "L'inscription à la bibliothèque est-elle gratuite, et quels services sont payants ?",
+            "Faut-il un abonnement pour regarder cette série sur la plateforme que tu utilises ?",
+            "Quel budget avez-vous consacré au lancement de votre blog ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Horaires, durée et rythme de publication",
+      "guidance": "Adapter les questions à la consigne : horaires, durée et rythme de publication. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Horaires, durée et rythme de publication",
+          "guidance": "Adapter les questions à la consigne : horaires, durée et rythme de publication. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Quels sont vos horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
+              "legacy_memory_number": 9
+            },
+            {
+              "text": "Quels sont les horaires d'ouverture — vous êtes aussi ouverts le week-end ?",
+              "legacy_memory_number": 10
+            },
+            "Cette série compte combien de saisons, et combien d'épisodes y a-t-il dans chacune ?",
+            "Quel rythme de publication serait réaliste pour tenir mon blog pendant un voyage ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Accès aux œuvres et supports disponibles",
+      "guidance": "Adapter les questions à la consigne : accès aux œuvres et supports disponibles. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Accès aux œuvres et supports disponibles",
+          "guidance": "Adapter les questions à la consigne : accès aux œuvres et supports disponibles. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Cette série est-elle disponible sur une plateforme accessible depuis le Canada ?",
+            "Le livre existe-t-il en version numérique ou en livre audio ?",
+            "À quelle bibliothèque puis-je trouver les documents utiles à mon article ?",
+            "Où peut-on consulter les anciens numéros de ce journal canadien ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Inscription, réservation et public concerné",
+      "guidance": "Adapter les questions à la consigne : inscription, réservation et public concerné. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Inscription, réservation et public concerné",
+          "guidance": "Adapter les questions à la consigne : inscription, réservation et public concerné. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Ça s'adresse à quel public — plutôt aux amateurs ou accessible à tout le monde ?",
+              "legacy_memory_number": 9
+            },
+            {
+              "text": "Quels documents faut-il apporter pour l'inscription — une pièce d'identité, un justificatif de domicile ?",
+              "legacy_memory_number": 10
+            },
+            {
+              "text": "Peut-on prolonger une réservation en ligne, ou faut-il revenir sur place ?",
+              "legacy_memory_number": 10
+            },
+            "Combien de documents puis-je emprunter avec ma carte de bibliothèque ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Auteurs, interprètes et lecteurs",
+      "guidance": "Adapter les questions à la consigne : auteurs, interprètes et lecteurs. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Auteurs, interprètes et lecteurs",
+          "guidance": "Adapter les questions à la consigne : auteurs, interprètes et lecteurs. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Qui sont les acteurs principaux, et quels rôles jouent-ils dans ce film ?",
+            "À quel public conseillerais-tu ce roman ?",
+            "Que sais-tu de l'auteur et des sujets qu'il aborde habituellement ?",
+            "À quels lecteurs me conseilleriez-vous de destiner les articles de mon blog ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Langue, difficulté et conditions d'utilisation",
+      "guidance": "Adapter les questions à la consigne : langue, difficulté et conditions d'utilisation. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Langue, difficulté et conditions d'utilisation",
+          "guidance": "Adapter les questions à la consigne : langue, difficulté et conditions d'utilisation. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Le vocabulaire de ce journal convient-il à quelqu'un qui apprend le français ?",
+            "Cette série peut-elle se regarder en version originale avec des sous-titres français ?",
+            "Quelles précautions faut-il prendre avant de publier ses propres photos sur un blog ?",
+            "Où vérifier les autorisations nécessaires avant de reproduire une image dans mon article ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Ressources et espaces de la bibliothèque",
+      "guidance": "Adapter les questions à la consigne : ressources et espaces de la bibliothèque. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Ressources et espaces de la bibliothèque",
+          "guidance": "Adapter les questions à la consigne : ressources et espaces de la bibliothèque. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Proposez-vous aussi des ressources numériques ou des supports audio à emprunter ?",
+              "legacy_memory_number": 10
+            },
+            {
+              "text": "Y a-t-il un espace avec des ordinateurs ou un accès Internet sur place ?",
+              "legacy_memory_number": 10
+            },
+            {
+              "text": "Y a-t-il un espace calme pour étudier ou travailler sur place ?",
+              "legacy_memory_number": 10
+            },
+            "La bibliothèque propose-t-elle une aide pour rechercher des documents sur un sujet précis ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Avis, impressions et intérêt de l'œuvre",
+      "guidance": "Adapter les questions à la consigne : avis, impressions et intérêt de l'œuvre. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Avis, impressions et intérêt de l'œuvre",
+          "guidance": "Adapter les questions à la consigne : avis, impressions et intérêt de l'œuvre. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
+              "legacy_memory_number": 9
+            },
+            "Qu'est-ce qui t'a le plus marqué dans ce livre, sans me dévoiler la fin ?",
+            "Comment as-tu trouvé l'interprétation des acteurs dans ce film ?",
+            "Qu'est-ce qui distingue ce spectacle des autres que tu as vus récemment ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Choix et recommandations culturelles",
+      "guidance": "Adapter les questions à la consigne : choix et recommandations culturelles. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Choix et recommandations culturelles",
+          "guidance": "Adapter les questions à la consigne : choix et recommandations culturelles. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Tu as mentionné ce spectacle — tu pourrais m'en dire un peu plus sur pourquoi tu l'as choisi ?",
+              "legacy_memory_number": 9
+            },
+            {
+              "text": "Parmi toutes les options, laquelle me conseillerais-tu ?",
+              "legacy_memory_number": 9
+            },
+            "Quel journal canadien me conseilleriez-vous selon mes centres d'intérêt ?",
+            "Quel livre parmi tes lectures récentes offrirait assez de matière pour mon article ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Disponibilité, prêts et incidents",
+      "guidance": "Adapter les questions à la consigne : disponibilité, prêts et incidents. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Disponibilité, prêts et incidents",
+          "guidance": "Adapter les questions à la consigne : disponibilité, prêts et incidents. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Que se passe-t-il si je rapporte un document après la date prévue ?",
+            "Peut-on réserver un livre déjà emprunté par quelqu'un d'autre ?",
+            "Qui dois-je prévenir si un document emprunté est perdu ou abîmé ?",
+            "Si l'accès à une ressource numérique ne fonctionne pas, à qui puis-je demander de l'aide ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Sources, publication et suivi culturel",
+      "guidance": "Adapter les questions à la consigne : sources, publication et suivi culturel. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Sources, publication et suivi culturel",
+          "guidance": "Adapter les questions à la consigne : sources, publication et suivi culturel. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Tu as mentionné un point intéressant — tu pourrais m'en dire un peu plus ?",
+              "legacy_memory_number": 10
+            },
+            {
+              "text": "Pour finir — quelle serait la meilleure façon de découvrir les nouveautés artistiques dès mon inscription ?",
+              "legacy_memory_number": 10
+            },
+            "Quelles sources consulter pour vérifier les informations avant de publier mon article ?",
+            "Merci pour vos conseils, pourriez-vous me recommander un guide pour mettre mon premier article en ligne ?"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,18 +1,18 @@
 {
   "number": 9,
-  "title": "Mémoire 9 · Sorties & spectacles",
-  "label": "Sorties & spectacles",
+  "title": "Mémoire 9 · Sorties, visites & spectacles",
+  "label": "Sorties, visites & spectacles",
   "icon": "theater",
-  "subtitle": "Les formulations tirées des sujets de sorties et de spectacles, généralisées pour être réutilisables dans n'importe quel sujet de ce thème.",
+  "subtitle": "Choisir et organiser une sortie : visite de musée, découverte de la ville, restaurant, séance de cinéma, concert ou festival. Vérifier le programme, les horaires, les billets, l'accès et le retour.",
   "sections": [
     {
       "number": 1,
-      "title": "Ouverture — proposer ou préparer une sortie",
-      "guidance": "Entrer dans l'échange en montrant que la sortie ou le spectacle vous intéresse.",
+      "title": "Ouverture et projet de sortie",
+      "guidance": "Adapter les questions à la consigne : ouverture et projet de sortie. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Lancer la discussion",
-          "guidance": "À utiliser avec un ami, un collègue ou une personne qui connaît les sorties locales.",
+          "title": "Ouverture et projet de sortie",
+          "guidance": "Adapter les questions à la consigne : ouverture et projet de sortie. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Salut ! Tu m'as proposé de venir avec toi à une sortie — ça me tente bien, tu peux m'en dire plus ?",
             "Salut ! Je viens d'arriver dans ta ville et j'aimerais organiser une sortie sans trop dépenser — tu aurais des idées à me conseiller ?",
@@ -24,63 +24,69 @@
     },
     {
       "number": 2,
-      "title": "Programme, affiche et contenu de la sortie",
-      "guidance": "Comprendre ce qu'on va voir, écouter ou visiter avant de choisir.",
+      "title": "Programme, artistes et visites proposés",
+      "guidance": "Adapter les questions à la consigne : programme, artistes et visites proposés. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Découvrir le programme",
-          "guidance": "Quand il faut comparer films, spectacles, concerts, expositions ou animations.",
+          "title": "Programme, artistes et visites proposés",
+          "guidance": "Adapter les questions à la consigne : programme, artistes et visites proposés. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Quels artistes se produisent cette année ?",
             "Quel genre de spectacle c'est — théâtre, comédie, concert, danse ?",
             "Il y a actuellement beaucoup de choix à l'affiche ou plutôt quelques choix seulement ?",
-            "Sans tout me raconter, tu peux me dire un peu de quoi ça parle ?"
+            {
+              "text": "Quel genre de sorties proposez-vous — des visites de musées, des expositions, des spectacles ou des concerts ?",
+              "legacy_memory_number": 10
+            }
           ]
         }
       ]
     },
     {
       "number": 3,
-      "title": "Budget, billets et bons plans",
-      "guidance": "Estimer le prix de la sortie et repérer les réductions possibles.",
+      "title": "Budget, billets et repas",
+      "guidance": "Adapter les questions à la consigne : budget, billets et repas. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Sortir sans mauvaise surprise",
-          "guidance": "À poser avant d'acheter un billet, de réserver ou de prévoir une soirée complète.",
+          "title": "Budget, billets et repas",
+          "guidance": "Adapter les questions à la consigne : budget, billets et repas. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Parlons du budget — combien est-ce que ça coûte approximativement ?",
             "Y a-t-il des tarifs réduits pour cette sortie — étudiants, seniors ou familles ?",
-            "C'est dans quelle gamme de prix — plutôt cher ou raisonnable ?",
-            "Est-ce qu'il y a des événements ou des animations gratuits en ce moment ?"
+            "Est-ce qu'il y a des événements ou des animations gratuits en ce moment ?",
+            "Le prix du menu comprend-il les boissons, ou faut-il les prévoir en plus ?"
           ]
         }
       ]
     },
     {
       "number": 4,
-      "title": "Horaires, durée et séances disponibles",
-      "guidance": "Vérifier quand la sortie commence, combien de temps elle dure et quels créneaux existent.",
+      "title": "Horaires, fréquence et durée des sorties",
+      "guidance": "Adapter les questions à la consigne : horaires, fréquence et durée des sorties. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Choisir le bon moment",
-          "guidance": "Utile pour organiser une visite, une séance, une représentation ou un festival.",
+          "title": "Horaires, fréquence et durée des sorties",
+          "guidance": "Adapter les questions à la consigne : horaires, fréquence et durée des sorties. Ne pas redemander les faits déjà connus.",
           "questions": [
-            "Quels sont vos horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
             "Combien de temps faut-il prévoir pour toute la sortie — quelques heures ou toute la journée ?",
             "À quelle heure ça commence — plutôt l'après-midi ou seulement en soirée ?",
-            "Ça dure combien de temps — une seule soirée, ou plusieurs jours ?"
+            "Ça dure combien de temps — une seule soirée, ou plusieurs jours ?",
+            {
+              "text": "À quelle fréquence sont-elles organisées — chaque semaine ou seulement de temps en temps ?",
+              "legacy_memory_number": 10
+            }
           ]
         }
       ]
     },
     {
       "number": 5,
-      "title": "Lieu, accès et transport",
-      "guidance": "Préparer le trajet jusqu'au musée, à la salle, au restaurant ou au festival.",
+      "title": "Lieux, accès et transports",
+      "guidance": "Adapter les questions à la consigne : lieux, accès et transports. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Arriver facilement",
-          "guidance": "À poser dès que le lieu ou le stationnement peut influencer le choix de la sortie.",
+          "title": "Lieux, accès et transports",
+          "guidance": "Adapter les questions à la consigne : lieux, accès et transports. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Où se trouve exactement le lieu — est-il facilement accessible en transports en commun ?",
             "Y a-t-il un parking près de la salle ou il vaut mieux venir en transports en commun ?",
@@ -92,29 +98,32 @@
     },
     {
       "number": 6,
-      "title": "Réservation, billets et public concerné",
-      "guidance": "Savoir s'il faut réserver, s'il reste des places et à qui la sortie s'adresse.",
+      "title": "Réservation, billets et organisation",
+      "guidance": "Adapter les questions à la consigne : réservation, billets et organisation. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Obtenir sa place",
-          "guidance": "Quand il faut sécuriser un billet, une visite ou une place en salle.",
+          "title": "Réservation, billets et organisation",
+          "guidance": "Adapter les questions à la consigne : réservation, billets et organisation. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Il faut s'inscrire à l'avance pour la visite ou on peut venir librement ?",
             "Il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
             "Il reste encore des places pour la représentation ou c'est déjà complet ?",
-            "Ça s'adresse à quel public — plutôt aux amateurs ou accessible à tout le monde ?"
+            {
+              "text": "Est-ce que le transport est prévu ou faut-il se rendre sur place par ses propres moyens ?",
+              "legacy_memory_number": 10
+            }
           ]
         }
       ]
     },
     {
       "number": 7,
-      "title": "Nombre de personnes et profil du public",
-      "guidance": "Adapter la sortie à la taille du groupe et à l'ambiance attendue.",
+      "title": "Participants et public de la sortie",
+      "guidance": "Adapter les questions à la consigne : participants et public de la sortie. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Se situer parmi le public",
-          "guidance": "Utile pour une sortie en groupe, une petite salle, un grand lieu ou une période chargée.",
+          "title": "Participants et public de la sortie",
+          "guidance": "Adapter les questions à la consigne : participants et public de la sortie. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Nous serons plusieurs personnes — proposez-vous des tarifs de groupe ?",
             "Il y a généralement combien de participants — c'est une petite salle ou un grand lieu ?",
@@ -126,12 +135,12 @@
     },
     {
       "number": 8,
-      "title": "Préparation, règles et précautions",
-      "guidance": "Anticiper la foule, les règles du lieu, la tenue ou la météo.",
+      "title": "Règles du lieu, foule et météo",
+      "guidance": "Adapter les questions à la consigne : règles du lieu, foule et météo. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Venir prêt",
-          "guidance": "À poser pour éviter les oublis ou les comportements interdits sur place.",
+          "title": "Règles du lieu, foule et météo",
+          "guidance": "Adapter les questions à la consigne : règles du lieu, foule et météo. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ? On voudrait éviter la foule — quel moment nous conseillez-vous ?",
             "Y a-t-il des précautions particulières à prendre dans la salle ou des choses à éviter ?",
@@ -143,12 +152,12 @@
     },
     {
       "number": 9,
-      "title": "Services sur place et confort de la sortie",
-      "guidance": "Identifier les services utiles pendant la visite, le film, le spectacle ou la soirée.",
+      "title": "Services et confort pendant la sortie",
+      "guidance": "Adapter les questions à la consigne : services et confort pendant la sortie. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Profiter sur place",
-          "guidance": "Quand vous voulez savoir ce qui est disponible avant ou pendant l'activité.",
+          "title": "Services et confort pendant la sortie",
+          "guidance": "Adapter les questions à la consigne : services et confort pendant la sortie. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Y a-t-il un audioguide disponible — c'est gratuit ou payant ?",
             "Y a-t-il une boutique de souvenirs ou une librairie sur place ?",
@@ -160,46 +169,52 @@
     },
     {
       "number": 10,
-      "title": "Ambiance, accueil et avis personnel",
-      "guidance": "Demander comment la sortie se vit réellement et si l'expérience est agréable.",
+      "title": "Ambiance et expérience sur place",
+      "guidance": "Adapter les questions à la consigne : ambiance et expérience sur place. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Évaluer l'expérience",
-          "guidance": "À utiliser avec quelqu'un qui a déjà testé le lieu, le film, le restaurant ou l'événement.",
+          "title": "Ambiance et expérience sur place",
+          "guidance": "Adapter les questions à la consigne : ambiance et expérience sur place. Ne pas redemander les faits déjà connus.",
           "questions": [
             "L'ambiance est plutôt calme et conviviale, ou plus animée ?",
             "C'est facile de rencontrer du monde — les gens sont plutôt accueillants ?",
-            "Qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
-            "Et le service, tu l'as trouvé rapide et accueillant ?"
+            "Et le service, tu l'as trouvé rapide et accueillant ?",
+            {
+              "text": "Qu'est-ce que vous appréciez le plus dans ces sorties artistiques ?",
+              "legacy_memory_number": 10
+            }
           ]
         }
       ]
     },
     {
       "number": 11,
-      "title": "Conseils et recommandations de sortie",
-      "guidance": "Comparer les choix possibles et demander ce qui vaut vraiment le déplacement.",
+      "title": "Conseils et choix de sortie",
+      "guidance": "Adapter les questions à la consigne : conseils et choix de sortie. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Choisir avec un avis",
-          "guidance": "Quand plusieurs films, spectacles, plats ou événements sont possibles.",
+          "title": "Conseils et choix de sortie",
+          "guidance": "Adapter les questions à la consigne : conseils et choix de sortie. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Y a-t-il une sortie que tu recommanderais particulièrement — plutôt pour un public adulte ou adapté aux familles aussi ?",
-            "Tu as mentionné ce spectacle — tu pourrais m'en dire un peu plus sur pourquoi tu l'as choisi ?",
-            "Parmi toutes les options, laquelle me conseillerais-tu ?",
-            "Pour finir — parmi toutes ces sorties, laquelle tu me recommandes vraiment pour aujourd'hui ?"
+            "Pour finir — parmi toutes ces sorties, laquelle tu me recommandes vraiment pour aujourd'hui ?",
+            {
+              "text": "Y a-t-il une activité ou un lieu que vous recommanderiez particulièrement ?",
+              "legacy_memory_number": 10
+            },
+            "Quelle visite conseillerais-tu pour découvrir l'histoire de la ville avec nos invités ?"
           ]
         }
       ]
     },
     {
       "number": 12,
-      "title": "Imprévus, changements et annulation",
-      "guidance": "Prévoir quoi faire si l'horaire, la météo ou la réservation change.",
+      "title": "Retards, changements et annulation",
+      "guidance": "Adapter les questions à la consigne : retards, changements et annulation. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Garder une solution de secours",
-          "guidance": "Utile avant de confirmer une sortie payante ou une organisation en groupe.",
+          "title": "Retards, changements et annulation",
+          "guidance": "Adapter les questions à la consigne : retards, changements et annulation. Ne pas redemander les faits déjà connus.",
           "questions": [
             "En cas de retard à la représentation ou d'imprévu, comment ça se passe ?",
             "Si un jour je ne peux pas venir au spectacle, comment est-ce qu'on s'organise — il faut prévenir à l'avance ?",
@@ -211,17 +226,20 @@
     },
     {
       "number": 13,
-      "title": "Relance, confirmation et suivi",
-      "guidance": "Clore l'échange en confirmant les détails pratiques et la suite.",
+      "title": "Confirmation, programme et suivi",
+      "guidance": "Adapter les questions à la consigne : confirmation, programme et suivi. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Finaliser la sortie",
-          "guidance": "Idéal pour terminer avec un conseil, un contact ou une décision claire.",
+          "title": "Confirmation, programme et suivi",
+          "guidance": "Adapter les questions à la consigne : confirmation, programme et suivi. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Pour finir — vous recommandez de commencer la visite par un endroit en particulier ?",
             "Merci pour toutes ces infos sur la sortie — si j'ai d'autres questions, je peux vous solliciter ?",
-            "Ça se passe où exactement — dans les locaux ou dans un lieu extérieur ?",
-            "Pour finir — je peux te confirmer aujourd'hui si je prends les billets ?"
+            "Pour finir — je peux te confirmer aujourd'hui si je prends les billets ?",
+            {
+              "text": "La programmation est publiée à l'avance ou on la découvre au dernier moment ?",
+              "legacy_memory_number": 10
+            }
           ]
         }
       ]

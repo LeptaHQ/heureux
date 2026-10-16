@@ -1,0 +1,465 @@
+{
+  "version": 1,
+  "memories": [
+    {
+      "number": 9,
+      "title": "Mémoire 9 · Sorties & spectacles",
+      "label": "Sorties & spectacles",
+      "icon": "theater",
+      "subtitle": "Les formulations tirées des sujets de sorties et de spectacles, généralisées pour être réutilisables dans n'importe quel sujet de ce thème.",
+      "sections": [
+        {
+          "number": 1,
+          "title": "Ouverture — proposer ou préparer une sortie",
+          "guidance": "Entrer dans l'échange en montrant que la sortie ou le spectacle vous intéresse.",
+          "groups": [
+            {
+              "title": "Lancer la discussion",
+              "guidance": "À utiliser avec un ami, un collègue ou une personne qui connaît les sorties locales.",
+              "questions": [
+                "Salut ! Tu m'as proposé de venir avec toi à une sortie — ça me tente bien, tu peux m'en dire plus ?",
+                "Salut ! Je viens d'arriver dans ta ville et j'aimerais organiser une sortie sans trop dépenser — tu aurais des idées à me conseiller ?",
+                "Bonjour ! J'aurais besoin de quelques renseignements pour organiser une sortie — pouvez-vous m'aider ?",
+                "D'après toi, quel type de sortie aide le plus à se faire des amis durables ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Programme, affiche et contenu de la sortie",
+          "guidance": "Comprendre ce qu'on va voir, écouter ou visiter avant de choisir.",
+          "groups": [
+            {
+              "title": "Découvrir le programme",
+              "guidance": "Quand il faut comparer films, spectacles, concerts, expositions ou animations.",
+              "questions": [
+                "Quels artistes se produisent cette année ?",
+                "Quel genre de spectacle c'est — théâtre, comédie, concert, danse ?",
+                "Il y a actuellement beaucoup de choix à l'affiche ou plutôt quelques choix seulement ?",
+                "Sans tout me raconter, tu peux me dire un peu de quoi ça parle ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Budget, billets et bons plans",
+          "guidance": "Estimer le prix de la sortie et repérer les réductions possibles.",
+          "groups": [
+            {
+              "title": "Sortir sans mauvaise surprise",
+              "guidance": "À poser avant d'acheter un billet, de réserver ou de prévoir une soirée complète.",
+              "questions": [
+                "Parlons du budget — combien est-ce que ça coûte approximativement ?",
+                "Y a-t-il des tarifs réduits pour cette sortie — étudiants, seniors ou familles ?",
+                "C'est dans quelle gamme de prix — plutôt cher ou raisonnable ?",
+                "Est-ce qu'il y a des événements ou des animations gratuits en ce moment ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "title": "Horaires, durée et séances disponibles",
+          "guidance": "Vérifier quand la sortie commence, combien de temps elle dure et quels créneaux existent.",
+          "groups": [
+            {
+              "title": "Choisir le bon moment",
+              "guidance": "Utile pour organiser une visite, une séance, une représentation ou un festival.",
+              "questions": [
+                "Quels sont vos horaires d'ouverture — vous êtes ouverts tous les jours, y compris le week-end ?",
+                "Combien de temps faut-il prévoir pour toute la sortie — quelques heures ou toute la journée ?",
+                "À quelle heure ça commence — plutôt l'après-midi ou seulement en soirée ?",
+                "Ça dure combien de temps — une seule soirée, ou plusieurs jours ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "Lieu, accès et transport",
+          "guidance": "Préparer le trajet jusqu'au musée, à la salle, au restaurant ou au festival.",
+          "groups": [
+            {
+              "title": "Arriver facilement",
+              "guidance": "À poser dès que le lieu ou le stationnement peut influencer le choix de la sortie.",
+              "questions": [
+                "Où se trouve exactement le lieu — est-il facilement accessible en transports en commun ?",
+                "Y a-t-il un parking près de la salle ou il vaut mieux venir en transports en commun ?",
+                "La salle est facilement accessible, ou je dois prévoir du temps pour m'y rendre ?",
+                "Comment on s'organise pour le transport ou le stationnement sur place ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "Réservation, billets et public concerné",
+          "guidance": "Savoir s'il faut réserver, s'il reste des places et à qui la sortie s'adresse.",
+          "groups": [
+            {
+              "title": "Obtenir sa place",
+              "guidance": "Quand il faut sécuriser un billet, une visite ou une place en salle.",
+              "questions": [
+                "Il faut s'inscrire à l'avance pour la visite ou on peut venir librement ?",
+                "Il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
+                "Il reste encore des places pour la représentation ou c'est déjà complet ?",
+                "Ça s'adresse à quel public — plutôt aux amateurs ou accessible à tout le monde ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "Nombre de personnes et profil du public",
+          "guidance": "Adapter la sortie à la taille du groupe et à l'ambiance attendue.",
+          "groups": [
+            {
+              "title": "Se situer parmi le public",
+              "guidance": "Utile pour une sortie en groupe, une petite salle, un grand lieu ou une période chargée.",
+              "questions": [
+                "Nous serons plusieurs personnes — proposez-vous des tarifs de groupe ?",
+                "Il y a généralement combien de participants — c'est une petite salle ou un grand lieu ?",
+                "Tu as combien de billets à me proposer ?",
+                "Il y a beaucoup de monde dans la salle en ce moment ou c'est plutôt calme — familles, jeunes, retraités ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "Préparation, règles et précautions",
+          "guidance": "Anticiper la foule, les règles du lieu, la tenue ou la météo.",
+          "groups": [
+            {
+              "title": "Venir prêt",
+              "guidance": "À poser pour éviter les oublis ou les comportements interdits sur place.",
+              "questions": [
+                "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ? On voudrait éviter la foule — quel moment nous conseillez-vous ?",
+                "Y a-t-il des précautions particulières à prendre dans la salle ou des choses à éviter ?",
+                "Y a-t-il des règles particulières à respecter — photos interdites, tenue vestimentaire ?",
+                "Si c'est en extérieur, faut-il prévoir quelque chose en cas de mauvais temps ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "title": "Services sur place et confort de la sortie",
+          "guidance": "Identifier les services utiles pendant la visite, le film, le spectacle ou la soirée.",
+          "groups": [
+            {
+              "title": "Profiter sur place",
+              "guidance": "Quand vous voulez savoir ce qui est disponible avant ou pendant l'activité.",
+              "questions": [
+                "Y a-t-il un audioguide disponible — c'est gratuit ou payant ?",
+                "Y a-t-il une boutique de souvenirs ou une librairie sur place ?",
+                "Est-ce qu'on peut acheter du popcorn et des boissons sur place avant la séance ?",
+                "Pour les repas, vous auriez des adresses à recommander — pour manger un morceau en fin de soirée ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "title": "Ambiance, accueil et avis personnel",
+          "guidance": "Demander comment la sortie se vit réellement et si l'expérience est agréable.",
+          "groups": [
+            {
+              "title": "Évaluer l'expérience",
+              "guidance": "À utiliser avec quelqu'un qui a déjà testé le lieu, le film, le restaurant ou l'événement.",
+              "questions": [
+                "L'ambiance est plutôt calme et conviviale, ou plus animée ?",
+                "C'est facile de rencontrer du monde — les gens sont plutôt accueillants ?",
+                "Qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
+                "Et le service, tu l'as trouvé rapide et accueillant ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 11,
+          "title": "Conseils et recommandations de sortie",
+          "guidance": "Comparer les choix possibles et demander ce qui vaut vraiment le déplacement.",
+          "groups": [
+            {
+              "title": "Choisir avec un avis",
+              "guidance": "Quand plusieurs films, spectacles, plats ou événements sont possibles.",
+              "questions": [
+                "Y a-t-il une sortie que tu recommanderais particulièrement — plutôt pour un public adulte ou adapté aux familles aussi ?",
+                "Tu as mentionné ce spectacle — tu pourrais m'en dire un peu plus sur pourquoi tu l'as choisi ?",
+                "Parmi toutes les options, laquelle me conseillerais-tu ?",
+                "Pour finir — parmi toutes ces sorties, laquelle tu me recommandes vraiment pour aujourd'hui ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "title": "Imprévus, changements et annulation",
+          "guidance": "Prévoir quoi faire si l'horaire, la météo ou la réservation change.",
+          "groups": [
+            {
+              "title": "Garder une solution de secours",
+              "guidance": "Utile avant de confirmer une sortie payante ou une organisation en groupe.",
+              "questions": [
+                "En cas de retard à la représentation ou d'imprévu, comment ça se passe ?",
+                "Si un jour je ne peux pas venir au spectacle, comment est-ce qu'on s'organise — il faut prévenir à l'avance ?",
+                "Une fois inscrit, on s'engage pour toute la sortie ou on peut venir de manière flexible ?",
+                "Quelles sont les conditions pour modifier ou annuler la réservation ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 13,
+          "title": "Relance, confirmation et suivi",
+          "guidance": "Clore l'échange en confirmant les détails pratiques et la suite.",
+          "groups": [
+            {
+              "title": "Finaliser la sortie",
+              "guidance": "Idéal pour terminer avec un conseil, un contact ou une décision claire.",
+              "questions": [
+                "Pour finir — vous recommandez de commencer la visite par un endroit en particulier ?",
+                "Merci pour toutes ces infos sur la sortie — si j'ai d'autres questions, je peux vous solliciter ?",
+                "Ça se passe où exactement — dans les locaux ou dans un lieu extérieur ?",
+                "Pour finir — je peux te confirmer aujourd'hui si je prends les billets ?"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Mémoire 10 · Arts & loisirs",
+      "label": "Arts & loisirs",
+      "icon": "pen-line",
+      "subtitle": "Les formulations tirées des sujets d'arts et de loisirs, généralisées pour questionner une activité, un cours, une sortie ou une œuvre.",
+      "sections": [
+        {
+          "number": 1,
+          "title": "Ouverture — entrer dans une activité artistique",
+          "guidance": "Lancer l'échange quand on veut découvrir une activité, un lieu ou une pratique artistique.",
+          "groups": [
+            {
+              "title": "Se présenter et demander des conseils",
+              "guidance": "À utiliser au début pour expliquer son intérêt et inviter l'autre à parler librement.",
+              "questions": [
+                "Salut ! Tu m'as dit que tu faisais une activité artistique — ça me tente d'essayer, tu peux m'en parler ?",
+                "D'après toi, quel type d'activité artistique aide le plus à se faire des amis durables ?",
+                "Alors, comment va ta vie culturelle en général en ce moment ?",
+                "Tu as de nouveaux projets artistiques ou des plans importants pour les prochains mois ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 2,
+          "title": "Activités, œuvres et programmation",
+          "guidance": "Faire préciser ce qui est proposé : cours, ateliers, sorties, œuvres ou événements.",
+          "groups": [
+            {
+              "title": "Comprendre le contenu proposé",
+              "guidance": "Quand l'interlocuteur présente une activité culturelle ou artistique.",
+              "questions": [
+                "Qu'est-ce qu'on apprend concrètement — c'est plutôt technique, artistique ou un mélange des deux ?",
+                "Quels types de thèmes sont abordés — portrait, paysage, photo de rue ou un peu de tout ?",
+                "Quel genre de sorties proposez-vous — des visites de musées, des expositions, des spectacles ou des concerts ?",
+                "La programmation est publiée à l'avance ou on la découvre au dernier moment ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 3,
+          "title": "Prix, abonnements et essais",
+          "guidance": "Évaluer le coût réel d'une activité ou d'une sortie culturelle.",
+          "groups": [
+            {
+              "title": "Parler budget sans détour",
+              "guidance": "À utiliser avant de s'inscrire, de réserver ou de choisir une activité.",
+              "questions": [
+                "Parlons du coût — combien coûte l'inscription pour la session complète ?",
+                "Le tarif comprend quoi exactement — certaines activités sont-elles gratuites ?",
+                "Comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
+                "Est-ce qu'on peut essayer avec un cours d'essai avant de s'engager ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 4,
+          "title": "Horaires, fréquence et durée",
+          "guidance": "Situer les créneaux, la durée des séances et le rythme des activités.",
+          "groups": [
+            {
+              "title": "Savoir quand venir",
+              "guidance": "Quand il faut vérifier si l'activité entre dans son emploi du temps.",
+              "questions": [
+                "Quelle est la durée d'une séance — environ une heure ou plutôt une heure et demie ?",
+                "Quels sont les horaires d'ouverture — vous êtes aussi ouverts le week-end ?",
+                "Les cours ont lieu quel jour — plutôt en semaine ou le week-end ?",
+                "À quelle fréquence sont-elles organisées — chaque semaine ou seulement de temps en temps ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 5,
+          "title": "Lieu culturel et accès",
+          "guidance": "Vérifier où se déroule l'activité et comment s'y rendre facilement.",
+          "groups": [
+            {
+              "title": "Venir sur place",
+              "guidance": "Utile dès qu'un cours, une sortie ou un événement a lieu dans un endroit précis.",
+              "questions": [
+                "Ça se passe où exactement — c'est facilement accessible en transports en commun ?",
+                "Est-ce que le transport est prévu ou faut-il se rendre sur place par ses propres moyens ?",
+                "Le lieu est-il facilement accessible, et y a-t-il un parking à proximité ?",
+                "Pour venir à l'activité, il vaut mieux prendre les transports en commun ou il y a un parking à proximité ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "title": "Inscription et démarches pratiques",
+          "guidance": "Clarifier les modalités d'inscription, les documents et les places disponibles.",
+          "groups": [
+            {
+              "title": "S'inscrire sans se tromper",
+              "guidance": "À poser quand une inscription, une réservation ou une démarche est nécessaire.",
+              "questions": [
+                "Y a-t-il des conditions particulières pour participer à l'atelier artistique — faut-il préparer quelque chose à l'avance ?",
+                "Pour cet atelier artistique, ça s'adresse à quel niveau — faut-il déjà avoir des bases, ou les débutants sont acceptés ?",
+                "Quels documents faut-il apporter pour l'inscription — une pièce d'identité, un justificatif de domicile ?",
+                "Peut-on prolonger une réservation en ligne, ou faut-il revenir sur place ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "title": "Public, niveau et encadrement",
+          "guidance": "Savoir à qui l'activité s'adresse et si elle correspond à son niveau.",
+          "groups": [
+            {
+              "title": "Vérifier si c'est adapté",
+              "guidance": "Quand il faut parler du groupe, du niveau ou des personnes qui encadrent.",
+              "questions": [
+                "Il y a généralement combien de participants par groupe ? Et comment est l'ambiance ?",
+                "C'est en équipe ou individuellement ?",
+                "Les professeurs sont-ils qualifiés dans l'activité que je souhaite apprendre ?",
+                "Vous avez mentionné des activités pour rencontrer d'autres habitants — vous pourriez m'en dire un peu plus ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "title": "Matériel, préparation et règles",
+          "guidance": "Anticiper ce qu'il faut apporter, emprunter ou respecter.",
+          "groups": [
+            {
+              "title": "Préparer son matériel",
+              "guidance": "À utiliser avant un cours, un atelier ou une activité créative.",
+              "questions": [
+                "Quel type de matériel est recommandé — du matériel spécialisé ou quelque chose de plus simple suffit ?",
+                "Y a-t-il du matériel fourni par l'association ou chacun doit venir avec son propre équipement ?",
+                "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
+                "Faut-il apporter son propre matériel, ou l'école peut-elle en fournir pour commencer ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "title": "Services sur place et espaces utiles",
+          "guidance": "Repérer les ressources disponibles dans un lieu culturel.",
+          "groups": [
+            {
+              "title": "Utiliser les services du lieu",
+              "guidance": "Quand on veut savoir ce qu'on trouve sur place en plus de l'activité principale.",
+              "questions": [
+                "Pour les repas, vous auriez des adresses à recommander près de l'atelier artistique ?",
+                "Proposez-vous aussi des ressources numériques ou des supports audio à emprunter ?",
+                "Y a-t-il un espace avec des ordinateurs ou un accès Internet sur place ?",
+                "Y a-t-il un espace calme pour étudier ou travailler sur place ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "title": "Ambiance et expérience artistique",
+          "guidance": "Faire raconter le ressenti, l'ambiance et ce que l'activité apporte.",
+          "groups": [
+            {
+              "title": "Parler de l'expérience vécue",
+              "guidance": "À utiliser avec quelqu'un qui a déjà testé une activité ou un événement.",
+              "questions": [
+                "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
+                "Qu'est-ce que vous appréciez le plus dans ces sorties artistiques ?",
+                "Qu'est-ce qui t'a donné envie de t'inscrire à cet atelier artistique ?",
+                "Pour finir, as-tu appris quelque chose de nouveau ou vécu une expérience vraiment marquante ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 11,
+          "title": "Choix, avis et recommandations",
+          "guidance": "Demander un conseil pour choisir une activité, une lecture ou un lieu.",
+          "groups": [
+            {
+              "title": "Se faire recommander",
+              "guidance": "Quand plusieurs options culturelles sont possibles et qu'il faut trancher.",
+              "questions": [
+                "L'activité est agréable à suivre ou demande-t-elle beaucoup de concentration ?",
+                "Selon toi, qu'est-ce qui pourrait donner envie de découvrir cette activité ?",
+                "Y a-t-il une activité ou un lieu que vous recommanderiez particulièrement ?",
+                "Qu'est-ce qui rend cette activité particulièrement intéressante selon vous ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "title": "Flexibilité, imprévus et annulation",
+          "guidance": "Prévoir ce qui se passe si un cours, une sortie ou une réservation change.",
+          "groups": [
+            {
+              "title": "Garder une marge de souplesse",
+              "guidance": "À poser avant de s'engager ou quand son planning peut bouger.",
+              "questions": [
+                "Si l'atelier artistique commence en retard ou s'il y a un imprévu, comment ça se passe ?",
+                "Si un jour je ne peux pas venir à la pratique artistique, comment est-ce qu'on s'organise — il faut prévenir à l'avance ?",
+                "Une fois inscrit(e) à l'atelier artistique, on s'engage pour toute la session ou on peut venir de manière flexible ?",
+                "Quelles sont les conditions pour modifier ou annuler une inscription à l'activité artistique ?"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 13,
+          "title": "Relance, coordonnées et suivi culturel",
+          "guidance": "Clore l'échange, demander une précision ou garder un contact utile.",
+          "groups": [
+            {
+              "title": "Finir et rester en contact",
+              "guidance": "Idéal pour conclure après avoir obtenu les informations principales.",
+              "questions": [
+                "Pour finir — si vous ne deviez me recommander qu'une seule activité, ce serait laquelle ?",
+                "Tu as mentionné un point intéressant — tu pourrais m'en dire un peu plus ?",
+                "À votre avis, le professeur accepterait de nouveaux élèves — vous auriez ses coordonnées ?",
+                "Pour finir — quelle serait la meilleure façon de découvrir les nouveautés artistiques dès mon inscription ?"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

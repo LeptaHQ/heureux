@@ -173,13 +173,14 @@ class QuestionBankContentTests(TestCase):
         (6, "Transports & mobilité", "arrow-left-right"),
         (7, "Voyages & circuits", "globe"),
         (8, "Sport & plein air", "sun"),
-        (9, "Sorties & spectacles", "theater"),
-        (10, "Arts & loisirs", "pen-line"),
+        (9, "Sorties, visites & spectacles", "theater"),
+        (10, "Cours, clubs & loisirs", "pen-line"),
         (11, "Fêtes & célébrations", "sparkles"),
         (12, "Garde d'enfants & d'animaux", "users"),
         (13, "Bénévolat & vie associative", "hand-wave"),
         (14, "Escapades & tourisme régional", "compass"),
         (15, "Hébergements touristiques", "bed"),
+        (16, "Culture, lectures & médias", "book-open"),
     ]
 
     def test_ai_examiner_prompt_loader_extracts_only_the_master_prompt(self):
@@ -297,6 +298,8 @@ class QuestionBankContentTests(TestCase):
                     key.startswith(f"memory:{bank.number}:question:")
                     or bank.number in {12, 13} and key.startswith("memory:3:question:")
                     or bank.number in {14, 15} and key.startswith("memory:7:question:")
+                    or bank.number in {9, 16} and key.startswith("memory:10:question:")
+                    or bank.number in {10, 16} and key.startswith("memory:9:question:")
                     for key in bank.question_keys
                 )
             )
@@ -308,8 +311,8 @@ class QuestionBankContentTests(TestCase):
                     self.assertTrue(group.title)
                     self.assertTrue(group.guidance)
 
-        self.assertEqual(sum(bank.category_count for bank in banks), 195)
-        self.assertEqual(sum(bank.question_count for bank in banks), 780)
+        self.assertEqual(sum(bank.category_count for bank in banks), 208)
+        self.assertEqual(sum(bank.question_count for bank in banks), 832)
 
     def test_memoire_questions_are_unique_across_every_theme(self):
         questions = [
@@ -320,8 +323,8 @@ class QuestionBankContentTests(TestCase):
             for question in group.questions
         ]
 
-        self.assertEqual(len(questions), 780)
-        self.assertEqual(len(set(questions)), 780)
+        self.assertEqual(len(questions), 832)
+        self.assertEqual(len(set(questions)), 832)
 
     def test_tache_one_question_bank_is_universal_and_answer_free(self):
         banks = load_question_banks(
@@ -387,9 +390,9 @@ class QuestionBankContentTests(TestCase):
         # Every theme mémoire is reached by at least one subject question.
         self.assertEqual(
             {number for number, _ in referenced},
-            set(range(1, 16)),
+            set(range(1, 17)),
         )
-        for number in range(1, 16):
+        for number in range(1, 17):
             sections = {
                 section for memory, section in referenced if memory == number
             }
@@ -1131,6 +1134,7 @@ class QuestionBankContentTests(TestCase):
             {group.theme for group in groups},
             {
                 "arts-loisirs",
+                "culture-medias",
                 "fetes",
                 "sorties-spectacles",
                 "sport",
@@ -1409,7 +1413,7 @@ class QuestionBankContentTests(TestCase):
     def test_theme_vocabulary_covers_every_theme_with_three_equal_sections(self):
         phrases = parse_tache_two_theme_vocabulary()
 
-        self.assertEqual(len(phrases), 15 * TACHE_TWO_THEME_VOCABULARY_PER_THEME)
+        self.assertEqual(len(phrases), 16 * TACHE_TWO_THEME_VOCABULARY_PER_THEME)
         self.assertEqual(len({phrase.phrase_id for phrase in phrases}), len(phrases))
         self.assertEqual(
             len({phrase.expression.casefold() for phrase in phrases}),
@@ -2810,9 +2814,9 @@ class QuestionBankViewTests(TestCase):
         self.assertTemplateUsed(response, "study/tache_two_overview.html")
         self.assertTrue(self.task.available)
         self.assertEqual(response.context["subject_count"], 348)
-        self.assertEqual(response.context["theme_vocabulary"]["theme_count"], 15)
-        self.assertEqual(response.context["theme_vocabulary"]["phrase_count"], 675)
-        self.assertEqual(response.context["theme_vocabulary"]["batch_count"], 45)
+        self.assertEqual(response.context["theme_vocabulary"]["theme_count"], 16)
+        self.assertEqual(response.context["theme_vocabulary"]["phrase_count"], 720)
+        self.assertEqual(response.context["theme_vocabulary"]["batch_count"], 48)
         self.assertEqual(
             response.context["ai_practice_prompt"],
             load_ai_examiner_prompt(),
@@ -2839,7 +2843,7 @@ class QuestionBankViewTests(TestCase):
             response,
             'id="subject-overview-panel-title">Sujets</h2>',
         )
-        self.assertContains(response, "0/45")
+        self.assertContains(response, "0/48")
         self.assertContains(response, "lots terminés")
         self.assertContains(response, "0/164")
         self.assertContains(response, "sujets terminés")
@@ -2878,16 +2882,16 @@ class QuestionBankViewTests(TestCase):
             response,
             "study/tache_two_theme_vocabulary.html",
         )
-        self.assertEqual(response.context["theme_count"], 15)
-        self.assertEqual(response.context["phrase_count"], 675)
-        self.assertEqual(response.context["batch_count"], 45)
+        self.assertEqual(response.context["theme_count"], 16)
+        self.assertEqual(response.context["phrase_count"], 720)
+        self.assertEqual(response.context["batch_count"], 48)
         self.assertEqual(response.context["active_nav_area"], "expression")
         self.assertEqual(response.context["content_task"], self.task)
         self.assertContains(response, "<span>Vocabulaire par thème</span>", html=True)
         self.assertContains(response, "data-collection-view-toggle")
         self.assertContains(response, 'data-collection-view="adaptive"')
         self.assertContains(response, "collection-table-header--memories")
-        self.assertContains(response, "data-collection-item", count=15)
+        self.assertContains(response, "data-collection-item", count=16)
         self.assertNotContains(response, "Choisissez une situation")
         self.assertNotContains(response, "Les 11 thèmes de la Tâche 2")
         self.assertNotContains(
@@ -3380,7 +3384,7 @@ class QuestionBankViewTests(TestCase):
         first_subject_key = tache_two_subject_content_key("janvier", 1, 1)
         self.assertEqual(index.status_code, 200)
         self.assertTemplateUsed(index, "study/tache_two_subjects.html")
-        self.assertEqual(index.context["theme_count"], 15)
+        self.assertEqual(index.context["theme_count"], 16)
         self.assertEqual(index.context["subject_count"], 348)
         self.assertEqual(index.context["question_count"], 2784)
         self.assertEqual(len(index.context["subject_prompt_map"]), 348)
@@ -3406,9 +3410,10 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(index, "Garde d&#x27;enfants &amp; d&#x27;animaux")
         self.assertContains(index, "Bénévolat &amp; vie associative")
         self.assertContains(index, "Sport &amp; plein air")
-        self.assertContains(index, "Arts &amp; loisirs")
+        self.assertContains(index, "Cours, clubs &amp; loisirs")
         self.assertContains(index, "Transports &amp; mobilité")
-        self.assertContains(index, "Sorties &amp; spectacles")
+        self.assertContains(index, "Sorties, visites &amp; spectacles")
+        self.assertContains(index, "Culture, lectures &amp; médias")
         self.assertContains(index, "École &amp; études")
         self.assertContains(index, "Travail &amp; emploi")
         self.assertContains(index, "Fêtes &amp; célébrations")
@@ -3418,18 +3423,18 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(index, "data-subject-collection-row", count=348)
         self.assertContains(index, "data-subject-progress-row=", count=348)
         self.assertContains(index, "data-subject-completion-form", count=348)
-        self.assertContains(index, "data-t1-table-theme", count=15)
+        self.assertContains(index, "data-t1-table-theme", count=16)
         self.assertContains(index, "data-t1-table-subject", count=348)
-        self.assertContains(index, "data-nested-sort-table", count=15)
+        self.assertContains(index, "data-nested-sort-table", count=16)
         self.assertContains(
             index,
             'data-nested-table-sort="subject"',
-            count=15,
+            count=16,
         )
         self.assertContains(
             index,
             'data-nested-table-sort="progress"',
-            count=15,
+            count=16,
         )
         self.assertContains(index, "t1-table__subject-date", count=348)
         self.assertNotContains(index, "data-related-subject-group")
@@ -3934,7 +3939,7 @@ class QuestionBankViewTests(TestCase):
             348,
         )
         self.assertEqual(vocabulary.count(), 5370)
-        self.assertEqual(theme_vocabulary.count(), 675)
+        self.assertEqual(theme_vocabulary.count(), 720)
         self.assertEqual(
             Card.objects.filter(
                 user=self.user,
@@ -3957,7 +3962,7 @@ class QuestionBankViewTests(TestCase):
                 card_type=CardType.PHRASE_PRODUCTION,
                 phrase__in=theme_vocabulary,
             ).count(),
-            675,
+            720,
         )
         self.assertFalse(
             Card.objects.filter(
@@ -4930,9 +4935,9 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(response, task_url)
         self.assertContains(
             response,
-            "164 sujets · 15 thèmes · 675 fiches de vocabulaire",
+            "164 sujets · 16 thèmes · 720 fiches de vocabulaire",
         )
-        self.assertContains(response, "0/45 lots terminés")
+        self.assertContains(response, "0/48 lots terminés")
         self.assertContains(response, "0/164 sujets terminés")
         self.assertContains(response, "À commencer")
         task_card = next(
@@ -4940,10 +4945,10 @@ class QuestionBankViewTests(TestCase):
             for row in response.context["tasks"]
             if row["task"].pk == self.task.pk
         )
-        self.assertEqual(task_card["question_bank"]["progress"].total, 209)
+        self.assertEqual(task_card["question_bank"]["progress"].total, 212)
         self.assertEqual(
             task_card["question_bank"]["vocabulary_progress"].total,
-            45,
+            48,
         )
         self.assertEqual(
             task_card["question_bank"]["subject_progress"].total,
@@ -5005,7 +5010,7 @@ class QuestionBankViewTests(TestCase):
             task_card["question_bank"]["vocabulary_progress"].completed,
             1,
         )
-        self.assertContains(task_list, "1/45 lots terminés")
+        self.assertContains(task_list, "1/48 lots terminés")
 
     def test_legacy_memory_progress_post_does_not_create_progress(self):
         bank = load_question_bank()

@@ -27,7 +27,7 @@ class TravelSplitCorpusTests(SimpleTestCase):
     def test_all_fifty_four_publications_follow_their_objective_and_keep_equivalents_together(self):
         themes, mapping = catalogue.tache_two_subject_themes()
         dialogues = catalogue.tache_two_dialogues()
-        self.assertEqual(len(themes), 15)
+        self.assertEqual(len(themes), 16)
         self.assertEqual(len(dialogues), 348)
         self.assertEqual(len(ALL_TRAVEL_GROUPS), 29)
         self.assertEqual(
@@ -80,9 +80,9 @@ class TravelSplitCorpusTests(SimpleTestCase):
             question for bank in banks for section in bank.sections
             for group in section.groups for question in group.questions
         ]
-        self.assertEqual(len(questions), 780)
-        self.assertEqual(len({q.content_key for q in questions}), 780)
-        self.assertEqual(len({q.text.casefold() for q in questions}), 780)
+        self.assertEqual(len(questions), 832)
+        self.assertEqual(len({q.content_key for q in questions}), 832)
+        self.assertEqual(len({q.text.casefold() for q in questions}), 832)
         for section in original["sections"]:
             for group in section["groups"]:
                 for text in group["questions"]:
@@ -109,8 +109,8 @@ class TravelSplitCorpusTests(SimpleTestCase):
             for entry in json.loads(path.read_text())["entries"]
         ]
         by_id = {entry["id"]: entry for entry in entries}
-        self.assertEqual(len(entries), 675)
-        self.assertEqual(len(by_id), 675)
+        self.assertEqual(len(entries), 720)
+        self.assertEqual(len(by_id), 720)
         for entry in original["entries"]:
             self.assertEqual(by_id[entry["id"]], entry)
         for slug in ("voyages", "escapades-tourisme", "hebergements-touristiques"):

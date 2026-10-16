@@ -177,77 +177,77 @@
       "questions": [
         {
           "text": "Bonjour ! J'aimerais découvrir la presse canadienne — pourriez-vous m'aider à choisir une lecture intéressante ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 13
         },
         {
           "text": "Quels types de publications proposez-vous — des quotidiens, des hebdomadaires, des magazines ou un peu de tout ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 2
         },
         {
           "text": "Quels thèmes sont abordés — actualité, culture, économie, sport ou un peu de tout ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 2
         },
         {
           "text": "Y a-t-il des publications locales pour mieux connaître la ville ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 2
         },
         {
           "text": "Y a-t-il un journal ou un magazine que vous recommanderiez particulièrement ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 11
         },
         {
           "text": "Pour ce qui est du niveau, ça s'adresse à quel public — plutôt aux lecteurs habitués à suivre l'actualité ou accessible à un large public ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 6
         },
         {
           "text": "Comment est le style des articles — plutôt simple, analytique ou très spécialisé ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 2
         },
         {
           "text": "Pendant que j'y pense, le niveau de langue est-il accessible pour quelqu'un qui apprend encore le français ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 6
         },
         {
           "text": "Est-ce qu'on y trouve aussi des informations pratiques pour la vie quotidienne ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 2
         },
         {
           "text": "Côté lecture, les articles sont plutôt courts ou faut-il prévoir beaucoup de temps pour les lire ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 4
         },
         {
           "text": "Pour les quotidiens que vous proposez, y a-t-il aussi une édition le dimanche ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 13
         },
         {
           "text": "Qu'est-ce qui rend cette lecture particulièrement intéressante selon vous ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 11
         },
         {
           "text": "Et ce journal, c'est dans quelle gamme de prix — plutôt cher ou raisonnable ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 3
         },
         {
           "text": "Dernier point pratique : est-ce que la version numérique est comprise ou il faut l'acheter séparément ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 3
         },
         {
           "text": "Pour finir — peut-on acheter un numéro pour essayer avant de prendre un abonnement ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 13
         }
       ]

@@ -177,77 +177,77 @@
       "questions": [
         {
           "text": "Salut ! Je dois écrire un article pour la revue de mon association littéraire — tu pourrais répondre à quelques questions sur tes lectures récentes ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 13
         },
         {
           "text": "Tu as lu quoi dernièrement — un roman, un essai, ou un autre type de livre ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 2
         },
         {
           "text": "C'est quel titre exactement, et qui en est l'auteur ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 2
         },
         {
           "text": "C'est un livre récent ou plutôt un classique ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 2
         },
         {
           "text": "Qu'est-ce qui t'a donné envie de lire ce livre ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 2
         },
         {
           "text": "J'en profite pour te demander : de quoi parle le livre — tu pourrais résumer l'histoire ou l'idée principale sans tout dévoiler ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 2
         },
         {
           "text": "Il y a un personnage principal marquant ou une idée centrale forte ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 2
         },
         {
           "text": "Côté écriture, comment est le style de l'auteur — plutôt simple, poétique, ou très descriptif ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 2
         },
         {
           "text": "Le livre est agréable à lire ou demande-t-il beaucoup de concentration ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 11
         },
         {
           "text": "Sur le fond, qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 10
         },
         {
           "text": "Quel aspect du livre mériterait d'être développé dans l'article, selon toi ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 13
         },
         {
           "text": "Pour ce qui est du niveau, ce livre s'adresse-t-il plutôt aux passionnés de littérature ou est-il accessible à un large public ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 6
         },
         {
           "text": "Selon toi, qu'est-ce qui pourrait donner envie de lire ce livre dans un article ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 11
         },
         {
           "text": "Ce livre se prête bien à une présentation courte ou mérite plutôt une analyse approfondie ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 2
         },
         {
           "text": "Pour finir — tu recommanderais ce livre à quelqu'un ?",
-          "memory_number": 10,
+          "memory_number": 16,
           "memory_section": 13
         }
       ]

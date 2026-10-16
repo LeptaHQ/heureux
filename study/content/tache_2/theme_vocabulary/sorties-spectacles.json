@@ -1,7 +1,7 @@
 {
   "version": 1,
   "theme": "sorties-spectacles",
-  "name": "Sorties & spectacles",
+  "name": "Sorties, visites & spectacles",
   "entries": [
     {
       "id": "sormc01",
@@ -20,15 +20,6 @@
       "english": "a ticket",
       "example": "Avez-vous réservé un billet à l'avance pour ce spectacle ?",
       "usage": "Nom masculin désignant le titre d'accès à un événement."
-    },
-    {
-      "id": "sormc03",
-      "kind": "mot-cle",
-      "french": "une pièce de théâtre (f.)",
-      "anchor": "une pièce de théâtre",
-      "english": "a play",
-      "example": "Avez-vous vu une pièce de théâtre qui vous a particulièrement marqué récemment ?",
-      "usage": "Groupe nominal désignant une œuvre destinée à être jouée sur scène."
     },
     {
       "id": "sormc04",
@@ -94,15 +85,6 @@
       "usage": "Groupe nominal désignant une représentation se déroulant devant un public présent."
     },
     {
-      "id": "sormc11",
-      "kind": "mot-cle",
-      "french": "une critique (f.)",
-      "anchor": "une critique",
-      "english": "a review",
-      "example": "Lisez-vous toujours une critique avant de réserver une place de spectacle ?",
-      "usage": "Nom féminin désignant un avis évaluant une œuvre culturelle."
-    },
-    {
       "id": "sormc12",
       "kind": "mot-cle",
       "french": "un abonnement culturel (m.)",
@@ -137,6 +119,24 @@
       "english": "a student rate",
       "example": "Ce théâtre propose-t-il un tarif étudiant pour les représentations en semaine ?",
       "usage": "Groupe nominal désignant un prix réduit accordé aux étudiants."
+    },
+    {
+      "id": "artmc02",
+      "kind": "mot-cle",
+      "french": "une exposition (f.)",
+      "anchor": "une exposition",
+      "english": "an exhibition",
+      "example": "Avez-vous visité une exposition intéressante récemment ?",
+      "usage": "Nom féminin désignant la présentation publique d'œuvres artistiques."
+    },
+    {
+      "id": "artmc05",
+      "kind": "mot-cle",
+      "french": "une galerie d'art (f.)",
+      "anchor": "une galerie d'art",
+      "english": "an art gallery",
+      "example": "Existe-t-il une galerie d'art que vous aimez visiter régulièrement ?",
+      "usage": "Groupe nominal désignant un lieu d'exposition et de vente d'œuvres d'art."
     },
     {
       "id": "soreu01",
@@ -247,15 +247,6 @@
       "usage": "Expression pour évoquer le plaisir ressenti dans l'ambiance générale d'un événement culturel."
     },
     {
-      "id": "soreu13",
-      "kind": "expression-utile",
-      "french": "monter sur scène",
-      "anchor": "monter sur scène",
-      "english": "to go on stage",
-      "example": "Avez-vous déjà rêvé de monter sur scène vous-même ?",
-      "usage": "Expression pour désigner l'action de se produire devant un public."
-    },
-    {
       "id": "soreu14",
       "kind": "expression-utile",
       "french": "changer ses plans au dernier moment",
@@ -272,6 +263,15 @@
       "english": "to share a cultural passion",
       "example": "Aimez-vous partager une passion culturelle avec vos proches ?",
       "usage": "Expression pour évoquer un intérêt artistique vécu collectivement."
+    },
+    {
+      "id": "svseu01",
+      "kind": "expression-utile",
+      "french": "prévoir le retour après la sortie",
+      "anchor": "prévoir le retour après la sortie",
+      "english": "to plan the journey home after an outing",
+      "example": "Comment prévoir le retour après la sortie si le spectacle finit après le dernier métro ?",
+      "usage": "Expression pour anticiper les déplacements en fin de soirée."
     },
     {
       "id": "sorfr01",
@@ -346,24 +346,6 @@
       "usage": "Amorce pour reformuler une conséquence logique."
     },
     {
-      "id": "sorfr09",
-      "kind": "fragment",
-      "french": "Par rapport à ce que vous attendiez, ce spectacle…",
-      "anchor": "par rapport à ce que vous attendiez, ce spectacle",
-      "english": "Compared to what you expected, this show…",
-      "example": "Par rapport à ce que vous attendiez, ce spectacle vous a-t-il déçu ?",
-      "usage": "Amorce pour comparer les attentes initiales à la réalité d'un spectacle."
-    },
-    {
-      "id": "sorfr10",
-      "kind": "fragment",
-      "french": "Pour resituer, à quelle occasion avez-vous découvert…",
-      "anchor": "pour resituer, à quelle occasion avez-vous découvert",
-      "english": "To set the context, on what occasion did you discover…",
-      "example": "Pour resituer, à quelle occasion avez-vous découvert cet artiste ?",
-      "usage": "Amorce pour recontextualiser une découverte culturelle."
-    },
-    {
       "id": "sorfr11",
       "kind": "fragment",
       "french": "Vous voulez dire que malgré la file d'attente, vous…",
@@ -371,24 +353,6 @@
       "english": "You mean that despite the lineup, you…",
       "example": "Vous voulez dire que malgré la file d'attente, vous avez pu entrer à temps ?",
       "usage": "Amorce pour vérifier une interprétation malgré une contrainte pratique."
-    },
-    {
-      "id": "sorfr12",
-      "kind": "fragment",
-      "french": "Pour clore ce point, recommanderiez-vous ce spectacle à…",
-      "anchor": "pour clore ce point, recommanderiez-vous ce spectacle à",
-      "english": "To close this point, would you recommend this show to…",
-      "example": "Pour clore ce point, recommanderiez-vous ce spectacle à des amis ?",
-      "usage": "Amorce pour conclure un échange sur une expérience culturelle."
-    },
-    {
-      "id": "sorfr13",
-      "kind": "fragment",
-      "french": "Pour quelle raison préférez-vous…",
-      "anchor": "pour quelle raison préférez-vous",
-      "english": "For what reason do you prefer…",
-      "example": "Pour quelle raison préférez-vous le théâtre au cinéma ?",
-      "usage": "Amorce pour demander de justifier une préférence culturelle."
     },
     {
       "id": "sorfr14",
@@ -407,6 +371,42 @@
       "english": "And if the show were cancelled, how…",
       "example": "Et si le spectacle était annulé à la dernière minute, comment réagiriez-vous ?",
       "usage": "Amorce hypothétique pour explorer un scénario imprévu."
+    },
+    {
+      "id": "svsfr01",
+      "kind": "fragment",
+      "french": "Pour préparer notre visite au musée…",
+      "anchor": "Pour préparer notre visite au musée",
+      "english": "To prepare our museum visit…",
+      "example": "Pour préparer notre visite au musée, quels créneaux conseillez-vous ?",
+      "usage": "Amorce pour organiser une visite sans supposer un horaire."
+    },
+    {
+      "id": "svsfr02",
+      "kind": "fragment",
+      "french": "Concernant le menu de ce restaurant…",
+      "anchor": "Concernant le menu de ce restaurant",
+      "english": "Regarding this restaurant's menu…",
+      "example": "Concernant le menu de ce restaurant, quelles spécialités recommandes-tu ?",
+      "usage": "Amorce pour obtenir un avis concret sur une sortie au restaurant."
+    },
+    {
+      "id": "svsfr03",
+      "kind": "fragment",
+      "french": "Avec un budget limité pour la soirée…",
+      "anchor": "Avec un budget limité pour la soirée",
+      "english": "With a limited budget for the evening…",
+      "example": "Avec un budget limité pour la soirée, quelles sorties gratuites proposerais-tu ?",
+      "usage": "Amorce pour annoncer une contrainte de coût."
+    },
+    {
+      "id": "svsfr04",
+      "kind": "fragment",
+      "french": "Pour faire découvrir la ville à nos invités…",
+      "anchor": "Pour faire découvrir la ville à nos invités",
+      "english": "To show our guests around the city…",
+      "example": "Pour faire découvrir la ville à nos invités, quel parcours conseillerais-tu ?",
+      "usage": "Amorce pour demander un itinéraire local adapté aux visiteurs."
     }
   ]
 }

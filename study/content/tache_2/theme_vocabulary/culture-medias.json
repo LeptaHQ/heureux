@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "theme": "culture-medias",
+  "name": "Culture, lectures & médias",
+  "entries": [
+    {
+      "id": "sormc03",
+      "kind": "mot-cle",
+      "french": "une pièce de théâtre (f.)",
+      "anchor": "une pièce de théâtre",
+      "english": "a play",
+      "example": "Avez-vous vu une pièce de théâtre qui vous a particulièrement marqué récemment ?",
+      "usage": "Groupe nominal désignant une œuvre destinée à être jouée sur scène."
+    },
+    {
+      "id": "sormc11",
+      "kind": "mot-cle",
+      "french": "une critique (f.)",
+      "anchor": "une critique",
+      "english": "a review",
+      "example": "Lisez-vous toujours une critique avant de réserver une place de spectacle ?",
+      "usage": "Nom féminin désignant un avis évaluant une œuvre culturelle."
+    },
+    {
+      "id": "artmc08",
+      "kind": "mot-cle",
+      "french": "une bibliothèque de quartier (f.)",
+      "anchor": "une bibliothèque de quartier",
+      "english": "a neighborhood library",
+      "example": "Fréquentez-vous une bibliothèque de quartier pour emprunter des livres ?",
+      "usage": "Groupe nominal désignant un lieu public de prêt de livres proche des habitants."
+    },
+    {
+      "id": "artmc10",
+      "kind": "mot-cle",
+      "french": "une œuvre (f.)",
+      "anchor": "une œuvre",
+      "english": "an artwork",
+      "example": "Y a-t-il une œuvre qui vous plaît particulièrement dans ce musée ?",
+      "usage": "Nom féminin désignant une création artistique achevée."
+    },
+    {
+      "id": "clmmc01",
+      "kind": "mot-cle",
+      "french": "un roman (m.)",
+      "anchor": "un roman",
+      "english": "a novel",
+      "example": "Pour mon article, pourrais-tu me recommander un roman que tu as aimé ?",
+      "usage": "Nom masculin désignant une œuvre narrative de fiction."
+    },
+    {
+      "id": "clmmc02",
+      "kind": "mot-cle",
+      "french": "un genre littéraire (m.)",
+      "anchor": "un genre littéraire",
+      "english": "a literary genre",
+      "example": "Quel serait un genre littéraire accessible à quelqu'un qui lit encore lentement en français ?",
+      "usage": "Groupe nominal pour une catégorie de textes partageant certaines caractéristiques."
+    },
+    {
+      "id": "clmmc03",
+      "kind": "mot-cle",
+      "french": "une intrigue (f.)",
+      "anchor": "une intrigue",
+      "english": "a plot",
+      "example": "Ce film propose-t-il une intrigue facile à suivre sans connaître le premier épisode ?",
+      "usage": "Nom féminin désignant l'enchaînement des événements d'une histoire."
+    },
+    {
+      "id": "clmmc04",
+      "kind": "mot-cle",
+      "french": "un personnage principal (m.)",
+      "anchor": "un personnage principal",
+      "english": "a main character",
+      "example": "Quel acteur joue un personnage principal particulièrement marquant dans cette série ?",
+      "usage": "Groupe nominal pour une figure centrale d'un récit."
+    },
+    {
+      "id": "clmmc05",
+      "kind": "mot-cle",
+      "french": "une carte de bibliothèque (f.)",
+      "anchor": "une carte de bibliothèque",
+      "english": "a library card",
+      "example": "Quels documents faut-il présenter pour obtenir une carte de bibliothèque ?",
+      "usage": "Groupe nominal pour le titre permettant d'utiliser certains services d'une bibliothèque."
+    },
+    {
+      "id": "clmmc06",
+      "kind": "mot-cle",
+      "french": "une série télévisée (f.)",
+      "anchor": "une série télévisée",
+      "english": "a television series",
+      "example": "Aurais-tu une série télévisée à me conseiller selon mes goûts ?",
+      "usage": "Groupe nominal pour une fiction ou un programme organisé en épisodes."
+    },
+    {
+      "id": "clmmc07",
+      "kind": "mot-cle",
+      "french": "un article culturel (m.)",
+      "anchor": "un article culturel",
+      "english": "a cultural article",
+      "example": "Quelles informations devrais-je vérifier avant de publier un article culturel ?",
+      "usage": "Groupe nominal pour un texte présentant ou commentant un sujet culturel."
+    },
+    {
+      "id": "clmmc08",
+      "kind": "mot-cle",
+      "french": "une rubrique de blog (f.)",
+      "anchor": "une rubrique de blog",
+      "english": "a blog section",
+      "example": "Quel contenu placerais-tu dans une rubrique de blog consacrée au budget ?",
+      "usage": "Groupe nominal pour une catégorie organisée de publications."
+    },
+    {
+      "id": "clmmc09",
+      "kind": "mot-cle",
+      "french": "une plateforme de diffusion (f.)",
+      "anchor": "une plateforme de diffusion",
+      "english": "a streaming platform",
+      "example": "Cette série est-elle disponible sur une plateforme de diffusion gratuite ?",
+      "usage": "Groupe nominal pour un service donnant accès à des contenus audiovisuels."
+    },
+    {
+      "id": "clmmc10",
+      "kind": "mot-cle",
+      "french": "une ligne éditoriale (f.)",
+      "anchor": "une ligne éditoriale",
+      "english": "an editorial direction",
+      "example": "Comment définir une ligne éditoriale pour que mon blog reste cohérent ?",
+      "usage": "Groupe nominal pour les choix de sujets, de ton et de public d'une publication."
+    },
+    {
+      "id": "clmmc11",
+      "kind": "mot-cle",
+      "french": "une durée de prêt (f.)",
+      "anchor": "une durée de prêt",
+      "english": "a loan period",
+      "example": "La bibliothèque prévoit-elle une durée de prêt différente pour les livres et les films ?",
+      "usage": "Groupe nominal pour le temps pendant lequel un document peut être emprunté."
+    },
+    {
+      "id": "arteu09",
+      "kind": "expression-utile",
+      "french": "s'évader par la lecture",
+      "anchor": "vous évader par la lecture",
+      "english": "to escape through reading",
+      "example": "Aimez-vous vous évader par la lecture après une longue journée ?",
+      "usage": "Expression imagée signifiant se détendre grâce à un livre."
+    },
+    {
+      "id": "clmeu01",
+      "kind": "expression-utile",
+      "french": "emprunter un document",
+      "anchor": "emprunter un document",
+      "english": "to borrow a document",
+      "example": "Combien de temps peut-on emprunter un document avec cette carte ?",
+      "usage": "Expression pour utiliser temporairement une ressource prêtée par la bibliothèque."
+    },
+    {
+      "id": "clmeu02",
+      "kind": "expression-utile",
+      "french": "renouveler un prêt",
+      "anchor": "renouveler un prêt",
+      "english": "to renew a loan",
+      "example": "Peut-on renouveler un prêt en ligne si personne n'a réservé le livre ?",
+      "usage": "Expression pour demander une prolongation de la durée d'emprunt."
+    },
+    {
+      "id": "clmeu03",
+      "kind": "expression-utile",
+      "french": "réserver un livre indisponible",
+      "anchor": "réserver un livre indisponible",
+      "english": "to place a hold on an unavailable book",
+      "example": "Comment réserver un livre indisponible dans ma bibliothèque ?",
+      "usage": "Expression pour attendre un exemplaire déjà emprunté."
+    },
+    {
+      "id": "clmeu04",
+      "kind": "expression-utile",
+      "french": "rédiger une critique",
+      "anchor": "rédiger une critique",
+      "english": "to write a review",
+      "example": "Quels éléments me conseillerais-tu d'aborder pour rédiger une critique de ce film ?",
+      "usage": "Expression pour préparer un avis argumenté sur une œuvre."
+    },
+    {
+      "id": "clmeu05",
+      "kind": "expression-utile",
+      "french": "résumer un roman sans dévoiler la fin",
+      "anchor": "résumer un roman sans dévoiler la fin",
+      "english": "to summarise a novel without giving away the ending",
+      "example": "Comment résumer un roman sans dévoiler la fin dans notre revue ?",
+      "usage": "Expression pour présenter une intrigue sans en révéler le dénouement."
+    },
+    {
+      "id": "clmeu06",
+      "kind": "expression-utile",
+      "french": "choisir un angle pour son article",
+      "anchor": "choisir un angle pour son article",
+      "english": "to choose an angle for an article",
+      "example": "Comment choisir un angle pour son article sur une ville sans en faire un simple guide touristique ?",
+      "usage": "Expression pour définir un point de vue éditorial précis."
+    },
+    {
+      "id": "clmeu07",
+      "kind": "expression-utile",
+      "french": "citer ses sources",
+      "anchor": "citer ses sources",
+      "english": "to cite one's sources",
+      "example": "À quels endroits du texte faut-il citer ses sources dans un article culturel ?",
+      "usage": "Expression pour attribuer et rendre vérifiables les informations utilisées."
+    },
+    {
+      "id": "clmeu08",
+      "kind": "expression-utile",
+      "french": "vérifier les droits de reproduction",
+      "anchor": "vérifier les droits de reproduction",
+      "english": "to check reproduction rights",
+      "example": "Auprès de qui peut-on vérifier les droits de reproduction d'une image destinée à une publication ?",
+      "usage": "Expression pour rechercher les autorisations nécessaires avant de réutiliser un contenu."
+    },
+    {
+      "id": "clmeu09",
+      "kind": "expression-utile",
+      "french": "publier régulièrement",
+      "anchor": "publier régulièrement",
+      "english": "to publish regularly",
+      "example": "Comment réussir à publier régulièrement sur son blog pendant un voyage ?",
+      "usage": "Expression pour maintenir un rythme réaliste de mise en ligne."
+    },
+    {
+      "id": "clmeu10",
+      "kind": "expression-utile",
+      "french": "organiser les rubriques",
+      "anchor": "organiser les rubriques",
+      "english": "to organise the sections",
+      "example": "Comment organiser les rubriques pour séparer les destinations, les conseils et le budget ?",
+      "usage": "Expression pour structurer les contenus d'un blog ou d'une revue."
+    },
+    {
+      "id": "clmeu11",
+      "kind": "expression-utile",
+      "french": "regarder en version originale",
+      "anchor": "regarder en version originale",
+      "english": "to watch in the original language",
+      "example": "Peut-on regarder en version originale cette série avec des sous-titres français ?",
+      "usage": "Expression pour préciser la langue de la bande sonore."
+    },
+    {
+      "id": "clmeu12",
+      "kind": "expression-utile",
+      "french": "comparer les avis sur une œuvre",
+      "anchor": "comparer les avis sur une œuvre",
+      "english": "to compare opinions about a work",
+      "example": "Où peut-on comparer les avis sur une œuvre avant de la présenter dans notre revue ?",
+      "usage": "Expression pour confronter plusieurs appréciations culturelles."
+    },
+    {
+      "id": "clmeu13",
+      "kind": "expression-utile",
+      "french": "consulter la presse canadienne",
+      "anchor": "consulter la presse canadienne",
+      "english": "to read or consult the Canadian press",
+      "example": "Quel abonnement conseillez-vous pour consulter la presse canadienne en français ?",
+      "usage": "Expression pour demander un accès à des journaux et magazines du Canada."
+    },
+    {
+      "id": "clmeu14",
+      "kind": "expression-utile",
+      "french": "signaler un document perdu",
+      "anchor": "signaler un document perdu",
+      "english": "to report a lost library item",
+      "example": "À qui faut-il signaler un document perdu avant la date de retour ?",
+      "usage": "Expression pour prévenir la bibliothèque d'un incident d'emprunt."
+    },
+    {
+      "id": "sorfr09",
+      "kind": "fragment",
+      "french": "Par rapport à ce que vous attendiez, ce spectacle…",
+      "anchor": "par rapport à ce que vous attendiez, ce spectacle",
+      "english": "Compared to what you expected, this show…",
+      "example": "Par rapport à ce que vous attendiez, ce spectacle vous a-t-il déçu ?",
+      "usage": "Amorce pour comparer les attentes initiales à la réalité d'un spectacle."
+    },
+    {
+      "id": "sorfr10",
+      "kind": "fragment",
+      "french": "Pour resituer, à quelle occasion avez-vous découvert…",
+      "anchor": "pour resituer, à quelle occasion avez-vous découvert",
+      "english": "To set the context, on what occasion did you discover…",
+      "example": "Pour resituer, à quelle occasion avez-vous découvert cet artiste ?",
+      "usage": "Amorce pour recontextualiser une découverte culturelle."
+    },
+    {
+      "id": "sorfr12",
+      "kind": "fragment",
+      "french": "Pour clore ce point, recommanderiez-vous ce spectacle à…",
+      "anchor": "pour clore ce point, recommanderiez-vous ce spectacle à",
+      "english": "To close this point, would you recommend this show to…",
+      "example": "Pour clore ce point, recommanderiez-vous ce spectacle à des amis ?",
+      "usage": "Amorce pour conclure un échange sur une expérience culturelle."
+    },
+    {
+      "id": "sorfr13",
+      "kind": "fragment",
+      "french": "Pour quelle raison préférez-vous…",
+      "anchor": "pour quelle raison préférez-vous",
+      "english": "For what reason do you prefer…",
+      "example": "Pour quelle raison préférez-vous le théâtre au cinéma ?",
+      "usage": "Amorce pour demander de justifier une préférence culturelle."
+    },
+    {
+      "id": "artfr08",
+      "kind": "fragment",
+      "french": "Autrement dit, sans ce club de lecture, vous…",
+      "anchor": "autrement dit, sans ce club de lecture, vous",
+      "english": "In other words, without that book club, you…",
+      "example": "Autrement dit, sans ce club de lecture, vous liriez moins régulièrement ?",
+      "usage": "Amorce pour reformuler une conséquence logique."
+    },
+    {
+      "id": "clmfr01",
+      "kind": "fragment",
+      "french": "Parmi tes lectures récentes…",
+      "anchor": "Parmi tes lectures récentes",
+      "english": "Among your recent reads…",
+      "example": "Parmi tes lectures récentes, quel livre me conseillerais-tu pour notre revue ?",
+      "usage": "Amorce pour demander une recommandation fondée sur une lecture réelle."
+    },
+    {
+      "id": "clmfr02",
+      "kind": "fragment",
+      "french": "Sans me raconter le dénouement…",
+      "anchor": "Sans me raconter le dénouement",
+      "english": "Without telling me the ending…",
+      "example": "Sans me raconter le dénouement, peux-tu me présenter le sujet du film ?",
+      "usage": "Amorce pour obtenir un résumé sans révéler la fin."
+    },
+    {
+      "id": "clmfr03",
+      "kind": "fragment",
+      "french": "À propos de l'interprétation des acteurs…",
+      "anchor": "À propos de l'interprétation des acteurs",
+      "english": "About the actors' performances…",
+      "example": "À propos de l'interprétation des acteurs, qu'as-tu trouvé particulièrement réussi ?",
+      "usage": "Amorce pour approfondir un avis cinématographique."
+    },
+    {
+      "id": "clmfr04",
+      "kind": "fragment",
+      "french": "Pour les lecteurs de notre revue…",
+      "anchor": "Pour les lecteurs de notre revue",
+      "english": "For the readers of our magazine…",
+      "example": "Pour les lecteurs de notre revue, quel aspect de ce spectacle vaudrait la peine d'expliquer ?",
+      "usage": "Amorce pour adapter un article à son public."
+    },
+    {
+      "id": "clmfr05",
+      "kind": "fragment",
+      "french": "Avant de mettre cette image en ligne…",
+      "anchor": "Avant de mettre cette image en ligne",
+      "english": "Before posting this image online…",
+      "example": "Avant de mettre cette image en ligne, où puis-je vérifier si sa réutilisation est autorisée ?",
+      "usage": "Amorce pour demander une source fiable sur les conditions de publication."
+    },
+    {
+      "id": "clmfr06",
+      "kind": "fragment",
+      "french": "Si le livre est déjà emprunté…",
+      "anchor": "Si le livre est déjà emprunté",
+      "english": "If the book is already on loan…",
+      "example": "Si le livre est déjà emprunté, comment être prévenu de son retour ?",
+      "usage": "Amorce pour organiser une réservation en bibliothèque."
+    },
+    {
+      "id": "clmfr07",
+      "kind": "fragment",
+      "french": "Concernant la durée du prêt…",
+      "anchor": "Concernant la durée du prêt",
+      "english": "Regarding the loan period…",
+      "example": "Concernant la durée du prêt, peut-on obtenir une prolongation pendant les vacances ?",
+      "usage": "Amorce pour préciser les conditions d'emprunt."
+    },
+    {
+      "id": "clmfr08",
+      "kind": "fragment",
+      "french": "Pour garder un blog cohérent…",
+      "anchor": "Pour garder un blog cohérent",
+      "english": "To keep a blog consistent…",
+      "example": "Pour garder un blog cohérent, comment relier les différentes rubriques ?",
+      "usage": "Amorce pour demander des conseils d'organisation éditoriale."
+    },
+    {
+      "id": "clmfr09",
+      "kind": "fragment",
+      "french": "Avec des sous-titres en français…",
+      "anchor": "Avec des sous-titres en français",
+      "english": "With French subtitles…",
+      "example": "Avec des sous-titres en français, cette série serait-elle accessible à mon niveau ?",
+      "usage": "Amorce pour évaluer la difficulté linguistique d'un contenu."
+    },
+    {
+      "id": "clmfr10",
+      "kind": "fragment",
+      "french": "Afin de vérifier cette information avant publication…",
+      "anchor": "Afin de vérifier cette information avant publication",
+      "english": "To verify this information before publication…",
+      "example": "Afin de vérifier cette information avant publication, quelle source me recommandez-vous ?",
+      "usage": "Amorce pour obtenir une référence plutôt qu'une affirmation non vérifiée."
+    }
+  ]
+}

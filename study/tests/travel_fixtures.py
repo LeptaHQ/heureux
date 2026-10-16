@@ -32,8 +32,10 @@ TRAVEL_GROUPS = {
         "quebec-region-accommodation-tourist-office",
     },
     "arts-loisirs": {
-        "experienced-blogger-start-travel-blog",
         "friend-canadian-weekend-customs",
+    },
+    "culture-medias": {
+        "experienced-blogger-start-travel-blog",
     },
     "sorties-spectacles": {
         "tourist-office-city-discovery-with-friends",

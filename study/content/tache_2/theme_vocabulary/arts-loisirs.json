@@ -1,7 +1,7 @@
 {
   "version": 1,
   "theme": "arts-loisirs",
-  "name": "Arts & loisirs",
+  "name": "Cours, clubs & loisirs",
   "entries": [
     {
       "id": "artmc01",
@@ -11,15 +11,6 @@
       "english": "a creative workshop",
       "example": "Participez-vous régulièrement à un atelier créatif ?",
       "usage": "Groupe nominal désignant une activité pratique d'apprentissage artistique."
-    },
-    {
-      "id": "artmc02",
-      "kind": "mot-cle",
-      "french": "une exposition (f.)",
-      "anchor": "une exposition",
-      "english": "an exhibition",
-      "example": "Avez-vous visité une exposition intéressante récemment ?",
-      "usage": "Nom féminin désignant la présentation publique d'œuvres artistiques."
     },
     {
       "id": "artmc03",
@@ -40,15 +31,6 @@
       "usage": "Groupe nominal désignant un enseignement structuré autour d'une pratique artistique."
     },
     {
-      "id": "artmc05",
-      "kind": "mot-cle",
-      "french": "une galerie d'art (f.)",
-      "anchor": "une galerie d'art",
-      "english": "an art gallery",
-      "example": "Existe-t-il une galerie d'art que vous aimez visiter régulièrement ?",
-      "usage": "Groupe nominal désignant un lieu d'exposition et de vente d'œuvres d'art."
-    },
-    {
       "id": "artmc06",
       "kind": "mot-cle",
       "french": "un instrument de musique (m.)",
@@ -67,15 +49,6 @@
       "usage": "Groupe nominal désignant l'ensemble des fournitures nécessaires à une pratique créative."
     },
     {
-      "id": "artmc08",
-      "kind": "mot-cle",
-      "french": "une bibliothèque de quartier (f.)",
-      "anchor": "une bibliothèque de quartier",
-      "english": "a neighborhood library",
-      "example": "Fréquentez-vous une bibliothèque de quartier pour emprunter des livres ?",
-      "usage": "Groupe nominal désignant un lieu public de prêt de livres proche des habitants."
-    },
-    {
       "id": "artmc09",
       "kind": "mot-cle",
       "french": "un club de lecture (m.)",
@@ -83,15 +56,6 @@
       "english": "a book club",
       "example": "Faites-vous partie d'un club de lecture depuis longtemps ?",
       "usage": "Groupe nominal désignant un groupe qui se réunit pour discuter de lectures communes."
-    },
-    {
-      "id": "artmc10",
-      "kind": "mot-cle",
-      "french": "une œuvre (f.)",
-      "anchor": "une œuvre",
-      "english": "an artwork",
-      "example": "Y a-t-il une œuvre qui vous plaît particulièrement dans ce musée ?",
-      "usage": "Nom féminin désignant une création artistique achevée."
     },
     {
       "id": "artmc11",
@@ -137,6 +101,51 @@
       "english": "a creative break",
       "example": "Prenez-vous parfois une pause créative pendant votre journée de travail ?",
       "usage": "Groupe nominal désignant un moment consacré à une activité artistique."
+    },
+    {
+      "id": "cclmc01",
+      "kind": "mot-cle",
+      "french": "un jeu de société (m.)",
+      "anchor": "un jeu de société",
+      "english": "a board game",
+      "example": "Quel serait un jeu de société adapté aux nouveaux membres du club ?",
+      "usage": "Groupe nominal pour un jeu pratiqué à plusieurs autour d'une table."
+    },
+    {
+      "id": "cclmc02",
+      "kind": "mot-cle",
+      "french": "une ludothèque (f.)",
+      "anchor": "une ludothèque",
+      "english": "a toy and game library",
+      "example": "Comment s'inscrire dans une ludothèque pour emprunter des jeux ?",
+      "usage": "Nom féminin désignant un lieu de prêt et de découverte de jeux."
+    },
+    {
+      "id": "cclmc03",
+      "kind": "mot-cle",
+      "french": "une séance d'essai (f.)",
+      "anchor": "une séance d'essai",
+      "english": "a trial session",
+      "example": "Peut-on participer à une séance d'essai avant de payer la cotisation ?",
+      "usage": "Groupe nominal pour une première participation sans engagement définitif."
+    },
+    {
+      "id": "cclmc04",
+      "kind": "mot-cle",
+      "french": "un groupe de débutants (m.)",
+      "anchor": "un groupe de débutants",
+      "english": "a beginners' group",
+      "example": "Proposez-vous un groupe de débutants pour les cours de danse ?",
+      "usage": "Groupe nominal pour des participants qui commencent une pratique."
+    },
+    {
+      "id": "soreu13",
+      "kind": "expression-utile",
+      "french": "monter sur scène",
+      "anchor": "monter sur scène",
+      "english": "to go on stage",
+      "example": "Avez-vous déjà rêvé de monter sur scène vous-même ?",
+      "usage": "Expression pour désigner l'action de se produire devant un public."
     },
     {
       "id": "arteu01",
@@ -209,15 +218,6 @@
       "english": "to display one's creations",
       "example": "Avez-vous déjà eu l'occasion d'exposer vos créations en public ?",
       "usage": "Expression pour évoquer la présentation d'œuvres personnelles au public."
-    },
-    {
-      "id": "arteu09",
-      "kind": "expression-utile",
-      "french": "s'évader par la lecture",
-      "anchor": "vous évader par la lecture",
-      "english": "to escape through reading",
-      "example": "Aimez-vous vous évader par la lecture après une longue journée ?",
-      "usage": "Expression imagée signifiant se détendre grâce à un livre."
     },
     {
       "id": "arteu10",
@@ -337,15 +337,6 @@
       "usage": "Amorce pour demander de détailler les étapes d'un procédé artistique."
     },
     {
-      "id": "artfr08",
-      "kind": "fragment",
-      "french": "Autrement dit, sans ce club de lecture, vous…",
-      "anchor": "autrement dit, sans ce club de lecture, vous",
-      "english": "In other words, without that book club, you…",
-      "example": "Autrement dit, sans ce club de lecture, vous liriez moins régulièrement ?",
-      "usage": "Amorce pour reformuler une conséquence logique."
-    },
-    {
       "id": "artfr09",
       "kind": "fragment",
       "french": "Par rapport à ce que vous imaginiez, cette pratique…",
@@ -407,6 +398,15 @@
       "english": "And if you lacked inspiration, how…",
       "example": "Et si vous manquiez d'inspiration un jour, comment feriez-vous pour la retrouver ?",
       "usage": "Amorce hypothétique pour explorer un scénario créatif difficile."
+    },
+    {
+      "id": "cclfr01",
+      "kind": "fragment",
+      "french": "Pour participer à ce jeu…",
+      "anchor": "Pour participer à ce jeu",
+      "english": "To take part in this game…",
+      "example": "Pour participer à ce jeu, quelles conditions faut-il remplir ?",
+      "usage": "Amorce pour demander les règles d'accès à une activité participative."
     }
   ]
 }

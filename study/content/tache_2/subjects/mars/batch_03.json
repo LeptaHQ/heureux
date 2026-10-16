@@ -13,77 +13,77 @@
       "questions": [
         {
           "text": "Salut ! Je dois écrire un article sur un film pour notre revue — tu pourrais m'aider à trouver des idées ?",
-          "memory_number": 9,
+          "memory_number": 16,
           "memory_section": 13
         },
         {
           "text": "Quel film as-tu vu récemment et particulièrement aimé — une comédie, un drame, un film de science-fiction ou un documentaire ?",
-          "memory_number": 9,
+          "memory_number": 16,
           "memory_section": 2
         },
         {
           "text": "C'est quel titre exactement et qui en est le réalisateur ?",
-          "memory_number": 9,
+          "memory_number": 16,
           "memory_section": 2
         },
         {
           "text": "De quoi parle le film — quel est le thème principal ?",
-          "memory_number": 9,
+          "memory_number": 16,
           "memory_section": 2
         },
         {
           "text": "C'est un film récent ou plutôt un classique ?",
-          "memory_number": 9,
+          "memory_number": 16,
           "memory_section": 2
         },
         {
           "text": "Autre chose : ce film est-il basé sur un livre ou une histoire vraie ?",
-          "memory_number": 9,
+          "memory_number": 16,
           "memory_section": 2
         },
         {
           "text": "Côté mise en scène, la réalisation est-elle plutôt classique, originale ou spectaculaire ?",
-          "memory_number": 9,
+          "memory_number": 16,
           "memory_section": 2
         },
         {
           "text": "Ce film s'adresse-t-il plutôt à un public adulte ou est-il aussi adapté aux familles ?",
-          "memory_number": 9,
+          "memory_number": 16,
           "memory_section": 6
         },
         {
           "text": "Pour ce qui est de ton ressenti, qu'est-ce que tu as le plus apprécié — et y a-t-il des aspects que tu as moins aimés ?",
-          "memory_number": 9,
+          "memory_number": 16,
           "memory_section": 10
         },
         {
           "text": "Selon toi, ce film peut-il donner lieu à un débat intéressant pour notre association ?",
-          "memory_number": 9,
+          "memory_number": 16,
           "memory_section": 13
         },
         {
           "text": "Si tu connais d'autres films de ce réalisateur, lesquels me conseillerais-tu ?",
-          "memory_number": 9,
+          "memory_number": 16,
           "memory_section": 13
         },
         {
           "text": "Où as-tu vu le film — au cinéma, en festival, en ligne ?",
-          "memory_number": 9,
+          "memory_number": 16,
           "memory_section": 13
         },
         {
           "text": "Côté budget, combien cela t'a coûté pour voir ce film ?",
-          "memory_number": 9,
+          "memory_number": 16,
           "memory_section": 3
         },
         {
           "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
-          "memory_number": 9,
+          "memory_number": 16,
           "memory_section": 3
         },
         {
           "text": "Pour finir — est-ce que tu pourrais recommander ce film aux lecteurs de notre revue ?",
-          "memory_number": 9,
+          "memory_number": 16,
           "memory_section": 13
         }
       ]

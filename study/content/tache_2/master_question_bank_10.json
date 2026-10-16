@@ -1,52 +1,52 @@
 {
   "number": 10,
-  "title": "Mémoire 10 · Arts & loisirs",
-  "label": "Arts & loisirs",
+  "title": "Mémoire 10 · Cours, clubs & loisirs",
+  "label": "Cours, clubs & loisirs",
   "icon": "pen-line",
-  "subtitle": "Les formulations tirées des sujets d'arts et de loisirs, généralisées pour questionner une activité, un cours, une sortie ou une œuvre.",
+  "subtitle": "Découvrir et pratiquer un loisir : cours, ateliers, clubs, jeux et activités personnelles. Demander le contenu, le niveau, les créneaux, le matériel et les conditions de participation, sans confondre pratique artistique et spectacle à voir.",
   "sections": [
     {
       "number": 1,
-      "title": "Ouverture — entrer dans une activité artistique",
-      "guidance": "Lancer l'échange quand on veut découvrir une activité, un lieu ou une pratique artistique.",
+      "title": "Ouverture et projet de loisir",
+      "guidance": "Adapter les questions à la consigne : ouverture et projet de loisir. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Se présenter et demander des conseils",
-          "guidance": "À utiliser au début pour expliquer son intérêt et inviter l'autre à parler librement.",
+          "title": "Ouverture et projet de loisir",
+          "guidance": "Adapter les questions à la consigne : ouverture et projet de loisir. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Salut ! Tu m'as dit que tu faisais une activité artistique — ça me tente d'essayer, tu peux m'en parler ?",
             "D'après toi, quel type d'activité artistique aide le plus à se faire des amis durables ?",
-            "Alors, comment va ta vie culturelle en général en ce moment ?",
-            "Tu as de nouveaux projets artistiques ou des plans importants pour les prochains mois ?"
+            "Tu as de nouveaux projets artistiques ou des plans importants pour les prochains mois ?",
+            "Bonjour ! J'aimerais rejoindre votre club de jeux de société, pourriez-vous me renseigner ?"
           ]
         }
       ]
     },
     {
       "number": 2,
-      "title": "Activités, œuvres et programmation",
-      "guidance": "Faire préciser ce qui est proposé : cours, ateliers, sorties, œuvres ou événements.",
+      "title": "Contenu des cours, jeux et activités",
+      "guidance": "Adapter les questions à la consigne : contenu des cours, jeux et activités. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Comprendre le contenu proposé",
-          "guidance": "Quand l'interlocuteur présente une activité culturelle ou artistique.",
+          "title": "Contenu des cours, jeux et activités",
+          "guidance": "Adapter les questions à la consigne : contenu des cours, jeux et activités. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Qu'est-ce qu'on apprend concrètement — c'est plutôt technique, artistique ou un mélange des deux ?",
             "Quels types de thèmes sont abordés — portrait, paysage, photo de rue ou un peu de tout ?",
-            "Quel genre de sorties proposez-vous — des visites de musées, des expositions, des spectacles ou des concerts ?",
-            "La programmation est publiée à l'avance ou on la découvre au dernier moment ?"
+            "Quels styles de danse propose cette association ?",
+            "Quelles tâches réalise-t-on pendant les activités de jardinage ?"
           ]
         }
       ]
     },
     {
       "number": 3,
-      "title": "Prix, abonnements et essais",
-      "guidance": "Évaluer le coût réel d'une activité ou d'une sortie culturelle.",
+      "title": "Inscription, cotisation et séance d'essai",
+      "guidance": "Adapter les questions à la consigne : inscription, cotisation et séance d'essai. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Parler budget sans détour",
-          "guidance": "À utiliser avant de s'inscrire, de réserver ou de choisir une activité.",
+          "title": "Inscription, cotisation et séance d'essai",
+          "guidance": "Adapter les questions à la consigne : inscription, cotisation et séance d'essai. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Parlons du coût — combien coûte l'inscription pour la session complète ?",
             "Le tarif comprend quoi exactement — certaines activités sont-elles gratuites ?",
@@ -58,32 +58,35 @@
     },
     {
       "number": 4,
-      "title": "Horaires, fréquence et durée",
-      "guidance": "Situer les créneaux, la durée des séances et le rythme des activités.",
+      "title": "Horaires, durée et régularité",
+      "guidance": "Adapter les questions à la consigne : horaires, durée et régularité. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Savoir quand venir",
-          "guidance": "Quand il faut vérifier si l'activité entre dans son emploi du temps.",
+          "title": "Horaires, durée et régularité",
+          "guidance": "Adapter les questions à la consigne : horaires, durée et régularité. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Quelle est la durée d'une séance — environ une heure ou plutôt une heure et demie ?",
-            "Quels sont les horaires d'ouverture — vous êtes aussi ouverts le week-end ?",
             "Les cours ont lieu quel jour — plutôt en semaine ou le week-end ?",
-            "À quelle fréquence sont-elles organisées — chaque semaine ou seulement de temps en temps ?"
+            "Combien de temps faut-il consacrer à la pratique entre deux cours de musique ?",
+            "À quelle fréquence te retrouves-tu avec les membres du club de jeux ?"
           ]
         }
       ]
     },
     {
       "number": 5,
-      "title": "Lieu culturel et accès",
-      "guidance": "Vérifier où se déroule l'activité et comment s'y rendre facilement.",
+      "title": "Lieu de pratique et accès",
+      "guidance": "Adapter les questions à la consigne : lieu de pratique et accès. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Venir sur place",
-          "guidance": "Utile dès qu'un cours, une sortie ou un événement a lieu dans un endroit précis.",
+          "title": "Lieu de pratique et accès",
+          "guidance": "Adapter les questions à la consigne : lieu de pratique et accès. Ne pas redemander les faits déjà connus.",
           "questions": [
+            {
+              "text": "Ça se passe où exactement — dans les locaux ou dans un lieu extérieur ?",
+              "legacy_memory_number": 9
+            },
             "Ça se passe où exactement — c'est facilement accessible en transports en commun ?",
-            "Est-ce que le transport est prévu ou faut-il se rendre sur place par ses propres moyens ?",
             "Le lieu est-il facilement accessible, et y a-t-il un parking à proximité ?",
             "Pour venir à l'activité, il vaut mieux prendre les transports en commun ou il y a un parking à proximité ?"
           ]
@@ -92,29 +95,29 @@
     },
     {
       "number": 6,
-      "title": "Inscription et démarches pratiques",
-      "guidance": "Clarifier les modalités d'inscription, les documents et les places disponibles.",
+      "title": "Inscription, niveau et conditions de participation",
+      "guidance": "Adapter les questions à la consigne : inscription, niveau et conditions de participation. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "S'inscrire sans se tromper",
-          "guidance": "À poser quand une inscription, une réservation ou une démarche est nécessaire.",
+          "title": "Inscription, niveau et conditions de participation",
+          "guidance": "Adapter les questions à la consigne : inscription, niveau et conditions de participation. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Y a-t-il des conditions particulières pour participer à l'atelier artistique — faut-il préparer quelque chose à l'avance ?",
             "Pour cet atelier artistique, ça s'adresse à quel niveau — faut-il déjà avoir des bases, ou les débutants sont acceptés ?",
-            "Quels documents faut-il apporter pour l'inscription — une pièce d'identité, un justificatif de domicile ?",
-            "Peut-on prolonger une réservation en ligne, ou faut-il revenir sur place ?"
+            "Comment s'inscrire au jeu organisé par votre librairie ?",
+            "Quelles conditions faut-il remplir pour participer à ce jeu télévisé ?"
           ]
         }
       ]
     },
     {
       "number": 7,
-      "title": "Public, niveau et encadrement",
-      "guidance": "Savoir à qui l'activité s'adresse et si elle correspond à son niveau.",
+      "title": "Participants, équipes et encadrement",
+      "guidance": "Adapter les questions à la consigne : participants, équipes et encadrement. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Vérifier si c'est adapté",
-          "guidance": "Quand il faut parler du groupe, du niveau ou des personnes qui encadrent.",
+          "title": "Participants, équipes et encadrement",
+          "guidance": "Adapter les questions à la consigne : participants, équipes et encadrement. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Il y a généralement combien de participants par groupe ? Et comment est l'ambiance ?",
             "C'est en équipe ou individuellement ?",
@@ -126,12 +129,12 @@
     },
     {
       "number": 8,
-      "title": "Matériel, préparation et règles",
-      "guidance": "Anticiper ce qu'il faut apporter, emprunter ou respecter.",
+      "title": "Matériel et préparation de l'activité",
+      "guidance": "Adapter les questions à la consigne : matériel et préparation de l'activité. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Préparer son matériel",
-          "guidance": "À utiliser avant un cours, un atelier ou une activité créative.",
+          "title": "Matériel et préparation de l'activité",
+          "guidance": "Adapter les questions à la consigne : matériel et préparation de l'activité. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Quel type de matériel est recommandé — du matériel spécialisé ou quelque chose de plus simple suffit ?",
             "Y a-t-il du matériel fourni par l'association ou chacun doit venir avec son propre équipement ?",
@@ -143,63 +146,63 @@
     },
     {
       "number": 9,
-      "title": "Services sur place et espaces utiles",
-      "guidance": "Repérer les ressources disponibles dans un lieu culturel.",
+      "title": "Locaux, ressources et services du club",
+      "guidance": "Adapter les questions à la consigne : locaux, ressources et services du club. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Utiliser les services du lieu",
-          "guidance": "Quand on veut savoir ce qu'on trouve sur place en plus de l'activité principale.",
+          "title": "Locaux, ressources et services du club",
+          "guidance": "Adapter les questions à la consigne : locaux, ressources et services du club. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Pour les repas, vous auriez des adresses à recommander près de l'atelier artistique ?",
-            "Proposez-vous aussi des ressources numériques ou des supports audio à emprunter ?",
-            "Y a-t-il un espace avec des ordinateurs ou un accès Internet sur place ?",
-            "Y a-t-il un espace calme pour étudier ou travailler sur place ?"
+            "À la ludothèque, peut-on emprunter des jeux pour les essayer à la maison ?",
+            "Le club dispose-t-il de jeux sur place ou faut-il apporter les siens ?",
+            "L'école de musique permet-elle de répéter dans une salle entre les cours ?"
           ]
         }
       ]
     },
     {
       "number": 10,
-      "title": "Ambiance et expérience artistique",
-      "guidance": "Faire raconter le ressenti, l'ambiance et ce que l'activité apporte.",
+      "title": "Ambiance, motivation et expérience",
+      "guidance": "Adapter les questions à la consigne : ambiance, motivation et expérience. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Parler de l'expérience vécue",
-          "guidance": "À utiliser avec quelqu'un qui a déjà testé une activité ou un événement.",
+          "title": "Ambiance, motivation et expérience",
+          "guidance": "Adapter les questions à la consigne : ambiance, motivation et expérience. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
-            "Qu'est-ce que vous appréciez le plus dans ces sorties artistiques ?",
             "Qu'est-ce qui t'a donné envie de t'inscrire à cet atelier artistique ?",
-            "Pour finir, as-tu appris quelque chose de nouveau ou vécu une expérience vraiment marquante ?"
+            "Pour finir, as-tu appris quelque chose de nouveau ou vécu une expérience vraiment marquante ?",
+            "Qu'est-ce qui t'a le plus surpris quand tu as participé au jeu télévisé ?"
           ]
         }
       ]
     },
     {
       "number": 11,
-      "title": "Choix, avis et recommandations",
-      "guidance": "Demander un conseil pour choisir une activité, une lecture ou un lieu.",
+      "title": "Conseils pour choisir une activité",
+      "guidance": "Adapter les questions à la consigne : conseils pour choisir une activité. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Se faire recommander",
-          "guidance": "Quand plusieurs options culturelles sont possibles et qu'il faut trancher.",
+          "title": "Conseils pour choisir une activité",
+          "guidance": "Adapter les questions à la consigne : conseils pour choisir une activité. Ne pas redemander les faits déjà connus.",
           "questions": [
             "L'activité est agréable à suivre ou demande-t-elle beaucoup de concentration ?",
             "Selon toi, qu'est-ce qui pourrait donner envie de découvrir cette activité ?",
-            "Y a-t-il une activité ou un lieu que vous recommanderiez particulièrement ?",
-            "Qu'est-ce qui rend cette activité particulièrement intéressante selon vous ?"
+            "Qu'est-ce qui rend cette activité particulièrement intéressante selon vous ?",
+            "Quel type de jeu conseillerais-tu pour une première soirée au club ?"
           ]
         }
       ]
     },
     {
       "number": 12,
-      "title": "Flexibilité, imprévus et annulation",
-      "guidance": "Prévoir ce qui se passe si un cours, une sortie ou une réservation change.",
+      "title": "Absences, engagement et annulation",
+      "guidance": "Adapter les questions à la consigne : absences, engagement et annulation. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Garder une marge de souplesse",
-          "guidance": "À poser avant de s'engager ou quand son planning peut bouger.",
+          "title": "Absences, engagement et annulation",
+          "guidance": "Adapter les questions à la consigne : absences, engagement et annulation. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Si l'atelier artistique commence en retard ou s'il y a un imprévu, comment ça se passe ?",
             "Si un jour je ne peux pas venir à la pratique artistique, comment est-ce qu'on s'organise — il faut prévenir à l'avance ?",
@@ -211,17 +214,17 @@
     },
     {
       "number": 13,
-      "title": "Relance, coordonnées et suivi culturel",
-      "guidance": "Clore l'échange, demander une précision ou garder un contact utile.",
+      "title": "Premier contact, confirmation et suivi",
+      "guidance": "Adapter les questions à la consigne : premier contact, confirmation et suivi. Ne pas redemander les faits déjà connus.",
       "groups": [
         {
-          "title": "Finir et rester en contact",
-          "guidance": "Idéal pour conclure après avoir obtenu les informations principales.",
+          "title": "Premier contact, confirmation et suivi",
+          "guidance": "Adapter les questions à la consigne : premier contact, confirmation et suivi. Ne pas redemander les faits déjà connus.",
           "questions": [
             "Pour finir — si vous ne deviez me recommander qu'une seule activité, ce serait laquelle ?",
-            "Tu as mentionné un point intéressant — tu pourrais m'en dire un peu plus ?",
             "À votre avis, le professeur accepterait de nouveaux élèves — vous auriez ses coordonnées ?",
-            "Pour finir — quelle serait la meilleure façon de découvrir les nouveautés artistiques dès mon inscription ?"
+            "Comment organiser une première rencontre avec le professeur de musique à domicile ?",
+            "Merci pour ces précisions, pourriez-vous me confirmer le créneau de la séance d'essai ?"
           ]
         }
       ]

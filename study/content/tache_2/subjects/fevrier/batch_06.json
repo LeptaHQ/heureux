@@ -173,77 +173,77 @@
       "questions": [
         {
           "text": "Bonjour ! Je viens de m'installer dans la ville et je m'intéresse aux activités culturelles — quelles activités proposez-vous pour les habitants ?",
-          "memory_number": 10,
+          "memory_number": 9,
           "memory_section": 2
         },
         {
           "text": "Ces activités s'adressent à quel public — aux enfants, aux adultes ou à toute la famille ?",
-          "memory_number": 10,
+          "memory_number": 9,
           "memory_section": 2
         },
         {
           "text": "Où peut-on consulter le programme des activités culturelles ?",
-          "memory_number": 10,
+          "memory_number": 9,
           "memory_section": 13
         },
         {
           "text": "Les activités ont lieu plutôt en semaine ou le week-end ?",
-          "memory_number": 10,
+          "memory_number": 9,
           "memory_section": 4
         },
         {
           "text": "Pour les ateliers réguliers, combien de séances sont proposées par semaine ?",
-          "memory_number": 10,
+          "memory_number": 9,
           "memory_section": 4
         },
         {
           "text": "Quelles expositions peut-on visiter en ce moment dans la ville ?",
-          "memory_number": 10,
+          "memory_number": 9,
           "memory_section": 2
         },
         {
           "text": "L'entrée aux expositions est-elle gratuite ou faut-il acheter un billet ?",
-          "memory_number": 10,
+          "memory_number": 9,
           "memory_section": 3
         },
         {
           "text": "Jusqu'à quand ces expositions seront-elles accessibles ?",
-          "memory_number": 10,
+          "memory_number": 9,
           "memory_section": 2
         },
         {
           "text": "Pour les ateliers, faut-il apporter du matériel ou est-ce que tout est fourni sur place ?",
-          "memory_number": 10,
+          "memory_number": 9,
           "memory_section": 8
         },
         {
           "text": "D'ailleurs, comment se passe l'inscription — en ligne ou uniquement sur place ?",
-          "memory_number": 10,
+          "memory_number": 9,
           "memory_section": 6
         },
         {
           "text": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
-          "memory_number": 10,
+          "memory_number": 9,
           "memory_section": 6
         },
         {
           "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ?",
-          "memory_number": 10,
+          "memory_number": 9,
           "memory_section": 3
         },
         {
           "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
-          "memory_number": 10,
+          "memory_number": 9,
           "memory_section": 3
         },
         {
           "text": "Quelles activités conseillez-vous pour rencontrer d'autres habitants ?",
-          "memory_number": 10,
+          "memory_number": 9,
           "memory_section": 7
         },
         {
           "text": "Pour finir — si vous ne deviez me recommander qu'une seule activité, ce serait laquelle ?",
-          "memory_number": 10,
+          "memory_number": 9,
           "memory_section": 13
         }
       ]

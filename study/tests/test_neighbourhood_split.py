@@ -42,7 +42,7 @@ class NeighbourhoodSplitCorpusTests(SimpleTestCase):
     def test_each_equivalent_consigne_has_the_objective_based_theme(self):
         dialogues = catalogue.tache_two_dialogues()
         themes, mapping = catalogue.tache_two_subject_themes()
-        self.assertEqual(len(themes), 15)
+        self.assertEqual(len(themes), 16)
         expected_counts = {
             "vie-quartier": (9, 5),
             "garde-enfants-animaux": (15, 7),
@@ -96,8 +96,8 @@ class NeighbourhoodSplitCorpusTests(SimpleTestCase):
             for section in bank.sections for group in section.groups
             for question in group.questions
         ]
-        self.assertEqual(len(questions), 780)
-        self.assertEqual(len({question.content_key for question in questions}), 780)
+        self.assertEqual(len(questions), 832)
+        self.assertEqual(len({question.content_key for question in questions}), 832)
         by_text = {question.text: question.content_key for question in questions}
         for section in original["sections"]:
             for group in section["groups"]:
@@ -114,7 +114,7 @@ class NeighbourhoodSplitCorpusTests(SimpleTestCase):
             for path in content.TACHE_TWO_THEME_VOCABULARY_DIR.glob("*.json")
             for entry in json.loads(path.read_text())["entries"]
         }
-        self.assertEqual(len(by_id), 675)
+        self.assertEqual(len(by_id), 720)
         for entry in original["entries"]:
             self.assertEqual(by_id[entry["id"]], entry)
 

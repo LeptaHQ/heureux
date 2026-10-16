@@ -138,9 +138,15 @@ class FormulationExperienceTests(TestCase):
             count=2,
         )
         self.assertContains(
-            response, '<span class="prompt-nav__position">1 sur 2</span>',
+            response,
+            '<span class="prompt-nav__position"><span>Formulation</span>'
+            "<strong>1</strong><span>sur 2</span></span>",
             count=2, html=True,
         )
+        self.assertContains(
+            response, 'aria-label="Formulation suivante : ', count=2,
+        )
+        self.assertNotContains(response, 'rel="prev"')
         self.assertContains(
             response, f'href="{next_url}" rel="next"', count=2,
         )
@@ -682,9 +688,15 @@ class EeTacheOneFormulationExperienceTests(TestCase):
             count=2,
         )
         self.assertContains(
-            response, '<span class="prompt-nav__position">1 sur 2</span>',
+            response,
+            '<span class="prompt-nav__position"><span>Formulation</span>'
+            "<strong>1</strong><span>sur 2</span></span>",
             count=2, html=True,
         )
+        self.assertContains(
+            response, 'aria-label="Formulation suivante : ', count=2,
+        )
+        self.assertNotContains(response, 'rel="prev"')
         self.assertContains(
             response, f'href="{next_url}" rel="next"', count=2,
         )

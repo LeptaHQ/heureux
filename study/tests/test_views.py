@@ -3734,7 +3734,24 @@ class ResponsePromptNavigationTests(TestCase):
         )
         self.assertContains(page, self._detail_url(self.first_prompt), count=2)
         self.assertContains(page, self._detail_url(self.last_prompt), count=2)
-        self.assertContains(page, "Sujet 2 sur 3", count=2)
+        self.assertContains(
+            page,
+            '<span class="prompt-nav__position"><span>Sujet</span>'
+            "<strong>2</strong><span>sur 3</span></span>",
+            count=2,
+            html=True,
+        )
+        self.assertContains(page, "prompt-nav--subject", count=2)
+        self.assertContains(
+            page,
+            f'aria-label="Sujet précédent : {self.first_prompt.text}"',
+            count=2,
+        )
+        self.assertContains(
+            page,
+            f'aria-label="Sujet suivant : {self.last_prompt.text}"',
+            count=2,
+        )
 
     def test_navigation_has_correct_first_and_last_boundaries(self):
         first_page = self.client.get(self._detail_url(self.first_prompt))

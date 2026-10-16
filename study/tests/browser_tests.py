@@ -2605,13 +2605,17 @@ class BrowserTests(StaticLiveServerTestCase):
                     links.nth(5).click()
                 detail = opened.value
                 detail.wait_for_load_state()
-                expect(detail.locator(".prompt-nav__position")).to_have_text(f"Sujet 6 sur {total}")
-                expect(detail.locator('a[rel="prev"]')).to_have_attribute("href", expected_links[4])
-                expect(detail.locator('a[rel="next"]')).to_have_attribute("href", expected_links[6])
-                detail.locator('a[rel="next"]').click()
-                expect(detail.locator(".prompt-nav__position")).to_have_text(f"Sujet 7 sur {total}")
-                detail.locator('a[rel="prev"]').click()
-                expect(detail.locator(".prompt-nav__position")).to_have_text(f"Sujet 6 sur {total}")
+                position = detail.locator(".prompt-nav__position").first
+                previous_link = detail.locator('a[rel="prev"]').first
+                next_link = detail.locator('a[rel="next"]').first
+                expect(detail.locator(".prompt-nav--subject")).to_have_count(2)
+                expect(position).to_have_text(f"Sujet 6 sur {total}")
+                expect(previous_link).to_have_attribute("href", expected_links[4])
+                expect(next_link).to_have_attribute("href", expected_links[6])
+                next_link.click()
+                expect(position).to_have_text(f"Sujet 7 sur {total}")
+                previous_link.click()
+                expect(position).to_have_text(f"Sujet 6 sur {total}")
                 detail.locator(".subject-page-back").click()
                 expect(detail.get_by_role("button", name="Dédupliquer", exact=True)).to_have_attribute(
                     "aria-pressed", "true" if deduplicate else "false",

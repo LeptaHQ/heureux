@@ -7698,18 +7698,6 @@ a.qrow:focus-visible {
   box-shadow: var(--card-focus-ring);
 }
 .prompt-nav__link--next { text-align: right; }
-.prompt-nav__direction {
-  color: var(--primary);
-  font-size: 0.78rem;
-  font-weight: 700;
-}
-.prompt-nav__label {
-  overflow: hidden;
-  font-size: 0.88rem;
-  font-weight: 600;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
 .prompt-nav__position {
   color: var(--text-soft);
   font-size: 0.82rem;
@@ -15272,6 +15260,9 @@ html[data-collection-view-mode="table"]
 
 /* Detail + edit */
 .ee-t1-detail .detail-head { margin-bottom: 1rem; }
+/* Cancel the page's flex gap so subject navigation keeps the EO2 rhythm. */
+.ee-t1-detail > .prompt-nav--subject { margin: -1.1rem 0 0.3rem; }
+.ee-t1-detail > .prompt-nav--subject.prompt-nav--bottom { margin: 0.3rem 0 0; }
 .ee-t1-detail .section-card--personal { border-color: color-mix(in srgb, var(--primary) 40%, var(--border)); }
 .ee-t1-detail .section-card--empty .muted { margin: 0; }
 .t1-response__body { line-height: 1.6; }

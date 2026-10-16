@@ -1,0 +1,4 @@
+{% load study_links %}
+{% if previous_sujet %}{% subject_url 'study:writing_sujet_detail' part.slug task.slug previous_sujet.pk as sujet_nav_previous_url %}{% endif %}
+{% if next_sujet %}{% subject_url 'study:writing_sujet_detail' part.slug task.slug next_sujet.pk as sujet_nav_next_url %}{% endif %}
+{% include "study/partials/subject_navigation.html" with bottom=bottom position=position total=total previous_url=sujet_nav_previous_url previous_title=previous_sujet.prompt|truncatechars:100 next_url=sujet_nav_next_url next_title=next_sujet.prompt|truncatechars:100 only %}

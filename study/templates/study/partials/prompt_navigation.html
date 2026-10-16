@@ -1,22 +1,4 @@
 {% load study_links %}
-<nav class="prompt-nav{% if bottom %} prompt-nav--bottom{% endif %}" aria-label="Navigation entre les sujets">
-  <div class="prompt-nav__item">
-    {% if previous_prompt %}
-      <a class="prompt-nav__link" href="{% subject_url 'study:response_detail' previous_prompt.theme.task.part.slug previous_prompt.theme.task.slug previous_prompt.pk %}" rel="prev">
-        <span class="prompt-nav__direction">{% include "study/partials/ui_icon.html" with name="arrow-left" only %} Sujet précédent</span>
-        <span class="prompt-nav__label">{{ previous_prompt.theme.display_name }} · P{{ previous_prompt.number }}</span>
-      </a>
-    {% endif %}
-  </div>
-
-  <span class="prompt-nav__position">Sujet {{ prompt_position }} sur {{ prompt_total }}</span>
-
-  <div class="prompt-nav__item prompt-nav__item--next">
-    {% if next_prompt %}
-      <a class="prompt-nav__link prompt-nav__link--next" href="{% subject_url 'study:response_detail' next_prompt.theme.task.part.slug next_prompt.theme.task.slug next_prompt.pk %}" rel="next">
-        <span class="prompt-nav__direction">Sujet suivant {% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
-        <span class="prompt-nav__label">{{ next_prompt.theme.display_name }} · P{{ next_prompt.number }}</span>
-      </a>
-    {% endif %}
-  </div>
-</nav>
+{% if previous_prompt %}{% subject_url 'study:response_detail' previous_prompt.theme.task.part.slug previous_prompt.theme.task.slug previous_prompt.pk as prompt_nav_previous_url %}{% endif %}
+{% if next_prompt %}{% subject_url 'study:response_detail' next_prompt.theme.task.part.slug next_prompt.theme.task.slug next_prompt.pk as prompt_nav_next_url %}{% endif %}
+{% include "study/partials/subject_navigation.html" with bottom=bottom position=prompt_position total=prompt_total previous_url=prompt_nav_previous_url previous_title=previous_prompt.text|truncatechars:100 next_url=prompt_nav_next_url next_title=next_prompt.text|truncatechars:100 only %}

@@ -1,0 +1,28 @@
+{% comment %}
+Shared previous/next navigation for subject detail pages: round arrow links
+around a "Sujet N sur M" pill. Callers pass resolved URLs and titles;
+label, noun and the action names default to the subject wording.
+{% endcomment %}
+<nav class="prompt-nav prompt-nav--subject{% if bottom %} prompt-nav--bottom{% endif %}" aria-label="{{ label|default:'Navigation entre les sujets' }}">
+  <div class="prompt-nav__item">
+    {% if previous_url %}
+      <a class="prompt-nav__link prompt-nav__link--previous" href="{{ previous_url }}" rel="prev" aria-label="{{ previous_action|default:'Sujet précédent' }} : {{ previous_title }}" title="{{ previous_title }}">
+        <span class="prompt-nav__icon">{% include "study/partials/ui_icon.html" with name="arrow-left" only %}</span>
+      </a>
+    {% endif %}
+  </div>
+
+  <span class="prompt-nav__position">
+    <span>{{ noun|default:'Sujet' }}</span>
+    <strong>{{ position }}</strong>
+    <span>sur {{ total }}</span>
+  </span>
+
+  <div class="prompt-nav__item prompt-nav__item--next">
+    {% if next_url %}
+      <a class="prompt-nav__link prompt-nav__link--next" href="{{ next_url }}" rel="next" aria-label="{{ next_action|default:'Sujet suivant' }} : {{ next_title }}" title="{{ next_title }}">
+        <span class="prompt-nav__icon">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+      </a>
+    {% endif %}
+  </div>
+</nav>

@@ -1,8 +1,8 @@
 {% load static %}/* Heureux service worker — offline app shell. */
-var CACHE = "heureux-v251";
+var CACHE = "heureux-v252";
 var SHELL = [
   "{% url 'offline' %}",
-  "{% static 'study/css/app.css' %}?v=250",
+  "{% static 'study/css/app.css' %}?v=251",
   "{% static 'study/js/theme-init.js' %}?v=4",
   "{% static 'study/js/speech.js' %}?v=4",
   "{% static 'study/js/flashcards.js' %}?v=5",

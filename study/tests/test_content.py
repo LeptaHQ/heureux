@@ -129,26 +129,101 @@ class SubjectNavigationTemplateTests(SimpleTestCase):
             self.assertEqual(set(link.get("rel", "").split()), {"noopener", "noreferrer"})
 
     def test_detail_navigation_stays_in_the_current_tab(self):
-        project_root = Path(__file__).resolve().parents[2]
-        templates = (
-            project_root / "study/templates/study/writing_sujet_detail.html",
-            project_root
-            / "study/templates/study/partials/tache_two_subject_navigation.html",
-            project_root
-            / "study/templates/study/partials/prompt_navigation.html",
+        rendered = render_to_string(
+            "study/partials/subject_navigation.html",
+            {
+                "position": 2,
+                "total": 3,
+                "previous_url": "/sujets/1/",
+                "previous_title": "Premier sujet",
+                "next_url": "/sujets/3/",
+                "next_title": "Dernier sujet",
+            },
         )
+        links = re.findall(r'<a class="prompt-nav__link[^"]*"[^>]*>', rendered)
+        self.assertEqual(len(links), 2)
+        self.assertTrue(all('target="_blank"' not in link for link in links))
 
-        for template in templates:
-            with self.subTest(template=template.name):
-                source = template.read_text(encoding="utf-8")
-                links = re.findall(
-                    r'<a class="prompt-nav__link[^"]*"[^>]*>',
-                    source,
+        partials = (
+            Path(__file__).resolve().parents[2] / "study/templates/study/partials"
+        )
+        for name in (
+            "tache_two_subject_navigation.html",
+            "prompt_navigation.html",
+            "writing_sujet_navigation.html",
+            "formulation_navigation.html",
+        ):
+            with self.subTest(template=name):
+                source = (partials / name).read_text(encoding="utf-8")
+                self.assertIn(
+                    '{% include "study/partials/subject_navigation.html"', source,
                 )
-                self.assertTrue(links)
-                self.assertTrue(
-                    all('target="_blank"' not in link for link in links)
-                )
+                self.assertNotIn('target="_blank"', source)
+
+    def test_subject_navigation_renders_round_arrows_around_position_pill(self):
+        rendered = render_to_string(
+            "study/partials/subject_navigation.html",
+            {
+                "position": 2,
+                "total": 3,
+                "previous_url": "/sujets/1/",
+                "previous_title": "Premier sujet",
+                "next_url": "/sujets/3/",
+                "next_title": "Dernier sujet",
+            },
+        )
+        self.assertInHTML(
+            '<span class="prompt-nav__position"><span>Sujet</span>'
+            "<strong>2</strong><span>sur 3</span></span>",
+            rendered,
+        )
+        self.assertIn(
+            '<nav class="prompt-nav prompt-nav--subject" '
+            'aria-label="Navigation entre les sujets">',
+            rendered,
+        )
+        self.assertIn(
+            'class="prompt-nav__link prompt-nav__link--previous" '
+            'href="/sujets/1/" rel="prev" '
+            'aria-label="Sujet précédent : Premier sujet" title="Premier sujet"',
+            rendered,
+        )
+        self.assertIn(
+            'class="prompt-nav__link prompt-nav__link--next" '
+            'href="/sujets/3/" rel="next" '
+            'aria-label="Sujet suivant : Dernier sujet" title="Dernier sujet"',
+            rendered,
+        )
+        self.assertIn('data-icon="arrow-left"', rendered)
+        self.assertIn('data-icon="arrow-right"', rendered)
+
+        first = render_to_string(
+            "study/partials/subject_navigation.html",
+            {
+                "bottom": True,
+                "label": "Navigation entre les formulations",
+                "noun": "Formulation",
+                "position": 1,
+                "total": 2,
+                "next_url": "/formulations/2/",
+                "next_title": "Deuxième formulation",
+                "next_action": "Formulation suivante",
+            },
+        )
+        self.assertIn(
+            'class="prompt-nav prompt-nav--subject prompt-nav--bottom" '
+            'aria-label="Navigation entre les formulations"',
+            first,
+        )
+        self.assertInHTML(
+            '<span class="prompt-nav__position"><span>Formulation</span>'
+            "<strong>1</strong><span>sur 2</span></span>",
+            first,
+        )
+        self.assertNotIn('rel="prev"', first)
+        self.assertIn(
+            'aria-label="Formulation suivante : Deuxième formulation"', first,
+        )
 
     def test_subject_directories_keep_opening_items_in_new_tabs(self):
         progress = {"status": "new", "label": "À commencer", "completed": 0, "total": 2}

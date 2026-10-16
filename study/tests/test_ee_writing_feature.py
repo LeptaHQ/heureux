@@ -1309,8 +1309,18 @@ class EeWritingPageTests(TestCase):
                         selected[index + 1] if index + 1 < len(selected) else None,
                     )
                     self.assertContains(
-                        page, f"Sujet {index + 1} sur {len(selected)}", count=2,
+                        page, f"Sujet {index + 1} sur {len(selected)}", count=1,
                     )
+                    self.assertContains(
+                        page,
+                        '<span class="prompt-nav__position"><span>Sujet</span>'
+                        f"<strong>{index + 1}</strong>"
+                        f"<span>sur {len(selected)}</span></span>",
+                        count=2,
+                        html=True,
+                    )
+                    self.assertContains(page, "prompt-nav--subject", count=2)
+                    self.assertContains(page, "prompt-nav--bottom", count=1)
                     self.assertContains(original, f'href="{detail_url}?deduplicate=0"')
                     all_page = self.client.get(detail_url, {"deduplicate": "0"})
                     self.assertEqual(all_page.context["position"], raw_index + 1)

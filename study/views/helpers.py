@@ -63,13 +63,18 @@ def _memory_progress(user, memories):
         memory.number: set()
         for memory in memories
     }
-    for memory_number, question_key in (
+    memory_by_key = {
+        question_key: memory.number
+        for memory in memories
+        for question_key in memory.question_keys
+    }
+    for question_key in (
         MemoryQuestionProgress.objects.filter(
             user=user,
-            memory_number__in=completed_by_memory,
-        ).values_list("memory_number", "question_key")
+            question_key__in=memory_by_key,
+        ).values_list("question_key", flat=True)
     ):
-        completed_by_memory[memory_number].add(question_key)
+        completed_by_memory[memory_by_key[question_key]].add(question_key)
 
     states = {}
     for memory in memories:

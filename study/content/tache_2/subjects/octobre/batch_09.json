@@ -176,7 +176,7 @@
         },
         {
           "text": "C'est quelqu'un que vous connaissez bien — vous avez déjà fait appel à cette personne ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 11
         },
         {
@@ -205,12 +205,12 @@
         },
         {
           "text": "Elle a des références, ou des personnes qui peuvent la recommander ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 11
         },
         {
           "text": "Est-ce qu'on peut la rencontrer une première fois pour voir si le courant passe ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 11
         },
         {

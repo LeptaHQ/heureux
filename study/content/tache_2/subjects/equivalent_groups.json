@@ -3,7 +3,7 @@
   "groups": [
     {
       "id": "vq-garde-enfant-proche",
-      "theme": "vie-quartier",
+      "theme": "garde-enfants-animaux",
       "canonical": "tache2:fevrier:batch-06:subject-26",
       "members": [
         "tache2:fevrier:batch-06:subject-26",
@@ -15,7 +15,7 @@
     },
     {
       "id": "vq-garde-animal-proche",
-      "theme": "vie-quartier",
+      "theme": "garde-enfants-animaux",
       "canonical": "tache2:fevrier:batch-02:subject-08",
       "members": [
         "tache2:fevrier:batch-02:subject-08",

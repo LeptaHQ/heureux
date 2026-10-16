@@ -1182,12 +1182,20 @@ def load_question_bank(
         for raw_group in raw_section.get("groups", []):
             questions: List[QuestionBankQuestionData] = []
             for raw_question in raw_group.get("questions", []):
+                identity_memory_number = memory_number
                 if isinstance(raw_question, str):
                     text = raw_question.strip()
                     note = ""
                     english = ""
                     legacy_text = ""
                 else:
+                    identity_memory_number = raw_question.get(
+                        "legacy_memory_number", memory_number,
+                    )
+                    if type(identity_memory_number) is not int or identity_memory_number < 1:
+                        raise ValueError(
+                            f"Question-bank section {number} has an invalid legacy memory number"
+                        )
                     text = str(raw_question.get("text", "")).strip()
                     note = str(raw_question.get("note", "")).strip()
                     english = raw_question.get("english", "")
@@ -1213,7 +1221,7 @@ def load_question_bank(
                 if normalized in seen_questions:
                     raise ValueError(f"Duplicate question-bank phrase: {text}")
                 seen_questions.add(normalized)
-                # Corrections retain the French seed used by saved learning state.
+                # Corrections and relocations retain the seed used by saved learning state.
                 key_text = (legacy_text or text).casefold()
                 if key_text in seen_question_keys:
                     raise ValueError(f"Duplicate question-bank identity: {text}")
@@ -1225,7 +1233,7 @@ def load_question_bank(
                 questions.append(
                     QuestionBankQuestionData(
                         content_key=(
-                            f"memory:{key_prefix}{memory_number}"
+                            f"memory:{key_prefix}{identity_memory_number}"
                             f":question:{digest}"
                         ),
                         text=text,
@@ -1296,6 +1304,9 @@ def load_question_banks(
         raise ValueError(
             "Question banks must be numbered consecutively from 1"
         )
+    question_keys = [key for bank in banks for key in bank.question_keys]
+    if len(question_keys) != len(set(question_keys)):
+        raise ValueError("Question banks must not share question identities")
     return banks
 
 

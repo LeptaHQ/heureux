@@ -3567,13 +3567,12 @@ def task_memory_progress(request, part_slug, task_slug, memory_number):
     if completed == "1":
         MemoryQuestionProgress.objects.get_or_create(
             user=request.user,
-            memory_number=memory.number,
             question_key=question_key,
+            defaults={"memory_number": memory.number},
         )
     else:
         MemoryQuestionProgress.objects.filter(
             user=request.user,
-            memory_number=memory.number,
             question_key=question_key,
         ).delete()
 

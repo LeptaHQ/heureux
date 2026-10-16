@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "theme": "vie-quartier",
+  "name": "Vie de quartier & entraide",
+  "entries": [
+    {
+      "id": "quamc01",
+      "kind": "mot-cle",
+      "french": "un voisin (m.)",
+      "anchor": "un voisin",
+      "english": "a neighbor",
+      "example": "Entretenez-vous de bonnes relations avec un voisin en particulier ?",
+      "usage": "Nom désignant une personne qui habite à proximité."
+    },
+    {
+      "id": "quamc02",
+      "kind": "mot-cle",
+      "french": "l'entraide (f.)",
+      "anchor": "l'entraide",
+      "english": "mutual aid",
+      "example": "L'entraide entre voisins est-elle fréquente dans votre quartier ?",
+      "usage": "Nom féminin désignant le soutien mutuel entre personnes."
+    },
+    {
+      "id": "quamc03",
+      "kind": "mot-cle",
+      "french": "une fête de quartier (f.)",
+      "anchor": "une fête de quartier",
+      "english": "a neighborhood block party",
+      "example": "Organisez-vous parfois une fête de quartier pour rassembler les résidents ?",
+      "usage": "Groupe nominal désignant un événement convivial rassemblant les habitants."
+    },
+    {
+      "id": "quamc04",
+      "kind": "mot-cle",
+      "french": "un comité de quartier (m.)",
+      "anchor": "un comité de quartier",
+      "english": "a neighborhood committee",
+      "example": "Existe-t-il un comité de quartier chargé de représenter les résidents ?",
+      "usage": "Groupe nominal désignant une organisation locale de représentation citoyenne."
+    },
+    {
+      "id": "quamc05",
+      "kind": "mot-cle",
+      "french": "un service de proximité (m.)",
+      "anchor": "un service de proximité",
+      "english": "a local service",
+      "example": "Utilisez-vous souvent un service de proximité près de chez vous ?",
+      "usage": "Groupe nominal désignant un commerce ou une institution facilement accessible."
+    },
+    {
+      "id": "quamc06",
+      "kind": "mot-cle",
+      "french": "le vivre-ensemble (m.)",
+      "anchor": "le vivre-ensemble",
+      "english": "living together / community life",
+      "example": "Comment décririez-vous le vivre-ensemble dans votre quartier ?",
+      "usage": "Nom masculin désignant la cohabitation harmonieuse entre habitants différents."
+    },
+    {
+      "id": "quamc07",
+      "kind": "mot-cle",
+      "french": "un bénévole (m.)",
+      "anchor": "un bénévole",
+      "english": "a volunteer",
+      "example": "Devient-on facilement un bénévole actif dans ce quartier ?",
+      "usage": "Nom masculin désignant une personne qui donne de son temps sans rémunération. Au féminin : une bénévole."
+    },
+    {
+      "id": "quamc08",
+      "kind": "mot-cle",
+      "french": "une banque alimentaire (f.)",
+      "anchor": "une banque alimentaire",
+      "english": "a food bank",
+      "example": "Y a-t-il une banque alimentaire accessible aux familles du quartier ?",
+      "usage": "Groupe nominal désignant un organisme distribuant de la nourriture aux personnes dans le besoin."
+    },
+    {
+      "id": "quamc09",
+      "kind": "mot-cle",
+      "french": "un conflit de voisinage (m.)",
+      "anchor": "un conflit de voisinage",
+      "english": "a neighbor dispute",
+      "example": "Avez-vous déjà vécu un conflit de voisinage à cause du bruit ?",
+      "usage": "Groupe nominal désignant un désaccord entre personnes vivant à proximité."
+    },
+    {
+      "id": "quamc10",
+      "kind": "mot-cle",
+      "french": "une association locale (f.)",
+      "anchor": "une association locale",
+      "english": "a local association",
+      "example": "Faites-vous partie d'une association locale qui aide les nouveaux arrivants ?",
+      "usage": "Groupe nominal désignant un organisme communautaire ancré dans un territoire précis."
+    },
+    {
+      "id": "quamc11",
+      "kind": "mot-cle",
+      "french": "le civisme (m.)",
+      "anchor": "le civisme",
+      "english": "civic-mindedness",
+      "example": "Diriez-vous que le civisme est très développé dans votre quartier ?",
+      "usage": "Nom masculin désignant le respect des règles de vie en communauté."
+    },
+    {
+      "id": "quamc12",
+      "kind": "mot-cle",
+      "french": "un jardin communautaire (m.)",
+      "anchor": "un jardin communautaire",
+      "english": "a community garden",
+      "example": "Participez-vous à l'entretien d'un jardin communautaire près de chez vous ?",
+      "usage": "Groupe nominal désignant un espace de culture partagé entre habitants."
+    },
+    {
+      "id": "quamc13",
+      "kind": "mot-cle",
+      "french": "la solidarité (f.)",
+      "anchor": "la solidarité",
+      "english": "solidarity",
+      "example": "La solidarité entre habitants s'est-elle renforcée depuis la pandémie ?",
+      "usage": "Nom féminin désignant l'entraide et le soutien mutuel dans une communauté."
+    },
+    {
+      "id": "quamc14",
+      "kind": "mot-cle",
+      "french": "un dépannage (m.)",
+      "anchor": "un dépannage",
+      "english": "a favor / quick help",
+      "example": "Vos voisins vous ont-ils déjà rendu service pour un dépannage urgent ?",
+      "usage": "Nom masculin désignant une aide ponctuelle apportée en cas de besoin."
+    },
+    {
+      "id": "quamc15",
+      "kind": "mot-cle",
+      "french": "les espaces communs (m. pl.)",
+      "anchor": "les espaces communs",
+      "english": "the common areas",
+      "example": "Les espaces communs de votre immeuble sont-ils bien entretenus ?",
+      "usage": "Groupe nominal désignant les parties partagées d'un immeuble (halls, escaliers, buanderie), dont l'entretien est collectif."
+    },
+    {
+      "id": "quaeu01",
+      "kind": "expression-utile",
+      "french": "rendre service",
+      "anchor": "rendre service",
+      "english": "to do a favor",
+      "example": "Est-il fréquent de rendre service à un voisin dans votre quartier ?",
+      "usage": "Expression courante pour parler d'une aide apportée sans contrepartie."
+    },
+    {
+      "id": "quaeu02",
+      "kind": "expression-utile",
+      "french": "veiller les uns sur les autres",
+      "anchor": "veillent les uns sur les autres",
+      "english": "to look out for one another",
+      "example": "Diriez-vous que les habitants du quartier veillent les uns sur les autres ?",
+      "usage": "Expression pour évoquer une attention mutuelle entre voisins."
+    },
+    {
+      "id": "quaeu03",
+      "kind": "expression-utile",
+      "french": "garder un œil sur",
+      "anchor": "garder un œil sur",
+      "english": "to keep an eye on",
+      "example": "Acceptez-vous parfois de garder un œil sur l'appartement d'un voisin absent ?",
+      "usage": "Expression pour parler du fait de surveiller quelque chose ou quelqu'un."
+    },
+    {
+      "id": "quaeu04",
+      "kind": "expression-utile",
+      "french": "faire connaissance avec",
+      "anchor": "fait connaissance avec",
+      "english": "to get acquainted with",
+      "example": "Comment avez-vous fait connaissance avec vos voisins les plus proches ?",
+      "usage": "Expression pour évoquer le début d'une relation avec une personne."
+    },
+    {
+      "id": "quaeu05",
+      "kind": "expression-utile",
+      "french": "prêter main-forte",
+      "anchor": "prêter main-forte",
+      "english": "to lend a hand",
+      "example": "Est-il courant de prêter main-forte à un voisin lors d'un déménagement ?",
+      "usage": "Expression imagée signifiant apporter une aide concrète, qu'elle soit physique ou non."
+    },
+    {
+      "id": "quaeu06",
+      "kind": "expression-utile",
+      "french": "s'impliquer dans la vie du quartier",
+      "anchor": "vous impliquer dans la vie du quartier",
+      "english": "to get involved in neighborhood life",
+      "example": "Qu'est-ce qui vous pousse à vous impliquer dans la vie du quartier ?",
+      "usage": "Expression pour parler de la participation active à la communauté locale."
+    },
+    {
+      "id": "quaeu07",
+      "kind": "expression-utile",
+      "french": "resserrer les liens",
+      "anchor": "resserrer les liens",
+      "english": "to strengthen ties",
+      "example": "Ces événements permettent-ils vraiment de resserrer les liens entre voisins ?",
+      "usage": "Expression imagée signifiant renforcer une relation existante."
+    },
+    {
+      "id": "quaeu08",
+      "kind": "expression-utile",
+      "french": "régler un différend",
+      "anchor": "régler un différend",
+      "english": "to settle a dispute",
+      "example": "Comment avez-vous réussi à régler un différend avec un voisin bruyant ?",
+      "usage": "Expression pour désigner la résolution d'un désaccord entre deux parties."
+    },
+    {
+      "id": "quaeu09",
+      "kind": "expression-utile",
+      "french": "vivre en bonne entente",
+      "anchor": "en bonne entente",
+      "english": "to live in harmony",
+      "example": "Vivez-vous en bonne entente avec l'ensemble des résidents de l'immeuble ?",
+      "usage": "Expression pour qualifier des relations de voisinage harmonieuses."
+    },
+    {
+      "id": "quaeu10",
+      "kind": "expression-utile",
+      "french": "faire appel à la communauté",
+      "anchor": "fait appel à la communauté",
+      "english": "to reach out to the community",
+      "example": "Avez-vous déjà fait appel à la communauté pour organiser une collecte de dons ?",
+      "usage": "Expression pour évoquer une demande de soutien adressée à un groupe local."
+    },
+    {
+      "id": "quaeu11",
+      "kind": "expression-utile",
+      "french": "se serrer les coudes",
+      "anchor": "se serrent-ils les coudes",
+      "english": "to stick together / support each other",
+      "example": "Les habitants se serrent-ils les coudes lors des périodes difficiles ?",
+      "usage": "Expression imagée signifiant faire preuve de solidarité en cas de besoin."
+    },
+    {
+      "id": "quaeu12",
+      "kind": "expression-utile",
+      "french": "tendre la main",
+      "anchor": "tendre la main",
+      "english": "to reach out / offer help",
+      "example": "Est-il facile de tendre la main à un nouveau voisin isolé ?",
+      "usage": "Expression imagée pour signifier proposer son aide à quelqu'un."
+    },
+    {
+      "id": "quaeu13",
+      "kind": "expression-utile",
+      "french": "participer à une collecte",
+      "anchor": "participé à une collecte",
+      "english": "to take part in a fundraiser",
+      "example": "Avez-vous déjà participé à une collecte organisée pour une famille du quartier ?",
+      "usage": "Expression pour désigner l'implication dans une action de solidarité financière."
+    },
+    {
+      "id": "quaeu14",
+      "kind": "expression-utile",
+      "french": "casser la glace",
+      "anchor": "casser la glace",
+      "english": "to break the ice",
+      "example": "Qu'est-ce qui permet le mieux de casser la glace entre nouveaux voisins ?",
+      "usage": "Expression imagée signifiant faciliter un premier contact social."
+    },
+    {
+      "id": "quaeu15",
+      "kind": "expression-utile",
+      "french": "renforcer le sentiment d'appartenance",
+      "anchor": "le sentiment d'appartenance",
+      "english": "to strengthen the sense of belonging",
+      "example": "Ces initiatives renforcent-elles le sentiment d'appartenance au quartier ?",
+      "usage": "Expression pour évoquer le développement d'un lien identitaire avec un lieu."
+    },
+    {
+      "id": "quafr01",
+      "kind": "fragment",
+      "french": "Concrètement, comment s'organise…",
+      "anchor": "comment s'organise",
+      "english": "Specifically, how is… organized",
+      "example": "Concrètement, comment s'organise l'entraide entre voisins chez vous ?",
+      "usage": "Amorce pour demander le fonctionnement concret d'une pratique de quartier."
+    },
+    {
+      "id": "quafr02",
+      "kind": "fragment",
+      "french": "Si je comprends bien, ce comité s'occupe…",
+      "anchor": "si je comprends bien, ce comité s'occupe",
+      "english": "If I understand correctly, this committee handles…",
+      "example": "Si je comprends bien, ce comité s'occupe surtout des conflits de voisinage ?",
+      "usage": "Amorce pour reformuler et vérifier le rôle d'une organisation locale."
+    },
+    {
+      "id": "quafr03",
+      "kind": "fragment",
+      "french": "Qu'est-ce qui vous a poussé à…",
+      "anchor": "qu'est-ce qui vous a poussé à",
+      "english": "What prompted you to…",
+      "example": "Qu'est-ce qui vous a poussé à vous impliquer dans le jardin communautaire ?",
+      "usage": "Amorce pour explorer les motivations d'un engagement local."
+    },
+    {
+      "id": "quafr04",
+      "kind": "fragment",
+      "french": "Pourriez-vous donner un exemple concret de…",
+      "anchor": "pourriez-vous donner un exemple concret de",
+      "english": "Could you give a concrete example of…",
+      "example": "Pourriez-vous donner un exemple concret de solidarité observée récemment ?",
+      "usage": "Amorce polie pour demander une illustration précise."
+    },
+    {
+      "id": "quafr05",
+      "kind": "fragment",
+      "french": "Diriez-vous que la principale difficulté, c'est…",
+      "anchor": "diriez-vous que la principale difficulté, c'est",
+      "english": "Would you say the main difficulty is…",
+      "example": "Diriez-vous que la principale difficulté, c'est de mobiliser les gens ?",
+      "usage": "Amorce pour faire hiérarchiser une difficulté rencontrée."
+    },
+    {
+      "id": "quafr06",
+      "kind": "fragment",
+      "french": "En comparaison avec votre ancien quartier…",
+      "anchor": "en comparaison avec votre ancien quartier",
+      "english": "Compared with your old neighborhood…",
+      "example": "En comparaison avec votre ancien quartier, l'entraide est-elle plus forte ici ?",
+      "usage": "Amorce pour établir une comparaison entre deux lieux de vie."
+    },
+    {
+      "id": "quafr07",
+      "kind": "fragment",
+      "french": "Est-ce que vous pourriez revenir sur le rôle de…",
+      "anchor": "est-ce que vous pourriez revenir sur le rôle de",
+      "english": "Could you go back over the role of…",
+      "example": "Est-ce que vous pourriez revenir sur le rôle de l'association locale ?",
+      "usage": "Amorce pour demander de développer un point déjà évoqué."
+    },
+    {
+      "id": "quafr08",
+      "kind": "fragment",
+      "french": "Autrement dit, sans cette solidarité, les habitants…",
+      "anchor": "autrement dit, sans cette solidarité, les habitants",
+      "english": "In other words, without this solidarity, residents…",
+      "example": "Autrement dit, sans cette solidarité, les habitants se sentiraient plus isolés ?",
+      "usage": "Amorce pour reformuler une conséquence et la faire confirmer."
+    },
+    {
+      "id": "quafr09",
+      "kind": "fragment",
+      "french": "Contrairement à ce qu'on pourrait croire, ce quartier…",
+      "anchor": "contrairement à ce qu'on pourrait croire, ce quartier",
+      "english": "Contrary to what one might think, this neighborhood…",
+      "example": "Contrairement à ce qu'on pourrait croire, ce quartier est-il vraiment aussi solidaire ?",
+      "usage": "Amorce pour nuancer une idée reçue sur un lieu de vie."
+    },
+    {
+      "id": "quafr10",
+      "kind": "fragment",
+      "french": "Pour resituer, depuis combien de temps existe…",
+      "anchor": "pour resituer, depuis combien de temps existe",
+      "english": "To set the context, how long has… existed",
+      "example": "Pour resituer, depuis combien de temps existe ce comité de quartier ?",
+      "usage": "Amorce pour recontextualiser avant de poursuivre l'échange."
+    },
+    {
+      "id": "quafr11",
+      "kind": "fragment",
+      "french": "Vous voulez dire que malgré les tensions, vous…",
+      "anchor": "vous voulez dire que malgré les tensions, vous",
+      "english": "You mean that despite the tensions, you…",
+      "example": "Vous voulez dire que malgré les tensions, vous avez fini par vous entendre ?",
+      "usage": "Amorce pour vérifier une interprétation malgré une difficulté relationnelle."
+    },
+    {
+      "id": "quafr12",
+      "kind": "fragment",
+      "french": "Quel geste de solidarité retenez-vous surtout…",
+      "anchor": "quel geste de solidarité retenez-vous surtout",
+      "english": "What act of solidarity do you remember most…",
+      "example": "Quel geste de solidarité retenez-vous surtout de votre vie dans ce quartier ?",
+      "usage": "Amorce pour conclure en demandant un souvenir marquant de solidarité locale."
+    },
+    {
+      "id": "quafr13",
+      "kind": "fragment",
+      "french": "D'après vous, pourquoi…",
+      "anchor": "d'après vous, pourquoi",
+      "english": "In your opinion, why…",
+      "example": "D'après vous, pourquoi si peu de gens s'impliquent-ils dans la vie du quartier ?",
+      "usage": "Amorce pour demander une explication personnelle sur un phénomène social."
+    },
+    {
+      "id": "quafr14",
+      "kind": "fragment",
+      "french": "Juste pour bien comprendre, ce bénévole dont vous parlez…",
+      "anchor": "juste pour bien comprendre, ce bénévole dont vous parlez",
+      "english": "Just to make sure I understand, the volunteer you mention…",
+      "example": "Juste pour bien comprendre, ce bénévole dont vous parlez coordonne bien toute l'équipe ?",
+      "usage": "Amorce pour clarifier un détail relatif à une personne mentionnée."
+    },
+    {
+      "id": "quafr15",
+      "kind": "fragment",
+      "french": "Et si un conflit éclatait, comment…",
+      "anchor": "et si un conflit éclatait entre voisins, comment",
+      "english": "And if a conflict broke out, how…",
+      "example": "Et si un conflit éclatait entre voisins, comment le comité interviendrait-il ?",
+      "usage": "Amorce hypothétique pour explorer la gestion d'un scénario de tension."
+    }
+  ]
+}

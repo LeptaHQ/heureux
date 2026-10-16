@@ -4,6 +4,7 @@ import json
 from django.test import SimpleTestCase
 
 from study import catalogue, content_loader as content
+from study.tests.neighbourhood_fixtures import ALL_NEIGHBOURHOOD_GROUPS
 
 
 class TacheTwoEducationCorpusTests(SimpleTestCase):
@@ -74,7 +75,7 @@ class TacheTwoEducationCorpusTests(SimpleTestCase):
         }
         for theme, digest in expected.items():
             with self.subTest(theme=theme):
-                groups = {
+                groups = ALL_NEIGHBOURHOOD_GROUPS if theme == "vie-quartier" else {
                     row.group for key, row in self.dialogues.items() if self.themes[key] == theme
                 }
                 snapshot = json.dumps(

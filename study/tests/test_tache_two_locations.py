@@ -198,10 +198,12 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
             self.assertEqual(row.closing, old.closing)
 
     def test_neighbourhood_coverage_excludes_the_reclassified_arrival_models(self):
+        from study.tests.neighbourhood_fixtures import ALL_NEIGHBOURHOOD_GROUPS
+
         _, themes = catalogue.tache_two_subject_themes()
         publications = {
             key: row for key, row in catalogue.tache_two_dialogues().items()
-            if themes[key] == "vie-quartier"
+            if row.group in ALL_NEIGHBOURHOOD_GROUPS
         }
         self.assertEqual(len(publications), 36)
         self.assertEqual(len({row.group for row in publications.values()}), 18)

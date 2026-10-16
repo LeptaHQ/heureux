@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "theme": "garde-enfants-animaux",
+  "name": "Garde d'enfants & d'animaux",
+  "entries": [
+    {
+      "id": "gdamc01",
+      "kind": "mot-cle",
+      "french": "une garde à domicile (f.)",
+      "anchor": "une garde à domicile",
+      "english": "in-home care",
+      "example": "Une garde à domicile doit-elle se faire chez les parents ?",
+      "usage": "Garde organisée dans le logement de la famille."
+    },
+    {
+      "id": "gdamc02",
+      "kind": "mot-cle",
+      "french": "une garde ponctuelle (f.)",
+      "anchor": "une garde ponctuelle",
+      "english": "occasional care",
+      "example": "Cherchez-vous une garde ponctuelle pour cette soirée ?",
+      "usage": "Garde limitée à une occasion, sans engagement régulier."
+    },
+    {
+      "id": "gdamc03",
+      "kind": "mot-cle",
+      "french": "une baby-sitter (f.)",
+      "anchor": "une baby-sitter",
+      "english": "a babysitter",
+      "example": "Une baby-sitter doit-elle aussi préparer le dîner ?",
+      "usage": "Personne qui garde des enfants en l'absence des parents."
+    },
+    {
+      "id": "gdamc04",
+      "kind": "mot-cle",
+      "french": "un carnet de santé (m.)",
+      "anchor": "un carnet de santé",
+      "english": "a health record booklet",
+      "example": "Me laisseras-tu un carnet de santé pour ton animal ?",
+      "usage": "Document qui rassemble les informations de santé utiles."
+    },
+    {
+      "id": "gdamc05",
+      "kind": "mot-cle",
+      "french": "un vétérinaire (m.)",
+      "anchor": "un vétérinaire",
+      "english": "a veterinarian",
+      "example": "Puis-je contacter un vétérinaire qui connaît déjà ton chien ?",
+      "usage": "Professionnel de santé à contacter pour un animal."
+    },
+    {
+      "id": "gdamc06",
+      "kind": "mot-cle",
+      "french": "une promenade quotidienne (f.)",
+      "anchor": "une promenade quotidienne",
+      "english": "a daily walk",
+      "example": "Combien de temps faut-il pour une promenade quotidienne avec ton chien ?",
+      "usage": "Sortie habituelle qui répond aux besoins de l'animal."
+    },
+    {
+      "id": "gdamc07",
+      "kind": "mot-cle",
+      "french": "un rituel du coucher (m.)",
+      "anchor": "un rituel du coucher",
+      "english": "a bedtime routine",
+      "example": "As-tu un rituel du coucher pour aider ta fille à s'endormir ?",
+      "usage": "Suite d'habitudes rassurantes avant le sommeil."
+    },
+    {
+      "id": "gdamc08",
+      "kind": "mot-cle",
+      "french": "une sieste de l'après-midi (f.)",
+      "anchor": "une sieste de l'après-midi",
+      "english": "an afternoon nap",
+      "example": "Ton enfant fait-il encore une sieste de l'après-midi ?",
+      "usage": "Temps de sommeil en journée, à vérifier selon l'enfant."
+    },
+    {
+      "id": "gdamc09",
+      "kind": "mot-cle",
+      "french": "une ration journalière (f.)",
+      "anchor": "une ration journalière",
+      "english": "a daily food allowance",
+      "example": "Peux-tu préparer une ration journalière comme exemple pour ton chat ?",
+      "usage": "Quantité de nourriture à répartir sur une journée."
+    },
+    {
+      "id": "gdamc10",
+      "kind": "mot-cle",
+      "french": "une allergie alimentaire (f.)",
+      "anchor": "une allergie alimentaire",
+      "english": "a food allergy",
+      "example": "Ton enfant a-t-il une allergie alimentaire à connaître ?",
+      "usage": "Réaction à un aliment qui impose des précautions."
+    },
+    {
+      "id": "gdamc11",
+      "kind": "mot-cle",
+      "french": "une trousse de premiers secours (f.)",
+      "anchor": "une trousse de premiers secours",
+      "english": "a first-aid kit",
+      "example": "Y a-t-il une trousse de premiers secours à portée de main ?",
+      "usage": "Matériel destiné aux premiers soins en cas de petite blessure."
+    },
+    {
+      "id": "gdamc12",
+      "kind": "mot-cle",
+      "french": "une référence professionnelle (f.)",
+      "anchor": "une référence professionnelle",
+      "english": "a professional reference",
+      "example": "Peut-on vérifier une référence professionnelle de cette personne ?",
+      "usage": "Témoignage d'un ancien employeur sur l'expérience."
+    },
+    {
+      "id": "gdamc13",
+      "kind": "mot-cle",
+      "french": "un contact d'urgence pour la garde (m.)",
+      "anchor": "un contact d'urgence pour la garde",
+      "english": "an emergency care contact",
+      "example": "Pourrais-tu me laisser un contact d'urgence pour la garde ?",
+      "usage": "Personne à joindre si le responsable ne peut pas répondre."
+    },
+    {
+      "id": "gdamc14",
+      "kind": "mot-cle",
+      "french": "un tarif de garde (m.)",
+      "anchor": "un tarif de garde",
+      "english": "a care rate",
+      "example": "Avez-vous un tarif de garde différent le week-end ?",
+      "usage": "Prix demandé pour un service de garde."
+    },
+    {
+      "id": "gdamc15",
+      "kind": "mot-cle",
+      "french": "le couchage de l'animal (m.)",
+      "anchor": "le couchage de l'animal",
+      "english": "the animal's sleeping place",
+      "example": "Où faut-il installer le couchage de l'animal ?",
+      "usage": "Endroit et matériel prévus pour faire dormir l'animal."
+    },
+    {
+      "id": "gdaeu01",
+      "kind": "expression-utile",
+      "french": "respecter les horaires de repas",
+      "anchor": "respecter les horaires de repas",
+      "english": "to follow mealtimes",
+      "example": "Faut-il respecter les horaires de repas même pendant le week-end ?",
+      "usage": "Maintenir le rythme alimentaire habituel."
+    },
+    {
+      "id": "gdaeu02",
+      "kind": "expression-utile",
+      "french": "faire une promenade en laisse",
+      "anchor": "faire une promenade en laisse",
+      "english": "to take a walk on a leash",
+      "example": "Où puis-je faire une promenade en laisse avec ton chien ?",
+      "usage": "Sortir l'animal en gardant le contrôle de ses déplacements."
+    },
+    {
+      "id": "gdaeu03",
+      "kind": "expression-utile",
+      "french": "laisser des consignes écrites",
+      "anchor": "laisser des consignes écrites",
+      "english": "to leave written instructions",
+      "example": "Pourrais-tu laisser des consignes écrites pour les repas ?",
+      "usage": "Transmettre les indications pour pouvoir les consulter ensuite."
+    },
+    {
+      "id": "gdaeu04",
+      "kind": "expression-utile",
+      "french": "prévoir une solution de garde",
+      "anchor": "prévoir une solution de garde",
+      "english": "to arrange a care option",
+      "example": "Comment prévoir une solution de garde si la première personne se désiste ?",
+      "usage": "Anticiper une organisation pour faire garder l'enfant ou l'animal."
+    },
+    {
+      "id": "gdaeu05",
+      "kind": "expression-utile",
+      "french": "rassurer un enfant",
+      "anchor": "rassurer un enfant",
+      "english": "to reassure a child",
+      "example": "Comment rassurer un enfant qui réclame ses parents ?",
+      "usage": "Aider l'enfant à se sentir en sécurité."
+    },
+    {
+      "id": "gdaeu06",
+      "kind": "expression-utile",
+      "french": "vérifier les références d'une baby-sitter",
+      "anchor": "vérifier les références d'une baby-sitter",
+      "english": "to check a babysitter's references",
+      "example": "Avec qui puis-je vérifier les références d'une baby-sitter ?",
+      "usage": "Confirmer son expérience auprès de familles précédentes."
+    },
+    {
+      "id": "gdaeu07",
+      "kind": "expression-utile",
+      "french": "préparer les portions de nourriture",
+      "anchor": "préparer les portions de nourriture",
+      "english": "to prepare the food portions",
+      "example": "Peux-tu me montrer comment préparer les portions de nourriture de ton chat ?",
+      "usage": "Mesurer la nourriture selon les quantités indiquées."
+    },
+    {
+      "id": "gdaeu08",
+      "kind": "expression-utile",
+      "french": "surveiller les signes de fatigue",
+      "anchor": "surveiller les signes de fatigue",
+      "english": "to watch for signs of tiredness",
+      "example": "À quels moments faut-il surveiller les signes de fatigue chez ta fille ?",
+      "usage": "Repérer quand l'enfant a besoin de repos."
+    },
+    {
+      "id": "gdaeu09",
+      "kind": "expression-utile",
+      "french": "prendre le relais pendant la garde",
+      "anchor": "prendre le relais pendant la garde",
+      "english": "to take over during care",
+      "example": "Qui pourrait prendre le relais pendant la garde si je suis malade ?",
+      "usage": "Remplacer temporairement la personne responsable."
+    },
+    {
+      "id": "gdaeu10",
+      "kind": "expression-utile",
+      "french": "fournir le nécessaire pour la garde",
+      "anchor": "fournir le nécessaire pour la garde",
+      "english": "to supply everything needed for care",
+      "example": "Comptes-tu fournir le nécessaire pour la garde de ton animal ?",
+      "usage": "Mettre à disposition la nourriture, le matériel et les affaires utiles."
+    },
+    {
+      "id": "gdaeu11",
+      "kind": "expression-utile",
+      "french": "convenir du paiement de la garde",
+      "anchor": "convenir du paiement de la garde",
+      "english": "to agree on care payment",
+      "example": "Quand pourrons-nous convenir du paiement de la garde ?",
+      "usage": "Fixer ensemble le montant, le moyen et le moment du règlement."
+    },
+    {
+      "id": "gdaeu12",
+      "kind": "expression-utile",
+      "french": "présenter la personne aux enfants",
+      "anchor": "présenter la personne aux enfants",
+      "english": "to introduce the person to the children",
+      "example": "Souhaitez-vous présenter la personne aux enfants avant de confirmer la garde ?",
+      "usage": "Organiser un premier contact entre les enfants et l'adulte."
+    },
+    {
+      "id": "gdaeu13",
+      "kind": "expression-utile",
+      "french": "s'assurer du bien-être de l'animal",
+      "anchor": "s'assurer du bien-être de l'animal",
+      "english": "to check the animal's well-being",
+      "example": "Quels comportements observer pour s'assurer du bien-être de l'animal ?",
+      "usage": "Vérifier que l'animal semble à l'aise et en bonne santé."
+    },
+    {
+      "id": "gdaeu14",
+      "kind": "expression-utile",
+      "french": "donner des nouvelles aux parents",
+      "anchor": "donner des nouvelles aux parents",
+      "english": "to update the parents",
+      "example": "À quelle fréquence souhaites-tu donner des nouvelles aux parents pendant le séjour ?",
+      "usage": "Informer les responsables sur le déroulement de la garde."
+    },
+    {
+      "id": "gdaeu15",
+      "kind": "expression-utile",
+      "french": "adapter les activités à son âge",
+      "anchor": "adapter les activités à son âge",
+      "english": "to adapt activities to their age",
+      "example": "Comment adapter les activités à son âge pendant la journée ?",
+      "usage": "Choisir des jeux et sorties adaptés au développement de l'enfant."
+    },
+    {
+      "id": "gdafr01",
+      "kind": "fragment",
+      "french": "Avant de confirmer la garde, pourriez-vous…",
+      "anchor": "Avant de confirmer la garde, pourriez-vous",
+      "english": "Before confirming the care arrangement, could you…",
+      "example": "Avant de confirmer la garde, pourriez-vous me préciser les horaires ?",
+      "usage": "Amorce polie pour vérifier les conditions avant de s'engager."
+    },
+    {
+      "id": "gdafr02",
+      "kind": "fragment",
+      "french": "Pour ses repas de la journée,…",
+      "anchor": "Pour ses repas de la journée,",
+      "english": "For their meals during the day,…",
+      "example": "Pour ses repas de la journée, faut-il tout préparer à l'avance ?",
+      "usage": "Amorce pour distinguer les repas fournis de ceux à préparer."
+    },
+    {
+      "id": "gdafr03",
+      "kind": "fragment",
+      "french": "Pendant ton absence, qui…",
+      "anchor": "Pendant ton absence, qui",
+      "english": "While you are away, who…",
+      "example": "Pendant ton absence, qui pourra m'aider pour ton animal ?",
+      "usage": "Amorce pour prévoir un relais local."
+    },
+    {
+      "id": "gdafr04",
+      "kind": "fragment",
+      "french": "S'il se réveille pendant la nuit,…",
+      "anchor": "S'il se réveille pendant la nuit,",
+      "english": "If he wakes up during the night,…",
+      "example": "S'il se réveille pendant la nuit, qu'est-ce qui le rassure ?",
+      "usage": "Relance conditionnelle lorsque la garde comprend une nuit."
+    },
+    {
+      "id": "gdafr05",
+      "kind": "fragment",
+      "french": "Concernant ses allergies,…",
+      "anchor": "Concernant ses allergies,",
+      "english": "Regarding their allergies,…",
+      "example": "Concernant ses allergies, quels aliments dois-je éviter absolument ?",
+      "usage": "Relance après qu'une allergie a été mentionnée."
+    },
+    {
+      "id": "gdafr06",
+      "kind": "fragment",
+      "french": "Si les enfants ne s'entendent pas,…",
+      "anchor": "Si les enfants ne s'entendent pas,",
+      "english": "If the children do not get along,…",
+      "example": "Si les enfants ne s'entendent pas, comment préférez-vous que j'intervienne ?",
+      "usage": "Hypothèse pour préciser la conduite à tenir entre enfants."
+    },
+    {
+      "id": "gdafr07",
+      "kind": "fragment",
+      "french": "Pour les promenades quotidiennes,…",
+      "anchor": "Pour les promenades quotidiennes,",
+      "english": "For the daily walks,…",
+      "example": "Pour les promenades quotidiennes, quel trajet ton chien connaît-il ?",
+      "usage": "Amorce pour détailler une routine déjà établie."
+    },
+    {
+      "id": "gdafr08",
+      "kind": "fragment",
+      "french": "Si ton animal refuse de manger,…",
+      "anchor": "Si ton animal refuse de manger,",
+      "english": "If your animal refuses to eat,…",
+      "example": "Si ton animal refuse de manger, qui dois-je prévenir ?",
+      "usage": "Hypothèse pour préparer un problème concret."
+    },
+    {
+      "id": "gdafr09",
+      "kind": "fragment",
+      "french": "Pour éviter de modifier ses habitudes,…",
+      "anchor": "Pour éviter de modifier ses habitudes,",
+      "english": "To avoid changing their habits,…",
+      "example": "Pour éviter de modifier ses habitudes, à quelle heure faut-il la coucher ?",
+      "usage": "Amorce qui explique pourquoi on demande une consigne précise."
+    },
+    {
+      "id": "gdafr10",
+      "kind": "fragment",
+      "french": "Dans le tarif de garde annoncé,…",
+      "anchor": "Dans le tarif de garde annoncé,",
+      "english": "In the quoted care rate,…",
+      "example": "Dans le tarif de garde annoncé, les déplacements sont-ils compris ?",
+      "usage": "Relance sur les prestations incluses dans un prix déjà annoncé."
+    },
+    {
+      "id": "gdafr11",
+      "kind": "fragment",
+      "french": "Si vous avez déjà fait appel à elle,…",
+      "anchor": "Si vous avez déjà fait appel à elle,",
+      "english": "If you have used her services before,…",
+      "example": "Si vous avez déjà fait appel à elle, comment s'est passée la première garde ?",
+      "usage": "Condition qui évite de supposer une expérience personnelle du voisin."
+    },
+    {
+      "id": "gdafr12",
+      "kind": "fragment",
+      "french": "Si votre retour est retardé,…",
+      "anchor": "Si votre retour est retardé,",
+      "english": "If your return is delayed,…",
+      "example": "Si votre retour est retardé, comment me préviendrez-vous ?",
+      "usage": "Hypothèse pour organiser la fin de la garde."
+    },
+    {
+      "id": "gdafr13",
+      "kind": "fragment",
+      "french": "Pour qu'il fasse connaissance avec moi,…",
+      "anchor": "Pour qu'il fasse connaissance avec moi,",
+      "english": "So that he can get to know me,…",
+      "example": "Pour qu'il fasse connaissance avec moi, pourrais-je venir avant ton départ ?",
+      "usage": "Amorce pour proposer une rencontre préalable."
+    },
+    {
+      "id": "gdafr14",
+      "kind": "fragment",
+      "french": "En cas de blessure pendant la garde,…",
+      "anchor": "En cas de blessure pendant la garde,",
+      "english": "In case of an injury during care,…",
+      "example": "En cas de blessure pendant la garde, quel numéro dois-je appeler ?",
+      "usage": "Hypothèse pour connaître les contacts adaptés."
+    },
+    {
+      "id": "gdafr15",
+      "kind": "fragment",
+      "french": "Pour te donner des nouvelles de ta fille,…",
+      "anchor": "Pour te donner des nouvelles de ta fille,",
+      "english": "To give you updates about your daughter,…",
+      "example": "Pour te donner des nouvelles de ta fille, préfères-tu un appel ou un message ?",
+      "usage": "Amorce pour choisir un moyen de suivi concret."
+    }
+  ]
+}

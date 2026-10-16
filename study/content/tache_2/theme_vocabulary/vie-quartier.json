@@ -1,7 +1,7 @@
 {
   "version": 1,
   "theme": "vie-quartier",
-  "name": "Vie de quartier & entraide",
+  "name": "Services du quotidien & entraide",
   "entries": [
     {
       "id": "quamc01",
@@ -22,24 +22,6 @@
       "usage": "Nom féminin désignant le soutien mutuel entre personnes."
     },
     {
-      "id": "quamc03",
-      "kind": "mot-cle",
-      "french": "une fête de quartier (f.)",
-      "anchor": "une fête de quartier",
-      "english": "a neighborhood block party",
-      "example": "Organisez-vous parfois une fête de quartier pour rassembler les résidents ?",
-      "usage": "Groupe nominal désignant un événement convivial rassemblant les habitants."
-    },
-    {
-      "id": "quamc04",
-      "kind": "mot-cle",
-      "french": "un comité de quartier (m.)",
-      "anchor": "un comité de quartier",
-      "english": "a neighborhood committee",
-      "example": "Existe-t-il un comité de quartier chargé de représenter les résidents ?",
-      "usage": "Groupe nominal désignant une organisation locale de représentation citoyenne."
-    },
-    {
       "id": "quamc05",
       "kind": "mot-cle",
       "french": "un service de proximité (m.)",
@@ -58,24 +40,6 @@
       "usage": "Nom masculin désignant la cohabitation harmonieuse entre habitants différents."
     },
     {
-      "id": "quamc07",
-      "kind": "mot-cle",
-      "french": "un bénévole (m.)",
-      "anchor": "un bénévole",
-      "english": "a volunteer",
-      "example": "Devient-on facilement un bénévole actif dans ce quartier ?",
-      "usage": "Nom masculin désignant une personne qui donne de son temps sans rémunération. Au féminin : une bénévole."
-    },
-    {
-      "id": "quamc08",
-      "kind": "mot-cle",
-      "french": "une banque alimentaire (f.)",
-      "anchor": "une banque alimentaire",
-      "english": "a food bank",
-      "example": "Y a-t-il une banque alimentaire accessible aux familles du quartier ?",
-      "usage": "Groupe nominal désignant un organisme distribuant de la nourriture aux personnes dans le besoin."
-    },
-    {
       "id": "quamc09",
       "kind": "mot-cle",
       "french": "un conflit de voisinage (m.)",
@@ -85,15 +49,6 @@
       "usage": "Groupe nominal désignant un désaccord entre personnes vivant à proximité."
     },
     {
-      "id": "quamc10",
-      "kind": "mot-cle",
-      "french": "une association locale (f.)",
-      "anchor": "une association locale",
-      "english": "a local association",
-      "example": "Faites-vous partie d'une association locale qui aide les nouveaux arrivants ?",
-      "usage": "Groupe nominal désignant un organisme communautaire ancré dans un territoire précis."
-    },
-    {
       "id": "quamc11",
       "kind": "mot-cle",
       "french": "le civisme (m.)",
@@ -101,24 +56,6 @@
       "english": "civic-mindedness",
       "example": "Diriez-vous que le civisme est très développé dans votre quartier ?",
       "usage": "Nom masculin désignant le respect des règles de vie en communauté."
-    },
-    {
-      "id": "quamc12",
-      "kind": "mot-cle",
-      "french": "un jardin communautaire (m.)",
-      "anchor": "un jardin communautaire",
-      "english": "a community garden",
-      "example": "Participez-vous à l'entretien d'un jardin communautaire près de chez vous ?",
-      "usage": "Groupe nominal désignant un espace de culture partagé entre habitants."
-    },
-    {
-      "id": "quamc13",
-      "kind": "mot-cle",
-      "french": "la solidarité (f.)",
-      "anchor": "la solidarité",
-      "english": "solidarity",
-      "example": "La solidarité entre habitants s'est-elle renforcée depuis la pandémie ?",
-      "usage": "Nom féminin désignant l'entraide et le soutien mutuel dans une communauté."
     },
     {
       "id": "quamc14",
@@ -137,6 +74,69 @@
       "english": "the common areas",
       "example": "Les espaces communs de votre immeuble sont-ils bien entretenus ?",
       "usage": "Groupe nominal désignant les parties partagées d'un immeuble (halls, escaliers, buanderie), dont l'entretien est collectif."
+    },
+    {
+      "id": "svcmc01",
+      "kind": "mot-cle",
+      "french": "un colis à expédier (m.)",
+      "anchor": "un colis à expédier",
+      "english": "a parcel to send",
+      "example": "Quel est le poids maximum pour un colis à expédier par ce service ?",
+      "usage": "Paquet préparé pour être envoyé à un destinataire."
+    },
+    {
+      "id": "svcmc02",
+      "kind": "mot-cle",
+      "french": "un médecin remplaçant (m.)",
+      "anchor": "un médecin remplaçant",
+      "english": "a substitute doctor",
+      "example": "Un médecin remplaçant peut-il consulter mon dossier habituel ?",
+      "usage": "Praticien qui assure temporairement les consultations d'un autre."
+    },
+    {
+      "id": "svcmc03",
+      "kind": "mot-cle",
+      "french": "un créneau de livraison (m.)",
+      "anchor": "un créneau de livraison",
+      "english": "a delivery time slot",
+      "example": "Puis-je choisir un créneau de livraison après 18 h ?",
+      "usage": "Plage horaire annoncée pour recevoir sa commande."
+    },
+    {
+      "id": "svcmc04",
+      "kind": "mot-cle",
+      "french": "une avance de frais (f.)",
+      "anchor": "une avance de frais",
+      "english": "an advance payment of expenses",
+      "example": "Faudra-t-il prévoir une avance de frais pour ton paquet ?",
+      "usage": "Somme payée temporairement pour le compte de quelqu'un."
+    },
+    {
+      "id": "svcmc05",
+      "kind": "mot-cle",
+      "french": "un accusé de réception (m.)",
+      "anchor": "un accusé de réception",
+      "english": "an acknowledgement of receipt",
+      "example": "Souhaites-tu un accusé de réception pour cet envoi ?",
+      "usage": "Confirmation que l'envoi est arrivé au destinataire."
+    },
+    {
+      "id": "svcmc06",
+      "kind": "mot-cle",
+      "french": "une visite de surveillance (f.)",
+      "anchor": "une visite de surveillance",
+      "english": "a property-check visit",
+      "example": "Combien de temps faut-il pour une visite de surveillance de l'appartement ?",
+      "usage": "Passage destiné à vérifier un logement pendant une absence."
+    },
+    {
+      "id": "svcmc07",
+      "kind": "mot-cle",
+      "french": "un numéro de suivi (m.)",
+      "anchor": "un numéro de suivi",
+      "english": "a tracking number",
+      "example": "Recevrai-je un numéro de suivi après le dépôt ?",
+      "usage": "Référence permettant de suivre l'acheminement d'un envoi."
     },
     {
       "id": "quaeu01",
@@ -184,15 +184,6 @@
       "usage": "Expression imagée signifiant apporter une aide concrète, qu'elle soit physique ou non."
     },
     {
-      "id": "quaeu06",
-      "kind": "expression-utile",
-      "french": "s'impliquer dans la vie du quartier",
-      "anchor": "vous impliquer dans la vie du quartier",
-      "english": "to get involved in neighborhood life",
-      "example": "Qu'est-ce qui vous pousse à vous impliquer dans la vie du quartier ?",
-      "usage": "Expression pour parler de la participation active à la communauté locale."
-    },
-    {
       "id": "quaeu07",
       "kind": "expression-utile",
       "french": "resserrer les liens",
@@ -220,15 +211,6 @@
       "usage": "Expression pour qualifier des relations de voisinage harmonieuses."
     },
     {
-      "id": "quaeu10",
-      "kind": "expression-utile",
-      "french": "faire appel à la communauté",
-      "anchor": "fait appel à la communauté",
-      "english": "to reach out to the community",
-      "example": "Avez-vous déjà fait appel à la communauté pour organiser une collecte de dons ?",
-      "usage": "Expression pour évoquer une demande de soutien adressée à un groupe local."
-    },
-    {
       "id": "quaeu11",
       "kind": "expression-utile",
       "french": "se serrer les coudes",
@@ -247,15 +229,6 @@
       "usage": "Expression imagée pour signifier proposer son aide à quelqu'un."
     },
     {
-      "id": "quaeu13",
-      "kind": "expression-utile",
-      "french": "participer à une collecte",
-      "anchor": "participé à une collecte",
-      "english": "to take part in a fundraiser",
-      "example": "Avez-vous déjà participé à une collecte organisée pour une famille du quartier ?",
-      "usage": "Expression pour désigner l'implication dans une action de solidarité financière."
-    },
-    {
       "id": "quaeu14",
       "kind": "expression-utile",
       "french": "casser la glace",
@@ -265,13 +238,40 @@
       "usage": "Expression imagée signifiant faciliter un premier contact social."
     },
     {
-      "id": "quaeu15",
+      "id": "svceu01",
       "kind": "expression-utile",
-      "french": "renforcer le sentiment d'appartenance",
-      "anchor": "le sentiment d'appartenance",
-      "english": "to strengthen the sense of belonging",
-      "example": "Ces initiatives renforcent-elles le sentiment d'appartenance au quartier ?",
-      "usage": "Expression pour évoquer le développement d'un lien identitaire avec un lieu."
+      "french": "relever le courrier",
+      "anchor": "relever le courrier",
+      "english": "to collect the mail",
+      "example": "À quelle fréquence veux-tu que je vienne relever le courrier ?",
+      "usage": "Vider la boîte aux lettres pendant une absence."
+    },
+    {
+      "id": "svceu02",
+      "kind": "expression-utile",
+      "french": "faire livrer ses courses",
+      "anchor": "faire livrer ses courses",
+      "english": "to have one's groceries delivered",
+      "example": "Quel montant minimum faut-il pour faire livrer ses courses ?",
+      "usage": "Recevoir à domicile ses achats alimentaires."
+    },
+    {
+      "id": "svceu03",
+      "kind": "expression-utile",
+      "french": "prendre rendez-vous avec le remplaçant",
+      "anchor": "prendre rendez-vous avec le remplaçant",
+      "english": "to book with the substitute doctor",
+      "example": "Comment prendre rendez-vous avec le remplaçant de mon médecin ?",
+      "usage": "Organiser une consultation pendant l'absence du praticien habituel."
+    },
+    {
+      "id": "svceu04",
+      "kind": "expression-utile",
+      "french": "avancer les frais d'envoi",
+      "anchor": "avancer les frais d'envoi",
+      "english": "to pay postage upfront",
+      "example": "Devrai-je avancer les frais d'envoi ou me laisseras-tu l'argent ?",
+      "usage": "Payer l'expédition avant un éventuel remboursement."
     },
     {
       "id": "quafr01",
@@ -283,24 +283,6 @@
       "usage": "Amorce pour demander le fonctionnement concret d'une pratique de quartier."
     },
     {
-      "id": "quafr02",
-      "kind": "fragment",
-      "french": "Si je comprends bien, ce comité s'occupe…",
-      "anchor": "si je comprends bien, ce comité s'occupe",
-      "english": "If I understand correctly, this committee handles…",
-      "example": "Si je comprends bien, ce comité s'occupe surtout des conflits de voisinage ?",
-      "usage": "Amorce pour reformuler et vérifier le rôle d'une organisation locale."
-    },
-    {
-      "id": "quafr03",
-      "kind": "fragment",
-      "french": "Qu'est-ce qui vous a poussé à…",
-      "anchor": "qu'est-ce qui vous a poussé à",
-      "english": "What prompted you to…",
-      "example": "Qu'est-ce qui vous a poussé à vous impliquer dans le jardin communautaire ?",
-      "usage": "Amorce pour explorer les motivations d'un engagement local."
-    },
-    {
       "id": "quafr04",
       "kind": "fragment",
       "french": "Pourriez-vous donner un exemple concret de…",
@@ -310,15 +292,6 @@
       "usage": "Amorce polie pour demander une illustration précise."
     },
     {
-      "id": "quafr05",
-      "kind": "fragment",
-      "french": "Diriez-vous que la principale difficulté, c'est…",
-      "anchor": "diriez-vous que la principale difficulté, c'est",
-      "english": "Would you say the main difficulty is…",
-      "example": "Diriez-vous que la principale difficulté, c'est de mobiliser les gens ?",
-      "usage": "Amorce pour faire hiérarchiser une difficulté rencontrée."
-    },
-    {
       "id": "quafr06",
       "kind": "fragment",
       "french": "En comparaison avec votre ancien quartier…",
@@ -326,15 +299,6 @@
       "english": "Compared with your old neighborhood…",
       "example": "En comparaison avec votre ancien quartier, l'entraide est-elle plus forte ici ?",
       "usage": "Amorce pour établir une comparaison entre deux lieux de vie."
-    },
-    {
-      "id": "quafr07",
-      "kind": "fragment",
-      "french": "Est-ce que vous pourriez revenir sur le rôle de…",
-      "anchor": "est-ce que vous pourriez revenir sur le rôle de",
-      "english": "Could you go back over the role of…",
-      "example": "Est-ce que vous pourriez revenir sur le rôle de l'association locale ?",
-      "usage": "Amorce pour demander de développer un point déjà évoqué."
     },
     {
       "id": "quafr08",
@@ -355,15 +319,6 @@
       "usage": "Amorce pour nuancer une idée reçue sur un lieu de vie."
     },
     {
-      "id": "quafr10",
-      "kind": "fragment",
-      "french": "Pour resituer, depuis combien de temps existe…",
-      "anchor": "pour resituer, depuis combien de temps existe",
-      "english": "To set the context, how long has… existed",
-      "example": "Pour resituer, depuis combien de temps existe ce comité de quartier ?",
-      "usage": "Amorce pour recontextualiser avant de poursuivre l'échange."
-    },
-    {
       "id": "quafr11",
       "kind": "fragment",
       "french": "Vous voulez dire que malgré les tensions, vous…",
@@ -382,24 +337,6 @@
       "usage": "Amorce pour conclure en demandant un souvenir marquant de solidarité locale."
     },
     {
-      "id": "quafr13",
-      "kind": "fragment",
-      "french": "D'après vous, pourquoi…",
-      "anchor": "d'après vous, pourquoi",
-      "english": "In your opinion, why…",
-      "example": "D'après vous, pourquoi si peu de gens s'impliquent-ils dans la vie du quartier ?",
-      "usage": "Amorce pour demander une explication personnelle sur un phénomène social."
-    },
-    {
-      "id": "quafr14",
-      "kind": "fragment",
-      "french": "Juste pour bien comprendre, ce bénévole dont vous parlez…",
-      "anchor": "juste pour bien comprendre, ce bénévole dont vous parlez",
-      "english": "Just to make sure I understand, the volunteer you mention…",
-      "example": "Juste pour bien comprendre, ce bénévole dont vous parlez coordonne bien toute l'équipe ?",
-      "usage": "Amorce pour clarifier un détail relatif à une personne mentionnée."
-    },
-    {
       "id": "quafr15",
       "kind": "fragment",
       "french": "Et si un conflit éclatait, comment…",
@@ -407,6 +344,69 @@
       "english": "And if a conflict broke out, how…",
       "example": "Et si un conflit éclatait entre voisins, comment le comité interviendrait-il ?",
       "usage": "Amorce hypothétique pour explorer la gestion d'un scénario de tension."
+    },
+    {
+      "id": "svcfr01",
+      "kind": "fragment",
+      "french": "Pour le dépôt de ton colis,…",
+      "anchor": "Pour le dépôt de ton colis,",
+      "english": "For dropping off your parcel,…",
+      "example": "Pour le dépôt de ton colis, quelle date limite faut-il respecter ?",
+      "usage": "Amorce pour préciser le délai d'un service demandé."
+    },
+    {
+      "id": "svcfr02",
+      "kind": "fragment",
+      "french": "Si le livreur ne trouve pas l'adresse,…",
+      "anchor": "Si le livreur ne trouve pas l'adresse,",
+      "english": "If the delivery driver cannot find the address,…",
+      "example": "Si le livreur ne trouve pas l'adresse, pourra-t-il me téléphoner ?",
+      "usage": "Hypothèse pour préparer un problème d'accès."
+    },
+    {
+      "id": "svcfr03",
+      "kind": "fragment",
+      "french": "Pendant le remplacement de mon médecin,…",
+      "anchor": "Pendant le remplacement de mon médecin,",
+      "english": "While my doctor is being covered,…",
+      "example": "Pendant le remplacement de mon médecin, le cabinet reste-t-il ouvert le samedi ?",
+      "usage": "Amorce qui situe une demande dans une période temporaire."
+    },
+    {
+      "id": "svcfr04",
+      "kind": "fragment",
+      "french": "Après chaque passage dans l'appartement,…",
+      "anchor": "Après chaque passage dans l'appartement,",
+      "english": "After each visit to the apartment,…",
+      "example": "Après chaque passage dans l'appartement, souhaites-tu recevoir un message ?",
+      "usage": "Amorce pour organiser le suivi d'une surveillance."
+    },
+    {
+      "id": "svcfr05",
+      "kind": "fragment",
+      "french": "Si un produit arrive abîmé,…",
+      "anchor": "Si un produit arrive abîmé,",
+      "english": "If an item arrives damaged,…",
+      "example": "Si un produit arrive abîmé, comment demander un remboursement ?",
+      "usage": "Hypothèse liée à un incident de livraison."
+    },
+    {
+      "id": "svcfr06",
+      "kind": "fragment",
+      "french": "Avant de quitter l'appartement,…",
+      "anchor": "Avant de quitter l'appartement,",
+      "english": "Before leaving the apartment,…",
+      "example": "Avant de quitter l'appartement, quelles vérifications dois-je faire ?",
+      "usage": "Amorce pour demander les consignes de fin de visite."
+    },
+    {
+      "id": "svcfr07",
+      "kind": "fragment",
+      "french": "Pour t'apporter ce dont tu as besoin,…",
+      "anchor": "Pour t'apporter ce dont tu as besoin,",
+      "english": "To bring you what you need,…",
+      "example": "Pour t'apporter ce dont tu as besoin, à quelle heure puis-je passer ?",
+      "usage": "Amorce pour organiser une aide concrète après un incident."
     }
   ]
 }

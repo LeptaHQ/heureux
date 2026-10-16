@@ -22,7 +22,7 @@
         },
         {
           "text": "Avant que j'oublie, la garde se fait chez toi ou tu préfères que je l'emmène chez moi ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 13
         },
         {
@@ -33,12 +33,12 @@
         },
         {
           "text": "S'il faut le promener, c'est combien de temps et à quelle fréquence — il y a un parcours habituel ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 4
         },
         {
           "text": "En ce qui concerne l'organisation, il y a des habitudes importantes à respecter pour que tout se passe bien ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 4
         },
         {
@@ -46,7 +46,7 @@
         },
         {
           "text": "Y a-t-il des précautions particulières à prendre ou des choses à éviter ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 8
         },
         {
@@ -54,12 +54,12 @@
         },
         {
           "text": "En cas d'urgence, qui est son vétérinaire et comment je le contacte ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 13
         },
         {
           "text": "Merci pour ces informations — au moindre doute, je peux te contacter pendant ton absence ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 13
         }
       ]

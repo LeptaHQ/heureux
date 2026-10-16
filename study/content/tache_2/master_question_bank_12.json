@@ -1,0 +1,263 @@
+{
+  "number": 12,
+  "title": "Mémoire 12 · Garde d'enfants & d'animaux",
+  "label": "Garde d'enfants & d'animaux",
+  "icon": "users",
+  "subtitle": "Organiser la garde ou l'accompagnement d'un enfant ou d'un animal : besoins, habitudes, horaires, sécurité et contacts. Distinguer le service amical, la garde rémunérée et la recommandation d'une personne.",
+  "sections": [
+    {
+      "number": 1,
+      "title": "Ouverture et contexte de la garde",
+      "guidance": "Adapter les questions à la consigne : ouverture et contexte de la garde. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Ouverture et contexte de la garde",
+          "guidance": "Adapter les questions à la consigne : ouverture et contexte de la garde. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Pour bien préparer la garde, tu pourrais me décrire sa journée habituelle ?",
+            "Bonjour ! Vous cherchez une personne pour quelle période de garde ?",
+            "Avant de te confier mon enfant, puis-je te demander quelques précisions sur le séjour ?",
+            "Pour garder ton animal dans de bonnes conditions, qu'est-ce que je dois savoir en priorité ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Tâches et activités autorisées",
+      "guidance": "Adapter les questions à la consigne : tâches et activités autorisées. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Tâches et activités autorisées",
+          "guidance": "Adapter les questions à la consigne : tâches et activités autorisées. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Faut-il seulement surveiller les enfants ou aussi préparer leurs repas ?",
+            "Puis-je emmener ton enfant au parc pendant la garde ?",
+            "Quelles activités calmes lui plaisent quand il faut rester à la maison ?",
+            "Quelles tâches sont comprises dans la garde de votre chien ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Rémunération et dépenses de garde",
+      "guidance": "Adapter les questions à la consigne : rémunération et dépenses de garde. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Rémunération et dépenses de garde",
+          "guidance": "Adapter les questions à la consigne : rémunération et dépenses de garde. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Côté salaire, vous proposez combien — c'est un tarif horaire pour la garde ?",
+              "legacy_memory_number": 3
+            },
+            "Le tarif comprend-il les heures de soirée et le transport ?",
+            "Quand et comment la personne qui garde vos enfants sera-t-elle payée ?",
+            "Me laisseras-tu de l'argent pour les dépenses de ton animal ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Horaires et présence nécessaire",
+      "guidance": "Adapter les questions à la consigne : horaires et présence nécessaire. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Horaires et présence nécessaire",
+          "guidance": "Adapter les questions à la consigne : horaires et présence nécessaire. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Ça représenterait combien d'heures par semaine environ ?",
+              "legacy_memory_number": 3
+            },
+            "À quelle heure déposeras-tu ta fille et quand viendras-tu la chercher ?",
+            "Ton chien peut-il rester seul quelques heures dans la journée ?",
+            "Faudra-t-il dormir sur place pour cette garde ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Lieu de garde, accès et trajets",
+      "guidance": "Adapter les questions à la consigne : lieu de garde, accès et trajets. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Lieu de garde, accès et trajets",
+          "guidance": "Adapter les questions à la consigne : lieu de garde, accès et trajets. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "La garde de votre enfant se ferait-elle chez vous ou chez la personne choisie ?",
+            "Où installeras-tu le couchage de ton animal ?",
+            "Qui accompagnera les enfants entre l'école et la maison ?",
+            "Comment la personne chargée de la garde pourra-t-elle entrer dans l'immeuble ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Premier échange et confirmation",
+      "guidance": "Adapter les questions à la consigne : premier échange et confirmation. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Premier échange et confirmation",
+          "guidance": "Adapter les questions à la consigne : premier échange et confirmation. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Pourrais-je rencontrer votre enfant avant la première garde ?",
+            "Ton animal pourrait-il faire connaissance avec moi avant ton départ ?",
+            "À quel moment souhaitez-vous confirmer le choix de la baby-sitter ?",
+            "Pourrais-tu me montrer sa routine avant de me le confier ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Âge, comportement et besoins particuliers",
+      "guidance": "Adapter les questions à la consigne : âge, comportement et besoins particuliers. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Âge, comportement et besoins particuliers",
+          "guidance": "Adapter les questions à la consigne : âge, comportement et besoins particuliers. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "C'est pour garder combien d'enfants — et ils ont quel âge ?",
+              "legacy_memory_number": 3
+            },
+            {
+              "text": "Est-ce qu'il y a un animal à nourrir ou d'autres responsabilités particulières ?",
+              "legacy_memory_number": 3
+            },
+            {
+              "text": "Concrètement, qu'attendez-vous de moi pendant la garde — quelles seront mes principales responsabilités ?",
+              "legacy_memory_number": 3
+            },
+            "Votre enfant a-t-il des allergies ou un traitement à respecter ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Santé, sécurité et matériel",
+      "guidance": "Adapter les questions à la consigne : santé, sécurité et matériel. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Santé, sécurité et matériel",
+          "guidance": "Adapter les questions à la consigne : santé, sécurité et matériel. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Y a-t-il des précautions à connaître pour la sécurité, avec certains animaux plus craintifs ?",
+              "legacy_memory_number": 3
+            },
+            {
+              "text": "Qu'est-ce qu'il faut prévoir de mon côté, ou est-ce que vous fournissez tout le nécessaire ?",
+              "legacy_memory_number": 3
+            },
+            "Quels aliments sont interdits à ton animal ?",
+            "Fourniras-tu les repas, les couches et les affaires de rechange ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Repas, sommeil et habitudes",
+      "guidance": "Adapter les questions à la consigne : repas, sommeil et habitudes. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Repas, sommeil et habitudes",
+          "guidance": "Adapter les questions à la consigne : repas, sommeil et habitudes. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "À quelles heures mange-t-elle et quelle quantité lui proposer ?",
+            "Prend-il une collation entre les repas ?",
+            "À quelle heure se couche-t-elle et fait-elle encore une sieste ?",
+            "Quelle quantité de nourriture faut-il donner à ton animal chaque jour ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Jeux, sorties et sociabilité",
+      "guidance": "Adapter les questions à la consigne : jeux, sorties et sociabilité. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Jeux, sorties et sociabilité",
+          "guidance": "Adapter les questions à la consigne : jeux, sorties et sociabilité. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Avec quels jouets ta fille joue-t-elle volontiers à la maison ?",
+            "S'entend-elle facilement avec les autres enfants au parc ?",
+            "Combien de promenades ton chien fait-il habituellement dans la journée ?",
+            "Comment rassurer ton enfant s'il réclame ses parents ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Compétences et personne de confiance",
+      "guidance": "Adapter les questions à la consigne : compétences et personne de confiance. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Compétences et personne de confiance",
+          "guidance": "Adapter les questions à la consigne : compétences et personne de confiance. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "De quoi avez-vous besoin exactement — quelqu'un de régulier ou seulement de temps en temps ?",
+              "legacy_memory_number": 3
+            },
+            {
+              "text": "Est-ce qu'on peut rencontrer cette personne une première fois pour voir si le courant passe ?",
+              "legacy_memory_number": 3
+            },
+            "Savez-vous si cette personne a déjà gardé des enfants du même âge ?",
+            "A-t-elle une formation en premiers secours adaptée aux enfants ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Imprévus et solution de remplacement",
+      "guidance": "Adapter les questions à la consigne : imprévus et solution de remplacement. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Imprévus et solution de remplacement",
+          "guidance": "Adapter les questions à la consigne : imprévus et solution de remplacement. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "En cas de retard ou d'imprévu pendant une garde, comment ça se passe ?",
+              "legacy_memory_number": 3
+            },
+            "Qui pourrait prendre le relais si je tombais malade pendant la garde ?",
+            "Comment faut-il réagir si ton animal refuse de manger ?",
+            "Si vous rentrez plus tard que prévu, comment les heures supplémentaires seront-elles réglées ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Disponibilité des responsables et suivi",
+      "guidance": "Adapter les questions à la consigne : disponibilité des responsables et suivi. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Disponibilité des responsables et suivi",
+          "guidance": "Adapter les questions à la consigne : disponibilité des responsables et suivi. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Est-ce que vous serez facilement joignable pendant votre absence ?",
+              "legacy_memory_number": 3
+            },
+            "Quel numéro utiliser pour te joindre pendant la garde ?",
+            "Souhaites-tu recevoir des nouvelles de ton animal chaque soir ?",
+            "Qui pourra m'aider sur place si tu n'es pas joignable ?"
+          ]
+        }
+      ]
+    }
+  ]
+}

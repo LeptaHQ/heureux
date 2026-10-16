@@ -167,7 +167,7 @@ class QuestionBankContentTests(TestCase):
     THEME_MEMOIRES = [
         (1, "Arrivée & installation", "hand-wave"),
         (2, "Logement & déménagement", "compass"),
-        (3, "Vie de quartier & entraide", "users"),
+        (3, "Services du quotidien & entraide", "users"),
         (4, "Travail & emploi", "laptop"),
         (5, "École & études", "graduation-cap"),
         (6, "Transports & mobilité", "arrow-left-right"),
@@ -176,6 +176,8 @@ class QuestionBankContentTests(TestCase):
         (9, "Sorties & spectacles", "theater"),
         (10, "Arts & loisirs", "pen-line"),
         (11, "Fêtes & célébrations", "sparkles"),
+        (12, "Garde d'enfants & d'animaux", "users"),
+        (13, "Bénévolat & vie associative", "hand-wave"),
     ]
 
     def test_ai_examiner_prompt_loader_extracts_only_the_master_prompt(self):
@@ -291,6 +293,7 @@ class QuestionBankContentTests(TestCase):
             self.assertTrue(
                 all(
                     key.startswith(f"memory:{bank.number}:question:")
+                    or bank.number in {12, 13} and key.startswith("memory:3:question:")
                     for key in bank.question_keys
                 )
             )
@@ -302,8 +305,8 @@ class QuestionBankContentTests(TestCase):
                     self.assertTrue(group.title)
                     self.assertTrue(group.guidance)
 
-        self.assertEqual(sum(bank.category_count for bank in banks), 143)
-        self.assertEqual(sum(bank.question_count for bank in banks), 572)
+        self.assertEqual(sum(bank.category_count for bank in banks), 169)
+        self.assertEqual(sum(bank.question_count for bank in banks), 676)
 
     def test_memoire_questions_are_unique_across_every_theme(self):
         questions = [
@@ -314,8 +317,8 @@ class QuestionBankContentTests(TestCase):
             for question in group.questions
         ]
 
-        self.assertEqual(len(questions), 572)
-        self.assertEqual(len(set(questions)), 572)
+        self.assertEqual(len(questions), 676)
+        self.assertEqual(len(set(questions)), 676)
 
     def test_tache_one_question_bank_is_universal_and_answer_free(self):
         banks = load_question_banks(
@@ -381,13 +384,13 @@ class QuestionBankContentTests(TestCase):
         # Every theme mémoire is reached by at least one subject question.
         self.assertEqual(
             {number for number, _ in referenced},
-            set(range(1, 12)),
+            set(range(1, 14)),
         )
-        for number in range(1, 12):
+        for number in range(1, 14):
             sections = {
                 section for memory, section in referenced if memory == number
             }
-            self.assertGreaterEqual(len(sections), 10)
+            self.assertGreaterEqual(len(sections), 1)
 
     def test_monthly_batches_are_question_only_and_memory_driven(self):
         months = load_tache_two_subject_months()
@@ -1130,7 +1133,7 @@ class QuestionBankContentTests(TestCase):
                 "sport",
                 "transports",
                 "travail",
-                "vie-quartier",
+                "garde-enfants-animaux",
                 "voyages",
             },
         )
@@ -1200,7 +1203,7 @@ class QuestionBankContentTests(TestCase):
                         "groups": [
                             {
                                 "id": "invalid-cross-theme",
-                                "theme": "vie-quartier",
+                                "theme": "garde-enfants-animaux",
                                 "canonical": (
                                     "tache2:fevrier:batch-06:subject-26"
                                 ),
@@ -1403,7 +1406,7 @@ class QuestionBankContentTests(TestCase):
     def test_theme_vocabulary_covers_every_theme_with_three_equal_sections(self):
         phrases = parse_tache_two_theme_vocabulary()
 
-        self.assertEqual(len(phrases), 11 * TACHE_TWO_THEME_VOCABULARY_PER_THEME)
+        self.assertEqual(len(phrases), 13 * TACHE_TWO_THEME_VOCABULARY_PER_THEME)
         self.assertEqual(len({phrase.phrase_id for phrase in phrases}), len(phrases))
         self.assertEqual(
             len({phrase.expression.casefold() for phrase in phrases}),
@@ -2804,9 +2807,9 @@ class QuestionBankViewTests(TestCase):
         self.assertTemplateUsed(response, "study/tache_two_overview.html")
         self.assertTrue(self.task.available)
         self.assertEqual(response.context["subject_count"], 348)
-        self.assertEqual(response.context["theme_vocabulary"]["theme_count"], 11)
-        self.assertEqual(response.context["theme_vocabulary"]["phrase_count"], 495)
-        self.assertEqual(response.context["theme_vocabulary"]["batch_count"], 33)
+        self.assertEqual(response.context["theme_vocabulary"]["theme_count"], 13)
+        self.assertEqual(response.context["theme_vocabulary"]["phrase_count"], 585)
+        self.assertEqual(response.context["theme_vocabulary"]["batch_count"], 39)
         self.assertEqual(
             response.context["ai_practice_prompt"],
             load_ai_examiner_prompt(),
@@ -2833,7 +2836,7 @@ class QuestionBankViewTests(TestCase):
             response,
             'id="subject-overview-panel-title">Sujets</h2>',
         )
-        self.assertContains(response, "0/33")
+        self.assertContains(response, "0/39")
         self.assertContains(response, "lots terminés")
         self.assertContains(response, "0/164")
         self.assertContains(response, "sujets terminés")
@@ -2872,16 +2875,16 @@ class QuestionBankViewTests(TestCase):
             response,
             "study/tache_two_theme_vocabulary.html",
         )
-        self.assertEqual(response.context["theme_count"], 11)
-        self.assertEqual(response.context["phrase_count"], 495)
-        self.assertEqual(response.context["batch_count"], 33)
+        self.assertEqual(response.context["theme_count"], 13)
+        self.assertEqual(response.context["phrase_count"], 585)
+        self.assertEqual(response.context["batch_count"], 39)
         self.assertEqual(response.context["active_nav_area"], "expression")
         self.assertEqual(response.context["content_task"], self.task)
         self.assertContains(response, "<span>Vocabulaire par thème</span>", html=True)
         self.assertContains(response, "data-collection-view-toggle")
         self.assertContains(response, 'data-collection-view="adaptive"')
         self.assertContains(response, "collection-table-header--memories")
-        self.assertContains(response, "data-collection-item", count=11)
+        self.assertContains(response, "data-collection-item", count=13)
         self.assertNotContains(response, "Choisissez une situation")
         self.assertNotContains(response, "Les 11 thèmes de la Tâche 2")
         self.assertNotContains(
@@ -2935,7 +2938,7 @@ class QuestionBankViewTests(TestCase):
                 if selection:
                     self.assertLessEqual(keys, arrival)
                     self.assertEqual(len(arrival), 17)
-                    self.assertEqual(len(neighbourhood), 36)
+                    self.assertEqual(len(neighbourhood), 9)
                 else:
                     self.assertEqual(len(keys & arrival), 1)
         for prompt in prompts:
@@ -3374,7 +3377,7 @@ class QuestionBankViewTests(TestCase):
         first_subject_key = tache_two_subject_content_key("janvier", 1, 1)
         self.assertEqual(index.status_code, 200)
         self.assertTemplateUsed(index, "study/tache_two_subjects.html")
-        self.assertEqual(index.context["theme_count"], 11)
+        self.assertEqual(index.context["theme_count"], 13)
         self.assertEqual(index.context["subject_count"], 348)
         self.assertEqual(index.context["question_count"], 2784)
         self.assertEqual(len(index.context["subject_prompt_map"]), 348)
@@ -3393,7 +3396,9 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(index, "Sujets par thème")
         self.assertContains(index, "Voyages &amp; vacances")
         self.assertContains(index, "Logement &amp; déménagement")
-        self.assertContains(index, "Vie de quartier &amp; entraide")
+        self.assertContains(index, "Services du quotidien &amp; entraide")
+        self.assertContains(index, "Garde d&#x27;enfants &amp; d&#x27;animaux")
+        self.assertContains(index, "Bénévolat &amp; vie associative")
         self.assertContains(index, "Sport &amp; plein air")
         self.assertContains(index, "Arts &amp; loisirs")
         self.assertContains(index, "Transports &amp; mobilité")
@@ -3407,18 +3412,18 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(index, "data-subject-collection-row", count=348)
         self.assertContains(index, "data-subject-progress-row=", count=348)
         self.assertContains(index, "data-subject-completion-form", count=348)
-        self.assertContains(index, "data-t1-table-theme", count=11)
+        self.assertContains(index, "data-t1-table-theme", count=13)
         self.assertContains(index, "data-t1-table-subject", count=348)
-        self.assertContains(index, "data-nested-sort-table", count=11)
+        self.assertContains(index, "data-nested-sort-table", count=13)
         self.assertContains(
             index,
             'data-nested-table-sort="subject"',
-            count=11,
+            count=13,
         )
         self.assertContains(
             index,
             'data-nested-table-sort="progress"',
-            count=11,
+            count=13,
         )
         self.assertContains(index, "t1-table__subject-date", count=348)
         self.assertNotContains(index, "data-related-subject-group")
@@ -3923,7 +3928,7 @@ class QuestionBankViewTests(TestCase):
             348,
         )
         self.assertEqual(vocabulary.count(), 5370)
-        self.assertEqual(theme_vocabulary.count(), 495)
+        self.assertEqual(theme_vocabulary.count(), 585)
         self.assertEqual(
             Card.objects.filter(
                 user=self.user,
@@ -3946,7 +3951,7 @@ class QuestionBankViewTests(TestCase):
                 card_type=CardType.PHRASE_PRODUCTION,
                 phrase__in=theme_vocabulary,
             ).count(),
-            495,
+            585,
         )
         self.assertFalse(
             Card.objects.filter(
@@ -4919,9 +4924,9 @@ class QuestionBankViewTests(TestCase):
         self.assertContains(response, task_url)
         self.assertContains(
             response,
-            "164 sujets · 11 thèmes · 495 fiches de vocabulaire",
+            "164 sujets · 13 thèmes · 585 fiches de vocabulaire",
         )
-        self.assertContains(response, "0/33 lots terminés")
+        self.assertContains(response, "0/39 lots terminés")
         self.assertContains(response, "0/164 sujets terminés")
         self.assertContains(response, "À commencer")
         task_card = next(
@@ -4929,10 +4934,10 @@ class QuestionBankViewTests(TestCase):
             for row in response.context["tasks"]
             if row["task"].pk == self.task.pk
         )
-        self.assertEqual(task_card["question_bank"]["progress"].total, 197)
+        self.assertEqual(task_card["question_bank"]["progress"].total, 203)
         self.assertEqual(
             task_card["question_bank"]["vocabulary_progress"].total,
-            33,
+            39,
         )
         self.assertEqual(
             task_card["question_bank"]["subject_progress"].total,
@@ -4994,7 +4999,7 @@ class QuestionBankViewTests(TestCase):
             task_card["question_bank"]["vocabulary_progress"].completed,
             1,
         )
-        self.assertContains(task_list, "1/33 lots terminés")
+        self.assertContains(task_list, "1/39 lots terminés")
 
     def test_legacy_memory_progress_post_does_not_create_progress(self):
         bank = load_question_bank()

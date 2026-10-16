@@ -101,12 +101,12 @@
         },
         {
           "text": "En ce qui concerne le budget, est-ce qu'il y a une participation aux frais de mon côté ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 11
         },
         {
           "text": "Comment je peux vous joindre pendant le séjour, en cas de besoin ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 11
         },
         {
@@ -133,7 +133,7 @@
         },
         {
           "text": "Et l'association s'adresse à quel public — uniquement aux adultes, ou aussi aux familles avec enfants ?",
-          "memory_number": 3,
+          "memory_number": 13,
           "memory_section": 7
         },
         {
@@ -144,12 +144,12 @@
         },
         {
           "text": "Côté engagement, peut-on participer selon ses disponibilités, ou faut-il être présent chaque semaine ?",
-          "memory_number": 3,
+          "memory_number": 13,
           "memory_section": 4
         },
         {
           "text": "Et sur une séance, combien de temps faut-il prévoir en général ?",
-          "memory_number": 3,
+          "memory_number": 13,
           "memory_section": 4
         },
         {
@@ -157,7 +157,7 @@
         },
         {
           "text": "Côté affaires à prévoir, faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
-          "memory_number": 3,
+          "memory_number": 13,
           "memory_section": 8
         },
         {
@@ -168,12 +168,12 @@
         },
         {
           "text": "En cas de question ou de problème pendant une mission, qui puis-je contacter ?",
-          "memory_number": 3,
+          "memory_number": 13,
           "memory_section": 13
         },
         {
           "text": "Pour finir — quelle serait la meilleure façon de commencer si je souhaite vous rejoindre dès cette semaine ?",
-          "memory_number": 3,
+          "memory_number": 13,
           "memory_section": 13
         }
       ]

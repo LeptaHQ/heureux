@@ -177,77 +177,77 @@
       "questions": [
         {
           "text": "Salut ! Tu m'as dit que tu cherches une baby-sitter — je connais peut-être quelqu'un, mais pourrais-tu d'abord m'en dire un peu plus ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 13
         },
         {
           "text": "C'est pour garder combien d'enfants — et ils ont quel âge ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 7
         },
         {
           "text": "De quoi as-tu besoin exactement — quelqu'un de régulier ou seulement de temps en temps ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 11
         },
         {
           "text": "Quels jours et à quels horaires aurais-tu besoin d'elle — en journée, le soir ou le week-end ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 4
         },
         {
           "text": "Ça représenterait combien d'heures par semaine environ ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 4
         },
         {
           "text": "Concrètement, quelles seraient les tâches à faire — surveiller les enfants, préparer les repas, aider aux devoirs ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 2
         },
         {
           "text": "Est-ce qu'il faudrait aussi s'occuper un peu du ménage ou seulement des enfants ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 2
         },
         {
           "text": "Faut-il aller les chercher à l'école ou les emmener à des activités ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 2
         },
         {
           "text": "Pour ce qui est des conditions, est-ce qu'il y a des habitudes ou des règles importantes à respecter avec tes enfants ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 4
         },
         {
           "text": "Y a-t-il des allergies ou des choses à éviter côté alimentation ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 8
         },
         {
           "text": "En ce qui concerne les règles, est-ce que tu as des exigences particulières — de l'expérience, des références ou un diplôme de premiers secours ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 8
         },
         {
           "text": "Pour ce qui est des imprévus, en cas d'urgence, comment est-ce qu'on peut te joindre pendant ton absence ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 13
         },
         {
           "text": "Côté salaire, tu proposes combien — c'est un tarif horaire ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 3
         },
         {
           "text": "Quand aimerais-tu que ça commence — c'est assez urgent ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 4
         },
         {
           "text": "Pour finir — tu veux que je demande autour de moi si quelqu'un est disponible ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 13
         }
       ]

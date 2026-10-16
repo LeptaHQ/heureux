@@ -1,0 +1,287 @@
+{
+  "number": 13,
+  "title": "Mémoire 13 · Bénévolat & vie associative",
+  "label": "Bénévolat & vie associative",
+  "icon": "hand-wave",
+  "subtitle": "Choisir une association et préparer un engagement bénévole : missions, public, lieux, créneaux, conditions, matériel et accompagnement. Une mission animale reste du bénévolat, pas une garde privée.",
+  "sections": [
+    {
+      "number": 1,
+      "title": "Ouverture et projet d'engagement",
+      "guidance": "Adapter les questions à la consigne : ouverture et projet d'engagement. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Ouverture et projet d'engagement",
+          "guidance": "Adapter les questions à la consigne : ouverture et projet d'engagement. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Salut ! Tu m'as parlé d'une association du quartier — tu pourrais m'en dire plus ?",
+              "legacy_memory_number": 3
+            },
+            "Bonjour ! Je souhaite donner un peu de mon temps, quelles missions puis-je découvrir ?",
+            "Tu pourrais m'expliquer comment rejoindre l'équipe qui distribue les repas ?",
+            "Votre association de protection animale accueille-t-elle de nouveaux bénévoles ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Association, missions et activités",
+      "guidance": "Adapter les questions à la consigne : association, missions et activités. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Association, missions et activités",
+          "guidance": "Adapter les questions à la consigne : association, missions et activités. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Quels types d'associations proposez-vous ici pour faire du bénévolat dans le quartier ?",
+              "legacy_memory_number": 3
+            },
+            {
+              "text": "Concrètement, quelles missions sont confiées aux bénévoles au quotidien ?",
+              "legacy_memory_number": 3
+            },
+            {
+              "text": "Est-ce que l'association organise aussi des événements, comme des collectes ou des journées ouvertes ?",
+              "legacy_memory_number": 3
+            },
+            "Les bénévoles participent-ils à la cuisine ou seulement au service des repas ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Cotisation, frais et prise en charge",
+      "guidance": "Adapter les questions à la consigne : cotisation, frais et prise en charge. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Cotisation, frais et prise en charge",
+          "guidance": "Adapter les questions à la consigne : cotisation, frais et prise en charge. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Y a-t-il une cotisation à payer pour devenir membre, ou l'engagement est-il entièrement gratuit ?",
+              "legacy_memory_number": 3
+            },
+            {
+              "text": "Les frais de transport ou de repas sont-ils pris en charge pour les bénévoles ?",
+              "legacy_memory_number": 3
+            },
+            "Faut-il payer une cotisation avant de participer à une mission ?",
+            "L'association rembourse-t-elle les déplacements nécessaires aux activités ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Créneaux, fréquence et engagement",
+      "guidance": "Adapter les questions à la consigne : créneaux, fréquence et engagement. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Créneaux, fréquence et engagement",
+          "guidance": "Adapter les questions à la consigne : créneaux, fréquence et engagement. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
+              "legacy_memory_number": 3
+            },
+            "Quels jours et à quelles heures les bénévoles sont-ils attendus sur place ?",
+            "Le créneau annoncé comprend-il la préparation et le rangement ?",
+            "Peut-on aider une fois par mois sans s'engager chaque semaine ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Lieu des missions et déplacements",
+      "guidance": "Adapter les questions à la consigne : lieu des missions et déplacements. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Lieu des missions et déplacements",
+          "guidance": "Adapter les questions à la consigne : lieu des missions et déplacements. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Où se trouve le local de l'association qui coordonne les missions ?",
+            "Les lieux d'intervention sont-ils accessibles sans voiture ?",
+            "Le matériel est-il à récupérer au local avant de rejoindre le groupe ?",
+            "Pour une première mission, où faut-il retrouver l'équipe ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Inscription et accueil des nouveaux",
+      "guidance": "Adapter les questions à la consigne : inscription et accueil des nouveaux. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Inscription et accueil des nouveaux",
+          "guidance": "Adapter les questions à la consigne : inscription et accueil des nouveaux. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Pour le bénévolat, faut-il s'inscrire à l'avance ou peut-on venir librement ?",
+              "legacy_memory_number": 3
+            },
+            {
+              "text": "Comment se passe l'inscription — en ligne ou directement auprès de l'association ?",
+              "legacy_memory_number": 3
+            },
+            {
+              "text": "Faut-il avoir des compétences particulières ou une expérience préalable pour s'engager ?",
+              "legacy_memory_number": 3
+            },
+            {
+              "text": "Si on n'a jamais fait de bénévolat, est-ce qu'une formation est prévue au début ?",
+              "legacy_memory_number": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Public concerné et responsabilités",
+      "guidance": "Adapter les questions à la consigne : public concerné et responsabilités. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Public concerné et responsabilités",
+          "guidance": "Adapter les questions à la consigne : public concerné et responsabilités. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "L'association s'adresse à quel public — uniquement aux adultes, ou aussi aux familles avec enfants ?",
+              "legacy_memory_number": 3
+            },
+            "Quel public accueillez-vous lors des distributions alimentaires ?",
+            "Quelle tâche confiez-vous habituellement aux bénévoles débutants ?",
+            "Les activités de l'association sont-elles aussi ouvertes aux familles ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Consignes, protection et matériel",
+      "guidance": "Adapter les questions à la consigne : consignes, protection et matériel. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Consignes, protection et matériel",
+          "guidance": "Adapter les questions à la consigne : consignes, protection et matériel. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Qu'est-ce qu'il faut apporter — ou est-ce que les gants et le matériel sont fournis sur place ?",
+              "legacy_memory_number": 3
+            },
+            "Les gants et les protections nécessaires sont-ils fournis par l'association ?",
+            "Quelles règles d'hygiène faut-il respecter pendant la distribution ?",
+            "Comment se déroule la présentation des consignes avant une mission ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Organisation pratique des missions",
+      "guidance": "Adapter les questions à la consigne : organisation pratique des missions. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Organisation pratique des missions",
+          "guidance": "Adapter les questions à la consigne : organisation pratique des missions. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Les repas arrivent-ils déjà préparés au local de distribution ?",
+            "Combien de personnes composent généralement une équipe sur le terrain ?",
+            "Faut-il apporter de l'eau et un repas pour la journée de nettoyage ?",
+            "Qui s'occupe de ranger le matériel après l'activité ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Équipe et expérience bénévole",
+      "guidance": "Adapter les questions à la consigne : équipe et expérience bénévole. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Équipe et expérience bénévole",
+          "guidance": "Adapter les questions à la consigne : équipe et expérience bénévole. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Qu'est-ce que tu apprécies le plus dans cette expérience ?",
+              "legacy_memory_number": 3
+            },
+            {
+              "text": "Comment est l'ambiance entre les bénévoles pendant les distributions ?",
+              "legacy_memory_number": 3
+            },
+            "Un bénévole expérimenté accompagne-t-il les nouveaux pendant la première mission ?",
+            "Comment les bénévoles se transmettent-ils les informations importantes ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Choix d'une mission adaptée",
+      "guidance": "Adapter les questions à la consigne : choix d'une mission adaptée. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Choix d'une mission adaptée",
+          "guidance": "Adapter les questions à la consigne : choix d'une mission adaptée. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            "Quelle mission conviendrait à quelqu'un disponible seulement le samedi ?",
+            "Peut-on choisir une activité selon ses compétences et ses centres d'intérêt ?",
+            "Y a-t-il des missions accessibles sans expérience auprès des animaux ?",
+            "Quel engagement conseillerais-tu pour commencer progressivement ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Absences, annulations et imprévus",
+      "guidance": "Adapter les questions à la consigne : absences, annulations et imprévus. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Absences, annulations et imprévus",
+          "guidance": "Adapter les questions à la consigne : absences, annulations et imprévus. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Si un jour je ne peux pas venir aider, comment est-ce qu'on s'organise ?",
+              "legacy_memory_number": 3
+            },
+            {
+              "text": "Une fois inscrit, on s'engage pour toute la session ou on peut venir de manière flexible ?",
+              "legacy_memory_number": 3
+            },
+            {
+              "text": "Quelles sont les conditions pour modifier ou annuler une mission d'entraide ?",
+              "legacy_memory_number": 3
+            },
+            "Comment prévenir le responsable si je ne peux plus venir ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Coordination, observation et suivi",
+      "guidance": "Adapter les questions à la consigne : coordination, observation et suivi. Ne pas redemander les faits déjà connus.",
+      "groups": [
+        {
+          "title": "Coordination, observation et suivi",
+          "guidance": "Adapter les questions à la consigne : coordination, observation et suivi. Ne pas redemander les faits déjà connus.",
+          "questions": [
+            {
+              "text": "Pour finir — y a-t-il autre chose d'important que je devrais savoir avant de commencer ?",
+              "legacy_memory_number": 3
+            },
+            "Qui coordonne les inscriptions aux prochaines missions ?",
+            "Pourriez-vous me transmettre les coordonnées du responsable avec son accord ?",
+            "Comment réserver une première visite d'observation de l'association ?"
+          ]
+        }
+      ]
+    }
+  ]
+}

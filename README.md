@@ -183,6 +183,18 @@ the current response is a model or personal. Each group needs 5–10 unique cues
 with both languages and at most 100 characters per language. The loader rejects
 missing/unknown groups and malformed entries instead of substituting generic hints.
 Pistes are file-backed, require no migration, and never rewrite responses or progress.
+
+EO task 2 separates **Services du quotidien & entraide**, **Garde d'enfants &
+d'animaux**, and **Bénévolat & vie associative**. Classification follows the
+candidate's objective: an animal-protection association is volunteering, watching
+a friend's apartment is practical help, and choosing outings for visitors belongs
+to **Sorties & spectacles**. Equivalent consignes always move together. Existing
+memory numbers remain stable; the care and volunteering collections are Mémoires
+12 and 13. Each theme retains 52 reusable questions and 45 vocabulary entries.
+Moved questions retain their original identity through `legacy_memory_number`,
+and moved vocabulary retains its phrase ID, preserving learned state. Exact
+pre-split study collections are kept in `question_bank_history/`.
+
 The EO2 sidebar retains completion, personalisation and individual practice controls;
 practice statistics and vocabulary are no longer displayed there. Vocabulary and
 its saved practice data remain available in their existing dedicated views.

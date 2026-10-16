@@ -4,6 +4,7 @@ import json
 from django.test import SimpleTestCase
 
 from study import catalogue, content_loader as content
+from study.tests.neighbourhood_fixtures import ALL_NEIGHBOURHOOD_GROUPS
 
 
 REVIEW_REVISIONS = {
@@ -59,7 +60,7 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
 
     def test_review_covers_eighteen_neighbourhood_models_and_thirty_six_publications(self):
         publications = [
-            row for key, row in self.dialogues.items() if self.themes[key] == "vie-quartier"
+            row for row in self.dialogues.values() if row.group in ALL_NEIGHBOURHOOD_GROUPS
         ]
         groups = {row.group for row in publications}
         self.assertEqual(len(publications), 36)

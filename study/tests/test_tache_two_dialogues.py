@@ -603,6 +603,8 @@ class TacheTwoDialogueViewTests(TestCase):
         self.assertEqual(personal.conclusion, "Merci pour votre aide.")
 
     def test_every_neighbourhood_publication_renders_reviewed_questions_and_pistes_without_answers(self):
+        from study.tests.neighbourhood_fixtures import ALL_NEIGHBOURHOOD_GROUPS
+
         dialogues = load_tache_two_dialogues()
         _, themes = catalogue.tache_two_subject_themes()
         subjects = {
@@ -611,7 +613,9 @@ class TacheTwoDialogueViewTests(TestCase):
             for batch in month.batches
             for subject in batch.subjects
         }
-        publications = {key: row for key, row in dialogues.items() if themes[key] == "vie-quartier"}
+        publications = {
+            key: row for key, row in dialogues.items() if row.group in ALL_NEIGHBOURHOOD_GROUPS
+        }
         self.assertEqual(len(publications), 36)
         with patch("study.catalogue.tache_two_dialogues", return_value=dialogues):
             for key, row in publications.items():

@@ -69,6 +69,8 @@ class SubjectHintsTests(SimpleTestCase):
             "arrivee",
             "logement",
             "vie-quartier",
+            "garde-enfants-animaux",
+            "benevolat-associations",
             "travail",
             "ecole-etudes",
         }

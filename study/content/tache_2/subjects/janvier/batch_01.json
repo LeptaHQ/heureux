@@ -86,62 +86,62 @@
       "questions": [
         {
           "text": "Salut ! Je vais recevoir des amis étrangers qui ne connaissent pas la ville — pour commencer, combien de jours faudrait-il prévoir pour bien découvrir la ville ?",
-          "memory_number": 3,
+          "memory_number": 9,
           "memory_section": 4
         },
         {
           "text": "Selon toi, quels sont les endroits incontournables pour quelqu'un qui découvre la ville pour la première fois ?",
-          "memory_number": 3,
+          "memory_number": 9,
           "memory_section": 11
         },
         {
           "text": "Tu conseillerais de commencer par les monuments historiques ou par le centre-ville ?",
-          "memory_number": 3,
+          "memory_number": 9,
           "memory_section": 11
         },
         {
           "text": "Il y a des musées ou des sites culturels qui valent vraiment la peine ?",
-          "memory_number": 3,
+          "memory_number": 9,
           "memory_section": 2
         },
         {
           "text": "Pour ces visites, il faut réserver à l'avance ou on peut se décider sur place ?",
-          "memory_number": 3,
+          "memory_number": 9,
           "memory_section": 6
         },
         {
           "text": "En ce qui concerne la programmation, il y a des événements spéciaux ou des festivals pendant leur séjour ?",
-          "memory_number": 3,
+          "memory_number": 9,
           "memory_section": 2
         },
         {
           "text": "Et pour les activités, tu recommandes plutôt quelque chose de culturel, du plein air ou une activité plus touristique ?",
-          "memory_number": 3,
+          "memory_number": 9,
           "memory_section": 2
         },
         {
           "text": "Pour les repas, tu aurais une adresse à recommander pour un dîner spécial ?",
-          "memory_number": 3,
+          "memory_number": 9,
           "memory_section": 9
         },
         {
           "text": "Il faut réserver une table à l'avance ou on peut y aller directement ?",
-          "memory_number": 3,
+          "memory_number": 9,
           "memory_section": 9
         },
         {
           "text": "Il me reste un point à éclaircir : pour se déplacer, il vaut mieux utiliser les transports en commun ou louer une voiture ?",
-          "memory_number": 3,
+          "memory_number": 9,
           "memory_section": 5
         },
         {
           "text": "Une chose encore : tu penses qu'un pass touristique serait utile et avantageux pour eux ?",
-          "memory_number": 3,
+          "memory_number": 9,
           "memory_section": 3
         },
         {
           "text": "Pour finir — si tu ne devais me recommander qu'une seule chose, ce serait laquelle ?",
-          "memory_number": 3,
+          "memory_number": 9,
           "memory_section": 13
         }
       ]
@@ -308,73 +308,73 @@
       "questions": [
         {
           "text": "Bonjour ! Je suis votre voisin(e) et je pourrais vous dépanner — vous cherchez toujours quelqu'un pour garder votre chien pendant votre absence ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 13
         },
         {
           "text": "Quelles sont les dates exactes de votre absence ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 4
         },
         "Pourriez-vous me présenter votre chien — quelle est sa race et quel âge a-t-il ?",
         {
           "text": "Ensuite, comment est son caractère en général — plutôt calme ou assez énergique ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 10
         },
         {
           "text": "Est-ce qu'il est sociable avec les gens et les autres animaux ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 10
         },
         {
           "text": "A-t-il un problème de santé ou besoin de soins particuliers ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 8
         },
         {
           "text": "Et côté quotidien, quelle routine faut-il suivre pour ses repas ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 4
         },
         {
           "text": "Est-ce que toute sa nourriture sera fournie ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 8
         },
         {
           "text": "Quelle routine faut-il suivre pour ses promenades ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 4
         },
         {
           "text": "En ce qui concerne l'endroit, la garde aurait lieu chez vous ou chez moi ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 13
         },
         {
           "text": "Y a-t-il d'autres habitudes importantes à respecter pour que tout se passe bien ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 4
         },
         {
           "text": "Pour ce qui est des imprévus, en cas de problème, qui dois-je contacter — votre vétérinaire ou une autre personne ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 13
         },
         {
           "text": "Est-ce que vous serez facilement joignable pendant votre séjour ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 13
         },
         {
           "text": "Parlons de la rémunération — quel montant proposez-vous pour la semaine ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 3
         },
         {
           "text": "Pour finir, le paiement se ferait-il avant votre départ ou à votre retour ?",
-          "memory_number": 3,
+          "memory_number": 12,
           "memory_section": 3
         }
       ]

@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "theme": "benevolat-associations",
+  "name": "Bénévolat & vie associative",
+  "entries": [
+    {
+      "id": "quamc03",
+      "kind": "mot-cle",
+      "french": "une fête de quartier (f.)",
+      "anchor": "une fête de quartier",
+      "english": "a neighborhood block party",
+      "example": "Organisez-vous parfois une fête de quartier pour rassembler les résidents ?",
+      "usage": "Groupe nominal désignant un événement convivial rassemblant les habitants."
+    },
+    {
+      "id": "quamc04",
+      "kind": "mot-cle",
+      "french": "un comité de quartier (m.)",
+      "anchor": "un comité de quartier",
+      "english": "a neighborhood committee",
+      "example": "Existe-t-il un comité de quartier chargé de représenter les résidents ?",
+      "usage": "Groupe nominal désignant une organisation locale de représentation citoyenne."
+    },
+    {
+      "id": "quamc07",
+      "kind": "mot-cle",
+      "french": "un bénévole (m.)",
+      "anchor": "un bénévole",
+      "english": "a volunteer",
+      "example": "Devient-on facilement un bénévole actif dans ce quartier ?",
+      "usage": "Nom masculin désignant une personne qui donne de son temps sans rémunération. Au féminin : une bénévole."
+    },
+    {
+      "id": "quamc08",
+      "kind": "mot-cle",
+      "french": "une banque alimentaire (f.)",
+      "anchor": "une banque alimentaire",
+      "english": "a food bank",
+      "example": "Y a-t-il une banque alimentaire accessible aux familles du quartier ?",
+      "usage": "Groupe nominal désignant un organisme distribuant de la nourriture aux personnes dans le besoin."
+    },
+    {
+      "id": "quamc10",
+      "kind": "mot-cle",
+      "french": "une association locale (f.)",
+      "anchor": "une association locale",
+      "english": "a local association",
+      "example": "Faites-vous partie d'une association locale qui aide les nouveaux arrivants ?",
+      "usage": "Groupe nominal désignant un organisme communautaire ancré dans un territoire précis."
+    },
+    {
+      "id": "quamc12",
+      "kind": "mot-cle",
+      "french": "un jardin communautaire (m.)",
+      "anchor": "un jardin communautaire",
+      "english": "a community garden",
+      "example": "Participez-vous à l'entretien d'un jardin communautaire près de chez vous ?",
+      "usage": "Groupe nominal désignant un espace de culture partagé entre habitants."
+    },
+    {
+      "id": "quamc13",
+      "kind": "mot-cle",
+      "french": "la solidarité (f.)",
+      "anchor": "la solidarité",
+      "english": "solidarity",
+      "example": "La solidarité entre habitants s'est-elle renforcée depuis la pandémie ?",
+      "usage": "Nom féminin désignant l'entraide et le soutien mutuel dans une communauté."
+    },
+    {
+      "id": "bvamc01",
+      "kind": "mot-cle",
+      "french": "une mission bénévole (f.)",
+      "anchor": "une mission bénévole",
+      "english": "a volunteer assignment",
+      "example": "Puis-je essayer une mission bénévole avant de m'engager ?",
+      "usage": "Action réalisée volontairement sans rémunération."
+    },
+    {
+      "id": "bvamc02",
+      "kind": "mot-cle",
+      "french": "un créneau de bénévolat (m.)",
+      "anchor": "un créneau de bénévolat",
+      "english": "a volunteering time slot",
+      "example": "Puis-je réserver un créneau de bénévolat le samedi matin ?",
+      "usage": "Période pendant laquelle le bénévole est attendu."
+    },
+    {
+      "id": "bvamc03",
+      "kind": "mot-cle",
+      "french": "une distribution alimentaire (f.)",
+      "anchor": "une distribution alimentaire",
+      "english": "a food distribution",
+      "example": "Que doivent apporter les bénévoles pour une distribution alimentaire ?",
+      "usage": "Action consistant à remettre des repas ou des aliments."
+    },
+    {
+      "id": "bvamc04",
+      "kind": "mot-cle",
+      "french": "un responsable des bénévoles (m.)",
+      "anchor": "un responsable des bénévoles",
+      "english": "a volunteer coordinator",
+      "example": "Y a-t-il un responsable des bénévoles à contacter pour s'inscrire ?",
+      "usage": "Personne qui organise les équipes et leurs interventions."
+    },
+    {
+      "id": "bvamc05",
+      "kind": "mot-cle",
+      "french": "un engagement ponctuel (m.)",
+      "anchor": "un engagement ponctuel",
+      "english": "a one-off commitment",
+      "example": "Acceptez-vous un engagement ponctuel pour une seule journée ?",
+      "usage": "Participation limitée, sans présence régulière obligatoire."
+    },
+    {
+      "id": "bvamc06",
+      "kind": "mot-cle",
+      "french": "une visite d'observation (f.)",
+      "anchor": "une visite d'observation",
+      "english": "an observation visit",
+      "example": "Peut-on organiser une visite d'observation avant de s'inscrire ?",
+      "usage": "Première découverte d'une mission sans prise en charge immédiate."
+    },
+    {
+      "id": "bvamc07",
+      "kind": "mot-cle",
+      "french": "un équipement de protection (m.)",
+      "anchor": "un équipement de protection",
+      "english": "protective equipment",
+      "example": "Doit-on acheter un équipement de protection pour le nettoyage ?",
+      "usage": "Matériel qui réduit les risques pendant une mission."
+    },
+    {
+      "id": "bvamc08",
+      "kind": "mot-cle",
+      "french": "une séance d'accueil (f.)",
+      "anchor": "une séance d'accueil",
+      "english": "an introductory session",
+      "example": "Une séance d'accueil est-elle prévue pour les nouveaux bénévoles ?",
+      "usage": "Moment consacré à l'équipe, aux consignes et au fonctionnement."
+    },
+    {
+      "id": "quaeu06",
+      "kind": "expression-utile",
+      "french": "s'impliquer dans la vie du quartier",
+      "anchor": "vous impliquer dans la vie du quartier",
+      "english": "to get involved in neighborhood life",
+      "example": "Qu'est-ce qui vous pousse à vous impliquer dans la vie du quartier ?",
+      "usage": "Expression pour parler de la participation active à la communauté locale."
+    },
+    {
+      "id": "quaeu10",
+      "kind": "expression-utile",
+      "french": "faire appel à la communauté",
+      "anchor": "fait appel à la communauté",
+      "english": "to reach out to the community",
+      "example": "Avez-vous déjà fait appel à la communauté pour organiser une collecte de dons ?",
+      "usage": "Expression pour évoquer une demande de soutien adressée à un groupe local."
+    },
+    {
+      "id": "quaeu13",
+      "kind": "expression-utile",
+      "french": "participer à une collecte",
+      "anchor": "participé à une collecte",
+      "english": "to take part in a fundraiser",
+      "example": "Avez-vous déjà participé à une collecte organisée pour une famille du quartier ?",
+      "usage": "Expression pour désigner l'implication dans une action de solidarité financière."
+    },
+    {
+      "id": "quaeu15",
+      "kind": "expression-utile",
+      "french": "renforcer le sentiment d'appartenance",
+      "anchor": "le sentiment d'appartenance",
+      "english": "to strengthen the sense of belonging",
+      "example": "Ces initiatives renforcent-elles le sentiment d'appartenance au quartier ?",
+      "usage": "Expression pour évoquer le développement d'un lien identitaire avec un lieu."
+    },
+    {
+      "id": "bvaeu01",
+      "kind": "expression-utile",
+      "french": "donner de son temps",
+      "anchor": "donner de son temps",
+      "english": "to volunteer one's time",
+      "example": "Peut-on donner de son temps seulement pendant les vacances ?",
+      "usage": "Consacrer une partie de sa disponibilité à une action utile."
+    },
+    {
+      "id": "bvaeu02",
+      "kind": "expression-utile",
+      "french": "rejoindre une équipe de bénévoles",
+      "anchor": "rejoindre une équipe de bénévoles",
+      "english": "to join a volunteer team",
+      "example": "Comment rejoindre une équipe de bénévoles dans cette association ?",
+      "usage": "Intégrer un groupe qui réalise une mission commune."
+    },
+    {
+      "id": "bvaeu03",
+      "kind": "expression-utile",
+      "french": "confirmer sa présence",
+      "anchor": "confirmer sa présence",
+      "english": "to confirm attendance",
+      "example": "Combien de temps à l'avance faut-il confirmer sa présence ?",
+      "usage": "Indiquer clairement que l'on participera au créneau prévu."
+    },
+    {
+      "id": "bvaeu04",
+      "kind": "expression-utile",
+      "french": "s'engager sur la durée",
+      "anchor": "s'engager sur la durée",
+      "english": "to make a long-term commitment",
+      "example": "Faut-il s'engager sur la durée pour aider à la distribution ?",
+      "usage": "Accepter de participer régulièrement pendant une période."
+    },
+    {
+      "id": "bvaeu05",
+      "kind": "expression-utile",
+      "french": "bénéficier d'un accompagnement",
+      "anchor": "bénéficier d'un accompagnement",
+      "english": "to receive guidance and support",
+      "example": "Les débutants peuvent-ils bénéficier d'un accompagnement sur place ?",
+      "usage": "Recevoir l'aide d'une personne expérimentée."
+    },
+    {
+      "id": "bvaeu06",
+      "kind": "expression-utile",
+      "french": "participer à la préparation des repas",
+      "anchor": "participer à la préparation des repas",
+      "english": "to help prepare meals",
+      "example": "Les bénévoles doivent-ils participer à la préparation des repas ?",
+      "usage": "Contribuer aux tâches précédant le service alimentaire."
+    },
+    {
+      "id": "bvaeu07",
+      "kind": "expression-utile",
+      "french": "se répartir les tâches",
+      "anchor": "se répartir les tâches",
+      "english": "to divide up the tasks",
+      "example": "Comment les bénévoles vont-ils se répartir les tâches ?",
+      "usage": "Décider ensemble qui fait quoi."
+    },
+    {
+      "id": "bvaeu08",
+      "kind": "expression-utile",
+      "french": "respecter les consignes d'hygiène",
+      "anchor": "respecter les consignes d'hygiène",
+      "english": "to follow hygiene instructions",
+      "example": "Que faut-il prévoir pour respecter les consignes d'hygiène ?",
+      "usage": "Appliquer les règles nécessaires à la sécurité alimentaire."
+    },
+    {
+      "id": "bvaeu09",
+      "kind": "expression-utile",
+      "french": "prévenir le coordinateur",
+      "anchor": "prévenir le coordinateur",
+      "english": "to notify the coordinator",
+      "example": "Comment prévenir le coordinateur si je dois annuler ?",
+      "usage": "Informer la personne qui organise la mission."
+    },
+    {
+      "id": "bvaeu10",
+      "kind": "expression-utile",
+      "french": "rembourser les frais de déplacement",
+      "anchor": "rembourser les frais de déplacement",
+      "english": "to reimburse travel expenses",
+      "example": "L'association peut-elle rembourser les frais de déplacement ?",
+      "usage": "Rendre au bénévole les sommes dépensées pour venir."
+    },
+    {
+      "id": "bvaeu11",
+      "kind": "expression-utile",
+      "french": "venir observer une mission",
+      "anchor": "venir observer une mission",
+      "english": "to come and observe an assignment",
+      "example": "Puis-je venir observer une mission avant de choisir mon engagement ?",
+      "usage": "Découvrir concrètement l'activité avant de participer."
+    },
+    {
+      "id": "quafr02",
+      "kind": "fragment",
+      "french": "Si je comprends bien, ce comité s'occupe…",
+      "anchor": "si je comprends bien, ce comité s'occupe",
+      "english": "If I understand correctly, this committee handles…",
+      "example": "Si je comprends bien, ce comité s'occupe surtout des conflits de voisinage ?",
+      "usage": "Amorce pour reformuler et vérifier le rôle d'une organisation locale."
+    },
+    {
+      "id": "quafr03",
+      "kind": "fragment",
+      "french": "Qu'est-ce qui vous a poussé à…",
+      "anchor": "qu'est-ce qui vous a poussé à",
+      "english": "What prompted you to…",
+      "example": "Qu'est-ce qui vous a poussé à vous impliquer dans le jardin communautaire ?",
+      "usage": "Amorce pour explorer les motivations d'un engagement local."
+    },
+    {
+      "id": "quafr05",
+      "kind": "fragment",
+      "french": "Diriez-vous que la principale difficulté, c'est…",
+      "anchor": "diriez-vous que la principale difficulté, c'est",
+      "english": "Would you say the main difficulty is…",
+      "example": "Diriez-vous que la principale difficulté, c'est de mobiliser les gens ?",
+      "usage": "Amorce pour faire hiérarchiser une difficulté rencontrée."
+    },
+    {
+      "id": "quafr07",
+      "kind": "fragment",
+      "french": "Est-ce que vous pourriez revenir sur le rôle de…",
+      "anchor": "est-ce que vous pourriez revenir sur le rôle de",
+      "english": "Could you go back over the role of…",
+      "example": "Est-ce que vous pourriez revenir sur le rôle de l'association locale ?",
+      "usage": "Amorce pour demander de développer un point déjà évoqué."
+    },
+    {
+      "id": "quafr10",
+      "kind": "fragment",
+      "french": "Pour resituer, depuis combien de temps existe…",
+      "anchor": "pour resituer, depuis combien de temps existe",
+      "english": "To set the context, how long has… existed",
+      "example": "Pour resituer, depuis combien de temps existe ce comité de quartier ?",
+      "usage": "Amorce pour recontextualiser avant de poursuivre l'échange."
+    },
+    {
+      "id": "quafr13",
+      "kind": "fragment",
+      "french": "D'après vous, pourquoi…",
+      "anchor": "d'après vous, pourquoi",
+      "english": "In your opinion, why…",
+      "example": "D'après vous, pourquoi si peu de gens s'impliquent-ils dans la vie du quartier ?",
+      "usage": "Amorce pour demander une explication personnelle sur un phénomène social."
+    },
+    {
+      "id": "quafr14",
+      "kind": "fragment",
+      "french": "Juste pour bien comprendre, ce bénévole dont vous parlez…",
+      "anchor": "juste pour bien comprendre, ce bénévole dont vous parlez",
+      "english": "Just to make sure I understand, the volunteer you mention…",
+      "example": "Juste pour bien comprendre, ce bénévole dont vous parlez coordonne bien toute l'équipe ?",
+      "usage": "Amorce pour clarifier un détail relatif à une personne mentionnée."
+    },
+    {
+      "id": "bvafr01",
+      "kind": "fragment",
+      "french": "Pour une première mission bénévole,…",
+      "anchor": "Pour une première mission bénévole,",
+      "english": "For a first volunteer assignment,…",
+      "example": "Pour une première mission bénévole, serai-je accompagné ?",
+      "usage": "Amorce pour demander les conditions d'un début concret."
+    },
+    {
+      "id": "bvafr02",
+      "kind": "fragment",
+      "french": "Si je ne suis disponible que le samedi,…",
+      "anchor": "Si je ne suis disponible que le samedi,",
+      "english": "If I am only available on Saturdays,…",
+      "example": "Si je ne suis disponible que le samedi, quelles missions puis-je choisir ?",
+      "usage": "Condition qui limite la demande à ses disponibilités réelles."
+    },
+    {
+      "id": "bvafr03",
+      "kind": "fragment",
+      "french": "Avant de m'inscrire dans l'association,…",
+      "anchor": "Avant de m'inscrire dans l'association,",
+      "english": "Before joining the association,…",
+      "example": "Avant de m'inscrire dans l'association, puis-je rencontrer l'équipe ?",
+      "usage": "Amorce pour organiser un premier contact."
+    },
+    {
+      "id": "bvafr04",
+      "kind": "fragment",
+      "french": "Pendant le créneau indiqué,…",
+      "anchor": "Pendant le créneau indiqué,",
+      "english": "During the stated time slot,…",
+      "example": "Pendant le créneau indiqué, le rangement est-il compris ?",
+      "usage": "Relance pour vérifier la durée réelle de présence."
+    },
+    {
+      "id": "bvafr05",
+      "kind": "fragment",
+      "french": "Si l'activité est annulée,…",
+      "anchor": "Si l'activité est annulée,",
+      "english": "If the activity is cancelled,…",
+      "example": "Si l'activité est annulée, comment serons-nous prévenus ?",
+      "usage": "Hypothèse pour préparer une modification du planning."
+    },
+    {
+      "id": "bvafr06",
+      "kind": "fragment",
+      "french": "Pour les bénévoles sans expérience,…",
+      "anchor": "Pour les bénévoles sans expérience,",
+      "english": "For volunteers with no experience,…",
+      "example": "Pour les bénévoles sans expérience, quelles tâches sont proposées ?",
+      "usage": "Amorce qui distingue les débutants du reste de l'équipe."
+    },
+    {
+      "id": "bvafr07",
+      "kind": "fragment",
+      "french": "Concernant les protections fournies,…",
+      "anchor": "Concernant les protections fournies,",
+      "english": "Regarding the protective items provided,…",
+      "example": "Concernant les protections fournies, faut-il réserver une taille à l'avance ?",
+      "usage": "Relance sur un équipement déjà mentionné."
+    },
+    {
+      "id": "bvafr08",
+      "kind": "fragment",
+      "french": "Pour rencontrer votre équipe,…",
+      "anchor": "Pour rencontrer votre équipe,",
+      "english": "To meet your team,…",
+      "example": "Pour rencontrer votre équipe, à qui faut-il demander une première visite ?",
+      "usage": "Amorce orientée vers une prochaine étape réaliste."
+    }
+  ]
+}

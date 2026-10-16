@@ -182,6 +182,7 @@
   function updateHighlightButton(details) {
     var shouldRemove = Boolean(details && details.fullyHighlighted);
     highlightLabel.textContent = shouldRemove ? "Unhighlight" : "Highlight";
+    highlightButton.classList.toggle("is-highlighted", shouldRemove);
     highlightButton.setAttribute(
       "aria-label",
       shouldRemove ? "Unhighlight selected text" : "Highlight selected text"

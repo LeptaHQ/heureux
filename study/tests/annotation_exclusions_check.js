@@ -83,7 +83,13 @@ function button() {
     classList: {
       add: (name) => classes.add(name),
       remove: (name) => classes.delete(name),
-      contains: (name) => classes.has(name)
+      contains: (name) => classes.has(name),
+      toggle: (name, force) => {
+        const present = force === undefined ? !classes.has(name) : Boolean(force);
+        if (present) classes.add(name);
+        else classes.delete(name);
+        return present;
+      }
     },
     setAttribute() {}
   };
@@ -217,6 +223,7 @@ async function run() {
   context.rememberSelection();
   assert(context.currentSelection);
   assert.equal(context.highlightButton.hidden, false);
+  assert(context.highlightButton.classList.contains("is-highlighted"));
 
   const englishText = english.childNodes[0];
   const englishRange = {

@@ -6,7 +6,6 @@
   var action = document.querySelector("[data-selection-translate]");
   var selectionCopyButton = document.querySelector("[data-copy-selection]");
   var selectionCopyLabel = document.querySelector("[data-copy-selection-label]");
-  var selectionCopyIcon = document.querySelector("[data-copy-selection-icon]");
   var readButton = document.querySelector("[data-read-selection]");
   var readLabel = document.querySelector("[data-read-selection-label]");
   var translateButton = document.querySelector("[data-translate-selection]");
@@ -267,6 +266,7 @@
   function positionAction(rect) {
     action.classList.remove("hidden");
     if (mobileActionQuery.matches && !penInputActive()) {
+      action.classList.remove("is-below-selection");
       action.style.left = "";
       action.style.top = "";
       return;
@@ -305,6 +305,11 @@
       ? preferred
       : alternate;
     top = Math.max(minimumTop, Math.min(top, maximumTop));
+    // Label chips open on the side facing away from the selected text.
+    action.classList.toggle(
+      "is-below-selection",
+      top + actionRect.height / 2 > rect.top + rect.height / 2
+    );
     action.style.left = Math.round(left) + "px";
     action.style.top = Math.round(top) + "px";
   }
@@ -320,9 +325,8 @@
     if (selectionChanged) {
       selectionCopyNumber += 1;
       window.clearTimeout(selectionCopyTimer);
-      selectionCopyButton.classList.remove("is-copied");
+      selectionCopyButton.classList.remove("is-copied", "is-copy-failed");
       selectionCopyLabel.textContent = "Copy";
-      setSpriteIcon(selectionCopyIcon, "copy");
       resetReadButton();
     }
     positionAction(details.rect);
@@ -400,11 +404,12 @@
     selectionTimer = window.setTimeout(updateSelectionAction, delay);
   }
 
-  function setReadButton(label, isReading) {
+  function setReadButton(label, isReading, failed) {
     if (!readButton || !readLabel) return;
     window.clearTimeout(readResetTimer);
     readLabel.textContent = label;
     readButton.classList.toggle("is-reading", isReading);
+    readButton.classList.toggle("is-read-failed", Boolean(failed));
     readButton.setAttribute("aria-pressed", isReading ? "true" : "false");
     readButton.setAttribute(
       "aria-label",
@@ -451,7 +456,7 @@
     readingChunks = [];
     readingIndex = 0;
     readingUtterance = null;
-    setReadButton("Unavailable", false);
+    setReadButton("Unavailable", false, true);
     readResetTimer = window.setTimeout(resetReadButton, 1800);
   }
 
@@ -502,14 +507,6 @@
     setReadButton("Stop", true);
     var currentReading = readingNumber;
     speakNextChunk(currentReading);
-  }
-
-  function updateReadVoiceTitle() {
-    if (!readButton || !frenchSpeech || !frenchSpeech.supported) return;
-    var voice = frenchSpeech.preferredVoice();
-    readButton.title = voice
-      ? "French voice: " + voice.name + " · Shortcut: R"
-      : "Read with the best French voice available · Shortcut: R";
   }
 
   function googleTranslateUrl(text) {
@@ -802,13 +799,6 @@
       readButton.hidden = true;
     } else {
       resetReadButton();
-      updateReadVoiceTitle();
-      if (frenchSpeech.synthesis.addEventListener) {
-        frenchSpeech.synthesis.addEventListener(
-          "voiceschanged",
-          updateReadVoiceTitle
-        );
-      }
       readButton.addEventListener("click", function () {
         if (reading) stopReading();
         else startReading();
@@ -861,21 +851,21 @@
     clipboard.writeText(selectedText)
       .then(function () {
         if (copyNumber !== selectionCopyNumber) return;
+        selectionCopyButton.classList.remove("is-copy-failed");
         selectionCopyButton.classList.add("is-copied");
         selectionCopyLabel.textContent = "Copied";
-        setSpriteIcon(selectionCopyIcon, "check");
         selectionCopyTimer = window.setTimeout(function () {
           selectionCopyButton.classList.remove("is-copied");
           selectionCopyLabel.textContent = "Copy";
-          setSpriteIcon(selectionCopyIcon, "copy");
         }, 1600);
       })
       .catch(function () {
         if (copyNumber !== selectionCopyNumber) return;
         selectionCopyButton.classList.remove("is-copied");
+        selectionCopyButton.classList.add("is-copy-failed");
         selectionCopyLabel.textContent = "Copy failed";
-        setSpriteIcon(selectionCopyIcon, "copy");
         selectionCopyTimer = window.setTimeout(function () {
+          selectionCopyButton.classList.remove("is-copy-failed");
           selectionCopyLabel.textContent = "Copy";
         }, 1600);
       });

@@ -146,7 +146,9 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
                 revisions = self.history[group]["revisions"]
                 self.assertEqual(
                     len(revisions),
-                    revision + (2 if group == "colleague-babysitter-referral-needs" else 1),
+                    revision + (2 if group in {
+                        "colleague-babysitter-referral-needs", "friend-holiday-apartment-watch",
+                    } else 1),
                 )
                 previous = revisions[revision]
                 self.assertEqual(revisions.count(previous), 1)
@@ -537,17 +539,47 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
 
     def test_apartment_checks_include_plant_quantities_and_moved_emergency_relance(self):
         row = self.by_group["friend-holiday-apartment-watch"]
-        self.assertIn("quelle quantité d'eau", row.questions[3].question)
-        self.assertIn("à ne pas arroser", row.questions[3].question)
-        self.assertEqual(row.questions[3].follow_up_to, 2)
-        self.assertIn("cactus", row.questions[3].answer)
+        self.assertIn("Quelles plantes dois-je arroser", row.questions[2].question)
+        self.assertIn("quelle quantité d'eau", row.questions[2].question)
+        self.assertIn("à chacune à chaque passage", row.questions[2].question)
+        self.assertEqual(row.questions[2].follow_up_to, 2)
+        self.assertIn("cactus", row.questions[2].answer)
         self.assertIn("code d'accès", row.questions[4].question)
         self.assertIn("quelle personne sur place", row.questions[7].question)
         self.assertIn("double des clés", row.questions[7].question)
         self.assertEqual(row.questions[7].follow_up_to, 7)
         self.assertEqual(
-            self.hints[row.group][3]["english"],
-            "Water quantity per plant and plants not to water",
+            self.hints[row.group][2]["english"],
+            "Plants to water and amount per plant at each visit",
+        )
+
+    def test_apartment_watering_follows_tasks_and_keeps_the_exact_previous_layout(self):
+        group = "friend-holiday-apartment-watch"
+        publications = [row for row in self.dialogues.values() if row.group == group]
+        self.assertEqual(len(publications), 3)
+        before = self.history[group]["revisions"][3]
+        for row in publications:
+            with self.subTest(note=row.note):
+                self.assertEqual(
+                    row.questions[2].question,
+                    "Quelles plantes dois-je arroser, et quelle quantité d'eau faut-il donner à chacune à chaque passage ?",
+                )
+                self.assertEqual(row.questions[2].follow_up_to, 2)
+                self.assertIn("If watering is requested", row.questions[2].condition)
+                self.assertIn("150 millilitres chacune à chaque passage", row.questions[2].answer)
+                self.assertIn("N'arrose pas les cactus", row.questions[2].answer)
+                self.assertEqual(row.questions[3].question, before["questions"][2]["question"])
+                self.assertEqual(
+                    [row.questions[index].question for index in (0, 1, 4, 5, 6, 7)],
+                    [before["questions"][index]["question"] for index in (0, 1, 4, 5, 6, 7)],
+                )
+        self.assertEqual(
+            self.hints[group][3]["english"], "Visit frequency and time needed for each visit",
+        )
+        snapshot = json.dumps(before, ensure_ascii=False, sort_keys=True).encode()
+        self.assertEqual(
+            hashlib.sha256(snapshot).hexdigest(),
+            "8c1d725384db04d318251f2a7f5f04386cc1be3bf74a6a23fd84bd5a2e815ef3",
         )
 
     def test_volunteering_covers_real_shifts_commitment_and_arrival(self):
@@ -693,8 +725,8 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertIn("numéro de commande", grocery.questions[7].answer)
         self.assertIn("moyen de paiement utilisé", grocery.questions[7].answer)
         watch = self.by_group["friend-holiday-apartment-watch"]
-        self.assertIn("combien de temps", watch.questions[2].question)
-        self.assertIn("vingtaine de minutes", watch.questions[2].answer)
+        self.assertIn("combien de temps", watch.questions[3].question)
+        self.assertIn("vingtaine de minutes", watch.questions[3].answer)
         self.assertIn("Seras-tu joignable", watch.questions[6].question)
         self.assertIn("double des clés", watch.questions[7].answer)
         doctor = self.by_group["medical-secretary-temporary-replacement-doctor"]

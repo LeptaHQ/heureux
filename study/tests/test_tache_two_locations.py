@@ -364,7 +364,7 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
         for group, english in expected.items():
             with self.subTest(group=group):
                 self.assertEqual(tuple(row["english"] for row in hints[group]), english)
-        self.assertNotIn("return", hints["friend-holiday-apartment-watch"][3]["english"])
+        self.assertNotIn("return", hints["friend-holiday-apartment-watch"][2]["english"])
         self.assertNotIn("authorization", hints["trusted-person-temporary-pet-care"][7]["english"])
         self.assertEqual(
             hints["host-foreign-friends-city-advice"][0]["english"],
@@ -1215,6 +1215,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             ("recruiter-scheduled-interview-preparation", 1, 2, "Quel matériel dois-je tester avant l'entretien ?"),
             ("supervisor-overseas-job-offer", 2, 8, "Quelles conditions faudrait-il négocier avant le départ ?"),
             ("friend-holiday-apartment-watch", 1, 4, "Pourrais-tu me montrer les plantes avant ton départ ?"),
+            ("friend-holiday-apartment-watch", 3, 4, "Pourrais-tu marquer les pots des plantes à arroser ?"),
             ("medical-secretary-temporary-replacement-doctor", 1, 3, "Comment pourrai-je transmettre mes résultats ?"),
             ("trusted-person-temporary-pet-care", 1, 5, "Quels jouets préfères-tu laisser à ton animal ?"),
             ("trusted-person-temporary-pet-care", 2, 4, "Tu pourrais me montrer comment préparer ses repas ?"),
@@ -1325,7 +1326,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "child-friends-family-holiday-invitation": (2, {3: 2, 4: 4, 5: 5, 6: 6, 7: 7}),
             "colleague-babysitter-referral-needs": (2, {1: 1, 2: 2, 3: 3, 4: 4, 6: 6}),
             "friend-entertain-visiting-nephews": (2, {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 7: 7, 8: 8}),
-            "friend-holiday-apartment-watch": (2, {1: 1, 2: 2, 4: 4, 5: 5, 6: 6}),
+            "friend-holiday-apartment-watch": (2, {1: 1, 2: 2, 5: 5, 6: 6}),
             "friend-homeless-meal-volunteering": (2, {1: 1, 2: 2, 3: 3, 5: 5, 7: 7}),
             "friend-three-year-old-weekend-care": (3, {3: 3, 4: 4}),
             "grocery-store-home-delivery": (3, {1: 1, 5: 4, 6: 5, 7: 6, 8: 7}),
@@ -1352,6 +1353,13 @@ class PublishedTacheTwoHighlightTests(TestCase):
         self.assert_revision_highlights_preserved(
             "colleague-babysitter-referral-needs",
             {number: number for number in range(1, 8)},
+            revision=3,
+        )
+
+    def test_apartment_watering_refinement_preserves_moved_visit_question_and_other_highlights(self):
+        self.assert_revision_highlights_preserved(
+            "friend-holiday-apartment-watch",
+            {1: 1, 2: 2, 3: 4, 5: 5, 6: 6, 7: 7, 8: 8},
             revision=3,
         )
 

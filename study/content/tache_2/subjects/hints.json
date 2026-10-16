@@ -2038,12 +2038,12 @@
         "english": "Mail, packages and plants during the absence"
       },
       {
-        "french": "Fréquence et durée de chaque passage",
-        "english": "Visit frequency and time needed for each visit"
+        "french": "Plantes à arroser et quantité d'eau par plante à chaque passage",
+        "english": "Plants to water and amount per plant at each visit"
       },
       {
-        "french": "Quantité d'eau par plante et plantes à ne pas arroser",
-        "english": "Water quantity per plant and plants not to water"
+        "french": "Fréquence et durée de chaque passage",
+        "english": "Visit frequency and time needed for each visit"
       },
       {
         "french": "Remise des clés et éventuel code d'accès",

@@ -1874,6 +1874,21 @@
             {"topic": "Préparation et récupération", "question": "Le paquet sera-t-il déjà emballé, étiqueté et affranchi ?", "follow_up_to": null},
             {"topic": "Préparation et récupération", "question": "Quand puis-je passer le récupérer chez toi ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "help-friend-post-parcel",
+          "opening": "Salut ! Je vais voir si je peux poster ton paquet, mais j'ai besoin de quelques précisions pour m'organiser.",
+          "closing": "Merci pour ces précisions ! Je vais vérifier les horaires du bureau et les possibilités d'envoi avant de te confirmer.",
+          "questions": [
+            {"topic": "Envoi et délai", "question": "Au plus tard, quand faut-il poster le paquet ?", "follow_up_to": null},
+            {"topic": "Envoi et délai", "question": "Que contient le paquet, et faut-il prendre des précautions particulières pour l'envoi ?", "follow_up_to": null},
+            {"topic": "Envoi et délai", "question": "Dans quelle ville doit-il être livré, et pour quelle date au plus tard ?", "follow_up_to": null},
+            {"topic": "Envoi et délai", "question": "Si l'envoi standard est trop lent, souhaites-tu l'express, et jusqu'à quel montant ?", "follow_up_to": 3, "condition": "If the required arrival date may rule out standard delivery."},
+            {"topic": "Le colis", "question": "Quelles sont les dimensions approximatives du paquet, et combien pèse-t-il ?", "follow_up_to": null},
+            {"topic": "Préparation et récupération", "question": "Quel bureau de poste me conseilles-tu, et combien de temps faut-il prévoir pour l'aller-retour, dépôt compris ?", "follow_up_to": null},
+            {"topic": "Préparation et récupération", "question": "Le paquet sera-t-il déjà emballé, étiqueté et affranchi, et me donneras-tu l'argent avant le dépôt si l'envoi reste à payer ?", "follow_up_to": null},
+            {"topic": "Préparation et récupération", "question": "Quand puis-je passer le récupérer chez toi ?", "follow_up_to": null}
+          ]
         }
       ]
     },

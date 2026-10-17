@@ -1241,6 +1241,12 @@ class PublishedTacheTwoHighlightTests(TestCase):
             revision=4,
         )
 
+    def test_parcel_arrival_rewording_preserves_other_questions_and_archives_old_wording(self):
+        self.assert_revision_highlights_preserved(
+            "help-friend-post-parcel", {1: 1, 2: 2, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8},
+            revision=4,
+        )
+
     def test_childcare_logistics_insertion_preserves_moved_questions_and_archived_notes(self):
         self.assert_revision_highlights_preserved(
             "neighbor-child-one-day-care", {}, revision=0,
@@ -1419,7 +1425,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "friend-homeless-meal-volunteering": (2, {2: 4, 3: 1, 5: 5, 7: 7}),
             "friend-three-year-old-weekend-care": (3, {3: 3, 4: 4}),
             "grocery-store-home-delivery": (3, {1: 1, 5: 4, 7: 6, 8: 7}),
-            "help-friend-post-parcel": (3, {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 8: 8}),
+            "help-friend-post-parcel": (3, {1: 1, 2: 2, 4: 4, 5: 5, 6: 6, 8: 8}),
             "medical-secretary-temporary-replacement-doctor": (2, {1: 1, 2: 2, 3: 3, 5: 5, 6: 6, 8: 8}),
             "neighbor-child-one-day-care": (2, {1: 1, 6: 6, 7: 7}),
             "neighbor-environmental-association-volunteering": (2, {1: 1, 3: 3, 5: 5, 6: 6}),

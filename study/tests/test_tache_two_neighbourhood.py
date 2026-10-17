@@ -156,6 +156,7 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
                     } else 2 if group in {
                         "colleague-babysitter-referral-needs",
                         "friend-homeless-meal-volunteering",
+                        "help-friend-post-parcel",
                     } else 1),
                 )
                 previous = revisions[revision]
@@ -863,7 +864,11 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertIn("Que contient le paquet", row.questions[1].question)
         self.assertIn("précautions", row.questions[1].question)
         self.assertIn("tasse fragile", row.questions[1].answer)
-        self.assertIn("pour quelle date au plus tard", row.questions[2].question)
+        self.assertEqual(
+            row.questions[2].question,
+            "Dans quelle ville faut-il envoyer le colis, et quand doit-il arriver au plus tard ?",
+        )
+        self.assertIn("poster le paquet", row.questions[0].question)
         self.assertIn("mardi prochain", row.questions[2].answer)
         self.assertIn("dépôt compris", row.questions[5].question)
         self.assertIn("avant de te confirmer", row.closing)

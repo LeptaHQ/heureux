@@ -110,6 +110,24 @@ not a promised return on investment. Media preferences retain recognizable
 source-checking language without treating Internet, radio and newspapers as
 mutually exclusive categories or guaranteeing the quality of a platform.
 
+For Environnement, distinguish zoo utility from closure, city-wide traffic
+limitation from defined centre bans, and retail availability from agricultural
+practices. Retain the reviewed car group's three Environment publications.
+Reduction is not the same as sorting; medical needs and access constraints must
+not become personal blame. The
+[IUCN European-bison history](https://iucn.org/news/species/202012/european-bison-recovering-31-species-declared-extinct-iucn-red-list)
+illustrates a conservation possibility, not a success guaranteed to every zoo.
+Country-policy answers must not invent the learner's country: the model provides
+an explicitly identified French example using verified
+[Info-tri](https://www.ecologie.gouv.fr/info-tri) and
+[biowaste-sorting information](https://www.service-public.gouv.fr/particuliers/actualites/A16963).
+Adapt it to the actual country and current local facts; the existence of a rule
+does not establish rollout or measured success. Organic-production examples use
+the [EU framework](https://agriculture.ec.europa.eu/farming/organic-farming/organic-production-and-products_en)
+explicitly, without extending it to every label, promising health outcomes or
+equating organic with local. Economic activity is not impact-free; assess total
+resource use as well as improvements per product.
+
 Published Markdown in `study/content/responses/` remains the exact historical
 model corpus. Its 130 exact-body records support 167 publications and 131
 semantic identities. Do not rewrite or deduplicate those records as an incidental

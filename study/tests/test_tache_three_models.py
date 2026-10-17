@@ -220,6 +220,61 @@ class TacheThreeModelContentTests(SimpleTestCase):
                 models[f"eo/tache-3/{second}"].response,
             )
 
+    def test_environnement_covers_all_variants_and_retains_group_boundaries(self):
+        models = catalogue.tache_three_models()
+        sources = [source for source in self.sources if source.theme == "Environnement"]
+        self.assertEqual(len(sources), 11)
+        self.assertEqual(sum(len(source.prompts) for source in sources), 15)
+        for source in sources:
+            self.assertEqual(
+                models[source.semantic_group].source_prompts,
+                tuple((prompt.content_key, prompt.text) for prompt in source.prompts),
+            )
+        publications = {
+            prompt.content_key for source in self.sources for prompt in source.prompts
+            if prompt.theme == "Environnement"
+        }
+        self.assertEqual(len(publications), 16)
+        self.assertTrue(
+            publications <= {key for model in models.values() for key, _text in model.source_prompts}
+        )
+        for group, members in {
+            "environnement-p7": {"environnement:p7", "environnement:p12", "economie:p8"},
+            "environnement-p9": {"environnement:p9", "environnement:p16"},
+            "environnement-p14": {"environnement:p14", "economie:p7"},
+        }.items():
+            self.assertEqual(
+                {key for key, _text in models[f"eo/tache-3/{group}"].source_prompts},
+                members,
+            )
+        for first, second in ((2, 4), (6, 8), (7, 13)):
+            self.assertNotEqual(
+                models[f"eo/tache-3/environnement-p{first}"].response,
+                models[f"eo/tache-3/environnement-p{second}"].response,
+            )
+
+    def test_environnement_examples_distinguish_verified_facts_from_illustrations(self):
+        models = catalogue.tache_three_models()
+        response = lambda key: models[f"eo/tache-3/environnement-p{key}"].response
+        self.assertIn("tout aussi utile", response(1).nuance)
+        self.assertIn("bison d'Europe", response(2).arguments[1].exemple)
+        self.assertIn("pas que toute espèce", response(2).arguments[1].exemple)
+        self.assertIn("besoin médical", response(3).nuance)
+        self.assertIn("Trier et réduire", response(3).nuance)
+        self.assertIn("retardée indéfiniment", response(4).nuance)
+        self.assertIn("rues voisines", response(6).arguments[0].exemple)
+        self.assertIn("rémunération viable", response(7).arguments[2].exemple)
+        self.assertIn("mobilité réduite", response(8).arguments[2].exemple)
+        self.assertIn("autres causes de tension", response(9).arguments[1].exemple)
+        self.assertIn("Exemple français documenté", response(11).reformulation)
+        self.assertIn("Info-tri", response(11).arguments[0].developpement)
+        self.assertIn("Dans une commune qui propose", response(11).arguments[1].exemple)
+        self.assertIn("pas une réussite nationale mesurée", response(11).nuance)
+        self.assertIn("cadre européen", response(13).arguments[0].developpement)
+        self.assertIn("pas d'une absence absolue de traitement", response(13).arguments[0].developpement)
+        self.assertIn("hausse des volumes", response(14).arguments[2].developpement)
+        self.assertIn("aucune activité n'est sans impact", response(14).nuance)
+
     def test_technologie_covers_every_variant_without_merging_related_scopes(self):
         models = catalogue.tache_three_models()
         sources = [source for source in self.sources if source.theme == "Technologie"]

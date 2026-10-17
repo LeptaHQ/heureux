@@ -1430,647 +1430,647 @@
     },
     "famille-p1": {
       "introduction": {
-        "french": "Les parents peuvent autoriser les réseaux sociaux, mais avec un accès progressif, encadré et adapté à l'âge.",
-        "english": "Parents can allow social media use, but access should be gradual, supervised and age-appropriate."
+        "french": "Préférer un accès progressif et accompagné aux réseaux sociaux.",
+        "english": "Prefer gradual, supported access to social media."
+      },
+      "nuance": {
+        "french": "Respecter les conditions d'accès, l'âge et une vie privée adaptée.",
+        "english": "Respect access conditions, age and appropriate privacy."
+      },
+      "conclusion": {
+        "french": "Protéger, organiser et accompagner plutôt que tout permettre.",
+        "english": "Protect, organize and support rather than allow everything."
       },
       "arguments": [
         {
           "point": {
-            "french": "L'encadrement limite l'exposition à des risques que l'enfant ne sait pas toujours repérer.",
-            "english": "Guidance limits exposure to risks that a child cannot always recognise."
+            "french": "L'accompagnement permet de comprendre ce que l'on expose aux autres.",
+            "english": "Guidance helps children understand what they reveal to others."
           },
           "example": {
-            "french": "Un conflit scolaire peut se prolonger en ligne le soir et nécessiter l'aide d'un parent.",
-            "english": "A school conflict can continue online in the evening and require a parent's help."
+            "french": "Vérifier une photo et ses destinataires avant de publier.",
+            "english": "Check a photo and its audience before posting."
           }
         },
         {
           "point": {
-            "french": "Des règles discutées donnent des repères pour gérer le temps et demander de l'aide.",
-            "english": "Discussed rules provide guidance for managing time and asking for help."
+            "french": "Des limites claires aident à préserver la place des autres activités.",
+            "english": "Clear boundaries preserve time for other activities."
           },
           "example": {
-            "french": "Prévoir l'arrêt du téléphone le soir et parler régulièrement de ce qui se passe en ligne.",
-            "english": "Agree to put phones away in the evening and regularly discuss what happens online."
+            "french": "Laisser les téléphones hors de la chambre la nuit.",
+            "english": "Leave phones outside the bedroom at night."
           }
         },
         {
           "point": {
-            "french": "Un apprentissage progressif prépare à davantage d'autonomie sans laisser l'enfant seul.",
-            "english": "Gradual learning prepares children for greater independence without leaving them unsupported."
+            "french": "Il faut apprendre à demander de l'aide lorsqu'un échange devient problématique.",
+            "english": "Children need to know how to seek help with harmful exchanges."
           },
           "example": {
-            "french": "Commencer par une messagerie familiale accompagnée avant un compte adapté à l'âge.",
-            "english": "Start with supervised family messaging before moving to an age-appropriate account."
+            "french": "Montrer des messages humiliants à un adulte de confiance.",
+            "english": "Show humiliating messages to a trusted adult."
           }
         }
-      ],
-      "nuance": {
-        "french": "Une interdiction totale peut isoler un adolescent ; l'autorisation doit toutefois tenir compte de sa maturité.",
-        "english": "A total ban may isolate a teenager; permission must nevertheless take their maturity into account."
-      },
-      "conclusion": {
-        "french": "Privilégier l'accompagnement plutôt que l'accès sans limites ou l'interdiction systématique.",
-        "english": "Favour guidance over unrestricted access or a blanket ban."
-      }
+      ]
     },
     "famille-p2": {
       "introduction": {
-        "french": "Je comprends les jeunes adultes canadiens qui se plaisent chez leurs parents, si cette cohabitation soutient leur autonomie.",
-        "english": "I understand young Canadian adults who enjoy living with their parents, if it supports their independence."
+        "french": "Comprendre le choix de rester chez ses parents sans juger sur l'adresse.",
+        "english": "Understand staying with parents without judging someone by their address."
+      },
+      "nuance": {
+        "french": "Les besoins et l'accord des parents comptent aussi.",
+        "english": "Parents' needs and agreement also matter."
+      },
+      "conclusion": {
+        "french": "Évaluer le respect, le budget et la contribution, pas une date de départ.",
+        "english": "Assess respect, budget and contribution, not a moving-out deadline."
       },
       "arguments": [
         {
           "point": {
-            "french": "Le bien-être au foyer peut refléter des relations saines plutôt qu'un refus de grandir.",
-            "english": "Feeling comfortable at home can reflect healthy relationships rather than a refusal to grow up."
+            "french": "Une vie familiale agréable peut être un choix, pas un refus de grandir.",
+            "english": "Enjoying family life need not mean refusing adulthood."
           },
           "example": {
-            "french": "Un jeune adulte peut apprécier les repas familiaux tout en gérant ses études et ses démarches.",
-            "english": "A young adult can enjoy family meals while managing studies and practical responsibilities."
+            "french": "Une salariée partage les repas, mais garde ses projets.",
+            "english": "A worker shares meals but keeps her own plans."
           }
         },
         {
           "point": {
-            "french": "Économiser sur le logement permet de préparer plus sereinement l'indépendance.",
-            "english": "Saving on housing makes it easier to prepare for independence."
+            "french": "Rester au domicile familial peut rendre un projet plus facile à financer.",
+            "english": "Staying can make a concrete project financially feasible."
           },
           "example": {
-            "french": "Avec des contrats courts dans une grande ville canadienne, rester au foyer aide à constituer une épargne.",
-            "english": "With short-term contracts in a large Canadian city, staying at home helps build savings."
+            "french": "Comparer son budget et économiser pour son installation.",
+            "english": "Compare a budget and save towards moving."
           }
         },
         {
           "point": {
-            "french": "L'entraide peut rendre la cohabitation bénéfique aux deux générations.",
-            "english": "Mutual support can make living together beneficial for both generations."
+            "french": "Cette organisation peut reposer sur une entraide réciproque.",
+            "english": "Living together can involve reciprocal support."
           },
           "example": {
-            "french": "Le jeune adulte participe aux courses et aide ses parents dans leurs démarches numériques.",
-            "english": "The young adult helps with shopping and their parents' online paperwork."
+            "french": "Prendre en charge des repas et les courses chaque semaine.",
+            "english": "Take responsibility for meals and weekly shopping."
           }
         }
-      ],
-      "nuance": {
-        "french": "Le confort devient problématique s'il supprime toute responsabilité et tout projet d'autonomie.",
-        "english": "Comfort becomes problematic if it removes all responsibility and plans for independence."
-      },
-      "conclusion": {
-        "french": "Juger la participation et la progression vers l'autonomie, plutôt que la seule adresse.",
-        "english": "Judge participation and progress towards independence rather than the address alone."
-      }
+      ]
     },
     "famille-p3": {
       "introduction": {
-        "french": "Les personnes âgées peuvent donner de précieux conseils, mais le mot toujours ne tient pas compte des situations.",
-        "english": "Older people can offer valuable advice, but the word always overlooks differences between situations."
+        "french": "L'âge ne garantit pas qu'un conseil soit toujours juste.",
+        "english": "Age does not guarantee that advice is always right."
+      },
+      "nuance": {
+        "french": "Ne pas rejeter non plus un conseil à cause de l'âge.",
+        "english": "Do not reject advice because of age either."
+      },
+      "conclusion": {
+        "french": "Écouter les raisons, vérifier et garder la responsabilité de son choix.",
+        "english": "Listen to reasons, check facts and remain responsible for your choice."
       },
       "arguments": [
         {
           "point": {
-            "french": "L'expérience des difficultés peut apporter du recul face à une épreuve.",
-            "english": "Experience of difficulties can offer perspective during a setback."
+            "french": "L'expérience peut fournir des possibilités auxquelles on n'avait pas pensé.",
+            "english": "Experience can suggest options we had not considered."
           },
           "example": {
-            "french": "Après un échec professionnel, un grand-parent peut rappeler qu'un parcours comporte des rebonds.",
-            "english": "After a career setback, a grandparent can point out that a working life includes fresh starts."
+            "french": "Un grand-parent raconte comment il s'est renseigné avant une reconversion.",
+            "english": "A grandparent explains gathering information before changing careers."
           }
         },
         {
           "point": {
-            "french": "Une relation bienveillante permet de conseiller selon les besoins plutôt que les apparences.",
-            "english": "A caring relationship allows advice to focus on needs rather than appearances."
+            "french": "Une relation de confiance peut permettre un conseil adapté à la personne.",
+            "english": "A trusting relationship can make advice personally relevant."
           },
           "example": {
-            "french": "Un proche âgé peut encourager des études adaptées aux goûts d'un jeune, plutôt qu'au prestige.",
-            "english": "An older relative can encourage studies suited to a young person's interests rather than prestige."
+            "french": "Une tante propose de comparer deux formations selon les goûts de l'étudiant.",
+            "english": "An aunt suggests comparing two courses against the student's interests."
           }
         },
         {
           "point": {
-            "french": "Les changements de contexte rendent certains conseils moins adaptés aujourd'hui.",
-            "english": "Changing circumstances make some advice less suitable today."
+            "french": "Un conseil doit être confronté aux conditions réelles du moment.",
+            "english": "Advice must fit present circumstances."
           },
           "example": {
-            "french": "Conseiller de rester dans la même entreprise doit tenir compte des perspectives réelles du poste.",
-            "english": "Advice to stay with one company must take the job's actual prospects into account."
+            "french": "Vérifier la procédure de candidature demandée dans l'offre.",
+            "english": "Check the application process required by the vacancy."
           }
         }
-      ],
-      "nuance": {
-        "french": "Des conseils sur la patience ou le respect peuvent rester pertinents malgré les changements d'époque.",
-        "english": "Advice about patience or respect can remain relevant despite changing times."
-      },
-      "conclusion": {
-        "french": "Écouter les aînés avec respect, puis vérifier l'adéquation du conseil à sa situation.",
-        "english": "Listen respectfully to older people, then check whether their advice fits your situation."
-      }
+      ]
     },
     "famille-p4": {
       "introduction": {
-        "french": "Dire la vérité aux enfants doit rester le principe, sans imposer tous les détails immédiatement.",
-        "english": "Telling children the truth should remain the principle, without giving every detail immediately."
+        "french": "Privilégier la vérité sans tout révéler immédiatement.",
+        "english": "Prefer honesty without revealing everything immediately."
+      },
+      "nuance": {
+        "french": "Respecter l'âge, la vie privée et ce que l'adulte ignore encore.",
+        "english": "Respect age, privacy and what the adult does not yet know."
+      },
+      "conclusion": {
+        "french": "Une parole honnête et progressive protège le dialogue.",
+        "english": "Honest, gradual explanations protect dialogue."
       },
       "arguments": [
         {
           "point": {
-            "french": "L'honnêteté préserve la confiance dans la parole des parents.",
-            "english": "Honesty preserves trust in what parents say."
+            "french": "Une explication honnête donne une base fiable à la relation.",
+            "english": "An honest explanation supports a reliable relationship."
           },
           "example": {
-            "french": "Découvrir tardivement la maladie cachée d'un proche peut donner à l'enfant un sentiment d'exclusion.",
-            "english": "Belatedly discovering a relative's concealed illness can make a child feel excluded."
+            "french": "Expliquer qu'une sortie est annulée à cause du travail.",
+            "english": "Explain that an outing is cancelled because of work."
           }
         },
         {
           "point": {
-            "french": "Adapter les mots à l'âge permet de comprendre sans être inutilement angoissé.",
-            "english": "Adapting words to age helps children understand without unnecessary distress."
+            "french": "Comprendre ce qui change aide l'enfant à se repérer.",
+            "english": "Understanding changes helps a child find their bearings."
           },
           "example": {
-            "french": "Annoncer un décès à un jeune enfant avec des mots simples, sans détails médicaux.",
-            "english": "Explain a death to a young child in simple words, without medical details."
+            "french": "Expliquer une hospitalisation sans promettre une guérison.",
+            "english": "Explain hospitalization without promising recovery."
           }
         },
         {
           "point": {
-            "french": "Une vérité accompagnée aide à se préparer aux épreuves plutôt qu'à les subir sans repères.",
-            "english": "Truth offered with support helps children prepare for hardship rather than face it without guidance."
+            "french": "Dire la vérité permet de chercher une solution à un problème réel.",
+            "english": "Truth allows a real problem to be addressed."
           },
           "example": {
-            "french": "Expliquer l'évolution de la maladie d'un grand-parent aide à préparer l'enfant à une possible perte.",
-            "english": "Explaining changes in a grandparent's illness helps prepare a child for a possible loss."
+            "french": "Reconnaître des erreurs dans un exercice et reprendre une consigne.",
+            "english": "Acknowledge mistakes in an exercise and revisit an instruction."
           }
         }
-      ],
-      "nuance": {
-        "french": "Des détails trop lourds ou sans rapport direct avec l'enfant peuvent attendre, sans inventer une fausse explication.",
-        "english": "Overwhelming or unrelated details can wait without inventing a false explanation."
-      },
-      "conclusion": {
-        "french": "Associer honnêteté, tact et rythme adapté pour protéger la confiance et l'équilibre de l'enfant.",
-        "english": "Combine honesty, tact and appropriate timing to protect the child's trust and well-being."
-      }
+      ]
     },
     "famille-p5": {
       "introduction": {
-        "french": "Vivre loin de sa famille est possible, mais reste souvent difficile sur le plan affectif et dans les moments de besoin.",
-        "english": "Living far from family is possible, but often remains emotionally difficult, especially in times of need."
+        "french": "La distance familiale demande des ajustements affectifs et pratiques.",
+        "english": "Distance from family requires emotional and practical adjustments."
+      },
+      "nuance": {
+        "french": "D'autres liens soutiennent aussi ; une famille n'est pas toujours rassurante.",
+        "english": "Other relationships also help; family is not always reassuring."
+      },
+      "conclusion": {
+        "french": "Entretenir les liens et construire des appuis sur place.",
+        "english": "Maintain relationships and build local support."
       },
       "arguments": [
         {
           "point": {
-            "french": "L'absence des petits moments partagés peut créer un manque dans le quotidien.",
-            "english": "Missing small shared moments can leave a gap in everyday life."
+            "french": "Les petits moments partagés ne se retrouvent pas exactement à distance.",
+            "english": "Everyday shared moments cannot be reproduced exactly at a distance."
           },
           "example": {
-            "french": "Ne plus participer aux repas ordinaires peut peser davantage qu'une fête manquée.",
-            "english": "Missing everyday meals together can weigh more heavily than missing a celebration."
+            "french": "Un appel ne remplace pas la préparation du repas avec sa sœur.",
+            "english": "A call does not replace preparing a meal with one's sister."
           }
         },
         {
           "point": {
-            "french": "L'autonomie acquise à distance ne supprime pas le besoin de liens familiaux.",
-            "english": "Independence gained at a distance does not remove the need for family ties."
+            "french": "Certains besoins demandent une aide disponible sur place.",
+            "english": "Some needs require help available locally."
           },
           "example": {
-            "french": "Une personne gère seule ses démarches, mais continue d'appeler ses proches pour parler de ses choix.",
-            "english": "Someone manages paperwork alone but still calls loved ones to discuss decisions."
+            "french": "Prévoir une solution locale pour récupérer son enfant à l'école.",
+            "english": "Arrange local help to collect a child from school."
           }
         },
         {
           "point": {
-            "french": "Les crises rendent l'absence de soutien familial immédiat particulièrement sensible.",
-            "english": "Crises make the absence of immediate family support particularly noticeable."
+            "french": "Entretenir les rencontres demande du temps et des moyens.",
+            "english": "Maintaining visits requires time and money."
           },
           "example": {
-            "french": "Une hospitalisation imprévue peut être plus difficile sans proche disponible à proximité.",
-            "english": "An unexpected hospital stay can be harder without a loved one available nearby."
+            "french": "Revoir une visite selon le travail et le coût du trajet.",
+            "english": "Reschedule a visit around work and travel costs."
           }
         }
-      ],
-      "nuance": {
-        "french": "Un cercle d'amis fiable et une vie locale épanouissante peuvent rendre la distance plus supportable.",
-        "english": "Reliable friends and a fulfilling local life can make the distance easier to bear."
-      },
-      "conclusion": {
-        "french": "La distance se gère en entretenant les liens, sans nier le manque qu'elle peut créer.",
-        "english": "Distance can be managed by maintaining ties without denying the sense of loss it can create."
-      }
+      ]
     },
     "famille-p6": {
       "introduction": {
-        "french": "Payer les bonnes notes peut stimuler momentanément, mais ne devrait pas devenir la base de la motivation scolaire.",
-        "english": "Paying for good grades can provide a short-term boost, but should not underpin motivation at school."
+        "french": "Encourager l'apprentissage plutôt que fixer un prix aux bonnes notes.",
+        "english": "Encourage learning rather than put a price on good grades."
+      },
+      "nuance": {
+        "french": "Une célébration ponctuelle ne doit pas devenir un tarif par performance.",
+        "english": "An occasional celebration need not become a price per performance."
+      },
+      "conclusion": {
+        "french": "Reconnaître les progrès et apporter une aide concrète.",
+        "english": "Recognize progress and provide concrete help."
       },
       "arguments": [
         {
           "point": {
-            "french": "Une motivation fondée sur l'argent risque de disparaître avec la récompense.",
-            "english": "Motivation based on money may disappear when the reward stops."
+            "french": "Une récompense systématique peut déplacer l'objectif vers le paiement.",
+            "english": "Systematic rewards can shift attention towards payment."
           },
           "example": {
-            "french": "Un enfant peut cesser de réviser dès que ses parents arrêtent de payer les bons résultats.",
-            "english": "A child may stop revising when parents stop paying for good results."
+            "french": "Un enfant demande si un exercice non noté rapporte aussi de l'argent.",
+            "english": "A child asks whether an ungraded exercise also earns money."
           }
         },
         {
           "point": {
-            "french": "Monnayer les notes peut faire oublier l'intérêt de comprendre et d'apprendre.",
-            "english": "Putting a price on grades can overshadow the value of understanding and learning."
+            "french": "Une note finale ne montre pas tout le travail accompli.",
+            "english": "A final grade does not show all the work accomplished."
           },
           "example": {
-            "french": "Un enfant négocie le montant d'une bonne note plutôt que de s'intéresser au sujet étudié.",
-            "english": "A child negotiates the payment for a good grade instead of taking interest in the subject."
+            "french": "Reconnaître une méthode améliorée, même sous le seuil récompensé.",
+            "english": "Recognize an improved method, even below the reward threshold."
           }
         },
         {
           "point": {
-            "french": "Valoriser les efforts et les progrès construit la confiance, même sans note excellente.",
-            "english": "Valuing effort and progress builds confidence, even without an excellent grade."
+            "french": "Une prime ne remplace pas l'aide nécessaire pour surmonter un blocage.",
+            "english": "A bonus cannot replace help with a learning difficulty."
           },
           "example": {
-            "french": "Féliciter un élève qui surmonte des difficultés, même si son résultat reste moyen.",
-            "english": "Praise a pupil who overcomes difficulties even if the result remains average."
+            "french": "Reprendre une consigne et chercher une méthode avec l'enseignant.",
+            "english": "Revisit instructions and seek a method with the teacher."
           }
         }
-      ],
-      "nuance": {
-        "french": "Un cadeau ponctuel ou une sortie pour célébrer un examen n'équivaut pas à payer chaque note.",
-        "english": "An occasional gift or outing to celebrate an exam is not the same as paying for every grade."
-      },
-      "conclusion": {
-        "french": "Encourager la progression sans faire de l'argent la raison principale d'apprendre.",
-        "english": "Encourage progress without making money the main reason to learn."
-      }
+      ]
     },
     "famille-p7": {
       "introduction": {
-        "french": "Travailler avec un membre de sa famille n'est pas à éviter systématiquement, mais exige une organisation professionnelle.",
-        "english": "Working with a family member need not always be avoided, but requires professional organisation."
+        "french": "Travailler en famille peut fonctionner avec une organisation professionnelle.",
+        "english": "Working with family can work with professional organization."
+      },
+      "nuance": {
+        "french": "Un proche doit pouvoir refuser ; des règles ne réparent pas tous les conflits.",
+        "english": "Relatives must be free to refuse; rules do not resolve every conflict."
+      },
+      "conclusion": {
+        "french": "Associer confiance, compétences et limites claires.",
+        "english": "Combine trust, competence and clear boundaries."
       },
       "arguments": [
         {
           "point": {
-            "french": "Une confiance déjà construite peut faciliter la coopération et le soutien mutuel.",
-            "english": "Existing trust can make cooperation and mutual support easier."
+            "french": "Une confiance déjà construite peut faciliter le lancement d'un projet.",
+            "english": "Established trust can help launch a project."
           },
           "example": {
-            "french": "Un frère et une sœur qui connaissent leurs qualités peuvent gérer ensemble un petit commerce.",
-            "english": "A brother and sister who know each other's strengths can run a small business together."
+            "french": "Deux sœurs se répartissent cuisine et commandes selon leur expérience.",
+            "english": "Two sisters divide cooking and orders according to their experience."
           }
         },
         {
           "point": {
-            "french": "Les désaccords professionnels risquent toutefois de déborder sur les relations familiales.",
-            "english": "Work disagreements can nevertheless spill over into family relationships."
+            "french": "Les désaccords professionnels peuvent déborder sur la vie familiale.",
+            "english": "Work disagreements can spill into family life."
           },
           "example": {
-            "french": "Un conflit sur une décision commerciale peut tendre l'ambiance lors d'un repas familial.",
-            "english": "A disagreement over a business decision can create tension at a family meal."
+            "french": "Un retard de commande envahit la discussion au repas familial.",
+            "english": "A late order takes over a family-meal conversation."
           }
         },
         {
           "point": {
-            "french": "Définir les rôles et les limites évite de confondre proximité affective et responsabilités.",
-            "english": "Defining roles and boundaries prevents emotional closeness from blurring responsibilities."
+            "french": "Des règles explicites évitent que chacun imagine un arrangement différent.",
+            "english": "Explicit rules prevent conflicting expectations."
           },
           "example": {
-            "french": "Préciser qui décide des achats et réserver les discussions professionnelles aux réunions de travail.",
-            "english": "Specify who decides on purchases and keep business discussions for work meetings."
+            "french": "Préciser les missions, les horaires et la rémunération d'un cousin.",
+            "english": "Clarify a cousin's duties, hours and pay."
           }
         }
-      ],
-      "nuance": {
-        "french": "Si des conflits anciens restent non résolus, mieux vaut éviter d'y ajouter une dépendance professionnelle.",
-        "english": "If old conflicts remain unresolved, it is better not to add professional dependence."
-      },
-      "conclusion": {
-        "french": "Envisager cette collaboration avec une relation saine et des règles explicites.",
-        "english": "Consider this collaboration when the relationship is healthy and rules are explicit."
-      }
+      ]
     },
     "famille-p9": {
       "introduction": {
-        "french": "Quelques amitiés sincères me paraissent généralement nécessaires pour bien vivre, par leur soutien concret et social.",
-        "english": "A few genuine friendships seem generally necessary to me for living well, through practical and social support."
+        "french": "Les amis apportent beaucoup, sans être une condition universelle pour bien vivre.",
+        "english": "Friends offer much without being a universal requirement for living well."
+      },
+      "nuance": {
+        "french": "Sans amis ne signifie pas sans liens ; la solitude peut être choisie.",
+        "english": "Having no friends does not mean having no relationships; solitude may be chosen."
+      },
+      "conclusion": {
+        "french": "Valoriser des liens de qualité plutôt qu'un modèle obligatoire.",
+        "english": "Value good relationships rather than a mandatory social model."
       },
       "arguments": [
         {
           "point": {
-            "french": "L'entraide amicale allège les difficultés pratiques des grandes étapes de la vie.",
-            "english": "Help between friends eases practical difficulties at major life stages."
+            "french": "Un ami de confiance peut apporter une aide concrète dans le quotidien.",
+            "english": "A trusted friend can provide practical everyday support."
           },
           "example": {
-            "french": "Lors d'un déménagement, un ami peut aider à transporter des affaires et à organiser l'installation.",
-            "english": "During a move, a friend can help carry belongings and organise settling in."
+            "french": "Un ami aide à porter des cartons pendant un déménagement.",
+            "english": "A friend helps carry boxes during a move."
           }
         },
         {
           "point": {
-            "french": "Les amis font découvrir des activités et des possibilités hors de ses habitudes.",
-            "english": "Friends introduce activities and opportunities outside familiar routines."
+            "french": "Des rendez-vous entre amis donnent une place au plaisir d'être ensemble.",
+            "english": "Regular meetings make room for shared enjoyment."
           },
           "example": {
-            "french": "La suggestion d'un ami peut donner envie d'essayer un sport ou d'explorer une piste professionnelle.",
-            "english": "A friend's suggestion can inspire someone to try a sport or explore a career option."
+            "french": "Garder une promenade le samedi après un changement d'emploi.",
+            "english": "Keep a Saturday walk after changing jobs."
           }
         },
         {
           "point": {
-            "french": "Des liens réguliers protègent contre l'isolement lors des transitions difficiles.",
-            "english": "Regular connections protect against isolation during difficult transitions."
+            "french": "Les amis peuvent nous aider à découvrir d'autres possibilités.",
+            "english": "Friends can help us discover new possibilities."
           },
           "example": {
-            "french": "Après la retraite, retrouver des amis chaque semaine aide à garder un rythme social.",
-            "english": "After retirement, meeting friends weekly helps maintain a social routine."
+            "french": "Accompagner un ami à une séance d'essai dans une chorale.",
+            "english": "Join a friend at a trial choir session."
           }
         }
-      ],
-      "nuance": {
-        "french": "Il n'est pas nécessaire de multiplier les relations : quelques liens fiables comptent davantage qu'un grand réseau.",
-        "english": "There is no need for numerous relationships: a few reliable ties matter more than a large network."
-      },
-      "conclusion": {
-        "french": "Cultiver des amitiés solides pour mieux vivre au quotidien.",
-        "english": "Nurture strong friendships to live better day to day."
-      }
+      ]
     },
     "famille-p10": {
       "introduction": {
-        "french": "Les membres de la famille ne sont pas forcément nos meilleurs amis.",
-        "english": "Family members are not necessarily our best friends."
+        "french": "La parenté ne fait pas automatiquement de quelqu'un notre meilleur ami.",
+        "english": "Kinship does not automatically make someone our best friend."
+      },
+      "nuance": {
+        "french": "Une famille peut être très proche, sans que cette proximité soit obligatoire.",
+        "english": "Family may be very close, but that closeness cannot be compulsory."
+      },
+      "conclusion": {
+        "french": "Juger les liens sur le partage, la liberté et la confiance.",
+        "english": "Judge relationships by sharing, freedom and trust."
       },
       "arguments": [
         {
           "point": {
-            "french": "La parenté ne repose pas forcément sur les affinités choisies qui construisent une amitié.",
-            "english": "Kinship does not necessarily rest on the chosen affinities that build friendship."
+            "french": "La parenté ne garantit pas des centres d'intérêt communs.",
+            "english": "Kinship does not guarantee shared interests."
           },
           "example": {
-            "french": "On peut aimer ses parents et préférer parler de ses doutes amoureux à un ami.",
-            "english": "You can love your parents and still prefer discussing romantic doubts with a friend."
+            "french": "Aimer ses cousins, mais partager la musique avec une amie.",
+            "english": "Love one's cousins but share music with a friend."
           }
         },
         {
           "point": {
-            "french": "Des relations complémentaires évitent de demander à la famille de répondre à tous les besoins.",
-            "english": "Complementary relationships avoid expecting family to meet every need."
+            "french": "Les rôles familiaux peuvent influencer ce que l'on ose raconter.",
+            "english": "Family roles can affect what we feel free to disclose."
           },
           "example": {
-            "french": "Partager une passion avec des amis peut compléter le soutien offert par ses proches.",
-            "english": "Sharing an interest with friends can complement the support offered by family."
+            "french": "Réfléchir à une reconversion avec un ami avant d'en parler aux parents.",
+            "english": "Discuss a career change with a friend before telling parents."
           }
         },
         {
           "point": {
-            "french": "La confiance vécue compte davantage que le nom du lien pour déterminer la proximité.",
-            "english": "Trust in practice matters more than the relationship's label in determining closeness."
+            "french": "Une amitié profonde se démontre par des comportements, même à l'intérieur de la famille.",
+            "english": "Close friendship is demonstrated through behavior, including within family."
           },
           "example": {
-            "french": "Une personne se confie surtout à sa sœur, une autre à un ami d'enfance.",
-            "english": "One person mainly confides in a sister, another in a childhood friend."
+            "french": "Une sœur écoute, garde les confidences et respecte les décisions.",
+            "english": "A sister listens, keeps confidences and respects decisions."
           }
         }
-      ],
-      "nuance": {
-        "french": "Dans une famille très soudée, un frère ou un parent peut réellement devenir un meilleur ami.",
-        "english": "In a close-knit family, a sibling or parent can genuinely become a best friend."
-      },
-      "conclusion": {
-        "french": "Apprécier famille et amitié sans confondre leurs rôles.",
-        "english": "Value family and friendship without confusing their roles."
-      }
+      ]
     },
     "famille-p11": {
       "introduction": {
-        "french": "Vivre seul simplifie certains choix, mais une vie familiale équilibrée peut aussi faciliter le quotidien.",
-        "english": "Living alone simplifies some choices, but a balanced family life can also make everyday life easier."
+        "french": "Vivre seul simplifie des choix, pas nécessairement toutes les charges.",
+        "english": "Living alone simplifies choices, not necessarily every burden."
+      },
+      "nuance": {
+        "french": "Le partage familial n'est pas automatique ; vivre seul n'interdit pas l'entraide.",
+        "english": "Family sharing is not automatic; living alone does not rule out mutual help."
+      },
+      "conclusion": {
+        "french": "Comparer les conditions et ses priorités, sans solution universelle.",
+        "english": "Compare conditions and priorities; there is no universal solution."
       },
       "arguments": [
         {
           "point": {
-            "french": "La vie en solo permet d'organiser son rythme sans négocier chaque décision.",
-            "english": "Living alone lets you organise your routine without negotiating every decision."
+            "french": "Vivre seul réduit les décisions à négocier dans le logement.",
+            "english": "Living alone reduces household decisions to negotiate."
           },
           "example": {
-            "french": "Choisir son heure de repas ou un film sans devoir accorder les préférences du foyer.",
-            "english": "Choose a mealtime or film without having to reconcile household preferences."
+            "french": "Organiser son repas après un retour tardif du travail.",
+            "english": "Organize a meal after returning late from work."
           }
         },
         {
           "point": {
-            "french": "La présence familiale apporte un soutien immédiat face aux difficultés.",
-            "english": "Having family present provides immediate support when difficulties arise."
+            "french": "Vivre seul signifie aussi assumer seul certaines dépenses.",
+            "english": "Living alone also means paying some expenses alone."
           },
           "example": {
-            "french": "En cas de maladie, un proche vivant sur place peut préparer un repas ou aller à la pharmacie.",
-            "english": "When someone is ill, a relative living there can prepare a meal or visit the pharmacy."
+            "french": "Comparer deux abonnements Internet avec un abonnement partagé.",
+            "english": "Compare two Internet subscriptions with one shared subscription."
           }
         },
         {
           "point": {
-            "french": "Une répartition claire des responsabilités rend la cohabitation moins pesante.",
-            "english": "A clear division of responsibilities makes living together less burdensome."
+            "french": "Une cohabitation bien organisée permet de répartir le travail pratique.",
+            "english": "Well-organized cohabitation can divide practical work."
           },
           "example": {
-            "french": "Partager courses, ménage et repas évite qu'une seule personne assume tout.",
-            "english": "Sharing shopping, cleaning and cooking avoids leaving everything to one person."
+            "french": "Répartir les courses et les repas selon les disponibilités.",
+            "english": "Divide shopping and cooking according to availability."
           }
         }
-      ],
-      "nuance": {
-        "french": "Des tensions familiales ou un fort besoin d'indépendance peuvent rendre la vie seule préférable.",
-        "english": "Family tensions or a strong need for independence can make living alone preferable."
-      },
-      "conclusion": {
-        "french": "Comparer liberté, soutien et organisation selon sa situation plutôt que choisir une règle universelle.",
-        "english": "Weigh freedom, support and organisation in your situation rather than choosing a universal rule."
-      }
+      ]
     },
     "famille-p12": {
       "introduction": {
-        "french": "Les enfants ont besoin d'une autorité ferme, mais l'autoritarisme ne constitue pas une bonne base éducative.",
-        "english": "Children need firm authority, but authoritarianism is not a sound basis for upbringing."
+        "french": "Préférer une autorité ferme et expliquée à l'autoritarisme.",
+        "english": "Prefer firm, explained authority to authoritarian control."
+      },
+      "nuance": {
+        "french": "Un danger demande une intervention immédiate, sans humiliation.",
+        "english": "Danger calls for immediate intervention, without humiliation."
+      },
+      "conclusion": {
+        "french": "Associer limites, parole et responsabilités progressives.",
+        "english": "Combine boundaries, dialogue and gradual responsibility."
       },
       "arguments": [
         {
           "point": {
-            "french": "Des règles stables donnent des repères et protègent les besoins de l'enfant.",
-            "english": "Stable rules provide guidance and protect children's needs."
+            "french": "Une règle claire donne un repère sur lequel on peut s'appuyer.",
+            "english": "Clear rules provide understandable reference points."
           },
           "example": {
-            "french": "Fixer une heure de coucher régulière aide à préserver le sommeil avant l'école.",
-            "english": "Setting a regular bedtime helps protect sleep before school."
+            "french": "Arrêter les jeux bruyants pendant le repos du bébé et proposer une alternative.",
+            "english": "Stop noisy games while the baby rests and suggest an alternative."
           }
         },
         {
           "point": {
-            "french": "Une dureté excessive peut produire de la peur plutôt qu'une adhésion réelle.",
-            "english": "Excessive harshness can produce fear rather than genuine acceptance."
+            "french": "La peur d'une réaction excessive peut empêcher de demander de l'aide.",
+            "english": "Fear of an excessive reaction can prevent asking for help."
           },
           "example": {
-            "french": "Un adolescent qui craint chaque réaction parentale peut cacher ses difficultés.",
-            "english": "A teenager who fears every parental reaction may hide their difficulties."
+            "french": "Écouter un enfant qui a cassé un objet avant de chercher une solution.",
+            "english": "Listen to a child who broke an object before seeking a solution."
           }
         },
         {
           "point": {
-            "french": "Expliquer les limites aide à comprendre leur sens et à les intégrer progressivement.",
-            "english": "Explaining limits helps children understand their purpose and gradually internalise them."
+            "french": "Des choix adaptés à l'âge permettent d'exercer sa responsabilité.",
+            "english": "Age-appropriate choices allow responsibility to develop."
           },
           "example": {
-            "french": "Relier la limitation des écrans à la protection du sommeil plutôt qu'imposer une interdiction arbitraire.",
-            "english": "Link screen-time limits to protecting sleep rather than imposing an arbitrary ban."
+            "french": "Laisser l'adolescent proposer son organisation pour les devoirs.",
+            "english": "Let a teenager propose a homework schedule."
           }
         }
-      ],
-      "nuance": {
-        "french": "Écouter l'enfant ne signifie pas tout accepter : certaines limites doivent rester claires.",
-        "english": "Listening to a child does not mean accepting everything: some boundaries must remain clear."
-      },
-      "conclusion": {
-        "french": "Associer fermeté, règles justes et dialogue pour guider l'enfant sans le gouverner par la peur.",
-        "english": "Combine firmness, fair rules and dialogue to guide children without ruling through fear."
-      }
+      ]
     },
     "famille-p13": {
       "introduction": {
-        "french": "À l'étranger, privilégier la langue familiale avec les enfants, sans négliger la langue locale.",
-        "english": "Abroad, prioritise the family language with children without neglecting the local language."
+        "french": "Faire une place aux deux langues plutôt que les opposer.",
+        "english": "Make room for both languages rather than opposing them."
+      },
+      "nuance": {
+        "french": "Pas de séparation rigide ni de bilinguisme parfait garanti.",
+        "english": "No rigid separation or guaranteed perfect bilingualism."
+      },
+      "conclusion": {
+        "french": "Soutenir le dialogue familial, la transmission et la participation locale.",
+        "english": "Support family dialogue, transmission and local participation."
       },
       "arguments": [
         {
           "point": {
-            "french": "La langue maternelle transmet l'histoire familiale et maintient les liens avec les proches.",
-            "english": "The mother tongue passes on family history and maintains ties with relatives."
+            "french": "Les parents doivent pouvoir exprimer précisément ce qu'ils veulent transmettre.",
+            "english": "Parents need to express precisely what they wish to communicate."
           },
           "example": {
-            "french": "Un enfant peut téléphoner à ses grands-parents et comprendre leurs souvenirs sans traduction.",
-            "english": "A child can call grandparents and understand their memories without translation."
+            "french": "Parler d'une journée difficile dans une langue familière.",
+            "english": "Discuss a difficult day in a familiar language."
           }
         },
         {
           "point": {
-            "french": "La langue du pays d'accueil reste essentielle pour apprendre et participer à la vie scolaire.",
-            "english": "The host country's language remains essential for learning and participating in school life."
+            "french": "La langue familiale peut entretenir des relations entre générations.",
+            "english": "The family language can maintain relationships across generations."
           },
           "example": {
-            "french": "Comprendre les consignes permet de suivre les cours et de participer aux activités avec ses camarades.",
-            "english": "Understanding instructions allows children to follow lessons and join activities with classmates."
+            "french": "Raconter une sortie aux grands-parents sans traduction constante.",
+            "english": "Tell grandparents about an outing without constant translation."
           }
         },
         {
           "point": {
-            "french": "Donner une place réelle aux deux langues évite d'opposer intégration et héritage familial.",
-            "english": "Giving both languages a real place avoids opposing integration and family heritage."
+            "french": "Il faut aussi créer de vraies occasions d'utiliser la langue locale.",
+            "english": "Children also need real opportunities to use the local language."
           },
           "example": {
-            "french": "Parler la langue familiale à la maison et pratiquer la langue locale à l'école et avec les amis.",
-            "english": "Speak the family language at home and practise the local language at school and with friends."
+            "french": "Chercher avec l'enseignant une activité adaptée à la bibliothèque.",
+            "english": "Ask the teacher about a suitable library activity."
           }
         }
-      ],
-      "nuance": {
-        "french": "Le bilinguisme demande une pratique régulière et patiente, sans pression excessive sur l'enfant.",
-        "english": "Bilingualism requires regular, patient practice without excessive pressure on the child."
-      },
-      "conclusion": {
-        "french": "Construire une complémentarité durable plutôt qu'abandonner l'une des deux langues.",
-        "english": "Build lasting complementarity rather than abandoning either language."
-      }
+      ]
     },
     "famille-p14": {
       "introduction": {
-        "french": "Tous les membres du foyer devraient participer aux tâches ménagères, selon leurs capacités et leur situation.",
-        "english": "All household members should share housework according to their abilities and circumstances."
+        "french": "Partager les tâches selon les possibilités, pas à parts identiques.",
+        "english": "Share chores according to ability, not in identical portions."
+      },
+      "nuance": {
+        "french": "La maladie ou le handicap peuvent justifier de ne faire aucune tâche.",
+        "english": "Illness or disability may justify doing no chores."
+      },
+      "conclusion": {
+        "french": "Partager les responsabilités sans laisser une personne tout porter.",
+        "english": "Share responsibilities without leaving one person to carry everything."
       },
       "arguments": [
         {
           "point": {
-            "french": "Répartir les tâches évite une charge injuste et la fatigue d'une seule personne.",
-            "english": "Sharing tasks avoids an unfair burden and exhaustion for one person."
+            "french": "Une répartition équitable évite qu'une personne porte seule le travail commun.",
+            "english": "Fair sharing prevents one person carrying all the common work."
           },
           "example": {
-            "french": "Si un parent fait tout, partager la vaisselle et les courses rééquilibre la charge.",
-            "english": "If one parent does everything, sharing dishes and shopping rebalances the workload."
+            "french": "Partager cuisine et vaisselle après la journée de travail.",
+            "english": "Share cooking and washing up after the working day."
           }
         },
         {
           "point": {
-            "french": "Participer apprend des gestes utiles et prépare les enfants à devenir autonomes.",
-            "english": "Taking part teaches useful skills and prepares children for independence."
+            "french": "Participer permet d'apprendre des gestes utiles pour vivre de manière autonome.",
+            "english": "Participation teaches practical skills for independent living."
           },
           "example": {
-            "french": "Un adolescent qui apprend à laver son linge sera mieux préparé à gérer son logement.",
-            "english": "A teenager who learns to do laundry will be better prepared to manage a home."
+            "french": "Apprendre à trier le linge et à utiliser la machine avec un adulte.",
+            "english": "Learn to sort laundry and use the machine with an adult."
           }
         },
         {
           "point": {
-            "french": "Une organisation visible réduit les oublis et les disputes sur les responsabilités.",
-            "english": "A visible system reduces forgotten tasks and disputes over responsibilities."
+            "french": "Il faut partager la préparation des tâches, pas seulement leur exécution.",
+            "english": "Planning must be shared as well as execution."
           },
           "example": {
-            "french": "Afficher une liste des tâches avec les personnes responsables permet de suivre la répartition.",
-            "english": "Display a task list naming those responsible to keep track of the division of work."
+            "french": "Gérer entièrement le stock et l'achat des produits d'entretien.",
+            "english": "Take full responsibility for cleaning supplies and purchasing."
           }
         }
-      ],
-      "nuance": {
-        "french": "L'âge, la santé et les capacités peuvent limiter la contribution ; participer ne signifie pas faire autant.",
-        "english": "Age, health and ability can limit contributions; participating does not mean doing equal amounts."
-      },
-      "conclusion": {
-        "french": "Rechercher une contribution équitable et adaptée, plutôt qu'une charge identique pour tous.",
-        "english": "Aim for fair, appropriate contributions rather than an identical workload for everyone."
-      }
+      ]
     },
     "famille-p16": {
       "introduction": {
-        "french": "Vivre chez ses parents après 25 ans peut être pratique, si cette cohabitation soutient l'autonomie.",
-        "english": "Living with parents after 25 can be practical if the arrangement supports independence."
+        "french": "Après 25 ans, cohabiter peut être pratique sans définir la maturité.",
+        "english": "After 25, cohabitation can be practical without defining maturity."
+      },
+      "nuance": {
+        "french": "L'accord, l'espace et l'intimité comptent ; le départ n'est pas une obligation.",
+        "english": "Agreement, space and privacy matter; moving out is not compulsory."
+      },
+      "conclusion": {
+        "french": "Discuter du budget, des tâches et de la place de chaque adulte.",
+        "english": "Discuss money, chores and each adult's space."
       },
       "arguments": [
         {
           "point": {
-            "french": "Partager le logement réduit les dépenses pendant une période professionnelle instable.",
-            "english": "Sharing a home cuts expenses during a period of job insecurity."
+            "french": "Partager un logement peut donner une marge financière utile.",
+            "english": "Sharing accommodation can provide useful financial flexibility."
           },
           "example": {
-            "french": "Un jeune en contrats courts économise avant de louer seul en ville.",
-            "english": "A young adult on short-term contracts saves before renting alone in the city."
+            "french": "Prévoir sa contribution au foyer pendant une reprise de formation.",
+            "english": "Plan one's household contribution when returning to training."
           }
         },
         {
           "point": {
-            "french": "La cohabitation profite aux deux générations quand les responsabilités sont partagées.",
-            "english": "Living together benefits both generations when responsibilities are shared."
+            "french": "La vie commune peut simplifier certaines tâches pour tous.",
+            "english": "Shared living can simplify everyday tasks for everyone."
           },
           "example": {
-            "french": "L'adulte participe aux charges et accompagne ses parents pour leurs démarches.",
-            "english": "The adult contributes to household bills and helps their parents with paperwork."
+            "french": "Préparer des repas tandis que les parents prennent en charge les courses.",
+            "english": "Cook meals while parents take responsibility for shopping."
           }
         },
         {
           "point": {
-            "french": "Préparer un projet personnel évite que le confort ne devienne une dépendance.",
-            "english": "Preparing a personal plan prevents comfort from turning into dependency."
+            "french": "Une même adresse reste compatible avec une autonomie réelle.",
+            "english": "A shared address is compatible with real independence."
           },
           "example": {
-            "french": "Prévoir une épargne et un horizon de départ donne un objectif au séjour.",
-            "english": "Setting a savings target and a rough moving-out date gives the stay a purpose."
+            "french": "Gérer ses démarches et prévenir pour les repas, sans demander chaque permission.",
+            "english": "Manage one's own paperwork and give meal updates without asking permission."
           }
         }
-      ],
-      "nuance": {
-        "french": "Les contraintes économiques et les habitudes familiales varient ; l'âge seul ne permet pas de juger.",
-        "english": "Economic pressures and family practices vary; age alone is no basis for judgment."
-      },
-      "conclusion": {
-        "french": "Une solution pratique si chacun contribue et si l'adulte construit son indépendance.",
-        "english": "A practical arrangement if everyone contributes and the adult builds independence."
-      }
+      ]
     },
     "education-p1": {
       "introduction": {

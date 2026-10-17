@@ -62,6 +62,15 @@ Culture partition retains its existing memberships: four repeated Culture pairs
 and four cross-theme equivalent publications. Related prompts share suitable
 language and mechanisms, not an answer to a different question.
 
+The Famille audit likewise retains only its two existing equivalent pairs
+(truth with children; money for grades). Staying with parents for wellbeing
+and the practicality of living with them after 25 remain distinct questions,
+as do friendship for living well, friendship for happiness and relatives as
+best friends. A suitable choir example and recognizable support mechanisms can
+be reused without merging those answers. Adult autonomy is not measured solely
+by moving out; family closeness, language outcomes and advice quality are not
+guaranteed by age, origin or kinship.
+
 Published Markdown in `study/content/responses/` remains the exact historical
 model corpus. Its 130 exact-body records support 167 publications and 131
 semantic identities. Do not rewrite or deduplicate those records as an incidental

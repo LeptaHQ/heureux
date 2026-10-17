@@ -114,6 +114,73 @@ class TacheThreeModelContentTests(SimpleTestCase):
                 self.assertTrue(response.conclusion)
                 self.assertNotIn("selon une étude", spoken_text(response).casefold())
 
+    def test_famille_covers_all_its_sources_without_merging_related_questions(self):
+        models = catalogue.tache_three_models()
+        sources = [source for source in self.sources if source.theme == "Famille"]
+        self.assertEqual(len(sources), 14)
+        self.assertEqual(sum(len(source.prompts) for source in sources), 16)
+        publications = [
+            prompt for source in self.sources for prompt in source.prompts
+            if prompt.theme == "Famille"
+        ]
+        self.assertEqual(len(publications), 17)
+        covered = {key for model in models.values() for key, _text in model.source_prompts}
+        self.assertTrue({prompt.content_key for prompt in publications} <= covered)
+        for source in sources:
+            self.assertEqual(
+                models[source.semantic_group].source_prompts,
+                tuple((prompt.content_key, prompt.text) for prompt in source.prompts),
+            )
+        for group, members in {
+            "famille-p4": {"famille:p4", "famille:p17"},
+            "famille-p6": {"famille:p6", "famille:p15"},
+        }.items():
+            self.assertEqual(
+                {key for key, _text in models[f"eo/tache-3/{group}"].source_prompts},
+                members,
+            )
+        for first, second in (
+            ("famille-p2", "famille-p16"), ("famille-p9", "culture-p16"),
+            ("famille-p9", "famille-p10"), ("famille-p1", "famille-p12"),
+        ):
+            self.assertNotEqual(
+                models[f"eo/tache-3/{first}"].response,
+                models[f"eo/tache-3/{second}"].response,
+            )
+
+    def test_famille_examples_answer_the_specific_issue_without_absolute_promises(self):
+        models = catalogue.tache_three_models()
+        response = lambda key: models[f"eo/tache-3/famille-p{key}"].response
+        self.assertIn("conditions d'accès", response(1).nuance)
+        self.assertIn("adresse", response(1).arguments[0].exemple)
+        self.assertIn("harcèlement", response(1).arguments[2].developpement)
+        self.assertIn("canadiens", response(2).reformulation)
+        self.assertIn("cohabitation durable", response(2).nuance)
+        self.assertIn("toujours", response(3).position_claire)
+        self.assertIn("plateforme", response(3).arguments[2].exemple)
+        self.assertIn("sans promettre une guérison", response(4).arguments[1].exemple)
+        self.assertIn("vie privée", response(4).nuance)
+        self.assertIn("pas une source de soutien", response(5).nuance)
+        self.assertIn("seuil", response(6).arguments[1].developpement)
+        self.assertIn("l'enseignant", response(6).arguments[2].exemple)
+        self.assertIn("rémunération", response(7).arguments[2].exemple)
+        self.assertIn("dire non", response(7).nuance)
+        self.assertIn("aucun lien humain", response(9).nuance)
+        self.assertEqual(response(9).arguments[2].exemple, models["eo/tache-3/culture-p16"].response.arguments[2].exemple)
+        self.assertIn("automatiquement", response(10).position_claire)
+        self.assertIn("répéter ses confidences", response(10).arguments[2].exemple)
+        self.assertIn("abonnement Internet", response(11).arguments[1].exemple)
+        self.assertIn("n'empêche ni l'entraide", response(11).nuance)
+        self.assertIn("sans menaces ni humiliation", response(12).nuance)
+        self.assertIn("propose le moment", response(12).arguments[2].exemple)
+        self.assertIn("bilinguisme parfait n'est pas garanti", response(13).nuance)
+        self.assertIn("ressources", response(13).arguments[2].exemple)
+        self.assertIn("voire aucune tâche", response(14).nuance)
+        self.assertIn("vérifier le stock", response(14).arguments[2].exemple)
+        self.assertIn("après 25 ans", response(16).position_claire)
+        self.assertIn("sans devoir demander la permission", response(16).arguments[2].exemple)
+        self.assertIn("cohabitation durable", response(16).nuance)
+
     def test_scenario_specific_corrections_remain_explicit(self):
         models = catalogue.tache_three_models()
         response = lambda key: models[f"eo/tache-3/culture-p{key}"].response

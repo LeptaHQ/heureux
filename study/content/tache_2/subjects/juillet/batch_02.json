@@ -13,72 +13,72 @@
       "questions": [
         {
           "text": "Salut ! J'ai entendu dire que tu as participé à un jeu organisé par une chaîne de télévision — qu'est-ce qui t'a donné envie de t'inscrire ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 10
         },
         {
           "text": "Comment se passe l'inscription — faut-il remplir un formulaire en ligne ou envoyer une vidéo ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 6
         },
         {
           "text": "Après l'inscription, comment se passe la sélection — faut-il passer un casting ou un entretien ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 6
         },
         {
           "text": "Y avait-il des conditions particulières pour participer — tu as dû préparer quelque chose à l'avance ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 6
         },
         {
           "text": "Tant que j'y pense, il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 7
         },
         {
           "text": "C'est en équipe ou individuellement ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 7
         },
         {
           "text": "Question organisation, peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 13
         },
         {
           "text": "Le jeu proposait-il des questions ou des défis particuliers ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 2
         },
         {
           "text": "Les défis étaient plutôt difficiles ou amusants — il y a eu des moments stressants ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 10
         },
         {
           "text": "Côté timing, combien de temps dure le tournage — quelques heures ou toute la journée ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 4
         },
         {
           "text": "En ce qui concerne le budget, la participation est-elle entièrement gratuite ou certains frais restent-ils à la charge des candidats ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 3
         },
         {
           "text": "Dans un autre registre, peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 3
         },
         {
           "text": "S'il y a eu un moment surprenant pendant le jeu, tu pourrais me raconter ce qui s'est passé ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 13
         },
         {
           "text": "Pour finir, as-tu appris quelque chose de nouveau ou vécu une expérience vraiment marquante ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 10
         }
       ]

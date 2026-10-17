@@ -1,0 +1,278 @@
+{
+  "number": 17,
+  "title": "Mémoire 17 · Cinéma, spectacles & festivals",
+  "label": "Cinéma, spectacles & festivals",
+  "icon": "theater",
+  "subtitle": "Préparer sa venue au cinéma, à un spectacle, à un concert ou à un festival ; répondre à une invitation ou reprendre des billets. Adapter les questions à la consigne sans répéter les faits déjà connus. Il s'agit d'assister à un événement, non de commenter une œuvre ni de s'inscrire à un cours.",
+  "sections": [
+    {
+      "number": 1,
+      "title": "Invitation et choix de l'événement",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Clarifier l'invitation ou l'offre réelle, pas l'intrigue du film ou la valeur de l'œuvre.",
+      "groups": [
+        {
+          "title": "Invitation et choix de l'événement",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Clarifier l'invitation ou l'offre réelle, pas l'intrigue du film ou la valeur de l'œuvre.",
+          "questions": [
+            "Merci pour l'invitation ; qu'est-ce qui t'a donné envie de choisir ce spectacle pour nous ?",
+            "Vous travaillez dans ce cinéma ; quelle séance conseilleriez-vous pour une sortie en famille ce week-end ?",
+            "Tu ne peux plus aller au festival ; tes billets sont-ils pour une date précise ou pour tout le week-end ?",
+            "Ce concert fait-il partie d'une tournée ou s'agit-il d'une soirée organisée spécialement ici ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Affiche, artistes et programme",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Interroger le programme de l'événement plutôt que demander un avis sur une œuvre.",
+      "groups": [
+        {
+          "title": "Affiche, artistes et programme",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Interroger le programme de l'événement plutôt que demander un avis sur une œuvre.",
+          "questions": [
+            {
+              "text": "Quels artistes se produisent cette année ?",
+              "legacy_memory_number": 9
+            },
+            {
+              "text": "Quel genre de spectacle c'est — théâtre, comédie, concert, danse ?",
+              "legacy_memory_number": 9
+            },
+            {
+              "text": "Il y a actuellement beaucoup de choix à l'affiche ou plutôt quelques choix seulement ?",
+              "legacy_memory_number": 9
+            },
+            "Sur quelle scène jouera le groupe que tu souhaites voir au festival ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Prix et contenu des billets",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Distinguer les éléments compris dans le billet des dépenses supplémentaires.",
+      "groups": [
+        {
+          "title": "Prix et contenu des billets",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Distinguer les éléments compris dans le billet des dépenses supplémentaires.",
+          "questions": [
+            "Combien demandes-tu pour les billets de festival que tu ne peux plus utiliser ?",
+            "Le passe donne-t-il accès à toutes les scènes ou certaines soirées se paient-elles à part ?",
+            "Le tarif du cinéma change-t-il selon l'heure de la séance ?",
+            "Y a-t-il des frais supplémentaires quand on achète les places de concert en ligne ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Début, durée et horaires réels",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Préciser le déroulement si les horaires ne figurent pas déjà dans la consigne.",
+      "groups": [
+        {
+          "title": "Début, durée et horaires réels",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Préciser le déroulement si les horaires ne figurent pas déjà dans la consigne.",
+          "questions": [
+            {
+              "text": "À quelle heure ça commence — plutôt l'après-midi ou seulement en soirée ?",
+              "legacy_memory_number": 9
+            },
+            {
+              "text": "Ça dure combien de temps — une seule soirée, ou plusieurs jours ?",
+              "legacy_memory_number": 9
+            },
+            "À quelle heure ouvrent les portes par rapport au début du concert ?",
+            "Le spectacle comporte-t-il un entracte, et vers quelle heure devrait-il se terminer ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Salle, scènes et accès",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Choisir les questions d'accès adaptées à la salle ou au site du festival.",
+      "groups": [
+        {
+          "title": "Salle, scènes et accès",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Choisir les questions d'accès adaptées à la salle ou au site du festival.",
+          "questions": [
+            {
+              "text": "Y a-t-il un parking près de la salle ou il vaut mieux venir en transports en commun ?",
+              "legacy_memory_number": 9
+            },
+            {
+              "text": "La salle est facilement accessible, ou je dois prévoir du temps pour m'y rendre ?",
+              "legacy_memory_number": 9
+            },
+            "L'entrée du festival est-elle du côté de la station de métro ou à l'autre bout du parc ?",
+            "Le site du festival prévoit-il un accès adapté aux personnes à mobilité réduite ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Achat, réservation et transfert",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Vérifier les modalités concrètes du billet proposé, sans supposer qu'il est transférable.",
+      "groups": [
+        {
+          "title": "Achat, réservation et transfert",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Vérifier les modalités concrètes du billet proposé, sans supposer qu'il est transférable.",
+          "questions": [
+            {
+              "text": "Il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
+              "legacy_memory_number": 9
+            },
+            {
+              "text": "Il reste encore des places pour la représentation ou c'est déjà complet ?",
+              "legacy_memory_number": 9
+            },
+            "Ton nom figure-t-il sur les billets, et l'organisateur accepte-t-il qu'une autre personne les utilise ?",
+            "Pour réserver au cinéma, puis-je choisir mes sièges ou sont-ils attribués à l'arrivée ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Nombre de places et public accueilli",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Tenir compte des personnes invitées et des conditions propres à l'événement.",
+      "groups": [
+        {
+          "title": "Nombre de places et public accueilli",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Tenir compte des personnes invitées et des conditions propres à l'événement.",
+          "questions": [
+            {
+              "text": "Il y a généralement combien de participants — c'est une petite salle ou un grand lieu ?",
+              "legacy_memory_number": 9
+            },
+            {
+              "text": "Tu as combien de billets à me proposer ?",
+              "legacy_memory_number": 9
+            },
+            "Y a-t-il un âge minimum pour assister à cette représentation ?",
+            "Peut-on acheter deux places côte à côte si nous réservons séparément ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Règles, objets et météo",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Demander les règles du site sans les présumer, notamment en plein air.",
+      "groups": [
+        {
+          "title": "Règles, objets et météo",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Demander les règles du site sans les présumer, notamment en plein air.",
+          "questions": [
+            {
+              "text": "Y a-t-il des précautions particulières à prendre dans la salle ou des choses à éviter ?",
+              "legacy_memory_number": 9
+            },
+            "Quels objets doit-on éviter d'apporter à l'entrée du festival ?",
+            "Le concert en plein air est-il maintenu s'il pleut légèrement ?",
+            "Avec le bracelet du festival, peut-on sortir du site puis y revenir dans la journée ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Restauration et confort sur place",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Demander les services nécessaires pour attendre ou rester sur le site.",
+      "groups": [
+        {
+          "title": "Restauration et confort sur place",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Demander les services nécessaires pour attendre ou rester sur le site.",
+          "questions": [
+            {
+              "text": "Est-ce qu'on peut acheter du popcorn et des boissons sur place avant la séance ?",
+              "legacy_memory_number": 9
+            },
+            "Le festival prévoit-il des points d'eau où remplir une gourde ?",
+            "Y a-t-il un vestiaire pour laisser nos manteaux pendant le spectacle ?",
+            "Peut-on manger sur le site entre deux concerts sans manquer l'accès à la prochaine scène ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Placement, ambiance et conditions d'écoute",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Parler de l'expérience de spectateur, pas de la critique d'un livre ou d'un film.",
+      "groups": [
+        {
+          "title": "Placement, ambiance et conditions d'écoute",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Parler de l'expérience de spectateur, pas de la critique d'un livre ou d'un film.",
+          "questions": [
+            "Pour bien voir la scène, conseillerais-tu le balcon ou le parterre ?",
+            "Est-ce qu'on reste debout pendant tout le concert ou chacun a-t-il une place attribuée ?",
+            "Depuis les derniers rangs de ce cinéma, les sous-titres restent-ils bien lisibles ?",
+            "Le public danse-t-il devant la scène ou l'ambiance est-elle plutôt celle d'un concert assis ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Parcours de festival et retour",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Organiser la présence à l'événement selon les priorités et le temps disponible.",
+      "groups": [
+        {
+          "title": "Parcours de festival et retour",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Organiser la présence à l'événement selon les priorités et le temps disponible.",
+          "questions": [
+            "Si deux groupes jouent en même temps, combien de temps faut-il pour passer d'une scène à l'autre ?",
+            "Quelle séance choisir pour pouvoir attraper le dernier bus après le film ?",
+            "Pour une première visite, quels moments du festival me conseillerais-tu de ne pas manquer ?",
+            "Préférez-vous que nous arrivions tous ensemble ou que nous nous retrouvions à nos sièges ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Retard, empêchement et annulation",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Vérifier les conditions applicables sans promettre un échange ou un remboursement.",
+      "groups": [
+        {
+          "title": "Retard, empêchement et annulation",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Vérifier les conditions applicables sans promettre un échange ou un remboursement.",
+          "questions": [
+            {
+              "text": "En cas de retard à la représentation ou d'imprévu, comment ça se passe ?",
+              "legacy_memory_number": 9
+            },
+            {
+              "text": "Si un jour je ne peux pas venir au spectacle, comment est-ce qu'on s'organise — il faut prévenir à l'avance ?",
+              "legacy_memory_number": 9
+            },
+            "Si l'artiste annule sa venue, qui faut-il contacter pour connaître les possibilités de remboursement ?",
+            "Si je me trompe de séance de cinéma en réservant, puis-je faire modifier mon billet ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Confirmation et rendez-vous",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Confirmer seulement les points encore en suspens avant la sortie.",
+      "groups": [
+        {
+          "title": "Confirmation et rendez-vous",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Confirmer seulement les points encore en suspens avant la sortie.",
+          "questions": [
+            {
+              "text": "Pour finir — je peux te confirmer aujourd'hui si je prends les billets ?",
+              "legacy_memory_number": 9
+            },
+            "Où pourrions-nous nous retrouver si nos téléphones ne captent pas sur le site du festival ?",
+            "Faut-il imprimer le billet du spectacle ou peut-on présenter le code sur son téléphone ?",
+            "Pour le concert, tu préfères que je te rembourse maintenant ou le soir même ?"
+          ]
+        }
+      ]
+    }
+  ]
+}

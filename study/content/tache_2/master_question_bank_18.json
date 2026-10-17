@@ -1,0 +1,305 @@
+{
+  "number": 18,
+  "title": "Mémoire 18 · Loisirs, clubs & jeux",
+  "label": "Loisirs, clubs & jeux",
+  "icon": "users",
+  "subtitle": "Rejoindre un club, emprunter des jeux, participer à un jeu en librairie ou à la télévision, jardiner, pratiquer une activité artistique ou occuper des neveux en visite. Adapter les questions à la consigne, sans redemander les faits connus ni supposer qu'une activité est un cours. La participation aux jeux se distingue de la consommation de livres ou de médias.",
+  "sections": [
+    {
+      "number": 1,
+      "title": "Envies, club et projet de loisir",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Choisir une ouverture en fonction de la personne et de l'activité annoncée.",
+      "groups": [
+        {
+          "title": "Envies, club et projet de loisir",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Choisir une ouverture en fonction de la personne et de l'activité annoncée.",
+          "questions": [
+            {
+              "text": "Salut ! Tu m'as dit que tu faisais une activité artistique — ça me tente d'essayer, tu peux m'en parler ?",
+              "legacy_memory_number": 10
+            },
+            {
+              "text": "Bonjour ! J'aimerais rejoindre votre club de jeux de société, pourriez-vous me renseigner ?",
+              "legacy_memory_number": 10
+            },
+            {
+              "text": "D'après toi, quel type de sortie aide le plus à se faire des amis durables ?",
+              "legacy_memory_number": 9
+            },
+            "Mes neveux viennent passer le week-end chez moi ; quels jeux proposerais-tu pour les occuper à la maison ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 2,
+      "title": "Activités proposées et habitudes du week-end",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Ne pas transformer une activité libre en cours ni généraliser les habitudes de tout un pays.",
+      "groups": [
+        {
+          "title": "Activités proposées et habitudes du week-end",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Ne pas transformer une activité libre en cours ni généraliser les habitudes de tout un pays.",
+          "questions": [
+            {
+              "text": "Quelles tâches réalise-t-on pendant les activités de jardinage ?",
+              "legacy_memory_number": 10
+            },
+            {
+              "text": "Vous avez mentionné des activités pour rencontrer d'autres habitants — vous pourriez m'en dire un peu plus ?",
+              "legacy_memory_number": 10
+            },
+            {
+              "text": "Selon toi, qu'est-ce qui pourrait donner envie de découvrir cette activité ?",
+              "legacy_memory_number": 10
+            },
+            "Dans ton entourage au Canada, qu'aimez-vous faire ensemble le week-end quand vous restez chez vous ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "Adhésion, cotisation et frais",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Vérifier ce que permet l'adhésion au club ou à la ludothèque.",
+      "groups": [
+        {
+          "title": "Adhésion, cotisation et frais",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Vérifier ce que permet l'adhésion au club ou à la ludothèque.",
+          "questions": [
+            {
+              "text": "Le tarif comprend quoi exactement — certaines activités sont-elles gratuites ?",
+              "legacy_memory_number": 10
+            },
+            "La cotisation du club de jeux se paie-t-elle à l'année ou seulement pour les soirées où l'on vient ?",
+            "L'abonnement à la ludothèque couvre-t-il toute la famille ou faut-il une carte par personne ?",
+            "Pour l'activité de jardinage, les participants partagent-ils les frais des graines et des plants ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "Rythme, disponibilité et durée des parties",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Distinguer la fréquence des rencontres du temps nécessaire pour une partie.",
+      "groups": [
+        {
+          "title": "Rythme, disponibilité et durée des parties",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Distinguer la fréquence des rencontres du temps nécessaire pour une partie.",
+          "questions": [
+            {
+              "text": "À quelle fréquence te retrouves-tu avec les membres du club de jeux ?",
+              "legacy_memory_number": 10
+            },
+            "Combien de temps dure en général une partie des jeux que vous proposez aux nouveaux membres ?",
+            "Pour le jardin partagé, peut-on venir ponctuellement ou faut-il être présent chaque semaine ?",
+            "Pendant les soirées du club, peut-on rejoindre une table après le début de la rencontre ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "Lieu et espaces de pratique",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Adapter la question d'accès au lieu réel, sans répéter les renseignements déjà donnés.",
+      "groups": [
+        {
+          "title": "Lieu et espaces de pratique",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Adapter la question d'accès au lieu réel, sans répéter les renseignements déjà donnés.",
+          "questions": [
+            {
+              "text": "Ça se passe où exactement — dans les locaux ou dans un lieu extérieur ?",
+              "legacy_memory_number": 9
+            },
+            {
+              "text": "Le lieu est-il facilement accessible, et y a-t-il un parking à proximité ?",
+              "legacy_memory_number": 10
+            },
+            "Le centre culturel met-il un espace à disposition pour nos créations personnelles en dehors des animations ?",
+            "Au jardin, y a-t-il un abri où se retrouver si une averse interrompt l'activité ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "Jeux organisés et conditions de participation",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Parler de participation active au jeu, non de lecture ou de critique télévisuelle.",
+      "groups": [
+        {
+          "title": "Jeux organisés et conditions de participation",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Parler de participation active au jeu, non de lecture ou de critique télévisuelle.",
+          "questions": [
+            {
+              "text": "Comment s'inscrire au jeu organisé par votre librairie ?",
+              "legacy_memory_number": 10
+            },
+            {
+              "text": "Quelles conditions faut-il remplir pour participer à ce jeu télévisé ?",
+              "legacy_memory_number": 10
+            },
+            "Pour le jeu de la librairie, faut-il constituer son équipe avant de s'inscrire ?",
+            "Pour participer à l'émission, y a-t-il une sélection préalable et comment se déroule-t-elle ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "Équipes, accueil et rencontres",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Faire préciser comment les nouveaux participants trouvent leur place.",
+      "groups": [
+        {
+          "title": "Équipes, accueil et rencontres",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Faire préciser comment les nouveaux participants trouvent leur place.",
+          "questions": [
+            {
+              "text": "C'est en équipe ou individuellement ?",
+              "legacy_memory_number": 10
+            },
+            {
+              "text": "C'est facile de rencontrer du monde — les gens sont plutôt accueillants ?",
+              "legacy_memory_number": 9
+            },
+            "Si je viens seul au club, quelqu'un pourra-t-il m'expliquer les règles et m'intégrer à une table ?",
+            "Au jardin partagé, qui répartit les tâches entre les personnes présentes ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 8,
+      "title": "Matériel et préparation d'un loisir",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Demander une préparation utile à l'activité, sans supposer un enseignement formel.",
+      "groups": [
+        {
+          "title": "Matériel et préparation d'un loisir",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Demander une préparation utile à l'activité, sans supposer un enseignement formel.",
+          "questions": [
+            {
+              "text": "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
+              "legacy_memory_number": 10
+            },
+            "Pour occuper mes neveux, quels jeux peut-on organiser avec du papier et quelques crayons ?",
+            "Pour la première matinée de jardinage, des gants et des chaussures fermées suffisent-ils ?",
+            "Avant l'enregistrement du jeu télévisé, t'avait-on conseillé de t'entraîner d'une manière particulière ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 9,
+      "title": "Ludothèque, prêt et choix des jeux",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Distinguer les jeux disponibles sur place de ceux que l'on peut emprunter.",
+      "groups": [
+        {
+          "title": "Ludothèque, prêt et choix des jeux",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Distinguer les jeux disponibles sur place de ceux que l'on peut emprunter.",
+          "questions": [
+            {
+              "text": "À la ludothèque, peut-on emprunter des jeux pour les essayer à la maison ?",
+              "legacy_memory_number": 10
+            },
+            {
+              "text": "Le club dispose-t-il de jeux sur place ou faut-il apporter les siens ?",
+              "legacy_memory_number": 10
+            },
+            "Combien de jeux peut-on emprunter à la fois, et pour quelle durée ?",
+            "À la ludothèque, quelqu'un peut-il m'aider à choisir un jeu adapté à deux enfants d'âges différents ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 10,
+      "title": "Expérience, plaisir et liens sociaux",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Inviter à raconter une expérience sans présumer de son succès.",
+      "groups": [
+        {
+          "title": "Expérience, plaisir et liens sociaux",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Inviter à raconter une expérience sans présumer de son succès.",
+          "questions": [
+            {
+              "text": "Qu'est-ce qui t'a le plus surpris quand tu as participé au jeu télévisé ?",
+              "legacy_memory_number": 10
+            },
+            {
+              "text": "D'après toi, quel type d'activité artistique aide le plus à se faire des amis durables ?",
+              "legacy_memory_number": 10
+            },
+            "Qu'est-ce qui te plaît dans le jardinage en groupe plutôt que seul chez toi ?",
+            "Quand tu pratiques ton activité artistique, crées-tu surtout pour toi ou pour partager tes réalisations ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 11,
+      "title": "Choisir un loisir ou un jeu adapté",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Relier le conseil aux participants, à leurs goûts et à leur disponibilité.",
+      "groups": [
+        {
+          "title": "Choisir un loisir ou un jeu adapté",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Relier le conseil aux participants, à leurs goûts et à leur disponibilité.",
+          "questions": [
+            {
+              "text": "Qu'est-ce qui rend cette activité particulièrement intéressante selon vous ?",
+              "legacy_memory_number": 10
+            },
+            {
+              "text": "Quel type de jeu conseillerais-tu pour une première soirée au club ?",
+              "legacy_memory_number": 10
+            },
+            "Pour mes neveux qui se disputent facilement, conseillerais-tu un jeu coopératif plutôt qu'un jeu de compétition ?",
+            "Quelle activité proposerais-tu au centre culturel à quelqu'un qui veut surtout rencontrer du monde sans suivre de cours ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "title": "Imprévus, souplesse et organisation",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Vérifier l'organisation pratique seulement quand elle concerne la participation envisagée.",
+      "groups": [
+        {
+          "title": "Imprévus, souplesse et organisation",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Vérifier l'organisation pratique seulement quand elle concerne la participation envisagée.",
+          "questions": [
+            {
+              "text": "Si un jour je ne peux pas venir à la pratique artistique, comment est-ce qu'on s'organise — il faut prévenir à l'avance ?",
+              "legacy_memory_number": 10
+            },
+            {
+              "text": "Pour venir à l'activité, il vaut mieux prendre les transports en commun ou il y a un parking à proximité ?",
+              "legacy_memory_number": 10
+            },
+            "Si une pièce manque au jeu emprunté, comment faut-il le signaler à la ludothèque ?",
+            "Si la météo nous empêche de jardiner, comment les participants sont-ils prévenus ?"
+          ]
+        }
+      ]
+    },
+    {
+      "number": 13,
+      "title": "Premier rendez-vous et projets personnels",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Confirmer la prochaine étape sans imposer une inscription à une activité libre.",
+      "groups": [
+        {
+          "title": "Premier rendez-vous et projets personnels",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Confirmer la prochaine étape sans imposer une inscription à une activité libre.",
+          "questions": [
+            {
+              "text": "Pour finir — si vous ne deviez me recommander qu'une seule activité, ce serait laquelle ?",
+              "legacy_memory_number": 10
+            },
+            {
+              "text": "Tu as de nouveaux projets artistiques ou des plans importants pour les prochains mois ?",
+              "legacy_memory_number": 10
+            },
+            "Pour ma première soirée au club, à qui dois-je me présenter en arrivant ?",
+            "Pour ce week-end avec mes neveux, quelle sortie courte permettrait d'alterner les jeux à la maison et une activité dehors ?"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -157,6 +157,7 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
                         "colleague-babysitter-referral-needs",
                         "friend-homeless-meal-volunteering",
                         "help-friend-post-parcel",
+                        "child-friends-family-holiday-invitation",
                     } else 1),
                 )
                 previous = revisions[revision]
@@ -542,8 +543,9 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertIn("Combien d'enfants", row.questions[4].question)
         self.assertIn("quels adultes", row.questions[4].question)
         self.assertIn("Trois enfants", row.questions[4].answer)
-        self.assertIn("un adulte sera-t-il", row.questions[6].question)
-        self.assertIn("quels équipements de sécurité", row.questions[6].question)
+        self.assertIn("chaque enfant", row.questions[6].question)
+        self.assertIn("gilet de sauvetage adapté à sa taille", row.questions[6].question)
+        self.assertIn("pendant toute l'activité", row.questions[6].answer)
         self.assertEqual(row.questions[6].follow_up_to, 6)
 
     def test_apartment_checks_include_plant_quantities_and_a_single_backup_contact_question(self):
@@ -803,8 +805,11 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertIn("dates du séjour", row.questions[0].question)
         self.assertIn("Où comptez-vous", row.questions[0].question)
         self.assertIn("Quel hébergement", row.questions[1].question)
-        self.assertIn("participation aux frais", row.questions[2].question)
-        self.assertIn("que couvrira-t-elle", row.questions[2].question)
+        self.assertIn("réservation à faire de mon côté", row.questions[1].question)
+        self.assertIn("déjà réservé", row.questions[1].answer)
+        self.assertIn("rien à réserver", row.questions[1].answer)
+        self.assertIn("Combien dois-je vous donner", row.questions[2].question)
+        self.assertIn("quels frais sont compris", row.questions[2].question)
         self.assertIn("avant le départ", row.questions[2].question)
         for detail in ("150 $", "repas et toutes les activités", "transport et le chalet"):
             self.assertIn(detail, row.questions[2].answer)

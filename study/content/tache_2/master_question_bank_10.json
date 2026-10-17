@@ -1,230 +1,227 @@
 {
   "number": 10,
-  "title": "Mémoire 10 · Cours, clubs & loisirs",
-  "label": "Cours, clubs & loisirs",
+  "title": "Mémoire 10 · Cours & ateliers",
+  "label": "Cours & ateliers",
   "icon": "pen-line",
-  "subtitle": "Découvrir et pratiquer un loisir : cours, ateliers, clubs, jeux et activités personnelles. Demander le contenu, le niveau, les créneaux, le matériel et les conditions de participation, sans confondre pratique artistique et spectacle à voir.",
+  "subtitle": "Se renseigner sur un cours de danse, de théâtre, de photo ou de musique, un professeur à domicile ou un atelier de cuisine. Choisir les questions adaptées à la consigne et au rôle de l'interlocuteur, sans redemander les faits connus. Distinguer un apprentissage encadré d'une simple activité de loisir.",
   "sections": [
     {
       "number": 1,
-      "title": "Ouverture et projet de loisir",
-      "guidance": "Adapter les questions à la consigne : ouverture et projet de loisir. Ne pas redemander les faits déjà connus.",
+      "title": "Premier contact et projet d'apprentissage",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Adapter le tutoiement à l'ami et le vouvoiement au professeur ou à l'école.",
       "groups": [
         {
-          "title": "Ouverture et projet de loisir",
-          "guidance": "Adapter les questions à la consigne : ouverture et projet de loisir. Ne pas redemander les faits déjà connus.",
+          "title": "Premier contact et projet d'apprentissage",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Adapter le tutoiement à l'ami et le vouvoiement au professeur ou à l'école.",
           "questions": [
-            "Salut ! Tu m'as dit que tu faisais une activité artistique — ça me tente d'essayer, tu peux m'en parler ?",
-            "D'après toi, quel type d'activité artistique aide le plus à se faire des amis durables ?",
-            "Tu as de nouveaux projets artistiques ou des plans importants pour les prochains mois ?",
-            "Bonjour ! J'aimerais rejoindre votre club de jeux de société, pourriez-vous me renseigner ?"
+            "Qu'est-ce qui t'a donné envie de t'inscrire à cet atelier artistique ?",
+            "Bonjour, je cherche des cours de guitare pour débuter ; quelle formule me conseilleriez-vous ?",
+            "Tu as suivi cet atelier de cuisine ; est-ce que je peux te demander comment il s'est déroulé ?",
+            "Pour commencer le théâtre, vaut-il mieux rejoindre le groupe en septembre ou peut-on arriver en cours d'année ?"
           ]
         }
       ]
     },
     {
       "number": 2,
-      "title": "Contenu des cours, jeux et activités",
-      "guidance": "Adapter les questions à la consigne : contenu des cours, jeux et activités. Ne pas redemander les faits déjà connus.",
+      "title": "Contenu et compétences travaillées",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Préciser le contenu du cours concerné, sans passer en revue des disciplines sans rapport.",
       "groups": [
         {
-          "title": "Contenu des cours, jeux et activités",
-          "guidance": "Adapter les questions à la consigne : contenu des cours, jeux et activités. Ne pas redemander les faits déjà connus.",
+          "title": "Contenu et compétences travaillées",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Préciser le contenu du cours concerné, sans passer en revue des disciplines sans rapport.",
           "questions": [
             "Qu'est-ce qu'on apprend concrètement — c'est plutôt technique, artistique ou un mélange des deux ?",
             "Quels types de thèmes sont abordés — portrait, paysage, photo de rue ou un peu de tout ?",
             "Quels styles de danse propose cette association ?",
-            "Quelles tâches réalise-t-on pendant les activités de jardinage ?"
+            "Pendant l'atelier de cuisine, prépare-t-on un repas complet ou seulement quelques recettes ?"
           ]
         }
       ]
     },
     {
       "number": 3,
-      "title": "Inscription, cotisation et séance d'essai",
-      "guidance": "Adapter les questions à la consigne : inscription, cotisation et séance d'essai. Ne pas redemander les faits déjà connus.",
+      "title": "Tarifs, formules et essai",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Comparer les formules sans présumer de la gratuité de l'essai.",
       "groups": [
         {
-          "title": "Inscription, cotisation et séance d'essai",
-          "guidance": "Adapter les questions à la consigne : inscription, cotisation et séance d'essai. Ne pas redemander les faits déjà connus.",
+          "title": "Tarifs, formules et essai",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Comparer les formules sans présumer de la gratuité de l'essai.",
           "questions": [
             "Parlons du coût — combien coûte l'inscription pour la session complète ?",
-            "Le tarif comprend quoi exactement — certaines activités sont-elles gratuites ?",
             "Comment fonctionnent les tarifs — à la séance, ou sous forme de forfait mensuel ?",
-            "Est-ce qu'on peut essayer avec un cours d'essai avant de s'engager ?"
+            "Est-ce qu'on peut essayer avec un cours d'essai avant de s'engager ?",
+            "Le cours individuel de guitare coûte-t-il davantage si le professeur se déplace chez moi ?"
           ]
         }
       ]
     },
     {
       "number": 4,
-      "title": "Horaires, durée et régularité",
-      "guidance": "Adapter les questions à la consigne : horaires, durée et régularité. Ne pas redemander les faits déjà connus.",
+      "title": "Calendrier et travail personnel",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Demander les créneaux et l'investissement compatibles avec son emploi du temps.",
       "groups": [
         {
-          "title": "Horaires, durée et régularité",
-          "guidance": "Adapter les questions à la consigne : horaires, durée et régularité. Ne pas redemander les faits déjà connus.",
+          "title": "Calendrier et travail personnel",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Demander les créneaux et l'investissement compatibles avec son emploi du temps.",
           "questions": [
             "Quelle est la durée d'une séance — environ une heure ou plutôt une heure et demie ?",
             "Les cours ont lieu quel jour — plutôt en semaine ou le week-end ?",
             "Combien de temps faut-il consacrer à la pratique entre deux cours de musique ?",
-            "À quelle fréquence te retrouves-tu avec les membres du club de jeux ?"
+            "Le calendrier des cours de théâtre suit-il les vacances scolaires ?"
           ]
         }
       ]
     },
     {
       "number": 5,
-      "title": "Lieu de pratique et accès",
-      "guidance": "Adapter les questions à la consigne : lieu de pratique et accès. Ne pas redemander les faits déjà connus.",
+      "title": "Locaux et cours à domicile",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Ne parler de déplacement à domicile que dans la situation qui le prévoit.",
       "groups": [
         {
-          "title": "Lieu de pratique et accès",
-          "guidance": "Adapter les questions à la consigne : lieu de pratique et accès. Ne pas redemander les faits déjà connus.",
+          "title": "Locaux et cours à domicile",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Ne parler de déplacement à domicile que dans la situation qui le prévoit.",
           "questions": [
-            {
-              "text": "Ça se passe où exactement — dans les locaux ou dans un lieu extérieur ?",
-              "legacy_memory_number": 9
-            },
             "Ça se passe où exactement — c'est facilement accessible en transports en commun ?",
-            "Le lieu est-il facilement accessible, et y a-t-il un parking à proximité ?",
-            "Pour venir à l'activité, il vaut mieux prendre les transports en commun ou il y a un parking à proximité ?"
+            "Dans quels quartiers le professeur peut-il se déplacer pour donner ses cours ?",
+            "Quelle place faut-il dégager chez moi pour accueillir un cours de musique ?",
+            "La sortie photo se fait-elle dans un lieu différent à chaque séance ?"
           ]
         }
       ]
     },
     {
       "number": 6,
-      "title": "Inscription, niveau et conditions de participation",
-      "guidance": "Adapter les questions à la consigne : inscription, niveau et conditions de participation. Ne pas redemander les faits déjà connus.",
+      "title": "Niveau, prérequis et inscription",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Vérifier les prérequis pertinents sans supposer qu'un débutant doit passer une audition.",
       "groups": [
         {
-          "title": "Inscription, niveau et conditions de participation",
-          "guidance": "Adapter les questions à la consigne : inscription, niveau et conditions de participation. Ne pas redemander les faits déjà connus.",
+          "title": "Niveau, prérequis et inscription",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Vérifier les prérequis pertinents sans supposer qu'un débutant doit passer une audition.",
           "questions": [
             "Y a-t-il des conditions particulières pour participer à l'atelier artistique — faut-il préparer quelque chose à l'avance ?",
             "Pour cet atelier artistique, ça s'adresse à quel niveau — faut-il déjà avoir des bases, ou les débutants sont acceptés ?",
-            "Comment s'inscrire au jeu organisé par votre librairie ?",
-            "Quelles conditions faut-il remplir pour participer à ce jeu télévisé ?"
+            "Comment évaluez-vous mon niveau pour m'orienter vers le bon groupe de danse ?",
+            "Quelles informations dois-je vous transmettre pour valider mon inscription à l'école de musique ?"
           ]
         }
       ]
     },
     {
       "number": 7,
-      "title": "Participants, équipes et encadrement",
-      "guidance": "Adapter les questions à la consigne : participants, équipes et encadrement. Ne pas redemander les faits déjà connus.",
+      "title": "Professeurs, groupes et accompagnement",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Faire préciser l'encadrement et l'attention accordée à chaque élève.",
       "groups": [
         {
-          "title": "Participants, équipes et encadrement",
-          "guidance": "Adapter les questions à la consigne : participants, équipes et encadrement. Ne pas redemander les faits déjà connus.",
+          "title": "Professeurs, groupes et accompagnement",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Faire préciser l'encadrement et l'attention accordée à chaque élève.",
           "questions": [
             "Il y a généralement combien de participants par groupe ? Et comment est l'ambiance ?",
-            "C'est en équipe ou individuellement ?",
             "Les professeurs sont-ils qualifiés dans l'activité que je souhaite apprendre ?",
-            "Vous avez mentionné des activités pour rencontrer d'autres habitants — vous pourriez m'en dire un peu plus ?"
+            "Lors des exercices de photographie, l'enseignant commente-t-il les images de chacun ?",
+            "Pour la danse, faut-il venir avec un partenaire ou les binômes se forment-ils sur place ?"
           ]
         }
       ]
     },
     {
       "number": 8,
-      "title": "Matériel et préparation de l'activité",
-      "guidance": "Adapter les questions à la consigne : matériel et préparation de l'activité. Ne pas redemander les faits déjà connus.",
+      "title": "Matériel et préparation",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Ne demander que le matériel correspondant au cours choisi.",
       "groups": [
         {
-          "title": "Matériel et préparation de l'activité",
-          "guidance": "Adapter les questions à la consigne : matériel et préparation de l'activité. Ne pas redemander les faits déjà connus.",
+          "title": "Matériel et préparation",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Ne demander que le matériel correspondant au cours choisi.",
           "questions": [
             "Quel type de matériel est recommandé — du matériel spécialisé ou quelque chose de plus simple suffit ?",
             "Y a-t-il du matériel fourni par l'association ou chacun doit venir avec son propre équipement ?",
-            "Qu'est-ce qu'il faut apporter comme équipement — ou est-ce que tout est fourni sur place ?",
-            "Faut-il apporter son propre matériel, ou l'école peut-elle en fournir pour commencer ?"
+            "Faut-il apporter son propre matériel, ou l'école peut-elle en fournir pour commencer ?",
+            "Pour le premier cours de guitare, dois-je déjà savoir accorder mon instrument ?"
           ]
         }
       ]
     },
     {
       "number": 9,
-      "title": "Locaux, ressources et services du club",
-      "guidance": "Adapter les questions à la consigne : locaux, ressources et services du club. Ne pas redemander les faits déjà connus.",
+      "title": "Ressources et services liés au cours",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Choisir les ressources utiles à sa pratique et éviter les demandes accessoires sans contexte.",
       "groups": [
         {
-          "title": "Locaux, ressources et services du club",
-          "guidance": "Adapter les questions à la consigne : locaux, ressources et services du club. Ne pas redemander les faits déjà connus.",
+          "title": "Ressources et services liés au cours",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Choisir les ressources utiles à sa pratique et éviter les demandes accessoires sans contexte.",
           "questions": [
             "Pour les repas, vous auriez des adresses à recommander près de l'atelier artistique ?",
-            "À la ludothèque, peut-on emprunter des jeux pour les essayer à la maison ?",
-            "Le club dispose-t-il de jeux sur place ou faut-il apporter les siens ?",
-            "L'école de musique permet-elle de répéter dans une salle entre les cours ?"
+            "L'école de musique permet-elle de répéter dans une salle entre les cours ?",
+            "Recevons-nous les fiches des recettes pour pouvoir les refaire chez nous ?",
+            "L'association de photographie prête-t-elle des appareils aux élèves qui n'en ont pas ?"
           ]
         }
       ]
     },
     {
       "number": 10,
-      "title": "Ambiance, motivation et expérience",
-      "guidance": "Adapter les questions à la consigne : ambiance, motivation et expérience. Ne pas redemander les faits déjà connus.",
+      "title": "Expérience et manière d'enseigner",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Un ancien participant peut décrire son expérience ; le professeur peut expliquer sa méthode.",
       "groups": [
         {
-          "title": "Ambiance, motivation et expérience",
-          "guidance": "Adapter les questions à la consigne : ambiance, motivation et expérience. Ne pas redemander les faits déjà connus.",
+          "title": "Expérience et manière d'enseigner",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Un ancien participant peut décrire son expérience ; le professeur peut expliquer sa méthode.",
           "questions": [
             "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
-            "Qu'est-ce qui t'a donné envie de t'inscrire à cet atelier artistique ?",
             "Pour finir, as-tu appris quelque chose de nouveau ou vécu une expérience vraiment marquante ?",
-            "Qu'est-ce qui t'a le plus surpris quand tu as participé au jeu télévisé ?"
+            "Au cours de théâtre, commencez-vous par des improvisations ou par un texte à apprendre ?",
+            "À l'atelier de cuisine, as-tu pu réaliser les gestes toi-même ou regardais-tu surtout le chef ?"
           ]
         }
       ]
     },
     {
       "number": 11,
-      "title": "Conseils pour choisir une activité",
-      "guidance": "Adapter les questions à la consigne : conseils pour choisir une activité. Ne pas redemander les faits déjà connus.",
+      "title": "Adéquation du cours et progression",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Relier la recommandation au niveau, à l'objectif et aux difficultés de l'apprenant.",
       "groups": [
         {
-          "title": "Conseils pour choisir une activité",
-          "guidance": "Adapter les questions à la consigne : conseils pour choisir une activité. Ne pas redemander les faits déjà connus.",
+          "title": "Adéquation du cours et progression",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Relier la recommandation au niveau, à l'objectif et aux difficultés de l'apprenant.",
           "questions": [
             "L'activité est agréable à suivre ou demande-t-elle beaucoup de concentration ?",
-            "Selon toi, qu'est-ce qui pourrait donner envie de découvrir cette activité ?",
-            "Qu'est-ce qui rend cette activité particulièrement intéressante selon vous ?",
-            "Quel type de jeu conseillerais-tu pour une première soirée au club ?"
+            "Pour photographier les fêtes de famille, quel cours serait le plus utile à une débutante ?",
+            "Au bout d'une première session de guitare, quels morceaux peut-on raisonnablement espérer jouer ?",
+            "Si je suis mal à l'aise à l'oral, comment le cours de théâtre m'aiderait-il à participer progressivement ?"
           ]
         }
       ]
     },
     {
       "number": 12,
-      "title": "Absences, engagement et annulation",
-      "guidance": "Adapter les questions à la consigne : absences, engagement et annulation. Ne pas redemander les faits déjà connus.",
+      "title": "Absences, engagement et changements",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Vérifier les conditions annoncées plutôt qu'affirmer un droit au rattrapage.",
       "groups": [
         {
-          "title": "Absences, engagement et annulation",
-          "guidance": "Adapter les questions à la consigne : absences, engagement et annulation. Ne pas redemander les faits déjà connus.",
+          "title": "Absences, engagement et changements",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Vérifier les conditions annoncées plutôt qu'affirmer un droit au rattrapage.",
           "questions": [
             "Si l'atelier artistique commence en retard ou s'il y a un imprévu, comment ça se passe ?",
-            "Si un jour je ne peux pas venir à la pratique artistique, comment est-ce qu'on s'organise — il faut prévenir à l'avance ?",
             "Une fois inscrit(e) à l'atelier artistique, on s'engage pour toute la session ou on peut venir de manière flexible ?",
-            "Quelles sont les conditions pour modifier ou annuler une inscription à l'activité artistique ?"
+            "Quelles sont les conditions pour modifier ou annuler une inscription à l'activité artistique ?",
+            "Si je manque une leçon individuelle, est-il possible de convenir d'un autre créneau ?"
           ]
         }
       ]
     },
     {
       "number": 13,
-      "title": "Premier contact, confirmation et suivi",
-      "guidance": "Adapter les questions à la consigne : premier contact, confirmation et suivi. Ne pas redemander les faits déjà connus.",
+      "title": "Coordonnées et première séance",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Confirmer les modalités utiles une fois le cours choisi.",
       "groups": [
         {
-          "title": "Premier contact, confirmation et suivi",
-          "guidance": "Adapter les questions à la consigne : premier contact, confirmation et suivi. Ne pas redemander les faits déjà connus.",
+          "title": "Coordonnées et première séance",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Confirmer les modalités utiles une fois le cours choisi.",
           "questions": [
-            "Pour finir — si vous ne deviez me recommander qu'une seule activité, ce serait laquelle ?",
             "À votre avis, le professeur accepterait de nouveaux élèves — vous auriez ses coordonnées ?",
             "Comment organiser une première rencontre avec le professeur de musique à domicile ?",
-            "Merci pour ces précisions, pourriez-vous me confirmer le créneau de la séance d'essai ?"
+            "Merci pour ces précisions, pourriez-vous me confirmer le créneau de la séance d'essai ?",
+            "Pour la première séance de danse, quelle tenue me permettra de bouger confortablement ?"
           ]
         }
       ]

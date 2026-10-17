@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "theme": "spectacles-festivals",
+  "name": "Cinéma, spectacles & festivals",
+  "entries": [
+    {
+      "id": "sormc01",
+      "kind": "mot-cle",
+      "french": "une salle de concert (f.)",
+      "anchor": "une salle de concert",
+      "english": "a concert hall",
+      "example": "Fréquentez-vous souvent une salle de concert dans cette ville ?",
+      "usage": "Groupe nominal désignant un lieu dédié aux représentations musicales."
+    },
+    {
+      "id": "sormc02",
+      "kind": "mot-cle",
+      "french": "un billet (m.)",
+      "anchor": "un billet",
+      "english": "a ticket",
+      "example": "Avez-vous réservé un billet à l'avance pour ce spectacle ?",
+      "usage": "Nom masculin désignant le titre d'accès à un événement."
+    },
+    {
+      "id": "sormc04",
+      "kind": "mot-cle",
+      "french": "un festival (m.)",
+      "anchor": "un festival",
+      "english": "a festival",
+      "example": "Participez-vous chaque année à un festival culturel dans votre région ?",
+      "usage": "Nom masculin désignant un événement rassemblant plusieurs représentations artistiques."
+    },
+    {
+      "id": "sormc05",
+      "kind": "mot-cle",
+      "french": "une file d'attente (f.)",
+      "anchor": "une file d'attente",
+      "english": "a lineup / queue",
+      "example": "Avez-vous dû patienter dans une file d'attente avant l'ouverture des portes ?",
+      "usage": "Groupe nominal désignant l'alignement de personnes attendant leur tour."
+    },
+    {
+      "id": "sormc06",
+      "kind": "mot-cle",
+      "french": "un artiste (m.)",
+      "anchor": "un artiste",
+      "english": "an artist / performer",
+      "example": "Aimeriez-vous rencontrer un artiste que vous admirez depuis longtemps ?",
+      "usage": "Nom masculin désignant une personne qui se produit sur scène ou expose son travail. Au féminin : une artiste."
+    },
+    {
+      "id": "sormc07",
+      "kind": "mot-cle",
+      "french": "une réservation (f.)",
+      "anchor": "une réservation",
+      "english": "a booking / reservation",
+      "example": "Faut-il faire une réservation plusieurs semaines à l'avance pour ce théâtre ?",
+      "usage": "Nom féminin désignant la démarche pour garantir une place à un événement."
+    },
+    {
+      "id": "sormc08",
+      "kind": "mot-cle",
+      "french": "un cinéma en plein air (m.)",
+      "anchor": "un cinéma en plein air",
+      "english": "an outdoor cinema",
+      "example": "Avez-vous déjà vu un film dans un cinéma en plein air pendant l'été ?",
+      "usage": "Groupe nominal désignant une projection de film organisée à l'extérieur."
+    },
+    {
+      "id": "sormc10",
+      "kind": "mot-cle",
+      "french": "un spectacle en direct (m.)",
+      "anchor": "un spectacle en direct",
+      "english": "a live show",
+      "example": "Préférez-vous un spectacle en direct plutôt qu'une captation télévisée ?",
+      "usage": "Groupe nominal désignant une représentation se déroulant devant un public présent."
+    },
+    {
+      "id": "sormc12",
+      "kind": "mot-cle",
+      "french": "un abonnement culturel (m.)",
+      "anchor": "un abonnement culturel",
+      "english": "a cultural subscription",
+      "example": "Avez-vous pris un abonnement culturel pour assister à plusieurs spectacles ?",
+      "usage": "Groupe nominal désignant un accès régulier à des événements culturels."
+    },
+    {
+      "id": "sormc13",
+      "kind": "mot-cle",
+      "french": "une comédie musicale (f.)",
+      "anchor": "une comédie musicale",
+      "english": "a musical",
+      "example": "Avez-vous déjà assisté à une comédie musicale à grand succès ?",
+      "usage": "Groupe nominal désignant un spectacle mêlant théâtre, chant et danse."
+    },
+    {
+      "id": "sormc15",
+      "kind": "mot-cle",
+      "french": "un tarif étudiant (m.)",
+      "anchor": "un tarif étudiant",
+      "english": "a student rate",
+      "example": "Ce théâtre propose-t-il un tarif étudiant pour les représentations en semaine ?",
+      "usage": "Groupe nominal désignant un prix réduit accordé aux étudiants."
+    },
+    {
+      "id": "csfmc01",
+      "kind": "mot-cle",
+      "french": "une première partie (f.)",
+      "anchor": "une première partie",
+      "english": "a support act",
+      "example": "Y aura-t-il une première partie avant le groupe que nous allons voir ?",
+      "usage": "Au concert, désigne la prestation qui précède l'artiste principal."
+    },
+    {
+      "id": "csfmc02",
+      "kind": "mot-cle",
+      "french": "un entracte (m.)",
+      "anchor": "un entracte",
+      "english": "an interval",
+      "example": "Le spectacle prévoit-il un entracte assez long pour prendre une boisson ?",
+      "usage": "Pour connaître une pause pendant une représentation."
+    },
+    {
+      "id": "csfmc03",
+      "kind": "mot-cle",
+      "french": "un billet nominatif (m.)",
+      "anchor": "un billet nominatif",
+      "english": "a ticket issued in someone's name",
+      "example": "Si tu me cèdes un billet nominatif, comment faire modifier le nom auprès de l'organisateur ?",
+      "usage": "Pour vérifier un transfert de billet sans présumer qu'il est autorisé."
+    },
+    {
+      "id": "csfmc04",
+      "kind": "mot-cle",
+      "french": "une séance sous-titrée (f.)",
+      "anchor": "une séance sous-titrée",
+      "english": "a subtitled screening",
+      "example": "Votre cinéma propose-t-il une séance sous-titrée en français pour ce film ce week-end ?",
+      "usage": "Pour choisir les modalités d'une projection, non commenter le film."
+    },
+    {
+      "id": "soreu02",
+      "kind": "expression-utile",
+      "french": "réserver ses places",
+      "anchor": "réserver vos places",
+      "english": "to book one's seats",
+      "example": "Préférez-vous réserver vos places en ligne ou directement sur place ?",
+      "usage": "Expression pour désigner l'achat anticipé de billets."
+    },
+    {
+      "id": "soreu03",
+      "kind": "expression-utile",
+      "french": "assister à un spectacle",
+      "anchor": "assistez-vous à un spectacle",
+      "english": "to attend a show",
+      "example": "Combien de fois par mois assistez-vous à un spectacle en général ?",
+      "usage": "Expression pour désigner la présence à une représentation artistique."
+    },
+    {
+      "id": "soreu04",
+      "kind": "expression-utile",
+      "french": "faire salle comble",
+      "anchor": "fait-il toujours salle comble",
+      "english": "to have a full house",
+      "example": "Ce spectacle fait-il toujours salle comble malgré les critiques mitigées ?",
+      "usage": "Expression imagée signifiant remplir entièrement une salle de spectacle."
+    },
+    {
+      "id": "soreu05",
+      "kind": "expression-utile",
+      "french": "se procurer des billets",
+      "anchor": "se procurer des billets",
+      "english": "to get tickets",
+      "example": "Est-il difficile de se procurer des billets pour ce festival populaire ?",
+      "usage": "Expression pour désigner l'obtention de titres d'accès à un événement."
+    },
+    {
+      "id": "soreu06",
+      "kind": "expression-utile",
+      "french": "être sur liste d'attente",
+      "anchor": "sur liste d'attente",
+      "english": "to be on a waiting list",
+      "example": "Vous êtes-vous déjà retrouvé sur liste d'attente pour un spectacle complet ?",
+      "usage": "Expression pour évoquer une situation d'attente en cas de places épuisées."
+    },
+    {
+      "id": "soreu07",
+      "kind": "expression-utile",
+      "french": "vivre un moment inoubliable",
+      "anchor": "vivre un moment inoubliable",
+      "english": "to experience an unforgettable moment",
+      "example": "Ce concert vous a-t-il fait vivre un moment inoubliable ?",
+      "usage": "Expression pour qualifier une expérience culturelle particulièrement marquante."
+    },
+    {
+      "id": "soreu09",
+      "kind": "expression-utile",
+      "french": "manquer un événement",
+      "anchor": "manqué un événement",
+      "english": "to miss an event",
+      "example": "Regrettez-vous d'avoir manqué un événement important cette année ?",
+      "usage": "Expression pour désigner l'absence à une représentation prévue."
+    },
+    {
+      "id": "soreu10",
+      "kind": "expression-utile",
+      "french": "profiter de la programmation",
+      "anchor": "profiter de la programmation",
+      "english": "to take advantage of the lineup",
+      "example": "Comptez-vous profiter de la programmation estivale du festival ?",
+      "usage": "Expression pour évoquer l'exploitation de l'offre culturelle disponible."
+    },
+    {
+      "id": "soreu11",
+      "kind": "expression-utile",
+      "french": "applaudir à tout rompre",
+      "anchor": "applaudi à tout rompre",
+      "english": "to applaud enthusiastically",
+      "example": "Le public a-t-il applaudi à tout rompre à la fin du spectacle ?",
+      "usage": "Expression imagée signifiant manifester un enthousiasme très fort."
+    },
+    {
+      "id": "soreu12",
+      "kind": "expression-utile",
+      "french": "profiter de l'ambiance du festival",
+      "anchor": "profiter de l'ambiance du festival",
+      "english": "to enjoy the festival atmosphere",
+      "example": "Qu'est-ce qui vous plaît le plus dans le fait de profiter de l'ambiance du festival ?",
+      "usage": "Expression pour évoquer le plaisir ressenti dans l'ambiance générale d'un événement culturel."
+    },
+    {
+      "id": "soreu14",
+      "kind": "expression-utile",
+      "french": "changer ses plans au dernier moment",
+      "anchor": "changer vos plans au dernier moment",
+      "english": "to change one's plans at the last minute",
+      "example": "Avez-vous déjà dû changer vos plans au dernier moment pour assister à ce spectacle ?",
+      "usage": "Expression pour évoquer un imprévu obligeant à modifier une sortie prévue."
+    },
+    {
+      "id": "svseu01",
+      "kind": "expression-utile",
+      "french": "prévoir le retour après la sortie",
+      "anchor": "prévoir le retour après la sortie",
+      "english": "to plan the journey home after an outing",
+      "example": "Comment prévoir le retour après la sortie si le spectacle finit après le dernier métro ?",
+      "usage": "Expression pour anticiper les déplacements en fin de soirée."
+    },
+    {
+      "id": "csfeu01",
+      "kind": "expression-utile",
+      "french": "céder ses billets à un proche",
+      "anchor": "céder ses billets à un proche",
+      "english": "to transfer one's tickets to someone close",
+      "example": "L'organisateur permet-il de céder ses billets à un proche si l'on ne peut plus venir au festival ?",
+      "usage": "Pour vérifier la possibilité de transmettre des places."
+    },
+    {
+      "id": "csfeu02",
+      "kind": "expression-utile",
+      "french": "repérer son siège avant le début",
+      "anchor": "repérer son siège avant le début",
+      "english": "to locate one's seat before the start",
+      "example": "Combien de temps faut-il prévoir pour repérer son siège avant le début du spectacle ?",
+      "usage": "Pour anticiper l'installation dans la salle."
+    },
+    {
+      "id": "csfeu03",
+      "kind": "expression-utile",
+      "french": "enchaîner deux concerts sur des scènes différentes",
+      "anchor": "enchaîner deux concerts sur des scènes différentes",
+      "english": "to attend two concerts in succession on different stages",
+      "example": "Est-il réaliste d'enchaîner deux concerts sur des scènes différentes avec seulement dix minutes entre les deux ?",
+      "usage": "Pour organiser son parcours sur un festival."
+    },
+    {
+      "id": "sorfr01",
+      "kind": "fragment",
+      "french": "À quoi ressemble concrètement…",
+      "anchor": "à quoi ressemble concrètement",
+      "english": "What does… actually look like",
+      "example": "À quoi ressemble concrètement une soirée type dans ce festival ?",
+      "usage": "Amorce pour demander une description concrète du déroulement d'un événement culturel."
+    },
+    {
+      "id": "sorfr02",
+      "kind": "fragment",
+      "french": "Si je comprends bien, ce festival propose…",
+      "anchor": "si je comprends bien, ce festival propose",
+      "english": "If I understand correctly, this festival offers…",
+      "example": "Si je comprends bien, ce festival propose plusieurs scènes en simultané ?",
+      "usage": "Amorce pour reformuler et vérifier le contenu d'un événement."
+    },
+    {
+      "id": "sorfr03",
+      "kind": "fragment",
+      "french": "Qu'est-ce qui vous a donné envie d'assister à…",
+      "anchor": "qu'est-ce qui vous a donné envie d'assister à",
+      "english": "What made you want to attend…",
+      "example": "Qu'est-ce qui vous a donné envie d'assister à ce spectacle en particulier ?",
+      "usage": "Amorce pour explorer les motivations d'une sortie culturelle."
+    },
+    {
+      "id": "sorfr04",
+      "kind": "fragment",
+      "french": "Pourriez-vous décrire l'atmosphère de…",
+      "anchor": "pourriez-vous décrire l'atmosphère de",
+      "english": "Could you describe the atmosphere of…",
+      "example": "Pourriez-vous décrire l'atmosphère de cette salle de concert ?",
+      "usage": "Amorce polie pour demander une description sensorielle d'un lieu."
+    },
+    {
+      "id": "sorfr05",
+      "kind": "fragment",
+      "french": "Diriez-vous que le meilleur moment, c'était…",
+      "anchor": "diriez-vous que le meilleur moment, c'était",
+      "english": "Would you say the best moment was…",
+      "example": "Diriez-vous que le meilleur moment, c'était le rappel final ?",
+      "usage": "Amorce pour faire hiérarchiser les temps forts d'un spectacle."
+    },
+    {
+      "id": "sorfr06",
+      "kind": "fragment",
+      "french": "En comparaison avec l'an dernier, ce festival…",
+      "anchor": "en comparaison avec l'an dernier, ce festival",
+      "english": "Compared to last year, this festival…",
+      "example": "En comparaison avec l'an dernier, ce festival attire-t-il plus de monde ?",
+      "usage": "Amorce pour comparer deux éditions d'un même événement."
+    },
+    {
+      "id": "sorfr07",
+      "kind": "fragment",
+      "french": "Est-ce que vous pourriez revenir sur l'organisation de…",
+      "anchor": "est-ce que vous pourriez revenir sur l'organisation de",
+      "english": "Could you go back over the organization of…",
+      "example": "Est-ce que vous pourriez revenir sur l'organisation de cette soirée particulière ?",
+      "usage": "Amorce pour demander de développer un point déjà mentionné."
+    },
+    {
+      "id": "sorfr08",
+      "kind": "fragment",
+      "french": "Autrement dit, sans cette réservation, vous…",
+      "anchor": "autrement dit, sans cette réservation, vous",
+      "english": "In other words, without that reservation, you…",
+      "example": "Autrement dit, sans cette réservation, vous n'auriez pas pu entrer ?",
+      "usage": "Amorce pour reformuler une conséquence logique."
+    },
+    {
+      "id": "sorfr11",
+      "kind": "fragment",
+      "french": "Vous voulez dire que malgré la file d'attente, vous…",
+      "anchor": "vous voulez dire que malgré la file d'attente, vous",
+      "english": "You mean that despite the lineup, you…",
+      "example": "Vous voulez dire que malgré la file d'attente, vous avez pu entrer à temps ?",
+      "usage": "Amorce pour vérifier une interprétation malgré une contrainte pratique."
+    },
+    {
+      "id": "sorfr14",
+      "kind": "fragment",
+      "french": "Juste pour bien comprendre, cet artiste dont vous parlez…",
+      "anchor": "juste pour bien comprendre, cet artiste dont vous parlez",
+      "english": "Just to make sure I understand, the artist you mention…",
+      "example": "Juste pour bien comprendre, cet artiste dont vous parlez se produit bien ce soir ?",
+      "usage": "Amorce pour clarifier un détail relatif à une personne mentionnée."
+    },
+    {
+      "id": "sorfr15",
+      "kind": "fragment",
+      "french": "Et si le spectacle était annulé, comment…",
+      "anchor": "et si le spectacle était annulé à la dernière minute, comment",
+      "english": "And if the show were cancelled, how…",
+      "example": "Et si le spectacle était annulé à la dernière minute, comment réagiriez-vous ?",
+      "usage": "Amorce hypothétique pour explorer un scénario imprévu."
+    },
+    {
+      "id": "csffr01",
+      "kind": "fragment",
+      "french": "Si je reprends tes places de festival…",
+      "anchor": "Si je reprends tes places de festival",
+      "english": "If I take your festival tickets…",
+      "example": "Si je reprends tes places de festival, pourrais-tu aussi me transmettre le courriel de confirmation ?",
+      "usage": "Pour organiser concrètement la reprise de billets inutilisés."
+    },
+    {
+      "id": "csffr02",
+      "kind": "fragment",
+      "french": "Pour assister à la séance en version originale…",
+      "anchor": "Pour assister à la séance en version originale",
+      "english": "To attend the original-language screening…",
+      "example": "Pour assister à la séance en version originale, faut-il réserver dans une salle particulière ?",
+      "usage": "Pour préciser le choix d'une projection au cinéma."
+    },
+    {
+      "id": "csffr03",
+      "kind": "fragment",
+      "french": "Entre l'ouverture des portes et le début du concert…",
+      "anchor": "Entre l'ouverture des portes et le début du concert",
+      "english": "Between the doors opening and the concert starting…",
+      "example": "Entre l'ouverture des portes et le début du concert, peut-on entrer à n'importe quel moment ?",
+      "usage": "Pour clarifier l'heure d'arrivée possible."
+    },
+    {
+      "id": "csffr04",
+      "kind": "fragment",
+      "french": "En cas de changement d'horaire d'un artiste…",
+      "anchor": "En cas de changement d'horaire d'un artiste",
+      "english": "If an artist's performance time changes…",
+      "example": "En cas de changement d'horaire d'un artiste, comment les festivaliers sont-ils informés ?",
+      "usage": "Pour anticiper un ajustement du programme sans l'affirmer."
+    }
+  ]
+}

@@ -22,8 +22,10 @@ NEIGHBOURHOOD_GROUPS = {
         "volunteer-local-association-information-office",
     },
     "sorties-spectacles": {
-        "friend-entertain-visiting-nephews",
         "host-foreign-friends-city-advice",
+    },
+    "loisirs-clubs-jeux": {
+        "friend-entertain-visiting-nephews",
     },
 }
 

@@ -189,77 +189,77 @@
       "questions": [
         {
           "text": "Bonjour ! Je m'intéresse aux activités de votre centre culturel — sont-elles ouvertes à tous les habitants ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 4
         },
         {
           "text": "Les activités ont lieu au centre ou aussi dans d'autres lieux de la ville ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 5
         },
         {
           "text": "Quels types d'activités proposez-vous — des ateliers artistiques, des spectacles ou d'autres activités culturelles ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 2
         },
         {
           "text": "Organisez-vous des cours ou des ateliers réguliers ? Si oui, dans quels domaines précisément ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 2
         },
         {
           "text": "Proposez-vous également des spectacles — des concerts, des pièces de théâtre ou des projections de films ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 2
         },
         {
           "text": "Organisez-vous des expositions en ce moment, et jusqu'à quand peut-on les visiter ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 2
         },
         {
           "text": "Pour ce qui est des services, proposez-vous des activités spécifiques pendant les vacances scolaires, notamment pour les enfants ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 2
         },
         {
           "text": "Il y a généralement combien de participants par atelier — c'est un petit groupe ou une grande classe ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 7
         },
         {
           "text": "Comment est l'ambiance en général — plutôt formelle ou décontractée ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 10
         },
         {
           "text": "Côté horaires, à quelle heure commencent les cours et les ateliers — plutôt le matin ou en fin de journée ? Et vous êtes ouverts le week-end ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 4
         },
         {
           "text": "Comment se passe l'inscription — en ligne ou sur place, et combien de temps à l'avance ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 6
         },
         {
           "text": "En ce qui concerne le budget, comment fonctionnent les tarifs — faut-il souscrire à un abonnement ou payer chaque activité séparément ? Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 3
         },
         {
           "text": "Le tarif comprend quoi exactement — certaines activités sont-elles gratuites ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 3
         },
         {
           "text": "Les salles sont-elles accessibles aux personnes à mobilité réduite ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 9
         },
         {
           "text": "Pour finir — si vous ne deviez me recommander qu'une seule activité, ce serait laquelle ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 13
         }
       ]

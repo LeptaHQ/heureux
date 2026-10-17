@@ -1,7 +1,7 @@
 {
   "version": 1,
   "theme": "arts-loisirs",
-  "name": "Cours, clubs & loisirs",
+  "name": "Cours & ateliers",
   "entries": [
     {
       "id": "artmc01",
@@ -11,15 +11,6 @@
       "english": "a creative workshop",
       "example": "Participez-vous régulièrement à un atelier créatif ?",
       "usage": "Groupe nominal désignant une activité pratique d'apprentissage artistique."
-    },
-    {
-      "id": "artmc03",
-      "kind": "mot-cle",
-      "french": "un passe-temps (m.)",
-      "anchor": "un passe-temps",
-      "english": "a hobby",
-      "example": "Avez-vous un passe-temps que vous pratiquez régulièrement après le travail ?",
-      "usage": "Nom masculin désignant une activité de loisir pratiquée régulièrement."
     },
     {
       "id": "artmc04",
@@ -49,24 +40,6 @@
       "usage": "Groupe nominal désignant l'ensemble des fournitures nécessaires à une pratique créative."
     },
     {
-      "id": "artmc09",
-      "kind": "mot-cle",
-      "french": "un club de lecture (m.)",
-      "anchor": "un club de lecture",
-      "english": "a book club",
-      "example": "Faites-vous partie d'un club de lecture depuis longtemps ?",
-      "usage": "Groupe nominal désignant un groupe qui se réunit pour discuter de lectures communes."
-    },
-    {
-      "id": "artmc11",
-      "kind": "mot-cle",
-      "french": "un talent artistique (m.)",
-      "anchor": "un talent artistique",
-      "english": "an artistic talent",
-      "example": "Diriez-vous que vous avez un talent artistique particulier ?",
-      "usage": "Groupe nominal désignant une aptitude naturelle pour une discipline créative."
-    },
-    {
       "id": "artmc12",
       "kind": "mot-cle",
       "french": "un studio de danse (m.)",
@@ -83,42 +56,6 @@
       "english": "an artistic technique",
       "example": "Avez-vous mis longtemps à maîtriser une technique artistique en particulier ?",
       "usage": "Groupe nominal désignant une méthode utilisée dans une pratique créative."
-    },
-    {
-      "id": "artmc14",
-      "kind": "mot-cle",
-      "french": "un objet fait main (m.)",
-      "anchor": "un objet fait main",
-      "english": "a handmade object",
-      "example": "Avez-vous déjà offert un objet fait main à quelqu'un ?",
-      "usage": "Groupe nominal désignant une création fabriquée artisanalement."
-    },
-    {
-      "id": "artmc15",
-      "kind": "mot-cle",
-      "french": "une pause créative (f.)",
-      "anchor": "une pause créative",
-      "english": "a creative break",
-      "example": "Prenez-vous parfois une pause créative pendant votre journée de travail ?",
-      "usage": "Groupe nominal désignant un moment consacré à une activité artistique."
-    },
-    {
-      "id": "cclmc01",
-      "kind": "mot-cle",
-      "french": "un jeu de société (m.)",
-      "anchor": "un jeu de société",
-      "english": "a board game",
-      "example": "Quel serait un jeu de société adapté aux nouveaux membres du club ?",
-      "usage": "Groupe nominal pour un jeu pratiqué à plusieurs autour d'une table."
-    },
-    {
-      "id": "cclmc02",
-      "kind": "mot-cle",
-      "french": "une ludothèque (f.)",
-      "anchor": "une ludothèque",
-      "english": "a toy and game library",
-      "example": "Comment s'inscrire dans une ludothèque pour emprunter des jeux ?",
-      "usage": "Nom féminin désignant un lieu de prêt et de découverte de jeux."
     },
     {
       "id": "cclmc03",
@@ -139,6 +76,69 @@
       "usage": "Groupe nominal pour des participants qui commencent une pratique."
     },
     {
+      "id": "catmc01",
+      "kind": "mot-cle",
+      "french": "un cours particulier (m.)",
+      "anchor": "un cours particulier",
+      "english": "a private lesson",
+      "example": "Pour débuter la guitare, quelle durée conseillez-vous pour un cours particulier ?",
+      "usage": "Pour distinguer une leçon individuelle d'un cours collectif."
+    },
+    {
+      "id": "catmc02",
+      "kind": "mot-cle",
+      "french": "un professeur à domicile (m.)",
+      "anchor": "un professeur à domicile",
+      "english": "a teacher who comes to your home",
+      "example": "Pourrais-tu me recommander un professeur à domicile qui accepte les adultes débutants en musique ?",
+      "usage": "Pour demander un contact adapté au lieu et au niveau souhaités."
+    },
+    {
+      "id": "catmc03",
+      "kind": "mot-cle",
+      "french": "un échauffement vocal (m.)",
+      "anchor": "un échauffement vocal",
+      "english": "a vocal warm-up",
+      "example": "Le cours de théâtre commence-t-il par un échauffement vocal accessible aux débutants ?",
+      "usage": "Pour préciser une étape de préparation de la voix."
+    },
+    {
+      "id": "catmc04",
+      "kind": "mot-cle",
+      "french": "une partition simplifiée (f.)",
+      "anchor": "une partition simplifiée",
+      "english": "a simplified score",
+      "example": "Fournissez-vous une partition simplifiée pour travailler le premier morceau à la maison ?",
+      "usage": "Pour demander un support musical adapté au niveau."
+    },
+    {
+      "id": "catmc05",
+      "kind": "mot-cle",
+      "french": "un réglage manuel (m.)",
+      "anchor": "un réglage manuel",
+      "english": "a manual setting",
+      "example": "Pendant le cours de photo, apprend-on à choisir un réglage manuel selon la lumière ?",
+      "usage": "Pour interroger une compétence technique en photographie."
+    },
+    {
+      "id": "catmc06",
+      "kind": "mot-cle",
+      "french": "un poste de cuisine (m.)",
+      "anchor": "un poste de cuisine",
+      "english": "a cooking workstation",
+      "example": "À l'atelier, chaque participant dispose-t-il d'un poste de cuisine ou travaille-t-on à deux ?",
+      "usage": "Pour connaître les conditions de la pratique culinaire."
+    },
+    {
+      "id": "catmc07",
+      "kind": "mot-cle",
+      "french": "une correction individuelle (f.)",
+      "anchor": "une correction individuelle",
+      "english": "individual feedback and correction",
+      "example": "Dans ce groupe de danse, reçoit-on une correction individuelle pour améliorer ses mouvements ?",
+      "usage": "Pour vérifier l'accompagnement personnel au sein du cours."
+    },
+    {
       "id": "soreu13",
       "kind": "expression-utile",
       "french": "monter sur scène",
@@ -146,33 +146,6 @@
       "english": "to go on stage",
       "example": "Avez-vous déjà rêvé de monter sur scène vous-même ?",
       "usage": "Expression pour désigner l'action de se produire devant un public."
-    },
-    {
-      "id": "arteu01",
-      "kind": "expression-utile",
-      "french": "s'adonner à un loisir",
-      "anchor": "vous adonner à un loisir",
-      "english": "to devote oneself to / engage in a hobby",
-      "example": "Aimez-vous vous adonner à un loisir chaque week-end ?",
-      "usage": "Expression pour désigner la pratique régulière d'une activité de détente."
-    },
-    {
-      "id": "arteu02",
-      "kind": "expression-utile",
-      "french": "exprimer sa créativité",
-      "anchor": "exprimer votre créativité",
-      "english": "to express one's creativity",
-      "example": "Comment aimez-vous exprimer votre créativité au quotidien ?",
-      "usage": "Expression pour évoquer la manifestation personnelle d'un talent artistique."
-    },
-    {
-      "id": "arteu03",
-      "kind": "expression-utile",
-      "french": "se ressourcer par l'art",
-      "anchor": "vous ressourcez par l'art",
-      "english": "to recharge through art",
-      "example": "Diriez-vous que vous vous ressourcez par l'art après une semaine chargée ?",
-      "usage": "Expression pour évoquer les bienfaits relaxants d'une pratique artistique."
     },
     {
       "id": "arteu04",
@@ -193,15 +166,6 @@
       "usage": "Expression pour évoquer l'amélioration progressive d'une compétence artistique."
     },
     {
-      "id": "arteu06",
-      "kind": "expression-utile",
-      "french": "partager sa passion",
-      "anchor": "partager sa passion",
-      "english": "to share one's passion",
-      "example": "Est-ce facile de partager sa passion pour l'art avec des proches moins intéressés ?",
-      "usage": "Expression pour évoquer la transmission d'un enthousiasme artistique à autrui."
-    },
-    {
       "id": "arteu07",
       "kind": "expression-utile",
       "french": "s'inscrire à un atelier",
@@ -209,33 +173,6 @@
       "english": "to sign up for a workshop",
       "example": "Envisagez-vous de vous inscrire à un atelier de céramique cette année ?",
       "usage": "Expression verbale pour désigner l'inscription à une activité créative."
-    },
-    {
-      "id": "arteu08",
-      "kind": "expression-utile",
-      "french": "exposer ses créations",
-      "anchor": "exposer vos créations",
-      "english": "to display one's creations",
-      "example": "Avez-vous déjà eu l'occasion d'exposer vos créations en public ?",
-      "usage": "Expression pour évoquer la présentation d'œuvres personnelles au public."
-    },
-    {
-      "id": "arteu10",
-      "kind": "expression-utile",
-      "french": "développer sa fibre artistique",
-      "anchor": "développé votre fibre artistique",
-      "english": "to develop one's artistic side",
-      "example": "Comment avez-vous développé votre fibre artistique depuis l'enfance ?",
-      "usage": "Expression imagée signifiant cultiver une sensibilité créative."
-    },
-    {
-      "id": "arteu11",
-      "kind": "expression-utile",
-      "french": "consacrer du temps à un loisir",
-      "anchor": "consacrer du temps à un loisir",
-      "english": "to devote time to a hobby",
-      "example": "Arrivez-vous à consacrer du temps à un loisir malgré un emploi du temps chargé ?",
-      "usage": "Expression pour évoquer l'engagement de temps libre dans une activité."
     },
     {
       "id": "arteu12",
@@ -247,24 +184,6 @@
       "usage": "Expression pour évoquer la progression continue dans une pratique choisie."
     },
     {
-      "id": "arteu13",
-      "kind": "expression-utile",
-      "french": "trouver l'inspiration",
-      "anchor": "trouvez-vous l'inspiration",
-      "english": "to find inspiration",
-      "example": "Où trouvez-vous l'inspiration pour vos projets créatifs ?",
-      "usage": "Expression pour évoquer la source d'idées d'une démarche artistique."
-    },
-    {
-      "id": "arteu14",
-      "kind": "expression-utile",
-      "french": "bricoler à la maison",
-      "anchor": "bricoler à la maison",
-      "english": "to do DIY or crafts at home",
-      "example": "Aimez-vous bricoler à la maison pendant votre temps libre ?",
-      "usage": "Expression courante pour désigner des activités manuelles pratiquées chez soi."
-    },
-    {
       "id": "arteu15",
       "kind": "expression-utile",
       "french": "assouvir sa curiosité artistique",
@@ -272,6 +191,87 @@
       "english": "to satisfy one's artistic curiosity",
       "example": "Ce cours vous permet-il d'assouvir votre curiosité artistique ?",
       "usage": "Expression pour évoquer la satisfaction d'un intérêt créatif particulier."
+    },
+    {
+      "id": "cateu01",
+      "kind": "expression-utile",
+      "french": "prendre un cours à domicile",
+      "anchor": "prendre un cours à domicile",
+      "english": "to have a lesson at home",
+      "example": "Si je souhaite prendre un cours à domicile, quel espace dois-je préparer pour le professeur ?",
+      "usage": "Pour aborder l'organisation d'une leçon chez l'élève."
+    },
+    {
+      "id": "cateu02",
+      "kind": "expression-utile",
+      "french": "bénéficier d'un retour personnalisé",
+      "anchor": "bénéficier d'un retour personnalisé",
+      "english": "to receive personalised feedback",
+      "example": "Au cours de photographie, peut-on bénéficier d'un retour personnalisé sur ses propres images ?",
+      "usage": "Pour demander comment l'enseignant accompagne les progrès."
+    },
+    {
+      "id": "cateu03",
+      "kind": "expression-utile",
+      "french": "travailler un morceau à son rythme",
+      "anchor": "travailler un morceau à son rythme",
+      "english": "to practise a piece at one's own pace",
+      "example": "Est-il possible de travailler un morceau à son rythme sans devoir avancer aussi vite que tout le groupe ?",
+      "usage": "Pour vérifier la souplesse de l'apprentissage musical."
+    },
+    {
+      "id": "cateu04",
+      "kind": "expression-utile",
+      "french": "apprendre les gestes de base",
+      "anchor": "apprendre les gestes de base",
+      "english": "to learn the basic techniques",
+      "example": "Cet atelier de cuisine permet-il d'apprendre les gestes de base avant de réaliser les recettes ?",
+      "usage": "Pour préciser les apprentissages attendus par un débutant."
+    },
+    {
+      "id": "cateu05",
+      "kind": "expression-utile",
+      "french": "alterner théorie et exercices",
+      "anchor": "alterner théorie et exercices",
+      "english": "to alternate theory and exercises",
+      "example": "Comment faites-vous pour alterner théorie et exercices pendant une séance de photographie ?",
+      "usage": "Pour interroger la structure pédagogique du cours."
+    },
+    {
+      "id": "cateu06",
+      "kind": "expression-utile",
+      "french": "rattraper une séance manquée",
+      "anchor": "rattraper une séance manquée",
+      "english": "to make up a missed session",
+      "example": "Est-il possible de rattraper une séance manquée avec un autre groupe de danse ?",
+      "usage": "Pour demander une possibilité, non affirmer un droit au rattrapage."
+    },
+    {
+      "id": "cateu07",
+      "kind": "expression-utile",
+      "french": "adapter les exercices à son niveau",
+      "anchor": "adapter les exercices à son niveau",
+      "english": "to adapt the exercises to one's level",
+      "example": "Au théâtre, peut-on adapter les exercices à son niveau si l'on n'a jamais joué devant un groupe ?",
+      "usage": "Pour vérifier l'accueil des personnes sans expérience."
+    },
+    {
+      "id": "cateu08",
+      "kind": "expression-utile",
+      "french": "se répartir les étapes d'une recette",
+      "anchor": "se répartir les étapes d'une recette",
+      "english": "to divide up the steps of a recipe",
+      "example": "À l'atelier de cuisine, comment fait-on pour se répartir les étapes d'une recette sans rester simple spectateur ?",
+      "usage": "Pour connaître la participation effective de chacun."
+    },
+    {
+      "id": "cateu09",
+      "kind": "expression-utile",
+      "french": "oser improviser devant le groupe",
+      "anchor": "oser improviser devant le groupe",
+      "english": "to dare to improvise in front of the group",
+      "example": "Quels exercices proposeriez-vous pour oser improviser devant le groupe quand on est timide ?",
+      "usage": "Pour relier l'accompagnement à une difficulté concrète."
     },
     {
       "id": "artfr01",
@@ -292,42 +292,6 @@
       "usage": "Amorce pour reformuler et vérifier le contenu d'un cours."
     },
     {
-      "id": "artfr03",
-      "kind": "fragment",
-      "french": "Qu'est-ce qui vous a donné envie de pratiquer…",
-      "anchor": "qu'est-ce qui vous a donné envie de pratiquer",
-      "english": "What made you want to practice…",
-      "example": "Qu'est-ce qui vous a donné envie de pratiquer cette activité créative ?",
-      "usage": "Amorce pour explorer les motivations d'un loisir artistique."
-    },
-    {
-      "id": "artfr04",
-      "kind": "fragment",
-      "french": "Pourriez-vous décrire le processus de création de…",
-      "anchor": "pourriez-vous décrire le processus de création de",
-      "english": "Could you describe the creative process behind…",
-      "example": "Pourriez-vous décrire le processus de création de cette œuvre ?",
-      "usage": "Amorce polie pour demander une description détaillée d'une démarche artistique."
-    },
-    {
-      "id": "artfr05",
-      "kind": "fragment",
-      "french": "Diriez-vous que le plus satisfaisant, c'est…",
-      "anchor": "diriez-vous que le plus satisfaisant, c'est",
-      "english": "Would you say the most satisfying part is…",
-      "example": "Diriez-vous que le plus satisfaisant, c'est de voir l'œuvre terminée ?",
-      "usage": "Amorce pour faire hiérarchiser les aspects gratifiants d'un loisir."
-    },
-    {
-      "id": "artfr06",
-      "kind": "fragment",
-      "french": "En comparaison avec d'autres activités, celle-ci…",
-      "anchor": "en comparaison avec d'autres activités, celle-ci",
-      "english": "Compared to other activities, this one…",
-      "example": "En comparaison avec d'autres activités, celle-ci demande-t-elle plus de patience ?",
-      "usage": "Amorce pour comparer deux loisirs entre eux."
-    },
-    {
       "id": "artfr07",
       "kind": "fragment",
       "french": "Pourriez-vous m'expliquer les différentes étapes de…",
@@ -346,42 +310,6 @@
       "usage": "Amorce pour comparer les attentes initiales à la réalité d'un loisir."
     },
     {
-      "id": "artfr10",
-      "kind": "fragment",
-      "french": "Pour resituer, depuis quand pratiquez-vous…",
-      "anchor": "pour resituer, depuis quand pratiquez-vous",
-      "english": "To set the context, since when have you been practicing…",
-      "example": "Pour resituer, depuis quand pratiquez-vous cette activité créative ?",
-      "usage": "Amorce pour recontextualiser un loisir avant de poursuivre l'échange."
-    },
-    {
-      "id": "artfr11",
-      "kind": "fragment",
-      "french": "Vous voulez dire que malgré le manque de temps, vous…",
-      "anchor": "vous voulez dire que malgré le manque de temps, vous",
-      "english": "You mean that despite the lack of time, you…",
-      "example": "Vous voulez dire que malgré le manque de temps, vous continuez à peindre chaque semaine ?",
-      "usage": "Amorce pour vérifier une interprétation malgré une contrainte de temps."
-    },
-    {
-      "id": "artfr12",
-      "kind": "fragment",
-      "french": "Pour clore ce point, conseilleriez-vous ce loisir à…",
-      "anchor": "pour clore ce point, conseilleriez-vous ce loisir à",
-      "english": "To close this point, would you recommend this hobby to…",
-      "example": "Pour clore ce point, conseilleriez-vous ce loisir à quelqu'un de très occupé ?",
-      "usage": "Amorce pour conclure un échange sur une activité créative."
-    },
-    {
-      "id": "artfr13",
-      "kind": "fragment",
-      "french": "Où allez-vous chercher…",
-      "anchor": "où allez-vous chercher",
-      "english": "Where do you look for…",
-      "example": "Où allez-vous chercher l'inspiration pour vos projets créatifs ?",
-      "usage": "Amorce pour demander la source d'inspiration d'une pratique artistique."
-    },
-    {
       "id": "artfr14",
       "kind": "fragment",
       "french": "Juste pour bien comprendre, cet atelier dont vous parlez…",
@@ -391,22 +319,94 @@
       "usage": "Amorce pour clarifier un détail relatif à une activité mentionnée."
     },
     {
-      "id": "artfr15",
+      "id": "catfr01",
       "kind": "fragment",
-      "french": "Et si vous manquiez d'inspiration, comment…",
-      "anchor": "et si vous manquiez d'inspiration un jour, comment",
-      "english": "And if you lacked inspiration, how…",
-      "example": "Et si vous manquiez d'inspiration un jour, comment feriez-vous pour la retrouver ?",
-      "usage": "Amorce hypothétique pour explorer un scénario créatif difficile."
+      "french": "Avant de choisir entre cours collectif et cours individuel…",
+      "anchor": "Avant de choisir entre cours collectif et cours individuel",
+      "english": "Before choosing between group and individual lessons…",
+      "example": "Avant de choisir entre cours collectif et cours individuel, pourrais-je assister à une séance dans votre école de musique ?",
+      "usage": "Pour demander un essai utile à la décision."
     },
     {
-      "id": "cclfr01",
+      "id": "catfr02",
       "kind": "fragment",
-      "french": "Pour participer à ce jeu…",
-      "anchor": "Pour participer à ce jeu",
-      "english": "To take part in this game…",
-      "example": "Pour participer à ce jeu, quelles conditions faut-il remplir ?",
-      "usage": "Amorce pour demander les règles d'accès à une activité participative."
+      "french": "Pour quelqu'un qui n'a jamais touché une guitare…",
+      "anchor": "Pour quelqu'un qui n'a jamais touché une guitare",
+      "english": "For someone who has never touched a guitar…",
+      "example": "Pour quelqu'un qui n'a jamais touché une guitare, faut-il apprendre à lire les notes avant de commencer ?",
+      "usage": "Pour vérifier un prérequis sans le supposer."
+    },
+    {
+      "id": "catfr03",
+      "kind": "fragment",
+      "french": "Afin de refaire la recette à la maison…",
+      "anchor": "Afin de refaire la recette à la maison",
+      "english": "In order to make the recipe again at home…",
+      "example": "Afin de refaire la recette à la maison, recevons-nous une liste des ingrédients à la fin de l'atelier ?",
+      "usage": "Pour demander un support de réutilisation après le cours."
+    },
+    {
+      "id": "catfr04",
+      "kind": "fragment",
+      "french": "Si le professeur vient chez moi…",
+      "anchor": "Si le professeur vient chez moi",
+      "english": "If the teacher comes to my home…",
+      "example": "Si le professeur vient chez moi, doit-il pouvoir utiliser mon piano ou apporte-t-il un clavier ?",
+      "usage": "Pour clarifier la préparation matérielle d'un cours à domicile."
+    },
+    {
+      "id": "catfr05",
+      "kind": "fragment",
+      "french": "Quand un élève peine à suivre…",
+      "anchor": "Quand un élève peine à suivre",
+      "english": "When a student struggles to keep up…",
+      "example": "Quand un élève peine à suivre, lui proposez-vous un exercice plus simple pendant le cours de danse ?",
+      "usage": "Pour demander comment l'enseignant différencie l'accompagnement."
+    },
+    {
+      "id": "catfr06",
+      "kind": "fragment",
+      "french": "Au fil des séances de théâtre…",
+      "anchor": "Au fil des séances de théâtre",
+      "english": "Over the course of the theatre sessions…",
+      "example": "Au fil des séances de théâtre, prépare-t-on une représentation ou travaille-t-on surtout pour le plaisir d'apprendre ?",
+      "usage": "Pour distinguer l'objectif du cours d'un spectacle à aller voir."
+    },
+    {
+      "id": "catfr07",
+      "kind": "fragment",
+      "french": "Entre deux cours de photographie…",
+      "anchor": "Entre deux cours de photographie",
+      "english": "Between two photography classes…",
+      "example": "Entre deux cours de photographie, devons-nous réaliser des images sur un thème imposé ?",
+      "usage": "Pour connaître le travail attendu hors séance."
+    },
+    {
+      "id": "catfr08",
+      "kind": "fragment",
+      "french": "À l'issue de la séance d'essai…",
+      "anchor": "À l'issue de la séance d'essai",
+      "english": "At the end of the trial session…",
+      "example": "À l'issue de la séance d'essai, combien de temps ai-je pour décider de mon inscription ?",
+      "usage": "Pour vérifier le délai de décision après un essai."
+    },
+    {
+      "id": "catfr09",
+      "kind": "fragment",
+      "french": "Concernant le prêt d'un instrument…",
+      "anchor": "Concernant le prêt d'un instrument",
+      "english": "Regarding the loan of an instrument…",
+      "example": "Concernant le prêt d'un instrument, l'école demande-t-elle une caution pour toute la session ?",
+      "usage": "Pour préciser les conditions d'un service lié au cours."
+    },
+    {
+      "id": "catfr10",
+      "kind": "fragment",
+      "french": "Sans partenaire pour les cours de danse…",
+      "anchor": "Sans partenaire pour les cours de danse",
+      "english": "Without a partner for the dance classes…",
+      "example": "Sans partenaire pour les cours de danse, puis-je tout de même rejoindre le groupe débutant ?",
+      "usage": "Pour vérifier une condition de participation."
     }
   ]
 }

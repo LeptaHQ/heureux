@@ -5634,8 +5634,8 @@
       ]
     }
   ],
-  "protected_models_sha": "bdc40e9ef8c8eb9f44d9ca6fd2ab28f722e576d3cb7c08ded156f87a7214352a",
-  "protected_hints_sha": "73083233c23a7f67419cbe01de6a42c966b26faa8c79208f88c5d7be65b4c8f1",
+  "protected_models_sha": "b2a952de3aa6b1d36335c1d3321b2b899321c47a24c9b1ad47c84fc0f85702b9",
+  "protected_hints_sha": "aef79967381b091a3d510b00879562541559fe422d401f00357c70e7047c6f7d",
   "history_prefixes": {
     "host-foreign-friends-city-advice": 3,
     "help-friend-find-rental-needs": 1,
@@ -5699,5 +5699,5 @@
     "newcomer-local-acquaintance-meet-people": 1
   },
   "original_history_sha": "514b8697e93f6461405adde197e4fefc0e89856af638a3aad19f214a0820368a",
-  "immutable_content_sha": "2cf3c649f5774538fcc4f3a491777f842d366276e711cf4a559d63209843a146"
+  "immutable_content_sha": "44141bf2f1a3e8d5d47d6e4a7d3e2af333cf197193767496a7d10cc3b8611277"
 }

@@ -107,7 +107,7 @@
     },
     {
       "id": "arts-jeu-televise",
-      "theme": "arts-loisirs",
+      "theme": "loisirs-clubs-jeux",
       "canonical": "tache2:fevrier:batch-01:subject-04",
       "members": [
         "tache2:fevrier:batch-01:subject-04",

@@ -1709,6 +1709,21 @@
             {"topic": "Activités et sécurité", "question": "Pour le canot, un adulte sera-t-il avec les enfants, et quels équipements de sécurité porteront-ils ?", "follow_up_to": 6, "condition": "If a water activity is planned; adapt to the activity actually named."},
             {"topic": "Organisation pratique", "question": "Comment pourrai-je vous joindre pendant le séjour et avoir des nouvelles de mon enfant ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "child-friends-family-holiday-invitation",
+          "opening": "Bonjour ! C'est très gentil de proposer d'emmener mon enfant en vacances avec vous. Avant de vous répondre, j'aimerais connaître quelques détails.",
+          "closing": "Merci beaucoup pour cette belle proposition ! J'en parle ce soir avec mon enfant, et je vous donne ma réponse demain.",
+          "questions": [
+            {"topic": "Séjour et budget", "question": "Où comptez-vous passer les vacances, et quelles sont les dates du séjour ?", "follow_up_to": null},
+            {"topic": "Séjour et budget", "question": "Quel hébergement avez-vous prévu sur place ?", "follow_up_to": null},
+            {"topic": "Séjour et budget", "question": "Quelle participation aux frais prévoyez-vous pour mon enfant, que couvrira-t-elle et faudra-t-il vous la verser avant le départ ?", "follow_up_to": null},
+            {"topic": "Transport", "question": "Quel moyen de transport utiliserez-vous, et quels équipements de sécurité sont prévus pour les enfants ?", "follow_up_to": null},
+            {"topic": "Activités et sécurité", "question": "Combien d'enfants participeront au séjour, et quels adultes seront présents pour les encadrer ?", "follow_up_to": null},
+            {"topic": "Activités et sécurité", "question": "Quelles activités avez-vous prévues pour eux ?", "follow_up_to": null},
+            {"topic": "Activités et sécurité", "question": "Pour le canot, un adulte sera-t-il avec les enfants, et quels équipements de sécurité porteront-ils ?", "follow_up_to": 6, "condition": "If a water activity is planned; adapt to the activity actually named."},
+            {"topic": "Organisation pratique", "question": "Serez-vous joignable pendant tout le séjour, et comment pourrai-je avoir des nouvelles de mon enfant ?", "follow_up_to": null}
+          ]
         }
       ]
     },

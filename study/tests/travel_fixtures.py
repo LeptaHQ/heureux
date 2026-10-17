@@ -31,7 +31,7 @@ TRAVEL_GROUPS = {
         "hotel-reception-room-booking",
         "quebec-region-accommodation-tourist-office",
     },
-    "arts-loisirs": {
+    "loisirs-clubs-jeux": {
         "friend-canadian-weekend-customs",
     },
     "culture-medias": {

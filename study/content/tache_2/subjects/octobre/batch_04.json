@@ -22,12 +22,12 @@
         },
         {
           "text": "Ça s'adresse à quel public — plutôt aux débutants ou aux personnes déjà expérimentées ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 6
         },
         {
           "text": "Si on débute complètement, est-ce que quelqu'un explique les règles avant de jouer ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 6
         },
         {
@@ -35,7 +35,7 @@
         },
         {
           "text": "Pendant que j'y pense, comment est l'ambiance en général — plutôt formelle ou décontractée ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 10
         },
         {
@@ -43,7 +43,7 @@
         },
         {
           "text": "Côté horaires, ça a lieu quel jour exactement — plutôt en semaine ou le week-end ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 4
         },
         {
@@ -51,12 +51,12 @@
         },
         {
           "text": "Il faut s'inscrire à l'avance ou on peut venir librement ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 6
         },
         {
           "text": "Est-ce qu'on peut essayer avant de s'engager — il y a une période d'essai gratuite ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 3
         },
         {
@@ -67,7 +67,7 @@
         },
         {
           "text": "Pour finir — est-ce que je pourrais venir avec toi à la prochaine séance ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 13
         }
       ]
@@ -162,7 +162,7 @@
         },
         {
           "text": "Pour ce qui est de l'équipement, faut-il apporter du matériel particulier, ou est-ce que tout est fourni sur place ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 8
         },
         {
@@ -179,7 +179,7 @@
         },
         {
           "text": "Pour finir — quelle activité me conseilleriez-vous pour une première séance ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 13
         }
       ]

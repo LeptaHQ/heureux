@@ -13,77 +13,77 @@
       "questions": [
         {
           "text": "Salut ! Je suis en vacances au Canada et j'aimerais aller voir un film — tu travailles dans un cinéma, tu pourrais me conseiller un peu ?",
-          "memory_number": 9,
+          "memory_number": 17,
           "memory_section": 13
         },
         {
           "text": "Il y a actuellement beaucoup de films à l'affiche ou plutôt quelques choix seulement ?",
-          "memory_number": 9,
+          "memory_number": 17,
           "memory_section": 2
         },
         {
           "text": "Quels genres de films sont proposés en ce moment — action, comédie, drame, animation ?",
-          "memory_number": 9,
+          "memory_number": 17,
           "memory_section": 2
         },
         {
           "text": "Y a-t-il un film que tu recommanderais particulièrement — plutôt pour un public adulte ou adapté aux familles aussi ?",
-          "memory_number": 9,
+          "memory_number": 17,
           "memory_section": 11
         },
         {
           "text": "Côté programmation, est-ce qu'il y a des séances en IMAX ou dans des salles spéciales ?",
-          "memory_number": 9,
+          "memory_number": 17,
           "memory_section": 9
         },
         {
           "text": "Côté langue, les séances sont en version originale ou uniquement en version doublée ?",
-          "memory_number": 9,
+          "memory_number": 17,
           "memory_section": 2
         },
         {
           "text": "Quels sont les horaires des séances — l'après-midi ou seulement en soirée ?",
-          "memory_number": 9,
+          "memory_number": 17,
           "memory_section": 4
         },
         {
           "text": "Pour les billets, il faut réserver à l'avance ou on peut les acheter sur place le jour même ?",
-          "memory_number": 9,
+          "memory_number": 17,
           "memory_section": 6
         },
         {
           "text": "Certaines séances sont-elles souvent complètes pendant les vacances ?",
-          "memory_number": 9,
+          "memory_number": 17,
           "memory_section": 6
         },
         {
           "text": "C'est facilement accessible en transports en commun ?",
-          "memory_number": 9,
+          "memory_number": 17,
           "memory_section": 5
         },
         {
           "text": "Parlons du budget — combien est-ce que ça coûte approximativement pour un adulte ?",
-          "memory_number": 9,
+          "memory_number": 17,
           "memory_section": 3
         },
         {
           "text": "Y a-t-il des tarifs réduits pour les étudiants, les seniors ou les familles ?",
-          "memory_number": 9,
+          "memory_number": 17,
           "memory_section": 3
         },
         {
           "text": "Le tarif comprend quoi exactement — les lunettes 3D sont incluses si c'est un film en 3D ?",
-          "memory_number": 9,
+          "memory_number": 17,
           "memory_section": 3
         },
         {
           "text": "Et sur place, est-ce qu'on peut acheter du popcorn et des boissons avant la séance ?",
-          "memory_number": 9,
+          "memory_number": 17,
           "memory_section": 9
         },
         {
           "text": "Pour finir — quel film me recommanderais-tu pour aujourd'hui ?",
-          "memory_number": 9,
+          "memory_number": 17,
           "memory_section": 13
         }
       ]
@@ -259,72 +259,72 @@
       "questions": [
         {
           "text": "Salut ! J'ai entendu dire que tu as participé à un jeu organisé par une chaîne de télévision — qu'est-ce qui t'a donné envie de t'inscrire ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 10
         },
         {
           "text": "Comment se passe l'inscription — faut-il remplir un formulaire en ligne ou envoyer une vidéo ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 6
         },
         {
           "text": "Après l'inscription, comment se passe la sélection — faut-il passer un casting ou un entretien ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 6
         },
         {
           "text": "Y avait-il des conditions particulières pour participer — tu as dû préparer quelque chose à l'avance ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 6
         },
         {
           "text": "Tant que j'y pense, il y a généralement combien de candidats — une dizaine ou beaucoup plus ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 7
         },
         {
           "text": "C'est en équipe ou individuellement ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 7
         },
         {
           "text": "Question organisation, peux-tu décrire le déroulement — quelles étaient les différentes étapes ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 13
         },
         {
           "text": "Le jeu proposait-il des questions ou des défis particuliers ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 2
         },
         {
           "text": "Les défis étaient plutôt difficiles ou amusants — il y a eu des moments stressants ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 10
         },
         {
           "text": "Côté timing, combien de temps dure le tournage — quelques heures ou toute la journée ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 4
         },
         {
           "text": "En ce qui concerne le budget, la participation est-elle entièrement gratuite ou certains frais restent-ils à la charge des candidats ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 3
         },
         {
           "text": "Dans un autre registre, peut-on gagner de l'argent, un voyage ou d'autres récompenses ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 3
         },
         {
           "text": "S'il y a eu un moment surprenant pendant le jeu, tu pourrais me raconter ce qui s'est passé ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 13
         },
         {
           "text": "Pour finir, as-tu appris quelque chose de nouveau ou vécu une expérience vraiment marquante ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 10
         }
       ]

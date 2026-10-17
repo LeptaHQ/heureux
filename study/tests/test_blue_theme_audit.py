@@ -5,6 +5,7 @@ from pathlib import Path
 from django.test import SimpleTestCase
 
 from study import catalogue, content_loader as content
+from study.tests.culture_fixtures import LEISURE_SPLIT_GROUPS
 
 
 def fingerprint(value):
@@ -37,7 +38,7 @@ class BlueThemeAuditTests(SimpleTestCase):
         }
         self.hints = json.loads(content.TACHE_TWO_SUBJECT_HINTS_PATH.read_text())["groups"]
 
-    def test_all_nine_blue_themes_and_every_equivalent_have_a_recorded_review(self):
+    def test_nine_historical_blue_themes_and_their_equivalents_keep_the_recorded_review(self):
         self.assertEqual({slug: len(groups) for slug, groups in self.manifest["themes"].items()}, {
             "travail": 13, "ecole-etudes": 11, "transports": 11,
             "voyages": 15, "sport": 11, "arts-loisirs": 15,
@@ -48,9 +49,21 @@ class BlueThemeAuditTests(SimpleTestCase):
         self.assertEqual(set(reviewed), set().union(*map(set, self.manifest["themes"].values())))
         _, mapping = catalogue.tache_two_subject_themes()
         dialogues = catalogue.tache_two_dialogues()
+        current_theme_by_group = {
+            group: slug for slug, groups in LEISURE_SPLIT_GROUPS.items()
+            for group in groups
+        }
         for slug, groups in self.manifest["themes"].items():
             actual = {row.group for key, row in dialogues.items() if mapping[key] == slug}
-            self.assertEqual(actual, set(groups))
+            self.assertEqual(
+                actual,
+                LEISURE_SPLIT_GROUPS[slug] if slug == "arts-loisirs" else set(groups),
+            )
+            for group in groups:
+                self.assertEqual(
+                    {mapping[key] for key, row in dialogues.items() if row.group == group},
+                    {current_theme_by_group.get(group, slug)},
+                )
         for group, audit in reviewed.items():
             with self.subTest(group=group):
                 self.assertEqual(fingerprint(self.raw[group]), audit["after_sha"])

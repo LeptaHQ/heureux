@@ -306,17 +306,17 @@
         },
         {
           "text": "Quels documents faut-il apporter pour l'inscription — une pièce d'identité, un justificatif de domicile ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 6
         },
         {
           "text": "L'inscription est-elle gratuite, ou faut-il payer une cotisation annuelle ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 3
         },
         {
           "text": "Quels sont les horaires d'ouverture — vous êtes aussi ouverts le week-end ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 4
         },
         {
@@ -336,7 +336,7 @@
         },
         {
           "text": "Et pendant combien de temps peut-on les garder avant de les rapporter ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 4
         },
         {
@@ -347,7 +347,7 @@
         },
         {
           "text": "Peut-on prolonger un emprunt en ligne, ou faut-il revenir sur place ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 6
         },
         {
@@ -355,7 +355,7 @@
         },
         {
           "text": "Pour finir — comment choisir un premier jeu adapté à l'âge et aux goûts des joueurs ?",
-          "memory_number": 10,
+          "memory_number": 18,
           "memory_section": 13
         }
       ]

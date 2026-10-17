@@ -188,7 +188,7 @@ EO task 2 separates **Services du quotidien & entraide**, **Garde d'enfants &
 d'animaux**, and **Bénévolat & vie associative**. Classification follows the
 candidate's objective: an animal-protection association is volunteering, watching
 a friend's apartment is practical help, and choosing outings for visitors belongs
-to **Sorties, visites & spectacles**. Equivalent consignes always move together. Existing
+to **Sorties, visites & bonnes adresses**. Equivalent consignes always move together. Existing
 memory numbers remain stable; the care and volunteering collections are Mémoires
 12 and 13. Each theme retains 52 reusable questions and 45 vocabulary entries.
 Moved questions retain their original identity through `legacy_memory_number`,
@@ -203,8 +203,8 @@ getaways, regional visits and day excursions; **Hébergements touristiques**
 not permanent housing.
 A tourist-office enquiry follows its subject, not the employee's workplace.
 Travel-blog creation belongs to **Culture, lectures & médias**, and Canadian
-weekend leisure habits belong to **Cours, clubs & loisirs**; discovering the
-city with friends belongs to **Sorties, visites & spectacles**.
+weekend leisure habits belong to **Loisirs, clubs & jeux**; discovering the
+city with friends belongs to **Sorties, visites & bonnes adresses**.
 All equivalent publications move together without changing their consignes,
 dialogues or Pistes. The original 52 Mémoire 7 questions and 45 travel vocabulary
 entries remain available with their exact learning identities; the three
@@ -212,20 +212,31 @@ collections each contain 52 questions and 45 vocabulary entries. Exact pre-split
 snapshots are stored in `question_bank_history/travel.json` and
 `question_bank_history/travel_vocabulary.json`.
 
-The former arts/leisure and outings collections are reorganized together into
-**Cours, clubs & loisirs** (Mémoire 10), **Culture, lectures & médias**
-(Mémoire 16), and **Sorties, visites & spectacles** (Mémoire 9). Classify by the
-candidate's dominant objective: taking a theatre class is a leisure activity,
-discussing a film for an article is media research, and arranging a screening is
-an outing. Participating in a television game or a bookshop game remains a
-leisure activity; the medium or organizer does not determine the theme.
-Existing theme slugs and Mémoires 9 and 10 stay stable, and all 85 publications
-are classified together with their equivalents. All 104 existing reusable questions and 90
-vocabulary entries keep their exact wording and learning identities, including
-questions that move between the two old books or into Mémoire 16. Each of the
-three collections contains 52 questions and 45 vocabulary entries. Exact source
-snapshots are stored in `question_bank_history/culture.json` and
-`question_bank_history/culture_vocabulary.json`; dialogues and Pistes are unchanged.
+The earlier joint culture reorganization retains **Culture, lectures & médias**
+(Mémoire 16), including film/book discussions, libraries and article preparation.
+Its exact source snapshots remain in `question_bank_history/culture.json` and
+`question_bank_history/culture_vocabulary.json`.
+
+The remaining two broad collections are now separated into **Sorties, visites &
+bonnes adresses** (Mémoire 9), **Cours & ateliers** (Mémoire 10), **Cinéma,
+spectacles & festivals** (Mémoire 17), and **Loisirs, clubs & jeux** (Mémoire 18).
+Classify by the candidate's dominant objective: planning local visits and meals,
+learning a skill, attending a screening/performance, or participating in leisure
+activities. A television/bookshop game is participation, not media consumption;
+an unspecified artistic or gardening activity does not automatically imply
+lessons. Occupying visiting nephews includes games and activities at home, so it
+belongs with leisure activities rather than venue-based outings.
+All 61 affected publications move with their equivalents, retaining their 30
+semantic identities, reviewed dialogues and Pistes. Existing slugs and Mémoires
+9 and 10 stay stable; 17 and 18 are appended without renumbering other collections.
+Every one of the previous 104 questions and 90 vocabulary dictionaries survives
+unchanged, including its original learning identity across multiple moves.
+The four collections each contain 52 questions and 45 vocabulary entries.
+Their exact previous layouts are archived in `question_bank_history/leisure.json`
+and `question_bank_history/leisure_vocabulary.json`; whole-section annotation
+offsets are not projected onto reorganized text. The corpus now has 18 themes,
+936 reusable questions, 810 vocabulary entries and 54 vocabulary lots; its
+348 source publications and 164 semantic responses are unchanged.
 
 **Travail & emploi** and **Logement & déménagement** remain single themes.
 Retirement and promotion parties belong to **Fêtes & célébrations**; furniture

@@ -1247,6 +1247,13 @@ class PublishedTacheTwoHighlightTests(TestCase):
             revision=4,
         )
 
+    def test_child_holiday_booking_cost_and_safety_rewrites_preserve_other_questions_and_old_wording(self):
+        self.assert_revision_highlights_preserved(
+            "child-friends-family-holiday-invitation",
+            {1: 1, 4: 4, 5: 5, 6: 6, 8: 8},
+            revision=3,
+        )
+
     def test_childcare_logistics_insertion_preserves_moved_questions_and_archived_notes(self):
         self.assert_revision_highlights_preserved(
             "neighbor-child-one-day-care", {}, revision=0,
@@ -1262,7 +1269,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "friend-homeless-meal-volunteering": {2: 4, 5: 5},
             "friend-entertain-visiting-nephews": {2: 2, 8: 8},
             "visit-colleague-minor-accident": {1: 1},
-            "child-friends-family-holiday-invitation": {3: 2, 6: 6},
+            "child-friends-family-holiday-invitation": {6: 6},
             "neighbor-environmental-association-volunteering": {1: 1},
             "neighbor-home-childcare-provider-referral": {1: 1, 2: 2, 3: 3, 8: 8},
             "help-friend-post-parcel": {1: 1, 8: 8},
@@ -1359,7 +1366,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
     def test_three_pass_neighbourhood_review_preserves_every_previous_question_highlight(self):
         cases = {
             "animal-protection-association-invitation": (0, {3: 3, 6: 6}),
-            "child-friends-family-holiday-invitation": (1, {3: 2, 6: 6}),
+            "child-friends-family-holiday-invitation": (1, {6: 6}),
             "colleague-babysitter-referral-needs": (1, {1: 1, 4: 4, 6: 6}),
             "friend-entertain-visiting-nephews": (1, {2: 2, 4: 4, 7: 7, 8: 8}),
             "friend-holiday-apartment-watch": (1, {1: 1, 2: 2, 4: 5}),
@@ -1418,7 +1425,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
     def test_practical_developments_preserve_retained_questions_from_every_latest_layout(self):
         cases = {
             "animal-protection-association-invitation": (1, {1: 1, 2: 2, 3: 3, 6: 6, 7: 7}),
-            "child-friends-family-holiday-invitation": (2, {3: 2, 4: 4, 5: 5, 6: 6, 7: 7}),
+            "child-friends-family-holiday-invitation": (2, {4: 4, 5: 5, 6: 6}),
             "colleague-babysitter-referral-needs": (2, {1: 1, 2: 2, 3: 3, 4: 4, 6: 6}),
             "friend-entertain-visiting-nephews": (2, {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 7: 7, 8: 8}),
             "friend-holiday-apartment-watch": (2, {1: 1, 2: 2, 5: 5}),

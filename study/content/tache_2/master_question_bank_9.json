@@ -1,200 +1,200 @@
 {
   "number": 9,
-  "title": "Mémoire 9 · Sorties, visites & spectacles",
-  "label": "Sorties, visites & spectacles",
-  "icon": "theater",
-  "subtitle": "Choisir et organiser une sortie : visite de musée, découverte de la ville, restaurant, séance de cinéma, concert ou festival. Vérifier le programme, les horaires, les billets, l'accès et le retour.",
+  "title": "Mémoire 9 · Sorties, visites & bonnes adresses",
+  "label": "Sorties, visites & bonnes adresses",
+  "icon": "compass",
+  "subtitle": "Choisir une sortie locale, une visite ou un restaurant, accueillir des amis et découvrir la ville sans dépasser son budget. Adapter les questions à la consigne : ne pas demander un fait déjà donné ni un service sans rapport avec la sortie. Pour assister à une séance ou à un spectacle, utiliser la mémoire Cinéma, spectacles & festivals.",
   "sections": [
     {
       "number": 1,
-      "title": "Ouverture et projet de sortie",
-      "guidance": "Adapter les questions à la consigne : ouverture et projet de sortie. Ne pas redemander les faits déjà connus.",
+      "title": "Projet, occasion et premières idées",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Préciser le projet réel et les goûts des personnes, sans réciter toutes les ouvertures.",
       "groups": [
         {
-          "title": "Ouverture et projet de sortie",
-          "guidance": "Adapter les questions à la consigne : ouverture et projet de sortie. Ne pas redemander les faits déjà connus.",
+          "title": "Projet, occasion et premières idées",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Préciser le projet réel et les goûts des personnes, sans réciter toutes les ouvertures.",
           "questions": [
             "Salut ! Tu m'as proposé de venir avec toi à une sortie — ça me tente bien, tu peux m'en dire plus ?",
             "Salut ! Je viens d'arriver dans ta ville et j'aimerais organiser une sortie sans trop dépenser — tu aurais des idées à me conseiller ?",
             "Bonjour ! J'aurais besoin de quelques renseignements pour organiser une sortie — pouvez-vous m'aider ?",
-            "D'après toi, quel type de sortie aide le plus à se faire des amis durables ?"
+            "Mes amis connaissent déjà le centre-ville ; qu'est-ce que tu leur ferais découvrir ailleurs ?"
           ]
         }
       ]
     },
     {
       "number": 2,
-      "title": "Programme, artistes et visites proposés",
-      "guidance": "Adapter les questions à la consigne : programme, artistes et visites proposés. Ne pas redemander les faits déjà connus.",
+      "title": "Visites, découvertes et offre municipale",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Interroger l'offre locale ou municipale sans supposer qu'un spectacle est prévu.",
       "groups": [
         {
-          "title": "Programme, artistes et visites proposés",
-          "guidance": "Adapter les questions à la consigne : programme, artistes et visites proposés. Ne pas redemander les faits déjà connus.",
+          "title": "Visites, découvertes et offre municipale",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Interroger l'offre locale ou municipale sans supposer qu'un spectacle est prévu.",
           "questions": [
-            "Quels artistes se produisent cette année ?",
-            "Quel genre de spectacle c'est — théâtre, comédie, concert, danse ?",
-            "Il y a actuellement beaucoup de choix à l'affiche ou plutôt quelques choix seulement ?",
             {
               "text": "Quel genre de sorties proposez-vous — des visites de musées, des expositions, des spectacles ou des concerts ?",
               "legacy_memory_number": 10
-            }
+            },
+            "Est-ce qu'il y a des événements ou des animations gratuits en ce moment ?",
+            "Quelle visite conseillerais-tu pour découvrir l'histoire de la ville avec nos invités ?",
+            "Quels quartiers se prêtent à une promenade où l'on peut s'arrêter pour découvrir des artisans ?"
           ]
         }
       ]
     },
     {
       "number": 3,
-      "title": "Budget, billets et repas",
-      "guidance": "Adapter les questions à la consigne : budget, billets et repas. Ne pas redemander les faits déjà connus.",
+      "title": "Budget et prix au restaurant",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Distinguer le coût de la visite du budget du repas.",
       "groups": [
         {
-          "title": "Budget, billets et repas",
-          "guidance": "Adapter les questions à la consigne : budget, billets et repas. Ne pas redemander les faits déjà connus.",
+          "title": "Budget et prix au restaurant",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Distinguer le coût de la visite du budget du repas.",
           "questions": [
             "Parlons du budget — combien est-ce que ça coûte approximativement ?",
             "Y a-t-il des tarifs réduits pour cette sortie — étudiants, seniors ou familles ?",
-            "Est-ce qu'il y a des événements ou des animations gratuits en ce moment ?",
-            "Le prix du menu comprend-il les boissons, ou faut-il les prévoir en plus ?"
+            "Le prix du menu comprend-il les boissons, ou faut-il les prévoir en plus ?",
+            "Pour dîner dans ce nouveau restaurant d'Ottawa, quel budget prévoirais-tu par personne, taxes et pourboire compris ?"
           ]
         }
       ]
     },
     {
       "number": 4,
-      "title": "Horaires, fréquence et durée des sorties",
-      "guidance": "Adapter les questions à la consigne : horaires, fréquence et durée des sorties. Ne pas redemander les faits déjà connus.",
+      "title": "Créneaux et parcours de visite",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Vérifier le rythme de la sortie seulement si le programme ne le précise pas.",
       "groups": [
         {
-          "title": "Horaires, fréquence et durée des sorties",
-          "guidance": "Adapter les questions à la consigne : horaires, fréquence et durée des sorties. Ne pas redemander les faits déjà connus.",
+          "title": "Créneaux et parcours de visite",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Vérifier le rythme de la sortie seulement si le programme ne le précise pas.",
           "questions": [
             "Combien de temps faut-il prévoir pour toute la sortie — quelques heures ou toute la journée ?",
-            "À quelle heure ça commence — plutôt l'après-midi ou seulement en soirée ?",
-            "Ça dure combien de temps — une seule soirée, ou plusieurs jours ?",
             {
               "text": "À quelle fréquence sont-elles organisées — chaque semaine ou seulement de temps en temps ?",
               "legacy_memory_number": 10
-            }
+            },
+            "Quel jour choisirais-tu pour trouver les petites boutiques de ce quartier ouvertes ?",
+            "Dans quel ordre visiter ces lieux pour éviter de revenir sur nos pas ?"
           ]
         }
       ]
     },
     {
       "number": 5,
-      "title": "Lieux, accès et transports",
-      "guidance": "Adapter les questions à la consigne : lieux, accès et transports. Ne pas redemander les faits déjà connus.",
+      "title": "Départ, accès et déplacement du groupe",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Adapter les questions au moyen de transport et au point de départ du groupe.",
       "groups": [
         {
-          "title": "Lieux, accès et transports",
-          "guidance": "Adapter les questions à la consigne : lieux, accès et transports. Ne pas redemander les faits déjà connus.",
+          "title": "Départ, accès et déplacement du groupe",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Adapter les questions au moyen de transport et au point de départ du groupe.",
           "questions": [
             "Où se trouve exactement le lieu — est-il facilement accessible en transports en commun ?",
-            "Y a-t-il un parking près de la salle ou il vaut mieux venir en transports en commun ?",
-            "La salle est facilement accessible, ou je dois prévoir du temps pour m'y rendre ?",
-            "Comment on s'organise pour le transport ou le stationnement sur place ?"
+            "Comment on s'organise pour le transport ou le stationnement sur place ?",
+            {
+              "text": "Est-ce que le transport est prévu ou faut-il se rendre sur place par ses propres moyens ?",
+              "legacy_memory_number": 10
+            },
+            "Où notre groupe doit-il retrouver le guide avant de commencer la visite ?"
           ]
         }
       ]
     },
     {
       "number": 6,
-      "title": "Réservation, billets et organisation",
-      "guidance": "Adapter les questions à la consigne : réservation, billets et organisation. Ne pas redemander les faits déjà connus.",
+      "title": "Réservation et accueil des groupes",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Ne demander une inscription ou un tarif collectif que si la sortie s'y prête.",
       "groups": [
         {
-          "title": "Réservation, billets et organisation",
-          "guidance": "Adapter les questions à la consigne : réservation, billets et organisation. Ne pas redemander les faits déjà connus.",
+          "title": "Réservation et accueil des groupes",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Ne demander une inscription ou un tarif collectif que si la sortie s'y prête.",
           "questions": [
             "Il faut s'inscrire à l'avance pour la visite ou on peut venir librement ?",
-            "Il faut réserver à l'avance ou on peut acheter les billets sur place le jour même ?",
-            "Il reste encore des places pour la représentation ou c'est déjà complet ?",
-            {
-              "text": "Est-ce que le transport est prévu ou faut-il se rendre sur place par ses propres moyens ?",
-              "legacy_memory_number": 10
-            }
+            "Nous serons plusieurs personnes — proposez-vous des tarifs de groupe ?",
+            "Pour réserver une table pour six personnes, dois-je vous appeler ou passer par votre site ?",
+            "Jusqu'à quand puis-je vous communiquer le nombre définitif de visiteurs ?"
           ]
         }
       ]
     },
     {
       "number": 7,
-      "title": "Participants et public de la sortie",
-      "guidance": "Adapter les questions à la consigne : participants et public de la sortie. Ne pas redemander les faits déjà connus.",
+      "title": "Affluence, langues et besoins des visiteurs",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Tenir compte du groupe accueilli et éviter de supposer ses besoins.",
       "groups": [
         {
-          "title": "Participants et public de la sortie",
-          "guidance": "Adapter les questions à la consigne : participants et public de la sortie. Ne pas redemander les faits déjà connus.",
+          "title": "Affluence, langues et besoins des visiteurs",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Tenir compte du groupe accueilli et éviter de supposer ses besoins.",
           "questions": [
-            "Nous serons plusieurs personnes — proposez-vous des tarifs de groupe ?",
-            "Il y a généralement combien de participants — c'est une petite salle ou un grand lieu ?",
-            "Tu as combien de billets à me proposer ?",
-            "Il y a beaucoup de monde dans la salle en ce moment ou c'est plutôt calme — familles, jeunes, retraités ?"
+            "Il y a beaucoup de monde dans la salle en ce moment ou c'est plutôt calme — familles, jeunes, retraités ?",
+            "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ? On voudrait éviter la foule — quel moment nous conseillez-vous ?",
+            "Mes amis parlent peu français ; proposez-vous une visite dans une autre langue ?",
+            "Le parcours comporte-t-il beaucoup d'escaliers pour les personnes qui marchent difficilement ?"
           ]
         }
       ]
     },
     {
       "number": 8,
-      "title": "Règles du lieu, foule et météo",
-      "guidance": "Adapter les questions à la consigne : règles du lieu, foule et météo. Ne pas redemander les faits déjà connus.",
+      "title": "Règles de visite et solution en cas de pluie",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Vérifier les contraintes du lieu ou de la météo, sans les inventer.",
       "groups": [
         {
-          "title": "Règles du lieu, foule et météo",
-          "guidance": "Adapter les questions à la consigne : règles du lieu, foule et météo. Ne pas redemander les faits déjà connus.",
+          "title": "Règles de visite et solution en cas de pluie",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Vérifier les contraintes du lieu ou de la météo, sans les inventer.",
           "questions": [
-            "Il y a beaucoup de monde en ce moment ou c'est plutôt calme ? On voudrait éviter la foule — quel moment nous conseillez-vous ?",
-            "Y a-t-il des précautions particulières à prendre dans la salle ou des choses à éviter ?",
             "Y a-t-il des règles particulières à respecter — photos interdites, tenue vestimentaire ?",
-            "Si c'est en extérieur, faut-il prévoir quelque chose en cas de mauvais temps ?"
+            "Si c'est en extérieur, faut-il prévoir quelque chose en cas de mauvais temps ?",
+            "Où peut-on laisser nos sacs pendant la visite du musée ?",
+            "Quelle visite couverte pourrait remplacer notre promenade si la pluie se prolonge ?"
           ]
         }
       ]
     },
     {
       "number": 9,
-      "title": "Services et confort pendant la sortie",
-      "guidance": "Adapter les questions à la consigne : services et confort pendant la sortie. Ne pas redemander les faits déjà connus.",
+      "title": "Services sur place et bonnes adresses",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Demander les services utiles à cette visite, et non tous les équipements possibles.",
       "groups": [
         {
-          "title": "Services et confort pendant la sortie",
-          "guidance": "Adapter les questions à la consigne : services et confort pendant la sortie. Ne pas redemander les faits déjà connus.",
+          "title": "Services sur place et bonnes adresses",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Demander les services utiles à cette visite, et non tous les équipements possibles.",
           "questions": [
             "Y a-t-il un audioguide disponible — c'est gratuit ou payant ?",
             "Y a-t-il une boutique de souvenirs ou une librairie sur place ?",
-            "Est-ce qu'on peut acheter du popcorn et des boissons sur place avant la séance ?",
-            "Pour les repas, vous auriez des adresses à recommander — pour manger un morceau en fin de soirée ?"
+            "Pour les repas, vous auriez des adresses à recommander — pour manger un morceau en fin de soirée ?",
+            "Ce restaurant peut-il proposer un vrai plat végétarien à mon invitée ?"
           ]
         }
       ]
     },
     {
       "number": 10,
-      "title": "Ambiance et expérience sur place",
-      "guidance": "Adapter les questions à la consigne : ambiance et expérience sur place. Ne pas redemander les faits déjà connus.",
+      "title": "Ambiance et expérience d'une adresse",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. S'appuyer sur l'expérience de l'interlocuteur plutôt que lui demander une critique d'œuvre.",
       "groups": [
         {
-          "title": "Ambiance et expérience sur place",
-          "guidance": "Adapter les questions à la consigne : ambiance et expérience sur place. Ne pas redemander les faits déjà connus.",
+          "title": "Ambiance et expérience d'une adresse",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. S'appuyer sur l'expérience de l'interlocuteur plutôt que lui demander une critique d'œuvre.",
           "questions": [
             "L'ambiance est plutôt calme et conviviale, ou plus animée ?",
-            "C'est facile de rencontrer du monde — les gens sont plutôt accueillants ?",
             "Et le service, tu l'as trouvé rapide et accueillant ?",
             {
               "text": "Qu'est-ce que vous appréciez le plus dans ces sorties artistiques ?",
               "legacy_memory_number": 10
-            }
+            },
+            "Dans ce restaurant, peut-on discuter tranquillement ou la musique couvre-t-elle les conversations ?"
           ]
         }
       ]
     },
     {
       "number": 11,
-      "title": "Conseils et choix de sortie",
-      "guidance": "Adapter les questions à la consigne : conseils et choix de sortie. Ne pas redemander les faits déjà connus.",
+      "title": "Choisir selon les envies et le budget",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Comparer les possibilités en fonction de la consigne, sans demander des faits déjà donnés.",
       "groups": [
         {
-          "title": "Conseils et choix de sortie",
-          "guidance": "Adapter les questions à la consigne : conseils et choix de sortie. Ne pas redemander les faits déjà connus.",
+          "title": "Choisir selon les envies et le budget",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Comparer les possibilités en fonction de la consigne, sans demander des faits déjà donnés.",
           "questions": [
             "Y a-t-il une sortie que tu recommanderais particulièrement — plutôt pour un public adulte ou adapté aux familles aussi ?",
             "Pour finir — parmi toutes ces sorties, laquelle tu me recommandes vraiment pour aujourd'hui ?",
@@ -202,44 +202,44 @@
               "text": "Y a-t-il une activité ou un lieu que vous recommanderiez particulièrement ?",
               "legacy_memory_number": 10
             },
-            "Quelle visite conseillerais-tu pour découvrir l'histoire de la ville avec nos invités ?"
+            "Entre ces deux quartiers, lequel choisirais-tu pour une première soirée avec nos visiteurs ?"
           ]
         }
       ]
     },
     {
       "number": 12,
-      "title": "Retards, changements et annulation",
-      "guidance": "Adapter les questions à la consigne : retards, changements et annulation. Ne pas redemander les faits déjà connus.",
+      "title": "Souplesse, imprévus et réservation",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Ne parler d'engagement que si une inscription ou une réservation existe.",
       "groups": [
         {
-          "title": "Retards, changements et annulation",
-          "guidance": "Adapter les questions à la consigne : retards, changements et annulation. Ne pas redemander les faits déjà connus.",
+          "title": "Souplesse, imprévus et réservation",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Ne parler d'engagement que si une inscription ou une réservation existe.",
           "questions": [
-            "En cas de retard à la représentation ou d'imprévu, comment ça se passe ?",
-            "Si un jour je ne peux pas venir au spectacle, comment est-ce qu'on s'organise — il faut prévenir à l'avance ?",
             "Une fois inscrit, on s'engage pour toute la sortie ou on peut venir de manière flexible ?",
-            "Quelles sont les conditions pour modifier ou annuler la réservation ?"
+            "Quelles sont les conditions pour modifier ou annuler la réservation ?",
+            "Si notre train arrive plus tard, jusqu'à quelle heure le restaurant gardera-t-il notre table ?",
+            "Peut-on quitter la visite guidée avant la fin si une personne du groupe est fatiguée ?"
           ]
         }
       ]
     },
     {
       "number": 13,
-      "title": "Confirmation, programme et suivi",
-      "guidance": "Adapter les questions à la consigne : confirmation, programme et suivi. Ne pas redemander les faits déjà connus.",
+      "title": "Confirmation et ressources pour la sortie",
+      "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Confirmer les points nécessaires et demander une ressource réellement utile.",
       "groups": [
         {
-          "title": "Confirmation, programme et suivi",
-          "guidance": "Adapter les questions à la consigne : confirmation, programme et suivi. Ne pas redemander les faits déjà connus.",
+          "title": "Confirmation et ressources pour la sortie",
+          "guidance": "Adapter les questions à la consigne ; ne pas demander un fait déjà connu ni un détail sans rapport avec la situation. Confirmer les points nécessaires et demander une ressource réellement utile.",
           "questions": [
             "Pour finir — vous recommandez de commencer la visite par un endroit en particulier ?",
             "Merci pour toutes ces infos sur la sortie — si j'ai d'autres questions, je peux vous solliciter ?",
-            "Pour finir — je peux te confirmer aujourd'hui si je prends les billets ?",
             {
               "text": "La programmation est publiée à l'avance ou on la découvre au dernier moment ?",
               "legacy_memory_number": 10
-            }
+            },
+            "Pourriez-vous m'envoyer le plan du parcours afin que je le partage avec mes amis ?"
           ]
         }
       ]

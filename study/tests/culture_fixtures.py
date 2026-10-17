@@ -1,20 +1,12 @@
 CULTURE_GROUPS = {
     "arts-loisirs": {
-        "bookshop-public-game-participation",
         "colleague-association-dance-classes",
-        "colleague-board-game-club",
-        "cultural-center-reception-activities",
-        "friend-canadian-weekend-customs",
         "friend-cooking-workshop-experience",
-        "friend-tv-game-participation",
-        "friend-unspecified-artistic-activity",
         "friend-weekly-theatre-class",
         "guitar-teacher-lesson-enrollment",
         "music-school-course-information",
-        "neighbor-gardening-activity-organizer",
         "neighbor-home-music-tutor-advice",
         "neighbor-photography-association-class",
-        "toy-library-membership",
     },
     "culture-medias": {
         "acquaintance-recent-cinema-film",
@@ -30,13 +22,7 @@ CULTURE_GROUPS = {
         "neighborhood-library-membership",
     },
     "sorties-spectacles": {
-        "canada-cinema-employee-friend",
-        "colleague-invitation-unspecified-show",
-        "colleague-unusable-music-festival-tickets",
         "friend-choose-tonight-outing",
-        "friend-concert-invitation",
-        "friend-entertain-visiting-nephews",
-        "friend-music-festival-organizer",
         "friend-new-ottawa-restaurant",
         "host-foreign-friends-city-advice",
         "municipal-cultural-service-city-activities",
@@ -46,9 +32,41 @@ CULTURE_GROUPS = {
         "new-neighbor-evening-entertainment",
         "tourist-office-city-discovery-with-friends",
     },
+    "spectacles-festivals": {
+        "canada-cinema-employee-friend",
+        "colleague-invitation-unspecified-show",
+        "colleague-unusable-music-festival-tickets",
+        "friend-concert-invitation",
+        "friend-music-festival-organizer",
+    },
+    "loisirs-clubs-jeux": {
+        "bookshop-public-game-participation",
+        "colleague-board-game-club",
+        "cultural-center-reception-activities",
+        "friend-canadian-weekend-customs",
+        "friend-entertain-visiting-nephews",
+        "friend-tv-game-participation",
+        "friend-unspecified-artistic-activity",
+        "neighbor-gardening-activity-organizer",
+        "toy-library-membership",
+    },
 }
 
 ALL_CULTURE_GROUPS = frozenset().union(*CULTURE_GROUPS.values())
+
+LEISURE_SPLIT_GROUPS = {
+    slug: groups for slug, groups in CULTURE_GROUPS.items()
+    if slug != "culture-medias"
+}
+ALL_LEISURE_SPLIT_GROUPS = frozenset().union(*LEISURE_SPLIT_GROUPS.values())
+PREVIOUS_LEISURE_GROUPS = {
+    "arts-loisirs": (
+        CULTURE_GROUPS["arts-loisirs"] | CULTURE_GROUPS["loisirs-clubs-jeux"]
+    ) - {"friend-entertain-visiting-nephews"},
+    "sorties-spectacles": (
+        CULTURE_GROUPS["sorties-spectacles"] | CULTURE_GROUPS["spectacles-festivals"]
+    ) | {"friend-entertain-visiting-nephews"},
+}
 
 ORIGINAL_ARTS_GROUPS = {
     "bookshop-public-game-participation",

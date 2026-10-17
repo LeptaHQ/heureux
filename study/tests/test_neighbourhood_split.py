@@ -43,11 +43,13 @@ class NeighbourhoodSplitCorpusTests(SimpleTestCase):
     def test_each_equivalent_consigne_has_the_objective_based_theme(self):
         dialogues = catalogue.tache_two_dialogues()
         themes, mapping = catalogue.tache_two_subject_themes()
-        self.assertEqual(len(themes), 16)
+        self.assertEqual(len(themes), 18)
         expected_counts = {
             "vie-quartier": (14, 7),
             "garde-enfants-animaux": (15, 7),
             "benevolat-associations": (10, 4),
+            "sorties-spectacles": (18, 9),
+            "loisirs-clubs-jeux": (15, 9),
         }
         for slug, expected_groups in NEIGHBOURHOOD_GROUPS.items():
             if slug == "vie-quartier":
@@ -55,11 +57,11 @@ class NeighbourhoodSplitCorpusTests(SimpleTestCase):
             rows = [row for key, row in dialogues.items() if mapping[key] == slug]
             groups = {row.group for row in rows}
             with self.subTest(theme=slug):
-                if slug == "sorties-spectacles":
+                if slug in {"sorties-spectacles", "loisirs-clubs-jeux"}:
                     self.assertLessEqual(expected_groups, groups)
                 else:
                     self.assertEqual(groups, expected_groups)
-                    self.assertEqual((len(rows), len(groups)), expected_counts[slug])
+                self.assertEqual((len(rows), len(groups)), expected_counts[slug])
                 for key, row in dialogues.items():
                     if row.group in expected_groups:
                         self.assertEqual(mapping[key], slug)
@@ -75,7 +77,7 @@ class NeighbourhoodSplitCorpusTests(SimpleTestCase):
         }
         expected = {
             "vie-quartier": "d11a9d2d408d087ceb59bde3a0daaa5cdf96b9fa57bb2a558a115688d234c0dd",
-            "garde-enfants-animaux": "fd0d29214cb1ba88cd3f45b82cff5caf83a4b1851bfba564314f20df54615962",
+            "garde-enfants-animaux": "60b5dc1e738573ef27cb9f5c73c0d3048a5f775768495fe3257df314661bd1d7",
             "benevolat-associations": "94acdfc8cdbb0c25b65987a65334833476c59f425409c11f469373b836266ca9",
         }
         for slug, digest in expected.items():
@@ -99,8 +101,8 @@ class NeighbourhoodSplitCorpusTests(SimpleTestCase):
             for section in bank.sections for group in section.groups
             for question in group.questions
         ]
-        self.assertEqual(len(questions), 832)
-        self.assertEqual(len({question.content_key for question in questions}), 832)
+        self.assertEqual(len(questions), 936)
+        self.assertEqual(len({question.content_key for question in questions}), 936)
         by_text = {question.text: question.content_key for question in questions}
         for section in original["sections"]:
             for group in section["groups"]:
@@ -117,7 +119,7 @@ class NeighbourhoodSplitCorpusTests(SimpleTestCase):
             for path in content.TACHE_TWO_THEME_VOCABULARY_DIR.glob("*.json")
             for entry in json.loads(path.read_text())["entries"]
         }
-        self.assertEqual(len(by_id), 720)
+        self.assertEqual(len(by_id), 810)
         for entry in original["entries"]:
             self.assertEqual(by_id[entry["id"]], entry)
 

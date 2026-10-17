@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "theme": "loisirs-clubs-jeux",
+  "name": "Loisirs, clubs & jeux",
+  "entries": [
+    {
+      "id": "artmc03",
+      "kind": "mot-cle",
+      "french": "un passe-temps (m.)",
+      "anchor": "un passe-temps",
+      "english": "a hobby",
+      "example": "Avez-vous un passe-temps que vous pratiquez régulièrement après le travail ?",
+      "usage": "Nom masculin désignant une activité de loisir pratiquée régulièrement."
+    },
+    {
+      "id": "artmc09",
+      "kind": "mot-cle",
+      "french": "un club de lecture (m.)",
+      "anchor": "un club de lecture",
+      "english": "a book club",
+      "example": "Faites-vous partie d'un club de lecture depuis longtemps ?",
+      "usage": "Groupe nominal désignant un groupe qui se réunit pour discuter de lectures communes."
+    },
+    {
+      "id": "artmc11",
+      "kind": "mot-cle",
+      "french": "un talent artistique (m.)",
+      "anchor": "un talent artistique",
+      "english": "an artistic talent",
+      "example": "Diriez-vous que vous avez un talent artistique particulier ?",
+      "usage": "Groupe nominal désignant une aptitude naturelle pour une discipline créative."
+    },
+    {
+      "id": "artmc14",
+      "kind": "mot-cle",
+      "french": "un objet fait main (m.)",
+      "anchor": "un objet fait main",
+      "english": "a handmade object",
+      "example": "Avez-vous déjà offert un objet fait main à quelqu'un ?",
+      "usage": "Groupe nominal désignant une création fabriquée artisanalement."
+    },
+    {
+      "id": "artmc15",
+      "kind": "mot-cle",
+      "french": "une pause créative (f.)",
+      "anchor": "une pause créative",
+      "english": "a creative break",
+      "example": "Prenez-vous parfois une pause créative pendant votre journée de travail ?",
+      "usage": "Groupe nominal désignant un moment consacré à une activité artistique."
+    },
+    {
+      "id": "cclmc01",
+      "kind": "mot-cle",
+      "french": "un jeu de société (m.)",
+      "anchor": "un jeu de société",
+      "english": "a board game",
+      "example": "Quel serait un jeu de société adapté aux nouveaux membres du club ?",
+      "usage": "Groupe nominal pour un jeu pratiqué à plusieurs autour d'une table."
+    },
+    {
+      "id": "cclmc02",
+      "kind": "mot-cle",
+      "french": "une ludothèque (f.)",
+      "anchor": "une ludothèque",
+      "english": "a toy and game library",
+      "example": "Comment s'inscrire dans une ludothèque pour emprunter des jeux ?",
+      "usage": "Nom féminin désignant un lieu de prêt et de découverte de jeux."
+    },
+    {
+      "id": "lcjmc01",
+      "kind": "mot-cle",
+      "french": "une partie coopérative (f.)",
+      "anchor": "une partie coopérative",
+      "english": "a cooperative game session",
+      "example": "Pour mes neveux, recommanderais-tu une partie coopérative où les enfants jouent tous dans la même équipe ?",
+      "usage": "Pour distinguer la coopération de la compétition entre joueurs."
+    },
+    {
+      "id": "lcjmc02",
+      "kind": "mot-cle",
+      "french": "un plateau de jeu (m.)",
+      "anchor": "un plateau de jeu",
+      "english": "a game board",
+      "example": "Au club, prêtez-vous un plateau de jeu et ses accessoires aux personnes qui viennent sans matériel ?",
+      "usage": "Pour préciser un élément matériel d'un jeu de société."
+    },
+    {
+      "id": "lcjmc03",
+      "kind": "mot-cle",
+      "french": "une pièce manquante (f.)",
+      "anchor": "une pièce manquante",
+      "english": "a missing piece",
+      "example": "Si je remarque une pièce manquante en ouvrant un jeu emprunté, dois-je vous appeler avant de le rapporter ?",
+      "usage": "Pour signaler un problème de prêt à la ludothèque."
+    },
+    {
+      "id": "lcjmc04",
+      "kind": "mot-cle",
+      "french": "une parcelle collective (f.)",
+      "anchor": "une parcelle collective",
+      "english": "a shared garden plot",
+      "example": "Dans votre jardin, les nouveaux participants travaillent-ils sur une parcelle collective ou sur un espace personnel ?",
+      "usage": "Pour comprendre l'organisation d'une activité de jardinage."
+    },
+    {
+      "id": "lcjmc05",
+      "kind": "mot-cle",
+      "french": "un semis (m.)",
+      "anchor": "un semis",
+      "english": "a sowing of seeds",
+      "example": "Pour réussir un semis au jardin partagé, un débutant peut-il se faire aider par les autres participants ?",
+      "usage": "Pour demander de l'entraide dans une tâche de jardinage, sans supposer un cours."
+    },
+    {
+      "id": "lcjmc06",
+      "kind": "mot-cle",
+      "french": "une sélection de candidats (f.)",
+      "anchor": "une sélection de candidats",
+      "english": "a contestant selection process",
+      "example": "Le jeu télévisé prévoit-il une sélection de candidats avant de proposer une date d'enregistrement ?",
+      "usage": "Pour interroger l'accès à un jeu en tant que participant."
+    },
+    {
+      "id": "lcjmc07",
+      "kind": "mot-cle",
+      "french": "un enregistrement en studio (m.)",
+      "anchor": "un enregistrement en studio",
+      "english": "a studio recording",
+      "example": "Pour le jeu télévisé, combien de temps faut-il prévoir pour un enregistrement en studio ?",
+      "usage": "Pour vérifier la disponibilité nécessaire au tournage d'un jeu."
+    },
+    {
+      "id": "lcjmc08",
+      "kind": "mot-cle",
+      "french": "un jeu sans écran (m.)",
+      "anchor": "un jeu sans écran",
+      "english": "a screen-free game",
+      "example": "Pour occuper mes neveux un après-midi, connais-tu un jeu sans écran facile à préparer dans le salon ?",
+      "usage": "Pour rechercher une activité à domicile avec des enfants."
+    },
+    {
+      "id": "arteu01",
+      "kind": "expression-utile",
+      "french": "s'adonner à un loisir",
+      "anchor": "vous adonner à un loisir",
+      "english": "to devote oneself to / engage in a hobby",
+      "example": "Aimez-vous vous adonner à un loisir chaque week-end ?",
+      "usage": "Expression pour désigner la pratique régulière d'une activité de détente."
+    },
+    {
+      "id": "arteu02",
+      "kind": "expression-utile",
+      "french": "exprimer sa créativité",
+      "anchor": "exprimer votre créativité",
+      "english": "to express one's creativity",
+      "example": "Comment aimez-vous exprimer votre créativité au quotidien ?",
+      "usage": "Expression pour évoquer la manifestation personnelle d'un talent artistique."
+    },
+    {
+      "id": "arteu03",
+      "kind": "expression-utile",
+      "french": "se ressourcer par l'art",
+      "anchor": "vous ressourcez par l'art",
+      "english": "to recharge through art",
+      "example": "Diriez-vous que vous vous ressourcez par l'art après une semaine chargée ?",
+      "usage": "Expression pour évoquer les bienfaits relaxants d'une pratique artistique."
+    },
+    {
+      "id": "arteu06",
+      "kind": "expression-utile",
+      "french": "partager sa passion",
+      "anchor": "partager sa passion",
+      "english": "to share one's passion",
+      "example": "Est-ce facile de partager sa passion pour l'art avec des proches moins intéressés ?",
+      "usage": "Expression pour évoquer la transmission d'un enthousiasme artistique à autrui."
+    },
+    {
+      "id": "arteu08",
+      "kind": "expression-utile",
+      "french": "exposer ses créations",
+      "anchor": "exposer vos créations",
+      "english": "to display one's creations",
+      "example": "Avez-vous déjà eu l'occasion d'exposer vos créations en public ?",
+      "usage": "Expression pour évoquer la présentation d'œuvres personnelles au public."
+    },
+    {
+      "id": "arteu10",
+      "kind": "expression-utile",
+      "french": "développer sa fibre artistique",
+      "anchor": "développé votre fibre artistique",
+      "english": "to develop one's artistic side",
+      "example": "Comment avez-vous développé votre fibre artistique depuis l'enfance ?",
+      "usage": "Expression imagée signifiant cultiver une sensibilité créative."
+    },
+    {
+      "id": "arteu11",
+      "kind": "expression-utile",
+      "french": "consacrer du temps à un loisir",
+      "anchor": "consacrer du temps à un loisir",
+      "english": "to devote time to a hobby",
+      "example": "Arrivez-vous à consacrer du temps à un loisir malgré un emploi du temps chargé ?",
+      "usage": "Expression pour évoquer l'engagement de temps libre dans une activité."
+    },
+    {
+      "id": "arteu13",
+      "kind": "expression-utile",
+      "french": "trouver l'inspiration",
+      "anchor": "trouvez-vous l'inspiration",
+      "english": "to find inspiration",
+      "example": "Où trouvez-vous l'inspiration pour vos projets créatifs ?",
+      "usage": "Expression pour évoquer la source d'idées d'une démarche artistique."
+    },
+    {
+      "id": "arteu14",
+      "kind": "expression-utile",
+      "french": "bricoler à la maison",
+      "anchor": "bricoler à la maison",
+      "english": "to do DIY or crafts at home",
+      "example": "Aimez-vous bricoler à la maison pendant votre temps libre ?",
+      "usage": "Expression courante pour désigner des activités manuelles pratiquées chez soi."
+    },
+    {
+      "id": "lcjeu01",
+      "kind": "expression-utile",
+      "french": "rejoindre une table de jeu",
+      "anchor": "rejoindre une table de jeu",
+      "english": "to join a gaming table",
+      "example": "Si j'arrive seul au club, comment puis-je rejoindre une table de jeu déjà constituée ?",
+      "usage": "Pour demander comment intégrer une partie ou un groupe de joueurs."
+    },
+    {
+      "id": "lcjeu02",
+      "kind": "expression-utile",
+      "french": "expliquer les règles aux nouveaux venus",
+      "anchor": "expliquer les règles aux nouveaux venus",
+      "english": "to explain the rules to newcomers",
+      "example": "Au début de la soirée, quelqu'un prend-il le temps d'expliquer les règles aux nouveaux venus ?",
+      "usage": "Pour vérifier l'accueil des joueurs sans expérience."
+    },
+    {
+      "id": "lcjeu03",
+      "kind": "expression-utile",
+      "french": "emprunter un jeu pour le week-end",
+      "anchor": "emprunter un jeu pour le week-end",
+      "english": "to borrow a game for the weekend",
+      "example": "À la ludothèque, peut-on emprunter un jeu pour le week-end et le rendre le lundi ?",
+      "usage": "Pour préciser la durée souhaitée d'un prêt."
+    },
+    {
+      "id": "lcjeu04",
+      "kind": "expression-utile",
+      "french": "se partager les tâches au jardin",
+      "anchor": "se partager les tâches au jardin",
+      "english": "to share out the gardening tasks",
+      "example": "Comment peut-on se partager les tâches au jardin pour intégrer les nouveaux participants ?",
+      "usage": "Pour comprendre la répartition du travail collectif."
+    },
+    {
+      "id": "lcjeu05",
+      "kind": "expression-utile",
+      "french": "constituer une équipe de candidats",
+      "anchor": "constituer une équipe de candidats",
+      "english": "to put together a team of contestants",
+      "example": "Pour participer à l'émission, faut-il constituer une équipe de candidats ou peut-on s'inscrire seul ?",
+      "usage": "Pour vérifier les modalités d'une participation active à un jeu télévisé."
+    },
+    {
+      "id": "lcjeu06",
+      "kind": "expression-utile",
+      "french": "occuper les enfants sans écran",
+      "anchor": "occuper les enfants sans écran",
+      "english": "to keep children entertained without screens",
+      "example": "Quelles activités proposerais-tu pour occuper les enfants sans écran pendant une journée pluvieuse ?",
+      "usage": "Pour demander des idées adaptées à un séjour en famille."
+    },
+    {
+      "id": "artfr03",
+      "kind": "fragment",
+      "french": "Qu'est-ce qui vous a donné envie de pratiquer…",
+      "anchor": "qu'est-ce qui vous a donné envie de pratiquer",
+      "english": "What made you want to practice…",
+      "example": "Qu'est-ce qui vous a donné envie de pratiquer cette activité créative ?",
+      "usage": "Amorce pour explorer les motivations d'un loisir artistique."
+    },
+    {
+      "id": "artfr04",
+      "kind": "fragment",
+      "french": "Pourriez-vous décrire le processus de création de…",
+      "anchor": "pourriez-vous décrire le processus de création de",
+      "english": "Could you describe the creative process behind…",
+      "example": "Pourriez-vous décrire le processus de création de cette œuvre ?",
+      "usage": "Amorce polie pour demander une description détaillée d'une démarche artistique."
+    },
+    {
+      "id": "artfr05",
+      "kind": "fragment",
+      "french": "Diriez-vous que le plus satisfaisant, c'est…",
+      "anchor": "diriez-vous que le plus satisfaisant, c'est",
+      "english": "Would you say the most satisfying part is…",
+      "example": "Diriez-vous que le plus satisfaisant, c'est de voir l'œuvre terminée ?",
+      "usage": "Amorce pour faire hiérarchiser les aspects gratifiants d'un loisir."
+    },
+    {
+      "id": "artfr06",
+      "kind": "fragment",
+      "french": "En comparaison avec d'autres activités, celle-ci…",
+      "anchor": "en comparaison avec d'autres activités, celle-ci",
+      "english": "Compared to other activities, this one…",
+      "example": "En comparaison avec d'autres activités, celle-ci demande-t-elle plus de patience ?",
+      "usage": "Amorce pour comparer deux loisirs entre eux."
+    },
+    {
+      "id": "artfr10",
+      "kind": "fragment",
+      "french": "Pour resituer, depuis quand pratiquez-vous…",
+      "anchor": "pour resituer, depuis quand pratiquez-vous",
+      "english": "To set the context, since when have you been practicing…",
+      "example": "Pour resituer, depuis quand pratiquez-vous cette activité créative ?",
+      "usage": "Amorce pour recontextualiser un loisir avant de poursuivre l'échange."
+    },
+    {
+      "id": "artfr11",
+      "kind": "fragment",
+      "french": "Vous voulez dire que malgré le manque de temps, vous…",
+      "anchor": "vous voulez dire que malgré le manque de temps, vous",
+      "english": "You mean that despite the lack of time, you…",
+      "example": "Vous voulez dire que malgré le manque de temps, vous continuez à peindre chaque semaine ?",
+      "usage": "Amorce pour vérifier une interprétation malgré une contrainte de temps."
+    },
+    {
+      "id": "artfr12",
+      "kind": "fragment",
+      "french": "Pour clore ce point, conseilleriez-vous ce loisir à…",
+      "anchor": "pour clore ce point, conseilleriez-vous ce loisir à",
+      "english": "To close this point, would you recommend this hobby to…",
+      "example": "Pour clore ce point, conseilleriez-vous ce loisir à quelqu'un de très occupé ?",
+      "usage": "Amorce pour conclure un échange sur une activité créative."
+    },
+    {
+      "id": "artfr13",
+      "kind": "fragment",
+      "french": "Où allez-vous chercher…",
+      "anchor": "où allez-vous chercher",
+      "english": "Where do you look for…",
+      "example": "Où allez-vous chercher l'inspiration pour vos projets créatifs ?",
+      "usage": "Amorce pour demander la source d'inspiration d'une pratique artistique."
+    },
+    {
+      "id": "artfr15",
+      "kind": "fragment",
+      "french": "Et si vous manquiez d'inspiration, comment…",
+      "anchor": "et si vous manquiez d'inspiration un jour, comment",
+      "english": "And if you lacked inspiration, how…",
+      "example": "Et si vous manquiez d'inspiration un jour, comment feriez-vous pour la retrouver ?",
+      "usage": "Amorce hypothétique pour explorer un scénario créatif difficile."
+    },
+    {
+      "id": "cclfr01",
+      "kind": "fragment",
+      "french": "Pour participer à ce jeu…",
+      "anchor": "Pour participer à ce jeu",
+      "english": "To take part in this game…",
+      "example": "Pour participer à ce jeu, quelles conditions faut-il remplir ?",
+      "usage": "Amorce pour demander les règles d'accès à une activité participative."
+    },
+    {
+      "id": "lcjfr01",
+      "kind": "fragment",
+      "french": "Pour une première partie avec des enfants…",
+      "anchor": "Pour une première partie avec des enfants",
+      "english": "For a first game with children…",
+      "example": "Pour une première partie avec des enfants, quel jeu de votre ludothèque s'explique en quelques minutes ?",
+      "usage": "Pour relier le choix du jeu à l'âge et à l'expérience des participants."
+    },
+    {
+      "id": "lcjfr02",
+      "kind": "fragment",
+      "french": "Si je viens seul à la soirée jeux…",
+      "anchor": "Si je viens seul à la soirée jeux",
+      "english": "If I come to the games evening on my own…",
+      "example": "Si je viens seul à la soirée jeux, quelqu'un pourra-t-il me présenter aux autres membres ?",
+      "usage": "Pour vérifier l'accueil au club sans supposer un cours."
+    },
+    {
+      "id": "lcjfr03",
+      "kind": "fragment",
+      "french": "Avant de rendre un jeu emprunté…",
+      "anchor": "Avant de rendre un jeu emprunté",
+      "english": "Before returning a borrowed game…",
+      "example": "Avant de rendre un jeu emprunté, faut-il vérifier le nombre de pièces à l'aide d'une liste ?",
+      "usage": "Pour connaître les précautions utiles lors d'un prêt."
+    },
+    {
+      "id": "lcjfr04",
+      "kind": "fragment",
+      "french": "Concernant les tâches au jardin partagé…",
+      "anchor": "Concernant les tâches au jardin partagé",
+      "english": "Regarding the tasks in the shared garden…",
+      "example": "Concernant les tâches au jardin partagé, lesquelles puis-je faire sans expérience préalable ?",
+      "usage": "Pour choisir une participation réaliste à une activité collective."
+    },
+    {
+      "id": "lcjfr05",
+      "kind": "fragment",
+      "french": "Au moment de passer devant les caméras…",
+      "anchor": "Au moment de passer devant les caméras",
+      "english": "When it was time to appear on camera…",
+      "example": "Au moment de passer devant les caméras, comment l'équipe du jeu télévisé t'a-t-elle aidé à te détendre ?",
+      "usage": "Pour faire raconter l'expérience d'un candidat plutôt que commenter une émission."
+    }
+  ]
+}

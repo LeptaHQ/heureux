@@ -1,71 +1,8 @@
 {
   "version": 1,
   "theme": "sorties-spectacles",
-  "name": "Sorties, visites & spectacles",
+  "name": "Sorties, visites & bonnes adresses",
   "entries": [
-    {
-      "id": "sormc01",
-      "kind": "mot-cle",
-      "french": "une salle de concert (f.)",
-      "anchor": "une salle de concert",
-      "english": "a concert hall",
-      "example": "Fréquentez-vous souvent une salle de concert dans cette ville ?",
-      "usage": "Groupe nominal désignant un lieu dédié aux représentations musicales."
-    },
-    {
-      "id": "sormc02",
-      "kind": "mot-cle",
-      "french": "un billet (m.)",
-      "anchor": "un billet",
-      "english": "a ticket",
-      "example": "Avez-vous réservé un billet à l'avance pour ce spectacle ?",
-      "usage": "Nom masculin désignant le titre d'accès à un événement."
-    },
-    {
-      "id": "sormc04",
-      "kind": "mot-cle",
-      "french": "un festival (m.)",
-      "anchor": "un festival",
-      "english": "a festival",
-      "example": "Participez-vous chaque année à un festival culturel dans votre région ?",
-      "usage": "Nom masculin désignant un événement rassemblant plusieurs représentations artistiques."
-    },
-    {
-      "id": "sormc05",
-      "kind": "mot-cle",
-      "french": "une file d'attente (f.)",
-      "anchor": "une file d'attente",
-      "english": "a lineup / queue",
-      "example": "Avez-vous dû patienter dans une file d'attente avant l'ouverture des portes ?",
-      "usage": "Groupe nominal désignant l'alignement de personnes attendant leur tour."
-    },
-    {
-      "id": "sormc06",
-      "kind": "mot-cle",
-      "french": "un artiste (m.)",
-      "anchor": "un artiste",
-      "english": "an artist / performer",
-      "example": "Aimeriez-vous rencontrer un artiste que vous admirez depuis longtemps ?",
-      "usage": "Nom masculin désignant une personne qui se produit sur scène ou expose son travail. Au féminin : une artiste."
-    },
-    {
-      "id": "sormc07",
-      "kind": "mot-cle",
-      "french": "une réservation (f.)",
-      "anchor": "une réservation",
-      "english": "a booking / reservation",
-      "example": "Faut-il faire une réservation plusieurs semaines à l'avance pour ce théâtre ?",
-      "usage": "Nom féminin désignant la démarche pour garantir une place à un événement."
-    },
-    {
-      "id": "sormc08",
-      "kind": "mot-cle",
-      "french": "un cinéma en plein air (m.)",
-      "anchor": "un cinéma en plein air",
-      "english": "an outdoor cinema",
-      "example": "Avez-vous déjà vu un film dans un cinéma en plein air pendant l'été ?",
-      "usage": "Groupe nominal désignant une projection de film organisée à l'extérieur."
-    },
     {
       "id": "sormc09",
       "kind": "mot-cle",
@@ -76,33 +13,6 @@
       "usage": "Groupe nominal désignant l'ensemble des événements prévus dans un lieu ou une ville."
     },
     {
-      "id": "sormc10",
-      "kind": "mot-cle",
-      "french": "un spectacle en direct (m.)",
-      "anchor": "un spectacle en direct",
-      "english": "a live show",
-      "example": "Préférez-vous un spectacle en direct plutôt qu'une captation télévisée ?",
-      "usage": "Groupe nominal désignant une représentation se déroulant devant un public présent."
-    },
-    {
-      "id": "sormc12",
-      "kind": "mot-cle",
-      "french": "un abonnement culturel (m.)",
-      "anchor": "un abonnement culturel",
-      "english": "a cultural subscription",
-      "example": "Avez-vous pris un abonnement culturel pour assister à plusieurs spectacles ?",
-      "usage": "Groupe nominal désignant un accès régulier à des événements culturels."
-    },
-    {
-      "id": "sormc13",
-      "kind": "mot-cle",
-      "french": "une comédie musicale (f.)",
-      "anchor": "une comédie musicale",
-      "english": "a musical",
-      "example": "Avez-vous déjà assisté à une comédie musicale à grand succès ?",
-      "usage": "Groupe nominal désignant un spectacle mêlant théâtre, chant et danse."
-    },
-    {
       "id": "sormc14",
       "kind": "mot-cle",
       "french": "un lieu culturel (m.)",
@@ -110,15 +20,6 @@
       "english": "a cultural venue",
       "example": "Recommanderiez-vous un lieu culturel en particulier à quelqu'un qui découvre la ville ?",
       "usage": "Groupe nominal désignant un espace destiné aux activités artistiques et culturelles."
-    },
-    {
-      "id": "sormc15",
-      "kind": "mot-cle",
-      "french": "un tarif étudiant (m.)",
-      "anchor": "un tarif étudiant",
-      "english": "a student rate",
-      "example": "Ce théâtre propose-t-il un tarif étudiant pour les représentations en semaine ?",
-      "usage": "Groupe nominal désignant un prix réduit accordé aux étudiants."
     },
     {
       "id": "artmc02",
@@ -139,6 +40,105 @@
       "usage": "Groupe nominal désignant un lieu d'exposition et de vente d'œuvres d'art."
     },
     {
+      "id": "svlmc01",
+      "kind": "mot-cle",
+      "french": "un circuit pédestre (m.)",
+      "anchor": "un circuit pédestre",
+      "english": "a walking route",
+      "example": "Pour faire découvrir le quartier à mes amis, connaissez-vous un circuit pédestre assez court ?",
+      "usage": "Pour préciser un parcours à pied plutôt qu'un trajet en véhicule."
+    },
+    {
+      "id": "svlmc02",
+      "kind": "mot-cle",
+      "french": "un point de vue (m.)",
+      "anchor": "un point de vue",
+      "english": "a scenic viewpoint",
+      "example": "Y a-t-il un point de vue sur la ville accessible sans monter trop de marches ?",
+      "usage": "Désigne ici un endroit d'où admirer le paysage, non une opinion."
+    },
+    {
+      "id": "svlmc03",
+      "kind": "mot-cle",
+      "french": "une visite de groupe (f.)",
+      "anchor": "une visite de groupe",
+      "english": "a group visit",
+      "example": "Pour organiser une visite de groupe au musée, combien de personnes faut-il réunir ?",
+      "usage": "Pour préparer l'accueil de plusieurs visiteurs ensemble."
+    },
+    {
+      "id": "svlmc04",
+      "kind": "mot-cle",
+      "french": "une spécialité de la maison (f.)",
+      "anchor": "une spécialité de la maison",
+      "english": "a house specialty",
+      "example": "Dans ce restaurant d'Ottawa, y a-t-il une spécialité de la maison que tu me conseillerais ?",
+      "usage": "Pour demander un plat caractéristique du restaurant."
+    },
+    {
+      "id": "svlmc05",
+      "kind": "mot-cle",
+      "french": "un menu du soir (m.)",
+      "anchor": "un menu du soir",
+      "english": "an evening set menu",
+      "example": "Proposez-vous un menu du soir dont le prix reste le même le week-end ?",
+      "usage": "Pour vérifier l'offre et le prix du repas en soirée."
+    },
+    {
+      "id": "svlmc06",
+      "kind": "mot-cle",
+      "french": "une table en terrasse (f.)",
+      "anchor": "une table en terrasse",
+      "english": "an outdoor table",
+      "example": "Peut-on réserver une table en terrasse pour six personnes demain soir ?",
+      "usage": "Pour préciser le placement souhaité au restaurant."
+    },
+    {
+      "id": "svlmc07",
+      "kind": "mot-cle",
+      "french": "un parcours de découverte (m.)",
+      "anchor": "un parcours de découverte",
+      "english": "a discovery route",
+      "example": "L'office de tourisme propose-t-il un parcours de découverte qui passe par les petits commerces ?",
+      "usage": "Pour relier plusieurs étapes de découverte locale."
+    },
+    {
+      "id": "svlmc08",
+      "kind": "mot-cle",
+      "french": "un audioguide multilingue (m.)",
+      "anchor": "un audioguide multilingue",
+      "english": "a multilingual audio guide",
+      "example": "Peut-on partager un audioguide multilingue entre deux visiteurs ou faut-il en louer un chacun ?",
+      "usage": "Pour vérifier les modalités d'une aide à la visite en plusieurs langues."
+    },
+    {
+      "id": "svlmc09",
+      "kind": "mot-cle",
+      "french": "un accueil de groupe (m.)",
+      "anchor": "un accueil de groupe",
+      "english": "group reception arrangements",
+      "example": "Le musée prévoit-il un accueil de groupe avant le départ de la visite ?",
+      "usage": "Pour connaître l'organisation à l'arrivée de plusieurs personnes."
+    },
+    {
+      "id": "svlmc10",
+      "kind": "mot-cle",
+      "french": "un plan du centre-ville (m.)",
+      "anchor": "un plan du centre-ville",
+      "english": "a city-centre map",
+      "example": "Auriez-vous un plan du centre-ville sur lequel situer les lieux que vous recommandez ?",
+      "usage": "Pour demander un support d'orientation concret."
+    },
+    {
+      "id": "svlmc11",
+      "kind": "mot-cle",
+      "french": "une entrée gratuite (f.)",
+      "anchor": "une entrée gratuite",
+      "english": "free admission",
+      "example": "Le service culturel organise-t-il des visites avec une entrée gratuite pour les nouveaux habitants ?",
+      "usage": "Pour interroger le coût d'accès sans affirmer l'existence d'une gratuité."
+    },
+    {
       "id": "soreu01",
       "kind": "expression-utile",
       "french": "sortir en soirée",
@@ -146,60 +146,6 @@
       "english": "to go out for the evening",
       "example": "À quelle fréquence aimez-vous sortir en soirée avec des amis ?",
       "usage": "Expression courante pour désigner une sortie culturelle ou festive le soir."
-    },
-    {
-      "id": "soreu02",
-      "kind": "expression-utile",
-      "french": "réserver ses places",
-      "anchor": "réserver vos places",
-      "english": "to book one's seats",
-      "example": "Préférez-vous réserver vos places en ligne ou directement sur place ?",
-      "usage": "Expression pour désigner l'achat anticipé de billets."
-    },
-    {
-      "id": "soreu03",
-      "kind": "expression-utile",
-      "french": "assister à un spectacle",
-      "anchor": "assistez-vous à un spectacle",
-      "english": "to attend a show",
-      "example": "Combien de fois par mois assistez-vous à un spectacle en général ?",
-      "usage": "Expression pour désigner la présence à une représentation artistique."
-    },
-    {
-      "id": "soreu04",
-      "kind": "expression-utile",
-      "french": "faire salle comble",
-      "anchor": "fait-il toujours salle comble",
-      "english": "to have a full house",
-      "example": "Ce spectacle fait-il toujours salle comble malgré les critiques mitigées ?",
-      "usage": "Expression imagée signifiant remplir entièrement une salle de spectacle."
-    },
-    {
-      "id": "soreu05",
-      "kind": "expression-utile",
-      "french": "se procurer des billets",
-      "anchor": "se procurer des billets",
-      "english": "to get tickets",
-      "example": "Est-il difficile de se procurer des billets pour ce festival populaire ?",
-      "usage": "Expression pour désigner l'obtention de titres d'accès à un événement."
-    },
-    {
-      "id": "soreu06",
-      "kind": "expression-utile",
-      "french": "être sur liste d'attente",
-      "anchor": "sur liste d'attente",
-      "english": "to be on a waiting list",
-      "example": "Vous êtes-vous déjà retrouvé sur liste d'attente pour un spectacle complet ?",
-      "usage": "Expression pour évoquer une situation d'attente en cas de places épuisées."
-    },
-    {
-      "id": "soreu07",
-      "kind": "expression-utile",
-      "french": "vivre un moment inoubliable",
-      "anchor": "vivre un moment inoubliable",
-      "english": "to experience an unforgettable moment",
-      "example": "Ce concert vous a-t-il fait vivre un moment inoubliable ?",
-      "usage": "Expression pour qualifier une expérience culturelle particulièrement marquante."
     },
     {
       "id": "soreu08",
@@ -211,51 +157,6 @@
       "usage": "Expression pour évoquer l'intérêt porté aux artistes émergents d'une région."
     },
     {
-      "id": "soreu09",
-      "kind": "expression-utile",
-      "french": "manquer un événement",
-      "anchor": "manqué un événement",
-      "english": "to miss an event",
-      "example": "Regrettez-vous d'avoir manqué un événement important cette année ?",
-      "usage": "Expression pour désigner l'absence à une représentation prévue."
-    },
-    {
-      "id": "soreu10",
-      "kind": "expression-utile",
-      "french": "profiter de la programmation",
-      "anchor": "profiter de la programmation",
-      "english": "to take advantage of the lineup",
-      "example": "Comptez-vous profiter de la programmation estivale du festival ?",
-      "usage": "Expression pour évoquer l'exploitation de l'offre culturelle disponible."
-    },
-    {
-      "id": "soreu11",
-      "kind": "expression-utile",
-      "french": "applaudir à tout rompre",
-      "anchor": "applaudi à tout rompre",
-      "english": "to applaud enthusiastically",
-      "example": "Le public a-t-il applaudi à tout rompre à la fin du spectacle ?",
-      "usage": "Expression imagée signifiant manifester un enthousiasme très fort."
-    },
-    {
-      "id": "soreu12",
-      "kind": "expression-utile",
-      "french": "profiter de l'ambiance du festival",
-      "anchor": "profiter de l'ambiance du festival",
-      "english": "to enjoy the festival atmosphere",
-      "example": "Qu'est-ce qui vous plaît le plus dans le fait de profiter de l'ambiance du festival ?",
-      "usage": "Expression pour évoquer le plaisir ressenti dans l'ambiance générale d'un événement culturel."
-    },
-    {
-      "id": "soreu14",
-      "kind": "expression-utile",
-      "french": "changer ses plans au dernier moment",
-      "anchor": "changer vos plans au dernier moment",
-      "english": "to change one's plans at the last minute",
-      "example": "Avez-vous déjà dû changer vos plans au dernier moment pour assister à ce spectacle ?",
-      "usage": "Expression pour évoquer un imprévu obligeant à modifier une sortie prévue."
-    },
-    {
       "id": "soreu15",
       "kind": "expression-utile",
       "french": "partager une passion culturelle",
@@ -265,112 +166,112 @@
       "usage": "Expression pour évoquer un intérêt artistique vécu collectivement."
     },
     {
-      "id": "svseu01",
+      "id": "svleu01",
       "kind": "expression-utile",
-      "french": "prévoir le retour après la sortie",
-      "anchor": "prévoir le retour après la sortie",
-      "english": "to plan the journey home after an outing",
-      "example": "Comment prévoir le retour après la sortie si le spectacle finit après le dernier métro ?",
-      "usage": "Expression pour anticiper les déplacements en fin de soirée."
+      "french": "repérer les lieux sur un plan",
+      "anchor": "repérer les lieux sur un plan",
+      "english": "to locate places on a map",
+      "example": "Pourriez-vous m'aider à repérer les lieux sur un plan avant que mes amis arrivent ?",
+      "usage": "Pour transformer des recommandations en itinéraire concret."
     },
     {
-      "id": "sorfr01",
-      "kind": "fragment",
-      "french": "À quoi ressemble concrètement…",
-      "anchor": "à quoi ressemble concrètement",
-      "english": "What does… actually look like",
-      "example": "À quoi ressemble concrètement une soirée type dans ce festival ?",
-      "usage": "Amorce pour demander une description concrète du déroulement d'un événement culturel."
+      "id": "svleu02",
+      "kind": "expression-utile",
+      "french": "adapter le parcours au groupe",
+      "anchor": "adapter le parcours au groupe",
+      "english": "to adapt the route to the group",
+      "example": "Comment adapter le parcours au groupe si certains visiteurs marchent lentement ?",
+      "usage": "Pour tenir compte des capacités et des envies des visiteurs."
     },
     {
-      "id": "sorfr02",
-      "kind": "fragment",
-      "french": "Si je comprends bien, ce festival propose…",
-      "anchor": "si je comprends bien, ce festival propose",
-      "english": "If I understand correctly, this festival offers…",
-      "example": "Si je comprends bien, ce festival propose plusieurs scènes en simultané ?",
-      "usage": "Amorce pour reformuler et vérifier le contenu d'un événement."
+      "id": "svleu03",
+      "kind": "expression-utile",
+      "french": "faire une halte gourmande",
+      "anchor": "faire une halte gourmande",
+      "english": "to stop for a tasty snack",
+      "example": "Où pourrions-nous faire une halte gourmande entre le musée et la promenade ?",
+      "usage": "Pour prévoir une pause consacrée à une spécialité ou à une collation."
     },
     {
-      "id": "sorfr03",
-      "kind": "fragment",
-      "french": "Qu'est-ce qui vous a donné envie d'assister à…",
-      "anchor": "qu'est-ce qui vous a donné envie d'assister à",
-      "english": "What made you want to attend…",
-      "example": "Qu'est-ce qui vous a donné envie d'assister à ce spectacle en particulier ?",
-      "usage": "Amorce pour explorer les motivations d'une sortie culturelle."
+      "id": "svleu04",
+      "kind": "expression-utile",
+      "french": "prévoir une visite de repli",
+      "anchor": "prévoir une visite de repli",
+      "english": "to plan a fallback visit",
+      "example": "Pourriez-vous nous aider à prévoir une visite de repli si la promenade est annulée ?",
+      "usage": "Pour préparer une alternative, sans présumer d'une annulation."
     },
     {
-      "id": "sorfr04",
-      "kind": "fragment",
-      "french": "Pourriez-vous décrire l'atmosphère de…",
-      "anchor": "pourriez-vous décrire l'atmosphère de",
-      "english": "Could you describe the atmosphere of…",
-      "example": "Pourriez-vous décrire l'atmosphère de cette salle de concert ?",
-      "usage": "Amorce polie pour demander une description sensorielle d'un lieu."
+      "id": "svleu05",
+      "kind": "expression-utile",
+      "french": "garder du temps pour flâner",
+      "anchor": "garder du temps pour flâner",
+      "english": "to leave time to wander at leisure",
+      "example": "Votre programme permet-il de garder du temps pour flâner dans les boutiques après la visite ?",
+      "usage": "Pour distinguer une visite encadrée du temps libre dans le quartier."
     },
     {
-      "id": "sorfr05",
-      "kind": "fragment",
-      "french": "Diriez-vous que le meilleur moment, c'était…",
-      "anchor": "diriez-vous que le meilleur moment, c'était",
-      "english": "Would you say the best moment was…",
-      "example": "Diriez-vous que le meilleur moment, c'était le rappel final ?",
-      "usage": "Amorce pour faire hiérarchiser les temps forts d'un spectacle."
+      "id": "svleu06",
+      "kind": "expression-utile",
+      "french": "réserver une table pour le groupe",
+      "anchor": "réserver une table pour le groupe",
+      "english": "to reserve a table for the group",
+      "example": "Combien de jours à l'avance faudrait-il réserver une table pour le groupe ?",
+      "usage": "Pour organiser un repas collectif."
     },
     {
-      "id": "sorfr06",
-      "kind": "fragment",
-      "french": "En comparaison avec l'an dernier, ce festival…",
-      "anchor": "en comparaison avec l'an dernier, ce festival",
-      "english": "Compared to last year, this festival…",
-      "example": "En comparaison avec l'an dernier, ce festival attire-t-il plus de monde ?",
-      "usage": "Amorce pour comparer deux éditions d'un même événement."
+      "id": "svleu07",
+      "kind": "expression-utile",
+      "french": "s'éloigner des circuits touristiques",
+      "anchor": "s'éloigner des circuits touristiques",
+      "english": "to venture away from the tourist routes",
+      "example": "Quel quartier conseillerais-tu pour s'éloigner des circuits touristiques tout en restant près du centre ?",
+      "usage": "Pour demander une découverte moins classique de la ville."
     },
     {
-      "id": "sorfr07",
-      "kind": "fragment",
-      "french": "Est-ce que vous pourriez revenir sur l'organisation de…",
-      "anchor": "est-ce que vous pourriez revenir sur l'organisation de",
-      "english": "Could you go back over the organization of…",
-      "example": "Est-ce que vous pourriez revenir sur l'organisation de cette soirée particulière ?",
-      "usage": "Amorce pour demander de développer un point déjà mentionné."
+      "id": "svleu08",
+      "kind": "expression-utile",
+      "french": "privilégier les sorties gratuites",
+      "anchor": "privilégier les sorties gratuites",
+      "english": "to favour free outings",
+      "example": "Si nous voulons privilégier les sorties gratuites, quelles activités municipales choisiriez-vous ?",
+      "usage": "Pour exprimer une contrainte budgétaire sans exiger la gratuité."
     },
     {
-      "id": "sorfr08",
-      "kind": "fragment",
-      "french": "Autrement dit, sans cette réservation, vous…",
-      "anchor": "autrement dit, sans cette réservation, vous",
-      "english": "In other words, without that reservation, you…",
-      "example": "Autrement dit, sans cette réservation, vous n'auriez pas pu entrer ?",
-      "usage": "Amorce pour reformuler une conséquence logique."
+      "id": "svleu09",
+      "kind": "expression-utile",
+      "french": "regrouper les visites par quartier",
+      "anchor": "regrouper les visites par quartier",
+      "english": "to group visits by neighbourhood",
+      "example": "Comment regrouper les visites par quartier pour limiter les trajets avec nos invités ?",
+      "usage": "Pour organiser un itinéraire cohérent."
     },
     {
-      "id": "sorfr11",
-      "kind": "fragment",
-      "french": "Vous voulez dire que malgré la file d'attente, vous…",
-      "anchor": "vous voulez dire que malgré la file d'attente, vous",
-      "english": "You mean that despite the lineup, you…",
-      "example": "Vous voulez dire que malgré la file d'attente, vous avez pu entrer à temps ?",
-      "usage": "Amorce pour vérifier une interprétation malgré une contrainte pratique."
+      "id": "svleu10",
+      "kind": "expression-utile",
+      "french": "se fier aux recommandations d'un habitant",
+      "anchor": "se fier aux recommandations d'un habitant",
+      "english": "to rely on a local resident's recommendations",
+      "example": "Pour trouver un restaurant accueillant, vaut-il mieux se fier aux recommandations d'un habitant qu'aux avis en ligne ?",
+      "usage": "Pour discuter de la manière de choisir une bonne adresse."
     },
     {
-      "id": "sorfr14",
-      "kind": "fragment",
-      "french": "Juste pour bien comprendre, cet artiste dont vous parlez…",
-      "anchor": "juste pour bien comprendre, cet artiste dont vous parlez",
-      "english": "Just to make sure I understand, the artist you mention…",
-      "example": "Juste pour bien comprendre, cet artiste dont vous parlez se produit bien ce soir ?",
-      "usage": "Amorce pour clarifier un détail relatif à une personne mentionnée."
+      "id": "svleu11",
+      "kind": "expression-utile",
+      "french": "concilier les envies des invités",
+      "anchor": "concilier les envies des invités",
+      "english": "to reconcile the guests' preferences",
+      "example": "Quelle sortie permettrait de concilier les envies des invités si certains aiment les musées et d'autres préfèrent marcher ?",
+      "usage": "Pour rechercher un compromis concret."
     },
     {
-      "id": "sorfr15",
-      "kind": "fragment",
-      "french": "Et si le spectacle était annulé, comment…",
-      "anchor": "et si le spectacle était annulé à la dernière minute, comment",
-      "english": "And if the show were cancelled, how…",
-      "example": "Et si le spectacle était annulé à la dernière minute, comment réagiriez-vous ?",
-      "usage": "Amorce hypothétique pour explorer un scénario imprévu."
+      "id": "svleu12",
+      "kind": "expression-utile",
+      "french": "éviter les heures de grande affluence",
+      "anchor": "éviter les heures de grande affluence",
+      "english": "to avoid the busiest visiting times",
+      "example": "À quel moment faudrait-il venir au musée pour éviter les heures de grande affluence ?",
+      "usage": "Pour choisir un créneau moins fréquenté."
     },
     {
       "id": "svsfr01",
@@ -407,6 +308,105 @@
       "english": "To show our guests around the city…",
       "example": "Pour faire découvrir la ville à nos invités, quel parcours conseillerais-tu ?",
       "usage": "Amorce pour demander un itinéraire local adapté aux visiteurs."
+    },
+    {
+      "id": "svlfr01",
+      "kind": "fragment",
+      "french": "Pour une soirée qui ne coûte pas trop cher…",
+      "anchor": "Pour une soirée qui ne coûte pas trop cher",
+      "english": "For an evening that does not cost too much…",
+      "example": "Pour une soirée qui ne coûte pas trop cher, quelles adresses conseillerais-tu près d'ici ?",
+      "usage": "Pour introduire une limite de budget dans une demande de conseil."
+    },
+    {
+      "id": "svlfr02",
+      "kind": "fragment",
+      "french": "Avant de réserver une table pour notre groupe…",
+      "anchor": "Avant de réserver une table pour notre groupe",
+      "english": "Before booking a table for our group…",
+      "example": "Avant de réserver une table pour notre groupe, pouvez-vous me préciser si vous servez encore après vingt et une heures ?",
+      "usage": "Pour vérifier une condition utile avant la réservation."
+    },
+    {
+      "id": "svlfr03",
+      "kind": "fragment",
+      "french": "Si nos invités ne connaissent pas le quartier…",
+      "anchor": "Si nos invités ne connaissent pas le quartier",
+      "english": "If our guests do not know the neighbourhood…",
+      "example": "Si nos invités ne connaissent pas le quartier, où serait-il le plus simple de leur donner rendez-vous ?",
+      "usage": "Pour adapter l'organisation à des visiteurs."
+    },
+    {
+      "id": "svlfr04",
+      "kind": "fragment",
+      "french": "En tenant compte des distances à pied…",
+      "anchor": "En tenant compte des distances à pied",
+      "english": "Taking walking distances into account…",
+      "example": "En tenant compte des distances à pied, est-il réaliste de visiter ces deux musées dans l'après-midi ?",
+      "usage": "Pour évaluer la faisabilité d'un programme."
+    },
+    {
+      "id": "svlfr05",
+      "kind": "fragment",
+      "french": "Pour éviter de faire la queue au musée…",
+      "anchor": "Pour éviter de faire la queue au musée",
+      "english": "To avoid queuing at the museum…",
+      "example": "Pour éviter de faire la queue au musée, peut-on réserver un créneau d'entrée ?",
+      "usage": "Pour demander une manière concrète de limiter l'attente."
+    },
+    {
+      "id": "svlfr06",
+      "kind": "fragment",
+      "french": "Au cas où la promenade serait écourtée…",
+      "anchor": "Au cas où la promenade serait écourtée",
+      "english": "In case the walk is cut short…",
+      "example": "Au cas où la promenade serait écourtée, quel lieu couvert pourrions-nous visiter à proximité ?",
+      "usage": "Pour anticiper un changement sans annoncer qu'il aura lieu."
+    },
+    {
+      "id": "svlfr07",
+      "kind": "fragment",
+      "french": "Parmi les adresses que tu as testées…",
+      "anchor": "Parmi les adresses que tu as testées",
+      "english": "Among the places you have tried…",
+      "example": "Parmi les adresses que tu as testées, laquelle conviendrait à un dîner où l'on souhaite discuter au calme ?",
+      "usage": "Pour obtenir une recommandation fondée sur l'expérience."
+    },
+    {
+      "id": "svlfr08",
+      "kind": "fragment",
+      "french": "Sans voiture pour rejoindre le point de départ…",
+      "anchor": "Sans voiture pour rejoindre le point de départ",
+      "english": "Without a car to get to the starting point…",
+      "example": "Sans voiture pour rejoindre le point de départ, quelle ligne de bus devons-nous prendre ?",
+      "usage": "Pour préciser une contrainte de déplacement vers une visite."
+    },
+    {
+      "id": "svlfr09",
+      "kind": "fragment",
+      "french": "Pour que chacun puisse suivre la visite…",
+      "anchor": "Pour que chacun puisse suivre la visite",
+      "english": "So that everyone can follow the tour…",
+      "example": "Pour que chacun puisse suivre la visite, proposez-vous des explications en anglais ?",
+      "usage": "Pour vérifier une adaptation linguistique nécessaire au groupe."
+    },
+    {
+      "id": "svlfr10",
+      "kind": "fragment",
+      "french": "Une fois le repas terminé…",
+      "anchor": "Une fois le repas terminé",
+      "english": "Once the meal is over…",
+      "example": "Une fois le repas terminé, quel endroit nous conseillerais-tu pour prolonger la soirée sans reprendre la voiture ?",
+      "usage": "Pour enchaîner deux moments d'une sortie locale."
+    },
+    {
+      "id": "svlfr11",
+      "kind": "fragment",
+      "french": "Si nous combinons deux visites dans la journée…",
+      "anchor": "Si nous combinons deux visites dans la journée",
+      "english": "If we combine two visits in one day…",
+      "example": "Si nous combinons deux visites dans la journée, existe-t-il un billet commun pour ces deux lieux ?",
+      "usage": "Pour vérifier une formule éventuelle sans supposer qu'elle existe."
     }
   ]
 }

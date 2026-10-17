@@ -36,7 +36,7 @@ class CultureSplitCorpusTests(SimpleTestCase):
     def test_all_eighty_five_publications_and_equivalents_follow_their_objective(self):
         themes, mapping = catalogue.tache_two_subject_themes()
         dialogues = catalogue.tache_two_dialogues()
-        self.assertEqual(len(themes), 16)
+        self.assertEqual(len(themes), 18)
         self.assertEqual(len(dialogues), 348)
         self.assertEqual(len({row.group for row in dialogues.values()}), 164)
         self.assertEqual(len(ALL_CULTURE_GROUPS), 41)
@@ -45,9 +45,11 @@ class CultureSplitCorpusTests(SimpleTestCase):
             sum(row.group in ALL_CULTURE_GROUPS for row in dialogues.values()), 85,
         )
         expected = {
-            "arts-loisirs": (31, 15),
+            "arts-loisirs": (17, 7),
             "culture-medias": (24, 11),
-            "sorties-spectacles": (30, 15),
+            "sorties-spectacles": (18, 9),
+            "spectacles-festivals": (11, 5),
+            "loisirs-clubs-jeux": (15, 9),
         }
         for slug, groups in CULTURE_GROUPS.items():
             rows = [row for key, row in dialogues.items() if mapping[key] == slug]
@@ -81,9 +83,9 @@ class CultureSplitCorpusTests(SimpleTestCase):
             for section in bank.sections for group in section.groups
             for question in group.questions
         ]
-        self.assertEqual(len(questions), 832)
-        self.assertEqual(len({q.content_key for q in questions}), 832)
-        self.assertEqual(len({q.text.casefold() for q in questions}), 832)
+        self.assertEqual(len(questions), 936)
+        self.assertEqual(len({q.content_key for q in questions}), 936)
+        self.assertEqual(len({q.text.casefold() for q in questions}), 936)
         count = 0
         for original in originals:
             self.assertEqual(fingerprint(original), expected[original["number"]])
@@ -106,6 +108,7 @@ class CultureSplitCorpusTests(SimpleTestCase):
             for path in sorted(content.QUESTION_BANK_DIR.glob("master_question_bank_*.json"))
             if path.stem not in {
                 "master_question_bank_9", "master_question_bank_10", "master_question_bank_16",
+                "master_question_bank_17", "master_question_bank_18",
             }
         ]
         self.assertEqual(len(banks), 13)
@@ -127,8 +130,8 @@ class CultureSplitCorpusTests(SimpleTestCase):
             for entry in json.loads(path.read_text())["entries"]
         ]
         by_id = {entry["id"]: entry for entry in entries}
-        self.assertEqual(len(entries), 720)
-        self.assertEqual(len(by_id), 720)
+        self.assertEqual(len(entries), 810)
+        self.assertEqual(len(by_id), 810)
         count = 0
         for original in originals:
             for entry in original["entries"]:
@@ -201,7 +204,7 @@ class CultureSplitPreservationTests(TestCase):
             vocabulary[marker.phrase_id] = slug
         learned = defaultdict(set)
         banks = {bank.number: bank for bank in content.load_question_banks()}
-        for destination, origin in ((9, 10), (10, 9), (16, 9), (16, 10)):
+        for destination, origin in ((9, 10), (18, 9), (16, 9), (16, 10)):
             key = next(
                 key for key in banks[destination].question_keys
                 if key.startswith(f"memory:{origin}:")
@@ -235,8 +238,8 @@ class CultureSplitPreservationTests(TestCase):
         for current in Prompt.objects.filter(content_key__in=keys).select_related("theme"):
             self.assertEqual(current.theme.slug, f"tache-2-{mapping[current.content_key]}")
         for slug, expected in (
-            ("arts-loisirs", "Cours, clubs & loisirs"),
-            ("sorties-spectacles", "Sorties, visites & spectacles"),
+            ("arts-loisirs", "Cours & ateliers"),
+            ("sorties-spectacles", "Sorties, visites & bonnes adresses"),
         ):
             old_themes[slug].refresh_from_db()
             self.assertEqual(old_themes[slug].display_name, expected)
@@ -251,7 +254,7 @@ class CultureSplitPreservationTests(TestCase):
                 {f"tache-2-{slug}"},
             )
 
-    def test_the_three_collection_names_and_vocabulary_routes_are_available(self):
+    def test_the_five_collection_names_and_vocabulary_routes_are_available(self):
         call_command("import_content", stdout=StringIO())
         user = factories.make_user("culture-directory")
         provision_user_study_data(user)
@@ -259,9 +262,11 @@ class CultureSplitPreservationTests(TestCase):
         directory = self.client.get(reverse("study:tache_two_theme_vocabulary"))
         subjects = self.client.get(reverse("study:task_browse", args=["eo", "tache-2"]))
         for slug, label in (
-            ("arts-loisirs", "Cours, clubs & loisirs"),
+            ("arts-loisirs", "Cours & ateliers"),
             ("culture-medias", "Culture, lectures & médias"),
-            ("sorties-spectacles", "Sorties, visites & spectacles"),
+            ("sorties-spectacles", "Sorties, visites & bonnes adresses"),
+            ("spectacles-festivals", "Cinéma, spectacles & festivals"),
+            ("loisirs-clubs-jeux", "Loisirs, clubs & jeux"),
         ):
             with self.subTest(theme=slug):
                 self.assertContains(directory, escape(label))

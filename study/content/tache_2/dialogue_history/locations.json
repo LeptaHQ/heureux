@@ -1644,6 +1644,21 @@
             {"topic": "Travail et soutien", "question": "Avez-vous une idée de la date de votre retour au travail ?", "follow_up_to": null},
             {"topic": "Travail et soutien", "question": "Que pourrais-je vous apporter du bureau d'ici là, et quand pourrais-je vous le déposer ?", "follow_up_to": 7, "condition": "If the colleague expects to remain away from work for a few days."}
           ]
+        },
+        {
+          "group": "visit-colleague-minor-accident",
+          "opening": "Bonjour ! J'ai appris pour votre accident, et je tenais à prendre de vos nouvelles.",
+          "closing": "Merci de m'avoir donné de vos nouvelles. Reposez-vous bien, et dites-moi si je peux vous rendre service.",
+          "questions": [
+            {"topic": "Nouvelles et aide", "question": "Comment vous sentez-vous aujourd'hui ?", "follow_up_to": null},
+            {"topic": "Nouvelles et aide", "question": "Avez-vous besoin d'aide pour les courses, les repas ou vos déplacements pendant que vous vous reposez ?", "follow_up_to": 1, "condition": "If they mention resting at home without saying whether help is needed."},
+            {"topic": "L'accident", "question": "C'est arrivé quand, et à quel endroit exactement ?", "follow_up_to": null},
+            {"topic": "L'accident", "question": "Qu'est-ce qui s'est passé exactement ?", "follow_up_to": null},
+            {"topic": "L'accident", "question": "Quelqu'un a-t-il pu vous aider sur place après l'accident ?", "follow_up_to": 4, "condition": "If a fall is described without explaining whether someone helped."},
+            {"topic": "L'accident", "question": "Avez-vous consulté un médecin après l'accident et, si oui, que vous a-t-il conseillé ?", "follow_up_to": null},
+            {"topic": "Travail et soutien", "question": "Avez-vous une idée de la date de votre retour au travail, et souhaitez-vous que je transmette un message à l'équipe ?", "follow_up_to": null},
+            {"topic": "Travail et soutien", "question": "Que pourrais-je vous apporter du bureau d'ici là, et quand pourrais-je vous le déposer ?", "follow_up_to": 7, "condition": "If the colleague expects to remain away from work for a few days."}
+          ]
         }
       ]
     },

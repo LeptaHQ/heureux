@@ -74,7 +74,7 @@ class NeighbourhoodSplitCorpusTests(SimpleTestCase):
             for row in json.loads(path.read_text())["dialogues"]
         }
         expected = {
-            "vie-quartier": "c599e06ec0ac4d9fd9e028c3d36881a0bed1f6519e789bb779597ecf656301b4",
+            "vie-quartier": "a81f2c2a90dec78547923098a052bde4e01db0af24420771676dbe6bfc82f315",
             "garde-enfants-animaux": "fd0d29214cb1ba88cd3f45b82cff5caf83a4b1851bfba564314f20df54615962",
             "benevolat-associations": "94acdfc8cdbb0c25b65987a65334833476c59f425409c11f469373b836266ca9",
         }

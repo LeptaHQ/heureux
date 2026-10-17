@@ -152,10 +152,10 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
                     len(revisions),
                     revision + (3 if group in {
                         "friend-holiday-apartment-watch", "grocery-store-home-delivery",
+                        "visit-colleague-minor-accident",
                     } else 2 if group in {
                         "colleague-babysitter-referral-needs",
                         "friend-homeless-meal-volunteering",
-                        "visit-colleague-minor-accident",
                     } else 1),
                 )
                 previous = revisions[revision]
@@ -885,7 +885,9 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertIn("pendant que vous vous reposez", row.questions[1].question)
         self.assertEqual(row.questions[2].question, "C'est arrivé quand, et à quel endroit exactement ?")
         self.assertEqual(row.questions[3].question, "Qu'est-ce qui s'est passé exactement ?")
-        self.assertIn("vous aider sur place", row.questions[4].question)
+        self.assertEqual(
+            row.questions[4].question, "Est-ce que quelqu'un est venu vous aider sur place ?",
+        )
         self.assertEqual(row.questions[4].follow_up_to, 4)
         self.assertIn("Un passant", row.questions[4].answer)
         self.assertEqual(

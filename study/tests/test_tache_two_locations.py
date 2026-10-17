@@ -1231,8 +1231,14 @@ class PublishedTacheTwoHighlightTests(TestCase):
 
     def test_colleague_work_merger_preserves_moved_questions_and_archives_separate_questions(self):
         self.assert_revision_highlights_preserved(
-            "visit-colleague-minor-accident", {1: 1, 2: 2, 4: 4, 5: 5, 8: 8},
+            "visit-colleague-minor-accident", {1: 1, 2: 2, 4: 4, 8: 8},
             revision=3,
+        )
+
+    def test_colleague_scene_help_rewrite_preserves_other_questions_and_archives_old_wording(self):
+        self.assert_revision_highlights_preserved(
+            "visit-colleague-minor-accident", {1: 1, 2: 2, 3: 3, 4: 4, 6: 6, 7: 7, 8: 8},
+            revision=4,
         )
 
     def test_childcare_logistics_insertion_preserves_moved_questions_and_archived_notes(self):
@@ -1418,7 +1424,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "neighbor-child-one-day-care": (2, {1: 1, 6: 6, 7: 7}),
             "neighbor-environmental-association-volunteering": (2, {1: 1, 3: 3, 5: 5, 6: 6}),
             "neighbor-home-childcare-provider-referral": (2, {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 8: 8}),
-            "visit-colleague-minor-accident": (2, {1: 1, 2: 2, 4: 4, 5: 5}),
+            "visit-colleague-minor-accident": (2, {1: 1, 2: 2, 4: 4}),
         }
         for group, (revision, mapping) in cases.items():
             with self.subTest(group=group):

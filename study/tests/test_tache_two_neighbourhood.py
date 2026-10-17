@@ -4,6 +4,7 @@ import json
 from django.test import SimpleTestCase
 
 from study import catalogue, content_loader as content
+from study.tests.housing_work_fixtures import ORIGINAL_HOUSING_GROUPS, ORIGINAL_WORK_GROUPS
 from study.tests.neighbourhood_fixtures import ALL_NEIGHBOURHOOD_GROUPS
 
 
@@ -84,14 +85,16 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         expected = {
             "arrivee": "eeb337d3fd34d07c863b10f58fa4da53bae6f1b91822e56eaa8042170a48e278",
             "logement": "e650f8cfbd4e5c653958e7601692e2d4d0549302f09a4e9b9bdfa7f53f240847",
-            "travail": "5529b40e35c4d3fd44ca29e4fc103345feebe67ca35618a24091b59d716b8752",
-            "ecole-etudes": "2fdd745d22e7b18c13bf1ffb59ba3b1aa85a67a33932b0e3412851a7fe2d43e1",
+            "travail": "0fb6c8f5342a424bb1f0a1c985460220b7e48f34b93de5bc54a80b36d4728b71",
+            "ecole-etudes": "b6c49581312a9e3dda84699ce4a24e371dcd46c20fd789a7bd86f60e0f952142",
         }
         for theme, digest in expected.items():
             with self.subTest(theme=theme):
-                groups = {
-                    row.group for key, row in self.dialogues.items() if self.themes[key] == theme
-                }
+                groups = (
+                    ORIGINAL_HOUSING_GROUPS if theme == "logement" else
+                    ORIGINAL_WORK_GROUPS if theme == "travail" else
+                    {row.group for key, row in self.dialogues.items() if self.themes[key] == theme}
+                )
                 snapshot = json.dumps(
                     [raw[group] for group in sorted(groups)],
                     ensure_ascii=False, sort_keys=True,
@@ -150,6 +153,7 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
                     revision + (3 if group == "friend-holiday-apartment-watch" else 2 if group in {
                         "colleague-babysitter-referral-needs",
                         "friend-homeless-meal-volunteering",
+                        "grocery-store-home-delivery",
                     } else 1),
                 )
                 previous = revisions[revision]
@@ -697,15 +701,34 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
 
     def test_delivery_questions_cover_payment_and_window_length(self):
         row = self.by_group["grocery-store-home-delivery"]
-        self.assertIn("en ligne ou auprès du livreur", row.questions[1].question)
+        self.assertIn("les courses et les frais de livraison", row.questions[1].question)
+        self.assertIn("en caisse ou auprès du livreur", row.questions[1].question)
         self.assertIn("par carte ou en espèces", row.questions[1].question)
-        self.assertIn("uniquement par carte", row.questions[1].answer)
-        self.assertIn("auprès du livreur", row.questions[1].answer)
+        self.assertNotIn("passe-t-on commande", row.questions[1].question)
+        self.assertNotIn("en ligne", row.questions[1].question)
+        self.assertIn("en caisse, par carte ou en espèces", row.questions[1].answer)
+        self.assertIn("ne proposons pas de paiement au livreur", row.questions[1].answer)
         self.assertIn("combien de temps dure", row.questions[4].question)
         self.assertIn("deux heures", row.questions[4].answer)
         self.assertIn("créneaux disponibles", row.questions[4].answer)
         self.assertEqual(row.questions[4].follow_up_to, 4)
         self.assertIn("nouvelle livraison coûte", row.questions[6].answer)
+
+    def test_grocery_cost_question_checks_the_free_delivery_threshold_not_order_eligibility(self):
+        row = self.by_group["grocery-store-home-delivery"]
+        question = row.questions[2]
+        self.assertIn("selon le montant des achats", question.question)
+        self.assertIn("montant minimum pour bénéficier de la livraison gratuite", question.question)
+        self.assertNotIn("minimum de commande", question.question)
+        self.assertIn("7,99 $", question.answer)
+        self.assertIn("gratuite à partir de 100 $", question.answer)
+        self.assertNotIn("50 $", question.answer)
+        self.assertIn("not how to order online", row.note)
+        self.assertIn("free-delivery threshold", row.note)
+        self.assertEqual(
+            self.hints[row.group][2]["english"],
+            "Delivery fees by basket value and minimum spend for free delivery",
+        )
 
     def test_remuneration_development_distinguishes_employer_from_referrer_and_favours(self):
         colleague = self.by_group["colleague-babysitter-referral-needs"]

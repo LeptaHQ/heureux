@@ -3874,12 +3874,12 @@
         "english": "Delivery area and checking coverage for your address"
       },
       {
-        "french": "Commande, moyens de paiement et règlement à la commande ou à la livraison",
-        "english": "Ordering channels, payment methods and payment at ordering or delivery"
+        "french": "Paiement des courses et de la livraison : en caisse ou au livreur, carte ou espèces",
+        "english": "Paying for groceries and delivery: checkout or driver, card or cash"
       },
       {
-        "french": "Minimum de commande et frais de livraison selon le montant des achats",
-        "english": "Minimum order and delivery fees by basket value"
+        "french": "Frais selon le montant des achats et seuil de livraison gratuite",
+        "english": "Delivery fees by basket value and minimum spend for free delivery"
       },
       {
         "french": "Délai entre commande et livraison",

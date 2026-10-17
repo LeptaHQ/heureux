@@ -348,8 +348,9 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
             ),
             "grocery-store-home-delivery": (
                 "Delivery area and checking coverage for your address",
-                "Ordering channels, payment methods and payment at ordering or delivery",
-                "Minimum order and delivery fees by basket value", "Time from order to delivery",
+                "Paying for groceries and delivery: checkout or driver, card or cash",
+                "Delivery fees by basket value and minimum spend for free delivery",
+                "Time from order to delivery",
                 "Choosing a delivery window and its duration", "Transport of fresh and frozen groceries",
                 "Missed delivery and any redelivery fee",
                 "Reporting and getting a refund for a missing or damaged item",
@@ -1213,6 +1214,12 @@ class PublishedTacheTwoHighlightTests(TestCase):
         self.assert_revision_highlights_preserved(
             "grocery-store-home-delivery", {4: 4, 7: 6},
             revision=0,
+        )
+
+    def test_grocery_payment_and_free_delivery_refinements_preserve_other_learned_questions(self):
+        self.assert_revision_highlights_preserved(
+            "grocery-store-home-delivery", {1: 1, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8},
+            revision=4,
         )
 
     def test_childcare_logistics_insertion_preserves_moved_questions_and_archived_notes(self):

@@ -4386,6 +4386,126 @@ class QuestionBankViewTests(TestCase):
         self.assertEqual(source_version.response_id, source.pk)
         self.assertEqual(movable.response_id, target.pk)
 
+    def test_subject_themes_show_in_progress_first_in_both_selection_modes(self):
+        directory_url = reverse(
+            "study:task_browse", args=[self.task.part.slug, self.task.slug],
+        )
+        canonical_slugs = [
+            theme.slug
+            for theme in sorted(
+                catalogue.tache_two_subject_themes()[0],
+                key=lambda theme: theme.order,
+            )
+        ]
+        original_subjects = {}
+        for deduplicate in ("0", "1"):
+            page = self.client.get(directory_url, {"deduplicate": deduplicate})
+            themes = page.context["subject_themes"]
+            self.assertEqual([theme["slug"] for theme in themes], canonical_slugs)
+            original_subjects[deduplicate] = {
+                theme["slug"]: [
+                    subject["content_key"] for subject in theme["subjects"]
+                ]
+                for theme in themes
+            }
+
+        active_slugs = [canonical_slugs[8], canonical_slugs[-1]]
+        for slug in reversed(active_slugs):
+            theme = next(theme for theme in themes if theme["slug"] == slug)
+            started = Card.objects.filter(
+                user=self.user,
+                card_type=CardType.SPINE,
+                response_id=theme["subjects"][0]["response_id"],
+            ).update(response_practice_started_at=timezone.now())
+            self.assertEqual(started, 1)
+        expected_order = active_slugs + [
+            slug for slug in canonical_slugs if slug not in active_slugs
+        ]
+
+        for deduplicate in ("0", "1"):
+            with self.subTest(deduplicate=deduplicate):
+                page = self.client.get(directory_url, {"deduplicate": deduplicate})
+                ordered = page.context["subject_themes"]
+                self.assertEqual(
+                    [theme["slug"] for theme in ordered], expected_order,
+                )
+                self.assertEqual(
+                    [theme["status"] for theme in ordered[:2]],
+                    ["active", "active"],
+                )
+                self.assertEqual(
+                    {
+                        theme["slug"]: [
+                            subject["content_key"] for subject in theme["subjects"]
+                        ]
+                        for theme in ordered
+                    },
+                    original_subjects[deduplicate],
+                )
+                html = page.content.decode()
+                positions = [
+                    html.index(f'id="theme-{slug}"') for slug in expected_order
+                ]
+                self.assertEqual(positions, sorted(positions))
+
+        overview = self.client.get(reverse(
+            "study:task_detail", args=[self.task.part.slug, self.task.slug],
+        ))
+        self.assertEqual(
+            [theme["slug"] for theme in overview.context["subject_summary"]["themes"]],
+            expected_order,
+        )
+
+        other = factories.make_user("theme-order-other-user")
+        self.client.force_login(other)
+        page = self.client.get(directory_url)
+        self.assertEqual(
+            [theme["slug"] for theme in page.context["subject_themes"]],
+            canonical_slugs,
+        )
+
+    def test_subject_theme_order_tracks_partial_and_full_completion(self):
+        directory_url = reverse(
+            "study:task_browse", args=[self.task.part.slug, self.task.slug],
+        )
+        page = self.client.get(directory_url)
+        themes = page.context["subject_themes"]
+        canonical_slugs = [theme["slug"] for theme in themes]
+        completed_theme, partial_theme = themes[-2:]
+        Card.objects.filter(
+            user=self.user,
+            card_type=CardType.SPINE,
+            response_id__in=[
+                subject["response_id"] for subject in completed_theme["subjects"]
+            ],
+        ).update(subject_completed_at=timezone.now())
+        partial_card = Card.objects.filter(
+            user=self.user,
+            card_type=CardType.SPINE,
+            response_id=partial_theme["subjects"][0]["response_id"],
+        )
+        partial_card.update(subject_completed_at=timezone.now())
+
+        page = self.client.get(directory_url)
+        ordered = page.context["subject_themes"]
+        self.assertEqual(
+            [theme["slug"] for theme in ordered],
+            [canonical_slugs[-1], *canonical_slugs[:-1]],
+        )
+        self.assertEqual(ordered[0]["status"], "active")
+        self.assertEqual(ordered[0]["completed"], 1)
+        self.assertEqual(ordered[-1]["status"], "done")
+        self.assertEqual(
+            ordered[-1]["completed"], ordered[-1]["total"],
+        )
+
+        partial_card.update(subject_completed_at=None)
+        page = self.client.get(directory_url)
+        self.assertEqual(
+            [theme["slug"] for theme in page.context["subject_themes"]],
+            canonical_slugs,
+        )
+
     def test_existing_subject_highlight_marks_imported_response_in_progress(self):
         subject_url = reverse(
             "study:task_subject_detail",
@@ -4451,6 +4571,7 @@ class QuestionBankViewTests(TestCase):
         logement = themes_by_slug["logement"]
         self.assertEqual(logement["progress"].status, "active")
         self.assertEqual(logement["progress"].started, 1)
+        self.assertEqual(directory.context["subject_themes"][0]["slug"], "logement")
         active_rows = [
             row
             for row in logement["subjects"]

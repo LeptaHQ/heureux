@@ -253,7 +253,7 @@ def _tache_two_progress_by_content_key(user, months):
 
 
 def _tache_two_theme_progress(user, months=None, *, deduplicate=False):
-    """Group Tâche 2 subjects by theme with per-subject progress."""
+    """Group Tâche 2 subjects with in-progress themes first."""
     if months is None:
         months = catalogue.tache_two_subject_months()
     months = tuple(months)
@@ -349,6 +349,7 @@ def _tache_two_theme_progress(user, months=None, *, deduplicate=False):
             }
         )
 
+    theme_rows.sort(key=lambda theme: theme["status"] != "active")
     summary = summarize_subject_progress(all_progress.values())
     return {
         "themes": tuple(theme_rows),

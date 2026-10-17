@@ -249,6 +249,16 @@ missing groups, incomplete translations and duplicate argument cues are rejected
 The new card sits outside the existing annotation roots so it cannot shift saved
 response or sidebar highlights. Existing study controls and vocabulary remain.
 
+Reviewed EO task 3 defaults live in `study/content/tache_3/responses/`, with
+complete theme coverage and every equivalent source question pinned. They use
+the existing introduction, three supported arguments, nuance and conclusion
+fields. Reviewed practice backs include the supports as well as the claims.
+Original published Markdown and vocabulary evidence remain unchanged; active
+personal versions still take precedence. New public wording uses separate
+annotation keys and never replays old highlight offsets. See the
+[oral-task-3 editorial standard](docs/eo3-editorial.md) for timing, grouping,
+preservation and revision criteria.
+
 EE task 1 also provides **Pistes** for Invitations & fêtes, Sorties & visites,
 Accueillir un invité, Voyages & vacances, Ville & quartier, Logement &
 déménagement, and Transports & orientation. The 44 canonical lists in

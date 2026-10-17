@@ -1,0 +1,582 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "theme": "sante",
+  "responses": {
+    "sante-p1": {
+      "prompt_signatures": {
+        "sante:p1": "e89be2474369e46402299e5e0bfd69d71e423be119e712808ef6766b6daba22f",
+        "sante:p5": "194c729cf9ecec8467e9db0541d5959601ec0a9143ffd2494422fe0edb2d697a"
+      },
+      "reformulation": "Faut-il encourager la participation des enfants aux compétitions sportives ?",
+      "position": "Oui, si la compétition reste choisie, adaptée et centrée sur l'apprentissage.",
+      "position_claire": "Oui, j'encouragerais les enfants qui le souhaitent à essayer une compétition adaptée. Elle peut donner un objectif à la pratique, apprendre à respecter un adversaire et faire coopérer une équipe. Mais participer ne doit pas devenir une obligation de gagner ni une condition pour apprécier le sport.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, une rencontre peut donner un objectif concret à l'entraînement.",
+          "developpement": "Préparer une épreuve aide à choisir un geste à travailler et à observer ses progrès. Le résultat utile n'est pas uniquement le classement : c'est aussi ce que l'enfant comprend de sa préparation.",
+          "exemple": "Avant un petit tournoi, un enfant peut travailler ses passes avec son entraîneur. Après le match, ils regardent s'il a mieux trouvé ses partenaires, même si son équipe a perdu.",
+          "consequence": "Le progrès reste ainsi visible sans dépendre de la victoire."
+        },
+        {
+          "idea": "Ensuite, la compétition permet d'exercer le respect dans une situation de désaccord.",
+          "developpement": "Une décision d'arbitrage ou une défaite peut décevoir. Avec un adulte qui accompagne la réaction, l'enfant peut apprendre à exprimer cette déception sans humilier l'autre ni abandonner les règles.",
+          "exemple": "Après un point contesté, l'entraîneur peut inviter un joueur à demander une explication calmement, puis à reprendre le jeu. Il valorise cette attitude plutôt qu'une insulte ou une victoire obtenue en trichant.",
+          "consequence": "Le cadre enseigne une manière de se confronter aux autres."
+        },
+        {
+          "idea": "Enfin, un objectif commun peut rendre la coopération plus concrète.",
+          "developpement": "Dans une équipe, chacun doit tenir compte des possibilités de ses partenaires. L'encadrement peut répartir les rôles et reconnaître les contributions moins visibles, au lieu de concentrer toute l'attention sur le meilleur joueur.",
+          "exemple": "Lors d'une rencontre, un éducateur peut faire participer les remplaçants et souligner une aide défensive ou une passe décisive. Les enfants voient comment plusieurs actions contribuent au même résultat.",
+          "consequence": "La réussite collective ne se réduit plus à une vedette."
+        }
+      ],
+      "nuance": "Cependant, ces apprentissages existent aussi hors compétition. Si un enfant souffre de la pression ou ne veut pas participer, il faut l'écouter et proposer une autre pratique. L'âge, les capacités, le repos et le plaisir doivent guider les adultes.",
+      "conclusion": "En conclusion, j'encouragerais une compétition qui fait progresser, respecter et coopérer. Elle reste une possibilité éducative parmi d'autres, pas une épreuve qui déciderait de la valeur de l'enfant."
+    },
+    "sante-p2": {
+      "prompt_signatures": {
+        "sante:p2": "554f7e165e1b36297164ca91f4897caa16a787672a9add14f084c69b0fae66fc"
+      },
+      "reformulation": "Quand le temps d'écran des enfants devient-il excessif ?",
+      "position": "Il devient excessif lorsqu'il prend la place d'activités et de besoins importants.",
+      "position_claire": "Oui, je pense que les écrans prennent trop de place dans le quotidien de certains enfants. Sans connaître l'usage de chaque famille, je parlerais d'excès lorsqu'ils repoussent le repos, réduisent la variété des activités ou occupent toute l'attention pendant les moments partagés. Tous les usages ne se valent donc pas.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, un écran peut prolonger une activité au détriment du repos.",
+          "developpement": "Lorsqu'une vidéo en entraîne une autre, il devient difficile de décider quand s'arrêter. Le problème concret est le temps qui disparaît avant le coucher, pas seulement la présence d'un appareil dans la maison.",
+          "exemple": "Un enfant peut continuer à regarder des épisodes alors que son heure de coucher approche. Prévoir l'arrêt avant la routine du soir permet de conserver du temps pour se préparer et se coucher, plutôt que négocier après chaque vidéo.",
+          "consequence": "La limite protège un besoin précis au lieu de punir l'écran."
+        },
+        {
+          "idea": "Ensuite, un usage envahissant réduit les occasions d'autres expériences.",
+          "developpement": "Une journée ne peut pas s'allonger pour accueillir toutes les activités. Si une seule occupation remplit les périodes libres, il reste moins de place pour bouger, lire, construire ou jouer autrement.",
+          "exemple": "Un enfant qui reste sur une tablette pendant tout un après-midi peut manquer une sortie qu'il aurait appréciée. Préparer avec lui un jeu dehors puis un moment numérique choisi rend les deux possibles, selon les moyens de la famille.",
+          "consequence": "L'objectif est de retrouver de la diversité, pas d'imposer un loisir unique."
+        },
+        {
+          "idea": "Enfin, l'attention donnée à l'écran peut interrompre les échanges proches.",
+          "developpement": "Être dans la même pièce ne suffit pas pour discuter. Quand chacun suit un contenu différent, les questions et les récits du quotidien trouvent moins de place, y compris si les adultes utilisent eux aussi leur téléphone.",
+          "exemple": "Pendant un repas, une famille peut ranger les appareils et laisser chacun raconter un événement de sa journée. La règle concerne également les parents, pour ne pas demander aux enfants un effort que les autres refusent.",
+          "consequence": "Le cadre protège alors un moment de présence réciproque."
+        }
+      ],
+      "nuance": "Cependant, un appel à un proche, un travail scolaire et une vidéo regardée sans fin n'ont pas la même fonction. L'âge, le contenu et les contraintes familiales comptent. Il faut des règles réalistes et des alternatives accessibles, sans culpabiliser les parents ni inventer un nombre d'heures valable pour tous.",
+      "conclusion": "En conclusion, le temps devient trop important lorsqu'il déséquilibre le quotidien. Je privilégierais des limites compréhensibles qui préservent le repos, les activités variées et les échanges, tout en gardant les usages utiles."
+    },
+    "sante-p3": {
+      "prompt_signatures": {
+        "sante:p3": "6ce2a94efbdbfa4440ccac62d579c95eb209b0b343f161407350e16378d26fb3"
+      },
+      "reformulation": "Pourquoi cumuler un emploi et des études peut-il être difficile ?",
+      "position": "C'est souvent difficile, mais les conditions peuvent rendre le cumul réalisable.",
+      "position_claire": "Oui, je pense que travailler et étudier en même temps peut être difficile. Les horaires peuvent se chevaucher, le repos devenir insuffisant et le besoin de revenu laisser peu de souplesse. Ce n'est pas simplement une question de volonté : il faut regarder les conditions réelles.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, les deux emplois du temps ne sont pas toujours compatibles.",
+          "developpement": "Un cours, un trajet et une prise de poste occupent des heures précises. Même une personne organisée ne peut pas être à deux endroits à la fois, surtout lorsque les horaires changent au dernier moment.",
+          "exemple": "Un étudiant peut terminer un cours à dix-sept heures et devoir commencer son travail à la même heure de l'autre côté de la ville. Il doit négocier un horaire différent ou renoncer à l'un des créneaux ; préparer un agenda ne résout pas ce conflit.",
+          "consequence": "La difficulté vient ici de contraintes concrètes, pas d'un manque de discipline."
+        },
+        {
+          "idea": "Ensuite, la récupération risque de devenir la seule variable d'ajustement.",
+          "developpement": "Après le travail, il reste parfois des lectures ou des devoirs à faire. Si chaque retard est rattrapé sur le temps de repos, la personne peut avoir plus de mal à rester attentive et à maintenir ses activités personnelles.",
+          "exemple": "Après une fermeture tardive, un étudiant peut rentrer avec un devoir encore à terminer pour le lendemain. Répéter cette organisation plusieurs soirs laisse peu de marge pour dormir ou simplement se détendre.",
+          "consequence": "Un planning réalisable doit donc réserver du repos, pas seulement remplir les heures."
+        },
+        {
+          "idea": "Enfin, le besoin de revenu peut empêcher de réduire la charge au moment nécessaire.",
+          "developpement": "Travailler n'est pas toujours un choix que l'on peut suspendre pendant les études. Si ce revenu paie des dépenses indispensables, prendre moins d'heures libère du temps mais crée un autre problème immédiat.",
+          "exemple": "Pendant les examens, un étudiant peut vouloir réduire ses services tout en ayant besoin du salaire pour son loyer. Une aide financière accessible ou un aménagement réellement négocié pourrait lui donner une marge que le conseil de simplement travailler moins ne lui apporte pas.",
+          "consequence": "La faisabilité dépend aussi du financement du parcours."
+        }
+      ],
+      "nuance": "Cependant, un emploi limité, des horaires prévisibles et un soutien adapté peuvent rendre le cumul possible. Le travail apporte aussi un revenu et de l'expérience. Il ne faut ni annoncer un échec inévitable ni présenter cette charge comme une obligation formatrice pour tous.",
+      "conclusion": "En conclusion, je trouve ce cumul exigeant à cause des horaires, du repos et des besoins financiers. Il peut fonctionner si la charge et les aménagements sont réalistes, plutôt que reposer sur un effort sans limite."
+    },
+    "sante-p4": {
+      "prompt_signatures": {
+        "sante:p4": "72f23fb615273c65b99bb2ab60f85d520f508204d1225705fdb2213d214b7f15"
+      },
+      "reformulation": "Comment répartir l'aide entre l'État et les citoyens ?",
+      "position": "L'État doit garantir un socle durable, complété par une participation citoyenne coordonnée.",
+      "position_claire": "Je donnerais à l'État la responsabilité d'organiser une protection durable, avec la participation des citoyens et des associations. Il ne faut pas choisir entre un droit et un geste de solidarité. Les deux peuvent répondre à des besoins différents, à condition que leurs responsabilités restent claires.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, une aide essentielle ne devrait pas dépendre seulement de la générosité locale.",
+          "developpement": "Les dons et les bénévoles ne sont pas répartis également partout. Des moyens publics et des critères explicites peuvent assurer une continuité, même lorsque l'attention du public se déplace vers une autre cause.",
+          "exemple": "Une personne qui perd son emploi a besoin de savoir à quel service s'adresser et comment son dossier sera examiné. Elle ne devrait pas devoir attendre qu'un voisin organise une collecte pour pouvoir demander un soutien.",
+          "consequence": "Le rôle public est de rendre la protection prévisible et accessible."
+        },
+        {
+          "idea": "Ensuite, les citoyens peuvent aider à franchir des obstacles très pratiques.",
+          "developpement": "Un droit ou un service peut exister sans être facile à utiliser. Une présence de proximité peut expliquer une démarche ou accompagner un premier contact, avec l'accord de la personne concernée.",
+          "exemple": "Un bénévole peut aider quelqu'un à préparer les documents demandés pour un rendez-vous social. Il laisse le professionnel examiner les droits et n'exige pas d'accéder à toutes les informations privées.",
+          "consequence": "L'accompagnement facilite l'accès sans remplacer le service compétent."
+        },
+        {
+          "idea": "Enfin, la coordination évite que les personnes refassent seules tout leur parcours.",
+          "developpement": "Des acteurs qui ne se parlent pas peuvent proposer la même aide ou laisser un besoin sans réponse. Un relais organisé permet de savoir qui fait quoi, tout en respectant le consentement et la confidentialité.",
+          "exemple": "Une association peut repérer un besoin d'hébergement pendant une distribution. Avec l'accord de la personne, elle l'oriente vers le service adapté et explique les prochaines étapes, plutôt que lui donner une liste de numéros sans indication.",
+          "consequence": "L'aide devient un parcours plus compréhensible, pas une succession de portes."
+        }
+      ],
+      "nuance": "Cependant, coordonner ne signifie pas transférer les obligations publiques aux bénévoles. Les associations ont besoin de moyens, et les personnes aidées doivent garder une voix dans les décisions. Le partage dépend aussi du problème : un voisin ne peut pas se substituer à un professionnel de santé.",
+      "conclusion": "En conclusion, l'État doit assurer le socle et la continuité, tandis que les citoyens peuvent accompagner et signaler des besoins. Une coopération organisée vaut mieux qu'une opposition entre institutions et solidarité personnelle."
+    },
+    "sante-p6": {
+      "prompt_signatures": {
+        "sante:p6": "7b9684ff94d0a40705e4f1b750ecf4824bd7c8080ba6898f1dbac7a7cdf4b10d"
+      },
+      "reformulation": "Faut-il nécessairement supprimer la viande pour être en bonne santé ?",
+      "position": "Non : il faut regarder l'alimentation globale et les besoins, sans règle universelle de suppression.",
+      "position_claire": "Non, je ne ferais pas de l'arrêt total de la viande une condition universelle de bonne santé. L'équilibre du repas, la diversité des sources alimentaires et les besoins de la personne comptent davantage qu'une seule exclusion. Cela ne signifie pas que toute quantité ou tout produit se vaut.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, supprimer un aliment ne suffit pas à équilibrer tout le reste.",
+          "developpement": "Une alimentation se juge dans son ensemble. Les légumes, les céréales, les sources de protéines et les habitudes de consommation doivent être considérés ensemble, plutôt que résumer la santé à la présence d'un morceau de viande.",
+          "exemple": "Une personne peut retirer la viande tout en gardant surtout des boissons sucrées et des biscuits dans sa journée. Ajouter des repas variés répond à un problème que la suppression, à elle seule, n'avait pas réglé.",
+          "consequence": "L'étiquette choisie ne remplace donc pas la composition réelle des repas."
+        },
+        {
+          "idea": "Ensuite, plusieurs sources alimentaires peuvent participer aux apports nécessaires.",
+          "developpement": "La viande apporte des nutriments, mais elle n'est pas la seule source possible. On peut construire des repas différents selon ses choix ; il faut regarder ce qu'ils apportent et non déclarer un modèle automatiquement supérieur.",
+          "exemple": "Pour préparer un repas, une famille peut choisir des lentilles, des légumes et du riz, ou un plat associant des légumes et une portion de viande. Elle varie les préparations au lieu de supposer qu'un seul ingrédient assure tous les besoins.",
+          "consequence": "Il existe plusieurs manières de rechercher un équilibre."
+        },
+        {
+          "idea": "Enfin, un changement alimentaire doit être préparé selon la situation personnelle.",
+          "developpement": "Les besoins et les contraintes ne sont pas identiques. Retirer un aliment sans prévoir de remplacement peut appauvrir les repas, mais cette difficulté n'est pas une condamnation du végétarisme : elle appelle une organisation adaptée.",
+          "exemple": "Une personne qui mange habituellement de la viande chaque jour et souhaite l'arrêter peut demander conseil pour composer d'autres repas. Elle vérifie les apports et les possibilités qui lui conviennent, plutôt que remplacer systématiquement son plat par un simple accompagnement.",
+          "consequence": "Une transition informée évite de confondre exclusion et amélioration."
+        }
+      ],
+      "nuance": "Cependant, réduire certaines consommations ou choisir le végétarisme peut répondre à des objectifs cohérents. La quantité, le type de produit et les indications de santé comptent. En cas de besoin particulier, l'avis d'un professionnel est plus utile qu'une règle générale apprise dans un débat.",
+      "conclusion": "En conclusion, je défends une alimentation variée et adaptée plutôt qu'une obligation universelle d'arrêter la viande. Manger ou non de la viande ne suffit, dans aucun des deux cas, à garantir la bonne santé."
+    },
+    "sante-p7": {
+      "prompt_signatures": {
+        "sante:p7": "feaf571833e452ea31c7fd73edf91611039fe000a38eefddfaba187442b9e873"
+      },
+      "reformulation": "Le bio est-il exclusivement réservé aux plus riches ?",
+      "position": "Non, mais les moyens et l'offre disponible rendent l'accès inégal.",
+      "position_claire": "Je ne dirais pas que les produits bio sont réservés exclusivement aux plus riches. Mais il est plus facile de choisir lorsqu'on dispose d'une marge financière et d'une offre accessible. Il faut distinguer la possibilité d'acheter quelques produits bio d'un panier entièrement bio chaque semaine.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, un écart de prix peut limiter le choix d'un ménage.",
+          "developpement": "Le budget alimentaire doit aussi laisser de la place au logement et aux autres dépenses essentielles. Même un supplément modeste pour chaque produit peut devenir important lorsqu'il s'applique à tout un panier.",
+          "exemple": "Une famille peut comparer deux paquets de pâtes de même poids et constater que l'option bio dépasse ce qu'elle avait prévu. Choisir l'autre paquet lui permet de respecter son budget, sans révéler un désintérêt pour la qualité.",
+          "consequence": "La liberté de choix dépend donc des moyens réellement disponibles."
+        },
+        {
+          "idea": "Ensuite, l'accès ne se résume pas au prix affiché.",
+          "developpement": "Il faut pouvoir trouver les produits et se rendre au magasin. Un déplacement supplémentaire ou un conditionnement trop grand peut rendre une offre peu pratique, même si le prix à l'unité paraît intéressant.",
+          "exemple": "Une personne sans voiture peut trouver une promotion dans un magasin éloigné, mais devoir payer un trajet et y consacrer une partie de sa journée. Acheter près de chez elle peut rester le choix le plus réaliste.",
+          "consequence": "Les possibilités dépendent aussi de l'organisation locale."
+        },
+        {
+          "idea": "Enfin, une consommation partielle reste possible sans être réservée aux très hauts revenus.",
+          "developpement": "Tous les produits et tous les commerces n'ont pas le même prix. Comparer le prix au poids et les quantités nécessaires peut permettre certains choix, sans prétendre que cette méthode rend tout accessible à chacun.",
+          "exemple": "Un consommateur peut trouver des lentilles bio d'une marque de distributeur à un prix compatible avec son budget, tout en achetant ses autres produits sans ce label. Il choisit selon l'offre réelle, pas selon une obligation de tout changer.",
+          "consequence": "Le bio n'est donc pas une catégorie sociale fermée."
+        }
+      ],
+      "nuance": "Cependant, ces possibilités ne suppriment pas les inégalités. Une promotion ne résout pas un budget insuffisant, et le label bio ne dit pas à lui seul si un repas est équilibré. L'accès de tous à une alimentation suffisante et variée doit rester prioritaire.",
+      "conclusion": "En conclusion, le bio n'est pas réservé uniquement aux plus riches, mais l'accès reste inégal. Je regarderais le budget complet, la proximité de l'offre et les choix partiels possibles, sans juger les personnes sur leurs achats."
+    },
+    "sante-p8": {
+      "prompt_signatures": {
+        "sante:p8": "2896073c7537d455aff66e645acf9581ae445fbf7920dc2fe0ea0e0aa80ff8c4"
+      },
+      "reformulation": "Faut-il imposer une pratique sportive aux enfants ?",
+      "position": "Encourager une activité régulière, oui ; imposer rigidement un sport, non.",
+      "position_claire": "Je suis favorable à une activité physique régulière pour les enfants, mais pas à l'obligation rigide de pratiquer un sport choisi par les adultes. Il faut comprendre les réticences, laisser une place aux préférences et rendre la participation possible. Encourager n'est pas simplement ordonner.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, un refus peut signaler un obstacle qu'une obligation ne résout pas.",
+          "developpement": "Un enfant peut éviter une activité parce qu'il ne comprend pas les consignes, craint les moqueries ou se sent en difficulté. Répéter qu'il doit participer ne permet pas de savoir ce qui bloque.",
+          "exemple": "Si un enfant refuse un cours collectif, un parent peut discuter avec lui et l'éducateur. Une première séance en petit groupe peut être envisagée si c'est le regard des autres qui l'inquiète, sans annoncer qu'il manque de volonté.",
+          "consequence": "Comprendre le refus permet de choisir une réponse plus adaptée."
+        },
+        {
+          "idea": "Ensuite, plusieurs formes d'activité peuvent répondre au besoin de bouger.",
+          "developpement": "Ne pas aimer un sport ne signifie pas rejeter tout mouvement. Proposer des essais différents donne à l'enfant une part de décision et permet de rechercher ce qu'il accepte de reprendre régulièrement.",
+          "exemple": "Un enfant peu intéressé par le football peut essayer la danse ou le vélo dans un cadre adapté. Les adultes peuvent convenir avec lui d'une période d'essai puis écouter ce qui lui plaît ou lui pose problème.",
+          "consequence": "Le choix porte sur une pratique réelle, pas seulement sur l'obéissance."
+        },
+        {
+          "idea": "Enfin, l'accès matériel compte autant que les encouragements.",
+          "developpement": "Une inscription, un équipement ou un trajet peut empêcher la participation. Un discours sur l'effort ne supprime pas ces contraintes, et il serait injuste de rendre l'enfant responsable d'une possibilité qui ne lui est pas offerte.",
+          "exemple": "Une famille qui ne peut pas payer un club peut chercher une activité proposée par l'école ou organiser des jeux accessibles près de chez elle. Il faut également adapter les pratiques à un handicap ou à un besoin de santé.",
+          "consequence": "Rendre l'activité possible vaut mieux que multiplier les injonctions."
+        }
+      ],
+      "nuance": "Cependant, écouter n'interdit pas de poser un cadre. L'école peut organiser des activités physiques adaptées et les parents prévoir des moments pour bouger. La souplesse ne signifie pas abandonner tout accompagnement ; elle distingue un objectif régulier d'un sport imposé sans discussion.",
+      "conclusion": "En conclusion, je privilégierais une activité encouragée et accessible, construite avec l'enfant. Comprendre, proposer et adapter me paraît plus solide qu'imposer une même pratique à tous, quelles que soient leurs difficultés."
+    },
+    "sante-p9": {
+      "prompt_signatures": {
+        "sante:p9": "77becdb91af15702edc10952b30bae081b6720a81235ff6a93bd85039e68f56b",
+        "sante:p24": "f88766bfeff03b04f6742d5b6481c24f66f17ce927df1bb96fdc13c0a501228d"
+      },
+      "reformulation": "Comment juger la chirurgie esthétique destinée à paraître plus jeune ?",
+      "position": "Respecter le choix informé sans faire de la jeunesse apparente une obligation.",
+      "position_claire": "Je respecte le choix d'une personne adulte qui envisage une intervention esthétique, mais je suis réservé devant l'idée qu'il faudrait effacer les signes de l'âge. Il faut distinguer la décision individuelle, les conditions médicales de cette décision et la pression collective autour de l'apparence.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, paraître jeune ne devrait pas devenir une condition de reconnaissance.",
+          "developpement": "Si les images valorisées montrent toujours le même type de visage, les changements ordinaires peuvent être perçus comme des défauts à corriger. Cette attente réduit la place laissée à des apparences différentes.",
+          "exemple": "Une campagne de recrutement peut montrer des professionnels de plusieurs âges sans effacer systématiquement leurs rides. Elle rappelle ainsi que la compétence ne se lit pas uniquement dans une apparence lisse ou jeune.",
+          "consequence": "On peut agir sur le regard collectif plutôt que demander à chacun de changer."
+        },
+        {
+          "idea": "Ensuite, une intervention suppose une décision réellement informée.",
+          "developpement": "Ce n'est pas un achat ordinaire dont on pourrait annuler tous les effets en le rapportant. Il faut comprendre les risques, les limites du résultat et le suivi, sans se décider uniquement à partir d'une publicité.",
+          "exemple": "Une personne peut préparer ses questions pour une consultation et demander ce qu'une opération pourrait ou non modifier. Elle prend le temps de réfléchir au lieu de réserver sous la pression d'une offre limitée.",
+          "consequence": "L'information doit éclairer le choix, pas servir de simple formalité."
+        },
+        {
+          "idea": "Enfin, le respect du choix implique aussi de pouvoir ne rien faire.",
+          "developpement": "Une liberté devient fragile si l'entourage critique systématiquement ceux qui vieillissent visiblement. Chacun doit pouvoir accepter ou refuser une intervention sans devoir justifier son visage ni être réduit à cette décision.",
+          "exemple": "Dans une équipe, des remarques répétées sur les rides d'une collègue peuvent la mettre mal à l'aise. Les faire cesser protège son droit de ne pas modifier son apparence, sans interdire à une autre personne de faire un choix différent.",
+          "consequence": "La liberté concerne donc aussi l'absence d'intervention."
+        }
+      ],
+      "nuance": "Cependant, on ne peut pas connaître les motivations ou le vécu d'une personne à partir de son apparence. Une opération ne garantit pas le bien-être, mais un refus général serait également simpliste. L'évaluation médicale appartient aux professionnels compétents et à la personne concernée.",
+      "conclusion": "En conclusion, je défends un choix libre et informé, sans obligation sociale de paraître jeune. La vigilance doit porter sur la pression, l'information et le respect, plutôt que sur le jugement des personnes opérées."
+    },
+    "sante-p10": {
+      "prompt_signatures": {
+        "sante:p10": "b595b4c8a8ea05656c5728db65c84f797bc2d37fa1459a6e5e35323a2362c392",
+        "sante:p12": "b595b4c8a8ea05656c5728db65c84f797bc2d37fa1459a6e5e35323a2362c392"
+      },
+      "reformulation": "Faut-il interdire toute vente d'alcool et de tabac ?",
+      "position": "Je privilégierais une réglementation forte et un accompagnement plutôt qu'une interdiction générale.",
+      "position_claire": "Je suis favorable à une intervention forte de l'État contre les dommages du tabac et de l'alcool, mais je ne choisirais pas automatiquement une interdiction totale de leur vente. Il faut protéger la population, prévoir l'application des règles et accompagner les personnes concernées. Aucun de ces objectifs ne se règle par une annonce seule.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, des restrictions ciblées peuvent agir sur des situations précises.",
+          "developpement": "Le tabac et l'alcool comportent des risques importants, sans être des produits identiques. Les règles doivent porter sur l'accès, la promotion et la protection d'autrui, avec des contrôles compréhensibles pour les vendeurs.",
+          "exemple": "Un dispositif peut prévoir des contrôles d'âge dans les commerces et des restrictions de publicité adaptées à chaque produit. Des inspections vérifient leur application, au lieu de supposer qu'une affiche suffit à protéger les jeunes.",
+          "consequence": "Une mesure utile doit être suivie d'une mise en œuvre réelle."
+        },
+        {
+          "idea": "Ensuite, interdire toute vente ne garantit pas que toute consommation cesse.",
+          "developpement": "Des personnes peuvent chercher d'autres circuits, dont les produits et les conditions de vente sont plus difficiles à contrôler. C'est un risque à anticiper, pas une raison de renoncer à toute réglementation ni une conséquence automatique de chaque interdiction.",
+          "exemple": "Une personne pourrait continuer à acheter du tabac à un vendeur non déclaré. Une autorité devrait alors savoir comment repérer ce circuit et contrôler les produits, au lieu de considérer la fermeture des commerces autorisés comme la fin du problème.",
+          "consequence": "La politique doit considérer ses effets possibles, pas seulement son intention."
+        },
+        {
+          "idea": "Enfin, une dépendance exige un accès à une aide adaptée.",
+          "developpement": "Une personne ne peut pas toujours modifier seule une consommation installée. Informer et faciliter un accompagnement permet de répondre à cette difficulté, plutôt que traiter chaque situation uniquement comme une faute.",
+          "exemple": "Une personne qui souhaite arrêter de fumer peut être orientée vers un professionnel pour examiner les aides possibles. Pour une consommation d'alcool problématique, un accompagnement adapté doit également être accessible, sans improviser soi-même une prise en charge.",
+          "consequence": "Le soutien complète les restrictions au lieu de s'y opposer."
+        }
+      ],
+      "nuance": "Cependant, préférer une réglementation n'est pas défendre la consommation ni nier les dommages. Certaines interdictions ciblées peuvent être justifiées. Il faut distinguer les deux produits, évaluer les résultats et renforcer les mesures lorsque la protection reste insuffisante, sans faire des recettes fiscales la priorité.",
+      "conclusion": "En conclusion, je choisirais des restrictions appliquées, une évaluation des effets et une aide accessible. Une interdiction générale ne doit pas remplacer cette politique concrète ni être présentée comme une solution qui fonctionnerait toute seule."
+    },
+    "sante-p11": {
+      "prompt_signatures": {
+        "sante:p11": "be08c80bbbd418437772eb66c2527aaed4126d25de49c0637e28ff48c0779071"
+      },
+      "reformulation": "L'État doit-il cesser ses propres ventes d'alcool et de tabac ?",
+      "position": "Changer de vendeur ne suffit pas ; l'État doit surtout séparer santé publique et objectifs commerciaux.",
+      "position_claire": "Si l'on parle des ventes assurées directement par un organisme public, je ne pense pas que son retrait soit une solution suffisante. L'État ne vend pas lui-même partout. Là où il le fait, je regarderais le contrôle des ventes, les intérêts financiers et la place donnée à la santé.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, changer de vendeur ne fait pas disparaître les produits.",
+          "developpement": "Si une vente publique est remplacée par une vente privée, l'accès peut continuer. La question utile est donc de savoir quelles règles s'appliquent et qui vérifie leur respect, plutôt que croire que le retrait public arrête automatiquement la consommation.",
+          "exemple": "Un magasin public pourrait fermer et être remplacé par plusieurs commerces autorisés. Sans conditions sur leur fonctionnement et sans inspections, le changement de propriétaire ne constituerait pas à lui seul une amélioration de la protection.",
+          "consequence": "Il faut évaluer le système de vente, pas seulement son nom."
+        },
+        {
+          "idea": "Ensuite, l'État ne doit pas dépendre d'un objectif de ventes croissantes.",
+          "developpement": "Lorsqu'un acteur reçoit des recettes, il peut être tenté de préserver cette activité. Pour un produit nocif, cet intérêt doit rester subordonné à la protection de la population et ne pas orienter les décisions de santé.",
+          "exemple": "Un organisme public ne devrait pas fixer à ses équipes un objectif consistant à vendre toujours davantage d'alcool. Son fonctionnement pourrait être évalué sur le respect des contrôles plutôt que sur une hausse du chiffre d'affaires.",
+          "consequence": "La priorité doit être explicite, même si elle réduit les recettes."
+        },
+        {
+          "idea": "Enfin, les décisions sanitaires doivent être examinées indépendamment de l'activité commerciale.",
+          "developpement": "Le contrôle ne peut pas se limiter à demander au vendeur s'il se juge responsable. Des autorités et des évaluations distinctes permettent de discuter les règles, leurs résultats et les corrections nécessaires.",
+          "exemple": "Une évaluation peut examiner si les restrictions d'accès sont respectées et si les dispositifs d'aide sont disponibles. Ses conclusions doivent pouvoir conduire à changer les pratiques, même si l'opérateur commercial préfère les conserver.",
+          "consequence": "La responsabilité publique suppose de pouvoir corriger son propre dispositif."
+        }
+      ],
+      "nuance": "Cependant, si la question signifie interdire toute vente, je privilégierais une réglementation forte et une aide adaptée plutôt qu'une interdiction générale annoncée seule. Ni une propriété publique ni une propriété privée ne garantit la protection. Il faut examiner les règles effectivement appliquées.",
+      "conclusion": "En conclusion, je ne ferais pas du retrait de l'État vendeur une réponse automatique. Je demanderais un contrôle réel, des intérêts commerciaux limités et des décisions sanitaires indépendantes, que la vente soit publique ou privée."
+    },
+    "sante-p13": {
+      "prompt_signatures": {
+        "sante:p13": "68d8ef9619a89d66fb2fb1bebbeec3e003dcb950f896126b5e5957e8d437667e"
+      },
+      "reformulation": "Quel avis porter sur le choix d'une alimentation végétarienne ?",
+      "position": "Un choix respectable, à organiser de manière variée et adaptée.",
+      "position_claire": "Je considère le végétarisme comme un choix respectable, qui peut être cohérent avec les convictions d'une personne. Mais retirer la viande ne suffit pas à organiser une alimentation. J'y vois trois enjeux : le sens du choix, la composition des repas et la possibilité de le vivre avec les autres.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, ce choix peut permettre de mettre une conviction en pratique.",
+          "developpement": "Une personne préoccupée par les conditions d'élevage peut vouloir réduire sa participation à certaines pratiques. On peut discuter les moyens retenus sans réduire son engagement à une mode ni lui attribuer toutes les mêmes motivations.",
+          "exemple": "Quelqu'un qui souhaite ne plus consommer de viande peut commencer par repérer des recettes compatibles avec son choix et expliquer calmement sa décision à ses proches. L'intention devient une pratique concrète plutôt qu'une simple déclaration.",
+          "consequence": "Le choix mérite d'être compris avant d'être jugé."
+        },
+        {
+          "idea": "Ensuite, les repas doivent rester variés et adaptés aux besoins.",
+          "developpement": "Le végétarisme ne consiste pas seulement à retirer l'élément central d'une assiette. Il faut prévoir d'autres sources alimentaires et vérifier les apports nécessaires, avec un conseil professionnel lorsqu'une situation particulière le demande.",
+          "exemple": "Pour préparer sa semaine, une personne peut prévoir des plats de lentilles, de pois chiches et de céréales, avec des légumes et d'autres aliments selon son régime. Elle cherche de vraies recettes plutôt que manger chaque jour uniquement l'accompagnement du repas familial.",
+          "consequence": "La qualité dépend de l'organisation réelle, pas seulement de l'étiquette."
+        },
+        {
+          "idea": "Enfin, quelques adaptations peuvent permettre de partager les repas sans imposer un seul choix.",
+          "developpement": "Les repas ont aussi une fonction sociale. Prévoir une base commune et expliquer les contraintes peut éviter que chacun doive choisir entre ses convictions et sa place dans le groupe.",
+          "exemple": "Pour un repas familial, on peut préparer un plat de légumes et de haricots qui convient à tous, puis proposer séparément les autres aliments. La personne végétarienne participe au repas sans demander que tout le monde change son alimentation.",
+          "consequence": "Le respect peut se traduire par une organisation simple."
+        }
+      ],
+      "nuance": "Cependant, les contraintes de santé, de budget ou d'accès aux produits varient. Aucune formule ne garantit à elle seule un bon équilibre. Manger de la viande ne rend pas automatiquement une personne irresponsable, et choisir le végétarisme ne devrait pas obliger à justifier chaque assiette.",
+      "conclusion": "En conclusion, je suis favorable au respect de ce choix lorsqu'il est organisé et adapté. Convictions, repas variés et vie commune peuvent aller ensemble, sans présenter un modèle comme une obligation universelle."
+    },
+    "sante-p14": {
+      "prompt_signatures": {
+        "sante:p14": "de76f64ae633b6f821a8e6ad66af4e1773d235efcfa8861ba74aafc7f1435a88"
+      },
+      "reformulation": "La ville facilite-t-elle davantage la vie d'une personne âgée ?",
+      "position": "Elle peut être plus pratique si les services, les déplacements et les liens sont réellement accessibles.",
+      "position_claire": "La ville peut faciliter la vie d'une personne âgée grâce à la proximité des services. Mais vivre en ville ne suffit pas : il faut pouvoir utiliser ces services, se déplacer et maintenir des relations. Je comparerais donc des conditions concrètes plutôt que deux images idéales de la ville et de la campagne.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, la proximité peut simplifier les démarches courantes.",
+          "developpement": "Avoir une pharmacie ou un commerce accessible réduit la dépendance à un long déplacement. Cela compte particulièrement lorsqu'une personne souhaite continuer à organiser elle-même ses besoins quotidiens.",
+          "exemple": "Une personne qui habite près d'une pharmacie peut aller chercher une commande à pied si le trajet lui convient. Dans un logement éloigné des commerces, elle devrait peut-être organiser un transport ou demander une disponibilité à un proche.",
+          "consequence": "La proximité peut préserver une part de choix au quotidien."
+        },
+        {
+          "idea": "Ensuite, des transports adaptés peuvent permettre de rester mobile sans conduire.",
+          "developpement": "Renoncer à la voiture ne devrait pas signifier renoncer à toute sortie. Un réseau utile dépend des horaires, de l'accessibilité des arrêts et de la facilité du trajet, pas seulement du nombre de lignes annoncé.",
+          "exemple": "Pour un rendez-vous, une personne peut utiliser un bus accessible qui relie son quartier au lieu prévu. Si elle doit au contraire changer plusieurs fois sur des arrêts difficiles, la présence d'un réseau ne résout pas son problème.",
+          "consequence": "Il faut regarder le déplacement complet, pas seulement la distance sur une carte."
+        },
+        {
+          "idea": "Enfin, des activités proches peuvent soutenir les relations si la personne peut y prendre part.",
+          "developpement": "Une bibliothèque ou une association offre des occasions régulières de rencontrer les mêmes personnes. Mais il faut connaître l'activité, pouvoir entrer dans le lieu et s'y sentir accueilli ; la densité de population ne crée pas automatiquement des liens.",
+          "exemple": "Une personne récemment installée peut participer à un atelier de lecture dans son quartier. Revenir chaque semaine lui permet de connaître quelques participants, plutôt que compter uniquement sur des rencontres au hasard dans la rue.",
+          "consequence": "L'accès à une activité peut rendre le contact plus régulier."
+        }
+      ],
+      "nuance": "Cependant, un logement urbain cher, un escalier difficile ou un environnement bruyant peuvent compliquer la vie. Un village bien relié, avec des services et des proches, peut mieux convenir. Il faut également respecter les préférences et les repères de la personne.",
+      "conclusion": "En conclusion, la ville peut être plus pratique, mais seulement si la proximité se transforme en accès réel. Services, mobilité et relations doivent être examinés ensemble, sans décider à la place de toutes les personnes âgées."
+    },
+    "sante-p15": {
+      "prompt_signatures": {
+        "sante:p15": "f92895b6c9580c82e6a07542aa6a617ad4c042432049f204b9675ec10badf2e9",
+        "sante:p18": "f92895b6c9580c82e6a07542aa6a617ad4c042432049f204b9675ec10badf2e9"
+      },
+      "reformulation": "Peut-on imposer à tous de travailler jusqu'à 70 ans ?",
+      "position": "Pas comme règle uniforme : métiers, santé et parcours doivent être considérés.",
+      "position_claire": "Je ne trouve pas acceptable d'imposer à tout le monde de travailler jusqu'à 70 ans sans distinction. Les conditions de travail, la santé et la durée des parcours ne sont pas identiques. Continuer volontairement peut convenir à certaines personnes, mais ce n'est pas la même chose qu'une obligation générale.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, les contraintes des métiers doivent être prises en compte.",
+          "developpement": "Porter des charges, travailler de nuit ou rester dans une situation de forte tension ne pose pas les mêmes difficultés qu'un poste aménagé. Le titre du métier ne suffit toutefois pas : il faut regarder les tâches réellement exercées.",
+          "exemple": "Une personne chargée de manutention peut avoir du mal à poursuivre les mêmes gestes au même rythme. Lui proposer une tâche adaptée n'a pas le même sens que lui demander simplement de tenir plusieurs années de plus.",
+          "consequence": "Une mesure juste doit examiner les conditions, pas seulement l'âge."
+        },
+        {
+          "idea": "Ensuite, deux personnes du même âge peuvent avoir des besoins de santé différents.",
+          "developpement": "Un calendrier collectif ne dit pas ce qu'une personne est capable de faire sans difficulté excessive. Une évaluation et des possibilités d'adaptation sont nécessaires, plutôt qu'une comparaison avec les collègues qui continuent sans problème apparent.",
+          "exemple": "Deux salariés peuvent occuper des fonctions proches, mais l'un a besoin d'un horaire réduit pour des raisons de santé. Leur demander le même effort au seul motif qu'ils ont le même âge ignore cette différence.",
+          "consequence": "L'égalité de traitement ne signifie pas imposer une charge identique."
+        },
+        {
+          "idea": "Enfin, la durée et l'organisation des carrières doivent entrer dans la discussion.",
+          "developpement": "Commencer à travailler tôt ou interrompre un parcours ne produit pas la même situation. Il faut aussi prévoir comment terminer une carrière, transmettre des connaissances et maintenir un revenu adapté, plutôt que fixer une date isolée.",
+          "exemple": "Une réforme pourrait proposer, sous des conditions explicites, un passage progressif à temps réduit avec des missions de transmission. Il faudrait en préciser les effets sur le revenu pour que la personne puisse choisir en connaissance de cause.",
+          "consequence": "Une transition se prépare avec des moyens, pas seulement avec un slogan."
+        }
+      ],
+      "nuance": "Cependant, financer les retraites et organiser le travail sont de vraies questions collectives. Certaines personnes souhaitent continuer et doivent pouvoir l'envisager dans de bonnes conditions. Cela ne prouve pas qu'un âge de 70 ans convienne à tous ni qu'un dispositif unique soit suffisant.",
+      "conclusion": "En conclusion, je refuse l'obligation uniforme, pas toute activité à 70 ans. Une politique acceptable doit tenir compte des tâches, de la santé et du parcours, avec des adaptations dont les conséquences sont clairement expliquées."
+    },
+    "sante-p16": {
+      "prompt_signatures": {
+        "sante:p16": "d2fabaeba4a8fb44bf975141be90964ef54a26af32d9ba2d3a438332adf655a6"
+      },
+      "reformulation": "Avis illustratif à personnaliser avec les plats et la situation de son pays.",
+      "position": "Valoriser les possibilités culinaires sans idéaliser les habitudes ni ignorer l'accès.",
+      "position_claire": "Je porte un regard nuancé sur l'alimentation dans mon pays. J'apprécie la variété des recettes et la place des repas partagés, mais la qualité dépend aussi du temps pour préparer et des moyens pour acheter. Je ne décrirais donc pas toutes les familles comme si elles mangeaient de la même manière.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, la diversité des recettes offre plusieurs façons de composer un repas.",
+          "developpement": "Les préparations familiales ou régionales peuvent donner des idées pour varier les ingrédients. Une tradition est une ressource intéressante lorsqu'on regarde ce qu'elle permet de cuisiner, sans supposer que tout plat ancien est automatiquement équilibré.",
+          "exemple": "Un repas peut associer une préparation de céréales, des légumes et des haricots. On peut varier les légumes selon ceux qui sont disponibles et adapter les quantités aux convives, plutôt que reproduire exactement la même assiette chaque jour.",
+          "consequence": "La richesse culinaire peut servir des choix quotidiens concrets."
+        },
+        {
+          "idea": "Ensuite, préparer un repas dépend de l'organisation et du matériel disponibles.",
+          "developpement": "Savoir cuisiner ne suffit pas lorsqu'on rentre tard ou qu'on dispose de peu d'équipement. Les produits prêts à utiliser peuvent être pratiques ; il faut regarder leur composition plutôt que condamner toutes les solutions rapides.",
+          "exemple": "Une personne peut préparer une base de légumes à l'avance et utiliser ensuite des haricots en conserve pour compléter un dîner. Cette organisation peut lui convenir davantage qu'une recette longue impossible à refaire pendant la semaine.",
+          "consequence": "Améliorer l'alimentation demande des solutions compatibles avec la vie réelle."
+        },
+        {
+          "idea": "Enfin, l'accès aux produits doit faire partie du jugement.",
+          "developpement": "Les goûts ne déterminent pas seuls les achats. Le budget, les commerces et les possibilités de conservation influencent ce que chaque foyer peut réellement mettre dans son assiette, même lorsque l'offre du pays paraît variée.",
+          "exemple": "Une famille peut choisir des légumes surgelés parce qu'elle peut les conserver et utiliser seulement la quantité nécessaire. Ce choix évite de perdre une partie d'un grand achat frais qu'elle n'aurait pas le temps de préparer.",
+          "consequence": "Il vaut mieux examiner les possibilités que juger les personnes."
+        }
+      ],
+      "nuance": "Cependant, ce tableau doit être adapté aux régions et aux habitudes réellement connues. Aucun exemple ne représente tout un pays. Les repas partagés peuvent être appréciés sans idéaliser le passé ni prétendre que les autres cultures auraient perdu le goût de cuisiner.",
+      "conclusion": "En conclusion, j'apprécie les ressources culinaires de mon pays, tout en restant attentif à la préparation et à l'accès. Le but est de rendre les repas variés praticables, pas d'opposer automatiquement tradition et modernité."
+    },
+    "sante-p17": {
+      "prompt_signatures": {
+        "sante:p17": "2e3f11a8e6c252738d3eec138ef1617dc3ac6ffad70bed1017d8a4a41d60a591",
+        "sante:p21": "127a037ef0a154610a1abda3359ee6d78e3c3d0c212c383f70207e7b203c2dbf"
+      },
+      "reformulation": "Dans quelles conditions le stress peut-il sembler stimulant ?",
+      "position": "Une tension ponctuelle peut mobiliser, mais elle n'est ni nécessaire ni toujours utile.",
+      "position_claire": "Le stress peut parfois donner l'impulsion de se préparer ou d'agir, mais je ne le présenterais pas comme un stimulant nécessaire. Une tension limitée, une situation qui déborde et un environnement durablement exigeant ne produisent pas la même expérience. Il faut regarder ce que la personne peut réellement faire.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, une échéance précise peut inciter à organiser sa préparation.",
+          "developpement": "Quand on identifie une tâche réalisable, une inquiétude ponctuelle peut conduire à vérifier ses moyens et à commencer. Ce n'est pas la souffrance qui fait progresser, mais l'action concrète que l'on parvient à engager.",
+          "exemple": "Avant une présentation, une personne un peu inquiète peut répéter son introduction et vérifier son support. Elle transforme une préoccupation en préparation, plutôt que laisser la tâche jusqu'au dernier moment.",
+          "consequence": "La tension peut alors accompagner une action utile, sans en être la seule cause."
+        },
+        {
+          "idea": "Ensuite, une pression trop forte peut au contraire gêner ce que l'on sait faire.",
+          "developpement": "Avoir davantage d'enjeu ne donne pas automatiquement davantage de moyens. Lorsque toute l'attention se porte sur la peur de l'erreur, il peut devenir difficile de suivre une consigne ou de reprendre son raisonnement.",
+          "exemple": "Pendant un entretien, une personne peut perdre le fil après une question imprévue. Un interlocuteur qui reformule calmement lui permet de reprendre, alors qu'une remarque humiliante ajouterait une difficulté sans apporter d'information.",
+          "consequence": "Augmenter la pression n'est donc pas une méthode universelle d'efficacité."
+        },
+        {
+          "idea": "Enfin, le contexte et le soutien changent la manière de vivre une exigence.",
+          "developpement": "Un objectif clair, des ressources et une possibilité de demander de l'aide rendent une tâche plus maîtrisable. Des demandes contradictoires ou sans fin peuvent maintenir la tension sans permettre de résoudre le problème.",
+          "exemple": "Dans une équipe, préciser quelle tâche est prioritaire et déplacer une échéance irréaliste peut aider un salarié davantage qu'une consigne lui demandant seulement de mieux gérer son stress. Le problème ne se trouve pas toujours dans sa réaction individuelle.",
+          "consequence": "Il faut agir aussi sur l'organisation qui crée la pression."
+        }
+      ],
+      "nuance": "Cependant, les réactions varient et l'on peut être motivé sans se sentir stressé. Le repos et le soutien comptent ; une difficulté persistante mérite une aide appropriée. Il ne faut pas valoriser l'épuisement ni réduire toutes les situations à une question de caractère.",
+      "conclusion": "En conclusion, une tension ponctuelle peut accompagner la mobilisation, mais elle peut aussi gêner. Je privilégierais des objectifs réalisables, une préparation concrète et un environnement soutenant plutôt que chercher à augmenter le stress pour produire des résultats."
+    },
+    "sante-p19": {
+      "prompt_signatures": {
+        "sante:p19": "386b1e0da566112904b1e3853733d2b2e480cef2408f7f009e22ee3a113e0def"
+      },
+      "reformulation": "Quels effets négatifs des jeux vidéo faut-il examiner chez les enfants ?",
+      "position": "Des risques existent selon le temps, le contenu et le fonctionnement du jeu, sans condamnation générale.",
+      "position_claire": "Les jeux vidéo peuvent avoir des effets négatifs sur les enfants, mais pas de manière identique dans toutes les situations. Je regarderais la place du jeu dans la journée, les contenus et contacts proposés, puis les mécanismes qui poussent à continuer ou à dépenser. Ces éléments sont plus utiles qu'un jugement sur tous les joueurs.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, le jeu peut repousser des activités ou des obligations importantes.",
+          "developpement": "Une partie prend du temps, et son rythme ne correspond pas toujours à celui de la famille. Si les sessions se prolongent sans limite prévue, les devoirs, les repas ou le coucher peuvent être décalés.",
+          "exemple": "Un enfant peut commencer une nouvelle partie peu avant de devoir se coucher, alors qu'elle ne peut pas se terminer immédiatement. Convenir avant le jeu d'un dernier moment pour commencer évite de découvrir le conflit seulement au moment d'éteindre.",
+          "consequence": "Le problème peut être réduit en organisant la durée réelle de l'activité."
+        },
+        {
+          "idea": "Ensuite, le contenu et les échanges en ligne doivent convenir à l'enfant.",
+          "developpement": "Un jeu ne se définit pas seulement par son titre ou ses images. Il peut comporter des scènes difficiles ou des discussions avec des inconnus, dont un enfant ne sait pas toujours évaluer les intentions.",
+          "exemple": "Un adulte peut regarder avec lui les paramètres de conversation et convenir de la conduite à tenir face à un message insultant. Il prévoit comment signaler le problème et demander de l'aide, plutôt que laisser l'enfant répondre seul.",
+          "consequence": "L'accompagnement porte sur une situation identifiable, sans prédire une agressivité automatique."
+        },
+        {
+          "idea": "Enfin, certaines fonctionnalités peuvent rendre l'arrêt ou le refus d'achat plus difficile.",
+          "developpement": "Des récompenses temporaires et des propositions payantes peuvent créer un sentiment d'urgence. Il faut distinguer ce qui est nécessaire au jeu de ce qui cherche à prolonger la présence ou provoquer une dépense.",
+          "exemple": "Un enfant peut croire qu'il doit acheter immédiatement un objet proposé pour une durée limitée. Désactiver les achats non autorisés et en discuter permet de décider autrement que sous la pression du compte à rebours.",
+          "consequence": "Une règle concrète protège mieux qu'un reproche après la dépense."
+        }
+      ],
+      "nuance": "Cependant, un jeu choisi peut aussi être un loisir créatif ou un moment partagé. Tous ne comportent pas ces fonctionnalités, et aucun effet n'est identique pour chaque enfant. L'âge, l'accessibilité et les autres activités doivent guider les limites, sans humilier les joueurs.",
+      "conclusion": "En conclusion, je prends ces risques au sérieux sans condamner le jeu vidéo en bloc. Une durée organisée, des contenus adaptés et des règles sur les contacts et les achats permettent un encadrement plus précis."
+    },
+    "sante-p20": {
+      "prompt_signatures": {
+        "sante:p20": "4737ed581dcc06b51a6be95a5659ba4f67268de42e3c7c09edf97f35c00233c9"
+      },
+      "reformulation": "Faut-il être riche pour disposer des moyens de vivre ?",
+      "position": "Il faut des ressources suffisantes, dont le niveau dépend des besoins et du contexte.",
+      "position_claire": "Il n'est pas nécessaire d'être riche pour vivre, mais il faut disposer de moyens suffisants pour ses besoins. Le mot « beaucoup » ne dit pas quels coûts une personne doit couvrir. Je distinguerais les dépenses essentielles, les différences de situation et les ressources qui ne viennent pas seulement du salaire.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, certains besoins imposent des dépenses que l'on ne peut pas simplement supprimer.",
+          "developpement": "Le logement, l'alimentation et les déplacements nécessaires doivent pouvoir être assurés. Quand le budget ne les couvre pas, demander seulement de mieux consommer ne résout pas l'écart entre les ressources et les coûts.",
+          "exemple": "Une personne peut avoir déjà réduit ses achats non essentiels et rester incapable de payer son loyer et ses courses. Elle a besoin d'une solution sur ses ressources ou son logement, pas d'un reproche sur un loisir imaginaire.",
+          "consequence": "Un revenu suffisant est une question de conditions de vie, pas de luxe."
+        },
+        {
+          "idea": "Ensuite, une même somme ne permet pas de vivre de la même manière partout.",
+          "developpement": "Le coût du logement, les transports et les personnes à charge modifient le budget. Comparer deux salaires sans regarder ces éléments peut donner une image trompeuse de ce qui est confortable ou insuffisant.",
+          "exemple": "Deux personnes ayant le même revenu peuvent payer des loyers très différents. Si l'une doit aussi financer des trajets indispensables, la marge restante pour ses autres besoins ne sera pas identique, même avec les mêmes habitudes d'achat.",
+          "consequence": "Le niveau nécessaire se comprend donc à partir d'une situation concrète."
+        },
+        {
+          "idea": "Enfin, les moyens de vivre ne proviennent pas uniquement d'un haut salaire.",
+          "developpement": "Des services accessibles, des aides auxquelles on a droit ou une organisation partagée peuvent réduire certaines dépenses. Ils n'annulent pas le besoin d'argent, mais ils changent ce qu'une personne doit financer seule.",
+          "exemple": "Un transport public adapté peut permettre à un foyer de se passer d'une voiture pour ses trajets habituels. Il évite alors des dépenses d'entretien et d'assurance, si cette solution répond réellement à ses déplacements.",
+          "consequence": "Les choix collectifs influencent aussi le budget nécessaire."
+        }
+      ],
+      "nuance": "Cependant, toutes les dépenses ne sont pas évitables et toutes les alternatives ne sont pas disponibles. Il ne faut pas idéaliser une vie avec très peu de moyens ni juger la pauvreté comme un défaut de gestion. Une marge pour les imprévus compte également.",
+      "conclusion": "En conclusion, je parlerais de ressources suffisantes plutôt que de richesse obligatoire. Il faut examiner les besoins réels, le coût de la vie et les soutiens disponibles, afin de vivre dignement sans confondre sécurité et accumulation."
+    },
+    "sante-p22": {
+      "prompt_signatures": {
+        "sante:p22": "af0af57df3347d21647013327f4fc00ab175364ae1bf7b435463abd22dcc02da"
+      },
+      "reformulation": "Un bon salaire est-il une condition nécessaire pour être heureux ?",
+      "position": "Il peut soutenir le bien-être sans être une condition universelle ni une garantie.",
+      "position_claire": "Un bon salaire peut faciliter la vie, mais je n'en ferais pas une condition universelle du bonheur. Il faut des moyens pour vivre sans insécurité permanente ; au-delà de cette question, les relations, les activités choisies et les conditions de travail comptent aussi. Aucun montant ne résume toutes ces dimensions.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, un revenu suffisant peut réduire certaines inquiétudes matérielles.",
+          "developpement": "Pouvoir payer les dépenses courantes et faire face à un imprévu laisse davantage de place à d'autres préoccupations. Cela explique pourquoi le salaire compte réellement, sans prouver qu'il faut gagner beaucoup dans toutes les situations.",
+          "exemple": "Une personne qui peut payer une réparation nécessaire sans renoncer à ses courses évite un choix très difficile. Cette sécurité peut venir d'un revenu adapté à ses charges, pas forcément d'un salaire considéré comme élevé partout.",
+          "consequence": "La sécurité dépend du rapport entre les moyens et les besoins."
+        },
+        {
+          "idea": "Ensuite, des moments importants ne se mesurent pas seulement à leur coût.",
+          "developpement": "Se sentir écouté, partager une activité ou contribuer à un projet peut avoir de la valeur sans exiger une grande dépense. Ces possibilités ne remplacent pas les ressources essentielles, mais elles montrent que le plaisir a plusieurs sources.",
+          "exemple": "Une personne peut apprécier une promenade régulière avec un ami ou un repas préparé ensemble avec des ingrédients simples. La disponibilité et la qualité de l'échange comptent davantage que le prix de l'activité.",
+          "consequence": "Un salaire modeste ne ferme donc pas toute possibilité de satisfaction."
+        },
+        {
+          "idea": "Enfin, les conditions attachées au salaire peuvent entrer en conflit avec ce qui compte.",
+          "developpement": "Un poste mieux payé peut demander des horaires ou des déplacements difficiles à concilier avec ses priorités. Il faut examiner l'ensemble de la proposition, et pas uniquement le montant annoncé.",
+          "exemple": "Une personne peut comparer une promotion impliquant de fréquents déplacements avec un poste moins payé mais compatible avec ses engagements familiaux. Si ses besoins restent couverts, refuser la promotion peut être un choix cohérent plutôt qu'un manque d'ambition.",
+          "consequence": "Le meilleur choix dépend du projet de vie, pas d'un classement des revenus."
+        }
+      ],
+      "nuance": "Cependant, on ne choisit pas toujours ses horaires ou son emploi, et un manque d'argent peut être très éprouvant. Il ne faut ni glorifier les difficultés matérielles ni fixer un seuil de bonheur valable pour tous. Les besoins et les possibilités varient.",
+      "conclusion": "En conclusion, un bon salaire peut aider, mais il n'est ni une obligation universelle ni une garantie de bonheur. Je regarderais ensemble la sécurité matérielle, les relations et l'organisation de la vie."
+    },
+    "sante-p23": {
+      "prompt_signatures": {
+        "sante:p23": "695fdcacd6954d17183c2b33cdf18ce401fd56aac5c48c824d5b0a245e90e8a2"
+      },
+      "reformulation": "Les médicaments sont-ils indispensables dans toutes les situations ?",
+      "position": "Ils peuvent être indispensables, sans constituer une obligation quotidienne pour chaque personne.",
+      "position_claire": "Je ne dirais pas que chaque personne doit nécessairement prendre des médicaments pour vivre. Mais certains traitements sont indispensables, et personne ne peut prévoir tous ses besoins futurs. La bonne question est celle d'un usage adapté à la situation, pas d'une obligation universelle ni d'un refus de principe.",
+      "arguments": [
+        {
+          "idea": "Tout d'abord, certains traitements répondent à une nécessité qui ne se remplace pas par la seule volonté.",
+          "developpement": "Lorsqu'une maladie exige un médicament, l'accès et le suivi sont essentiels. Présenter une bonne hygiène de vie comme un substitut automatique pourrait mettre les personnes concernées en difficulté.",
+          "exemple": "Une personne atteinte d'un diabète de type 1 a besoin d'insuline. Modifier ses repas ou faire davantage d'exercice ne supprime pas ce besoin : son traitement doit rester organisé avec les professionnels qui l'accompagnent.",
+          "consequence": "Reconnaître cette nécessité évite de transformer le débat en rejet des soins."
+        },
+        {
+          "idea": "Ensuite, tous les moments de la vie ne nécessitent pas un traitement médicamenteux.",
+          "developpement": "Les besoins dépendent de l'état de santé et de l'évaluation de la situation. Une personne sans indication de traitement régulier n'a pas à prendre un médicament simplement parce que ces produits existent ou sont présents chez ses proches.",
+          "exemple": "Un adulte peut traverser une période sans prescription quotidienne et consulter lorsqu'un problème apparaît. L'absence de traitement pendant cette période ne permet ni d'annoncer qu'il n'en aura jamais besoin ni de lui attribuer une santé supérieure.",
+          "consequence": "Une nécessité pour certains ne devient pas une règle identique pour tous."
+        },
+        {
+          "idea": "Enfin, l'usage doit reposer sur une indication comprise plutôt que sur une habitude d'achat.",
+          "developpement": "Prendre davantage de produits ne signifie pas automatiquement mieux se soigner. Un professionnel peut expliquer l'utilité, les précautions et les limites, notamment lorsque plusieurs produits sont envisagés ensemble.",
+          "exemple": "Une personne tentée d'ajouter un médicament conseillé par un proche peut demander au pharmacien s'il convient à sa situation et à son traitement actuel. Elle cherche une réponse adaptée au lieu de copier l'ordonnance d'autrui.",
+          "consequence": "L'information sert à utiliser les soins correctement, pas à les multiplier."
+        }
+      ],
+      "nuance": "Cependant, ne pas avoir besoin d'un médicament aujourd'hui ne garantit pas une vie entière sans traitement. Les habitudes de vie et la prévention complètent les soins sans les remplacer. Il ne faut jamais modifier ou arrêter un traitement prescrit sans l'avis du professionnel compétent.",
+      "conclusion": "En conclusion, les médicaments peuvent être indispensables sans l'être de manière identique pour tous, chaque jour. Je défends l'accès aux traitements nécessaires et leur usage éclairé, sans dépendance de principe ni rejet de la médecine."
+    }
+  }
+}

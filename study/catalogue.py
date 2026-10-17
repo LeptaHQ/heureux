@@ -11,10 +11,14 @@ from __future__ import annotations
 from collections.abc import Mapping
 from functools import lru_cache
 from types import MappingProxyType
+from typing import TYPE_CHECKING
 
 from . import content_loader as content
 from .tache_two_dialogues import TacheTwoDialogue, load_tache_two_dialogues
 from .tache_two_location_history import LocationHistory, load_location_history
+
+if TYPE_CHECKING:
+    from .tache_three_models import TacheThreeModel
 
 
 @lru_cache(maxsize=1)
@@ -56,6 +60,13 @@ def tache_two_location_history() -> Mapping[str, LocationHistory]:
 @lru_cache(maxsize=1)
 def tache_three_subject_hints() -> Mapping[str, content.SpeakingHintsData]:
     return MappingProxyType(content.load_tache_three_subject_hints())
+
+
+@lru_cache(maxsize=1)
+def tache_three_models() -> Mapping[str, TacheThreeModel]:
+    from .tache_three_models import load_tache_three_models
+
+    return MappingProxyType(load_tache_three_models())
 
 
 @lru_cache(maxsize=1)
@@ -135,6 +146,7 @@ def clear_catalogue_cache() -> None:
     tache_two_dialogues.cache_clear()
     tache_two_location_history.cache_clear()
     tache_three_subject_hints.cache_clear()
+    tache_three_models.cache_clear()
     ee_tache_one_subject_hints.cache_clear()
     task_memoires.cache_clear()
     eo_tache_three_family_labels.cache_clear()

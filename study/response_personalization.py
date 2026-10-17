@@ -31,6 +31,11 @@ def effective_response(response, user, *, prompt=None, model_only=False, persona
         personal = None
 
     if personal is None:
+        from .tache_three_models import reviewed_model
+
+        reviewed = reviewed_model(response, prompt)
+        if reviewed is not None:
+            return reviewed.response
         model = prompt.model_content if prompt is not None else {}
         if model:
             from .tache_two_dialogues import dialogue_response, published_dialogue

@@ -120,6 +120,9 @@ class Command(BaseCommand):
             *content.ee_tache_three_families(ee_tache_three_months),
         ]
         standard_responses = content.parse_responses()
+        from study.tache_three_models import load_tache_three_models
+
+        load_tache_three_models(responses=standard_responses)
         tache_two_responses = content.parse_tache_two_responses(
             subject_months
         )
@@ -273,6 +276,7 @@ class Command(BaseCommand):
                 "account_services.py", "models.py", "oral_history.py",
                 "writing_responses.py",
                 "tache_two_dialogues.py",
+                "tache_three_models.py",
             )
         )
         files.extend(

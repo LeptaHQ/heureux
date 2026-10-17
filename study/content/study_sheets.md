@@ -1,13 +1,18 @@
 # Study Sheets — Spines by Topic Family
 
-Each answer = **universal skeleton** (below, shared by all) + this **spine** (position + 3 argument-ideas + nuance).
-Memorize the spine; rebuild the full answer out loud using the skeleton. Prompts joined by **=** share an *identical* response (learn once).
+This file retains the **original published spines** and their family assignments.
+Current reviewed oral models live in `tache_3/responses/`; use their introductions,
+three supported arguments, nuances and conclusions for practice. The original
+wording here remains historical vocabulary evidence, not an instruction to recite
+a text. Prompts joined by **=** shared an identical original body; semantic
+equivalence is defined separately in `tache_3/semantic_groups.json`.
 
-> **Culture is the reference (never edited).** Similar prompts across themes reuse these argument blocks.
+> Reuse sound language and argument mechanisms when they fit the exact question.
+> Related subjects need not share the same answer.
 
 ---
 
-## ⚙️ Universal skeleton (same for all 130 answers)
+## ⚙️ Original skeleton (130 exact-body models)
 
 1. **Reformulation** — « La vraie question est de savoir si… »
 2. **Position** — « À mon avis, … »

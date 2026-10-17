@@ -7,6 +7,7 @@ from django.http import Http404
 from ..oral_history import preferred_personal, variant_annotation_key
 from ..response_personalization import effective_response
 from ..routing import TACHE_TWO_PROMPT_KEY, review_url
+from ..tache_three_models import reviewed_model
 
 
 def oral_response_context(request, prompt):
@@ -27,11 +28,13 @@ def oral_response_context(request, prompt):
     )
     legacy_keys = [f"response:{storage_key}"]
     match = TACHE_TWO_PROMPT_KEY.fullmatch(storage_key)
-    if match:
-        # EO2 no longer renders prepared answers, including personal ones.
+    reviewed_eo3 = not value.is_personal and reviewed_model(response, prompt) is not None
+    if match or reviewed_eo3:
+        # Changed public layouts must not replay offsets from published models.
         legacy_keys = []
     return {
         "response_content": value,
+        "reviewed_eo3": reviewed_eo3,
         "oral_annotation_key": variant_annotation_key(prompt, value),
         "oral_legacy_annotation_keys": json.dumps(legacy_keys),
         "response_review_url": review_url({

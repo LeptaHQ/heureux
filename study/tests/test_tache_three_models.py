@@ -181,6 +181,95 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("sans devoir demander la permission", response(16).arguments[2].exemple)
         self.assertIn("cohabitation durable", response(16).nuance)
 
+    def test_education_covers_every_variant_and_retains_distinct_learning_scopes(self):
+        models = catalogue.tache_three_models()
+        sources = [source for source in self.sources if source.theme == "Education"]
+        self.assertEqual(len(sources), 20)
+        self.assertEqual(sum(len(source.prompts) for source in sources), 26)
+        publications = {
+            prompt.content_key for source in self.sources for prompt in source.prompts
+            if prompt.theme == "Education"
+        }
+        self.assertEqual(len(publications), 25)
+        covered = {key for model in models.values() for key, _text in model.source_prompts}
+        self.assertTrue(publications <= covered)
+        for source in sources:
+            self.assertEqual(
+                models[source.semantic_group].source_prompts,
+                tuple((prompt.content_key, prompt.text) for prompt in source.prompts),
+            )
+        for group, members in {
+            "education-p2": {"education:p2", "education:p9", "education:p25"},
+            "education-p10": {"education:p10", "education:p24"},
+            "education-p16": {"education:p16", "economie:p12"},
+            "education-p19": {"education:p19", "technologie:p14"},
+            "education-p20": {"education:p20", "economie:p19"},
+        }.items():
+            self.assertEqual(
+                {key for key, _text in models[f"eo/tache-3/{group}"].source_prompts},
+                members,
+            )
+        for first, second in (
+            ("education-p2", "education-p7"), ("education-p12", "education-p21"),
+            ("education-p1", "culture-p9"), ("education-p1", "culture-p30"),
+            ("education-p14", "culture-p14"), ("education-p14", "culture-p19"),
+            ("education-p15", "education-p3"), ("education-p3", "famille-p1"),
+        ):
+            self.assertNotEqual(
+                models[f"eo/tache-3/{first}"].response,
+                models[f"eo/tache-3/{second}"].response,
+            )
+
+    def test_education_addresses_qualifiers_priorities_and_realistic_conditions(self):
+        models = catalogue.tache_three_models()
+        response = lambda key: models[f"eo/tache-3/education-p{key}"].response
+        self.assertIn("résultat assuré", response(1).position_claire)
+        self.assertIn("pas figée", response(1).arguments[0].consequence)
+        self.assertIn("accueil", response(1).conclusion)
+        self.assertIn("la santé", response(2).nuance)
+        self.assertNotIn("âge limite biologique", spoken_text(response(2)))
+        self.assertIn("besoin d'accessibilité", response(3).nuance)
+        self.assertIn("ne garantit pas la concentration", response(3).arguments[0].consequence)
+        self.assertIn("règles applicables", response(4).nuance)
+        self.assertIn("soutien extérieur", response(4).arguments[2].exemple)
+        for argument in response(5).arguments:
+            self.assertTrue(argument.idea.endswith("?"))
+        self.assertIn("admissibilité", response(5).nuance)
+        self.assertNotIn("six mois", spoken_text(response(5)))
+        self.assertNotIn("main-d'œuvre", spoken_text(response(5)))
+        self.assertIn("hors ligne", response(6).nuance)
+        self.assertIn("même moment", response(6).arguments[1].exemple)
+        self.assertIn("temps partiel", response(7).arguments[2].exemple)
+        self.assertIn("prérequis", response(7).nuance)
+        self.assertIn("distribution alimentaire", response(10).position_claire)
+        self.assertIn(
+            "sans cuisson",
+            catalogue.tache_three_subject_hints()["eo/tache-3/education-p10"].arguments[2].example.french,
+        )
+        self.assertIn("dons financiers", response(10).nuance)
+        self.assertIn("sans décider de l'embauche", response(12).arguments[1].consequence)
+        self.assertIn("objectifs progressifs", response(13).nuance)
+        self.assertIn("point de vue", response(14).arguments[1].developpement)
+        self.assertIn("La fiction", response(14).nuance)
+        self.assertIn("sources indépendantes", response(15).arguments[2].developpement)
+        self.assertIn("plateformes", response(15).nuance)
+        self.assertIn("temps partiel", response(16).arguments[1].exemple)
+        self.assertIn("discriminations", response(16).nuance)
+        self.assertIn("réexamen", response(17).arguments[2].exemple)
+        self.assertIn("peut choquer", response(17).nuance)
+        self.assertIn("priorité essentielle", response(18).position_claire)
+        self.assertIn("à l'intérieur", response(18).arguments[1].developpement)
+        self.assertIn("programme distrayant", response(19).nuance)
+        self.assertNotIn("avant trois ans", spoken_text(response(19)))
+        self.assertIn("ni une obligation", response(20).position_claire)
+        self.assertIn("version accessible", response(20).arguments[1].exemple)
+        self.assertIn("conditions", response(21).arguments[2].developpement)
+        self.assertIn("résultats modestes ne condamnent pas", response(21).nuance)
+        self.assertIn("plus un apprentissage entièrement seul", response(22).arguments[1].consequence)
+        self.assertIn("encadrement approprié", response(22).arguments[2].exemple)
+        self.assertIn("animaux", response(23).nuance)
+        self.assertNotIn("pendant des années", spoken_text(response(23)))
+
     def test_scenario_specific_corrections_remain_explicit(self):
         models = catalogue.tache_three_models()
         response = lambda key: models[f"eo/tache-3/culture-p{key}"].response

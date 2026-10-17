@@ -71,6 +71,16 @@ be reused without merging those answers. Adult autonomy is not measured solely
 by moving out; family closeness, language outcomes and advice quality are not
 guaranteed by age, origin or kinship.
 
+The Education audit distinguishes learning from formal study, studies supporting
+a career from grades contributing to life success, and school phone rules from
+information reliability. Keep the existing learning-age, solidarity, salary,
+child-development/television and university-access equivalents, including their
+cross-theme publications. Adaptation capability is not a guaranteed outcome;
+school priority is not exclusivity; university access is not unconditional
+admission. Internet communication with a teacher is not learning entirely alone.
+The Quebec-preparation response states three actual questions; its bilingual
+plan uses declarative memory cues rather than changing those questions.
+
 Published Markdown in `study/content/responses/` remains the exact historical
 model corpus. Its 130 exact-body records support 167 publications and 131
 semantic identities. Do not rewrite or deduplicate those records as an incidental

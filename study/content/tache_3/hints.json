@@ -2074,923 +2074,923 @@
     },
     "education-p1": {
       "introduction": {
-        "french": "S'adapter à un pays étranger est possible, mais pas pour tous dans les mêmes conditions.",
-        "english": "Adapting to a foreign country is possible, but not for everyone under the same conditions."
+        "french": "La capacité d'adaptation peut se construire, sans résultat garanti.",
+        "english": "Adaptability can develop without guaranteeing an outcome."
+      },
+      "nuance": {
+        "french": "Modifier son projet ne signifie pas être incapable par nature.",
+        "english": "Changing a plan does not mean being inherently incapable."
+      },
+      "conclusion": {
+        "french": "Examiner apprentissages, ressources et accueil, pas des étiquettes.",
+        "english": "Assess learning, resources and reception, not labels."
       },
       "arguments": [
         {
           "point": {
-            "french": "La patience et l'ouverture aident à affronter l'inconnu, mais chacun dispose de ressources différentes.",
-            "english": "Patience and openness help people face the unfamiliar, but individual resources differ."
+            "french": "L'adaptation repose en partie sur des compétences que l'on peut construire.",
+            "english": "Adaptation partly relies on skills that can be developed."
           },
           "example": {
-            "french": "Deux nouveaux arrivants peuvent réagir différemment aux mêmes changements d'habitudes.",
-            "english": "Two newcomers may respond differently to the same changes in daily routines."
+            "french": "Préparer un appel, puis apprendre à faire répéter un horaire.",
+            "english": "Prepare a call, then learn to ask for a time to be repeated."
           }
         },
         {
           "point": {
-            "french": "Comprendre la langue et les codes locaux permet de communiquer et de créer des liens.",
-            "english": "Understanding the language and local customs makes communication and relationships possible."
+            "french": "Les conditions matérielles peuvent faciliter ou bloquer les efforts.",
+            "english": "Material conditions can support or obstruct effort."
           },
           "example": {
-            "french": "Suivre un cours de langue aide à échanger avec les voisins.",
-            "english": "Taking a language class helps someone talk with their neighbours."
+            "french": "Un logement stable peut rendre un cours régulier possible.",
+            "english": "Stable housing can make regular classes possible."
           }
         },
         {
           "point": {
-            "french": "Un emploi, un logement et un soutien donnent les moyens concrets de s'installer.",
-            "english": "A job, housing and support provide practical resources for settling in."
+            "french": "L'environnement d'accueil doit aussi laisser une place à la personne.",
+            "english": "The receiving environment must also make room for the person."
           },
           "example": {
-            "french": "Une promesse d'embauche et une réserve d'argent réduisent l'incertitude du départ.",
-            "english": "A job offer and some savings reduce uncertainty when moving."
+            "french": "Un responsable explique les consignes au nouveau salarié.",
+            "english": "A manager explains instructions to a new employee."
           }
         }
-      ],
-      "nuance": {
-        "french": "Les difficultés ne rendent personne inadaptable par nature ; le temps et l'accompagnement peuvent changer la situation.",
-        "english": "Difficulties do not make anyone inherently unable to adapt; time and support can change the situation."
-      },
-      "conclusion": {
-        "french": "L'adaptation dépend de la personne et du contexte ; elle se construit plutôt qu'elle ne se présume.",
-        "english": "Adaptation depends on the person and their circumstances; it develops rather than being a given."
-      }
+      ]
     },
     "education-p2": {
       "introduction": {
-        "french": "Il n'est jamais trop tard pour apprendre ; l'âge invite surtout à adapter ses méthodes.",
-        "english": "It is never too late to learn; age mainly calls for adapting the way we learn."
+        "french": "On peut apprendre à tout âge avec des objectifs et des moyens adaptés.",
+        "english": "Learning at any age is possible with suitable goals and resources."
+      },
+      "nuance": {
+        "french": "La santé et les ressources peuvent conduire à modifier le projet.",
+        "english": "Health and resources may call for adjusting the project."
+      },
+      "conclusion": {
+        "french": "Partir d'un besoin, mobiliser ses acquis et adapter la pratique.",
+        "english": "Start with a need, use existing knowledge and adapt practice."
       },
       "arguments": [
         {
           "point": {
-            "french": "La capacité d'acquérir des compétences demeure, même si le rythme change.",
-            "english": "The ability to acquire skills remains, even if the pace changes."
+            "french": "Apprendre peut commencer par une compétence précise, sans reprendre tout un parcours.",
+            "english": "Learning can start with one specific skill."
           },
           "example": {
-            "french": "Commencer le piano après cinquante ans reste un projet d'apprentissage possible.",
-            "english": "Starting the piano after fifty remains a possible learning project."
+            "french": "S'entraîner à joindre une photo à un message.",
+            "english": "Practise attaching a photo to a message."
           }
         },
         {
           "point": {
-            "french": "L'expérience aide à relier les nouveautés à des connaissances déjà acquises.",
-            "english": "Experience helps connect new material to existing knowledge."
+            "french": "Les connaissances déjà acquises peuvent servir de points d'appui.",
+            "english": "Prior knowledge can provide a foundation."
           },
           "example": {
-            "french": "Un adulte compare une langue étrangère à sa langue maternelle pour retenir les règles.",
-            "english": "An adult compares a foreign language with their first language to remember its rules."
+            "french": "Apprendre le tableur à partir de son budget sur papier.",
+            "english": "Learn spreadsheets using one's existing paper budget."
           }
         },
         {
           "point": {
-            "french": "Apprendre aide à suivre les changements et à conserver son autonomie.",
-            "english": "Learning helps people keep up with change and maintain their independence."
+            "french": "Il est possible d'ajuster la pratique aux besoins de la personne.",
+            "english": "Practice can be adjusted to the learner's needs."
           },
           "example": {
-            "french": "Un atelier numérique permet à une personne âgée de contacter ses proches en ligne.",
-            "english": "A digital skills workshop helps an older person contact loved ones online."
+            "french": "Revoir lentement un geste de dessin avec un professeur.",
+            "english": "Review a drawing movement slowly with a teacher."
           }
         }
-      ],
-      "nuance": {
-        "french": "Certains objectifs, comme une prononciation parfaite, peuvent être plus difficiles ; progresser reste précieux.",
-        "english": "Some goals, such as perfect pronunciation, may be harder to reach; progress still matters."
-      },
-      "conclusion": {
-        "french": "Encourager l'apprentissage à tout âge, avec des objectifs réalistes et un rythme adapté.",
-        "english": "Encourage learning at every age, with realistic goals and a suitable pace."
-      }
+      ]
     },
     "education-p3": {
       "introduction": {
-        "french": "À l'école, interdire l'usage libre du téléphone paraît souhaitable, avec des exceptions pédagogiques.",
-        "english": "At school, banning unrestricted phone use seems desirable, with exceptions for teaching."
+        "french": "Limiter l'usage libre du téléphone, avec des exceptions organisées.",
+        "english": "Limit unrestricted phone use, with organized exceptions."
+      },
+      "nuance": {
+        "french": "Prévoir besoins d'accessibilité, usage pédagogique et contact familial.",
+        "english": "Plan for accessibility, educational use and family contact."
+      },
+      "conclusion": {
+        "french": "Protéger attention, vie privée et activités communes avec une règle claire.",
+        "english": "Protect attention, privacy and shared activities with a clear rule."
       },
       "arguments": [
         {
           "point": {
-            "french": "Éloigner les notifications protège l'attention nécessaire pour apprendre.",
-            "english": "Keeping notifications away protects the attention needed for learning."
+            "french": "Ranger le téléphone évite certaines interruptions pendant les apprentissages.",
+            "english": "Putting phones away avoids some learning interruptions."
           },
           "example": {
-            "french": "Un téléphone rangé permet de finir un exercice sans consulter ses messages.",
-            "english": "Putting a phone away allows a pupil to finish an exercise without checking messages."
+            "french": "Des notifications font manquer une consigne pendant un travail de groupe.",
+            "english": "Notifications cause a pupil to miss an instruction during group work."
           }
         },
         {
           "point": {
-            "french": "Limiter l'usage réduit les occasions de filmer ou d'humilier des camarades.",
-            "english": "Restricting use reduces opportunities to film or humiliate classmates."
+            "french": "Une règle sur les prises d'images protège mieux la vie privée.",
+            "english": "Rules on recording help protect privacy."
           },
           "example": {
-            "french": "Empêcher de filmer en récréation limite la diffusion de vidéos prises sans accord.",
-            "english": "Preventing filming at break time limits the sharing of videos taken without consent."
+            "french": "Ne pas filmer un camarade à son insu pendant un exposé.",
+            "english": "Do not secretly film a classmate during a presentation."
           }
         },
         {
           "point": {
-            "french": "Sans écran pendant les pauses, les échanges directs trouvent davantage de place.",
-            "english": "Without screens during breaks, there is more room for face-to-face interaction."
+            "french": "Des moments sans écran laissent davantage de place aux activités communes.",
+            "english": "Screen-free periods leave room for shared activities."
           },
           "example": {
-            "french": "Des élèves discutent ou organisent un jeu collectif plutôt que de rester sur leur écran.",
-            "english": "Pupils talk or organise a group game rather than staying on their screens."
+            "french": "Proposer des jeux, sans imposer la même sociabilité à tous.",
+            "english": "Offer games without imposing the same sociability on everyone."
           }
         }
-      ],
-      "nuance": {
-        "french": "Un enseignant peut autoriser une recherche encadrée ; l'interdiction ne suffit pas à éliminer le harcèlement.",
-        "english": "A teacher may allow supervised research; a ban alone cannot eliminate bullying."
-      },
-      "conclusion": {
-        "french": "Réserver le téléphone aux usages encadrés pour préserver l'apprentissage et la vie collective.",
-        "english": "Reserve phones for supervised uses to protect learning and school life together."
-      }
+      ]
     },
     "education-p4": {
       "introduction": {
-        "french": "L'instruction à la maison devrait rester exceptionnelle ; l'école offre généralement un cadre plus complet.",
-        "english": "Home education should remain exceptional; school generally offers a more complete learning environment."
+        "french": "Privilégier l'école adaptée, sans condamner chaque instruction à domicile.",
+        "english": "Prefer suitable schooling without condemning all home education."
+      },
+      "nuance": {
+        "french": "Examiner besoins particuliers, règles applicables et liens extérieurs.",
+        "english": "Consider individual needs, applicable rules and external relationships."
+      },
+      "conclusion": {
+        "french": "Juger le suivi et les moyens réellement disponibles pour l'enfant.",
+        "english": "Assess the support and resources actually available to the child."
       },
       "arguments": [
         {
           "point": {
-            "french": "L'école multiplie les rencontres et apprend à vivre avec des personnes différentes.",
-            "english": "School provides varied encounters and teaches children to live alongside different people."
+            "french": "Un regard pédagogique extérieur aide à repérer les difficultés.",
+            "english": "An external educational perspective helps identify difficulties."
           },
           "example": {
-            "french": "Un travail collectif oblige à écouter ses camarades et à gérer un désaccord.",
-            "english": "A group assignment requires children to listen to classmates and manage disagreement."
+            "french": "Faire expliquer une règle dans une phrase nouvelle.",
+            "english": "Ask a pupil to explain a rule in a new sentence."
           }
         },
         {
           "point": {
-            "french": "Des enseignants formés assurent un suivi dans des matières qu'un parent ne maîtrise pas toutes.",
-            "english": "Trained teachers provide support across subjects that a parent may not master equally."
+            "french": "L'école offre des occasions régulières de travailler avec des personnes différentes.",
+            "english": "School offers regular cooperation with different people."
           },
           "example": {
-            "french": "Au secondaire, enseigner les sciences et les langues demande plusieurs compétences.",
-            "english": "At secondary level, teaching sciences and languages requires different skills."
+            "french": "Répartir les décisions pour préparer une affiche commune.",
+            "english": "Share decisions when preparing a group poster."
           }
         },
         {
           "point": {
-            "french": "Enseigner chez soi exige du temps et une organisation que toutes les familles n'ont pas.",
-            "english": "Teaching at home requires time and organisation that not every family has."
+            "french": "Instruire à la maison demande une organisation et des ressources durables.",
+            "english": "Home education requires lasting organization and resources."
           },
           "example": {
-            "french": "Deux parents travaillant à plein temps peinent à assurer des cours quotidiens réguliers.",
-            "english": "Two parents working full-time struggle to provide regular daily lessons."
+            "french": "Prévoir temps de suivi et soutien dans les matières plus difficiles.",
+            "english": "Plan time for supervision and help with harder subjects."
           }
         }
-      ],
-      "nuance": {
-        "french": "La maladie ou l'isolement géographique peuvent justifier ce choix, avec un contrôle pédagogique et des contacts sociaux.",
-        "english": "Illness or geographical isolation may justify this choice, with educational oversight and social contact."
-      },
-      "conclusion": {
-        "french": "Privilégier l'école, tout en encadrant les exceptions répondant réellement aux besoins de l'enfant.",
-        "english": "Prioritise school while overseeing exceptions that genuinely meet the child's needs."
-      }
+      ]
     },
     "education-p5": {
       "introduction": {
-        "french": "Avant les démarches d'immigration au Québec, retenir trois questions : langue, métier et moyens d'installation.",
-        "english": "Before starting Quebec immigration procedures, focus on three questions: language, work and resources for settling in."
+        "french": "Avant le Québec : français, projet professionnel et moyens d'installation.",
+        "english": "Before Quebec: French, career feasibility and settlement resources."
+      },
+      "nuance": {
+        "french": "Vérifier aussi l'admissibilité et les règles officielles actuelles.",
+        "english": "Also check eligibility and current official rules."
+      },
+      "conclusion": {
+        "french": "Relier ces trois questions aux conditions réelles, sans garantie.",
+        "english": "Relate these three questions to actual conditions, without guarantees."
       },
       "arguments": [
         {
           "point": {
-            "french": "Se demander si son français permet de vivre et travailler, car il facilite les échanges.",
-            "english": "Ask whether one's French supports daily life and work, since it helps communication."
+            "french": "Préparer son usage du français au quotidien.",
+            "english": "Prepare to use French in everyday life."
           },
           "example": {
-            "french": "Préparer un entretien en français révèle les compétences linguistiques à renforcer.",
-            "english": "Preparing for an interview in French reveals language skills that need strengthening."
+            "french": "Présenter son parcours et repérer le vocabulaire à travailler.",
+            "english": "Present one's background and identify vocabulary to practise."
           }
         },
         {
           "point": {
-            "french": "Vérifier si son métier est reconnu et recherché évite un projet professionnel irréaliste.",
-            "english": "Check whether one's occupation is recognised and in demand to avoid unrealistic career plans."
+            "french": "Vérifier si son projet professionnel est réalisable.",
+            "english": "Check whether the career plan is feasible."
           },
           "example": {
-            "french": "Un médecin formé à l'étranger doit examiner les conditions de reconnaissance de son diplôme.",
-            "english": "A doctor trained abroad needs to examine the requirements for recognising their qualification."
+            "french": "Vérifier la reconnaissance du métier auprès de l'organisme compétent.",
+            "english": "Check professional recognition with the relevant organization."
           }
         },
         {
           "point": {
-            "french": "Évaluer si les moyens financiers et familiaux suffisent aide à préparer les premiers mois.",
-            "english": "Assess whether financial and family resources are sufficient to prepare for the first months."
+            "french": "Prévoir les moyens d'organiser son installation.",
+            "english": "Plan resources for organizing settlement."
           },
           "example": {
-            "french": "Prévoir le loyer et les dépenses des enfants avant le premier salaire.",
-            "english": "Budget for rent and children's expenses before the first salary arrives."
+            "french": "Comparer logement, trajets et ressources réellement disponibles.",
+            "english": "Compare housing, travel and genuinely available resources."
           }
         }
-      ],
-      "nuance": {
-        "french": "Le climat et l'éloignement comptent aussi ; ces trois priorités ne couvrent pas toutes les situations.",
-        "english": "Climate and distance from home also matter; these three priorities do not cover every situation."
-      },
-      "conclusion": {
-        "french": "Clarifier ces trois points avant les démarches rend le projet québécois plus solide.",
-        "english": "Clarifying these three points before applying makes the Quebec immigration plan more robust."
-      }
+      ]
     },
     "education-p6": {
       "introduction": {
-        "french": "Internet renforce la solidarité face aux catastrophes et aux crises, sans remplacer l'aide sur le terrain.",
-        "english": "The internet strengthens solidarity during disasters and crises without replacing help on the ground."
+        "french": "Internet soutient la solidarité si l'aide répond aux besoins réels.",
+        "english": "The Internet supports solidarity when help meets real needs."
+      },
+      "nuance": {
+        "french": "Prévoir pannes, fraude, confidentialité et contacts hors ligne.",
+        "english": "Plan for outages, fraud, privacy and offline contact."
+      },
+      "conclusion": {
+        "french": "Informer, organiser et écouter sans remplacer les équipes sur place.",
+        "english": "Inform, organize and listen without replacing teams on the ground."
       },
       "arguments": [
         {
           "point": {
-            "french": "La diffusion rapide des alertes rend les besoins visibles et favorise la mobilisation.",
-            "english": "Rapidly shared alerts make needs visible and encourage people to help."
+            "french": "Un appel précis permet de savoir quelle aide est nécessaire.",
+            "english": "A precise appeal identifies the help actually needed."
           },
           "example": {
-            "french": "Après une inondation, un appel local partagé en ligne signale les besoins urgents.",
-            "english": "After a flood, a local appeal shared online highlights urgent needs."
+            "french": "Une association précise quelles couvertures apporter et où.",
+            "english": "An association specifies which blankets to bring and where."
           }
         },
         {
           "point": {
-            "french": "Les outils en ligne simplifient les dons et l'organisation des bénévoles.",
-            "english": "Online tools simplify donations and the organisation of volunteers."
+            "french": "Les outils en ligne peuvent répartir les moyens et les disponibilités.",
+            "english": "Online tools can coordinate resources and availability."
           },
           "example": {
-            "french": "Une association collecte des dons et inscrit des volontaires sur son site.",
-            "english": "An organisation collects donations and registers volunteers on its website."
+            "french": "Répartir les bénévoles entre les créneaux de préparation.",
+            "english": "Distribute volunteers across preparation slots."
           }
         },
         {
           "point": {
-            "french": "Les victimes peuvent signaler leur situation et garder un lien avec leurs proches.",
-            "english": "People affected can report their situation and stay connected with loved ones."
+            "french": "Les échanges donnent aux personnes touchées une place dans l'organisation de l'aide.",
+            "english": "Affected people can influence how assistance is organized."
           },
           "example": {
-            "french": "Des habitants indiquent qu'ils sont en sécurité ou demandent de l'eau potable.",
-            "english": "Residents report that they are safe or request drinking water."
+            "french": "Adapter un colis trop lourd après un échange avec le destinataire.",
+            "english": "Adapt an overly heavy parcel after speaking with its recipient."
           }
         }
-      ],
-      "nuance": {
-        "french": "Vérifier les appels et les collectes évite les arnaques ; une connexion ne livre pas elle-même les secours.",
-        "english": "Checking appeals and fundraisers helps avoid scams; an internet connection does not itself deliver aid."
-      },
-      "conclusion": {
-        "french": "Utiliser Internet pour informer et coordonner une solidarité qui se concrétise sur place.",
-        "english": "Use the internet to inform and coordinate solidarity that turns into action on the ground."
-      }
+      ]
     },
     "education-p7": {
       "introduction": {
-        "french": "Faire ou reprendre des études reste possible à tout âge, à condition d'adapter son organisation.",
-        "english": "Starting or returning to formal studies remains possible at any age, with suitable organisation."
+        "french": "L'âge seul ne devrait pas empêcher une reprise d'études.",
+        "english": "Age alone should not prevent returning to formal study."
+      },
+      "nuance": {
+        "french": "Vérifier prérequis, financement et contraintes, sans imposer un diplôme long.",
+        "english": "Check prerequisites, funding and constraints without imposing a long degree."
+      },
+      "conclusion": {
+        "french": "Un objectif, des acquis et une organisation réaliste comptent plus que l'âge.",
+        "english": "A goal, experience and realistic organization matter more than age."
       },
       "arguments": [
         {
           "point": {
-            "french": "Les adultes peuvent encore acquérir des connaissances et préparer un diplôme.",
-            "english": "Adults can still acquire knowledge and work towards a qualification."
+            "french": "Une reprise d'études peut répondre à un objectif clairement identifié.",
+            "english": "Returning to study can serve a clearly identified goal."
           },
           "example": {
-            "french": "Une personne de cinquante ans reprend un cursus avec un rythme de cours adapté.",
-            "english": "A fifty-year-old returns to a study programme with a suitable course schedule."
+            "french": "Comparer une formation de gestion avec son projet de reconversion.",
+            "english": "Compare a management course with a career-change plan."
           }
         },
         {
           "point": {
-            "french": "L'expérience donne des repères concrets pour comprendre les cours et cibler ses efforts.",
-            "english": "Experience provides practical reference points for understanding courses and focusing effort."
+            "french": "L'expérience peut aider à relier les cours à des situations concrètes.",
+            "english": "Experience can connect coursework to concrete situations."
           },
           "example": {
-            "french": "Un salarié relie un cours de gestion à des situations rencontrées dans son travail.",
-            "english": "An employee connects a management course with situations encountered at work."
+            "french": "Relier un cours de gestion de projet à des plannings déjà organisés.",
+            "english": "Relate project-management lessons to schedules previously organized."
           }
         },
         {
           "point": {
-            "french": "Un retour aux études ouvre des possibilités d'évolution et peut redonner confiance.",
-            "english": "Returning to study opens up opportunities for progress and can rebuild confidence."
+            "french": "Un rythme compatible avec ses responsabilités peut rendre le parcours réalisable.",
+            "english": "A compatible timetable can make study feasible."
           },
           "example": {
-            "french": "Une formation diplômante prépare une reconversion après plusieurs années dans un autre métier.",
-            "english": "A qualification programme prepares a career change after years in another occupation."
+            "french": "Vérifier horaires et coût d'un parcours à temps partiel.",
+            "english": "Check the timetable and cost of a part-time course."
           }
         }
-      ],
-      "nuance": {
-        "french": "Le travail et les responsabilités familiales limitent le temps disponible ; étaler les études peut être nécessaire.",
-        "english": "Work and family responsibilities limit available time; spreading studies over longer may be necessary."
-      },
-      "conclusion": {
-        "french": "L'âge ne doit pas fermer l'accès aux études ; mieux vaut prévoir des parcours adaptés.",
-        "english": "Age should not close the door to formal education; suitable study pathways are preferable."
-      }
+      ]
     },
     "education-p10": {
       "introduction": {
-        "french": "J'aimerais apporter une aide concrète et régulière aux personnes fragiles, notamment aux personnes âgées isolées.",
-        "english": "I would like to offer practical, regular help to vulnerable people, especially isolated older people."
+        "french": "J'aimerais aider régulièrement dans une distribution alimentaire associative.",
+        "english": "I would like to help regularly at an association's food distribution."
+      },
+      "nuance": {
+        "french": "Respecter confidentialité et limites du rôle ; les dons restent utiles.",
+        "english": "Respect confidentiality and role limits; donations remain useful."
+      },
+      "conclusion": {
+        "french": "Tenir un engagement concret et respectueux, sans promesses excessives.",
+        "english": "Keep a concrete, respectful commitment without excessive promises."
       },
       "arguments": [
         {
           "point": {
-            "french": "La présence sur le terrain ajoute un lien humain à l'aide matérielle.",
-            "english": "Being there in person adds human connection to practical assistance."
+            "french": "Cette action répond à une difficulté immédiate du quotidien.",
+            "english": "This action addresses an immediate everyday need."
           },
           "example": {
-            "french": "Distribuer un repas et prendre le temps d'écouter la personne accueillie.",
-            "english": "Hand out a meal and take time to listen to the person receiving it."
+            "french": "Préparer les produits selon les besoins et les consignes de l'équipe.",
+            "english": "Prepare products according to needs and team instructions."
           }
         },
         {
           "point": {
-            "french": "Un engagement régulier crée une relation de confiance et un soutien prévisible.",
-            "english": "Regular involvement builds trust and provides dependable support."
+            "french": "Un engagement fiable aide l'association à organiser son travail.",
+            "english": "Reliable commitment helps the association organize its work."
           },
           "example": {
-            "french": "Un créneau bénévole chaque semaine permet à l'association de compter sur une présence stable.",
-            "english": "A weekly volunteering slot gives an organisation reliable help it can count on."
+            "french": "Convenir d'un créneau réaliste et prévenir en cas d'absence.",
+            "english": "Agree a realistic slot and give notice of absence."
           }
         },
         {
           "point": {
-            "french": "Cibler les personnes isolées répond à des besoins quotidiens souvent peu visibles.",
-            "english": "Focusing on isolated people addresses everyday needs that often go unnoticed."
+            "french": "Cet engagement permettrait d'aider sans décider systématiquement à la place des personnes.",
+            "english": "Helping should respect people's choices and circumstances."
           },
           "example": {
-            "french": "Accompagner une personne âgée seule pour ses courses et discuter avec elle.",
-            "english": "Accompany an older person living alone on a shopping trip and talk with them."
+            "french": "Signaler un besoin d'aliments utilisables sans cuisson.",
+            "english": "Report a need for food usable without cooking."
           }
         }
-      ],
-      "nuance": {
-        "french": "Les dons et les actions ponctuelles restent utiles ; choisir un engagement compatible avec son temps.",
-        "english": "Donations and one-off initiatives remain useful; choose a commitment that fits the time available."
-      },
-      "conclusion": {
-        "french": "Ma préférence va à une solidarité de proximité, durable et attentive aux besoins réels.",
-        "english": "My preference is for lasting, local support that responds to real needs."
-      }
+      ]
     },
     "education-p12": {
       "introduction": {
-        "french": "Les études favorisent la réussite professionnelle, sans la garantir ni constituer l'unique voie.",
-        "english": "Formal education supports career success without guaranteeing it or being the only route."
+        "french": "Les études soutiennent une carrière sans garantir emploi ou salaire.",
+        "english": "Study can support a career without guaranteeing a job or salary."
+      },
+      "nuance": {
+        "french": "L'expérience et l'apprentissage professionnel sont aussi des voies valables.",
+        "english": "Experience and vocational learning are also valid paths."
+      },
+      "conclusion": {
+        "french": "Évaluer connaissances, qualification et usage réel des méthodes.",
+        "english": "Assess knowledge, qualifications and actual use of methods."
       },
       "arguments": [
         {
           "point": {
-            "french": "Un apprentissage structuré apporte les connaissances nécessaires à l'exercice d'un métier.",
-            "english": "Structured learning provides the knowledge needed to practise an occupation."
+            "french": "Une formation structurée donne des bases pour comprendre le travail.",
+            "english": "Structured training builds foundations for understanding work."
           },
           "example": {
-            "french": "La formation infirmière prépare à réaliser des soins avec les compétences requises.",
-            "english": "Nursing education develops the skills required to provide care."
+            "french": "Corriger un exercice comptable et comprendre l'effet de l'erreur.",
+            "english": "Correct an accounting exercise and understand the error's effect."
           }
         },
         {
           "point": {
-            "french": "Un diplôme ouvre l'accès à certains postes qualifiés et élargit les perspectives.",
-            "english": "A qualification opens access to certain skilled jobs and broadens career prospects."
+            "french": "Une qualification peut rendre certaines candidatures possibles ou plus lisibles.",
+            "english": "A qualification can enable or clarify a job application."
           },
           "example": {
-            "french": "Une offre réservée aux diplômés devient accessible après la formation correspondante.",
-            "english": "A vacancy requiring a qualification becomes accessible after completing the relevant course."
+            "french": "Présenter le titre demandé et expliquer les travaux réalisés.",
+            "english": "Present the requested qualification and explain completed work."
           }
         },
         {
           "point": {
-            "french": "Les études exercent l'organisation et l'argumentation, utiles au-delà des matières apprises.",
-            "english": "Studying develops organisation and reasoning skills useful beyond the subjects learned."
+            "french": "Les études peuvent exercer des méthodes utiles au-delà d'une matière.",
+            "english": "Study can exercise transferable working methods."
           },
           "example": {
-            "french": "Rédiger des dossiers universitaires prépare à construire un rapport professionnel.",
-            "english": "Writing university assignments helps prepare someone to produce a workplace report."
+            "french": "Répartir recherches et calendrier pour une présentation collective.",
+            "english": "Divide research and scheduling for a group presentation."
           }
         }
-      ],
-      "nuance": {
-        "french": "L'expérience, la motivation et les relations comptent aussi ; des parcours sans longues études peuvent réussir.",
-        "english": "Experience, motivation and connections also matter; paths without lengthy studies can succeed."
-      },
-      "conclusion": {
-        "french": "Voir les études comme un atout important, à compléter par la pratique et l'engagement.",
-        "english": "See education as an important advantage, complemented by practical experience and commitment."
-      }
+      ]
     },
     "education-p13": {
       "introduction": {
-        "french": "Apprendre une langue étrangère est généralement exigeant, mais des méthodes adaptées rendent les progrès possibles.",
-        "english": "Learning a foreign language is generally demanding, but suitable methods make progress possible."
+        "french": "La difficulté d'une langue dépend du départ, de l'objectif et de la pratique.",
+        "english": "Language difficulty depends on starting point, goal and practice."
+      },
+      "nuance": {
+        "french": "Communiquer utilement ne demande pas la perfection ni la seule motivation.",
+        "english": "Useful communication does not require perfection or motivation alone."
+      },
+      "conclusion": {
+        "french": "Avancer par étapes sur le système, l'échange et les occasions de pratique.",
+        "english": "Progress gradually with the system, interaction and practice opportunities."
       },
       "arguments": [
         {
           "point": {
-            "french": "Il faut pratiquer régulièrement dans la durée pour retenir et mobiliser les acquis.",
-            "english": "Regular practice over time is needed to retain and use what has been learned."
+            "french": "Connaître des mots ne suffit pas pour construire une phrase.",
+            "english": "Knowing words is not enough to construct a sentence."
           },
           "example": {
-            "french": "Réviser quelques mots chaque jour entretient mieux les acquis que de longues interruptions.",
-            "english": "Reviewing a few words daily maintains learning better than taking long breaks."
+            "french": "Réutiliser l'ordre des mots dans plusieurs questions.",
+            "english": "Reuse word order in several questions."
           }
         },
         {
           "point": {
-            "french": "Connaître les règles ne suffit pas ; parler exige d'oser se tromper en situation réelle.",
-            "english": "Knowing the rules is not enough; speaking requires daring to make mistakes in real situations."
+            "french": "Une conversation demande de comprendre et de répondre sans tout préparer.",
+            "english": "Conversation requires understanding and responding without full preparation."
           },
           "example": {
-            "french": "Comprendre un livre en anglais n'empêche pas d'hésiter lors d'une conversation.",
-            "english": "Understanding an English book does not prevent hesitation during a conversation."
+            "french": "Demander de répéter une question imprévue au téléphone.",
+            "english": "Ask for an unexpected phone question to be repeated."
           }
         },
         {
           "point": {
-            "french": "Des progrès peu visibles peuvent décourager ; un objectif concret aide à persévérer.",
-            "english": "Progress that is hard to see can be discouraging; a concrete goal helps people persist."
+            "french": "Il faut trouver une pratique régulière avec des retours utiles.",
+            "english": "Regular practice needs useful feedback."
           },
           "example": {
-            "french": "Préparer une installation à l'étranger donne une raison de continuer les exercices.",
-            "english": "Preparing to move abroad provides a reason to keep doing the exercises."
+            "french": "Faire signaler les passages peu clairs par un partenaire.",
+            "english": "Ask a partner to identify unclear passages."
           }
         }
-      ],
-      "nuance": {
-        "french": "L'immersion ou des échanges avec un proche facilitent la pratique ; la difficulté varie selon les situations.",
-        "english": "Immersion or conversations with someone close make practice easier; difficulty varies with circumstances."
-      },
-      "conclusion": {
-        "french": "Reconnaître l'effort nécessaire sans confondre difficulté et impossibilité d'apprendre.",
-        "english": "Recognise the effort required without confusing difficulty with an inability to learn."
-      }
+      ]
     },
     "education-p14": {
       "introduction": {
-        "french": "Les livres permettent de mieux connaître un pays, même s'ils n'en donnent jamais une vision complète.",
-        "english": "Books help us get to know a country, even though they never provide a complete picture."
+        "french": "Les livres donnent des accès à un pays, pas un portrait complet.",
+        "english": "Books provide access to a country, not a complete portrait."
+      },
+      "nuance": {
+        "french": "Vérifier date et point de vue ; la fiction n'est pas une preuve factuelle.",
+        "english": "Check date and perspective; fiction is not factual proof."
+      },
+      "conclusion": {
+        "french": "Croiser contextes et récits pour une connaissance réelle mais partielle.",
+        "english": "Cross-check contexts and narratives for real but partial knowledge."
       },
       "arguments": [
         {
           "point": {
-            "french": "L'histoire et la littérature expliquent les événements et les débats qui façonnent une société.",
-            "english": "History and literature explain the events and debates that shape a society."
+            "french": "Un ouvrage documenté peut expliquer le contexte d'une situation actuelle.",
+            "english": "A documented book can explain the context of a present situation."
           },
           "example": {
-            "french": "Lire plusieurs auteurs éclaire des regards différents sur le passé d'un pays.",
-            "english": "Reading several authors reveals different perspectives on a country's past."
+            "french": "Comprendre l'évolution des quartiers avant de les observer.",
+            "english": "Understand neighborhood development before observing it."
           }
         },
         {
           "point": {
-            "french": "Les récits donnent accès à des expériences quotidiennes au-delà des images touristiques.",
-            "english": "Stories offer access to everyday experiences beyond tourist images."
+            "french": "Les récits montrent des expériences que l'on ne rencontre pas forcément soi-même.",
+            "english": "Narratives reveal experiences we may not encounter directly."
           },
           "example": {
-            "french": "Un roman situé dans un village décrit les relations familiales et les liens entre voisins.",
-            "english": "A novel set in a village depicts family relationships and ties between neighbours."
+            "french": "Comparer des récits ruraux et urbains d'un même pays.",
+            "english": "Compare rural and urban narratives from the same country."
           }
         },
         {
           "point": {
-            "french": "La lecture ouvre une découverte à moindre coût lorsqu'un voyage est impossible.",
-            "english": "Reading offers a lower-cost way to explore when travel is not possible."
+            "french": "Les livres permettent une découverte sans déplacement dans le pays.",
+            "english": "Books allow discovery without travelling to the country."
           },
           "example": {
-            "french": "Emprunter des récits canadiens en bibliothèque permet une découverte sans billet d'avion.",
-            "english": "Borrowing Canadian stories from a library enables discovery without a plane ticket."
+            "french": "Emprunter des récits traduits et suivre leurs références.",
+            "english": "Borrow translated narratives and follow their references."
           }
         }
-      ],
-      "nuance": {
-        "french": "Un auteur ne représente pas tous les habitants ; multiplier les lectures et, si possible, les rencontres.",
-        "english": "One author does not represent every resident; read varied works and, if possible, meet people too."
-      },
-      "conclusion": {
-        "french": "La lecture est une voie précieuse de connaissance, complémentaire de l'expérience directe.",
-        "english": "Reading is a valuable route to understanding that complements direct experience."
-      }
+      ]
     },
     "education-p15": {
       "introduction": {
-        "french": "Le téléphone facilite l'accès à l'information, mais ne garantit pas sa fiabilité.",
-        "english": "A phone makes information easier to access but does not guarantee its reliability."
+        "french": "Un téléphone facilite l'accès, sans garantir la bonne information.",
+        "english": "A phone facilitates access without guaranteeing accurate information."
+      },
+      "nuance": {
+        "french": "Les plateformes et les sources ont aussi une responsabilité de fiabilité.",
+        "english": "Platforms and sources also bear responsibility for reliability."
+      },
+      "conclusion": {
+        "french": "Choisir les sources et vérifier le contexte, pas seulement partager.",
+        "english": "Choose sources and check context rather than only sharing."
       },
       "arguments": [
         {
           "point": {
-            "french": "Des sources sérieuses et des rumeurs circulent ensemble, sans être toujours distinguées.",
-            "english": "Reliable sources and rumours circulate together and are not always clearly distinguished."
+            "french": "Le téléphone permet de consulter une source adaptée au besoin.",
+            "english": "A phone allows consultation of a source suited to the need."
           },
           "example": {
-            "french": "Une ancienne photo repartagée peut être présentée comme l'image d'un événement actuel.",
-            "english": "An old photograph shared again may be presented as showing a current event."
+            "french": "Vérifier une perturbation de bus sur le site actualisé de l'opérateur.",
+            "english": "Check a bus disruption on the operator's updated site."
           }
         },
         {
           "point": {
-            "french": "Les recommandations personnalisées peuvent privilégier les contenus qui confirment nos opinions.",
-            "english": "Personalised recommendations may favour content that confirms our opinions."
+            "french": "Ce qui apparaît en premier n'est pas forcément ce qui explique le mieux.",
+            "english": "Prominent content is not necessarily the most informative."
           },
           "example": {
-            "french": "Deux utilisateurs voient des publications différentes sur un même sujet selon leurs habitudes.",
-            "english": "Two users see different posts about the same topic based on their browsing habits."
+            "french": "Un fil répète des vidéos alarmantes sans nouvelles preuves.",
+            "english": "A feed repeats alarming videos without new evidence."
           }
         },
         {
           "point": {
-            "french": "Comparer les sources permet de vérifier une information au lieu de croire le premier message.",
-            "english": "Comparing sources helps verify information instead of believing the first message."
+            "french": "Quelques vérifications permettent de mieux comprendre ce que l'on reçoit.",
+            "english": "Verification helps establish what a publication really shows."
           },
           "example": {
-            "french": "Lire deux médias identifiés avant de partager une annonce reçue sur son téléphone.",
-            "english": "Read two identifiable news sources before sharing an announcement received on a phone."
+            "french": "Retrouver la date d'une photo ancienne présentée comme récente.",
+            "english": "Find the date of an old photo presented as recent."
           }
         }
-      ],
-      "nuance": {
-        "french": "Le même appareil donne aussi rapidement accès à des médias fiables et à des explications spécialisées.",
-        "english": "The same device also provides quick access to reliable media and specialist explanations."
-      },
-      "conclusion": {
-        "french": "La bonne information dépend des sources et de la vérification, pas du téléphone seul.",
-        "english": "Good information depends on sources and verification, not on the phone alone."
-      }
+      ]
     },
     "education-p16": {
       "introduction": {
-        "french": "Dans une entreprise, mieux vaut des salaires différenciés et justifiés qu'un salaire identique pour tous.",
-        "english": "Within a company, justified differences in pay are preferable to an identical salary for everyone."
+        "french": "Préférer une rémunération équitable à un salaire identique sans critères.",
+        "english": "Prefer fair pay to an identical salary without criteria."
+      },
+      "nuance": {
+        "french": "Contrôler discriminations, salaires trop bas et écarts excessifs.",
+        "english": "Examine discrimination, low pay and excessive gaps."
+      },
+      "conclusion": {
+        "french": "Des critères transparents, discutables et appliqués équitablement.",
+        "english": "Transparent criteria, open to discussion and applied fairly."
       },
       "arguments": [
         {
           "point": {
-            "french": "Les postes n'exigent pas tous les mêmes compétences ni les mêmes responsabilités.",
-            "english": "Not every job requires the same skills or level of responsibility."
+            "french": "Certains postes comportent des responsabilités particulières.",
+            "english": "Some roles carry particular responsibilities."
           },
           "example": {
-            "french": "Concevoir un produit complexe et exécuter une tâche d'initiation mobilisent des compétences différentes.",
-            "english": "Designing a complex product and performing an entry-level task call on different skills."
+            "french": "Expliquer les missions supplémentaires de coordination d'un chantier.",
+            "english": "Explain additional responsibilities for coordinating a building site."
           }
         },
         {
           "point": {
-            "french": "Une progression salariale peut reconnaître l'investissement et encourager l'évolution.",
-            "english": "Pay progression can recognise commitment and encourage professional development."
+            "french": "Les conditions de travail doivent entrer dans la comparaison.",
+            "english": "Working conditions belong in the comparison."
           },
           "example": {
-            "french": "Une hausse accompagne la prise en charge d'une équipe et de nouvelles contraintes.",
-            "english": "A pay increase accompanies taking responsibility for a team and its new demands."
+            "french": "Comparer temps partiel et temps plein en tenant compte des heures.",
+            "english": "Compare part-time and full-time pay in relation to hours."
           }
         },
         {
           "point": {
-            "french": "Rémunérer les compétences recherchées aide l'entreprise à recruter et à fidéliser.",
-            "english": "Rewarding sought-after skills helps a company recruit and retain staff."
+            "french": "Des compétences supplémentaires utiles peuvent être reconnues dans l'évolution du salaire.",
+            "english": "Additional useful skills can be recognized in salary progression."
           },
           "example": {
-            "french": "Un spécialiste informatique peut préférer un concurrent proposant une rémunération plus attractive.",
-            "english": "An IT specialist may prefer a competitor offering more attractive pay."
+            "french": "Prendre en compte un diagnostic technique et la formation des collègues.",
+            "english": "Recognize technical diagnosis and training colleagues."
           }
         }
-      ],
-      "nuance": {
-        "french": "Les écarts excessifs restent injustifiables ; des critères transparents doivent éviter les différences arbitraires.",
-        "english": "Excessive gaps remain unjustifiable; transparent criteria should prevent arbitrary differences."
-      },
-      "conclusion": {
-        "french": "Viser une rémunération équitable avec des écarts raisonnables, plutôt qu'une uniformité totale.",
-        "english": "Aim for fair pay with reasonable differences rather than complete uniformity."
-      }
+      ]
     },
     "education-p17": {
       "introduction": {
-        "french": "La liberté d'expression est fondamentale, mais des limites précises doivent protéger les personnes.",
-        "english": "Freedom of expression is fundamental, but clear limits should protect people."
+        "french": "Défendre une liberté large et des limites précises et proportionnées.",
+        "english": "Defend broad freedom with precise, proportionate limits."
+      },
+      "nuance": {
+        "french": "Choquer ou déplaire ne suffit pas ; les règles juridiques varient.",
+        "english": "Offence or dislike is not enough; legal rules vary."
+      },
+      "conclusion": {
+        "french": "Protéger les personnes sans faire taire la critique.",
+        "english": "Protect people without silencing criticism."
       },
       "arguments": [
         {
           "point": {
-            "french": "Inciter à la violence met autrui en danger et dépasse la simple défense d'une opinion.",
-            "english": "Inciting violence endangers others and goes beyond simply defending an opinion."
+            "french": "Exprimer une opinion n'est pas la même chose que menacer une personne.",
+            "english": "An opinion is different from a threat against a person."
           },
           "example": {
-            "french": "Critiquer un parti n'est pas appeler à attaquer physiquement ses membres.",
-            "english": "Criticising a political party is not the same as calling for attacks on its members."
+            "french": "Distinguer critique d'un responsable et appel à l'agresser.",
+            "english": "Distinguish criticism of an official from a call to attack them."
           }
         },
         {
           "point": {
-            "french": "La vie privée et la réputation méritent une protection contre les atteintes graves.",
-            "english": "Privacy and reputation deserve protection against serious harm."
+            "french": "Le droit de parler ne donne pas une raison de divulguer toute la vie privée d'autrui.",
+            "english": "Speaking does not justify exposing all of someone's private life."
           },
           "example": {
-            "french": "Publier des images intimes sans accord porte atteinte à la personne concernée.",
-            "english": "Publishing intimate images without consent harms the person concerned."
+            "french": "Critiquer un conflit sans publier le numéro privé du voisin.",
+            "english": "Discuss a conflict without publishing a neighbor's private number."
           }
         },
         {
           "point": {
-            "french": "Des règles contre l'intimidation permettent à davantage de personnes de participer au débat.",
-            "english": "Rules against intimidation allow more people to take part in debate."
+            "french": "Les décisions de limitation doivent pouvoir être comprises et contestées.",
+            "english": "Limiting decisions must be understandable and open to challenge."
           },
           "example": {
-            "french": "Un forum modéré peut retirer les menaces tout en conservant les opinions contradictoires.",
-            "english": "A moderated forum can remove threats while retaining conflicting opinions."
+            "french": "Expliquer un retrait de menace et permettre un réexamen.",
+            "english": "Explain removing a threat and allow review."
           }
         }
-      ],
-      "nuance": {
-        "french": "Les limites doivent être légales et proportionnées, sans servir à censurer la critique du pouvoir.",
-        "english": "Limits should be lawful and proportionate, not a means of censoring criticism of those in power."
-      },
-      "conclusion": {
-        "french": "Protéger la parole libre par des limites ciblées, sans confondre désaccord et danger.",
-        "english": "Protect free speech through targeted limits without confusing disagreement with danger."
-      }
+      ]
     },
     "education-p18": {
       "introduction": {
-        "french": "À l'école, je défends des priorités complémentaires : enseigner le programme et préparer à la vie en société.",
-        "english": "At school, I support complementary priorities: teaching the curriculum and preparing pupils for life in society."
+        "french": "Le programme est prioritaire, mais enseigner dépasse finir les chapitres.",
+        "english": "The curriculum is a priority, but teaching goes beyond finishing chapters."
+      },
+      "nuance": {
+        "french": "L'école ne résout pas seule toutes les difficultés et manque parfois de moyens.",
+        "english": "School cannot solve every difficulty alone and may lack resources."
+      },
+      "conclusion": {
+        "french": "Associer savoirs, compréhension et cadre de travail respectueux.",
+        "english": "Combine knowledge, understanding and a respectful learning environment."
       },
       "arguments": [
         {
           "point": {
-            "french": "Apprendre à coopérer mérite une place centrale, car les savoirs s'utilisent aussi avec les autres.",
-            "english": "Learning to cooperate deserves a central place because knowledge is also used with others."
+            "french": "Des bases communes donnent des moyens d'agir au-delà de la classe.",
+            "english": "Shared foundations provide tools for life beyond class."
           },
           "example": {
-            "french": "Un projet collectif entraîne à répartir les tâches et à résoudre un désaccord.",
-            "english": "A group project teaches pupils to share tasks and resolve disagreement."
+            "french": "Lire des horaires et calculer la durée d'un trajet.",
+            "english": "Read a timetable and calculate journey duration."
           }
         },
         {
           "point": {
-            "french": "Former l'esprit critique rend les élèves autonomes plutôt que seulement capables de réciter.",
-            "english": "Developing critical thinking makes pupils independent rather than merely able to recite."
+            "french": "Apprendre un contenu doit aussi exercer le raisonnement.",
+            "english": "Learning content should also exercise reasoning."
           },
           "example": {
-            "french": "En histoire, comparer des documents apprend à évaluer les sources.",
-            "english": "In history, comparing documents teaches pupils to evaluate sources."
+            "french": "Comparer deux documents historiques et leurs sources.",
+            "english": "Compare two historical documents and their sources."
           }
         },
         {
           "point": {
-            "french": "Des repères pratiques préparent aux responsabilités adultes que les notes ne mesurent pas.",
-            "english": "Practical guidance prepares pupils for adult responsibilities that grades do not measure."
+            "french": "Les relations dans la classe influencent les possibilités d'apprendre.",
+            "english": "Classroom relationships affect opportunities to learn."
           },
           "example": {
-            "french": "Comprendre un contrat ou construire un budget prépare à des situations quotidiennes.",
-            "english": "Understanding a contract or making a budget prepares pupils for everyday situations."
+            "french": "Répartir les rôles pour que chacun explique une étape.",
+            "english": "Divide roles so everyone explains a step."
           }
         }
-      ],
-      "nuance": {
-        "french": "Lire, compter et raisonner restent indispensables ; ces missions doivent enrichir le programme, non le négliger.",
-        "english": "Reading, numeracy and reasoning remain essential; these roles should enrich the curriculum, not neglect it."
-      },
-      "conclusion": {
-        "french": "Le programme est une priorité essentielle, à articuler avec la formation de citoyens autonomes.",
-        "english": "The curriculum is an essential priority, alongside developing independent citizens."
-      }
+      ]
     },
     "education-p19": {
       "introduction": {
-        "french": "La télévision peut contribuer au développement de l'enfant si les contenus et le temps d'écran sont encadrés.",
-        "english": "Television can support a child's development if content and viewing time are supervised."
+        "french": "La télévision peut compléter, pas remplacer, jeux et échanges réels.",
+        "english": "Television can complement, not replace, play and real interaction."
+      },
+      "nuance": {
+        "french": "Adapter contenu et durée ; préserver sommeil, jeu et interactions.",
+        "english": "Adapt content and duration; preserve sleep, play and interaction."
+      },
+      "conclusion": {
+        "french": "Relier ce qu'on regarde à des questions et activités variées.",
+        "english": "Connect viewing with questions and varied activities."
       },
       "arguments": [
         {
           "point": {
-            "french": "Des programmes adaptés complètent les apprentissages en présentant des notions accessibles.",
-            "english": "Suitable programmes complement learning by presenting accessible ideas."
+            "french": "Des images et des explications peuvent rendre un phénomène plus concret.",
+            "english": "Images and explanations can make a phenomenon concrete."
           },
           "example": {
-            "french": "Un dessin animé éducatif permet de découvrir quelques mots dans une langue étrangère.",
-            "english": "An educational cartoon introduces a few words in a foreign language."
+            "french": "Observer une germination puis regarder une plante chez soi.",
+            "english": "Watch germination, then observe a plant at home."
           }
         },
         {
           "point": {
-            "french": "Découvrir d'autres lieux et modes de vie nourrit la curiosité au-delà du quotidien.",
-            "english": "Discovering other places and ways of life nurtures curiosity beyond everyday surroundings."
+            "french": "Certains programmes ouvrent une fenêtre sur des réalités éloignées.",
+            "english": "Some programs introduce unfamiliar environments."
           },
           "example": {
-            "french": "Une émission montre la vie d'une famille dans une ville étrangère.",
-            "english": "A programme shows a family's life in a foreign city."
+            "french": "Comparer un trajet scolaire en montagne avec son quotidien.",
+            "english": "Compare a mountain school journey with everyday life."
           }
         },
         {
           "point": {
-            "french": "Regarder avec un parent transforme les images en occasions de parler et de réfléchir.",
-            "english": "Watching with a parent turns images into opportunities to talk and think."
+            "french": "Une histoire regardée ensemble peut aider à parler des relations et des émotions.",
+            "english": "Watching a story together can support discussion of emotions."
           },
           "example": {
-            "french": "Après un documentaire animalier, l'enfant échange avec ses parents sur ce qu'il a compris.",
-            "english": "After a wildlife documentary, a child discusses what they understood with their parents."
+            "french": "Parler d'un personnage exclu d'un jeu et de ses réactions.",
+            "english": "Discuss a character excluded from a game and their reactions."
           }
         }
-      ],
-      "nuance": {
-        "french": "L'excès d'écran et les contenus inadaptés peuvent nuire ; les jeunes enfants ont surtout besoin d'interactions réelles.",
-        "english": "Too much screen time and unsuitable content can be harmful; young children especially need real interaction."
-      },
-      "conclusion": {
-        "french": "Faire de la télévision un complément accompagné, sans remplacer le jeu ni les relations humaines.",
-        "english": "Make television a supervised supplement without replacing play or human relationships."
-      }
+      ]
     },
     "education-p20": {
       "introduction": {
-        "french": "L'université devrait être accessible à tous, sans obligation de suivre cette voie.",
-        "english": "University should be accessible to everyone, without making this path compulsory."
+        "french": "Un accès universitaire réel n'est ni admission automatique ni voie obligatoire.",
+        "english": "Real university access is neither automatic admission nor a compulsory path."
+      },
+      "nuance": {
+        "french": "Prévoir places et financement, expliquer les exigences et valoriser d'autres voies.",
+        "english": "Provide places and funding, explain requirements and value other paths."
+      },
+      "conclusion": {
+        "french": "Permettre un choix éclairé et un parcours accompagné.",
+        "english": "Enable an informed choice and a supported path."
       },
       "arguments": [
         {
           "point": {
-            "french": "Un accès indépendant du milieu social donne des perspectives aux étudiants modestes.",
-            "english": "Access that does not depend on social background creates prospects for low-income students."
+            "french": "Le manque de moyens ne devrait pas suffire à fermer l'accès.",
+            "english": "Lack of money should not alone close access."
           },
           "example": {
-            "french": "Une aide financière permet à un jeune d'une famille modeste de poursuivre ses études.",
-            "english": "Financial support enables a young person from a low-income family to continue studying."
+            "french": "Une aide peut réduire des heures de travail incompatibles avec les cours.",
+            "english": "Financial help can reduce work hours that conflict with classes."
           }
         },
         {
           "point": {
-            "french": "Former davantage de talents bénéficie aux services et aux compétences dont la société a besoin.",
-            "english": "Developing more people's talents supports the services and skills society needs."
+            "french": "Les conditions matérielles et pédagogiques doivent permettre de participer.",
+            "english": "Practical and teaching conditions must permit participation."
           },
           "example": {
-            "french": "Ouvrir les études de santé à des profils variés élargit le vivier de futurs soignants.",
-            "english": "Opening health studies to varied backgrounds broadens the pool of future healthcare workers."
+            "french": "Prévoir un document accessible avec le service compétent.",
+            "english": "Arrange an accessible document with the relevant service."
           }
         },
         {
           "point": {
-            "french": "Ne pas fermer les portes trop tôt laisse apparaître des capacités révélées plus tard.",
-            "english": "Avoiding early barriers gives abilities that emerge later a chance to develop."
+            "french": "Un parcours atypique ne devrait pas condamner définitivement un projet d'études.",
+            "english": "An atypical path should not permanently rule out study."
           },
           "example": {
-            "french": "Un élève aux résultats moyens s'épanouit en découvrant une discipline universitaire qui le motive.",
-            "english": "A pupil with average grades thrives after discovering a university subject that motivates them."
+            "french": "Identifier et préparer les prérequis après une expérience professionnelle.",
+            "english": "Identify and prepare prerequisites after work experience."
           }
         }
-      ],
-      "nuance": {
-        "french": "L'accès doit s'accompagner d'aide et d'orientation ; les formations professionnelles méritent aussi d'être valorisées.",
-        "english": "Access should come with support and guidance; vocational courses also deserve recognition."
-      },
-      "conclusion": {
-        "french": "Garder l'université ouverte à tous tout en respectant la diversité des parcours de réussite.",
-        "english": "Keep university open to everyone while respecting different routes to success."
-      }
+      ]
     },
     "education-p21": {
       "introduction": {
-        "french": "De bonnes notes peuvent contribuer à réussir sa vie, mais elles ne sont ni indispensables ni suffisantes.",
-        "english": "Good grades can contribute to success in life, but they are neither essential nor sufficient."
+        "french": "De bonnes notes peuvent aider, sans définir toute la réussite.",
+        "english": "Good grades can help without defining all success."
+      },
+      "nuance": {
+        "french": "Une note ne mesure ni toutes les compétences ni les relations ou l'équilibre.",
+        "english": "A grade measures neither every skill nor relationships or balance."
+      },
+      "conclusion": {
+        "french": "Utiliser les résultats comme appuis partiels, pas comme définition de la vie.",
+        "english": "Use results as partial support, not a definition of life."
       },
       "arguments": [
         {
           "point": {
-            "french": "Un bon dossier scolaire élargit les choix d'études et certaines perspectives professionnelles.",
-            "english": "A strong academic record broadens study choices and some career prospects."
+            "french": "De bons résultats peuvent ouvrir certaines possibilités de formation.",
+            "english": "Good results can open some educational opportunities."
           },
           "example": {
-            "french": "De bons résultats au lycée facilitent l'accès à une formation sélective.",
-            "english": "Good secondary-school results help with admission to a selective course."
+            "french": "Soutenir une candidature scientifique sans place garantie.",
+            "english": "Support a science-course application without guaranteeing a place."
           }
         },
         {
           "point": {
-            "french": "Voir ses efforts récompensés peut renforcer la confiance et l'habitude de persévérer.",
-            "english": "Seeing effort rewarded can strengthen confidence and the habit of persisting."
+            "french": "Une bonne évaluation peut confirmer qu'un apprentissage est réellement maîtrisé.",
+            "english": "A sound assessment can confirm an actual learning achievement."
           },
           "example": {
-            "french": "Une méthode de préparation aux examens sert ensuite pour mener un projet personnel.",
-            "english": "A method used to prepare for exams later helps with a personal project."
+            "french": "Réutiliser les méthodes relevées dans les commentaires d'un dossier réussi.",
+            "english": "Reuse methods identified in feedback on a successful report."
           }
         },
         {
           "point": {
-            "french": "Les résultats peuvent attirer des soutiens qui facilitent la suite du parcours.",
-            "english": "Results can attract support that makes the next steps easier."
+            "french": "Certains dispositifs valorisent les résultats dans l'attribution d'un soutien.",
+            "english": "Some support schemes take results into account."
           },
           "example": {
-            "french": "Un enseignant recommande pour un stage un étudiant dont il a apprécié le travail.",
-            "english": "A teacher recommends a student for an internship after appreciating their work."
+            "french": "Vérifier les critères d'une bourse avant de déposer un dossier.",
+            "english": "Check scholarship criteria before applying."
           }
         }
-      ],
-      "nuance": {
-        "french": "Réussir peut aussi signifier avoir une vie équilibrée ou de bonnes relations, dimensions que les notes ne mesurent pas.",
-        "english": "Success can also mean a balanced life or good relationships, aspects that grades do not measure."
-      },
-      "conclusion": {
-        "french": "Les notes peuvent aider, sans définir la réussite ni la valeur d'une personne.",
-        "english": "Grades can help without defining success or a person's worth."
-      }
+      ]
     },
     "education-p22": {
       "introduction": {
-        "french": "Internet permet d'apprendre beaucoup de choses seul, mais pas de maîtriser tous les domaines sans accompagnement.",
-        "english": "The internet allows much independent learning, but not mastery of every field without guidance."
+        "french": "Internet permet beaucoup d'apprentissages autonomes, mais pas tout seul.",
+        "english": "The Internet enables much independent learning, but not everything alone."
+      },
+      "nuance": {
+        "french": "Le besoin d'aide dépend du niveau et de l'objectif, pas seulement du support.",
+        "english": "Support needs depend on level and goal, not only the medium."
+      },
+      "conclusion": {
+        "french": "Relier ressources, retours et pratique à la compétence visée.",
+        "english": "Match resources, feedback and practice to the target skill."
       },
       "arguments": [
         {
           "point": {
-            "french": "Les cours et tutoriels donnent accès à de nombreux savoirs à faible coût.",
-            "english": "Courses and tutorials provide low-cost access to a wide range of knowledge."
+            "french": "Des ressources bien organisées permettent de véritables apprentissages autonomes.",
+            "english": "Structured resources enable genuine independent learning."
           },
           "example": {
-            "french": "Un tutoriel accompagné d'exercices permet de découvrir les bases d'un logiciel.",
-            "english": "A tutorial with exercises introduces the basics of a software application."
+            "french": "Refaire un calcul de tableur et comparer la correction.",
+            "english": "Repeat a spreadsheet calculation and compare the answer."
           }
         },
         {
           "point": {
-            "french": "Sans cadre extérieur, il faut organiser ses efforts et résister à la dispersion.",
-            "english": "Without outside structure, learners must organise their efforts and avoid losing focus."
+            "french": "On ne repère pas toujours ses propres erreurs sans regard extérieur.",
+            "english": "We do not always identify our own errors."
           },
           "example": {
-            "french": "Un cours commencé avec enthousiasme peut être abandonné faute de rendez-vous réguliers.",
-            "english": "A course begun enthusiastically may be abandoned without regular scheduled sessions."
+            "french": "Un partenaire signale un mot mal compris dans une phrase étrangère.",
+            "english": "A partner identifies a misunderstood word in a foreign-language sentence."
           }
         },
         {
           "point": {
-            "french": "Certains gestes professionnels exigent une pratique réelle et des corrections supervisées.",
-            "english": "Some professional skills require real practice and supervised feedback."
+            "french": "Certaines compétences exigent une expérience que l'écran ne fournit pas.",
+            "english": "Some skills require experience that a screen cannot provide."
           },
           "example": {
-            "french": "Une vidéo sur les soins ne remplace pas un stage infirmier encadré.",
-            "english": "A video about care does not replace a supervised nursing placement."
+            "french": "La conduite demande une pratique réelle avec un encadrement adapté.",
+            "english": "Driving requires real practice with appropriate supervision."
           }
         }
-      ],
-      "nuance": {
-        "french": "L'autonomie est plus réaliste pour certains objectifs, comme les bases d'un outil numérique, que pour d'autres.",
-        "english": "Independent learning is more realistic for some goals, such as basic digital skills, than for others."
-      },
-      "conclusion": {
-        "french": "Profiter des ressources en ligne, puis chercher un accompagnement selon la compétence visée.",
-        "english": "Use online resources, then seek guidance according to the skill being developed."
-      }
+      ]
     },
     "education-p23": {
       "introduction": {
-        "french": "Les sorties pédagogiques bénéficient aux enfants si elles prolongent le travail en classe.",
-        "english": "Educational outings benefit children when they build on classroom work."
+        "french": "Une sortie préparée relie observation, curiosité et activité collective.",
+        "english": "A prepared outing connects observation, curiosity and group activity."
+      },
+      "nuance": {
+        "french": "Vérifier coût, accessibilité, encadrement et choix du lieu.",
+        "english": "Check cost, accessibility, supervision and venue choice."
+      },
+      "conclusion": {
+        "french": "Préparer et reprendre la visite, sans supériorité automatique sur la classe.",
+        "english": "Prepare and revisit the outing; it is not automatically superior to classwork."
       },
       "arguments": [
         {
           "point": {
-            "french": "Observer des objets ou des œuvres rend les notions du cours plus concrètes et mémorables.",
-            "english": "Observing objects or artworks makes classroom concepts more concrete and memorable."
+            "french": "Observer un objet réel peut compléter une explication en classe.",
+            "english": "Real objects can complement classroom explanations."
           },
           "example": {
-            "french": "Voir un fossile au musée d'histoire naturelle donne un repère à une leçon de sciences.",
-            "english": "Seeing a fossil at a natural history museum provides a reference point for a science lesson."
+            "french": "Comparer des fossiles puis expliquer les différences observées.",
+            "english": "Compare fossils, then explain observed differences."
           }
         },
         {
           "point": {
-            "french": "Une découverte hors de l'école peut éveiller un intérêt que les manuels n'avaient pas suscité.",
-            "english": "A discovery outside school can spark an interest that textbooks had not awakened."
+            "french": "Une découverte peut donner envie d'approfondir un sujet.",
+            "english": "A discovery can spark further exploration."
           },
           "example": {
-            "french": "Une exposition sur l'espace donne envie à un enfant de lire sur l'astronomie.",
-            "english": "A space exhibition makes a child want to read about astronomy."
+            "french": "Après une galerie, chercher pourquoi utiliser des matériaux récupérés.",
+            "english": "After a gallery visit, investigate using recovered materials."
           }
         },
         {
           "point": {
-            "french": "Partager une visite développe les échanges et l'apprentissage des règles collectives.",
-            "english": "Sharing a visit develops interaction and an understanding of shared rules."
+            "french": "La visite permet de coopérer dans un espace partagé avec d'autres personnes.",
+            "english": "A visit allows cooperation in a shared public space."
           },
           "example": {
-            "french": "Au musée, les élèves commentent leurs découvertes tout en respectant les autres visiteurs.",
-            "english": "At a museum, pupils discuss their discoveries while respecting other visitors."
+            "french": "Répartir observation, lecture et questions dans un petit groupe.",
+            "english": "Divide observation, reading and questions within a small group."
           }
         }
-      ],
-      "nuance": {
-        "french": "Prévoir un objectif, un encadrement et une reprise en classe ; une promenade seule ne garantit pas l'apprentissage.",
-        "english": "Plan a goal, supervision and classroom follow-up; an outing alone does not guarantee learning."
-      },
-      "conclusion": {
-        "french": "Intégrer ces sorties aux cours pour associer compréhension, curiosité et vie collective.",
-        "english": "Integrate outings into lessons to combine understanding, curiosity and learning together."
-      }
+      ]
     },
     "sante-p1": {
       "introduction": {

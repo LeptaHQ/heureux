@@ -98,6 +98,91 @@ class TacheThreeModelContentTests(SimpleTestCase):
                 models[f"eo/tache-3/{second}"].response,
             )
 
+    def test_reviewed_catalogue_covers_the_whole_oral_task_three_corpus(self):
+        models = catalogue.tache_three_models()
+        self.assertEqual(len(models), 131)
+        self.assertEqual(set(models), {source.semantic_group for source in self.sources})
+        self.assertEqual(
+            {key for model in models.values() for key, _text in model.source_prompts},
+            {prompt.content_key for source in self.sources for prompt in source.prompts},
+        )
+        self.assertEqual(sum(len(model.source_prompts) for model in models.values()), 167)
+        self.assertEqual(
+            set(models),
+            set(content.load_tache_three_subject_hints()),
+        )
+
+    def test_economie_covers_all_sources_and_retains_distinct_questions(self):
+        models = catalogue.tache_three_models()
+        sources = [source for source in self.sources if source.theme == "Economie"]
+        self.assertEqual(len(sources), 16)
+        self.assertEqual(sum(len(source.prompts) for source in sources), 18)
+        publications = {
+            prompt.content_key for source in self.sources for prompt in source.prompts
+            if prompt.theme == "Economie"
+        }
+        self.assertEqual(len(publications), 24)
+        self.assertTrue(
+            publications <= {key for model in models.values() for key, _text in model.source_prompts}
+        )
+        for source in sources:
+            self.assertEqual(
+                models[source.semantic_group].source_prompts,
+                tuple((prompt.content_key, prompt.text) for prompt in source.prompts),
+            )
+        for group, members in {
+            "economie-p6": {"economie:p6", "economie:p21"},
+            "economie-p9": {"economie:p9", "economie:p13"},
+        }.items():
+            self.assertEqual(
+                {key for key, _text in models[f"eo/tache-3/{group}"].source_prompts},
+                members,
+            )
+        for first, second in (
+            ("economie-p1", "economie-p15"), ("economie-p3", "economie-p17"),
+            ("economie-p9", "economie-p18"), ("economie-p18", "sante-p22"),
+            ("economie-p16", "environnement-p9"),
+            ("economie-p24", "technologie-p20"),
+        ):
+            self.assertNotEqual(
+                models[f"eo/tache-3/{first}"].response,
+                models[f"eo/tache-3/{second}"].response,
+            )
+
+    def test_economie_arguments_preserve_scope_and_avoid_unsupported_guarantees(self):
+        models = catalogue.tache_three_models()
+        response = lambda key: models[f"eo/tache-3/economie-p{key}"].response
+        self.assertIn("Si je m'installais", response(1).position_claire)
+        self.assertIn("province ou le territoire", response(1).arguments[0].developpement)
+        self.assertIn("pas que tous les postes", response(1).arguments[1].developpement)
+        self.assertIn("à l'intérieur du sport", response(2).arguments[1].idea)
+        self.assertIn("budgets des clubs et des hôpitaux", response(2).nuance)
+        self.assertIn("l'aptitude doit être vérifiée", response(3).position_claire)
+        self.assertIn("ne prouve pas non plus une incapacité", response(3).nuance)
+        self.assertIn("temps de se réveiller", response(4).arguments[0].developpement)
+        self.assertIn("relais", response(4).arguments[2].developpement)
+        self.assertIn("manque chronique de sommeil", response(4).nuance)
+        self.assertIn("répartit une partie", response(6).arguments[0].exemple)
+        self.assertIn("deux consignes", response(6).arguments[1].exemple)
+        self.assertIn("deux mois", response(9).arguments[2].exemple)
+        self.assertIn("projet d'épargne", response(9).nuance)
+        self.assertIn("financer un déplacement", response(10).arguments[2].exemple)
+        self.assertIn("quelle proportion", response(14).nuance)
+        self.assertIn("son partenaire", response(14).arguments[2].exemple)
+        self.assertIn("un permis est toujours nécessaire", response(15).arguments[0].developpement)
+        self.assertIn("deux questions différentes", response(15).arguments[2].developpement)
+        self.assertIn("recettes serve à l'entretien", response(16).arguments[2].exemple)
+        self.assertIn("ni la fermeté aux hommes", response(17).arguments[1].developpement)
+        self.assertIn("un carnet", response(18).arguments[1].exemple)
+        self.assertIn("Aucun seuil universel", response(18).nuance)
+        self.assertIn("pas devenu soudainement plus difficile", response(20).arguments[1].exemple)
+        self.assertIn("métiers de bureau", response(20).nuance)
+        self.assertIn("coût collectif", response(22).nuance)
+        self.assertIn("ne prouve pas", response(22).nuance)
+        self.assertIn("tout le monde ne peut pas travailler", response(23).nuance)
+        self.assertIn("respecte son accord", response(23).arguments[2].exemple)
+        self.assertIn("restent des trajets automobiles", response(24).nuance)
+
     def test_every_model_has_three_distinct_supported_arguments_and_speakable_length(self):
         for identity, model in catalogue.tache_three_models().items():
             response = model.response
@@ -490,15 +575,13 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertTrue(content.parse_subject_vocabulary(self.sources))
 
     def test_unreviewed_models_keep_their_original_effective_content(self):
-        models = catalogue.tache_three_models()
-        for source in self.sources:
-            if source.semantic_group in models:
-                continue
-            for prompt in source.prompts:
-                self.assertEqual(
-                    effective_response(source, None, prompt=prompt, model_only=True),
-                    original_effective(prompt),
-                )
+        with patch("study.catalogue.tache_three_models", return_value={}):
+            for source in self.sources:
+                for prompt in source.prompts:
+                    self.assertEqual(
+                        effective_response(source, None, prompt=prompt, model_only=True),
+                        original_effective(prompt),
+                    )
 
     def test_catalogue_and_nested_records_are_immutable_and_failures_are_not_cached(self):
         models = catalogue.tache_three_models()

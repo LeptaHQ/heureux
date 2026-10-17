@@ -128,6 +128,27 @@ explicitly, without extending it to every label, promising health outcomes or
 equating organic with local. Economic activity is not impact-free; assess total
 resource use as well as improvements per product.
 
+For Économie, retain only the identical wellbeing and salary-priority pairs.
+The personal Canadian-employment projection remains distinct from general
+international mobility; enjoyment of life is not the same question as salary
+priority or happiness. Do not invent a learner biography, Canadian-experience
+requirement, current shortage, hiring timetable or universal bilingualism rule.
+[Canadian credential guidance](https://www.canada.ca/en/employment-social-development/programs/foreign-credential-recognition.html)
+distinguishes profession-specific regulation by province/territory from job
+search and immigration status. Management readiness, willingness and capability
+are different; judging a manager's work does not require sex stereotypes.
+Retain the distinction between a constrained choice and no safe alternative,
+without inventing a majority of forced migrations. Do not imply a universal
+income threshold for enjoyment, rank manual and office work by effort, or
+equate a sports club's budget with public-service funding.
+[NIOSH planned-nap guidance](https://www.cdc.gov/niosh/work-hour-training-for-nurses/longhours/mod7/07.html)
+supports an alertness strategy with wake-up time, not guaranteed safety,
+compulsory naps or replacement of sufficient sleep. Free fares still require
+funding and do not establish car substitution. Tourism benefits depend on
+local participation and resource allocation; direct help and employment do
+not replace social rights or make associations unnecessary. The broad car-free
+opinion retains its own benefits/trade-offs, separate from the possibility group.
+
 Published Markdown in `study/content/responses/` remains the exact historical
 model corpus. Its 130 exact-body records support 167 publications and 131
 semantic identities. Do not rewrite or deduplicate those records as an incidental

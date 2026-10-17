@@ -352,6 +352,8 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("mobilité réduite", response(8).arguments[2].exemple)
         self.assertIn("autres causes de tension", response(9).arguments[1].exemple)
         self.assertIn("Exemple français documenté", response(11).reformulation)
+        self.assertIn("à adapter", response(11).reformulation)
+        self.assertNotIn("son propre pays", spoken_text(response(11)))
         self.assertIn("Info-tri", response(11).arguments[0].developpement)
         self.assertIn("Dans une commune qui propose", response(11).arguments[1].exemple)
         self.assertIn("pas une réussite nationale mesurée", response(11).nuance)

@@ -127,6 +127,8 @@ the [EU framework](https://agriculture.ec.europa.eu/farming/organic-farming/orga
 explicitly, without extending it to every label, promising health outcomes or
 equating organic with local. Economic activity is not impact-free; assess total
 resource use as well as improvements per product.
+Keep country-adaptation instructions in preparation metadata and Pistes, not
+inside the spoken intervention.
 
 For Économie, retain only the identical wellbeing and salary-priority pairs.
 The personal Canadian-employment projection remains distinct from general

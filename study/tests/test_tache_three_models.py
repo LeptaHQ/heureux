@@ -220,6 +220,56 @@ class TacheThreeModelContentTests(SimpleTestCase):
                 models[f"eo/tache-3/{second}"].response,
             )
 
+    def test_sante_preserves_coverage_and_distinguishes_state_sales_from_a_ban(self):
+        models = catalogue.tache_three_models()
+        sources = [source for source in self.sources if source.theme == "Sante"]
+        self.assertEqual(len(sources), 19)
+        self.assertEqual(sum(len(source.prompts) for source in sources), 24)
+        for source in sources:
+            self.assertEqual(
+                models[source.semantic_group].source_prompts,
+                tuple((prompt.content_key, prompt.text) for prompt in source.prompts),
+            )
+        for first, second in ((1, 5), (9, 24), (10, 12), (15, 18), (17, 21)):
+            self.assertEqual(
+                {key for key, _text in models[f"eo/tache-3/sante-p{first}"].source_prompts},
+                {f"sante:p{first}", f"sante:p{second}"},
+            )
+        for first, second in ((1, 8), (2, 19), (6, 13), (10, 11), (20, 22)):
+            self.assertNotEqual(
+                models[f"eo/tache-3/sante-p{first}"].response,
+                models[f"eo/tache-3/sante-p{second}"].response,
+            )
+        state_sales = models["eo/tache-3/sante-p11"].response
+        self.assertIn("organisme public", state_sales.position_claire)
+        self.assertIn("ne vend pas lui-même partout", state_sales.position_claire)
+        self.assertIn("interdire toute vente", state_sales.nuance)
+        self.assertIn("indépendantes", state_sales.conclusion)
+
+    def test_sante_uses_specific_supports_without_health_or_income_guarantees(self):
+        models = catalogue.tache_three_models()
+        response = lambda key: models[f"eo/tache-3/sante-p{key}"].response
+        self.assertIn("hors compétition", response(1).nuance)
+        self.assertIn("également les parents", response(2).arguments[2].exemple)
+        self.assertIn("financement", response(3).arguments[2].consequence)
+        self.assertIn("consentement", response(4).arguments[2].developpement)
+        self.assertIn("ne suffit", response(6).conclusion)
+        self.assertIn("ne dit pas à lui seul", response(7).nuance)
+        self.assertIn("handicap", response(8).arguments[2].exemple)
+        self.assertIn("pas connaître les motivations", response(9).nuance)
+        self.assertIn("pas une raison", response(10).arguments[1].developpement)
+        self.assertIn("base commune", response(13).arguments[2].developpement)
+        self.assertIn("village bien relié", response(14).nuance)
+        self.assertIn("volontairement", response(15).position_claire)
+        self.assertIn("illustratif à personnaliser", response(16).reformulation)
+        self.assertIn("motivé sans", response(17).nuance)
+        self.assertIn("achats non autorisés", response(19).arguments[2].exemple)
+        self.assertIn("défaut de gestion", response(20).nuance)
+        self.assertIn("je n'en ferais pas une condition universelle", response(22).position_claire)
+        self.assertIn("type 1", response(23).arguments[0].exemple)
+        self.assertIn("sans l'avis du professionnel", response(23).nuance)
+        self.assertNotIn("guérissent le plus souvent", spoken_text(response(23)))
+
     def test_education_addresses_qualifiers_priorities_and_realistic_conditions(self):
         models = catalogue.tache_three_models()
         response = lambda key: models[f"eo/tache-3/education-p{key}"].response

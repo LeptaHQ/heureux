@@ -2994,877 +2994,877 @@
     },
     "sante-p1": {
       "introduction": {
-        "french": "Encourager les compétitions sportives chez les enfants, avec des épreuves adaptées à leur âge et choisies librement.",
-        "english": "Encourage sports competitions for children, with age-appropriate events they freely choose to enter."
+        "french": "Encourager une compétition choisie et adaptée.",
+        "english": "Encourage voluntary, suitable competition."
+      },
+      "nuance": {
+        "french": "Ces apprentissages existent aussi sans compétition.",
+        "english": "These lessons also exist without competition."
+      },
+      "conclusion": {
+        "french": "Progresser, respecter, coopérer sans obligation de gagner.",
+        "english": "Improve, respect and cooperate without an obligation to win."
       },
       "arguments": [
         {
           "point": {
-            "french": "Un objectif sportif peut motiver une pratique régulière, bénéfique à la santé.",
-            "english": "A sporting goal can motivate regular physical activity that benefits health."
+            "french": "Un objectif concret de pratique.",
+            "english": "A concrete practice goal."
           },
           "example": {
-            "french": "Préparer un petit tournoi local donne une raison de s'entraîner chaque semaine.",
-            "english": "Preparing for a small local tournament provides a reason to train every week."
+            "french": "Travailler les passes puis évaluer le progrès, même après une défaite.",
+            "english": "Practise passes, then assess progress even after losing."
           }
         },
         {
           "point": {
-            "french": "La rencontre apprend à respecter les règles et à accepter un résultat décevant.",
-            "english": "Competing teaches respect for rules and acceptance of disappointing results."
+            "french": "Le respect dans le désaccord.",
+            "english": "Respect during disagreement."
           },
           "example": {
-            "french": "Serrer la main d'un adversaire après une défaite permet de pratiquer le fair-play.",
-            "english": "Shaking an opponent's hand after losing puts fair play into practice."
+            "french": "Demander calmement une explication à l'arbitre.",
+            "english": "Calmly ask the referee for an explanation."
           }
         },
         {
           "point": {
-            "french": "Préserver le plaisir aide l'enfant à poursuivre le sport sans dépendre de la victoire.",
-            "english": "Preserving enjoyment helps a child continue sport without depending on winning."
+            "french": "La coopération dans l'équipe.",
+            "english": "Cooperation within the team."
           },
           "example": {
-            "french": "Un enfant inquiet de décevoir ses parents a besoin de réconfort, pas de pression.",
-            "english": "A child afraid of disappointing their parents needs reassurance, not pressure."
+            "french": "Valoriser une passe et faire participer les remplaçants.",
+            "english": "Value a pass and let substitutes participate."
           }
         }
-      ],
-      "nuance": {
-        "french": "Une pression excessive peut abîmer la confiance ; encourager n'est pas imposer.",
-        "english": "Excessive pressure can damage confidence; encouragement is not compulsion."
-      },
-      "conclusion": {
-        "french": "Soutenir une compétition éducative et choisie, plutôt qu'une recherche de performance à tout prix.",
-        "english": "Support voluntary, educational competition rather than performance at any cost."
-      }
+      ]
     },
     "sante-p2": {
       "introduction": {
-        "french": "Beaucoup d'enfants passent trop de temps devant les écrans ; il faut rééquilibrer leur quotidien.",
-        "english": "Many children spend too much time on screens; balance needs restoring in their daily lives."
+        "french": "Évaluer ce que l'écran remplace dans la journée.",
+        "english": "Assess what screen use replaces during the day."
+      },
+      "nuance": {
+        "french": "Tenir compte de l'âge, du contenu et des contraintes.",
+        "english": "Consider age, content and practical constraints."
+      },
+      "conclusion": {
+        "french": "Des limites pour préserver un quotidien varié.",
+        "english": "Limits that preserve a varied daily life."
       },
       "arguments": [
         {
           "point": {
-            "french": "L'accumulation des écrans réduit le temps pour bouger et peut retarder le sommeil.",
-            "english": "Accumulated screen time reduces time for movement and can delay sleep."
+            "french": "Préserver le repos.",
+            "english": "Protect rest."
           },
           "example": {
-            "french": "Enchaîner jeux sur ordinateur et vidéos au lit repousse l'heure du coucher.",
-            "english": "Following computer games with videos in bed pushes bedtime back."
+            "french": "Arrêter les épisodes avant la routine du coucher.",
+            "english": "Stop episodes before the bedtime routine."
           }
         },
         {
           "point": {
-            "french": "L'écran peut prendre la place des échanges et du jeu qui nourrissent le développement.",
-            "english": "Screens can displace conversation and play that support development."
+            "french": "Varier les activités.",
+            "english": "Keep activities varied."
           },
           "example": {
-            "french": "Une tablette pendant le repas réduit les occasions de discuter en famille.",
-            "english": "A tablet at mealtimes reduces opportunities for family conversation."
+            "french": "Prévoir une sortie puis un usage numérique choisi.",
+            "english": "Plan an outing followed by chosen screen use."
           }
         },
         {
           "point": {
-            "french": "Des règles cohérentes et des alternatives aident les enfants à réguler leur usage.",
-            "english": "Consistent rules and alternatives help children regulate their use."
+            "french": "Protéger l'attention partagée.",
+            "english": "Protect shared attention."
           },
           "example": {
-            "french": "Prévoir des repas sans écran et une lecture avant le coucher installe d'autres habitudes.",
-            "english": "Planning screen-free meals and reading before bed establishes other habits."
+            "french": "Ranger aussi les téléphones des parents pendant le repas.",
+            "english": "Put away parents' phones too during meals."
           }
         }
-      ],
-      "nuance": {
-        "french": "Un usage limité peut servir à apprendre ou à joindre des proches ; tenir compte de l'âge, du contenu et du contexte.",
-        "english": "Limited use can support learning or contact with loved ones; consider age, content and context."
-      },
-      "conclusion": {
-        "french": "Mieux encadrer l'ensemble des écrans sans supprimer leurs usages utiles.",
-        "english": "Set better boundaries across all screens without removing their useful applications."
-      }
+      ]
     },
     "sante-p3": {
       "introduction": {
-        "french": "Cumuler travail et études est difficile, mais possible avec un cadre adapté.",
-        "english": "Combining work and study is difficult, but possible with suitable arrangements."
+        "french": "Un cumul exigeant, pas un simple test de volonté.",
+        "english": "A demanding combination, not just a test of willpower."
+      },
+      "nuance": {
+        "french": "Une charge limitée et des horaires prévisibles peuvent aider.",
+        "english": "Limited hours and predictable schedules can help."
+      },
+      "conclusion": {
+        "french": "Prévoir des aménagements, pas un effort illimité.",
+        "english": "Plan adjustments rather than unlimited effort."
       },
       "arguments": [
         {
           "point": {
-            "french": "Coordonner cours, emploi et déplacements impose une organisation quotidienne exigeante.",
-            "english": "Coordinating classes, work and travel requires demanding daily organisation."
+            "french": "Des horaires incompatibles.",
+            "english": "Conflicting schedules."
           },
           "example": {
-            "french": "Un étudiant employé plusieurs soirs doit réserver d'autres créneaux pour ses devoirs.",
-            "english": "A student working several evenings must set aside other times for assignments."
+            "french": "Un cours et une prise de poste à dix-sept heures.",
+            "english": "A class and a shift both scheduled at five."
           }
         },
         {
           "point": {
-            "french": "Le manque de repos peut diminuer la concentration et laisser peu de place à la vie personnelle.",
-            "english": "Lack of rest can reduce concentration and leave little room for personal life."
+            "french": "Un repos réduit.",
+            "english": "Reduced recovery time."
           },
           "example": {
-            "french": "Le week-end sert à récupérer ou à réviser plutôt qu'à voir des amis.",
-            "english": "The weekend goes towards catching up on rest or revision rather than seeing friends."
+            "french": "Un devoir après une fermeture tardive.",
+            "english": "An assignment after a late closing shift."
           }
         },
         {
           "point": {
-            "french": "Les exigences des deux activités peuvent entrer en conflit, obligeant à sacrifier une priorité.",
-            "english": "The demands of both activities can conflict, forcing one priority to be sacrificed."
+            "french": "Une marge financière limitée.",
+            "english": "Limited financial flexibility."
           },
           "example": {
-            "french": "Un service prévu la veille d'un examen réduit le temps disponible pour le préparer.",
-            "english": "A shift scheduled the day before an exam reduces the time available to prepare."
+            "french": "Réduire le travail pendant les examens peut compromettre le loyer.",
+            "english": "Reducing work during exams may jeopardize rent payments."
           }
         }
-      ],
-      "nuance": {
-        "french": "Un temps partiel souple, le soutien des proches et des aménagements d'études peuvent alléger cette double charge.",
-        "english": "Flexible part-time work, support from loved ones and study adjustments can ease this double workload."
-      },
-      "conclusion": {
-        "french": "Un cumul exigeant, à organiser selon ses ressources et ses limites plutôt qu'à idéaliser.",
-        "english": "A demanding combination to organise around available resources and limits rather than idealise."
-      }
+      ]
     },
     "sante-p4": {
       "introduction": {
-        "french": "L'aide aux personnes en difficulté relève à la fois de l'État et des citoyens, avec des rôles complémentaires.",
-        "english": "Helping people in difficulty is the responsibility of both the state and citizens, in complementary roles."
+        "french": "Un socle public et une participation citoyenne.",
+        "english": "A public foundation with civic participation."
+      },
+      "nuance": {
+        "french": "Ne pas transférer les obligations publiques aux bénévoles.",
+        "english": "Do not transfer public duties to volunteers."
+      },
+      "conclusion": {
+        "french": "Assurer, accompagner et coordonner les responsabilités.",
+        "english": "Provide, accompany and coordinate responsibilities."
       },
       "arguments": [
         {
           "point": {
-            "french": "L'État doit garantir une protection stable, indépendante de la générosité disponible.",
-            "english": "The state should guarantee stable protection that does not depend on available generosity."
+            "french": "Une protection prévisible.",
+            "english": "Predictable protection."
           },
           "example": {
-            "french": "Des aides au logement et l'accès aux soins soutiennent une personne après une perte d'emploi.",
-            "english": "Housing support and access to care help someone after a job loss."
+            "french": "Demander un soutien sans attendre une collecte locale.",
+            "english": "Seek support without waiting for a neighbourhood collection."
           }
         },
         {
           "point": {
-            "french": "Les citoyens apportent une présence de proximité qui répond aussi à la solitude.",
-            "english": "Citizens provide local personal contact that also addresses loneliness."
+            "french": "Un accompagnement pratique.",
+            "english": "Practical accompaniment."
           },
           "example": {
-            "french": "Un bénévole prend le temps de discuter avec une personne venue chercher un repas.",
-            "english": "A volunteer takes time to talk with someone who has come for a meal."
+            "french": "Préparer des documents avec un bénévole.",
+            "english": "Prepare documents with a volunteer."
           }
         },
         {
           "point": {
-            "french": "Coopérer réunit les moyens publics et la connaissance des besoins sur le terrain.",
-            "english": "Cooperation brings together public resources and knowledge of needs on the ground."
+            "french": "Des relais coordonnés.",
+            "english": "Coordinated referrals."
           },
           "example": {
-            "french": "Une association financée par la collectivité accompagne quotidiennement des personnes sans abri.",
-            "english": "A publicly funded organisation supports people experiencing homelessness every day."
+            "french": "Orienter vers l'hébergement avec l'accord de la personne.",
+            "english": "Refer for housing support with the person's consent."
           }
         }
-      ],
-      "nuance": {
-        "french": "La protection sociale exige surtout une responsabilité publique ; le bénévolat la complète sans s'y substituer.",
-        "english": "Social protection primarily requires public responsibility; volunteering complements it rather than replacing it."
-      },
-      "conclusion": {
-        "french": "Associer garanties publiques et solidarité citoyenne pour une aide durable et humaine.",
-        "english": "Combine public guarantees and civic solidarity for lasting, humane support."
-      }
+      ]
     },
     "sante-p6": {
       "introduction": {
-        "french": "Arrêter la viande n'est pas nécessaire pour être en bonne santé ; l'équilibre alimentaire prime.",
-        "english": "Giving up meat is not necessary for good health; dietary balance comes first."
+        "french": "Pas d'exclusion universelle comme garantie de santé.",
+        "english": "No universal exclusion as a health guarantee."
+      },
+      "nuance": {
+        "french": "Le choix et les besoins particuliers comptent.",
+        "english": "Personal choice and specific needs matter."
+      },
+      "conclusion": {
+        "french": "Une alimentation adaptée, avec ou sans viande.",
+        "english": "A suitable diet, with or without meat."
       },
       "arguments": [
         {
           "point": {
-            "french": "La qualité de l'alimentation entière importe plus que l'exclusion d'un seul aliment.",
-            "english": "The quality of the whole diet matters more than excluding one food."
+            "french": "L'équilibre de l'ensemble.",
+            "english": "Overall balance."
           },
           "example": {
-            "french": "Un menu sans viande, mais composé surtout de sucreries et de plats préparés, reste déséquilibré.",
-            "english": "A meat-free menu made up mainly of sweets and ready meals remains unbalanced."
+            "french": "Retirer la viande ne corrige pas une journée de biscuits.",
+            "english": "Removing meat does not fix a day of biscuits."
           }
         },
         {
           "point": {
-            "french": "Une quantité modérée de viande peut apporter des nutriments dans une alimentation variée.",
-            "english": "A moderate amount of meat can provide nutrients within a varied diet."
+            "french": "Plusieurs sources alimentaires.",
+            "english": "Several food sources."
           },
           "example": {
-            "french": "Une petite portion de viande accompagne des légumes et des céréales, sans dominer le repas.",
-            "english": "A small portion of meat accompanies vegetables and grains without dominating the meal."
+            "french": "Varier lentilles, légumes et autres préparations.",
+            "english": "Vary lentils, vegetables and other dishes."
           }
         },
         {
           "point": {
-            "french": "Supprimer la viande exige des remplacements adaptés pour couvrir les besoins nutritionnels.",
-            "english": "Removing meat requires suitable alternatives to meet nutritional needs."
+            "french": "Une transition préparée.",
+            "english": "A planned transition."
           },
           "example": {
-            "french": "Remplacer la viande par des aliments apportant protéines et fer, notamment des légumineuses.",
-            "english": "Replace meat with foods providing protein and iron, including pulses."
+            "french": "Prévoir d'autres repas avec un conseil adapté.",
+            "english": "Plan alternative meals with suitable advice."
           }
         }
-      ],
-      "nuance": {
-        "french": "Une alimentation végétarienne bien construite est possible ; éviter les excès reste important dans les deux cas.",
-        "english": "A well-planned vegetarian diet is possible; avoiding excess remains important in either case."
-      },
-      "conclusion": {
-        "french": "Choisir une alimentation variée et adaptée à ses besoins, avec ou sans viande.",
-        "english": "Choose a varied diet suited to individual needs, with or without meat."
-      }
+      ]
     },
     "sante-p7": {
       "introduction": {
-        "french": "Le bio reste plus accessible aux ménages aisés, sans être réservé exclusivement aux plus riches.",
-        "english": "Organic food remains more accessible to well-off households without being exclusively for the richest."
+        "french": "Pas une exclusivité, mais un accès inégal.",
+        "english": "Not exclusive, but unequally accessible."
+      },
+      "nuance": {
+        "french": "Le bio ne garantit pas un repas équilibré.",
+        "english": "Organic does not guarantee a balanced meal."
+      },
+      "conclusion": {
+        "french": "Comparer les possibilités sans juger les acheteurs.",
+        "english": "Compare options without judging shoppers."
       },
       "arguments": [
         {
           "point": {
-            "french": "Des prix souvent plus élevés pèsent davantage sur un budget alimentaire limité.",
-            "english": "Often higher prices put greater pressure on a limited food budget."
+            "french": "Le poids du supplément sur le panier.",
+            "english": "The extra cost across a basket."
           },
           "example": {
-            "french": "Remplacer tout le panier familial par du bio peut dépasser le budget disponible.",
-            "english": "Replacing the whole family shopping basket with organic products may exceed the available budget."
+            "french": "Comparer deux paquets de pâtes de même poids.",
+            "english": "Compare two pasta packs of the same weight."
           }
         },
         {
           "point": {
-            "french": "L'accès dépend aussi de l'offre locale et des moyens de se déplacer.",
-            "english": "Access also depends on local availability and transport options."
+            "french": "Les coûts d'accès.",
+            "english": "Access costs."
           },
           "example": {
-            "french": "Sans voiture, rejoindre un magasin bio éloigné peut compliquer les courses.",
-            "english": "Without a car, reaching a distant organic shop can make shopping difficult."
+            "french": "Une promotion éloignée peut exiger un trajet coûteux.",
+            "english": "A distant promotion may require an expensive journey."
           }
         },
         {
           "point": {
-            "french": "Des solutions collectives peuvent réduire ces écarts plutôt que les accepter comme inévitables.",
-            "english": "Collective solutions can reduce these gaps rather than treating them as inevitable."
+            "french": "Des choix partiels possibles.",
+            "english": "Partial choices are possible."
           },
           "example": {
-            "french": "Des aides ciblées ou un marché à prix abordables élargissent l'accès aux produits bio.",
-            "english": "Targeted support or an affordable market broadens access to organic products."
+            "french": "Acheter seulement les lentilles bio adaptées au budget.",
+            "english": "Buy only the organic lentils that fit the budget."
           }
         }
-      ],
-      "nuance": {
-        "french": "Des gammes moins chères existent ; l'accès à une alimentation de qualité ne se résume pas au seul label bio.",
-        "english": "Cheaper ranges exist; access to quality food is not solely about the organic label."
-      },
-      "conclusion": {
-        "french": "Le bio illustre des inégalités d'accès à réduire, pas une consommation strictement réservée aux riches.",
-        "english": "Organic food illustrates inequalities to reduce, not consumption strictly reserved for the wealthy."
-      }
+      ]
     },
     "sante-p8": {
       "introduction": {
-        "french": "Mieux vaut encourager les enfants à faire du sport que leur imposer systématiquement une pratique.",
-        "english": "It is better to encourage children to do sport than routinely force an activity on them."
+        "french": "Encourager l'activité sans imposer un sport.",
+        "english": "Encourage activity without imposing a sport."
+      },
+      "nuance": {
+        "french": "Un cadre adapté reste possible.",
+        "english": "A suitable framework remains possible."
+      },
+      "conclusion": {
+        "french": "Comprendre, proposer et adapter.",
+        "english": "Understand, offer and adapt."
       },
       "arguments": [
         {
           "point": {
-            "french": "Bouger régulièrement soutient la santé et la coordination, ce qui justifie un encouragement actif.",
-            "english": "Regular movement supports health and coordination, justifying active encouragement."
+            "french": "Comprendre les réticences.",
+            "english": "Understand reluctance."
           },
           "example": {
-            "french": "Des séances adaptées de natation permettent de bouger et de développer l'aisance corporelle.",
-            "english": "Suitable swimming sessions provide activity and develop ease of movement."
+            "french": "Discuter d'un refus avec l'enfant et l'éducateur.",
+            "english": "Discuss refusal with the child and instructor."
           }
         },
         {
           "point": {
-            "french": "Une pratique imposée et mal vécue risque d'associer durablement le sport au déplaisir.",
-            "english": "An imposed activity experienced negatively may create a lasting association with discomfort."
+            "french": "Proposer plusieurs essais.",
+            "english": "Offer several trials."
           },
           "example": {
-            "french": "Imposer un sport détesté peut donner envie à l'enfant d'abandonner toute activité.",
-            "english": "Imposing a hated sport may make a child want to abandon all physical activity."
+            "french": "Essayer la danse ou le vélo plutôt que le football.",
+            "english": "Try dance or cycling instead of football."
           }
         },
         {
           "point": {
-            "french": "Proposer plusieurs activités aide à trouver une motivation personnelle plus durable.",
-            "english": "Offering several activities helps children find more lasting personal motivation."
+            "french": "Rendre la pratique accessible.",
+            "english": "Make participation accessible."
           },
           "example": {
-            "french": "Un enfant qui n'aime pas le football peut préférer la danse ou une activité individuelle.",
-            "english": "A child who dislikes football may prefer dance or an individual activity."
+            "french": "Chercher une activité scolaire ou des jeux proches.",
+            "english": "Look for school activities or nearby games."
           }
         }
-      ],
-      "nuance": {
-        "french": "Éviter la contrainte rigide ne signifie pas accepter la sédentarité ; les parents doivent maintenir un cadre actif.",
-        "english": "Avoiding rigid compulsion does not mean accepting inactivity; parents should maintain an active routine."
-      },
-      "conclusion": {
-        "french": "Encourager durablement le goût du sport, plutôt qu'imposer systématiquement une activité.",
-        "english": "Encourage lasting enjoyment of sport rather than routinely imposing an activity."
-      }
+      ]
     },
     "sante-p9": {
       "introduction": {
-        "french": "La chirurgie esthétique pour rester jeune mérite un regard critique sur la pression sociale, sans juger les individus.",
-        "english": "Cosmetic surgery to stay youthful calls for scrutiny of social pressure, without judging individuals."
+        "french": "Un choix informé, pas une obligation de jeunesse.",
+        "english": "An informed choice, not compulsory youthfulness."
+      },
+      "nuance": {
+        "french": "Ne pas deviner les motivations ni garantir le bien-être.",
+        "english": "Do not guess motives or guarantee well-being."
+      },
+      "conclusion": {
+        "french": "Liberté, information et respect des personnes.",
+        "english": "Freedom, information and respect for people."
       },
       "arguments": [
         {
           "point": {
-            "french": "L'idéal de jeunesse peut faire vivre les signes normaux de l'âge comme des défauts.",
-            "english": "The ideal of youth can make normal signs of ageing feel like flaws."
+            "french": "Valoriser plusieurs apparences.",
+            "english": "Value diverse appearances."
           },
           "example": {
-            "french": "Une personne envisage une intervention avant même que les marques de l'âge ne la gênent.",
-            "english": "Someone considers a procedure before signs of ageing even bother them."
+            "french": "Montrer des professionnels de plusieurs âges.",
+            "english": "Show professionals of different ages."
           }
         },
         {
           "point": {
-            "french": "Un choix individuel réfléchi peut toutefois répondre à un mal-être réel.",
-            "english": "A carefully considered individual choice may nevertheless respond to genuine distress."
+            "french": "Comprendre l'intervention.",
+            "english": "Understand the procedure."
           },
           "example": {
-            "french": "Une personne très gênée par un signe de vieillissement envisage une intervention ponctuelle.",
-            "english": "Someone deeply troubled by a sign of ageing considers a one-off procedure."
+            "french": "Préparer une consultation plutôt que suivre une promotion.",
+            "english": "Prepare a consultation rather than follow a promotion."
           }
         },
         {
           "point": {
-            "french": "Banaliser les interventions risque de renforcer une insatisfaction sans fin.",
-            "english": "Normalising procedures risks reinforcing endless dissatisfaction."
+            "french": "Pouvoir ne rien faire.",
+            "english": "Be free to do nothing."
           },
           "example": {
-            "french": "Enchaîner les opérations sans se sentir mieux montre les limites de la réponse physique.",
-            "english": "Repeated operations without feeling better show the limits of a physical response."
+            "french": "Faire cesser les remarques sur les rides.",
+            "english": "Stop comments about wrinkles."
           }
         }
-      ],
-      "nuance": {
-        "french": "Respecter un choix libre et informé, tout en refusant que paraître jeune devienne une obligation sociale.",
-        "english": "Respect a free, informed choice while rejecting youthful appearance as a social obligation."
-      },
-      "conclusion": {
-        "french": "Le problème central est la norme imposée de jeunesse, plutôt que chaque décision personnelle.",
-        "english": "The central issue is the imposed standard of youthfulness rather than each personal decision."
-      }
+      ]
     },
     "sante-p10": {
       "introduction": {
-        "french": "L'État devrait encadrer strictement la vente de tabac et d'alcool plutôt que l'interdire totalement.",
-        "english": "The state should strictly regulate tobacco and alcohol sales rather than ban them entirely."
+        "french": "Une vente encadrée plutôt qu'une interdiction automatique.",
+        "english": "Regulated sales rather than an automatic total ban."
+      },
+      "nuance": {
+        "french": "Distinguer les produits et évaluer les dommages.",
+        "english": "Distinguish the products and assess harms."
+      },
+      "conclusion": {
+        "french": "Restreindre, évaluer et accompagner.",
+        "english": "Restrict, assess and support."
       },
       "arguments": [
         {
           "point": {
-            "french": "Les risques sanitaires justifient des règles fortes pour limiter l'exposition et la consommation.",
-            "english": "Health risks justify strong rules to limit exposure and consumption."
+            "french": "Des restrictions appliquées.",
+            "english": "Enforced targeted restrictions."
           },
           "example": {
-            "french": "Taxes, avertissements sanitaires et restrictions publicitaires agissent sans supprimer toute vente.",
-            "english": "Taxes, health warnings and advertising restrictions act without eliminating all sales."
+            "french": "Contrôler l'âge et les règles de publicité.",
+            "english": "Check age and advertising rules."
           }
         },
         {
           "point": {
-            "french": "Une interdiction générale peut déplacer les achats vers des circuits clandestins moins contrôlés.",
-            "english": "A general ban may shift purchases towards less controlled illegal channels."
+            "french": "Anticiper les circuits non contrôlés.",
+            "english": "Anticipate uncontrolled channels."
           },
           "example": {
-            "french": "Un alcool vendu clandestinement échappe aux contrôles appliqués aux produits commercialisés légalement.",
-            "english": "Illegally sold alcohol escapes the checks applied to legally marketed products."
+            "french": "Examiner ce qui remplacerait les ventes visibles.",
+            "english": "Examine what would replace visible sales."
           }
         },
         {
           "point": {
-            "french": "La prévention et l'accompagnement aident à modifier les habitudes au-delà de la seule interdiction.",
-            "english": "Prevention and support help change habits beyond what prohibition alone can achieve."
+            "french": "Rendre l'aide accessible.",
+            "english": "Make support accessible."
           },
           "example": {
-            "french": "Une campagne sur le tabac oriente les personnes vers une aide médicale à l'arrêt.",
-            "english": "A tobacco awareness campaign directs people towards medical support for quitting."
+            "french": "Orienter vers un accompagnement professionnel.",
+            "english": "Refer to professional support."
           }
         }
-      ],
-      "nuance": {
-        "french": "Des interdictions ciblées, notamment la vente aux mineurs, restent justifiées et doivent être contrôlées.",
-        "english": "Targeted bans, especially sales to minors, remain justified and should be enforced."
-      },
-      "conclusion": {
-        "french": "Combiner réglementation, prévention et soutien plutôt que miser sur une prohibition générale.",
-        "english": "Combine regulation, prevention and support rather than relying on a general prohibition."
-      }
+      ]
     },
     "sante-p11": {
       "introduction": {
-        "french": "L'État peut rester vendeur d'alcool et de tabac si la santé publique prime.",
-        "english": "The state can remain a seller of alcohol and tobacco if public health comes first."
+        "french": "Distinguer l'État vendeur de l'interdiction générale.",
+        "english": "Distinguish the state as seller from a general ban."
+      },
+      "nuance": {
+        "french": "Ne confondre ni propriété et protection, ni retrait et interdiction.",
+        "english": "Do not equate ownership with protection or withdrawal with prohibition."
+      },
+      "conclusion": {
+        "french": "Contrôle réel et priorité sanitaire.",
+        "english": "Effective oversight and a health-first approach."
       },
       "arguments": [
         {
           "point": {
-            "french": "Une vente publique permet à l'État d'appliquer directement des règles sanitaires strictes.",
-            "english": "Public sales allow the state to apply strict health safeguards directly."
+            "french": "Le vendeur ne suffit pas.",
+            "english": "Ownership alone is not enough."
           },
           "example": {
-            "french": "Un point de vente public vérifie l'âge des acheteurs et affiche les risques.",
-            "english": "A public retail outlet checks buyers' age and displays health risks."
+            "french": "Un magasin public peut être remplacé par des commerces privés.",
+            "english": "A public shop may be replaced by private retailers."
           }
         },
         {
           "point": {
-            "french": "Se retirer comme vendeur ne supprime pas la demande ni les autres circuits de vente.",
-            "english": "Withdrawing as a seller does not eliminate demand or other sales channels."
+            "french": "Limiter les objectifs commerciaux.",
+            "english": "Limit commercial incentives."
           },
           "example": {
-            "french": "Un magasin public ferme ; ses clients peuvent se reporter vers un commerce privé.",
-            "english": "A public shop closes; its customers may turn to a private retailer."
+            "french": "Évaluer les contrôles plutôt qu'une hausse des ventes.",
+            "english": "Assess compliance rather than sales growth."
           }
         },
         {
           "point": {
-            "french": "La prévention et l'aide à l'arrêt agissent sur les habitudes, quel que soit le vendeur.",
-            "english": "Prevention and support for quitting address habits regardless of who sells the products."
+            "french": "Un examen sanitaire indépendant.",
+            "english": "Independent public-health assessment."
           },
           "example": {
-            "french": "Une campagne publique oriente vers un accompagnement médical plutôt que de promouvoir les ventes.",
-            "english": "A public campaign directs people towards medical support rather than promoting sales."
+            "french": "Corriger le dispositif même contre l'intérêt de l'opérateur.",
+            "english": "Correct the system even against the operator's interests."
           }
         }
-      ],
-      "nuance": {
-        "french": "Si les objectifs commerciaux contredisent la santé publique, le rôle de vendeur doit être réexaminé.",
-        "english": "If commercial goals conflict with public health, the state's role as seller should be reconsidered."
-      },
-      "conclusion": {
-        "french": "La vente publique peut rester acceptable si la santé prime sur les objectifs commerciaux.",
-        "english": "Public sales can remain acceptable if health takes priority over commercial goals."
-      }
+      ]
     },
     "sante-p13": {
       "introduction": {
-        "french": "Le végétarisme est un choix alimentaire respectable et possible, à condition de construire des repas équilibrés.",
-        "english": "Vegetarianism is a valid and feasible dietary choice, provided meals are nutritionally balanced."
+        "french": "Respecter le choix et organiser les repas.",
+        "english": "Respect the choice and plan meals."
+      },
+      "nuance": {
+        "french": "Ni garantie nutritionnelle ni jugement des autres.",
+        "english": "Neither a nutritional guarantee nor a judgment of others."
+      },
+      "conclusion": {
+        "french": "Un choix adapté, pas un modèle imposé.",
+        "english": "A suitable choice, not an imposed model."
       },
       "arguments": [
         {
           "point": {
-            "french": "Ce choix peut traduire une réflexion sur la santé, le bien-être animal ou l'environnement.",
-            "english": "This choice can reflect thought about health, animal welfare or the environment."
+            "french": "Une conviction mise en pratique.",
+            "english": "Putting a conviction into practice."
           },
           "example": {
-            "french": "Une personne modifie ses repas après s'être renseignée sur les conditions d'élevage.",
-            "english": "Someone changes their meals after learning about livestock farming conditions."
+            "french": "Choisir des recettes cohérentes avec ses préoccupations.",
+            "english": "Choose recipes consistent with one's concerns."
           }
         },
         {
           "point": {
-            "french": "Varier les aliments et remplacer les apports de la viande permet de couvrir les besoins.",
-            "english": "Varying foods and replacing the nutrients provided by meat helps meet dietary needs."
+            "french": "Des repas réellement composés.",
+            "english": "Properly planned meals."
           },
           "example": {
-            "french": "Composer des repas avec légumineuses, céréales, légumes et, selon ses choix, œufs ou produits laitiers.",
-            "english": "Build meals with pulses, grains, vegetables and, according to preference, eggs or dairy products."
+            "french": "Prévoir lentilles, pois chiches et aliments variés.",
+            "english": "Plan lentils, chickpeas and varied foods."
           }
         },
         {
           "point": {
-            "french": "Respecter les préférences et les besoins évite d'imposer un modèle unique à tous.",
-            "english": "Respecting preferences and needs avoids imposing one model on everyone."
+            "french": "Des repas partagés possibles.",
+            "english": "Shared meals remain possible."
           },
           "example": {
-            "french": "Prévoir des options végétariennes et carnées dans un même repas familial.",
-            "english": "Offer vegetarian and meat-based options at the same family meal."
+            "french": "Prévoir une base commune et des aliments séparés.",
+            "english": "Provide a shared base with separate additions."
           }
         }
-      ],
-      "nuance": {
-        "french": "Des repas comprenant un peu de viande peuvent aussi être équilibrés ; éviter les oppositions caricaturales.",
-        "english": "Meals containing a little meat can also be balanced; avoid oversimplified oppositions."
-      },
-      "conclusion": {
-        "french": "Soutenir un végétarisme informé et équilibré, sans en faire une obligation universelle.",
-        "english": "Support informed, balanced vegetarianism without making it a universal requirement."
-      }
+      ]
     },
     "sante-p14": {
       "introduction": {
-        "french": "Pour les personnes âgées, la ville est souvent plus pratique que la campagne, sans convenir à tous.",
-        "english": "For older people, city life is often more practical than country life, without suiting everyone."
+        "french": "Comparer l'accès réel, pas seulement ville et campagne.",
+        "english": "Compare real access, not just city and countryside."
+      },
+      "nuance": {
+        "french": "Un village bien relié peut mieux convenir.",
+        "english": "A well-connected village may suit someone better."
+      },
+      "conclusion": {
+        "french": "Services, mobilité et relations réellement accessibles.",
+        "english": "Truly accessible services, mobility and relationships."
       },
       "arguments": [
         {
           "point": {
-            "french": "La proximité des soins, des commerces et des transports réduit la dépendance à la voiture.",
-            "english": "Nearby healthcare, shops and public transport reduce dependence on a car."
+            "french": "La proximité des services.",
+            "english": "Nearby services."
           },
           "example": {
-            "french": "Une pharmacie accessible sans voiture évite de solliciter les proches pour chaque déplacement.",
-            "english": "A pharmacy reachable without a car avoids asking relatives for every journey."
+            "french": "Rejoindre une pharmacie par un trajet adapté.",
+            "english": "Reach a pharmacy along a suitable route."
           }
         },
         {
           "point": {
-            "french": "Des lieux de rencontre accessibles peuvent limiter l'isolement lorsque la famille vit loin.",
-            "english": "Accessible meeting places can limit isolation when family lives far away."
+            "french": "Une mobilité sans voiture.",
+            "english": "Mobility without a car."
           },
           "example": {
-            "french": "Un marché ou une association de quartier offre des occasions régulières d'échanger.",
-            "english": "A market or neighbourhood association offers regular opportunities to talk with others."
+            "french": "Vérifier le trajet complet du bus jusqu'au rendez-vous.",
+            "english": "Check the complete bus journey to an appointment."
           }
         },
         {
           "point": {
-            "french": "L'autonomie et l'entourage peuvent rendre un village bien équipé tout aussi adapté.",
-            "english": "Independence and support networks can make a well-served village equally suitable."
+            "french": "Des occasions régulières de contact.",
+            "english": "Regular opportunities for contact."
           },
           "example": {
-            "french": "Un village avec médecin, voisins solidaires et activités permet de rester entouré.",
-            "english": "A village with a doctor, supportive neighbours and activities allows someone to stay connected."
+            "french": "Revenir chaque semaine à un atelier de lecture.",
+            "english": "Return weekly to a reading workshop."
           }
         }
-      ],
-      "nuance": {
-        "french": "Le bruit, le coût du logement et l'anonymat urbain peuvent aussi peser ; comparer les situations réelles.",
-        "english": "Noise, housing costs and urban anonymity can also be burdensome; compare actual circumstances."
-      },
-      "conclusion": {
-        "french": "Privilégier les services et les liens disponibles plutôt que la ville à tout prix.",
-        "english": "Prioritise available services and relationships rather than city living at all costs."
-      }
+      ]
     },
     "sante-p15": {
       "introduction": {
-        "french": "Imposer à tous de travailler jusqu'à 70 ans est inacceptable ; les fins de carrière doivent être adaptées.",
-        "english": "Requiring everyone to work until 70 is unacceptable; late-career arrangements need flexibility."
+        "french": "Distinguer continuation volontaire et obligation uniforme.",
+        "english": "Distinguish voluntary continuation from a universal obligation."
+      },
+      "nuance": {
+        "french": "Le financement et les choix volontaires comptent aussi.",
+        "english": "Financing and voluntary choices also matter."
+      },
+      "conclusion": {
+        "french": "Adapter les conditions plutôt qu'imposer le même âge.",
+        "english": "Adapt conditions rather than impose one age."
       },
       "arguments": [
         {
           "point": {
-            "french": "La pénibilité varie selon les métiers ; une limite d'âge uniforme impose des contraintes inégales.",
-            "english": "Job demands vary; a uniform age limit imposes unequal burdens."
+            "french": "Les tâches réellement exercées.",
+            "english": "Actual job demands."
           },
           "example": {
-            "french": "Porter des charges sur un chantier peut devenir difficile bien avant 70 ans.",
-            "english": "Carrying loads on a building site may become difficult well before 70."
+            "french": "Adapter une mission de manutention.",
+            "english": "Adapt a manual-handling role."
           }
         },
         {
           "point": {
-            "french": "À âge égal, l'état de santé peut imposer des limites très différentes.",
-            "english": "At the same age, health can impose very different limits."
+            "french": "Les besoins de santé individuels.",
+            "english": "Individual health needs."
           },
           "example": {
-            "french": "Deux collègues du même âge peuvent avoir des capacités physiques très différentes.",
-            "english": "Two colleagues of the same age may have very different physical capacities."
+            "french": "Prévoir un horaire réduit si nécessaire.",
+            "english": "Allow reduced hours where needed."
           }
         },
         {
           "point": {
-            "french": "Des aménagements rendent la transition plus juste qu'une obligation uniforme.",
-            "english": "Flexible arrangements make the transition fairer than a uniform requirement."
+            "french": "Des parcours et transitions différents.",
+            "english": "Different careers and transitions."
           },
           "example": {
-            "french": "La retraite progressive réduit le temps de travail avant l'arrêt de l'activité.",
-            "english": "Phased retirement reduces working hours before employment ends."
+            "french": "Expliquer revenu et conditions d'un passage progressif.",
+            "english": "Explain income and conditions of a gradual transition."
           }
         }
-      ],
-      "nuance": {
-        "french": "Continuer volontairement jusqu'à 70 ans peut convenir à une personne en bonne santé dans un poste adapté.",
-        "english": "Voluntarily continuing until 70 may suit someone in good health with an appropriate job."
-      },
-      "conclusion": {
-        "french": "Refuser une règle indistincte et tenir compte de la santé, des métiers et des parcours.",
-        "english": "Reject a blanket rule and account for health, occupations and individual careers."
-      }
+      ]
     },
     "sante-p16": {
       "introduction": {
-        "french": "Alimentation dans mon pays : choisir un bilan personnel, entre atouts à préserver et habitudes à améliorer.",
-        "english": "Food in my country: offer a personal assessment of strengths to preserve and habits to improve."
+        "french": "Adapter cet avis illustratif à son pays.",
+        "english": "Adapt this illustrative viewpoint to one's country."
+      },
+      "nuance": {
+        "french": "Aucun exemple ne représente toutes les régions.",
+        "english": "No example represents every region."
+      },
+      "conclusion": {
+        "french": "Valoriser la cuisine et rendre la variété praticable.",
+        "english": "Value cuisine and make variety practical."
       },
       "arguments": [
         {
           "point": {
-            "french": "Les recettes familiales et la diversité des produits sont des atouts lorsqu'elles restent présentes.",
-            "english": "Family recipes and varied ingredients are strengths where they remain part of daily life."
+            "french": "Des ressources culinaires variées.",
+            "english": "Varied culinary resources."
           },
           "example": {
-            "french": "Un repas familial à base de légumes frais et de céréales illustre cette richesse.",
-            "english": "A family meal based on fresh vegetables and grains illustrates this richness."
+            "french": "Associer céréales, légumes et haricots.",
+            "english": "Combine grains, vegetables and beans."
           }
         },
         {
           "point": {
-            "french": "Le manque de temps peut favoriser des repas rapides, parfois trop salés ou sucrés.",
-            "english": "Lack of time can encourage quick meals, sometimes too high in salt or sugar."
+            "french": "Une préparation réaliste.",
+            "english": "Realistic preparation."
           },
           "example": {
-            "french": "Après une longue journée, un plat préparé remplace un repas cuisiné à la maison.",
-            "english": "After a long day, a ready meal replaces home cooking."
+            "french": "Préparer une base et compléter avec des conserves.",
+            "english": "Prepare a base and add canned ingredients."
           }
         },
         {
           "point": {
-            "french": "L'éducation nutritionnelle et des produits abordables facilitent de meilleures habitudes.",
-            "english": "Nutrition education and affordable food make healthier habits easier."
+            "french": "Des possibilités d'achat et de conservation.",
+            "english": "Shopping and storage options."
           },
           "example": {
-            "french": "Un atelier scolaire apprend à composer un repas varié avec des produits courants.",
-            "english": "A school workshop teaches how to put together a varied meal using everyday ingredients."
+            "french": "Utiliser des légumes surgelés en quantité nécessaire.",
+            "english": "Use frozen vegetables in the quantity needed."
           }
         }
-      ],
-      "nuance": {
-        "french": "S'appuyer sur les habitudes réellement observées, variables selon les régions et les budgets.",
-        "english": "Base this on habits actually observed, which vary by region and budget."
-      },
-      "conclusion": {
-        "french": "Préserver les bonnes traditions tout en améliorant les choix alimentaires du quotidien.",
-        "english": "Preserve good traditions while improving everyday food choices."
-      }
+      ]
     },
     "sante-p17": {
       "introduction": {
-        "french": "Le stress peut stimuler lorsqu'il est modéré et ponctuel, mais il n'est pas bénéfique dans toutes les situations.",
-        "english": "Stress can be stimulating when moderate and temporary, but it is not beneficial in every situation."
+        "french": "Une tension parfois mobilisatrice, jamais obligatoire.",
+        "english": "Tension can sometimes mobilize, but is never required."
+      },
+      "nuance": {
+        "french": "La motivation peut exister sans stress.",
+        "english": "Motivation can exist without stress."
+      },
+      "conclusion": {
+        "french": "Préparer et soutenir plutôt qu'augmenter la pression.",
+        "english": "Prepare and support rather than increase pressure."
       },
       "arguments": [
         {
           "point": {
-            "french": "Une petite pression peut mobiliser l'attention et pousser à préparer une échéance.",
-            "english": "A little pressure can focus attention and encourage preparation for a deadline."
+            "french": "Une impulsion vers la préparation.",
+            "english": "An impulse to prepare."
           },
           "example": {
-            "french": "Avant un examen, une tension maîtrisable incite à organiser ses révisions.",
-            "english": "Before an exam, manageable tension encourages organised revision."
+            "french": "Répéter une introduction avant une présentation.",
+            "english": "Rehearse an introduction before presenting."
           }
         },
         {
           "point": {
-            "french": "Une tension qui dure fatigue et peut perturber le sommeil au lieu de soutenir l'action.",
-            "english": "Prolonged tension causes fatigue and may disturb sleep instead of supporting action."
+            "french": "Une pression qui peut gêner.",
+            "english": "Pressure can get in the way."
           },
           "example": {
-            "french": "Des exigences professionnelles permanentes empêchent de se détendre même après la journée.",
-            "english": "Constant work demands prevent relaxation even after the working day ends."
+            "french": "Reformuler calmement une question d'entretien.",
+            "english": "Calmly rephrase an interview question."
           }
         },
         {
           "point": {
-            "french": "La récupération permet de reconstituer les ressources mobilisées pendant l'effort.",
-            "english": "Recovery restores resources used during effort."
+            "french": "Un contexte à améliorer.",
+            "english": "Improve the context."
           },
           "example": {
-            "french": "Après les examens, prévoir du repos plutôt que d'enchaîner immédiatement une autre période intense.",
-            "english": "After exams, plan rest instead of immediately starting another intense period."
+            "french": "Clarifier une priorité et déplacer une échéance irréaliste.",
+            "english": "Clarify priorities and move an unrealistic deadline."
           }
         }
-      ],
-      "nuance": {
-        "french": "Les réactions varient selon la personne et son environnement ; une pression motivante pour l'un peut bloquer l'autre.",
-        "english": "Responses vary with the person and their environment; pressure that motivates one person may overwhelm another."
-      },
-      "conclusion": {
-        "french": "Rechercher une pression maîtrisable avec du repos, sans présenter le stress chronique comme un moteur.",
-        "english": "Aim for manageable pressure with rest, without portraying chronic stress as a motivator."
-      }
+      ]
     },
     "sante-p19": {
       "introduction": {
-        "french": "Les jeux vidéo peuvent nuire aux enfants, surtout en cas d'excès ou de contenu inadapté.",
-        "english": "Video games can harm children, especially with excessive use or unsuitable content."
+        "french": "Examiner le temps, le contenu et les mécanismes.",
+        "english": "Examine time, content and design features."
+      },
+      "nuance": {
+        "french": "Un jeu adapté peut aussi être créatif et partagé.",
+        "english": "A suitable game can also be creative and shared."
+      },
+      "conclusion": {
+        "french": "Un encadrement précis, sans condamnation générale.",
+        "english": "Precise guidance without blanket condemnation."
       },
       "arguments": [
         {
           "point": {
-            "french": "Jouer trop longtemps empiète sur le mouvement, le sommeil et les autres activités.",
-            "english": "Playing for too long takes time away from movement, sleep and other activities."
+            "french": "Un emploi du temps déplacé.",
+            "english": "Displaced daily routines."
           },
           "example": {
-            "french": "Une partie prolongée tard le soir laisse moins de repos avant l'école.",
-            "english": "A game continuing late into the evening leaves less rest before school."
+            "french": "Fixer le dernier moment pour commencer une partie.",
+            "english": "Set the latest time to begin a match."
           }
         },
         {
           "point": {
-            "french": "Un contenu trop intense pour l'âge peut inquiéter l'enfant plutôt que le divertir.",
-            "english": "Content too intense for a child's age may frighten rather than entertain them."
+            "french": "Des contacts et contenus à encadrer.",
+            "english": "Manage contacts and content."
           },
           "example": {
-            "french": "Des scènes de jeu effrayantes peuvent troubler un jeune enfant au moment du coucher.",
-            "english": "Frightening game scenes may unsettle a young child at bedtime."
+            "french": "Prévoir une réponse aux messages insultants.",
+            "english": "Plan how to handle insulting messages."
           }
         },
         {
           "point": {
-            "french": "Sans limites convenues, l'envie de continuer peut retarder les devoirs et provoquer des conflits.",
-            "english": "Without agreed limits, the urge to keep playing can delay homework and cause conflict."
+            "french": "Des achats sous pression.",
+            "english": "Purchases under pressure."
           },
           "example": {
-            "french": "L'arrêt de la console provoque une dispute, tandis que les devoirs attendent.",
-            "english": "Switching off the console causes an argument while homework waits."
+            "french": "Désactiver les achats non autorisés.",
+            "english": "Disable unauthorized purchases."
           }
         }
-      ],
-      "nuance": {
-        "french": "Un jeu adapté peut aussi développer coordination et coopération ; les effets dépendent des conditions d'usage.",
-        "english": "A suitable game can also develop coordination and cooperation; effects depend on how it is used."
-      },
-      "conclusion": {
-        "french": "Prévenir les effets négatifs par des choix adaptés et des règles qui préservent l'équilibre de l'enfant.",
-        "english": "Prevent negative effects through suitable choices and rules that preserve balance in the child's life."
-      }
+      ]
     },
     "sante-p20": {
       "introduction": {
-        "french": "Pour pouvoir vivre, il faut des ressources suffisantes, mais pas nécessairement gagner beaucoup d'argent.",
-        "english": "To support oneself, sufficient resources are needed, but not necessarily high earnings."
+        "french": "Des moyens suffisants plutôt qu'une richesse obligatoire.",
+        "english": "Sufficient means rather than compulsory wealth."
+      },
+      "nuance": {
+        "french": "Ne pas expliquer la pauvreté par une mauvaise gestion.",
+        "english": "Do not explain poverty as poor budgeting."
+      },
+      "conclusion": {
+        "french": "Évaluer besoins, contexte et soutiens.",
+        "english": "Assess needs, context and support."
       },
       "arguments": [
         {
           "point": {
-            "french": "Un revenu doit couvrir le logement, l'alimentation et les soins avant les dépenses facultatives.",
-            "english": "Income must cover housing, food and healthcare before optional spending."
+            "french": "Des besoins incompressibles.",
+            "english": "Essential unavoidable needs."
           },
           "example": {
-            "french": "Un loyer impayé menace directement le logement d'une famille.",
-            "english": "Unpaid rent directly threatens a family's housing."
+            "french": "Un loyer et des courses au-delà d'un budget déjà réduit.",
+            "english": "Rent and groceries exceeding an already reduced budget."
           }
         },
         {
           "point": {
-            "french": "Un revenu élevé ne remplace ni le repos ni l'accès aux soins.",
-            "english": "A high income replaces neither rest nor access to care."
+            "french": "Des coûts différents.",
+            "english": "Different living costs."
           },
           "example": {
-            "french": "Un emploi rémunérateur peut laisser trop peu de temps pour dormir ou se soigner.",
-            "english": "A well-paid job may leave too little time for sleep or healthcare."
+            "french": "Un même revenu avec des loyers et trajets différents.",
+            "english": "The same income with different rent and travel costs."
           }
         },
         {
           "point": {
-            "french": "Distinguer besoins et achats de prestige évite de confondre vie décente et surconsommation.",
-            "english": "Distinguishing needs from status purchases avoids confusing a decent life with overconsumption."
+            "french": "D'autres ressources que le salaire.",
+            "english": "Resources beyond salary."
           },
           "example": {
-            "french": "À charges comparables, une famille renonce aux achats de prestige pour respecter son budget.",
-            "english": "With comparable essential costs, a family forgoes status purchases to stay within budget."
+            "french": "Un transport public permet de se passer d'une voiture.",
+            "english": "Public transport can remove the need for a car."
           }
         }
-      ],
-      "nuance": {
-        "french": "Le revenu nécessaire varie avec les loyers, la santé et les charges familiales ; les économies ne compensent pas tout.",
-        "english": "Required income varies with rent, health and family responsibilities; cutting costs cannot compensate for everything."
-      },
-      "conclusion": {
-        "french": "Un revenu suffisant pour les besoins réels importe davantage qu'un revenu élevé.",
-        "english": "Income sufficient for actual needs matters more than high income."
-      }
+      ]
     },
     "sante-p22": {
       "introduction": {
-        "french": "Un bon salaire facilite la vie, sans être indispensable au bonheur lorsque les besoins essentiels sont couverts.",
-        "english": "A good salary makes life easier without being essential to happiness when basic needs are met."
+        "french": "Un appui possible, pas une condition universelle.",
+        "english": "Possible support, not a universal condition."
+      },
+      "nuance": {
+        "french": "Ne pas glorifier les difficultés ni inventer un seuil universel.",
+        "english": "Do not glorify hardship or invent a universal threshold."
+      },
+      "conclusion": {
+        "french": "Sécurité, relations et organisation de la vie.",
+        "english": "Security, relationships and daily-life organization."
       },
       "arguments": [
         {
           "point": {
-            "french": "La sécurité financière réduit les inquiétudes matérielles et crée des conditions favorables.",
-            "english": "Financial security reduces material worries and creates favourable conditions."
+            "french": "La sécurité matérielle.",
+            "english": "Material security."
           },
           "example": {
-            "french": "Pouvoir payer une dépense de santé imprévue évite une inquiétude supplémentaire.",
-            "english": "Being able to pay an unexpected healthcare expense prevents an additional worry."
+            "french": "Payer une réparation sans renoncer aux courses.",
+            "english": "Pay for a repair without giving up groceries."
           }
         },
         {
           "point": {
-            "french": "Les relations, la santé et le sens donné à ses activités permettent aussi de s'épanouir.",
-            "english": "Relationships, health and meaningful activities also enable fulfilment."
+            "french": "Des satisfactions peu coûteuses.",
+            "english": "Low-cost sources of satisfaction."
           },
           "example": {
-            "french": "Une personne choisit un travail moins payé mais suffisant, plus proche de ses valeurs.",
-            "english": "Someone chooses lower-paid but sufficient work that better reflects their values."
+            "french": "Partager une promenade ou un repas simple.",
+            "english": "Share a walk or a simple meal."
           }
         },
         {
           "point": {
-            "french": "Un salaire élevé ne compense pas forcément l'épuisement ou l'absence de vie personnelle.",
-            "english": "A high salary does not necessarily compensate for exhaustion or lack of a personal life."
+            "french": "Les conditions du travail.",
+            "english": "Working conditions."
           },
           "example": {
-            "french": "De longues journées dans un poste bien rémunéré laissent peu de temps aux proches.",
-            "english": "Long days in a well-paid job leave little time for loved ones."
+            "french": "Comparer une promotion et ses déplacements.",
+            "english": "Compare a promotion with its travel demands."
           }
         }
-      ],
-      "nuance": {
-        "french": "Ne pas idéaliser la précarité : manquer du nécessaire pèse lourdement sur le bien-être.",
-        "english": "Do not idealise financial hardship: lacking essentials weighs heavily on well-being."
-      },
-      "conclusion": {
-        "french": "Le salaire est un soutien possible au bonheur, pas une condition universelle ni une garantie.",
-        "english": "Salary can support happiness, but is neither a universal condition nor a guarantee."
-      }
+      ]
     },
     "sante-p23": {
       "introduction": {
-        "french": "Certaines personnes peuvent vivre sans médicaments, mais certains traitements restent indispensables.",
-        "english": "Some people can live without medication, but certain treatments remain essential."
+        "french": "Ni obligation quotidienne universelle ni refus des soins.",
+        "english": "Neither universal daily medication nor rejection of care."
+      },
+      "nuance": {
+        "french": "Ne pas modifier un traitement prescrit sans avis médical.",
+        "english": "Do not change prescribed treatment without medical advice."
+      },
+      "conclusion": {
+        "french": "Accès aux traitements nécessaires et usage éclairé.",
+        "english": "Access to necessary treatments and informed use."
       },
       "arguments": [
         {
           "point": {
-            "french": "Certaines maladies exigent un traitement pour préserver la santé ou la vie.",
-            "english": "Some illnesses require treatment to protect health or life."
+            "french": "Des traitements indispensables.",
+            "english": "Essential treatments."
           },
           "example": {
-            "french": "Une personne dont le diabète nécessite de l'insuline dépend de ce traitement.",
-            "english": "A person whose diabetes requires insulin depends on that treatment."
+            "french": "L'insuline reste nécessaire dans le diabète de type 1.",
+            "english": "Insulin remains necessary in type 1 diabetes."
           }
         },
         {
           "point": {
-            "french": "La prévention et les habitudes de vie contribuent aussi à la santé, sans tout attendre des médicaments.",
-            "english": "Prevention and daily habits also support health, without relying on medicines for everything."
+            "french": "Des besoins qui varient.",
+            "english": "Needs vary."
           },
           "example": {
-            "french": "Une activité régulière et une alimentation adaptée complètent un suivi médical.",
-            "english": "Regular activity and a suitable diet complement medical follow-up."
+            "french": "Une période sans prescription ne prédit pas toute une vie.",
+            "english": "A period without a prescription does not predict a lifetime."
           }
         },
         {
           "point": {
-            "french": "Tout inconfort ne nécessite pas un médicament ; éviter l'automatisme limite les prises inutiles.",
-            "english": "Not every discomfort requires medicine; avoiding automatic use limits unnecessary doses."
+            "french": "Un usage expliqué.",
+            "english": "An informed use."
           },
           "example": {
-            "french": "Un rhume banal peut s'améliorer avec du repos, sans médicament spécifique.",
-            "english": "An ordinary cold may improve with rest, without specific medication."
+            "french": "Vérifier un produit avec le pharmacien.",
+            "english": "Check a product with the pharmacist."
           }
         }
-      ],
-      "nuance": {
-        "french": "Les besoins évoluent au cours de la vie ; ne jamais arrêter un traitement prescrit sans avis médical.",
-        "english": "Needs change throughout life; never stop prescribed treatment without medical advice."
-      },
-      "conclusion": {
-        "french": "Ni recours automatique ni rejet : la nécessité des médicaments dépend de la situation médicale.",
-        "english": "Neither automatic use nor rejection: the need for medicines depends on the medical situation."
-      }
+      ]
     },
     "technologie-p1": {
       "introduction": {

@@ -81,6 +81,20 @@ admission. Internet communication with a teacher is not learning entirely alone.
 The Quebec-preparation response states three actual questions; its bilingual
 plan uses declarative memory cues rather than changing those questions.
 
+For Santé, retain separate answers for encouraging competition and obliging
+sport, general screen time and video-game-specific risks, meat exclusion and
+vegetarian choice, means to live and salary as a condition of happiness.
+Stopping state-operated sales is not the same question as banning all sales:
+the model explicitly distinguishes the two readings without inventing a
+national retail system. A country-specific food opinion is an illustrative
+viewpoint to personalize, not evidence of the learner's nationality or habits.
+Health examples must not promise outcomes, diagnose people or suggest replacing
+prescribed treatment with lifestyle changes. Relevant factual references include
+[WHO healthy diets](https://www.who.int/news-room/fact-sheets/detail/healthy-diet),
+[WHO tobacco](https://www.who.int/news-room/fact-sheets/detail/tobacco),
+[WHO alcohol](https://www.who.int/news-room/fact-sheets/detail/alcohol) and
+[NHS type 1 diabetes](https://www.nhs.uk/conditions/type-1-diabetes/).
+
 Published Markdown in `study/content/responses/` remains the exact historical
 model corpus. Its 130 exact-body records support 167 publications and 131
 semantic identities. Do not rewrite or deduplicate those records as an incidental

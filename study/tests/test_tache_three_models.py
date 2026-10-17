@@ -220,6 +220,74 @@ class TacheThreeModelContentTests(SimpleTestCase):
                 models[f"eo/tache-3/{second}"].response,
             )
 
+    def test_technologie_covers_every_variant_without_merging_related_scopes(self):
+        models = catalogue.tache_three_models()
+        sources = [source for source in self.sources if source.theme == "Technologie"]
+        self.assertEqual(len(sources), 20)
+        self.assertEqual(sum(len(source.prompts) for source in sources), 29)
+        for source in sources:
+            self.assertEqual(
+                models[source.semantic_group].source_prompts,
+                tuple((prompt.content_key, prompt.text) for prompt in source.prompts),
+            )
+        publications = {
+            prompt.content_key for source in self.sources for prompt in source.prompts
+            if prompt.theme == "Technologie"
+        }
+        self.assertEqual(len(publications), 26)
+        self.assertTrue(
+            publications <= {key for model in models.values() for key, _text in model.source_prompts}
+        )
+        for group, members in {
+            "technologie-p1": {"technologie:p1", "technologie:p9"},
+            "technologie-p2": {"technologie:p2", "technologie:p8"},
+            "technologie-p13": {"technologie:p13", "technologie:p25"},
+            "technologie-p17": {"technologie:p17", "economie:p11"},
+            "technologie-p20": {
+                "technologie:p20", "environnement:p5",
+                "environnement:p10", "environnement:p15",
+            },
+            "technologie-p22": {"technologie:p22", "technologie:p23", "technologie:p26"},
+        }.items():
+            self.assertEqual(
+                {key for key, _text in models[f"eo/tache-3/{group}"].source_prompts},
+                members,
+            )
+        for first, second in ((2, 11), (3, 5), (5, 6), (4, 7), (21, 24)):
+            self.assertNotEqual(
+                models[f"eo/tache-3/technologie-p{first}"].response,
+                models[f"eo/tache-3/technologie-p{second}"].response,
+            )
+
+    def test_technologie_examples_respect_possibility_and_specific_learning_mechanisms(self):
+        models = catalogue.tache_three_models()
+        response = lambda key: models[f"eo/tache-3/technologie-p{key}"].response
+        self.assertIn("fausse relation", response(1).position_claire)
+        self.assertIn("identification", response(2).arguments[1].exemple)
+        self.assertIn("découvertes culturelles", response(3).arguments[2].idea)
+        self.assertIn("transport adapté", response(4).arguments[2].exemple)
+        self.assertIn("autre support n'est pas automatiquement", response(5).nuance)
+        self.assertIn("image doit être datée", response(6).arguments[1].developpement)
+        self.assertIn("plateformes", response(7).nuance)
+        self.assertIn("créer un compte", response(10).nuance)
+        self.assertIn("sans aucun téléphone", response(11).reformulation)
+        self.assertNotIn("téléphone fixe", spoken_text(response(11)))
+        self.assertIn("perdu ou abîmé", response(12).arguments[2].exemple)
+        self.assertIn("réponse permanente", response(13).position_claire)
+        self.assertIn("exclusion faute de moyens", response(15).nuance)
+        self.assertIn("adulte de confiance", response(16).arguments[2].exemple)
+        self.assertIn("liquides", response(17).arguments[0].exemple)
+        self.assertIn("satellites", response(17).nuance)
+        self.assertIn("dispositif automatique", response(17).arguments[2].exemple)
+        self.assertIn("reste un achat en ligne", response(18).nuance)
+        self.assertIn("moyen de paiement", response(18).arguments[2].exemple)
+        self.assertIn("raconter une histoire", response(19).arguments[1].exemple)
+        self.assertIn("rôles", response(19).arguments[2].exemple)
+        self.assertIn("utilisent encore ce moyen", response(20).nuance)
+        self.assertIn("catégories se recoupent", response(21).nuance)
+        self.assertIn("applique lui aussi cette règle", response(22).arguments[2].exemple)
+        self.assertIn("rediffusions", response(24).nuance)
+
     def test_sante_preserves_coverage_and_distinguishes_state_sales_from_a_ban(self):
         models = catalogue.tache_three_models()
         sources = [source for source in self.sources if source.theme == "Sante"]

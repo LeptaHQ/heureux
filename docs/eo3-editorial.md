@@ -95,6 +95,21 @@ prescribed treatment with lifestyle changes. Relevant factual references include
 [WHO alcohol](https://www.who.int/news-room/fact-sheets/detail/alcohol) and
 [NHS type 1 diabetes](https://www.nhs.uk/conditions/type-1-diabetes/).
 
+For Technologie, preserve the difference between an inevitable effect and a
+possible risk, no television and no TV news, and ease without a mobile versus
+possibility without any telephone. Do not answer the last question by proposing
+another telephone. Online friendships can be genuine; platforms and access
+conditions matter, not only individual willpower. Online purchasing feasibility
+is not the same as preferring an in-store trial; collection after online payment
+is still an online purchase. Carpooling is not complete absence of car use.
+The space-travel response distinguishes scientific missions, public priorities
+and proportionate means: benefits from satellites do not justify every crewed
+flight or tourism. Its microgravity example is supported by
+[NASA's research explanation](https://www.nasa.gov/missions/station/iss-research/why-do-research-on-the-international-space-station/),
+not a promised return on investment. Media preferences retain recognizable
+source-checking language without treating Internet, radio and newspapers as
+mutually exclusive categories or guaranteeing the quality of a platform.
+
 Published Markdown in `study/content/responses/` remains the exact historical
 model corpus. Its 130 exact-body records support 167 publications and 131
 semantic identities. Do not rewrite or deduplicate those records as an incidental

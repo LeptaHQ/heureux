@@ -1974,6 +1974,21 @@
             {"topic": "Organisation", "question": "Qui d'autre pourra nous aider à porter les objets ?", "follow_up_to": null},
             {"topic": "Organisation", "question": "De mon côté, voulez-vous que je réserve la camionnette, que j'achète les protections ou que je coordonne les personnes qui aideront ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "help-transport-heavy-objects-no-vehicle",
+          "opening": "Bonjour ! Je veux bien vous aider à organiser ce transport, mais j'ai besoin de quelques précisions.",
+          "closing": "Merci ! Je vais comparer les camionnettes disponibles pour samedi matin et vous confirmer la réservation.",
+          "questions": [
+            {"topic": "Date", "question": "Quel jour et à quelle heure souhaitez-vous effectuer le transport ?", "follow_up_to": null},
+            {"topic": "Objets", "question": "Quels objets faut-il transporter, et lesquels sont les plus encombrants ou les plus lourds ?", "follow_up_to": null},
+            {"topic": "Objets", "question": "Quelles sont les dimensions du canapé, et peut-on retirer les pieds pour le transporter plus facilement ?", "follow_up_to": 2, "condition": "If a sofa is named without its dimensions or removable parts; adapt accordingly."},
+            {"topic": "Trajet et accès", "question": "D'où faut-il partir, où doit-on déposer les objets, et quelle distance faut-il parcourir ?", "follow_up_to": null},
+            {"topic": "Trajet et accès", "question": "Y a-t-il des escaliers ou un ascenseur aux deux adresses, et peut-on stationner près des entrées ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "Quel budget avez-vous prévu pour louer une camionnette et le matériel nécessaire au transport ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "Qui d'autre pourra nous aider à porter les objets ?", "follow_up_to": null},
+            {"topic": "Organisation", "question": "De mon côté, voulez-vous que je réserve la camionnette ou que je coordonne les personnes qui aideront ?", "follow_up_to": null}
+          ]
         }
       ]
     },

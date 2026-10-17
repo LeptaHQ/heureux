@@ -310,7 +310,7 @@
     {
       "group": "help-transport-heavy-objects-no-vehicle",
       "register": "vous",
-      "note": "The interlocutor has no vehicle and asks you to help transport heavy objects, not necessarily move house. Check the date first, then the load, route, access, rental budget, helpers and your role. Use vous because the relationship is unspecified. If a sofa is mentioned, ask about removable legs rather than assuming it dismantles completely.",
+      "note": "The interlocutor has no vehicle and asks for help transporting heavy objects, not necessarily moving house. In this model, you take responsibility for renting a van. Clarify the date, load, route, access, budget, helpers and payment for rental and fuel. Use vous because the relationship is unspecified. Ask about removable sofa legs only if a sofa is mentioned.",
       "opening": "Bonjour ! Je veux bien vous aider à organiser ce transport, mais j'ai besoin de quelques précisions.",
       "closing": "Merci ! Je vais comparer les camionnettes disponibles pour samedi matin et vous confirmer la réservation.",
       "questions": [
@@ -321,7 +321,7 @@
         {"topic": "Trajet et accès", "question": "Y a-t-il des escaliers ou un ascenseur aux deux adresses, et peut-on stationner près des entrées ?", "answer": "Deux étages sans ascenseur au départ, un rez-de-chaussée à l'arrivée ; on peut stationner devant les deux entrées.", "follow_up_to": null},
         {"topic": "Organisation", "question": "Quel budget avez-vous prévu pour louer une camionnette et le matériel nécessaire au transport ?", "answer": "Environ 150 $ pour la journée, avec un chariot adapté aux escaliers ; j'ai déjà des sangles et des couvertures.", "follow_up_to": null},
         {"topic": "Organisation", "question": "Qui d'autre pourra nous aider à porter les objets ?", "answer": "Mon frère et un voisin seront disponibles.", "follow_up_to": null},
-        {"topic": "Organisation", "question": "De mon côté, voulez-vous que je réserve la camionnette ou que je coordonne les personnes qui aideront ?", "answer": "Je vous laisse la réservation de la camionnette avec le chariot ; je préparerai les protections et contacterai les autres personnes.", "follow_up_to": null}
+        {"topic": "Organisation", "question": "Je m'occupe de réserver la camionnette. Comment s'organise-t-on pour le paiement de la location et du carburant ?", "answer": "Je vous avancerai les frais de location avant la réservation et je paierai le carburant au retour.", "follow_up_to": null}
       ]
     },
     {

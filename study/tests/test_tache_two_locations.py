@@ -160,7 +160,14 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
         self.assertIn("budget", transport.questions[5].question)
         self.assertIn("chariot adapté aux escaliers", transport.questions[5].answer)
         self.assertNotIn("se démonte-t-il", transport.questions[2].question)
-        self.assertIn("not necessarily move house", transport.note)
+        self.assertIn("not necessarily moving house", transport.note)
+        self.assertIn("you take responsibility for renting a van", transport.note)
+        self.assertEqual(
+            transport.questions[7].question,
+            "Je m'occupe de réserver la camionnette. Comment s'organise-t-on pour le paiement de la location et du carburant ?",
+        )
+        self.assertIn("avant la réservation", transport.questions[7].answer)
+        self.assertIn("carburant au retour", transport.questions[7].answer)
         apartment = by_group["estate-agent-advertised-apartment-unspecified"]
         self.assertEqual(
             apartment.questions[0].question,
@@ -185,6 +192,13 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
         hints = json.loads(content.TACHE_TWO_SUBJECT_HINTS_PATH.read_text())["groups"]
         self.assertEqual(hints[transport.group][0]["english"], "Transport date and time")
         self.assertEqual(hints[transport.group][2]["english"], "Sofa dimensions and removable legs")
+        self.assertEqual(
+            hints[transport.group][7],
+            {
+                "french": "Paiement de la location et du carburant",
+                "english": "Payment for the rental and fuel",
+            },
+        )
         self.assertEqual(
             hints[apartment.group][6]["english"],
             "Monthly condominium fees and annual property taxes",
@@ -1007,6 +1021,14 @@ class PublishedTacheTwoHighlightTests(TestCase):
     def test_heavy_transport_reorder_preserves_unchanged_questions_and_archived_notes(self):
         self.assert_revision_highlights_preserved(
             "help-transport-heavy-objects-no-vehicle", {5: 1, 1: 2, 7: 7},
+            revision=0,
+        )
+
+    def test_heavy_transport_payment_question_preserves_other_questions_and_archived_notes(self):
+        self.assert_revision_highlights_preserved(
+            "help-transport-heavy-objects-no-vehicle",
+            {number: number for number in range(1, 8)},
+            revision=1,
         )
 
     def test_blue_audit_keeps_every_learned_question_or_its_exact_archived_revision(self):

@@ -77,7 +77,7 @@ class HousingWorkClassificationTests(SimpleTestCase):
         ).encode()
         self.assertEqual(
             hashlib.sha256(snapshot).hexdigest(),
-            "a7e593d312b24fbabc497e7460e1a44c1e3f8fdbb73dba430e033fc8e1214a91",
+            "7d243db83c0bbb32f0841e96882b341943c4383cff3cc98f7c8ba4a3a8f93da8",
         )
 
 

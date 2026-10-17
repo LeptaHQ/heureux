@@ -333,17 +333,17 @@
     {
       "group": "visit-colleague-minor-accident",
       "register": "vous",
-      "note": "You visit a colleague after an explicitly minor accident. Ask how they are, then when, where and how it happened, and offer practical help without inventing an injury, diagnosis or treatment. Use vous as a cautious workplace default; close colleagues may use tu, but the chosen register must remain consistent.",
+      "note": "You visit a colleague after an explicitly minor accident. Ask how they are, when, where and how it happened, whether anyone helped, and whether they consulted a doctor. Ask about any advice without assuming an injury, diagnosis or treatment. Offer practical help, and combine a possible return date with a message for the team. Use vous consistently as a cautious workplace default.",
       "opening": "Bonjour ! J'ai appris pour votre accident, et je tenais à prendre de vos nouvelles.",
       "closing": "Merci de m'avoir donné de vos nouvelles. Reposez-vous bien, et dites-moi si je peux vous rendre service.",
       "questions": [
         {"topic": "Nouvelles et aide", "question": "Comment vous sentez-vous aujourd'hui ?", "answer": "Je vais mieux ; j'ai encore quelques courbatures et je me repose à la maison.", "follow_up_to": null},
         {"topic": "Nouvelles et aide", "question": "Avez-vous besoin d'aide pour les courses, les repas ou vos déplacements pendant que vous vous reposez ?", "answer": "Oui, quelques courses me rendraient service cet après-midi.", "follow_up_to": 1, "condition": "If they mention resting at home without saying whether help is needed."},
-        {"topic": "L'accident", "question": "Quand et où l'accident s'est-il produit ?", "answer": "Lundi matin, vers 8 h, sur les marches de la station de métro près du bureau.", "follow_up_to": null},
+        {"topic": "L'accident", "question": "C'est arrivé quand, et à quel endroit exactement ?", "answer": "Lundi matin, vers 8 h, sur les marches de la station de métro près du bureau.", "follow_up_to": null},
         {"topic": "L'accident", "question": "Qu'est-ce qui s'est passé exactement ?", "answer": "J'ai glissé en descendant les marches mouillées.", "follow_up_to": null},
         {"topic": "L'accident", "question": "Quelqu'un a-t-il pu vous aider sur place après l'accident ?", "answer": "Un passant m'a aidé à me relever, puis un collègue m'a raccompagné à la maison.", "follow_up_to": 4, "condition": "If a fall is described without explaining whether someone helped."},
-        {"topic": "Travail et soutien", "question": "Souhaitez-vous que je transmette un message à l'équipe ?", "answer": "Oui, dites-leur simplement que je vais bien et que je les remercie.", "follow_up_to": null},
-        {"topic": "Travail et soutien", "question": "Avez-vous une idée de la date de votre retour au travail ?", "answer": "Probablement lundi prochain, si je continue à récupérer normalement.", "follow_up_to": null},
+        {"topic": "L'accident", "question": "Avez-vous consulté un médecin après l'accident et, si oui, que vous a-t-il conseillé ?", "answer": "Oui, par précaution. Le médecin m'a conseillé quelques jours de repos.", "follow_up_to": null},
+        {"topic": "Travail et soutien", "question": "Avez-vous une idée de la date de votre retour au travail, et souhaitez-vous que je transmette un message à l'équipe ?", "answer": "J'espère revenir lundi prochain, si je récupère bien ; dites à l'équipe que je vais mieux et que je les remercie.", "follow_up_to": null},
         {"topic": "Travail et soutien", "question": "Que pourrais-je vous apporter du bureau d'ici là, et quand pourrais-je vous le déposer ?", "answer": "Mon chargeur et le dossier bleu sur mon bureau ; vous pouvez les déposer demain après 17 h, mais ne vous dérangez pas si vous êtes occupé.", "follow_up_to": 7, "condition": "If the colleague expects to remain away from work for a few days."}
       ]
     }

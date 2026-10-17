@@ -4094,12 +4094,12 @@
         "english": "Help received at the scene after the accident"
       },
       {
-        "french": "Message à transmettre à l'équipe",
-        "english": "Message to pass on to the team"
+        "french": "Consultation éventuelle et conseils donnés par le médecin",
+        "english": "Whether a doctor was consulted and what advice they gave"
       },
       {
-        "french": "Date possible de retour au travail",
-        "english": "Possible return-to-work date"
+        "french": "Date possible de retour et message à transmettre à l'équipe",
+        "english": "Possible return date and message to pass on to the team"
       },
       {
         "french": "Affaires à apporter du bureau et moment pour les déposer",

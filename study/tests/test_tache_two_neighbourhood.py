@@ -155,6 +155,7 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
                     } else 2 if group in {
                         "colleague-babysitter-referral-needs",
                         "friend-homeless-meal-volunteering",
+                        "visit-colleague-minor-accident",
                     } else 1),
                 )
                 previous = revisions[revision]
@@ -882,9 +883,31 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
     def test_minor_accident_inquiry_uses_empathy_and_a_coherent_narrative(self):
         row = self.by_group["visit-colleague-minor-accident"]
         self.assertIn("pendant que vous vous reposez", row.questions[1].question)
-        self.assertEqual(row.questions[2].question, "Quand et où l'accident s'est-il produit ?")
+        self.assertEqual(row.questions[2].question, "C'est arrivé quand, et à quel endroit exactement ?")
         self.assertEqual(row.questions[3].question, "Qu'est-ce qui s'est passé exactement ?")
         self.assertIn("vous aider sur place", row.questions[4].question)
         self.assertEqual(row.questions[4].follow_up_to, 4)
         self.assertIn("Un passant", row.questions[4].answer)
+        self.assertEqual(
+            row.questions[5].question,
+            "Avez-vous consulté un médecin après l'accident et, si oui, que vous a-t-il conseillé ?",
+        )
+        self.assertIsNone(row.questions[5].follow_up_to)
+        self.assertIn("quelques jours de repos", row.questions[5].answer)
+        self.assertEqual(
+            self.hints[row.group][5]["english"],
+            "Whether a doctor was consulted and what advice they gave",
+        )
+        self.assertEqual(
+            row.questions[6].question,
+            "Avez-vous une idée de la date de votre retour au travail, et souhaitez-vous que je transmette un message à l'équipe ?",
+        )
+        self.assertIn("lundi prochain", row.questions[6].answer)
+        self.assertIn("dites à l'équipe", row.questions[6].answer)
+        self.assertEqual(row.questions[7].follow_up_to, 7)
+        self.assertEqual(
+            self.hints[row.group][6]["english"],
+            "Possible return date and message to pass on to the team",
+        )
         self.assertIn("explicitly minor", row.note)
+        self.assertIn("without assuming an injury, diagnosis or treatment", row.note)

@@ -1229,6 +1229,12 @@ class PublishedTacheTwoHighlightTests(TestCase):
             revision=5,
         )
 
+    def test_colleague_work_merger_preserves_moved_questions_and_archives_separate_questions(self):
+        self.assert_revision_highlights_preserved(
+            "visit-colleague-minor-accident", {1: 1, 2: 2, 4: 4, 5: 5, 8: 8},
+            revision=3,
+        )
+
     def test_childcare_logistics_insertion_preserves_moved_questions_and_archived_notes(self):
         self.assert_revision_highlights_preserved(
             "neighbor-child-one-day-care", {}, revision=0,
@@ -1243,7 +1249,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "friend-holiday-apartment-watch": {1: 1},
             "friend-homeless-meal-volunteering": {2: 4, 5: 5},
             "friend-entertain-visiting-nephews": {2: 2, 8: 8},
-            "visit-colleague-minor-accident": {1: 1, 6: 6, 7: 7},
+            "visit-colleague-minor-accident": {1: 1},
             "child-friends-family-holiday-invitation": {3: 2, 6: 6},
             "neighbor-environmental-association-volunteering": {1: 1},
             "neighbor-home-childcare-provider-referral": {1: 1, 2: 2, 3: 3, 8: 8},
@@ -1357,7 +1363,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "neighbor-home-childcare-provider-referral": (1, {1: 1, 2: 2, 3: 3, 8: 8}),
             "newcomer-local-acquaintance-meet-people": (0, {1: 1, 2: 2, 4: 4, 5: 5}),
             "trusted-person-temporary-pet-care": (1, {2: 2, 8: 8}),
-            "visit-colleague-minor-accident": (1, {1: 1, 6: 6, 7: 7}),
+            "visit-colleague-minor-accident": (1, {1: 1}),
         }
         for group, (revision, mapping) in cases.items():
             with self.subTest(group=group):
@@ -1412,7 +1418,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "neighbor-child-one-day-care": (2, {1: 1, 6: 6, 7: 7}),
             "neighbor-environmental-association-volunteering": (2, {1: 1, 3: 3, 5: 5, 6: 6}),
             "neighbor-home-childcare-provider-referral": (2, {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 8: 8}),
-            "visit-colleague-minor-accident": (2, {number: number for number in range(1, 8)}),
+            "visit-colleague-minor-accident": (2, {1: 1, 2: 2, 4: 4, 5: 5}),
         }
         for group, (revision, mapping) in cases.items():
             with self.subTest(group=group):

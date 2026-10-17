@@ -201,7 +201,7 @@ class SpeakingHintsViewTests(TestCase):
     def prompt(self, key):
         return Prompt.objects.select_related("response", "theme__task__part").get(content_key=key)
 
-    def test_equivalent_polarities_share_one_plan_without_replacing_their_models(self):
+    def test_equivalent_polarities_share_reviewed_defaults_and_preserve_source_models(self):
         canonical, alias = self.prompt("culture:p3"), self.prompt("economie:p5")
         self.assertEqual(canonical.response_id, alias.response_id)
         expected = catalogue.tache_three_subject_hints()[canonical.response.semantic_group]
@@ -215,7 +215,12 @@ class SpeakingHintsViewTests(TestCase):
                 self.assertContains(page, 'class="subject-hints__english"', count=9)
                 self.assertEqual(
                     [argument.idea for argument in page.context["arguments"]],
-                    [argument["idea"] for argument in prompt.model_content["arguments"]],
+                    [argument.idea for argument in
+                     catalogue.tache_three_models()[prompt.response.semantic_group].response.arguments],
+                )
+                self.assertNotEqual(
+                    page.context["response_content"].position_claire,
+                    prompt.model_content["position_claire"],
                 )
                 for key in ("model", "personal"):
                     self.assertEqual(self.client.get(prompt_detail_url(prompt), {key: "1"}).status_code, 404)

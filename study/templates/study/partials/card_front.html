@@ -12,7 +12,7 @@
       <div>À voix haute : <b>saluez, posez vos questions, rebondissez sur les réponses et terminez en remerciant</b>.</div>
     {% else %}
       {% if aliases %}<div>{% include "study/partials/ui_icon.html" with name="arrow-left-right" only %} {{ aliases|length }} formulation{{ aliases|length|pluralize }} équivalente{{ aliases|length|pluralize }}</div>{% endif %}
-      <div>À voix haute : <b>reformulation → position → 3 arguments → nuance → conclusion</b>.</div>
+      {% if reviewed_eo3 %}<div>À voix haute : <b>introduction → 3 arguments avec exemples → nuance → conclusion</b>.</div>{% else %}<div>À voix haute : <b>reformulation → position → 3 arguments → nuance → conclusion</b>.</div>{% endif %}
     {% endif %}
   </div>
 {% else %}

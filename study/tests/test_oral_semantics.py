@@ -666,9 +666,11 @@ class OralImportPreservationTests(TestCase):
 
 class OralCorpusUpgradeTests(TestCase):
     def test_real_corpus_upgrade_preserves_private_rows_and_is_idempotent(self):
+        # Recreate the historical importer, before reviewed defaults existed.
         with (
             patch.object(content, "parse_responses", content.parse_response_storage),
             patch.object(content, "parse_tache_two_responses", content.parse_tache_two_storage_responses),
+            patch("study.tache_three_models.load_tache_three_models", return_value={}),
         ):
             call_command("import_content", stdout=StringIO())
         users = [factories.make_user("upgrade-a"), factories.make_user("upgrade-b")]

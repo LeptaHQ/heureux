@@ -26,7 +26,12 @@
           </ul>
         </div>
       {% endif %}
-    {% else %}
+    {% else %}{% if reviewed_eo3 %}
+      <div class="spine-block">
+        <div class="spine-label">Introduction</div>
+        <div class="spine-text">{{ response_content.position_claire }}</div>
+      </div>
+      {% else %}
       <div class="spine-block">
         <div class="spine-label">Reformulation</div>
         <div class="spine-text">{{ response_content.reformulation }}</div>
@@ -34,10 +39,15 @@
       <div class="spine-block">
         <div class="spine-label">Position</div>
         <div class="spine-text">{{ response_content.position }}</div>
-      </div>
+      </div>{% endif %}
       {% for arg in arguments %}
         <div class="arg">
-          <div class="arg__idea">{{ forloop.counter }}. {{ arg.idea }}</div>
+          <div class="arg__idea">{{ forloop.counter }}. {{ arg.idea }}</div>{% if reviewed_eo3 %}
+            <p>{{ arg.developpement }}</p>
+            <div class="arg__part-label">Exemple concret</div>
+            <p>{{ arg.exemple }}</p>
+            <p>{{ arg.consequence }}</p>
+          {% endif %}
         </div>
       {% endfor %}
       <div class="spine-block">

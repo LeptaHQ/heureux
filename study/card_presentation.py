@@ -241,6 +241,9 @@ def _spine_payload(card: Card, *, prompt=None, model_only=False, personal=None) 
     content = effective_response(
         response, card.user, prompt=canonical, model_only=model_only, personal=personal,
     )
+    from .tache_three_models import reviewed_model
+
+    reviewed_eo3 = not content.is_personal and reviewed_model(response, canonical) is not None
     task = response.theme.task
     annotation_key = f"response:{response.content_key}"
     if canonical is not None and (
@@ -288,6 +291,7 @@ def _spine_payload(card: Card, *, prompt=None, model_only=False, personal=None) 
         "aliases": aliases,
         "response": response,
         "response_content": content,
+        "reviewed_eo3": reviewed_eo3,
         "arguments": content.arguments,
         **(question_presentation(canonical, content) if tache_two_subject else {}),
         "subject_prompt_note": (

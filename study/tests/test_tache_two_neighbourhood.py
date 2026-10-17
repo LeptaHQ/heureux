@@ -150,10 +150,11 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
                 revisions = self.history[group]["revisions"]
                 self.assertEqual(
                     len(revisions),
-                    revision + (3 if group == "friend-holiday-apartment-watch" else 2 if group in {
+                    revision + (3 if group in {
+                        "friend-holiday-apartment-watch", "grocery-store-home-delivery",
+                    } else 2 if group in {
                         "colleague-babysitter-referral-needs",
                         "friend-homeless-meal-volunteering",
-                        "grocery-store-home-delivery",
                     } else 1),
                 )
                 previous = revisions[revision]
@@ -699,7 +700,7 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertIn("où et à quelle heure", row.questions[7].question)
         self.assertIn("dimanche à 9 h devant la bibliothèque", row.closing)
 
-    def test_delivery_questions_cover_payment_and_window_length(self):
+    def test_delivery_questions_cover_payment_and_a_concrete_delivery_window(self):
         row = self.by_group["grocery-store-home-delivery"]
         self.assertIn("les courses et les frais de livraison", row.questions[1].question)
         self.assertIn("en caisse ou auprès du livreur", row.questions[1].question)
@@ -708,9 +709,14 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertNotIn("en ligne", row.questions[1].question)
         self.assertIn("en caisse, par carte ou en espèces", row.questions[1].answer)
         self.assertIn("ne proposons pas de paiement au livreur", row.questions[1].answer)
-        self.assertIn("combien de temps dure", row.questions[4].question)
-        self.assertIn("deux heures", row.questions[4].answer)
+        self.assertEqual(
+            row.questions[4].question,
+            "Puis-je choisir un créneau de livraison, par exemple entre 14 h et 16 h ?",
+        )
+        self.assertNotIn("combien de temps dure", row.questions[4].question)
+        self.assertIn("de 14 h à 16 h", row.questions[4].answer)
         self.assertIn("créneaux disponibles", row.questions[4].answer)
+        self.assertNotIn("duration", row.questions[4].condition)
         self.assertEqual(row.questions[4].follow_up_to, 4)
         self.assertIn("nouvelle livraison coûte", row.questions[6].answer)
 

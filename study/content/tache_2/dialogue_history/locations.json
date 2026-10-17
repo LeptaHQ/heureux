@@ -1564,6 +1564,21 @@
             {"topic": "Livraison", "question": "Que se passe-t-il si je suis absent au moment prévu, et une nouvelle livraison est-elle payante ?", "follow_up_to": null},
             {"topic": "Livraison", "question": "Si un produit manque ou arrive abîmé, comment le signaler et obtenir un remboursement ?", "follow_up_to": null}
           ]
+        },
+        {
+          "group": "grocery-store-home-delivery",
+          "opening": "Bonjour ! J'aimerais me faire livrer mes courses à domicile, et je voudrais savoir comment fonctionne votre service.",
+          "closing": "Merci pour ces renseignements. Je vais vérifier les créneaux avant de passer ma première commande.",
+          "questions": [
+            {"topic": "Commande", "question": "Quelle est votre zone de livraison, et comment vérifier si mon adresse est desservie ?", "follow_up_to": null},
+            {"topic": "Commande", "question": "Comment règle-t-on les courses et les frais de livraison : en caisse ou auprès du livreur, par carte ou en espèces ?", "follow_up_to": null},
+            {"topic": "Frais", "question": "Combien coûte la livraison selon le montant des achats, et existe-t-il un montant minimum pour bénéficier de la livraison gratuite ?", "follow_up_to": null},
+            {"topic": "Délais", "question": "Quel délai faut-il prévoir entre la commande et la livraison ?", "follow_up_to": null},
+            {"topic": "Délais", "question": "Puis-je choisir un créneau de livraison, et combien de temps dure-t-il ?", "follow_up_to": 4, "condition": "If delivery timing is given without a selectable window or its duration."},
+            {"topic": "Livraison", "question": "Comment les produits frais et surgelés sont-ils transportés ?", "follow_up_to": null},
+            {"topic": "Livraison", "question": "Que se passe-t-il si je suis absent au moment prévu, et une nouvelle livraison est-elle payante ?", "follow_up_to": null},
+            {"topic": "Livraison", "question": "Si un produit manque ou arrive abîmé, comment le signaler et obtenir un remboursement ?", "follow_up_to": null}
+          ]
         }
       ]
     },

@@ -351,7 +351,8 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
                 "Paying for groceries and delivery: checkout or driver, card or cash",
                 "Delivery fees by basket value and minimum spend for free delivery",
                 "Time from order to delivery",
-                "Choosing a delivery window and its duration", "Transport of fresh and frozen groceries",
+                "Choosing a delivery window, e.g. 2 p.m. to 4 p.m.",
+                "Transport of fresh and frozen groceries",
                 "Missed delivery and any redelivery fee",
                 "Reporting and getting a refund for a missing or damaged item",
             ),
@@ -1218,8 +1219,14 @@ class PublishedTacheTwoHighlightTests(TestCase):
 
     def test_grocery_payment_and_free_delivery_refinements_preserve_other_learned_questions(self):
         self.assert_revision_highlights_preserved(
-            "grocery-store-home-delivery", {1: 1, 4: 4, 5: 5, 6: 6, 7: 7, 8: 8},
+            "grocery-store-home-delivery", {1: 1, 4: 4, 6: 6, 7: 7, 8: 8},
             revision=4,
+        )
+
+    def test_grocery_window_example_preserves_other_learned_questions_and_archives_old_wording(self):
+        self.assert_revision_highlights_preserved(
+            "grocery-store-home-delivery", {1: 1, 2: 2, 3: 3, 4: 4, 6: 6, 7: 7, 8: 8},
+            revision=5,
         )
 
     def test_childcare_logistics_insertion_preserves_moved_questions_and_archived_notes(self):
@@ -1399,7 +1406,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "friend-holiday-apartment-watch": (2, {1: 1, 2: 2, 5: 5}),
             "friend-homeless-meal-volunteering": (2, {2: 4, 3: 1, 5: 5, 7: 7}),
             "friend-three-year-old-weekend-care": (3, {3: 3, 4: 4}),
-            "grocery-store-home-delivery": (3, {1: 1, 5: 4, 6: 5, 7: 6, 8: 7}),
+            "grocery-store-home-delivery": (3, {1: 1, 5: 4, 7: 6, 8: 7}),
             "help-friend-post-parcel": (3, {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6, 8: 8}),
             "medical-secretary-temporary-replacement-doctor": (2, {1: 1, 2: 2, 3: 3, 5: 5, 6: 6, 8: 8}),
             "neighbor-child-one-day-care": (2, {1: 1, 6: 6, 7: 7}),

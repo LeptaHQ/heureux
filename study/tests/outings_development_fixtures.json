@@ -1,0 +1,70 @@
+{
+  "version": 1,
+  "theme": "sorties-spectacles",
+  "preserved_first_two": [
+    "host-foreign-friends-city-advice",
+    "museum-group-visit-reception"
+  ],
+  "protected_models_sha": "a6845f354a27735b28050a9042158767e2f358a7e3113f7befa483482482a65a",
+  "protected_hints_sha": "8fff6c502bba03ff6416269182739e3b96ecf922e6042067399c419593dbf2dc",
+  "original_history_sha": "65747b408a8706e7b10a97954a33831cf5c0e9dd3f0aa3c9e97ea8146079a6fb",
+  "groups": {
+    "new-neighbor-evening-entertainment": {
+      "archive_index": 1,
+      "before_visible_sha": "bcbf40c662f3692904f6f6a28a66563b5ab3d0742b00ecb3e7bf17ce910ca6f4",
+      "after_sha": "4f34c0189d545ce19e7653c0ac172ff8f03f0162d4ec827c024c3886ae5ab1d5",
+      "after_hints_sha": "fc1f5c69c9c791bc4fefcb11963ba0a0e356ba4a27c2ca50b11bc721db8e7413",
+      "retained_questions": {
+        "1": 1,
+        "2": 2,
+        "3": 3,
+        "4": 4,
+        "6": 6,
+        "7": 7,
+        "8": 8
+      }
+    },
+    "municipal-cultural-service-city-activities": {
+      "archive_index": 0,
+      "before_visible_sha": "db2433b0b09519d7f75be52c0b831f735d9aeb5a7b22fb8f1e1733ab5348f01b",
+      "after_sha": "3182f606d80fd67d74eb54508d08dac1562a80be389984711bcc9a88e732c94d",
+      "after_hints_sha": "d8d8bc5df0fed169a7aec9437515a18ec8d05d1f050014b3dbbab408b2285a77",
+      "retained_questions": {}
+    },
+    "neighbor-municipal-cultural-outings": {
+      "archive_index": 0,
+      "before_visible_sha": "aceaa9cb564c05a6aa73137ffbd4a304ad7cffc7cf3633d087e7a800bc55012d",
+      "after_sha": "03da04d4cae415347544da9e680c83cf0df6136697423808278da612e90409bb",
+      "after_hints_sha": "486544f143ce07d6f577d6c98854ace7a149d88ff57942d67ca21064dda593ad",
+      "retained_questions": {}
+    },
+    "friend-new-ottawa-restaurant": {
+      "archive_index": 0,
+      "before_visible_sha": "90edf4c6c16fad40c1c724b0fdb12d08463c60579b4f76b0076c2d48620d4abf",
+      "after_sha": "99950701adb3ae5dd6ad9cfa79331b1fdf0da125d75a44106423d832dc8762f8",
+      "after_hints_sha": "fd340e8e4788f226323ecf087e7fa6d06467445be7fe775958b8a405f9285100",
+      "retained_questions": {}
+    },
+    "new-city-friend-low-budget-outings": {
+      "archive_index": 0,
+      "before_visible_sha": "9020e7d8c0a7767a12cc7d16a4feb1c1c6621a97cfd49c69a182a8f2effc01d4",
+      "after_sha": "e3ec2695fb29a6693e81c28afa2ddb42058b4f45381170dcce9750fd17a6a1dd",
+      "after_hints_sha": "48c147e235ad4788b1134191f91fb1741f1edcaacc14e58a890e585b6775774b",
+      "retained_questions": {}
+    },
+    "friend-choose-tonight-outing": {
+      "archive_index": 0,
+      "before_visible_sha": "56232b01a7e83050b15794e0dfafc5ed10701b8b781f5bbbb58d0a54789a458b",
+      "after_sha": "1d0a03c8c5b6dce9742cbb93bbef5aeade8f8d59b09cc7390d3edd72a3a536e6",
+      "after_hints_sha": "ffc2cb5b56702fcaedd71aa9f143555d789ab3a36dfdaedee9e8cefe33f58c96",
+      "retained_questions": {}
+    },
+    "tourist-office-city-discovery-with-friends": {
+      "archive_index": 0,
+      "before_visible_sha": "bb296b8897a51cf9bc38178e6a48667964da44d3ff494273d8b3f1f751abbe3d",
+      "after_sha": "31c425290febe0bf550c01b94e460dd31d9b98f15e99c300ec551d7a935943c0",
+      "after_hints_sha": "b8697508d8573a1d55c6641fcebe3118be8e04b5a68498b2e68f29a60085b42e",
+      "retained_questions": {}
+    }
+  }
+}

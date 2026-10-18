@@ -67,7 +67,7 @@ class CultureSplitCorpusTests(SimpleTestCase):
         }
         self.assertEqual(
             fingerprint([raw[group] for group in sorted(ALL_CULTURE_GROUPS)]),
-            "e41bb0e9069658f9280837b2791610b564bab0379b752827faf84bb0b443672b",
+            "2428e3aa4a0d2317951e4541737fb16f41711ba6856c7487f128f971b96dc150",
         )
 
     def test_museum_visit_develops_the_practical_details_and_aligns_every_piste(self):
@@ -156,7 +156,7 @@ class CultureSplitCorpusTests(SimpleTestCase):
             ("plutôt calme ou animée", 1),
             ("quels styles de musique", 1),
             ("séances suivies d'une discussion", 1),
-            ("un concert au café et pour une séance de cinéma", None),
+            ("avec l'entrée et une boisson", None),
             ("sorties gratuites ou des tarifs réduits", None),
             ("consulter le programme", None),
             ("rentrer à pied", None),
@@ -169,7 +169,7 @@ class CultureSplitCorpusTests(SimpleTestCase):
         self.assertIn("soirées jeux", row.questions[0].answer)
         self.assertIn("films récents", row.questions[0].answer)
         self.assertIn("vers vingt heures", row.questions[2].answer)
-        self.assertIn("hors consommations", row.questions[4].answer)
+        self.assertIn("25 $ pour le concert et une boisson", row.questions[4].answer)
         self.assertIn("il faut prévoir sa consommation", row.questions[5].answer)
         self.assertIn("Je réserve", row.questions[6].answer)
         self.assertIn("vérifiez l'heure du dernier passage", row.questions[7].answer)
@@ -180,7 +180,7 @@ class CultureSplitCorpusTests(SimpleTestCase):
             {"french": "Ambiance calme ou animée selon les lieux et les soirées", "english": "Quiet or lively atmosphere depending on the venue and evening"},
             {"french": "Styles de musique et soirs des concerts du café", "english": "Music styles and concert nights at the café"},
             {"french": "Séances spéciales et animations au cinéma", "english": "Special screenings and activities at the cinema"},
-            {"french": "Budget à prévoir pour les concerts et le cinéma", "english": "Approximate budget for concerts and cinema"},
+            {"french": "Budget au café, entrée et boisson comprises, et prix du cinéma", "english": "Café budget including admission and a drink, and cinema ticket price"},
             {"french": "Sorties gratuites et tarifs réduits selon les jours", "english": "Free outings and cheaper rates on certain days"},
             {"french": "Programme des soirées et activités à réserver", "english": "Where to find the programme and which activities to book"},
             {"french": "Retour à pied ou transport à prévoir après la soirée", "english": "Walking home or arranging transport after the evening"},
@@ -188,7 +188,7 @@ class CultureSplitCorpusTests(SimpleTestCase):
         previous = json.loads((
             content.QUESTION_BANK_DIR / "dialogue_history/locations.json"
         ).read_text())["groups"][row.group]["revisions"]
-        self.assertEqual(len(previous), 1)
+        self.assertEqual(len(previous), 2)
         self.assertEqual(
             fingerprint(previous[0]),
             "7925b87de27afa6e2c67e2c345ab75041f6f07c4fe1e1a8c4e7ece8c6ac7de98",

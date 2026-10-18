@@ -1034,6 +1034,19 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "new-neighbor-evening-entertainment", {}, revision=0,
         )
 
+    def test_remaining_outing_developments_preserve_every_learned_question_or_its_exact_archived_layout(self):
+        fixture = json.loads(
+            Path(__file__).with_name("outings_development_fixtures.json").read_text(),
+        )
+        for group, record in fixture["groups"].items():
+            with self.subTest(group=group):
+                Annotation.objects.filter(user=self.user).delete()
+                self.assert_revision_highlights_preserved(
+                    group,
+                    {int(old): new for old, new in record["retained_questions"].items()},
+                    revision=record["archive_index"],
+                )
+
     def test_heavy_transport_payment_question_preserves_other_questions_and_archived_notes(self):
         self.assert_revision_highlights_preserved(
             "help-transport-heavy-objects-no-vehicle",

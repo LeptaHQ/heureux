@@ -106,18 +106,18 @@
     {
       "group": "friend-new-ottawa-restaurant",
       "register": "tu",
-      "note": "Your friend has eaten at a new restaurant in Ottawa, and you would like to try that restaurant. Ask about location, menu, their experience, prices and practical arrangements. Ottawa and the restaurant choice are already fixed; do not ask for a new city or unrelated restaurant list. Use tu.",
-      "opening": "Salut ! Le nouveau restaurant d'Ottawa où tu as dîné m'intéresse ; j'aimerais en savoir plus avant d'y aller.",
+      "note": "Your friend has dined at a particular new restaurant in Ottawa, and you want to try it. The city and restaurant are already chosen; do not request unrelated recommendations. Use tu. Ask what they actually ate and observed, then discuss value, access and booking. They cannot guarantee current hours, availability or allergen safety. Confirm dietary needs directly with the restaurant. Location and prices are illustrative, not a verified restaurant listing.",
+      "opening": "Salut ! Tu m'as parlé du nouveau restaurant que tu as essayé à Ottawa. J'aimerais bien y aller et avoir ton avis.",
       "closing": "Merci pour ton avis ! Je vais regarder le menu et vérifier les possibilités de réservation.",
       "questions": [
-        {"topic": "Restaurant et menu", "question": "Où se trouve exactement ce restaurant ?", "answer": "Près du centre, dans une rue à quelques minutes d'un arrêt de bus.", "follow_up_to": null},
-        {"topic": "Restaurant et menu", "question": "Quel type de cuisine propose-t-il ?", "answer": "Une cuisine méditerranéenne, avec des plats de légumes, de poisson et de viande.", "follow_up_to": null},
-        {"topic": "Restaurant et menu", "question": "Quel plat de ce menu me conseillerais-tu ?", "answer": "Le poisson grillé avec les légumes, que j'ai trouvé très réussi.", "follow_up_to": 2, "condition": "After the cuisine is described; choose a dish suited to your preferences."},
-        {"topic": "Avis et ambiance", "question": "Qu'as-tu pensé des plats que tu as commandés ?", "answer": "Les ingrédients étaient frais et les portions suffisantes, sans être trop grandes.", "follow_up_to": null},
-        {"topic": "Avis et ambiance", "question": "L'ambiance est-elle plutôt calme ou animée ?", "answer": "Assez animée, mais on pouvait discuter sans difficulté.", "follow_up_to": null},
-        {"topic": "Budget et réservation", "question": "Quel budget faut-il prévoir pour un repas ?", "answer": "J'ai payé environ 35 $ pour un plat et une boisson.", "follow_up_to": null},
-        {"topic": "Budget et réservation", "question": "Est-ce qu'il vaut mieux réserver le soir ?", "answer": "Le week-end, oui ; la salle était presque pleine quand j'y suis allé.", "follow_up_to": null},
-        {"topic": "Budget et réservation", "question": "Le restaurant propose-t-il des options adaptées aux allergies ou aux régimes particuliers ?", "answer": "Oui, plusieurs plats sont végétariens et le personnel peut signaler les principaux allergènes.", "follow_up_to": null}
+        {"topic": "Adresse et cuisine", "question": "Où se trouve ce restaurant à Ottawa, et est-il facile d'y aller en transports en commun ?", "answer": "Près du marché By ; j'y suis allé en bus, puis j'ai marché cinq minutes. Je t'envoie l'adresse exacte.", "follow_up_to": null},
+        {"topic": "Adresse et cuisine", "question": "Quel type de cuisine propose le restaurant, et quels plats peut-on choisir à la carte ?", "answer": "De la cuisine méditerranéenne : poissons grillés, plats de viande et plusieurs assiettes de légumes.", "follow_up_to": null},
+        {"topic": "Expérience sur place", "question": "Qu'est-ce que tu as commandé, et qu'est-ce qui t'a plu ou déçu dans ton repas ?", "answer": "Du poisson grillé avec des légumes. La cuisson était réussie, mais j'ai trouvé l'accompagnement un peu petit.", "follow_up_to": null},
+        {"topic": "Expérience sur place", "question": "Tu as trouvé l'ambiance agréable pour discuter, et comment s'est passé le service ?", "answer": "La salle était animée, mais on s'entendait bien. Le personnel était accueillant ; en revanche, nous avons attendu une demi-heure pour les plats.", "follow_up_to": null},
+        {"topic": "Expérience sur place", "question": "Comme tu as attendu pour les plats, tu me conseillerais d'y aller à quelle heure pour éviter le coup de feu ?", "answer": "J'irais dès le début du service, en vérifiant l'horaire du jour. Pour nous, vers vingt heures, la salle était déjà bien remplie.", "follow_up_to": 4, "condition": "If service was slow or the restaurant busy; adapt to their experience."},
+        {"topic": "Budget et réservation", "question": "Combien as-tu payé par personne, et qu'est-ce qui était compris dans ce montant ?", "answer": "Environ 45 $ pour un plat et une boisson sans alcool, taxes et pourboire compris. Je n'ai pris ni entrée ni dessert.", "follow_up_to": null},
+        {"topic": "Budget et réservation", "question": "Est-ce que tu avais réservé ta table, et comment t'y es-tu pris ?", "answer": "J'avais réservé la veille par téléphone ; pour le week-end, je m'y prendrais plus tôt.", "follow_up_to": null},
+        {"topic": "Budget et réservation", "question": "Tu sais où consulter la carte et les horaires à jour avant que je réserve ?", "answer": "La carte et les horaires sont sur leur site. Je t'enverrai le lien avec l'adresse du restaurant.", "follow_up_to": null}
       ]
     },
     {

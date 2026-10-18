@@ -276,18 +276,18 @@
     {
       "group": "friend-choose-tonight-outing",
       "register": "tu",
-      "note": "You want to go out tonight with your friend but have no precise idea: let them suggest something, then clarify the place, price and transport there and back. Finish by fixing a meeting time. Use tu with your friend.",
-      "opening": "Salut ! J'ai envie de sortir ce soir, mais je n'ai aucune idée précise. Aide-moi à choisir !",
-      "closing": "Merci, c'est parfait ! Ta proposition me plaît beaucoup : à ce soir !",
+      "note": "You and a friend are choosing an outing for tonight, not a distant future event. Use tu. Start with their suggestion, then check atmosphere, duration, full budget and places still available. Do not ask again for a start time already given, or call a concert a séance. Agree on travel both ways and a meeting point. The jazz concert, prices and bus times are examples to adapt and verify.",
+      "opening": "Salut ! J'ai envie de sortir ce soir, mais je ne sais pas encore quoi faire.",
+      "closing": "Merci, ça me tente bien ! On réserve les places et on se retrouve tout à l'heure.",
       "questions": [
-        {"topic": "Endroit", "question": "Qu'est-ce que tu proposerais pour ce soir ?", "answer": "Un concert de jazz dans un petit bar du centre-ville, à 21 h.", "follow_up_to": null},
-        {"topic": "Endroit", "question": "Faut-il réserver pour ce soir et, s'il reste des places, peux-tu appeler directement le bar ?", "answer": "Oui, il reste des places malgré la petite salle ; j'appelle le bar tout de suite.", "follow_up_to": 1, "condition": "After an outing is suggested, if the venue may be busy."},
-        {"topic": "Endroit", "question": "À quelle heure commence la séance, et combien de temps dure-t-elle ?", "answer": "Elle commence à 21 h et dure environ deux heures.", "follow_up_to": null},
-        {"topic": "Prix", "question": "Quel est le prix d'entrée, et faut-il obligatoirement prendre une consommation ?", "answer": "L'entrée coûte 15 $ par personne ; aucune consommation minimale n'est imposée.", "follow_up_to": null},
-        {"topic": "Prix", "question": "Et si on mangeait quelque chose avant, ça nous reviendrait cher ?", "answer": "Pas du tout : la pizzeria d'à côté propose une part de pizza et une boisson pour 8 $.", "follow_up_to": null},
-        {"topic": "Transport et rendez-vous", "question": "Pour y aller, le bus serait-il plus pratique que le métro ou un taxi ?", "answer": "Oui : la ligne qui passe devant chez toi nous dépose à deux rues du bar.", "follow_up_to": null},
-        {"topic": "Transport et rendez-vous", "question": "Et pour le retour, à la fin de la soirée ?", "answer": "Le dernier bus passe à minuit et quart ; sinon, on partagera un taxi.", "follow_up_to": 6, "condition": "After the outbound route is given, unless the return is covered."},
-        {"topic": "Transport et rendez-vous", "question": "À quelle heure et à quel endroit précis pourrait-on se retrouver ?", "answer": "À 19 h 30 à l'arrêt de bus, ce qui nous laissera le temps de manger.", "follow_up_to": null}
+        {"topic": "Choix de la sortie", "question": "Qu'est-ce que tu me proposerais pour ce soir, et qu'est-ce qu'on pourrait y faire ?", "answer": "Un concert de jazz dans un petit bar du centre-ville ; le programme annonce un groupe à vingt et une heures.", "follow_up_to": null},
+        {"topic": "Choix de la sortie", "question": "Tu connais l'ambiance de ce bar : on peut y discuter un peu, ou c'est surtout pour écouter le concert ?", "answer": "J'y suis déjà allé : on peut discuter avant le concert ; pendant, on écoute surtout la musique.", "follow_up_to": 1, "condition": "If a venue is suggested without describing its atmosphere or how concerts work."},
+        {"topic": "Choix de la sortie", "question": "Le concert dure à peu près combien de temps, pour qu'on puisse organiser le reste de la soirée ?", "answer": "Environ deux heures ; on devrait sortir vers vingt-trois heures, sans compter un éventuel rappel.", "follow_up_to": 1, "condition": "If the start time is known but concert duration remains unclear."},
+        {"topic": "Budget et réservation", "question": "Combien coûte l'entrée, et quel budget faudrait-il prévoir si on prend une boisson sur place ?", "answer": "L'entrée est annoncée à 15 $. Avec une boisson, je garderais 25 $ environ, à vérifier sur la carte.", "follow_up_to": null},
+        {"topic": "Budget et réservation", "question": "Si on mange avant, tu connais un endroit pas trop cher près du bar, et on aurait le temps d'y passer ?", "answer": "Une pizzeria deux rues plus loin propose une formule à 12 $. Si on y est vers dix-neuf heures trente, on devrait avoir le temps avant le concert.", "follow_up_to": null},
+        {"topic": "Budget et réservation", "question": "Ça me tente ; tu peux vérifier s'il reste des places pour ce soir et comment on peut les réserver ?", "answer": "Sur le site, je vois encore des places pour le concert de ce soir. On peut y réserver les billets directement.", "follow_up_to": 4, "condition": "Once the outing appeals to you, before committing to tickets for tonight."},
+        {"topic": "Trajets et rendez-vous", "question": "Comment pourrait-on y aller sans trop dépenser, et quelle solution aurait-on pour rentrer après le concert ?", "answer": "On peut prendre le bus à l'aller ; le dernier retour est annoncé à minuit et quart. Sinon, un taxi à partager coûtera plus cher.", "follow_up_to": null},
+        {"topic": "Trajets et rendez-vous", "question": "À quelle heure et où pourrait-on se retrouver pour avoir le temps de manger et d'arriver avant le concert ?", "answer": "À dix-neuf heures quinze à l'arrêt de bus près de chez toi ; on rejoindra la pizzeria vers dix-neuf heures trente.", "follow_up_to": 7, "condition": "After travel is agreed, if the meeting point or time remains unclear."}
       ]
     },
     {

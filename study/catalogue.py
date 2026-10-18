@@ -63,6 +63,12 @@ def tache_three_subject_hints() -> Mapping[str, content.SpeakingHintsData]:
     return MappingProxyType(content.load_tache_three_subject_hints())
 
 
+def tache_three_subject_plan(semantic_group: str) -> content.SpeakingHintsData | None:
+    if not semantic_group.startswith("eo/tache-3/"):
+        return None
+    return tache_three_subject_hints().get(semantic_group)
+
+
 @lru_cache(maxsize=1)
 def tache_three_models() -> Mapping[str, TacheThreeModel]:
     from .tache_three_models import load_tache_three_models

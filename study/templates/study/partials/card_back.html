@@ -74,7 +74,7 @@
         <a class="chip" href="{{ detail_url }}">Ouvrir la fiche {% include "study/partials/ui_icon.html" with name="external-link" only %}</a>
       </p>
     {% endif %}
-  </div>
+  </div>{% if eo3_pistes %}<div data-annotation-exclude>{% spaceless %}{% include "study/partials/speaking_hints.html" with hints=eo3_pistes only %}{% endspaceless %}</div>{% endif %}
 {% else %}
   <div class="answer">
     {% if production %}

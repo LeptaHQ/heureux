@@ -113,6 +113,16 @@ class SpeakingHintsContentTests(SimpleTestCase):
             self.assertEqual(catalogue.tache_three_subject_hints(), plans)
             self.assertEqual(loader.call_count, 2)
 
+    def test_plan_selector_is_task_scoped_and_has_no_generic_fallback(self):
+        with patch.object(catalogue, "tache_three_subject_hints", side_effect=AssertionError("Wrong task")):
+            for group in ("", "ee/tache-3/example", "eo/tache-2/example"):
+                self.assertIsNone(catalogue.tache_three_subject_plan(group))
+        self.assertIsNone(catalogue.tache_three_subject_plan("eo/tache-3/ad-hoc"))
+        self.assertIs(
+            catalogue.tache_three_subject_plan("eo/tache-3/culture-p1"),
+            catalogue.tache_three_subject_hints()["eo/tache-3/culture-p1"],
+        )
+
     def test_missing_unknown_and_duplicate_groups_are_rejected(self):
         for remove in (True, False):
             invalid = copy.deepcopy(self.payload)
@@ -215,7 +225,12 @@ class SpeakingPromptNotesViewTests(TestCase):
                 self.assertContains(page, "Comprendre la consigne", count=1)
                 self.assertContains(page, 'class="eo2-prompt-note eo3-prompt-note"')
                 self.assertNotContains(page, "Voir les pistes")
-                self.assertNotContains(page, 'id="subject-hints-title"')
+                self.assertContains(page, 'id="subject-hints-title"', count=1)
+                plan = catalogue.tache_three_subject_hints()[prompt.response.semantic_group]
+                self.assertIs(page.context["subject_hints"], plan)
+                self.assertContains(page, 'class="subject-hints__french"', count=9)
+                self.assertContains(page, 'class="subject-hints__english"', count=9)
+                self.assertContains(page, "Exemple possible", count=3)
                 self.assertEqual(
                     [argument.idea for argument in page.context["arguments"]],
                     [argument.idea for argument in
@@ -246,9 +261,12 @@ class SpeakingPromptNotesViewTests(TestCase):
         before_cards = list(Card.objects.filter(user=self.user, response=prompt.response).values())
         before_mark = Annotation.objects.filter(pk=mark.pk).values().get()
         expected = catalogue.tache_three_prompt_notes()[prompt.response.semantic_group]
+        plan = catalogue.tache_three_subject_hints()[prompt.response.semantic_group]
         page = self.client.get(prompt_detail_url(prompt))
         self.assertContains(page, "Ma propre position")
         self.assertIs(page.context["eo3_prompt_note"], expected)
+        self.assertIs(page.context["subject_hints"], plan)
+        self.assertContains(page, "Un plan possible pour la réponse modèle")
         self.assertTrue(page.context["subject_progress"].explicitly_completed)
         self.assertEqual(PersonalResponse.objects.filter(pk=personal.pk).values().get(), before_personal)
         self.assertEqual(list(Card.objects.filter(user=self.user, response=prompt.response).values()), before_cards)
@@ -256,19 +274,26 @@ class SpeakingPromptNotesViewTests(TestCase):
         self.client.force_login(factories.make_user("other-speaking-hints"))
         other = self.client.get(prompt_detail_url(prompt))
         self.assertIs(other.context["eo3_prompt_note"], expected)
+        self.assertIs(other.context["subject_hints"], plan)
         self.assertNotContains(other, "Ma propre position")
         self.assertFalse(other.context["subject_progress"].explicitly_completed)
 
     def test_existing_annotated_sidebar_markup_remains_identical(self):
         url = prompt_detail_url(self.prompt("culture:p1"))
         page = self.client.get(url)
-        with patch("study.views.oral.prompt_note_for_response", return_value=None):
+        with (
+            patch("study.views.oral.prompt_note_for_response", return_value=None),
+            patch.object(catalogue, "tache_three_subject_plan", return_value=None),
+        ):
             baseline = self.client.get(url)
 
         def sidebar(response):
             match = re.search(r'<aside class="detail-side" data-annotation-root.*?</aside>', response.content.decode(), re.S)
             self.assertIsNotNone(match)
-            return re.sub(r'(name="csrfmiddlewaretoken" value=")[^"]+', r'\1CSRF', match.group())
+            return re.sub(r'(name="csrfmiddlewaretoken" value=")[^"]+', r'\1CSRF', match.group()).replace(
+                'response-sidebar-card--phrases hidden" hidden',
+                'response-sidebar-card--phrases"',
+            )
 
         self.assertEqual(sidebar(page), sidebar(baseline))
         self.assertNotIn("subject-hints", sidebar(page))
@@ -284,7 +309,10 @@ class SpeakingPromptNotesViewTests(TestCase):
     def test_warm_note_requests_do_not_reread_sources_or_add_queries(self):
         url = prompt_detail_url(self.prompt("culture:p1"))
         self.client.get(url)
-        with patch("study.tache_three_prompt_notes.load_tache_three_prompt_notes", side_effect=AssertionError("Uncached notes")):
+        with (
+            patch("study.tache_three_prompt_notes.load_tache_three_prompt_notes", side_effect=AssertionError("Uncached notes")),
+            patch.object(content, "load_tache_three_subject_hints", side_effect=AssertionError("Uncached plans")),
+        ):
             with patch.object(content, "parse_responses", side_effect=AssertionError("Uncached source")):
                 with CaptureQueriesContext(connection) as with_hints:
                     page = self.client.get(url)

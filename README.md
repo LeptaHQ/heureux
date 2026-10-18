@@ -255,16 +255,23 @@ The EO2 sidebar retains completion, personalisation and individual practice cont
 practice statistics and vocabulary are no longer displayed there. Vocabulary and
 its saved practice data remain available in their existing dedicated views.
 
-EO task 3 replaces the **Voir les pistes** shortcut and plan card with a collapsed
-English **Comprendre la consigne** explanation on the subject and practice front,
+EO task 3 provides a collapsed English **Comprendre la consigne** explanation on
+the subject and practice front,
 using the same disclosure style as EO2. The 131 source-pinned notes in
 `study/content/tache_3/prompt_notes.json` cover all 167 publications. Each explains
 the exact question, useful terms, concrete discussion angles and scope traps
 without imposing a position or inventing a learner's biography. They remain
 editorial guidance, not personal answer content, and are excluded from annotation
 offsets and French read-aloud text. EO2's editable notes and all EE surfaces remain
-unchanged. Previous bilingual plans stay in `study/content/tache_3/hints.json`
-as preserved reference content; they are no longer displayed on EO3 subject pages.
+unchanged. The bilingual plans in `study/content/tache_3/hints.json` appear as
+subject-specific **Pistes** on EO3 detail pages and practice backs: introduction
+and position, three arguments with examples, nuance and conclusion. English and
+French cues use the same presentation as EO2. These shared model plans remain
+independent of personal answers and complement **Comprendre la consigne**.
+The generic **Expressions liées** block is no longer shown on these detail pages.
+Its legacy sidebar markup stays hidden to keep historical annotation offsets
+exact; expressions, study lots and saved progress remain available in their
+existing study collections.
 
 Reviewed EO task 3 defaults live in `study/content/tache_3/responses/`, with
 complete theme coverage and every equivalent source question pinned. They use

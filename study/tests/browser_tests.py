@@ -27,6 +27,7 @@ from study.management.commands.import_content import Command
 from study.models import (
     Annotation,
     AnnotationKind,
+    Card,
     CardState,
     CardType,
     ComprehensionMode,
@@ -2766,7 +2767,10 @@ class BrowserTests(StaticLiveServerTestCase):
         self._import_eo_tache_three_content()
         prompt = Prompt.objects.select_related("theme__task__part").get(content_key="culture:p1")
         url = prompt_detail_url(prompt)
-        with mock.patch("study.views.oral.prompt_note_for_response", return_value=None):
+        with (
+            mock.patch("study.views.oral.prompt_note_for_response", return_value=None),
+            mock.patch("study.catalogue.tache_three_subject_plan", return_value=None),
+        ):
             self.page.goto(self.live_server_url + url)
             expect(self.page.locator(".subject-hints")).to_have_count(0)
             roots = self.page.locator(".answer-columns[data-annotation-root], aside[data-annotation-root]")
@@ -2791,7 +2795,10 @@ class BrowserTests(StaticLiveServerTestCase):
                 start_offset=root["start"], end_offset=root["end"],
                 prefix=root["prefix"], suffix=root["suffix"],
             )
-        with mock.patch("study.views.oral.prompt_note_for_response", return_value=None):
+        with (
+            mock.patch("study.views.oral.prompt_note_for_response", return_value=None),
+            mock.patch("study.catalogue.tache_three_subject_plan", return_value=None),
+        ):
             self.page.reload()
             expect(self.page.locator("mark.user-highlight")).to_have_count(2)
             original_text = roots.evaluate_all("roots => roots.map(root => root.textContent)")
@@ -2808,7 +2815,13 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertTrue(note.evaluate(
             "note => note.closest('[data-annotation-root]') === null"
         ))
-        expect(self.page.locator(".subject-hints")).to_have_count(0)
+        plan = self.page.locator(".subject-hints--speaking")
+        expect(plan).to_be_visible()
+        self.assertTrue(plan.evaluate(
+            "plan => plan.closest('[data-annotation-root]') === null"
+        ))
+        expect(plan.locator(".subject-hints__french")).to_have_count(9)
+        expect(plan.locator(".subject-hints__english")).to_have_count(9)
         self.assertTrue(note.evaluate(
             "note => note.closest('[data-read-aloud-text]') === null"
         ))
@@ -2832,6 +2845,14 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertTrue(practice_note.evaluate(
             "note => note.hasAttribute('data-annotation-exclude') && "
             "note.closest('[data-read-aloud-text]') === null"
+        ))
+        expect(front.locator(".subject-hints")).to_have_count(0)
+        self.page.locator("#reveal").click()
+        practice_plan = self.page.locator("#card-back .subject-hints--speaking")
+        expect(practice_plan).to_be_visible()
+        self.assertTrue(practice_plan.evaluate(
+            "plan => plan.closest('[data-annotation-exclude]') !== null && "
+            "plan.closest('[data-read-aloud-text]') === null"
         ))
 
     def test_equivalent_eo3_prompt_notes_work_without_javascript_on_mobile(self):
@@ -2868,10 +2889,59 @@ class BrowserTests(StaticLiveServerTestCase):
                         page.evaluate("document.documentElement.scrollWidth"),
                         page.evaluate("window.innerWidth") + 1,
                     )
-                    expect(page.locator(".subject-hints")).to_have_count(0)
+                    plan = page.locator(".subject-hints--speaking")
+                    expect(plan).to_be_visible()
+                    expect(plan.locator(".subject-hints__french")).to_have_count(9)
+                    expect(plan.locator(".subject-hints__english")).to_have_count(9)
                 expect(page.get_by_role("heading", name="Versions du sujet")).to_have_count(0)
         finally:
             context.close()
+
+    def test_eo3_pistes_hide_linked_expressions_without_losing_their_learning_data(self):
+        self._import_eo_tache_three_content()
+        prompt = Prompt.objects.select_related("theme__task__part").get(content_key="culture:p1")
+        phrase = factories.make_phrase()
+        phrase.source_prompts.add(prompt)
+        card = factories.make_phrase_card(user=self.user, phrase=phrase, reps=4)
+        url = prompt_detail_url(prompt)
+        with mock.patch("study.catalogue.tache_three_subject_plan", return_value=None):
+            self.page.goto(self.live_server_url + url)
+            legacy = self.page.locator(".response-sidebar-card--phrases [data-annotation-root]")
+            expect(legacy).to_be_visible()
+            anchor = legacy.evaluate("""root => {
+                const quote = root.querySelector("[data-recall-content]").textContent;
+                const text = root.textContent;
+                const start = text.indexOf(quote);
+                return { quote, text, start, end: start + quote.length,
+                  key: root.dataset.annotationSourceKey,
+                  prefix: text.slice(Math.max(0, start - 160), start),
+                  suffix: text.slice(start + quote.length, start + quote.length + 160) };
+            }""")
+        marks = [
+            Annotation.objects.create(
+                user=self.user, task=prompt.theme.task, kind=kind,
+                source_path=url, source_key=anchor["key"], quote=anchor["quote"],
+                start_offset=anchor["start"], end_offset=anchor["end"],
+                prefix=anchor["prefix"], suffix=anchor["suffix"],
+                body="Keep my expression note." if kind == AnnotationKind.NOTE else "",
+            )
+            for kind in (AnnotationKind.NOTE, AnnotationKind.HIGHLIGHT)
+        ]
+        mark_ids = [mark.pk for mark in marks]
+        before_marks = list(Annotation.objects.filter(pk__in=mark_ids).values())
+        before_card = list(Card.objects.filter(pk=card.pk).values())
+        self.page.reload()
+        expect(self.page.locator(".response-sidebar-card--phrases")).to_be_hidden()
+        expect(self.page.locator(".subject-hints--speaking")).to_be_visible()
+        expect(self.page.locator("details.eo3-prompt-note")).to_be_visible()
+        expect(legacy.locator("mark.user-highlight")).to_have_count(1)
+        self.assertEqual(legacy.text_content(), anchor["text"])
+        self.assertEqual(list(Annotation.objects.filter(pk__in=mark_ids).values()), before_marks)
+        self.assertEqual(list(Card.objects.filter(pk=card.pk).values()), before_card)
+        phrase.refresh_from_db()
+        self.assertEqual(phrase.expression, anchor["quote"])
+        self.assertTrue(phrase.source_prompts.filter(pk=prompt.pk).exists())
+        self.assert_no_horizontal_overflow()
 
     def test_eo3_sidebar_highlight_survives_removed_progress_help(self):
         self._import_eo_tache_three_content()

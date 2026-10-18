@@ -198,6 +198,18 @@ after changes. Notes sit outside detail annotation roots and carry annotation
 exclusion on practice fronts. Only the French prompt is a read-aloud target.
 Native disclosure works with keyboard controls and without JavaScript.
 
-The former bilingual plans in `tache_3/hints.json` are preserved reference content,
-not displayed EO3 guidance. Changing their presentation must not rewrite response
-models, source identities, vocabulary or saved learner data.
+The bilingual plans in `tache_3/hints.json` provide subject-specific **Pistes**
+alongside the separate prompt explanation. Each model plan cues its introduction
+and position, three arguments and examples, nuance and conclusion. Keep it aligned
+with the reviewed model and every equivalent consigne; never generate it from a
+private answer. Both languages use EO2's shared hint-text presentation.
+
+Pistes replace the visible generic **Expressions liées** block on bundled EO3
+detail pages, outside both existing annotation roots. The old expression block
+remains hidden, with its exact text unchanged, so historical sidebar highlights
+keep their offsets. Underlying expressions, cards and lot progress are not deleted
+or rewritten. Ad-hoc responses without an editorial plan receive no invented plan.
+Practice backs show the same Pistes after the response, excluded from annotation
+offsets and read-aloud text; practice fronts keep the prompt explanation without
+revealing the plan. Do not rewrite response models, source identities, vocabulary
+or saved learner data when changing guidance presentation.

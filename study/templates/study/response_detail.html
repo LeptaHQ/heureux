@@ -188,7 +188,7 @@
     {% endif %}
 
     {% if related_phrases %}
-      <div class="card section-card response-sidebar-card response-sidebar-card--phrases">
+      <div class="card section-card response-sidebar-card response-sidebar-card--phrases{% if subject_hints %} hidden{% endif %}"{% if subject_hints %} hidden{% endif %}>
         <div class="response-batches__head">
           <div class="spine-label">Expressions liées</div>
           <span class="progress-status progress-status--{{ phrase_batch_progress.status }}">{{ phrase_batch_progress.label }}</span>

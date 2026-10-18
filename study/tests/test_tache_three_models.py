@@ -721,6 +721,15 @@ class TacheThreeModelViewTests(TestCase):
                     self.assertContains(page, "Exemple concret", count=3)
                     note = catalogue.tache_three_prompt_notes()[model.group]
                     self.assertContains(page, escape(note.note))
+                    plan = catalogue.tache_three_subject_hints()[model.group]
+                    self.assertIs(page.context["subject_hints"], plan)
+                    for cue in (
+                        plan.introduction,
+                        *(cue for argument in plan.arguments for cue in (argument.point, argument.example)),
+                        plan.nuance, plan.conclusion,
+                    ):
+                        self.assertContains(page, escape(cue.french))
+                        self.assertContains(page, escape(cue.english))
                     self.assertEqual(json.loads(page.context["oral_legacy_annotation_keys"]), [])
                     card = Card.objects.get(user=self.user, response=prompt.response, card_type=CardType.SPINE)
                     payload = card_payload(card, prompt=prompt)
@@ -728,7 +737,10 @@ class TacheThreeModelViewTests(TestCase):
                     front = render_to_string("study/partials/card_front.html", payload)
                     self.assertIn("Comprendre la consigne", front)
                     self.assertIn(escape(note.note), front)
+                    self.assertNotIn("subject-hints--speaking", front)
+                    self.assertIs(payload["eo3_pistes"], plan)
                     rendered = render_to_string("study/partials/card_back.html", payload)
+                    self.assertIn("subject-hints--speaking", rendered)
                     self.assert_model_order("<div data-annotation-root>" + rendered + "</div>", model.response)
                     self.assertEqual(rendered.count("Exemple concret"), 3)
                     self.assertEqual(payload["response_content"], model.response)

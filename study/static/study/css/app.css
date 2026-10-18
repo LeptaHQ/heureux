@@ -8634,21 +8634,49 @@ html[data-input-mode="pen"] .selection-translate__shortcut { display: none; }
 .panel-action--save { --panel-action-tint: #16a34a; }
 .panel-action--paste { --panel-action-tint: #7c3aed; }
 .panel-action--copy { --panel-action-tint: #0284c7; }
-.panel-action--external {
-  --panel-action-tint: var(--warning);
-  background: var(--warning-soft);
-}
 .panel-action--cancel,
 .panel-action--close { --panel-action-tint: var(--text-soft); }
 .panel-action--copy.is-done {
   --panel-action-tint: #16a34a;
   background: color-mix(in srgb, #16a34a 18%, var(--surface));
 }
+/* Google Translate stays neutral so the coloured G carries the brand. */
+.panel-action--google {
+  --panel-action-tint: #4285f4;
+  border-color: color-mix(in srgb, var(--text) 14%, var(--border));
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+}
+.panel-action--google:hover {
+  border-color: color-mix(in srgb, var(--text) 24%, var(--border));
+  background: var(--surface-2);
+  color: var(--text);
+  text-decoration: none;
+  box-shadow: 0 6px 14px -9px color-mix(in srgb, var(--text) 55%, transparent);
+}
+.panel-action .panel-action__google-logo {
+  width: 20px;
+  height: 20px;
+  stroke: none;
+}
 /* Google Translate becomes the recommended route when local translation fails. */
-.panel-action--external.is-suggested {
-  border-color: var(--panel-action-tint);
-  background: var(--warning-soft);
-  color: var(--panel-action-tint);
+.panel-action--google.is-suggested {
+  width: auto;
+  grid-auto-flow: column;
+  gap: 0.55rem;
+  padding: 0 1.05rem 0 0.8rem;
+  border-color: color-mix(in srgb, var(--panel-action-tint) 45%, var(--border));
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--panel-action-tint) 14%, transparent);
+  font-size: 0.86rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.panel-action--google.is-suggested:hover {
+  border-color: color-mix(in srgb, var(--panel-action-tint) 60%, var(--border));
+  box-shadow:
+    0 0 0 3px color-mix(in srgb, var(--panel-action-tint) 18%, transparent),
+    0 6px 14px -9px color-mix(in srgb, var(--text) 55%, transparent);
 }
 .panel-action.is-busy::after {
   content: "";

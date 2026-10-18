@@ -9120,13 +9120,18 @@ class BrowserTests(StaticLiveServerTestCase):
                 )
             self.assert_no_horizontal_overflow()
 
-    def test_translation_external_link_is_round_and_yellow_in_both_themes(self):
+    def test_translation_google_link_is_round_and_neutral_in_both_themes(self):
         self.page.goto(
             self.live_server_url
             + reverse("study:task_notes", args=[self.part.slug, self.task.slug])
         )
         external = self.page.locator("[data-translation-fallback]")
-        expect(external.locator('[data-icon="google"]')).to_have_count(1)
+        logo = external.locator('[data-icon="google"]')
+        expect(logo).to_have_count(1)
+        fills = logo.locator("path").evaluate_all(
+            "paths => paths.map(path => path.getAttribute('fill').toUpperCase())"
+        )
+        self.assertEqual(sorted(fills), ["#34A853", "#4285F4", "#EA4335", "#FBBC05"])
         for width in (390, 1183):
             self.page.set_viewport_size({"width": width, "height": 844})
             for theme in ("light", "dark"):
@@ -9137,32 +9142,44 @@ class BrowserTests(StaticLiveServerTestCase):
                     with self.subTest(width=width, theme=theme, suggested=suggested):
                         styles = external.evaluate(
                             """(element, suggested) => {
+                              element.closest("[data-translation-panel]").classList.remove("hidden");
+                              element.style.transition = "none";
+                              const label = element.querySelector("[data-translation-fallback-label]");
                               element.classList.toggle("is-suggested", suggested);
+                              label.classList.toggle("sr-only", !suggested);
+                              label.textContent = suggested ? "Open Google Translate" : "Google Translate";
                               const probe = document.createElement("span");
-                              probe.style.backgroundColor = "var(--warning-soft)";
-                              probe.style.color = "var(--warning)";
+                              probe.style.backgroundColor = "var(--surface)";
                               element.parentElement.append(probe);
                               const expected = getComputedStyle(probe);
                               const style = getComputedStyle(element);
+                              const box = element.getBoundingClientRect();
+                              const logo = getComputedStyle(element.querySelector('[data-icon="google"]'));
                               const values = {
                                 radius: parseFloat(style.borderTopLeftRadius),
-                                width: parseFloat(style.width),
-                                height: parseFloat(style.height),
+                                width: box.width,
+                                height: box.height,
                                 background: style.backgroundColor,
-                                color: style.color,
                                 expectedBackground: expected.backgroundColor,
-                                expectedColor: expected.color,
+                                logoStroke: logo.stroke,
+                                overflows: element.scrollWidth > element.clientWidth + 1,
                               };
                               probe.remove();
                               return values;
                             }""",
                             suggested,
                         )
+                        self.assertGreater(styles["height"], 0)
                         self.assertGreaterEqual(
                             styles["radius"], min(styles["width"], styles["height"]) / 2,
                         )
+                        if suggested:
+                            self.assertGreater(styles["width"], styles["height"] * 3)
+                        else:
+                            self.assertAlmostEqual(styles["width"], styles["height"], delta=1)
                         self.assertEqual(styles["background"], styles["expectedBackground"])
-                        self.assertEqual(styles["color"], styles["expectedColor"])
+                        self.assertEqual(styles["logoStroke"], "none")
+                        self.assertFalse(styles["overflows"])
         self.assertEqual(external.get_attribute("target"), "_blank")
         self.assertIn("noopener", external.get_attribute("rel").split())
 

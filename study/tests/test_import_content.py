@@ -1005,12 +1005,25 @@ class ImportFingerprintTests(TestCase):
         for path in (
             content.CONTENT_DIR / "sections.json",
             content.ORAL_SEMANTIC_GROUP_PATHS["eo/tache-2"],
+            content.CONTENT_DIR / "tache_3" / "prompt_notes.json",
+            content.CONTENT_DIR.parent / "tache_three_prompt_notes.py",
         ):
             with self.subTest(path=path):
                 self.assertNotEqual(
                     Command._source_fingerprint(),
                     self._fingerprint_with_changed_bytes(path),
                 )
+
+    def test_invalid_eo3_explanations_stop_import_before_content_writes(self):
+        with (
+            patch("study.tache_three_prompt_notes.load_tache_three_prompt_notes",
+                  side_effect=ValueError("Invalid EO3 prompt notes")),
+            patch.object(Command, "_import_sections") as write_content,
+        ):
+            with self.assertRaisesMessage(ValueError, "Invalid EO3 prompt notes"):
+                call_command("import_content", stdout=StringIO())
+        write_content.assert_not_called()
+        self.assertFalse(ContentImportState.objects.exists())
 
     def test_writing_identity_helpers_invalidate_the_fingerprint(self):
         self.assertNotEqual(

@@ -671,6 +671,7 @@ class OralCorpusUpgradeTests(TestCase):
             patch.object(content, "parse_responses", content.parse_response_storage),
             patch.object(content, "parse_tache_two_responses", content.parse_tache_two_storage_responses),
             patch("study.tache_three_models.load_tache_three_models", return_value={}),
+            patch("study.tache_three_prompt_notes.load_tache_three_prompt_notes", return_value={}),
         ):
             call_command("import_content", stdout=StringIO())
         users = [factories.make_user("upgrade-a"), factories.make_user("upgrade-b")]

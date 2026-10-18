@@ -19,6 +19,7 @@ from .tache_two_location_history import LocationHistory, load_location_history
 
 if TYPE_CHECKING:
     from .tache_three_models import TacheThreeModel
+    from .tache_three_prompt_notes import TacheThreePromptNote
 
 
 @lru_cache(maxsize=1)
@@ -67,6 +68,13 @@ def tache_three_models() -> Mapping[str, TacheThreeModel]:
     from .tache_three_models import load_tache_three_models
 
     return MappingProxyType(load_tache_three_models())
+
+
+@lru_cache(maxsize=1)
+def tache_three_prompt_notes() -> Mapping[str, TacheThreePromptNote]:
+    from .tache_three_prompt_notes import load_tache_three_prompt_notes
+
+    return MappingProxyType(load_tache_three_prompt_notes())
 
 
 @lru_cache(maxsize=1)
@@ -147,6 +155,7 @@ def clear_catalogue_cache() -> None:
     tache_two_location_history.cache_clear()
     tache_three_subject_hints.cache_clear()
     tache_three_models.cache_clear()
+    tache_three_prompt_notes.cache_clear()
     ee_tache_one_subject_hints.cache_clear()
     task_memoires.cache_clear()
     eo_tache_three_family_labels.cache_clear()

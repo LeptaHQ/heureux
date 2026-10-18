@@ -251,14 +251,16 @@ The EO2 sidebar retains completion, personalisation and individual practice cont
 practice statistics and vocabulary are no longer displayed there. Vocabulary and
 its saved practice data remain available in their existing dedicated views.
 
-EO task 3 adds a structured speaking plan in `study/content/tache_3/hints.json`:
-introduction and stance, three arguments with illustrative examples, a nuance,
-and a conclusion. French cues appear above their English meanings. Every semantic
-group shares one coherent possible plan anchored in its canonical model, not a
-live summary of a learner's personal answer. Plans are limited to 140 French words;
-missing groups, incomplete translations and duplicate argument cues are rejected.
-The new card sits outside the existing annotation roots so it cannot shift saved
-response or sidebar highlights. Existing study controls and vocabulary remain.
+EO task 3 replaces the **Voir les pistes** shortcut and plan card with a collapsed
+English **Comprendre la consigne** explanation on the subject and practice front,
+using the same disclosure style as EO2. The 131 source-pinned notes in
+`study/content/tache_3/prompt_notes.json` cover all 167 publications. Each explains
+the exact question, useful terms, concrete discussion angles and scope traps
+without imposing a position or inventing a learner's biography. They remain
+editorial guidance, not personal answer content, and are excluded from annotation
+offsets and French read-aloud text. EO2's editable notes and all EE surfaces remain
+unchanged. Previous bilingual plans stay in `study/content/tache_3/hints.json`
+as preserved reference content; they are no longer displayed on EO3 subject pages.
 
 Reviewed EO task 3 defaults live in `study/content/tache_3/responses/`, with
 complete theme coverage and every equivalent source question pinned. They use

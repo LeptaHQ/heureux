@@ -8,6 +8,7 @@ from ..oral_history import preferred_personal, variant_annotation_key
 from ..response_personalization import effective_response
 from ..routing import TACHE_TWO_PROMPT_KEY, review_url
 from ..tache_three_models import reviewed_model
+from ..tache_three_prompt_notes import prompt_note_for_response
 
 
 def oral_response_context(request, prompt):
@@ -35,6 +36,7 @@ def oral_response_context(request, prompt):
     return {
         "response_content": value,
         "reviewed_eo3": reviewed_eo3,
+        "eo3_prompt_note": prompt_note_for_response(response, prompt),
         "oral_annotation_key": variant_annotation_key(prompt, value),
         "oral_legacy_annotation_keys": json.dumps(legacy_keys),
         "response_review_url": review_url({

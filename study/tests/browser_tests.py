@@ -2760,11 +2760,11 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(self.page.locator("#oral-response-copy")).to_have_count(0)
         expect(self.page.get_by_role("button", name="Copier la consigne")).to_be_visible()
 
-    def test_eo3_hints_preserve_existing_answer_and_sidebar_highlights(self):
+    def test_eo3_prompt_notes_preserve_existing_answer_and_sidebar_highlights(self):
         self._import_eo_tache_three_content()
         prompt = Prompt.objects.select_related("theme__task__part").get(content_key="culture:p1")
         url = prompt_detail_url(prompt)
-        with mock.patch("study.views.library.catalogue.tache_three_subject_hints", return_value={}):
+        with mock.patch("study.views.oral.prompt_note_for_response", return_value=None):
             self.page.goto(self.live_server_url + url)
             expect(self.page.locator(".subject-hints")).to_have_count(0)
             roots = self.page.locator(".answer-columns[data-annotation-root], aside[data-annotation-root]")
@@ -2789,25 +2789,50 @@ class BrowserTests(StaticLiveServerTestCase):
                 start_offset=root["start"], end_offset=root["end"],
                 prefix=root["prefix"], suffix=root["suffix"],
             )
-        with mock.patch("study.views.library.catalogue.tache_three_subject_hints", return_value={}):
+        with mock.patch("study.views.oral.prompt_note_for_response", return_value=None):
             self.page.reload()
             expect(self.page.locator("mark.user-highlight")).to_have_count(2)
             original_text = roots.evaluate_all("roots => roots.map(root => root.textContent)")
         self.page.reload()
-        expect(self.page.get_by_role("heading", name="Pistes", exact=True)).to_be_visible()
+        note = self.page.locator("details.eo3-prompt-note")
+        expect(note).not_to_have_attribute("open", "")
+        note.locator("summary").focus()
+        self.page.keyboard.press("Enter")
+        expect(note).to_have_attribute("open", "")
+        expect(note.locator('p[lang="en"]')).to_be_visible()
+        expect(self.page.get_by_role("link", name="Voir les pistes", exact=True)).to_have_count(0)
         expect(self.page.locator("mark.user-highlight")).to_have_count(2)
         self.assertEqual(roots.evaluate_all("roots => roots.map(root => root.textContent)"), original_text)
-        self.assertTrue(self.page.locator(".subject-hints").evaluate(
-            "hints => hints.closest('[data-annotation-root]') === null"
+        self.assertTrue(note.evaluate(
+            "note => note.closest('[data-annotation-root]') === null"
         ))
-        expect(self.page.locator(".subject-hints__arguments > li")).to_have_count(3)
-        expect(self.page.locator(".subject-hints__example")).to_have_count(3)
-        expect(self.page.locator(".subject-hints__french")).to_have_count(9)
-        expect(self.page.locator(".subject-hints__english")).to_have_count(9)
+        expect(self.page.locator(".subject-hints")).to_have_count(0)
+        self.assertTrue(note.evaluate(
+            "note => note.closest('[data-read-aloud-text]') === null"
+        ))
         expect(self.page.get_by_role("link", name="Pratiquer cette réponse", exact=True)).to_be_visible()
         self.assert_no_horizontal_overflow()
+        review_path = self.page.get_by_role(
+            "link", name="Pratiquer cette réponse", exact=True,
+        ).get_attribute("href")
+        with mock.patch("study.tache_three_prompt_notes.prompt_note_for_response", return_value=None):
+            self.page.goto(self.live_server_url + review_path)
+            self.page.locator("#card-front .prompt-text").wait_for()
+            expect(self.page.locator("#card-front .prompt-text")).to_have_text(prompt.text)
+            self.save_current_prompt_highlight()
+        self.page.reload()
+        front = self.page.locator("#card-front")
+        expect(front.locator(".prompt-text mark.user-highlight")).to_have_count(1)
+        practice_note = front.locator("details.eo3-prompt-note")
+        expect(practice_note).not_to_have_attribute("open", "")
+        practice_note.locator("summary").click()
+        expect(practice_note.locator('p[lang="en"]')).to_be_visible()
+        self.assertTrue(practice_note.evaluate(
+            "note => note.hasAttribute('data-annotation-exclude') && "
+            "note.closest('[data-read-aloud-text]') === null"
+        ))
 
-    def test_equivalent_eo3_hints_work_without_javascript_on_mobile(self):
+    def test_equivalent_eo3_prompt_notes_work_without_javascript_on_mobile(self):
         self._import_eo_tache_three_content()
         context = self.browser.new_context(
             java_script_enabled=False,
@@ -2820,24 +2845,28 @@ class BrowserTests(StaticLiveServerTestCase):
             for key in ("culture:p3", "economie:p5"):
                 prompt = Prompt.objects.select_related("theme__task__part").get(content_key=key)
                 page.goto(self.live_server_url + prompt_detail_url(prompt) + "?deduplicate=0")
-                hints = page.locator(".subject-hints")
-                expect(hints).to_be_visible()
+                note = page.locator("details.eo3-prompt-note")
+                expect(note).to_be_visible()
+                expect(note).not_to_have_attribute("open", "")
+                note.locator("summary").click()
+                expect(note.locator('p[lang="en"]')).to_be_visible()
                 if original is None:
-                    original = hints.inner_text()
+                    original = note.inner_text()
                 else:
-                    self.assertEqual(hints.inner_text(), original)
+                    self.assertEqual(note.inner_text(), original)
                 for width in (320, 390, 1280):
                     page.set_viewport_size({"width": width, "height": 850})
                     if width <= 760:
                         expect(page.locator("[data-nav-links]")).to_be_hidden()
-                    page.get_by_role("link", name="Voir les pistes", exact=True).click()
-                    expect(page.get_by_role("heading", name="Pistes", exact=True)).to_be_in_viewport()
-                    self.assert_progress_before_pistes(page)
+                    note.locator("summary").click()
+                    expect(note).not_to_have_attribute("open", "")
+                    note.locator("summary").click()
+                    expect(note.locator('p[lang="en"]')).to_be_in_viewport()
                     self.assertLessEqual(
                         page.evaluate("document.documentElement.scrollWidth"),
                         page.evaluate("window.innerWidth") + 1,
                     )
-                    expect(hints.locator(".subject-hints__example")).to_have_count(3)
+                    expect(page.locator(".subject-hints")).to_have_count(0)
                 expect(page.get_by_role("heading", name="Versions du sujet")).to_have_count(0)
         finally:
             context.close()

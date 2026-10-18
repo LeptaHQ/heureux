@@ -121,8 +121,10 @@ class Command(BaseCommand):
         ]
         standard_responses = content.parse_responses()
         from study.tache_three_models import load_tache_three_models
+        from study.tache_three_prompt_notes import load_tache_three_prompt_notes
 
         load_tache_three_models(responses=standard_responses)
+        load_tache_three_prompt_notes(responses=standard_responses)
         tache_two_responses = content.parse_tache_two_responses(
             subject_months
         )
@@ -277,6 +279,7 @@ class Command(BaseCommand):
                 "writing_responses.py",
                 "tache_two_dialogues.py",
                 "tache_three_models.py",
+                "tache_three_prompt_notes.py",
             )
         )
         files.extend(

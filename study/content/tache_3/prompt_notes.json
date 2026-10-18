@@ -1,0 +1,828 @@
+{
+  "version": 1,
+  "task": "eo/tache-3",
+  "groups": {
+    "culture-p1": {
+      "prompt_signatures": {
+        "culture:p1": "fa414c11c13e61ea42f266f306d7c36d8016cc1415d5ab469c9359c13fe966ed"
+      },
+      "note": "The question asks how far everyday habits should change after moving to another country, not whether you should abandon your identity. Separate practical adjustments, such as clothing for the climate or local working hours, from private choices such as food and family celebrations. Explain which changes help daily life and which traditions can remain. A gradual adjustment is a useful middle position; neither complete assimilation nor refusal to adapt is required."
+    },
+    "culture-p2": {
+      "prompt_signatures": {
+        "culture:p2": "9f93030b12c06e8129bdb9746680fa41f20f2f4a6988c6d19bdff4215b617eb7"
+      },
+      "note": "Here, adults are being described as pessimistic about young people: expecting little from them or focusing on their faults. Decide whether that is a fair generalization. You could discuss unfamiliar habits, negative stories in the media, and opportunities for adults and young people to work together. Distinguish a specific concern from a judgment about an entire generation. Adults do not all share the same outlook, and criticism is not automatically pessimism."
+    },
+    "culture-p3": {
+      "prompt_signatures": {
+        "culture:p3": "072bbde83d4ac2d82c987324c1cb6eee151ea611c0aa011eae9c847bbffc0322",
+        "economie:p5": "c109ec80e4fba84d57836af846656910aae140329381bc28fe385d37a61301ac"
+      },
+      "note": "Both versions ask about the limits of state control, although one says the state cannot control everything and the other asks whether it can. Discuss what public authorities can regulate, what is difficult to enforce, and where personal freedom should limit intervention. Traffic rules, noise complaints or waste collection give concrete examples. Distinguish inability to monitor every action from a reason to abandon public responsibilities; cooperation can complement rules."
+    },
+    "culture-p4": {
+      "prompt_signatures": {
+        "culture:p4": "e2bdd518b8f561d0f7acfd850bd5ebca8bad04cfcc59b113b2b5c68cabc3251c"
+      },
+      "note": "You must choose a priority cause and explain why it deserves attention now, rather than list every important problem. Social causes concern living conditions and inequality; humanitarian causes concern urgent human needs; cultural causes can involve access to culture or preserving heritage. Make your criterion clear, such as urgency, severity or effects on other needs. Explain a feasible action and its beneficiaries without claiming that all other causes are unimportant."
+    },
+    "culture-p5": {
+      "prompt_signatures": {
+        "culture:p5": "2eb0c8794fe720c2fabd90517a8a87d1f8a8c627198038924bf35b3dd9c0547c"
+      },
+      "note": "This asks whether achieving personal goals abroad is possible, not whether moving guarantees success. Define a plausible goal, such as studying, developing a career or building an independent life. Consider how preparation, language, access to opportunities and support could help, then explain a real obstacle. Keep possibility separate from ease: a demanding path can still be achievable. Use a hypothetical example unless the experience is genuinely your own."
+    },
+    "culture-p6": {
+      "prompt_signatures": {
+        "culture:p6": "fc0ce9ca802d4006bf3288d9985ef4699a401d2ae7048bfdf07be1ac0f946fa6",
+        "education:p8": "c36306e9511dc1a67fab8c81b94916a71f33d24ee00205b7c820525fc37947cc"
+      },
+      "note": "The strong claim is that books have become useless, not simply that people have other ways to learn. Consider what books still offer: sustained explanations, stories, accessible reference material or a choice of reading pace. Compare them fairly with video, conversation and digital resources. A digital book is still a book, so a preference for screens does not by itself prove books are obsolete. Discuss uses and limits rather than declaring one format superior in every situation."
+    },
+    "culture-p7": {
+      "prompt_signatures": {
+        "culture:p7": "403046d33eb0d153a742a4f2666f012cfc4fbd465845e25c2aaeb6d7dc8544a9"
+      },
+      "note": "Calling artistic occupations 'not serious' questions their status as real work. Explain what professional work involves: preparation, technical skill, deadlines, responsibility and payment. Music rehearsals, film production or a commissioned illustration can make those demands visible. You may acknowledge uncertain income or competitive entry without treating instability as proof that an occupation has no value. Distinguish enjoying an art as a hobby from doing it professionally."
+    },
+    "culture-p8": {
+      "prompt_signatures": {
+        "culture:p8": "0ada09f38e774790e54cac1a6142cbfdaf6652963769a469457a4fda7d127826"
+      },
+      "note": "The subject is older people's view of young people, not all adults' views. 'Pessimistic' means tending to expect problems or see the negative side. Discuss differences in experience, the visibility of unfamiliar habits and the effect of regular contact between generations. A shared project can illustrate how impressions change. Avoid presenting age as a guarantee of either wisdom or prejudice; some older people are encouraging and some concerns are specific and justified."
+    },
+    "culture-p9": {
+      "prompt_signatures": {
+        "culture:p9": "da46c6e5a418bc9dd38226877c866b1b097bfcad745139cd9e9384bd952ea29c"
+      },
+      "note": "Focus on adaptation after moving abroad: learning how to function in a different everyday environment. Language, administrative routines, unfamiliar social expectations and loss of familiar support are possible angles. Explain how one concrete task becomes difficult and what makes it more manageable. Do not turn the answer into a claim that life abroad is always bad. Adaptation can take effort while the overall experience remains worthwhile."
+    },
+    "culture-p10": {
+      "prompt_signatures": {
+        "culture:p10": "5feaa4cacc1a8d01304b61cb8b05f5595887d5a7403c767532e4f1912f05b008",
+        "culture:p32": "f3b5bd6bb32b2b5ae02607e57ed30ccc945303cca1411cbf4b783d15166ea590"
+      },
+      "note": "The question asks whether people should preserve their culture and traditions in a host country. Consider language at home, celebrations, food or ways of passing family history to children. Explain the value of continuity while distinguishing private traditions from practices that affect other people's rights or shared rules. Preservation need not mean refusing contact with the host society. You can defend both cultural continuity and practical adaptation."
+    },
+    "culture-p11": {
+      "prompt_signatures": {
+        "culture:p11": "59d1f4423231cfd5714eecfc1ff42d846c8e51439c67ffeb575a60a85747d3ca"
+      },
+      "note": "The wording suggests that people living abroad should spend time with people from their country of origin. It does not say they should socialize only with them. Discuss practical guidance, speaking a familiar language and emotional support, alongside opportunities to build relationships with other residents. Explain how a familiar community can help without assuming everyone from one country shares the same views. Keep support separate from isolation."
+    },
+    "culture-p12": {
+      "prompt_signatures": {
+        "culture:p12": "b3553aa498b45b8eefc650c7121430fa3c63a362bf5d5ebe4ddad027ca496632"
+      },
+      "note": "You are evaluating whether time spent watching television is necessarily wasted. Compare different content and ways of watching: an explanation, a shared film and automatic background viewing do not serve the same purpose. Consider enjoyment, learning, social discussion and activities displaced by excessive viewing. A balanced answer can recognize worthwhile leisure without pretending every program is educational. Explain a choice of use rather than condemn or praise all television."
+    },
+    "culture-p13": {
+      "prompt_signatures": {
+        "culture:p13": "bea59956e18ae2fd2ce84f131731edb6a5bd1543ee8fc54db2ff45c96e2b7aa1",
+        "education:p11": "cb450a97fab4f1e49e5d48ed761d5f2440bcce14dd44976eb9c14778a04f0f82"
+      },
+      "note": "The claim concerns removing cultural subjects such as music, drawing and theatre from school. Discuss what pupils learn through them, who would otherwise have access, and how they fit alongside other subjects. A group performance or a visual project can illustrate expression, practice and cooperation. Time and funding are real constraints, but supporting cultural education does not require claiming it automatically improves every academic result."
+    },
+    "culture-p14": {
+      "prompt_signatures": {
+        "culture:p14": "8466a520be79b65619d1141009fe0d7221dee4e5d778a4905d47eabf4b0e84eb"
+      },
+      "note": "This asks whether travel is necessary to learn about other cultures. Books, films, language exchanges, local cultural events and conversations can provide knowledge without leaving home. Explain what one source reveals and what remains limited, such as daily experience or the range of perspectives represented. Knowing something about a culture is not the same as knowing everything about everyone in it. Compare complementary ways of learning, not authentic travel versus worthless second-hand knowledge."
+    },
+    "culture-p15": {
+      "prompt_signatures": {
+        "culture:p15": "1e645d1bbb9396381ceed86de8ecbc921eade1b06835cd5c6c6a4c055134e815"
+      },
+      "note": "Food is the entry point to discussing culture. Think beyond naming dishes: ingredients can reveal geography and trade, meals can show social customs, and recipes can carry family histories. Explain how preparing or sharing a meal opens a conversation. Avoid treating one dish as a complete description of a country or assuming every resident eats the same way. Cuisine can introduce a culture without explaining all of it."
+    },
+    "culture-p16": {
+      "prompt_signatures": {
+        "culture:p16": "81864fe832b7ea41edc74fa500e43a7dd3cee51fab050b60acdece4c3fe214a1",
+        "famille:p8": "81864fe832b7ea41edc74fa500e43a7dd3cee51fab050b60acdece4c3fe214a1"
+      },
+      "note": "The precise issue is whether having friends is a necessary condition for happiness. You can value friendship without claiming that everyone without friends must be unhappy. Consider emotional support, shared activities and other meaningful connections or pursuits. Distinguish chosen solitude from unwanted loneliness, and friends from all human contact. Examples should show different possible sources of satisfaction rather than diagnose a person's happiness from the size of their social circle."
+    },
+    "culture-p17": {
+      "prompt_signatures": {
+        "culture:p17": "c45ba839f00e60ed3bc54134bfff4163356f85d4812a8d0e012b368bf0ef2f3a",
+        "culture:p22": "c45ba839f00e60ed3bc54134bfff4163356f85d4812a8d0e012b368bf0ef2f3a"
+      },
+      "note": "Pay attention to 'always positive': one counterexample can challenge that absolute claim, even if living abroad often has benefits. Explore learning and opportunities, but also isolation, costs or difficulties accessing work. Separate a useful lesson from an experience that was genuinely beneficial overall; suffering need not be justified as personal growth. Explain what support and conditions affect the outcome rather than promise that moving abroad inevitably improves someone's life."
+    },
+    "culture-p18": {
+      "prompt_signatures": {
+        "culture:p18": "6e46829977bd6e97661a14a2b695aa5ec6515da6da1f13e625c7520baaf474c6",
+        "culture:p23": "6e46829977bd6e97661a14a2b695aa5ec6515da6da1f13e625c7520baaf474c6"
+      },
+      "note": "The question is whether the decline of personal letters and greeting cards is regrettable. Compare a tangible, deliberately prepared message with faster digital contact. Consider the attention involved, keeping a personal object and maintaining frequent relationships over distance. Do not assume a handwritten message always has more feeling or that digital messages are impersonal. You can regret losing one option while appreciating the convenience of another."
+    },
+    "culture-p19": {
+      "prompt_signatures": {
+        "culture:p19": "01d1fe186e414c85234dfc573bff0f348609bf8c98d64279f9f8a9b6b083e4da"
+      },
+      "note": "The issue is knowing a country without speaking its language, not visiting it without any communication. Translations, guided visits and other languages can provide access to history and daily life. Knowing the local language can deepen conversations and make independent understanding easier. Distinguish initial knowledge from fuller access, and acknowledge multilingual countries. Explain what a particular translation or exchange allows rather than claim language alone reveals a whole national culture."
+    },
+    "culture-p20": {
+      "prompt_signatures": {
+        "culture:p20": "6ae728089c4af6160bd62882a30829cebd40b9784ea6a36ccb777db17becb28b"
+      },
+      "note": "There are two linked questions: why reading is associated with culture, and whether reading is essential to being knowledgeable or culturally aware. Explain what reading contributes, then consider oral traditions, museums, music, discussion or other learning. Distinguish a useful route from the only route. Avoid measuring intelligence or cultural worth by the number of books someone reads; accessibility, interpretation and engagement matter too."
+    },
+    "culture-p21": {
+      "prompt_signatures": {
+        "culture:p21": "c2723119d9da7c64f36176ae97054fa365d679228b76050d17854d37c6943a5f"
+      },
+      "note": "You are giving an opinion about people who prefer solo travel, not proving that everyone should travel alone. Discuss freedom over plans, opportunities for encounters and responsibility for practical decisions. Compare these with sharing costs, company and help when difficulties arise. A realistic example might involve choosing a day's itinerary or handling a disruption. Being alone does not automatically mean being lonely, unsafe or adventurous."
+    },
+    "culture-p24": {
+      "prompt_signatures": {
+        "culture:p24": "1820d6d18fe1ecbf446ab5e4cc615a5fc7117836777166dc89621337e8af4c77",
+        "culture:p28": "1820d6d18fe1ecbf446ab5e4cc615a5fc7117836777166dc89621337e8af4c77"
+      },
+      "note": "The word 'indispensable' makes this a question about necessity, not just the advantages of meeting local residents. Consider practical understanding, participation in local activities and feeling connected. Discuss what supportive relationships can offer while recognizing barriers such as language, exclusion or limited opportunities to meet. Residents are not a single cultural group, and integration is not only the newcomer's responsibility. Avoid treating nationality as a test of whether a relationship counts."
+    },
+    "culture-p25": {
+      "prompt_signatures": {
+        "culture:p25": "6b1a31c20a112abedb9318629a0c580e46540b38c9d6405ef800b12f840edab8"
+      },
+      "note": "Explain why people choose to live abroad, rather than argue only whether the move is good. Possible motivations include work, education, joining loved ones, safety and a desired way of life. Develop several distinct reasons with plausible situations. A person can have mixed motivations and still face constraints; an economic decision is not automatically either completely free or entirely forced. Do not invent proportions for different types of migration."
+    },
+    "culture-p26": {
+      "prompt_signatures": {
+        "culture:p26": "474387a477b3c1bb39351393fe7cb8e8a779ce1fdec83b99d80dee86c949582b"
+      },
+      "note": "This is a personal, conditional question: if you immigrated, would learning about the destination matter to you? You do not need to claim you have already moved. Discuss information that would affect real decisions, such as work conditions, housing, services or social expectations. Explain what you would check and why. Preparation should use current, relevant information rather than national stereotypes or the assumption that everything can be predicted before arrival."
+    },
+    "culture-p27": {
+      "prompt_signatures": {
+        "culture:p27": "ef2b70fb166ec2a258d6926b84ef1def791ec73c95b3cc75c8e36306e5d58d26"
+      },
+      "note": "The wording asks whether long residence abroad can lead to forgetting one's original culture, not whether it inevitably does. Consider reduced use of a language, changing routines and fewer opportunities to transmit traditions. Also discuss active ways to maintain connections without freezing culture in the past. Give a concrete example of a habit or skill becoming less familiar. Cultural change, mixed identities and complete forgetting are different things."
+    },
+    "culture-p29": {
+      "prompt_signatures": {
+        "culture:p29": "a7dfff4961a2b2f915363ab3225b1cd2748e2d8d72b17f33cf6c28e82e20787a"
+      },
+      "note": "This is a broad evaluation of living abroad, covering more than the initial adjustment. Possible angles include practical security, maintaining relationships and managing everyday responsibilities over time. Show how a specific difficulty arises and what resources can help. Do not assume every destination or personal situation is alike. You can acknowledge lasting demands while recognizing that someone may still prefer the life they have built."
+    },
+    "culture-p30": {
+      "prompt_signatures": {
+        "culture:p30": "d8a4ef92e86e2c89042b1a107fad521e6d5f20219e39e1e965ce81c496e5b465"
+      },
+      "note": "Integration means participating and finding a place in society, not simply learning to use local services. Discuss communication, work or activities, relationships and access to opportunities. Explain how both newcomers and institutions or residents can help or create barriers. Integration does not require abandoning all previous habits or proving one's worth through friendship with a particular nationality. Compare conditions that make participation easier or harder rather than blame individual effort alone."
+    },
+    "culture-p31": {
+      "prompt_signatures": {
+        "culture:p31": "7aaa637cd343d5fe2c6095769b87d7a25c0bf0dbffc9b29b3f0a07afc010fecb"
+      },
+      "note": "The question concerns possible negative influence of reality television on young people. Consider editing, competition, advertising and the behaviors presented as desirable. Explain a mechanism, such as comparing ordinary life with a staged image or imitating a rewarded behavior. Viewers can also question what they see; influence is not automatic. Distinguish particular formats and age-appropriate guidance from a claim that every program harms every young viewer."
+    },
+    "culture-p33": {
+      "prompt_signatures": {
+        "culture:p33": "6222e19aa45ac8112ec7fa507637198809c656bc5b983d171fa4664f6a88e2cc"
+      },
+      "note": "Having 'a place in politics' can mean participating, speaking publicly or seeking elected responsibility. Separate a celebrity's right to participate from whether fame demonstrates the skills needed for a public role. Discuss visibility, mobilizing attention, understanding issues and accountability. A campaign supporting a cause is not the same as governing. Evaluate proposals and conduct without assuming either that public figures are unqualified or that popularity guarantees competence."
+    },
+    "culture-p34": {
+      "prompt_signatures": {
+        "culture:p34": "d8c08166d4ea5440db70382b2129a9f0ac560812dc62ae2dc41c3438027400b7"
+      },
+      "note": "The topic is changing consumption habits in developed countries, not a single product or a judgment about every consumer. Choose identifiable trends, such as online buying, second-hand goods, repairs or frequent replacement. Explain their practical attractions and trade-offs using concrete purchasing decisions. Access, price and marketing shape choices, so avoid presenting responsible consumption as simply a matter of willpower. A newer habit is not automatically more sustainable."
+    },
+    "culture-p35": {
+      "prompt_signatures": {
+        "culture:p35": "76959f7b0b95fc3b39c35f07190333605412c135091cc5336095a1fc2d257afe"
+      },
+      "note": "The claim asks whether immigration contributes to the host country. Discuss concrete contributions through work, exchange of knowledge, local participation or cultural activity, and explain how opportunities allow them to develop. Do not reduce people to labor shortages or assume all immigrants have the same skills and experiences. Recognition, fair access and inclusion matter. Contributions can support your reasoning without making human dignity conditional on economic usefulness."
+    },
+    "famille-p1": {
+      "prompt_signatures": {
+        "famille:p1": "bf9bbfd61b03f22aeffed1f86ef6855838fbe159c975015160c67993f92f9ce1"
+      },
+      "note": "You are discussing parental permission for children to use social networks, not an unrestricted right or a complete technology ban. Consider age, the platform's access rules, privacy, contact with others and practical supervision. A concrete situation could involve a suspicious message or sharing a photo. Explain how a child can ask for help. Do not assume a private profile removes all risk or that a single age rule settles every case."
+    },
+    "famille-p2": {
+      "prompt_signatures": {
+        "famille:p2": "360c7c78e7b2f2309a7cf1fb303e3473c24d00db8e11baffe8003e2ebbbeda50"
+      },
+      "note": "The prompt already says these young Canadian adults prefer living with their parents because they feel comfortable there. Evaluate that choice rather than replace their reason with an invented financial necessity. Consider autonomy, household agreements, relationships and personal plans. Living at home does not prove immaturity, and moving out does not guarantee independence. Distinguish an arrangement that works for everyone from one involving unwanted dependence or unequal responsibilities."
+    },
+    "famille-p3": {
+      "prompt_signatures": {
+        "famille:p3": "125dfa6ff8574a3a357b4d80ca3edd3d4cd6a71539a8eba398ba994b853907bf"
+      },
+      "note": "The key word is 'always': experience can make advice valuable without making every older person's advice appropriate. Discuss practical experience, familiarity with a situation and the ability to listen. Explain when older advice might need updating or specialist knowledge. A useful example compares a familiar everyday problem with a new technical or professional issue. Judge relevance and reasoning, not age alone, while avoiding dismissive stereotypes about older people."
+    },
+    "famille-p4": {
+      "prompt_signatures": {
+        "famille:p4": "b31322bc760f8ca6e563245c40bf76410b4f08e25c813267364a7c60619425f0",
+        "famille:p17": "7832e0cd3510504ae2df8073f5114f884ed8758efc31faa89547fd3cb3ab5709"
+      },
+      "note": "This asks whether children should always be told the truth. Separate honesty from revealing every adult detail immediately. Consider trust, understandable explanations and reassurance that does not make false promises. A child asking about a difficult event can illustrate how to adapt language or admit uncertainty. The child's age and privacy boundaries matter. Avoid arguing that lying is the only way to protect a child or that honesty requires an unfiltered explanation."
+    },
+    "famille-p5": {
+      "prompt_signatures": {
+        "famille:p5": "fd154786162c69d9720b7af68a7551a0b451299d230975b1babfa592c883d9e4"
+      },
+      "note": "Focus on the ease or difficulty of living far from family. Distance can affect emotional contact, practical help and participation in important moments. Calls and planned visits may help, but they do not replace every kind of presence. Also consider independence and other local relationships without assuming all families are supportive. Explain a specific situation, such as an unexpected need or a celebration, rather than declare distance equally painful for everyone."
+    },
+    "famille-p6": {
+      "prompt_signatures": {
+        "famille:p6": "12b69a1c0b9fa10a0280831af3ed78b5ec94f9338627c8b5c601e97a45bb6c59",
+        "famille:p15": "64392b5039c00ea0da52b8252e156672048bfb094f961f69944f22306ad9bdbf"
+      },
+      "note": "The issue is paying children for good grades, not all pocket money or rewards for effort. Consider short-term motivation, what grades actually reflect and fairness between children with different needs. Explain how a child might respond to a payment rule and what alternative recognition could encourage learning. Do not assume money always destroys motivation or that a higher grade proves greater effort. The aim is to evaluate the reward system, not blame a child."
+    },
+    "famille-p7": {
+      "prompt_signatures": {
+        "famille:p7": "5e28dbf05a8f95c4afb5494bc8920159fcaf55a9d0bb198d8bd43a3b42787415"
+      },
+      "note": "You are evaluating the advice to avoid working with relatives. Discuss trust and shared knowledge, but also unclear authority, pay, performance feedback and the boundary between work and family life. A concrete disagreement over a schedule or responsibility makes the issue easier to explain. Family closeness does not guarantee fair treatment or inevitable conflict. Consider what explicit agreements and the freedom to refuse could change."
+    },
+    "famille-p9": {
+      "prompt_signatures": {
+        "famille:p9": "4714ea9036a6b200db1cd7408cfdbaff5d9d6eede9d94f49f4d6bfc1e0f7e5c0"
+      },
+      "note": "The question concerns whether friends are necessary for living well, a broader issue than being happy at every moment. Discuss practical support, confidence, shared activities and alternative meaningful connections. Distinguish friends from relatives and acquaintances without claiming only one kind of bond can help. Chosen solitude is not the same as unwanted isolation. Explain friendship's value while leaving room for different ways of building a satisfying life."
+    },
+    "famille-p10": {
+      "prompt_signatures": {
+        "famille:p10": "decf78f96135755db20646f2a86a55828c2d521e90c53f9afb6055fdcf1b8112"
+      },
+      "note": "The claim equates family members with our best friends. Compare kinship with friendship based on trust, chosen contact, shared interests and freedom to confide. A relative can also be a close friend, but the relationship is not guaranteed by family status. Consider privacy and disagreements without assuming either all families are safe or all non-family friendships are stronger. The task is to assess the generalization, not choose one relationship type for everyone."
+    },
+    "famille-p11": {
+      "prompt_signatures": {
+        "famille:p11": "a9acb95404f3a7d89085c5f3075daa085012d20c8659f1ffafc2e6d39c7ad628"
+      },
+      "note": "Compare the practical ease of living alone and in a family household. Useful dimensions include control over routines, sharing costs and tasks, and availability of support. A concrete decision about meals, bills or a schedule can show both an advantage and a constraint. Living alone does not mean having no relationships; living in a family does not mean receiving reliable help. Keep 'easier' separate from 'better' or 'happier'."
+    },
+    "famille-p12": {
+      "prompt_signatures": {
+        "famille:p12": "5325b18f4bbff7073357832fb64e70d08af9fc0f6ec9ce474bdaa877c9e4e1a5"
+      },
+      "note": "Clarify 'authoritarian': strict control and unquestionable obedience are different from setting firm, consistent boundaries. Discuss safety rules, explanations, appropriate consequences and opportunities for children to learn responsibility. Use an everyday disagreement rather than extreme assumptions. You can support parental authority without endorsing humiliation, threats or violence. Consider how age and circumstances change the response, and avoid presenting permissiveness as the only alternative to harsh control."
+    },
+    "famille-p13": {
+      "prompt_signatures": {
+        "famille:p13": "e894611efc8ac352d6ae215ca459a2fbbbfe354b5ed1e9d64d724b283db257f2"
+      },
+      "note": "The question offers the family's first language and the host country's language, but you can explain why both may have a place. Consider communication within the family, links with relatives and participation at school or outside home. Explain a practical language routine without assuming perfect bilingualism will follow. The parents' actual language skills and the child's needs matter; do not prescribe a rule that makes meaningful family communication harder."
+    },
+    "famille-p14": {
+      "prompt_signatures": {
+        "famille:p14": "a5c527897521f4d7c8754e49277dc34e864d7d26e4d227d1f728a6074194906d"
+      },
+      "note": "Pay attention to 'all members': participation does not require identical tasks or equal physical effort. Discuss fair sharing, learning everyday skills and making household needs visible. Give examples suited to different ages and capacities, such as sorting laundry, preparing a meal or planning supplies. Illness, disability and workload can change what is reasonable. Avoid treating unpaid care or planning as doing nothing, or assuming every household has the same structure."
+    },
+    "famille-p16": {
+      "prompt_signatures": {
+        "famille:p16": "36ebf15d7653f5671feb09204b2631e19ed5cdfe07b3e1e1c912f563ca85e2d4"
+      },
+      "note": "The prompt asks whether living with parents after 25 can be practical. Focus on costs, shared tasks, access to work or study, and the conditions needed for adult autonomy. It does not require proving that everyone should leave at a particular age. Discuss an arrangement with clear responsibilities and privacy. Distinguish financial convenience from emotional wellbeing, and acknowledge that staying may be chosen or constrained rather than equally available to all."
+    },
+    "education-p1": {
+      "prompt_signatures": {
+        "education:p1": "6f7de146a46144402f3735f18fa52c8ff4a57fe5b59a70cc9eb050de8a7429ad"
+      },
+      "note": "The word 'everyone' makes this a question about a universal capacity to adapt abroad. Discuss language learning, practical resources, support and barriers such as exclusion or unsuitable living conditions. Capacity can develop, but individual motivation alone does not guarantee success. A concrete task can show how support changes what is possible. Distinguish adapting from losing one's identity, and avoid treating a difficult experience as proof of permanent personal inability."
+    },
+    "education-p2": {
+      "prompt_signatures": {
+        "education:p2": "db9141e6055b86d29c9504a89390d23c93e9d7b8efc78601e66627bfebd14994",
+        "education:p9": "d4577db2667b2e4b5f9426e87697ee28b925700bfc3dc29b27f7f434f8c7def1",
+        "education:p25": "f01708e176d90e749b4458e90e72c384b2d3111ea2c71072f6c3fe5ea9417f50"
+      },
+      "note": "These variants ask whether learning remains possible at any age, not whether learning speed and circumstances are identical for everyone. Consider reasons to learn, ways to practice and the value of suitable teaching. Languages, practical skills or a digital tool can provide examples. Explain how an adult or older learner can make progress with adapted support. Avoid both age-based pessimism and promises that effort removes every health, time or access barrier."
+    },
+    "education-p3": {
+      "prompt_signatures": {
+        "education:p3": "8d57879e771a0bb340f382f42bea67d500e1748531aac02e9781fb5ad0da03f5"
+      },
+      "note": "The setting is school, so focus on rules for mobile-phone use there rather than children's phone ownership everywhere. Consider attention during lessons, unwanted recordings or messages, and possible supervised learning or access needs. Distinguish use during class from breaks or exceptional situations. An argument for limits should explain how a rule would work, including enforcement and necessary exceptions, without inventing a legal rule or assuming all schools face the same conditions."
+    },
+    "education-p4": {
+      "prompt_signatures": {
+        "education:p4": "035b435d08b5de8b8b62cabefdd8db7a4845c8ba22f8f6633e0ab108ef935e3d"
+      },
+      "note": "The prompt concerns parents taking responsibility for lessons at home instead of school attendance. Discuss adaptation to a child's needs, teaching resources, interaction with others and oversight of progress. Distinguish this arrangement from occasional help with homework. A realistic example should explain who teaches, how learning is checked and what support is available. Do not invent universal eligibility rules or assume either family teaching or ordinary schooling suits every child."
+    },
+    "education-p5": {
+      "prompt_signatures": {
+        "education:p5": "4d9a0804fe223b8176bd5fc3376444e29f51a9a4512189af384267a3ac4b89f2"
+      },
+      "note": "This prompt specifically asks for three important questions before beginning immigration procedures for Quebec, and why those three matter. State actual questions rather than only three topic labels. Useful areas include applicable status, a workable employment plan and a viable household budget. Explain which decision each answer would inform and where it should be verified. Do not invent your occupation, family circumstances, eligibility, fees or processing times."
+    },
+    "education-p6": {
+      "prompt_signatures": {
+        "education:p6": "f8842d6f90e5cee77b366dbab1b8f270f6c65a74e0b1c333c553548c92c04a0d"
+      },
+      "note": "The question asks whether Internet helps solidarity, with disasters or current events as examples. Discuss sharing verified needs, organizing practical assistance and maintaining accountability. Explain who uses a platform to do what, rather than just saying information spreads quickly. False appeals, privacy and access are relevant limitations. Internet can support a wider chain of action; it does not itself deliver supplies or replace the people and services doing the work."
+    },
+    "education-p7": {
+      "prompt_signatures": {
+        "education:p7": "232ff62b8651cec452aae28e4a51031cb72e9768341363513fabed0489be0d73"
+      },
+      "note": "This concerns formal studies at different ages, not every kind of informal learning. Consider returning for a qualification, changing professional direction and combining study with existing responsibilities. Discuss prerequisites, funding, timetable and available support without inventing admission rights. A person's earlier results do not necessarily describe current readiness. Explain how an adult could prepare a realistic pathway while recognizing that a full-time course is not the only possible format."
+    },
+    "education-p10": {
+      "prompt_signatures": {
+        "education:p10": "1a598d52b7fec20088c556a057322ba2bd20febd7ae39fa5c3925567d88a2ea3",
+        "education:p24": "1a598d52b7fec20088c556a057322ba2bd20febd7ae39fa5c3925567d88a2ea3"
+      },
+      "note": "You are asked which solidarity action you would like to do. Choose a specific form of help and explain your motivation, likely contribution and a workable level of commitment. Conditional language is appropriate if you have not actually volunteered. Food-aid preparation, accompaniment or a local project could work, but explain the role and coordination needed. Respect the recipients' choices and avoid promising specialist help or an unrealistic personal availability."
+    },
+    "education-p12": {
+      "prompt_signatures": {
+        "education:p12": "e4389f669e0bd038041dd8196d7df5c2336f779c47579d95be778da767a7c4f6"
+      },
+      "note": "The claim is that studies help professional success, not that a diploma guarantees it or that success is only academic. Discuss relevant knowledge, access to certain professions and learning how to approach work. Connect each benefit to a concrete task or opportunity. Also consider experience, practical training and recruitment conditions. Avoid ranking occupations by prestige or assuming people without long studies cannot build successful careers."
+    },
+    "education-p13": {
+      "prompt_signatures": {
+        "education:p13": "df9b5552ea107ec115a67912cffc84c2b52881baf9ac4db59cc0a34d79021375"
+      },
+      "note": "Discuss why learning another language may be difficult and what makes progress possible. Possible dimensions include unfamiliar sounds and structures, repeated use and confidence in real exchanges. Explain a manageable learning situation instead of giving only study tips. Difficulty varies with prior languages, resources and goals. Avoid a universal timetable, the assumption that immersion automatically works, or the idea that making mistakes proves someone lacks ability."
+    },
+    "education-p14": {
+      "prompt_signatures": {
+        "education:p14": "c036d2f332474d3eb57cee4103dc990103fba62ba81e29fc7af997eb5e86a299"
+      },
+      "note": "Books are proposed as one way to learn about a country, not necessarily the only way. Consider history, personal accounts, fiction and practical information, noting what each can reveal. Explain how comparing perspectives prevents one story from standing for an entire population. Publication date, translation and the author's viewpoint can matter. Distinguish understanding a written account from having direct experience, without dismissing either source of knowledge."
+    },
+    "education-p15": {
+      "prompt_signatures": {
+        "education:p15": "a7591434e6b29abed449f3f552c65fd7aaa83f755ead433e47318ad572a44c84"
+      },
+      "note": "The issue is whether a mobile phone provides reliable information, not simply rapid access. Separate the device from the sources and apps used through it. Discuss checking an author, date, evidence or original notice, and compare what happens when someone forwards an unverified message. Speed and convenience do not establish accuracy. The same phone can support verification or spread error depending on the information chain."
+    },
+    "education-p16": {
+      "prompt_signatures": {
+        "education:p16": "c0c3e1d47b2615c3ffa18690a755d54956df8eddd1b7c2be91568c731bb14be1",
+        "economie:p12": "c0c3e1d47b2615c3ffa18690a755d54956df8eddd1b7c2be91568c731bb14be1"
+      },
+      "note": "This asks whether everyone in one company should receive exactly the same salary. Distinguish identical amounts from fair pay for work of comparable value. Responsibilities, working time, relevant skills and difficult conditions are possible criteria to examine. Explain a concrete comparison and how a difference could be justified or challenged. Supporting some differences does not justify discrimination, very low pay or unlimited gaps; do not equate a job title with personal worth."
+    },
+    "education-p17": {
+      "prompt_signatures": {
+        "education:p17": "ea2db8f45b268a22ed9fc4eb7a3d0dcc4ded78519e1051d903a5d91ca742411a"
+      },
+      "note": "The question concerns limits to freedom of expression. Distinguish disagreement and criticism from threats, harassment or exposing someone's private information. Explain what harm a limit is intended to prevent and how to keep it proportionate. A workplace, public debate or online exchange can provide a concrete example. Do not label every offensive opinion illegal or present one country's rules as universal. Restrictions also require scrutiny so they do not simply silence criticism."
+    },
+    "education-p18": {
+      "prompt_signatures": {
+        "education:p18": "48995d83eea68fcc9b56343cf1d994bd995f9cebf50599589105b8e933217f87"
+      },
+      "note": "The key word is 'priority': teaching the curriculum can be central without being the school's only responsibility. Discuss basic knowledge, the conditions needed to learn and the connection between subjects and wider skills. Show how a particular classroom situation supports or obstructs teaching. Social development and wellbeing need not compete with every academic goal. Avoid claiming that schools alone can solve all social problems or that everything outside examined content is wasted time."
+    },
+    "education-p19": {
+      "prompt_signatures": {
+        "education:p19": "6b5865f273f0bf50d084bea620770f41fe9a9665a1ffe6c256ae01b6a060db18",
+        "technologie:p14": "1738f692aa63f44c516593e1360b9249a459c76908a00ea90f0ee52554d16066"
+      },
+      "note": "This asks whether television can contribute to children's development. Consider understandable explanations, language and stories, and opportunities to discuss what is watched. Explain the role of content, the child's age and interaction with an adult. Watching is not automatically learning, and a useful program does not justify unlimited viewing. Keep benefits conditional without treating all screens, programs and children as interchangeable."
+    },
+    "education-p20": {
+      "prompt_signatures": {
+        "education:p20": "b77434be329df257e42b5a0aa0424861d0810108d3b8d9e00b9eb6e2e7d48e8b",
+        "economie:p19": "b77434be329df257e42b5a0aa0424861d0810108d3b8d9e00b9eb6e2e7d48e8b"
+      },
+      "note": "Accessibility is broader than allowing everyone to enroll without conditions. Discuss financial barriers, accessible teaching and buildings, and opportunities for people returning to education. Explain what would make an offered place genuinely usable. Prerequisites, capacity and support still matter, and university is not compulsory or the best route for every goal. Distinguish opening fair opportunities from promising admission or the same diploma to everyone."
+    },
+    "education-p21": {
+      "prompt_signatures": {
+        "education:p21": "844ecf3d1538124a66421e49dc00dfad54c2110cc8d99fb193d7f4426829d011"
+      },
+      "note": "The wording says good grades can contribute to success in life, not determine it. Discuss opportunities grades may open, what learning they can represent and their limits as a measure. A selection process or feedback on a project can illustrate a concrete effect. Distinguish academic performance from practical skills, relationships, wellbeing and changing goals. Avoid suggesting that low grades condemn a person's future or that every good result proves the same abilities."
+    },
+    "education-p22": {
+      "prompt_signatures": {
+        "education:p22": "c164f94cac22b63d7702c874104d7f0ce96233b96cedbe49ee29356554351cc5"
+      },
+      "note": "Pay attention to both 'everything' and 'alone'. Internet offers many resources, but access to a demonstration is different from guided practice, feedback or safe supervision. Compare learning an introductory skill independently with tasks requiring specialist equipment, assessment or real interaction. Online lessons with a teacher are not learning entirely alone. You can value independent learning while explaining why its limits depend on the activity."
+    },
+    "education-p23": {
+      "prompt_signatures": {
+        "education:p23": "7b3d388ba775ad14c24c8ca0f025967e01024f44877af0f23208acd877af623b"
+      },
+      "note": "The focus is educational outings for children, such as museums, zoos or galleries. Discuss learning from concrete objects or observations, asking questions and working with others outside the classroom. Explain what happens before, during or after a visit to make it educational. Costs, accessibility, supervision and ethical concerns matter; a destination is not beneficial just because it is called educational. Zoo examples should not assume every establishment treats animals appropriately."
+    },
+    "sante-p1": {
+      "prompt_signatures": {
+        "sante:p1": "e89be2474369e46402299e5e0bfd69d71e423be119e712808ef6766b6daba22f",
+        "sante:p5": "194c729cf9ecec8467e9db0541d5959601ec0a9143ffd2494422fe0edb2d697a"
+      },
+      "note": "Encouraging sports competitions is different from forcing participation or recommending physical activity in general. Discuss learning to prepare, handle results and cooperate under shared rules. Explain an actual competition situation, including how adults respond to mistakes or defeat. Some children may prefer noncompetitive activities. Benefits depend on suitable expectations and support, so do not treat winning, pressure or public ranking as necessary for every child's development."
+    },
+    "sante-p2": {
+      "prompt_signatures": {
+        "sante:p2": "554f7e165e1b36297164ca91f4897caa16a787672a9add14f084c69b0fae66fc"
+      },
+      "note": "The question covers screen time across computers, tablets, phones and television. Assess what use displaces, what content or interaction involves, and how routines can be organized. Schoolwork, contact with relatives and endless video viewing are not identical activities. Give a concrete daily-life example rather than a universal hour limit. Age, access needs and family circumstances matter; avoid blaming parents or assuming all screen use is harmful."
+    },
+    "sante-p3": {
+      "prompt_signatures": {
+        "sante:p3": "6ce2a94efbdbfa4440ccac62d579c95eb209b0b343f161407350e16378d26fb3"
+      },
+      "note": "Discuss combining employment and studies, not whether either activity is difficult by itself. Possible tensions include overlapping schedules, time for learning and recovery, and the need for income. Show how a particular shift or deadline creates a problem and what an adjustment could change. Not everyone can simply work fewer hours. Recognize useful experience and feasible combinations without claiming motivation alone can remove financial or timetable constraints."
+    },
+    "sante-p4": {
+      "prompt_signatures": {
+        "sante:p4": "72f23fb615273c65b99bb2ab60f85d520f508204d1225705fdb2213d214b7f15"
+      },
+      "note": "The question offers the state or citizens as possible helpers, but you can argue for complementary responsibilities. Compare regular public support and services with direct local assistance and practical accompaniment. Explain who can do what and why coordination matters. Helping people in difficulty does not mean everyone can rely on family, work or donations. Avoid turning shared responsibility into a reason for public authorities to withdraw or for individuals to control recipients' choices."
+    },
+    "sante-p6": {
+      "prompt_signatures": {
+        "sante:p6": "7b9684ff94d0a40705e4f1b750ecf4824bd7c8080ba6898f1dbac7a7cdf4b10d"
+      },
+      "note": "The claim makes stopping meat a requirement for good health. Distinguish that necessity claim from choosing to eat less meat or adopting a vegetarian diet. Discuss the overall balance of meals, different food sources and individual needs, without giving a personalized medical prescription. A realistic meal comparison is more useful than labeling one ingredient healthy or unhealthy in all quantities. Avoid promising that removing meat prevents illness or automatically produces a balanced diet."
+    },
+    "sante-p7": {
+      "prompt_signatures": {
+        "sante:p7": "feaf571833e452ea31c7fd73edf91611039fe000a38eefddfaba187442b9e873"
+      },
+      "note": "The issue is affordability of organic food, not whether organic farming is useful. Consider product prices, shopping locations, household needs and the size of the budget. Explain how a particular choice can be accessible to one household and difficult for another. Buying an occasional organic item differs from replacing an entire basket. Do not equate organic with nutritionally superior, shame cheaper choices or claim planning removes every price barrier."
+    },
+    "sante-p8": {
+      "prompt_signatures": {
+        "sante:p8": "2896073c7537d455aff66e645acf9581ae445fbf7920dc2fe0ea0e0aa80ff8c4"
+      },
+      "note": "The word 'obliger' means making children do sport, so distinguish an obligation from encouragement and from offering varied physical activities. Discuss safety, enjoyment, participation and a child's ability to choose or adapt an activity. A concrete refusal may reveal fear, access difficulties or a mismatch rather than laziness. Explain what adults can do without coercion. Avoid claiming one sport or intensity is suitable for every child."
+    },
+    "sante-p9": {
+      "prompt_signatures": {
+        "sante:p9": "77becdb91af15702edc10952b30bae081b6720a81235ff6a93bd85039e68f56b",
+        "sante:p24": "f88766bfeff03b04f6742d5b6481c24f66f17ce927df1bb96fdc13c0a501228d"
+      },
+      "note": "The prompt concerns cosmetic surgery intended to maintain a youthful appearance. Discuss personal choice, social pressure, realistic expectations and access to qualified advice. Distinguish a person's informed decision from a belief that ageing must be corrected. You can question beauty standards without insulting people who choose a procedure. Do not promise results, diagnose motives or generalize the risks and benefits of different interventions."
+    },
+    "sante-p10": {
+      "prompt_signatures": {
+        "sante:p10": "b595b4c8a8ea05656c5728db65c84f797bc2d37fa1459a6e5e35323a2362c392",
+        "sante:p12": "b595b4c8a8ea05656c5728db65c84f797bc2d37fa1459a6e5e35323a2362c392"
+      },
+      "note": "This is about banning all sales of alcohol and tobacco, not only changing who sells them. Consider the public-health aim, how a ban would be implemented and possible effects such as informal sales or reduced oversight. Compare prohibition with regulation and support without assuming one measure solves every problem. Alcohol and tobacco also have distinct risks and contexts. You do not need invented consumption figures or a claim that current law is the same everywhere."
+    },
+    "sante-p11": {
+      "prompt_signatures": {
+        "sante:p11": "be08c80bbbd418437772eb66c2527aaed4126d25de49c0637e28ff48c0779071"
+      },
+      "note": "Read the wording carefully: it can mean that the state should stop being the seller of alcohol and tobacco. That is different from banning every seller. Discuss the state's possible roles in selling, regulating and protecting health, and explain what would replace state sales if relevant. The prompt does not establish a particular national retail system. If you interpret it as a wider ban, make that interpretation explicit rather than silently change the question."
+    },
+    "sante-p13": {
+      "prompt_signatures": {
+        "sante:p13": "68d8ef9619a89d66fb2fb1bebbeec3e003dcb950f896126b5e5957e8d437667e"
+      },
+      "note": "Give an opinion about choosing a vegetarian way of eating, rather than prove that everybody must adopt it. Consider ethical or environmental motivations, meal variety and the practical task of meeting nutritional needs. Vegetarian diets and vegan diets are not identical. Explain a realistic food choice without promising automatic health benefits or giving medical instructions. Costs, habits and access can affect how someone puts the choice into practice."
+    },
+    "sante-p14": {
+      "prompt_signatures": {
+        "sante:p14": "de76f64ae633b6f821a8e6ad66af4e1773d235efcfa8861ba74aafc7f1435a88"
+      },
+      "note": "Compare ease of daily life for an older person in a city and in the countryside. Relevant dimensions include access to services, usable transport, housing and familiar relationships. A nearby clinic is helpful only if it is accessible, and an urban address does not remove isolation. Explain a specific routine or journey. Avoid treating all older people as dependent or all rural places as poorly served; individual needs and local arrangements matter."
+    },
+    "sante-p15": {
+      "prompt_signatures": {
+        "sante:p15": "f92895b6c9580c82e6a07542aa6a617ad4c042432049f204b9675ec10badf2e9",
+        "sante:p18": "f92895b6c9580c82e6a07542aa6a617ad4c042432049f204b9675ec10badf2e9"
+      },
+      "note": "The question asks whether making people work until 70 is acceptable, not whether some people may freely choose to continue. Discuss differences between jobs, health and personal circumstances, and how income or retirement options affect genuine choice. Distinguish a general age rule from an adaptable arrangement. Use plausible work situations rather than invent pension laws or assume everyone remains equally able to work. Continuing voluntarily and being compelled are central to the comparison."
+    },
+    "sante-p16": {
+      "prompt_signatures": {
+        "sante:p16": "d2fabaeba4a8fb44bf975141be90964ef54a26af32d9ba2d3a438332adf655a6"
+      },
+      "note": "This asks for an assessment of food and eating habits in your own country. Choose facts you actually know: typical meal options, access to varied food, preparation habits or pressures such as cost and time. Explain both strengths and difficulties without claiming one dish represents everyone. The bundled model is an illustration to adapt, not your nationality or biography. Do not invent national trends, prices or nutritional statistics to make the answer sound personal."
+    },
+    "sante-p17": {
+      "prompt_signatures": {
+        "sante:p17": "2e3f11a8e6c252738d3eec138ef1617dc3ac6ffad70bed1017d8a4a41d60a591",
+        "sante:p21": "127a037ef0a154610a1abda3359ee6d78e3c3d0c212c383f70207e7b203c2dbf"
+      },
+      "note": "The statement says stress is stimulating. Separate a manageable short-term tension that prompts preparation from overwhelming or persistent pressure. Explain the chain from an event to a person's response, such as rehearsing before a presentation or losing the thread in an interview. Reactions and available support vary. Motivation does not require suffering, and organizational problems cannot always be solved by telling someone to manage their emotions better."
+    },
+    "sante-p19": {
+      "prompt_signatures": {
+        "sante:p19": "386b1e0da566112904b1e3853733d2b2e480cef2408f7f009e22ee3a113e0def"
+      },
+      "note": "The focus is possible negative effects of video games on children. Discuss displaced activities, particular content and social or commercial interactions within games. Show how a problem arises in a concrete situation rather than claim games automatically cause violence or poor grades. Age, design, support and patterns of use matter. You can acknowledge enjoyable or useful gaming while explaining limits and ways for a child to seek help."
+    },
+    "sante-p20": {
+      "prompt_signatures": {
+        "sante:p20": "4737ed581dcc06b51a6be95a5659ba4f67268de42e3c7c09edf97f35c00233c9"
+      },
+      "note": "The question distinguishes earning a lot from having enough to live. Explain what basic security requires and how costs depend on location, household size, health and obligations. Consider spending choices and public or shared resources without pretending they make money unnecessary. A practical budget trade-off works better than a universal income figure. Do not romanticize hardship or assume low income reflects poor choices."
+    },
+    "sante-p22": {
+      "prompt_signatures": {
+        "sante:p22": "af0af57df3347d21647013327f4fc00ab175364ae1bf7b435463abd22dcc02da"
+      },
+      "note": "This concerns whether a good salary is necessary for happiness. Separate material security from the whole experience of being happy. Relationships, chosen activities and the working conditions attached to the salary are useful dimensions. Explain a realistic trade-off while recognizing that not everyone can choose their job or hours. Avoid a universal income threshold, the claim money does not matter, or the assumption that wealth guarantees satisfaction."
+    },
+    "sante-p23": {
+      "prompt_signatures": {
+        "sante:p23": "695fdcacd6954d17183c2b33cdf18ce401fd56aac5c48c824d5b0a245e90e8a2"
+      },
+      "note": "The word 'impossible' makes this an absolute claim about living without medicines. Distinguish people who do not need regular medication from those for whom treatment is essential. Discuss prevention, occasional care and appropriate access without treating them as substitutes for prescribed treatment. A person with a long-term condition offers a useful limit to generalization. Do not advise stopping medicine, diagnose symptoms or suggest that willpower and lifestyle remove all medical needs."
+    },
+    "technologie-p1": {
+      "prompt_signatures": {
+        "technologie:p1": "348196cb1a59c9ae05f822508f533299d1b7f8fa9b9fa0f6a6922548b18cd836",
+        "technologie:p9": "348196cb1a59c9ae05f822508f533299d1b7f8fa9b9fa0f6a6922548b18cd836"
+      },
+      "note": "Social networks can make first contact easier, but meeting someone and forming a friendship are different stages. Discuss finding shared interests, approaching people and maintaining exchanges or activities over time. Online friendships can be genuine; physical proximity is not the only test. Explain how contact develops in a plausible situation. Privacy, trust and superficial interaction are meaningful limits, not reasons to dismiss every relationship formed online."
+    },
+    "technologie-p2": {
+      "prompt_signatures": {
+        "technologie:p2": "9ef3387b961ad8f586b90a67e10e86534ae528323b27948228c2a947d4eef78d",
+        "technologie:p8": "9ef3387b961ad8f586b90a67e10e86534ae528323b27948228c2a947d4eef78d"
+      },
+      "note": "The question is whether doing without a mobile phone is easy, not whether it is logically possible. Discuss the functions a person relies on: communication, navigation, appointments or access codes. Explain what would replace one function and what extra effort that would take. A computer or fixed telephone may be relevant alternatives here, unlike the separate prompt about no telephone at all. Needs, access and service design change the answer."
+    },
+    "technologie-p3": {
+      "prompt_signatures": {
+        "technologie:p3": "7e56be1f2729b4d59f98c0e06bd86749caa252ed2c81c3b5061f177f8a188c39"
+      },
+      "note": "The subject is a choice never to watch television, including entertainment and cultural programs, not only TV news. Discuss control of time, other ways to stay informed and alternative leisure. Explain how a person can meet those needs without watching. Avoid assuming the choice means being uninformed or rejecting every screen. You may recognize valuable programs without claiming everyone has a duty to watch them."
+    },
+    "technologie-p4": {
+      "prompt_signatures": {
+        "technologie:p4": "62eea14a221cfb0c2c3bcfd95ea5b90cba677f2859dfade0d0403648fbffb159"
+      },
+      "note": "This wording presents Internet as making people lonely or socially isolated. Test that broad causal claim rather than only list risks. Consider maintaining distant relationships, finding activities and the conditions in which online time replaces wanted contact. Being physically alone is not always loneliness, and online exchanges can be meaningful. Explain what Internet changes in one situation while recognizing wider factors such as work schedules, access and local opportunities."
+    },
+    "technologie-p5": {
+      "prompt_signatures": {
+        "technologie:p5": "050e3f02a73f261d5d8cc6401f29229b21985d688e08703357d93177d61256a4"
+      },
+      "note": "The choice concerns refusing televised news, not refusing every source of information or all television. Discuss the pace, repeated images, emotional impact and control over when to follow a story. Explain an alternative way to remain informed, including checking sources. Do not assume a person who avoids broadcasts is indifferent to public life. Acknowledging useful reporting does not require saying this format suits everyone."
+    },
+    "technologie-p6": {
+      "prompt_signatures": {
+        "technologie:p6": "efaafc007c32a87739286b3c3835ceb0ebb645300a89ba1766385ec7449de52f"
+      },
+      "note": "You are evaluating television news bulletins as a format. Consider their overview of events, explained images, interviews, editing and time limits. A concrete story can show what the format clarifies and what needs further investigation. Images are evidence to interpret, not automatic proof of the whole situation. Avoid confusing live reporting with completeness or assuming every channel has the same quality; other sources can provide complementary depth."
+    },
+    "technologie-p7": {
+      "prompt_signatures": {
+        "technologie:p7": "78f09560dec9e014e6c1cc4c4c137f6f831f28d04c3eb2f357a5325a10e9fb59"
+      },
+      "note": "The wording says Internet can make people isolated, so you are assessing a possibility rather than an inevitable effect. Explore mechanisms such as displacing desired activities, discouraging comparisons or contacts that receive little response. Explain the circumstances in which one risk appears. Balance this with genuine online support and available alternatives. Do not reduce isolation to a simple personal failure or suggest every user experiences the same outcome."
+    },
+    "technologie-p10": {
+      "prompt_signatures": {
+        "technologie:p10": "41e758d223ded04fd56917fc2da79727fdc36d63778d31654760640a3c08de7c"
+      },
+      "note": "The question asks about the present usefulness of social networks broadly, not just friendship or their dangers. You can discuss keeping in touch, finding practical local information and coordinating a shared activity. Give a concrete purpose and explain how the platform helps people achieve it. Reliability, privacy and access remain relevant. Distinguish a useful tool in a situation from an obligation for everyone to join a platform."
+    },
+    "technologie-p11": {
+      "prompt_signatures": {
+        "technologie:p11": "dd1be22e28c8420ad8d063e566afb339fcfdaf2f2ec6d58c0a1647b064daeb75"
+      },
+      "note": "Here the wording is 'without a telephone', not merely without a smartphone. A fixed telephone is therefore not a solution to the stated problem. Consider computer-based communication, in-person arrangements and planned access to services, then explain the limits for urgent or unpredictable contact. Possibility depends on actual resources and needs. Do not present losing immediate emergency contact as a trivial inconvenience or assume all non-phone alternatives are available."
+    },
+    "technologie-p12": {
+      "prompt_signatures": {
+        "technologie:p12": "6de63ac219f1dab01464304d5335726d5ec4537a31e4bbad6023c5460bf8621e"
+      },
+      "note": "The question is whether handwritten letters and correspondence have become obsolete: no longer useful or relevant. Discuss deliberate personal attention, time to compose a message and keeping a physical object. Compare these with the speed, cost and accessibility of digital contact. A special handwritten message can retain value without becoming everyone's everyday method. Avoid claiming paper lasts forever, digital messages lack emotion or handwriting is universally required by law."
+    },
+    "technologie-p13": {
+      "prompt_signatures": {
+        "technologie:p13": "98f246c0448f40f6f9948c6ed701737bbc2a716bc2446e9c471567c2f5da51c6",
+        "technologie:p25": "d8acc59055ae3b5bee45df008b7ec64ec9468b0fd12a16635994974db694f97e"
+      },
+      "note": "Focus on how mobile phones facilitate communication. Useful dimensions include quick updates, maintaining contact at a distance and choosing a suitable format such as a message or call. Explain a practical change in an exchange, not simply that phones are convenient. Communication can still be unclear or intrusive. The ability to contact someone does not create an obligation to be permanently available, and a phone is not the only way to maintain relationships."
+    },
+    "technologie-p15": {
+      "prompt_signatures": {
+        "technologie:p15": "161d7954b19a5fadaa1d34d7743d6be5cc6b0e8e6d11e069c6376901d87df781"
+      },
+      "note": "The prompt describes people choosing to live without the listed digital tools: Internet, computers and phones. It is not necessarily about abandoning every technology, including electricity or medical equipment. Discuss attention, preferred activities, privacy and the practical cost of reduced digital access. Explain what would replace an ordinary service. Respect a personal choice without assuming everyone can make it freely or that partial reduction and complete avoidance are the same."
+    },
+    "technologie-p16": {
+      "prompt_signatures": {
+        "technologie:p16": "de4ef294c24ca1d1bbd82eec47b282ec3f31afd8c79dd96b153ef9fce9a26bf3"
+      },
+      "note": "This concerns banning children's phone use generally, not only rules during school lessons. Discuss useful limited purposes, privacy or unwanted contact, and learning to ask for help. Age and needs affect what is suitable; owning a personal phone and having occasional supervised access are different arrangements. Explain a realistic boundary rather than invent a universal age limit or claim supervision eliminates all risks."
+    },
+    "technologie-p17": {
+      "prompt_signatures": {
+        "technologie:p17": "c4686c7f740a4a5064980d9108dea342b2f3e0d7515cc48b309cf8133f421d38",
+        "economie:p11": "c4686c7f740a4a5064980d9108dea342b2f3e0d7515cc48b309cf8133f421d38"
+      },
+      "note": "There are two claims to address: space travel costs too much and is useless. Separate scientific missions, their funding priorities and whether a particular goal requires people in space. Satellite benefits do not automatically justify crewed travel or tourism. Explain one concrete research purpose and compare it with alternatives and other needs. You do not need invented mission prices or a promise of economic returns to discuss proportional value."
+    },
+    "technologie-p18": {
+      "prompt_signatures": {
+        "technologie:p18": "8855b4ed42d096d15e980cc692a45c0e4a009b228a75a60cac0c5a6d1f1706c5"
+      },
+      "note": "Pay attention to 'all purchases': the issue is feasibility, not whether you prefer shopping online. Consider available goods, payment, delivery and items or services with special access conditions. Trying clothes in a shop is a preference, not proof that online buying is impossible. Buying and paying online with collection in store still counts as an online purchase. Explain the limits for a specific household without inventing universal sales rules."
+    },
+    "technologie-p19": {
+      "prompt_signatures": {
+        "technologie:p19": "f8dcaec92f7c8a1bf9589290693c4d037e29b256c8702bc71455736a907f0771"
+      },
+      "note": "This asks whether games contribute to children's development. Identify what a child actually practices: solving a problem with feedback, creating something or coordinating with others. Explain a particular game activity rather than claim all games raise intelligence or improve grades. Design, age, time and adult support shape the result. A possible learning benefit does not justify unlimited play or prove that the skill transfers automatically outside the game."
+    },
+    "technologie-p20": {
+      "prompt_signatures": {
+        "technologie:p20": "e71bb900b75a0b094e3000e2872a7233ca6adfac38a34f9c1dae74c957216a8f",
+        "environnement:p5": "9a9dcad882173b779c0a566969a891a47cf67fc34a68b7930c2997074766db7b",
+        "environnement:p10": "e71bb900b75a0b094e3000e2872a7233ca6adfac38a34f9c1dae74c957216a8f",
+        "environnement:p15": "3064965956b03674de919bf247d5d37f357c61d33f76704aad8271867a559ddc"
+      },
+      "note": "The variants ask whether living without a car is possible or whether a car is indispensable. Examine complete journeys, nearby services and less predictable needs. Check schedules, accessibility and cost rather than generalize from a city or rural address. Not owning a car differs from never using one: carpooling, taxis and rentals still involve cars. The aim is to assess workable alternatives, not blame people whose needs are poorly served."
+    },
+    "technologie-p21": {
+      "prompt_signatures": {
+        "technologie:p21": "aee5ac50076aa05368544e3b5bed413d9a5aa1d0d539e6dcfd7d9a4d5f166c45"
+      },
+      "note": "Choose one of the offered options: newspapers, radio, Internet or social networks. State a preference and explain it through concrete habits such as accessing reports, checking original sources or listening at convenient times. These categories overlap: newspapers and radio can publish online, and social networks can link to reporting. Internet access does not guarantee reliability. Compare the features you value rather than claim all other media lack them."
+    },
+    "technologie-p22": {
+      "prompt_signatures": {
+        "technologie:p22": "845c4194c4abbf6fe6580e06bd8a1c8ef6ce334a286d8a3c3fbce4fcd108e5e8",
+        "technologie:p23": "b086405e70edcf648c661da1b9734e2f21a10f1f7863e49dee46b4ec04b64112",
+        "technologie:p26": "4b65b6112933fdda6ed0269ff9ac62b042e40418b71f828e501811e46114e788"
+      },
+      "note": "The question concerns changes in workplace behavior, not just the existence of useful technology. Discuss observable practices such as faster exchanges, shared documents, remote coordination or expectations of availability. Show how a task or interaction worked differently and what follows from that change. Not every occupation can be remote, and quick communication can also interrupt concentration. Evaluate conditions and boundaries without inventing a universal legal right or productivity gain."
+    },
+    "technologie-p24": {
+      "prompt_signatures": {
+        "technologie:p24": "c8e44ff5b7a0c7373bca9bfe471b398509f5ff2459d88216e4cf9ba4032a649f"
+      },
+      "note": "The options here are television, Internet and radio. Choose your preference and explain the features that matter to you, such as timing, format, depth or source checking. Do not silently substitute a different list of media. TV and radio can also be accessed online, so make clear what kind of use you prefer. Avoid treating a device or platform as a guarantee that its information is accurate."
+    },
+    "environnement-p1": {
+      "prompt_signatures": {
+        "environnement:p1": "c32aa1d6bd139747941504fbafe0abdb17ca11afd86b6374884e42eba2e3420e"
+      },
+      "note": "You are asked which citizen actions you admire and why. Choose concrete actions, such as preparing food aid, visiting someone who wants company or maintaining an environmental project. Explain who benefits and how the action is organized. Admiration can rest on respect, reliability and useful effort rather than dramatic gestures. Do not invent your own volunteering history or imply that people with little time or money are less generous."
+    },
+    "environnement-p2": {
+      "prompt_signatures": {
+        "environnement:p2": "ffcb2d96446d745479397946d359d34fe5801d32087bb48f41d88828092f7ab2"
+      },
+      "note": "This asks whether zoos have a useful purpose, not directly whether all should close. Examine education, documented conservation and appropriate care or research, explaining the conditions needed for each. Showing animals does not automatically teach visitors or protect a species. Welfare is central, and a real conservation example does not justify every enclosure. Evaluate demonstrable contributions rather than accept a general claim that any zoo helps nature."
+    },
+    "environnement-p3": {
+      "prompt_signatures": {
+        "environnement:p3": "d9a81ce80aa996943e9abe3512ced2194d06fb7e136dbab5e4d64d62a11156bc"
+      },
+      "note": "The important word is 'everyone'. Discuss feasible ways to reduce avoidable waste, but consider unequal access, medical needs and packaging or collection systems outside individual control. Food planning, repair and reuse can give different examples. Sorting existing waste is not the same as preventing it. Explain a realistic change without assuming safe drinking water, repair services or reusable options are equally available to all."
+    },
+    "environnement-p4": {
+      "prompt_signatures": {
+        "environnement:p4": "4c79722fb9d3d867de4021b29a4d8113e941ce88c517de2b72b242587e5e43ff"
+      },
+      "note": "The question concerns closing zoos, so consider what happens to the animals and which purposes justify continued operation. Compare verifiable welfare standards, genuine conservation or education, and enforcement when an establishment fails. Closing a site does not mean all its animals can simply be released into the wild. Avoid defending every zoo or assuming all alternatives are immediately available. A conditional policy needs a practical transition, not an indefinite excuse to delay action."
+    },
+    "environnement-p6": {
+      "prompt_signatures": {
+        "environnement:p6": "4476b6ff426d54e97ddc974a7fb5d2bcb71905234ddcf194ba7f4f319e0a3bb0"
+      },
+      "note": "Limiting car traffic across a city is broader than banning cars from the center. Discuss noise and street conditions, reliable alternatives and how space is shared. Explain an actual measure, such as changes around a school, and what happens on neighboring streets. Necessary access, mobility needs and delivery arrangements matter. More restrictions do not automatically mean less total traffic if journeys are merely displaced."
+    },
+    "environnement-p7": {
+      "prompt_signatures": {
+        "environnement:p7": "1b1abc1969b42bc4aca6ba5aacab17d498c6b6efe157d8fd4c8b54a280c0d095",
+        "environnement:p12": "b869421d9ebf7510a19a4483d6cea46e8407918de410cbe6b8884e38a9ff65a6",
+        "economie:p8": "cb3adaa55c5d91ad23111c863b7220a537924f1c74723551a823d5db11be188f"
+      },
+      "note": "The issue is increasing the availability of organic products in supermarkets, not organic agriculture as a whole. Consider easier access, meaningful price and label comparisons, and the purchasing relationship with producers. Explain a shopping or supply situation without promising lower prices or fair contracts automatically. Organic does not necessarily mean local, nutritionally balanced or impact-free. Evaluate whether the expanded offer gives people a useful choice."
+    },
+    "environnement-p8": {
+      "prompt_signatures": {
+        "environnement:p8": "c2c229f3b921c1d6aead88c723b5292590494551da66bb6768b8f4357acb10a2"
+      },
+      "note": "This asks about banning car use in city centers, not reducing every car journey throughout a city. Clarify the area, times and necessary access before assessing pedestrian space, conflicts and enforceable rules. Deliveries, disability access and effects on surrounding streets need practical arrangements. A defined pedestrian zone and an absolute ban with no exceptions are different policies. Avoid promising commercial success or easy alternatives for every visitor."
+    },
+    "environnement-p9": {
+      "prompt_signatures": {
+        "environnement:p9": "4275703358b58bfaef56dbbe665ff40a0f2c0b49eb49945f43839d8ce8a36500",
+        "environnement:p16": "4275703358b58bfaef56dbbe665ff40a0f2c0b49eb49945f43839d8ce8a36500"
+      },
+      "note": "The statement concerns harm to some regions, not a claim that every visitor destroys every destination. Discuss pressure on sites and resources, housing and everyday services for residents. Explain how a particular change can create a problem, without presenting an invented local example as a verified event. Tourism can also support livelihoods and maintenance. Ask how residents participate and benefits are shared rather than simply blame tourists."
+    },
+    "environnement-p11": {
+      "prompt_signatures": {
+        "environnement:p11": "ae64d44c3b70ba054072e99f11f9638007526497f7afc376e236a8e362384c9b"
+      },
+      "note": "The prompt requires an opinion about pollution-reduction measures in your own country. Name measures you genuinely know and explain how they work, whether people can use them and what evidence supports your judgment. The French waste-policy model is a documented example to adapt, not an assumption about your country. The existence of a rule does not prove local implementation or lower pollution. Distinguish prevention, collection and measured results."
+    },
+    "environnement-p13": {
+      "prompt_signatures": {
+        "environnement:p13": "791b22c7a1fbd82051f4354c6bca0da90352be8de1bc42d9b76745499c371cd4"
+      },
+      "note": "Discuss developing organic agriculture as a production system, not merely adding organic products to supermarket shelves. Useful angles include farming practices, meaningful certification and the conditions under which producers can change methods. Explain a mechanism such as crop rotation without claiming organic means no treatment, guaranteed health benefits or automatic environmental superiority. Rules vary by certification system; the model's European example is not a global rule."
+    },
+    "environnement-p14": {
+      "prompt_signatures": {
+        "environnement:p14": "a41fae915b67e4c5f4fb41380481274a8a34f55c28b3cb821ea6a55e1f120780",
+        "economie:p7": "a41fae915b67e4c5f4fb41380481274a8a34f55c28b3cb821ea6a55e1f120780"
+      },
+      "note": "The question asks whether economic development and environmental protection can be compatible. Define the kind of activity or change involved, such as repairs, lower-resource processes or services, and explain the mechanism. New value does not always require more material output, but services also use resources. Compare impacts over the full activity and consider rising volumes. Efficiency improvements alone do not prove that total environmental harm is falling."
+    },
+    "economie-p1": {
+      "prompt_signatures": {
+        "economie:p1": "8ce14c1f161e65b080bb6d543cdc92fab5c07d7f47f5be1618143abead557ee1"
+      },
+      "note": "This is a conditional personal projection about finding work in Canada, not a general promise about the labor market. Use your actual skills and plans if known; otherwise explain what you would check. Profession-specific authorization, the language of a role and real matching vacancies are useful angles. Requirements vary by occupation and province or territory. Do not invent a biography, a universal bilingualism rule, labor shortages or a guaranteed hiring timetable."
+    },
+    "economie-p2": {
+      "prompt_signatures": {
+        "economie:p2": "11ecb72884dfe715803dc2757e3be41add77be74fc0ee94d9eab2ab36196b6ed"
+      },
+      "note": "The broad wording about athletes needs careful scope: earnings differ, and the debate often concerns a highly visible minority. Separate commercial revenue from judgments about fairness, choices within sports budgets and public images of success. A sports club's funds are not automatically available to hospitals or schools. Recognize effort, audience value and short careers without assuming every amount is justified or that all professional athletes are wealthy."
+    },
+    "economie-p3": {
+      "prompt_signatures": {
+        "economie:p3": "2f796b7b2023a58874e7b3ee82ee8fe58f9ba90de593341c7ab59c32a3233ca2"
+      },
+      "note": "The claim is that everyone is capable of management, not merely that everyone wants a promotion. Discuss coordinating people, making accountable decisions and managing resources. A good salesperson is not automatically ready to organize a team. Skills can develop through training and supported practice, so lack of readiness is not proof of permanent inability. Likewise, refusing a role does not prove someone could not do it. Evaluate capability against actual responsibilities."
+    },
+    "economie-p4": {
+      "prompt_signatures": {
+        "economie:p4": "257da7c5bc731bd0e129146fd05aaf04d3fcd37bbb731adc4dc6b5df17e950a4"
+      },
+      "note": "You are assessing whether employers should permit a workplace nap, not require it or use it to justify insufficient sleep. Discuss possible attention recovery, the ability to report fatigue and practical cover during a planned break. A quiet place, continuity of service and time to wake properly matter. Avoid guaranteed health or accident-reduction claims, fixed medical doses, or an example where someone resumes dangerous work while still drowsy."
+    },
+    "economie-p6": {
+      "prompt_signatures": {
+        "economie:p6": "58f8a018296885a6be7d692ff547b3a063a308e66d34a50708c31aa135c8a371",
+        "economie:p21": "58f8a018296885a6be7d692ff547b3a063a308e66d34a50708c31aa135c8a371"
+      },
+      "note": "Workplace wellbeing concerns daily working conditions, not just leisure perks. Consider a manageable workload, respectful problem reporting and conditions that help an experienced team remain together. Explain what an employer or team actually changes, such as priorities or a predictable schedule. Wellbeing and performance need not be opposites, but no measure guarantees fewer absences or departures. Avoid blaming individual resilience when the difficulty comes from organization."
+    },
+    "economie-p9": {
+      "prompt_signatures": {
+        "economie:p9": "f2540f9f64e308e67296167685fcbe23723dc64a6bec6653395f40f15bf7d5cd",
+        "economie:p13": "f2540f9f64e308e67296167685fcbe23723dc64a6bec6653395f40f15bf7d5cd"
+      },
+      "note": "The statement makes salary the most important job criterion. Compare pay with conditions, meaningful or interesting work and income continuity, using choices that are financially feasible. Explain a trade-off rather than dismiss money as superficial. Salary can legitimately be a priority for basic needs or a savings plan. Not everyone has several offers, and a lasting contract is not an absolute guarantee against losing employment."
+    },
+    "economie-p10": {
+      "prompt_signatures": {
+        "economie:p10": "52807fc88b9aeb0bfb5b04b5d2ba5eff033e7f31a0093a52b24620dc5b82127a"
+      },
+      "note": "The issue is whether being young can make job search harder. Focus on early-career obstacles such as proving experience, finding contacts and financing a search, without assuming all young people are beginners. Explain a recruitment situation and what would reduce the barrier. Older applicants can face different obstacles too. Do not use short-term employment itself as the sole proof that finding work is difficult, or invent current shortages in whole sectors."
+    },
+    "economie-p14": {
+      "prompt_signatures": {
+        "economie:p14": "79d17d5e367a7912ef49262836b9c115f682bf64ff9c336adda82b852ba7de5f"
+      },
+      "note": "The wording suggests people often emigrate because they have no other choice. Distinguish leaving danger, responding to severe economic pressure and pursuing a chosen project such as joining a partner. A constrained choice is not always literal absence of alternatives, and several motives can coexist. Explain the differences without inventing which category is the majority. Avoid assuming people who stay are safer or have more freedom than those who leave."
+    },
+    "economie-p15": {
+      "prompt_signatures": {
+        "economie:p15": "dbaf926a1efb843e7ed14a334629410385ffbdb8663cd344567f756e300047a0"
+      },
+      "note": "Assess how easy it is to go abroad for work, not simply whether it is possible. Separate the right to work, communication in the workplace and authorization for a regulated profession. An employer's offer does not settle every applicable rule, but a permit is not required in every mobility arrangement either. Explain the checks needed for a particular destination and status without inventing universal procedures, costs or delays."
+    },
+    "economie-p16": {
+      "prompt_signatures": {
+        "economie:p16": "4e1ef5e7e84c904c31522ef181fe481e31923b8fa6d647fe393d83e20ba1de60"
+      },
+      "note": "You must explain reasons a country might develop tourism. Visitor spending, complementary activity in regions and funding or transmission of heritage are distinct possible goals. Show how money or activity reaches local people rather than just saying tourism is good for the economy. Consider seasonality, housing and resident participation. More arrivals do not automatically preserve services, create well-paid jobs or finance maintenance; organization and resource allocation matter."
+    },
+    "economie-p17": {
+      "prompt_signatures": {
+        "economie:p17": "c55a925b40cf47ca217a8de493ec4c9764835ef7e78967bce824fff58c841801"
+      },
+      "note": "The question asks your preference between a male and a female manager. You may explain that you have no preference based on sex, then identify the behaviors you value: clear priorities, respect and fair decisions. Concrete work situations make that answer substantive. Do not assign authority, empathy or technical skill to one sex. A past experience may affect trust, but it does not predict how every new manager will behave."
+    },
+    "economie-p18": {
+      "prompt_signatures": {
+        "economie:p18": "27e83dacb8e839232cb16fc92f54238929ca596905a626c289634bff13acd246"
+      },
+      "note": "The issue is earning a lot to enjoy life, not having no need for money. Discuss accessible shared pleasures, personally meaningful activities and time to enjoy them. A specific activity or choice about extra work can illustrate the trade-off. Basic security, health and family obligations change what resources someone needs. Avoid a universal happiness threshold or romanticizing poverty; inexpensive enjoyment does not erase material hardship."
+    },
+    "economie-p20": {
+      "prompt_signatures": {
+        "economie:p20": "43dc7d59dde67bee63c3643eb3292038bf6a7fd21b19dc1e9f3ce1d15b4d1f2e"
+      },
+      "note": "This asks whether the hardest occupations receive the highest pay. Difficulty can be physical, technical, emotional or connected to responsibility. Compare those demands with recruitment conditions, employer resources and bargaining arrangements. A concrete pay-setting situation is more useful than unsupported rankings of occupations. Office work is not necessarily easy and manual work is not unskilled. Explaining market influences does not mean every resulting difference is fair."
+    },
+    "economie-p22": {
+      "prompt_signatures": {
+        "economie:p22": "019f88d0b30538d9c9211ae12ba398c5b45cb8bbf30fdca4242dd6d830ae5436"
+      },
+      "note": "Free public transport means no fare for the passenger, not no cost for the city. Discuss household budgets, access to activities and simpler ticketing, then compare financing the policy with improving frequency and accessibility. Explain who benefits, including whether they already receive free travel. More public-transport journeys do not prove fewer car journeys: some may replace walking or cycling. Targeted reductions and universal free fares are different options."
+    },
+    "economie-p23": {
+      "prompt_signatures": {
+        "economie:p23": "9d69eccc22e68f74ba307ea18541c926dd21ae116caa866d88974034a70121bd"
+      },
+      "note": "The word 'only' is central: the question challenges whether anyone besides associations and NGOs can help the poorest people. Consider public support, responsible employment practices and practical help from individuals. Explain distinct contributions and how they complement rather than replace one another. Not everyone can work or rely on relatives. Recognize the expertise of associations without assuming all are fragile or allowing charity to substitute for social rights and dignity."
+    },
+    "economie-p24": {
+      "prompt_signatures": {
+        "economie:p24": "6afb4ede7fa1560872373205d8b0c5a09c193edae35f640d2f08b9b69310f726"
+      },
+      "note": "This is a broad opinion about living without a car, so discuss desirability and trade-offs as well as feasibility. Compare total costs, everyday convenience and effects on shared space, using complete journeys and real access needs. An urban address does not guarantee usable alternatives. Distinguish not owning a car from never using one: rental and carpooling remain car journeys. A useful alternative should preserve autonomy rather than shift every trip onto a helpful relative."
+    }
+  }
+}

@@ -179,7 +179,25 @@ on each publication. Unreviewed, private, EO2 and EE content are not rewritten b
 the reviewed catalogue. Imports validate it before writing; workers must restart
 after file-backed catalogue changes.
 
-Keep the bilingual plan in `tache_3/hints.json` consistent with each reviewed
-default. Its examples should cue the same mechanism and situation, not revive a
-discarded generalization. Plans remain outside annotation roots and do not
-summarize private responses.
+## Prompt explanations
+
+EO3 subject pages and practice fronts use a collapsed English **Comprendre la
+consigne** note, styled like the EO2 explanation. The source-pinned
+`tache_3/prompt_notes.json` covers all 131 groups and 167 publications. Explain
+the exact issue, significant qualifiers, useful distinctions and plausible
+discussion angles. Do not translate a ready-made answer or force its position.
+Check every equivalent source, including opposite question polarities and
+cross-theme publications. Country and personal prompts need explicit adaptation
+guidance rather than an invented nationality, biography or rule.
+
+Notes are immutable shared editorial content, independent of private responses.
+They do not reuse EO3's spoken nuance for storage. Missing groups or changed
+consignes fail validation; unrelated tasks and ad-hoc groups do not receive a
+generic substitute. Import validates before writes, and workers must restart
+after changes. Notes sit outside detail annotation roots and carry annotation
+exclusion on practice fronts. Only the French prompt is a read-aloud target.
+Native disclosure works with keyboard controls and without JavaScript.
+
+The former bilingual plans in `tache_3/hints.json` are preserved reference content,
+not displayed EO3 guidance. Changing their presentation must not rewrite response
+models, source identities, vocabulary or saved learner data.

@@ -12,6 +12,7 @@ from django.db import connection
 from django.test import SimpleTestCase, TestCase
 from django.test.utils import CaptureQueriesContext
 from django.utils import timezone
+from django.utils.html import escape
 
 from study import catalogue
 from study import content_loader as content
@@ -188,7 +189,7 @@ class SpeakingHintsContentTests(SimpleTestCase):
             self.assertEqual(loader.call_count, 2)
 
 
-class SpeakingHintsViewTests(TestCase):
+class SpeakingPromptNotesViewTests(TestCase):
     @classmethod
     def setUpTestData(cls):
         call_command("import_content", stdout=StringIO())
@@ -204,15 +205,17 @@ class SpeakingHintsViewTests(TestCase):
     def test_equivalent_polarities_share_reviewed_defaults_and_preserve_source_models(self):
         canonical, alias = self.prompt("culture:p3"), self.prompt("economie:p5")
         self.assertEqual(canonical.response_id, alias.response_id)
-        expected = catalogue.tache_three_subject_hints()[canonical.response.semantic_group]
+        expected = catalogue.tache_three_prompt_notes()[canonical.response.semantic_group]
         for prompt in (canonical, alias):
             for selection in ({}, {"deduplicate": "0"}):
                 page = self.client.get(prompt_detail_url(prompt), selection)
                 self.assertEqual(page.status_code, 200)
-                self.assertIs(page.context["subject_hints"], expected)
-                self.assertContains(page, "Exemple possible", count=3)
-                self.assertContains(page, 'class="subject-hints__french"', count=9)
-                self.assertContains(page, 'class="subject-hints__english"', count=9)
+                self.assertIs(page.context["eo3_prompt_note"], expected)
+                self.assertContains(page, escape(expected.note))
+                self.assertContains(page, "Comprendre la consigne", count=1)
+                self.assertContains(page, 'class="eo2-prompt-note eo3-prompt-note"')
+                self.assertNotContains(page, "Voir les pistes")
+                self.assertNotContains(page, 'id="subject-hints-title"')
                 self.assertEqual(
                     [argument.idea for argument in page.context["arguments"]],
                     [argument.idea for argument in
@@ -225,7 +228,7 @@ class SpeakingHintsViewTests(TestCase):
                 for key in ("model", "personal"):
                     self.assertEqual(self.client.get(prompt_detail_url(prompt), {key: "1"}).status_code, 404)
 
-    def test_personal_responses_and_progress_do_not_change_the_shared_plan(self):
+    def test_personal_responses_and_progress_do_not_change_the_prompt_explanation(self):
         prompt = self.prompt("culture:p3")
         personal = PersonalResponse.objects.create(
             user=self.user, response=prompt.response, source_prompt=prompt,
@@ -242,24 +245,24 @@ class SpeakingHintsViewTests(TestCase):
         before_personal = PersonalResponse.objects.filter(pk=personal.pk).values().get()
         before_cards = list(Card.objects.filter(user=self.user, response=prompt.response).values())
         before_mark = Annotation.objects.filter(pk=mark.pk).values().get()
-        expected = catalogue.tache_three_subject_hints()[prompt.response.semantic_group]
+        expected = catalogue.tache_three_prompt_notes()[prompt.response.semantic_group]
         page = self.client.get(prompt_detail_url(prompt))
         self.assertContains(page, "Ma propre position")
-        self.assertIs(page.context["subject_hints"], expected)
+        self.assertIs(page.context["eo3_prompt_note"], expected)
         self.assertTrue(page.context["subject_progress"].explicitly_completed)
         self.assertEqual(PersonalResponse.objects.filter(pk=personal.pk).values().get(), before_personal)
         self.assertEqual(list(Card.objects.filter(user=self.user, response=prompt.response).values()), before_cards)
         self.assertEqual(Annotation.objects.filter(pk=mark.pk).values().get(), before_mark)
         self.client.force_login(factories.make_user("other-speaking-hints"))
         other = self.client.get(prompt_detail_url(prompt))
-        self.assertIs(other.context["subject_hints"], expected)
+        self.assertIs(other.context["eo3_prompt_note"], expected)
         self.assertNotContains(other, "Ma propre position")
         self.assertFalse(other.context["subject_progress"].explicitly_completed)
 
     def test_existing_annotated_sidebar_markup_remains_identical(self):
         url = prompt_detail_url(self.prompt("culture:p1"))
         page = self.client.get(url)
-        with patch("study.views.library.catalogue.tache_three_subject_hints", return_value={}):
+        with patch("study.views.oral.prompt_note_for_response", return_value=None):
             baseline = self.client.get(url)
 
         def sidebar(response):
@@ -270,28 +273,28 @@ class SpeakingHintsViewTests(TestCase):
         self.assertEqual(sidebar(page), sidebar(baseline))
         self.assertNotIn("subject-hints", sidebar(page))
         self.assertLess(
+            page.content.index(b"Comprendre la consigne"),
             page.content.index(b"response-sidebar-card--status"),
-            page.content.index(b'id="subject-hints-title"'),
         )
         self.assertNotContains(page, "subject-progress-control__help")
         self.assertContains(page, "Pratiquer cette réponse")
         self.assertContains(page, "Vocabulaire de ce sujet")
         self.assertContains(page, "data-subject-completion-form")
 
-    def test_warm_hint_requests_do_not_reread_sources_or_add_queries(self):
+    def test_warm_note_requests_do_not_reread_sources_or_add_queries(self):
         url = prompt_detail_url(self.prompt("culture:p1"))
         self.client.get(url)
-        with patch.object(content, "load_tache_three_subject_hints", side_effect=AssertionError("Uncached hints")):
+        with patch("study.tache_three_prompt_notes.load_tache_three_prompt_notes", side_effect=AssertionError("Uncached notes")):
             with patch.object(content, "parse_responses", side_effect=AssertionError("Uncached source")):
                 with CaptureQueriesContext(connection) as with_hints:
                     page = self.client.get(url)
-                with patch("study.views.library.catalogue.tache_three_subject_hints", return_value={}):
+                with patch("study.views.oral.prompt_note_for_response", return_value=None):
                     with CaptureQueriesContext(connection) as without_hints:
                         self.client.get(url)
         self.assertEqual(page.status_code, 200)
         self.assertEqual(len(with_hints), len(without_hints))
 
-    def test_other_tasks_and_nonbundled_responses_do_not_receive_eo3_hints(self):
+    def test_other_tasks_and_nonbundled_responses_do_not_receive_eo3_notes(self):
         custom = factories.make_spine_card(
             user=self.user,
             theme=factories.make_theme(slug="adhoc-speaking-hints", task=factories.make_task()),
@@ -302,12 +305,14 @@ class SpeakingHintsViewTests(TestCase):
             page = self.client.get(prompt_detail_url(custom.response.canonical_prompt))
             self.assertEqual(page.status_code, 200)
             self.assertNotContains(page, "subject-hints--speaking")
+            self.assertNotContains(page, "eo3-prompt-note")
         writing = Prompt.objects.select_related("theme__task__part").filter(
             theme__task__part__slug="ee", theme__task__slug="tache-3", is_active=True,
         ).first()
-        with patch("study.views.library.catalogue.tache_three_subject_hints", side_effect=AssertionError("EO3 lookup on EE")):
+        with patch("study.catalogue.tache_three_prompt_notes", side_effect=AssertionError("EO3 lookup on EE")):
             page = self.client.get(prompt_detail_url(writing))
         self.assertEqual(page.status_code, 200)
         self.assertNotContains(page, "subject-hints--speaking")
+        self.assertNotContains(page, "eo3-prompt-note")
         self.assertContains(page, "Documents sources")
         self.assertNotContains(page, "subject-progress-control__help")

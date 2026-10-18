@@ -16,6 +16,7 @@ from django.template.loader import render_to_string
 from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
 from django.utils import timezone
+from django.utils.html import escape
 
 from study import catalogue, content_loader as content
 from study.account_services import provision_user_study_data
@@ -718,9 +719,15 @@ class TacheThreeModelViewTests(TestCase):
                     self.assert_model_order(page.content.decode(), model.response)
                     self.assertContains(page, "data-response-edit", count=1)
                     self.assertContains(page, "Exemple concret", count=3)
+                    note = catalogue.tache_three_prompt_notes()[model.group]
+                    self.assertContains(page, escape(note.note))
                     self.assertEqual(json.loads(page.context["oral_legacy_annotation_keys"]), [])
                     card = Card.objects.get(user=self.user, response=prompt.response, card_type=CardType.SPINE)
                     payload = card_payload(card, prompt=prompt)
+                    self.assertIs(payload["eo3_prompt_note"], note)
+                    front = render_to_string("study/partials/card_front.html", payload)
+                    self.assertIn("Comprendre la consigne", front)
+                    self.assertIn(escape(note.note), front)
                     rendered = render_to_string("study/partials/card_back.html", payload)
                     self.assert_model_order("<div data-annotation-root>" + rendered + "</div>", model.response)
                     self.assertEqual(rendered.count("Exemple concret"), 3)

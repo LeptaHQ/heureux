@@ -19,7 +19,7 @@
   </p>
   <h1 class="detail-prompt">{% if ee_response %}{{ selected_prompt.theme.display_name }}{% else %}{{ selected_prompt.text }}{% endif %}</h1>
   {% if response_content.reformulation and not ee_response %}<p class="reform">« {{ response_content.reformulation }} »</p>{% endif %}
-  {% if subject_hints %}<a class="btn btn--sm subject-hints-jump" href="#subject-hints-title">Voir les pistes</a>{% endif %}
+  {% if eo3_prompt_note %}{% include "study/partials/tache_three_prompt_note.html" %}{% elif subject_hints %}<a class="btn btn--sm subject-hints-jump" href="#subject-hints-title">Voir les pistes</a>{% endif %}
 </div>
 
 {% include "study/partials/prompt_navigation.html" %}

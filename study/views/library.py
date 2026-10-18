@@ -3973,9 +3973,6 @@ def response_detail(request, part_slug, task_slug, prompt_id):
     ee_annotation_legacy_keys = ""
     source_documents_html = response.body_html
     subject_hints = None
-    if (task.part.slug, task.slug) == content_module.EO_TACHE_THREE_TASK and response.semantic_group:
-        # Ad-hoc responses outside the bundled semantic catalogue have no curated plan.
-        subject_hints = catalogue.tache_three_subject_hints().get(response.semantic_group)
     if ee_response:
         from ..oral_history import variant_annotation_key
 

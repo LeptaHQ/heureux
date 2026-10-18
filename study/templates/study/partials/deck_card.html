@@ -6,6 +6,9 @@ Params:
   color         — optional --deck-color accent (omitted on soon decks).
   icon          — SVG icon name shown in the deck__icon tile.
   name          — deck title.
+  subtitle      — optional line under the title (shown in card view only).
+  variant       — optional "task" for the larger part-page task cards
+                  (adds deck--task and a go arrow in card view).
   due           — optional count; renders the pill pill--due badge when truthy.
   stats         — subject summary with a normalized progress object.
   guide         — optional question-bank summary instead of tracked progress.
@@ -18,11 +21,12 @@ Params:
   soon_meta     — meta line shown when not available (e.g. a task subtitle).
   extra_classes — optional extra class names on the <a>.
 {% endcomment %}
-<a class="deck card{% if not available %} deck--soon{% endif %}{% if extra_classes %} {{ extra_classes }}{% endif %}" data-collection-item{% if color %} style="--deck-color: {{ color }};"{% endif %} href="{{ url }}">
+<a class="deck card{% if variant == 'task' %} deck--task{% endif %}{% if not available %} deck--soon{% endif %}{% if extra_classes %} {{ extra_classes }}{% endif %}" data-collection-item{% if color %} style="--deck-color: {{ color }};"{% endif %} href="{{ url }}">
   <div class="deck__body">
     <div class="deck__title">
       <span class="deck__icon">{% include "study/partials/ui_icon.html" with name=icon only %}</span>
-      <span>{{ name }}</span>
+      <span class="deck__name">{{ name }}</span>
+      {% if subtitle %}<span class="deck__subtitle">{{ subtitle }}</span>{% endif %}
     </div>
     {% if available %}
       {% if guide %}
@@ -73,5 +77,8 @@ Params:
       {% endif %}
       <span class="deck__row-arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
     </div>
+    {% if variant == 'task' and available %}
+      <span class="deck__go" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
+    {% endif %}
   </div>
 </a>

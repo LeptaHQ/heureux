@@ -784,18 +784,41 @@ class SmokeTests(TestCase):
         self.assertContains(written, "Tâche 1")
         self.assertContains(written, "Tâche 2")
         self.assertContains(written, "Tâche 3")
-        self.assertNotContains(written, "Rédiger un message clair")
-        self.assertNotContains(
-            written,
+        for subtitle in (
+            "Rédiger un message clair",
             "Raconter et expliquer une expérience",
-        )
-        self.assertContains(written, "0 sujets · 0 réponses")
-        self.assertNotContains(
-            written,
             "Comparer des points de vue et argumenter",
-        )
+        ):
+            self.assertContains(
+                written,
+                f'<span class="deck__subtitle">{subtitle}</span>',
+                html=True,
+            )
+        self.assertContains(written, "0 sujets · 0 réponses")
         self.assertNotContains(written, "À venir")
+        self.assertNotContains(written, "Contenu en préparation")
+        self.assertContains(written, "deck__go", count=3)
         self.assertContains(written, "<dd>Actif</dd>", html=True)
+
+    def test_part_page_marks_unavailable_tasks_as_in_preparation(self):
+        part = factories.make_part("ee")
+        factories.make_task(part, "tache-1")
+        soon = factories.make_task(part, "tache-2", available=False)
+        soon.subtitle = "Exprimer un avis"
+        soon.save(update_fields=["subtitle"])
+
+        response = self.client.get(
+            reverse("study:part_detail", args=[part.slug])
+        )
+
+        self.assertContains(response, "deck--task deck--soon", count=1)
+        self.assertContains(
+            response,
+            '<span class="deck__subtitle">Exprimer un avis</span>',
+            html=True,
+        )
+        self.assertContains(response, "Contenu en préparation", count=1)
+        self.assertContains(response, "deck__go", count=1)
 
     def test_review_deck_uses_the_shared_flashcard_standard(self):
         response = self.client.get(reverse("study:review"))

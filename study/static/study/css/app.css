@@ -13448,6 +13448,245 @@ html[data-collection-view-mode="table"]
 .deck--soon {
   background: var(--surface-2);
 }
+
+/* Part-page task cards fill the row in card view; the table view keeps its rows. */
+.deck--task {
+  --task-tone: var(--deck-color, var(--primary));
+  --icon-color: var(--task-tone);
+}
+[data-theme="dark"] .deck--task {
+  --task-tone: color-mix(in srgb, var(--deck-color, var(--primary)) 52%, #fff);
+}
+@supports (color: oklch(from red l c h)) {
+  [data-theme="dark"] .deck--task {
+    --task-tone: oklch(from var(--deck-color, var(--primary)) 0.78 c h);
+  }
+}
+.deck--task.deck--soon {
+  --task-tone: var(--text-faint);
+}
+.deck__subtitle,
+.deck__go {
+  display: none;
+}
+html:not([data-collection-view-mode="table"]) .grid--tasks {
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.25rem;
+}
+html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task {
+  display: flex;
+  flex-direction: column;
+  min-height: 16.5rem;
+  border-top: 3px solid var(--task-tone);
+  transition:
+    border-color 0.22s ease,
+    background 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.22s ease;
+}
+html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__body {
+  flex: 1 1 auto;
+  grid-template-areas:
+    "icon status"
+    "name name"
+    "subtitle subtitle"
+    "meta meta"
+    "copy copy"
+    "bar bar";
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto auto auto 1fr auto auto;
+  align-items: start;
+  gap: 0;
+  padding: 1.5rem 1.5rem 1.35rem;
+}
+html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__title,
+html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__progress-cell:not(.deck__progress-cell--empty) {
+  display: contents;
+}
+html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__icon {
+  grid-area: icon;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid color-mix(in srgb, var(--task-tone) 28%, var(--border));
+  background: color-mix(in srgb, var(--task-tone) 8%, var(--surface));
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease;
+}
+html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__icon .ui-icon {
+  width: 1.55rem;
+  height: 1.55rem;
+}
+html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__name {
+  grid-area: name;
+  margin-top: 1.15rem;
+  color: var(--text);
+  font-size: 1.5rem;
+  font-weight: 650;
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+}
+html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__subtitle {
+  grid-area: subtitle;
+  display: block;
+  margin-top: 0.4rem;
+  color: var(--text-soft);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__meta {
+  grid-area: meta;
+  margin-top: 0.9rem;
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__progress-copy {
+  grid-area: copy;
+  margin-top: 1.3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-soft);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .progress {
+  grid-area: bar;
+  align-self: center;
+  height: 8px;
+  margin: 0.3rem 3.25rem 0 0;
+}
+html[data-theme="dark"]:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .progress {
+  background: color-mix(in srgb, var(--text) 12%, transparent);
+}
+html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__status-cell {
+  grid-area: status;
+  align-self: center;
+}
+html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__go {
+  grid-area: bar;
+  align-self: center;
+  justify-self: end;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-top: 0.3rem;
+  border: 1px solid color-mix(in srgb, var(--task-tone) 30%, var(--border));
+  background: var(--surface);
+  transition:
+    background 0.22s ease,
+    border-color 0.22s ease;
+}
+html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__go .ui-icon {
+  width: 1.05rem;
+  height: 1.05rem;
+  transition: transform 0.22s ease;
+}
+html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task:not(.deck--soon):hover {
+  border-color: color-mix(in srgb, var(--task-tone) 36%, var(--border-strong));
+  border-top-color: var(--task-tone);
+  background: var(--surface);
+  box-shadow: 0 1rem 2rem -1.25rem color-mix(in srgb, var(--task-tone) 55%, transparent);
+}
+html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task:not(.deck--soon):hover .deck__icon {
+  border-color: color-mix(in srgb, var(--task-tone) 45%, var(--border));
+  background: color-mix(in srgb, var(--task-tone) 14%, var(--surface));
+}
+html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task:hover .deck__go {
+  --icon-color: var(--surface);
+  border-color: var(--task-tone);
+  background: var(--task-tone);
+}
+html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task:focus-visible {
+  border-color: var(--task-tone);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--task-tone) 22%, transparent);
+}
+/* Side-by-side cards share row tracks so titles, dividers and bars line up. */
+@media (min-width: 861px) {
+  @supports (grid-template-rows: subgrid) {
+    html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task {
+      display: grid;
+      grid-row: span 6;
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-rows: subgrid;
+      row-gap: 0;
+      min-height: 0;
+    }
+    html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__body {
+      grid-row: 1 / -1;
+      grid-template-rows: subgrid;
+      row-gap: 0;
+    }
+    html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__progress-copy {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task:not(.deck--soon):hover {
+    transform: translateY(-3px);
+  }
+  html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task:hover .deck__go .ui-icon {
+    transform: translateX(2px);
+  }
+}
+@media (max-width: 860px) {
+  html:not([data-collection-view-mode="table"]) .grid--tasks {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+  }
+  html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task {
+    min-height: 0;
+  }
+  html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__body {
+    grid-template-areas:
+      "icon name status"
+      "icon subtitle subtitle"
+      "meta meta meta"
+      "copy copy copy"
+      "bar bar bar";
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-rows: auto auto auto auto auto;
+    column-gap: 0.95rem;
+    padding: 1.15rem 1.15rem 1.05rem;
+  }
+  html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__icon {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+  html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__icon .ui-icon {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+  html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__name {
+    align-self: center;
+    margin-top: 0;
+    font-size: 1.3rem;
+  }
+  html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__subtitle {
+    margin-top: 0.2rem;
+    font-size: 0.93rem;
+  }
+  html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__meta {
+    margin-top: 0.95rem;
+    font-size: 0.84rem;
+  }
+  html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__progress-copy {
+    margin-top: 1rem;
+    padding-top: 0.9rem;
+  }
+  html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .progress {
+    margin-right: 3rem;
+  }
+  html:not([data-collection-view-mode="table"]) .grid--tasks > .deck--task .deck__go {
+    width: 2.1rem;
+    height: 2.1rem;
+  }
+}
 .batch-card {
   background: var(--surface);
 }

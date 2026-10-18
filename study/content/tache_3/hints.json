@@ -84,8 +84,8 @@
         },
         {
           "point": {
-            "french": "Les rencontres concrètes permettent de voir les efforts derrière les étiquettes.",
-            "english": "Meeting young people reveals efforts beyond labels."
+            "french": "Les rencontres concrètes permettent de dépasser les jugements trop généraux.",
+            "english": "Meeting people helps move beyond overly general judgements."
           },
           "example": {
             "french": "Une collecte alimentaire permet de voir des lycéens prendre des responsabilités.",
@@ -176,12 +176,12 @@
         },
         {
           "point": {
-            "french": "Combattre l'exclusion permet aux personnes de faire valoir leurs droits et leurs capacités.",
-            "english": "Fighting exclusion helps people use their rights and abilities."
+            "french": "Combattre l'exclusion aide les personnes à faire valoir leurs droits.",
+            "english": "Fighting exclusion helps people exercise their rights."
           },
           "example": {
-            "french": "Un accompagnateur aide à créer puis à suivre un dossier de recherche d'emploi.",
-            "english": "An adviser helps create and then track a job-search file."
+            "french": "Expliquer un formulaire permet de demander une aide au logement à laquelle on a droit.",
+            "english": "Explaining a form helps someone apply for housing support they are entitled to."
           }
         }
       ]
@@ -252,8 +252,8 @@
             "english": "A book lets the reader follow an idea at their own pace."
           },
           "example": {
-            "french": "Relire une notion dans un essai avant de poursuivre le raisonnement.",
-            "english": "Reread a concept in an essay before following the next stage of the argument."
+            "french": "Relire la définition de l'empreinte carbone avant de poursuivre un chapitre sur les transports.",
+            "english": "Reread the definition of a carbon footprint before continuing a chapter about transport."
           }
         },
         {
@@ -340,8 +340,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Les meilleurs souvenirs de jeunesse peuvent rendre la comparaison déséquilibrée.",
-            "english": "Selected memories of youth may unbalance the comparison."
+            "french": "Idéaliser sa propre jeunesse peut fausser la comparaison.",
+            "english": "Idealising your own youth can distort the comparison."
           },
           "example": {
             "french": "Un retraité retrouve dans ses souvenirs des conflits avec ses propres parents.",
@@ -350,8 +350,8 @@
         },
         {
           "point": {
-            "french": "Les images négatives peuvent donner une vision incomplète des jeunes.",
-            "english": "Negative images may give an incomplete picture of young people."
+            "french": "Quelques images marquantes peuvent prendre une place excessive dans le jugement.",
+            "english": "Striking images can weigh too heavily in a judgement."
           },
           "example": {
             "french": "Une grand-mère voit plusieurs extraits d'une même bagarre, pas toute la vie scolaire.",
@@ -360,12 +360,12 @@
         },
         {
           "point": {
-            "french": "Les activités communes permettent de découvrir les jeunes autrement que par leurs différences.",
-            "english": "Shared activities reveal young people beyond their differences."
+            "french": "Les rencontres concrètes permettent de dépasser les jugements trop généraux.",
+            "english": "Meeting people helps move beyond overly general judgements."
           },
           "example": {
-            "french": "Un atelier numérique permet de constater la patience d'un jeune.",
-            "english": "A digital workshop gives an opportunity to see a young person's patience."
+            "french": "Une personne âgée voit des lycéens prendre des responsabilités dans une collecte alimentaire.",
+            "english": "An older person sees pupils take responsibility during a food collection."
           }
         }
       ]
@@ -396,12 +396,12 @@
         },
         {
           "point": {
-            "french": "Les repères affectifs ne se reconstruisent pas aussi vite qu'une adresse.",
-            "english": "Emotional anchors take longer to rebuild than finding an address."
+            "french": "L'éloignement des proches peut rendre les débuts difficiles.",
+            "english": "Being far from loved ones can make the early days difficult."
           },
           "example": {
-            "french": "Un appel familial aide, mais des activités régulières créent aussi des liens sur place.",
-            "english": "A family call helps, while regular activities also build local connections."
+            "french": "Regretter les repas du dimanche ; les appels aident, mais les liens locaux prennent du temps.",
+            "english": "Miss Sunday meals; calls help, but local relationships take time."
           }
         },
         {
@@ -436,8 +436,8 @@
             "english": "Traditions provide continuity during a period of change."
           },
           "example": {
-            "french": "Un repas familier relie la nouvelle vie aux souvenirs de famille.",
-            "english": "A familiar meal connects the new life to family memories."
+            "french": "Retrouver sa langue familiale à la maison après une journée dans une nouvelle langue.",
+            "english": "Return to the family language at home after a day using a new language."
           }
         },
         {
@@ -478,12 +478,12 @@
       "arguments": [
         {
           "point": {
-            "french": "Des repères partagés peuvent faciliter le soutien affectif.",
-            "english": "Shared reference points can make emotional support easier."
+            "french": "Retrouver une langue et des références familières peut aider à se sentir moins seul.",
+            "english": "A familiar language and shared references can help someone feel less alone."
           },
           "example": {
-            "french": "Parler dans sa langue après une journée fatigante facilite l'expression des émotions.",
-            "english": "Speaking your language after a tiring day makes it easier to express emotions."
+            "french": "Parler librement de ses difficultés avec un compatriote qui partage sa langue.",
+            "english": "Speak freely about difficulties with a compatriot who shares your language."
           }
         },
         {
@@ -492,8 +492,8 @@
             "english": "An established compatriot can share useful practical experience."
           },
           "example": {
-            "french": "Demander une piste pour traduire des documents, puis vérifier les exigences actuelles.",
-            "english": "Ask for a lead on translating documents, then check current requirements."
+            "french": "Demander le nom d'un traducteur de diplômes, puis vérifier les exigences actuelles.",
+            "english": "Ask for a diploma translator's name, then check current requirements."
           }
         },
         {
@@ -616,12 +616,12 @@
       "arguments": [
         {
           "point": {
-            "french": "Des œuvres et des documents permettent de découvrir des expériences situées.",
-            "english": "Works and documents give access to situated experiences."
+            "french": "Les livres et les documentaires permettent de découvrir d'autres façons de vivre.",
+            "english": "Books and documentaries help people discover other ways of life."
           },
           "example": {
-            "french": "Croiser un roman et un documentaire sur la même ville.",
-            "english": "Compare a novel and a documentary about the same city."
+            "french": "Croiser un récit familial et un documentaire sur une fête, sans généraliser à toutes les familles.",
+            "english": "Compare a family story and a documentary about a celebration without generalising to every family."
           }
         },
         {
@@ -676,8 +676,8 @@
             "english": "Recipes can preserve history and practical knowledge."
           },
           "example": {
-            "french": "Une cuisinière explique une technique de conservation transmise par sa grand-mère.",
-            "english": "A cook explains a preserving technique passed on by her grandmother."
+            "french": "Une cuisinière explique comment sa grand-mère conservait les légumes d'été pour l'hiver.",
+            "english": "A cook explains how her grandmother preserved summer vegetables for winter."
           }
         },
         {
@@ -768,8 +768,8 @@
             "english": "Fragile material conditions can make the experience difficult."
           },
           "example": {
-            "french": "Une réduction d'heures dans un contrat court peut menacer le budget logement.",
-            "english": "Reduced hours on a short contract may threaten the housing budget."
+            "french": "Partir sans emploi confirmé et voir ses économies diminuer rend le loyer prioritaire.",
+            "english": "Leaving without a confirmed job and seeing savings shrink makes rent the priority."
           }
         },
         {
@@ -804,8 +804,8 @@
             "english": "Personal post can make a particular act of care visible."
           },
           "example": {
-            "french": "Une carte d'anniversaire rappelle un souvenir choisi pour son destinataire.",
-            "english": "A birthday card recalls a memory chosen for its recipient."
+            "french": "Une carte d'anniversaire rappelle au destinataire un souvenir partagé avec sa sœur.",
+            "english": "A birthday card reminds the recipient of a memory shared with his sister."
           }
         },
         {
@@ -820,8 +820,8 @@
         },
         {
           "point": {
-            "french": "Le courrier peut devenir un souvenir facile à retrouver et à partager.",
-            "english": "Post can become a tangible memory to retrieve and share."
+            "french": "Le courrier peut devenir un souvenir matériel que l'on transmet.",
+            "english": "Personal post can become a tangible keepsake to pass on."
           },
           "example": {
             "french": "Une ancienne carte sert de point de départ pour raconter un premier séjour.",
@@ -866,12 +866,12 @@
         },
         {
           "point": {
-            "french": "Une langue commune permet de dialoguer sans parler toutes les langues du pays.",
-            "english": "A shared language enables direct dialogue without knowing every local language."
+            "french": "Une langue commune permet de dialoguer sans parler la langue locale.",
+            "english": "A shared language enables conversation without speaking the local language."
           },
           "example": {
-            "french": "Un visiteur demande à un habitant une explication dans une langue commune.",
-            "english": "A visitor asks a resident for an explanation in a shared language."
+            "french": "Un visiteur fait expliquer une fête locale par un habitant qui parle français.",
+            "english": "A visitor asks a French-speaking resident to explain a local celebration."
           }
         }
       ]
@@ -886,8 +886,8 @@
         "english": "Reading widely is not enough without reflection; media and practice can complement each other."
       },
       "conclusion": {
-        "french": "Juger la curiosité et la démarche plutôt que le nombre de pages.",
-        "english": "Value curiosity and the approach rather than the number of pages."
+        "french": "La lecture n'est pas indispensable ; écoute, rencontres et pratique permettent aussi d'apprendre.",
+        "english": "Reading is not essential; listening, meeting people and practice also enable learning."
       },
       "arguments": [
         {
@@ -906,8 +906,8 @@
             "english": "Listening can also provide access to demanding knowledge."
           },
           "example": {
-            "french": "Réécouter une conférence musicale et comparer les extraits présentés.",
-            "english": "Replay a music lecture and compare the excerpts presented."
+            "french": "Réécouter une conférence musicale et comparer les extraits sans passer par un texte.",
+            "english": "Replay a music lecture and compare the excerpts without using a written text."
           }
         },
         {
@@ -984,8 +984,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Des relations de proximité permettent une entraide que la distance ne facilite pas.",
-            "english": "Nearby relationships enable help that distance makes harder."
+            "french": "Des relations sur place permettent de s'entraider au quotidien.",
+            "english": "Local relationships enable practical help in everyday life."
           },
           "example": {
             "french": "Un voisin de confiance dépose quelques courses lorsqu'une personne est malade.",
@@ -998,8 +998,8 @@
             "english": "Regular exchanges help explain local practices."
           },
           "example": {
-            "french": "Après une réunion d'immeuble, vérifier auprès d'un voisin une consigne mal comprise.",
-            "english": "After a building meeting, check an unclear instruction with a neighbour."
+            "french": "Un voisin montre quel déchet va dans quel bac pour clarifier les consignes de tri.",
+            "english": "A neighbour shows which waste goes in which bin to clarify sorting rules."
           }
         },
         {
@@ -1034,8 +1034,8 @@
             "english": "Departure can serve a specific professional goal."
           },
           "example": {
-            "french": "Une technicienne rejoint une équipe pour apprendre une méthode recherchée.",
-            "english": "A technician joins a team to learn a desired method."
+            "french": "Une technicienne rejoint une entreprise étrangère pour apprendre à entretenir de nouvelles machines.",
+            "english": "A technician joins a company abroad to learn to maintain unfamiliar machines."
           }
         },
         {
@@ -1080,8 +1080,8 @@
             "english": "Practical information would help organise the first days."
           },
           "example": {
-            "french": "Repérer les transports, les interlocuteurs et les documents utiles à sa situation.",
-            "english": "Identify transport, relevant services and documents for one's situation."
+            "french": "Prévoir le trajet vers son logement et vérifier les documents nécessaires sur les sites officiels.",
+            "english": "Plan the journey to your accommodation and check required documents on official websites."
           }
         },
         {
@@ -1100,8 +1100,8 @@
             "english": "Understanding some local habits would make differences less worrying."
           },
           "example": {
-            "french": "Discuter des horaires de repas ou de travail pour éviter un malentendu.",
-            "english": "Discuss meal or work schedules to avoid a misunderstanding."
+            "french": "Prévoir une visite avec ses voisins plutôt que prendre leur besoin d'organisation pour un rejet.",
+            "english": "Arrange a visit with neighbours instead of interpreting their need to plan as rejection."
           }
         }
       ]
@@ -1126,18 +1126,18 @@
             "english": "What is used less often can become less familiar."
           },
           "example": {
-            "french": "Hésiter sur un terme technique peu utilisé dans sa langue d'origine.",
-            "english": "Hesitate over a technical term rarely used in one's original language."
+            "french": "Oublier certaines paroles de chansons d'enfance que l'on ne chante plus.",
+            "english": "Forget some lyrics of childhood songs you no longer sing."
           }
         },
         {
           "point": {
-            "french": "La transmission ne se fait pas automatiquement d'une génération à l'autre.",
-            "english": "Transmission does not happen automatically between generations."
+            "french": "Le nouveau rythme de vie peut laisser moins de place aux traditions d'origine.",
+            "english": "A new daily routine may leave less room for traditions from home."
           },
           "example": {
-            "french": "Expliquer une fête et préparer un repas avec les enfants.",
-            "english": "Explain a celebration and prepare a meal with the children."
+            "french": "Ne plus célébrer une fête en raison du travail, puis en oublier certains préparatifs.",
+            "english": "Stop celebrating a holiday because of work, then forget some preparations."
           }
         },
         {
@@ -1208,8 +1208,8 @@
         "english": "Barriers and pace vary; integration does not mean erasing one's origins."
       },
       "conclusion": {
-        "french": "Associer efforts personnels, accueil réciproque et reconnaissance.",
-        "english": "Combine personal effort, reciprocal welcome and recognition."
+        "french": "Associer efforts personnels, accueil réciproque et accès réel à la vie professionnelle.",
+        "english": "Combine personal effort, reciprocal welcome and real access to working life."
       },
       "arguments": [
         {
@@ -1234,12 +1234,12 @@
         },
         {
           "point": {
-            "french": "Pouvoir contribuer aide à se sentir reconnu comme membre de la société.",
-            "english": "Contributing helps people feel recognised as members of society."
+            "french": "Certains obstacles empêchent de participer pleinement à la vie professionnelle.",
+            "english": "Some barriers prevent full participation in working life."
           },
           "example": {
-            "french": "Un projet associatif permet d'utiliser des compétences pendant des démarches professionnelles.",
-            "english": "A community project enables skills to be used while professional procedures continue."
+            "french": "Attendre la reconnaissance d'un diplôme ; le bénévolat ne remplace ni le métier ni le revenu.",
+            "english": "Wait for qualification recognition; volunteering replaces neither the occupation nor the income."
           }
         }
       ]
@@ -1270,22 +1270,22 @@
         },
         {
           "point": {
-            "french": "La répétition des disputes peut présenter l'agressivité comme un moyen normal d'exister.",
-            "english": "Repeated disputes can present aggression as a normal way to gain attention."
+            "french": "La répétition des disputes peut présenter l'agressivité comme un moyen d'attirer l'attention.",
+            "english": "Repeated disputes can make aggression seem like a way to attract attention."
           },
           "example": {
-            "french": "Une insulte reprise pour annoncer l'épisode devient la phrase que l'on retient.",
-            "english": "An insult repeated in episode trailers becomes the phrase viewers remember."
+            "french": "Reprendre une moquerie de l'émission peut humilier un camarade plutôt que faire rire.",
+            "english": "Repeating a taunt from the programme may humiliate a classmate instead of making people laugh."
           }
         },
         {
           "point": {
-            "french": "Les prolongements commerciaux peuvent brouiller la frontière entre conseil et publicité.",
-            "english": "Commercial extensions can blur advice and advertising."
+            "french": "Les recommandations des candidats peuvent brouiller la frontière entre conseil et publicité.",
+            "english": "Contestants' recommendations can blur the line between advice and advertising."
           },
           "example": {
-            "french": "Vérifier un partenariat et son besoin avant d'acheter l'accessoire recommandé.",
-            "english": "Check for sponsorship and real need before buying a recommended accessory."
+            "french": "Vérifier un partenariat et son besoin avant d'acheter les chaussures recommandées.",
+            "english": "Check for sponsorship and real need before buying the recommended shoes."
           }
         }
       ]
@@ -1320,8 +1320,8 @@
             "english": "Visibility can draw attention to a neglected issue."
           },
           "example": {
-            "french": "Un acteur relaie une association et invite à une réunion publique.",
-            "english": "An actor shares a charity's message and invites people to a public meeting."
+            "french": "Un acteur relaie une association sur l'accessibilité des transports et invite à une réunion publique.",
+            "english": "An actor shares an association's concerns about transport accessibility and invites people to a public meeting."
           }
         },
         {
@@ -1330,8 +1330,8 @@
             "english": "Public office requires work assessed separately from image."
           },
           "example": {
-            "french": "Interroger une candidate sur le financement et l'entretien des équipements proposés.",
-            "english": "Ask a candidate about funding and maintaining the facilities she proposes."
+            "french": "Interroger une candidate sur le financement et l'entretien du gymnase proposé.",
+            "english": "Ask a candidate about funding and maintaining the proposed sports hall."
           }
         }
       ]
@@ -1402,8 +1402,8 @@
             "english": "Immigrants can bring useful skills to economic activity."
           },
           "example": {
-            "french": "Une technicienne partage son expérience d'une machine et apprend d'autres méthodes.",
-            "english": "A technician shares experience of a machine and learns other methods."
+            "french": "Une technicienne montre comment réparer une panne déjà rencontrée dans son pays d'origine.",
+            "english": "A technician shows how to repair a fault she has encountered in her country of origin."
           }
         },
         {
@@ -1422,8 +1422,8 @@
             "english": "Immigrants can contribute to local community life and mutual aid."
           },
           "example": {
-            "french": "Une personne aide une association par son temps et ses compétences linguistiques.",
-            "english": "Someone helps a charity with their time and language skills."
+            "french": "Préparer les cartons, répartir les produits ou accueillir les participants d'une collecte alimentaire.",
+            "english": "Prepare boxes, sort goods or welcome participants at a food collection."
           }
         }
       ]

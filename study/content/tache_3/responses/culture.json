@@ -13,7 +13,7 @@
       "arguments": [
         {
           "idea": "Tout d'abord, adapter certaines habitudes permet de répondre aux conditions concrètes du pays.",
-          "developpement": "Le climat et les horaires ne dépendent pas de nos préférences. En tenir compte permet de travailler, de se déplacer et d'organiser ses journées sans se mettre inutilement en difficulté.",
+          "developpement": "Le climat, les horaires de travail et les transports disponibles imposent des contraintes concrètes. Adapter son organisation permet de respecter ses obligations et de se déplacer dans de bonnes conditions, sans pour autant renoncer à son identité.",
           "exemple": "Par exemple, une personne habituée à un climat chaud qui découvre un hiver enneigé doit prévoir un manteau et des chaussures adaptés. Elle peut aussi partir plus tôt quand les déplacements sont ralentis, au lieu de conserver exactement sa routine.",
           "consequence": "Ce changement pratique facilite son autonomie, sans remettre en cause ses origines."
         },
@@ -54,7 +54,7 @@
           "consequence": "Un comportement existe, mais sa visibilité ne prouve pas qu'il représente toute une génération."
         },
         {
-          "idea": "Enfin, les rencontres concrètes permettent de voir les efforts derrière les étiquettes.",
+          "idea": "Enfin, les rencontres concrètes permettent de dépasser les jugements trop généraux.",
           "developpement": "À distance, on parle facilement des jeunes comme d'un groupe uniforme. En travaillant avec eux, on peut observer leurs compétences, leurs contraintes et leur manière de prendre des responsabilités.",
           "exemple": "Dans une collecte alimentaire, un adulte peut voir des lycéens arriver à l'heure, répartir les tâches et expliquer leur projet aux visiteurs. Il dispose alors de faits précis pour réviser l'idée qu'ils seraient tous indifférents aux autres.",
           "consequence": "Le contact n'efface pas les désaccords, mais donne une base plus juste à la discussion."
@@ -115,9 +115,9 @@
           "consequence": "L'aide ne répond donc pas seulement au présent : elle ouvre aussi des possibilités."
         },
         {
-          "idea": "Enfin, combattre l'exclusion permet aux personnes de faire valoir leurs droits et leurs capacités.",
+          "idea": "Enfin, combattre l'exclusion aide les personnes à faire valoir leurs droits.",
           "developpement": "Le manque d'argent s'accompagne parfois de démarches difficiles et d'un éloignement des services. Un accompagnement adapté aide à retrouver une marge de décision, plutôt qu'à dépendre uniquement d'une aide d'urgence.",
-          "exemple": "Une personne qui cherche un emploi peut être bloquée par un formulaire en ligne ou par l'absence de connexion. Dans un lieu d'accueil, un accompagnateur peut l'aider à créer son dossier, puis lui montrer comment le suivre elle-même.",
+          "exemple": "Une personne qui a droit à une aide au logement peut renoncer à la demander parce qu'elle ne comprend pas le formulaire. Un accompagnateur lui explique les pièces à fournir et lui montre comment suivre le dossier, afin qu'elle puisse demander cette aide elle-même.",
           "consequence": "On soutient ainsi son autonomie au lieu de décider systématiquement à sa place."
         }
       ],
@@ -166,8 +166,8 @@
         {
           "idea": "Tout d'abord, un livre permet de suivre une idée à son rythme.",
           "developpement": "On peut s'arrêter sur un passage, revenir à une explication et relier plusieurs chapitres. Ce fonctionnement convient à des sujets qu'on ne comprend pas forcément en une seule fois.",
-          "exemple": "Un lecteur qui découvre un essai sur l'écologie peut relire la définition d'une notion avant de poursuivre le raisonnement. S'il hésite sur un argument, il peut comparer deux passages plutôt que d'avancer sans avoir saisi le raisonnement.",
-          "consequence": "Le support lui donne une prise concrète sur sa manière de comprendre."
+          "exemple": "Dans un livre sur l'écologie, un lecteur peut revenir à la définition de l'empreinte carbone avant de poursuivre le chapitre sur les transports. Il comprend mieux ce que l'auteur compare, au lieu de continuer avec une notion mal comprise.",
+          "consequence": "Il peut ainsi vérifier chaque étape du raisonnement avant de passer à la suivante."
         },
         {
           "idea": "Ensuite, un ouvrage bien conçu organise des connaissances que l'on peut retrouver.",
@@ -224,21 +224,21 @@
       "position_claire": "Certaines personnes âgées portent un regard pessimiste sur les jeunes, mais je ne généraliserais pas cette attitude. À mon avis, les souvenirs du passé, les images qui circulent et la distance entre les générations peuvent expliquer une partie de ces jugements, sans les rendre toujours justes.",
       "arguments": [
         {
-          "idea": "Tout d'abord, les meilleurs souvenirs de jeunesse peuvent rendre la comparaison déséquilibrée.",
+          "idea": "Tout d'abord, idéaliser sa propre jeunesse peut fausser la comparaison.",
           "developpement": "Avec le recul, on peut retenir surtout les moments valorisants de son parcours. On risque alors de comparer cette sélection à tous les défauts visibles des jeunes actuels.",
           "exemple": "Une personne retraitée peut dire que sa génération respectait toujours les adultes. Si elle raconte ensuite les disputes qu'elle avait avec ses parents au sujet de ses sorties, elle découvre que le désaccord entre générations n'est pas entièrement nouveau.",
           "consequence": "Se souvenir plus précisément du passé permet de modérer un jugement trop général."
         },
         {
-          "idea": "Ensuite, les images négatives peuvent donner une vision incomplète des jeunes.",
+          "idea": "Ensuite, quelques images marquantes peuvent prendre une place excessive dans le jugement.",
           "developpement": "Quand les rencontres sont rares, un incident diffusé plusieurs fois peut peser davantage que des comportements ordinaires moins visibles. Cela ne concerne pas toutes les personnes âgées, mais le mécanisme mérite attention.",
           "exemple": "Après avoir vu plusieurs extraits d'une même bagarre scolaire, une grand-mère pourrait craindre que tous les établissements soient violents. Ces images ne lui montrent pourtant pas les élèves qui travaillent ensemble ou aident à organiser une activité de quartier.",
           "consequence": "Il faut donc distinguer un fait préoccupant d'un portrait de toute la jeunesse."
         },
         {
-          "idea": "Enfin, les activités communes permettent de découvrir les jeunes autrement que par leurs différences.",
-          "developpement": "Un projet partagé donne à chacun l'occasion de voir les compétences de l'autre. La discussion porte alors sur une expérience concrète, et pas seulement sur des habitudes qui surprennent.",
-          "exemple": "Dans un atelier numérique, un jeune peut montrer à une personne âgée comment joindre un document à un message, en reprenant calmement les étapes. Celle-ci peut alors constater sa patience, même si elle comprend mal d'autres usages de son téléphone.",
+          "idea": "Enfin, les rencontres concrètes permettent de dépasser les jugements trop généraux.",
+          "developpement": "À distance, on parle facilement des jeunes comme d'un groupe uniforme. En travaillant avec eux, on peut observer leurs compétences, leurs contraintes et leur manière de prendre des responsabilités.",
+          "exemple": "Dans une collecte alimentaire, une personne âgée peut voir des lycéens arriver à l'heure, répartir les tâches et expliquer leur projet aux visiteurs. Elle dispose alors de faits précis pour réviser l'idée qu'ils seraient tous indifférents aux autres.",
           "consequence": "Une rencontre précise peut ainsi remettre en question une étiquette négative."
         }
       ],
@@ -260,9 +260,9 @@
           "consequence": "L'accumulation de ces petits efforts peut rendre une journée ordinaire épuisante."
         },
         {
-          "idea": "Ensuite, les repères affectifs ne se reconstruisent pas aussi vite qu'une adresse.",
+          "idea": "Ensuite, l'éloignement des proches peut rendre les débuts difficiles.",
           "developpement": "Les proches restent accessibles à distance, mais ils ne partagent plus forcément les moments du quotidien. Il faut du temps pour rencontrer des personnes avec lesquelles on se sent suffisamment à l'aise.",
-          "exemple": "Après une semaine de travail, une personne installée seule peut vouloir retrouver le repas familial du dimanche. Un appel lui fait du bien, mais elle doit aussi chercher une activité régulière pour créer progressivement des liens sur place.",
+          "exemple": "Le dimanche, une personne installée seule peut regretter les repas qu'elle partageait avec ses proches. Les appels l'aident à garder le contact, mais il lui faut du temps pour retrouver sur place des moments de compagnie.",
           "consequence": "Le manque ne disparaît pas immédiatement, même lorsque le projet d'installation reste souhaité."
         },
         {
@@ -286,8 +286,8 @@
       "arguments": [
         {
           "idea": "Tout d'abord, les traditions offrent une continuité dans une période de changement.",
-          "developpement": "Une installation à l'étranger transforme beaucoup de repères à la fois. Retrouver un geste familier aide à relier sa nouvelle vie à son histoire, au lieu de vivre le départ comme une coupure totale.",
-          "exemple": "Une personne peut continuer à préparer un plat associé aux réunions de sa famille. En le partageant avec ses enfants après une semaine difficile, elle retrouve un moment familier, même si le travail et la vie du quartier sont nouveaux.",
+          "developpement": "Une installation à l'étranger transforme beaucoup de repères à la fois. Retrouver une habitude familière aide à relier sa nouvelle vie à son histoire, au lieu de vivre le départ comme une coupure totale.",
+          "exemple": "Après une journée où elle a dû chercher ses mots dans une nouvelle langue, une personne peut retrouver sa langue familiale à la maison. Parler librement avec ses proches lui apporte un moment familier, sans l'empêcher de continuer à apprendre la langue locale.",
           "consequence": "Cette continuité peut soutenir l'équilibre personnel sans empêcher les apprentissages locaux."
         },
         {
@@ -315,15 +315,15 @@
       "position_claire": "Fréquenter des personnes de son pays d'origine peut être très utile à l'étranger. Je ne dirais pourtant pas qu'il faut le faire à tout prix. Ces relations peuvent apporter une écoute familière, une expérience pratique et un lien culturel, sans remplacer les autres rencontres.",
       "arguments": [
         {
-          "idea": "Tout d'abord, des repères partagés peuvent faciliter le soutien affectif.",
+          "idea": "Tout d'abord, retrouver une langue et des références familières peut aider à se sentir moins seul.",
           "developpement": "Quand on découvre un nouvel environnement, expliquer chaque référence ou chercher ses mots peut être fatigant. Pouvoir parler librement de ce qui nous manque apporte parfois un soulagement.",
-          "exemple": "Après une journée où elle a dû communiquer dans une langue qu'elle maîtrise encore mal, une personne peut retrouver un compatriote pour discuter dans sa langue. Elle peut raconter son découragement sans devoir d'abord traduire toutes ses émotions.",
+          "exemple": "Après une journée où elle a dû chercher ses mots dans une nouvelle langue, une personne peut retrouver un compatriote qui parle sa langue. Elle raconte plus librement ses difficultés et se sent écoutée, sans devoir traduire ce qu'elle souhaite exprimer.",
           "consequence": "Cette pause peut aider à reprendre confiance, plutôt qu'à rester seul avec ses difficultés."
         },
         {
           "idea": "Ensuite, un compatriote déjà installé peut partager une expérience pratique utile.",
           "developpement": "Certaines démarches soulèvent des questions particulières lorsqu'on arrive avec des documents d'un autre pays. Une personne passée par une situation proche peut indiquer où chercher les renseignements adaptés.",
-          "exemple": "Pour préparer la traduction de ses documents, un nouvel arrivant peut demander à un compatriote quel organisme il avait contacté. Il vérifie ensuite les exigences actuelles auprès du destinataire, au lieu de considérer cette expérience passée comme une règle toujours valable.",
+          "exemple": "Pour faire traduire un diplôme, un nouvel arrivant peut demander à un compatriote quel traducteur il avait contacté. Il vérifie ensuite auprès du service qui reçoit son dossier quelles traductions sont acceptées, car les exigences peuvent avoir changé.",
           "consequence": "Le conseil sert de point de départ, sans remplacer la vérification officielle."
         },
         {
@@ -406,9 +406,9 @@
       "position_claire": "À mon avis, on peut réellement découvrir d'autres cultures sans voyager. Un déplacement n'est pas la seule façon d'apprendre. Les œuvres et les documents, les rencontres près de chez soi et les échanges à distance donnent trois accès différents, même si chacun a ses limites.",
       "arguments": [
         {
-          "idea": "Tout d'abord, des œuvres et des documents permettent de découvrir des expériences situées.",
+          "idea": "Tout d'abord, les livres et les documentaires permettent de découvrir d'autres façons de vivre.",
           "developpement": "Un récit ou un documentaire peut expliquer le contexte d'une pratique et montrer plusieurs points de vue. Il faut croiser les sources pour éviter de prendre un seul témoignage pour la description de tout un pays.",
-          "exemple": "Une personne peut lire un roman qui se déroule dans une ville étrangère, puis regarder un documentaire sur cette ville. Elle compare ce qui relève de l'histoire d'un personnage et ce qui décrit le cadre de vie.",
+          "exemple": "Une personne peut lire un roman consacré à l'histoire d'une famille, puis regarder un documentaire sur la fête qui y est décrite. Elle comprend mieux le sens de cette pratique, tout en sachant que toutes les familles ne la célèbrent pas de la même façon.",
           "consequence": "Elle construit ainsi une connaissance réfléchie, sans avoir besoin d'être sur place."
         },
         {
@@ -444,7 +444,7 @@
         {
           "idea": "Ensuite, les recettes peuvent conserver une histoire et un savoir-faire.",
           "developpement": "Les ingrédients et les techniques ne sont pas toujours choisis au hasard. Une personne qui les connaît peut expliquer une habitude familiale, une adaptation aux produits disponibles ou une transmission entre générations.",
-          "exemple": "Dans un atelier, une cuisinière peut montrer comment elle prépare une conserve et raconter qu'elle a appris cette méthode auprès de sa grand-mère. Les participants comprennent alors le geste et la raison de le transmettre, au lieu de seulement retenir une liste d'ingrédients.",
+          "exemple": "Une cuisinière peut expliquer que sa grand-mère conservait les légumes d'été pour les manger en hiver, puis lui a transmis cette technique. Les participants découvrent ainsi le lien entre une recette, les saisons et une histoire familiale.",
           "consequence": "Apprendre à cuisiner peut donc aussi être une manière d'écouter une mémoire familiale."
         },
         {
@@ -506,7 +506,7 @@
         {
           "idea": "Ensuite, des conditions matérielles fragiles peuvent au contraire rendre l'expérience très difficile.",
           "developpement": "Le logement, les ressources et l'accès à une activité stable influencent le quotidien. Si l'essentiel devient incertain, la découverte du pays peut passer derrière des problèmes urgents.",
-          "exemple": "Une personne qui accepte un contrat court sans réserve suffisante peut se retrouver en difficulté si les heures prévues diminuent. Elle devra chercher comment payer son loyer, plutôt que profiter sereinement des possibilités qu'elle imaginait avant le départ.",
+          "exemple": "Une personne peut partir en comptant sur un emploi qu'elle n'a pas encore obtenu. Si sa recherche dure plus longtemps que prévu et que ses économies diminuent, payer le loyer devient sa priorité, avant la découverte du pays.",
           "consequence": "Le fait d'être à l'étranger ne transforme pas cette précarité en expérience forcément positive."
         },
         {
@@ -531,7 +531,7 @@
         {
           "idea": "Tout d'abord, un courrier personnel peut rendre visible une attention particulière.",
           "developpement": "Choisir une carte, écrire quelques lignes pour une personne et l'envoyer demande une démarche volontaire. Le destinataire peut apprécier ce geste inhabituel, surtout lorsqu'il correspond à un moment important.",
-          "exemple": "Pour un anniversaire, une personne peut envoyer une carte où elle rappelle un souvenir partagé avec son frère. Le plaisir vient moins du prix de la carte que du fait qu'elle a choisi des mots qui lui sont destinés.",
+          "exemple": "Pour son anniversaire, un homme peut recevoir de sa sœur une carte qui rappelle un souvenir de leur enfance. Il se sent touché parce qu'elle a pris le temps de lui écrire un message personnel.",
           "consequence": "Ce geste peut donc donner une présence concrète à l'affection."
         },
         {
@@ -541,7 +541,7 @@
           "consequence": "L'intérêt est ce temps consacré à la formulation, pas une qualité automatique du papier."
         },
         {
-          "idea": "Enfin, le courrier peut devenir un souvenir facile à retrouver et à partager.",
+          "idea": "Enfin, le courrier peut devenir un souvenir matériel que l'on transmet.",
           "developpement": "Une lettre conservée dans un endroit connu garde sa forme, son écriture et parfois une date. Cet objet peut aider à raconter une histoire familiale, indépendamment d'un compte ou d'un appareil.",
           "exemple": "Un parent peut ressortir une carte envoyée pendant son premier séjour à l'étranger et la montrer à ses enfants. L'adresse, les quelques lignes et le timbre lui donnent des points de départ pour raconter cette période.",
           "consequence": "Le document devient alors un support de mémoire, au-delà du message initial."
@@ -571,9 +571,9 @@
           "consequence": "La médiation linguistique peut transmettre autre chose qu'une connaissance superficielle."
         },
         {
-          "idea": "Enfin, une langue commune permet de dialoguer sans parler toutes les langues du pays.",
+          "idea": "Enfin, une langue commune permet de dialoguer sans parler la langue locale.",
           "developpement": "Les habitants peuvent eux-mêmes parler plusieurs langues. Un échange direct reste possible si les interlocuteurs trouvent un moyen de se comprendre et acceptent d'expliquer leurs références.",
-          "exemple": "Un visiteur francophone au Japon peut échanger en français avec un habitant qui l'a appris. Il peut alors lui demander pourquoi un service ferme à une certaine heure et obtenir une explication précise.",
+          "exemple": "Un visiteur francophone au Japon peut discuter en français avec un habitant qui l'a appris. Il peut lui demander comment se déroule une fête locale et à quoi correspondent les gestes qu'il a observés.",
           "consequence": "On peut ainsi corriger une interprétation, même sans maîtriser la langue locale."
         }
       ],
@@ -597,7 +597,7 @@
         {
           "idea": "Ensuite, l'écoute peut elle aussi donner accès à des connaissances exigeantes.",
           "developpement": "La profondeur ne dépend pas uniquement du support écrit. Une conférence, un entretien ou un livre audio peut présenter une réflexion complète, à condition que l'auditeur prenne le temps de la comprendre.",
-          "exemple": "Une personne qui écoute une conférence sur la musique peut réécouter un passage, comparer les extraits proposés et noter les questions qu'elle souhaite poser. Elle développe ainsi une connaissance précise, même si elle lit peu de livres.",
+          "exemple": "Une personne qui écoute une conférence sur la musique peut réécouter un passage et comparer les extraits proposés. Elle développe ainsi une connaissance précise par l'écoute et la comparaison, sans passer par un texte.",
           "consequence": "Il serait réducteur de confondre culture et quantité de pages lues."
         },
         {
@@ -608,7 +608,7 @@
         }
       ],
       "nuance": "Cela ne signifie pas que toutes les activités se valent ou que lire serait inutile. Un livre peut compléter une pratique et en élargir le contexte. Inversement, lire beaucoup sans vérifier, réfléchir ou écouter d'autres points de vue ne garantit pas une culture solide.",
-      "conclusion": "En conclusion, on peut être cultivé sans être un grand lecteur. Je recommande la lecture comme une ressource précieuse, mais aux côtés de l'écoute, des rencontres et de la pratique : c'est la qualité de la démarche qui compte."
+      "conclusion": "En conclusion, la lecture n'est pas indispensable pour être cultivé. Elle reste une ressource précieuse, mais l'écoute, les rencontres et la pratique permettent aussi d'acquérir des connaissances : c'est la qualité de la démarche qui compte."
     },
     "culture-p21": {
       "prompt_signatures": {
@@ -650,15 +650,15 @@
       "position_claire": "Créer des relations avec les habitants me paraît très important pour bien vivre à l'étranger. Je nuancerais toutefois le mot « indispensable » : les besoins et les situations diffèrent. Ces liens facilitent surtout l'entraide, la compréhension du quotidien et la participation à la vie locale.",
       "arguments": [
         {
-          "idea": "Tout d'abord, des relations de proximité permettent une entraide que la distance ne facilite pas.",
-          "developpement": "Les proches restés au pays peuvent écouter et conseiller, mais ils ne sont pas toujours disponibles pour un besoin sur place. Connaître quelqu'un près de chez soi peut rendre certaines situations moins lourdes.",
+          "idea": "Tout d'abord, des relations sur place permettent de s'entraider au quotidien.",
+          "developpement": "Les proches restés au pays peuvent écouter et conseiller, mais ils ne peuvent pas toujours intervenir sur place. Connaître quelqu'un près de chez soi peut permettre d'obtenir ou de proposer une aide pratique, au-delà des appels.",
           "exemple": "Lorsqu'une personne tombe malade, un voisin avec qui elle a établi une relation de confiance peut lui déposer quelques courses devant sa porte. Elle peut lui rendre un autre service plus tard, sans attendre une aide constante de sa part.",
           "consequence": "Ces petits échanges donnent un appui concret au quotidien."
         },
         {
           "idea": "Ensuite, les échanges réguliers aident à comprendre des usages locaux.",
           "developpement": "Les cours et les documents donnent des bases, mais une conversation permet de demander une précision sur une situation vécue. On évite ainsi de transformer un malentendu en jugement général sur le pays.",
-          "exemple": "Après une réunion d'immeuble, un nouvel arrivant peut demander à un voisin de lui expliquer une consigne qu'il a mal comprise. Il vérifie le sens des mots et sait ensuite comment participer à l'organisation commune.",
+          "exemple": "Si les consignes de tri de l'immeuble lui paraissent confuses, un nouvel arrivant peut demander à un voisin de lui montrer quel déchet va dans quel bac. Il comprend alors comment les appliquer au quotidien.",
           "consequence": "La relation soutient à la fois la pratique de la langue et l'autonomie."
         },
         {
@@ -682,7 +682,7 @@
         {
           "idea": "Tout d'abord, un départ peut répondre à un objectif professionnel précis.",
           "developpement": "Une personne peut chercher un poste, une spécialisation ou des conditions de travail qui correspondent mieux à son projet. Ce n'est pas nécessairement le pays entier qui l'attire, mais une possibilité identifiée.",
-          "exemple": "Une technicienne peut accepter un emploi dans une équipe qui utilise une méthode qu'elle souhaite apprendre. Elle part pour acquérir cette expérience et développer son parcours, après avoir comparé le poste proposé et ses possibilités actuelles.",
+          "exemple": "Une technicienne peut rejoindre une entreprise étrangère pour apprendre à entretenir un type de machine qu'elle ne connaît pas encore. La formation proposée par l'entreprise donne alors une raison concrète de partir, au-delà de l'envie de changer de pays.",
           "consequence": "La mobilité est alors un moyen d'avancer dans un métier, plutôt qu'une fin en soi."
         },
         {
@@ -695,7 +695,7 @@
           "idea": "Enfin, les relations et le projet familial peuvent être au centre de la décision.",
           "developpement": "On ne choisit pas toujours un lieu uniquement pour ses possibilités individuelles. Rejoindre un conjoint, vivre près de proches ou chercher un cadre adapté à ses enfants peut peser davantage qu'une carrière.",
           "exemple": "Si deux partenaires habitent dans des pays différents, l'un peut décider de rejoindre l'autre pour construire une vie commune. Le choix demande de comparer les conditions d'installation, mais sa motivation principale reste de ne plus vivre séparés.",
-          "consequence": "L'étranger est alors le lieu d'un projet relationnel, pas seulement d'une aventure personnelle."
+          "consequence": "Le départ répond alors au souhait de construire un quotidien avec ses proches."
         }
       ],
       "nuance": "Bien sûr, le degré de liberté varie : le manque de perspectives ou l'insécurité peuvent peser sur une décision. Mais il ne faut pas réduire tous les départs choisis à une fuite, ni croire qu'une seule raison explique tout un parcours.",
@@ -712,7 +712,7 @@
         {
           "idea": "Tout d'abord, des informations pratiques m'aideraient à organiser les premiers jours.",
           "developpement": "Une arrivée demande plusieurs démarches alors qu'on connaît encore peu son environnement. Repérer les interlocuteurs et les étapes à l'avance permet de ne pas devoir tout découvrir dans l'urgence.",
-          "exemple": "Je chercherais comment utiliser les transports et à quel service m'adresser pour les démarches liées à ma situation. Je préparerais les documents demandés en consultant les sources officielles, plutôt que me fier uniquement au récit d'une connaissance.",
+          "exemple": "Avant le départ, je chercherais comment rejoindre mon logement depuis le lieu d'arrivée. Je vérifierais aussi sur les sites officiels quels documents prévoir pour mes démarches, afin de ne pas devoir les récupérer dans l'urgence une fois sur place.",
           "consequence": "Cette préparation me donnerait des points de repère concrets dès l'arrivée."
         },
         {
@@ -723,8 +723,8 @@
         },
         {
           "idea": "Enfin, comprendre quelques habitudes locales m'aiderait à aborder les différences avec moins d'inquiétude.",
-          "developpement": "Ce qui surprend n'est pas forcément un rejet ou un problème. Observer et poser des questions permet de distinguer une différence d'organisation d'une difficulté personnelle.",
-          "exemple": "Si je découvre que les repas ou les échanges au travail suivent un autre rythme, je voudrais en discuter avec des habitants. Je pourrais alors ajuster mon organisation sans interpréter chaque situation nouvelle comme un manque d'attention à mon égard.",
+          "developpement": "Quand on ne connaît pas les habitudes des autres, on peut mal interpréter leur comportement. Poser une question permet de comprendre leurs attentes et d'éviter un malentendu.",
+          "exemple": "Si de nouveaux voisins préfèrent prévoir leurs visites à l'avance, je pourrais leur proposer une date plutôt que passer à l'improviste. Comprendre cette préférence m'aiderait à les rencontrer sans la prendre pour un manque de sympathie.",
           "consequence": "Cette curiosité faciliterait les échanges tout en me laissant mes propres habitudes."
         }
       ],
@@ -737,19 +737,19 @@
       },
       "reformulation": "Une longue vie à l'étranger peut-elle affaiblir le lien avec sa culture d'origine ?",
       "position": "Oui, certains repères peuvent s'effacer, mais la durée ne détermine pas seule ce lien.",
-      "position_claire": "Oui, vivre longtemps à l'étranger peut conduire à oublier certaines pratiques de sa culture d'origine. Mais je distinguerais l'oubli d'un détail, le changement d'habitude et la perte de tout lien. L'usage quotidien, la transmission et les moyens de rester en contact influencent cette évolution.",
+      "position_claire": "Oui, vivre longtemps à l'étranger peut conduire à oublier certaines pratiques de sa culture d'origine. Mais je distinguerais l'oubli d'un détail, le changement d'habitude et la perte de tout lien. L'usage quotidien, le rythme de vie et les moyens de rester en contact influencent cette évolution.",
       "arguments": [
         {
           "idea": "Tout d'abord, ce que l'on utilise moins peut devenir moins familier.",
           "developpement": "La vie dans un autre environnement donne plus de place à de nouveaux mots et à de nouvelles routines. Certains savoirs anciens sont alors moins mobilisés, sans qu'il y ait forcément un rejet volontaire.",
-          "exemple": "Une personne qui travaille et fait ses démarches dans la langue du pays d'accueil peut hésiter lorsqu'elle doit nommer un outil dans sa langue d'origine. Elle connaît toujours cette langue, mais utilise moins certains mots et doit parfois les retrouver.",
+          "exemple": "Une personne qui ne chante plus les chansons apprises dans son enfance peut en oublier une partie des paroles. Lorsqu'elle les réécoute avec ses proches, elle retrouve certains passages, alors que d'autres lui échappent encore.",
           "consequence": "L'éloignement peut donc affaiblir des repères précis plutôt qu'effacer toute une identité."
         },
         {
-          "idea": "Ensuite, la transmission ne se fait pas automatiquement d'une génération à l'autre.",
-          "developpement": "Les enfants grandissent avec les références de leur entourage actuel. Pour connaître une histoire ou une pratique familiale, ils ont besoin qu'on la leur présente et qu'ils aient des occasions d'y participer.",
-          "exemple": "Des enfants peuvent connaître le nom d'une fête sans savoir comment leurs grands-parents la célébraient. Si les adultes racontent les souvenirs et préparent un repas avec eux, la pratique devient compréhensible plutôt qu'un simple mot entendu occasionnellement.",
-          "consequence": "La continuité dépend donc d'expériences partagées, pas seulement de l'origine des parents."
+          "idea": "Ensuite, le nouveau rythme de vie peut laisser moins de place aux traditions d'origine.",
+          "developpement": "Les horaires de travail et les activités de l'entourage donnent un autre rythme à la vie quotidienne. Certaines occasions de célébrer les fêtes d'origine peuvent alors disparaître, surtout si l'on n'a personne avec qui les préparer.",
+          "exemple": "Une personne qui célébrait une fête avec ses proches peut ne plus l'organiser si elle travaille ce jour-là dans son pays d'accueil. Au fil des années, elle peut en oublier certains préparatifs ou les raisons de certains gestes.",
+          "consequence": "Le changement du quotidien peut donc faire perdre des pratiques que l'on connaissait auparavant."
         },
         {
           "idea": "Enfin, les contacts réguliers peuvent entretenir un lien même après de nombreuses années.",
@@ -759,7 +759,7 @@
         }
       ],
       "nuance": "Cependant, entretenir ce lien ne dépend pas seulement de la volonté : le temps, les ressources et l'histoire familiale comptent aussi. Adopter d'autres habitudes n'est pas nécessairement oublier ses origines. Chacun doit pouvoir faire évoluer son identité sans être accusé de trahir sa culture.",
-      "conclusion": "En conclusion, une longue vie à l'étranger peut éloigner de certaines pratiques, surtout si elles ne sont plus utilisées ou transmises. Mais le lien peut rester vivant et évoluer : il n'est ni automatiquement effacé ni obligé de rester intact."
+      "conclusion": "En conclusion, une longue vie à l'étranger peut éloigner de certaines pratiques, surtout si elles ne sont plus utilisées ou trouvent moins de place dans le quotidien. Mais le lien peut rester vivant et évoluer : il n'est ni automatiquement effacé ni obligé de rester intact."
     },
     "culture-p29": {
       "prompt_signatures": {
@@ -812,10 +812,10 @@
           "consequence": "Un cadre accueillant peut donc transformer des contacts polis en liens plus personnels."
         },
         {
-          "idea": "Enfin, pouvoir contribuer aide à se sentir reconnu comme membre de la société.",
-          "developpement": "L'intégration n'est pas seulement une adaptation intérieure. Elle dépend aussi de possibilités concrètes de travailler, de proposer quelque chose et d'être écouté pour ses capacités, plutôt que réduit à son origine.",
-          "exemple": "Une personne expérimentée qui ne peut pas encore exercer son métier peut participer à un projet associatif lié à ses compétences. Si son avis est pris en compte, elle retrouve un rôle actif, même si ses démarches professionnelles restent à poursuivre.",
-          "consequence": "Cette reconnaissance peut soutenir le sentiment d'appartenance sans résoudre tous les obstacles."
+          "idea": "Enfin, certains obstacles empêchent de participer pleinement à la vie professionnelle.",
+          "developpement": "Des compétences acquises ailleurs ne sont pas toujours immédiatement utilisables. Il peut être nécessaire de faire reconnaître un diplôme ou de suivre une formation complémentaire. Cette attente rend plus difficile la construction d'une nouvelle place dans la société.",
+          "exemple": "Une personne dont la profession est réglementée peut devoir faire reconnaître son diplôme avant d'exercer. Pendant ces démarches, elle peut participer à une association, mais cette activité ne remplace ni son métier ni le revenu qu'elle espérait.",
+          "consequence": "L'intégration dépend donc aussi de l'accès à des possibilités concrètes, pas seulement des efforts individuels."
         }
       ],
       "nuance": "Cependant, le rythme varie selon la langue, les ressources, les rencontres et les obstacles rencontrés, y compris la discrimination. On peut aussi se sentir chez soi dans plusieurs cultures. Il ne faut donc ni imposer un calendrier unique ni faire de l'intégration l'effacement des origines.",
@@ -832,23 +832,23 @@
         {
           "idea": "Tout d'abord, une mise en scène du luxe peut donner une image trompeuse de la réussite.",
           "developpement": "Si l'on ne voit que des vêtements coûteux, des voyages et de la célébrité, on peut oublier le travail ou les moyens nécessaires derrière cette image. Le montage ne montre pas toute une vie.",
-          "exemple": "Un adolescent peut comparer son quotidien aux séjours luxueux d'un candidat et avoir l'impression que sa propre vie est sans intérêt. Discuter de ce qui est sélectionné pour l'émission permet de rappeler qu'il compare deux images très différentes.",
+          "exemple": "Un adolescent peut comparer son quotidien aux séjours luxueux d'un candidat et avoir l'impression que sa propre vie est sans intérêt. Discuter du montage permet de rappeler qu'il voit des moments choisis, pas l'ensemble de la vie du candidat.",
           "consequence": "Le risque est moins le plaisir de regarder que la comparaison avec un modèle incomplet."
         },
         {
-          "idea": "Ensuite, la répétition des disputes peut présenter l'agressivité comme un moyen normal d'exister.",
+          "idea": "Ensuite, la répétition des disputes peut présenter l'agressivité comme un moyen d'attirer l'attention.",
           "developpement": "Lorsqu'une humiliation reçoit beaucoup d'attention et peu de critique, elle peut sembler valorisée. Le spectateur risque de retenir le succès médiatique du comportement plutôt que ses conséquences pour la personne visée.",
-          "exemple": "Une émission peut reprendre plusieurs fois une insulte pour annoncer l'épisode suivant. Un jeune qui en parle avec ses amis peut alors citer surtout la phrase marquante, sans réfléchir à ce qu'une telle remarque ferait dans une relation réelle.",
+          "exemple": "Un adolescent peut reprendre devant ses camarades une moquerie répétée dans l'émission, en pensant qu'elle fera rire comme à l'écran. Si la personne visée se sent humiliée, on voit que ce qui sert de spectacle peut abîmer une relation réelle.",
           "consequence": "Il est utile de distinguer un ressort de spectacle d'une manière acceptable de traiter autrui."
         },
         {
-          "idea": "Enfin, les prolongements commerciaux peuvent brouiller la frontière entre conseil et publicité.",
+          "idea": "Enfin, les recommandations des candidats peuvent brouiller la frontière entre conseil et publicité.",
           "developpement": "Un candidat suivi en dehors de l'émission peut recommander des produits. Si le jeune spectateur lui fait confiance comme à une connaissance, il peut moins examiner l'intérêt commercial de cette recommandation.",
-          "exemple": "Après avoir suivi un candidat pendant plusieurs épisodes, un adolescent peut vouloir acheter l'accessoire qu'il présente sur son compte. Avant de dépenser, il devrait vérifier s'il s'agit d'un partenariat et s'il a réellement besoin de l'objet.",
+          "exemple": "Après avoir suivi un candidat pendant plusieurs épisodes, un adolescent peut vouloir acheter les chaussures qu'il recommande sur son compte. Avant de dépenser, il devrait vérifier s'il s'agit d'un partenariat et s'il a réellement besoin de l'objet.",
           "consequence": "Le regard critique doit donc porter aussi sur ce qu'on cherche à lui vendre."
         }
       ],
-      "nuance": "Cependant, toutes les émissions ne reposent pas sur ces mécanismes, et beaucoup de jeunes savent les reconnaître. Regarder ne conduit pas automatiquement à imiter. Une discussion sur le montage, les comportements et la publicité est plus utile qu'un jugement méprisant sur les spectateurs.",
+      "nuance": "Cependant, toutes les émissions ne reposent pas sur ces mécanismes, et les jeunes peuvent garder un regard critique. Regarder ne conduit pas automatiquement à imiter. Une discussion sur le montage, les comportements et la publicité est plus utile qu'un jugement méprisant sur les spectateurs.",
       "conclusion": "En conclusion, je vois des risques réels dans certains modèles de réussite, les conflits mis en spectacle et les sollicitations commerciales. L'essentiel est d'apprendre à les reconnaître pour garder une distance entre le programme et ses propres choix."
     },
     "culture-p33": {
@@ -868,13 +868,13 @@
         {
           "idea": "Ensuite, la visibilité peut attirer l'attention sur une question peu discutée.",
           "developpement": "Une personne suivie peut toucher un public qui ne lirait pas un document institutionnel. Cet avantage est utile lorsqu'elle s'appuie sur des informations vérifiées et oriente vers les personnes compétentes.",
-          "exemple": "Un acteur peut relayer les témoignages d'une association sur les difficultés d'accès à un service, puis inviter ses abonnés à une réunion publique. Il rend le sujet visible sans prétendre que son avis remplace celui des personnes concernées.",
+          "exemple": "Un acteur peut relayer les témoignages d'une association sur les difficultés d'accès aux transports des personnes à mobilité réduite, puis inviter ses abonnés à une réunion publique. Il rend le sujet visible sans prétendre remplacer la parole des personnes concernées.",
           "consequence": "La notoriété devient alors un moyen de faire circuler la parole."
         },
         {
           "idea": "Enfin, une fonction politique exige un travail qui doit être évalué indépendamment de l'image.",
           "developpement": "Exercer des responsabilités demande de comprendre les dossiers, de choisir entre des priorités et de rendre compte des décisions. Une célébrité doit pouvoir être interrogée sur ces éléments comme toute autre personne candidate.",
-          "exemple": "Si une chanteuse propose de nouveaux équipements dans une commune, les habitants doivent pouvoir lui demander comment elle prévoit de les financer et de les entretenir. Une réponse précise compte davantage que la réussite de sa carrière musicale.",
+          "exemple": "Si une chanteuse candidate à la mairie propose de construire un gymnase, les habitants doivent pouvoir lui demander comment elle prévoit de le financer et de l'entretenir. Une réponse précise compte davantage que la réussite de sa carrière musicale.",
           "consequence": "L'adhésion à une personne ne doit pas dispenser d'examiner son projet."
         }
       ],
@@ -897,9 +897,9 @@
         },
         {
           "idea": "Ensuite, la facilité d'achat peut aussi réduire le temps consacré à vérifier un besoin.",
-          "developpement": "Une promotion, une recommandation personnalisée et un paiement rapide peuvent rapprocher l'envie de la dépense. Sans moment de recul, on risque d'accumuler des objets peu utilisés.",
+          "developpement": "Les recommandations personnalisées peuvent multiplier les tentations, et le paiement en un clic facilite un achat immédiat. On risque alors de profiter d'une promotion avant de vérifier si l'objet est vraiment utile.",
           "exemple": "Après avoir consulté des chaussures en ligne, une personne peut recevoir plusieurs annonces similaires. Si elle achète une nouvelle paire uniquement parce qu'une offre paraît urgente, elle peut dépasser son budget alors que ses chaussures actuelles lui conviennent encore.",
-          "consequence": "Attendre et comparer le besoin réel permet de reprendre la main sur la décision."
+          "consequence": "Attendre avant de payer permet de vérifier si l'on a vraiment besoin de l'objet."
         },
         {
           "idea": "Enfin, de nouvelles pratiques peuvent prolonger l'usage des biens plutôt qu'accélérer leur remplacement.",
@@ -922,8 +922,8 @@
         {
           "idea": "Tout d'abord, les personnes immigrées peuvent apporter des compétences utiles à l'activité économique.",
           "developpement": "Elles arrivent avec des expériences professionnelles variées, qui peuvent compléter celles des équipes présentes. Cette contribution devient possible lorsqu'elles peuvent exercer dans de bonnes conditions et, si nécessaire, faire reconnaître leurs qualifications.",
-          "exemple": "Une technicienne ayant travaillé sur un type de machine peu connu dans une entreprise peut aider ses collègues à résoudre une panne. L'équipe profite alors de son expérience, tandis qu'elle découvre les autres méthodes utilisées sur place.",
-          "consequence": "L'apport se construit par un échange de compétences, sans supposer que toute personne a le même parcours."
+          "exemple": "Une technicienne ayant entretenu des machines du même type dans son pays d'origine peut reconnaître une panne que ses nouveaux collègues n'ont encore jamais rencontrée. En leur montrant comment elle la répare, elle partage une expérience utile à l'entreprise.",
+          "consequence": "Cette expérience complète les compétences de l'équipe, sans supposer que toute personne a le même parcours."
         },
         {
           "idea": "Ensuite, la diversité des pratiques peut élargir l'offre culturelle et les échanges.",
@@ -934,7 +934,7 @@
         {
           "idea": "Enfin, les immigrés peuvent contribuer à la vie associative et à l'entraide locale.",
           "developpement": "Participer à un projet commun crée des liens entre habitants et permet d'agir sur des besoins concrets. Cette dimension ne dépend pas uniquement d'un emploi ou d'un niveau de revenu.",
-          "exemple": "Dans une association de quartier, un nouvel habitant peut aider à organiser une distribution alimentaire ou accueillir des participants dans une langue qu'il connaît. Il apporte du temps et une compétence utile, comme les autres bénévoles.",
+          "exemple": "Dans une association de quartier, un nouvel habitant peut participer à une collecte alimentaire : préparer les cartons, répartir les produits ou accueillir les participants dans une langue qu'il connaît. Il apporte du temps et des compétences, comme les autres bénévoles.",
           "consequence": "La richesse d'une société se mesure aussi à cette capacité de coopération."
         }
       ],

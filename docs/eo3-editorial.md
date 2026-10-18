@@ -179,6 +179,30 @@ on each publication. Unreviewed, private, EO2 and EE content are not rewritten b
 the reviewed catalogue. Imports validate it before writing; workers must restart
 after file-backed catalogue changes.
 
+## Culture learning consistency
+
+The Culture audit covers 35 Culture consignes through 31 models, with four
+additional equivalent publications in other themes. Retain the distinctions
+between adapting habits, achieving a goal, integration, the overall experience
+of living abroad and the motivations for leaving. Likewise, book usefulness is
+not reading necessity, and cultural transmission to children is not the same
+question as forgetting one's own practices.
+
+Reuse sound claims and familiar expressions where the mechanism is genuinely the
+same. The adult-observer and older-observer models share their three argument
+cues and the food-collection illustration, while keeping their actors and
+consignes distinct. Familiar language at home, practical preparation, shared
+meals and community participation can recur in other answers when they support
+the actual question; they must not become interchangeable stock paragraphs.
+
+A development explains why the claim holds. Its example should identify a
+recognizable situation, an action and a relevant outcome: a housing-support
+form, a neighbour explaining waste bins or a visit arranged in advance is
+clearer than an unnamed procedure or an unexplained difference in organization.
+Keep possible outcomes conditional, distinguish a whole life from selected
+television images, and answer words such as "necessary" and "always" directly.
+Align both languages of the corresponding Piste after revising a support.
+
 ## Prompt explanations
 
 EO3 subject pages and practice fronts use a collapsed English **Comprendre la

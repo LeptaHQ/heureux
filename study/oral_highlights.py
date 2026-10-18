@@ -121,11 +121,12 @@ class AnnotationRootText(HTMLParser):
 
     VOID_TAGS = {"br", "hr", "img", "input", "meta", "link", "wbr"}
 
-    def __init__(self, html):
+    def __init__(self, html, *, root_class=None):
         super().__init__(convert_charrefs=True)
         self.parts = []
         self.stack = []
         self.in_root = False
+        self.root_class = root_class
         self.feed(html)
         self.text = b"".join(self.parts)
         self.units = tuple(
@@ -141,10 +142,13 @@ class AnnotationRootText(HTMLParser):
             (self.stack[-1][0] if self.stack else False)
             or "data-annotation-exclude" in attrs
         )
-        is_root = "data-annotation-root" in attrs
-        self.stack.append((excluded, is_root))
+        is_root = "data-annotation-root" in attrs and (
+            self.root_class is None
+            or self.root_class in attrs.get("class", "").split()
+        )
         if is_root:
             self.in_root = True
+        self.stack.append((excluded, is_root))
 
     def handle_endtag(self, tag):
         if tag in self.VOID_TAGS:
@@ -885,13 +889,17 @@ def preserve_tache_two_highlights(response, user, *, question_mapping=None):
         source_filter = Q(pk__in=[])
         review_paths = {
             reverse("study:review"),
+            reverse("study:part_review", args=["eo"]),
             reverse("study:task_review", args=["eo", "tache-2"]),
         }
         review_filter = Q(pk__in=[])
         for path in review_paths:
             review_filter |= Q(source_path=path) | Q(source_path__startswith=f"{path}?")
         for prompt in prompts:
-            prompt_paths = [prompt_detail_url(prompt)]
+            prompt_paths = [
+                prompt_detail_url(prompt),
+                reverse("study:response_detail", args=["eo", "tache-2", prompt.pk]),
+            ]
             match = TACHE_TWO_PROMPT_KEY.fullmatch(prompt.content_key)
             if match:
                 prompt_paths.append(reverse("study:task_subject_detail", args=[
@@ -901,7 +909,7 @@ def preserve_tache_two_highlights(response, user, *, question_mapping=None):
             for path in prompt_paths:
                 source_filter |= Q(source_path=path) | Q(source_path__startswith=f"{path}?")
             source_filter |= review_filter & Q(
-                source_key__startswith=f"response:{prompt.content_key}:variant-",
+                source_key__startswith=f"response:{prompt.content_key}:",
             )
         annotations = list(Annotation.objects.select_for_update().filter(
             source_filter, user=user, kind=AnnotationKind.HIGHLIGHT,

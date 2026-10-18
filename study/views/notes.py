@@ -1125,7 +1125,15 @@ def _annotation_overlap_revisions(value):
 def _annotation_prompt_scope(prompt):
     if prompt.response.semantic_group:
         path = prompt_detail_url(prompt)
-        return path, Q(source_path=path) | Q(source_path__startswith=f"{path}?")
+        scope = Q(source_path=path) | Q(source_path__startswith=f"{path}?")
+        if prompt.content_key.startswith("tache2:"):
+            numeric_path = reverse(
+                "study:response_detail", args=["eo", "tache-2", prompt.pk],
+            )
+            scope |= Q(source_path=numeric_path) | Q(
+                source_path__startswith=f"{numeric_path}?",
+            )
+        return path, scope
     siblings = list(
         lean_prompt_rows(
             prompt.response.prompts.filter(
@@ -1286,13 +1294,16 @@ def annotations_for_source(request):
         return HttpResponseBadRequest("Invalid source path.")
     _, source_filter = _annotation_source_scope(source_path)
     from ..oral_highlights import recover_published_tache_two_highlights
+    from ..public_response_annotations import preserve_public_response_annotations
+
     recover_published_tache_two_highlights(request.user, source_filter)
+    unresolved = preserve_public_response_annotations(request.user, source_filter)
     highlights = list(
         Annotation.objects.filter(
             source_filter,
             user=request.user,
             kind=AnnotationKind.HIGHLIGHT,
-        ).values(
+        ).exclude(pk__in=unresolved).values(
             "id",
             "quote",
             "source_key",

@@ -2766,6 +2766,97 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(self.page.locator("#oral-response-copy")).to_have_count(0)
         expect(self.page.get_by_role("button", name="Copier la consigne")).to_be_visible()
 
+    def test_each_culture_model_keeps_unchanged_annotations_after_a_public_example_edit(self):
+        from study import catalogue
+
+        self._import_eo_tache_three_content()
+        models = catalogue.tache_three_models()
+        culture = [
+            model for model in models.values()
+            if model.group.startswith("eo/tache-3/culture-")
+        ]
+        self.assertEqual(len(culture), 31)
+        for model in culture:
+            with self.subTest(group=model.group):
+                key = next(key for key, _ in model.source_prompts if key.startswith("culture:"))
+                prompt = Prompt.objects.select_related("theme__task__part").get(content_key=key)
+                url = prompt_detail_url(prompt)
+                response = model.response
+                parts = [
+                    response.position_claire,
+                    *(text for argument in response.arguments for text in (
+                        argument.idea, argument.developpement, argument.exemple,
+                        argument.consequence,
+                    )),
+                    response.nuance, response.conclusion,
+                ]
+                self.page.goto(self.live_server_url + url)
+                root = self.page.locator(".answer-columns[data-annotation-root]")
+                source_key = root.get_attribute("data-annotation-source-key")
+                anchors = root.evaluate("""
+                    (root, quotes) => quotes.map(quote => {
+                        const text = root.textContent;
+                        const start = text.indexOf(quote);
+                        return {
+                            quote, start, end: start + quote.length,
+                            prefix: text.slice(Math.max(0, start - 160), start),
+                            suffix: text.slice(start + quote.length, start + quote.length + 160),
+                        };
+                    })
+                """, parts)
+                marks = []
+                for index, anchor in enumerate(anchors):
+                    self.assertGreaterEqual(anchor["start"], 0)
+                    marks.append(Annotation.objects.create(
+                        user=self.user, task=prompt.theme.task, source_prompt=prompt,
+                        kind=AnnotationKind.HIGHLIGHT, source_path=url, source_key=source_key,
+                        start_offset=anchor["start"], end_offset=anchor["end"],
+                        quote=anchor["quote"], prefix=anchor["prefix"], suffix=anchor["suffix"],
+                        body="Ma note conservée." if index == 14 else "",
+                        title="À retenir" if index == 14 else "",
+                    ))
+                note = Annotation.objects.create(
+                    user=self.user, task=prompt.theme.task, source_prompt=prompt,
+                    kind=AnnotationKind.NOTE, source_path=url, source_key=source_key,
+                    body=f"Ma note sur {model.group}.",
+                )
+                self.page.reload()
+                expect(root.locator("mark.user-highlight")).to_have_count(15)
+                edited = replace(
+                    response,
+                    arguments=(
+                        replace(response.arguments[0], exemple=(
+                            "Cet exemple de test remplace uniquement le premier exemple."
+                        )),
+                        *response.arguments[1:],
+                    ),
+                )
+                with mock.patch(
+                    "study.catalogue.tache_three_models",
+                    return_value={**models, model.group: replace(model, response=edited)},
+                ):
+                    self.page.reload()
+                    expect(root).to_have_attribute("data-annotation-source-key", source_key)
+                    expect(root.locator("mark.user-highlight")).to_have_count(14)
+                    for index, mark in enumerate(marks):
+                        if index != 3:
+                            expect(root.locator(
+                                f'mark.user-highlight[data-highlight-id="{mark.pk}"]'
+                            )).to_have_text(mark.quote)
+                    expect(root.locator(
+                        f'mark.user-highlight[data-highlight-id="{marks[3].pk}"]'
+                    )).to_have_count(0)
+                for mark in marks:
+                    saved = Annotation.objects.get(pk=mark.pk, user=self.user)
+                    self.assertEqual((saved.quote, saved.body, saved.title), (
+                        mark.quote, mark.body, mark.title,
+                    ))
+                note.refresh_from_db()
+                self.assertEqual(note.body, f"Ma note sur {model.group}.")
+                self.assertEqual(
+                    Annotation.objects.filter(user=self.user, source_path=url).count(), 16,
+                )
+
     def test_eo3_prompt_notes_preserve_existing_answer_and_sidebar_highlights(self):
         self._import_eo_tache_three_content()
         prompt = Prompt.objects.select_related("theme__task__part").get(content_key="culture:p1")
@@ -2886,6 +2977,123 @@ class BrowserTests(StaticLiveServerTestCase):
             "plan => plan.closest('[data-annotation-exclude]') !== null && "
             "plan.closest('[data-read-aloud-text]') === null"
         ))
+
+    def test_public_eo2_and_eo3_edits_keep_mobile_annotations_on_unchanged_text(self):
+        from study import catalogue
+        from study.oral_history import variant_annotation_key
+        from study.public_response_annotations import render_current_response
+        from study.tache_two_dialogues import dialogue_response
+
+        for key in ("culture:p1", "famille:p2", "tache2:fevrier:batch-02:subject-07"):
+            with self.subTest(prompt=key):
+                if key.startswith("tache2:"):
+                    self._import_eo_tache_two_content()
+                else:
+                    self._import_eo_tache_three_content()
+                prompt = Prompt.objects.select_related(
+                    "response", "theme__task__part", "family",
+                ).get(content_key=key)
+                eo2 = key.startswith("tache2:")
+                function = "tache_two_dialogues" if eo2 else "tache_three_models"
+                items = getattr(catalogue, function)()
+                item = items[key if eo2 else prompt.response.semantic_group]
+                before = dialogue_response(item) if eo2 else item.response
+                path = prompt_detail_url(prompt)
+                with self.page.expect_response(
+                    lambda response: urlsplit(response.url).path == reverse("study:annotations_for_source")
+                ) as loaded:
+                    self.page.goto(self.live_server_url + path)
+                self.assertEqual(loaded.value.status, 200)
+                expected_key = variant_annotation_key(prompt, before)
+                root = self.page.locator(
+                    f'[data-annotation-root][data-annotation-source-key="{expected_key}"]',
+                )
+                source_key = root.get_attribute("data-annotation-source-key")
+                text = root.evaluate("""root => {
+                    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+                        acceptNode: node => node.parentElement.closest('[data-annotation-exclude]')
+                            ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT,
+                    });
+                    let text = '', node;
+                    while ((node = walker.nextNode())) text += node.nodeValue;
+                    return text;
+                }""").encode("utf-16-le")
+                quotes = (
+                    [question.question for question in item.questions]
+                    if eo2 else [
+                        before.position_claire,
+                        *(value for argument in before.arguments for value in (
+                            argument.idea, argument.developpement, argument.exemple, argument.consequence,
+                        )),
+                        before.nuance, before.conclusion,
+                    ]
+                )
+                marks = []
+                for quote in quotes:
+                    start = text.index(quote.encode("utf-16-le")) // 2
+                    end = start + len(quote.encode("utf-16-le")) // 2
+                    marks.append(Annotation.objects.create(
+                        user=self.user, task=prompt.theme.task, kind=AnnotationKind.HIGHLIGHT,
+                        source_path=path, source_key=source_key, quote=quote,
+                        start_offset=start, end_offset=end,
+                        prefix=text[max(0, start - 160) * 2:start * 2].decode("utf-16-le"),
+                        suffix=text[end * 2:(end + 160) * 2].decode("utf-16-le"),
+                        body="Keep this personal note.",
+                    ))
+                self.page.reload()
+                for mark in marks:
+                    expect(self.page.locator(f'mark[data-highlight-id="{mark.pk}"]')).to_have_text(mark.quote)
+                review_path = (
+                    reverse("study:review")
+                    + f"?kind=spine&response={prompt.response_id}&prompt={prompt.pk}"
+                )
+                practice = []
+                for surface, quote in (("front", prompt.text), ("back", before.conclusion)):
+                    rendered = render_current_response(prompt, before, surface, self.user)
+                    start = rendered.text.index(quote.encode("utf-16-le")) // 2
+                    end = start + len(quote.encode("utf-16-le")) // 2
+                    practice.append(Annotation.objects.create(
+                        user=self.user, task=prompt.theme.task, kind=AnnotationKind.HIGHLIGHT,
+                        source_path=review_path, source_key=source_key + ":" + surface,
+                        quote=quote, start_offset=start, end_offset=end,
+                        prefix=rendered.slice(max(0, start - 160), start),
+                        suffix=rendered.slice(end, end + 160), body="Keep my practice note.",
+                    ))
+                if eo2:
+                    questions = list(item.questions)
+                    questions[0] = replace(questions[0], question="Une nouvelle question publiée, plus courte ?")
+                    edited = replace(item, questions=tuple(questions))
+                    replacements = {
+                        member: edited if value.group == item.group else value
+                        for member, value in items.items()
+                    }
+                    removed_quote = before.arguments[0].idea
+                else:
+                    arguments = list(before.arguments)
+                    arguments[0] = replace(arguments[0], exemple="Un exemple entièrement remplacé.")
+                    replacements = {
+                        **items, item.group: replace(item, response=replace(before, arguments=tuple(arguments))),
+                    }
+                    removed_quote = before.arguments[0].exemple
+                with mock.patch.object(catalogue, function, return_value=replacements):
+                    self.page.goto(self.live_server_url + path)
+                    expect(root).to_have_attribute("data-annotation-source-key", source_key)
+                    for mark in marks:
+                        visible = self.page.locator(f'mark[data-highlight-id="{mark.pk}"]')
+                        if mark.quote == removed_quote:
+                            expect(visible).to_have_count(0)
+                        else:
+                            expect(visible).to_have_text(mark.quote)
+                    self.page.goto(self.live_server_url + review_path)
+                    for surface, mark in zip(("front", "back"), practice):
+                        if surface == "back":
+                            self.page.locator("#reveal").click()
+                        expect(self.page.locator(f'#card-{surface} mark[data-highlight-id="{mark.pk}"]')).to_have_text(mark.quote)
+                        mark.refresh_from_db()
+                        self.assertEqual(mark.source_key, source_key + ":" + surface)
+                for mark in marks + practice:
+                    mark.refresh_from_db()
+                    self.assertEqual(mark.body, "Keep this personal note." if mark in marks else "Keep my practice note.")
 
     def test_equivalent_eo3_prompt_notes_work_without_javascript_on_mobile(self):
         self._import_eo_tache_three_content()

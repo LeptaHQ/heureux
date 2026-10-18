@@ -27,6 +27,28 @@ class AnnotationPromptOwner:
 
 
 def variant_annotation_key(prompt, content, *, tache_two_dialogue=None):
+    if prompt.content_key.startswith("tache2:"):
+        from .tache_two_dialogues import matching_dialogue
+
+        current = matching_dialogue(prompt, content)
+        if current is not None and (
+            tache_two_dialogue is None or tache_two_dialogue == current
+        ):
+            return f"response:{prompt.content_key}:model"
+    elif not content.is_personal and getattr(
+        getattr(prompt, "response", None), "semantic_group", "",
+    ).startswith("eo/tache-3/"):
+        from .tache_three_models import reviewed_model
+
+        model = reviewed_model(prompt.response, prompt)
+        if model is not None and content == model.response:
+            return f"response:{prompt.content_key}:model"
+    return legacy_variant_annotation_key(
+        prompt, content, tache_two_dialogue=tache_two_dialogue,
+    )
+
+
+def legacy_variant_annotation_key(prompt, content, *, tache_two_dialogue=None):
     payload = asdict(content)
     if prompt.content_key.startswith("tache2:"):
         from .tache_two_dialogues import matching_dialogue
@@ -188,6 +210,12 @@ def annotation_owners(annotations):
         elif key.startswith(("response:", "subject-sidebar:")):
             key = key.split(":", 1)[1]
             key = key.removesuffix(":front").removesuffix(":back")
+            public = re.fullmatch(r"(.+):model", key)
+            if public:
+                prompt = by_key.get(public[1])
+                if prompt:
+                    result[annotation.pk] = prompt.response_id
+                continue
             variant = re.fullmatch(r"(.+):variant-[0-9a-f]{16}", key)
             if variant:
                 prompt = by_key.get(variant[1])

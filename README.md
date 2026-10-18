@@ -156,11 +156,16 @@ layout and their highlights; the English note is not read aloud in French.
 Existing private prepared replies remain stored
 and exportable, but are not rendered or discarded when saving questions.
 The original batches, import models, vocabulary
-evidence, semantic memberships and learner progress are unchanged. New model
-annotation keys include dialogue structure, so old selections are not replayed on
-rewritten text; existing annotations remain available in Notes. Archived published
-layouts recover highlights on unchanged questions after reordering, including
-questions that previously received a geography update. Restart workers
+evidence, semantic memberships and learner progress are unchanged.
+EO2 and EO3 public responses now have content-independent annotation identities.
+An editorial push replaces only the current authored text: unchanged selections
+are relocated by their exact quote and unambiguous saved context, including on
+practice fronts and backs. Notes, highlight IDs, personal responses and progress
+are retained. Removed or ambiguous selections stay in Notes rather than being
+painted onto unrelated replacement text. Existing published identifiers have a
+fixed, identifier-only transition bridge; future edits need no response snapshots,
+version inventory or new migration identifiers. Older EO2 geographic corrections
+retain their existing specialized recovery. Restart workers
 after editing the corpus; deployment imports validate the complete corpus without
 overwriting personal responses.
 

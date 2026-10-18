@@ -17,6 +17,9 @@ def oral_response_context(request, prompt):
     response = prompt.response
     if not response.semantic_group:
         return {}
+    from ..public_response_annotations import preserve_prompt_annotations
+
+    preserve_prompt_annotations(request.user, prompt)
     selected_personal = preferred_personal(response, request.user)
     value = effective_response(
         response, request.user, prompt=prompt,

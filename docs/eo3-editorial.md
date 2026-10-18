@@ -171,12 +171,15 @@ responses remain private, take precedence and retain their existing presentation
 an import does not replace them. Reset deactivates a personal version without
 deleting its content, notes or progress.
 
-New public wording receives a content-derived annotation key. Reviewed layouts
-must not advertise the original unversioned source key as a fallback: old offsets
-must never be guessed onto rewritten text. Original annotation rows and bodies
-remain available through Notes, while exact original source models remain stored
-on each publication. Unreviewed, private, EO2 and EE content are not rewritten by
-the reviewed catalogue. Imports validate it before writing; workers must restart
+Reviewed public EO3 defaults use stable `response:{prompt.content_key}:model`
+annotation keys. An editorial edit replaces the current authored text, not its
+annotation identity. Restore selections only by an exact quote and unambiguous
+saved context; never guess old offsets onto replacement text. Removed or
+ambiguous selections remain stored in Notes, including their IDs and note bodies.
+The frozen, identifier-only transition bridge covers old public keys through
+`11531d8`; do not extend it or author response histories or snapshots for future
+public edits. Unreviewed, private, EO2 and EE content are not rewritten by the
+reviewed catalogue. Imports validate it before writing; workers must restart
 after file-backed catalogue changes.
 
 ## Culture learning consistency

@@ -290,8 +290,9 @@ complete theme coverage and every equivalent source question pinned. They use
 the existing introduction, three supported arguments, nuance and conclusion
 fields. Reviewed practice backs include the supports as well as the claims.
 Original published Markdown and vocabulary evidence remain unchanged; active
-personal versions still take precedence. New public wording uses separate
-annotation keys and never replays old highlight offsets. See the
+personal versions still take precedence. Reviewed public defaults keep stable
+annotation keys across edits; selections are restored only by exact quotes and
+unambiguous saved context, never by replaying old offsets. See the
 [oral-task-3 editorial standard](docs/eo3-editorial.md) for timing, grouping,
 preservation and revision criteria.
 

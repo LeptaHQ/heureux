@@ -837,7 +837,8 @@
   action.querySelectorAll("button").forEach(function (button) {
     button.addEventListener("pointerdown", function (event) {
       toolbarSelectionPinned = true;
-      event.preventDefault();
+      // Cancelling touch pointerdown suppresses Safari's synthesized click.
+      if (event.pointerType !== "touch") event.preventDefault();
     });
     button.addEventListener("click", function () {
       toolbarSelectionPinned = true;

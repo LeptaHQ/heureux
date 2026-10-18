@@ -281,7 +281,12 @@
         <span class="sr-only" data-translation-copy-label>Copy</span>
       </button>
       <a class="panel-action panel-action--external" href="https://translate.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Google Translate" title="Google Translate" data-translation-fallback>
-        {% include "study/partials/ui_icon.html" with name="external-link" only %}
+        <svg class="ui-icon" data-icon="google" viewBox="0 0 48 48" aria-hidden="true" focusable="false" stroke="none">
+          <path fill="#4285f4" stroke="none" d="M43.61 24.46c0-1.36-.12-2.67-.35-3.93H24v7.44h11a9.4 9.4 0 0 1-4.08 6.18v5.14h6.61c3.87-3.56 6.08-8.82 6.08-14.83Z"></path>
+          <path fill="#34a853" stroke="none" d="M24 44c5.4 0 9.92-1.79 13.23-4.71l-6.61-5.14c-1.79 1.2-4.08 1.93-6.62 1.93-5.22 0-9.65-3.52-11.24-8.26H5.94v5.3A20 20 0 0 0 24 44Z"></path>
+          <path fill="#fbbc05" stroke="none" d="M12.76 27.82A12 12 0 0 1 12.14 24c0-1.32.23-2.61.62-3.82v-5.3H5.94A20 20 0 0 0 4 24c0 3.23.77 6.29 2.14 9l6.62-5.18Z"></path>
+          <path fill="#ea4335" stroke="none" d="M24 11.92c2.94 0 5.57 1.01 7.65 3l5.74-5.74C33.91 5.94 29.4 4 24 4A20 20 0 0 0 5.94 14.88l6.82 5.3C14.35 15.44 18.78 11.92 24 11.92Z"></path>
+        </svg>
         <span class="sr-only" data-translation-fallback-label>Google Translate</span>
       </a>
       <button class="panel-action panel-action--note hidden" type="button" aria-label="Add to note and highlight" title="Add to note and highlight" data-translation-note>
@@ -374,7 +379,7 @@
   <script src="{% static 'study/js/speech.js' %}?v=4"></script>
   <script src="{% static 'study/js/flashcards.js' %}?v=5"></script>
   <script src="{% static 'study/js/app.js' %}?v=69"></script>
-  <script src="{% static 'study/js/selection-toolbar.js' %}?v=13"></script>
+  <script src="{% static 'study/js/selection-toolbar.js' %}?v=14"></script>
   <script src="{% static 'study/js/annotations.js' %}?v=36"></script>
   {% block scripts %}{% endblock %}
 </body>

@@ -63,7 +63,9 @@ class BrowserTests(StaticLiveServerTestCase):
         os.environ["DJANGO_ALLOW_ASYNC_UNSAFE"] = "true"
         super().setUpClass()
         cls.playwright = sync_playwright().start()
-        cls.browser = cls.playwright.chromium.launch()
+        cls.browser = getattr(
+            cls.playwright, os.environ.get("PLAYWRIGHT_BROWSER", "chromium"),
+        ).launch()
 
     @classmethod
     def tearDownClass(cls):
@@ -5654,7 +5656,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.wait_for_load_state("networkidle")
         quote = prompt.inner_text()[:12]
         self.select_prompt(start=0, end=12)
-        self.page.locator("[data-translate-selection]").click()
+        self.page.locator("[data-translate-selection]").tap()
 
         panel = self.page.locator("[data-translation-panel]")
         panel.wait_for()
@@ -5664,7 +5666,7 @@ class BrowserTests(StaticLiveServerTestCase):
         with self.page.expect_response(
             lambda response: reverse("study:annotation_create") in response.url
         ) as create_response:
-            note_button.click()
+            note_button.tap()
 
         self.assertEqual(create_response.value.status, 201)
         panel.wait_for(state="hidden")
@@ -5683,6 +5685,54 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertEqual(highlight.quote, quote)
 
+    def test_touch_toolbar_copy_note_and_highlight_preserve_selected_text(self):
+        self.context.add_init_script("""
+            Object.defineProperty(navigator, "clipboard", {
+              configurable: true,
+              value: {
+                writeText: text => {
+                  window.__touchCopiedText = text;
+                  return Promise.resolve();
+                },
+              },
+            });
+        """)
+        self.page.goto(
+            self.live_server_url + reverse("study:review") + "?kind=spine&reset=1"
+        )
+        prompt = self.page.locator("#card-front .prompt-text")
+        prompt.wait_for()
+        self.page.wait_for_load_state("networkidle")
+        self.select_prompt(start=0, end=12)
+        selected = self.page.evaluate("window.getSelection().toString().trim()")
+        self.page.locator("[data-copy-selection]").tap()
+        self.page.wait_for_function(
+            "text => window.__touchCopiedText === text", arg=selected,
+        )
+        self.page.locator("[data-note-selection]").tap()
+        note_panel = self.page.locator("[data-note-panel]")
+        expect(note_panel.locator("[data-note-source]")).to_have_text(selected)
+        note_panel.locator("[data-note-body]").fill("My touch-selected passage.")
+        with self.page.expect_response(
+            lambda response: reverse("study:annotation_create") in response.url
+        ):
+            note_panel.locator("[data-note-save-close]").tap()
+        expect(note_panel).to_be_hidden()
+        note = Annotation.objects.get(user=self.user, kind=AnnotationKind.NOTE)
+        self.assertEqual(note.quote, selected)
+        self.assertEqual(note.body, "My touch-selected passage.")
+        expect(prompt.locator("mark.user-highlight")).to_have_count(1)
+        highlight = Annotation.objects.get(user=self.user, kind=AnnotationKind.HIGHLIGHT)
+        delete_path = reverse("study:annotation_delete", args=[highlight.pk])
+        self.select_prompt(start=0, end=12)
+        with self.page.expect_response(
+            lambda response: delete_path in response.url
+        ):
+            self.page.locator("[data-highlight-selection]").tap()
+        expect(prompt.locator("mark.user-highlight")).to_have_count(0)
+        self.assertTrue(Annotation.objects.filter(pk=note.pk).exists())
+
+    @override_settings(TRANSLATION_API_URL="")
     def test_translation_falls_back_to_google_without_an_on_device_engine(self):
         self.context.add_init_script("delete window.Translator;")
         self.page.goto(
@@ -5694,7 +5744,8 @@ class BrowserTests(StaticLiveServerTestCase):
         prompt.wait_for()
         self.page.wait_for_load_state("networkidle")
         self.select_prompt(start=0, end=12)
-        self.page.locator("[data-translate-selection]").click()
+        selected = self.page.evaluate("window.getSelection().toString().trim()")
+        self.page.locator("[data-translate-selection]").tap()
 
         panel = self.page.locator("[data-translation-panel]")
         panel.wait_for()
@@ -5709,6 +5760,23 @@ class BrowserTests(StaticLiveServerTestCase):
             "Open Google Translate",
         )
         self.assertIn("translate.google.com", fallback.get_attribute("href"))
+        expect(fallback.locator('[data-icon="google"]')).to_be_visible()
+        expect(panel.locator("[data-translation-output]")).to_be_hidden()
+        expect(panel.locator("[data-translation-copy]")).to_be_hidden()
+        expect(panel.locator("[data-translation-note]")).to_be_hidden()
+        self.context.route(
+            "https://translate.google.com/**",
+            lambda route: route.fulfill(body="<html><body>Translation destination</body></html>"),
+        )
+        with self.page.expect_popup() as popup:
+            fallback.tap()
+        destination = popup.value
+        destination.wait_for_load_state()
+        self.assertEqual(urlsplit(destination.url).hostname, "translate.google.com")
+        self.assertEqual(parse_qs(urlsplit(destination.url).query), {
+            "sl": ["fr"], "tl": ["en"], "text": [selected], "op": ["translate"],
+        })
+        destination.close()
 
     def test_translation_uses_the_server_when_the_device_cannot_translate(self):
         class FakeResponse:
@@ -5737,7 +5805,7 @@ class BrowserTests(StaticLiveServerTestCase):
             prompt.wait_for()
             self.page.wait_for_load_state("networkidle")
             self.select_prompt(start=0, end=12)
-            self.page.locator("[data-translate-selection]").click()
+            self.page.locator("[data-translate-selection]").tap()
 
             panel = self.page.locator("[data-translation-panel]")
             panel.wait_for()
@@ -8745,6 +8813,7 @@ class BrowserTests(StaticLiveServerTestCase):
             + reverse("study:task_notes", args=[self.part.slug, self.task.slug])
         )
         external = self.page.locator("[data-translation-fallback]")
+        expect(external.locator('[data-icon="google"]')).to_have_count(1)
         for width in (390, 1183):
             self.page.set_viewport_size({"width": width, "height": 844})
             for theme in ("light", "dark"):

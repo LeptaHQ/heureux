@@ -45,7 +45,11 @@ With JavaScript, status changes and deletion update in place, including refillin
 filtered pages and moving off an emptied final page. French/English blur,
 individual reveals and the chosen card/table view stay active.
 Note and translation pop-ups use rounded action controls, including the amber
-external translation link.
+Google **G** link. Translate works with touch taps as well as mouse and keyboard
+activation. Browsers without an on-device translation engine use the configured
+`TRANSLATION_API_URL` service; when no service is available, the panel offers an
+explicit Google Translate link with the selected passage prefilled. Nothing is
+sent to Google until that link is opened.
 The shared `study/partials/pagination.html` pager accepts a Django `page_obj`,
 `page_links` (`number` and `url`), previous/next URLs, and an optional accessible label.
 

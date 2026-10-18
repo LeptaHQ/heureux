@@ -147,15 +147,19 @@ def current_anchor(annotation, rendered):
     return matches[0][2:]
 
 
+def _annotations_for_update(user, source_filter):
+    return Annotation.objects.select_for_update(of=("self",)).filter(
+        source_filter,
+        Q(task__isnull=True) | Q(task__part__slug="eo", task__slug__in=("tache-2", "tache-3")),
+        user=user, source_key__startswith="response:",
+    ).order_by("pk")
+
+
 def preserve_public_response_annotations(user, source_filter):
     """Retarget this user's existing records; never replace notes or private text."""
     unresolved = set()
     with transaction.atomic():
-        annotations = list(Annotation.objects.select_for_update().filter(
-            source_filter,
-            Q(task__isnull=True) | Q(task__part__slug="eo", task__slug__in=("tache-2", "tache-3")),
-            user=user, source_key__startswith="response:",
-        ).order_by("pk"))
+        annotations = list(_annotations_for_update(user, source_filter))
         candidates = {}
         for annotation in annotations:
             match = PUBLIC_KEY.fullmatch(annotation.source_key)

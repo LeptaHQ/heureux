@@ -3,8 +3,11 @@ from io import StringIO
 from types import SimpleNamespace
 from unittest.mock import patch
 
+from django.contrib.auth import get_user_model
 from django.core.management import call_command
-from django.test import SimpleTestCase, TestCase
+from django.db.backends.postgresql.base import DatabaseWrapper
+from django.db.models import Q
+from django.test import SimpleTestCase, TestCase, tag
 from django.urls import reverse
 from django.utils import timezone
 
@@ -14,7 +17,9 @@ from study.models import Annotation, AnnotationKind, Card, PersonalResponse, Pro
 from study.oral_highlights import AnnotationRootText
 from study.oral_history import variant_annotation_key
 from study.public_annotation_migration import PUBLIC_DIGESTS
-from study.public_response_annotations import current_anchor, render_current_response
+from study.public_response_annotations import (
+    _annotations_for_update, current_anchor, render_current_response,
+)
 from study.routing import prompt_detail_url
 from study.response_personalization import effective_response
 from study.tache_two_dialogues import dialogue_response
@@ -83,6 +88,22 @@ class CurrentAnchorTests(SimpleTestCase):
         self.assertIsNone(current_anchor(annotation, root))
 
 
+class PublicAnnotationPostgresQueryTests(SimpleTestCase):
+    def test_nullable_task_join_locks_only_annotation_rows(self):
+        connection = DatabaseWrapper(
+            {"NAME": "compile_only", "OPTIONS": {}}, alias="compile_only",
+        )
+        queryset = _annotations_for_update(
+            get_user_model()(pk=1), Q(source_path="/expression/orale/tache-3/sujets/1/"),
+        )
+        with patch.object(connection, "get_autocommit", return_value=False):
+            sql, _ = queryset.query.get_compiler(connection=connection).as_sql()
+        self.assertIn('LEFT OUTER JOIN "study_task"', sql)
+        self.assertIn('"study_annotation"."task_id" IS NULL', sql)
+        self.assertTrue(sql.endswith('FOR UPDATE OF "study_annotation"'), sql)
+
+
+@tag("database-locking")
 class PublicResponsePreservationTests(TestCase):
     @classmethod
     def setUpTestData(cls):
@@ -94,6 +115,20 @@ class PublicResponsePreservationTests(TestCase):
 
     def setUp(self):
         self.client.force_login(self.user)
+
+    def test_subject_pages_and_source_requests_work_without_saved_annotations(self):
+        for key in ("culture:p1", "tache2:fevrier:batch-02:subject-07"):
+            with self.subTest(subject=key):
+                prompt = self.prompt(key)
+                path = prompt_detail_url(prompt)
+                self.assertEqual(self.client.get(path).status_code, 200)
+                self.assertEqual(self.fetch(path), [])
+        for path in (
+            "/expression/orale/", "/expression/orale/tache-2/",
+            "/expression/orale/tache-3/", "/expression/orale/tache-3/sujets/",
+        ):
+            with self.subTest(source=path):
+                self.assertEqual(self.fetch(path), [])
 
     def prompt(self, key):
         return Prompt.objects.select_related(

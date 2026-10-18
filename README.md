@@ -25,6 +25,12 @@ python -m playwright install chromium
 python manage.py test study.tests.browser_tests
 ```
 
+CI runs `database-locking` tests, including public oral annotation preservation,
+against PostgreSQL. Use a disposable PostgreSQL `DATABASE_URL` with
+`python manage.py test --tag=database-locking --parallel=1` to exercise the same
+gate locally. SQLite alone cannot validate PostgreSQL row-lock restrictions on
+nullable joins.
+
 `BrowserTests` serializes live-server application work when Django shares an in-memory
 SQLite connection between threads; overlapping transactions on that one
 connection can otherwise cause spurious HTTP 500s or authentication failures.

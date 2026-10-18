@@ -50,6 +50,7 @@ from study.models import (
 from study.routing import prompt_detail_url, response_detail_url, review_url, theme_detail_url
 
 from . import factories
+from .browser_server import BrowserLiveServerThread
 from .course_fixtures import course_catalog, sectioned_course_lesson
 from .formulation_browser_tests import FormulationBrowserTests
 
@@ -58,6 +59,8 @@ from .formulation_browser_tests import FormulationBrowserTests
     PASSWORD_HASHERS=["django.contrib.auth.hashers.MD5PasswordHasher"]
 )
 class BrowserTests(StaticLiveServerTestCase):
+    server_thread_class = BrowserLiveServerThread
+
     @classmethod
     def setUpClass(cls):
         cls.previous_async_unsafe = os.environ.get("DJANGO_ALLOW_ASYNC_UNSAFE")
@@ -2831,13 +2834,42 @@ class BrowserTests(StaticLiveServerTestCase):
             "link", name="Pratiquer cette réponse", exact=True,
         ).get_attribute("href")
         with mock.patch("study.tache_three_prompt_notes.prompt_note_for_response", return_value=None):
-            self.page.goto(self.live_server_url + review_path)
+            with self.page.expect_response(
+                lambda response: urlsplit(response.url).path == reverse("study:review_next")
+            ) as initial_card_response:
+                self.page.goto(self.live_server_url + review_path)
+            self.assertEqual(initial_card_response.value.status, 200)
             self.page.locator("#card-front .prompt-text").wait_for()
             expect(self.page.locator("#card-front .prompt-text")).to_have_text(prompt.text)
-            self.save_current_prompt_highlight()
-        self.page.reload()
+            source_key = self.page.locator("#card-front").get_attribute("data-annotation-source-key")
+            highlight_id = self.save_current_prompt_highlight()
+        saved = Annotation.objects.get(pk=highlight_id, user=self.user)
+        self.assertEqual(saved.quote, prompt.text)
+        self.assertEqual(saved.source_path, review_path)
+        self.assertEqual(saved.source_key, source_key)
+        with (
+            self.page.expect_response(
+                lambda response: urlsplit(response.url).path == reverse("study:review_next")
+            ) as restored_card_response,
+            self.page.expect_response(
+                lambda response: urlsplit(response.url).path == reverse("study:annotations_for_source")
+            ) as restored_highlights_response,
+        ):
+            self.page.reload()
+        self.assertEqual(restored_card_response.value.status, 200)
+        self.assertFalse(restored_card_response.value.json()["done"])
+        self.assertEqual(restored_highlights_response.value.status, 200)
+        restored = restored_highlights_response.value.json()["highlights"]
+        self.assertEqual(
+            [(item["id"], item["source_key"], item["quote"]) for item in restored],
+            [(highlight_id, source_key, prompt.text)],
+        )
         front = self.page.locator("#card-front")
+        expect(front).to_have_attribute("data-annotation-source-key", source_key)
         expect(front.locator(".prompt-text mark.user-highlight")).to_have_count(1)
+        expect(front.locator(".prompt-text mark.user-highlight")).to_have_attribute(
+            "data-highlight-id", str(highlight_id),
+        )
         practice_note = front.locator("details.eo3-prompt-note")
         expect(practice_note).not_to_have_attribute("open", "")
         practice_note.locator("summary").click()
@@ -5079,6 +5111,9 @@ class BrowserTests(StaticLiveServerTestCase):
         ) as response_info:
             self.page.locator("[data-highlight-selection]").click()
         self.assertIn(response_info.value.status, (200, 201))
+        highlight_id = response_info.value.json()["id"]
+        expect(prompt.locator(f'mark[data-highlight-id="{highlight_id}"]').first).to_be_visible()
+        return highlight_id
 
     def select_prompt(self, *, start=None, end=None, target=None):
         prompt = target if target is not None else self.page.locator("#card-front .prompt-text")

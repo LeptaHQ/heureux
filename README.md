@@ -25,6 +25,13 @@ python -m playwright install chromium
 python manage.py test study.tests.browser_tests
 ```
 
+`BrowserTests` serializes live-server application work when Django shares an in-memory
+SQLite connection between threads; overlapping transactions on that one
+connection can otherwise cause spurious HTTP 500s or authentication failures.
+Socket handlers stay threaded, including idle browser connections. File-backed
+SQLite and PostgreSQL retain concurrent application work. Browser-side asynchronous
+response-ordering checks still run with their controlled delays.
+
 ## Account PINs
 
 PINs accept 6–128 characters: letters (`A–Z`, `a–z`), digits, or a mix of both.

@@ -18,35 +18,32 @@ by the written and oral comprehension pages.
         <span class="table-cell-empty" aria-label="Aucune donnée">—</span>
       {% endif %}
     </span>
-    {% if test and not test.is_active %}
-      <div class="ce-group-test-row__progress-cell">
+    <div class="ce-group-test-row__progress-cell">
+      {% if test and not test.is_active %}
         <span class="ce-group-test-row__progress-copy">Archivé</span>
-      </div>
-    {% elif test and not test.is_published and test.is_accessible %}
-      <div class="ce-group-test-row__progress-cell">
+      {% elif test and not test.is_published and test.is_accessible %}
         <span class="ce-group-test-row__progress-copy">Indisponible</span>
-      </div>
-    {% elif test.active_attempt %}
-      <div class="ce-group-test-row__progress-cell">
+      {% elif test.active_attempt and test.active_answered_count or test.active_attempt and not test.explicitly_completed %}
         <span class="ce-group-test-row__progress-copy">{{ test.active_answered_count }}/{{ test.attempt_question_count }}</span>
         <progress class="ce-group-test-row__progress" value="{{ test.active_answered_count }}" max="{{ test.attempt_question_count }}" aria-label="Progression : {{ test.active_answered_count }} sur {{ test.attempt_question_count }} questions"></progress>
-      </div>
-    {% elif test.best_attempt %}
-      <div class="ce-group-test-row__progress-cell">
-        <span class="ce-group-test-row__progress-copy">Meilleur score · {{ test.best_attempt.percentage }} %</span>
-      </div>
-    {% endif %}
+      {% elif test.best_attempt %}
+        <span class="ce-group-test-row__progress-copy">Meilleur score · <strong>{{ test.best_attempt.percentage }} %</strong></span>
+      {% else %}
+        <span class="table-cell-empty" aria-label="Aucune donnée">—</span>
+      {% endif %}
+    </div>
     <div class="ce-group-test-row__status-cell">
       {% if not test %}
-        <span class="ce-status ce-status--soon">À venir</span>
+        <span class="progress-status progress-status--soon">À venir</span>
       {% elif not test.is_accessible %}
-        <span class="ce-status ce-status--soon">Bientôt</span>
+        <span class="progress-status progress-status--soon">Bientôt</span>
       {% else %}
         <div class="ce-group-test-row__status-line">
           <span
-            class="ce-status{% if test.progress.status == 'active' %} ce-status--progress{% elif test.progress.status == 'done' %} ce-status--done{% endif %}"
+            class="progress-status progress-status--{{ test.progress.status }}"
             data-comprehension-progress-status="{{ test.pk }}">{{ test.progress.label }}</span>
           {% include "study/partials/comprehension_completion_form.html" with test=test refresh=True %}
+          <span class="subject-collection__arrow ce-group-test-row__arrow" aria-hidden="true">{% include "study/partials/ui_icon.html" with name="arrow-right" only %}</span>
         </div>
       {% endif %}
     </div>

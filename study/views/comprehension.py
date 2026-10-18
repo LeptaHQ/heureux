@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import copy
+from dataclasses import replace
 
 from django.contrib.auth import (
     get_user_model,
@@ -550,8 +551,12 @@ def _comprehension_groups(tests, group_count):
             summary_progress_text = "En cours"
         else:
             summary_count_text = "Contenu en préparation"
-            summary_status = progress_summary(total=0, started=0, completed=0)
-            summary_progress_text = "À commencer"
+            summary_status = replace(
+                progress_summary(total=0, started=0, completed=0),
+                status="soon",
+                label="À venir",
+            )
+            summary_progress_text = "À venir"
         groups.append(
             {
                 "number": number,
@@ -811,6 +816,11 @@ def _comprehension_group_detail_response(request, *, mode, group_number):
             "overview_route": routes["overview"],
             "mode_label": f"Compréhension {mode.label.lower()}",
             "group_label": COMPREHENSION_GROUP_LABELS[mode],
+            "accent": (
+                "var(--co-teal)"
+                if mode == ComprehensionMode.ORALE
+                else "var(--ce-blue)"
+            ),
         },
     )
 

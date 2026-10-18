@@ -7685,7 +7685,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertLessEqual(mobile_heights[1], 80)
         self.assertNotEqual(
             mobile_rows.first.evaluate(
-                "row => getComputedStyle(row).borderRadius"
+                "row => getComputedStyle(row).borderTopWidth"
             ),
             "0px",
         )
@@ -11171,7 +11171,12 @@ class BrowserTests(StaticLiveServerTestCase):
             checkbox_metrics["height"],
             delta=0.5,
         )
-        self.assertEqual(checkbox_metrics["radius"], "50%")
+        radius = checkbox_metrics["radius"]
+        self.assertTrue(
+            radius == "50%"
+            or float(radius.removesuffix("px")) >= checkbox_metrics["width"] / 2,
+            radius,
+        )
         row_checkbox.click()
         self.page.wait_for_load_state("networkidle")
         first_batch = self.page.locator(
@@ -11359,6 +11364,75 @@ class BrowserTests(StaticLiveServerTestCase):
                 )).not_to_be_visible()
                 self.assert_no_horizontal_overflow()
                 self.page.set_viewport_size({"width": 1292, "height": 844})
+
+    def test_comprehension_rows_keep_status_visible_on_narrow_phones(self):
+        self.disable_service_worker()
+        first = factories.make_comprehension_test(question_count=39)
+        factories.make_comprehension_test(number=2, question_count=39)
+        factories.make_comprehension_attempt(
+            user=self.user,
+            test=first,
+            answered_questions=2,
+        )
+        self.page.set_viewport_size({"width": 390, "height": 844})
+        self.page.goto(
+            self.live_server_url + reverse("study:comprehension_overview")
+        )
+        self.page.get_by_role("button", name="Cartes", exact=True).click()
+        first_batch = self.page.locator(
+            "[data-comprehension-batch-group]"
+        ).first
+        if not first_batch.evaluate("element => element.open"):
+            first_batch.locator(":scope > summary").click()
+        rows = first_batch.locator(".comprehension-progress-row")
+        expect(rows.first).to_be_visible()
+        self.assertEqual(rows.count(), 2)
+
+        for width, single_line in ((390, True), (360, False), (320, False)):
+            with self.subTest(width=width):
+                self.page.set_viewport_size({"width": width, "height": 844})
+                layout = rows.evaluate_all(
+                    """
+                    rows => rows.map(row => {
+                      const style = getComputedStyle(row);
+                      const box = row.getBoundingClientRect();
+                      const left = box.left + parseFloat(style.paddingLeft);
+                      const right = box.right - parseFloat(style.paddingRight);
+                      const rect = selector =>
+                        row.querySelector(selector).getBoundingClientRect();
+                      const facts = row.querySelector(
+                        '.ce-group-test-row__facts'
+                      );
+                      const parts = [
+                        '.qrow__num',
+                        '.ce-group-test-row__facts',
+                        '.progress-status',
+                        '[data-comprehension-completion-form] button',
+                        '.ce-group-test-row__arrow',
+                      ].map(rect);
+                      return {
+                        factsClipped: facts.scrollWidth > facts.clientWidth,
+                        inside: parts.every(
+                          part => part.left >= left - 1 && part.right <= right + 1
+                        ),
+                        factsTop: rect('.ce-group-test-row__facts').top,
+                        statusTop: rect('.progress-status').top,
+                        statusBottom: rect('.progress-status').bottom,
+                      };
+                    })
+                    """
+                )
+                for row in layout:
+                    self.assertFalse(row["factsClipped"])
+                    self.assertTrue(row["inside"])
+                    if single_line:
+                        self.assertLess(row["factsTop"], row["statusBottom"])
+                    else:
+                        self.assertGreaterEqual(
+                            row["factsTop"],
+                            row["statusBottom"],
+                        )
+                self.assert_no_horizontal_overflow()
 
     def test_mobile_oral_completion_control_uses_the_shared_flow(self):
         test = factories.make_comprehension_test(

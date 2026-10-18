@@ -71,23 +71,11 @@
     }
 
     function setStatus(element, status, label) {
-      if (element.classList.contains("ce-status")) {
-        element.classList.remove(
-          "ce-status--progress",
-          "ce-status--done"
-        );
-        if (status === "active") {
-          element.classList.add("ce-status--progress");
-        } else if (status === "done") {
-          element.classList.add("ce-status--done");
-        }
-      } else {
-        element.classList.remove.apply(
-          element.classList,
-          progressStatusClasses
-        );
-        element.classList.add("progress-status--" + status);
-      }
+      element.classList.remove.apply(
+        element.classList,
+        progressStatusClasses
+      );
+      element.classList.add("progress-status--" + status);
       element.textContent = label;
     }
 

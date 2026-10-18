@@ -446,36 +446,36 @@
     ],
     "museum-group-visit-reception": [
       {
-        "french": "Collections permanentes et expositions temporaires",
-        "english": "Permanent collections and temporary exhibitions"
+        "french": "Jours et horaires d'ouverture du musée",
+        "english": "Museum opening days and hours"
       },
       {
-        "french": "Durée de visite et parcours conseillé",
-        "english": "Visit length and suggested route"
+        "french": "Expositions en cours et conseil pour choisir",
+        "english": "Current exhibitions and recommended choice"
       },
       {
-        "french": "Horaires et moments moins fréquentés",
-        "english": "Opening hours and quieter times"
+        "french": "Disponibilité d'une visite guidée et horaires",
+        "english": "Guided-tour availability and times"
       },
       {
-        "french": "Visites guidées, langues et durée",
-        "english": "Guided tours, languages and duration"
+        "french": "Durée de la visite guidée et visite libre ensuite",
+        "english": "Guided-tour duration and independent access afterwards"
       },
       {
-        "french": "Tarifs d'entrée et réductions pour plusieurs visiteurs",
-        "english": "Admission prices and discounts for several visitors"
+        "french": "Prix d'entrée et réductions proposées",
+        "english": "Admission price and available discounts"
       },
       {
-        "french": "Suppléments pour expositions ou visites guidées",
-        "english": "Extra charges for exhibitions or guided tours"
+        "french": "Nombre minimum de participants et prix du tarif de groupe",
+        "english": "Minimum group size and price per person"
       },
       {
-        "french": "Réservation des visites à prévoir",
-        "english": "Tour bookings to arrange"
+        "french": "Visite guidée comprise ou supplément par personne",
+        "english": "Whether the guided tour is included or costs extra per person"
       },
       {
-        "french": "Accès au musée et stationnement",
-        "english": "Museum access and parking"
+        "french": "Réservation de la visite guidée et délai pour réserver",
+        "english": "How and how far ahead to book the guided tour"
       }
     ],
     "friend-weekend-getaway-advice": [
@@ -718,36 +718,36 @@
     ],
     "new-neighbor-evening-entertainment": [
       {
-        "french": "Adresses recommandées pour sortir le soir",
-        "english": "Recommended places for evening outings"
+        "french": "Lieux conseillés pour sortir le soir et activités proposées",
+        "english": "Recommended evening venues and activities available there"
       },
       {
-        "french": "Spectacles et soirées à thème",
-        "english": "Shows and themed evenings"
+        "french": "Ambiance calme ou animée selon les lieux et les soirées",
+        "english": "Quiet or lively atmosphere depending on the venue and evening"
       },
       {
-        "french": "Soirs animés et événements à venir",
-        "english": "Lively evenings and upcoming events"
+        "french": "Styles de musique et soirs des concerts du café",
+        "english": "Music styles and concert nights at the café"
       },
       {
-        "french": "Ambiance et possibilités de rencontres",
-        "english": "Atmosphere and opportunities to meet people"
+        "french": "Séances spéciales et animations au cinéma",
+        "english": "Special screenings and activities at the cinema"
       },
       {
-        "french": "Restaurants ouverts en fin de soirée",
-        "english": "Restaurants open late in the evening"
+        "french": "Budget à prévoir pour les concerts et le cinéma",
+        "english": "Approximate budget for concerts and cinema"
       },
       {
-        "french": "Budget des sorties et promotions",
-        "english": "Night-out budget and special offers"
+        "french": "Sorties gratuites et tarifs réduits selon les jours",
+        "english": "Free outings and cheaper rates on certain days"
       },
       {
-        "french": "Précautions pour les sorties nocturnes",
-        "english": "Precautions for going out at night"
+        "french": "Programme des soirées et activités à réserver",
+        "english": "Where to find the programme and which activities to book"
       },
       {
-        "french": "Transports pour rentrer tard",
-        "english": "Transport for getting home late"
+        "french": "Retour à pied ou transport à prévoir après la soirée",
+        "english": "Walking home or arranging transport after the evening"
       }
     ],
     "trusted-person-temporary-pet-care": [

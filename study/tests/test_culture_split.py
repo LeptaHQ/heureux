@@ -67,7 +67,131 @@ class CultureSplitCorpusTests(SimpleTestCase):
         }
         self.assertEqual(
             fingerprint([raw[group] for group in sorted(ALL_CULTURE_GROUPS)]),
-            "ac2741b71d53117f3ac81c3953ba952b9be95623397a4aa03b8dad9c0d41d324",
+            "e41bb0e9069658f9280837b2791610b564bab0379b752827faf84bb0b443672b",
+        )
+
+    def test_museum_visit_develops_the_practical_details_and_aligns_every_piste(self):
+        publications = {
+            key: row for key, row in catalogue.tache_two_dialogues().items()
+            if row.group == "museum-group-visit-reception"
+        }
+        self.assertEqual(set(publications), {
+            "tache2:janvier:batch-03:subject-14",
+            "tache2:mai:batch-03:subject-14",
+            "tache2:aout:batch-04:subject-19",
+            "tache2:octobre:batch-01:subject-04",
+            "tache2:octobre:batch-06:subject-30",
+        })
+        row = next(iter(publications.values()))
+        self.assertTrue(all(item == row for item in publications.values()))
+        self.assertEqual(
+            row.opening,
+            "Bonjour ! Nous aimerions visiter votre musée. J'aurais quelques questions pour préparer notre venue.",
+        )
+        self.assertEqual([question.topic for question in row.questions], [
+            "Horaires",
+            *(["Expositions et visite guidée"] * 3),
+            *(["Tarifs et réservation"] * 4),
+        ])
+        goals = (
+            ("jours et horaires", None),
+            ("laquelle nous conseilleriez-vous", None),
+            ("à quels horaires a-t-elle lieu", 2),
+            ("visiter le reste du musée librement", 3),
+            ("proposez-vous des tarifs réduits", None),
+            ("À partir de combien de personnes", 5),
+            ("sinon, quel supplément faut-il prévoir par personne", 5),
+            ("combien de temps à l'avance", 7),
+        )
+        for question, (goal, reference) in zip(row.questions, goals, strict=True):
+            self.assertIn(goal, question.question)
+            self.assertEqual(question.follow_up_to, reference)
+            if reference is not None:
+                self.assertTrue(question.condition)
+        self.assertIn("quatorze heures", row.questions[2].answer)
+        self.assertIn("une heure", row.questions[3].answer)
+        self.assertIn("jusqu'à la fermeture", row.questions[3].answer)
+        self.assertIn("dix personnes", row.questions[5].answer)
+        self.assertIn("8 $ par personne", row.questions[5].answer)
+        self.assertIn("5 $ par personne", row.questions[6].answer)
+        self.assertIn("au moins deux jours", row.questions[7].answer)
+        self.assertIn("only if a group rate is offered", row.note)
+        hints = json.loads(content.TACHE_TWO_SUBJECT_HINTS_PATH.read_text())["groups"][row.group]
+        self.assertEqual(hints, [
+            {"french": "Jours et horaires d'ouverture du musée", "english": "Museum opening days and hours"},
+            {"french": "Expositions en cours et conseil pour choisir", "english": "Current exhibitions and recommended choice"},
+            {"french": "Disponibilité d'une visite guidée et horaires", "english": "Guided-tour availability and times"},
+            {"french": "Durée de la visite guidée et visite libre ensuite", "english": "Guided-tour duration and independent access afterwards"},
+            {"french": "Prix d'entrée et réductions proposées", "english": "Admission price and available discounts"},
+            {"french": "Nombre minimum de participants et prix du tarif de groupe", "english": "Minimum group size and price per person"},
+            {"french": "Visite guidée comprise ou supplément par personne", "english": "Whether the guided tour is included or costs extra per person"},
+            {"french": "Réservation de la visite guidée et délai pour réserver", "english": "How and how far ahead to book the guided tour"},
+        ])
+        previous = json.loads((
+            content.QUESTION_BANK_DIR / "dialogue_history/locations.json"
+        ).read_text())["groups"][row.group]["revisions"]
+        self.assertEqual(len(previous), 1)
+        self.assertEqual(
+            fingerprint(previous[0]),
+            "c3eee20c1ad8cdaa4d65502245375da2e417618f794c6fa7b35d8b256136780d",
+        )
+
+    def test_evening_outings_follow_the_neighbours_recommendations_without_assuming_night_transport(self):
+        publications = {
+            key: row for key, row in catalogue.tache_two_dialogues().items()
+            if row.group == "new-neighbor-evening-entertainment"
+        }
+        self.assertEqual(set(publications), {"tache2:fevrier:batch-02:subject-07"})
+        row = next(iter(publications.values()))
+        self.assertEqual(row.register, "vous")
+        self.assertIn("accommodation is already arranged", row.note)
+        self.assertIn("not official booking guarantees", row.note)
+        self.assertEqual([question.topic for question in row.questions], [
+            *(["Lieux, activités et ambiance"] * 4),
+            *(["Budget et organisation"] * 3),
+            "Retour",
+        ])
+        goals = (
+            ("et qu'est-ce qu'on peut y faire", None),
+            ("plutôt calme ou animée", 1),
+            ("quels styles de musique", 1),
+            ("séances suivies d'une discussion", 1),
+            ("un concert au café et pour une séance de cinéma", None),
+            ("sorties gratuites ou des tarifs réduits", None),
+            ("consulter le programme", None),
+            ("rentrer à pied", None),
+        )
+        for question, (goal, reference) in zip(row.questions, goals, strict=True):
+            self.assertIn(goal, question.question)
+            self.assertEqual(question.follow_up_to, reference)
+            if reference is not None:
+                self.assertTrue(question.condition)
+        self.assertIn("soirées jeux", row.questions[0].answer)
+        self.assertIn("films récents", row.questions[0].answer)
+        self.assertIn("vers vingt heures", row.questions[2].answer)
+        self.assertIn("hors consommations", row.questions[4].answer)
+        self.assertIn("il faut prévoir sa consommation", row.questions[5].answer)
+        self.assertIn("Je réserve", row.questions[6].answer)
+        self.assertIn("vérifiez l'heure du dernier passage", row.questions[7].answer)
+        self.assertIn("Do not assume night buses run", row.note)
+        hints = json.loads(content.TACHE_TWO_SUBJECT_HINTS_PATH.read_text())["groups"][row.group]
+        self.assertEqual(hints, [
+            {"french": "Lieux conseillés pour sortir le soir et activités proposées", "english": "Recommended evening venues and activities available there"},
+            {"french": "Ambiance calme ou animée selon les lieux et les soirées", "english": "Quiet or lively atmosphere depending on the venue and evening"},
+            {"french": "Styles de musique et soirs des concerts du café", "english": "Music styles and concert nights at the café"},
+            {"french": "Séances spéciales et animations au cinéma", "english": "Special screenings and activities at the cinema"},
+            {"french": "Budget à prévoir pour les concerts et le cinéma", "english": "Approximate budget for concerts and cinema"},
+            {"french": "Sorties gratuites et tarifs réduits selon les jours", "english": "Free outings and cheaper rates on certain days"},
+            {"french": "Programme des soirées et activités à réserver", "english": "Where to find the programme and which activities to book"},
+            {"french": "Retour à pied ou transport à prévoir après la soirée", "english": "Walking home or arranging transport after the evening"},
+        ])
+        previous = json.loads((
+            content.QUESTION_BANK_DIR / "dialogue_history/locations.json"
+        ).read_text())["groups"][row.group]["revisions"]
+        self.assertEqual(len(previous), 1)
+        self.assertEqual(
+            fingerprint(previous[0]),
+            "7925b87de27afa6e2c67e2c345ab75041f6f07c4fe1e1a8c4e7ece8c6ac7de98",
         )
 
     def test_all_104_original_questions_keep_their_wording_and_learning_identity(self):

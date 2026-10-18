@@ -21,18 +21,18 @@
     {
       "group": "new-neighbor-evening-entertainment",
       "register": "vous",
-      "note": "You have just moved into the neighbourhood and ask your neighbour about evening outings. Voisin implies you already have accommodation nearby. Find out about venues, entertainment, atmosphere, prices and getting home. Vous is chosen for this new relationship. Adapt the example venue and activity to the actual recommendation.",
-      "opening": "Bonjour ! Je découvre le quartier et j'aimerais trouver des endroits sympas pour sortir le soir.",
+      "note": "You are new to the neighbourhood; voisin means accommodation is already arranged. Ask your neighbour for evening recommendations, not official booking guarantees. Use vous for this new relationship. Ask about places and activities, then follow the venues recommended. Compare atmosphere, entertainment, approximate costs and getting home. Skip details already given. Do not assume night buses run; check current prices, programmes and transport times with the venue or operator.",
+      "opening": "Bonjour ! Je viens de m'installer dans le quartier et j'aimerais avoir vos conseils pour sortir le soir.",
       "closing": "Merci pour vos conseils. Je vais regarder la programmation avant de choisir une soirée.",
       "questions": [
-        {"topic": "Lieux et activités", "question": "Quels endroits recommanderiez-vous pour sortir le soir dans le quartier ?", "answer": "Le café des Arts pour la musique et le petit cinéma près de la place.", "follow_up_to": null},
-        {"topic": "Lieux et activités", "question": "Quel genre de musique peut-on écouter dans ce café ?", "answer": "Surtout du jazz et des concerts acoustiques.", "follow_up_to": 1, "condition": "If a café with live music is suggested."},
-        {"topic": "Ambiance", "question": "Selon le soir, l'ambiance de ce café est plutôt calme ou animée ?", "answer": "Assez calme en semaine, plus animée quand il y a un concert le vendredi.", "follow_up_to": null},
-        {"topic": "Horaires et prix", "question": "À quelle heure commencent généralement les concerts ?", "answer": "Vers vingt heures, mais il vaut mieux arriver un peu avant.", "follow_up_to": null},
-        {"topic": "Horaires et prix", "question": "Quel budget faut-il prévoir pour une soirée là-bas ?", "answer": "Environ 15 $ pour le concert, en plus de ce que vous consommez.", "follow_up_to": null},
-        {"topic": "Horaires et prix", "question": "Faut-il réserver une place pour les concerts ?", "answer": "Oui, surtout le vendredi ; les réservations se font sur leur site.", "follow_up_to": null},
-        {"topic": "Retour", "question": "Quel est le moyen le plus pratique pour rentrer tard dans le quartier ?", "answer": "Le bus de nuit s'arrête près du café ; sinon, le trajet à pied est court.", "follow_up_to": null},
-        {"topic": "Retour", "question": "Jusqu'à quelle heure ce bus de nuit dessert-il l'arrêt près du café ?", "answer": "Il circule jusqu'à trois heures du matin les vendredis et samedis.", "follow_up_to": null}
+        {"topic": "Lieux, activités et ambiance", "question": "Quels endroits me conseilleriez-vous pour sortir le soir dans le quartier, et qu'est-ce qu'on peut y faire ?", "answer": "Le café des Arts organise des concerts et des soirées jeux ; le petit cinéma près de la place propose des films récents.", "follow_up_to": null},
+        {"topic": "Lieux, activités et ambiance", "question": "Est-ce que l'ambiance est plutôt calme ou animée dans les endroits que vous conseillez ?", "answer": "Le café est assez calme les soirs de jeux, mais plus animé pendant les concerts. Le cinéma convient à une soirée plus tranquille.", "follow_up_to": 1, "condition": "After venues are recommended, if their atmosphere has not already been described."},
+        {"topic": "Lieux, activités et ambiance", "question": "Pour les concerts du café, vous savez quels styles de musique sont proposés et quels soirs ils ont lieu ?", "answer": "Surtout du jazz et de l'acoustique, le vendredi vers vingt heures.", "follow_up_to": 1, "condition": "If a café with concerts is suggested without music styles or times."},
+        {"topic": "Lieux, activités et ambiance", "question": "Au cinéma, y a-t-il aussi des séances suivies d'une discussion ou d'autres animations ?", "answer": "Il y a un ciné-club un jeudi par mois, avec une discussion après le film. J'y suis déjà allé.", "follow_up_to": 1, "condition": "If a cinema is suggested without details of special screenings or activities."},
+        {"topic": "Budget et organisation", "question": "Quel budget faut-il prévoir pour un concert au café et pour une séance de cinéma ?", "answer": "Comptez environ 15 $ pour un concert, hors consommations, et 12 $ pour une séance de cinéma ordinaire.", "follow_up_to": null},
+        {"topic": "Budget et organisation", "question": "Connaissez-vous des sorties gratuites ou des tarifs réduits certains jours de la semaine ?", "answer": "Le cinéma est à 8 $ le mardi. Les soirées jeux du café n'ont pas de billet d'entrée, mais il faut prévoir sa consommation.", "follow_up_to": null},
+        {"topic": "Budget et organisation", "question": "Où puis-je consulter le programme, et pour quelles activités vaut-il mieux réserver sa place ?", "answer": "Les sites des deux lieux publient le programme. Je réserve pour les concerts du vendredi et les séances spéciales du cinéma.", "follow_up_to": null},
+        {"topic": "Retour", "question": "Peut-on rentrer à pied depuis ces endroits, ou vaut-il mieux prévoir un transport en fin de soirée ?", "answer": "Les deux sont à environ dix ou quinze minutes à pied d'ici ; si vous prenez le bus, vérifiez l'heure du dernier passage.", "follow_up_to": null}
       ]
     },
     {

@@ -722,7 +722,7 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
 
     def test_history_rejects_invalid_replacements_and_follow_up_references(self):
         data = json.loads(LOCATION_HISTORY_PATH.read_text())
-        first = next(iter(data["groups"].values()))
+        first = next(group for group in data["groups"].values() if group["replacements"])
         for invalid in (["", "Seattle"], ["Calgary"], ["Calgary", "Calgary"]):
             first["replacements"][0] = invalid
             with patch("pathlib.Path.read_text", return_value=json.dumps(data)):
@@ -1022,6 +1022,16 @@ class PublishedTacheTwoHighlightTests(TestCase):
         self.assert_revision_highlights_preserved(
             "help-transport-heavy-objects-no-vehicle", {5: 1, 1: 2, 7: 7},
             revision=0,
+        )
+
+    def test_museum_development_preserves_every_previous_question_note_in_its_original_layout(self):
+        self.assert_revision_highlights_preserved(
+            "museum-group-visit-reception", {}, revision=0,
+        )
+
+    def test_evening_outing_development_preserves_every_previous_question_note_in_its_original_layout(self):
+        self.assert_revision_highlights_preserved(
+            "new-neighbor-evening-entertainment", {}, revision=0,
         )
 
     def test_heavy_transport_payment_question_preserves_other_questions_and_archived_notes(self):

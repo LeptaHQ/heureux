@@ -1,6 +1,46 @@
 {
   "version": 1,
   "groups": {
+    "new-neighbor-evening-entertainment": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "new-neighbor-evening-entertainment",
+          "opening": "Bonjour ! Je découvre le quartier et j'aimerais trouver des endroits sympas pour sortir le soir.",
+          "closing": "Merci pour vos conseils. Je vais regarder la programmation avant de choisir une soirée.",
+          "questions": [
+            {"topic": "Lieux et activités", "question": "Quels endroits recommanderiez-vous pour sortir le soir dans le quartier ?", "follow_up_to": null},
+            {"topic": "Lieux et activités", "question": "Quel genre de musique peut-on écouter dans ce café ?", "follow_up_to": 1, "condition": "If a café with live music is suggested."},
+            {"topic": "Ambiance", "question": "Selon le soir, l'ambiance de ce café est plutôt calme ou animée ?", "follow_up_to": null},
+            {"topic": "Horaires et prix", "question": "À quelle heure commencent généralement les concerts ?", "follow_up_to": null},
+            {"topic": "Horaires et prix", "question": "Quel budget faut-il prévoir pour une soirée là-bas ?", "follow_up_to": null},
+            {"topic": "Horaires et prix", "question": "Faut-il réserver une place pour les concerts ?", "follow_up_to": null},
+            {"topic": "Retour", "question": "Quel est le moyen le plus pratique pour rentrer tard dans le quartier ?", "follow_up_to": null},
+            {"topic": "Retour", "question": "Jusqu'à quelle heure ce bus de nuit dessert-il l'arrêt près du café ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
+    "museum-group-visit-reception": {
+      "replacements": [],
+      "revisions": [
+        {
+          "group": "museum-group-visit-reception",
+          "opening": "Bonjour ! Je prépare une visite avec des proches et je voudrais l'organiser.",
+          "closing": "Merci pour votre aide. Je vais vérifier les disponibilités de chacun avant de réserver.",
+          "questions": [
+            {"topic": "Expositions et visite guidée", "question": "Quelles expositions peut-on voir en ce moment ?", "follow_up_to": null},
+            {"topic": "Expositions et visite guidée", "question": "Est-ce que vous proposez une visite guidée de cette exposition ?", "follow_up_to": 1, "condition": "After they describe an exhibition."},
+            {"topic": "Expositions et visite guidée", "question": "Combien de temps dure cette visite guidée ?", "follow_up_to": 2, "condition": "Only if a guided visit is available."},
+            {"topic": "Horaires", "question": "Quels jours le musée est-il ouvert ?", "follow_up_to": null},
+            {"topic": "Tarifs et réservation", "question": "Quel est le prix d'entrée par personne ?", "follow_up_to": null},
+            {"topic": "Tarifs et réservation", "question": "Est-ce que la visite guidée est comprise dans ce tarif ?", "follow_up_to": 5, "condition": "If a guided visit is offered and its cost remains unclear."},
+            {"topic": "Tarifs et réservation", "question": "Comment réserver nos places pour la visite guidée ?", "follow_up_to": null},
+            {"topic": "Tarifs et réservation", "question": "Proposez-vous un tarif réduit selon l'âge ou la taille du groupe ?", "follow_up_to": null}
+          ]
+        }
+      ]
+    },
     "host-foreign-friends-city-advice": {
       "replacements": [
         [

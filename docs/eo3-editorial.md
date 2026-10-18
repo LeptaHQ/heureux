@@ -203,6 +203,24 @@ Keep possible outcomes conditional, distinguish a whole life from selected
 television images, and answer words such as "necessary" and "always" directly.
 Align both languages of the corresponding Piste after revising a support.
 
+## Famille learning consistency
+
+The 17 Famille consignes use 14 Famille models plus the shared Culture model
+about friendship and happiness. Keep the truth-with-children and money-for-grades
+pairs together, but distinguish living well, happiness and relatives as best
+friends. Likewise, feeling comfortable at one's parents' home is a legitimate
+reason in its own right, not only when it finances a plan to move out. The
+after-25 prompt asks about practicality, not a mandatory age of independence.
+
+Reuse the shared household-help argument across those two cohabitation questions,
+while keeping their positions and other mechanisms distinct. Reuse suitable
+friendship claims and the trial-choir example without replacing practical help
+with emotional support in every response. Concrete examples should explain the
+actual comparison or action: two Internet subscriptions instead of one, a
+housing-cost comparison, an identified calculation error, or seeking help with
+a damaged library book. Trust between relatives must be demonstrated by keeping
+a confidence and respecting a differing choice, not assumed from kinship.
+
 ## Prompt explanations
 
 EO3 subject pages and practice fronts use a collapsed English **Comprendre la

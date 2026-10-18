@@ -51,12 +51,12 @@
           "idea": "Ensuite, rester au domicile familial peut rendre un projet plus facile à financer.",
           "developpement": "Le choix dépend aussi des revenus et des logements accessibles. Réduire certaines dépenses peut permettre de suivre une formation ou de constituer une réserve, plutôt que s'engager dans un budget impossible à tenir.",
           "exemple": "Un jeune adulte qui termine une formation peut comparer le coût d'un logement indépendant avec ses ressources. Avec l'accord de ses parents, il peut rester chez eux et mettre régulièrement de l'argent de côté pour préparer son installation.",
-          "consequence": "La cohabitation soutient alors un projet concret, au lieu d'être un simple confort sans réflexion."
+          "consequence": "Cette organisation peut donner du temps pour préparer un projet, sans faire du départ immédiat une obligation."
         },
         {
-          "idea": "Enfin, cette organisation peut reposer sur une entraide réciproque.",
-          "developpement": "Le jeune adulte n'est pas obligé de rester dans le rôle de l'enfant dont on s'occupe. Il peut prendre en charge des tâches et contribuer aux dépenses selon ses moyens, tandis que ses parents partagent le logement.",
-          "exemple": "Une personne qui vit chez ses parents peut préparer plusieurs repas et assurer les courses chaque semaine. Les parents disposent ainsi de soirées moins chargées, et les engagements sont discutés plutôt que laissés à leur initiative.",
+          "idea": "Enfin, la vie commune peut simplifier certaines tâches pour tous.",
+          "developpement": "Préparer un repas ou faire les courses pour plusieurs personnes peut éviter de multiplier des démarches séparées. Cette organisation fonctionne si les adultes contribuent, au lieu de laisser les parents assurer le service.",
+          "exemple": "Un adulte peut préparer le dîner les jours où il termine tôt, tandis que ses parents font les courses un autre jour. Ils définissent les rôles à l'avance, sans que les parents aient à tout organiser et rappeler.",
           "consequence": "Chacun apporte quelque chose à la vie commune."
         }
       ],
@@ -80,7 +80,7 @@
         {
           "idea": "Ensuite, une relation de confiance peut permettre un conseil adapté à la personne.",
           "developpement": "Un proche qui écoute nos envies et nos contraintes peut nous aider à distinguer notre projet des attentes des autres. Cette qualité dépend de la relation, pas automatiquement de son âge.",
-          "exemple": "Une tante âgée peut rappeler à un étudiant qu'il apprécie les activités pratiques, alors qu'il choisit une formation uniquement pour son prestige. Elle l'invite à visiter les deux établissements envisagés pour comparer leurs enseignements avant de décider.",
+          "exemple": "Un étudiant hésite entre deux écoles : l'une propose surtout des cours théoriques, l'autre davantage d'ateliers. Sa tante âgée, qui connaît son goût pour les activités pratiques, lui suggère de visiter les deux et de comparer les programmes avant de décider.",
           "consequence": "Son regard soutient une décision personnelle, au lieu de s'y substituer."
         },
         {
@@ -117,7 +117,7 @@
         {
           "idea": "Enfin, dire la vérité permet de chercher une solution à un problème réel.",
           "developpement": "Cacher une difficulté empêche parfois de la traiter. L'adulte peut montrer qu'on peut reconnaître ce qui ne va pas, puis décider d'une action adaptée plutôt que prétendre que tout est parfait.",
-          "exemple": "Devant un exercice mal réussi, un parent peut reconnaître que certaines réponses sont incorrectes, sans dire que l'enfant est incapable. Ensemble, ils reprennent une consigne et essaient un autre exemple pour repérer ce qui n'a pas été compris.",
+          "exemple": "Devant un exercice de calcul, un parent peut dire que le résultat est incorrect sans qualifier l'enfant d'incapable. En reprenant les étapes ensemble, ils repèrent une retenue oubliée et peuvent refaire un calcul similaire pour vérifier la méthode.",
           "consequence": "La vérité devient un point de départ pour progresser, pas une manière de rabaisser."
         }
       ],
@@ -178,7 +178,7 @@
         {
           "idea": "Enfin, une prime ne remplace pas l'aide nécessaire pour surmonter un blocage.",
           "developpement": "Quand l'enfant ne comprend pas une méthode, augmenter la récompense ne lui montre pas comment procéder. Il faut d'abord repérer la difficulté et proposer un appui adapté.",
-          "exemple": "Si un enfant échoue régulièrement à comprendre les consignes, un parent peut reprendre un exercice avec lui et en parler à l'enseignant. Cette démarche aide à chercher une méthode de travail, là où promettre davantage d'argent laisserait le problème intact.",
+          "exemple": "Si un enfant répond à côté parce qu'il ne comprend pas ce qu'on lui demande, un parent peut lui faire reformuler la consigne puis vérifier avec l'enseignant comment l'aider. L'argent seul ne lui apprend pas à comprendre la question.",
           "consequence": "Le soutien porte ainsi sur les moyens de progresser, pas seulement sur le résultat."
         }
       ],
@@ -230,14 +230,14 @@
           "consequence": "La réciprocité rend certaines difficultés moins lourdes à porter seul."
         },
         {
-          "idea": "Ensuite, des rendez-vous entre amis donnent une place au plaisir d'être ensemble.",
+          "idea": "Ensuite, l'amitié donne une place régulière au plaisir d'être ensemble.",
           "developpement": "Le quotidien ne se résume pas au travail et aux obligations. Un lien que l'on entretient offre des occasions de raconter sa semaine et de partager une activité choisie.",
           "exemple": "Après un changement d'emploi, deux amis peuvent garder une promenade le samedi comme rendez-vous régulier. Même s'ils ne se croisent plus au travail, ils disposent d'un moment pour discuter et rire, sans devoir organiser une sortie coûteuse.",
           "consequence": "L'amitié donne ainsi une continuité à une relation au-delà des circonstances."
         },
         {
           "idea": "Enfin, les amis peuvent nous aider à découvrir d'autres possibilités.",
-          "developpement": "Une relation de confiance permet de recevoir un avis différent et d'essayer une activité que l'on n'aurait pas choisie seul. Cette ouverture enrichit la vie sans obliger à suivre toutes les suggestions.",
+          "developpement": "Une relation de confiance permet de recevoir un avis différent et d'essayer une activité que l'on n'aurait pas choisie seul. Cette ouverture peut enrichir notre vie sans nous obliger à suivre tous les conseils.",
           "exemple": "Une personne qui aimerait chanter mais n'ose pas peut accompagner un ami à une séance d'essai dans une chorale. Elle découvre l'ambiance avant de décider si elle souhaite continuer, plutôt que de renoncer sans avoir essayé.",
           "consequence": "Le lien soutient alors une découverte, sans décider à la place de l'autre."
         }
@@ -257,18 +257,18 @@
           "idea": "Tout d'abord, la parenté ne garantit pas des centres d'intérêt communs.",
           "developpement": "On peut aimer un proche tout en ayant des goûts et des envies très différents. Une amitié se nourrit aussi de moments que les deux personnes choisissent de vivre ensemble.",
           "exemple": "Une personne peut apprécier les repas avec ses cousins, mais préférer discuter de musique et aller à des concerts avec une amie rencontrée dans une association. Cela ne diminue pas son affection familiale : elle partage simplement autre chose avec cette amie.",
-          "consequence": "La proximité affective et les affinités ne se recouvrent donc pas toujours."
+          "consequence": "On peut donc aimer ses proches sans pour autant avoir les mêmes goûts."
         },
         {
           "idea": "Ensuite, les rôles familiaux peuvent influencer ce que l'on ose raconter.",
           "developpement": "Un parent reste parfois associé au conseil, aux attentes ou à l'inquiétude. On peut chercher auprès d'un ami une écoute différente, sans que la relation familiale soit mauvaise.",
-          "exemple": "Un adulte qui envisage de changer de métier peut vouloir en parler d'abord à un ami pour mettre ses idées en ordre. Il sait que ses parents s'inquiéteront immédiatement de son revenu et souhaite pouvoir réfléchir avant d'aborder cette question avec eux.",
+          "exemple": "Un adulte qui envisage de changer de métier peut comparer ses options avec un ami. S'il craint que ses parents s'inquiètent surtout de son revenu, cet échange l'aide à clarifier son projet avant d'en parler en famille.",
           "consequence": "Les relations peuvent remplir des fonctions différentes, sans devoir être classées de la meilleure à la moins bonne."
         },
         {
           "idea": "Enfin, une amitié profonde se démontre par des comportements, même à l'intérieur de la famille.",
           "developpement": "Écouter, respecter une confidence et accepter un désaccord construisent la confiance. Ces gestes peuvent exister entre frères et sœurs, mais ils ne sont pas garantis par le lien familial.",
-          "exemple": "Une personne peut considérer sa sœur comme sa meilleure amie parce qu'elle l'écoute sans répéter ses confidences et respecte ses décisions. Ce sont ces expériences répétées, et non leur seule parenté, qui donnent ce sens à leur relation.",
+          "exemple": "Une personne confie à sa sœur son projet de déménager dans une autre ville. Celle-ci l'aide à comparer les logements sans répéter ses confidences, même si elle regrette de la voir partir.",
           "consequence": "Un même lien peut donc être familial et amical lorsqu'il se construit de cette manière."
         }
       ],
@@ -280,7 +280,7 @@
         "famille:p11": "a9acb95404f3a7d89085c5f3075daa085012d20c8659f1ffafc2e6d39c7ad628"
       },
       "reformulation": "Est-il plus facile de vivre seul qu'en famille ?",
-      "position": "Elle simplifie certains choix, mais pas nécessairement le budget ni le travail quotidien.",
+      "position": "Vivre seul simplifie certains choix, mais pas nécessairement le budget ni le travail quotidien.",
       "position_claire": "Vivre seul peut être plus facile pour organiser sa journée, mais je ne le dirais pas pour tous les aspects de la vie. Il faut comparer la liberté de décider, les dépenses et le travail quotidien. La vie en famille a des contraintes, mais peut aussi alléger certaines charges.",
       "arguments": [
         {
@@ -292,7 +292,7 @@
         {
           "idea": "Ensuite, vivre seul signifie aussi assumer seul certaines dépenses.",
           "developpement": "Un abonnement Internet ou certains équipements peuvent coûter presque autant pour une personne que pour plusieurs. En famille, certains biens et services peuvent être utilisés par plusieurs personnes.",
-          "exemple": "Deux adultes qui vivent ensemble peuvent partager le coût d'un abonnement Internet et utiliser la même machine à laver. S'ils prennent chacun un logement, ils doivent comparer leurs nouvelles dépenses avec leurs revenus, pas seulement le montant du loyer.",
+          "exemple": "Deux sœurs qui vivent ensemble peuvent partager un abonnement Internet. Si chacune prend le même abonnement dans un logement séparé, elles paient alors deux abonnements au lieu d'un. Il faut prévoir ce coût dans le budget de chaque logement.",
           "consequence": "Davantage d'indépendance peut donc demander un budget plus important."
         },
         {
@@ -322,7 +322,7 @@
         {
           "idea": "Ensuite, la peur d'une réaction excessive peut empêcher de demander de l'aide.",
           "developpement": "Un enfant qui pense être humilié pour chaque erreur peut chercher à la cacher. Le parent perd alors une occasion de comprendre le problème et d'accompagner une réponse.",
-          "exemple": "Si un enfant a cassé un objet et redoute surtout les cris, il peut prétendre ne rien savoir. Un adulte qui écoute ce qui s'est passé, puis cherche avec lui comment réparer ou éviter la même erreur, garde la discussion possible.",
+          "exemple": "Un enfant qui a abîmé un livre de bibliothèque peut le cacher par peur des cris. S'il sait que son parent l'écoutera sans l'humilier, il peut lui en parler. Ensemble, ils pourront demander à la bibliothèque comment remplacer le livre.",
           "consequence": "Prendre le problème au sérieux n'oblige donc pas à rabaisser la personne."
         },
         {
@@ -406,13 +406,13 @@
         {
           "idea": "Tout d'abord, partager un logement peut donner une marge financière utile.",
           "developpement": "Les dépenses d'un logement indépendant doivent correspondre aux ressources disponibles. Une cohabitation convenue peut permettre de financer une formation ou de préparer un projet sans s'engager dans des charges impossibles à tenir.",
-          "exemple": "Une personne de vingt-sept ans qui reprend une formation peut vivre chez ses parents pendant cette période. Ils discutent de sa contribution aux dépenses, puis elle compare ce qu'il lui reste avec les frais de formation, au lieu de considérer l'hébergement comme entièrement gratuit pour le foyer.",
+          "exemple": "Une personne de vingt-sept ans reprend une formation. Elle compare le coût d'un logement indépendant avec la contribution financière convenue avec ses parents : si la cohabitation coûte moins cher, la différence peut servir à payer la formation.",
           "consequence": "L'avantage devient un budget réfléchi, pas simplement l'absence de loyer."
         },
         {
           "idea": "Ensuite, la vie commune peut simplifier certaines tâches pour tous.",
-          "developpement": "Préparer un repas ou faire les courses pour plusieurs personnes peut éviter de multiplier des démarches séparées. Cette commodité fonctionne si les adultes contribuent, au lieu de laisser les parents assurer le service.",
-          "exemple": "Un adulte peut préparer le dîner les jours où il termine tôt, tandis que ses parents font les courses à un autre moment. Chacun bénéficie d'une organisation commune et peut consacrer du temps à ses autres activités.",
+          "developpement": "Préparer un repas ou faire les courses pour plusieurs personnes peut éviter de multiplier des démarches séparées. Cette organisation fonctionne si les adultes contribuent, au lieu de laisser les parents assurer le service.",
+          "exemple": "Un adulte peut préparer le dîner les jours où il termine tôt, tandis que ses parents font les courses un autre jour. Ils définissent les rôles à l'avance, sans que les parents aient à tout organiser et rappeler.",
           "consequence": "La cohabitation apporte alors une entraide, pas seulement un hébergement."
         },
         {

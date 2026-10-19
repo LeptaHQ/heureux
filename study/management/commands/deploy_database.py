@@ -66,3 +66,4 @@ class Command(BaseCommand):
             if_changed=True,
             verbosity=verbosity,
         )
+        call_command("backfill_response_anchors", verbosity=verbosity)

@@ -216,6 +216,62 @@ class PublicResponsePreservationTests(TestCase):
         self.assertEqual(removed.quote, before.arguments[0].exemple)
         self.assertEqual(removed.body, "My own saved note.")
 
+    def test_adjacent_rewrites_keep_unique_unchanged_introduction_and_conclusion_anchors(self):
+        prompt = self.prompt("technologie:p21")
+        models = catalogue.tache_three_models()
+        model = models[prompt.response.semantic_group]
+        before = model.response
+        arguments = list(before.arguments)
+        arguments[0] = replace(
+            arguments[0],
+            idea="A completely different first claim.",
+            developpement="A newly explained mechanism with no previous surrounding wording.",
+            exemple="A different actor takes a different action and demonstrates its result.",
+            consequence="A revised consequence follows from that demonstration.",
+        )
+        after = replace(
+            before,
+            arguments=tuple(arguments),
+            nuance="An entirely rewritten limitation changes the context before the conclusion.",
+        )
+        cards_before = list(Card.objects.filter(user=self.user).order_by("pk").values())
+        for surface in ("detail", "back"):
+            with self.subTest(surface=surface):
+                marks = [
+                    self.mark(prompt, before, quote, surface=surface)
+                    for quote in (before.position_claire, before.conclusion)
+                ]
+                note = self.mark(
+                    prompt, before, before.conclusion,
+                    surface=surface, kind=AnnotationKind.NOTE,
+                )
+                removed = self.mark(
+                    prompt, before, before.arguments[0].exemple, surface=surface,
+                )
+                ids = [mark.pk for mark in marks] + [note.pk, removed.pk]
+                saved = list(Annotation.objects.filter(pk__in=ids).order_by("pk").values(
+                    "pk", "quote", "body", "title", "study_later", "completed_at",
+                    "created_at", "source_prompt_id",
+                ))
+                with patch.object(catalogue, "tache_three_models", return_value={
+                    **models, model.group: replace(model, response=after),
+                }):
+                    returned = {row["id"] for row in self.fetch(marks[0].source_path)}
+                    self.assertTrue({mark.pk for mark in marks} <= returned)
+                    self.assertNotIn(removed.pk, returned)
+                    for mark in [*marks, note]:
+                        self.assert_preserved(mark, prompt, after, surface)
+                self.assertEqual(
+                    list(Annotation.objects.filter(pk__in=ids).order_by("pk").values(
+                        "pk", "quote", "body", "title", "study_later", "completed_at",
+                        "created_at", "source_prompt_id",
+                    )),
+                    saved,
+                )
+        self.assertEqual(
+            list(Card.objects.filter(user=self.user).order_by("pk").values()), cards_before,
+        )
+
     def test_all_eo3_models_preserve_unchanged_detail_and_practice_sections(self):
         models = catalogue.tache_three_models()
         self.assertEqual(len(models), 131)

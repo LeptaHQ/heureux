@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load study_links %}
-{% block title %}Recherche · Heureux{% endblock %}
+{% block title %}Recherche{% if task %} · {{ task.short_label }}{% elif part %} · {{ part.name }}{% endif %} · Heureux{% endblock %}
 
 {% block content %}
 <div class="page-head search-page-head directory-header">

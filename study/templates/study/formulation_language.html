@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}{{ reference_title }} · Formulations · Heureux{% endblock %}
+{% block title %}{{ reference_title }} · Formulations · {{ task.short_label }} · Heureux{% endblock %}
 {% block content %}
 {% include "study/partials/task_nav.html" %}
 <article class="tache-two-subject-detail formulation-language-page" style="--subject-accent: {{ task.color }};">

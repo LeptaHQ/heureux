@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}{{ subject_month.name }} · Batch {{ subject_batch.number }} · {{ task.name }}{% endblock %}
+{% block title %}Batch {{ subject_batch.number }} · {{ subject_month.name }} · {{ task.short_label }} · Heureux{% endblock %}
 
 {% block content %}
 {% include "study/partials/task_nav.html" %}

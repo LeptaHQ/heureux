@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}{% if part.slug == "ee" and task.slug == "tache-3" %}Collections de formulations{% else %}Mémoires{% endif %} · {{ task.name }} · Heureux{% endblock %}
+{% block title %}{% if part.slug == "ee" and task.slug == "tache-3" %}Collections de formulations{% else %}Mémoires{% endif %} · {{ task.short_label }} · Heureux{% endblock %}
 
 {% block content %}
 {% include "study/partials/task_nav.html" %}

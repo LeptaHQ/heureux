@@ -620,7 +620,7 @@ class EeTacheOneFormulationExperienceTests(TestCase):
         response = self.client.get(directory)
         self.assertEqual(response.status_code, 200)
         self.assertContains(
-            response, f"Formulations · {self.task.name} · Heureux",
+            response, f"Formulations · {self.task.short_label} · Heureux",
         )
         html = response.content.decode()
         self.assertLess(html.index(">Sujets</a>"), html.index(">Formulations</a>"))

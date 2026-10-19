@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load study_markdown %}
-{% block title %}{{ attempt.mode|capfirst }} · {{ attempt.snapshot.title }} · Heureux{% endblock %}
+{% block title %}{% if attempt.mode == "check" %}Contrôle{% elif attempt.mode == "review" %}Révision{% else %}Pratique{% endif %} · {{ attempt.snapshot.title }} · Apprendre · Heureux{% endblock %}
 {% block content %}
 <div class="learn-lesson-page course-practice-page" lang="en">
   <nav class="phrase-category-back"><a href="{% url 'study:course_practice' attempt.snapshot.slug %}">← Practice and history</a></nav>

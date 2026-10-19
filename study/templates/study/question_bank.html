@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static study_markdown %}
-{% block title %}{{ question_bank.title }} · {{ task.name }}{% endblock %}
+{% block title %}{% if question_responses_enabled %}Questions{% else %}{{ question_bank.title }}{% endif %} · {{ task.short_label }} · Heureux{% endblock %}
 
 {% block content %}
 {% include "study/partials/task_nav.html" %}

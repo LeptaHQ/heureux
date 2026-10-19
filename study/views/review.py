@@ -16,7 +16,12 @@ from django.views.decorators.http import require_GET, require_POST
 
 from .. import content_loader as content_module
 from .. import queue as queue_module
-from ..card_presentation import card_payload, scope_from_request, scope_label
+from ..card_presentation import (
+    card_payload,
+    scope_from_request,
+    scope_label,
+    scope_title_segments,
+)
 from ..models import (
     Card,
     ComprehensionTest,
@@ -366,6 +371,7 @@ def review(
         "scope": scope,
         "scope_json": json.dumps(scope),
         "scope_label": scope_label(scope),
+        "title_segments": scope_title_segments(scope),
         "counts": counts,
         "is_revisit": scope.get("kind") == "revisit",
         "is_weak": scope.get("kind") == "weak",

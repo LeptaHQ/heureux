@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}{{ theme_title }} · {{ vocabulary_label }} · Heureux{% endblock %}
+{% block title %}{{ theme_title }} · {{ vocabulary_label }} · {{ task.short_label }} · Heureux{% endblock %}
 
 {% block content %}
 {% include "study/partials/task_nav.html" %}

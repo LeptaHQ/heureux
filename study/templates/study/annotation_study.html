@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load study_markdown %}
-{% block title %}Étudier mes notes · Heureux{% endblock %}
+{% block title %}Flashcards · {% if task %}Notes · {{ task.short_label }}{% else %}{{ scope_title }} · Notes{% endif %} · Heureux{% endblock %}
 
 {% block content %}
 {% if task %}{% include "study/partials/task_nav.html" %}{% endif %}

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load study_markdown %}
-{% block title %}Production self-review · Heureux{% endblock %}
+{% block title %}Production · {{ production.task_snapshot.title }} · Apprendre · Heureux{% endblock %}
 {% block content %}
 <div class="learn-lesson-page course-practice-page" lang="en">
   <nav class="phrase-category-back"><a href="{% url 'study:course_practice' production.task_snapshot.slug %}">← Practice and history</a></nav>

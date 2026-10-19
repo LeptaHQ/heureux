@@ -40,8 +40,8 @@
         "technologie:p8": "9ef3387b961ad8f586b90a67e10e86534ae528323b27948228c2a947d4eef78d"
       },
       "reformulation": "Est-il facile de se passer de son téléphone portable ?",
-      "position": "Pas toujours : plusieurs fonctions et habitudes collectives doivent être remplacées.",
-      "position_claire": "Non, je ne trouve pas toujours facile de se passer du téléphone portable. Il rassemble des outils pratiques, certains services supposent sa présence et les proches organisent souvent leurs échanges autour de lui. On peut chercher des solutions, mais leur disponibilité et le temps nécessaire varient selon la situation.",
+      "position": "Pas toujours : fonctions pratiques, accès aux services et liens avec les proches demandent d'autres moyens.",
+      "position_claire": "Non, je ne trouve pas toujours facile de se passer du téléphone portable. Il rassemble des outils pratiques, certains services supposent sa présence et il permet de garder un lien avec ses proches pendant les déplacements. On peut chercher des solutions, mais elles ne répondent pas toutes aux mêmes besoins.",
       "arguments": [
         {
           "idea": "Tout d'abord, plusieurs fonctions doivent être remplacées en même temps.",
@@ -56,14 +56,14 @@
           "consequence": "Le choix dépend aussi de la conception du service."
         },
         {
-          "idea": "Enfin, les habitudes des autres peuvent compliquer la coordination.",
-          "developpement": "Un groupe peut modifier un horaire au dernier moment en supposant que chacun lit les messages. Sans portable, il faut convenir d'une autre manière de confirmer les informations, plutôt que rendre une personne responsable d'un message qu'elle ne reçoit pas.",
-          "exemple": "Pour une sortie, des amis peuvent fixer le rendez-vous à l'avance et s'engager à ne pas changer de lieu sans prévenir par le moyen convenu. Cette règle évite de laisser attendre quelqu'un qui n'a pas accès au groupe pendant le trajet.",
-          "consequence": "Se passer d'un outil demande parfois un accord collectif."
+          "idea": "Enfin, le portable répond aussi à un besoin de lien humain.",
+          "developpement": "Il permet de partager une difficulté ou un encouragement sans attendre de rentrer chez soi. Ce soutien ne sert pas seulement à organiser un rendez-vous : il aide à se sentir accompagné entre les rencontres.",
+          "exemple": "Avant un examen dans une autre ville, une personne peut écouter un message d'encouragement de sa sœur pendant le trajet. Elle se sent soutenue malgré la distance et lui raconte ensuite l'épreuve ; sans portable, elles doivent prévoir un autre moyen de garder ce lien.",
+          "consequence": "Renoncer à l'appareil peut donc modifier une relation quotidienne, pas seulement des habitudes pratiques."
         }
       ],
       "nuance": "Cependant, difficile ne signifie pas impossible. Un ordinateur, des documents papier ou des échanges en personne peuvent remplacer certaines fonctions. Réduire les notifications est encore une autre démarche : elle ne prouve pas que l'on peut supprimer le portable sans réorganiser le quotidien.",
-      "conclusion": "En conclusion, se passer du portable exige de remplacer des fonctions, vérifier les services et revoir certaines habitudes communes. Je défendrais des alternatives accessibles, sans qualifier ce choix de facile ni le déclarer impossible pour tous."
+      "conclusion": "En conclusion, se passer du portable exige de remplacer des fonctions, vérifier les services et préserver les liens avec ses proches. Je défendrais des alternatives accessibles, sans qualifier ce choix de facile ni le déclarer impossible pour tous."
     },
     "technologie-p3": {
       "prompt_signatures": {
@@ -76,14 +76,14 @@
         {
           "idea": "Tout d'abord, chacun peut choisir la place de ses loisirs dans sa journée.",
           "developpement": "Allumer un écran par habitude peut occuper un moment que l'on préférerait consacrer à autre chose. Renoncer à la télévision peut être une décision positive, et pas seulement un refus de ses programmes.",
-          "exemple": "Une personne peut réserver sa soirée à la lecture ou à une activité partagée avec ses proches. Elle n'a pas besoin de regarder une émission avant de pouvoir décider que ce temps lui convient mieux autrement.",
+          "exemple": "Une personne peut réserver une soirée par semaine pour cuisiner avec son enfant. Ils préparent un repas et discutent de leur journée, au lieu de laisser un programme occuper le temps qu'ils souhaitaient partager.",
           "consequence": "Le temps libre peut être organisé sans suivre une habitude collective."
         },
         {
           "idea": "Ensuite, la télévision n'est pas le seul moyen d'accéder à l'information.",
           "developpement": "La radio, la presse et d'autres sources permettent de suivre l'actualité. Leur qualité dépend des contenus et des vérifications, pas du fait qu'ils apparaissent ou non sur un téléviseur.",
-          "exemple": "Pour comprendre un changement dans les transports, une personne peut écouter un bulletin puis consulter l'annonce de l'opérateur. Elle obtient les éléments nécessaires à son trajet sans avoir regardé le journal télévisé.",
-          "consequence": "Ne pas utiliser ce média n'implique donc pas l'ignorance de l'actualité."
+          "exemple": "Pour comprendre un projet de fermeture de bibliothèque, une personne peut écouter un reportage radio puis lire les propositions de la mairie. Elle découvre les économies annoncées et les conséquences pour les lecteurs, ce qui lui permet de participer au débat.",
+          "consequence": "Ne pas regarder la télévision n'empêche donc pas de comprendre un enjeu public."
         },
         {
           "idea": "Enfin, les découvertes culturelles peuvent passer par d'autres expériences.",
@@ -101,7 +101,7 @@
       },
       "reformulation": "Internet rend-il nécessairement les personnes solitaires ?",
       "position": "Non : il peut soutenir des liens, selon les usages et les conditions sociales.",
-      "position_claire": "Je ne suis pas d'accord avec l'idée qu'Internet rend les gens solitaires de manière générale. Il peut maintenir des relations, ouvrir des occasions de participation et aussi prendre trop de place. La solitude ne se comprend ni en comptant les heures connectées ni en supposant que seuls les échanges en personne sont réels.",
+      "position_claire": "Je ne suis pas d'accord avec l'idée qu'Internet rend les gens solitaires de manière générale. Il peut maintenir des relations, ouvrir des occasions de rencontre et permettre une participation malgré des difficultés de déplacement. La solitude ne se comprend ni en comptant les heures connectées ni en supposant que seuls les échanges en personne sont réels.",
       "arguments": [
         {
           "idea": "Tout d'abord, Internet peut maintenir une présence entre des personnes éloignées.",
@@ -116,13 +116,13 @@
           "consequence": "La connexion peut servir de passage vers d'autres rencontres."
         },
         {
-          "idea": "Enfin, la solitude dépend aussi de contraintes que l'outil ne crée pas à lui seul.",
-          "developpement": "Le travail, la mobilité, la santé ou l'accès aux lieux collectifs influencent les relations. Les plateformes ont également leur responsabilité lorsqu'elles sollicitent l'attention ; demander seulement à chacun de fermer son écran ne répond pas à tout.",
-          "exemple": "Une personne peu mobile peut échanger en ligne parce qu'aucun transport adapté ne lui permet de rejoindre ses proches. Supprimer cet accès sans proposer une solution ne créerait pas automatiquement une visite.",
-          "consequence": "Il faut examiner les possibilités de lien plutôt qu'accuser un seul support."
+          "idea": "Enfin, une activité en ligne peut donner une place à ceux qui ne peuvent pas se déplacer.",
+          "developpement": "Pouvoir contribuer à une discussion ou à un projet compte pour se sentir membre d'un groupe. Quand les lieux collectifs sont inaccessibles, un échange à distance peut offrir cette participation, et pas seulement une distraction.",
+          "exemple": "Une personne qui ne dispose pas de transport adapté peut rejoindre un club de lecture à distance. Elle présente le livre du mois et répond aux autres lecteurs ; sa contribution est attendue même si elle ne peut pas venir sur place.",
+          "consequence": "Internet peut ainsi ouvrir un rôle social qui serait autrement difficile d'accès."
         }
       ],
-      "nuance": "Cependant, certains usages peuvent remplacer des rencontres souhaitées ou laisser une impression d'échange sans écoute. Il faut pouvoir limiter les sollicitations et chercher des relations qui conviennent. Reconnaître les bénéfices ne signifie pas ignorer les mécanismes qui peuvent isoler.",
+      "nuance": "Cependant, certains usages peuvent remplacer des rencontres souhaitées ou laisser une impression d'échange sans écoute. Les plateformes doivent aussi limiter les sollicitations envahissantes. Reconnaître les bénéfices ne signifie pas ignorer ces mécanismes, ni réduire toute solitude à une responsabilité individuelle.",
       "conclusion": "En conclusion, Internet ne produit pas automatiquement la solitude. Il peut soutenir la présence et la participation, à condition de considérer aussi les contraintes sociales, l'accessibilité et la qualité réelle des échanges."
     },
     "technologie-p5": {
@@ -166,7 +166,7 @@
         {
           "idea": "Tout d'abord, une présentation organisée permet de repérer plusieurs sujets sans les chercher séparément.",
           "developpement": "Le téléspectateur peut découvrir un événement dont il n'avait pas entendu parler. Une rédaction propose un ordre et des liens entre les informations, plutôt qu'une suite de publications choisies uniquement selon ses habitudes.",
-          "exemple": "Une personne venue regarder un sujet sur les transports peut aussi découvrir une information sur l'accès à un service public. Elle identifie un problème qui mérite ensuite une recherche plus précise.",
+          "exemple": "Une personne venue regarder un sujet sur les transports peut aussi découvrir un reportage sur le manque de consultations médicales dans certains quartiers. Elle s'intéresse alors à un problème d'accès aux soins qu'elle ne connaissait pas.",
           "consequence": "Le journal peut élargir les premières questions que l'on se pose."
         },
         {
@@ -176,14 +176,14 @@
           "consequence": "La valeur vient du lien entre image, contexte et vérification."
         },
         {
-          "idea": "Enfin, le journal peut servir de point de départ vers un travail plus approfondi.",
-          "developpement": "Un format limité ne permet pas de traiter toutes les dimensions d'un sujet. Repérer ce que l'on ne comprend pas encore permet de choisir une lecture ou une écoute complémentaire.",
-          "exemple": "Après un sujet sur le budget d'une ville, une personne peut consulter une présentation plus détaillée pour distinguer les dépenses prévues et les décisions déjà prises. Elle complète le résumé au lieu de lui demander de répondre à chaque question.",
-          "consequence": "L'aperçu devient utile lorsqu'on connaît aussi ses limites."
+          "idea": "Enfin, un reportage peut expliquer un débat en confrontant des points de vue.",
+          "developpement": "Entendre les personnes concernées et les responsables aide à comprendre pourquoi une décision fait débat. Le journaliste peut comparer leurs arguments aux faits, plutôt que présenter une succession d'opinions sans explication.",
+          "exemple": "Sur une fermeture de bibliothèque, un reportage peut interroger des lecteurs et un élu, puis préciser les économies annoncées et les services supprimés. Le téléspectateur comprend alors les conséquences du choix, au-delà d'un simple titre sur le budget.",
+          "consequence": "Le journal peut aider à former un jugement sur un enjeu collectif."
         }
       ],
-      "nuance": "Cependant, les choix éditoriaux, la répétition et la recherche d'images fortes peuvent donner une impression partielle. La presse et la radio ont aussi leurs limites. Il faut comparer les sources sans supposer que l'image est toujours plus vraie que le texte.",
-      "conclusion": "En conclusion, j'y vois un repérage utile, pas une explication complète du monde. Une sélection claire, des images contextualisées et des prolongements fiables donnent au journal télévisé sa valeur."
+      "nuance": "Cependant, le format court, les choix éditoriaux et la recherche d'images fortes peuvent donner une impression partielle. Il faut souvent approfondir avec d'autres sources, qui ont aussi leurs limites, sans supposer que l'image est toujours plus vraie que le texte.",
+      "conclusion": "En conclusion, j'y vois un repérage utile, pas une explication complète du monde. Une sélection claire, des images contextualisées et des points de vue expliqués donnent au journal télévisé sa valeur."
     },
     "technologie-p7": {
       "prompt_signatures": {
@@ -203,12 +203,12 @@
           "idea": "Ensuite, des publications sélectionnées peuvent donner une impression trompeuse de la vie des autres.",
           "developpement": "On voit des moments montrés, pas toutes les journées ni tous les doutes. Se comparer uniquement à ces images peut donner l'impression que chacun est toujours entouré et que sa propre situation serait anormale.",
           "exemple": "Une personne qui voit les photos d'une fête peut croire qu'elle est la seule à passer une soirée calme. Elle ignore les autres moments de ses contacts et les circonstances de la rencontre photographiée.",
-          "consequence": "Prendre du recul évite de confondre une publication avec une vie entière."
+          "consequence": "Cette comparaison peut renforcer le sentiment d'être à l'écart, même sans changement réel dans ses relations."
         },
         {
           "idea": "Enfin, une grande quantité de contacts ne garantit pas une réponse attentive.",
           "developpement": "Recevoir des réactions rapides à une image n'est pas la même chose que pouvoir parler d'un problème. Si les échanges restent limités à ces réactions, une personne peut manquer d'interlocuteurs malgré une présence numérique importante.",
-          "exemple": "Un membre de groupe peut publier qu'il traverse une difficulté et ne recevoir que des symboles, sans véritable conversation. Chercher un échange avec une personne disponible répondrait à un besoin différent de celui de multiplier les publications.",
+          "exemple": "Après une séparation, une personne peut écrire dans un groupe qu'elle aurait besoin de parler. Elle reçoit seulement des symboles, sans que personne ne lui demande comment elle va : malgré les réactions, elle reste sans interlocuteur pour cette difficulté.",
           "consequence": "La qualité de l'écoute compte davantage que le nombre de réactions."
         }
       ],
@@ -225,20 +225,20 @@
       "arguments": [
         {
           "idea": "Tout d'abord, ils peuvent faciliter des échanges réguliers entre proches.",
-          "developpement": "Un espace partagé permet de donner des nouvelles sans multiplier les envois séparés. Cela reste utile lorsque les participants choisissent ce qu'ils partagent et savent qu'une publication n'oblige pas à être disponible à chaque instant.",
-          "exemple": "Une famille dispersée peut utiliser un groupe privé pour convenir d'un appel ou montrer l'avancement d'un projet. Les membres répondent selon leurs possibilités et gardent un autre moyen de contact pour les questions urgentes.",
-          "consequence": "L'outil sert le lien sans imposer une présence permanente."
+          "developpement": "Partager des nouvelles permet aux proches de suivre ce qui compte dans la vie de chacun. Ils peuvent poser des questions et offrir du soutien, plutôt que découvrir une difficulté seulement lors de la prochaine visite.",
+          "exemple": "Dans un groupe privé, une personne qui suit une formation loin de sa famille peut raconter un exercice difficile. Un proche lui demande comment elle avance et l'encourage avant l'évaluation : l'échange entretient une présence malgré la distance.",
+          "consequence": "L'utilité est cette attention réciproque, pas seulement la rapidité des envois."
         },
         {
           "idea": "Ensuite, ils rendent certaines informations locales plus faciles à découvrir.",
           "developpement": "On ne pense pas toujours à consulter chaque association ou chaque commerce. Une publication peut signaler une activité ou un changement, à condition que l'auteur soit identifiable et que la date reste claire.",
-          "exemple": "Une bibliothèque peut annoncer un atelier et préciser comment s'inscrire. Une personne intéressée peut vérifier l'information sur le site de la bibliothèque avant de se déplacer, plutôt que se fier à une ancienne image repartagée.",
+          "exemple": "Une bibliothèque peut annoncer un atelier sur son compte. Une habitante découvre l'annonce grâce à un partage, vérifie la date sur le site de la bibliothèque et s'inscrit à cette activité dont elle ignorait l'existence.",
           "consequence": "La visibilité est utile lorsqu'elle mène à une information vérifiable."
         },
         {
           "idea": "Enfin, un groupe peut coordonner une action commune.",
           "developpement": "Réunir des volontaires ne suffit pas : il faut répartir les tâches, confirmer les disponibilités et savoir qui contacter. Un espace partagé peut rendre ces informations accessibles aux participants concernés.",
-          "exemple": "Pour un nettoyage de quartier, une association peut indiquer les points de rendez-vous et demander qui apporte le matériel disponible. Elle confirme les consignes et conserve une solution pour les personnes qui n'utilisent pas la plateforme.",
+          "exemple": "Pour un nettoyage de quartier, une association peut demander dans son groupe qui apporte des gants et des sacs. Les volontaires précisent leurs apports ; l'association répartit alors le matériel entre les points de rendez-vous pour que chaque équipe puisse commencer.",
           "consequence": "Les échanges se traduisent alors par une organisation concrète."
         }
       ],
@@ -256,19 +256,19 @@
         {
           "idea": "Tout d'abord, certains échanges peuvent passer par d'autres moyens.",
           "developpement": "Un ordinateur, le courrier ou un rendez-vous en personne permettent de communiquer sans téléphone. Cela suppose que les interlocuteurs acceptent le délai et qu'aucune étape indispensable ne réclame une validation téléphonique.",
-          "exemple": "Deux proches peuvent convenir de s'écrire par courriel et de se rencontrer à une date fixée. Ils évitent les changements de dernière minute qu'ils ne pourraient pas transmettre pendant le trajet.",
+          "exemple": "Deux proches peuvent convenir par courriel d'un repas le samedi et noter l'adresse avant de partir. Le rendez-vous reste fixe : ils se retrouvent sans avoir besoin d'échanger pendant le trajet.",
           "consequence": "Une partie de la vie relationnelle peut être organisée à l'avance."
         },
         {
           "idea": "Ensuite, les démarches dépendent des alternatives réellement proposées.",
           "developpement": "Un service accessible en ligne n'est pas forcément utilisable sans téléphone : l'identification ou le suivi peut en demander un. Il faut vérifier la possibilité d'un guichet, d'un courrier ou d'une autre procédure.",
-          "exemple": "Avant une demande administrative, une personne peut expliquer qu'elle n'a pas de numéro téléphonique et demander comment recevoir les informations. Si un accueil en personne est disponible, elle prépare les documents et les horaires nécessaires.",
+          "exemple": "Dans un service proposant un accueil et un suivi postal, une personne sans numéro peut remettre son dossier au guichet. Elle reçoit ensuite la réponse par courrier, sans devoir demander à un proche de recevoir un appel pour elle.",
           "consequence": "La possibilité dépend aussi de l'organisation des institutions."
         },
         {
           "idea": "Enfin, l'absence de contact immédiat reste une contrainte importante.",
           "developpement": "On ne peut pas toujours prévoir un retard, un problème de santé ou un changement urgent. Une organisation sans téléphone doit regarder ces limites honnêtement, sans supposer qu'un proche sera toujours disponible pour faire l'intermédiaire.",
-          "exemple": "Pour une activité isolée où elle doit pouvoir demander rapidement de l'aide, une personne peut constater que son choix n'est pas compatible avec les conditions de sécurité prévues. Elle doit adapter le projet plutôt que compter sur une présence hypothétique.",
+          "exemple": "Avant une randonnée isolée, une personne sans téléphone peut constater que le parcours ne permet pas de rejoindre rapidement un lieu d'aide. Elle renonce à cette sortie, faute de moyen prévu pour alerter en cas de problème.",
           "consequence": "Être possible dans certains contextes ne signifie pas être adapté à tous."
         }
       ],
@@ -280,13 +280,13 @@
         "technologie:p12": "6de63ac219f1dab01464304d5335726d5ec4537a31e4bbad6023c5460bf8621e"
       },
       "reformulation": "Les lettres manuscrites ont-elles perdu toute utilité ?",
-      "position": "Elles ne sont pas adaptées à tout, mais gardent des fonctions personnelles et pratiques.",
-      "position_claire": "Je ne considère pas les lettres manuscrites comme complètement obsolètes. Pour une réponse urgente, le numérique est souvent plus pratique. Mais écrire à la main peut donner une attention particulière au destinataire, encourager une rédaction réfléchie et laisser un objet lisible sans ouvrir un compte. Ce sont des fonctions différentes, pas une supériorité universelle.",
+      "position": "Elles gardent une valeur affective et permettent une rédaction réfléchie ainsi qu'une mémoire transmissible.",
+      "position_claire": "Je ne considère pas les lettres manuscrites comme complètement obsolètes. Pour une réponse urgente, le numérique est souvent plus pratique. Mais écrire à la main peut donner une attention particulière au destinataire, encourager une rédaction réfléchie et laisser une trace à transmettre sans dépendre d'un compte numérique. Ce sont des fonctions différentes, pas une supériorité universelle.",
       "arguments": [
         {
           "idea": "Tout d'abord, une lettre peut rendre visible le temps consacré à une personne.",
-          "developpement": "Le choix de rédiger et d'envoyer un texte particulier peut avoir une signification pour le destinataire. Cette valeur dépend de la relation et des préférences, pas d'une absence supposée d'émotion dans les messages numériques.",
-          "exemple": "Pour remercier une personne de son aide, on peut lui écrire une lettre qui évoque précisément ce qu'elle a fait. Elle reçoit un texte destiné à elle, qu'elle peut décider de conserver.",
+          "developpement": "Prendre le temps d'écrire à la main et de nommer ce que l'autre a fait rend l'attention visible. Le destinataire reçoit une marque personnelle de reconnaissance, pas seulement une formule qui pourrait être adressée à n'importe qui.",
+          "exemple": "Après un déménagement, une personne peut écrire une lettre à l'amie qui l'a hébergée. Elle y raconte comment cet accueil lui a permis de chercher sereinement un logement ; son amie mesure ainsi ce que son aide a changé.",
           "consequence": "L'intérêt est l'attention exprimée, pas seulement la lenteur de l'envoi."
         },
         {
@@ -296,14 +296,14 @@
           "consequence": "Le temps de rédaction peut servir la clarté du message."
         },
         {
-          "idea": "Enfin, une lettre peut être consultée sans appareil ni accès à un service numérique.",
-          "developpement": "Le destinataire n'a pas besoin d'une application pour lire le papier reçu. Cette indépendance peut être utile, même si le courrier demande une adresse, un acheminement et des conditions de conservation.",
-          "exemple": "Une personne qui ne consulte pas de messagerie peut garder une lettre près d'elle et la relire quand elle le souhaite. Il faut toutefois que l'écriture lui soit accessible et que le document ne soit pas perdu ou abîmé.",
-          "consequence": "L'accès dépend du support et de la personne, pas d'une durée garantie."
+          "idea": "Enfin, une lettre conservée peut transmettre une mémoire familiale sans compte numérique.",
+          "developpement": "Le récit et l'écriture d'une personne peuvent rester accessibles à d'autres générations. On peut transmettre le document lui-même, sans retrouver ses identifiants ni dépendre du maintien d'une messagerie.",
+          "exemple": "Une personne peut transmettre à sa petite-fille une lettre racontant son arrivée dans un pays. Celle-ci découvre ses premières difficultés et ses choix, à condition que le papier n'ait pas été perdu ou abîmé.",
+          "consequence": "Le courrier devient ainsi un témoignage que l'on peut relire et partager."
         }
       ],
       "nuance": "Cependant, l'écriture manuscrite peut être difficile à produire ou à lire, et l'envoi prend du temps. Les messages numériques peuvent être profonds, conservés et accessibles. Pour une information urgente, il faut choisir un moyen compatible avec le délai réel.",
-      "conclusion": "En conclusion, la lettre manuscrite a changé de place sans perdre toute utilité. Elle reste pertinente pour une attention choisie, une rédaction posée ou un accès sur papier, sans devoir remplacer les communications rapides."
+      "conclusion": "En conclusion, la lettre manuscrite a changé de place sans perdre toute utilité. Elle reste pertinente pour une attention choisie, une rédaction posée ou une mémoire transmise, sans devoir remplacer les communications rapides."
     },
     "technologie-p13": {
       "prompt_signatures": {
@@ -323,13 +323,13 @@
         {
           "idea": "Ensuite, ils peuvent maintenir des échanges réguliers malgré la distance.",
           "developpement": "Les rencontres physiques ne sont pas toujours possibles. Un appel ou une conversation vidéo permet de partager une nouvelle et d'entendre une réaction, sans prétendre supprimer tous les effets de l'éloignement.",
-          "exemple": "Des proches vivant dans deux pays peuvent choisir un créneau compatible avec leurs horaires et une connexion disponible. Ils parlent d'un projet ou d'une difficulté, plutôt que reporter tout échange à une prochaine visite incertaine.",
+          "exemple": "Deux proches vivant dans des pays différents peuvent convenir d'un appel chaque semaine. Pendant une recherche d'emploi, l'un raconte ses difficultés et l'autre prend de ses nouvelles à l'appel suivant, au lieu de découvrir la situation plusieurs mois après.",
           "consequence": "Le lien peut rester vivant entre les rencontres."
         },
         {
           "idea": "Enfin, plusieurs formats permettent d'adapter le message au besoin.",
           "developpement": "Un texte, une image et un appel ne servent pas exactement la même chose. Choisir le format peut rendre une indication plus claire et respecter le moment où l'autre pourra en prendre connaissance.",
-          "exemple": "Pour expliquer un point de rendez-vous difficile à trouver, une personne peut envoyer une photo de l'entrée accompagnée d'un message bref. Si une confusion persiste, elle propose un appel plutôt qu'une longue série de textes ambigus.",
+          "exemple": "Pour un rendez-vous dans un bâtiment à plusieurs accès, une personne peut envoyer une photo de la bonne entrée et le nom de la rue. Son invité reconnaît la porte en arrivant, sans devoir interpréter une longue description.",
           "consequence": "L'utilité vient aussi du choix d'une forme compréhensible."
         }
       ],
@@ -341,13 +341,13 @@
         "technologie:p15": "161d7954b19a5fadaa1d34d7743d6be5cc6b0e8e6d11e069c6376901d87df781"
       },
       "reformulation": "Comment juger le choix de vivre sans les outils numériques cités ?",
-      "position": "Respecter ce choix tout en examinant ses conditions et les charges qu'il crée.",
-      "position_claire": "Je comprends le choix de vivre sans Internet, ordinateur ou téléphone. Il peut correspondre à un besoin d'attention et à d'autres priorités. Mais il faut examiner ce que la personne souhaite faire, les alternatives disponibles et les efforts éventuellement demandés à son entourage. Ce choix n'est ni un retard ni une solution idéale pour tous.",
+      "position": "Respecter ce choix, qui peut protéger l'attention et la vie privée, sans nier ses contraintes.",
+      "position_claire": "Je comprends le choix de vivre sans Internet, ordinateur ou téléphone. Il peut correspondre à un besoin d'attention, à une préférence pour des activités hors ligne et au souhait de préserver sa vie privée. Il faut cependant examiner les alternatives disponibles. Ce choix n'est ni un retard ni une solution idéale pour tous.",
       "arguments": [
         {
           "idea": "Tout d'abord, l'absence de sollicitations peut protéger certains moments choisis.",
           "developpement": "Des notifications peuvent interrompre une activité et conduire à consulter des contenus non prévus. Ne pas utiliser ces outils peut être une manière de fixer une limite simple, si elle correspond aux obligations réelles de la personne.",
-          "exemple": "Une personne peut organiser ses soirées autour de la cuisine et de la lecture sans messagerie à consulter. Elle prévient ses proches de la manière dont ils pourront échanger, plutôt que disparaître sans explication.",
+          "exemple": "Une personne peut réserver ses soirées à la lecture, sans messagerie à consulter. Elle suit plusieurs chapitres sans interrompre le fil du récit pour répondre à des alertes.",
           "consequence": "Le choix devient une organisation de l'attention, pas seulement un refus."
         },
         {
@@ -357,14 +357,14 @@
           "consequence": "Une participation hors ligne reste possible lorsque le cadre la permet."
         },
         {
-          "idea": "Enfin, il faut reconnaître les contraintes sans les transférer silencieusement aux autres.",
-          "developpement": "Certaines démarches peuvent demander un accès numérique difficile à remplacer. Si chaque opération est confiée à un proche, la personne utilise indirectement ces outils et lui impose un travail qu'il faut au moins discuter.",
-          "exemple": "Quelqu'un peut demander un accompagnement pour une démarche particulière, mais ne devrait pas supposer qu'un membre de la famille sera toujours disponible pour gérer ses comptes. Il faut chercher des alternatives et convenir de l'aide réellement possible.",
-          "consequence": "L'autonomie se juge aussi aux conditions pratiques du choix."
+          "idea": "Enfin, refuser certains outils peut limiter les traces personnelles laissées en ligne.",
+          "developpement": "Créer des comptes peut associer des achats ou des activités à un profil. Quand une alternative existe, ne pas utiliser ces services permet de choisir quelles informations on souhaite leur confier.",
+          "exemple": "Une personne peut acheter un livre et le payer sur place sans ouvrir de compte client. Elle obtient ce qu'elle cherche sans enregistrer cet achat dans un profil personnel sur une plateforme.",
+          "consequence": "Le refus peut donc exprimer une préférence concernant la vie privée, pas une peur du progrès."
         }
       ],
-      "nuance": "Cependant, la société doit conserver des accès adaptés aux personnes non connectées. Choisir quelques outils et refuser d'autres usages est également légitime, mais ce compromis n'est pas obligatoire pour chacun. Il faut distinguer le choix volontaire d'une exclusion faute de moyens.",
-      "conclusion": "En conclusion, je respecte une vie sans ces outils si ses conditions sont examinées honnêtement. Attention choisie, participation et alternatives doivent rester possibles, sans imposer le numérique ni idéaliser son absence."
+      "nuance": "Cependant, la société doit conserver des accès adaptés aux personnes non connectées. Si une démarche exige une aide numérique, il faut en convenir avec le proche sollicité. Un usage partiel reste aussi légitime. Il faut distinguer le choix volontaire d'une exclusion faute de moyens.",
+      "conclusion": "En conclusion, je respecte une vie sans ces outils si ses conditions sont examinées honnêtement. Attention choisie, participation et vie privée peuvent motiver ce choix, sans imposer le numérique ni idéaliser son absence."
     },
     "technologie-p16": {
       "prompt_signatures": {
@@ -377,24 +377,24 @@
         {
           "idea": "Tout d'abord, un usage défini peut répondre à un besoin précis.",
           "developpement": "Le téléphone ne doit pas être donné seulement parce que les autres en ont un. Il faut savoir quelle fonction est nécessaire et vérifier si une solution simple suffit, plutôt qu'ouvrir immédiatement tous les usages possibles.",
-          "exemple": "Pour un trajet convenu, un enfant peut disposer d'un moyen limité d'appeler le parent prévu en cas de changement. Les adultes expliquent quand l'utiliser et comment réagir si ce contact ne répond pas.",
+          "exemple": "Si son cours de musique se termine plus tôt que prévu, un enfant peut appeler son parent avec un appareil limité aux contacts autorisés. Ils confirment le lieu où il doit attendre ; le parent sait alors quand et où le retrouver.",
           "consequence": "La fonction utile peut être séparée d'un accès numérique complet."
         },
         {
-          "idea": "Ensuite, les risques demandent des limites concrètes sur les contenus et les contacts.",
-          "developpement": "Un appareil connecté peut exposer à des sollicitations commerciales, des messages difficiles ou des publications trop personnelles. Une règle doit porter sur ces situations, pas seulement sur la possession d'un objet.",
-          "exemple": "Avant d'autoriser une application, un adulte peut vérifier avec l'enfant qui peut le contacter et quelles informations son profil rend visibles. Ils limitent les partages et discutent de ce qui ne doit pas être publié.",
-          "consequence": "Le cadre protège des usages précis sans promettre d'éliminer tout risque."
+          "idea": "Ensuite, un usage accompagné peut apprendre à protéger ses informations.",
+          "developpement": "Interdire un appareil ne suffit pas à expliquer ce qu'il ne faut pas partager. Un adulte peut montrer comment choisir les destinataires et demander à l'enfant d'expliquer ses choix avant d'autoriser un échange.",
+          "exemple": "Avant d'utiliser une application, un enfant vérifie avec un adulte qui peut voir son profil. Il retire son adresse et explique pourquoi il ne transmettra pas de photo à un inconnu.",
+          "consequence": "Il apprend ainsi à reconnaître une situation risquée et à agir, plutôt qu'à suivre seulement une interdiction."
         },
         {
           "idea": "Enfin, l'enfant doit pouvoir demander de l'aide sans craindre uniquement une sanction.",
           "developpement": "Des règles ne servent pas si un problème reste caché. Expliquer quoi faire face à un message inquiétant et écouter la demande permet d'intervenir sur la situation, au lieu de supposer qu'une interdiction évite tout contact numérique.",
-          "exemple": "Un enfant qui reçoit une demande de photo peut montrer le message à un adulte de confiance. L'adulte l'aide à ne pas poursuivre l'échange, à signaler le contact et à chercher l'accompagnement nécessaire.",
+          "exemple": "Un enfant qui reçoit une demande de photo peut montrer le message à un adulte de confiance. Ensemble, ils bloquent le contact et signalent le message ; l'enfant ne reste pas seul face à une demande qu'il ne sait pas gérer.",
           "consequence": "L'apprentissage inclut une manière de réagir, pas seulement une liste d'interdits."
         }
       ],
-      "nuance": "Cependant, l'âge, les besoins de santé et les règles de l'école comptent. Certains usages peuvent être retardés ou interdits, et aucun appareil personnel n'est obligatoire. L'accompagnement doit rester adapté aux capacités de l'enfant, sans inventer un âge unique valable pour tous.",
-      "conclusion": "En conclusion, je privilégierais un besoin défini, des limites précises et un adulte accessible. Ce cadre permet d'autoriser ou de refuser certains usages de façon expliquée, plutôt que choisir entre liberté totale et interdiction universelle."
+      "nuance": "Cependant, l'âge, les besoins de santé et les règles de l'école comptent. Les contenus, les contacts et les horaires doivent rester limités. Certains usages peuvent être retardés ou interdits, et aucun appareil personnel n'est obligatoire. L'accompagnement doit rester adapté aux capacités de l'enfant.",
+      "conclusion": "En conclusion, je privilégierais un besoin défini, un apprentissage accompagné et un adulte accessible. Ce cadre permet d'autoriser ou de refuser certains usages de façon expliquée, plutôt que choisir entre liberté totale et interdiction universelle."
     },
     "technologie-p17": {
       "prompt_signatures": {
@@ -408,20 +408,20 @@
         {
           "idea": "Tout d'abord, certaines recherches bénéficient de conditions difficiles à maintenir sur Terre.",
           "developpement": "La microgravité prolongée permet d'étudier des phénomènes autrement, notamment le comportement des fluides ou des organismes. Cela donne un objectif scientifique possible, sans garantir que toute expérience produira rapidement une application quotidienne.",
-          "exemple": "Dans une station orbitale, une équipe peut observer comment des liquides se mélangent en microgravité prolongée. Ces observations complètent celles d'un bref essai terrestre ; il faut ensuite examiner ce qu'elles apportent réellement aux connaissances.",
+          "exemple": "Une équipe peut filmer le mélange de deux liquides pendant plusieurs heures dans une station orbitale. Elle obtient une suite d'observations en microgravité qu'un bref essai terrestre ne permettrait pas de suivre aussi longtemps.",
           "consequence": "On ne peut donc pas qualifier toute mission d'inutile par principe."
         },
         {
           "idea": "Ensuite, un financement public doit être confronté aux autres besoins.",
           "developpement": "Un budget mobilise des moyens qui ne sont pas disponibles sans limite. Le projet doit expliquer son objectif, ses coûts et l'intérêt attendu, au lieu de demander une priorité automatique au nom du prestige.",
-          "exemple": "Une autorité pourrait devoir arbitrer entre une contribution à une mission et le renouvellement d'un laboratoire universitaire. Elle doit expliquer pourquoi le premier projet serait prioritaire, plutôt que traiter le second comme une dépense secondaire par défaut.",
-          "consequence": "Le coût devient une question de choix justifiés, pas seulement d'admiration."
+          "exemple": "Une autorité peut devoir choisir entre une contribution à une mission et le renouvellement d'un laboratoire universitaire. Reporter le laboratoire retarderait les recherches qui en dépendent ; cette conséquence doit compter dans la comparaison des projets.",
+          "consequence": "Une mission peut avoir une utilité sans être pour autant la priorité du budget disponible."
         },
         {
-          "idea": "Enfin, il faut comparer les moyens nécessaires à l'objectif annoncé.",
-          "developpement": "Envoyer des personnes ajoute des besoins de transport, de sécurité et de vie à bord. Il faut demander si leur présence est utile à cette mission et considérer les ressources ainsi que les impacts des solutions possibles.",
-          "exemple": "Si une expérience peut être réalisée par un dispositif automatique, le responsable doit expliquer pourquoi un équipage serait nécessaire. Inversement, un travail qui exige une intervention humaine doit en exposer les raisons plutôt que les supposer évidentes.",
-          "consequence": "La proportion entre l'objectif et les moyens doit rester vérifiable."
+          "idea": "Enfin, transporter des passagers impose des moyens supplémentaires qui ne sont pas toujours justifiés.",
+          "developpement": "Un équipage a besoin d'air, d'eau et de dispositifs assurant sa sécurité et son retour. Ces équipements mobilisent des ressources en plus de celles de l'expérience. Un financement privé ne supprime pas ces besoins ni les impacts du lancement.",
+          "exemple": "Pour observer un phénomène avec une caméra et des capteurs, une mission peut utiliser un dispositif automatique. Ajouter des passagers sans tâche scientifique particulière impose alors des équipements de survie sans améliorer l'observation prévue.",
+          "consequence": "Une présence humaine doit donc apporter quelque chose à l'objectif, plutôt que servir seulement le prestige."
         }
       ],
       "nuance": "Cependant, le tourisme spatial ne se justifie pas simplement par les bénéfices des satellites ou de la recherche. Les financements privés et publics ne s'arbitrent pas exactement de la même façon, mais les questions de sécurité et d'impact collectif restent à examiner.",
@@ -468,19 +468,19 @@
         {
           "idea": "Tout d'abord, un problème accompagné d'un retour peut exercer le raisonnement.",
           "developpement": "L'enfant peut essayer une solution, observer ce qui se passe et modifier son choix. L'intérêt vient de cette comparaison entre une hypothèse et un résultat, plutôt que du seul fait de réussir vite.",
-          "exemple": "Dans un jeu de parcours logique, un enfant peut placer des éléments pour ouvrir un passage. Si le mécanisme ne fonctionne pas, il explique quel élément il change et vérifie l'effet au prochain essai.",
+          "exemple": "Dans un jeu de logique, un enfant peut devoir diriger une bille vers une sortie. Il constate qu'une rampe l'envoie contre un obstacle, la tourne puis relance l'essai : la bille atteint cette fois la sortie.",
           "consequence": "Le jeu offre alors une occasion de raisonner sur ses décisions."
         },
         {
           "idea": "Ensuite, un outil de création peut encourager la conception et la révision.",
           "developpement": "Construire un objet ou un espace demande de choisir une forme et de vérifier si elle correspond au projet. Un adulte peut inviter l'enfant à expliquer ses choix, sans supposer que toute construction virtuelle se transforme automatiquement en compétence scolaire.",
-          "exemple": "Un enfant peut créer un décor pour raconter une histoire à ses proches. Il choisit des formes et des couleurs, puis change certains éléments pour rendre le lieu cohérent avec son récit, au lieu de reproduire seulement un modèle.",
+          "exemple": "Un enfant peut créer un décor pour raconter une histoire à ses proches. Il remplace un mur par un pont afin que ses personnages puissent se rencontrer, puis explique ce changement à ceux qui regardent.",
           "consequence": "La création devient un projet que l'on peut discuter et améliorer."
         },
         {
           "idea": "Enfin, un jeu partagé peut donner un cadre à la coopération.",
           "developpement": "Quand plusieurs participants ont des rôles complémentaires, ils doivent transmettre une information et écouter la réponse. Le cadre doit permettre une participation respectueuse ; jouer ensemble ne suffit pas si une personne décide toujours pour les autres.",
-          "exemple": "Dans un jeu adapté, deux enfants peuvent se répartir la recherche d'indices puis expliquer ce qu'ils ont trouvé. Un adulte les aide à changer les rôles pour que chacun puisse contribuer.",
+          "exemple": "Dans un jeu d'enquête adapté, deux enfants peuvent avoir des indices différents. L'un décrit sa carte, l'autre ses symboles ; en rapprochant leurs informations, ils trouvent le passage recherché. À l'étape suivante, ils échangent les rôles.",
           "consequence": "L'apport vient de l'échange organisé, pas seulement de la présence de plusieurs joueurs."
         }
       ],
@@ -496,7 +496,7 @@
       },
       "reformulation": "Dans quelles conditions peut-on vivre sans voiture ?",
       "position": "C'est possible si les besoins de déplacement sont couverts ; ce n'est pas universel.",
-      "position_claire": "Oui, on peut vivre sans voiture dans certaines situations, mais elle reste difficile à remplacer pour d'autres personnes. Je regarderais les trajets habituels, l'accès aux besoins quotidiens et les déplacements moins prévisibles. L'adresse seule ne suffit pas : tous les habitants d'une ville n'ont pas les mêmes possibilités.",
+      "position_claire": "Oui, on peut vivre sans voiture dans certaines situations, mais elle reste difficile à remplacer pour d'autres personnes. Je regarderais les trajets habituels, l'accès aux besoins quotidiens et le coût des alternatives. L'adresse seule ne suffit pas : tous les habitants d'une ville n'ont pas les mêmes possibilités.",
       "arguments": [
         {
           "idea": "Tout d'abord, des trajets complets peuvent être assurés par d'autres moyens.",
@@ -511,14 +511,14 @@
           "consequence": "Vivre sans voiture dépend aussi de la localisation des besoins."
         },
         {
-          "idea": "Enfin, il faut examiner les situations moins fréquentes avant de conclure.",
-          "developpement": "Un rendez-vous éloigné, un déplacement avec du matériel ou un horaire inhabituel peut révéler une limite. Une alternative doit être disponible et abordable, pas seulement imaginable en théorie.",
-          "exemple": "Une personne peut vérifier comment rejoindre un rendez-vous tôt le matin lorsqu'aucune ligne ne fonctionne encore. Si elle dépend uniquement d'un proche disponible par hasard, son organisation sans voiture reste fragile.",
-          "consequence": "Les imprévus et les contraintes particulières font partie de la comparaison."
+          "idea": "Enfin, un budget de transport abordable rend ce choix durable.",
+          "developpement": "Renoncer à une voiture évite ses frais d'achat, d'assurance et d'entretien, mais les alternatives coûtent aussi de l'argent. Comparer l'ensemble permet de vérifier que les déplacements nécessaires restent finançables, sans dépendre régulièrement d'une aide imprévue.",
+          "exemple": "Un foyer peut comparer le coût de sa voiture avec les abonnements de bus nécessaires à chacun et les billets de train pour voir ses proches. Si ces dépenses entrent dans son budget et couvrent ses trajets, il peut organiser une vie sans voiture.",
+          "consequence": "La possibilité repose aussi sur des moyens financiers réalistes, pas seulement sur l'existence d'une ligne."
         }
       ],
-      "nuance": "Cependant, se passer d'une voiture personnelle n'est pas toujours se passer de toute voiture. Le covoiturage ou la location réduisent la possession, mais utilisent encore ce moyen. Il faut améliorer les alternatives sans culpabiliser les personnes dont les besoins restent mal couverts.",
-      "conclusion": "En conclusion, la voiture n'est pas universellement indispensable, mais l'absence de voiture doit correspondre aux déplacements réels. Trajets complets, services proches et solutions fiables permettent de juger la possibilité sans généraliser."
+      "nuance": "Cependant, un rendez-vous éloigné avant le premier bus peut révéler une limite. Le covoiturage ou la location réduisent la possession d'une voiture, mais utilisent encore ce moyen : ce n'est pas vivre sans aucune voiture. Il faut améliorer les alternatives sans culpabiliser les personnes dont les besoins restent mal couverts.",
+      "conclusion": "En conclusion, la voiture n'est pas universellement indispensable, mais l'absence de voiture doit correspondre aux déplacements réels. Trajets complets, services proches et budget adapté permettent de juger la possibilité sans généraliser."
     },
     "technologie-p21": {
       "prompt_signatures": {
@@ -529,10 +529,10 @@
       "position_claire": "Parmi ces possibilités, je préfère Internet comme moyen d'accès à l'information. J'y consulte des médias identifiés plutôt qu'un fil de publications pris au hasard. Ce choix me convient pour la variété, la vérification et le rythme, sans signifier qu'un journal ou une radio serait moins sérieux.",
       "arguments": [
         {
-          "idea": "Tout d'abord, Internet permet de consulter des contenus de plusieurs origines dans un même espace.",
-          "developpement": "Je peux chercher une présentation générale, puis un média spécialisé ou un point de vue situé ailleurs. L'intérêt est la possibilité de choisir, pas l'idée que multiplier les pages donne automatiquement une meilleure compréhension.",
-          "exemple": "Pour comprendre un projet de transport, je peux lire un article local puis la présentation de l'organisme concerné. J'identifie ce que chaque source apporte au lieu de considérer tous les textes comme indépendants.",
-          "consequence": "La diversité sert une question précise, pas une accumulation de titres."
+          "idea": "Tout d'abord, je peux comparer des points de vue qui élargissent ma compréhension d'un sujet.",
+          "developpement": "Sur une même question, un média local et un dossier spécialisé peuvent éclairer des enjeux différents. Les rapprocher m'aide à comprendre les raisons d'un désaccord, au lieu de ne connaître qu'une seule présentation.",
+          "exemple": "Pour comprendre un projet de transport, je peux lire un article donnant la parole aux riverains puis un dossier expliquant les objectifs du réseau. Je distingue les bénéfices attendus des difficultés d'accès signalées par les habitants.",
+          "consequence": "Je peux ainsi construire une opinion qui tient compte de plusieurs arguments."
         },
         {
           "idea": "Ensuite, il facilite la recherche de l'origine d'une affirmation.",
@@ -587,8 +587,8 @@
         "technologie:p24": "c8e44ff5b7a0c7373bca9bfe471b398509f5ff2459d88216e4cf9ba4032a649f"
       },
       "reformulation": "Quel média préférer entre télévision, Internet et radio ?",
-      "position": "Préférer Internet pour choisir le moment, la forme et la profondeur de consultation.",
-      "position_claire": "Entre la télévision, Internet et la radio, je préfère Internet comme moyen de consulter des informations et des programmes choisis. Ce qui m'intéresse est de maîtriser le moment, le format et le niveau de détail. Cela inclut des contenus produits par des radios ou des télévisions, pas seulement par des sites indépendants.",
+      "position": "Préférer Internet pour choisir le moment, comparer les points de vue et approfondir.",
+      "position_claire": "Entre la télévision, Internet et la radio, je préfère Internet comme moyen de consulter des informations et des programmes choisis. Ce qui m'intéresse est de choisir le moment, de comparer les points de vue et d'approfondir un sujet. Cela inclut des contenus produits par des radios ou des télévisions, pas seulement par des sites indépendants.",
       "arguments": [
         {
           "idea": "Tout d'abord, l'accès à la demande permet de choisir un moment disponible.",
@@ -597,10 +597,10 @@
           "consequence": "Le choix du moment peut soutenir une consultation plus attentive."
         },
         {
-          "idea": "Ensuite, plusieurs formats permettent de choisir une présentation adaptée au sujet.",
-          "developpement": "Une image, un texte et une explication audio ne répondent pas toujours au même besoin. Pouvoir passer de l'un à l'autre est pratique, si les contenus restent accessibles et leurs sources clairement identifiées.",
-          "exemple": "Pour comprendre un changement de circulation, je peux regarder une carte puis lire les indications correspondant à ma rue. Pour un entretien, je peux préférer l'audio lorsque les images n'apportent pas d'élément nécessaire.",
-          "consequence": "Le format est choisi pour comprendre, pas pour multiplier les écrans."
+          "idea": "Ensuite, je peux comparer des points de vue qui élargissent ma compréhension d'un sujet.",
+          "developpement": "Sur une même question, un média local et un dossier spécialisé peuvent éclairer des enjeux différents. Les rapprocher m'aide à comprendre les raisons d'un désaccord, au lieu de ne connaître qu'une seule présentation.",
+          "exemple": "Pour comprendre un projet de transport, je peux lire un article donnant la parole aux riverains puis un dossier expliquant les objectifs du réseau. Je distingue les bénéfices attendus des difficultés d'accès signalées par les habitants.",
+          "consequence": "Je peux ainsi construire une opinion qui tient compte de plusieurs arguments."
         },
         {
           "idea": "Enfin, il est possible de passer d'un aperçu à une explication plus détaillée.",
@@ -609,8 +609,8 @@
           "consequence": "La profondeur dépend de la recherche et de la qualité des sources."
         }
       ],
-      "nuance": "Cependant, la télévision et la radio proposent aussi des programmes approfondis et des rediffusions, souvent accessibles en ligne. Internet n'est pas automatiquement plus fiable ni accessible à tous. Ma préférence est pratique, pas un jugement contre les autres publics.",
-      "conclusion": "En conclusion, je préfère choisir le moment, la forme et la profondeur grâce à l'accès en ligne. Les programmes et les sources restent l'essentiel : le support facilite un choix sans garantir la qualité à lui seul."
+      "nuance": "Cependant, la télévision et la radio proposent aussi des programmes approfondis et des rediffusions, souvent accessibles en ligne. Internet n'est pas automatiquement plus fiable ni accessible à tous. Cette préférence ne constitue donc pas un jugement contre les autres publics.",
+      "conclusion": "En conclusion, je préfère choisir le moment, comparer les points de vue et approfondir grâce à l'accès en ligne. Les programmes et les sources restent l'essentiel : le support facilite un choix sans garantir la qualité à lui seul."
     }
   }
 }

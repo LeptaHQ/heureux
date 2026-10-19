@@ -14,9 +14,9 @@
       "arguments": [
         {
           "idea": "Tout d'abord, une rencontre peut donner un objectif concret à l'entraînement.",
-          "developpement": "Préparer une épreuve aide à choisir un geste à travailler et à observer ses progrès. Le résultat utile n'est pas uniquement le classement : c'est aussi ce que l'enfant comprend de sa préparation.",
-          "exemple": "Avant un petit tournoi, un enfant peut travailler ses passes avec son entraîneur. Après le match, ils regardent s'il a mieux trouvé ses partenaires, même si son équipe a perdu.",
-          "consequence": "Le progrès reste ainsi visible sans dépendre de la victoire."
+          "developpement": "Une épreuve attendue peut donner envie de revenir s'entraîner régulièrement. Répéter des gestes et apprendre à les enchaîner développe la coordination ; le bénéfice ne dépend donc pas uniquement du classement.",
+          "exemple": "Avant un petit tournoi, un enfant peut travailler ses passes chaque semaine avec son entraîneur. Après le match, ils regardent s'il arrive mieux à recevoir le ballon puis à le transmettre, même si son équipe a perdu.",
+          "consequence": "L'objectif peut ainsi soutenir une pratique régulière et rendre les progrès visibles."
         },
         {
           "idea": "Ensuite, la compétition permet d'exercer le respect dans une situation de désaccord.",
@@ -49,10 +49,10 @@
           "consequence": "La limite protège un besoin précis au lieu de punir l'écran."
         },
         {
-          "idea": "Ensuite, un usage envahissant réduit les occasions d'autres expériences.",
-          "developpement": "Une journée ne peut pas s'allonger pour accueillir toutes les activités. Si une seule occupation remplit les périodes libres, il reste moins de place pour bouger, lire, construire ou jouer autrement.",
-          "exemple": "Un enfant qui reste sur une tablette pendant tout un après-midi peut manquer une sortie qu'il aurait appréciée. Préparer avec lui un jeu dehors puis un moment numérique choisi rend les deux possibles, selon les moyens de la famille.",
-          "consequence": "L'objectif est de retrouver de la diversité, pas d'imposer un loisir unique."
+          "idea": "Ensuite, un usage envahissant réduit les occasions d'apprendre autrement.",
+          "developpement": "Manipuler des objets, inventer un jeu et bouger ne sollicitent pas les mêmes capacités que regarder une vidéo. Si les écrans occupent tous les temps libres, l'enfant a moins d'occasions d'exercer ces capacités dans des situations variées.",
+          "exemple": "Au lieu de regarder des vidéos de construction tout un après-midi, deux enfants peuvent fabriquer un pont avec des cubes. Ils testent plusieurs supports quand il tombe : ils mettent une idée à l'épreuve, plutôt que suivre seulement une démonstration.",
+          "consequence": "La variété des activités permet donc d'apprendre en faisant, pas seulement de changer de loisir."
         },
         {
           "idea": "Enfin, l'attention donnée à l'écran peut interrompre les échanges proches.",
@@ -81,13 +81,13 @@
         {
           "idea": "Ensuite, la récupération risque de devenir la seule variable d'ajustement.",
           "developpement": "Après le travail, il reste parfois des lectures ou des devoirs à faire. Si chaque retard est rattrapé sur le temps de repos, la personne peut avoir plus de mal à rester attentive et à maintenir ses activités personnelles.",
-          "exemple": "Après une fermeture tardive, un étudiant peut rentrer avec un devoir encore à terminer pour le lendemain. Répéter cette organisation plusieurs soirs laisse peu de marge pour dormir ou simplement se détendre.",
+          "exemple": "Après une fermeture tardive, un étudiant peut encore devoir rédiger un travail pour le lendemain. En le terminant pendant la nuit, il ne garde que quelques heures pour dormir avant les cours : il rattrape le devoir sur son temps de repos.",
           "consequence": "Un planning réalisable doit donc réserver du repos, pas seulement remplir les heures."
         },
         {
           "idea": "Enfin, le besoin de revenu peut empêcher de réduire la charge au moment nécessaire.",
           "developpement": "Travailler n'est pas toujours un choix que l'on peut suspendre pendant les études. Si ce revenu paie des dépenses indispensables, prendre moins d'heures libère du temps mais crée un autre problème immédiat.",
-          "exemple": "Pendant les examens, un étudiant peut vouloir réduire ses services tout en ayant besoin du salaire pour son loyer. Une aide financière accessible ou un aménagement réellement négocié pourrait lui donner une marge que le conseil de simplement travailler moins ne lui apporte pas.",
+          "exemple": "Pendant les examens, un étudiant peut supprimer deux services pour réviser, puis constater que son salaire ne couvrira plus le loyer. Une aide accessible ou un aménagement négocié pourrait préserver à la fois son temps d'étude et ses ressources.",
           "consequence": "La faisabilité dépend aussi du financement du parcours."
         }
       ],
@@ -105,14 +105,14 @@
         {
           "idea": "Tout d'abord, une aide essentielle ne devrait pas dépendre seulement de la générosité locale.",
           "developpement": "Les dons et les bénévoles ne sont pas répartis également partout. Des moyens publics et des critères explicites peuvent assurer une continuité, même lorsque l'attention du public se déplace vers une autre cause.",
-          "exemple": "Une personne qui perd son emploi a besoin de savoir à quel service s'adresser et comment son dossier sera examiné. Elle ne devrait pas devoir attendre qu'un voisin organise une collecte pour pouvoir demander un soutien.",
+          "exemple": "Après une perte d'emploi, une personne peut faire examiner son dossier par un service public. Si une aide lui est accordée pour plusieurs mois, elle peut prévoir son budget sans attendre chaque semaine une nouvelle collecte.",
           "consequence": "Le rôle public est de rendre la protection prévisible et accessible."
         },
         {
-          "idea": "Ensuite, les citoyens peuvent aider à franchir des obstacles très pratiques.",
-          "developpement": "Un droit ou un service peut exister sans être facile à utiliser. Une présence de proximité peut expliquer une démarche ou accompagner un premier contact, avec l'accord de la personne concernée.",
-          "exemple": "Un bénévole peut aider quelqu'un à préparer les documents demandés pour un rendez-vous social. Il laisse le professionnel examiner les droits et n'exige pas d'accéder à toutes les informations privées.",
-          "consequence": "L'accompagnement facilite l'accès sans remplacer le service compétent."
+          "idea": "Ensuite, les citoyens peuvent apporter une présence régulière face à l'isolement.",
+          "developpement": "Une aide matérielle ne répond pas à tous les besoins. Être écouté et retrouver une personne connue peut permettre de parler de ce qui pèse, sans réduire la relation à un dossier ou à une demande urgente.",
+          "exemple": "Pendant une distribution alimentaire, un bénévole peut prendre le temps d'échanger chaque semaine avec une personne qui vit seule. Peu à peu, elle ose dire qu'elle cherche une activité collective ; ils regardent ensemble les possibilités du quartier.",
+          "consequence": "La solidarité soutient alors aussi les liens et la participation à la vie locale."
         },
         {
           "idea": "Enfin, la coordination évite que les personnes refassent seules tout leur parcours.",
@@ -139,15 +139,15 @@
           "consequence": "L'étiquette choisie ne remplace donc pas la composition réelle des repas."
         },
         {
-          "idea": "Ensuite, plusieurs sources alimentaires peuvent participer aux apports nécessaires.",
-          "developpement": "La viande apporte des nutriments, mais elle n'est pas la seule source possible. On peut construire des repas différents selon ses choix ; il faut regarder ce qu'ils apportent et non déclarer un modèle automatiquement supérieur.",
-          "exemple": "Pour préparer un repas, une famille peut choisir des lentilles, des légumes et du riz, ou un plat associant des légumes et une portion de viande. Elle varie les préparations au lieu de supposer qu'un seul ingrédient assure tous les besoins.",
-          "consequence": "Il existe plusieurs manières de rechercher un équilibre."
+          "idea": "Ensuite, la viande peut avoir une place dans une alimentation variée.",
+          "developpement": "Elle apporte notamment des protéines et du fer, même si d'autres aliments peuvent aussi contribuer aux apports nécessaires. La quantité et le type de viande comptent : inclure une portion adaptée n'est pas la même chose que multiplier les produits de charcuterie.",
+          "exemple": "Une famille peut prévoir un repas avec des légumes, du riz et une portion de poulet, puis cuisiner des lentilles un autre jour. La viande complète certains repas sans devenir leur seul élément ni exclure les sources végétales.",
+          "consequence": "L'équilibre peut donc se construire sans imposer une suppression totale."
         },
         {
           "idea": "Enfin, un changement alimentaire doit être préparé selon la situation personnelle.",
           "developpement": "Les besoins et les contraintes ne sont pas identiques. Retirer un aliment sans prévoir de remplacement peut appauvrir les repas, mais cette difficulté n'est pas une condamnation du végétarisme : elle appelle une organisation adaptée.",
-          "exemple": "Une personne qui mange habituellement de la viande chaque jour et souhaite l'arrêter peut demander conseil pour composer d'autres repas. Elle vérifie les apports et les possibilités qui lui conviennent, plutôt que remplacer systématiquement son plat par un simple accompagnement.",
+          "exemple": "Une personne qui veut arrêter la viande peut d'abord prévoir de retirer simplement le steak de son assiette. Avec un conseil adapté, elle apprend à préparer un plat de lentilles et de légumes, au lieu de garder uniquement les pommes de terre.",
           "consequence": "Une transition informée évite de confondre exclusion et amélioration."
         }
       ],
@@ -195,19 +195,19 @@
         {
           "idea": "Tout d'abord, un refus peut signaler un obstacle qu'une obligation ne résout pas.",
           "developpement": "Un enfant peut éviter une activité parce qu'il ne comprend pas les consignes, craint les moqueries ou se sent en difficulté. Répéter qu'il doit participer ne permet pas de savoir ce qui bloque.",
-          "exemple": "Si un enfant refuse un cours collectif, un parent peut discuter avec lui et l'éducateur. Une première séance en petit groupe peut être envisagée si c'est le regard des autres qui l'inquiète, sans annoncer qu'il manque de volonté.",
+          "exemple": "Un enfant peut refuser un cours parce qu'il craint les moqueries. Après en avoir parlé avec lui, le parent et l'éducateur peuvent prévoir une séance en petit groupe : il essaie alors les exercices sans s'exposer d'emblée devant toute la classe.",
           "consequence": "Comprendre le refus permet de choisir une réponse plus adaptée."
         },
         {
           "idea": "Ensuite, plusieurs formes d'activité peuvent répondre au besoin de bouger.",
-          "developpement": "Ne pas aimer un sport ne signifie pas rejeter tout mouvement. Proposer des essais différents donne à l'enfant une part de décision et permet de rechercher ce qu'il accepte de reprendre régulièrement.",
-          "exemple": "Un enfant peu intéressé par le football peut essayer la danse ou le vélo dans un cadre adapté. Les adultes peuvent convenir avec lui d'une période d'essai puis écouter ce qui lui plaît ou lui pose problème.",
-          "consequence": "Le choix porte sur une pratique réelle, pas seulement sur l'obéissance."
+          "developpement": "Ne pas aimer un sport ne signifie pas rejeter tout mouvement. Une activité appréciée peut donner envie de revenir régulièrement ; cette pratique permet de travailler la coordination et les gestes, plutôt que participer seulement pour éviter une punition.",
+          "exemple": "Un enfant peu intéressé par le football peut essayer le vélo dans un cadre adapté. En reprenant un parcours facile, il peut apprendre à garder son équilibre puis à freiner au bon endroit, et avoir envie de recommencer.",
+          "consequence": "Le choix peut ainsi soutenir des apprentissages et une pratique qui dure."
         },
         {
           "idea": "Enfin, l'accès matériel compte autant que les encouragements.",
           "developpement": "Une inscription, un équipement ou un trajet peut empêcher la participation. Un discours sur l'effort ne supprime pas ces contraintes, et il serait injuste de rendre l'enfant responsable d'une possibilité qui ne lui est pas offerte.",
-          "exemple": "Une famille qui ne peut pas payer un club peut chercher une activité proposée par l'école ou organiser des jeux accessibles près de chez elle. Il faut également adapter les pratiques à un handicap ou à un besoin de santé.",
+          "exemple": "Une famille qui ne peut pas payer un club peut trouver une activité gratuite proposée par l'école, adaptée au handicap de l'enfant. L'absence de cotisation et un encadrement accessible permettent alors sa participation, qu'une inscription obligatoire en club ne rendait pas possible.",
           "consequence": "Rendre l'activité possible vaut mieux que multiplier les injonctions."
         }
       ],
@@ -236,13 +236,13 @@
           "consequence": "L'information doit éclairer le choix, pas servir de simple formalité."
         },
         {
-          "idea": "Enfin, le respect du choix implique aussi de pouvoir ne rien faire.",
-          "developpement": "Une liberté devient fragile si l'entourage critique systématiquement ceux qui vieillissent visiblement. Chacun doit pouvoir accepter ou refuser une intervention sans devoir justifier son visage ni être réduit à cette décision.",
-          "exemple": "Dans une équipe, des remarques répétées sur les rides d'une collègue peuvent la mettre mal à l'aise. Les faire cesser protège son droit de ne pas modifier son apparence, sans interdire à une autre personne de faire un choix différent.",
-          "consequence": "La liberté concerne donc aussi l'absence d'intervention."
+          "idea": "Enfin, une démarche individuelle ne se réduit pas forcément à la pression sociale.",
+          "developpement": "Une personne peut souhaiter retrouver une apparence dans laquelle elle se reconnaît davantage. Ce ressenti n'est pas toujours visible pour l'entourage ; l'écouter permet de comprendre son objectif plutôt que supposer qu'elle veut seulement plaire aux autres.",
+          "exemple": "Une adulte peut dire à ses proches qu'elle souhaite corriger l'aspect de ses paupières, même s'ils ne voient aucun défaut. En l'écoutant plutôt qu'en se moquant, ils comprennent ce qui la gêne sans décider de son apparence à sa place.",
+          "consequence": "Comprendre ce motif personnel permet de discuter un choix sans imposer un jugement collectif."
         }
       ],
-      "nuance": "Cependant, on ne peut pas connaître les motivations ou le vécu d'une personne à partir de son apparence. Une opération ne garantit pas le bien-être, mais un refus général serait également simpliste. L'évaluation médicale appartient aux professionnels compétents et à la personne concernée.",
+      "nuance": "Cependant, on ne peut pas connaître les motivations d'une personne à partir de son apparence. Une opération ne garantit pas le bien-être ; chacun doit aussi pouvoir ne rien faire sans subir de remarques. L'évaluation médicale appartient aux professionnels compétents et à la personne concernée.",
       "conclusion": "En conclusion, je défends un choix libre et informé, sans obligation sociale de paraître jeune. La vigilance doit porter sur la pression, l'information et le respect, plutôt que sur le jugement des personnes opérées."
     },
     "sante-p10": {
@@ -256,20 +256,20 @@
       "arguments": [
         {
           "idea": "Tout d'abord, des restrictions ciblées peuvent agir sur des situations précises.",
-          "developpement": "Le tabac et l'alcool comportent des risques importants, sans être des produits identiques. Les règles doivent porter sur l'accès, la promotion et la protection d'autrui, avec des contrôles compréhensibles pour les vendeurs.",
-          "exemple": "Un dispositif peut prévoir des contrôles d'âge dans les commerces et des restrictions de publicité adaptées à chaque produit. Des inspections vérifient leur application, au lieu de supposer qu'une affiche suffit à protéger les jeunes.",
-          "consequence": "Une mesure utile doit être suivie d'une mise en œuvre réelle."
+          "developpement": "Limiter la promotion et l'accès des mineurs vise à éviter de nouvelles consommations à risque. Certaines règles protègent aussi autrui : une personne peut subir la fumée du tabac sans avoir choisi de fumer. Les deux produits demandent donc des mesures adaptées.",
+          "exemple": "Dans un commerce soumis à une règle d'âge, un vendeur peut demander une pièce d'identité et refuser une vente d'alcool à un mineur. Des contrôles vérifient cette pratique : la restriction agit sur l'accès, pas seulement sur un avertissement affiché.",
+          "consequence": "Des règles appliquées peuvent donc protéger sans supprimer toute vente."
         },
         {
           "idea": "Ensuite, interdire toute vente ne garantit pas que toute consommation cesse.",
           "developpement": "Des personnes peuvent chercher d'autres circuits, dont les produits et les conditions de vente sont plus difficiles à contrôler. C'est un risque à anticiper, pas une raison de renoncer à toute réglementation ni une conséquence automatique de chaque interdiction.",
-          "exemple": "Une personne pourrait continuer à acheter du tabac à un vendeur non déclaré. Une autorité devrait alors savoir comment repérer ce circuit et contrôler les produits, au lieu de considérer la fermeture des commerces autorisés comme la fin du problème.",
-          "consequence": "La politique doit considérer ses effets possibles, pas seulement son intention."
+          "exemple": "Un consommateur pourrait acheter du tabac auprès d'un vendeur non déclaré, sans indication fiable de son origine. L'autorité aurait alors plus de mal à retrouver le fournisseur qu'en contrôlant un commerce identifié.",
+          "consequence": "Supprimer la vente autorisée ne supprime donc pas nécessairement l'approvisionnement."
         },
         {
           "idea": "Enfin, une dépendance exige un accès à une aide adaptée.",
           "developpement": "Une personne ne peut pas toujours modifier seule une consommation installée. Informer et faciliter un accompagnement permet de répondre à cette difficulté, plutôt que traiter chaque situation uniquement comme une faute.",
-          "exemple": "Une personne qui souhaite arrêter de fumer peut être orientée vers un professionnel pour examiner les aides possibles. Pour une consommation d'alcool problématique, un accompagnement adapté doit également être accessible, sans improviser soi-même une prise en charge.",
+          "exemple": "En consultation, une personne qui veut arrêter de fumer peut examiner avec un professionnel ce qui déclenche ses envies et les aides adaptées. Elle repart avec un suivi prévu, plutôt qu'une simple consigne d'arrêter.",
           "consequence": "Le soutien complète les restrictions au lieu de s'y opposer."
         }
       ],
@@ -293,13 +293,13 @@
         {
           "idea": "Ensuite, l'État ne doit pas dépendre d'un objectif de ventes croissantes.",
           "developpement": "Lorsqu'un acteur reçoit des recettes, il peut être tenté de préserver cette activité. Pour un produit nocif, cet intérêt doit rester subordonné à la protection de la population et ne pas orienter les décisions de santé.",
-          "exemple": "Un organisme public ne devrait pas fixer à ses équipes un objectif consistant à vendre toujours davantage d'alcool. Son fonctionnement pourrait être évalué sur le respect des contrôles plutôt que sur une hausse du chiffre d'affaires.",
+          "exemple": "Un organisme public pourrait retirer une prime calculée sur les bouteilles vendues. Ses équipes n'auraient plus à augmenter les ventes pour toucher cette prime et pourraient donner la priorité au respect des contrôles.",
           "consequence": "La priorité doit être explicite, même si elle réduit les recettes."
         },
         {
           "idea": "Enfin, les décisions sanitaires doivent être examinées indépendamment de l'activité commerciale.",
-          "developpement": "Le contrôle ne peut pas se limiter à demander au vendeur s'il se juge responsable. Des autorités et des évaluations distinctes permettent de discuter les règles, leurs résultats et les corrections nécessaires.",
-          "exemple": "Une évaluation peut examiner si les restrictions d'accès sont respectées et si les dispositifs d'aide sont disponibles. Ses conclusions doivent pouvoir conduire à changer les pratiques, même si l'opérateur commercial préfère les conserver.",
+          "developpement": "Si le vendeur est seul à juger son fonctionnement, il peut minimiser ses erreurs. Un contrôle extérieur permet de les rendre visibles et de demander des corrections, sans dépendre du jugement de l'organisme qui réalise les ventes.",
+          "exemple": "Un contrôle extérieur peut constater qu'un magasin public vend sans vérifier l'âge. Son rapport peut conduire à revoir les procédures et à former les équipes, même si l'opérateur préférerait éviter ces contraintes.",
           "consequence": "La responsabilité publique suppose de pouvoir corriger son propre dispositif."
         }
       ],
@@ -312,18 +312,18 @@
       },
       "reformulation": "Quel avis porter sur le choix d'une alimentation végétarienne ?",
       "position": "Un choix respectable, à organiser de manière variée et adaptée.",
-      "position_claire": "Je considère le végétarisme comme un choix respectable, qui peut être cohérent avec les convictions d'une personne. Mais retirer la viande ne suffit pas à organiser une alimentation. J'y vois trois enjeux : le sens du choix, la composition des repas et la possibilité de le vivre avec les autres.",
+      "position_claire": "Je considère le végétarisme comme un choix respectable, qui peut être cohérent avec les convictions d'une personne. Mais retirer la viande ne suffit pas à organiser une alimentation. Il faut aussi composer des repas variés et pouvoir les partager avec les autres.",
       "arguments": [
         {
           "idea": "Tout d'abord, ce choix peut permettre de mettre une conviction en pratique.",
-          "developpement": "Une personne préoccupée par les conditions d'élevage peut vouloir réduire sa participation à certaines pratiques. On peut discuter les moyens retenus sans réduire son engagement à une mode ni lui attribuer toutes les mêmes motivations.",
-          "exemple": "Quelqu'un qui souhaite ne plus consommer de viande peut commencer par repérer des recettes compatibles avec son choix et expliquer calmement sa décision à ses proches. L'intention devient une pratique concrète plutôt qu'une simple déclaration.",
+          "developpement": "Une personne préoccupée par les conditions d'élevage peut choisir de ne plus acheter de viande pour ne plus soutenir ces productions par ses achats. Ce lien entre conviction et consommation donne un sens concret à sa décision, même si un choix individuel ne transforme pas toute une filière.",
+          "exemple": "Après s'être informée sur les conditions d'élevage, une personne peut remplacer la viande de ses repas habituels par des recettes végétariennes. Sa liste de courses change : elle ne commande plus les produits dont elle souhaite se passer.",
           "consequence": "Le choix mérite d'être compris avant d'être jugé."
         },
         {
-          "idea": "Ensuite, les repas doivent rester variés et adaptés aux besoins.",
-          "developpement": "Le végétarisme ne consiste pas seulement à retirer l'élément central d'une assiette. Il faut prévoir d'autres sources alimentaires et vérifier les apports nécessaires, avec un conseil professionnel lorsqu'une situation particulière le demande.",
-          "exemple": "Pour préparer sa semaine, une personne peut prévoir des plats de lentilles, de pois chiches et de céréales, avec des légumes et d'autres aliments selon son régime. Elle cherche de vraies recettes plutôt que manger chaque jour uniquement l'accompagnement du repas familial.",
+          "idea": "Ensuite, des aliments variés permettent de composer de vrais repas sans viande.",
+          "developpement": "Les lentilles et les pois chiches apportent notamment des protéines ; les œufs et les produits laitiers peuvent aussi avoir une place selon le régime choisi. Il faut organiser les apports nécessaires, avec un conseil professionnel lorsqu'une situation particulière le demande.",
+          "exemple": "Une personne peut préparer une soupe de lentilles et de légumes pour un dîner, puis une omelette avec du pain et des crudités pour le suivant. Elle dispose de deux plats construits, pas seulement des accompagnements du repas familial.",
           "consequence": "La qualité dépend de l'organisation réelle, pas seulement de l'étiquette."
         },
         {
@@ -353,7 +353,7 @@
         {
           "idea": "Ensuite, des transports adaptés peuvent permettre de rester mobile sans conduire.",
           "developpement": "Renoncer à la voiture ne devrait pas signifier renoncer à toute sortie. Un réseau utile dépend des horaires, de l'accessibilité des arrêts et de la facilité du trajet, pas seulement du nombre de lignes annoncé.",
-          "exemple": "Pour un rendez-vous, une personne peut utiliser un bus accessible qui relie son quartier au lieu prévu. Si elle doit au contraire changer plusieurs fois sur des arrêts difficiles, la présence d'un réseau ne résout pas son problème.",
+          "exemple": "Pour un rendez-vous médical, une personne peut prendre un bus accessible qui relie son quartier à l'hôpital. Elle rejoint ainsi son rendez-vous sans demander à un proche de quitter son travail pour la conduire.",
           "consequence": "Il faut regarder le déplacement complet, pas seulement la distance sur une carte."
         },
         {
@@ -378,20 +378,20 @@
         {
           "idea": "Tout d'abord, les contraintes des métiers doivent être prises en compte.",
           "developpement": "Porter des charges, travailler de nuit ou rester dans une situation de forte tension ne pose pas les mêmes difficultés qu'un poste aménagé. Le titre du métier ne suffit toutefois pas : il faut regarder les tâches réellement exercées.",
-          "exemple": "Une personne chargée de manutention peut avoir du mal à poursuivre les mêmes gestes au même rythme. Lui proposer une tâche adaptée n'a pas le même sens que lui demander simplement de tenir plusieurs années de plus.",
+          "exemple": "Une salariée peut devoir porter des cartons toute la journée. Réduire ces ports de charge avec un matériel adapté change son effort quotidien ; lui demander seulement de continuer jusqu'à 70 ans laisse la contrainte intacte.",
           "consequence": "Une mesure juste doit examiner les conditions, pas seulement l'âge."
         },
         {
           "idea": "Ensuite, deux personnes du même âge peuvent avoir des besoins de santé différents.",
           "developpement": "Un calendrier collectif ne dit pas ce qu'une personne est capable de faire sans difficulté excessive. Une évaluation et des possibilités d'adaptation sont nécessaires, plutôt qu'une comparaison avec les collègues qui continuent sans problème apparent.",
-          "exemple": "Deux salariés peuvent occuper des fonctions proches, mais l'un a besoin d'un horaire réduit pour des raisons de santé. Leur demander le même effort au seul motif qu'ils ont le même âge ignore cette différence.",
+          "exemple": "Deux salariés peuvent occuper le même poste, mais l'un a besoin de rendez-vous médicaux réguliers. Un horaire aménagé lui permet de s'y rendre, alors qu'un planning identique à celui de son collègue peut bloquer l'accès à ses soins.",
           "consequence": "L'égalité de traitement ne signifie pas imposer une charge identique."
         },
         {
-          "idea": "Enfin, la durée et l'organisation des carrières doivent entrer dans la discussion.",
-          "developpement": "Commencer à travailler tôt ou interrompre un parcours ne produit pas la même situation. Il faut aussi prévoir comment terminer une carrière, transmettre des connaissances et maintenir un revenu adapté, plutôt que fixer une date isolée.",
-          "exemple": "Une réforme pourrait proposer, sous des conditions explicites, un passage progressif à temps réduit avec des missions de transmission. Il faudrait en préciser les effets sur le revenu pour que la personne puisse choisir en connaissance de cause.",
-          "consequence": "Une transition se prépare avec des moyens, pas seulement avec un slogan."
+          "idea": "Enfin, il faut tenir compte du nombre d'années déjà travaillées.",
+          "developpement": "Un même âge de départ peut imposer des durées de travail très différentes. Une personne entrée tôt dans l'emploi aurait beaucoup plus d'années d'activité à accomplir ; tenir compte de ce parcours pose une question de répartition de l'effort, même à santé et tâches comparables.",
+          "exemple": "Deux salariés aux carrières continues peuvent avoir commencé à dix-huit et à vingt-huit ans. Les faire tous deux travailler jusqu'à 70 ans impose dix années d'activité supplémentaires au premier ; il faudrait expliquer comment leur retraite tiendrait compte de cette différence.",
+          "consequence": "Comparer les parcours permet donc de discuter l'équité au-delà du seul âge."
         }
       ],
       "nuance": "Cependant, financer les retraites et organiser le travail sont de vraies questions collectives. Certaines personnes souhaitent continuer et doivent pouvoir l'envisager dans de bonnes conditions. Cela ne prouve pas qu'un âge de 70 ans convienne à tous ni qu'un dispositif unique soit suffisant.",
@@ -408,24 +408,24 @@
         {
           "idea": "Tout d'abord, la diversité des recettes offre plusieurs façons de composer un repas.",
           "developpement": "Les préparations familiales ou régionales peuvent donner des idées pour varier les ingrédients. Une tradition est une ressource intéressante lorsqu'on regarde ce qu'elle permet de cuisiner, sans supposer que tout plat ancien est automatiquement équilibré.",
-          "exemple": "Un repas peut associer une préparation de céréales, des légumes et des haricots. On peut varier les légumes selon ceux qui sont disponibles et adapter les quantités aux convives, plutôt que reproduire exactement la même assiette chaque jour.",
+          "exemple": "Une famille peut reprendre une recette de riz aux haricots, puis y ajouter les légumes disponibles. Elle obtient plusieurs variantes d'un plat connu, au lieu de refaire toujours le même repas.",
           "consequence": "La richesse culinaire peut servir des choix quotidiens concrets."
         },
         {
           "idea": "Ensuite, préparer un repas dépend de l'organisation et du matériel disponibles.",
-          "developpement": "Savoir cuisiner ne suffit pas lorsqu'on rentre tard ou qu'on dispose de peu d'équipement. Les produits prêts à utiliser peuvent être pratiques ; il faut regarder leur composition plutôt que condamner toutes les solutions rapides.",
-          "exemple": "Une personne peut préparer une base de légumes à l'avance et utiliser ensuite des haricots en conserve pour compléter un dîner. Cette organisation peut lui convenir davantage qu'une recette longue impossible à refaire pendant la semaine.",
+          "developpement": "Savoir cuisiner ne suffit pas lorsqu'on rentre tard ou qu'on dispose de peu d'équipement. On peut finir par reprendre toujours le même plat, parfois très salé ou peu varié. Des solutions rapides bien choisies peuvent aider, sans condamner tous les produits prêts à utiliser.",
+          "exemple": "Une personne qui reprend le même plat préparé plusieurs soirs peut prévoir une base de légumes et des haricots en conserve pour un autre dîner. Elle retrouve de la variété avec une préparation qu'elle peut réellement faire pendant la semaine.",
           "consequence": "Améliorer l'alimentation demande des solutions compatibles avec la vie réelle."
         },
         {
-          "idea": "Enfin, l'accès aux produits doit faire partie du jugement.",
-          "developpement": "Les goûts ne déterminent pas seuls les achats. Le budget, les commerces et les possibilités de conservation influencent ce que chaque foyer peut réellement mettre dans son assiette, même lorsque l'offre du pays paraît variée.",
-          "exemple": "Une famille peut choisir des légumes surgelés parce qu'elle peut les conserver et utiliser seulement la quantité nécessaire. Ce choix évite de perdre une partie d'un grand achat frais qu'elle n'aurait pas le temps de préparer.",
-          "consequence": "Il vaut mieux examiner les possibilités que juger les personnes."
+          "idea": "Enfin, les repas partagés peuvent faire vivre et transmettre une culture culinaire.",
+          "developpement": "Une recette n'est pas seulement une liste d'ingrédients. La préparer ensemble permet de transmettre un savoir-faire et d'échanger des souvenirs ; ceux qui la reçoivent peuvent ensuite l'adapter au lieu de simplement la voir disparaître.",
+          "exemple": "Lors d'un repas familial, une personne peut montrer à un plus jeune comment préparer un plat de haricots. Ils cuisinent ensemble et notent les étapes ; celui-ci peut ensuite refaire le plat et le partager à son tour.",
+          "consequence": "La cuisine entretient ainsi des liens et des connaissances, au-delà du contenu de l'assiette."
         }
       ],
-      "nuance": "Cependant, ce tableau doit être adapté aux régions et aux habitudes réellement connues. Aucun exemple ne représente tout un pays. Les repas partagés peuvent être appréciés sans idéaliser le passé ni prétendre que les autres cultures auraient perdu le goût de cuisiner.",
-      "conclusion": "En conclusion, j'apprécie les ressources culinaires de mon pays, tout en restant attentif à la préparation et à l'accès. Le but est de rendre les repas variés praticables, pas d'opposer automatiquement tradition et modernité."
+      "nuance": "Cependant, les habitudes diffèrent selon les régions et les familles. Le budget, les commerces et la conservation limitent aussi les choix. Une cuisine familiale n'est pas automatiquement équilibrée, et les repas partagés ne doivent pas devenir une obligation pour ceux qui vivent seuls.",
+      "conclusion": "En conclusion, j'apprécie la variété culinaire et les repas partagés, tout en restant attentif aux contraintes quotidiennes. Le but est de rendre ces ressources accessibles, pas d'opposer automatiquement tradition et modernité."
     },
     "sante-p17": {
       "prompt_signatures": {
@@ -449,10 +449,10 @@
           "consequence": "Augmenter la pression n'est donc pas une méthode universelle d'efficacité."
         },
         {
-          "idea": "Enfin, le contexte et le soutien changent la manière de vivre une exigence.",
-          "developpement": "Un objectif clair, des ressources et une possibilité de demander de l'aide rendent une tâche plus maîtrisable. Des demandes contradictoires ou sans fin peuvent maintenir la tension sans permettre de résoudre le problème.",
-          "exemple": "Dans une équipe, préciser quelle tâche est prioritaire et déplacer une échéance irréaliste peut aider un salarié davantage qu'une consigne lui demandant seulement de mieux gérer son stress. Le problème ne se trouve pas toujours dans sa réaction individuelle.",
-          "consequence": "Il faut agir aussi sur l'organisation qui crée la pression."
+          "idea": "Enfin, une mobilisation ponctuelle doit laisser du temps pour récupérer.",
+          "developpement": "Même des tâches réalisables peuvent devenir difficiles à enchaîner si toute pause disparaît. La durée de la pression compte donc autant que son intensité : terminer une urgence ne suffit pas si la suivante commence aussitôt, sans temps de repos.",
+          "exemple": "Après une livraison urgente, une équipe peut reporter une tâche secondaire et organiser un relais pour permettre du repos. Elle évite ainsi de traiter chaque journée comme une exception, plutôt que demander seulement à chacun de mieux gérer son stress.",
+          "consequence": "Préserver la récupération demande aussi de modifier l'organisation."
         }
       ],
       "nuance": "Cependant, les réactions varient et l'on peut être motivé sans se sentir stressé. Le repos et le soutien comptent ; une difficulté persistante mérite une aide appropriée. Il ne faut pas valoriser l'épuisement ni réduire toutes les situations à une question de caractère.",
@@ -469,8 +469,8 @@
         {
           "idea": "Tout d'abord, le jeu peut repousser des activités ou des obligations importantes.",
           "developpement": "Une partie prend du temps, et son rythme ne correspond pas toujours à celui de la famille. Si les sessions se prolongent sans limite prévue, les devoirs, les repas ou le coucher peuvent être décalés.",
-          "exemple": "Un enfant peut commencer une nouvelle partie peu avant de devoir se coucher, alors qu'elle ne peut pas se terminer immédiatement. Convenir avant le jeu d'un dernier moment pour commencer évite de découvrir le conflit seulement au moment d'éteindre.",
-          "consequence": "Le problème peut être réduit en organisant la durée réelle de l'activité."
+          "exemple": "Un enfant peut commencer une nouvelle partie alors qu'il doit encore préparer une lecture pour le lendemain. S'il attend la fin pour ouvrir son livre, il repousse soit le travail, soit le coucher ; prévoir le dernier départ de partie permet d'anticiper ce conflit.",
+          "consequence": "Le temps pris par le jeu peut donc empiéter concrètement sur le travail ou le repos."
         },
         {
           "idea": "Ensuite, le contenu et les échanges en ligne doivent convenir à l'enfant.",
@@ -499,13 +499,13 @@
         {
           "idea": "Tout d'abord, certains besoins imposent des dépenses que l'on ne peut pas simplement supprimer.",
           "developpement": "Le logement, l'alimentation et les déplacements nécessaires doivent pouvoir être assurés. Quand le budget ne les couvre pas, demander seulement de mieux consommer ne résout pas l'écart entre les ressources et les coûts.",
-          "exemple": "Une personne peut avoir déjà réduit ses achats non essentiels et rester incapable de payer son loyer et ses courses. Elle a besoin d'une solution sur ses ressources ou son logement, pas d'un reproche sur un loisir imaginaire.",
+          "exemple": "Une personne peut supprimer ses abonnements de loisirs et cuisiner chez elle, puis constater que le loyer et les courses dépassent encore son budget. Ces économies ne couvrent pas l'écart : il faut aussi agir sur ses ressources ou ses charges.",
           "consequence": "Un revenu suffisant est une question de conditions de vie, pas de luxe."
         },
         {
           "idea": "Ensuite, une même somme ne permet pas de vivre de la même manière partout.",
           "developpement": "Le coût du logement, les transports et les personnes à charge modifient le budget. Comparer deux salaires sans regarder ces éléments peut donner une image trompeuse de ce qui est confortable ou insuffisant.",
-          "exemple": "Deux personnes ayant le même revenu peuvent payer des loyers très différents. Si l'une doit aussi financer des trajets indispensables, la marge restante pour ses autres besoins ne sera pas identique, même avec les mêmes habitudes d'achat.",
+          "exemple": "Deux personnes peuvent gagner chacune 1 800 euros, mais payer respectivement 500 et 1 000 euros de loyer. Après ce seul paiement, il reste 500 euros de moins à la seconde pour les autres besoins, sans différence de comportement d'achat.",
           "consequence": "Le niveau nécessaire se comprend donc à partir d'une situation concrète."
         },
         {
@@ -533,10 +533,10 @@
           "consequence": "La sécurité dépend du rapport entre les moyens et les besoins."
         },
         {
-          "idea": "Ensuite, des moments importants ne se mesurent pas seulement à leur coût.",
-          "developpement": "Se sentir écouté, partager une activité ou contribuer à un projet peut avoir de la valeur sans exiger une grande dépense. Ces possibilités ne remplacent pas les ressources essentielles, mais elles montrent que le plaisir a plusieurs sources.",
-          "exemple": "Une personne peut apprécier une promenade régulière avec un ami ou un repas préparé ensemble avec des ingrédients simples. La disponibilité et la qualité de l'échange comptent davantage que le prix de l'activité.",
-          "consequence": "Un salaire modeste ne ferme donc pas toute possibilité de satisfaction."
+          "idea": "Ensuite, des relations de confiance apportent quelque chose que le salaire n'achète pas.",
+          "developpement": "Être écouté et savoir que l'on compte pour quelqu'un peut soutenir le sentiment d'appartenance. Ces liens se construisent par la disponibilité et l'attention réciproque, pas par le montant dépensé pour se rencontrer.",
+          "exemple": "Deux amis peuvent se retrouver régulièrement pour une promenade. Lorsque l'un traverse une période difficile, l'autre l'écoute puis reprend de ses nouvelles ; cette continuité lui montre qu'il n'est pas seul, même sans sortie coûteuse.",
+          "consequence": "Le bonheur peut donc s'appuyer sur des liens solides sans exiger un haut salaire."
         },
         {
           "idea": "Enfin, les conditions attachées au salaire peuvent entrer en conflit avec ce qui compte.",
@@ -563,15 +563,15 @@
           "consequence": "Reconnaître cette nécessité évite de transformer le débat en rejet des soins."
         },
         {
-          "idea": "Ensuite, tous les moments de la vie ne nécessitent pas un traitement médicamenteux.",
-          "developpement": "Les besoins dépendent de l'état de santé et de l'évaluation de la situation. Une personne sans indication de traitement régulier n'a pas à prendre un médicament simplement parce que ces produits existent ou sont présents chez ses proches.",
-          "exemple": "Un adulte peut traverser une période sans prescription quotidienne et consulter lorsqu'un problème apparaît. L'absence de traitement pendant cette période ne permet ni d'annoncer qu'il n'en aura jamais besoin ni de lui attribuer une santé supérieure.",
-          "consequence": "Une nécessité pour certains ne devient pas une règle identique pour tous."
+          "idea": "Ensuite, prendre soin de sa santé ne passe pas toujours par un médicament.",
+          "developpement": "L'activité physique, des repas variés et un sommeil suffisant font aussi partie de la prévention. Une personne sans indication de traitement régulier peut agir sur ces habitudes ; sa démarche de santé ne se résume donc pas à une prescription quotidienne.",
+          "exemple": "Après un rendez-vous préventif, un adulte souvent assis peut marcher pendant sa pause de midi comme convenu avec le professionnel. Sans indication de médicament, il agit sur ses longues périodes d'inactivité par un changement concret de sa journée.",
+          "consequence": "La prévention donne ainsi une place à d'autres actions, sans rendre les traitements inutiles."
         },
         {
           "idea": "Enfin, l'usage doit reposer sur une indication comprise plutôt que sur une habitude d'achat.",
           "developpement": "Prendre davantage de produits ne signifie pas automatiquement mieux se soigner. Un professionnel peut expliquer l'utilité, les précautions et les limites, notamment lorsque plusieurs produits sont envisagés ensemble.",
-          "exemple": "Une personne tentée d'ajouter un médicament conseillé par un proche peut demander au pharmacien s'il convient à sa situation et à son traitement actuel. Elle cherche une réponse adaptée au lieu de copier l'ordonnance d'autrui.",
+          "exemple": "Un adulte à qui un proche propose son médicament peut montrer au pharmacien les produits qu'il prend déjà. Celui-ci vérifie les associations et peut expliquer pourquoi ce produit ne convient pas à sa situation, au lieu de le laisser copier une ordonnance.",
           "consequence": "L'information sert à utiliser les soins correctement, pas à les multiplier."
         }
       ],

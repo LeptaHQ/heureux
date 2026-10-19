@@ -14,20 +14,20 @@
         {
           "idea": "Tout d'abord, une aide alimentaire attentive peut soulager une difficulté immédiate avec dignité.",
           "developpement": "Distribuer des produits ne suffit pas si les personnes ne peuvent pas les utiliser. Prendre en compte leurs possibilités de transport ou de préparation donne une valeur concrète à l'écoute, sans exiger qu'elles racontent toute leur vie.",
-          "exemple": "Dans une association, un bénévole peut signaler au référent qu'une personne n'a pas de moyen de cuisson. L'équipe cherche alors des produits utilisables parmi ceux disponibles, plutôt que lui remettre un colis identique sans tenir compte de cette contrainte.",
+          "exemple": "Dans une association, un bénévole peut signaler qu'une personne n'a pas de moyen de cuisson. Si le stock le permet, l'équipe lui remet des conserves prêtes à manger : le colis est alors utilisable sans cuisine.",
           "consequence": "J'admire cette attention qui adapte le service au besoin."
         },
         {
-          "idea": "Ensuite, une visite souhaitée peut apporter une présence qui ne se réduit pas à une prestation.",
-          "developpement": "Une personne malade ou peu mobile peut manquer d'occasions de conversation. Un engagement convenu permet de prévoir un moment d'échange, tout en respectant son envie de parler, de se reposer ou de reporter.",
-          "exemple": "Un bénévole peut proposer une visite à une personne qui l'a demandée, vérifier le moment approprié et écouter ce qu'elle souhaite partager. Il ne publie pas de photo de cette rencontre pour prouver sa générosité.",
-          "consequence": "La qualité de l'action tient aussi au consentement et à la discrétion."
+          "idea": "Ensuite, des visites régulières et souhaitées peuvent créer un lien de confiance.",
+          "developpement": "Une personne malade ou peu mobile peut manquer d'occasions de conversation. Retrouver un interlocuteur connu permet de poursuivre un échange, au lieu de tout recommencer. Ce rendez-vous reste librement accepté, sans obligation de parler.",
+          "exemple": "Un bénévole peut retrouver chaque semaine une personne qui a demandé ces visites. Ils reprennent la discussion sur un livre commencé ensemble ; elle peut ainsi partager ses impressions avec quelqu'un qui connaît déjà ses goûts, ou reporter la visite si elle est fatiguée.",
+          "consequence": "J'admire cette présence fiable qui donne une place à la personne au-delà de sa maladie."
         },
         {
-          "idea": "Enfin, un projet écologique mérite d'être suivi au-delà de son lancement.",
-          "developpement": "Une action visible peut être utile, mais son entretien et son organisation comptent ensuite. Répartir les responsabilités permet que le résultat ne disparaisse pas lorsque l'événement est terminé.",
-          "exemple": "Après avoir installé un espace planté avec l'accord des responsables du lieu, des habitants peuvent prévoir qui arrose et comment remplacer une plante abîmée. Ils choisissent un projet compatible avec les moyens disponibles plutôt qu'une plantation abandonnée après la photo.",
-          "consequence": "J'admire l'engagement qui prévoit aussi la suite."
+          "idea": "Enfin, un projet écologique entretenu peut protéger une petite part du milieu commun.",
+          "developpement": "Une plantation peut offrir de la nourriture à certains insectes si les végétaux sont adaptés au lieu. L'intérêt ne se limite donc pas à embellir une photo : il faut permettre aux plantes de vivre et de fleurir.",
+          "exemple": "Avec l'accord des responsables du lieu, des habitants peuvent installer un petit espace fleuri puis répartir l'arrosage et l'entretien. Le projet conserve ainsi sa fonction au fil des saisons, au lieu de disparaître après son lancement.",
+          "consequence": "J'admire cet effort collectif qui prend soin d'un espace partagé."
         }
       ],
       "nuance": "Cependant, donner de l'argent, participer ponctuellement ou aider à distance peut être tout aussi utile selon les besoins. Tout le monde ne dispose pas du même temps ni des mêmes capacités. L'admiration ne devrait pas devenir un classement moral des personnes.",
@@ -54,10 +54,10 @@
           "consequence": "L'utilité doit reposer sur une contribution documentée, pas sur un slogan."
         },
         {
-          "idea": "Enfin, un suivi des animaux peut produire des connaissances utiles aux soins.",
-          "developpement": "Observer l'alimentation, les déplacements ou les interactions permet de vérifier si les conditions proposées conviennent. Ce suivi doit viser leur bien-être et distinguer ce que l'on apprend en captivité de ce qui se passe dans la nature.",
-          "exemple": "Une équipe peut noter l'utilisation d'un nouvel aménagement et modifier sa disposition si certains individus n'y accèdent pas. Elle confronte les observations aux besoins de l'espèce, plutôt que considérer l'installation comme réussie parce qu'elle plaît au public.",
-          "consequence": "Les connaissances ont une valeur lorsqu'elles permettent d'améliorer les conditions."
+          "idea": "Enfin, un suivi scientifique peut produire des connaissances sur les besoins des animaux.",
+          "developpement": "Des observations répétées permettent d'étudier l'alimentation ou les interactions, au lieu de se fier à une impression de visite. Un protocole commun peut aussi rendre les résultats comparables entre établissements. Ce travail doit respecter leur bien-être.",
+          "exemple": "Des chercheurs peuvent comparer l'accès à la nourriture avant et après l'ajout de plusieurs points de nourrissage. Si leurs relevés montrent qu'un individu reste écarté, ils repèrent un problème que la simple quantité de nourriture ne révélait pas, puis partagent leurs observations.",
+          "consequence": "On peut ainsi améliorer les connaissances et les soins, sans transposer automatiquement ces résultats aux animaux sauvages."
         }
       ],
       "nuance": "Cependant, toutes les espèces et tous les établissements ne se prêtent pas à ces fonctions. Une visite ne garantit pas le respect des animaux, et d'autres formes d'éducation existent. La protection des milieux naturels reste nécessaire, même si un programme en captivité est justifié.",
@@ -74,19 +74,19 @@
         {
           "idea": "Tout d'abord, regarder ce qui finit à la poubelle peut révéler une perte évitable.",
           "developpement": "Acheter ou préparer davantage que ce que l'on utilise crée parfois des déchets sans répondre à un besoin. Une observation simple peut aider à ajuster les quantités, sans supposer que chaque ménage gaspille volontairement.",
-          "exemple": "Une personne qui jette régulièrement une partie d'un grand sachet de salade peut choisir un format plus adapté ou prévoir plus tôt son utilisation. Elle compare le coût et la quantité réellement consommée, pas seulement le prix affiché.",
+          "exemple": "Une personne qui jette chaque semaine la moitié d'un grand sachet de salade peut choisir un format plus petit. Si elle le termine, elle ne jette plus le surplus, en vérifiant aussi que le prix lui convient.",
           "consequence": "La réduction commence par un problème identifié dans sa propre situation."
         },
         {
           "idea": "Ensuite, réutiliser ou réparer peut retarder le remplacement d'un objet.",
-          "developpement": "Jeter moins ne signifie pas seulement mieux trier ce qui est jeté. Lorsque l'objet reste sûr et utilisable, prolonger son usage peut éviter un nouvel achat et un déchet immédiat.",
+          "developpement": "Jeter moins ne signifie pas seulement mieux trier ce qui est jeté. Lorsque l'objet reste sûr et utilisable, prolonger son usage peut éviter un nouvel achat et un déchet immédiat. Une réparation abordable peut aussi alléger le budget.",
           "exemple": "Avant de remplacer un sac dont la fermeture est abîmée, une personne peut demander si une réparation est possible et comparer son coût. Si elle est réalisable, le même objet continue à servir au lieu d'être abandonné pour un défaut localisé.",
           "consequence": "L'entretien peut agir sur la durée d'usage, pas seulement sur la poubelle."
         },
         {
           "idea": "Enfin, certains déchets dépendent de décisions prises avant l'achat.",
-          "developpement": "L'emballage, les pièces disponibles et les possibilités de réemploi sont souvent définis par le producteur ou le commerce. Les consommateurs ne peuvent pas retirer seuls toutes ces contraintes, même avec une forte motivation.",
-          "exemple": "Un commerce peut proposer un contenant réutilisable avec un retour accessible, tandis qu'un autre ne vend que des portions emballées individuellement. La même personne ne dispose pas des mêmes choix selon l'offre qu'elle peut rejoindre.",
+          "developpement": "L'emballage, les pièces disponibles et les possibilités de réemploi sont souvent définis par le producteur ou le commerce. Un système accessible permet à plusieurs clients de répéter le même geste, plutôt que compter seulement sur des efforts isolés.",
+          "exemple": "Un commerce peut proposer un contenant réutilisable avec un retour accessible : après lavage, le même récipient sert pour plusieurs achats au lieu d'être jeté après chacun. Sans ce service à proximité, la même personne peut rester dépendante des portions emballées.",
           "consequence": "La responsabilité doit donc inclure les systèmes de production et de distribution."
         }
       ],
@@ -108,16 +108,16 @@
           "consequence": "Le résultat doit être jugé du point de vue des animaux."
         },
         {
-          "idea": "Ensuite, les fonctions annoncées doivent être vérifiables avant de justifier un maintien.",
-          "developpement": "Un établissement peut invoquer l'éducation ou la conservation sans expliquer ce qu'il réalise. Il faut regarder les activités, les partenaires et les conditions de vie, pas seulement les panneaux destinés au public.",
-          "exemple": "Un parc qui affirme participer à la protection d'une espèce doit pouvoir décrire son programme et son suivi. S'il ne propose qu'un spectacle sans rapport avec les besoins des animaux, cet argument ne suffit pas à défendre son fonctionnement.",
-          "consequence": "La décision doit reposer sur des éléments, pas sur une image rassurante."
+          "idea": "Ensuite, une fermeture générale ferait aussi disparaître des contributions utiles à la conservation.",
+          "developpement": "Certains établissements peuvent participer à des programmes coordonnés pour maintenir une population menacée. Cette fonction mérite d'être conservée lorsqu'elle est documentée et compatible avec le bien-être animal, sans justifier tous les parcs.",
+          "exemple": "Le bison d'Europe a pu être réintroduit après avoir survécu en captivité. Ce cas montre l'intérêt possible d'une population suivie avec des partenaires et un habitat d'accueil ; il ne prouve pas que chaque zoo prépare une réintroduction.",
+          "consequence": "Je préférerais préserver une contribution réelle plutôt que supprimer toutes les structures sans distinction."
         },
         {
-          "idea": "Enfin, une possibilité de réforme exige un contrôle avec des conséquences.",
-          "developpement": "Demander une amélioration n'a de sens que si les objectifs et les délais sont clairs. Une structure qui ne peut pas ou ne veut pas satisfaire les exigences ne doit pas conserver indéfiniment les mêmes conditions.",
-          "exemple": "Après avoir constaté un défaut d'installation, l'autorité compétente peut imposer une correction et vérifier sa réalisation. Si les conditions restent inacceptables, une fermeture ou un transfert organisé doit pouvoir suivre, plutôt qu'une nouvelle promesse sans échéance.",
-          "consequence": "Le maintien doit être conditionnel, pas automatique."
+          "idea": "Enfin, une réforme contrôlée peut améliorer les conditions de vie sur place.",
+          "developpement": "Lorsque le lieu peut être adapté, corriger un problème d'espace ou d'accès aux soins permet d'agir sans déplacer tous les animaux. Il faut toutefois des objectifs et des délais clairs, puis vérifier l'amélioration réelle.",
+          "exemple": "Un parc peut aménager des espaces de retrait pour que les animaux puissent s'éloigner des visiteurs. Un contrôle vérifie ensuite leur accès et leur utilisation. Si les conditions restent inacceptables, une fermeture ou un transfert organisé doit pouvoir suivre.",
+          "consequence": "Le maintien se justifie par une amélioration effective, pas par une promesse."
         }
       ],
       "nuance": "Cependant, une fermeture nécessaire ne doit pas être retardée indéfiniment sous prétexte qu'un transfert est compliqué. Il faut des moyens et une planification. Les alternatives, notamment la protection des habitats, doivent aussi être soutenues sans supposer qu'elles remplacent immédiatement chaque place d'accueil.",
@@ -129,19 +129,19 @@
       },
       "reformulation": "Pourquoi limiter la circulation automobile en ville ?",
       "position": "Oui, avec des alternatives et une évaluation des effets sur les déplacements.",
-      "position_claire": "Oui, je suis favorable à une limitation de la circulation automobile en ville. Elle peut réduire certaines nuisances, donner davantage de place aux autres déplacements et permettre un autre usage de l'espace. Mais limiter ne signifie pas rendre les besoins invisibles : les solutions doivent être préparées pour les habitants et les activités.",
+      "position_claire": "Oui, limiter la circulation automobile me paraît nécessaire dans les secteurs urbains saturés. Cela peut réduire certaines nuisances, donner davantage de place aux autres déplacements et permettre un autre usage de l'espace. Mais limiter ne signifie pas interdire partout : les solutions doivent être préparées pour les habitants et les activités.",
       "arguments": [
         {
           "idea": "Tout d'abord, réduire le trafic peut agir sur des nuisances à proximité des logements.",
           "developpement": "Des passages fréquents de véhicules produisent du bruit et, selon leur motorisation, des émissions locales. Agir sur les trajets évitables peut limiter ces sources, sans prétendre supprimer toute pollution urbaine.",
-          "exemple": "Une ville peut décourager le transit automobile dans une rue résidentielle tout en maintenant les accès nécessaires. Elle compare ensuite les passages et le bruit avant et après, ainsi que les effets dans les rues voisines.",
+          "exemple": "Une ville peut fermer un raccourci automobile dans une rue résidentielle en maintenant les accès nécessaires. Les riverains ne subissent plus ce transit sous leurs fenêtres ; la ville compare le bruit avant et après, ainsi que les effets dans les rues voisines.",
           "consequence": "La mesure doit être évaluée sur un secteur complet, pas seulement sur une rue."
         },
         {
           "idea": "Ensuite, une priorité aux autres modes peut rendre certaines alternatives plus utiles.",
           "developpement": "Un bus bloqué dans la même file que les voitures n'offre pas toujours une option fiable. Réserver un espace et sécuriser l'accès peut permettre à davantage de personnes de choisir autre chose, si les horaires et le parcours conviennent.",
-          "exemple": "Transformer une voie en couloir de bus peut aider les voyageurs à rejoindre un quartier desservi. Il faut vérifier les arrêts, les correspondances et l'accessibilité, plutôt que considérer la peinture au sol comme une solution suffisante.",
-          "consequence": "La limitation gagne du sens lorsqu'elle améliore un déplacement réel."
+          "exemple": "Un salarié dont le bus reste chaque soir dans un embouteillage peut bénéficier d'un couloir réservé sur ce trajet. Si le bus ne dépend plus de la même file, son heure d'arrivée peut devenir plus prévisible, à condition que les correspondances suivent.",
+          "consequence": "La limitation peut donc rendre un déplacement sans voiture plus fiable, et pas seulement moins encombré."
         },
         {
           "idea": "Enfin, une partie de l'espace peut être réaffectée à des usages partagés.",
@@ -161,29 +161,29 @@
       },
       "reformulation": "Est-il positif de proposer davantage de produits bio en supermarché ?",
       "position": "Oui si l'accès, l'information et les relations avec les producteurs sont réellement améliorés.",
-      "position_claire": "Oui, je trouve positif de pouvoir choisir des produits bio dans les supermarchés, à certaines conditions. Cela peut éviter un déplacement supplémentaire, permettre des comparaisons et donner des débouchés aux producteurs. Mais un rayon plus grand ne garantit ni des prix accessibles à tous ni une amélioration de toutes les pratiques de l'enseigne.",
+      "position_claire": "Oui, je trouve positif de pouvoir choisir des produits bio dans les supermarchés, à certaines conditions. Cela peut élargir l'accès, soutenir certaines pratiques agricoles et donner des débouchés aux producteurs. Mais un rayon plus grand ne garantit ni des prix accessibles à tous ni une amélioration de toutes les pratiques de l'enseigne.",
       "arguments": [
         {
-          "idea": "Tout d'abord, cette présence peut rendre le choix plus pratique.",
+          "idea": "Tout d'abord, cette présence peut élargir l'accès aux produits bio.",
           "developpement": "Une personne n'a pas toujours le temps ou les moyens de fréquenter un magasin spécialisé. Trouver quelques produits dans son commerce habituel élargit ses options, même si elle ne transforme pas entièrement son panier.",
           "exemple": "Une famille peut ajouter des lentilles bio à ses courses ordinaires sans organiser un deuxième trajet. Elle vérifie que le prix et la quantité correspondent à son budget, plutôt que supposer que l'offre est abordable parce qu'elle existe.",
           "consequence": "L'intérêt est un choix supplémentaire dans une organisation réelle."
         },
         {
-          "idea": "Ensuite, une offre visible peut faciliter une comparaison plus précise.",
-          "developpement": "Le consommateur doit pouvoir distinguer le label, l'origine, le prix au poids et la composition. Ces informations répondent à des questions différentes ; le mot bio ne devrait pas les remplacer toutes.",
-          "exemple": "Devant deux produits de même usage, une personne peut comparer le prix au kilo et vérifier le label indiqué. Elle peut aussi constater qu'un biscuit bio reste sucré et ne devient pas automatiquement la base d'un repas équilibré.",
-          "consequence": "Le rayon est utile lorsqu'il permet un choix éclairé."
+          "idea": "Ensuite, cette offre peut soutenir des pratiques qui limitent certains intrants agricoles.",
+          "developpement": "Dans le cadre européen, les règles biologiques limitent notamment l'usage de produits de synthèse et encouragent d'autres méthodes. En achetant ces produits, le commerce donne un débouché à ces pratiques, sans garantir que chaque aliment a le plus faible impact total.",
+          "exemple": "Une enseigne peut acheter les légumes d'une exploitation bio qui désherbe mécaniquement entre les rangs. Cette récolte trouve alors des acheteurs, ce qui soutient une production évitant l'application d'un herbicide de synthèse.",
+          "consequence": "L'intérêt environnemental tient aux méthodes soutenues, pas simplement à la couleur de l'emballage."
         },
         {
-          "idea": "Enfin, des engagements d'achat peuvent soutenir les possibilités des producteurs.",
+          "idea": "Enfin, des commandes régulières peuvent aider les producteurs à planifier leur activité.",
           "developpement": "Une exploitation a besoin de prévoir ses ventes et ses coûts. Des commandes relativement stables peuvent aider à organiser la production, mais seulement si les prix et les conditions du contrat sont soutenables.",
-          "exemple": "Une enseigne peut convenir avec des producteurs d'un volume et d'un calendrier de livraison. Si elle change brutalement ses exigences ou refuse une rémunération viable, la visibilité du rayon ne suffit pas à soutenir leur travail.",
+          "exemple": "Une enseigne peut convenir avec des producteurs d'un volume et d'un calendrier de livraison. Ceux-ci peuvent alors planifier les semis et la récolte pour ces commandes. Cela suppose une rémunération viable, pas des prix qui les mettent en difficulté.",
           "consequence": "Le débouché doit être évalué au-delà de l'image commerciale."
         }
       ],
       "nuance": "Cependant, un produit bio n'est pas automatiquement local, sans emballage ni meilleur pour chaque besoin. Il faut des contrôles du label et une attention au prix. Une offre conventionnelle variée et accessible garde également sa place ; il ne faut pas juger les clients sur leur panier.",
-      "conclusion": "En conclusion, davantage de bio peut être une bonne chose si cela facilite un choix informé et des débouchés viables. La qualité de cette évolution se mesure à l'accès et aux conditions réelles, pas au seul nombre de références."
+      "conclusion": "En conclusion, davantage de bio peut être une bonne chose pour l'accès, les pratiques agricoles soutenues et les débouchés. La qualité de cette évolution se mesure aux conditions réelles, pas au seul nombre de références."
     },
     "environnement-p8": {
       "prompt_signatures": {
@@ -206,14 +206,14 @@
           "consequence": "L'espace récupéré doit rester réellement partagé."
         },
         {
-          "idea": "Enfin, une règle claire peut rendre l'organisation plus compréhensible qu'une suite d'exceptions improvisées.",
-          "developpement": "Une zone doit préciser qui entre, quand et pour quel besoin. Les commerçants, les habitants et les visiteurs peuvent alors préparer leurs déplacements, tandis que les contrôles portent sur des conditions connues.",
-          "exemple": "Une ville peut prévoir un créneau de livraison, un accès pour les secours et une solution adaptée aux personnes à mobilité réduite. Elle annonce le fonctionnement avant la mise en place et corrige les difficultés constatées.",
-          "consequence": "La règle est utile si elle peut être comprise et appliquée."
+          "idea": "Enfin, supprimer le trafic ordinaire peut réduire les nuisances près des logements.",
+          "developpement": "Les passages répétés de voitures produisent du bruit et, selon leur motorisation, des émissions locales. Une zone interdite au transit agit directement sur cette source, même si elle ne supprime pas toute la pollution du centre.",
+          "exemple": "Une rue bordée de logements peut cesser de servir de raccourci automobile après sa piétonnisation. Les riverains n'ont plus ce trafic sous leurs fenêtres. La ville doit toutefois mesurer le bruit et les effets dans les rues voisines pour vérifier le bénéfice d'ensemble.",
+          "consequence": "L'interdiction doit améliorer le cadre de vie sans exporter toutes les nuisances ailleurs."
         }
       ],
-      "nuance": "Cependant, les parkings et les transports de liaison doivent être accessibles, et certains déplacements exigent une solution particulière. Il faut examiner les effets sur les rues voisines et les activités, sans promettre qu'une interdiction fera automatiquement prospérer chaque commerce.",
-      "conclusion": "En conclusion, je défends des zones piétonnes justifiées et organisées, pas une fermeture aveugle de tout le centre. Sécurité, usages partagés et accès expliqués doivent guider la décision et son évaluation."
+      "nuance": "Cependant, il faut organiser les livraisons, les secours et l'accès des personnes à mobilité réduite. Les transports de liaison doivent aussi être accessibles. La transition doit tenir compte des activités, sans promettre qu'une interdiction fera automatiquement prospérer chaque commerce.",
+      "conclusion": "En conclusion, je défends des zones piétonnes justifiées et organisées, pas une fermeture aveugle de tout le centre. Sécurité, usages partagés et réduction des nuisances doivent guider la décision, avec des accès adaptés."
     },
     "environnement-p9": {
       "prompt_signatures": {
@@ -257,20 +257,20 @@
         {
           "idea": "Tout d'abord, une information claire peut éviter des erreurs de destination.",
           "developpement": "L'Info-tri indique où déposer un produit ou son emballage. C'est un repère pratique, car les matériaux ne suivent pas tous le même parcours et un symbole vague ne permet pas toujours de savoir quoi faire.",
-          "exemple": "Une personne peut lire l'indication portée sur un appareil usagé et chercher le point de collecte indiqué, plutôt que le mettre avec les ordures courantes. Elle vérifie aussi les modalités locales avant de se déplacer.",
+          "exemple": "Une personne peut lire l'indication portée sur un appareil usagé, vérifier les modalités locales et le remettre au point de collecte adapté. L'appareil rejoint ainsi une filière prévue pour lui, plutôt que les ordures courantes.",
           "consequence": "J'apprécie une mesure qui relie l'information à un geste compréhensible."
         },
         {
           "idea": "Ensuite, une collecte séparée peut permettre un traitement adapté des déchets alimentaires.",
-          "developpement": "Le cadre français prévoit des solutions de tri des biodéchets, organisées localement. Les restes ne sont alors plus nécessairement mélangés au même flux que les autres ordures ; ils peuvent être orientés vers une valorisation adaptée.",
-          "exemple": "Dans une commune qui propose une collecte accessible, un foyer peut séparer ses épluchures en suivant les consignes reçues. Il faut toutefois connaître les déchets acceptés, les horaires et les conditions de dépôt, plutôt que supposer que tout composteur fonctionne de la même façon.",
-          "consequence": "Le principe devient utile lorsqu'il existe un service utilisable."
+          "developpement": "Le cadre français prévoit des solutions de tri des biodéchets, organisées localement. Séparer les restes permet notamment de les composter pour obtenir une matière utilisable pour les sols, au lieu de les éliminer avec les ordures résiduelles.",
+          "exemple": "Dans une commune qui propose un compostage partagé, un foyer peut apporter ses épluchures acceptées par le service. Avec un entretien et un suivi adaptés, elles se décomposent et contribuent à produire du compost pour les plantations, plutôt que rejoindre le bac ordinaire.",
+          "consequence": "J'apprécie cette récupération de matière, pas seulement un changement de bac."
         },
         {
           "idea": "Enfin, l'efficacité doit être suivie au-delà des consignes données aux habitants.",
           "developpement": "Le tri ne prouve pas à lui seul que chaque matière sera effectivement valorisée. Il faut examiner la collecte, le traitement et les difficultés rencontrées, puis rendre ces informations compréhensibles pour corriger le dispositif.",
-          "exemple": "Une collectivité peut publier les quantités collectées et expliquer les erreurs de tri qui empêchent certains traitements. Si un point de dépôt reste inaccessible, elle doit aussi chercher une solution plutôt que reprocher uniquement un faible effort aux habitants.",
-          "consequence": "J'attendrais des résultats documentés, pas seulement une campagne visible."
+          "exemple": "Une collectivité peut publier les quantités collectées et expliquer les erreurs de tri qui empêchent certains traitements. Si le suivi révèle un point de dépôt inaccessible sans voiture, elle peut installer un point près des logements : davantage d'habitants disposent alors d'une solution utilisable.",
+          "consequence": "J'attendrais ce lien entre les résultats documentés et la correction du service, pas seulement une campagne visible."
         }
       ],
       "nuance": "Cependant, l'organisation varie localement, et je n'en déduis pas une réussite nationale mesurée. Surtout, une collecte efficace ne rend pas souhaitable de produire toujours plus de déchets. Réduire à la source reste nécessaire : trier ne remplace pas la prévention.",
@@ -281,30 +281,30 @@
         "environnement:p13": "791b22c7a1fbd82051f4354c6bca0da90352be8de1bc42d9b76745499c371cd4"
       },
       "reformulation": "À quelles conditions soutenir le développement de l'agriculture biologique ?",
-      "position": "Une orientation intéressante, avec des pratiques contrôlées et une transition viable.",
-      "position_claire": "Je suis favorable au développement d'une agriculture biologique exigeante, sans la présenter comme une solution parfaite. Son intérêt tient aux pratiques de production, à des règles vérifiables et aux conditions permettant aux agriculteurs de les maintenir. Le label seul ne garantit ni tous les bénéfices environnementaux ni la qualité nutritionnelle de chaque produit.",
+      "position": "Une orientation intéressante pour limiter certains intrants, entretenir les sols et choisir des pratiques contrôlées.",
+      "position_claire": "Je suis favorable au développement de l'agriculture biologique. Limiter certains intrants, entretenir la fertilité des sols et rendre les méthodes vérifiables me semblent utiles. Le label ne garantit cependant ni tous les bénéfices environnementaux ni la qualité nutritionnelle de chaque produit.",
       "arguments": [
         {
-          "idea": "Tout d'abord, certaines pratiques peuvent réduire le recours à des intrants et diversifier les cultures.",
-          "developpement": "Dans le cadre européen, les règles biologiques limitent notamment l'usage de produits de synthèse et prévoient d'autres méthodes de gestion. Il ne s'agit pas d'une absence absolue de traitement ni d'un retour sans technique.",
-          "exemple": "Une exploitation peut organiser une rotation avec des légumineuses pour participer à la fertilité du sol et varier les cultures. L'agriculteur observe les besoins et les résultats plutôt que supposer qu'une parcelle certifiée n'exige plus de travail.",
-          "consequence": "Le développement doit porter sur des pratiques concrètes."
+          "idea": "Tout d'abord, ce mode de production limite le recours à certains produits de synthèse.",
+          "developpement": "Dans le cadre européen, les règles prévoient d'autres méthodes de gestion des cultures. Remplacer une application par une autre méthode peut éviter au travailleur de manipuler le produit concerné. Il ne s'agit pas d'une absence absolue de traitement ni d'une garantie sanitaire.",
+          "exemple": "Un maraîcher peut désherber mécaniquement entre ses rangs de carottes. Il retire les herbes sans préparer ni pulvériser un herbicide de synthèse, ce qui supprime cette occasion de contact avec ce produit.",
+          "consequence": "C'est un intérêt concret, sans rendre toutes les méthodes alternatives inoffensives."
         },
         {
-          "idea": "Ensuite, un cadre contrôlé permet de distinguer un engagement d'une simple publicité.",
-          "developpement": "Un mot rassurant sur une étiquette ne dit pas à lui seul comment le produit a été obtenu. Des règles et un suivi permettent au producteur et à l'acheteur de se référer à des conditions communes.",
-          "exemple": "Un acheteur peut vérifier à quel système de certification correspond le label d'un produit. Il ne confond pas cette garantie de production avec une promesse selon laquelle un biscuit serait équilibré ou un aliment automatiquement local.",
-          "consequence": "La confiance a besoin d'un contenu précis et vérifiable."
+          "idea": "Ensuite, les rotations peuvent contribuer à entretenir la fertilité des sols.",
+          "developpement": "Une légumineuse peut fixer l'azote de l'air grâce aux bactéries de ses racines. Quand ses résidus se décomposent, ils nourrissent en partie la culture suivante. Les rotations prévues dans le cadre européen permettent d'organiser ce cycle.",
+          "exemple": "Un céréalier peut cultiver des pois avant du blé et restituer les résidus au sol. Leur décomposition fournit une partie des éléments nécessaires au blé ; il vérifie ce qui manque avant d'ajuster les apports.",
+          "consequence": "C'est une façon de maintenir la capacité de produire, pas seulement de changer une étiquette."
         },
         {
-          "idea": "Enfin, la transition doit être soutenable pour ceux qui produisent.",
-          "developpement": "Changer de méthodes demande du temps, des compétences et des débouchés. Si les coûts et les risques reposent uniquement sur l'exploitation, une volonté de changement peut ne pas suffire à maintenir l'activité.",
-          "exemple": "Un producteur qui envisage une conversion peut établir un calendrier, chercher un accompagnement technique et discuter des ventes prévues. Des engagements commerciaux clairs l'aident davantage qu'une demande générale de devenir plus responsable sans soutien.",
-          "consequence": "L'ambition environnementale doit être liée à une organisation viable."
+          "idea": "Enfin, un cadre contrôlé permet de choisir des méthodes de production identifiables.",
+          "developpement": "Un mot rassurant sur une étiquette n'explique pas comment le produit a été obtenu. Des règles et un suivi donnent un contenu vérifiable à l'engagement, pour les acheteurs qui souhaitent soutenir ces pratiques.",
+          "exemple": "Sur un paquet de farine, un acheteur peut vérifier le label et l'organisme de contrôle indiqué. Il identifie ainsi le cadre de production, puis lit séparément l'origine : la certification bio ne lui dit pas que le blé a poussé près de chez lui.",
+          "consequence": "La confiance repose alors sur des conditions communes, pas seulement sur une publicité."
         }
       ],
-      "nuance": "Cependant, les résultats varient selon les cultures, les lieux et l'ensemble des impacts. Il faut aussi considérer les rendements, le transport, les sols et l'accès à l'alimentation. D'autres exploitations peuvent adopter des pratiques utiles sans que tout se résume à une opposition entre deux camps.",
-      "conclusion": "En conclusion, je soutiens un développement fondé sur des pratiques expliquées, des contrôles et une transition viable. Il faut mesurer les résultats et rendre les choix accessibles, plutôt que promettre qu'un label résout tous les problèmes agricoles."
+      "nuance": "Cependant, les résultats varient selon les cultures, les lieux et les rendements. La conversion demande du temps, des compétences et des débouchés viables ; l'accès à l'alimentation compte aussi. D'autres exploitations peuvent adopter des pratiques utiles sans que tout se résume à une opposition entre deux camps.",
+      "conclusion": "En conclusion, je soutiens le bio pour ses méthodes alternatives, la fertilité des sols et la transparence. Son développement doit être viable et ses effets mesurés : un label ne résout pas tout."
     },
     "environnement-p14": {
       "prompt_signatures": {

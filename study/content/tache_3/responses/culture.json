@@ -87,7 +87,7 @@
         {
           "idea": "Enfin, beaucoup de résultats dépendent d'une coopération que l'État ne peut pas remplacer.",
           "developpement": "Les pouvoirs publics peuvent financer des services et organiser leur fonctionnement. Mais les personnes qui les utilisent et les professionnels qui les mettent en œuvre doivent aussi participer pour que l'objectif soit atteint.",
-          "exemple": "Pour développer le tri des déchets, une collectivité doit prévoir des bacs et une collecte adaptée. Les habitants doivent ensuite séparer leurs déchets, et les services expliquer clairement les consignes. Sans cette chaîne, les équipements sont moins utiles.",
+          "exemple": "Dans un immeuble, une collectivité peut installer des bacs de tri sans que les habitants sachent les utiliser. Après une explication du gardien et l'affichage des consignes, ils commencent à séparer leurs déchets : les équipements seuls ne suffisaient pas.",
           "consequence": "L'efficacité repose sur des responsabilités complémentaires, et non sur un acteur qui ferait tout."
         }
       ],
@@ -135,7 +135,7 @@
         {
           "idea": "Tout d'abord, un autre pays peut offrir une possibilité directement liée à son objectif.",
           "developpement": "Les formations et les activités disponibles ne sont pas identiques partout. L'intérêt du départ apparaît lorsqu'on peut expliquer ce que le nouvel environnement apporte au projet, plutôt que supposer que tout sera meilleur ailleurs.",
-          "exemple": "Un étudiant qui souhaite se spécialiser dans un domaine précis peut trouver une formation avec les cours et les stages qu'il recherche. S'il est admis et peut la financer, ce séjour lui donne un moyen concret d'acquérir les compétences visées.",
+          "exemple": "Un étudiant en agronomie peut trouver à l'étranger une formation proposant un stage sur l'irrigation. S'il est admis et peut la financer, il pourra y apprendre à choisir une méthode d'arrosage adaptée à la région sèche où il souhaite travailler.",
           "consequence": "L'étranger devient alors une possibilité utile, pas une promesse abstraite."
         },
         {
@@ -202,7 +202,7 @@
         {
           "idea": "Ensuite, ces métiers reposent sur des compétences précises qu'il faut développer.",
           "developpement": "La créativité ne dispense pas de maîtriser des techniques et des outils. Cet apprentissage peut se faire dans une école, avec un professionnel ou de manière autonome, sans suivre un parcours unique.",
-          "exemple": "Une illustratrice doit savoir composer une image, choisir des couleurs et préparer un fichier dans le format demandé. Pour un livre destiné aux enfants, elle doit aussi rendre l'histoire compréhensible à travers ses dessins, pas seulement produire une belle image.",
+          "exemple": "Pour un album destiné aux enfants, une illustratrice peut représenter une dispute par les gestes des personnages, puis modifier les couleurs pour rendre la réconciliation visible. Ses choix permettent de suivre l'histoire avant même de lire le texte.",
           "consequence": "Ce savoir-faire permet de répondre à une demande, comme dans d'autres professions."
         },
         {
@@ -268,7 +268,7 @@
         {
           "idea": "Enfin, il faut réorganiser des routines que l'on maîtrisait auparavant.",
           "developpement": "Les horaires, les distances et les services disponibles ne correspondent pas nécessairement à ses anciennes habitudes. Cette réorganisation demande des essais, et parfois l'aide de personnes qui connaissent déjà le quartier.",
-          "exemple": "Une famille peut découvrir que le trajet entre l'école et le travail est plus long qu'elle ne l'imaginait. Elle doit comparer les transports et réorganiser les départs du matin, au lieu de reproduire son ancien emploi du temps.",
+          "exemple": "Une famille peut découvrir que le trajet entre l'école et le travail est plus long que prévu. Elle compare les transports, choisit un trajet avec moins de correspondances et avance le départ du matin pour arriver à l'heure.",
           "consequence": "L'adaptation passe donc aussi par des ajustements très pratiques."
         }
       ],
@@ -378,13 +378,13 @@
         {
           "idea": "Tout d'abord, les pratiques artistiques permettent d'apprendre à s'exprimer autrement.",
           "developpement": "Un élève doit faire des choix, les essayer et les ajuster pour transmettre quelque chose. Cela lui donne un cadre concret pour travailler sa voix, son attention ou la manière de présenter une idée.",
-          "exemple": "Dans une courte scène de théâtre, un élève doit parler assez distinctement pour être compris et écouter son partenaire pour répondre au bon moment. La répétition lui permet d'améliorer ces gestes avec un objectif immédiatement visible.",
+          "exemple": "Lors d'une répétition, un élève peut parler si vite que son partenaire manque sa réplique. En reprenant la scène plus lentement et en écoutant la réponse, il rend le dialogue compréhensible pour ses camarades.",
           "consequence": "L'activité est donc un apprentissage de l'expression, pas seulement une distraction."
         },
         {
           "idea": "Ensuite, étudier des œuvres apprend à observer et à justifier un point de vue.",
           "developpement": "Il ne suffit pas de dire qu'une image nous plaît. Avec l'aide du professeur, on peut expliquer l'effet d'une couleur, d'un cadrage ou d'un rythme, puis écouter une interprétation différente.",
-          "exemple": "Devant deux affiches sur le même sujet, les élèves peuvent comparer ce qui attire leur attention et chercher les éléments qui produisent cet effet. Ils apprennent à appuyer leur avis sur ce qu'ils observent plutôt que sur une impression seule.",
+          "exemple": "Deux affiches annonçant un concert peuvent utiliser la même photo, mais donner une place différente à la date. Les élèves expliquent pourquoi le texte plus grand attire leur regard et rend l'information plus facile à repérer, plutôt que dire seulement quelle affiche leur plaît.",
           "consequence": "Cette démarche donne des outils pour regarder aussi les images du quotidien avec recul."
         },
         {
@@ -408,7 +408,7 @@
         {
           "idea": "Tout d'abord, les livres et les documentaires permettent de découvrir d'autres façons de vivre.",
           "developpement": "Un récit ou un documentaire peut expliquer le contexte d'une pratique et montrer plusieurs points de vue. Il faut croiser les sources pour éviter de prendre un seul témoignage pour la description de tout un pays.",
-          "exemple": "Une personne peut lire un roman consacré à l'histoire d'une famille, puis regarder un documentaire sur la fête qui y est décrite. Elle comprend mieux le sens de cette pratique, tout en sachant que toutes les familles ne la célèbrent pas de la même façon.",
+          "exemple": "Une personne peut lire un roman où une famille prépare un repas du Nouvel An, puis regarder un documentaire sur cette fête. Elle comprend pourquoi les retrouvailles comptent dans ce récit, sans supposer que toutes les familles la célèbrent de la même façon.",
           "consequence": "Elle construit ainsi une connaissance réfléchie, sans avoir besoin d'être sur place."
         },
         {
@@ -420,7 +420,7 @@
         {
           "idea": "Enfin, les échanges à distance permettent de poser ses propres questions.",
           "developpement": "Contrairement à un contenu que l'on reçoit seulement, une discussion permet de demander une précision et de corriger un malentendu. Des échanges réguliers donnent aussi accès à des aspects ordinaires de la vie.",
-          "exemple": "Dans un échange linguistique en ligne, deux personnes peuvent parler de leur trajet au travail ou de leurs repas. Si une habitude surprend l'une d'elles, l'autre peut l'expliquer et préciser qu'elle n'est pas partagée par tous.",
+          "exemple": "Lors d'un échange linguistique en ligne, une personne peut demander pourquoi son interlocuteur déjeune si tôt. Celui-ci explique que sa pause commence à midi : elle comprend une contrainte quotidienne au lieu de croire que tout le pays mange à la même heure.",
           "consequence": "La distance géographique n'empêche donc pas un dialogue suivi."
         }
       ],
@@ -437,15 +437,15 @@
       "arguments": [
         {
           "idea": "Tout d'abord, un repas peut révéler la manière dont un groupe organise un moment partagé.",
-          "developpement": "La place des invités, l'ordre des plats et la façon de servir ont parfois une signification. Les observer et poser des questions aide à comprendre les habitudes des personnes présentes, sans les attribuer automatiquement à tout un pays.",
-          "exemple": "Lors d'un repas de fête, un invité peut remarquer que plusieurs personnes préparent les plats ensemble. En demandant comment les tâches sont réparties, il découvre le rôle de cette préparation dans les retrouvailles familiales, au-delà de ce qu'il mange.",
+          "developpement": "Servir ensemble ou séparément, prendre son temps ou manger rapidement change la place donnée au moment commun. S'intéresser à ces choix aide à comprendre comment les personnes présentes organisent leurs relations autour du repas.",
+          "exemple": "Invité chez une famille, un voyageur peut se servir dès qu'un plat arrive, alors que les autres attendent. Son hôte lui explique qu'ils commencent lorsque tout le monde est assis : il comprend la place donnée au repas commun dans cette famille.",
           "consequence": "La cuisine donne ainsi accès à des relations, pas seulement à des saveurs."
         },
         {
-          "idea": "Ensuite, les recettes peuvent conserver une histoire et un savoir-faire.",
-          "developpement": "Les ingrédients et les techniques ne sont pas toujours choisis au hasard. Une personne qui les connaît peut expliquer une habitude familiale, une adaptation aux produits disponibles ou une transmission entre générations.",
+          "idea": "Ensuite, les recettes peuvent raconter l'histoire d'un lieu et de ses savoir-faire.",
+          "developpement": "Les ingrédients et les techniques sont liés aux ressources, aux saisons et aux échanges. Comprendre une recette transmise permet de découvrir les conditions de vie auxquelles elle répondait, pas seulement une préférence familiale.",
           "exemple": "Une cuisinière peut expliquer que sa grand-mère conservait les légumes d'été pour les manger en hiver, puis lui a transmis cette technique. Les participants découvrent ainsi le lien entre une recette, les saisons et une histoire familiale.",
-          "consequence": "Apprendre à cuisiner peut donc aussi être une manière d'écouter une mémoire familiale."
+          "consequence": "La recette raconte ainsi une manière de vivre, pas seulement des goûts."
         },
         {
           "idea": "Enfin, préparer un plat ensemble offre une occasion accessible de dialogue.",
@@ -561,19 +561,19 @@
         {
           "idea": "Tout d'abord, l'observation donne accès à des aspects concrets de la vie.",
           "developpement": "On peut découvrir les lieux, les transports ou certaines pratiques sans comprendre chaque conversation. Il faut toutefois distinguer ce que l'on observe et l'explication que l'on imagine.",
-          "exemple": "En utilisant les transports d'une ville, un visiteur peut repérer les correspondances, les distances et les difficultés d'accès. Il acquiert une expérience réelle de cette organisation, même s'il ne sait pas encore discuter avec les autres voyageurs.",
+          "exemple": "Un visiteur peut découvrir qu'un quartier apparemment proche du centre demande deux correspondances en bus. En faisant le trajet, il comprend une difficulté d'accès que le plan ne montrait pas, sans avoir parlé avec les autres voyageurs.",
           "consequence": "L'absence de maîtrise linguistique n'empêche donc pas toute connaissance pratique."
         },
         {
           "idea": "Ensuite, les traductions rendent accessibles des récits et des connaissances approfondies.",
           "developpement": "Des œuvres, des documents historiques et des entretiens traduits peuvent présenter plusieurs expériences d'un même pays. En comparant des sources sérieuses, on dépasse l'image d'une brochure ou d'une courte visite.",
-          "exemple": "Une personne peut lire en traduction des témoignages sur la vie rurale et urbaine d'un pays, puis regarder une conférence sous-titrée sur son histoire. Elle dispose alors d'éléments pour comprendre des différences qu'elle n'aurait pas vues seule.",
+          "exemple": "Une personne peut lire en traduction les récits d'une famille rurale et d'une famille citadine. Les auteurs expliquent leurs trajets vers l'école : elle comprend pourquoi l'accès aux études diffère entre ces deux situations, sans attribuer ces récits à tout le pays.",
           "consequence": "La médiation linguistique peut transmettre autre chose qu'une connaissance superficielle."
         },
         {
           "idea": "Enfin, une langue commune permet de dialoguer sans parler la langue locale.",
           "developpement": "Les habitants peuvent eux-mêmes parler plusieurs langues. Un échange direct reste possible si les interlocuteurs trouvent un moyen de se comprendre et acceptent d'expliquer leurs références.",
-          "exemple": "Un visiteur francophone au Japon peut discuter en français avec un habitant qui l'a appris. Il peut lui demander comment se déroule une fête locale et à quoi correspondent les gestes qu'il a observés.",
+          "exemple": "Lors d'une fête locale au Japon, un visiteur peut demander en français à un habitant pourquoi un participant s'incline devant lui. L'habitant explique que ces gestes accompagnent les salutations : le visiteur comprend une façon de montrer du respect, sans parler japonais.",
           "consequence": "On peut ainsi corriger une interprétation, même sans maîtriser la langue locale."
         }
       ],
@@ -589,21 +589,21 @@
       "position_claire": "J'associe volontiers la lecture à la culture, sans en faire une condition obligatoire. Pour moi, être cultivé signifie acquérir des connaissances, les relier et rester ouvert à d'autres expériences. La lecture y contribue fortement, mais l'écoute et la pratique peuvent aussi y conduire.",
       "arguments": [
         {
-          "idea": "Tout d'abord, la lecture permet de suivre et de comparer des idées développées.",
-          "developpement": "Un texte laisse le temps de revenir sur une explication ou de rapprocher deux passages. Ce travail aide à dépasser une information isolée pour comprendre un raisonnement et ses limites.",
+          "idea": "Tout d'abord, la lecture permet de développer la réflexion et la concentration.",
+          "developpement": "Lire un texte long demande de maintenir son attention pour relier les idées, comprendre les étapes d'un raisonnement et en examiner les limites. On peut ensuite revenir sur certains passages et confronter cette pensée à celle d'un autre auteur, plutôt que juxtaposer des informations isolées.",
           "exemple": "En lisant deux récits sur un même événement historique, une personne peut noter ce que les auteurs racontent différemment et chercher pourquoi. Elle ne retient pas seulement des dates : elle apprend à examiner la façon dont une histoire est présentée.",
           "consequence": "La lecture constitue donc une ressource importante pour construire un regard informé."
         },
         {
           "idea": "Ensuite, l'écoute peut elle aussi donner accès à des connaissances exigeantes.",
           "developpement": "La profondeur ne dépend pas uniquement du support écrit. Une conférence, un entretien ou un livre audio peut présenter une réflexion complète, à condition que l'auditeur prenne le temps de la comprendre.",
-          "exemple": "Une personne qui écoute une conférence sur la musique peut réécouter un passage et comparer les extraits proposés. Elle développe ainsi une connaissance précise par l'écoute et la comparaison, sans passer par un texte.",
+          "exemple": "Une conférence sur le jazz peut faire entendre la même mélodie jouée de deux façons. En réécoutant les extraits et les explications, une auditrice comprend ce que change l'improvisation et apprend à la reconnaître, sans passer par un texte.",
           "consequence": "Il serait réducteur de confondre culture et quantité de pages lues."
         },
         {
           "idea": "Enfin, la pratique et la transmission orale font aussi vivre des savoirs culturels.",
           "developpement": "Certaines connaissances passent par des gestes, des récits et une expérience partagée. Les comprendre demande de l'attention et de la réflexion, même lorsqu'elles ne sont pas acquises dans un texte.",
-          "exemple": "Auprès d'un artisan, une personne peut apprendre une technique, découvrir son histoire et comprendre pourquoi tel matériau est choisi. En observant puis en essayant, elle acquiert un savoir-faire et des références qu'un résumé ne lui donnerait pas.",
+          "exemple": "Dans un atelier de poterie, une personne peut observer le façonnage d'un bol puis essayer avec un artisan. En corrigeant un bord trop mince, elle comprend un geste du métier et découvre comment ce savoir se transmet.",
           "consequence": "La culture comprend donc aussi des connaissances que l'on apprend en faisant."
         }
       ],
@@ -737,7 +737,7 @@
       },
       "reformulation": "Une longue vie à l'étranger peut-elle affaiblir le lien avec sa culture d'origine ?",
       "position": "Oui, certains repères peuvent s'effacer, mais la durée ne détermine pas seule ce lien.",
-      "position_claire": "Oui, vivre longtemps à l'étranger peut conduire à oublier certaines pratiques de sa culture d'origine. Mais je distinguerais l'oubli d'un détail, le changement d'habitude et la perte de tout lien. L'usage quotidien, le rythme de vie et les moyens de rester en contact influencent cette évolution.",
+      "position_claire": "Oui, vivre longtemps à l'étranger peut conduire à oublier certaines pratiques de sa culture d'origine. Mais je distinguerais l'oubli d'un détail, le changement d'habitude et la perte de tout lien. La pratique, les souvenirs personnels et les moyens de rester en contact influencent cette évolution.",
       "arguments": [
         {
           "idea": "Tout d'abord, ce que l'on utilise moins peut devenir moins familier.",
@@ -746,20 +746,20 @@
           "consequence": "L'éloignement peut donc affaiblir des repères précis plutôt qu'effacer toute une identité."
         },
         {
-          "idea": "Ensuite, le nouveau rythme de vie peut laisser moins de place aux traditions d'origine.",
-          "developpement": "Les horaires de travail et les activités de l'entourage donnent un autre rythme à la vie quotidienne. Certaines occasions de célébrer les fêtes d'origine peuvent alors disparaître, surtout si l'on n'a personne avec qui les préparer.",
-          "exemple": "Une personne qui célébrait une fête avec ses proches peut ne plus l'organiser si elle travaille ce jour-là dans son pays d'accueil. Au fil des années, elle peut en oublier certains préparatifs ou les raisons de certains gestes.",
-          "consequence": "Le changement du quotidien peut donc faire perdre des pratiques que l'on connaissait auparavant."
+          "idea": "Ensuite, changer ses habitudes ne signifie pas forcément oublier leur sens.",
+          "developpement": "Une pratique peut devenir moins fréquente tout en gardant une place dans les souvenirs. Ce qui a marqué l'histoire personnelle peut encore avoir du sens, même si l'on ne le reproduit plus de la même manière.",
+          "exemple": "Une personne qui travaille le jour d'une fête peut ne plus organiser le repas traditionnel. Mais elle peut expliquer à ses enfants ce qu'elle célébrait et raconter les préparatifs avec ses grands-parents : son calendrier a changé, pas tous ses souvenirs.",
+          "consequence": "On ne peut donc pas déduire l'oubli d'une culture de la seule disparition d'une habitude visible."
         },
         {
           "idea": "Enfin, les contacts réguliers peuvent entretenir un lien même après de nombreuses années.",
           "developpement": "La distance n'empêche pas de parler une langue, d'écouter des récits ou de découvrir l'évolution du pays d'origine. Ces contacts évitent aussi de ne conserver qu'une image figée du passé.",
-          "exemple": "Une personne installée depuis longtemps ailleurs peut appeler des proches pour discuter d'un événement familial, écouter leurs nouvelles et lire des œuvres récentes de son pays. Elle continue ainsi à faire vivre le lien dans le présent.",
+          "exemple": "Une personne installée depuis vingt ans ailleurs peut téléphoner chaque semaine à sa sœur dans leur langue familiale. Quand une expression lui échappe, sa sœur la lui rappelle : elle continue ainsi à pratiquer une langue qu'elle utilise peu au travail.",
           "consequence": "La durée du séjour ne suffit donc pas à prévoir ce qui sera gardé ou oublié."
         }
       ],
       "nuance": "Cependant, entretenir ce lien ne dépend pas seulement de la volonté : le temps, les ressources et l'histoire familiale comptent aussi. Adopter d'autres habitudes n'est pas nécessairement oublier ses origines. Chacun doit pouvoir faire évoluer son identité sans être accusé de trahir sa culture.",
-      "conclusion": "En conclusion, une longue vie à l'étranger peut éloigner de certaines pratiques, surtout si elles ne sont plus utilisées ou trouvent moins de place dans le quotidien. Mais le lien peut rester vivant et évoluer : il n'est ni automatiquement effacé ni obligé de rester intact."
+      "conclusion": "En conclusion, une longue vie à l'étranger peut faire oublier certaines pratiques moins utilisées. Mais un changement d'habitude n'efface pas forcément les souvenirs, et les contacts peuvent entretenir le lien. Celui-ci peut évoluer sans disparaître ni rester intact."
     },
     "culture-p29": {
       "prompt_signatures": {
@@ -783,9 +783,9 @@
         },
         {
           "idea": "Enfin, certaines situations administratives rendent les projets moins prévisibles.",
-          "developpement": "Selon le pays et le statut, il peut être nécessaire de suivre des démarches ou de vérifier les conséquences d'un changement de situation. Cette incertitude peut peser lorsqu'on prépare un projet à long terme.",
-          "exemple": "Avant d'accepter un nouveau poste, une personne dont l'autorisation de travail comporte des conditions peut devoir vérifier ce qui est permis auprès de l'organisme compétent. Elle ne peut pas supposer qu'un changement d'employeur sera automatiquement sans conséquence.",
-          "consequence": "L'effort consiste aussi à s'informer avant de prendre une décision importante."
+          "developpement": "Selon le pays et le statut, un changement d'emploi peut demander des démarches supplémentaires. Tant que leurs conséquences ne sont pas clarifiées, il peut être difficile de prévoir ses revenus et de s'engager dans un projet à long terme.",
+          "exemple": "Une personne dont l'autorisation de travail est liée à un employeur peut recevoir une nouvelle offre. Si elle doit attendre une autorisation pour commencer, elle ne peut pas compter immédiatement sur ce salaire et peut devoir reporter la location d'un logement plus adapté.",
+          "consequence": "L'incertitude administrative peut donc limiter des choix concrets, même quand une possibilité professionnelle se présente."
         }
       ],
       "nuance": "Cependant, ces difficultés ne concernent pas tous les étrangers de la même manière. Un statut stable, des ressources suffisantes et des relations de confiance peuvent les réduire. La vie dans le pays d'origine peut elle aussi être difficile : il faut comparer des situations réelles.",
@@ -862,7 +862,7 @@
         {
           "idea": "Tout d'abord, un parcours artistique ou sportif n'empêche pas d'avoir une expérience utile au débat.",
           "developpement": "La politique concerne des sujets que des personnes de métiers différents rencontrent concrètement. Il faut examiner ce qu'une célébrité connaît et propose, plutôt que rejeter sa parole uniquement parce qu'elle est connue.",
-          "exemple": "Une sportive qui a participé à l'organisation d'un club peut contribuer à une discussion sur l'accès aux équipements. Son expérience ne fait pas d'elle une spécialiste de tous les budgets publics, mais elle peut éclairer ce sujet précis.",
+          "exemple": "Une sportive ayant organisé des entraînements peut expliquer que certains jeunes de son club ne peuvent pas rejoindre le gymnase le soir, faute de bus. Elle apporte un problème concret au débat sur les équipements, sans prétendre connaître tous les budgets publics.",
           "consequence": "La diversité des parcours peut enrichir le débat, si chacun reconnaît les limites de son expérience."
         },
         {
@@ -934,7 +934,7 @@
         {
           "idea": "Enfin, les immigrés peuvent contribuer à la vie associative et à l'entraide locale.",
           "developpement": "Participer à un projet commun crée des liens entre habitants et permet d'agir sur des besoins concrets. Cette dimension ne dépend pas uniquement d'un emploi ou d'un niveau de revenu.",
-          "exemple": "Dans une association de quartier, un nouvel habitant peut participer à une collecte alimentaire : préparer les cartons, répartir les produits ou accueillir les participants dans une langue qu'il connaît. Il apporte du temps et des compétences, comme les autres bénévoles.",
+          "exemple": "Lors d'une collecte alimentaire, un nouvel habitant peut expliquer les consignes à une famille dans une langue qu'il connaît. Celle-ci comprend comment retirer son colis et peut poser ses questions : sa participation rend l'aide plus accessible, comme celle des autres bénévoles.",
           "consequence": "La richesse d'une société se mesure aussi à cette capacité de coopération."
         }
       ],

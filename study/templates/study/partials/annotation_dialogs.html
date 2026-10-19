@@ -18,6 +18,12 @@
     <input type="hidden" name="next" value="{{ request.get_full_path }}">
     <div class="form-dialog__body">
       <div class="notes-form-field">
+        <label for="{{ form.task.id_for_label }}">{{ form.task.label }}</label>
+        {{ form.task }}
+        <small class="notes-form-field__hint">{{ form.task.help_text }}</small>
+        {% for error in form.task.errors %}<small class="auth-field__error">{{ error }}</small>{% endfor %}
+      </div>
+      <div class="notes-form-field">
         <label for="{{ form.title.id_for_label }}">{{ form.title.label }}</label>
         {{ form.title }}
         {% for error in form.title.errors %}<small class="auth-field__error">{{ error }}</small>{% endfor %}

@@ -481,11 +481,11 @@ class AnnotationTests(TestCase):
         self.assertEqual(section_keys, ["today"])
         self.assertContains(response, "Aujourd")
 
-    def test_freeform_notes_are_categorized_by_task_or_general(self):
+    def test_freeform_notes_use_a_task_only_when_explicitly_selected(self):
         task_url = self.task_notes_url
         response = self.client.post(
             task_url,
-            {"title": "Connecteurs", "body": "Employer cependant et pourtant."},
+            {"title": "Connecteurs", "body": "Employer cependant et pourtant.", "task": self.task.pk},
         )
         task_note = Annotation.objects.get(title="Connecteurs")
         self.assertRedirects(
@@ -516,6 +516,7 @@ class AnnotationTests(TestCase):
                 "title": "Transition",
                 "body": "Conserver cette transition.",
                 "next": return_url,
+                "task": self.task.pk,
             },
         )
         note = Annotation.objects.get(title="Transition")
@@ -2707,7 +2708,10 @@ class NotesPaginationTests(TestCase):
         self._rows(51, created_at=midnight)
         url = self.url + "?sort_today=asc&tab=notes"
         created = self.client.post(
-            url, {"title": "Newest sorted note", "body": "New body", "next": url}, follow=True,
+            url, {
+                "title": "Newest sorted note", "body": "New body",
+                "next": url, "task": self.task.pk,
+            }, follow=True,
         )
         note = Annotation.objects.get(title="Newest sorted note")
         self.assertEqual(created.context["page_obj"].number, 2)
@@ -3002,7 +3006,9 @@ class NotesPaginationTests(TestCase):
         ):
             with self.subTest(title=title):
                 created = self.client.post(
-                    return_url, {"title": title, "body": body, "next": return_url},
+                    return_url, {
+                        "title": title, "body": body, "next": return_url, "task": self.task.pk,
+                    },
                     follow=True,
                 )
                 new = Annotation.objects.get(title=title)

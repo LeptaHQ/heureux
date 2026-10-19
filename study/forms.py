@@ -6,7 +6,7 @@ from django import forms
 from django.contrib.auth import get_user_model
 
 from .content_loader import fit_ee_tache_three_answer
-from .models import Annotation
+from .models import Annotation, Task
 from .response_personalization import effective_response
 
 USERNAME_RE = re.compile(r"^[a-z0-9][a-z0-9._-]{2,29}$")
@@ -449,3 +449,28 @@ class NoteForm(forms.ModelForm):
         if not body and not self.instance.quote.strip():
             self.add_error("body", "Écrivez une note avant de l'enregistrer.")
         return cleaned
+
+
+class NewNoteForm(NoteForm):
+    task = forms.ModelChoiceField(
+        queryset=Task.objects.none(),
+        required=False,
+        label="Groupe",
+        empty_label="Personnelles",
+        help_text=(
+            "Personnelles par défaut. "
+            "Choisissez une tâche pour classer cette note autrement."
+        ),
+        widget=forms.Select(attrs={"class": "search-form__select"}),
+    )
+
+    class Meta(NoteForm.Meta):
+        fields = (*NoteForm.Meta.fields, "task")
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["task"].queryset = (
+            Task.objects.filter(is_active=True)
+            .select_related("part")
+            .order_by("part__order", "order", "part__slug", "slug")
+        )

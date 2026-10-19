@@ -8002,6 +8002,80 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assert_no_horizontal_overflow()
 
+    def test_new_note_defaults_to_personal_independently_of_the_selected_task_folder(self):
+        ee = factories.make_task(factories.make_part("ee"), "tache-1")
+        personal_url = reverse("study:custom_notes")
+        for task in (ee, self.task):
+            path = reverse("study:task_notes", args=[task.part.slug, task.slug])
+            self.page.goto(self.live_server_url + path + "?q=absent&status=done")
+            self.page.get_by_role("button", name="Nouvelle note", exact=True).click()
+            dialog = self.page.locator("#note-create-dialog")
+            expect(dialog.get_by_label("Groupe", exact=True)).to_have_value("")
+            title = f"Impératif depuis {task.part.short_name}"
+            dialog.get_by_label("Titre (facultatif)").fill(title)
+            dialog.get_by_label("Votre note").fill("Prends ! Prenons ! Prenez !")
+            self.assert_no_horizontal_overflow()
+            dialog.get_by_role("button", name="Enregistrer", exact=True).click()
+            self.page.wait_for_url(self.live_server_url + personal_url + "**")
+            note = Annotation.objects.get(user=self.user, title=title)
+            self.assertIsNone(note.task_id)
+            self.assertEqual((note.source_path, note.source_key, note.quote), ("", "", ""))
+            expect(self.page.locator(f"#note-{note.pk}")).to_be_visible()
+
+    def test_new_note_can_explicitly_choose_a_different_task_group(self):
+        ee = factories.make_task(factories.make_part("ee"), "tache-1")
+        path = reverse("study:task_notes", args=[self.part.slug, self.task.slug])
+        self.page.goto(self.live_server_url + path)
+        self.page.get_by_role("button", name="Nouvelle note", exact=True).click()
+        dialog = self.page.locator("#note-create-dialog")
+        dialog.get_by_label("Groupe", exact=True).select_option(str(ee.pk))
+        dialog.get_by_label("Titre (facultatif)").fill("Mon carnet EE1")
+        dialog.get_by_role("button", name="Enregistrer", exact=True).click()
+        expect(dialog).to_be_visible()
+        expect(dialog.get_by_label("Groupe", exact=True)).to_have_value(str(ee.pk))
+        self.assertFalse(Annotation.objects.filter(user=self.user, title="Mon carnet EE1").exists())
+        dialog.get_by_label("Votre note").fill("Note volontairement classée dans EE1.")
+        dialog.get_by_role("button", name="Enregistrer", exact=True).click()
+        destination = reverse("study:task_notes", args=["ee", "tache-1"])
+        self.page.wait_for_url(self.live_server_url + destination + "**")
+        note = Annotation.objects.get(user=self.user, title="Mon carnet EE1")
+        self.assertEqual(note.task_id, ee.pk)
+        expect(self.page.locator(f"#note-{note.pk}")).to_be_visible()
+        self.page.get_by_role("button", name="Nouvelle note", exact=True).click()
+        expect(dialog.get_by_label("Groupe", exact=True)).to_have_value("")
+
+    def test_contextual_ee_and_eo_notes_keep_the_task_of_the_selected_content(self):
+        ee = factories.make_task(factories.make_part("ee"), "tache-1")
+        sujet = factories.make_writing_sujet(
+            ee, versions=("Un passage utile pour mon prochain message.",),
+        )
+        targets = (
+            (
+                ee, reverse("study:writing_sujet_detail", args=["ee", "tache-1", sujet.pk]),
+                ".t1-response__body p",
+            ),
+            (
+                self.task, response_detail_url(self.first.response),
+                ".answer-columns[data-annotation-root] .arg__part p",
+            ),
+        )
+        for task, path, selector in targets:
+            self.page.goto(self.live_server_url + path)
+            text = self.page.locator(selector).first
+            self.select_prompt(target=text)
+            self.page.locator("[data-note-selection]").click()
+            panel = self.page.locator("[data-note-panel]")
+            body = f"Note issue du contenu {task.part.short_name}."
+            panel.locator("[data-note-body]").fill(body)
+            panel.locator("[data-note-save-close]").click()
+            expect(panel).to_be_hidden()
+            note = Annotation.objects.get(user=self.user, kind=AnnotationKind.NOTE, body=body)
+            self.assertEqual(note.task_id, task.pk)
+            self.assertEqual(note.source_path, path)
+            self.assertTrue(note.quote)
+            self.page.goto(self.live_server_url + reverse("study:custom_notes"))
+            expect(self.page.get_by_text(body, exact=True)).to_have_count(0)
+
     def test_mobile_annotation_search_study_and_weak_drill(self):
         Annotation.objects.create(
             user=self.user,
@@ -9252,6 +9326,7 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.page.get_by_role("button", name="Nouvelle note").click()
         dialog = self.page.locator("#note-create-dialog")
+        dialog.get_by_label("Groupe", exact=True).select_option(str(self.task.pk))
         dialog.get_by_label("Titre (facultatif)").fill("Matching new note")
         dialog.get_by_label("Votre note").fill("Matching freshly written body")
         dialog.get_by_role("button", name="Enregistrer", exact=True).click()

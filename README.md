@@ -50,6 +50,14 @@ light and dark themes.
 
 ## Notes and highlights
 
+**Nouvelle note** always defaults to **Personnelles**, independently of the open
+folder. Its optional group selector can explicitly assign an expression task.
+Notes captured from EE/EO content keep their source task; contextual CE/CO notes
+keep their comprehension folder. Creating a note opens its actual destination
+folder, not an unrelated active filter. Migration 0057 corrects legacy standalone
+notes that inherited a task despite having no quote, source path or source key;
+it changes only their task assignment, retaining IDs, text, dates and study state.
+
 Notes folders show 50 records per page and load only the active tab. Search and
 tab totals cover all matching records; the study total is calculated before the
 status filter. Flashcards use the full filtered selection, while the study queue

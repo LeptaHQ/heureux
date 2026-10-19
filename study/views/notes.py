@@ -26,6 +26,7 @@ from django.views.decorators.http import require_GET, require_POST, require_http
 
 from .. import content_loader as content_module
 from ..forms import (
+    NewNoteForm,
     NoteForm,
 )
 from ..formulation_progress import formulation_annotation_progress_payload
@@ -452,6 +453,9 @@ def _filter_annotation_status(annotations, status):
 
 def _new_note_redirect(request, note):
     target = urlsplit(_annotation_redirect(request, note))
+    folder = urlsplit(_annotation_folder_url(note))
+    if target.path != folder.path:
+        target = folder
     params = parse_qs(target.query)
     params.pop("page", None)
     params.pop("locate", None)
@@ -520,20 +524,14 @@ def _notes_scope(
         active_tab = "notes"
         instance = Annotation(
             user=request.user,
-            task=task,
             kind=AnnotationKind.NOTE,
         )
-        form = NoteForm(request.POST, instance=instance)
+        form = NewNoteForm(request.POST, instance=instance)
         if form.is_valid():
             note = form.save()
-            if task is None and not custom:
-                return redirect(
-                    _annotation_scope_url(custom=True)
-                    + f"?tab=notes#note-{note.id}"
-                )
             return redirect(_new_note_redirect(request, note))
     else:
-        form = NoteForm()
+        form = NewNoteForm()
     status_filter = _annotation_status_filter(status)
     active_kind = AnnotationKind.HIGHLIGHT if active_tab == "highlights" else AnnotationKind.NOTE
     active_filter = status_filter & Q(kind=active_kind)
@@ -654,6 +652,12 @@ def _notes_scope(
         for filter_task in Task.objects.select_related("part")
         .filter(Q(is_active=True) | Q(pk__in=list(task_totals)))
         .order_by("part__order", "order")
+    ]
+    form.fields["task"].choices = [
+        ("", form.fields["task"].empty_label),
+    ] + [
+        (item["task"].pk, str(item["task"]))
+        for item in task_filters if item["task"].is_active
     ]
     tab_url_prefix = "?" + (urlencode(preserved) + "&" if preserved else "")
     status_base_params = {**sort_params, "tab": active_tab}

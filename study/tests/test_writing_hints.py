@@ -261,7 +261,7 @@ class WritingHintsViewTests(TestCase):
                 self.assertEqual(page.status_code, 200)
                 self.assertIs(page.context["subject_hints"], hints[sujet.slug])
                 self.assertContains(page, 'lang="fr">Pistes</h2>')
-                self.assertContains(page, "Voir les pistes")
+                self.assertNotContains(page, "Voir les pistes")
                 self.assertContains(page, 'class="subject-hints__french"', count=len(hints[sujet.slug]))
                 self.assertContains(page, 'class="subject-hints__english"', count=len(hints[sujet.slug]))
                 self.assertNotContains(page, ">Hints<")

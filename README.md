@@ -310,8 +310,9 @@ They summarize reviewed current responses, including authorized customizations,
 without publishing account identifiers or private contact details. Each list has
 5–8 bilingual cues, at most 110 characters per language per cue and 75 French
 words in total. These are shared editorial snapshots, not live summaries of an
-account's latest answer. The cache contains no learner state, the card stays
-outside response annotation roots, and other writing themes/tasks remain unchanged.
+account's latest answer. The cache contains no learner state. The card follows
+progression without a separate header shortcut and stays outside response
+annotation roots; other writing themes/tasks remain unchanged.
 
 EO task 2 and task 3 use editorial `semantic_groups.json` partitions, including
 singletons. A shared answer or question-body hash is **not** proof of equivalence.

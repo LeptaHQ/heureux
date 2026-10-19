@@ -579,6 +579,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.reload()
         hints = self.page.locator(".subject-hints--writing")
         expect(hints.get_by_role("heading", name="Pistes", exact=True)).to_be_visible()
+        expect(self.page.get_by_role("link", name="Voir les pistes", exact=True)).to_have_count(0)
         self.assertTrue(hints.evaluate("element => element.closest('[data-annotation-root]') === null"))
         expect(root.locator("mark.user-highlight")).to_have_text(saved["quote"])
         self.assertEqual(root.text_content(), saved["text"])
@@ -627,7 +628,8 @@ class BrowserTests(StaticLiveServerTestCase):
                         page.set_viewport_size({"width": width, "height": 850})
                         if width <= 760:
                             expect(page.locator("[data-nav-links]")).to_be_hidden()
-                        page.get_by_role("link", name="Voir les pistes", exact=True).click()
+                        expect(page.get_by_role("link", name="Voir les pistes", exact=True)).to_have_count(0)
+                        hints.get_by_role("heading", name="Pistes", exact=True).scroll_into_view_if_needed()
                         expect(hints.get_by_role("heading", name="Pistes", exact=True)).to_be_in_viewport()
                         self.assert_progress_before_pistes(page)
                         self.assertLessEqual(

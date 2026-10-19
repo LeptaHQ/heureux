@@ -199,13 +199,52 @@ deleting its content, notes or progress.
 Reviewed public EO3 defaults use stable `response:{prompt.content_key}:model`
 annotation keys. An editorial edit replaces the current authored text, not its
 annotation identity. Restore selections only by an exact quote and unambiguous
-saved context; never guess old offsets onto replacement text. Removed or
+saved context or a verified unchanged-field anchor; never guess old offsets onto replacement text. Removed or
 ambiguous selections remain stored in Notes, including their IDs and note bodies.
 The frozen, identifier-only transition bridge covers old public keys through
 `11531d8`; do not extend it or author response histories or snapshots for future
 public edits. Unreviewed, private, EO2 and EE content are not rewritten by the
 reviewed catalogue. Imports validate it before writing; workers must restart
 after file-backed catalogue changes.
+
+### Annotation field identities and publication staging
+
+The detail and practice-back templates mark each reviewed model field without
+changing its text or whitespace. Private annotation `response_anchor` metadata
+contains only the field identifier, SHA-256 checksum and relative UTF-16 start/end.
+When the entire field is unchanged, its checksum and exact selected text prove
+placement even if both neighbours were rewritten. If the field changed, the
+conservative exact-quote/context matcher stays confined to that field. Missing,
+retired or ambiguous fields leave the selection stored, not guessed elsewhere.
+Cross-field selections and unscoped legacy rows retain the conservative matcher.
+
+Argument identities default to `[1, 2, 3]` for existing models. An optional
+`argument_ids` list assigns three distinct positive integers independent of spoken
+order. Keep an existing argument's ID through a targeted revision or intentional
+reordering; assign a fresh, never-recycled ID to a genuinely new reason. Retiring
+an argument does not authorize its quote to move into another argument. These IDs
+are presentation metadata, outside response bodies, legacy digests and source
+signatures. Do not infer continuity automatically from matching examples.
+
+For the initial rollout, publish the capture runtime and migration 0058 **without
+editorial changes**, and verify that this version is serving requests. Then run
+`python manage.py backfill_response_anchors` against the same still-published
+catalogue after the old workers have drained. A separate preservation-only build
+can run that command through `deploy_database`; no model text may change in it.
+This second pass closes the window where the original workers could save an
+unscoped selection after the first build's backfill. The command is idempotent,
+locks only each annotation row, and updates only verified anchor metadata, not
+note bodies, offsets, timestamps, completion, cards or source identities.
+Unverifiable older rows remain unscoped and are reported explicitly.
+
+Only after capture and the post-cutover backfill are confirmed may an editorial
+release replace the surrounding fields. The actual-transition gate must model
+that sequence: create existing rows on the published text, capture/backfill there,
+switch catalogues, and retain all original inline-restoration and private-data
+assertions. Also exercise new selections from already-open pre-capture pages,
+stale unscoped saves after the editorial cutover, reused quotes under new argument
+IDs, and both detail/practice surfaces. Never replace this deployment sequence
+with response snapshots or an extension of the frozen digest bridge.
 
 ## Culture learning consistency
 

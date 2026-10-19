@@ -63,6 +63,20 @@ class TacheThreeModelContentTests(SimpleTestCase):
             path.write_text(json.dumps(payload), encoding="utf-8")
             return load_tache_three_models(Path(directory), responses=self.sources)
 
+    def test_argument_identities_are_optional_unique_and_independent_of_spoken_order(self):
+        payload = deepcopy(self.payload)
+        group = next(iter(payload["responses"]))
+        baseline = self.load(payload)[f"eo/tache-3/{group}"]
+        payload["responses"][group]["argument_ids"] = [1, 4, 2]
+        revised = self.load(payload)[baseline.group]
+        self.assertEqual(revised.argument_ids, (1, 4, 2))
+        self.assertEqual(revised.response, baseline.response)
+        for identities in ([1, 1, 2], [1, True, 2], [0, 2, 3], [1, 2], "123", [1, 2, 10000]):
+            with self.subTest(identities=identities):
+                payload["responses"][group]["argument_ids"] = identities
+                with self.assertRaisesMessage(ValueError, "argument identities"):
+                    self.load(payload)
+
     def test_culture_covers_every_publication_and_only_genuine_equivalents(self):
         models = catalogue.tache_three_models()
         culture = [source for source in self.sources if source.theme == "Culture"]

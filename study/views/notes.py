@@ -1382,6 +1382,8 @@ def annotation_create(request):
         "suffix": (request.POST.get("suffix") or "")[:160],
         "body": body,
     }
+    from ..public_response_annotations import capture_public_response_anchor
+
     removed_ids = []
     try:
         if kind == AnnotationKind.HIGHLIGHT:
@@ -1475,6 +1477,20 @@ def annotation_create(request):
                         overlapping[0] if overlapping else None,
                     )
                 created = annotation is None
+                previous_anchor = (
+                    annotation.response_anchor
+                    if annotation is not None and (
+                        annotation.source_path == source_path
+                        and annotation.source_key == source_key
+                        and annotation.quote == quote
+                        and annotation.start_offset == start_offset
+                        and annotation.end_offset == end_offset
+                        and annotation.prefix == values["prefix"]
+                        and annotation.suffix == values["suffix"]
+                        and annotation.task_id == (task.pk if task is not None else None)
+                    )
+                    else {}
+                )
                 if created:
                     annotation = Annotation(
                         user=request.user,
@@ -1499,6 +1515,7 @@ def annotation_create(request):
                     annotation.study_later = any(
                         item.study_later for item in overlapping
                     )
+                annotation.response_anchor = previous_anchor or capture_public_response_anchor(annotation)
                 annotation.full_clean(validate_constraints=False)
                 try:
                     with transaction.atomic():
@@ -1543,6 +1560,7 @@ def annotation_create(request):
                 end_offset=end_offset,
                 **values,
             )
+            annotation.response_anchor = capture_public_response_anchor(annotation)
             annotation.full_clean()
             annotation.save()
             created = True

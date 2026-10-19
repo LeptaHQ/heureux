@@ -42,7 +42,7 @@
     {% if response_content.position_claire %}
       <section class="card section-card">
         <div class="section-card__head"><div class="spine-label">Introduction</div>{% if can_edit_response %}{% if not response_content.position or reviewed_eo3 %}<span class="section-card__tools" data-annotation-exclude>{% spaceless %}{% include "study/partials/oral_response_edit_button.html" %}{% endspaceless %}</span>{% endif %}{% endif %}</div>
-        <p class="spine-text">{{ response_content.position_claire }}</p>
+        <p class="spine-text"{% if reviewed_eo3 %} data-response-field="introduction"{% endif %}>{{ response_content.position_claire }}</p>
       </section>
     {% endif %}
 
@@ -52,25 +52,25 @@
         <article class="arg arg--full">
           <h2 class="arg__idea">
             <span class="arg__number">{{ arg.order }}</span>
-            <span>{{ arg.idea }}</span>
+            <span{% if reviewed_eo3 %} data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-idea"{% endif %}>{{ arg.idea }}</span>
           </h2>
           <div class="arg__parts">
             {% if arg.developpement %}
               <div class="arg__part">
                 <div class="arg__part-label">Développement</div>
-                <p>{{ arg.developpement }}</p>
+                <p{% if reviewed_eo3 %} data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-developpement"{% endif %}>{{ arg.developpement }}</p>
               </div>
             {% endif %}
             {% if arg.exemple %}
               <div class="arg__part">
                 <div class="arg__part-label">Exemple concret</div>
-                <p>{{ arg.exemple }}</p>
+                <p{% if reviewed_eo3 %} data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-exemple"{% endif %}>{{ arg.exemple }}</p>
               </div>
             {% endif %}
             {% if arg.consequence %}
               <div class="arg__part">
                 <div class="arg__part-label">Conséquence</div>
-                <p>{{ arg.consequence }}</p>
+                <p{% if reviewed_eo3 %} data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-consequence"{% endif %}>{{ arg.consequence }}</p>
               </div>
             {% endif %}
           </div>
@@ -81,14 +81,14 @@
     {% if response_content.nuance %}
       <section class="card section-card section-card--nuance">
         <div class="spine-label">Nuance</div>
-        <p class="spine-text">{{ response_content.nuance }}</p>
+        <p class="spine-text"{% if reviewed_eo3 %} data-response-field="nuance"{% endif %}>{{ response_content.nuance }}</p>
       </section>
     {% endif %}
 
     {% if response_content.conclusion %}
       <section class="card section-card section-card--conclusion">
         <div class="spine-label">Conclusion</div>
-        <p class="spine-text">{{ response_content.conclusion }}</p>
+        <p class="spine-text"{% if reviewed_eo3 %} data-response-field="conclusion"{% endif %}>{{ response_content.conclusion }}</p>
       </section>
     {% endif %}
     {% endif %}

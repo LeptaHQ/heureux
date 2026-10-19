@@ -2826,6 +2826,143 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(self.page.locator("#oral-response-copy")).to_have_count(0)
         expect(self.page.get_by_role("button", name="Copier la consigne")).to_be_visible()
 
+    def test_eo3_adjacent_rewrites_preserve_browser_saved_sections_and_note_anchors(self):
+        from study import catalogue
+        from study.public_response_annotations import render_current_response
+
+        self._import_eo_tache_three_content()
+        prompt = Prompt.objects.select_related("response", "theme__task__part").get(
+            content_key="culture:p15",
+        )
+        models = catalogue.tache_three_models()
+        model = models[prompt.response.semantic_group]
+        before = model.response
+        arguments = list(before.arguments)
+        arguments[0] = replace(
+            arguments[0],
+            idea="A completely different first claim.",
+            developpement="A new explanation replaces the first argument's development.",
+            exemple="A different actor demonstrates a different result.",
+            consequence="A revised consequence follows from the new example.",
+        )
+        arguments[1] = replace(
+            arguments[1],
+            developpement="A completely different development precedes the unchanged example.",
+            consequence="A completely different consequence follows the unchanged example.",
+        )
+        after = replace(
+            before, arguments=tuple(arguments),
+            nuance="A new qualification replaces the context immediately before the conclusion.",
+        )
+        retained = (
+            before.position_claire, before.arguments[1].exemple, before.conclusion,
+        )
+        removed_quote = before.arguments[0].exemple
+        detail_path = prompt_detail_url(prompt)
+        review_path = (
+            reverse("study:review")
+            + f"?kind=spine&response={prompt.response_id}&prompt={prompt.pk}"
+        )
+        for surface, path in (("detail", detail_path), ("back", review_path)):
+            with self.subTest(surface=surface):
+                root = self.page.locator(
+                    ".answer-columns[data-annotation-root]"
+                    if surface == "detail" else "#card-back[data-annotation-root]"
+                )
+
+                def load_surface():
+                    with self.page.expect_response(
+                        lambda response: urlsplit(response.url).path
+                        == reverse("study:annotations_for_source")
+                    ) as loaded:
+                        self.page.goto(self.live_server_url + path)
+                    self.assertEqual(loaded.value.status, 200)
+                    if surface == "back":
+                        expect(self.page.locator("#card-front .prompt-text")).to_have_text(prompt.text)
+                        self.page.locator("#reveal").click()
+                    expect(root).to_be_visible()
+                    return loaded.value.json()["highlights"]
+
+                load_surface()
+                source_key = (
+                    f"response:{prompt.content_key}:model"
+                    + (":back" if surface == "back" else "")
+                )
+                expect(root).to_have_attribute("data-annotation-source-key", source_key)
+                target = root.locator("p, .spine-text").filter(has_text=before.conclusion)
+                target.scroll_into_view_if_needed()
+                self.select_prompt(target=target)
+                self.page.locator("[data-note-selection]").click()
+                panel = self.page.locator("[data-note-panel]")
+                panel.locator("[data-note-body]").fill("Keep this conclusion note.")
+                with self.page.expect_response(
+                    lambda response: urlsplit(response.url).path
+                    == reverse("study:annotation_create")
+                ) as created:
+                    panel.locator("[data-note-save-close]").click()
+                self.assertEqual(created.value.status, 201)
+                expect(panel).to_be_hidden()
+                self.page.get_by_text(
+                    "Note enregistrée et passage surligné.", exact=True,
+                ).wait_for()
+                for quote in (*retained[:2], removed_quote):
+                    target = root.locator("p, .spine-text").filter(has_text=quote)
+                    target.scroll_into_view_if_needed()
+                    self.save_current_prompt_highlight(target=target)
+                old_items = load_surface()
+                marks = list(Annotation.objects.filter(
+                    user=self.user, source_key=source_key, kind=AnnotationKind.HIGHLIGHT,
+                ).order_by("pk"))
+                self.assertEqual(len(marks), 4)
+                self.assertEqual({mark.quote for mark in marks}, {*retained, removed_quote})
+                self.assertEqual({item["id"] for item in old_items}, {mark.pk for mark in marks})
+                note = Annotation.objects.get(
+                    user=self.user, source_key=source_key, kind=AnnotationKind.NOTE,
+                )
+                self.assertEqual(note.quote, before.conclusion)
+                self.assertEqual(note.body, "Keep this conclusion note.")
+                ids = [mark.pk for mark in marks] + [note.pk]
+                Annotation.objects.filter(pk__in=ids).update(
+                    study_later=True, completed_at=timezone.now(),
+                )
+                metadata = (
+                    "pk", "kind", "quote", "body", "title", "study_later", "completed_at",
+                    "source_prompt_id", "source_path", "source_key", "created_at",
+                )
+                saved = list(Annotation.objects.filter(pk__in=ids).order_by("pk").values(*metadata))
+                cards_before = list(Card.objects.filter(user=self.user).order_by("pk").values())
+                with mock.patch.object(catalogue, "tache_three_models", return_value={
+                    **models, model.group: replace(model, response=after),
+                }):
+                    returned = load_surface()
+                    with self.subTest(returned_ids=True):
+                        self.assertEqual(
+                            {item["id"] for item in returned},
+                            {mark.pk for mark in marks if mark.quote in retained},
+                        )
+                    for mark in marks:
+                        with self.subTest(quote=mark.quote):
+                            visible = root.locator(f'mark[data-highlight-id="{mark.pk}"]')
+                            if mark.quote in retained:
+                                expect(visible).to_have_text(mark.quote)
+                            else:
+                                expect(visible).to_have_count(0)
+                    expect(root).to_have_attribute("data-annotation-source-key", source_key)
+                    rendered = render_current_response(prompt, after, surface, self.user)
+                    with self.subTest(note_anchor=True):
+                        note.refresh_from_db()
+                        self.assertEqual(
+                            rendered.slice(note.start_offset, note.end_offset), note.quote,
+                        )
+                self.assertEqual(
+                    list(Annotation.objects.filter(pk__in=ids).order_by("pk").values(*metadata)),
+                    saved,
+                )
+                self.assertEqual(
+                    list(Card.objects.filter(user=self.user).order_by("pk").values()),
+                    cards_before,
+                )
+
     def test_each_culture_model_keeps_unchanged_annotations_after_a_public_example_edit(self):
         self._assert_theme_models_preserve_public_example_edits({"culture"}, 31)
 

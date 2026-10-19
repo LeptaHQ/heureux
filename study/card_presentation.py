@@ -338,7 +338,7 @@ def _spine_payload(card: Card, *, prompt=None, model_only=False, personal=None) 
         response, card.user, prompt=canonical, model_only=model_only, personal=personal,
     )
     from . import catalogue
-    from .tache_three_models import reviewed_model
+    from .tache_three_models import annotation_arguments, reviewed_model
     from .tache_three_prompt_notes import prompt_note_for_response
 
     reviewed_eo3 = not content.is_personal and reviewed_model(response, canonical) is not None
@@ -392,7 +392,7 @@ def _spine_payload(card: Card, *, prompt=None, model_only=False, personal=None) 
         "reviewed_eo3": reviewed_eo3,
         "eo3_prompt_note": prompt_note_for_response(response, canonical),
         "eo3_pistes": catalogue.tache_three_subject_plan(response.semantic_group),
-        "arguments": content.arguments,
+        "arguments": annotation_arguments(canonical, content),
         **(question_presentation(canonical, content) if tache_two_subject else {}),
         "subject_prompt_note": (
             prompt_note_presentation(canonical, content) if tache_two_subject else None

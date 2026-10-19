@@ -4144,9 +4144,10 @@ class QuestionBankViewTests(TestCase):
             learned.context["subject_questions"],
             variant.context["subject_questions"],
         )
-        self.assertTrue(learned.context["subject_annotation_key"].startswith(
-            "response:tache2:fevrier:batch-06:subject-26:variant-",
-        ))
+        self.assertEqual(
+            learned.context["subject_annotation_key"],
+            "response:tache2:fevrier:batch-06:subject-26:model",
+        )
         self.assertNotEqual(
             variant.context["subject_annotation_key"],
             learned.context["subject_annotation_key"],

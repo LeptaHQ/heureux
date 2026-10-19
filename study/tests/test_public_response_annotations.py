@@ -253,6 +253,11 @@ class PublicResponsePreservationTests(TestCase):
                     "pk", "quote", "body", "title", "study_later", "completed_at",
                     "created_at", "source_prompt_id",
                 ))
+                initial = self.fetch(marks[0].source_path)
+                self.assertEqual(
+                    {row["id"] for row in initial},
+                    {mark.pk for mark in [*marks, removed]},
+                )
                 with patch.object(catalogue, "tache_three_models", return_value={
                     **models, model.group: replace(model, response=after),
                 }):

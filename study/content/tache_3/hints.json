@@ -1550,8 +1550,8 @@
             "english": "A trusting relationship can make advice personally relevant."
           },
           "example": {
-            "french": "Une tante âgée conseille de comparer deux écoles selon le goût de l'étudiant pour la pratique.",
-            "english": "An older aunt suggests comparing two schools against the student's preference for practical learning."
+            "french": "Une tante âgée et un étudiant comparent les ateliers de deux écoles pour trouver celle qui convient à son goût de la pratique.",
+            "english": "An older aunt and student compare workshops at two schools to find the one that fits his preference for practical learning."
           }
         },
         {
@@ -1642,8 +1642,8 @@
             "english": "Some needs require help available locally."
           },
           "example": {
-            "french": "Prévoir une solution locale pour récupérer son enfant à l'école.",
-            "english": "Arrange local help to collect a child from school."
+            "french": "Retenu au travail, un parent demande à une voisine de confiance de récupérer l'enfant à la place des grands-parents éloignés.",
+            "english": "Held up at work, a parent asks a trusted neighbour to collect the child because the grandparents live far away."
           }
         },
         {
@@ -1698,8 +1698,8 @@
             "english": "A bonus cannot replace help with a learning difficulty."
           },
           "example": {
-            "french": "Faire reformuler une consigne, puis chercher avec l'enseignant un soutien adapté.",
-            "english": "Ask the child to rephrase instructions, then seek suitable support with the teacher."
+            "french": "Expliquer « comparer » à l'enfant qui additionne, puis vérifier la méthode avec l'enseignant pour refaire l'exercice.",
+            "english": "Explain 'compare' to the child who adds, then check the method with the teacher to redo the exercise."
           }
         }
       ]
@@ -1826,8 +1826,8 @@
             "english": "Family roles can affect what we feel free to disclose."
           },
           "example": {
-            "french": "Réfléchir à une reconversion avec un ami avant d'en parler aux parents.",
-            "english": "Discuss a career change with a friend before telling parents."
+            "french": "Parler de son envie d'apprendre la menuiserie avec un ami avant de rassurer ses parents sur le revenu.",
+            "english": "Discuss wanting to learn carpentry with a friend before reassuring parents about income."
           }
         },
         {
@@ -1918,8 +1918,8 @@
             "english": "Fear of an excessive reaction can prevent asking for help."
           },
           "example": {
-            "french": "Un parent écoute l'enfant et l'aide à signaler un livre abîmé à la bibliothèque.",
-            "english": "A parent listens and helps a child report a damaged book to the library."
+            "french": "Un parent écoute sans crier et aide l'enfant à contacter la bibliothèque pour remplacer le livre abîmé.",
+            "english": "A parent listens without shouting and helps the child contact the library to replace the damaged book."
           }
         },
         {
@@ -1954,8 +1954,8 @@
             "english": "Parents need to express precisely what they wish to communicate."
           },
           "example": {
-            "french": "Parler d'une journée difficile dans une langue familière.",
-            "english": "Discuss a difficult day in a familiar language."
+            "french": "Après une dispute à l'école, distinguer colère et tristesse dans la langue familiale pour expliquer ce qui a blessé l'enfant.",
+            "english": "After a school dispute, distinguish anger and sadness in the family language to explain what hurt the child."
           }
         },
         {
@@ -2020,8 +2020,8 @@
             "english": "Planning must be shared as well as execution."
           },
           "example": {
-            "french": "Gérer entièrement le stock et l'achat des produits d'entretien.",
-            "english": "Take full responsibility for cleaning supplies and purchasing."
+            "french": "Vérifier le stock et acheter les produits avant qu'ils manquent pour ne pas interrompre le ménage.",
+            "english": "Check supplies and buy products before they run out so cleaning need not be interrupted."
           }
         }
       ]
@@ -2036,8 +2036,8 @@
         "english": "Agreement, space and privacy matter; moving out is not compulsory."
       },
       "conclusion": {
-        "french": "Discuter du budget, des tâches et de la place de chaque adulte.",
-        "english": "Discuss money, chores and each adult's space."
+        "french": "Associer aide financière, pratique et affective sans retirer la place d'adulte.",
+        "english": "Combine financial, practical and emotional support while preserving adult independence."
       },
       "arguments": [
         {
@@ -2062,12 +2062,12 @@
         },
         {
           "point": {
-            "french": "Une même adresse reste compatible avec une autonomie réelle.",
-            "english": "A shared address is compatible with real independence."
+            "french": "Retrouver un cadre familier peut aider à traverser une période difficile.",
+            "english": "A familiar home can help someone through a difficult period."
           },
           "example": {
-            "french": "Gérer ses démarches et prévenir pour les repas, sans demander chaque permission.",
-            "english": "Manage one's own paperwork and give meal updates without asking permission."
+            "french": "Après une séparation, retrouver repas et écoute chez ses parents tout en organisant soi-même ses démarches.",
+            "english": "After a separation, find shared meals and a listening ear at the parents' home while managing one's own affairs."
           }
         }
       ]

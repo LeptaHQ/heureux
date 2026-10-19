@@ -89,11 +89,11 @@ class FamilleEditorialTests(SimpleTestCase):
         for number, argument, required in (
             (3, 1, ("deux écoles", "cours théoriques", "ateliers", "tante âgée")),
             (4, 2, ("calcul", "retenue oubliée", "vérifier la méthode")),
-            (6, 2, ("reformuler la consigne", "l'enseignant", "L'argent seul")),
-            (10, 1, ("S'il craint", "clarifier son projet")),
+            (6, 2, ("additionne", "comparer", "reformuler la consigne", "l'enseignant")),
+            (10, 1, ("menuiserie", "ses doutes", "sur son revenu", "projet plus clair")),
             (10, 2, ("une autre ville", "sans répéter ses confidences", "comparer les logements")),
             (11, 1, ("Deux sœurs", "deux abonnements au lieu d'un")),
-            (12, 1, ("livre de bibliothèque", "S'il sait", "lui en parler", "remplacer")),
+            (12, 1, ("livre de bibliothèque", "en parle", "sans crier", "remplacer")),
             (16, 0, ("contribution financière", "si la cohabitation coûte moins cher", "la différence")),
         ):
             with self.subTest(response=number, argument=argument + 1):
@@ -110,3 +110,15 @@ class FamilleEditorialTests(SimpleTestCase):
         self.assertIn("sans faire du départ immédiat une obligation", comfort.arguments[1].consequence)
         self.assertIn("l'accord des parents", self.response(16).nuance)
         self.assertTrue(self.response(11).position.startswith("Vivre seul"))
+
+    def test_post_25_support_and_household_planning_are_actual_benefits(self):
+        cohabitation = self.response(16)
+        self.assertIn("cadre familier", cohabitation.arguments[2].idea)
+        self.assertIn("personnes avec qui parler", cohabitation.arguments[2].developpement)
+        self.assertIn("Après une séparation", cohabitation.arguments[2].exemple)
+        self.assertIn("sans devoir demander la permission", cohabitation.arguments[2].exemple)
+        self.assertIn("financière, pratique et affective", cohabitation.conclusion)
+        planning = self.response(14).arguments[2]
+        self.assertIn("les oublis peuvent interrompre", planning.developpement)
+        self.assertIn("avant qu'ils manquent", planning.exemple)
+        self.assertIn("sans interrompre son travail", planning.exemple)

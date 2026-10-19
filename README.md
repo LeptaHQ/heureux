@@ -314,6 +314,17 @@ account's latest answer. The cache contains no learner state. The card follows
 progression without a separate header shortcut and stays outside response
 annotation roots; other writing themes/tasks remain unchanged.
 
+EE task 1 model pencils edit that response in place in the learner's account,
+using its existing model identity rather than creating a separate personal copy.
+Repeated saves keep one current response. An existing personal answer replaces
+its unedited main-model counterpart in the display and directory counts; neither
+its text nor separately edited alternatives are deleted. Unchanged highlights
+and quoted notes are carried across targeted edits, including former model
+highlights on an existing personal answer. Removed or ambiguous selections stay
+in Notes instead of being painted onto unrelated text. No response-history
+archive is created. Shared source models, other accounts, and EE2/EE3 editing
+behavior are unchanged.
+
 EO task 2 and task 3 use editorial `semantic_groups.json` partitions, including
 singletons. A shared answer or question-body hash is **not** proof of equivalence.
 The importer rejects missing, incomplete, duplicate or cross-task memberships.

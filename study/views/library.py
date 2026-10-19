@@ -101,8 +101,13 @@ from ..routing import (
 from ..writing_responses import (
     active_model_version_count,
     overrides_by_sujet,
+    replaced_model_key,
     writing_model_versions,
     writing_version_edit_url,
+)
+from ..writing_annotations import (
+    preserve_edited_writing_annotations,
+    preserve_ee1_response_annotations,
 )
 from ..templatetags.study_markdown import render_markdown_prose
 
@@ -788,7 +793,12 @@ def _ee_tache_one_subject_context(user, task):
         row = {
             "sujet": sujet,
             "prompt": sujet.prompt,
-            "version_count": len(model_versions) + int(is_personalized),
+            "version_count": len(model_versions) + int(is_personalized) - int(
+                replaced_model_key(
+                    sujet.model_versions, overrides.get(sujet.pk, {}),
+                    has_personal=is_personalized,
+                ) is not None
+            ),
             "has_model_response": bool(model_versions),
             "is_personalized": is_personalized,
             "explicitly_completed": explicitly_completed,
@@ -951,6 +961,11 @@ def _ee_writing_subject_context(
                     "source": source,
                     "version_count": (
                         model_version_count + int(progress.is_personalized)
+                        - int(tache == 1 and replaced_model_key(
+                            source_models_by_canonical_slug[canonical_slug_by_slug[source.slug]],
+                            overrides.get(canonical.pk, {}),
+                            has_personal=progress.is_personalized,
+                        ) is not None)
                     ),
                     "has_model_response": bool(model_version_count),
                     "is_personalized": progress.is_personalized,
@@ -4409,9 +4424,13 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
         task_id=task.pk,
     )[canonical.pk]
     explicitly_completed = writing_progress.explicitly_completed
-    version_cards = writing_model_versions(
-        canonical, overrides_by_sujet(request.user, [canonical.pk]).get(canonical.pk, {}),
-    )
+    overrides = overrides_by_sujet(request.user, [canonical.pk]).get(canonical.pk, {})
+    version_cards = writing_model_versions(canonical, overrides)
+    if tache == 1:
+        replaced = replaced_model_key(
+            canonical.model_versions, overrides, has_personal=personal is not None,
+        )
+        version_cards = [item for item in version_cards if item["key"] != replaced]
     for version in version_cards:
         version["edit_url"] = writing_version_edit_url(part_slug, task_slug, sujet.pk, version["key"])
     model_versions = [version["content"] for version in version_cards]
@@ -4481,6 +4500,9 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
             "word_limit_max": maximum,
             "personal": personal,
             "has_personal": personal is not None,
+            "has_response_edits": personal is not None or tache == 1 and any(
+                item["content"].get("origin") == "personal" for item in version_cards
+            ),
             "writing_progress": writing_progress,
             "explicitly_completed": explicitly_completed,
             "model_versions": model_versions,
@@ -4591,6 +4613,9 @@ def writing_sujet_edit(request, part_slug, task_slug, sujet_id):
         editing_version = next((item for item in version_cards if item["key"] == version_key), None)
         if editing_version is None:
             raise Http404
+    elif tache == 1 and personal is None and version_cards:
+        editing_version = version_cards[0]
+        version_key = editing_version["key"]
     if request.method == "POST" and request.POST.get("action", "save") not in {"save", "reset"}:
         return HttpResponseBadRequest("Action invalide.")
     if request.method == "POST" and request.POST.get("action") == "reset":
@@ -4615,6 +4640,18 @@ def writing_sujet_edit(request, part_slug, task_slug, sujet_id):
         if not cleaned:
             error = "Votre message ne peut pas être vide."
         else:
+            previous_body = (
+                editing_version["content"]["body"] if editing_version is not None
+                else personal.body if personal is not None else ""
+            )
+            source_key = (
+                f"writing-sujet:{canonical.pk}:model-{editing_version['number']}"
+                if editing_version is not None else f"writing-sujet:{canonical.pk}:personal"
+            )
+            if tache == 1:
+                preserve_ee1_response_annotations(
+                    request.user, Q(source_key__startswith=f"writing-sujet:{canonical.pk}:"),
+                )
             if editing_version is not None:
                 WritingResponseOverride.objects.update_or_create(
                     user=request.user,
@@ -4628,9 +4665,23 @@ def writing_sujet_edit(request, part_slug, task_slug, sujet_id):
                     sujet=canonical,
                     defaults={"body": cleaned},
                 )
+            if tache == 1:
+                preserve_edited_writing_annotations(
+                    request.user, canonical, source_key, previous_body, cleaned,
+                )
             return redirect(routing.subject_selection_url(f"{detail_url}?saved=1", request))
 
     source = _ee_writing_sources_by_slug(tache).get(sujet.slug)
+    if tache == 1:
+        replaced = replaced_model_key(
+            canonical.model_versions,
+            overrides_by_sujet(request.user, [canonical.pk]).get(canonical.pk, {}),
+            has_personal=personal is not None,
+        )
+        hidden_keys = {replaced}
+        if editing_version is not None:
+            hidden_keys.add(editing_version["key"])
+        version_cards = [item for item in version_cards if item["key"] not in hidden_keys]
     return render(
         request,
         "study/writing_sujet_edit.html",

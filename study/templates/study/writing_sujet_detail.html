@@ -134,10 +134,10 @@
             </div>
           {% endif %}
           <div><dt>Limite</dt><dd>{{ word_limit_min }}–{{ word_limit_max }} mots</dd></div>
-          <div><dt>Personnalisation</dt><dd>{% if has_personal %}Prête{% else %}À faire{% endif %}</dd></div>
+          <div><dt>Personnalisation</dt><dd>{% if has_response_edits %}Prête{% else %}À faire{% endif %}</dd></div>
         </dl>
         <div class="response-sidebar-actions">
-          <a class="btn btn--primary btn--block" href="{% subject_url 'study:writing_sujet_edit' part.slug task.slug sujet.pk %}">{% if has_personal %}Modifier ma version{% else %}Personnaliser la réponse{% endif %}</a>
+          <a class="btn btn--primary btn--block" href="{% subject_url 'study:writing_sujet_edit' part.slug task.slug sujet.pk %}">{% if writing_tache == 1 and primary_version or writing_tache == 1 and has_personal %}Modifier la réponse{% elif has_personal %}Modifier ma version{% else %}Personnaliser la réponse{% endif %}</a>
           <a class="btn btn--block" href="{% subject_url 'study:task_browse' part.slug task.slug %}">Tous les sujets</a>
         </div>
       </div>

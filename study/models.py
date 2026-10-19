@@ -229,8 +229,9 @@ class WritingSujet(models.Model):
     """An EE Tâche 1/2 writing prompt with shared model responses.
 
     Sujets are grouped by theme category. Every model version is kept, best
-    first, inside ``versions``; learners layer their own version on top with a
-    :class:`PersonalWritingResponse` without ever mutating the shared content.
+    first, inside ``versions``. Model edits use per-version private overrides.
+    Existing EE1 personal answers replace the unedited main model in the display;
+    separately edited alternatives and the shared source content are retained.
     """
 
     task = models.ForeignKey(

@@ -1,9 +1,9 @@
 {% load study_links %}
 <div class="writing-response-controls">
-  {% if main %}
-    {% subject_url 'study:writing_sujet_edit' part.slug task.slug sujet.pk as edit_url %}
-  {% else %}
+  {% if not main or writing_tache == 1 and version_card %}
     {% subject_link version_card.edit_url as edit_url %}
+  {% else %}
+    {% subject_url 'study:writing_sujet_edit' part.slug task.slug sujet.pk as edit_url %}
   {% endif %}
   <a class="icon-button" href="{{ edit_url }}" data-writing-response-edit
      aria-label="{% if main %}Modifier la réponse principale{% else %}Modifier la réponse {{ version_card.number }}{% endif %}"

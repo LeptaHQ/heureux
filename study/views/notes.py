@@ -1295,9 +1295,13 @@ def annotations_for_source(request):
     _, source_filter = _annotation_source_scope(source_path)
     from ..oral_highlights import recover_published_tache_two_highlights
     from ..public_response_annotations import preserve_public_response_annotations
+    from ..writing_annotations import preserve_ee1_response_annotations
 
     recover_published_tache_two_highlights(request.user, source_filter)
     unresolved = preserve_public_response_annotations(request.user, source_filter)
+    writing_match = WRITING_SUJET_PATH_RE.fullmatch(source_path.split("?", 1)[0])
+    if writing_match and writing_match["part"] == "ecrite" and writing_match["task"] == "tache-1":
+        unresolved.update(preserve_ee1_response_annotations(request.user, source_filter))
     highlights = list(
         Annotation.objects.filter(
             source_filter,

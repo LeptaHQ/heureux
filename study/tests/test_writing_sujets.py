@@ -264,7 +264,7 @@ class WritingSujetViewTests(TestCase):
         )
         WritingSujetCompletion.objects.create(user=self.owner, sujet=self.multi)
         page = self.client.get(self._detail_url(self.multi))
-        self.assertContains(page, "data-writing-response-delete", count=3)
+        self.assertContains(page, "data-writing-response-delete", count=2)
         for card in page.context["model_version_cards"]:
             self.assertEqual(self.client.post(self._version_delete_url(self.multi, card)).status_code, 302)
         page = self.client.get(self._detail_url(self.multi))
@@ -296,14 +296,14 @@ class WritingSujetViewTests(TestCase):
 
         page = self.client.get(self._detail_url(self.multi))
 
-        self.assertContains(page, 'class="t1-response__body markdown-prose"', count=4)
+        self.assertContains(page, 'class="t1-response__body markdown-prose"', count=3)
         self.assertContains(
             page,
             "<p>Salut <strong>Cédric</strong>,<br>viens au <em>château</em>.</p>",
             html=True,
         )
         self.assertContains(page, "<ul><li>samedi</li><li>dimanche</li></ul>", html=True)
-        self.assertContains(page, "<p>Version A la meilleure.</p>", html=True)
+        self.assertNotContains(page, "<p>Version A la meilleure.</p>", html=True)
         self.assertNotContains(page, "<script>alert(1)</script>")
         edit = self.client.get(self._edit_url(self.multi))
         self.assertContains(edit, 'aria-describedby="t1-body-hint"')
@@ -527,7 +527,7 @@ class WritingSujetViewTests(TestCase):
         self.assertContains(page, "Invitez Cédric au château.")
         self.assertContains(page, "Version A la meilleure.")
 
-    def test_save_creates_personal_and_preserves_publication_selection(self):
+    def test_save_edits_main_model_and_preserves_publication_selection(self):
         result = self.client.post(
             self._edit_url(self.multi) + "?deduplicate=0",
             {"action": "save", "body": "Coucou, voici ma version à moi."},
@@ -538,15 +538,16 @@ class WritingSujetViewTests(TestCase):
             self._detail_url(self.multi) + "?saved=1&deduplicate=0",
             fetch_redirect_response=False,
         )
-        personal = PersonalWritingResponse.objects.get(
+        override = WritingResponseOverride.objects.get(
             user=self.owner, sujet=self.multi
         )
-        self.assertEqual(personal.body, "Coucou, voici ma version à moi.")
+        self.assertEqual(override.body, "Coucou, voici ma version à moi.")
+        self.assertFalse(PersonalWritingResponse.objects.filter(user=self.owner).exists())
 
         detail = self.client.get(result.url)
-        self.assertContains(detail, 'id="t1-personal-label">Réponse</div>')
+        self.assertContains(detail, 'id="t1-model-label">Réponse</div>')
         self.assertContains(detail, "Coucou, voici ma version à moi.")
-        self.assertContains(detail, "Voir la réponse modèle")
+        self.assertNotContains(detail, "Voir la réponse modèle")
         self.assertContains(detail, "En cours")
         self.assertNotContains(detail, "Sujet terminé")
 
@@ -723,6 +724,9 @@ class WritingSujetViewTests(TestCase):
 
     def test_save_updates_existing_personal_without_duplicating(self):
         url = self._edit_url(self.multi)
+        PersonalWritingResponse.objects.create(
+            user=self.owner, sujet=self.multi, body="Réponse personnelle existante.",
+        )
         self.client.post(url, {"action": "save", "body": "Première version."})
         self.client.post(url, {"action": "save", "body": "Version corrigée."})
 
@@ -735,9 +739,8 @@ class WritingSujetViewTests(TestCase):
         )
 
     def test_reset_deletes_personal_version(self):
-        self.client.post(
-            self._edit_url(self.multi),
-            {"action": "save", "body": "À supprimer."},
+        PersonalWritingResponse.objects.create(
+            user=self.owner, sujet=self.multi, body="À supprimer.",
         )
 
         result = self.client.post(

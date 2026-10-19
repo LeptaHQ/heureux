@@ -1236,7 +1236,10 @@ class EeWritingPageTests(TestCase):
                     row for row in rows if row["progress_sujet"].pk == canonical.pk
                 )
                 self.assertEqual(representative["progress"].status, "active")
-                self.assertEqual(representative["version_count"], selected["version_count"] + 1)
+                self.assertEqual(
+                    representative["version_count"],
+                    selected["version_count"] + int(tache == 2 or not selected["version_count"]),
+                )
                 self.assertEqual(representative["source"], selected["source"])
                 self.assertNotContains(page, "publications liées")
                 self.assertNotContains(page, "Personnalisé")
@@ -1346,6 +1349,9 @@ class EeWritingPageTests(TestCase):
 
     def test_publication_mode_survives_edit_save_and_reset(self):
         sujet = self.tasks[1].writing_sujets.filter(category="invitations").first()
+        PersonalWritingResponse.objects.create(
+            user=self.user, sujet=sujet, body="Ma réponse personnelle existante.",
+        )
         detail_url = reverse("study:writing_sujet_detail", args=["ee", "tache-1", sujet.pk])
         edit_url = reverse("study:writing_sujet_edit", args=["ee", "tache-1", sujet.pk])
         detail = self.client.get(detail_url, {"deduplicate": "0"})
@@ -1468,10 +1474,11 @@ class EeWritingPageTests(TestCase):
                         page, '<div class="spine-label" id="t1-personal-label">Réponse</div>',
                         html=True,
                     )
-                    self.assertContains(page, '<div class="spine-label">Réponse</div>', html=True)
+                    self.assertContains(page, "data-annotation-root", count=1)
+                    self.assertNotContains(page, "Voir la réponse modèle")
                     self.assertEqual(
                         page.context["response_copy_texts"],
-                        {"model-1": versions[0]["body"], "personal": personal.body},
+                        {"personal": personal.body},
                     )
                     sujet.refresh_from_db()
                     self.assertEqual(sujet.model_versions, versions)
@@ -1486,12 +1493,12 @@ class EeWritingPageTests(TestCase):
         )
         canonical = sujets[mapping[alias.slug]]
         original = canonical.versions
-        personal = PersonalWritingResponse.objects.create(
-            user=self.user, sujet=canonical, body="Ma réponse principale reste la même.",
-        )
         alias_url = reverse("study:writing_sujet_detail", args=["ee", task.slug, alias.pk])
         canonical_url = reverse("study:writing_sujet_detail", args=["ee", task.slug, canonical.pk])
         card = self.client.get(alias_url).context["model_version_cards"][0]
+        personal = PersonalWritingResponse.objects.create(
+            user=self.user, sujet=canonical, body="Ma réponse principale reste la même.",
+        )
         self.assertEqual(self.client.post(card["edit_url"], {"body": "Mon autre réponse."}).status_code, 302)
         self.assertEqual(
             self.client.get(canonical_url).context["response_copy_texts"][card["copy_key"]],
@@ -1684,7 +1691,7 @@ class EeWritingPageTests(TestCase):
                 )
                 self.assertEqual(saved.status_code, 302)
                 self.assertTrue(
-                    PersonalWritingResponse.objects.filter(
+                    (WritingResponseOverride if tache == 1 else PersonalWritingResponse).objects.filter(
                         user=self.user,
                         sujet=canonical,
                     ).exists()
@@ -1763,6 +1770,8 @@ class EeWritingPageTests(TestCase):
                             user=self.user, sujet=sujet, body=body
                         )
                         expected["personal"] = body
+                        if tache == 1:
+                            expected.pop("model-1")
                     page = self.client.get(
                         reverse(
                             "study:writing_sujet_detail",
@@ -1862,7 +1871,7 @@ class EeWritingPageTests(TestCase):
                 )
                 self.assertEqual(page.context["writing_progress"].status, "done")
                 self.assertEqual(
-                    page.context["personal"].body,
+                    page.context["primary_version"]["body"],
                     "Voici ma suggestion pour Barbara.",
                 )
                 self.assertContains(page, "Sujets équivalents")
@@ -1910,7 +1919,9 @@ class EeWritingPageTests(TestCase):
                         row = rows[member]
                         self.assertEqual(row["progress_sujet"], canonical)
                         self.assertEqual(
-                            row["version_count"], len(canonical.model_versions) + int(index % 3 == 1)
+                            row["version_count"], len(canonical.model_versions) + int(
+                                index % 3 == 1 and (tache == 2 or not canonical.model_versions)
+                            ),
                         )
                         self.assertEqual(row["equivalent_count"], len(group.members) - 1)
                         self.assertEqual(
@@ -2059,6 +2070,8 @@ class EeWritingPageTests(TestCase):
             args=[task.part.slug, task.slug, alias.pk],
         )
         source_key = f"writing-sujet:{canonical.pk}:model-1"
+        canonical.versions = [{"body": "Réponse modèle."}]
+        canonical.save(update_fields=["versions"])
 
         created = self.client.post(
             reverse("study:annotation_create"),

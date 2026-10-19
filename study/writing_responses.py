@@ -40,6 +40,17 @@ def active_model_version_count(models, overrides):
     )
 
 
+def replaced_model_key(models, overrides, *, has_personal):
+    """Let an existing personal answer replace the unedited first EE1 model."""
+    if not has_personal or not models:
+        return None
+    key = model_version_keys(models)[0]
+    override = overrides.get(key)
+    if override is not None and (override.body or override.is_deleted):
+        return None
+    return key
+
+
 def writing_model_versions(sujet, overrides):
     versions = []
     models = sujet.model_versions

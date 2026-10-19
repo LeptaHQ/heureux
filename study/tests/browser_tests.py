@@ -530,6 +530,8 @@ class BrowserTests(StaticLiveServerTestCase):
                         user=self.user, sujet=sujet, body=body
                     )
                     expected["personal"] = body
+                    if tache == 1:
+                        expected.pop("model-1")
                 self.page.goto(detail_url)
                 self.page.locator(".t1-versions > summary").click()
                 for key, text in expected.items():
@@ -590,8 +592,7 @@ class BrowserTests(StaticLiveServerTestCase):
         self.page.wait_for_function("window.__copiedResponse !== undefined")
         self.assertEqual(self.page.evaluate("window.__copiedResponse"), body)
         original = hints.inner_text()
-        self.page.locator(".t1-versions > summary").click()
-        expect(self.page.locator(".t1-versions [data-writing-response-delete]")).to_have_count(1)
+        expect(self.page.locator(".t1-versions > summary")).to_have_count(0)
         self.assertEqual(hints.inner_text(), original)
         self.assert_no_horizontal_overflow()
 
@@ -724,9 +725,10 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(self.page.locator('textarea[name="body"]')).to_have_value("Troisième modèle.")
         changed = "Troisième modèle. Voici mes précisions."
         self.page.locator('textarea[name="body"]').fill(changed)
-        self.page.get_by_role("button", name="Enregistrer ma version", exact=True).click()
+        self.page.get_by_role("button", name="Enregistrer les modifications", exact=True).click()
         self.page.locator(".t1-versions > summary").click()
         expect(third.locator(".t1-response__body")).to_have_text(changed)
+        expect(third.locator("mark.user-highlight")).to_have_text("Troisième modèle.")
         third.locator('[data-prompt-copy-key="model-3"]').click()
         self.page.wait_for_function("text => window.__copiedResponse === text", arg=changed)
         expect(main.locator("mark.user-highlight")).to_have_text("Ma réponse principale.")
@@ -735,6 +737,62 @@ class BrowserTests(StaticLiveServerTestCase):
         main.locator("[data-writing-response-edit]").click()
         expect(self.page.locator('textarea[name="body"]')).to_have_value(body)
         expect(self.page.get_by_role("button", name="Supprimer ma version", exact=True)).to_have_count(0)
+
+    def test_ee1_model_opening_edit_keeps_one_response_and_the_same_highlights(self):
+        self._assert_ee1_opening_edit_preserves_highlights()
+
+    def test_ee1_existing_copy_consolidates_and_keeps_highlights_when_edited_again(self):
+        self._assert_ee1_opening_edit_preserves_highlights(existing_copy=True)
+
+    def _assert_ee1_opening_edit_preserves_highlights(self, *, existing_copy=False):
+        from .test_writing_model_edits import EDITED, ORIGINAL, QUOTES
+
+        task = factories.make_task(factories.make_part("ee"), "tache-1")
+        sujet = factories.make_writing_sujet(task, versions=(ORIGINAL,))
+        path = reverse("study:writing_sujet_detail", args=["ee", task.slug, sujet.pk])
+        key = f"writing-sujet:{sujet.pk}:model-1"
+        self.page.goto(self.live_server_url + path + "?deduplicate=0")
+        root = self.page.locator(f'[data-annotation-source-key="{key}"]')
+        saved = []
+        for quote in QUOTES:
+            offsets = root.evaluate("""(root, quote) => {
+                const text = root.textContent, start = text.indexOf(quote);
+                return {start_offset: start, end_offset: start + quote.length,
+                    prefix: text.slice(Math.max(0, start - 160), start),
+                    suffix: text.slice(start + quote.length, start + quote.length + 160)};
+            }""", quote)
+            self.assertGreaterEqual(offsets["start_offset"], 0)
+            saved.append(Annotation.objects.create(
+                user=self.user, task=task, kind=AnnotationKind.HIGHLIGHT,
+                source_path=path, source_key=key, quote=quote, **offsets,
+            ))
+        if existing_copy:
+            PersonalWritingResponse.objects.create(user=self.user, sujet=sujet, body=EDITED)
+            key = f"writing-sujet:{sujet.pk}:personal"
+            root = self.page.locator(f'[data-annotation-source-key="{key}"]')
+        self.page.reload()
+        expect(self.page.locator(".t1-response__body[data-annotation-root]")).to_have_count(1)
+        expect(self.page.locator(".t1-versions > summary")).to_have_count(0)
+        expect(root.locator("mark.user-highlight")).to_have_count(len(saved))
+        root.locator("xpath=ancestor::section[1]").locator("[data-writing-response-edit]").click()
+        changed = (
+            EDITED.replace("Bonjour Cédric,", "Bonjour Cédric et toute la famille,")
+            if existing_copy else EDITED
+        )
+        self.page.locator('textarea[name="body"]').fill(changed)
+        self.page.locator('button[type="submit"][value="save"]').click()
+        self.assertIn("deduplicate=0", self.page.url)
+        expect(self.page.locator(".t1-versions > summary")).to_have_count(0)
+        expect(self.page.locator(".t1-response__body[data-annotation-root]")).to_have_count(1)
+        expect(root).to_contain_text("Je suis ravi que tu viennes à mon mariage")
+        for _ in range(2):
+            for annotation in saved:
+                expect(root.locator(f'mark[data-highlight-id="{annotation.pk}"]')).to_have_text(annotation.quote)
+            self.page.reload()
+        self.assertEqual(
+            PersonalWritingResponse.objects.filter(user=self.user, sujet=sujet).count(),
+            int(existing_copy),
+        )
 
     def test_ee2_article_title_is_in_the_answer_and_copy_without_losing_highlights(self):
         tasks = self._import_ee_writing_content()

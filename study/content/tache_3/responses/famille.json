@@ -80,8 +80,8 @@
         {
           "idea": "Ensuite, une relation de confiance peut permettre un conseil adapté à la personne.",
           "developpement": "Un proche qui écoute nos envies et nos contraintes peut nous aider à distinguer notre projet des attentes des autres. Cette qualité dépend de la relation, pas automatiquement de son âge.",
-          "exemple": "Un étudiant hésite entre deux écoles : l'une propose surtout des cours théoriques, l'autre davantage d'ateliers. Sa tante âgée, qui connaît son goût pour les activités pratiques, lui suggère de visiter les deux et de comparer les programmes avant de décider.",
-          "consequence": "Son regard soutient une décision personnelle, au lieu de s'y substituer."
+          "exemple": "Un étudiant hésite entre deux écoles. Sa tante âgée connaît son goût pour la pratique : ils comparent la place des ateliers dans les programmes. Il découvre que l'une propose surtout des cours théoriques, alors que l'autre correspond mieux à sa façon d'apprendre.",
+          "consequence": "Ce conseil soutient une décision personnelle, au lieu de s'y substituer."
         },
         {
           "idea": "Enfin, un conseil doit être confronté aux conditions réelles du moment.",
@@ -141,7 +141,7 @@
         {
           "idea": "Ensuite, certains besoins demandent une aide disponible sur place.",
           "developpement": "Les proches peuvent conseiller à distance sans pouvoir faire un déplacement ou rendre un service immédiat. Il faut alors trouver d'autres appuis et prévoir davantage certaines situations.",
-          "exemple": "Un parent installé loin des grands-parents ne peut pas leur demander de venir chercher son enfant à l'école au dernier moment. Il doit organiser une solution locale avec une personne de confiance ou un service adapté, selon les possibilités disponibles.",
+          "exemple": "Un parent installé loin des grands-parents doit rester au travail après la sortie de l'école. Il appelle une voisine de confiance, qui accepte de récupérer son enfant ce soir-là. Il a fallu trouver un autre relais sur place, au lieu de pouvoir demander ce service aux grands-parents.",
           "consequence": "L'éloignement ajoute donc parfois une difficulté d'organisation, au-delà du sentiment de manque."
         },
         {
@@ -178,7 +178,7 @@
         {
           "idea": "Enfin, une prime ne remplace pas l'aide nécessaire pour surmonter un blocage.",
           "developpement": "Quand l'enfant ne comprend pas une méthode, augmenter la récompense ne lui montre pas comment procéder. Il faut d'abord repérer la difficulté et proposer un appui adapté.",
-          "exemple": "Si un enfant répond à côté parce qu'il ne comprend pas ce qu'on lui demande, un parent peut lui faire reformuler la consigne puis vérifier avec l'enseignant comment l'aider. L'argent seul ne lui apprend pas à comprendre la question.",
+          "exemple": "Un enfant additionne les nombres alors qu'il faut les comparer. Le parent reprend le mot « comparer » avec lui et lui fait reformuler la consigne. En vérifiant ensuite la méthode avec l'enseignant, il peut l'aider à refaire l'exercice sans confondre les deux demandes.",
           "consequence": "Le soutien porte ainsi sur les moyens de progresser, pas seulement sur le résultat."
         }
       ],
@@ -262,7 +262,7 @@
         {
           "idea": "Ensuite, les rôles familiaux peuvent influencer ce que l'on ose raconter.",
           "developpement": "Un parent reste parfois associé au conseil, aux attentes ou à l'inquiétude. On peut chercher auprès d'un ami une écoute différente, sans que la relation familiale soit mauvaise.",
-          "exemple": "Un adulte qui envisage de changer de métier peut comparer ses options avec un ami. S'il craint que ses parents s'inquiètent surtout de son revenu, cet échange l'aide à clarifier son projet avant d'en parler en famille.",
+          "exemple": "Un adulte peut d'abord raconter à un ami qu'il voudrait quitter un emploi stable pour apprendre la menuiserie. Il ose parler de ses doutes sans devoir immédiatement rassurer ses parents sur son revenu, puis leur présente un projet plus clair.",
           "consequence": "Les relations peuvent remplir des fonctions différentes, sans devoir être classées de la meilleure à la moins bonne."
         },
         {
@@ -322,7 +322,7 @@
         {
           "idea": "Ensuite, la peur d'une réaction excessive peut empêcher de demander de l'aide.",
           "developpement": "Un enfant qui pense être humilié pour chaque erreur peut chercher à la cacher. Le parent perd alors une occasion de comprendre le problème et d'accompagner une réponse.",
-          "exemple": "Un enfant qui a abîmé un livre de bibliothèque peut le cacher par peur des cris. S'il sait que son parent l'écoutera sans l'humilier, il peut lui en parler. Ensemble, ils pourront demander à la bibliothèque comment remplacer le livre.",
+          "exemple": "Après avoir abîmé un livre de bibliothèque, un enfant hésite à le montrer, puis en parle à son parent. Celui-ci l'écoute sans crier et l'aide à contacter la bibliothèque pour savoir comment le remplacer. L'enfant peut ainsi réparer son erreur au lieu de la cacher.",
           "consequence": "Prendre le problème au sérieux n'oblige donc pas à rabaisser la personne."
         },
         {
@@ -346,7 +346,7 @@
         {
           "idea": "Tout d'abord, les parents doivent pouvoir exprimer précisément ce qu'ils veulent transmettre.",
           "developpement": "S'ils sont plus à l'aise dans leur langue maternelle, l'abandonner peut limiter les conversations. Une langue familière permet de raconter, d'expliquer et de parler des émotions avec davantage de nuances.",
-          "exemple": "Après une journée difficile à l'école, un enfant peut parler avec un parent dans la langue qu'ils utilisent habituellement ensemble. Le parent peut poser des questions et expliquer son point de vue, sans réduire l'échange aux quelques phrases qu'il maîtrise dans une langue nouvelle.",
+          "exemple": "Après une dispute à l'école, un enfant explique dans la langue familiale qu'il s'est senti exclu. Son parent peut distinguer avec lui la colère de la tristesse et l'aider à dire ce qui l'a blessé, au lieu de se limiter à « ça va » dans une langue que le parent maîtrise mal.",
           "consequence": "Préserver cette ressource aide à maintenir un dialogue riche."
         },
         {
@@ -387,9 +387,9 @@
         },
         {
           "idea": "Enfin, il faut partager la préparation des tâches, pas seulement leur exécution.",
-          "developpement": "Remarquer ce qui manque, prévoir les courses et rappeler les échéances demande aussi de l'attention. Une liste ne suffit pas si une personne doit toujours la rédiger et relancer tout le monde.",
-          "exemple": "Un adulte peut prendre la responsabilité des produits d'entretien : vérifier le stock, les ajouter aux courses et les acheter. L'autre peut alors s'occuper d'une autre tâche complète, sans devoir surveiller cette partie à sa place.",
-          "consequence": "La responsabilité devient plus visible et réellement partagée."
+          "developpement": "Remarquer ce qui manque et prévoir les courses demande aussi de l'attention. Sans cette préparation, les oublis peuvent interrompre les autres tâches. Une liste ne suffit donc pas si une personne doit toujours la rédiger et relancer tout le monde.",
+          "exemple": "Un adulte peut prendre la responsabilité des produits d'entretien : vérifier le stock, les ajouter aux courses et les acheter avant qu'ils manquent. L'autre peut ainsi terminer le ménage sans interrompre son travail pour aller au magasin.",
+          "consequence": "L'organisation devient plus fiable, sans laisser à une seule personne tous les rappels."
         }
       ],
       "nuance": "Cependant, la maladie, le handicap ou une période particulièrement difficile peuvent justifier une participation réduite, voire aucune tâche. Il ne faut pas exiger un service pour reconnaître la place d'une personne dans le foyer. Une organisation juste s'ajuste aux capacités réelles et peut être revue.",
@@ -400,8 +400,8 @@
         "famille:p16": "36ebf15d7653f5671feb09204b2631e19ed5cdfe07b3e1e1c912f563ca85e2d4"
       },
       "reformulation": "En quoi vivre chez ses parents après 25 ans peut-il être pratique ?",
-      "position": "Cela peut faciliter le budget et le quotidien, avec une vraie place pour chaque adulte.",
-      "position_claire": "Oui, vivre avec ses parents après 25 ans peut être pratique. Je n'y verrais ni une honte ni une solution idéale pour tout le monde. Il faut examiner l'équilibre financier, le partage du quotidien et la possibilité de rester responsable de ses décisions sous le même toit.",
+      "position": "Cela peut faciliter le budget et le quotidien, et apporter un soutien affectif sans retirer l'autonomie.",
+      "position_claire": "Oui, vivre avec ses parents après 25 ans peut être pratique. Je n'y verrais ni une honte ni une solution idéale pour tout le monde. Le partage des dépenses et des tâches apporte une aide matérielle, et une présence familiale peut aussi soutenir dans une période difficile.",
       "arguments": [
         {
           "idea": "Tout d'abord, partager un logement peut donner une marge financière utile.",
@@ -416,14 +416,14 @@
           "consequence": "La cohabitation apporte alors une entraide, pas seulement un hébergement."
         },
         {
-          "idea": "Enfin, une même adresse reste compatible avec une autonomie réelle.",
-          "developpement": "Vivre ensemble ne devrait pas signifier que les parents décident encore de tout. Clarifier les espaces privés et les engagements communs permet à chaque adulte de garder une place personnelle.",
-          "exemple": "Une personne de vingt-huit ans peut gérer ses démarches et ses rendez-vous elle-même, tout en prévenant si elle ne rentre pas pour le repas prévu. Elle informe par respect de l'organisation commune, sans devoir demander la permission pour chaque sortie.",
-          "consequence": "L'autonomie se voit dans les responsabilités assumées, pas uniquement dans le départ du domicile."
+          "idea": "Enfin, retrouver un cadre familier peut aider à traverser une période difficile.",
+          "developpement": "Une séparation ne pose pas seulement un problème de logement. Retrouver des personnes avec qui parler et garder des habitudes peut aider à reprendre ses repères, sans leur confier toutes ses décisions.",
+          "exemple": "Après une séparation, une personne de vingt-huit ans peut retrouver chez ses parents des repas réguliers et une écoute. Elle organise ses démarches et ses sorties, sans devoir demander la permission : la présence familiale l'aide à reconstruire son quotidien.",
+          "consequence": "Le soutien affectif complète ainsi l'aide matérielle, sans supprimer la responsabilité personnelle."
         }
       ],
       "nuance": "Cependant, cette organisation suppose l'accord des parents et un logement qui le permette. Le manque d'intimité ou les conflits peuvent la rendre pesante. Une cohabitation durable peut être choisie, mais personne ne doit être contraint de la prolonger pour préserver l'apparence d'une famille unie.",
-      "conclusion": "En conclusion, vivre chez ses parents après 25 ans peut être une solution pratique si le budget, les tâches et l'espace personnel sont discutés. L'âge seul ne décide ni de la maturité ni de la qualité de cet arrangement."
+      "conclusion": "En conclusion, vivre chez ses parents après 25 ans peut apporter une aide financière, pratique et affective si chacun garde sa place d'adulte. L'âge seul ne décide ni de la maturité ni de la qualité de cet arrangement."
     }
   }
 }

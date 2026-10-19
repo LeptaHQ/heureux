@@ -15,6 +15,12 @@ from .response_personalization import effective_response
 from .routing import prompt_detail_url, response_detail_url
 from .tache_two_dialogues import prompt_note_presentation, question_presentation
 
+REVIEW_KIND_TITLES = {
+    "phrase": "Expressions",
+    "revisit": "Liste à revoir",
+    "weak": "Points à renforcer",
+}
+
 
 def scope_from_request(request) -> dict:
     """Parse and whitelist deck-scope parameters from a request."""
@@ -220,6 +226,96 @@ def scope_label(scope: dict) -> str:
     if scope.get("content") == "vocabulary":
         return with_batch("Vocabulaire")
     return with_batch("Sélection")
+
+
+def scope_title_segments(scope: dict) -> list[str]:
+    """Browser-title segments for a review deck, most specific first.
+
+    ``{"theme": "culture"}`` gives ``["Révision", "Culture", "EO Tâche 3"]``;
+    the template appends the site name.
+    """
+    from .models import (
+        ComprehensionTest,
+        ExamPart,
+        Family,
+        PhraseCategory,
+        Response,
+        Task,
+        Theme,
+    )
+
+    vocabulary = (
+        scope.get("kind") in {"vocab", "theme_vocab"}
+        or scope.get("content") == "vocabulary"
+        or bool(scope.get("test") or scope.get("category"))
+    )
+    item = ""
+    task = None
+    section = ""
+    if scope.get("theme"):
+        theme = (
+            Theme.objects.select_related("task__part")
+            .filter(slug=scope["theme"], is_active=True)
+            .first()
+        )
+        if theme:
+            item = theme.display_name
+            task = theme.task
+    elif scope.get("category"):
+        category = PhraseCategory.objects.filter(
+            slug=scope["category"],
+            is_active=True,
+        ).first()
+        if category:
+            item = category.name
+    elif scope.get("test"):
+        test = ComprehensionTest.objects.filter(
+            slug=scope["test"],
+            is_active=True,
+        ).first()
+        if test:
+            item = test.title
+            section = f"Compréhension {test.get_mode_display().lower()}"
+    elif scope.get("response"):
+        response = (
+            Response.objects.select_related("theme__task__part")
+            .filter(pk=scope["response"], is_active=True)
+            .first()
+        )
+        if response:
+            item = response.theme.display_name
+            task = response.theme.task
+    elif scope.get("family"):
+        family = Family.objects.filter(
+            slug=scope["family"],
+            is_active=True,
+        ).first()
+        if family:
+            item = family.name
+    else:
+        item = REVIEW_KIND_TITLES.get(scope.get("kind"), "")
+
+    if task is None and scope.get("task"):
+        tasks = Task.objects.filter(
+            slug=scope["task"],
+            is_active=True,
+            part__is_active=True,
+        ).select_related("part")
+        if scope.get("part"):
+            tasks = tasks.filter(part__slug=scope["part"])
+        task = tasks.first()
+    if task is not None:
+        section = task.short_label
+    elif not section and scope.get("part"):
+        part = ExamPart.objects.filter(
+            slug=scope["part"],
+            is_active=True,
+        ).first()
+        if part:
+            section = part.name
+
+    page = "Révision du vocabulaire" if vocabulary else "Révision"
+    return [segment for segment in (page, item, section) if segment]
 
 
 def card_payload(card: Card, *, prompt=None, model_only=False, personal=None) -> dict:

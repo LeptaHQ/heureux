@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}{% if selected %}{{ selected.name }}{% elif selected_test %}{{ selected_test.title }}{% else %}Vocabulaire{% endif %} · Heureux{% endblock %}
+{% block title %}{% if selected %}{{ selected.name }} · Vocabulaire{% if task %} · {{ task.short_label }}{% endif %}{% elif selected_test %}Vocabulaire · {{ selected_test.title }} · {% if comprehension_mode == "orale" %}Compréhension orale{% else %}Compréhension écrite{% endif %}{% elif comprehension_mode %}Vocabulaire · {% if comprehension_mode == "orale" %}Compréhension orale{% else %}Compréhension écrite{% endif %}{% else %}Vocabulaire{% endif %} · Heureux{% endblock %}
 
 {% block content %}
 {% if selected or selected_test %}

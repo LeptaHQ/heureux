@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %}{% if is_tache_two %}Modifier mes questions{% else %}Modifier ma réponse{% endif %} · Heureux{% endblock %}
+{% block title %}{% if is_tache_two %}Modifier mes questions{% else %}Modifier ma réponse{% endif %} · {{ task.short_label }} · Heureux{% endblock %}
 
 {% block content %}
 {% include "study/partials/task_nav.html" %}

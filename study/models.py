@@ -62,6 +62,11 @@ class Task(models.Model):
         return f"{self.part.short_name} · {self.name}"
 
     @property
+    def short_label(self) -> str:
+        """Compact task name used as the section of page titles: "EO Tâche 2"."""
+        return f"{self.part.short_name} {self.name}"
+
+    @property
     def supports_memoires(self) -> bool:
         """True when this task exposes a user-facing Mémoires section."""
         from . import content_loader

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static study_markdown study_links %}
-{% block title %}{{ selected_prompt.text|truncatechars:50 }} · Heureux{% endblock %}
+{% block title %}Sujet{% if prompt_position %} {{ prompt_position }}{% endif %} · {{ selected_prompt.theme.display_name }} · {{ task.short_label }} · Heureux{% endblock %}
 
 {% block content %}
 {% include "study/partials/task_nav.html" %}

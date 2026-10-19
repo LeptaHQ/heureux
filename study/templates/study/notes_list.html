@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}{{ scope_title }} · Notes · Heureux{% endblock %}
+{% block title %}{% if task %}Notes · {{ task.short_label }}{% else %}{{ scope_title }} · Notes{% endif %} · Heureux{% endblock %}
 
 {% block content %}
 <header class="area-hero notes-hero">

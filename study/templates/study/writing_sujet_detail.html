@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static study_markdown study_links %}
-{% block title %}{{ prompt|truncatechars:50 }} · Heureux{% endblock %}
+{% block title %}Sujet {{ position }} · {{ category_label }} · {{ task.short_label }} · Heureux{% endblock %}
 
 {% block content %}
 <div class="ee-t1-page ee-t1-detail tache-two-subject-detail" style="--subject-accent: {{ task.color }};">

@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Progression · Heureux{% endblock %}
+{% block title %}Progression{% if task %} · {{ task.short_label }}{% elif part %} · {{ part.name }}{% endif %} · Heureux{% endblock %}
 
 {% block content %}
 <div class="stats-page">

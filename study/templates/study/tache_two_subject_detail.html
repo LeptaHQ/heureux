@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static study_links %}
-{% block title %}Sujet {{ subject.number }} · {{ subject.title }} · {{ task.name }}{% endblock %}
+{% block title %}Sujet {{ subject_position }}{% if subject_theme_name %} · {{ subject_theme_name }}{% endif %} · {{ task.short_label }} · Heureux{% endblock %}
 
 {% block content %}
 {% include "study/partials/task_nav.html" with compact=True %}

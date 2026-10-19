@@ -41,12 +41,12 @@
       },
       "reformulation": "Peut-on continuer à apprendre à tout âge ?",
       "position": "Oui, l'âge seul ne devrait pas faire renoncer à un apprentissage.",
-      "position_claire": "Oui, je pense qu'on peut continuer à apprendre à tout âge. Cela ne signifie pas apprendre n'importe quoi, au même rythme et sans difficulté. Mais un objectif concret, l'expérience déjà acquise et une méthode adaptée peuvent rendre un nouvel apprentissage tout à fait utile et possible.",
+      "position_claire": "Oui, je pense qu'on peut continuer à apprendre à tout âge. Cela ne signifie pas apprendre n'importe quoi, au même rythme et sans difficulté. Un objectif concret et l'expérience déjà acquise permettent de progresser. Cet apprentissage peut aussi enrichir la vie personnelle et les relations, bien après la scolarité.",
       "arguments": [
         {
           "idea": "Tout d'abord, apprendre peut commencer par une compétence précise, sans reprendre tout un parcours.",
           "developpement": "On imagine parfois qu'apprendre exige de devenir spécialiste. Or une personne peut viser un geste ou une connaissance qu'elle utilisera réellement, puis avancer à partir de ce premier objectif.",
-          "exemple": "Une personne retraitée qui veut envoyer une photo à sa famille peut s'entraîner avec un proche à joindre un fichier à un message. Elle reprend les étapes plusieurs fois, puis essaie seule, au lieu de devoir maîtriser toutes les fonctions de l'appareil.",
+          "exemple": "Une personne retraitée qui veut envoyer une photo à sa famille peut s'entraîner avec un proche à joindre un fichier à un message. Après plusieurs essais, elle réussit à l'envoyer seule, sans devoir maîtriser toutes les fonctions de l'appareil.",
           "consequence": "Le progrès se mesure à une action devenue plus accessible."
         },
         {
@@ -56,14 +56,14 @@
           "consequence": "L'expérience devient une ressource, sans rendre toute nouveauté facile."
         },
         {
-          "idea": "Enfin, il est possible d'ajuster la pratique aux besoins de la personne.",
-          "developpement": "La durée des séances, les supports et les explications ne conviennent pas à tout le monde. Un rythme progressif et un retour sur les erreurs peuvent permettre d'avancer sans se comparer en permanence aux autres.",
-          "exemple": "Dans un atelier de dessin, un débutant âgé peut demander une démonstration plus lente, refaire un geste puis montrer son essai. Le professeur lui indique un point à corriger, plutôt que lui demander de réussir immédiatement un dessin complexe.",
-          "consequence": "L'accompagnement porte sur la prochaine étape, pas sur une limite supposée de l'âge."
+          "idea": "Enfin, apprendre peut nourrir la curiosité et créer de nouveaux liens.",
+          "developpement": "On n'apprend pas uniquement pour obtenir un emploi ou un diplôme. Découvrir une pratique donne des sujets à explorer et des occasions d'échanger autour d'un intérêt commun, à un rythme adapté.",
+          "exemple": "Une personne retraitée qui rejoint un atelier de dessin peut apprendre à représenter une perspective, puis comparer ses essais avec ceux des autres participants. Elle découvre une technique et retrouve un groupe avec lequel parler de ses progrès et préparer une petite exposition.",
+          "consequence": "L'apprentissage enrichit alors ses activités et ses relations, sans devoir mener à une qualification."
         }
       ],
       "nuance": "Cependant, la santé, le temps disponible et l'accès à un accompagnement peuvent limiter certains projets. On peut devoir modifier l'objectif ou la méthode. Reconnaître ces contraintes ne revient pas à dire qu'une date anniversaire rend tout apprentissage inutile ou impossible.",
-      "conclusion": "En conclusion, je défends la possibilité d'apprendre tout au long de la vie. Partir d'un besoin, mobiliser ses acquis et adapter la pratique permet d'envisager des progrès réels, sans promettre les mêmes résultats à tout le monde."
+      "conclusion": "En conclusion, je défends la possibilité d'apprendre tout au long de la vie. Partir d'un besoin et mobiliser ses acquis permet d'envisager des progrès réels. La curiosité et les liens créés donnent aussi du sens à cet effort, sans promettre les mêmes résultats à tout le monde."
     },
     "education-p3": {
       "prompt_signatures": {
@@ -76,19 +76,19 @@
         {
           "idea": "Tout d'abord, ranger le téléphone évite certaines interruptions pendant les apprentissages.",
           "developpement": "Un message peut détourner l'élève au moment où une consigne est expliquée. Il doit ensuite retrouver le fil, parfois sans savoir quelle information il a manquée.",
-          "exemple": "Pendant un exercice en groupe, un élève qui répond à plusieurs notifications peut ne pas entendre le changement de tâche. Si les téléphones sont rangés pour cette activité, le groupe dispose d'une règle commune pour rester disponible à la discussion.",
+          "exemple": "Un élève qui consulte un message peut manquer un changement de consigne et commencer la mauvaise tâche. Pour l'activité suivante, les appareils sont rangés ; il écoute l'explication jusqu'au bout et peut dire à son groupe ce qu'il faut faire.",
           "consequence": "Cela ne garantit pas la concentration, mais retire une source d'interruption."
         },
         {
           "idea": "Ensuite, une règle sur les prises d'images protège mieux la vie privée.",
           "developpement": "L'école doit permettre d'apprendre sans être filmé à chaque erreur ou à chaque moment gênant. Une photo partagée peut circuler bien au-delà des personnes présentes au départ.",
-          "exemple": "Un élève peut être filmé à son insu pendant un exposé où il cherche ses mots. Interdire cet enregistrement, prévoir un signalement et intervenir auprès des élèves concernés donne une réponse plus claire que laisser chacun décider seul de ce qui peut être publié.",
+          "exemple": "Un élève peut commencer à filmer un camarade à son insu pendant un exposé. Un témoin le signale à l'enseignant, qui fait cesser l'enregistrement et intervient pour empêcher sa diffusion. Le camarade peut terminer sa présentation sans continuer à être filmé.",
           "consequence": "Le téléphone n'est pas la cause de tout conflit, mais son usage peut amplifier une atteinte."
         },
         {
           "idea": "Enfin, des moments sans écran laissent davantage de place aux activités communes.",
           "developpement": "Une pause peut servir à jouer, discuter ou se reposer autrement. Pour que cette possibilité soit réelle, il faut aussi prévoir des espaces et des activités accessibles, pas seulement retirer les appareils.",
-          "exemple": "Un établissement peut proposer des jeux de société pendant une pause sans téléphone. Les élèves disposent alors d'une occasion de participer ensemble, tout en pouvant choisir de lire ou de rester au calme s'ils le préfèrent.",
+          "exemple": "Pendant une pause sans téléphone, deux élèves peuvent rejoindre un jeu de société proposé par l'établissement. Ils expliquent les règles à un nouveau joueur et échangent pendant la partie. D'autres peuvent choisir de lire ou de rester au calme.",
           "consequence": "La règle ouvre des possibilités sans imposer la même sociabilité à tous."
         }
       ],
@@ -164,10 +164,10 @@
       "position_claire": "Oui, Internet peut jouer un rôle important dans la solidarité, notamment après une catastrophe. Il permet de faire connaître les besoins, de coordonner les contributions et de maintenir des échanges avec les personnes touchées. Mais son utilité dépend d'informations fiables et d'une aide qui arrive réellement au bon endroit.",
       "arguments": [
         {
-          "idea": "Tout d'abord, un appel précis permet de savoir quelle aide est nécessaire.",
-          "developpement": "L'émotion donne envie d'agir, sans indiquer forcément ce qui manque. Une organisation présente sur place peut publier des besoins actualisés pour orienter les personnes prêtes à participer.",
-          "exemple": "Après une inondation, une association peut annoncer qu'elle cherche des couvertures propres à déposer dans un lieu accessible. Les habitants savent quoi apporter et où se rendre, au lieu d'envoyer des objets dont l'équipe n'a pas besoin.",
-          "consequence": "L'information transforme une intention générale en contribution adaptée."
+          "idea": "Tout d'abord, Internet peut mobiliser rapidement des personnes au-delà du quartier touché.",
+          "developpement": "Une organisation présente sur place peut publier des besoins actualisés, puis d'autres personnes relayer cet appel. La diffusion élargit le cercle de ceux qui peuvent agir, à condition de conserver la source, la date et les indications utiles.",
+          "exemple": "Après une inondation, une association peut annoncer qu'elle cherche des couvertures propres à déposer dans un lieu accessible. Un groupe d'habitants d'une commune voisine relaie l'appel et organise un dépôt, au lieu d'envoyer des objets dont l'équipe n'a pas besoin.",
+          "consequence": "L'information permet ainsi une mobilisation plus large autour d'un besoin précis."
         },
         {
           "idea": "Ensuite, les outils en ligne peuvent répartir les moyens et les disponibilités.",
@@ -178,7 +178,7 @@
         {
           "idea": "Enfin, les échanges donnent aux personnes touchées une place dans l'organisation de l'aide.",
           "developpement": "Elles ne sont pas seulement les destinataires d'un dispositif conçu sans elles. Lorsqu'un contact est possible, elles peuvent expliquer une contrainte et demander une adaptation.",
-          "exemple": "Une personne hébergée temporairement peut prévenir un référent associatif qu'elle ne peut pas transporter un colis lourd. L'équipe cherche alors une solution avec elle, au lieu de considérer le colis préparé comme une réponse suffisante.",
+          "exemple": "Par une messagerie privée, une personne hébergée temporairement peut prévenir un référent associatif qu'elle ne peut pas transporter un colis lourd. L'équipe convient avec elle d'une livraison, au lieu de considérer le colis préparé comme une réponse suffisante.",
           "consequence": "L'aide peut mieux correspondre à la situation vécue."
         }
       ],
@@ -196,8 +196,8 @@
         {
           "idea": "Tout d'abord, une reprise d'études peut répondre à un objectif clairement identifié.",
           "developpement": "On ne revient pas forcément étudier pour refaire le parcours de sa jeunesse. Une formation peut apporter les connaissances qui manquent pour changer d'activité ou approfondir un domaine.",
-          "exemple": "Une personne qui souhaite passer de la vente à la gestion peut comparer les enseignements et les conditions d'accès d'une formation. Si elle y retrouve les compétences nécessaires à son projet, son âge ne suffit pas à rendre ce choix inutile.",
-          "consequence": "La question importante est ce que les études apportent au projet."
+          "exemple": "Une personne qui souhaite passer de la vente à la gestion peut apprendre à prévoir les stocks et à établir un budget pendant une formation. Elle peut ensuite présenter ces compétences pour demander de nouvelles missions, sans supposer qu'un diplôme lui assurera une promotion.",
+          "consequence": "Les études apportent alors des moyens concrets d'évoluer, quel que soit l'âge du départ."
         },
         {
           "idea": "Ensuite, l'expérience peut aider à relier les cours à des situations concrètes.",
@@ -208,7 +208,7 @@
         {
           "idea": "Enfin, un rythme compatible avec ses responsabilités peut rendre le parcours réalisable.",
           "developpement": "Étudier avec un emploi ou une famille suppose de réserver du temps et d'anticiper les périodes chargées. Certains formats permettent des ajustements, mais il faut les vérifier avant de s'inscrire.",
-          "exemple": "Si un établissement propose un parcours à temps partiel, un adulte peut répartir les cours sur une durée plus longue. Il compare les horaires et le coût total avec ses disponibilités, plutôt que supposer qu'il pourra tout ajouter à ses journées actuelles.",
+          "exemple": "Si un établissement propose un parcours à temps partiel, un adulte salarié peut choisir deux cours du soir et reporter les autres à l'année suivante. Après avoir vérifié le coût et ses disponibilités, il peut assister aux séances sans abandonner son emploi.",
           "consequence": "L'organisation doit soutenir le projet, pas compter uniquement sur la motivation."
         }
       ],
@@ -222,19 +222,19 @@
       },
       "reformulation": "Dans quelle action solidaire aimerais-je m'engager, et pourquoi ?",
       "position": "J'aimerais participer régulièrement à une distribution alimentaire associative.",
-      "position_claire": "J'aimerais participer à une distribution alimentaire dans une association de quartier. Ce serait une manière concrète de contribuer à un besoin essentiel, dans une équipe organisée. Je choisirais un engagement régulier et réaliste, en restant attentif à la dignité et aux préférences des personnes accueillies.",
+      "position_claire": "J'aimerais participer à une distribution alimentaire dans une association de quartier. Ce serait une manière concrète de contribuer à un besoin essentiel. Je choisirais un engagement régulier et réaliste, attentif à la dignité et aux préférences des personnes accueillies.",
       "arguments": [
         {
           "idea": "Tout d'abord, cette action répond à une difficulté immédiate du quotidien.",
           "developpement": "Quand les ressources ne suffisent pas pour toutes les dépenses, l'aide alimentaire peut soulager une contrainte précise. Elle ne règle pas toute la situation, mais permet de ne pas remettre tous les besoins à plus tard.",
-          "exemple": "J'aimerais aider à préparer des paniers de conserves, de riz et de légumes, selon les dons disponibles. Une personne pourrait ainsi garder une partie de son budget pour son loyer. Je suivrais les consignes de l'association sans supposer les besoins de chaque foyer.",
-          "consequence": "Ma contribution aurait une fonction limitée mais clairement identifiable."
+          "exemple": "J'aimerais aider à préparer des paniers de conserves, de riz et de légumes, selon les dons disponibles. Une personne pourrait ainsi garder une partie de son budget pour son loyer. Je suivrais les consignes de l'association.",
+          "consequence": "Cette aide soulagerait une dépense essentielle, sans régler à elle seule toutes les difficultés du foyer."
         },
         {
           "idea": "Ensuite, un engagement fiable aide l'association à organiser son travail.",
-          "developpement": "Une distribution demande de préparer les produits, accueillir les personnes et ranger après l'activité. Savoir qui sera présent permet à l'équipe de répartir ces tâches sans improviser chaque fois.",
+          "developpement": "Une distribution demande de préparer les produits, accueillir les personnes et ranger après l'activité. Savoir qui sera présent permet de répartir ces tâches et de maintenir les créneaux annoncés. Les personnes accueillies peuvent ainsi mieux prévoir quand venir chercher cette aide.",
           "exemple": "Je proposerais un créneau compatible avec mes obligations, dont la fréquence serait convenue avec l'association. Si je devais m'absenter, je préviendrais suffisamment tôt pour que l'équipe puisse chercher une solution, au lieu de compter sur une présence incertaine.",
-          "consequence": "La régularité aurait du sens parce qu'elle répondrait à l'organisation réelle."
+          "consequence": "Ma régularité contribuerait à une aide sur laquelle les personnes peuvent compter, dans les limites de l'association."
         },
         {
           "idea": "Enfin, cet engagement permettrait d'aider sans décider systématiquement à la place des personnes.",
@@ -257,14 +257,14 @@
         {
           "idea": "Tout d'abord, une formation structurée donne des bases pour comprendre le travail.",
           "developpement": "Apprendre une méthode progressivement permet de relier les gestes à leurs raisons. On peut alors traiter un cas nouveau avec des repères, au lieu de reproduire uniquement une opération connue.",
-          "exemple": "Dans une formation en comptabilité, un étudiant peut apprendre à classer des dépenses puis à vérifier la cohérence d'un bilan. Des exercices corrigés lui montrent pourquoi une erreur change le résultat, avant qu'il rencontre un dossier réel en entreprise.",
+          "exemple": "Dans une formation en comptabilité, un étudiant peut compter deux fois une facture dans un exercice. En reprenant les étapes avec le professeur, il retrouve le doublon et corrige le total. Il apprend ainsi à vérifier les pièces plutôt qu'à accepter un chiffre sans contrôle.",
           "consequence": "Les études préparent une compréhension qui pourra être mobilisée en pratique."
         },
         {
-          "idea": "Ensuite, une qualification peut rendre certaines candidatures possibles ou plus lisibles.",
-          "developpement": "Pour des postes qui exigent une formation précise, le candidat doit pouvoir montrer qu'il remplit les conditions. Un diplôme renseigne sur un parcours, même s'il ne prouve pas toutes les qualités attendues.",
-          "exemple": "Si une offre demande une qualification technique donnée, une personne qui la possède peut présenter ce titre et expliquer les travaux réalisés pendant sa formation. Elle doit encore montrer comment ses acquis répondent au poste et réussir la sélection.",
-          "consequence": "La formation ouvre une possibilité, sans décider de l'embauche."
+          "idea": "Ensuite, une qualification peut ouvrir l'accès à de nouvelles fonctions.",
+          "developpement": "Certains postes exigent une formation précise. L'obtenir permet d'envisager des candidatures auparavant hors de portée, au début d'une carrière ou pour évoluer. Le titre ne prouve toutefois pas toutes les qualités attendues.",
+          "exemple": "Un salarié d'atelier qui suit une formation en maintenance peut apprendre à diagnostiquer des pannes. Si une offre de technicien demande cette qualification, il peut présenter son titre et ses travaux pratiques pour postuler à un rôle plus autonome. Il doit encore réussir la sélection.",
+          "consequence": "La formation élargit donc les possibilités professionnelles, sans décider de l'embauche."
         },
         {
           "idea": "Enfin, les études peuvent exercer des méthodes utiles au-delà d'une matière.",
@@ -317,14 +317,14 @@
         {
           "idea": "Tout d'abord, un ouvrage documenté peut expliquer le contexte d'une situation actuelle.",
           "developpement": "Une image ou une information isolée ne dit pas toujours comment une ville ou une institution s'est construite. Un livre peut organiser les étapes et donner des références pour approfondir.",
-          "exemple": "Avant de visiter une ville, une personne peut lire un ouvrage sur l'évolution de ses quartiers. Elle comprend mieux pourquoi des bâtiments de différentes périodes se trouvent côte à côte, puis cherche sur place ce qui correspond aux explications.",
-          "consequence": "La lecture donne des repères pour observer, pas seulement des noms à retenir."
+          "exemple": "Un ouvrage sur l'industrialisation d'une ville peut expliquer comment l'installation d'usines a attiré des travailleurs et transformé le logement. Le lecteur comprend alors l'origine de certains quartiers et des débats sur leur transformation, au lieu de n'y voir qu'un décor touristique.",
+          "consequence": "La lecture relie ainsi les lieux actuels à une histoire sociale."
         },
         {
           "idea": "Ensuite, les récits montrent des expériences que l'on ne rencontre pas forcément soi-même.",
-          "developpement": "Un roman ou un témoignage permet de suivre des préoccupations quotidiennes et des choix individuels. Il faut distinguer le point de vue d'un personnage ou d'un auteur de celui de tous les habitants.",
-          "exemple": "En lisant un récit situé dans une zone rurale puis un autre dans une grande ville du même pays, un lecteur peut découvrir des contraintes différentes de transport ou de travail. Il évite ainsi de parler d'une seule manière de vivre nationale.",
-          "consequence": "Plusieurs récits rendent la diversité interne plus visible."
+          "developpement": "Un récit peut donner accès aux pensées d'un personnage, pas seulement à ses gestes. On comprend alors ce qu'il hésite à sacrifier ou à préserver. Cela reste son point de vue, pas celui de tous les habitants.",
+          "exemple": "Dans un récit rural, un personnage peut hésiter à quitter sa famille pour étudier ; dans un récit urbain du même pays, un autre cherche un logement proche de son travail. Suivre leurs hésitations aide le lecteur à comprendre ces choix, sans en faire ceux de tous les habitants.",
+          "consequence": "Plusieurs récits rendent visibles des préoccupations humaines et la diversité interne du pays."
         },
         {
           "idea": "Enfin, les livres permettent une découverte sans déplacement dans le pays.",
@@ -347,13 +347,13 @@
         {
           "idea": "Tout d'abord, le téléphone permet de consulter une source adaptée au besoin.",
           "developpement": "On peut chercher l'information auprès de l'organisme qui gère un service, au lieu de dépendre uniquement d'un message transmis par une connaissance. Il faut encore vérifier que la publication concerne bien la situation actuelle.",
-          "exemple": "Si une ligne de bus semble perturbée, une personne peut consulter les informations de l'opérateur et regarder l'heure de mise à jour. Elle compare ainsi ce qui concerne son trajet avec une capture d'écran reçue dans une conversation.",
+          "exemple": "Une personne reçoit une capture d'écran annonçant la suspension de sa ligne de bus. Sur le site de l'opérateur, elle trouve une mise à jour indiquant la reprise du service. Elle peut alors prévoir son trajet à partir d'une information datée, plutôt que du message ancien.",
           "consequence": "L'appareil facilite une recherche utile, sans rendre chaque message fiable."
         },
         {
           "idea": "Ensuite, ce qui apparaît en premier n'est pas forcément ce qui explique le mieux.",
           "developpement": "Les recommandations peuvent favoriser des contenus qui retiennent l'attention ou ressemblent aux précédents. Une répétition crée une impression de certitude, même si plusieurs publications reprennent la même affirmation non vérifiée.",
-          "exemple": "Un utilisateur qui regarde une vidéo alarmante peut recevoir d'autres contenus sur le même thème. Les retrouver partout dans son fil ne signifie pas qu'ils reposent sur des preuves différentes ni qu'ils décrivent correctement l'événement.",
+          "exemple": "Après une vidéo annonçant la fermeture d'une école, un utilisateur peut en recevoir trois autres qui répètent la nouvelle. En les ouvrant, il constate qu'elles citent toutes le même message sans source. Cette répétition lui avait donné l'impression de plusieurs confirmations.",
           "consequence": "La visibilité et la répétition ne doivent donc pas être confondues avec la qualité."
         },
         {
@@ -378,19 +378,19 @@
         {
           "idea": "Tout d'abord, certains postes comportent des responsabilités particulières.",
           "developpement": "Prendre une décision pour une équipe ou vérifier une opération engage autre chose que réaliser sa seule tâche. Cette responsabilité peut être reconnue, sans considérer les autres métiers comme sans valeur.",
-          "exemple": "Une personne qui coordonne un chantier doit organiser les interventions et traiter les difficultés signalées par plusieurs équipes. Si son poste comporte ces responsabilités supplémentaires, une différence de salaire peut se discuter à partir de missions précises, pas simplement du prestige du titre.",
+          "exemple": "Sur un chantier, deux équipes peuvent prévoir d'intervenir au même endroit en même temps. La personne chargée de les coordonner modifie le planning et vérifie l'ordre des travaux pour éviter qu'une intervention bloque l'autre. Cette mission supplémentaire peut justifier une rémunération différente.",
           "consequence": "Le critère devient le travail réellement confié."
         },
         {
           "idea": "Ensuite, les conditions de travail doivent entrer dans la comparaison.",
           "developpement": "Un montant ne signifie pas la même chose pour des durées de travail différentes. Certaines contraintes, comme des horaires difficiles, peuvent aussi justifier une compensation clairement définie.",
-          "exemple": "Deux personnes peuvent occuper une fonction comparable, mais l'une travaille à temps partiel et l'autre à temps plein. Comparer seulement leur salaire mensuel ferait oublier le temps travaillé ; il faut regarder aussi la rémunération rapportée à ce temps.",
+          "exemple": "Deux personnes peuvent occuper une fonction comparable, l'une à temps partiel et l'autre à temps plein. Leurs salaires mensuels diffèrent, mais la comparaison des montants par heure peut montrer un taux identique. L'écart vient alors du temps travaillé, pas d'une moindre valeur du salarié.",
           "consequence": "L'équité demande donc une comparaison précise, pas seulement un chiffre identique."
         },
         {
           "idea": "Enfin, des compétences supplémentaires utiles peuvent être reconnues dans l'évolution du salaire.",
           "developpement": "Une formation ou une expérience a un intérêt lorsqu'elle permet de prendre en charge un travail nouveau. La reconnaissance doit porter sur cet apport, et rester accessible selon des critères connus.",
-          "exemple": "Une technicienne peut apprendre à diagnostiquer un type de panne et former ensuite ses collègues. Si ces missions s'ajoutent durablement à son poste, elle peut demander qu'elles soient prises en compte, avec les mêmes critères que pour une autre personne.",
+          "exemple": "Après une formation, une technicienne peut identifier le capteur défectueux d'un appareil que l'on pensait devoir remplacer. Elle transmet sa méthode à ses collègues. Si le diagnostic et la formation deviennent des missions régulières, cet apport peut être reconnu dans son salaire.",
           "consequence": "On reconnaît une contribution démontrée, pas une qualité supposée liée à l'identité."
         }
       ],
@@ -403,25 +403,25 @@
       },
       "reformulation": "Quelles limites à la liberté d'expression sont défendables ?",
       "position": "Protéger les personnes tout en préservant la critique par des règles précises et proportionnées.",
-      "position_claire": "Oui, je pense que la liberté d'expression peut avoir des limites, mais elles doivent être précises et proportionnées. Je distingue la protection contre les menaces, le respect de la vie privée et les garanties nécessaires pour que ces limites ne deviennent pas une manière de faire taire les désaccords.",
+      "position_claire": "Oui, je pense que la liberté d'expression peut avoir des limites, mais elles doivent être précises et proportionnées. Elles peuvent protéger contre les menaces, préserver la vie privée et permettre à davantage de personnes de participer au débat. Elles ne doivent pas devenir une manière de faire taire les désaccords.",
       "arguments": [
         {
           "idea": "Tout d'abord, exprimer une opinion n'est pas la même chose que menacer une personne.",
           "developpement": "Une critique peut être vive sans chercher à provoquer une agression. Un appel concret à attaquer quelqu'un fait peser un risque différent, auquel il faut pouvoir répondre.",
-          "exemple": "Dans une discussion publique, on peut contester fortement les décisions d'un responsable. Publier un message demandant de s'en prendre physiquement à lui ne relève plus de la même démarche : on cherche à diriger une action contre une personne.",
+          "exemple": "Lors d'une réunion sur la fermeture d'une bibliothèque, un habitant critique la décision. Un autre publie un appel à agresser le responsable : l'organisateur doit alors traiter une menace pour sa sécurité, et pas seulement une objection au projet.",
           "consequence": "Protéger le débat n'oblige pas à laisser les menaces sans réponse."
         },
         {
           "idea": "Ensuite, le droit de parler ne donne pas une raison de divulguer toute la vie privée d'autrui.",
           "developpement": "Des informations personnelles peuvent être utilisées pour exposer une personne à des pressions ou à des contacts non souhaités. Leur diffusion doit être examinée selon le contexte et l'intérêt réel de l'information.",
-          "exemple": "Après un désaccord, publier le numéro privé d'un voisin pour que d'autres l'appellent ne contribue pas à expliquer le problème. On peut raconter les faits utiles et chercher une solution sans livrer ses coordonnées à un groupe.",
+          "exemple": "Après un conflit de voisinage, une personne peut publier le numéro privé de son voisin pour que d'autres l'appellent. Celui-ci reçoit des appels insistants. On pourrait pourtant exposer le désaccord sans diffuser ses coordonnées.",
           "consequence": "La protection de la personne peut donc limiter une publication sans interdire toute critique."
         },
         {
-          "idea": "Enfin, les décisions de limitation doivent pouvoir être comprises et contestées.",
-          "developpement": "Une règle trop vague peut servir contre n'importe quelle opinion dérangeante. Des motifs clairs et une réponse proportionnée permettent de distinguer la protection du public d'une exclusion arbitraire.",
-          "exemple": "Sur un espace de discussion, une équipe peut retirer une menace en expliquant la règle concernée, tout en laissant les critiques d'une politique. Elle prévoit aussi un moyen de demander un réexamen si un message a été mal compris.",
-          "consequence": "La transparence protège alors aussi les opinions minoritaires."
+          "idea": "Enfin, des limites précises peuvent protéger la participation au débat.",
+          "developpement": "Lorsque des interventions servent à intimider, certaines personnes renoncent à parler. Encadrer ces comportements peut préserver la confrontation des idées, plutôt que laisser les plus agressifs occuper tout l'espace.",
+          "exemple": "Sur un espace de discussion local, une équipe peut retirer les attaques répétées contre une participante, mais laisser les critiques de sa proposition. Elle explique sa décision et permet un réexamen. La participante peut alors répondre sur le fond sans subir ces attaques à chaque intervention.",
+          "consequence": "Des règles proportionnées peuvent donc maintenir plusieurs voix dans le débat, pas seulement restreindre la parole."
         }
       ],
       "nuance": "Cependant, une parole peut choquer sans constituer une menace ni une atteinte injustifiée. Le simple désaccord ne devrait pas suffire à l'interdire. Les règles juridiques varient selon les pays ; je défends ici un équilibre de principe, pas une formule qui remplacerait l'examen de chaque situation.",
@@ -438,20 +438,20 @@
         {
           "idea": "Tout d'abord, des bases communes donnent des moyens d'agir au-delà de la classe.",
           "developpement": "Lire, calculer et comprendre une explication sont utiles pour poursuivre des études comme pour la vie quotidienne. L'école doit consacrer du temps à ces apprentissages et vérifier qu'ils deviennent utilisables.",
-          "exemple": "Un élève peut apprendre à lire un tableau d'horaires et à calculer une durée. Réutiliser ces compétences pour préparer un trajet montre ce qu'il comprend, au-delà de la récitation d'une règle ou d'une opération faite mécaniquement.",
+          "exemple": "Un élève peut lire les horaires de deux bus et calculer si le temps entre les deux suffit pour changer d'arrêt. Il choisit ensuite une correspondance réalisable : la lecture et le calcul servent à préparer un trajet, pas seulement à réussir un exercice.",
           "consequence": "Le programme a de la valeur lorsqu'il donne des outils réels."
         },
         {
           "idea": "Ensuite, apprendre un contenu doit aussi exercer le raisonnement.",
           "developpement": "Savoir expliquer une réponse permet de mieux distinguer une connaissance d'une affirmation répétée. Cela peut se travailler à l'intérieur même des matières, sans ajouter une mission entièrement séparée.",
-          "exemple": "En histoire, comparer deux documents sur un événement permet de chercher qui parle et sur quelles informations il s'appuie. Les élèves travaillent des connaissances tout en apprenant pourquoi deux récits peuvent différer.",
+          "exemple": "Pour étudier une grève, les élèves peuvent comparer l'affiche d'un syndicat et un article de journal. Ils repèrent ce que chaque document met en avant et vérifient les faits communs, au lieu de répéter le premier récit comme une vérité complète.",
           "consequence": "L'esprit critique complète donc l'enseignement, au lieu de remplacer les savoirs."
         },
         {
-          "idea": "Enfin, les relations dans la classe influencent les possibilités d'apprendre.",
-          "developpement": "Si quelques élèves empêchent les autres de parler ou si une difficulté provoque des moqueries, le cours devient moins accessible. Des règles de coopération protègent le travail commun.",
-          "exemple": "Pendant une activité en groupe, un enseignant peut répartir les rôles et demander à chacun d'expliquer une étape. Les élèves doivent écouter et laisser une place aux autres, tout en avançant sur le contenu prévu.",
-          "consequence": "Apprendre à travailler ensemble peut servir directement l'objectif scolaire."
+          "idea": "Enfin, l'école doit préparer les élèves à coopérer au-delà de la classe.",
+          "developpement": "Partager les responsabilités, écouter un avis différent et résoudre un désaccord sans violence sont des apprentissages utiles à la vie collective. Ils peuvent se travailler pendant les cours, sans abandonner le contenu prévu.",
+          "exemple": "Pendant un projet de groupe, deux élèves peuvent défendre des présentations différentes. L'enseignant leur demande de comparer leurs raisons et de répartir les rôles pour que chacun contribue. Ils s'exercent ainsi à construire une solution commune, pas seulement à terminer une affiche.",
+          "consequence": "Ces habitudes servent au travail scolaire et préparent aux responsabilités partagées dans une équipe ou une association."
         }
       ],
       "nuance": "Cependant, le temps et les moyens sont limités. L'école ne peut pas résoudre seule toutes les difficultés sociales ou familiales. Elle doit garder des priorités d'apprentissage claires, avec l'appui des familles et des autres professionnels lorsque la situation le demande.",
@@ -469,20 +469,20 @@
         {
           "idea": "Tout d'abord, des images et des explications peuvent rendre un phénomène plus concret.",
           "developpement": "Une séquence permet de montrer une transformation difficile à observer immédiatement. L'enfant peut ensuite reprendre les mots et les étapes avec un adulte, plutôt que recevoir une série d'images sans lien.",
-          "exemple": "Une émission peut montrer une graine qui germe à travers des images prises sur plusieurs jours. L'adulte peut demander ce qui change et proposer ensuite d'observer une plante à la maison, sans attendre que le programme suffise à tout expliquer.",
-          "consequence": "L'écran sert alors de point de départ à une observation."
+          "exemple": "Une émission peut montrer une graine qui germe grâce à des images prises sur plusieurs jours. Avec un adulte, l'enfant repère la racine, puis les premières feuilles. Il retrouve ensuite ces étapes sur une plante à la maison et peut expliquer ce qui a changé.",
+          "consequence": "L'image aide alors à comprendre une transformation, pas seulement à la regarder."
         },
         {
           "idea": "Ensuite, certains programmes ouvrent une fenêtre sur des réalités éloignées.",
           "developpement": "Un enfant ne rencontre pas tous les paysages, métiers ou modes de vie dans son entourage. Des contenus bien situés peuvent éveiller sa curiosité, à condition de ne pas présenter un seul exemple comme universel.",
-          "exemple": "Un reportage sur le trajet scolaire d'enfants dans une région montagneuse peut montrer une organisation différente de la sienne. Il peut ensuite comparer les distances et les moyens de transport, sans conclure que tous les enfants de ce pays vivent pareil.",
+          "exemple": "Un reportage peut montrer des enfants marchant longtemps jusqu'à leur école dans une région montagneuse. En comparant ce trajet avec le sien, l'enfant comprend pourquoi leur journée commence plus tôt. Il demande alors s'il existe un autre moyen de transport.",
           "consequence": "La découverte peut conduire à poser des questions plus précises."
         },
         {
-          "idea": "Enfin, une histoire regardée ensemble peut aider à parler des relations et des émotions.",
-          "developpement": "Les personnages offrent une situation commune à commenter. L'adulte peut écouter ce que l'enfant comprend et l'inviter à envisager un autre point de vue.",
-          "exemple": "Après une scène où un personnage exclut un ami d'un jeu, un parent peut demander comment chacun se sent et ce qui pourrait changer. La conversation donne des mots à la situation, sans supposer que l'enfant retiendra seul une leçon toute faite.",
-          "consequence": "La valeur éducative vient aussi de l'échange autour du programme."
+          "idea": "Enfin, une histoire regardée ensemble peut enrichir le langage et la compréhension des émotions.",
+          "developpement": "Les personnages offrent une situation commune à commenter. Raconter ce qui s'est passé, nommer une émotion et expliquer une réaction permet à l'enfant de pratiquer son expression tout en envisageant un autre point de vue.",
+          "exemple": "Après une scène où un personnage exclut un ami d'un jeu, un parent peut demander comment l'ami se sent. L'enfant essaie d'expliquer sa tristesse ; l'adulte l'aide à préciser ses mots et ils cherchent ce que les personnages pourraient se dire.",
+          "consequence": "L'échange peut ainsi développer le vocabulaire et la compréhension d'autrui."
         }
       ],
       "nuance": "Cependant, le contenu et la durée doivent correspondre à l'âge et aux besoins de l'enfant. La télévision ne doit pas prendre toute la place du sommeil, du jeu ou des interactions humaines. Un programme distrayant peut aussi avoir de la valeur, sans devoir devenir un cours.",
@@ -495,7 +495,7 @@
       },
       "reformulation": "Que signifierait une université accessible à tous ?",
       "position": "Ouvrir une possibilité réelle d'étudier, sans promettre une admission ni imposer cette voie.",
-      "position_claire": "Oui, je souhaite que l'université soit accessible à tous ceux qui veulent et peuvent suivre une formation adaptée. Cela ne signifie pas une admission sans conditions ni une obligation d'y aller. Il faut surtout réduire les obstacles financiers, rendre les études praticables et permettre des parcours moins linéaires.",
+      "position_claire": "Oui, je souhaite que l'université soit accessible à tous ceux qui veulent et peuvent suivre une formation adaptée. Cela ne signifie pas une admission sans conditions ni une obligation d'y aller. C'est une question d'égalité des chances, de compétences utiles à la société et de nouvelles possibilités après un parcours moins linéaire.",
       "arguments": [
         {
           "idea": "Tout d'abord, le manque de moyens ne devrait pas suffire à fermer l'accès.",
@@ -504,10 +504,10 @@
           "consequence": "L'accès doit donc être soutenu par des moyens concrets."
         },
         {
-          "idea": "Ensuite, les conditions matérielles et pédagogiques doivent permettre de participer.",
-          "developpement": "Ouvrir une porte administrative ne suffit pas si les locaux ou les supports restent inaccessibles. Des aménagements adaptés peuvent permettre de travailler sur les mêmes objectifs sans imposer un seul mode d'accès.",
-          "exemple": "Un étudiant qui ne peut pas utiliser un document visuel dans son format initial peut avoir besoin d'une version accessible. Prévoir ce support avec le service compétent lui permet d'étudier le contenu, plutôt que perdre son temps à contourner un obstacle évitable.",
-          "consequence": "L'égalité d'accès concerne aussi ce qui se passe après l'inscription."
+          "idea": "Ensuite, une université ouverte permet de développer des compétences utiles à la société.",
+          "developpement": "Si des obstacles sans rapport avec le niveau ferment l'accès, on se prive de contributions possibles. Des locaux et des supports adaptés permettent à des étudiants de milieux et de situations différents de se former sur les mêmes objectifs.",
+          "exemple": "Un étudiant qui utilise un lecteur d'écran peut avoir besoin d'une version accessible d'un document de statistiques. Ce support lui permet d'apprendre à analyser des données. Il pourrait ensuite utiliser cette méthode dans une association qui étudie les besoins de transport d'un quartier.",
+          "consequence": "L'accès peut ainsi profiter aussi aux personnes qui bénéficieront du travail des étudiants formés."
         },
         {
           "idea": "Enfin, un parcours atypique ne devrait pas condamner définitivement un projet d'études.",
@@ -517,7 +517,7 @@
         }
       ],
       "nuance": "Cependant, l'université a besoin de places, d'enseignants et d'un financement suffisant. Elle n'est pas la meilleure voie pour tous les projets. Il faut expliquer les conditions d'accès et valoriser aussi les formations professionnelles, au lieu d'inscrire chacun sans accompagnement ni perspective.",
-      "conclusion": "En conclusion, je défends un accès réel, financièrement et matériellement possible, avec des chances de reprise. L'objectif est de permettre un choix éclairé et un parcours soutenu, pas de promettre le même diplôme à tout le monde."
+      "conclusion": "En conclusion, je défends un accès réel, financièrement et matériellement possible, avec des chances de reprise. L'égalité des chances et les compétences développées peuvent profiter aux individus comme à la collectivité, sans promettre le même diplôme à tout le monde."
     },
     "education-p21": {
       "prompt_signatures": {
@@ -525,7 +525,7 @@
       },
       "reformulation": "Dans quelle mesure de bonnes notes peuvent-elles contribuer à réussir sa vie ?",
       "position": "Elles peuvent aider certains projets, sans mesurer toute une personne ni définir sa réussite.",
-      "position_claire": "Oui, de bonnes notes peuvent contribuer à la réussite dans la vie, mais seulement pour certains aspects. Elles peuvent faciliter une orientation, signaler des acquis et parfois aider à financer des études. La réussite personnelle reste plus large qu'un dossier scolaire, et un résultat ne dit pas tout d'une personne.",
+      "position_claire": "Oui, de bonnes notes peuvent contribuer à la réussite dans la vie, mais seulement pour certains aspects. Elles peuvent faciliter une orientation, encourager à persévérer et parfois aider à financer des études. La réussite personnelle reste plus large qu'un dossier scolaire, et un résultat ne dit pas tout d'une personne.",
       "arguments": [
         {
           "idea": "Tout d'abord, de bons résultats peuvent ouvrir certaines possibilités de formation.",
@@ -534,10 +534,10 @@
           "consequence": "Les notes jouent ici un rôle d'accès à une étape, pas de promesse sur toute la vie."
         },
         {
-          "idea": "Ensuite, une bonne évaluation peut confirmer qu'un apprentissage est réellement maîtrisé.",
-          "developpement": "Quand la tâche est pertinente et accompagnée d'explications, le résultat permet d'identifier ce que l'on sait refaire. Il faut regarder le travail réussi, pas seulement chercher un chiffre plus élevé.",
-          "exemple": "Un étudiant qui obtient un bon résultat sur la présentation d'un dossier peut relire les commentaires : ses sources sont claires et son raisonnement bien organisé. Il dispose de méthodes à réutiliser dans un autre projet, plutôt que d'une confiance fondée uniquement sur la note.",
-          "consequence": "La contribution utile vient des acquis confirmés et compris."
+          "idea": "Ensuite, un progrès reconnu peut donner confiance et encourager à persévérer.",
+          "developpement": "Quand une évaluation pertinente montre l'effet d'un travail précis, elle aide à voir que l'on peut progresser. La confiance repose alors sur une méthode comprise, pas sur l'idée d'être naturellement meilleur que les autres.",
+          "exemple": "Après un premier dossier mal organisé, un étudiant peut retravailler son plan et ses sources. Une meilleure note, expliquée par les commentaires du professeur, lui montre ce qui a changé. Pour un nouveau projet, il ose se lancer en reprenant cette méthode.",
+          "consequence": "La reconnaissance du progrès peut ainsi soutenir l'effort au-delà de l'évaluation."
         },
         {
           "idea": "Enfin, certains dispositifs valorisent les résultats dans l'attribution d'un soutien.",
@@ -547,7 +547,7 @@
         }
       ],
       "nuance": "Cependant, une note ne mesure ni la générosité, ni toutes les compétences, ni l'équilibre de vie. Des résultats modestes ne condamnent pas l'avenir, et la pression peut faire oublier l'intérêt d'apprendre. Il faut aussi définir sa réussite selon ses projets, ses relations et ses besoins.",
-      "conclusion": "En conclusion, de bonnes notes peuvent soutenir l'accès, les apprentissages et certains moyens d'étudier. Elles restent des outils partiels : réussir sa vie demande davantage que réussir des évaluations, sans qu'il existe une seule définition valable pour tous."
+      "conclusion": "En conclusion, de bonnes notes peuvent soutenir l'orientation, la confiance et certains moyens d'étudier. Elles restent des outils partiels : réussir sa vie demande davantage que réussir des évaluations, sans qu'il existe une seule définition valable pour tous."
     },
     "education-p22": {
       "prompt_signatures": {
@@ -566,13 +566,13 @@
         {
           "idea": "Ensuite, on ne repère pas toujours ses propres erreurs sans regard extérieur.",
           "developpement": "On peut croire avoir compris parce qu'une explication paraît claire. Un interlocuteur ou un enseignant peut signaler un décalage que l'on n'entendait ou ne voyait pas soi-même.",
-          "exemple": "Un apprenant peut répéter une phrase étrangère en pensant être compris. Pendant un échange, son partenaire lui demande de reformuler un mot. Cette réaction lui indique un point à travailler que la répétition solitaire n'avait pas fait apparaître.",
+          "exemple": "Un apprenant peut répéter seul une phrase avec le mot « treize » en pensant bien le prononcer. Pendant un échange, son partenaire comprend « trente » et lui fait préciser le nombre. Ce malentendu révèle un point à travailler qu'il n'avait pas repéré seul.",
           "consequence": "Un échange en ligne peut aider, mais ce n'est plus un apprentissage entièrement seul."
         },
         {
           "idea": "Enfin, certaines compétences exigent une expérience que l'écran ne fournit pas.",
           "developpement": "Comprendre une procédure ne suffit pas lorsqu'il faut réagir à un environnement variable ou assurer la sécurité. La pratique doit alors se faire dans des conditions adaptées, avec l'encadrement nécessaire.",
-          "exemple": "Une vidéo peut expliquer une situation de circulation, mais elle ne donne pas l'expérience de la conduite dans un véhicule. Une personne doit pratiquer avec un encadrement approprié pour apprendre à observer et à réagir, au lieu de considérer le visionnage comme une compétence acquise.",
+          "exemple": "Une personne peut connaître les étapes d'un démarrage grâce à une vidéo. Dans un véhicule, avec un encadrement approprié, elle cale et reprend le geste avec le moniteur. Elle découvre ainsi la coordination qu'elle n'avait jamais pratiquée devant l'écran.",
           "consequence": "La ressource prépare ou complète la pratique, sans la remplacer."
         }
       ],
@@ -590,8 +590,8 @@
         {
           "idea": "Tout d'abord, observer un objet réel peut compléter une explication en classe.",
           "developpement": "La taille, la matière ou la disposition donnent des éléments qu'une reproduction ne montre pas toujours de la même manière. Une question précise aide à regarder, plutôt qu'à passer devant les vitrines.",
-          "exemple": "Dans un musée, les élèves peuvent comparer plusieurs fossiles et chercher les détails qui les différencient. Ils reprennent ensuite leurs observations avec l'enseignant, au lieu de devoir seulement retenir le nom de chaque objet présenté.",
-          "consequence": "La sortie apporte une situation d'observation, sans remplacer les explications."
+          "exemple": "Dans un musée, les élèves peuvent comparer les dents de deux fossiles, pointues sur l'un et larges et plates sur l'autre. Avec l'enseignant, ils relient ces différences à des hypothèses sur l'alimentation des animaux, puis distinguent ce qui est observé de ce qui est déduit.",
+          "consequence": "L'observation donne ainsi du sens aux explications et exerce un raisonnement concret."
         },
         {
           "idea": "Ensuite, une découverte peut donner envie d'approfondir un sujet.",

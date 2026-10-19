@@ -3053,7 +3053,11 @@ class BrowserTests(StaticLiveServerTestCase):
         from study.public_response_annotations import render_current_response
         from study.tache_two_dialogues import dialogue_response
 
-        for key in ("culture:p1", "famille:p2", "tache2:fevrier:batch-02:subject-07"):
+        for key in (
+            "culture:p1", "famille:p2", "education:p1", "sante:p1",
+            "technologie:p1", "environnement:p1", "economie:p1",
+            "tache2:fevrier:batch-02:subject-07",
+        ):
             with self.subTest(prompt=key):
                 if key.startswith("tache2:"):
                     self._import_eo_tache_two_content()

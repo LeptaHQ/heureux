@@ -350,7 +350,10 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("retardée indéfiniment", response(4).nuance)
         self.assertIn("rues voisines", response(6).arguments[0].exemple)
         self.assertIn("rémunération viable", response(7).arguments[2].exemple)
-        self.assertIn("mobilité réduite", response(8).arguments[2].exemple)
+        self.assertIn("mobilité réduite", response(8).nuance)
+        self.assertIn("raccourci automobile", response(8).arguments[2].exemple)
+        self.assertIn("mesurer le bruit", response(8).arguments[2].exemple)
+        self.assertIn("rues voisines", response(8).arguments[2].exemple)
         self.assertIn("autres causes de tension", response(9).arguments[1].exemple)
         self.assertIn("Exemple français documenté", response(11).reformulation)
         self.assertIn("à adapter", response(11).reformulation)
@@ -431,6 +434,22 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("applique lui aussi cette règle", response(22).arguments[2].exemple)
         self.assertIn("rediffusions", response(24).nuance)
 
+    def test_technologie_keeps_creative_expression_distinct_and_reuses_apt_media_reasoning(self):
+        models = catalogue.tache_three_models()
+        games = models["eo/tache-3/technologie-p19"].response
+        self.assertIn("rampe", games.arguments[0].exemple)
+        self.assertIn("exprimer son imagination", games.arguments[1].idea)
+        self.assertIn("pas seulement la solution prévue", games.arguments[1].developpement)
+        self.assertIn("raconter une histoire", games.arguments[1].exemple)
+        self.assertIn("échangent les rôles", games.arguments[2].exemple)
+        media = models["eo/tache-3/technologie-p21"].response.arguments[0]
+        other_media = models["eo/tache-3/technologie-p24"].response.arguments[1]
+        self.assertEqual(media.developpement, other_media.developpement)
+        self.assertEqual(media.exemple, other_media.exemple)
+        plan = catalogue.tache_three_subject_hints()["eo/tache-3/technologie-p19"]
+        self.assertIn("exprimer une histoire", plan.arguments[1].point.french)
+        self.assertIn("express a story", plan.arguments[1].point.english)
+
     def test_sante_preserves_coverage_and_distinguishes_state_sales_from_a_ban(self):
         models = catalogue.tache_three_models()
         sources = [source for source in self.sources if source.theme == "Sante"]
@@ -480,6 +499,23 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("type 1", response(23).arguments[0].exemple)
         self.assertIn("sans l'avis du professionnel", response(23).nuance)
         self.assertNotIn("guérissent le plus souvent", spoken_text(response(23)))
+
+    def test_economie_transport_benefits_require_real_changes_and_distinct_contributions(self):
+        models = catalogue.tache_three_models()
+        free_transport = models["eo/tache-3/economie-p22"].response
+        self.assertIn("trajets automobiles remplacés", free_transport.arguments[1].developpement)
+        self.assertIn("laisser sa voiture chez elle", free_transport.arguments[1].exemple)
+        self.assertIn("bibliothèque", free_transport.arguments[2].exemple)
+        self.assertIn("ne prouve pas", free_transport.nuance)
+        car_free = models["eo/tache-3/economie-p24"].response
+        self.assertIn("bouger régulièrement", car_free.arguments[1].idea)
+        self.assertIn("marche alors matin et soir", car_free.arguments[1].exemple)
+        self.assertIn("L'entrée est moins encombrée", car_free.arguments[2].exemple)
+        personal_help = models["eo/tache-3/economie-p23"].response.arguments[2]
+        self.assertIn("distribution alimentaire", personal_help.exemple)
+        self.assertIn("n'organise pas lui-même la distribution", personal_help.consequence)
+        plan = catalogue.tache_three_subject_hints()["eo/tache-3/economie-p23"]
+        self.assertIn("people around them", plan.nuance.english)
 
     def test_education_addresses_qualifiers_priorities_and_realistic_conditions(self):
         models = catalogue.tache_three_models()

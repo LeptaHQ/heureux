@@ -463,7 +463,7 @@
       },
       "reformulation": "Comment un jeu vidéo peut-il participer aux apprentissages de l'enfant ?",
       "position": "Par des activités précises de raisonnement, de création et de coopération, sans effet automatique.",
-      "position_claire": "Oui, certains jeux vidéo peuvent participer aux apprentissages d'un enfant. Il faut toutefois décrire ce qu'il fait réellement : résoudre un problème, créer puis modifier un projet, ou coopérer. Ce n'est pas le simple temps passé à jouer qui garantit un bénéfice, et aucun jeu ne remplace à lui seul les autres expériences.",
+      "position_claire": "Oui, certains jeux vidéo peuvent participer aux apprentissages d'un enfant. Il faut toutefois décrire ce qu'il fait réellement : résoudre un problème, exprimer son imagination ou coopérer. Ce n'est pas le simple temps passé à jouer qui garantit un bénéfice, et aucun jeu ne remplace à lui seul les autres expériences.",
       "arguments": [
         {
           "idea": "Tout d'abord, un problème accompagné d'un retour peut exercer le raisonnement.",
@@ -472,10 +472,10 @@
           "consequence": "Le jeu offre alors une occasion de raisonner sur ses décisions."
         },
         {
-          "idea": "Ensuite, un outil de création peut encourager la conception et la révision.",
-          "developpement": "Construire un objet ou un espace demande de choisir une forme et de vérifier si elle correspond au projet. Un adulte peut inviter l'enfant à expliquer ses choix, sans supposer que toute construction virtuelle se transforme automatiquement en compétence scolaire.",
+          "idea": "Ensuite, un outil de création peut aider l'enfant à exprimer son imagination.",
+          "developpement": "Dans un jeu de création, l'enfant peut choisir une histoire et inventer un décor pour l'exprimer. Il ne cherche pas seulement la solution prévue par le jeu : il imagine ce qu'il veut raconter et donne une forme à ses idées.",
           "exemple": "Un enfant peut créer un décor pour raconter une histoire à ses proches. Il remplace un mur par un pont afin que ses personnages puissent se rencontrer, puis explique ce changement à ceux qui regardent.",
-          "consequence": "La création devient un projet que l'on peut discuter et améliorer."
+          "consequence": "Il apprend à exprimer une idée personnelle et à expliquer ses choix."
         },
         {
           "idea": "Enfin, un jeu partagé peut donner un cadre à la coopération.",

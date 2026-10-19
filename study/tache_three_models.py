@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 import hashlib
 import json
 from pathlib import Path
@@ -19,6 +19,22 @@ class TacheThreeModel:
     group: str
     source_prompts: tuple[tuple[str, str], ...]
     response: EffectiveResponse
+    argument_ids: tuple[int, ...] = (1, 2, 3)
+
+
+@dataclass(frozen=True)
+class AnnotationArgument(EffectiveArgument):
+    annotation_id: int
+
+
+def annotation_arguments(prompt, response):
+    model = reviewed_model(prompt.response, prompt) if prompt is not None else None
+    if model is None or response.is_personal or model.response != response:
+        return response.arguments
+    return tuple(
+        AnnotationArgument(**asdict(argument), annotation_id=identity)
+        for argument, identity in zip(response.arguments, model.argument_ids)
+    )
 
 
 def _text(value, label):
@@ -75,11 +91,21 @@ def load_tache_three_models(
         for group, row in data["responses"].items():
             identity = f"eo/tache-3/{group}"
             source = by_group[identity]
-            if not isinstance(row, dict) or set(row) != {
+            required = {
                 "prompt_signatures", "reformulation", "position",
                 "position_claire", "arguments", "nuance", "conclusion",
-            }:
+            }
+            if not isinstance(row, dict) or not (
+                required <= set(row) <= required | {"argument_ids"}
+            ):
                 raise ValueError(f"Invalid EO3 model fields: {group}")
+            argument_ids = row.get("argument_ids", [1, 2, 3])
+            if (
+                not isinstance(argument_ids, list) or len(argument_ids) != 3
+                or any(type(identity) is not int or not 1 <= identity <= 9999 for identity in argument_ids)
+                or len(set(argument_ids)) != 3
+            ):
+                raise ValueError(f"Invalid EO3 argument identities: {group}")
             signatures = {
                 prompt.content_key: hashlib.sha256(
                     prompt.text.encode("utf-8")
@@ -128,6 +154,7 @@ def load_tache_three_models(
                     (prompt.content_key, prompt.text) for prompt in source.prompts
                 ),
                 response=response,
+                argument_ids=tuple(argument_ids),
             )
     return result
 

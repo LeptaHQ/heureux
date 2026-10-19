@@ -127,6 +127,8 @@ class AnnotationRootText(HTMLParser):
         self.stack = []
         self.in_root = False
         self.root_class = root_class
+        self.length = 0
+        self.response_fields = {}
         self.feed(html)
         self.text = b"".join(self.parts)
         self.units = tuple(
@@ -148,19 +150,24 @@ class AnnotationRootText(HTMLParser):
         )
         if is_root:
             self.in_root = True
-        self.stack.append((excluded, is_root))
+        field = attrs.get("data-response-field") if self.in_root and not excluded else None
+        self.stack.append((excluded, is_root, field, self.length))
 
     def handle_endtag(self, tag):
         if tag in self.VOID_TAGS:
             return
-        _excluded, is_root = self.stack.pop()
+        _excluded, is_root, field, start = self.stack.pop()
+        if field is not None:
+            self.response_fields[field] = (start, self.length)
         if is_root:
             self.in_root = False
 
     def handle_data(self, data):
         if self.in_root and not (self.stack and self.stack[-1][0]):
             data = data.replace("\r\n", "\n").replace("\r", "\n")
-            self.parts.append(data.encode("utf-16-le"))
+            encoded = data.encode("utf-16-le")
+            self.parts.append(encoded)
+            self.length += len(encoded) // 2
 
     def slice(self, start, end):
         return self.text[start * 2:end * 2].decode("utf-16-le", errors="ignore")

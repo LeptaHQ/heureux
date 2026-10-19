@@ -1,5 +1,6 @@
 """Keep selections on the one current EO2/EO3 public response."""
 
+import hashlib
 import re
 
 from django.db import transaction
@@ -16,7 +17,7 @@ from .public_annotation_migration import PUBLIC_DIGESTS
 from .querysets import lean_prompt_rows
 from .response_personalization import effective_response
 from .routing import prompt_detail_url
-from .tache_three_models import reviewed_model
+from .tache_three_models import annotation_arguments, reviewed_model
 from .tache_two_dialogues import dialogue_response, published_dialogue
 
 
@@ -57,7 +58,7 @@ def render_current_response(prompt, content, surface, user):
         "part": prompt.theme.task.part, "task": prompt.theme.task,
         "selected_prompt": prompt, "canonical_prompt": prompt,
         "response": prompt.response, "response_content": content,
-        "arguments": content.arguments, "reviewed_eo3": not is_eo2,
+        "arguments": annotation_arguments(prompt, content), "reviewed_eo3": not is_eo2,
         "oral_annotation_key": variant_annotation_key(prompt, content),
         "kind": "spine", "tache_two_subject": is_eo2,
         "kind_label": "Questions d'interaction" if is_eo2 else "Réponse argumentée",
@@ -104,11 +105,50 @@ def _shared_length(left, right, *, suffix=False):
     return sum(char.isalnum() for char in CONTEXT_LABELS.sub("", text))
 
 
+def response_field_anchor(rendered, offsets):
+    """Store field identity and a checksum, never a previous response body."""
+    start, end = offsets
+    for field, (left, right) in getattr(rendered, "response_fields", {}).items():
+        if left <= start < end <= right:
+            return {
+                "field": field,
+                "sha256": hashlib.sha256(rendered.text[left * 2:right * 2]).hexdigest(),
+                "start": start - left, "end": end - left,
+            }
+    return {}
+
+
+def _response_field_offsets(annotation, rendered, anchor, bounds):
+    left, right = bounds
+    start, end = anchor.get("start"), anchor.get("end")
+    if (
+        type(start) is int and type(end) is int
+        and 0 <= start < end <= right - left
+        and anchor.get("sha256") == hashlib.sha256(
+            rendered.text[left * 2:right * 2],
+        ).hexdigest()
+        and rendered.slice(left + start, left + end) == annotation.quote
+    ):
+        return left + start, left + end
+    return None
+
+
 def current_anchor(annotation, rendered):
     """Require an exact quote and unambiguous remaining context, not old offsets."""
     quote = annotation.quote.encode("utf-16-le")
     if not quote:
         return None
+    bounds = None
+    anchor = getattr(annotation, "response_anchor", {})
+    if anchor:
+        if not isinstance(anchor, dict) or not isinstance(anchor.get("field"), str):
+            return None
+        bounds = getattr(rendered, "response_fields", {}).get(anchor.get("field"))
+        if bounds is None:
+            return None
+        offsets = _response_field_offsets(annotation, rendered, anchor, bounds)
+        if offsets is not None:
+            return offsets
     prefix, suffix = _normalized(annotation.prefix), _normalized(annotation.suffix)
     matches = []
     cursor = 0
@@ -117,6 +157,8 @@ def current_anchor(annotation, rendered):
         if position % 2:
             continue
         start, end = position // 2, (position + len(quote)) // 2
+        if bounds is not None and not (bounds[0] <= start < end <= bounds[1]):
+            continue
         left = _normalized(rendered.slice(max(0, start - 400), start))
         right = _normalized(rendered.slice(end, end + 400))
         score = (
@@ -145,6 +187,54 @@ def current_anchor(annotation, rendered):
     if len(matches) > 1 and matches[0][0] == matches[1][0]:
         return None
     return matches[0][2:]
+
+
+def _public_paths(prompt):
+    return {
+        prompt_detail_url(prompt), reverse("study:review"),
+        reverse("study:part_review", args=["eo"]),
+        reverse("study:response_detail", args=["eo", prompt.theme.task.slug, prompt.pk]),
+        reverse("study:task_review", args=["eo", prompt.theme.task.slug]),
+    }
+
+
+def capture_public_response_anchor(annotation):
+    """Bind only a selection verified against the currently published EO3 text."""
+    match = PUBLIC_KEY.fullmatch(annotation.source_key)
+    if not annotation.quote or match is None or not (
+        match["model"] or match["digest"] in PUBLIC_DIGESTS
+    ) or match["surface"] == ":front":
+        return {}
+    prompt = Prompt.objects.filter(
+        content_key=match["prompt"], is_active=True, response__is_active=True,
+        theme__task__part__slug="eo", theme__task__slug="tache-3",
+    ).select_related("response", "theme__task__part", "family").first()
+    if (
+        prompt is None or annotation.task_id not in {None, prompt.theme.task_id}
+        or annotation.source_path.split("?", 1)[0] not in _public_paths(prompt)
+    ):
+        return {}
+    content = _current_content(prompt, annotation.user)
+    if content is None:
+        return {}
+    rendered = render_current_response(
+        prompt, content, "back" if match["surface"] == ":back" else "detail",
+        annotation.user,
+    )
+    return capture_rendered_response_anchor(annotation, rendered)
+
+
+def capture_rendered_response_anchor(annotation, rendered):
+    """Do not infer an old field from a unique quote or generic section labels."""
+    start, end = annotation.start_offset, annotation.end_offset
+    if (
+        start is None or end is None or rendered.slice(start, end) != annotation.quote
+        or not annotation.quote
+        or rendered.slice(max(0, start - 160), start) != annotation.prefix
+        or rendered.slice(end, end + 160) != annotation.suffix
+    ):
+        return {}
+    return response_field_anchor(rendered, (start, end))
 
 
 def _annotations_for_update(user, source_filter):
@@ -178,12 +268,7 @@ def preserve_public_response_annotations(user, source_filter):
             if content is None:
                 continue
             key = variant_annotation_key(prompt, content)
-            paths = {
-                prompt_detail_url(prompt), reverse("study:review"),
-                reverse("study:part_review", args=["eo"]),
-                reverse("study:response_detail", args=["eo", prompt.theme.task.slug, prompt.pk]),
-                reverse("study:task_review", args=["eo", prompt.theme.task.slug]),
-            }
+            paths = _public_paths(prompt)
             rendered_surfaces = {}
             for annotation, suffix in candidates[prompt.content_key]:
                 if annotation.source_path.split("?", 1)[0] not in paths:
@@ -210,7 +295,23 @@ def preserve_public_response_annotations(user, source_filter):
                         "prefix": rendered.slice(max(0, start - 160), start),
                         "suffix": rendered.slice(end, end + 160),
                     }
-                if all(getattr(annotation, name) == value for name, value in values.items()):
+                    # Unscoped legacy rows require complete current-context proof
+                    # before acquiring a field identity.
+                    anchor = (
+                        response_field_anchor(rendered, offsets)
+                        if annotation.response_anchor
+                        else capture_rendered_response_anchor(annotation, rendered)
+                    )
+                    if anchor:
+                        values["response_anchor"] = anchor
+                changed = {
+                    name: value for name, value in values.items()
+                    if getattr(annotation, name) != value
+                }
+                if not changed:
+                    continue
+                if set(changed) == {"response_anchor"}:
+                    Annotation.objects.filter(pk=annotation.pk).update(**changed)
                     continue
                 if annotation.kind == AnnotationKind.HIGHLIGHT:
                     _move_anchor(annotation, values)

@@ -1093,6 +1093,7 @@ class Annotation(models.Model):
     end_offset = models.PositiveIntegerField(null=True, blank=True)
     prefix = models.CharField(max_length=160, blank=True)
     suffix = models.CharField(max_length=160, blank=True)
+    response_anchor = models.JSONField(default=dict, blank=True, editable=False)
     study_later = models.BooleanField(default=False, db_index=True)
     completed_at = models.DateTimeField(null=True, blank=True, db_index=True)
     created_at = models.DateTimeField(default=timezone.now)

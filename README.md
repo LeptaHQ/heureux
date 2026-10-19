@@ -58,6 +58,16 @@ folder, not an unrelated active filter. Migration 0057 corrects legacy standalon
 notes that inherited a task despite having no quote, source path or source key;
 it changes only their task assignment, retaining IDs, text, dates and study state.
 
+EO3 selections can also carry a field identifier, checksum and relative UTF-16
+offsets. These are anchor metadata, not saved response versions. An unchanged
+field restores exactly even when both neighbouring paragraphs change. A quote
+cannot escape its recorded field into another argument. Existing unscoped
+selections acquire field metadata only when their offsets, quote and complete
+saved contexts match the current publication. The ordinary conservative matcher
+remains the fallback for older or stale clients; unprovable selections stay in
+Notes rather than being placed by guesswork. See the staged rollout requirements
+in `docs/eo3-editorial.md` before publishing adjacent-field rewrites.
+
 Notes folders show 50 records per page and load only the active tab. Search and
 tab totals cover all matching records; the study total is calculated before the
 status filter. Flashcards use the full filtered selection, while the study queue

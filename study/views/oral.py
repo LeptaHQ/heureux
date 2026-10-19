@@ -7,7 +7,7 @@ from django.http import Http404
 from ..oral_history import preferred_personal, variant_annotation_key
 from ..response_personalization import effective_response
 from ..routing import TACHE_TWO_PROMPT_KEY, review_url
-from ..tache_three_models import reviewed_model
+from ..tache_three_models import annotation_arguments, reviewed_model
 from ..tache_three_prompt_notes import prompt_note_for_response
 
 
@@ -38,6 +38,7 @@ def oral_response_context(request, prompt):
         legacy_keys = []
     return {
         "response_content": value,
+        "arguments": annotation_arguments(prompt, value),
         "reviewed_eo3": reviewed_eo3,
         "eo3_prompt_note": prompt_note_for_response(response, prompt),
         "oral_annotation_key": variant_annotation_key(prompt, value),

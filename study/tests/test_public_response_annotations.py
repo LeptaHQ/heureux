@@ -18,7 +18,8 @@ from study.oral_highlights import AnnotationRootText
 from study.oral_history import variant_annotation_key
 from study.public_annotation_migration import PUBLIC_DIGESTS
 from study.public_response_annotations import (
-    _annotations_for_update, current_anchor, render_current_response,
+    _annotations_for_update, capture_rendered_response_anchor, current_anchor,
+    render_current_response, response_field_anchor,
 )
 from study.routing import prompt_detail_url
 from study.response_personalization import effective_response
@@ -86,6 +87,118 @@ class CurrentAnchorTests(SimpleTestCase):
             suffix=" Conséquence A former consequence.",
         )
         self.assertIsNone(current_anchor(annotation, root))
+
+    def test_unchanged_field_checksum_restores_an_exact_utf16_subselection(self):
+        field = "🎬 Same short word, then the same short word."
+        before = AnnotationRootText(
+            '<div data-annotation-root>Old introduction.<p data-response-field="argument-2-exemple">'
+            f"{field}</p>Old consequence.</div>"
+        )
+        start = before.text.rindex("short".encode("utf-16-le")) // 2
+        annotation = SimpleNamespace(
+            quote="short", start_offset=start, end_offset=start + 5,
+            prefix=before.slice(max(0, start - 160), start),
+            suffix=before.slice(start + 5, start + 165),
+        )
+        annotation.response_anchor = capture_rendered_response_anchor(
+            annotation, before,
+        )
+        self.assertTrue(annotation.response_anchor)
+        after = AnnotationRootText(
+            '<div data-annotation-root>Entirely different preceding development.'
+            f'<p data-response-field="argument-2-exemple">{field}</p>'
+            "A changed consequence and following claim.</div>"
+        )
+        offsets = current_anchor(annotation, after)
+        self.assertEqual(offsets[0], after.text.rindex("short".encode("utf-16-le")) // 2)
+        self.assertNotEqual(offsets[0], start)
+        self.assertEqual(after.slice(*offsets), "short")
+
+    def test_a_long_quote_reused_in_a_different_argument_does_not_escape_its_field(self):
+        quote = " ".join(["A distinctive but deliberately reused complete example."] * 12)
+        before = AnnotationRootText(
+            '<div data-annotation-root>The former argument. Exemple concret '
+            f'<p data-response-field="argument-1-exemple">{quote}</p>'
+            " Conséquence A former consequence.</div>"
+        )
+        start = before.text.index(quote.encode("utf-16-le")) // 2
+        annotation = SimpleNamespace(
+            quote=quote, start_offset=start, end_offset=start + len(quote),
+            prefix=before.slice(max(0, start - 160), start),
+            suffix=before.slice(start + len(quote), start + len(quote) + 160),
+            response_anchor=response_field_anchor(before, (start, start + len(quote))),
+        )
+        after = AnnotationRootText(
+            '<div data-annotation-root>The former argument. Exemple concret '
+            '<p data-response-field="argument-1-exemple">A replacement.</p>'
+            " Conséquence A former consequence."
+            f'<p data-response-field="argument-2-exemple">{quote}</p></div>'
+        )
+        self.assertIsNone(current_anchor(annotation, after))
+        annotation.response_anchor = {}
+        self.assertEqual(capture_rendered_response_anchor(annotation, after), {})
+        self.assertIsNone(current_anchor(annotation, after))
+
+    def test_field_capture_requires_complete_current_context_not_quote_uniqueness(self):
+        quote = "An unchanged example whose old argument cannot be identified."
+        root = AnnotationRootText(
+            '<div data-annotation-root>New development. Exemple concret '
+            f'<p data-response-field="argument-2-exemple">{quote}</p>'
+            " Conséquence New consequence.</div>"
+        )
+        start = root.text.index(quote.encode("utf-16-le")) // 2
+        annotation = SimpleNamespace(
+            quote=quote, start_offset=start, end_offset=start + len(quote),
+            prefix="Old development. Exemple concret ",
+            suffix=" Conséquence Old consequence.",
+        )
+        self.assertEqual(capture_rendered_response_anchor(annotation, root), {})
+        self.assertIsNone(current_anchor(annotation, root))
+
+    def test_a_partially_edited_field_still_requires_exact_quote_and_meaningful_context(self):
+        quote = "A retained sentence."
+        before = AnnotationRootText(
+            '<div data-annotation-root><p data-response-field="argument-2-exemple">'
+            f"An old opening. A distinctive unchanged internal context. {quote}"
+            " A distinctive unchanged closing context.</p></div>"
+        )
+        start = before.text.index(quote.encode("utf-16-le")) // 2
+        end = start + len(quote)
+        annotation = SimpleNamespace(
+            quote=quote, start_offset=start, end_offset=end,
+            prefix=before.slice(max(0, start - 160), start),
+            suffix=before.slice(end, end + 160),
+            response_anchor=response_field_anchor(before, (start, end)),
+        )
+        for changed, expected in (
+            (
+                f"A rewritten opening with another length. A distinctive unchanged internal context. {quote}"
+                " A distinctive unchanged closing context.",
+                True,
+            ),
+            (f"Different opening. {quote} Different closing.", False),
+            ("A different sentence replaces the selected text.", False),
+        ):
+            with self.subTest(changed=changed):
+                after = AnnotationRootText(
+                    '<div data-annotation-root><p data-response-field="argument-2-exemple">'
+                    f"{changed}</p></div>"
+                )
+                offsets = current_anchor(annotation, after)
+                self.assertEqual(offsets is not None, expected)
+                if expected:
+                    self.assertEqual(after.slice(*offsets), quote)
+
+    def test_response_field_markers_do_not_change_annotation_text(self):
+        plain = AnnotationRootText(
+            "<div data-annotation-root>Introduction<p>A sentence.</p>Conclusion</div>"
+        )
+        marked = AnnotationRootText(
+            '<div data-annotation-root>Introduction<p data-response-field="introduction">'
+            "A sentence.</p>Conclusion</div>"
+        )
+        self.assertEqual(plain.text, marked.text)
+        self.assertEqual(marked.slice(*marked.response_fields["introduction"]), "A sentence.")
 
 
 class PublicAnnotationPostgresQueryTests(SimpleTestCase):
@@ -215,6 +328,217 @@ class PublicResponsePreservationTests(TestCase):
         removed.refresh_from_db()
         self.assertEqual(removed.quote, before.arguments[0].exemple)
         self.assertEqual(removed.body, "My own saved note.")
+
+    def test_adjacent_rewrites_keep_unique_unchanged_introduction_and_conclusion_anchors(self):
+        prompt = self.prompt("technologie:p21")
+        models = catalogue.tache_three_models()
+        model = models[prompt.response.semantic_group]
+        before = model.response
+        arguments = list(before.arguments)
+        arguments[0] = replace(
+            arguments[0],
+            idea="A completely different first claim.",
+            developpement="A newly explained mechanism with no previous surrounding wording.",
+            exemple="A different actor takes a different action and demonstrates its result.",
+            consequence="A revised consequence follows from that demonstration.",
+        )
+        after = replace(
+            before, arguments=tuple(arguments),
+            nuance="An entirely rewritten limitation changes the context before the conclusion.",
+        )
+        cards_before = list(Card.objects.filter(user=self.user).order_by("pk").values())
+        for surface in ("detail", "back"):
+            with self.subTest(surface=surface):
+                marks = [
+                    self.mark(prompt, before, quote, surface=surface)
+                    for quote in (before.position_claire, before.conclusion)
+                ]
+                note = self.mark(
+                    prompt, before, before.conclusion,
+                    surface=surface, kind=AnnotationKind.NOTE,
+                )
+                removed = self.mark(
+                    prompt, before, before.arguments[0].exemple, surface=surface,
+                )
+                ids = [mark.pk for mark in marks] + [note.pk, removed.pk]
+                saved = list(Annotation.objects.filter(pk__in=ids).order_by("pk").values(
+                    "pk", "quote", "body", "title", "study_later", "completed_at",
+                    "created_at", "source_prompt_id",
+                ))
+                call_command("backfill_response_anchors", stdout=StringIO())
+                for mark in [*marks, note, removed]:
+                    mark.refresh_from_db()
+                    self.assertTrue(mark.response_anchor)
+                with patch.object(catalogue, "tache_three_models", return_value={
+                    **models, model.group: replace(model, response=after),
+                }):
+                    returned = {row["id"] for row in self.fetch(marks[0].source_path)}
+                    self.assertTrue({mark.pk for mark in marks} <= returned)
+                    self.assertNotIn(removed.pk, returned)
+                    for mark in [*marks, note]:
+                        self.assert_preserved(mark, prompt, after, surface)
+                self.assertEqual(
+                    list(Annotation.objects.filter(pk__in=ids).order_by("pk").values(
+                        "pk", "quote", "body", "title", "study_later", "completed_at",
+                        "created_at", "source_prompt_id",
+                    )), saved,
+                )
+        self.assertEqual(
+            list(Card.objects.filter(user=self.user).order_by("pk").values()), cards_before,
+        )
+
+    def test_backfill_is_idempotent_and_does_not_guess_or_modify_private_metadata(self):
+        prompt = self.prompt("culture:p1")
+        before = catalogue.tache_three_models()[prompt.response.semantic_group].response
+        mark = self.mark(prompt, before, before.arguments[1].exemple)
+        unverified = self.mark(
+            prompt, before, before.conclusion, prefix="Unprovable previous context.",
+        )
+        private = self.mark(
+            prompt, before, before.nuance, source_key="response:culture:p1:personal",
+        )
+        original = list(Annotation.objects.order_by("pk").values())
+        for _ in range(2):
+            call_command("backfill_response_anchors", stdout=StringIO())
+        mark.refresh_from_db()
+        self.assertEqual(mark.response_anchor["field"], "argument-2-exemple")
+        unverified.refresh_from_db()
+        private.refresh_from_db()
+        self.assertEqual(unverified.response_anchor, {})
+        self.assertEqual(private.response_anchor, {})
+        current = list(Annotation.objects.order_by("pk").values())
+        for old, new in zip(original, current):
+            old.pop("response_anchor")
+            new.pop("response_anchor")
+            self.assertEqual(old, new)
+
+    def test_initial_source_read_records_only_metadata_without_changing_revision(self):
+        prompt = self.prompt("culture:p1")
+        before = catalogue.tache_three_models()[prompt.response.semantic_group].response
+        mark = self.mark(prompt, before, before.arguments[1].exemple)
+        original = Annotation.objects.filter(pk=mark.pk).values().get()
+        returned = self.fetch(mark.source_path)
+        current = Annotation.objects.filter(pk=mark.pk).values().get()
+        self.assertTrue(current.pop("response_anchor"))
+        self.assertEqual(original.pop("response_anchor"), {})
+        self.assertEqual(current, original)
+        self.assertEqual(returned[0]["revision"], mark.updated_at.isoformat())
+
+    def test_create_api_captures_old_page_selections_and_recomputes_expanded_anchors(self):
+        prompt = self.prompt("culture:p1")
+        before = catalogue.tache_three_models()[prompt.response.semantic_group].response
+        root = render_current_response(prompt, before, "detail", self.user)
+        full_quote = before.arguments[1].exemple
+        start = root.text.index(full_quote.encode("utf-16-le")) // 2
+        for quote, expected_created in ((full_quote[:40], True), (full_quote, False)):
+            end = start + len(quote.encode("utf-16-le")) // 2
+            response = self.client.post(reverse("study:annotation_create"), {
+                "kind": AnnotationKind.HIGHLIGHT, "quote": quote,
+                "source_path": prompt_detail_url(prompt),
+                "source_key": variant_annotation_key(prompt, before),
+                "task_id": prompt.theme.task_id,
+                "start_offset": start, "end_offset": end,
+                "prefix": root.slice(max(0, start - 160), start),
+                "suffix": root.slice(end, end + 160),
+                "response_anchor": '{"field": "argument-3-exemple"}',
+            })
+            self.assertIn(response.status_code, (200, 201))
+            self.assertEqual(response.json()["created"], expected_created)
+            mark = Annotation.objects.get(pk=response.json()["id"])
+            self.assertEqual(mark.response_anchor["field"], "argument-2-exemple")
+            self.assertEqual(mark.response_anchor["end"] - mark.response_anchor["start"], end - start)
+
+    def test_explicit_argument_identity_follows_an_authored_move_not_a_reused_quote(self):
+        prompt = self.prompt("culture:p1")
+        models = catalogue.tache_three_models()
+        model = models[prompt.response.semantic_group]
+        before = model.response
+        for surface in ("detail", "back"):
+            with self.subTest(surface=surface):
+                kept = self.mark(prompt, before, before.arguments[1].exemple, surface=surface)
+                retired = self.mark(prompt, before, before.arguments[2].exemple, surface=surface)
+                call_command("backfill_response_anchors", stdout=StringIO())
+                after = replace(before, arguments=(
+                    before.arguments[0],
+                    replace(before.arguments[2], order=2),
+                    replace(before.arguments[1], order=3),
+                ))
+                for identities, expected in (((1, 4, 2), {kept.pk}), ((1, 4, 5), set())):
+                    with patch.object(catalogue, "tache_three_models", return_value={
+                        **models, model.group: replace(
+                            model, response=after, argument_ids=identities,
+                        ),
+                    }):
+                        returned = {row["id"] for row in self.fetch(kept.source_path)}
+                        self.assertEqual(returned & {kept.pk, retired.pk}, expected)
+                        if kept.pk in expected:
+                            self.assert_preserved(kept, prompt, after, surface)
+                self.assertTrue(Annotation.objects.filter(pk=retired.pk).exists())
+
+    def test_a_stale_unscoped_client_after_cutover_remains_stored_without_guessed_identity(self):
+        prompt = self.prompt("culture:p1")
+        models = catalogue.tache_three_models()
+        model = models[prompt.response.semantic_group]
+        before = model.response
+        stale = self.mark(prompt, before, before.arguments[1].exemple)
+        arguments = list(before.arguments)
+        arguments[1] = replace(
+            arguments[1], developpement="Entirely replaced preceding development.",
+            consequence="Entirely replaced following consequence.",
+        )
+        after = replace(before, arguments=tuple(arguments))
+        Annotation.objects.filter(pk=stale.pk).delete()
+        with patch.object(catalogue, "tache_three_models", return_value={
+            **models, model.group: replace(model, response=after),
+        }):
+            response = self.client.post(reverse("study:annotation_create"), {
+                "kind": AnnotationKind.NOTE, "quote": stale.quote,
+                "body": "Saved from an already-open old page.",
+                "source_path": stale.source_path, "source_key": stale.source_key,
+                "task_id": stale.task_id,
+                "start_offset": stale.start_offset, "end_offset": stale.end_offset,
+                "prefix": stale.prefix, "suffix": stale.suffix,
+            })
+            self.assertEqual(response.status_code, 201)
+            saved = Annotation.objects.get(pk=response.json()["id"])
+            self.assertEqual(saved.response_anchor, {})
+            call_command("backfill_response_anchors", stdout=StringIO())
+            self.fetch(saved.source_path)
+            saved.refresh_from_db()
+            self.assertEqual(saved.response_anchor, {})
+            self.assertEqual(saved.quote, stale.quote)
+            self.assertEqual(saved.body, "Saved from an already-open old page.")
+
+    def test_idempotent_old_page_highlight_retry_keeps_its_verified_field_anchor(self):
+        prompt = self.prompt("culture:p1")
+        models = catalogue.tache_three_models()
+        model = models[prompt.response.semantic_group]
+        before = model.response
+        mark = self.mark(prompt, before, before.arguments[1].exemple)
+        call_command("backfill_response_anchors", stdout=StringIO())
+        mark.refresh_from_db()
+        original_anchor = mark.response_anchor
+        arguments = list(before.arguments)
+        arguments[1] = replace(
+            arguments[1], developpement="New development before the unchanged example.",
+            consequence="New consequence after the unchanged example.",
+        )
+        after = replace(before, arguments=tuple(arguments))
+        with patch.object(catalogue, "tache_three_models", return_value={
+            **models, model.group: replace(model, response=after),
+        }):
+            response = self.client.post(reverse("study:annotation_create"), {
+                "kind": AnnotationKind.HIGHLIGHT, "quote": mark.quote,
+                "source_path": mark.source_path, "source_key": mark.source_key,
+                "task_id": mark.task_id, "start_offset": mark.start_offset,
+                "end_offset": mark.end_offset, "prefix": mark.prefix, "suffix": mark.suffix,
+            })
+            self.assertEqual(response.status_code, 200)
+            self.assertEqual(response.json()["id"], mark.pk)
+            mark.refresh_from_db()
+            self.assertEqual(mark.response_anchor, original_anchor)
+            self.assertIn(mark.pk, {row["id"] for row in self.fetch(mark.source_path)})
+            self.assert_preserved(mark, prompt, after)
 
     def test_eo2_question_edit_preserves_other_questions_boundaries_notes_and_progress(self):
         key = "tache2:fevrier:batch-02:subject-07"

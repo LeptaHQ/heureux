@@ -248,12 +248,12 @@
       "arguments": [
         {
           "point": {
-            "french": "Un livre permet de suivre une idée à son rythme.",
-            "english": "A book lets the reader follow an idea at their own pace."
+            "french": "Le livre reste un outil très puissant pour développer la réflexion et la concentration.",
+            "english": "Books remain a powerful tool for developing reflection and concentration."
           },
           "example": {
-            "french": "Relire la définition de l'empreinte carbone avant de poursuivre un chapitre sur les transports.",
-            "english": "Reread the definition of a carbon footprint before continuing a chapter about transport."
+            "french": "Dans un essai sur la voiture en ville, confronter la pollution aux besoins des habitants sans transports en commun.",
+            "english": "In an essay on cars in cities, weigh pollution against the needs of residents without public transport."
           }
         },
         {

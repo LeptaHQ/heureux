@@ -71,7 +71,7 @@ class CultureEditorialTests(SimpleTestCase):
         for number, argument, required in (
             (1, 2, ("à 14 heures", "à midi", "une fois par semaine", "le week-end")),
             (4, 2, ("a droit", "aide au logement", "formulaire")),
-            (6, 0, ("définition de l'empreinte carbone", "chapitre sur les transports")),
+            (6, 0, ("un essai", "la voiture en ville", "la pollution", "sans transports en commun", "interdiction totale")),
             (11, 0, ("un compatriote qui parle sa langue",)),
             (11, 1, ("traduire un diplôme", "quelles traductions sont acceptées")),
             (15, 1, ("légumes d'été", "en hiver", "histoire familiale")),
@@ -86,6 +86,26 @@ class CultureEditorialTests(SimpleTestCase):
                 example = self.response(number).arguments[argument].exemple
                 for phrase in required:
                     self.assertIn(phrase, example)
+
+    def test_book_usefulness_keeps_the_original_reflection_and_concentration_argument(self):
+        group = "eo/tache-3/culture-p6"
+        response = self.models[group].response
+        source = next(source for source in self.sources if source.semantic_group == group)
+        original = source.prompts[0].model_content["arguments"][0]
+        argument = response.arguments[0]
+        self.assertEqual(argument.idea, original["idea"])
+        self.assertIn("suivre une pensée longue", argument.developpement)
+        self.assertIn("tenir son attention", argument.developpement)
+        self.assertIn("examiner un raisonnement dans son ensemble", argument.developpement)
+        self.assertIn("un jugement plus réfléchi", argument.consequence)
+        cue = self.plans[group].arguments[0]
+        for language in ("french", "english"):
+            point = getattr(cue.point, language)
+            self.assertIn("réflexion" if language == "french" else "reflection", point)
+            self.assertIn("concentration", point)
+        self.assertIn("transports en commun", cue.example.french)
+        self.assertIn("public transport", cue.example.english)
+        self.assertIn("un livre peut aussi se lire sur un écran", response.nuance)
 
     def test_reading_necessity_and_personal_cultural_forgetting_keep_their_scope(self):
         reading = self.response(20)

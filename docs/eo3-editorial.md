@@ -38,6 +38,31 @@ Avoid universal generational judgments, essentialised national identities,
 invented studies, unsupported majority claims and implied legal guarantees.
 Illustrative situations are possibilities, not reports of the learner's life.
 
+## Argument substance and comparative review
+
+Compare the current model with the preserved original before revising it. Keep
+or recover a stronger sound original reason when an edit has reduced it to a
+minor convenience. For example, following a sustained line of thought develops
+reflection and concentration; merely being able to pause a book is not a
+substitute for that intellectual benefit. Reflection and sustained attention
+belong to one mechanism, not two nominally different arguments.
+
+Check the job of each paragraph: the claim states what supports the position;
+the development explains why or how in a short, clear causal sequence; the
+example demonstrates that mechanism in a recognizable situation; the consequence
+states what follows. Do not repeat the same assertion in four forms. An example
+needs a person or group, a specific action or event, and a relevant result.
+Adding "Par exemple" to a general assertion does not make it an illustration.
+An example that fits all three arguments unchanged is too generic.
+
+The three reasons should support the exact position independently, rather than
+list three side effects of one benefit. Preserve necessary qualifications without
+turning a clear argument into empty caution. Favor clear referents, ordinary
+precise vocabulary and manageable spoken sentences; literate French need not be
+abstract or difficult to decode. Reuse useful language across suitable questions
+while removing redundant reasoning within the same intervention. Reread the
+whole intervention after assembling edits, not only its individual fields.
+
 ## Reviewed defaults and preserved sources
 
 `study/content/tache_3/responses/<theme>.json` holds reviewed models using the

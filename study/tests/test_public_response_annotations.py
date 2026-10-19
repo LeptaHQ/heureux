@@ -216,6 +216,66 @@ class PublicResponsePreservationTests(TestCase):
         self.assertEqual(removed.quote, before.arguments[0].exemple)
         self.assertEqual(removed.body, "My own saved note.")
 
+    def test_all_eo3_models_preserve_unchanged_detail_and_practice_sections(self):
+        models = catalogue.tache_three_models()
+        self.assertEqual(len(models), 131)
+        cards_before = list(Card.objects.filter(user=self.user).order_by("pk").values())
+        for model in models.values():
+            prompt = self.prompt(model.source_prompts[0][0])
+            before = model.response
+            texts = [
+                before.position_claire,
+                *(text for argument in before.arguments for text in (
+                    argument.idea, argument.developpement, argument.exemple,
+                    argument.consequence,
+                )),
+                before.nuance, before.conclusion,
+            ]
+            after = replace(before, arguments=(
+                replace(before.arguments[0], exemple=(
+                    "Un exemple de test entièrement différent remplace seulement cet exemple."
+                )),
+                *before.arguments[1:],
+            ))
+            for surface in ("detail", "back"):
+                with self.subTest(group=model.group, surface=surface):
+                    marks = [
+                        self.mark(prompt, before, text, surface=surface) for text in texts
+                    ]
+                    note = self.mark(
+                        prompt, before, before.conclusion, surface=surface,
+                        kind=AnnotationKind.NOTE,
+                    )
+                    with patch.object(catalogue, "tache_three_models", return_value={
+                        **models, model.group: replace(model, response=after),
+                    }):
+                        suffix = ":back" if surface == "back" else ""
+                        self.assertEqual(
+                            variant_annotation_key(prompt, after) + suffix,
+                            marks[0].source_key,
+                        )
+                        returned = self.fetch(marks[0].source_path)
+                        self.assertEqual(
+                            {item["id"] for item in returned},
+                            {mark.pk for index, mark in enumerate(marks) if index != 3},
+                        )
+                        for index, mark in enumerate(marks):
+                            if index != 3:
+                                self.assert_preserved(mark, prompt, after, surface)
+                        self.assert_preserved(note, prompt, after, surface)
+                    removed = marks[3]
+                    removed.refresh_from_db()
+                    self.assertEqual(removed.quote, before.arguments[0].exemple)
+                    self.assertEqual(removed.body, "My own saved note.")
+                    ids = [mark.pk for mark in marks] + [note.pk]
+                    self.assertEqual(
+                        Annotation.objects.filter(pk__in=ids, user=self.user).count(), 16,
+                    )
+                    Annotation.objects.filter(pk__in=ids, user=self.user).delete()
+        self.assertEqual(
+            list(Card.objects.filter(user=self.user).order_by("pk").values()), cards_before,
+        )
+
     def test_eo2_question_edit_preserves_other_questions_boundaries_notes_and_progress(self):
         key = "tache2:fevrier:batch-02:subject-07"
         prompt = self.prompt(key)

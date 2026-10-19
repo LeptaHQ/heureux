@@ -2827,18 +2827,27 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(self.page.get_by_role("button", name="Copier la consigne")).to_be_visible()
 
     def test_each_culture_model_keeps_unchanged_annotations_after_a_public_example_edit(self):
+        self._assert_theme_models_preserve_public_example_edits({"culture"}, 31)
+
+    def test_each_other_eo3_model_keeps_unchanged_annotations_after_a_public_example_edit(self):
+        self._assert_theme_models_preserve_public_example_edits({
+            "famille", "education", "sante", "technologie", "environnement", "economie",
+        }, 100)
+
+    def _assert_theme_models_preserve_public_example_edits(self, themes, expected_count):
         from study import catalogue
 
         self._import_eo_tache_three_content()
         models = catalogue.tache_three_models()
-        culture = [
+        selected = [
             model for model in models.values()
-            if model.group.startswith("eo/tache-3/culture-")
+            if model.group.rsplit("/", 1)[1].split("-p", 1)[0] in themes
         ]
-        self.assertEqual(len(culture), 31)
-        for model in culture:
+        self.assertEqual(len(selected), expected_count)
+        for model in selected:
             with self.subTest(group=model.group):
-                key = next(key for key, _ in model.source_prompts if key.startswith("culture:"))
+                theme = model.group.rsplit("/", 1)[1].split("-p", 1)[0]
+                key = next(key for key, _ in model.source_prompts if key.startswith(theme + ":"))
                 prompt = Prompt.objects.select_related("theme__task__part").get(content_key=key)
                 url = prompt_detail_url(prompt)
                 response = model.response

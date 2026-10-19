@@ -67,6 +67,8 @@ saved contexts match the current publication. The ordinary conservative matcher
 remains the fallback for older or stale clients; unprovable selections stay in
 Notes rather than being placed by guesswork. See the staged rollout requirements
 in `docs/eo3-editorial.md` before publishing adjacent-field rewrites.
+The anchor column has a persistent database default for writes from preceding
+workers during deployment; migration 0059 repairs the original 0058 schema.
 
 Notes folders show 50 records per page and load only the active tab. Search and
 tab totals cover all matching records; the study total is calculated before the

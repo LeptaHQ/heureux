@@ -201,8 +201,14 @@ an argument does not authorize its quote to move into another argument. These ID
 are presentation metadata, outside response bodies, legacy digests and source
 signatures. Do not infer continuity automatically from matching examples.
 
-For the initial rollout, publish the capture runtime and migration 0058 **without
-editorial changes**, and verify that this version is serving requests. Then run
+For the initial rollout, publish the capture runtime and compatible anchor schema
+**without editorial changes**, and verify that this version is serving requests.
+The column needs a persistent database default (`{}`), not just Python's `dict`
+default, so preceding workers can still insert notes/highlights while migrations
+run. Migration 0059 repairs already-applied 0058 databases; the replacement
+0058/0059 migration adds the column with that default in one operation on fresh
+upgrades. Keep both original migrations for partially upgraded databases.
+Then run
 `python manage.py backfill_response_anchors` against the same still-published
 catalogue after the old workers have drained. A separate preservation-only build
 can run that command through `deploy_database`; no model text may change in it.

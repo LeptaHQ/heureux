@@ -14,7 +14,7 @@
         {
           "idea": "Tout d'abord, je vérifierais si je peux exercer le métier visé.",
           "developpement": "Un diplôme et une expérience peuvent avoir de la valeur sans donner automatiquement toutes les autorisations nécessaires. Au Canada, l'accès à une profession réglementée dépend notamment de l'organisme compétent dans la province ou le territoire concerné.",
-          "exemple": "Si je visais une profession infirmière après une formation à l'étranger, je contacterais cet organisme avant le départ. Je vérifierais les documents et les étapes demandés au lieu de supposer qu'une candidature suffira pour commencer à exercer.",
+          "exemple": "Si je visais une profession infirmière après une formation à l'étranger, je contacterais cet organisme avant le départ. Si une étape obligatoire me manquait, je devrais la préparer avant de pouvoir exercer, même avec un employeur intéressé par mon profil.",
           "consequence": "Recherche d'emploi et autorisation professionnelle sont deux démarches différentes."
         },
         {
@@ -44,19 +44,19 @@
         {
           "idea": "Tout d'abord, une forte valeur commerciale ne correspond pas forcément à une plus grande utilité sociale.",
           "developpement": "Les revenus du spectacle peuvent dépendre d'une audience et de contrats publicitaires. Cela explique qu'une personne attire beaucoup d'argent ; cela ne prouve pas que sa contribution mérite une reconnaissance sans proportion avec celle des autres.",
-          "exemple": "Une vedette peut attirer des annonceurs, tandis qu'une équipe de soins accompagne quotidiennement des personnes dépendantes. Les deux activités ont de la valeur, mais la seconde ne peut pas vendre une audience comparable. Ce mécanisme commercial ne mesure pas tous les services rendus.",
+          "exemple": "Un annonceur peut payer pour que sa marque apparaisse pendant un match très suivi. Une équipe de soins qui accompagne des personnes dépendantes ne vend pas cette visibilité : ses services restent essentiels sans attirer les mêmes contrats.",
           "consequence": "Je distingue donc l'explication d'un revenu et le jugement sur son caractère raisonnable."
         },
         {
           "idea": "Ensuite, la répartition des moyens à l'intérieur du sport mérite discussion.",
           "developpement": "Lorsqu'un club dispose d'un budget limité, consacrer une très grande part à une seule personne réduit les possibilités pour d'autres priorités. Il faut regarder les ressources qui restent pour l'encadrement, les installations et la formation.",
-          "exemple": "Un club qui négocie un contrat très coûteux peut comparer cette dépense avec le renouvellement de son matériel et l'encadrement des jeunes. Il ne peut pas promettre que le même budget financera intégralement tous ces projets à la fois.",
+          "exemple": "Un club au budget limité peut choisir un contrat très coûteux puis reporter l'achat de matériel pour ses jeunes, faute de moyens restants. Même si la vedette attire du public, cet arbitrage prive la formation d'un équipement utile.",
           "consequence": "La réussite sportive ne devrait pas faire oublier l'ensemble de ceux qui la rendent possible."
         },
         {
           "idea": "Enfin, la visibilité de ces fortunes peut donner une image trop étroite de la réussite.",
           "developpement": "Quand seuls les contrats spectaculaires retiennent l'attention, on risque de confondre bien pratiquer un sport, devenir célèbre et devenir riche. Ce sont pourtant des objectifs différents, qui ne décrivent pas tous les parcours.",
-          "exemple": "Un adolescent qui ne voit que les revenus des champions peut négliger le plaisir de jouer ou l'intérêt d'une formation en parallèle. Son éducateur peut lui présenter aussi des parcours moins médiatisés et les exigences d'une carrière.",
+          "exemple": "Un adolescent impressionné par les revenus des champions peut juger inutile de poursuivre sa formation. Son éducateur lui présente des sportifs moins médiatisés qui étudient aussi : le jeune découvre alors d'autres façons de réussir dans ce milieu.",
           "consequence": "Cela permet d'apprécier le sport sans réduire sa valeur à un montant."
         }
       ],
@@ -80,13 +80,13 @@
         {
           "idea": "Ensuite, il faut savoir arbitrer et expliquer ses décisions.",
           "developpement": "On ne peut pas toujours satisfaire toutes les demandes en même temps. Un responsable doit examiner les contraintes, annoncer un choix et répondre aux objections, sans éviter systématiquement le désaccord ni imposer une décision sans explication.",
-          "exemple": "Dans une association, deux équipes peuvent vouloir utiliser la même salle au même moment. La personne responsable doit examiner les besoins, appliquer une règle cohérente et proposer une autre possibilité à l'équipe concernée, plutôt que laisser le conflit se prolonger.",
+          "exemple": "Dans une association, deux équipes demandent la même salle. Le responsable donne la priorité à l'activité dont la date est déjà annoncée et propose un autre créneau à l'autre équipe. Chacune peut alors organiser sa réunion sur une base claire.",
           "consequence": "Cette responsabilité se juge dans une situation concrète, pas dans une déclaration de bonne volonté."
         },
         {
           "idea": "Enfin, des compétences pratiques de gestion sont nécessaires.",
           "developpement": "Organiser un budget ou un planning exige de connaître les ressources disponibles et les engagements pris. La motivation ne remplace pas ces informations, et une erreur peut mettre les autres en difficulté.",
-          "exemple": "Avant d'organiser une activité associative, un futur responsable peut préparer un budget avec une personne expérimentée. Il vérifie le coût de la salle, du matériel et les recettes possibles avant de confirmer les dépenses, au lieu de découvrir ensuite qu'il manque des moyens.",
+          "exemple": "Avant une activité associative, un futur responsable prépare un budget avec une personne expérimentée. Il compare le coût de la salle et du matériel aux recettes possibles. Si les dépenses dépassent les moyens, il choisit un lieu moins cher avant de s'engager.",
           "consequence": "Une pratique accompagnée permet de voir ce qui est maîtrisé et ce qui reste à apprendre."
         }
       ],
@@ -99,29 +99,29 @@
       },
       "reformulation": "Évaluer l'autorisation d'une sieste volontaire et organisée, pas une obligation ni une solution médicale.",
       "position": "Autoriser un repos planifié lorsque le service et la sécurité le permettent.",
-      "position_claire": "Je suis favorable à une courte sieste quand l'organisation le permet, sans l'imposer ni remplacer le sommeil nécessaire. Une pause planifiée peut aider à récupérer, rendre la fatigue plus facile à signaler et permettre un repos dans de bonnes conditions.",
+      "position_claire": "Je suis favorable à une courte sieste quand l'organisation le permet, sans l'imposer ni remplacer le sommeil nécessaire. Une pause planifiée peut aider à récupérer, rendre la fatigue plus facile à signaler et ouvrir cette possibilité à davantage de salariés.",
       "arguments": [
         {
           "idea": "Tout d'abord, un repos peut aider à retrouver de l'attention.",
           "developpement": "Continuer une tâche en luttant contre la somnolence n'est pas forcément efficace. Une sieste prévue peut contribuer à la vigilance, à condition de laisser aussi le temps de se réveiller correctement avant de reprendre le travail.",
-          "exemple": "Une personne qui peine à suivre un document peut utiliser une pause autorisée pour se reposer dans un espace calme. Après un temps de réveil, elle reprend la lecture et ses vérifications, plutôt que continuer machinalement en perdant le fil.",
+          "exemple": "Une personne somnolente relit plusieurs fois un document sans en suivre le raisonnement. Après une pause autorisée dans un espace calme et un temps de réveil, elle peut retrouver le fil et reprendre ses vérifications.",
           "consequence": "L'objectif est une récupération utile, pas une promesse de productivité identique pour tous."
         },
         {
           "idea": "Ensuite, une autorisation claire permet de parler de fatigue sans la cacher.",
           "developpement": "Si se reposer est toujours considéré comme un manque de sérieux, un salarié peut hésiter à signaler qu'il n'est plus assez attentif. Reconnaître ce besoin ouvre une discussion sur la charge de travail et les horaires.",
-          "exemple": "Dans une équipe, un salarié peut demander à utiliser sa pause pour dormir au lieu de prétendre aller bien. Si les mêmes difficultés reviennent, le responsable peut examiner le planning avec lui, plutôt que considérer la sieste comme l'unique réponse.",
+          "exemple": "Un salarié demande à dormir pendant sa pause parce qu'il somnole. Comme la difficulté se répète, il en parle avec son responsable, qui décale sa prochaine prise de poste pour allonger la récupération. La sieste permet ainsi d'aborder un problème d'horaires jusque-là caché.",
           "consequence": "Le repos devient un élément d'une organisation attentive, pas un moyen de faire accepter l'épuisement."
         },
         {
-          "idea": "Enfin, prévoir les conditions du repos vaut mieux que laisser chacun improviser.",
-          "developpement": "Un lieu adapté, un relais et une heure de retour rendent la pause compatible avec les besoins du service. Cela évite qu'une personne s'isole sans prévenir ou qu'un poste nécessitant une présence reste découvert.",
-          "exemple": "À un accueil, deux collègues peuvent organiser leurs pauses à tour de rôle, avec l'accord du responsable. La personne qui se repose n'est pas celle qui doit répondre immédiatement au public ; le relais est prévu avant son départ.",
-          "consequence": "La question porte donc aussi sur la continuité du travail, pas seulement sur la durée d'une pause."
+          "idea": "Enfin, une règle commune peut rendre l'accès au repos plus équitable.",
+          "developpement": "Sans organisation, une personne disposant d'un bureau isolé peut se reposer discrètement, tandis qu'une autre reste exposée au regard du public. Prévoir un lieu et des relais permet de ne pas réserver cette possibilité aux postes les moins visibles.",
+          "exemple": "À un accueil, deux collègues peuvent alterner leurs pauses avec l'accord du responsable et utiliser un espace calme. Le relais permet alors à ces salariés de bénéficier eux aussi d'un repos, sans laisser l'accueil fermé ni devoir se cacher.",
+          "consequence": "L'organisation sert ici l'équité entre collègues, pas seulement la continuité du service."
         }
       ],
       "nuance": "Cependant, toutes les tâches ne permettent pas cette organisation. Avant une activité à risque, il faut retrouver une vigilance suffisante, pas seulement attendre une sonnerie. Une fatigue persistante mérite une attention adaptée ; la sieste ne justifie ni des horaires intenables ni un manque chronique de sommeil.",
-      "conclusion": "En conclusion, j'autoriserais une sieste volontaire et encadrée là où elle est réalisable. Récupération, dialogue sur la fatigue et relais organisés doivent aller ensemble, sans présenter cette pause comme une garantie de santé ou de sécurité."
+      "conclusion": "En conclusion, j'autoriserais une sieste volontaire et encadrée là où elle est réalisable. Récupération, dialogue sur la fatigue et accès équitable doivent aller ensemble, sans présenter cette pause comme une garantie de santé ou de sécurité."
     },
     "economie-p6": {
       "prompt_signatures": {
@@ -165,8 +165,8 @@
       "arguments": [
         {
           "idea": "Tout d'abord, les conditions de travail peuvent modifier fortement l'intérêt d'un salaire.",
-          "developpement": "Un montant plus élevé ne compense pas automatiquement des horaires incompatibles avec ses besoins. Il faut regarder le temps réellement mobilisé, la récupération et les contraintes personnelles, plutôt que comparer uniquement la somme mensuelle.",
-          "exemple": "Une personne peut recevoir une offre mieux payée qui exige des déplacements fréquents. Si elle doit régulièrement accompagner un proche, cette offre crée une difficulté que l'argent supplémentaire ne résout pas à lui seul.",
+          "developpement": "Des horaires très lourds peuvent réduire la récupération et fragiliser la santé. Un montant plus élevé ne rend pas automatiquement ces conditions tenables et ne remplace pas le temps nécessaire à ses proches. Il faut comparer davantage que la somme mensuelle.",
+          "exemple": "Une personne peut recevoir une offre mieux payée avec des déplacements fréquents et des retours tardifs. Si ce rythme lui laisse trop peu de sommeil et l'empêche d'accompagner un proche, elle peut préférer un poste moins rémunéré mais plus compatible avec ses besoins.",
           "consequence": "Le bon choix dépend donc aussi de la vie que le poste permet de mener."
         },
         {
@@ -178,7 +178,7 @@
         {
           "idea": "Enfin, il faut comparer la continuité du revenu, pas seulement son niveau annoncé.",
           "developpement": "Une somme élevée pendant une courte mission n'assure pas le même revenu sur l'année qu'un emploi plus régulier. La durée prévue, les périodes sans activité et les protections applicables changent la comparaison.",
-          "exemple": "Une personne hésitant entre une mission de deux mois et un poste durable peut comparer revenus possibles et dépenses sur plusieurs mois. Elle examine l'après-mission au lieu de multiplier automatiquement son meilleur revenu mensuel par douze.",
+          "exemple": "Une personne compare une mission de deux mois très bien payée et un poste durable moins rémunéré. En comptant aussi les mois sans mission, elle constate que la seconde option couvrirait plus régulièrement ses dépenses.",
           "consequence": "La stabilité peut donc peser davantage que le montant affiché."
         }
       ],
@@ -196,13 +196,13 @@
         {
           "idea": "Tout d'abord, il est difficile de prouver une expérience qu'on cherche justement à acquérir.",
           "developpement": "Un employeur peut vouloir des exemples de tâches déjà réalisées pour limiter le temps de formation. Un débutant a parfois les connaissances nécessaires sans disposer encore de réalisations professionnelles faciles à présenter.",
-          "exemple": "Une offre de poste débutant peut demander de savoir gérer seul des commandes clients. Une personne sortant d'études doit alors expliquer un projet ou un stage pertinent, tandis qu'un candidat expérimenté peut décrire des commandes réellement suivies dans son emploi précédent.",
+          "exemple": "Une offre de poste débutant demande de gérer seul des commandes clients. Une candidate présente un projet scolaire, mais le recruteur lui demande une situation réelle qu'elle n'a pas encore rencontrée. Sa candidature bloque sur l'expérience attendue, pas sur une erreur technique.",
           "consequence": "La difficulté porte sur la preuve disponible, pas nécessairement sur la capacité à apprendre."
         },
         {
           "idea": "Ensuite, les contacts professionnels peuvent être moins développés.",
           "developpement": "Connaître des personnes dans un secteur aide à comprendre les attentes et à repérer des possibilités. On peut construire ce réseau, mais cela demande du temps lorsque l'on ne connaît encore ni collègues ni employeurs dans le domaine.",
-          "exemple": "Un ancien collègue peut prévenir un candidat qu'un service prépare un recrutement et lui expliquer les missions. Un jeune sans contact dans ce milieu doit trouver ces informations autrement, par exemple en participant à une rencontre professionnelle ou en demandant un échange.",
+          "exemple": "Un ancien collègue informe une candidate qu'un service prépare un recrutement et lui précise les missions. Elle peut préparer des exemples adaptés avant l'annonce. Une personne sans ce contact doit d'abord trouver un interlocuteur pour obtenir ces indications.",
           "consequence": "L'accès à l'information peut donc être inégal avant même l'envoi du CV."
         },
         {
@@ -256,19 +256,19 @@
         {
           "idea": "Tout d'abord, le droit de travailler doit être vérifié avant de s'engager.",
           "developpement": "Les démarches dépendent de la nationalité, du statut et de la destination. On ne peut donc ni supposer qu'un permis est toujours nécessaire ni croire qu'un accord avec un employeur suffit dans toutes les situations.",
-          "exemple": "Une personne peut recevoir une proposition de poste et vérifier ensuite quel statut lui permet de l'accepter. Si une autorisation est requise, elle doit connaître les pièces et les étapes avant de fixer une date de prise de fonction ou de payer son déménagement.",
+          "exemple": "Une personne reçoit une offre à l'étranger. Si une autorisation est nécessaire dans son cas, elle rassemble les pièces demandées et reporte la date de début tant que sa situation n'est pas réglée. L'accord de l'employeur ne suffit donc pas pour commencer.",
           "consequence": "Le calendrier professionnel doit tenir compte des règles applicables, pas seulement de l'envie de partir."
         },
         {
           "idea": "Ensuite, travailler dans un autre environnement demande une communication adaptée.",
           "developpement": "Connaître son métier ne signifie pas pouvoir expliquer immédiatement une difficulté, comprendre toutes les consignes ou négocier un délai dans une autre langue. Les habitudes d'équipe peuvent aussi nécessiter des explications.",
-          "exemple": "Une technicienne peut savoir résoudre une panne mais chercher ses mots pour demander l'arrêt d'une intervention ou décrire ce qu'elle a vérifié. Préparer le vocabulaire du poste et demander une reformulation l'aide à utiliser ses compétences dans ce nouveau contexte.",
+          "exemple": "Une technicienne sait résoudre une panne mais ne trouve pas les mots pour demander l'arrêt d'une intervention. Elle prépare cette demande avec un collègue et s'entraîne à décrire ses vérifications. Elle peut alors faire comprendre sa décision à l'équipe.",
           "consequence": "L'adaptation concerne des situations précises, pas une supposée faiblesse du diplôme."
         },
         {
           "idea": "Enfin, l'accès à certaines professions exige une reconnaissance particulière.",
           "developpement": "Le droit général de travailler et l'autorisation d'exercer un métier réglementé sont deux questions différentes. Selon la destination et la profession, il peut être nécessaire de faire examiner sa formation ou d'accomplir des étapes supplémentaires.",
-          "exemple": "Un professionnel de santé formé ailleurs peut contacter l'organisme compétent pour savoir s'il peut exercer et sous quelles conditions. Il demande une liste précise plutôt que supposer qu'une traduction de son diplôme règle automatiquement la question.",
+          "exemple": "Un professionnel de santé formé ailleurs contacte l'organisme compétent avant de postuler. Si une étape de reconnaissance manque, il l'intègre à son calendrier avant d'exercer. Traduire son diplôme ne règle pas cette étape.",
           "consequence": "Il peut ainsi préparer son parcours sans confondre une candidature, un statut et une autorisation professionnelle."
         }
       ],
@@ -280,8 +280,8 @@
         "economie:p16": "4e1ef5e7e84c904c31522ef181fe481e31923b8fa6d647fe393d83e20ba1de60"
       },
       "reformulation": "Présenter des raisons de développer le tourisme sans garantir tous ses effets.",
-      "position": "Un tourisme maîtrisé peut soutenir les revenus, diversifier l'activité et transmettre le patrimoine.",
-      "position_claire": "Un pays peut vouloir développer le tourisme pour créer des revenus, diversifier les activités de certaines régions et faire connaître son patrimoine. Ces objectifs me paraissent légitimes si les habitants en bénéficient réellement. Attirer toujours davantage de visiteurs n'est pas une fin en soi : il faut regarder ce que leur présence apporte et ce qu'elle coûte.",
+      "position": "Un tourisme maîtrisé peut soutenir les revenus, ouvrir des débouchés dans les régions et transmettre le patrimoine.",
+      "position_claire": "Un pays peut vouloir développer le tourisme pour créer des revenus, ouvrir des débouchés dans certaines régions et faire connaître son patrimoine. Ces objectifs me paraissent légitimes si les habitants en bénéficient réellement. Attirer toujours davantage de visiteurs n'est pas une fin en soi : il faut regarder ce que leur présence apporte et ce qu'elle coûte.",
       "arguments": [
         {
           "idea": "Tout d'abord, les dépenses des visiteurs peuvent soutenir plusieurs activités locales.",
@@ -290,10 +290,10 @@
           "consequence": "L'intérêt économique dépend aussi de la manière dont les dépenses circulent."
         },
         {
-          "idea": "Ensuite, le tourisme peut diversifier les possibilités dans une région.",
-          "developpement": "Une activité complémentaire permet de ne pas dépendre d'un seul secteur ou d'une seule période. Il faut cependant prévoir les compétences, l'accès aux lieux et une fréquentation compatible avec les ressources disponibles.",
-          "exemple": "Dans un village, des habitants peuvent organiser des visites d'ateliers et des promenades guidées à différentes saisons. Un artisan présente son travail tout en conservant ses autres clients ; il ne doit pas abandonner toute son activité pour une fréquentation incertaine.",
-          "consequence": "Le tourisme peut compléter l'économie locale plutôt que devenir son unique appui."
+          "idea": "Ensuite, le tourisme peut ouvrir des débouchés loin des grands centres.",
+          "developpement": "Une région disposant de peu d'employeurs peut s'appuyer sur ses paysages ou ses savoir-faire pour développer des activités. Cela peut permettre à des habitants de travailler sur place, plutôt que devoir déménager pour trouver une possibilité.",
+          "exemple": "Dans un village, un artisan peut proposer des visites d'atelier et former une personne de la commune pour les animer. Il conserve ses autres clients, mais crée ainsi une activité complémentaire sur place, sans dépendre uniquement des visiteurs.",
+          "consequence": "L'enjeu est aussi de mieux répartir les possibilités entre les territoires."
         },
         {
           "idea": "Enfin, il peut contribuer à entretenir et transmettre un patrimoine.",
@@ -303,7 +303,7 @@
         }
       ],
       "nuance": "Cependant, les bénéfices ne sont pas automatiques : saisonnalité, pression sur le logement et dégradation des sites peuvent peser sur les habitants. Il faut leur donner une place dans les décisions, suivre les effets et limiter certaines fréquentations si nécessaire, plutôt que promettre qu'un afflux sauvera tous les services locaux.",
-      "conclusion": "En conclusion, développer le tourisme peut répondre à des objectifs économiques et culturels solides. Je privilégierais une activité complémentaire, des revenus réellement partagés et un patrimoine entretenu, plutôt qu'une simple course au nombre de visiteurs."
+      "conclusion": "En conclusion, développer le tourisme peut répondre à des objectifs économiques et culturels solides. Je privilégierais des revenus réellement partagés, des débouchés dans les régions et un patrimoine entretenu, plutôt qu'une simple course au nombre de visiteurs."
     },
     "economie-p17": {
       "prompt_signatures": {
@@ -322,7 +322,7 @@
         {
           "idea": "Ensuite, je préfère pouvoir signaler un problème sans être rabaissé.",
           "developpement": "L'écoute permet de comprendre un obstacle et de chercher une réponse, tout en gardant des exigences. L'autorité et le respect peuvent aller ensemble ; je ne réserverais ni la fermeté aux hommes ni l'attention aux femmes.",
-          "exemple": "Si je signale qu'une consigne manque, une personne respectueuse vérifie ce qui n'a pas été transmis et clarifie la demande. Me reprocher de ne pas avoir deviné n'aiderait pas à finir le travail, quel que soit le sexe du responsable.",
+          "exemple": "Si je signale qu'une consigne manque, un responsable respectueux vérifie l'information et me la transmet sans me rabaisser. Je peux alors reprendre le travail au lieu de rester bloqué par une demande incomplète, que cette personne soit un homme ou une femme.",
           "consequence": "C'est sa réaction concrète qui construit ma confiance."
         },
         {
@@ -388,7 +388,7 @@
         {
           "idea": "Enfin, les budgets et les règles collectives influencent aussi la paie.",
           "developpement": "Deux personnes confrontées à des contraintes comparables peuvent dépendre d'employeurs et de cadres différents. Les ressources disponibles, les grilles et la négociation limitent ou ouvrent des possibilités de rémunération.",
-          "exemple": "Deux structures peuvent organiser une aide quotidienne à des personnes dépendantes avec des tâches proches. Si leurs budgets et leurs accords de rémunération diffèrent, les salaires peuvent aussi différer, sans que la charge humaine de l'accompagnement change dans la même proportion.",
+          "exemple": "Deux structures confient à leurs salariés une aide quotidienne comparable auprès de personnes dépendantes. L'une obtient un financement qui lui permet d'augmenter les salaires ; l'autre garde son ancien budget. Le même accompagnement peut alors être payé différemment.",
           "consequence": "La reconnaissance d'un travail passe donc aussi par des choix d'organisation et de financement."
         }
       ],
@@ -401,7 +401,7 @@
       },
       "reformulation": "Évaluer la gratuité pour les usagers sans confondre absence de billet et absence de coût collectif.",
       "position": "Favorable lorsque le financement permet un service fiable ; pas au détriment de l'offre.",
-      "position_claire": "Je suis favorable à la gratuité des transports urbains si elle peut être financée sans dégrader le service. Supprimer le prix du trajet peut alléger les budgets, élargir l'accès à la ville et simplifier les déplacements. Mais un bus gratuit qui ne passe pas au bon moment ne répond pas au besoin.",
+      "position_claire": "Je suis favorable à la gratuité des transports urbains si elle peut être financée sans dégrader le service. Elle peut alléger les budgets, encourager certains déplacements sans voiture et élargir l'accès à la ville. Mais un bus gratuit qui ne passe pas au bon moment ne répond pas au besoin.",
       "arguments": [
         {
           "idea": "Tout d'abord, ne plus payer les trajets peut soulager un budget contraint.",
@@ -410,20 +410,20 @@
           "consequence": "L'intérêt social se mesure à la situation réelle des usagers."
         },
         {
-          "idea": "Ensuite, elle peut faciliter des déplacements que l'on hésite à payer.",
-          "developpement": "Accéder à la ville ne concerne pas seulement le trajet obligatoire entre le domicile et le travail. Une visite, une activité ou un rendez-vous dans un autre quartier peut aussi compter dans la vie quotidienne.",
-          "exemple": "Une personne peut renoncer à une rencontre dans une bibliothèque parce que l'aller-retour ajoute une dépense à son budget. Si une ligne accessible et gratuite dessert le lieu, cet obstacle précis disparaît et elle peut envisager d'y participer.",
-          "consequence": "La mesure peut donc soutenir la participation, pas seulement les déplacements professionnels."
+          "idea": "Ensuite, la gratuité peut encourager certains automobilistes à changer de mode de transport.",
+          "developpement": "Si une ligne fiable convient au trajet, supprimer le prix du billet peut favoriser le bus ou le tramway. L'intérêt collectif vient alors des trajets automobiles remplacés : moins de circulation, de bruit et d'émissions locales.",
+          "exemple": "Une personne qui dispose d'un bus direct vers son travail peut essayer ce trajet devenu gratuit et laisser sa voiture chez elle plusieurs jours.",
+          "consequence": "Les habitants peuvent ainsi bénéficier de rues moins encombrées, même sans utiliser le réseau."
         },
         {
-          "idea": "Enfin, l'absence de billet peut simplifier certains parcours.",
-          "developpement": "Pour un usager occasionnel, comprendre les tarifs et les correspondances peut demander un effort. Une gratuité clairement définie retire cette étape et permet de se concentrer sur la ligne, l'arrêt et l'horaire.",
-          "exemple": "Une personne découvrant le réseau peut effectuer une correspondance entre deux lignes incluses sans chercher quel titre acheter. Des indications lisibles restent nécessaires pour savoir où changer et quels services sont réellement gratuits.",
-          "consequence": "La simplicité tarifaire aide, mais ne remplace pas une information et un accès adaptés."
+          "idea": "Enfin, elle peut faciliter la participation à la vie de la ville.",
+          "developpement": "Quand chaque aller-retour doit être payé, on peut réserver ses déplacements aux obligations et s'isoler davantage dans son quartier. La gratuité élargit les activités envisageables, si le réseau dessert aussi les lieux de rencontre et de culture.",
+          "exemple": "Une personne peut renoncer à une rencontre dans une bibliothèque parce que l'aller-retour ajoute une dépense à son budget. Si une ligne accessible et gratuite dessert le lieu, cet obstacle précis disparaît et elle peut envisager d'y participer.",
+          "consequence": "La mesure peut donc soutenir les rencontres et l'accès à la culture, pas seulement les déplacements professionnels."
         }
       ],
       "nuance": "Cependant, le service garde un coût collectif. Il faut comparer le financement de la gratuité avec celui de meilleures fréquences et de l'accessibilité. Des tarifs sociaux peuvent être préférables si les moyens manquent. Une hausse des voyages ne prouve pas non plus que des automobilistes ont abandonné leur voiture.",
-      "conclusion": "En conclusion, je soutiens une gratuité utile et financée, pas une annonce isolée. Alléger les dépenses, ouvrir des possibilités et simplifier les parcours a du sens si le réseau reste fiable et accessible."
+      "conclusion": "En conclusion, je soutiens une gratuité utile et financée, pas une annonce isolée. Alléger les dépenses, remplacer certains trajets automobiles et ouvrir des possibilités a du sens si le réseau reste fiable et accessible."
     },
     "economie-p23": {
       "prompt_signatures": {
@@ -448,7 +448,7 @@
         {
           "idea": "Enfin, des personnes peuvent apporter directement une aide pratique.",
           "developpement": "La difficulté ne tient pas toujours à l'absence d'un dispositif : elle peut aussi venir d'un obstacle pour l'utiliser. Un accompagnement accepté par la personne peut rendre une démarche possible, sans transformer l'entraide en contrôle de sa vie.",
-          "exemple": "Un voisin peut proposer d'accompagner une personne à un rendez-vous qu'elle ne parvient pas à rejoindre seule. Il lui demande ce dont elle a besoin et respecte son accord, au lieu de décider à sa place ou d'exposer publiquement sa situation.",
+          "exemple": "Un voisin peut accompagner une personne à une distribution alimentaire qu'elle ne parvient pas à rejoindre seule. Elle peut ainsi recevoir l'aide proposée. Il respecte son accord, au lieu de décider à sa place ou d'exposer publiquement sa situation.",
           "consequence": "Cette contribution répond à un besoin précis sans passer nécessairement par une association."
         }
       ],
@@ -461,7 +461,7 @@
       },
       "reformulation": "Donner un avis sur les avantages et les limites d'une vie sans voiture, distinct de la seule faisabilité.",
       "position": "Un choix intéressant s'il améliore la vie sans supprimer l'autonomie.",
-      "position_claire": "Vivre sans voiture me paraît intéressant si l'autonomie est préservée. On peut y gagner sur le budget, les contraintes quotidiennes et le cadre partagé. Mais ce mode de vie n'est pas supérieur en toutes circonstances : les déplacements réels et les alternatives doivent guider la décision.",
+      "position_claire": "Vivre sans voiture me paraît intéressant si l'autonomie est préservée. On peut y gagner sur le budget, l'activité physique quotidienne et le cadre partagé. Mais ce mode de vie n'est pas supérieur en toutes circonstances : les déplacements réels et les alternatives doivent guider la décision.",
       "arguments": [
         {
           "idea": "Tout d'abord, ce choix peut réduire certaines dépenses fixes.",
@@ -470,20 +470,20 @@
           "consequence": "L'avantage se calcule dans sa situation, sans annoncer une économie universelle."
         },
         {
-          "idea": "Ensuite, des trajets adaptés peuvent simplifier le quotidien.",
-          "developpement": "Marcher ou prendre une ligne directe évite certaines contraintes de circulation et de stationnement. Cela n'est intéressant que si le parcours complet est praticable, y compris les horaires, les correspondances et les besoins de mobilité.",
-          "exemple": "Pour rejoindre un commerce accessible à pied, une personne peut partir sans chercher une place à l'arrivée. Mais si le dernier bus passe avant la fin de sa journée de travail, il ne permet pas son retour.",
-          "consequence": "Il faut examiner une journée réelle, pas déduire la facilité du seul fait d'habiter en ville."
+          "idea": "Ensuite, certains trajets sans voiture permettent de bouger régulièrement.",
+          "developpement": "Quand la marche ou le vélo sont possibles, les déplacements ordinaires deviennent des occasions d'activité physique. Marcher régulièrement fait travailler le corps et rompt de longues périodes assises, au lieu de réserver tout mouvement à un loisir supplémentaire.",
+          "exemple": "Une personne qui travaille assise peut rejoindre son bureau à pied par un parcours sûr et adapté. Elle marche alors matin et soir au cours d'un déplacement déjà nécessaire, sans devoir ajouter une séance de sport pour commencer à bouger davantage.",
+          "consequence": "L'avantage vient de l'activité réellement pratiquée, pas du simple fait de ne plus posséder de voiture."
         },
         {
           "idea": "Enfin, remplacer certains trajets automobiles peut améliorer l'espace partagé.",
           "developpement": "Lorsque des déplacements en voiture sont réellement remplacés par la marche ou des transports adaptés, on peut réduire la circulation et les besoins de stationnement. Ce bénéfice dépend des trajets évités et des moyens utilisés, pas d'une simple étiquette écologique.",
-          "exemple": "Près d'une école, un cheminement sûr peut permettre à des familles de venir à pied plutôt que de déposer chaque enfant en voiture. Il faut prévoir un accès adapté pour celles qui ne peuvent pas utiliser ce trajet.",
+          "exemple": "Près d'une école, des familles viennent à pied par un chemin sûr plutôt qu'en voiture. L'entrée est moins encombrée ; un accès adapté reste nécessaire pour celles qui ne peuvent pas utiliser ce trajet.",
           "consequence": "Une alternative utile crée un bénéfice collectif sans imposer la même solution à tous."
         }
       ],
       "nuance": "Cependant, une personne mal desservie, chargée de matériel ou ayant des contraintes particulières peut rester dépendante d'une voiture. Le covoiturage et la location peuvent réduire la possession individuelle, mais restent des trajets automobiles. Il faut distinguer vivre entièrement sans voiture et simplement en utiliser moins, sans culpabiliser.",
-      "conclusion": "En conclusion, je favoriserais une vie sans voiture lorsqu'elle améliore le budget, les déplacements et le cadre partagé. L'objectif est une autonomie avec moins de contraintes, pas une règle identique pour tous les lieux et tous les besoins."
+      "conclusion": "En conclusion, je favoriserais une vie sans voiture lorsqu'elle allège le budget, permet de bouger et améliore le cadre partagé. L'objectif reste l'autonomie, pas une règle identique pour tous les lieux et tous les besoins."
     }
   }
 }

@@ -402,6 +402,7 @@
       "reformulation": "Évaluer la gratuité pour les usagers sans confondre absence de billet et absence de coût collectif.",
       "position": "Favorable lorsque le financement permet un service fiable ; pas au détriment de l'offre.",
       "position_claire": "Je suis favorable à la gratuité des transports urbains si elle peut être financée sans dégrader le service. Elle peut alléger les budgets, encourager certains déplacements sans voiture et élargir l'accès à la ville. Mais un bus gratuit qui ne passe pas au bon moment ne répond pas au besoin.",
+      "argument_ids": [1, 4, 2],
       "arguments": [
         {
           "idea": "Tout d'abord, ne plus payer les trajets peut soulager un budget contraint.",

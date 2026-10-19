@@ -236,6 +236,7 @@ class DatabaseDeployCommandTests(SimpleTestCase):
                     if_changed=True,
                     verbosity=1,
                 ),
+                call("backfill_response_anchors", verbosity=1),
             ],
         )
 
@@ -252,4 +253,4 @@ class DatabaseDeployCommandTests(SimpleTestCase):
             ) as call_command_mock,
         ):
             command.handle(force=True, verbosity=1)
-        self.assertEqual(call_command_mock.call_count, 2)
+        self.assertEqual(call_command_mock.call_count, 3)

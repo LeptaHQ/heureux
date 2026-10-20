@@ -560,6 +560,13 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("dons financiers", response(10).nuance)
         self.assertIn("sans décider de l'embauche", response(12).arguments[1].consequence)
         self.assertIn("objectifs progressifs", response(13).nuance)
+        language_example = response(13).arguments[0].exemple
+        self.assertIn("Où habitez-vous ?", language_example)
+        self.assertIn("Où travaillez-vous ?", language_example)
+        self.assertIn("sans relire son modèle", language_example)
+        language_cue = catalogue.tache_three_subject_hints()["eo/tache-3/education-p13"].arguments[0].example
+        self.assertIn("sur le lieu de vie et de travail", language_cue.french)
+        self.assertIn("without rereading the model", language_cue.english)
         self.assertIn("point de vue", response(14).arguments[1].developpement)
         self.assertIn("La fiction", response(14).nuance)
         self.assertIn("sources indépendantes", response(15).arguments[2].developpement)

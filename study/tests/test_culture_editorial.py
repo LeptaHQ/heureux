@@ -81,11 +81,17 @@ class CultureEditorialTests(SimpleTestCase):
             (26, 2, ("prévoir leurs visites à l'avance", "manque de sympathie")),
             (30, 2, ("profession est réglementée", "avant d'exercer", "ne remplace ni")),
             (31, 1, ("moquerie", "humiliée", "relation réelle")),
+            (35, 2, ("distribution alimentaire", "La famille comprend", "comme les autres bénévoles, il contribue")),
         ):
             with self.subTest(response=number, argument=argument + 1):
                 example = self.response(number).arguments[argument].exemple
                 for phrase in required:
                     self.assertIn(phrase, example)
+
+    def test_adaptation_cue_means_adapting_to_constraints_not_changing_them(self):
+        cue = self.plans["eo/tache-3/culture-p1"].conclusion
+        self.assertIn("S'adapter aux contraintes", cue.french)
+        self.assertIn("Adapt to constraints", cue.english)
 
     def test_book_usefulness_keeps_the_original_reflection_and_concentration_argument(self):
         group = "eo/tache-3/culture-p6"

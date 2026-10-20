@@ -12,7 +12,7 @@
         "english": "Safety and shared rules may require immediate adaptation."
       },
       "conclusion": {
-        "french": "Adapter les contraintes, préserver ses repères et rester curieux.",
+        "french": "S'adapter aux contraintes, préserver ses repères et rester curieux.",
         "english": "Adapt to constraints, keep familiar anchors and stay curious."
       },
       "arguments": [
@@ -2506,8 +2506,8 @@
             "english": "Knowing words is not enough to construct a sentence."
           },
           "example": {
-            "french": "Réutiliser l'ordre des mots dans plusieurs questions.",
-            "english": "Reuse word order in several questions."
+            "french": "Préparer des questions sur le lieu de vie et de travail, puis les poser sans relire le modèle.",
+            "english": "Practise asking where someone lives and works, then ask without rereading the model."
           }
         },
         {
@@ -5634,8 +5634,8 @@
             "english": "Leave to find safety."
           },
           "example": {
-            "french": "Une famille fuit les violences sans projet préparé.",
-            "english": "A family flees violence without a prepared plan."
+            "french": "Une famille sans refuge sûr dans son pays cherche protection à l'étranger.",
+            "english": "A family with no safe refuge in its country seeks protection abroad."
           }
         },
         {

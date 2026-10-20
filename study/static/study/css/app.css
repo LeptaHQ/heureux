@@ -2434,10 +2434,6 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   padding: 0 1rem 0.85rem;
   border-top: 1px solid var(--border);
 }
-.eo2-prompt-note__edit {
-  min-height: 2.75rem;
-  font-size: 0.78rem;
-}
 .eo2-prompt-note__body p {
   margin: 0.75rem 0;
   color: var(--text-soft);

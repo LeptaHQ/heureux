@@ -67,7 +67,7 @@ class CultureSplitCorpusTests(SimpleTestCase):
         }
         self.assertEqual(
             fingerprint([raw[group] for group in sorted(ALL_CULTURE_GROUPS)]),
-            "2428e3aa4a0d2317951e4541737fb16f41711ba6856c7487f128f971b96dc150",
+            "f2db35e90c0b836cc8917fa74c41a7b542edcc5ad4e7e47094d83380b77af9cd",
         )
 
     def test_museum_visit_develops_the_practical_details_and_aligns_every_piste(self):
@@ -146,13 +146,16 @@ class CultureSplitCorpusTests(SimpleTestCase):
         self.assertEqual(row.register, "vous")
         self.assertIn("accommodation is already arranged", row.note)
         self.assertIn("not official booking guarantees", row.note)
+        self.assertIn("Suggest a cinema or a café with concerts", row.note)
+        self.assertIn("do not assume either exists", row.note)
+        self.assertIn("Adapt follow-ups to the venues recommended", row.note)
         self.assertEqual([question.topic for question in row.questions], [
             *(["Lieux, activités et ambiance"] * 4),
             *(["Budget et organisation"] * 3),
             "Retour",
         ])
         goals = (
-            ("et qu'est-ce qu'on peut y faire", None),
+            ("par exemple un cinéma ou un café qui propose des concerts", None),
             ("plutôt calme ou animée", 1),
             ("quels styles de musique", 1),
             ("séances suivies d'une discussion", 1),
@@ -176,7 +179,7 @@ class CultureSplitCorpusTests(SimpleTestCase):
         self.assertIn("Do not assume night buses run", row.note)
         hints = json.loads(content.TACHE_TWO_SUBJECT_HINTS_PATH.read_text())["groups"][row.group]
         self.assertEqual(hints, [
-            {"french": "Lieux conseillés pour sortir le soir et activités proposées", "english": "Recommended evening venues and activities available there"},
+            {"french": "Lieux conseillés, par exemple un cinéma ou un café avec concerts", "english": "Recommended venues, such as a cinema or a café with concerts"},
             {"french": "Ambiance calme ou animée selon les lieux et les soirées", "english": "Quiet or lively atmosphere depending on the venue and evening"},
             {"french": "Styles de musique et soirs des concerts du café", "english": "Music styles and concert nights at the café"},
             {"french": "Séances spéciales et animations au cinéma", "english": "Special screenings and activities at the cinema"},

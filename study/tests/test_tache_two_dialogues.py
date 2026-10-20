@@ -14,7 +14,7 @@ from unittest.mock import patch
 from django.template.loader import render_to_string
 from django.test import SimpleTestCase, TestCase
 from django.urls import reverse
-from django.utils.html import escape
+from django.utils.html import escape, strip_tags
 
 from study import catalogue
 from study import content_loader as content
@@ -707,6 +707,17 @@ class TacheTwoDialogueViewTests(TestCase):
         self.assertIn('<details class="eo2-prompt-note"', practice["front_html"])
         self.assertNotIn('<details class="eo2-prompt-note" open', practice["front_html"])
         self.assertNotIn(note, practice["back_html"])
+        for html in (detail.content.decode(), practice["front_html"]):
+            edit_link = re.search(
+                r'<a class="icon-button eo2-prompt-note__edit"[^>]*>.*?</a>',
+                html, re.S,
+            )
+            self.assertIsNotNone(edit_link)
+            self.assertEqual(strip_tags(edit_link.group()).strip(), "")
+            self.assertIn('aria-label="Modifier la note"', edit_link.group())
+            self.assertIn('title="Modifier la note"', edit_link.group())
+            self.assertIn('data-icon="pencil"', edit_link.group())
+            self.assertIn(self.edit_url + "#id_prompt_note", edit_link.group())
         self.assertEqual(
             self.client.get(self.edit_url).context["conversation_form"]["prompt_note"].value(),
             note,

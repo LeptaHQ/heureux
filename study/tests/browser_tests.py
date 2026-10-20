@@ -4479,6 +4479,35 @@ class BrowserTests(StaticLiveServerTestCase):
         self.assertEqual(cards_toggle.get_attribute("aria-pressed"), "true")
         self.assert_no_horizontal_overflow()
 
+    def test_tache_two_prompt_note_uses_a_compact_accessible_edit_pencil(self):
+        self._import_eo_tache_two_content()
+        prompt = Prompt.objects.select_related("theme__task__part").get(
+            content_key="tache2:janvier:batch-01:subject-01",
+        )
+        edit_path = reverse(
+            "study:edit_response", args=["eo", "tache-2", prompt.pk],
+        ) + "#id_prompt_note"
+        self.page.goto(self.live_server_url + prompt_detail_url(prompt))
+        prompt_note = self.page.locator("details.eo2-prompt-note")
+        note_edit = prompt_note.get_by_role("link", name="Modifier la note", exact=True)
+        expect(note_edit).not_to_be_visible()
+        prompt_note.locator("summary").click()
+        for width in (390, 1280):
+            with self.subTest(width=width):
+                self.page.set_viewport_size({"width": width, "height": 850})
+                expect(note_edit).to_be_visible()
+                expect(note_edit).to_have_text("")
+                expect(note_edit).to_have_attribute("title", "Modifier la note")
+                expect(note_edit).to_have_attribute("href", edit_path)
+                expect(note_edit.locator('svg[data-icon="pencil"]')).to_be_visible()
+                box = note_edit.bounding_box()
+                self.assertLessEqual(box["width"], 44)
+                self.assertAlmostEqual(box["width"], box["height"], delta=1)
+                self.assert_no_horizontal_overflow()
+        note_edit.click()
+        self.page.wait_for_url(self.live_server_url + edit_path)
+        expect(self.page.locator("#id_prompt_note")).to_be_visible()
+
     def test_tache_two_subjects_have_hints_and_preserve_practice_flow(self):
         command = Command()
         task_map = command._import_sections(load_sections())

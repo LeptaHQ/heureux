@@ -106,7 +106,7 @@
     {
       "group": "new-city-friend-low-budget-outings",
       "register": "tu",
-      "note": "You have just settled in your friend's city and want affordable outings, not housing or a short holiday package. Use tu. Keep costs central when discussing places, activities and transport. A free venue does not make food or travel free. Follow the places suggested and ask about actual routes before comparing tickets and passes. Do not assume bike-share is always cheapest or available all year. Check current offers with the venues.",
+      "note": "You have just settled in your friend's city and want affordable outings, not housing or a holiday package. Use tu. A free activity does not make food or travel free. Follow the places suggested. For evening outings, check the last bus for the actual route and day; do not assume late service. Bike-share may not be cheapest or available year-round. Prices and timetables are illustrative; confirm current offers and services with venues and the transport operator.",
       "opening": "Salut ! Je viens de m'installer ici et j'aimerais découvrir la ville sans trop dépenser.",
       "closing": "Merci pour ces bons plans ! Je vais comparer les possibilités et choisir une première sortie dans mon budget.",
       "questions": [
@@ -116,7 +116,7 @@
         {"topic": "Lieux et activités", "question": "Tu connais aussi des événements gratuits ou des sorties peu coûteuses pour le soir ?", "answer": "La maison de quartier propose une soirée jeux gratuite le jeudi. En été, je regarde aussi les concerts gratuits annoncés par la ville.", "follow_up_to": null},
         {"topic": "Bons plans", "question": "Où est-ce que je peux repérer les journées gratuites et les réductions avant de choisir une sortie ?", "answer": "Sur les sites des lieux et l'agenda municipal. Vérifie l'exposition concernée et le créneau gratuit ; certaines offres ne couvrent pas toute la visite.", "follow_up_to": null},
         {"topic": "Transports et budget total", "question": "Parmi ces endroits, lesquels peut-on rejoindre à pied et lesquels nécessitent plutôt un bus ou un vélo ?", "answer": "Le port et le marché sont proches : tu peux les combiner à pied. Pour le parc en hauteur, je prendrais le bus à l'aller et redescendrais à pied.", "follow_up_to": null},
-        {"topic": "Transports et budget total", "question": "Pour les trajets payants, comment choisir entre un billet à l'unité, un pass à la journée ou un abonnement ?", "answer": "Pour une seule sortie, compare les billets nécessaires au pass journée. L'abonnement mensuel vaut surtout la peine si tu prends régulièrement les transports.", "follow_up_to": 6, "condition": "If paid transport is recommended, unless suitable tickets or passes are already explained."},
+        {"topic": "Transports et budget total", "question": "Pour rentrer après une sortie le soir, jusqu'à quelle heure les bus circulent-ils ?", "answer": "Ça dépend de la ligne et du jour. Pour la maison de quartier, je prends le dernier bus vers vingt-trois heures ; vérifie l'horaire du retour avant de partir.", "follow_up_to": 6, "condition": "If bus travel is relevant after an evening outing and return times remain unclear."},
         {"topic": "Transports et budget total", "question": "Pour une première sortie avec une activité et le transport, quel petit budget total me conseillerais-tu de prévoir ?", "answer": "Pour le port et le marché à pied, les visites et le trajet sont gratuits. Prévois environ 10 $ si tu achètes un en-cas.", "follow_up_to": null}
       ]
     },

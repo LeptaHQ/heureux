@@ -88,6 +88,12 @@ as documents, equipment, services, costs, schedules, transport options, safety
 checks, or comparison criteria are instructional support when they remain
 natural and relevant.
 
+For open recommendations, suggest one or two relevant options to guide the
+conversation toward manageable follow-ups. A cinema or a café with concerts,
+for example, can anchor an evening-outings enquiry without assuming either
+exists. Follow the interlocutor's actual recommendations rather than forcing
+the suggested options into the rest of the conversation.
+
 ## 3. Target strong NCLC 7/8 language
 
 Use precise but natural French. The learner should be able to reuse the

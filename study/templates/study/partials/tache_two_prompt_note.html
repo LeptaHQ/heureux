@@ -6,7 +6,7 @@
   </summary>
   <div class="eo2-prompt-note__body">
     <p lang="en">{{ subject_prompt_note.note }}</p>
-    {% if prompt_note_edit_url %}<a class="btn eo2-prompt-note__edit" href="{{ prompt_note_edit_url }}#id_prompt_note">Modifier la note</a>{% endif %}
+    {% if prompt_note_edit_url %}<a class="icon-button eo2-prompt-note__edit" href="{{ prompt_note_edit_url }}#id_prompt_note" aria-label="Modifier la note" title="Modifier la note">{% include "study/partials/ui_icon.html" with name="pencil" only %}</a>{% endif %}
   </div>
 </details>
 {% endif %}

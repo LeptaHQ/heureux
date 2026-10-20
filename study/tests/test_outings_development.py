@@ -121,36 +121,56 @@ class OutingsDevelopmentCorpusTests(SimpleTestCase):
                     self.assertEqual(original["groups"].pop(group)["replacements"], [])
         self.assertEqual(fingerprint(original), self.fixture["original_history_sha"])
 
-    def test_evening_opener_is_retained_and_budget_includes_admission_and_a_drink(self):
+    def test_evening_question_suggests_options_and_budget_includes_admission_and_a_drink(self):
         group = "new-neighbor-evening-entertainment"
         row = self.raw[group]
         record = self.fixture["groups"][group]
         previous = self.history["groups"][group]["revisions"][record["archive_index"]]
         self.assertEqual(
             row["questions"][0]["question"],
-            "Quels endroits me conseilleriez-vous pour sortir le soir dans le quartier, et qu'est-ce qu'on peut y faire ?",
+            "Pour sortir le soir dans le quartier, quels endroits me conseilleriez-vous, par exemple un cinéma ou un café qui propose des concerts ?",
         )
         self.assertEqual(row["opening"], previous["opening"])
         self.assertEqual(row["closing"], previous["closing"])
         self.assertIn("avec l'entrée et une boisson", row["questions"][4]["question"])
         self.assertIn("25 $ pour le concert et une boisson", row["questions"][4]["answer"])
         self.assertEqual(record["retained_questions"], {
-            str(number): number for number in (1, 2, 3, 4, 6, 7, 8)
+            str(number): number for number in (2, 3, 4, 6, 7, 8)
         })
-        for number in (1, 2, 3, 4, 6, 7, 8):
+        for number in (2, 3, 4, 6, 7, 8):
             self.assertEqual(
                 {key: value for key, value in row["questions"][number - 1].items() if key != "answer"},
                 previous["questions"][number - 1],
             )
 
     def test_cultural_staff_cover_citywide_activities_access_and_pass_exclusions(self):
-        row = self.by_group["municipal-cultural-service-city-activities"]
+        group = "municipal-cultural-service-city-activities"
+        row = self.by_group[group]
         self.assertEqual(row.register, "vous")
+        self.assertEqual([question.topic for question in row.questions], [
+            *(["Lieux et expositions"] * 2),
+            *(["Ateliers et horaires"] * 2),
+            *(["Tarifs, accès et inscriptions"] * 4),
+        ])
+        self.assertEqual([question.question for question in row.questions[:4]], [
+            "Quels lieux culturels me conseilleriez-vous de découvrir dans la ville, par exemple des musées, des galeries ou des centres culturels ?",
+            "Dans les lieux que vous conseillez, quelles expositions peut-on voir en ce moment, et jusqu'à quand sont-elles proposées ?",
+            "Propose-t-on aussi des ateliers pour débutants, par exemple en dessin ou en photographie, et qu'est-ce qu'on y apprend ?",
+            "Quels sont les horaires de visite de ces lieux, et quels jours ont lieu les ateliers ?",
+        ])
+        self.assertIn("options, not assumed services", row.note)
+        self.assertIn("actual recommendations", row.note)
+        self.assertIn("ask only for missing details", row.note)
+        self.assertEqual([question.follow_up_to for question in row.questions[:4]], [
+            None, 1, None, 3,
+        ])
+        for index in (1, 3):
+            self.assertIn("remain unclear", row.questions[index].condition)
+        self.assertIn("permanente", row.questions[1].answer)
+        self.assertIn("croquis et l'aquarelle", row.questions[2].answer)
+        self.assertIn("dix-huit heures", row.questions[3].answer)
+        self.assertIn("dix-sept heures", row.questions[3].answer)
         for index, text in {
-            0: "expositions et quels musées",
-            1: "jusqu'à quand",
-            2: "débutants",
-            3: "jours proposés et la durée",
             4: "que comprend le tarif",
             5: "personne à mobilité réduite",
             6: "combien de temps à l'avance",
@@ -160,6 +180,33 @@ class OutingsDevelopmentCorpusTests(SimpleTestCase):
         self.assertIn("matériel compris", row.questions[4].answer)
         self.assertIn("fiches précisent", row.questions[5].answer)
         self.assertIn("Les ateliers ne sont pas inclus", row.questions[7].answer)
+        record = self.fixture["groups"][group]
+        self.assertEqual(
+            fingerprint(self.raw[group]["questions"][4:]),
+            record["preserved_final_questions_sha"],
+        )
+        self.assertEqual(
+            fingerprint(self.hints[group][4:]),
+            record["preserved_final_hints_sha"],
+        )
+        self.assertEqual(self.hints[group][:4], [
+            {
+                "french": "Lieux conseillés : musées, galeries ou centres culturels",
+                "english": "Recommended venues: museums, galleries or cultural centres",
+            },
+            {
+                "french": "Expositions en cours dans les lieux conseillés et dates de fin",
+                "english": "Current exhibitions at the recommended venues and their end dates",
+            },
+            {
+                "french": "Ateliers pour débutants : dessin ou photographie et apprentissages",
+                "english": "Beginner workshops: drawing or photography and what participants learn",
+            },
+            {
+                "french": "Horaires de visite des lieux conseillés et jours des ateliers",
+                "english": "Visiting hours at the recommended venues and workshop days",
+            },
+        ])
 
     def test_municipal_outings_neighbour_gives_experience_not_live_booking_guarantees(self):
         row = self.by_group["neighbor-municipal-cultural-outings"]
@@ -167,11 +214,28 @@ class OutingsDevelopmentCorpusTests(SimpleTestCase):
         self.assertIn("they do not organise", row.note)
         self.assertIn("déjà participé", row.questions[0].question)
         self.assertIn("le plus plu", row.questions[0].question)
+        self.assertIn("combien de temps faut-il prévoir au total", row.questions[2].question)
         self.assertIn("trajet compris", row.questions[2].answer)
         self.assertIn("Le repas reste à notre charge", row.questions[3].answer)
-        self.assertIn("combien de temps avant", row.questions[4].question)
+        self.assertEqual(
+            row.questions[4].question,
+            "Pour le départ en car, où est le point de rendez-vous, et à quelle heure faut-il être sur place ?",
+        )
         self.assertEqual(row.questions[4].follow_up_to, 4)
-        self.assertIn("si l'on vient seul", row.questions[5].question)
+        self.assertIn("If coach travel is included", row.questions[4].condition)
+        self.assertEqual(self.hints[row.group][4], {
+            "french": "Point de rendez-vous et heure d'arrivée pour le départ en car",
+            "english": "Meeting point and required arrival time for the coach departure",
+        })
+        self.assertEqual(
+            row.questions[5].question,
+            "D'après votre expérience, comment est l'ambiance dans le groupe : les participants font-ils facilement connaissance ?",
+        )
+        self.assertIn("Dans le car et pendant les pauses", row.questions[5].answer)
+        self.assertEqual(self.hints[row.group][5], {
+            "french": "Ambiance du groupe et échanges entre participants",
+            "english": "Group atmosphere and interaction between participants",
+        })
         self.assertIn("Le service culturel pourra vous confirmer", row.questions[6].answer)
         self.assertIn("programme des prochaines sorties", row.questions[7].question)
 
@@ -196,7 +260,20 @@ class OutingsDevelopmentCorpusTests(SimpleTestCase):
         self.assertIn("S'il pleut", row.questions[2].question)
         self.assertIn("l'exposition concernée", row.questions[4].answer)
         self.assertIn("lesquels peut-on rejoindre à pied", row.questions[5].question)
-        self.assertIn("un billet à l'unité, un pass à la journée ou un abonnement", row.questions[6].question)
+        self.assertEqual(
+            row.questions[6].question,
+            "Pour rentrer après une sortie le soir, jusqu'à quelle heure les bus circulent-ils ?",
+        )
+        self.assertEqual(row.questions[6].follow_up_to, 6)
+        self.assertIn("If bus travel is relevant", row.questions[6].condition)
+        self.assertIn("Ça dépend de la ligne et du jour", row.questions[6].answer)
+        self.assertIn("vérifie l'horaire du retour", row.questions[6].answer)
+        self.assertIn("actual route and day", row.note)
+        self.assertIn("do not assume late service", row.note)
+        self.assertEqual(self.hints[row.group][6], {
+            "french": "Dernier bus pour rentrer le soir selon la ligne et le jour",
+            "english": "Last bus home after an evening outing, depending on the route and day",
+        })
         self.assertIn("budget total", row.questions[7].question)
         self.assertIn("si tu achètes un en-cas", row.questions[7].answer)
         self.assertNotIn(
@@ -211,25 +288,94 @@ class OutingsDevelopmentCorpusTests(SimpleTestCase):
         self.assertIn("dure à peu près combien de temps", row.questions[2].question)
         self.assertNotIn("séance", " ".join(q.question for q in row.questions))
         self.assertIn("budget", row.questions[3].question)
+        self.assertEqual(
+            row.questions[4].question,
+            "Pendant le concert, est-ce qu'on peut s'asseoir ou est-ce qu'on reste debout ?",
+        )
+        self.assertEqual(row.questions[4].follow_up_to, 4)
+        self.assertIn("without clarifying seating arrangements", row.questions[4].condition)
+        self.assertIn("places assises sont limitées", row.questions[4].answer)
+        self.assertIn("rester debout", row.questions[4].answer)
+        self.assertEqual(self.hints[row.group][4], {
+            "french": "Places assises ou public debout pendant le concert",
+            "english": "Seating or standing during the concert",
+        })
         self.assertIn("s'il reste des places pour ce soir", row.questions[5].question)
-        self.assertIn("rentrer après le concert", row.questions[6].question)
-        self.assertIn("avoir le temps de manger", row.questions[7].question)
+        self.assertEqual(
+            row.questions[6].question,
+            "Pour aller au bar et rentrer après le concert, quel moyen de transport nous coûterait le moins cher ?",
+        )
+        self.assertEqual(self.hints[row.group][6], {
+            "french": "Transport économique pour l'aller-retour au concert",
+            "english": "Affordable transport to the concert and back",
+        })
+        self.assertEqual(
+            row.questions[7].question,
+            "Où et à quelle heure est-ce qu'on se retrouve pour aller au concert ensemble ?",
+        )
+        self.assertEqual(self.hints[row.group][7], {
+            "french": "Lieu et heure de rendez-vous pour partir ensemble",
+            "english": "Meeting place and time to travel together",
+        })
+        self.assertIn("vingt heures quarante-cinq", row.questions[7].answer)
+        self.assertNotRegex(
+            " ".join(f"{q.question} {q.answer}" for q in row.questions),
+            r"\b(?:manger|repas|pizzeria)\b",
+        )
 
-    def test_tourist_office_compares_actual_prices_and_checks_cycling_requirements(self):
+    def test_tourist_office_balances_city_discovery_options_and_practical_arrangements(self):
         row = self.by_group["tourist-office-city-discovery-with-friends"]
         self.assertEqual(row.register, "vous")
-        self.assertIn("quel niveau faut-il", row.questions[2].question)
-        self.assertIn("savoir rouler et freiner", row.questions[2].answer)
-        self.assertIn("d'où part chacune", row.questions[6].question)
-        self.assertIn("tous les jours", row.questions[6].answer)
-        self.assertIn("du jeudi au samedi", row.questions[6].answer)
-        regular, group, evening = [
-            int(value) for value in re.findall(r"(\d+)\s*\$", row.questions[4].answer)
-        ]
-        combined, = [
-            int(value) for value in re.findall(r"(\d+)\s*\$", row.questions[5].answer)
-        ]
-        self.assertLess(group + evening, combined)
-        self.assertLess(combined, regular + evening)
-        self.assertIn("non cumulable avec le tarif de groupe", row.questions[5].answer)
-        self.assertIn("les billets séparés sont donc moins chers", row.questions[5].answer)
+        self.assertEqual([question.topic for question in row.questions], [
+            *(["Lieux et activités"] * 4),
+            *(["Horaires et tarifs"] * 2),
+            *(["Accès et réservation"] * 2),
+        ])
+        for index, goal in enumerate((
+            "Quels quartiers et monuments",
+            "visites guidées ou un parcours à suivre à notre rythme",
+            "par exemple une balade en bateau ou un atelier de cuisine locale",
+            "en soirée pour découvrir la vie culturelle",
+            "les jours et les horaires de ces activités",
+            "des réductions pour les groupes",
+            "à pied depuis l'office",
+            "Pour quelles activités faut-il réserver à l'avance",
+        )):
+            self.assertIn(goal, row.questions[index].question)
+        self.assertEqual(row.questions[1].follow_up_to, 1)
+        self.assertIn("guided and independent options remain unclear", row.questions[1].condition)
+        self.assertIn("un plan gratuit", row.questions[1].answer)
+        self.assertIn("on les déguste ensemble", row.questions[2].answer)
+        self.assertIn("musiciens locaux", row.questions[3].answer)
+        self.assertIn("combien de temps dure chacune", row.questions[4].question)
+        self.assertIn("tous les jours", row.questions[4].answer)
+        self.assertIn("samedi", row.questions[4].answer)
+        self.assertIn("vendredi", row.questions[4].answer)
+        self.assertEqual(
+            [int(value) for value in re.findall(r"(\d+)\s*\$", row.questions[5].answer)],
+            [12, 25, 15, 9],
+        )
+        self.assertIn("Dès six participants", row.questions[5].answer)
+        self.assertIn("la visite guidée revient à 9 $", row.questions[5].answer)
+        self.assertIn("La visite part d'ici", row.questions[6].answer)
+        self.assertIn("à cinq minutes à pied", row.questions[6].answer)
+        self.assertIn("quinze minutes de tramway", row.questions[6].answer)
+        self.assertIn("au moins la veille", row.questions[7].answer)
+        self.assertIn("s'il reste des billets", row.questions[7].answer)
+        self.assertIn("without committing to every suggestion", row.note)
+        self.assertIn("Ask only for missing details", row.note)
+        self.assertIn("Do not assume your group qualifies for a discount", row.note)
+        self.assertNotRegex(
+            json.dumps(self.raw[row.group], ensure_ascii=False).casefold(),
+            r"vélo|casque|cycling|billet combiné|deux visites",
+        )
+        self.assertEqual([hint["french"] for hint in self.hints[row.group]], [
+            "Quartiers et monuments à découvrir en priorité",
+            "Visites guidées ou découverte à notre rythme",
+            "Activités entre amis, par exemple bateau ou cuisine locale",
+            "Vie culturelle en soirée : spectacles ou concerts",
+            "Jours, horaires et durée des activités proposées",
+            "Tarifs par personne et réductions pour les groupes",
+            "Accès aux lieux depuis l'office, à pied ou en transports",
+            "Activités à réserver à l'avance et moyens de réservation",
+        ])

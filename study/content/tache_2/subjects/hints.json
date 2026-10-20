@@ -718,8 +718,8 @@
     ],
     "new-neighbor-evening-entertainment": [
       {
-        "french": "Lieux conseillés pour sortir le soir et activités proposées",
-        "english": "Recommended evening venues and activities available there"
+        "french": "Lieux conseillés, par exemple un cinéma ou un café avec concerts",
+        "english": "Recommended venues, such as a cinema or a café with concerts"
       },
       {
         "french": "Ambiance calme ou animée selon les lieux et les soirées",
@@ -1436,20 +1436,20 @@
     ],
     "municipal-cultural-service-city-activities": [
       {
-        "french": "Musées et expositions conseillés à l'échelle de la ville",
-        "english": "Recommended museums and exhibitions across the city"
+        "french": "Lieux conseillés : musées, galeries ou centres culturels",
+        "english": "Recommended venues: museums, galleries or cultural centres"
       },
       {
-        "french": "Dates de l'exposition proposée et horaires d'ouverture",
-        "english": "Suggested exhibition's closing date and opening hours"
+        "french": "Expositions en cours dans les lieux conseillés et dates de fin",
+        "english": "Current exhibitions at the recommended venues and their end dates"
       },
       {
-        "french": "Ateliers pour débutants et apprentissages proposés",
-        "english": "Beginner workshops and what participants learn"
+        "french": "Ateliers pour débutants : dessin ou photographie et apprentissages",
+        "english": "Beginner workshops: drawing or photography and what participants learn"
       },
       {
-        "french": "Jours et durée des séances de l'atelier conseillé",
-        "english": "Days and session length of the suggested workshop"
+        "french": "Horaires de visite des lieux conseillés et jours des ateliers",
+        "english": "Visiting hours at the recommended venues and workshop days"
       },
       {
         "french": "Activités gratuites, prix et prestations comprises",
@@ -1724,12 +1724,12 @@
         "english": "Per-person price, inclusions and extra expenses"
       },
       {
-        "french": "Lieu de rendez-vous et arrivée avant le départ du car",
-        "english": "Meeting point and arrival before the coach departure"
+        "french": "Point de rendez-vous et heure d'arrivée pour le départ en car",
+        "english": "Meeting point and required arrival time for the coach departure"
       },
       {
-        "french": "Participation en venant seul et ambiance du groupe",
-        "english": "Joining alone and the group's atmosphere"
+        "french": "Ambiance du groupe et échanges entre participants",
+        "english": "Group atmosphere and interaction between participants"
       },
       {
         "french": "Inscription vécue et interlocuteur pour les places disponibles",
@@ -3648,8 +3648,8 @@
         "english": "Walking routes and useful transport for each place"
       },
       {
-        "french": "Billets, pass journée ou abonnement selon les trajets",
-        "english": "Tickets, day passes or subscriptions suited to the journeys"
+        "french": "Dernier bus pour rentrer le soir selon la ligne et le jour",
+        "english": "Last bus home after an evening outing, depending on the route and day"
       },
       {
         "french": "Budget total d'une première sortie et dépenses facultatives",
@@ -4660,20 +4660,20 @@
         "english": "Admission price and budget including a drink"
       },
       {
-        "french": "Repas abordable à proximité et temps disponible",
-        "english": "Affordable nearby food and enough time before the activity"
+        "french": "Places assises ou public debout pendant le concert",
+        "english": "Seating or standing during the concert"
       },
       {
         "french": "Places restantes ce soir et moyen de réserver",
         "english": "Remaining places tonight and how to book"
       },
       {
-        "french": "Trajet aller et solution de retour après l'activité",
-        "english": "Outward journey and a way home after the activity"
+        "french": "Transport économique pour l'aller-retour au concert",
+        "english": "Affordable transport to the concert and back"
       },
       {
-        "french": "Rendez-vous précis compatible avec le programme",
-        "english": "Specific meeting arrangements that fit the plan"
+        "french": "Lieu et heure de rendez-vous pour partir ensemble",
+        "english": "Meeting place and time to travel together"
       }
     ],
     "friend-planned-canadian-studies": [
@@ -5562,36 +5562,36 @@
     ],
     "tourist-office-city-discovery-with-friends": [
       {
-        "french": "Activités conseillées et différences entre les possibilités",
-        "english": "Suggested activities and how the options differ"
+        "french": "Quartiers et monuments à découvrir en priorité",
+        "english": "Neighbourhoods and landmarks to discover first"
       },
       {
-        "french": "Parcours et durée de la visite choisie",
-        "english": "Route and duration of the chosen visit"
+        "french": "Visites guidées ou découverte à notre rythme",
+        "english": "Guided visits or exploring at our own pace"
       },
       {
-        "french": "Équipement compris et niveau requis pour le vélo",
-        "english": "Included equipment and cycling ability required"
+        "french": "Activités entre amis, par exemple bateau ou cuisine locale",
+        "english": "Shared activities, such as a boat trip or a local cooking workshop"
       },
       {
-        "french": "Autre façon de découvrir la ville en soirée",
-        "english": "A different way to discover the city in the evening"
+        "french": "Vie culturelle en soirée : spectacles ou concerts",
+        "english": "Evening cultural activities: shows or concerts"
       },
       {
-        "french": "Prix de chaque activité et seuil du tarif de groupe",
-        "english": "Each activity's price and group-discount threshold"
+        "french": "Jours, horaires et durée des activités proposées",
+        "english": "Days, times and duration of the suggested activities"
       },
       {
-        "french": "Comparaison réelle du billet combiné et des billets séparés",
-        "english": "Actual combined-ticket and separate-ticket cost comparison"
+        "french": "Tarifs par personne et réductions pour les groupes",
+        "english": "Per-person prices and group discounts"
       },
       {
-        "french": "Jours, horaires et points de départ des visites",
-        "english": "Days, times and meeting points for the visits"
+        "french": "Accès aux lieux depuis l'office, à pied ou en transports",
+        "english": "Getting to the venues from the tourist office, on foot or by public transport"
       },
       {
-        "french": "Réservation, délai de confirmation et places à vérifier",
-        "english": "Booking method, confirmation lead time and availability checks"
+        "french": "Activités à réserver à l'avance et moyens de réservation",
+        "english": "Which activities need advance booking and how to book"
       }
     ]
   }

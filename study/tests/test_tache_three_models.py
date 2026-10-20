@@ -183,6 +183,13 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("projet d'épargne", response(9).nuance)
         self.assertIn("financer un déplacement", response(10).arguments[2].exemple)
         self.assertIn("quelle proportion", response(14).nuance)
+        self.assertIn("ne trouve pas de lieu sûr dans son pays", response(14).arguments[0].exemple)
+        self.assertIn("chercher refuge à l'étranger", response(14).arguments[0].exemple)
+        migration_cue = catalogue.tache_three_subject_hints()["eo/tache-3/economie-p14"].arguments[0].example
+        self.assertIn("dans son pays", migration_cue.french)
+        self.assertIn("protection à l'étranger", migration_cue.french)
+        self.assertIn("no safe refuge in its country", migration_cue.english)
+        self.assertIn("protection abroad", migration_cue.english)
         self.assertIn("son partenaire", response(14).arguments[2].exemple)
         self.assertIn("un permis est toujours nécessaire", response(15).arguments[0].developpement)
         self.assertIn("deux questions différentes", response(15).arguments[2].developpement)

@@ -1878,40 +1878,36 @@
     ],
     "hotel-host-services": [
       {
-        "french": "Services inclus et suppléments",
-        "english": "Included services and extra charges"
+        "french": "Services disponibles et prestations comprises dans la chambre",
+        "english": "Available services and what the room price includes"
       },
       {
-        "french": "Restauration et horaires des repas",
-        "english": "Dining options and meal times"
+        "french": "Formule du petit-déjeuner, prix par personne et horaires",
+        "english": "Breakfast format, price per person and serving times"
       },
       {
-        "french": "Disponibilité du service en chambre",
-        "english": "Room service availability"
+        "french": "Possibilités pour les autres repas et tarifs",
+        "english": "Lunch and dinner options and prices"
       },
       {
-        "french": "Équipements sportifs et bien-être éventuels",
-        "english": "Possible fitness and wellness facilities"
+        "french": "Tarifs de blanchisserie et dépôt du linge",
+        "english": "Laundry pricing and where to drop off clothes"
       },
       {
-        "french": "Accès Internet et blanchisserie",
-        "english": "Internet access and laundry services"
+        "french": "Délai de récupération et éventuelle option express",
+        "english": "Collection time and any express laundry option"
       },
       {
-        "french": "Navette et stationnement éventuels",
-        "english": "Possible shuttle and parking options"
+        "french": "Bagages avant et après l'occupation de la chambre, heure limite de retrait",
+        "english": "Luggage storage before check-in and after checkout, and latest collection time"
       },
       {
-        "french": "Heure de départ et départ tardif",
-        "english": "Checkout time and late checkout"
+        "french": "Couverture du wifi et procédure de connexion",
+        "english": "Wifi coverage and how to connect"
       },
       {
-        "french": "Consigne à bagages après le départ",
-        "english": "Luggage storage after checkout"
-      },
-      {
-        "french": "Réservation des services et horaires de réception",
-        "english": "Service booking and reception hours"
+        "french": "Services à réserver à l'avance et démarche à suivre",
+        "english": "Services needing advance booking and how to arrange them"
       }
     ],
     "friend-carpooling-offer": [
@@ -1984,36 +1980,36 @@
     ],
     "neighbor-seaside-house-rental": [
       {
-        "french": "Secteur de la maison et distance du centre",
-        "english": "Area where the house is located and distance downtown"
+        "french": "Quartier de Seattle et temps de trajet vers le centre-ville",
+        "english": "Seattle neighbourhood and travel time downtown"
       },
       {
-        "french": "Accès à pied jusqu'à la plage",
-        "english": "Walking access to the beach"
+        "french": "Périodes disponibles et souplesse de la durée du séjour",
+        "english": "Available dates and flexibility of stay length"
       },
       {
-        "french": "Commerces, restaurants et activités des environs",
-        "english": "Nearby shops, restaurants and activities"
+        "french": "Prix pour la semaine choisie et acompte déduit du loyer",
+        "english": "Price for the chosen week and advance payment credited to the rent"
+      },
+      {
+        "french": "Prestations comprises et caution remboursable distincte",
+        "english": "Included services and separate refundable damage deposit"
       },
       {
         "french": "Chambres, lits et capacité de couchage",
         "english": "Bedrooms, beds and sleeping capacity"
       },
       {
-        "french": "Cuisine, linge, lave-linge et barbecue disponibles",
-        "english": "Kitchen, linens, washing machine and barbecue"
+        "french": "Équipements disponibles, par exemple lave-linge ou barbecue",
+        "english": "Available equipment, such as a washing machine or barbecue"
       },
       {
-        "french": "Périodes disponibles et durée minimale",
-        "english": "Available dates and minimum stay"
+        "french": "Plage et commerces à pied, calme du quartier le soir",
+        "english": "Walking access to the beach and shops, and evening noise"
       },
       {
-        "french": "Tarif hebdomadaire et dépôt de réservation",
-        "english": "Weekly rate and booking deposit"
-      },
-      {
-        "french": "Charges, stationnement et ménage compris",
-        "english": "Utilities, parking and cleaning included"
+        "french": "Visite et conditions écrites d'annulation et de remise des clés",
+        "english": "Viewing and written cancellation and key-handover terms"
       }
     ],
     "friend-holiday-apartment-watch": [
@@ -2902,36 +2898,36 @@
     ],
     "hotel-reception-room-booking": [
       {
-        "french": "Types de chambres et disponibilités",
-        "english": "Room types and availability"
+        "french": "Chambres disponibles pour les dates et la durée choisies",
+        "english": "Available rooms for the chosen dates and stay length"
       },
       {
-        "french": "Prix par nuit et petit-déjeuner",
-        "english": "Nightly rate and breakfast"
+        "french": "Comparaison des lits, de l'espace et des équipements",
+        "english": "Comparing beds, space and room facilities"
       },
       {
-        "french": "Services et équipements inclus",
-        "english": "Included services and facilities"
+        "french": "Montant total du séjour, taxes et services compris",
+        "english": "Whole-stay total including taxes and included services"
       },
       {
-        "french": "Accès à l'hôtel et stationnement",
-        "english": "Hotel access and parking"
+        "french": "Suppléments éventuels pour le stationnement ou les équipements",
+        "english": "Possible extra charges for parking or facilities"
       },
       {
-        "french": "Heures d'arrivée et de départ",
-        "english": "Check-in and checkout times"
+        "french": "Heures d'arrivée et de départ, bagages avant l'accès à la chambre",
+        "english": "Check-in and checkout times, and luggage before the room is ready"
       },
       {
-        "french": "Lit d'appoint et accueil éventuel d'animaux",
-        "english": "Extra bed and possible pet accommodation"
+        "french": "Arrivée tardive, récupération de la clé et contact",
+        "english": "Late arrival, key collection and notifying reception"
       },
       {
-        "french": "Réservation et arrhes éventuelles",
-        "english": "Booking and any advance deposit"
+        "french": "Confirmation de réservation et paiement à l'avance",
+        "english": "Confirming the booking and any advance payment"
       },
       {
-        "french": "Annulation en cas de changement de dates",
-        "english": "Cancellation if travel dates change"
+        "french": "Délais et frais de modification ou d'annulation",
+        "english": "Modification and cancellation deadlines and charges"
       }
     ],
     "acquaintance-hiking-walking-club": [
@@ -4338,36 +4334,36 @@
     ],
     "quebec-region-accommodation-tourist-office": [
       {
-        "french": "Hébergements possibles dans la région",
-        "english": "Accommodation options in the region"
+        "french": "Hébergements conseillés, par exemple gîte, hôtel ou chalet",
+        "english": "Suggested lodging, such as a guesthouse, hotel or chalet"
       },
       {
-        "french": "Emplacement par rapport aux sites",
-        "english": "Location relative to attractions"
+        "french": "Intimité, équipements et possibilité de cuisiner",
+        "english": "Privacy, facilities and ability to cook"
       },
       {
-        "french": "Accès aux logements sans voiture",
-        "english": "Reaching accommodation without a car"
+        "french": "Secteurs proches des visites et options sans voiture",
+        "english": "Areas convenient for sightseeing and car-free options"
       },
       {
-        "french": "Confort et équipements recherchés",
-        "english": "Desired comfort and amenities"
+        "french": "Budget par nuit et prix par personne ou par logement",
+        "english": "Nightly budget and whether rates are per person or per accommodation"
       },
       {
-        "french": "Options économiques ou insolites",
-        "english": "Budget or unusual accommodation options"
+        "french": "Taxes, repas et frais de ménage à ajouter",
+        "english": "Extra taxes, meals and cleaning charges"
       },
       {
-        "french": "Prix selon la catégorie et la saison",
-        "english": "Prices by accommodation type and season"
+        "french": "Périodes moins chères et durée minimale éventuelle",
+        "english": "Cheaper periods and any minimum stay"
       },
       {
-        "french": "Repas éventuellement compris",
-        "english": "Meals that may be included"
+        "french": "Vérification des disponibilités selon les dates et le budget",
+        "english": "Checking availability against dates and budget"
       },
       {
-        "french": "Délais de réservation et sites comparatifs",
-        "english": "Booking lead times and comparison websites"
+        "french": "Interlocuteur de réservation et conditions à vérifier avant paiement",
+        "english": "Who handles the booking and which terms to check before payment"
       }
     ],
     "colleague-looking-for-sports-partner": [
@@ -4468,8 +4464,8 @@
         "english": "First-participation contact and meeting the team beforehand"
       },
       {
-        "french": "Lieu de rendez-vous et notification d'annulation en cas de mauvais temps",
-        "english": "Meeting place and cancellation notice in bad weather"
+        "french": "Point de rendez-vous et notification en cas d'annulation",
+        "english": "Meeting point and how participants are notified of cancellation"
       }
     ],
     "specialist-agency-day-excursions": [
@@ -4758,8 +4754,8 @@
         "english": "First-aid training"
       },
       {
-        "french": "Secteur desservi et garde chez les parents ou chez la personne",
-        "english": "Service area and care at the parents' or provider's home"
+        "french": "Quartiers où elle propose ses services et lieu de garde",
+        "english": "Neighbourhoods she covers and childcare at the parents' or caregiver's home"
       },
       {
         "french": "Jours et horaires habituels connus du voisin",
@@ -4848,36 +4844,36 @@
     ],
     "camping-reception-stay-preparation": [
       {
-        "french": "Emplacements et locations disponibles",
-        "english": "Available pitches and rental accommodation"
+        "french": "Types d'emplacements et branchements disponibles",
+        "english": "Pitch types and available hookups"
       },
       {
-        "french": "Taille, ombrage et branchement électrique",
-        "english": "Size, shade and electrical hookup"
+        "french": "Taille des emplacements, ombre et tranquillité",
+        "english": "Pitch size, shade and quiet surroundings"
       },
       {
-        "french": "Sanitaires et services du camping",
-        "english": "Washroom facilities and campsite services"
+        "french": "Prix par nuit, nombre de personnes et électricité",
+        "english": "Nightly price, party size and electricity"
       },
       {
-        "french": "Loisirs et restauration sur place",
-        "english": "Leisure and dining on site"
+        "french": "Services compris, douches et prestations payantes",
+        "english": "Included services, showers and paid facilities"
       },
       {
-        "french": "Horaires de silence et règles concernant les animaux",
-        "english": "Quiet hours and rules about pets"
+        "french": "Cuisine, courses et conservation des aliments",
+        "english": "Cooking facilities, shopping and food storage"
       },
       {
-        "french": "Prix par nuit et prestations comprises",
-        "english": "Nightly rates and included services"
+        "french": "Horaires d'arrivée, de départ et de calme",
+        "english": "Arrival, departure and quiet hours"
       },
       {
-        "french": "Réservation, acompte et annulation",
-        "english": "Booking, deposit and cancellation"
+        "french": "Disponibilités, procédure de réservation et acompte",
+        "english": "Availability, booking procedure and advance payment"
       },
       {
-        "french": "Heure d'arrivée et installation",
-        "english": "Arrival time and setting up"
+        "french": "Modification des dates, délai d'annulation et remboursement",
+        "english": "Date changes, cancellation deadline and refund"
       }
     ],
     "estate-agent-advertised-apartment-unspecified": [
@@ -5362,24 +5358,20 @@
         "english": "Available dates and minimum stay"
       },
       {
-        "french": "Loyer hebdomadaire et dépôt de réservation",
-        "english": "Weekly rent and booking deposit"
+        "french": "Prix pour la semaine choisie et acompte déduit du loyer",
+        "english": "Price for the chosen week and advance payment credited to the rent"
       },
       {
-        "french": "Charges comprises et frais de ménage",
-        "english": "Included utilities and cleaning fee"
+        "french": "Charges, taxes, ménage et caution remboursable",
+        "english": "Utilities, taxes, cleaning and refundable damage deposit"
       },
       {
-        "french": "Nombre de chambres et de salles de bains",
-        "english": "Number of bedrooms and bathrooms"
+        "french": "Chambres, salles de bains et couchages",
+        "english": "Bedrooms, bathrooms and sleeping arrangements"
       },
       {
-        "french": "Nombre de personnes pouvant y dormir",
-        "english": "Number of people who can sleep there"
-      },
-      {
-        "french": "Cuisine, linge, électroménagers et barbecue",
-        "english": "Kitchen, linens, appliances and barbecue"
+        "french": "Équipements pour cuisiner, laver le linge et profiter de l'extérieur",
+        "english": "Equipment for cooking, laundry and outdoor use"
       },
       {
         "french": "Ambiance à Ballard le soir et le week-end",
@@ -5388,6 +5380,10 @@
       {
         "french": "Parc et commerces à pied, centre-ville sans voiture",
         "english": "Park and shops on foot, downtown without a car"
+      },
+      {
+        "french": "Visite et conditions écrites d'annulation et de remise des clés",
+        "english": "Viewing and written cancellation and key-handover terms"
       }
     ],
     "friend-association-work-experience": [

@@ -84,7 +84,7 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         }
         expected = {
             "arrivee": "eeb337d3fd34d07c863b10f58fa4da53bae6f1b91822e56eaa8042170a48e278",
-            "logement": "02698f811071e923f8cc5eee92a5525900b779c65d87873cb237a050e97e29ac",
+            "logement": "5856b77b61128d6d2b988dd3a589762ca8d8a5a7a04b1c6f8a17a3ba4b73a744",
             "travail": "0fb6c8f5342a424bb1f0a1c985460220b7e48f34b93de5bc54a80b36d4728b71",
             "ecole-etudes": "b6c49581312a9e3dda84699ce4a24e371dcd46c20fd789a7bd86f60e0f952142",
         }
@@ -507,8 +507,14 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertIn("Dans quel quartier", colleague.questions[2].question)
         self.assertIn("chez vous ou chez la personne recommandée", colleague.questions[2].question)
         provider = self.by_group["neighbor-home-childcare-provider-referral"]
-        self.assertIn("Dans quel secteur", provider.questions[3].question)
-        self.assertIn("chez les parents ou chez elle", provider.questions[3].question)
+        self.assertEqual(
+            provider.questions[3].question,
+            "Dans quels quartiers propose-t-elle ses services, et garde-t-elle les enfants chez les parents ou chez elle ?",
+        )
+        self.assertEqual(self.hints[provider.group][3], {
+            "french": "Quartiers où elle propose ses services et lieu de garde",
+            "english": "Neighbourhoods she covers and childcare at the parents' or caregiver's home",
+        })
         self.assertIn("D'après ce que vous savez", provider.questions[4].question)
         self.assertIn("disponibilités actuelles", provider.questions[4].answer)
         self.assertIn("tarif actuel", provider.questions[6].answer)
@@ -633,7 +639,14 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertEqual(animals.questions[6].follow_up_to, 6)
         environment = self.by_group["neighbor-environmental-association-volunteering"]
         self.assertIn("explications et un accompagnement", environment.questions[5].question)
-        self.assertIn("où faut-il se présenter", environment.questions[7].question)
+        self.assertEqual(
+            environment.questions[7].question,
+            "Où est le point de rendez-vous, et comment serai-je prévenu en cas d'annulation ?",
+        )
+        self.assertEqual(self.hints[environment.group][7], {
+            "french": "Point de rendez-vous et notification en cas d'annulation",
+            "english": "Meeting point and how participants are notified of cancellation",
+        })
         self.assertIn("quinze minutes avant 9 h", environment.questions[7].answer)
         self.assertIn("Confirmez ces détails lors de l'inscription", environment.questions[7].answer)
 
@@ -836,7 +849,7 @@ class TacheTwoNeighbourhoodCorpusTests(SimpleTestCase):
         self.assertIn("apporter soi-même", environment.questions[1].question)
         self.assertIn("8 h 45 à midi", environment.questions[2].answer)
         self.assertIn("deux jours avant", environment.questions[3].answer)
-        self.assertIn("mauvais temps", environment.questions[7].question)
+        self.assertIn("en cas d'annulation", environment.questions[7].question)
         self.assertIn("prévient les inscrits par message", environment.questions[7].answer)
 
     def test_delivery_refund_and_practical_handover_developments_remain_role_specific(self):

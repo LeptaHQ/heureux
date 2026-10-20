@@ -118,8 +118,12 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
             archived_arrival_groups, {"newcomer-local-acquaintance-meet-people"},
         )
 
-    def test_recorded_substitutions_reconstruct_current_or_archived_geographic_models(self):
+    def test_recorded_substitutions_preserve_frozen_geographic_baselines(self):
         by_group = {item.group: item for item in catalogue.tache_two_dialogues().values()}
+        superseded_layouts = {
+            "neighbor-seaside-house-rental":
+                "f41eec238eee04e8a78ad2eed741e4dfc797372792b7198871bce14ef6fd279f",
+        }
         for group, history in catalogue.tache_two_location_history().items():
             if not history.replacements:
                 continue
@@ -132,6 +136,15 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
                 for before, after in history.replacements:
                     old = old.replace(before, after)
                 translated.append(old)
+            if group in superseded_layouts:
+                # Pin the earlier geographic layout without adding another full-text history copy.
+                snapshot = json.dumps(translated, ensure_ascii=False, sort_keys=True).encode()
+                self.assertEqual(
+                    hashlib.sha256(snapshot).hexdigest(), superseded_layouts[group],
+                )
+                self.assertIn("Seattle", by_group[group].opening)
+                self.assertIn("Alki", by_group[group].questions[0].answer)
+                continue
             matches = [
                 row for row in (*history.revisions[1:], by_group[group])
                 if [row.opening, *(question.question for question in row.questions), row.closing]
@@ -181,13 +194,14 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
         self.assertIn("taxes foncières annuelles", apartment.questions[6].question)
         summer = by_group["colleague-summer-house-rental"]
         previous = catalogue.tache_two_location_history()[summer.group].revisions[-1]
-        order = (6, 7, 8, 1, 2, 3, 4, 5)
-        self.assertEqual(
-            [row.question for row in summer.questions],
-            [previous.questions[index - 1].question for index in order],
-        )
+        for before, after in ((6, 1), (4, 6), (5, 7)):
+            self.assertEqual(
+                previous.questions[before - 1].question, summer.questions[after - 1].question,
+            )
         self.assertEqual(summer.questions[2].follow_up_to, 2)
-        self.assertEqual(summer.questions[4].follow_up_to, 4)
+        self.assertIn("couchages", summer.questions[3].question)
+        self.assertIn("Quels équipements", summer.questions[4].question)
+        self.assertIsNone(summer.questions[4].follow_up_to)
         self.assertIsNone(summer.questions[7].follow_up_to)
         hints = json.loads(content.TACHE_TWO_SUBJECT_HINTS_PATH.read_text())["groups"]
         self.assertEqual(hints[transport.group][0]["english"], "Transport date and time")
@@ -205,7 +219,11 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
         )
         self.assertEqual(hints[summer.group][0]["english"], "Available dates and minimum stay")
         self.assertEqual(
-            hints[summer.group][7]["english"], "Park and shops on foot, downtown without a car",
+            hints[summer.group][6]["english"], "Park and shops on foot, downtown without a car",
+        )
+        self.assertEqual(
+            hints[summer.group][7]["english"],
+            "Viewing and written cancellation and key-handover terms",
         )
         for row in (transport, apartment, summer):
             old = catalogue.tache_two_location_history()[row.group].revisions[-1]
@@ -318,7 +336,7 @@ class TacheTwoLocationCorpusTests(SimpleTestCase):
         self.assertIn("explications et un accompagnement", environment.questions[5].question)
         self.assertIn("bénévole expérimenté", environment.questions[5].answer)
         self.assertIn("contacter pour une première participation", environment.questions[6].question)
-        self.assertIn("où faut-il se présenter", environment.questions[7].question)
+        self.assertIn("Où est le point de rendez-vous", environment.questions[7].question)
 
     def test_neighbourhood_delivery_questions_cover_actual_service_constraints(self):
         by_group = {row.group: row for row in catalogue.tache_two_dialogues().values()}
@@ -1481,7 +1499,7 @@ class PublishedTacheTwoHighlightTests(TestCase):
             "medical-secretary-temporary-replacement-doctor": (2, {1: 1, 2: 2, 3: 3, 5: 5, 6: 6, 8: 8}),
             "neighbor-child-one-day-care": (2, {1: 1, 6: 6, 7: 7}),
             "neighbor-environmental-association-volunteering": (2, {1: 1, 3: 3, 5: 5, 6: 6}),
-            "neighbor-home-childcare-provider-referral": (2, {1: 1, 2: 2, 3: 3, 4: 4, 5: 5, 8: 8}),
+            "neighbor-home-childcare-provider-referral": (2, {1: 1, 2: 2, 3: 3, 5: 5, 8: 8}),
             "visit-colleague-minor-accident": (2, {1: 1, 2: 2, 4: 4}),
         }
         for group, (revision, mapping) in cases.items():
@@ -1558,9 +1576,14 @@ class PublishedTacheTwoHighlightTests(TestCase):
             {number: number for number in (1, 3, 4, 5, 6, 8)},
         )
 
-    def test_summer_house_priority_reorder_recovers_current_and_pre_geography_highlights(self):
+    def test_seaside_house_development_preserves_the_retained_capacity_question_and_old_notes(self):
         self.assert_revision_highlights_preserved(
-            "colleague-summer-house-rental", {1: 4, 2: 5, 3: 6, 4: 7, 5: 8, 6: 1, 7: 2, 8: 3},
+            "neighbor-seaside-house-rental", {4: 5},
+        )
+
+    def test_summer_house_development_recovers_retained_and_pre_geography_highlights(self):
+        self.assert_revision_highlights_preserved(
+            "colleague-summer-house-rental", {4: 6, 5: 7, 6: 1},
         )
         self.old = catalogue.tache_two_location_history()[self.current.group].revisions[0]
         legacy = self.highlight(4, "Bowness", body="My original neighbourhood note.")

@@ -62,6 +62,8 @@ def eo3_audio(request, group, fingerprint):
             content_type="audio/mpeg", status=status,
         )
         response["Content-Length"] = str(end - start + 1)
+        # Ranges use MP3 byte offsets; middleware must not add another encoding.
+        response["Content-Encoding"] = "identity"
         if status == 206:
             response["Content-Range"] = f"bytes {start}-{end}/{size}"
     response["ETag"] = etag

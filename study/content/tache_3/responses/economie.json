@@ -85,7 +85,7 @@
         },
         {
           "idea": "Enfin, des compétences pratiques de gestion sont nécessaires.",
-          "developpement": "Organiser un budget ou un planning exige de connaître les ressources disponibles et les engagements pris. La motivation ne remplace pas ces informations, et une erreur peut mettre les autres en difficulté.",
+          "developpement": "Organiser un budget ou un planning exige que l'on connaisse les ressources disponibles et les engagements pris. La motivation ne remplace pas ces informations, et une erreur peut mettre les autres en difficulté.",
           "exemple": "Avant une activité associative, un futur responsable prépare un budget avec une personne expérimentée. Il compare le coût de la salle et du matériel aux recettes possibles. Si les dépenses dépassent les moyens, il choisit un lieu moins cher avant de s'engager.",
           "consequence": "En s'exerçant avec de l'aide, le futur responsable voit ce qu'il maîtrise et ce qu'il doit apprendre."
         }
@@ -103,7 +103,7 @@
       "arguments": [
         {
           "idea": "Tout d'abord, un repos peut aider à retrouver de l'attention.",
-          "developpement": "Continuer une tâche en luttant contre la somnolence n'est pas forcément efficace. Une sieste prévue peut contribuer à la vigilance, à condition de laisser aussi le temps de se réveiller correctement avant de reprendre le travail.",
+          "developpement": "Continuer une tâche en luttant contre la somnolence n'est pas forcément efficace. Une sieste prévue peut contribuer à la vigilance, à condition qu'on ait aussi le temps de se réveiller correctement avant de reprendre le travail.",
           "exemple": "Une personne somnolente relit plusieurs fois un document sans en suivre le raisonnement. Après une pause autorisée dans un espace calme et un temps de réveil, elle peut retrouver le fil et reprendre ses vérifications.",
           "consequence": "La pause peut aider à se concentrer, sans garantir le même résultat pour tous."
         },
@@ -152,7 +152,7 @@
         }
       ],
       "nuance": "Cependant, aucune mesure ne garantit l'absence de conflit, de fatigue ou de départ. Les objectifs restent nécessaires et les ressources ne sont pas illimitées. Il faut discuter les priorités avec l'équipe et suivre les difficultés, sans remplacer des conditions correctes par une salle de loisirs ou une animation.",
-      "conclusion": "En conclusion, prendre soin des salariés demande de bien organiser le travail. Une charge tenable, la possibilité de parler et des horaires prévisibles valent davantage que des avantages de façade."
+      "conclusion": "En conclusion, prendre soin des salariés demande que le travail soit bien organisé. Une charge tenable, la possibilité de parler et des horaires prévisibles valent davantage que des avantages de façade."
     },
     "economie-p9": {
       "prompt_signatures": {
@@ -165,7 +165,7 @@
       "arguments": [
         {
           "idea": "Tout d'abord, les conditions de travail peuvent modifier fortement l'intérêt d'un salaire.",
-          "developpement": "Des horaires très lourds peuvent réduire la récupération et fragiliser la santé. Un montant plus élevé ne rend pas automatiquement ces conditions tenables et ne remplace pas le temps nécessaire à ses proches. Il faut comparer davantage que la somme mensuelle.",
+          "developpement": "Des horaires très lourds peuvent réduire la récupération et fragiliser la santé. Un montant plus élevé ne rend pas automatiquement ces conditions tenables et ne remplace pas le temps nécessaire à ses proches. Il faut qu'on regarde au-delà du salaire mensuel.",
           "exemple": "Une personne peut recevoir une offre mieux payée avec des déplacements fréquents et des retours tardifs. Si ce rythme lui laisse trop peu de sommeil et l'empêche d'accompagner un proche, elle peut préférer un poste moins rémunéré mais plus compatible avec ses besoins.",
           "consequence": "Le bon choix dépend donc aussi de la vie que le poste permet de mener."
         },
@@ -212,7 +212,7 @@
           "consequence": "Ces solutions peuvent donc faciliter la candidature sans diminuer les exigences du poste."
         }
       ],
-      "nuance": "Cependant, une formation pratique, des contacts et des offres adaptées peuvent faciliter l'entrée. Il faut aussi examiner les obstacles rencontrés plus tard dans la carrière, sans opposer les générations ni supposer tous les jeunes désavantagés.",
+      "nuance": "Cependant, une formation pratique, des contacts et des offres adaptées peuvent faciliter l'entrée. Il faut aussi qu'on examine les obstacles rencontrés plus tard dans la carrière, sans opposer les générations ni supposer tous les jeunes désavantagés.",
       "conclusion": "En conclusion, débuter peut compliquer la recherche par le manque de preuves, de contacts et de moyens. Je défends donc des voies d'entrée accessibles plutôt que l'idée que la jeunesse serait en elle-même une faiblesse professionnelle."
     },
     "economie-p14": {
@@ -263,7 +263,7 @@
           "idea": "Ensuite, travailler dans un autre environnement demande une communication adaptée.",
           "developpement": "Connaître son métier ne signifie pas pouvoir expliquer immédiatement une difficulté, comprendre toutes les consignes ou négocier un délai dans une autre langue. Les habitudes d'équipe peuvent aussi nécessiter des explications.",
           "exemple": "Une technicienne sait résoudre une panne mais ne trouve pas les mots pour demander l'arrêt d'une intervention. Elle prépare cette demande avec un collègue et s'entraîne à décrire ses vérifications. Elle peut alors faire comprendre sa décision à l'équipe.",
-          "consequence": "Il faut donc apprendre à se faire comprendre, même quand on connaît son métier."
+          "consequence": "Il faut donc qu'on apprenne à se faire comprendre, même quand on connaît son métier."
         },
         {
           "idea": "Enfin, l'accès à certaines professions exige une reconnaissance particulière.",
@@ -375,7 +375,7 @@
       "arguments": [
         {
           "idea": "Tout d'abord, les contraintes d'un poste ne se traduisent pas toutes dans le salaire.",
-          "developpement": "Un travail peut demander des gestes répétitifs, des horaires pénibles ou une attention constante sans être payé davantage pour ces efforts. Il faut examiner le poste réel plutôt que supposer qu'il est bien payé parce qu'il est difficile.",
+          "developpement": "Un travail peut demander des gestes répétitifs, des horaires pénibles ou une attention constante sans être payé davantage pour ces efforts. Il faut qu'on examine le poste réel plutôt que de supposer qu'il est bien payé parce qu'il est difficile.",
           "exemple": "Une personne chargée du nettoyage peut devoir travailler tôt, déplacer du matériel et respecter un temps limité pour chaque espace. Ces contraintes sont réelles même si son salaire reste modeste ; elles ne disparaissent pas parce que le poste est peu visible.",
           "consequence": "Le montant reçu ne permet donc pas de conclure que le travail est facile."
         },

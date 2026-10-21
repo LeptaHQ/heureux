@@ -63,7 +63,7 @@
         }
       ],
       "nuance": "Cependant, difficile ne signifie pas impossible. Un ordinateur, des documents papier ou des échanges en personne peuvent remplacer certaines fonctions. Réduire les notifications est encore une autre démarche : elle ne prouve pas que l'on peut supprimer le portable sans réorganiser le quotidien.",
-      "conclusion": "En conclusion, sans portable, il faut d'autres outils, des services accessibles et un moyen de garder le lien avec ses proches. Ce choix reste possible pour certains, mais il demande plus qu'un simple changement d'habitude."
+      "conclusion": "En conclusion, sans portable, il faut qu'on ait d'autres outils, des services accessibles et un moyen de garder le lien avec ses proches. Ce choix reste possible pour certains, mais il demande plus qu'un simple changement d'habitude."
     },
     "technologie-p3": {
       "prompt_signatures": {
@@ -122,7 +122,7 @@
           "consequence": "Ne pas pouvoir se déplacer n'empêche donc pas de compter pour ce groupe."
         }
       ],
-      "nuance": "Cependant, certains usages peuvent remplacer des rencontres souhaitées ou laisser une impression d'échange sans écoute. Les plateformes doivent aussi limiter les sollicitations envahissantes. Reconnaître les bénéfices ne signifie pas ignorer ces mécanismes, ni réduire toute solitude à une responsabilité individuelle.",
+      "nuance": "Cependant, certains usages peuvent remplacer des rencontres souhaitées ou laisser une impression d'échange sans écoute. Il faut aussi que les plateformes limitent les sollicitations envahissantes. Reconnaître les bénéfices ne signifie pas ignorer ces mécanismes, ni réduire toute solitude à une responsabilité individuelle.",
       "conclusion": "En conclusion, Internet ne rend pas forcément solitaire. Il peut aider à garder le lien avec ses proches, à rencontrer des gens et à participer malgré la distance. Il faut aussi regarder les obstacles aux rencontres et la qualité des échanges."
     },
     "technologie-p5": {
@@ -171,7 +171,7 @@
         },
         {
           "idea": "Ensuite, des images expliquées peuvent rendre une situation plus concrète.",
-          "developpement": "Voir les lieux aide parfois à comprendre ce qui pose problème. Mais l'image doit être datée, et il faut préciser le lieu et expliquer ce qu'elle montre. Elle ne prouve pas à elle seule les causes d'un événement.",
+          "developpement": "Voir les lieux aide parfois à comprendre ce qui pose problème. Mais il faut que l'image soit datée, et il faut préciser le lieu et expliquer ce qu'elle montre. Elle ne prouve pas à elle seule les causes d'un événement.",
           "exemple": "Un reportage peut montrer une route coupée après une inondation et expliquer quels quartiers ne sont plus reliés. Une carte et des témoignages situés aident à comprendre les déplacements concernés, sans prétendre montrer toute la région.",
           "consequence": "Les explications et les vérifications comptent donc autant que les images."
         },
@@ -316,7 +316,7 @@
       "arguments": [
         {
           "idea": "Tout d'abord, ils permettent de prévenir d'un imprévu sans attendre le retour chez soi.",
-          "developpement": "Une information utile perd parfois sa valeur si elle arrive trop tard. Prévenir d'un changement permet à l'autre personne de modifier ses plans, si elle reçoit le message à temps.",
+          "developpement": "Une information utile perd parfois sa valeur si elle arrive trop tard. Prévenir d'un changement permet à l'autre personne de modifier ses plans, à condition qu'elle reçoive le message à temps.",
           "exemple": "Une personne retardée dans les transports peut prévenir celle qui l'attend et proposer un nouvel horaire. Le destinataire sait alors s'il doit rester sur place ou modifier son programme, plutôt que deviner la raison de l'absence.",
           "consequence": "Prévenir rapidement évite ainsi à l'autre d'attendre sans savoir quoi faire."
         },
@@ -363,7 +363,7 @@
           "consequence": "Le refus peut donc exprimer une préférence concernant la vie privée, pas une peur du progrès."
         }
       ],
-      "nuance": "Cependant, la société doit conserver des accès adaptés aux personnes non connectées. Si une démarche exige une aide numérique, il faut en convenir avec le proche sollicité. Un usage partiel reste aussi légitime. Il faut distinguer le choix volontaire d'une exclusion faute de moyens.",
+      "nuance": "Cependant, il faut que la société conserve des accès adaptés aux personnes non connectées. Si une démarche exige une aide numérique, il faut en convenir avec le proche sollicité. Un usage partiel reste aussi légitime. Il faut distinguer le choix volontaire d'une exclusion faute de moyens.",
       "conclusion": "En conclusion, je respecte ce choix : il peut permettre de se concentrer, de participer autrement et de protéger sa vie privée. Mais il faut des solutions pour les démarches, sans imposer ces outils ni prétendre qu'on s'en passe toujours facilement."
     },
     "technologie-p16": {
@@ -393,7 +393,7 @@
           "consequence": "L'enfant sait ainsi quoi faire si un problème arrive, pas seulement ce qui est interdit."
         }
       ],
-      "nuance": "Cependant, l'âge, les besoins de santé et les règles de l'école comptent. Les contenus, les contacts et les horaires doivent rester limités. Certains usages peuvent être retardés ou interdits, et aucun appareil personnel n'est obligatoire. L'accompagnement doit rester adapté aux capacités de l'enfant.",
+      "nuance": "Cependant, l'âge, les besoins de santé et les règles de l'école comptent. Les contenus, les contacts et les horaires doivent rester limités. Certains usages peuvent être retardés ou interdits, et aucun appareil personnel n'est obligatoire. Il faut que l'accompagnement soit toujours adapté aux capacités de l'enfant.",
       "conclusion": "En conclusion, il faut savoir pourquoi l'enfant utilise un téléphone, lui apprendre à se protéger et rester disponible pour l'aider. On peut autoriser certains usages et en refuser d'autres, sans choisir entre tout permettre et tout interdire."
     },
     "technologie-p17": {
@@ -421,7 +421,7 @@
           "idea": "Enfin, transporter des passagers impose des moyens supplémentaires qui ne sont pas toujours justifiés.",
           "developpement": "Un équipage a besoin d'air, d'eau et de dispositifs assurant sa sécurité et son retour. Ces équipements mobilisent des ressources en plus de celles de l'expérience. Un financement privé ne supprime pas ces besoins ni les impacts du lancement.",
           "exemple": "Pour observer un phénomène avec une caméra et des capteurs, une mission peut utiliser un dispositif automatique. Ajouter des passagers sans tâche scientifique particulière impose alors des équipements de survie sans améliorer l'observation prévue.",
-          "consequence": "Une présence humaine doit donc apporter quelque chose à l'objectif, plutôt que servir seulement le prestige."
+          "consequence": "Il faut donc qu'une présence humaine apporte quelque chose à l'objectif, plutôt que de servir seulement le prestige."
         }
       ],
       "nuance": "Cependant, l'utilité des satellites ou de la recherche ne justifie pas chaque voyage touristique. Une entreprise et un État ne choisissent pas leurs dépenses de la même façon, mais un financement privé ne dispense pas d'examiner la sécurité et les effets sur la collectivité.",
@@ -449,7 +449,7 @@
         },
         {
           "idea": "Enfin, l'accès numérique et les moyens de paiement peuvent limiter cette option.",
-          "developpement": "Savoir consulter une page ne signifie pas pouvoir terminer un achat. L'interface doit être utilisable, la connexion disponible et un moyen de paiement accepté proposé, sans exposer inutilement ses données.",
+          "developpement": "Savoir consulter une page ne signifie pas pouvoir terminer un achat. Il faut que l'interface soit utilisable, que la connexion soit disponible et qu'un moyen de paiement accepté soit proposé, sans exposer inutilement ses données.",
           "exemple": "Une personne peut sélectionner ses produits puis découvrir que le vendeur exige un moyen de paiement qu'elle ne possède pas. Tant qu'aucune alternative adaptée n'est offerte, elle ne peut pas réaliser cet achat de cette manière.",
           "consequence": "Un site peut donc fonctionner sans permettre à chaque personne d'y acheter."
         }
@@ -517,7 +517,7 @@
           "consequence": "Les autres transports doivent donc convenir aux trajets et au budget."
         }
       ],
-      "nuance": "Cependant, un rendez-vous éloigné avant le premier bus peut révéler une limite. Le covoiturage ou la location réduisent la possession d'une voiture, mais utilisent encore ce moyen : ce n'est pas vivre sans aucune voiture. Il faut améliorer les alternatives sans culpabiliser les personnes dont les besoins restent mal couverts.",
+      "nuance": "Cependant, un rendez-vous éloigné avant le premier bus peut révéler une limite. Le covoiturage ou la location réduisent la possession d'une voiture, mais utilisent encore ce moyen : ce n'est pas vivre sans aucune voiture. Il faut qu'on améliore les alternatives sans culpabiliser ceux dont les besoins restent mal couverts.",
       "conclusion": "En conclusion, tout le monde n'a pas besoin d'une voiture, mais on ne peut pas s'en passer partout. Il faut des transports qui couvrent l'aller et le retour, des services accessibles et un budget suffisant pour les trajets nécessaires."
     },
     "technologie-p21": {
@@ -536,7 +536,7 @@
         },
         {
           "idea": "Ensuite, il facilite la recherche de l'origine d'une affirmation.",
-          "developpement": "Un lien vers un document, une date et un auteur permet de vérifier le contexte. Encore faut-il faire cette recherche : une publication reprise sur plusieurs sites peut toujours provenir d'une seule source.",
+          "developpement": "Un lien vers un document, une date et un auteur permet de vérifier le contexte. Encore faut-il qu'on fasse cette recherche : une publication reprise sur plusieurs sites peut toujours provenir d'une seule source.",
           "exemple": "Si un article cite une décision, je peux ouvrir le document indiqué et vérifier s'il s'agit d'un projet ou d'un texte applicable. Cela m'évite de partager un résumé qui présente une discussion comme une mesure déjà décidée.",
           "consequence": "Un résumé très repris mérite donc la même vérification qu'une publication isolée."
         },
@@ -574,7 +574,7 @@
         },
         {
           "idea": "Enfin, la possibilité de contacter à toute heure peut brouiller les limites du travail.",
-          "developpement": "Un envoi tardif peut être compris comme une demande immédiate, même si ce n'était pas l'intention. Les règles doivent définir les urgences et les délais de réponse, sans laisser chaque salarié deviner ce qui est attendu.",
+          "developpement": "Un envoi tardif peut être compris comme une demande immédiate, même si ce n'était pas l'intention. Il faut que les règles définissent les urgences et les délais de réponse, sans laisser chaque salarié deviner ce qui est attendu.",
           "exemple": "Une équipe peut convenir qu'un message envoyé le soir sera traité au prochain temps de travail, sauf procédure d'urgence explicite. Le responsable applique lui aussi cette règle au lieu de valoriser les réponses nocturnes.",
           "consequence": "Il devient plus facile de ne pas répondre le soir si toute l'équipe respecte la même règle."
         }
@@ -604,7 +604,7 @@
         },
         {
           "idea": "Enfin, il est possible de passer d'un aperçu à une explication plus détaillée.",
-          "developpement": "Un résumé peut suffire pour repérer un sujet. Pour le comprendre, je peux ensuite ouvrir un dossier qui en explique les causes et les conséquences. Il faut toujours vérifier l'auteur, la date et les sources utilisées.",
+          "developpement": "Un résumé peut suffire pour repérer un sujet. Pour le comprendre, je peux ensuite ouvrir un dossier qui en explique les causes et les conséquences. Il faut toujours qu'on vérifie l'auteur, la date et les sources utilisées.",
           "exemple": "Après un résumé sur une décision municipale, je peux consulter un dossier et le document original. Je distingue ainsi les faits annoncés des commentaires, au lieu de croire qu'un titre répond déjà à toutes les questions.",
           "consequence": "La profondeur dépend de la recherche et de la qualité des sources."
         }

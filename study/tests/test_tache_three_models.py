@@ -435,7 +435,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("découvertes culturelles", response(3).arguments[2].idea)
         self.assertIn("transport adapté", response(4).arguments[2].exemple)
         self.assertIn("autre support n'est pas automatiquement", response(5).nuance)
-        self.assertIn("image doit être datée", response(6).arguments[1].developpement)
+        self.assertIn("il faut que l'image soit datée", response(6).arguments[1].developpement)
         self.assertIn("plateformes", response(7).nuance)
         self.assertIn("créer un compte", response(10).nuance)
         self.assertIn("sans aucun téléphone", response(11).reformulation)

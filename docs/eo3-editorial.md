@@ -332,6 +332,13 @@ departure by itself with travelling alone, or turn a possible result into a
 guarantee. In prompt explanations, mark illustrative actions as optional when
 the consigne asks only for a position and reasons; do not add examination tasks.
 
+For the user's subjunctive-learning pass, retain a natural existing clause before
+adding anything. Check the complete spoken response, including negative opinions,
+feelings, fears and purposes, not only common `il faut que` patterns. When needed,
+rephrase one existing requirement or purpose without changing its meaning,
+certainty or actors. A learning target is not an official examination quota;
+avoid stock filler or replacing a possibility with an obligation for grammar.
+
 Pistes replace the visible generic **Expressions liées** block on bundled EO3
 detail pages, outside both existing annotation roots. The old expression block
 remains hidden, with its exact text unchanged, so historical sidebar highlights

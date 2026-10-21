@@ -2074,22 +2074,14 @@
     },
     "education-p1": {
       "introduction": {
-        "french": "La capacité d'adaptation peut se construire, sans résultat garanti.",
-        "english": "Adaptability can develop without guaranteeing an outcome."
-      },
-      "nuance": {
-        "french": "Modifier son projet ne signifie pas être incapable par nature.",
-        "english": "Changing a plan does not mean being inherently incapable."
-      },
-      "conclusion": {
-        "french": "Examiner apprentissages, ressources et accueil, pas des étiquettes.",
-        "english": "Assess learning, resources and reception, not labels."
+        "french": "On peut apprendre à s'adapter, mais la volonté seule ne suffit pas.",
+        "english": "People can learn to adapt, but willpower alone is not enough."
       },
       "arguments": [
         {
           "point": {
-            "french": "L'adaptation repose en partie sur des compétences que l'on peut construire.",
-            "english": "Adaptation partly relies on skills that can be developed."
+            "french": "On peut apprendre à mieux se débrouiller dans le nouveau pays.",
+            "english": "People can learn to manage better in the new country."
           },
           "example": {
             "french": "Préparer un appel, puis apprendre à faire répéter un horaire.",
@@ -2108,15 +2100,23 @@
         },
         {
           "point": {
-            "french": "L'environnement d'accueil doit aussi laisser une place à la personne.",
-            "english": "The receiving environment must also make room for the person."
+            "french": "Les personnes sur place peuvent aider un nouvel arrivant à participer.",
+            "english": "People already there can help a newcomer take part."
           },
           "example": {
             "french": "Un responsable explique les consignes au nouveau salarié.",
             "english": "A manager explains instructions to a new employee."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Modifier son projet ne signifie pas être incapable par nature.",
+        "english": "Changing a plan does not mean being inherently incapable."
+      },
+      "conclusion": {
+        "french": "Tenir compte des efforts, des moyens et de l'accueil, sans juger sur les premières difficultés.",
+        "english": "Consider effort, resources and reception without judging people by their first difficulties."
+      }
     },
     "education-p2": {
       "introduction": {
@@ -2136,8 +2136,8 @@
         },
         {
           "point": {
-            "french": "Les connaissances déjà acquises peuvent servir de points d'appui.",
-            "english": "Prior knowledge can provide a foundation."
+            "french": "Ce que l'on sait déjà aide à comprendre ce qui est nouveau.",
+            "english": "What we already know helps us understand something new."
           },
           "example": {
             "french": "Apprendre le tableur à partir de son budget sur papier.",
@@ -2160,22 +2160,14 @@
         "english": "Health and resources may call for adjusting the project."
       },
       "conclusion": {
-        "french": "Mobiliser ses acquis pour progresser et enrichir ses activités et ses relations.",
-        "english": "Use existing knowledge to progress and enrich activities and relationships."
+        "french": "S'appuyer sur ce qu'on sait déjà pour progresser, découvrir et échanger avec d'autres personnes.",
+        "english": "Build on what we already know to progress, discover and interact with other people."
       }
     },
     "education-p3": {
       "introduction": {
         "french": "Limiter l'usage libre du téléphone, avec des exceptions organisées.",
         "english": "Limit unrestricted phone use, with organized exceptions."
-      },
-      "nuance": {
-        "french": "Prévoir besoins d'accessibilité, usage pédagogique et contact familial.",
-        "english": "Plan for accessibility, educational use and family contact."
-      },
-      "conclusion": {
-        "french": "Protéger attention, vie privée et activités communes avec une règle claire.",
-        "english": "Protect attention, privacy and shared activities with a clear rule."
       },
       "arguments": [
         {
@@ -2204,30 +2196,30 @@
             "english": "Screen-free periods leave room for shared activities."
           },
           "example": {
-            "french": "Proposer des jeux, sans imposer la même sociabilité à tous.",
-            "english": "Offer games without imposing the same sociability on everyone."
+            "french": "Jouer ensemble, en laissant aussi la possibilité de lire ou de rester au calme.",
+            "english": "Play together while allowing others to read or stay quiet."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Prévoir besoins d'accessibilité, usage pédagogique et contact familial.",
+        "english": "Plan for accessibility, educational use and family contact."
+      },
+      "conclusion": {
+        "french": "Protéger attention, vie privée et activités communes avec une règle claire.",
+        "english": "Protect attention, privacy and shared activities with a clear rule."
+      }
     },
     "education-p4": {
       "introduction": {
         "french": "Privilégier l'école adaptée, sans condamner chaque instruction à domicile.",
         "english": "Prefer suitable schooling without condemning all home education."
       },
-      "nuance": {
-        "french": "Examiner besoins particuliers, règles applicables et liens extérieurs.",
-        "english": "Consider individual needs, applicable rules and external relationships."
-      },
-      "conclusion": {
-        "french": "Juger le suivi et les moyens réellement disponibles pour l'enfant.",
-        "english": "Assess the support and resources actually available to the child."
-      },
       "arguments": [
         {
           "point": {
-            "french": "Un regard pédagogique extérieur aide à repérer les difficultés.",
-            "english": "An external educational perspective helps identify difficulties."
+            "french": "Un enseignant peut repérer ce que l'enfant n'a pas compris.",
+            "english": "A teacher can identify what the child has not understood."
           },
           "example": {
             "french": "Faire expliquer une règle dans une phrase nouvelle.",
@@ -2246,15 +2238,23 @@
         },
         {
           "point": {
-            "french": "Instruire à la maison demande une organisation et des ressources durables.",
-            "english": "Home education requires lasting organization and resources."
+            "french": "Instruire à la maison demande du temps, du matériel et parfois une aide extérieure.",
+            "english": "Home education requires time, materials and sometimes outside help."
           },
           "example": {
             "french": "Prévoir temps de suivi et soutien dans les matières plus difficiles.",
             "english": "Plan time for supervision and help with harder subjects."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Examiner besoins particuliers, règles applicables et liens extérieurs.",
+        "english": "Consider individual needs, applicable rules and external relationships."
+      },
+      "conclusion": {
+        "french": "Vérifier que l'enfant apprend et que les adultes ont les moyens de l'accompagner.",
+        "english": "Check that the child is learning and adults have the resources to support them."
+      }
     },
     "education-p5": {
       "introduction": {
@@ -2320,8 +2320,8 @@
         },
         {
           "point": {
-            "french": "Les outils en ligne peuvent répartir les moyens et les disponibilités.",
-            "english": "Online tools can coordinate resources and availability."
+            "french": "Les outils en ligne aident à répartir les tâches et les ressources.",
+            "english": "Online tools help distribute tasks and resources."
           },
           "example": {
             "french": "Répartir les bénévoles entre les créneaux de préparation.",
@@ -2330,8 +2330,8 @@
         },
         {
           "point": {
-            "french": "Les échanges donnent aux personnes touchées une place dans l'organisation de l'aide.",
-            "english": "Affected people can influence how assistance is organized."
+            "french": "Internet permet aux personnes touchées de dire elles-mêmes ce dont elles ont besoin.",
+            "english": "The Internet lets affected people state their own needs."
           },
           "example": {
             "french": "Par messagerie privée, signaler un colis trop lourd et convenir d'une livraison.",
@@ -2344,8 +2344,8 @@
         "english": "Plan for outages, fraud, privacy and offline contact."
       },
       "conclusion": {
-        "french": "Informer, organiser et écouter sans remplacer les équipes sur place.",
-        "english": "Inform, organize and listen without replacing teams on the ground."
+        "french": "Connaître les besoins, organiser et écouter ; les équipes sur place apportent l'aide.",
+        "english": "Identify needs, organize and listen; teams on the ground deliver the help."
       }
     },
     "education-p7": {
@@ -2356,8 +2356,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Une reprise d'études peut répondre à un objectif clairement identifié.",
-            "english": "Returning to study can serve a clearly identified goal."
+            "french": "Reprendre des études peut aider à changer d'activité ou à approfondir un domaine.",
+            "english": "Returning to study can help change careers or deepen knowledge in a field."
           },
           "example": {
             "french": "Apprendre stocks et budget pour demander de nouvelles missions après la vente.",
@@ -2422,8 +2422,8 @@
         },
         {
           "point": {
-            "french": "Cet engagement permettrait d'aider sans décider systématiquement à la place des personnes.",
-            "english": "Helping should respect people's choices and circumstances."
+            "french": "J'aimerais aider en tenant compte des besoins et des choix des personnes.",
+            "english": "I would like to help while respecting people's needs and choices."
           },
           "example": {
             "french": "Signaler un besoin d'aliments utilisables sans cuisson.",
@@ -2468,8 +2468,8 @@
         },
         {
           "point": {
-            "french": "Les études peuvent exercer des méthodes utiles au-delà d'une matière.",
-            "english": "Study can exercise transferable working methods."
+            "french": "Les études apprennent aussi à organiser son travail et à travailler en équipe.",
+            "english": "Study also teaches work organization and teamwork."
           },
           "example": {
             "french": "Répartir recherches et calendrier pour une présentation collective.",
@@ -2629,14 +2629,6 @@
         "french": "Préférer une rémunération équitable à un salaire identique sans critères.",
         "english": "Prefer fair pay to an identical salary without criteria."
       },
-      "nuance": {
-        "french": "Contrôler discriminations, salaires trop bas et écarts excessifs.",
-        "english": "Examine discrimination, low pay and excessive gaps."
-      },
-      "conclusion": {
-        "french": "Des critères transparents, discutables et appliqués équitablement.",
-        "english": "Transparent criteria, open to discussion and applied fairly."
-      },
       "arguments": [
         {
           "point": {
@@ -2660,15 +2652,23 @@
         },
         {
           "point": {
-            "french": "Des compétences supplémentaires utiles peuvent être reconnues dans l'évolution du salaire.",
-            "english": "Additional useful skills can be recognized in salary progression."
+            "french": "Un salaire peut reconnaître des compétences supplémentaires utiles à l'entreprise.",
+            "english": "Pay can recognize additional skills useful to the company."
           },
           "example": {
             "french": "Prendre en compte un diagnostic technique et la formation des collègues.",
             "english": "Recognize technical diagnosis and training colleagues."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Contrôler discriminations, salaires trop bas et écarts excessifs.",
+        "english": "Examine discrimination, low pay and excessive gaps."
+      },
+      "conclusion": {
+        "french": "Des critères transparents, discutables et appliqués équitablement.",
+        "english": "Transparent criteria, open to discussion and applied fairly."
+      }
     },
     "education-p17": {
       "introduction": {
@@ -2688,8 +2688,8 @@
         },
         {
           "point": {
-            "french": "Le droit de parler ne donne pas une raison de divulguer toute la vie privée d'autrui.",
-            "english": "Speaking does not justify exposing all of someone's private life."
+            "french": "La liberté d'expression ne justifie pas de publier n'importe quelle information privée.",
+            "english": "Freedom of expression does not justify publishing just any private information."
           },
           "example": {
             "french": "Critiquer un conflit sans publier le numéro privé du voisin.",
@@ -2836,8 +2836,8 @@
         },
         {
           "point": {
-            "french": "Un parcours atypique ne devrait pas condamner définitivement un projet d'études.",
-            "english": "An atypical path should not permanently rule out study."
+            "french": "Un parcours atypique ne devrait pas empêcher de reprendre des études.",
+            "english": "An atypical path should not prevent returning to study."
           },
           "example": {
             "french": "Identifier et préparer les prérequis après une expérience professionnelle.",
@@ -2850,8 +2850,8 @@
         "english": "Provide places and funding, explain requirements and value other paths."
       },
       "conclusion": {
-        "french": "Ouvrir des chances individuelles et des contributions collectives, avec un parcours accompagné.",
-        "english": "Enable individual opportunities and collective contributions through supported study."
+        "french": "Ouvrir de vraies chances d'étudier, utiles aux étudiants et à la société, sans admission garantie.",
+        "english": "Offer real opportunities to study, useful to students and society, without guaranteed admission."
       }
     },
     "education-p21": {
@@ -2882,8 +2882,8 @@
         },
         {
           "point": {
-            "french": "Certains dispositifs valorisent les résultats dans l'attribution d'un soutien.",
-            "english": "Some support schemes take results into account."
+            "french": "De bonnes notes peuvent compter pour obtenir une bourse ou une aide.",
+            "english": "Good grades can count towards obtaining a scholarship or financial support."
           },
           "example": {
             "french": "Vérifier les critères d'une bourse avant de déposer un dossier.",
@@ -2896,8 +2896,8 @@
         "english": "A grade measures neither every skill nor relationships or balance."
       },
       "conclusion": {
-        "french": "Utiliser les résultats comme appuis partiels, pas comme définition de la vie.",
-        "english": "Use results as partial support, not a definition of life."
+        "french": "Les notes peuvent aider pour la formation, la confiance et le financement, sans résumer la vie.",
+        "english": "Grades can support course access, confidence and funding without summing up life."
       }
     },
     "education-p22": {
@@ -2905,19 +2905,11 @@
         "french": "Internet permet beaucoup d'apprentissages autonomes, mais pas tout seul.",
         "english": "The Internet enables much independent learning, but not everything alone."
       },
-      "nuance": {
-        "french": "Le besoin d'aide dépend du niveau et de l'objectif, pas seulement du support.",
-        "english": "Support needs depend on level and goal, not only the medium."
-      },
-      "conclusion": {
-        "french": "Relier ressources, retours et pratique à la compétence visée.",
-        "english": "Match resources, feedback and practice to the target skill."
-      },
       "arguments": [
         {
           "point": {
-            "french": "Des ressources bien organisées permettent de véritables apprentissages autonomes.",
-            "english": "Structured resources enable genuine independent learning."
+            "french": "Des ressources bien organisées permettent d'apprendre certaines choses seul.",
+            "english": "Well-organized resources allow people to learn some things alone."
           },
           "example": {
             "french": "Refaire un calcul de tableur et comparer la correction.",
@@ -2944,7 +2936,15 @@
             "english": "Driving requires real practice with appropriate supervision."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Le besoin d'aide dépend de l'objectif et de ce qu'on sait déjà ; une explication ne suffit pas toujours.",
+        "english": "Help depends on the goal and prior knowledge; an explanation is not always enough."
+      },
+      "conclusion": {
+        "french": "Relier ressources, retours et pratique à la compétence visée.",
+        "english": "Match resources, feedback and practice to the target skill."
+      }
     },
     "education-p23": {
       "introduction": {

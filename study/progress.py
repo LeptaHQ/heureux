@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from datetime import datetime
 from itertools import islice
 import re
 from typing import Iterable
@@ -263,6 +264,7 @@ class SubjectProgress:
     vocabulary_completed: int
     vocabulary_mastered: int
     vocabulary_due: int
+    status_reset_at: datetime | None = None
 
     @property
     def vocabulary_progress(self) -> ProgressSummary:
@@ -293,6 +295,23 @@ def mark_card_started(user, card: Card) -> None:
             response_practice_started_at__isnull=True,
         ).update(response_practice_started_at=at)
         card.response_practice_started_at = at
+    if card.card_type == CardType.SPINE:
+        if card.subject_status_reset_at is not None:
+            cleared = Card.objects.filter(
+                pk=card.pk, user=user, subject_status_reset_at__lte=at,
+            ).update(subject_status_reset_at=None)
+            if cleared:
+                card.subject_status_reset_at = None
+    elif card.phrase_id:
+        Card.objects.filter(
+            user=user,
+            card_type=CardType.SPINE,
+            subject_status_reset_at__lte=at,
+            response__is_active=True,
+            response__prompts__is_active=True,
+            response__prompts__phrases__pk=card.phrase_id,
+            response__prompts__phrases__tier=PhraseTier.SUBJECT,
+        ).update(subject_status_reset_at=None)
 
 
 def _response_content_key(source_key: str) -> str:
@@ -466,9 +485,21 @@ def _subject_highlight_rows(user, response_ids):
             Q(task__part__slug="eo", task__slug__in=["tache-2", "tache-3"])
             | Q(task__isnull=True)
         ))
-        matched = set(annotation_owners(annotations).values()) & set(oral_by_id)
+        owners = annotation_owners(annotations)
+        latest_by_owner = {}
+        for annotation in annotations:
+            owner = owners.get(annotation.pk)
+            if owner in oral_by_id:
+                latest_by_owner[owner] = max(
+                    latest_by_owner.get(owner, annotation.created_at),
+                    annotation.created_at,
+                )
+        matched = set(latest_by_owner)
         rows = [
-            {"source_path": "", "source_key": f"response:{oral_by_id[pk]}"}
+            {
+                "source_path": "", "source_key": f"response:{oral_by_id[pk]}",
+                "created_at": latest_by_owner[pk],
+            }
             for pk in matched
         ]
         keys = {oral_by_id[pk]: pk for pk in matched}
@@ -581,7 +612,7 @@ def _subject_highlight_rows(user, response_ids):
                 _phrase_separator__gt=1,
                 _phrase_key__in=phrases.values("phrase_id"),
             )
-        fields = ["source_path", "source_key"]
+        fields = ["source_path", "source_key", "created_at"]
         if shapes["response"]:
             fields.append("_matched_response_id")
         batch_rows = list(candidates.filter(scope).order_by().values(*fields))
@@ -616,7 +647,9 @@ def _subject_highlight_rows(user, response_ids):
             normalized_path = Replace(normalized_path, Value(character), Value(""))
         # Progress needs presence per source, not every selected offset. HAVING
         # evaluates the patterns once per source even when it has many marks.
-        candidates = highlights.order_by().values("source_path", "source_key").alias(
+        candidates = highlights.order_by().values("source_path", "source_key").annotate(
+            created_at_latest=Max("created_at"),
+        ).alias(
             _highlight_key=Max("source_key"),
             _highlight_path=normalized_path,
         )
@@ -629,7 +662,9 @@ def _subject_highlight_rows(user, response_ids):
             for item in scopes:
                 scope |= item
             rows.extend(
-                candidates.filter(scope).order_by().values("source_path", "source_key")
+                candidates.filter(scope).order_by().values(
+                    "source_path", "source_key", "created_at_latest",
+                )
             )
     return rows, response_by_content_key, prompts
 
@@ -671,12 +706,15 @@ def subject_progress_by_response(
             "vocabulary_completed": 0,
             "vocabulary_mastered": 0,
             "vocabulary_due": 0,
+            "status_reset_at": None,
+            "_latest_highlight_at": None,
         }
         for response_id in response_ids
     }
     response_cards = Card.objects.current_content().filter(
         Q(response_practice_started_at__isnull=False)
         | Q(subject_completed_at__isnull=False)
+        | Q(subject_status_reset_at__isnull=False)
         | ~Q(state=CardState.NEW),
         user=user,
         card_type=CardType.SPINE,
@@ -685,10 +723,12 @@ def subject_progress_by_response(
         "response_id",
         "response_practice_started_at",
         "subject_completed_at",
+        "subject_status_reset_at",
         "state",
     )
     for card in response_cards:
         values = progress[card["response_id"]]
+        values["status_reset_at"] = card["subject_status_reset_at"]
         values["explicitly_completed"] = (
             card["subject_completed_at"] is not None
         )
@@ -870,7 +910,13 @@ def subject_progress_by_response(
                 )
             )
         for response_id in matched_response_ids:
-            progress[response_id]["has_highlight"] = True
+            values = progress[response_id]
+            values["has_highlight"] = True
+            created_at = row.get("created_at", row.get("created_at_latest"))
+            if created_at is not None:
+                values["_latest_highlight_at"] = max(
+                    values["_latest_highlight_at"] or created_at, created_at,
+                )
 
     return _finish_subject_progress(progress)
 
@@ -879,9 +925,17 @@ def _finish_subject_progress(progress) -> dict[int, SubjectProgress]:
     """Turn the collected per-response flags into display-ready summaries."""
     results = {}
     for response_id, values in progress.items():
+        values = dict(values)
+        latest_highlight_at = values.pop("_latest_highlight_at")
+        reset_at = values["status_reset_at"]
         if values["explicitly_completed"]:
             status = "done"
             label = "Terminé"
+        elif reset_at is not None and (
+            latest_highlight_at is None or latest_highlight_at <= reset_at
+        ):
+            status = "new"
+            label = "À commencer"
         elif (
             values["has_highlight"]
             or values["response_practice_started"]

@@ -3661,7 +3661,15 @@ def subject_completion(request, part_slug, task_slug, response_id):
     if route_prompt is None:
         raise Http404
     completed = request.POST.get("completed")
-    if completed not in {"0", "1"}:
+    action = request.POST.get("action", "")
+    reset_status = action == "reset"
+    if (
+        completed not in {"0", "1"}
+        or action not in {"", "reset"}
+        or (reset_status and (
+            completed != "0" or (task.part.slug, task.slug) != ("eo", "tache-3")
+        ))
+    ):
         if request.headers.get("X-Requested-With") == "fetch":
             return JsonResponse(
                 {"error": "État de progression invalide."},
@@ -3675,9 +3683,12 @@ def subject_completion(request, part_slug, task_slug, response_id):
         response_id=route_prompt.response_id,
     )
     completed_at = timezone.now() if completed == "1" else None
-    Card.objects.filter(pk=card.pk).update(
-        subject_completed_at=completed_at,
-    )
+    changes = {"subject_completed_at": completed_at}
+    if reset_status:
+        changes["subject_status_reset_at"] = timezone.now()
+    elif completed == "1":
+        changes["subject_status_reset_at"] = None
+    Card.objects.filter(pk=card.pk).update(**changes)
     progress = subject_progress_by_response(
         request.user,
         {route_prompt.response_id},

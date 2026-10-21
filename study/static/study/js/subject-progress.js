@@ -59,6 +59,7 @@
       var completed = data.completed;
       var progress = data[config.progressField];
       matchingForms(id).forEach(function (form) {
+        if (form.hasAttribute(prefix + "-reset-form")) return;
         var input = form.querySelector("[" + prefix + "-completed-input]");
         var button = form.querySelector("button");
         form.classList.toggle("is-complete", completed);
@@ -118,6 +119,8 @@
 
       var id = form.getAttribute(config.idAttribute);
       var csrf = form.querySelector("input[name='csrfmiddlewaretoken']");
+      var focusBeforeSubmit = document.activeElement;
+      var restoreFocus = form.contains(focusBeforeSubmit);
       showError("");
       setPending(id, true);
 
@@ -145,6 +148,10 @@
         })
         .finally(function () {
           setPending(id, false);
+          if (restoreFocus && focusBeforeSubmit.isConnected &&
+              document.activeElement === document.body) {
+            focusBeforeSubmit.focus({ preventScroll: true });
+          }
         });
     });
   }

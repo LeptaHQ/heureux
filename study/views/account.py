@@ -351,6 +351,7 @@ def reset_progress(request):
             started_at=None,
             response_practice_started_at=None,
             subject_completed_at=None,
+            subject_status_reset_at=None,
         )
         ReviewLog.objects.filter(user=request.user).delete()
         ComprehensionAttempt.objects.filter(user=request.user).delete()
@@ -395,6 +396,7 @@ def export_account(request):
             "started_at",
             "response_practice_started_at",
             "subject_completed_at",
+            "subject_status_reset_at",
             "created_at",
         )
         .order_by("pk")
@@ -427,6 +429,7 @@ def export_account(request):
                     card.response_practice_started_at
                 ),
                 "subject_completed_at": card.subject_completed_at,
+                "subject_status_reset_at": card.subject_status_reset_at,
                 "created_at": card.created_at,
             }
         )

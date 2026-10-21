@@ -1,0 +1,8 @@
+<form class="subject-completion-check subject-status-reset" method="post" action="{% url 'study:subject_completion' part.slug task.slug response.pk %}" data-subject-completion-form data-subject-reset-form data-subject-response-id="{{ response.pk }}" data-annotation-exclude>
+  {% csrf_token %}
+  <input type="hidden" name="completed" value="0">
+  <input type="hidden" name="action" value="reset">
+  <button type="submit" aria-label="Remettre ce sujet à commencer : {{ subject_label }}" title="Remettre à commencer">
+    <svg class="ui-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 10a9 9 0 1 1 .7 7M3 3v7h7"/></svg>
+  </button>
+</form>

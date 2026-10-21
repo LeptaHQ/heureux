@@ -1300,6 +1300,7 @@ class Card(models.Model):
         blank=True,
         db_index=True,
     )
+    subject_status_reset_at = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(default=timezone.now)
 
     objects = CardQuerySet.as_manager()

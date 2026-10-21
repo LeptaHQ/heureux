@@ -18,8 +18,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Adapter certaines habitudes permet de répondre aux conditions concrètes du pays.",
-            "english": "Some habits must adapt to practical local conditions."
+            "french": "Il faut s'adapter aux conditions de vie du pays.",
+            "english": "Adapt to the country's living conditions."
           },
           "example": {
             "french": "Prévoir des vêtements adaptés à l'hiver et davantage de temps pour les déplacements.",
@@ -130,8 +130,8 @@
         },
         {
           "point": {
-            "french": "Beaucoup de résultats dépendent d'une coopération que l'État ne peut pas remplacer.",
-            "english": "Many results require cooperation the state cannot replace."
+            "french": "L'État a besoin de la participation des citoyens et des professionnels.",
+            "english": "The state needs citizens and professionals to take part."
           },
           "example": {
             "french": "Des bacs restent mal utilisés ; les explications du gardien permettent aux habitants de trier.",
@@ -196,8 +196,8 @@
         "english": "Rejection and economic difficulties may require revising the plan."
       },
       "conclusion": {
-        "french": "Relier possibilités, préparation et accompagnement, sans promettre la réussite.",
-        "english": "Connect opportunities, preparation and support without promising success."
+        "french": "Choisir une possibilité adaptée, préparer les étapes et demander conseil, sans garantie de réussite.",
+        "english": "Choose a suitable opportunity, plan the steps and seek advice, without a guarantee of success."
       },
       "arguments": [
         {
@@ -426,14 +426,14 @@
         "english": "Respect everyone's rights and choices; a tradition can evolve."
       },
       "conclusion": {
-        "french": "Associer continuité, transmission et ouverture.",
-        "english": "Combine continuity, transmission and openness."
+        "french": "Garder ses repères, transmettre son histoire et partager ses traditions.",
+        "english": "Keep familiar habits, pass on your history and share your traditions."
       },
       "arguments": [
         {
           "point": {
-            "french": "Les traditions offrent une continuité dans une période de changement.",
-            "english": "Traditions provide continuity during a period of change."
+            "french": "Les traditions aident à se sentir chez soi dans un nouveau pays.",
+            "english": "Traditions help people feel at home in a new country."
           },
           "example": {
             "french": "Retrouver sa langue familiale à la maison après une journée dans une nouvelle langue.",
@@ -662,8 +662,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Un repas peut révéler la manière dont un groupe organise un moment partagé.",
-            "english": "A meal can reveal how a group organises shared time."
+            "french": "Les repas peuvent montrer comment les personnes vivent un moment ensemble.",
+            "english": "Meals can show how people spend time together."
           },
           "example": {
             "french": "Un hôte explique pourquoi sa famille attend que tout le monde soit assis avant de manger.",
@@ -682,8 +682,8 @@
         },
         {
           "point": {
-            "french": "Préparer un plat ensemble offre une occasion accessible de dialogue.",
-            "english": "Preparing a dish together offers an accessible opportunity for dialogue."
+            "french": "Cuisiner ensemble peut faciliter la conversation.",
+            "english": "Cooking together can make conversation easier."
           },
           "example": {
             "french": "Deux voisins comparent leurs façons de préparer et de servir du riz.",
@@ -774,8 +774,8 @@
         },
         {
           "point": {
-            "french": "Une réussite sur place peut s'accompagner d'un coût affectif important.",
-            "english": "Success abroad can coexist with a significant emotional cost."
+            "french": "Réussir à l'étranger n'efface pas la peine d'être loin des proches.",
+            "english": "Success abroad does not remove the pain of being far from loved ones."
           },
           "example": {
             "french": "Réussir sa formation ne supprime pas la peine d'être loin d'un parent malade.",
@@ -786,8 +786,8 @@
     },
     "culture-p18": {
       "introduction": {
-        "french": "Regretter la raréfaction d'un geste personnel sans condamner le numérique.",
-        "english": "Regret the decline of a personal gesture without condemning digital communication."
+        "french": "Regretter qu'on écrive moins de lettres, sans rejeter le numérique.",
+        "english": "Regret that people write fewer letters, without rejecting digital communication."
       },
       "nuance": {
         "french": "Le numérique peut être attentionné et sauvegardé ; le papier peut coûter cher ou se perdre.",
@@ -800,8 +800,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Un courrier personnel peut rendre visible une attention particulière.",
-            "english": "Personal post can make a particular act of care visible."
+            "french": "Une lettre personnelle peut montrer qu'on a pris du temps pour quelqu'un.",
+            "english": "A personal letter can show that you took time for someone."
           },
           "example": {
             "french": "Une carte d'anniversaire rappelle au destinataire un souvenir partagé avec sa sœur.",
@@ -836,8 +836,8 @@
         "english": "You can know real aspects of a country without speaking its language."
       },
       "nuance": {
-        "french": "La langue locale élargit les voix accessibles et réduit la dépendance aux intermédiaires.",
-        "english": "The local language broadens accessible voices and reduces dependence on intermediaries."
+        "french": "Apprendre la langue locale permet d'écouter plus de personnes et de moins dépendre des traductions.",
+        "english": "Learning the local language lets you listen to more people and rely less on translations."
       },
       "conclusion": {
         "french": "Reconnaître une connaissance partielle réelle et l'intérêt d'apprendre davantage.",
@@ -932,8 +932,8 @@
         "english": "Prepare safety and budget; encounters are not guaranteed and bookings limit choices."
       },
       "conclusion": {
-        "french": "Choisir selon ses envies et les conditions, sans hiérarchiser les façons de voyager.",
-        "english": "Choose according to preferences and conditions without ranking ways to travel."
+        "french": "Voyager seul ou accompagné reste un choix personnel, selon ses envies et les conditions.",
+        "english": "Travelling alone or with others remains a personal choice, depending on preferences and circumstances."
       },
       "arguments": [
         {
@@ -1004,8 +1004,8 @@
         },
         {
           "point": {
-            "french": "Connaître des habitants peut ouvrir une participation plus active au quartier.",
-            "english": "Knowing residents can encourage active neighbourhood participation."
+            "french": "Les rencontres locales aident à prendre part à la vie du quartier.",
+            "english": "Meeting local people helps you take part in neighbourhood life."
           },
           "example": {
             "french": "Préparer puis entretenir un jardin partagé permet de contribuer à un projet commun.",
@@ -1040,8 +1040,8 @@
         },
         {
           "point": {
-            "french": "Certaines personnes recherchent une expérience d'apprentissage et d'autonomie.",
-            "english": "Some people seek learning and autonomy."
+            "french": "Certaines personnes partent pour apprendre et devenir plus autonomes.",
+            "english": "Some people move abroad to learn and become more independent."
           },
           "example": {
             "french": "Un semestre universitaire à l'étranger permet d'essayer une autre langue et organisation.",
@@ -1204,8 +1204,8 @@
         "english": "Integration requires understanding, lasting relationships and opportunities to participate."
       },
       "nuance": {
-        "french": "Les obstacles et le rythme varient ; intégrer ne signifie pas effacer ses origines.",
-        "english": "Barriers and pace vary; integration does not mean erasing one's origins."
+        "french": "S'intégrer ne veut pas dire oublier ses origines ; les obstacles et le rythme varient.",
+        "english": "Integrating does not mean forgetting your origins; barriers and pace vary."
       },
       "conclusion": {
         "french": "Associer efforts personnels, accueil réciproque et accès réel à la vie professionnelle.",
@@ -1254,8 +1254,8 @@
         "english": "Watching does not mean imitating; discuss editing, behaviour and advertising."
       },
       "conclusion": {
-        "french": "Garder une distance entre les mécanismes du spectacle et ses choix.",
-        "english": "Keep a distance between entertainment mechanisms and personal choices."
+        "french": "Reconnaître les images trompeuses, les conflits mis en scène et les publicités pour garder son propre jugement.",
+        "english": "Recognise misleading images, staged conflicts and advertising to maintain your own judgement."
       },
       "arguments": [
         {
@@ -1326,8 +1326,8 @@
         },
         {
           "point": {
-            "french": "Une fonction politique exige un travail qui doit être évalué indépendamment de l'image.",
-            "english": "Public office requires work assessed separately from image."
+            "french": "Être connu ne suffit pas pour bien exercer une fonction politique.",
+            "english": "Being well known is not enough to do a political job well."
           },
           "example": {
             "french": "Interroger une candidate sur le financement et l'entretien du gymnase proposé.",
@@ -1338,16 +1338,16 @@
     },
     "culture-p34": {
       "introduction": {
-        "french": "Distinguer accès facilité, achats impulsifs et prolongation de l'usage des biens.",
-        "english": "Distinguish easier access, impulse buying and longer use of goods."
+        "french": "Des achats plus faciles, un risque de trop dépenser et des objets qui servent plus longtemps.",
+        "english": "Easier purchases, a risk of overspending and objects that stay useful longer."
       },
       "nuance": {
         "french": "L'occasion peut aussi multiplier les achats ; examiner l'ensemble de la pratique.",
         "english": "Secondhand shopping can also multiply purchases; examine the whole practice."
       },
       "conclusion": {
-        "french": "Utiliser les nouveaux services pour répondre aux besoins en limitant les dépenses et les ressources.",
-        "english": "Use new services to meet needs while limiting spending and resource use."
+        "french": "Utiliser les nouveaux services pour acheter ce dont on a besoin et limiter les dépenses et le gaspillage.",
+        "english": "Use new services to buy what you need and limit spending and waste."
       },
       "arguments": [
         {
@@ -1362,8 +1362,8 @@
         },
         {
           "point": {
-            "french": "La facilité d'achat peut aussi réduire le temps consacré à vérifier un besoin.",
-            "english": "Easy purchasing can shorten the time spent checking a real need."
+            "french": "Acheter en quelques clics peut pousser à dépenser sans réfléchir.",
+            "english": "Buying in a few clicks can encourage spending without thinking."
           },
           "example": {
             "french": "Une promotion répétée pousse à acheter des chaussures dont on n'a pas besoin.",
@@ -1372,8 +1372,8 @@
         },
         {
           "point": {
-            "french": "De nouvelles pratiques peuvent prolonger l'usage des biens plutôt qu'accélérer leur remplacement.",
-            "english": "New practices can extend use instead of accelerating replacement."
+            "french": "L'occasion et la réparation permettent de garder les objets utiles plus longtemps.",
+            "english": "Buying secondhand and repairing things keep useful objects in use longer."
           },
           "example": {
             "french": "Un vélo d'enfant acheté puis revendu d'occasion sert à plusieurs familles.",

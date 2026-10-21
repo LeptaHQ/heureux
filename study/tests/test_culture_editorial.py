@@ -101,6 +101,16 @@ class CultureEditorialTests(SimpleTestCase):
             "ses journées sans se mettre inutilement en difficulté.",
         )
 
+    def test_direct_framing_keeps_friendship_optional_and_integration_reciprocal(self):
+        happiness = self.response(16)
+        self.assertIn("on peut aussi être heureux sans eux", happiness.position_claire)
+        self.assertNotIn("personne ne peut", happiness.position_claire)
+        self.assertIn("une solitude choisie", happiness.nuance)
+        integration = self.response(30).arguments[1]
+        self.assertIn("chacun ait envie de poursuivre l'échange", integration.developpement)
+        self.assertIn("ne peuvent pas créer seuls une relation", integration.developpement)
+        self.assertIn("le groupe l'invite", integration.exemple)
+
     def test_book_usefulness_keeps_the_original_reflection_and_concentration_argument(self):
         group = "eo/tache-3/culture-p6"
         response = self.models[group].response

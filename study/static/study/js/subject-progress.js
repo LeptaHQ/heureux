@@ -124,7 +124,7 @@
       showError("");
       setPending(id, true);
 
-      fetch(form.action, {
+      fetch(form.getAttribute("action"), {
         method: "POST",
         body: new FormData(form),
         credentials: "same-origin",

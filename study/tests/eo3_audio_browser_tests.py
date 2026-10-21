@@ -12,7 +12,7 @@ from playwright.sync_api import expect, sync_playwright
 from study import catalogue
 from study.account_services import provision_user_study_data
 from study.eo3_audio import narration_spec
-from study.models import EO3Narration, Prompt
+from study.models import Annotation, AnnotationKind, EO3Narration, Prompt
 from study.routing import prompt_detail_url, review_url
 
 from . import factories
@@ -208,6 +208,78 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         self.page.locator("#reveal").click()
         self.assertTrue(audio.evaluate("audio => audio.paused"))
         expect(audio).not_to_be_visible()
+        self.assertFalse(self.errors, self.errors)
+
+    def test_reset_icon_restores_todo_and_preserves_saved_annotations(self):
+        url = prompt_detail_url(self.prompt)
+        self.page.goto(self.live_server_url + url)
+        root = self.page.locator(".answer-columns[data-annotation-root]")
+        anchor = root.evaluate("""root => {
+            const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+                acceptNode: node => node.parentElement.closest("[data-annotation-exclude]")
+                    ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT
+            });
+            let text = "", node;
+            while ((node = walker.nextNode())) text += node.data;
+            const quote = root.querySelector("p").textContent.trim();
+            const start = text.indexOf(quote), end = start + quote.length;
+            return {text, quote, start, end, key: root.dataset.annotationSourceKey,
+                prefix: text.slice(Math.max(0, start - 160), start),
+                suffix: text.slice(end, end + 160)};
+        }""")
+        self.assertGreaterEqual(anchor["start"], 0)
+        marks = [
+            Annotation.objects.create(
+                user=self.user, task=self.prompt.theme.task, kind=kind,
+                source_path=url, source_key=anchor["key"], quote=anchor["quote"],
+                start_offset=anchor["start"], end_offset=anchor["end"],
+                prefix=anchor["prefix"], suffix=anchor["suffix"],
+                body="Keep this note after resetting." if kind == AnnotationKind.NOTE else "",
+            )
+            for kind in (AnnotationKind.NOTE, AnnotationKind.HIGHLIGHT)
+        ]
+        self.page.reload()
+        expect(root.locator(f'mark[data-highlight-id="{marks[1].pk}"]')).to_be_visible()
+        saved = list(Annotation.objects.filter(pk__in=[mark.pk for mark in marks]).values())
+        completion = self.page.locator(".subject-progress-control [role=checkbox]")
+        reset = self.page.locator("[data-subject-reset-form] button")
+        status = self.page.locator(
+            f'[data-subject-progress-status="{self.prompt.response_id}"]'
+        )
+        expect(reset).to_be_visible()
+        expect(reset).to_have_accessible_name(
+            f"Remettre ce sujet à commencer : {' '.join(self.prompt.text.split())}"
+        )
+        self.assertTrue(reset.evaluate("""button => Boolean(
+            button.compareDocumentPosition(
+                button.closest(".subject-progress-control").querySelector("[role=checkbox]")
+            ) & Node.DOCUMENT_POSITION_FOLLOWING
+        )"""))
+        completion.click()
+        expect(completion).to_have_attribute("aria-checked", "true")
+        expect(status).to_have_text("Terminé")
+        reset_url = self.live_server_url + self.page.locator(
+            "[data-subject-reset-form]"
+        ).get_attribute("action")
+        with self.page.expect_response(
+            lambda response: response.url == reset_url and response.request.method == "POST"
+        ) as reset_response:
+            reset.click()
+        self.assertEqual(reset_response.value.status, 200)
+        expect(completion).to_have_attribute("aria-checked", "false")
+        expect(status).to_have_text("À commencer")
+        self.page.reload()
+        expect(completion).to_have_attribute("aria-checked", "false")
+        expect(status).to_have_text("À commencer")
+        reset.click()
+        expect(reset).to_be_enabled()
+        expect(status).to_have_text("À commencer")
+        self.assertEqual(root.text_content(), anchor["text"])
+        expect(root.locator(f'mark[data-highlight-id="{marks[1].pk}"]')).to_be_visible()
+        self.assertEqual(
+            list(Annotation.objects.filter(pk__in=[mark.pk for mark in marks]).values()),
+            saved,
+        )
         self.assertFalse(self.errors, self.errors)
 
     def test_audio_failure_is_visible_and_does_not_trigger_device_voice(self):

@@ -1,3 +1,4 @@
+import re
 from io import BytesIO, StringIO
 import os
 from urllib.parse import urlsplit
@@ -110,10 +111,10 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         self.page.on("request", lambda request: requests.append(urlsplit(request.url).path))
         self.page.goto(self.live_server_url + prompt_detail_url(self.prompt))
         audio = self.page.locator("[data-eo3-audio]")
-        expect(audio).to_be_visible()
+        expect(self.page.locator("[data-eo3-seek]")).to_be_visible()
         self.assertEqual(audio.evaluate("audio => audio.playbackRate"), 0.85)
         self.assertTrue(audio.evaluate("audio => audio.preservesPitch"))
-        self.assertFalse(any("/tache-3/audio/" in path for path in requests))
+        expect(self.page.locator("[data-eo3-time]")).to_have_text(re.compile(r"^0:00 / \d+:\d\d$"))
         self.assertEqual(self.page.evaluate(
             "() => document.documentElement.scrollWidth <= innerWidth"
         ), True)
@@ -150,7 +151,7 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         expect(toggle).to_have_attribute("aria-pressed", "false")
         self.assertFalse(self.errors, self.errors)
 
-    @override_settings(EO3_AUDIO_SAMPLE_ENABLED=False)
+    @override_settings(EO3_AUDIO_SAMPLE_ENABLED=False, FRENCH_AUDIO_GENERATION_ENABLED=False)
     def test_pending_header_enables_after_preparation_and_preserves_completion(self):
         EO3Narration.objects.all().delete()
         self.page.goto(self.live_server_url + prompt_detail_url(self.prompt))
@@ -197,7 +198,7 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         expect(self.page.locator("#card-front")).to_contain_text(self.prompt.text)
         self.page.locator("#reveal").click()
         audio = self.page.locator("[data-eo3-audio]")
-        expect(audio).to_be_visible()
+        expect(self.page.locator("[data-eo3-seek]")).to_be_visible()
         self.assertEqual(audio.evaluate("audio => audio.playbackRate"), 0.85)
         self.page.get_by_label("Vitesse de lecture", exact=True).select_option("2")
         self.assertEqual(audio.evaluate("audio => audio.playbackRate"), 2)

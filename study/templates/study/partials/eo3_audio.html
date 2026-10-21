@@ -1,34 +1,41 @@
-<section class="eo3-audio{% if not audio.ready %} hidden{% endif %}"{% if player_id %} id="{{ player_id }}"{% endif %}{% if not audio.ready %} hidden{% endif %} data-eo3-player data-flashcard-ignore-toggle aria-label="Écouter la réponse">
-  <div class="spine-label">Écouter la réponse</div>
+<section class="eo3-audio{% if not audio.ready and not audio.on_demand and not audio.prepare_url %} hidden{% endif %}"{% if player_id %} id="{{ player_id }}"{% endif %}{% if not audio.ready and not audio.on_demand and not audio.prepare_url %} hidden{% endif %} data-eo3-player data-flashcard-ignore-toggle aria-label="Écouter la réponse">
+  <div class="eo3-audio__row">
+    <button class="subject-audio-toggle" type="button" data-annotation-exclude data-eo3-toggle="{{ player_id }}" aria-pressed="false" {% if audio.ready or audio.on_demand %}aria-label="Écouter la réponse" title="Écouter la réponse"{% elif audio.prepare_url %}data-eo3-unavailable aria-label="Préparer le premier extrait audio" title="Préparer le premier extrait audio : confirmation du coût requise."{% else %}data-eo3-unavailable aria-label="Écouter la réponse : narration indisponible" title="{{ audio.sample_issue|default:'La narration de cette réponse n’est pas encore prête.' }}" disabled{% endif %}><svg class="subject-audio-toggle__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path data-eo3-play-icon d="m8 5 11 7-11 7z" fill="currentColor" stroke="none"/><path data-eo3-pause-icon d="M8 5v14M16 5v14" stroke-width="3"/></svg></button>
+    {% if audio.ready %}
+      <audio preload="metadata" src="{{ audio.url }}" data-eo3-audio aria-label="Lecture de la réponse française"></audio>
+      <span class="eo3-audio__time" data-eo3-time aria-hidden="true">0:00 / –:––</span>
+      <input class="eo3-audio__seek" type="range" min="0" max="1000" step="1" value="0" data-eo3-seek aria-label="Position de lecture">
+      <select data-eo3-speed aria-label="Vitesse de lecture" title="Vitesse">
+        <option value="0.5">0,5×</option>
+        <option value="0.6">0,6×</option>
+        <option value="0.75">0,75×</option>
+        <option value="0.85" selected>0,85×</option>
+        <option value="1">1×</option>
+        <option value="1.25">1,25×</option>
+        <option value="1.5">1,5×</option>
+        <option value="1.75">1,75×</option>
+        <option value="2">2×</option>
+      </select>
+      <button class="eo3-audio__restart" type="button" data-eo3-restart aria-label="Revenir au début" title="Revenir au début">↺</button>
+    {% else %}
+      <span class="eo3-audio__hint">Écouter la réponse</span>
+    {% endif %}
+  </div>
   {% if audio.ready %}
-    <p class="muted">Voix française de synthèse · ElevenLabs</p>
-    <audio controls preload="none" src="{{ audio.url }}" data-eo3-audio aria-label="Lecture de la réponse française"></audio>
-    <div class="eo3-audio__controls">
-      <label>Vitesse
-        <select data-eo3-speed aria-label="Vitesse de lecture">
-          <option value="0.75">0,75×</option>
-          <option value="0.85" selected>0,85×</option>
-          <option value="1">1×</option>
-          <option value="1.25">1,25×</option>
-          <option value="1.5">1,5×</option>
-          <option value="1.75">1,75×</option>
-          <option value="2">2×</option>
-        </select>
-      </label>
-      <button class="btn btn--sm" type="button" data-eo3-restart>Revenir au début</button>
-    </div>
-    <p class="muted" role="status" data-eo3-audio-status>Lecture à 0,85× par défaut.</p>
+    <span class="sr-only">Voix française de synthèse · ElevenLabs</span>
+    <p class="sr-only" role="status" data-eo3-audio-status>Lecture à 0,85× par défaut.</p>
   {% elif audio.unconfigured %}
+    <div class="spine-label">Écouter la réponse</div>
     <p class="muted">La narration française n'est pas encore configurée.</p>
+  {% elif audio.on_demand %}
+    <button type="button" hidden data-eo3-prepare="{{ audio.prepare_url }}" data-eo3-on-demand>Préparer et écouter</button>
+    <p class="muted eo3-audio__note" role="status" data-eo3-prepare-status></p>
   {% else %}
     <p class="muted">La narration de cette version de la réponse n'est pas encore prête.</p>
     {% if audio.sample_attempted %}
       <p class="muted" role="status">{% if audio.sample_status == "working" %}Le premier extrait est en cours de préparation. Rechargez la page dans un instant.{% else %}Le premier essai a déjà été lancé. La consommation du fournisseur doit être vérifiée avant un autre essai ; aucune relance automatique.{% endif %}</p>
     {% endif %}
-    {% if audio.on_demand %}
-      <button class="btn btn--sm" type="button" data-eo3-prepare="{{ audio.prepare_url }}" data-eo3-on-demand>Préparer et écouter</button>
-      <p class="muted" role="status" data-eo3-prepare-status></p>
-    {% elif audio.prepare_url %}
+    {% if audio.prepare_url %}
       <p class="muted">Premier extrait uniquement · {{ audio.characters }} caractères.
         Cette action consomme des crédits ElevenLabs. Les lectures suivantes utilisent le même enregistrement.</p>
       <button class="btn btn--sm" type="button" data-eo3-prepare="{{ audio.prepare_url }}"

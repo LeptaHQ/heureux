@@ -426,7 +426,7 @@ class EO3AudioTests(TestCase):
             AnnotationRootText("<div data-annotation-root>" + compact + "</div>").text,
         )
         self.assertIn('class="sr-only">J’ai terminé ce sujet</span>', compact)
-        self.assertIn('data-eo3-toggle="eo3-response-player"', compact)
+        self.assertNotIn("data-eo3-toggle", compact)
 
     def test_player_on_detail_and_back_preserves_exact_annotation_text(self):
         self.save_recording()
@@ -440,7 +440,9 @@ class EO3AudioTests(TestCase):
         self.assertEqual(payload["eo3_audio"]["url"], self.url)
         self.assertContains(after, 'value="0.85" selected')
         self.assertContains(after, '<option value="2">2×</option>')
-        self.assertContains(after, 'preload="none"')
+        self.assertContains(after, 'preload="metadata"')
+        self.assertContains(after, 'data-eo3-toggle="eo3-response-player"')
+        self.assertContains(after, '<option value="0.5">0,5×</option>')
         self.assertContains(after, "Voix française de synthèse")
         self.assertNotContains(after, AUDIO_SETTINGS["ELEVENLABS_API_KEY"])
         self.assertNotContains(after, AUDIO_SETTINGS["ELEVENLABS_VOICE_ID"])
@@ -453,6 +455,7 @@ class EO3AudioTests(TestCase):
         front = render_to_string("study/partials/card_front.html", payload)
         self.assertNotIn("data-eo3-player", front)
 
+    @override_settings(FRENCH_AUDIO_GENERATION_ENABLED=False)
     def test_pending_and_unconfigured_states_are_explicit_without_generation(self):
         self.assertContains(self.client.get(prompt_detail_url(self.prompt)), "n'est pas encore prête")
         with self.settings(ELEVENLABS_VOICE_ID=""):

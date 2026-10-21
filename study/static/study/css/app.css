@@ -7419,18 +7419,18 @@ a.qrow:focus-visible {
 .phrase__note { color: var(--text-faint); font-size: 0.82rem; font-style: italic; }
 
 /* ---------- Detail (response) ---------- */
-.eo3-audio {
-  padding: 1rem;
-  margin-bottom: 1.2rem;
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--surface);
-}
-.eo3-audio audio { display: block; width: 100%; margin: .65rem 0; }
-.eo3-audio__controls { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; }
-.eo3-audio__controls label { display: inline-flex; align-items: center; gap: .5rem; }
-.eo3-audio__controls select { padding: .35rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 6px; }
+.eo3-audio { margin-bottom: 1rem; }
+.eo3-audio__row { display: flex; align-items: center; gap: .4rem; }
+.eo3-audio__row { padding: .25rem .5rem .25rem .25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; }
+.eo3-audio__row audio { display: none; }
+.eo3-audio__time { flex: none; font-size: .8rem; font-variant-numeric: tabular-nums; color: var(--text-muted, var(--text)); }
+.eo3-audio__seek { flex: 1; min-width: 3rem; accent-color: var(--audio-gold, #c99a12); }
+.eo3-audio__row select { padding: .2rem .25rem; font-size: .8rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 999px; }
+.eo3-audio__restart { width: 2rem; height: 2rem; padding: 0; font-size: 1.05rem; line-height: 1; color: var(--text-muted, var(--text)); background: none; border: 0; border-radius: 50%; cursor: pointer; }
+.eo3-audio__restart:hover, .eo3-audio__restart:focus-visible { background: var(--surface-2, rgba(0,0,0,.06)); }
 .eo3-audio p { margin: .4rem 0 0; }
+.eo3-audio__hint { font-size: .85rem; color: var(--text-muted, var(--text)); }
+.eo3-audio__note:empty { display: none; }
 .subject-audio-toggle {
   position: relative;
   flex: 0 0 2rem;

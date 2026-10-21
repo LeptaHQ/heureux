@@ -8,7 +8,8 @@
     event.stopPropagation();
     var player = button.closest("[data-eo3-player]");
     var status = player.querySelector("[data-eo3-prepare-status]");
-    var toggle = player.id && document.querySelector('[data-eo3-toggle="' + player.id + '"]');
+    var toggle = player.querySelector("[data-eo3-toggle]") ||
+      (player.id && document.querySelector('[data-eo3-toggle="' + player.id + '"]'));
     var onDemand = button.hasAttribute("data-eo3-on-demand");
     (onDemand ? Promise.resolve(true) : window.HeureuxConfirm({
       message: "Préparer uniquement le premier extrait Culture, sujet 1 (" +
@@ -40,17 +41,13 @@
         });
       }).then(function (data) {
         if (!player.isConnected) return;
-        var playerId = player.id;
-        player.outerHTML = data.html;
+        player.insertAdjacentHTML("afterend", data.html);
+        var fresh = player.nextElementSibling;
+        player.remove();
         document.dispatchEvent(new CustomEvent("heureux:audio-prepared"));
-        if (onDemand && toggle) {
-          toggle.disabled = false;
-          toggle.removeAttribute("aria-busy");
-          toggle.setAttribute("aria-label", "Écouter la réponse");
-          toggle.title = "Écouter la réponse";
-          var fresh = playerId && document.getElementById(playerId);
-          var audio = fresh && fresh.querySelector("[data-eo3-audio]");
-          if (audio) toggle.click();
+        if (onDemand && fresh) {
+          var freshToggle = fresh.querySelector("[data-eo3-toggle]") || toggle;
+          if (freshToggle && fresh.querySelector("[data-eo3-audio]")) freshToggle.click();
         }
       }).catch(function (error) {
         if (!player.isConnected) return;

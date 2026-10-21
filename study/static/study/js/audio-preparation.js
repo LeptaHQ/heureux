@@ -26,7 +26,7 @@
         toggle.title = "Préparation de l’audio en cours…";
         toggle.setAttribute("aria-label", "Préparation de l’audio en cours");
       }
-      status.textContent = onDemand ? "Préparation de l’audio en cours…" :
+      status.textContent = onDemand ? "" :
         "Préparation en cours… Cela peut prendre jusqu’à deux minutes. " +
         "Ne relancez pas l’action : un délai dépassé peut tout de même être facturé.";
       var csrf = document.querySelector("[name=csrfmiddlewaretoken]");

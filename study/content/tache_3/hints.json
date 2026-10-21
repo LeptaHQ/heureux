@@ -4842,14 +4842,14 @@
         "english": "Not every park or every species."
       },
       "conclusion": {
-        "french": "Des fonctions vérifiables compatibles avec le bien-être.",
-        "english": "Verifiable functions compatible with welfare."
+        "french": "Vérifier l’utilité du zoo et respecter les besoins des animaux.",
+        "english": "Verify the zoo’s usefulness and respect the animals’ needs."
       },
       "arguments": [
         {
           "point": {
-            "french": "Une observation expliquée.",
-            "english": "Explained observation."
+            "french": "Expliquer les besoins des animaux aux visiteurs.",
+            "english": "Explain animals’ needs to visitors."
           },
           "example": {
             "french": "Comprendre pourquoi l'animal peut se retirer.",
@@ -4926,8 +4926,8 @@
     },
     "environnement-p4": {
       "introduction": {
-        "french": "Ni fermeture automatique ni maintien par habitude.",
-        "english": "Neither automatic closure nor habitual continuation."
+        "french": "Examiner chaque zoo avant de décider de le garder ouvert.",
+        "english": "Examine each zoo before deciding to keep it open."
       },
       "nuance": {
         "french": "Ne pas retarder indéfiniment une fermeture nécessaire.",
@@ -4996,8 +4996,8 @@
         },
         {
           "point": {
-            "french": "Rendre les alternatives utiles.",
-            "english": "Make alternatives useful."
+            "french": "Donner la priorité aux bus pour fiabiliser les trajets.",
+            "english": "Give buses priority to make journeys more reliable."
           },
           "example": {
             "french": "Un couloir réservé libère le bus d'une file et peut rendre l'arrivée plus prévisible.",
@@ -5006,8 +5006,8 @@
         },
         {
           "point": {
-            "french": "Partager l'espace.",
-            "english": "Share public space."
+            "french": "Libérer de la place pour marcher et attendre.",
+            "english": "Free space for walking and waiting."
           },
           "example": {
             "french": "Transformer des places en attente piétonne près d'une école.",
@@ -5018,16 +5018,16 @@
     },
     "environnement-p7": {
       "introduction": {
-        "french": "Élargir l'accès et soutenir des pratiques et des débouchés, sous conditions.",
-        "english": "Broaden access and support production practices and market outlets, under conditions."
+        "french": "Faciliter les achats et soutenir les producteurs bio, sous conditions.",
+        "english": "Make shopping easier and support organic producers, under conditions."
       },
       "nuance": {
         "french": "Bio ne signifie pas automatiquement local ou équilibré.",
         "english": "Organic does not automatically mean local or balanced."
       },
       "conclusion": {
-        "french": "Évaluer l'accès, les méthodes soutenues et la viabilité, pas seulement le rayon.",
-        "english": "Assess access, supported methods and viability, not just shelf space."
+        "french": "Vérifier les prix, les méthodes et les contrats, pas seulement les rayons.",
+        "english": "Check prices, methods and contracts, not just shelf space."
       },
       "arguments": [
         {
@@ -5042,8 +5042,8 @@
         },
         {
           "point": {
-            "french": "Soutenir des pratiques limitant certains intrants.",
-            "english": "Support practices limiting certain inputs."
+            "french": "Soutenir des méthodes qui limitent certains produits de synthèse.",
+            "english": "Support methods that limit certain synthetic products."
           },
           "example": {
             "french": "Vendre les légumes d'une exploitation bio qui désherbe mécaniquement.",
@@ -5052,8 +5052,8 @@
         },
         {
           "point": {
-            "french": "Soutenir des débouchés viables.",
-            "english": "Support viable market outlets."
+            "french": "Aider les producteurs à prévoir leurs ventes.",
+            "english": "Help producers plan their sales."
           },
           "example": {
             "french": "Des volumes convenus permettent de planifier semis et récolte, avec un prix viable.",
@@ -5078,12 +5078,12 @@
       "arguments": [
         {
           "point": {
-            "french": "Réduire les conflits dans une rue dense.",
-            "english": "Reduce conflicts on a crowded street."
+            "french": "Laisser les piétons circuler sans éviter les voitures.",
+            "english": "Let pedestrians move without avoiding cars."
           },
           "example": {
-            "french": "Séparer promenade et horaires de livraison.",
-            "english": "Separate pedestrian activity from delivery times."
+            "french": "Une poussette avance sans éviter les voitures ; les livraisons ont d’autres horaires.",
+            "english": "A pushchair moves without avoiding cars; deliveries have separate times."
           }
         },
         {
@@ -5110,8 +5110,8 @@
     },
     "environnement-p9": {
       "introduction": {
-        "french": "Un risque lié au volume et à l'organisation.",
-        "english": "A risk linked to volume and organization."
+        "french": "Trop de visiteurs ou une mauvaise organisation peuvent dégrader une région.",
+        "english": "Too many visitors or poor organization can damage a region."
       },
       "nuance": {
         "french": "Faire participer les habitants et soutenir l'entretien.",
@@ -5124,8 +5124,8 @@
       "arguments": [
         {
           "point": {
-            "french": "La capacité des sites.",
-            "english": "Site capacity."
+            "french": "Éviter de surcharger les sites et les équipements.",
+            "english": "Avoid overloading sites and facilities."
           },
           "example": {
             "french": "Protéger la végétation autour d'un sentier.",
@@ -5164,8 +5164,8 @@
         "english": "Sorting does not establish nationwide results or replace waste prevention."
       },
       "conclusion": {
-        "french": "Consignes, équipements et suivi plutôt qu'une annonce seule.",
-        "english": "Instructions, equipment and monitoring rather than announcement alone."
+        "french": "Comprendre les consignes, accéder au service et vérifier les résultats.",
+        "english": "Understand instructions, access the service and check results."
       },
       "arguments": [
         {
@@ -5202,12 +5202,12 @@
     },
     "environnement-p13": {
       "introduction": {
-        "french": "Soutenir des pratiques exigeantes, sans solution parfaite.",
-        "english": "Support demanding practices without claiming perfection."
+        "french": "Soutenir le bio pour ses méthodes, sans en faire une solution parfaite.",
+        "english": "Support organic farming for its methods without claiming it is a perfect solution."
       },
       "nuance": {
-        "french": "Mesurer les impacts ; accompagner une conversion viable et préserver l'accès à l'alimentation.",
-        "english": "Measure impacts; support viable conversion and preserve access to food."
+        "french": "Vérifier les effets, permettre aux agriculteurs de couvrir leurs coûts et garder des aliments accessibles.",
+        "english": "Check impacts, let farmers cover their costs and keep food accessible."
       },
       "conclusion": {
         "french": "Méthodes alternatives, fertilité des sols et transparence.",
@@ -5262,8 +5262,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Créer de la valeur par la réparation.",
-            "english": "Create value through repair."
+            "french": "Gagner de l’argent en réparant plutôt qu’en remplaçant.",
+            "english": "Earn money by repairing rather than replacing."
           },
           "example": {
             "french": "Remplacer une pièce plutôt que l'appareil entier.",
@@ -5282,8 +5282,8 @@
         },
         {
           "point": {
-            "french": "Suivre aussi les volumes totaux.",
-            "english": "Monitor total volumes too."
+            "french": "Vérifier les ressources utilisées et la pollution au total.",
+            "english": "Check total resource use and pollution."
           },
           "example": {
             "french": "Acheter du matériel réparable et suivre sa durée d'usage.",

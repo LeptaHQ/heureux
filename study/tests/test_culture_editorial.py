@@ -93,6 +93,18 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("S'adapter aux contraintes", cue.french)
         self.assertIn("Adapt to constraints", cue.english)
 
+    def test_living_abroad_example_links_cooking_training_to_a_clear_career_goal(self):
+        example = self.response(5).arguments[0].exemple
+        for phrase in (
+            "devenir cuisinier", "formation à l'étranger", "stage dans un restaurant",
+            "préparer des plats", "travailler en équipe",
+        ):
+            self.assertIn(phrase, example)
+        self.assertNotIn("irrigation", example)
+        cue = self.plans["eo/tache-3/culture-p5"].arguments[0].example
+        self.assertIn("formation de cuisine", cue.french)
+        self.assertIn("restaurant placement", cue.english)
+
     def test_adaptation_keeps_the_preferred_preferences_and_practical_response_wording(self):
         self.assertEqual(
             self.response(1).arguments[0].developpement,

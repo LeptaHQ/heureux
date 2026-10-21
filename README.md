@@ -38,6 +38,67 @@ Socket handlers stay threaded, including idle browser connections. File-backed
 SQLite and PostgreSQL retain concurrent application work. Browser-side asynchronous
 response-ordering checks still run with their controlled delays.
 
+## EO3 French narration (optional)
+
+Reviewed public oral-task-3 answers can have a saved ElevenLabs recording.
+The detail page and practice back use the same recording, with native pause/seek
+controls, restart, pitch-preserving **0.85x** playback by default, and 0.75x/1x
+alternatives. The voice is AI-generated, not a human recording or pronunciation
+assessment. Choose a **native-French voice** with a calm conversational
+delivery and audition a complete sample for pronunciation, liaisons and pacing.
+
+Set these server-side environment variables (Render: **Environment**):
+
+```text
+ELEVENLABS_API_KEY=<secret API key>
+ELEVENLABS_VOICE_ID=<chosen French voice ID>
+ELEVENLABS_MODEL_ID=eleven_multilingual_v2
+EO3_AUDIO_ENABLED=True
+```
+
+Never put the API key in Git, chat, HTML or client-side JavaScript. Voice IDs
+are not secrets. The model defaults to Multilingual v2 for consistent long-form
+narration; availability and billing depend on the ElevenLabs account and voice.
+The key is needed for generation, not for playing already prepared recordings.
+The switch defaults off; while enabled, missing configuration or a missing
+current recording is shown explicitly, without silently substituting a device voice.
+
+After deploying and migrating, use a trusted operator environment connected to
+the application's database. Render's shell requires a supporting paid plan;
+otherwise use a trusted local environment with the production `DATABASE_URL`,
+or explicitly run the sample command in a controlled deployment job.
+First estimate and then generate **one** sample:
+
+```bash
+python manage.py generate_eo3_audio --group culture-p1 --dry-run
+python manage.py generate_eo3_audio --group culture-p1 --confirm-cost
+```
+
+Listen to the sample on its subject page before approving the full collection:
+
+```bash
+python manage.py generate_eo3_audio --all --dry-run
+python manage.py generate_eo3_audio --all --confirm-cost
+```
+
+Only these explicit operator commands call ElevenLabs. Visits, playback and
+seeking never spend generation credits. Commands skip existing identical audio
+and stop on an error without automatic paid retries; successful earlier tracks
+remain saved if a later track fails. A network timeout can still have incurred
+provider charges, so inspect provider usage before retrying.
+
+Only the approved public spoken text is sent: introduction, three complete
+arguments, nuance and conclusion, with paragraph pauses but no UI headings,
+English hints, private answers or notes. The shared PostgreSQL/SQLite database
+stores the MP3s so Render restarts/redeployments do not erase them. Allow database
+storage for the collection: at 64 kbps a four-minute track is about 1.9 MB, or
+about 250 MB for 131 tracks, before database overhead and backups.
+Audio is versioned by exact text, canonical group, voice, model and synthesis
+settings. Edited text or voice changes require new generation; stale URLs are
+rejected. Old recordings are retained, not silently reused or automatically deleted.
+Personal answers keep their existing behavior and never play a different public
+answer as though it were their own. No user study or annotation state changes.
+
 ## Account PINs
 
 PINs accept 6–128 characters: letters (`A–Z`, `a–z`), digits, or a mix of both.

@@ -1,0 +1,22 @@
+<section class="eo3-audio" data-eo3-player data-flashcard-ignore-toggle aria-label="Écouter la réponse">
+  <div class="spine-label">Écouter la réponse</div>
+  {% if audio.ready %}
+    <p class="muted">Voix française de synthèse · ElevenLabs</p>
+    <audio controls preload="none" src="{{ audio.url }}" data-eo3-audio aria-label="Lecture de la réponse française"></audio>
+    <div class="eo3-audio__controls">
+      <label>Vitesse
+        <select data-eo3-speed aria-label="Vitesse de lecture">
+          <option value="0.75">0,75×</option>
+          <option value="0.85" selected>0,85×</option>
+          <option value="1">1×</option>
+        </select>
+      </label>
+      <button class="btn btn--sm" type="button" data-eo3-restart>Revenir au début</button>
+    </div>
+    <p class="muted" role="status" data-eo3-audio-status>Lecture à 0,85× par défaut.</p>
+  {% elif audio.unconfigured %}
+    <p class="muted">La narration française n'est pas encore configurée.</p>
+  {% else %}
+    <p class="muted">La narration de cette version de la réponse n'est pas encore prête.</p>
+  {% endif %}
+</section>

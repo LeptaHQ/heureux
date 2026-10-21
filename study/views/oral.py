@@ -5,6 +5,7 @@ import json
 from django.http import Http404
 
 from ..oral_history import preferred_personal, variant_annotation_key
+from ..eo3_audio import narration_presentation
 from ..response_personalization import effective_response
 from ..routing import TACHE_TWO_PROMPT_KEY, review_url
 from ..tache_three_models import annotation_arguments, reviewed_model
@@ -40,6 +41,7 @@ def oral_response_context(request, prompt):
         "response_content": value,
         "arguments": annotation_arguments(prompt, value),
         "reviewed_eo3": reviewed_eo3,
+        "eo3_audio": narration_presentation(reviewed_model(response, prompt)) if reviewed_eo3 else None,
         "eo3_prompt_note": prompt_note_for_response(response, prompt),
         "oral_annotation_key": variant_annotation_key(prompt, value),
         "oral_legacy_annotation_keys": json.dumps(legacy_keys),

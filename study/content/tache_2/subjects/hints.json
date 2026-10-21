@@ -1890,16 +1890,16 @@
         "english": "Lunch and dinner options and prices"
       },
       {
-        "french": "Tarifs de blanchisserie et dépôt du linge",
-        "english": "Laundry pricing and where to drop off clothes"
+        "french": "Tarifs de blanchisserie et délai de récupération du linge",
+        "english": "Laundry prices and turnaround time"
       },
       {
-        "french": "Délai de récupération et éventuelle option express",
-        "english": "Collection time and any express laundry option"
+        "french": "Navette éventuelle vers l'aéroport ou la gare et tarif par personne",
+        "english": "Airport or station shuttle availability and price per person"
       },
       {
-        "french": "Bagages avant et après l'occupation de la chambre, heure limite de retrait",
-        "english": "Luggage storage before check-in and after checkout, and latest collection time"
+        "french": "Bagages le jour du départ et heure limite de récupération",
+        "english": "Luggage collection deadline on departure day"
       },
       {
         "french": "Couverture du wifi et procédure de connexion",

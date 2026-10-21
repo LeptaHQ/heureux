@@ -81,9 +81,9 @@ class AccommodationDevelopmentTests(SimpleTestCase):
             ("compris dans le prix", "Available services and what the room price includes"),
             ("à quel prix et à quels horaires", "Breakfast format, price per person and serving times"),
             ("restaurant ou un service en chambre", "Lunch and dinner options and prices"),
-            ("calculés les tarifs", "Laundry pricing and where to drop off clothes"),
-            ("service express", "Collection time and any express laundry option"),
-            ("jusqu'à quelle heure", "Luggage storage before check-in and after checkout, and latest collection time"),
+            ("quel est le délai", "Laundry prices and turnaround time"),
+            ("navette pour l'aéroport ou la gare", "Airport or station shuttle availability and price per person"),
+            ("Le jour du départ, jusqu'à quelle heure", "Luggage collection deadline on departure day"),
             ("comment peut-on s'y connecter", "Wifi coverage and how to connect"),
             ("comment peut-on le faire", "Services needing advance booking and how to arrange them"),
         )
@@ -91,13 +91,23 @@ class AccommodationDevelopmentTests(SimpleTestCase):
             with self.subTest(question=index + 1):
                 self.assertIn(question_fragment, row.questions[index].question)
                 self.assertEqual(self.hints[row.group][index]["english"], cue)
-        self.assertEqual(row.questions[4].follow_up_to, 4)
-        self.assertIn("10 $ au prix total", row.questions[4].answer)
+        self.assertEqual(row.questions[2].follow_up_to, 2)
+        self.assertEqual(
+            sum(bool(re.search(r"blanchisserie|linge", q.question)) for q in row.questions), 1,
+        )
+        self.assertIn("Combien coûte", row.questions[3].question)
+        self.assertIn("5 $ pour une chemise", row.questions[3].answer)
+        self.assertIn("le lendemain à partir de 18 h", row.questions[3].answer)
+        self.assertTrue(row.questions[4].question.startswith("Proposez-vous"))
+        self.assertIn("tarif par personne", row.questions[4].question)
+        self.assertIn("15 $ par personne", row.questions[4].answer)
+        self.assertNotIn("avant de prendre", row.questions[5].question)
+        self.assertIn("20 h", row.questions[5].answer)
         self.assertNotRegex(
             " ".join(q.question for q in row.questions), r"\b(?:chambre libre|suite|spa)\b",
         )
         self.assertNotIn("spa", row.questions[7].answer)
-        self.assertNotIn("navette", row.questions[7].answer)
+        self.assertIn("la navette au moins deux heures avant", row.questions[7].answer)
         self.assertIn("not automatically to book a room", row.note)
 
     def test_hotel_booking_compares_real_options_and_checks_the_whole_stay_cost_before_payment(self):

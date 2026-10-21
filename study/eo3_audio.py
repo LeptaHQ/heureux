@@ -5,8 +5,11 @@ import hashlib
 from http.client import HTTPException
 import json
 import re
-from urllib.error import HTTPError, URLError
-from urllib.request import HTTPRedirectHandler, Request, build_opener
+
+import httpx
+from elevenlabs.client import ElevenLabs
+from elevenlabs.core.api_error import ApiError
+from elevenlabs.types import VoiceSettings
 
 from django.conf import settings
 from django.db import transaction
@@ -17,7 +20,9 @@ from .models import EO3Narration, FrenchNarration, FrenchNarrationBudget
 
 OUTPUT_FORMAT = "mp3_44100_64"
 MAX_AUDIO_BYTES = 8 * 1024 * 1024
+MAX_ERROR_BYTES = 4096
 SAMPLE_GROUP = "eo/tache-3/culture-p1"
+SAMPLE_REJECTION_LIMIT = 3
 VOICE_SETTINGS = {
     "stability": 0.65,
     "similarity_boost": 0.75,
@@ -31,9 +36,82 @@ class NarrationError(Exception):
     """An actionable, credential-safe configuration or synthesis failure."""
 
 
-class _NoRedirect(HTTPRedirectHandler):
-    def redirect_request(self, request, fp, code, message, headers, newurl):
-        return None
+class PreSynthesisRejection(NarrationError):
+    """Only the exact free-tier voice restriction proves no synthesis started."""
+
+    code = "free_users_not_allowed"
+
+    def __init__(self):
+        super().__init__(
+            "ElevenLabs a refusé cette voix avant la synthèse : le forfait gratuit "
+            "n’autorise que les voix par défaut via l’API. Aucune voix n’a été remplacée. "
+            "Demandez à l’administrateur de configurer une voix par défaut autorisée "
+            "(ELEVENLABS_VOICE_ID), puis rechargez la page et confirmez un nouvel essai. "
+            "Conserver cette voix nécessite de vérifier son accès avec ElevenLabs ; "
+            "aucun changement de forfait ne sera effectué par l’application."
+        )
+
+
+def sample_rejection_message(voice_id):
+    rejected = FrenchNarration.objects.filter(target_group=SAMPLE_GROUP, status="plan_denied")
+    if rejected.filter(voice_id=voice_id).exists():
+        return str(PreSynthesisRejection())
+    if rejected.count() >= SAMPLE_REJECTION_LIMIT:
+        return (
+            "Trois voix ont déjà été refusées avant synthèse. Contactez l’administrateur "
+            "pour vérifier les accès ElevenLabs ; aucun nouvel essai automatique."
+        )
+    return ""
+
+
+def _is_plan_rejection(response):
+    if response.status_code not in (401, 403):
+        return False
+    try:
+        body = bytearray()
+        for chunk in response.iter_raw(chunk_size=MAX_ERROR_BYTES + 1):
+            body.extend(chunk)
+            if len(body) > MAX_ERROR_BYTES:
+                return False
+        length = response.headers.get("Content-Length")
+        if length is not None and (
+            not re.fullmatch(r"[0-9]{1,10}", length) or int(length) != len(body)
+        ):
+            return False
+        payload = json.loads(body)
+    except (ValueError, UnicodeDecodeError, httpx.HTTPError, OSError, HTTPException):
+        return False
+    if not isinstance(payload, dict) or not isinstance(payload.get("detail"), dict):
+        return False
+    detail = payload["detail"]
+    # Prefer the documented code; accept legacy status only when code is absent.
+    code = detail.get("code") if "code" in detail else detail.get("status")
+    return code == PreSynthesisRejection.code
+
+
+def _check_provider_request(request):
+    if (
+        request.method != "POST" or request.url.scheme != "https"
+        or request.url.host != "api.elevenlabs.io" or request.url.port not in (None, 443)
+        or not re.fullmatch(r"/v1/text-to-speech/[A-Za-z0-9_-]{1,128}", request.url.path)
+    ):
+        raise NarrationError("The narration request must use the fixed ElevenLabs HTTPS endpoint.")
+
+
+def _check_provider_response(response):
+    # Run before the SDK's error handler, which otherwise reads an unbounded error body.
+    if response.headers.get("Content-Encoding", "identity").lower() != "identity":
+        raise NarrationError("ElevenLabs returned an unexpected encoding. Check provider usage before retrying.")
+    if response.status_code != 200:
+        if _is_plan_rejection(response):
+            raise PreSynthesisRejection()
+        raise NarrationError(
+            f"ElevenLabs returned HTTP {response.status_code}. Check the key, voice access and quota. "
+            "No automatic retry was made."
+        )
+    content_type = response.headers.get("Content-Type", "").partition(";")[0].strip().lower()
+    if content_type not in {"audio/mpeg", "audio/mp3"}:
+        raise NarrationError("ElevenLabs returned invalid or oversized MP3 audio. Check provider usage before retrying.")
 
 
 @dataclass(frozen=True)
@@ -88,6 +166,14 @@ def narration_presentation(model):
         model.group == SAMPLE_GROUP
         and FrenchNarrationBudget.objects.filter(pk=1, sample_claimed=True).exists()
     )
+    sample_issue = sample_rejection_message(spec.voice_id) if model.group == SAMPLE_GROUP else ""
+    if sample_claimed:
+        sample_issue = (
+            "Un essai a déjà été lancé et peut avoir été facturé. Si ce refus est antérieur "
+            "à la détection des erreurs de forfait, son motif exact n’a pas été conservé. "
+            "L’administrateur doit faire vérifier cette requête et sa facturation par "
+            "ElevenLabs avant toute récupération explicite ; changer de voix ne débloque pas cet essai."
+        )
     return {
         "ready": ready,
         "prepare_url": reverse("study:eo3_audio_prepare", args=[
@@ -95,8 +181,9 @@ def narration_presentation(model):
         ]) if (
             not ready and model.group == SAMPLE_GROUP
             and settings.EO3_AUDIO_SAMPLE_ENABLED and not settings.ON_VERCEL
-            and not sample_claimed
+            and not sample_claimed and not sample_issue
         ) else "",
+        "sample_issue": sample_issue,
         "sample_attempted": not ready and sample_claimed,
         "sample_status": FrenchNarration.objects.filter(
             pk=spec.fingerprint,
@@ -112,46 +199,53 @@ def narration_presentation(model):
 def synthesize(spec):
     if not settings.ELEVENLABS_API_KEY:
         raise NarrationError("Set ELEVENLABS_API_KEY on the server; never put it in browser code.")
-    request = Request(
-        f"https://api.elevenlabs.io/v1/text-to-speech/{spec.voice_id}"
-        f"?output_format={OUTPUT_FORMAT}",
-        data=json.dumps({
-            "text": spec.text, "model_id": spec.model_id,
-            "voice_settings": VOICE_SETTINGS,
-        }, ensure_ascii=False).encode("utf-8"),
-        headers={
-            "xi-api-key": settings.ELEVENLABS_API_KEY,
-            "Content-Type": "application/json",
-            "Accept": "audio/mpeg",
-        },
-        method="POST",
-    )
+    if (
+        not spec.text.strip() or len(spec.text) > 10000
+        or not all(re.fullmatch(r"[A-Za-z0-9_-]{1,128}", value) for value in (spec.voice_id, spec.model_id))
+    ):
+        raise NarrationError("Invalid narration source, voice or model; no provider request was made.")
     try:
-        with build_opener(_NoRedirect()).open(request, timeout=90) as response:
-            content_type = response.headers.get_content_type()
-            audio = response.read(MAX_AUDIO_BYTES + 1)
-    except HTTPError as exc:
-        code = exc.code
-        exc.close()
-        raise NarrationError(
-            f"ElevenLabs returned HTTP {code}. Check the key, voice access and quota. "
-            "No automatic retry was made."
-        ) from None
-    except (URLError, TimeoutError, OSError, HTTPException):
+        with httpx.Client(
+            transport=httpx.HTTPTransport(retries=0),
+            timeout=90, follow_redirects=False, trust_env=False,
+            headers={"Accept": "audio/mpeg", "Accept-Encoding": "identity"},
+            event_hooks={"request": [_check_provider_request], "response": [_check_provider_response]},
+        ) as transport:
+            client = ElevenLabs(
+                api_key=settings.ELEVENLABS_API_KEY, base_url="https://api.elevenlabs.io",
+                timeout=90, follow_redirects=False, httpx_client=transport,
+            )
+            with client.text_to_speech.with_raw_response.convert(
+                voice_id=spec.voice_id, text=spec.text, model_id=spec.model_id,
+                output_format=OUTPUT_FORMAT, voice_settings=VoiceSettings(**VOICE_SETTINGS),
+                request_options={"max_retries": 0, "timeout_in_seconds": 90, "chunk_size": 8192},
+            ) as response:
+                audio = bytearray()
+                for chunk in response.data:
+                    audio.extend(chunk)
+                    if len(audio) > MAX_AUDIO_BYTES:
+                        raise NarrationError(
+                            "ElevenLabs returned invalid or oversized MP3 audio. Check provider usage before retrying."
+                        )
+                length = response.headers.get("content-length")
+                if length is not None and (
+                    not re.fullmatch(r"[0-9]{1,10}", length) or int(length) != len(audio)
+                ):
+                    raise NarrationError("ElevenLabs returned incomplete MP3 audio. Check provider usage before retrying.")
+    except (httpx.HTTPError, ApiError, TimeoutError, OSError, HTTPException):
         raise NarrationError(
             "ElevenLabs could not complete the recording. Check connectivity and provider "
             "usage before retrying: a timed-out request may still have been billed."
         ) from None
     if (
-        content_type not in {"audio/mpeg", "audio/mp3"}
-        or not 4 <= len(audio) <= MAX_AUDIO_BYTES
+        not 4 <= len(audio) <= MAX_AUDIO_BYTES
         or not (audio.startswith(b"ID3") or (audio[0] == 0xFF and audio[1] & 0xE0 == 0xE0))
     ):
         raise NarrationError(
             "ElevenLabs returned invalid or oversized MP3 audio. Nothing was saved; "
             "check provider usage before retrying."
         )
-    return audio
+    return bytes(audio)
 
 
 @transaction.atomic

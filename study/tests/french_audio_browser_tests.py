@@ -5,6 +5,8 @@ import re
 import wave
 from unittest.mock import patch
 
+import httpx
+
 from django.conf import settings
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.core.management import call_command
@@ -20,7 +22,7 @@ from study.routing import prompt_detail_url, review_url
 from . import factories
 from .browser_server import BrowserLiveServerThread
 from .test_french_audio import SETTINGS
-from .test_eo3_audio import AUDIO
+from .test_eo3_audio import AUDIO, upstream
 
 
 LOCAL_SPEECH = """
@@ -372,3 +374,53 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         dialog.locator("[data-confirm-accept]").click()
         self.assertEqual(self.page.locator("[data-eo3-audio]").count(), 0)
         provider.assert_called_once()
+
+    @override_settings(ELEVENLABS_VOICE_ID="kENkNtk0xyzG09WW40xE")
+    @patch("study.eo3_audio.httpx.HTTPTransport")
+    def test_verified_plan_rejection_then_configured_voice_change_prepares_and_plays(self, factory):
+        responses = [
+            upstream(json.dumps({
+                "detail": {"code": "free_users_not_allowed", "message": "private provider detail"},
+            }).encode(), "application/json", 403),
+            upstream(),
+        ]
+        requests = []
+
+        def handle(request):
+            requests.append(request)
+            return responses.pop(0)
+
+        factory.return_value = httpx.MockTransport(handle)
+        call_command("import_content", stdout=StringIO())
+        prompt = Prompt.objects.select_related("theme__task__part").get(content_key="culture:p1")
+        url = self.live_server_url + prompt_detail_url(prompt)
+        self.page.goto(url)
+        self.page.locator("[data-eo3-toggle]").click()
+        dialog = self.page.locator("[data-confirm-dialog]")
+        dialog.locator("[data-confirm-accept]").click()
+        expect(dialog).to_contain_text("voix par défaut")
+        expect(dialog).not_to_contain_text("private provider detail")
+        dialog.locator("[data-confirm-accept]").click()
+        self.page.reload()
+        expect(self.page.locator("[data-eo3-toggle]")).to_be_disabled()
+        self.assertEqual(len(requests), 1)
+        with self.settings(ELEVENLABS_VOICE_ID="DefaultVoice"):
+            self.page.reload()
+            toggle = self.page.locator("[data-eo3-toggle]")
+            expect(toggle).to_be_enabled()
+            toggle.click()
+            expect(dialog).to_contain_text("DefaultVoice")
+            dialog.get_by_role("button", name="Annuler", exact=True).click()
+            self.assertEqual(len(requests), 1)
+            toggle.click()
+            dialog.locator("[data-confirm-accept]").click()
+            audio = self.page.locator("[data-eo3-audio]")
+            expect(audio).to_be_visible()
+            self.assertTrue(audio.evaluate("audio => audio.paused"))
+            toggle.click()
+            self.page.wait_for_function("() => document.querySelector('[data-eo3-audio]').currentTime > 0")
+            expect(toggle).to_have_attribute("aria-pressed", "true")
+            toggle.click()
+            expect(toggle).to_have_attribute("aria-pressed", "false")
+        self.assertEqual(len(requests), 2)
+        self.assertIn("/DefaultVoice?", str(requests[-1].url))

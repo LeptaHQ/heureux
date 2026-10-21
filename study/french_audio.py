@@ -13,8 +13,8 @@ from django.urls import reverse
 from django.utils import timezone
 
 from .eo3_audio import (
-    NarrationError, NarrationSpec, OUTPUT_FORMAT, SAMPLE_GROUP,
-    VOICE_SETTINGS, narration_spec, synthesize,
+    NarrationError, NarrationSpec, OUTPUT_FORMAT, PreSynthesisRejection, SAMPLE_GROUP,
+    VOICE_SETTINGS, narration_spec, sample_rejection_message, synthesize,
 )
 from .models import EO3Narration, FrenchNarration, FrenchNarrationBudget
 
@@ -147,7 +147,15 @@ def generate_prepared(fingerprint):
             from . import catalogue
             spec = narration_spec(catalogue.tache_three_models()[SAMPLE_GROUP])
             if budget.sample_claimed:
-                raise NarrationError("The single authorized sample was already attempted. Inspect provider usage.")
+                raise NarrationError(
+                    "The single authorized sample was already attempted. Inspect provider usage. "
+                    "Sans preuve structurée du refus avant synthèse, l’administrateur doit "
+                    "faire vérifier cette requête et sa facturation par ElevenLabs avant "
+                    "toute récupération explicite. Un changement de voix ne suffit pas."
+                )
+            rejection = sample_rejection_message(spec.voice_id)
+            if rejection:
+                raise NarrationError(rejection)
         else:
             if not settings.FRENCH_AUDIO_GENERATION_ENABLED:
                 raise NarrationError("FRENCH_AUDIO_GENERATION_ENABLED must be explicitly enabled after audition.")
@@ -175,6 +183,20 @@ def generate_prepared(fingerprint):
     # Commit the spend reservation before networking: a crash must not refund it.
     try:
         audio = synthesize(spec)
+    except PreSynthesisRejection:
+        if recording.target_group:
+            with transaction.atomic():
+                budget = FrenchNarrationBudget.objects.select_for_update().get(pk=1)
+                # Persist the proof and release its unbilled slot together, never on generic failures.
+                changed = FrenchNarration.objects.filter(
+                    pk=fingerprint, status="working", target_group=SAMPLE_GROUP,
+                ).update(status="plan_denied")
+                if changed:
+                    budget.sample_claimed = False
+                    budget.save(update_fields=["sample_claimed"])
+        else:
+            FrenchNarration.objects.filter(pk=fingerprint).update(status="failed")
+        raise
     except NarrationError:
         FrenchNarration.objects.filter(pk=fingerprint).update(status="failed")
         raise

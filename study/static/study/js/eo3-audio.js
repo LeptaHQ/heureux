@@ -60,7 +60,7 @@
     if (!event.target.matches("[data-eo3-speed]")) return;
     var player = event.target.closest("[data-eo3-player]");
     var rate = Number(event.target.value);
-    if ([0.75, 0.85, 1].indexOf(rate) === -1) return;
+    if ([0.75, 0.85, 1, 1.25, 1.5, 1.75, 2].indexOf(rate) === -1) return;
     var audio = player.querySelector(selector);
     audio.defaultPlaybackRate = rate;
     audio.playbackRate = rate;

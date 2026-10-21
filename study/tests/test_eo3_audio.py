@@ -275,6 +275,7 @@ class EO3AudioTests(TestCase):
         after_back = render_to_string("study/partials/card_back.html", payload)
         self.assertEqual(payload["eo3_audio"]["url"], self.url)
         self.assertContains(after, 'value="0.85" selected')
+        self.assertContains(after, '<option value="2">2×</option>')
         self.assertContains(after, 'preload="none"')
         self.assertContains(after, "Voix française de synthèse")
         self.assertNotContains(after, AUDIO_SETTINGS["ELEVENLABS_API_KEY"])

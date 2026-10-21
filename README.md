@@ -42,8 +42,8 @@ response-ordering checks still run with their controlled delays.
 
 Reviewed public oral-task-3 answers can have a saved ElevenLabs recording.
 The detail page and practice back use the same recording, with native pause/seek
-controls, restart, pitch-preserving **0.85x** playback by default, and 0.75x/1x
-alternatives. The voice is AI-generated, not a human recording or pronunciation
+controls, restart, pitch-preserving **0.85x** playback by default, and adjustable
+speeds from **0.75x to 2x**. The voice is AI-generated, not a human recording or pronunciation
 assessment. Choose a **native-French voice** with a calm conversational
 delivery and audition a complete sample for pronunciation, liaisons and pacing.
 
@@ -73,6 +73,39 @@ First estimate and then generate **one** sample:
 python manage.py generate_eo3_audio --group culture-p1 --dry-run
 python manage.py generate_eo3_audio --group culture-p1 --confirm-cost
 ```
+
+For a **one-time sample on free Render without shell access**, after the code
+is published:
+
+1. In the service's **Environment**, set the API key, chosen voice ID and
+   `EO3_AUDIO_ENABLED=True`. Save the configuration before generating the sample.
+2. In **Settings → Build & Deploy → Build Command**, copy the current command
+   somewhere safe, then temporarily append
+   `&& python manage.py generate_eo3_audio --group culture-p1 --dry-run && python manage.py generate_eo3_audio --group culture-p1 --confirm-cost`.
+   This explicitly authorizes paid generation of **one** recording only.
+   With this repository's ordinary configuration the complete temporary command is:
+
+   ```bash
+   pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py deploy_database && python manage.py generate_eo3_audio --group culture-p1 --dry-run && python manage.py generate_eo3_audio --group culture-p1 --confirm-cost
+   ```
+
+3. Save and deploy the latest commit. Confirm the build logs show
+   `eo/tache-3/culture-p1: generated` (or `cached` if already prepared).
+   If generation fails, inspect the error and provider usage rather than
+   repeatedly redeploying.
+4. **Immediately restore the original Build Command** before any subsequent
+   deployment. This repository's ordinary value is:
+
+   ```bash
+   pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py deploy_database
+   ```
+
+5. Once the deploy is live, open **EO Tâche 3 → Culture → Sujet 1** and audition
+   the recording. Page visits do not generate additional recordings.
+
+Do not commit the temporary command to `render.yaml`, leave it configured,
+or put generation into startup or HTTP handlers. A restored build command
+does not remove the recording already stored in the database.
 
 Listen to the sample on its subject page before approving the full collection:
 

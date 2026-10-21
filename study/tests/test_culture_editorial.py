@@ -93,6 +93,14 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("S'adapter aux contraintes", cue.french)
         self.assertIn("Adapt to constraints", cue.english)
 
+    def test_adaptation_keeps_the_preferred_preferences_and_practical_response_wording(self):
+        self.assertEqual(
+            self.response(1).arguments[0].developpement,
+            "Le climat et les horaires ne dépendent pas de nos préférences. "
+            "En tenir compte permet de travailler, de se déplacer et d'organiser "
+            "ses journées sans se mettre inutilement en difficulté.",
+        )
+
     def test_book_usefulness_keeps_the_original_reflection_and_concentration_argument(self):
         group = "eo/tache-3/culture-p6"
         response = self.models[group].response

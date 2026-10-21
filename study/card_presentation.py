@@ -10,6 +10,7 @@ from django.http import Http404
 from django.urls import reverse
 
 from .models import Card, CardType, PhraseTier
+from .eo3_audio import narration_presentation
 from .querysets import lean_prompt_rows
 from .response_personalization import effective_response
 from .routing import prompt_detail_url, response_detail_url
@@ -390,6 +391,7 @@ def _spine_payload(card: Card, *, prompt=None, model_only=False, personal=None) 
         "response": response,
         "response_content": content,
         "reviewed_eo3": reviewed_eo3,
+        "eo3_audio": narration_presentation(reviewed_model(response, canonical)) if reviewed_eo3 else None,
         "eo3_prompt_note": prompt_note_for_response(response, canonical),
         "eo3_pistes": catalogue.tache_three_subject_plan(response.semantic_group),
         "arguments": annotation_arguments(canonical, content),

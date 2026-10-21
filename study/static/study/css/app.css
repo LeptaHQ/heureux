@@ -7395,6 +7395,18 @@ a.qrow:focus-visible {
 .phrase__note { color: var(--text-faint); font-size: 0.82rem; font-style: italic; }
 
 /* ---------- Detail (response) ---------- */
+.eo3-audio {
+  padding: 1rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+}
+.eo3-audio audio { display: block; width: 100%; margin: .65rem 0; }
+.eo3-audio__controls { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; }
+.eo3-audio__controls label { display: inline-flex; align-items: center; gap: .5rem; }
+.eo3-audio__controls select { padding: .35rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 6px; }
+.eo3-audio p { margin: .4rem 0 0; }
 .detail-head { margin-bottom: 1.4rem; }
 .detail-prompt { font-family: var(--font-serif); font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.35; }
 .answer-columns { display: grid; gap: 1.2rem; }

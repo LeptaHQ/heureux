@@ -1,7 +1,7 @@
 from django.urls import path, register_converter
 
 from . import views
-from .views import course, formulations
+from .views import audio, course, formulations
 
 
 class ExpressionPartConverter:
@@ -37,6 +37,11 @@ register_converter(OverviewPartConverter, "overview_part")
 app_name = "study"
 
 urlpatterns = [
+    path(
+        "expression/orale/tache-3/audio/<slug:group>/<str:fingerprint>/",
+        audio.eo3_audio,
+        name="eo3_audio",
+    ),
     # Account
     path("compte/connexion/", views.login_view, name="login"),
     path("compte/inscription/", views.register_view, name="register"),

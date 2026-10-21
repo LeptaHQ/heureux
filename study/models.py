@@ -170,6 +170,17 @@ class Response(models.Model):
         return self.prompts.filter(is_active=True).count() > 1
 
 
+class EO3Narration(models.Model):
+    """A generated public-model recording, pinned to its text and voice."""
+
+    fingerprint = models.CharField(max_length=64, primary_key=True)
+    group = models.CharField(max_length=160)
+    voice_id = models.CharField(max_length=128)
+    model_id = models.CharField(max_length=128)
+    audio = models.BinaryField()
+    created_at = models.DateTimeField(default=timezone.now)
+
+
 class Argument(models.Model):
     """One of the three developed arguments of a Response."""
 

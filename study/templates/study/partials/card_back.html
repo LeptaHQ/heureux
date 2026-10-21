@@ -1,5 +1,5 @@
 {% if kind == "spine" %}
-  <div class="answer"{% if not tache_two_subject %} data-read-aloud-text{% endif %} lang="fr">
+  {% if eo3_audio %}<div data-annotation-exclude>{% spaceless %}{% include "study/partials/eo3_audio.html" with audio=eo3_audio only %}{% endspaceless %}</div>{% endif %}<div class="answer"{% if not tache_two_subject and not eo3_audio.ready %} data-read-aloud-text{% endif %} lang="fr">
     {% if tache_two_subject %}
       {% if tache_two_dialogue %}
         <div class="spine-block">

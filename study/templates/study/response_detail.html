@@ -25,7 +25,7 @@
 
 {% if ee_response %}{% include "study/partials/prompt_navigation.html" %}{% endif %}
 
-{% if eo3_audio %}{% include "study/partials/eo3_audio.html" with audio=eo3_audio player_id="eo3-response-player" only %}{% endif %}
+{% if eo3_audio %}{% if previous_prompt %}{% subject_url 'study:response_detail' previous_prompt.theme.task.part.slug previous_prompt.theme.task.slug previous_prompt.pk as eo3_previous_url %}{% endif %}{% if next_prompt %}{% subject_url 'study:response_detail' next_prompt.theme.task.part.slug next_prompt.theme.task.slug next_prompt.pk as eo3_next_url %}{% endif %}{% include "study/partials/eo3_audio.html" with audio=eo3_audio player_id="eo3-response-player" previous_url=eo3_previous_url next_url=eo3_next_url only %}{% endif %}
 
 <div class="detail-grid"{% if ee_response %} style="--subject-accent: {{ task.color }};"{% endif %}>
   <div class="answer-columns"{% if not ee_response %} data-annotation-root data-annotation-source-key="{% if oral_annotation_key %}{{ oral_annotation_key }}{% else %}response:{{ response.content_key }}{% endif %}"{% if oral_legacy_annotation_keys %} data-annotation-legacy-source-keys="{{ oral_legacy_annotation_keys }}"{% endif %}{% endif %}>

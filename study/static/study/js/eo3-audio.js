@@ -3,6 +3,7 @@
 
   var active = null;
   var selector = "audio[data-eo3-audio]";
+  var continueKey = "heureux:eo3-continue";
 
   function syncToggles(audio) {
     var player = audio.closest("[data-eo3-player]");
@@ -112,16 +113,56 @@
     audio.currentTime = Number(event.target.value) / 1000 * audio.duration;
   });
 
-  document.addEventListener("change", function (event) {
-    if (!event.target.matches("[data-eo3-speed]")) return;
-    var player = event.target.closest("[data-eo3-player]");
-    var rate = Number(event.target.value);
+  function closeSpeedMenus(except) {
+    document.querySelectorAll("[data-eo3-speed-menu]").forEach(function (menu) {
+      if (menu === except) return;
+      menu.querySelector("[role=menu]").hidden = true;
+      menu.querySelector("[data-eo3-speed-toggle]").setAttribute("aria-expanded", "false");
+    });
+  }
+
+  document.addEventListener("keydown", function (event) {
+    if (event.key !== "Escape") return;
+    var open = document.querySelector("[data-eo3-speed-toggle][aria-expanded='true']");
+    if (!open) return;
+    closeSpeedMenus();
+    open.focus();
+  });
+
+  document.addEventListener("click", function (event) {
+    var speedToggle = event.target.closest("[data-eo3-speed-toggle]");
+    var option = event.target.closest("[data-eo3-speed]");
+    if (!speedToggle && !option) {
+      if (!event.target.closest("[data-eo3-speed-menu]")) closeSpeedMenus();
+      return;
+    }
+    var wrapper = (speedToggle || option).closest("[data-eo3-speed-menu]");
+    var list = wrapper.querySelector("[role=menu]");
+    var trigger = wrapper.querySelector("[data-eo3-speed-toggle]");
+    if (speedToggle) {
+      var opening = list.hidden;
+      closeSpeedMenus(wrapper);
+      list.hidden = !opening;
+      trigger.setAttribute("aria-expanded", String(opening));
+      if (opening) (list.querySelector("[aria-checked=true]") || list.firstElementChild).focus();
+      return;
+    }
+    var rate = Number(option.dataset.eo3Speed);
     if ([0.5, 0.6, 0.75, 0.85, 1, 1.25, 1.5, 1.75, 2].indexOf(rate) === -1) return;
+    var player = option.closest("[data-eo3-player]");
     var audio = player.querySelector(selector);
     audio.defaultPlaybackRate = rate;
     audio.playbackRate = rate;
+    list.querySelectorAll("[data-eo3-speed]").forEach(function (item) {
+      item.setAttribute("aria-checked", String(item === option));
+    });
+    trigger.textContent = option.textContent;
+    trigger.setAttribute("aria-label", "Vitesse de lecture : " + option.textContent);
+    list.hidden = true;
+    trigger.setAttribute("aria-expanded", "false");
+    trigger.focus();
     player.querySelector("[data-eo3-audio-status]").textContent =
-      "Vitesse de lecture : " + event.target.selectedOptions[0].textContent + ".";
+      "Vitesse de lecture : " + option.textContent + ".";
   });
 
   document.addEventListener("click", function (event) {
@@ -147,10 +188,30 @@
         narration.play().catch(function (error) {
           if (error.name === "AbortError" && narration.paused) return;
           player.querySelector("[data-eo3-audio-status]").textContent =
-            "Lecture impossible. Réessayez.";
+            error.name === "NotAllowedError" ? "Touchez lecture pour écouter." : "Lecture impossible. Réessayez.";
           syncToggles(narration);
         });
       }
+      return;
+    }
+    var loop = event.target.closest("[data-eo3-loop]");
+    if (loop) {
+      var looped = loop.closest("[data-eo3-player]").querySelector(selector);
+      looped.loop = !looped.loop;
+      loop.setAttribute("aria-pressed", String(looped.loop));
+      loop.closest("[data-eo3-player]").querySelector("[data-eo3-audio-status]").textContent =
+        looped.loop ? "Lecture en boucle activée." : "Lecture en boucle désactivée.";
+      return;
+    }
+    var nav = event.target.closest("[data-eo3-nav]");
+    if (nav) {
+      var current = nav.closest("[data-eo3-player]").querySelector(selector);
+      try {
+        sessionStorage.setItem(continueKey, JSON.stringify({
+          rate: current ? current.playbackRate : 0.85,
+          loop: Boolean(current && current.loop)
+        }));
+      } catch (error) { /* Navigation still works without autoplay. */ }
       return;
     }
     var button = event.target.closest("[data-eo3-restart]");
@@ -179,4 +240,34 @@
     });
   }).observe(document.body, { childList: true, subtree: true });
   initialize(document);
+
+  var pendingSettings = null;
+
+  function applySettings(player, saved) {
+    var option = player.querySelector('[data-eo3-speed="' + Number(saved.rate) + '"]');
+    if (!option) return false;
+    option.click();
+    if (document.activeElement) document.activeElement.blur();
+    var loop = player.querySelector("[data-eo3-loop]");
+    if (loop && saved.loop && loop.getAttribute("aria-pressed") !== "true") loop.click();
+    return true;
+  }
+
+  function resume() {
+    var saved;
+    try {
+      saved = JSON.parse(sessionStorage.getItem(continueKey) || "null");
+      sessionStorage.removeItem(continueKey);
+    } catch (error) { return; }
+    if (!saved) return;
+    var toggle = document.querySelector("#eo3-response-player [data-eo3-toggle]");
+    if (!toggle || toggle.disabled) return;
+    if (!applySettings(toggle.closest("[data-eo3-player]"), saved)) pendingSettings = saved;
+    toggle.click();
+  }
+  document.addEventListener("heureux:audio-prepared", function () {
+    var player = document.getElementById("eo3-response-player");
+    if (pendingSettings && player && applySettings(player, pendingSettings)) pendingSettings = null;
+  });
+  resume();
 })();

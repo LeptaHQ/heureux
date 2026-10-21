@@ -87,6 +87,11 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
     def tearDown(self):
         self.context.close()
 
+    def set_speed(self, value):
+        self.page.locator("[data-eo3-speed-toggle]").click()
+        self.page.locator(f'[data-eo3-speed="{value}"]').click()
+        expect(self.page.locator("[data-eo3-speed-toggle]")).to_have_attribute("aria-expanded", "false")
+
     def play(self):
         self.page.evaluate("""() => {
             window.__eo3TestPlaybackReady = false;
@@ -137,11 +142,18 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
             "() => !document.querySelector('[data-eo3-audio]').paused"
         )
         self.assertEqual(audio.evaluate("audio => audio.playbackRate"), 0.85)
-        self.page.get_by_label("Vitesse de lecture", exact=True).select_option("0.75")
+        self.set_speed("0.75")
         self.assertEqual(audio.evaluate("audio => audio.playbackRate"), 0.75)
-        self.page.get_by_label("Vitesse de lecture", exact=True).select_option("2")
+        self.set_speed("2")
         self.assertEqual(audio.evaluate("audio => audio.playbackRate"), 2)
         self.assertTrue(audio.evaluate("audio => audio.preservesPitch"))
+        loop = self.page.get_by_role("button", name="Répéter en boucle")
+        loop.click()
+        expect(loop).to_have_attribute("aria-pressed", "true")
+        self.assertTrue(audio.evaluate("audio => audio.loop"))
+        loop.click()
+        expect(loop).to_have_attribute("aria-pressed", "false")
+        self.assertFalse(audio.evaluate("audio => audio.loop"))
         self.page.get_by_role("button", name="Revenir au début").click()
         self.assertLess(audio.evaluate("audio => audio.currentTime"), 1)
         self.page.evaluate("""() => document.dispatchEvent(new CustomEvent(
@@ -149,6 +161,37 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         ))""")
         self.assertTrue(audio.evaluate("audio => audio.paused"))
         expect(toggle).to_have_attribute("aria-pressed", "false")
+        self.assertFalse(self.errors, self.errors)
+
+    def test_next_and_previous_navigate_and_continue_reading_with_same_settings(self):
+        for model in catalogue.tache_three_models().values():
+            spec = narration_spec(model)
+            EO3Narration.objects.get_or_create(fingerprint=spec.fingerprint, defaults={
+                "group": spec.group, "voice_id": spec.voice_id,
+                "model_id": spec.model_id, "audio": b"ID3-test",
+            })
+        start = self.live_server_url + prompt_detail_url(self.prompt)
+        self.page.goto(start)
+        expect(self.page.get_by_role("link", name="Sujet précédent et lecture")).to_have_count(0)
+        self.set_speed("1.25")
+        self.page.get_by_role("button", name="Répéter en boucle").click()
+        self.page.get_by_role("link", name="Sujet suivant et lecture").click()
+        self.page.wait_for_url(lambda url: url != start)
+        audio = self.page.locator("[data-eo3-audio]")
+        expect(self.page.locator("[data-eo3-speed-toggle]")).to_have_text("1,25×")
+        expect(self.page.get_by_role("button", name="Répéter en boucle")).to_have_attribute("aria-pressed", "true")
+        self.assertEqual(audio.evaluate("audio => audio.playbackRate"), 1.25)
+        self.page.wait_for_function("""() => {
+            const audio = document.querySelector('[data-eo3-audio]');
+            const status = document.querySelector('[data-eo3-audio-status]').textContent;
+            return audio.currentTime > 0 || status === 'Touchez lecture pour écouter.';
+        }""")
+        self.page.get_by_role("link", name="Sujet précédent et lecture").click()
+        self.page.wait_for_url(start)
+        expect(self.page.locator("[data-eo3-speed-toggle]")).to_have_text("1,25×")
+        self.page.reload()
+        expect(self.page.locator("[data-eo3-speed-toggle]")).to_have_text("0,85×")
+        self.assertTrue(self.page.locator("[data-eo3-audio]").evaluate("audio => audio.paused"))
         self.assertFalse(self.errors, self.errors)
 
     @override_settings(EO3_AUDIO_SAMPLE_ENABLED=False, FRENCH_AUDIO_GENERATION_ENABLED=False)
@@ -200,7 +243,7 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         audio = self.page.locator("[data-eo3-audio]")
         expect(self.page.locator("[data-eo3-seek]")).to_be_visible()
         self.assertEqual(audio.evaluate("audio => audio.playbackRate"), 0.85)
-        self.page.get_by_label("Vitesse de lecture", exact=True).select_option("2")
+        self.set_speed("2")
         self.assertEqual(audio.evaluate("audio => audio.playbackRate"), 2)
         expect(self.page.locator("#card-back")).to_be_visible()
         self.page.get_by_role("button", name="Revenir au début").click()

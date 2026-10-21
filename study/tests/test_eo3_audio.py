@@ -66,12 +66,14 @@ class EO3AudioSpecTests(SimpleTestCase):
         factory.return_value = httpx.MockTransport(handle)
         return requests
 
-    def test_every_model_uses_exact_spoken_words_in_six_paragraphs(self):
+    def test_every_model_reads_prompt_then_exact_spoken_words(self):
         for model in catalogue.tache_three_models().values():
             with self.subTest(group=model.group):
                 spec = narration_spec(model)
-                self.assertEqual(" ".join(spec.text.split()), spoken_text(model.response))
-                self.assertEqual(len(spec.text.split("\n\n")), 6)
+                prompt, _, answer = spec.text.partition("\n\n")
+                self.assertEqual(prompt, model.source_prompts[0][1])
+                self.assertEqual(" ".join(answer.split()), spoken_text(model.response))
+                self.assertEqual(len(spec.text.split("\n\n")), 7)
                 self.assertNotIn("Introduction\n", spec.text)
                 self.assertEqual(len(spec.fingerprint), 64)
 
@@ -438,11 +440,11 @@ class EO3AudioTests(TestCase):
         payload = card_payload(card, prompt=self.prompt)
         after_back = render_to_string("study/partials/card_back.html", payload)
         self.assertEqual(payload["eo3_audio"]["url"], self.url)
-        self.assertContains(after, 'value="0.85" selected')
-        self.assertContains(after, '<option value="2">2×</option>')
+        self.assertContains(after, 'aria-checked="true" data-eo3-speed="0.85"')
+        self.assertContains(after, 'data-eo3-speed="2">2×</button>')
         self.assertContains(after, 'preload="metadata"')
         self.assertContains(after, 'data-eo3-toggle="eo3-response-player"')
-        self.assertContains(after, '<option value="0.5">0,5×</option>')
+        self.assertContains(after, 'data-eo3-speed="0.5">0,5×</button>')
         self.assertContains(after, "Voix française de synthèse")
         self.assertNotContains(after, AUDIO_SETTINGS["ELEVENLABS_API_KEY"])
         self.assertNotContains(after, AUDIO_SETTINGS["ELEVENLABS_VOICE_ID"])

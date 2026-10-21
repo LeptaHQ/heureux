@@ -133,7 +133,9 @@ def narration_spec(model):
     response = model.response
     if response.is_personal:
         raise NarrationError("Only reviewed public EO3 models can be narrated.")
+    # The consigne shown by « Dédupliquer » is read first, as an examiner would.
     paragraphs = (
+        model.source_prompts[0][1],
         response.position_claire,
         *(" ".join((arg.idea, arg.developpement, arg.exemple, arg.consequence))
           for arg in response.arguments),
@@ -144,7 +146,7 @@ def narration_spec(model):
     if not text.strip() or len(text) > 10000:
         raise NarrationError("The response exceeds the 10,000-character narration limit.")
     identity = {
-        "version": 1, "group": model.group, "text": text,
+        "version": 2, "group": model.group, "text": text,
         "voice_id": voice, "model_id": model_id,
         "output_format": OUTPUT_FORMAT, "voice_settings": VOICE_SETTINGS,
     }

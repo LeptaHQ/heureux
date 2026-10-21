@@ -5294,12 +5294,12 @@
     },
     "economie-p1": {
       "introduction": {
-        "french": "Trouver un emploi au Canada reste un projet à préparer, pas une embauche certaine.",
-        "english": "Finding work in Canada is a project to prepare, not a certain appointment."
+        "french": "Préparer sa recherche au Canada sans promettre une embauche facile.",
+        "english": "Prepare a job search in Canada without promising an easy hire."
       },
       "nuance": {
-        "french": "Une offre peut faciliter le départ ; la préparation ne garantit ni résultat ni délai.",
-        "english": "An offer can ease the move; preparation guarantees neither an outcome nor a timetable."
+        "french": "Une offre peut aider ; prévoir de quoi vivre pendant la recherche et du temps pour les démarches.",
+        "english": "An offer may help; allow money to live during the search and time for procedures."
       },
       "conclusion": {
         "french": "Confiance dans le projet, prudence sur sa facilité.",
@@ -5318,8 +5318,8 @@
         },
         {
           "point": {
-            "french": "Démontrer la langue du poste.",
-            "english": "Demonstrate the job's language skills."
+            "french": "Préparer les échanges dans la langue du poste.",
+            "english": "Prepare communication in the language required for the role."
           },
           "example": {
             "french": "Simuler des échanges d'accueil avant un entretien.",
@@ -5354,8 +5354,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Valeur commerciale et utilité diffèrent.",
-            "english": "Commercial and social value differ."
+            "french": "Attirer de l’argent ne signifie pas être plus utile aux autres.",
+            "english": "Attracting money does not mean being more useful to others."
           },
           "example": {
             "french": "Comparer une audience publicitaire avec le service d'une équipe de soins.",
@@ -5368,8 +5368,8 @@
             "english": "Allocate resources within sport."
           },
           "example": {
-            "french": "Un contrat coûteux entre en concurrence avec matériel et formation.",
-            "english": "An expensive contract competes with equipment and training."
+            "french": "Un contrat très coûteux peut retarder l’achat de matériel pour les jeunes.",
+            "english": "A very expensive contract may delay buying equipment for young players."
           }
         },
         {
@@ -5410,8 +5410,8 @@
         },
         {
           "point": {
-            "french": "Arbitrer et expliquer ses choix.",
-            "english": "Make and explain decisions."
+            "french": "Choisir entre plusieurs demandes et expliquer ses décisions.",
+            "english": "Choose between several requests and explain decisions."
           },
           "example": {
             "french": "Attribuer une salle demandée par deux équipes selon une règle cohérente.",
@@ -5420,8 +5420,8 @@
         },
         {
           "point": {
-            "french": "Maîtriser la gestion concrète.",
-            "english": "Master practical management."
+            "french": "Vérifier le budget et le planning.",
+            "english": "Check the budget and schedule."
           },
           "example": {
             "french": "Vérifier salle, matériel et recettes avant une activité associative.",
@@ -5460,8 +5460,8 @@
             "english": "Be able to report fatigue."
           },
           "example": {
-            "french": "Signaler une somnolence répétée conduit à décaler une prise de poste pour mieux récupérer.",
-            "english": "Reporting repeated drowsiness leads to delaying a start time for more recovery."
+            "french": "Une somnolence répétée peut amener le responsable à décaler la prise de poste.",
+            "english": "Repeated drowsiness may lead a manager to move the start time."
           }
         },
         {
@@ -5486,8 +5486,8 @@
         "english": "Goals remain necessary; an activity cannot replace good working conditions."
       },
       "conclusion": {
-        "french": "Charge tenable, écoute et prévisibilité.",
-        "english": "Manageable workloads, listening and predictability."
+        "french": "Une charge tenable, la possibilité de parler et des horaires prévisibles.",
+        "english": "A manageable workload, the ability to speak up and predictable hours."
       },
       "arguments": [
         {
@@ -5512,12 +5512,12 @@
         },
         {
           "point": {
-            "french": "Soutenir la continuité de l'équipe.",
-            "english": "Support team continuity."
+            "french": "Donner envie aux salariés de rester.",
+            "english": "Give employees reasons to stay."
           },
           "example": {
-            "french": "Un planning prévisible permet à une salariée expérimentée de rester.",
-            "english": "A predictable schedule enables an experienced employee to stay."
+            "french": "Un planning prévisible peut aider une salariée expérimentée à rester.",
+            "english": "A predictable schedule may help an experienced employee stay."
           }
         }
       ]
@@ -5558,8 +5558,8 @@
         },
         {
           "point": {
-            "french": "Examiner la continuité du revenu.",
-            "english": "Examine income continuity."
+            "french": "Comparer les revenus sur l’année.",
+            "english": "Compare income over the year."
           },
           "example": {
             "french": "Comparer une mission de deux mois avec un poste durable.",
@@ -5696,8 +5696,8 @@
         },
         {
           "point": {
-            "french": "Distinguer statut et accès à une profession.",
-            "english": "Distinguish status from professional access."
+            "french": "Distinguer droit de travailler et autorisation d’exercer.",
+            "english": "Distinguish the right to work from authorization to practise."
           },
           "example": {
             "french": "Un professionnel de santé contacte l'organisme compétent.",
@@ -5708,16 +5708,16 @@
     },
     "economie-p16": {
       "introduction": {
-        "french": "Développer des bénéfices locaux, pas seulement le nombre de visiteurs.",
-        "english": "Develop local benefits, not just visitor numbers."
+        "french": "Faire profiter les habitants du tourisme, pas seulement attirer plus de visiteurs.",
+        "english": "Let residents benefit from tourism, not just attract more visitors."
       },
       "nuance": {
         "french": "Associer les habitants et suivre logement, saisonnalité et pression sur les sites.",
         "english": "Involve residents and monitor housing, seasonality and pressure on sites."
       },
       "conclusion": {
-        "french": "Des revenus partagés, des débouchés dans les régions et un patrimoine entretenu.",
-        "english": "Shared revenue, regional opportunities and maintained heritage."
+        "french": "Des revenus partagés, du travail dans les régions et un patrimoine entretenu.",
+        "english": "Shared income, work in the regions and well-maintained heritage."
       },
       "arguments": [
         {
@@ -5732,8 +5732,8 @@
         },
         {
           "point": {
-            "french": "Ouvrir des débouchés loin des grands centres.",
-            "english": "Create opportunities away from major centers."
+            "french": "Créer des activités loin des grandes villes.",
+            "english": "Create activities away from major cities."
           },
           "example": {
             "french": "Un artisan forme une personne du village pour animer des visites, tout en gardant ses autres clients.",
@@ -5746,8 +5746,8 @@
             "english": "Maintain and share heritage."
           },
           "example": {
-            "french": "Affecter des recettes à l'entretien et à la médiation.",
-            "english": "Allocate revenue to upkeep and interpretation."
+            "french": "Consacrer des recettes à l’entretien et aux visites commentées.",
+            "english": "Allocate revenue to upkeep and guided visits."
           }
         }
       ]
@@ -5808,8 +5808,8 @@
         "english": "Do not romanticize insecurity or set a universal threshold of needs."
       },
       "conclusion": {
-        "french": "Équilibrer ressources, activités choisies et temps disponible.",
-        "english": "Balance resources, chosen activities and available time."
+        "french": "Payer le nécessaire et garder du temps pour ses proches et ce qu’on aime.",
+        "english": "Pay for essentials and keep time for loved ones and enjoyable activities."
       },
       "arguments": [
         {
@@ -5870,8 +5870,8 @@
         },
         {
           "point": {
-            "french": "La rareté modifie la négociation.",
-            "english": "Scarcity changes negotiation."
+            "french": "Le manque de candidats peut faire augmenter une offre salariale.",
+            "english": "A shortage of applicants can raise a salary offer."
           },
           "example": {
             "french": "Relever une offre faute de spécialiste sans changer les tâches.",
@@ -5880,8 +5880,8 @@
         },
         {
           "point": {
-            "french": "Budgets et cadres collectifs comptent.",
-            "english": "Budgets and collective frameworks matter."
+            "french": "Le budget de l’employeur et les règles de salaire comptent aussi.",
+            "english": "The employer’s budget and pay rules matter too."
           },
           "example": {
             "french": "Une structure d'aide financée augmente les salaires ; une autre garde son budget pour des tâches comparables.",
@@ -5906,8 +5906,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Alléger un budget contraint.",
-            "english": "Ease a tight budget."
+            "french": "Alléger les dépenses de ceux qui paient leurs trajets.",
+            "english": "Reduce expenses for those who pay for their journeys."
           },
           "example": {
             "french": "Un abonnement jusque-là payé devient une économie réelle.",
@@ -5938,16 +5938,16 @@
     },
     "economie-p23": {
       "introduction": {
-        "french": "L'aide n'appartient pas exclusivement aux associations et ONG.",
-        "english": "Help is not exclusive to associations and NGOs."
+        "french": "D’autres personnes et organismes peuvent aider, en plus des associations et ONG.",
+        "english": "Other people and organizations can help alongside associations and NGOs."
       },
       "nuance": {
         "french": "Tout le monde ne peut pas travailler ni compter sur un entourage disponible ; préserver droits et dignité.",
         "english": "Not everyone can work or rely on people around them; preserve rights and dignity."
       },
       "conclusion": {
-        "french": "Coordonner contributions publiques, professionnelles, personnelles et associatives.",
-        "english": "Coordinate public, workplace, personal and voluntary-sector contributions."
+        "french": "Faire agir ensemble services publics, employeurs, citoyens et associations.",
+        "english": "Coordinate public services, employers, citizens and associations."
       },
       "arguments": [
         {
@@ -5972,8 +5972,8 @@
         },
         {
           "point": {
-            "french": "Apporter une entraide directe acceptée.",
-            "english": "Provide accepted direct assistance."
+            "french": "Aider directement avec l’accord de la personne.",
+            "english": "Help directly with the person’s consent."
           },
           "example": {
             "french": "Un voisin accompagne une personne à une distribution alimentaire avec son accord.",
@@ -5984,16 +5984,16 @@
     },
     "economie-p24": {
       "introduction": {
-        "french": "Un choix intéressant si l'autonomie reste préservée.",
-        "english": "An appealing choice if independence is preserved."
+        "french": "Un choix intéressant si l’on peut encore se déplacer selon ses besoins.",
+        "english": "An appealing choice if people can still make the journeys they need."
       },
       "nuance": {
         "french": "Covoiturage et location restent automobiles ; ne pas culpabiliser les personnes mal desservies.",
         "english": "Carpooling and rentals still use cars; do not blame poorly served people."
       },
       "conclusion": {
-        "french": "Budget allégé, activité physique et espace partagé, sans sacrifier l'autonomie.",
-        "english": "Lower costs, physical activity and shared space without sacrificing independence."
+        "french": "Dépenser moins, bouger davantage et désencombrer les rues sans perdre son autonomie.",
+        "english": "Spend less, move more and reduce street congestion without losing independence."
       },
       "arguments": [
         {
@@ -6018,8 +6018,8 @@
         },
         {
           "point": {
-            "french": "Améliorer l'espace partagé.",
-            "english": "Improve shared space."
+            "french": "Libérer de la place dans les rues.",
+            "english": "Free up space in the streets."
           },
           "example": {
             "french": "Un chemin sûr vers l'école remplace certains dépôts en voiture et désencombre l'entrée.",

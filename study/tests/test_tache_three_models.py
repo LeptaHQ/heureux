@@ -525,7 +525,9 @@ class TacheThreeModelContentTests(SimpleTestCase):
     def test_economie_transport_benefits_require_real_changes_and_distinct_contributions(self):
         models = catalogue.tache_three_models()
         free_transport = models["eo/tache-3/economie-p22"].response
-        self.assertIn("trajets automobiles remplacés", free_transport.arguments[1].developpement)
+        self.assertIn("une ligne fiable convient au trajet", free_transport.arguments[1].developpement)
+        self.assertIn("Si ces personnes laissent leur voiture chez elles", free_transport.arguments[1].developpement)
+        self.assertEqual(models["eo/tache-3/economie-p22"].argument_ids, (1, 4, 2))
         self.assertIn("laisser sa voiture chez elle", free_transport.arguments[1].exemple)
         self.assertIn("bibliothèque", free_transport.arguments[2].exemple)
         self.assertIn("ne prouve pas", free_transport.nuance)

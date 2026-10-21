@@ -22,7 +22,7 @@ out of Django's default discovery because they require Playwright:
 
 ```bash
 python -m playwright install chromium
-python manage.py test study.tests.browser_tests
+python manage.py test study.tests.browser_tests study.tests.eo3_audio_browser_tests
 ```
 
 CI runs `database-locking` tests, including public oral annotation preservation,

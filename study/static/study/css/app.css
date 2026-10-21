@@ -15541,6 +15541,15 @@ html[data-collection-view-mode="table"]
     width: 100%;
     justify-content: space-between;
   }
+  .subject-progress-control--audio {
+    align-items: center;
+    flex-direction: row;
+  }
+  .subject-progress-control--audio .subject-progress-control__action {
+    width: auto;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
   .subject-progress-control__help,
   .explicit-completion-control__help {
     margin-top: 0.25rem;

@@ -117,7 +117,22 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         self.assertEqual(self.page.evaluate(
             "() => document.documentElement.scrollWidth <= innerWidth"
         ), True)
-        self.play()
+        toggle = self.page.locator("[data-eo3-toggle]")
+        expect(toggle).to_be_visible()
+        expect(toggle).to_be_enabled()
+        expect(self.page.locator(".subject-progress-control__action > span")).to_have_class("sr-only")
+        toggle.click()
+        self.page.wait_for_function(
+            "() => document.querySelector('[data-eo3-audio]').currentTime > 0"
+        )
+        expect(toggle).to_have_attribute("aria-pressed", "true")
+        toggle.click()
+        expect(toggle).to_have_attribute("aria-pressed", "false")
+        self.assertTrue(audio.evaluate("audio => audio.paused"))
+        toggle.click()
+        self.page.wait_for_function(
+            "() => !document.querySelector('[data-eo3-audio]').paused"
+        )
         self.assertEqual(audio.evaluate("audio => audio.playbackRate"), 0.85)
         self.page.get_by_label("Vitesse de lecture", exact=True).select_option("0.75")
         self.assertEqual(audio.evaluate("audio => audio.playbackRate"), 0.75)
@@ -130,6 +145,39 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
             "heureux:speech-start", {detail: {source: "read-aloud"}}
         ))""")
         self.assertTrue(audio.evaluate("audio => audio.paused"))
+        expect(toggle).to_have_attribute("aria-pressed", "false")
+        self.assertFalse(self.errors, self.errors)
+
+    def test_pending_header_enables_after_preparation_and_preserves_completion(self):
+        EO3Narration.objects.all().delete()
+        self.page.goto(self.live_server_url + prompt_detail_url(self.prompt))
+        expect(self.page.locator("[data-eo3-toggle]")).to_be_disabled()
+        expect(self.page.locator("[data-eo3-player]")).to_contain_text("n'est pas encore prête")
+        completion = self.page.locator(".subject-progress-control [role=checkbox]")
+        expect(completion).to_have_attribute("aria-checked", "false")
+        completion.click()
+        expect(completion).to_have_attribute("aria-checked", "true")
+        expect(self.page.locator(".subject-progress-control")).to_contain_text("Terminé")
+        EO3Narration.objects.create(
+            fingerprint=self.spec.fingerprint, group=self.spec.group,
+            voice_id=self.spec.voice_id, model_id=self.spec.model_id, audio=b"ID3-test",
+        )
+        self.page.evaluate("""async () => {
+            const response = await fetch(location.href);
+            const documentCopy = new DOMParser().parseFromString(await response.text(), "text/html");
+            document.querySelector("[data-eo3-player]").replaceWith(
+                documentCopy.querySelector("[data-eo3-player]")
+            );
+            document.dispatchEvent(new CustomEvent("heureux:audio-prepared"));
+        }""")
+        toggle = self.page.locator("[data-eo3-toggle]")
+        expect(toggle).to_be_enabled()
+        toggle.click()
+        self.page.wait_for_function(
+            "() => document.querySelector('[data-eo3-audio]').currentTime > 0"
+        )
+        expect(toggle).to_have_attribute("aria-pressed", "true")
+        expect(completion).to_have_attribute("aria-checked", "true")
         self.assertFalse(self.errors, self.errors)
 
     def test_practice_controls_do_not_flip_and_hiding_stops_playback(self):

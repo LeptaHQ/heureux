@@ -276,6 +276,29 @@ class EO3AudioTests(TestCase):
                 self.assertEqual(response["Content-Encoding"], "identity")
                 self.assertEqual(response["Content-Length"], str(len(expected)))
 
+    def test_compact_progress_controls_preserve_legacy_annotation_text(self):
+        context = {
+            "response": self.prompt.response,
+            "subject_progress": {
+                "explicitly_completed": False, "status": "in_progress", "label": "En cours",
+            },
+            "subject_label": self.prompt.text,
+            "part": self.prompt.theme.task.part,
+            "task": self.prompt.theme.task,
+            "hide_help": True,
+            "csrf_token": "test-token",
+        }
+        legacy = render_to_string("study/partials/subject_progress_control.html", context)
+        compact = render_to_string("study/partials/subject_progress_control.html", {
+            **context, "compact_audio_control": True, "read_audio": {"ready": True},
+        })
+        self.assertEqual(
+            AnnotationRootText("<div data-annotation-root>" + legacy + "</div>").text,
+            AnnotationRootText("<div data-annotation-root>" + compact + "</div>").text,
+        )
+        self.assertIn('class="sr-only">J’ai terminé ce sujet</span>', compact)
+        self.assertIn('data-eo3-toggle="eo3-response-player"', compact)
+
     def test_player_on_detail_and_back_preserves_exact_annotation_text(self):
         self.save_recording()
         card = Card.objects.get(user=self.user, response=self.prompt.response, card_type=CardType.SPINE)

@@ -1,4 +1,4 @@
-<section class="eo3-audio" data-eo3-player data-flashcard-ignore-toggle aria-label="Écouter la réponse">
+<section class="eo3-audio"{% if player_id %} id="{{ player_id }}"{% endif %} data-eo3-player data-flashcard-ignore-toggle aria-label="Écouter la réponse">
   <div class="spine-label">Écouter la réponse</div>
   {% if audio.ready %}
     <p class="muted">Voix française de synthèse · ElevenLabs</p>

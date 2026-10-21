@@ -1,10 +1,11 @@
 from dataclasses import replace
-from email.message import Message
 from http.client import IncompleteRead
-from io import BytesIO, StringIO
+from io import StringIO
 import json
-from unittest.mock import MagicMock, patch
-from urllib.error import HTTPError, URLError
+from unittest.mock import patch
+
+import httpx
+from elevenlabs.text_to_speech.raw_client import RawTextToSpeechClient
 
 from django.core.management import call_command
 from django.core.management.base import CommandError
@@ -16,8 +17,8 @@ from study import catalogue
 from study.account_services import provision_user_study_data
 from study.card_presentation import card_payload
 from study.eo3_audio import (
-    MAX_AUDIO_BYTES, NarrationError, _NoRedirect, generate_narration,
-    narration_presentation, narration_spec, synthesize,
+    MAX_AUDIO_BYTES, MAX_ERROR_BYTES, NarrationError, PreSynthesisRejection, VOICE_SETTINGS,
+    _check_provider_request, generate_narration, narration_presentation, narration_spec, synthesize,
 )
 from study.models import Card, CardType, EO3Narration, PersonalResponse, Prompt
 from study.oral_highlights import AnnotationRootText
@@ -36,19 +37,34 @@ AUDIO_SETTINGS = {
 }
 
 
-def upstream(audio=AUDIO, content_type="audio/mpeg"):
-    response = MagicMock()
-    response.headers = Message()
-    response.headers["Content-Type"] = content_type
-    response.read.return_value = audio
-    response.__enter__.return_value = response
-    return response
+def upstream(audio=AUDIO, content_type="audio/mpeg", status=200, headers=None):
+    return httpx.Response(
+        status, headers={"Content-Type": content_type, **(headers or {})}, stream=httpx.ByteStream(audio),
+    )
+
+
+class BrokenStream(httpx.SyncByteStream):
+    def __iter__(self):
+        raise IncompleteRead(b"private provider detail")
+        yield b""  # pragma: no cover
 
 
 @override_settings(**AUDIO_SETTINGS)
 class EO3AudioSpecTests(SimpleTestCase):
     def setUp(self):
         self.model = catalogue.tache_three_models()["eo/tache-3/culture-p1"]
+
+    def provider(self, factory, response=None, error=None):
+        requests = []
+
+        def handle(request):
+            requests.append(request)
+            if error:
+                raise error
+            return response
+
+        factory.return_value = httpx.MockTransport(handle)
+        return requests
 
     def test_every_model_uses_exact_spoken_words_in_six_paragraphs(self):
         for model in catalogue.tache_three_models().values():
@@ -89,63 +105,176 @@ class EO3AudioSpecTests(SimpleTestCase):
             self.assertIsNone(narration_presentation(self.model))
         self.assertIsNone(narration_presentation(None))
 
-    @patch("study.eo3_audio.build_opener")
-    def test_provider_request_is_server_only_normal_speed_and_bounded(self, opener):
-        audio = upstream()
-        opener.return_value.open.return_value = audio
+    @patch("study.eo3_audio.httpx.HTTPTransport")
+    def test_provider_request_is_server_only_normal_speed_and_bounded(self, factory):
+        requests = self.provider(factory, upstream())
         spec = narration_spec(self.model)
-        self.assertEqual(synthesize(spec), AUDIO)
-        request = opener.return_value.open.call_args.args[0]
-        self.assertEqual(request.get_method(), "POST")
-        self.assertTrue(request.full_url.startswith("https://api.elevenlabs.io/v1/text-to-speech/"))
-        self.assertEqual(request.get_header("Xi-api-key"), AUDIO_SETTINGS["ELEVENLABS_API_KEY"])
-        payload = json.loads(request.data)
+        with patch.object(
+            RawTextToSpeechClient, "convert", autospec=True, side_effect=RawTextToSpeechClient.convert,
+        ) as convert, patch("study.eo3_audio.httpx.Client", wraps=httpx.Client) as client:
+            self.assertEqual(synthesize(spec), AUDIO)
+        self.assertEqual(convert.call_args.kwargs["request_options"], {
+            "max_retries": 0, "timeout_in_seconds": 90, "chunk_size": 8192,
+        })
+        self.assertFalse(client.call_args.kwargs["follow_redirects"])
+        self.assertFalse(client.call_args.kwargs["trust_env"])
+        self.assertEqual(len(requests), 1)
+        request = requests[0]
+        self.assertEqual(request.method, "POST")
+        self.assertEqual(str(request.url), f"https://api.elevenlabs.io/v1/text-to-speech/{spec.voice_id}?output_format=mp3_44100_64")
+        self.assertEqual(request.headers["xi-api-key"], AUDIO_SETTINGS["ELEVENLABS_API_KEY"])
+        self.assertEqual(request.headers["accept-encoding"], "identity")
+        self.assertTrue(request.headers["user-agent"].startswith("elevenlabs/"))
+        payload = json.loads(request.content)
         self.assertEqual(payload["text"], spec.text)
-        self.assertEqual(payload["voice_settings"]["speed"], 1.0)
-        self.assertEqual(opener.return_value.open.call_args.kwargs["timeout"], 90)
-        audio.read.assert_called_once_with(MAX_AUDIO_BYTES + 1)
-        self.assertIsInstance(opener.call_args.args[0], _NoRedirect)
+        self.assertEqual(payload["voice_settings"], VOICE_SETTINGS)
+        self.assertEqual(payload["model_id"], spec.model_id)
+        self.assertTrue(all(value == 90 for value in request.extensions["timeout"].values()))
+        factory.assert_called_once_with(retries=0)
 
-    @patch("study.eo3_audio.build_opener")
-    def test_missing_key_makes_no_request(self, opener):
+    @patch("study.eo3_audio.httpx.HTTPTransport")
+    def test_missing_key_makes_no_request(self, factory):
         with self.settings(ELEVENLABS_API_KEY=""):
             with self.assertRaisesMessage(NarrationError, "API_KEY"):
                 synthesize(narration_spec(self.model))
-        opener.assert_not_called()
+        factory.assert_not_called()
 
-    @patch("study.eo3_audio.build_opener")
-    def test_provider_errors_are_explicit_sanitized_and_never_retried(self, opener):
+    @patch("study.eo3_audio.httpx.HTTPTransport")
+    def test_provider_errors_are_explicit_sanitized_and_never_retried(self, factory):
         for error in (
-            HTTPError("https://example.invalid", 429, "private provider detail", {}, BytesIO()),
-            URLError("private provider detail"),
+            httpx.ConnectError("private provider detail"),
+            httpx.ReadTimeout("private provider detail"),
             TimeoutError("private provider detail"),
             IncompleteRead(b"private provider detail"),
         ):
             with self.subTest(error=type(error)):
-                opener.reset_mock()
-                opener.return_value.open.side_effect = error
+                requests = self.provider(factory, error=error)
                 with self.assertRaises(NarrationError) as caught:
                     synthesize(narration_spec(self.model))
                 self.assertNotIn("private provider detail", str(caught.exception))
                 self.assertNotIn(AUDIO_SETTINGS["ELEVENLABS_API_KEY"], str(caught.exception))
-                opener.return_value.open.assert_called_once()
+                self.assertEqual(len(requests), 1)
 
-    @patch("study.eo3_audio.build_opener")
-    def test_non_audio_empty_corrupt_and_oversized_responses_fail(self, opener):
+    @patch("study.eo3_audio.httpx.HTTPTransport")
+    def test_only_exact_structured_free_tier_rejection_is_definitive(self, factory):
+        for http_code in (401, 403):
+            for field in ("code", "status"):
+                body = json.dumps({"detail": {
+                    field: "free_users_not_allowed", "message": "private provider detail",
+                }}).encode()
+                self.provider(factory, upstream(body, "application/json", http_code))
+                with self.subTest(http=http_code, field=field), self.assertRaises(PreSynthesisRejection) as caught:
+                    synthesize(narration_spec(self.model))
+                self.assertIn("voix par défaut", str(caught.exception))
+                self.assertNotIn("private provider detail", str(caught.exception))
+                self.assertEqual(caught.exception.code, "free_users_not_allowed")
+
+    @patch("study.eo3_audio.httpx.HTTPTransport")
+    def test_unknown_malformed_conflicting_and_server_errors_stay_ambiguous(self, factory):
+        for http_code, body in (
+            (403, b'{"detail":{"code":"voice_access_denied"}}'),
+            (401, b'{"detail":{"code":"invalid_api_key"}}'),
+            (403, b'{"detail":{"message":"free_users_not_allowed"}}'),
+            (403, b'{"detail":{"code":null,"status":"free_users_not_allowed"}}'),
+            (403, b'{"detail":{"code":"other","status":"free_users_not_allowed"}}'),
+            (403, b'{"detail":{"code":["free_users_not_allowed"]}}'),
+            (403, b'{"detail":"free_users_not_allowed"}'),
+            (403, b'[]'),
+            (403, b'\xff'),
+            (403, b'{"detail":{"status":"free_users_not_allowed"'),
+            (403, b'{"detail":{"code":"free_users_not_allowed","extra":"' + b"x" * MAX_ERROR_BYTES + b'"}}'),
+            (500, b'{"detail":{"code":"free_users_not_allowed"}}'),
+            (429, b'{"detail":{"code":"free_users_not_allowed"}}'),
+        ):
+            requests = self.provider(factory, upstream(body, "application/json", http_code))
+            with self.subTest(http=http_code, body=body[:60]), self.assertRaises(NarrationError) as caught:
+                synthesize(narration_spec(self.model))
+            self.assertNotIsInstance(caught.exception, PreSynthesisRejection)
+            self.assertNotIn("private detail", str(caught.exception))
+            self.assertEqual(len(requests), 1)
+
+    @patch("study.eo3_audio.httpx.HTTPTransport")
+    def test_incomplete_error_body_does_not_prove_nonbillable_rejection(self, factory):
+        self.provider(factory, httpx.Response(403, stream=BrokenStream()))
+        with self.assertRaises(NarrationError) as caught:
+            synthesize(narration_spec(self.model))
+        self.assertNotIsInstance(caught.exception, PreSynthesisRejection)
+        for declared_length in ("1", "999", "bad", "-1"):
+            self.provider(factory, upstream(
+                b'{"detail":{"code":"free_users_not_allowed"}}', "application/json", 403,
+                {"Content-Length": declared_length},
+            ))
+            with self.subTest(length=declared_length), self.assertRaises(NarrationError) as caught:
+                synthesize(narration_spec(self.model))
+            self.assertNotIsInstance(caught.exception, PreSynthesisRejection)
+
+    @patch("study.eo3_audio.httpx.HTTPTransport")
+    def test_non_audio_empty_corrupt_and_oversized_responses_fail(self, factory):
         for data, content_type in (
             (b'{"error":"quota"}', "application/json"),
             (b"", "audio/mpeg"), (b"not an MP3", "audio/mpeg"),
             (b"ID3" + b"\x00" * MAX_AUDIO_BYTES, "audio/mpeg"),
         ):
             with self.subTest(size=len(data), content_type=content_type):
-                opener.return_value.open.return_value = upstream(data, content_type)
+                self.provider(factory, upstream(data, content_type))
                 with self.assertRaisesMessage(NarrationError, "invalid or oversized"):
                     synthesize(narration_spec(self.model))
 
-    def test_provider_redirects_are_not_followed_with_credentials(self):
-        self.assertIsNone(_NoRedirect().redirect_request(
-            None, None, 302, "", {}, "https://another-host.invalid",
-        ))
+    @patch("study.eo3_audio.httpx.HTTPTransport")
+    def test_provider_redirects_are_not_followed_with_credentials(self, factory):
+        requests = self.provider(factory, upstream(status=302, headers={"Location": "https://another-host.invalid"}))
+        with self.assertRaisesMessage(NarrationError, "HTTP 302"):
+            synthesize(narration_spec(self.model))
+        self.assertEqual(len(requests), 1)
+        for url in ("http://api.elevenlabs.io/v1/text-to-speech/Voice", "https://another-host.invalid/v1/text-to-speech/Voice"):
+            with self.assertRaisesMessage(NarrationError, "fixed ElevenLabs"):
+                _check_provider_request(httpx.Request("POST", url))
+
+    @patch("study.eo3_audio.httpx.HTTPTransport")
+    def test_adapter_rejects_invalid_sources_before_networking(self, factory):
+        for changes in ({"voice_id": "../voice"}, {"text": "x" * 10001}, {"text": ""}, {"model_id": "model?bad"}):
+            with self.subTest(changes=changes), self.assertRaisesMessage(NarrationError, "Invalid narration"):
+                synthesize(replace(narration_spec(self.model), **changes))
+        factory.assert_not_called()
+
+    @patch("study.eo3_audio.httpx.HTTPTransport")
+    def test_sdk_audio_stream_stops_at_limit_and_rejects_truncation_and_encoding(self, factory):
+        chunks = []
+
+        class LargeStream(httpx.SyncByteStream):
+            def __iter__(self):
+                for _ in range(MAX_AUDIO_BYTES // 8192 + 10):
+                    chunks.append(1)
+                    yield b"x" * 8192
+
+        self.provider(factory, httpx.Response(200, headers={"Content-Type": "audio/mpeg"}, stream=LargeStream()))
+        with self.assertRaisesMessage(NarrationError, "oversized"):
+            synthesize(narration_spec(self.model))
+        self.assertEqual(len(chunks), MAX_AUDIO_BYTES // 8192 + 1)
+        for response in (
+            upstream(headers={"Content-Length": str(len(AUDIO) + 1)}),
+            upstream(headers={"Content-Encoding": "gzip"}),
+            httpx.Response(200, headers={"Content-Type": "audio/mpeg"}, stream=BrokenStream()),
+        ):
+            self.provider(factory, response)
+            with self.assertRaises(NarrationError):
+                synthesize(narration_spec(self.model))
+
+    @patch("study.eo3_audio.httpx.HTTPTransport")
+    def test_error_hook_stops_before_sdk_can_buffer_unbounded_error_body(self, factory):
+        chunks = []
+
+        class LargeErrorStream(httpx.SyncByteStream):
+            def __iter__(self):
+                for _ in range(100):
+                    chunks.append(1)
+                    yield b" " * 1024
+
+        self.provider(factory, httpx.Response(403, stream=LargeErrorStream()))
+        with self.assertRaises(NarrationError) as caught:
+            synthesize(narration_spec(self.model))
+        self.assertNotIsInstance(caught.exception, PreSynthesisRejection)
+        self.assertEqual(len(chunks), 5)
 
 
 @override_settings(**AUDIO_SETTINGS)

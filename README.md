@@ -75,10 +75,33 @@ Culture → Sujet 1** and click the faint play icon beside the progress badge.
 Confirm the displayed voice and character count.
 Only that canonical public answer can be generated before audition. The MP3
 appears in the existing native player; click the play icon again to listen.
-There is **one globally shared sample attempt**, not one per account, text edit
-or voice change. A failure or interrupted request does not refund this
-authorization: inspect provider usage before allowing another attempt.
+There is **one globally shared potentially billable sample attempt**, not one
+per account, text edit or voice change. A failure or interrupted request does
+not refund this authorization: inspect provider usage before allowing another attempt.
 Other sample icons remain unavailable. No account-role change is required.
+
+**Free-plan voice rejection:** only an exact structured ElevenLabs
+`detail.code=free_users_not_allowed` (or legacy `detail.status` when `code` is
+absent), on HTTP 401/403 with a complete error body of at most 4 KB, is classified
+as a definitive pre-synthesis rejection. No raw provider message/key is saved
+or displayed. That sample request becomes `plan_denied`, atomically releasing
+the unbilled sample slot. Its conservative character reservation remains.
+An administrator can configure a different, explicitly selected default voice
+accessible to the account; reload the subject and confirm preparation again.
+The app never switches voices, upgrades a plan or retries automatically.
+Each denied voice is blocked across users/text/model changes, with at most
+three such rejected voices globally. Upgrading access to the same previously
+denied voice still needs explicit administrator review; it is not retried
+merely because the browser reloads.
+
+All other errors, malformed/truncated/oversized error bodies, HTTP 5xx, connection
+failures and timeouts remain potentially billable and locked. A **legacy
+`failed` row has no saved provider-code proof**: neither the account email nor
+changing the configured voice can reclassify it. For recovery, a trusted
+administrator must identify that exact request/fingerprint, obtain provider
+confirmation that no synthesis/billing occurred, and explicitly authorize a
+reviewed database recovery. Do not erase the row or clear the global claim from
+a generic 401/403 message. No public recovery/reset endpoint is provided.
 
 Do **not** append generation commands to Render's Build Command or startup.
 If the earlier workaround was configured, restore the ordinary Build Command:
@@ -93,6 +116,16 @@ socket timeout. Render needs no start-command edit. One preparation occupies one
 worker; no threads or queue daemon are required. Vercel serves cached playback
 but rejects interactive paid preparation because its function runtime is not
 configured for these bounded long requests.
+
+Generation uses the official pinned ElevenLabs Python SDK with an explicitly
+configured HTTPX client, not its permissive defaults: SDK and transport retries
+are zero, redirects and environment proxies are disabled, and requests are
+restricted to the fixed ElevenLabs HTTPS text-to-speech endpoint. The timeout
+is 90 seconds; input is limited to 10,000 characters and streamed MP3 output to
+8 MB. A response hook bounds/sanitizes errors before the SDK can buffer them.
+Compressed, incomplete, non-MP3 or oversized responses fail without automatic
+retry. Installing the declared requirements is sufficient; no CLI OAuth or
+local onboarding credential is used by the deployed server.
 
 **Other recordings remain gated until the sample is approved.** After separate
 approval, an operator can enable `FRENCH_AUDIO_GENERATION_ENABLED=True` and set a
@@ -111,7 +144,8 @@ cross-account grants, over 32 sources, and over 10,000 combined characters.
 Preparation requests are limited to 3 pending and 10 new requests per account
 per 24 hours, with 100 pending/working requests globally. A transactional DB
 reservation serializes paid calls and prevents duplicate billing. Failed or
-ambiguous attempts are never automatically retried. Pending requests expire
+ambiguous attempts are never automatically retried. Only the narrowly classified
+sample rejection above releases its slot. Pending requests expire
 after 24 hours but still occupy the queue until removed by a trusted operator.
 Inspect provider usage and interrupted `working` rows before any manual
 recovery; never reset `sample_claimed` or `reserved_characters` merely to hide

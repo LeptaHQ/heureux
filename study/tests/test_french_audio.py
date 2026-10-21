@@ -12,7 +12,7 @@ from django.test import Client, SimpleTestCase, TestCase, override_settings
 from django.urls import reverse
 from django.utils import timezone
 
-from study.eo3_audio import NarrationError
+from study.eo3_audio import NarrationError, PreSynthesisRejection, SAMPLE_REJECTION_LIMIT
 from study import catalogue
 from study.eo3_audio import SAMPLE_GROUP, narration_presentation, narration_spec
 from study.french_audio import (
@@ -421,4 +421,61 @@ class InAppSampleTests(TestCase):
             self.assertEqual(self.prepare().status_code, 409)
             self.assertFalse(FrenchNarrationBudget.objects.exists())
         self.assertEqual(self.prepare().status_code, 200)
+        provider.assert_called_once()
+
+    @patch("study.french_audio.synthesize", side_effect=PreSynthesisRejection())
+    def test_verified_plan_denial_keeps_proof_and_requires_a_different_voice(self, provider):
+        response = self.prepare()
+        self.assertEqual(response.status_code, 409)
+        self.assertIn("voix par défaut", response.json()["message"])
+        self.assertEqual(FrenchNarration.objects.get().status, "plan_denied")
+        self.assertFalse(FrenchNarrationBudget.objects.get().sample_claimed)
+        self.assertEqual(FrenchNarrationBudget.objects.get().reserved_characters, len(self.spec.text))
+        self.assertFalse(narration_presentation(self.model)["prepare_url"])
+        for _ in range(10):
+            self.assertEqual(self.prepare().status_code, 409)
+        self.client.force_login(factories.make_user("other-retry-listener"))
+        self.assertEqual(self.prepare().status_code, 409)
+        with self.settings(ELEVENLABS_MODEL_ID="other_model"):
+            spec = narration_spec(self.model)
+            self.url = reverse("study:eo3_audio_prepare", args=["culture-p1", spec.fingerprint])
+            self.assertEqual(self.prepare().status_code, 409)
+        provider.assert_called_once()
+        with self.settings(ELEVENLABS_VOICE_ID="DefaultVoice"):
+            spec = narration_spec(self.model)
+            self.url = reverse("study:eo3_audio_prepare", args=["culture-p1", spec.fingerprint])
+            self.assertTrue(narration_presentation(self.model)["prepare_url"])
+            self.assertEqual(self.prepare(confirm_cost=False).status_code, 400)
+            provider.side_effect = None
+            provider.return_value = AUDIO
+            self.assertEqual(self.prepare(player_id="eo3-response-player").status_code, 200)
+            self.assertEqual(bytes(EO3Narration.objects.get().audio), AUDIO)
+            self.assertTrue(FrenchNarrationBudget.objects.get().sample_claimed)
+            self.assertEqual(self.prepare().status_code, 200)
+        self.assertEqual(provider.call_count, 2)
+
+    @patch("study.french_audio.synthesize", side_effect=PreSynthesisRejection())
+    def test_verified_denials_are_globally_bounded_across_voices(self, provider):
+        for index in range(SAMPLE_REJECTION_LIMIT + 1):
+            with self.settings(ELEVENLABS_VOICE_ID=f"RestrictedVoice{index}"):
+                spec = narration_spec(self.model)
+                self.url = reverse("study:eo3_audio_prepare", args=["culture-p1", spec.fingerprint])
+                self.assertEqual(self.prepare().status_code, 409)
+        self.assertEqual(provider.call_count, SAMPLE_REJECTION_LIMIT)
+        self.assertEqual(FrenchNarration.objects.filter(status="plan_denied").count(), SAMPLE_REJECTION_LIMIT)
+        self.assertFalse(FrenchNarrationBudget.objects.get().sample_claimed)
+        self.assertFalse(narration_presentation(self.model)["prepare_url"])
+
+    @patch("study.french_audio.synthesize", side_effect=NarrationError("HTTP 403 without proof."))
+    def test_unclassified_legacy_failure_stays_locked_after_voice_change(self, provider):
+        self.assertEqual(self.prepare().status_code, 409)
+        self.assertEqual(FrenchNarration.objects.get().status, "failed")
+        self.assertTrue(FrenchNarrationBudget.objects.get().sample_claimed)
+        with self.settings(ELEVENLABS_VOICE_ID="DefaultVoice"):
+            spec = narration_spec(self.model)
+            self.url = reverse("study:eo3_audio_prepare", args=["culture-p1", spec.fingerprint])
+            self.assertEqual(self.prepare().status_code, 409)
+            presentation = narration_presentation(self.model)
+            self.assertFalse(presentation["prepare_url"])
+            self.assertIn("motif exact n’a pas été conservé", presentation["sample_issue"])
         provider.assert_called_once()

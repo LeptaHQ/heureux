@@ -3871,14 +3871,6 @@
         "french": "Des contacts facilités, pas une amitié garantie.",
         "english": "Easier contact, not guaranteed friendship."
       },
-      "nuance": {
-        "french": "Protéger les informations privées et vérifier la confiance.",
-        "english": "Protect private information and establish trust."
-      },
-      "conclusion": {
-        "french": "Une porte d'entrée vers une relation à construire.",
-        "english": "An entry point to a relationship that must be built."
-      },
       "arguments": [
         {
           "point": {
@@ -3902,28 +3894,28 @@
         },
         {
           "point": {
-            "french": "Construire une attention réciproque.",
-            "english": "Build mutual attentiveness."
+            "french": "S'écouter et tenir ses engagements pour construire la confiance.",
+            "english": "Listen to each other and keep commitments to build trust."
           },
           "example": {
-            "french": "Échanger régulièrement dans un atelier d'écriture.",
-            "english": "Exchange regularly in a writing workshop."
+            "french": "Lire les textes de l'autre et lui envoyer ses remarques au moment convenu.",
+            "english": "Read each other's texts and send feedback at the agreed time."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Protéger les informations privées et vérifier la confiance.",
+        "english": "Protect private information and establish trust."
+      },
+      "conclusion": {
+        "french": "Une porte d'entrée vers une relation à construire.",
+        "english": "An entry point to a relationship that must be built."
+      }
     },
     "technologie-p2": {
       "introduction": {
-        "french": "Une difficulté pratique et relationnelle, pas une impossibilité universelle.",
-        "english": "Practical and relational difficulties, not a universal impossibility."
-      },
-      "nuance": {
-        "french": "Réduire l'usage ne signifie pas supprimer l'appareil.",
-        "english": "Reducing use is not the same as removing the device."
-      },
-      "conclusion": {
-        "french": "Remplacer les fonctions et les services sans perdre le lien avec ses proches.",
-        "english": "Replace functions and service access while preserving relationships."
+        "french": "Sans portable, il faut remplacer plusieurs outils et garder le lien avec ses proches.",
+        "english": "Without a mobile, several tools must be replaced and contact with loved ones maintained."
       },
       "arguments": [
         {
@@ -3956,20 +3948,20 @@
             "english": "Hear a sister's encouragement before an exam away from home."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Réduire l'usage ne signifie pas supprimer l'appareil.",
+        "english": "Reducing use is not the same as removing the device."
+      },
+      "conclusion": {
+        "french": "Remplacer les fonctions et les services sans perdre le lien avec ses proches.",
+        "english": "Replace functions and service access while preserving relationships."
+      }
     },
     "technologie-p3": {
       "introduction": {
         "french": "Respecter un choix sans le rendre supérieur.",
         "english": "Respect a choice without declaring it superior."
-      },
-      "nuance": {
-        "french": "Les programmes télévisés peuvent aussi avoir de la valeur.",
-        "english": "Television programmes can also have value."
-      },
-      "conclusion": {
-        "french": "Aucun support ne mesure seul l'ouverture culturelle.",
-        "english": "No single medium measures cultural openness."
       },
       "arguments": [
         {
@@ -4002,20 +3994,20 @@
             "english": "Attend a public reading."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Les programmes télévisés peuvent aussi avoir de la valeur.",
+        "english": "Television programmes can also have value."
+      },
+      "conclusion": {
+        "french": "Sans télévision, on peut s'informer, découvrir des œuvres et choisir ses loisirs.",
+        "english": "Without television, people can stay informed, discover works and choose their leisure activities."
+      }
     },
     "technologie-p4": {
       "introduction": {
-        "french": "Refuser une causalité automatique.",
-        "english": "Reject automatic causation."
-      },
-      "nuance": {
-        "french": "Certains usages peuvent aussi isoler.",
-        "english": "Some uses can also isolate."
-      },
-      "conclusion": {
-        "french": "Évaluer les possibilités et la qualité des liens.",
-        "english": "Assess opportunities and relationship quality."
+        "french": "Internet ne rend pas forcément solitaire.",
+        "english": "Internet does not necessarily make people lonely."
       },
       "arguments": [
         {
@@ -4030,8 +4022,8 @@
         },
         {
           "point": {
-            "french": "Trouver une participation locale.",
-            "english": "Find local participation."
+            "french": "Trouver une activité près de chez soi.",
+            "english": "Find an activity close to home."
           },
           "example": {
             "french": "Découvrir un atelier de réparation.",
@@ -4048,7 +4040,15 @@
             "english": "Present a book to an online club when accessible transport is unavailable."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Certains usages peuvent aussi isoler.",
+        "english": "Some uses can also isolate."
+      },
+      "conclusion": {
+        "french": "Évaluer les possibilités et la qualité des liens.",
+        "english": "Assess opportunities and relationship quality."
+      }
     },
     "technologie-p5": {
       "introduction": {
@@ -4101,14 +4101,6 @@
         "french": "Un premier aperçu, pas toute l'actualité.",
         "english": "An initial overview, not all the news."
       },
-      "nuance": {
-        "french": "Une image n'est pas automatiquement une preuve complète.",
-        "english": "An image is not automatically complete evidence."
-      },
-      "conclusion": {
-        "french": "Sélection, images contextualisées et points de vue expliqués.",
-        "english": "Selection, contextualized images and explained viewpoints."
-      },
       "arguments": [
         {
           "point": {
@@ -4122,8 +4114,8 @@
         },
         {
           "point": {
-            "french": "Comprendre des images situées.",
-            "english": "Understand contextualized images."
+            "french": "Comprendre une image en sachant où et quand elle a été prise.",
+            "english": "Understand an image by knowing where and when it was taken."
           },
           "example": {
             "french": "Relier une route coupée à une carte des quartiers.",
@@ -4140,20 +4132,20 @@
             "english": "Compare savings and lost services in a report about a library closure."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Une image n'est pas automatiquement une preuve complète.",
+        "english": "An image is not automatically complete evidence."
+      },
+      "conclusion": {
+        "french": "Des sujets clairs, des images vérifiées et les raisons des désaccords expliquées.",
+        "english": "Clear stories, verified images and explanations of why people disagree."
+      }
     },
     "technologie-p7": {
       "introduction": {
         "french": "Un risque possible, pas un effet automatique.",
         "english": "A possible risk, not an automatic effect."
-      },
-      "nuance": {
-        "french": "Les liens en ligne peuvent aussi être profonds.",
-        "english": "Online relationships can also be deep."
-      },
-      "conclusion": {
-        "french": "Agir sur les mécanismes sans accuser tout Internet.",
-        "english": "Address the mechanisms without blaming all of the Internet."
       },
       "arguments": [
         {
@@ -4168,8 +4160,8 @@
         },
         {
           "point": {
-            "french": "Des comparaisons partielles.",
-            "english": "Partial comparisons."
+            "french": "Se comparer à des moments choisis, pas à toute la vie des autres.",
+            "english": "Compare yourself with selected moments, not other people's whole lives."
           },
           "example": {
             "french": "Prendre une photo de fête pour toute la vie d'autrui.",
@@ -4186,7 +4178,15 @@
             "english": "Receive symbols rather than a conversation."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Les liens en ligne peuvent aussi être profonds.",
+        "english": "Online relationships can also be deep."
+      },
+      "conclusion": {
+        "french": "Préserver les rencontres et l'écoute sans accuser tout Internet.",
+        "english": "Protect meetings and attentive listening without blaming all of the Internet."
+      }
     },
     "technologie-p10": {
       "introduction": {
@@ -4282,16 +4282,8 @@
     },
     "technologie-p12": {
       "introduction": {
-        "french": "Des fonctions particulières, pas une supériorité universelle.",
-        "english": "Specific functions, not universal superiority."
-      },
-      "nuance": {
-        "french": "Le numérique peut aussi être profond et durable.",
-        "english": "Digital messages can also be meaningful and lasting."
-      },
-      "conclusion": {
-        "french": "Choisir le support selon la relation et le besoin.",
-        "english": "Choose the medium for the relationship and need."
+        "french": "La lettre garde une utilité pour remercier, écrire posément et transmettre des souvenirs.",
+        "english": "Letters remain useful for thanks, thoughtful writing and passing on memories."
       },
       "arguments": [
         {
@@ -4324,20 +4316,20 @@
             "english": "Pass a letter about arriving in a country to a granddaughter."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Le numérique peut aussi être profond et durable.",
+        "english": "Digital messages can also be meaningful and lasting."
+      },
+      "conclusion": {
+        "french": "Choisir le support selon la relation et le besoin.",
+        "english": "Choose the medium for the relationship and need."
+      }
     },
     "technologie-p13": {
       "introduction": {
         "french": "Des échanges facilités, pas une disponibilité obligatoire.",
         "english": "Easier exchanges, not compulsory availability."
-      },
-      "nuance": {
-        "french": "Vérifier l'accès et respecter la disponibilité.",
-        "english": "Check access and respect availability."
-      },
-      "conclusion": {
-        "french": "Coordination, continuité et clarté.",
-        "english": "Coordination, continuity and clarity."
       },
       "arguments": [
         {
@@ -4370,20 +4362,20 @@
             "english": "Send a photo of a meeting entrance."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Vérifier l'accès et respecter la disponibilité.",
+        "english": "Check access and respect availability."
+      },
+      "conclusion": {
+        "french": "Prévenir d'un changement, garder le lien et se faire comprendre.",
+        "english": "Give notice of a change, stay in touch and make yourself understood."
+      }
     },
     "technologie-p15": {
       "introduction": {
-        "french": "Respecter le choix et examiner ses conditions.",
-        "english": "Respect the choice and examine its conditions."
-      },
-      "nuance": {
-        "french": "Distinguer choix volontaire et exclusion numérique.",
-        "english": "Distinguish voluntary choice from digital exclusion."
-      },
-      "conclusion": {
-        "french": "Ni numérique imposé ni absence idéalisée.",
-        "english": "Neither imposed technology nor idealized absence."
+        "french": "Respecter ce choix et vérifier comment faire les démarches sans ces outils.",
+        "english": "Respect this choice and check how to handle tasks without these tools."
       },
       "arguments": [
         {
@@ -4416,26 +4408,26 @@
             "english": "Buy a book in person without opening a customer account."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Distinguer choix volontaire et exclusion numérique.",
+        "english": "Distinguish voluntary choice from digital exclusion."
+      },
+      "conclusion": {
+        "french": "Se concentrer, participer sur place et protéger ses données, sans cacher les difficultés.",
+        "english": "Concentrate, participate in person and protect personal data without hiding the difficulties."
+      }
     },
     "technologie-p16": {
       "introduction": {
         "french": "Partir du besoin, des risques et de l'accompagnement.",
         "english": "Start with needs, risks and available guidance."
       },
-      "nuance": {
-        "french": "Adapter aux besoins et aux règles de l'école.",
-        "english": "Adapt to needs and school rules."
-      },
-      "conclusion": {
-        "french": "Un besoin défini, un apprentissage accompagné et un adulte accessible.",
-        "english": "A defined need, guided learning and an available adult."
-      },
       "arguments": [
         {
           "point": {
-            "french": "Une fonction limitée.",
-            "english": "A limited function."
+            "french": "Appeler un parent sans accéder à toutes les applications.",
+            "english": "Call a parent without access to every application."
           },
           "example": {
             "french": "Appeler son parent si le cours de musique se termine plus tôt.",
@@ -4454,28 +4446,28 @@
         },
         {
           "point": {
-            "french": "Une demande d'aide possible.",
-            "english": "Make asking for help possible."
+            "french": "Pouvoir demander de l'aide sans avoir seulement peur d'être puni.",
+            "english": "Be able to ask for help without only fearing punishment."
           },
           "example": {
             "french": "Montrer un message inquiétant à un adulte de confiance.",
             "english": "Show a troubling message to a trusted adult."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Adapter aux besoins et aux règles de l'école.",
+        "english": "Adapt to needs and school rules."
+      },
+      "conclusion": {
+        "french": "Un besoin défini, un apprentissage accompagné et un adulte accessible.",
+        "english": "A defined need, guided learning and an available adult."
+      }
     },
     "technologie-p17": {
       "introduction": {
         "french": "Distinguer recherche, coût et voyage de loisir.",
         "english": "Distinguish research, cost and leisure travel."
-      },
-      "nuance": {
-        "french": "Les satellites ne justifient pas tout tourisme spatial.",
-        "english": "Satellites do not justify all space tourism."
-      },
-      "conclusion": {
-        "french": "Soutenir des missions justifiées, pas tous les voyages.",
-        "english": "Support justified missions, not every journey."
       },
       "arguments": [
         {
@@ -4490,8 +4482,8 @@
         },
         {
           "point": {
-            "french": "Des priorités publiques à justifier.",
-            "english": "Justify public priorities."
+            "french": "L'argent d'une mission n'est plus disponible pour un autre projet.",
+            "english": "Money spent on a mission is no longer available for another project."
           },
           "example": {
             "french": "Comparer une contribution spatiale au report des recherches d'un laboratoire.",
@@ -4500,34 +4492,34 @@
         },
         {
           "point": {
-            "french": "Les passagers imposent des ressources supplémentaires.",
-            "english": "Passengers require additional resources."
+            "french": "Transporter des passagers exige aussi de l'air, de l'eau et des moyens de secours.",
+            "english": "Passengers also need air, water and emergency equipment."
           },
           "example": {
             "french": "Comparer une observation automatique aux besoins de survie d'un équipage.",
             "english": "Compare automated observation with a crew's life-support needs."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Les satellites ne justifient pas tout tourisme spatial.",
+        "english": "Satellites do not justify all space tourism."
+      },
+      "conclusion": {
+        "french": "Soutenir des missions justifiées, pas tous les voyages.",
+        "english": "Support justified missions, not every journey."
+      }
     },
     "technologie-p18": {
       "introduction": {
-        "french": "Possible pour certains besoins, pas universel.",
-        "english": "Possible for some needs, not universally."
-      },
-      "nuance": {
-        "french": "Préférence en magasin et impossibilité ne sont pas équivalentes.",
-        "english": "An in-store preference is not the same as impossibility."
-      },
-      "conclusion": {
-        "french": "Vérifier offre, remise et accès.",
-        "english": "Check offer, handover and access."
+        "french": "Certains foyers peuvent tout acheter en ligne, mais pas tous.",
+        "english": "Some households can buy everything online, but not all."
       },
       "arguments": [
         {
           "point": {
-            "french": "Une offre adaptée au panier.",
-            "english": "An offer matching the basket."
+            "french": "Trouver en ligne les produits dont on a besoin.",
+            "english": "Find the products you need online."
           },
           "example": {
             "french": "Commander courses et fournitures sur des sites adaptés.",
@@ -4536,8 +4528,8 @@
         },
         {
           "point": {
-            "french": "Une remise réellement possible.",
-            "english": "A feasible handover."
+            "french": "Pouvoir recevoir ou retirer les achats à temps.",
+            "english": "Be able to receive or collect purchases in time."
           },
           "example": {
             "french": "Vérifier adresse, délai et retrait.",
@@ -4546,28 +4538,28 @@
         },
         {
           "point": {
-            "french": "Un accès effectif à la commande.",
-            "english": "Effective access to ordering."
+            "french": "Pouvoir terminer la commande et payer.",
+            "english": "Be able to complete the order and pay."
           },
           "example": {
             "french": "Vérifier le moyen de paiement accepté.",
             "english": "Check the accepted payment method."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Préférence en magasin et impossibilité ne sont pas équivalentes.",
+        "english": "An in-store preference is not the same as impossibility."
+      },
+      "conclusion": {
+        "french": "Vérifier les produits, la livraison ou le retrait, et les moyens de commander.",
+        "english": "Check products, delivery or collection, and the means to place an order."
+      }
     },
     "technologie-p19": {
       "introduction": {
         "french": "Décrire l'apprentissage, pas un bénéfice automatique.",
         "english": "Describe the learning, not an automatic benefit."
-      },
-      "nuance": {
-        "french": "Pas de garantie d'intelligence ou de résultats.",
-        "english": "No guarantee of intelligence or grades."
-      },
-      "conclusion": {
-        "french": "Essais, création et coopération selon le cadre.",
-        "english": "Trials, creation and cooperation within a suitable framework."
       },
       "arguments": [
         {
@@ -4600,7 +4592,15 @@
             "english": "Combine a map and symbols to find a passage, then swap roles."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Pas de garantie d'intelligence ou de résultats.",
+        "english": "No guarantee of intelligence or grades."
+      },
+      "conclusion": {
+        "french": "Tester des solutions, créer une histoire et coopérer, avec un jeu adapté et des limites.",
+        "english": "Test solutions, create a story and cooperate, with a suitable game and limits."
+      }
     },
     "technologie-p20": {
       "introduction": {
@@ -4696,16 +4696,8 @@
     },
     "technologie-p22": {
       "introduction": {
-        "french": "Coordination, coopération et disponibilité transformées.",
-        "english": "Transformed coordination, collaboration and availability."
-      },
-      "nuance": {
-        "french": "L'accès, les métiers et l'expertise restent déterminants.",
-        "english": "Access, occupations and expertise still matter."
-      },
-      "conclusion": {
-        "french": "Des responsabilités claires plutôt que davantage de messages.",
-        "english": "Clear responsibilities rather than more messages."
+        "french": "Internet change les consignes, le travail partagé et les attentes de réponse.",
+        "english": "Internet changes instructions, shared work and expectations about replies."
       },
       "arguments": [
         {
@@ -4738,7 +4730,15 @@
             "english": "Handle evening messages during the next working period."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "L'accès, les métiers et l'expertise restent déterminants.",
+        "english": "Access, occupations and expertise still matter."
+      },
+      "conclusion": {
+        "french": "Savoir qui fait quoi et quand répondre, pas seulement envoyer plus de messages.",
+        "english": "Know who does what and when to reply, rather than simply send more messages."
+      }
     },
     "technologie-p24": {
       "introduction": {

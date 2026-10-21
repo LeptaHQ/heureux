@@ -113,6 +113,70 @@ class SpeakingHintsContentTests(SimpleTestCase):
             self.assertEqual(catalogue.tache_three_subject_hints(), plans)
             self.assertEqual(loader.call_count, 2)
 
+    def test_translations_preserve_the_people_and_conditions_in_the_model(self):
+            plans = catalogue.tache_three_subject_hints()
+            abroad = plans["eo/tache-3/culture-p5"].introduction
+            self.assertIn("le départ seul", abroad.french)
+            self.assertIn("moving abroad is not enough", abroad.english)
+            self.assertNotIn("leaving alone", abroad.english)
+            film = plans["eo/tache-3/culture-p12"].arguments[1].example
+            self.assertIn("proches qui vivent loin", film.french)
+            self.assertIn("loved ones living far apart", film.english)
+            self.assertIn("au téléphone", film.french)
+            self.assertIn("by phone", film.english)
+            self.assertNotIn("relatives", film.english)
+            self.assertNotIn("same evening", film.english)
+            theatre = plans["eo/tache-3/culture-p7"].arguments[2].example
+            self.assertIn("fellow actors and technicians", theatre.english)
+            visit = plans["eo/tache-3/culture-p29"].arguments[1].example
+            self.assertIn("Faute de congé ou d'argent", visit.french)
+            self.assertIn("Without time off or money", visit.english)
+            self.assertIn("in person", visit.english)
+
+    def test_cues_keep_necessity_and_family_relationship_qualifiers(self):
+            plans = catalogue.tache_three_subject_hints()
+            reading = plans["eo/tache-3/culture-p20"].introduction
+            self.assertIn("sans être indispensable", reading.french)
+            self.assertIn("not essential", reading.english)
+            distance = plans["eo/tache-3/famille-p5"].introduction
+            self.assertIn("Quand les relations sont bonnes", distance.french)
+            self.assertIn("When family relationships are good", distance.english)
+            celebration = plans["eo/tache-3/famille-p6"].nuance
+            self.assertIn("ne doit pas", celebration.french)
+            self.assertIn("should not", celebration.english)
+            privacy = plans["eo/tache-3/famille-p1"].nuance
+            self.assertIn("sans lire systématiquement", privacy.french)
+            self.assertIn("without routinely reading", privacy.english)
+
+    def test_examples_keep_the_causal_steps_and_decisive_conditions(self):
+            plans = catalogue.tache_three_subject_hints()
+            timetable = plans["eo/tache-3/sante-p3"].arguments[0].example
+            self.assertIn("finit à 17 h", timetable.french)
+            self.assertIn("commence à 17 h ailleurs", timetable.french)
+            self.assertIn("ends at five", timetable.english)
+            self.assertIn("starts at five elsewhere", timetable.english)
+            recording = plans["eo/tache-3/education-p3"].arguments[1].example
+            self.assertIn("témoin alerte l'enseignant", recording.french)
+            self.assertIn("prevent the video being shared", recording.english)
+            bus = plans["eo/tache-3/environnement-p6"].arguments[1].example
+            self.assertIn("si les correspondances suivent", bus.french)
+            self.assertIn("if connections work too", bus.english)
+            library = plans["eo/tache-3/economie-p22"].arguments[2].example
+            self.assertIn("accessible et gratuite", library.french)
+            self.assertIn("accessible free route", library.english)
+
+    def test_short_cues_do_not_invert_the_models_position(self):
+            plans = catalogue.tache_three_subject_hints()
+            learning = plans["eo/tache-3/education-p22"].introduction
+            self.assertTrue(learning.french.endswith("mais pas tout."))
+            self.assertTrue(learning.english.endswith("but not everything."))
+            comparison = plans["eo/tache-3/technologie-p7"].arguments[1]
+            self.assertIn("peuvent fausser", comparison.point.french)
+            self.assertIn("believe you are the only one", comparison.example.english)
+            retirement = plans["eo/tache-3/sante-p15"].introduction
+            self.assertIn("Refuser l'obligation", retirement.french)
+            self.assertIn("voluntary decision to continue", retirement.english)
+
     def test_plan_selector_is_task_scoped_and_has_no_generic_fallback(self):
         with patch.object(catalogue, "tache_three_subject_hints", side_effect=AssertionError("Wrong task")):
             for group in ("", "ee/tache-3/example", "eo/tache-2/example"):

@@ -25,9 +25,9 @@
         },
         {
           "idea": "Enfin, il faut apprendre à demander de l'aide lorsqu'un échange devient problématique.",
-          "developpement": "Même un usage prudent ne supprime pas tous les risques de harcèlement ou de contact indésirable. L'enfant doit savoir qu'il peut parler d'un problème sans être immédiatement tenu pour responsable.",
-          "exemple": "Si des messages humiliants apparaissent dans un groupe, un adolescent peut les montrer à un adulte de confiance. Ensemble, ils peuvent conserver les éléments utiles, utiliser les fonctions de signalement et chercher l'aide adaptée à la situation.",
-          "consequence": "L'accompagnement fournit alors une réponse concrète, au lieu de laisser l'enfant seul."
+          "developpement": "Face au harcèlement ou à un message inquiétant, l'enfant peut se taire par peur d'être puni. L'adulte ne peut alors pas l'aider. Il faut que l'enfant sache qu'il peut parler d'un problème sans être immédiatement tenu pour responsable.",
+          "exemple": "Un enfant qui reçoit une demande de photo d'un inconnu peut montrer le message à un adulte de confiance. Ensemble, ils bloquent le contact et signalent le message ; l'enfant ne reste pas seul face à une demande qu'il ne sait pas gérer.",
+          "consequence": "L'enfant sait ainsi quoi faire si un problème arrive, pas seulement ce qui est interdit."
         }
       ],
       "nuance": "Cependant, les plateformes ne conviennent pas à tous les âges, et leurs conditions d'accès doivent être respectées. Pour un enfant trop jeune ou pas encore prêt, attendre reste raisonnable. Accompagner ne signifie ni tout autoriser ni lire systématiquement tous les messages privés.",
@@ -73,7 +73,7 @@
       "arguments": [
         {
           "idea": "Tout d'abord, les aînés peuvent nous montrer des solutions auxquelles on n'avait pas pensé.",
-          "developpement": "Une personne qui a traversé une situation proche peut expliquer ce qu'elle a essayé et les difficultés rencontrées. Son récit aide à élargir les options, sans obliger à reproduire exactement son parcours.",
+          "developpement": "Une personne qui a traversé une situation proche peut expliquer ce qu'elle a essayé et les difficultés rencontrées. Son récit aide à élargir les options, sans qu'on soit obligé de reproduire exactement son parcours.",
           "exemple": "Un grand-parent qui a changé de métier peut raconter comment il avait parlé à des professionnels avant de se former. Pour un jeune qui hésite sur son orientation, cette démarche donne une première action possible, plutôt qu'un ordre de choisir le même métier.",
           "consequence": "La valeur du conseil vient ici d'une expérience expliquée."
         },
@@ -122,7 +122,7 @@
         }
       ],
       "nuance": "Cependant, l'enfant n'a pas à connaître tous les conflits ou tous les détails de la vie privée des adultes. On peut dire qu'une question est personnelle ou qu'on n'a pas encore de réponse. Adapter ou différer une explication n'oblige pas à inventer une fausse assurance.",
-      "conclusion": "En conclusion, je choisirais une parole honnête, progressive et bienveillante. Une explication vraie aide à comprendre et à garder confiance, sans donner à l'enfant un rôle de confident des adultes."
+      "conclusion": "En conclusion, je choisirais une parole honnête, progressive et bienveillante. Une explication vraie aide à comprendre et à garder confiance, sans que l'enfant devienne le confident des adultes."
     },
     "famille-p5": {
       "prompt_signatures": {
@@ -140,7 +140,7 @@
         },
         {
           "idea": "Ensuite, certains besoins demandent une aide disponible sur place.",
-          "developpement": "Les proches peuvent conseiller à distance sans pouvoir faire un déplacement ou rendre un service immédiat. Il faut alors trouver d'autres appuis et prévoir davantage certaines situations.",
+          "developpement": "Les proches peuvent conseiller à distance sans pouvoir faire un déplacement ou rendre un service immédiat. Il faut alors qu'on trouve d'autres appuis et qu'on prévoie davantage certaines situations.",
           "exemple": "Un parent installé loin des grands-parents doit rester au travail après la sortie de l'école. Il appelle une voisine de confiance, qui accepte de récupérer son enfant ce soir-là. Il a fallu trouver un autre relais sur place, au lieu de pouvoir demander ce service aux grands-parents.",
           "consequence": "L'éloignement ajoute donc parfois une difficulté d'organisation, au-delà du sentiment de manque."
         },
@@ -231,15 +231,15 @@
         },
         {
           "idea": "Ensuite, l'amitié donne une place régulière au plaisir d'être ensemble.",
-          "developpement": "Le quotidien ne se résume pas au travail et aux obligations. Un lien que l'on entretient offre des occasions de raconter sa semaine et de partager une activité choisie.",
-          "exemple": "Après un changement d'emploi, deux amis peuvent garder une promenade le samedi comme rendez-vous régulier. Même s'ils ne se croisent plus au travail, ils disposent d'un moment pour discuter et rire, sans devoir organiser une sortie coûteuse.",
-          "consequence": "Les deux amis gardent ainsi le plaisir de se retrouver, même si leur travail a changé."
+          "developpement": "On n'a pas besoin d'une grande réussite pour passer un bon moment. Retrouver un ami permet de parler d'autre chose que du travail et des obligations, et d'attendre avec plaisir le prochain rendez-vous.",
+          "exemple": "Deux amis peuvent prévoir une promenade chaque samedi, même s'ils ont peu d'argent à consacrer aux sorties. Ils discutent de leur semaine, rient et profitent d'un moment attendu, sans avoir besoin d'un événement exceptionnel.",
+          "consequence": "Des moments simples peuvent ainsi rendre le quotidien plus agréable."
         },
         {
           "idea": "Enfin, les amis peuvent nous aider à découvrir d'autres possibilités.",
-          "developpement": "Une relation de confiance permet de recevoir un avis différent et d'essayer une activité que l'on n'aurait pas choisie seul. Cette ouverture peut enrichir notre vie sans nous obliger à suivre tous les conseils.",
+          "developpement": "Une relation de confiance permet de recevoir un avis différent et d'essayer une activité que l'on n'aurait pas choisie seul. Cette ouverture peut enrichir notre vie sans qu'on soit obligé de suivre tous les conseils.",
           "exemple": "Une personne qui aimerait chanter mais n'ose pas peut accompagner un ami à une séance d'essai dans une chorale. Elle découvre l'ambiance avant de décider si elle souhaite continuer, plutôt que de renoncer sans avoir essayé.",
-          "consequence": "Le lien soutient alors une découverte, sans décider à la place de l'autre."
+          "consequence": "L'ami peut ainsi nous encourager à essayer, sans décider à notre place."
         }
       ],
       "nuance": "Cependant, ne pas avoir d'amis ne signifie pas n'avoir aucun lien humain. Une famille, un couple ou des activités partagées peuvent aussi contribuer à une vie satisfaisante. Une solitude choisie peut convenir, et une amitié pesante n'est pas préférable à l'absence de cette relation.",
@@ -299,7 +299,7 @@
           "idea": "Enfin, une cohabitation bien organisée permet de répartir le travail pratique.",
           "developpement": "Les courses, la cuisine et l'entretien restent nécessaires quand on vit seul. Dans un foyer où chacun participe, une personne peut prendre le relais lorsque l'autre a une journée chargée.",
           "exemple": "Deux adultes peuvent convenir que celui qui termine tôt prépare le repas, tandis que l'autre fait les courses un autre jour. Une personne seule doit soit réaliser les deux tâches, soit trouver une autre organisation.",
-          "consequence": "Le partage peut alléger certaines journées, sans faire disparaître le travail à accomplir."
+          "consequence": "Le partage peut alléger certaines journées, sans que le travail à accomplir disparaisse."
         }
       ],
       "nuance": "Cependant, ce partage n'existe pas automatiquement en famille. Si une seule personne assume toutes les tâches ou si les relations sont tendues, vivre seul peut devenir beaucoup plus simple. Inversement, habiter seul n'empêche ni l'entraide ni une vie sociale riche hors du logement.",
@@ -351,7 +351,7 @@
         },
         {
           "idea": "Ensuite, la langue familiale peut entretenir des relations entre générations.",
-          "developpement": "Elle donne accès aux récits et aux conversations de proches qui ne parlent pas la langue du pays d'accueil. L'enfant peut ainsi participer directement, plutôt que dépendre toujours d'une traduction.",
+          "developpement": "Elle donne accès aux récits et aux conversations de proches qui ne parlent pas la langue du pays d'accueil. L'enfant peut ainsi participer directement, sans qu'une traduction soit toujours nécessaire.",
           "exemple": "Un enfant qui pratique la langue de ses grands-parents peut leur raconter une sortie pendant un appel et leur poser des questions sur leur enfance. Des chansons ou de courtes histoires partagées peuvent lui donner envie de poursuivre ces échanges.",
           "consequence": "L'enfant peut ainsi connaître l'histoire familiale en parlant directement avec ses proches."
         },
@@ -413,7 +413,7 @@
           "idea": "Ensuite, la vie commune peut simplifier certaines tâches pour tous.",
           "developpement": "Préparer un repas ou faire les courses pour plusieurs personnes évite parfois que chacun s'en occupe séparément. Cela fonctionne si les adultes participent vraiment, au lieu de laisser les parents tout faire.",
           "exemple": "Un adulte peut préparer le dîner les jours où il termine tôt, tandis que ses parents font les courses un autre jour. Ils définissent les rôles à l'avance, sans que les parents aient à tout organiser et rappeler.",
-          "consequence": "La cohabitation apporte alors une entraide, pas seulement un hébergement."
+          "consequence": "Chacun apporte quelque chose à la vie commune."
         },
         {
           "idea": "Enfin, retrouver un cadre familier peut aider à traverser une période difficile.",
@@ -422,7 +422,7 @@
           "consequence": "Le soutien affectif complète ainsi l'aide matérielle, sans supprimer la responsabilité personnelle."
         }
       ],
-      "nuance": "Cependant, cette organisation suppose l'accord des parents et un logement qui le permette. Le manque d'intimité ou les conflits peuvent la rendre pesante. Une cohabitation durable peut être choisie, mais personne ne doit être contraint de la prolonger pour préserver l'apparence d'une famille unie.",
+      "nuance": "Cependant, cette organisation suppose l'accord des parents et un logement qui le permette. Le manque d'intimité ou les conflits peuvent la rendre pesante. Une cohabitation durable peut fonctionner, mais doit rester choisie de part et d'autre.",
       "conclusion": "En conclusion, vivre chez ses parents après 25 ans peut apporter une aide financière, pratique et affective si chacun garde sa place d'adulte. L'âge seul ne décide ni de la maturité ni de la qualité de cet arrangement."
     }
   }

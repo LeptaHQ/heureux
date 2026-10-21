@@ -244,6 +244,14 @@ class EeTacheThreeTitlePageTests(TestCase):
                 )
                 rendered = page.content.decode()
                 self.assertLess(
+                    rendered.index('class="detail-head detail-head--compact"'),
+                    rendered.index('class="prompt-nav prompt-nav--subject"'),
+                )
+                self.assertLess(
+                    rendered.index('class="prompt-nav prompt-nav--subject"'),
+                    rendered.index("tache-two-consigne"),
+                )
+                self.assertLess(
                     rendered.index("tache-two-consigne"),
                     rendered.index("section-card--ee-documents"),
                 )

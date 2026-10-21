@@ -69,6 +69,26 @@ abstract or difficult to decode. Reuse useful language across suitable questions
 while removing redundant reasoning within the same intervention. Reread the
 whole intervention after assembling edits, not only its individual fields.
 
+## Reuse across different questions
+
+Teach the same sound mechanism in the same words when it fits another consigne.
+Reuse a whole argument where its claim, development, example and consequence all
+apply; otherwise reuse only the compatible passage or concrete case. Do not invent
+synonym versions just for variety. Keep each question's position, actors, scope
+and limits, and retain a specific illustration when copying would weaken it.
+For example, helping someone through a difficult period is not the same as
+practical help, and Canada-specific access to a profession is not a universal rule.
+
+The reviewed reuse includes personal letters, friendship, household cooperation,
+asking an adult for help, conversations at a distance, public assistance,
+regular visits, repairs, conservation, urban traffic, salary trade-offs and
+checking a publication's origin. Some are identical arguments; others share only
+an example, a development or a sentence of nuance. Adapt spoken connectors when
+the same argument occupies a different position. Align both bilingual memory cues
+when an illustration changes, and keep distinct source groups distinct.
+`test_tache_three_reuse.py` pins these deliberate correspondences and boundaries;
+literal equality is not a quality quota or a substitute for reading the prompts.
+
 ## Reviewed defaults and preserved sources
 
 `study/content/tache_3/responses/<theme>.json` holds reviewed models using the
@@ -324,6 +344,20 @@ alongside the separate prompt explanation. Each model plan cues its introduction
 and position, three arguments and examples, nuance and conclusion. Keep it aligned
 with the reviewed model and every equivalent consigne; never generate it from a
 private answer. Both languages use EO2's shared hint-text presentation.
+
+Audit both languages against the complete model, not just its headings. Preserve
+who acts, the condition that makes an example work, and distinctions such as
+possible versus necessary. Do not narrow *proches* to relatives, confuse a
+departure by itself with travelling alone, or turn a possible result into a
+guarantee. In prompt explanations, mark illustrative actions as optional when
+the consigne asks only for a position and reasons; do not add examination tasks.
+
+For the user's subjunctive-learning pass, retain a natural existing clause before
+adding anything. Check the complete spoken response, including negative opinions,
+feelings, fears and purposes, not only common `il faut que` patterns. When needed,
+rephrase one existing requirement or purpose without changing its meaning,
+certainty or actors. A learning target is not an official examination quota;
+avoid stock filler or replacing a possibility with an obligation for grammar.
 
 Pistes replace the visible generic **Expressions liées** block on bundled EO3
 detail pages, outside both existing annotation roots. The old expression block

@@ -123,6 +123,15 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("ne peuvent pas créer seuls une relation", integration.developpement)
         self.assertIn("le groupe l'invite", integration.exemple)
 
+    def test_adaptation_introduction_keeps_the_preferred_living_abroad_wording(self):
+        introduction = self.response(9).position_claire
+        self.assertIn(
+            "Vivre à l'étranger ne consiste pas seulement à y habiter : "
+            "il faut communiquer dans un nouvel environnement",
+            introduction,
+        )
+        self.assertNotIn("une question de bonne volonté", introduction)
+
     def test_book_usefulness_keeps_the_original_reflection_and_concentration_argument(self):
         group = "eo/tache-3/culture-p6"
         response = self.models[group].response

@@ -3776,6 +3776,15 @@ class ResponsePromptNavigationTests(TestCase):
             count=2,
         )
 
+    def test_top_navigation_sits_above_the_prompt_card(self):
+        rendered = self.client.get(self._detail_url(self.middle_prompt)).content.decode()
+
+        top_navigation = rendered.index('class="prompt-nav prompt-nav--subject"')
+        prompt_card = rendered.index('<div class="detail-head">')
+        bottom_navigation = rendered.index("prompt-nav--bottom")
+        self.assertLess(top_navigation, prompt_card)
+        self.assertLess(prompt_card, bottom_navigation)
+
     def test_navigation_has_correct_first_and_last_boundaries(self):
         first_page = self.client.get(self._detail_url(self.first_prompt))
         last_page = self.client.get(self._detail_url(self.last_prompt))

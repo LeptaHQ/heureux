@@ -96,6 +96,36 @@ class TacheThreePromptNoteTests(SimpleTestCase):
             with self.subTest(mutation=mutation), self.assertRaises(ValueError):
                 self.load(payload)
 
+    def test_optional_examples_do_not_become_extra_prompt_requirements(self):
+        notes = load_tache_three_prompt_notes()
+        cause = notes["eo/tache-3/culture-p4"].note
+        self.assertIn("choose a priority cause and explain why", cause)
+        self.assertIn("can illustrate your reasons", cause)
+        self.assertNotIn("Explain a feasible action", cause)
+        culture = notes["eo/tache-3/culture-p14"].note
+        self.assertIn("local cultural events", culture)
+        self.assertIn("without travelling abroad", culture)
+        self.assertNotIn("without leaving home", culture)
+        traditions = notes["eo/tache-3/culture-p10"].note
+        self.assertIn("feel at home", traditions)
+        self.assertIn("other people's rights", traditions)
+        self.assertIn("Keeping meaningful traditions and adapting", traditions)
+
+    def test_notes_keep_screen_scope_and_choice_of_position_open(self):
+        notes = load_tache_three_prompt_notes()
+        screens = notes["eo/tache-3/sante-p2"].note
+        self.assertIn("computers, tablets, phones and television", screens)
+        self.assertIn("rather than a universal hour limit", screens)
+        sport = notes["eo/tache-3/sante-p8"].note
+        self.assertIn("adapted requirements or prefer encouragement", sport)
+        self.assertIn("Avoid claiming one sport or intensity is suitable for every child", sport)
+        volunteering = notes["eo/tache-3/education-p10"].note
+        self.assertIn("would like to do", volunteering)
+        self.assertIn("if you have not actually volunteered", volunteering)
+        organic = notes["eo/tache-3/environnement-p7"].note
+        self.assertIn("One source stops", organic)
+        self.assertIn("no missing question wording should be invented", organic)
+
     def test_rejects_malformed_schema_notes_and_duplicate_json_fields(self):
         for payload in ([], {**self.payload, "extra": True}):
             with self.subTest(payload_type=type(payload)), self.assertRaises(ValueError):

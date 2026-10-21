@@ -189,7 +189,7 @@
     "culture-p5": {
       "introduction": {
         "french": "Réussir à l'étranger est possible, mais le départ seul ne suffit pas.",
-        "english": "Success abroad is possible, but leaving alone is not enough."
+        "english": "Success abroad is possible, but moving abroad is not enough."
       },
       "nuance": {
         "french": "Les refus et les difficultés économiques peuvent imposer de revoir le projet.",
@@ -319,7 +319,7 @@
           },
           "example": {
             "french": "Une comédienne préparée permet aux partenaires et techniciens de régler une scène.",
-            "english": "A prepared actor lets partners and technicians rehearse a scene properly."
+            "english": "An actor who knows her lines helps fellow actors and technicians rehearse the scene."
           }
         }
       ]
@@ -538,8 +538,8 @@
             "english": "Television gives access to works and shared experiences."
           },
           "example": {
-            "french": "Deux proches éloignés discutent d'un film regardé le même soir.",
-            "english": "Two distant relatives discuss a film watched on the same evening."
+            "french": "Deux proches qui vivent loin regardent le même film, puis en discutent au téléphone.",
+            "english": "Two loved ones living far apart watch the same film, then discuss it by phone."
           }
         },
         {
@@ -804,8 +804,8 @@
             "english": "A personal letter can show that you took time for someone."
           },
           "example": {
-            "french": "Une carte d'anniversaire rappelle au destinataire un souvenir partagé avec sa sœur.",
-            "english": "A birthday card reminds the recipient of a memory shared with his sister."
+            "french": "Écrire à l'amie qui a facilité sa recherche de logement en l'hébergeant.",
+            "english": "Write to the friend whose hospitality made a housing search easier."
           }
         },
         {
@@ -814,18 +814,18 @@
             "english": "Preparing a letter can encourage fuller expression."
           },
           "example": {
-            "french": "Une lettre de remerciement relie les moments appréciés pendant un séjour.",
-            "english": "A thank-you letter connects the moments appreciated during a stay."
+            "french": "Raconter une installation à l'étranger dans un brouillon, choisir les détails puis relire avant de recopier.",
+            "english": "Draft an account of settling abroad, choose the details, then reread before copying it out."
           }
         },
         {
           "point": {
-            "french": "Le courrier peut devenir un souvenir matériel que l'on transmet.",
-            "english": "Personal post can become a tangible keepsake to pass on."
+            "french": "Une lettre conservée peut transmettre une mémoire familiale sans compte numérique.",
+            "english": "A saved letter can pass on family memories without a digital account."
           },
           "example": {
-            "french": "Une ancienne carte sert de point de départ pour raconter un premier séjour.",
-            "english": "An old card becomes a starting point for telling the story of a first stay."
+            "french": "Transmettre une lettre sur son arrivée dans un pays à sa petite-fille.",
+            "english": "Pass a letter about arriving in a country to a granddaughter."
           }
         }
       ]
@@ -860,7 +860,7 @@
             "english": "Translations provide access to stories and in-depth knowledge."
           },
           "example": {
-            "french": "Des récits traduits de familles rurale et citadine éclairent des différences d'accès à l'école.",
+            "french": "Des récits traduits de deux familles, l'une rurale et l'autre citadine, éclairent des différences d'accès à l'école.",
             "english": "Translated accounts from rural and urban families explain differences in access to school."
           }
         },
@@ -878,8 +878,8 @@
     },
     "culture-p20": {
       "introduction": {
-        "french": "La lecture est une voie précieuse vers la culture, pas une condition exclusive.",
-        "english": "Reading is a valuable path to culture, not an exclusive requirement."
+        "french": "La lecture est précieuse, sans être indispensable pour être cultivé.",
+        "english": "Reading is valuable, but not essential to being knowledgeable and culturally aware."
       },
       "nuance": {
         "french": "Lire beaucoup ne suffit pas sans réflexion ; les supports et les pratiques peuvent se compléter.",
@@ -1182,8 +1182,8 @@
             "english": "Distance complicates being present for relatives."
           },
           "example": {
-            "french": "Congés et coût du trajet peuvent empêcher d'aider immédiatement un parent opéré.",
-            "english": "Leave and travel costs may prevent immediately helping a parent after surgery."
+            "french": "Faute de congé ou d'argent pour le trajet, on ne peut pas toujours aider sur place un parent opéré.",
+            "english": "Without time off or money for travel, you may be unable to help a parent in person after surgery."
           }
         },
         {
@@ -1264,8 +1264,8 @@
             "english": "Staged luxury can give a misleading image of success."
           },
           "example": {
-            "french": "Comparer son quotidien aux seuls séjours luxueux d'un candidat déforme les repères.",
-            "english": "Comparing daily life with a contestant's luxury trips alone distorts reference points."
+            "french": "Comparer son quotidien aux seuls séjours luxueux d'un candidat peut faire croire que sa propre vie est sans intérêt.",
+            "english": "Comparing everyday life with a contestant's luxury trips can make your own life seem uninteresting."
           }
         },
         {
@@ -1434,8 +1434,8 @@
         "english": "Prefer gradual, supported access to social media."
       },
       "nuance": {
-        "french": "Respecter les conditions d'accès, l'âge et une vie privée adaptée.",
-        "english": "Respect access conditions, age and appropriate privacy."
+        "french": "Respecter l'âge et les règles d'accès, sans lire systématiquement les messages privés.",
+        "english": "Respect age and access rules without routinely reading every private message."
       },
       "conclusion": {
         "french": "Protéger, organiser et accompagner plutôt que tout permettre.",
@@ -1468,8 +1468,8 @@
             "english": "Children need to know how to seek help with harmful exchanges."
           },
           "example": {
-            "french": "Montrer des messages humiliants à un adulte de confiance.",
-            "english": "Show humiliating messages to a trusted adult."
+            "french": "Montrer à un adulte une demande de photo d'un inconnu ; ensemble, bloquer le contact et signaler le message.",
+            "english": "Show an adult a stranger's photo request; together, block the contact and report the message."
           }
         }
       ]
@@ -1614,8 +1614,8 @@
     },
     "famille-p5": {
       "introduction": {
-        "french": "Loin de sa famille, les moments partagés manquent et l'aide pratique est moins accessible.",
-        "english": "Far from family, shared moments are missed and practical help is less accessible."
+        "french": "Quand les relations sont bonnes, vivre loin de sa famille peut compliquer les moments partagés et l'entraide.",
+        "english": "When family relationships are good, living far apart can make shared moments and practical help harder."
       },
       "nuance": {
         "french": "D'autres liens soutiennent aussi ; une famille n'est pas toujours rassurante.",
@@ -1665,7 +1665,7 @@
       },
       "nuance": {
         "french": "Une célébration ponctuelle ne doit pas devenir un tarif par performance.",
-        "english": "An occasional celebration need not become a price per performance."
+        "english": "An occasional celebration should not become a price for every result."
       },
       "conclusion": {
         "french": "Reconnaître les progrès et apporter une aide concrète.",
@@ -1780,8 +1780,8 @@
             "english": "Friendship creates regular opportunities to enjoy being together."
           },
           "example": {
-            "french": "Garder une promenade le samedi après un changement d'emploi.",
-            "english": "Keep a Saturday walk after changing jobs."
+            "french": "Une promenade hebdomadaire offre un moment attendu sans dépense importante.",
+            "english": "A weekly walk provides an anticipated moment without major expense."
           }
         },
         {
@@ -1790,8 +1790,8 @@
             "english": "Friends can help us discover other possibilities."
           },
           "example": {
-            "french": "Accompagner un ami à une séance d'essai dans une chorale.",
-            "english": "Join a friend at a trial choir session."
+            "french": "Accompagner un ami à une chorale permet d'essayer avant de choisir.",
+            "english": "Joining a friend at a choir lets someone try it before choosing."
           }
         }
       ]
@@ -2127,7 +2127,7 @@
         {
           "point": {
             "french": "Apprendre peut commencer par une compétence précise, sans reprendre tout un parcours.",
-            "english": "Learning can start with one specific skill."
+            "english": "Learning can start with one specific skill without repeating a whole course of study."
           },
           "example": {
             "french": "S'entraîner à joindre une photo à un message.",
@@ -2176,8 +2176,8 @@
             "english": "Putting phones away avoids some learning interruptions."
           },
           "example": {
-            "french": "Des notifications font manquer une consigne pendant un travail de groupe.",
-            "english": "Notifications cause a pupil to miss an instruction during group work."
+            "french": "Consulter un message fait manquer une consigne ; ranger le téléphone aide à suivre la suivante.",
+            "english": "Checking a message leads to a missed instruction; putting the phone away helps the pupil follow the next one."
           }
         },
         {
@@ -2186,8 +2186,8 @@
             "english": "Rules on recording help protect privacy."
           },
           "example": {
-            "french": "Ne pas filmer un camarade à son insu pendant un exposé.",
-            "english": "Do not secretly film a classmate during a presentation."
+            "french": "Un témoin alerte l'enseignant, qui fait cesser l'enregistrement d'un camarade à son insu et agit pour empêcher sa diffusion.",
+            "english": "A witness alerts the teacher, who stops covert filming and acts to prevent the video being shared."
           }
         },
         {
@@ -2286,8 +2286,8 @@
             "english": "Check whether the career plan is feasible."
           },
           "example": {
-            "french": "Vérifier la reconnaissance du métier auprès de l'organisme compétent.",
-            "english": "Check professional recognition with the relevant organization."
+            "french": "Pour un métier réglementé, vérifier les démarches avec l'organisme compétent et prévoir une formation complémentaire si nécessaire.",
+            "english": "For a regulated profession, check the required steps with the relevant body and plan any necessary additional training."
           }
         },
         {
@@ -2406,8 +2406,8 @@
             "english": "This action addresses an immediate everyday need."
           },
           "example": {
-            "french": "Préparer les produits selon les besoins et les consignes de l'équipe.",
-            "english": "Prepare products according to needs and team instructions."
+            "french": "Préparer des paniers de riz, de conserves et de légumes pour qu'une personne puisse garder de l'argent pour son loyer.",
+            "english": "Prepare baskets of rice, canned food and vegetables so recipients can keep some money for rent."
           }
         },
         {
@@ -2452,8 +2452,8 @@
             "english": "Structured training builds foundations for understanding work."
           },
           "example": {
-            "french": "Corriger un exercice comptable et comprendre l'effet de l'erreur.",
-            "english": "Correct an accounting exercise and understand the error's effect."
+            "french": "Repérer une facture comptée deux fois dans un exercice comptable, puis vérifier les pièces et corriger le total.",
+            "english": "Spot an invoice counted twice in an accounting exercise, then check the records and correct the total."
           }
         },
         {
@@ -2492,12 +2492,12 @@
         "english": "Language difficulty depends on starting point, goal and practice."
       },
       "nuance": {
-        "french": "Communiquer utilement ne demande pas la perfection ni la seule motivation.",
-        "english": "Useful communication does not require perfection or motivation alone."
+        "french": "La perfection n'est pas nécessaire ; des objectifs progressifs et de l'aide peuvent faciliter les échanges.",
+        "english": "Perfection is not necessary; goals set in stages and support can make communication easier."
       },
       "conclusion": {
-        "french": "Avancer par étapes sur le système, l'échange et les occasions de pratique.",
-        "english": "Progress gradually with the system, interaction and practice opportunities."
+        "french": "Comprendre les règles, réagir à l'oral et pratiquer avec de l'aide.",
+        "english": "Understand the rules, respond in conversation and practise with support."
       },
       "arguments": [
         {
@@ -2516,8 +2516,8 @@
             "english": "Conversation requires understanding and responding without full preparation."
           },
           "example": {
-            "french": "Demander de répéter une question imprévue au téléphone.",
-            "english": "Ask for an unexpected phone question to be repeated."
+            "french": "Un appel pour un rendez-vous demande de faire répéter et de vérifier les consignes.",
+            "english": "A call to arrange an appointment requires repetition and checking instructions."
           }
         },
         {
@@ -2541,7 +2541,7 @@
         {
           "point": {
             "french": "Un ouvrage documenté peut expliquer le contexte d'une situation actuelle.",
-            "english": "A documented book can explain the context of a present situation."
+            "english": "A well-researched book can explain the context of a current situation."
           },
           "example": {
             "french": "Relier usines, arrivée de travailleurs et transformation des quartiers.",
@@ -2554,8 +2554,8 @@
             "english": "Narratives reveal experiences we may not encounter directly."
           },
           "example": {
-            "french": "Suivre un départ pour étudier et une recherche de logement dans deux récits du même pays.",
-            "english": "Follow leaving home to study and a housing search in two stories from the same country."
+            "french": "Lire un récit où l'on hésite à partir étudier et un autre sur la recherche d'un logement en ville.",
+            "english": "Read one story about hesitating to leave home to study and another about looking for housing in a city."
           }
         },
         {
@@ -2608,8 +2608,8 @@
             "english": "Prominent content is not necessarily the most informative."
           },
           "example": {
-            "french": "Un fil répète des vidéos alarmantes sans nouvelles preuves.",
-            "english": "A feed repeats alarming videos without new evidence."
+            "french": "Trois vidéos annoncent une fermeture d'école, mais reprennent le même message sans source.",
+            "english": "Three videos announce a school closure but repeat the same unsourced message."
           }
         },
         {
@@ -2626,8 +2626,8 @@
     },
     "education-p16": {
       "introduction": {
-        "french": "Préférer une rémunération équitable à un salaire identique sans critères.",
-        "english": "Prefer fair pay to an identical salary without criteria."
+        "french": "Un salaire identique pour tous n'est pas toujours juste ; les écarts doivent être expliqués.",
+        "english": "Identical pay for everyone is not always fair; differences must be explained."
       },
       "arguments": [
         {
@@ -2656,8 +2656,8 @@
             "english": "Pay can recognize additional skills useful to the company."
           },
           "example": {
-            "french": "Prendre en compte un diagnostic technique et la formation des collègues.",
-            "english": "Recognize technical diagnosis and training colleagues."
+            "french": "Diagnostiquer un capteur défectueux et former les collègues : un salaire différent si ces missions deviennent régulières.",
+            "english": "Diagnose a faulty sensor and train colleagues: different pay may be justified if these become regular duties."
           }
         }
       ],
@@ -2728,8 +2728,8 @@
             "english": "Shared foundations provide tools for life beyond class."
           },
           "example": {
-            "french": "Lire des horaires et calculer la durée d'un trajet.",
-            "english": "Read a timetable and calculate journey duration."
+            "french": "Lire deux horaires de bus et calculer si le temps suffit pour changer d'arrêt et prendre la correspondance.",
+            "english": "Read two bus timetables and calculate whether there is enough time to change stops and make the connection."
           }
         },
         {
@@ -2738,8 +2738,8 @@
             "english": "Learning content should also exercise reasoning."
           },
           "example": {
-            "french": "Comparer deux documents historiques et leurs sources.",
-            "english": "Compare two historical documents and their sources."
+            "french": "Sur une grève, comparer une affiche syndicale et un article, puis vérifier les faits communs.",
+            "english": "Compare a union poster and a news article about a strike, then check the facts they share."
           }
         },
         {
@@ -2826,8 +2826,8 @@
         },
         {
           "point": {
-            "french": "Une université ouverte développe des compétences utiles à la société.",
-            "english": "An open university develops skills useful to society."
+            "french": "Une université ouverte peut développer des compétences utiles à la société.",
+            "english": "An accessible university can develop skills useful to society."
           },
           "example": {
             "french": "Un support accessible permet d'apprendre à analyser des données utiles à une association.",
@@ -2902,8 +2902,8 @@
     },
     "education-p22": {
       "introduction": {
-        "french": "Internet permet beaucoup d'apprentissages autonomes, mais pas tout seul.",
-        "english": "The Internet enables much independent learning, but not everything alone."
+        "french": "On peut apprendre beaucoup de choses seul grâce à Internet, mais pas tout.",
+        "english": "People can learn many things alone through the Internet, but not everything."
       },
       "arguments": [
         {
@@ -2919,11 +2919,11 @@
         {
           "point": {
             "french": "On ne repère pas toujours ses propres erreurs sans regard extérieur.",
-            "english": "We do not always identify our own errors."
+            "english": "We do not always identify our own errors without outside feedback."
           },
           "example": {
-            "french": "Un partenaire signale un mot mal compris dans une phrase étrangère.",
-            "english": "A partner identifies a misunderstood word in a foreign-language sentence."
+            "french": "Un partenaire comprend « trente » au lieu de « treize » et révèle une erreur de prononciation.",
+            "english": "A partner hears thirty instead of thirteen, revealing a pronunciation error."
           }
         },
         {
@@ -2932,8 +2932,8 @@
             "english": "Some skills require experience that a screen cannot provide."
           },
           "example": {
-            "french": "La conduite demande une pratique réelle avec un encadrement adapté.",
-            "english": "Driving requires real practice with appropriate supervision."
+            "french": "Après une vidéo sur le démarrage, caler en voiture et reprendre le geste avec le moniteur.",
+            "english": "After a video on starting a car, stall in the vehicle and practise the action again with the instructor."
           }
         }
       ],
@@ -2969,7 +2969,7 @@
           },
           "example": {
             "french": "Après une galerie, chercher pourquoi utiliser des matériaux récupérés.",
-            "english": "After a gallery visit, investigate using recovered materials."
+            "english": "After a gallery visit, investigate why an artist uses reclaimed materials."
           }
         },
         {
@@ -3040,8 +3040,8 @@
     },
     "sante-p2": {
       "introduction": {
-        "french": "Évaluer ce que l'écran remplace dans la journée.",
-        "english": "Assess what screen use replaces during the day."
+        "french": "Les écrans prennent trop de place s'ils remplacent le repos, les activités et les échanges.",
+        "english": "Screens take up too much time when they displace rest, other activities and conversation."
       },
       "arguments": [
         {
@@ -3096,8 +3096,8 @@
             "english": "Conflicting schedules."
           },
           "example": {
-            "french": "Un cours et une prise de poste à dix-sept heures.",
-            "english": "A class and a shift both scheduled at five."
+            "french": "Un cours finit à 17 h, mais le travail commence à 17 h ailleurs.",
+            "english": "A class ends at five, but the shift starts at five elsewhere."
           }
         },
         {
@@ -3112,8 +3112,8 @@
         },
         {
           "point": {
-            "french": "Impossible de réduire ses heures si le salaire ne couvre plus le loyer.",
-            "english": "Cutting hours may leave too little income to pay rent."
+            "french": "Le besoin de revenu peut empêcher de réduire ses heures de travail.",
+            "english": "Needing the income can prevent cutting work hours."
           },
           "example": {
             "french": "Supprimer deux services pour réviser laisse un salaire insuffisant pour le loyer.",
@@ -3132,8 +3132,8 @@
     },
     "sante-p4": {
       "introduction": {
-        "french": "L'État organise une aide durable, les citoyens peuvent la compléter.",
-        "english": "The state organizes lasting help; citizens can add to it."
+        "french": "L'État doit organiser une aide durable ; les citoyens peuvent la compléter.",
+        "english": "The state should organize lasting support; citizens can complement it."
       },
       "arguments": [
         {
@@ -3152,8 +3152,8 @@
             "english": "Regular contact to address isolation."
           },
           "example": {
-            "french": "Échanger avec un bénévole chaque semaine, puis chercher ensemble une activité de quartier.",
-            "english": "Talk with a volunteer weekly, then look for a neighbourhood activity together."
+            "french": "Reprendre ensemble la discussion sur un livre, sans imposer la visite.",
+            "english": "Continue discussing a book together without imposing the visit."
           }
         },
         {
@@ -3179,13 +3179,13 @@
     "sante-p6": {
       "introduction": {
         "french": "Arrêter la viande n'est pas une condition de bonne santé pour tous.",
-        "english": "Stopping meat is not a condition of good health for everyone."
+        "english": "Giving up meat is not a universal requirement for good health."
       },
       "arguments": [
         {
           "point": {
-            "french": "L'équilibre de l'ensemble.",
-            "english": "Overall balance."
+            "french": "Supprimer la viande ne suffit pas à équilibrer les repas.",
+            "english": "Removing meat is not enough to make meals balanced."
           },
           "example": {
             "french": "Retirer la viande ne corrige pas une journée de biscuits.",
@@ -3230,8 +3230,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Le poids du supplément sur le panier.",
-            "english": "The extra cost across a basket."
+            "french": "Un supplément sur chaque produit peut rendre le panier trop cher.",
+            "english": "An extra cost on each item can make the whole basket unaffordable."
           },
           "example": {
             "french": "Comparer deux paquets de pâtes de même poids.",
@@ -3245,7 +3245,7 @@
           },
           "example": {
             "french": "Une promotion éloignée peut exiger un trajet coûteux.",
-            "english": "A distant promotion may require an expensive journey."
+            "english": "A special offer at a distant shop may involve an expensive journey."
           }
         },
         {
@@ -3260,8 +3260,8 @@
         }
       ],
       "nuance": {
-        "french": "Le bio ne garantit pas un repas équilibré.",
-        "english": "Organic does not guarantee a balanced meal."
+        "french": "Une promotion ne résout pas un budget insuffisant ; le bio ne garantit pas un repas équilibré.",
+        "english": "A special offer does not solve an insufficient budget; organic food does not guarantee a balanced meal."
       },
       "conclusion": {
         "french": "Comparer les possibilités sans juger les acheteurs.",
@@ -3274,8 +3274,8 @@
         "english": "Encourage activity without imposing a sport."
       },
       "nuance": {
-        "french": "Un cadre adapté reste possible.",
-        "english": "A suitable framework remains possible."
+        "french": "Des règles peuvent demander de bouger régulièrement, sans imposer le même sport ni ignorer les difficultés.",
+        "english": "Rules can require regular movement without imposing the same sport or ignoring difficulties."
       },
       "conclusion": {
         "french": "Comprendre, proposer et adapter.",
@@ -3408,8 +3408,8 @@
     },
     "sante-p11": {
       "introduction": {
-        "french": "Distinguer l'État vendeur de l'interdiction générale.",
-        "english": "Distinguish the state as seller from a general ban."
+        "french": "Le retrait de l'État vendeur ne suffit pas ; ne pas le confondre avec une interdiction générale.",
+        "english": "State withdrawal as a seller is not enough; do not confuse it with a general ban."
       },
       "arguments": [
         {
@@ -3500,8 +3500,8 @@
     },
     "sante-p14": {
       "introduction": {
-        "french": "Comparer l'accès réel, pas seulement ville et campagne.",
-        "english": "Compare real access, not just city and countryside."
+        "french": "La ville peut faciliter la vie si les services, les transports et les activités sont réellement accessibles.",
+        "english": "City life can be easier if services, transport and activities are genuinely accessible."
       },
       "nuance": {
         "french": "Un village bien relié peut mieux convenir.",
@@ -3546,8 +3546,8 @@
     },
     "sante-p15": {
       "introduction": {
-        "french": "Distinguer continuation volontaire et obligation uniforme.",
-        "english": "Distinguish voluntary continuation from a universal obligation."
+        "french": "Refuser l'obligation pour tous jusqu'à 70 ans, sans refuser une poursuite volontaire.",
+        "english": "Reject compulsory work until seventy for everyone, without rejecting a voluntary decision to continue."
       },
       "nuance": {
         "french": "Le financement et les choix volontaires comptent aussi.",
@@ -3592,8 +3592,8 @@
     },
     "sante-p16": {
       "introduction": {
-        "french": "Adapter cet avis illustratif à son pays.",
-        "english": "Adapt this illustrative viewpoint to one's country."
+        "french": "Adapter à son pays : apprécier les recettes et les repas partagés, sans oublier temps et budget.",
+        "english": "Adapt to your country: value the recipes and shared meals while considering time and budget."
       },
       "arguments": [
         {
@@ -3654,12 +3654,12 @@
         },
         {
           "point": {
-            "french": "Une pression qui peut gêner.",
-            "english": "Pressure can get in the way."
+            "french": "Une pression trop forte peut faire perdre le fil.",
+            "english": "Too much pressure can make someone lose the thread."
           },
           "example": {
-            "french": "Reformuler calmement une question d'entretien.",
-            "english": "Calmly rephrase an interview question."
+            "french": "Un interlocuteur reformule calmement quand la personne perd le fil pendant l'entretien.",
+            "english": "The other person calmly rephrases an interview question when the candidate loses the thread."
           }
         },
         {
@@ -3674,8 +3674,8 @@
         }
       ],
       "nuance": {
-        "french": "La motivation peut exister sans stress.",
-        "english": "Motivation can exist without stress."
+        "french": "Les réactions varient ; repos et soutien comptent, et une difficulté persistante mérite de l'aide.",
+        "english": "Reactions vary; rest and support matter, and persistent difficulties deserve appropriate help."
       },
       "conclusion": {
         "french": "Préparer et soutenir plutôt qu'augmenter la pression.",
@@ -3684,8 +3684,8 @@
     },
     "sante-p19": {
       "introduction": {
-        "french": "Examiner le temps, le contenu et les mécanismes.",
-        "english": "Examine time, content and design features."
+        "french": "Les jeux vidéo peuvent nuire selon le temps, les contenus, les contacts et les incitations à acheter.",
+        "english": "Video games can cause harm depending on time, content, contacts and pressure to buy."
       },
       "arguments": [
         {
@@ -3714,8 +3714,8 @@
             "english": "Purchases under pressure."
           },
           "example": {
-            "french": "Désactiver les achats non autorisés.",
-            "english": "Disable unauthorized purchases."
+            "french": "Une offre limitée pousse l'enfant à acheter vite ; en discuter et bloquer les achats non autorisés.",
+            "english": "A limited-time offer pressures a child to buy; discuss it and block unauthorized purchases."
           }
         }
       ],
@@ -3760,8 +3760,8 @@
             "english": "Benefits and services can reduce what people have to pay."
           },
           "example": {
-            "french": "Un transport public permet de se passer d'une voiture.",
-            "english": "Public transport can remove the need for a car."
+            "french": "Un transport public adapté aux trajets peut remplacer la voiture et éviter ses frais d'entretien et d'assurance.",
+            "english": "Usable public transport can replace a car for daily trips, saving maintenance and insurance costs."
           }
         }
       ],
@@ -3806,8 +3806,8 @@
             "english": "Working conditions."
           },
           "example": {
-            "french": "Comparer une promotion et ses déplacements.",
-            "english": "Compare a promotion with its travel demands."
+            "french": "Refuser une promotion avec déplacements si un poste moins payé couvre les besoins et préserve la vie familiale.",
+            "english": "Decline a promotion with frequent travel if a lower-paid job covers needs and leaves room for family commitments."
           }
         }
       ],
@@ -3852,14 +3852,14 @@
             "english": "Understand why to take a product and whether it is suitable."
           },
           "example": {
-            "french": "Le pharmacien vérifie les associations avant l'ajout d'un produit conseillé par un proche.",
-            "english": "A pharmacist checks combinations before adding a product suggested by a relative."
+            "french": "Demander au pharmacien si le médicament d'un proche convient et vérifier les associations.",
+            "english": "Ask a pharmacist whether a relative's medicine is suitable and check interactions."
           }
         }
       ],
       "nuance": {
-        "french": "Ne pas modifier un traitement prescrit sans avis médical.",
-        "english": "Do not change prescribed treatment without medical advice."
+        "french": "Ne pas en avoir besoin aujourd'hui ne garantit pas l'avenir ; ne pas modifier un traitement sans avis médical.",
+        "english": "Not needing medicine today does not rule out future needs; never change prescribed treatment without medical advice."
       },
       "conclusion": {
         "french": "Accès aux traitements nécessaires et conseils pour bien les utiliser.",
@@ -3878,8 +3878,8 @@
             "english": "Find a shared interest."
           },
           "example": {
-            "french": "Rejoindre une randonnée locale.",
-            "english": "Join a local hiking group."
+            "french": "Une personne rejoint un groupe local de randonnée pour trouver des interlocuteurs.",
+            "english": "A person joins a local hiking group to find people to talk to."
           }
         },
         {
@@ -3888,8 +3888,8 @@
             "english": "Prepare the first exchange."
           },
           "example": {
-            "french": "Commenter une technique de photographie.",
-            "english": "Comment on a photography technique."
+            "french": "Dans un groupe photo, commenter une technique puis poursuivre la discussion après une réponse.",
+            "english": "In a photography group, comment on a technique, then continue the discussion after a reply."
           }
         },
         {
@@ -3904,8 +3904,8 @@
         }
       ],
       "nuance": {
-        "french": "Protéger les informations privées et vérifier la confiance.",
-        "english": "Protect private information and establish trust."
+        "french": "Des profils peuvent tromper ; protéger ses informations privées et rester prudent lors d'une rencontre.",
+        "english": "Profiles can be misleading; protect private information and take care when meeting."
       },
       "conclusion": {
         "french": "Une porte d'entrée vers une relation à construire.",
@@ -3914,8 +3914,8 @@
     },
     "technologie-p2": {
       "introduction": {
-        "french": "Sans portable, il faut remplacer plusieurs outils et garder le lien avec ses proches.",
-        "english": "Without a mobile, several tools must be replaced and contact with loved ones maintained."
+        "french": "Se passer du portable n'est pas toujours facile : il faut remplacer des outils et garder le lien avec ses proches.",
+        "english": "Doing without a mobile is not always easy: tools must be replaced and contact with loved ones maintained."
       },
       "arguments": [
         {
@@ -3924,8 +3924,8 @@
             "english": "Replace several functions."
           },
           "example": {
-            "french": "Imprimer billet et correspondances avant un voyage.",
-            "english": "Print tickets and connections before travelling."
+            "french": "Imprimer le billet, noter les correspondances et le lieu du rendez-vous avant de partir sans portable.",
+            "english": "Print the ticket, note connections and the meeting place before leaving without a mobile."
           }
         },
         {
@@ -3934,8 +3934,8 @@
             "english": "Check mobile verification requirements."
           },
           "example": {
-            "french": "Demander une identification bancaire sans portable.",
-            "english": "Ask about banking identification without a mobile."
+            "french": "Demander à sa banque une identification sans portable ; si seul le guichet convient, prévoir le déplacement.",
+            "english": "Ask the bank about identification without a mobile; if only a branch visit works, allow time to travel."
           }
         },
         {
@@ -3950,8 +3950,8 @@
         }
       ],
       "nuance": {
-        "french": "Réduire l'usage ne signifie pas supprimer l'appareil.",
-        "english": "Reducing use is not the same as removing the device."
+        "french": "Difficile ne veut pas dire impossible si des alternatives existent ; réduire l'usage n'est pas supprimer le portable.",
+        "english": "Difficult does not mean impossible if alternatives exist; reducing use is not removing the mobile."
       },
       "conclusion": {
         "french": "Remplacer les fonctions et les services sans perdre le lien avec ses proches.",
@@ -3990,8 +3990,8 @@
             "english": "Discover other cultural forms."
           },
           "example": {
-            "french": "Participer à une lecture publique.",
-            "english": "Attend a public reading."
+            "french": "Participer à une lecture publique puis emprunter un livre de l'auteur pour découvrir son œuvre et en discuter.",
+            "english": "Attend a public reading, then borrow the author's book to discover their work and discuss it."
           }
         }
       ],
@@ -4016,8 +4016,8 @@
             "english": "Maintain presence across distance."
           },
           "example": {
-            "french": "Un appel régulier entre deux pays.",
-            "english": "A regular call between two countries."
+            "french": "Des proches de deux pays échangent chaque semaine en vidéo pour parler de leurs difficultés ou projets.",
+            "english": "Loved ones in two countries talk by video each week about their difficulties or plans."
           }
         },
         {
@@ -4026,8 +4026,8 @@
             "english": "Find an activity close to home."
           },
           "example": {
-            "french": "Découvrir un atelier de réparation.",
-            "english": "Discover a repair workshop."
+            "french": "Trouver en ligne un atelier de réparation, s'y rendre avec un objet et participer avec les voisins.",
+            "english": "Find a repair workshop online, go there with an object and take part with neighbours."
           }
         },
         {
@@ -4042,8 +4042,8 @@
         }
       ],
       "nuance": {
-        "french": "Certains usages peuvent aussi isoler.",
-        "english": "Some uses can also isolate."
+        "french": "Certains usages peuvent isoler ; les plateformes doivent aussi limiter les sollicitations envahissantes.",
+        "english": "Some uses can isolate; platforms must also limit intrusive demands for attention."
       },
       "conclusion": {
         "french": "Évaluer les possibilités et la qualité des liens.",
@@ -4080,8 +4080,8 @@
             "english": "Control the pace."
           },
           "example": {
-            "french": "S'arrêter sur un terme d'un article économique.",
-            "english": "Pause over a term in an economics article."
+            "french": "Dans un article économique, éclaircir un terme puis reprendre le raisonnement sans perdre la suite.",
+            "english": "In an economics article, clarify a term, then resume the reasoning without losing the thread."
           }
         },
         {
@@ -4090,8 +4090,8 @@
             "english": "Seek context."
           },
           "example": {
-            "french": "Comparer une présentation et le texte d'une réforme.",
-            "english": "Compare an explanation with the reform's original text."
+            "french": "Lire une présentation et le texte d'une réforme pour distinguer annonces, débats et mesures appliquées.",
+            "english": "Read an explanation and the reform text to distinguish announcements, debates and measures actually applied."
           }
         }
       ]
@@ -4118,8 +4118,8 @@
             "english": "Understand an image by knowing where and when it was taken."
           },
           "example": {
-            "french": "Relier une route coupée à une carte des quartiers.",
-            "english": "Connect a blocked road with a neighbourhood map."
+            "french": "Un reportage montre une route coupée après une inondation ; la carte indique quels quartiers ne sont plus reliés.",
+            "english": "A report shows a road cut off after flooding; the map shows which neighbourhoods are no longer connected."
           }
         },
         {
@@ -4154,18 +4154,18 @@
             "english": "Postponed meetings."
           },
           "example": {
-            "french": "Décliner des invitations pour suivre des vidéos.",
-            "english": "Decline invitations to keep watching videos."
+            "french": "Décliner plusieurs invitations pour regarder des vidéos, puis ne plus voir les amis qu'on voulait retrouver.",
+            "english": "Decline several invitations to watch videos, then stop seeing friends you wanted to meet."
           }
         },
         {
           "point": {
-            "french": "Se comparer à des moments choisis, pas à toute la vie des autres.",
-            "english": "Compare yourself with selected moments, not other people's whole lives."
+            "french": "Les moments choisis des autres peuvent fausser la comparaison.",
+            "english": "Other people's selected moments can distort the comparison."
           },
           "example": {
-            "french": "Prendre une photo de fête pour toute la vie d'autrui.",
-            "english": "Mistake a party photo for someone's whole life."
+            "french": "Voir une photo de fête et croire être le seul à passer une soirée calme.",
+            "english": "See a party photo and believe you are the only one spending a quiet evening."
           }
         },
         {
@@ -4174,14 +4174,14 @@
             "english": "A lack of attentive listening."
           },
           "example": {
-            "french": "Recevoir des symboles plutôt qu'une conversation.",
-            "english": "Receive symbols rather than a conversation."
+            "french": "Après une séparation, demander à parler dans un groupe mais ne recevoir que des symboles, sans interlocuteur.",
+            "english": "After a separation, ask to talk in a group but receive only symbols, with no one to talk to."
           }
         }
       ],
       "nuance": {
-        "french": "Les liens en ligne peuvent aussi être profonds.",
-        "english": "Online relationships can also be deep."
+        "french": "Des liens en ligne peuvent être profonds ; les plateformes doivent aussi limiter les sollicitations envahissantes.",
+        "english": "Online relationships can be deep; platforms must also limit intrusive demands for attention."
       },
       "conclusion": {
         "french": "Préserver les rencontres et l'écoute sans accuser tout Internet.",
@@ -4190,12 +4190,12 @@
     },
     "technologie-p10": {
       "introduction": {
-        "french": "Évaluer des fonctions concrètes.",
-        "english": "Assess concrete functions."
+        "french": "Les réseaux peuvent être utiles ; regarder le besoin satisfait, pas le nombre d'abonnés.",
+        "english": "Networks can be useful; look at the need met, not the number of followers."
       },
       "nuance": {
-        "french": "Protéger les données et conserver d'autres canaux.",
-        "english": "Protect data and retain other channels."
+        "french": "Protéger les données, conserver d'autres canaux et ne pas imposer un compte à tous.",
+        "english": "Protect data, retain other channels and do not require everyone to have an account."
       },
       "conclusion": {
         "french": "Des liens et des actions, pas une présence permanente.",
@@ -4218,8 +4218,8 @@
             "english": "Discover practical information."
           },
           "example": {
-            "french": "Vérifier un atelier sur le site de la bibliothèque.",
-            "english": "Verify a workshop on the library website."
+            "french": "Découvrir une annonce d'atelier partagée, vérifier la date sur le site de la bibliothèque, puis s'inscrire.",
+            "english": "Discover a shared workshop announcement, check the date on the library website, then register."
           }
         },
         {
@@ -4228,8 +4228,8 @@
             "english": "Coordinate a project."
           },
           "example": {
-            "french": "Répartir le matériel d'un nettoyage de quartier.",
-            "english": "Allocate equipment for a neighbourhood clean-up."
+            "french": "Pour un nettoyage, l'association recueille les apports des bénévoles puis répartit le matériel pour lancer les équipes.",
+            "english": "For a clean-up, the association collects volunteers' equipment offers, then distributes supplies so teams can start."
           }
         }
       ]
@@ -4288,8 +4288,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Montrer une attention choisie.",
-            "english": "Show deliberate attention."
+            "french": "Une lettre personnelle peut montrer qu'on a pris du temps pour quelqu'un.",
+            "english": "A personal letter can show that you took time for someone."
           },
           "example": {
             "french": "Écrire à l'amie qui a facilité sa recherche de logement en l'hébergeant.",
@@ -4298,18 +4298,18 @@
         },
         {
           "point": {
-            "french": "Organiser un récit.",
-            "english": "Organize a narrative."
+            "french": "Préparer une lettre peut encourager à développer ce que l'on veut dire.",
+            "english": "Preparing a letter can encourage fuller expression."
           },
           "example": {
-            "french": "Rédiger un brouillon avant de raconter une installation.",
-            "english": "Draft a letter about settling abroad."
+            "french": "Raconter une installation à l'étranger dans un brouillon, choisir les détails puis relire avant de recopier.",
+            "english": "Draft an account of settling abroad, choose the details, then reread before copying it out."
           }
         },
         {
           "point": {
-            "french": "Transmettre une mémoire familiale sans compte numérique.",
-            "english": "Pass on family memories without a digital account."
+            "french": "Une lettre conservée peut transmettre une mémoire familiale sans compte numérique.",
+            "english": "A saved letter can pass on family memories without a digital account."
           },
           "example": {
             "french": "Transmettre une lettre sur son arrivée dans un pays à sa petite-fille.",
@@ -4339,7 +4339,7 @@
           },
           "example": {
             "french": "Annoncer un retard et proposer un horaire.",
-            "english": "Explain a delay and suggest a time."
+            "english": "Let someone know about a delay and suggest a time."
           }
         },
         {
@@ -4348,8 +4348,8 @@
             "english": "Maintain distant relationships."
           },
           "example": {
-            "french": "Suivre une recherche d'emploi par des appels réguliers entre deux pays.",
-            "english": "Follow a job search through regular calls between two countries."
+            "french": "Des proches de deux pays échangent chaque semaine en vidéo pour parler de leurs difficultés ou projets.",
+            "english": "Loved ones in two countries talk by video each week about their difficulties or plans."
           }
         },
         {
@@ -4358,8 +4358,8 @@
             "english": "Adapt the message format."
           },
           "example": {
-            "french": "Envoyer une photo de l'entrée d'un rendez-vous.",
-            "english": "Send a photo of a meeting entrance."
+            "french": "Envoyer la photo de la bonne entrée et le nom de la rue pour que l'invité reconnaisse la porte.",
+            "english": "Send a photo of the correct entrance and the street name so the guest recognizes the door."
           }
         }
       ],
@@ -4384,8 +4384,8 @@
             "english": "Protect attention."
           },
           "example": {
-            "french": "Prévoir des soirées sans messagerie.",
-            "english": "Plan evenings without messaging."
+            "french": "Lire plusieurs chapitres le soir sans messagerie pour garder le fil du récit.",
+            "english": "Read several chapters in the evening without messaging to keep the thread of the story."
           }
         },
         {
@@ -4394,8 +4394,8 @@
             "english": "Participate in other ways."
           },
           "example": {
-            "french": "S'inscrire sur place à un atelier.",
-            "english": "Register for a workshop in person."
+            "french": "Si l'association le permet, s'inscrire sur place et noter les dates pour revenir à l'atelier sans groupe en ligne.",
+            "english": "If the association allows it, register in person and note the dates to return to the workshop without an online group."
           }
         },
         {
@@ -4420,8 +4420,8 @@
     },
     "technologie-p16": {
       "introduction": {
-        "french": "Partir du besoin, des risques et de l'accompagnement.",
-        "english": "Start with needs, risks and available guidance."
+        "french": "Pas d'interdiction absolue : partir du besoin, des risques et de l'accompagnement.",
+        "english": "No absolute ban: start with needs, risks and available guidance."
       },
       "arguments": [
         {
@@ -4440,24 +4440,24 @@
             "english": "Learn to protect personal information."
           },
           "example": {
-            "french": "Retirer son adresse du profil et expliquer le refus d'une photo à un inconnu.",
-            "english": "Remove an address from a profile and explain refusing a stranger's photo request."
+            "french": "Retirer son adresse du profil et expliquer à un adulte pourquoi on n'enverra pas de photo à un inconnu.",
+            "english": "Remove your address from the profile and explain to an adult why you will not send a photo to a stranger."
           }
         },
         {
           "point": {
-            "french": "Pouvoir demander de l'aide sans avoir seulement peur d'être puni.",
-            "english": "Be able to ask for help without only fearing punishment."
+            "french": "Il faut apprendre à demander de l'aide lorsqu'un échange devient problématique.",
+            "english": "Children need to know how to seek help with harmful exchanges."
           },
           "example": {
-            "french": "Montrer un message inquiétant à un adulte de confiance.",
-            "english": "Show a troubling message to a trusted adult."
+            "french": "Montrer à un adulte une demande de photo d'un inconnu ; ensemble, bloquer le contact et signaler le message.",
+            "english": "Show an adult a stranger's photo request; together, block the contact and report the message."
           }
         }
       ],
       "nuance": {
-        "french": "Adapter aux besoins et aux règles de l'école.",
-        "english": "Adapt to needs and school rules."
+        "french": "L'âge, les besoins et l'école comptent ; limiter contenus, contacts et horaires, sans imposer un appareil personnel.",
+        "english": "Age, needs and school matter; limit content, contacts and hours without requiring a personal device."
       },
       "conclusion": {
         "french": "Un besoin défini, un apprentissage accompagné et un adulte accessible.",
@@ -4476,8 +4476,8 @@
             "english": "A possible scientific purpose."
           },
           "example": {
-            "french": "Observer le mélange des liquides en microgravité.",
-            "english": "Observe fluid mixing in microgravity."
+            "french": "Une équipe filme des liquides pendant des heures dans une station orbitale pour suivre le mélange en microgravité.",
+            "english": "A team films liquids for hours in an orbital station to observe mixing in microgravity."
           }
         },
         {
@@ -4496,8 +4496,8 @@
             "english": "Passengers also need air, water and emergency equipment."
           },
           "example": {
-            "french": "Comparer une observation automatique aux besoins de survie d'un équipage.",
-            "english": "Compare automated observation with a crew's life-support needs."
+            "french": "Si caméra et capteurs suffisent, ajouter des passagers exige des équipements de survie sans améliorer l'observation.",
+            "english": "If a camera and sensors suffice, adding passengers requires life-support equipment without improving the observation."
           }
         }
       ],
@@ -4532,8 +4532,8 @@
             "english": "Be able to receive or collect purchases in time."
           },
           "example": {
-            "french": "Vérifier adresse, délai et retrait.",
-            "english": "Check address, timing and collection."
+            "french": "Aucun vendeur ne livre à temps à l'adresse ; un retrait peut résoudre le problème s'il est accessible.",
+            "english": "No seller delivers to the address in time; collection may solve the problem if it is accessible."
           }
         },
         {
@@ -4542,14 +4542,14 @@
             "english": "Be able to complete the order and pay."
           },
           "example": {
-            "french": "Vérifier le moyen de paiement accepté.",
-            "english": "Check the accepted payment method."
+            "french": "Sans le moyen de paiement exigé, l'acheteur ne peut pas terminer l'achat tant qu'aucune alternative adaptée n'est proposée.",
+            "english": "Without the required payment method, the buyer cannot complete the purchase until a suitable alternative is offered."
           }
         }
       ],
       "nuance": {
-        "french": "Préférence en magasin et impossibilité ne sont pas équivalentes.",
-        "english": "An in-store preference is not the same as impossibility."
+        "french": "Préférer essayer en magasin ne prouve pas l'impossibilité ; payer en ligne puis retirer reste un achat en ligne.",
+        "english": "Preferring to try in store does not prove impossibility; paying online then collecting is still an online purchase."
       },
       "conclusion": {
         "french": "Vérifier les produits, la livraison ou le retrait, et les moyens de commander.",
@@ -4594,8 +4594,8 @@
         }
       ],
       "nuance": {
-        "french": "Pas de garantie d'intelligence ou de résultats.",
-        "english": "No guarantee of intelligence or grades."
+        "french": "Pas d'amélioration garantie de l'intelligence ou des résultats.",
+        "english": "No guaranteed improvement in intelligence or results."
       },
       "conclusion": {
         "french": "Tester des solutions, créer une histoire et coopérer, avec un jeu adapté et des limites.",
@@ -4622,8 +4622,8 @@
             "english": "Suitable complete journeys."
           },
           "example": {
-            "french": "Vérifier le bus jusqu'à la fin du service.",
-            "english": "Check buses against the end of the work shift."
+            "french": "Si le travail finit après le dernier bus, le trajet retour n'est plus assuré.",
+            "english": "If work finishes after the last bus, the return journey is no longer covered."
           }
         },
         {
@@ -4668,7 +4668,7 @@
             "english": "Compare the reasons behind a disagreement."
           },
           "example": {
-            "french": "Comparer les objectifs d'un réseau de transport et les difficultés des riverains.",
+            "french": "Comparer les objectifs d'un réseau de transport et les difficultés d'accès des riverains.",
             "english": "Compare a transport network's aims with residents' access difficulties."
           }
         },
@@ -4678,8 +4678,8 @@
             "english": "Check the original claim."
           },
           "example": {
-            "french": "Distinguer projet et décision applicable.",
-            "english": "Distinguish a proposal from an applicable decision."
+            "french": "Retrouver la date d'une photo ancienne présentée comme récente.",
+            "english": "Find the date of an old photo presented as recent."
           }
         },
         {
@@ -4702,12 +4702,12 @@
       "arguments": [
         {
           "point": {
-            "french": "Confirmer l'information utile.",
-            "english": "Confirm useful information."
+            "french": "Transmettre une consigne commune et vérifier qu'elle est lue.",
+            "english": "Send a shared instruction and check that it has been read."
           },
           "example": {
-            "french": "Annoncer un planning dans un canal commun.",
-            "english": "Announce a schedule through a shared channel."
+            "french": "Un responsable annonce un changement de planning dans le canal prévu et demande confirmation de lecture.",
+            "english": "A manager announces a schedule change in the agreed channel and asks for confirmation that it was read."
           }
         },
         {
@@ -4716,8 +4716,8 @@
             "english": "Share work with clear roles."
           },
           "example": {
-            "french": "Préparer et vérifier un rapport commun.",
-            "english": "Prepare and check a shared report."
+            "french": "Deux collègues à distance préparent un rapport : l'un rassemble les données, l'autre vérifie les références avant l'envoi.",
+            "english": "Two remote colleagues prepare a report: one gathers data, the other checks references before it is sent."
           }
         },
         {
@@ -4726,8 +4726,8 @@
             "english": "Set response expectations."
           },
           "example": {
-            "french": "Traiter les messages du soir au prochain temps de travail.",
-            "english": "Handle evening messages during the next working period."
+            "french": "L'équipe et le responsable reportent les messages du soir au prochain temps de travail, sauf urgence définie.",
+            "english": "The team and manager defer evening messages to the next working period, except for a defined emergency."
           }
         }
       ],
@@ -4742,8 +4742,8 @@
     },
     "technologie-p24": {
       "introduction": {
-        "french": "Choisir son moment, comparer les points de vue et approfondir.",
-        "english": "Choose the time, compare viewpoints and explore in depth."
+        "french": "Préférer Internet pour choisir son moment, comparer les points de vue et approfondir.",
+        "english": "Prefer Internet to choose the time, compare viewpoints and explore in depth."
       },
       "nuance": {
         "french": "Radio et télévision peuvent aussi être approfondies et en ligne.",
@@ -4770,7 +4770,7 @@
             "english": "Compare the reasons behind a disagreement."
           },
           "example": {
-            "french": "Comparer les objectifs d'un réseau de transport et les difficultés des riverains.",
+            "french": "Comparer les objectifs d'un réseau de transport et les difficultés d'accès des riverains.",
             "english": "Compare a transport network's aims with residents' access difficulties."
           }
         },
@@ -4780,8 +4780,8 @@
             "english": "The level of detail."
           },
           "example": {
-            "french": "Passer du résumé au dossier puis au document original.",
-            "english": "Move from summary to detailed coverage and the original document."
+            "french": "Après un résumé de décision municipale, lire un dossier et le texte original pour séparer faits et commentaires.",
+            "english": "After a summary of a municipal decision, read detailed coverage and the original text to separate facts from comments."
           }
         }
       ]
@@ -4806,8 +4806,8 @@
             "english": "Suitable food assistance."
           },
           "example": {
-            "french": "Remettre des conserves prêtes à manger à une personne sans cuisine.",
-            "english": "Give ready-to-eat canned food to someone without a kitchen."
+            "french": "Si le stock le permet, donner des conserves prêtes à manger à une personne sans moyen de cuisson.",
+            "english": "If stock allows, give ready-to-eat canned food to someone without cooking facilities."
           }
         },
         {
@@ -4842,18 +4842,18 @@
         "english": "Not every park or every species."
       },
       "conclusion": {
-        "french": "Vérifier l’utilité du zoo et respecter les besoins des animaux.",
-        "english": "Verify the zoo’s usefulness and respect the animals’ needs."
+        "french": "Vérifier l'utilité du zoo et respecter les besoins des animaux.",
+        "english": "Verify the zoo's usefulness and respect the animals' needs."
       },
       "arguments": [
         {
           "point": {
             "french": "Expliquer les besoins des animaux aux visiteurs.",
-            "english": "Explain animals’ needs to visitors."
+            "english": "Explain animals' needs to visitors."
           },
           "example": {
-            "french": "Comprendre pourquoi l'animal peut se retirer.",
-            "english": "Understand why an animal needs a retreat."
+            "french": "Un éducateur explique aux enfants le besoin d'un espace de retrait et de ne pas déranger l'animal.",
+            "english": "An educator explains to children the need for a retreat space and for leaving the animal undisturbed."
           }
         },
         {
@@ -4862,8 +4862,8 @@
             "english": "Documented conservation."
           },
           "example": {
-            "french": "Le bison d'Europe a été réintroduit après sa survie en captivité.",
-            "english": "European bison were reintroduced after surviving in captivity."
+            "french": "Le bison d'Europe a survécu en captivité puis a été réintroduit ; cela ne prouve pas l'utilité de chaque zoo.",
+            "english": "European bison survived in captivity and were reintroduced; this does not prove every zoo is useful."
           }
         },
         {
@@ -4872,8 +4872,8 @@
             "english": "Research to understand animals' needs."
           },
           "example": {
-            "french": "Comparer l'accès à la nourriture avant et après l'ajout de points de nourrissage.",
-            "english": "Compare food access before and after adding feeding points."
+            "french": "Des chercheurs comparent l'accès avant et après l'ajout de points de nourrissage pour repérer un animal écarté.",
+            "english": "Researchers compare access before and after adding feeding points to identify an excluded animal."
           }
         }
       ]
@@ -4884,8 +4884,8 @@
         "english": "Real but unequal opportunities."
       },
       "nuance": {
-        "french": "Respecter les besoins médicaux et les contraintes matérielles.",
-        "english": "Respect medical needs and practical constraints."
+        "french": "Respecter les besoins médicaux et les contraintes matérielles ; trier n'est pas réduire.",
+        "english": "Respect medical needs and practical constraints; sorting is not reducing."
       },
       "conclusion": {
         "french": "Faciliter les réductions plutôt qu'imposer la même obligation.",
@@ -4908,8 +4908,8 @@
             "english": "Extend useful life."
           },
           "example": {
-            "french": "Réparer une fermeture de sac.",
-            "english": "Repair a bag zip."
+            "french": "Faire réparer la fermeture d'un sac : l'atelier est payé et le sac reste utilisable.",
+            "english": "Repair a bag's zip: the workshop is paid and the bag stays usable."
           }
         },
         {
@@ -4918,8 +4918,8 @@
             "english": "Change systems too."
           },
           "example": {
-            "french": "Rendre et laver le même contenant pour plusieurs achats.",
-            "english": "Return and wash the same container for several purchases."
+            "french": "Un commerce propose un retour accessible ; le contenant lavé sert à plusieurs achats plutôt qu'être jeté.",
+            "english": "A shop offers accessible returns; the washed container serves several purchases instead of being discarded."
           }
         }
       ]
@@ -4954,8 +4954,8 @@
             "english": "Preserve genuinely useful conservation work."
           },
           "example": {
-            "french": "Le bison d'Europe illustre une contribution possible, pas celle de chaque zoo.",
-            "english": "European bison illustrate a possible contribution, not one made by every zoo."
+            "french": "Le bison d'Europe a survécu en captivité puis a été réintroduit ; cela ne prouve pas l'utilité de chaque zoo.",
+            "english": "European bison survived in captivity and were reintroduced; this does not prove every zoo is useful."
           }
         },
         {
@@ -4990,8 +4990,8 @@
             "english": "Reduce local nuisance."
           },
           "example": {
-            "french": "Supprimer un raccourci automobile et comparer le bruit, y compris dans les rues voisines.",
-            "english": "Remove a traffic shortcut and compare noise, including in neighbouring streets."
+            "french": "Une rue résidentielle n'est plus un raccourci ; comparer le bruit et les effets dans les rues voisines.",
+            "english": "A residential street stops being a shortcut; compare noise and effects on neighbouring streets."
           }
         },
         {
@@ -5000,8 +5000,8 @@
             "english": "Give buses priority to make journeys more reliable."
           },
           "example": {
-            "french": "Un couloir réservé libère le bus d'une file et peut rendre l'arrivée plus prévisible.",
-            "english": "A dedicated lane frees the bus from a traffic queue and may make arrival more predictable."
+            "french": "Un couloir réservé peut rendre l'arrivée du bus plus prévisible, si les correspondances suivent.",
+            "english": "A dedicated lane can make the bus arrival more predictable if connections work too."
           }
         },
         {
@@ -5010,8 +5010,8 @@
             "english": "Free space for walking and waiting."
           },
           "example": {
-            "french": "Transformer des places en attente piétonne près d'une école.",
-            "english": "Turn parking spaces into pedestrian waiting space near a school."
+            "french": "Transformer des places de stationnement près d'une école en zone où les familles attendent sans se tenir entre les voitures.",
+            "english": "Turn parking spaces near a school into an area where families wait without standing between cars."
           }
         }
       ]
@@ -5022,8 +5022,8 @@
         "english": "Make shopping easier and support organic producers, under conditions."
       },
       "nuance": {
-        "french": "Bio ne signifie pas automatiquement local ou équilibré.",
-        "english": "Organic does not automatically mean local or balanced."
+        "french": "Bio n'est pas automatiquement local, sans emballage ni adapté à chaque besoin ; vérifier le label et le prix.",
+        "english": "Organic is not automatically local, unpackaged or suited to every need; check the label and price."
       },
       "conclusion": {
         "french": "Vérifier les prix, les méthodes et les contrats, pas seulement les rayons.",
@@ -5036,8 +5036,8 @@
             "english": "Broaden access in the usual shop."
           },
           "example": {
-            "french": "Ajouter des lentilles bio aux courses habituelles.",
-            "english": "Add organic lentils to regular shopping."
+            "french": "Une famille ajoute des lentilles bio aux courses habituelles si le prix et la quantité conviennent à son budget.",
+            "english": "A family adds organic lentils to regular shopping if price and quantity suit its budget."
           }
         },
         {
@@ -5046,8 +5046,8 @@
             "english": "Support methods that limit certain synthetic products."
           },
           "example": {
-            "french": "Vendre les légumes d'une exploitation bio qui désherbe mécaniquement.",
-            "english": "Sell vegetables from an organic farm using mechanical weeding."
+            "french": "Dans le cadre européen, une enseigne achète les légumes d'une ferme bio qui désherbe mécaniquement sans herbicide de synthèse.",
+            "english": "In the European framework, a retailer buys vegetables from an organic farm using mechanical weeding without synthetic herbicide."
           }
         },
         {
@@ -5102,8 +5102,8 @@
             "english": "Reduce noise and emissions from ordinary traffic."
           },
           "example": {
-            "french": "Une rue piétonne ne sert plus de raccourci sous les fenêtres des riverains.",
-            "english": "A pedestrian street no longer acts as a shortcut below residents' windows."
+            "french": "Une rue résidentielle n'est plus un raccourci ; comparer le bruit et les effets dans les rues voisines.",
+            "english": "A residential street stops being a shortcut; compare noise and effects on neighbouring streets."
           }
         }
       ]
@@ -5128,8 +5128,8 @@
             "english": "Avoid overloading sites and facilities."
           },
           "example": {
-            "french": "Protéger la végétation autour d'un sentier.",
-            "english": "Protect vegetation beside a trail."
+            "french": "Des visiteurs quittent le sentier pour éviter une file et abîment la végétation ; limiter les entrées peut aider.",
+            "english": "Visitors leave the trail to avoid a queue and damage vegetation; limiting entry may help."
           }
         },
         {
@@ -5138,8 +5138,8 @@
             "english": "Residents' housing."
           },
           "example": {
-            "french": "Suivre les appartements passés en location touristique.",
-            "english": "Monitor apartments converted to holiday rentals."
+            "french": "Des appartements passent en location touristique ; une famille cherchant un bail annuel peut trouver moins d'offres.",
+            "english": "Apartments become holiday rentals; a family seeking a yearly lease may find fewer offers."
           }
         },
         {
@@ -5148,8 +5148,8 @@
             "english": "Everyday services."
           },
           "example": {
-            "french": "Un commerce courant remplacé par des souvenirs.",
-            "english": "An everyday shop replaced by a souvenir store."
+            "french": "Un commerce courant devient une boutique de souvenirs ; si les achats essentiels s'éloignent, les habitants se déplacent plus.",
+            "english": "An everyday shop becomes a souvenir store; if essential purchases move farther away, residents travel more."
           }
         }
       ]
@@ -5184,8 +5184,8 @@
             "english": "Recover useful material through sorting."
           },
           "example": {
-            "french": "Des épluchures acceptées et compostées deviennent une ressource pour les plantations.",
-            "english": "Accepted peelings that are composted become a resource for planting."
+            "french": "Dans une commune équipée, un foyer apporte les épluchures acceptées ; avec un suivi adapté, elles donnent du compost.",
+            "english": "In a municipality with the service, a household brings accepted peelings; with proper monitoring, they become compost."
           }
         },
         {
@@ -5194,8 +5194,8 @@
             "english": "Monitor results to improve the service."
           },
           "example": {
-            "french": "Rapprocher un point de dépôt inaccessible sans voiture.",
-            "english": "Move closer a collection point inaccessible without a car."
+            "french": "Une collectivité repère un dépôt inaccessible sans voiture et en crée un près des logements pour élargir l'accès.",
+            "english": "A local authority identifies a car-dependent collection point and adds one near homes to widen access."
           }
         }
       ]
@@ -5216,8 +5216,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Limiter certains produits et les occasions de contact.",
-            "english": "Limit certain products and opportunities for contact."
+            "french": "Dans le cadre européen, limiter certains produits et les occasions de contact.",
+            "english": "In the European framework, limit certain products and opportunities for contact."
           },
           "example": {
             "french": "Désherber les carottes mécaniquement sans préparer ni pulvériser un herbicide de synthèse.",
@@ -5248,8 +5248,8 @@
     },
     "environnement-p14": {
       "introduction": {
-        "french": "Choisir l'activité, les procédés et les limites.",
-        "english": "Choose activities, processes and limits."
+        "french": "Certaines activités peuvent se développer en limitant les dommages, avec des procédés vérifiés et des limites.",
+        "english": "Some activities can develop while limiting harm, with checked processes and limits."
       },
       "nuance": {
         "french": "Aucun impact nul ni croissance matérielle illimitée.",
@@ -5262,12 +5262,12 @@
       "arguments": [
         {
           "point": {
-            "french": "Gagner de l’argent en réparant plutôt qu’en remplaçant.",
+            "french": "Gagner de l'argent en réparant plutôt qu'en remplaçant.",
             "english": "Earn money by repairing rather than replacing."
           },
           "example": {
-            "french": "Remplacer une pièce plutôt que l'appareil entier.",
-            "english": "Replace a part rather than the entire appliance."
+            "french": "Faire réparer la fermeture d'un sac : l'atelier est payé et le sac reste utilisable.",
+            "english": "Repair a bag's zip: the workshop is paid and the bag stays usable."
           }
         },
         {
@@ -5286,8 +5286,8 @@
             "english": "Check total resource use and pollution."
           },
           "example": {
-            "french": "Acheter du matériel réparable et suivre sa durée d'usage.",
-            "english": "Buy repairable equipment and track its useful life."
+            "french": "Une collectivité achète des produits réparables et prévoit l'entretien ; elle suit la durée d'usage et les quantités remplacées.",
+            "english": "A local authority buys repairable products and plans maintenance; it tracks useful life and quantities replaced."
           }
         }
       ]
@@ -5298,8 +5298,8 @@
         "english": "Prepare a job search in Canada without promising an easy hire."
       },
       "nuance": {
-        "french": "Une offre peut aider ; prévoir de quoi vivre pendant la recherche et du temps pour les démarches.",
-        "english": "An offer may help; allow money to live during the search and time for procedures."
+        "french": "Une offre adaptée et les autorisations aident ; prévoir de quoi vivre et du temps, sans délai d'embauche garanti.",
+        "english": "A suitable offer and authorizations help; allow living funds and time, with no guaranteed hiring deadline."
       },
       "conclusion": {
         "french": "Confiance dans le projet, prudence sur sa facilité.",
@@ -5312,8 +5312,8 @@
             "english": "Check access to the profession."
           },
           "example": {
-            "french": "Contacter l'organisme de la province pour une profession infirmière.",
-            "english": "Contact the provincial regulator for a nursing profession."
+            "french": "Si je visais un métier infirmier avec une formation étrangère, je vérifierais avec le régulateur les étapes avant d'exercer.",
+            "english": "If I sought a nursing role with foreign training, I would check the steps with the regulator before practising."
           }
         },
         {
@@ -5322,8 +5322,8 @@
             "english": "Prepare communication in the language required for the role."
           },
           "example": {
-            "french": "Simuler des échanges d'accueil avant un entretien.",
-            "english": "Rehearse reception exchanges before an interview."
+            "french": "Un entretien d'entraînement pour un poste d'accueil révèle les expressions à travailler avant de voir un employeur.",
+            "english": "A practice interview for a reception role reveals expressions to work on before meeting an employer."
           }
         },
         {
@@ -5332,8 +5332,8 @@
             "english": "Match one's profile to vacancies."
           },
           "example": {
-            "french": "Repérer un outil demandé dans plusieurs annonces récentes.",
-            "english": "Identify a tool required in several recent advertisements."
+            "french": "Si plusieurs annonces récentes exigent un outil non maîtrisé, l'apprendre ou cibler d'autres offres.",
+            "english": "If several recent vacancies require an unfamiliar tool, learn it or target other vacancies."
           }
         }
       ]
@@ -5344,8 +5344,8 @@
         "english": "Criticize some extreme earnings, not all athletes."
       },
       "nuance": {
-        "french": "Recettes et carrière courte expliquent des revenus, sans justifier tout écart.",
-        "english": "Revenue and short careers explain earnings without justifying every gap."
+        "french": "Recettes et carrière courte n'excusent pas tout ; réduire ces revenus ne finance pas automatiquement les hôpitaux.",
+        "english": "Revenue and short careers do not justify everything; cutting these earnings does not automatically fund hospitals."
       },
       "conclusion": {
         "french": "Rémunérer le talent sans oublier budgets collectifs et autres réussites.",
@@ -5354,7 +5354,7 @@
       "arguments": [
         {
           "point": {
-            "french": "Attirer de l’argent ne signifie pas être plus utile aux autres.",
+            "french": "Attirer de l'argent ne signifie pas être plus utile aux autres.",
             "english": "Attracting money does not mean being more useful to others."
           },
           "example": {
@@ -5368,7 +5368,7 @@
             "english": "Allocate resources within sport."
           },
           "example": {
-            "french": "Un contrat très coûteux peut retarder l’achat de matériel pour les jeunes.",
+            "french": "Un contrat très coûteux peut retarder l'achat de matériel pour les jeunes.",
             "english": "A very expensive contract may delay buying equipment for young players."
           }
         },
@@ -5378,8 +5378,8 @@
             "english": "Do not reduce success to wealth."
           },
           "example": {
-            "french": "Présenter au jeune joueur d'autres parcours que ceux des vedettes.",
-            "english": "Show a young player paths beyond those of stars."
+            "french": "Un éducateur présente au jeune des sportifs moins médiatisés qui étudient aussi : réussir ne se limite pas à la fortune.",
+            "english": "An educator shows the young person less-publicized athletes who also study: success is not just wealth."
           }
         }
       ]
@@ -5404,8 +5404,8 @@
             "english": "Coordinate instead of doing everything alone."
           },
           "example": {
-            "french": "Le vendeur promu doit répartir accueil et commandes.",
-            "english": "A promoted salesperson must allocate reception and orders."
+            "french": "Un vendeur promu sert tous les clients sans répartir les tâches ; le magasin se désorganise malgré ses ventes.",
+            "english": "A promoted salesperson serves every customer without dividing tasks; the shop becomes disorganized despite their sales."
           }
         },
         {
@@ -5414,8 +5414,8 @@
             "english": "Choose between several requests and explain decisions."
           },
           "example": {
-            "french": "Attribuer une salle demandée par deux équipes selon une règle cohérente.",
-            "english": "Allocate a room requested by two teams under a consistent rule."
+            "french": "Deux équipes demandent une salle ; priorité à l'activité déjà annoncée, autre créneau pour la seconde.",
+            "english": "Two teams request a room: priority goes to the announced activity, with another time slot for the second team."
           }
         },
         {
@@ -5424,8 +5424,8 @@
             "english": "Check the budget and schedule."
           },
           "example": {
-            "french": "Vérifier salle, matériel et recettes avant une activité associative.",
-            "english": "Check venue, equipment and income before an association's activity."
+            "french": "Avec une aide expérimentée, comparer dépenses et recettes ; si le budget ne suffit pas, choisir une salle moins chère.",
+            "english": "With experienced help, compare costs and income; if funds are insufficient, choose a cheaper room."
           }
         }
       ]
@@ -5542,8 +5542,8 @@
             "english": "Weigh health and personal life against higher pay."
           },
           "example": {
-            "french": "Déplacements et retours tardifs peuvent réduire le sommeil et empêcher d'accompagner un proche.",
-            "english": "Travel and late returns can reduce sleep and prevent someone from supporting a relative."
+            "french": "Refuser une promotion avec déplacements si un poste moins payé couvre les besoins et préserve la vie familiale.",
+            "english": "Decline a promotion with frequent travel if a lower-paid job covers needs and leaves room for family commitments."
           }
         },
         {
@@ -5558,12 +5558,12 @@
         },
         {
           "point": {
-            "french": "Comparer les revenus sur l’année.",
+            "french": "Comparer les revenus sur l'année.",
             "english": "Compare income over the year."
           },
           "example": {
-            "french": "Comparer une mission de deux mois avec un poste durable.",
-            "english": "Compare a two-month assignment with a lasting role."
+            "french": "Comparer une mission de deux mois au poste durable moins payé : compter les mois sans mission pour évaluer le revenu annuel.",
+            "english": "Compare a two-month assignment with a lower-paid lasting role: count months without assignments to assess yearly income."
           }
         }
       ]
@@ -5644,8 +5644,8 @@
             "english": "Highly unequal economic options."
           },
           "example": {
-            "french": "Accepter une offre ailleurs pour soutenir son foyer.",
-            "english": "Accept an offer abroad to support one's household."
+            "french": "Sans emploi malgré ses démarches, accepter une offre à l'étranger pour soutenir son foyer, même en préférant rester.",
+            "english": "Unemployed despite job-search efforts, accept an offer abroad to support the household, even while preferring to stay."
           }
         },
         {
@@ -5680,8 +5680,8 @@
             "english": "Check the right to work."
           },
           "example": {
-            "french": "Clarifier le statut applicable avant de confirmer une date de début.",
-            "english": "Clarify the applicable status before confirming a start date."
+            "french": "Si une autorisation est nécessaire, rassembler les pièces et reporter le début tant que le statut n'est pas réglé.",
+            "english": "If authorization is necessary, gather the documents and postpone starting until the status is resolved."
           }
         },
         {
@@ -5690,18 +5690,18 @@
             "english": "Prepare workplace communication."
           },
           "example": {
-            "french": "Une technicienne s'entraîne à décrire une panne et demander un arrêt.",
-            "english": "A technician practices describing a fault and requesting a stop."
+            "french": "Une technicienne prépare avec un collègue comment demander l'arrêt d'une intervention et expliquer ses vérifications.",
+            "english": "A technician prepares with a colleague how to request that an intervention stop and explain her checks."
           }
         },
         {
           "point": {
-            "french": "Distinguer droit de travailler et autorisation d’exercer.",
+            "french": "Distinguer droit de travailler et autorisation d'exercer.",
             "english": "Distinguish the right to work from authorization to practise."
           },
           "example": {
-            "french": "Un professionnel de santé contacte l'organisme compétent.",
-            "english": "A healthcare professional contacts the relevant regulator."
+            "french": "Un soignant formé ailleurs consulte le régulateur et prépare toute étape de reconnaissance manquante avant d'exercer.",
+            "english": "A healthcare worker trained elsewhere consults the regulator and prepares any missing recognition step before practising."
           }
         }
       ]
@@ -5864,8 +5864,8 @@
             "english": "Some demands remain poorly recognized."
           },
           "example": {
-            "french": "Le nettoyage peut cumuler horaires tôt, matériel et temps limité.",
-            "english": "Cleaning can combine early hours, equipment and limited time."
+            "french": "Une personne fait le nettoyage tôt, déplace du matériel et a peu de temps par espace, malgré un salaire modeste.",
+            "english": "A person cleans early, moves equipment and has little time per area despite modest pay."
           }
         },
         {
@@ -5880,8 +5880,8 @@
         },
         {
           "point": {
-            "french": "Le budget de l’employeur et les règles de salaire comptent aussi.",
-            "english": "The employer’s budget and pay rules matter too."
+            "french": "Le budget de l'employeur et les règles de salaire comptent aussi.",
+            "english": "The employer's budget and pay rules matter too."
           },
           "example": {
             "french": "Une structure d'aide financée augmente les salaires ; une autre garde son budget pour des tâches comparables.",
@@ -5930,8 +5930,8 @@
             "english": "Facilitate participation in city life."
           },
           "example": {
-            "french": "Une rencontre à la bibliothèque ne demande plus de payer l'aller-retour.",
-            "english": "A library meeting no longer requires paying for a return journey."
+            "french": "Si une ligne accessible et gratuite dessert la bibliothèque, le prix du trajet ne bloque plus la rencontre.",
+            "english": "If an accessible free route serves the library, the fare no longer blocks attending the meeting."
           }
         }
       ]
@@ -5956,8 +5956,8 @@
             "english": "Organize regular public support."
           },
           "example": {
-            "french": "Accompagner un dossier d'aide au logement selon les droits applicables.",
-            "english": "Support a housing-assistance application under applicable entitlements."
+            "french": "Une aide publique accordée pour plusieurs mois permet de prévoir son budget après une perte d'emploi.",
+            "english": "Public support granted for several months helps someone plan a budget after losing a job."
           }
         },
         {

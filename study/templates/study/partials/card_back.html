@@ -1,5 +1,5 @@
-{% if kind == "spine" %}
-  {% if eo3_audio %}<div data-annotation-exclude>{% spaceless %}{% include "study/partials/eo3_audio.html" with audio=eo3_audio only %}{% endspaceless %}</div>{% endif %}<div class="answer"{% if not tache_two_subject and not eo3_audio.ready %} data-read-aloud-text{% endif %} lang="fr">
+{% load study_speech %}{% if kind == "spine" %}
+  {% if eo3_audio %}<div data-annotation-exclude>{% spaceless %}{% include "study/partials/eo3_audio.html" with audio=eo3_audio only %}{% endspaceless %}</div>{% endif %}<div class="answer"{% if not tache_two_subject and not eo3_audio.ready %} data-read-aloud-text data-read-aloud-value="{{ speech_text }}" {% speech_attrs speech_text private=response_content.is_personal user_id=card.user_id %}{% endif %} lang="fr">
     {% if tache_two_subject %}
       {% if tache_two_dialogue %}
         <div class="spine-block">
@@ -8,14 +8,14 @@
         </div>
       {% else %}
       <div class="spine-block">
-        <div class="spine-label">Questions à poser</div>{% if response_content.reformulation %}<p class="eo2-personal-boundary" data-read-aloud-text lang="fr">{{ response_content.reformulation|linebreaksbr }}</p>{% endif %}
+        <div class="spine-label">Questions à poser</div>{% if response_content.reformulation %}<p class="eo2-personal-boundary" data-read-aloud-text {% speech_attrs response_content.reformulation private=response_content.is_personal user_id=card.user_id %} lang="fr">{{ response_content.reformulation|linebreaksbr }}</p>{% endif %}
         <ol class="flashcard-question-list">
           {% for arg in arguments %}
             <li>
-              <span data-question-highlight-text="{{ forloop.counter }}" data-read-aloud-text lang="fr">{{ arg.idea|linebreaksbr }}</span>
+              <span data-question-highlight-text="{{ forloop.counter }}" data-read-aloud-text {% speech_attrs arg.idea private=response_content.is_personal user_id=card.user_id %} lang="fr">{{ arg.idea|linebreaksbr }}</span>
             </li>
           {% endfor %}
-        </ol>{% if response_content.conclusion %}<p class="eo2-personal-boundary" data-read-aloud-text lang="fr">{{ response_content.conclusion|linebreaksbr }}</p>{% endif %}
+        </ol>{% if response_content.conclusion %}<p class="eo2-personal-boundary" data-read-aloud-text {% speech_attrs response_content.conclusion private=response_content.is_personal user_id=card.user_id %} lang="fr">{{ response_content.conclusion|linebreaksbr }}</p>{% endif %}
       </div>
       {% endif %}
       {% if aliases %}
@@ -80,7 +80,7 @@
     {% if production %}
       <div class="spine-block">
         <div class="spine-label">{% if subject_vocabulary or theme_vocabulary or comprehension_vocabulary %}Réponse française{% else %}Expression{% endif %}</div>
-        <div class="spine-text serif" data-read-aloud-text lang="fr">{{ phrase.expression }}</div>
+        <div class="spine-text serif" data-read-aloud-text {% speech_attrs phrase.expression private=False user_id=card.user_id %} lang="fr">{{ phrase.expression }}</div>
       </div>
     {% else %}
       <div class="spine-block">
@@ -88,7 +88,7 @@
         <div class="spine-text">{{ phrase.english_cue }}</div>
       </div>
     {% endif %}
-    <div class="example-box" data-read-aloud-text lang="fr">{{ example_html|safe }}</div>
+    <div class="example-box" data-read-aloud-text {% speech_attrs example_html private=False user_id=card.user_id %} lang="fr">{{ example_html|safe }}</div>
     {% if phrase.note %}<p class="phrase__note">{{ phrase.note }}</p>{% endif %}
     {% if sources and not theme_vocabulary %}
       <div class="phrase__foot">

@@ -5,7 +5,7 @@ With ``flashcard=True`` the entry also becomes a shared deck card: the French
 expression sits on the front face and the meaning, example, usage note and
 source links sit on the back. The table view flattens both faces back into the
 row, so every column keeps the exact same content either way.
-{% endcomment %}
+{% endcomment %}{% load study_speech %}
 <article
   class="phrase card{% if flashcard %} comprehension-vocabulary-phrase flashcard-deck__card{% endif %}"
   data-collection-item
@@ -28,7 +28,7 @@ row, so every column keeps the exact same content either way.
           data-recall-cell="french"
           data-recall-entry="vocabulary-french-{{ phrase.phrase_id }}"
           {% if flashcard %}data-flashcard-ignore-toggle{% endif %}
-        ><span data-recall-content data-read-aloud-text lang="fr">{{ phrase.expression }}</span></span>
+        ><span data-recall-content data-read-aloud-text {% speech_attrs phrase.expression private=False %} lang="fr">{{ phrase.expression }}</span></span>
         {% if not flashcard %}
           {% include "study/partials/read_aloud_button.html" with key=phrase.phrase_id label="Lire le français" extra_class="phrase-read-aloud" compact="true" only %}
         {% endif %}
@@ -46,7 +46,7 @@ row, so every column keeps the exact same content either way.
         data-recall-entry="vocabulary-meaning-{{ phrase.phrase_id }}"
         {% if flashcard %}data-flashcard-ignore-toggle{% endif %}
       ><span data-recall-content>{{ phrase.english_cue }}</span></div>
-      <p class="phrase__ex" data-read-aloud-text lang="fr">{{ phrase.example_html|safe }}</p>
+      <p class="phrase__ex" data-read-aloud-text {% speech_attrs phrase.example_html private=False %} lang="fr">{{ phrase.example_html|safe }}</p>
       {% if phrase.note %}<p class="phrase__note">{{ phrase.note }}</p>{% endif %}
       {% with prompts=phrase.source_prompts.all %}
         {% if prompts %}

@@ -12,11 +12,12 @@ from django.conf import settings
 from django.db import transaction
 from django.urls import reverse
 
-from .models import EO3Narration
+from .models import EO3Narration, FrenchNarration, FrenchNarrationBudget
 
 
 OUTPUT_FORMAT = "mp3_44100_64"
 MAX_AUDIO_BYTES = 8 * 1024 * 1024
+SAMPLE_GROUP = "eo/tache-3/culture-p1"
 VOICE_SETTINGS = {
     "stability": 0.65,
     "similarity_boost": 0.75,
@@ -83,8 +84,25 @@ def narration_presentation(model):
     except NarrationError:
         return {"ready": False, "unconfigured": True}
     ready = EO3Narration.objects.filter(fingerprint=spec.fingerprint).exists()
+    sample_claimed = (
+        model.group == SAMPLE_GROUP
+        and FrenchNarrationBudget.objects.filter(pk=1, sample_claimed=True).exists()
+    )
     return {
         "ready": ready,
+        "prepare_url": reverse("study:eo3_audio_prepare", args=[
+            "culture-p1", spec.fingerprint,
+        ]) if (
+            not ready and model.group == SAMPLE_GROUP
+            and settings.EO3_AUDIO_SAMPLE_ENABLED and not settings.ON_VERCEL
+            and not sample_claimed
+        ) else "",
+        "sample_attempted": not ready and sample_claimed,
+        "sample_status": FrenchNarration.objects.filter(
+            pk=spec.fingerprint,
+        ).values_list("status", flat=True).first() if sample_claimed else "",
+        "characters": len(spec.text),
+        "sample_voice": spec.voice_id if model.group == SAMPLE_GROUP else "",
         "url": reverse("study:eo3_audio", args=[
             model.group.removeprefix("eo/tache-3/"), spec.fingerprint,
         ]) if ready else "",

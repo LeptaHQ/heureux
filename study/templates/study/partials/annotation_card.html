@@ -12,7 +12,7 @@ Parameters:
                which footer actions render.
   anchor_prefix — "note" | "highlight" | "annotation".
 {% endcomment %}
-{% load study_markdown %}
+{% load study_markdown study_speech %}
 <article
   class="card annotation-card annotation-card--{{ annotation.kind }} annotation-card--{{ variant }}"
   data-collection-item
@@ -39,6 +39,7 @@ Parameters:
         {% endif %}
       ><span
         data-read-aloud-text
+        {% speech_attrs annotation.quote user_id=annotation.user_id %}
         lang="fr"
         {% if variant != "search" %}
           class="recall-content"
@@ -49,6 +50,7 @@ Parameters:
         <p
           class="annotation-card__subtitle"
           data-read-aloud-text
+          {% speech_attrs annotation.title user_id=annotation.user_id %}
           lang="fr"
           {% if variant != "search" %}
             data-recall-cell="french"
@@ -70,6 +72,7 @@ Parameters:
         {% endif %}
       ><span
         data-read-aloud-text
+        {% speech_attrs annotation.title user_id=annotation.user_id %}
         lang="fr"
         {% if variant != "search" %}
           class="recall-content"
@@ -80,6 +83,7 @@ Parameters:
     {% if annotation.kind == "highlight" and annotation.quote %}
       <blockquote
         data-read-aloud-text
+        {% speech_attrs annotation.quote user_id=annotation.user_id %}
         lang="fr"
         {% if variant != "search" %}
           data-recall-cell="french"

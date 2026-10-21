@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load study_links %}
+{% load study_links study_speech %}
 {% block title %}Recherche{% if task %} · {{ task.short_label }}{% elif part %} · {{ part.name }}{% endif %} · Heureux{% endblock %}
 
 {% block content %}
@@ -80,7 +80,7 @@
             <span
               data-recall-cell="french"
               data-recall-entry="search-vocabulary-french-{{ phrase.phrase_id }}"
-            ><span data-recall-content data-read-aloud-text lang="fr">{{ phrase.expression }}</span></span>
+            ><span data-recall-content data-read-aloud-text {% speech_attrs phrase.expression private=False %} lang="fr">{{ phrase.expression }}</span></span>
             {% include "study/partials/read_aloud_button.html" with key=phrase.phrase_id label="Lire le français" extra_class="phrase-read-aloud" compact="true" only %}
           </div>
           <div

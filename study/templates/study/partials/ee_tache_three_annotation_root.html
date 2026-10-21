@@ -1,4 +1,4 @@
-{% load study_markdown study_links %}<div class="answer-columns" data-annotation-root data-annotation-source-key="{{ ee_annotation_key }}"{% if ee_annotation_legacy_keys %} data-annotation-legacy-source-keys="{{ ee_annotation_legacy_keys }}"{% endif %}>
+{% load study_markdown study_links study_speech %}<div class="answer-columns" data-annotation-root data-annotation-source-key="{{ ee_annotation_key }}"{% if ee_annotation_legacy_keys %} data-annotation-legacy-source-keys="{{ ee_annotation_legacy_keys }}"{% endif %}>
       {% for warning in ee_source_warnings %}
         <div class="notice">{{ warning }}</div>
       {% endfor %}
@@ -10,7 +10,7 @@
       {% endif %}
 
       {% if ee_response_copy_text %}
-        <section class="card section-card section-card--ee-response" aria-label="Réponse complète"><header class="ee-response-card__head" data-annotation-exclude>
+        <section class="card section-card section-card--ee-response" aria-label="Réponse complète" data-read-aloud-scope><header class="ee-response-card__head" data-annotation-exclude>
             <div class="spine-label">Réponse</div>
             <div class="ee-response-card__title-row">
               <div>
@@ -18,6 +18,7 @@
                 <p class="muted">Total : {{ ee_response_copy_text|french_wordcount }} mots{% if response_content.reformulation %}, titre compris{% endif %} · 120–180 mots</p>
               </div>
               <div class="writing-response-controls">
+                {% include "study/partials/read_aloud_button.html" with label="Lire cette réponse en français" compact=True only %}
                 {% if can_edit_response %}
                   <a class="icon-button" href="{% subject_url 'study:edit_response' part.slug task.slug selected_prompt.pk %}" data-response-edit aria-label="Modifier la réponse" title="Modifier">
                     {% include "study/partials/ui_icon.html" with name="pencil" only %}
@@ -26,7 +27,7 @@
                 {% include "study/partials/response_copy_button.html" with source_id="ee-tache-three-response-content" button_class="btn btn--sm prompt-copy-button" only %}
               </div>
             </div>
-          </header><div class="ee-response-card__parts">{% if response_content.position %}<section class="ee-response-part section-card--ee-synthese">
+          </header><div class="ee-response-card__parts" data-read-aloud-text data-read-aloud-value="{{ ee_response_copy_text }}" {% speech_attrs ee_response_copy_text private=response_content.is_personal %} lang="fr">{% if response_content.position %}<section class="ee-response-part section-card--ee-synthese">
           <div class="spine-label">Partie 1 — Synthèse <span class="spine-count">· {{ response_content.position|french_wordcount }} mots</span>{% if ee_response_origin == "author" %} <span class="chip chip--accent">Version de l’auteur</span>{% endif %}</div>
           <p class="spine-text">{{ response_content.position }}</p>
         </section>

@@ -1,4 +1,4 @@
-{% if tache_two_dialogue %}
+{% load study_speech %}{% if tache_two_dialogue %}
       <section
         class="tache-two-question-section"
         aria-labelledby="subject-questions-title"
@@ -27,16 +27,16 @@
             <h2 id="subject-questions-title">Questions à poser</h2>
           </div>
           <div class="tache-two-question-section__tools"><span>{{ subject_questions|length }} questions</span>{% if questions_edit_url %}<a class="icon-button" href="{{ questions_edit_url }}" data-annotation-exclude data-response-edit aria-label="{{ response_content.is_personal|yesno:'Modifier mes questions,Personnaliser les questions' }}" title="{{ response_content.is_personal|yesno:'Modifier mes questions,Personnaliser les questions' }}">{% spaceless %}{% include "study/partials/ui_icon.html" with name="pencil" only %}{% endspaceless %}</a>{% endif %}</div>
-        </header>{% if response_content.reformulation %}<p class="eo2-personal-boundary">{{ response_content.reformulation|linebreaksbr }}</p>{% endif %}
+        </header>{% if response_content.reformulation %}<p class="eo2-personal-boundary" data-read-aloud-text {% speech_attrs response_content.reformulation private=response_content.is_personal %} lang="fr">{{ response_content.reformulation|linebreaksbr }}</p>{% endif %}
         <ol class="tache-two-question-list">
           {% for question in subject_questions %}
             <li class="tache-two-question" data-tache-two-question>
               <span class="tache-two-question__number">{{ question.number|stringformat:"02d" }}</span>
               <div class="tache-two-question__content">
-                <p data-question-highlight-text="{{ question.number }}">{{ question.text|linebreaksbr }}</p>
+                <p data-question-highlight-text="{{ question.number }}" data-read-aloud-text {% speech_attrs question.text private=response_content.is_personal %} lang="fr">{{ question.text|linebreaksbr }}</p>
               </div>
             </li>
           {% endfor %}
-        </ol>{% if response_content.conclusion %}<p class="eo2-personal-boundary">{{ response_content.conclusion|linebreaksbr }}</p>{% endif %}
+        </ol>{% if response_content.conclusion %}<p class="eo2-personal-boundary" data-read-aloud-text {% speech_attrs response_content.conclusion private=response_content.is_personal %} lang="fr">{{ response_content.conclusion|linebreaksbr }}</p>{% endif %}
       </section>
 {% endif %}

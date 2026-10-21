@@ -262,13 +262,17 @@ TRANSLATION_API_URL = os.environ.get("TRANSLATION_API_URL", "").strip()
 TRANSLATION_API_KEY = os.environ.get("TRANSLATION_API_KEY", "").strip()
 TRANSLATION_TIMEOUT = float(os.environ.get("TRANSLATION_TIMEOUT", "8"))
 
-# Narration is generated explicitly by an operator, never by a page visit.
+# Narration is generated only after explicit cost confirmation, never on visits.
 ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "").strip()
 ELEVENLABS_VOICE_ID = os.environ.get("ELEVENLABS_VOICE_ID", "").strip()
 ELEVENLABS_MODEL_ID = os.environ.get(
     "ELEVENLABS_MODEL_ID", "eleven_multilingual_v2",
 ).strip()
-EO3_AUDIO_ENABLED = env_bool("EO3_AUDIO_ENABLED", False)
+EO3_AUDIO_ENABLED = env_bool("EO3_AUDIO_ENABLED", True)
+EO3_AUDIO_SAMPLE_ENABLED = env_bool("EO3_AUDIO_SAMPLE_ENABLED", True)
+FRENCH_AUDIO_ENABLED = env_bool("FRENCH_AUDIO_ENABLED", True)
+FRENCH_AUDIO_GENERATION_ENABLED = env_bool("FRENCH_AUDIO_GENERATION_ENABLED", False)
+FRENCH_AUDIO_CHARACTER_BUDGET = max(0, env_int("FRENCH_AUDIO_CHARACTER_BUDGET", 0))
 
 _csp_directives = [
     "default-src 'self'",

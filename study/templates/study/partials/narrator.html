@@ -1,0 +1,42 @@
+<section class="narrator card" data-narrator hidden aria-label="Lecture française" data-annotation-exclude>
+  <div class="narrator__head">
+    <strong>Lecture française</strong>
+    <button type="button" class="btn btn--sm" data-narrator-close aria-label="Fermer et arrêter la lecture">Fermer</button>
+  </div>
+  <p data-narrator-status role="status" aria-live="polite"></p>
+  <audio controls preload="none" data-narrator-audio hidden aria-label="Enregistrement français"></audio>
+  <div class="narrator__controls">
+    <button type="button" class="btn btn--sm" data-narrator-toggle>Pause</button>
+    <button type="button" class="btn btn--sm" data-narrator-restart>Revenir au début</button>
+    <label>Vitesse
+      <select data-narrator-speed aria-label="Vitesse de narration">
+        <option value="0.75">0,75×</option>
+        <option value="0.85" selected>0,85×</option>
+        <option value="1">1×</option>
+        <option value="1.25">1,25×</option>
+        <option value="1.5">1,5×</option>
+        <option value="1.75">1,75×</option>
+        <option value="2">2×</option>
+      </select>
+    </label>
+  </div>
+  <details data-narrator-options>
+  <summary>Voix et confidentialité</summary>
+  <p data-narrator-privacy hidden>
+    Texte privé : voix de l’appareil par défaut, sans envoi à Heureux ou à ElevenLabs pour la lecture.
+    <label><input type="checkbox" data-narrator-consent>
+      Pour cette lecture uniquement, j’autorise l’envoi de ce texte à Heureux et, si je demande sa préparation,
+      à ElevenLabs, ainsi que le stockage de l’enregistrement privé dans mon compte.
+    </label>
+  </p>
+  <div class="narrator__controls">
+    <button type="button" class="btn btn--sm" data-narrator-natural>Voix naturelle · ElevenLabs</button>
+    <button type="button" class="btn btn--sm" data-narrator-device>Voix de l’appareil</button>
+  </div>
+  <div data-narrator-preparation hidden>
+    <p>La préparation consomme des crédits ElevenLabs après votre confirmation explicite.
+      La lecture d’un enregistrement existant ne consomme aucun crédit de génération.</p>
+    <button type="button" class="btn btn--sm" data-narrator-request>Préparer cet enregistrement</button>
+  </div>
+  </details>
+</section>

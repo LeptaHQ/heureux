@@ -181,6 +181,35 @@ class EO3Narration(models.Model):
     created_at = models.DateTimeField(default=timezone.now)
 
 
+class FrenchNarration(models.Model):
+    """A bounded preparation request and its immutable, versioned recording."""
+
+    fingerprint = models.CharField(max_length=64, primary_key=True)
+    owner = models.ForeignKey(
+        django_settings.AUTH_USER_MODEL, null=True, blank=True,
+        on_delete=models.CASCADE, related_name="private_narrations",
+    )
+    requested_by = models.ForeignKey(
+        django_settings.AUTH_USER_MODEL, null=True,
+        on_delete=models.SET_NULL, related_name="narration_requests",
+    )
+    text = models.TextField()
+    voice_id = models.CharField(max_length=128)
+    model_id = models.CharField(max_length=128)
+    status = models.CharField(max_length=12, default="pending")
+    target_group = models.CharField(max_length=160, blank=True, default="")
+    audio = models.BinaryField(default=bytes)
+    created_at = models.DateTimeField(default=timezone.now)
+
+
+class FrenchNarrationBudget(models.Model):
+    """Lifetime reservations, including failures which may have been billed."""
+
+    id = models.PositiveSmallIntegerField(primary_key=True, default=1, editable=False)
+    reserved_characters = models.PositiveBigIntegerField(default=0)
+    sample_claimed = models.BooleanField(default=False)
+
+
 class Argument(models.Model):
     """One of the three developed arguments of a Response."""
 

@@ -390,6 +390,15 @@ def _spine_payload(card: Card, *, prompt=None, model_only=False, personal=None) 
         "aliases": aliases,
         "response": response,
         "response_content": content,
+        "speech_text": "\n\n".join(filter(None, (
+            content.position_claire if reviewed_eo3 else content.reformulation,
+            "" if reviewed_eo3 else content.position,
+            *(
+                " ".join((arg.idea, arg.developpement, arg.exemple, arg.consequence))
+                if reviewed_eo3 else arg.idea for arg in content.arguments
+            ),
+            content.nuance, content.conclusion,
+        ))),
         "reviewed_eo3": reviewed_eo3,
         "eo3_audio": narration_presentation(reviewed_model(response, canonical)) if reviewed_eo3 else None,
         "eo3_prompt_note": prompt_note_for_response(response, canonical),

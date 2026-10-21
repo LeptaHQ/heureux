@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static study_markdown study_links %}
+{% load static study_markdown study_links study_speech %}
 {% block title %}Sujet {{ position }} · {{ category_label }} · {{ task.short_label }} · Heureux{% endblock %}
 
 {% block content %}
@@ -40,13 +40,14 @@
       {% include "study/partials/ee_subject_consigne.html" with title_id="ee-writing-subject-title" subject_text=prompt subject_source_id="ee-writing-subject-content" only %}
 
       {% if has_personal %}
-        <section class="card section-card section-card--personal" aria-labelledby="t1-personal-label">
+        <section class="card section-card section-card--personal" data-read-aloud-scope aria-labelledby="t1-personal-label">
           <div class="response-batches__head">
             <div class="spine-label" id="t1-personal-label">{% if plain_response_heading %}Réponse{% else %}Ma version <span class="chip chip--accent">Personnelle</span>{% endif %}</div>
             {% include "study/partials/writing_response_controls.html" with main=True copy_key="personal" copy_label="Copier ma réponse" %}
           </div>
           <div
             class="t1-response__body markdown-prose"
+            data-read-aloud-text lang="fr" {% speech_attrs personal.body|markdown_prose %}
             data-annotation-root
             data-annotation-source-key="writing-sujet:{{ progress_sujet.pk }}:personal">{{ personal.body|markdown_prose }}</div>
           <p class="muted">{{ personal.body|french_wordcount }} mots · limite recommandée : {{ word_limit_min }}–{{ word_limit_max }}</p>
@@ -56,13 +57,14 @@
             <summary class="t1-versions__summary">Voir la réponse modèle{{ model_versions|length|pluralize }} ({{ model_versions|length }})</summary>
             <div class="t1-versions__list">
               {% for card in model_version_cards %}
-                <section class="card section-card section-card--model">
+                <section class="card section-card section-card--model" data-read-aloud-scope>
                   <div class="response-batches__head">
                     <div class="spine-label">{% if plain_response_heading %}Réponse{% elif model_versions|length > 1 %}Version {{ card.number }}{% else %}Réponse modèle{% endif %}</div>
                     {% include "study/partials/writing_response_controls.html" with main=False version_card=card copy_key=card.copy_key copy_label="Copier cette réponse" %}
                   </div>
                   <div
                     class="t1-response__body markdown-prose"
+                    data-read-aloud-text lang="fr" {% if card.content.origin == "personal" %}{% speech_attrs card.content.body|markdown_prose %}{% else %}{% speech_attrs card.content.body|markdown_prose private=False %}{% endif %}
                     data-annotation-root
                    data-annotation-source-key="writing-sujet:{{ progress_sujet.pk }}:model-{{ card.number }}">{{ card.content.body|markdown_prose }}</div>
                   <p class="muted">{{ card.content.body|french_wordcount }} mots{% if card.content.origin == "author" %} · version de l’auteur{% endif %}</p>
@@ -72,13 +74,14 @@
           </details>
         {% endif %}
       {% elif primary_version %}
-        <section class="card section-card section-card--model" aria-labelledby="t1-model-label">
+        <section class="card section-card section-card--model" data-read-aloud-scope aria-labelledby="t1-model-label">
           <div class="response-batches__head">
             <div class="spine-label" id="t1-model-label">{% if plain_response_heading %}Réponse{% else %}Réponse modèle{% endif %}</div>
             {% include "study/partials/writing_response_controls.html" with main=True version_card=primary_version_card copy_key=primary_version_card.copy_key copy_label="Copier la réponse modèle" %}
           </div>
           <div
             class="t1-response__body markdown-prose"
+            data-read-aloud-text lang="fr" {% if primary_version.origin == "personal" %}{% speech_attrs primary_version.body|markdown_prose %}{% else %}{% speech_attrs primary_version.body|markdown_prose private=False %}{% endif %}
             data-annotation-root
             data-annotation-source-key="writing-sujet:{{ progress_sujet.pk }}:model-{{ primary_version_card.number }}">{{ primary_version.body|markdown_prose }}</div>
           <p class="muted">{{ primary_version.body|french_wordcount }} mots{% if primary_version.origin == "author" %} · version de l’auteur{% endif %}</p>
@@ -88,13 +91,14 @@
             <summary class="t1-versions__summary">Voir les autres versions ({{ other_version_count }})</summary>
             <div class="t1-versions__list">
               {% for card in other_version_cards %}
-                <section class="card section-card section-card--model">
+                <section class="card section-card section-card--model" data-read-aloud-scope>
                   <div class="response-batches__head">
                     <div class="spine-label">Version {{ card.number }}</div>
                     {% include "study/partials/writing_response_controls.html" with main=False version_card=card copy_key=card.copy_key copy_label="Copier cette réponse" %}
                   </div>
                   <div
                     class="t1-response__body markdown-prose"
+                    data-read-aloud-text lang="fr" {% if card.content.origin == "personal" %}{% speech_attrs card.content.body|markdown_prose %}{% else %}{% speech_attrs card.content.body|markdown_prose private=False %}{% endif %}
                     data-annotation-root
                     data-annotation-source-key="writing-sujet:{{ progress_sujet.pk }}:model-{{ card.number }}">{{ card.content.body|markdown_prose }}</div>
                   <p class="muted">{{ card.content.body|french_wordcount }} mots{% if card.content.origin == "author" %} · version de l’auteur{% endif %}</p>

@@ -38,102 +38,117 @@ Socket handlers stay threaded, including idle browser connections. File-backed
 SQLite and PostgreSQL retain concurrent application work. Browser-side asynchronous
 response-ordering checks still run with their controlled delays.
 
-## EO3 French narration (optional)
+## French narration across the app
 
-Reviewed public oral-task-3 answers can have a saved ElevenLabs recording.
-The detail page and practice back use the same recording, with native pause/seek
-controls, restart, pitch-preserving **0.85x** playback by default, and adjustable
-speeds from **0.75x to 2x**. A play icon beside the subject-completion check
-also starts or pauses the prepared recording; the completion action remains
-labelled for assistive technology. Unavailable recordings have a faint icon,
-without an empty narration card. The voice is AI-generated, not a human recording or pronunciation
-assessment. Choose a **native-French voice** with a calm conversational
-delivery and audition a complete sample for pronunciation, liaisons and pacing.
+EE model answers, EO1 presentations, EO2 questions, vocabulary, learning examples,
+notes, selected text and comprehension readers share one playback transport.
+EO3 retains its native player and the same prepared recording on detail/practice
+pages. Playback defaults to **0.85x**, adjustable from **0.75x to 2x**, with pitch
+preserved. Pause, resume, restart and seeking do not generate audio or spend credits.
+Reading starts only after a click and stops on card changes, hidden content,
+navigation or another reader. French sources exclude English aids and UI labels.
+The voice is AI-generated, not a human recording or pronunciation assessment.
+Unavailable EO3 recordings show only a faint play icon, without an empty
+narration card. Prepared recordings use a play/pause icon alongside completion.
 
-Set these server-side environment variables (Render: **Environment**):
+Set the server environment (Render: **Environment**, not Build Command):
 
 ```text
-ELEVENLABS_API_KEY=<secret API key>
-ELEVENLABS_VOICE_ID=<chosen French voice ID>
+ELEVENLABS_API_KEY=<server secret>
+ELEVENLABS_VOICE_ID=kENkNtk0xyzG09WW40xE
 ELEVENLABS_MODEL_ID=eleven_multilingual_v2
 EO3_AUDIO_ENABLED=True
+EO3_AUDIO_SAMPLE_ENABLED=True
+FRENCH_AUDIO_ENABLED=True
+FRENCH_AUDIO_GENERATION_ENABLED=False
+FRENCH_AUDIO_CHARACTER_BUDGET=0
 ```
 
-Never put the API key in Git, chat, HTML or client-side JavaScript. Voice IDs
-are not secrets. The model defaults to Multilingual v2 for consistent long-form
-narration; availability and billing depend on the ElevenLabs account and voice.
-The key is needed for generation, not for playing already prepared recordings.
-The switch defaults off; while enabled, missing configuration or a missing
-current recording is shown explicitly, without silently substituting a device voice.
+The selected voice ID is shown above, but code always uses the configured voice;
+voice IDs are not secrets. Never put the API key in Git, chat, HTML or browser
+code. Already prepared audio plays without a provider key. The narration UI and
+sample switch default on; an explicit `False` disables them. No additional flag
+activation is required when the server already has the voice and key configured.
 
-After deploying and migrating, use a trusted operator environment connected to
-the application's database. Render's shell requires a supporting paid plan;
-otherwise use a trusted local environment with the production `DATABASE_URL`,
-or explicitly run the sample command in a controlled deployment job.
-First estimate and then generate **one** sample:
+**First audition: no shell or deployment command required.** Open **EO Tâche 3 →
+Culture → Sujet 1** and click the faint play icon beside the progress badge.
+Confirm the displayed voice and character count.
+Only that canonical public answer can be generated before audition. The MP3
+appears in the existing native player; click the play icon again to listen.
+There is **one globally shared sample attempt**, not one per account, text edit
+or voice change. A failure or interrupted request does not refund this
+authorization: inspect provider usage before allowing another attempt.
+Other sample icons remain unavailable. No account-role change is required.
+
+Do **not** append generation commands to Render's Build Command or startup.
+If the earlier workaround was configured, restore the ordinary Build Command:
 
 ```bash
-python manage.py generate_eo3_audio --group culture-p1 --dry-run
-python manage.py generate_eo3_audio --group culture-p1 --confirm-cost
+pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py deploy_database
 ```
 
-For a **one-time sample on free Render without shell access**, after the code
-is published:
+The ordinary Gunicorn invocation automatically loads `gunicorn.conf.py`: worker
+and graceful-shutdown timeouts are 120 seconds, above the adapter's 90-second
+socket timeout. Render needs no start-command edit. One preparation occupies one
+worker; no threads or queue daemon are required. Vercel serves cached playback
+but rejects interactive paid preparation because its function runtime is not
+configured for these bounded long requests.
 
-1. In the service's **Environment**, set the API key, chosen voice ID and
-   `EO3_AUDIO_ENABLED=True`. Save the configuration before generating the sample.
-2. In **Settings → Build & Deploy → Build Command**, copy the current command
-   somewhere safe, then temporarily append
-   `&& python manage.py generate_eo3_audio --group culture-p1 --dry-run && python manage.py generate_eo3_audio --group culture-p1 --confirm-cost`.
-   This explicitly authorizes paid generation of **one** recording only.
-   With this repository's ordinary configuration the complete temporary command is:
+**Other recordings remain gated until the sample is approved.** After separate
+approval, an operator can enable `FRENCH_AUDIO_GENERATION_ENABLED=True` and set a
+finite positive `FRENCH_AUDIO_CHARACTER_BUDGET`. This is a **lifetime input
+character ceiling**, including the sample and failed/uncertain attempts, not a
+currency estimate or daily reset. Model pricing/multipliers still apply at
+ElevenLabs. Web requests cannot raise or reset it. Each new recording then needs
+its own explicit **Préparer cet enregistrement** cost confirmation. Ordinary
+read clicks only look up the cache; a missing/error recording never silently
+switches engines. **Voix de l’appareil** is an explicit alternative.
 
-   ```bash
-   pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py deploy_database && python manage.py generate_eo3_audio --group culture-p1 --dry-run && python manage.py generate_eo3_audio --group culture-p1 --confirm-cost
-   ```
+The server accepts only user-bound, signed, server-rendered French source
+snapshots, valid for one hour, or a verified substring for selected text.
+Reload after editing/expiry. It rejects arbitrary unsigned text, forged or
+cross-account grants, over 32 sources, and over 10,000 combined characters.
+Preparation requests are limited to 3 pending and 10 new requests per account
+per 24 hours, with 100 pending/working requests globally. A transactional DB
+reservation serializes paid calls and prevents duplicate billing. Failed or
+ambiguous attempts are never automatically retried. Pending requests expire
+after 24 hours but still occupy the queue until removed by a trusted operator.
+Inspect provider usage and interrupted `working` rows before any manual
+recovery; never reset `sample_claimed` or `reserved_characters` merely to hide
+an error.
 
-3. Save and deploy the latest commit. Confirm the build logs show
-   `eo/tache-3/culture-p1: generated` (or `cached` if already prepared).
-   If generation fails, inspect the error and provider usage rather than
-   repeatedly redeploying.
-4. **Immediately restore the original Build Command** before any subsequent
-   deployment. This repository's ordinary value is:
+**Private text stays on device by default.** Private answers/overrides, EO1
+presentations, notes and unrecognized selections use an explicitly local French
+device voice, never a remote OS voice by default. If no local French voice is
+available, the reader says so instead of uploading. In **Voix et confidentialité**,
+an unchecked per-read consent lets the learner allow a private source lookup
+and, after a separate paid-preparation confirmation, transmission to ElevenLabs
+and private DB storage. Consent is not saved between reads; withdrawing it
+aborts pending playback lookup but cannot undo already-billed preparation.
+Private recordings are owner-isolated and cascade on account deletion.
+Unrecognized/dynamically edited selections without valid sources remain
+device-only. Existing annotations, private responses and study state are unchanged.
 
-   ```bash
-   pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py deploy_database
-   ```
+MP3s persist in PostgreSQL/SQLite, not Render's ephemeral disk. Cache identity
+includes exact text, voice, model, output format, synthesis settings and private
+owner; EO3 additionally pins its canonical group. Source/voice/model changes
+do not reuse stale audio. Authenticated same-origin media supports byte ranges,
+uses identity encoding so gzip cannot corrupt offsets, and private audio is
+never stored by the service worker. At 64 kbps, a four-minute recording is about
+1.9 MB; budget database storage/backups accordingly. Tests use mocked providers
+and silent WAV fixtures, not paid calls or voice-quality claims.
 
-5. Once the deploy is live, open **EO Tâche 3 → Culture → Sujet 1** and audition
-   the recording. Page visits do not generate additional recordings.
-
-Do not commit the temporary command to `render.yaml`, leave it configured,
-or put generation into startup or HTTP handlers. A restored build command
-does not remove the recording already stored in the database.
-
-Listen to the sample on its subject page before approving the full collection:
+Optional trusted-operator recovery/preparation of one previously authorized
+app-wide request uses the same durable claims and ceiling:
 
 ```bash
-python manage.py generate_eo3_audio --all --dry-run
-python manage.py generate_eo3_audio --all --confirm-cost
+python manage.py prepare_french_audio --id <request-fingerprint> --dry-run
+python manage.py prepare_french_audio --id <request-fingerprint> --confirm-cost
 ```
 
-Only these explicit operator commands call ElevenLabs. Visits, playback and
-seeking never spend generation credits. Commands skip existing identical audio
-and stop on an error without automatic paid retries; successful earlier tracks
-remain saved if a later track fails. A network timeout can still have incurred
-provider charges, so inspect provider usage before retrying.
-
-Only the approved public spoken text is sent: introduction, three complete
-arguments, nuance and conclusion, with paragraph pauses but no UI headings,
-English hints, private answers or notes. The shared PostgreSQL/SQLite database
-stores the MP3s so Render restarts/redeployments do not erase them. Allow database
-storage for the collection: at 64 kbps a four-minute track is about 1.9 MB, or
-about 250 MB for 131 tracks, before database overhead and backups.
-Audio is versioned by exact text, canonical group, voice, model and synthesis
-settings. Edited text or voice changes require new generation; stale URLs are
-rejected. Old recordings are retained, not silently reused or automatically deleted.
-Personal answers keep their existing behavior and never play a different public
-answer as though it were their own. No user study or annotation state changes.
+The legacy `generate_eo3_audio` command remains an explicit operator-only bulk
+tool, separate from the web ceiling; do not run `--all` before separately
+approving the corpus and cost.
 
 ## Account PINs
 

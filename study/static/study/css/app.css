@@ -2,6 +2,30 @@
    Heureux — design system
    ========================================================================== */
 
+.narrator {
+  position: fixed;
+  z-index: 80;
+  right: 1rem;
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  width: min(30rem, calc(100vw - 2rem));
+  max-height: 65vh;
+  overflow: auto;
+  padding: 1rem;
+  box-shadow: 0 8px 32px #0003;
+}
+.narrator[hidden], .narrator [hidden] { display: none; }
+.narrator__head, .narrator__controls { display: flex; align-items: center; gap: .5rem; flex-wrap: wrap; }
+.narrator__head { justify-content: space-between; }
+.narrator p { font-size: .85rem; margin-block: .6rem; overflow-wrap: anywhere; }
+.narrator audio { width: 100%; }
+.narrator label { display: block; font-size: .85rem; }
+.narrator .btn, .narrator select { min-height: 44px; }
+@media (max-width: 760px), (hover: none), (pointer: coarse) {
+  body:has([data-selection-translate]:not(.hidden)) .narrator {
+    bottom: calc(5.5rem + env(safe-area-inset-bottom));
+  }
+}
+
 /* Nested formulation directory, focused lessons and optional recall view. */
 .formulations-page { max-width: 1100px; margin-inline: auto; }
 .formulations-page > * + * { margin-top: .8rem; }

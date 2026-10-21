@@ -68,9 +68,7 @@
   var frenchSpeech = window.HeureuxFrenchSpeech;
   var reading = false;
   var readingNumber = 0;
-  var readingChunks = [];
-  var readingIndex = 0;
-  var readingUtterance = null;
+  var readingHandle = null;
   var readResetTimer = null;
   var selectionPointerId = null;
   var selectionPointerTimer = null;
@@ -428,85 +426,47 @@
     var wasReading = reading;
     reading = false;
     readingNumber += 1;
-    readingChunks = [];
-    readingIndex = 0;
-    readingUtterance = null;
-    if (
-      wasReading &&
-      cancelSpeech !== false &&
-      frenchSpeech &&
-      frenchSpeech.supported
-    ) {
-      frenchSpeech.synthesis.cancel();
-      frenchSpeech.synthesis.resume();
-    }
+    if (wasReading && cancelSpeech !== false && readingHandle) readingHandle.stop();
+    readingHandle = null;
     resetReadButton();
   }
 
   function finishReading() {
     reading = false;
-    readingChunks = [];
-    readingIndex = 0;
-    readingUtterance = null;
+    readingHandle = null;
     setReadButton("Read again", false);
   }
 
   function showReadError() {
     reading = false;
-    readingChunks = [];
-    readingIndex = 0;
-    readingUtterance = null;
+    readingHandle = null;
     setReadButton("Unavailable", false, true);
     readResetTimer = window.setTimeout(resetReadButton, 1800);
   }
 
-  function speakNextChunk(number) {
-    if (!reading || number !== readingNumber) return;
-    if (readingIndex >= readingChunks.length) {
-      finishReading();
-      return;
-    }
-
-    var utterance = new frenchSpeech.Utterance(readingChunks[readingIndex]);
-    var voice = frenchSpeech.preferredVoice();
-    utterance.lang = "fr-FR";
-    utterance.rate = 0.92;
-    utterance.pitch = 1;
-    if (voice) utterance.voice = voice;
-    utterance.onend = function () {
-      if (!reading || number !== readingNumber) return;
-      readingIndex += 1;
-      speakNextChunk(number);
-    };
-    utterance.onerror = function () {
-      if (!reading || number !== readingNumber) return;
-      showReadError();
-    };
-    readingUtterance = utterance;
-    try {
-      frenchSpeech.synthesis.speak(utterance);
-    } catch (error) {
-      showReadError();
-    }
-  }
-
   function startReading() {
-    if (!selectedText || !frenchSpeech || !frenchSpeech.supported) return;
-    frenchSpeech.refreshVoices();
-    var chunks = frenchSpeech.chunks(selectedText);
-    if (!chunks.length) return;
-
-    document.dispatchEvent(new CustomEvent("heureux:speech-start", {
-      detail: { source: "selection-toolbar" }
-    }));
-    frenchSpeech.synthesis.resume();
+    var narrator = window.HeureuxNarrator;
+    if (!selectedText || !narrator || !narrator.supported) return;
+    var element = selectedRange && selectedRange.commonAncestorContainer;
+    if (element && element.nodeType !== Node.ELEMENT_NODE) element = element.parentElement;
+    if (!narrator.visible(element)) return;
+    var source = element && element.closest("[data-speech-grant]");
+    if (source && !narrator.visible(source)) return;
     readingNumber += 1;
     reading = true;
-    readingChunks = chunks;
-    readingIndex = 0;
     setReadButton("Stop", true);
     var currentReading = readingNumber;
-    speakNextChunk(currentReading);
+    readingHandle = narrator.start({
+      source: "selection-toolbar", text: selectedText, nodes: source ? [source] : [element],
+      selection: selectedText, range: selectedRange.cloneRange(),
+      onstate: function (value) {
+        reading = ["playing", "paused", "ready", "loading"].indexOf(value) !== -1;
+        setReadButton(reading ? "Stop" : "Read", reading);
+      },
+      onend: function () { if (readingNumber === currentReading) finishReading(); },
+      onerror: function () { if (readingNumber === currentReading) showReadError(); },
+      onstop: function () { if (readingNumber === currentReading) stopReading(false); }
+    });
   }
 
   function googleTranslateUrl(text) {
@@ -795,7 +755,7 @@
   }
 
   if (readButton) {
-    if (!readLabel || !frenchSpeech || !frenchSpeech.supported) {
+    if (!readLabel || !window.HeureuxNarrator || !window.HeureuxNarrator.supported) {
       readButton.hidden = true;
     } else {
       resetReadButton();
@@ -983,6 +943,10 @@
   });
   document.addEventListener("pointerdown", function (event) {
     rememberPointerInput(event);
+    if (event.target.closest("[data-narrator]")) {
+      toolbarSelectionPinned = true;
+      return;
+    }
     var outsideAction = !action.contains(event.target);
     var outsideTranslation = !panel.contains(event.target);
     var outsideNote = !notePanel || !notePanel.contains(event.target);

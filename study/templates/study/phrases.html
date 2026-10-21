@@ -77,9 +77,9 @@
         {% include "study/partials/collection_table_header.html" with variant="phrases" column_1="Expression" column_2="Sens" column_3="Exemple en contexte" only %}
         {% for phrase in group.phrases %}
           {% if selected_test %}
-            {% include "study/partials/vocabulary_phrase_card.html" with phrase=phrase flashcard=True category_label=phrase.category.name|cut:"Compréhension · " only %}
+            {% include "study/partials/vocabulary_phrase_card.html" with phrase=phrase flashcard=True category_label=phrase.category.name|cut:"Compréhension · " request=request only %}
           {% else %}
-            {% include "study/partials/vocabulary_phrase_card.html" with phrase=phrase only %}
+            {% include "study/partials/vocabulary_phrase_card.html" with phrase=phrase request=request only %}
           {% endif %}
         {% endfor %}
       </div>

@@ -11,6 +11,7 @@
       var playing = !audio.paused && !audio.ended;
       button.disabled = false;
       button.removeAttribute("data-eo3-unavailable");
+      button.removeAttribute("aria-busy");
       button.setAttribute("aria-controls", player.id);
       button.setAttribute("aria-label", "Écouter la réponse");
       button.setAttribute("aria-pressed", String(playing));
@@ -96,6 +97,11 @@
       var player = document.getElementById(toggle.dataset.eo3Toggle);
       var narration = player && player.querySelector(selector);
       if (!narration) {
+        var preparation = player && player.querySelector("[data-eo3-prepare]");
+        if (preparation && !preparation.disabled) {
+          preparation.click();
+          return;
+        }
         console.error("Le lecteur de narration est introuvable.");
         toggle.disabled = true;
         toggle.title = "Lecture indisponible. Rechargez la page.";

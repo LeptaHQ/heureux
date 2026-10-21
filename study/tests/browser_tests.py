@@ -6812,7 +6812,7 @@ class BrowserTests(StaticLiveServerTestCase):
             {
                 "text": selected,
                 "lang": "fr-FR",
-                "rate": 0.92,
+                "rate": 0.85,
                 "voice": "Audrey Premium",
                 "startedInClick": True,
             },

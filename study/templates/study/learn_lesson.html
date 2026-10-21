@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static study_markdown %}
+{% load static study_markdown study_speech %}
 {% block title %}{{ lesson.title }} · Apprendre · Heureux{% endblock %}
 
 {% block content %}
@@ -84,7 +84,7 @@
               <h3>Examples</h3>
               {% for example in section.examples %}
                 <figure class="learn-example">
-                  <blockquote lang="fr" data-read-aloud-text>{% if course %}{{ example.french|markdown_inline }}{% else %}{{ example.french }}{% endif %}</blockquote>
+                  <blockquote lang="fr" data-read-aloud-text {% if course %}{% speech_attrs example.french|markdown_inline private=False %}{% else %}{% speech_attrs example.french private=False %}{% endif %}>{% if course %}{{ example.french|markdown_inline }}{% else %}{{ example.french }}{% endif %}</blockquote>
                   <figcaption>
                     <span>{% if course %}{{ example.english|markdown_inline }}{% else %}{{ example.english }}{% endif %}</span>
                     {% if example.note %}<small>{{ example.note|markdown_inline }}</small>{% endif %}

@@ -150,6 +150,7 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         expect(toggle).to_have_attribute("aria-pressed", "false")
         self.assertFalse(self.errors, self.errors)
 
+    @override_settings(EO3_AUDIO_SAMPLE_ENABLED=False)
     def test_pending_header_enables_after_preparation_and_preserves_completion(self):
         EO3Narration.objects.all().delete()
         self.page.goto(self.live_server_url + prompt_detail_url(self.prompt))

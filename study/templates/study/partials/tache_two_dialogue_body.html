@@ -1,7 +1,7 @@
-<div class="eo2-dialogue">
+{% load study_speech %}<div class="eo2-dialogue">
   <div class="eo2-dialogue__boundary">
     <span>Pour commencer</span>
-    <p data-question-highlight-boundary="opening" data-read-aloud-text lang="fr">{{ response_content.reformulation|linebreaksbr }}</p>
+    <p data-question-highlight-boundary="opening" data-read-aloud-text {% speech_attrs response_content.reformulation private=response_content.is_personal user_id=card.user_id %} lang="fr">{{ response_content.reformulation|linebreaksbr }}</p>
   </div>
   <ol class="eo2-dialogue__questions">
     {% for question in subject_questions %}
@@ -10,7 +10,7 @@
         <div class="eo2-dialogue__turn">
           <span class="eo2-dialogue__number" aria-hidden="true">{{ question.number|stringformat:"02d" }}</span>
           <div class="eo2-dialogue__content">
-            <p class="eo2-dialogue__question" data-question-highlight-text="{{ question.number }}" data-read-aloud-text lang="fr">{{ question.text|linebreaksbr }}</p>
+            <p class="eo2-dialogue__question" data-question-highlight-text="{{ question.number }}" data-read-aloud-text {% speech_attrs question.text private=response_content.is_personal user_id=card.user_id %} lang="fr">{{ question.text|linebreaksbr }}</p>
           </div>
         </div>
       </li>
@@ -18,6 +18,6 @@
   </ol>
   <div class="eo2-dialogue__boundary eo2-dialogue__boundary--closing">
     <span>Pour terminer</span>
-    <p data-question-highlight-boundary="closing" data-read-aloud-text lang="fr">{{ response_content.conclusion|linebreaksbr }}</p>
+    <p data-question-highlight-boundary="closing" data-read-aloud-text {% speech_attrs response_content.conclusion private=response_content.is_personal user_id=card.user_id %} lang="fr">{{ response_content.conclusion|linebreaksbr }}</p>
   </div>
 </div>

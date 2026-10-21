@@ -1,5 +1,7 @@
 """Template context shared across the authenticated application shell."""
 
+from django.conf import settings
+
 from .models import ReviewSession
 from .views.helpers import active_task_for_request
 
@@ -214,6 +216,8 @@ def study_globals(request):
         "annotation_task": task,
         "content_task": task,
         "active_nav_area": _active_nav_area(request),
+        "french_audio_enabled": settings.FRENCH_AUDIO_ENABLED,
+        "french_audio_configured": bool(settings.ELEVENLABS_VOICE_ID),
         **({
             "default_collection_view": "table",
             "collection_view_preference": "vocabularyCollectionViewMode",

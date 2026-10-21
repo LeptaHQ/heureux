@@ -7,7 +7,7 @@
   <title>{% block title %}Heureux{% endblock %}</title>
   <meta name="description" content="Révisions pour l'expression et la compréhension du français.">
   <script src="{% static 'study/js/theme-init.js' %}?v=4"></script>
-  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=256">
+  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=257">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#173f90">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -31,6 +31,9 @@
   <meta name="twitter:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'study/icons/og-image.png' %}">
 </head>
 <body
+  data-french-audio-enabled="{{ french_audio_enabled|yesno:'true,false' }}"
+  data-french-audio-configured="{{ french_audio_configured|yesno:'true,false' }}"
+  data-french-audio-resolve-url="{% url 'study:french_audio_resolve' %}"
   data-active-area="{{ active_nav_area }}"
   data-annotation-task-id="{% if annotation_task %}{{ annotation_task.id }}{% endif %}"
   data-annotation-source-url="{% url 'study:annotations_for_source' %}"
@@ -376,11 +379,14 @@
     <button class="btn btn--primary" type="button" data-pwa-update>Mettre à jour</button>
   </div>
 
-  <script src="{% static 'study/js/speech.js' %}?v=4"></script>
-  <script src="{% static 'study/js/eo3-audio.js' %}?v=3"></script>
+  {% if request.user.is_authenticated %}{% include "study/partials/narrator.html" %}{% endif %}
+  <script src="{% static 'study/js/speech.js' %}?v=5"></script>
+  <script src="{% static 'study/js/narration.js' %}?v=1"></script>
+  <script src="{% static 'study/js/audio-preparation.js' %}?v=1"></script>
+  <script src="{% static 'study/js/eo3-audio.js' %}?v=4"></script>
   <script src="{% static 'study/js/flashcards.js' %}?v=5"></script>
-  <script src="{% static 'study/js/app.js' %}?v=69"></script>
-  <script src="{% static 'study/js/selection-toolbar.js' %}?v=14"></script>
+  <script src="{% static 'study/js/app.js' %}?v=70"></script>
+  <script src="{% static 'study/js/selection-toolbar.js' %}?v=15"></script>
   <script src="{% static 'study/js/annotations.js' %}?v=36"></script>
   {% block scripts %}{% endblock %}
 </body>

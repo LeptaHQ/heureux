@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load study_markdown %}
+{% load study_markdown study_speech %}
 {% block title %}Flashcards · {% if task %}Notes · {{ task.short_label }}{% else %}{{ scope_title }} · Notes{% endif %} · Heureux{% endblock %}
 
 {% block content %}
@@ -52,9 +52,9 @@
           {% if item.kind == "highlight" %}
             <h2>Quel passage avez-vous retenu&nbsp;?</h2>
           {% elif item.quote %}
-            <h2 data-read-aloud-text lang="fr">{{ item.quote }}</h2>
+            <h2 data-read-aloud-text {% speech_attrs item.quote %} lang="fr">{{ item.quote }}</h2>
           {% elif item.title %}
-            <h2 data-read-aloud-text lang="fr">{{ item.title }}</h2>
+            <h2 data-read-aloud-text {% speech_attrs item.title %} lang="fr">{{ item.title }}</h2>
           {% else %}
             <h2>Retrouvez l'idée que vous aviez notée.</h2>
           {% endif %}
@@ -62,11 +62,11 @@
         </div>
         <div class="flashcard-deck__face annotation-study__back hidden" data-flashcard-back data-study-back>
           {% if item.kind == "highlight" %}
-            {% if item.quote %}<blockquote class="annotation-study__highlight" data-read-aloud-text lang="fr">{{ item.quote }}</blockquote>{% endif %}
+            {% if item.quote %}<blockquote class="annotation-study__highlight" data-read-aloud-text {% speech_attrs item.quote %} lang="fr">{{ item.quote }}</blockquote>{% endif %}
             {% if item.body %}<div class="annotation-study__body annotation-markdown">{{ item.body|markdown }}</div>{% endif %}
           {% elif item.quote %}
             <p class="eyebrow">Votre note</p>
-            {% if item.title %}<h2 data-read-aloud-text lang="fr">{{ item.title }}</h2>{% endif %}
+            {% if item.title %}<h2 data-read-aloud-text {% speech_attrs item.title %} lang="fr">{{ item.title }}</h2>{% endif %}
             {% if item.body %}<div class="annotation-study__body annotation-markdown">{{ item.body|markdown }}</div>{% endif %}
             {% if not item.title and not item.body %}<p class="muted">Aucune note ajoutée à ce passage.</p>{% endif %}
           {% else %}

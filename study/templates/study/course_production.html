@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load study_markdown %}
+{% load study_markdown study_speech %}
 {% block title %}Production · {{ production.task_snapshot.title }} · Apprendre · Heureux{% endblock %}
 {% block content %}
 <div class="learn-lesson-page course-practice-page" lang="en">
@@ -8,12 +8,12 @@
   <section class="card course-practice-section">
     <h2>Your response</h2>
     <p>{{ production.task_snapshot.prompt|markdown_inline }}</p>
-    <div class="course-production-text markdown-prose" lang="fr">{{ production.body|markdown_prose }}</div>
+    <div class="course-production-text markdown-prose" {% speech_attrs production.body|markdown_prose %} lang="fr">{{ production.body|markdown_prose }}</div>
   </section>
   <section class="card course-practice-section" data-read-aloud-scope>
     <h2>One possible model</h2>
     {% include "study/partials/read_aloud_button.html" with compact=True key="production-model" label="Read the French model" only %}
-    <div lang="fr" data-read-aloud-text>{{ production.task_snapshot.model_answer|markdown_inline }}</div>
+    <div lang="fr" data-read-aloud-text {% speech_attrs production.task_snapshot.model_answer|markdown_inline %}>{{ production.task_snapshot.model_answer|markdown_inline }}</div>
     <p>{{ production.task_snapshot.translation|markdown_inline }}</p>
     <h3>Review your own work</h3>
     <ul>{% for criterion in production.task_snapshot.rubric %}<li>{{ criterion|markdown_inline }}</li>{% endfor %}</ul>

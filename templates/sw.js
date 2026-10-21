@@ -1,14 +1,16 @@
 {% load static %}/* Heureux service worker — offline app shell. */
-var CACHE = "heureux-v258";
+var CACHE = "heureux-v259";
 var SHELL = [
   "{% url 'offline' %}",
-  "{% static 'study/css/app.css' %}?v=256",
+  "{% static 'study/css/app.css' %}?v=257",
   "{% static 'study/js/theme-init.js' %}?v=4",
-  "{% static 'study/js/speech.js' %}?v=4",
-  "{% static 'study/js/eo3-audio.js' %}?v=3",
+  "{% static 'study/js/speech.js' %}?v=5",
+  "{% static 'study/js/narration.js' %}?v=1",
+  "{% static 'study/js/audio-preparation.js' %}?v=1",
+  "{% static 'study/js/eo3-audio.js' %}?v=4",
   "{% static 'study/js/flashcards.js' %}?v=5",
-  "{% static 'study/js/app.js' %}?v=69",
-  "{% static 'study/js/selection-toolbar.js' %}?v=14",
+  "{% static 'study/js/app.js' %}?v=70",
+  "{% static 'study/js/selection-toolbar.js' %}?v=15",
   "{% static 'study/js/annotations.js' %}?v=36",
   "{% static 'study/js/subject-progress.js' %}?v=2",
   "{% static 'study/js/writing-word-count.js' %}?v=2",

@@ -78,8 +78,10 @@
     return value;
   }
 
-  function preferredVoice() {
-    return frenchVoices.slice().sort(function (first, second) {
+  function preferredVoice(localOnly) {
+    return frenchVoices.filter(function (voice) {
+      return !localOnly || voice.localService === true;
+    }).sort(function (first, second) {
       return voiceScore(second) - voiceScore(first);
     })[0] || null;
   }
@@ -156,18 +158,19 @@
   }
 
   function sourceIsVisible(source) {
+    if (window.HeureuxNarrator) return window.HeureuxNarrator.visible(source);
     var hiddenSelector = ".hidden, [hidden], [aria-hidden='true'], [inert]";
     var hiddenAncestor = source.parentElement
       ? source.parentElement.closest(hiddenSelector)
       : null;
     if (hiddenAncestor || source.matches(".hidden, [hidden]")) return false;
-    if (source.matches("[aria-hidden='true'], [inert]")) {
-      return source.matches("[data-recall-content]");
-    }
+    if (source.matches("[aria-hidden='true'], [inert]")) return false;
+    var details = source.closest("details");
+    if (details && !details.open) return false;
     return true;
   }
 
-  function textFor(button) {
+  function sourcesFor(button) {
     var targetId = button.dataset.readAloudTarget;
     var sources = [];
     if (targetId) {
@@ -179,9 +182,14 @@
         scope.querySelectorAll("[data-read-aloud-text]")
       ).filter(sourceIsVisible);
     }
+    return sources;
+  }
+
+  function textFor(button) {
     var seen = Object.create(null);
-    return sources.map(function (source) {
-      return (source.textContent || "").replace(/\s+/g, " ").trim();
+    return sourcesFor(button).map(function (source) {
+      return window.HeureuxNarrator ? window.HeureuxNarrator.nodeText(source) :
+        (source.dataset.readAloudValue || source.textContent || "").replace(/\s+/g, " ").trim();
     }).filter(function (text) {
       if (!text || seen[text]) return false;
       seen[text] = true;
@@ -236,18 +244,11 @@
     }
   }
 
-  function stop(cancelSpeech) {
+  function stop() {
     var previous = active;
     active = null;
     playbackNumber += 1;
-    if (
-      cancelSpeech !== false &&
-      supported &&
-      (previous || synthesis.speaking || synthesis.pending || synthesis.paused)
-    ) {
-      synthesis.cancel();
-      synthesis.resume();
-    }
+    if (previous && previous.handle) previous.handle.stop();
     if (previous) {
       relatedButtons(previous.button).forEach(function (candidate) {
         setButtonState(candidate, false);
@@ -255,36 +256,9 @@
     }
   }
 
-  function speakNext(number) {
-    if (!active || active.number !== number) return;
-    if (active.index >= active.chunks.length) {
-      finish();
-      return;
-    }
-    var utterance = new Utterance(active.chunks[active.index]);
-    var voice = preferredVoice();
-    utterance.lang = "fr-FR";
-    utterance.rate = 0.92;
-    utterance.pitch = 1;
-    if (voice) utterance.voice = voice;
-    utterance.onend = function () {
-      if (!active || active.number !== number) return;
-      active.index += 1;
-      speakNext(number);
-    };
-    utterance.onerror = function () {
-      if (active && active.number === number) finish(true);
-    };
-    active.utterance = utterance;
-    try {
-      synthesis.speak(utterance);
-    } catch (error) {
-      if (active && active.number === number) finish(true);
-    }
-  }
-
   function start(button) {
-    if (!supported || button.disabled) return;
+    var narrator = window.HeureuxNarrator;
+    if (!narrator || !narrator.supported || button.disabled) return;
     if (active && relatedButtons(active.button).indexOf(button) !== -1) {
       stop();
       return;
@@ -294,23 +268,25 @@
       refresh(button.closest("[data-read-aloud-scope]") || document);
       return;
     }
-    document.dispatchEvent(new CustomEvent("heureux:speech-start", {
-      detail: { source: "read-aloud" }
-    }));
     stop();
-    refreshVoices();
     playbackNumber += 1;
-    active = {
-      button: button,
-      chunks: parts,
-      index: 0,
-      number: playbackNumber
-    };
+    var item = { button: button, number: playbackNumber };
+    active = item;
     relatedButtons(button).forEach(function (candidate) {
       setButtonState(candidate, true);
     });
-    synthesis.resume();
-    speakNext(playbackNumber);
+    item.handle = narrator.start({
+      source: "read-aloud", text: textFor(button), nodes: sourcesFor(button),
+      onstate: function (value) {
+        active = item;
+        relatedButtons(button).forEach(function (candidate) {
+          setButtonState(candidate, ["playing", "paused", "ready", "loading"].indexOf(value) !== -1);
+        });
+      },
+      onend: function () { if (active === item) finish(); },
+      onerror: function () { if (active === item) finish(true); },
+      onstop: function () { if (active === item) stop(); }
+    });
   }
 
   function refresh(root) {
@@ -321,7 +297,7 @@
       Array.from(scope.querySelectorAll("[data-read-aloud]"))
     );
     buttons.forEach(function (button) {
-      if (!supported) {
+      if (!supported && !(window.HeureuxNarrator && window.HeureuxNarrator.supported)) {
         button.hidden = true;
         return;
       }

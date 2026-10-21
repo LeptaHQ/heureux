@@ -1829,8 +1829,7 @@
     );
     if (!readers.length) return;
 
-    var synthesis = frenchSpeech.synthesis;
-    var Utterance = frenchSpeech.Utterance;
+    var narrator = window.HeureuxNarrator;
     var active = null;
     var playbackId = 0;
 
@@ -1879,15 +1878,7 @@
       var previous = active;
       active = null;
       playbackId += 1;
-      if (
-        previous ||
-        synthesis.speaking ||
-        synthesis.pending ||
-        synthesis.paused
-      ) {
-        synthesis.cancel();
-        synthesis.resume();
-      }
+      if (previous && previous.handle) previous.handle.stop();
       if (previous) resetReader(previous.reader, message);
     }
 
@@ -1901,11 +1892,12 @@
     }
 
     function readyVoiceStatus() {
+      if (document.body.dataset.frenchAudioEnabled === "true" &&
+          document.body.dataset.frenchAudioConfigured === "true") {
+        return "Voix naturelle · ElevenLabs · lecture en cache, sans génération automatique";
+      }
       var voice = frenchSpeech.preferredVoice();
-      if (!voice) return "Prêt à écouter · voix française";
-      return (frenchSpeech.isFeminineVoice(voice)
-        ? "Voix féminine · "
-        : "Voix française · ") + voice.name;
+      return "Voix de l’appareil" + (voice ? " · " + voice.name : "");
     }
 
     function finishPlayback(message) {
@@ -1913,49 +1905,6 @@
       var reader = active.reader;
       active = null;
       resetReader(reader, message || "Lecture terminée · cliquez pour réécouter");
-    }
-
-    function speakNext(id) {
-      if (!active || active.id !== id || active.state !== "playing") return;
-      if (active.index >= active.chunks.length) {
-        finishPlayback();
-        return;
-      }
-
-      var utterance = new Utterance(active.chunks[active.index]);
-      var utteranceId = active.utteranceId + 1;
-      active.utteranceId = utteranceId;
-      var voice = frenchSpeech.preferredVoice();
-      utterance.lang = "fr-FR";
-      utterance.rate = active.rate;
-      utterance.pitch = 1;
-      if (voice) utterance.voice = voice;
-
-      utterance.onend = function () {
-        if (
-          !active ||
-          active.id !== id ||
-          active.utteranceId !== utteranceId ||
-          active.state !== "playing"
-        ) return;
-        active.index += 1;
-        speakNext(id);
-      };
-      utterance.onerror = function () {
-        if (
-          !active ||
-          active.id !== id ||
-          active.utteranceId !== utteranceId ||
-          active.state !== "playing"
-        ) return;
-        finishPlayback("Lecture indisponible. Vérifiez la voix de l’appareil.");
-      };
-      active.utterance = utterance;
-      try {
-        synthesis.speak(utterance);
-      } catch (error) {
-        finishPlayback("Lecture indisponible. Vérifiez la voix de l’appareil.");
-      }
     }
 
     function startPlayback(reader, button) {
@@ -1969,13 +1918,10 @@
         return;
       }
 
-      document.dispatchEvent(new CustomEvent("heureux:speech-start", {
-        detail: { source: "comprehension-audio" }
-      }));
       cancelPlayback();
       frenchSpeech.refreshVoices();
       var rateControl = reader.querySelector("[data-co-audio-rate]");
-      var rate = rateControl ? parseFloat(rateControl.value) : 1;
+      var rate = rateControl ? parseFloat(rateControl.value) : 0.85;
       var id = playbackId + 1;
       playbackId = id;
       active = {
@@ -2007,38 +1953,39 @@
         "Lecture de " + (target === "question" ? "la question" : "du dialogue")
           + " en français…"
       );
-      synthesis.resume();
-      speakNext(id);
+      var item = active;
+      item.handle = narrator.start({
+        source: "comprehension-audio", text: textNode.textContent, nodes: [textNode], rate: rate,
+        onstate: function (value) {
+          active = item;
+          item.state = value;
+          button.setAttribute("aria-pressed", ["playing", "paused", "ready", "loading"].indexOf(value) !== -1 ? "true" : "false");
+          reader.classList.toggle("is-playing", value === "playing");
+          reader.classList.toggle("is-paused", value === "paused");
+          setButtonLabel(button, value === "playing" ? "Pause" : (value === "loading" ? "Chargement…" : "Reprendre"));
+          setButtonIcon(button, value === "playing" ? "pause" : "play");
+          button.setAttribute("aria-label", value === "playing" ? "Mettre la lecture en pause" : "Reprendre la lecture");
+        },
+        onstatus: function (text) { if (active === item) setStatus(reader, text); },
+        onend: function () { if (active === item) finishPlayback(); },
+        onerror: function () {
+          if (active === item) finishPlayback(reader.querySelector("[data-co-audio-status]").textContent);
+        },
+        onstop: function () { if (active === item) cancelPlayback("Lecture arrêtée."); }
+      });
     }
 
     function pausePlayback() {
       if (!active || active.state !== "playing") return;
-      active.state = "paused";
-      active.utteranceId += 1;
-      synthesis.cancel();
-      synthesis.resume();
-      active.reader.classList.remove("is-playing");
-      active.reader.classList.add("is-paused");
-      setButtonLabel(active.button, "Reprendre");
-      setButtonIcon(active.button, "play");
-      active.button.setAttribute("aria-label", "Reprendre la lecture");
-      setStatus(active.reader, "Lecture en pause.");
+      active.handle.pause();
     }
 
     function resumePlayback() {
-      if (!active || active.state !== "paused") return;
-      active.state = "playing";
-      active.reader.classList.remove("is-paused");
-      active.reader.classList.add("is-playing");
-      setButtonLabel(active.button, "Pause");
-      setButtonIcon(active.button, "pause");
-      active.button.setAttribute("aria-label", "Mettre la lecture en pause");
-      setStatus(active.reader, "Lecture reprise en français…");
-      synthesis.resume();
-      speakNext(active.id);
+      if (!active || !active.handle) return;
+      active.handle.resume();
     }
 
-    if (!synthesis || !Utterance) {
+    if (!narrator || !narrator.supported) {
       readers.forEach(function (reader) {
         reader.classList.add("is-unavailable");
         setStatus(reader, "Audio français indisponible dans ce navigateur.");
@@ -2047,10 +1994,8 @@
     }
 
     refreshVoiceStatus();
-    if (synthesis.addEventListener) {
-      synthesis.addEventListener("voiceschanged", refreshVoiceStatus);
-    } else {
-      synthesis.onvoiceschanged = refreshVoiceStatus;
+    if (frenchSpeech.synthesis && frenchSpeech.synthesis.addEventListener) {
+      frenchSpeech.synthesis.addEventListener("voiceschanged", refreshVoiceStatus);
     }
     document.addEventListener("heureux:speech-start", function (event) {
       if (
@@ -2066,8 +2011,8 @@
         button.disabled = false;
         button.addEventListener("click", function () {
           if (active && active.reader === reader && active.button === button) {
-            if (active.state === "paused") resumePlayback();
-            else pausePlayback();
+            if (active.state === "playing") pausePlayback();
+            else resumePlayback();
             return;
           }
           startPlayback(reader, button);
@@ -2087,17 +2032,16 @@
       if (rate) {
         rate.disabled = false;
         rate.addEventListener("change", function () {
-          if (active && active.reader === reader) {
-            cancelPlayback("Vitesse réglée sur " + rate.options[rate.selectedIndex].text + ".");
-          } else {
-            setStatus(
-              reader,
-              "Vitesse réglée sur " + rate.options[rate.selectedIndex].text + "."
-            );
-          }
+          narrator.setRate(rate.value);
+          setStatus(reader, "Vitesse réglée sur " + rate.options[rate.selectedIndex].text + ".");
         });
       }
       resetReader(reader);
+    });
+    document.addEventListener("heureux:narration-rate", function (event) {
+      readers.forEach(function (reader) {
+        reader.querySelector("[data-co-audio-rate]").value = String(event.detail.rate);
+      });
     });
 
     window.addEventListener("pagehide", function () {

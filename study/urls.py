@@ -38,6 +38,12 @@ app_name = "study"
 
 urlpatterns = [
     path(
+        "expression/orale/tache-3/audio/<slug:group>/<str:fingerprint>/preparer/",
+        audio.eo3_audio_prepare, name="eo3_audio_prepare",
+    ),
+    path("audio/francais/resoudre/", audio.french_audio_resolve, name="french_audio_resolve"),
+    path("audio/francais/<str:fingerprint>/", audio.french_audio, name="french_audio"),
+    path(
         "expression/orale/tache-3/audio/<slug:group>/<str:fingerprint>/",
         audio.eo3_audio,
         name="eo3_audio",

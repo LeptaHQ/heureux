@@ -60,7 +60,7 @@
       </header>
       <div class="ce-passage-card__text">{{ question.passage_fr }}</div>
       {% if test.mode == "orale" %}
-        {% include "study/partials/comprehension_audio_reader.html" with question=question embedded=True only %}
+        {% include "study/partials/comprehension_audio_reader.html" with question=question embedded=True request=request only %}
       {% endif %}
     </article>
 

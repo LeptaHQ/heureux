@@ -102,4 +102,4 @@ jobs:
           cache: pip
       - run: pip install -r requirements-dev.txt
       - run: python -m playwright install --with-deps chromium
-      - run: python manage.py test study.tests.browser_tests study.tests.eo3_audio_browser_tests
+      - run: python manage.py test study.tests.browser_tests study.tests.eo3_audio_browser_tests study.tests.french_audio_browser_tests

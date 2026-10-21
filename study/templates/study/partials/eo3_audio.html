@@ -22,5 +22,16 @@
     <p class="muted">La narration française n'est pas encore configurée.</p>
   {% else %}
     <p class="muted">La narration de cette version de la réponse n'est pas encore prête.</p>
+    {% if audio.sample_attempted %}
+      <p class="muted" role="status">{% if audio.sample_status == "working" %}Le premier extrait est en cours de préparation. Rechargez la page dans un instant.{% else %}Le premier essai a déjà été lancé. La consommation du fournisseur doit être vérifiée avant un autre essai ; aucune relance automatique.{% endif %}</p>
+    {% endif %}
+    {% if audio.prepare_url %}
+      <p class="muted">Premier extrait uniquement · {{ audio.characters }} caractères.
+        Cette action consomme des crédits ElevenLabs. Les lectures suivantes utilisent le même enregistrement.</p>
+      <button class="btn btn--sm" type="button" data-eo3-prepare="{{ audio.prepare_url }}"
+              data-eo3-voice="{{ audio.sample_voice }}"
+              data-eo3-characters="{{ audio.characters }}">Préparer l’extrait audio</button>
+      <p class="muted" role="status" data-eo3-prepare-status></p>
+    {% endif %}
   {% endif %}
 </section>

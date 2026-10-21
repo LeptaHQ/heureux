@@ -1,5 +1,6 @@
 {% load study_links %}
 <div class="writing-response-controls">
+  {% include "study/partials/read_aloud_button.html" with label="Lire cette réponse en français" compact=True only %}
   {% if not main or writing_tache == 1 and version_card %}
     {% subject_link version_card.edit_url as edit_url %}
   {% else %}

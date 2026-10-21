@@ -50,7 +50,7 @@
         {
           "idea": "Ensuite, un établissement peut participer à un programme de conservation coordonné.",
           "developpement": "Garder une population en captivité peut aider à protéger une espèce menacée. Il faut organiser le suivi, les partenaires et les habitats possibles ; faire naître des animaux ne garantit pas leur retour dans la nature.",
-          "exemple": "Le bison d'Europe, qui ne subsistait plus qu'en captivité au début du XXe siècle, a ensuite été réintroduit. Cet exemple montre l'intérêt possible d'un travail coordonné, mais pas que toute espèce ou tout zoo obtiendra le même résultat.",
+          "exemple": "Le bison d'Europe a pu être réintroduit après avoir survécu en captivité. Ce cas montre l'intérêt d'une population suivie avec des partenaires et un habitat d'accueil, mais pas que toute espèce ou tout zoo obtiendra le même résultat.",
           "consequence": "Le zoo doit montrer ce qu'il apporte au programme, pas seulement afficher un slogan."
         },
         {
@@ -80,7 +80,7 @@
         {
           "idea": "Ensuite, réutiliser ou réparer peut retarder le remplacement d'un objet.",
           "developpement": "Jeter moins ne signifie pas seulement mieux trier ce qui est jeté. Lorsque l'objet reste sûr et utilisable, prolonger son usage peut éviter un nouvel achat et un déchet immédiat. Une réparation abordable peut aussi alléger le budget.",
-          "exemple": "Avant de remplacer un sac dont la fermeture est abîmée, une personne peut demander si une réparation est possible et comparer son coût. Si elle est réalisable, le sac continue à servir au lieu d'être jeté pour sa seule fermeture.",
+          "exemple": "Une personne peut faire remplacer la fermeture abîmée d'un sac dans un atelier. Si la réparation est sûre et abordable, elle paie l'intervention et continue à utiliser le sac au lieu de le jeter.",
           "consequence": "Entretenir un objet permet donc de le garder plus longtemps."
         },
         {
@@ -110,7 +110,7 @@
         {
           "idea": "Ensuite, fermer tous les zoos pourrait aussi faire disparaître des programmes utiles aux espèces menacées.",
           "developpement": "Certains établissements peuvent participer à des programmes coordonnés pour maintenir une population menacée. Cette fonction mérite d'être conservée lorsqu'elle est documentée et compatible avec le bien-être animal, sans justifier tous les parcs.",
-          "exemple": "Le bison d'Europe a pu être réintroduit après avoir survécu en captivité. Ce cas montre l'intérêt possible d'une population suivie avec des partenaires et un habitat d'accueil ; il ne prouve pas que chaque zoo prépare une réintroduction.",
+          "exemple": "Le bison d'Europe a pu être réintroduit après avoir survécu en captivité. Ce cas montre l'intérêt d'une population suivie avec des partenaires et un habitat d'accueil, mais pas que toute espèce ou tout zoo obtiendra le même résultat.",
           "consequence": "Je préférerais préserver une contribution réelle plutôt que supprimer toutes les structures sans distinction."
         },
         {
@@ -134,7 +134,7 @@
         {
           "idea": "Tout d'abord, réduire le trafic peut diminuer le bruit et certaines émissions près des logements.",
           "developpement": "Des passages fréquents de véhicules produisent du bruit et, selon leur motorisation, des émissions locales. Agir sur les trajets évitables peut limiter ces sources, sans prétendre supprimer toute pollution urbaine.",
-          "exemple": "Une ville peut fermer un raccourci automobile dans une rue résidentielle en maintenant les accès nécessaires. Les riverains ne subissent plus ce transit sous leurs fenêtres ; la ville compare le bruit avant et après, ainsi que les effets dans les rues voisines.",
+          "exemple": "Une rue résidentielle peut cesser de servir de raccourci automobile après sa piétonnisation. Les riverains n'ont plus ce transit sous leurs fenêtres. La ville doit mesurer le bruit avant et après, ainsi que les effets dans les rues voisines.",
           "consequence": "La mesure doit être évaluée sur un secteur complet, pas seulement sur une rue."
         },
         {
@@ -207,8 +207,8 @@
         },
         {
           "idea": "Enfin, supprimer le trafic ordinaire peut réduire les nuisances près des logements.",
-          "developpement": "Les passages répétés de voitures produisent du bruit et, selon leur motorisation, des émissions locales. Une zone interdite au transit agit directement sur cette source, même si elle ne supprime pas toute la pollution du centre.",
-          "exemple": "Une rue bordée de logements peut cesser de servir de raccourci automobile après sa piétonnisation. Les riverains n'ont plus ce trafic sous leurs fenêtres. La ville doit toutefois mesurer le bruit et les effets dans les rues voisines pour vérifier le bénéfice d'ensemble.",
+          "developpement": "Des passages fréquents de véhicules produisent du bruit et, selon leur motorisation, des émissions locales. Agir sur les trajets évitables peut limiter ces sources, sans prétendre supprimer toute pollution urbaine.",
+          "exemple": "Une rue résidentielle peut cesser de servir de raccourci automobile après sa piétonnisation. Les riverains n'ont plus ce transit sous leurs fenêtres. La ville doit mesurer le bruit avant et après, ainsi que les effets dans les rues voisines.",
           "consequence": "L'interdiction doit améliorer la vie du quartier sans déplacer toutes les nuisances vers les rues voisines."
         }
       ],
@@ -318,8 +318,8 @@
         {
           "idea": "Tout d'abord, entretenir et réparer peut créer une activité en prolongeant l'usage des objets.",
           "developpement": "Une entreprise peut être rémunérée pour rendre un service plutôt que vendre uniquement un produit neuf. Si la réparation est adaptée et sûre, elle maintient une utilité tout en évitant un remplacement immédiat.",
-          "exemple": "Un atelier peut réparer un appareil dont une pièce remplaçable est défectueuse. Le client paie un diagnostic et une intervention, et l'objet continue à servir au lieu d'être remplacé intégralement.",
-          "consequence": "L'atelier gagne donc de l'argent en aidant le client à garder son appareil plus longtemps."
+          "exemple": "Une personne peut faire remplacer la fermeture abîmée d'un sac dans un atelier. Si la réparation est sûre et abordable, elle paie l'intervention et continue à utiliser le sac au lieu de le jeter.",
+          "consequence": "L'atelier gagne donc de l'argent en aidant le client à garder son sac plus longtemps."
         },
         {
           "idea": "Ensuite, des procédés mieux conçus peuvent réduire certaines consommations.",

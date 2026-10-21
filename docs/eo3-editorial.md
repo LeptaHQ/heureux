@@ -69,6 +69,26 @@ abstract or difficult to decode. Reuse useful language across suitable questions
 while removing redundant reasoning within the same intervention. Reread the
 whole intervention after assembling edits, not only its individual fields.
 
+## Reuse across different questions
+
+Teach the same sound mechanism in the same words when it fits another consigne.
+Reuse a whole argument where its claim, development, example and consequence all
+apply; otherwise reuse only the compatible passage or concrete case. Do not invent
+synonym versions just for variety. Keep each question's position, actors, scope
+and limits, and retain a specific illustration when copying would weaken it.
+For example, helping someone through a difficult period is not the same as
+practical help, and Canada-specific access to a profession is not a universal rule.
+
+The reviewed reuse includes personal letters, friendship, household cooperation,
+asking an adult for help, conversations at a distance, public assistance,
+regular visits, repairs, conservation, urban traffic, salary trade-offs and
+checking a publication's origin. Some are identical arguments; others share only
+an example, a development or a sentence of nuance. Adapt spoken connectors when
+the same argument occupies a different position. Align both bilingual memory cues
+when an illustration changes, and keep distinct source groups distinct.
+`test_tache_three_reuse.py` pins these deliberate correspondences and boundaries;
+literal equality is not a quality quota or a substitute for reading the prompts.
+
 ## Reviewed defaults and preserved sources
 
 `study/content/tache_3/responses/<theme>.json` holds reviewed models using the

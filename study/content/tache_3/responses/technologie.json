@@ -284,16 +284,16 @@
       "position_claire": "Je ne considère pas les lettres manuscrites comme complètement obsolètes. Pour une réponse urgente, le numérique est souvent plus pratique. Mais écrire à la main peut donner une attention particulière au destinataire, encourager une rédaction réfléchie et laisser une trace à transmettre sans dépendre d'un compte numérique. Ce sont des fonctions différentes, pas une supériorité universelle.",
       "arguments": [
         {
-          "idea": "Tout d'abord, une lettre peut rendre visible le temps consacré à une personne.",
+          "idea": "Tout d'abord, une lettre personnelle peut montrer qu'on a pris du temps pour quelqu'un.",
           "developpement": "Prendre le temps d'écrire à la main et de nommer ce que l'autre a fait rend l'attention visible. Le destinataire reçoit une marque personnelle de reconnaissance, pas seulement une formule qui pourrait être adressée à n'importe qui.",
           "exemple": "Après un déménagement, une personne peut écrire une lettre à l'amie qui l'a hébergée. Elle y raconte comment cet accueil lui a permis de chercher sereinement un logement ; son amie mesure ainsi ce que son aide a changé.",
           "consequence": "L'intérêt est l'attention exprimée, pas seulement la lenteur de l'envoi."
         },
         {
-          "idea": "Ensuite, le format peut inviter à organiser ce que l'on veut dire.",
-          "developpement": "Quand on écrit une lettre, on n'attend pas une réponse à chaque phrase. On peut aller au bout de son récit ou expliquer un sentiment, puis relire l'ensemble, au lieu d'envoyer des morceaux entre deux notifications.",
+          "idea": "Ensuite, préparer une lettre peut encourager à développer ce que l'on veut dire.",
+          "developpement": "Ce format invite à rassembler ses idées plutôt qu'à envoyer plusieurs réactions séparées. Il offre un espace pour expliquer une situation, remercier ou exprimer un sentiment avec davantage de recul.",
           "exemple": "Une personne peut rédiger un brouillon pour raconter une installation à l'étranger à un proche. Elle choisit les détails importants et relit avant de recopier, sans devoir répondre à une conversation en cours.",
-          "consequence": "Le temps de rédaction peut servir la clarté du message."
+          "consequence": "L'intérêt est ce temps consacré à la formulation, pas une qualité automatique du papier."
         },
         {
           "idea": "Enfin, une lettre conservée peut transmettre une mémoire familiale sans compte numérique.",
@@ -302,7 +302,7 @@
           "consequence": "Le courrier devient ainsi un témoignage que l'on peut relire et partager."
         }
       ],
-      "nuance": "Cependant, l'écriture manuscrite peut être difficile à produire ou à lire, et l'envoi prend du temps. Les messages numériques peuvent être profonds, conservés et accessibles. Pour une information urgente, il faut choisir un moyen compatible avec le délai réel.",
+      "nuance": "Cependant, l'écriture manuscrite peut être difficile à produire ou à lire, et l'envoi prend du temps. Un message numérique peut aussi être réfléchi, attentionné, sauvegardé et accessible. Pour une information urgente, il faut choisir un moyen compatible avec le délai réel.",
       "conclusion": "En conclusion, la lettre manuscrite a changé de place sans perdre toute utilité. Elle permet de remercier personnellement, de prendre le temps d'écrire et de transmettre des souvenirs, sans remplacer les échanges rapides."
     },
     "technologie-p13": {
@@ -322,8 +322,8 @@
         },
         {
           "idea": "Ensuite, ils peuvent maintenir des échanges réguliers malgré la distance.",
-          "developpement": "Les rencontres physiques ne sont pas toujours possibles. Un appel ou une conversation vidéo permet de partager une nouvelle et d'entendre une réaction, sans prétendre supprimer tous les effets de l'éloignement.",
-          "exemple": "Deux proches vivant dans des pays différents peuvent convenir d'un appel chaque semaine. Pendant une recherche d'emploi, l'un raconte ses difficultés et l'autre prend de ses nouvelles à l'appel suivant, au lieu de découvrir la situation plusieurs mois après.",
+          "developpement": "La distance limite les rencontres, sans faire disparaître le besoin d'échanger. Des conversations régulières permettent de partager des nouvelles et de s'écouter, même lorsque le déplacement n'est pas possible.",
+          "exemple": "Des proches vivant dans deux pays peuvent convenir d'un appel vidéo hebdomadaire. Ils prennent le temps de parler d'une difficulté ou d'un projet, plutôt que se contenter de regarder les photos publiées.",
           "consequence": "Les proches continuent ainsi à se parler de ce qu'ils vivent, même entre les visites."
         },
         {
@@ -387,9 +387,9 @@
           "consequence": "Il apprend ainsi à reconnaître une situation risquée et à agir, plutôt qu'à suivre seulement une interdiction."
         },
         {
-          "idea": "Enfin, l'enfant doit pouvoir demander de l'aide sans craindre uniquement une sanction.",
-          "developpement": "Si l'enfant cache un message inquiétant par peur d'être puni, l'adulte ne peut pas l'aider. Il faut donc expliquer à qui le montrer et l'écouter lorsqu'il en parle. Interdire son appareil ne l'empêche pas de recevoir un message ailleurs.",
-          "exemple": "Un enfant qui reçoit une demande de photo peut montrer le message à un adulte de confiance. Ensemble, ils bloquent le contact et signalent le message ; l'enfant ne reste pas seul face à une demande qu'il ne sait pas gérer.",
+          "idea": "Enfin, il faut apprendre à demander de l'aide lorsqu'un échange devient problématique.",
+          "developpement": "Face au harcèlement ou à un message inquiétant, l'enfant peut se taire par peur d'être puni. L'adulte ne peut alors pas l'aider. Il faut que l'enfant sache qu'il peut parler d'un problème sans être immédiatement tenu pour responsable.",
+          "exemple": "Un enfant qui reçoit une demande de photo d'un inconnu peut montrer le message à un adulte de confiance. Ensemble, ils bloquent le contact et signalent le message ; l'enfant ne reste pas seul face à une demande qu'il ne sait pas gérer.",
           "consequence": "L'enfant sait ainsi quoi faire si un problème arrive, pas seulement ce qui est interdit."
         }
       ],
@@ -536,9 +536,9 @@
         },
         {
           "idea": "Ensuite, il facilite la recherche de l'origine d'une affirmation.",
-          "developpement": "Un lien vers un document, une date et un auteur permet de vérifier le contexte. Encore faut-il qu'on fasse cette recherche : une publication reprise sur plusieurs sites peut toujours provenir d'une seule source.",
-          "exemple": "Si un article cite une décision, je peux ouvrir le document indiqué et vérifier s'il s'agit d'un projet ou d'un texte applicable. Cela m'évite de partager un résumé qui présente une discussion comme une mesure déjà décidée.",
-          "consequence": "Un résumé très repris mérite donc la même vérification qu'une publication isolée."
+          "developpement": "Un lien vers un document, une date et un auteur permettent de vérifier le contexte. Encore faut-il qu'on fasse cette recherche : une publication reprise sur plusieurs sites peut toujours provenir d'une seule source.",
+          "exemple": "Une photo présentée comme celle d'une catastrophe récente peut provenir d'un événement ancien. Retrouver sa publication d'origine et sa date permet d'éviter de la partager comme une preuve de la situation du jour.",
+          "consequence": "Une publication très reprise mérite donc la même vérification qu'une publication isolée."
         },
         {
           "idea": "Enfin, je peux adapter le moment et la durée de la consultation.",

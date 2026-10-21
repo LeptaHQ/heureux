@@ -264,6 +264,18 @@ class EO3AudioTests(TestCase):
         unknown = reverse("study:eo3_audio", args=["not-a-group", self.spec.fingerprint])
         self.assertEqual(self.client.get(unknown).status_code, 404)
 
+    def test_gzip_middleware_does_not_transform_mp3_byte_ranges(self):
+        self.save_recording()
+        for headers, expected in (
+            ({"HTTP_ACCEPT_ENCODING": "gzip"}, AUDIO),
+            ({"HTTP_ACCEPT_ENCODING": "gzip", "HTTP_RANGE": "bytes=0-210"}, AUDIO[:211]),
+        ):
+            with self.subTest(headers=headers):
+                response = self.client.get(self.url, **headers)
+                self.assertEqual(response.content, expected)
+                self.assertEqual(response["Content-Encoding"], "identity")
+                self.assertEqual(response["Content-Length"], str(len(expected)))
+
     def test_player_on_detail_and_back_preserves_exact_annotation_text(self):
         self.save_recording()
         card = Card.objects.get(user=self.user, response=self.prompt.response, card_type=CardType.SPINE)

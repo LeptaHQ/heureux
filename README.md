@@ -43,9 +43,10 @@ response-ordering checks still run with their controlled delays.
 Reviewed public oral-task-3 answers can have a saved ElevenLabs recording.
 The detail page and practice back use the same recording, with native pause/seek
 controls, restart, pitch-preserving **0.85x** playback by default, and adjustable
-speeds from **0.75x to 2x**. A speaker icon beside the subject-completion check
+speeds from **0.75x to 2x**. A play icon beside the subject-completion check
 also starts or pauses the prepared recording; the completion action remains
-labelled for assistive technology. The voice is AI-generated, not a human recording or pronunciation
+labelled for assistive technology. Unavailable recordings have a faint icon,
+without an empty narration card. The voice is AI-generated, not a human recording or pronunciation
 assessment. Choose a **native-French voice** with a calm conversational
 delivery and audition a complete sample for pronunciation, liaisons and pacing.
 

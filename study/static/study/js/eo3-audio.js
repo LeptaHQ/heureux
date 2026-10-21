@@ -10,6 +10,7 @@
       if (button.dataset.eo3Toggle !== player.id) return;
       var playing = !audio.paused && !audio.ended;
       button.disabled = false;
+      button.removeAttribute("data-eo3-unavailable");
       button.setAttribute("aria-controls", player.id);
       button.setAttribute("aria-label", "Écouter la réponse");
       button.setAttribute("aria-pressed", String(playing));

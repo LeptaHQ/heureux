@@ -7407,6 +7407,11 @@ a.qrow:focus-visible {
 .eo3-audio__controls label { display: inline-flex; align-items: center; gap: .5rem; }
 .eo3-audio__controls select { padding: .35rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 6px; }
 .eo3-audio p { margin: .4rem 0 0; }
+[data-eo3-toggle]:disabled,
+[data-eo3-toggle][data-eo3-unavailable] { opacity: 0.35; }
+[data-eo3-toggle] [data-eo3-pause-icon],
+[data-eo3-toggle][aria-pressed="true"] [data-eo3-play-icon] { display: none; }
+[data-eo3-toggle][aria-pressed="true"] [data-eo3-pause-icon] { display: initial; }
 .detail-head { margin-bottom: 1.4rem; }
 .detail-prompt { font-family: var(--font-serif); font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.35; }
 .answer-columns { display: grid; gap: 1.2rem; }

@@ -126,8 +126,10 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
             "() => document.querySelector('[data-eo3-audio]').currentTime > 0"
         )
         expect(toggle).to_have_attribute("aria-pressed", "true")
+        expect(toggle.locator("[data-eo3-pause-icon]")).to_be_visible()
         toggle.click()
         expect(toggle).to_have_attribute("aria-pressed", "false")
+        expect(toggle.locator("[data-eo3-play-icon]")).to_be_visible()
         self.assertTrue(audio.evaluate("audio => audio.paused"))
         toggle.click()
         self.page.wait_for_function(
@@ -151,7 +153,12 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
     def test_pending_header_enables_after_preparation_and_preserves_completion(self):
         EO3Narration.objects.all().delete()
         self.page.goto(self.live_server_url + prompt_detail_url(self.prompt))
-        expect(self.page.locator("[data-eo3-toggle]")).to_be_disabled()
+        pending = self.page.locator("[data-eo3-toggle]")
+        expect(pending).to_be_disabled()
+        self.assertLessEqual(
+            float(pending.evaluate("button => getComputedStyle(button).opacity")), 0.4,
+        )
+        expect(self.page.locator("[data-eo3-player]")).not_to_be_visible()
         expect(self.page.locator("[data-eo3-player]")).to_contain_text("n'est pas encore prête")
         completion = self.page.locator(".subject-progress-control [role=checkbox]")
         expect(completion).to_have_attribute("aria-checked", "false")
@@ -172,6 +179,7 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         }""")
         toggle = self.page.locator("[data-eo3-toggle]")
         expect(toggle).to_be_enabled()
+        self.assertFalse(toggle.evaluate("button => button.hasAttribute('data-eo3-unavailable')"))
         toggle.click()
         self.page.wait_for_function(
             "() => document.querySelector('[data-eo3-audio]').currentTime > 0"

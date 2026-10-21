@@ -25,7 +25,7 @@
       "prompt_signatures": {
         "culture:p4": "e2bdd518b8f561d0f7acfd850bd5ebca8bad04cfcc59b113b2b5c68cabc3251c"
       },
-      "note": "You must choose a priority cause and explain why it deserves attention now, rather than list every important problem. Social causes concern living conditions and inequality; humanitarian causes concern urgent human needs; cultural causes can involve access to culture or preserving heritage. Make your criterion clear, such as urgency, severity or effects on other needs. Explain a feasible action and its beneficiaries without claiming that all other causes are unimportant."
+      "note": "You must choose a priority cause and explain why it deserves attention now, rather than list every important problem. Social causes concern living conditions and inequality; humanitarian causes concern urgent human needs; cultural causes can involve access to culture or preserving heritage. Make your criterion clear, such as urgency, severity or effects on other needs. A feasible action and the people it helps can illustrate your reasons. Choosing one cause does not make all the others unimportant."
     },
     "culture-p5": {
       "prompt_signatures": {
@@ -63,7 +63,7 @@
         "culture:p10": "5feaa4cacc1a8d01304b61cb8b05f5595887d5a7403c767532e4f1912f05b008",
         "culture:p32": "f3b5bd6bb32b2b5ae02607e57ed30ccc945303cca1411cbf4b783d15166ea590"
       },
-      "note": "The question asks whether people should preserve their culture and traditions in a host country. Consider language at home, celebrations, food or ways of passing family history to children. Explain the value of continuity while distinguishing private traditions from practices that affect other people's rights or shared rules. Preservation need not mean refusing contact with the host society. You can defend both cultural continuity and practical adaptation."
+      "note": "The question asks whether people should preserve their culture and traditions in a host country. Consider language at home, celebrations, food or ways of passing family history to children. Familiar habits can help people feel at home and share family memories, but distinguish private traditions from practices that affect other people's rights or shared rules. Preservation need not mean refusing contact with the host society. Keeping meaningful traditions and adapting to everyday life in the new country can go together."
     },
     "culture-p11": {
       "prompt_signatures": {
@@ -88,7 +88,7 @@
       "prompt_signatures": {
         "culture:p14": "8466a520be79b65619d1141009fe0d7221dee4e5d778a4905d47eabf4b0e84eb"
       },
-      "note": "This asks whether travel is necessary to learn about other cultures. Books, films, language exchanges, local cultural events and conversations can provide knowledge without leaving home. Explain what one source reveals and what remains limited, such as daily experience or the range of perspectives represented. Knowing something about a culture is not the same as knowing everything about everyone in it. Compare complementary ways of learning, not authentic travel versus worthless second-hand knowledge."
+      "note": "This asks whether travel is necessary to learn about other cultures. Books, films, language exchanges, local cultural events and conversations can provide knowledge without travelling abroad. Explain what one source reveals and what remains limited, such as daily experience or the range of perspectives represented. Knowing something about a culture is not the same as knowing everything about everyone in it. Compare complementary ways of learning, not authentic travel versus worthless second-hand knowledge."
     },
     "culture-p15": {
       "prompt_signatures": {
@@ -331,7 +331,7 @@
         "education:p10": "1a598d52b7fec20088c556a057322ba2bd20febd7ae39fa5c3925567d88a2ea3",
         "education:p24": "1a598d52b7fec20088c556a057322ba2bd20febd7ae39fa5c3925567d88a2ea3"
       },
-      "note": "You are asked which solidarity action you would like to do. Choose a specific form of help and explain your motivation, likely contribution and a workable level of commitment. Conditional language is appropriate if you have not actually volunteered. Food-aid preparation, accompaniment or a local project could work, but explain the role and coordination needed. Respect the recipients' choices and avoid promising specialist help or an unrealistic personal availability."
+      "note": "You are asked which solidarity action you would like to do. Choose a specific form of help and explain your motivation, likely contribution and a workable level of commitment. Conditional language is appropriate if you have not actually volunteered. Food-aid preparation, accompaniment or a local project could work, but explain the role and coordination needed. Respect the recipients' choices and avoid promising specialist help or more time than you can realistically give."
     },
     "education-p12": {
       "prompt_signatures": {
@@ -419,7 +419,7 @@
       "prompt_signatures": {
         "sante:p2": "554f7e165e1b36297164ca91f4897caa16a787672a9add14f084c69b0fae66fc"
       },
-      "note": "The question covers screen time across computers, tablets, phones and television. Assess what use displaces, what content or interaction involves, and how routines can be organized. Schoolwork, contact with relatives and endless video viewing are not identical activities. Give a concrete daily-life example rather than a universal hour limit. Age, access needs and family circumstances matter; avoid blaming parents or assuming all screen use is harmful."
+      "note": "The question covers screen time across computers, tablets, phones and television. Assess what use displaces, the content and interaction involved, and how routines can be organized. Schoolwork, contact with relatives and endless video viewing are not identical activities. Give a concrete daily-life example rather than a universal hour limit. Age, access needs and family circumstances matter; avoid blaming parents or assuming all screen use is harmful."
     },
     "sante-p3": {
       "prompt_signatures": {
@@ -437,7 +437,7 @@
       "prompt_signatures": {
         "sante:p6": "7b9684ff94d0a40705e4f1b750ecf4824bd7c8080ba6898f1dbac7a7cdf4b10d"
       },
-      "note": "The claim makes stopping meat a requirement for good health. Distinguish that necessity claim from choosing to eat less meat or adopting a vegetarian diet. Discuss the overall balance of meals, different food sources and individual needs, without giving a personalized medical prescription. A realistic meal comparison is more useful than labeling one ingredient healthy or unhealthy in all quantities. Avoid promising that removing meat prevents illness or automatically produces a balanced diet."
+      "note": "The claim makes giving up meat a requirement for good health. Distinguish that necessity claim from choosing to eat less meat or adopting a vegetarian diet. Discuss the overall balance of meals, different food sources and individual needs, without giving a personalized medical prescription. A realistic meal comparison is more useful than labeling one ingredient healthy or unhealthy in all quantities. Avoid promising that removing meat prevents illness or automatically produces a balanced diet."
     },
     "sante-p7": {
       "prompt_signatures": {
@@ -449,7 +449,7 @@
       "prompt_signatures": {
         "sante:p8": "2896073c7537d455aff66e645acf9581ae445fbf7920dc2fe0ea0e0aa80ff8c4"
       },
-      "note": "The word 'obliger' means making children do sport, so distinguish an obligation from encouragement and from offering varied physical activities. Discuss safety, enjoyment, participation and a child's ability to choose or adapt an activity. A concrete refusal may reveal fear, access difficulties or a mismatch rather than laziness. Explain what adults can do without coercion. Avoid claiming one sport or intensity is suitable for every child."
+      "note": "The word 'obliger' means making children do sport, so distinguish an obligation from encouragement and from offering varied physical activities. Discuss safety, enjoyment, participation and a child's ability to choose or adapt an activity. A concrete refusal may reveal fear, access difficulties or a mismatch rather than laziness. You may defend adapted requirements or prefer encouragement; explain how adults would respond. Avoid claiming one sport or intensity is suitable for every child."
     },
     "sante-p9": {
       "prompt_signatures": {
@@ -692,7 +692,7 @@
         "environnement:p12": "b869421d9ebf7510a19a4483d6cea46e8407918de410cbe6b8884e38a9ff65a6",
         "economie:p8": "cb3adaa55c5d91ad23111c863b7220a537924f1c74723551a823d5db11be188f"
       },
-      "note": "The issue is increasing the availability of organic products in supermarkets, not organic agriculture as a whole. Consider easier access, meaningful price and label comparisons, and the purchasing relationship with producers. Explain a shopping or supply situation without promising lower prices or fair contracts automatically. Organic does not necessarily mean local, nutritionally balanced or impact-free. Evaluate whether the expanded offer gives people a useful choice."
+      "note": "The issue is increasing the availability of organic products in supermarkets, not organic agriculture as a whole. Consider easier access, meaningful price and label comparisons, and the purchasing relationship with producers. Explain a shopping or supply situation without promising lower prices or fair contracts automatically. Organic does not necessarily mean local, nutritionally balanced or impact-free. Evaluate whether the expanded offer gives people a useful choice. One source stops after the statement about increasing availability; no missing question wording should be invented."
     },
     "environnement-p8": {
       "prompt_signatures": {

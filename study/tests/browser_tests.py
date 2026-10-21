@@ -3442,6 +3442,56 @@ class BrowserTests(StaticLiveServerTestCase):
                     mark.refresh_from_db()
                     self.assertEqual(mark.body, "Keep this personal note." if mark in marks else "Keep my practice note.")
 
+    def test_reviewed_eo3_learning_aids_match_on_detail_and_practice(self):
+        from study import catalogue
+
+        self._import_eo_tache_three_content()
+        for key in (
+            "culture:p5", "culture:p12", "famille:p5", "education:p13",
+            "sante:p23", "technologie:p11", "environnement:p4", "economie:p14",
+        ):
+            with self.subTest(prompt=key):
+                prompt = Prompt.objects.select_related(
+                    "response", "theme__task__part",
+                ).get(content_key=key)
+                identity = prompt.response.semantic_group
+                note = catalogue.tache_three_prompt_notes()[identity]
+                plan = catalogue.tache_three_subject_hints()[identity]
+                cues = (
+                    plan.introduction,
+                    *(cue for argument in plan.arguments for cue in (
+                        argument.point, argument.example,
+                    )),
+                    plan.nuance, plan.conclusion,
+                )
+                self.page.goto(self.live_server_url + prompt_detail_url(prompt))
+                explanation = self.page.locator("details.eo3-prompt-note")
+                explanation.locator("summary").click()
+                expect(explanation.locator('p[lang="en"]')).to_have_text(note.note)
+                hints = self.page.locator(".subject-hints--speaking")
+                for language in ("french", "english"):
+                    expect(hints.locator(f".subject-hints__{language}")).to_have_text(
+                        [getattr(cue, language) for cue in cues],
+                    )
+                self.assert_no_horizontal_overflow()
+                practice = self.page.get_by_role(
+                    "link", name="Pratiquer cette réponse", exact=True,
+                ).get_attribute("href")
+                self.page.goto(self.live_server_url + practice)
+                front = self.page.locator("#card-front")
+                expect(front.locator(".prompt-text")).to_have_text(prompt.text)
+                explanation = front.locator("details.eo3-prompt-note")
+                explanation.locator("summary").click()
+                expect(explanation.locator('p[lang="en"]')).to_have_text(note.note)
+                expect(front.locator(".subject-hints")).to_have_count(0)
+                self.page.locator("#reveal").click()
+                hints = self.page.locator("#card-back .subject-hints--speaking")
+                for language in ("french", "english"):
+                    expect(hints.locator(f".subject-hints__{language}")).to_have_text(
+                        [getattr(cue, language) for cue in cues],
+                    )
+                self.assert_no_horizontal_overflow()
+
     def test_equivalent_eo3_prompt_notes_work_without_javascript_on_mobile(self):
         self._import_eo_tache_three_content()
         context = self.browser.new_context(

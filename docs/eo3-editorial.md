@@ -325,6 +325,13 @@ and position, three arguments and examples, nuance and conclusion. Keep it align
 with the reviewed model and every equivalent consigne; never generate it from a
 private answer. Both languages use EO2's shared hint-text presentation.
 
+Audit both languages against the complete model, not just its headings. Preserve
+who acts, the condition that makes an example work, and distinctions such as
+possible versus necessary. Do not narrow *proches* to relatives, confuse a
+departure by itself with travelling alone, or turn a possible result into a
+guarantee. In prompt explanations, mark illustrative actions as optional when
+the consigne asks only for a position and reasons; do not add examination tasks.
+
 Pistes replace the visible generic **Expressions liées** block on bundled EO3
 detail pages, outside both existing annotation roots. The old expression block
 remains hidden, with its exact text unchanged, so historical sidebar highlights

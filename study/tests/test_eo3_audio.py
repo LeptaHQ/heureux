@@ -487,3 +487,64 @@ class EO3AudioTests(TestCase):
         self.assertNotContains(page, "data-eo3-player")
         card = Card.objects.get(user=self.user, response=self.prompt.response, card_type=CardType.SPINE)
         self.assertIsNone(card_payload(card, prompt=self.prompt)["eo3_audio"])
+
+
+ON_DEMAND_SETTINGS = {
+    **AUDIO_SETTINGS, "FRENCH_AUDIO_GENERATION_ENABLED": True,
+    "FRENCH_AUDIO_CHARACTER_BUDGET": 1_000_000, "ON_VERCEL": False,
+}
+
+
+@override_settings(**ON_DEMAND_SETTINGS)
+class EO3OnDemandNarrationTests(TestCase):
+    @classmethod
+    def setUpTestData(cls):
+        call_command("import_content", stdout=StringIO())
+        cls.user = factories.make_user("on-demand-listener")
+
+    def setUp(self):
+        self.client.force_login(self.user)
+        self.group = next(
+            group for group in catalogue.tache_three_models()
+            if group.startswith("eo/tache-3/") and group != "eo/tache-3/culture-p1"
+        )
+        self.model = catalogue.tache_three_models()[self.group]
+        self.spec = narration_spec(self.model)
+        self.url = reverse("study:eo3_audio_prepare", args=[
+            self.group.removeprefix("eo/tache-3/"), self.spec.fingerprint,
+        ])
+
+    def prepare(self):
+        return self.client.post(
+            self.url, data=json.dumps({"confirm_cost": True, "player_id": "eo3-response-player"}),
+            content_type="application/json",
+        )
+
+    def test_any_response_is_generated_once_then_reused(self):
+        from study.eo3_audio import narration_presentation
+        presentation = narration_presentation(self.model)
+        self.assertTrue(presentation["on_demand"])
+        self.assertEqual(presentation["prepare_url"], self.url)
+        with patch("study.french_audio.synthesize", return_value=AUDIO) as provider:
+            first = self.prepare()
+            second = self.prepare()
+        self.assertEqual(first.status_code, 200, first.content)
+        self.assertEqual(second.status_code, 200)
+        self.assertIn("data-eo3-audio", first.json()["html"])
+        provider.assert_called_once()
+        self.assertEqual(EO3Narration.objects.get().group, self.group)
+        ready = narration_presentation(self.model)
+        self.assertTrue(ready["ready"])
+        self.assertFalse(ready["on_demand"])
+
+    def test_failed_generation_can_be_retried_by_clicking_again(self):
+        with patch("study.french_audio.synthesize", side_effect=NarrationError("Provider failed.")):
+            self.assertEqual(self.prepare().status_code, 409)
+        with patch("study.french_audio.synthesize", return_value=AUDIO) as provider:
+            self.assertEqual(self.prepare().status_code, 200)
+        provider.assert_called_once()
+        self.assertTrue(EO3Narration.objects.filter(pk=self.spec.fingerprint).exists())
+
+    def test_disabled_generation_keeps_non_sample_responses_closed(self):
+        with self.settings(FRENCH_AUDIO_GENERATION_ENABLED=False):
+            self.assertEqual(self.prepare().status_code, 404)

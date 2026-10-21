@@ -9,21 +9,24 @@
     var player = button.closest("[data-eo3-player]");
     var status = player.querySelector("[data-eo3-prepare-status]");
     var toggle = player.id && document.querySelector('[data-eo3-toggle="' + player.id + '"]');
-    window.HeureuxConfirm({
+    var onDemand = button.hasAttribute("data-eo3-on-demand");
+    (onDemand ? Promise.resolve(true) : window.HeureuxConfirm({
       message: "Préparer uniquement le premier extrait Culture, sujet 1 (" +
         button.dataset.eo3Characters + " caractères), voix configurée " + button.dataset.eo3Voice +
         ", avec ElevenLabs ? Cette action consomme des crédits. " +
         "Un seul essai est autorisé pour toute l’application avant votre écoute. Aucun autre texte ne sera généré.",
       label: "Confirmer et préparer cet extrait", tone: "safe"
-    }).then(function (confirmed) {
+    })).then(function (confirmed) {
       if (!confirmed) return;
       button.disabled = true;
       if (toggle) {
         toggle.disabled = true;
         toggle.setAttribute("aria-busy", "true");
-        toggle.title = "Préparation en cours. Ne relancez pas l’action.";
+        toggle.title = "Préparation de l’audio en cours…";
+        toggle.setAttribute("aria-label", "Préparation de l’audio en cours");
       }
-      status.textContent = "Préparation en cours… Cela peut prendre jusqu’à deux minutes. " +
+      status.textContent = onDemand ? "Préparation de l’audio en cours…" :
+        "Préparation en cours… Cela peut prendre jusqu’à deux minutes. " +
         "Ne relancez pas l’action : un délai dépassé peut tout de même être facturé.";
       var csrf = document.querySelector("[name=csrfmiddlewaretoken]");
       return fetch(button.dataset.eo3Prepare, {
@@ -37,15 +40,29 @@
         });
       }).then(function (data) {
         if (!player.isConnected) return;
+        var playerId = player.id;
         player.outerHTML = data.html;
         document.dispatchEvent(new CustomEvent("heureux:audio-prepared"));
+        if (onDemand && toggle) {
+          toggle.disabled = false;
+          toggle.removeAttribute("aria-busy");
+          toggle.setAttribute("aria-label", "Écouter la réponse");
+          toggle.title = "Écouter la réponse";
+          var fresh = playerId && document.getElementById(playerId);
+          var audio = fresh && fresh.querySelector("[data-eo3-audio]");
+          if (audio) toggle.click();
+        }
       }).catch(function (error) {
         if (!player.isConnected) return;
-        status.textContent = error.message +
-          " Rechargez la page pour vérifier le résultat. Ne répétez pas une préparation incertaine.";
+        status.textContent = onDemand ? error.message :
+          error.message + " Rechargez la page pour vérifier le résultat. Ne répétez pas une préparation incertaine.";
+        button.disabled = !onDemand;
         if (toggle) {
           toggle.removeAttribute("aria-busy");
-          toggle.title = "Préparation non terminée. Rechargez la page pour vérifier le résultat.";
+          toggle.disabled = !onDemand;
+          toggle.setAttribute("aria-label", "Écouter la réponse");
+          toggle.title = onDemand ? "Réessayer la lecture" :
+            "Préparation non terminée. Rechargez la page pour vérifier le résultat.";
         }
         window.HeureuxConfirm({message: status.textContent, label: "Fermer", tone: "safe"});
       });

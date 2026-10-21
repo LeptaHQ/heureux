@@ -154,6 +154,15 @@ def narration_spec(model):
     return NarrationSpec(model.group, text, voice, model_id, fingerprint)
 
 
+def on_demand_enabled():
+    return (
+        settings.FRENCH_AUDIO_GENERATION_ENABLED
+        and settings.FRENCH_AUDIO_CHARACTER_BUDGET > 0
+        and bool(settings.ELEVENLABS_API_KEY)
+        and not settings.ON_VERCEL
+    )
+
+
 def narration_presentation(model):
     if not settings.EO3_AUDIO_ENABLED or model is None:
         return None
@@ -162,6 +171,17 @@ def narration_presentation(model):
     except NarrationError:
         return {"ready": False, "unconfigured": True}
     ready = EO3Narration.objects.filter(fingerprint=spec.fingerprint).exists()
+    group_slug = model.group.removeprefix("eo/tache-3/")
+    if on_demand_enabled():
+        return {
+            "ready": ready, "on_demand": not ready,
+            "prepare_url": "" if ready else reverse(
+                "study:eo3_audio_prepare", args=[group_slug, spec.fingerprint],
+            ),
+            "sample_issue": "", "sample_attempted": False, "sample_status": "",
+            "characters": len(spec.text), "sample_voice": "",
+            "url": reverse("study:eo3_audio", args=[group_slug, spec.fingerprint]) if ready else "",
+        }
     sample_claimed = (
         model.group == SAMPLE_GROUP
         and FrenchNarrationBudget.objects.filter(pk=1, sample_claimed=True).exists()

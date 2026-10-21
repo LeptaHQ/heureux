@@ -7485,6 +7485,15 @@ a.qrow:focus-visible {
 .subject-audio-toggle[data-eo3-unavailable]:hover::before { transform: none; }
 [data-eo3-toggle]:disabled,
 [data-eo3-toggle][data-eo3-unavailable] { opacity: 0.35; }
+[data-eo3-toggle][aria-busy="true"] { opacity: 1; cursor: progress; }
+.subject-audio-toggle[aria-busy="true"]::before { animation: audio-preparing 1s ease-in-out infinite alternate; }
+@keyframes audio-preparing {
+  from { background: var(--audio-gold-soft); transform: scale(0.92); }
+  to { background: var(--audio-gold); transform: scale(1.08); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .subject-audio-toggle[aria-busy="true"]::before { animation: none; background: var(--audio-gold); }
+}
 .subject-status-reset button { color: var(--text-faint); }
 .subject-status-reset button::before { width: 1.1rem; height: 1.1rem; border-color: var(--border-strong); }
 .subject-status-reset button:hover { color: var(--text-soft); }

@@ -14,7 +14,7 @@ from django.utils import timezone
 
 from .eo3_audio import (
     NarrationError, NarrationSpec, OUTPUT_FORMAT, PreSynthesisRejection, SAMPLE_GROUP,
-    VOICE_SETTINGS, narration_spec, sample_rejection_message, synthesize,
+    VOICE_SETTINGS, narration_spec, on_demand_enabled, sample_rejection_message, synthesize,
 )
 from .models import EO3Narration, FrenchNarration, FrenchNarrationBudget
 
@@ -138,7 +138,16 @@ def generate_prepared(fingerprint):
         recording = FrenchNarration.objects.select_for_update().get(pk=fingerprint)
         if recording.status == "ready":
             return False
-        if recording.target_group:
+        on_demand = bool(recording.target_group) and on_demand_enabled()
+        if on_demand:
+            if not settings.EO3_AUDIO_ENABLED:
+                raise NarrationError("EO3 narration is disabled.")
+            from . import catalogue
+            model = catalogue.tache_three_models().get(recording.target_group)
+            if model is None:
+                raise NarrationError("This response is no longer available.")
+            spec = narration_spec(model)
+        elif recording.target_group:
             if (
                 not settings.EO3_AUDIO_ENABLED or not settings.EO3_AUDIO_SAMPLE_ENABLED
                 or recording.target_group != SAMPLE_GROUP
@@ -168,14 +177,14 @@ def generate_prepared(fingerprint):
             raise NarrationError("The voice, model or synthesis settings changed. Request a new recording.")
         if not settings.ELEVENLABS_API_KEY:
             raise NarrationError("Set ELEVENLABS_API_KEY on the server.")
-        if not recording.target_group and (
+        if (on_demand or not recording.target_group) and (
             budget.reserved_characters + len(spec.text) > settings.FRENCH_AUDIO_CHARACTER_BUDGET
         ):
             raise NarrationError("The lifetime character ceiling is exhausted or zero.")
         if FrenchNarration.objects.filter(status="working").exists():
             raise NarrationError("Another recording is in progress. No concurrent paid calls are allowed.")
         budget.reserved_characters += len(spec.text)
-        if recording.target_group:
+        if recording.target_group and not on_demand:
             budget.sample_claimed = True
         budget.save(update_fields=["reserved_characters", "sample_claimed"])
         recording.status = "working"
@@ -184,7 +193,7 @@ def generate_prepared(fingerprint):
     try:
         audio = synthesize(spec)
     except PreSynthesisRejection:
-        if recording.target_group:
+        if recording.target_group and not on_demand:
             with transaction.atomic():
                 budget = FrenchNarrationBudget.objects.select_for_update().get(pk=1)
                 # Persist the proof and release its unbilled slot together, never on generic failures.

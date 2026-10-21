@@ -1,7 +1,10 @@
+from datetime import timedelta
 import json
 import re
 
 from django.conf import settings
+from django.db import transaction
+from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 from django.http import Http404, HttpResponse, HttpResponseNotModified, JsonResponse
 from django.shortcuts import get_object_or_404
@@ -10,7 +13,7 @@ from django.views.decorators.http import require_POST, require_safe
 
 from .. import catalogue
 from ..eo3_audio import (
-    NarrationError, SAMPLE_GROUP, narration_presentation, narration_spec,
+    NarrationError, SAMPLE_GROUP, narration_presentation, narration_spec, on_demand_enabled,
 )
 from ..models import EO3Narration, FrenchNarration
 from ..french_audio import (
@@ -25,10 +28,45 @@ def _audio_json(data, status=200):
     return response
 
 
+ON_DEMAND_DAILY_LIMIT = 100
+
+
+def _prepare_on_demand(spec, group, user):
+    now = timezone.now()
+    with transaction.atomic():
+        # A crashed worker must not block every later request forever.
+        FrenchNarration.objects.filter(
+            status="working", created_at__lt=now - timedelta(minutes=10),
+        ).update(status="failed")
+        recent = FrenchNarration.objects.filter(
+            requested_by=user, target_group__gt="", created_at__gte=now - timedelta(days=1),
+        )
+        if recent.count() >= ON_DEMAND_DAILY_LIMIT:
+            raise NarrationError("Limite quotidienne de préparation atteinte. Réessayez demain.")
+        recording, created = FrenchNarration.objects.select_for_update().get_or_create(
+            fingerprint=spec.fingerprint,
+            defaults={
+                "text": spec.text, "voice_id": spec.voice_id, "model_id": spec.model_id,
+                "target_group": group, "requested_by": user,
+            },
+        )
+        if recording.status == "working":
+            raise NarrationError("La préparation est déjà en cours. Réessayez dans un instant.")
+        if not created and recording.status != "ready":
+            FrenchNarration.objects.filter(pk=recording.pk).update(
+                status="pending", created_at=now, requested_by=user,
+            )
+    generate_prepared(spec.fingerprint)
+
+
 @login_required
 @require_POST
 def eo3_audio_prepare(request, group, fingerprint):
-    if not settings.EO3_AUDIO_ENABLED or group != "culture-p1":
+    on_demand = on_demand_enabled()
+    model = catalogue.tache_three_models().get(f"eo/tache-3/{group}")
+    if not settings.EO3_AUDIO_ENABLED or model is None or (
+        not on_demand and model.group != SAMPLE_GROUP
+    ):
         raise Http404
     if settings.ON_VERCEL:
         return _audio_json({"message": "La préparation est disponible sur le déploiement Render."}, 503)
@@ -40,12 +78,13 @@ def eo3_audio_prepare(request, group, fingerprint):
             raise ValueError
     except (ValueError, UnicodeDecodeError):
         return _audio_json({"message": "Confirmez explicitement le coût de préparation de cet unique extrait."}, 400)
-    model = catalogue.tache_three_models()[SAMPLE_GROUP]
     try:
         spec = narration_spec(model)
         if spec.fingerprint != fingerprint:
             return _audio_json({"message": "La voix ou le texte a changé. Rechargez la page."}, 409)
-        if not EO3Narration.objects.filter(pk=fingerprint).exists():
+        if on_demand and not EO3Narration.objects.filter(pk=fingerprint).exists():
+            _prepare_on_demand(spec, model.group, request.user)
+        elif not EO3Narration.objects.filter(pk=fingerprint).exists():
             if not settings.EO3_AUDIO_SAMPLE_ENABLED:
                 return _audio_json({"message": "La préparation du premier extrait est désactivée."}, 403)
             FrenchNarration.objects.get_or_create(

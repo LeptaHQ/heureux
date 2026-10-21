@@ -424,3 +424,34 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
             expect(toggle).to_have_attribute("aria-pressed", "false")
         self.assertEqual(len(requests), 2)
         self.assertIn("/DefaultVoice?", str(requests[-1].url))
+
+    @override_settings(FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1_000_000)
+    @patch("study.eo3_audio.httpx.HTTPTransport")
+    def test_play_generates_missing_response_audio_then_plays_and_reuses_it(self, factory):
+        requests = []
+
+        def handle(request):
+            requests.append(request)
+            return upstream()
+
+        factory.return_value = httpx.MockTransport(handle)
+        call_command("import_content", stdout=StringIO())
+        prompt = Prompt.objects.select_related("theme__task__part").exclude(
+            content_key="culture:p1",
+        ).filter(theme__task__part__slug="eo", theme__task__slug="tache-3").order_by("pk").first()
+        self.page.goto(self.live_server_url + prompt_detail_url(prompt))
+        toggle = self.page.locator("[data-eo3-toggle]")
+        expect(toggle).to_be_enabled()
+        toggle.click()
+        expect(self.page.locator("[data-confirm-dialog]")).to_be_hidden()
+        audio = self.page.locator("[data-eo3-audio]")
+        expect(audio).to_be_visible()
+        self.page.wait_for_function("() => document.querySelector('[data-eo3-audio]').currentTime > 0")
+        expect(toggle).to_have_attribute("aria-pressed", "true")
+        toggle.click()
+        expect(toggle).to_have_attribute("aria-pressed", "false")
+        self.page.reload()
+        expect(self.page.locator("[data-eo3-audio]")).to_have_count(1)
+        self.page.locator("[data-eo3-toggle]").click()
+        self.page.wait_for_function("() => document.querySelector('[data-eo3-audio]').currentTime > 0")
+        self.assertEqual(len(requests), 1)

@@ -271,8 +271,9 @@ ELEVENLABS_MODEL_ID = os.environ.get(
 EO3_AUDIO_ENABLED = env_bool("EO3_AUDIO_ENABLED", True)
 EO3_AUDIO_SAMPLE_ENABLED = env_bool("EO3_AUDIO_SAMPLE_ENABLED", True)
 FRENCH_AUDIO_ENABLED = env_bool("FRENCH_AUDIO_ENABLED", True)
-FRENCH_AUDIO_GENERATION_ENABLED = env_bool("FRENCH_AUDIO_GENERATION_ENABLED", False)
-FRENCH_AUDIO_CHARACTER_BUDGET = max(0, env_int("FRENCH_AUDIO_CHARACTER_BUDGET", 0))
+FRENCH_AUDIO_GENERATION_ENABLED = env_bool("FRENCH_AUDIO_GENERATION_ENABLED", True)
+# Lifetime safety ceiling for on-demand generation; ElevenLabs credits remain the real limit.
+FRENCH_AUDIO_CHARACTER_BUDGET = max(0, env_int("FRENCH_AUDIO_CHARACTER_BUDGET", 5_000_000))
 
 _csp_directives = [
     "default-src 'self'",

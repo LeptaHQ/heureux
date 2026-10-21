@@ -3043,14 +3043,6 @@
         "french": "Évaluer ce que l'écran remplace dans la journée.",
         "english": "Assess what screen use replaces during the day."
       },
-      "nuance": {
-        "french": "Tenir compte de l'âge, du contenu et des contraintes.",
-        "english": "Consider age, content and practical constraints."
-      },
-      "conclusion": {
-        "french": "Des limites pour préserver un quotidien varié.",
-        "english": "Limits that preserve a varied daily life."
-      },
       "arguments": [
         {
           "point": {
@@ -3074,28 +3066,28 @@
         },
         {
           "point": {
-            "french": "Protéger l'attention partagée.",
-            "english": "Protect shared attention."
+            "french": "Écouter les autres sans être interrompu par un écran.",
+            "english": "Listen to others without a screen interrupting."
           },
           "example": {
             "french": "Ranger aussi les téléphones des parents pendant le repas.",
             "english": "Put away parents' phones too during meals."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Tenir compte de l'âge, du contenu et des contraintes.",
+        "english": "Consider age, content and practical constraints."
+      },
+      "conclusion": {
+        "french": "Des limites pour préserver un quotidien varié.",
+        "english": "Limits that preserve a varied daily life."
+      }
     },
     "sante-p3": {
       "introduction": {
-        "french": "Un cumul exigeant, pas un simple test de volonté.",
-        "english": "A demanding combination, not just a test of willpower."
-      },
-      "nuance": {
-        "french": "Une charge limitée et des horaires prévisibles peuvent aider.",
-        "english": "Limited hours and predictable schedules can help."
-      },
-      "conclusion": {
-        "french": "Prévoir des aménagements, pas un effort illimité.",
-        "english": "Plan adjustments rather than unlimited effort."
+        "french": "Travailler et étudier demande plus que de la volonté.",
+        "english": "Combining work and study takes more than willpower."
       },
       "arguments": [
         {
@@ -3120,34 +3112,34 @@
         },
         {
           "point": {
-            "french": "Une marge financière limitée.",
-            "english": "Limited financial flexibility."
+            "french": "Impossible de réduire ses heures si le salaire ne couvre plus le loyer.",
+            "english": "Cutting hours may leave too little income to pay rent."
           },
           "example": {
             "french": "Supprimer deux services pour réviser laisse un salaire insuffisant pour le loyer.",
             "english": "Dropping two shifts to revise leaves too little salary to cover rent."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Une charge limitée et des horaires prévisibles peuvent aider.",
+        "english": "Limited hours and predictable schedules can help."
+      },
+      "conclusion": {
+        "french": "Adapter la charge et les horaires plutôt que demander toujours plus d'efforts.",
+        "english": "Adjust the workload and schedules rather than demand ever more effort."
+      }
     },
     "sante-p4": {
       "introduction": {
-        "french": "Un socle public et une participation citoyenne.",
-        "english": "A public foundation with civic participation."
-      },
-      "nuance": {
-        "french": "Ne pas transférer les obligations publiques aux bénévoles.",
-        "english": "Do not transfer public duties to volunteers."
-      },
-      "conclusion": {
-        "french": "Assurer, accompagner et coordonner les responsabilités.",
-        "english": "Provide, accompany and coordinate responsibilities."
+        "french": "L'État organise une aide durable, les citoyens peuvent la compléter.",
+        "english": "The state organizes lasting help; citizens can add to it."
       },
       "arguments": [
         {
           "point": {
-            "french": "Une protection prévisible.",
-            "english": "Predictable protection."
+            "french": "Une aide régulière, sans attendre une nouvelle collecte.",
+            "english": "Regular help without waiting for another collection."
           },
           "example": {
             "french": "Une aide publique accordée pour plusieurs mois permet de prévoir son budget après une perte d'emploi.",
@@ -3166,28 +3158,28 @@
         },
         {
           "point": {
-            "french": "Des relais coordonnés.",
-            "english": "Coordinated referrals."
+            "french": "Des services et associations qui se parlent pour orienter vers la bonne aide.",
+            "english": "Services and associations communicate to direct people to the right help."
           },
           "example": {
             "french": "Orienter vers l'hébergement avec l'accord de la personne.",
             "english": "Refer for housing support with the person's consent."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Ne pas transférer les obligations publiques aux bénévoles.",
+        "english": "Do not transfer public duties to volunteers."
+      },
+      "conclusion": {
+        "french": "Une aide publique régulière, complétée par l'écoute et l'accompagnement.",
+        "english": "Regular public help, complemented by listening and practical support."
+      }
     },
     "sante-p6": {
       "introduction": {
-        "french": "Pas d'exclusion universelle comme garantie de santé.",
-        "english": "No universal exclusion as a health guarantee."
-      },
-      "nuance": {
-        "french": "Le choix et les besoins particuliers comptent.",
-        "english": "Personal choice and specific needs matter."
-      },
-      "conclusion": {
-        "french": "Une alimentation adaptée, avec ou sans viande.",
-        "english": "A suitable diet, with or without meat."
+        "french": "Arrêter la viande n'est pas une condition de bonne santé pour tous.",
+        "english": "Stopping meat is not a condition of good health for everyone."
       },
       "arguments": [
         {
@@ -3212,28 +3204,28 @@
         },
         {
           "point": {
-            "french": "Une transition préparée.",
-            "english": "A planned transition."
+            "french": "Prévoir par quoi remplacer la viande.",
+            "english": "Plan what will replace meat."
           },
           "example": {
             "french": "Prévoir un plat de lentilles et de légumes plutôt que retirer le steak et garder les pommes de terre.",
             "english": "Plan lentils and vegetables instead of removing the steak and keeping only the potatoes."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Le choix et les besoins particuliers comptent.",
+        "english": "Personal choice and specific needs matter."
+      },
+      "conclusion": {
+        "french": "Une alimentation adaptée, avec ou sans viande.",
+        "english": "A suitable diet, with or without meat."
+      }
     },
     "sante-p7": {
       "introduction": {
-        "french": "Pas une exclusivité, mais un accès inégal.",
-        "english": "Not exclusive, but unequally accessible."
-      },
-      "nuance": {
-        "french": "Le bio ne garantit pas un repas équilibré.",
-        "english": "Organic does not guarantee a balanced meal."
-      },
-      "conclusion": {
-        "french": "Comparer les possibilités sans juger les acheteurs.",
-        "english": "Compare options without judging shoppers."
+        "french": "Le bio n'est pas réservé aux riches, mais tous n'y ont pas le même accès.",
+        "english": "Organic food is not only for the rich, but access is unequal."
       },
       "arguments": [
         {
@@ -3248,8 +3240,8 @@
         },
         {
           "point": {
-            "french": "Les coûts d'accès.",
-            "english": "Access costs."
+            "french": "Le temps et le prix du trajet comptent aussi.",
+            "english": "Travel time and cost matter too."
           },
           "example": {
             "french": "Une promotion éloignée peut exiger un trajet coûteux.",
@@ -3258,15 +3250,23 @@
         },
         {
           "point": {
-            "french": "Des choix partiels possibles.",
-            "english": "Partial choices are possible."
+            "french": "Acheter quelques produits bio sans changer tout le panier.",
+            "english": "Buy a few organic products without changing the whole basket."
           },
           "example": {
             "french": "Acheter seulement les lentilles bio adaptées au budget.",
             "english": "Buy only the organic lentils that fit the budget."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Le bio ne garantit pas un repas équilibré.",
+        "english": "Organic does not guarantee a balanced meal."
+      },
+      "conclusion": {
+        "french": "Comparer les possibilités sans juger les acheteurs.",
+        "english": "Compare options without judging shoppers."
+      }
     },
     "sante-p8": {
       "introduction": {
@@ -3411,19 +3411,11 @@
         "french": "Distinguer l'État vendeur de l'interdiction générale.",
         "english": "Distinguish the state as seller from a general ban."
       },
-      "nuance": {
-        "french": "Ne confondre ni propriété et protection, ni retrait et interdiction.",
-        "english": "Do not equate ownership with protection or withdrawal with prohibition."
-      },
-      "conclusion": {
-        "french": "Contrôle réel et priorité sanitaire.",
-        "english": "Effective oversight and a health-first approach."
-      },
       "arguments": [
         {
           "point": {
-            "french": "Le vendeur ne suffit pas.",
-            "english": "Ownership alone is not enough."
+            "french": "Changer de vendeur ne supprime pas les produits.",
+            "english": "Changing the seller does not remove the products."
           },
           "example": {
             "french": "Un magasin public peut être remplacé par des commerces privés.",
@@ -3432,8 +3424,8 @@
         },
         {
           "point": {
-            "french": "Limiter les objectifs commerciaux.",
-            "english": "Limit commercial incentives."
+            "french": "La santé doit passer avant l'argent rapporté par les ventes.",
+            "english": "Health must come before money earned from sales."
           },
           "example": {
             "french": "Retirer une prime liée aux bouteilles vendues supprime une incitation à augmenter les ventes.",
@@ -3442,15 +3434,23 @@
         },
         {
           "point": {
-            "french": "Un examen sanitaire indépendant.",
-            "english": "Independent public-health assessment."
+            "french": "Le vendeur ne doit pas être seul à contrôler son travail.",
+            "english": "The seller must not be the only one checking its work."
           },
           "example": {
             "french": "Un contrôle extérieur repère l'absence de vérification d'âge et conduit à revoir les procédures.",
             "english": "An outside inspection identifies missing age checks and prompts revised procedures."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Ne confondre ni propriété et protection, ni retrait et interdiction.",
+        "english": "Do not equate ownership with protection or withdrawal with prohibition."
+      },
+      "conclusion": {
+        "french": "Contrôle réel et priorité sanitaire.",
+        "english": "Effective oversight and a health-first approach."
+      }
     },
     "sante-p13": {
       "introduction": {
@@ -3595,19 +3595,11 @@
         "french": "Adapter cet avis illustratif à son pays.",
         "english": "Adapt this illustrative viewpoint to one's country."
       },
-      "nuance": {
-        "french": "Les habitudes et les moyens varient ; cuisine familiale ne signifie pas équilibre automatique.",
-        "english": "Habits and resources vary; home cooking does not automatically mean a balanced diet."
-      },
-      "conclusion": {
-        "french": "Valoriser la variété culinaire et les repas partagés malgré les contraintes quotidiennes.",
-        "english": "Value culinary variety and shared meals while recognizing everyday constraints."
-      },
       "arguments": [
         {
           "point": {
-            "french": "Des ressources culinaires variées.",
-            "english": "Varied culinary resources."
+            "french": "Les recettes familiales et régionales aident à varier les repas.",
+            "english": "Family and regional recipes help vary meals."
           },
           "example": {
             "french": "Varier une recette de riz aux haricots avec les légumes disponibles.",
@@ -3634,26 +3626,26 @@
             "english": "Make a bean dish with a younger relative who notes the steps to cook it again."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Les habitudes et les moyens varient ; cuisine familiale ne signifie pas équilibre automatique.",
+        "english": "Habits and resources vary; home cooking does not automatically mean a balanced diet."
+      },
+      "conclusion": {
+        "french": "Valoriser la variété culinaire et les repas partagés malgré les contraintes quotidiennes.",
+        "english": "Value culinary variety and shared meals while recognizing everyday constraints."
+      }
     },
     "sante-p17": {
       "introduction": {
-        "french": "Une tension parfois mobilisatrice, jamais obligatoire.",
-        "english": "Tension can sometimes mobilize, but is never required."
-      },
-      "nuance": {
-        "french": "La motivation peut exister sans stress.",
-        "english": "Motivation can exist without stress."
-      },
-      "conclusion": {
-        "french": "Préparer et soutenir plutôt qu'augmenter la pression.",
-        "english": "Prepare and support rather than increase pressure."
+        "french": "Le stress peut pousser à agir, mais il n'est pas nécessaire pour être motivé.",
+        "english": "Stress can prompt action, but motivation does not require it."
       },
       "arguments": [
         {
           "point": {
-            "french": "Une impulsion vers la préparation.",
-            "english": "An impulse to prepare."
+            "french": "Une petite inquiétude peut pousser à se préparer.",
+            "english": "A little worry can prompt preparation."
           },
           "example": {
             "french": "Répéter une introduction avant une présentation.",
@@ -3672,34 +3664,34 @@
         },
         {
           "point": {
-            "french": "Du temps pour récupérer entre les exigences.",
-            "english": "Time to recover between demands."
+            "french": "Récupérer après une période de pression.",
+            "english": "Recover after a period of pressure."
           },
           "example": {
             "french": "Après une urgence, reporter une tâche et organiser un relais pour permettre du repos.",
             "english": "After an urgent task, postpone another task and arrange cover to allow rest."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "La motivation peut exister sans stress.",
+        "english": "Motivation can exist without stress."
+      },
+      "conclusion": {
+        "french": "Préparer et soutenir plutôt qu'augmenter la pression.",
+        "english": "Prepare and support rather than increase pressure."
+      }
     },
     "sante-p19": {
       "introduction": {
         "french": "Examiner le temps, le contenu et les mécanismes.",
         "english": "Examine time, content and design features."
       },
-      "nuance": {
-        "french": "Un jeu adapté peut aussi être créatif et partagé.",
-        "english": "A suitable game can also be creative and shared."
-      },
-      "conclusion": {
-        "french": "Un encadrement précis, sans condamnation générale.",
-        "english": "Precise guidance without blanket condemnation."
-      },
       "arguments": [
         {
           "point": {
-            "french": "Un emploi du temps déplacé.",
-            "english": "Displaced daily routines."
+            "french": "Les parties peuvent retarder les devoirs et le coucher.",
+            "english": "Matches can push back homework and bedtime."
           },
           "example": {
             "french": "Une nouvelle partie repousse la lecture à préparer ou le coucher.",
@@ -3726,26 +3718,26 @@
             "english": "Disable unauthorized purchases."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Un jeu adapté peut aussi être créatif et partagé.",
+        "english": "A suitable game can also be creative and shared."
+      },
+      "conclusion": {
+        "french": "Un encadrement précis, sans condamnation générale.",
+        "english": "Precise guidance without blanket condemnation."
+      }
     },
     "sante-p20": {
       "introduction": {
-        "french": "Des moyens suffisants plutôt qu'une richesse obligatoire.",
-        "english": "Sufficient means rather than compulsory wealth."
-      },
-      "nuance": {
-        "french": "Ne pas expliquer la pauvreté par une mauvaise gestion.",
-        "english": "Do not explain poverty as poor budgeting."
-      },
-      "conclusion": {
-        "french": "Évaluer besoins, contexte et soutiens.",
-        "english": "Assess needs, context and support."
+        "french": "Il faut assez pour ses besoins, pas forcément être riche.",
+        "english": "You need enough to meet your needs, not necessarily wealth."
       },
       "arguments": [
         {
           "point": {
-            "french": "Des besoins incompressibles.",
-            "english": "Essential unavoidable needs."
+            "french": "Certaines dépenses restent à payer, même en faisant attention.",
+            "english": "Some expenses remain, even with careful spending."
           },
           "example": {
             "french": "Même après avoir supprimé des abonnements, le budget peut rester insuffisant pour le loyer et les courses.",
@@ -3764,28 +3756,28 @@
         },
         {
           "point": {
-            "french": "D'autres ressources que le salaire.",
-            "english": "Resources beyond salary."
+            "french": "Des aides et des services peuvent réduire ce qu'on doit payer.",
+            "english": "Benefits and services can reduce what people have to pay."
           },
           "example": {
             "french": "Un transport public permet de se passer d'une voiture.",
             "english": "Public transport can remove the need for a car."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Ne pas expliquer la pauvreté par une mauvaise gestion.",
+        "english": "Do not explain poverty as poor budgeting."
+      },
+      "conclusion": {
+        "french": "Évaluer besoins, contexte et soutiens.",
+        "english": "Assess needs, context and support."
+      }
     },
     "sante-p22": {
       "introduction": {
-        "french": "Un appui possible, pas une condition universelle.",
-        "english": "Possible support, not a universal condition."
-      },
-      "nuance": {
-        "french": "Ne pas glorifier les difficultés ni inventer un seuil universel.",
-        "english": "Do not glorify hardship or invent a universal threshold."
-      },
-      "conclusion": {
-        "french": "Sécurité, relations et organisation de la vie.",
-        "english": "Security, relationships and daily-life organization."
+        "french": "Un bon salaire peut aider, sans être nécessaire au bonheur de tous.",
+        "english": "A good salary can help without being necessary for everyone's happiness."
       },
       "arguments": [
         {
@@ -3818,20 +3810,20 @@
             "english": "Compare a promotion with its travel demands."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Ne pas glorifier les difficultés ni inventer un seuil universel.",
+        "english": "Do not glorify hardship or invent a universal threshold."
+      },
+      "conclusion": {
+        "french": "Payer ses dépenses, compter sur ses proches et garder du temps pour eux.",
+        "english": "Pay expenses, have loved ones to rely on and keep time for them."
+      }
     },
     "sante-p23": {
       "introduction": {
-        "french": "Ni obligation quotidienne universelle ni refus des soins.",
-        "english": "Neither universal daily medication nor rejection of care."
-      },
-      "nuance": {
-        "french": "Ne pas modifier un traitement prescrit sans avis médical.",
-        "english": "Do not change prescribed treatment without medical advice."
-      },
-      "conclusion": {
-        "french": "Accès aux traitements nécessaires et usage éclairé.",
-        "english": "Access to necessary treatments and informed use."
+        "french": "Certains traitements sont indispensables, mais tous n'ont pas besoin d'en prendre chaque jour.",
+        "english": "Some treatments are essential, but not everyone needs medicine every day."
       },
       "arguments": [
         {
@@ -3846,8 +3838,8 @@
         },
         {
           "point": {
-            "french": "Des actions de prévention au-delà de la prescription.",
-            "english": "Preventive actions beyond prescriptions."
+            "french": "La prévention ne passe pas toujours par un médicament.",
+            "english": "Prevention does not always involve medicine."
           },
           "example": {
             "french": "Sans indication de médicament, marcher à midi comme convenu lors d'un rendez-vous préventif.",
@@ -3856,15 +3848,23 @@
         },
         {
           "point": {
-            "french": "Un usage expliqué.",
-            "english": "An informed use."
+            "french": "Comprendre pourquoi prendre un produit et s'il convient.",
+            "english": "Understand why to take a product and whether it is suitable."
           },
           "example": {
             "french": "Le pharmacien vérifie les associations avant l'ajout d'un produit conseillé par un proche.",
             "english": "A pharmacist checks combinations before adding a product suggested by a relative."
           }
         }
-      ]
+      ],
+      "nuance": {
+        "french": "Ne pas modifier un traitement prescrit sans avis médical.",
+        "english": "Do not change prescribed treatment without medical advice."
+      },
+      "conclusion": {
+        "french": "Accès aux traitements nécessaires et conseils pour bien les utiliser.",
+        "english": "Access to necessary treatments and advice on using them correctly."
+      }
     },
     "technologie-p1": {
       "introduction": {

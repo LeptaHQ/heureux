@@ -155,8 +155,20 @@
     if (paint) paint.clear();
   }
 
+  var readAlongKey = "heureux:eo3-read-along";
+  function readAlongOn() {
+    try { return localStorage.getItem(readAlongKey) !== "off"; } catch (error) { return true; }
+  }
+  function syncReadAlongToggles() {
+    var on = readAlongOn();
+    document.querySelectorAll("[data-eo3-read-along-toggle]").forEach(function (button) {
+      button.setAttribute("aria-pressed", String(on));
+    });
+  }
+
   function updateReading(audio) {
     if (!paint || !audio.dataset.eo3Timing) return;
+    if (!readAlongOn()) { clearReading(audio); return; }
     var state = buildReadAlong(audio);
     var entries = state.entries;
     if (!entries.length) return;
@@ -203,6 +215,7 @@
         return;
       }
       audio.dataset.eo3Initialized = "true";
+      syncReadAlongToggles();
       audio.defaultPlaybackRate = 0.85;
       audio.playbackRate = 0.85;
       audio.preservesPitch = true;
@@ -353,6 +366,21 @@
       }
       return;
     }
+    var readToggle = event.target.closest("[data-eo3-read-along-toggle]");
+    if (readToggle) {
+      var turnOn = !readAlongOn();
+      try { localStorage.setItem(readAlongKey, turnOn ? "on" : "off"); } catch (error) {}
+      syncReadAlongToggles();
+      var reading = readToggle.closest("[data-eo3-player]").querySelector(selector);
+      if (reading) {
+        var readState = readAlong.get(reading);
+        if (readState) readState.current = -1;
+        updateReading(reading);
+      }
+      readToggle.closest("[data-eo3-player]").querySelector("[data-eo3-audio-status]").textContent =
+        turnOn ? "Surlignage du mot lu activé." : "Surlignage du mot lu désactivé.";
+      return;
+    }
     var loop = event.target.closest("[data-eo3-loop]");
     if (loop) {
       var looped = loop.closest("[data-eo3-player]").querySelector(selector);
@@ -421,12 +449,26 @@
     if (!saved) return;
     var toggle = document.querySelector("#eo3-response-player [data-eo3-toggle]");
     if (!toggle || toggle.disabled) return;
-    if (!applySettings(toggle.closest("[data-eo3-player]"), saved)) pendingSettings = saved;
-    toggle.click();
+    var player = toggle.closest("[data-eo3-player]");
+    if (!applySettings(player, saved)) pendingSettings = saved;
+    if (!player.querySelector("[data-eo3-on-demand]")) {
+      toggle.click();
+      return;
+    }
+    if (!window.HeureuxConfirm) return;
+    window.HeureuxConfirm({
+      message: "L’audio de ce sujet n’est pas encore prêt. Le générer maintenant avec ElevenLabs ? " +
+        "Cette action consomme des crédits ; les écoutes suivantes réutilisent le même enregistrement.",
+      label: "Générer et écouter", tone: "safe"
+    }).then(function (confirmed) {
+      if (confirmed) toggle.click();
+      else pendingSettings = null;
+    });
   }
   document.addEventListener("heureux:audio-prepared", function () {
     var player = document.getElementById("eo3-response-player");
     if (pendingSettings && player && applySettings(player, pendingSettings)) pendingSettings = null;
   });
-  resume();
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", resume);
+  else resume();
 })();

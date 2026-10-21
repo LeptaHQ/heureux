@@ -1,4 +1,5 @@
 import re
+from unittest.mock import patch
 from io import BytesIO, StringIO
 import os
 from urllib.parse import urlsplit
@@ -82,6 +83,9 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         audio = buffer.getvalue()
 
         def serve_audio(route):
+            if route.request.method != "GET":
+                route.continue_()
+                return
             headers = {"Accept-Ranges": "bytes"}
             requested = re.fullmatch(r"bytes=(\d+)-(\d*)", route.request.headers.get("range", ""))
             if requested:
@@ -231,6 +235,27 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         ) if start <= position)
         self.assertEqual(self.page.evaluate(highlighted)["text"], expected)
         self.assertEqual(root.inner_html(), before)
+        switch = self.page.get_by_role("button", name="Surligner le mot lu")
+        expect(switch).to_have_attribute("aria-pressed", "true")
+        switch.click()
+        expect(switch).to_have_attribute("aria-pressed", "false")
+        self.assertIsNone(self.page.evaluate(highlighted))
+        self.page.reload()
+        expect(switch).to_have_attribute("aria-pressed", "false")
+        self.page.locator("[data-eo3-toggle]").click()
+        self.page.wait_for_function(
+            "() => document.querySelector('[data-eo3-audio]').currentTime > 0.5"
+        )
+        self.assertIsNone(self.page.evaluate(highlighted))
+        switch.click()
+        expect(switch).to_have_attribute("aria-pressed", "true")
+        self.page.wait_for_function(f"() => ({highlighted})() !== null")
+        self.page.locator("[data-eo3-toggle]").click()
+        self.page.set_viewport_size({"width": 320, "height": 740})
+        self.assertEqual(self.page.locator("[data-eo3-player]").evaluate(
+            "player => [...player.querySelectorAll('*')].filter(node => node.getBoundingClientRect().right > innerWidth + 0.5).map(node => node.className.baseVal ?? node.className + ':' + Math.round(node.getBoundingClientRect().right) + '/' + innerWidth)"
+        ), [])
+        self.page.set_viewport_size({"width": 390, "height": 844})
         self.assertFalse(self.errors, self.errors)
 
     def test_next_and_previous_navigate_and_continue_reading_with_same_settings(self):
@@ -262,6 +287,28 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         self.page.reload()
         expect(self.page.locator("[data-eo3-speed-toggle]")).to_have_text("0,85×")
         self.assertTrue(self.page.locator("[data-eo3-audio]").evaluate("audio => audio.paused"))
+        self.assertFalse(self.errors, self.errors)
+
+    @override_settings(FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1_000_000)
+    @patch("study.french_audio.synthesize", return_value=(b"ID3-test", []))
+    def test_next_asks_before_generating_missing_audio(self, provider):
+        start = self.live_server_url + prompt_detail_url(self.prompt)
+        self.page.goto(start)
+        self.page.get_by_role("link", name="Sujet suivant et lecture").click()
+        self.page.wait_for_url(lambda url: url != start)
+        dialog = self.page.locator("[data-confirm-dialog]")
+        expect(dialog).to_be_visible()
+        expect(dialog).to_contain_text("pas encore prêt")
+        dialog.get_by_role("button", name="Annuler", exact=True).click()
+        expect(self.page.locator("[data-eo3-toggle]")).not_to_have_attribute("aria-busy", "true")
+        provider.assert_not_called()
+        self.page.go_back()
+        self.page.wait_for_url(start)
+        self.page.get_by_role("link", name="Sujet suivant et lecture").click()
+        self.page.wait_for_url(lambda url: url != start)
+        dialog.locator("[data-confirm-accept]").click()
+        expect(self.page.locator("[data-eo3-seek]")).to_be_visible()
+        provider.assert_called_once()
         self.assertFalse(self.errors, self.errors)
 
     @override_settings(EO3_AUDIO_SAMPLE_ENABLED=False, FRENCH_AUDIO_GENERATION_ENABLED=False)

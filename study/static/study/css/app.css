@@ -7435,14 +7435,15 @@ a.qrow:focus-visible {
 .eo3-speed__menu button:hover, .eo3-speed__menu button:focus-visible { background: color-mix(in srgb, var(--audio-gold, #c99a12) 18%, transparent); outline: 0; }
 .eo3-speed__menu button[aria-checked="true"] { color: var(--audio-gold-on, #fff); background: var(--audio-gold, #c99a12); font-weight: 600; }
 .eo3-audio__restart { display: inline-grid; place-items: center; flex: none; width: 2rem; height: 2rem; padding: 0; color: var(--text-muted, var(--text)); background: none; border: 0; border-radius: 50%; cursor: pointer; }
-.eo3-audio__loop { color: var(--text-faint, var(--text)); }
+.eo3-audio__loop, .eo3-audio__switch { color: var(--text-faint, var(--text)); }
 .eo3-audio__nav { display: inline-grid; place-items: center; flex: none; width: 1.75rem; height: 1.75rem; color: var(--audio-gold, #c99a12); border-radius: 50%; text-decoration: none; }
 .eo3-audio__nav:hover, .eo3-audio__nav:focus-visible { background: var(--surface-2, rgba(0,0,0,.06)); }
 .eo3-audio__restart:hover, .eo3-audio__restart:focus-visible { background: var(--surface-2, rgba(0,0,0,.06)); }
-.eo3-audio__loop[aria-pressed="true"], .eo3-audio__loop[aria-pressed="true"]:hover, .eo3-audio__loop[aria-pressed="true"]:focus, .eo3-audio__loop[aria-pressed="true"]:active { color: var(--audio-gold-on, #fff); background: var(--audio-gold, #c99a12); }
+.eo3-audio__loop[aria-pressed="true"], .eo3-audio__loop[aria-pressed="true"]:hover, .eo3-audio__loop[aria-pressed="true"]:focus, .eo3-audio__loop[aria-pressed="true"]:active, .eo3-audio__switch[aria-pressed="true"], .eo3-audio__switch[aria-pressed="true"]:hover, .eo3-audio__switch[aria-pressed="true"]:focus, .eo3-audio__switch[aria-pressed="true"]:active { color: var(--audio-gold-on, #fff); background: var(--audio-gold, #c99a12); }
 .eo3-audio p { margin: .4rem 0 0; }
 .eo3-audio__hint { font-size: .85rem; color: var(--text-muted, var(--text)); }
 .eo3-audio__note:empty { display: none; }
+@media (max-width: 400px) { .eo3-audio__row { gap: .2rem; } .eo3-audio__seek { min-width: 1.75rem; } .eo3-audio__restart { width: 1.75rem; height: 1.75rem; } .eo3-speed__button { min-width: 2.8rem; padding: .25rem .4rem; } .eo3-audio__nav { width: 1.5rem; } }
 ::highlight(eo3-reading) { background-color: rgba(201, 154, 18, .38); color: inherit; }
 .subject-audio-toggle {
   position: relative;

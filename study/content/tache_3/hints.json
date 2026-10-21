@@ -1536,8 +1536,8 @@
       "arguments": [
         {
           "point": {
-            "french": "L'expérience peut fournir des possibilités auxquelles on n'avait pas pensé.",
-            "english": "Experience can suggest options we had not considered."
+            "french": "Les aînés peuvent nous montrer des solutions auxquelles on n'avait pas pensé.",
+            "english": "Older people can show us solutions we had not considered."
           },
           "example": {
             "french": "Un grand-parent raconte comment il s'est renseigné avant une reconversion.",
@@ -1556,8 +1556,8 @@
         },
         {
           "point": {
-            "french": "Un conseil doit être confronté aux conditions réelles du moment.",
-            "english": "Advice must fit present circumstances."
+            "french": "Il faut vérifier si le conseil convient à la situation actuelle.",
+            "english": "Check whether the advice fits the current situation."
           },
           "example": {
             "french": "Vérifier la procédure de candidature demandée dans l'offre.",
@@ -1582,8 +1582,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Une explication honnête donne une base fiable à la relation.",
-            "english": "An honest explanation supports a reliable relationship."
+            "french": "Une explication honnête aide l'enfant à faire confiance à l'adulte.",
+            "english": "An honest explanation helps the child trust the adult."
           },
           "example": {
             "french": "Expliquer qu'une sortie est annulée à cause du travail.",
@@ -1614,8 +1614,8 @@
     },
     "famille-p5": {
       "introduction": {
-        "french": "La distance familiale demande des ajustements affectifs et pratiques.",
-        "english": "Distance from family requires emotional and practical adjustments."
+        "french": "Loin de sa famille, les moments partagés manquent et l'aide pratique est moins accessible.",
+        "english": "Far from family, shared moments are missed and practical help is less accessible."
       },
       "nuance": {
         "french": "D'autres liens soutiennent aussi ; une famille n'est pas toujours rassurante.",
@@ -1674,8 +1674,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Une récompense systématique peut déplacer l'objectif vers le paiement.",
-            "english": "Systematic rewards can shift attention towards payment."
+            "french": "L'enfant peut finir par travailler surtout pour la récompense.",
+            "english": "The child may end up working mainly for the reward."
           },
           "example": {
             "french": "Un enfant demande si un exercice non noté rapporte aussi de l'argent.",
@@ -1898,8 +1898,8 @@
         "english": "Danger calls for immediate intervention, without humiliation."
       },
       "conclusion": {
-        "french": "Associer limites, parole et responsabilités progressives.",
-        "english": "Combine boundaries, dialogue and gradual responsibility."
+        "french": "Expliquer les règles, écouter l'enfant et lui apprendre peu à peu à décider.",
+        "english": "Explain rules, listen to the child and gradually teach them to make decisions."
       },
       "arguments": [
         {
@@ -1944,8 +1944,8 @@
         "english": "No rigid separation or guaranteed perfect bilingualism."
       },
       "conclusion": {
-        "french": "Soutenir le dialogue familial, la transmission et la participation locale.",
-        "english": "Support family dialogue, transmission and local participation."
+        "french": "Échanger en famille, parler avec les grands-parents et utiliser aussi la langue locale.",
+        "english": "Talk within the family, speak with grandparents and also use the local language."
       },
       "arguments": [
         {
@@ -2042,8 +2042,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Partager un logement peut donner une marge financière utile.",
-            "english": "Sharing accommodation can provide useful financial flexibility."
+            "french": "Partager un logement peut laisser plus d'argent pour ses projets.",
+            "english": "Sharing accommodation can leave more money for your plans."
           },
           "example": {
             "french": "Comparer le coût d'un logement indépendant avec sa contribution aux dépenses chez ses parents.",

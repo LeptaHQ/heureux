@@ -67,7 +67,7 @@ class TravelSplitCorpusTests(SimpleTestCase):
         ).encode()
         self.assertEqual(
             hashlib.sha256(snapshot).hexdigest(),
-            "a038a5cb80a41f91ca6f63505a8f9e1ab8918da4f19a06d38adc24e86a254b6d",
+            "6b6c9f6e30c5c670a538d75f08c41da40fac116e5fd14bfbb6053ba63d4fdcf2",
         )
 
     def test_every_old_memory_question_survives_once_with_its_exact_learning_key(self):

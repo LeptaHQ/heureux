@@ -38,6 +38,12 @@ Avoid universal generational judgments, essentialised national identities,
 invented studies, unsupported majority claims and implied legal guarantees.
 Illustrative situations are possibilities, not reports of the learner's life.
 
+Make the reasoning easy to remember: name who acts, what they do and what changes.
+Prefer a direct verb to an abstract label, and a clear answer to stacked negatives.
+Simplify the phrasing, not the argument: keep its explanation, concrete example
+and necessary limits. A shorter text is not automatically easier to learn, and a
+familiar, accurate expression need not be replaced merely for variety.
+
 ## Argument substance and comparative review
 
 Compare the current model with the preserved original before revising it. Keep

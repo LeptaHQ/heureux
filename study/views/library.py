@@ -82,6 +82,7 @@ from ..retirement import active_phrases
 from ..progress import (
     card_unit_progress_from_rows,
     combine_progress,
+    hide_subject_highlights,
     progress_summary,
     subject_progress_by_response,
     summarize_subject_progress,
@@ -3642,6 +3643,7 @@ def task_memory_progress(request, part_slug, task_slug, memory_number):
 
 
 @require_POST
+@transaction.atomic
 def subject_completion(request, part_slug, task_slug, response_id):
     task = _route_task(part_slug, task_slug, request=request)
     route_prompt = (
@@ -3684,8 +3686,10 @@ def subject_completion(request, part_slug, task_slug, response_id):
     )
     completed_at = timezone.now() if completed == "1" else None
     changes = {"subject_completed_at": completed_at}
+    hidden_highlight_ids = []
     if reset_status:
         changes["subject_status_reset_at"] = timezone.now()
+        hidden_highlight_ids = hide_subject_highlights(request.user, route_prompt.response_id)
     elif completed == "1":
         changes["subject_status_reset_at"] = None
     Card.objects.filter(pk=card.pk).update(**changes)
@@ -3698,6 +3702,8 @@ def subject_completion(request, part_slug, task_slug, response_id):
         return JsonResponse(
             {
                 "response_id": route_prompt.response_id,
+                "highlights_reset": reset_status,
+                "hidden_highlight_ids": hidden_highlight_ids,
                 "completed": progress.explicitly_completed,
                 "subject": {
                     "status": progress.status,

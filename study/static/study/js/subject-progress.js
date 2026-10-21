@@ -137,6 +137,11 @@
         .then(readJson)
         .then(function (data) {
           updatePage(data);
+          if (data.highlights_reset) {
+            document.dispatchEvent(new CustomEvent("heureux:highlights-hidden", {
+              detail: { ids: data.hidden_highlight_ids }
+            }));
+          }
           if (form.getAttribute(prefix + "-completion-refresh") === "true") {
             window.location.reload();
           }

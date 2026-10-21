@@ -451,6 +451,22 @@ def _prompt_highlight_scopes(prompts, shapes):
         )
 
 
+def hide_subject_highlights(user, response_id):
+    from .oral_history import annotation_owners
+
+    annotations = list(Annotation.objects.filter(
+        Q(source_key__startswith="response:")
+        | Q(source_key__startswith="subject-sidebar:")
+        | Q(source_path__startswith="/expression/orale/tache-3/sujets/"),
+        user=user, kind=AnnotationKind.HIGHLIGHT, hidden_on_source=False,
+    ))
+    owners = annotation_owners(annotations)
+    ids = [item.pk for item in annotations if owners.get(item.pk) == response_id]
+    if ids:
+        Annotation.objects.filter(user=user, pk__in=ids).update(hidden_on_source=True)
+    return ids
+
+
 def _subject_highlight_rows(user, response_ids):
     """Fetch target-related candidates and their resolved response-key IDs."""
     highlights = Annotation.objects.filter(
@@ -460,6 +476,7 @@ def _subject_highlight_rows(user, response_ids):
         | Q(source_key="", source_path__contains="/sujets/"),
         user=user,
         kind=AnnotationKind.HIGHLIGHT,
+        hidden_on_source=False,
     )
     shapes = highlights.aggregate(
         response=Count("pk", filter=Q(source_key__startswith=RESPONSE_SOURCE_PREFIX)),

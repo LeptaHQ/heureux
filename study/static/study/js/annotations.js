@@ -941,6 +941,19 @@
       });
   }
 
+  document.addEventListener("heureux:highlights-hidden", function (event) {
+    var ids = event.detail.ids.map(String);
+    highlightsRevision += 1;
+    highlights = highlights.filter(function (item) {
+      return ids.indexOf(String(item.id)) === -1;
+    });
+    removeHighlightMarks(ids);
+    refreshSelectionCoverage(currentSelection);
+    refreshSelectionCoverage(noteSelection);
+    rememberSelection();
+    fetchHighlights();
+  });
+
   function deleteHighlight(item) {
     if (!item.delete_url) {
       return Promise.reject(new Error("Ce surlignage ne peut pas être supprimé."));

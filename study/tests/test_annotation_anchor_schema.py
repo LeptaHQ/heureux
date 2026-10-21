@@ -27,7 +27,7 @@ class LegacyAnnotationInsert:
         template = Annotation.objects.create(**values)
         columns = [
             field.column for field in Annotation._meta.local_concrete_fields
-            if field.name not in {"id", "response_anchor"}
+            if field.name not in {"id", "response_anchor", "hidden_on_source"}
         ]
         table = connection.ops.quote_name(Annotation._meta.db_table)
         names = ", ".join(connection.ops.quote_name(column) for column in columns)
@@ -48,12 +48,14 @@ class AnnotationAnchorSchemaTests(LegacyAnnotationInsert, TestCase):
 
     def test_legacy_column_inserts_keep_notes_and_highlights_unscoped(self):
         self.assertTrue(Annotation._meta.get_field("response_anchor").has_db_default())
+        self.assertTrue(Annotation._meta.get_field("hidden_on_source").has_db_default())
         for kind in (AnnotationKind.NOTE, AnnotationKind.HIGHLIGHT):
             with self.subTest(kind=kind):
                 saved = self.insert_from_old_worker(kind)
                 self.assertEqual(saved.response_anchor, {})
                 self.assertEqual(saved.body, "A note saved by the preceding worker.")
                 self.assertEqual(saved.kind, kind)
+                self.assertFalse(saved.hidden_on_source)
 
     def test_fresh_upgrades_add_the_column_with_a_persistent_default(self):
         applied = MigrationRecorder(connection).applied_migrations()
@@ -94,6 +96,11 @@ class AnnotationAnchorUpgradeTests(LegacyAnnotationInsert, TransactionTestCase):
         old = old_state.apps.get_model("study", "Annotation")
         old_field = old._meta.get_field("response_anchor")
         current_field = Annotation._meta.get_field("response_anchor")
+        # Simulate the old anchor default without dropping later annotation columns.
+        old_state = loader.project_state(loader.graph.leaf_nodes())
+        old_state.alter_field(
+            "study", "annotation", "response_anchor", old_field.clone(), preserve_default=True,
+        )
         with connection.schema_editor() as editor:
             editor.alter_field(Annotation, current_field, old_field)
         try:

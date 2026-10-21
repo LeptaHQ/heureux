@@ -241,7 +241,7 @@ def _annotations_for_update(user, source_filter):
     return Annotation.objects.select_for_update(of=("self",)).filter(
         source_filter,
         Q(task__isnull=True) | Q(task__part__slug="eo", task__slug__in=("tache-2", "tache-3")),
-        user=user, source_key__startswith="response:",
+        user=user, source_key__startswith="response:", hidden_on_source=False,
     ).order_by("pk")
 
 

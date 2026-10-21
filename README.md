@@ -196,6 +196,13 @@ light and dark themes.
 
 ## Notes and highlights
 
+The EO3 subject reset returns its status to **À commencer** and clears its
+existing highlight paint, including after reloading or reopening practice.
+Highlights are marked `hidden_on_source`, not deleted: their text, anchors,
+dates and study flags remain in Notes and account exports. Notes themselves
+are unchanged. Highlighting the same passage again creates a fresh visible
+record without overwriting the hidden one.
+
 **Nouvelle note** always defaults to **Personnelles**, independently of the open
 folder. Its optional group selector can explicitly assign an expression task.
 Notes captured from EE/EO content keep their source task; contextual CE/CO notes

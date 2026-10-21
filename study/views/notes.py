@@ -1311,6 +1311,7 @@ def annotations_for_source(request):
             source_filter,
             user=request.user,
             kind=AnnotationKind.HIGHLIGHT,
+            hidden_on_source=False,
         ).exclude(pk__in=unresolved).values(
             "id",
             "quote",
@@ -1392,6 +1393,7 @@ def annotation_create(request):
                     source_filter,
                     user=request.user,
                     kind=kind,
+                    hidden_on_source=False,
                 )
                 candidates = source_candidates.filter(source_key=source_key)
                 if overlap_ids is None:

@@ -1134,6 +1134,7 @@ class Annotation(models.Model):
     prefix = models.CharField(max_length=160, blank=True)
     suffix = models.CharField(max_length=160, blank=True)
     response_anchor = models.JSONField(default=dict, db_default={}, blank=True, editable=False)
+    hidden_on_source = models.BooleanField(default=False, db_default=False, editable=False)
     study_later = models.BooleanField(default=False, db_index=True)
     completed_at = models.DateTimeField(null=True, blank=True, db_index=True)
     created_at = models.DateTimeField(default=timezone.now)
@@ -1154,7 +1155,7 @@ class Annotation(models.Model):
                     "start_offset",
                     "end_offset",
                 ],
-                condition=Q(kind=AnnotationKind.HIGHLIGHT),
+                condition=Q(kind=AnnotationKind.HIGHLIGHT, hidden_on_source=False),
                 name="unique_user_source_highlight",
             ),
         ]

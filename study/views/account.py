@@ -469,6 +469,7 @@ def export_account(request):
             "end_offset",
             "prefix",
             "suffix",
+            "hidden_on_source",
             "study_later",
             "completed_at",
             "created_at",

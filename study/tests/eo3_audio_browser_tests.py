@@ -210,7 +210,7 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         expect(audio).not_to_be_visible()
         self.assertFalse(self.errors, self.errors)
 
-    def test_reset_icon_restores_todo_and_preserves_saved_annotations(self):
+    def test_reset_clears_highlight_paint_but_preserves_saved_annotations(self):
         url = prompt_detail_url(self.prompt)
         self.page.goto(self.live_server_url + url)
         root = self.page.locator(".answer-columns[data-annotation-root]")
@@ -268,18 +268,47 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         self.assertEqual(reset_response.value.status, 200)
         expect(completion).to_have_attribute("aria-checked", "false")
         expect(status).to_have_text("À commencer")
+        expect(root.locator("mark.user-highlight")).to_have_count(0)
         self.page.reload()
         expect(completion).to_have_attribute("aria-checked", "false")
         expect(status).to_have_text("À commencer")
+        expect(root.locator("mark.user-highlight")).to_have_count(0)
         reset.click()
         expect(reset).to_be_enabled()
         expect(status).to_have_text("À commencer")
         self.assertEqual(root.text_content(), anchor["text"])
-        expect(root.locator(f'mark[data-highlight-id="{marks[1].pk}"]')).to_be_visible()
         self.assertEqual(
             list(Annotation.objects.filter(pk__in=[mark.pk for mark in marks]).values()),
-            saved,
+            [
+                {**row, "hidden_on_source": row["kind"] == AnnotationKind.HIGHLIGHT}
+                for row in saved
+            ],
         )
+        root.locator("p").first.evaluate("""paragraph => {
+            const range = document.createRange();
+            range.selectNodeContents(paragraph);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            document.dispatchEvent(new Event("selectionchange"));
+        }""")
+        self.page.locator("[data-highlight-selection]").click()
+        expect(root.locator("mark.user-highlight")).to_be_visible()
+        fresh = Annotation.objects.get(
+            user=self.user, kind=AnnotationKind.HIGHLIGHT, hidden_on_source=False,
+        )
+        self.assertNotEqual(fresh.pk, marks[1].pk)
+        self.page.reload()
+        expect(root.locator(f'mark[data-highlight-id="{fresh.pk}"]')).to_be_visible()
+        expect(root.locator(f'mark[data-highlight-id="{marks[1].pk}"]')).to_have_count(0)
+        self.client.post(
+            reset_url.removeprefix(self.live_server_url),
+            {"completed": "0", "action": "reset"},
+        )
+        reset.click()
+        expect(root.locator("mark.user-highlight")).to_have_count(0)
+        fresh.refresh_from_db()
+        self.assertTrue(fresh.hidden_on_source)
         self.assertFalse(self.errors, self.errors)
 
     def test_audio_failure_is_visible_and_does_not_trigger_device_voice(self):

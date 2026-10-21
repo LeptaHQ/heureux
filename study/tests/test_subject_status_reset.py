@@ -10,7 +10,7 @@ from study.account_services import provision_user_study_data
 from study.models import Annotation, AnnotationKind, Card, CardType, Prompt
 from study.oral_highlights import AnnotationRootText
 from study.progress import mark_card_started, subject_progress_by_response
-from study.routing import prompt_detail_url
+from study.routing import prompt_detail_url, review_url
 
 from . import factories
 
@@ -126,6 +126,107 @@ class SubjectStatusResetTests(TestCase):
         self.assertContains(page, 'data-subject-reset-form', count=1)
         self.assertContains(page, 'name="action" value="reset"', count=1)
         self.assertContains(page, "Remettre ce sujet à commencer")
+
+    def test_reset_hides_subject_highlights_without_deleting_or_editing_saved_work(self):
+        highlight = self.add_highlight(timezone.now())
+        note = Annotation.objects.create(
+            user=self.user, task=self.prompt.theme.task, kind=AnnotationKind.NOTE,
+            source_path=highlight.source_path, source_key=highlight.source_key,
+            quote=highlight.quote, body="Keep my note.", study_later=True,
+        )
+        back = Annotation.objects.create(
+            user=self.user, task=self.prompt.theme.task, kind=AnnotationKind.HIGHLIGHT,
+            source_path=highlight.source_path, source_key=highlight.source_key + ":back",
+            quote=highlight.quote, start_offset=0, end_offset=len(highlight.quote),
+        )
+        other = factories.make_user("other-reset-learner")
+        other_highlight = Annotation.objects.create(
+            user=other, task=self.prompt.theme.task, kind=AnnotationKind.HIGHLIGHT,
+            source_path=highlight.source_path, source_key=highlight.source_key,
+            quote=highlight.quote, start_offset=0, end_offset=len(highlight.quote),
+        )
+        other_prompt = Prompt.objects.select_related("response", "theme").get(content_key="culture:p2")
+        unrelated = Annotation.objects.create(
+            user=self.user, task=other_prompt.theme.task, kind=AnnotationKind.HIGHLIGHT,
+            source_path=prompt_detail_url(other_prompt),
+            source_key=f"response:{other_prompt.response.content_key}",
+            quote="Other subject", start_offset=0, end_offset=13,
+        )
+        before = list(Annotation.objects.order_by("pk").values())
+
+        result = self.post({"completed": "0", "action": "reset"})
+
+        self.assertEqual(result.status_code, 200)
+        self.assertCountEqual(result.json()["hidden_highlight_ids"], [highlight.pk, back.pk])
+        self.assertEqual(list(Annotation.objects.order_by("pk").values()), [
+            {**row, "hidden_on_source": row["id"] in {highlight.pk, back.pk}}
+            for row in before
+        ])
+        for item in (note, other_highlight, unrelated):
+            item.refresh_from_db()
+            self.assertFalse(item.hidden_on_source)
+        visible = self.client.get(
+            reverse("study:annotations_for_source"), {"source_path": highlight.source_path},
+        )
+        self.assertEqual(visible.json()["highlights"], [])
+        self.assertEqual(
+            self.post({"completed": "0", "action": "reset"}).json()["hidden_highlight_ids"], [],
+        )
+        folder = self.client.get(
+            reverse("study:task_notes", args=["eo", "tache-3"]), {"tab": "highlights"},
+        )
+        self.assertContains(folder, f'id="highlight-{highlight.pk}"')
+        exported = self.client.get(reverse("study:export_account")).json()["annotations"]
+        archived = next(row for row in exported if row["id"] == highlight.pk)
+        self.assertTrue(archived["hidden_on_source"])
+
+    def test_same_passage_can_be_highlighted_again_without_reusing_hidden_record(self):
+        original = self.add_highlight(timezone.now())
+        self.post({"completed": "0", "action": "reset"})
+        original.refresh_from_db()
+        saved = Annotation.objects.filter(pk=original.pk).values().get()
+        payload = {
+            "kind": "highlight", "task_id": self.prompt.theme.task_id,
+            "source_path": original.source_path, "source_key": original.source_key,
+            "quote": original.quote, "start_offset": original.start_offset,
+            "end_offset": original.end_offset, "prefix": original.prefix,
+            "suffix": original.suffix, "overlap_ids": "",
+        }
+
+        created = self.client.post(reverse("study:annotation_create"), payload)
+
+        self.assertEqual(created.status_code, 201, created.content)
+        self.assertNotEqual(created.json()["id"], original.pk)
+        self.assertEqual(Annotation.objects.filter(pk=original.pk).values().get(), saved)
+        duplicate = self.client.post(reverse("study:annotation_create"), payload)
+        self.assertEqual(duplicate.status_code, 200)
+        self.assertEqual(duplicate.json()["id"], created.json()["id"])
+        self.assertEqual(self.status(), "active")
+        visible = self.client.get(
+            reverse("study:annotations_for_source"), {"source_path": original.source_path},
+        ).json()["highlights"]
+        self.assertEqual([row["id"] for row in visible], [created.json()["id"]])
+        self.post({"completed": "0", "action": "reset"})
+        third = self.client.post(reverse("study:annotation_create"), payload)
+        self.assertEqual(third.status_code, 201)
+        self.assertEqual(Annotation.objects.filter(user=self.user, kind="highlight").count(), 3)
+        self.assertEqual(Annotation.objects.filter(user=self.user, hidden_on_source=True).count(), 2)
+
+    def test_resuming_practice_does_not_restore_hidden_highlights(self):
+        original = self.add_highlight(timezone.now())
+        self.post({"completed": "0", "action": "reset"})
+        self.client.get(review_url({
+            "part": "eo", "task": "tache-3", "kind": "spine",
+            "response": self.response_id, "prompt": self.prompt.pk,
+        }))
+        mark_card_started(self.user, self.card())
+        self.assertIsNone(self.card().subject_status_reset_at)
+        result = self.client.get(
+            reverse("study:annotations_for_source"), {"source_path": original.source_path},
+        )
+        self.assertEqual(result.json()["highlights"], [])
+        original.refresh_from_db()
+        self.assertTrue(original.hidden_on_source)
 
 
 class OwnerVerifiedSampleReleaseTests(TestCase):

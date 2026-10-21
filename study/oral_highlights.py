@@ -1000,6 +1000,7 @@ def _carry_prompt_highlights(prompt, before, after, prompts, paths, annotations,
 def _move_anchor(annotation, values):
     target = Annotation.objects.filter(
         user_id=annotation.user_id, kind=AnnotationKind.HIGHLIGHT,
+        hidden_on_source=annotation.hidden_on_source,
         source_path=annotation.source_path, source_key=values["source_key"],
         start_offset=values.get("start_offset", annotation.start_offset),
         end_offset=values.get("end_offset", annotation.end_offset),

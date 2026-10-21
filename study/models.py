@@ -178,6 +178,8 @@ class EO3Narration(models.Model):
     voice_id = models.CharField(max_length=128)
     model_id = models.CharField(max_length=128)
     audio = models.BinaryField()
+    # Per-paragraph [word, start_ms, end_ms] triples for read-along highlighting.
+    timing = models.JSONField(default=list, blank=True)
     created_at = models.DateTimeField(default=timezone.now)
 
 

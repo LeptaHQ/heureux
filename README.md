@@ -50,6 +50,11 @@ navigation or another reader. French sources exclude English aids and UI labels.
 The voice is AI-generated, not a human recording or pronunciation assessment.
 Unavailable EO3 recordings show only a faint play icon, without an empty
 narration card. Prepared recordings use a play/pause icon alongside completion.
+New EO3 recordings include word timestamps for read-along highlighting in browsers
+with the CSS Custom Highlight API. Highlighting follows playback and seeking
+without altering the response text or annotations. Existing recordings are reused
+unchanged; those without timestamps still play normally. On narrow screens the
+player shows elapsed time only; total time remains visible above 600px.
 
 Set the server environment (Render: **Environment**, not Build Command):
 
@@ -122,7 +127,10 @@ configured HTTPX client, not its permissive defaults: SDK and transport retries
 are zero, redirects and environment proxies are disabled, and requests are
 restricted to the fixed ElevenLabs HTTPS text-to-speech endpoint. The timeout
 is 90 seconds; input is limited to 10,000 characters and streamed MP3 output to
-8 MB. A response hook bounds/sanitizes errors before the SDK can buffer them.
+8 MB. EO3 generation uses the fixed `/with-timestamps` endpoint, returning base64
+MP3 audio and character alignment as JSON (up to 16 MB declared response size);
+decoded audio retains the 8 MB limit.
+A response hook bounds/sanitizes errors before the SDK can buffer them.
 Compressed, incomplete, non-MP3 or oversized responses fail without automatic
 retry. Installing the declared requirements is sufficient; no CLI OAuth or
 local onboarding credential is used by the deployed server.

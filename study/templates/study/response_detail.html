@@ -18,7 +18,7 @@
     {% endif %}
     {% if response_content.is_personal and not ee_response %} · <span class="chip">Version personnelle</span>{% endif %}
   </p>
-  <h1 class="detail-prompt">{% if ee_response %}{{ selected_prompt.theme.display_name }}{% else %}{{ selected_prompt.text }}{% endif %}</h1>
+  <h1 class="detail-prompt"{% if eo3_audio %} data-eo3-read-prompt{% endif %}>{% if ee_response %}{{ selected_prompt.theme.display_name }}{% else %}{{ selected_prompt.text }}{% endif %}</h1>
   {% if response_content.reformulation and not ee_response %}<p class="reform">« {{ response_content.reformulation }} »</p>{% endif %}
   {% if eo3_prompt_note %}{% include "study/partials/tache_three_prompt_note.html" %}{% elif subject_hints %}<a class="btn btn--sm subject-hints-jump" href="#subject-hints-title">Voir les pistes</a>{% endif %}
 </div>

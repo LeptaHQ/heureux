@@ -1,3 +1,4 @@
+import base64
 from dataclasses import replace
 from http.client import IncompleteRead
 from io import StringIO
@@ -19,6 +20,7 @@ from study.card_presentation import card_payload
 from study.eo3_audio import (
     MAX_AUDIO_BYTES, MAX_ERROR_BYTES, NarrationError, PreSynthesisRejection, VOICE_SETTINGS,
     _check_provider_request, generate_narration, narration_presentation, narration_spec, synthesize,
+    word_timings,
 )
 from study.models import Card, CardType, EO3Narration, PersonalResponse, Prompt
 from study.oral_highlights import AnnotationRootText
@@ -29,6 +31,7 @@ from . import factories
 
 
 AUDIO = b"ID3\x04\x00\x00\x00\x00\x00\x00" + b"\xff\xfb" + b"\x00" * 200
+TIMING = [[["Bonjour", 0, 400]], [["Merci", 500, 900]]]
 AUDIO_SETTINGS = {
     "EO3_AUDIO_ENABLED": True,
     "ELEVENLABS_API_KEY": "test-secret-do-not-render",
@@ -41,6 +44,19 @@ def upstream(audio=AUDIO, content_type="audio/mpeg", status=200, headers=None):
     return httpx.Response(
         status, headers={"Content-Type": content_type, **(headers or {})}, stream=httpx.ByteStream(audio),
     )
+
+
+def timed_upstream(text):
+    characters = list(text)
+    body = json.dumps({
+        "audio_base64": base64.b64encode(AUDIO).decode(),
+        "alignment": {
+            "characters": characters,
+            "character_start_times_seconds": [index * 0.05 for index in range(len(characters))],
+            "character_end_times_seconds": [(index + 1) * 0.05 for index in range(len(characters))],
+        },
+    }).encode()
+    return upstream(body, "application/json", headers={"Content-Length": str(len(body))})
 
 
 class BrokenStream(httpx.SyncByteStream):
@@ -106,6 +122,43 @@ class EO3AudioSpecTests(SimpleTestCase):
         with self.settings(EO3_AUDIO_ENABLED=False):
             self.assertIsNone(narration_presentation(self.model))
         self.assertIsNone(narration_presentation(None))
+
+    def test_word_timings_follow_exact_text_by_paragraph(self):
+        text = "Faut-il partir ?\n\nOui, l’été à 20 ans."
+        characters = list(text.replace("\n\n", " "))
+        starts = [index / 10 for index in range(len(characters))]
+        ends = [value + 0.1 for value in starts]
+        self.assertEqual(word_timings(text, characters, starts, ends), [
+            [["Faut-il", 0, 700], ["partir", 800, 1400]],
+            [["Oui", 1700, 2000], ["l’été", 2200, 2700], ["à", 2800, 2900],
+             ["20", 3000, 3200], ["ans", 3300, 3600]],
+        ])
+        self.assertEqual(word_timings(text, list("Autre texte"), starts[:11], ends[:11]), [])
+        self.assertEqual(word_timings(text, characters, starts, ends[:-1]), [])
+
+    @patch("study.eo3_audio.httpx.HTTPTransport")
+    def test_timed_provider_request_returns_audio_and_word_timings(self, factory):
+        spec = narration_spec(self.model)
+        requests = self.provider(factory, timed_upstream(spec.text))
+        audio, timing = synthesize(spec, timing=True)
+        self.assertEqual(audio, AUDIO)
+        self.assertEqual(len(timing), 7)
+        self.assertEqual(timing[0][0][0], spec.text.split()[0])
+        self.assertEqual(timing[0][0][1], 0)
+        self.assertEqual(
+            str(requests[0].url),
+            f"https://api.elevenlabs.io/v1/text-to-speech/{spec.voice_id}/with-timestamps?output_format=mp3_44100_64",
+        )
+        self.assertEqual(requests[0].headers["accept"], "application/json")
+        self.assertEqual(json.loads(requests[0].content)["text"], spec.text)
+        for response in (
+            httpx.Response(200, headers={"Content-Type": "audio/mpeg"}, content=AUDIO),
+            httpx.Response(200, headers={"Content-Type": "application/json"}, content=b'{"audio_base64": "!!"}'),
+            httpx.Response(200, headers={"Content-Type": "application/json", "Content-Length": str(17 * 1024 * 1024)}, content=b"{}"),
+        ):
+            with self.subTest(response=response.headers), self.assertRaises(NarrationError):
+                self.provider(factory, response)
+                synthesize(spec, timing=True)
 
     @patch("study.eo3_audio.httpx.HTTPTransport")
     def test_provider_request_is_server_only_normal_speed_and_bounded(self, factory):
@@ -302,12 +355,13 @@ class EO3AudioTests(TestCase):
             voice_id=self.spec.voice_id, model_id=self.spec.model_id, audio=AUDIO,
         )
 
-    @patch("study.eo3_audio.synthesize", return_value=AUDIO)
+    @patch("study.eo3_audio.synthesize", return_value=(AUDIO, TIMING))
     def test_generation_is_persistent_and_reuses_without_another_paid_call(self, provider):
         self.assertTrue(generate_narration(self.spec))
         self.assertFalse(generate_narration(self.spec))
         self.assertEqual(bytes(EO3Narration.objects.get().audio), AUDIO)
-        provider.assert_called_once()
+        self.assertEqual(EO3Narration.objects.get().timing, TIMING)
+        provider.assert_called_once_with(self.spec, timing=True)
 
     @patch("study.eo3_audio.synthesize", side_effect=NarrationError("Provider failed."))
     def test_failure_rolls_back_the_reservation(self, provider):
@@ -330,7 +384,7 @@ class EO3AudioTests(TestCase):
         provider.assert_not_called()
         self.assertFalse(EO3Narration.objects.exists())
 
-    @patch("study.eo3_audio.synthesize", return_value=AUDIO)
+    @patch("study.eo3_audio.synthesize", return_value=(AUDIO, TIMING))
     def test_confirmed_command_generates_one_and_skips_cached_audio_without_key(self, provider):
         call_command("generate_eo3_audio", group="culture-p1", confirm_cost=True, stdout=StringIO())
         with self.settings(ELEVENLABS_API_KEY=""):
@@ -530,22 +584,25 @@ class EO3OnDemandNarrationTests(TestCase):
         presentation = narration_presentation(self.model)
         self.assertTrue(presentation["on_demand"])
         self.assertEqual(presentation["prepare_url"], self.url)
-        with patch("study.french_audio.synthesize", return_value=AUDIO) as provider:
+        with patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING)) as provider:
             first = self.prepare()
             second = self.prepare()
         self.assertEqual(first.status_code, 200, first.content)
         self.assertEqual(second.status_code, 200)
         self.assertIn("data-eo3-audio", first.json()["html"])
-        provider.assert_called_once()
+        self.assertIn("data-eo3-timing=", first.json()["html"])
+        provider.assert_called_once_with(self.spec, timing=True)
         self.assertEqual(EO3Narration.objects.get().group, self.group)
+        self.assertEqual(EO3Narration.objects.get().timing, TIMING)
         ready = narration_presentation(self.model)
         self.assertTrue(ready["ready"])
         self.assertFalse(ready["on_demand"])
+        self.assertEqual(json.loads(ready["timing"]), TIMING)
 
     def test_failed_generation_can_be_retried_by_clicking_again(self):
         with patch("study.french_audio.synthesize", side_effect=NarrationError("Provider failed.")):
             self.assertEqual(self.prepare().status_code, 409)
-        with patch("study.french_audio.synthesize", return_value=AUDIO) as provider:
+        with patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING)) as provider:
             self.assertEqual(self.prepare().status_code, 200)
         provider.assert_called_once()
         self.assertTrue(EO3Narration.objects.filter(pk=self.spec.fingerprint).exists())

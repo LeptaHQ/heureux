@@ -23,7 +23,7 @@ from study.models import EO3Narration, FrenchNarration, FrenchNarrationBudget, W
 from study.oral_highlights import AnnotationRootText
 
 from . import factories
-from .test_eo3_audio import AUDIO, AUDIO_SETTINGS
+from .test_eo3_audio import AUDIO, AUDIO_SETTINGS, TIMING
 
 
 SETTINGS = {
@@ -356,7 +356,7 @@ class InAppSampleTests(TestCase):
     def prepare(self, **kwargs):
         return self.client.post(self.url, {"confirm_cost": True, **kwargs}, content_type="application/json")
 
-    @patch("study.french_audio.synthesize", return_value=AUDIO)
+    @patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING))
     def test_one_authorized_public_sample_writes_current_eo3_cache_and_reuses(self, provider):
         self.assertEqual(narration_presentation(self.model)["prepare_url"], self.url)
         response = self.prepare()
@@ -371,7 +371,7 @@ class InAppSampleTests(TestCase):
         self.client.force_login(factories.make_user("second-listener"))
         self.assertEqual(self.prepare().status_code, 200)
         self.assertEqual(self.client.get(narration_presentation(self.model)["url"]).content, AUDIO)
-        provider.assert_called_once_with(self.spec)
+        provider.assert_called_once_with(self.spec, timing=True)
 
     @patch("study.french_audio.synthesize")
     def test_confirmation_csrf_login_group_voice_and_feature_gate(self, provider):
@@ -406,7 +406,7 @@ class InAppSampleTests(TestCase):
         self.assertTrue(presentation["sample_attempted"])
         provider.assert_called_once()
 
-    @patch("study.french_audio.synthesize", return_value=AUDIO)
+    @patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING))
     def test_claim_is_global_even_after_text_or_model_changes(self, provider):
         self.assertEqual(self.prepare().status_code, 200)
         edited = replace(self.model, response=replace(self.model.response, conclusion="Autre conclusion."))
@@ -415,7 +415,7 @@ class InAppSampleTests(TestCase):
             self.assertEqual(self.prepare().status_code, 409)
         provider.assert_called_once()
 
-    @patch("study.french_audio.synthesize", return_value=AUDIO)
+    @patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING))
     def test_missing_key_does_not_consume_the_single_attempt(self, provider):
         with self.settings(ELEVENLABS_API_KEY=""):
             self.assertEqual(self.prepare().status_code, 409)
@@ -447,7 +447,7 @@ class InAppSampleTests(TestCase):
             self.assertTrue(narration_presentation(self.model)["prepare_url"])
             self.assertEqual(self.prepare(confirm_cost=False).status_code, 400)
             provider.side_effect = None
-            provider.return_value = AUDIO
+            provider.return_value = (AUDIO, TIMING)
             self.assertEqual(self.prepare(player_id="eo3-response-player").status_code, 200)
             self.assertEqual(bytes(EO3Narration.objects.get().audio), AUDIO)
             self.assertTrue(FrenchNarrationBudget.objects.get().sample_claimed)

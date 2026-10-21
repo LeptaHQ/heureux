@@ -1,6 +1,8 @@
 """Explicit, cached narration of reviewed public EO3 models only."""
 
 from dataclasses import dataclass
+import base64
+import binascii
 import hashlib
 from http.client import HTTPException
 import json
@@ -20,6 +22,9 @@ from .models import EO3Narration, FrenchNarration, FrenchNarrationBudget
 
 OUTPUT_FORMAT = "mp3_44100_64"
 MAX_AUDIO_BYTES = 8 * 1024 * 1024
+# Base64 audio plus per-character alignment for at most 10,000 characters.
+MAX_TIMED_RESPONSE_BYTES = 16 * 1024 * 1024
+WORD = re.compile(r"[^\W_]+(?:['’-][^\W_]+)*")
 MAX_ERROR_BYTES = 4096
 SAMPLE_GROUP = "eo/tache-3/culture-p1"
 SAMPLE_REJECTION_LIMIT = 3
@@ -93,7 +98,7 @@ def _check_provider_request(request):
     if (
         request.method != "POST" or request.url.scheme != "https"
         or request.url.host != "api.elevenlabs.io" or request.url.port not in (None, 443)
-        or not re.fullmatch(r"/v1/text-to-speech/[A-Za-z0-9_-]{1,128}", request.url.path)
+        or not re.fullmatch(r"/v1/text-to-speech/[A-Za-z0-9_-]{1,128}(?:/with-timestamps)?", request.url.path)
     ):
         raise NarrationError("The narration request must use the fixed ElevenLabs HTTPS endpoint.")
 
@@ -110,6 +115,13 @@ def _check_provider_response(response):
             "No automatic retry was made."
         )
     content_type = response.headers.get("Content-Type", "").partition(";")[0].strip().lower()
+    if response.request.url.path.endswith("/with-timestamps"):
+        length = response.headers.get("Content-Length")
+        if content_type != "application/json" or (length is not None and (
+            not re.fullmatch(r"[0-9]{1,10}", length) or int(length) > MAX_TIMED_RESPONSE_BYTES
+        )):
+            raise NarrationError("ElevenLabs returned an invalid timed recording. Check provider usage before retrying.")
+        return
     if content_type not in {"audio/mpeg", "audio/mp3"}:
         raise NarrationError("ElevenLabs returned invalid or oversized MP3 audio. Check provider usage before retrying.")
 
@@ -172,11 +184,15 @@ def narration_presentation(model):
         spec = narration_spec(model)
     except NarrationError:
         return {"ready": False, "unconfigured": True}
-    ready = EO3Narration.objects.filter(fingerprint=spec.fingerprint).exists()
+    timing = EO3Narration.objects.filter(
+        fingerprint=spec.fingerprint,
+    ).values_list("timing", flat=True).first()
+    ready = timing is not None
+    timing_json = json.dumps(timing, ensure_ascii=False, separators=(",", ":")) if timing else ""
     group_slug = model.group.removeprefix("eo/tache-3/")
     if on_demand_enabled():
         return {
-            "ready": ready, "on_demand": not ready,
+            "ready": ready, "on_demand": not ready, "timing": timing_json,
             "prepare_url": "" if ready else reverse(
                 "study:eo3_audio_prepare", args=[group_slug, spec.fingerprint],
             ),
@@ -197,7 +213,7 @@ def narration_presentation(model):
             "ElevenLabs avant toute récupération explicite ; changer de voix ne débloque pas cet essai."
         )
     return {
-        "ready": ready,
+        "ready": ready, "timing": timing_json,
         "prepare_url": reverse("study:eo3_audio_prepare", args=[
             "culture-p1", spec.fingerprint,
         ]) if (
@@ -218,7 +234,38 @@ def narration_presentation(model):
     }
 
 
-def synthesize(spec):
+def word_timings(text, characters, starts, ends):
+    """Map each spoken word of ``text`` to its provider start and end time in ms."""
+    if not (
+        isinstance(characters, list) and isinstance(starts, list) and isinstance(ends, list)
+        and len(characters) == len(starts) == len(ends)
+        and all(isinstance(value, (int, float)) for value in (*starts, *ends))
+    ):
+        return []
+    positions, cursor = [], 0
+    for char in text:
+        while cursor < len(characters) and characters[cursor] != char and characters[cursor].isspace():
+            cursor += 1
+        if cursor < len(characters) and characters[cursor] == char:
+            positions.append(cursor)
+            cursor += 1
+        elif char.isspace():
+            positions.append(None)
+        else:
+            return []
+    paragraphs, offset = [], 0
+    for paragraph in text.split("\n\n"):
+        words = []
+        for match in WORD.finditer(text, offset, offset + len(paragraph)):
+            first, last = positions[match.start()], positions[match.end() - 1]
+            words.append([match.group(), round(starts[first] * 1000), round(ends[last] * 1000)])
+        paragraphs.append(words)
+        offset += len(paragraph) + 2
+    return paragraphs
+
+
+def synthesize(spec, *, timing=False):
+    """Return MP3 bytes, or ``(bytes, word_timings)`` when ``timing`` is requested."""
     if not settings.ELEVENLABS_API_KEY:
         raise NarrationError("Set ELEVENLABS_API_KEY on the server; never put it in browser code.")
     if (
@@ -226,35 +273,63 @@ def synthesize(spec):
         or not all(re.fullmatch(r"[A-Za-z0-9_-]{1,128}", value) for value in (spec.voice_id, spec.model_id))
     ):
         raise NarrationError("Invalid narration source, voice or model; no provider request was made.")
+    words = []
     try:
         with httpx.Client(
             transport=httpx.HTTPTransport(retries=0),
             timeout=90, follow_redirects=False, trust_env=False,
-            headers={"Accept": "audio/mpeg", "Accept-Encoding": "identity"},
+            headers={
+                "Accept": "application/json" if timing else "audio/mpeg",
+                "Accept-Encoding": "identity",
+            },
             event_hooks={"request": [_check_provider_request], "response": [_check_provider_response]},
         ) as transport:
             client = ElevenLabs(
                 api_key=settings.ELEVENLABS_API_KEY, base_url="https://api.elevenlabs.io",
                 timeout=90, follow_redirects=False, httpx_client=transport,
             )
-            with client.text_to_speech.with_raw_response.convert(
-                voice_id=spec.voice_id, text=spec.text, model_id=spec.model_id,
-                output_format=OUTPUT_FORMAT, voice_settings=VoiceSettings(**VOICE_SETTINGS),
-                request_options={"max_retries": 0, "timeout_in_seconds": 90, "chunk_size": 8192},
-            ) as response:
-                audio = bytearray()
-                for chunk in response.data:
-                    audio.extend(chunk)
-                    if len(audio) > MAX_AUDIO_BYTES:
-                        raise NarrationError(
-                            "ElevenLabs returned invalid or oversized MP3 audio. Check provider usage before retrying."
-                        )
-                length = response.headers.get("content-length")
-                if length is not None and (
-                    not re.fullmatch(r"[0-9]{1,10}", length) or int(length) != len(audio)
-                ):
-                    raise NarrationError("ElevenLabs returned incomplete MP3 audio. Check provider usage before retrying.")
-    except (httpx.HTTPError, ApiError, TimeoutError, OSError, HTTPException):
+            if timing:
+                response = client.text_to_speech.with_raw_response.convert_with_timestamps(
+                    voice_id=spec.voice_id, text=spec.text, model_id=spec.model_id,
+                    output_format=OUTPUT_FORMAT, voice_settings=VoiceSettings(**VOICE_SETTINGS),
+                    request_options={"max_retries": 0, "timeout_in_seconds": 90},
+                )
+                encoded = response.data.audio_base_64
+                if not isinstance(encoded, str) or len(encoded) > MAX_AUDIO_BYTES * 4 // 3 + 4:
+                    raise NarrationError(
+                        "ElevenLabs returned invalid or oversized MP3 audio. Check provider usage before retrying."
+                    )
+                try:
+                    audio = bytearray(base64.b64decode(encoded, validate=True))
+                except (binascii.Error, ValueError):
+                    raise NarrationError(
+                        "ElevenLabs returned invalid or oversized MP3 audio. Check provider usage before retrying."
+                    ) from None
+                alignment = response.data.alignment
+                if alignment is not None:
+                    words = word_timings(
+                        spec.text, alignment.characters,
+                        alignment.character_start_times_seconds, alignment.character_end_times_seconds,
+                    )
+            else:
+                with client.text_to_speech.with_raw_response.convert(
+                    voice_id=spec.voice_id, text=spec.text, model_id=spec.model_id,
+                    output_format=OUTPUT_FORMAT, voice_settings=VoiceSettings(**VOICE_SETTINGS),
+                    request_options={"max_retries": 0, "timeout_in_seconds": 90, "chunk_size": 8192},
+                ) as response:
+                    audio = bytearray()
+                    for chunk in response.data:
+                        audio.extend(chunk)
+                        if len(audio) > MAX_AUDIO_BYTES:
+                            raise NarrationError(
+                                "ElevenLabs returned invalid or oversized MP3 audio. Check provider usage before retrying."
+                            )
+                    length = response.headers.get("content-length")
+                    if length is not None and (
+                        not re.fullmatch(r"[0-9]{1,10}", length) or int(length) != len(audio)
+                    ):
+                        raise NarrationError("ElevenLabs returned incomplete MP3 audio. Check provider usage before retrying.")
+    except (httpx.HTTPError, ApiError, TimeoutError, OSError, HTTPException, ValueError):
         raise NarrationError(
             "ElevenLabs could not complete the recording. Check connectivity and provider "
             "usage before retrying: a timed-out request may still have been billed."
@@ -267,7 +342,7 @@ def synthesize(spec):
             "ElevenLabs returned invalid or oversized MP3 audio. Nothing was saved; "
             "check provider usage before retrying."
         )
-    return bytes(audio)
+    return (bytes(audio), words) if timing else bytes(audio)
 
 
 @transaction.atomic
@@ -284,6 +359,6 @@ def generate_narration(spec):
         if not recording.audio:
             raise NarrationError("The cached recording is empty; inspect it before regenerating.")
         return False
-    recording.audio = synthesize(spec)
-    recording.save(update_fields=["audio"])
+    recording.audio, recording.timing = synthesize(spec, timing=True)
+    recording.save(update_fields=["audio", "timing"])
     return True

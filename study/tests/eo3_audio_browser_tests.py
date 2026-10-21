@@ -12,7 +12,7 @@ from playwright.sync_api import expect, sync_playwright
 
 from study import catalogue
 from study.account_services import provision_user_study_data
-from study.eo3_audio import narration_spec
+from study.eo3_audio import narration_spec, word_timings
 from study.models import Annotation, AnnotationKind, EO3Narration, Prompt
 from study.routing import prompt_detail_url, review_url
 
@@ -79,10 +79,22 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
             recording.setframerate(8000)
             recording.writeframes(b"\x00\x00" * 8000 * 10)
         # Deterministic silence tests native media behavior, not AI voice quality.
-        self.page.route(
-            "**/expression/orale/tache-3/audio/**",
-            lambda route: route.fulfill(body=buffer.getvalue(), content_type="audio/wav"),
-        )
+        audio = buffer.getvalue()
+
+        def serve_audio(route):
+            headers = {"Accept-Ranges": "bytes"}
+            requested = re.fullmatch(r"bytes=(\d+)-(\d*)", route.request.headers.get("range", ""))
+            if requested:
+                start = int(requested[1])
+                end = min(int(requested[2]) if requested[2] else len(audio) - 1, len(audio) - 1)
+                headers["Content-Range"] = f"bytes {start}-{end}/{len(audio)}"
+                body, status = audio[start:end + 1], 206
+            else:
+                body, status = audio, 200
+            headers["Content-Length"] = str(len(body))
+            route.fulfill(status=status, body=body, headers=headers, content_type="audio/wav")
+
+        self.page.route("**/expression/orale/tache-3/audio/**", serve_audio)
 
     def tearDown(self):
         self.context.close()
@@ -123,6 +135,17 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         self.assertEqual(self.page.evaluate(
             "() => document.documentElement.scrollWidth <= innerWidth"
         ), True)
+        expect(self.page.locator("[data-eo3-time] .eo3-audio__total")).to_be_hidden()
+        self.page.set_viewport_size({"width": 320, "height": 740})
+        self.assertEqual(self.page.evaluate(
+            "() => document.documentElement.scrollWidth <= innerWidth"
+        ), True)
+        player = self.page.locator("[data-eo3-player]").bounding_box()
+        self.assertLessEqual(player["x"] + player["width"], 320)
+        self.assertTrue(self.page.locator("[data-eo3-player]").evaluate(
+            "player => [...player.querySelectorAll('*')].every(node => node.getBoundingClientRect().right <= innerWidth + 0.5)"
+        ))
+        self.page.set_viewport_size({"width": 390, "height": 844})
         toggle = self.page.locator("[data-eo3-toggle]")
         expect(toggle).to_be_visible()
         expect(toggle).to_be_enabled()
@@ -151,6 +174,11 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         loop.click()
         expect(loop).to_have_attribute("aria-pressed", "true")
         self.assertTrue(audio.evaluate("audio => audio.loop"))
+        loop.hover()
+        loop.focus()
+        self.assertEqual(
+            loop.evaluate("button => getComputedStyle(button).backgroundColor"), "rgb(201, 154, 18)",
+        )
         loop.click()
         expect(loop).to_have_attribute("aria-pressed", "false")
         self.assertFalse(audio.evaluate("audio => audio.loop"))
@@ -161,6 +189,48 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         ))""")
         self.assertTrue(audio.evaluate("audio => audio.paused"))
         expect(toggle).to_have_attribute("aria-pressed", "false")
+        self.assertFalse(self.errors, self.errors)
+
+    def test_read_along_highlights_the_spoken_word_without_changing_the_text(self):
+        characters = list(self.spec.text)
+        step = 9 / len(characters)
+        timing = word_timings(
+            self.spec.text, characters,
+            [index * step for index in range(len(characters))],
+            [(index + 1) * step for index in range(len(characters))],
+        )
+        EO3Narration.objects.filter(pk=self.spec.fingerprint).update(timing=timing)
+        self.page.goto(self.live_server_url + prompt_detail_url(self.prompt))
+        root = self.page.locator(".answer-columns")
+        before = root.inner_html()
+        highlighted = """() => {
+            const paint = CSS.highlights.get('eo3-reading');
+            const range = paint && [...paint][0];
+            if (!range) return null;
+            const host = range.startContainer.parentElement;
+            return {
+                text: range.toString(),
+                field: Boolean(host.closest('[data-response-field]')),
+                prompt: Boolean(host.closest('[data-eo3-read-prompt]')),
+            };
+        }"""
+        self.page.locator("[data-eo3-toggle]").click()
+        self.page.wait_for_function(f"() => ({highlighted})() !== null")
+        first = self.page.evaluate(highlighted)
+        self.assertTrue(first["prompt"] or first["field"], first)
+        self.assertRegex(first["text"], r"^[\w’'-]+$")
+        self.page.wait_for_function(
+            "() => document.querySelector('[data-eo3-audio]').currentTime > 0"
+        )
+        self.page.locator("[data-eo3-toggle]").click()
+        self.page.locator("[data-eo3-audio]").evaluate("audio => { audio.currentTime = audio.duration * 0.6; }")
+        self.page.wait_for_function(f"() => {{ const word = ({highlighted})(); return word && word.field; }}")
+        position = self.page.locator("[data-eo3-audio]").evaluate("audio => audio.currentTime * 1000")
+        expected = next(word for word, start, end in reversed(
+            [item for paragraph in timing for item in paragraph]
+        ) if start <= position)
+        self.assertEqual(self.page.evaluate(highlighted)["text"], expected)
+        self.assertEqual(root.inner_html(), before)
         self.assertFalse(self.errors, self.errors)
 
     def test_next_and_previous_navigate_and_continue_reading_with_same_settings(self):

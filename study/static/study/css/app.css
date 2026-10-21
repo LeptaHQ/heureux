@@ -7424,6 +7424,7 @@ a.qrow:focus-visible {
 .eo3-audio__row { padding: .25rem .5rem .25rem .25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 999px; }
 .eo3-audio__row audio { display: none; }
 .eo3-audio__time { flex: none; font-size: .8rem; font-variant-numeric: tabular-nums; color: var(--text-muted, var(--text)); }
+@media (max-width: 600px) { .eo3-audio__total { display: none; } }
 .eo3-audio__seek { flex: 1; min-width: 3rem; accent-color: var(--audio-gold, #c99a12); }
 .eo3-speed { position: relative; flex: none; }
 .eo3-speed__button { min-width: 3.2rem; padding: .25rem .55rem; font: inherit; font-size: .8rem; font-variant-numeric: tabular-nums; color: var(--text); background: color-mix(in srgb, var(--audio-gold, #c99a12) 14%, transparent); border: 0; border-radius: 999px; cursor: pointer; }
@@ -7437,11 +7438,12 @@ a.qrow:focus-visible {
 .eo3-audio__loop { color: var(--text-faint, var(--text)); }
 .eo3-audio__nav { display: inline-grid; place-items: center; flex: none; width: 1.75rem; height: 1.75rem; color: var(--audio-gold, #c99a12); border-radius: 50%; text-decoration: none; }
 .eo3-audio__nav:hover, .eo3-audio__nav:focus-visible { background: var(--surface-2, rgba(0,0,0,.06)); }
-.eo3-audio__loop[aria-pressed="true"] { color: var(--audio-gold-on, #fff); background: var(--audio-gold, #c99a12); }
 .eo3-audio__restart:hover, .eo3-audio__restart:focus-visible { background: var(--surface-2, rgba(0,0,0,.06)); }
+.eo3-audio__loop[aria-pressed="true"], .eo3-audio__loop[aria-pressed="true"]:hover, .eo3-audio__loop[aria-pressed="true"]:focus, .eo3-audio__loop[aria-pressed="true"]:active { color: var(--audio-gold-on, #fff); background: var(--audio-gold, #c99a12); }
 .eo3-audio p { margin: .4rem 0 0; }
 .eo3-audio__hint { font-size: .85rem; color: var(--text-muted, var(--text)); }
 .eo3-audio__note:empty { display: none; }
+::highlight(eo3-reading) { background-color: rgba(201, 154, 18, .38); color: inherit; }
 .subject-audio-toggle {
   position: relative;
   flex: 0 0 2rem;

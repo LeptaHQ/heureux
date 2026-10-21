@@ -22,7 +22,7 @@ from study.routing import prompt_detail_url, review_url
 from . import factories
 from .browser_server import BrowserLiveServerThread
 from .test_french_audio import SETTINGS
-from .test_eo3_audio import AUDIO, upstream
+from .test_eo3_audio import AUDIO, TIMING, timed_upstream, upstream
 
 
 LOCAL_SPEECH = """
@@ -327,7 +327,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
         self.assertEqual(self.page.evaluate("__spoken.length"), 0)
 
     @override_settings(ELEVENLABS_VOICE_ID="kENkNtk0xyzG09WW40xE")
-    @patch("study.french_audio.synthesize", return_value=AUDIO)
+    @patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING))
     def test_confirmed_sample_prepares_in_app_and_returns_existing_native_player(self, provider):
         call_command("import_content", stdout=StringIO())
         prompt = Prompt.objects.select_related("theme__task__part").get(content_key="culture:p1")
@@ -382,13 +382,12 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
             upstream(json.dumps({
                 "detail": {"code": "free_users_not_allowed", "message": "private provider detail"},
             }).encode(), "application/json", 403),
-            upstream(),
         ]
         requests = []
 
         def handle(request):
             requests.append(request)
-            return responses.pop(0)
+            return responses.pop(0) if responses else timed_upstream(json.loads(request.content)["text"])
 
         factory.return_value = httpx.MockTransport(handle)
         call_command("import_content", stdout=StringIO())
@@ -423,7 +422,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
             toggle.click()
             expect(toggle).to_have_attribute("aria-pressed", "false")
         self.assertEqual(len(requests), 2)
-        self.assertIn("/DefaultVoice?", str(requests[-1].url))
+        self.assertIn("/DefaultVoice/with-timestamps?", str(requests[-1].url))
 
     @override_settings(FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1_000_000)
     @patch("study.eo3_audio.httpx.HTTPTransport")
@@ -432,7 +431,7 @@ class FrenchAudioBrowserTests(StaticLiveServerTestCase):
 
         def handle(request):
             requests.append(request)
-            return upstream()
+            return timed_upstream(json.loads(request.content)["text"])
 
         factory.return_value = httpx.MockTransport(handle)
         call_command("import_content", stdout=StringIO())

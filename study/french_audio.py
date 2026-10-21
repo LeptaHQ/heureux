@@ -190,8 +190,12 @@ def generate_prepared(fingerprint):
         recording.status = "working"
         recording.save(update_fields=["status"])
     # Commit the spend reservation before networking: a crash must not refund it.
+    timing = []
     try:
-        audio = synthesize(spec)
+        if recording.target_group:
+            audio, timing = synthesize(spec, timing=True)
+        else:
+            audio = synthesize(spec)
     except PreSynthesisRejection:
         if recording.target_group and not on_demand:
             with transaction.atomic():
@@ -215,7 +219,7 @@ def generate_prepared(fingerprint):
                 fingerprint=spec.fingerprint,
                 defaults={
                     "group": recording.target_group, "voice_id": spec.voice_id,
-                    "model_id": spec.model_id, "audio": audio,
+                    "model_id": spec.model_id, "audio": audio, "timing": timing,
                 },
             )
             FrenchNarration.objects.filter(pk=fingerprint).update(status="ready")

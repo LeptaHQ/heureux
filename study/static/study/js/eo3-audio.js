@@ -33,12 +33,162 @@
     var rate = audio.playbackRate || 1;
     var time = player.querySelector("[data-eo3-time]");
     if (time) {
-      time.textContent = clock(audio.currentTime / rate) + " / " + clock(audio.duration / rate);
+      var total = clock(audio.duration / rate);
+      time.innerHTML = "";
+      time.appendChild(document.createTextNode(clock(audio.currentTime / rate)));
+      var rest = document.createElement("span");
+      rest.className = "eo3-audio__total";
+      rest.textContent = " / " + total;
+      time.appendChild(rest);
     }
     var seek = player.querySelector("[data-eo3-seek]");
     if (seek && isFinite(audio.duration) && audio.duration > 0 && !seek.matches(":active")) {
       seek.value = String(Math.round(audio.currentTime / audio.duration * 1000));
     }
+  }
+
+  // Read-along: paint the word being spoken without touching the annotated DOM.
+  var WORD = /[\p{L}\p{N}]+(?:['’-][\p{L}\p{N}]+)*/gu;
+  var supportsHighlight = Boolean(window.CSS && CSS.highlights && window.Highlight);
+  var paint = supportsHighlight ? new Highlight() : null;
+  if (paint) CSS.highlights.set("eo3-reading", paint);
+  var readAlong = new WeakMap();
+  var userScrolledAt = 0;
+  ["wheel", "touchmove"].forEach(function (name) {
+    window.addEventListener(name, function () { userScrolledAt = Date.now(); }, { passive: true });
+  });
+
+  function normalize(word) {
+    return word.normalize("NFC").toLowerCase().replace(/’/g, "'");
+  }
+
+  function textTokens(element) {
+    var nodes = [];
+    var text = "";
+    var walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, {
+      acceptNode: function (node) {
+        return node.parentElement.closest("[data-annotation-exclude], .sr-only, [aria-hidden='true'], script, style")
+          ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    while (walker.nextNode()) {
+      nodes.push({ node: walker.currentNode, start: text.length });
+      text += walker.currentNode.data;
+    }
+    function locate(offset, end) {
+      for (var index = nodes.length - 1; index >= 0; index--) {
+        if (nodes[index].start < offset || (!end && nodes[index].start === offset)) {
+          return { node: nodes[index].node, offset: offset - nodes[index].start };
+        }
+      }
+      return { node: nodes[0].node, offset: 0 };
+    }
+    var tokens = [];
+    var match;
+    WORD.lastIndex = 0;
+    while ((match = WORD.exec(text))) {
+      var first = locate(match.index, false);
+      var last = locate(match.index + match[0].length, true);
+      var range = document.createRange();
+      range.setStart(first.node, first.offset);
+      range.setEnd(last.node, last.offset);
+      tokens.push({ word: normalize(match[0]), range: range });
+    }
+    return tokens;
+  }
+
+  function align(words, tokens, entries) {
+    var cursor = 0;
+    words.forEach(function (item, index) {
+      var word = normalize(String(item[0]));
+      for (var look = cursor; look < Math.min(tokens.length, cursor + 30); look++) {
+        if (tokens[look].word !== word) continue;
+        var next = words[index + 1];
+        if (look !== cursor && next && tokens[look + 1] && tokens[look + 1].word !== normalize(String(next[0]))) {
+          continue;
+        }
+        entries.push({ start: item[1], end: item[2], range: tokens[look].range });
+        cursor = look + 1;
+        return;
+      }
+    });
+  }
+
+  function readingScope(player) {
+    var scope = player.parentElement;
+    while (scope && !scope.querySelector("[data-response-field]")) scope = scope.parentElement;
+    return scope;
+  }
+
+  function buildReadAlong(audio) {
+    var state = readAlong.get(audio);
+    if (state && !state.dirty) return state;
+    var paragraphs;
+    try { paragraphs = JSON.parse(audio.dataset.eo3Timing || "[]"); } catch (error) { paragraphs = []; }
+    var player = audio.closest("[data-eo3-player]");
+    var scope = readingScope(player);
+    var entries = [];
+    if (scope && Array.isArray(paragraphs) && paragraphs.length > 1) {
+      var prompt = scope.querySelector("[data-eo3-read-prompt]");
+      if (prompt) align(paragraphs[0], textTokens(prompt), entries);
+      var tokens = [];
+      scope.querySelectorAll("[data-response-field]").forEach(function (field) {
+        tokens = tokens.concat(textTokens(field));
+      });
+      align([].concat.apply([], paragraphs.slice(1)), tokens, entries);
+    }
+    entries.sort(function (a, b) { return a.start - b.start; });
+    state = { entries: entries, current: -1, dirty: false, frame: 0 };
+    if (scope && !state.observer) {
+      state.observer = new MutationObserver(function () { state.dirty = true; });
+      state.observer.observe(scope, { childList: true, subtree: true, characterData: true });
+    }
+    var previous = readAlong.get(audio);
+    if (previous && previous.observer) previous.observer.disconnect();
+    readAlong.set(audio, state);
+    return state;
+  }
+
+  function clearReading(audio) {
+    var state = readAlong.get(audio);
+    if (state) state.current = -1;
+    if (paint) paint.clear();
+  }
+
+  function updateReading(audio) {
+    if (!paint || !audio.dataset.eo3Timing) return;
+    var state = buildReadAlong(audio);
+    var entries = state.entries;
+    if (!entries.length) return;
+    var now = audio.currentTime * 1000;
+    var low = 0;
+    var high = entries.length - 1;
+    var found = -1;
+    while (low <= high) {
+      var middle = (low + high) >> 1;
+      if (entries[middle].start <= now) { found = middle; low = middle + 1; } else { high = middle - 1; }
+    }
+    if (found === state.current) return;
+    state.current = found;
+    paint.clear();
+    if (found < 0) return;
+    var range = entries[found].range;
+    paint.add(range);
+    if (audio.paused || Date.now() - userScrolledAt < 4000) return;
+    var rect = range.getBoundingClientRect();
+    if (!rect.height) return;
+    if (rect.top < 80 || rect.bottom > window.innerHeight - 80) {
+      window.scrollBy({ top: rect.top - window.innerHeight * 0.35, behavior: "smooth" });
+    }
+  }
+
+  function trackReading(audio) {
+    var state = readAlong.get(audio) || buildReadAlong(audio);
+    cancelAnimationFrame(state.frame);
+    (function tick() {
+      updateReading(audio);
+      if (!audio.paused && !audio.ended) state.frame = requestAnimationFrame(tick);
+    })();
   }
 
   function initialize(root) {
@@ -62,6 +212,9 @@
           audio.addEventListener(name, function () { renderPlayer(audio); });
         });
       renderPlayer(audio);
+      audio.addEventListener("play", function () { trackReading(audio); });
+      audio.addEventListener("seeked", function () { updateReading(audio); });
+      audio.addEventListener("ended", function () { clearReading(audio); });
       audio.addEventListener("error", function () {
         syncToggles(audio);
         audio.closest("[data-eo3-player]")
@@ -84,7 +237,10 @@
   }
 
   function stop() {
-    if (active) active.pause();
+    if (active) {
+      active.pause();
+      clearReading(active);
+    }
     active = null;
   }
 
@@ -95,7 +251,10 @@
       audio.pause();
       return;
     }
-    if (active && active !== audio) active.pause();
+    if (active && active !== audio) {
+      active.pause();
+      clearReading(active);
+    }
     active = audio;
     syncToggles(audio);
     document.dispatchEvent(new CustomEvent("heureux:speech-start", {

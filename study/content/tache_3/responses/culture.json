@@ -122,7 +122,7 @@
         }
       ],
       "nuance": "Cependant, une guerre, une catastrophe ou un manque d'eau potable peuvent devenir l'urgence absolue dans un lieu donné. Les priorités doivent suivre les besoins réels. Ma préférence pour cette cause est un choix argumenté, pas un classement valable en toute circonstance.",
-      "conclusion": "En conclusion, je privilégierais la lutte contre la pauvreté pour protéger les besoins essentiels, faciliter l'apprentissage et renforcer l'autonomie. L'objectif serait de permettre aux personnes de participer pleinement à la société, pas seulement de survivre."
+      "conclusion": "En conclusion, je privilégierais la lutte contre la pauvreté pour répondre aux besoins essentiels, faciliter l'apprentissage et renforcer l'autonomie. L'objectif serait de permettre aux personnes de participer pleinement à la société, pas seulement de survivre."
     },
     "culture-p5": {
       "prompt_signatures": {
@@ -261,7 +261,7 @@
         },
         {
           "idea": "Ensuite, l'éloignement des proches peut rendre les débuts difficiles.",
-          "developpement": "Les proches restent accessibles à distance, mais ils ne partagent plus forcément les moments du quotidien. Il faut du temps pour rencontrer des personnes avec lesquelles on se sent suffisamment à l'aise.",
+          "developpement": "Les appels entretiennent le lien, mais ne remplacent pas toujours une présence physique. Il faut du temps pour rencontrer des personnes avec lesquelles on se sent suffisamment à l'aise.",
           "exemple": "Une personne installée seule peut appeler sa famille le dimanche, puis dîner sans compagnie une fois la conversation terminée. L'appel lui permet de prendre des nouvelles, mais ne remplace pas le repas qu'elle partageait avec ses proches.",
           "consequence": "Le manque ne disparaît pas immédiatement, même lorsque le projet d'installation reste souhaité."
         },
@@ -388,7 +388,7 @@
           "consequence": "Cette démarche donne des outils pour regarder aussi les images du quotidien avec recul."
         },
         {
-          "idea": "Enfin, l'école peut donner une première expérience culturelle à ceux qui en ont peu.",
+          "idea": "Enfin, l'école peut rendre les activités culturelles accessibles aux enfants de tous les milieux.",
           "developpement": "L'accès à un cours privé ou à un spectacle dépend notamment du budget et des possibilités de déplacement des familles. Une initiation pendant la scolarité ne réserve pas cette découverte aux enfants déjà favorisés.",
           "exemple": "Un enfant dont la famille ne peut pas financer un instrument peut essayer la musique dans un projet collectif avec du matériel partagé. Il découvre ainsi une pratique qu'il n'aurait pas nécessairement eu l'occasion de choisir seul.",
           "consequence": "L'école élargit les possibilités sans exiger qu'une vocation professionnelle apparaisse."
@@ -419,7 +419,7 @@
         },
         {
           "idea": "Enfin, les échanges à distance permettent de poser ses propres questions.",
-          "developpement": "Contrairement à un contenu que l'on reçoit seulement, une discussion permet de demander une précision et de corriger un malentendu. Des échanges réguliers donnent aussi accès à des aspects ordinaires de la vie.",
+          "developpement": "Dans une discussion, on peut poser une question précise et corriger un malentendu. Des échanges réguliers donnent aussi accès à des aspects ordinaires de la vie.",
           "exemple": "Lors d'un échange linguistique en ligne, une personne peut demander comment son interlocuteur s'adresse à ses professeurs. Celui-ci explique les formules de politesse qu'il emploie et les distingue de celles qu'il utilise entre amis. Elle comprend mieux comment la langue exprime le respect dans ces relations.",
           "consequence": "La distance géographique n'empêche donc pas un dialogue suivi."
         }
@@ -480,9 +480,9 @@
           "consequence": "L'absence d'amitiés ne suffit donc pas à conclure qu'une personne est malheureuse."
         },
         {
-          "idea": "Enfin, certaines satisfactions ne dépendent pas de la présence d'un ami.",
-          "developpement": "Créer, apprendre ou mener un projet personnel peut procurer du plaisir et de la fierté. Ces activités peuvent contribuer au bonheur sans qu'un ami soit présent, même si elles ne remplacent pas tous les besoins de relation.",
-          "exemple": "Une personne qui aime jardiner peut prendre plaisir à voir pousser les légumes qu'elle a semés et à préparer un repas avec sa récolte. Elle apprécie ce résultat même lorsqu'elle s'occupe seule de son jardin.",
+          "idea": "Enfin, les projets personnels peuvent aussi contribuer au bonheur.",
+          "developpement": "Créer, apprendre ou mener un projet personnel peut procurer du plaisir et de la fierté. Ces activités peuvent contribuer au bonheur sans qu'on ait d'amis, même si elles ne remplacent pas tous les besoins de relation.",
+          "exemple": "Une personne qui n'a pas d'amis peut prendre plaisir à voir pousser les légumes qu'elle a semés et à préparer un repas avec sa récolte. Elle apprécie ce résultat même lorsqu'elle s'occupe seule de son jardin.",
           "consequence": "On peut ainsi apprécier des moments de solitude choisie, sans les vivre comme un abandon."
         }
       ],
@@ -596,7 +596,7 @@
           "consequence": "La lecture aide donc à comprendre et à comparer les idées, pas seulement à accumuler des informations."
         },
         {
-          "idea": "Ensuite, l'écoute peut elle aussi donner accès à des connaissances exigeantes.",
+          "idea": "Ensuite, l'écoute permet aussi d'approfondir ses connaissances.",
           "developpement": "La profondeur ne dépend pas uniquement du support écrit. Une conférence, un entretien ou un livre audio peut présenter une réflexion complète, à condition que l'auditeur prenne le temps de la comprendre.",
           "exemple": "Une conférence sur le jazz peut faire entendre la même mélodie jouée de deux façons. En réécoutant les extraits et les explications, une auditrice comprend ce que change l'improvisation et apprend à la reconnaître, sans passer par un texte.",
           "consequence": "Il serait réducteur de confondre culture et quantité de pages lues."
@@ -638,7 +638,7 @@
           "consequence": "Voyager seul ne signifie donc pas nécessairement passer tout son temps isolé."
         }
       ],
-      "nuance": "Cependant, les réservations et le budget limitent toujours la liberté. Certaines personnes préfèrent partager les émotions et les frais avec un proche. Il faut aussi préparer les questions de sécurité et prévoir comment demander de l'aide, sans croire que l'autonomie impose de prendre des risques.",
+      "nuance": "Cependant, les réservations et le budget peuvent limiter la liberté. Certaines personnes préfèrent partager les émotions et les frais avec un proche. Il faut aussi préparer les questions de sécurité et prévoir comment demander de l'aide, sans croire que l'autonomie impose de prendre des risques.",
       "conclusion": "En conclusion, le voyage en solitaire peut développer la confiance, laisser plus de liberté et favoriser des rencontres. Je le vois comme un choix personnel à préparer, pas comme une épreuve à réussir ni une formule supérieure au voyage accompagné."
     },
     "culture-p24": {
@@ -653,7 +653,7 @@
       "arguments": [
         {
           "idea": "Tout d'abord, des relations sur place peuvent réduire l'isolement et apporter du soutien.",
-          "developpement": "Les appels avec les proches restés au pays sont précieux, mais ils ne remplacent pas toujours une présence sur place. Pouvoir se retrouver régulièrement permet de partager son quotidien et de s'entraider.",
+          "developpement": "Les appels entretiennent le lien, mais ne remplacent pas toujours une présence physique. Pouvoir se retrouver régulièrement permet de partager son quotidien et de s'entraider.",
           "exemple": "Une nouvelle arrivante peut déjeuner chaque samedi avec une voisine. Elles échangent sur leur semaine et, si l'une tombe malade, l'autre peut lui déposer quelques courses.",
           "consequence": "La relation apporte alors de la compagnie et une aide concrète."
         },
@@ -738,31 +738,32 @@
       "prompt_signatures": {
         "culture:p27": "ef2b70fb166ec2a258d6926b84ef1def791ec73c95b3cc75c8e36306e5d58d26"
       },
-      "reformulation": "Une longue vie à l'étranger peut-elle affaiblir le lien avec sa culture d'origine ?",
-      "position": "Oui, certains repères peuvent s'effacer, mais la durée ne détermine pas seule ce lien.",
-      "position_claire": "Oui, vivre longtemps à l'étranger peut conduire à oublier certaines pratiques de sa culture d'origine. Mais je distinguerais l'oubli d'un détail, le changement d'habitude et la perte de tout lien. La pratique, les souvenirs personnels et les moyens de rester en contact influencent cette évolution.",
+      "reformulation": "Vivre longtemps à l'étranger peut-il faire oublier des éléments de sa culture d'origine ?",
+      "position": "Oui, certains mots ou savoir-faire peuvent s'oublier, mais cet oubli n'est pas inévitable.",
+      "position_claire": "Oui, vivre longtemps à l'étranger peut faire oublier certains éléments de sa culture d'origine. Mais ce n'est pas automatique : l'usage de sa langue, les traditions partagées et les contacts entretenus influencent ce qu'on conserve.",
+      "argument_ids": [1, 4, 3],
       "arguments": [
         {
-          "idea": "Tout d'abord, ce que l'on utilise moins peut devenir moins familier.",
-          "developpement": "La vie dans un autre environnement donne plus de place à de nouveaux mots et à de nouvelles routines. On utilise moins certains mots ou gestes appris auparavant, sans avoir décidé de les abandonner.",
-          "exemple": "Une personne qui ne chante plus les chansons apprises dans son enfance peut en oublier une partie des paroles. Lorsqu'elle les réécoute avec ses proches, elle retrouve certains passages, alors que d'autres lui échappent encore.",
-          "consequence": "L'éloignement peut donc affaiblir des repères précis plutôt qu'effacer toute une identité."
+          "idea": "Tout d'abord, moins utiliser sa langue d'origine peut faire oublier des mots et des expressions.",
+          "developpement": "Quand le travail et les démarches se font surtout dans une autre langue, les expressions de l'enfance peuvent être moins souvent entendues ou employées. Elles peuvent alors devenir moins faciles à retrouver.",
+          "exemple": "Une personne peut vouloir expliquer à son enfant un proverbe appris de sa grand-mère. Elle le connaissait bien autrefois, mais ne se souvient plus de sa signification après des années sans l'utiliser.",
+          "consequence": "Ces oublis peuvent donc compliquer la transmission d'une partie de la culture familiale."
         },
         {
-          "idea": "Ensuite, changer ses habitudes ne signifie pas forcément oublier leur sens.",
-          "developpement": "Une pratique peut devenir moins fréquente tout en gardant une place dans les souvenirs. Ce qui a marqué l'histoire personnelle peut encore avoir du sens, même si l'on ne le reproduit plus de la même manière.",
-          "exemple": "Une personne qui travaille le jour d'une fête peut ne plus organiser le repas traditionnel. Mais elle peut expliquer à ses enfants ce qu'elle célébrait et raconter les préparatifs avec ses grands-parents : son calendrier a changé, pas tous ses souvenirs.",
-          "consequence": "Ne plus suivre une tradition ne veut donc pas dire qu'on l'a oubliée."
+          "idea": "Ensuite, l'éloignement peut faire oublier des gestes liés aux traditions familiales.",
+          "developpement": "Certains gestes se retiennent en les refaisant avec ses proches. Vivre loin d'eux peut réduire ces occasions, même si l'on continue à parler sa langue d'origine.",
+          "exemple": "Une personne qui savait tresser une brioche de fête avec sa mère peut oublier le geste après des années sans le refaire. Lorsqu'elle veut le montrer à ses enfants, elle doit demander à sa mère de lui remontrer le geste.",
+          "consequence": "L'oubli porte alors sur un geste autrefois maîtrisé, pas seulement sur une habitude abandonnée."
         },
         {
-          "idea": "Enfin, les contacts réguliers peuvent entretenir un lien même après de nombreuses années.",
-          "developpement": "La distance n'empêche pas de parler une langue, d'écouter des récits ou de découvrir l'évolution du pays d'origine. Ces contacts évitent aussi de ne conserver qu'une image figée du passé.",
+          "idea": "Enfin, des contacts réguliers peuvent préserver ces repères malgré les années.",
+          "developpement": "Les appels, les visites et les fêtes partagées offrent des occasions de pratiquer sa langue et ses traditions. On peut aussi demander une précision et retrouver un mot ou un geste oublié.",
           "exemple": "Une personne installée depuis vingt ans ailleurs peut téléphoner chaque semaine à sa sœur dans leur langue familiale. Quand une expression lui échappe, sa sœur la lui rappelle : elle continue ainsi à pratiquer une langue qu'elle utilise peu au travail.",
           "consequence": "La durée du séjour ne suffit donc pas à prévoir ce qui sera gardé ou oublié."
         }
       ],
       "nuance": "Cependant, entretenir ce lien ne dépend pas seulement de la volonté : le temps, les ressources et l'histoire familiale comptent aussi. Adopter d'autres habitudes n'est pas nécessairement oublier ses origines. Chacun doit pouvoir faire évoluer son identité sans qu'on l'accuse de trahir sa culture.",
-      "conclusion": "En conclusion, une longue vie à l'étranger peut faire oublier certaines pratiques moins utilisées. Mais un changement d'habitude n'efface pas forcément les souvenirs, et les contacts peuvent entretenir le lien. Celui-ci peut évoluer sans disparaître ni rester intact."
+      "conclusion": "En conclusion, une longue vie à l'étranger peut faire oublier des mots ou des savoir-faire moins pratiqués. Ce risque dépend aussi des liens et des activités maintenus, pas seulement du nombre d'années."
     },
     "culture-p29": {
       "prompt_signatures": {
@@ -770,17 +771,17 @@
       },
       "reformulation": "Quelles difficultés peut comporter la vie à l'étranger ?",
       "position": "Elle peut être exigeante sur les plans matériel, affectif et administratif.",
-      "position_claire": "Vivre à l'étranger peut être difficile, mais ce n'est pas la même expérience pour tout le monde. Au-delà des premiers apprentissages, je pense surtout aux conditions matérielles, à la distance avec les proches et aux démarches qui peuvent peser durablement sur le quotidien.",
+      "position_claire": "Vivre à l'étranger peut être difficile, mais les expériences varient. Au-delà des premiers apprentissages, les conditions matérielles, la distance avec les proches et les démarches peuvent peser durablement sur le quotidien.",
       "arguments": [
         {
-          "idea": "Tout d'abord, maintenir un équilibre matériel peut demander beaucoup d'efforts.",
+          "idea": "Tout d'abord, le travail et le logement peuvent imposer des choix difficiles au quotidien.",
           "developpement": "Le coût du logement et les possibilités de travail ne correspondent pas toujours à ce qu'on imaginait. Si l'argent manque, on doit d'abord payer l'essentiel avant de penser aux autres projets.",
           "exemple": "Une personne peut accepter un logement éloigné parce qu'il coûte moins cher, puis découvrir que le trajet quotidien prend une grande partie de son temps. Elle doit alors arbitrer entre son budget, sa fatigue et les possibilités réellement disponibles.",
           "consequence": "La difficulté ne vient pas seulement de la nouveauté, mais de contraintes qui peuvent durer."
         },
         {
-          "idea": "Ensuite, la distance complique la présence auprès des proches.",
-          "developpement": "Les appels entretiennent le lien, mais ne remplacent pas toutes les formes de présence. Pour qu'une visite soit possible, il faut parfois réunir du temps, de l'argent et des possibilités de déplacement compatibles.",
+          "idea": "Ensuite, quand on vit loin de ses proches, il est plus difficile d'être à leurs côtés lorsqu'ils en ont besoin.",
+          "developpement": "Les appels entretiennent le lien, mais ne remplacent pas toujours une présence physique. Pour qu'une visite soit possible, il faut parfois réunir du temps, de l'argent et des possibilités de déplacement compatibles.",
           "exemple": "Si un parent a besoin d'aide après une opération, une personne vivant loin peut souhaiter venir, sans pouvoir obtenir immédiatement un congé ou financer le trajet. Elle peut organiser un soutien à distance, tout en regrettant de ne pas être là.",
           "consequence": "Même une installation réussie peut donc comporter un coût affectif."
         },
@@ -846,7 +847,7 @@
         },
         {
           "idea": "Enfin, les recommandations des candidats peuvent brouiller la frontière entre conseil et publicité.",
-          "developpement": "Un jeune peut faire confiance à un candidat comme à un proche. Il risque alors d'oublier que la recommandation d'un produit peut aussi être une publicité rémunérée.",
+          "developpement": "À force de suivre un candidat à l'écran, un jeune peut lui faire confiance. Il risque alors de prendre une recommandation rémunérée pour un conseil personnel.",
           "exemple": "Un adolescent peut commander les chaussures recommandées par un candidat qu'il apprécie, en croyant recevoir un conseil personnel. En découvrant ensuite la mention d'un partenariat rémunéré, il comprend que cette recommandation était aussi une publicité.",
           "consequence": "Le regard critique doit donc porter aussi sur ce qu'on cherche à lui vendre."
         }
@@ -905,7 +906,7 @@
           "consequence": "Attendre avant de payer permet de vérifier si l'on a vraiment besoin de l'objet."
         },
         {
-          "idea": "Enfin, l'occasion et la réparation permettent de garder les objets utiles plus longtemps.",
+          "idea": "Enfin, l'occasion et la réparation permettent d'utiliser les objets plus longtemps.",
           "developpement": "Grâce aux plateformes d'occasion, on peut revendre un objet à quelqu'un qui en a besoin. Un atelier peut aussi nous aider à le réparer. Dans les deux cas, l'objet reste utile au lieu d'être remplacé par du neuf.",
           "exemple": "Une famille peut acheter un vélo d'enfant d'occasion, vérifier son état puis le revendre quand il devient trop petit. Le même vélo sert à plusieurs enfants, ce qui évite certains achats neufs et permet de limiter la dépense.",
           "consequence": "Le numérique peut donc soutenir une consommation plus mesurée, pas seulement davantage d'achats."
@@ -929,7 +930,7 @@
           "consequence": "Cette expérience complète les compétences de l'équipe, sans supposer que toute personne a le même parcours."
         },
         {
-          "idea": "Ensuite, la diversité des pratiques peut élargir l'offre culturelle et les échanges.",
+          "idea": "Ensuite, les immigrés peuvent enrichir la vie culturelle du pays d'accueil.",
           "developpement": "Les langues, les œuvres et les savoir-faire circulent avec les personnes. Lorsqu'ils sont partagés, les habitants disposent de nouvelles possibilités de découverte, sans devoir abandonner leurs propres références.",
           "exemple": "Dans une bibliothèque, une personne peut participer à une séance de contes en présentant une histoire de son enfance et en l'expliquant dans une langue commune. Les enfants découvrent un autre récit et peuvent le comparer à ceux qu'ils connaissent.",
           "consequence": "La culture se partage ainsi avec les autres habitants, au-delà de la famille."

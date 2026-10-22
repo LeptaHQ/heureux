@@ -121,3 +121,15 @@ class TacheThreeReuseTests(SimpleTestCase):
         consent = "Une cohabitation durable peut fonctionner, mais doit rester choisie de part et d'autre."
         self.assertIn(consent, self.response("famille-p2").nuance)
         self.assertIn(consent, self.response("famille-p16").nuance)
+
+    def test_remote_contact_limit_keeps_the_same_words_for_three_relevant_questions(self):
+        shared = (
+            "Les appels entretiennent le lien, mais ne remplacent pas toujours "
+            "une présence physique."
+        )
+        for group, index in (("culture-p9", 1), ("culture-p24", 0), ("culture-p29", 1)):
+            with self.subTest(group=group):
+                self.assertTrue(self.response(group).arguments[index].developpement.startswith(shared))
+        self.assertIn("dîner sans compagnie", self.response("culture-p9").arguments[1].exemple)
+        self.assertIn("quelques courses", self.response("culture-p24").arguments[0].exemple)
+        self.assertIn("après une opération", self.response("culture-p29").arguments[1].exemple)

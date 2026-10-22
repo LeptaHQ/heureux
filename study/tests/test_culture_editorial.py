@@ -72,12 +72,12 @@ class CultureEditorialTests(SimpleTestCase):
             (1, 2, ("à 14 heures", "à midi", "une fois par semaine", "le week-end")),
             (4, 2, ("a droit", "aide au logement", "formulaire")),
             (6, 0, ("un essai", "la voiture en ville", "la pollution", "sans transports en commun", "interdiction totale")),
-            (11, 0, ("un compatriote qui parle sa langue",)),
+            (11, 0, ("sa solitude en français", "une amie de son pays qui parle sa langue", "le dimanche ensemble")),
             (11, 1, ("traduire un diplôme", "quelles traductions sont acceptées")),
-            (15, 1, ("légumes d'été", "en hiver", "histoire familiale")),
-            (19, 2, ("en français", "une fête locale", "gestes")),
+            (15, 1, ("sa grand-mère", "sécher des tomates", "conserver jusqu'en hiver")),
+            (19, 2, ("en français", "une ancienne usine", "devenue un lieu culturel", "poser des questions")),
             (20, 1, ("sans passer par un texte",)),
-            (24, 1, ("quel déchet va dans quel bac",)),
+            (24, 1, ("dans leur équipe", "dès qu'elles apparaissent", "corriger un dossier avant son envoi")),
             (26, 2, ("prévoir leurs visites à l'avance", "manque de sympathie")),
             (30, 2, ("profession est réglementée", "avant d'exercer", "ne remplace ni")),
             (31, 1, ("moquerie", "humiliée", "relation réelle")),
@@ -96,8 +96,8 @@ class CultureEditorialTests(SimpleTestCase):
     def test_living_abroad_example_links_cooking_training_to_a_clear_career_goal(self):
         example = self.response(5).arguments[0].exemple
         for phrase in (
-            "devenir cuisinier", "formation à l'étranger", "stage dans un restaurant",
-            "préparer des plats", "travailler en équipe",
+            "devenir cuisinier", "spécialité qui n'est pas enseignée près de chez lui",
+            "Une école à l'étranger", "stage en restaurant", "apprendre le métier",
         ):
             self.assertIn(phrase, example)
         self.assertNotIn("irrigation", example)
@@ -115,7 +115,7 @@ class CultureEditorialTests(SimpleTestCase):
 
     def test_direct_framing_keeps_friendship_optional_and_integration_reciprocal(self):
         happiness = self.response(16)
-        self.assertIn("on peut aussi être heureux sans eux", happiness.position_claire)
+        self.assertIn("on peut être heureux sans avoir d'amis", happiness.position_claire)
         self.assertNotIn("personne ne peut", happiness.position_claire)
         self.assertIn("une solitude choisie", happiness.nuance)
         integration = self.response(30).arguments[1]
@@ -158,9 +158,41 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("sans passer par un texte", reading.arguments[1].exemple)
         self.assertNotIn("elle lit peu", reading.arguments[1].exemple)
         forgetting = self.response(27)
-        self.assertIn("chansons apprises dans son enfance", forgetting.arguments[0].exemple)
-        self.assertIn("raconter les préparatifs", forgetting.arguments[1].exemple)
-        self.assertIn("son calendrier a changé, pas tous ses souvenirs", forgetting.arguments[1].exemple)
+        self.assertEqual(self.models["eo/tache-3/culture-p27"].argument_ids, (1, 4, 3))
+        self.assertIn("moins utiliser sa langue d'origine", forgetting.arguments[0].idea)
+        self.assertIn("Elle le connaissait bien autrefois", forgetting.arguments[0].exemple)
+        self.assertIn("ne se souvient plus de sa signification", forgetting.arguments[0].exemple)
+        self.assertIn("même si l'on continue à parler sa langue d'origine", forgetting.arguments[1].developpement)
+        self.assertIn("qui savait tresser", forgetting.arguments[1].exemple)
+        self.assertIn("peut oublier le geste", forgetting.arguments[1].exemple)
+        self.assertIn("lui remontrer le geste", forgetting.arguments[1].exemple)
         self.assertNotIn("Les enfants", forgetting.arguments[1].developpement)
         self.assertIn("la durée du séjour", forgetting.arguments[2].consequence.casefold())
         self.assertIn("n'est pas nécessairement oublier", forgetting.nuance)
+
+    def test_material_difficulty_includes_time_and_fatigue_not_only_expenses(self):
+        response = self.response(29)
+        material = response.arguments[0]
+        self.assertIn("le travail et le logement", material.idea)
+        self.assertIn("trajet quotidien", material.exemple)
+        self.assertIn("son budget, sa fatigue", material.exemple)
+        self.assertIn("contraintes qui peuvent durer", material.consequence)
+        self.assertIn("d'être à leurs côtés", response.arguments[1].idea)
+        self.assertIn("après une opération", response.arguments[1].exemple)
+
+    def test_memory_cues_explain_abstract_terms_in_their_actual_context(self):
+        poverty = self.plans["eo/tache-3/culture-p4"].conclusion
+        self.assertIn("Répondre aux besoins essentiels", poverty.french)
+        self.assertIn("Meet basic needs", poverty.english)
+        cooking = self.plans["eo/tache-3/culture-p15"].introduction.english
+        self.assertIn("mealtime customs", cooking)
+        self.assertIn("history of recipes", cooking)
+        self.assertIn("get to know each other", cooking)
+        celebrity = self.plans["eo/tache-3/culture-p33"].nuance.english
+        self.assertIn("extra media attention", celebrity)
+        self.assertIn("competence by fame alone", celebrity)
+        immigration = self.plans["eo/tache-3/culture-p35"].nuance
+        for phrase in ("l'emploi", "logement", "respect", "contribution économique"):
+            self.assertIn(phrase, immigration.french)
+        for phrase in ("jobs", "housing", "Everyone deserves respect", "whether or not"):
+            self.assertIn(phrase, immigration.english)

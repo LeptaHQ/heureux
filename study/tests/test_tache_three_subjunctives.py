@@ -17,7 +17,7 @@ REVIEWED_CLAUSES = {
     "culture-p13": "sans exiger qu'une vocation professionnelle apparaisse",
     "culture-p14": "Il faut qu'on croise les sources",
     "culture-p15": "ils attendent que tout le monde soit assis",
-    "culture-p16": "sans qu'un ami soit présent",
+    "culture-p16": "sans qu'on ait d'amis",
     "culture-p17": "il faut aussi que le bilan tienne compte",
     "culture-p18": "regrettable que les lettres et les cartes personnelles deviennent moins présentes",
     "culture-p19": "Il faut toutefois qu'on fasse la différence",

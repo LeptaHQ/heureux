@@ -3446,9 +3446,16 @@ class BrowserTests(StaticLiveServerTestCase):
         from study import catalogue
 
         self._import_eo_tache_three_content()
+        culture_keys = tuple(
+            key
+            for model in catalogue.tache_three_models().values()
+            if model.group.startswith("eo/tache-3/culture-p")
+            and int(model.group.rsplit("p", 1)[1]) >= 4
+            for key, _ in model.source_prompts
+        )
+        self.assertEqual(len(culture_keys), 35)
         for key in (
-            "culture:p5", "culture:p12", "culture:p14", "culture:p16",
-            "culture:p24", "culture:p28", "culture:p25", "culture:p26",
+            *culture_keys,
             "famille:p5", "education:p13",
             "sante:p23", "technologie:p11", "environnement:p4", "economie:p14",
         ):

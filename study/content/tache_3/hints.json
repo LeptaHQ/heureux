@@ -150,8 +150,8 @@
         "english": "War, disaster or water shortages may create another immediate local priority."
       },
       "conclusion": {
-        "french": "Protéger les besoins essentiels et ouvrir des possibilités concrètes.",
-        "english": "Protect basic needs and open concrete opportunities."
+        "french": "Répondre aux besoins essentiels, faciliter l'apprentissage et soutenir l'autonomie.",
+        "english": "Meet basic needs, improve access to learning and help people become more independent."
       },
       "arguments": [
         {
@@ -206,8 +206,8 @@
             "english": "Another country may offer an opportunity matching a specific goal."
           },
           "example": {
-            "french": "Trouver à l'étranger une spécialité de cuisine non enseignée près de chez soi, avec un stage.",
-            "english": "Find an overseas cooking specialisation unavailable nearby, with a restaurant placement."
+            "french": "Suivre à l'étranger une formation de cuisine non proposée près de chez soi, avec un stage en restaurant.",
+            "english": "Take a cooking course abroad that teaches a speciality not offered near home, with a restaurant placement."
           }
         },
         {
@@ -305,7 +305,7 @@
         {
           "point": {
             "french": "Ces métiers reposent sur des compétences précises qu'il faut développer.",
-            "english": "Artistic occupations require precise skills that must be developed."
+            "english": "Artistic occupations require specific skills that must be developed."
           },
           "example": {
             "french": "Une illustratrice travaille les proportions pour rendre un personnage reconnaissable sous plusieurs angles.",
@@ -326,16 +326,16 @@
     },
     "culture-p8": {
       "introduction": {
-        "french": "Certaines personnes âgées jugent les jeunes négativement, sans représenter tous leurs aînés.",
-        "english": "Some older people judge young people negatively, without representing all older adults."
+        "french": "Les personnes âgées ne portent pas toutes un jugement négatif sur les jeunes.",
+        "english": "Not all older people have a negative view of young people."
       },
       "nuance": {
         "french": "Écouter les inquiétudes précises sans caricaturer ni les jeunes ni leurs aînés.",
-        "english": "Listen to specific concerns without caricaturing either young or older people."
+        "english": "Take specific concerns seriously without stereotyping either young or older people."
       },
       "conclusion": {
-        "french": "Dépasser les étiquettes grâce au recul et aux échanges.",
-        "english": "Go beyond labels through reflection and exchanges."
+        "french": "Prendre du recul sur ses impressions et discuter avec les jeunes plutôt que généraliser.",
+        "english": "Reflect on your impressions and talk with young people instead of judging a whole generation."
       },
       "arguments": [
         {
@@ -464,8 +464,8 @@
     },
     "culture-p11": {
       "introduction": {
-        "french": "Les compatriotes peuvent apporter un soutien, sans former un cercle obligatoire ou exclusif.",
-        "english": "Compatriots can offer support without becoming an obligatory or exclusive circle."
+        "french": "Fréquenter des compatriotes peut aider, sans être obligatoire ni exclure d'autres rencontres.",
+        "english": "People from your home country can offer support. These relationships are optional and need not be your only ones."
       },
       "nuance": {
         "french": "La nationalité ne garantit ni la confiance ni la fiabilité des conseils.",
@@ -473,7 +473,7 @@
       },
       "conclusion": {
         "french": "Choisir ses relations et combiner liens culturels et rencontres diverses.",
-        "english": "Choose your relationships and combine cultural links with varied encounters."
+        "english": "Choose your own relationships, keeping cultural ties while also getting to know other residents."
       },
       "arguments": [
         {
@@ -510,16 +510,16 @@
     },
     "culture-p12": {
       "introduction": {
-        "french": "La télévision peut informer, partager des œuvres et offrir une détente choisie.",
-        "english": "Television can inform, share works and provide chosen relaxation."
+        "french": "La télévision peut informer, donner accès à des œuvres et permettre de se détendre.",
+        "english": "Television can inform, give access to films and performances, and help people relax."
       },
       "nuance": {
-        "french": "L'enchaînement automatique peut empiéter sur le sommeil ou les autres activités.",
-        "english": "Automatic viewing can encroach on sleep or other activities."
+        "french": "Laisser les programmes s'enchaîner peut empiéter sur le sommeil ou d'autres activités.",
+        "english": "Watching one programme after another can cut into sleep and other activities."
       },
       "conclusion": {
-        "french": "Juger le programme et la durée selon le besoin réel.",
-        "english": "Judge the programme and viewing time against the actual need."
+        "french": "L'intérêt dépend du programme, du temps passé et de ce qu'on recherche.",
+        "english": "Whether viewing is worthwhile depends on what you watch, why you watch it and for how long."
       },
       "arguments": [
         {
@@ -535,7 +535,7 @@
         {
           "point": {
             "french": "La télévision donne accès à des œuvres et à des moments partagés.",
-            "english": "Television gives access to works and shared experiences."
+            "english": "Television gives access to films and performances and can provide shared experiences."
           },
           "example": {
             "french": "Deux proches qui vivent loin regardent le même film, puis en discutent au téléphone.",
@@ -564,8 +564,8 @@
         "english": "Organise time and resources without automatically opposing arts and core subjects."
       },
       "conclusion": {
-        "french": "Défendre expression, observation et égalité d'accès.",
-        "english": "Support expression, observation and equal access."
+        "french": "Ces matières ont leur place à l'école pour l'expression, la compréhension des œuvres et l'égalité d'accès.",
+        "english": "Arts lessons help pupils express themselves, interpret art and discover culture whatever their family's income."
       },
       "arguments": [
         {
@@ -590,8 +590,8 @@
         },
         {
           "point": {
-            "french": "L'école peut donner une première expérience culturelle à ceux qui en ont peu.",
-            "english": "School can offer an initial cultural experience to children with little access."
+            "french": "L'école peut rendre les activités culturelles accessibles aux enfants de tous les milieux.",
+            "english": "School can make cultural activities accessible to children from all backgrounds."
           },
           "example": {
             "french": "Du matériel partagé permet une initiation musicale sans cours privés.",
@@ -648,8 +648,8 @@
     },
     "culture-p15": {
       "introduction": {
-        "french": "La cuisine renseigne sur les relations, la transmission et les échanges.",
-        "english": "Cuisine offers insights into relationships, transmission and exchanges."
+        "french": "La cuisine fait découvrir les habitudes à table et l'histoire des recettes, et facilite les rencontres.",
+        "english": "Cooking reveals mealtime customs and the history of recipes, and helps people get to know each other."
       },
       "nuance": {
         "french": "Un plat ou un restaurant ne représente ni tout un pays ni toutes ses familles.",
@@ -728,12 +728,12 @@
         },
         {
           "point": {
-            "french": "Certaines satisfactions ne dépendent pas de la présence d'un ami.",
-            "english": "Some sources of satisfaction do not depend on a friend being present."
+            "french": "Les projets personnels peuvent aussi contribuer au bonheur.",
+            "english": "Personal projects can also contribute to happiness."
           },
           "example": {
-            "french": "Prendre plaisir à cultiver son jardin et à préparer un repas avec sa récolte.",
-            "english": "Enjoy tending a garden and preparing a meal with the harvest."
+            "french": "Sans avoir d'amis, prendre plaisir à cultiver son jardin et à préparer un repas avec sa récolte.",
+            "english": "Even without friends, enjoy tending a garden and preparing a meal with the harvest."
           }
         }
       ]
@@ -744,12 +744,12 @@
         "english": "The word 'always' overlooks the risks and sacrifices of life abroad."
       },
       "nuance": {
-        "french": "Une difficulté n'annule pas tout le séjour, mais ne devient pas automatiquement bénéfique.",
-        "english": "A difficulty does not invalidate the whole stay, but does not automatically become beneficial."
+        "french": "Une difficulté ne rend pas tout le séjour négatif, mais elle n'est pas automatiquement bénéfique.",
+        "english": "A setback does not make the whole stay negative, but hardship is not automatically beneficial either."
       },
       "conclusion": {
         "french": "Évaluer apprentissages, conditions matérielles et sacrifices plutôt qu'idéaliser le départ.",
-        "english": "Assess learning, material conditions and sacrifices instead of idealising departure."
+        "english": "Weigh learning, living conditions and personal sacrifices instead of assuming every move abroad is positive."
       },
       "arguments": [
         {
@@ -765,7 +765,7 @@
         {
           "point": {
             "french": "Des conditions matérielles fragiles peuvent au contraire rendre l'expérience très difficile.",
-            "english": "Fragile material conditions can make the experience difficult."
+            "english": "Insecure housing or income can make life abroad very difficult."
           },
           "example": {
             "french": "Partir sans emploi confirmé et voir ses économies diminuer rend le loyer prioritaire.",
@@ -833,15 +833,15 @@
     "culture-p19": {
       "introduction": {
         "french": "On peut connaître des aspects réels d'un pays sans parler sa langue.",
-        "english": "You can know real aspects of a country without speaking its language."
+        "english": "You can learn about a country without speaking its language, though your understanding will be incomplete."
       },
       "nuance": {
         "french": "Apprendre la langue locale permet d'écouter plus de personnes et de moins dépendre des traductions.",
         "english": "Learning the local language lets you listen to more people and rely less on translations."
       },
       "conclusion": {
-        "french": "Reconnaître une connaissance partielle réelle et l'intérêt d'apprendre davantage.",
-        "english": "Recognise real partial knowledge and the value of learning more."
+        "french": "On peut connaître certains aspects d'un pays sans parler sa langue, puis élargir ses connaissances en l'apprenant.",
+        "english": "You can learn about a country without speaking its language, then deepen your understanding by learning it."
       },
       "arguments": [
         {
@@ -851,7 +851,7 @@
           },
           "example": {
             "french": "Deux correspondances en bus révèlent une difficulté d'accès invisible sur le plan.",
-            "english": "Two bus connections reveal an access difficulty not apparent on the map."
+            "english": "Needing two bus changes shows why a nearby district can be hard to reach."
           }
         },
         {
@@ -902,8 +902,8 @@
         },
         {
           "point": {
-            "french": "L'écoute peut elle aussi donner accès à des connaissances exigeantes.",
-            "english": "Listening can also provide access to demanding knowledge."
+            "french": "L'écoute permet aussi d'approfondir ses connaissances.",
+            "english": "Listening can also deepen your understanding."
           },
           "example": {
             "french": "Réécouter une conférence sur le jazz pour comprendre et reconnaître l'improvisation.",
@@ -928,8 +928,8 @@
         "english": "Solo travel can offer autonomy, freedom and encounters without suiting everyone."
       },
       "nuance": {
-        "french": "Préparer sécurité et budget ; les rencontres ne sont pas garanties et les réservations limitent les choix.",
-        "english": "Prepare safety and budget; encounters are not guaranteed and bookings limit choices."
+        "french": "Tenir compte du budget et de la sécurité ; les réservations peuvent limiter les choix et les rencontres restent incertaines.",
+        "english": "Plan your budget and safety precautions; bookings can limit your choices, and meeting people is not guaranteed."
       },
       "conclusion": {
         "french": "Voyager seul ou accompagné reste un choix personnel, selon ses envies et les conditions.",
@@ -975,7 +975,7 @@
       },
       "nuance": {
         "french": "Distinguer solitude choisie et isolement subi ; les liens demandent du temps et un accueil réciproque.",
-        "english": "Distinguish chosen solitude from unwanted isolation; relationships take time and reciprocal openness."
+        "english": "Distinguish chosen solitude from unwanted isolation; relationships need time and willingness on both sides."
       },
       "conclusion": {
         "french": "Encourager les rencontres sans imposer le même équilibre à tous.",
@@ -1016,8 +1016,8 @@
     },
     "culture-p25": {
       "introduction": {
-        "french": "Distinguer travail, apprentissage personnel et projet familial dans les départs choisis.",
-        "english": "Distinguish work, personal learning and family projects in chosen departures."
+        "french": "On peut choisir de vivre à l'étranger pour travailler, apprendre ou rejoindre ses proches.",
+        "english": "People may choose to move abroad for work, personal growth or family reasons."
       },
       "nuance": {
         "french": "Les motivations varient et peuvent se combiner ou évoluer au fil du parcours.",
@@ -1044,8 +1044,8 @@
             "english": "Some people move abroad to learn and become more independent."
           },
           "example": {
-            "french": "Un semestre universitaire à l'étranger permet d'essayer une autre langue et organisation.",
-            "english": "A university semester abroad offers experience of another language and daily organisation."
+            "french": "Un semestre à l'étranger permet de pratiquer une autre langue et d'apprendre à organiser son quotidien.",
+            "english": "A semester abroad offers practice in another language and in managing everyday life independently."
           }
         },
         {
@@ -1108,42 +1108,42 @@
     },
     "culture-p27": {
       "introduction": {
-        "french": "Distinguer oubli de certains repères, changement d'habitude et disparition de tout lien.",
-        "english": "Distinguish forgetting some reference points, changing habits and losing every connection."
+        "french": "Une longue vie à l'étranger peut faire oublier certains mots et savoir-faire, mais pas automatiquement.",
+        "english": "A long life abroad can lead to forgetting some words and skills, but not inevitably."
       },
       "nuance": {
         "french": "Le temps et les moyens comptent aussi ; changer ne signifie pas forcément oublier.",
         "english": "Time and resources matter too; changing does not necessarily mean forgetting."
       },
       "conclusion": {
-        "french": "Distinguer pratiques oubliées, souvenirs conservés et liens entretenus.",
-        "english": "Distinguish forgotten practices, retained memories and maintained connections."
+        "french": "L'oubli dépend aussi des pratiques et des liens maintenus, pas seulement des années à l'étranger.",
+        "english": "Forgetting also depends on ongoing practice and contact, not just years abroad."
       },
       "arguments": [
         {
           "point": {
-            "french": "Ce que l'on utilise moins peut devenir moins familier.",
-            "english": "What is used less often can become less familiar."
+            "french": "Moins utiliser sa langue d'origine peut faire oublier des mots et des expressions.",
+            "english": "Using one's original language less can lead to forgetting words and expressions."
           },
           "example": {
-            "french": "Oublier certaines paroles de chansons d'enfance que l'on ne chante plus.",
-            "english": "Forget some lyrics of childhood songs you no longer sing."
+            "french": "Ne plus se souvenir du sens d'un proverbe que l'on veut expliquer à son enfant.",
+            "english": "Forget the meaning of a once-familiar proverb when trying to explain it to one's child."
           }
         },
         {
           "point": {
-            "french": "Changer ses habitudes ne signifie pas forcément oublier leur sens.",
-            "english": "Changing habits does not necessarily mean forgetting their meaning."
+            "french": "L'éloignement peut faire oublier des gestes liés aux traditions familiales.",
+            "english": "Living far away can lead to forgetting skills used in family traditions."
           },
           "example": {
-            "french": "Ne plus préparer le repas d'une fête, mais en expliquer le sens et les souvenirs à ses enfants.",
-            "english": "Stop preparing a festive meal but explain its meaning and memories to one's children."
+            "french": "Ne plus savoir tresser une brioche de fête et demander à sa mère de remontrer le geste.",
+            "english": "Forget how to braid a festive brioche and ask one's mother to demonstrate again."
           }
         },
         {
           "point": {
-            "french": "Les contacts réguliers peuvent entretenir un lien même après de nombreuses années.",
-            "english": "Regular contact can maintain a connection after many years."
+            "french": "Des contacts réguliers peuvent préserver ces repères malgré les années.",
+            "english": "Regular contact can preserve these cultural reference points despite the passing years."
           },
           "example": {
             "french": "Des appels hebdomadaires avec sa sœur permettent de pratiquer et de retrouver une expression oubliée.",
@@ -1168,8 +1168,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Maintenir un équilibre matériel peut demander beaucoup d'efforts.",
-            "english": "Maintaining material stability can require considerable effort."
+            "french": "Le travail et le logement peuvent imposer des choix difficiles au quotidien.",
+            "english": "Work and housing can involve difficult day-to-day trade-offs."
           },
           "example": {
             "french": "Un logement moins cher mais éloigné impose un arbitrage entre budget et fatigue.",
@@ -1178,8 +1178,8 @@
         },
         {
           "point": {
-            "french": "La distance complique la présence auprès des proches.",
-            "english": "Distance complicates being present for relatives."
+            "french": "Quand on vit loin de ses proches, il est plus difficile d'être à leurs côtés lorsqu'ils en ont besoin.",
+            "english": "Living far away makes it harder to be there in person when loved ones need help."
           },
           "example": {
             "french": "Faute de congé ou d'argent pour le trajet, on ne peut pas toujours aider sur place un parent opéré.",
@@ -1205,11 +1205,11 @@
       },
       "nuance": {
         "french": "S'intégrer ne veut pas dire oublier ses origines ; les obstacles et le rythme varient.",
-        "english": "Integrating does not mean forgetting your origins; barriers and pace vary."
+        "english": "Integration does not mean forgetting your origins; people face different obstacles and need different amounts of time."
       },
       "conclusion": {
-        "french": "Associer efforts personnels, accueil réciproque et accès réel à la vie professionnelle.",
-        "english": "Combine personal effort, reciprocal welcome and real access to working life."
+        "french": "Les efforts personnels, l'accueil des autres et l'accès au travail facilitent l'intégration.",
+        "english": "Newcomers' efforts, other people's willingness to include them and access to work all support integration."
       },
       "arguments": [
         {
@@ -1239,7 +1239,7 @@
           },
           "example": {
             "french": "Attendre la reconnaissance d'un diplôme ; le bénévolat ne remplace ni le métier ni le revenu.",
-            "english": "Wait for qualification recognition; volunteering replaces neither the occupation nor the income."
+            "english": "While waiting for qualifications to be recognised, volunteering does not replace the job or income the person expected."
           }
         }
       ]
@@ -1296,12 +1296,12 @@
         "english": "A celebrity may participate, but popularity is not enough to hold office."
       },
       "nuance": {
-        "french": "Examiner l'avantage médiatique et les intérêts commerciaux sans exclure un parcours.",
-        "english": "Examine media advantage and commercial interests without excluding a background."
+        "french": "Vérifier l'avantage médiatique et les intérêts commerciaux, sans juger uniquement sur la célébrité.",
+        "english": "Consider the extra media attention and business interests, but do not judge competence by fame alone."
       },
       "conclusion": {
-        "french": "Juger préparation, projet et responsabilité plutôt que l'admiration.",
-        "english": "Judge preparation, proposals and responsibility rather than admiration."
+        "french": "Juger sur les compétences, le programme et le travail, pas seulement sur la popularité.",
+        "english": "Judge candidates by their skills, proposals and work, not just their popularity."
       },
       "arguments": [
         {
@@ -1372,8 +1372,8 @@
         },
         {
           "point": {
-            "french": "L'occasion et la réparation permettent de garder les objets utiles plus longtemps.",
-            "english": "Buying secondhand and repairing things keep useful objects in use longer."
+            "french": "L'occasion et la réparation permettent d'utiliser les objets plus longtemps.",
+            "english": "Buying secondhand and repairing things keep objects in use longer."
           },
           "example": {
             "french": "Un vélo d'enfant acheté puis revendu d'occasion sert à plusieurs familles.",
@@ -1388,8 +1388,8 @@
         "english": "Immigrants can contribute through skills, culture and community involvement."
       },
       "nuance": {
-        "french": "Ouvrir réellement les possibilités et ne pas conditionner la dignité à l'utilité économique.",
-        "english": "Open real opportunities and do not make dignity depend on economic usefulness."
+        "french": "L'accès à l'emploi et au logement doit être équitable ; chacun mérite le respect, quelle que soit sa contribution économique.",
+        "english": "Access to jobs and housing should be fair. Everyone deserves respect, whether or not they contribute to the economy."
       },
       "conclusion": {
         "french": "Construire les contributions avec un accueil équitable et une participation réciproque.",
@@ -1408,8 +1408,8 @@
         },
         {
           "point": {
-            "french": "La diversité des pratiques peut élargir l'offre culturelle et les échanges.",
-            "english": "Diverse practices can broaden cultural opportunities and exchanges."
+            "french": "Les immigrés peuvent enrichir la vie culturelle du pays d'accueil.",
+            "english": "Immigrants can enrich the cultural life of the host country."
           },
           "example": {
             "french": "Une séance de contes en bibliothèque transmet et explique un récit d'enfance.",

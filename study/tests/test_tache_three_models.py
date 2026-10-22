@@ -637,7 +637,8 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("on peut être heureux sans avoir d'amis", response.position_claire)
         self.assertIn("soutien", response.arguments[0].idea)
         self.assertIn("liens familiaux ou de couple", response.arguments[1].idea)
-        self.assertIn("sans qu'un ami soit présent", response.arguments[2].developpement)
+        self.assertIn("sans qu'on ait d'amis", response.arguments[2].developpement)
+        self.assertIn("qui n'a pas d'amis", response.arguments[2].exemple)
         self.assertIn("isolement qui fait souffrir", response.nuance)
         self.assertIn("conjoint", response.arguments[1].exemple)
         self.assertIn("qui n'a pas d'amis", response.arguments[1].exemple)
@@ -745,6 +746,8 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p24", 2, "randonnée seule", "randonnées en solitaire", "solo hikes"),
             ("culture-p26", 0, "ressources confirmées", "ressources confirmées", "confirmed resources"),
             ("culture-p26", 1, "propriétaire", "propriétaire", "landlord"),
+            ("culture-p27", 0, "proverbe", "proverbe", "proverb"),
+            ("culture-p27", 1, "tresser une brioche de fête", "tresser une brioche de fête", "braid a festive brioche"),
             ("culture-p30", 1, "plusieurs semaines", "plusieurs semaines", "several weeks"),
             ("culture-p31", 2, "partenariat rémunéré", "partenariat rémunéré", "paid partnership"),
         ):

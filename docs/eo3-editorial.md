@@ -97,6 +97,18 @@ when an illustration changes, and keep distinct source groups distinct.
 `test_tache_three_reuse.py` pins these deliberate correspondences and boundaries;
 literal equality is not a quality quota or a substitute for reading the prompts.
 
+Pistes must remain faithful to the corresponding section of the model. Use
+ordinary English that explains the intended idea rather than translating isolated
+French labels. A cue may condense the wording, but must not add a cause, actor,
+restriction or example that the model does not support. Reread both languages
+against the full intervention.
+
+The Culture responses about adaptation, local relationships and difficulties
+abroad share the same qualified sentence about calls maintaining a bond without
+always replacing physical presence. Keep their distinct examples: a meal alone,
+nearby companionship and help, and being unable to visit a parent after surgery.
+Reuse this compatible premise, not one entire answer to these different questions.
+
 ## Reviewed defaults and preserved sources
 
 `study/content/tache_3/responses/<theme>.json` holds reviewed models using the
@@ -333,6 +345,15 @@ people's expectations. The tenant example checks the applicable local rules
 instead of asserting a universal entry rule or promising that a dispute will be
 resolved. Keep the retained budget and interpersonal reasons' identities through
 reordering, and give the new rights argument a fresh ID.
+
+The cultural-forgetting question concerns knowledge that the person previously
+possessed. Children never learning a tradition does not demonstrate forgetting.
+Distinguish reduced use of a language from losing occasions to practise shared
+cultural skills, even while the language remains in use. Examples should show
+an actual forgotten expression or formerly mastered gesture; keep adaptation
+versus forgetting in the nuance, rather than making that distinction a whole
+main argument. Regular contact can maintain or restore knowledge without making
+cultural continuity either inevitable or solely a matter of willpower.
 
 ## Famille learning consistency
 

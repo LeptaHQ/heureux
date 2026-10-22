@@ -40,7 +40,7 @@
       {# Keep the nested response-card tags adjacent so historical annotation whitespace offsets remain unchanged. #}
       {% include "study/partials/ee_tache_three_annotation_root.html" %}
     {% else %}{# Keep response controls excluded and spaceless so annotation offsets stay unchanged. #}
-    {% if response_content.position and not reviewed_eo3 %}
+    {% if response_content.position and not reviewed_eo3 and not structured_eo3 %}
       <section class="card section-card">
         <div class="section-card__head"><div class="spine-label">Position</div>{% if can_edit_response or eo3_response_copy_text %}<span class="section-card__tools" data-annotation-exclude>{% spaceless %}{% include "study/partials/oral_response_controls.html" %}{% endspaceless %}</span>{% endif %}</div>
         <p class="spine-text"{% if eo3_annotation_fields %} data-response-field="position"{% endif %}>{{ response_content.position }}</p>
@@ -49,13 +49,13 @@
 
     {% if response_content.position_claire %}
       <section class="card section-card">
-        <div class="section-card__head"><div class="spine-label">Introduction</div>{% if can_edit_response or eo3_response_copy_text %}{% if not response_content.position or reviewed_eo3 %}<span class="section-card__tools" data-annotation-exclude>{% spaceless %}{% include "study/partials/oral_response_controls.html" %}{% endspaceless %}</span>{% endif %}{% endif %}</div>
+        <div class="section-card__head"><div class="spine-label">Introduction</div>{% if can_edit_response or eo3_response_copy_text %}{% if not response_content.position or reviewed_eo3 or structured_eo3 %}<span class="section-card__tools" data-annotation-exclude>{% spaceless %}{% include "study/partials/oral_response_controls.html" %}{% endspaceless %}</span>{% endif %}{% endif %}</div>
         <p class="spine-text"{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="introduction"{% endif %}>{{ response_content.position_claire }}</p>
       </section>
     {% endif %}
 
     <section class="card section-card section-card--arguments">
-      <div class="section-card__head"><div class="spine-label">Arguments développés</div>{% if not response_content.position_claire %}{% if not response_content.position or reviewed_eo3 %}{% if can_edit_response or eo3_response_copy_text %}<span class="section-card__tools" data-annotation-exclude>{% spaceless %}{% include "study/partials/oral_response_controls.html" %}{% endspaceless %}</span>{% endif %}{% endif %}{% endif %}</div>
+      <div class="section-card__head"><div class="spine-label">Arguments développés</div>{% if not response_content.position_claire %}{% if not response_content.position or reviewed_eo3 or structured_eo3 %}{% if can_edit_response or eo3_response_copy_text %}<span class="section-card__tools" data-annotation-exclude>{% spaceless %}{% include "study/partials/oral_response_controls.html" %}{% endspaceless %}</span>{% endif %}{% endif %}{% endif %}</div>
       {% for arg in arguments %}
         <article class="arg arg--full">
           <h2 class="arg__idea">
@@ -198,7 +198,7 @@
     {% endif %}
   </aside>
   {% if subject_hints %}
-    {% include "study/partials/speaking_hints.html" with hints=subject_hints only %}
+    {% include "study/partials/speaking_hints.html" with hints=subject_hints show_position=structured_eo3 position=response_content.position position_annotation_key=oral_annotation_key only %}
   </div>
   {% endif %}
 </div>

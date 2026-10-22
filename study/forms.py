@@ -298,11 +298,12 @@ class PersonalResponseForm(forms.Form):
                 argument.order: getattr(argument, "annotation_id", index)
                 for index, argument in enumerate(annotation_arguments(prompt, content), 1)
             }
-            for field_name in ("reformulation", "position"):
-                # A learner's older private position stays visible and editable.
-                if field_name == "position" and content.is_personal and content.position.strip():
-                    continue
-                self.fields[field_name].widget = forms.HiddenInput()
+            self.fields["reformulation"].widget = forms.HiddenInput()
+            self.fields["position"].label = "Position (Pistes)"
+            self.fields["position"].help_text = (
+                "Repère affiché dans les Pistes, pas dans le texte de la réponse."
+            )
+            self.order_fields(("reformulation", "position_claire", "position"))
         self.argument_orders = []
         effective_arguments = {
             argument.order: argument for argument in content.arguments

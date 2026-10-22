@@ -329,7 +329,7 @@ class EO3ResponseEditTests(TestCase):
         self.assertFalse(OralStateSnapshot.objects.filter(user=self.user).exists())
         self.assertEqual(self.save(self.edited_example(self.model)).pk, personal.pk)
 
-    def test_editor_starts_with_model_and_has_no_version_choice_or_unused_position_fields(self):
+    def test_editor_starts_with_model_and_labels_position_as_pistes_metadata(self):
         page = self.client.get(reverse(
             "study:edit_response", args=["eo", "tache-3", self.prompt.pk],
         ))
@@ -337,9 +337,107 @@ class EO3ResponseEditTests(TestCase):
         self.assertContains(page, "Enregistrer la réponse")
         self.assertNotContains(page, "Enregistrer ma version")
         self.assertNotContains(page, "Version personnelle")
-        self.assertTrue(page.context["form"]["position"].is_hidden)
+        self.assertFalse(page.context["form"]["position"].is_hidden)
+        self.assertEqual(page.context["form"]["position"].value(), self.model.position)
+        self.assertContains(page, "Position (Pistes)")
+        self.assertContains(page, "Repère affiché dans les Pistes, pas dans le texte de la réponse.")
+        self.assertLess(
+            page.content.index(b'for="id_position_claire"'),
+            page.content.index(b'for="id_position"'),
+        )
         self.assertTrue(page.context["form"]["reformulation"].is_hidden)
         self.assertFalse(PersonalResponse.objects.exists())
+
+    def test_position_is_in_pistes_not_the_spoken_answer_for_models_and_edits(self):
+        for content in (
+            self.model,
+            replace(self.model, position="Mon avis personnel pour les Pistes.", is_personal=True),
+        ):
+            with self.subTest(personal=content.is_personal):
+                if content.is_personal:
+                    self.save(content)
+                page = self.client.get(prompt_detail_url(self.prompt))
+                html = page.content.decode()
+                answer = AnnotationRootText(html, root_class="answer-columns")
+                position = AnnotationRootText(html, root_class="subject-hints__position")
+                self.assertNotIn(content.position.encode("utf-16-le"), answer.text)
+                self.assertIn(content.position.encode("utf-16-le"), position.text)
+                self.assertContains(
+                    page,
+                    f'data-annotation-source-key="{variant_annotation_key(self.prompt, content)}:position"',
+                    count=1,
+                )
+                self.assertContains(page, 'data-prompt-copy-source="eo3-response-content"', count=1)
+                self.assertContains(page, "data-response-edit", count=1)
+                self.assertEqual(
+                    answer.text,
+                    render_current_response(self.prompt, content, "detail", self.user).text,
+                )
+                self.assertEqual(
+                    position.text,
+                    render_current_response(self.prompt, content, "position", self.user).text,
+                )
+                payload = _spine_payload(self.card, prompt=self.prompt)
+                practice = render_to_string("study/partials/card_back.html", payload)
+                self.assertInHTML(
+                    f'<p class="spine-text" lang="fr">{content.position}</p>',
+                    practice,
+                )
+                self.assertNotIn("data-response-field", practice)
+                self.assertEqual(payload["speech_text"], response_text(content))
+                self.assertEqual(page.context["eo3_response_copy_text"], response_text(content))
+
+    def test_empty_private_position_stays_empty_and_shows_an_explicit_pistes_prompt(self):
+        personal = self.save(replace(self.model, position="", is_personal=True))
+        page = self.client.get(prompt_detail_url(self.prompt))
+        self.assertContains(page, "À préciser dans l'introduction.")
+        self.assertNotContains(page, 'data-response-field="position"')
+        personal.refresh_from_db()
+        self.assertEqual(personal.position, "")
+
+    def test_old_private_position_selections_follow_the_field_into_pistes(self):
+        before = replace(
+            self.model, position="Mon ancienne position personnelle.", is_personal=True,
+        )
+        self.personal(before)
+        marks = [
+            self.mark(before, before.position, legacy=True, field="position"),
+            self.mark(
+                before, "ancienne position", legacy=True, field="position", anchored=False,
+                source_key=variant_annotation_key(self.prompt, before),
+            ),
+            self.mark(
+                before, before.position, legacy=True, field="position",
+                kind=AnnotationKind.NOTE,
+            ),
+        ]
+        introduction = self.mark(
+            before, before.position_claire, legacy=True, field="introduction",
+        )
+        saved = list(PersonalResponse.objects.values())
+        self.client.get(prompt_detail_url(self.prompt))
+        visible = self.visible()
+        for mark in marks:
+            if mark.kind == AnnotationKind.HIGHLIGHT:
+                self.assertIn(mark.pk, visible)
+            self.assert_attached(mark, before, surface="position")
+            self.assertEqual(mark.response_anchor["field"], "position")
+        self.assert_attached(introduction, before)
+        self.assertEqual(list(PersonalResponse.objects.values()), saved)
+
+    def test_forged_old_position_context_is_not_moved_to_pistes(self):
+        before = replace(
+            self.model, position="Mon ancienne position personnelle.", is_personal=True,
+        )
+        self.personal(before)
+        mark = self.mark(
+            before, before.position, legacy=True, field="position", anchored=False,
+            prefix="Un contexte inventé qui ne prouve pas la sélection.",
+        )
+        saved = Annotation.objects.filter(pk=mark.pk).values().get()
+        self.client.get(prompt_detail_url(self.prompt))
+        self.visible()
+        self.assertEqual(Annotation.objects.filter(pk=mark.pk).values().get(), saved)
 
     def test_copy_uses_the_current_response_in_french_paragraphs_without_ui_or_hints(self):
         for model in catalogue.tache_three_models().values():
@@ -370,7 +468,7 @@ class EO3ResponseEditTests(TestCase):
             render_current_response(self.prompt, after, "detail", self.user).text,
         )
 
-    def test_legacy_private_position_stays_visible_editable_and_carries_controls(self):
+    def test_legacy_private_position_stays_in_pistes_with_editing_controls_on_the_answer(self):
         self.save(replace(
             self.model, position="Mon ancienne position personnelle.",
             position_claire="", is_personal=True,

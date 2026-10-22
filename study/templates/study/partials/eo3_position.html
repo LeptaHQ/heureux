@@ -1,0 +1,8 @@
+<div class="subject-hints__section subject-hints__position"{% if position_annotation_key %} data-annotation-root data-annotation-source-key="{{ position_annotation_key }}:position"{% endif %}>
+  <h3 class="subject-hints__label">Position</h3>
+  {% if position %}
+    <p class="spine-text"{% if position_annotation_key %} data-response-field="position"{% endif %} lang="fr">{{ position }}</p>
+  {% else %}
+    <p class="muted" data-annotation-exclude>À préciser dans l'introduction.</p>
+  {% endif %}
+</div>

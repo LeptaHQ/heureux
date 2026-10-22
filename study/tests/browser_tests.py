@@ -3442,6 +3442,71 @@ class BrowserTests(StaticLiveServerTestCase):
                     mark.refresh_from_db()
                     self.assertEqual(mark.body, "Keep this personal note." if mark in marks else "Keep my practice note.")
 
+    def test_eo3_position_stays_in_pistes_before_and_after_editing(self):
+        from study import catalogue
+
+        self._import_eo_tache_three_content()
+        prompt = Prompt.objects.select_related(
+            "response", "theme__task__part",
+        ).get(content_key="culture:p1")
+        model = catalogue.tache_three_models()[prompt.response.semantic_group].response
+        self.page.goto(self.live_server_url + prompt_detail_url(prompt))
+        position = self.page.locator(".subject-hints__position [data-response-field=position]")
+        answer = self.page.locator(".answer-columns")
+        expect(position).to_have_text(model.position)
+        expect(answer.locator("[data-response-field=position]")).to_have_count(0)
+        expect(answer.locator(".spine-label").first).to_have_text("Introduction")
+        position_id = self.save_current_prompt_highlight(target=position)
+        introduction = answer.locator("[data-response-field=introduction]")
+        introduction_id = self.save_current_prompt_highlight(target=introduction)
+        mark = Annotation.objects.get(pk=position_id)
+        self.assertEqual(mark.response_anchor["field"], "position")
+        self.assertTrue(mark.source_key.endswith(":model:position"))
+        self.page.reload()
+        expect(position.locator(f'mark[data-highlight-id="{position_id}"]')).to_be_visible()
+
+        self.page.locator("[data-response-edit]").click()
+        expect(self.page.get_by_label("Position (Pistes)", exact=True)).to_have_value(model.position)
+        self.page.locator("#id_argument_1_exemple").fill(
+            "Mon exemple personnel, conservé uniquement dans ma réponse."
+        )
+        self.page.get_by_role("button", name="Enregistrer la réponse", exact=True).click()
+        expect(position).to_have_text(model.position)
+        expect(position.locator(f'mark[data-highlight-id="{position_id}"]')).to_be_visible()
+        expect(introduction.locator(f'mark[data-highlight-id="{introduction_id}"]')).to_be_visible()
+        expect(answer.locator("[data-response-field=position]")).to_have_count(0)
+        expect(answer.locator(".spine-label").first).to_have_text("Introduction")
+
+        self.page.locator("[data-response-edit]").click()
+        private_position = "Mon opinion personnelle, affichée uniquement dans les Pistes."
+        self.page.get_by_label("Position (Pistes)", exact=True).fill(private_position)
+        self.page.get_by_role("button", name="Enregistrer la réponse", exact=True).click()
+        expect(position).to_have_text(private_position)
+        expect(position.locator(f'mark[data-highlight-id="{position_id}"]')).to_have_count(0)
+        self.assertTrue(Annotation.objects.filter(pk=position_id, user=self.user).exists())
+        expect(introduction.locator(f'mark[data-highlight-id="{introduction_id}"]')).to_be_visible()
+        for width in (390, 1280):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            expect(position).to_be_visible()
+            expect(answer.locator("[data-response-field=position]")).to_have_count(0)
+            self.assert_no_horizontal_overflow()
+        self.assertNotIn(
+            private_position,
+            self.page.locator("#eo3-response-content").text_content(),
+        )
+        practice = self.page.get_by_role(
+            "link", name="Pratiquer cette réponse", exact=True,
+        ).get_attribute("href")
+        self.page.goto(self.live_server_url + practice)
+        self.page.locator("#reveal").click()
+        position = self.page.locator("#card-back .subject-hints__position")
+        expect(position.locator(".spine-text")).to_have_text(private_position)
+        self.assertTrue(position.evaluate(
+            "element => element.closest('[data-annotation-exclude]') !== null && "
+            "element.closest('[data-read-aloud-text]') === null"
+        ))
+        self.assert_no_horizontal_overflow()
+
     def test_reviewed_eo3_learning_aids_match_on_detail_and_practice(self):
         from study import catalogue
 
@@ -3478,6 +3543,9 @@ class BrowserTests(StaticLiveServerTestCase):
                 explanation.locator("summary").click()
                 expect(explanation.locator('p[lang="en"]')).to_have_text(note.note)
                 hints = self.page.locator(".subject-hints--speaking")
+                position = catalogue.tache_three_models()[identity].response.position
+                expect(hints.locator(".subject-hints__position [data-response-field=position]")).to_have_text(position)
+                expect(self.page.locator(".answer-columns [data-response-field=position]")).to_have_count(0)
                 for language in ("french", "english"):
                     expect(hints.locator(f".subject-hints__{language}")).to_have_text(
                         [getattr(cue, language) for cue in cues],
@@ -3495,6 +3563,7 @@ class BrowserTests(StaticLiveServerTestCase):
                 expect(front.locator(".subject-hints")).to_have_count(0)
                 self.page.locator("#reveal").click()
                 hints = self.page.locator("#card-back .subject-hints--speaking")
+                expect(hints.locator(".subject-hints__position .spine-text")).to_have_text(position)
                 for language in ("french", "english"):
                     expect(hints.locator(f".subject-hints__{language}")).to_have_text(
                         [getattr(cue, language) for cue in cues],

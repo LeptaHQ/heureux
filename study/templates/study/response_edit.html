@@ -89,6 +89,7 @@
           <div class="response-edit-field">
             <label for="{{ field.id_for_label }}">{{ field.label }}</label>
             {{ field }}
+            {% if form.structured_eo3 and field.name == "position" %}<small class="muted" id="{{ field.auto_id }}_helptext">{{ field.help_text }}</small>{% endif %}
             {% for error in field.errors %}<small class="auth-field__error">{{ error }}</small>{% endfor %}
             {% if is_writing_tache_three and field.name == "position" %}<p class="muted" data-writing-word-status aria-live="polite">Limite officielle : 40 à 60 mots.</p>{% endif %}
             {% if is_writing_tache_three and field.name == "position_claire" %}<p class="muted" data-writing-word-status aria-live="polite">Limite officielle : 80 à 120 mots.</p>{% endif %}

@@ -27,7 +27,7 @@ from .tache_two_dialogues import dialogue_response, published_dialogue
 
 PUBLIC_KEY = re.compile(
     r"^response:(?P<prompt>.+):(?:(?P<model>model)|variant-(?P<digest>[0-9a-f]{16}))"
-    r"(?P<surface>:(?:front|back))?$"
+    r"(?P<surface>:(?:front|back|position))?$"
 )
 CONTEXT_LABELS = re.compile(
     r"\b(?:Arguments développés|Exemple concret|Développement|Conséquence|"
@@ -58,6 +58,14 @@ def _current_content(prompt, user):
 
 
 def render_current_response(prompt, content, surface, user, *, legacy_personal=False):
+    if surface == "position":
+        return AnnotationRootText(render_to_string(
+            "study/partials/eo3_position.html",
+            {
+                "position": content.position,
+                "position_annotation_key": variant_annotation_key(prompt, content),
+            },
+        ))
     prompts = list(lean_prompt_rows(prompt.response.prompts.filter(is_active=True)))
     is_eo2 = prompt.theme.task.slug == "tache-2"
     if is_eo2 and surface != "front":
@@ -229,7 +237,7 @@ def capture_public_response_anchor(annotation):
     if content is None:
         return {}
     rendered = render_current_response(
-        prompt, content, "back" if match["surface"] == ":back" else "detail",
+        prompt, content, match["surface"].removeprefix(":") if match["surface"] else "detail",
         annotation.user,
     )
     return capture_rendered_response_anchor(annotation, rendered)
@@ -367,7 +375,16 @@ def preserve_public_response_annotations(user, source_filter):
                             legacy_surfaces[original_surface] = render_current_response(
                                 prompt, model.response, surface, user,
                             )
-                        bound = _legacy_selection(annotation, legacy_surfaces[original_surface]) or annotation
+                        bound = _legacy_selection(annotation, legacy_surfaces[original_surface])
+                        if bound is None:
+                            private_surface = ("personal", surface)
+                            if private_surface not in legacy_surfaces:
+                                legacy_surfaces[private_surface] = render_current_response(
+                                    prompt, content, surface, user, legacy_personal=True,
+                                )
+                            bound = _legacy_selection(
+                                annotation, legacy_surfaces[private_surface],
+                            ) or annotation
                     elif not public:
                         legacy_surface = (legacy_key, surface)
                         if legacy_surface not in legacy_surfaces:
@@ -378,6 +395,17 @@ def preserve_public_response_annotations(user, source_filter):
                         bound = _legacy_selection(annotation, legacy_surfaces[legacy_surface])
                         if bound is None:
                             continue
+                    if (
+                        prompt.theme.task.slug == "tache-3"
+                        and isinstance(bound.response_anchor, dict)
+                        and bound.response_anchor.get("field") == "position"
+                    ):
+                        target = key + ":position"
+                        if "position" not in rendered_surfaces:
+                            rendered_surfaces["position"] = render_current_response(
+                                prompt, content, "position", user,
+                            )
+                        rendered = rendered_surfaces["position"]
                     offsets = current_anchor(bound, rendered)
                     if offsets is None:
                         if annotation.source_key == target:

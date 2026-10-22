@@ -117,6 +117,18 @@ each argument has `idea`, `developpement`, `exemple` and `consequence`;
 `nuance` and `conclusion` finish the intervention. `position` and `reformulation`
 remain concise preparation metadata, not additional spoken paragraphs.
 
+Position is always displayed in Pistes for reviewed EO3 responses, including
+personal edits. The spoken answer starts with Introduction; Position is excluded
+from response copying and narration. The editor labels it `Position (Pistes)`.
+Keep the current learner's text, including an intentionally empty value, rather
+than substituting the public model's position. A blank value shows an explicit
+prompt to state an opinion in the introduction.
+
+Position selections use the model's stable annotation namespace with a
+`:position` surface. Existing selections move only when their field anchor or
+complete owned legacy context proves that they belong to Position. Other answer
+and sidebar roots remain separate; notes and private responses are not replaced.
+
 `study/tache_three_models.py` validates complete coverage of each authored theme,
 three supported arguments, distinct claims/mechanisms/examples, and the rehearsal
 envelope. Every source consigne is pinned by its exact text's SHA-256 signature,

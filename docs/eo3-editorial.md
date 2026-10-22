@@ -61,6 +61,14 @@ needs a person or group, a specific action or event, and a relevant result.
 Adding "Par exemple" to a general assertion does not make it an illustration.
 An example that fits all three arguments unchanged is too generic.
 
+State the claim at the level of the argument, rather than listing its examples.
+Financial difficulties can be the claim; irregular income, housing costs and
+daily expenses belong in its explanation, followed by a situated example.
+General does not mean vague: name the benefit or risk and explain its cause.
+Do not replace a substantive benefit with a small feature of the example.
+The consequence states what follows from the support, rather than introducing
+fresh advice about how to avoid the problem.
+
 The three paragraphs should make distinct contributions to the exact position,
 rather than list three side effects of one benefit. Preserve necessary
 qualifications without turning a clear argument into empty caution. Favor clear

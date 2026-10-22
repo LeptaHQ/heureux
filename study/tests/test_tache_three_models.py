@@ -694,7 +694,8 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("En y participant", response.arguments[1].developpement)
         self.assertIn("préparer un plat de fête avec elle", response.arguments[1].exemple)
         self.assertIn("on essaie une pratique", response.arguments[1].consequence)
-        self.assertIn("poser ses propres questions", response.arguments[2].idea)
+        self.assertIn("approfondir sa connaissance d'une culture", response.arguments[2].idea)
+        self.assertIn("poser une question précise", response.arguments[2].developpement)
         self.assertIn("corriger un malentendu", response.arguments[2].developpement)
 
     def test_culture_country_knowledge_has_distinct_material_legal_and_relational_reasons(self):

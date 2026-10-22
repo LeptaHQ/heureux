@@ -106,6 +106,7 @@ class CultureEditorialTests(SimpleTestCase):
     def test_compatriot_cultural_transmission_is_collective_and_nuance_keeps_other_connections(self):
         response = self.response(11)
         cultural = response.arguments[2]
+        self.assertIn("d'autres familles", cultural.developpement)
         for phrase in (
             "association de compatriotes", "danse traditionnelle",
             "répètent ensemble", "fête de la communauté",
@@ -164,17 +165,50 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("training opportunities", cue.point.english)
         self.assertIn("professional skills", cue.point.english)
 
-    def test_living_abroad_material_difficulty_uses_concrete_housing_and_money_wording(self):
+    def test_living_abroad_financial_claim_is_developed_before_its_concrete_example(self):
         argument = self.response(17).arguments[1]
         self.assertEqual(
             argument.idea,
-            "Ensuite, des problèmes de logement ou d'argent peuvent rendre "
-            "la vie à l'étranger très difficile.",
+            "Ensuite, les difficultés financières peuvent rendre la vie à l'étranger éprouvante.",
         )
+        self.assertIn("revenus sont insuffisants ou irréguliers", argument.developpement)
+        self.assertIn("payer le logement et les dépenses courantes", argument.developpement)
         self.assertIn("payer le loyer", argument.exemple)
         cue = self.plans["eo/tache-3/culture-p17"].arguments[1]
-        self.assertIn("problèmes de logement ou d'argent", cue.point.french)
-        self.assertIn("Housing or money problems", cue.point.english)
+        self.assertIn("Les difficultés financières", cue.point.french)
+        self.assertIn("Financial difficulties", cue.point.english)
+
+    def test_argument_claims_state_the_benefit_or_risk_before_explaining_its_mechanism(self):
+        for number, index, claim, explanation, example in (
+            (5, 2, "contacts sur place", "Des conseils précis", "relire son CV"),
+            (14, 2, "approfondir sa connaissance", "poser une question précise", "formules de politesse"),
+            (26, 2, "éviter des malentendus", "mal interpréter", "prévoir leurs visites"),
+            (30, 2, "obstacles administratifs", "faire reconnaître un diplôme", "profession est réglementée"),
+            (31, 1, "banaliser les comportements agressifs", "peut sembler valorisée", "moquerie"),
+            (33, 1, "mobiliser le public", "informations vérifiées", "réunion publique"),
+        ):
+            with self.subTest(response=number, argument=index + 1):
+                argument = self.response(number).arguments[index]
+                self.assertIn(claim, argument.idea)
+                self.assertIn(explanation, argument.developpement)
+                self.assertIn(example, argument.exemple)
+
+    def test_impulse_buying_consequence_is_a_result_not_fresh_advice(self):
+        argument = self.response(34).arguments[1]
+        self.assertIn("augmenter les dépenses", argument.consequence)
+        self.assertIn("sans mieux répondre aux besoins", argument.consequence)
+        self.assertNotIn("Attendre avant de payer", argument.consequence)
+        plan = self.plans["eo/tache-3/culture-p34"]
+        self.assertIn("offre semble urgente", plan.arguments[1].example.french)
+        self.assertIn("offer seems urgent", plan.arguments[1].example.english)
+        self.assertIn("plusieurs enfants", plan.arguments[2].example.french)
+        self.assertIn("several children", plan.arguments[2].example.english)
+
+    def test_standalone_positions_name_the_issue_instead_of_an_orphan_pronoun(self):
+        self.assertTrue(self.response(9).position.startswith("S'adapter"))
+        for number in (17, 29):
+            with self.subTest(response=number):
+                self.assertTrue(self.response(number).position.startswith("La vie à l'étranger"))
 
     def test_adaptation_keeps_the_preferred_preferences_and_practical_response_wording(self):
         self.assertEqual(
@@ -244,7 +278,9 @@ class CultureEditorialTests(SimpleTestCase):
     def test_material_difficulty_includes_time_and_fatigue_not_only_expenses(self):
         response = self.response(29)
         material = response.arguments[0]
-        self.assertIn("le travail et le logement", material.idea)
+        self.assertIn("les contraintes matérielles", material.idea)
+        self.assertIn("Le coût du logement", material.developpement)
+        self.assertIn("possibilités d'emploi", material.developpement)
         self.assertIn("trajet quotidien", material.exemple)
         self.assertIn("son budget, sa fatigue", material.exemple)
         self.assertIn("contraintes qui peuvent durer", material.consequence)

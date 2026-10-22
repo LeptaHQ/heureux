@@ -222,8 +222,8 @@
         },
         {
           "point": {
-            "french": "Les échanges sur place aident à corriger sa méthode quand elle ne fonctionne pas.",
-            "english": "Local feedback helps improve an approach that is not working."
+            "french": "Les contacts sur place peuvent aider à faire avancer son projet.",
+            "english": "Local contacts can help move a plan forward."
           },
           "example": {
             "french": "Un conseiller aide à adapter un CV sans garantir une embauche.",
@@ -373,7 +373,7 @@
     "culture-p9": {
       "introduction": {
         "french": "S'adapter demande de communiquer, de retrouver des repères et de réorganiser ses routines.",
-        "english": "Adapting involves communication, familiar anchors and reorganising routines."
+        "english": "Adapting means learning to communicate, rebuilding close connections and reorganising daily routines."
       },
       "nuance": {
         "french": "L'information et le soutien réduisent les obstacles, qui ne traduisent pas forcément un refus d'adaptation.",
@@ -498,8 +498,8 @@
         },
         {
           "point": {
-            "french": "Ces relations peuvent faire vivre la culture d'origine au quotidien.",
-            "english": "These relationships can sustain everyday cultural practices."
+            "french": "Ces relations peuvent aider à transmettre la culture d'origine.",
+            "english": "These relationships can help pass on your cultural heritage."
           },
           "example": {
             "french": "Dans une association de compatriotes, les enfants apprennent une danse traditionnelle puis la présentent à une fête.",
@@ -636,8 +636,8 @@
         },
         {
           "point": {
-            "french": "Les échanges à distance permettent de poser ses propres questions.",
-            "english": "Remote exchanges allow people to ask their own questions."
+            "french": "Les échanges à distance permettent d'approfondir sa connaissance d'une culture.",
+            "english": "Remote conversations can deepen your understanding of a culture."
           },
           "example": {
             "french": "Un partenaire en ligne explique les formules de politesse utilisées avec ses professeurs et ses amis.",
@@ -662,8 +662,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Les repas peuvent montrer comment les personnes vivent un moment ensemble.",
-            "english": "Meals can show how people spend time together."
+            "french": "Les repas permettent de comprendre certaines habitudes de vie.",
+            "english": "Meals help people understand everyday customs."
           },
           "example": {
             "french": "Un hôte explique pourquoi sa famille attend que tout le monde soit assis avant de manger.",
@@ -676,14 +676,14 @@
             "english": "Recipes can tell the history of a place and its practical knowledge."
           },
           "example": {
-            "french": "Dans un atelier, découvrir comment une grand-mère faisait sécher les tomates d'été pour l'hiver.",
-            "english": "At a workshop, learn how a grandmother dried summer tomatoes for winter."
+            "french": "Dans un atelier, découvrir comment une grand-mère faisait sécher les tomates pour l'hiver.",
+            "english": "At a workshop, learn how a grandmother dried tomatoes for winter."
           }
         },
         {
           "point": {
-            "french": "Cuisiner ensemble peut faciliter la conversation.",
-            "english": "Cooking together can make conversation easier."
+            "french": "Cuisiner ensemble peut faciliter les échanges entre cultures.",
+            "english": "Cooking together can help people from different cultures talk to each other."
           },
           "example": {
             "french": "Deux voisins comparent leurs façons de préparer et de servir du riz.",
@@ -764,8 +764,8 @@
         },
         {
           "point": {
-            "french": "Des problèmes de logement ou d'argent peuvent rendre la vie à l'étranger très difficile.",
-            "english": "Housing or money problems can make life abroad very difficult."
+            "french": "Les difficultés financières peuvent rendre la vie à l'étranger éprouvante.",
+            "english": "Financial difficulties can make life abroad stressful."
           },
           "example": {
             "french": "Partir sans emploi confirmé et voir ses économies diminuer rend le loyer prioritaire.",
@@ -1096,8 +1096,8 @@
         },
         {
           "point": {
-            "french": "Comprendre quelques habitudes locales m'aiderait à aborder les différences avec moins d'inquiétude.",
-            "english": "Understanding some local habits would make differences less worrying."
+            "french": "Comprendre quelques habitudes locales m'aiderait à éviter des malentendus.",
+            "english": "Understanding local customs would help me avoid misunderstandings."
           },
           "example": {
             "french": "Prévoir une visite avec ses voisins plutôt que prendre leur besoin d'organisation pour un rejet.",
@@ -1168,8 +1168,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Le travail et le logement peuvent imposer des choix difficiles au quotidien.",
-            "english": "Work and housing can involve difficult day-to-day trade-offs."
+            "french": "Les contraintes matérielles peuvent compliquer la vie quotidienne.",
+            "english": "Practical constraints can make everyday life more difficult."
           },
           "example": {
             "french": "Un logement moins cher mais éloigné impose un arbitrage entre budget et fatigue.",
@@ -1234,8 +1234,8 @@
         },
         {
           "point": {
-            "french": "Certains obstacles empêchent de participer pleinement à la vie professionnelle.",
-            "english": "Some barriers prevent full participation in working life."
+            "french": "Des obstacles administratifs peuvent freiner l'intégration professionnelle.",
+            "english": "Administrative barriers can make it harder to work in your profession."
           },
           "example": {
             "french": "Attendre la reconnaissance d'un diplôme ; le bénévolat ne remplace ni le métier ni le revenu.",
@@ -1260,8 +1260,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Une mise en scène du luxe peut donner une image trompeuse de la réussite.",
-            "english": "Staged luxury can give a misleading image of success."
+            "french": "Ces émissions peuvent donner une image trompeuse de la réussite.",
+            "english": "These programmes can give a misleading image of success."
           },
           "example": {
             "french": "Comparer son quotidien aux seuls séjours luxueux d'un candidat peut faire croire que sa propre vie est sans intérêt.",
@@ -1270,8 +1270,8 @@
         },
         {
           "point": {
-            "french": "La répétition des disputes peut présenter l'agressivité comme un moyen d'attirer l'attention.",
-            "english": "Repeated disputes can make aggression seem like a way to attract attention."
+            "french": "Certaines émissions peuvent banaliser les comportements agressifs.",
+            "english": "Some programmes can make aggressive behaviour seem normal."
           },
           "example": {
             "french": "Reprendre une moquerie de l'émission peut humilier un camarade plutôt que faire rire.",
@@ -1306,8 +1306,8 @@
       "arguments": [
         {
           "point": {
-            "french": "Un parcours artistique ou sportif n'empêche pas d'avoir une expérience utile au débat.",
-            "english": "An artistic or sporting career can offer useful experience for debate."
+            "french": "L'expérience professionnelle d'une célébrité peut enrichir le débat public.",
+            "english": "A celebrity's professional experience can enrich public debate."
           },
           "example": {
             "french": "Une sportive explique pourquoi l'absence de bus empêche des jeunes de rejoindre le gymnase le soir.",
@@ -1316,8 +1316,8 @@
         },
         {
           "point": {
-            "french": "La visibilité peut attirer l'attention sur une question peu discutée.",
-            "english": "Visibility can draw attention to a neglected issue."
+            "french": "La notoriété peut aider à mobiliser le public autour d'une cause.",
+            "english": "Fame can help mobilise the public around a cause."
           },
           "example": {
             "french": "Un acteur relaie une association sur l'accessibilité des transports et invite à une réunion publique.",
@@ -1366,8 +1366,8 @@
             "english": "Buying in a few clicks can encourage spending without thinking."
           },
           "example": {
-            "french": "Une promotion répétée pousse à acheter des chaussures dont on n'a pas besoin.",
-            "english": "A repeated promotion encourages buying shoes that are not needed."
+            "french": "Acheter une paire de chaussures inutile parce qu'une offre semble urgente.",
+            "english": "Buy an unnecessary pair of shoes because an offer seems urgent."
           }
         },
         {
@@ -1376,8 +1376,8 @@
             "english": "Buying secondhand and repairing things keep objects in use longer."
           },
           "example": {
-            "french": "Un vélo d'enfant acheté puis revendu d'occasion sert à plusieurs familles.",
-            "english": "A child's bike bought and resold secondhand serves several families."
+            "french": "Un vélo d'enfant acheté puis revendu d'occasion sert à plusieurs enfants.",
+            "english": "A child's bike bought and resold secondhand serves several children."
           }
         }
       ]
@@ -1392,8 +1392,8 @@
         "english": "Access to jobs and housing should be fair. Everyone deserves respect, whether or not they contribute to the economy."
       },
       "conclusion": {
-        "french": "Construire les contributions avec un accueil équitable et une participation réciproque.",
-        "english": "Build contributions through a fair welcome and reciprocal participation."
+        "french": "Un accueil équitable permet de participer à la vie commune avec les autres habitants.",
+        "english": "Giving newcomers a fair chance helps them contribute alongside other residents."
       },
       "arguments": [
         {

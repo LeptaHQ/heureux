@@ -201,6 +201,19 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("un parent devenu malade", argument.exemple)
         self.assertIn("le coût et le calendrier empêchent les visites", argument.exemple)
 
+    def test_living_abroad_nuance_distinguishes_learning_from_compensating_for_hardship(self):
+        nuance = self.response(17).nuance
+        self.assertIn("une difficulté ponctuelle ne rend pas tout le séjour négatif", nuance)
+        self.assertIn("Un soutien ou un changement de projet peut améliorer la situation.", nuance)
+        self.assertIn(
+            "ce que l'on apprend d'une épreuve ne compense pas toujours la souffrance qu'elle a causée.",
+            nuance,
+        )
+        self.assertNotIn("il ne faut pas prétendre", nuance)
+        cue = self.plans["eo/tache-3/culture-p17"].nuance
+        self.assertIn("apprendre ne compense pas toujours la souffrance", cue.french)
+        self.assertIn("learning from it does not always make up for the suffering", cue.english)
+
     def test_argument_claims_state_the_benefit_or_risk_before_explaining_its_mechanism(self):
         for number, index, claim, explanation, example in (
             (5, 2, "contacts sur place", "Des conseils précis", "relire son CV"),

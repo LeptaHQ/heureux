@@ -1239,7 +1239,7 @@ class EeTacheThreePageTests(TestCase):
             detail.context["response_content"],
         )
 
-        self.assertContains(detail, f'href="{edit_url}"', count=2)
+        self.assertContains(detail, f'href="{edit_url}"', count=1)
         self.assertContains(detail, "data-response-edit", count=1)
         self.assertContains(
             detail,
@@ -1753,7 +1753,7 @@ class EeTacheThreePageTests(TestCase):
                     page = self.client.get(prompt_detail_url(prompt))
                     self.assertEqual(page.status_code, 200)
                     self.assertEqual(page.context["response"], canonical)
-                    self.assertEqual(page.context["card"].pk, card.pk)
+                    self.assertNotIn("card", page.context)
                     self.assertEqual(page.context["subject_progress"].status, "done")
                     self.assertEqual(
                         {
@@ -2013,7 +2013,9 @@ class EeTacheThreePageTests(TestCase):
         self.assertNotContains(response, "Combinaison")
         self.assertContains(response, "Documents sources")
         self.assertContains(response, "Version de l’auteur")
-        self.assertContains(response, "Pratiquer ce thème")
+        self.assertNotContains(response, "Pratiquer ce thème")
+        self.assertNotIn("theme_review_url", response.context)
+        self.assertContains(response, 'aria-label="Pratiquer cette réponse"', count=1)
         self.assertContains(response, "tache-two-consigne")
         self.assertContains(response, "Copier le sujet")
         self.assertContains(
@@ -3563,7 +3565,8 @@ class CategoryBatchViewsTests(TestCase):
             ],
             [10, 10, 10, 10, 10],
         )
-        self.assertContains(page, "Pratiquer les vocabs")
+        self.assertNotContains(page, "Pratiquer les vocabs")
+        self.assertNotIn("vocabulary_review_url", page.context)
         self.assertContains(
             page,
             'data-recall-controls="response-subject-vocabulary-recall-catalog"',

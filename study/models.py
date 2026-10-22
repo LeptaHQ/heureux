@@ -1304,6 +1304,8 @@ class Card(models.Model):
         db_index=True,
     )
     subject_status_reset_at = models.DateTimeField(null=True, blank=True)
+    # When a reset sujet became active again; earlier activity no longer counts as its start.
+    subject_started_at = models.DateTimeField(null=True, blank=True)
     created_at = models.DateTimeField(default=timezone.now)
 
     objects = CardQuerySet.as_manager()

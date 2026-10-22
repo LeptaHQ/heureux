@@ -111,6 +111,7 @@
         <section class="card section-card section-card--empty">
           <div class="spine-label">Réponse</div>
           <p class="muted">Ce sujet n'a pas encore de réponse modèle. Personnalisez-le pour rédiger la vôtre.</p>
+          <a class="btn btn--primary" href="{% subject_url 'study:writing_sujet_edit' part.slug task.slug sujet.pk %}">{% include "study/partials/ui_icon.html" with name="pencil" only %}Personnaliser la réponse</a>
         </section>
       {% endif %}
     </div>
@@ -125,11 +126,12 @@
             class="progress-status progress-status--{{ writing_progress.status }}"
             data-writing-sujet-progress-status="{{ progress_sujet.pk }}">{{ writing_progress.label }}</span>
           <div class="subject-progress-control__action">
-            <span>J’ai terminé ce sujet</span>
+            <span class="sr-only">J’ai terminé ce sujet</span>
             {% include "study/partials/writing_sujet_completion_form.html" with sujet=progress_sujet completed=explicitly_completed subject_label=prompt part=part task=task %}
           </div>
         </div>
         <dl class="kv">
+          {% if writing_started_at %}<div><dt>Commencée</dt><dd>{{ writing_started_at|date:"j M Y" }}</dd></div>{% endif %}
           <div><dt>Thème</dt><dd>{{ category_label }}</dd></div>
           {% if source %}
             <div>
@@ -140,10 +142,6 @@
           <div><dt>Limite</dt><dd>{{ word_limit_min }}–{{ word_limit_max }} mots</dd></div>
           <div><dt>Personnalisation</dt><dd>{% if has_response_edits %}Prête{% else %}À faire{% endif %}</dd></div>
         </dl>
-        <div class="response-sidebar-actions">
-          <a class="btn btn--primary btn--block" href="{% subject_url 'study:writing_sujet_edit' part.slug task.slug sujet.pk %}">{% if writing_tache == 1 and primary_version or writing_tache == 1 and has_personal %}Modifier la réponse{% elif has_personal %}Modifier ma version{% else %}Personnaliser la réponse{% endif %}</a>
-          <a class="btn btn--block" href="{% subject_url 'study:task_browse' part.slug task.slug %}">Tous les sujets</a>
-        </div>
       </div>
 
       {% if subject_hints %}

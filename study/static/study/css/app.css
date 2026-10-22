@@ -7645,17 +7645,57 @@ a.qrow:focus-visible {
 #subject-hints-title {
   scroll-margin-top: 5rem;
 }
-.response-sidebar-actions {
+.subject-practice-link {
+  width: 2rem;
+  height: 2rem;
   display: grid;
-  gap: 0.5rem;
-  margin-top: 0.95rem;
+  place-items: center;
+  border-radius: 50%;
+  color: var(--primary);
+  --icon-color: var(--primary);
 }
-.response-sidebar-actions .btn {
-  min-height: 42px;
-  padding: 0.52rem 0.75rem;
-  border-radius: 12px;
-  font-size: 0.82rem;
+.subject-practice-link::before {
+  content: "";
+  grid-area: 1 / 1;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 1px solid color-mix(in srgb, var(--primary) 45%, var(--border-strong));
+  border-radius: 50%;
+  background: var(--surface);
+  transition: background 0.16s ease, border-color 0.16s ease;
 }
+.subject-practice-link .ui-icon {
+  grid-area: 1 / 1;
+  position: relative;
+  width: 0.7rem;
+  height: 0.7rem;
+}
+.subject-practice-link:hover::before {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}
+.subject-practice-link:focus-visible {
+  outline: 0;
+}
+.subject-practice-link:focus-visible::before {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent);
+}
+.subject-progress-control__action .subject-completion-check,
+.subject-progress-control__action .subject-status-reset,
+.subject-progress-control__action .subject-practice-link {
+  flex: 0 0 2.4rem;
+  width: 2.4rem;
+  height: 2.4rem;
+}
+.subject-progress-control__action .subject-completion-check button::before,
+.subject-progress-control__action .subject-status-reset button::before,
+.subject-progress-control__action .subject-practice-link::before {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+.subject-progress-control__action .subject-completion-check .ui-icon { width: 0.72rem; height: 0.72rem; }
+.subject-progress-control__action .subject-status-reset .ui-icon,
+.subject-progress-control__action .subject-practice-link .ui-icon { width: 0.9rem; height: 0.9rem; }
 .response-sidebar-list {
   margin: 0.65rem 0 0;
   padding: 0;

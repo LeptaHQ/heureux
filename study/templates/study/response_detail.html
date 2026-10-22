@@ -110,30 +110,11 @@
   <aside class="detail-side" data-annotation-root data-annotation-source-key="subject-sidebar:{% if oral_annotation_key %}{{ selected_prompt.content_key }}{% else %}{{ response.content_key }}{% endif %}">
     <div class="card section-card response-sidebar-card response-sidebar-card--status">
       <div class="spine-label">Progression du sujet</div>
-      {% include "study/partials/subject_progress_control.html" with subject_label=selected_prompt.text hide_help=True compact_audio_control=structured_eo3 read_audio=eo3_audio %}
-      {% if card %}
-        <div class="spine-label">Pratique de la réponse</div>
-        <dl class="kv">
-          {% if card.response_practice_started_at %}<div><dt>Commencée</dt><dd>{{ card.response_practice_started_at|date:"j M Y" }}</dd></div>{% endif %}
-          <div><dt>Répétitions</dt><dd>{{ card.reps }}</dd></div>
-          <div><dt>Oublis</dt><dd>{{ card.lapses }}</dd></div>
-          <div><dt>Intervalle</dt><dd>{{ card.interval_days|floatformat:0 }} j</dd></div>
-          <div><dt>Facilité</dt><dd>{{ card.ease|floatformat:2 }}</dd></div>
-          {% if card.due %}<div><dt>Prochaine</dt><dd>{{ card.due|date:"j M Y" }}</dd></div>{% endif %}
-        </dl>
-      {% else %}
-        <p class="muted">Aucune pratique de la réponse.</p>
+      {% include "study/partials/subject_progress_control.html" with subject_label=selected_prompt.text hide_help=True practice_url=response_review_url practice_label="Pratiquer cette réponse" compact_audio_control=structured_eo3 read_audio=eo3_audio %}
+      {% if subject_progress.started_at %}
+        <dl class="kv"><div><dt>Commencée</dt><dd>{{ subject_progress.started_at|date:"j M Y" }}</dd></div></dl>
       {% endif %}
-      <div class="response-sidebar-actions">
-        {% if can_edit_response %}
-          <a class="btn btn--block" href="{% subject_url 'study:edit_response' part.slug task.slug selected_prompt.pk %}">{% if ee_response or single_response_eo3 %}Modifier la réponse{% elif response_content.is_personal %}Modifier ma version{% else %}Personnaliser la réponse{% endif %}</a>
-        {% endif %}
-        <a class="btn btn--primary btn--block" href="{{ response_review_url }}">Pratiquer cette réponse</a>
-        <a class="btn btn--block" href="{{ theme_review_url }}">Pratiquer ce thème</a>
-        {% if vocabulary_review_url %}
-          <a class="btn btn--block" href="{{ vocabulary_review_url }}">Pratiquer les vocabs</a>
-        {% endif %}
-      </div>
+      {# Editing lives on the response; practice sits with the progress icons. #}
     </div>
 
     {% if ee_response and ee_equivalent_subjects %}

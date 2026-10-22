@@ -5,8 +5,8 @@
     class="progress-status progress-status--{{ subject_progress.status }}"
     data-subject-progress-status="{{ response.pk }}">{{ subject_progress.label }}</span>
   <div class="subject-progress-control__action">
-    {# Keep the existing label text in the DOM for saved sidebar annotation offsets. #}<span{% if compact_audio_control %} class="sr-only"{% endif %}>J’ai terminé ce sujet</span>
-    {% if compact_audio_control %}{% spaceless %}{% include "study/partials/subject_status_reset_form.html" %}{% endspaceless %}{% endif %}{% include "study/partials/subject_completion_form.html" with response_id=response.pk progress=subject_progress subject_label=subject_label part=part task=task %}
+    {# Visually hidden, but kept in the DOM for saved sidebar annotation offsets. #}<span class="sr-only">J’ai terminé ce sujet</span>
+    {% if compact_audio_control %}{% spaceless %}{% include "study/partials/subject_status_reset_form.html" %}{% endspaceless %}{% endif %}{% include "study/partials/subject_completion_form.html" with response_id=response.pk progress=subject_progress subject_label=subject_label part=part task=task %}{% if practice_url %}{% spaceless %}<a class="subject-practice-link" href="{{ practice_url }}" aria-label="{{ practice_label }}" title="{{ practice_label }}" data-annotation-exclude>{% include "study/partials/ui_icon.html" with name="target" only %}</a>{% endspaceless %}{% endif %}
   </div>
 </div>
 {% if not hide_help %}<p class="subject-progress-control__help">{% if part.slug == "ee" and task.slug == "tache-3" %}La pratique garde le statut « En cours » jusqu’à votre validation.{% else %}La pratique et le vocabulaire gardent le statut « En cours » jusqu’à votre validation.{% endif %}</p>{% endif %}

@@ -5,6 +5,7 @@ from dataclasses import FrozenInstanceError, asdict
 import hashlib
 from io import StringIO
 import json
+import re
 from pathlib import Path
 from tempfile import TemporaryDirectory
 from types import SimpleNamespace
@@ -808,8 +809,21 @@ class TacheThreeModelViewTests(TestCase):
                     self.assertIs(payload["eo3_pistes"], plan)
                     rendered = render_to_string("study/partials/card_back.html", payload)
                     self.assertIn("subject-hints--speaking", rendered)
-                    self.assert_model_order("<div data-annotation-root>" + rendered + "</div>", model.response)
-                    self.assertEqual(rendered.count("Exemple concret"), 3)
+                    for cue in (plan.introduction, plan.nuance, plan.conclusion):
+                        self.assertIn(escape(cue.french), rendered)
+                    self.assertIn("Ouvrir la fiche", rendered)
+                    self.assertNotIn("data-response-field", rendered)
+                    self.assertNotIn("Exemple concret", rendered)
+                    # Read-aloud still voices the full answer; nothing else shows it.
+                    visible = re.sub(r'data-(?:read-aloud-value|speech-text)="[^"]*"', "", rendered)
+                    self.assertIn(escape(model.response.conclusion), rendered)
+                    self.assertNotIn(escape(model.response.conclusion), visible)
+                    self.assertEqual(
+                        AnnotationRootText(
+                            "<div data-annotation-root>" + rendered + "</div>"
+                        ).text.decode("utf-16-le").strip(),
+                        "Ouvrir la fiche",
+                    )
                     self.assertEqual(payload["response_content"], model.response)
                     self.assertNotEqual(payload["annotation_source_key"], variant_annotation_key(prompt, original_effective(prompt)))
 
@@ -853,10 +867,30 @@ class TacheThreeModelViewTests(TestCase):
                         "arguments": value.arguments, "reviewed_eo3": False,
                         "structured_eo3": False,
                         "single_response_eo3": False,
+                        # Cards without Pistes keep the archived full-answer back.
+                        "eo3_pistes": None,
                     }
-                    previous = Engine.get_default().from_string(
-                        archive["templates"][name]
-                    ).render(Context(context))
+                    source = archive["templates"][name]
+                    if name == "study/response_detail.html":
+                        # The archived sidebar buttons are gone; excluding them keeps offsets comparable.
+                        actions = '<div class="response-sidebar-actions">'
+                        self.assertEqual(source.count(actions), 1)
+                        source = source.replace(
+                            actions,
+                            '<div class="response-sidebar-actions" data-annotation-exclude>',
+                        )
+                        # The flashcard stats were trimmed to the start date.
+                        source, removed = re.subn(
+                            r'      \{% if card %\}\n        <div class="spine-label">Pratique de la réponse</div>.*?      \{% endif %\}\n',
+                            lambda _: (
+                                '      {% if subject_progress.started_at %}\n'
+                                '        <dl class="kv"><div><dt>Commencée</dt><dd>{{ subject_progress.started_at|date:"j M Y" }}</dd></div></dl>\n'
+                                '      {% endif %}\n'
+                            ),
+                            source, count=1, flags=re.S,
+                        )
+                        self.assertEqual(removed, 1)
+                    previous = Engine.get_default().from_string(source).render(Context(context))
                     current = render_to_string(name, context)
                     if "partials" in name:
                         previous = "<div data-annotation-root>" + previous + "</div>"

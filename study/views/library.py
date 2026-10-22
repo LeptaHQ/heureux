@@ -87,6 +87,7 @@ from ..progress import (
     subject_progress_by_response,
     summarize_subject_progress,
     writing_sujet_progress_by_id,
+    writing_sujet_started_at,
 )
 from ..querysets import (
     lean_phrase_rows,
@@ -3689,9 +3690,12 @@ def subject_completion(request, part_slug, task_slug, response_id):
     hidden_highlight_ids = []
     if reset_status:
         changes["subject_status_reset_at"] = timezone.now()
+        changes["subject_started_at"] = None
         hidden_highlight_ids = hide_subject_highlights(request.user, route_prompt.response_id)
     elif completed == "1":
         changes["subject_status_reset_at"] = None
+        if card.subject_status_reset_at is not None:
+            changes["subject_started_at"] = completed_at
     Card.objects.filter(pk=card.pk).update(**changes)
     progress = subject_progress_by_response(
         request.user,
@@ -3861,20 +3865,11 @@ def _subject_vocabulary_context(response, task_scope, user, *, prompt=None):
                 category_name,
                 category_name,
             )
-    first_vocabulary_batch = next(
-        (batch for batch in vocabulary_batches if batch["can_review"]),
-        vocabulary_batches[0] if vocabulary_batches else None,
-    )
     return {
         "subject_vocabulary": subject_vocabulary[:10],
         "vocabulary_count": vocabulary_count,
         "vocabulary_batches": vocabulary_batches,
         "vocabulary_batch_progress": vocabulary_batch_progress,
-        "vocabulary_review_url": (
-            first_vocabulary_batch["review_url"]
-            if first_vocabulary_batch
-            else None
-        ),
     }
 
 
@@ -3942,11 +3937,6 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         deduplicate=deduplicate,
     )
 
-    card = Card.objects.filter(
-        user=request.user,
-        card_type=CardType.SPINE,
-        response=response,
-    ).first()
     related_phrases = (
         lean_phrase_rows(
             active_phrases().filter(
@@ -4120,7 +4110,6 @@ def response_detail(request, part_slug, task_slug, prompt_id):
             "ee_annotation_legacy_keys": ee_annotation_legacy_keys,
             "source_documents_html": source_documents_html,
             "prompts": prompts,
-            "card": card,
             "subject_progress": subject_progress,
             "related_phrases": related_phrase_list,
             "phrase_batches": phrase_batches,
@@ -4139,13 +4128,6 @@ def response_detail(request, part_slug, task_slug, prompt_id):
                     "kind": "spine",
                     "response": str(response.pk),
                     "prompt": str(selected_prompt.pk),
-                }
-            ),
-            "theme_review_url": review_url(
-                {
-                    **task_scope,
-                    "kind": "spine",
-                    "theme": selected_prompt.theme.slug,
                 }
             ),
             "personal_saved": request.GET.get("saved") == "1",
@@ -4446,6 +4428,11 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
         task_id=task.pk,
     )[canonical.pk]
     explicitly_completed = writing_progress.explicitly_completed
+    writing_started_at = (
+        writing_sujet_started_at(request.user, canonical.pk, task_id=task.pk)
+        if writing_progress.status != "new"
+        else None
+    )
     overrides = overrides_by_sujet(request.user, [canonical.pk]).get(canonical.pk, {})
     version_cards = writing_model_versions(canonical, overrides)
     if tache == 1:
@@ -4526,6 +4513,7 @@ def writing_sujet_detail(request, part_slug, task_slug, sujet_id):
                 item["content"].get("origin") == "personal" for item in version_cards
             ),
             "writing_progress": writing_progress,
+            "writing_started_at": writing_started_at,
             "explicitly_completed": explicitly_completed,
             "model_versions": model_versions,
             "model_version_cards": version_cards,

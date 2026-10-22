@@ -1,5 +1,5 @@
 {% load study_speech %}{% if kind == "spine" %}
-  {% if eo3_audio %}<div data-annotation-exclude>{% spaceless %}{% include "study/partials/eo3_audio.html" with audio=eo3_audio only %}{% endspaceless %}</div>{% endif %}<div class="answer"{% if not tache_two_subject and not eo3_audio.ready %} data-read-aloud-text data-read-aloud-value="{{ speech_text }}" {% speech_attrs speech_text private=response_content.is_personal user_id=card.user_id %}{% endif %} lang="fr">
+  {% if eo3_audio %}<div data-annotation-exclude>{% spaceless %}{% include "study/partials/eo3_audio.html" with audio=eo3_audio no_read_along=eo3_pistes only %}{% endspaceless %}</div>{% endif %}{% if eo3_pistes and not tache_two_subject %}<div data-annotation-exclude>{% spaceless %}{% include "study/partials/speaking_hints.html" with hints=eo3_pistes only %}{% endspaceless %}</div>{% endif %}<div class="answer"{% if not tache_two_subject and not eo3_audio.ready %} data-read-aloud-text data-read-aloud-value="{{ speech_text }}" {% speech_attrs speech_text private=response_content.is_personal user_id=card.user_id %}{% endif %} lang="fr">
     {% if tache_two_subject %}
       {% if tache_two_dialogue %}
         <div class="spine-block">
@@ -26,6 +26,7 @@
           </ul>
         </div>
       {% endif %}
+    {% elif eo3_pistes %}{# EO3 practice shows the concise Pistes above; the full answer stays one tap away. #}
     {% else %}{% if reviewed_eo3 or structured_eo3 %}
       <div class="spine-block">
         <div class="spine-label">Introduction</div>
@@ -74,7 +75,7 @@
         <a class="chip" href="{{ detail_url }}">Ouvrir la fiche {% include "study/partials/ui_icon.html" with name="external-link" only %}</a>
       </p>
     {% endif %}
-  </div>{% if eo3_pistes %}<div data-annotation-exclude>{% spaceless %}{% include "study/partials/speaking_hints.html" with hints=eo3_pistes only %}{% endspaceless %}</div>{% endif %}
+  </div>
 {% else %}
   <div class="answer">
     {% if production %}

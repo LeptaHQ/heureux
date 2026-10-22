@@ -49,13 +49,7 @@
     <aside class="detail-side">
       <div class="card section-card response-sidebar-card response-sidebar-card--status">
         <div class="spine-label">Progression du sujet</div>
-        {% include "study/partials/subject_progress_control.html" with subject_label=subject.title hide_help=True %}
-        <div class="response-sidebar-actions">
-          <a class="btn btn--block" href="{{ questions_edit_url }}">
-            {% if response_content.is_personal %}Modifier mes questions{% else %}Personnaliser les questions{% endif %}
-          </a>
-          <a class="btn btn--primary btn--block" href="{{ response_review_url }}">Pratiquer ce sujet</a>
-        </div>
+        {% include "study/partials/subject_progress_control.html" with subject_label=subject.title hide_help=True practice_url=response_review_url practice_label="Pratiquer ce sujet" %}
       </div>
 
       {% include "study/partials/subject_hints_list.html" with hints=subject_hints sections=subject_hint_sections intro="Les points à explorer dans vos questions." only %}

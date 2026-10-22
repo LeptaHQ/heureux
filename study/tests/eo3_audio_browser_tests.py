@@ -504,7 +504,7 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         }""")
         return target
 
-    def test_response_edits_keep_unchanged_highlights_notes_and_full_practice_text(self):
+    def test_response_edits_keep_unchanged_highlights_notes_and_practice_pistes(self):
         path = prompt_detail_url(self.prompt)
         self.page.goto(self.live_server_url + path)
         self.page.wait_for_load_state("networkidle")
@@ -571,8 +571,10 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         self.page.locator("#reveal").click()
         back = self.page.locator("#card-back")
         expect(back).to_be_visible()
-        expect(back.locator('[data-response-field="argument-1-exemple"]')).to_have_text(edited)
-        expect(back.locator('[data-response-field="argument-2-developpement"]')).to_be_visible()
+        expect(back.locator(".subject-hints--speaking")).to_be_visible()
+        expect(back.locator("[data-response-field]")).to_have_count(0)
+        expect(back).not_to_contain_text(edited)
+        expect(back.get_by_role("link", name="Ouvrir la fiche")).to_be_visible()
         expect(back.locator("[data-eo3-player]")).to_have_count(0)
         self.assertFalse(self.errors, self.errors)
 

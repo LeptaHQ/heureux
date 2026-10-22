@@ -2,6 +2,7 @@ from datetime import timedelta
 from io import StringIO
 
 from django.core.management import call_command
+from django.template.defaultfilters import date as date_filter
 from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
@@ -101,6 +102,48 @@ class SubjectStatusResetTests(TestCase):
         self.add_highlight(timezone.now() + timedelta(seconds=1), word=1)
 
         self.assertEqual(self.status(), "active")
+
+    def started_at(self):
+        return subject_progress_by_response(
+            self.user, {self.response_id},
+        )[self.response_id].started_at
+
+    def test_started_date_follows_each_move_to_in_progress(self):
+        detail_url = prompt_detail_url(self.prompt)
+        self.assertIsNone(self.started_at())
+        self.assertNotContains(self.client.get(detail_url), "<dt>Commencée</dt>")
+
+        first_highlight = timezone.now() - timedelta(days=3)
+        self.add_highlight(first_highlight)
+        self.assertEqual(self.started_at(), first_highlight)
+        mark_card_started(self.user, self.card())
+        self.assertEqual(self.started_at(), first_highlight)
+        page = self.client.get(detail_url)
+        self.assertContains(
+            page,
+            f"<dt>Commencée</dt><dd>{date_filter(timezone.localtime(first_highlight), 'j M Y')}</dd>",
+        )
+
+        self.post({"completed": "0", "action": "reset"})
+        self.assertEqual(self.status(), "new")
+        self.assertIsNone(self.started_at())
+        self.assertNotContains(self.client.get(detail_url), "<dt>Commencée</dt>")
+
+        mark_card_started(self.user, self.card())
+        restarted = self.card().subject_started_at
+        self.assertIsNotNone(restarted)
+        self.assertEqual(self.status(), "active")
+        self.assertEqual(self.started_at(), restarted)
+
+        self.post({"completed": "0", "action": "reset"})
+        highlighted = timezone.now() + timedelta(seconds=1)
+        self.add_highlight(highlighted, word=1)
+        self.assertEqual(self.status(), "active")
+        self.assertEqual(self.started_at(), highlighted)
+
+        self.post({"completed": "1"})
+        self.assertEqual(self.status(), "done")
+        self.assertEqual(self.started_at(), self.card().subject_started_at)
 
     def test_invalid_reset_requests_are_rejected_without_changes(self):
         self.post({"completed": "1"})

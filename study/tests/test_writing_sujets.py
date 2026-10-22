@@ -512,6 +512,30 @@ class WritingSujetViewTests(TestCase):
         self.assertContains(page, "Une seule version modèle.")
         self.assertNotContains(page, "Voir les autres versions")
 
+    def test_detail_shows_started_date_once_the_sujet_is_in_progress(self):
+        from datetime import timedelta
+
+        from django.template.defaultfilters import date as date_filter
+        from django.utils import timezone
+
+        from study.models import Annotation, AnnotationKind
+
+        page = self.client.get(self._detail_url(self.multi))
+        self.assertNotContains(page, "<dt>Commencée</dt>")
+        self.assertContains(page, '<span class="sr-only">J’ai terminé ce sujet</span>')
+
+        started = timezone.now() - timedelta(days=2)
+        Annotation.objects.create(
+            user=self.owner, task=self.task, kind=AnnotationKind.HIGHLIGHT,
+            source_key=f"writing-sujet:{self.multi.pk}:model-1",
+            quote="Version", start_offset=0, end_offset=7, created_at=started,
+        )
+        page = self.client.get(self._detail_url(self.multi))
+        self.assertContains(
+            page,
+            f"<dt>Commencée</dt><dd>{date_filter(timezone.localtime(started), 'j M Y')}</dd>",
+        )
+
     def test_detail_topic_only_shows_empty_state(self):
         page = self.client.get(self._detail_url(self.empty))
 

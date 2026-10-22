@@ -2859,11 +2859,8 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         removed_quote = before.arguments[0].exemple
         detail_path = prompt_detail_url(prompt)
-        review_path = (
-            reverse("study:review")
-            + f"?kind=spine&response={prompt.response_id}&prompt={prompt.pk}"
-        )
-        for surface, path in (("detail", detail_path), ("back", review_path)):
+        # The practice back shows only the Pistes, so only the sheet carries the answer.
+        for surface, path in (("detail", detail_path),):
             with self.subTest(surface=surface):
                 root = self.page.locator(
                     ".answer-columns[data-annotation-root]"
@@ -3004,11 +3001,8 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         removed_quote = before.arguments[0].exemple
         detail_path = prompt_detail_url(prompt)
-        review_path = (
-            reverse("study:review")
-            + f"?kind=spine&response={prompt.response_id}&prompt={prompt.pk}"
-        )
-        for surface, path in (("detail", detail_path), ("back", review_path)):
+        # The practice back shows only the Pistes, so only the sheet carries the answer.
+        for surface, path in (("detail", detail_path),):
             with self.subTest(surface=surface):
                 root = self.page.locator(
                     ".answer-columns[data-annotation-root]"
@@ -3433,9 +3427,15 @@ class BrowserTests(StaticLiveServerTestCase):
                             expect(visible).to_have_text(mark.quote)
                     self.page.goto(self.live_server_url + review_path)
                     for surface, mark in zip(("front", "back"), practice):
+                        visible = self.page.locator(f'#card-{surface} mark[data-highlight-id="{mark.pk}"]')
                         if surface == "back":
                             self.page.locator("#reveal").click()
-                        expect(self.page.locator(f'#card-{surface} mark[data-highlight-id="{mark.pk}"]')).to_have_text(mark.quote)
+                        if surface == "back" and not eo2:
+                            # The EO3 back shows the Pistes; the saved highlight stays untouched.
+                            expect(self.page.locator("#card-back .subject-hints--speaking")).to_be_visible()
+                            expect(visible).to_have_count(0)
+                        else:
+                            expect(visible).to_have_text(mark.quote)
                         mark.refresh_from_db()
                         self.assertEqual(mark.source_key, source_key + ":" + surface)
                 for mark in marks + practice:
@@ -4988,7 +4988,7 @@ class BrowserTests(StaticLiveServerTestCase):
             "study:task_subject_detail",
             args=["eo", "tache-2", "janvier", 1, 1],
         ))
-        self.page.locator(".response-sidebar-actions").get_by_role(
+        self.page.locator(".tache-two-question-section__tools").get_by_role(
             "link", name="Personnaliser les questions", exact=True
         ).click()
         rows = self.page.locator("[data-question-list] [data-question-form]:visible")
@@ -5662,7 +5662,7 @@ class BrowserTests(StaticLiveServerTestCase):
             ),
             "50%",
         )
-        self.page.get_by_text("J’ai terminé ce sujet", exact=True).wait_for()
+        self.page.get_by_text("J’ai terminé ce sujet", exact=True).wait_for(state="attached")
 
         with self.page.expect_response(
             lambda response: completion_path in response.url

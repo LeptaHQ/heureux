@@ -73,7 +73,7 @@ class CultureEditorialTests(SimpleTestCase):
             (4, 2, ("a droit", "aide au logement", "formulaire")),
             (6, 0, ("un essai", "la voiture en ville", "la pollution", "sans transports en commun", "interdiction totale")),
             (11, 0, ("sa solitude en français", "une amie de son pays qui parle sa langue", "le dimanche ensemble")),
-            (11, 1, ("traduire un diplôme", "quelles traductions sont acceptées")),
+            (11, 1, ("Une infirmière", "compatriote", "fait reconnaître son diplôme", "quels documents", "à quel organisme")),
             (15, 1, ("sa grand-mère", "sécher des tomates", "conserver jusqu'en hiver")),
             (19, 2, ("en français", "une ancienne usine", "devenue un lieu culturel", "poser des questions")),
             (20, 1, ("sans passer par un texte",)),
@@ -123,6 +123,19 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("Get to know other residents", plan.nuance.english)
         self.assertIn("danse traditionnelle", plan.arguments[2].example.french)
         self.assertIn("traditional dance", plan.arguments[2].example.english)
+
+    def test_compatriot_professional_example_shares_experience_without_guaranteeing_recognition(self):
+        argument = self.response(11).arguments[1]
+        self.assertIn("qui exerce déjà ce métier sur place", argument.exemple)
+        self.assertIn("pour commencer ses démarches", argument.exemple)
+        self.assertIn("l'information soit vérifiée auprès de l'organisme compétent", argument.consequence)
+        self.assertNotIn("traducteur", argument.exemple)
+        cue = self.plans["eo/tache-3/culture-p11"].arguments[1].example
+        self.assertIn("Une infirmière", cue.french)
+        self.assertIn("compatriote du même métier", cue.french)
+        self.assertIn("A nurse", cue.english)
+        self.assertIn("qualifications recognised", cue.english)
+        self.assertIn("compatriot", cue.english)
 
     def test_family_transmission_example_stops_after_fetes_without_a_classmates_clause(self):
         example = self.response(10).arguments[1].exemple

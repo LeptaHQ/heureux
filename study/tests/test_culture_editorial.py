@@ -152,6 +152,30 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("formation de cuisine", cue.french)
         self.assertIn("restaurant placement", cue.english)
 
+    def test_living_abroad_skills_argument_focuses_on_training_and_professional_practice(self):
+        argument = self.response(17).arguments[0]
+        self.assertIn("se former", argument.idea)
+        self.assertIn("compétences professionnelles", argument.idea)
+        for phrase in ("formation spécialisée", "les stages", "conseils de professionnels"):
+            self.assertIn(phrase, argument.developpement)
+        self.assertIn("vie professionnelle", argument.consequence)
+        self.assertIn("même après le retour", argument.consequence)
+        cue = self.plans["eo/tache-3/culture-p17"].arguments[0]
+        self.assertIn("training opportunities", cue.point.english)
+        self.assertIn("professional skills", cue.point.english)
+
+    def test_living_abroad_material_difficulty_uses_concrete_housing_and_money_wording(self):
+        argument = self.response(17).arguments[1]
+        self.assertEqual(
+            argument.idea,
+            "Ensuite, des problèmes de logement ou d'argent peuvent rendre "
+            "la vie à l'étranger très difficile.",
+        )
+        self.assertIn("payer le loyer", argument.exemple)
+        cue = self.plans["eo/tache-3/culture-p17"].arguments[1]
+        self.assertIn("problèmes de logement ou d'argent", cue.point.french)
+        self.assertIn("Housing or money problems", cue.point.english)
+
     def test_adaptation_keeps_the_preferred_preferences_and_practical_response_wording(self):
         self.assertEqual(
             self.response(1).arguments[0].developpement,

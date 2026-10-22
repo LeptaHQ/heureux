@@ -40,6 +40,7 @@ class TacheThreeReuseTests(SimpleTestCase):
 
     def test_shared_cases_and_their_memory_cues_do_not_need_synonym_versions(self):
         for first, first_index, second, second_index in (
+            ("culture-p5", 0, "culture-p17", 0),
             ("culture-p9", 0, "education-p13", 1),
             ("technologie-p4", 0, "technologie-p13", 1),
             ("sante-p4", 0, "economie-p23", 0),
@@ -62,6 +63,7 @@ class TacheThreeReuseTests(SimpleTestCase):
 
     def test_shared_language_does_not_merge_different_questions_or_positions(self):
         for first, second in (
+            ("culture-p5", "culture-p17"),
             ("culture-p18", "technologie-p12"),
             ("culture-p16", "famille-p9"),
             ("culture-p16", "culture-p24"),

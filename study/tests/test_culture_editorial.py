@@ -88,6 +88,18 @@ class CultureEditorialTests(SimpleTestCase):
                 for phrase in required:
                     self.assertIn(phrase, example)
 
+    def test_family_transmission_example_stops_after_fetes_without_a_classmates_clause(self):
+        example = self.response(10).arguments[1].exemple
+        self.assertTrue(
+            example.endswith(
+                "L'enfant découvre cette tradition familiale tout en participant aux fêtes."
+            )
+        )
+        self.assertNotIn("camarades", example)
+        cue = self.plans["eo/tache-3/culture-p10"].arguments[1].example
+        self.assertNotIn("camarades", cue.french)
+        self.assertNotIn("classmates", cue.english)
+
     def test_adaptation_cue_means_adapting_to_constraints_not_changing_them(self):
         cue = self.plans["eo/tache-3/culture-p1"].conclusion
         self.assertIn("S'adapter aux contraintes", cue.french)

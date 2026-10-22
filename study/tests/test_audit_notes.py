@@ -154,4 +154,4 @@ class TranslationReliabilityTests(TestCase):
         upstream.__enter__.return_value.read.return_value = b'{"translatedText":["Hello"]}'
         with patch("study.views.notes.urllib.request.urlopen", return_value=upstream):
             response = self.translate()
-        self.assertEqual(response.json(), {"translation": "Hello"})
+        self.assertEqual(response.json(), {"translation": "Hello", "provider": "libretranslate"})

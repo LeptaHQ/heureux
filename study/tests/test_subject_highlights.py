@@ -110,7 +110,7 @@ class SubjectHighlightScopeTests(TestCase):
                 | Q(source_key__startswith="phrase:")
                 | Q(source_key__startswith="tache-two:")
                 | Q(source_path__contains="/sujets/")
-            ).values("source_path", "source_key")
+            ).values("source_path", "source_key", "created_at")
         )
         responses = dict(
             Response.objects.filter(pk__in=response_ids, is_active=True)

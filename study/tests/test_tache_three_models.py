@@ -729,7 +729,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p7", 1, "proportions", "proportions", "proportions"),
             ("culture-p9", 1, "dîner sans compagnie", "dîner seul", "eat alone"),
             ("culture-p11", 0, "passer le dimanche ensemble", "dimanche ensemble", "Sunday together"),
-            ("culture-p11", 2, "Un compatriote", "un compatriote", "a compatriot"),
+            ("culture-p11", 2, "danse traditionnelle", "danse traditionnelle", "traditional dance"),
             ("culture-p12", 0, "objets mal triés", "objets mal triés", "incorrectly sorted items"),
             ("culture-p13", 1, "tableau", "tableau", "painting"),
             ("culture-p13", 1, "sourient", "sourires", "smiles"),

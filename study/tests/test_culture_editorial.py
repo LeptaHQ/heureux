@@ -103,6 +103,26 @@ class CultureEditorialTests(SimpleTestCase):
             "Son amie l'écoute et lui propose de passer le dimanche ensemble.",
         )
 
+    def test_compatriot_cultural_transmission_is_collective_and_nuance_keeps_other_connections(self):
+        response = self.response(11)
+        cultural = response.arguments[2]
+        for phrase in (
+            "association de compatriotes", "danse traditionnelle",
+            "répètent ensemble", "fête de la communauté",
+        ):
+            self.assertIn(phrase, cultural.exemple)
+        self.assertNotIn("sans exclure les autres habitants", cultural.developpement)
+        for phrase in (
+            "ne pas se limiter à ses compatriotes", "d'autres habitants",
+            "pratiquer la langue du pays", "la confiance et les affinités",
+        ):
+            self.assertIn(phrase, response.nuance)
+        plan = self.plans["eo/tache-3/culture-p11"]
+        self.assertIn("Ne pas se limiter aux compatriotes", plan.nuance.french)
+        self.assertIn("Get to know other residents", plan.nuance.english)
+        self.assertIn("danse traditionnelle", plan.arguments[2].example.french)
+        self.assertIn("traditional dance", plan.arguments[2].example.english)
+
     def test_family_transmission_example_stops_after_fetes_without_a_classmates_clause(self):
         example = self.response(10).arguments[1].exemple
         self.assertTrue(

@@ -49,33 +49,53 @@ services:
         sync: false
       - key: CSRF_TRUSTED_ORIGINS
         sync: false
-      # Selection translation: DeepL first (through this server), then
-      # on-device translation. DEEPL_TARGET_LANG defaults to EN-GB.
+      # --- Selection translation -------------------------------------------
+      # The translate panel asks DeepL (through this server) first, then falls
+      # back to on-device translation. Unset = on-device only.
+      # Keys ending in ":fx" use DeepL's free API host automatically.
       - key: DEEPL_API_KEY
         sync: false
+      # Optional. English variant for DeepL output: EN-GB (default, Canadian-
+      # style spelling such as "colour") or EN-US ("color").
       - key: DEEPL_TARGET_LANG
         sync: false
-      # Optional LibreTranslate-compatible fallback when DeepL is not set.
+      # Optional. Self-hosted LibreTranslate-compatible /translate endpoint,
+      # used only when DEEPL_API_KEY is unset. Leave empty normally.
       - key: TRANSLATION_API_URL
         sync: false
+      # Optional. API key for TRANSLATION_API_URL.
       - key: TRANSLATION_API_KEY
         sync: false
+      # Optional. Seconds to wait for DeepL/LibreTranslate (default 8).
       - key: TRANSLATION_TIMEOUT
         sync: false
-      # ElevenLabs narration (EO3 audio and French read-aloud).
+      # --- ElevenLabs French voice -----------------------------------------
+      # Required for any natural-voice audio (EO3 narration + read-aloud).
       - key: ELEVENLABS_API_KEY
         sync: false
+      # Required. The ElevenLabs voice used for every recording.
       - key: ELEVENLABS_VOICE_ID
         sync: false
+      # Optional. Defaults to eleven_multilingual_v2.
       - key: ELEVENLABS_MODEL_ID
         sync: false
+      # Optional, default True. False hides the EO3 response narration player.
       - key: EO3_AUDIO_ENABLED
         sync: false
+      # Optional, default True. Legacy gate for the one-off Culture p1 trial
+      # recording made before narration was approved. Safe to ignore.
       - key: EO3_AUDIO_SAMPLE_ENABLED
         sync: false
+      # Optional, default True. False turns off the natural voice for French
+      # read-aloud (words, sentences, notes); the device voice is used instead.
+      # Does not affect EO3 narration.
       - key: FRENCH_AUDIO_ENABLED
         sync: false
+      # Optional, default True. The ElevenLabs spending switch: False stops
+      # all NEW paid generation (read-aloud and EO3); existing audio still plays.
       - key: FRENCH_AUDIO_GENERATION_ENABLED
         sync: false
+      # Optional, default 5000000. Lifetime ceiling on characters sent to
+      # ElevenLabs; generation stops once reached. 0 blocks generation.
       - key: FRENCH_AUDIO_CHARACTER_BUDGET
         sync: false

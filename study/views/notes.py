@@ -19,11 +19,12 @@ from django.db.utils import IntegrityError
 from django.db.models import Case, Count, F, Q, Value, When
 from django.http import Http404, HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404, redirect, render
-from django.urls import reverse
+from django.urls import Resolver404, resolve, reverse
 from django.utils import timezone
 from django.utils.http import url_has_allowed_host_and_scheme, urlencode
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
 
+from .. import catalogue
 from .. import content_loader as content_module
 from ..forms import (
     NewNoteForm,
@@ -380,8 +381,136 @@ def _annotation_period_filters(today):
     return filters
 
 
-def _order_annotation_periods(annotations, ascending, period_filters):
-    if not ascending:
+_CUSTOM_NOTE = Q(
+    task__isnull=True, kind=AnnotationKind.NOTE, quote="", source_path="",
+)
+_TASK_LESS_CONTEXT_ORDER = (*COMPREHENSION_NOTE_MODES, "general", "custom")
+_NATURAL_PARTS = re.compile(r"(\d+)")
+
+
+def _natural_key(text):
+    return tuple(
+        (1, int(part)) if part.isdigit() else (0, part.casefold())
+        for part in _NATURAL_PARTS.split(text or "")
+        if part
+    )
+
+
+def _source_order_keys(paths):
+    """Catalogue position of each source page, so sujets follow the browse order."""
+    resolved = {}
+    for path in paths:
+        try:
+            match = resolve(urlsplit(path).path)
+        except Resolver404:
+            match = None
+        resolved[path] = match
+    prompt_ids = {
+        match.kwargs["prompt_id"] for match in resolved.values()
+        if match and match.url_name == "response_detail"
+    }
+    sujet_ids = {
+        match.kwargs["sujet_id"] for match in resolved.values()
+        if match and match.url_name == "writing_sujet_detail"
+    }
+    prompt_order = {
+        pk: (theme_order, number)
+        for pk, theme_order, number in Prompt.objects.filter(pk__in=prompt_ids)
+        .values_list("pk", "theme__order", "number")
+    } if prompt_ids else {}
+    sujet_order = dict(
+        WritingSujet.objects.filter(pk__in=sujet_ids).values_list("pk", "order")
+    ) if sujet_ids else {}
+    month_order = {}
+    if any(match and match.url_name == "task_subject_detail" for match in resolved.values()):
+        month_order = {
+            month.slug: index
+            for index, month in enumerate(catalogue.tache_two_subject_months())
+        }
+    keys = {}
+    for path, match in resolved.items():
+        position = None
+        if match and match.url_name == "response_detail":
+            position = prompt_order.get(match.kwargs["prompt_id"])
+        elif match and match.url_name == "writing_sujet_detail":
+            sujet_id = match.kwargs["sujet_id"]
+            if sujet_id in sujet_order:
+                position = (sujet_order[sujet_id], sujet_id)
+        elif match and match.url_name == "task_subject_detail":
+            month = month_order.get(match.kwargs["month_slug"])
+            if month is not None:
+                position = (
+                    month,
+                    match.kwargs["batch_number"],
+                    match.kwargs["subject_number"],
+                )
+        keys[path] = (
+            (0, position, ()) if position is not None
+            else (1, (), _natural_key(path)) if path
+            else (2, (), ())
+        )
+    return keys
+
+
+def _annotation_context_rank(annotations):
+    """One integer per row: scope in catalogue order, then source in sujet order.
+
+    Mirrors the « Contexte » column (scope label and source link), so ordering
+    by it keeps rows that share a context together.
+    """
+    contexts = list(
+        annotations.order_by()
+        .annotate(_custom=Case(When(_CUSTOM_NOTE, then=Value(True)), default=Value(False)))
+        .values_list("task_id", "source_path", "_custom")
+        .distinct()
+    )
+    if not contexts:
+        return Value(0)
+    task_order = {
+        pk: (part_order, order)
+        for pk, part_order, order in Task.objects.filter(
+            pk__in={task_id for task_id, _path, _custom in contexts if task_id}
+        ).values_list("pk", "part__order", "order")
+    }
+    source_keys = _source_order_keys({path for _task, path, _custom in contexts})
+
+    def scope_key(task_id, path, custom):
+        if task_id is not None:
+            return (0, task_order.get(task_id, (0, 0)), task_id)
+        if custom:
+            scope = "custom"
+        else:
+            scope = next(
+                (
+                    mode for mode in COMPREHENSION_NOTE_MODES
+                    if path.startswith(_comprehension_scope_prefix(mode))
+                ),
+                "general",
+            )
+        return (1, (_TASK_LESS_CONTEXT_ORDER.index(scope), 0), 0)
+
+    keyed = sorted(
+        ((scope_key(*item), source_keys[item[1]]), item) for item in contexts
+    )
+    # Variants of one page (e.g. ``?from=review``) share a rank, so their rows
+    # interleave by date instead of forming separate groups.
+    ranks = {key: rank for rank, key in enumerate(dict.fromkeys(key for key, _item in keyed))}
+    return Case(
+        *(
+            When(
+                (Q(task__isnull=True) if task_id is None else Q(task_id=task_id))
+                & (_CUSTOM_NOTE if custom else ~_CUSTOM_NOTE)
+                & Q(source_path=path),
+                then=Value(ranks[key]),
+            )
+            for key, (task_id, path, custom) in keyed
+        ),
+        default=Value(len(ranks)),
+    )
+
+
+def _order_annotation_periods(annotations, ascending, period_filters, context_rank=None):
+    if not ascending and context_rank is None:
         return annotations.order_by("-created_at", "-id")
     ranks = {key: rank for rank, (key, _title) in enumerate(_ANNOTATION_DATE_BUCKETS)}
     annotations = annotations.alias(
@@ -389,14 +518,19 @@ def _order_annotation_periods(annotations, ascending, period_filters):
             *(When(period_filters[key], then=Value(rank)) for key, rank in ranks.items()),
         ),
     )
-    ascending_ranks = [ranks[key] for key in ascending]
-    return annotations.order_by(
-        "_period_rank",
-        Case(When(_period_rank__in=ascending_ranks, then=F("created_at"))).asc(),
-        Case(When(_period_rank__in=ascending_ranks, then=F("pk"))).asc(),
-        "-created_at",
-        "-pk",
-    )
+    ordering = ["_period_rank"]
+    if context_rank is not None:
+        # Context groups sit inside each date section; each group keeps the
+        # section's own date direction.
+        annotations = annotations.alias(_context_rank=context_rank)
+        ordering.append("_context_rank")
+    if ascending:
+        ascending_ranks = [ranks[key] for key in ascending]
+        ordering += [
+            Case(When(_period_rank__in=ascending_ranks, then=F("created_at"))).asc(),
+            Case(When(_period_rank__in=ascending_ranks, then=F("pk"))).asc(),
+        ]
+    return annotations.order_by(*ordering, "-created_at", "-pk")
 
 
 def _annotation_date_sections(annotations, *, today=None):
@@ -470,7 +604,9 @@ def _new_note_redirect(request, note):
             params.pop("status", None)
     if "tab" in params:
         params["tab"] = ["notes"]
-    if any(params.get(f"sort_{key}") == ["asc"] for key, _title in _ANNOTATION_DATE_BUCKETS):
+    if params.get("order") == ["context"] or any(
+        params.get(f"sort_{key}") == ["asc"] for key, _title in _ANNOTATION_DATE_BUCKETS
+    ):
         params["locate"] = [str(note.pk)]
     return target._replace(
         query=urlencode(params, doseq=True), fragment=f"note-{note.pk}"
@@ -516,10 +652,13 @@ def _notes_scope(
         key for key, _title in _ANNOTATION_DATE_BUCKETS
         if request.GET.get(f"sort_{key}") == "asc"
     }
+    by_context = request.GET.get("order") == "context"
     sort_params = {
         f"sort_{key}": "asc" for key, _title in _ANNOTATION_DATE_BUCKETS
         if key in ascending_periods
     }
+    if by_context:
+        sort_params["order"] = "context"
     if request.method == "POST":
         active_tab = "notes"
         instance = Annotation(
@@ -549,8 +688,12 @@ def _notes_scope(
         },
     )
     period_counts = {key: counts.pop(f"period_{key}") for key in period_filters}
+    active_rows = annotations.filter(active_filter)
     active_rows = _order_annotation_periods(
-        annotations.filter(active_filter), ascending_periods, period_filters,
+        active_rows,
+        ascending_periods,
+        period_filters,
+        _annotation_context_rank(active_rows) if by_context else None,
     )
     preserved = dict(sort_params)
     if query:
@@ -574,7 +717,10 @@ def _notes_scope(
         ):
             raise Http404
         item = get_object_or_404(
-            active_rows.values("pk", "created_at"), pk=int(item_id)
+            active_rows.annotate(
+                _item_context=F("_context_rank") if by_context else Value(0),
+            ).values("pk", "created_at", "_item_context"),
+            pk=int(item_id),
         )
         period = _annotation_date_bucket(
             timezone.localtime(item["created_at"]).date(),
@@ -586,9 +732,15 @@ def _notes_scope(
                 break
             preceding_periods += period_counts[key]
         comparison = "lt" if period in ascending_periods else "gt"
+        same_place = Q(**{f"created_at__{comparison}": item["created_at"]}) | Q(
+            created_at=item["created_at"], **{f"pk__{comparison}": item["pk"]}
+        )
+        if by_context:
+            same_place = Q(_context_rank__lt=item["_item_context"]) | (
+                Q(_context_rank=item["_item_context"]) & same_place
+            )
         preceding = preceding_periods + active_rows.filter(period_filters[period]).filter(
-            Q(**{f"created_at__{comparison}": item["created_at"]})
-            | Q(created_at=item["created_at"], **{f"pk__{comparison}": item["pk"]})
+            same_place
         ).count()
         prefix = "highlight" if active_tab == "highlights" else "note"
         return redirect(
@@ -632,6 +784,11 @@ def _notes_scope(
         section.update(
             sort_key=sort_key,
             ascending=section["key"] in ascending_periods,
+            by_context=by_context,
+            context_params={
+                **{key: value for key, value in page_params.items() if key != "order"},
+                **({} if by_context else {"order": "context"}),
+            },
             sort_params={
                 **{key: value for key, value in page_params.items() if key != sort_key},
                 **(

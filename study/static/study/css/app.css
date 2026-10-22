@@ -5051,6 +5051,10 @@ html:has(.methodology-dialog[open]) {
 .notes-date-sort .btn {
   gap: 0.25rem;
 }
+.notes-date-sort .btn[aria-pressed="true"] {
+  border-color: var(--primary);
+  color: var(--primary);
+}
 .notes-empty-hint {
   margin-top: -0.5rem;
   color: var(--text-faint);

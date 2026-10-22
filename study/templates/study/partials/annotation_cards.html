@@ -30,6 +30,18 @@ Parameters:
             <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="{% if section.ascending %}M12 19V5m-5 5 5-5 5 5{% else %}M12 5v14m-5-5 5 5 5-5{% endif %}"></path></svg>
           </button>
         </form>
+        <form class="notes-date-sort" method="get" action="{{ request.path }}#{{ variant }}-{{ section.key }}-heading">
+          {% for name, value in section.context_params.items %}
+            <input type="hidden" name="{{ name }}" value="{{ value }}">
+          {% endfor %}
+          <button class="btn btn--sm" type="submit"
+                  data-annotation-context-sort
+                  aria-pressed="{% if section.by_context %}true{% else %}false{% endif %}"
+                  title="{% if section.by_context %}Revenir à l’ordre par date{% else %}Regrouper par contexte, puis par date{% endif %}">
+            <span>Contexte</span>
+            <svg class="btn__icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M7 12h10M10 18h4"></path></svg>
+          </button>
+        </form>
       </div>
       <div class="annotations-grid collection-table collection-table--annotations" data-collection-view="adaptive">
         {% if variant == "notes" %}

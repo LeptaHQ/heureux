@@ -13,7 +13,7 @@ from django.test.utils import CaptureQueriesContext
 from django.urls import reverse
 from django.utils import timezone
 
-from study.models import Annotation, AnnotationKind, Card, CardType, Prompt
+from study.models import Annotation, AnnotationKind, Card, CardType, Prompt, Task
 from study.routing import prompt_detail_url, response_detail_url, theme_detail_url
 
 from . import factories
@@ -2754,6 +2754,93 @@ class NotesPaginationTests(TestCase):
         )
         self.assertEqual([item.pk for item in edited.context["notes"]], [item.pk for item in rows])
         self.assertEqual(edited.context["sort_params"], {"sort_today": "asc"})
+
+    def test_context_order_groups_by_catalogue_inside_each_date_period(self):
+        ee = factories.make_part(slug="ee")
+        eo_two = factories.make_task(part=self.part, slug="tache-2")
+        ee_one = factories.make_task(part=ee, slug="tache-1")
+        Task.objects.filter(pk=eo_two.pk).update(order=2)
+        Task.objects.filter(pk=self.task.pk).update(order=3)
+        Task.objects.filter(pk=ee_one.pk).update(order=1)
+        theme = factories.make_theme(task=self.task)
+        first, second = (
+            factories.make_response(theme=theme).prompts.get() for _ in range(2)
+        )
+        Prompt.objects.filter(pk=first.pk).update(number=1)
+        Prompt.objects.filter(pk=second.pk).update(number=2)
+        sujet = factories.make_writing_sujet(ee_one, slug="ctx", prompt="Écrivez.")
+        base = timezone.localtime().replace(hour=12, minute=0, second=0, microsecond=0)
+        tick = iter(range(1, 100))
+
+        def note(path="", task=None, quote="", kind=AnnotationKind.NOTE, days=0):
+            return Annotation.objects.create(
+                user=self.user, task=task, kind=kind, title="Matching", body="Matching",
+                quote=quote, source_path=path,
+                created_at=base - timezone.timedelta(days=days, minutes=100 - next(tick)),
+            )
+
+        eo3 = "/expression/orale/tache-3/sujets/{}/"
+        late_second = note(eo3.format(second.pk), self.task)
+        written = note(f"/expression/ecrite/tache-1/sujets/messages/{sujet.pk}/", ee_one)
+        personal = note()
+        early_first = note(eo3.format(first.pk), self.task)
+        reading = note("/comprehension/ecrite/tests/1/", quote="Passage")
+        general = note("/apprendre/cours/lecon/", quote="Passage")
+        eo2 = note("/expression/orale/tache-2/sujets/janvier/batch-1/3/", eo_two)
+        late_first = note(eo3.format(first.pk) + "?from=review", self.task)
+        yesterday = note(eo3.format(second.pk), self.task, days=1)
+        overview = reverse("study:notes_overview")
+
+        page = self.client.get(overview, {"order": "context"})
+        today, previous = page.context["notes_sections"]
+        self.assertEqual(
+            today["items"],
+            [eo2, late_first, early_first, late_second, written, reading, general, personal],
+        )
+        self.assertEqual(previous["items"], [yesterday])
+        self.assertTrue(today["by_context"])
+        self.assertEqual(today["context_params"], {"tab": "notes"})
+        self.assertContains(page, 'data-annotation-context-sort', count=2)
+        self.assertContains(page, 'title="Revenir à l’ordre par date"', count=2)
+        self.assertIn("order=context", page.context["tab_url_prefix"])
+
+        ascending = self.client.get(overview, {"order": "context", "sort_today": "asc"})
+        self.assertEqual(
+            ascending.context["notes_sections"][0]["items"],
+            [eo2, early_first, late_first, late_second, written, reading, general, personal],
+        )
+
+        dated = self.client.get(overview)
+        self.assertEqual(dated.context["notes_sections"][0]["items"][0], late_first)
+        self.assertEqual(
+            dated.context["notes_sections"][0]["context_params"],
+            {"tab": "notes", "order": "context"},
+        )
+
+        located = self.client.get(
+            overview, {"order": "context", "locate": personal.pk}, follow=True,
+        )
+        self.assertEqual(located.context["page_obj"].number, 1)
+        task_page = self.client.get(self.url, {"order": "context"})
+        self.assertEqual(
+            task_page.context["notes"],
+            [late_first, early_first, late_second, yesterday],
+        )
+
+    def test_context_order_paginates_and_locates_whole_periods(self):
+        base = timezone.localtime().replace(hour=12, minute=0, second=0, microsecond=0)
+        later = self._rows(40, created_at=base, source_path="/b/")
+        earlier = self._rows(40, created_at=base - timezone.timedelta(minutes=5), source_path="/a/")
+        seen = []
+        for number in (1, 2):
+            page = self.client.get(self.url, {"order": "context", "page": number})
+            seen.extend(item.pk for item in page.context["notes"])
+        self.assertEqual(seen, [item.pk for item in [*reversed(earlier), *reversed(later)]])
+        located = self.client.get(
+            self.url, {"order": "context", "locate": later[0].pk}, follow=True,
+        )
+        self.assertEqual(located.context["page_obj"].number, 2)
+        self.assertContains(located, f'id="note-{later[0].pk}"', count=1)
 
     def test_period_boundaries_match_local_dates_and_cross_month_weeks(self):
         with (

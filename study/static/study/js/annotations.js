@@ -31,6 +31,7 @@
   var notePaste = notePanel.querySelector("[data-note-paste]");
   var noteStatus = notePanel.querySelector("[data-note-status]");
   var noteSaveClose = notePanel.querySelector("[data-note-save-close]");
+  var noteSaveOnly = notePanel.querySelector("[data-note-save-only]");
   var notePasteClose = notePanel.querySelector("[data-note-paste-close]");
   var noteCloseButtons = notePanel.querySelectorAll(
     "[data-note-close], [data-note-cancel]"
@@ -40,6 +41,7 @@
     !noteBody ||
     !noteStatus ||
     !noteSaveClose ||
+    !noteSaveOnly ||
     !notePasteClose
   ) {
     return;
@@ -313,6 +315,7 @@
 
   function resetNoteFormState() {
     noteSaveClose.disabled = false;
+    noteSaveOnly.disabled = false;
     notePasteClose.disabled = false;
     noteBody.readOnly = false;
     if (notePaste) notePaste.disabled = false;
@@ -411,6 +414,7 @@
     notePaste.disabled = true;
     notePasteClose.disabled = true;
     noteSaveClose.disabled = true;
+    noteSaveOnly.disabled = true;
     noteBody.readOnly = true;
     readClipboardIntoNote(revision).then(function () {
       if (!notePanelIsCurrent(revision)) return;
@@ -424,6 +428,7 @@
     var revision = notePanelRevision;
     notePasteClose.disabled = true;
     noteSaveClose.disabled = true;
+    noteSaveOnly.disabled = true;
     noteBody.readOnly = true;
     if (notePaste) notePaste.disabled = true;
     readClipboardIntoNote(revision).then(function (pasted) {
@@ -466,7 +471,7 @@
     }
   }
 
-  function saveNote(expectedRevision) {
+  function saveNote(expectedRevision, alsoHighlight) {
     var revision = expectedRevision === undefined
       ? notePanelRevision
       : expectedRevision;
@@ -480,11 +485,12 @@
     var details = noteSelection;
     var body = noteBody.value;
     noteSaveClose.disabled = true;
+    noteSaveOnly.disabled = true;
     notePasteClose.disabled = true;
     noteBody.readOnly = true;
     if (notePaste) notePaste.disabled = true;
     noteStatus.textContent = "Enregistrement…";
-    createSelectionNote(details, body, true)
+    createSelectionNote(details, body, alsoHighlight !== false)
       .then(function (result) {
         closeNotePanel(revision);
         showSelectionNoteSaved(result);
@@ -1512,6 +1518,9 @@
   highlightButton.addEventListener("click", toggleHighlight);
   noteSaveClose.addEventListener("click", function () {
     saveNote();
+  });
+  noteSaveOnly.addEventListener("click", function () {
+    saveNote(undefined, false);
   });
   notePasteClose.addEventListener("click", pasteAndCloseNote);
   noteCloseButtons.forEach(function (button) {

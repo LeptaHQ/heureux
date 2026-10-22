@@ -41,6 +41,10 @@
   var translationNoteLabel = panel.querySelector(
     "[data-translation-note-label]"
   );
+  var translationNoteOnlyButton = panel.querySelector("[data-translation-note-only]");
+  var translationNoteOnlyLabel = panel.querySelector(
+    "[data-translation-note-only-label]"
+  );
   var fallbackLink = panel.querySelector("[data-translation-fallback]");
   var fallbackLabel = panel.querySelector("[data-translation-fallback-label]");
   var mobileActionQuery = window.matchMedia(
@@ -571,13 +575,37 @@
   }
 
   function resetNoteButton() {
-    if (!translationNoteButton) return;
-    translationNoteButton.classList.add("hidden");
-    translationNoteButton.classList.remove("is-busy");
-    translationNoteButton.disabled = false;
+    [translationNoteButton, translationNoteOnlyButton].forEach(function (button) {
+      if (button) button.classList.add("hidden");
+    });
+    setNoteButtonsPending(false);
+  }
+
+  function setNoteButtonsPending(pending, activeButton) {
+    [translationNoteButton, translationNoteOnlyButton].forEach(function (button) {
+      if (!button) return;
+      button.disabled = pending;
+      button.classList.toggle("is-busy", pending && button === activeButton);
+    });
     if (translationNoteLabel) {
-      translationNoteLabel.textContent = "Add to note and highlight";
+      translationNoteLabel.textContent = pending && activeButton === translationNoteButton
+        ? "Saving…" : "Add to note and highlight";
     }
+    if (translationNoteOnlyLabel) {
+      translationNoteOnlyLabel.textContent = pending && activeButton === translationNoteOnlyButton
+        ? "Saving…" : "Add to note without highlighting";
+    }
+  }
+
+  function showNoteButtons(hasTranslation) {
+    if (!window.HeureuxNotes || !translationSelection) return;
+    if (translationNoteButton) {
+      translationNoteButton.classList.toggle("hidden", !hasTranslation);
+    }
+    if (translationNoteOnlyButton) {
+      translationNoteOnlyButton.classList.remove("hidden");
+    }
+    setNoteButtonsPending(false);
   }
 
   function resetTranslationCopy() {
@@ -611,6 +639,7 @@
     fallbackLink.classList.add("is-suggested");
     fallbackLink.setAttribute("title", "Open Google Translate");
     fallbackLink.setAttribute("aria-label", "Open Google Translate");
+    showNoteButtons(false);
     repositionPanel();
   }
 
@@ -721,24 +750,22 @@
     resultElement.textContent = translation;
     output.classList.remove("hidden");
     copyButton.classList.remove("hidden");
-    if (translationNoteButton && window.HeureuxNotes) {
-      translationNoteButton.classList.remove("hidden");
-      translationNoteButton.disabled = false;
-    }
+    showNoteButtons(true);
     setStatus(status || "Translated locally on this device.", false);
     repositionPanel();
   }
 
-  function saveTranslationNote() {
-    if (!translationNoteButton || translationNoteButton.disabled) return;
+  function saveTranslationNote(alsoHighlight) {
+    var button = alsoHighlight ? translationNoteButton : translationNoteOnlyButton;
+    if (!button || button.disabled) return;
     var quote = sourceElement.textContent;
     var body = resultElement.textContent;
-    if (!quote || !body || !window.HeureuxNotes) return;
+    if (!quote || (alsoHighlight && !body) || !window.HeureuxNotes) return;
     var currentRequest = requestNumber;
-    translationNoteButton.disabled = true;
-    translationNoteButton.classList.add("is-busy");
-    if (translationNoteLabel) translationNoteLabel.textContent = "Saving…";
-    window.HeureuxNotes.saveSelectionNote(quote, body, true, translationSelection)
+    setNoteButtonsPending(true, button);
+    window.HeureuxNotes.saveSelectionNote(
+      quote, body, alsoHighlight, translationSelection
+    )
       .then(function () {
         if (currentRequest !== requestNumber) return;
         closePanel();
@@ -746,11 +773,7 @@
       .catch(function (error) {
         if (currentRequest !== requestNumber) return;
         setStatus(error.message, false);
-        translationNoteButton.disabled = false;
-        translationNoteButton.classList.remove("is-busy");
-        if (translationNoteLabel) {
-          translationNoteLabel.textContent = "Add to note and highlight";
-        }
+        setNoteButtonsPending(false);
       });
   }
 
@@ -913,7 +936,14 @@
   });
 
   if (translationNoteButton) {
-    translationNoteButton.addEventListener("click", saveTranslationNote);
+    translationNoteButton.addEventListener("click", function () {
+      saveTranslationNote(true);
+    });
+  }
+  if (translationNoteOnlyButton) {
+    translationNoteOnlyButton.addEventListener("click", function () {
+      saveTranslationNote(false);
+    });
   }
   closeButtons.forEach(function (button) {
     button.addEventListener("click", closePanel);

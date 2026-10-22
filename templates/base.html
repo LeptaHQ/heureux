@@ -292,11 +292,12 @@
         </svg>
         <span class="sr-only" data-translation-fallback-label>Google Translate</span>
       </a>
-      <button class="panel-action panel-action--note hidden" type="button" aria-label="Add to note and highlight" title="Add to note and highlight" data-translation-note>
-        <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-          <path d="M6 3h9l3 3v15H6z"></path>
-          <path d="M15 3v4h4M9 13h6M12 10v6"></path>
-        </svg>
+      <button class="panel-action panel-action--note hidden" type="button" aria-label="Add to note without highlighting" title="Add to note without highlighting" data-translation-note-only>
+        <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h9l3 3v15H6zM15 3v4h4M9 12h6M9 16h4"></path></svg>
+        <span class="sr-only" data-translation-note-only-label>Add to note without highlighting</span>
+      </button>
+      <button class="panel-action panel-action--save hidden" type="button" aria-label="Add to note and highlight" title="Add to note and highlight" data-translation-note>
+        <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m7 12 3.2 3.2L17.5 8"></path></svg>
         <span class="sr-only" data-translation-note-label>Add to note and highlight</span>
       </button>
       <button class="panel-action panel-action--close" type="button" aria-label="Fermer" title="Fermer" data-translation-close>
@@ -335,9 +336,13 @@
         <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m8 8 8 8M16 8l-8 8"></path></svg>
         <span class="sr-only">Annuler</span>
       </button>
-      <button class="panel-action panel-action--save" type="button" aria-label="Enregistrer et fermer" title="Enregistrer et fermer" data-note-save-close>
+      <button class="panel-action panel-action--note" type="button" aria-label="Enregistrer sans surligner" title="Enregistrer sans surligner" data-note-save-only>
+        <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 3h9l3 3v15H6zM15 3v4h4M9 12h6M9 16h4"></path></svg>
+        <span class="sr-only">Enregistrer sans surligner</span>
+      </button>
+      <button class="panel-action panel-action--save" type="button" aria-label="Enregistrer et surligner" title="Enregistrer et surligner" data-note-save-close>
         <svg class="ui-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="m7 12 3.2 3.2L17.5 8"></path></svg>
-        <span class="sr-only">Enregistrer et fermer</span>
+        <span class="sr-only">Enregistrer et surligner</span>
       </button>
       <button class="panel-action panel-action--paste" type="button" aria-label="Coller et fermer" title="Coller et fermer" data-note-paste-close>
         {% include "study/partials/ui_icon.html" with name="clipboard-paste" only %}
@@ -386,8 +391,8 @@
   <script src="{% static 'study/js/eo3-audio.js' %}?v=10"></script>
   <script src="{% static 'study/js/flashcards.js' %}?v=5"></script>
   <script src="{% static 'study/js/app.js' %}?v=70"></script>
-  <script src="{% static 'study/js/selection-toolbar.js' %}?v=15"></script>
-  <script src="{% static 'study/js/annotations.js' %}?v=37"></script>
+  <script src="{% static 'study/js/selection-toolbar.js' %}?v=16"></script>
+  <script src="{% static 'study/js/annotations.js' %}?v=38"></script>
   {% block scripts %}{% endblock %}
 </body>
 </html>

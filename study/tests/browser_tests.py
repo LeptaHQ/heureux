@@ -6424,6 +6424,127 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertEqual(highlight.quote, quote)
 
+    def test_translation_panel_note_only_preserves_existing_highlights(self):
+        self.context.add_init_script(
+            """
+            window.Translator = {
+              create: () => Promise.resolve({
+                translate: text => Promise.resolve("EN: " + text),
+              }),
+            };
+            """
+        )
+        self.page.goto(
+            self.live_server_url + reverse("study:review") + "?kind=spine&reset=1"
+        )
+        self.page.wait_for_load_state("networkidle")
+        prompt = self.page.locator("#card-front .prompt-text")
+        for has_highlight in (False, True):
+            with self.subTest(has_highlight=has_highlight):
+                if has_highlight:
+                    self.select_prompt(start=0, end=12)
+                    self.page.locator("[data-highlight-selection]").click()
+                    expect(prompt.locator("mark.user-highlight")).to_have_count(1)
+                before = list(Annotation.objects.filter(
+                    user=self.user, kind=AnnotationKind.HIGHLIGHT,
+                ).values())
+                self.select_prompt(start=0, end=12)
+                self.page.locator("[data-translate-selection]").click()
+                panel = self.page.locator("[data-translation-panel]")
+                panel.locator("[data-translation-note-only]").click()
+                expect(panel).to_be_hidden()
+                expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+                    "Note enregistrée.",
+                )
+                note = Annotation.objects.filter(
+                    user=self.user, kind=AnnotationKind.NOTE,
+                ).latest("pk")
+                self.assertEqual(note.quote, prompt.inner_text()[:12])
+                self.assertEqual(note.body, "EN: " + note.quote)
+                self.assertEqual(list(Annotation.objects.filter(
+                    user=self.user, kind=AnnotationKind.HIGHLIGHT,
+                ).values()), before)
+                expect(prompt.locator("mark.user-highlight")).to_have_count(
+                    int(has_highlight),
+                )
+
+    @override_settings(TRANSLATION_API_URL="")
+    def test_translation_fallback_can_save_the_source_without_highlighting(self):
+        self.page.set_viewport_size({"width": 320, "height": 740})
+        self.context.add_init_script("delete window.Translator;")
+        self.page.goto(
+            self.live_server_url + reverse("study:review") + "?kind=spine&reset=1"
+        )
+        self.page.wait_for_load_state("networkidle")
+        self.select_prompt(start=0, end=12)
+        quote = self.page.evaluate("window.getSelection().toString().trim()")
+        self.page.locator("[data-translate-selection]").click()
+        panel = self.page.locator("[data-translation-panel]")
+        expect(panel.locator("[data-translation-fallback]")).to_have_attribute(
+            "aria-label", "Open Google Translate",
+        )
+        expect(panel.locator("[data-translation-note]")).to_be_hidden()
+        self.assert_no_horizontal_overflow()
+        panel.get_by_role(
+            "button", name="Add to note without highlighting", exact=True,
+        ).click()
+        expect(panel).to_be_hidden()
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Note enregistrée.",
+        )
+        note = Annotation.objects.get(user=self.user, kind=AnnotationKind.NOTE)
+        self.assertEqual(note.quote, quote)
+        self.assertEqual(note.body, "")
+        self.assertFalse(Annotation.objects.filter(
+            user=self.user, kind=AnnotationKind.HIGHLIGHT,
+        ).exists())
+
+    def test_translation_note_only_failure_reenables_both_save_actions(self):
+        self.context.add_init_script(
+            """
+            window.Translator = {
+              create: () => Promise.resolve({
+                translate: text => Promise.resolve("EN: " + text),
+              }),
+            };
+            """
+        )
+        self.page.goto(
+            self.live_server_url + reverse("study:review") + "?kind=spine&reset=1"
+        )
+        self.page.wait_for_load_state("networkidle")
+        self.select_prompt(start=0, end=12)
+        self.page.locator("[data-translate-selection]").click()
+        panel = self.page.locator("[data-translation-panel]")
+        note_only = panel.locator("[data-translation-note-only]")
+        pending = []
+        create_route = "**" + reverse("study:annotation_create")
+        self.page.route(create_route, lambda route: pending.append(route))
+        note_only.click()
+        expect(note_only).to_be_disabled()
+        expect(panel.locator("[data-translation-note]")).to_be_disabled()
+        self.assertEqual(len(pending), 1)
+        pending[0].fulfill(
+            status=503, content_type="application/json",
+            body=json.dumps({"error": "Enregistrement indisponible."}),
+        )
+        expect(panel.locator("[data-translation-status-text]")).to_have_text(
+            "Enregistrement indisponible.",
+        )
+        expect(panel).to_be_visible()
+        expect(note_only).to_be_enabled()
+        expect(panel.locator("[data-translation-note]")).to_be_enabled()
+        self.assertFalse(Annotation.objects.filter(user=self.user).exists())
+        self.page.unroute(create_route)
+        note_only.click()
+        expect(panel).to_be_hidden()
+        self.assertEqual(Annotation.objects.filter(
+            user=self.user, kind=AnnotationKind.NOTE,
+        ).count(), 1)
+        self.assertFalse(Annotation.objects.filter(
+            user=self.user, kind=AnnotationKind.HIGHLIGHT,
+        ).exists())
+
     def test_touch_toolbar_copy_note_and_highlight_preserve_selected_text(self):
         self.context.add_init_script("""
             Object.defineProperty(navigator, "clipboard", {
@@ -6644,6 +6765,32 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assertEqual(highlight.quote, prompt.inner_text()[:12])
         prompt.locator("mark.user-highlight").wait_for()
+
+    def test_selection_note_save_only_does_not_highlight(self):
+        self.page.goto(
+            self.live_server_url + reverse("study:review") + "?kind=spine&reset=1"
+        )
+        self.page.wait_for_load_state("networkidle")
+        self.select_prompt(start=0, end=12)
+        quote = self.page.evaluate("window.getSelection().toString().trim()")
+        self.page.locator("[data-note-selection]").click()
+        panel = self.page.locator("[data-note-panel]")
+        panel.locator("[data-note-body]").fill("Une note **sans surlignage**.")
+        panel.get_by_role(
+            "button", name="Enregistrer sans surligner", exact=True,
+        ).click()
+        expect(panel).to_be_hidden()
+        expect(self.page.locator("[data-annotation-toast]")).to_have_text(
+            "Note enregistrée.",
+        )
+        note = Annotation.objects.get(user=self.user, kind=AnnotationKind.NOTE)
+        self.assertEqual(note.quote, quote)
+        self.assertEqual(note.body, "Une note **sans surlignage**.")
+        self.assertFalse(Annotation.objects.filter(
+            user=self.user, kind=AnnotationKind.HIGHLIGHT,
+        ).exists())
+        self.page.reload()
+        expect(self.page.locator("mark.user-highlight")).to_have_count(0)
 
     def test_stale_selection_note_save_does_not_close_a_new_note_panel(self):
         self.context.add_init_script(
@@ -8299,7 +8446,12 @@ class BrowserTests(StaticLiveServerTestCase):
         create_dialog.get_by_label("Votre note").fill(
             "Première version avec **un point important**."
         )
-        create_dialog.get_by_role("button", name="Enregistrer").click()
+        create_dialog.get_by_role(
+            "button", name="Enregistrer sans surligner", exact=True,
+        ).click()
+        self.assertFalse(Annotation.objects.filter(
+            user=self.user, kind=AnnotationKind.HIGHLIGHT,
+        ).exists())
 
         note_card = self.page.locator(
             ".annotation-card",
@@ -8381,7 +8533,9 @@ class BrowserTests(StaticLiveServerTestCase):
             dialog.get_by_label("Titre (facultatif)").fill(title)
             dialog.get_by_label("Votre note").fill("Prends ! Prenons ! Prenez !")
             self.assert_no_horizontal_overflow()
-            dialog.get_by_role("button", name="Enregistrer", exact=True).click()
+            dialog.get_by_role(
+                "button", name="Enregistrer sans surligner", exact=True,
+            ).click()
             self.page.wait_for_url(self.live_server_url + personal_url + "**")
             note = Annotation.objects.get(user=self.user, title=title)
             self.assertIsNone(note.task_id)
@@ -8396,12 +8550,16 @@ class BrowserTests(StaticLiveServerTestCase):
         dialog = self.page.locator("#note-create-dialog")
         dialog.get_by_label("Groupe", exact=True).select_option(str(ee.pk))
         dialog.get_by_label("Titre (facultatif)").fill("Mon carnet EE1")
-        dialog.get_by_role("button", name="Enregistrer", exact=True).click()
+        dialog.get_by_role(
+            "button", name="Enregistrer sans surligner", exact=True,
+        ).click()
         expect(dialog).to_be_visible()
         expect(dialog.get_by_label("Groupe", exact=True)).to_have_value(str(ee.pk))
         self.assertFalse(Annotation.objects.filter(user=self.user, title="Mon carnet EE1").exists())
         dialog.get_by_label("Votre note").fill("Note volontairement classée dans EE1.")
-        dialog.get_by_role("button", name="Enregistrer", exact=True).click()
+        dialog.get_by_role(
+            "button", name="Enregistrer sans surligner", exact=True,
+        ).click()
         destination = reverse("study:task_notes", args=["ee", "tache-1"])
         self.page.wait_for_url(self.live_server_url + destination + "**")
         note = Annotation.objects.get(user=self.user, title="Mon carnet EE1")
@@ -9695,7 +9853,9 @@ class BrowserTests(StaticLiveServerTestCase):
         dialog.get_by_label("Groupe", exact=True).select_option(str(self.task.pk))
         dialog.get_by_label("Titre (facultatif)").fill("Matching new note")
         dialog.get_by_label("Votre note").fill("Matching freshly written body")
-        dialog.get_by_role("button", name="Enregistrer", exact=True).click()
+        dialog.get_by_role(
+            "button", name="Enregistrer sans surligner", exact=True,
+        ).click()
         new = self.page.locator(".annotation-card", has_text="Matching new note")
         expect(new).to_have_count(1)
         expect(self.page.locator("[data-annotation-item]")).to_have_count(50)
@@ -13255,6 +13415,7 @@ class BrowserTests(StaticLiveServerTestCase):
         )
 
         expect(panel.locator("[data-note-save-close]")).to_be_disabled()
+        expect(panel.locator("[data-note-save-only]")).to_be_disabled()
         expect(panel.locator("[data-note-paste-close]")).to_be_disabled()
         expect(body).to_have_js_property("readOnly", True)
         self.assertFalse(Annotation.objects.filter(user=self.user).exists())
@@ -13263,6 +13424,7 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(body).to_have_value("Avant texte collé")
         expect(body).to_have_js_property("readOnly", False)
         expect(panel.locator("[data-note-save-close]")).to_be_enabled()
+        expect(panel.locator("[data-note-save-only]")).to_be_enabled()
         expect(panel.locator("[data-note-paste-close]")).to_be_enabled()
         panel.locator("[data-note-cancel]").click()
         expect(panel).to_be_hidden()
@@ -13312,6 +13474,16 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(self.page.locator("[data-translate-selection]")).to_be_focused()
 
     def test_stale_translation_note_save_preserves_new_translation_panel(self):
+        self.assert_stale_translation_note_save(
+            "[data-translation-note]", "Note enregistrée et passage surligné.",
+        )
+
+    def test_stale_translation_note_only_save_preserves_new_translation_panel(self):
+        self.assert_stale_translation_note_save(
+            "[data-translation-note-only]", "Note enregistrée.",
+        )
+
+    def assert_stale_translation_note_save(self, selector, saved_message):
         self.context.add_init_script(
             """
             window.Translator = {
@@ -13343,10 +13515,12 @@ class BrowserTests(StaticLiveServerTestCase):
         self.select_prompt(start=0, end=12)
         self.page.locator("[data-translate-selection]").click()
         panel = self.page.locator("[data-translation-panel]")
-        panel.locator("[data-translation-note]").click()
+        panel.locator(selector).click()
         self.page.wait_for_function(
             "() => typeof window.__releaseTranslationNote === 'function'"
         )
+        expect(panel.locator("[data-translation-note]")).to_be_disabled()
+        expect(panel.locator("[data-translation-note-only]")).to_be_disabled()
         panel.locator("[data-translation-close]").first.click()
         self.select_prompt(start=1, end=10)
         self.page.locator("[data-translate-selection]").click()
@@ -13357,7 +13531,7 @@ class BrowserTests(StaticLiveServerTestCase):
 
         self.page.evaluate("window.__releaseTranslationNote()")
         expect(self.page.locator("[data-annotation-toast]")).to_have_text(
-            "Note enregistrée et passage surligné."
+            saved_message,
         )
         expect(panel).to_be_visible()
         expect(panel.locator("[data-translation-source]")).to_have_text(new_source)
@@ -13365,9 +13539,16 @@ class BrowserTests(StaticLiveServerTestCase):
             "EN: " + new_source
         )
         expect(panel.locator("[data-translation-note]")).to_be_enabled()
+        expect(panel.locator("[data-translation-note-only]")).to_be_enabled()
         self.assertEqual(
             Annotation.objects.filter(user=self.user, kind=AnnotationKind.NOTE).count(),
             1,
+        )
+        self.assertEqual(
+            Annotation.objects.filter(
+                user=self.user, kind=AnnotationKind.HIGHLIGHT,
+            ).count(),
+            int(selector == "[data-translation-note]"),
         )
 
     def test_stale_highlight_list_does_not_erase_a_new_highlight(self):

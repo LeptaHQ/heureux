@@ -204,6 +204,13 @@ light and dark themes.
 
 ## Notes and highlights
 
+Selected passages and translations offer separate **save without highlighting**
+and **save and highlight** actions. Note-only saving leaves existing highlights
+unchanged. If translation is unavailable, the translation dialog can still save
+the selected French passage as a note without highlighting it; no translation
+is invented or fetched from Google automatically. The **Nouvelle note** dialog
+also saves without creating a highlight.
+
 The EO3 subject reset returns its status to **À commencer** and clears its
 existing highlight paint, including after reloading or reopening practice.
 Highlights are marked `hidden_on_source`, not deleted: their text, anchors,

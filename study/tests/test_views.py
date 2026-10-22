@@ -651,7 +651,9 @@ class SmokeTests(TestCase):
         )
         self.assertContains(response, "panel-action--save")
         self.assertContains(response, "data-note-save-close")
-        self.assertContains(response, "Enregistrer et fermer")
+        self.assertContains(response, "data-note-save-only")
+        self.assertContains(response, "Enregistrer sans surligner")
+        self.assertContains(response, "Enregistrer et surligner")
         self.assertContains(response, "data-note-paste-close")
         self.assertContains(response, "Coller et fermer")
         self.assertLess(
@@ -659,7 +661,9 @@ class SmokeTests(TestCase):
             response.content.decode().index("data-note-paste-close"),
         )
         self.assertContains(response, "data-translation-note")
+        self.assertContains(response, "data-translation-note-only")
         self.assertContains(response, "Add to note and highlight")
+        self.assertContains(response, "Add to note without highlighting")
         self.assertNotContains(response, "data-note-save>")
         self.assertNotContains(response, "data-note-undo")
         self.assertNotContains(response, "data-note-view")

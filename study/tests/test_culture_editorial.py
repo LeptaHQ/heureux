@@ -77,7 +77,7 @@ class CultureEditorialTests(SimpleTestCase):
             (15, 1, ("sa grand-mère", "sécher des tomates", "conserver jusqu'en hiver")),
             (19, 2, ("en français", "une ancienne usine", "devenue un lieu culturel", "poser des questions")),
             (20, 1, ("sans passer par un texte",)),
-            (24, 1, ("dans leur équipe", "dès qu'elles apparaissent", "corriger un dossier avant son envoi")),
+            (24, 1, ("association de quartier", "chacun apporte un plat", "dans la langue du pays", "d'autres rencontres")),
             (26, 2, ("prévoir leurs visites à l'avance", "manque de sympathie")),
             (30, 2, ("profession est réglementée", "avant d'exercer", "ne remplace ni")),
             (31, 1, ("moquerie", "humiliée", "relation réelle")),

@@ -664,9 +664,17 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("réduire l'isolement", response.arguments[0].idea)
         self.assertIn("chaque samedi", response.arguments[0].exemple)
         self.assertIn("quelques courses", response.arguments[0].exemple)
-        self.assertIn("habitudes de communication", response.arguments[1].idea)
-        self.assertIn("avant son envoi", response.arguments[1].exemple)
-        self.assertIn("sans en faire une règle pour tout le pays", response.arguments[1].consequence)
+        self.assertIn("codes sociaux", response.arguments[1].idea)
+        self.assertIn("pratiquer la langue du pays", response.arguments[1].idea)
+        self.assertIn("Les conversations régulières", response.arguments[1].developpement)
+        self.assertIn("les habitudes d'un groupe", response.arguments[1].developpement)
+        self.assertIn("avec des interlocuteurs que l'on connaît", response.arguments[1].developpement)
+        self.assertIn("chacun apporte un plat", response.arguments[1].exemple)
+        self.assertIn("dans la langue du pays", response.arguments[1].exemple)
+        self.assertIn("réutilise ensuite ces expressions lors d'autres rencontres", response.arguments[1].exemple)
+        self.assertIn("tous les habitants aient les mêmes habitudes", response.arguments[1].consequence)
+        self.assertIn("chacun apporte un plat", plan.arguments[1].example.french)
+        self.assertIn("everyone brings a dish", plan.arguments[1].example.english)
         self.assertIn("sans avoir encore créé de liens personnels sur place", response.arguments[2].idea)
         self.assertIn("travaille à distance", response.arguments[2].exemple)
         self.assertIn("avant d'avoir rencontré des personnes avec qui se lier", response.arguments[2].exemple)
@@ -743,7 +751,8 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p19", 2, "ancienne usine", "usine", "factory"),
             ("culture-p20", 2, "motif", "motif", "motif"),
             ("culture-p24", 0, "chaque samedi", "samedi", "Saturday"),
-            ("culture-p24", 1, "la réunion", "la réunion", "the meeting"),
+            ("culture-p24", 1, "chacun apporte un plat", "chacun apporte un plat", "everyone brings a dish"),
+            ("culture-p24", 1, "réutilise ensuite ces expressions", "réutiliser les expressions", "reuse expressions"),
             ("culture-p24", 2, "randonnée seule", "randonnées en solitaire", "solo hikes"),
             ("culture-p26", 0, "ressources confirmées", "ressources confirmées", "confirmed resources"),
             ("culture-p26", 1, "propriétaire", "propriétaire", "landlord"),

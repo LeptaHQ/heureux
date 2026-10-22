@@ -398,7 +398,10 @@ def _spine_payload(card: Card, *, prompt=None, model_only=False, personal=None) 
         ))),
         "reviewed_eo3": reviewed_eo3,
         "structured_eo3": structured_eo3,
-        "eo3_audio": narration_presentation(reviewed_model(response, canonical)) if reviewed_eo3 else None,
+        "eo3_audio": (
+            narration_presentation(reviewed_model(response, canonical), content, card.user_id)
+            if content.is_personal else narration_presentation(reviewed_model(response, canonical))
+        ) if structured_eo3 else None,
         "eo3_prompt_note": prompt_note_for_response(response, canonical),
         "eo3_pistes": catalogue.tache_three_subject_plan(response.semantic_group),
         "arguments": annotation_arguments(canonical, content),

@@ -22,7 +22,10 @@ from study.eo3_audio import (
     _check_provider_request, generate_narration, narration_presentation, narration_spec, synthesize,
     word_timings,
 )
-from study.models import Card, CardType, EO3Narration, PersonalResponse, Prompt
+from study.models import (
+    Card, CardType, EO3Narration, FrenchNarration, PersonalResponse, Prompt, Response,
+)
+from study.response_personalization import effective_response
 from study.oral_highlights import AnnotationRootText
 from study.routing import prompt_detail_url
 from study.tache_three_models import spoken_text
@@ -533,7 +536,7 @@ class EO3AudioTests(TestCase):
         self.assertEqual(self.client.get(urls[0]).content, AUDIO)
 
     def test_personal_response_does_not_offer_or_send_public_narration(self):
-        self.save_recording()
+        public = self.save_recording()
         PersonalResponse.objects.create(
             user=self.user, response=self.prompt.response, position_claire="Mon introduction privée.",
             arguments=[{
@@ -543,9 +546,15 @@ class EO3AudioTests(TestCase):
             nuance="Ma nuance.", conclusion="Ma conclusion.",
         )
         page = self.client.get(prompt_detail_url(self.prompt))
-        self.assertNotContains(page, "data-eo3-player")
+        self.assertNotContains(page, public.fingerprint)
+        self.assertFalse(page.context["eo3_audio"]["ready"])
+        self.assertContains(page, 'data-eo3-player data-flashcard-ignore-toggle aria-label="Écouter la réponse"')
+        self.assertContains(page, " hidden data-eo3-player")
         card = Card.objects.get(user=self.user, response=self.prompt.response, card_type=CardType.SPINE)
-        self.assertIsNone(card_payload(card, prompt=self.prompt)["eo3_audio"])
+        audio = card_payload(card, prompt=self.prompt)["eo3_audio"]
+        self.assertFalse(audio["ready"])
+        self.assertEqual(audio["url"], "")
+        self.assertEqual(audio["prepare_url"], "")
 
 
 ON_DEMAND_SETTINGS = {
@@ -606,6 +615,87 @@ class EO3OnDemandNarrationTests(TestCase):
             self.assertEqual(self.prepare().status_code, 200)
         provider.assert_called_once()
         self.assertTrue(EO3Narration.objects.filter(pk=self.spec.fingerprint).exists())
+
+    def edit(self, user, introduction):
+        response = Response.objects.filter(semantic_group=self.group).first()
+        PersonalResponse.objects.update_or_create(
+            user=user, response=response, defaults={
+                "position_claire": introduction,
+                "arguments": [{
+                    "order": 1, "idea": "Mon idée privée.", "developpement": "Ma raison.",
+                    "exemple": "", "consequence": "Ma conséquence.",
+                }],
+                "nuance": "Ma nuance.", "conclusion": "Ma conclusion.",
+            },
+        )
+        response = Response.objects.filter(semantic_group=self.group).first()
+        return response, narration_presentation(
+            self.model, effective_response(response, user), user.pk,
+        )
+
+    def test_an_edited_response_gets_its_own_private_recording(self):
+        response, presentation = self.edit(self.user, "Mon introduction privée.")
+        self.assertTrue(presentation["on_demand"])
+        self.assertNotEqual(presentation["prepare_url"], self.url)
+        fingerprint = presentation["prepare_url"].rstrip("/").rsplit("/", 2)[-2]
+        self.assertNotEqual(fingerprint, self.spec.fingerprint)
+        prompt = Prompt.objects.filter(response=response, is_active=True).first()
+        page = self.client.get(prompt_detail_url(prompt))
+        self.assertContains(page, presentation["prepare_url"])
+        self.assertNotContains(page, self.url)
+
+        with patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING)) as provider:
+            prepared = self.client.post(
+                presentation["prepare_url"], data=json.dumps({"confirm_cost": True}),
+                content_type="application/json",
+            )
+        self.assertEqual(prepared.status_code, 200, prepared.content)
+        self.assertIn("data-eo3-audio", prepared.json()["html"])
+        spec = provider.call_args.args[0]
+        self.assertEqual(spec.fingerprint, fingerprint)
+        self.assertEqual(spec.text, "\n\n".join((
+            self.model.source_prompts[0][1], "Mon introduction privée.",
+            "Mon idée privée. Ma raison. Ma conséquence.", "Ma nuance.", "Ma conclusion.",
+        )))
+        self.assertEqual(FrenchNarration.objects.get(pk=fingerprint).owner, self.user)
+        self.assertFalse(EO3Narration.objects.filter(pk=self.spec.fingerprint).exists())
+
+        ready = self.edit(self.user, "Mon introduction privée.")[1]
+        self.assertTrue(ready["ready"])
+        self.assertEqual(self.client.get(ready["url"]).content, AUDIO)
+        stranger = factories.make_user("eavesdropper")
+        self.client.force_login(stranger)
+        self.assertEqual(self.client.get(ready["url"]).status_code, 404)
+        self.edit(stranger, "Mon introduction privée.")
+        self.assertEqual(self.client.get(ready["url"]).status_code, 404)
+
+    def test_a_new_edit_frees_the_previous_private_recording(self):
+        first = self.edit(self.user, "Première version.")[1]
+        with patch("study.french_audio.synthesize", return_value=(AUDIO, TIMING)):
+            self.client.post(first["prepare_url"], data=json.dumps({"confirm_cost": True}),
+                             content_type="application/json")
+            second = self.edit(self.user, "Deuxième version.")[1]
+            self.assertFalse(second["ready"])
+            self.assertEqual(self.client.post(
+                first["prepare_url"], data=json.dumps({"confirm_cost": True}),
+                content_type="application/json",
+            ).status_code, 409)
+            self.client.post(second["prepare_url"], data=json.dumps({"confirm_cost": True}),
+                             content_type="application/json")
+        self.assertEqual(EO3Narration.objects.count(), 1)
+        self.assertTrue(self.edit(self.user, "Deuxième version.")[1]["ready"])
+        old = first["prepare_url"].rstrip("/").rsplit("/", 2)[-2]
+        self.assertEqual(FrenchNarration.objects.get(pk=old).status, "superseded")
+
+    def test_disabled_generation_keeps_edited_responses_closed(self):
+        presentation = self.edit(self.user, "Mon introduction privée.")[1]
+        with self.settings(FRENCH_AUDIO_GENERATION_ENABLED=False):
+            closed = self.edit(self.user, "Mon introduction privée.")[1]
+            self.assertEqual(closed["prepare_url"], "")
+            self.assertEqual(self.client.post(
+                presentation["prepare_url"], data=json.dumps({"confirm_cost": True}),
+                content_type="application/json",
+            ).status_code, 404)
 
     def test_disabled_generation_keeps_non_sample_responses_closed(self):
         with self.settings(FRENCH_AUDIO_GENERATION_ENABLED=False):

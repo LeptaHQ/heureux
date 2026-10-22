@@ -15,6 +15,7 @@ from django.utils import timezone
 from .eo3_audio import (
     NarrationError, NarrationSpec, OUTPUT_FORMAT, PreSynthesisRejection, SAMPLE_GROUP,
     VOICE_SETTINGS, narration_spec, on_demand_enabled, sample_rejection_message, synthesize,
+    text_narration_spec,
 )
 from .models import EO3Narration, FrenchNarration, FrenchNarrationBudget
 
@@ -146,8 +147,13 @@ def generate_prepared(fingerprint):
             model = catalogue.tache_three_models().get(recording.target_group)
             if model is None:
                 raise NarrationError("This response is no longer available.")
-            spec = narration_spec(model)
+            spec = (
+                text_narration_spec(model.group, recording.text, recording.owner_id)
+                if recording.owner_id is not None else narration_spec(model)
+            )
         elif recording.target_group:
+            if recording.owner_id is not None:
+                raise NarrationError("On-demand narration is disabled for edited responses.")
             if (
                 not settings.EO3_AUDIO_ENABLED or not settings.EO3_AUDIO_SAMPLE_ENABLED
                 or recording.target_group != SAMPLE_GROUP
@@ -215,6 +221,9 @@ def generate_prepared(fingerprint):
         raise
     if recording.target_group:
         with transaction.atomic():
+            # A deleted account must not resurrect a private recording.
+            if not FrenchNarration.objects.filter(pk=fingerprint).update(status="ready"):
+                raise NarrationError("The request was deleted during generation; no recording was saved.")
             EO3Narration.objects.update_or_create(
                 fingerprint=spec.fingerprint,
                 defaults={
@@ -222,7 +231,13 @@ def generate_prepared(fingerprint):
                     "model_id": spec.model_id, "audio": audio, "timing": timing,
                 },
             )
-            FrenchNarration.objects.filter(pk=fingerprint).update(status="ready")
+            if recording.owner_id is not None:
+                # Only the latest edit is playable, so earlier private takes are freed.
+                superseded = FrenchNarration.objects.filter(
+                    owner_id=recording.owner_id, target_group=recording.target_group, status="ready",
+                ).exclude(pk=fingerprint)
+                EO3Narration.objects.filter(pk__in=superseded.values("pk")).delete()
+                superseded.update(status="superseded")
         return True
     # A deleted account must not resurrect a private recording.
     if not FrenchNarration.objects.filter(pk=fingerprint, status="working").update(

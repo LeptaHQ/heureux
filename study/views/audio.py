@@ -14,6 +14,7 @@ from django.views.decorators.http import require_POST, require_safe
 from .. import catalogue
 from ..eo3_audio import (
     NarrationError, SAMPLE_GROUP, narration_presentation, narration_spec, on_demand_enabled,
+    personal_narrations,
 )
 from ..models import EO3Narration, FrenchNarration
 from ..french_audio import (
@@ -31,7 +32,18 @@ def _audio_json(data, status=200):
 ON_DEMAND_DAILY_LIMIT = 100
 
 
-def _prepare_on_demand(spec, group, user):
+def _requested_narration(model, fingerprint, user):
+    """The published spec, or the requester's own edited copy, matching ``fingerprint``."""
+    spec = narration_spec(model)
+    if spec.fingerprint == fingerprint:
+        return spec, None
+    for personal_spec, personal in personal_narrations(model, user):
+        if personal_spec.fingerprint == fingerprint:
+            return personal_spec, personal
+    return None, None
+
+
+def _prepare_on_demand(spec, group, user, owner=None):
     now = timezone.now()
     with transaction.atomic():
         # A crashed worker must not block every later request forever.
@@ -47,7 +59,7 @@ def _prepare_on_demand(spec, group, user):
             fingerprint=spec.fingerprint,
             defaults={
                 "text": spec.text, "voice_id": spec.voice_id, "model_id": spec.model_id,
-                "target_group": group, "requested_by": user,
+                "target_group": group, "requested_by": user, "owner": owner,
             },
         )
         if recording.status == "working":
@@ -78,12 +90,18 @@ def eo3_audio_prepare(request, group, fingerprint):
             raise ValueError
     except (ValueError, UnicodeDecodeError):
         return _audio_json({"message": "Confirmez explicitement le coût de préparation de cet unique extrait."}, 400)
+    personal = None
     try:
-        spec = narration_spec(model)
-        if spec.fingerprint != fingerprint:
+        spec, personal = _requested_narration(model, fingerprint, request.user)
+        if personal is not None and not on_demand:
+            raise Http404
+        if spec is None:
             return _audio_json({"message": "La voix ou le texte a changé. Rechargez la page."}, 409)
         if on_demand and not EO3Narration.objects.filter(pk=fingerprint).exists():
-            _prepare_on_demand(spec, model.group, request.user)
+            _prepare_on_demand(
+                spec, model.group, request.user,
+                owner=request.user if personal is not None else None,
+            )
         elif not EO3Narration.objects.filter(pk=fingerprint).exists():
             if not settings.EO3_AUDIO_SAMPLE_ENABLED:
                 return _audio_json({"message": "La préparation du premier extrait est désactivée."}, 403)
@@ -103,7 +121,9 @@ def eo3_audio_prepare(request, group, fingerprint):
         "state": "ready",
         "html": render_to_string(
             "study/partials/eo3_audio.html", {
-                "audio": narration_presentation(model),
+                "audio": narration_presentation(
+                    model, personal, request.user.pk if personal is not None else None,
+                ),
                 "player_id": "eo3-response-player" if data.get("player_id") == "eo3-response-player" else "",
             }, request,
         ),
@@ -200,13 +220,16 @@ def eo3_audio(request, group, fingerprint):
     if model is None:
         raise Http404
     try:
-        spec = narration_spec(model)
+        spec, personal = _requested_narration(model, fingerprint, request.user)
     except NarrationError:
         raise Http404 from None
-    if fingerprint != spec.fingerprint:
+    if spec is None:
         raise Http404
     recording = get_object_or_404(EO3Narration, fingerprint=fingerprint, group=model.group)
-    return audio_response(request, bytes(recording.audio), fingerprint)
+    response = audio_response(request, bytes(recording.audio), fingerprint)
+    if personal is not None:
+        response["Cache-Control"] = "private, no-store"
+    return response
 
 
 def audio_response(request, audio, fingerprint):

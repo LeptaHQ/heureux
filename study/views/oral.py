@@ -46,7 +46,10 @@ def oral_response_context(request, prompt):
         "structured_eo3": structured_eo3,
         "single_response_eo3": prompt.theme.task.slug == "tache-3",
         "eo3_response_copy_text": response_text(value) if structured_eo3 else "",
-        "eo3_audio": narration_presentation(model) if reviewed_eo3 else None,
+        "eo3_audio": (
+            narration_presentation(model, value, request.user.pk) if value.is_personal
+            else narration_presentation(model)
+        ) if structured_eo3 else None,
         "eo3_prompt_note": prompt_note_for_response(response, prompt),
         "oral_annotation_key": variant_annotation_key(prompt, value),
         "oral_legacy_annotation_keys": json.dumps(legacy_keys),

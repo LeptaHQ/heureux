@@ -1,4 +1,4 @@
-"""Explicit, cached narration of reviewed public EO3 models only."""
+"""Explicit, cached narration of reviewed EO3 models and their owners' edited copies."""
 
 from dataclasses import dataclass
 import base64
@@ -135,37 +135,70 @@ class NarrationSpec:
     fingerprint: str
 
 
-def narration_spec(model):
+def narration_spec(model, personal=None, owner_id=None):
+    """Spec for the reviewed model, or for ``owner_id``'s edited copy of it."""
+    response = model.response
+    if personal is not None:
+        if not personal.is_personal or owner_id is None:
+            raise NarrationError("An edited response needs its owner.")
+        response = personal
+    elif response.is_personal:
+        raise NarrationError("Only reviewed public EO3 models can be narrated.")
+    # Published texts keep their exact joins so existing recordings stay valid;
+    # edited copies may leave fields empty.
+    join = (lambda parts: " ".join(filter(None, parts))) if personal is not None else " ".join
+    # The consigne shown by « Dédupliquer » is read first, as an examiner would.
+    paragraphs = (
+        model.source_prompts[0][1],
+        response.position_claire,
+        *(join((arg.idea, arg.developpement, arg.exemple, arg.consequence))
+          for arg in response.arguments),
+        response.nuance,
+        response.conclusion,
+    )
+    if personal is not None:
+        paragraphs = tuple(filter(None, paragraphs))
+    return text_narration_spec(model.group, "\n\n".join(paragraphs), owner_id)
+
+
+def text_narration_spec(group, text, owner_id=None):
     voice = settings.ELEVENLABS_VOICE_ID
     model_id = settings.ELEVENLABS_MODEL_ID
     if not re.fullmatch(r"[A-Za-z0-9_-]{1,128}", voice):
         raise NarrationError("Set ELEVENLABS_VOICE_ID to the selected French voice ID.")
     if not re.fullmatch(r"[A-Za-z0-9_-]{1,128}", model_id):
         raise NarrationError("Set ELEVENLABS_MODEL_ID to a supported text-to-speech model ID.")
-    response = model.response
-    if response.is_personal:
-        raise NarrationError("Only reviewed public EO3 models can be narrated.")
-    # The consigne shown by « Dédupliquer » is read first, as an examiner would.
-    paragraphs = (
-        model.source_prompts[0][1],
-        response.position_claire,
-        *(" ".join((arg.idea, arg.developpement, arg.exemple, arg.consequence))
-          for arg in response.arguments),
-        response.nuance,
-        response.conclusion,
-    )
-    text = "\n\n".join(paragraphs)
     if not text.strip() or len(text) > 10000:
         raise NarrationError("The response exceeds the 10,000-character narration limit.")
     identity = {
-        "version": 2, "group": model.group, "text": text,
+        "version": 2, "group": group, "text": text,
         "voice_id": voice, "model_id": model_id,
         "output_format": OUTPUT_FORMAT, "voice_settings": VOICE_SETTINGS,
     }
+    if owner_id is not None:
+        # Edited copies are private: the owner is part of the recording's identity.
+        identity["owner"] = owner_id
     fingerprint = hashlib.sha256(
         json.dumps(identity, sort_keys=True, ensure_ascii=False).encode("utf-8")
     ).hexdigest()
-    return NarrationSpec(model.group, text, voice, model_id, fingerprint)
+    return NarrationSpec(group, text, voice, model_id, fingerprint)
+
+
+def personal_narrations(model, user):
+    """``(spec, response)`` for every edited copy ``user`` keeps of ``model``."""
+    from .models import Response
+    from .oral_history import preferred_personal
+    from .response_personalization import effective_response
+
+    if user is None or not getattr(user, "is_authenticated", False):
+        return []
+    found = []
+    for response in Response.objects.filter(semantic_group=model.group):
+        personal = preferred_personal(response, user)
+        if personal is not None:
+            value = effective_response(response, user, personal=personal)
+            found.append((narration_spec(model, value, user.pk), value))
+    return found
 
 
 def on_demand_enabled():
@@ -177,11 +210,11 @@ def on_demand_enabled():
     )
 
 
-def narration_presentation(model):
+def narration_presentation(model, personal=None, owner_id=None):
     if not settings.EO3_AUDIO_ENABLED or model is None:
         return None
     try:
-        spec = narration_spec(model)
+        spec = narration_spec(model, personal, owner_id)
     except NarrationError:
         return {"ready": False, "unconfigured": True}
     timing = EO3Narration.objects.filter(
@@ -196,6 +229,14 @@ def narration_presentation(model):
             "prepare_url": "" if ready else reverse(
                 "study:eo3_audio_prepare", args=[group_slug, spec.fingerprint],
             ),
+            "sample_issue": "", "sample_attempted": False, "sample_status": "",
+            "characters": len(spec.text), "sample_voice": "",
+            "url": reverse("study:eo3_audio", args=[group_slug, spec.fingerprint]) if ready else "",
+        }
+    if personal is not None:
+        # The one-off audition sample only ever covers the published model.
+        return {
+            "ready": ready, "timing": timing_json, "prepare_url": "",
             "sample_issue": "", "sample_attempted": False, "sample_status": "",
             "characters": len(spec.text), "sample_voice": "",
             "url": reverse("study:eo3_audio", args=[group_slug, spec.fingerprint]) if ready else "",

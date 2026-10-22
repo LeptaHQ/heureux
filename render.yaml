@@ -49,3 +49,33 @@ services:
         sync: false
       - key: CSRF_TRUSTED_ORIGINS
         sync: false
+      # Selection translation: DeepL first (through this server), then
+      # on-device translation. DEEPL_TARGET_LANG defaults to EN-GB.
+      - key: DEEPL_API_KEY
+        sync: false
+      - key: DEEPL_TARGET_LANG
+        sync: false
+      # Optional LibreTranslate-compatible fallback when DeepL is not set.
+      - key: TRANSLATION_API_URL
+        sync: false
+      - key: TRANSLATION_API_KEY
+        sync: false
+      - key: TRANSLATION_TIMEOUT
+        sync: false
+      # ElevenLabs narration (EO3 audio and French read-aloud).
+      - key: ELEVENLABS_API_KEY
+        sync: false
+      - key: ELEVENLABS_VOICE_ID
+        sync: false
+      - key: ELEVENLABS_MODEL_ID
+        sync: false
+      - key: EO3_AUDIO_ENABLED
+        sync: false
+      - key: EO3_AUDIO_SAMPLE_ENABLED
+        sync: false
+      - key: FRENCH_AUDIO_ENABLED
+        sync: false
+      - key: FRENCH_AUDIO_GENERATION_ENABLED
+        sync: false
+      - key: FRENCH_AUDIO_CHARACTER_BUDGET
+        sync: false

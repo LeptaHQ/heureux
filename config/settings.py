@@ -261,6 +261,11 @@ LOGIN_URL = "/compte/connexion/"
 TRANSLATION_API_URL = os.environ.get("TRANSLATION_API_URL", "").strip()
 TRANSLATION_API_KEY = os.environ.get("TRANSLATION_API_KEY", "").strip()
 TRANSLATION_TIMEOUT = float(os.environ.get("TRANSLATION_TIMEOUT", "8"))
+# When set, the translation panel asks DeepL (through this server) first and
+# keeps on-device translation as the fallback. Keys ending in ":fx" use the
+# free API host.
+DEEPL_API_KEY = os.environ.get("DEEPL_API_KEY", "").strip()
+DEEPL_TARGET_LANG = os.environ.get("DEEPL_TARGET_LANG", "EN-GB").strip().upper() or "EN-GB"
 
 # Narration is generated only after explicit cost confirmation, never on visits.
 ELEVENLABS_API_KEY = os.environ.get("ELEVENLABS_API_KEY", "").strip()
@@ -292,6 +297,8 @@ _csp_directives = [
 if not DEBUG:
     _csp_directives.append("upgrade-insecure-requests")
 CONTENT_SECURITY_POLICY = "; ".join(_csp_directives)
+# Keep a handle on the DeepL tab so repeated translations reuse it.
+SECURE_CROSS_ORIGIN_OPENER_POLICY = "same-origin-allow-popups"
 
 # Security hardening — enabled automatically when DEBUG is off.
 if not DEBUG:

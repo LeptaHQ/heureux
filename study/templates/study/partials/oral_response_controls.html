@@ -1,0 +1,2 @@
+{% if can_edit_response %}{% include "study/partials/oral_response_edit_button.html" %}{% endif %}
+{% if single_response_eo3 and eo3_response_copy_text %}{% include "study/partials/response_copy_button.html" with source_id="eo3-response-content" label_hidden=True only %}{% endif %}

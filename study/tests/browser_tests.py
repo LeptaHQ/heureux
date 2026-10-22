@@ -6,7 +6,7 @@ import re
 from dataclasses import replace
 from io import StringIO
 from unittest import mock
-from urllib.parse import parse_qs, urlsplit
+from urllib.parse import parse_qs, quote, unquote, urlsplit
 
 from django.contrib.sessions.models import Session
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
@@ -6480,8 +6480,8 @@ class BrowserTests(StaticLiveServerTestCase):
         quote = self.page.evaluate("window.getSelection().toString().trim()")
         self.page.locator("[data-translate-selection]").click()
         panel = self.page.locator("[data-translation-panel]")
-        expect(panel.locator("[data-translation-fallback]")).to_have_attribute(
-            "aria-label", "Open Google Translate",
+        expect(panel.locator("[data-translation-deepl]")).to_have_attribute(
+            "aria-label", "Open DeepL",
         )
         expect(panel.locator("[data-translation-note]")).to_be_hidden()
         self.assert_no_horizontal_overflow()
@@ -6592,8 +6592,8 @@ class BrowserTests(StaticLiveServerTestCase):
         expect(prompt.locator("mark.user-highlight")).to_have_count(0)
         self.assertTrue(Annotation.objects.filter(pk=note.pk).exists())
 
-    @override_settings(TRANSLATION_API_URL="")
-    def test_translation_falls_back_to_google_without_an_on_device_engine(self):
+    @override_settings(TRANSLATION_API_URL="", DEEPL_API_KEY="")
+    def test_translation_suggests_one_reused_deepl_tab_without_an_engine(self):
         self.context.add_init_script("delete window.Translator;")
         self.page.goto(
             self.live_server_url
@@ -6609,34 +6609,123 @@ class BrowserTests(StaticLiveServerTestCase):
 
         panel = self.page.locator("[data-translation-panel]")
         panel.wait_for()
-        fallback = panel.locator("[data-translation-fallback]")
+        deepl = panel.locator("[data-translation-deepl]")
+        google = panel.locator("[data-translation-fallback]")
         panel.get_by_text(
             "On-device translation isn't available in this browser.",
             exact=True,
         ).wait_for()
-        self.assertIn("is-suggested", fallback.get_attribute("class"))
+        self.assertIn("is-suggested", deepl.get_attribute("class"))
         self.assertEqual(
-            fallback.locator("[data-translation-fallback-label]").inner_text(),
-            "Open Google Translate",
+            deepl.locator("[data-translation-deepl-label]").inner_text(), "Open DeepL",
         )
-        self.assertIn("translate.google.com", fallback.get_attribute("href"))
-        expect(fallback.locator('[data-icon="google"]')).to_be_visible()
+        self.assertEqual(
+            deepl.get_attribute("href"),
+            "https://www.deepl.com/en/translator#fr/en/" + quote(selected, safe="~()*!'"),
+        )
+        self.assertNotIn("noreferrer", deepl.get_attribute("rel"))
+        self.assertEqual(deepl.get_attribute("referrerpolicy"), "no-referrer")
+        expect(deepl.locator('[data-icon="deepl"]')).to_be_visible()
+        self.assertNotIn("is-suggested", google.get_attribute("class"))
+        self.assertIn("translate.google.com", google.get_attribute("href"))
+        expect(google.locator('[data-icon="google"]')).to_be_visible()
         expect(panel.locator("[data-translation-output]")).to_be_hidden()
         expect(panel.locator("[data-translation-copy]")).to_be_hidden()
         expect(panel.locator("[data-translation-note]")).to_be_hidden()
         self.context.route(
-            "https://translate.google.com/**",
-            lambda route: route.fulfill(body="<html><body>Translation destination</body></html>"),
+            "https://www.deepl.com/**",
+            lambda route: route.fulfill(
+                body="<html><body>Translation destination</body></html>",
+                content_type="text/html",
+            ),
         )
         with self.page.expect_popup() as popup:
-            fallback.tap()
+            deepl.tap()
         destination = popup.value
         destination.wait_for_load_state()
-        self.assertEqual(urlsplit(destination.url).hostname, "translate.google.com")
-        self.assertEqual(parse_qs(urlsplit(destination.url).query), {
-            "sl": ["fr"], "tl": ["en"], "text": [selected], "op": ["translate"],
-        })
+        self.assertEqual(urlsplit(destination.url).hostname, "www.deepl.com")
+        self.assertEqual(
+            unquote(urlsplit(destination.url).fragment), "fr/en/" + selected,
+        )
+        pages = len(self.context.pages)
+
+        self.page.bring_to_front()
+        panel.locator("[data-translation-close]").first.click()
+        self.page.locator(".review__top").click(position={"x": 4, "y": 4})
+        self.page.locator("[data-highlight-selection]").wait_for(state="hidden")
+        self.select_prompt(start=0, end=5)
+        second = self.page.evaluate("window.getSelection().toString().trim()")
+        self.assertNotEqual(second, selected)
+        self.page.locator("[data-translate-selection]").tap()
+        expect(panel.locator("[data-translation-source]")).to_have_text(second)
+        expect(deepl).to_have_attribute("aria-label", "Open DeepL")
+        deepl.tap()
+        destination.wait_for_url(re.compile(r"translator\?h=1#"))
+        self.assertEqual(len(self.context.pages), pages)
+        self.assertEqual(
+            unquote(urlsplit(destination.url).fragment), "fr/en/" + second,
+        )
         destination.close()
+
+    def test_translation_uses_deepl_first_when_configured(self):
+        self.context.add_init_script(
+            """
+            window.__localTranslations = 0;
+            window.Translator = {create: () => Promise.resolve({
+              translate: () => { window.__localTranslations += 1; return Promise.resolve("Local hello"); }
+            })};
+            """
+        )
+        calls = []
+
+        def fake_deepl(text, key):
+            calls.append((text, key))
+            return "Hello from DeepL"
+
+        with override_settings(DEEPL_API_KEY="test-key:fx", TRANSLATION_API_URL=""), \
+                mock.patch("study.views.notes._deepl_translation", fake_deepl):
+            self.page.goto(
+                self.live_server_url + reverse("study:review") + "?kind=spine&reset=1"
+            )
+            self.page.locator("#card-front .prompt-text").wait_for()
+            self.page.wait_for_load_state("networkidle")
+            self.select_prompt(start=0, end=12)
+            selected = self.page.evaluate("window.getSelection().toString().trim()")
+            self.page.locator("[data-translate-selection]").tap()
+            panel = self.page.locator("[data-translation-panel]")
+            panel.get_by_text("Hello from DeepL", exact=True).wait_for()
+            panel.get_by_text("Translated with DeepL.", exact=True).wait_for()
+        self.assertEqual(calls, [(selected, "test-key:fx")])
+        self.assertEqual(self.page.evaluate("window.__localTranslations"), 0)
+        self.assertNotIn(
+            "is-suggested", panel.locator("[data-translation-deepl]").get_attribute("class"),
+        )
+
+    def test_translation_falls_back_to_the_device_when_deepl_fails(self):
+        self.context.add_init_script(
+            """
+            window.Translator = {create: () => Promise.resolve({
+              translate: () => Promise.resolve("Local hello")
+            })};
+            """
+        )
+
+        def failing_deepl(text, key):
+            raise OSError("DeepL unavailable")
+
+        with override_settings(DEEPL_API_KEY="test-key", TRANSLATION_API_URL=""), \
+                mock.patch("study.views.notes._deepl_translation", failing_deepl):
+            self.page.goto(
+                self.live_server_url + reverse("study:review") + "?kind=spine&reset=1"
+            )
+            self.page.locator("#card-front .prompt-text").wait_for()
+            self.page.wait_for_load_state("networkidle")
+            self.select_prompt(start=0, end=12)
+            self.page.locator("[data-translate-selection]").tap()
+            panel = self.page.locator("[data-translation-panel]")
+            panel.get_by_text("Local hello", exact=True).wait_for()
+            panel.get_by_text("Translated locally on this device.", exact=True).wait_for()
+        expect(panel.locator("[data-translation-note]")).to_be_visible()
 
     def test_translation_uses_the_server_when_the_device_cannot_translate(self):
         class FakeResponse:
@@ -9838,6 +9927,61 @@ class BrowserTests(StaticLiveServerTestCase):
                         self.assertEqual(styles["background"], styles["expectedBackground"])
                         self.assertEqual(styles["logoStroke"], "none")
                         self.assertFalse(styles["overflows"])
+
+    def test_translation_deepl_link_is_round_and_neutral_in_both_themes(self):
+        self.page.goto(
+            self.live_server_url
+            + reverse("study:task_notes", args=[self.part.slug, self.task.slug])
+        )
+        external = self.page.locator("[data-translation-deepl]")
+        expect(external.locator('[data-icon="deepl"]')).to_have_count(1)
+        for width in (320, 390, 1183):
+            self.page.set_viewport_size({"width": width, "height": 844})
+            for theme in ("light", "dark"):
+                self.page.evaluate(
+                    "theme => { document.documentElement.dataset.theme = theme; }", theme,
+                )
+                for suggested in (False, True):
+                    with self.subTest(width=width, theme=theme, suggested=suggested):
+                        styles = external.evaluate(
+                            """(element, suggested) => {
+                              const panel = element.closest("[data-translation-panel]");
+                              panel.classList.remove("hidden");
+                              element.style.transition = "none";
+                              const label = element.querySelector("[data-translation-deepl-label]");
+                              element.classList.toggle("is-suggested", suggested);
+                              label.classList.toggle("sr-only", !suggested);
+                              label.textContent = suggested ? "Open DeepL" : "DeepL";
+                              const probe = document.createElement("span");
+                              probe.style.backgroundColor = "var(--surface)";
+                              element.parentElement.append(probe);
+                              const expected = getComputedStyle(probe).backgroundColor;
+                              probe.remove();
+                              const style = getComputedStyle(element);
+                              const box = element.getBoundingClientRect();
+                              const footer = element.parentElement.getBoundingClientRect();
+                              return {
+                                radius: parseFloat(style.borderTopLeftRadius),
+                                width: box.width, height: box.height,
+                                background: style.backgroundColor, expected,
+                                logoStroke: getComputedStyle(element.querySelector('[data-icon="deepl"]')).stroke,
+                                overflows: element.scrollWidth > element.clientWidth + 1,
+                                inside: box.left >= footer.left - 1 && box.right <= footer.right + 1,
+                              };
+                            }""",
+                            suggested,
+                        )
+                        self.assertGreaterEqual(
+                            styles["radius"], min(styles["width"], styles["height"]) / 2,
+                        )
+                        if suggested:
+                            self.assertGreater(styles["width"], styles["height"] * 2.5)
+                        else:
+                            self.assertAlmostEqual(styles["width"], styles["height"], delta=1)
+                        self.assertEqual(styles["background"], styles["expected"])
+                        self.assertEqual(styles["logoStroke"], "none")
+                        self.assertFalse(styles["overflows"])
+                        self.assertTrue(styles["inside"])
         self.assertEqual(external.get_attribute("target"), "_blank")
         self.assertIn("noopener", external.get_attribute("rel").split())
 

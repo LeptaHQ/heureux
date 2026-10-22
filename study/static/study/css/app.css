@@ -7535,6 +7535,7 @@ a.qrow:focus-visible {
 .section-card__tools {
   display: inline-flex;
   flex: 0 0 auto;
+  gap: 0.45rem;
   margin: -0.45rem 0;
 }
 .section-card__tools > .icon-button {
@@ -8814,12 +8815,30 @@ html[data-input-mode="pen"] .selection-translate__shortcut { display: none; }
   text-decoration: none;
   box-shadow: 0 6px 14px -9px color-mix(in srgb, var(--text) 55%, transparent);
 }
-.panel-action .panel-action__google-logo {
+.panel-action .panel-action__google-logo,
+.panel-action .panel-action__brand-logo {
   width: 20px;
   height: 20px;
   stroke: none;
 }
-/* Google Translate becomes the recommended route when local translation fails. */
+/* DeepL shares the neutral external-link look; its navy mark carries the brand. */
+.panel-action--deepl {
+  --panel-action-tint: #0f2b46;
+  border-color: color-mix(in srgb, var(--text) 14%, var(--border));
+  background: var(--surface);
+  color: var(--text);
+  text-decoration: none;
+}
+.panel-action--deepl:hover {
+  border-color: color-mix(in srgb, var(--text) 24%, var(--border));
+  background: var(--surface-2);
+  color: var(--text);
+  text-decoration: none;
+  box-shadow: 0 6px 14px -9px color-mix(in srgb, var(--text) 55%, transparent);
+}
+[data-theme="dark"] .panel-action--deepl { --panel-action-tint: #7fb2e5; }
+/* DeepL becomes the recommended route when in-panel translation fails. */
+.panel-action--deepl.is-suggested,
 .panel-action--google.is-suggested {
   width: auto;
   grid-auto-flow: column;
@@ -8831,6 +8850,7 @@ html[data-input-mode="pen"] .selection-translate__shortcut { display: none; }
   font-weight: 700;
   white-space: nowrap;
 }
+.panel-action--deepl.is-suggested:hover,
 .panel-action--google.is-suggested:hover {
   border-color: color-mix(in srgb, var(--panel-action-tint) 60%, var(--border));
   box-shadow:

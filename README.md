@@ -67,6 +67,8 @@ EO3_AUDIO_SAMPLE_ENABLED=True
 FRENCH_AUDIO_ENABLED=True
 FRENCH_AUDIO_GENERATION_ENABLED=False
 FRENCH_AUDIO_CHARACTER_BUDGET=0
+DEEPL_API_KEY=<server secret>
+DEEPL_TARGET_LANG=EN-GB
 ```
 
 The selected voice ID is shown above, but code always uses the configured voice;
@@ -245,12 +247,17 @@ keeps all marked records in the folder. Page navigation works without JavaScript
 With JavaScript, status changes and deletion update in place, including refilling
 filtered pages and moving off an emptied final page. French/English blur,
 individual reveals and the chosen card/table view stay active.
-Note and translation pop-ups use rounded action controls, including the amber
-Google **G** link. Translate works with touch taps as well as mouse and keyboard
-activation. Browsers without an on-device translation engine use the configured
-`TRANSLATION_API_URL` service; when no service is available, the panel offers an
-explicit Google Translate link with the selected passage prefilled. Nothing is
-sent to Google until that link is opened.
+Note and translation pop-ups use rounded action controls, including DeepL and
+Google **G** links. Translate works with touch taps as well as mouse and keyboard
+activation. When `DEEPL_API_KEY` is set, the panel translates through DeepL on the
+server first (`DEEPL_TARGET_LANG`, default `EN-GB`; keys ending in `:fx` use the
+free API), then falls back to the browser's on-device engine. Without DeepL, the
+on-device engine runs first and the optional `TRANSLATION_API_URL`
+(LibreTranslate-compatible) service is the fallback. If nothing works, the panel
+suggests **Open DeepL**. The DeepL link reuses one tab across translations (the
+site sends `Cross-Origin-Opener-Policy: same-origin-allow-popups` for this);
+Google Translate opens a new tab each time because Google severs the opener.
+Selected text goes to DeepL only via the configured key or when a link is opened.
 The shared `study/partials/pagination.html` pager accepts a Django `page_obj`,
 `page_links` (`number` and `url`), previous/next URLs, and an optional accessible label.
 
@@ -504,8 +511,9 @@ Private edits never use the public model's narration or silently opt into extern
 reading. EO2 and EE response-history behavior is unchanged.
 Each saved private argument also retains its small identity marker independently
 of later public-model rewrites; this is metadata, not another response version.
-EO3 subject pages have separate **Copier le sujet** and **Copier la réponse**
-buttons. Copying a response uses the learner's current text, with French
+EO3 subject pages have compact, icon-only **Copier le sujet** and **Copier la réponse**
+controls on the prompt header and the first response card, matching the EE controls.
+Copying a response uses the learner's current text, with French
 paragraphs for the introduction, developed arguments, nuance and conclusion;
 hints, annotations and interface labels are not included.
 

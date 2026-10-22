@@ -1972,7 +1972,7 @@ class TranslateSelectionTests(TestCase):
         cache.clear()
 
     def test_translation_is_unavailable_until_an_endpoint_is_configured(self):
-        with override_settings(TRANSLATION_API_URL=""):
+        with override_settings(TRANSLATION_API_URL="", DEEPL_API_KEY=""):
             response = self.client.post(self.url, {"text": "Bonjour"})
         self.assertEqual(response.status_code, 503)
         self.assertEqual(response.json()["error"], "not_configured")
@@ -2014,6 +2014,79 @@ class TranslateSelectionTests(TestCase):
         self.assertEqual(calls[0]["source"], "fr")
         self.assertEqual(calls[0]["target"], "en")
         self.assertEqual(calls[0]["api_key"], "secret")
+
+    def _fake_urlopen(self, calls, body):
+        class FakeResponse:
+            def read(self):
+                return json.dumps(body).encode("utf-8")
+
+            def __enter__(self):
+                return self
+
+            def __exit__(self, *exc):
+                return False
+
+        def fake_urlopen(request, timeout=None):
+            calls.append(request)
+            return FakeResponse()
+
+        return fake_urlopen
+
+    def test_deepl_is_preferred_and_uses_the_free_host_for_free_keys(self):
+        calls = []
+        with override_settings(
+            DEEPL_API_KEY="abc:fx", DEEPL_TARGET_LANG="EN-GB",
+            TRANSLATION_API_URL="http://translate.test/translate",
+        ), mock.patch(
+            "study.views.notes.urllib.request.urlopen",
+            self._fake_urlopen(calls, {"translations": [{"text": " Hello "}]}),
+        ):
+            first = self.client.post(self.url, {"text": "Bonjour"})
+            second = self.client.post(self.url, {"text": "Bonjour"})
+        self.assertEqual(first.json(), {"translation": "Hello", "provider": "deepl"})
+        self.assertTrue(second.json()["cached"])
+        self.assertEqual(len(calls), 1)
+        request = calls[0]
+        self.assertEqual(request.full_url, "https://api-free.deepl.com/v2/translate")
+        self.assertEqual(request.get_header("Authorization"), "DeepL-Auth-Key abc:fx")
+        self.assertEqual(json.loads(request.data), {
+            "text": ["Bonjour"], "source_lang": "FR", "target_lang": "EN-GB",
+        })
+
+    def test_deepl_paid_keys_use_the_paid_host_and_bad_payloads_fail(self):
+        calls = []
+        with override_settings(DEEPL_API_KEY="paid", TRANSLATION_API_URL=""), mock.patch(
+            "study.views.notes.urllib.request.urlopen",
+            self._fake_urlopen(calls, {"translations": []}),
+        ):
+            response = self.client.post(self.url, {"text": "Bonjour"})
+        self.assertEqual(response.status_code, 502)
+        self.assertEqual(calls[0].full_url, "https://api.deepl.com/v2/translate")
+
+    def test_deepl_network_errors_are_reported_as_upstream(self):
+        def failing(request, timeout=None):
+            raise OSError("down")
+
+        with override_settings(DEEPL_API_KEY="paid"), mock.patch(
+            "study.views.notes.urllib.request.urlopen", failing,
+        ):
+            response = self.client.post(self.url, {"text": "Bonjour"})
+        self.assertEqual(response.status_code, 502)
+        self.assertEqual(response.json()["error"], "upstream")
+
+    def test_panel_flags_server_first_only_when_deepl_is_configured(self):
+        page_url = reverse("study:review")
+        with override_settings(DEEPL_API_KEY=""):
+            without = self.client.get(page_url)
+        with override_settings(DEEPL_API_KEY="abc:fx"):
+            with_key = self.client.get(page_url)
+        self.assertNotContains(without, "data-translation-server-first")
+        self.assertContains(with_key, "data-translation-server-first", count=1)
+        self.assertNotContains(with_key, "abc:fx")
+        self.assertContains(with_key, "data-translation-deepl", count=2)
+        self.assertEqual(
+            with_key.headers["Cross-Origin-Opener-Policy"], "same-origin-allow-popups",
+        )
 
 
 class NotesScopeSemanticsTests(TestCase):

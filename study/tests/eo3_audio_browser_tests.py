@@ -589,6 +589,19 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         """)
         self.page.goto(self.live_server_url + prompt_detail_url(self.prompt))
         self.page.wait_for_load_state("networkidle")
+        prompt_copy = self.page.locator(
+            '.detail-head [data-prompt-copy-source="eo3-subject-content"]',
+        )
+        response_copy = self.page.locator(
+            '.answer-columns .section-card__tools [data-prompt-copy-source="eo3-response-content"]',
+        )
+        for control in (prompt_copy, response_copy):
+            expect(control).to_have_class("icon-button prompt-copy-button")
+            expect(control.locator("[data-prompt-copy-label]")).to_have_class("sr-only")
+            self.assertLessEqual(control.bounding_box()["width"], 36)
+        edit_bounds = self.page.locator(".answer-columns [data-response-edit]").bounding_box()
+        copy_bounds = response_copy.bounding_box()
+        self.assertGreaterEqual(copy_bounds["x"] - edit_bounds["x"] - edit_bounds["width"], 7)
         self.select_response_field("introduction")
         self.page.locator("[data-highlight-selection]").click()
         expect(self.page.locator(".answer-columns mark.user-highlight")).to_have_count(1)

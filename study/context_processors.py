@@ -218,6 +218,7 @@ def study_globals(request):
         "active_nav_area": _active_nav_area(request),
         "french_audio_enabled": settings.FRENCH_AUDIO_ENABLED,
         "french_audio_configured": bool(settings.ELEVENLABS_VOICE_ID),
+        "translation_server_first": bool(settings.DEEPL_API_KEY),
         **({
             "default_collection_view": "table",
             "collection_view_preference": "vocabularyCollectionViewMode",

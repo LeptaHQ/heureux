@@ -1762,17 +1762,70 @@ def annotation_delete(request, pk):
 TRANSLATION_MAX_LENGTH = 2000
 
 
+def _post_json(url, payload, headers=None):
+    api_request = urllib.request.Request(
+        url,
+        data=json.dumps(payload).encode("utf-8"),
+        headers={"Content-Type": "application/json", **(headers or {})},
+        method="POST",
+    )
+    with urllib.request.urlopen(
+        api_request,
+        timeout=getattr(settings, "TRANSLATION_TIMEOUT", 8),
+    ) as api_response:
+        return json.loads(api_response.read().decode("utf-8"))
+
+
+def _deepl_translation(text, api_key):
+    host = "api-free.deepl.com" if api_key.endswith(":fx") else "api.deepl.com"
+    body = _post_json(
+        f"https://{host}/v2/translate",
+        {
+            "text": [text],
+            "source_lang": "FR",
+            "target_lang": getattr(settings, "DEEPL_TARGET_LANG", "EN-GB"),
+        },
+        {"Authorization": f"DeepL-Auth-Key {api_key}"},
+    )
+    translations = body.get("translations") if isinstance(body, dict) else None
+    if not isinstance(translations, list) or len(translations) != 1:
+        return None
+    translation = translations[0].get("text") if isinstance(translations[0], dict) else None
+    return translation if isinstance(translation, str) else None
+
+
+def _libretranslate_translation(text, endpoint):
+    payload = {
+        "q": text,
+        "source": "fr",
+        "target": "en",
+        "format": "text",
+    }
+    api_key = getattr(settings, "TRANSLATION_API_KEY", "")
+    if api_key:
+        payload["api_key"] = api_key
+    body = _post_json(endpoint, payload)
+    if not isinstance(body, dict):
+        return None
+    translation = body.get("translatedText", "")
+    if isinstance(translation, list):
+        if len(translation) != 1:
+            return None
+        translation = translation[0]
+    return translation if isinstance(translation, str) else None
+
+
 @require_POST
 def translate_selection(request):
     """Translate a selected passage server-side.
 
-    Browsers only ship the on-device Translator API on desktop, so mobile
-    needs a server round trip. Nothing is sent anywhere unless an operator
-    configures ``TRANSLATION_API_URL`` with a LibreTranslate-compatible
-    endpoint (self-hosted by default).
+    Nothing is sent anywhere unless an operator configures ``DEEPL_API_KEY``
+    (preferred) or ``TRANSLATION_API_URL`` with a LibreTranslate-compatible
+    endpoint.
     """
+    deepl_key = getattr(settings, "DEEPL_API_KEY", "")
     endpoint = getattr(settings, "TRANSLATION_API_URL", "")
-    if not endpoint:
+    if not deepl_key and not endpoint:
         return JsonResponse(
             {"error": "not_configured"},
             status=503,
@@ -1784,49 +1837,27 @@ def translate_selection(request):
     if len(text) > TRANSLATION_MAX_LENGTH:
         return JsonResponse({"error": "too_long"}, status=413)
 
-    cache_key = "translation:fr:en:" + hashlib.sha256(
+    provider = "deepl" if deepl_key else "libretranslate"
+    cache_key = f"translation:{provider}:fr:en:" + hashlib.sha256(
         text.encode("utf-8")
     ).hexdigest()
     cached = cache.get(cache_key)
     if cached is not None:
-        return JsonResponse({"translation": cached, "cached": True})
+        return JsonResponse({"translation": cached, "provider": provider, "cached": True})
 
-    payload = {
-        "q": text,
-        "source": "fr",
-        "target": "en",
-        "format": "text",
-    }
-    api_key = getattr(settings, "TRANSLATION_API_KEY", "")
-    if api_key:
-        payload["api_key"] = api_key
-    api_request = urllib.request.Request(
-        endpoint,
-        data=json.dumps(payload).encode("utf-8"),
-        headers={"Content-Type": "application/json"},
-        method="POST",
-    )
     try:
-        with urllib.request.urlopen(
-            api_request,
-            timeout=getattr(settings, "TRANSLATION_TIMEOUT", 8),
-        ) as api_response:
-            body = json.loads(api_response.read().decode("utf-8"))
+        if deepl_key:
+            translation = _deepl_translation(text, deepl_key)
+        else:
+            translation = _libretranslate_translation(text, endpoint)
     except (OSError, HTTPException, UnicodeDecodeError, json.JSONDecodeError):
         return JsonResponse({"error": "upstream"}, status=502)
 
-    if not isinstance(body, dict):
-        return JsonResponse({"error": "upstream"}, status=502)
-    translation = body.get("translatedText", "")
-    if isinstance(translation, list):
-        if len(translation) != 1:
-            return JsonResponse({"error": "upstream"}, status=502)
-        translation = translation[0]
-    if not isinstance(translation, str):
+    if translation is None:
         return JsonResponse({"error": "upstream"}, status=502)
     translation = translation.strip()
     if not translation:
         return JsonResponse({"error": "empty"}, status=502)
 
     cache.set(cache_key, translation, 60 * 60 * 24 * 30)
-    return JsonResponse({"translation": translation})
+    return JsonResponse({"translation": translation, "provider": provider})

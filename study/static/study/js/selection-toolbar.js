@@ -47,6 +47,11 @@
   );
   var fallbackLink = panel.querySelector("[data-translation-fallback]");
   var fallbackLabel = panel.querySelector("[data-translation-fallback-label]");
+  var deeplLink = panel.querySelector("[data-translation-deepl]");
+  var deeplLabel = panel.querySelector("[data-translation-deepl-label]");
+  var deeplWindow = null;
+  var deeplOpenCount = 0;
+  var serverFirst = panel.hasAttribute("data-translation-server-first");
   var mobileActionQuery = window.matchMedia(
     "(max-width: 760px), (hover: none), (pointer: coarse)"
   );
@@ -482,6 +487,48 @@
     return url.toString();
   }
 
+  function deeplUrl(text) {
+    var escaped = text.replace(/\\/g, "\\\\").replace(/\//g, "\\/").replace(/\|/g, "\\|");
+    return "https://www.deepl.com/en/translator#fr/en/" + encodeURIComponent(escaped);
+  }
+
+  function setDeeplSuggested(suggested) {
+    if (!deeplLink) return;
+    var label = suggested ? "Open DeepL" : "DeepL";
+    deeplLabel.textContent = label;
+    deeplLabel.classList.toggle("sr-only", !suggested);
+    deeplLink.classList.toggle("is-suggested", suggested);
+    deeplLink.setAttribute("title", label);
+    deeplLink.setAttribute("aria-label", label);
+  }
+
+  // Reuse one DeepL tab: the page keeps the window handle (COOP allows popups).
+  function openDeepl(event) {
+    if (
+      event.defaultPrevented || event.button !== 0 ||
+      event.metaKey || event.ctrlKey || event.shiftKey || event.altKey
+    ) return;
+    var url = deeplLink.href;
+    if (deeplWindow && !deeplWindow.closed) {
+      // DeepL ignores hash-only changes, so a fresh query forces a real load.
+      deeplOpenCount += 1;
+      url = url.replace("/translator#", "/translator?h=" + deeplOpenCount + "#");
+      try {
+        deeplWindow.location.replace(url);
+        deeplWindow.focus();
+        event.preventDefault();
+        return;
+      } catch (error) {
+        deeplWindow = null;
+      }
+    }
+    var opened = window.open(url, "_blank");
+    if (opened) {
+      deeplWindow = opened;
+      event.preventDefault();
+    }
+  }
+
   function setStatus(message, loading) {
     statusElement.textContent = message;
     spinner.classList.toggle("hidden", !loading);
@@ -634,11 +681,15 @@
 
   function showFallback(message) {
     setStatus(message, false);
-    fallbackLabel.textContent = "Open Google Translate";
-    fallbackLabel.classList.remove("sr-only");
-    fallbackLink.classList.add("is-suggested");
-    fallbackLink.setAttribute("title", "Open Google Translate");
-    fallbackLink.setAttribute("aria-label", "Open Google Translate");
+    if (deeplLink) {
+      setDeeplSuggested(true);
+    } else {
+      fallbackLabel.textContent = "Open Google Translate";
+      fallbackLabel.classList.remove("sr-only");
+      fallbackLink.classList.add("is-suggested");
+      fallbackLink.setAttribute("title", "Open Google Translate");
+      fallbackLink.setAttribute("aria-label", "Open Google Translate");
+    }
     showNoteButtons(false);
     repositionPanel();
   }
@@ -730,6 +781,8 @@
 
   var MOBILE_FALLBACK_MESSAGE =
     "On-device translation isn't available in this browser.";
+  var UNAVAILABLE_MESSAGE =
+    "DeepL and on-device translation are unavailable right now.";
 
   function translateOnServer(text, requestId, fallbackMessage) {
     if (requestId !== requestNumber) return;
@@ -743,6 +796,51 @@
       .catch(function () {
         if (requestId !== requestNumber) return;
         showFallback(fallbackMessage);
+      });
+  }
+
+  function translateOnDevice(text, requestId, onFailure) {
+    if (requestId !== requestNumber) return;
+    localTranslationRequest = requestId;
+    setStatus("Preparing local translation…", true);
+    var localTranslation = getTranslator();
+    if (!localTranslation) {
+      onFailure();
+      return;
+    }
+    localTranslation
+      .then(function (translator) {
+        if (requestId !== requestNumber) return;
+        return translator.translate(text);
+      })
+      .then(function (translation) {
+        if (requestId !== requestNumber) return;
+        if (typeof translation !== "string" || !translation.trim()) {
+          throw new Error("translation unavailable");
+        }
+        localTranslationRequest = null;
+        showTranslation(translation, "Translated locally on this device.");
+      })
+      .catch(function () {
+        if (requestId !== requestNumber) return;
+        onFailure();
+      });
+  }
+
+  function translateWithDeepl(text, requestId) {
+    localTranslationRequest = null;
+    setStatus("Translating with DeepL…", true);
+    remoteTranslate(text)
+      .then(function (translation) {
+        if (requestId !== requestNumber) return;
+        showTranslation(translation, "Translated with DeepL.");
+      })
+      .catch(function () {
+        if (requestId !== requestNumber) return;
+        translateOnDevice(text, requestId, function () {
+          localTranslationRequest = null;
+          showFallback(UNAVAILABLE_MESSAGE);
+        });
       });
   }
 
@@ -878,39 +976,26 @@
     fallbackLink.classList.remove("is-suggested");
     fallbackLink.setAttribute("title", "Google Translate");
     fallbackLink.setAttribute("aria-label", "Google Translate");
+    if (deeplLink) deeplLink.href = deeplUrl(text);
+    setDeeplSuggested(false);
     positionPanel(rect);
     panel.focus({ preventScroll: true });
 
     if (text.length > maxLocalLength) {
       localTranslationRequest = null;
-      showFallback("Select a shorter passage for local translation (maximum 2,000 characters).");
+      showFallback("Select a shorter passage to translate here (maximum 2,000 characters).");
       return;
     }
-    setStatus("Preparing local translation…", true);
-    var localTranslation = getTranslator();
-    if (!localTranslation) {
+    if (serverFirst) {
+      translateWithDeepl(text, currentRequest);
+      return;
+    }
+    translateOnDevice(text, currentRequest, function () {
       translateOnServer(text, currentRequest, MOBILE_FALLBACK_MESSAGE);
-      return;
-    }
-
-    localTranslation
-      .then(function (translator) {
-        if (currentRequest !== requestNumber) return;
-        return translator.translate(text);
-      })
-      .then(function (translation) {
-        if (currentRequest !== requestNumber) return;
-        if (typeof translation !== "string" || !translation.trim()) {
-          throw new Error("translation unavailable");
-        }
-        localTranslationRequest = null;
-        showTranslation(translation, "Translated locally on this device.");
-      })
-      .catch(function () {
-        if (currentRequest !== requestNumber) return;
-        translateOnServer(text, currentRequest, MOBILE_FALLBACK_MESSAGE);
-      });
+    });
   });
+
+  if (deeplLink) deeplLink.addEventListener("click", openDeepl);
 
   copyButton.addEventListener("click", function () {
     var text = resultElement.textContent;

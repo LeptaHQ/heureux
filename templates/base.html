@@ -7,7 +7,7 @@
   <title>{% block title %}Heureux{% endblock %}</title>
   <meta name="description" content="Révisions pour l'expression et la compréhension du français.">
   <script src="{% static 'study/js/theme-init.js' %}?v=4"></script>
-  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=267">
+  <link rel="stylesheet" href="{% static 'study/css/app.css' %}?v=269">
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="theme-color" content="#173f90">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -256,7 +256,7 @@
     </button>
   </div>
 
-  <section class="translation-panel hidden" id="translation-panel" role="dialog" aria-labelledby="translation-panel-title" tabindex="-1" data-translation-panel data-translation-endpoint="{% url 'study:translate_selection' %}">
+  <section class="translation-panel hidden" id="translation-panel" role="dialog" aria-labelledby="translation-panel-title" tabindex="-1" data-translation-panel data-translation-endpoint="{% url 'study:translate_selection' %}"{% if translation_server_first %} data-translation-server-first{% endif %}>
     <header class="translation-panel__header">
       <div>
         <span class="translation-panel__eyebrow">Français → English</span>
@@ -283,6 +283,16 @@
         <svg class="ui-icon" data-icon="copy" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><use href="{% static 'study/icons/ui-icons.svg' %}?v=4#icon-copy" data-translation-copy-icon></use></svg>
         <span class="sr-only" data-translation-copy-label>Copy</span>
       </button>
+      <a class="panel-action panel-action--deepl" href="https://www.deepl.com/en/translator#fr/en/" target="_blank" rel="noopener" referrerpolicy="no-referrer" aria-label="DeepL" title="DeepL" data-translation-deepl>
+        <svg class="panel-action__brand-logo" data-icon="deepl" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+          <path fill="#0F2B46" d="M24 3.5 41.5 13.6v20.8L24 44.5l-9.5-5.5V46l-7-4.3V13.6Z"></path>
+          <path fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M18.5 17 30 24l-11.5 7"></path>
+          <circle cx="18.5" cy="17" r="3.6" fill="#fff"></circle>
+          <circle cx="30" cy="24" r="3.6" fill="#fff"></circle>
+          <circle cx="18.5" cy="31" r="3.6" fill="#fff"></circle>
+        </svg>
+        <span class="sr-only" data-translation-deepl-label>DeepL</span>
+      </a>
       <a class="panel-action panel-action--google" href="https://translate.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Google Translate" title="Google Translate" data-translation-fallback>
         <svg class="panel-action__google-logo" data-icon="google" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
           <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
@@ -391,7 +401,7 @@
   <script src="{% static 'study/js/eo3-audio.js' %}?v=10"></script>
   <script src="{% static 'study/js/flashcards.js' %}?v=5"></script>
   <script src="{% static 'study/js/app.js' %}?v=70"></script>
-  <script src="{% static 'study/js/selection-toolbar.js' %}?v=16"></script>
+  <script src="{% static 'study/js/selection-toolbar.js' %}?v=17"></script>
   <script src="{% static 'study/js/annotations.js' %}?v=38"></script>
   {% block scripts %}{% endblock %}
 </body>

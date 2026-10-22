@@ -13,6 +13,7 @@ from study import catalogue
 from study.card_presentation import _spine_payload
 from study.french_audio import SpeechError, normalize_text, resolve_sources
 from study.models import Annotation, AnnotationKind, Card, CardType, OralStateSnapshot, PersonalResponse, Prompt
+from study.oral_highlights import AnnotationRootText
 from study.oral_history import legacy_variant_annotation_key, snapshot, variant_annotation_key
 from study.public_response_annotations import capture_rendered_response_anchor, render_current_response
 from study.response_personalization import effective_response
@@ -355,9 +356,43 @@ class EO3ResponseEditTests(TestCase):
         self.assertContains(page, 'data-prompt-copy-source="eo3-response-content"', count=1)
         self.assertContains(page, 'id="eo3-subject-content"', count=1)
         self.assertContains(page, 'id="eo3-response-content"', count=1)
+        self.assertContains(page, 'class="icon-button prompt-copy-button"', count=2)
+        for label in ("Copier le sujet", "Copier la réponse"):
+            self.assertInHTML(
+                f'<span class="sr-only" data-prompt-copy-label>{label}</span>',
+                page.content.decode(),
+            )
         self.assertEqual(page.context["eo3_response_copy_text"], response_text(after))
         self.assertIn(after.arguments[0].exemple, page.context["eo3_response_copy_text"])
         self.assertNotIn(self.model.arguments[0].exemple, page.context["eo3_response_copy_text"])
+        self.assertEqual(
+            AnnotationRootText(page.content.decode(), root_class="answer-columns").text,
+            render_current_response(self.prompt, after, "detail", self.user).text,
+        )
+
+    def test_legacy_private_position_stays_visible_editable_and_carries_controls(self):
+        self.save(replace(
+            self.model, position="Mon ancienne position personnelle.",
+            position_claire="", is_personal=True,
+        ))
+        page = self.client.get(prompt_detail_url(self.prompt))
+        self.assertContains(page, "Mon ancienne position personnelle.", count=1)
+        self.assertContains(page, 'data-prompt-copy-source="eo3-response-content"', count=1)
+        self.assertContains(page, "data-response-edit", count=1)
+        current = effective_response(self.prompt.response, self.user, prompt=self.prompt)
+        self.assertEqual(
+            AnnotationRootText(page.content.decode(), root_class="answer-columns").text,
+            render_current_response(self.prompt, current, "detail", self.user).text,
+        )
+        editor = self.client.get(reverse(
+            "study:edit_response", args=["eo", "tache-3", self.prompt.pk],
+        ))
+        self.assertFalse(editor.context["form"]["position"].is_hidden)
+        self.assertTrue(editor.context["form"]["reformulation"].is_hidden)
+        self.client.force_login(self.other)
+        self.assertNotContains(
+            self.client.get(prompt_detail_url(self.prompt)), "Mon ancienne position personnelle.",
+        )
 
     def test_other_accounts_prompts_and_study_state_are_unchanged(self):
         other_prompt = self.get_prompt("culture:p2")

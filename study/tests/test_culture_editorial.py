@@ -236,6 +236,41 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("safer country", plan.arguments[2].example.english)
         self.assertIn("attend school regularly", plan.arguments[2].example.english)
 
+    def test_immigration_knowledge_consequences_explain_affordability_and_mutual_adjustment(self):
+        response = self.response(26)
+        self.assertIn("réduirait le risque", response.arguments[0].consequence)
+        self.assertIn("au-dessus de mes moyens", response.arguments[0].consequence)
+        self.assertIn("qui convienne à chacun", response.arguments[2].consequence)
+        self.assertNotIn("me laissant mes propres habitudes", response.arguments[2].consequence)
+
+    def test_forgotten_traditional_skill_requires_relearning_before_transmission(self):
+        argument = self.response(27).arguments[1]
+        self.assertIn("qui savait tresser", argument.exemple)
+        self.assertIn("après des années sans le refaire", argument.exemple)
+        self.assertIn("réapprendre ce geste", argument.consequence)
+        self.assertIn("pour pouvoir le transmettre à ses enfants", argument.consequence)
+
+    def test_reality_tv_cues_keep_humiliation_and_spectacle_without_inventing_staging(self):
+        response = self.response(31)
+        plan = self.plans["eo/tache-3/culture-p31"]
+        self.assertIn("pour faire rire", plan.arguments[1].example.french)
+        self.assertIn("et abîmer leur relation", plan.arguments[1].example.french)
+        self.assertIn("to make others laugh", plan.arguments[1].example.english)
+        self.assertNotIn("instead of", plan.arguments[1].example.english)
+        self.assertIn("mis en spectacle", plan.conclusion.french)
+        self.assertIn("conflicts turned into entertainment", plan.conclusion.english)
+        self.assertNotIn("staged", plan.conclusion.english)
+        self.assertIn("Son choix peut donc être influencé par une publicité", response.arguments[2].consequence)
+        self.assertNotIn("Le regard critique doit", response.arguments[2].consequence)
+
+    def test_celebrity_experience_and_scrutiny_explain_concrete_contributions(self):
+        response = self.response(33)
+        self.assertIn("connaître des besoins concrets", response.arguments[0].developpement)
+        self.assertIn("écouter les personnes concernées", response.arguments[0].developpement)
+        self.assertNotIn("plutôt que rejeter sa parole", response.arguments[0].developpement)
+        self.assertIn("évaluer sa préparation sur un projet concret", response.arguments[2].consequence)
+        self.assertIn("plutôt que sur sa seule popularité", response.arguments[2].consequence)
+
     def test_argument_claims_state_the_benefit_or_risk_before_explaining_its_mechanism(self):
         for number, index, claim, explanation, example in (
             (5, 2, "contacts sur place", "Des conseils précis", "relire son CV"),

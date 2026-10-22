@@ -9,13 +9,15 @@ from django.conf import settings
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from django.core.management import call_command
 from django.test import override_settings
+from django.urls import reverse
 from playwright.sync_api import expect, sync_playwright
 
 from study import catalogue
 from study.account_services import provision_user_study_data
 from study.eo3_audio import narration_spec, word_timings
-from study.models import Annotation, AnnotationKind, EO3Narration, Prompt
+from study.models import Annotation, AnnotationKind, EO3Narration, OralStateSnapshot, PersonalResponse, Prompt
 from study.routing import prompt_detail_url, review_url
+from study.tache_three_models import response_text
 
 from . import factories
 from .browser_server import BrowserLiveServerThread
@@ -289,7 +291,10 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         self.assertTrue(self.page.locator("[data-eo3-audio]").evaluate("audio => audio.paused"))
         self.assertFalse(self.errors, self.errors)
 
-    @override_settings(FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1_000_000)
+    @override_settings(
+        ELEVENLABS_API_KEY="test-key",
+        FRENCH_AUDIO_GENERATION_ENABLED=True, FRENCH_AUDIO_CHARACTER_BUDGET=1_000_000,
+    )
     @patch("study.french_audio.synthesize", return_value=(b"ID3-test", []))
     def test_next_asks_before_generating_missing_audio(self, provider):
         start = self.live_server_url + prompt_detail_url(self.prompt)
@@ -485,4 +490,146 @@ class EO3AudioBrowserTests(StaticLiveServerTestCase):
         )
         expect(self.page.locator("[data-eo3-audio-status]")).to_contain_text("Lecture indisponible")
         self.assertEqual(self.page.evaluate("window.__eo3DeviceSpeechCount"), 0)
+        self.assertFalse(self.errors, self.errors)
+
+    def select_response_field(self, field):
+        target = self.page.locator(f'.answer-columns [data-response-field="{field}"]')
+        target.evaluate("""element => {
+            const range = document.createRange();
+            range.selectNodeContents(element);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            document.dispatchEvent(new Event("selectionchange"));
+        }""")
+        return target
+
+    def test_response_edits_keep_unchanged_highlights_notes_and_full_practice_text(self):
+        path = prompt_detail_url(self.prompt)
+        self.page.goto(self.live_server_url + path)
+        self.page.wait_for_load_state("networkidle")
+        root = self.page.locator(".answer-columns[data-annotation-root]")
+        original_key = root.get_attribute("data-annotation-source-key")
+        saved = []
+        for field in ("introduction", "argument-2-exemple", "argument-1-exemple"):
+            target = self.select_response_field(field)
+            quote = target.text_content()
+            with self.page.expect_response(
+                lambda response: reverse("study:annotation_create") in response.url,
+            ) as created:
+                self.page.locator("[data-highlight-selection]").click()
+            self.assertIn(created.value.status, (200, 201))
+            saved.append((created.value.json()["id"], quote))
+            expect(target.locator("mark.user-highlight")).to_have_text(quote)
+        self.select_response_field("conclusion")
+        self.page.locator("[data-note-selection]").click()
+        panel = self.page.locator("[data-note-panel]")
+        panel.locator("[data-note-body]").fill("My note must survive both edits.")
+        panel.get_by_role("button", name="Enregistrer sans surligner", exact=True).click()
+        expect(panel).to_be_hidden()
+        note = Annotation.objects.get(user=self.user, kind=AnnotationKind.NOTE)
+        note_before = (note.quote, note.body, note.created_at)
+
+        edit_path = reverse("study:edit_response", args=["eo", "tache-3", self.prompt.pk])
+        self.page.goto(self.live_server_url + edit_path)
+        expect(self.page.get_by_text("Version personnelle", exact=True)).to_have_count(0)
+        edited = "Un nouvel exemple personnel qui conserve tous mes autres passages."
+        self.page.locator("[name=argument_1_exemple]").fill(edited)
+        with self.page.expect_navigation():
+            self.page.get_by_role("button", name="Enregistrer la réponse", exact=True).click()
+        expect(root).to_have_attribute("data-annotation-source-key", original_key)
+        expect(root.locator("mark.user-highlight")).to_have_count(2)
+        for identity, quote in saved[:2]:
+            expect(root.locator(f'mark[data-highlight-id="{identity}"]')).to_have_text(quote)
+        expect(self.page.locator('[data-response-field="argument-1-exemple"]')).to_have_text(edited)
+        expect(self.page.locator("[data-eo3-player]")).to_have_count(0)
+        personal = PersonalResponse.objects.get(user=self.user, response=self.prompt.response)
+        self.assertFalse(OralStateSnapshot.objects.filter(user=self.user).exists())
+        self.page.reload()
+        expect(root.locator("mark.user-highlight")).to_have_count(2)
+
+        self.page.goto(self.live_server_url + edit_path)
+        expect(self.page.locator("[name=argument_1_exemple]")).to_have_value(edited)
+        self.page.locator("[name=nuance]").fill("Une nouvelle nuance sans changer les passages surlignés.")
+        with self.page.expect_navigation():
+            self.page.get_by_role("button", name="Enregistrer la réponse", exact=True).click()
+        expect(root.locator("mark.user-highlight")).to_have_count(2)
+        current = PersonalResponse.objects.get(user=self.user, response=self.prompt.response)
+        self.assertEqual((current.pk, current.created_at), (personal.pk, personal.created_at))
+        self.assertFalse(OralStateSnapshot.objects.filter(user=self.user).exists())
+        note.refresh_from_db()
+        self.assertEqual((note.quote, note.body, note.created_at), note_before)
+        self.assertEqual(note.source_key, original_key)
+        self.assertEqual(note.response_anchor["field"], "conclusion")
+        self.assertEqual(Annotation.objects.filter(user=self.user).count(), 4)
+
+        self.page.goto(self.live_server_url + review_url({
+            "part": "eo", "task": "tache-3", "kind": "spine",
+            "response": self.prompt.response_id, "prompt": self.prompt.pk,
+        }))
+        self.page.wait_for_load_state("networkidle")
+        self.page.locator("#reveal").click()
+        back = self.page.locator("#card-back")
+        expect(back).to_be_visible()
+        expect(back.locator('[data-response-field="argument-1-exemple"]')).to_have_text(edited)
+        expect(back.locator('[data-response-field="argument-2-developpement"]')).to_be_visible()
+        expect(back.locator("[data-eo3-player]")).to_have_count(0)
+        self.assertFalse(self.errors, self.errors)
+
+    def test_copy_subject_and_response_uses_current_text_without_touching_highlights(self):
+        self.context.add_init_script("""
+            window.__eo3Copied = [];
+            Object.defineProperty(navigator, "clipboard", {
+                configurable: true,
+                value: {writeText: text => {
+                    window.__eo3Copied.push(text);
+                    return Promise.resolve();
+                }}
+            });
+        """)
+        self.page.goto(self.live_server_url + prompt_detail_url(self.prompt))
+        self.page.wait_for_load_state("networkidle")
+        self.select_response_field("introduction")
+        self.page.locator("[data-highlight-selection]").click()
+        expect(self.page.locator(".answer-columns mark.user-highlight")).to_have_count(1)
+        annotations = list(Annotation.objects.filter(user=self.user).values())
+        self.page.get_by_role("button", name="Copier le sujet", exact=True).click()
+        expect(self.page.locator("[data-prompt-copy-toast]")).to_have_text(
+            "Consigne copiée dans le presse-papiers.",
+        )
+        model = catalogue.tache_three_models()[self.prompt.response.semantic_group].response
+        copied = response_text(model)
+        button = self.page.locator('[data-prompt-copy-source="eo3-response-content"]')
+        button.click()
+        expect(button).to_have_class(re.compile("is-copied"))
+        self.assertEqual(self.page.evaluate("window.__eo3Copied"), [self.prompt.text, copied])
+        self.page.set_viewport_size({"width": 320, "height": 740})
+        self.assertTrue(self.page.evaluate(
+            "() => document.documentElement.scrollWidth <= innerWidth",
+        ))
+        self.page.evaluate("""() => {
+            window.HeureuxClipboard.writeText = () => Promise.reject(new Error("Clipboard denied"));
+        }""")
+        button.click()
+        expect(button).to_have_class(re.compile("is-copy-error"))
+        expect(self.page.locator("[data-prompt-copy-toast]")).to_have_text(
+            "Impossible de copier la réponse.",
+        )
+        self.assertEqual(list(Annotation.objects.filter(user=self.user).values()), annotations)
+
+        edit_path = reverse("study:edit_response", args=["eo", "tache-3", self.prompt.pk])
+        self.page.goto(self.live_server_url + edit_path)
+        edited = "Par exemple, je retrouve mes amis le samedi et je conserve mes notes."
+        self.page.locator("[name=argument_1_exemple]").fill(edited)
+        with self.page.expect_navigation():
+            self.page.get_by_role("button", name="Enregistrer la réponse", exact=True).click()
+        self.page.locator('[data-prompt-copy-source="eo3-response-content"]').click()
+        expect(self.page.locator("[data-prompt-copy-toast]")).to_have_text(
+            "Réponse copiée dans le presse-papiers.",
+        )
+        self.assertEqual(
+            self.page.evaluate("window.__eo3Copied"),
+            [copied.replace(model.arguments[0].exemple, edited, 1)],
+        )
+        expect(self.page.locator(".answer-columns mark.user-highlight")).to_have_count(1)
         self.assertFalse(self.errors, self.errors)

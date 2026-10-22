@@ -26,7 +26,7 @@
           </ul>
         </div>
       {% endif %}
-    {% else %}{% if reviewed_eo3 %}
+    {% else %}{% if reviewed_eo3 or structured_eo3 %}
       <div class="spine-block">
         <div class="spine-label">Introduction</div>
         <div class="spine-text" data-response-field="introduction">{{ response_content.position_claire }}</div>
@@ -34,15 +34,15 @@
       {% else %}
       <div class="spine-block">
         <div class="spine-label">Reformulation</div>
-        <div class="spine-text">{{ response_content.reformulation }}</div>
+        <div class="spine-text"{% if eo3_annotation_fields %} data-response-field="reformulation"{% endif %}>{{ response_content.reformulation }}</div>
       </div>
       <div class="spine-block">
         <div class="spine-label">Position</div>
-        <div class="spine-text">{{ response_content.position }}</div>
+        <div class="spine-text"{% if eo3_annotation_fields %} data-response-field="position"{% endif %}>{{ response_content.position }}</div>
       </div>{% endif %}
       {% for arg in arguments %}
         <div class="arg">
-          <div class="arg__idea">{{ forloop.counter }}. {% if reviewed_eo3 %}<span data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-idea">{% endif %}{{ arg.idea }}{% if reviewed_eo3 %}</span>{% endif %}</div>{% if reviewed_eo3 %}
+          <div class="arg__idea">{{ forloop.counter }}. {% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %}<span data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-idea">{% endif %}{{ arg.idea }}{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %}</span>{% endif %}</div>{% if reviewed_eo3 or structured_eo3 %}
             <p data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-developpement">{{ arg.developpement }}</p>
             <div class="arg__part-label">Exemple concret</div>
             <p data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-exemple">{{ arg.exemple }}</p>
@@ -52,11 +52,11 @@
       {% endfor %}
       <div class="spine-block">
         <div class="spine-label">Nuance</div>
-        <div class="spine-text"{% if reviewed_eo3 %} data-response-field="nuance"{% endif %}>{{ response_content.nuance }}</div>
+        <div class="spine-text"{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="nuance"{% endif %}>{{ response_content.nuance }}</div>
       </div>
       <div class="spine-block">
         <div class="spine-label">Conclusion</div>
-        <div class="spine-text"{% if reviewed_eo3 %} data-response-field="conclusion"{% endif %}>{{ response_content.conclusion }}</div>
+        <div class="spine-text"{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="conclusion"{% endif %}>{{ response_content.conclusion }}</div>
       </div>
 
       {% if aliases %}

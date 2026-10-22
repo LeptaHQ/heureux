@@ -233,7 +233,7 @@ class Argument(models.Model):
 
 
 class PersonalResponse(models.Model):
-    """A learner-owned response version; the shared exam prompt never changes."""
+    """The learner's current response; the shared exam prompt never changes."""
 
     user = models.ForeignKey(
         django_settings.AUTH_USER_MODEL,

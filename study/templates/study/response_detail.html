@@ -4,7 +4,7 @@
 
 {% block content %}
 {% include "study/partials/task_nav.html" %}
-{% if personal_saved %}<div class="notice">{% if ee_response %}Réponse enregistrée.{% else %}Votre version personnelle a été enregistrée et sera utilisée pendant les révisions.{% endif %}</div>{% endif %}
+{% if personal_saved %}<div class="notice">{% if ee_response or single_response_eo3 %}Réponse enregistrée.{% else %}Votre version personnelle a été enregistrée et sera utilisée pendant les révisions.{% endif %}</div>{% endif %}
 {% if personal_reset and not ee_response %}<div class="notice">La réponse d'origine est de nouveau utilisée.</div>{% endif %}
 {% if not ee_response %}{% include "study/partials/prompt_navigation.html" %}{% endif %}
 <div class="detail-head{% if ee_response %} detail-head--compact{% endif %}">
@@ -16,9 +16,15 @@
     {% else %}
       · <a href="{% subject_group_url part.slug task.slug selected_prompt.theme.slug selected_prompt.family.slug %}">{{ selected_prompt.family.name }}</a>
     {% endif %}
-    {% if response_content.is_personal and not ee_response %} · <span class="chip">Version personnelle</span>{% endif %}
+    {% if response_content.is_personal and not ee_response and not single_response_eo3 %} · <span class="chip">Version personnelle</span>{% endif %}
   </p>
   <h1 class="detail-prompt"{% if eo3_audio %} data-eo3-read-prompt{% endif %}>{% if ee_response %}{{ selected_prompt.theme.display_name }}{% else %}{{ selected_prompt.text }}{% endif %}</h1>
+  {% if single_response_eo3 %}
+    <div class="row">
+      {% include "study/partials/prompt_copy_button.html" with button_class="btn btn--sm prompt-copy-button" source_id="eo3-subject-content" label="Copier le sujet" only %}
+      {% if eo3_response_copy_text %}{% include "study/partials/response_copy_button.html" with button_class="btn btn--sm prompt-copy-button" source_id="eo3-response-content" only %}{% endif %}
+    </div>
+  {% endif %}
   {% if response_content.reformulation and not ee_response %}<p class="reform">« {{ response_content.reformulation }} »</p>{% endif %}
   {% if eo3_prompt_note %}{% include "study/partials/tache_three_prompt_note.html" %}{% elif subject_hints %}<a class="btn btn--sm subject-hints-jump" href="#subject-hints-title">Voir les pistes</a>{% endif %}
 </div>
@@ -35,17 +41,17 @@
       {# Keep the nested response-card tags adjacent so historical annotation whitespace offsets remain unchanged. #}
       {% include "study/partials/ee_tache_three_annotation_root.html" %}
     {% else %}{# The edit pencil sits in the first card's label row; its wrapper is excluded so annotation offsets stay unchanged. #}
-    {% if response_content.position and not reviewed_eo3 %}
+    {% if response_content.position and not reviewed_eo3 and not structured_eo3 %}
       <section class="card section-card">
         <div class="section-card__head"><div class="spine-label">Position</div>{% if can_edit_response %}<span class="section-card__tools" data-annotation-exclude>{% spaceless %}{% include "study/partials/oral_response_edit_button.html" %}{% endspaceless %}</span>{% endif %}</div>
-        <p class="spine-text">{{ response_content.position }}</p>
+        <p class="spine-text"{% if eo3_annotation_fields %} data-response-field="position"{% endif %}>{{ response_content.position }}</p>
       </section>
     {% endif %}
 
     {% if response_content.position_claire %}
       <section class="card section-card">
-        <div class="section-card__head"><div class="spine-label">Introduction</div>{% if can_edit_response %}{% if not response_content.position or reviewed_eo3 %}<span class="section-card__tools" data-annotation-exclude>{% spaceless %}{% include "study/partials/oral_response_edit_button.html" %}{% endspaceless %}</span>{% endif %}{% endif %}</div>
-        <p class="spine-text"{% if reviewed_eo3 %} data-response-field="introduction"{% endif %}>{{ response_content.position_claire }}</p>
+        <div class="section-card__head"><div class="spine-label">Introduction</div>{% if can_edit_response %}{% if not response_content.position or reviewed_eo3 or structured_eo3 %}<span class="section-card__tools" data-annotation-exclude>{% spaceless %}{% include "study/partials/oral_response_edit_button.html" %}{% endspaceless %}</span>{% endif %}{% endif %}</div>
+        <p class="spine-text"{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="introduction"{% endif %}>{{ response_content.position_claire }}</p>
       </section>
     {% endif %}
 
@@ -55,25 +61,25 @@
         <article class="arg arg--full">
           <h2 class="arg__idea">
             <span class="arg__number">{{ arg.order }}</span>
-            <span{% if reviewed_eo3 %} data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-idea"{% endif %}>{{ arg.idea }}</span>
+            <span{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-idea"{% endif %}>{{ arg.idea }}</span>
           </h2>
           <div class="arg__parts">
             {% if arg.developpement %}
               <div class="arg__part">
                 <div class="arg__part-label">Développement</div>
-                <p{% if reviewed_eo3 %} data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-developpement"{% endif %}>{{ arg.developpement }}</p>
+                <p{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-developpement"{% endif %}>{{ arg.developpement }}</p>
               </div>
             {% endif %}
             {% if arg.exemple %}
               <div class="arg__part">
                 <div class="arg__part-label">Exemple concret</div>
-                <p{% if reviewed_eo3 %} data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-exemple"{% endif %}>{{ arg.exemple }}</p>
+                <p{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-exemple"{% endif %}>{{ arg.exemple }}</p>
               </div>
             {% endif %}
             {% if arg.consequence %}
               <div class="arg__part">
                 <div class="arg__part-label">Conséquence</div>
-                <p{% if reviewed_eo3 %} data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-consequence"{% endif %}>{{ arg.consequence }}</p>
+                <p{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="argument-{{ arg.annotation_id|default:forloop.counter }}-consequence"{% endif %}>{{ arg.consequence }}</p>
               </div>
             {% endif %}
           </div>
@@ -84,14 +90,14 @@
     {% if response_content.nuance %}
       <section class="card section-card section-card--nuance">
         <div class="spine-label">Nuance</div>
-        <p class="spine-text"{% if reviewed_eo3 %} data-response-field="nuance"{% endif %}>{{ response_content.nuance }}</p>
+        <p class="spine-text"{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="nuance"{% endif %}>{{ response_content.nuance }}</p>
       </section>
     {% endif %}
 
     {% if response_content.conclusion %}
       <section class="card section-card section-card--conclusion">
         <div class="spine-label">Conclusion</div>
-        <p class="spine-text"{% if reviewed_eo3 %} data-response-field="conclusion"{% endif %}>{{ response_content.conclusion }}</p>
+        <p class="spine-text"{% if reviewed_eo3 or structured_eo3 or eo3_annotation_fields %} data-response-field="conclusion"{% endif %}>{{ response_content.conclusion }}</p>
       </section>
     {% endif %}
     {% endif %}
@@ -105,7 +111,7 @@
   <aside class="detail-side" data-annotation-root data-annotation-source-key="subject-sidebar:{% if oral_annotation_key %}{{ selected_prompt.content_key }}{% else %}{{ response.content_key }}{% endif %}">
     <div class="card section-card response-sidebar-card response-sidebar-card--status">
       <div class="spine-label">Progression du sujet</div>
-      {% include "study/partials/subject_progress_control.html" with subject_label=selected_prompt.text hide_help=True compact_audio_control=reviewed_eo3 read_audio=eo3_audio %}
+      {% include "study/partials/subject_progress_control.html" with subject_label=selected_prompt.text hide_help=True compact_audio_control=structured_eo3 read_audio=eo3_audio %}
       {% if card %}
         <div class="spine-label">Pratique de la réponse</div>
         <dl class="kv">
@@ -121,7 +127,7 @@
       {% endif %}
       <div class="response-sidebar-actions">
         {% if can_edit_response %}
-          <a class="btn btn--block" href="{% subject_url 'study:edit_response' part.slug task.slug selected_prompt.pk %}">{% if ee_response %}Modifier la réponse{% elif response_content.is_personal %}Modifier ma version{% else %}Personnaliser la réponse{% endif %}</a>
+          <a class="btn btn--block" href="{% subject_url 'study:edit_response' part.slug task.slug selected_prompt.pk %}">{% if ee_response or single_response_eo3 %}Modifier la réponse{% elif response_content.is_personal %}Modifier ma version{% else %}Personnaliser la réponse{% endif %}</a>
         {% endif %}
         <a class="btn btn--primary btn--block" href="{{ response_review_url }}">Pratiquer cette réponse</a>
         <a class="btn btn--block" href="{{ theme_review_url }}">Pratiquer ce thème</a>
@@ -221,11 +227,14 @@
 {% if ee_response %}
   {{ ee_subject_copy_text|json_script:"ee-tache-three-subject-content" }}
   {{ ee_response_copy_text|json_script:"ee-tache-three-response-content" }}
+{% elif single_response_eo3 %}
+  {{ selected_prompt.text|json_script:"eo3-subject-content" }}
+  {{ eo3_response_copy_text|json_script:"eo3-response-content" }}
 {% endif %}
 {% endblock %}
 
 {% block scripts %}
   {{ block.super }}
   {% include "study/partials/subject_progress_script.html" %}
-  {% if ee_response %}<script src="{% static 'study/js/prompt-copy.js' %}?v=3"></script>{% endif %}
+  {% if ee_response or single_response_eo3 %}<script src="{% static 'study/js/prompt-copy.js' %}?v=3"></script>{% endif %}
 {% endblock %}

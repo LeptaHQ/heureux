@@ -4158,15 +4158,17 @@ def response_detail(request, part_slug, task_slug, prompt_id):
 @transaction.atomic
 def edit_response(request, part_slug, task_slug, prompt_id):
     from ..oral_history import lock_study_user, preferred_personal, save_personal, snapshot
+    from ..public_response_annotations import preserve_eo3_response_annotations
     if "model" in request.GET or "personal" in request.GET:
         raise Http404
     task = _route_task(part_slug, task_slug, request=request)
     task_key = (task.part.slug, task.slug)
     is_tache_two = task_key == content_module.QUESTION_BANK_TASK
+    is_eo3 = task_key == ("eo", "tache-3")
     is_writing_tache_three = task_key == content_module.EE_TACHE_THREE_TASK
     if not (
         is_tache_two
-        or task_key == ("eo", "tache-3")
+        or is_eo3
         or is_writing_tache_three
     ):
         raise Http404
@@ -4208,11 +4210,12 @@ def edit_response(request, part_slug, task_slug, prompt_id):
         highlight_context = (
             preserve_tache_two_highlights(response, request.user)
             if is_tache_two
-            else transaction.atomic()
+            else preserve_eo3_response_annotations(response, request.user)
         )
         with highlight_context:
             if personal is not None:
-                snapshot(personal, "personal")
+                if not is_eo3:
+                    snapshot(personal, "personal")
                 PersonalResponse.objects.filter(pk=personal.pk).update(is_active=False)
             else:
                 PersonalResponse.objects.create(
@@ -4356,7 +4359,7 @@ def edit_response(request, part_slug, task_slug, prompt_id):
                 selected_prompt=selected_prompt,
             )
             if is_writing_tache_three
-            else transaction.atomic()
+            else preserve_eo3_response_annotations(response, request.user)
         )
         with highlight_context:
             save_personal(
@@ -4364,6 +4367,7 @@ def edit_response(request, part_slug, task_slug, prompt_id):
                 request.user,
                 defaults,
                 source_prompt=selected_prompt,
+                snapshot_previous=not is_eo3,
             )
         return redirect(routing.subject_selection_url(f"{detail_url}?saved=1", request))
 
@@ -4389,6 +4393,7 @@ def edit_response(request, part_slug, task_slug, prompt_id):
             "form": form,
             "argument_fields": argument_fields,
             "is_writing_tache_three": is_writing_tache_three,
+            "single_response_eo3": is_eo3,
             "has_personal_response": has_personal_response,
             "detail_url": routing.subject_selection_url(detail_url, request),
         },

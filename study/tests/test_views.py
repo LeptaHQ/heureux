@@ -650,6 +650,7 @@ class SmokeTests(TestCase):
             count=5,
         )
         self.assertContains(response, "panel-action--save")
+        self.assertContains(response, 'data-icon="note-highlight"', count=2)
         self.assertContains(response, "data-note-save-close")
         self.assertContains(response, "data-note-save-only")
         self.assertContains(response, "Enregistrer sans surligner")

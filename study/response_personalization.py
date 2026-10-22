@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 
 
 @dataclass(frozen=True)
@@ -10,6 +10,11 @@ class EffectiveArgument:
     developpement: str
     exemple: str
     consequence: str
+
+
+@dataclass(frozen=True)
+class AnnotationArgument(EffectiveArgument):
+    annotation_id: int
 
 
 @dataclass(frozen=True)
@@ -71,21 +76,30 @@ def effective_response(response, user, *, prompt=None, model_only=False, persona
 
     if not isinstance(personal.arguments, list):
         raise ValueError("Personal response arguments must be a list.")
-    arguments = tuple(
-        EffectiveArgument(
+    arguments = []
+    identities = set()
+    for argument in personal.arguments:
+        value = EffectiveArgument(
             order=int(argument["order"]),
             idea=str(argument["idea"]),
             developpement=str(argument["developpement"]),
             exemple=str(argument["exemple"]),
             consequence=str(argument["consequence"]),
         )
-        for argument in personal.arguments
-    )
+        if "annotation_id" in argument:
+            identity = argument["annotation_id"]
+            if type(identity) is not int or identity <= 0 or identity in identities:
+                raise ValueError("Personal response argument identities must be distinct positive integers.")
+            identities.add(identity)
+            value = AnnotationArgument(**asdict(value), annotation_id=identity)
+        arguments.append(value)
+    if identities and len(identities) != len(arguments):
+        raise ValueError("Personal response argument identities must cover every argument.")
     return EffectiveResponse(
         reformulation=personal.reformulation,
         position=personal.position,
         position_claire=personal.position_claire,
-        arguments=arguments,
+        arguments=tuple(arguments),
         nuance=personal.nuance,
         conclusion=personal.conclusion,
         is_personal=True,

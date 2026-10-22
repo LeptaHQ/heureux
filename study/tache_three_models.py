@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 
 from . import content_loader as content
-from .response_personalization import EffectiveArgument, EffectiveResponse
+from .response_personalization import AnnotationArgument, EffectiveArgument, EffectiveResponse
 
 
 MODELS_DIR = content.CONTENT_DIR / "tache_3" / "responses"
@@ -22,14 +22,16 @@ class TacheThreeModel:
     argument_ids: tuple[int, ...] = (1, 2, 3)
 
 
-@dataclass(frozen=True)
-class AnnotationArgument(EffectiveArgument):
-    annotation_id: int
-
-
 def annotation_arguments(prompt, response):
+    if response.is_personal and all(
+        isinstance(argument, AnnotationArgument) for argument in response.arguments
+    ):
+        return response.arguments
     model = reviewed_model(prompt.response, prompt) if prompt is not None else None
-    if model is None or response.is_personal or model.response != response:
+    if model is None or (not response.is_personal and model.response != response) or (
+        tuple(argument.order for argument in response.arguments)
+        != tuple(argument.order for argument in model.response.arguments)
+    ):
         return response.arguments
     return tuple(
         AnnotationArgument(**asdict(argument), annotation_id=identity)
@@ -55,6 +57,19 @@ def spoken_text(response):
         )),
         response.nuance, response.conclusion,
     ))
+
+
+def response_text(response):
+    return "\n\n".join(filter(None, (
+        response.position_claire,
+        *(
+            " ".join(filter(None, (
+                argument.idea, argument.developpement, argument.exemple, argument.consequence,
+            )))
+            for argument in response.arguments
+        ),
+        response.nuance, response.conclusion,
+    )))
 
 
 def load_tache_three_models(

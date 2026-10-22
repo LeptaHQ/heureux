@@ -122,5 +122,6 @@ class OralResponseConcurrencyTests(TransactionTestCase):
         personal = PersonalResponse.objects.get(user=self.user, response=self.response)
         self.assertFalse(personal.is_active)
         self.assertEqual(personal.position, "First answer")
-        snapshot = OralStateSnapshot.objects.get(kind="personal", source_id=personal.pk)
-        self.assertEqual(snapshot.payload["fields"]["position"], "First answer")
+        self.assertFalse(OralStateSnapshot.objects.filter(
+            kind="personal", source_id=personal.pk,
+        ).exists())

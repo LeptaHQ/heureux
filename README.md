@@ -490,6 +490,25 @@ unambiguous saved context, never by replaying old offsets. See the
 [oral-task-3 editorial standard](docs/eo3-editorial.md) for timing, grouping,
 preservation and revision criteria.
 
+EO3 editing updates one current response per subject and learner, starting with
+the reviewed model. Saving again updates the same row; it does not create a new
+full-response history snapshot. Edited responses keep the complete introduction,
+arguments, examples, nuance and conclusion in both detail and practice. Their
+annotation identity and argument field identities stay stable, so unchanged
+highlights and quoted notes remain attached. Already disconnected selections can
+be recovered from exact current-model anchors or provable, learner-owned legacy
+data; unknown namespaces are not guessed. Removed or ambiguous passages remain
+saved in Notes rather than being highlighted elsewhere. Reset-hidden highlights
+stay hidden. Existing recovery records are retained, not multiplied or deleted.
+Private edits never use the public model's narration or silently opt into external
+reading. EO2 and EE response-history behavior is unchanged.
+Each saved private argument also retains its small identity marker independently
+of later public-model rewrites; this is metadata, not another response version.
+EO3 subject pages have separate **Copier le sujet** and **Copier la réponse**
+buttons. Copying a response uses the learner's current text, with French
+paragraphs for the introduction, developed arguments, nuance and conclusion;
+hints, annotations and interface labels are not included.
+
 EE task 1 also provides **Pistes** for Invitations & fêtes, Sorties & visites,
 Accueillir un invité, Voyages & vacances, Ville & quartier, Logement &
 déménagement, and Transports & orientation. The 44 canonical lists in

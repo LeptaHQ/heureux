@@ -339,10 +339,11 @@ def _spine_payload(card: Card, *, prompt=None, model_only=False, personal=None) 
         response, card.user, prompt=canonical, model_only=model_only, personal=personal,
     )
     from . import catalogue
-    from .tache_three_models import annotation_arguments, reviewed_model
+    from .tache_three_models import annotation_arguments, response_text, reviewed_model
     from .tache_three_prompt_notes import prompt_note_for_response
 
     reviewed_eo3 = not content.is_personal and reviewed_model(response, canonical) is not None
+    structured_eo3 = reviewed_model(response, canonical) is not None
     task = response.theme.task
     annotation_key = f"response:{response.content_key}"
     if canonical is not None and (
@@ -390,16 +391,13 @@ def _spine_payload(card: Card, *, prompt=None, model_only=False, personal=None) 
         "aliases": aliases,
         "response": response,
         "response_content": content,
-        "speech_text": "\n\n".join(filter(None, (
-            content.position_claire if reviewed_eo3 else content.reformulation,
-            "" if reviewed_eo3 else content.position,
-            *(
-                " ".join((arg.idea, arg.developpement, arg.exemple, arg.consequence))
-                if reviewed_eo3 else arg.idea for arg in content.arguments
-            ),
+        "speech_text": response_text(content) if structured_eo3 else "\n\n".join(filter(None, (
+            content.reformulation, content.position,
+            *(arg.idea for arg in content.arguments),
             content.nuance, content.conclusion,
         ))),
         "reviewed_eo3": reviewed_eo3,
+        "structured_eo3": structured_eo3,
         "eo3_audio": narration_presentation(reviewed_model(response, canonical)) if reviewed_eo3 else None,
         "eo3_prompt_note": prompt_note_for_response(response, canonical),
         "eo3_pistes": catalogue.tache_three_subject_plan(response.semantic_group),

@@ -289,6 +289,17 @@ class PersonalResponseForm(forms.Form):
         self.ee_tache_three = ee_tache_three
         super().__init__(*args, **kwargs)
         content = effective_response(response, user, prompt=prompt)
+        from .tache_three_models import annotation_arguments, reviewed_model
+
+        self.structured_eo3 = not ee_tache_three and reviewed_model(response, prompt) is not None
+        self.argument_annotation_ids = {}
+        if self.structured_eo3:
+            self.argument_annotation_ids = {
+                argument.order: getattr(argument, "annotation_id", index)
+                for index, argument in enumerate(annotation_arguments(prompt, content), 1)
+            }
+            for field_name in ("reformulation", "position"):
+                self.fields[field_name].widget = forms.HiddenInput()
         self.argument_orders = []
         effective_arguments = {
             argument.order: argument for argument in content.arguments
@@ -342,6 +353,8 @@ class PersonalResponseForm(forms.Form):
         arguments = []
         for order in self.argument_orders:
             argument = {"order": order}
+            if order in self.argument_annotation_ids:
+                argument["annotation_id"] = self.argument_annotation_ids[order]
             for key, _label, _rows in self.argument_parts:
                 argument[key] = self.cleaned_data[
                     f"argument_{order}_{key}"

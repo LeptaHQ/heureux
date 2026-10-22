@@ -851,6 +851,8 @@ class TacheThreeModelViewTests(TestCase):
                     context = {
                         **context, "response_content": value,
                         "arguments": value.arguments, "reviewed_eo3": False,
+                        "structured_eo3": False,
+                        "single_response_eo3": False,
                     }
                     previous = Engine.get_default().from_string(
                         archive["templates"][name]

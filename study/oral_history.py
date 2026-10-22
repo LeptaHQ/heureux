@@ -35,13 +35,13 @@ def variant_annotation_key(prompt, content, *, tache_two_dialogue=None):
             tache_two_dialogue is None or tache_two_dialogue == current
         ):
             return f"response:{prompt.content_key}:model"
-    elif not content.is_personal and getattr(
+    elif getattr(
         getattr(prompt, "response", None), "semantic_group", "",
     ).startswith("eo/tache-3/"):
         from .tache_three_models import reviewed_model
 
         model = reviewed_model(prompt.response, prompt)
-        if model is not None and content == model.response:
+        if model is not None and (content.is_personal or content == model.response):
             return f"response:{prompt.content_key}:model"
     return legacy_variant_annotation_key(
         prompt, content, tache_two_dialogue=tache_two_dialogue,
@@ -130,13 +130,13 @@ def snapshot(instance, kind, *, response=None):
 
 
 @transaction.atomic
-def save_personal(response, user, defaults, *, source_prompt=None):
+def save_personal(response, user, defaults, *, source_prompt=None, snapshot_previous=True):
     # A first save has no personal row to lock; keep the account lifecycle order.
     lock_study_user(user)
     current = PersonalResponse.objects.select_for_update().filter(
         response=response, user=user,
     ).first()
-    if current is not None:
+    if current is not None and snapshot_previous:
         snapshot(current, "personal")
     return PersonalResponse.objects.update_or_create(
         response=response, user=user,

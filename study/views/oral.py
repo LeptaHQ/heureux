@@ -8,7 +8,7 @@ from ..oral_history import preferred_personal, variant_annotation_key
 from ..eo3_audio import narration_presentation
 from ..response_personalization import effective_response
 from ..routing import TACHE_TWO_PROMPT_KEY, review_url
-from ..tache_three_models import annotation_arguments, reviewed_model
+from ..tache_three_models import annotation_arguments, response_text, reviewed_model
 from ..tache_three_prompt_notes import prompt_note_for_response
 
 
@@ -33,15 +33,20 @@ def oral_response_context(request, prompt):
     )
     legacy_keys = [f"response:{storage_key}"]
     match = TACHE_TWO_PROMPT_KEY.fullmatch(storage_key)
-    reviewed_eo3 = not value.is_personal and reviewed_model(response, prompt) is not None
-    if match or reviewed_eo3:
+    model = reviewed_model(response, prompt)
+    structured_eo3 = model is not None
+    reviewed_eo3 = structured_eo3 and not value.is_personal
+    if match or structured_eo3:
         # Changed public layouts must not replay offsets from published models.
         legacy_keys = []
     return {
         "response_content": value,
         "arguments": annotation_arguments(prompt, value),
         "reviewed_eo3": reviewed_eo3,
-        "eo3_audio": narration_presentation(reviewed_model(response, prompt)) if reviewed_eo3 else None,
+        "structured_eo3": structured_eo3,
+        "single_response_eo3": prompt.theme.task.slug == "tache-3",
+        "eo3_response_copy_text": response_text(value) if structured_eo3 else "",
+        "eo3_audio": narration_presentation(model) if reviewed_eo3 else None,
         "eo3_prompt_note": prompt_note_for_response(response, prompt),
         "oral_annotation_key": variant_annotation_key(prompt, value),
         "oral_legacy_annotation_keys": json.dumps(legacy_keys),

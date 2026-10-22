@@ -1,7 +1,11 @@
-"""Keep selections on the one current EO2/EO3 public response."""
+"""Keep selections on each learner's current EO2/EO3 response."""
 
+from contextlib import contextmanager
+from copy import copy
 import hashlib
+import logging
 import re
+from types import SimpleNamespace
 
 from django.db import transaction
 from django.db.models import Q
@@ -9,9 +13,9 @@ from django.template.loader import render_to_string
 from django.urls import reverse
 from django.utils import timezone
 
-from .models import Annotation, AnnotationKind, Prompt
+from .models import Annotation, AnnotationKind, OralStateSnapshot, Prompt
 from .oral_highlights import AnnotationRootText, _move_anchor, _render_questions
-from .oral_history import variant_annotation_key
+from .oral_history import legacy_variant_annotation_key, variant_annotation_key
 from .progress import subject_progress_by_response
 from .public_annotation_migration import PUBLIC_DIGESTS
 from .querysets import lean_prompt_rows
@@ -29,6 +33,7 @@ CONTEXT_LABELS = re.compile(
     r"\b(?:Arguments développés|Exemple concret|Développement|Conséquence|"
     r"Introduction|Conclusion|Nuance)\b",
 )
+logger = logging.getLogger(__name__)
 
 
 def _current_content(prompt, user):
@@ -45,11 +50,14 @@ def _current_content(prompt, user):
         return current if current.is_personal else dialogue_response(dialogue)
     if task.slug == "tache-3":
         model = reviewed_model(prompt.response, prompt)
-        return model.response if model is not None else None
+        return (
+            effective_response(prompt.response, user, prompt=prompt)
+            if model is not None else None
+        )
     return None
 
 
-def render_current_response(prompt, content, surface, user):
+def render_current_response(prompt, content, surface, user, *, legacy_personal=False):
     prompts = list(lean_prompt_rows(prompt.response.prompts.filter(is_active=True)))
     is_eo2 = prompt.theme.task.slug == "tache-2"
     if is_eo2 and surface != "front":
@@ -58,7 +66,10 @@ def render_current_response(prompt, content, surface, user):
         "part": prompt.theme.task.part, "task": prompt.theme.task,
         "selected_prompt": prompt, "canonical_prompt": prompt,
         "response": prompt.response, "response_content": content,
-        "arguments": annotation_arguments(prompt, content), "reviewed_eo3": not is_eo2,
+        "arguments": annotation_arguments(prompt, content),
+        "reviewed_eo3": not is_eo2 and not content.is_personal,
+        "structured_eo3": not is_eo2 and not legacy_personal,
+        "eo3_annotation_fields": not is_eo2,
         "oral_annotation_key": variant_annotation_key(prompt, content),
         "kind": "spine", "tache_two_subject": is_eo2,
         "kind_label": "Questions d'interaction" if is_eo2 else "Réponse argumentée",
@@ -199,7 +210,7 @@ def _public_paths(prompt):
 
 
 def capture_public_response_anchor(annotation):
-    """Bind only a selection verified against the currently published EO3 text."""
+    """Bind only a selection verified against the learner's current EO3 text."""
     match = PUBLIC_KEY.fullmatch(annotation.source_key)
     if not annotation.quote or match is None or not (
         match["model"] or match["digest"] in PUBLIC_DIGESTS
@@ -245,6 +256,50 @@ def _annotations_for_update(user, source_filter):
     ).order_by("pk")
 
 
+def _legacy_personal_contents(prompt, user, content, keys):
+    """Prove old private namespaces from owned data, not from a public allowlist."""
+    known = {}
+    if content.is_personal:
+        key = legacy_variant_annotation_key(prompt, content)
+        if key in keys:
+            known[key] = content
+    if not keys or keys <= known.keys():
+        return known
+    snapshots = OralStateSnapshot.objects.filter(
+        Q(response=prompt.response) | Q(response__semantic_owner=prompt.response),
+        user=user, kind="personal",
+    ).order_by("-pk").values_list("pk", "payload")
+    for snapshot_id, payload in snapshots.iterator(chunk_size=32):
+        try:
+            fields = payload["fields"]
+            old = effective_response(
+                prompt.response, user, prompt=prompt, personal=SimpleNamespace(**fields),
+            )
+        except (KeyError, TypeError, ValueError, AttributeError):
+            logger.warning("Invalid legacy EO3 response snapshot %s", snapshot_id)
+            continue
+        key = legacy_variant_annotation_key(prompt, old)
+        if key in keys:
+            known.setdefault(key, old)
+        if keys <= known.keys():
+            break
+    return known
+
+
+def _legacy_selection(annotation, rendered):
+    start, end = annotation.start_offset, annotation.end_offset
+    if (
+        start is None or end is None
+        or rendered.slice(start, end) != annotation.quote
+        or rendered.slice(max(0, start - 160), start) != annotation.prefix
+        or rendered.slice(end, end + 160) != annotation.suffix
+    ):
+        return None
+    bound = copy(annotation)
+    bound.response_anchor = response_field_anchor(rendered, (start, end))
+    return bound
+
+
 def preserve_public_response_annotations(user, source_filter):
     """Retarget this user's existing records; never replace notes or private text."""
     unresolved = set()
@@ -253,10 +308,8 @@ def preserve_public_response_annotations(user, source_filter):
         candidates = {}
         for annotation in annotations:
             match = PUBLIC_KEY.fullmatch(annotation.source_key)
-            if match is not None and (
-                match["model"] or match["digest"] in PUBLIC_DIGESTS
-            ):
-                candidates.setdefault(match["prompt"], []).append((annotation, match["surface"] or ""))
+            if match is not None:
+                candidates.setdefault(match["prompt"], []).append((annotation, match))
         if not candidates:
             return unresolved
         prompts = Prompt.objects.filter(
@@ -270,8 +323,27 @@ def preserve_public_response_annotations(user, source_filter):
             key = variant_annotation_key(prompt, content)
             paths = _public_paths(prompt)
             rendered_surfaces = {}
-            for annotation, suffix in candidates[prompt.content_key]:
-                if annotation.source_path.split("?", 1)[0] not in paths:
+            prompt_candidates = [
+                (annotation, match)
+                for annotation, match in candidates[prompt.content_key]
+                if annotation.source_path.split("?", 1)[0] in paths
+                and annotation.task_id in {None, prompt.theme.task_id}
+            ]
+            private_keys = {
+                f"response:{prompt.content_key}:variant-{match['digest']}"
+                for _, match in prompt_candidates
+                if not match["model"] and match["digest"] not in PUBLIC_DIGESTS
+            }
+            legacy_contents = (
+                _legacy_personal_contents(prompt, user, content, private_keys)
+                if prompt.theme.task.slug == "tache-3" else {}
+            )
+            legacy_surfaces = {}
+            for annotation, match in prompt_candidates:
+                suffix = match["surface"] or ""
+                public = match["model"] or match["digest"] in PUBLIC_DIGESTS
+                legacy_key = annotation.source_key.removesuffix(suffix) if suffix else annotation.source_key
+                if not public and legacy_key not in legacy_contents:
                     continue
                 target = key + suffix
                 if not annotation.quote and annotation.kind == AnnotationKind.NOTE:
@@ -283,7 +355,30 @@ def preserve_public_response_annotations(user, source_filter):
                             prompt, content, surface, user,
                         )
                     rendered = rendered_surfaces[surface]
-                    offsets = current_anchor(annotation, rendered)
+                    bound = annotation
+                    if (
+                        match["model"] and content.is_personal
+                        and prompt.theme.task.slug == "tache-3"
+                        and not annotation.response_anchor
+                    ):
+                        original_surface = ("model", surface)
+                        if original_surface not in legacy_surfaces:
+                            model = reviewed_model(prompt.response, prompt)
+                            legacy_surfaces[original_surface] = render_current_response(
+                                prompt, model.response, surface, user,
+                            )
+                        bound = _legacy_selection(annotation, legacy_surfaces[original_surface]) or annotation
+                    elif not public:
+                        legacy_surface = (legacy_key, surface)
+                        if legacy_surface not in legacy_surfaces:
+                            legacy_surfaces[legacy_surface] = render_current_response(
+                                prompt, legacy_contents[legacy_key], surface, user,
+                                legacy_personal=True,
+                            )
+                        bound = _legacy_selection(annotation, legacy_surfaces[legacy_surface])
+                        if bound is None:
+                            continue
+                    offsets = current_anchor(bound, rendered)
                     if offsets is None:
                         if annotation.source_key == target:
                             unresolved.add(annotation.pk)
@@ -299,7 +394,7 @@ def preserve_public_response_annotations(user, source_filter):
                     # before acquiring a field identity.
                     anchor = (
                         response_field_anchor(rendered, offsets)
-                        if annotation.response_anchor
+                        if bound.response_anchor
                         else capture_rendered_response_anchor(annotation, rendered)
                     )
                     if anchor:
@@ -329,3 +424,15 @@ def preserve_prompt_annotations(user, prompt):
         preserve_public_response_annotations(
             user, Q(source_key__startswith=f"response:{prompt.content_key}:"),
         )
+
+
+@contextmanager
+def preserve_eo3_response_annotations(response, user):
+    prompts = list(response.prompts.filter(is_active=True).select_related(
+        "response", "theme__task__part", "family",
+    ))
+    for prompt in prompts:
+        preserve_prompt_annotations(user, prompt)
+    yield
+    for prompt in prompts:
+        preserve_prompt_annotations(user, prompt)

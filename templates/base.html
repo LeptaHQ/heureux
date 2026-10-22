@@ -384,8 +384,13 @@
       <p class="confirm-dialog__message" data-confirm-message></p>
     </div>
     <footer class="form-dialog__actions">
-      <button class="btn" type="button" data-dialog-close>Annuler</button>
-      <button class="btn btn--danger" type="button" data-confirm-accept>Confirmer</button>
+      <button class="icon-button confirm-dialog__action" type="button" aria-label="Annuler" title="Annuler" data-dialog-close data-confirm-cancel>
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+      </button>
+      <button class="icon-button confirm-dialog__action confirm-dialog__action--danger" type="button" aria-label="Confirmer" title="Confirmer" data-confirm-accept>
+        <svg viewBox="0 0 24 24" aria-hidden="true" data-confirm-icon="danger"><path d="M4 7h16M9 7V4h6v3M6 7l1 13h10l1-13M10 11v6M14 11v6"></path></svg>
+        <svg viewBox="0 0 24 24" aria-hidden="true" data-confirm-icon="safe" hidden><path d="m5 12.5 4.5 4.5L19 7.5"></path></svg>
+      </button>
     </footer>
   </dialog>
 

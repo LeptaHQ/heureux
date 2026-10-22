@@ -1038,6 +1038,8 @@
     var canUseDialog = dialog && typeof dialog.showModal === "function";
     var messageEl = dialog && dialog.querySelector("[data-confirm-message]");
     var acceptBtn = dialog && dialog.querySelector("[data-confirm-accept]");
+    var cancelBtn = dialog && dialog.querySelector("[data-confirm-cancel]");
+    var titleEl = dialog && dialog.querySelector("#app-confirm-title");
 
     if (canUseDialog) {
       openConfirm = function (opts) {
@@ -1048,9 +1050,17 @@
               opts.message || "Confirmer cette action ?";
           }
           if (acceptBtn) {
-            acceptBtn.textContent = opts.label || "Confirmer";
-            acceptBtn.classList.toggle("btn--danger", opts.tone !== "safe");
+            var label = opts.label || "Confirmer";
+            var danger = opts.tone !== "safe";
+            acceptBtn.setAttribute("aria-label", label);
+            acceptBtn.title = label;
+            acceptBtn.classList.toggle("confirm-dialog__action--danger", danger);
+            acceptBtn.querySelectorAll("[data-confirm-icon]").forEach(function (icon) {
+              icon.hidden = icon.getAttribute("data-confirm-icon") !== (danger ? "danger" : "safe");
+            });
           }
+          if (cancelBtn) cancelBtn.hidden = !!opts.notice;
+          if (titleEl) titleEl.textContent = opts.title || "Êtes-vous sûr\u00a0?";
           var settled = false;
           function cleanup() {
             if (acceptBtn) acceptBtn.removeEventListener("click", onAccept);

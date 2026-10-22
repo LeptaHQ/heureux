@@ -8125,6 +8125,39 @@ a.qrow:focus-visible {
 .confirm-dialog {
   width: min(calc(100% - 2rem), 440px);
 }
+.confirm-dialog .form-dialog__actions {
+  gap: 0.75rem;
+}
+.confirm-dialog__action {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  color: var(--text-soft);
+}
+.confirm-dialog__action svg {
+  width: 1.35rem;
+  height: 1.35rem;
+}
+.confirm-dialog__action[hidden],
+.confirm-dialog__action svg[hidden] {
+  display: none;
+}
+.confirm-dialog__action[data-confirm-accept] {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--primary-ink);
+}
+.confirm-dialog__action[data-confirm-accept]:hover {
+  border-color: color-mix(in srgb, var(--primary) 82%, black);
+  background: color-mix(in srgb, var(--primary) 88%, black);
+  color: var(--primary-ink);
+}
+.confirm-dialog__action--danger[data-confirm-accept],
+.confirm-dialog__action--danger[data-confirm-accept]:hover {
+  border-color: color-mix(in srgb, var(--again) 40%, var(--border-strong));
+  background: color-mix(in srgb, var(--again) 10%, var(--surface));
+  color: var(--again);
+}
 .confirm-dialog__message {
   margin: 0;
   font-size: 0.95rem;

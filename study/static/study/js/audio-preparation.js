@@ -61,7 +61,7 @@
           toggle.title = onDemand ? "Réessayer la lecture" :
             "Préparation non terminée. Rechargez la page pour vérifier le résultat.";
         }
-        window.HeureuxConfirm({message: status.textContent, label: "Fermer", tone: "safe"});
+        window.HeureuxConfirm({message: status.textContent, label: "Fermer", tone: "safe", notice: true, title: "Lecture indisponible"});
       });
     });
   });

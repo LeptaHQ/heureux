@@ -88,6 +88,21 @@ class CultureEditorialTests(SimpleTestCase):
                 for phrase in required:
                     self.assertIn(phrase, example)
 
+    def test_compatriot_support_explains_new_social_ties_without_rewriting_the_example(self):
+        argument = self.response(11).arguments[0]
+        self.assertEqual(
+            argument.developpement,
+            "Quand on arrive à l'étranger, on peut se retrouver loin de son entourage habituel. "
+            "Fréquenter des compatriotes qui parlent sa langue permet de nouer des liens sans "
+            "attendre de bien maîtriser la langue du pays.",
+        )
+        self.assertEqual(
+            argument.exemple,
+            "Une nouvelle arrivante peut avoir du mal à expliquer sa solitude en français. "
+            "Avec une amie de son pays qui parle sa langue, elle raconte que sa famille lui manque. "
+            "Son amie l'écoute et lui propose de passer le dimanche ensemble.",
+        )
+
     def test_family_transmission_example_stops_after_fetes_without_a_classmates_clause(self):
         example = self.response(10).arguments[1].exemple
         self.assertTrue(

@@ -678,7 +678,7 @@
         "culture:p25": "6b1a31c20a112abedb9318629a0c580e46540b38c9d6405ef800b12f840edab8"
       },
       "reformulation": "Qu'est-ce qui peut motiver le choix de vivre à l'étranger ?",
-      "position": "Les projets professionnels, l'apprentissage personnel et les liens familiaux peuvent se combiner.",
+      "position": "Les projets professionnels, l'apprentissage personnel et les priorités familiales peuvent se combiner.",
       "position_claire": "À mon avis, il n'y a pas une seule motivation pour choisir de vivre à l'étranger. Je distinguerais les possibilités professionnelles, l'envie d'apprendre et les projets familiaux. Ces raisons peuvent se combiner, et leur importance change selon la personne et le moment de sa vie.",
       "arguments": [
         {
@@ -696,12 +696,12 @@
         {
           "idea": "Enfin, les relations et le projet familial peuvent être au centre de la décision.",
           "developpement": "On ne choisit pas toujours un lieu uniquement pour ses possibilités individuelles. Rejoindre un conjoint, vivre près de proches ou chercher un cadre adapté à ses enfants peut peser davantage qu'une carrière.",
-          "exemple": "Si deux partenaires habitent dans des pays différents, l'un peut décider de rejoindre l'autre pour construire une vie commune. Le choix demande de comparer les conditions d'installation, mais sa motivation principale reste de ne plus vivre séparés.",
-          "consequence": "Le départ répond alors au souhait de construire un quotidien avec ses proches."
+          "exemple": "Une famille vivant dans une région où les violences entraînent des fermetures d'écoles peut envisager de s'installer dans un pays plus sûr. Les parents cherchent alors un cadre où leurs enfants pourront aller régulièrement en classe et poursuivre leurs apprentissages sans ces interruptions.",
+          "consequence": "La sécurité et la scolarité des enfants guident alors le choix de la destination."
         }
       ],
       "nuance": "Bien sûr, les motivations varient d'une personne à l'autre et peuvent se combiner. On peut partir à la fois pour étudier et pour rejoindre son conjoint, puis donner davantage de place à sa carrière. Les priorités peuvent donc changer au fil du parcours.",
-      "conclusion": "En conclusion, les personnes peuvent partir pour travailler, apprendre ou vivre auprès de leurs proches. Comprendre leur motivation demande d'écouter leur projet concret, plutôt que de supposer que vivre ailleurs répond toujours au même désir."
+      "conclusion": "En conclusion, les personnes peuvent partir pour travailler, apprendre ou réaliser un projet familial. Comprendre leur motivation demande d'écouter leur projet concret, plutôt que de supposer que vivre ailleurs répond toujours au même désir."
     },
     "culture-p26": {
       "prompt_signatures": {

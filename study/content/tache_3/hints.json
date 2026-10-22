@@ -1016,7 +1016,7 @@
     },
     "culture-p25": {
       "introduction": {
-        "french": "On peut choisir de vivre à l'étranger pour travailler, apprendre ou rejoindre ses proches.",
+        "french": "On peut choisir de vivre à l'étranger pour travailler, apprendre ou réaliser un projet familial.",
         "english": "People may choose to move abroad for work, personal growth or family reasons."
       },
       "nuance": {
@@ -1054,8 +1054,8 @@
             "english": "Relationships and family projects may drive the decision."
           },
           "example": {
-            "french": "L'un des partenaires rejoint l'autre pour ne plus vivre dans deux pays.",
-            "english": "One partner joins the other so they no longer live in two countries."
+            "french": "Une famille cherche un pays plus sûr pour que les enfants puissent aller régulièrement à l'école.",
+            "english": "A family seeks a safer country so the children can attend school regularly."
           }
         }
       ]

@@ -214,6 +214,28 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("apprendre ne compense pas toujours la souffrance", cue.french)
         self.assertIn("learning from it does not always make up for the suffering", cue.english)
 
+    def test_family_migration_example_and_consequence_follow_childrens_safety_and_schooling(self):
+        response = self.response(25)
+        family = response.arguments[2]
+        for phrase in (
+            "Une famille", "les violences entraînent des fermetures d'écoles",
+            "peut envisager", "Les parents cherchent alors", "aller régulièrement en classe",
+        ):
+            self.assertIn(phrase, family.exemple)
+        self.assertNotIn("ne plus vivre séparés", family.exemple)
+        self.assertEqual(
+            family.consequence,
+            "La sécurité et la scolarité des enfants guident alors le choix de la destination.",
+        )
+        self.assertIn("priorités familiales", response.position)
+        self.assertIn("réaliser un projet familial", response.conclusion)
+        plan = self.plans["eo/tache-3/culture-p25"]
+        self.assertIn("réaliser un projet familial", plan.introduction.french)
+        self.assertIn("Une famille cherche un pays plus sûr", plan.arguments[2].example.french)
+        self.assertIn("aller régulièrement à l'école", plan.arguments[2].example.french)
+        self.assertIn("safer country", plan.arguments[2].example.english)
+        self.assertIn("attend school regularly", plan.arguments[2].example.english)
+
     def test_argument_claims_state_the_benefit_or_risk_before_explaining_its_mechanism(self):
         for number, index, claim, explanation, example in (
             (5, 2, "contacts sur place", "Des conseils précis", "relire son CV"),

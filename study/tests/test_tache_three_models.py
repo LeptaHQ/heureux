@@ -617,7 +617,7 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("sans généraliser ces deux expériences", response(19).arguments[1].exemple)
         self.assertIn("l'écoute", response(20).position_claire)
         self.assertIn("réservations", response(21).nuance)
-        self.assertIn("origines", response(24).nuance)
+        self.assertIn("relations de confiance", response(24).nuance)
         self.assertIn("conjoint", response(25).arguments[2].developpement)
         self.assertIn("Si j'immigrais", response(26).position_claire)
         self.assertIn("pas seulement de la volonté", response(27).nuance)
@@ -679,7 +679,15 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("travaille à distance", response.arguments[2].exemple)
         self.assertIn("avant d'avoir rencontré des personnes avec qui se lier", response.arguments[2].exemple)
         self.assertIn("isolement qui fait souffrir", response.nuance)
+        self.assertIn(
+            "Quelques relations de confiance peuvent apporter plus de soutien",
+            response.nuance,
+        )
+        self.assertIn("contacts superficiels", response.nuance)
+        self.assertNotIn("Les habitants sont de toutes origines", response.nuance)
         self.assertIn("sans être indispensables au bien-être de tous", response.conclusion)
+        self.assertIn("La confiance peut compter davantage", plan.nuance.french)
+        self.assertIn("Trust can matter more", plan.nuance.english)
         self.assertIn("sans être indispensables", plan.introduction.french)
         self.assertIn("without being essential", plan.introduction.english)
         self.assertIn("avant d'avoir noué des liens locaux", plan.arguments[2].example.french)

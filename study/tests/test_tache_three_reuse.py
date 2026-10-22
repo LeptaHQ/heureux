@@ -19,7 +19,6 @@ class TacheThreeReuseTests(SimpleTestCase):
     def test_compatible_complete_arguments_and_bilingual_cues_are_identical(self):
         for first, second, indices in (
             ("culture-p18", "technologie-p12", (0, 1, 2)),
-            ("culture-p16", "famille-p9", (1, 2)),
             ("famille-p1", "technologie-p16", (2,)),
         ):
             for index in indices:
@@ -65,6 +64,7 @@ class TacheThreeReuseTests(SimpleTestCase):
         for first, second in (
             ("culture-p18", "technologie-p12"),
             ("culture-p16", "famille-p9"),
+            ("culture-p16", "culture-p24"),
             ("famille-p2", "famille-p16"),
             ("famille-p1", "technologie-p16"),
             ("culture-p9", "education-p13"),
@@ -115,6 +115,9 @@ class TacheThreeReuseTests(SimpleTestCase):
         )
         self.assertIn(common_letter_limit.casefold(), self.response("culture-p18").nuance.casefold())
         self.assertIn(common_letter_limit, self.response("technologie-p12").nuance)
+        solitude = "Cependant, il faut distinguer une solitude choisie d'un isolement qui fait souffrir."
+        self.assertIn(solitude, self.response("culture-p16").nuance)
+        self.assertIn(solitude, self.response("culture-p24").nuance)
         consent = "Une cohabitation durable peut fonctionner, mais doit rester choisie de part et d'autre."
         self.assertIn(consent, self.response("famille-p2").nuance)
         self.assertIn(consent, self.response("famille-p16").nuance)

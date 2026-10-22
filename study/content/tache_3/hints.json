@@ -206,8 +206,8 @@
             "english": "Another country may offer an opportunity matching a specific goal."
           },
           "example": {
-            "french": "Une formation de cuisine à l'étranger avec un stage en restaurant aide à apprendre le métier.",
-            "english": "An overseas cooking course and restaurant placement develop skills needed to become a cook."
+            "french": "Trouver à l'étranger une spécialité de cuisine non enseignée près de chez soi, avec un stage.",
+            "english": "Find an overseas cooking specialisation unavailable nearby, with a restaurant placement."
           }
         },
         {
@@ -308,8 +308,8 @@
             "english": "Artistic occupations require precise skills that must be developed."
           },
           "example": {
-            "french": "Une illustratrice utilise gestes et couleurs pour rendre une dispute puis une réconciliation lisibles.",
-            "english": "An illustrator uses gestures and colours to make a dispute and reconciliation understandable."
+            "french": "Une illustratrice travaille les proportions pour rendre un personnage reconnaissable sous plusieurs angles.",
+            "english": "An illustrator works on proportions so a character stays recognisable from different angles."
           }
         },
         {
@@ -400,8 +400,8 @@
             "english": "Being far from loved ones can make the early days difficult."
           },
           "example": {
-            "french": "Regretter les repas du dimanche ; les appels aident, mais les liens locaux prennent du temps.",
-            "english": "Miss Sunday meals; calls help, but local relationships take time."
+            "french": "Appeler sa famille le dimanche, puis dîner seul : le contact à distance ne remplace pas le repas partagé.",
+            "english": "Call family on Sunday, then eat alone: remote contact does not replace a shared meal."
           }
         },
         {
@@ -446,8 +446,8 @@
             "english": "Cultural transmission gives children access to family history."
           },
           "example": {
-            "french": "Expliquer une fête avec les souvenirs des grands-parents.",
-            "english": "Explain a celebration using grandparents' memories."
+            "french": "Comprendre une fête familiale grâce aux grands-parents, tout en découvrant celles de ses camarades.",
+            "english": "Learn about a family celebration through grandparents while discovering classmates' celebrations."
           }
         },
         {
@@ -478,12 +478,12 @@
       "arguments": [
         {
           "point": {
-            "french": "Retrouver une langue et des références familières peut aider à se sentir moins seul.",
-            "english": "A familiar language and shared references can help someone feel less alone."
+            "french": "Parler sa langue avec un compatriote peut aider à se sentir moins seul.",
+            "english": "Speaking your language with a compatriot can help you feel less alone."
           },
           "example": {
-            "french": "Parler librement de ses difficultés avec un compatriote qui partage sa langue.",
-            "english": "Speak freely about difficulties with a compatriot who shares your language."
+            "french": "Expliquer à une amie que sa famille lui manque ; celle-ci propose de passer le dimanche ensemble.",
+            "english": "Tell a friend you miss your family; she suggests spending Sunday together."
           }
         },
         {
@@ -502,8 +502,8 @@
             "english": "These relationships can sustain everyday cultural practices."
           },
           "example": {
-            "french": "Un repas entre familles peut transmettre des chansons et accueillir d'autres voisins.",
-            "english": "A meal among families can pass on songs and welcome other neighbours."
+            "french": "Un parent et un compatriote présentent aux enfants leurs variantes familiales d'un plat.",
+            "english": "A parent and a compatriot show children their families' versions of a dish."
           }
         }
       ]
@@ -528,8 +528,8 @@
             "english": "Some programmes help explain unfamiliar realities."
           },
           "example": {
-            "french": "Un documentaire sur le tri peut éclairer les consignes locales à vérifier.",
-            "english": "A documentary about sorting waste can explain local instructions worth checking."
+            "french": "Voir les objets mal triés retirés avant le recyclage aide à comprendre l'importance des consignes locales.",
+            "english": "Seeing incorrectly sorted items removed before recycling explains why local instructions matter."
           }
         },
         {
@@ -584,8 +584,8 @@
             "english": "Studying works teaches observation and reasoned viewpoints."
           },
           "example": {
-            "french": "Comparer deux affiches de concert : une date plus grande attire le regard et facilite la lecture.",
-            "english": "Compare two concert posters: a larger date draws attention and is easier to find."
+            "french": "Dans un tableau, s'appuyer sur les sourires ou sur un personnage à l'écart pour justifier son impression.",
+            "english": "Use smiles or a figure sitting apart in a painting to justify an impression."
           }
         },
         {
@@ -626,12 +626,12 @@
         },
         {
           "point": {
-            "french": "On peut rencontrer d'autres pratiques culturelles dans son environnement proche.",
-            "english": "Other cultural practices can be encountered nearby."
+            "french": "On peut faire l'expérience de pratiques culturelles près de chez soi.",
+            "english": "You can experience cultural practices close to home."
           },
           "example": {
-            "french": "Un atelier de cuisine permet de comprendre une pratique familiale sans généraliser.",
-            "english": "A cooking workshop helps explain a family practice without generalising."
+            "french": "Préparer un plat de fête avec une cuisinière et découvrir ses gestes et ses habitudes familiales.",
+            "english": "Prepare a festive dish with a cook and discover her techniques and family practices."
           }
         },
         {
@@ -640,8 +640,8 @@
             "english": "Remote exchanges allow people to ask their own questions."
           },
           "example": {
-            "french": "Un partenaire en ligne explique qu'il déjeune tôt en raison de sa pause de travail.",
-            "english": "An online partner explains that an early lunch is due to their work break."
+            "french": "Un partenaire en ligne explique les formules de politesse utilisées avec ses professeurs et ses amis.",
+            "english": "An online partner explains forms of politeness used with teachers and friends."
           }
         }
       ]
@@ -676,8 +676,8 @@
             "english": "Recipes can tell the history of a place and its practical knowledge."
           },
           "example": {
-            "french": "Une cuisinière explique comment sa grand-mère conservait les légumes d'été pour l'hiver.",
-            "english": "A cook explains how her grandmother preserved summer vegetables for winter."
+            "french": "Dans un atelier, découvrir comment une grand-mère faisait sécher les tomates d'été pour l'hiver.",
+            "english": "At a workshop, learn how a grandmother dried summer tomatoes for winter."
           }
         },
         {
@@ -698,12 +698,12 @@
         "english": "Friendship contributes to happiness without being a universal requirement."
       },
       "nuance": {
-        "french": "Sans amis ne signifie pas sans liens ; famille et solitude choisie peuvent aussi soutenir le bonheur.",
-        "english": "Having no friends does not mean having no bonds; family and chosen solitude may also bring happiness."
+        "french": "Distinguer solitude choisie et isolement douloureux ; ne pas conseiller de vivre sans amis.",
+        "english": "Distinguish chosen solitude from painful isolation; do not advise living without friends."
       },
       "conclusion": {
-        "french": "Privilégier des relations de qualité sans imposer un modèle unique du bonheur.",
-        "english": "Favour quality relationships without imposing one model of happiness."
+        "french": "L'amitié, les autres liens affectifs et les activités personnelles peuvent contribuer au bonheur.",
+        "english": "Friendship, other affectionate bonds and personal activities can contribute to happiness."
       },
       "arguments": [
         {
@@ -718,22 +718,22 @@
         },
         {
           "point": {
-            "french": "L'amitié donne une place régulière au plaisir d'être ensemble.",
-            "english": "Friendship creates regular opportunities to enjoy being together."
+            "french": "Les liens familiaux ou de couple peuvent aussi apporter de l'affection et de la compagnie.",
+            "english": "Family or couple relationships can also provide affection and company."
           },
           "example": {
-            "french": "Une promenade hebdomadaire offre un moment attendu sans dépense importante.",
-            "english": "A weekly walk provides an anticipated moment without major expense."
+            "french": "Sans avoir d'amis, se sentir entouré grâce aux repas avec son conjoint et aux appels à sa sœur.",
+            "english": "Feel supported through meals with a partner and calls to a sister, even without having friends."
           }
         },
         {
           "point": {
-            "french": "Les amis peuvent nous aider à découvrir d'autres possibilités.",
-            "english": "Friends can help us discover other possibilities."
+            "french": "Certaines satisfactions ne dépendent pas de la présence d'un ami.",
+            "english": "Some sources of satisfaction do not depend on a friend being present."
           },
           "example": {
-            "french": "Accompagner un ami à une chorale permet d'essayer avant de choisir.",
-            "english": "Joining a friend at a choir lets someone try it before choosing."
+            "french": "Prendre plaisir à cultiver son jardin et à préparer un repas avec sa récolte.",
+            "english": "Enjoy tending a garden and preparing a meal with the harvest."
           }
         }
       ]
@@ -814,8 +814,8 @@
             "english": "Preparing a letter can encourage fuller expression."
           },
           "example": {
-            "french": "Raconter une installation à l'étranger dans un brouillon, choisir les détails puis relire avant de recopier.",
-            "english": "Draft an account of settling abroad, choose the details, then reread before copying it out."
+            "french": "Relire une lettre à sa sœur pour préciser les raisons d'un départ et retirer une phrase trop brusque.",
+            "english": "Reread a letter to a sister to clarify reasons for moving and remove an overly blunt sentence."
           }
         },
         {
@@ -870,8 +870,8 @@
             "english": "A shared language enables conversation without speaking the local language."
           },
           "example": {
-            "french": "Un habitant explique en français l'inclinaison d'un participant pendant une fête locale.",
-            "english": "A resident explains a participant's bow in French during a local celebration."
+            "french": "Une habitante explique en français la transformation d'une usine en lieu culturel.",
+            "english": "A resident explains in French how a factory became a cultural venue."
           }
         }
       ]
@@ -916,8 +916,8 @@
             "english": "Practice and oral transmission also sustain cultural knowledge."
           },
           "example": {
-            "french": "Avec un potier, corriger le bord d'un bol pour comprendre un geste et sa transmission.",
-            "english": "With a potter, correct a bowl's rim to understand a craft technique and its transmission."
+            "french": "Décorer un bol avec un motif transmis par la grand-mère de l'artisan et découvrir une ancienne pièce familiale.",
+            "english": "Decorate a bowl with a motif passed down by the artisan's grandmother and see an old family piece."
           }
         }
       ]
@@ -970,46 +970,46 @@
     },
     "culture-p24": {
       "introduction": {
-        "french": "Les relations locales sont très utiles, sans imposer une origine particulière à ses amis.",
-        "english": "Local relationships are very useful without requiring friends of a particular origin."
+        "french": "Les relations locales sont utiles, sans être indispensables au bien-être de tous.",
+        "english": "Local relationships are useful without being essential to everyone's wellbeing."
       },
       "nuance": {
-        "french": "Les liens sont réciproques et prennent du temps ; les habitants ont eux-mêmes des origines diverses.",
-        "english": "Relationships are reciprocal and take time; residents themselves have varied origins."
+        "french": "Distinguer solitude choisie et isolement subi ; les liens demandent du temps et un accueil réciproque.",
+        "english": "Distinguish chosen solitude from unwanted isolation; relationships take time and reciprocal openness."
       },
       "conclusion": {
-        "french": "Construire des relations de confiance plutôt qu'une liste d'amis définie par l'origine.",
-        "english": "Build trusting relationships rather than a list of friends defined by origin."
+        "french": "Encourager les rencontres sans imposer le même équilibre à tous.",
+        "english": "Encourage meeting people without imposing the same balance on everyone."
       },
       "arguments": [
         {
           "point": {
-            "french": "Des relations sur place permettent de s'entraider au quotidien.",
-            "english": "Local relationships enable practical help in everyday life."
+            "french": "Des relations sur place peuvent réduire l'isolement et apporter du soutien.",
+            "english": "Local relationships can reduce isolation and provide support."
           },
           "example": {
-            "french": "Un voisin de confiance dépose quelques courses lorsqu'une personne est malade.",
-            "english": "A trusted neighbour drops off groceries when someone is ill."
+            "french": "Déjeuner le samedi avec une voisine et s'aider quand l'une est malade.",
+            "english": "Have Saturday lunches with a neighbour and help when one is ill."
           }
         },
         {
           "point": {
-            "french": "Les échanges réguliers aident à comprendre des usages locaux.",
-            "english": "Regular exchanges help explain local practices."
+            "french": "Les échanges avec les habitants aident à comprendre les habitudes de communication.",
+            "english": "Exchanges with residents help explain communication practices."
           },
           "example": {
-            "french": "Un voisin montre quel déchet va dans quel bac pour clarifier les consignes de tri.",
-            "english": "A neighbour shows which waste goes in which bin to clarify sorting rules."
+            "french": "Une collègue explique qu'il faut signaler un problème sans attendre la réunion, ce qui permet de corriger un dossier à temps.",
+            "english": "A colleague explains that problems should be raised before the meeting, allowing a file to be corrected in time."
           }
         },
         {
           "point": {
-            "french": "Les rencontres locales aident à prendre part à la vie du quartier.",
-            "english": "Meeting local people helps you take part in neighbourhood life."
+            "french": "Il est possible de bien vivre sans avoir encore créé de liens personnels sur place.",
+            "english": "It is possible to live well before forming personal relationships locally."
           },
           "example": {
-            "french": "Préparer puis entretenir un jardin partagé permet de contribuer à un projet commun.",
-            "english": "Preparing and maintaining a shared garden enables contribution to a common project."
+            "french": "Appeler ses proches et faire des randonnées en solitaire, avant d'avoir noué des liens locaux.",
+            "english": "Someone enjoys calls with loved ones and solo hikes before forming local relationships."
           }
         }
       ]
@@ -1020,8 +1020,8 @@
         "english": "Distinguish work, personal learning and family projects in chosen departures."
       },
       "nuance": {
-        "french": "Les contraintes peuvent peser et plusieurs motivations se combiner.",
-        "english": "Constraints can influence the decision and several motivations may combine."
+        "french": "Les motivations varient et peuvent se combiner ou évoluer au fil du parcours.",
+        "english": "Motivations vary and can combine or change over time."
       },
       "conclusion": {
         "french": "Écouter le projet concret plutôt qu'attribuer une motivation unique à tous.",
@@ -1062,8 +1062,8 @@
     },
     "culture-p26": {
       "introduction": {
-        "french": "Si j'immigrais, je voudrais préparer mon quotidien, mon budget et mes échanges.",
-        "english": "If I immigrated, I would want to prepare daily life, my budget and interactions."
+        "french": "Si j'immigrais, je voudrais préparer un projet réaliste, connaître mes droits et comprendre les autres.",
+        "english": "If I immigrated, I would want a realistic plan, knowledge of my rights and an understanding of others."
       },
       "nuance": {
         "french": "Les expériences et les règles varient ; continuer à apprendre sur place.",
@@ -1076,22 +1076,22 @@
       "arguments": [
         {
           "point": {
-            "french": "Des informations pratiques m'aideraient à organiser les premiers jours.",
-            "english": "Practical information would help organise the first days."
+            "french": "Connaître les conditions de vie m'aiderait à préparer une installation financièrement réaliste.",
+            "english": "Knowing living conditions would help me plan a financially realistic move."
           },
           "example": {
-            "french": "Prévoir le trajet vers son logement et vérifier les documents nécessaires sur les sites officiels.",
-            "english": "Plan the journey to your accommodation and check required documents on official websites."
+            "french": "Comparer le logement, les transports et les charges à ses ressources confirmées.",
+            "english": "Compare housing, transport and other costs with confirmed resources."
           }
         },
         {
           "point": {
-            "french": "Connaître les conditions de vie me permettrait de vérifier mon budget.",
-            "english": "Knowing living conditions would help check the budget."
+            "french": "Connaître mes droits m'aiderait à me protéger contre certains abus.",
+            "english": "Knowing my rights would help protect me against certain abuses."
           },
           "example": {
-            "french": "Comparer le logement, les transports et les charges au revenu prévu.",
-            "english": "Compare housing, transport and other costs with expected income."
+            "french": "Vérifier les règles locales si un propriétaire veut entrer dans le logement sans accord.",
+            "english": "Check local rules if a landlord wants to enter the home without consent."
           }
         },
         {
@@ -1228,8 +1228,8 @@
             "english": "Lasting relationships also depend on other people's openness."
           },
           "example": {
-            "french": "Préparer une activité avec un club crée des échanges répétés.",
-            "english": "Preparing an activity with a club creates repeated exchanges."
+            "french": "Préparer un événement de club pendant plusieurs semaines permet de se revoir et de mieux se connaître.",
+            "english": "Preparing a club event over several weeks creates repeated contact and a chance to get to know others."
           }
         },
         {
@@ -1284,8 +1284,8 @@
             "english": "Contestants' recommendations can blur the line between advice and advertising."
           },
           "example": {
-            "french": "Vérifier un partenariat et son besoin avant d'acheter les chaussures recommandées.",
-            "english": "Check for sponsorship and real need before buying the recommended shoes."
+            "french": "Acheter des chaussures sur un conseil supposé personnel, puis découvrir un partenariat rémunéré.",
+            "english": "Buy shoes on supposedly personal advice, then discover a paid partnership."
           }
         }
       ]
@@ -4302,8 +4302,8 @@
             "english": "Preparing a letter can encourage fuller expression."
           },
           "example": {
-            "french": "Raconter une installation à l'étranger dans un brouillon, choisir les détails puis relire avant de recopier.",
-            "english": "Draft an account of settling abroad, choose the details, then reread before copying it out."
+            "french": "Relire une lettre à sa sœur pour préciser les raisons d'un départ et retirer une phrase trop brusque.",
+            "english": "Reread a letter to a sister to clarify reasons for moving and remove an overly blunt sentence."
           }
         },
         {

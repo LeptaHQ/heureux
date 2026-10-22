@@ -275,7 +275,8 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("rémunération", response(7).arguments[2].exemple)
         self.assertIn("dire non", response(7).nuance)
         self.assertIn("aucun lien humain", response(9).nuance)
-        self.assertEqual(response(9).arguments[2].exemple, models["eo/tache-3/culture-p16"].response.arguments[2].exemple)
+        self.assertIn("chorale", response(9).arguments[2].exemple)
+        self.assertNotEqual(response(9).arguments[2].exemple, models["eo/tache-3/culture-p16"].response.arguments[2].exemple)
         self.assertIn("ce n'est pas automatique", response(10).position_claire)
         self.assertIn("répéter ses confidences", response(10).arguments[2].exemple)
         self.assertIn("abonnement Internet", response(11).arguments[1].exemple)
@@ -605,12 +606,15 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("pas toutes", response(1).position_claire)
         self.assertNotIn("conduire sur la neige", spoken_text(response(1)))
         self.assertIn("tous les adultes ne pensent pas ainsi", response(2).position_claire)
-        self.assertIn("sans remplacer les autres rencontres", response(11).position_claire)
+        self.assertIn("un soutien moral, des conseils pratiques", response(11).position_claire)
+        self.assertIn("ne devraient pas constituer le seul cercle social", response(11).position_claire)
+        self.assertIn("rencontrer d'autres habitants", response(11).position_claire)
         self.assertIn("sans devoir faire un exposé", response(15).arguments[2].exemple)
-        self.assertIn("l'absence d'amis ne signifie pas", response(16).nuance)
+        self.assertIn("Ne pas avoir d'amis ne veut pas dire vivre sans aucun lien", response(16).arguments[1].developpement)
         self.assertIn("pas d'accord avec le mot", response(17).position_claire)
         self.assertIn("sauvegardé", response(18).nuance)
         self.assertIn("traductions", response(19).arguments[1].idea)
+        self.assertIn("sans généraliser ces deux expériences", response(19).arguments[1].exemple)
         self.assertIn("l'écoute", response(20).position_claire)
         self.assertIn("réservations", response(21).nuance)
         self.assertIn("origines", response(24).nuance)
@@ -620,9 +624,136 @@ class TacheThreeModelContentTests(SimpleTestCase):
         self.assertIn("Selon le pays et le statut", response(29).arguments[2].developpement)
         self.assertIn("l'ouverture des autres", response(30).arguments[1].idea)
         self.assertIn("publicité", response(31).arguments[2].idea)
+        self.assertIn("recommandées par un candidat", response(31).arguments[2].exemple)
         self.assertIn("financer", response(33).arguments[2].exemple)
         self.assertIn("seconde main", response(34).position_claire)
         self.assertIn("vie associative", response(35).arguments[2].idea)
+
+    def test_culture_distinguishes_friendship_benefits_from_happiness_necessity(self):
+        models = catalogue.tache_three_models()
+        model = models["eo/tache-3/culture-p16"]
+        response = model.response
+        self.assertEqual(model.argument_ids, (1, 4, 5))
+        self.assertIn("on peut être heureux sans avoir d'amis", response.position_claire)
+        self.assertIn("soutien", response.arguments[0].idea)
+        self.assertIn("liens familiaux ou de couple", response.arguments[1].idea)
+        self.assertIn("sans qu'un ami soit présent", response.arguments[2].developpement)
+        self.assertIn("isolement qui fait souffrir", response.nuance)
+        self.assertIn("conjoint", response.arguments[1].exemple)
+        self.assertIn("qui n'a pas d'amis", response.arguments[1].exemple)
+        self.assertNotIn("sur place", response.arguments[1].exemple)
+        cue = catalogue.tache_three_subject_hints()[model.group].arguments[1].example
+        self.assertIn("Sans avoir d'amis", cue.french)
+        self.assertIn("without having friends", cue.english)
+        self.assertIn("récolte", response.arguments[2].exemple)
+        self.assertEqual(
+            {key for key, _ in model.source_prompts}, {"culture:p16", "famille:p8"},
+        )
+
+    def test_culture_local_relationships_address_necessity_not_friend_count(self):
+        model = catalogue.tache_three_models()["eo/tache-3/culture-p24"]
+        response = model.response
+        plan = catalogue.tache_three_subject_hints()[model.group]
+        self.assertEqual(model.argument_ids, (1, 2, 4))
+        self.assertEqual(
+            {key for key, _ in model.source_prompts}, {"culture:p24", "culture:p28"},
+        )
+        self.assertIn("pas une condition indispensable pour tout le monde", response.position_claire)
+        self.assertNotIn("durablement", response.position_claire)
+        self.assertIn("réduire l'isolement", response.arguments[0].idea)
+        self.assertIn("chaque samedi", response.arguments[0].exemple)
+        self.assertIn("quelques courses", response.arguments[0].exemple)
+        self.assertIn("habitudes de communication", response.arguments[1].idea)
+        self.assertIn("avant son envoi", response.arguments[1].exemple)
+        self.assertIn("sans en faire une règle pour tout le pays", response.arguments[1].consequence)
+        self.assertIn("sans avoir encore créé de liens personnels sur place", response.arguments[2].idea)
+        self.assertIn("travaille à distance", response.arguments[2].exemple)
+        self.assertIn("avant d'avoir rencontré des personnes avec qui se lier", response.arguments[2].exemple)
+        self.assertIn("isolement qui fait souffrir", response.nuance)
+        self.assertIn("sans être indispensables au bien-être de tous", response.conclusion)
+        self.assertIn("sans être indispensables", plan.introduction.french)
+        self.assertIn("without being essential", plan.introduction.english)
+        self.assertIn("avant d'avoir noué des liens locaux", plan.arguments[2].example.french)
+        self.assertIn("before forming local relationships", plan.arguments[2].example.english)
+
+    def test_culture_migration_motivations_can_combine_and_change(self):
+        group = "eo/tache-3/culture-p25"
+        response = catalogue.tache_three_models()[group].response
+        cue = catalogue.tache_three_subject_hints()[group].nuance
+        self.assertIn("à la fois pour étudier et pour rejoindre son conjoint", response.nuance)
+        self.assertIn("puis donner davantage de place à sa carrière", response.nuance)
+        self.assertNotIn("fuite", response.nuance)
+        self.assertNotIn("insécurité", response.nuance)
+        self.assertIn("se combiner ou évoluer", cue.french)
+        self.assertIn("combine or change", cue.english)
+
+    def test_culture_local_cultural_experience_is_not_a_second_question_session(self):
+        response = catalogue.tache_three_models()["eo/tache-3/culture-p14"].response
+        self.assertIn("faire l'expérience", response.arguments[1].idea)
+        self.assertIn("En y participant", response.arguments[1].developpement)
+        self.assertIn("préparer un plat de fête avec elle", response.arguments[1].exemple)
+        self.assertIn("on essaie une pratique", response.arguments[1].consequence)
+        self.assertIn("poser ses propres questions", response.arguments[2].idea)
+        self.assertIn("corriger un malentendu", response.arguments[2].developpement)
+
+    def test_culture_country_knowledge_has_distinct_material_legal_and_relational_reasons(self):
+        model = catalogue.tache_three_models()["eo/tache-3/culture-p26"]
+        response = model.response
+        self.assertEqual(model.argument_ids, (2, 4, 3))
+        self.assertIn("financièrement réaliste", response.arguments[0].idea)
+        self.assertIn("ressources confirmées", response.arguments[0].exemple)
+        self.assertIn("connaître mes droits", response.arguments[1].idea)
+        self.assertIn("règles locales", response.arguments[1].exemple)
+        self.assertIn("ce qui est autorisé", response.arguments[1].exemple)
+        self.assertIn("habitudes locales", response.arguments[2].idea)
+        self.assertIn("Si j'immigrais", response.position_claire)
+        self.assertIn("défendre mes droits", response.conclusion)
+
+    def test_culture_preparation_positions_do_not_reverse_negative_source_claims(self):
+        models = catalogue.tache_three_models()
+        self.assertTrue(
+            models["eo/tache-3/culture-p7"].response.position.startswith(
+                "Les métiers artistiques sont sérieux",
+            ),
+        )
+        self.assertIn(
+            "ont leur place à l'école",
+            models["eo/tache-3/culture-p13"].response.position,
+        )
+
+    def test_culture_revised_examples_keep_bilingual_cues_specific(self):
+        models = catalogue.tache_three_models()
+        plans = catalogue.tache_three_subject_hints()
+        for group, index, source, french, english in (
+            ("culture-p7", 1, "proportions", "proportions", "proportions"),
+            ("culture-p9", 1, "dîner sans compagnie", "dîner seul", "eat alone"),
+            ("culture-p11", 0, "passer le dimanche ensemble", "dimanche ensemble", "Sunday together"),
+            ("culture-p11", 2, "Un compatriote", "un compatriote", "a compatriot"),
+            ("culture-p12", 0, "objets mal triés", "objets mal triés", "incorrectly sorted items"),
+            ("culture-p13", 1, "tableau", "tableau", "painting"),
+            ("culture-p13", 1, "sourient", "sourires", "smiles"),
+            ("culture-p14", 1, "plat de fête", "plat de fête", "festive dish"),
+            ("culture-p14", 2, "professeurs", "professeurs", "teachers"),
+            ("culture-p15", 1, "tomates", "tomates", "tomatoes"),
+            ("culture-p16", 1, "conjoint", "conjoint", "partner"),
+            ("culture-p16", 2, "récolte", "récolte", "harvest"),
+            ("culture-p18", 1, "phrase trop brusque", "phrase trop brusque", "blunt sentence"),
+            ("culture-p19", 2, "ancienne usine", "usine", "factory"),
+            ("culture-p20", 2, "motif", "motif", "motif"),
+            ("culture-p24", 0, "chaque samedi", "samedi", "Saturday"),
+            ("culture-p24", 1, "la réunion", "la réunion", "the meeting"),
+            ("culture-p24", 2, "randonnée seule", "randonnées en solitaire", "solo hikes"),
+            ("culture-p26", 0, "ressources confirmées", "ressources confirmées", "confirmed resources"),
+            ("culture-p26", 1, "propriétaire", "propriétaire", "landlord"),
+            ("culture-p30", 1, "plusieurs semaines", "plusieurs semaines", "several weeks"),
+            ("culture-p31", 2, "partenariat rémunéré", "partenariat rémunéré", "paid partnership"),
+        ):
+            identity = f"eo/tache-3/{group}"
+            with self.subTest(group=group, argument=index + 1):
+                self.assertIn(source, models[identity].response.arguments[index].exemple)
+                cue = plans[identity].arguments[index].example
+                self.assertIn(french, cue.french)
+                self.assertIn(english, cue.english)
 
     def test_published_storage_and_vocabulary_provenance_are_unchanged(self):
         root = content.CONTENT_DIR.parent.parent

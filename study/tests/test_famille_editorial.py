@@ -62,7 +62,7 @@ class FamilleEditorialTests(SimpleTestCase):
         ):
             self.assertNotEqual(groups[first], groups[second])
 
-    def test_sound_household_and_friendship_arguments_are_reused_deliberately(self):
+    def test_household_reuse_does_not_force_friendship_necessity_arguments(self):
         comfort = self.response(2).arguments[2]
         practical = self.response(16).arguments[1]
         self.assertEqual(
@@ -77,12 +77,10 @@ class FamilleEditorialTests(SimpleTestCase):
         )
         living_well = self.response(9)
         happiness = self.models["eo/tache-3/culture-p16"].response
-        self.assertEqual(living_well.arguments[1].idea, happiness.arguments[1].idea)
-        self.assertEqual(
-            living_well.arguments[2].developpement,
-            happiness.arguments[2].developpement,
-        )
-        self.assertEqual(living_well.arguments[2].exemple, happiness.arguments[2].exemple)
+        self.assertIn("l'amitié", living_well.arguments[1].idea)
+        self.assertIn("liens familiaux ou de couple", happiness.arguments[1].idea)
+        self.assertIn("chorale", living_well.arguments[2].exemple)
+        self.assertIn("jardin", happiness.arguments[2].exemple)
         self.assertNotEqual(living_well.arguments[0].idea, happiness.arguments[0].idea)
 
     def test_examples_make_the_actor_action_and_mechanism_explicit(self):

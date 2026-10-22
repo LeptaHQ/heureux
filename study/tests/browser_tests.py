@@ -3447,7 +3447,9 @@ class BrowserTests(StaticLiveServerTestCase):
 
         self._import_eo_tache_three_content()
         for key in (
-            "culture:p5", "culture:p12", "famille:p5", "education:p13",
+            "culture:p5", "culture:p12", "culture:p14", "culture:p16",
+            "culture:p24", "culture:p28", "culture:p25", "culture:p26",
+            "famille:p5", "education:p13",
             "sante:p23", "technologie:p11", "environnement:p4", "economie:p14",
         ):
             with self.subTest(prompt=key):

@@ -61,13 +61,21 @@ needs a person or group, a specific action or event, and a relevant result.
 Adding "Par exemple" to a general assertion does not make it an illustration.
 An example that fits all three arguments unchanged is too generic.
 
-The three reasons should support the exact position independently, rather than
-list three side effects of one benefit. Preserve necessary qualifications without
-turning a clear argument into empty caution. Favor clear referents, ordinary
-precise vocabulary and manageable spoken sentences; literate French need not be
+The three paragraphs should make distinct contributions to the exact position,
+rather than list three side effects of one benefit. Preserve necessary
+qualifications without turning a clear argument into empty caution. Favor clear
+referents, ordinary precise vocabulary and manageable spoken sentences; literate French need not be
 abstract or difficult to decode. Reuse useful language across suitable questions
 while removing redundant reasoning within the same intervention. Reread the
 whole intervention after assembling edits, not only its individual fields.
+
+Benefits do not establish necessity. When a consigne says "indispensable", a
+balanced answer can develop two substantial benefits and a supported reason why
+they are not a universal requirement. Do not force a weak third benefit merely
+to keep all three paragraphs positive. A counterexample must actually lack the
+relationship or resource under discussion: having few local friends does not
+demonstrate living without local relationships. A small practical example can be
+clear without being strong enough to carry a broad claim about wellbeing.
 
 ## Reuse across different questions
 
@@ -296,11 +304,35 @@ the actual question; they must not become interchangeable stock paragraphs.
 
 A development explains why the claim holds. Its example should identify a
 recognizable situation, an action and a relevant outcome: a housing-support
-form, a neighbour explaining waste bins or a visit arranged in advance is
-clearer than an unnamed procedure or an unexplained difference in organization.
+form, a colleague explaining when to raise a problem or a visit arranged in
+advance is clearer than an unnamed procedure or an unexplained difference in organization.
 Keep possible outcomes conditional, distinguish a whole life from selected
 television images, and answer words such as "necessary" and "always" directly.
 Align both languages of the corresponding Piste after revising a support.
+
+When assessing whether friends are necessary for happiness, do not support a
+negative answer only with three benefits of friendship. Develop other affectionate
+relationships and personal sources of satisfaction, while distinguishing chosen
+solitude from painful isolation. Having no friends locally does not demonstrate
+having no friends at all; keep that distinction in the example and both cues.
+These reasons are not interchangeable with the
+friendship benefits in the separate Famille question about living well. Retain the
+existing support argument's identity; the replacement reasons use fresh IDs.
+Likewise, relations with local residents do not mean friends born in the host
+country. In the necessity question, distinguish the benefits of local support
+and understanding from a universal obligation to form those ties. Someone with
+few local friends is not a counterexample; someone who has not formed personal
+local ties but enjoys a satisfying routine and close contact at a distance can
+illustrate the limit. Retain the two revised benefits' identities and give the
+new counterargument a fresh ID.
+
+In the country-knowledge question, arrival logistics and budgeting both belong
+to material preparation; different examples alone do not make them independent
+reasons. Distinguish financial feasibility, legal agency and understanding other
+people's expectations. The tenant example checks the applicable local rules
+instead of asserting a universal entry rule or promising that a dispute will be
+resolved. Keep the retained budget and interpersonal reasons' identities through
+reordering, and give the new rights argument a fresh ID.
 
 ## Famille learning consistency
 

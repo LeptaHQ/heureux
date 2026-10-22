@@ -107,12 +107,12 @@ class VocabularyEntryTests(TestCase):
         self.assertEqual(Phrase.objects.count(), 55)
 
     def test_shared_active_ownership_preserves_unrelated_task_vocabulary(self):
-        oral_task = factories.make_task(factories.make_part("eo"), "tache-3")
+        oral_task = factories.make_task(factories.make_part("eo"), "tache-2")
         theme = factories.make_theme("oral-only", task=oral_task)
         response = factories.make_response(theme=theme)
         self.last.source_prompts.add(response.prompts.get())
         self.assertEqual(list(scoped_cards({
-            "part": "eo", "task": "tache-3", "kind": "vocab",
+            "part": "eo", "task": "tache-2", "kind": "vocab",
         }, user=self.user).values_list("phrase_id", flat=True)), [self.last.pk])
         self.assertFalse(scoped_cards({
             "part": "ee", "task": "tache-3", "kind": "vocab",

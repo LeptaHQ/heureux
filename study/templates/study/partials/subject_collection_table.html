@@ -1,12 +1,12 @@
 <div class="t1-table-shell">
-  <table class="t1-table t1-table--grouped subject-collection__table" data-nested-sort-table role="table">
+  <table class="t1-table t1-table--grouped subject-collection__table{% if kind == 'eo3' %} subject-collection__table--response-only{% endif %}" data-nested-sort-table role="table">
     <caption class="sr-only">{% if family %}Sujets du sous-thème {{ family.name }} · {{ title }}{% else %}Sujets du thème {{ title }}{% endif %}</caption>
     <colgroup>
       <col class="t1-table__subject-column">
-      <col class="t1-table__questions-column">
+      {% if kind != "eo3" %}<col class="t1-table__questions-column">{% endif %}
       <col class="t1-table__status-column">
     </colgroup>
-    {% include "study/partials/sortable_subject_table_head.html" with secondary_label=secondary_label only %}
+    {% if kind == "eo3" %}{% include "study/partials/sortable_subject_table_head.html" with hide_secondary=True only %}{% else %}{% include "study/partials/sortable_subject_table_head.html" with secondary_label=secondary_label only %}{% endif %}
     <tbody role="rowgroup">
       {% for subject in subjects %}
         {% if kind == "writing" %}

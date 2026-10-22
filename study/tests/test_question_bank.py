@@ -1617,7 +1617,7 @@ class EoTacheThreeThemeVocabularyParserTests(TestCase):
                 parse_eo_tache_three_theme_vocabulary(directory=directory)
 
 
-class EoTacheThreeThemeVocabularyViewTests(TestCase):
+class EoTacheThreeVocabularyRetirementImportTests(TestCase):
     @classmethod
     def setUpTestData(cls):
         call_command("import_content", stdout=StringIO())
@@ -1643,7 +1643,7 @@ class EoTacheThreeThemeVocabularyViewTests(TestCase):
             args=[self.task.part.slug, self.task.slug, theme.slug],
         )
 
-    def test_import_adds_theme_banks_without_replacing_subject_decks(self):
+    def test_import_keeps_subject_history_without_provisioning_retired_decks(self):
         theme_phrases = Phrase.objects.filter(
             tier=PhraseTier.THEME,
             source_prompts__theme__task=self.task,
@@ -1655,7 +1655,7 @@ class EoTacheThreeThemeVocabularyViewTests(TestCase):
             is_active=True,
         ).distinct()
 
-        self.assertEqual(theme_phrases.count(), 420)
+        self.assertEqual(theme_phrases.count(), 0)
         self.assertEqual(subject_phrases.count(), 6_650)
         self.assertEqual(
             list(
@@ -1665,7 +1665,7 @@ class EoTacheThreeThemeVocabularyViewTests(TestCase):
                 .order_by("source_prompts__theme__order")
                 .values_list("total", flat=True)
             ),
-            [60] * 7,
+            [],
         )
         self.assertEqual(
             Card.objects.filter(
@@ -1673,8 +1673,11 @@ class EoTacheThreeThemeVocabularyViewTests(TestCase):
                 phrase__in=theme_phrases,
                 card_type=CardType.PHRASE_PRODUCTION,
             ).count(),
-            420,
+            0,
         )
+        self.assertFalse(Card.objects.filter(
+            user=self.user, phrase__in=subject_phrases,
+        ).exists())
         self.assertFalse(
             Card.objects.filter(
                 user=self.user,
@@ -1683,96 +1686,31 @@ class EoTacheThreeThemeVocabularyViewTests(TestCase):
             ).exists()
         )
 
-    def test_directory_presents_seven_complete_themes(self):
+    def test_removed_directory_has_no_vocabulary_entry_in_the_overview(self):
         response = self.client.get(self._directory_url())
+        self.assertEqual(response.status_code, 404)
+        overview = self.client.get(reverse(
+            "study:task_detail", args=["eo", "tache-3"],
+        ))
+        self.assertContains(overview, 'data-task-choice="subjects"', count=1)
+        self.assertNotContains(overview, self._directory_url())
+        self.assertNotContains(overview, 'data-task-choice="vocabulary"')
 
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "study/task_vocabulary.html")
-        self.assertEqual(response.context["theme_count"], 7)
-        self.assertEqual(response.context["phrase_count"], 420)
-        self.assertEqual(response.context["batch_count"], 28)
-        self.assertEqual(len(response.context["themes"]), 7)
-        self.assertEqual(
-            response.context["theme_status_counts"],
-            {"all": 7, "new": 7, "active": 0, "done": 0},
-        )
-        for item in response.context["themes"]:
-            self.assertEqual(item["phrase_count"], 60)
-            self.assertEqual(item["batch_count"], 4)
-            self.assertEqual(
-                [section["count"] for section in item["section_counts"]],
-                [15, 15, 15, 15],
-            )
-            self.assertContains(response, item["url"])
-        self.assertContains(response, "15</b> notions", count=7)
-        self.assertContains(response, "15</b> constructions", count=7)
-        self.assertContains(
-            response,
-            'data-theme-vocabulary-directory-filter="',
-            count=4,
-        )
-        self.assertNotContains(response, "Choisir un sujet")
-        self.assertNotContains(response, "decks uniques")
-
-    def test_theme_page_reuses_the_complete_learning_catalog(self):
+    def test_theme_pages_and_lots_are_removed(self):
         theme = self.task.themes.get(slug="culture")
         response = self.client.get(self._theme_url(theme))
+        self.assertEqual(response.status_code, 404)
+        self.assertEqual(self.client.get(
+            self._theme_url(theme), {"batch": 1},
+        ).status_code, 404)
 
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "study/theme_vocabulary_detail.html")
-        self.assertEqual(response.context["phrase_count"], 60)
-        self.assertEqual(
-            [
-                len(section["phrases"])
-                for section in response.context["phrase_sections"]
-            ],
-            [15, 15, 15, 15],
-        )
-        self.assertEqual(len(response.context["review_batches"]), 4)
-        self.assertContains(
-            response,
-            "data-theme-vocabulary-progress-form",
-            count=60,
-        )
-        self.assertContains(response, "data-read-aloud-key=", count=60)
-        self.assertContains(response, "data-flashcard-card", count=60)
-        self.assertContains(
-            response,
-            'data-theme-vocabulary-status-filter="all"',
-        )
-        self.assertContains(
-            response,
-            'data-theme-vocabulary-status-filter="learning"',
-        )
-        self.assertContains(
-            response,
-            'data-theme-vocabulary-status-filter="learned"',
-        )
-        self.assertContains(response, 'data-recall-column="french"')
-        self.assertContains(response, 'data-recall-column="meaning"')
-        self.assertTemplateUsed(response, "study/partials/review_batches.html")
-        self.assertContains(response, "Lots guidés")
-        self.assertNotContains(response, "Choisir un sujet")
-
-    def test_theme_progress_is_local_and_persistent(self):
+    def test_old_theme_progress_posts_cannot_change_historical_flags(self):
         culture = self.task.themes.get(slug="culture")
         famille = self.task.themes.get(slug="famille")
-        phrase = (
-            Phrase.objects.filter(
-                tier=PhraseTier.THEME,
-                source_prompts__theme=culture,
-            )
-            .order_by("order")
-            .first()
-        )
-        unrelated = (
-            Phrase.objects.filter(
-                tier=PhraseTier.THEME,
-                source_prompts__theme=famille,
-            )
-            .order_by("order")
-            .first()
-        )
+        phrase = factories.make_phrase(tier=PhraseTier.THEME, vocabulary_theme=culture)
+        unrelated = factories.make_phrase(tier=PhraseTier.THEME, vocabulary_theme=famille)
+        ThemeVocabularyProgress.objects.create(user=self.user, phrase=phrase)
+        before = list(ThemeVocabularyProgress.objects.order_by("pk").values())
         progress_url = reverse(
             "study:theme_vocabulary_progress",
             args=[
@@ -1789,22 +1727,10 @@ class EoTacheThreeThemeVocabularyViewTests(TestCase):
             HTTP_X_REQUESTED_WITH="fetch",
         )
 
-        self.assertEqual(completed.status_code, 200)
-        self.assertEqual(
-            completed.json(),
-            {
-                "completed": True,
-                "phrase_id": phrase.phrase_id,
-                "learned": 1,
-                "total": 60,
-            },
-        )
-        self.assertTrue(
-            ThemeVocabularyProgress.objects.filter(
-                user=self.user,
-                phrase=phrase,
-            ).exists()
-        )
+        self.assertEqual(completed.status_code, 404)
+        self.assertEqual(before, list(
+            ThemeVocabularyProgress.objects.order_by("pk").values(),
+        ))
         self.assertEqual(
             self.client.post(
                 reverse(
@@ -1821,35 +1747,16 @@ class EoTacheThreeThemeVocabularyViewTests(TestCase):
             404,
         )
 
-    def test_guided_and_mixed_reviews_return_to_tache_three_vocabulary(self):
+    def test_guided_and_mixed_vocabulary_reviews_are_removed(self):
         theme = self.task.themes.get(slug="culture")
-        detail_url = self._theme_url(theme)
-        detail = self.client.get(detail_url)
-
-        guided = self.client.get(
-            detail.context["review_batches"][0]["review_url"]
-        )
-        self.assertEqual(guided.context["batch_index_url"], detail_url)
-        self.assertEqual(guided.context["collection_return_url"], detail_url)
-        self.assertEqual(
-            guided.context["scope_label"],
-            "Vocabulaire · Culture · Lot 1",
-        )
-
-        mixed = self.client.get(detail.context["mixed_review_url"])
-        self.assertEqual(mixed.context["collection_return_url"], detail_url)
-        self.assertEqual(
-            mixed.context["scope_label"],
-            "Vocabulaire · Culture",
-        )
-
-        directory = self.client.get(self._directory_url())
-        all_themes = self.client.get(directory.context["mixed_review_url"])
-        self.assertEqual(
-            all_themes.context["collection_return_url"],
-            self._directory_url(),
-        )
-        self.assertEqual(all_themes.context["scope_label"], "Vocabulaire")
+        url = reverse("study:task_review", args=["eo", "tache-3"])
+        for scope in (
+            {"kind": "theme_vocab", "theme": theme.slug, "batch": "1"},
+            {"kind": "theme_vocab", "theme": theme.slug},
+            {"kind": "theme_vocab"},
+        ):
+            with self.subTest(scope=scope):
+                self.assertEqual(self.client.get(url, scope).status_code, 404)
 
 
 class EoTacheOneQuestionBankViewTests(TestCase):

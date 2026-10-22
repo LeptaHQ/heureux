@@ -337,14 +337,7 @@ class SmokeTests(TestCase):
                     args=[phrase.category.slug],
                 )
             ),
-            reverse(
-                "study:task_vocabulary_category",
-                args=[
-                    prompt.theme.task.part.slug,
-                    prompt.theme.task.slug,
-                    phrase.category.slug,
-                ],
-            ),
+            reverse("study:dashboard"),
             fetch_redirect_response=False,
         )
 
@@ -378,15 +371,14 @@ class SmokeTests(TestCase):
             ),
             fetch_redirect_response=False,
         )
-        self.assertContains(
+        self.assertNotContains(
             task_detail,
             f'href="{task_vocabulary_url}"',
         )
-        self.assertContains(task_detail, "Vocabulaire")
+        self.assertNotContains(task_detail, "Vocabulaire")
 
         task_vocabulary = self.client.get(task_vocabulary_url)
-        self.assertContains(task_vocabulary, "Vue d'ensemble")
-        self.assertContains(task_vocabulary, "Explorer les thèmes")
+        self.assertEqual(task_vocabulary.status_code, 404)
         theme_vocabulary_url = reverse(
             "study:task_vocabulary_theme",
             args=[
@@ -395,14 +387,11 @@ class SmokeTests(TestCase):
                 prompt.theme.slug,
             ],
         )
-        self.assertContains(task_vocabulary, theme_vocabulary_url)
-
         theme_vocabulary = self.client.get(theme_vocabulary_url)
-        self.assertNotContains(theme_vocabulary, prompt.text)
-        self.assertNotContains(theme_vocabulary, "Choisir un sujet")
+        self.assertEqual(theme_vocabulary.status_code, 404)
         subject = self.client.get(prompt_detail_url(prompt))
         self.assertContains(subject, prompt.text)
-        self.assertContains(subject, subject_phrase.expression)
+        self.assertNotContains(subject, subject_phrase.expression)
 
     def test_written_comprehension_card_opens_only_test_decks(self):
         test = factories.make_comprehension_test(
@@ -723,7 +712,6 @@ class SmokeTests(TestCase):
                 self.assertEqual(response.status_code, 200)
 
         scoped_pages = (
-            "study:task_phrases",
             "study:task_stats",
             "study:task_search",
             "study:task_notes",
@@ -735,6 +723,9 @@ class SmokeTests(TestCase):
                 )
                 self.assertEqual(response.status_code, 200)
 
+        self.assertEqual(self.client.get(reverse(
+            "study:task_phrases", args=["eo", "tache-3"],
+        )).status_code, 404)
         family = self.user.study_cards.filter(
             response__isnull=False
         ).first().response.family
@@ -927,13 +918,13 @@ class SmokeTests(TestCase):
             args=["eo", "tache-3"],
         )
         self.assertContains(response, f'href="{subjects_url}">Sujets</a>')
-        self.assertContains(
+        self.assertNotContains(
             response,
             f'href="{vocabulary_url}">Vocabulaire</a>',
         )
         self.assertNotContains(response, "Pratiquer les réponses")
         self.assertNotContains(response, 'class="task-modules"')
-        self.assertContains(response, 'data-task-choice="vocabulary"', count=1)
+        self.assertNotContains(response, 'data-task-choice="vocabulary"')
         self.assertContains(response, 'data-task-choice="subjects"', count=1)
         self.assertNotContains(response, 'class="task-deep-links"')
         self.assertContains(
@@ -2284,10 +2275,9 @@ class TaskOrganizationTests(TestCase):
                 ],
             ),
         )
-        self.assertContains(response, "oral-task-only")
-        self.assertNotContains(response, "other-task-only")
+        self.assertEqual(response.status_code, 404)
 
-    def test_expression_directory_uses_curated_theme_vocabulary(self):
+    def test_expression_directory_and_theme_vocabulary_are_removed(self):
         prompt = self.response_card.response.prompts.get(is_canonical=True)
         self._make_theme_vocabulary()
         subject_phrase = factories.make_phrase(tier="subject")
@@ -2297,39 +2287,13 @@ class TaskOrganizationTests(TestCase):
             self._task_url("study:task_phrases"),
         )
 
-        self.assertEqual(response.context["theme_count"], 1)
-        self.assertEqual(response.context["phrase_count"], 60)
-        self.assertEqual(response.context["batch_count"], 4)
-        self.assertContains(response, "Explorer les thèmes")
-        self.assertContains(response, "15</b> notions")
-        self.assertContains(response, "15</b> constructions")
+        self.assertEqual(response.status_code, 404)
         theme_url = reverse(
             "study:task_vocabulary_theme",
             args=[self.part.slug, self.task.slug, self.theme.slug],
         )
-        self.assertContains(response, theme_url)
-        self.assertNotContains(response, "data-subject-vocabulary-search")
-
         theme_response = self.client.get(theme_url)
-        self.assertEqual(theme_response.context["theme"], self.theme)
-        self.assertEqual(theme_response.context["phrase_count"], 60)
-        self.assertEqual(
-            [
-                len(section["phrases"])
-                for section in theme_response.context["phrase_sections"]
-            ],
-            [15, 15, 15, 15],
-        )
-        self.assertTemplateUsed(theme_response, "study/partials/review_batches.html")
-        self.assertContains(theme_response, "Lots guidés")
-        self.assertContains(
-            theme_response,
-            "data-theme-vocabulary-progress-form",
-            count=60,
-        )
-        self.assertNotContains(theme_response, "Choisir un sujet")
-        self.assertNotContains(theme_response, prompt.text)
-        self.assertNotContains(response, "Vocabulaire par thème")
+        self.assertEqual(theme_response.status_code, 404)
 
     def test_vocabulary_theme_route_rejects_another_tasks_theme(self):
         response = self.client.get(
@@ -2345,25 +2309,14 @@ class TaskOrganizationTests(TestCase):
 
         self.assertEqual(response.status_code, 404)
 
-    def test_theme_vocabulary_review_returns_to_its_local_theme(self):
+    def test_theme_vocabulary_review_is_removed(self):
         self._make_theme_vocabulary()
-        theme_url = reverse(
-            "study:task_vocabulary_theme",
-            args=[self.part.slug, self.task.slug, self.theme.slug],
-        )
-
         review = self.client.get(
             self._task_url("study:task_review"),
             {"kind": "theme_vocab", "theme": self.theme.slug},
         )
 
-        self.assertEqual(review.context["collection_return_url"], theme_url)
-        self.assertEqual(
-            review.context["scope_label"],
-            f"Vocabulaire · {self.theme.display_name}",
-        )
-        self.assertContains(review, f'href="{theme_url}"')
-        self.assertContains(review, "Retour au vocabulaire")
+        self.assertEqual(review.status_code, 404)
 
     def test_task_search_is_limited_to_its_task(self):
         own = self.client.get(
@@ -2374,15 +2327,14 @@ class TaskOrganizationTests(TestCase):
             self._task_url("study:task_search"),
             {"q": "other-task-only"},
         )
-        self.assertEqual(own.context["result_count"], 1)
+        self.assertEqual(own.context["result_count"], 0)
         self.assertEqual(other.context["result_count"], 0)
-        self.assertContains(
+        self.assertNotContains(
             own,
             'data-recall-controls="search-vocabulary-recall-catalog"',
-            count=1,
         )
-        self.assertContains(own, 'data-recall-cell="french"', count=1)
-        self.assertContains(own, 'data-recall-cell="meaning"', count=1)
+        self.assertNotContains(own, 'data-recall-cell="french"')
+        self.assertNotContains(own, 'data-recall-cell="meaning"')
 
     def test_removed_oral_overview_urls_do_not_resolve_or_reverse(self):
         prompt = self.response_card.response.prompts.get(is_canonical=True)
@@ -2700,7 +2652,7 @@ class TaskOrganizationTests(TestCase):
         self.assertEqual(empty.context["result_count"], 0)
         self.assertContains(empty, "data-subject-deduplication-toggle")
 
-    def test_search_summarizes_broad_matches_instead_of_rendering_a_wall(self):
+    def test_search_excludes_broad_retired_vocabulary_matches(self):
         prompt = self.response_card.response.prompts.get(is_canonical=True)
         for index in range(15):
             phrase = factories.make_phrase()
@@ -2713,12 +2665,12 @@ class TaskOrganizationTests(TestCase):
             {"q": "broad-search-match"},
         )
 
-        self.assertEqual(response.context["result_count"], 15)
-        self.assertEqual(len(response.context["phrase_results"]), 12)
-        self.assertTrue(response.context["results_truncated"])
-        self.assertContains(response, "Les 12 premiers sont affichés")
+        self.assertEqual(response.context["result_count"], 0)
+        self.assertEqual(len(response.context["phrase_results"]), 0)
+        self.assertFalse(response.context["results_truncated"])
+        self.assertNotContains(response, "Les 12 premiers sont affichés")
 
-    def test_task_progress_and_revisit_include_phrase_cards(self):
+    def test_task_progress_and_revisit_exclude_retired_phrase_cards(self):
         local_phrase = factories.make_phrase(tier="response")
         local_phrase.source_prompts.add(
             self.response_card.response.prompts.first()
@@ -2751,11 +2703,11 @@ class TaskOrganizationTests(TestCase):
         revisit_response = self.client.get(
             self._task_url("study:task_revisit_list")
         )
-        self.assertEqual(stats_response.context["total_reviews"], 1)
-        self.assertEqual(revisit_response.context["revisit_count"], 2)
+        self.assertEqual(stats_response.context["total_reviews"], 0)
+        self.assertEqual(revisit_response.context["revisit_count"], 0)
         self.assertContains(revisit_response, "Ma liste à revoir")
-        self.assertContains(revisit_response, self.phrase.expression)
-        self.assertContains(revisit_response, local_phrase.expression)
+        self.assertNotContains(revisit_response, self.phrase.expression)
+        self.assertNotContains(revisit_response, local_phrase.expression)
         self.assertNotContains(
             revisit_response,
             self.other_phrase.expression,
@@ -2808,7 +2760,7 @@ class TaskOrganizationTests(TestCase):
         self.assertEqual(expression_hub.context["response_due"], 1)
         self.assertContains(expression_hub, "Réponses à revoir")
 
-    def test_subject_vocabulary_progress_stays_material_specific_and_bubbles_up(self):
+    def test_retired_subject_vocabulary_does_not_affect_response_progress(self):
         prompt = self.response_card.response.prompts.get(is_canonical=True)
         subject_phrase = factories.make_phrase(tier="subject")
         subject_phrase.source_prompts.add(prompt)
@@ -2828,15 +2780,12 @@ class TaskOrganizationTests(TestCase):
             subject_page.context["subject_progress"].status,
             "active",
         )
-        self.assertEqual(
-            subject_page.context["vocabulary_batches"][0]["status"],
-            "not-started",
-        )
+        self.assertIsNone(subject_page.context.get("vocabulary_batches"))
+        self.assertEqual(subject_page.context["subject_progress"].vocabulary_total, 0)
         task_vocabulary = self.client.get(
             self._task_url("study:task_phrases"),
         )
-        self.assertEqual(task_vocabulary.context["phrase_count"], 0)
-        self.assertNotContains(task_vocabulary, subject_phrase.expression)
+        self.assertEqual(task_vocabulary.status_code, 404)
         browse = self.client.get(self._task_url("study:task_browse"))
         group = next(
             item
@@ -2855,11 +2804,9 @@ class TaskOrganizationTests(TestCase):
         completed_subject_page = self.client.get(
             response_detail_url(self.response_card.response),
         )
+        self.assertIsNone(completed_subject_page.context.get("vocabulary_batches"))
         self.assertEqual(
-            completed_subject_page.context["vocabulary_batches"][0][
-                "status"
-            ],
-            "complete",
+            completed_subject_page.context["subject_progress"].vocabulary_total, 0,
         )
         completed_browse = self.client.get(
             self._task_url("study:task_browse"),
@@ -2874,11 +2821,7 @@ class TaskOrganizationTests(TestCase):
         completed_task_vocabulary = self.client.get(
             self._task_url("study:task_phrases"),
         )
-        self.assertEqual(completed_task_vocabulary.context["phrase_count"], 0)
-        self.assertNotContains(
-            completed_task_vocabulary,
-            subject_phrase.expression,
-        )
+        self.assertEqual(completed_task_vocabulary.status_code, 404)
 
         self.client.post(
             reverse(
@@ -2971,7 +2914,7 @@ class TaskOrganizationTests(TestCase):
 
         self.assertEqual(active.json()["subject"]["status"], "active")
 
-    def test_suspended_vocabulary_activity_keeps_unchecked_subject_active(self):
+    def test_suspended_retired_vocabulary_does_not_keep_subject_active(self):
         response = self.response_card.response
         prompt = response.prompts.get(is_canonical=True)
         subject_phrase = factories.make_phrase(tier="subject")
@@ -3001,10 +2944,10 @@ class TaskOrganizationTests(TestCase):
         detail = self.client.get(response_detail_url(response))
         progress = detail.context["subject_progress"]
 
-        self.assertEqual(cleared.json()["subject"]["status"], "active")
-        self.assertTrue(progress.vocabulary_activity_started)
+        self.assertEqual(cleared.json()["subject"]["status"], "new")
+        self.assertFalse(progress.vocabulary_activity_started)
         self.assertEqual(progress.vocabulary_total, 0)
-        self.assertEqual(progress.status, "active")
+        self.assertEqual(progress.status, "new")
 
     def test_subject_completion_rejects_invalid_state_and_task(self):
         response = self.response_card.response
@@ -3037,7 +2980,7 @@ class TaskOrganizationTests(TestCase):
         self.response_card.refresh_from_db()
         self.assertIsNone(self.response_card.subject_completed_at)
 
-    def test_stats_mastery_includes_every_vocabulary_tier(self):
+    def test_stats_mastery_excludes_retired_vocabulary_tiers(self):
         local_phrase = factories.make_phrase(tier="subject")
         local_phrase.source_prompts.add(
             self.response_card.response.prompts.first()
@@ -3053,7 +2996,7 @@ class TaskOrganizationTests(TestCase):
             global_response.context["overall"]["total"],
             Card.objects.current_content().filter(user=self.user).count(),
         )
-        self.assertEqual(task_response.context["overall"]["total"], 3)
+        self.assertEqual(task_response.context["overall"]["total"], 1)
 
     def test_same_task_slug_in_another_part_does_not_leak(self):
         written_task = factories.make_task(
@@ -3119,7 +3062,7 @@ class TaskOrganizationTests(TestCase):
         self.assertIn(own.response.prompts.get().id, prompt_ids)
         self.assertNotIn(other.response.prompts.get().id, prompt_ids)
 
-    def test_task_streak_uses_only_the_task_review_logs(self):
+    def test_task_streak_excludes_retired_vocabulary_review_logs(self):
         srs.review(self.phrase_card, Rating.GOOD)
         ReviewLog.objects.filter(card=self.phrase_card).update(
             reviewed_at=timezone.now() - timedelta(days=1)
@@ -3131,7 +3074,7 @@ class TaskOrganizationTests(TestCase):
         response = self.client.get(
             self._task_url("study:task_stats"),
         )
-        self.assertEqual(response.context["streak"], 1)
+        self.assertEqual(response.context["streak"], 0)
 
     def test_removed_oral_review_hub_preserves_saved_session_and_direct_practice(self):
         session = ReviewSession.load(self.user)
@@ -3201,7 +3144,10 @@ class CategoryBatchViewsTests(TestCase):
     def setUp(self):
         self.user = factories.make_user("batcher")
         self.client.force_login(self.user)
-        self.response = factories.make_response()
+        task = factories.make_task(factories.make_part("ee"), "tache-2")
+        self.response = factories.make_response(
+            theme=factories.make_theme("batch-vocabulary", task=task),
+        )
         self.prompt = self.response.prompts.get(is_canonical=True)
         self.task = self.prompt.theme.task
         self.part = self.task.part
@@ -3439,7 +3385,7 @@ class CategoryBatchViewsTests(TestCase):
         )
 
     def test_response_sheet_splits_local_vocabulary_into_expression_lots(self):
-        response = factories.make_response()
+        response = factories.make_response(theme=self.response.theme)
         prompt = response.prompts.first()
         for _ in range(16):
             phrase = factories.make_phrase(tier="response")
@@ -3471,8 +3417,8 @@ class CategoryBatchViewsTests(TestCase):
         self.assertContains(page, 'data-recall-cell="meaning"', count=16)
 
     def test_linked_expression_study_does_not_start_its_responses(self):
-        response = factories.make_response()
-        other_response = factories.make_response()
+        response = factories.make_response(theme=self.response.theme)
+        other_response = factories.make_response(theme=self.response.theme)
         response_card = Card.objects.create(
             user=self.user,
             card_type=CardType.SPINE,
@@ -3512,7 +3458,7 @@ class CategoryBatchViewsTests(TestCase):
         self.assertEqual(detail.context["subject_progress"].status, "new")
 
     def test_response_sheet_offers_five_ten_card_subject_vocabulary_lots(self):
-        response = factories.make_response()
+        response = factories.make_response(theme=self.response.theme)
         prompt = response.prompts.first()
         spine_card = Card.objects.create(
             user=self.user,
@@ -3923,9 +3869,9 @@ class ResponsePromptNavigationTests(TestCase):
             theme_page,
             family_page,
             search_page,
-            phrases_page,
         ):
             self.assertContains(origin_page, self._detail_url(alias))
+        self.assertEqual(phrases_page.status_code, 404)
 
     def test_unknown_or_mismatched_prompt_path_is_rejected(self):
         invalid = self.client.get(
@@ -4029,6 +3975,10 @@ class ReviewFlowTests(TestCase):
         )
 
     def test_suspended_subject_vocabulary_does_not_block_vocabulary_completion(self):
+        active_task = factories.make_task(factories.make_part("ee"), "tache-2")
+        theme = self.card.response.theme
+        theme.task = active_task
+        theme.save(update_fields=["task"])
         prompt = self.card.response.prompts.get(is_canonical=True)
         active_phrase = factories.make_phrase(tier="subject")
         active_phrase.source_prompts.add(prompt)

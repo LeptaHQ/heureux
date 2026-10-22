@@ -25,6 +25,10 @@ class QueueCountsTests(TestCase):
     def setUp(self):
         self.now = timezone.now()
 
+    def _active_vocabulary_response(self):
+        task = make_task(part=make_part("ee"), slug="tache-2")
+        return make_spine_card(theme=make_theme(task=task)).response
+
     def test_all_new_cards_are_available(self):
         for _ in range(5):
             make_spine_card()
@@ -82,7 +86,7 @@ class QueueCountsTests(TestCase):
         self.assertEqual(counts["new_total"], 1)
 
     def test_task_scope_includes_responses_and_linked_phrases(self):
-        task = make_task(part=make_part("eo"), slug="tache-3")
+        task = make_task(part=make_part("ee"), slug="tache-2")
         theme = make_theme(slug="culture", task=task)
         response_card = make_spine_card(theme=theme)
         phrase = make_phrase()
@@ -92,7 +96,7 @@ class QueueCountsTests(TestCase):
         other_task = make_task(part=make_part("ee"), slug="tache-1")
         make_spine_card(theme=make_theme(slug="economie", task=other_task))
 
-        scope = {"part": "eo", "task": "tache-3"}
+        scope = {"part": "ee", "task": "tache-2"}
         ids = set(q.scoped_cards(scope).values_list("id", flat=True))
         self.assertEqual(ids, {response_card.id, phrase_card.id})
 
@@ -101,8 +105,8 @@ class QueueCountsTests(TestCase):
         oral_theme = make_theme(slug="culture", task=oral_t1)
         oral_response = make_spine_card(theme=oral_theme).response
 
-        written_t3 = make_task(part=make_part("ee"), slug="tache-3")
-        written_theme = make_theme(slug="economie", task=written_t3)
+        written_t2 = make_task(part=make_part("ee"), slug="tache-2")
+        written_theme = make_theme(slug="economie", task=written_t2)
         written_response = make_spine_card(theme=written_theme).response
 
         phrase = make_phrase()
@@ -115,7 +119,7 @@ class QueueCountsTests(TestCase):
         self.assertNotIn(
             phrase_card.id,
             q.scoped_cards(
-                {"part": "eo", "task": "tache-3"}
+                {"part": "eo", "task": "tache-2"}
             ).values_list("id", flat=True),
         )
 
@@ -207,7 +211,7 @@ class QueueCountsTests(TestCase):
         )
 
     def test_response_scope_selects_only_its_linked_phrase_cards(self):
-        response = make_spine_card().response
+        response = self._active_vocabulary_response()
         linked_phrase = make_phrase()
         linked_phrase.source_prompts.add(response.prompts.first())
         linked_card = make_phrase_card(phrase=linked_phrase)
@@ -219,7 +223,7 @@ class QueueCountsTests(TestCase):
         self.assertEqual(q.next_card(scope, now=self.now).id, linked_card.id)
 
     def test_response_local_vocabulary_only_enters_its_response_deck(self):
-        response = make_spine_card().response
+        response = self._active_vocabulary_response()
         phrase = make_phrase(tier=PhraseTier.RESPONSE)
         phrase.source_prompts.add(response.prompts.first())
         production = make_phrase_card(phrase=phrase)
@@ -238,7 +242,7 @@ class QueueCountsTests(TestCase):
         self.assertFalse(response_cards.filter(pk=recognition.pk).exists())
 
     def test_subject_vocabulary_only_enters_its_subject_deck(self):
-        response = make_spine_card().response
+        response = self._active_vocabulary_response()
         phrase = make_phrase(tier=PhraseTier.SUBJECT)
         phrase.source_prompts.add(response.prompts.first())
         production = make_phrase_card(phrase=phrase)

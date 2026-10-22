@@ -5410,264 +5410,43 @@ class BrowserTests(StaticLiveServerTestCase):
         )
         self.assert_no_horizontal_overflow()
 
-    def test_tache_three_theme_vocabulary_is_complete_and_responsive(self):
-        self.page.set_viewport_size({"width": 1120, "height": 760})
+    def test_eo3_vocabulary_removal_preserves_mobile_subject_progress(self):
         prompt = self.first.response.prompts.get(is_canonical=True)
-        lot_order = 0
-        for category_order, category_name in enumerate(
-            content.EO_TACHE_THREE_THEME_VOCABULARY_CATEGORIES.values(),
-            start=1,
-        ):
-            category = PhraseCategory.objects.create(
-                slug=f"browser-t3-theme-{category_order}",
-                name=category_name,
-                content_key=f"browser:t3-theme-{category_order}",
-                order=category_order,
-            )
-            for _ in range(15):
-                lot_order += 1
-                phrase = factories.make_phrase(
-                    category=category,
-                    tier=PhraseTier.THEME,
-                    lot_order=lot_order,
+        phrase = factories.make_phrase(tier=PhraseTier.SUBJECT)
+        phrase.source_prompts.add(prompt)
+        overview = reverse("study:task_detail", args=["eo", "tache-3"])
+        directory = reverse("study:task_browse", args=["eo", "tache-3"])
+        for width in (1280, 390):
+            with self.subTest(width=width):
+                self.page.set_viewport_size({"width": width, "height": 844})
+                self.page.goto(self.live_server_url + overview)
+                expect(self.page.locator('[data-task-choice="vocabulary"]')).to_have_count(0)
+                expect(self.page.locator('[data-task-choice="subjects"]')).to_be_visible()
+                self.assertEqual(
+                    self.page.locator(".task-nav a").all_text_contents(),
+                    ["Vue d'ensemble", "Sujets"],
                 )
-                phrase.source_prompts.add(prompt)
-                factories.make_phrase_card(
-                    phrase=phrase,
-                    user=self.user,
+                self.page.goto(self.live_server_url + directory)
+                self.page.get_by_role("button", name="Tableau", exact=True).click()
+                self.page.locator(".subject-collection details").evaluate_all(
+                    "details => details.forEach(detail => detail.open = true)"
                 )
-
-        task_overview_url = reverse(
-            "study:task_detail",
-            args=[self.part.slug, self.task.slug],
-        )
-        self.page.goto(self.live_server_url + task_overview_url)
-        self.page.locator('[data-task-choice="vocabulary"]').click()
-        self.page.wait_for_url(
-            self.live_server_url
-            + reverse(
-                "study:task_phrases",
-                args=[self.part.slug, self.task.slug],
-            )
-        )
-        summary_layout = self.page.evaluate(
-            """() => {
-              const hero = document.querySelector(
-                '.memory-overview > .memory-overview-hero'
-              ).getBoundingClientRect();
-              const progress = document.querySelector(
-                '[data-collection-progress]'
-              ).getBoundingClientRect();
-              const toolbar = document.querySelector(
-                '[data-collection-toolbar] > '
-                + '.collection-view-toolbar'
-              ).getBoundingClientRect();
-              return {
-                heroGap: progress.top - hero.bottom,
-                sharesRow: toolbar.top < progress.bottom &&
-                  toolbar.bottom > progress.top,
-              };
-            }"""
-        )
-        self.assertLessEqual(summary_layout["heroGap"], 24)
-        self.assertTrue(summary_layout["sharesRow"])
-        self.assertEqual(
-            [
-                int(value)
-                for value in self.page.locator(
-                    ".memory-overview-hero__metrics dd"
-                ).all_text_contents()
-            ],
-            [1, 60, 4],
-        )
-        self.assertEqual(
-            self.page.locator(".task-vocabulary-theme-entry").count(),
-            1,
-        )
-        active_filter = self.page.locator(
-            '[data-theme-vocabulary-directory-filter="active"]'
-        )
-        active_filter.click()
-        self.assertTrue(
-            self.page.locator(
-                "[data-theme-vocabulary-directory-empty]"
-            ).is_visible()
-        )
-        self.assertFalse(
-            self.page.locator(".task-vocabulary-theme-entry").is_visible()
-        )
-        self.page.locator(
-            '[data-theme-vocabulary-directory-filter="all"]'
-        ).click()
-        self.assertTrue(
-            self.page.locator(".task-vocabulary-theme-entry").is_visible()
-        )
-        self.assert_no_horizontal_overflow()
-
-        self.page.get_by_role(
-            "link",
-            name=f"Ouvrir le vocabulaire du thème {self.theme.display_name}",
-            exact=True,
-        ).click()
-        self.page.wait_for_url(
-            self.live_server_url
-            + reverse(
-                "study:task_vocabulary_theme",
-                args=[
-                    self.part.slug,
-                    self.task.slug,
-                    self.theme.slug,
-                ],
-            )
-        )
-        self.open_vocabulary_lots(4)
-        self.page.get_by_role("button", name="Cartes", exact=True).click()
-        self.assertEqual(
-            self.page.locator(".batch-card").count(),
-            4,
-        )
-        self.assertEqual(
-            self.page.locator(".theme-vocabulary-group").count(),
-            4,
-        )
-        self.assertEqual(
-            self.page.locator(
-                ".theme-vocabulary-group__count"
-            ).all_text_contents(),
-            ["15 fiches"] * 4,
-        )
-        self.assertEqual(
-            self.page.locator(".theme-vocabulary-phrase").count(),
-            60,
-        )
-
-        first_progress = self.page.locator(
-            "[data-theme-vocabulary-progress-form]"
-        ).first
-        with self.page.expect_response(
-            lambda response: "/progression/" in response.url
-        ) as progress_response:
-            first_progress.locator("button").click()
-        self.assertTrue(progress_response.value.ok)
-        self.assertEqual(
-            first_progress.locator("button").get_attribute("aria-checked"),
-            "true",
-        )
-        self.assertEqual(
-            self.page.locator(
-                '[data-theme-vocabulary-filter-count="learned"]'
-            ).inner_text(),
-            "1",
-        )
-        self.assertEqual(
-            self.page.locator(
-                '[data-theme-vocabulary-filter-count="learning"]'
-            ).inner_text(),
-            "59",
-        )
-
-        learned_filter = self.page.locator(
-            '[data-theme-vocabulary-status-filter="learned"]'
-        )
-        learned_filter.click()
-        self.assertEqual(
-            self.page.locator(
-                "[data-theme-vocabulary-filter-result]"
-            ).inner_text(),
-            "1 fiche affichée",
-        )
-        self.assertEqual(
-            self.page.locator(
-                ".theme-vocabulary-phrase:not("
-                ".theme-vocabulary-filtered-out)"
-            ).count(),
-            1,
-        )
-        self.assertEqual(
-            self.page.locator(
-                "[data-theme-vocabulary-deck-progress]"
-            ).inner_text(),
-            "1 / 1",
-        )
-        self.assertTrue(
-            self.page.locator("[data-theme-vocabulary-next]").is_disabled()
-        )
-
-        self.page.locator(
-            '[data-theme-vocabulary-status-filter="all"]'
-        ).click()
-        active_card = self.page.locator(
-            ".theme-vocabulary-phrase:not("
-            ".theme-vocabulary-card--inactive)"
-        )
-        first_card_id = active_card.get_attribute("id")
-        active_card.focus()
-        self.page.keyboard.press("ArrowDown")
-        self.assertTrue(
-            active_card.locator("[data-flashcard-back]").is_visible()
-        )
-        self.assertTrue(
-            active_card.locator("[data-read-aloud]").is_visible()
-        )
-        self.page.keyboard.press("ArrowUp")
-        self.assertTrue(
-            active_card.locator("[data-flashcard-front]").is_visible()
-        )
-        self.page.keyboard.press("ArrowRight")
-        self.assertNotEqual(active_card.get_attribute("id"), first_card_id)
-        self.page.keyboard.press("ArrowLeft")
-        self.assertEqual(active_card.get_attribute("id"), first_card_id)
-
-        card_box = active_card.bounding_box()
-        swipe_y = card_box["y"] + card_box["height"] * 0.65
-        swipe_start = card_box["x"] + card_box["width"] - 20
-        swipe_end = card_box["x"] + 20
-        self.touch_swipe(active_card, swipe_start, swipe_end, swipe_y)
-        self.assertNotEqual(active_card.get_attribute("id"), first_card_id)
-
-        table_toggle = self.page.get_by_role("button", name="Tableau")
-        cards_toggle = self.page.get_by_role("button", name="Cartes")
-        table_toggle.click()
-        self.assertEqual(table_toggle.get_attribute("aria-pressed"), "true")
-        self.assertTrue(
-            self.page.locator(
-                ".theme-vocabulary-catalog "
-                "[data-collection-table-header]"
-            ).first.is_visible()
-        )
-        first_table_card = self.page.locator(
-            ".theme-vocabulary-phrase"
-        ).first
-        self.assert_no_theme_vocabulary_action_overlap(first_table_card)
-        french_recall = self.page.locator(
-            '[data-theme-vocabulary-recall-column="french"]'
-        )
-        first_french_content = self.page.locator(
-            '[data-theme-vocabulary-recall-cell="french"] '
-            ".theme-vocabulary-recall__content"
-        ).first
-        french_recall.click()
-        self.assertNotEqual(
-            first_french_content.evaluate(
-                "element => getComputedStyle(element).filter"
-            ),
-            "none",
-        )
-        cards_toggle.click()
-        self.assertEqual(cards_toggle.get_attribute("aria-pressed"), "true")
-        self.assertNotEqual(
-            first_french_content.evaluate(
-                "element => getComputedStyle(element).filter"
-            ),
-            "none",
-        )
-
-        self.page.set_viewport_size({"width": 320, "height": 700})
-        table_toggle.click()
-        self.assertEqual(table_toggle.get_attribute("aria-pressed"), "true")
-        self.assertTrue(french_recall.is_visible())
-        self.assert_no_theme_vocabulary_action_overlap(first_table_card)
-        self.assert_no_horizontal_overflow()
+                table = self.page.locator(
+                    ".subject-collection__table--response-only"
+                ).first
+                expect(table).to_be_visible()
+                expect(table.locator("thead th")).to_have_count(2)
+                expect(table.locator('[data-nested-table-sort="progress"]')).to_be_visible()
+                expect(table.locator(".t1-table__progress").first).to_be_visible()
+                self.assert_no_horizontal_overflow()
+                self.page.goto(self.live_server_url + prompt_detail_url(prompt))
+                expect(self.page.locator(".response-sidebar-card--status")).to_be_visible()
+                expect(self.page.locator(".response-sidebar-card--vocabulary")).to_have_count(0)
+                expect(self.page.locator(".response-sidebar-card--phrases")).to_have_count(0)
+                expect(self.page.get_by_role("link", name="Pratiquer cette réponse")).to_be_visible()
+                self.assert_no_horizontal_overflow()
+        phrase.refresh_from_db()
+        self.assertTrue(phrase.is_active)
 
     def test_theme_vocabulary_group_heads_use_readable_small_type(self):
         self._import_eo_tache_two_content()

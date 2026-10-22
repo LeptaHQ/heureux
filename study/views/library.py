@@ -78,7 +78,7 @@ from ..tache_two_dialogues import (
 )
 from ..ee_formulations import get_ee_formulations
 from ..formulation_progress import formulation_progress
-from ..retirement import active_phrases
+from ..retirement import active_phrases, is_retired_vocabulary_task, retired_task_filter
 from ..progress import (
     card_unit_progress_from_rows,
     combine_progress,
@@ -1253,16 +1253,6 @@ def task_detail(request, part_slug, task_slug):
         "prompt_count": sum(prompt_counts.values()),
     }
     if is_eo_tache_three:
-        vocabulary_context = (
-            _eo_tache_three_theme_vocabulary_context(
-                request.user,
-                task,
-            )
-        )
-        context["vocabulary_theme_count"] = vocabulary_context["theme_count"]
-        context["vocabulary_entry_count"] = vocabulary_context["phrase_count"]
-        context["vocabulary_batch_count"] = vocabulary_context["batch_count"]
-        context["vocabulary_overview_summary"] = vocabulary_context["summary"]
         context["subject_summary"] = response_stats
         return render(
             request,
@@ -2078,50 +2068,6 @@ TACHE_TWO_THEME_VOCABULARY_SECTIONS = (
     },
 )
 
-EO_TACHE_THREE_THEME_VOCABULARY_SECTIONS = (
-    {
-        "category": "EO Tâche 3 · Notions clés",
-        "title": "Notions clés",
-        "short_title": "notions",
-        "description": (
-            "Le lexique précis pour nommer les enjeux, les acteurs et les "
-            "réalités propres à ce thème."
-        ),
-        "icon": "book-open",
-    },
-    {
-        "category": "EO Tâche 3 · Verbes et collocations",
-        "title": "Verbes et collocations",
-        "short_title": "verbes",
-        "description": (
-            "Des verbes avec leurs constructions et des associations "
-            "naturelles pour développer vos arguments."
-        ),
-        "icon": "pen-line",
-    },
-    {
-        "category": "EO Tâche 3 · Expressions et locutions",
-        "title": "Expressions et locutions",
-        "short_title": "expressions",
-        "description": (
-            "Des formulations idiomatiques et nuancées pour gagner en "
-            "précision sans sonner récité."
-        ),
-        "icon": "messages",
-    },
-    {
-        "category": "EO Tâche 3 · Constructions argumentatives",
-        "title": "Constructions argumentatives",
-        "short_title": "constructions",
-        "description": (
-            "Des cadres thématiques pour concéder, opposer, expliquer et "
-            "tirer une conclusion à l’oral."
-        ),
-        "icon": "sparkles",
-    },
-)
-
-
 EE_TACHE_TWO_THEME_VOCABULARY_SECTIONS = (
     {
         "category": "EE Tâche 2 · Repères temporels",
@@ -2605,10 +2551,7 @@ def theme_vocabulary_progress(
     phrase_pk,
 ):
     task = _route_task(part_slug, task_slug, request=request)
-    if (task.part.slug, task.slug) in {
-        content_module.EE_TACHE_ONE_TASK,
-        content_module.EE_TACHE_THREE_TASK,
-    }:
+    if is_retired_vocabulary_task(task.part.slug, task.slug):
         raise Http404
     if (task.part.slug, task.slug) == content_module.QUESTION_BANK_TASK:
         raise Http404
@@ -2632,163 +2575,6 @@ def theme_vocabulary_progress(
             args=[task.part.slug, task.slug, theme.slug],
         ),
     )
-
-
-def _eo_tache_three_theme_data():
-    return tuple(
-        theme
-        for theme in content_module.load_themes()
-        if theme.task == "/".join(content_module.EO_TACHE_THREE_TASK)
-    )
-
-
-def _eo_tache_three_theme_vocabulary_context(user, task):
-    taxonomy = _eo_tache_three_theme_data()
-    theme_models = Theme.objects.filter(
-        task=task,
-        is_active=True,
-        slug__in=[item.slug for item in taxonomy],
-    ).in_bulk(field_name="slug")
-    phrase_counts = {
-        (row["source_prompts__theme__slug"], row["category__name"]): (
-            row["total"]
-        )
-        for row in _theme_vocabulary_phrases(task)
-        .order_by()
-        .values("source_prompts__theme__slug", "category__name")
-        .annotate(total=Count("pk", distinct=True))
-    }
-
-    themes = []
-    ordered_themes = [
-        (theme_data, theme_models[theme_data.slug])
-        for theme_data in taxonomy
-        if theme_data.slug in theme_models
-    ]
-    task_batches, batches_by_theme = _theme_vocabulary_directory_batches(
-        task,
-        user,
-        [theme for _theme_data, theme in ordered_themes],
-    )
-    for theme_data, theme in ordered_themes:
-        section_counts = [
-            {
-                **section_data,
-                "count": phrase_counts.get(
-                    (theme.slug, section_data["category"]),
-                    0,
-                ),
-            }
-            for section_data in EO_TACHE_THREE_THEME_VOCABULARY_SECTIONS
-        ]
-        batches = batches_by_theme[theme.slug]
-        next_batch = next(
-            (batch for batch in batches if batch["is_next"]),
-            None,
-        )
-        themes.append(
-            {
-                "data": theme_data,
-                "theme": theme,
-                "phrase_count": sum(
-                    section_data["count"]
-                    for section_data in section_counts
-                ),
-                "section_counts": section_counts,
-                "batch_count": len(batches),
-                "summary": _theme_vocabulary_batch_summary(batches),
-                "url": reverse(
-                    "study:task_vocabulary_theme",
-                    args=[task.part.slug, task.slug, theme.slug],
-                ),
-                "review_url": (
-                    next_batch["review_url"] if next_batch else ""
-                ),
-            }
-        )
-
-    scope = _theme_vocabulary_scope(task)
-    batches = task_batches
-    next_batch = next(
-        (batch for batch in batches if batch["is_next"]),
-        None,
-    )
-    return {
-        "themes": themes,
-        "theme_count": len(themes),
-        "phrase_count": sum(item["phrase_count"] for item in themes),
-        "batch_count": len(batches),
-        "summary": _theme_vocabulary_batch_summary(batches),
-        "theme_status_counts": _theme_vocabulary_status_counts(themes),
-        "review_url": next_batch["review_url"] if next_batch else "",
-        "mixed_review_url": review_url(scope),
-        "vocabulary_description": (
-            "Notions, verbes et constructions pour argumenter."
-        ),
-        "vocabulary_pathways_description": (
-            "Les quatre lots de chaque thème forment un parcours complet : "
-            "nommer l’enjeu, choisir le verbe juste, enrichir l’expression, "
-            "puis construire l’argument."
-        ),
-    }
-
-
-def _eo_tache_three_theme_vocabulary_directory(request, task):
-    return render(
-        request,
-        "study/task_vocabulary.html",
-        {
-            "part": task.part,
-            "task": task,
-            "section": "vocabulary",
-            **_eo_tache_three_theme_vocabulary_context(
-                request.user,
-                task,
-            ),
-        },
-    )
-
-
-def _eo_tache_three_theme_vocabulary_detail(request, task, theme):
-    theme_data = next(
-        (
-            item
-            for item in _eo_tache_three_theme_data()
-            if item.slug == theme.slug
-        ),
-        None,
-    )
-    if theme_data is None:
-        raise Http404
-    return render(
-        request,
-        "study/theme_vocabulary_detail.html",
-        _theme_vocabulary_detail_context(
-            request,
-            task=task,
-            theme=theme,
-            theme_data=theme_data,
-            sections=EO_TACHE_THREE_THEME_VOCABULARY_SECTIONS,
-            section="vocabulary",
-            directory_url=reverse(
-                "study:task_phrases",
-                args=[task.part.slug, task.slug],
-            ),
-            back_label="Tous les thèmes",
-            vocabulary_label="Vocabulaire",
-            hero_description=(
-                "Appropriez-vous un lexique transversal à tout le thème : "
-                "des notions précises, des associations naturelles et des "
-                "constructions prêtes à porter votre argumentation."
-            ),
-            pathways_description=(
-                "Passez des notions aux verbes, enrichissez votre expression "
-                "avec des locutions, puis assemblez le tout dans des "
-                "constructions argumentatives."
-            ),
-        ),
-    )
-
 
 
 def _ee_tache_two_theme_vocabulary_context(user, task):
@@ -3948,7 +3734,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
         .distinct()
         .select_related("category")
     )
-    if (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK:
+    if is_retired_vocabulary_task(task.part.slug, task.slug):
         related_phrases = related_phrases.none()
     task_scope = {"part": task.part.slug, "task": task.slug}
     # The phrase lots only ever cover shared and response-level phrases of this
@@ -3970,7 +3756,7 @@ def response_detail(request, part_slug, task_slug, prompt_id):
     )
     phrase_batch_progress = summarize_review_batches(phrase_batches)
     vocabulary_context = (
-        {} if (task.part.slug, task.slug) == content_module.EE_TACHE_THREE_TASK
+        {} if is_retired_vocabulary_task(task.part.slug, task.slug)
         else _subject_vocabulary_context(
             response, task_scope, request.user, prompt=selected_prompt,
         )
@@ -4942,6 +4728,8 @@ def phrases(
                     phrases__is_active=True,
                     phrases__tier=PhraseTier.SHARED,
                     phrases__category=category,
+                ).exclude(
+                    retired_task_filter("theme__task__")
                 ).select_related("theme__task__part")
             )
             .order_by("theme__task__part__order", "theme__task__order", "pk")
@@ -4966,10 +4754,7 @@ def phrases(
             "study/coming_soon.html",
             {"part": task.part, "task": task},
         )
-    if task and (task.part.slug, task.slug) in {
-        content_module.EE_TACHE_ONE_TASK,
-        content_module.EE_TACHE_THREE_TASK,
-    }:
+    if task and is_retired_vocabulary_task(task.part.slug, task.slug):
         raise Http404
     if task and (
         task.part.slug,
@@ -5001,20 +4786,6 @@ def phrases(
                 request, task, vocabulary_theme,
             )
         return _ee_tache_two_theme_vocabulary_directory(request, task)
-    if (
-        task
-        and (task.part.slug, task.slug)
-        == content_module.EO_TACHE_THREE_TASK
-        and category_slug is None
-        and test_slug is None
-    ):
-        if vocabulary_theme is not None:
-            return _eo_tache_three_theme_vocabulary_detail(
-                request,
-                task,
-                vocabulary_theme,
-            )
-        return _eo_tache_three_theme_vocabulary_directory(request, task)
     functional_names = FUNCTIONAL_PHRASE_CATEGORY_NAMES
     category_descriptions = {
         "Structurer et prendre position": (
@@ -5499,10 +5270,7 @@ def search(request, part_slug=None, task_slug=None):
             Q(source_prompts__in=prompt_scope)
             | Q(vocabulary_theme__task=task, vocabulary_theme__is_active=True)
         ).distinct()
-        if (task.part.slug, task.slug) in {
-            content_module.EE_TACHE_ONE_TASK,
-            content_module.EE_TACHE_THREE_TASK,
-        }:
+        if is_retired_vocabulary_task(task.part.slug, task.slug):
             phrase_scope = phrase_scope.none()
     if query:
         prompt_query = Q(text__icontains=query)

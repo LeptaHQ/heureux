@@ -518,7 +518,7 @@ class FormulationExperienceTests(TestCase):
             and '"study_response"."content_key" IN' in query["sql"]
         ]
         self.assertEqual(len(source_queries), 1)
-        self.theme.task = factories.make_task(factories.make_part("eo"))
+        self.theme.task = factories.make_task(factories.make_part("eo"), "tache-2")
         self.theme.save()
         response = self.client.get(self.function_url)
         self.assertTrue(all(not row["source_url"] for row in response.context["rows"]))
@@ -837,7 +837,7 @@ class VocabularyRetirementTests(TestCase):
             user=self.user, phrase=self.phrase, state=CardState.REVIEW,
             due=timezone.now(), interval_days=17, needs_revisit=True,
         )
-        self.other_task = factories.make_task(factories.make_part("eo"))
+        self.other_task = factories.make_task(factories.make_part("eo"), "tache-1")
         self.other_theme = factories.make_theme("active-oral", task=self.other_task)
         self.other_response = factories.make_response(theme=self.other_theme)
         self.active_phrase = factories.make_phrase()
@@ -946,7 +946,7 @@ class VocabularyRetirementTests(TestCase):
             with self.subTest(scope=scope), self.assertNumQueries(1):
                 ids = list(queue.scoped_cards(scope, user=self.user).values_list("pk", flat=True))
                 self.assertNotIn(self.card.pk, ids)
-        for scope in ({}, {"part": "eo", "task": "tache-3"},
+        for scope in ({}, {"part": "eo", "task": "tache-1"},
                       {"theme": self.other_theme.slug},
                       {"response": self.other_response.pk}):
             with self.subTest(active_scope=scope):
@@ -995,7 +995,7 @@ class VocabularyRetirementTests(TestCase):
             self.active_card.save()
             ReviewSession.objects.update_or_create(
                 user=self.user, defaults={
-                    "scope": {"part": "eo", "task": "tache-3", "kind": kind},
+                    "scope": {"part": "eo", "task": "tache-1", "kind": kind},
                     "current_card": self.active_card, "presentation_token": "active-token",
                 },
             )

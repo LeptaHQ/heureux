@@ -133,7 +133,7 @@
         </ul>
       </div>
     {% elif response.has_aliases %}
-      <div class="card section-card response-sidebar-card response-sidebar-card--aliases" {% if part.slug == "ee" and task.slug == "tache-3" %}id="subject-equivalents"{% else %}id="subject-vocabulary"{% endif %}>
+      <div class="card section-card response-sidebar-card response-sidebar-card--aliases" {% if task.slug == "tache-3" %}id="subject-equivalents"{% else %}id="subject-vocabulary"{% endif %}>
         <div class="spine-label">Sujets équivalents</div>
         <ul class="mini-list">
           {% for p in prompts %}

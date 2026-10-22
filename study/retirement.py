@@ -1,4 +1,4 @@
-"""Read-time retirement of replaced EE1/EE3 vocabulary.
+"""Read-time retirement of removed EO3 and replaced EE1/EE3 vocabulary.
 
 Historical phrases, cards, schedules, logs, and review sessions stay untouched.
 """
@@ -9,20 +9,31 @@ from .models import CardType, ComprehensionQuestion, Phrase, Prompt, Response, T
 
 
 RETIRED_EE_TASKS = ("tache-1", "tache-3")
+RETIRED_VOCABULARY_TASKS = {
+    ("ee", task) for task in RETIRED_EE_TASKS
+} | {("eo", "tache-3")}
+
+
+def is_retired_vocabulary_task(part, task):
+    return (part, task) in RETIRED_VOCABULARY_TASKS
+
+
+def retired_task_filter(prefix):
+    return Q(**{
+        f"{prefix}part__slug": "ee",
+        f"{prefix}slug__in": RETIRED_EE_TASKS,
+    }) | Q(**{
+        f"{prefix}part__slug": "eo",
+        f"{prefix}slug": "tache-3",
+    })
 
 
 def _retired_task_query():
-    return Q(
-        theme__task__part__slug="ee",
-        theme__task__slug__in=RETIRED_EE_TASKS,
-    )
+    return retired_task_filter("theme__task__")
 
 
 def _direct_retired_task_query():
-    return Q(
-        vocabulary_theme__task__part__slug="ee",
-        vocabulary_theme__task__slug__in=RETIRED_EE_TASKS,
-    )
+    return retired_task_filter("vocabulary_theme__task__")
 
 
 def retired_vocabulary():
@@ -56,53 +67,52 @@ def active_phrases(queryset=None):
     return queryset.exclude(pk__in=retired_vocabulary())
 
 
-def _retired_scope_sources(scope, task_slug=None):
-    task_filter = (
-        {"theme__task__slug": task_slug}
-        if task_slug else {"theme__task__slug__in": RETIRED_EE_TASKS}
-    )
+def _retired_scope_sources(scope):
+    task_filter = _retired_task_query()
+    if scope.get("part"):
+        task_filter &= Q(theme__task__part__slug=scope["part"])
+    if scope.get("task"):
+        task_filter &= Q(theme__task__slug=scope["task"])
     if scope.get("response"):
         yield Response.objects.filter(
             Q(pk=scope["response"]) | Q(historical_sources__pk=scope["response"]),
-            theme__task__part__slug="ee", **task_filter,
+            task_filter,
         )
     if scope.get("prompt"):
         yield Prompt.objects.filter(
-            pk=scope["prompt"], theme__task__part__slug="ee", **task_filter,
+            task_filter, pk=scope["prompt"],
         )
     if scope.get("theme"):
-        theme_task_filter = {
-            key.removeprefix("theme__"): value
-            for key, value in task_filter.items()
-        }
+        theme_task_filter = retired_task_filter("task__")
+        if scope.get("part"):
+            theme_task_filter &= Q(task__part__slug=scope["part"])
+        if scope.get("task"):
+            theme_task_filter &= Q(task__slug=scope["task"])
         yield Theme.objects.filter(
-            slug=scope["theme"], task__part__slug="ee", **theme_task_filter,
+            theme_task_filter, slug=scope["theme"],
         )
 
 
 def exclude_retired_vocabulary_in_scope(cards, scope):
-    """Shared phrases stay active elsewhere, but not in a retired EE scope."""
-    if (
-        scope.get("part") == "ee"
-        and scope.get("task") in RETIRED_EE_TASKS
-    ):
+    """Shared phrases stay active elsewhere, but not in a retired task scope."""
+    if is_retired_vocabulary_task(scope.get("part"), scope.get("task")):
         return cards.filter(card_type=CardType.SPINE)
-    if scope.get("part") == "ee" and not scope.get("task"):
+    if scope.get("part") in {"ee", "eo"} and not scope.get("task"):
         active_sources = Prompt.objects.filter(
             phrases=OuterRef("phrase_id"),
             is_active=True,
             theme__is_active=True,
             theme__task__is_active=True,
             theme__task__part__is_active=True,
-            theme__task__part__slug="ee",
-        ).exclude(theme__task__slug__in=RETIRED_EE_TASKS)
+            theme__task__part__slug=scope["part"],
+        ).exclude(retired_task_filter("theme__task__"))
         active_direct = Theme.objects.filter(
             direct_vocabulary_phrases=OuterRef("phrase_id"),
             is_active=True,
             task__is_active=True,
             task__part__is_active=True,
-            task__part__slug="ee",
-        ).exclude(task__slug__in=RETIRED_EE_TASKS)
+            task__part__slug=scope["part"],
+        ).exclude(retired_task_filter("task__"))
         cards = cards.filter(
             Q(card_type=CardType.SPINE)
             | Exists(active_sources)
@@ -114,26 +124,23 @@ def exclude_retired_vocabulary_in_scope(cards, scope):
     return cards
 
 
-def _scope_retired_tache(scope):
+def _scope_has_retired_vocabulary(scope):
     part, task = scope.get("part"), scope.get("task")
-    if part == "ee" and task in RETIRED_EE_TASKS:
-        return int(task.removeprefix("tache-"))
-    if part and part != "ee":
-        return None
-    if task and task not in RETIRED_EE_TASKS:
-        return None
-    for tache in (1, 3):
-        task_slug = f"tache-{tache}"
-        if any(
-            sources.exists()
-            for sources in _retired_scope_sources(scope, task_slug)
-        ):
-            return tache
-    return None
+    if part and task:
+        return is_retired_vocabulary_task(part, task)
+    if scope.get("theme") and not scope.get("response") and not scope.get("prompt"):
+        owners = Theme.objects.filter(slug=scope["theme"])
+        if part:
+            owners = owners.filter(task__part__slug=part)
+        if task:
+            owners = owners.filter(task__slug=task)
+        if owners.exclude(retired_task_filter("task__")).exists():
+            return False
+    return any(sources.exists() for sources in _retired_scope_sources(scope))
 
 
 def is_retired_vocabulary_scope(scope):
-    """Return whether a scope targets removed EE1/EE3 vocabulary."""
+    """Return whether a scope targets removed task vocabulary."""
     vocabulary = (
         scope.get("kind") in {"vocab", "phrase", "theme_vocab"}
         or scope.get("content") in {"vocabulary", "theme_vocabulary"}
@@ -141,4 +148,4 @@ def is_retired_vocabulary_scope(scope):
     )
     if not vocabulary or scope.get("test"):
         return False
-    return _scope_retired_tache(scope) is not None
+    return _scope_has_retired_vocabulary(scope)

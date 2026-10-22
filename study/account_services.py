@@ -17,13 +17,13 @@ from .models import (
     CardType,
     ContentImportState,
     LoginThrottle,
-    Phrase,
     PhraseTier,
     Response,
     ReviewLog,
     ReviewSession,
     Settings,
 )
+from .retirement import active_phrases
 
 LOGIN_WINDOW = timedelta(minutes=15)
 LOGIN_LOCK = timedelta(minutes=15)
@@ -175,11 +175,11 @@ def provision_user_study_data(user, *, force=False) -> None:
         phrase_card_types = (
             (
                 CardType.PHRASE_PRODUCTION,
-                Phrase.objects.filter(is_active=True),
+                active_phrases().filter(is_active=True),
             ),
             (
                 CardType.PHRASE_RECOGNITION,
-                Phrase.objects.filter(
+                active_phrases().filter(
                     is_active=True,
                     tier=PhraseTier.SHARED,
                 ),

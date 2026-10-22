@@ -19,6 +19,7 @@ from django.urls import reverse
 from django.utils import timezone
 
 from study import content_loader as content
+from study.retirement import active_phrases
 from study.tache_two_dialogues import load_tache_two_dialogues
 from study.account_services import (
     acquire_study_data_lock,
@@ -150,11 +151,6 @@ class Command(BaseCommand):
                 tache_two_responses
             )
         )
-        eo_tache_three_theme_vocabulary = (
-            content.parse_eo_tache_three_theme_vocabulary(
-                standard_responses
-            )
-        )
         ee_tache_two_theme_vocabulary = (
             content.parse_ee_tache_two_theme_vocabulary()
         )
@@ -167,7 +163,6 @@ class Command(BaseCommand):
             *subject_vocabulary,
             *tache_two_vocabulary,
             *tache_two_theme_vocabulary,
-            *eo_tache_three_theme_vocabulary,
             *ee_tache_two_theme_vocabulary,
             *(item.phrase for item in comprehension_vocabulary),
         ]
@@ -1968,7 +1963,7 @@ class Command(BaseCommand):
             batch_size=IMPORT_BATCH_SIZE,
         )
 
-        phrases = list(Phrase.objects.filter(is_active=True))
+        phrases = list(active_phrases().filter(is_active=True))
         phrase_card_types = (
             (CardType.PHRASE_PRODUCTION, phrases),
             (

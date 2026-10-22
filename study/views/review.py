@@ -35,7 +35,7 @@ from ..models import (
 )
 from ..progress import mark_card_started, subject_progress_by_response
 from ..querysets import lean_prompt_rows
-from ..retirement import is_retired_vocabulary_scope
+from ..retirement import is_retired_vocabulary_scope, is_retired_vocabulary_task
 from ..routing import (
     comprehension_vocabulary_url,
     prompt_detail_url,
@@ -945,6 +945,21 @@ def revisit_list(request, part_slug=None, task_slug=None):
             )
         else:
             phrase = card.phrase
+            sources = [
+                prompt for prompt in phrase.source_prompts.all()
+                if prompt.is_active and prompt.theme.is_active
+                and not is_retired_vocabulary_task(
+                    prompt.theme.task.part.slug, prompt.theme.task.slug,
+                )
+            ]
+            source_prompt = next(
+                (
+                    prompt for prompt in sources
+                    if (not part or prompt.theme.task.part_id == part.pk)
+                    and (not task or prompt.theme.task_id == task.pk)
+                ),
+                sources[0] if sources else None,
+            )
             if phrase.tier == PhraseTier.COMPREHENSION:
                 source_question = next(
                     iter(phrase.source_questions.all()),
@@ -957,10 +972,6 @@ def revisit_list(request, part_slug=None, task_slug=None):
                     else reverse("study:comprehension_hub")
                 )
             elif phrase.tier == PhraseTier.SUBJECT:
-                source_prompt = next(
-                    iter(phrase.source_prompts.all()),
-                    None,
-                )
                 item_url = (
                     prompt_detail_url(source_prompt)
                     + "#subject-vocabulary"
@@ -969,22 +980,24 @@ def revisit_list(request, part_slug=None, task_slug=None):
                 )
             elif phrase.vocabulary_theme_id:
                 theme = phrase.vocabulary_theme
-                item_url = (
-                    reverse(
-                        "study:task_vocabulary_theme",
-                        args=[
-                            theme.task.part.slug,
-                            theme.task.slug,
-                            theme.slug,
-                        ],
+                if is_retired_vocabulary_task(theme.task.part.slug, theme.task.slug):
+                    item_url = (
+                        prompt_detail_url(source_prompt) if source_prompt
+                        else reverse("study:expression")
                     )
-                    + f"#phrase-{phrase.phrase_id}"
-                )
+                else:
+                    item_url = (
+                        reverse(
+                            "study:task_vocabulary_theme",
+                            args=[
+                                theme.task.part.slug,
+                                theme.task.slug,
+                                theme.slug,
+                            ],
+                        )
+                        + f"#phrase-{phrase.phrase_id}"
+                    )
             else:
-                source_prompt = next(
-                    iter(phrase.source_prompts.all()),
-                    None,
-                )
                 item_url = (
                     reverse(
                         "study:task_vocabulary_category",

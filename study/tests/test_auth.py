@@ -819,8 +819,8 @@ class AuthenticationTests(TestCase):
 )
 class UserProgressIsolationTests(TestCase):
     def setUp(self):
-        self.part = factories.make_part("eo")
-        self.task = factories.make_task(self.part, "tache-3")
+        self.part = factories.make_part("ee")
+        self.task = factories.make_task(self.part, "tache-2")
         self.theme = factories.make_theme("culture", task=self.task)
         self.response = factories.make_response(theme=self.theme)
         self.phrase = factories.make_phrase()

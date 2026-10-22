@@ -143,7 +143,9 @@ class ExpressionPageBudgetTests(QueryBudgetTestCase):
             "task_stats": reverse("study:task_stats", args=args),
             "part_stats": reverse("study:part_stats", args=[self.part.slug]),
             "stats": reverse("study:stats"),
-            "vocabulary": reverse("study:task_phrases", args=args),
+            "response": reverse("study:response_detail", args=[
+                *args, self.themes[0].prompts.order_by("pk").first().pk,
+            ]),
             "revisit": reverse("study:task_revisit_list", args=args),
         }
 
@@ -155,7 +157,7 @@ class ExpressionPageBudgetTests(QueryBudgetTestCase):
             "task_stats": 22,
             "part_stats": 22,
             "stats": 22,
-            "vocabulary": 20,
+            "response": 22,
             "revisit": 12,
         }
         for key, url in self._pages().items():
@@ -586,7 +588,7 @@ class ThemeVocabularyDirectoryEqualityTests(TestCase):
         self.user = factories.make_user("theme-vocab")
         self.client.force_login(self.user)
         self.part = factories.make_part("eo")
-        self.task = factories.make_task(self.part, "tache-3")
+        self.task = factories.make_task(self.part, "tache-1")
         self.category = PhraseCategory.objects.create(
             slug="theme-notions",
             name="Thème · Notions clés",

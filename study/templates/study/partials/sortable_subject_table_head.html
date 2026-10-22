@@ -11,7 +11,7 @@
         <span class="t1-table__sort-indicator" aria-hidden="true">↕</span>
       </button>
     </th>
-    <th scope="col" class="t1-table__versions-col">{{ secondary_label }}</th>
+    {% if not hide_secondary %}<th scope="col" class="t1-table__versions-col">{{ secondary_label }}</th>{% endif %}
     <th scope="col" aria-sort="none">
       <button
         class="t1-table__sort-button"

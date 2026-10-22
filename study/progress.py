@@ -48,6 +48,7 @@ from .models import (
     Response,
     WritingSujetCompletion,
 )
+from .retirement import retired_task_filter
 
 
 SUBJECT_PATH_RE = re.compile(
@@ -801,6 +802,9 @@ def subject_progress_by_response(
         )
 
     started_activity = Q(started_at__isnull=False) | ~Q(state=CardState.NEW)
+    vocabulary_response_ids = Response.objects.filter(
+        pk__in=response_ids,
+    ).exclude(retired_task_filter("theme__task__")).values("pk")
     if summary_only:
         # Summary cards only need to know whether vocabulary activity exists.
         # Filter to that sparse set before crossing the phrase-to-prompt table;
@@ -812,7 +816,7 @@ def subject_progress_by_response(
                 user=user,
                 phrase__tier=PhraseTier.SUBJECT,
                 phrase__source_prompts__is_active=True,
-                phrase__source_prompts__response_id__in=response_ids,
+                phrase__source_prompts__response_id__in=vocabulary_response_ids,
             )
             .filter(started_activity)
             .order_by()
@@ -834,7 +838,7 @@ def subject_progress_by_response(
                 user=user,
                 phrase__tier=PhraseTier.SUBJECT,
                 phrase__source_prompts__is_active=True,
-                phrase__source_prompts__response_id__in=response_ids,
+                phrase__source_prompts__response_id__in=vocabulary_response_ids,
             )
             .order_by()
             .values("phrase__source_prompts__response_id")

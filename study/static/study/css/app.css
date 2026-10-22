@@ -1809,6 +1809,9 @@ h2 { font-size: 1.3rem; letter-spacing: -0.01em; }
   gap: 1rem;
   margin-top: 1.5rem;
 }
+.eo-t3-overview .task-choice-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
 .tache-two-overview-panel,
 .task-choice-card {
   --overview-panel-accent: var(--primary);
@@ -15570,7 +15573,7 @@ html[data-collection-view-mode="table"]
 
 @media (max-width: 620px) {
   .task-nav--eo-t3 {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 0.35rem;
   }
   .task-nav--ee-t3 {
@@ -16242,8 +16245,8 @@ html[data-collection-view-mode="table"]
   .sortable-subject-directory .t1-table td {
     padding-inline: 0.65rem;
   }
-  .sortable-subject-directory .t1-table th:nth-child(2),
-  .sortable-subject-directory .t1-table td:nth-child(2),
+  .sortable-subject-directory .t1-table:not(.subject-collection__table--response-only) th:nth-child(2),
+  .sortable-subject-directory .t1-table:not(.subject-collection__table--response-only) td:nth-child(2),
   .sortable-subject-directory .t1-table__questions-column {
     display: none;
   }

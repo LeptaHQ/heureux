@@ -320,8 +320,16 @@ vocabulary collection URLs return 404; there is no legacy vocabulary interface.
 The retired EE1 and EE3 vocabulary source files, parsers, imports and page renderers
 are deleted. Existing database rows are deactivated and excluded without a
 data-deletion migration, so cards, schedules, reviews and annotations remain intact.
-Phrases still owned by another active task remain available there. Other tasks
-retain their existing vocabulary features.
+Phrases still owned by another active task remain available there.
+
+EO Tâche 3 vocabulary is also retired: its navigation, themed collections,
+subject-side vocabulary and vocabulary practice are no longer available.
+Historical phrases, cards, schedules, reviews, notes and highlights are retained;
+shared expressions remain available in other active tasks. EO3 response practice,
+Pistes, audio, editing and subject completion remain unchanged.
+The original EO3 vocabulary sources remain archival evidence, but imports no longer
+load its themed banks or provision retired vocabulary cards. Other tasks keep their
+existing vocabulary features.
 
 EE1 keeps one authored repository-default response per canonical subject in
 `study/content/ee/tache_1/responses/`. Imports update that reference corpus without

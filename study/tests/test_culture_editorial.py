@@ -191,6 +191,16 @@ class CultureEditorialTests(SimpleTestCase):
         self.assertIn("Les difficultés financières", cue.point.french)
         self.assertIn("Financial difficulties", cue.point.english)
 
+    def test_living_abroad_personal_cost_explains_absence_rather_than_how_to_assess_the_stay(self):
+        argument = self.response(17).arguments[2]
+        self.assertIn(
+            "il arrive qu'on ne puisse pas rentrer quand un proche a besoin d'aide.",
+            argument.developpement,
+        )
+        self.assertNotIn("le bilan tienne compte", argument.developpement)
+        self.assertIn("un parent devenu malade", argument.exemple)
+        self.assertIn("le coût et le calendrier empêchent les visites", argument.exemple)
+
     def test_argument_claims_state_the_benefit_or_risk_before_explaining_its_mechanism(self):
         for number, index, claim, explanation, example in (
             (5, 2, "contacts sur place", "Des conseils précis", "relire son CV"),

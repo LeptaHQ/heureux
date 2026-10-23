@@ -722,7 +722,8 @@ class TacheThreeModelContentTests(SimpleTestCase):
         response = model.response
         self.assertEqual(model.argument_ids, (2, 4, 3))
         self.assertIn("financièrement réaliste", response.arguments[0].idea)
-        self.assertIn("ressources confirmées", response.arguments[0].exemple)
+        self.assertIn("2 500 dollars nets par mois", response.arguments[0].exemple)
+        self.assertIn("sans compter sur un revenu incertain", response.arguments[0].developpement)
         self.assertIn("connaître mes droits", response.arguments[1].idea)
         self.assertIn("règles locales", response.arguments[1].exemple)
         self.assertIn("ce qui est autorisé", response.arguments[1].exemple)
@@ -766,7 +767,10 @@ class TacheThreeModelContentTests(SimpleTestCase):
             ("culture-p24", 1, "chacun apporte un plat", "chacun apporte un plat", "everyone brings a dish"),
             ("culture-p24", 1, "réutilise ensuite ces expressions", "réutiliser les expressions", "reuse expressions"),
             ("culture-p24", 2, "randonnée seule", "randonnées en solitaire", "solo hikes"),
-            ("culture-p26", 0, "ressources confirmées", "ressources confirmées", "confirmed resources"),
+            ("culture-p26", 0, "New York", "New York", "New York"),
+            ("culture-p26", 0, "2 500 dollars nets par mois", "2 500 dollars nets par mois", "$2,500 monthly take-home pay"),
+            ("culture-p26", 0, "un loyer à 2 000 dollars", "2 000 de loyer", "$2,000 rent"),
+            ("culture-p26", 0, "500 dollars pour les autres dépenses", "500 pour le reste", "$500 for other costs"),
             ("culture-p26", 1, "propriétaire", "propriétaire", "landlord"),
             ("culture-p27", 0, "proverbe", "proverbe", "proverb"),
             ("culture-p27", 1, "danse traditionnelle", "pas de danse", "dance steps"),
